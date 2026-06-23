@@ -391,6 +391,14 @@ model Modulo {
   // cálculo de nota cae al fallback histórico (scale-0-100 + umbral). Ver
   // migración `20260620000000_modulo_scoring_config`.
   scoringConfig        String?  @map("scoring_config")
+  // WO-13 — procedencia de copia. Se llena cuando este módulo es el resultado
+  // de `POST /api/modulos/:id/duplicar` o del copy-on-write transparente al
+  // editar uno compartido. Las 3 columnas son NULL en módulos que NO son
+  // copias. `cloned_from_owner_user_id` puede ser NULL si el original era
+  // huérfano. Ver migración `20260623022846_wo13_provenance`.
+  clonedFromId         String?  @map("cloned_from_id")
+  clonedFromTitle      String?  @map("cloned_from_title")
+  clonedFromOwnerUserId String? @map("cloned_from_owner_user_id")
   visibility           String   @default("private")
   schoolId             String?  @map("school_id")
   ownerUserId          String?  @map("owner_user_id")
@@ -987,6 +995,11 @@ model Libro {
   ownerUserId String? @map("owner_user_id")
   visibility  String  @default("privado")
   schoolId    String? @map("school_id")
+  // WO-13 — procedencia de copia (análogo a `Modulo`). Ver
+  // migración `20260623022846_wo13_provenance`.
+  clonedFromId          String? @map("cloned_from_id")
+  clonedFromTitle       String? @map("cloned_from_title")
+  clonedFromOwnerUserId String? @map("cloned_from_owner_user_id")
 
   @@index([ownerUserId])
   @@index([schoolId, visibility])

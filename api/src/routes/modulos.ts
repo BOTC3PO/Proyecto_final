@@ -50,6 +50,91 @@ export function quizVisiblePara(
   return true;
 }
 
+/**
+ * WO-13 — tipos de visibilidad que cuentan como "compartido y legible
+ * para cualquiera fuera del owner". Coherente con `quizVisiblePara`:
+ * `privado` NO es compartido (sólo lo ve el owner).
+ */
+export type ModuloSharedVisibility = "escuela" | "publico";
+
+/**
+ * WO-13 — ¿El usuario puede EDITAR (modificar contenido) este módulo
+ * EN EL ORIGINAL (es decir, sin disparar copy-on-write)?
+ *
+ * Réplica del patrón `canEditLibro` de `api/src/routes/libros.ts:83-97`,
+ * aplicado a módulos. Reglas:
+ *  - ADMIN: siempre.
+ *  - Owner: siempre.
+ *  - `visibility === 'escuela'` y mismo `schoolId` y `isStaffRole(user)`: sí
+ *    (el staff de la escuela colabora sobre los módulos de la escuela).
+ *  - Resto: NO. En particular un alumno (USER) NUNCA edita módulos, ni
+ *    siquiera los públicos o de su escuela.
+ *
+ * Importante: esta función NO decide si el usuario puede EDITAR — esa
+ * decisión final la toma el caller. Si retorna `false`, el caller debe
+ * considerar el copy-on-write (si el material es compartido y el
+ * usuario no es ADMIN). Ver `requiresCopyOnWrite` y
+ * `applyModuleUpdateWithCopyOnWrite` más abajo.
+ */
+export function canEditModuloDirect(
+  modulo: { ownerUserId: string | null; visibility: string; schoolId: string | null },
+  user: { _id?: string; role?: string | null; schoolId?: string | null },
+): boolean {
+  if (user?.role === "ADMIN") return true;
+  const userId = user?._id ?? null;
+  if (modulo.ownerUserId && userId && modulo.ownerUserId === userId) return true;
+  if (
+    modulo.visibility === "escuela" &&
+    modulo.schoolId &&
+    user?.schoolId &&
+    modulo.schoolId === user.schoolId &&
+    isStaffRole(user.role)
+  ) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * WO-13 — ¿Esta edición dispara copy-on-write?
+ *
+ * Retorna `true` si la edición NO está permitida en el original
+ * (mismas reglas que `canEditModuloDirect`) y el material es un
+ * módulo visible para el usuario. En ese caso el caller debe clonar
+ * el módulo y aplicar el update sobre la copia. El original queda
+ * intacto.
+ *
+ * Coherencia con SEC-LIBRO y `canEditLibro`: cuando el material es
+ * `visibility='escuela'` y el usuario es staff de la MISMA escuela,
+ * `canEditModuloDirect` ya retorna `true` (colaboración entre
+ * staff). Acá retornamos `false` en ese caso — el staff de la
+ * escuela edita el original directamente, no necesita copia.
+ *
+ * Resumen de los casos:
+ *  - ADMIN: nunca (override).
+ *  - Owner: nunca (edición normal).
+ *  - Staff de la misma escuela en módulo `escuela`: nunca
+ *    (colaboración, mismo modelo que libros).
+ *  - Resto (cross-school, alumno, módulo `publico` ajeno, etc.):
+ *    SÍ — copy-on-write.
+ */
+export function requiresCopyOnWrite(
+  modulo: {
+    ownerUserId: string | null;
+    visibility: string;
+    schoolId: string | null;
+  },
+  user: { _id?: string; role?: string | null; schoolId?: string | null },
+): boolean {
+  if (canEditModuloDirect(modulo, user)) return false;
+  // Si no es editable en el original, ¿es visible al menos? Si
+  // no es visible, el caller ya devolvió 403/404 antes — pero
+  // defendemos acá para no clonar algo que el usuario no debería
+  // poder ver nunca.
+  if (modulo.visibility === "privado") return false;
+  return true;
+}
+
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
   if (Number.isNaN(parsed) || parsed <= 0) return 20;
@@ -293,6 +378,16 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
         ? safeJsonParse(item.dependencies, [] as unknown[])
         : [],
       createdBy: item.ownerUserId ?? "",
+      // WO-13 — provenance. La UI muestra "Copiado de: <título>
+      // (de <owner>)" cuando estas columnas están pobladas. Si el
+      // módulo no es una copia, los 3 campos quedan ausentes.
+      clonedFrom: item.clonedFromId
+        ? {
+            id: item.clonedFromId,
+            title: item.clonedFromTitle ?? null,
+            ownerUserId: item.clonedFromOwnerUserId ?? null,
+          }
+        : undefined,
       createdAt: item.createdAt,
       updatedAt: item.updatedAt,
       teoriaId: item.teoriaId ?? undefined,
@@ -385,21 +480,159 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
 });
 
 /**
- * POST /api/modulos/:id/duplicar — Tarea 19.
+ * WO-13 — clona un módulo y todos sus quizzes/quizVersions en una
+ * transacción. Usado por:
+ *  - `POST /api/modulos/:id/duplicar` (botón "Duplicar", Tarea 19).
+ *  - El copy-on-write transparente del `PUT` / `PATCH` cuando un
+ *    usuario no-owner edita un módulo compartido.
+ *
+ * La copia:
+ *  - id nuevo (UUID)
+ *  - `titulo` opcionalmente con sufijo `" (copia)"` (default ON;
+ *    el copy-on-write lo desactiva para no ensuciar el título cuando
+ *    el usuario ya está editando).
+ *  - visibilidad, schoolId, descripcion, teoriaId, tuesdayDocId,
+ *    libroId, defaultQuestionCount: copiados del original.
+ *  - `dependencies: null` (la consigna pide "sin dependencias" — esto
+ *    aplica también al copy-on-write; si la copia las necesita, el
+ *    usuario las agrega en su próxima edición).
+ *  - `isDeleted: false`.
+ *  - `ownerUserId = newOwnerId` (el solicitante).
+ *  - Provenance: `clonedFromId = sourceId`, `clonedFromTitle = sourceTitulo`,
+ *    `clonedFromOwnerUserId = sourceOwner`.
+ *  - Clona quizzes activos y la última QuizVersion de cada uno, con
+ *    ids regenerados pero conservando la config (type, mode, visibility,
+ *    questions, generatorId, params, count, seedPolicy, fixedSeed,
+ *    settings, composition).
+ *  - NO se asigna a ninguna aula (no se crea fila en clase_modulos).
+ *
+ * Retorna `{ newId, createdAt }` con el id del módulo clonado.
+ */
+async function cloneModuloDeep(
+  sourceId: string,
+  newOwnerId: string,
+  opts: { appendCopiaSuffix?: boolean } = { appendCopiaSuffix: true },
+): Promise<{ newId: string; createdAt: string }> {
+  const source = await prisma.modulo.findFirst({
+    where: { id: sourceId, isDeleted: { not: true } },
+  });
+  if (!source) {
+    throw Object.assign(new Error("modulo no encontrado"), { status: 404 });
+  }
+  // Traemos quizzes y quizVersion por separado. En el InMemoryPrisma
+  // usado por tests no tenemos `include` anidado, asi que este patron
+  // funciona tanto en runtime real como en el stub.
+  const sourceQuizzes = await prisma.quiz.findMany({
+    where: { moduleId: sourceId, isActive: true },
+  });
+  const sourceVersionsByQuiz: Record<string, Array<{
+    id: string;
+    versionNumber: number;
+    questions: string;
+    generatorId: string | null;
+    generatorVersion: string | null;
+    params: string | null;
+    count: number | null;
+    seedPolicy: number;
+    fixedSeed: string | null;
+    settings: string;
+    createdAt: string;
+    createdBy: string;
+  }>> = {};
+  for (const q of sourceQuizzes) {
+    // findMany ordenado descendente, take 1
+    const versions = await prisma.quizVersion.findMany({
+      where: { quizId: q.id },
+    });
+    versions.sort((a: any, b: any) => (b.versionNumber ?? 0) - (a.versionNumber ?? 0));
+    sourceVersionsByQuiz[q.id] = versions.slice(0, 1) as any;
+  }
+
+  const newId = generateId();
+  const now = new Date().toISOString();
+  const appendSuffix = opts.appendCopiaSuffix !== false;
+
+  await prisma.$transaction(async (tx) => {
+    // Clonar el modulo sin dependencias y sin slug (el slug es
+    // @unique y se conserva el original solo si no se setea nuevo).
+    await tx.modulo.create({
+      data: {
+        id: newId,
+        slug: null,
+        titulo: appendSuffix
+          ? `${source.titulo} (copia)`
+          : source.titulo,
+        descripcion: source.descripcion ?? null,
+        visibility: source.visibility,
+        schoolId: source.schoolId,
+        ownerUserId: newOwnerId,
+        teoriaId: source.teoriaId,
+        tuesdayDocId: source.tuesdayDocId,
+        libroId: source.libroId,
+        defaultQuestionCount: source.defaultQuestionCount,
+        dependencies: null, // explicitamente vacias (consigna).
+        isDeleted: false,
+        // WO-13 — provenance: registrar origen de la copia. Se persiste
+        // el título y el owner del momento de clonar (pueden cambiar
+        // después — son snapshot, no FK).
+        clonedFromId: source.id,
+        clonedFromTitle: source.titulo,
+        clonedFromOwnerUserId: source.ownerUserId ?? null,
+        createdAt: now,
+        updatedAt: now,
+      },
+    });
+
+    // Clonar quizzes activos y su ultima version.
+    for (const quiz of sourceQuizzes) {
+      const newQuizId = generateId();
+      await tx.quiz.create({
+        data: {
+          id: newQuizId,
+          moduleId: newId,
+          title: quiz.title,
+          createdAt: now,
+          updatedAt: now,
+        },
+      });
+      const lastVersion = sourceVersionsByQuiz[quiz.id]?.[0];
+      if (!lastVersion) continue;
+      const newVersionId = generateId();
+      await tx.quizVersion.create({
+        data: {
+          id: newVersionId,
+          quizId: newQuizId,
+          versionNumber: 1,
+          questions: lastVersion.questions,
+          generatorId: lastVersion.generatorId,
+          generatorVersion: lastVersion.generatorVersion,
+          params: lastVersion.params,
+          count: lastVersion.count,
+          seedPolicy: lastVersion.seedPolicy,
+          fixedSeed: lastVersion.fixedSeed,
+          settings: lastVersion.settings,
+          createdAt: now,
+          createdBy: newOwnerId,
+        },
+      });
+      await tx.quiz.update({
+        where: { id: newQuizId },
+        data: { currentVersionId: newVersionId },
+      });
+    }
+  });
+
+  return { newId, createdAt: now };
+}
+
+/**
+ * POST /api/modulos/:id/duplicar — Tarea 19 + WO-13.
  *
  * Clona un módulo existente y devuelve el nuevo id. Solo el dueño
- * del módulo o staff pueden duplicarlo. La copia:
- *  - tiene un id nuevo (UUID)
- *  - mantiene titulo + " (copia)"
- *  - mantiene visibilidad, schoolId, descripcion, teoriaId, tuesdayDocId,
- *    libroId, defaultQuestionCount, isDeleted (false)
- *  - arranca con `dependencies: []` (la consigna pide "sin dependencias")
- *  - NO se asigna a ninguna aula (no se crea fila en clase_modulos)
- *  - ownerUserId = solicitante
- *  - clona tambien sus quizzes activos y la ultima quizVersion de cada
- *    uno, con ids regenerados pero conservando la config (type, mode,
- *    visibility, questions, generatorId, params, count, seedPolicy,
- *    fixedSeed, settings, composition).
+ * del módulo o staff pueden duplicarlo (mismas reglas que
+ * `canEditModuloDirect`). Ver `cloneModuloDeep` para los detalles
+ * de qué se copia. El response ahora incluye `clonedFrom` para
+ * que el front pueda mostrar "Copiado de: …" sin un GET extra.
  */
 modulos.post(
   "/api/modulos/:id/duplicar",
@@ -425,104 +658,14 @@ modulos.post(
       if (!source) {
         return res.status(404).json({ error: "modulo no encontrado" });
       }
-      // Traemos quizzes y quizVersion por separado. En el InMemoryPrisma
-      // usado por tests no tenemos `include` anidado, asi que este patron
-      // funciona tanto en runtime real como en el stub.
-      const sourceQuizzes = await prisma.quiz.findMany({
-        where: { moduleId: sourceId, isActive: true },
-      });
-      const sourceVersionsByQuiz: Record<string, Array<{
-        id: string;
-        versionNumber: number;
-        questions: string;
-        generatorId: string | null;
-        generatorVersion: string | null;
-        params: string | null;
-        count: number | null;
-        seedPolicy: number;
-        fixedSeed: string | null;
-        settings: string;
-        createdAt: string;
-        createdBy: string;
-      }>> = {};
-      for (const q of sourceQuizzes) {
-        // findMany ordenado descendente, take 1
-        const versions = await prisma.quizVersion.findMany({
-          where: { quizId: q.id },
-        });
-        versions.sort((a: any, b: any) => (b.versionNumber ?? 0) - (a.versionNumber ?? 0));
-        sourceVersionsByQuiz[q.id] = versions.slice(0, 1) as any;
-      }
 
-      // Solo el dueño del modulo o staff.
+      // Solo el dueño del modulo o staff (Tarea 19).
       if (source.ownerUserId !== requesterId && !isStaffRole(requesterRole)) {
         return res.status(403).json({ error: "forbidden" });
       }
 
-      const newId = generateId();
-      const now = new Date().toISOString();
-      const nowDate = new Date();
-
-      await prisma.$transaction(async (tx) => {
-        // Clonar el modulo sin dependencias y sin slug (el slug es
-        // @unique y se conserva el original solo si no se setea nuevo).
-        await tx.modulo.create({
-          data: {
-            id: newId,
-            slug: null,
-            titulo: `${source.titulo} (copia)`,
-            descripcion: source.descripcion ?? null,
-            visibility: source.visibility,
-            schoolId: source.schoolId,
-            ownerUserId: requesterId,
-            teoriaId: source.teoriaId,
-            tuesdayDocId: source.tuesdayDocId,
-            libroId: source.libroId,
-            defaultQuestionCount: source.defaultQuestionCount,
-            dependencies: null, // explicitamente vacias (consigna).
-            isDeleted: false,
-            createdAt: now,
-            updatedAt: now,
-          },
-        });
-
-        // Clonar quizzes activos y su ultima version.
-        for (const quiz of sourceQuizzes) {
-          const newQuizId = generateId();
-          await tx.quiz.create({
-            data: {
-              id: newQuizId,
-              moduleId: newId,
-              title: quiz.title,
-              createdAt: now,
-              updatedAt: now,
-            },
-          });
-          const lastVersion = sourceVersionsByQuiz[quiz.id]?.[0];
-          if (!lastVersion) continue;
-          const newVersionId = generateId();
-          await tx.quizVersion.create({
-            data: {
-              id: newVersionId,
-              quizId: newQuizId,
-              versionNumber: 1,
-              questions: lastVersion.questions,
-              generatorId: lastVersion.generatorId,
-              generatorVersion: lastVersion.generatorVersion,
-              params: lastVersion.params,
-              count: lastVersion.count,
-              seedPolicy: lastVersion.seedPolicy,
-              fixedSeed: lastVersion.fixedSeed,
-              settings: lastVersion.settings,
-              createdAt: now,
-              createdBy: requesterId,
-            },
-          });
-          await tx.quiz.update({
-            where: { id: newQuizId },
-            data: { currentVersionId: newVersionId },
-          });
-        }
+      const { newId, createdAt } = await cloneModuloDeep(sourceId, requesterId, {
+        appendCopiaSuffix: true,
       });
 
       // Auditoria fuera de la transaccion (no bloquea si falla).
@@ -531,14 +674,21 @@ modulos.post(
         action: "modulo.duplicate",
         targetType: "modulo",
         targetId: newId,
-        metadata: { sourceId, sourceOwner: source.ownerUserId ?? null },
+        metadata: { sourceId, sourceOwner: source.ownerUserId ?? null, trigger: "explicit" },
       });
 
       res.status(201).json({
         id: newId,
         moduleId: newId,
         sourceId,
-        createdAt: nowDate.toISOString(),
+        // WO-13 — provenance en el response para que el front
+        // muestre "Copiado de: <título>" sin un GET extra.
+        clonedFrom: {
+          id: source.id,
+          title: source.titulo,
+          ownerUserId: source.ownerUserId ?? null,
+        },
+        createdAt,
       });
     } catch (e: any) {
       console.error("[POST /api/modulos/:id/duplicar]", e);
@@ -876,8 +1026,72 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
         return;
       }
     }
-    await applyModuleUpdate(req.params.id as string, parsed as Record<string, any>, existing);
-    res.json({ ok: true });
+    // WO-13 — copy-on-write transparente al editar un módulo compartido
+    // ajeno. Si el usuario NO es owner/admin y el módulo está
+    // compartido (`escuela` o `publico`), clonamos el módulo, le
+    // aplicamos el update a la copia, y devolvemos el id de la copia
+    // en la respuesta. El original queda intacto.
+    const user = (req as { user?: { _id?: string; id?: string; role?: string | null; schoolId?: string | null; escuelaId?: string | null } }).user;
+    const userIdForCow =
+      (typeof user?.id === "string" && user.id) ||
+      (typeof user?._id === "string" && (user._id as string)) ||
+      null;
+    const userSchoolIdForCow =
+      (typeof user?.schoolId === "string" && user.schoolId) ||
+      (typeof user?.escuelaId === "string" && user.escuelaId) ||
+      null;
+    let targetId = req.params.id as string;
+    let targetExisting = existing;
+    let copiedFrom: { id: string; title: string | null; ownerUserId: string | null } | null = null;
+    if (
+      userIdForCow &&
+      requiresCopyOnWrite(existing as any, {
+        _id: userIdForCow,
+        role: user?.role,
+        schoolId: userSchoolIdForCow,
+      })
+    ) {
+      const { newId } = await cloneModuloDeep(targetId, userIdForCow, {
+        appendCopiaSuffix: false,
+      });
+      // WO-13 — auditoría. Diferenciamos del duplicar explícito
+      // (`trigger: "cow"`) para que la traza refleje que fue un
+      // copy-on-write transparente, no una decisión del usuario.
+      await recordAuditLog({
+        actorId: userIdForCow,
+        action: "modulo.duplicate",
+        targetType: "modulo",
+        targetId: newId,
+        metadata: {
+          sourceId: targetId,
+          sourceOwner: (existing as any).ownerUserId ?? null,
+          trigger: "cow",
+          httpMethod: req.method,
+        },
+      });
+      copiedFrom = {
+        id: (existing as any).id as string,
+        title: ((existing as any).titulo as string) ?? null,
+        ownerUserId: ((existing as any).ownerUserId as string | null) ?? null,
+      };
+      targetId = newId;
+      const fresh = await prisma.modulo.findFirst({ where: { id: newId } });
+      if (!fresh) return res.status(500).json({ error: "copia no encontrada" });
+      targetExisting = fresh;
+    }
+    await applyModuleUpdate(targetId, parsed as Record<string, any>, targetExisting);
+    if (copiedFrom) {
+      res.json({
+        ok: true,
+        id: targetId,
+        // WO-13 — el front usa estos campos para navegar a la copia
+        // y mostrar "Copiaste este material desde…".
+        copied: true,
+        clonedFrom: copiedFrom,
+      });
+    } else {
+      res.json({ ok: true, id: targetId });
+    }
   } catch (e: any) {
     console.error("[PUT /api/modulos/:id]", e);
     if (e?.issues) return res.status(400).json({ error: "validation", issues: e.issues });
@@ -899,8 +1113,63 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
         return;
       }
     }
-    await applyModuleUpdate(req.params.id as string, parsed as Record<string, any>, existing);
-    res.json({ ok: true });
+    // WO-13 — copy-on-write (mismo criterio que PUT).
+    const user = (req as { user?: { _id?: string; id?: string; role?: string | null; schoolId?: string | null; escuelaId?: string | null } }).user;
+    const userIdForCow =
+      (typeof user?.id === "string" && user.id) ||
+      (typeof user?._id === "string" && (user._id as string)) ||
+      null;
+    const userSchoolIdForCow =
+      (typeof user?.schoolId === "string" && user.schoolId) ||
+      (typeof user?.escuelaId === "string" && user.escuelaId) ||
+      null;
+    let targetId = req.params.id as string;
+    let targetExisting = existing;
+    let copiedFrom: { id: string; title: string | null; ownerUserId: string | null } | null = null;
+    if (
+      userIdForCow &&
+      requiresCopyOnWrite(existing as any, {
+        _id: userIdForCow,
+        role: user?.role,
+        schoolId: userSchoolIdForCow,
+      })
+    ) {
+      const { newId } = await cloneModuloDeep(targetId, userIdForCow, {
+        appendCopiaSuffix: false,
+      });
+      await recordAuditLog({
+        actorId: userIdForCow,
+        action: "modulo.duplicate",
+        targetType: "modulo",
+        targetId: newId,
+        metadata: {
+          sourceId: targetId,
+          sourceOwner: (existing as any).ownerUserId ?? null,
+          trigger: "cow",
+          httpMethod: req.method,
+        },
+      });
+      copiedFrom = {
+        id: (existing as any).id as string,
+        title: ((existing as any).titulo as string) ?? null,
+        ownerUserId: ((existing as any).ownerUserId as string | null) ?? null,
+      };
+      targetId = newId;
+      const fresh = await prisma.modulo.findFirst({ where: { id: newId } });
+      if (!fresh) return res.status(500).json({ error: "copia no encontrada" });
+      targetExisting = fresh;
+    }
+    await applyModuleUpdate(targetId, parsed as Record<string, any>, targetExisting);
+    if (copiedFrom) {
+      res.json({
+        ok: true,
+        id: targetId,
+        copied: true,
+        clonedFrom: copiedFrom,
+      });
+    } else {
+      res.json({ ok: true, id: targetId });
+    }
   } catch (e: any) {
     console.error("[PATCH /api/modulos/:id]", e);
     if (e?.issues) return res.status(400).json({ error: "validation", issues: e.issues });

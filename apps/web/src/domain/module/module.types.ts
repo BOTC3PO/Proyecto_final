@@ -480,4 +480,18 @@ export type Module = {
   createdByRole?: "admin" | "docente";
   authorName?: string;
   updatedAt: string;
+  /**
+   * WO-13 — procedencia de copia (sólo presente si este módulo es
+   * una copia de otro). El back lo persiste en
+   * `modulos.cloned_from_*` (migración 20260623022846_wo13_provenance)
+   * y lo expone en el GET. La UI lo usa para mostrar "Copiado de:
+   * <título>" sin tener que cruzar refs. `id` puede ser un id que
+   * ya no existe (el original fue borrado); `title` y `ownerUserId`
+   * son snapshot al momento de copiar.
+   */
+  clonedFrom?: {
+    id: string;
+    title: string | null;
+    ownerUserId: string | null;
+  } | null;
 };

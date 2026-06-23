@@ -31,6 +31,15 @@ type LoadResult = {
   form: ModuleFormState;
   theoryItems: TheoryItem[];
   quizzes: ModuleQuiz[];
+  // WO-13 — provenance del módulo cargado (si el módulo es una
+  // copia, el back expone `clonedFrom` con id/título/owner del
+  // original). La UI lo lee para mostrar "Estás editando una
+  // copia de…".
+  clonedFrom?: {
+    id: string;
+    title: string | null;
+    ownerUserId: string | null;
+  } | null;
 };
 
 export type UsePersistenceReturn = {
@@ -146,7 +155,15 @@ export function useModuloPersistence(): UsePersistenceReturn {
       };
 
       setStatus("idle");
-      return { form, theoryItems, quizzes };
+      return {
+        form,
+        theoryItems,
+        quizzes,
+        // WO-13 — el back expone `clonedFrom` si el módulo es una
+        // copia. Default `null` para módulos viejos (pre-WO-13) que
+        // no tienen la columna.
+        clonedFrom: module.clonedFrom ?? null,
+      };
     } catch {
       setStatus("error");
       setMessage("No se pudo cargar el módulo.");
@@ -289,11 +306,37 @@ export function useModuloPersistence(): UsePersistenceReturn {
         };
 
         if (isEditing && id) {
-          await apiPatch(`/api/modulos/${id}`, basePayload);
+          // WO-13 — copy-on-write. Si el back detecta que el usuario
+          // NO es owner del módulo compartido, clona el módulo y
+          // devuelve `{ id: <copiaId>, copied: true, clonedFrom }`.
+          // La UI navega al id de la copia y muestra el mensaje de
+          // procedencia para que el docente entienda que ahora está
+          // editando SU copia, no el original.
+          const result = await apiPatch<{
+            ok?: boolean;
+            id?: string;
+            copied?: boolean;
+            clonedFrom?: {
+              id: string;
+              title: string | null;
+              ownerUserId: string | null;
+            } | null;
+          }>(`/api/modulos/${id}`, basePayload);
           setStatus("saved");
-          setMessage("Cambios guardados.");
           setValidationErrors([]);
           setExtErrors([]);
+          if (result.copied && result.id && result.id !== id) {
+            const originTitle = result.clonedFrom?.title ?? "el módulo original";
+            setMessage(
+              `Hiciste una copia de "${originTitle}". Estás editando tu propia versión — el original quedó intacto.`,
+            );
+            // Navegamos al id de la copia para que el editor siga
+            // trabajando sobre la copia. Reemplazamos la URL para
+            // que un refresh no intente volver al original.
+            navigate(`/modulos/${encodeURIComponent(result.id)}/editar`, { replace: true });
+          } else {
+            setMessage("Cambios guardados.");
+          }
         } else {
           await apiPost<Module>("/api/modulos", {
             ...basePayload,

@@ -2208,6 +2208,30 @@ export default function BookEditorPage() {
         </div>
       )}
 
+      {/* WO-13 — banner de procedencia. Aparece si el libro que se
+          está editando es una copia (creada por copy-on-write al
+          guardar, o por el botón "Duplicar" futuro). Le recuerda al
+          docente que está editando SU copia, no el original. */}
+      {bookMeta?.clonedFrom && (
+        <div
+          role="status"
+          aria-live="polite"
+          data-testid="libro-copied-from-banner"
+          className="flex-shrink-0 flex items-start gap-3 border-b border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-900"
+        >
+          <span aria-hidden="true" className="text-base">📋</span>
+          <div className="min-w-0 flex-1">
+            <p className="font-medium">
+              Estás editando una copia
+              {bookMeta.clonedFrom.title ? ` de “${bookMeta.clonedFrom.title}”` : ""}.
+            </p>
+            <p className="mt-0.5 text-xs text-amber-800/80">
+              El original quedó intacto. Esta copia es tuya y podés editarla libremente.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* ===== MAIN 3-PANEL LAYOUT ===== */}
       <main className="flex flex-1 overflow-hidden min-h-0">
         {/* ===== LEFT SIDEBAR: Pages ===== */}

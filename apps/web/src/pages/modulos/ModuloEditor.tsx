@@ -205,6 +205,11 @@ export default function ModuloEditor() {
     // true, mostramos un skeleton en lugar del form vacío (que
     // mostraba los datos del servidor con un frame de delay).
     isModuleLoading,
+    // WO-13 — provenance del módulo que se está editando. Si está
+    // poblado, mostramos un banner persistente "Estás editando
+    // una copia de…". La copia se creó al guardar (copy-on-write
+    // transparente) o al duplicar explícitamente.
+    clonedFrom,
   } = useModuloEditor(id, user, navigate);
 
   // UX-02: asociar cada error de validación de campo con su control vía
@@ -549,6 +554,30 @@ export default function ModuloEditor() {
           <div className="lg:grid lg:grid-cols-[180px_1fr] lg:gap-6">
             <EditorSectionNav sections={sectionNavItems} />
             <div className="min-w-0">
+          {/* WO-13 — banner de procedencia. Sólo aparece si el módulo
+              que se está editando es una copia (creada por
+              copy-on-write al guardar, o explícitamente con el
+              botón "Duplicar"). Le recuerda al docente que está
+              editando SU copia, no el original. */}
+          {clonedFrom && (
+            <div
+              role="status"
+              aria-live="polite"
+              data-testid="modulo-copied-from-banner"
+              className="mb-4 flex items-start gap-3 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900"
+            >
+              <span aria-hidden="true" className="text-base">📋</span>
+              <div className="min-w-0 flex-1">
+                <p className="font-medium">
+                  Estás editando una copia
+                  {clonedFrom.title ? ` de “${clonedFrom.title}”` : ""}.
+                </p>
+                <p className="mt-0.5 text-xs text-amber-800/80">
+                  El original quedó intacto. Esta copia es tuya: el dueño es tu cuenta y podés editarla libremente.
+                </p>
+              </div>
+            </div>
+          )}
           <div className="mb-6">
             <p className="text-sm text-[var(--c-muted)]">
               Cargá teoría, cuestionarios manuales o generados para construir el módulo.

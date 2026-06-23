@@ -116,6 +116,16 @@ export function useModuloEditor(
     return [];
   });
 
+  // WO-13 — provenance del módulo que se está editando. Se setea en
+  // el load (`persistence.loadModule`) si el módulo que el back
+  // devuelve tiene `clonedFrom` poblado. La UI lo usa para mostrar
+  // un banner "Estás editando una copia de…".
+  const [clonedFrom, setClonedFrom] = useState<{
+    id: string;
+    title: string | null;
+    ownerUserId: string | null;
+  } | null>(null);
+
   const FALLBACK_SUBJECTS = [
     'Matemáticas', 'Lengua', 'Historia', 'Geografía',
     'Física', 'Química', 'Biología', 'Informática',
@@ -205,6 +215,10 @@ export function useModuloEditor(
       setForm({ ...result.form, category: result.form.category || "sin-categoria" });
       setTheoryItems(result.theoryItems);
       setQuizzes(result.quizzes.map(ensureQuizDefaults));
+      // WO-13 — si el módulo es una copia, persistir provenance
+      // para que el banner de "Estás editando una copia de…"
+      // aparezca al cargar.
+      setClonedFrom(result.clonedFrom ?? null);
       setIsModuleLoading(false);
       // Los datos del servidor tienen prioridad — limpiar draft
       try { sessionStorage.removeItem(DRAFT_KEY(id)); } catch { /* ignorar */ }
@@ -636,5 +650,10 @@ export function useModuloEditor(
     // lo usa para mostrar un skeleton en vez del form vacío
     // durante el primer render en modo edición.
     isModuleLoading,
+    // WO-13 — provenance del módulo que se está editando (null si
+    // el módulo NO es una copia). La UI lo usa para mostrar un
+    // banner "Estás editando una copia de…".
+    clonedFrom,
+    setClonedFrom,
   };
 }

@@ -13,6 +13,14 @@ export type BookMeta = {
   ownerUserId: string | null;
   visibility: string;
   schoolId: string | null;
+  // WO-13 — provenance (presente sólo si el libro es una copia). El
+  // back la persiste en `libros.cloned_from_*` (migración
+  // 20260623022846_wo13_provenance) y la expone en el GET.
+  clonedFrom?: {
+    id: string;
+    title: string | null;
+    ownerUserId: string | null;
+  } | null;
 };
 
 export type BookWithMeta = {
@@ -30,6 +38,12 @@ type BookRecord = {
   ownerUserId?: string | null;
   visibility?: string;
   schoolId?: string | null;
+  // WO-13 — provenance inyectada por el back.
+  clonedFrom?: {
+    id: string;
+    title: string | null;
+    ownerUserId: string | null;
+  } | null;
 };
 
 export type BookListItem = {
@@ -72,6 +86,8 @@ export async function fetchBookWithMeta(id: string): Promise<BookWithMeta> {
       ownerUserId: record.ownerUserId ?? null,
       visibility: record.visibility ?? "privado",
       schoolId: record.schoolId ?? null,
+      // WO-13 — provenance (puede ser null si no es copia).
+      clonedFrom: record.clonedFrom ?? null,
     },
   };
 }
@@ -86,12 +102,30 @@ export async function fetchBooks(params: { q?: string; page?: number; pageSize?:
   return apiGet<BookListResponse>(path);
 }
 
-export async function saveBook(book: Book): Promise<{ id: string }> {
+export async function saveBook(book: Book): Promise<{ id: string; copied?: boolean; clonedFrom?: { id: string; title: string | null; ownerUserId: string | null } | null }> {
   const payload: BookPayload = {
     book,
     updatedAt: new Date().toISOString(),
   };
-  return apiPost<{ id: string }>("/api/libros", payload);
+  return apiPost<{ id: string; copied?: boolean; clonedFrom?: { id: string; title: string | null; ownerUserId: string | null } | null }>("/api/libros", payload);
+}
+
+/**
+ * WO-13 — clona un libro explícitamente (botón "Duplicar"). El back
+ * persiste la provenance y devuelve el id de la copia.
+ */
+export async function duplicateBook(id: string): Promise<{
+  id: string;
+  sourceId: string;
+  clonedFrom: { id: string; title: string | null; ownerUserId: string | null };
+  createdAt: string;
+}> {
+  return apiPost<{
+    id: string;
+    sourceId: string;
+    clonedFrom: { id: string; title: string | null; ownerUserId: string | null };
+    createdAt: string;
+  }>(`/api/libros/${encodeURIComponent(id)}/duplicar`, {});
 }
 
 // SEC-LIBRO — replica el criterio del back (`canEditLibro` en

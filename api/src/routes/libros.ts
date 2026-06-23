@@ -22,12 +22,23 @@ function safeParseLibroJson(
 ): { title: string; createdAt?: string; updatedAt?: string } {
   try {
     const parsed = JSON.parse(rawJson) as {
+      // FIX-WO13-SAFE-PARSE — antes leía `parsed.metadata?.title`,
+      // pero la estructura real del libro es
+      // `{ book: { metadata: { title } } }`. Aceptamos ambos shapes
+      // (legacy top-level y nuevo anidado) y caemos al id como
+      // último recurso. El display del título de la copia
+      // (`clonedFromTitle`) y del listado dependía de esto.
       metadata?: { title?: string };
+      book?: { metadata?: { title?: string } };
       createdAt?: string;
       updatedAt?: string;
     };
+    const title =
+      parsed.book?.metadata?.title ??
+      parsed.metadata?.title ??
+      id;
     return {
-      title: parsed.metadata?.title ?? "(sin título)",
+      title,
       createdAt: parsed.createdAt,
       updatedAt: parsed.updatedAt,
     };
@@ -47,7 +58,9 @@ type AuthUser = {
 
 // SEC-LIBRO — fila tal como sale de Prisma. `ownerUserId`/`schoolId`
 // son nullable porque los libros viejos no tienen dueño (ver
-// migración 20260617030000_sec_libro_ownership).
+// migración 20260617030000_sec_libro_ownership). `clonedFromId` y
+// compañía son los campos de procedencia de WO-13
+// (migración 20260623022846_wo13_provenance).
 type LibroRow = {
   id: string;
   json: string;
@@ -55,6 +68,9 @@ type LibroRow = {
   schoolId: string | null;
   visibility: string;
   updatedAt: string | null;
+  clonedFromId?: string | null;
+  clonedFromTitle?: string | null;
+  clonedFromOwnerUserId?: string | null;
 };
 
 /**
@@ -97,7 +113,7 @@ function canEditLibro(libro: LibroRow, user: AuthUser): boolean {
 }
 
 /**
- * LIBRO-BIBLIOTECA — ¿el usuario puede VER este libro en el
+ * SEC-LIBRO — ¿el usuario puede VER este libro en el
  * listado/búsqueda? Réplica de `canReadDataset`
  * (`api/src/routes/vblang-datasets.ts:54-68`) pero aplicada a
  * LIBROS. La rama `visibility: 'publica'` queda para cuando se
@@ -131,6 +147,119 @@ function canReadLibro(libro: LibroRow, user: AuthUser): boolean {
   }
   if (libro.visibility === "publica") return true;
   return false;
+}
+
+/**
+ * WO-13 — ¿Editar este libro dispara copy-on-write?
+ *
+ * Misma lógica que `requiresCopyOnWrite` de modulos: si el usuario
+ * ya puede editar el original (admin, owner, o staff de la misma
+ * escuela en libro `escuela`), no hace falta copia. Si NO puede
+ * editarlo pero es visible para él y es staff, sí dispara
+ * copy-on-write. Los alumnos (USER) NUNCA disparan copy-on-write:
+ * SEC-LIBRO ya prohíbe que editen libros, y copy-on-write es
+ * esencialmente "crear una copia editable", lo que también
+ * prohibimos para alumnos en Tier 1.
+ *
+ * Casos:
+ *  - ADMIN: nunca (override).
+ *  - Owner: nunca (edición normal).
+ *  - `escuela` + staff de la misma escuela: nunca (colaboración,
+ *    mismo modelo SEC-LIBRO).
+ *  - `publica` ajeno o `escuela` cross-school, con user staff: SÍ —
+ *    copia. El user puede leer el libro y quiere forkearlo.
+ *  - Alumno (USER): NO — ni edit ni copy-on-write (SEC-LIBRO).
+ *  - `privado` ajeno: NO — ni siquiera visible para el user, el
+ *    caller ya devolvió 403 antes (canReadLibro).
+ */
+function requiresCopyOnWriteLibro(
+  libro: LibroRow,
+  user: AuthUser,
+): boolean {
+  if (canEditLibro(libro, user)) return false;
+  if (libro.visibility === "privado") return false;
+  // Alumnos (no staff) no disparan copy-on-write: SEC-LIBRO cierra
+  // la edición para alumnos. Copy-on-write sería una forma de
+  // edición (fork para editar); no la abrimos.
+  if (!isStaffRole(user)) return false;
+  return true;
+}
+
+/**
+ * WO-13 — clona un libro en una transacción. Usado por:
+ *  - `POST /api/libros/:id/duplicar` (botón "Duplicar" futuro).
+ *  - El copy-on-write transparente del POST `/api/libros` cuando
+ *    un usuario no-owner quiere editar un libro compartido.
+ *
+ * La copia:
+ *  - id nuevo (UUID).
+ *  - json: copia exacta del original.
+ *  - ownerUserId = newOwnerId.
+ *  - visibility: la del original (en copy-on-write, el usuario la
+ *    puede reescribir después; el botón "Duplicar" futuro podría
+ *    aceptar un `visibility` override en el body).
+ *  - schoolId: el del solicitante si visibility='escuela', si no
+ *    el del original.
+ *  - provenance: `clonedFromId` + `clonedFromTitle` + `clonedFromOwnerUserId`.
+ *
+ * Retorna el id de la nueva fila.
+ */
+async function cloneLibroDeep(
+  sourceId: string,
+  newOwnerId: string,
+  requesterSchoolId: string | null,
+  opts: { appendCopiaSuffix?: boolean } = { appendCopiaSuffix: true },
+): Promise<{ newId: string; createdAt: string }> {
+  const source = (await prisma.libro.findFirst({
+    where: { id: sourceId },
+  })) as LibroRow | null;
+  if (!source) {
+    throw Object.assign(new Error("libro no encontrado"), { status: 404 });
+  }
+  const newId = (await import("crypto")).randomUUID();
+  const now = new Date().toISOString();
+  const appendSuffix = opts.appendCopiaSuffix !== false;
+  let parsed: Record<string, unknown>;
+  try {
+    parsed = JSON.parse(source.json) as Record<string, unknown>;
+  } catch {
+    parsed = {};
+  }
+  if (appendSuffix) {
+    // FIX-WO13 — leer el título del shape real del libro
+    // (`book.metadata.title`) y aplicar el sufijo "(copia)" en
+    // el mismo nivel. Mantener la estructura completa (no
+    // pisar `book.metadata` con un objeto nuevo a nivel raíz).
+    const bookMeta =
+      (parsed.book as { metadata?: { title?: string } } | undefined)?.metadata ?? {};
+    const currentTitle = bookMeta.title ?? source.id;
+    const newBookMeta = { ...bookMeta, title: `${currentTitle} (copia)` };
+    parsed = {
+      ...parsed,
+      book: {
+        ...(parsed.book as Record<string, unknown> | undefined),
+        metadata: newBookMeta,
+      },
+    };
+  }
+  const newSchoolId = source.visibility === "escuela"
+    ? (requesterSchoolId ?? source.schoolId)
+    : source.schoolId;
+  await prisma.libro.create({
+    data: {
+      id: newId,
+      json: JSON.stringify(parsed),
+      updatedAt: now,
+      ownerUserId: newOwnerId,
+      schoolId: newSchoolId,
+      visibility: source.visibility,
+      // WO-13 — provenance.
+      clonedFromId: source.id,
+      clonedFromTitle: safeParseLibroJson(source.json, source.id).title,
+      clonedFromOwnerUserId: source.ownerUserId ?? null,
+    },
+  });
+  return { newId, createdAt: now };
 }
 
 libros.post(
@@ -182,10 +311,63 @@ libros.post(
         // exigimos canEditLibro y devolvemos 403 al alumno (y a
         // cualquier profe que no sea dueño ni staff de la escuela
         // dueña).
+        //
+        // WO-13 — copy-on-write. PERO si el libro es visible al
+        // usuario (puede leerlo) y está compartido (`escuela` o
+        // `publica`), NO devolvemos 403: clonamos el libro y
+        // aplicamos el update sobre la copia. El original queda
+        // intacto. Esto preserva SEC-LIBRO (no se pisa el
+        // original) Y permite el flujo "ver un libro compartido
+        // → fork automático al editar".
         if (!canEditLibro(existing, user)) {
-          return res
-            .status(403)
-            .json({ error: "Sin permisos para editar este libro" });
+          if (
+            canReadLibro(existing, user) &&
+            requiresCopyOnWriteLibro(existing, user)
+          ) {
+            // Sigue el flujo copy-on-write más abajo. NO es 403.
+          } else {
+            return res
+              .status(403)
+              .json({ error: "Sin permisos para editar este libro" });
+          }
+        }
+        // WO-13 — copy-on-write. Si el usuario NO es owner ni admin
+        // y el libro está compartido (`escuela` o `publica`), clonamos
+        // el libro (con provenance) y aplicamos el POST sobre la
+        // copia. El original queda intacto. La UI debe navegar al
+        // id devuelto y mostrar el mensaje "Copiaste este libro
+        // desde…".
+        if (requiresCopyOnWriteLibro(existing, user)) {
+          const userIdCow = user._id ?? null;
+          if (!userIdCow) {
+            return res.status(401).json({ error: "user not authenticated" });
+          }
+          const { newId, createdAt } = await cloneLibroDeep(
+            existing.id,
+            userIdCow,
+            user.schoolId ?? null,
+            { appendCopiaSuffix: false },
+          );
+          // Persistimos el nuevo contenido (que viene en `parsed` =
+          // el BookSchema ya validado) sobre la copia. Mantenemos
+          // visibility/owner/school de la copia.
+          await prisma.libro.updateMany({
+            where: { id: newId },
+            data: {
+              json: JSON.stringify(parsed),
+              updatedAt: parsed.updatedAt,
+            },
+          });
+          return res.status(201).json({
+            id: newId,
+            copied: true,
+            clonedFrom: {
+              id: existing.id,
+              title: safeParseLibroJson(existing.json, existing.id).title,
+              ownerUserId: existing.ownerUserId ?? null,
+            },
+            createdAt,
+          });
         }
         await prisma.libro.updateMany({
           where: { id: parsed.id },
@@ -233,6 +415,71 @@ libros.post(
     }
   }
 );
+
+/**
+ * WO-13 — POST /api/libros/:id/duplicar. Clona un libro existente y
+ * devuelve el nuevo id. Replica el patrón de modulos: el dueño o un
+ * staff puede duplicar; cualquier otro user que tenga permiso de leer
+ * el libro también puede (es la diferencia con modulos, que requiere
+ * owner-or-staff explícito para `/duplicar`).
+ *
+ * La copia:
+ *  - id nuevo (UUID).
+ *  - json: copia exacta del original.
+ *  - titulo: `<titulo> (copia)` (sufijo).
+ *  - ownerUserId = solicitante.
+ *  - visibility: la del original.
+ *  - schoolId: el del solicitante si visibility='escuela', si no el
+ *    del original.
+ *  - provenance: clonedFromId + clonedFromTitle + clonedFromOwnerUserId.
+ */
+libros.post("/api/libros/:id/duplicar", requireUser, async (req, res) => {
+  try {
+    const user = (req as { user?: AuthUser }).user ?? {};
+    const userId = user._id ?? null;
+    if (!userId) {
+      return res.status(401).json({ error: "user not authenticated" });
+    }
+    const sourceId = String(req.params.id ?? "");
+    if (!sourceId) {
+      return res.status(400).json({ error: "id is required" });
+    }
+    const source = (await prisma.libro.findFirst({
+      where: { id: sourceId },
+    })) as LibroRow | null;
+    if (!source) {
+      return res.status(404).json({ error: "libro no encontrado" });
+    }
+    // Tiene que poder LEERLO para clonarlo (no se puede duplicar
+    // algo que no se ve). Coherente con la policy de visibilidad
+    // de SEC-LIBRO.
+    if (!canReadLibro(source, user)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+    const { newId, createdAt } = await cloneLibroDeep(
+      sourceId,
+      userId,
+      user.schoolId ?? null,
+      { appendCopiaSuffix: true },
+    );
+    res.status(201).json({
+      id: newId,
+      sourceId,
+      clonedFrom: {
+        id: source.id,
+        title: safeParseLibroJson(source.json, source.id).title,
+        ownerUserId: source.ownerUserId ?? null,
+      },
+      createdAt,
+    });
+  } catch (e: any) {
+    if (e?.status) {
+      return res.status(e.status).json({ error: e.message });
+    }
+    console.error("[POST /api/libros/:id/duplicar]", e);
+    res.status(500).json({ error: e?.message ?? "internal server error" });
+  }
+});
 
 libros.get("/api/libros", requireUser, async (req, res) => {
   try {
@@ -320,6 +567,14 @@ libros.get("/api/libros", requireUser, async (req, res) => {
             ownerUserId: row.ownerUserId ?? null,
             visibility: row.visibility ?? "privado",
             schoolId: row.schoolId ?? null,
+            // WO-13 — provenance (ver detalle en el GET :id).
+            clonedFrom: row.clonedFromId
+              ? {
+                  id: row.clonedFromId,
+                  title: row.clonedFromTitle ?? null,
+                  ownerUserId: row.clonedFromOwnerUserId ?? null,
+                }
+              : null,
           },
         ],
         page: 1,
@@ -369,6 +624,14 @@ libros.get("/api/libros", requireUser, async (req, res) => {
           ownerUserId: r.ownerUserId ?? null,
           visibility: r.visibility ?? "privado",
           schoolId: r.schoolId ?? null,
+          // WO-13 — provenance (sólo presente si el libro es copia).
+          clonedFrom: r.clonedFromId
+            ? {
+                id: r.clonedFromId,
+                title: r.clonedFromTitle ?? null,
+                ownerUserId: r.clonedFromOwnerUserId ?? null,
+              }
+            : null,
         },
       ];
     });
@@ -388,6 +651,14 @@ libros.get("/api/libros/:id", requireUser, async (req, res) => {
   const id = String(req.params.id);
   const row = await prisma.libro.findFirst({ where: { id } });
   if (!row) return res.status(404).json({ error: "not found" });
+  // WO-13 — provenance (snapshot de `LibroRow.clonedFrom*`).
+  const clonedFrom = row.clonedFromId
+    ? {
+        id: row.clonedFromId,
+        title: row.clonedFromTitle ?? null,
+        ownerUserId: row.clonedFromOwnerUserId ?? null,
+      }
+    : null;
   try {
     const doc = JSON.parse(row.json);
     // SEC-LIBRO — el front necesita saber ownerUserId/visibility/
@@ -407,6 +678,7 @@ libros.get("/api/libros/:id", requireUser, async (req, res) => {
       ownerUserId: r.ownerUserId ?? null,
       visibility: r.visibility ?? "privado",
       schoolId: r.schoolId ?? null,
+      clonedFrom,
     });
   } catch {
     const r = row as unknown as {
@@ -420,6 +692,7 @@ libros.get("/api/libros/:id", requireUser, async (req, res) => {
       ownerUserId: r.ownerUserId ?? null,
       visibility: r.visibility ?? "privado",
       schoolId: r.schoolId ?? null,
+      clonedFrom,
     });
   }
 });
