@@ -87,6 +87,19 @@ export { MATEMATICAS_ARITMETICA_OFICIALES } from "./templates/matematicas-aritme
 // `apps/web/.../algebra-equivalencia.spec.ts`.
 export { MATEMATICAS_ALGEBRA_OFICIALES } from "./templates/matematicas-algebra-oficiales.js";
 
+// WO-11d — Plantillas oficiales VBLang (Matemáticas/Cálculo), porting
+// masivo de 10 subtipos (mezcla simbólica + numérica). Ver
+// `apps/web/.../calculo-equivalencia.spec.ts`. Los 5 subtipos no
+// portadaos son MC conceptuales o formatos especiales (constante
+// libre C, multi-statement string) — gaps documentados en el doc
+// de la plantilla.
+export { MATEMATICAS_CALCULO_OFICIALES } from "./templates/matematicas-calculo-oficiales.js";
+
+// WO-11e — Plantillas oficiales VBLang (Matemáticas/Análisis y Avanzado),
+// cierre del eje 2. 16 subtipos de `AnalisisYAvanzado.ts` (todos
+// rama basico). Ver `apps/web/.../analisis-equivalencia.spec.ts`.
+export { MATEMATICAS_ANALISIS_OFICIALES } from "./templates/matematicas-analisis-oficiales.js";
+
 // WO-7c — Plantillas oficiales VBLang (Química: Estequiometría +
 // Termoquímica), porting de 9 subtipos numéricos (no conflictúa
 // con `quimica-oficiales.ts` que es F6-05 de partículas

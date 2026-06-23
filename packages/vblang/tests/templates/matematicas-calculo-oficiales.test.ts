@@ -1,12 +1,12 @@
 /**
- * WO-11 / WO-11b — Validez DSL de las plantillas oficiales de
- * Matemáticas/Álgebra.
+ * WO-11d — Validez DSL de las plantillas oficiales de
+ * Matemáticas/Cálculo.
  *
- * Espeja el patrón de `matematicas-aritmetica-oficiales.test.ts`: cada
+ * Espeja el patrón de `matematicas-algebra-oficiales.test.ts`: cada
  * plantilla portada pasa el pipeline completo `parse -> lint -> compile ->
  * validate` con 100 simulaciones sin errores. La EQUIVALENCIA contra el
- * generador original (mismo oráculo simbólico) vive en
- * `apps/web/src/generadoresV2/__tests__/algebra-equivalencia.spec.ts`.
+ * generador original vive en
+ * `apps/web/src/generadoresV2/__tests__/calculo-equivalencia.spec.ts`.
  */
 import { describe, expect, it } from "vitest";
 import { parse } from "../../src/parser/parser.js";
@@ -14,63 +14,45 @@ import { lint } from "../../src/validator/linter.js";
 import { compile } from "../../src/runtime/compile.js";
 import { generate } from "../../src/runtime/generate.js";
 import { validate } from "../../src/validator/validator.js";
-import { MATEMATICAS_ALGEBRA_OFICIALES } from "../../src/templates/matematicas-algebra-oficiales.js";
+import { MATEMATICAS_CALCULO_OFICIALES } from "../../src/templates/matematicas-calculo-oficiales.js";
 
 // Plantillas con respuesta simbólica (respuesta_expr + tipo expresion).
 const SIMBOLICAS = new Set([
-  "terminos_semejantes",
-  "multiplicacion_monomios",
-  "factorizacion_basica",
-  "suma_resta_polinomios",
-  "multiplicacion_polinomios",
-  "productos_notables",
-  "lenguaje_algebraico",
-  "racionales_simples",
-  "division_polinomios",
-  "simplificacion_algebraica",
-  "ecuacion_recta",
+  "derivadas_basicas",
+  "reglas_derivacion",
+  "integral_indefinida",
+  "aplicaciones_integrales",
 ]);
 
-describe("WO-11/WO-11b: MATEMATICAS_ALGEBRA_OFICIALES", () => {
-  it("expone 18 plantillas con subtipoOriginal del generador de Álgebra", () => {
-    // 3 (WO-11) + 9 (WO-11b) + 6 (WO-11c) = 18.
-    expect(MATEMATICAS_ALGEBRA_OFICIALES).toHaveLength(18);
-    const subtipos = MATEMATICAS_ALGEBRA_OFICIALES
+describe("WO-11d: MATEMATICAS_CALCULO_OFICIALES", () => {
+  it("expone 10 plantillas con subtipoOriginal del generador de Cálculo", () => {
+    expect(MATEMATICAS_CALCULO_OFICIALES).toHaveLength(10);
+    const subtipos = MATEMATICAS_CALCULO_OFICIALES
       .map((p) => p.subtipoOriginal)
       .sort();
-    expect(subtipos).toMatchObject(
-      expect.arrayContaining([
-        "division_polinomios",
-        "ecuacion_recta",
-        "ecuaciones_fracciones",
-        "ecuaciones_lineales",
-        "ecuaciones_parametros",
-        "evaluacion_expresiones",
-        "factorizacion_basica",
-        "funcion_afin",
-        "funciones_lineales",
-        "grado_coeficientes",
-        "lenguaje_algebraico",
-        "multiplicacion_monomios",
-        "multiplicacion_polinomios",
-        "productos_notables",
-        "racionales_simples",
-        "simplificacion_algebraica",
-        "suma_resta_polinomios",
-        "terminos_semejantes",
-      ]),
-    );
+    expect(subtipos).toEqual([
+      "aplicaciones_integrales",
+      "derivada_definicion",
+      "derivadas_basicas",
+      "distribuciones",
+      "integral_definida",
+      "integral_indefinida",
+      "limites_funciones",
+      "probabilidad_avanzada",
+      "reglas_derivacion",
+      "variables_aleatorias",
+    ]);
   });
 
   it("ids únicos y materia 'matematicas'", () => {
-    const ids = MATEMATICAS_ALGEBRA_OFICIALES.map((p) => p.id);
+    const ids = MATEMATICAS_CALCULO_OFICIALES.map((p) => p.id);
     expect(new Set(ids).size).toBe(ids.length);
-    for (const p of MATEMATICAS_ALGEBRA_OFICIALES) {
+    for (const p of MATEMATICAS_CALCULO_OFICIALES) {
       expect(p.materia).toBe("matematicas");
     }
   });
 
-  for (const plantilla of MATEMATICAS_ALGEBRA_OFICIALES) {
+  for (const plantilla of MATEMATICAS_CALCULO_OFICIALES) {
     const esSimbolica = SIMBOLICAS.has(plantilla.subtipoOriginal);
     describe(plantilla.id, () => {
       it("parsea, lintea sin errores, compila y pasa 100 simulaciones", () => {
@@ -85,7 +67,7 @@ describe("WO-11/WO-11b: MATEMATICAS_ALGEBRA_OFICIALES", () => {
 
         const report = validate(compiled, {
           iterations: 100,
-          seedPrefix: `wo-11-${plantilla.subtipoOriginal}`,
+          seedPrefix: `wo-11d-${plantilla.subtipoOriginal}`,
         });
         expect(report.errors).toEqual([]);
         expect(report.pass).toBe(true);

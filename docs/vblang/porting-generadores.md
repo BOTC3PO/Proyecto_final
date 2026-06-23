@@ -225,27 +225,217 @@ portar los pocos subtipos de respuesta numérica (evaluaciones, raíces
 numéricas de cuadráticas con coeficientes sorteados, límites numéricos) con
 el mismo patrón de WO-7b.
 
-**Estado tras WO-11 (eje simbólico):** la **capacidad simbólica está
-construida** — `respuesta_expr:` + `tipo: expresion` + chequeo de
-equivalencia (`sonEquivalentes`) en el server. Ver
-`docs/vblang/wo-11-eje-simbolico.md` para el diseño. **3 subtipos
-portados como prueba end-to-end** (rama basico):
+**Estado tras WO-11c (ecuaciones, funciones, recta):** WO-11 (3
+subtipos semilla) + WO-11b (9 adicionales) + WO-11c (6 adicionales)
+totalizan **18 plantillas** en
+`packages/vblang/src/templates/matematicas-algebra-oficiales.ts`,
+todas con `subtipoOriginal` apuntando al generador legado y
+verificación de equivalencia con
+`apps/web/.../algebra-equivalencia.spec.ts` (oráculo compartido:
+generador real ≡ oráculo ≡ plantilla, con guard anti-vacío
+`toBeGreaterThan(5)`):
 
-| subtipoOriginal             | subtipo algebra  | fórmula portada                            |
-|-----------------------------|------------------|--------------------------------------------|
-| `terminos_semejantes`       | basico           | agrupar 2 grupos de coefs en [-5,5]        |
-| `multiplicacion_monomios`   | basico           | distributiva: `m·(c0 + c1·x) = m·c0 + m·c1·x` |
-| `factorizacion_basica`      | basico           | factor común: `k·(a·x + b) = k·a·x + k·b`  |
+| subtipoOriginal               | subtipo algebra | respuesta    | fórmula portada                              |
+|-------------------------------|-----------------|--------------|----------------------------------------------|
+| `terminos_semejantes`         | basico          | simbólica    | agrupar 2 grupos de coefs en [-5,5]          |
+| `multiplicacion_monomios`     | basico          | simbólica    | distributiva: `m·(c0 + c1·x) = m·c0 + m·c1·x` |
+| `factorizacion_basica`        | basico          | simbólica    | factor común: `k·(a·x + b) = k·a·x + k·b`    |
+| `suma_resta_polinomios`       | basico          | simbólica    | `(c0 ± d0) + (c1 ± d1)·x` (50/50 suma/resta) |
+| `multiplicacion_polinomios`   | basico          | simbólica    | `(c0 + c1·x)·(d0 + d1·x)` → grado 2           |
+| `productos_notables`          | basico          | simbólica    | `(x + b)² = x² + 2bx + b²` (sólo cuadrado_suma) |
+| `lenguaje_algebraico`         | basico          | simbólica    | pool de 7 frases → expr algebraica           |
+| `racionales_simples`          | basico          | simbólica    | `(k·a·x) / (k·b)` cancelando factor común    |
+| `division_polinomios`         | basico          | simbólica    | cociente `qa·x + qb` (sin resto)             |
+| `simplificacion_algebraica`   | basico          | simbólica    | `x^m · x^n = x^(m+n)` (sólo producto)       |
+| `evaluacion_expresiones`      | basico          | **numérica** | evaluar `c0 + c1·x` en un punto              |
+| `grado_coeficientes`          | basico          | **numérica** | grado / coef_principal / término_ind (33/33/33) |
+| `ecuaciones_lineales`         | basico          | **numérica** | `ax + b = c → x = (c-b)/a`                  |
+| `ecuaciones_parametros`       | basico          | **numérica** | `kx = c, x dado → k = c/x`                  |
+| `ecuaciones_fracciones`       | basico          | **numérica** | `a/x + b = c → x = a/(c-b)`                 |
+| `funciones_lineales`          | basico          | **numérica** | ordenada al origen de `f(x) = mx + b`        |
+| `funcion_afin`                | basico          | **numérica** | evaluar `f(x) = mx + b` (contexto taxi)      |
+| `ecuacion_recta`              | basico          | simbólica    | RHS de `y = mx + b` dadas m, b               |
 
-Equivalencia verificada con `apps/web/.../algebra-equivalencia.spec.ts`
-(oráculo compartido: generador real ≡ oráculo ≡ plantilla).
+Distinción simbólica vs numérica: las simbólicas usan
+`respuesta_expr:` + `tipo: expresion` y se comparan con
+`sonEquivalentes` (CAS híbrido numérico + algebraico); las numéricas
+usan `respuesta:` + `tipo: input` + `tolerancia_abs:` (patrón WO-7b).
+El harness `algebra-equivalencia.spec.ts` soporta AMBOS modos con un
+campo `kind: "symbolic" | "numeric"` por caso y aplica el comparador
+correspondiente. Las simbólicas normalizan notación Unicode (², ³, ·,
+−, √) del generador nativo antes del CAS.
 
-**Pendiente (≈73 subtipos) — porting mecánico** con el mismo patrón
-de WO-7b (un archivo de plantillas + un test de validez DSL + un test
-de equivalencia). Listado y prioridades en
-`docs/vblang/wo-11-eje-simbolico.md` §8. Subtipo a subtipo se arman
-las ramas de dificultad (basico/intermedio/avanzado); el camino
-crítico es la rama basico de cada uno.
+### Gaps de validación (WO-11c)
+
+Dos subtipos del batch no fueron portados porque su formato de
+respuesta no entra en el validador actual (`sonEquivalentes` ni
+`tolerancia_abs`):
+
+| Subtipo | Formato respuesta | Razón del gap |
+|---------|-------------------|---------------|
+| `inecuaciones_simples` | String desigualdad (`"x > 3"`, `"x < 5/2"`) | `sonEquivalentes` compara expresiones, no desigualdades. Necesitaría un comparador de intervalos/desigualdades. |
+| `ecuaciones_cuadraticas` | String conjunto solución (`"x₁ = 6, x₂ = -2"`, `"x = 3 (doble)"`, `"Ninguna"`) | Respuesta multi-valor con formato variable. Necesitaría un comparador de conjuntos solución (parsear raíces, comparar como set). |
+
+Estos gaps son insumo para un futuro WO (extensión del eje simbólico
+con soporte para desigualdades y conjuntos solución).
+
+**Subtipos restantes** (intermedio / avanzado de los ya portados, o
+ramas no cubiertas como cuadrado_resta / dif_cuadrados / cociente /
+potencia de potencia / raíz): ~34 subtipos pendientes según
+`Algebra.ts`. La mayoría son continuación mecánica con el mismo
+patrón.
+
+**Pendiente (≈34 subtipos algebra + ~5 de Cálculo + 16 de Análisis):**
+porting mecánico con el mismo patrón. Cálculo (10 de 15 subtipos
+portados en WO-11d, ver §Cálculo abajo). Análisis (16 de 16 subtipos
+portados en WO-11e, ver §Análisis abajo).
+
+### Cálculo (WO-11d) — 10 de 15 subtipos portados
+
+### Cálculo (WO-11d) — 10 de 15 subtipos portados
+
+**Estado tras WO-11d:** la rama basico de Cálculo está portada (10
+subtipos de 15). Archivo: `packages/vblang/src/templates/matematicas-calculo-oficiales.ts`.
+Verificación con `apps/web/.../calculo-equivalencia.spec.ts` (oráculo
+compartido, guard anti-vacío).
+
+| subtipoOriginal              | subtipo algebra | respuesta    | fórmula portada                              |
+|------------------------------|-----------------|--------------|----------------------------------------------|
+| `limites_funciones`          | basico          | numérica     | `lim(x→a) [coef·x²+c] = coef·a²+c` (sustitución) |
+| `derivada_definicion`        | basico          | numérica     | `f'(x0) = 2·a·x0` (cuadrática)               |
+| `derivadas_basicas`          | basico          | simbólica    | `f'(x) = 2·coef_x2·x + coef_x` (sin eval)    |
+| `reglas_derivacion`          | basico (prod.)  | simbólica    | `(ax+b)(cx+d)' = 2ac·x + (ad+bc)`            |
+| `integral_indefinida`        | basico          | simbólica    | `∫coef·xⁿ dx = (coef/(n+1))·x^(n+1)` (sin +C)|
+| `integral_definida`          | basico          | numérica     | `∫[0,b] x dx = b²/2`                         |
+| `aplicaciones_integrales`    | basico          | simbólica    | `Área [0,1] entre y=x, y=x² = 1/6`          |
+| `probabilidad_avanzada`      | basico          | numérica     | `P(A∩B) = P(A)·P(B)` (independientes)       |
+| `variables_aleatorias`       | basico          | numérica     | `E(X) = Σvᵢ·Pᵢ` (distribución fija)          |
+| `distribuciones`             | basico (binom.) | numérica     | `P(X=k) = C(n,k)·(0.5)ⁿ` (p=0.5)             |
+
+**Subtipos NO portados (5) — gaps documentados en el doc de la
+plantilla**, NO hackeados:
+
+- `continuidad` — MC conceptual ("¿es continua?", "tipo de
+  discontinuidad"). No hay fórmula — son opciones de texto fijo.
+- `aplicaciones_derivadas` — respuesta multi-statement
+  ("x=0 y x=2.67"). math.js no parsea este formato. Para
+  portarlo: partir la respuesta en campos separados o usar
+  comparador `string` propio.
+- `ecuaciones_diferenciales` — solución general con constante
+  libre (C): "y = Ce^(kx)". math.js trata C como símbolo
+  desconocido. Para portarlo: hacer que el alumno tipee la
+  familia paramétrica (no hay chequeo automático posible) o
+  pedir una EDO particular con y(0) dado.
+- `estadistica_inferencial` — MC conceptual o intervalo ("IC 95%").
+  El intervalo es string puro sin equivalencia simbólica posible.
+- `regresion_correlacion` — MC conceptual (categoría de
+  correlación: "fuerte", "moderada", "débil"). Mismo caso que
+  `continuidad`.
+
+**Notas técnicas del porting Cálculo:**
+
+- `derivar(expr, var)` (WO-11) NO se usó en los ports. La razón:
+  los subtipos porteados son lo suficientemente simples (regla
+  de la potencia, producto de binomios) que la fórmula se puede
+  precomputar en el DSL. Para subtipos más complejos (cadena,
+  cociente con fracciones, derivadas de orden superior) el builtin
+  `derivar` entra como herramienta principal. Las ramas
+  intermedio/avanzado pendientes de `reglas_derivacion` lo usarán.
+- `combinatoria` no es builtin en el DSL → en `distribuciones`
+  se precomputa C(n,k) en una matriz de constantes indexada por
+  `n - 3` y `k`. Es una solución ad-hoc para los 16 valores que
+  cubre el rango (n ∈ [3, 6]). Si se generaliza, vale la pena
+  agregar el builtin `combinatoria(n, k)` (gap WO-8+).
+- `integral_indefinida`: la respuesta del generador incluye
+  " + C" (constante de integración). math.js no parsea
+  "x^3 + C" como expresión. La plantilla produce SOLO el
+  polinomio (`x^3` o `(2/3)*x^3`) y la constante se documenta
+  en la explicación. El test usa `transformGenerator: stripConstante`
+  para remover el "+C" antes del CAS.
+
+### Análisis y Avanzado (WO-11e) — 16 de 16 subtipos portados (cierre del eje 2)
+
+**Estado tras WO-11e:** la rama basico de Análisis y Avanzado está
+**completa** — los 16 subtipos de `AnalisisYAvanzado.ts` portados.
+Archivo: `packages/vblang/src/templates/matematicas-analisis-oficiales.ts`.
+Verificación con `apps/web/.../analisis-equivalencia.spec.ts` (oráculo
+compartido, guard anti-vacío).
+
+| subtipoOriginal                 | respuesta    | notas                                       |
+|---------------------------------|--------------|---------------------------------------------|
+| `trigonometria_basica`          | simbólica    | pool de sen/cos × {0,30,45,60,90}°         |
+| `trigonometria_aplicada`        | numérica     | cateto opuesto (hip × sen α)                |
+| `identidades_trigonometricas`   | simbólica    | sen²+cos²=1 (conceptual fijo)               |
+| `ecuaciones_trigonometricas`    | simbólica    | "x = α° o x = β°" (string multi)           |
+| `funciones_exponenciales`       | numérica     | f(x) = b^x                                  |
+| `funciones_logaritmicas`        | numérica     | log_base(b^exp) = exp                       |
+| `ecuaciones_exponenciales`      | numérica     | b^x = c → x = log_b(c)                      |
+| `ecuaciones_logaritmicas`       | numérica     | log(x) = k → x = 10^k (basico: base=10)     |
+| `numeros_complejos`             | numérica     | parte real (basico) / módulo (avanz, GAP)   |
+| `operaciones_complejos`         | simbólica    | suma/resta (basico), mult/conj (avanz, GAP) |
+| `matrices_basico`               | simbólica    | dimensión "filas×cols" (string fijo)        |
+| `determinantes_basico`          | numérica     | det 2×2 (avanz: 3×3 Sarrus, GAP)            |
+| `sistemas_matrices`             | numérica     | Cramer 2×2 (avanz: GAP)                     |
+| `vectores_basico`               | numérica     | módulo / producto escalar / suma            |
+| `geometria_espacial`            | numérica     | cubo vol (basico) / esfera,cil,cono (GAP)   |
+| `conicas`                       | simbólica    | circunferencia (basico), parábola/elipse (GAP) |
+
+**Sub-subtipos pendientes (intermedio/avanzado, no portada):**
+
+- `trigonometria_basica` avanzado — incluye tangente.
+- `trigonometria_aplicada` intermedio — coefs más amplios.
+- `identidades_trigonometricas` intermedio/avanzado — pregunta por
+  tan(θ) (numérico).
+- `ecuaciones_trigonometricas` intermedio/avanzado — dominios acotados.
+- `numeros_complejos` avanzado — pregunta por el módulo |z| = √(a²+b²).
+- `operaciones_complejos` intermedio/avanzado — multiplicación,
+  conjugado.
+- `matrices_basico` avanzado — suma 2×2 de matrices (con
+  representación string `[[a,b],[c,d]]`).
+- `determinantes_basico` avanzado — det 3×3 (regla de Sarrus).
+- `vectores_basico` intermedio/avanzado — producto escalar, suma.
+- `geometria_espacial` intermedio/avanzado — esferas, cilindros,
+  conos, superficies.
+- `conicas` intermedio/avanzado — parábolas, elipses, hipérbolas.
+
+**Notas técnicas del porting Análisis:**
+
+- **Object literals no funcionan en el DSL** (`{30: 0.5}`) —
+  sólo arrays. Solución usada en `trigonometria_aplicada` y
+  `operaciones_complejos`: `uno_de([0, 1, 2])` + `arrays[idx]`
+  (idx coordina el sort).
+- **Boolean a int tampoco funciona** (`(h < 0) * 1` falla). Para
+  elegir entre 2 formas según una condición, se usa el truco de
+  indexar un array de 2 opciones con un entero explícito (no
+  booleano). Ver `operaciones_complejos`: `ops: ["+", "-"]` +
+  `op: ops[es_resta]`, donde `es_resta` es 0 o 1 sorteado
+  directamente.
+- **Sin ternario** (`?:`) en el DSL. Para 4 casos (matrix
+  dimension, trigonometria basica) se usan arrays + indices.
+- **`matrices_basico` y `conicas` son respuestas conceptuales**
+  (string fijo "3×3" o "Circunferencia: centro (h,k), radio r").
+  Se portan con `respuesta_expr` y se comparan con `sonEquivalentes`
+  (trivial string match cuando son idénticas). En `matrices_basico`
+  el DSL usa "x" ASCII y el generador "×" Unicode; la normalización
+  en el test convierte "×" → "x" antes del CAS.
+- **Equivalencias no-CAS en algunos casos**: 4 de los 16 subtipos
+  son respuestas de "identificación" (conicas, matrices_basico,
+  identidades_trigonometricas, ecuaciones_trigonometricas). El
+  porting se hizo igualmente porque la respuesta es un string
+  fijo y la DSL lo puede producir igual que el generador. NO son
+  gaps — son ports válidos con comparación `sonEquivalentes`
+  trivial.
+
+**Cierre del porting (eje 2):**
+
+- Álgebra: 18 subtipos (3 WO-11 + 9 WO-11b + 6 WO-11c)
+- Cálculo: 10 de 15 subtipos
+- Análisis: 16 de 16 subtipos (rama basico)
+- **Total: 44 subtipos simbólicos/numéricos en el DSL**
+  (más los 30 numéricos de WO-7/7b/7c en aritmética/química/economía).
+- **Pendientes (~34 subtipos algebra intermedio/avanzado, ~5 cálculo,
+  ~10 análisis intermedio/avanzado):** continuación mecánica con
+  el mismo patrón (oráculo compartido + guard anti-vacío).
 
 ### Otras materias paramétricas
 
