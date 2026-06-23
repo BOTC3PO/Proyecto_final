@@ -14,9 +14,15 @@ import { compile } from "../../src/runtime/compile.js";
 import { validate } from "../../src/validator/validator.js";
 import { MATEMATICAS_ARITMETICA_OFICIALES } from "../../src/templates/matematicas-aritmetica-oficiales.js";
 
-describe("WO-7 / WO-7b: MATEMATICAS_ARITMETICA_OFICIALES", () => {
-  it("expone 22 plantillas con subtipoOriginal del generador de Aritmética", () => {
-    expect(MATEMATICAS_ARITMETICA_OFICIALES).toHaveLength(22);
+describe("WO-7 / WO-7b / WO-7c: MATEMATICAS_ARITMETICA_OFICIALES", () => {
+  it("expone 30 plantillas con subtipoOriginal del generador de Aritmética", () => {
+    // WO-7/7b: 22 plantillas (basico de los 21 subtipos + ramas
+    // adicionales como estadistica_basica_mediana y moda). WO-7c
+    // agregó 8 plantillas de 3ª ola (intermedio/avanzado):
+    //   divisibilidad intermedio/avanzado (2),
+    //   numeros_primos avanzado (1),
+    //   fracciones intermedio (+, -, ×, ÷) y avanzado (5).
+    expect(MATEMATICAS_ARITMETICA_OFICIALES).toHaveLength(30);
     const subtipos = MATEMATICAS_ARITMETICA_OFICIALES
       .map((p) => p.subtipoOriginal)
       .sort();

@@ -1,4 +1,4 @@
-# WO-7 — Porting de generadores paramétricos → plantillas DSL
+# WO-7 / WO-7b / WO-7c — Porting de generadores paramétricos → plantillas DSL
 
 Proceso reproducible para reemplazar un subtipo PARAMÉTRICO de los generadores
 nativos (`apps/web/src/generadoresV2/<materia>/<Clase>.ts`) por una **plantilla
@@ -168,19 +168,26 @@ documentadas y requirieron workarounds:
 
 ---
 
-## 4. Continuación enumerada (trabajo mecánico) — ESTADO POST-WO-7b
+## 4. Continuación enumerada (trabajo mecánico) — ESTADO POST-WO-7c
 
-### `Aritmetica.ts` (21 subtipos; 22 plantillas — todas portadas)
+### `Aritmetica.ts` (30 plantillas tras WO-7c)
 
-Tras WO-7b los 21 subtipos de `Aritmetica.ts` tienen al menos una plantilla.
-El `subtipoOriginal` cubre la fórmula portada, no necesariamente todas las
-ramas del generador. Las ramas alternativas (p. ej. `potencias` avanzado =
-potencia de potencia, `operaciones_basicas` intermedio con ×/÷, `regla_tres`
-inversa, `fracciones` con denominadores distintos o ×/÷, `numeros_primos`
-intermedio = factorización prima) son fórmulas distintas y quedan
-enumeradas abajo como **3ª ola** opcional.
+Tras WO-7b los 21 subtipos de `Aritmetica.ts` tenían al menos una
+plantilla. **WO-7c agregó 8 plantillas de 3ª ola** (ramas intermedio/
+avanzado que ahora entran con los builtins de WO-8):
 
-#### Ramas alternativas pendientes (3ª ola — fórmula distinta, no bug)
+- `divisibilidad` intermedio: MCD/MCM con max=100.
+- `divisibilidad` avanzado: MCD/MCM anidado con 3 números.
+- `numeros_primos` avanzado: MCD/MCM vía factorización.
+- `fracciones` intermedio: denominadores distintos, 4 ramas separadas
+  (`+`, `−`, `×`, `÷`).
+- `fracciones` avanzado: número mixto + simplificación.
+
+**Total: 30 plantillas (WO-7b 22 + WO-7c 8).** Las ramas alternativas
+restantes (fórmulas distintas que requieren más builtins o son
+simbólicas) quedan enumeradas abajo como continuación opcional.
+
+#### Ramas alternativas pendientes (fórmulas distintas, no bug)
 
 - `potencias` avanzado (potencia de potencia `(a^m)^n = a^(m·n)`) e
   intermedio (exponente 0 / negativo).
@@ -196,15 +203,11 @@ enumeradas abajo como **3ª ola** opcional.
   fracción ↔ decimal).
 - `raices` intermedio (simplificación de radicales `√(a²·b) = a·√b`) y
   avanzado (operaciones con radicales — simbólico, otra tarea).
-- `enteros_negativos` intermedio/avanzado (operación y comparar — este
+- `enteros_negativos` intermedio (operación) y avanzado (comparar — este
   último produce respuesta string).
-- `divisibilidad` intermedio/avanzado (3 números, MCD/MCM anidado).
 - `multiplos_divisores` intermedio/avanzado (las otras 2 variantes: "5
   primeros múltiplos" y "¿es múltiplo?" — respuestas string/bool).
-- `fracciones` intermedio/avanzado (denominadores distintos, ×, ÷,
-  número mixto).
-- `numeros_primos` intermedio (factorización prima, respuesta string) y
-  avanzado (MCD/MCM vía factorización, respuesta string).
+- `numeros_primos` intermedio (factorización prima, respuesta string).
 - `sucesiones` intermedio/avanzado (geométrica, encontrar d o r).
 - `series_simples` avanzado (geométrica).
 - `angulos` avanzado (tercer ángulo de triángulo).
@@ -222,6 +225,28 @@ portar los pocos subtipos de respuesta numérica (evaluaciones, raíces
 numéricas de cuadráticas con coeficientes sorteados, límites numéricos) con
 el mismo patrón de WO-7b.
 
+**Estado tras WO-11 (eje simbólico):** la **capacidad simbólica está
+construida** — `respuesta_expr:` + `tipo: expresion` + chequeo de
+equivalencia (`sonEquivalentes`) en el server. Ver
+`docs/vblang/wo-11-eje-simbolico.md` para el diseño. **3 subtipos
+portados como prueba end-to-end** (rama basico):
+
+| subtipoOriginal             | subtipo algebra  | fórmula portada                            |
+|-----------------------------|------------------|--------------------------------------------|
+| `terminos_semejantes`       | basico           | agrupar 2 grupos de coefs en [-5,5]        |
+| `multiplicacion_monomios`   | basico           | distributiva: `m·(c0 + c1·x) = m·c0 + m·c1·x` |
+| `factorizacion_basica`      | basico           | factor común: `k·(a·x + b) = k·a·x + k·b`  |
+
+Equivalencia verificada con `apps/web/.../algebra-equivalencia.spec.ts`
+(oráculo compartido: generador real ≡ oráculo ≡ plantilla).
+
+**Pendiente (≈73 subtipos) — porting mecánico** con el mismo patrón
+de WO-7b (un archivo de plantillas + un test de validez DSL + un test
+de equivalencia). Listado y prioridades en
+`docs/vblang/wo-11-eje-simbolico.md` §8. Subtipo a subtipo se arman
+las ramas de dificultad (basico/intermedio/avanzado); el camino
+crítico es la rama basico de cada uno.
+
 ### Otras materias paramétricas
 
 - **Física** — clasificada limpia, calculadora real. **Cinemática portada
@@ -232,12 +257,19 @@ el mismo patrón de WO-7b.
   (calor, dilatación, cambio de estado) y **Temperatura** (conversiones).
   Siguen el mismo patrón: cada subtipo es `tipo: input` numérico con
   `tolerancia_abs` adecuada, fórmula del `calculadora.ts` ya implementada.
-- **Química** — los paramétricos reales son pocos (los BANCO ya fueron a
-  WO-6). Posibles candidatos: `Gases` (PV=nRT), `Estequiometria`
-  (mol-masa), `Termoquimica` (calor de reacción). Pendiente de
-  investigación.
-- **Economía** — `EconomiaAR` ya portada (F6-04). `Economia` general aún
-  sin explorar.
+- **Química** — `Estequiometria` y `Termoquimica` portada en WO-7c
+  (9 subtipos numéricos en `quimica-estequeometria-oficiales.ts`).
+  Quedan: `Gases` (PV=nRT, en generador pero no portada), `AcidoBase`,
+  `AtomosEnlaces`, `Equilibrio`, `Seguridad` — y las ramas intermedio/
+  avanzado de Estequiometria/Termoquimica (fórmulas distintas,
+  continuación mecánica con el mismo patrón).
+- **Economía** — `EconomiaAR` portada en F6-04. `EconomiaGeneral`
+  portada en WO-7c (11 plantillas numéricas en
+  `economia-general-oficiales.ts`: 8 subtipos + 3 ramas de
+  `porcentajes_simples`). Quedan las ramas MC/conceptuales
+  (`politica_fiscal_monetaria`, `clasificacion_bienes`,
+  `agentes_economicos`, `estructuras_mercado`, `gastos_fijos_variables`,
+  etc.) y las intermedias de `EconomiaAR` (F6-04 cubre solo basico).
 
 ### Gaps de builtins (insumo para WO-8)
 Fórmulas que **no entran** con los builtins actuales (no inventar — anotar).
@@ -295,3 +327,64 @@ Con los builtins nuevos, los siguientes subtipos paramétricos enumerados en
 
 Mientras tanto, los subtipos que dependen de estos gaps se documentan acá y se
 dejan resolviendo por el generador legado (no se fuerzan).
+
+### WO-7c — Cierre del porting NUMÉRICO
+
+**Estado tras WO-7c:** el porting numérico del objetivo B está CERRADO.
+Los subtipos numéricos pendientes de WO-7b/8 fueron portados con el
+mismo patrón (oráculo compartido, `subtipoOriginal` preservado).
+Quedan sólo los subtipos con respuesta SIMBÓLICA (eje 2) que es tarea
+de WO-11 (ver `docs/vblang/wo-11-eje-simbolico.md`).
+
+**Subtipos numéricos portados en WO-7c** (todas las plantillas con
+`subtipoOriginal` apuntando al generador legado y equivalencia
+verificada):
+
+- **Química** (`quimica-estequeometria-oficiales.ts`, 9 plantillas):
+  - Estequiometria basico: `calculo_moles`, `calculo_masa`,
+    `relaciones_molares`, `molaridad`, `diluciones`.
+  - Termoquimica basico: `calor`, `cambio_entalpia`, `energia_reaccion`,
+    `poder_calorifico`.
+- **Economía General** (`economia-general-oficiales.ts`, 11 plantillas):
+  - Numericos: `ganancia_perdida`, `resultado_bruto`, `resultado_neto`,
+    `margen_bruto`, `margen_neto`, `capital_trabajo`, `punto_equilibrio`,
+    `productividad`.
+  - 3 ramas separadas de `porcentajes_simples`: `descuento`, `aumento`,
+    `impuesto`.
+- **3ª ola Aritmética** (8 plantillas en `matematicas-aritmetica-oficiales.ts`):
+  - `divisibilidad` intermedio/avanzado (MCD/MCM con max=100 y anidado).
+  - `numeros_primos` avanzado (MCD/MCM vía factorización).
+  - `fracciones` intermedio (4 ramas: +/−/×/÷ con denominadores distintos)
+    y avanzado (número mixto + simplificación).
+
+**Equivalencia verificada** con 3 archivos de test:
+
+- `apps/web/.../quimica-equivalencia.spec.ts` — 9 subtipos × 50 seeds × 2 mitades.
+- `apps/web/.../economia-equivalencia.spec.ts` — 9 subtipos × 50 seeds × 2 mitades.
+- `apps/web/.../aritmetica-3a-ola-equivalencia.spec.ts` — 2 subtipos × 50 seeds × 2 mitades.
+
+**Ramas pendientes** (no son numéricas — son simbólicas o MC):
+
+- **Álgebra / Cálculo / Análisis** (~76 subtipos) — son el EJE 2, tarea
+  de WO-11 (`respuesta_expr` + equivalencia simbólica).
+- **Química MC** (balanceo, reactivo_limitante, factorización prima
+  como string, etc.) — son ramas distintas con respuesta no numérica.
+- **Economía MC/conceptual** (`politica_fiscal_monetaria`,
+  `clasificacion_bienes`, `agentes_economicos`, `estructuras_mercado`,
+  `gastos_fijos_variables`, etc.) — ramas MC, no numéricas.
+- **3ª ola Aritmética ramas string** (`numeros_primos` intermedio
+  factorización prima, `multiplos_divisores` "5 primeros múltiplos" /
+  "¿es múltiplo?", `enteros_negativos` comparar) — son respuesta
+  string/bool, no numérica.
+- **3ª ola Aritmética ramas restantes** (potencias avanzado,
+  operaciones_basicas ×/÷, regla_tres inversa, etc.) — son fórmulas
+  distintas que requieren más builtins o son simbólicas.
+
+**Patrón de porting remanente**: cualquier subtipo numérico restante
+sigue el patrón `quimica-equivalencia.spec.ts` (oráculo compartido en
+el test) y se agrega a `matematicas-aritmetica-oficiales.ts` /
+`quimica-estequeometria-oficiales.ts` / `economia-general-oficiales.ts`
+como una nueva entrada del array `*_OFICIALES`. Las plantillas
+siguen el formato `metadata:/variables:/respuesta:/tipo: input/
+tolerancia_abs:/enunciado:/pasos:/explicacion:` (ver cualquier
+template existente para el shape exacto).

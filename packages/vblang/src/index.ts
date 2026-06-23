@@ -87,6 +87,19 @@ export { MATEMATICAS_ARITMETICA_OFICIALES } from "./templates/matematicas-aritme
 // `apps/web/.../algebra-equivalencia.spec.ts`.
 export { MATEMATICAS_ALGEBRA_OFICIALES } from "./templates/matematicas-algebra-oficiales.js";
 
+// WO-7c — Plantillas oficiales VBLang (Química: Estequiometría +
+// Termoquímica), porting de 9 subtipos numéricos (no conflictúa
+// con `quimica-oficiales.ts` que es F6-05 de partículas
+// subatómicas y configuración electrónica). Verificación en
+// `apps/web/.../quimica-equivalencia.spec.ts`.
+export { QUIMICA_ESTEQUEOMETRIA_OFICIALES } from "./templates/quimica-estequeometria-oficiales.js";
+
+// WO-7c — Plantillas oficiales VBLang (Economía General), porting
+// de 11 plantillas numéricas (9 subtipos, 3 ramas de
+// `porcentajes_simples` separadas). Verificación en
+// `apps/web/.../economia-equivalencia.spec.ts`.
+export { ECONOMIA_GENERAL_OFICIALES } from "./templates/economia-general-oficiales.js";
+
 // WO-7b — Plantillas oficiales VBLang (Física/Cinemática), porting de MRU,
 // MRUV, caída libre, relación d/v/t y conversión de unidades. Verificación en
 // `apps/web/src/generadoresV2/__tests__/porting-fisica-equivalencia.spec.ts`.

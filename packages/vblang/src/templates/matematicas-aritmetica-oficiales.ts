@@ -652,6 +652,257 @@ explicacion: |
   la moda es {resultado}.
 `;
 
+  // ── WO-7c 3ª ola: ramas intermedio/avanzado con builtins de WO-8 ──────────
+
+  // divisibilidad intermedio: MCD/MCM con max=100 (vs. basico max=20).
+  // El generador sortea 50/50 entre MCD y MCM.
+  const DIVISIBILIDAD_INTERMEDIO_DSL = `metadata:
+  materia: "matematicas"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "mcd", "mcm", "aritmetica"]
+
+variables:
+  a: random(2, 100)
+  b: random(2, 100)
+  ops: [{ label: "MCD", nombre_largo: "máximo común divisor", value: mcd(a, b) }, { label: "MCM", nombre_largo: "mínimo común múltiplo", value: mcm(a, b) }]
+  op: uno_de(ops)
+  resultado: op.value
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Calcula el {op.label}({a}, {b})."
+
+pasos:
+  - "{op.label}({a}, {b}) = {resultado}"
+
+explicacion: |
+  El {op.nombre_largo} ({op.label}) de {a} y {b} es {resultado}. Con
+  números más grandes que en basico, conviene usar el método de
+  factorización prima o el algoritmo de Euclides (MCD).
+`;
+
+  // divisibilidad avanzado: MCD/MCM anidado con 3 números.
+  // El generador sortea 50/50 MCD(mcd(a,b),c) vs MCM(mcm(a,b),c).
+  // OJO: el nombre `c` colisiona con la constante global
+  // `c = 299792458` (velocidad de la luz), por eso usamos `c_num`.
+  const DIVISIBILIDAD_AVANZADO_DSL = `metadata:
+  materia: "matematicas"
+  nivel: "avanzado"
+  tags: ["divisibilidad", "mcd", "mcm", "anidado"]
+
+variables:
+  a: random(2, 20)
+  b: random(2, 20)
+  c_num: random(2, 20)
+  ops: [{ label: "MCD", value: mcd(mcd(a, b), c_num) }, { label: "MCM", value: mcm(mcm(a, b), c_num) }]
+  op: uno_de(ops)
+  resultado: op.value
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Calcula el {op.label}({a}, {b}, {c_num})."
+
+pasos:
+  - "{op.label}({a}, {b}, {c_num}) = {op.label}({op.label}({a}, {b}), {c_num}) = {resultado}"
+
+explicacion: |
+  El {op.label} se aplica de a pares (es asociativo). Calculamos
+  primero {op.label}({a}, {b}) y luego {op.label} del resultado con
+  {c_num}. Resultado: {resultado}.
+`;
+
+  // numeros_primos avanzado: MCD/MCM vía factorización prima.
+  // El generador sortea 50/50 MCD vs MCM, ambos entre 4 y 50.
+  const NUMEROS_PRIMOS_AVANZADO_DSL = `metadata:
+  materia: "matematicas"
+  nivel: "avanzado"
+  tags: ["numeros_primos", "factorizacion", "mcd", "mcm"]
+
+variables:
+  a: random(4, 50)
+  b: random(4, 50)
+  ops: [{ label: "MCD", value: mcd(a, b) }, { label: "MCM", value: mcm(a, b) }]
+  op: uno_de(ops)
+  resultado: op.value
+  fact_a: factorizar(a)
+  fact_b: factorizar(b)
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Usando la factorización prima, calcula el {op.label}({a}, {b})."
+
+pasos:
+  - "{a} = {fact_a}"
+  - "{b} = {fact_b}"
+  - "{op.label}({a}, {b}) = {resultado}"
+
+explicacion: |
+  Factorizamos ambos números y usamos la definición de {op.label}:
+  {a} = {fact_a} y {b} = {fact_b}. Por la factorización, {op.label}({a}, {b}) = {resultado}.
+`;
+
+  // fracciones intermedio: denominadores distintos con operación aleatoria.
+  // El generador sortea entre + − × ÷. Sin ternario, usamos 4 plantillas
+  // separadas (una por operación) con el mismo subtipoOriginal.
+  const FRACCIONES_INTERMEDIO_SUMA_DSL = `metadata:
+  materia: "matematicas"
+  nivel: "intermedio"
+  tags: ["fracciones", "denominadores_distintos", "suma"]
+
+variables:
+  den1: random(2, 8)
+  den2: random(2, 8)
+  n1: random(1, den1)
+  n2: random(1, den2)
+  num: n1 * den2 + n2 * den1
+  den: den1 * den2
+  resultado: fraccion(num, den)
+
+respuesta: resultado
+tipo: completar
+
+enunciado: "¿Cuánto es {n1}/{den1} + {n2}/{den2}?"
+
+pasos:
+  - "MCM({den1}, {den2}) = {den}"
+  - "({n1} × {den2} + {n2} × {den1}) / {den} = {num}/{den}"
+  - "Simplificado: {resultado}"
+
+explicacion: |
+  Sumamos fracciones con denominadores distintos: ({n1} × {den2} + {n2} × {den1}) / ({den1} × {den2}) = {num}/{den} = {resultado}.
+`;
+
+  // fracciones intermedio: resta.
+  // Sorteamos n1, n2 tales que el resultado sea positivo.
+  const FRACCIONES_INTERMEDIO_RESTA_DSL = `metadata:
+  materia: "matematicas"
+  nivel: "intermedio"
+  tags: ["fracciones", "denominadores_distintos", "resta"]
+
+variables:
+  den1: random(2, 8)
+  den2: random(2, 8)
+  n1: random(2, den1)
+  n2: random(1, den2)
+  num: n1 * den2 - n2 * den1
+  den: den1 * den2
+  # Garantizamos que el resultado no sea 0 ni negativo.
+  resultado: fraccion(num, den)
+
+restricciones:
+  - num > 0
+
+respuesta: resultado
+tipo: completar
+
+enunciado: "¿Cuánto es {n1}/{den1} - {n2}/{den2}?"
+
+pasos:
+  - "MCM({den1}, {den2}) = {den}"
+  - "({n1} × {den2} - {n2} × {den1}) / {den} = {num}/{den}"
+  - "Simplificado: {resultado}"
+
+explicacion: |
+  Restamos fracciones con denominadores distintos: ({n1} × {den2} - {n2} × {den1}) / ({den1} × {den2}) = {num}/{den} = {resultado}.
+`;
+
+  // fracciones intermedio: multiplicación.
+  const FRACCIONES_INTERMEDIO_MULT_DSL = `metadata:
+  materia: "matematicas"
+  nivel: "intermedio"
+  tags: ["fracciones", "denominadores_distintos", "multiplicacion"]
+
+variables:
+  den1: random(2, 8)
+  den2: random(2, 8)
+  n1: random(1, den1)
+  n2: random(1, den2)
+  num: n1 * n2
+  den: den1 * den2
+  resultado: fraccion(num, den)
+
+respuesta: resultado
+tipo: completar
+
+enunciado: "¿Cuánto es {n1}/{den1} × {n2}/{den2}?"
+
+pasos:
+  - "({n1} × {n2}) / ({den1} × {den2}) = {num}/{den}"
+  - "Simplificado: {resultado}"
+
+explicacion: |
+  Multiplicamos fracciones: ({n1} × {n2}) / ({den1} × {den2}) = {num}/{den} = {resultado}.
+`;
+
+  // fracciones intermedio: división.
+  // n2/den2 invierte a den2/n2; el numerador puede no ser divisible
+  // por den1 (se simplifica vía fraccion).
+  const FRACCIONES_INTERMEDIO_DIV_DSL = `metadata:
+  materia: "matematicas"
+  nivel: "intermedio"
+  tags: ["fracciones", "denominadores_distintos", "division"]
+
+variables:
+  den1: random(2, 8)
+  den2: random(2, 8)
+  n1: random(1, den1)
+  n2: random(1, den2)
+  # (n1/den1) / (n2/den2) = (n1*den2) / (den1*n2)
+  num: n1 * den2
+  den: den1 * n2
+  resultado: fraccion(num, den)
+
+respuesta: resultado
+tipo: completar
+
+enunciado: "¿Cuánto es ({n1}/{den1}) ÷ ({n2}/{den2})?"
+
+pasos:
+  - "Multiplicar por el recíproco: ({n1}/{den1}) × ({den2}/{n2}) = ({n1} × {den2}) / ({den1} × {n2}) = {num}/{den}"
+  - "Simplificado: {resultado}"
+
+explicacion: |
+  Dividir dos fracciones es multiplicar por el recíproco:
+  ({n1}/{den1}) ÷ ({n2}/{den2}) = ({n1} × {den2}) / ({den1} × {n2}) = {num}/{den} = {resultado}.
+`;
+
+  // fracciones avanzado: número mixto + simplificación.
+  // Convertir `entero num/den` a impropia `entero*den + num` / den.
+  const FRACCIONES_AVANZADO_DSL = `metadata:
+  materia: "matematicas"
+  nivel: "avanzado"
+  tags: ["fracciones", "numero_mixto", "simplificacion"]
+
+variables:
+  entero: random(1, 5)
+  den: random(2, 8)
+  num: random(1, den - 1)
+  n2: random(1, den)
+  improp: entero * den + num
+  num_total: improp + n2
+  resultado: fraccion(num_total, den)
+
+respuesta: resultado
+tipo: completar
+
+enunciado: "Simplifica y calcula: {entero} {num}/{den} + {n2}/{den}."
+
+pasos:
+  - "{entero} {num}/{den} = ({entero} × {den} + {num}) / {den} = {improp}/{den}"
+  - "({improp} + {n2}) / {den} = {num_total}/{den}"
+  - "Simplificado: {resultado}"
+
+explicacion: |
+  Primero convertimos el número mixto a fracción impropia:
+  {entero} {num}/{den} = ({entero} × {den} + {num}) / {den} = {improp}/{den}.
+  Luego sumamos con el mismo denominador: ({improp} + {n2}) / {den} = {num_total}/{den} = {resultado}.
+`;
 export const MATEMATICAS_ARITMETICA_OFICIALES: PlantillaOficial[] = [
   {
     id: "oficial-matematicas-potencias",
@@ -876,5 +1127,88 @@ export const MATEMATICAS_ARITMETICA_OFICIALES: PlantillaOficial[] = [
     tags: ["estadistica_basica", "moda", "estadistica"],
     subtipoOriginal: "estadistica_basica_moda",
     codigoDsl: ESTADISTICA_MODA_DSL,
+  },
+
+
+
+  {
+    id: "oficial-matematicas-divisibilidad-intermedio",
+    nombre: "Divisibilidad: MCD o MCM de dos números (intermedio)",
+    descripcion:
+      "Calcula MCD(a, b) o MCM(a, b) con a, b ∈ [2, 100]. Rama intermedio del subtipo `divisibilidad` (avanzado pide MCD/MCM de 3 números).",
+    materia: "matematicas",
+    tags: ["divisibilidad", "mcd", "mcm", "intermedio"],
+    subtipoOriginal: "divisibilidad",
+    codigoDsl: DIVISIBILIDAD_INTERMEDIO_DSL,
+  },
+  {
+    id: "oficial-matematicas-divisibilidad-avanzado",
+    nombre: "Divisibilidad: MCD o MCM de tres números (avanzado)",
+    descripcion:
+      "Calcula MCD(a, b, c) o MCM(a, b, c) con a, b, c ∈ [2, 20] (anidado por asociatividad). Rama avanzado del subtipo `divisibilidad`.",
+    materia: "matematicas",
+    tags: ["divisibilidad", "mcd", "mcm", "avanzado"],
+    subtipoOriginal: "divisibilidad",
+    codigoDsl: DIVISIBILIDAD_AVANZADO_DSL,
+  },
+  {
+    id: "oficial-matematicas-numeros-primos-avanzado",
+    nombre: "Números primos: MCD o MCM por factorización (avanzado)",
+    descripcion:
+      "Calcula MCD o MCM de dos números en [4, 50] usando factorización prima. Rama avanzado del subtipo `numeros_primos` (intermedio = factorización prima, respuesta string).",
+    materia: "matematicas",
+    tags: ["numeros_primos", "factorizacion", "avanzado"],
+    subtipoOriginal: "numeros_primos",
+    codigoDsl: NUMEROS_PRIMOS_AVANZADO_DSL,
+  },
+  {
+    id: "oficial-matematicas-fracciones-intermedio-suma",
+    nombre: "Fracciones: denominadores distintos — suma",
+    descripcion:
+      "Suma dos fracciones con denominadores distintos (≤ 8) y devuelve la fracción simplificada. Rama del subtipo `fracciones` intermedio (las otras cubren resta, × y ÷).",
+    materia: "matematicas",
+    tags: ["fracciones", "denominadores_distintos", "suma"],
+    subtipoOriginal: "fracciones",
+    codigoDsl: FRACCIONES_INTERMEDIO_SUMA_DSL,
+  },
+  {
+    id: "oficial-matematicas-fracciones-intermedio-resta",
+    nombre: "Fracciones: denominadores distintos — resta",
+    descripcion:
+      "Resta dos fracciones con denominadores distintos. Rama del subtipo `fracciones` intermedio.",
+    materia: "matematicas",
+    tags: ["fracciones", "denominadores_distintos", "resta"],
+    subtipoOriginal: "fracciones",
+    codigoDsl: FRACCIONES_INTERMEDIO_RESTA_DSL,
+  },
+  {
+    id: "oficial-matematicas-fracciones-intermedio-mult",
+    nombre: "Fracciones: denominadores distintos — multiplicación",
+    descripcion:
+      "Multiplica dos fracciones con denominadores distintos. Rama del subtipo `fracciones` intermedio.",
+    materia: "matematicas",
+    tags: ["fracciones", "denominadores_distintos", "multiplicacion"],
+    subtipoOriginal: "fracciones",
+    codigoDsl: FRACCIONES_INTERMEDIO_MULT_DSL,
+  },
+  {
+    id: "oficial-matematicas-fracciones-intermedio-div",
+    nombre: "Fracciones: denominadores distintos — división",
+    descripcion:
+      "Divide dos fracciones con denominadores distintos. Rama del subtipo `fracciones` intermedio.",
+    materia: "matematicas",
+    tags: ["fracciones", "denominadores_distintos", "division"],
+    subtipoOriginal: "fracciones",
+    codigoDsl: FRACCIONES_INTERMEDIO_DIV_DSL,
+  },
+  {
+    id: "oficial-matematicas-fracciones-avanzado",
+    nombre: "Fracciones: número mixto (avanzado)",
+    descripcion:
+      "Convierte un número mixto a fracción impropia y suma con otra fracción. Rama avanzado del subtipo `fracciones`.",
+    materia: "matematicas",
+    tags: ["fracciones", "numero_mixto", "avanzado"],
+    subtipoOriginal: "fracciones",
+    codigoDsl: FRACCIONES_AVANZADO_DSL,
   },
 ];
