@@ -1,0 +1,58 @@
+/* ───────────────────────────────────────────────────────────────────────────
+ * ui/tokens.css — Fundación del rediseño (División 0)
+ *
+ * Tokens ADITIVOS, theme-agnósticos, sobre :root. Se montan ENCIMA de los
+ * 48 tokens existentes (--c-*, --font-*, --r-*) que ya viven en index.css.
+ *
+ * Decisiones (NO re-debatir acá):
+ *   • Densidad:         equilibrada
+ *   • Ratio tipográfico: 1.25 (Major Third) sobre base 16px
+ *   • Ritmo de espaciado: 4px (saltos en 8px, 4px para ajustes finos)
+ *
+ * Reglas:
+ *   • Color SIEMPRE vía --c-* (theme-driven, nunca hardcode).
+ *   • Familias de fuente REUTILIZAN --font-sans / --font-serif / --font-mono.
+ *   • Radios REUTILIZAN --r-sm/md/lg/xl (de index.css).
+ *   • Estos tokens son la única fuente para espaciado / tipografía / elevación.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Espaciado (base 4px, ritmo 8) ────────────────────────────────────── */
+  --space-0: 0;
+  --space-1: 0.25rem;   /*  4px */
+  --space-2: 0.5rem;    /*  8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.5rem;    /* 24px */
+  --space-6: 2rem;      /* 32px */
+  --space-7: 3rem;      /* 48px */
+  --space-8: 4rem;      /* 64px */
+
+  /* ── Tipografía: tamaños (ratio 1.25, base 16px) ──────────────────────── */
+  --text-xs:   0.8rem;     /* ≈12.8px  — captions, hints   */
+  --text-sm:   0.875rem;   /*   14px   — meta, secundario  */
+  --text-base: 1rem;       /*   16px   — cuerpo           */
+  --text-lg:   1.25rem;    /*   20px   — lead             */
+  --text-xl:   1.5625rem;  /* ≈25px    — h3               */
+  --text-2xl:  1.953rem;   /* ≈31.25px — h2               */
+  --text-3xl:  2.441rem;   /* ≈39.06px — h1               */
+
+  /* ── Tipografía: pesos ────────────────────────────────────────────────── */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* ── Tipografía: interlineado (theme-agnóstico) ───────────────────────── */
+  --lh-tight:  1.2;   /* títulos, encabezados densos */
+  --lh-normal: 1.5;   /* cuerpo, default             */
+  --lh-relaxed: 1.65; /* lectura larga, paper        */
+
+  /* ── Elevación (escala suave, theme-agnóstica) ────────────────────────── */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--c-text) 6%, transparent);
+  --shadow-md: 0 2px 4px color-mix(in srgb, var(--c-text) 6%, transparent),
+               0 4px 12px color-mix(in srgb, var(--c-text) 8%, transparent);
+  --shadow-lg: 0 4px 8px color-mix(in srgb, var(--c-text) 8%, transparent),
+               0 12px 32px color-mix(in srgb, var(--c-text) 12%, transparent);
+  /* --shadow-pop: se conserva (definido en index.css). */
+}

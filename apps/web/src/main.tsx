@@ -9,6 +9,9 @@ import "@fontsource/spectral/400.css";
 import "@fontsource/spectral/600.css";
 import "@fontsource/spectral/700.css";
 import "./index.css";
+// Fundación de tokens del rediseño (División 0): escalas aditivas de
+// espaciado, tipografía y elevación. Convive con los --c-* existentes.
+import "./ui/tokens.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode><RouterProvider router={router}/></React.StrictMode>
 );
