@@ -353,6 +353,22 @@ export function generate(
       }
     }
 
+    // WO-11 — evaluar `respuesta_expr:` (debe producir un string con la
+    // expresión algebraica esperada). Se exige `tipo: expresion` y se
+    // rechaza `respuesta:` + `respuesta_expr:` en la misma plantilla
+    // (el parser ya avisa). Aquí validamos el TIPO del valor.
+    let respuestaExprVal: string | undefined;
+    if (compiled.respuestaExpr) {
+      const raw = evaluateExpr(compiled.respuestaExpr, scope, ctx);
+      if (typeof raw !== "string") {
+        throw new EvalError(
+          `respuesta_expr debe evaluar a string, recibió ${typeof raw}`,
+          compiled.respuestaExpr.loc,
+        );
+      }
+      respuestaExprVal = raw;
+    }
+
     let respuestasValidasVals: unknown[] | undefined;
     if (compiled.respuestasValidas) {
       respuestasValidasVals = compiled.respuestasValidas.map((e) => {
@@ -476,6 +492,9 @@ export function generate(
       pistas: pistasTexto,
       explicacion: explicacionTexto,
       respuesta: respuestaVal,
+      // WO-11 — propagar respuesta simbólica cuando aplica. El adapter
+      // la usa para poblar `answerKey` cuando el tipo es `expresion`.
+      ...(respuestaExprVal !== undefined ? { respuestaExpr: respuestaExprVal } : {}),
       respuestasValidas: respuestasValidasVals,
       unidad: compiled.unidad,
       tolerancia: compiled.tolerancia,

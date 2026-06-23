@@ -1,6 +1,7 @@
 import type { PRNG } from "../runtime/prng.js";
 import { EvalError } from "./errors.js";
 import type { IsolatedMath } from "./math-setup.js";
+import { __internals } from "./symbolic.js";
 
 export type BuiltinFn = (...args: unknown[]) => unknown;
 
@@ -311,6 +312,61 @@ export function createBuiltins(
     error: (msg) => {
       throw new EvalError(String(msg));
     },
+
+    // ---- Álgebra simbólica (WO-11) ────────────────────────────────
+    // Reciben strings con notación math.js (ej. "2*x+4", "x^2+1") y
+    // delegan al módulo `symbolic.ts` (que usa su propia instancia de
+    // math.js, no el sandbox del DSL). NO exponen `math.parse` /
+    // `math.evaluate` como builtin (sería un agujero de meta-prog).
+    //
+    // Uso típico:
+    //   derivada: derivar("3*x^2 + 2*x + 5", "x")  → "6*x + 2"
+    //   simplificar: simplificar_expr("x + x")     → "2*x"
+    //   evaluar:  evaluar_en("x^2 + 1", "x", 3)    → 10
+    derivar: (expr, variable) => {
+      if (typeof expr !== "string") {
+        throw new EvalError(`derivar: primer argumento debe ser string`);
+      }
+      if (typeof variable !== "string" || variable === "") {
+        throw new EvalError(`derivar: segundo argumento debe ser string no vacío`);
+      }
+      try {
+        const math = __internals.algebraMath();
+        const node = math.derivative(math.parse(expr), variable);
+        return math.simplify(node).toString();
+      } catch (e) {
+        throw new EvalError(`derivar: ${(e as Error).message}`);
+      }
+    },
+    simplificar_expr: (expr) => {
+      if (typeof expr !== "string") {
+        throw new EvalError(`simplificar_expr: argumento debe ser string`);
+      }
+      try {
+        const math = __internals.algebraMath();
+        return math.simplify(expr).toString();
+      } catch (e) {
+        throw new EvalError(`simplificar_expr: ${(e as Error).message}`);
+      }
+    },
+    evaluar_en: (expr, variable, valor) => {
+      if (typeof expr !== "string") {
+        throw new EvalError(`evaluar_en: primer argumento debe ser string`);
+      }
+      if (typeof variable !== "string" || variable === "") {
+        throw new EvalError(`evaluar_en: segundo argumento debe ser string no vacío`);
+      }
+      const v = valor as number;
+      if (typeof v !== "number" || !Number.isFinite(v)) {
+        throw new EvalError(`evaluar_en: tercer argumento debe ser número finito`);
+      }
+      try {
+        const math = __internals.algebraMath();
+        return math.parse(expr).evaluate({ [variable]: v });
+      } catch (e) {
+        throw new EvalError(`evaluar_en: ${(e as Error).message}`);
+      }
+    },
   };
 }
 
@@ -376,4 +432,8 @@ export const BUILTIN_NAMES: readonly string[] = [
   "unidad",
   // Error invocable
   "error",
+  // Álgebra simbólica (WO-11)
+  "derivar",
+  "simplificar_expr",
+  "evaluar_en",
 ];

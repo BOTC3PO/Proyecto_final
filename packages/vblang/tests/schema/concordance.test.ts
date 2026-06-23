@@ -30,6 +30,7 @@ const KNOWN_BLOCK_KINDS = [
   "variables",
   "restricciones",
   "respuesta",
+  "respuesta_expr",
   "respuestas_validas",
   "unidad",
   "tolerancia",
@@ -75,6 +76,8 @@ const ALL_TIPOS: TipoPregunta[] = [
   "analisis_sintactico",
   "identificar_palabras",
   "abierta",
+  // WO-11 — respuesta simbólica.
+  "expresion",
 ];
 
 describe("schema ↔ parser · cobertura", () => {

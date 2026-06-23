@@ -50,6 +50,36 @@ function enunciadoField(): TextField {
   };
 }
 
+// WO-11 — schema de tipo `expresion` (respuesta simbólica). El alumno
+// escribe una expresión algebraica; la corrección es por equivalencia
+// simbólica (numérica + algebraica vía math.simplify), no por
+// tolerancia numérica ni por igualdad de string. El input esperado
+// es notación math.js: `2*x+4` (no `2x+4`), `x^2+1`, paréntesis
+// para agrupar. Ver `docs/vblang/wo-11-eje-simbolico.md` §4.
+const expresionSchema: QuestionTypeSchema = {
+  tipo: "expresion",
+  label: "Respuesta simbólica (expresión algebraica)",
+  descripcion:
+    "El alumno escribe una expresión algebraica. Se acepta cualquier forma equivalente (ej. '2x+4' y '2(x+2)' cuentan igual); se rechaza si la forma es distinta como función (ej. '2x+4' vs '2x+5').",
+  declaraTipo: false,
+  fields: [
+    enunciadoField(),
+    {
+      kind: "text",
+      key: "respuesta_expr",
+      label: "Expresión esperada",
+      help:
+        "Expresión VBLang que evalúa a un string con notación math.js (ej. '2*x+4', 'x^2+1'). Se compara por equivalencia simbólica.",
+      required: true,
+      block: "respuesta_expr",
+      expression: true,
+    },
+  ],
+  sampleDsl: `enunciado: "Factoriza: 6x + 12"
+respuesta_expr: "6*(x+2)"
+`,
+};
+
 const inputSchema: QuestionTypeSchema = {
   tipo: "input",
   label: "Respuesta numérica / abierta corta",
@@ -363,6 +393,8 @@ export const QUESTION_TYPE_SCHEMAS: Record<TipoPregunta, QuestionTypeSchema> = {
   analisis_sintactico: analisisSintacticoSchema,
   identificar_palabras: identificarPalabrasSchema,
   abierta: abiertaSchema,
+  // WO-11 — respuesta simbólica. Schema aditivo.
+  expresion: expresionSchema,
 };
 
 /** Lista ordenada de tipos soportados por la base "tipo genérico". */
@@ -376,6 +408,8 @@ export const ALL_QUESTION_TYPES: TipoPregunta[] = [
   "analisis_sintactico",
   "identificar_palabras",
   "abierta",
+  // WO-11 — simbólico al final (tipo más nuevo, aún en adopción).
+  "expresion",
 ];
 
 /** Lookup por tipo (helper para el renderer). */

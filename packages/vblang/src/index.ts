@@ -53,6 +53,14 @@ export {
   typeToString,
 } from "./validator/types.js";
 
+// WO-11 — equivalencia simbólica para respuestas algebraicas.
+export {
+  sonEquivalentes,
+  type ResultadoEquivalencia,
+  type MetodoEquivalencia,
+  type EquivalenciaOpts,
+} from "./evaluator/symbolic.js";
+
 export { toModuleQuizQuestion } from "./adapters/to-module-quiz-question.js";
 export { AdapterError } from "./adapters/errors.js";
 
@@ -70,6 +78,14 @@ export { MATEMATICAS_OFICIALES } from "./templates/matematicas-oficiales.js";
 // WO-7 — Plantillas oficiales VBLang (Matemáticas/Aritmética), porting
 // generador paramétrico → plantilla DSL con contrato de equivalencia.
 export { MATEMATICAS_ARITMETICA_OFICIALES } from "./templates/matematicas-aritmetica-oficiales.js";
+
+// WO-11 — Plantillas oficiales VBLang (Matemáticas/Álgebra), porting
+// de los 3 primeros subtipos con respuesta simbólica (terminos_semejantes,
+// multiplicacion_monomios, factorizacion_basica). Verificación end-to-end
+// de la capacidad de equivalencia simbólica. Ver
+// `docs/vblang/wo-11-eje-simbolico.md` y
+// `apps/web/.../algebra-equivalencia.spec.ts`.
+export { MATEMATICAS_ALGEBRA_OFICIALES } from "./templates/matematicas-algebra-oficiales.js";
 
 // WO-7b — Plantillas oficiales VBLang (Física/Cinemática), porting de MRU,
 // MRUV, caída libre, relación d/v/t y conversión de unidades. Verificación en
@@ -186,6 +202,7 @@ export type {
   Plantilla,
   RangeIter,
   RespuestaBloque,
+  RespuestaExprBloque,
   RespuestaIsoBloque,
   RespuestaNombreBloque,
   RespuestaOrdenBloque,

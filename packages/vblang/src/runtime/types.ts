@@ -18,6 +18,15 @@ export interface CompiledPlantilla {
   declaracionesVariables: VariableDecl[];
   restricciones: Expr[];
   respuesta?: Expr;
+  /**
+   * WO-11 — respuesta simbólica (expresión algebraica). El valor
+   * evaluado debe ser un string (notación math.js). El adapter
+   * propaga `questionType: "expresion"` y el server aplica
+   * equivalencia simbólica en vez de igualdad de string o
+   * tolerancia numérica. Ver
+   * `docs/vblang/wo-11-eje-simbolico.md` §4.
+   */
+  respuestaExpr?: Expr;
   respuestasValidas?: Expr[];
   unidad?: string;
   tolerancia?: { valor: number; esPorcentaje: boolean };
@@ -113,6 +122,13 @@ export interface GenerationResult {
   explicacion?: string;
   respuesta?: unknown;
   respuestasValidas?: unknown[];
+  /**
+   * WO-11 — respuesta simbólica evaluada. Mismo `string` que
+   * `respuesta` cuando `tipo === "expresion"`, pero se mantiene
+   * explícito para que el adapter la distinga del caso numérico
+   * (en el futuro podría divergir — p. ej. respuestas múltiples).
+   */
+  respuestaExpr?: string;
   unidad?: string;
   tolerancia?: { valor: number; esPorcentaje: boolean };
   /**

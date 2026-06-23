@@ -42,8 +42,13 @@ export const BUILTIN_SIGNATURES: Record<string, BuiltinSignature> = {
   capitalizar: { params: [T.string], returns: T.string },
   mayusculas: { params: [T.string], returns: T.string },
   minusculas: { params: [T.string], returns: T.string },
+  // WO-11 — `concatenar` acepta number también: la implementación usa
+  // `String(a)`, así que es seguro y permite ensambar strings con
+  // variables numéricas sin necesidad de coerciones explícitas. Esto
+  // desbloquea las plantillas simbólicas de Álgebra que arman la
+  // expresión respuesta con números sorteados.
   concatenar: {
-    params: [T.string],
+    params: [T.union(T.string, T.number)],
     variadic: true,
     returns: T.string,
   },
@@ -133,6 +138,13 @@ export const BUILTIN_SIGNATURES: Record<string, BuiltinSignature> = {
   // Otros
   unidad: { params: [T.string], returns: T.unknown },
   error: { params: [T.string], returns: T.never },
+
+  // Álgebra simbólica (WO-11). Reciben strings (notación math.js) y
+  // delegan en `evaluator/symbolic.ts` (que usa su propia instancia
+  // math.js, no el sandbox del DSL).
+  derivar: { params: [T.string, T.string], returns: T.string },
+  simplificar_expr: { params: [T.string], returns: T.string },
+  evaluar_en: { params: [T.string, T.string, T.number], returns: T.number },
 };
 
 export const MATHJS_SIGNATURES: Record<string, BuiltinSignature> = {

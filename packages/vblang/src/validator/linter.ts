@@ -230,6 +230,24 @@ export function lint(plantilla: Plantilla, opts?: LintOptions): LintReport {
     for (const item of b.items) inferExprType(item, env, ctx);
   }
 
+  // WO-11 — `respuesta_expr:` debe evaluar a string. Si el linter puede
+  // inferir el tipo estáticamente y NO es string, error. Si es
+  // `unknown` (ej. concat de variables), no bloquea (el runtime
+  // validará en `generate()` y fallará con mensaje claro).
+  for (const b of plantilla.bloques) {
+    if (b.kind !== "respuesta_expr") continue;
+    const t = inferExprType(b.expr, env, ctx);
+    if (t.kind === "number" || t.kind === "boolean" || t.kind === "array" || t.kind === "object") {
+      issues.push({
+        severity: "error",
+        code: "respuesta-expr-requires-string",
+        message: `respuesta_expr debe evaluar a string, infiere ${typeToString(t)}`,
+        line: b.loc.line,
+        col: b.loc.col,
+      });
+    }
+  }
+
   // 5) Bloques de respuesta especial — inferir aunque no usemos el tipo todavía
   for (const b of plantilla.bloques) {
     if (
@@ -806,6 +824,30 @@ function lintTiposEspeciales(
         message: "tipo `abierta` requiere `correccion:` en `ninguna` o `manual`",
         line: corr.loc.line,
         col: corr.loc.col,
+      });
+    }
+  } else if (tipo === "expresion") {
+    // WO-11 — `tipo: expresion` requiere `respuesta_expr:` (el parser
+    // ya lo chequea) y NO debe coexistir con `respuesta:` (semánticas
+    // distintas: numérica vs simbólica). Doble check defensivo acá.
+    if (!has("respuesta_expr")) {
+      issues.push({
+        severity: "error",
+        code: "expresion-requires-respuesta-expr",
+        message: "tipo `expresion` requiere `respuesta_expr:`",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+    if (has("respuesta")) {
+      const rb = find("respuesta");
+      issues.push({
+        severity: "error",
+        code: "expresion-cannot-mix-respuesta",
+        message:
+          "`respuesta:` y `respuesta_expr:` no pueden coexistir: el primero es numérico/exacto, el segundo es simbólico",
+        line: rb?.loc.line ?? ploc.line,
+        col: rb?.loc.col ?? ploc.col,
       });
     }
   } else {

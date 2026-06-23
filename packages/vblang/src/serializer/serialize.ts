@@ -326,6 +326,9 @@ function emitBloque(b: Bloque): string {
     }
     case "respuesta":
       return `respuesta: ${emitExpr(b.expr)}`;
+    // WO-11 — respuesta simbólica. Misma forma de surface que `respuesta:`.
+    case "respuesta_expr":
+      return `respuesta_expr: ${emitExpr(b.expr)}`;
     case "respuesta_iso":
       return `respuesta_iso: ${emitExpr(b.expr)}`;
     case "respuesta_nombre":

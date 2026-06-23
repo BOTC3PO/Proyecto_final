@@ -30,6 +30,10 @@ export const RESUMENES_BLOQUES: Record<string, string> = {
   variables: "Declara las variables aleatorias del ejercicio y cómo se sortean.",
   restricciones: "Lista de condiciones booleanas que deben cumplirse; si alguna falla, se vuelve a sortear.",
   respuesta: "Expresión que calcula la respuesta correcta.",
+  // WO-11 — respuesta simbólica. Mismo rol que `respuesta:` pero se
+  // evalúa a un string con notación math.js y se compara por
+  // equivalencia simbólica (numérica + algebraica).
+  respuesta_expr: "Expresión que evalúa a un string con la representación simbólica esperada (tipo `expresion`); se compara por equivalencia algebraica.",
   respuestas_validas: "Lista de respuestas aceptadas como correctas (tipos completar / identificar_palabras).",
   unidad: "Unidad esperada en la respuesta numérica (ej.: m/s).",
   tolerancia: "Margen relativo aceptado al comparar la respuesta numérica, en porcentaje.",

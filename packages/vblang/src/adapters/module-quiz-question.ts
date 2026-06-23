@@ -18,7 +18,13 @@ export type ModuleQuizQuestionType =
   | "marcar_mapa"
   | "analisis_sintactico"
   | "identificar_palabras"
-  | "abierta";
+  | "abierta"
+  /**
+   * WO-11 — respuesta simbólica (expresión algebraica). Se corrige por
+   * equivalencia simbólica (numérica + algebraica vía math.simplify).
+   * Ver `docs/vblang/wo-11-eje-simbolico.md`.
+   */
+  | "expresion";
 
 export interface ModuleQuizQuestion {
   /** ID estable de la pregunta. */

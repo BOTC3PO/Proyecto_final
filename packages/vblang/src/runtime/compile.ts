@@ -37,6 +37,13 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
       case "respuesta":
         compiled.respuesta = b.expr;
         break;
+      case "respuesta_expr":
+        // WO-11 — bloque simbólico. Se almacena en su propio campo para
+        // que el runtime pueda decidir si exigir string y propagar a
+        // `result.respuestaExpr`. No choca con `respuesta:`: el parser
+        // ya valida que no haya ambos en la misma plantilla.
+        compiled.respuestaExpr = b.expr;
+        break;
       case "respuestas_validas":
         compiled.respuestasValidas = b.items;
         break;

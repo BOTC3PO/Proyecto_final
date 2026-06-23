@@ -144,7 +144,14 @@ export type TipoPregunta =
   | "marcar_mapa"
   | "analisis_sintactico"
   | "identificar_palabras"
-  | "abierta";
+  | "abierta"
+  /**
+   * WO-11 — respuesta simbólica (expresión algebraica). Se corrige por
+   * equivalencia simbólica (numérica + algebraica vía math.simplify), no
+   * por igualdad de string ni por tolerancia numérica. Ver
+   * `docs/vblang/wo-11-eje-simbolico.md`.
+   */
+  | "expresion";
 
 /**
  * Modo de corrección de una pregunta `abierta` (WO07):
@@ -214,6 +221,18 @@ export interface RespuestaBloque {
 export interface RespuestasValidasBloque {
   kind: "respuestas_validas";
   items: Expr[];
+  loc: Loc;
+}
+/**
+ * WO-11 — respuesta simbólica. Paralelo a `respuesta:` pero con
+ * semántica explícita: el valor evaluado es un STRING que representa
+ * una expresión algebraica; se compara por equivalencia simbólica
+ * (no por igualdad de string ni por tolerancia numérica). Infiere
+ * `tipoInferido = "expresion"` cuando está presente.
+ */
+export interface RespuestaExprBloque {
+  kind: "respuesta_expr";
+  expr: Expr;
   loc: Loc;
 }
 export interface UnidadBloque {
@@ -354,6 +373,7 @@ export type Bloque =
   | VariablesBloque
   | RestriccionesBloque
   | RespuestaBloque
+  | RespuestaExprBloque
   | RespuestasValidasBloque
   | UnidadBloque
   | ToleranciaBloque

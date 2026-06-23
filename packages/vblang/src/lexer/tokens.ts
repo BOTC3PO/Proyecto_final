@@ -44,6 +44,9 @@ export enum TokenKind {
   KW_VARIABLES = "KW_VARIABLES",
   KW_RESTRICCIONES = "KW_RESTRICCIONES",
   KW_RESPUESTA = "KW_RESPUESTA",
+  // WO-11 — respuesta simbólica (expresión algebraica). Se compara por
+  // equivalencia simbólica (no por string ni por tolerancia numérica).
+  KW_RESPUESTA_EXPR = "KW_RESPUESTA_EXPR",
   KW_RESPUESTAS_VALIDAS = "KW_RESPUESTAS_VALIDAS",
   KW_UNIDAD = "KW_UNIDAD",
   KW_TOLERANCIA = "KW_TOLERANCIA",
@@ -95,6 +98,7 @@ export const BLOCK_KEYWORDS: Record<string, TokenKind> = {
   variables: TokenKind.KW_VARIABLES,
   restricciones: TokenKind.KW_RESTRICCIONES,
   respuesta: TokenKind.KW_RESPUESTA,
+  respuesta_expr: TokenKind.KW_RESPUESTA_EXPR,
   respuestas_validas: TokenKind.KW_RESPUESTAS_VALIDAS,
   unidad: TokenKind.KW_UNIDAD,
   tolerancia: TokenKind.KW_TOLERANCIA,

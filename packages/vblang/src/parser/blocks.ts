@@ -21,6 +21,7 @@ import type {
   PasosBloque,
   PistasBloque,
   RespuestaBloque,
+  RespuestaExprBloque,
   RespuestaIsoBloque,
   RespuestaNombreBloque,
   RespuestaOrdenBloque,
@@ -74,6 +75,9 @@ const VALID_TIPOS: TipoPregunta[] = [
   "analisis_sintactico",
   "identificar_palabras",
   "abierta",
+  // WO-11 — respuesta simbólica (expresión algebraica). Se corrige por
+  // equivalencia simbólica (no por string ni por tolerancia numérica).
+  "expresion",
 ];
 
 const VALID_CORRECCION = new Set(["ninguna", "manual"]);
@@ -282,6 +286,27 @@ export function parseRespuestaBloque(c: TokenCursor): RespuestaBloque {
   const expr = parseExpression(c);
   return {
     kind: "respuesta",
+    expr,
+    loc: spanLoc(tokLoc(kwTok), expr.loc),
+  };
+}
+
+/**
+ * WO-11 — bloque `respuesta_expr:`. Acepta una expresión que evalúa a
+ * un string (la representación textual de la expresión algebraica
+ * esperada). Infiere `tipoInferido = "expresion"` y marca la pregunta
+ * para corrección por equivalencia simbólica. Ver
+ * `docs/vblang/wo-11-eje-simbolico.md` §4.1.
+ */
+export function parseRespuestaExprBloque(c: TokenCursor): RespuestaExprBloque {
+  const kwTok = c.consumeKind(
+    TokenKind.KW_RESPUESTA_EXPR,
+    "'respuesta_expr'",
+  );
+  consumeColon(c);
+  const expr = parseExpression(c);
+  return {
+    kind: "respuesta_expr",
     expr,
     loc: spanLoc(tokLoc(kwTok), expr.loc),
   };
@@ -728,6 +753,7 @@ function isBlockKeyword(k: TokenKind): boolean {
     k === TokenKind.KW_VARIABLES ||
     k === TokenKind.KW_RESTRICCIONES ||
     k === TokenKind.KW_RESPUESTA ||
+    k === TokenKind.KW_RESPUESTA_EXPR ||
     k === TokenKind.KW_RESPUESTAS_VALIDAS ||
     k === TokenKind.KW_UNIDAD ||
     k === TokenKind.KW_TOLERANCIA ||
@@ -940,6 +966,8 @@ export function parseBloque(c: TokenCursor): Bloque {
       return parseRestriccionesBloque(c);
     case TokenKind.KW_RESPUESTA:
       return parseRespuestaBloque(c);
+    case TokenKind.KW_RESPUESTA_EXPR:
+      return parseRespuestaExprBloque(c);
     case TokenKind.KW_RESPUESTAS_VALIDAS:
       return parseRespuestasValidasBloque(c);
     case TokenKind.KW_UNIDAD:

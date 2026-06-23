@@ -36,6 +36,7 @@ function mapTipo(tipo: GenerationResult["tipo"]): ModuleQuizQuestionType {
     case "analisis_sintactico":
     case "identificar_palabras":
     case "abierta":
+    case "expresion":
       return tipo;
     default:
       throw new AdapterError(
@@ -63,6 +64,12 @@ function mapAnswerKey(gen: GenerationResult): string | string[] | undefined {
   }
   if (gen.respuestasValidas && gen.respuestasValidas.length > 0) {
     return gen.respuestasValidas.map((v) => formatoDefault(v));
+  }
+  // WO-11 — para `tipo: expresion` propagamos el string de la expresión
+  // simbólica esperada. El server usará equivalencia simbólica (no
+  // tolerancia numérica ni igualdad de string) para corregir.
+  if (gen.tipo === "expresion" && gen.respuestaExpr !== undefined) {
+    return gen.respuestaExpr;
   }
   if (gen.respuesta !== undefined) {
     return formatoDefault(gen.respuesta);
@@ -217,7 +224,12 @@ export function toModuleQuizQuestion(
   if (explanation !== undefined) result.explanation = explanation;
 
   const tolRel = mapTolerancia(gen);
-  if (tolRel !== undefined) result.toleranciaRelativa = tolRel;
+  // WO-11 — `expresion` no usa tolerancia numérica. La corrección es
+  // por equivalencia simbólica (numérica + algebraica) implementada en
+  // el server. Si por bug se cuela una tolerancia, la descartamos.
+  if (tolRel !== undefined && gen.tipo !== "expresion") {
+    result.toleranciaRelativa = tolRel;
+  }
 
   // F2-04: tolerancia absoluta. Si la plantilla la declara, se propaga tal
   // cual (siempre es absoluta, sin esPorcentaje). Default ausente = 0,

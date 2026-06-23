@@ -37,6 +37,10 @@ import { computeGradeRange } from "../lib/gradeRange";
 import {
   gradeFromConfig,
   getScoringSystem,
+  // WO-11 — chequeo de equivalencia simbólica para `questionType: "expresion"`.
+  // El server delega en el paquete; si la importación falla (versión vieja),
+  // el `gradeSymbolic` local cae a igualdad de string.
+  sonEquivalentes as sonEquivalentesVblang,
   type ModuleQuizQuestion,
   type ScoringConfig
 } from "@vb/vblang";
@@ -70,6 +74,12 @@ type ModuleQuiz = {
     toleranciaAbsoluta?: number;
     /** Peso de la pregunta en el puntaje (default 1). Composición a nivel quiz. */
     points?: number;
+    /**
+     * WO-11 — tipo de pregunta. Si es `"expresion"`, la corrección es por
+     * equivalencia simbólica (no numérica). Default ausente = numérico.
+     * Ver `docs/vblang/wo-11-eje-simbolico.md` §6.
+     */
+    questionType?: string;
     /** WO07 — abierta: modo de corrección (`ninguna` no puntúa, `manual` la corrige el profe). */
     correccion?: "ninguna" | "manual";
     /** WO07 — abierta+manual: el ítem queda pendiente de corrección al enviar. */
@@ -403,6 +413,11 @@ type SubmitPayload = {
      * template la declara). El server la usa con el criterio combinado.
      */
     toleranciaAbsoluta?: number;
+    /**
+     * WO-11 — tipo de pregunta. `"expresion"` activa equivalencia
+     * simbólica en el grader. Ver `docs/vblang/wo-11-eje-simbolico.md`.
+     */
+    questionType?: string;
     correccion?: "ninguna" | "manual";
     manualGrading?: boolean;
     prompt?: string;
@@ -483,6 +498,8 @@ const serverQuestionToGradable = (
   // F2-04: el server debe propagar la tolerancia absoluta al grader cuando
   // materializa la pregunta (autoridad server-side desde V2-06).
   if (sq.toleranciaAbsoluta !== undefined) q.toleranciaAbsoluta = sq.toleranciaAbsoluta;
+  // WO-11 — propagar questionType (ej. "expresion" → equivalencia simbólica).
+  if (sq.questionType !== undefined) q.questionType = sq.questionType;
   if (sq.points !== undefined) q.points = sq.points;
   if (sq.correccion !== undefined) q.correccion = sq.correccion;
   if (sq.manualGrading !== undefined) q.manualGrading = sq.manualGrading;
@@ -609,6 +626,35 @@ const gradeNumeric = (
   return diff <= tol;
 };
 
+/**
+ * WO-11 — corrector simbólico. Compara dos strings-expresión por
+ * equivalencia algebraica (no por igualdad de string ni por
+ * tolerancia numérica). Ver `docs/vblang/wo-11-eje-simbolico.md` §6.
+ *
+ * Delega en el paquete `@vb/vblang` (`sonEquivalentes`). Si el
+ * paquete está desactualizado y no exporta la función (defensa
+ * contra versiones anteriores), cae a igualdad de string.
+ */
+const gradeSymbolic = (response: string, expected: string): boolean => {
+  // Trim + colapso de espacios antes de delegar — coherente con la
+  // normalización trivial de la función del paquete.
+  const norm = (s: string) => s.replace(/\s+/g, " ").trim();
+  const r = norm(response);
+  const e = norm(expected);
+  if (r === e) return true;
+  if (r === "" || e === "") return false;
+  if (typeof sonEquivalentesVblang !== "function") {
+    // Fallback conservador: igualdad exacta (sin equivalencia simbólica).
+    // El alumno debe tipear EXACTAMENTE la forma esperada.
+    return r === e;
+  }
+  try {
+    return sonEquivalentesVblang(r, e).eq;
+  } catch {
+    return false;
+  }
+};
+
 // Peso (puntaje) de una pregunta: su `points` propio, o el peso por defecto de
 // la composición del quiz, o 1. Si nada lo declara, el grading es idéntico al
 // histórico (maxScore = cantidad de preguntas).
@@ -663,6 +709,14 @@ const gradeAnswers = (
       continue;
     }
     if (typeof response === "string") {
+      // WO-11 — para `questionType: "expresion"` la corrección es por
+      // equivalencia simbólica (numérica + algebraica). Se ignora
+      // `toleranciaRelativa`/`toleranciaAbsoluta` (no aplican a
+      // strings-expresión). Ver `docs/vblang/wo-11-eje-simbolico.md` §6.
+      if (question.questionType === "expresion") {
+        if (gradeSymbolic(response, expected)) score += weight;
+        continue;
+      }
       const tol = question.toleranciaRelativa;
       // F2-04: si tol_abs está presente, el criterio combinado aplica
       // aunque tol_rel sea 0 (ej. tol_abs 0.001, tol_rel undefined).
@@ -710,14 +764,20 @@ const buildFeedback = (
           Array.from(expectedSet).every((value) => responseSet.has(value));
       }
     } else if (typeof response === "string") {
-      const tol = question.toleranciaRelativa;
-      // F2-04: idem gradeAnswers — criterio combinado tol_rel/tol_abs.
-      const tolAbs = question.toleranciaAbsoluta ?? 0;
-      correct = tol !== undefined && tol > 0
-        ? gradeNumeric(response, expected, tol, tolAbs)
-        : tolAbs > 0
-          ? gradeNumeric(response, expected, 0, tolAbs)
-          : response === expected;
+      // WO-11 — ver `gradeAnswers` arriba. Para expresiones, la
+      // corrección es por equivalencia simbólica.
+      if (question.questionType === "expresion") {
+        correct = gradeSymbolic(response, expected);
+      } else {
+        const tol = question.toleranciaRelativa;
+        // F2-04: idem gradeAnswers — criterio combinado tol_rel/tol_abs.
+        const tolAbs = question.toleranciaAbsoluta ?? 0;
+        correct = tol !== undefined && tol > 0
+          ? gradeNumeric(response, expected, tol, tolAbs)
+          : tolAbs > 0
+            ? gradeNumeric(response, expected, 0, tolAbs)
+            : response === expected;
+      }
     }
     feedback[question.id] = {
       correct,
