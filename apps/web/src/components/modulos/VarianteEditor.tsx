@@ -33,8 +33,23 @@ import {
   type BancoCatalogEntry,
 } from "../../generadoresV2/basic/banco";
 import PlantillaEditorSchema from "../vblang/PlantillaEditorSchema";
+import EditorPlantilla from "../../editor/EditorPlantilla";
 import PlantillaSelectorModal from "../vblang/PlantillaSelectorModal";
 import GeneradorPicker from "../vblang/GeneradorPicker";
+
+/**
+ * WO-D2 — flag de swap del editor reconstruido. Aditivo y reversible: por
+ * defecto se monta el editor viejo (`PlantillaEditorSchema`); con
+ * `?editorV2=1` en la URL se monta el nuevo (`EditorPlantilla`, drop-in sobre
+ * primitivos). El editor viejo no se modifica ni se elimina.
+ */
+function useEditorV2Flag(): boolean {
+  try {
+    return new URLSearchParams(window.location.search).get("editorV2") === "1";
+  } catch {
+    return false;
+  }
+}
 
 /** Pregunta del banco del quiz (id + enunciado) para el selector de origen `banco`. */
 export interface BancoQuestion {
@@ -677,16 +692,20 @@ function PlantillaInlineEditor({
     }
   };
 
+  const editorV2 = useEditorV2Flag();
+  const handlePlantillaChange = (next: Plantilla) => {
+    setCodigo(serialize(next));
+    setDirty(true);
+    setGuardado(null);
+  };
+
   return (
     <div className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] p-2">
-      <PlantillaEditorSchema
-        plantilla={ast}
-        onChange={(next) => {
-          setCodigo(serialize(next));
-          setDirty(true);
-          setGuardado(null);
-        }}
-      />
+      {editorV2 ? (
+        <EditorPlantilla plantilla={ast} onChange={handlePlantillaChange} />
+      ) : (
+        <PlantillaEditorSchema plantilla={ast} onChange={handlePlantillaChange} />
+      )}
       <div className="mt-2 flex items-center gap-2">
         <button
           type="button"

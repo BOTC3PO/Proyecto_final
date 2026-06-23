@@ -63,7 +63,7 @@ const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
         "aria-invalid": isInvalid || (child.props as { "aria-invalid"?: boolean })["aria-invalid"] || undefined,
         "aria-describedby": describedBy,
         ...(("invalid" in (child.props as Record<string, unknown>))
-          ? { invalid: (child.props as { invalid?: boolean }).invalid ?? isInvalid }
+          ? { invalid: isInvalid || !!(child.props as { invalid?: boolean }).invalid }
           : {}),
       } as Record<string, unknown>)
     : child;
