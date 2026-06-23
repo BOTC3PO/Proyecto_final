@@ -28,6 +28,11 @@ import type {
   ShapeBlock,
   TableBlock,
   TextBlock,
+  AudioBlock,
+  VideoBlock,
+  PdfBlock,
+  LinkBlock,
+  FormulaBlock,
 } from "../types";
 import { createEmptyBlockDocument } from "../utils";
 import { TextBlockRenderer } from "../renderers/TextBlockRenderer";
@@ -37,6 +42,11 @@ import { ChartBlockRenderer } from "../renderers/ChartBlockRenderer";
 import { FlowBlockRenderer } from "../renderers/FlowBlockRenderer";
 import { MathBlockRenderer } from "../renderers/MathBlockRenderer";
 import { ShapeBlockRenderer } from "../renderers/ShapeBlockRenderer";
+import { AudioBlockRenderer } from "../renderers/AudioBlockRenderer";
+import { VideoBlockRenderer } from "../renderers/VideoBlockRenderer";
+import { PdfBlockRenderer } from "../renderers/PdfBlockRenderer";
+import { LinkBlockRenderer } from "../renderers/LinkBlockRenderer";
+import { FormulaBlockRenderer } from "../renderers/FormulaBlockRenderer";
 import {
   TextBlockEditor,
   LatexBlockEditor,
@@ -48,6 +58,11 @@ import {
   FlowBlockEditor,
   MathBlockEditor,
   ShapeBlockEditor,
+  AudioBlockEditor,
+  VideoBlockEditor,
+  PdfBlockEditor,
+  LinkBlockEditor,
+  FormulaBlockEditor,
 } from "../editors";
 import { FunctionSquare, Shapes } from "lucide-react";
 
@@ -88,6 +103,16 @@ function blockIcon(type: Block["type"]): string {
       return "◈";
     case "image":
       return "🖼";
+    case "audio":
+      return "🔊";
+    case "video":
+      return "▶";
+    case "pdf":
+      return "📄";
+    case "link":
+      return "🔗";
+    case "formula":
+      return "∫";
     default:
       return "·";
   }
@@ -111,6 +136,16 @@ function blockTypeName(type: Block["type"]): string {
       return "Formas";
     case "image":
       return "Imagen";
+    case "audio":
+      return "Audio";
+    case "video":
+      return "Video";
+    case "pdf":
+      return "PDF";
+    case "link":
+      return "Enlace";
+    case "formula":
+      return "Fórmula";
     default:
       return type;
   }
@@ -140,6 +175,16 @@ function blockPreview(block: Block): string {
         : block.collection;
     case "image":
       return (block as ImageBlock).alt?.slice(0, 30) || "(sin descripción)";
+    case "audio":
+      return (block as AudioBlock).alt?.slice(0, 30) || "(sin descripción)";
+    case "video":
+      return (block as VideoBlock).alt?.slice(0, 30) || (block as VideoBlock).url.slice(0, 30) || "(sin descripción)";
+    case "pdf":
+      return (block as PdfBlock).title?.slice(0, 30) || (block as PdfBlock).url.slice(0, 30) || "(sin título)";
+    case "link":
+      return (block as LinkBlock).title?.slice(0, 30) || (block as LinkBlock).url.slice(0, 30) || "(sin título)";
+    case "formula":
+      return ((block as FormulaBlock).title?.slice(0, 30)) || (block as FormulaBlock).content.slice(0, 30) || "(vacío)";
     default:
       return "";
   }
@@ -328,6 +373,11 @@ const BLOCK_TYPES_MENU = [
   { type: "math" as Block["type"], label: "Función f(x)", icon: "f" },
   { type: "shape" as Block["type"], label: "Formas", icon: "◈" },
   { type: "image" as Block["type"], label: "Imagen", icon: "🖼" },
+  { type: "audio" as Block["type"], label: "Audio", icon: "🔊" },
+  { type: "video" as Block["type"], label: "Video", icon: "▶" },
+  { type: "pdf" as Block["type"], label: "PDF", icon: "📄" },
+  { type: "link" as Block["type"], label: "Enlace", icon: "🔗" },
+  { type: "formula" as Block["type"], label: "Fórmula", icon: "∫" },
 ];
 
 function AddBlockBetween({ onAdd }: { onAdd: (type: Block["type"]) => void }) {
@@ -439,6 +489,16 @@ function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument 
         </figure>
       );
     }
+    case "audio":
+      return <AudioBlockRenderer block={block} />;
+    case "video":
+      return <VideoBlockRenderer block={block} />;
+    case "pdf":
+      return <PdfBlockRenderer block={block} />;
+    case "link":
+      return <LinkBlockRenderer block={block} />;
+    case "formula":
+      return <FormulaBlockRenderer block={block} />;
     default:
       return <div className="text-xs text-[var(--c-muted)]">Bloque desconocido</div>;
   }
@@ -930,6 +990,12 @@ export default function BlockEditorPage({
     { type: "flow", label: "Flujo" },
     { type: "math", label: "Función f(x)" },
     { type: "shape", label: "Formas", icon: <Shapes size={14} className="text-indigo-500 flex-shrink-0" /> },
+    { type: "image", label: "Imagen" },
+    { type: "audio", label: "Audio" },
+    { type: "video", label: "Video" },
+    { type: "pdf", label: "PDF" },
+    { type: "link", label: "Enlace" },
+    { type: "formula", label: "Fórmula" },
   ];
 
   return (
@@ -1354,6 +1420,36 @@ export default function BlockEditorPage({
                     </div>
                   );
                 })()}
+                {selectedBlock.type === "audio" && (
+                  <AudioBlockEditor
+                    block={selectedBlock as AudioBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+                {selectedBlock.type === "video" && (
+                  <VideoBlockEditor
+                    block={selectedBlock as VideoBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+                {selectedBlock.type === "pdf" && (
+                  <PdfBlockEditor
+                    block={selectedBlock as PdfBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+                {selectedBlock.type === "link" && (
+                  <LinkBlockEditor
+                    block={selectedBlock as LinkBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+                {selectedBlock.type === "formula" && (
+                  <FormulaBlockEditor
+                    block={selectedBlock as FormulaBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
               </InspectorCard>
             ) : (
               /* ── No block selected: show document info + hint ── */

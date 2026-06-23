@@ -12,6 +12,11 @@ export type Block =
   | MathBlock
   | ShapeBlock
   | ImageBlock
+  | AudioBlock
+  | VideoBlock
+  | PdfBlock
+  | LinkBlock
+  | FormulaBlock
 
 export type TextBlock = {
   id: string
@@ -140,4 +145,73 @@ export type ImageBlock = {
   alt: string           // descripción para TTS y accesibilidad
   caption?: string      // pie de foto visible
   width?: "small" | "medium" | "full"
+}
+
+/**
+ * Bloque de audio (idiomas, dictados, podcasts, etc.). Acepta una URL
+ * servida por nosotros (`/api/media/...`) o un enlace externo. El editor
+ * permite subir un archivo a través de `POST /api/media/upload` con
+ * validación de tipo (audio/*) y tamaño.
+ */
+export type AudioBlock = {
+  id: string
+  type: "audio"
+  url: string            // URL del audio
+  alt: string            // descripción para TTS y accesibilidad (transcripción opcional)
+  caption?: string       // pie/leyenda visible
+  mimeType?: string      // ej. "audio/mpeg", opcional, se detecta en la subida
+}
+
+/**
+ * Bloque de video. Acepta URL a archivo (`/api/media/...`) o embed
+ * (YouTube/Vimeo) — el editor distingue por patrón. Tier 1: player
+ * nativo `<video>`; el embed externo se renderiza como `<iframe>`.
+ */
+export type VideoBlock = {
+  id: string
+  type: "video"
+  url: string            // URL al archivo o al embed
+  alt: string            // descripción para TTS
+  caption?: string
+  provider?: "file" | "youtube" | "vimeo"   // detectado en editor si vacío
+}
+
+/**
+ * Bloque PDF. Visor embebido (`<iframe>`) + link de descarga. URL
+ * servida por el backend o enlace externo válido.
+ */
+export type PdfBlock = {
+  id: string
+  type: "pdf"
+  url: string
+  title: string          // texto del link de descarga
+  caption?: string
+}
+
+/**
+ * Bloque enlace (link con título/descripción). No requiere subida —
+ * URL externa o interna. WCAG: el `href` debe ser válido y `title`
+ * no vacío.
+ */
+export type LinkBlock = {
+  id: string
+  type: "link"
+  url: string
+  title: string          // texto del ancla
+  description?: string   // subtítulo/línea secundaria
+}
+
+/**
+ * Bloque fórmula. Es la "vista adjunto" de la fórmula: la fuente de
+ * verdad sigue siendo LaTeX (`LatexBlock`), pero este bloque permite
+ * mostrarla destacada con un título (ej. "Teorema de Pitágoras").
+ * Internamente reusa el renderer de KaTeX.
+ */
+export type FormulaBlock = {
+  id: string
+  type: "formula"
+  content: string        // fuente LaTeX
+  displayMode: boolean   // true = bloque centrado
+  title?: string         // etiqueta visible encima
+  alt: string            // descripción (lectura por TTS) — requerida
 }

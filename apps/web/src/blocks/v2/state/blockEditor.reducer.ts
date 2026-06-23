@@ -95,6 +95,46 @@ function createDefaultBlock(blockType: Block["type"]): Block {
         caption: "",
         width: "medium",
       } satisfies ImageBlock;
+    case "audio":
+      return {
+        id,
+        type: "audio",
+        url: "",
+        alt: "",
+        caption: "",
+      };
+    case "video":
+      return {
+        id,
+        type: "video",
+        url: "",
+        alt: "",
+        caption: "",
+        provider: "file",
+      };
+    case "pdf":
+      return {
+        id,
+        type: "pdf",
+        url: "",
+        title: "Documento PDF",
+      };
+    case "link":
+      return {
+        id,
+        type: "link",
+        url: "",
+        title: "",
+        description: "",
+      };
+    case "formula":
+      return {
+        id,
+        type: "formula",
+        content: "E = mc^2",
+        displayMode: true,
+        alt: "Fórmula matemática",
+      };
     default: {
       const _never: never = blockType;
       return _never;
