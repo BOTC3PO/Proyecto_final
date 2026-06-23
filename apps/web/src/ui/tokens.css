@@ -56,3 +56,12 @@
                0 12px 32px color-mix(in srgb, var(--c-text) 12%, transparent);
   /* --shadow-pop: se conserva (definido en index.css). */
 }
+
+/* ── Placeholder accesible (theme-driven) ────────────────────────────────
+ * Alimenta los <input>/<textarea> del rediseño sin hardcodear color.
+ * --c-hint ya está calibrado para ≥4.5:1 (ver index.css).
+ * ────────────────────────────────────────────────────────────────────── */
+::placeholder {
+  color: var(--c-hint);
+  opacity: 1;
+}
