@@ -165,12 +165,14 @@ describe("QuizPosicionesEditor", () => {
     // Expandir la posición para que `renderVarianteEditor` monte el editor.
     await user.click(screen.getByRole("button", { name: /^Posición 1\./ }));
 
-    // El editor de pregunta de WO-1 se monta tras cargar el DSL.
+    // El editor de pregunta se monta tras cargar el DSL. Tras WO-D5 el editor
+    // nuevo (`editor-plantilla-v2`) es el default; el viejo
+    // (`vblang-schema-editor`) queda accesible por flag inverso.
     await waitFor(() =>
       expect(io.load).toHaveBeenCalledWith("pl-7"),
     );
     await waitFor(() =>
-      expect(screen.getByTestId("vblang-schema-editor")).toBeInTheDocument(),
+      expect(screen.getByTestId("editor-plantilla-v2")).toBeInTheDocument(),
     );
   });
 

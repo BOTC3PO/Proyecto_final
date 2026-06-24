@@ -19,6 +19,7 @@ import {
   inferTipoVar,
   formatValor,
 } from "../../components/vblang/PlantillaEditorSchema";
+import { useFieldError } from "../LintContext";
 
 export type VariablesFieldProps = {
   plantilla: Plantilla;
@@ -367,7 +368,11 @@ export default function VariablesField({
   };
 
   return (
-    <FieldGroup label="Variables" help="Variables declaradas que se evalúan aleatoriamente en cada instancia.">
+    <FieldGroup
+      label="Variables"
+      help="Variables declaradas que se evalúan aleatoriamente en cada instancia."
+      error={useFieldError("variables")}
+    >
       <ul style={listStyle} aria-label="Variables de la plantilla">
         {variables.map((d, idx) => (
           <VariableCardV2

@@ -21,10 +21,15 @@
  *   • mapa avanzado — mapa + respuesta (iso/nombre + modoRespuesta) + encuadre.
  *   • dataset — bloque `dataset:` con el `DatasetExplorer` reusado.
  *
- * Preservados read-only (pendientes D5): etiquetas + diccionario, lint inline.
+ * Slice D5 = paridad:
+ *   • etiquetas + diccionario (análisis sintáctico / identificar_palabras) con
+ *     `PalabraCombobox`/`LangSelector` reusados.
+ *   • lint inline por campo (validador + `lintFieldMap` → `Field.error`) +
+ *     panel resumen. Al cerrar D5 hay paridad y el flag vuelca al nuevo.
  */
-import { useRef, type CSSProperties } from "react";
+import { useMemo, useRef, useState, type CSSProperties } from "react";
 import {
+  lint,
   QUESTION_TYPE_SCHEMAS,
   type Bloque,
   type ListField,
@@ -33,10 +38,15 @@ import {
 import type { Field } from "@vb/vblang";
 import { Alert, Radio, RadioGroup } from "../ui";
 import Section from "./Section";
+import LangSelector from "../components/vblang/LangSelector";
+import { LangContext } from "./LangContext";
+import { LintFieldsContext } from "./LintContext";
+import LintPanel from "./LintPanel";
 import TipoSelector from "./fields/TipoSelector";
 import EnunciadoField, { type EnunciadoFieldHandle } from "./fields/EnunciadoField";
 import FieldControl from "./fields/FieldControl";
 import OpcionesField from "./fields/OpcionesField";
+import EtiquetasField from "./fields/EtiquetasField";
 import PuntajePistaField from "./fields/PuntajePistaField";
 import VariablesField from "./fields/VariablesField";
 import VisualField from "./fields/VisualField";
@@ -51,8 +61,10 @@ import {
   applyTipo,
   isGeneradorBase,
 } from "../components/vblang/plantillaFields";
+import { buildFieldErrors } from "../components/vblang/FieldErrorBadge";
 import { getBlock, hasBlock } from "../components/vblang/plantillaAst";
 import { listGeneradores } from "../vblang/listGeneradores";
+import { getGeneradorProvidedVars } from "../vblang/generadorVars";
 
 export interface EditorPlantillaProps {
   plantilla: Plantilla;
@@ -73,6 +85,11 @@ const placeholderStyle: CSSProperties = {
   lineHeight: "var(--lh-normal)",
   color: "var(--c-hint)",
   fontStyle: "italic",
+};
+
+const langBarStyle: CSSProperties = {
+  display: "flex",
+  justifyContent: "flex-end",
 };
 
 /** Bloques del subsistema mapa que `MapaField` reemplaza en el render genérico. */
@@ -106,6 +123,8 @@ const V2_EDITS = new Set<Bloque["kind"]>([
   // D4: subsistemas
   "generador",
   "dataset",
+  // D5: etiquetas + diccionario
+  "etiquetas_pedidas",
 ]);
 
 /** Bloques presentes que este slice NO edita (preservados read-only). */
@@ -124,14 +143,39 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
   const preserved = preservedKinds(plantilla);
   const enunciadoRef = useRef<EnunciadoFieldHandle | null>(null);
   const defaultGeneradorId = listGeneradores()[0]?.id ?? "";
+  const generadorId = getBlock(plantilla, "generador")?.id ?? "";
+
+  // D5: idioma del diccionario, compartido por los `PalabraCombobox` del shell.
+  const [lang, setLang] = useState("es");
 
   const coreFields: Field[] = schema.fields.filter((f) => f.block !== "enunciado");
   const isList = (f: Field): f is ListField => f.kind === "list";
 
   const listFields = coreFields.filter(isList);
   const stringListFields = listFields.filter((f) => f.itemShape === "string");
-  const skippedRichFields = listFields.filter((f) => f.itemShape !== "string");
+  // D5: las listas de etiquetas (`{palabra, etiqueta}`) las edita EtiquetasField.
+  const etiquetaFields = listFields.filter((f) => f.itemShape === "etiqueta");
+  const skippedRichFields = listFields.filter(
+    (f) => f.itemShape !== "string" && f.itemShape !== "etiqueta",
+  );
   const scalarFields = coreFields.filter((f) => !isList(f));
+
+  // D5: tipos de lengua que usan el diccionario (etiquetas o respuestas-palabra).
+  const esLengua = tipo === "analisis_sintactico" || tipo === "identificar_palabras";
+
+  // D5: lint inline. Corremos el validador (generador-aware) y mapeamos cada
+  // issue al campo culpable; los campos leen su error vía LintFieldsContext.
+  const report = useMemo(
+    () =>
+      lint(
+        plantilla,
+        baseGenerador
+          ? { generadorVars: getGeneradorProvidedVars(generadorId) }
+          : undefined,
+      ),
+    [plantilla, baseGenerador, generadorId],
+  );
+  const fieldErrors = useMemo(() => buildFieldErrors(report.issues), [report]);
 
   // D4: para `marcar_mapa`, el subsistema `MapaField` reemplaza el render
   // genérico de los campos `mapa`/`respuesta_iso` (y suma nombre + encuadre).
@@ -159,7 +203,17 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
   };
 
   return (
+    <LangContext.Provider value={lang}>
+    <LintFieldsContext.Provider value={fieldErrors}>
     <div style={shellStyle} data-testid="editor-plantilla-v2">
+      {esLengua ? (
+        <div style={langBarStyle}>
+          <LangSelector value={lang} onChange={setLang} />
+        </div>
+      ) : null}
+
+      <LintPanel report={report} />
+
       <Section
         title="Base de la pregunta"
         description="Definí la respuesta por tipo, o dejá que un generador provea datos y clave."
@@ -233,11 +287,27 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
         </Section>
       ) : null}
 
+      {/* D5: etiquetas (palabra → categoría) con diccionario. */}
+      {!baseGenerador && etiquetaFields.length > 0 ? (
+        <Section
+          title="Etiquetas"
+          description="Pares palabra → etiqueta (la respuesta correcta), con búsqueda en el diccionario."
+        >
+          {etiquetaFields.map((field) => (
+            <EtiquetasField
+              key={field.key}
+              field={field}
+              plantilla={plantilla}
+              onChange={onChange}
+            />
+          ))}
+        </Section>
+      ) : null}
+
       {!baseGenerador && skippedRichFields.length > 0 ? (
         <Alert variant="warning" title="Campos aún no editables en V2">
           {skippedRichFields.map((f) => f.label).join(", ")} se preservan tal cual en
-          el DSL. Editálos desde el editor clásico o el modo código (D5 los
-          migrará).
+          el DSL. Editálos desde el editor clásico o el modo código.
         </Alert>
       ) : null}
 
@@ -290,10 +360,12 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
           <p style={placeholderStyle}>
             Estos bloques están presentes y se preservan intactos en el código:{" "}
             <code>{preserved.join(", ")}</code>. Editalos desde el editor clásico
-            o el modo código. D5 los migrará: etiquetas + diccionario.
+            o el modo código.
           </p>
         </Section>
       ) : null}
     </div>
+    </LintFieldsContext.Provider>
+    </LangContext.Provider>
   );
 }

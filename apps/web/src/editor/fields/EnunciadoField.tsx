@@ -34,6 +34,7 @@ import {
   writeEnunciados,
 } from "../../components/vblang/plantillaAst";
 import { readTextField, writeTextField } from "../../components/vblang/plantillaFields";
+import { errorTextFor, useFieldError, useFieldErrorMap } from "../LintContext";
 
 const schemaEnunciado: TextField = {
   kind: "text",
@@ -94,6 +95,7 @@ const EnunciadoField = forwardRef<EnunciadoFieldHandle, EnunciadoFieldProps>(
   const enunciadosActive = getBlock(plantilla, "enunciados") !== undefined;
   const bufferRef = useRef<BufferedTextHandle | null>(null);
   const variables = extractDeclaredVariables(plantilla);
+  const enunciadoError = useFieldError("enunciado");
 
   // Permite que el GeneradorPicker (base generador) inserte las variables que
   // provee el generador en la posición del caret del enunciado simple.
@@ -129,6 +131,7 @@ const EnunciadoField = forwardRef<EnunciadoFieldHandle, EnunciadoFieldProps>(
         multiline
         rows={4}
         value={value}
+        externalError={enunciadoError}
         commit={(text) => {
           const next = writeTextField(plantilla, schemaEnunciado, text);
           if (next === null) return false;
@@ -190,6 +193,7 @@ function EnunciadosList({
 }) {
   const items = readEnunciados(plantilla);
   const update = (next: string[]) => onChange(writeEnunciados(plantilla, next));
+  const errMap = useFieldErrorMap();
 
   const headStyle: CSSProperties = {
     display: "flex",
@@ -198,40 +202,61 @@ function EnunciadosList({
     gap: "var(--space-2)",
   };
 
+  const variantErrorStyle: CSSProperties = {
+    margin: "var(--space-0)",
+    fontSize: "var(--text-xs)",
+    color: "var(--c-danger)",
+    fontWeight: "var(--fw-medium)",
+    flexBasis: "100%",
+  };
+
   return (
-    <FieldGroup label="Enunciados (variantes)" help="Cada variante acepta {variable}.">
+    <FieldGroup
+      label="Enunciados (variantes)"
+      help="Cada variante acepta {variable}."
+      error={errorTextFor(errMap, "enunciados")}
+    >
       <div style={headStyle}>
         <span style={counterStyle}>
           {items.length} {items.length === 1 ? "variante" : "variantes"}
         </span>
       </div>
       <ul style={listStyle}>
-        {items.map((tmpl, idx) => (
-          <li key={idx} style={rowStyle}>
-            <Input
-              aria-label={`Variante de enunciado ${idx + 1}`}
-              value={tmpl}
-              placeholder="Texto de la variante (acepta {variable})"
-              onChange={(e) => {
-                const next = items.slice();
-                next[idx] = e.target.value;
-                update(next);
-              }}
-            />
-            <Button
-              variant="danger"
-              size="sm"
-              aria-label={`Eliminar variante ${idx + 1}`}
-              disabled={items.length <= 1}
-              onClick={() => {
-                if (items.length <= 1) return;
-                update(items.filter((_, i) => i !== idx));
-              }}
-            >
-              Eliminar
-            </Button>
-          </li>
-        ))}
+        {items.map((tmpl, idx) => {
+          const itemError = errorTextFor(errMap, `enunciados.${idx}`);
+          return (
+            <li key={idx} style={{ ...rowStyle, flexWrap: "wrap" }}>
+              <Input
+                aria-label={`Variante de enunciado ${idx + 1}`}
+                value={tmpl}
+                invalid={itemError != null}
+                placeholder="Texto de la variante (acepta {variable})"
+                onChange={(e) => {
+                  const next = items.slice();
+                  next[idx] = e.target.value;
+                  update(next);
+                }}
+              />
+              <Button
+                variant="danger"
+                size="sm"
+                aria-label={`Eliminar variante ${idx + 1}`}
+                disabled={items.length <= 1}
+                onClick={() => {
+                  if (items.length <= 1) return;
+                  update(items.filter((_, i) => i !== idx));
+                }}
+              >
+                Eliminar
+              </Button>
+              {itemError ? (
+                <p role="alert" style={variantErrorStyle}>
+                  {itemError}
+                </p>
+              ) : null}
+            </li>
+          );
+        })}
       </ul>
       <div style={actionsStyle}>
         <Button variant="ghost" size="sm" onClick={() => update([...items, ""])}>

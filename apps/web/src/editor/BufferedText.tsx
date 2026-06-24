@@ -35,6 +35,11 @@ export type BufferedTextProps = {
   help?: ReactNode;
   /** Mensaje a mostrar cuando `commit` devuelve `false`. */
   errorMessage?: ReactNode;
+  /**
+   * Error externo (ej. lint) a mostrar cuando el buffer NO está localmente
+   * inválido. Pone el control en estado inválido aunque el texto parsee.
+   */
+  externalError?: ReactNode;
   placeholder?: string;
   multiline?: boolean;
   rows?: number;
@@ -54,6 +59,7 @@ const BufferedText = forwardRef<BufferedTextHandle, BufferedTextProps>(
       label,
       help,
       errorMessage,
+      externalError,
       placeholder,
       multiline = false,
       rows,
@@ -117,11 +123,13 @@ const BufferedText = forwardRef<BufferedTextHandle, BufferedTextProps>(
       setInvalid(false);
     };
 
-    const errorNode = invalid ? (errorMessage ?? "Valor inválido") : undefined;
+    const errorNode = invalid
+      ? (errorMessage ?? "Valor inválido")
+      : (externalError ?? undefined);
     const common = {
       value: text,
       placeholder,
-      invalid,
+      invalid: invalid || (!invalid && externalError != null),
       onChange: handleChange,
       onFocus: handleFocus,
       onBlur: handleBlur,

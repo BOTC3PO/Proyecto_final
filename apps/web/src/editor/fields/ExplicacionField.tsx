@@ -4,6 +4,7 @@ import {
   readExplicacion,
   writeExplicacion,
 } from "../../components/vblang/plantillaAst";
+import { useFieldError } from "../LintContext";
 
 export type ExplicacionFieldProps = {
   plantilla: Plantilla;
@@ -21,6 +22,7 @@ export default function ExplicacionField({ plantilla, onChange }: ExplicacionFie
       rows={3}
       value={text}
       placeholder="Ej.: La respuesta correcta es {respuesta} porque…"
+      externalError={useFieldError("explicacion")}
       commit={(next) => {
         onChange(writeExplicacion(plantilla, next));
         return true;

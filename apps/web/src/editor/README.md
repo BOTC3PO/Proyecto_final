@@ -1,9 +1,10 @@
-# editor/ — Editor de plantillas reconstruido (D2 + D3 + D4)
+# editor/ — Editor de plantillas reconstruido (D2 + D3 + D4 + D5 · paridad)
 
 Reconstrucción *strangler* del editor de plantillas VBLang sobre los
 primitivos de `ui/`. **Misma interfaz** que el editor viejo
-(`components/vblang/PlantillaEditorSchema`), montada detrás de un flag —
-convive en paralelo, el viejo sigue siendo el default.
+(`components/vblang/PlantillaEditorSchema`). Con **D5 se alcanzó paridad** y el
+editor nuevo pasó a ser el **default**; el viejo queda accesible por flag
+inverso (`?editorClasico=1`) hasta su retiro.
 
 ```tsx
 import EditorPlantilla from "@/editor/EditorPlantilla";
@@ -82,13 +83,28 @@ lógica y los componentes existentes** (no se reescriben):
 `generador` y `dataset` salen de "preservados" (`V2_EDITS`); round-trip
 idempotente verificado en `__tests__/d4-roundtrip.spec.ts`.
 
-## Qué falta (D5)
+## Qué cubre D5 (etiquetas + diccionario, lint inline · paridad)
 
-Los fields que siguen preservados read-only, pendientes para la última división:
+- **Etiquetas + diccionario** — `EtiquetasField`: lista de pares
+  `{palabra, etiqueta}` (análisis sintáctico) **reusando** `AccessibleList`,
+  `PalabraCombobox` (autocompletado + validación contra el diccionario),
+  `CATEGORIAS_GRAMATICALES`/`sugerirCategoriaGramatical` y
+  `readEtiquetas`/`writeEtiquetas`. El idioma sale del `LangSelector` reusado vía
+  `LangContext` (compartido también con las respuestas-palabra de
+  `identificar_palabras` en `OpcionesField`). `etiquetas_pedidas` sale de
+  preservados (`V2_EDITS`).
+- **Lint inline (transversal)** — el editor corre el validador (`lint`,
+  generador-aware) y mapea cada issue al campo culpable con `lintFieldMap`/
+  `buildFieldErrors` (reusados). El mapa viaja por `LintContext`; cada campo lee
+  su error y lo pasa a `Field.error` (controles únicos) o lo muestra por índice
+  en listas (`enunciados.<i>`, `pistas.<i>`). `BufferedText` aceptó un
+  `externalError` para el lint sin pisar el error de parseo local. `LintPanel`
+  muestra el resumen (≈ `ErrorPanel`, sin quick-fixes/ir-a-línea, que viven en
+  el modo código). Verificado en `__tests__/d5-paridad.spec.tsx`.
 
-- **Etiquetas** — lista `{palabra, etiqueta}` con diccionario (`PalabraCombobox`,
-  `LangSelector`).
-- **Errores de lint inline** (`FieldErrorBadge`), **validación**.
+**Paridad alcanzada**: el editor nuevo cubre todos los tipos + generador + mapa
++ dataset + etiquetas + lint. Pendiente sólo el modo código (no es del form):
+los quick-fixes/ir-a-línea del `ErrorPanel` siguen en la página de código.
 
 ## Archivos
 
@@ -111,43 +127,52 @@ Los fields que siguen preservados read-only, pendientes para la última divisió
 | `fields/GeneradorField.tsx`      | D4: base generador (picker reusado + dificultad).         |
 | `fields/MapaField.tsx`           | D4: mapa + respuesta (iso/nombre) + encuadre.             |
 | `fields/DatasetField.tsx`        | D4: bloque `dataset:` + DatasetExplorer reusado.          |
+| `fields/EtiquetasField.tsx`      | D5: pares palabra→etiqueta + PalabraCombobox/diccionario. |
+| `LangContext.ts`                 | D5: idioma del diccionario (compartido por comboboxes).   |
+| `LintContext.ts`                 | D5: mapa `fieldId → issues` (lint por campo).             |
+| `LintPanel.tsx`                  | D5: resumen de validación (≈ ErrorPanel del form).        |
+| `useEditorClasico.ts`            | Flag de convivencia (nuevo = default; viejo por flag).    |
 
-## Flag de swap (convivencia)
+## Flag de swap (convivencia) — D5: volteado
 
-El montaje está en `components/modulos/VarianteEditor.tsx` (`PlantillaInlineEditor`):
+El editor nuevo es el **default**; el viejo queda accesible por flag inverso.
+La lógica vive en `editor/useEditorClasico.ts` y la consumen los dos montajes
+(`components/modulos/VarianteEditor.tsx` y `pages/PlantillaEditor.tsx`):
 
-- **Default (sin flag):** editor viejo (`PlantillaEditorSchema`).
-- **`?editorV2=1` en la URL:** editor nuevo (`EditorPlantilla`).
+- **Default (sin flag):** editor nuevo (`EditorPlantilla`).
+- **`?editorClasico=1` (o `?editorV2=0`):** editor viejo (`PlantillaEditorSchema`).
 
 ```ts
-function useEditorV2Flag(): boolean {
-  return new URLSearchParams(window.location.search).get("editorV2") === "1";
+export function useEditorClasico(): boolean {
+  if (typeof window === "undefined") return false;
+  const p = new URLSearchParams(window.location.search);
+  return p.get("editorClasico") === "1" || p.get("editorV2") === "0";
 }
 ```
 
-Aditivo y reversible: el editor viejo no se modifica ni se elimina; cambia el
-default cuando el nuevo madure (D5 cubra etiquetas + diccionario y el lint).
+Aditivo y reversible: el viejo no se modifica ni se elimina todavía; el flag
+inverso permite desbloquear una regresión sin redeploy.
 
-## Swap final (cuando toque)
+## Retiro del editor viejo (siguiente paso, fuera de D5)
 
-1. Completar lo que falta en `editor/` (D5: etiquetas + lint inline).
-2. Validar paridad feature-a-feature con el viejo (incluye los specs de
-   `components/vblang/__tests__/`).
-3. Cambiar el default del flag (o eliminar el viejo del montaje).
-4. Migrar los demás puntos de montaje del editor (ej. `NuevaPlantillaWizard`).
+1. Ventana de convivencia con el flag inverso disponible (monitorear regresiones).
+2. Migrar el último montaje pendiente si aplica (`NuevaPlantillaWizard` arranca
+   plantillas nuevas; hoy no monta el form inline).
+3. Eliminar `PlantillaEditorSchema` y el flag inverso; mover a `editor/` los
+   helpers aún importados del viejo (`inferTipoVar`/`formatValor`).
 
-## Átomos usados / faltantes
+## Átomos usados
 
 Usados de `ui/`: `Field`, `Input`, `Textarea`, `Select`, `Switch`, `Button`,
-`Card`, `Badge`, `Alert`, `Checkbox`, `RadioGroup`/`Radio`. D4 no necesitó
-átomos nuevos (el `GeneradorPicker`/`DatasetExplorer` reusados traen su propio
-markup). Si D5 necesita uno (ej. un `Popover`/`Menu` para el diccionario de
-etiquetas, o `Tabs` para la navegación rica), se agregará a `ui/` siguiendo el
-molde de `primitivos.md`.
+`Card`, `Badge`, `Alert`, `Checkbox`, `RadioGroup`/`Radio`. D4/D5 no necesitaron
+átomos nuevos: los componentes reusados (`GeneradorPicker`, `DatasetExplorer`,
+`PalabraCombobox`, `LangSelector`, `AccessibleList`) traen su propio markup.
 
 ## Verificación
 
 - `tsc -b` sin errores nuevos en `editor/` ni `ui/`.
 - `eslint src/editor src/ui` → 0 errores.
-- El editor viejo no se modifica; `PlantillaEditorSchema` sigue intacto.
+- El editor viejo no se modifica; `PlantillaEditorSchema` sigue intacto y
+  accesible por `?editorClasico=1`.
+- Round-trip idempotente (D4: `d4-roundtrip.spec.ts`; D5: `d5-paridad.spec.tsx`).
 - Todo en `editor/` consume primitivos/tokens; cero hardcodeo; multi-tema intacto.
