@@ -1,4 +1,4 @@
-# editor/ — Editor de plantillas reconstruido (División 2)
+# editor/ — Editor de plantillas reconstruido (D2 + D3)
 
 Reconstrucción *strangler* del editor de plantillas VBLang sobre los
 primitivos de `ui/`. **Misma interfaz** que el editor viejo
@@ -18,9 +18,10 @@ que peor se ve y lo más caro de tocar in-place. Acá se reconstruye la UI
 **reutilizando la capa de datos** (`plantillaAst.ts` / `plantillaFields.ts` /
 `exprParse.ts` — lógica pura, sin React) y montándola sobre los átomos del
 rediseño (`Field`, `Input`, `Textarea`, `Select`, `Switch`, `Button`, `Card`,
-`Badge`, `Alert`). No se reescribe el DSL ni se tocan las entrañas del viejo.
+`Badge`, `Alert`, `Checkbox`). No se reescribe el DSL ni se tocan las entrañas
+del viejo.
 
-## Qué cubre este slice (D2)
+## Qué cubre D2 (shell + campos core)
 
 **Shell + campos core**, suficientes para autorar una pregunta básica y
 persistirla:
@@ -39,20 +40,34 @@ persistirla:
 - **Puntaje + pista (metadata)** — `BufferedText` numérico + texto; reusa
   `readPuntaje`/`writePuntaje`/`readPista`/`writePista`.
 
-## Qué falta (D3+)
+## Qué cubre D3 (campos ricos)
 
-Los fields ricos se preservan read-only (se listan en "Bloques preservados")
-para no romper el round-trip. Pendientes para divisiones siguientes:
+- **Variables** — `VariablesField`: declaración de variables (nombre, tipo,
+  rango/valores). Cada variable en un `Card` flat con `Input`/`Select`/`Badge`.
+  Reusa `addVariable`/`updateVariable`/`removeVariable`/`classifyVariable` de
+  `plantillaFields` y `inferTipoVar`/`formatValor` del editor viejo.
+- **Visual** — `VisualField`: selector de kind + editores:
+  - `static-image` (PNG) con `uploadPng` (subida + preview).
+  - `line-chart`, `timeline`, `latex`, `vector-diagram`, `circuit`.
+  Reusa `readVisualRaw`/`writeVisualRaw`/`readVisualKind` de `plantillaAst` y
+  `readStaticImage`/`writeStaticImage`/`removeVisual` de `plantillaFields`.
+- **Explicación** — `ExplicacionField`: texto interpolable, reusa
+  `readExplicacion`/`writeExplicacion`.
+- **Restricciones** — `RestriccionesField`: lista de fórmulas, reusa
+  `readRestricciones`/`writeRestricciones`.
+- **Pistas escalonadas** — `PistasField`: lista ordenada interpolable, reusa
+  `readPistas`/`writePistas`.
+
+## Qué falta (D4+)
+
+Los fields que siguen preservados read-only, pendientes para divisiones
+siguientes:
 
 - **Base generador** — `GeneradorPicker`, variables provistas, dificultad.
-- **Variables** — editor de variables (`VariablesEditor`).
-- **Visual** — imagen PNG, gráficos, latex, timeline.
 - **Mapa avanzado** — encuadre, respuesta_nombre (el `mapa` enum básico sí
   está en D2).
-- **Pistas escalonadas** (`pistas:` plural), **restricciones**, **explicación**.
 - **Etiquetas** (lista `{palabra, etiqueta}` con diccionario), **dataset**.
 - **Errores de lint inline** (`FieldErrorBadge`), **validación**.
-- **Subida de media** (`uploadPng`).
 
 ## Archivos
 
@@ -67,6 +82,11 @@ para no romper el round-trip. Pendientes para divisiones siguientes:
 | `fields/FieldControl.tsx`        | Renderer genérico text/number/bool/enum.                  |
 | `fields/OpcionesField.tsx`       | Lista de strings (opciones/ítems/respuestas válidas).     |
 | `fields/PuntajePistaField.tsx`   | Puntaje + pista (metadata).                               |
+| `fields/VariablesField.tsx`      | D3: editor de variables (cards editables).                |
+| `fields/VisualField.tsx`         | D3: visual dispatcher + sub-editores por kind.            |
+| `fields/ExplicacionField.tsx`    | D3: explicación (texto interpolable).                     |
+| `fields/RestriccionesField.tsx`  | D3: restricciones (lista de fórmulas).                    |
+| `fields/PistasField.tsx`         | D3: pistas escalonadas (lista ordenada).                  |
 
 ## Flag de swap (convivencia)
 
@@ -82,11 +102,11 @@ function useEditorV2Flag(): boolean {
 ```
 
 Aditivo y reversible: el editor viejo no se modifica ni se elimina; cambia el
-default cuando el nuevo madure (D3+ cubra los fields ricos).
+default cuando el nuevo madure (D4+ cubra los subsistemas restantes).
 
 ## Swap final (cuando toque)
 
-1. Completar los fields ricos en `editor/` (D3+).
+1. Completar los subsistemas en `editor/` (D4+).
 2. Validar paridad feature-a-feature con el viejo (incluye los specs de
    `components/vblang/__tests__/`).
 3. Cambiar el default del flag (o eliminar el viejo del montaje).
@@ -95,8 +115,8 @@ default cuando el nuevo madure (D3+ cubra los fields ricos).
 ## Átomos usados / faltantes
 
 Usados de `ui/`: `Field`, `Input`, `Textarea`, `Select`, `Switch`, `Button`,
-`Card`, `Badge`, `Alert`. No hizo falta inventar átomos nuevos para este
-slice. Si D3+ necesita uno (ej. un `Popover`/`Menu` para el diccionario de
+`Card`, `Badge`, `Alert`, `Checkbox`. No hizo falta inventar átomos nuevos para
+D3. Si D4+ necesita uno (ej. un `Popover`/`Menu` para el diccionario de
 etiquetas, o `Tabs` para la navegación rica), se agregará a `ui/` siguiendo el
 molde de `primitivos.md`.
 

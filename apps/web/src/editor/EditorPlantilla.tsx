@@ -1,5 +1,5 @@
 /**
- * editor/EditorPlantilla.tsx — raíz del editor reconstruido (División 2).
+ * editor/EditorPlantilla.tsx — raíz del editor reconstruido (D2 + D3).
  *
  * Drop-in del editor viejo (`components/vblang/PlantillaEditorSchema`):
  * MISMA interfaz `{ plantilla, onChange }`, montada sobre los primitivos de
@@ -8,16 +8,15 @@
  * detrás de un flag en `VarianteEditor`.
  *
  * Slice D2 = shell + campos core:
- *   • tipo de pregunta (Select) — base "tipo genérico".
- *   • enunciado (Textarea + interpolación de variables + variantes).
- *   • respuesta según tipo + opciones/distractores (MC) — via `FieldControl`
- *     (text/number/bool/enum) y `OpcionesField` (string-list).
- *   • puntaje + pista (metadata).
+ *   • tipo de pregunta, enunciado, respuesta, opciones, puntaje + pista.
  *
- * Los fields ricos (generador, visual, mapa avanzado, pistas escalonadas,
- * restricciones, explicación, dataset, variables, etiquetas) quedan para D3+;
- * acá se preservan read-only (se listan en "Bloques preservados") para no
- * romper el round-trip.
+ * Slice D3 = campos ricos:
+ *   • variables (declaración: nombre, tipo, rango/valores).
+ *   • visual (PNG, line-chart, timeline, latex, vector-diagram, circuit).
+ *   • texto rico (explicación, restricciones, pistas escalonadas).
+ *
+ * D4+ (preservados read-only): generador base, mapa avanzado (encuadre +
+ * respuesta_nombre), etiquetas + diccionario, dataset.
  */
 import type { CSSProperties, ReactNode } from "react";
 import {
@@ -34,7 +33,13 @@ import EnunciadoField from "./fields/EnunciadoField";
 import FieldControl from "./fields/FieldControl";
 import OpcionesField from "./fields/OpcionesField";
 import PuntajePistaField from "./fields/PuntajePistaField";
+import VariablesField from "./fields/VariablesField";
+import VisualField from "./fields/VisualField";
+import ExplicacionField from "./fields/ExplicacionField";
+import RestriccionesField from "./fields/RestriccionesField";
+import PistasField from "./fields/PistasField";
 import { isGeneradorBase } from "../components/vblang/plantillaFields";
+import { getBlock, hasBlock } from "../components/vblang/plantillaAst";
 
 export interface EditorPlantillaProps {
   plantilla: Plantilla;
@@ -76,6 +81,12 @@ const V2_EDITS = new Set<Bloque["kind"]>([
   "correccion",
   "mapa",
   "metadata",
+  // D3: campos ricos
+  "variables",
+  "visual",
+  "explicacion",
+  "restricciones",
+  "pistas",
 ]);
 
 /** Bloques presentes que este slice NO edita (preservados read-only). */
@@ -93,8 +104,6 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
   const preserved = preservedKinds(plantilla);
 
-  // Campos del schema que este slice renderiza (omitiendo `enunciado`, que
-  // tiene su propio campo, y las listas no-string, que son D3+).
   const coreFields: Field[] = schema.fields.filter((f) => f.block !== "enunciado");
   const isList = (f: Field): f is ListField => f.kind === "list";
 
@@ -103,11 +112,16 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
   const skippedRichFields = listFields.filter((f) => f.itemShape !== "string");
   const scalarFields = coreFields.filter((f) => !isList(f));
 
+  const variables = getBlock(plantilla, "variables")?.declaraciones ?? [];
+  const hasVariables = variables.length > 0;
+  const hasRestricciones = hasBlock(plantilla, "restricciones");
+  const hasPistas = hasBlock(plantilla, "pistas");
+
   const generadorNote: ReactNode = baseGenerador ? (
     <Alert variant="info" title="Base generador (editor V2 — slice)">
       Esta plantilla usa la base <strong>generador asistido</strong>. El editor
       V2 aún no reconstruye el selector de generadores ni las variables que
-      provee (D3+). Los bloques se preservan en el DSL; acá podés editar el
+      provee (D4+). Los bloques se preservan en el DSL; acá podés editar el
       enunciado y la metadata. Para el generador, usá el editor clásico
       (desactivá el flag <code>?editorV2=1</code>).
     </Alert>
@@ -159,23 +173,55 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
       {!baseGenerador && skippedRichFields.length > 0 ? (
         <Alert variant="warning" title="Campos aún no editables en V2">
           {skippedRichFields.map((f) => f.label).join(", ")} se preservan tal cual en
-          el DSL. Editálos desde el editor clásico o el modo código (D3+ los
+          el DSL. Editálos desde el editor clásico o el modo código (D4+ los
           migrará).
         </Alert>
       ) : null}
 
+      {/* D3: Variables */}
+      {hasVariables || !baseGenerador ? (
+        <Section title="Variables" description="Variables aleatorias que se evalúan en cada instancia.">
+          <VariablesField
+            plantilla={plantilla}
+            variables={variables}
+            onChange={onChange}
+          />
+        </Section>
+      ) : null}
+
+      {/* D3: Visual */}
+      <Section title="Visual" description="Imagen o diagrama asociado a la pregunta.">
+        <VisualField plantilla={plantilla} onChange={onChange} />
+      </Section>
+
       <Section title="Puntaje y pista" description="Metadata de la pregunta.">
         <PuntajePistaField plantilla={plantilla} onChange={onChange} />
       </Section>
+
+      {/* D3: Texto rico */}
+      <Section title="Explicación" description="Retroalimentación que se muestra al alumno tras responder.">
+        <ExplicacionField plantilla={plantilla} onChange={onChange} />
+      </Section>
+
+      {hasRestricciones || hasVariables ? (
+        <Section title="Restricciones" description="Condiciones que las variables deben cumplir.">
+          <RestriccionesField plantilla={plantilla} onChange={onChange} />
+        </Section>
+      ) : null}
+
+      {hasPistas ? (
+        <Section title="Pistas escalonadas" description="Pistas que el alumno pide de a una (además de la pista única de metadata).">
+          <PistasField plantilla={plantilla} onChange={onChange} />
+        </Section>
+      ) : null}
 
       {preserved.length > 0 ? (
         <Section title="Bloques preservados" description="No se editan en V2; se mantienen en el DSL.">
           <p style={placeholderStyle}>
             Estos bloques están presentes y se preservan intactos en el código:{" "}
             <code>{preserved.join(", ")}</code>. Editalos desde el editor clásico
-            o el modo código. El editor V2 los migrará en divisiones siguientes
-            (D3+): variables, visual, pistas escalonadas, restricciones,
-            explicación, dataset, generador, etiquetas.
+            o el modo código. D4+ los migrará: generador base, etiquetas +
+            diccionario, dataset.
           </p>
         </Section>
       ) : null}
