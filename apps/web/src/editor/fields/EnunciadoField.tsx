@@ -14,7 +14,13 @@
  * `{nombre}` en la posición del caret del enunciado simple (vía el handle
  * imperativo de `BufferedText`).
  */
-import { useRef, type CSSProperties, type ReactNode } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 import type { Plantilla, TextField } from "@vb/vblang";
 import { Badge, Button, Input } from "../../ui";
 import BufferedText, { type BufferedTextHandle } from "../BufferedText";
@@ -28,6 +34,7 @@ import {
   writeEnunciados,
 } from "../../components/vblang/plantillaAst";
 import { readTextField, writeTextField } from "../../components/vblang/plantillaFields";
+import { errorTextFor, useFieldError, useFieldErrorMap } from "../LintContext";
 
 const schemaEnunciado: TextField = {
   kind: "text",
@@ -44,6 +51,11 @@ export type EnunciadoFieldProps = {
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
 };
+
+/** Handle imperativo: inserta un token (ej. `{var}`) en el caret del enunciado. */
+export interface EnunciadoFieldHandle {
+  insert: (token: string) => void;
+}
 
 const chipsStyle: CSSProperties = {
   display: "flex",
@@ -78,10 +90,20 @@ const counterStyle: CSSProperties = {
   color: "var(--c-hint)",
 };
 
-export default function EnunciadoField({ plantilla, onChange }: EnunciadoFieldProps) {
+const EnunciadoField = forwardRef<EnunciadoFieldHandle, EnunciadoFieldProps>(
+  function EnunciadoField({ plantilla, onChange }, ref) {
   const enunciadosActive = getBlock(plantilla, "enunciados") !== undefined;
   const bufferRef = useRef<BufferedTextHandle | null>(null);
   const variables = extractDeclaredVariables(plantilla);
+  const enunciadoError = useFieldError("enunciado");
+
+  // Permite que el GeneradorPicker (base generador) inserte las variables que
+  // provee el generador en la posición del caret del enunciado simple.
+  useImperativeHandle(
+    ref,
+    () => ({ insert: (token: string) => bufferRef.current?.insertAtCursor(token) }),
+    [],
+  );
 
   const insertVariable = (name: string) => {
     bufferRef.current?.insertAtCursor(`{${name}}`);
@@ -109,6 +131,7 @@ export default function EnunciadoField({ plantilla, onChange }: EnunciadoFieldPr
         multiline
         rows={4}
         value={value}
+        externalError={enunciadoError}
         commit={(text) => {
           const next = writeTextField(plantilla, schemaEnunciado, text);
           if (next === null) return false;
@@ -156,7 +179,9 @@ export default function EnunciadoField({ plantilla, onChange }: EnunciadoFieldPr
       </div>
     </>
   );
-}
+});
+
+export default EnunciadoField;
 
 /** Lista de variantes de enunciado (`enunciados:` plural). */
 function EnunciadosList({
@@ -168,6 +193,7 @@ function EnunciadosList({
 }) {
   const items = readEnunciados(plantilla);
   const update = (next: string[]) => onChange(writeEnunciados(plantilla, next));
+  const errMap = useFieldErrorMap();
 
   const headStyle: CSSProperties = {
     display: "flex",
@@ -176,40 +202,61 @@ function EnunciadosList({
     gap: "var(--space-2)",
   };
 
+  const variantErrorStyle: CSSProperties = {
+    margin: "var(--space-0)",
+    fontSize: "var(--text-xs)",
+    color: "var(--c-danger)",
+    fontWeight: "var(--fw-medium)",
+    flexBasis: "100%",
+  };
+
   return (
-    <FieldGroup label="Enunciados (variantes)" help="Cada variante acepta {variable}.">
+    <FieldGroup
+      label="Enunciados (variantes)"
+      help="Cada variante acepta {variable}."
+      error={errorTextFor(errMap, "enunciados")}
+    >
       <div style={headStyle}>
         <span style={counterStyle}>
           {items.length} {items.length === 1 ? "variante" : "variantes"}
         </span>
       </div>
       <ul style={listStyle}>
-        {items.map((tmpl, idx) => (
-          <li key={idx} style={rowStyle}>
-            <Input
-              aria-label={`Variante de enunciado ${idx + 1}`}
-              value={tmpl}
-              placeholder="Texto de la variante (acepta {variable})"
-              onChange={(e) => {
-                const next = items.slice();
-                next[idx] = e.target.value;
-                update(next);
-              }}
-            />
-            <Button
-              variant="danger"
-              size="sm"
-              aria-label={`Eliminar variante ${idx + 1}`}
-              disabled={items.length <= 1}
-              onClick={() => {
-                if (items.length <= 1) return;
-                update(items.filter((_, i) => i !== idx));
-              }}
-            >
-              Eliminar
-            </Button>
-          </li>
-        ))}
+        {items.map((tmpl, idx) => {
+          const itemError = errorTextFor(errMap, `enunciados.${idx}`);
+          return (
+            <li key={idx} style={{ ...rowStyle, flexWrap: "wrap" }}>
+              <Input
+                aria-label={`Variante de enunciado ${idx + 1}`}
+                value={tmpl}
+                invalid={itemError != null}
+                placeholder="Texto de la variante (acepta {variable})"
+                onChange={(e) => {
+                  const next = items.slice();
+                  next[idx] = e.target.value;
+                  update(next);
+                }}
+              />
+              <Button
+                variant="danger"
+                size="sm"
+                aria-label={`Eliminar variante ${idx + 1}`}
+                disabled={items.length <= 1}
+                onClick={() => {
+                  if (items.length <= 1) return;
+                  update(items.filter((_, i) => i !== idx));
+                }}
+              >
+                Eliminar
+              </Button>
+              {itemError ? (
+                <p role="alert" style={variantErrorStyle}>
+                  {itemError}
+                </p>
+              ) : null}
+            </li>
+          );
+        })}
       </ul>
       <div style={actionsStyle}>
         <Button variant="ghost" size="sm" onClick={() => update([...items, ""])}>

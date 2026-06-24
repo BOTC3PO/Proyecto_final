@@ -13,7 +13,10 @@ import type { CSSProperties } from "react";
 import type { ListField, Plantilla } from "@vb/vblang";
 import { Button, Input } from "../../ui";
 import FieldGroup from "../FieldGroup";
+import PalabraCombobox from "../../components/vblang/PalabraCombobox";
 import { readListStrings, writeListStrings } from "../../components/vblang/plantillaFields";
+import { useLang } from "../LangContext";
+import { useFieldError } from "../LintContext";
 
 export type OpcionesFieldProps = {
   field: ListField;
@@ -40,22 +43,46 @@ export default function OpcionesField({ field, plantilla, onChange }: OpcionesFi
   const items = readListStrings(plantilla, field);
   const minItems = field.minItems ?? 0;
   const update = (next: string[]) => onChange(writeListStrings(plantilla, field, next));
+  const error = useFieldError(field.key);
+  const lang = useLang();
+
+  // identificar_palabras: las respuestas válidas son palabras → autocompletado
+  // y validación contra el diccionario (igual que el editor viejo).
+  const esPalabras =
+    field.block === "respuestas_validas" &&
+    plantilla.tipoInferido === "identificar_palabras";
 
   return (
-    <FieldGroup label={field.label} help={field.help}>
+    <FieldGroup label={field.label} help={field.help} error={error}>
       <ul style={listStyle}>
         {items.map((item, idx) => (
           <li key={idx} style={rowStyle}>
-            <Input
-              aria-label={`${field.label} ${idx + 1}`}
-              value={item}
-              placeholder={`Ítem ${idx + 1}`}
-              onChange={(e) => {
-                const next = items.slice();
-                next[idx] = e.target.value;
-                update(next);
-              }}
-            />
+            {esPalabras ? (
+              <div style={{ minWidth: 0, flex: 1 }}>
+                <PalabraCombobox
+                  label={`${field.label} ${idx + 1}`}
+                  value={item}
+                  placeholder="palabra"
+                  lang={lang}
+                  onChange={(palabra) => {
+                    const next = items.slice();
+                    next[idx] = palabra;
+                    update(next);
+                  }}
+                />
+              </div>
+            ) : (
+              <Input
+                aria-label={`${field.label} ${idx + 1}`}
+                value={item}
+                placeholder={`Ítem ${idx + 1}`}
+                onChange={(e) => {
+                  const next = items.slice();
+                  next[idx] = e.target.value;
+                  update(next);
+                }}
+              />
+            )}
             <Button
               variant="danger"
               size="sm"

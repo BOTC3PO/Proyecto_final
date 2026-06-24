@@ -23,6 +23,8 @@ import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import SnippetBar from "../components/vblang/SnippetBar";
 import NuevaPlantillaWizard from "../components/vblang/NuevaPlantillaWizard";
 import PlantillaEditorSchema from "../components/vblang/PlantillaEditorSchema";
+import EditorPlantilla from "../editor/EditorPlantilla";
+import { useEditorClasico } from "../editor/useEditorClasico";
 import { extractDeclaredVariables } from "../components/vblang/plantillaAst";
 import EditorShell from "../components/layout/EditorShell";
 import Toast, { type ToastAction } from "../components/Toast";
@@ -110,6 +112,8 @@ export default function PlantillaEditor() {
   const [searchParams] = useSearchParams();
   const returnTo = searchParams.get("returnTo");
   const isNew = !id;
+  // D5: editor nuevo por defecto; el viejo queda por flag inverso.
+  const editorClasico = useEditorClasico();
 
   const [hist, dispatchCodigo] = useReducer(codigoHistReducer, {
     past: [],
@@ -670,20 +674,30 @@ export default function PlantillaEditor() {
                   </div>
                 )}
                 <div className="flex-1 min-h-0">
-                  <PlantillaEditorSchema
-                    plantilla={astParaRenderizar}
-                    onChange={(next) => setCodigo(serialize(next))}
-                    valoresActuales={preview.variables0}
-                    tieneErrores={
-                      !!compilation.parseError ||
-                      (compilation.lintReport?.errors.length ?? 0) > 0
-                    }
-                    // VB-B5 — pasamos los issues del lint al form para
-                    // que cada campo culpable muestre su propio badge.
-                    // El panel general (ErrorPanel) sigue mostrándolos
-                    // todos; este es un complemento visual por campo.
-                    lintIssues={compilation.lintReport?.issues ?? []}
-                  />
+                  {editorClasico ? (
+                    <PlantillaEditorSchema
+                      plantilla={astParaRenderizar}
+                      onChange={(next) => setCodigo(serialize(next))}
+                      valoresActuales={preview.variables0}
+                      tieneErrores={
+                        !!compilation.parseError ||
+                        (compilation.lintReport?.errors.length ?? 0) > 0
+                      }
+                      // VB-B5 — pasamos los issues del lint al form para
+                      // que cada campo culpable muestre su propio badge.
+                      // El panel general (ErrorPanel) sigue mostrándolos
+                      // todos; este es un complemento visual por campo.
+                      lintIssues={compilation.lintReport?.issues ?? []}
+                    />
+                  ) : (
+                    // D5: el editor nuevo corre su propio lint interno y lo
+                    // surfacea por campo; el ErrorPanel del modo código sigue
+                    // alimentado por `compilation`.
+                    <EditorPlantilla
+                      plantilla={astParaRenderizar}
+                      onChange={(next) => setCodigo(serialize(next))}
+                    />
+                  )}
                 </div>
                 {/* VB-B2 — panel "Código generado" (read-only) que refleja
                     en vivo lo que va produciendo el formulario. Aparece

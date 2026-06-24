@@ -22,6 +22,7 @@ import {
   writeNumberField,
   writeTextField,
 } from "../../components/vblang/plantillaFields";
+import { useFieldError } from "../LintContext";
 
 export type FieldControlProps = {
   field: Field;
@@ -63,6 +64,7 @@ function TextFieldControl({
       placeholder={field.expression ? "Ej.: a + b" : undefined}
       value={readTextField(plantilla, field)}
       errorMessage={field.expression ? "Expresión inválida" : undefined}
+      externalError={useFieldError(field.key)}
       commit={(text) => {
         const next = writeTextField(plantilla, field, text);
         if (next === null) return false;
@@ -91,6 +93,7 @@ function NumberFieldControl({
       min={field.allowNegative ? undefined : 0}
       value={readNumberField(plantilla, field)}
       errorMessage="Número inválido"
+      externalError={useFieldError(field.key)}
       commit={(text) => {
         const next = writeNumberField(plantilla, field, text);
         if (next === null) return false;
@@ -112,7 +115,7 @@ function BoolFieldControl({
 }) {
   const value = readBoolField(plantilla, field);
   return (
-    <FieldAtom label={field.label} help={field.help}>
+    <FieldAtom label={field.label} help={field.help} error={useFieldError(field.key)}>
       <Switch
         checked={value}
         onCheckedChange={(v) => onChange(writeBoolField(plantilla, field, v))}
@@ -133,7 +136,7 @@ function EnumFieldControl({
 }) {
   const value = readEnumField(plantilla, field) || field.options[0]?.value || "";
   return (
-    <FieldAtom label={field.label} help={field.help}>
+    <FieldAtom label={field.label} help={field.help} error={useFieldError(field.key)}>
       <Select
         value={value}
         onChange={(e) => onChange(writeEnumField(plantilla, field, e.target.value))}
