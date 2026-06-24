@@ -1,5 +1,5 @@
 /**
- * EditorSectionNav — Tarea 15.
+ * EditorSectionNav — Tarea 15 (chrome rediseñado División 7).
  *
  * Barra de navegación sticky para el editor de módulos. Renderiza una
  * columna lateral (desktop ≥ lg) o una fila horizontal scrollable (mobile)
@@ -9,11 +9,15 @@
  *
  * La sección activa se resalta con `IntersectionObserver`.
  *
+ * El chrome usa los mismos tokens y patrones que los átomos de D6 (NavItem).
+ * Las anclas son `<a href="#id">` con scroll propio — no se usa NavLink de
+ * react-router para no interferir con el IntersectionObserver y el focus.
+ *
  * Accesibilidad: `<nav aria-label>`, `aria-current="location"` en la activa,
  * respeta `prefers-reduced-motion` (sin scroll suave en ese caso).
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 
 export interface EditorSectionStatus {
   /** "ok" cuando la sección está completa, "incomplete" cuando le falta algo. */
@@ -114,9 +118,10 @@ export default function EditorSectionNav({
       <ul
         role="list"
         className="hidden lg:flex lg:flex-col lg:gap-1 lg:sticky lg:top-20"
+        style={{ listStyle: "none", margin: 0, padding: 0 }}
       >
         {sections.map((s) => (
-          <NavItem
+          <SectionNavItem
             key={s.id}
             section={s}
             isActive={s.id === activeId}
@@ -128,10 +133,20 @@ export default function EditorSectionNav({
       {/* Mobile: fila horizontal sticky con scroll */}
       <ul
         role="list"
-        className="flex flex-row gap-1 overflow-x-auto border-b border-[var(--c-border)] bg-[var(--c-surface)] py-1 lg:hidden sticky top-12 z-10"
+        className="flex flex-row gap-1 overflow-x-auto lg:hidden sticky z-10"
+        style={{
+          listStyle: "none",
+          margin: 0,
+          padding: `var(--space-1) var(--space-2)`,
+          top: "3rem",
+          background: "var(--c-surface)",
+          borderBottomWidth: "1px",
+          borderBottomStyle: "solid",
+          borderBottomColor: "var(--c-border)",
+        }}
       >
         {sections.map((s) => (
-          <NavItem
+          <SectionNavItem
             key={s.id}
             section={s}
             isActive={s.id === activeId}
@@ -144,7 +159,7 @@ export default function EditorSectionNav({
   );
 }
 
-function NavItem({
+function SectionNavItem({
   section,
   isActive,
   onClick,
@@ -158,32 +173,70 @@ function NavItem({
   ) => void;
   layout: "row" | "column";
 }) {
+  const [hovered, setHovered] = useState(false);
   const enabled = section.enabled !== false;
   const statusGlyph = section.status.status === "ok" ? "✓" : "⚠";
-  const statusColor =
-    section.status.status === "ok"
-      ? "text-[var(--c-success)]"
-      : "text-[var(--c-warning)]";
-  const baseClasses =
+  const statusColor: CSSProperties["color"] =
+    section.status.status === "ok" ? "var(--c-success)" : "var(--c-warning)";
+
+  const base: CSSProperties =
     layout === "row"
-      ? "shrink-0 rounded-md px-3 py-1 text-xs"
-      : "rounded-md px-3 py-1.5 text-sm";
-  const activeClasses = isActive
-    ? "bg-[var(--c-primary-soft,#dbeafe)] text-[var(--c-primary,#1d4ed8)] font-semibold"
-    : "text-[var(--c-muted,#64748b)] hover:bg-[var(--c-surface-2,#f1f5f9)] hover:text-[var(--c-text,#0f172a)]";
+      ? {
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "var(--space-2)",
+          flexShrink: 0,
+          borderRadius: "var(--r-md)",
+          paddingBlock: "var(--space-1)",
+          paddingInline: "var(--space-3)",
+          fontSize: "var(--text-xs)",
+          fontFamily: "var(--font-sans)",
+          textDecoration: "none",
+          whiteSpace: "nowrap",
+          transition: "background-color 120ms ease, color 120ms ease",
+        }
+      : {
+          display: "flex",
+          alignItems: "center",
+          gap: "var(--space-2)",
+          borderRadius: "var(--r-md)",
+          paddingBlock: "var(--space-2)",
+          paddingInline: "var(--space-3)",
+          fontSize: "var(--text-sm)",
+          fontFamily: "var(--font-sans)",
+          textDecoration: "none",
+          transition: "background-color 120ms ease, color 120ms ease",
+        };
+
+  const state: CSSProperties = isActive
+    ? {
+        background: "color-mix(in srgb, var(--c-primary) 12%, var(--c-surface))",
+        color: "var(--c-primary)",
+        fontWeight: "var(--fw-semibold)",
+      }
+    : {
+        background: hovered ? "var(--c-hover)" : "transparent",
+        color: hovered ? "var(--c-text)" : "var(--c-muted)",
+        fontWeight: "var(--fw-regular)",
+      };
+
   return (
     <li>
       <a
         href={`#${section.id}`}
         onClick={(e) => onClick(e, section)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         aria-current={isActive ? "location" : undefined}
         aria-disabled={!enabled || undefined}
         data-testid={`editor-section-link-${section.id}`}
-        className={`flex items-center gap-2 ${baseClasses} ${activeClasses} ${
-          enabled ? "" : "pointer-events-none opacity-50"
-        }`}
+        style={{
+          ...base,
+          ...state,
+          ...(enabled ? {} : { pointerEvents: "none", opacity: 0.5 }),
+        }}
       >
-        <span aria-hidden="true" className={statusColor}>
+        <span aria-hidden="true" style={{ color: statusColor, flexShrink: 0 }}>
           {statusGlyph}
         </span>
         <span>{section.label}</span>
