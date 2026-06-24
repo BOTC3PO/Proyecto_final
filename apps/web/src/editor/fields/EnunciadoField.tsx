@@ -14,7 +14,13 @@
  * `{nombre}` en la posición del caret del enunciado simple (vía el handle
  * imperativo de `BufferedText`).
  */
-import { useRef, type CSSProperties, type ReactNode } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 import type { Plantilla, TextField } from "@vb/vblang";
 import { Badge, Button, Input } from "../../ui";
 import BufferedText, { type BufferedTextHandle } from "../BufferedText";
@@ -44,6 +50,11 @@ export type EnunciadoFieldProps = {
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
 };
+
+/** Handle imperativo: inserta un token (ej. `{var}`) en el caret del enunciado. */
+export interface EnunciadoFieldHandle {
+  insert: (token: string) => void;
+}
 
 const chipsStyle: CSSProperties = {
   display: "flex",
@@ -78,10 +89,19 @@ const counterStyle: CSSProperties = {
   color: "var(--c-hint)",
 };
 
-export default function EnunciadoField({ plantilla, onChange }: EnunciadoFieldProps) {
+const EnunciadoField = forwardRef<EnunciadoFieldHandle, EnunciadoFieldProps>(
+  function EnunciadoField({ plantilla, onChange }, ref) {
   const enunciadosActive = getBlock(plantilla, "enunciados") !== undefined;
   const bufferRef = useRef<BufferedTextHandle | null>(null);
   const variables = extractDeclaredVariables(plantilla);
+
+  // Permite que el GeneradorPicker (base generador) inserte las variables que
+  // provee el generador en la posición del caret del enunciado simple.
+  useImperativeHandle(
+    ref,
+    () => ({ insert: (token: string) => bufferRef.current?.insertAtCursor(token) }),
+    [],
+  );
 
   const insertVariable = (name: string) => {
     bufferRef.current?.insertAtCursor(`{${name}}`);
@@ -156,7 +176,9 @@ export default function EnunciadoField({ plantilla, onChange }: EnunciadoFieldPr
       </div>
     </>
   );
-}
+});
+
+export default EnunciadoField;
 
 /** Lista de variantes de enunciado (`enunciados:` plural). */
 function EnunciadosList({

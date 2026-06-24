@@ -1,5 +1,5 @@
 /**
- * editor/EditorPlantilla.tsx — raíz del editor reconstruido (D2 + D3).
+ * editor/EditorPlantilla.tsx — raíz del editor reconstruido (D2 + D3 + D4).
  *
  * Drop-in del editor viejo (`components/vblang/PlantillaEditorSchema`):
  * MISMA interfaz `{ plantilla, onChange }`, montada sobre los primitivos de
@@ -15,10 +15,15 @@
  *   • visual (PNG, line-chart, timeline, latex, vector-diagram, circuit).
  *   • texto rico (explicación, restricciones, pistas escalonadas).
  *
- * D4+ (preservados read-only): generador base, mapa avanzado (encuadre +
- * respuesta_nombre), etiquetas + diccionario, dataset.
+ * Slice D4 = subsistemas (chrome reconstruido, lógica/componentes reusados):
+ *   • base generador — `GeneradorPicker` + dificultad + enunciado con inserción
+ *     de las variables provistas (reemplaza el Alert "usá el clásico").
+ *   • mapa avanzado — mapa + respuesta (iso/nombre + modoRespuesta) + encuadre.
+ *   • dataset — bloque `dataset:` con el `DatasetExplorer` reusado.
+ *
+ * Preservados read-only (pendientes D5): etiquetas + diccionario, lint inline.
  */
-import type { CSSProperties, ReactNode } from "react";
+import { useRef, type CSSProperties } from "react";
 import {
   QUESTION_TYPE_SCHEMAS,
   type Bloque,
@@ -26,10 +31,10 @@ import {
   type Plantilla,
 } from "@vb/vblang";
 import type { Field } from "@vb/vblang";
-import { Alert } from "../ui";
+import { Alert, Radio, RadioGroup } from "../ui";
 import Section from "./Section";
 import TipoSelector from "./fields/TipoSelector";
-import EnunciadoField from "./fields/EnunciadoField";
+import EnunciadoField, { type EnunciadoFieldHandle } from "./fields/EnunciadoField";
 import FieldControl from "./fields/FieldControl";
 import OpcionesField from "./fields/OpcionesField";
 import PuntajePistaField from "./fields/PuntajePistaField";
@@ -38,8 +43,16 @@ import VisualField from "./fields/VisualField";
 import ExplicacionField from "./fields/ExplicacionField";
 import RestriccionesField from "./fields/RestriccionesField";
 import PistasField from "./fields/PistasField";
-import { isGeneradorBase } from "../components/vblang/plantillaFields";
+import GeneradorField from "./fields/GeneradorField";
+import MapaField from "./fields/MapaField";
+import DatasetField from "./fields/DatasetField";
+import {
+  applyGenerador,
+  applyTipo,
+  isGeneradorBase,
+} from "../components/vblang/plantillaFields";
 import { getBlock, hasBlock } from "../components/vblang/plantillaAst";
+import { listGeneradores } from "../vblang/listGeneradores";
 
 export interface EditorPlantillaProps {
   plantilla: Plantilla;
@@ -61,6 +74,9 @@ const placeholderStyle: CSSProperties = {
   color: "var(--c-hint)",
   fontStyle: "italic",
 };
+
+/** Bloques del subsistema mapa que `MapaField` reemplaza en el render genérico. */
+const MAPA_FIELD_BLOCKS = new Set<string>(["mapa", "respuesta_iso"]);
 
 /** Bloques que este slice edita (el resto se lista como preservado). */
 const V2_EDITS = new Set<Bloque["kind"]>([
@@ -87,6 +103,9 @@ const V2_EDITS = new Set<Bloque["kind"]>([
   "explicacion",
   "restricciones",
   "pistas",
+  // D4: subsistemas
+  "generador",
+  "dataset",
 ]);
 
 /** Bloques presentes que este slice NO edita (preservados read-only). */
@@ -103,6 +122,8 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
   const tipo = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
   const preserved = preservedKinds(plantilla);
+  const enunciadoRef = useRef<EnunciadoFieldHandle | null>(null);
+  const defaultGeneradorId = listGeneradores()[0]?.id ?? "";
 
   const coreFields: Field[] = schema.fields.filter((f) => f.block !== "enunciado");
   const isList = (f: Field): f is ListField => f.kind === "list";
@@ -112,41 +133,83 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
   const skippedRichFields = listFields.filter((f) => f.itemShape !== "string");
   const scalarFields = coreFields.filter((f) => !isList(f));
 
+  // D4: para `marcar_mapa`, el subsistema `MapaField` reemplaza el render
+  // genérico de los campos `mapa`/`respuesta_iso` (y suma nombre + encuadre).
+  const isMapa = !baseGenerador && tipo === "marcar_mapa";
+  const scalarFieldsToRender = isMapa
+    ? scalarFields.filter((f) => !MAPA_FIELD_BLOCKS.has(f.block))
+    : scalarFields;
+
+  // El bloque `dataset:` es ortogonal al tipo: se autorea en base "tipo", y se
+  // mantiene visible si ya existe (incluso bajo base generador).
+  const showDataset = !baseGenerador || hasBlock(plantilla, "dataset");
+
   const variables = getBlock(plantilla, "variables")?.declaraciones ?? [];
   const hasVariables = variables.length > 0;
   const hasRestricciones = hasBlock(plantilla, "restricciones");
   const hasPistas = hasBlock(plantilla, "pistas");
 
-  const generadorNote: ReactNode = baseGenerador ? (
-    <Alert variant="info" title="Base generador (editor V2 — slice)">
-      Esta plantilla usa la base <strong>generador asistido</strong>. El editor
-      V2 aún no reconstruye el selector de generadores ni las variables que
-      provee (D4+). Los bloques se preservan en el DSL; acá podés editar el
-      enunciado y la metadata. Para el generador, usá el editor clásico
-      (desactivá el flag <code>?editorV2=1</code>).
-    </Alert>
-  ) : null;
+  const cambiarBase = (value: string) => {
+    if (value === "generador") {
+      const id = getBlock(plantilla, "generador")?.id || defaultGeneradorId;
+      onChange(applyGenerador(plantilla, id));
+    } else {
+      onChange(applyTipo(plantilla, tipo));
+    }
+  };
 
   return (
     <div style={shellStyle} data-testid="editor-plantilla-v2">
-      {generadorNote}
+      <Section
+        title="Base de la pregunta"
+        description="Definí la respuesta por tipo, o dejá que un generador provea datos y clave."
+      >
+        <RadioGroup
+          aria-label="Base de la pregunta"
+          value={baseGenerador ? "generador" : "tipo"}
+          onValueChange={cambiarBase}
+        >
+          <Radio value="tipo" label="Tipo de pregunta" />
+          <Radio value="generador" label="Generador asistido" />
+        </RadioGroup>
+      </Section>
 
-      {!baseGenerador ? (
+      {baseGenerador ? (
+        <Section
+          title="Generador asistido"
+          description="El generador provee los datos y la respuesta; escribí la consigna en el enunciado."
+        >
+          <GeneradorField
+            plantilla={plantilla}
+            onChange={onChange}
+            onInsertVariable={(token) => enunciadoRef.current?.insert(token)}
+          />
+        </Section>
+      ) : (
         <Section title="Tipo de pregunta" description={schema.descripcion}>
           <TipoSelector plantilla={plantilla} onChange={onChange} />
         </Section>
-      ) : null}
+      )}
 
       <Section title="Enunciado" description="Texto de la consigna para el alumno.">
-        <EnunciadoField plantilla={plantilla} onChange={onChange} />
+        <EnunciadoField ref={enunciadoRef} plantilla={plantilla} onChange={onChange} />
       </Section>
 
-      {!baseGenerador && scalarFields.length > 0 ? (
+      {isMapa ? (
+        <Section
+          title="Mapa"
+          description="Mapa a cargar, clave de respuesta (ISO o nombre) y encuadre."
+        >
+          <MapaField plantilla={plantilla} onChange={onChange} />
+        </Section>
+      ) : null}
+
+      {!baseGenerador && scalarFieldsToRender.length > 0 ? (
         <Section
           title="Respuesta"
           description="Clave de respuesta y parámetros de corrección según el tipo."
         >
-          {scalarFields.map((field) => (
+          {scalarFieldsToRender.map((field) => (
             <FieldControl
               key={field.key}
               field={field}
@@ -173,7 +236,7 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
       {!baseGenerador && skippedRichFields.length > 0 ? (
         <Alert variant="warning" title="Campos aún no editables en V2">
           {skippedRichFields.map((f) => f.label).join(", ")} se preservan tal cual en
-          el DSL. Editálos desde el editor clásico o el modo código (D4+ los
+          el DSL. Editálos desde el editor clásico o el modo código (D5 los
           migrará).
         </Alert>
       ) : null}
@@ -215,13 +278,19 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
         </Section>
       ) : null}
 
+      {/* D4: Dataset */}
+      {showDataset ? (
+        <Section title="Dataset" description="Fuente de datos que alimenta la plantilla (opcional).">
+          <DatasetField plantilla={plantilla} onChange={onChange} />
+        </Section>
+      ) : null}
+
       {preserved.length > 0 ? (
         <Section title="Bloques preservados" description="No se editan en V2; se mantienen en el DSL.">
           <p style={placeholderStyle}>
             Estos bloques están presentes y se preservan intactos en el código:{" "}
             <code>{preserved.join(", ")}</code>. Editalos desde el editor clásico
-            o el modo código. D4+ los migrará: generador base, etiquetas +
-            diccionario, dataset.
+            o el modo código. D5 los migrará: etiquetas + diccionario.
           </p>
         </Section>
       ) : null}

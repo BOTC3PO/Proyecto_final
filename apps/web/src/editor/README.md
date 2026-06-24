@@ -1,4 +1,4 @@
-# editor/ — Editor de plantillas reconstruido (D2 + D3)
+# editor/ — Editor de plantillas reconstruido (D2 + D3 + D4)
 
 Reconstrucción *strangler* del editor de plantillas VBLang sobre los
 primitivos de `ui/`. **Misma interfaz** que el editor viejo
@@ -58,15 +58,36 @@ persistirla:
 - **Pistas escalonadas** — `PistasField`: lista ordenada interpolable, reusa
   `readPistas`/`writePistas`.
 
-## Qué falta (D4+)
+## Qué cubre D4 (subsistemas)
 
-Los fields que siguen preservados read-only, pendientes para divisiones
-siguientes:
+Reconstruye el **chrome** de tres subsistemas sobre primitivos, **reusando la
+lógica y los componentes existentes** (no se reescriben):
 
-- **Base generador** — `GeneradorPicker`, variables provistas, dificultad.
-- **Mapa avanzado** — encuadre, respuesta_nombre (el `mapa` enum básico sí
-  está en D2).
-- **Etiquetas** (lista `{palabra, etiqueta}` con diccionario), **dataset**.
+- **Base generador** — `GeneradorField`: monta el `GeneradorPicker` viejo (tal
+  cual) + control de **dificultad** (`readDificultad`/`writeDificultad`,
+  `metadata: dificultad`). Reusa `applyGenerador` para mutar el AST (barre
+  variables/respuesta que el generador provee). Un toggle "Base de la pregunta"
+  alterna entre `tipo` (`applyTipo`) y `generador`. Las variables provistas por
+  el generador se insertan en el enunciado vía el handle imperativo de
+  `EnunciadoField` (`insert`). Reemplaza el Alert "usá el editor clásico".
+- **Mapa avanzado** — `MapaField`: mapa (enum) escrito **preservando el
+  encuadre**, respuesta por `modoRespuesta` (iso/nombre — el modo se deriva de
+  qué clave existe; el toggle intercambia `respuesta_iso` ↔ `respuesta_nombre`)
+  y **encuadre** (WO-10, `readEncuadre`/`writeEncuadre`, vista bloqueada). Sólo
+  para `tipo: marcar_mapa`; reemplaza el render genérico de `mapa`/`respuesta_iso`.
+- **Dataset** — `DatasetField`: autorea el bloque `dataset:` (input + bloque
+  vía `withBlock`/`withoutBlock`) y reusa el `DatasetExplorer` (sin tocar) como
+  popover de browse de los nombres disponibles (vía `datasetApi.listDatasets`).
+
+`generador` y `dataset` salen de "preservados" (`V2_EDITS`); round-trip
+idempotente verificado en `__tests__/d4-roundtrip.spec.ts`.
+
+## Qué falta (D5)
+
+Los fields que siguen preservados read-only, pendientes para la última división:
+
+- **Etiquetas** — lista `{palabra, etiqueta}` con diccionario (`PalabraCombobox`,
+  `LangSelector`).
 - **Errores de lint inline** (`FieldErrorBadge`), **validación**.
 
 ## Archivos
@@ -87,6 +108,9 @@ siguientes:
 | `fields/ExplicacionField.tsx`    | D3: explicación (texto interpolable).                     |
 | `fields/RestriccionesField.tsx`  | D3: restricciones (lista de fórmulas).                    |
 | `fields/PistasField.tsx`         | D3: pistas escalonadas (lista ordenada).                  |
+| `fields/GeneradorField.tsx`      | D4: base generador (picker reusado + dificultad).         |
+| `fields/MapaField.tsx`           | D4: mapa + respuesta (iso/nombre) + encuadre.             |
+| `fields/DatasetField.tsx`        | D4: bloque `dataset:` + DatasetExplorer reusado.          |
 
 ## Flag de swap (convivencia)
 
@@ -102,11 +126,11 @@ function useEditorV2Flag(): boolean {
 ```
 
 Aditivo y reversible: el editor viejo no se modifica ni se elimina; cambia el
-default cuando el nuevo madure (D4+ cubra los subsistemas restantes).
+default cuando el nuevo madure (D5 cubra etiquetas + diccionario y el lint).
 
 ## Swap final (cuando toque)
 
-1. Completar los subsistemas en `editor/` (D4+).
+1. Completar lo que falta en `editor/` (D5: etiquetas + lint inline).
 2. Validar paridad feature-a-feature con el viejo (incluye los specs de
    `components/vblang/__tests__/`).
 3. Cambiar el default del flag (o eliminar el viejo del montaje).
@@ -115,8 +139,9 @@ default cuando el nuevo madure (D4+ cubra los subsistemas restantes).
 ## Átomos usados / faltantes
 
 Usados de `ui/`: `Field`, `Input`, `Textarea`, `Select`, `Switch`, `Button`,
-`Card`, `Badge`, `Alert`, `Checkbox`. No hizo falta inventar átomos nuevos para
-D3. Si D4+ necesita uno (ej. un `Popover`/`Menu` para el diccionario de
+`Card`, `Badge`, `Alert`, `Checkbox`, `RadioGroup`/`Radio`. D4 no necesitó
+átomos nuevos (el `GeneradorPicker`/`DatasetExplorer` reusados traen su propio
+markup). Si D5 necesita uno (ej. un `Popover`/`Menu` para el diccionario de
 etiquetas, o `Tabs` para la navegación rica), se agregará a `ui/` siguiendo el
 molde de `primitivos.md`.
 
