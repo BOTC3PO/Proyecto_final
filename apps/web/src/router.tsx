@@ -119,8 +119,6 @@ const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPubl
 const Economia                  = lazyWithRetry(() => import("./pages/Economia"));
 const TiendaTemas               = lazyWithRetry(() => import("./pages/TiendaTemas"));
 const OnboardingTema            = lazyWithRetry(() => import("./pages/OnboardingTema"));
-const UiShowcase                = lazyWithRetry(() => import("./pages/dev/UiShowcase"));
-const VblangPrototype           = lazyWithRetry(() => import("./dev/vblang-prototipo"));
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -191,16 +189,6 @@ export const router = createBrowserRouter([
           { path: "herramientas/vida-practica",      element: <HerramientasVidaPractica /> },
 
           { path: "404", element: <NotFound /> },
-
-          // Showcase del sistema de diseño (Fase D.2) — solo en desarrollo.
-          ...(import.meta.env.DEV
-            ? [
-                { path: "dev/ui", element: withSuspense(<UiShowcase />) },
-                // Prototipo del editor de consignas 2.0. Dev-only,
-                // aislado bajo /dev, no toca el editor de producción.
-                { path: "dev/vblang-prototipo", element: withSuspense(<VblangPrototype />) },
-              ]
-            : []),
         ],
       },
 
