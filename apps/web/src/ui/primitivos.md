@@ -56,6 +56,20 @@ import { Button, Field, Input, Modal } from "@/ui";
 | ------------- | ---------- | -------------------- | ---------------------------------------------------------------------------------- |
 | `Modal.tsx`   | `Modal`    | `HTMLDivElement`     | `createPortal`; focus trap, ESC, `aria-modal`, retorno de foco, lock de scroll. Alias `Dialog`. |
 | `Tooltip.tsx` | `Tooltip`  | `HTMLSpanElement`    | Hover **y foco**; ESC cierra; `aria-describedby` + `role="tooltip"`.               |
+| `Menu.tsx`    | `Menu`     | —                    | Popover de menú: `role="menu"`, `aria-haspopup/expanded/controls`, click-afuera + **ESC** (retorno de foco), teclado ▲/▼/Home/End. `trigger` y `children` como render-props (`children` recibe `close`). |
+
+### División 6 — navegación
+
+| Archivo        | Default     | Ref                | Notas                                                                                              |
+| -------------- | ----------- | ------------------ | -------------------------------------------------------------------------------------------------- |
+| `Avatar.tsx`   | `Avatar`    | `HTMLDivElement`   | Círculo con iniciales (o `children`); `size: sm\|md`, `tone: primary\|neutral`. Radio estructural 50%. |
+| `NavItem.tsx`  | `NavItem`   | —                  | Ítem de nav con estado activo. **Envuelve `NavLink` de react-router** (ver nota abajo): reusa su matching y su `aria-current="page"`. `orientation: horizontal` (píldora) \| `sidebar` (barra-acento). Hover por estado (estilos inline token-puros). |
+
+> **Nota de acoplamiento (`NavItem`):** la navegación es, por naturaleza,
+> router-aware. `NavItem` es el único átomo que importa de `react-router-dom`
+> (a propósito): así NO se reimplementa el routing — se centraliza sólo el
+> *chrome* (activo/hover/foco) y se hereda `aria-current` automático. `Menu` y
+> `Avatar`, en cambio, son router-agnósticos.
 
 ### Cierre
 

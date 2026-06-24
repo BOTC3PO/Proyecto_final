@@ -63,3 +63,13 @@ export type { ModalProps, ModalSize } from "./Modal";
 
 export { default as Tooltip } from "./Tooltip";
 export type { TooltipProps, TooltipPlacement } from "./Tooltip";
+
+export { default as Menu } from "./Menu";
+export type { MenuProps, MenuAlign, MenuTriggerProps } from "./Menu";
+
+// ── Navegación ────────────────────────────────────────────────────────────
+export { default as Avatar } from "./Avatar";
+export type { AvatarProps, AvatarSize, AvatarTone } from "./Avatar";
+
+export { default as NavItem } from "./NavItem";
+export type { NavItemProps, NavItemOrientation } from "./NavItem";

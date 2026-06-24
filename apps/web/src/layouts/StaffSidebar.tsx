@@ -1,9 +1,22 @@
-import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
+/**
+ * layouts/StaffSidebar.tsx — sidebar de staff (rediseño División 6).
+ *
+ * Reconstruido sobre los primitivos de `ui/` (NavItem orientación `sidebar`,
+ * Avatar, Menu) + la escala de tokens. La LÓGICA se reutiliza intacta:
+ * secciones e ítems salen de `navConfig` (NAV_BY_ROLE / DROPDOWN_BY_ROLE), el
+ * rol de `usePrimaryRole`, el espejo de `cuentaVinculada`/`switchCuenta`. Acá
+ * sólo se reconstruye el *chrome*.
+ *
+ * A11y: landmark `<nav>` con nombre; `aria-current="page"` por NavItem; foco
+ * visible global; menú de usuario accesible (Escape, teclado) vía Menu.
+ */
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, type CSSProperties, type ReactNode } from 'react';
 import { useAuth } from '../auth/use-auth';
 import { usePrimaryRole } from '../auth/use-roles';
 import { useTheme } from '../theme/ThemeContext';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from '../nav/navConfig';
-import { useState, useEffect, useRef } from 'react';
+import { Avatar, Menu, NavItem, type MenuTriggerProps } from '../ui';
 
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
@@ -30,10 +43,125 @@ const THEME_SWATCHES: Record<string, string> = {
   'admin':      '#ffffff',
 };
 
+const ROLE_LABEL: Record<string, string> = {
+  TEACHER: 'Docente',
+  DIRECTIVO: 'Directivo',
+  ADMIN: 'Admin',
+};
+
+// Fila del menú de usuario con hover token-puro.
+function MenuRow({ children, onClick, danger }: {
+  children: ReactNode;
+  onClick: () => void;
+  danger?: boolean;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const style: CSSProperties = {
+    display: 'flex',
+    width: '100%',
+    alignItems: 'center',
+    gap: 'var(--space-2)',
+    paddingBlock: 'var(--space-2)',
+    paddingInline: 'var(--space-4)',
+    fontSize: 'var(--text-xs)',
+    color: danger ? 'var(--c-danger)' : 'var(--c-text)',
+    fontWeight: danger ? 'var(--fw-medium)' : 'var(--fw-regular)',
+    background: hovered
+      ? danger
+        ? 'color-mix(in srgb, var(--c-danger) 6%, transparent)'
+        : 'var(--c-hover)'
+      : 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    textAlign: 'left',
+    transition: 'background-color 120ms ease',
+  };
+  return (
+    <button
+      type="button"
+      role="menuitem"
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={style}
+    >
+      {children}
+    </button>
+  );
+}
+
+function SidebarMenuTrigger({ menu, initials, name, roleLabel }: {
+  menu: MenuTriggerProps;
+  initials: string;
+  name: string;
+  roleLabel: string;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={menu.onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      aria-haspopup={menu["aria-haspopup"]}
+      aria-expanded={menu["aria-expanded"]}
+      aria-controls={menu["aria-controls"]}
+      style={{
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        gap: 'var(--space-3)',
+        paddingBlock: 'var(--space-3)',
+        paddingInline: 'var(--space-4)',
+        background: hovered ? 'var(--c-hover)' : 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+        transition: 'background-color 120ms ease',
+      }}
+    >
+      <Avatar initials={initials} size="md" aria-hidden="true" />
+      <span style={{ flex: 1, minWidth: 0, textAlign: 'left' }}>
+        <span
+          style={{
+            display: 'block',
+            fontSize: 'var(--text-xs)',
+            fontWeight: 'var(--fw-medium)',
+            color: 'var(--c-text)',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {name}
+        </span>
+        <span style={{ display: 'block', fontSize: 'var(--text-xs)', color: 'var(--c-muted)' }}>
+          {roleLabel}
+        </span>
+      </span>
+      <svg
+        aria-hidden="true"
+        width="14"
+        height="14"
+        style={{
+          color: 'var(--c-muted)',
+          flexShrink: 0,
+          transition: 'transform 120ms ease',
+          transform: menu["aria-expanded"] ? 'rotate(180deg)' : 'none',
+        }}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  );
+}
+
 function Sidebar() {
   const { user, logout, switchCuenta } = useAuth();
   const { theme, setTheme, availableThemes } = useTheme();
-  const location = useLocation();
   const navigate = useNavigate();
 
   const tieneEspejo = user?.cuentaVinculada?.tipoDestino === 'ALUMNO';
@@ -53,70 +181,87 @@ function Sidebar() {
   const navItems = NAV_BY_ROLE[role as keyof typeof NAV_BY_ROLE] ?? [];
   const dropdownItems = DROPDOWN_BY_ROLE[role as keyof typeof DROPDOWN_BY_ROLE] ?? [];
   const sections = SIDEBAR_SECTIONS[role] ?? [{ label: '', items: navItems.map(i => i.label) }];
-  const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   const initials = user?.name
     ? user.name.split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase()
     : '?';
 
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node))
-        setUserMenuOpen(false);
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, []);
-
-  useEffect(() => { setUserMenuOpen(false); }, [location.pathname]);
-
   return (
-    <aside className="w-56 flex-shrink-0 flex flex-col border-r border-[var(--c-border)] bg-[var(--c-surface)] h-screen sticky top-0 overflow-y-auto will-change-transform">
+    <aside
+      className="flex flex-col flex-shrink-0 w-56 h-screen overflow-y-auto"
+      style={{
+        position: 'sticky',
+        top: 0,
+        borderRightWidth: '1px',
+        borderRightStyle: 'solid',
+        borderRightColor: 'var(--c-border)',
+        background: 'var(--c-surface)',
+        willChange: 'transform',
+      }}
+    >
       {/* Logo */}
-      <div className="h-14 flex items-center px-5 border-b border-[var(--c-border)] flex-shrink-0">
-        <Link to="/" className="flex items-center gap-2.5">
-          <div
-            className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0"
-            style={{ background: 'var(--c-primary)' }}
+      <div
+        className="flex items-center flex-shrink-0"
+        style={{
+          height: 'var(--space-8)',
+          paddingInline: 'var(--space-5)',
+          borderBottomWidth: '1px',
+          borderBottomStyle: 'solid',
+          borderBottomColor: 'var(--c-border)',
+        }}
+      >
+        <Link to="/" className="flex items-center" style={{ gap: 'var(--space-2)', textDecoration: 'none' }}>
+          <span
+            className="flex items-center justify-center flex-shrink-0"
+            style={{
+              width: 'var(--space-6)',
+              height: 'var(--space-6)',
+              borderRadius: 'var(--r-md)',
+              background: 'var(--c-primary)',
+            }}
           >
-            <span className="text-white text-[11px] font-bold tracking-tight">VB</span>
-          </div>
-          <span className="text-sm font-semibold text-[var(--c-text)] tracking-tight">
+            <span style={{ color: 'var(--c-text-on-dark)', fontSize: 'var(--text-xs)', fontWeight: 'var(--fw-bold)' }}>VB</span>
+          </span>
+          <span style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--fw-semibold)', color: 'var(--c-text)' }}>
             Virtual Book
           </span>
         </Link>
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 py-3 overflow-y-auto">
+      <nav aria-label="Navegación lateral" className="flex-1 overflow-y-auto" style={{ paddingBlock: 'var(--space-3)' }}>
         {sections.map((section) => {
           const sectionItems = navItems.filter(item =>
             section.items.includes(item.label)
           );
           if (sectionItems.length === 0) return null;
           return (
-            <div key={section.label} className="mb-4">
+            <div key={section.label} style={{ marginBottom: 'var(--space-4)' }}>
               {section.label && (
-                <p className="px-5 pb-1.5 text-[10px] font-semibold uppercase tracking-widest text-[var(--c-muted)]">
+                <p
+                  style={{
+                    margin: 0,
+                    paddingInline: 'var(--space-5)',
+                    paddingBottom: 'var(--space-1)',
+                    fontSize: 'var(--text-xs)',
+                    fontWeight: 'var(--fw-semibold)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: 'var(--c-muted)',
+                  }}
+                >
                   {section.label}
                 </p>
               )}
               {sectionItems.map(item => (
-                <NavLink
+                <NavItem
                   key={item.to}
                   to={item.to}
                   end={item.exact ?? true}
-                  className={({ isActive }) =>
-                    `flex items-center px-5 py-2 text-sm transition-colors border-l-2 ${
-                      isActive
-                        ? 'border-[var(--c-primary)] text-[var(--c-primary)] font-medium bg-[color-mix(in_srgb,var(--c-primary)_6%,transparent)]'
-                        : 'border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)] hover:bg-[var(--c-bg)]'
-                    }`
-                  }
+                  orientation="sidebar"
                 >
                   {item.label}
-                </NavLink>
+                </NavItem>
               ))}
             </div>
           );
@@ -125,20 +270,49 @@ function Sidebar() {
 
       {/* Selector de tema */}
       {availableThemes.length > 1 && (
-        <div className="px-5 py-3 border-t border-[var(--c-border)]">
-          <p className="text-[10px] text-[var(--c-muted)] mb-2 uppercase tracking-widest font-medium">Tema</p>
-          <div className="flex gap-1.5 flex-wrap">
+        <div
+          style={{
+            paddingInline: 'var(--space-5)',
+            paddingBlock: 'var(--space-3)',
+            borderTopWidth: '1px',
+            borderTopStyle: 'solid',
+            borderTopColor: 'var(--c-border)',
+          }}
+        >
+          <p
+            style={{
+              margin: 0,
+              marginBottom: 'var(--space-2)',
+              fontSize: 'var(--text-xs)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              fontWeight: 'var(--fw-medium)',
+              color: 'var(--c-muted)',
+            }}
+          >
+            Tema
+          </p>
+          <div className="flex flex-wrap" style={{ gap: 'var(--space-1)' }}>
             {availableThemes.map(t => (
               <button
                 key={t.id}
+                type="button"
                 onClick={() => setTheme(t.id)}
                 title={t.name}
-                className="w-5 h-5 rounded-full border-2 transition-all flex-shrink-0"
+                aria-label={`Tema ${t.name}`}
+                aria-pressed={theme === t.id}
+                className="flex-shrink-0"
                 style={{
+                  width: 'var(--space-5)',
+                  height: 'var(--space-5)',
+                  borderRadius: '50%',
+                  borderWidth: '2px',
+                  borderStyle: 'solid',
                   background: THEME_SWATCHES[t.id] ?? 'var(--c-primary)',
                   borderColor: theme === t.id ? 'var(--c-text)' : 'transparent',
                   outline: theme === t.id ? '2px solid var(--c-border)' : 'none',
                   outlineOffset: '1px',
+                  cursor: 'pointer',
                 }}
               />
             ))}
@@ -147,70 +321,104 @@ function Sidebar() {
       )}
 
       {/* Usuario */}
-      <div className="border-t border-[var(--c-border)] flex-shrink-0" ref={menuRef}>
-        <button
-          onClick={() => setUserMenuOpen(v => !v)}
-          className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[var(--c-bg)] transition-colors"
+      <div
+        style={{
+          borderTopWidth: '1px',
+          borderTopStyle: 'solid',
+          borderTopColor: 'var(--c-border)',
+          flexShrink: 0,
+        }}
+      >
+        <Menu
+          align="start"
+          fullWidth
+          panelWidth="100%"
+          trigger={(p) => (
+            <SidebarMenuTrigger
+              menu={p}
+              initials={initials}
+              name={user?.name ?? ''}
+              roleLabel={ROLE_LABEL[role] ?? role}
+            />
+          )}
         >
-          <div
-            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-semibold"
-            style={{ background: 'var(--c-primary)' }}
-          >
-            {initials}
-          </div>
-          <div className="flex-1 text-left min-w-0">
-            <p className="text-xs font-medium text-[var(--c-text)] truncate">{user?.name}</p>
-            <p className="text-[10px] text-[var(--c-muted)]">
-              {role === 'TEACHER' ? 'Docente' : role === 'DIRECTIVO' ? 'Directivo' : 'Admin'}
-            </p>
-          </div>
-          <svg className="w-3.5 h-3.5 text-[var(--c-muted)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d={userMenuOpen ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7'} />
-          </svg>
-        </button>
-
-        {userMenuOpen && (
-          <div className="border-t border-[var(--c-border)] bg-[var(--c-surface)]">
-            {dropdownItems.map((item, i) => {
-              if (item.kind === 'divider')
-                return <div key={i} className="border-t border-[var(--c-border)]" />;
-              if (item.kind === 'logout')
+          {({ close }) => (
+            <div
+              style={{
+                borderTopWidth: '1px',
+                borderTopStyle: 'solid',
+                borderTopColor: 'var(--c-border)',
+                background: 'var(--c-surface)',
+              }}
+            >
+              {dropdownItems.map((item, i) => {
+                if (item.kind === 'divider')
+                  return (
+                    <div
+                      key={i}
+                      style={{ borderTopWidth: '1px', borderTopStyle: 'solid', borderTopColor: 'var(--c-border)' }}
+                    />
+                  );
+                if (item.kind === 'logout')
+                  return (
+                    <MenuRow key="logout" danger onClick={() => { close(); logout(); }}>
+                      Cerrar sesión
+                    </MenuRow>
+                  );
+                if (item.label === 'Ver como alumno') {
+                  if (!tieneEspejo) return null;
+                  return (
+                    <MenuRow
+                      key="entrar-como-alumno"
+                      onClick={() => { close(); void handleEntrarComoAlumno(); }}
+                    >
+                      Entrar como alumno
+                    </MenuRow>
+                  );
+                }
                 return (
-                  <button
-                    key="logout"
-                    onClick={() => { setUserMenuOpen(false); logout(); }}
-                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-[var(--c-danger)] hover:bg-[color-mix(in_srgb,var(--c-danger)_6%,transparent)] transition-colors"
-                  >
-                    Cerrar sesión
-                  </button>
+                  <MenuRowItemLink key={item.to} to={item.to} onClick={close}>
+                    {item.label}
+                  </MenuRowItemLink>
                 );
-              if (item.label === 'Ver como alumno') {
-                if (!tieneEspejo) return null;
-                return (
-                  <button
-                    key="entrar-como-alumno"
-                    onClick={() => { setUserMenuOpen(false); void handleEntrarComoAlumno(); }}
-                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                  >
-                    Entrar como alumno
-                  </button>
-                );
-              }
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setUserMenuOpen(false)}
-                  className="flex items-center gap-2 px-4 py-2.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
-        )}
+              })}
+            </div>
+          )}
+        </Menu>
       </div>
     </aside>
+  );
+}
+
+// Ítem-link del menú de usuario (hover token-puro).
+function MenuRowItemLink({ to, children, onClick }: {
+  to: string;
+  children: ReactNode;
+  onClick: () => void;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <Link
+      to={to}
+      role="menuitem"
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 'var(--space-2)',
+        paddingBlock: 'var(--space-2)',
+        paddingInline: 'var(--space-4)',
+        fontSize: 'var(--text-xs)',
+        color: 'var(--c-text)',
+        textDecoration: 'none',
+        background: hovered ? 'var(--c-hover)' : 'transparent',
+        transition: 'background-color 120ms ease',
+      }}
+    >
+      {children}
+    </Link>
   );
 }
 
