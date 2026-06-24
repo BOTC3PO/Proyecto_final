@@ -58,6 +58,12 @@ import { Button, Field, Input, Modal } from "@/ui";
 | `Tooltip.tsx` | `Tooltip`  | `HTMLSpanElement`    | Hover **y foco**; ESC cierra; `aria-describedby` + `role="tooltip"`.               |
 | `Menu.tsx`    | `Menu`     | —                    | Popover de menú: `role="menu"`, `aria-haspopup/expanded/controls`, click-afuera + **ESC** (retorno de foco), teclado ▲/▼/Home/End. `trigger` y `children` como render-props (`children` recibe `close`). |
 
+### División 8 — indicadores
+
+| Archivo        | Default     | Ref                | Notas                                                                                              |
+| -------------- | ----------- | ------------------ | -------------------------------------------------------------------------------------------------- |
+| `Progress.tsx` | `Progress`  | `HTMLDivElement`   | Barra de progreso con `role="progressbar"`. `value`/`max`, variantes `primary/success/warning/danger`, `label` opcional. |
+
 ### División 6 — navegación
 
 | Archivo        | Default     | Ref                | Notas                                                                                              |

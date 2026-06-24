@@ -19,6 +19,7 @@ import {
   summarizeAttemptEvents,
   type AttemptEventsSummary
 } from "../../domain/quiz/attemptEvents";
+import { Card, Badge, Alert, Spinner } from "../../ui";
 
 type StaffAttempt = {
   id: string;
@@ -34,6 +35,16 @@ type StaffAttempt = {
   events: AttemptEventsSummary;
 };
 
+function statusVariant(s: string): "success" | "warning" | "neutral" | "danger" {
+  switch (s) {
+    case "graded":
+    case "submitted": return "success";
+    case "in_progress": return "warning";
+    case "expired": return "danger";
+    default: return "neutral";
+  }
+}
+
 export default function ProfesorIntentoDetalle() {
   const { attemptId } = useParams();
   const [attempt, setAttempt] = useState<StaffAttempt | null>(null);
@@ -47,9 +58,6 @@ export default function ProfesorIntentoDetalle() {
     apiGet<StaffAttempt>(`/api/quiz-attempts/${attemptId}/staff`)
       .then((data) => {
         if (!active) return;
-        // El backend ya devuelve `events` resumido, pero también
-        // recomputamos del grading por si la versión vieja del backend
-        // no lo incluía (defensa en profundidad).
         setAttempt({
           ...data,
           events: data.events ?? summarizeAttemptEvents(data.grading)
@@ -70,25 +78,60 @@ export default function ProfesorIntentoDetalle() {
 
   if (status === "loading") {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-100">
-        <p className="text-gray-500">Cargando intento...</p>
+      <main style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "var(--c-bg)",
+      }}>
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "var(--space-3)",
+        }}>
+          <Spinner size="lg" label="Cargando intento" />
+          <p style={{ fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
+            Cargando intento...
+          </p>
+        </div>
       </main>
     );
   }
 
   if (status === "error" || !attempt) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="bg-white p-6 rounded-xl shadow space-y-3 max-w-md">
-          <p className="text-gray-700">No se pudo cargar el intento.</p>
-          <p className="text-sm text-gray-500">{errorMessage}</p>
-          <Link
-            to="/profesor/calificaciones"
-            className="text-blue-600 text-sm hover:underline"
-          >
-            ← Volver a calificaciones
-          </Link>
-        </div>
+      <main style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "var(--c-bg)",
+      }}>
+        <Card variant="elevated" padding="lg" style={{ maxWidth: "28rem" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+            <Alert variant="danger" title="Error">
+              No se pudo cargar el intento.
+            </Alert>
+            {errorMessage && (
+              <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
+                {errorMessage}
+              </p>
+            )}
+            <Link
+              to="/profesor/calificaciones"
+              style={{
+                fontSize: "var(--text-sm)",
+                color: "var(--c-primary)",
+                textDecoration: "none",
+                fontWeight: "var(--fw-medium)",
+              }}
+            >
+              &larr; Volver a calificaciones
+            </Link>
+          </div>
+        </Card>
       </main>
     );
   }
@@ -100,53 +143,128 @@ export default function ProfesorIntentoDetalle() {
     ? new Date(attempt.startedAt).toLocaleString()
     : "—";
 
+  const metaItems: { label: string; value: string; badge?: boolean }[] = [
+    {
+      label: "Score",
+      value: `${attempt.score ?? "—"}/${attempt.maxScore ?? "—"}`,
+    },
+    {
+      label: "Estado",
+      value: attempt.status,
+      badge: true,
+    },
+    { label: "Inicio", value: started },
+    { label: "Entrega", value: submitted },
+  ];
+
   return (
-    <main className="min-h-screen bg-gray-100">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        <header className="space-y-2">
-          <Link
-            to="/profesor/calificaciones"
-            className="text-sm text-blue-600 hover:underline"
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "var(--c-bg)",
+        fontFamily: "var(--font-sans)",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "56rem",
+          margin: "0 auto",
+          padding: "var(--space-6) var(--space-4)",
+        }}
+        className="sm:px-6 lg:px-8"
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
+          {/* Header */}
+          <header
+            role="banner"
+            style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}
           >
-            ← Volver a calificaciones
-          </Link>
-          <h1 className="text-2xl font-semibold text-gray-900">
-            Intento {attempt.id}
-          </h1>
-          <p className="text-sm text-gray-500">
-            Alumno: <code className="text-xs">{attempt.userId}</code>
-          </p>
-        </header>
-
-        <section className="bg-white rounded-xl shadow p-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <div>
-            <p className="text-xs font-medium text-gray-500">Score</p>
-            <p className="text-lg font-semibold text-gray-900">
-              {attempt.score ?? "—"}/{attempt.maxScore ?? "—"}
+            <Link
+              to="/profesor/calificaciones"
+              style={{
+                fontSize: "var(--text-sm)",
+                color: "var(--c-primary)",
+                textDecoration: "none",
+                fontWeight: "var(--fw-medium)",
+              }}
+              aria-label="Volver a calificaciones"
+            >
+              &larr; Volver a calificaciones
+            </Link>
+            <h1 style={{
+              margin: 0,
+              fontSize: "var(--text-2xl)",
+              fontWeight: "var(--fw-bold)",
+              lineHeight: "var(--lh-tight)",
+              color: "var(--c-text)",
+            }}>
+              Intento {attempt.id}
+            </h1>
+            <p style={{
+              margin: 0,
+              fontSize: "var(--text-sm)",
+              color: "var(--c-muted)",
+            }}>
+              Alumno: <code style={{
+                fontSize: "var(--text-xs)",
+                fontFamily: "var(--font-mono)",
+                padding: "var(--space-1)",
+                background: "var(--c-surface-3)",
+                borderRadius: "var(--r-sm)",
+              }}>
+                {attempt.userId}
+              </code>
             </p>
-          </div>
-          <div>
-            <p className="text-xs font-medium text-gray-500">Estado</p>
-            <p className="text-lg font-semibold text-gray-900">{attempt.status}</p>
-          </div>
-          <div>
-            <p className="text-xs font-medium text-gray-500">Inicio</p>
-            <p className="text-sm text-gray-700">{started}</p>
-          </div>
-          <div>
-            <p className="text-xs font-medium text-gray-500">Entrega</p>
-            <p className="text-sm text-gray-700">{submitted}</p>
-          </div>
-        </section>
+          </header>
 
-        <AttemptEventsPanel grading={attempt.grading} />
+          {/* Metrics card */}
+          <Card variant="raised" padding="lg">
+            <div className="grid grid-cols-2 sm:grid-cols-4" style={{ gap: "var(--space-4)" }}>
+              {metaItems.map((item) => (
+                <div key={item.label} style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+                  <p style={{
+                    margin: 0,
+                    fontSize: "var(--text-xs)",
+                    fontWeight: "var(--fw-medium)",
+                    color: "var(--c-muted)",
+                  }}>
+                    {item.label}
+                  </p>
+                  {item.badge ? (
+                    <Badge variant={statusVariant(item.value)} size="sm">
+                      {item.value}
+                    </Badge>
+                  ) : (
+                    <p style={{
+                      margin: 0,
+                      fontSize: item.label === "Score" ? "var(--text-lg)" : "var(--text-sm)",
+                      fontWeight: item.label === "Score" ? "var(--fw-semibold)" : "var(--fw-regular)",
+                      color: "var(--c-text)",
+                    }}>
+                      {item.value}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Card>
 
-        <p className="text-[11px] text-gray-400">
-          La nota del intento es independiente de los eventos
-          informativos registrados en este panel. La decisión de dar
-          peso a esos eventos es del docente; el sistema no penaliza
-          automáticamente.
-        </p>
+          {/* Events panel */}
+          <AttemptEventsPanel grading={attempt.grading} />
+
+          {/* Privacy note */}
+          <p style={{
+            margin: 0,
+            fontSize: "11px",
+            lineHeight: "var(--lh-relaxed)",
+            color: "var(--c-muted)",
+          }}>
+            La nota del intento es independiente de los eventos
+            informativos registrados en este panel. La decisión de dar
+            peso a esos eventos es del docente; el sistema no penaliza
+            automáticamente.
+          </p>
+        </div>
       </div>
     </main>
   );

@@ -73,3 +73,7 @@ export type { AvatarProps, AvatarSize, AvatarTone } from "./Avatar";
 
 export { default as NavItem } from "./NavItem";
 export type { NavItemProps, NavItemOrientation } from "./NavItem";
+
+// ── Indicadores ──────────────────────────────────────────────────────────
+export { default as Progress } from "./Progress";
+export type { ProgressProps, ProgressVariant, ProgressSize } from "./Progress";
