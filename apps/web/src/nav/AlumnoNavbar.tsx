@@ -1,8 +1,185 @@
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+/**
+ * nav/AlumnoNavbar.tsx — navbar del alumno (rediseño División 7).
+ *
+ * Reconstruido sobre los primitivos de `ui/` (NavItem, Avatar, Menu).
+ * La lógica de rol/rutas se reutiliza intacta (NAV_BY_ROLE, DROPDOWN_BY_ROLE,
+ * useHasRole, cuentaEspejo, handleVolver). Solo se reconstruye el chrome.
+ *
+ * Paralela a Navbar (D6): mismo patrón de átomos, mismos tokens.
+ */
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { useHasRole } from '../auth/use-roles';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
-import { useState, useRef, useEffect } from 'react';
+import { useState, type CSSProperties, type ReactNode } from 'react';
+import { NavItem, Avatar, Menu, type MenuTriggerProps } from '../ui';
+
+// ── Filas del menú de usuario (token-puro, igual que Navbar) ─────────────────
+
+function MenuRowLink({ to, children, onClick }: {
+  to: string;
+  children: ReactNode;
+  onClick?: () => void;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <Link
+      to={to}
+      role="menuitem"
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 'var(--space-2)',
+        paddingBlock: 'var(--space-2)',
+        paddingInline: 'var(--space-4)',
+        fontSize: 'var(--text-xs)',
+        color: 'var(--c-text)',
+        textDecoration: 'none',
+        background: hovered ? 'var(--c-hover)' : 'transparent',
+        transition: 'background-color 120ms ease',
+      }}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function MenuRowButton({ children, onClick, danger }: {
+  children: ReactNode;
+  onClick: () => void;
+  danger?: boolean;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <button
+      type="button"
+      role="menuitem"
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        gap: 'var(--space-2)',
+        paddingBlock: 'var(--space-2)',
+        paddingInline: 'var(--space-4)',
+        fontSize: 'var(--text-xs)',
+        color: danger ? 'var(--c-danger)' : 'var(--c-text)',
+        background: hovered
+          ? danger
+            ? 'color-mix(in srgb, var(--c-danger) 8%, transparent)'
+            : 'var(--c-hover)'
+          : 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+        textAlign: 'left',
+        transition: 'background-color 120ms ease',
+      }}
+    >
+      {children}
+    </button>
+  );
+}
+
+const LogoutIcon = () => (
+  <svg aria-hidden="true" width="16" height="16" style={{ flexShrink: 0 }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+  </svg>
+);
+
+function UserMenuTrigger({
+  menu,
+  name,
+  initials,
+}: {
+  menu: MenuTriggerProps;
+  name: string;
+  initials: string;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const expanded = menu['aria-expanded'];
+  return (
+    <button
+      type="button"
+      onClick={menu.onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      aria-label="Menú de usuario"
+      aria-haspopup={menu['aria-haspopup']}
+      aria-expanded={expanded}
+      aria-controls={menu['aria-controls']}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 'var(--space-2)',
+        borderRadius: 'var(--r-xl)',
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: 'var(--c-border)',
+        background: hovered ? 'var(--c-hover)' : 'var(--c-surface)',
+        paddingBlock: 'var(--space-1)',
+        paddingInline: 'var(--space-2)',
+        fontSize: 'var(--text-sm)',
+        color: 'var(--c-text)',
+        cursor: 'pointer',
+        transition: 'background-color 120ms ease',
+      }}
+    >
+      <Avatar initials={initials} aria-hidden="true" />
+      <span
+        className="hidden sm:block"
+        style={{
+          fontWeight: 'var(--fw-medium)',
+          maxWidth: '120px',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        {name}
+      </span>
+      <svg
+        aria-hidden="true"
+        width="16"
+        height="16"
+        style={{
+          color: 'var(--c-muted)',
+          transition: 'transform 120ms ease',
+          transform: expanded ? 'rotate(180deg)' : 'none',
+        }}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  );
+}
+
+const VOLVER_STYLE: CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 'var(--space-1)',
+  borderRadius: 'var(--r-lg)',
+  borderWidth: '1px',
+  borderStyle: 'solid',
+  borderColor: 'var(--c-border)',
+  paddingBlock: 'var(--space-1)',
+  paddingInline: 'var(--space-3)',
+  fontSize: 'var(--text-xs)',
+  fontFamily: 'var(--font-sans)',
+  color: 'var(--c-muted)',
+  textDecoration: 'none',
+  background: 'transparent',
+  cursor: 'pointer',
+  transition: 'background-color 120ms ease',
+};
 
 export default function AlumnoNavbar() {
   const { user, logout, switchCuenta } = useAuth();
@@ -31,16 +208,6 @@ export default function AlumnoNavbar() {
     { kind: 'divider' as const },
     ...baseDropdown,
   ];
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, []);
 
   const initials = user?.name
     ? user.name.split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase()
@@ -69,97 +236,170 @@ export default function AlumnoNavbar() {
     hasDirectivo ? '/enterprise' : null;
 
   return (
-    <nav className="sticky top-0 z-40 w-full border-b border-[var(--c-border)] bg-[var(--c-surface)]">
+    <nav
+      aria-label="Navegación del alumno"
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 40,
+        width: '100%',
+        background: 'var(--c-surface)',
+        borderBottomWidth: '1px',
+        borderBottomStyle: 'solid',
+        borderBottomColor: 'var(--c-border)',
+      }}
+    >
       {esEspejo && (
         <div
           data-testid="espejo-indicator"
-          className="flex items-center justify-center gap-2 px-4 py-1 text-xs bg-[color-mix(in_srgb,var(--c-primary)_10%,var(--c-surface))] border-b border-[color-mix(in_srgb,var(--c-primary)_20%,transparent)] text-[var(--c-primary)]"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 'var(--space-2)',
+            paddingBlock: 'var(--space-1)',
+            paddingInline: 'var(--space-4)',
+            fontSize: 'var(--text-xs)',
+            background: 'color-mix(in srgb, var(--c-primary) 10%, var(--c-surface))',
+            borderBottomWidth: '1px',
+            borderBottomStyle: 'solid',
+            borderBottomColor: 'color-mix(in srgb, var(--c-primary) 20%, transparent)',
+            color: 'var(--c-primary)',
+          }}
         >
           <span>Cuenta de alumno</span>
-          <span aria-hidden>·</span>
+          <span aria-hidden="true">·</span>
           <button
+            type="button"
             onClick={handleVolver}
-            className="underline hover:no-underline font-medium"
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: 'var(--c-primary)',
+              fontSize: 'var(--text-xs)',
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 'var(--fw-medium)',
+              textDecoration: 'underline',
+              padding: 0,
+            }}
           >
             Volver al panel principal
           </button>
         </div>
       )}
-      <div className="flex items-center justify-between max-w-6xl px-4 py-3 mx-auto">
-        <Link to="/alumno" className="font-bold text-[var(--c-text)]">Virtual Book</Link>
 
-        <ul className="flex gap-4">
+      <div className="flex items-center justify-between max-w-6xl gap-4 px-4 py-3 mx-auto">
+        <Link
+          to="/alumno"
+          style={{
+            fontWeight: 'var(--fw-bold)',
+            fontSize: 'var(--text-base)',
+            color: 'var(--c-text)',
+            textDecoration: 'none',
+          }}
+        >
+          Virtual Book
+        </Link>
+
+        <ul
+          role="list"
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            gap: 'var(--space-1)',
+            listStyle: 'none',
+            margin: 0,
+            padding: 0,
+          }}
+        >
           {items.map((it) => (
             <li key={it.to}>
-              <NavLink
-                to={it.to}
-                end={it.exact ?? true}
-                className={({ isActive }) =>
-                  `px-3 py-2 rounded-full text-sm transition-colors ${
-                    isActive
-                      ? 'bg-[var(--c-primary)] text-white'
-                      : 'text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)]'
-                  }`
-                }
-              >
+              <NavItem to={it.to} end={it.exact ?? true} orientation="horizontal">
                 {it.label}
-              </NavLink>
+              </NavItem>
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--space-2)',
+          }}
+        >
           {esEspejo ? (
-            <button
-              onClick={handleVolver}
-              className="text-xs border border-[var(--c-border)] rounded-lg px-3 py-1.5 text-[var(--c-muted)] hover:bg-[var(--c-bg)] transition-colors"
-            >
+            <button type="button" onClick={handleVolver} style={VOLVER_STYLE}>
               ← Volver a mi panel
             </button>
           ) : roleHome ? (
-            <Link
-              to={roleHome}
-              className="text-xs border border-[var(--c-border)] rounded-lg px-3 py-1.5 text-[var(--c-muted)] hover:bg-[var(--c-bg)] transition-colors"
-            >
+            <Link to={roleHome} style={VOLVER_STYLE}>
               ← Volver a mi panel
             </Link>
           ) : null}
 
-          <div className="relative" ref={ref}>
-            <button
-              onClick={() => setOpen(v => !v)}
-              className="flex items-center gap-2 rounded-full border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1.5 text-sm hover:bg-[var(--c-bg)] transition-colors"
-            >
-              <div className="w-6 h-6 rounded-full bg-[var(--c-primary)] flex items-center justify-center text-white text-[10px] font-bold">
-                {initials}
-              </div>
-              <span className="hidden sm:block text-[var(--c-text)] text-sm font-medium max-w-[100px] truncate">
-                {user?.name}
-              </span>
-            </button>
-
-            {open && (
-              <div className="absolute right-0 mt-2 w-44 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] z-50 overflow-hidden">
-                {dropdownItems.map((item, i) => {
-                  if (item.kind === 'divider')
-                    return <div key={i} className="border-t border-[var(--c-border)]" />;
-                  if (item.kind === 'logout')
-                    return (
-                      <button key="logout" onClick={() => { setOpen(false); logout(); }}
-                        className="flex w-full items-center gap-2 px-4 py-2.5 text-xs text-[var(--c-danger)] hover:bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] transition-colors">
-                        Cerrar sesión
-                      </button>
-                    );
-                  return (
-                    <Link key={item.to} to={item.to} onClick={() => setOpen(false)}
-                      className="flex items-center gap-2 px-4 py-2.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </div>
+          <Menu
+            align="end"
+            panelWidth="11rem"
+            trigger={(p) => (
+              <UserMenuTrigger
+                menu={p}
+                name={user?.name ?? 'Usuario'}
+                initials={initials}
+              />
             )}
-          </div>
+          >
+            {({ close }) => (
+              <>
+                <div
+                  style={{
+                    paddingBlock: 'var(--space-2)',
+                    paddingInline: 'var(--space-4)',
+                    borderBottomWidth: '1px',
+                    borderBottomStyle: 'solid',
+                    borderBottomColor: 'var(--c-border)',
+                    background: 'var(--c-surface-2)',
+                  }}
+                >
+                  <p style={{ margin: 0, fontSize: 'var(--text-sm)', fontWeight: 'var(--fw-semibold)', color: 'var(--c-text)' }}>
+                    {user?.name ?? 'Usuario'}
+                  </p>
+                </div>
+                <div style={{ paddingBlock: 'var(--space-1)' }}>
+                  {dropdownItems.map((item, i) => {
+                    if (item.kind === 'divider') {
+                      return (
+                        <div
+                          key={i}
+                          style={{
+                            borderTopWidth: '1px',
+                            borderTopStyle: 'solid',
+                            borderTopColor: 'var(--c-border)',
+                            marginBlock: 'var(--space-1)',
+                          }}
+                        />
+                      );
+                    }
+                    if (item.kind === 'logout') {
+                      return (
+                        <MenuRowButton key="logout" danger onClick={() => { close(); logout(); }}>
+                          <LogoutIcon />
+                          Cerrar sesión
+                        </MenuRowButton>
+                      );
+                    }
+                    return (
+                      <MenuRowLink key={item.to} to={item.to} onClick={close}>
+                        {item.label}
+                      </MenuRowLink>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+          </Menu>
         </div>
       </div>
     </nav>
