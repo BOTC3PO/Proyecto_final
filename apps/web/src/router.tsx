@@ -102,6 +102,9 @@ const ProfesorAsistencia        = lazyWithRetry(() => import("./pages/ProfesorAs
 const EnterpriseDashboard       = lazyWithRetry(() => import("./pages/EnterpriseDashboard"));
 const EnterpriseReportes        = lazyWithRetry(() => import("./pages/EnterpriseReportes"));
 const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
+
+// Demo pública del sistema Tiza (WO-V1/V2/V3) — accesible sin auth.
+const TizaDemoPage              = lazyWithRetry(() => import("./pages/TizaDemoPage"));
 const EnterpriseMiembros        = lazyWithRetry(() => import("./pages/EnterpriseMiembros"));
 const EnterpriseModulos         = lazyWithRetry(() => import("./pages/EnterpriseModulos"));
 const EnterpriseComisiones      = lazyWithRetry(() => import("./pages/EnterpriseComisiones"));
@@ -170,6 +173,10 @@ export const router = createBrowserRouter([
           { path: "onboarding-guest",    element: withSuspense(<GuestOnboarding />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
           { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
+
+          // Demo pública del sistema Tiza (WO-V1/V2/V3) — sin auth.
+          { path: "demo/tiza", element: withSuspense(<TizaDemoPage />) },
+          { path: "demo/tiza-editor", element: <Navigate to="/demo/tiza" replace /> },
 
           // Herramientas Educativas (public)
           { path: "herramientas",                    element: <HerramientasEducativas /> },
