@@ -15,9 +15,11 @@
  *    un placeholder "disponible al guardar" y se acumula en `missing`.
  *
  * Sin red de escritura. Cierre con X o Esc.
+ *
+ * D10: chrome migrado a tokens (--c-*, --space-*, --text-*).
  */
 
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
 import type { ModuleQuiz, ModuleQuizQuestion } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "./TheoryItemCard";
@@ -26,6 +28,7 @@ import OrdenarRenderer from "../quiz-renderers/OrdenarRenderer";
 import MarcarMapaRenderer from "../quiz-renderers/MarcarMapaRenderer";
 import AnalisisSintacticoRenderer from "../quiz-renderers/AnalisisSintacticoRenderer";
 import IdentificarPalabrasRenderer from "../quiz-renderers/IdentificarPalabrasRenderer";
+import { Badge, Button, Alert } from "../../ui";
 
 export interface VistaAlumnoOverlayProps {
   open: boolean;
@@ -72,54 +75,97 @@ export default function VistaAlumnoOverlay({
 
   if (!open || typeof document === "undefined") return null;
 
+  const overlay: CSSProperties = {
+    position: "fixed",
+    inset: 0,
+    zIndex: 100,
+    display: "flex",
+    flexDirection: "column",
+    background: "var(--c-bg)",
+    fontFamily: "var(--font-sans)",
+  };
+
+  const banner: CSSProperties = {
+    display: "flex",
+    flexShrink: 0,
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "var(--space-3)",
+    borderBottom: "1px solid var(--c-warning)",
+    background: "var(--c-warning-soft)",
+    padding: "var(--space-2) var(--space-4)",
+    fontSize: "var(--text-sm)",
+    color: "var(--c-text)",
+  };
+
+  const contentArea: CSSProperties = {
+    flex: 1,
+    overflow: "auto",
+    padding: "var(--space-5)",
+    maxWidth: "56rem",
+    margin: "0 auto",
+    width: "100%",
+    boxSizing: "border-box",
+  };
+
+  const sectionHeading: CSSProperties = {
+    margin: 0,
+    fontSize: "var(--text-lg)",
+    fontWeight: "var(--fw-bold)",
+    color: "var(--c-text)",
+    display: "flex",
+    alignItems: "center",
+    gap: "var(--space-2)",
+  };
+
   return createPortal(
     <div
       data-testid="vista-alumno-overlay"
-      className="fixed inset-0 z-[100] flex flex-col bg-slate-50"
+      style={overlay}
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
     >
-      <div
-        className="flex shrink-0 items-center justify-between gap-3 border-b border-amber-300 bg-amber-100 px-4 py-2 text-sm text-amber-900"
-        data-testid="vista-alumno-banner"
-      >
+      <div style={banner} data-testid="vista-alumno-banner">
         <span>
           <strong>Vista previa</strong> — los intentos no se guardan.
         </span>
-        <button
-          type="button"
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={onClose}
           aria-label="Cerrar vista alumno"
           data-testid="vista-alumno-close"
-          className="rounded-md border border-amber-400 bg-white px-3 py-1 text-amber-900 hover:bg-amber-50"
         >
           Cerrar ✕
-        </button>
+        </Button>
       </div>
 
-      <div className="flex-1 overflow-auto p-6">
+      <div style={contentArea}>
         <h1
           id={titleId}
-          className="mb-6 text-2xl font-bold text-slate-900"
           data-testid="vista-alumno-title"
+          style={{
+            margin: "0 0 var(--space-5)",
+            fontSize: "var(--text-2xl)",
+            fontWeight: "var(--fw-bold)",
+            color: "var(--c-text)",
+          }}
         >
           {title}
         </h1>
 
-        <section className="mb-8 space-y-4">
-          <h2 className="text-lg font-bold text-slate-900">
+        <section style={{ marginBottom: "var(--space-6)", display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+          <h2 style={sectionHeading}>
             Teoría
-            <span className="ml-2 inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-indigo-100 px-2 text-xs font-bold text-indigo-700">
-              {theoryItems.length}
-            </span>
+            <Badge variant="primary" size="sm">{theoryItems.length}</Badge>
           </h2>
           {theoryItems.length === 0 ? (
-            <p className="text-sm text-slate-500">
+            <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
               Este módulo todavía no tiene elementos de teoría.
             </p>
           ) : (
-            <div className="grid gap-3">
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
               {theoryItems.map((item) => (
                 <TheoryItemCard key={item.id} item={item} />
               ))}
@@ -127,30 +173,44 @@ export default function VistaAlumnoOverlay({
           )}
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-lg font-bold text-slate-900">
+        <section style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+          <h2 style={sectionHeading}>
             Quizzes
-            <span className="ml-2 inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-purple-100 px-2 text-xs font-bold text-purple-700">
-              {quizzes.length}
-            </span>
+            <Badge variant="accent" size="sm">{quizzes.length}</Badge>
           </h2>
           {quizzes.length === 0 ? (
-            <p className="text-sm text-slate-500">
+            <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
               Este módulo todavía no tiene quizzes.
             </p>
           ) : (
-            <div className="space-y-6">
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
               {quizzes.map((quiz) => (
                 <article
                   key={quiz.id}
                   data-testid={`vista-alumno-quiz-${quiz.id}`}
-                  className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
+                  style={{
+                    borderRadius: "var(--r-lg)",
+                    border: "1px solid var(--c-border)",
+                    background: "var(--c-surface)",
+                    padding: "var(--space-4)",
+                    boxShadow: "var(--shadow-sm)",
+                  }}
                 >
-                  <header className="mb-3">
-                    <h3 className="text-sm font-bold text-slate-800">
+                  <header style={{ marginBottom: "var(--space-3)" }}>
+                    <h3 style={{
+                      margin: 0,
+                      fontSize: "var(--text-sm)",
+                      fontWeight: "var(--fw-bold)",
+                      color: "var(--c-text)",
+                    }}>
                       {quiz.title || "Quiz sin título"}
                     </h3>
-                    <p className="mt-0.5 text-xs font-medium text-slate-500">
+                    <p style={{
+                      margin: "2px 0 0",
+                      fontSize: "var(--text-xs)",
+                      fontWeight: "var(--fw-medium)",
+                      color: "var(--c-muted)",
+                    }}>
                       Modo: {quiz.mode === "generated" ? "Generado" : "Manual"}
                     </p>
                   </header>
@@ -174,17 +234,28 @@ export default function VistaAlumnoOverlay({
 
         {missing.length > 0 && (
           <section
-            className="mt-8 rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900"
+            style={{ marginTop: "var(--space-6)" }}
             data-testid="vista-alumno-missing"
           >
-            <h3 className="mb-2 font-semibold">Limitaciones de la vista previa</h3>
-            <ul className="list-disc pl-5">
-              {missing.map((m, i) => (
-                <li key={`${m.quizId}-${i}`}>
-                  Quiz <code>{m.quizId}</code>: {m.reason}
-                </li>
-              ))}
-            </ul>
+            <Alert variant="warning" title="Limitaciones de la vista previa">
+              <ul style={{
+                margin: "var(--space-2) 0 0",
+                paddingLeft: "var(--space-4)",
+                fontSize: "var(--text-sm)",
+              }}>
+                {missing.map((m, i) => (
+                  <li key={`${m.quizId}-${i}`}>
+                    Quiz <code style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "var(--text-xs)",
+                      padding: "1px var(--space-1)",
+                      background: "var(--c-surface-3)",
+                      borderRadius: "var(--r-sm)",
+                    }}>{m.quizId}</code>: {m.reason}
+                  </li>
+                ))}
+              </ul>
+            </Alert>
           </section>
         )}
       </div>
@@ -205,14 +276,17 @@ function ManualQuizPreview({ quiz, onMissing }: ManualQuizPreviewProps) {
 
   if (questions.length === 0) {
     return (
-      <p className="text-sm text-slate-500">
+      <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
         Este quiz todavía no tiene preguntas.
       </p>
     );
   }
 
   return (
-    <ol className="space-y-6" data-testid="vista-alumno-manual-quiz">
+    <ol
+      style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "var(--space-5)" }}
+      data-testid="vista-alumno-manual-quiz"
+    >
       {questions.map((q, idx) => (
         <ManualQuestionPreview
           key={q.id}
@@ -258,14 +332,41 @@ function ManualQuestionPreview({
     }
   };
 
+  const questionCard: CSSProperties = {
+    borderRadius: "var(--r-md)",
+    border: "1px solid var(--c-border)",
+    background: "var(--c-surface-3)",
+    padding: "var(--space-3)",
+    display: "flex",
+    flexDirection: "column",
+    gap: "var(--space-3)",
+  };
+
+  const inputStyle: CSSProperties = {
+    width: "100%",
+    borderRadius: "var(--r-sm)",
+    border: "1px solid var(--c-border)",
+    padding: "var(--space-2) var(--space-3)",
+    fontSize: "var(--text-sm)",
+    fontFamily: "var(--font-sans)",
+    color: "var(--c-text)",
+    background: "var(--c-surface)",
+  };
+
   return (
-    <li className="space-y-3 rounded-lg border border-slate-200 bg-slate-50/40 p-4">
-      <div className="space-y-1">
-        <p className="text-xs uppercase tracking-wide text-slate-400">
+    <li style={questionCard}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+        <p style={{
+          margin: 0,
+          fontSize: "var(--text-xs)",
+          textTransform: "uppercase",
+          letterSpacing: "0.05em",
+          color: "var(--c-muted)",
+        }}>
           Pregunta {index + 1} · {qt}
         </p>
-        <p className="text-sm text-slate-800">
-          {question.prompt || <em className="text-slate-400">(sin enunciado)</em>}
+        <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-text)" }}>
+          {question.prompt || <em style={{ color: "var(--c-muted)" }}>(sin enunciado)</em>}
         </p>
       </div>
 
@@ -289,7 +390,7 @@ function ManualQuestionPreview({
           value={typeof answer === "string" ? answer : ""}
           onChange={(e) => setAnswer(e.target.value)}
           disabled={verified !== null}
-          className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+          style={inputStyle}
         />
       ) : qt === "ordenar" ? (
         <OrdenarRenderer
@@ -328,34 +429,36 @@ function ManualQuestionPreview({
           disabled={verified !== null}
         />
       ) : (
-        <p className="text-xs italic text-slate-500">
+        <p style={{ margin: 0, fontSize: "var(--text-xs)", fontStyle: "italic", color: "var(--c-muted)" }}>
           Tipo &quot;{qt}&quot; no soportado en vista previa.
         </p>
       )}
 
-      <div className="flex flex-wrap items-center gap-2">
-        <button
-          type="button"
+      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "var(--space-2)" }}>
+        <Button
+          variant="primary"
+          size="sm"
           onClick={onVerify}
           disabled={verified !== null}
-          className="rounded-md bg-[var(--c-primary)] px-3 py-1 text-xs font-semibold text-white disabled:opacity-50"
         >
           Verificar
-        </button>
+        </Button>
         {verified === true && (
-          <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
-            ✓ Correcto
-          </span>
+          <Badge variant="success" size="sm">✓ Correcto</Badge>
         )}
         {verified === false && (
-          <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[11px] font-semibold text-rose-700">
-            ✕ Incorrecto
-          </span>
+          <Badge variant="danger" size="sm">✕ Incorrecto</Badge>
         )}
         {correct !== null && (
-          <span className="text-xs text-slate-500">
+          <span style={{ fontSize: "var(--text-xs)", color: "var(--c-muted)" }}>
             Respuesta correcta:{" "}
-            <code className="rounded bg-slate-100 px-1">
+            <code style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "var(--text-xs)",
+              padding: "1px var(--space-1)",
+              background: "var(--c-surface-3)",
+              borderRadius: "var(--r-sm)",
+            }}>
               {Array.isArray(correct) ? correct.join(", ") : correct}
             </code>
           </span>
@@ -378,20 +481,23 @@ function MultipleChoicePreview({
 }) {
   if (options.length === 0) {
     return (
-      <p className="text-xs italic text-slate-500">Sin opciones definidas.</p>
+      <p style={{ margin: 0, fontSize: "var(--text-xs)", fontStyle: "italic", color: "var(--c-muted)" }}>
+        Sin opciones definidas.
+      </p>
     );
   }
   return (
-    <ul className="space-y-1">
+    <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
       {options.map((opt, i) => (
         <li key={i}>
-          <label className="flex items-center gap-2 text-sm">
+          <label style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", fontSize: "var(--text-sm)", cursor: "pointer" }}>
             <input
               type="radio"
               name={`mc-${i}`}
               checked={value === opt}
               onChange={() => onChange(opt)}
               disabled={disabled}
+              style={{ accentColor: "var(--c-primary)" }}
             />
             <span>{opt}</span>
           </label>
@@ -411,16 +517,17 @@ function TrueFalsePreview({
   disabled: boolean;
 }) {
   return (
-    <ul className="space-y-1">
+    <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
       {["Verdadero", "Falso"].map((opt) => (
         <li key={opt}>
-          <label className="flex items-center gap-2 text-sm">
+          <label style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", fontSize: "var(--text-sm)", cursor: "pointer" }}>
             <input
               type="radio"
               name="vf"
               checked={value === opt}
               onChange={() => onChange(opt)}
               disabled={disabled}
+              style={{ accentColor: "var(--c-primary)" }}
             />
             <span>{opt}</span>
           </label>

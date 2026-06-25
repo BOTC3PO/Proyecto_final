@@ -6,26 +6,19 @@
  * ya están vinculados al aula (GET /api/aulas/:id/modulos). Cada fila
  * tiene un checkbox que dispara POST/DELETE idempotente.
  *
- * Endpoint docs:
- *  - GET    /api/aulas/:id/modulos          → { items: [{moduloId, assignedAt, required}] }
- *  - POST   /api/aulas/:id/modulos          body: { moduloId, required? } → 201 | 200 (idempotente)
- *  - DELETE /api/aulas/:id/modulos/:moduloId → 200
- *
- * No tocamos el módulo en sí ni los progresos al desasignar.
+ * Migrado al átomo ui/Modal (D10): focus-trap, ESC, scroll-lock y
+ * retorno de foco vienen del átomo.
  */
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { apiDelete, apiGet, apiPost } from "../../lib/api";
 import type { Module } from "../../domain/module/module.types";
+import { Modal, Input, Button, Spinner, Alert } from "../../ui";
 
 export type AsignarModulosModalProps = {
   classroomId: string;
   classroomName: string;
   onClose: () => void;
-  /**
-   * Llamado tras una asignación/desasignación exitosa. El padre puede
-   * refrescar su propio listado de módulos del aula si lo necesita.
-   */
   onChange?: () => void;
 };
 
@@ -77,15 +70,6 @@ export default function AsignarModulosModal({
     loadAll();
   }, [classroomId]);
 
-  // Cerrar con Escape
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
-
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return modulos;
@@ -121,155 +105,224 @@ export default function AsignarModulosModal({
     }
   };
 
+  const sectionBorder: CSSProperties = {
+    borderBottom: "1px solid var(--c-border)",
+  };
+
+  const rowStyle: CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "var(--space-3)",
+    borderRadius: "var(--r-md)",
+    border: "1px solid var(--c-border)",
+    background: "var(--c-bg)",
+    padding: "var(--space-3)",
+  };
+
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-label={`Asignar módulos al aula ${classroomName}`}
+    <Modal
+      open={true}
+      onClose={onClose}
+      ariaLabel={`Asignar módulos al aula ${classroomName}`}
+      size="lg"
       data-testid="asignar-modulos-modal"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
+      style={{
+        padding: 0,
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
       }}
     >
-      <div className="w-full max-w-2xl max-h-[85vh] overflow-hidden rounded-xl bg-[var(--c-surface)] shadow-2xl flex flex-col">
-        <header className="flex items-center justify-between border-b border-[var(--c-border)] p-4">
-          <div>
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">
-              Asignar módulos al aula
-            </h2>
-            <p className="text-xs text-[var(--c-muted)] mt-0.5">{classroomName}</p>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Cerrar modal"
-            className="rounded-md p-1 text-[var(--c-muted)] hover:bg-[var(--c-border)] hover:text-[var(--c-text)]"
-          >
-            ✕
-          </button>
-        </header>
-
-        <div className="border-b border-[var(--c-border)] p-3">
-          <input
-            type="search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar módulo por título…"
-            aria-label="Buscar módulo"
-            className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-2 text-sm text-[var(--c-text)] placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
-            data-testid="asignar-modulos-search"
-          />
+      {/* Header */}
+      <header style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "var(--space-4)",
+        ...sectionBorder,
+      }}>
+        <div>
+          <h2 style={{
+            margin: 0,
+            fontSize: "var(--text-lg)",
+            fontWeight: "var(--fw-semibold)",
+            color: "var(--c-text)",
+          }}>
+            Asignar módulos al aula
+          </h2>
+          <p style={{
+            margin: "2px 0 0",
+            fontSize: "var(--text-xs)",
+            color: "var(--c-muted)",
+          }}>
+            {classroomName}
+          </p>
         </div>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Cerrar modal"
+          style={{
+            background: "none",
+            border: "none",
+            padding: "var(--space-1)",
+            fontSize: "var(--text-sm)",
+            color: "var(--c-muted)",
+            cursor: "pointer",
+            borderRadius: "var(--r-sm)",
+          }}
+        >
+          ✕
+        </button>
+      </header>
 
-        {globalError && (
-          <div className="border-b border-[var(--c-border)] bg-[var(--c-danger,#dc2626)]/10 px-4 py-2 text-sm text-[var(--c-danger,#dc2626)]">
-            {globalError}
+      {/* Search */}
+      <div style={{ padding: "var(--space-3)", ...sectionBorder }}>
+        <Input
+          type="search"
+          size="sm"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Buscar módulo por título…"
+          aria-label="Buscar módulo"
+          data-testid="asignar-modulos-search"
+        />
+      </div>
+
+      {globalError && (
+        <div style={{ padding: "0 var(--space-3)" }}>
+          <Alert variant="danger">{globalError}</Alert>
+        </div>
+      )}
+
+      {/* List */}
+      <div style={{ flex: 1, overflowY: "auto", padding: "var(--space-3)" }}>
+        {status === "loading" && (
+          <div
+            style={{ display: "flex", justifyContent: "center", padding: "var(--space-6)" }}
+            data-testid="asignar-modulos-loading"
+          >
+            <Spinner size="md" label="Cargando módulos" />
           </div>
         )}
 
-        <div className="flex-1 overflow-y-auto p-3">
-          {status === "loading" && (
-            <div className="space-y-2 p-2" data-testid="asignar-modulos-loading">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="h-12 animate-pulse rounded-lg bg-[var(--c-border)]" />
-              ))}
-            </div>
-          )}
-
-          {status === "error" && (
-            <div className="rounded-xl border-2 border-dashed border-[var(--c-border)] p-6 text-center">
-              <p className="text-sm text-[var(--c-danger,#dc2626)] mb-3">
-                Error: {errorMessage}
-              </p>
-              <button
-                type="button"
-                onClick={loadAll}
-                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-sm font-medium text-[var(--c-text)] hover:bg-[var(--c-primary-soft,#dbeafe)]"
-              >
+        {status === "error" && (
+          <div style={{ textAlign: "center", padding: "var(--space-4)" }}>
+            <Alert variant="danger">Error: {errorMessage}</Alert>
+            <div style={{ marginTop: "var(--space-3)" }}>
+              <Button variant="ghost" size="sm" onClick={loadAll}>
                 Reintentar
-              </button>
+              </Button>
             </div>
-          )}
+          </div>
+        )}
 
-          {status === "ready" && modulos.length === 0 && (
-            <div className="rounded-xl border-2 border-dashed border-[var(--c-border)] p-6 text-center">
-              <p className="text-sm text-[var(--c-muted)]">
-                No tenés módulos todavía. Creá uno en /modulos/crear para poder asignarlo.
-              </p>
-            </div>
-          )}
+        {status === "ready" && modulos.length === 0 && (
+          <p style={{
+            textAlign: "center",
+            padding: "var(--space-6)",
+            fontSize: "var(--text-sm)",
+            color: "var(--c-muted)",
+          }}>
+            No tenés módulos todavía. Creá uno en /modulos/crear para poder asignarlo.
+          </p>
+        )}
 
-          {status === "ready" && modulos.length > 0 && filtered.length === 0 && (
-            <p className="p-4 text-center text-sm text-[var(--c-muted)]">
-              Sin resultados para "{search}".
-            </p>
-          )}
+        {status === "ready" && modulos.length > 0 && filtered.length === 0 && (
+          <p style={{
+            textAlign: "center",
+            padding: "var(--space-4)",
+            fontSize: "var(--text-sm)",
+            color: "var(--c-muted)",
+          }}>
+            Sin resultados para &quot;{search}&quot;.
+          </p>
+        )}
 
-          {status === "ready" && filtered.length > 0 && (
-            <ul
-              className="space-y-2"
-              data-testid="asignar-modulos-list"
-            >
-              {filtered.map((m) => {
-                const checked = asignados.has(m.id);
-                const state = rowState[m.id] ?? "idle";
-                const disabled = state === "saving";
-                return (
-                  <li
-                    key={m.id}
-                    className="flex items-center justify-between gap-3 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3"
-                    data-testid={`asignar-modulos-row-${m.id}`}
-                    data-assigned={checked ? "true" : "false"}
-                  >
-                    <label className="flex flex-1 items-center gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={checked}
-                        disabled={disabled}
-                        onChange={() => handleToggle(m.id)}
-                        data-testid={`asignar-modulos-checkbox-${m.id}`}
-                        aria-label={`Asignar ${m.title}`}
-                        className="h-4 w-4 rounded border-[var(--c-border)] accent-[var(--c-primary)]"
-                      />
-                      <span className="min-w-0 flex-1">
-                        <span className="block truncate text-sm font-medium text-[var(--c-text)]">
-                          {m.title}
-                        </span>
-                        <span className="block text-xs text-[var(--c-muted)]">
-                          {m.subject || m.category || "Sin materia"}
-                        </span>
-                      </span>
-                    </label>
-                    <span
-                      className="shrink-0 text-xs text-[var(--c-muted)]"
-                      data-testid={`asignar-modulos-status-${m.id}`}
-                    >
-                      {state === "saving"
-                        ? "Guardando…"
-                        : state === "error"
-                          ? "Error"
-                          : checked
-                            ? "Asignado"
-                            : "No asignado"}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
-
-        <footer className="flex items-center justify-end gap-2 border-t border-[var(--c-border)] p-3">
-          <button
-            type="button"
-            onClick={onClose}
-            className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-sm font-medium text-[var(--c-text)] hover:bg-[var(--c-border)]"
+        {status === "ready" && filtered.length > 0 && (
+          <ul
+            style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "var(--space-2)" }}
+            data-testid="asignar-modulos-list"
           >
-            Cerrar
-          </button>
-        </footer>
+            {filtered.map((m) => {
+              const checked = asignados.has(m.id);
+              const state = rowState[m.id] ?? "idle";
+              const disabled = state === "saving";
+              return (
+                <li
+                  key={m.id}
+                  style={rowStyle}
+                  data-testid={`asignar-modulos-row-${m.id}`}
+                  data-assigned={checked ? "true" : "false"}
+                >
+                  <label style={{ display: "flex", flex: 1, alignItems: "center", gap: "var(--space-3)", cursor: "pointer" }}>
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      disabled={disabled}
+                      onChange={() => handleToggle(m.id)}
+                      data-testid={`asignar-modulos-checkbox-${m.id}`}
+                      aria-label={`Asignar ${m.title}`}
+                      style={{ accentColor: "var(--c-primary)" }}
+                    />
+                    <span style={{ minWidth: 0, flex: 1 }}>
+                      <span style={{
+                        display: "block",
+                        fontSize: "var(--text-sm)",
+                        fontWeight: "var(--fw-medium)",
+                        color: "var(--c-text)",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}>
+                        {m.title}
+                      </span>
+                      <span style={{
+                        display: "block",
+                        fontSize: "var(--text-xs)",
+                        color: "var(--c-muted)",
+                      }}>
+                        {m.subject || m.category || "Sin materia"}
+                      </span>
+                    </span>
+                  </label>
+                  <span
+                    style={{
+                      flexShrink: 0,
+                      fontSize: "var(--text-xs)",
+                      color: "var(--c-muted)",
+                    }}
+                    data-testid={`asignar-modulos-status-${m.id}`}
+                  >
+                    {state === "saving"
+                      ? "Guardando…"
+                      : state === "error"
+                        ? "Error"
+                        : checked
+                          ? "Asignado"
+                          : "No asignado"}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
-    </div>
+
+      {/* Footer */}
+      <footer style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        gap: "var(--space-2)",
+        padding: "var(--space-3)",
+        borderTop: "1px solid var(--c-border)",
+      }}>
+        <Button variant="ghost" size="sm" onClick={onClose}>
+          Cerrar
+        </Button>
+      </footer>
+    </Modal>
   );
 }
