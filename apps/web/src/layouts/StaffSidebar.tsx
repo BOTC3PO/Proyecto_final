@@ -331,6 +331,7 @@ function Sidebar() {
       >
         <Menu
           align="start"
+          placement="up"
           fullWidth
           panelWidth="100%"
           trigger={(p) => (

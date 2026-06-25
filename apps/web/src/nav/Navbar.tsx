@@ -332,8 +332,8 @@ export default function Navbar() {
         <nav
           aria-label="Navegación principal"
           style={{
-            background: "var(--c-nav-bg)",
-            color: "var(--c-nav-text)",
+            background: "#2563eb",
+            color: "#ffffff",
             boxShadow: "var(--shadow-sm)",
           }}
         >
@@ -408,10 +408,10 @@ export default function Navbar() {
             id="public-mobile-menu"
             className="md:hidden"
             style={{
-              background: "var(--c-nav-bg)",
+              background: "#2563eb",
               borderTopWidth: "1px",
               borderTopStyle: "solid",
-              borderTopColor: "color-mix(in srgb, var(--c-nav-text) 18%, transparent)",
+              borderTopColor: "color-mix(in srgb, #ffffff 18%, transparent)",
             }}
           >
             <div className="flex flex-col gap-1 px-4 py-3">

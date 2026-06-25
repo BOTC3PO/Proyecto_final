@@ -29,6 +29,8 @@ import {
 
 export type MenuAlign = "start" | "end";
 
+export type MenuPlacement = "down" | "up";
+
 export type MenuTriggerProps = {
   onClick: () => void;
   "aria-haspopup": "menu";
@@ -43,6 +45,10 @@ export type MenuProps = {
   children: (api: { close: () => void }) => ReactNode;
   /** Alineación horizontal del panel respecto del disparador. */
   align?: MenuAlign;
+  /** Dirección vertical del panel. Default `"down"` (preserva comportamiento
+   *  histórico del primitivo). Usar `"up"` cuando el disparador está
+   *  anclado al fondo de un contenedor con overflow propio (ej. sidebar). */
+  placement?: MenuPlacement;
   /** Ancho mínimo del panel (token recomendado). */
   panelWidth?: string;
   /** Wrapper y disparador ocupan todo el ancho disponible (ej. sidebar). */
@@ -55,6 +61,7 @@ export default function Menu({
   trigger,
   children,
   align = "end",
+  placement = "down",
   panelWidth,
   fullWidth = false,
 }: MenuProps) {
@@ -118,8 +125,9 @@ export default function Menu({
 
   const panel: CSSProperties = {
     position: "absolute",
-    top: "100%",
-    marginTop: "var(--space-2)",
+    ...(placement === "up"
+      ? { bottom: "100%", marginBottom: "var(--space-2)" }
+      : { top: "100%", marginTop: "var(--space-2)" }),
     zIndex: 50,
     right: align === "end" ? "var(--space-0)" : "auto",
     left: align === "start" ? "var(--space-0)" : "auto",

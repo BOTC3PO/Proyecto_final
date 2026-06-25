@@ -355,13 +355,13 @@ export default function Page() {
   const primary = usePrimaryRole();
   const isStaffView = primary !== null && primary !== "USER" && primary !== "PARENT";
   if (!user) return null;
-  const initials = user.name
+  const initials = (user.name ?? "")
     .split(" ")
     .filter(Boolean)
     .map((p) => p[0])
     .join("")
     .slice(0, 2)
-    .toUpperCase();
+    .toUpperCase() || "?";
   // Para USER real, mostramos "Alumno". Para staff en preview,
   // mostramos el rol real para que entienda que está viendo
   // SU cuenta.

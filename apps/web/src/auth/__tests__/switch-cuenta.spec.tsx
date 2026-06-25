@@ -35,7 +35,8 @@ const espejoResponse = {
   accessToken: "espejo-token",
   refreshToken: "espejo-refresh",
   id: "espejo-1",
-  name: "Espejo Test",
+  fullName: "Espejo Test",
+  username: "espejo-test",
   role: "USER",
   roles: ["USER"],
   landing: "/alumno",
@@ -68,6 +69,7 @@ describe("FASE 3 — AuthProvider: switchCuenta()", () => {
 
     expect(landing).toBe("/alumno");
     expect(result.current.user?.id).toBe("espejo-1");
+    expect(result.current.user?.name).toBe("Espejo Test");
     expect(result.current.user?.role).toBe("USER");
     expect(result.current.user?.cuentaVinculada?.tipoDestino).toBe("PRINCIPAL");
   });
@@ -111,7 +113,7 @@ describe("FASE 3 — AuthProvider: switchCuenta()", () => {
   });
 
   it("switchCuenta() lanza Error si no hay token activo", async () => {
-    mockGetAuthToken.mockReturnValue(null);
+    mockGetAuthToken.mockReturnValue(null as unknown as string);
     const { result } = renderHook(() => useAuth(), { wrapper: wrapProvider });
 
     await expect(

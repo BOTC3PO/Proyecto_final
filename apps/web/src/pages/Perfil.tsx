@@ -741,7 +741,7 @@ export default function Perfil() {
                       }`}
                     >
                       <span
-                        className="w-6 h-6 rounded-full shrink-0 border border-black/10"
+                        className="w-4 h-4 rounded-full shrink-0 border border-black/10"
                         style={{ backgroundColor: THEME_SWATCH_COLORS[opt.id] ?? "#888" }}
                       />
                       <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>

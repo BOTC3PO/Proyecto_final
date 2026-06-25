@@ -114,18 +114,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         accessToken: string;
         refreshToken: string | null;
         id: string;
-        name: string;
+        fullName?: string | null;
+        username?: string;
         role: Role;
         roles: Role[];
+        schoolId?: string | null;
         landing: string;
         cuentaVinculada: CuentaVinculada | null;
       };
 
       const newUser: User = {
         id: data.id,
-        name: data.name,
+        name: data.fullName?.trim() || data.username || "Usuario",
         role: data.role,
         roles: data.roles,
+        schoolId: data.schoolId ?? null,
         cuentaVinculada: data.cuentaVinculada,
       };
 
