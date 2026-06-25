@@ -73,3 +73,15 @@ export type { AvatarProps, AvatarSize, AvatarTone } from "./Avatar";
 
 export { default as NavItem } from "./NavItem";
 export type { NavItemProps, NavItemOrientation } from "./NavItem";
+
+// ── Indicadores ──────────────────────────────────────────────────────────
+export { default as Progress } from "./Progress";
+export type { ProgressProps, ProgressVariant, ProgressSize } from "./Progress";
+
+// ── Notificaciones ───────────────────────────────────────────────────────
+export { default as Toast } from "./Toast";
+export type { ToastProps, ToastVariant, ToastAction } from "./Toast";
+
+// ── Datos ────────────────────────────────────────────────────────────────
+export { default as Table, TableCaption, TableHead, TableBody, TableRow, TableTh, TableTd } from "./Table";
+export type { TableProps, TableVariant, TableCaptionProps, TableHeadProps, TableBodyProps, TableRowProps, TableThProps, TableTdProps } from "./Table";

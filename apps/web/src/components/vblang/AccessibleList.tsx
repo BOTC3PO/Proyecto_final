@@ -13,7 +13,7 @@
  * expresión, etiqueta), de modo que un solo componente cubra todas las
  * dash-lists que el parser soporta.
  */
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type CSSProperties } from "react";
 
 export interface AccessibleListProps<T> {
   /** Ítems actuales. */
@@ -46,6 +46,86 @@ export interface AccessibleListProps<T> {
   isItemHidden?: (item: T, index: number) => boolean;
 }
 
+const fieldsetStyle: CSSProperties = {
+  margin: 0,
+  border: 0,
+  padding: 0,
+};
+
+const legendStyle: CSSProperties = {
+  marginBottom: "var(--space-1)",
+  fontSize: "var(--text-xs)",
+  fontWeight: "var(--fw-medium)",
+  color: "var(--c-text)",
+};
+
+const listStyle: CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "var(--space-1)",
+  listStyle: "none",
+  margin: 0,
+  padding: 0,
+};
+
+const itemStyle: CSSProperties = {
+  display: "flex",
+  alignItems: "flex-start",
+  gap: "var(--space-1)",
+  borderRadius: "var(--r-sm)",
+  border: "1px solid var(--c-border)",
+  background: "var(--c-surface)",
+  padding: "var(--space-1)",
+};
+
+const indexStyle: CSSProperties = {
+  marginTop: "var(--space-1)",
+  width: "1.25rem",
+  flexShrink: 0,
+  textAlign: "right",
+  fontSize: "10px",
+  color: "var(--c-muted)",
+};
+
+const reorderBtnStyle: CSSProperties = {
+  padding: "0 var(--space-1)",
+  fontSize: "var(--text-xs)",
+  color: "var(--c-muted)",
+  background: "none",
+  border: "none",
+  cursor: "pointer",
+  lineHeight: 1,
+};
+
+const removeBtnStyle: CSSProperties = {
+  ...reorderBtnStyle,
+  color: "var(--c-danger)",
+};
+
+const addBtnStyle: CSSProperties = {
+  marginTop: "var(--space-1)",
+  borderRadius: "var(--r-sm)",
+  border: "1px solid var(--c-border)",
+  padding: "var(--space-1) var(--space-2)",
+  fontSize: "var(--text-xs)",
+  color: "var(--c-text)",
+  background: "var(--c-surface)",
+  cursor: "pointer",
+  fontFamily: "var(--font-sans)",
+};
+
+const srOnly: CSSProperties = {
+  position: "absolute",
+  width: "1px",
+  height: "1px",
+  padding: 0,
+  margin: "-1px",
+  overflow: "hidden",
+  clip: "rect(0,0,0,0)",
+  whiteSpace: "nowrap",
+  border: 0,
+};
+
 export function AccessibleList<T>({
   items,
   onChange,
@@ -60,7 +140,6 @@ export function AccessibleList<T>({
 }: AccessibleListProps<T>) {
   const baseId = useId();
   const [announce, setAnnounce] = useState("");
-  // Foco pendiente tras un re-render: { index, dir } => enfocar ese botón.
   const pendingFocus = useRef<{ index: number; kind: "up" | "down" | "remove" | "add" } | null>(
     null,
   );
@@ -90,7 +169,6 @@ export function AccessibleList<T>({
     setAnnounce(
       `${capitalize(itemNoun)} movido de la posición ${index + 1} a la ${j + 1} de ${items.length}.`,
     );
-    // Conservar el foco en el mismo botón, ahora en la fila destino.
     pendingFocus.current = { index: j, kind: dir === -1 ? "up" : "down" };
   };
 
@@ -101,8 +179,6 @@ export function AccessibleList<T>({
     setAnnounce(
       `${capitalize(itemNoun)} en la posición ${index + 1} eliminado. Quedan ${next.length}.`,
     );
-    // Tras eliminar, enfocar el botón eliminar de la fila que toma su lugar
-    // (o la anterior si era la última).
     const focusIndex = Math.min(index, next.length - 1);
     if (focusIndex >= 0) {
       pendingFocus.current = { index: focusIndex, kind: "remove" };
@@ -116,43 +192,46 @@ export function AccessibleList<T>({
   };
 
   return (
-    <fieldset className="m-0 border-0 p-0" aria-describedby={describedById}>
-      <legend className="mb-1 text-xs font-medium text-[var(--c-text,#0f172a)]">
+    <fieldset style={fieldsetStyle} aria-describedby={describedById}>
+      <legend style={legendStyle}>
         {label}
       </legend>
 
-      <ul role="list" className="flex flex-col gap-1">
+      <ul role="list" style={listStyle}>
         {items.map((item, index) => {
           const rowId = `${baseId}-row-${index}`;
           const hidden = isItemHidden?.(item, index) ?? false;
           return (
             <li
               key={index}
-              className="flex items-start gap-1 rounded border border-[var(--c-border,#cbd5e1)] bg-white p-1"
+              style={itemStyle}
               hidden={hidden}
             >
               <span
                 id={rowId}
-                className="mt-1 w-5 shrink-0 text-right text-[10px] text-[var(--c-muted,#64748b)]"
+                style={indexStyle}
                 aria-hidden="true"
               >
                 {index + 1}.
               </span>
-              <div className="min-w-0 flex-1">
+              <div style={{ minWidth: 0, flex: 1 }}>
                 {renderItem(item, index, (nextItem) => {
                   const next = [...items];
                   next[index] = nextItem;
                   onChange(next);
                 })}
               </div>
-              <div className="flex shrink-0 flex-col gap-0.5">
+              <div style={{ display: "flex", flexShrink: 0, flexDirection: "column", gap: "2px" }}>
                 <button
                   type="button"
                   ref={setBtnRef(`${index}:up`)}
                   onClick={() => move(index, -1)}
                   disabled={index === 0}
                   aria-label={`Subir ${itemNoun} de la posición ${index + 1}`}
-                  className="px-1 text-xs text-[var(--c-muted,#64748b)] disabled:opacity-30"
+                  style={{
+                    ...reorderBtnStyle,
+                    opacity: index === 0 ? 0.3 : 1,
+                  }}
                 >
                   ↑
                 </button>
@@ -162,7 +241,10 @@ export function AccessibleList<T>({
                   onClick={() => move(index, 1)}
                   disabled={index === items.length - 1}
                   aria-label={`Bajar ${itemNoun} de la posición ${index + 1}`}
-                  className="px-1 text-xs text-[var(--c-muted,#64748b)] disabled:opacity-30"
+                  style={{
+                    ...reorderBtnStyle,
+                    opacity: index === items.length - 1 ? 0.3 : 1,
+                  }}
                 >
                   ↓
                 </button>
@@ -172,7 +254,10 @@ export function AccessibleList<T>({
                   onClick={() => removeAt(index)}
                   disabled={items.length <= minItems}
                   aria-label={`Eliminar ${itemNoun} de la posición ${index + 1}`}
-                  className="px-1 text-xs text-red-600 disabled:opacity-30"
+                  style={{
+                    ...removeBtnStyle,
+                    opacity: items.length <= minItems ? 0.3 : 1,
+                  }}
                 >
                   ×
                 </button>
@@ -185,13 +270,13 @@ export function AccessibleList<T>({
       <button
         type="button"
         onClick={add}
-        className="mt-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs text-[var(--c-text,#0f172a)] hover:bg-[var(--c-surface,#f1f5f9)]"
+        style={addBtnStyle}
       >
         + {addLabel}
       </button>
 
       {/* Región de anuncios para lectores de pantalla. */}
-      <div role="status" aria-live="polite" className="sr-only">
+      <div role="status" aria-live="polite" style={srOnly}>
         {announce}
       </div>
     </fieldset>

@@ -2,24 +2,26 @@
  * Modal para seleccionar una plantilla existente al armar un quiz de módulo
  * (Sprint 10A — Bloque B). Permite buscar por nombre, alternar entre "Mis
  * plantillas" / "Biblioteca", o redirigir a la página de creación.
+ *
+ * Migrado al átomo ui/Modal (D10): focus-trap, ESC, scroll-lock y
+ * retorno de foco vienen gratis del átomo.
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { useNavigate } from "react-router-dom";
 import { listPlantillas } from "../../domain/vblang/plantillaApi";
 import type {
   PlantillaListItem,
   PlantillaListParams,
 } from "../../domain/vblang/plantilla.types";
+import { Modal, Button, Input, Spinner, Alert } from "../../ui";
 
 type Tab = "mias" | "biblioteca";
 
 interface Props {
   onClose: () => void;
   onSelect: (plantilla: PlantillaListItem) => void;
-  /** Si se pasa, filtra plantillas por materia. */
   materiaHint?: string;
-  /** URL a pasar como returnTo al crear una nueva plantilla. */
   createReturnTo?: string;
 }
 
@@ -68,130 +70,210 @@ export default function PlantillaSelectorModal({
     navigate(url);
   };
 
+  const sectionBorder: CSSProperties = {
+    borderBottom: "1px solid var(--c-border)",
+  };
+
+  const tabBtn = (active: boolean): CSSProperties => ({
+    padding: "var(--space-2) var(--space-3)",
+    fontSize: "var(--text-sm)",
+    fontWeight: "var(--fw-medium)",
+    color: active ? "var(--c-primary)" : "var(--c-muted)",
+    background: "none",
+    border: "none",
+    borderBottom: active ? "2px solid var(--c-primary)" : "2px solid transparent",
+    cursor: "pointer",
+    fontFamily: "var(--font-sans)",
+  });
+
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+    <Modal
+      open={true}
+      onClose={onClose}
+      ariaLabel="Seleccionar plantilla VBLang"
+      size="lg"
       data-testid="plantilla-selector-modal"
-      role="dialog"
-      aria-modal="true"
+      style={{
+        padding: 0,
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+      }}
     >
-      <div className="w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-xl bg-white shadow-2xl flex flex-col">
-        <header className="flex items-center justify-between border-b border-slate-200 p-4">
-          <h2 className="text-lg font-semibold">Seleccionar plantilla VBLang</h2>
-          <button
-            type="button"
-            onClick={onClose}
-            className="rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
-            aria-label="Cerrar"
-          >
-            ✕
-          </button>
-        </header>
+      {/* Header */}
+      <header style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "var(--space-4)",
+        ...sectionBorder,
+      }}>
+        <h2 style={{
+          margin: 0,
+          fontSize: "var(--text-lg)",
+          fontWeight: "var(--fw-semibold)",
+          color: "var(--c-text)",
+        }}>
+          Seleccionar plantilla VBLang
+        </h2>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Cerrar"
+          style={{
+            background: "none",
+            border: "none",
+            padding: "var(--space-1)",
+            fontSize: "var(--text-sm)",
+            color: "var(--c-muted)",
+            cursor: "pointer",
+            borderRadius: "var(--r-sm)",
+          }}
+        >
+          ✕
+        </button>
+      </header>
 
-        <div className="flex gap-2 border-b border-slate-200 px-4">
-          <button
-            type="button"
-            onClick={() => setTab("mias")}
-            className={`px-3 py-2 text-sm font-medium ${
-              tab === "mias"
-                ? "border-b-2 border-blue-500 text-blue-600"
-                : "text-slate-600"
-            }`}
-          >
-            Mis plantillas
-          </button>
-          <button
-            type="button"
-            onClick={() => setTab("biblioteca")}
-            className={`px-3 py-2 text-sm font-medium ${
-              tab === "biblioteca"
-                ? "border-b-2 border-blue-500 text-blue-600"
-                : "text-slate-600"
-            }`}
-          >
-            Biblioteca
-          </button>
-        </div>
-
-        <div className="border-b border-slate-200 p-3">
-          <input
-            type="search"
-            placeholder="Buscar por nombre…"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm"
-          />
-        </div>
-
-        <div className="flex-1 overflow-y-auto p-3">
-          {status === "loading" && (
-            <p className="text-sm text-slate-500 animate-pulse">Cargando…</p>
-          )}
-          {status === "error" && (
-            <p className="text-sm text-red-600">{errorMessage}</p>
-          )}
-          {status === "ready" && items.length === 0 && (
-            <p className="text-sm text-slate-500 text-center py-8">
-              {tab === "biblioteca"
-                ? "No hay plantillas en la biblioteca."
-                : "Todavía no creaste plantillas."}
-            </p>
-          )}
-          {status === "ready" && items.length > 0 && (
-            <ul className="space-y-1">
-              {items.map((item) => (
-                <li key={item.id}>
-                  <button
-                    type="button"
-                    onClick={() => onSelect(item)}
-                    data-testid={`plantilla-option-${item.id}`}
-                    className="w-full rounded-md border border-slate-200 px-3 py-2 text-left hover:border-blue-400 hover:bg-blue-50 transition-colors"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="min-w-0 flex-1">
-                        <p className="text-sm font-medium truncate">
-                          {item.nombre}
-                        </p>
-                        {item.materia && (
-                          <p className="text-xs text-slate-500">
-                            {item.materia}
-                          </p>
-                        )}
-                        {item.descripcion && (
-                          <p className="text-xs text-slate-600 mt-1 line-clamp-2">
-                            {item.descripcion}
-                          </p>
-                        )}
-                      </div>
-                      <span className="shrink-0 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-600">
-                        v{item.version}
-                      </span>
-                    </div>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
-        <footer className="border-t border-slate-200 p-3 flex justify-between items-center">
-          <button
-            type="button"
-            onClick={handleCreateNew}
-            className="text-sm font-medium text-blue-600 hover:underline"
-            data-testid="plantilla-selector-create-new"
-          >
-            + Crear nueva plantilla
-          </button>
-          <button
-            type="button"
-            onClick={onClose}
-            className="rounded-md border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50"
-          >
-            Cancelar
-          </button>
-        </footer>
+      {/* Tabs */}
+      <div style={{ display: "flex", gap: "var(--space-2)", padding: "0 var(--space-4)", ...sectionBorder }}>
+        <button type="button" onClick={() => setTab("mias")} style={tabBtn(tab === "mias")}>
+          Mis plantillas
+        </button>
+        <button type="button" onClick={() => setTab("biblioteca")} style={tabBtn(tab === "biblioteca")}>
+          Biblioteca
+        </button>
       </div>
-    </div>
+
+      {/* Search */}
+      <div style={{ padding: "var(--space-3)", ...sectionBorder }}>
+        <Input
+          type="search"
+          size="sm"
+          placeholder="Buscar por nombre…"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+        />
+      </div>
+
+      {/* List */}
+      <div style={{ flex: 1, overflowY: "auto", padding: "var(--space-3)" }}>
+        {status === "loading" && (
+          <div style={{ display: "flex", justifyContent: "center", padding: "var(--space-4)" }}>
+            <Spinner size="md" label="Cargando plantillas" />
+          </div>
+        )}
+        {status === "error" && (
+          <Alert variant="danger">{errorMessage}</Alert>
+        )}
+        {status === "ready" && items.length === 0 && (
+          <p style={{
+            textAlign: "center",
+            padding: "var(--space-6) 0",
+            fontSize: "var(--text-sm)",
+            color: "var(--c-muted)",
+          }}>
+            {tab === "biblioteca"
+              ? "No hay plantillas en la biblioteca."
+              : "Todavía no creaste plantillas."}
+          </p>
+        )}
+        {status === "ready" && items.length > 0 && (
+          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+            {items.map((item) => (
+              <li key={item.id}>
+                <button
+                  type="button"
+                  onClick={() => onSelect(item)}
+                  data-testid={`plantilla-option-${item.id}`}
+                  style={{
+                    width: "100%",
+                    textAlign: "left",
+                    borderRadius: "var(--r-md)",
+                    border: "1px solid var(--c-border)",
+                    background: "var(--c-surface)",
+                    padding: "var(--space-2) var(--space-3)",
+                    cursor: "pointer",
+                    fontFamily: "var(--font-sans)",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "var(--space-3)" }}>
+                    <div style={{ minWidth: 0, flex: 1 }}>
+                      <p style={{
+                        margin: 0,
+                        fontSize: "var(--text-sm)",
+                        fontWeight: "var(--fw-medium)",
+                        color: "var(--c-text)",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}>
+                        {item.nombre}
+                      </p>
+                      {item.materia && (
+                        <p style={{ margin: 0, fontSize: "var(--text-xs)", color: "var(--c-muted)" }}>
+                          {item.materia}
+                        </p>
+                      )}
+                      {item.descripcion && (
+                        <p style={{
+                          margin: "var(--space-1) 0 0",
+                          fontSize: "var(--text-xs)",
+                          color: "var(--c-muted)",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical" as const,
+                          overflow: "hidden",
+                        }}>
+                          {item.descripcion}
+                        </p>
+                      )}
+                    </div>
+                    <span style={{
+                      flexShrink: 0,
+                      borderRadius: "var(--r-full, 9999px)",
+                      background: "var(--c-surface-3)",
+                      padding: "2px var(--space-2)",
+                      fontSize: "10px",
+                      color: "var(--c-muted)",
+                    }}>
+                      v{item.version}
+                    </span>
+                  </div>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {/* Footer */}
+      <footer style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "var(--space-3)",
+        borderTop: "1px solid var(--c-border)",
+      }}>
+        <button
+          type="button"
+          onClick={handleCreateNew}
+          data-testid="plantilla-selector-create-new"
+          style={{
+            background: "none",
+            border: "none",
+            fontSize: "var(--text-sm)",
+            fontWeight: "var(--fw-medium)",
+            color: "var(--c-primary)",
+            cursor: "pointer",
+            fontFamily: "var(--font-sans)",
+          }}
+        >
+          + Crear nueva plantilla
+        </button>
+        <Button variant="ghost" size="sm" onClick={onClose}>
+          Cancelar
+        </Button>
+      </footer>
+    </Modal>
   );
 }
