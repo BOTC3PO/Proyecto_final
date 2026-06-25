@@ -59,9 +59,9 @@
   /* Color del anillo de foco visible — usa el texto principal para máximo contraste */
   --c-focus-ring: var(--c-text);
 
-  /* Radii (alineados con el rediseño) */
-  --r-sm: 6px;
-  --r-md: 10px;
+  /* Radii (alineados con el rediseño + Tiza · WO-V1: 9–14px) */
+  --r-sm: 9px;
+  --r-md: 12px;
   --r-lg: 14px;
   --r-xl: 20px;
 
@@ -96,6 +96,37 @@
   /* Acento suave + texto sobre acento */
   --c-accent-soft: color-mix(in srgb, var(--c-accent) 12%, var(--c-surface));
   --c-accent-fg:   var(--c-surface);
+
+  /* ── Código y syntax (Tiza · WO-V1) ───────────────────────
+   * Tokens para la vista de código (V3) y contextos monospace.
+   * Por defecto apuntan a valores sensatos sobre cualquier
+   * superficie; los temas individuales pueden ajustarlos. */
+  --c-code-bg:    var(--c-surface-2);
+  --c-code-fg:    var(--c-text);
+  --c-syntax-key: var(--c-accent);
+  --c-syntax-str: #1f8a5b;
+  --c-syntax-num: #b5562b;
+}
+
+/* ── Sombra y radio alineados al prototipo Tiza (WO-V1) ── *
+ * El prototipo define --shadow y --shadow-lg con valores
+ * propios; la escala previa (--shadow-1/2/pop, --shadow-sm/
+ * md/lg en tokens.css) se conserva para no romper componentes
+ * existentes. Estos son la referencia canónica para código
+ * nuevo y para el tema Tiza. */
+:root {
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06),
+             0 4px 14px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 12px 40px rgba(16, 24, 40, 0.14);
+}
+
+/* ── Familia monospace pública (WO-V1) ──────────────────── *
+ * Ya existe --font-mono como variable de Tailwind v4 en el
+ * bloque @theme; acá exponemos un alias CSS para los lugares
+ * que no consumen utilities (variables inline, SVG, etc.). */
+:root {
+  --font-mono-css: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
 }
 
 /* ── Temas normales ─────────────────────────────────────── */
@@ -220,6 +251,201 @@
   --c-danger:   #dc2626;
   --c-nav-bg:   #ffffff;
   --c-nav-text: #0f172a;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TIZA — Tema "Tiza · Editor de consignas" (prototipo de Claude)
+   WO-V1: paleta exacta del prototipo mapeada a --c-*.
+   Como el sistema de acentos (data-accent) sobreescribe
+   --c-primary/--c-accent/--c-accent-soft, el --c-accent de
+   acá es el default "azul" (#2f6df6) que data-accent="azul"
+   también fija. Coherente por construcción.
+   ═══════════════════════════════════════════════════════════ */
+
+[data-theme="tiza"] {
+  /* base 12 */
+  --c-bg:       #e9edf2;   /* canvas del prototipo          */
+  --c-surface:  #ffffff;   /* surface                       */
+  --c-border:   #e4e8ef;   /* border                        */
+  --c-text:     #191d24;   /* fg                            */
+  --c-muted:    #5a6473;   /* fg-2                          */
+  --c-primary:  #2f6df6;   /* accent (azul, default)        */
+  --c-accent:   #2f6df6;   /* accent (azul, default)        */
+  --c-success:  #16a34a;
+  --c-warning:  #d97706;
+  --c-danger:   #dc2626;
+  --c-nav-bg:   #ffffff;
+  --c-nav-text: #191d24;
+
+  /* superficies extra */
+  --c-surface-2: #f4f6f9;   /* surface-2 del prototipo       */
+  --c-surface-3: #eef1f6;   /* un escalón más abajo que -2    */
+
+  /* sidebar (look prototipo: sidebar claro) */
+  --c-sidebar-bg:  #ffffff;
+  --c-sidebar-fg:  #191d24;
+  --c-sidebar-dim: #98a2b2;
+
+  /* texto / bordes / foco */
+  --c-text-3:       #98a2b2;   /* fg-3 del prototipo           */
+  --c-text-on-dark: #faf9f6;
+  --c-border-strong:#c9d0db;
+  --c-focus-ring:   #2f6df6;
+
+  /* acento (azul default) */
+  --c-accent-soft:  #2f6df61f;  /* accent @ 12% — accent-weak   */
+  --c-accent-fg:    #ffffff;    /* accent-fg                    */
+
+  /* estados + soft + info */
+  --c-info:         #2c4c8a;
+  --c-success-soft: color-mix(in srgb, var(--c-success) 14%, var(--c-surface));
+  --c-warning-soft: color-mix(in srgb, var(--c-warning) 14%, var(--c-surface));
+  --c-danger-soft:  color-mix(in srgb, var(--c-danger)  14%, var(--c-surface));
+  --c-info-soft:    color-mix(in srgb, var(--c-info)    14%, var(--c-surface));
+
+  /* código / syntax (vista de código V3 + monospace) */
+  --c-code-bg:    #f7f9fc;     /* code-bg del prototipo         */
+  --c-code-fg:    #3b4252;     /* code-fg del prototipo         */
+  --c-syntax-key: var(--c-accent);
+  --c-syntax-str: #1f8a5b;     /* str del prototipo             */
+  --c-syntax-num: #b5562b;     /* num del prototipo             */
+}
+
+[data-theme="tiza-dark"] {
+  /* base 12 */
+  --c-bg:       #0a0d12;     /* canvas dark del prototipo     */
+  --c-surface:  #161b22;     /* surface dark                  */
+  --c-border:   #293040;     /* border dark                   */
+  --c-text:     #e7eaef;     /* fg dark                       */
+  --c-muted:    #98a2b3;     /* fg-2 dark                     */
+  --c-primary:  #5b8dee;     /* accent dark (azul)            */
+  --c-accent:   #5b8dee;     /* accent dark (azul)            */
+  --c-success:  #34d399;
+  --c-warning:  #fbbf24;
+  --c-danger:   #f87171;
+  --c-nav-bg:   #0a0d12;
+  --c-nav-text: #e7eaef;
+
+  /* superficies extra */
+  --c-surface-2: #1c2230;     /* surface-2 dark                */
+  --c-surface-3: #232a3a;     /* un escalón más abajo que -2   */
+
+  /* sidebar */
+  --c-sidebar-bg:  #0a0d12;
+  --c-sidebar-fg:  #e7eaef;
+  --c-sidebar-dim: #6a7382;
+
+  /* texto / bordes / foco */
+  --c-text-3:       #6a7382;   /* fg-3 dark                     */
+  --c-text-on-dark: #e7eaef;
+  --c-border-strong:#3a4255;
+  --c-focus-ring:   #5b8dee;
+
+  /* acento (azul dark) */
+  --c-accent-soft:  #5b8dee26;  /* accent dark @ ~15%           */
+  --c-accent-fg:    #0a0d12;    /* texto sobre accent dark       */
+
+  /* estados + soft + info */
+  --c-info:         #6c8bd6;
+  --c-success-soft: color-mix(in srgb, var(--c-success) 18%, var(--c-surface));
+  --c-warning-soft: color-mix(in srgb, var(--c-warning) 18%, var(--c-surface));
+  --c-danger-soft:  color-mix(in srgb, var(--c-danger)  18%, var(--c-surface));
+  --c-info-soft:    color-mix(in srgb, var(--c-info)    18%, var(--c-surface));
+
+  /* código / syntax */
+  --c-code-bg:    #0f141c;     /* code-bg dark                  */
+  --c-code-fg:    #c4ccd8;     /* code-fg dark                  */
+  --c-syntax-key: var(--c-accent);
+  --c-syntax-str: #52c596;     /* str dark                      */
+  --c-syntax-num: #e0945f;     /* num dark                      */
+
+  /* sombras específicas para dark (más visibles) */
+  --shadow:   0 1px 2px rgba(0, 0, 0, 0.4),
+              0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DATA-ACCENT — sistema de acentos conmutables (WO-V1)
+   Sobre-escribe --c-primary/--c-accent/--c-accent-soft/--c-accent-fg.
+   Default = azul (en :root arriba). Cada tema puede o no usar
+   el acento; el acento vive afuera del tema, así que se puede
+   combinar: <html data-theme="tiza" data-accent="teal">.
+   ═══════════════════════════════════════════════════════════ */
+
+:root,
+[data-accent="azul"] {
+  --c-primary:     #2f6df6;
+  --c-accent:      #2f6df6;
+  --c-accent-soft: #2f6df61f;   /* 12% sobre el accent            */
+  --c-accent-fg:   #ffffff;
+}
+
+[data-accent="teal"] {
+  --c-primary:     #0f766e;
+  --c-accent:      #0f766e;
+  --c-accent-soft: #0f766e1f;
+  --c-accent-fg:   #ffffff;
+}
+
+[data-accent="violeta"] {
+  --c-primary:     #7c3aed;
+  --c-accent:      #7c3aed;
+  --c-accent-soft: #7c3aed1f;
+  --c-accent-fg:   #ffffff;
+}
+
+[data-accent="naranja"] {
+  --c-primary:     #e0532f;
+  --c-accent:      #e0532f;
+  --c-accent-soft: #e0532f1f;
+  --c-accent-fg:   #ffffff;
+}
+
+[data-accent="verde"] {
+  --c-primary:     #0e9f6e;
+  --c-accent:      #0e9f6e;
+  --c-accent-soft: #0e9f6e1f;
+  --c-accent-fg:   #ffffff;
+}
+
+/* Variantes dark — los acentos suben ~10% de luminosidad para
+   mantener contraste sobre superficies oscuras. La regla
+   combina data-theme (dark) con data-accent. */
+[data-theme$="-dark"][data-accent="azul"],
+[data-theme="tiza-dark"][data-accent="azul"] {
+  --c-primary:     #5b8dee;
+  --c-accent:      #5b8dee;
+  --c-accent-soft: #5b8dee26;
+  --c-accent-fg:   #0a0d12;
+}
+[data-theme$="-dark"][data-accent="teal"],
+[data-theme="tiza-dark"][data-accent="teal"] {
+  --c-primary:     #2dd4bf;
+  --c-accent:      #2dd4bf;
+  --c-accent-soft: #2dd4bf26;
+  --c-accent-fg:   #0a0d12;
+}
+[data-theme$="-dark"][data-accent="violeta"],
+[data-theme="tiza-dark"][data-accent="violeta"] {
+  --c-primary:     #a78bfa;
+  --c-accent:      #a78bfa;
+  --c-accent-soft: #a78bfa26;
+  --c-accent-fg:   #0a0d12;
+}
+[data-theme$="-dark"][data-accent="naranja"],
+[data-theme="tiza-dark"][data-accent="naranja"] {
+  --c-primary:     #fb7c5a;
+  --c-accent:      #fb7c5a;
+  --c-accent-soft: #fb7c5a26;
+  --c-accent-fg:   #0a0d12;
+}
+[data-theme$="-dark"][data-accent="verde"],
+[data-theme="tiza-dark"][data-accent="verde"] {
+  --c-primary:     #34d399;
+  --c-accent:      #34d399;
+  --c-accent-soft: #34d39926;
+  --c-accent-fg:   #0a0d12;
 }
 
 /* ── Temas animados ─────────────────────────────────────── */
