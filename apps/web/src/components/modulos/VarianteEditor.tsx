@@ -15,7 +15,14 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { parse, serialize, type Plantilla } from "@vb/vblang";
+import {
+  lint,
+  parse,
+  ParseError,
+  serialize,
+  type LintReport,
+  type Plantilla,
+} from "@vb/vblang";
 import type {
   Posicion,
   Variante,
@@ -649,6 +656,36 @@ function PlantillaInlineEditor({
     };
   }, [plantillaId, io]);
 
+  /**
+   * WO-V3 — parseo tipado: si el código no parsea, capturamos el ParseError
+   * con su `line`/`col`/`message`/`suggestion` para que el code drawer lo
+   * muestre. Si parsea, actualizamos `ultimoAstOk` (que se mantiene aunque
+   * ediciones posteriores rompan) y limpiamos el error.
+   */
+  const parseError = useMemo<
+    { message: string; line: number; col: number; suggestion?: string } | null
+  >(() => {
+    if (codigo === null) return null;
+    try {
+      parse(codigo);
+      return null;
+    } catch (e) {
+      if (e instanceof ParseError) {
+        return {
+          message: e.message,
+          line: e.line,
+          col: e.col,
+          suggestion: e.suggestion,
+        };
+      }
+      return {
+        message: e instanceof Error ? e.message : String(e),
+        line: 1,
+        col: 1,
+      };
+    }
+  }, [codigo]);
+
   const ast = useMemo<Plantilla | null>(() => {
     if (codigo === null) return null;
     try {
@@ -659,6 +696,21 @@ function PlantillaInlineEditor({
       return ultimoAstOk.current;
     }
   }, [codigo]);
+
+  /**
+   * WO-V3 — lint del AST válido (no del código crudo). Si el código no
+   * parsea, el último AST bueno se sigue lintenado hasta que el usuario
+   * corrija.
+   */
+  const lintReport = useMemo<LintReport | null>(() => {
+    const target = ast ?? ultimoAstOk.current;
+    if (!target) return null;
+    try {
+      return lint(target);
+    } catch {
+      return null;
+    }
+  }, [ast]);
 
   if (estado === "cargando") {
     return <p className="text-xs text-[var(--c-hint)]">Cargando plantilla…</p>;
@@ -729,6 +781,14 @@ function PlantillaInlineEditor({
       onSave={() => void onGuardar()}
       saving={guardando}
       savedHint={guardado}
+      codeText={codigo ?? ""}
+      onCodeChange={(text) => {
+        setCodigo(text);
+        setDirty(true);
+        setGuardado(null);
+      }}
+      codeParseError={parseError}
+      lintReport={lintReport}
     />
   );
 }

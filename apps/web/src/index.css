@@ -1600,6 +1600,12 @@
   }
 }
 
+/* WO-V3 — pulso del indicador "en vivo" del code drawer */
+@keyframes code-blip {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1;    }
+}
+
 /* ============================================================
    Accesibilidad global — VB editores
    Aplica a TODOS los temas. Usa solo variables --c-* existentes.

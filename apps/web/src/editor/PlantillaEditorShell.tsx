@@ -33,10 +33,13 @@ import { createPortal } from "react-dom";
 import {
   QUESTION_TYPE_SCHEMAS,
   type Field,
+  type LintIssue,
+  type LintReport,
   type Plantilla,
   type TextField,
 } from "@vb/vblang";
 import EditorPlantilla from "./EditorPlantilla";
+import CodeEditor from "./CodeEditor";
 import {
   readNumberField,
   readTextField,
@@ -101,6 +104,21 @@ export interface PlantillaEditorShellProps {
   previewTitle?: string;
   /** Forzar la apertura del preview (default false). */
   previewOpen?: boolean;
+
+  /* ── WO-V3: código DSL editable ── */
+  /** Texto DSL actual (la fuente de verdad cuando el modo es "code"). */
+  codeText?: string;
+  /** Handler para cambios del DSL (código editable). */
+  onCodeChange?: (text: string) => void;
+  /** Error de parseo del código. `null` cuando es válido. */
+  codeParseError?: { message: string; line: number; col: number; suggestion?: string } | null;
+  /** Reporte de lint (opcional) — se muestra como warnings no-fatales. */
+  lintReport?: LintReport | null;
+  /** Modo inicial del toggle form/code. Default "split". */
+  codeMode?: "split" | "form" | "code";
+  /** Si se setea, el shell se vuelve controlado para el modo. */
+  codeModeControlled?: "split" | "form" | "code";
+  onCodeModeChange?: (m: "split" | "form" | "code") => void;
 
   /* ── clases / overrides ── */
   className?: string;
@@ -191,6 +209,15 @@ const centerScrollStyle: CSSProperties = {
   minHeight: 0,
   overflowY: "auto",
   padding: "26px 30px",
+};
+
+const codeDrawerWrapStyle: CSSProperties = {
+  flex: "0 0 auto",
+  borderTop: "1px solid var(--c-border)",
+  background: "var(--c-surface)",
+  display: "flex",
+  flexDirection: "column",
+  minHeight: 0,
 };
 
 const questionCardStyle: CSSProperties = {
@@ -499,6 +526,314 @@ function PropertyFieldNumber({
   );
 }
 
+/* ─── WO-V3: CodeDrawer ────────────────────────────────────────────── */
+
+function CodeDrawer({
+  visible,
+  codeText,
+  onCodeChange,
+  parseError,
+  lintReport,
+  codeMode,
+  onClose,
+}: {
+  visible: boolean;
+  codeText: string;
+  onCodeChange: (text: string) => void;
+  parseError: { message: string; line: number; col: number; suggestion?: string } | null;
+  lintReport: LintReport | null;
+  codeMode: "split" | "form" | "code";
+  onClose: () => void;
+}) {
+  // En modo "code" el drawer ocupa todo el alto del centro y scrollea.
+  // En "split" es una franja con altura acotada (~40% del centro).
+  const wrapExtra: CSSProperties =
+    codeMode === "code"
+      ? { flex: "1 1 auto", minHeight: 0 }
+      : { maxHeight: "44%", minHeight: 240 };
+
+  const issues: LintIssue[] = lintReport?.issues ?? [];
+  const errorCount = issues.filter((i) => i.severity === "error").length;
+  const warnCount = issues.filter((i) => i.severity === "warning").length;
+
+  return (
+    <section
+      aria-label="Código DSL"
+      style={{ ...codeDrawerWrapStyle, ...wrapExtra }}
+      data-testid="code-drawer"
+    >
+      {/* Header del drawer */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          padding: "10px 18px",
+          borderBottom: "1px solid var(--c-border)",
+          background: "var(--c-surface)",
+        }}
+      >
+        <span
+          aria-hidden="true"
+          style={{
+            fontFamily: "var(--font-mono-css, ui-monospace, monospace)",
+            fontSize: 13,
+            fontWeight: 700,
+            color: "var(--c-accent)",
+          }}
+        >
+          {"</>"}
+        </span>
+        <span style={{ fontSize: 13.5, fontWeight: 700 }}>
+          Código generado · VBLang
+        </span>
+
+        {/* Estado "en vivo" (cuando no hay error de parseo y el lint está OK). */}
+        {!parseError ? (
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 5,
+              fontSize: 11,
+              fontWeight: 700,
+              color: "var(--c-success)",
+              background: "color-mix(in srgb, var(--c-success) 12%, transparent)",
+              padding: "3px 8px",
+              borderRadius: 999,
+            }}
+          >
+            <span
+              aria-hidden="true"
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: 999,
+                background: "var(--c-success)",
+                animation: "code-blip 1.6s infinite",
+              }}
+            />
+            en vivo
+          </span>
+        ) : (
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 5,
+              fontSize: 11,
+              fontWeight: 700,
+              color: "var(--c-danger)",
+              background: "var(--c-danger-soft)",
+              padding: "3px 8px",
+              borderRadius: 999,
+            }}
+          >
+            error de parseo
+          </span>
+        )}
+
+        {errorCount > 0 ? (
+          <span
+            style={{
+              fontSize: 11,
+              fontWeight: 700,
+              color: "var(--c-danger)",
+            }}
+          >
+            {errorCount} {errorCount === 1 ? "error" : "errores"}
+          </span>
+        ) : null}
+        {warnCount > 0 ? (
+          <span
+            style={{
+              fontSize: 11,
+              fontWeight: 700,
+              color: "var(--c-warning)",
+            }}
+          >
+            {warnCount} {warnCount === 1 ? "aviso" : "avisos"}
+          </span>
+        ) : null}
+
+        <div style={{ flex: 1 }} />
+
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Ocultar código"
+          title="Ocultar código (volver a formulario)"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            background: "transparent",
+            border: 0,
+            color: "var(--c-text-3)",
+            cursor: "pointer",
+            fontSize: 12,
+            fontWeight: 600,
+          }}
+        >
+          <span aria-hidden="true">⌄</span>
+          <span>ocultar</span>
+        </button>
+      </div>
+
+      {/* Banner de error de parseo (no rompe la app; sólo informa). */}
+      {parseError ? (
+        <ParseErrorBanner error={parseError} />
+      ) : null}
+
+      {/* Lista de issues de lint (no-fatales). */}
+      {issues.length > 0 ? (
+        <LintIssueList issues={issues} />
+      ) : null}
+
+      {/* Editor (oculto si !visible — el modo "form" no lo renderiza). */}
+      {visible ? (
+        <div
+          style={{
+            flex: "1 1 auto",
+            minHeight: 0,
+            padding: visible ? "12px 18px 18px" : 0,
+            display: visible ? "flex" : "none",
+          }}
+        >
+          <CodeEditor
+            value={codeText}
+            onChange={onCodeChange}
+            errorLine={parseError?.line ?? null}
+            minRows={codeMode === "code" ? 18 : 8}
+            label="Editor de código DSL VBLang"
+          />
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
+function ParseErrorBanner({
+  error,
+}: {
+  error: { message: string; line: number; col: number; suggestion?: string };
+}) {
+  return (
+    <div
+      role="alert"
+      style={{
+        margin: "8px 18px 0",
+        padding: "10px 12px",
+        background: "var(--c-danger-soft)",
+        border: "1px solid var(--c-danger)",
+        borderRadius: "var(--r-md)",
+        color: "var(--c-text)",
+        fontSize: 12.5,
+        display: "flex",
+        flexDirection: "column",
+        gap: 4,
+      }}
+    >
+      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+        <span
+          aria-hidden="true"
+          style={{ color: "var(--c-danger)", fontWeight: 700 }}
+        >
+          ✕
+        </span>
+        <span style={{ fontWeight: 700 }}>
+          No se pudo parsear el código en línea {error.line}, columna {error.col}.
+        </span>
+      </div>
+      <div
+        style={{
+          fontFamily: "var(--font-mono-css, ui-monospace, monospace)",
+          color: "var(--c-text-2, var(--c-text))",
+        }}
+      >
+        {error.message}
+      </div>
+      {error.suggestion ? (
+        <div style={{ color: "var(--c-text-3)", fontSize: 12 }}>
+          Sugerencia: <em>{error.suggestion}</em>
+        </div>
+      ) : null}
+      <div style={{ color: "var(--c-text-3)", fontSize: 11.5 }}>
+        El último estado válido se mantiene. Corregí el código para sincronizar
+        el formulario.
+      </div>
+    </div>
+  );
+}
+
+function LintIssueList({ issues }: { issues: LintIssue[] }) {
+  // Mostrar hasta 5 issues, agrupados por severidad.
+  const visible = issues.slice(0, 5);
+  return (
+    <div
+      style={{
+        margin: "8px 18px 0",
+        padding: "8px 12px",
+        background: "var(--c-surface-2)",
+        border: "1px solid var(--c-border)",
+        borderRadius: "var(--r-md)",
+        fontSize: 12,
+        color: "var(--c-text)",
+        display: "flex",
+        flexDirection: "column",
+        gap: 4,
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: "0.04em",
+          color: "var(--c-text-3)",
+          textTransform: "uppercase",
+        }}
+      >
+        Avisos del linter
+      </div>
+      {visible.map((iss, i) => (
+        <div
+          key={`${iss.code}-${iss.line}-${i}`}
+          style={{
+            display: "flex",
+            gap: 8,
+            alignItems: "baseline",
+            color:
+              iss.severity === "error"
+                ? "var(--c-danger)"
+                : "var(--c-warning)",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "var(--font-mono-css, ui-monospace, monospace)",
+              color: "var(--c-text-3)",
+              fontSize: 11,
+            }}
+          >
+            L{iss.line}:{iss.col}
+          </span>
+          <span style={{ flex: 1 }}>{iss.message}</span>
+          {iss.suggestion ? (
+            <span style={{ color: "var(--c-text-3)", fontStyle: "italic" }}>
+              {iss.suggestion}
+            </span>
+          ) : null}
+        </div>
+      ))}
+      {issues.length > visible.length ? (
+        <div style={{ color: "var(--c-text-3)", fontSize: 11 }}>
+          + {issues.length - visible.length} más…
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 /* ─── componente principal ───────────────────────────────────────────── */
 
 export default function PlantillaEditorShell({
@@ -519,12 +854,29 @@ export default function PlantillaEditorShell({
   previewQuizzes = [],
   previewTitle = "Vista previa del editor",
   previewOpen: previewOpenProp,
+  codeText,
+  onCodeChange,
+  codeParseError,
+  lintReport,
+  codeMode: codeModeProp = "split",
+  codeModeControlled,
+  onCodeModeChange,
   className,
   renderCenter,
 }: PlantillaEditorShellProps) {
   const editorClasico = useEditorClasico();
   const [internalPreview, setInternalPreview] = useState(false);
   const previewOpen = previewOpenProp ?? internalPreview;
+
+  // WO-V3 — modo del toggle formulario/código. "split" por default.
+  const [internalCodeMode, setInternalCodeMode] = useState<
+    "split" | "form" | "code"
+  >("split");
+  const codeMode = codeModeControlled ?? codeModeProp ?? internalCodeMode;
+  const setCodeMode = (m: "split" | "form" | "code") => {
+    if (codeModeControlled !== undefined) onCodeModeChange?.(m);
+    else setInternalCodeMode(m);
+  };
 
   const accentValue = (theme === "dark" ? ACCENT_DARK_HEX[accent] : ACCENT_HEX[accent]);
 
@@ -719,6 +1071,52 @@ export default function PlantillaEditorShell({
           <span>Vista del alumno</span>
         </button>
 
+        {/* WO-V3 — toggle form/code (sólo si el host provee codeText) */}
+        {codeText !== undefined ? (
+          <div
+            role="group"
+            aria-label="Modo de edición"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              height: 34,
+              padding: 3,
+              border: "1px solid var(--c-border)",
+              borderRadius: "var(--r-md)",
+              background: "var(--c-surface-2)",
+              gap: 2,
+            }}
+          >
+            {(["form", "split", "code"] as const).map((m) => {
+              const active = codeMode === m;
+              const label =
+                m === "form" ? "Form" : m === "code" ? "Código" : "Ambos";
+              return (
+                <button
+                  key={m}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => setCodeMode(m)}
+                  style={{
+                    height: 26,
+                    padding: "0 10px",
+                    border: 0,
+                    borderRadius: "var(--r-sm)",
+                    background: active ? "var(--c-surface)" : "transparent",
+                    boxShadow: active ? "var(--shadow-1)" : "none",
+                    color: active ? "var(--c-text)" : "var(--c-muted)",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    cursor: "pointer",
+                  }}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
+
         {/* Save */}
         <button
           type="button"
@@ -806,39 +1204,55 @@ export default function PlantillaEditorShell({
           ) : null}
         </nav>
 
-        {/* CENTER */}
+        {/* CENTER — form (top) + code drawer (bottom), según codeMode */}
         <main style={centerWrapStyle} aria-label="Editor de la pregunta">
-          <div style={centerScrollStyle}>
-            <div style={questionCardStyle} data-testid="plantilla-editor-card">
-              {/* chip de tipo + breadcrumb mini (eyebrow) */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 9,
-                  marginBottom: 4,
-                }}
-              >
-                <span
+          {/* ── FORMULARIO ─────────────────────────────────────── */}
+          {codeMode !== "code" ? (
+            <div style={centerScrollStyle}>
+              <div style={questionCardStyle} data-testid="plantilla-editor-card">
+                {/* chip de tipo + breadcrumb mini (eyebrow) */}
+                <div
                   style={{
-                    display: "inline-flex",
+                    display: "flex",
                     alignItems: "center",
-                    gap: 7,
-                    background: "var(--c-accent-soft)",
-                    color: "var(--c-accent)",
-                    fontSize: 12,
-                    fontWeight: 700,
-                    padding: "5px 11px",
-                    borderRadius: 999,
+                    gap: 9,
+                    marginBottom: 4,
                   }}
                 >
-                  <span aria-hidden="true">№</span> {schema?.label ?? tipo}
-                </span>
-              </div>
+                  <span
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 7,
+                      background: "var(--c-accent-soft)",
+                      color: "var(--c-accent)",
+                      fontSize: 12,
+                      fontWeight: 700,
+                      padding: "5px 11px",
+                      borderRadius: 999,
+                    }}
+                  >
+                    <span aria-hidden="true">№</span> {schema?.label ?? tipo}
+                  </span>
+                </div>
 
-              {(renderCenter ?? renderDefaultCenter)(plantilla, onChange)}
+                {(renderCenter ?? renderDefaultCenter)(plantilla, onChange)}
+              </div>
             </div>
-          </div>
+          ) : null}
+
+          {/* ── WO-V3: DRAWER DE CÓDIGO ────────────────────────── */}
+          {codeText !== undefined ? (
+            <CodeDrawer
+              visible={codeMode !== "form"}
+              codeText={codeText}
+              onCodeChange={onCodeChange ?? (() => {})}
+              parseError={codeParseError ?? null}
+              lintReport={lintReport ?? null}
+              codeMode={codeMode}
+              onClose={() => setCodeMode("form")}
+            />
+          ) : null}
         </main>
 
         {/* AUX (property grid) */}
