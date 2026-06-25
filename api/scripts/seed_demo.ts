@@ -24,6 +24,7 @@ import { createHash } from "crypto";
 import { SYSTEM_OWNER_ID } from "../src/lib/vblang-types";
 import { provisionarEspejosParaStaffExistente } from "../src/lib/provisionar-espejo";
 import { resolveCuentaVinculada } from "../src/lib/cuenta-vinculada";
+import { seedTienda } from "./seed_tienda";
 import {
   TABLA_PERIODICA_COLUMNAS,
   TABLA_PERIODICA_FILAS,
@@ -608,7 +609,11 @@ async function main() {
   await seedDatasetTablaPeriodica();
   console.log(`  ✓ dataset "${TABLA_PERIODICA_NOMBRE}" (${TABLA_PERIODICA_FILAS.length} elementos)`);
 
-  // ── 12. Enriquecer el espejo-alumno del TEACHER demo ────────────────────────
+  // ── 12. Catálogo de tienda (temas + avatares) ──────────────────────────────
+  console.log("🛒 Sembrando catálogo de tienda...");
+  await seedTienda();
+
+  // ── 13. Enriquecer el espejo-alumno del TEACHER demo ────────────────────────
   // Sin esto el espejo queda con membresía STUDENT a nivel escuela pero sin
   // inscripción en aulas → dashboard de alumno vacío. Acá lo inscribimos en
   // las aulas del docente y le damos saldo, para que "Ver como alumno"
@@ -786,7 +791,7 @@ async function seedDatasetTablaPeriodica() {
       datos: JSON.stringify(datos),
       createdAt: now,
     })),
-  );
+  });
 }
 
 export { main as runSeedDemo };

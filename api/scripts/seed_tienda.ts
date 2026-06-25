@@ -49,6 +49,7 @@ const TEMAS_LEGENDARIOS: ItemDef[] = [
   { id: "item-tema-aurora-boreal", tipo: "tema", nombre: "Aurora Boreal", descripcion: "Auroras boreales animadas exclusivas.",  precio: 250, assetId: "aurora-boreal", orden: 30 },
   { id: "item-tema-cosmos",        tipo: "tema", nombre: "Cosmos",        descripcion: "Universo con estrellas y nebulosas.",    precio: 300, assetId: "cosmos",        orden: 31 },
   { id: "item-tema-magma",         tipo: "tema", nombre: "Magma",         descripcion: "Lava fluyendo desde las profundidades.", precio: 280, assetId: "magma",         orden: 32 },
+  { id: "item-tema-dorado",        tipo: "tema", nombre: "Dorado",        descripcion: "Oro animado legendario.",                precio: 500, assetId: "dorado",        orden: 33 },
 ];
 
 const AVATARES_BASE: ItemDef[] = [

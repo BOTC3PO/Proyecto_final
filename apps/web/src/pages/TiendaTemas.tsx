@@ -45,6 +45,7 @@ const THEME_META: Record<string, {
   'nocturno':      { bg: '#0f172a', surface: '#1e293b', primary: '#60a5fa' },
   'nocturno-vb':   { bg: '#0d0d18', surface: '#16162a', primary: '#7c6fcd' },
   'minimal':       { bg: '#f2f0eb', surface: '#faf9f6', primary: '#1a1a18' },
+  'minimal-v2':    { bg: '#f6f5f1', surface: '#ffffff', primary: '#1a1a1a' },
   'aurora':        { bg: '#fdf4ff', surface: '#ffffff', primary: '#7c3aed' },
   'bosque':        { bg: '#f0fdf4', surface: '#ffffff', primary: '#15803d' },
   'vibrante':      { bg: '#fff7ed', surface: '#ffffff', primary: '#ea580c' },
@@ -513,7 +514,7 @@ export default function TiendaTemas() {
               </div>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {availableThemes
-                  .filter((t) => !THEME_META[t.id]?.animated && !THEME_META[t.id]?.legendary)
+                  .filter((t) => THEME_META[t.id] && !THEME_META[t.id]?.animated && !THEME_META[t.id]?.legendary)
                   .map((t) => (
                     <ThemeCard
                       key={t.id}
