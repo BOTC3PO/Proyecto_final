@@ -77,3 +77,7 @@ export type { NavItemProps, NavItemOrientation } from "./NavItem";
 // ── Indicadores ──────────────────────────────────────────────────────────
 export { default as Progress } from "./Progress";
 export type { ProgressProps, ProgressVariant, ProgressSize } from "./Progress";
+
+// ── Datos ────────────────────────────────────────────────────────────────
+export { default as Table, TableCaption, TableHead, TableBody, TableRow, TableTh, TableTd } from "./Table";
+export type { TableProps, TableVariant, TableCaptionProps, TableHeadProps, TableBodyProps, TableRowProps, TableThProps, TableTdProps } from "./Table";

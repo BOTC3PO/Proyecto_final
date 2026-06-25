@@ -58,6 +58,12 @@ import { Button, Field, Input, Modal } from "@/ui";
 | `Tooltip.tsx` | `Tooltip`  | `HTMLSpanElement`    | Hover **y foco**; ESC cierra; `aria-describedby` + `role="tooltip"`.               |
 | `Menu.tsx`    | `Menu`     | —                    | Popover de menú: `role="menu"`, `aria-haspopup/expanded/controls`, click-afuera + **ESC** (retorno de foco), teclado ▲/▼/Home/End. `trigger` y `children` como render-props (`children` recibe `close`). |
 
+### División 9 — datos
+
+| Archivo      | Default                                                         | Ref                          | Notas                                                                                                        |
+| ------------ | --------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `Table.tsx`  | `Table` + `TableCaption`, `TableHead`, `TableBody`, `TableRow`, `TableTh`, `TableTd` | `HTMLTableElement` y sub-elementos | Variantes `default\|compact` (padding); `striped` en root, `even` en `TableRow` para zebra. Semántico: `<table>/<caption>/<thead>/<tbody>/<th>/<td>`. |
+
 ### División 8 — indicadores
 
 | Archivo        | Default     | Ref                | Notas                                                                                              |
