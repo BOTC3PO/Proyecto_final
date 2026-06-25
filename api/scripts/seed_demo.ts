@@ -23,6 +23,7 @@ import { hashPassword } from "../src/lib/passwords";
 import { createHash } from "crypto";
 import { SYSTEM_OWNER_ID } from "../src/lib/vblang-types";
 import { provisionarEspejosParaStaffExistente } from "../src/lib/provisionar-espejo";
+import { resolveCuentaVinculada } from "../src/lib/cuenta-vinculada";
 import {
   TABLA_PERIODICA_COLUMNAS,
   TABLA_PERIODICA_FILAS,
@@ -432,7 +433,7 @@ async function main() {
     data: [
       { usuarioId: "usr-stude-001", moduloId: "mod-demo-enteros",    aulaId: "cls-demo-mat-3a", status: "completado",  score: 85, attempts: 2, updatedAt: now },
       { usuarioId: "usr-stude-001", moduloId: "mod-demo-fracciones", aulaId: "cls-demo-mat-3a", status: "en_progreso", score: null, attempts: 1, updatedAt: now },
-      { usuarioId: "usr-stude-001", moduloId: "mod-demo-presupuesto", aulaId: "cls-demo-eco-4b", status: "completado", score: 78, attempts: 1, updatedAt: now },
+      { usuarioId: "usr-stude-001", moduloId: "mod-demo-presupuesto", aulaId: "cls-demo-eco-4b", status: "completado",  score: 78, attempts: 1, updatedAt: now },
       { usuarioId: "usr-stude-002", moduloId: "mod-demo-enteros",    aulaId: "cls-demo-mat-3a", status: "completado",  score: 92, attempts: 1, updatedAt: now },
     ],
   });
@@ -606,6 +607,44 @@ async function main() {
   console.log("🧪 Creando dataset oficial 'tabla_periodica'...");
   await seedDatasetTablaPeriodica();
   console.log(`  ✓ dataset "${TABLA_PERIODICA_NOMBRE}" (${TABLA_PERIODICA_FILAS.length} elementos)`);
+
+  // ── 12. Enriquecer el espejo-alumno del TEACHER demo ────────────────────────
+  // Sin esto el espejo queda con membresía STUDENT a nivel escuela pero sin
+  // inscripción en aulas → dashboard de alumno vacío. Acá lo inscribimos en
+  // las aulas del docente y le damos saldo, para que "Ver como alumno"
+  // muestre una experiencia realista.
+  console.log("🪞 Enriqueciendo el espejo-alumno del docente demo...");
+  await seedEspejoTeacherDemo();
+}
+
+/**
+ * Inscribe el espejo-alumno de `usr-teach-001` como STUDENT en sus aulas y
+ * le asigna un saldo demo. Idempotente. No-op si el espejo aún no existe
+ * (el backfill de espejos corre antes en main(), así que normalmente sí).
+ */
+async function seedEspejoTeacherDemo() {
+  const vinc = await resolveCuentaVinculada("usr-teach-001");
+  if (!vinc || vinc.tipoDestino !== "ALUMNO") {
+    console.log("  ⚠ espejo del docente no encontrado; salteo enriquecimiento");
+    return;
+  }
+  const espejoId = vinc.destinoUsuarioId;
+
+  await prisma.claseMiembro.createMany({
+    skipDuplicates: true,
+    data: [
+      { claseId: "cls-demo-mat-3a", usuarioId: espejoId, rolEnClase: "STUDENT" },
+      { claseId: "cls-demo-eco-4b", usuarioId: espejoId, rolEnClase: "STUDENT" },
+    ],
+  });
+
+  await prisma.economiaSaldo.upsert({
+    where: { usuarioId: espejoId },
+    update: {},
+    create: { usuarioId: espejoId, saldo: 200, moneda: "PF", updatedAt: now },
+  });
+
+  console.log("  ✓ espejo inscripto en 2 aulas + saldo 200 PF");
 }
 
 /**
@@ -747,7 +786,7 @@ async function seedDatasetTablaPeriodica() {
       datos: JSON.stringify(datos),
       createdAt: now,
     })),
-  });
+  );
 }
 
 export { main as runSeedDemo };

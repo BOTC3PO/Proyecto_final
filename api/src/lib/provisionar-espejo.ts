@@ -390,17 +390,31 @@ export const tryProvisionarEspejoParaNuevoStaff = async (
     const result = await provisionarEspejoAlumno(usuarioPrincipalId);
     return { ok: true, result };
   } catch (err) {
+    const code =
+      err instanceof EspejoNoProvisionableError
+        ? err.code
+        : err instanceof Error
+          ? err.name
+          : "UNKNOWN";
     if (process.env.NODE_ENV !== "production") {
-      const code =
-        err instanceof EspejoNoProvisionableError
-          ? err.code
-          : err instanceof Error
-            ? err.name
-            : "UNKNOWN";
       console.warn(
         `[provisionarEspejoAlumno] hook omitió ${usuarioPrincipalId} (code=${code}):`,
         err instanceof Error ? err.message : err
       );
+    }
+    // FASE 2 — auditar la falla en canal durable. El alta del staff es
+    // best-effort (un espejo fallido no rompe el registro), pero la falla
+    // NO debe perderse: el backfill (`backfill:espejos`) la repara después
+    // y el audit log permite detectar staff sin espejo. PRINCIPAL_IS_ESPEJO
+    // y casos esperados no se auditan como error.
+    if (code !== "PRINCIPAL_IS_ESPEJO") {
+      await recordAuditLog({
+        actorId: usuarioPrincipalId,
+        action: "ESPEJO_PROVISION_FALLIDA",
+        targetType: "Usuario",
+        targetId: usuarioPrincipalId,
+        metadata: { code, message: err instanceof Error ? err.message : String(err) }
+      }).catch(() => { /* nunca romper el alta por el audit */ });
     }
     return { ok: false, error: err instanceof Error ? err.message : String(err) };
   }
@@ -469,6 +483,88 @@ export const provisionarEspejoAlumnoParaPadre = async (
     });
   }
   return result;
+};
+
+/**
+ * FASE 8 — vincular una cuenta de alumno YA EXISTENTE como cuenta espejo
+ * del staff (alternativa opt-in a la auto-creación). NO crea un usuario
+ * nuevo: solo inserta la fila `CuentaVinculada` simétrica entre el staff
+ * y un USER puro existente del mismo dueño.
+ *
+ * El `alumnoIdentifier` es el username o email de la cuenta alumno.
+ *
+ * Lanza `EspejoNoProvisionableError` si:
+ *   - el staff no existe / no es staff / ya tiene una cuenta vinculada
+ *   - el alumno no existe / es uno mismo / es un espejo / no es USER puro
+ *   - el alumno ya está vinculado
+ *   - el alumno es de otra escuela (cuando ambos tienen escuela)
+ */
+export const vincularCuentaAlumnoExistente = async (
+  staffId: string,
+  alumnoIdentifier: string
+): Promise<{ alumnoId: string }> => {
+  const staff = await prisma.usuario.findFirst({
+    where: { id: staffId, isDeleted: { not: true } }
+  });
+  if (!staff) {
+    throw new EspejoNoProvisionableError(`staff ${staffId} no existe`, "PRINCIPAL_NOT_FOUND");
+  }
+  if (!isStaffInRoles(resolveRoles(staff))) {
+    throw new EspejoNoProvisionableError(`${staffId} no es staff`, "PRINCIPAL_NOT_STAFF");
+  }
+  const yaVinc = await prisma.cuentaVinculada.findFirst({
+    where: { OR: [{ usuarioAId: staffId }, { usuarioBId: staffId }] }
+  });
+  if (yaVinc) {
+    throw new EspejoNoProvisionableError(`el staff ya tiene una cuenta vinculada`, "ALREADY_LINKED");
+  }
+
+  const ident = String(alumnoIdentifier ?? "").trim().toLowerCase();
+  if (!ident) {
+    throw new EspejoNoProvisionableError(`identificador de alumno vacío`, "ALUMNO_IDENTIFIER_EMPTY");
+  }
+  const alumno = await prisma.usuario.findFirst({
+    where: { isDeleted: { not: true }, OR: [{ username: ident }, { email: ident }] }
+  });
+  if (!alumno) {
+    throw new EspejoNoProvisionableError(`cuenta alumno '${ident}' no encontrada`, "ALUMNO_NOT_FOUND");
+  }
+  if (alumno.id === staffId) {
+    throw new EspejoNoProvisionableError(`no podés vincularte a vos mismo`, "SELF_LINK");
+  }
+  if (alumno.tipoCuenta === ESPEJO_TIPO_CUENTA) {
+    throw new EspejoNoProvisionableError(`la cuenta destino es un espejo`, "ALUMNO_IS_ESPEJO");
+  }
+  const alumnoRoles = resolveRoles(alumno);
+  const esAlumnoPuro = alumnoRoles.length === 1 && alumnoRoles[0] === "USER";
+  if (!esAlumnoPuro) {
+    throw new EspejoNoProvisionableError(`la cuenta destino no es un alumno (USER) puro`, "ALUMNO_NOT_PURE_USER");
+  }
+  const alumnoVinc = await prisma.cuentaVinculada.findFirst({
+    where: { OR: [{ usuarioAId: alumno.id }, { usuarioBId: alumno.id }] }
+  });
+  if (alumnoVinc) {
+    throw new EspejoNoProvisionableError(`la cuenta alumno ya está vinculada`, "ALUMNO_ALREADY_LINKED");
+  }
+  if (staff.escuelaId && alumno.escuelaId && staff.escuelaId !== alumno.escuelaId) {
+    throw new EspejoNoProvisionableError(`la cuenta alumno es de otra escuela`, "DIFFERENT_SCHOOL");
+  }
+
+  const now = new Date().toISOString();
+  const a = alumno.id < staffId ? alumno.id : staffId;
+  const b = alumno.id < staffId ? staffId : alumno.id;
+  await prisma.cuentaVinculada.create({
+    data: { id: randomUUID(), usuarioAId: a, usuarioBId: b, createdAt: now }
+  });
+  await recordAuditLog({
+    actorId: staffId,
+    action: "CUENTA_ALUMNO_VINCULADA",
+    targetType: "Usuario",
+    targetId: alumno.id,
+    metadata: { staffId, alumnoId: alumno.id, origen: "vinculo_manual" }
+  });
+
+  return { alumnoId: alumno.id };
 };
 
 export { STAFF_ROLES };

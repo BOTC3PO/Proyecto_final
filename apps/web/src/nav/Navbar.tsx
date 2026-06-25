@@ -17,7 +17,7 @@ import {
   type CSSProperties,
   type ReactNode,
 } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { useCanActAsLearner, usePrimaryRole } from "../auth/use-roles";
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from "./navConfig";
@@ -274,7 +274,18 @@ const LogoutIcon = () => (
 );
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
+  const { user, logout, switchCuenta } = useAuth();
+  const navigate = useNavigate();
+  // FASE 5b — el switch real a la cuenta espejo (igual que StaffSidebar).
+  const tieneEspejo = user?.cuentaVinculada?.tipoDestino === 'ALUMNO';
+  const handleEntrarComoAlumno = async () => {
+    try {
+      const { landing } = await switchCuenta();
+      navigate(landing);
+    } catch (e) {
+      console.error('Error al entrar como alumno:', e);
+    }
+  };
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -514,6 +525,30 @@ export default function Navbar() {
                             <LogoutIcon />
                             Cerrar sesión
                           </MenuRowButton>
+                        );
+                      }
+                      if (item.label === 'Ver como alumno') {
+                        // FASE 5b — unificado con StaffSidebar. Con espejo:
+                        // dispara el switch real. Sin espejo: lleva a Perfil
+                        // para crear/vincular la cuenta alumno, en vez de un
+                        // link muerto a /alumno con los datos propios.
+                        if (tieneEspejo) {
+                          return (
+                            <MenuRowButton key="ver-como-alumno" onClick={() => { close(); void handleEntrarComoAlumno(); }}>
+                              <DropdownIcon name={item.icon} />
+                              {item.label}
+                            </MenuRowButton>
+                          );
+                        }
+                        return (
+                          <MenuRowLink
+                            key="ver-como-alumno"
+                            to="/perfil"
+                            icon={<DropdownIcon name={item.icon} />}
+                            onClick={close}
+                          >
+                            Crear cuenta alumno
+                          </MenuRowLink>
                         );
                       }
                       return (

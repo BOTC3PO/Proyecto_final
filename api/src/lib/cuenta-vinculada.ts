@@ -36,7 +36,7 @@
 
 import { prisma } from "./prisma";
 import { ESPEJO_TIPO_CUENTA } from "./provisionar-espejo";
-import { isParentInRoles, resolveRoles } from "./roles";
+import { isParentInRoles, isStaffInRoles, resolveRoles } from "./roles";
 
 export type TipoDestino = "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO";
 
@@ -86,6 +86,20 @@ export const resolveCuentaVinculada = async (
   }
   if (meEsPadre && otherEsAlumnoReal && !otherEsEspejo) {
     return { destinoUsuarioId: other.id, tipoDestino: "ALUMNO_HIJO" };
+  }
+
+  // FASE 8 — staff ↔ alumno real vinculado (cuenta USER existente, NO
+  // espejo). El staff entra como alumno; el alumno vuelve al panel del
+  // staff. Se discrimina por roles porque ninguna de las dos cuentas lleva
+  // `tipoCuenta = ESPEJO_ALUMNO`, así que las ramas de espejo de abajo no
+  // alcanzan. Va antes que esas ramas para no caer al default PRINCIPAL.
+  const meEsStaff = isStaffInRoles(meRoles);
+  const otherEsStaff = isStaffInRoles(otherRoles);
+  if (meEsStaff && otherEsAlumnoReal && !otherEsEspejo) {
+    return { destinoUsuarioId: other.id, tipoDestino: "ALUMNO" };
+  }
+  if (meEsAlumnoReal && otherEsStaff && !meEsEspejo) {
+    return { destinoUsuarioId: other.id, tipoDestino: "PRINCIPAL" };
   }
 
   // FASE 1/5 — principal↔espejo. El espejo siempre lleva

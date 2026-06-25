@@ -51,6 +51,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return false;
     }
   });
+  const [isSwitching, setIsSwitching] = useState(false);
 
   const persistUser = (nextUser: User | null, remember: boolean) => {
     setUser(nextUser);
@@ -91,47 +92,65 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const token = getAuthToken();
     if (!token) throw new Error('No hay sesión activa');
 
-    const res = await fetch('/api/auth/cambiar-cuenta', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({}),
-    });
+    // FASE 5a — marcamos la transición ANTES del fetch. Se limpia cuando el
+    // user nuevo se commitea (ver useEffect [user] abajo) o en el catch.
+    setIsSwitching(true);
+    try {
+      const res = await fetch('/api/auth/cambiar-cuenta', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({}),
+      });
 
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({})) as { error?: string };
-      throw new Error(err.error ?? 'Error al cambiar de cuenta');
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({})) as { error?: string };
+        throw new Error(err.error ?? 'Error al cambiar de cuenta');
+      }
+
+      const data = await res.json() as {
+        accessToken: string;
+        refreshToken: string | null;
+        id: string;
+        name: string;
+        role: Role;
+        roles: Role[];
+        landing: string;
+        cuentaVinculada: CuentaVinculada | null;
+      };
+
+      const newUser: User = {
+        id: data.id,
+        name: data.name,
+        role: data.role,
+        roles: data.roles,
+        cuentaVinculada: data.cuentaVinculada,
+      };
+
+      // FASE 3 — el token del destino va siempre a sessionStorage (remember=false)
+      // para que el JWT de la cuenta espejo NO quede en localStorage.
+      setAuthToken(data.accessToken, { remember: false });
+      setRefreshToken(data.refreshToken, { remember: false });
+      persistUser(ensureRoles(newUser), false);
+
+      return { landing: data.landing };
+    } catch (err) {
+      // Falla del switch: limpiamos la transición para no dejar la UI
+      // bloqueada. El user no cambió, así que el useEffect no se dispara.
+      setIsSwitching(false);
+      throw err;
     }
-
-    const data = await res.json() as {
-      accessToken: string;
-      refreshToken: string | null;
-      id: string;
-      name: string;
-      role: Role;
-      roles: Role[];
-      landing: string;
-      cuentaVinculada: CuentaVinculada | null;
-    };
-
-    const newUser: User = {
-      id: data.id,
-      name: data.name,
-      role: data.role,
-      roles: data.roles,
-      cuentaVinculada: data.cuentaVinculada,
-    };
-
-    // FASE 3 — el token del destino va siempre a sessionStorage (remember=false)
-    // para que el JWT de la cuenta espejo NO quede en localStorage.
-    setAuthToken(data.accessToken, { remember: false });
-    setRefreshToken(data.refreshToken, { remember: false });
-    persistUser(ensureRoles(newUser), false);
-
-    return { landing: data.landing };
   };
+
+  // FASE 5a — limpiar `isSwitching` cuando el user nuevo ya se commiteó.
+  // Garantiza que ProtectedRoute no redirija a /login durante la
+  // transición (mientras el user viejo se limpió y el nuevo no llegó).
+  useEffect(() => {
+    if (isSwitching) setIsSwitching(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
@@ -146,6 +165,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const value = useMemo(() => ({ user, login, loginAs, logout, switchCuenta }), [user]);
+  const value = useMemo(() => ({ user, login, loginAs, logout, switchCuenta, isSwitching }), [user, isSwitching]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

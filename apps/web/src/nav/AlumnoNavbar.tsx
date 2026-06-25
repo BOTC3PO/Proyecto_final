@@ -226,6 +226,19 @@ export default function AlumnoNavbar() {
     }
   };
 
+  // FASE 5b — si un staff llega a /alumno por el preview, el item
+  // "Ver como alumno" del dropdown debe disparar el switch real (no un
+  // link plano circular). Sin espejo, lleva a Perfil para crear/vincular.
+  const tieneEspejo = user?.cuentaVinculada?.tipoDestino === 'ALUMNO';
+  const handleEntrarComoAlumno = async () => {
+    try {
+      const { landing } = await switchCuenta();
+      navigate(landing);
+    } catch (e) {
+      console.error('Error al entrar como alumno:', e);
+    }
+  };
+
   // MULTIROL-02: un TEACHER+USER sin espejo dedicado también ve "Volver".
   const hasTeacher = useHasRole('TEACHER');
   const hasAdmin = useHasRole('ADMIN');
@@ -388,6 +401,20 @@ export default function AlumnoNavbar() {
                           <LogoutIcon />
                           Cerrar sesión
                         </MenuRowButton>
+                      );
+                    }
+                    if (item.label === 'Ver como alumno') {
+                      if (tieneEspejo) {
+                        return (
+                          <MenuRowButton key="ver-como-alumno" onClick={() => { close(); void handleEntrarComoAlumno(); }}>
+                            {item.label}
+                          </MenuRowButton>
+                        );
+                      }
+                      return (
+                        <MenuRowLink key="ver-como-alumno" to="/perfil" onClick={close}>
+                          Crear cuenta alumno
+                        </MenuRowLink>
                       );
                     }
                     return (

@@ -14,7 +14,7 @@ import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { recordAuditLog } from "../lib/audit-log";
 import { createRateLimiter } from "../lib/rate-limit";
 import { normalizeSchoolId } from "../lib/school-ids";
-import { tryProvisionarEspejoParaNuevoStaff, provisionarEspejoAlumno, ESPEJO_TIPO_CUENTA } from "../lib/provisionar-espejo";
+import { tryProvisionarEspejoParaNuevoStaff, provisionarEspejoAlumno, vincularCuentaAlumnoExistente, EspejoNoProvisionableError, ESPEJO_TIPO_CUENTA } from "../lib/provisionar-espejo";
 import { resolveCuentaVinculada } from "../lib/cuenta-vinculada";
 import { resolveRoles, isStaffInRoles, resolvePrimaryRole } from "../lib/roles";
 import { requireUser } from "../lib/user-auth";
@@ -628,12 +628,36 @@ auth.post("/api/auth/cambiar-cuenta", switchLimiter, requireUser, async (req, re
       ? req.body.destinoUsuarioId
       : undefined;
 
-    const vinculo = await prisma.cuentaVinculada.findFirst({
+    let vinculo = await prisma.cuentaVinculada.findFirst({
       where: { OR: [{ usuarioAId: origenId }, { usuarioBId: origenId }] }
     });
     if (!vinculo) {
-      res.status(403).json({ error: "No hay cuenta vinculada" });
-      return;
+      // FASE 1 — provisión on-demand. Si el origen es staff y todavía no
+      // tiene espejo (staff legacy, o alta best-effort cuyo hook falló),
+      // lo creamos acá en lugar de devolver 403 — que en el front cae a
+      // /login porque no hay user destino. Idempotente. Para no-staff
+      // (USER/GUEST/PARENT sin vínculo) seguimos devolviendo 403.
+      const origenDoc = await prisma.usuario.findFirst({
+        where: { id: origenId, isDeleted: { not: true } }
+      });
+      if (origenDoc && isStaffInRoles(resolveRoles(origenDoc))) {
+        try {
+          await provisionarEspejoAlumno(origenId);
+        } catch (err) {
+          res.status(409).json({
+            error: "No se pudo crear la cuenta de alumno",
+            detail: err instanceof Error ? err.message : String(err)
+          });
+          return;
+        }
+        vinculo = await prisma.cuentaVinculada.findFirst({
+          where: { OR: [{ usuarioAId: origenId }, { usuarioBId: origenId }] }
+        });
+      }
+      if (!vinculo) {
+        res.status(403).json({ error: "No hay cuenta vinculada" });
+        return;
+      }
     }
 
     const destinoIdFromVinculo =
@@ -739,6 +763,64 @@ auth.post("/api/auth/cambiar-cuenta", switchLimiter, requireUser, async (req, re
         : {})
     });
   } catch (e: any) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// ── POST /api/auth/crear-alumno (staff) ─────────────────────────────
+// Crea (o devuelve) la cuenta espejo-alumno del staff autenticado.
+// Idempotente. Alternativa "auto" a vincular una cuenta existente.
+auth.post("/api/auth/crear-alumno", switchLimiter, requireUser, async (req, res) => {
+  const reqUser = (req as { user?: { id?: string; _id?: { toString?: () => string } } }).user;
+  const staffId = reqUser?.id ?? reqUser?._id?.toString?.();
+  if (!staffId) {
+    res.status(401).json({ error: "Missing authentication" });
+    return;
+  }
+  try {
+    const prov = await provisionarEspejoAlumno(staffId);
+    const cuentaVinculada = await resolveCuentaVinculada(staffId);
+    res.status(prov.created ? 201 : 200).json({
+      ok: true,
+      created: prov.created,
+      espejo: { id: prov.espejo.id, username: prov.espejo.username, fullName: prov.espejo.fullName },
+      cuentaVinculada
+    });
+  } catch (err) {
+    if (err instanceof EspejoNoProvisionableError) {
+      res.status(403).json({ error: err.message, code: err.code });
+      return;
+    }
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// ── POST /api/auth/vincular-alumno (staff) ──────────────────────────
+// Vincula una cuenta USER existente como cuenta alumno del staff. No crea
+// usuario nuevo. Body: { identificador: string } (username o email).
+auth.post("/api/auth/vincular-alumno", switchLimiter, requireUser, async (req, res) => {
+  const reqUser = (req as { user?: { id?: string; _id?: { toString?: () => string } } }).user;
+  const staffId = reqUser?.id ?? reqUser?._id?.toString?.();
+  if (!staffId) {
+    res.status(401).json({ error: "Missing authentication" });
+    return;
+  }
+  const identificador = typeof req.body?.identificador === "string" ? req.body.identificador : "";
+  if (!identificador.trim()) {
+    res.status(400).json({ error: "identificador requerido (username o email)" });
+    return;
+  }
+  try {
+    const { alumnoId } = await vincularCuentaAlumnoExistente(staffId, identificador);
+    const cuentaVinculada = await resolveCuentaVinculada(staffId);
+    res.status(201).json({ ok: true, alumnoId, cuentaVinculada });
+  } catch (err) {
+    if (err instanceof EspejoNoProvisionableError) {
+      // Errores de validación esperables → 4xx con código para el front.
+      const status = err.code === "ALUMNO_NOT_FOUND" ? 404 : 409;
+      res.status(status).json({ error: err.message, code: err.code });
+      return;
+    }
     res.status(500).json({ error: "Internal server error" });
   }
 });

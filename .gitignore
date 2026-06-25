@@ -66,3 +66,6 @@ coverage/
 CLAUDE.MD
 # === Media uploads (WO06, ephemeral) ===
 api/media/
+
+# === Plan de tareas local (no se trackea) ===
+tareas_pendientes/

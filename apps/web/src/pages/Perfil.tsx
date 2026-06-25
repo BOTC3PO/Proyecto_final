@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { solicitarCambioRol } from "../services/roles";
 import { crearCuentaAlumnoPadre, crearCuentaPadreAlumno } from "../services/padres";
+import { crearCuentaAlumnoStaff, vincularCuentaAlumnoStaff } from "../services/cuenta-alumno-staff";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
@@ -403,6 +404,15 @@ export default function Perfil() {
                 {/* Mi cuenta de alumno — espejo opt-in (solo PARENT) */}
                 {perfil.role === "PARENT" && (
                   <MiCuentaAlumnoCard
+                    tieneEspejo={perfil.cuentaVinculada?.tipoDestino === "ALUMNO"}
+                  />
+                )}
+
+                {/* FASE 4 — Mi cuenta de alumno (staff): crear o vincular una
+                    existente. Resuelve el caso del staff sin espejo, que al
+                    "Ver como alumno" caía a /login. */}
+                {(perfil.role === "TEACHER" || perfil.role === "DIRECTIVO" || perfil.role === "ADMIN") && (
+                  <MiCuentaAlumnoStaffCard
                     tieneEspejo={perfil.cuentaVinculada?.tipoDestino === "ALUMNO"}
                   />
                 )}
@@ -829,6 +839,120 @@ function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
           </button>
         )}
       </div>
+      {msg && (
+        <p className={`text-xs ${msg.kind === "ok" ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
+          {msg.text}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// FASE 4 — cuenta de alumno para STAFF. Resuelve el caso del staff sin
+// espejo (que al "Ver como alumno" caía a /login): puede crear su cuenta
+// de alumno o vincular una cuenta USER existente. Una vez que existe,
+// "Entrar como alumno" dispara el switch (mismo mecanismo que el padre).
+function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
+  const { switchCuenta } = useAuth();
+  const navigate = useNavigate();
+  const [existe, setExiste] = useState(tieneEspejo);
+  const [busy, setBusy] = useState<null | "crear" | "vincular" | "entrar">(null);
+  const [ident, setIdent] = useState("");
+  const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
+
+  const handleCrear = async () => {
+    setBusy("crear");
+    setMsg(null);
+    try {
+      const res = await crearCuentaAlumnoStaff();
+      setExiste(true);
+      setMsg({
+        kind: "ok",
+        text: res.created
+          ? "✓ Tu cuenta de alumno está lista. Ya podés entrar como alumno."
+          : "Ya tenías una cuenta de alumno. Ya podés entrar como alumno.",
+      });
+    } catch (err) {
+      setMsg({ kind: "err", text: err instanceof Error ? err.message : "No se pudo crear la cuenta de alumno." });
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const handleVincular = async () => {
+    if (!ident.trim()) return;
+    setBusy("vincular");
+    setMsg(null);
+    try {
+      await vincularCuentaAlumnoStaff(ident.trim());
+      setExiste(true);
+      setMsg({ kind: "ok", text: "✓ Cuenta de alumno vinculada. Ya podés entrar como alumno." });
+    } catch (err) {
+      setMsg({ kind: "err", text: err instanceof Error ? err.message : "No se pudo vincular la cuenta." });
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const handleEntrar = async () => {
+    setBusy("entrar");
+    setMsg(null);
+    try {
+      const { landing } = await switchCuenta();
+      navigate(landing);
+    } catch (err) {
+      setBusy(null);
+      setMsg({ kind: "err", text: err instanceof Error ? err.message : "No se pudo entrar como alumno." });
+    }
+  };
+
+  return (
+    <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-2">
+      <p className="text-sm font-medium text-[var(--c-text)]">Mi cuenta de alumno</p>
+      <p className="text-xs text-[var(--c-muted)]">
+        Te deja previsualizar la experiencia del estudiante. Podés crear una
+        cuenta de alumno nueva o vincular una cuenta existente (por usuario o
+        email).
+      </p>
+      {existe ? (
+        <div className="pt-1">
+          <button
+            onClick={handleEntrar}
+            disabled={busy === "entrar"}
+            data-testid="staff-entrar-como-alumno"
+            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+          >
+            {busy === "entrar" ? "Entrando…" : "Entrar como alumno"}
+          </button>
+        </div>
+      ) : (
+        <div className="space-y-2 pt-1">
+          <button
+            onClick={handleCrear}
+            disabled={busy === "crear"}
+            data-testid="staff-crear-cuenta-alumno"
+            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+          >
+            {busy === "crear" ? "Creando…" : "Crear mi cuenta de alumno"}
+          </button>
+          <div className="flex items-center gap-2">
+            <input
+              value={ident}
+              onChange={(e) => setIdent(e.target.value)}
+              placeholder="usuario o email del alumno"
+              className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-1.5 text-xs text-[var(--c-text)]"
+            />
+            <button
+              onClick={handleVincular}
+              disabled={busy === "vincular" || !ident.trim()}
+              data-testid="staff-vincular-cuenta-alumno"
+              className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:opacity-90 disabled:opacity-50 transition-opacity"
+            >
+              {busy === "vincular" ? "Vinculando…" : "Vincular existente"}
+            </button>
+          </div>
+        </div>
+      )}
       {msg && (
         <p className={`text-xs ${msg.kind === "ok" ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
           {msg.text}

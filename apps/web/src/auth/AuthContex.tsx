@@ -49,6 +49,11 @@ export type AuthContextValue = {
    *  localStorage). Devuelve la ruta `landing` del destino para navegar.
    *  Lanza Error si no hay vínculo o el back responde con error. */
   switchCuenta: () => Promise<{ landing: string }>;
+  /** FASE 5a — true mientras `switchCuenta` está en vuelo. `ProtectedRoute`
+   *  lo usa para NO redirigir a /login durante la transición de sesión
+   *  (cuando el user viejo ya se limpió y el nuevo todavía no se flusheó).
+   *  Opcional para compat con mocks de tests; el provider real lo setea. */
+  isSwitching?: boolean;
 };
 
 export const AuthContext = createContext<AuthContextValue | undefined>(undefined);

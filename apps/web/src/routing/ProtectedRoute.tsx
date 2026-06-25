@@ -13,7 +13,15 @@ export function ProtectedRoute({
   allow: Role[];
   redirectTo?: string;
 }) {
-  const { user } = useAuth();
+  const { user, isSwitching } = useAuth();
+
+  // FASE 5a — durante un cambio de cuenta (espejo ↔ principal) la sesión
+  // está en transición: el user viejo ya se limpió y el nuevo todavía no
+  // se commiteó. NO redirigir a /login en ese instante (el flash que veía
+  // el staff al "Ver como alumno"); esperamos a que el user nuevo llegue.
+  if (isSwitching) {
+    return null;
+  }
 
   // MULTIROL-02: multi-rol friendly. Un user pasa si AL MENOS UNO de
   // sus `roles[]` está en `allow`. Mantiene compat: si `roles` está
