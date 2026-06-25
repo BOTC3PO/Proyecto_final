@@ -32,7 +32,7 @@ import {
   getBancoQuestions,
 } from "../../generadoresV2/basic/banco";
 import PlantillaEditorSchema from "../vblang/PlantillaEditorSchema";
-import EditorPlantilla from "../../editor/EditorPlantilla";
+import PlantillaEditorShell from "../../editor/PlantillaEditorShell";
 import { useEditorClasico } from "../../editor/useEditorClasico";
 import PlantillaSelectorModal from "../vblang/PlantillaSelectorModal";
 import GeneradorPicker from "../vblang/GeneradorPicker";
@@ -622,6 +622,7 @@ function PlantillaInlineEditor({
   plantillaId: string;
   io: PlantillaIO;
 }) {
+  const editorClasico = useEditorClasico();
   const [codigo, setCodigo] = useState<string | null>(null);
   const [estado, setEstado] = useState<"cargando" | "listo" | "error">(
     "cargando",
@@ -685,35 +686,49 @@ function PlantillaInlineEditor({
     }
   };
 
-  const editorClasico = useEditorClasico();
   const handlePlantillaChange = (next: Plantilla) => {
     setCodigo(serialize(next));
     setDirty(true);
     setGuardado(null);
   };
 
-  return (
-    <div className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] p-2">
-      {editorClasico ? (
+  /**
+   * WO-V2 — el wrapper legacy (un Card con el `EditorPlantilla` adentro y un
+   * botón Guardar externo) se reemplaza por `PlantillaEditorShell` (layout
+   * Tiza de 3 paneles). El flag `editorClasico` sigue disponible y
+   * desactiva el shell nuevo (vuelve al wrapper viejo) hasta su retiro.
+   */
+  if (editorClasico) {
+    return (
+      <div className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] p-2">
         <PlantillaEditorSchema plantilla={ast} onChange={handlePlantillaChange} />
-      ) : (
-        <EditorPlantilla plantilla={ast} onChange={handlePlantillaChange} />
-      )}
-      <div className="mt-2 flex items-center gap-2">
-        <button
-          type="button"
-          className="rounded bg-[var(--c-primary)] px-3 py-1 text-xs font-semibold text-[var(--c-text-on-dark)] disabled:opacity-50"
-          disabled={guardando || !dirty}
-          onClick={() => void onGuardar()}
-        >
-          {guardando ? "Guardando…" : "Guardar plantilla"}
-        </button>
-        {guardado && (
-          <span role="status" className="text-xs text-[var(--c-hint)]">
-            {guardado}
-          </span>
-        )}
+        <div className="mt-2 flex items-center gap-2">
+          <button
+            type="button"
+            className="rounded bg-[var(--c-primary)] px-3 py-1 text-xs font-semibold text-[var(--c-text-on-dark)] disabled:opacity-50"
+            disabled={guardando || !dirty}
+            onClick={() => void onGuardar()}
+          >
+            {guardando ? "Guardando…" : "Guardar plantilla"}
+          </button>
+          {guardado && (
+            <span role="status" className="text-xs text-[var(--c-hint)]">
+              {guardado}
+            </span>
+          )}
+        </div>
       </div>
-    </div>
+    );
+  }
+
+  return (
+    <PlantillaEditorShell
+      plantilla={ast}
+      onChange={handlePlantillaChange}
+      breadcrumb={["VBLang", "Plantilla", plantillaId]}
+      onSave={() => void onGuardar()}
+      saving={guardando}
+      savedHint={guardado}
+    />
   );
 }

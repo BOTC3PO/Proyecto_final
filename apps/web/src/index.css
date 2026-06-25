@@ -1581,6 +1581,25 @@
   isolation: isolate;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   PLANTILLA-EDITOR-SHELL — WO-V2 (Tiza 3-panel)
+   Responsive: en <lg el rail y el property grid colapsan a
+   barras apilables; el center mantiene foco. Tokens-only.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 1023px) {
+  .plantilla-shell > div:nth-child(2) {
+    flex-direction: column !important;
+  }
+  .plantilla-shell [data-testid="plantilla-editor-rail"],
+  .plantilla-shell [data-testid="plantilla-editor-grid"] {
+    width: 100% !important;
+    flex: 0 0 auto !important;
+    max-height: 220px;
+    border: 0 !important;
+    border-bottom: 1px solid var(--c-border) !important;
+  }
+}
+
 /* ============================================================
    Accesibilidad global — VB editores
    Aplica a TODOS los temas. Usa solo variables --c-* existentes.
