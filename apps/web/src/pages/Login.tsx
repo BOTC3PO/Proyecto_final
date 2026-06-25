@@ -59,7 +59,7 @@ export default function Login() {
         roles?: ReadonlyArray<"ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST">;
         guestOnboardingStatus?: "pendiente" | "aceptado" | "rechazado" | null;
         schoolId?: string | null;
-        cuentaVinculada?: { destinoUsuarioId: string; tipoDestino: string } | null;
+        cuentaVinculada?: { destinoUsuarioId: string; tipoDestino: "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO" } | null;
         accessToken: string;
         refreshToken?: string;
       }>("/api/auth/login", { identifier: form.user, password: form.password });

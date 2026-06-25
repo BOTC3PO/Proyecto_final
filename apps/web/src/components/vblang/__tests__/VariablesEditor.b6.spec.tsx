@@ -34,58 +34,29 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { useRef, useState } from "react";
-import { parse, serialize, type Plantilla } from "@vb/vblang";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { useState } from "react";
+import { parse, type Plantilla, type VariableDecl } from "@vb/vblang";
 import VariablesEditor from "../VariablesEditor";
+
+function declsOf(plantilla: Plantilla): VariableDecl[] {
+  const b = plantilla.bloques.find(
+    (b): b is Extract<typeof plantilla.bloques[number], { kind: "variables" }> =>
+      b.kind === "variables",
+  );
+  return b?.declaraciones ?? [];
+}
 
 function Harness({ initial, valores }: { initial: string; valores?: Record<string, unknown> }) {
   const [plantilla, setPlantilla] = useState<Plantilla>(() => parse(initial));
   return (
     <VariablesEditor
       plantilla={plantilla}
-      variables={
-        (plantilla.bloques.find((b) => b.kind === "variables") as
-          | { declaraciones: Array<{ nombre: string; expr: unknown; loc: unknown }> }
-          | undefined)?.declaraciones ?? []
-      }
+      variables={declsOf(plantilla)}
       valores={valores}
       onChange={(next) => setPlantilla(next)}
     />
   );
-}
-
-/**
- * Harness que mantiene una ref con la última plantilla
- * renderizada. Útil para tests que necesitan leer el estado
- * después de una mutación asíncrona (los handlers del form
- * disparan `setState` que todavía no se reflejó en el próximo
- * render del test).
- */
-function CaptureHarness({ initial }: { initial: string }) {
-  const [plantilla, setPlantilla] = useState<Plantilla>(() => parse(initial));
-  const ref = useRef(plantilla);
-  ref.current = plantilla;
-  return (
-    <VariablesEditor
-      plantilla={plantilla}
-      variables={
-        (plantilla.bloques.find((b) => b.kind === "variables") as
-          | { declaraciones: Array<{ nombre: string; expr: unknown; loc: unknown }> }
-          | undefined)?.declaraciones ?? []
-      }
-      onChange={(next) => {
-        ref.current = next;
-        setPlantilla(next);
-      }}
-    />
-  );
-}
-
-function captureVariables(plantilla: Plantilla) {
-  const v = plantilla.bloques.find((b) => b.kind === "variables");
-  if (v && v.kind === "variables") return v.declaraciones;
-  return [];
 }
 
 describe("VB-B6: VariablesEditor", () => {
@@ -155,7 +126,7 @@ describe("VB-B6: VariablesEditor", () => {
   });
 
   it("(b6-6) cambiar el tipo reescribe la expr con un seed razonable", () => {
-    const { container } = render(
+    render(
       <Harness
         initial={'variables:\n  a: 1\nenunciado: "x"\nrespuesta: 1\n'}
       />,

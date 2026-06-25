@@ -1,6 +1,15 @@
 /**
  * WO-7 / WO-7b — Contrato de equivalencia generador↔plantilla (porting paramétrico).
  *
+ * NOTA DE TIPOS (WO-LIMPIEZA-TIPOS, lote #29): este archivo queda con
+ * errores de tipo preexistentes (~18) por el framework `Inputs` mal
+ * tipado: cada `PortCase` declara `inputsFromTemplate` que devuelve
+ * objetos con keys arbitrarias (string | number | number[] | undefined),
+ * pero el tipo `Inputs = Record<string, number>` exige solo number.
+ * El refactor correcto requiere cambiar el framework (alcance mayor,
+ * fuera de la limpieza de tipos). No se introdujeron errores nuevos
+ * en este PR; los errores son idénticos al HEAD previo.
+ *
  * REGLA DE ORO del porting (ver `docs/vblang/porting-generadores.md`): un port
  * no se da por bueno si no MATCHEA al generador original. Como `generate()` de
  * VBLang sortea su propia aleatoriedad (no acepta inyección de inputs) y el

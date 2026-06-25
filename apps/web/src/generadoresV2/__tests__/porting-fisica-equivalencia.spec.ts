@@ -1,6 +1,13 @@
 /**
  * WO-7b — Equivalencia generador↔plantilla para Física/Cinemática.
  *
+ * NOTA DE TIPOS (WO-LIMPIEZA-TIPOS, lote #29): este archivo queda con
+ * errores de tipo preexistentes (~4) por el framework `Inputs` mal
+ * tipado. Ver bloque análogo en `algebra-equivalencia.spec.ts` y
+ * `porting-equivalencia.spec.ts`. El refactor correcto requiere
+ * cambiar el framework (fuera del scope). No se introdujeron errores
+ * nuevos en este PR.
+ *
  * Espeja el patrón de `porting-equivalencia.spec.ts` (Aritmética): cada
  * plantilla de `fisica-cinematica-oficiales.ts` se compara con el generador
  * nativo correspondiente (`CinematicaGenerator`) vía oráculo compartido.

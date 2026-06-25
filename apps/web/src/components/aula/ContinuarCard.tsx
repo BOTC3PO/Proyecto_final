@@ -12,7 +12,7 @@
  */
 
 import { Link } from "react-router-dom";
-import type { ClassModuleProgress } from "../pages/aula";
+import type { ClassModuleProgress } from "../../pages/aula";
 
 export type ContinuarCardProps = {
   modules: ClassModuleProgress[];

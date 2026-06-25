@@ -239,7 +239,7 @@ describe("FIX-PLANTILLA-DUP: clicks múltiples en Guardar", () => {
       version: 2,
     });
 
-    const result = await renderEditEditor("p-existing");
+    await renderEditEditor("p-existing");
     // Esperar a que cargue.
     await waitFor(() => {
       expect(screen.getByTestId("vblang-metadata-panel")).toBeInTheDocument();

@@ -320,7 +320,6 @@ describe("PlantillaEditorSchema", () => {
   });
 
   it("Tarea 09: editar una variante se refleja en el DSL serializado", async () => {
-    const user = userEvent.setup();
     render(
       <Harness
         initial={

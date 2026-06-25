@@ -1,4 +1,5 @@
-import { Token, TokenKind } from "../lexer/tokens.js";
+import { TokenKind } from "../lexer/tokens.js";
+import type { Token } from "../lexer/tokens.js";
 import type {
   Bloque,
   CampoKV,

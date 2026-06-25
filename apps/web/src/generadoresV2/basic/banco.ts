@@ -386,7 +386,13 @@ export function getBancoQuestions(bancoId: string): ModuleQuizQuestion[] {
       type: q.type,
       prompt: q.prompt,
       ...(q.type === "mc"
-        ? { options: (q as MCQuestion).options.map((o) => ({ text: o.text, correct: o.correct })) }
+        ? {
+            options: (q as MCQuestion).options.map((o, i) => ({
+              optionId: `opt_${i}`,
+              text: o.text,
+              correct: o.correct,
+            })),
+          }
         : {}),
     };
     const mq = mapBancoQuestion(q, gen, {});

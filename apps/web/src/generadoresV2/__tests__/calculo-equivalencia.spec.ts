@@ -89,6 +89,8 @@ interface PortCase {
   inputsFromGenerator: (enunciado: string) => Inputs | null;
   /** Lee los inputs de `result.variables` de la plantilla. */
   inputsFromTemplate: (vars: Record<string, unknown>) => Inputs;
+  /** Transforma la respuesta cruda del generador (opcional). */
+  transformGenerator?: (ans: string) => string;
 }
 
 const CASES: PortCase[] = [

@@ -384,7 +384,7 @@ export default function menuProfesor() {
       .map((module) => ({
         id: module.id,
         label: module.title,
-        description: module.subject || module.category
+        description: module.subject || module.category || undefined,
       }));
 
     const links = dependencyLinks.filter((link) =>

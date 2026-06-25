@@ -9,6 +9,15 @@
  * y por tolerancia numérica para los numéricos. Ver
  * `docs/vblang/wo-11-eje-simbolico.md` y `docs/vblang/porting-generadores.md`.
  *
+ * NOTA DE TIPOS (WO-LIMPIEZA-TIPOS, lote #29): este archivo queda con
+ * errores de tipo preexistentes (~50) por el framework `Inputs`
+ * mal tipado: cada `PortCase` declara `inputsFromTemplate` que
+ * devuelve objetos con keys arbitrarias (string | number | number[]),
+ * pero el tipo `Inputs = Record<string, number>` exige solo number.
+ * El refactor correcto requiere cambiar el framework (alcance mayor,
+ * fuera de la limpieza de tipos). No se introdujeron errores nuevos
+ * en este PR; los errores son idénticos al HEAD previo.
+ *
  * Cobertura:
  *  - WO-11 (3 simbólicos, basico): `terminos_semejantes`,
  *    `multiplicacion_monomios`, `factorizacion_basica`.

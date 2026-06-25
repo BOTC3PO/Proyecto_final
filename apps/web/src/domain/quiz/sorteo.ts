@@ -42,7 +42,6 @@
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import {
   DIFICULTADES_VALIDAS,
-  coerceDificultad,
   dificultadIndice,
   dificultadVecina,
   type CuestionarioPosiciones,

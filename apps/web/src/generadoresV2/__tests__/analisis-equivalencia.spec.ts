@@ -2,6 +2,13 @@
  * WO-11e — Contrato de equivalencia generador↔plantilla (porting
  * masivo de Análisis y Avanzado).
  *
+ * NOTA DE TIPOS (WO-LIMPIEZA-TIPOS, lote #29): este archivo queda con
+ * errores de tipo preexistentes (~7) por el framework `Inputs` mal
+ * tipado. Ver bloque análogo en `algebra-equivalencia.spec.ts` y
+ * `porting-equivalencia.spec.ts`. El refactor correcto requiere
+ * cambiar el framework (fuera del scope). No se introdujeron errores
+ * nuevos en este PR.
+ *
  * Espejo de `calculo-equivalencia.spec.ts` (WO-11d). Cierre del
  * eje 2: 16 subtipos de `AnalisisYAvanzado.ts` portados (todos
  * basico). La respuesta puede ser un STRING (simbólico o

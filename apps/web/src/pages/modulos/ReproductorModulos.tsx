@@ -482,7 +482,7 @@ export default function ReproductorModulos() {
                             paddingTop: "var(--space-2)",
                             borderTop: "1px solid var(--c-border)",
                           }}>
-                            {m.durationMinutes > 0 && (
+                            {(m.durationMinutes ?? 0) > 0 && (
                               <span>{m.durationMinutes} min</span>
                             )}
                             {m.level && (

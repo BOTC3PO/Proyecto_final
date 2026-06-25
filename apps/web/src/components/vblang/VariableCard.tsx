@@ -24,7 +24,6 @@ import type { Expr, Plantilla, VariableDecl } from "@vb/vblang";
 import { inferTipoVar, formatValor } from "./PlantillaEditorSchema";
 import {
   updateVariable,
-  removeVariable,
   classifyVariable,
   makeRandomIntExpr,
   makeRandomFloatExpr,

@@ -46,7 +46,7 @@ describe("F6-03 matemáticas — Inventario", () => {
 
 describe("F6-03 matemáticas — Validez MCQuestion", () => {
   it("toda pregunta es MCQuestion con type === 'mc' y exactamente 1 correct:true", () => {
-    for (const [id, qs] of ALL) {
+    for (const [, qs] of ALL) {
       for (const q of qs) {
         expect(q.type, q.id).toBe("mc");
         expect(q.options.length).toBeGreaterThanOrEqual(2);

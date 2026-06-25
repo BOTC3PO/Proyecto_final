@@ -35,7 +35,6 @@ import {
 } from "../posiciones";
 import { agregarPosicion, agregarVariante, cambiarDificultadVariante, cambiarOrigenVariante } from "../posicionesMutations";
 import {
-  DIFICULTAD_INICIAL_DEFAULT,
   elegirVariantePorDificultad,
   dificultadInicialSugerida,
   proximaDificultad,

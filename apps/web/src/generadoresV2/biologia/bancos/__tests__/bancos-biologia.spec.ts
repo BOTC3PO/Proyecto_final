@@ -48,7 +48,7 @@ describe("F6-03 biología — Inventario", () => {
 
 describe("F6-03 biología — Validez MCQuestion", () => {
   it("toda pregunta es MCQuestion con type === 'mc' y exactamente 1 correct:true", () => {
-    for (const [id, qs] of ALL) {
+    for (const [, qs] of ALL) {
       for (const q of qs) {
         expect(q.type, q.id).toBe("mc");
         expect(q.options.length).toBeGreaterThanOrEqual(2);

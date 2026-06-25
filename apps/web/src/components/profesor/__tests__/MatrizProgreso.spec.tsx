@@ -34,7 +34,7 @@ const MOCK_RESPONSE = {
         "m-1": "completado",
         "m-2": "en_progreso",
         "m-3": null,
-      },
+      } as Record<string, string | null>,
     },
     {
       id: "a-2",
@@ -43,7 +43,7 @@ const MOCK_RESPONSE = {
         "m-1": "iniciado",
         "m-2": null,
         "m-3": "completado",
-      },
+      } as Record<string, string | null>,
     },
   ],
 };

@@ -309,7 +309,7 @@ function ManualQuestionPreview({
   onMissing: (reason: string) => void;
 }) {
   const qt = question.questionType ?? "input";
-  const [answer, setAnswer] = useState<string | string[]>("");
+  const [answer, setAnswer] = useState<string | string[] | Record<string, string>>("");
   const [verified, setVerified] = useState<null | boolean>(null);
 
   const correct = useMemo<string | string[] | null>(() => {
@@ -415,7 +415,7 @@ function ManualQuestionPreview({
           etiquetasPedidas={question.etiquetasPedidas ?? []}
           asignaciones={
             typeof answer === "object" && !Array.isArray(answer)
-              ? (answer as Record<string, string>)
+              ? answer
               : undefined
           }
           onChange={(v) => setAnswer(v)}

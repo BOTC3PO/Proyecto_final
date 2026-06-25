@@ -81,7 +81,7 @@ describe("FIX-MAPA-LEAFLET-OVERLAY: el canvas del mapa ancla los overlays", () =
   });
 
   it("(b) los botones de zoom están dentro del wrapper 'relative' del mapa", async () => {
-    const { container, getByTestId } = render(
+    const { getByTestId } = render(
       <MapaStandalone config={baseConfig} editable={false} />,
     );
     await waitFor(() => {

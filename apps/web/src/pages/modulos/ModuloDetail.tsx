@@ -519,7 +519,7 @@ export default function ModuloDetail() {
     ? VISIBILITY_LABELS[module.visibility]
     : "Sin definir";
   const levelLabel = module.level ?? module.difficultyLevel ?? "Sin nivel";
-  const palette = getModulePalette(module.category);
+  const palette = getModulePalette(module.category ?? "");
 
   return (
     <main className={`min-h-screen bg-gradient-to-br ${palette.bg} pb-12`}>

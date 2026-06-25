@@ -2,13 +2,14 @@
 import { describe, test, expect } from "vitest";
 import { DeterministicPrng } from "../core/prng";
 import { getDescriptoresQuimica } from "../quimica/index";
+import type { EjercicioQuiz } from "../core/types";
 
-function generarConfigElectronica(seed: number | string) {
+function generarConfigElectronica(seed: number | string): EjercicioQuiz {
   const prng = new DeterministicPrng(seed);
   const descriptores = getDescriptoresQuimica(prng);
   const descriptor = descriptores.find(d => d.subtipos.includes("configuracion_electronica"));
   if (!descriptor) throw new Error("No se encontró descriptor para configuracion_electronica");
-  return descriptor.generate("basico", prng, "configuracion_electronica", "");
+  return descriptor.generate("basico", prng, "configuracion_electronica", "") as EjercicioQuiz;
 }
 
 describe("configuracion_electronica distractores", () => {

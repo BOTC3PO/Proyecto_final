@@ -6,18 +6,21 @@
  */
 
 import { describe, expect, it, vi, beforeEach } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { useState } from "react";
 import userEvent from "@testing-library/user-event";
 import BancoPreguntasEditor from "../BancoPreguntasEditor";
 import { exportBancoToJson } from "../bancoExport";
-import type { MCQuestion, TFQuestion } from "../../../generadoresV2/basic/types";
+import type { MCQuestion, TFQuestion, Question } from "../../../generadoresV2/basic/types";
 
 function Harness({ initial }: { initial: (MCQuestion | TFQuestion)[] }) {
-  const [questions, setQuestions] = useState(initial);
+  const [questions, setQuestions] = useState<Question[]>(initial);
   return (
     <>
-      <BancoPreguntasEditor questions={questions} onChange={setQuestions} />
+      <BancoPreguntasEditor
+        questions={questions as (MCQuestion | TFQuestion)[]}
+        onChange={setQuestions}
+      />
       <pre data-testid="state">{JSON.stringify(questions)}</pre>
     </>
   );
@@ -61,7 +64,6 @@ let createdAnchor: HTMLAnchorElement | null = null;
 beforeEach(() => {
   lastDownload = null;
   createdAnchor = null;
-  // @ts-expect-error mock parcial de URL
   global.URL.createObjectURL = vi.fn((blob: Blob) => {
     blob.text().then((t) => {
       if (lastDownload) return;
@@ -69,7 +71,6 @@ beforeEach(() => {
     });
     return "blob:fake-url";
   });
-  // @ts-expect-error mock parcial de URL
   global.URL.revokeObjectURL = vi.fn();
   // Intercepta la creacion de <a>: devolvemos un objeto plano con click
   // espiado para no disparar navegacion real. NO usamos spyOn porque

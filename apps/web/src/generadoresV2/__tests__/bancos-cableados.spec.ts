@@ -28,6 +28,7 @@ import {
   listBancoTemplates,
 } from "../basic/banco";
 import { DeterministicPrng } from "../core/prng";
+import type { EjercicioQuiz } from "../core/types";
 
 const TAMANIOS_ESPERADOS: Record<string, number> = {
   // economía (29)
@@ -104,7 +105,6 @@ const MATERIA_POR_BANCO: Record<string, "economia" | "quimica" | "biologia" | "m
 );
 
 const TOTAL_BANCOS = 55;
-const TOTAL_PREGUNTAS = Object.values(TAMANIOS_ESPERADOS).reduce((a, b) => a + b, 0);
 
 describe("F6-07 — getStaticCatalog() cablea los 55 bancos", () => {
   it("el catálogo incluye 55 bancos como ítems creables (id empieza con 'basic/')", () => {
@@ -117,7 +117,6 @@ describe("F6-07 — getStaticCatalog() cablea los 55 bancos", () => {
     const catalog = getStaticCatalog();
     const bancos = catalog.filter((c) => c.id.startsWith("basic/"));
     for (const b of bancos) {
-      const id = b.id.slice("basic/".length);
       // Label no es el id crudo: el descriptor provee metadata.titulo.
       expect(b.label, `${b.id} label`).not.toBe(b.id);
       expect(b.label.length, `${b.id} label length`).toBeGreaterThan(3);
@@ -187,7 +186,7 @@ describe("F6-07 — Runtime: getDescriptoresBasic expone los bancos", () => {
     // Tomar 3 bancos al azar, validar que generate() produce Ejercicio.
     const sample = descriptores.slice(0, 3);
     for (const d of sample) {
-      const ej = d.generate("intermedio", prng);
+      const ej = d.generate("intermedio", prng) as EjercicioQuiz;
       expect(ej, `${d.id} generate returned`).toBeDefined();
       expect(ej.tipo, `${d.id} ej.tipo`).toBe("quiz");
       expect(typeof ej.enunciado, `${d.id} enunciado`).toBe("string");

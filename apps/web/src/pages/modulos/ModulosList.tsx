@@ -523,7 +523,7 @@ export default function ModulosList() {
                     ? VISIBILITY_LABELS[module.visibility]
                     : "Sin definir";
                   const statusLabel = STATUS_LABELS[resolveStatus(module)] ?? "Sin estado";
-                  const accentColor = getCategoryAccent(module.category);
+                  const accentColor = getCategoryAccent(module.category ?? "");
 
                   return (
                     <Card key={module.id} variant="raised" padding="none">
@@ -587,7 +587,7 @@ export default function ModulosList() {
                                   {module.quizzes?.length} cuestionario{module.quizzes!.length !== 1 ? "s" : ""}
                                 </span>
                               )}
-                              {module.durationMinutes > 0 && (
+                              {(module.durationMinutes ?? 0) > 0 && (
                                 <span style={{ fontSize: "var(--text-xs)", color: "var(--c-muted)" }}>
                                   {module.durationMinutes} min
                                 </span>

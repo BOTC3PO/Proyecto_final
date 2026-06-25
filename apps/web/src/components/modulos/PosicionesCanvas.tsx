@@ -193,7 +193,7 @@ export default function PosicionesCanvas({
         </p>
         {onAddPosicion && (
           <Button
-            variant="secondary"
+            variant="ghost"
             size="sm"
             onClick={() => onAddPosicion({ tipo: "fijo" })}
             aria-label="Añadir la primera posición del cuestionario"
@@ -423,7 +423,7 @@ export default function PosicionesCanvas({
       {onAddPosicion && (
         <div className="pt-1">
           <Button
-            variant="secondary"
+            variant="ghost"
             size="sm"
             onClick={() => onAddPosicion({ tipo: "fijo" })}
             aria-label="Añadir una posición al final del cuestionario"

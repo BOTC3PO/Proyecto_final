@@ -69,7 +69,7 @@ describe("MarcarMapaRenderer", () => {
     globalThis.fetch = vi.fn(async () => ({
       ok: true,
       json: async () => ({ type: "Topology", objects: {}, arcs: [] }),
-    })) as typeof fetch;
+    })) as unknown as typeof fetch;
     render(
       <MarcarMapaRenderer
         mapaId="politico_mundo"
@@ -90,7 +90,7 @@ describe("MarcarMapaRenderer", () => {
     globalThis.fetch = vi.fn(async () => ({
       ok: true,
       json: async () => ({ type: "Topology", objects: {}, arcs: [] }),
-    })) as typeof fetch;
+    })) as unknown as typeof fetch;
     render(<MarcarMapaRenderer mapaId="politico_mundo" />);
     await waitFor(() => screen.getByTestId("marcar-mapa-svg"), {
       timeout: 1500,

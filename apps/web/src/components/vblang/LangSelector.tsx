@@ -21,7 +21,7 @@
  * "unavailable" se anuncia con `role="status"` para usuarios de
  * screen reader.
  */
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import {
   displayLangName,
   fetchLanguages,
@@ -57,7 +57,9 @@ export default function LangSelector({
 
   const [status, setStatus] = useState<Status>("loading");
   const [languages, setLanguages] = useState<string[]>([]);
-  const [userChanged, setUserChanged] = useState(false);
+  // Trackea si el usuario ya tocó el selector: persistimos entre renders
+  // sin causar uno extra (no necesitamos que el cambio dispare re-render).
+  const userChangedRef = useRef(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -74,13 +76,10 @@ export default function LangSelector({
       // controlado no está en la lista), aplicamos el default.
       // Pero sólo en la primera carga — si el usuario ya tocó el
       // selector, no le pisamos su elección.
-      setUserChanged((prev) => {
-        if (prev) return prev;
-        if (!value || !langs.includes(value)) {
-          onChange(pickDefaultLang(langs));
-        }
-        return prev;
-      });
+      if (userChangedRef.current) return;
+      if (!value || !langs.includes(value)) {
+        onChange(pickDefaultLang(langs));
+      }
     });
     return () => {
       cancelled = true;
@@ -122,7 +121,7 @@ export default function LangSelector({
         aria-label={label}
         value={value}
         onChange={(e) => {
-          setUserChanged(true);
+          userChangedRef.current = true;
           onChange(e.target.value);
         }}
         data-testid="lang-selector"

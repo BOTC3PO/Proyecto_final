@@ -403,7 +403,6 @@ describe("PosicionesCanvas — F4-03 puntaje por sección", () => {
   });
 
   it("cambiar el puntaje de la posición 1 NO afecta el input de la posición 2", async () => {
-    const user = userEvent.setup();
     const onChangePuntaje = vi.fn();
     render(
       <PosicionesCanvas
@@ -445,7 +444,6 @@ describe("PosicionesCanvas — F4-03 puntaje por sección", () => {
   });
 
   it("cambiar el tipo en el select de la posición 2 invoca onChangeTipo(2, 'relleno')", async () => {
-    const user = userEvent.setup();
     const onChangeTipo = vi.fn();
     render(
       <PosicionesCanvas

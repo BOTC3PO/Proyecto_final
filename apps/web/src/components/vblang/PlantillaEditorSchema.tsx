@@ -20,7 +20,7 @@ import {
   useState,
   createContext,
 } from "react";
-import type { Expr, Plantilla, TipoPregunta, VariableDecl } from "@vb/vblang";
+import type { Expr, Plantilla, TipoPregunta } from "@vb/vblang";
 import {
   ALL_QUESTION_TYPES,
   QUESTION_TYPE_SCHEMAS,
@@ -1891,58 +1891,6 @@ export function formatValor(v: unknown): string {
   if (typeof v === "number" || typeof v === "boolean") return String(v);
   if (Array.isArray(v)) return `[${v.map((x) => String(x)).join(", ")}]`;
   return String(v);
-}
-
-/**
- * Variables del bloque `variables:` como cards (delta #1 del rediseño): grip
- * decorativo, nombre con prefijo `{}`, pill de tipo con punto de color, la
- * definición monoespaciada y el valor del último preview ("ahora: X").
- *
- * Es presentacional: las variables se editan desde el modo Código (la edición
- * estructurada no entra en este paso visual). Por eso no hay inputs muertos.
- */
-function VariablesCards({
-  variables,
-  valores,
-}: {
-  variables: VariableDecl[];
-  valores?: Record<string, unknown>;
-}) {
-  return (
-    <div className="flex flex-col gap-2">
-      <ul className="vb-var-cards" aria-label="Variables de la plantilla">
-        {variables.map((d) => {
-          const t = inferTipoVar(d.expr);
-          const tieneValor = valores ? d.nombre in valores : false;
-          return (
-            <li className="vb-var-card" key={d.nombre}>
-              <span className="vb-var-card__grip" aria-hidden="true">
-                ⠿
-              </span>
-              <span className="vb-var-card__name">{`{${d.nombre}}`}</span>
-              <span className="vb-var-card__pill">
-                <span
-                  className="vb-var-card__dot"
-                  style={{ background: `var(--c-${t.tone})` }}
-                  aria-hidden="true"
-                />
-                {t.label}
-              </span>
-              <code className="vb-var-card__def">{exprToText(d.expr)}</code>
-              {tieneValor && (
-                <span className="vb-var-card__now">
-                  ahora: <strong>{formatValor(valores![d.nombre])}</strong>
-                </span>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-      <p className="text-[10px] text-[var(--c-hint)]">
-        Las variables se editan desde el modo Código.
-      </p>
-    </div>
-  );
 }
 
 /* ---------------- resumen (DIFF-02) ---------------- */

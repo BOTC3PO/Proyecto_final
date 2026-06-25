@@ -134,7 +134,8 @@ export type ModuleQuizQuestion = {
     | "marcar_mapa"
     | "analisis_sintactico"
     | "identificar_palabras"
-    | "abierta";
+    | "abierta"
+    | "expresion";
   options?: string[];
   answerKey?: string | string[];
   /**
