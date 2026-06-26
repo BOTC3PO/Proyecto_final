@@ -16,6 +16,7 @@
     "db:seed": "ts-node --transpile-only scripts/seed_demo.ts",
     "seed:tienda": "ts-node --transpile-only scripts/seed_tienda.ts",
     "backfill:espejos": "ts-node --transpile-only scripts/backfill_espejos.ts",
+    "backfill:quiz-materia": "ts-node --transpile-only scripts/backfill_quiz_materia.ts",
     "validate:economia": "node scripts/validarEconomia.js",
     "dict:smoke": "ts-node --transpile-only scripts/dict_smoke_test.ts",
     "dict:explain": "ts-node --transpile-only scripts/explain_plan.ts",

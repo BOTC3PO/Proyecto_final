@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import type { Module } from "../domain/module/module.types";
+import { resolveMateria } from "../domain/module/materia";
 import { fetchEnterpriseModulos } from "../services/enterprise";
 
 export default function EnterpriseModulos() {
@@ -51,7 +52,7 @@ export default function EnterpriseModulos() {
               <div className="flex items-start justify-between gap-2">
                 <h2 className="text-base font-semibold text-[var(--c-text)]">{module.title}</h2>
                 <span className="shrink-0 rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-xs font-semibold text-[var(--c-muted)]">
-                  {module.subject ?? module.category ?? "—"}
+                  {resolveMateria(module)}
                 </span>
               </div>
               {module.description && (

@@ -108,7 +108,22 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
     const items: BancoItem[] = [];
 
     for (const quiz of quizzes) {
-      const version = quiz.versions[0];
+      // WO-BUG-fix — el InMemoryPrisma usado en tests no soporta
+      // `include` anidado, así que `quiz.versions` puede venir
+      // `undefined`. Fallback a un findMany separado (mismo patrón
+      // que el resto del archivo y que `cloneModuloDeep`). En el
+      // prisma real con `include` el findMany devuelve [] y usamos
+      // el `versions[0]` que vino en el include.
+      let version =
+        Array.isArray((quiz as { versions?: unknown[] }).versions) &&
+        (quiz as { versions?: unknown[] }).versions!.length > 0
+          ? (quiz as { versions: { versionNumber?: number; settings?: string | null; questions?: string | null; generatorId?: string | null; count?: number | null; id: string }[] }).versions[0]
+          : undefined;
+      if (!version) {
+        const versions = await prisma.quizVersion.findMany({ where: { quizId: quiz.id } });
+        versions.sort((a, b) => (b.versionNumber ?? 0) - (a.versionNumber ?? 0));
+        version = versions[0];
+      }
       if (!version) continue;
 
       const settings = parseJsonSafe<Record<string, unknown>>(version.settings ?? null, {});

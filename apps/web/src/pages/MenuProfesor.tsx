@@ -4,6 +4,7 @@ import { getAulaId } from "../lib/aula-id";
 import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
 import type { Module, ModuleDependency } from "../domain/module/module.types";
+import { resolveMateria } from "../domain/module/materia";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import {
   fetchProfesorMenuDashboard,
@@ -156,7 +157,7 @@ export default function menuProfesor() {
           description: module.description,
           level: module.level,
           durationMinutes: module.durationMinutes,
-          subject: module.subject ?? module.category,
+          subject: resolveMateria(module) === "Sin materia" ? null : resolveMateria(module),
           category: module.category,
           visibility: module.visibility ?? "privado",
           dependencies: module.dependencies ?? [],
@@ -287,7 +288,7 @@ export default function menuProfesor() {
 
   const _subjectOptions = useMemo(() => {
     const subjects = modules
-      .map((module) => module.subject || module.category)
+      .map(resolveMateria)
       .filter((subject): subject is string => Boolean(subject));
     return Array.from(new Set(subjects)).sort((a, b) => a.localeCompare(b));
   }, [modules]);
@@ -298,7 +299,7 @@ export default function menuProfesor() {
       return modules;
     }
     return modules.filter(
-      (module) => (module.subject || module.category) === selectedSubject
+      (module) => resolveMateria(module) === selectedSubject
     );
   }, [modules, selectedSubject]);
 
@@ -384,7 +385,7 @@ export default function menuProfesor() {
       .map((module) => ({
         id: module.id,
         label: module.title,
-        description: module.subject || module.category || undefined,
+        description: resolveMateria(module) === "Sin materia" ? undefined : resolveMateria(module),
       }));
 
     const links = dependencyLinks.filter((link) =>

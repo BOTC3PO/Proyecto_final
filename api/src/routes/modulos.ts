@@ -7,6 +7,7 @@ import { requireUser } from "../lib/user-auth";
 import { isStaffRole } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
 import { sanitizeQuestionsForStudent } from "../lib/sanitize-questions";
+import { mergeMateriaIntoSettings } from "../lib/quiz-materia";
 import { ModuleSchema } from "../schema/modulo";
 
 export const modulos = Router();
@@ -598,6 +599,14 @@ async function cloneModuloDeep(
       const lastVersion = sourceVersionsByQuiz[quiz.id]?.[0];
       if (!lastVersion) continue;
       const newVersionId = generateId();
+      // WO-BUG — la copia hereda la `materia` del source modulo
+      // (`subject || category`). Antes copiábamos `settings` tal cual,
+      // así que las copias de cuestionarios viejos sin materia
+      // quedaban con la materia vacía y desaparecían del banco.
+      const clonedSettings = mergeMateriaIntoSettings(
+        lastVersion.settings,
+        { subject: source.subject ?? null, category: source.category ?? null },
+      );
       await tx.quizVersion.create({
         data: {
           id: newVersionId,
@@ -610,7 +619,7 @@ async function cloneModuloDeep(
           count: lastVersion.count,
           seedPolicy: lastVersion.seedPolicy,
           fixedSeed: lastVersion.fixedSeed,
-          settings: lastVersion.settings,
+          settings: JSON.stringify(clonedSettings),
           createdAt: now,
           createdBy: newOwnerId,
         },
@@ -731,6 +740,13 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
       id: parsed.id,
       titulo: parsed.title,
       descripcion: parsed.description,
+      // WO-BUG-test — el InMemoryPrisma usado por los tests no
+      // aplica los defaults del schema Prisma. Sin setear
+      // `isDeleted: false` explícitamente, los módulos nuevos
+      // quedan con `isDeleted: undefined`, y el banco los filtra
+      // como eliminados. La columna real tiene `@default(false)`,
+      // así que en producción el comportamiento es correcto.
+      isDeleted: false,
       // FIX-GUARDADO — persistir `subject` (materia) y `theoryItems`
       // (teoría como contenido embebido). El front los envía (ver
       // useModuloPersistence.ts:209-225) y el ModuleSchema los acepta
@@ -788,30 +804,40 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
             count: quiz.count ?? null,
             seedPolicy: quiz.seedPolicy ? parseInt(quiz.seedPolicy, 10) : 0,
             fixedSeed: quiz.fixedSeed !== undefined ? String(quiz.fixedSeed) : null,
-            settings: JSON.stringify({
-              type: quiz.type,
-              mode: quiz.mode,
-              visibility: quiz.visibility,
-              materia: parsed.subject,
-              composition: quiz.composition,
-              ocultarPuntos: quiz.ocultarPuntos === true,
-              // F4-04 — campos de modo evaluación. Se persisten en
-              // `settings.maxIntentos`/`politicaNota`/`timerSegundos`/
-              // `fullscreenOnStart`. Cierra el gap de F3-04 (que sólo los
-              // leía pero no los escribía). Default del tipo si no vienen.
-              maxIntentos: quiz.maxIntentos === undefined ? undefined : quiz.maxIntentos,
-              politicaNota: quiz.politicaNota,
-              // WO-3 — política de sorteo de variantes + cantidad tomada (K de N).
-              politicaSorteo: quiz.politicaSorteo,
-              displayCount: quiz.displayCount,
-              // WO-2 / F4-03 — cuestionario por posiciones (crudo).
-              posiciones: quiz.posiciones,
-              timerSegundos: quiz.timerSegundos === undefined ? null : quiz.timerSegundos,
-              fullscreenOnStart: quiz.fullscreenOnStart === true,
-              // WO-9 — modo de presentación + tamaño de página.
-              modoPresentacion: quiz.modoPresentacion,
-              preguntasPorPagina: quiz.preguntasPorPagina
-            }),
+            // WO-BUG — `settings.materia` SIEMPRE se persiste. Se delega al
+            // helper `mergeMateriaIntoSettings` para que las reglas sean
+            // únicas (modulo.subject || modulo.category). Antes sólo
+            // `materia: parsed.subject` (string vacío si el docente no
+            // había puesto materia) → los cuestionarios desaparecían al
+            // filtrar el banco por materia.
+            settings: JSON.stringify(
+              mergeMateriaIntoSettings(
+                {
+                  type: quiz.type,
+                  mode: quiz.mode,
+                  visibility: quiz.visibility,
+                  composition: quiz.composition,
+                  ocultarPuntos: quiz.ocultarPuntos === true,
+                  // F4-04 — campos de modo evaluación. Se persisten en
+                  // `settings.maxIntentos`/`politicaNota`/`timerSegundos`/
+                  // `fullscreenOnStart`. Cierra el gap de F3-04 (que sólo los
+                  // leía pero no los escribía). Default del tipo si no vienen.
+                  maxIntentos: quiz.maxIntentos === undefined ? undefined : quiz.maxIntentos,
+                  politicaNota: quiz.politicaNota,
+                  // WO-3 — política de sorteo de variantes + cantidad tomada (K de N).
+                  politicaSorteo: quiz.politicaSorteo,
+                  displayCount: quiz.displayCount,
+                  // WO-2 / F4-03 — cuestionario por posiciones (crudo).
+                  posiciones: quiz.posiciones,
+                  timerSegundos: quiz.timerSegundos === undefined ? null : quiz.timerSegundos,
+                  fullscreenOnStart: quiz.fullscreenOnStart === true,
+                  // WO-9 — modo de presentación + tamaño de página.
+                  modoPresentacion: quiz.modoPresentacion,
+                  preguntasPorPagina: quiz.preguntasPorPagina,
+                },
+                { subject: parsed.subject, category: parsed.category },
+              ),
+            ),
             createdAt: parsed.createdAt,
             createdBy: parsed.createdBy,
           },
@@ -844,7 +870,17 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
 async function applyModuleUpdate(
   moduleId: string,
   parsed: Record<string, any>,
-  existing: { visibility: string; schoolId: string | null; dependencies: string | null },
+  existing: {
+    visibility: string;
+    schoolId: string | null;
+    dependencies: string | null;
+    // WO-BUG — para que `mergeMateriaIntoSettings` pueda derivar
+    // `settings.materia` en quizzes creados/editados por PUT/PATCH
+    // cuando el payload NO incluye `subject`/`category` (ej. PATCH
+    // parcial). Si el payload los trae, tienen prioridad.
+    subject?: string | null;
+    category?: string | null;
+  },
 ) {
   const now = new Date().toISOString();
 
@@ -904,43 +940,73 @@ async function applyModuleUpdate(
     }
 
     for (const q of parsed.quizzes as any[]) {
-      const settings = {
-        type: q.type ?? "practica",
-        mode: q.mode,
-        visibility: q.visibility ?? "publico",
-        // Composición a nivel quiz (pool/selección/variantes/peso). No DSL.
-        composition: q.composition,
-        // F3-04 + F4-04 — config del modo evaluación, persistida en
-        // `settings.maxIntentos`/`politicaNota`/`timerSegundos`/
-        // `fullscreenOnStart`. Cierra el gap de F3-04 (que sólo los leía
-        // pero no los escribía). F4-04 agrega timer y fullscreen.
-        // Si los campos están ausentes en el payload, el parser server-side
-        // (parseEvaluacionConfig) usa el default del tipo. Acá respetamos
-        // lo que el docente setea, incluido `0` (ilimitado explícito).
-        maxIntentos: q.maxIntentos === undefined ? undefined : q.maxIntentos,
-        politicaNota: q.politicaNota,
-        // WO-3 — política de sorteo de variantes + cantidad tomada (K de N).
-        politicaSorteo: q.politicaSorteo,
-        displayCount: q.displayCount,
-        // WO-2 / F4-03 — cuestionario por posiciones (crudo).
-        posiciones: q.posiciones,
-        // F4-03 — toggle "ocultar puntos al alumno". Se persiste en
-        // `settings.ocultarPuntos`. Default false.
-        ocultarPuntos: q.ocultarPuntos === true,
-        // F4-04 — timer per-cuestionario (segundos). null = sin timer.
-        timerSegundos: q.timerSegundos === undefined ? null : q.timerSegundos,
-        // F4-04 — activar pantalla completa al iniciar el intento.
-        fullscreenOnStart: q.fullscreenOnStart === true,
-        // WO-9 — modo de presentación + tamaño de página.
-        modoPresentacion: q.modoPresentacion,
-        preguntasPorPagina: q.preguntasPorPagina,
-      };
+      // WO-BUG — armar el `settings` base y dejarlo pasar por
+      // `mergeMateriaIntoSettings` con la materia del módulo (del
+      // payload). Antes este path NO tocaba `settings.materia`, así
+      // que los cuestionarios editados/agregados por PUT/PATCH
+      // quedaban huérfanos y desaparecían del banco filtrado.
+      const settings = mergeMateriaIntoSettings(
+        {
+          type: q.type ?? "practica",
+          mode: q.mode,
+          visibility: q.visibility ?? "publico",
+          // Composición a nivel quiz (pool/selección/variantes/peso). No DSL.
+          composition: q.composition,
+          // F3-04 + F4-04 — config del modo evaluación, persistida en
+          // `settings.maxIntentos`/`politicaNota`/`timerSegundos`/
+          // `fullscreenOnStart`. Cierra el gap de F3-04 (que sólo los leía
+          // pero no los escribía). F4-04 agrega timer y fullscreen.
+          // Si los campos están ausentes en el payload, el parser server-side
+          // (parseEvaluacionConfig) usa el default del tipo. Acá respetamos
+          // lo que el docente setea, incluido `0` (ilimitado explícito).
+          maxIntentos: q.maxIntentos === undefined ? undefined : q.maxIntentos,
+          politicaNota: q.politicaNota,
+          // WO-3 — política de sorteo de variantes + cantidad tomada (K de N).
+          politicaSorteo: q.politicaSorteo,
+          displayCount: q.displayCount,
+          // WO-2 / F4-03 — cuestionario por posiciones (crudo).
+          posiciones: q.posiciones,
+          // F4-03 — toggle "ocultar puntos al alumno". Se persiste en
+          // `settings.ocultarPuntos`. Default false.
+          ocultarPuntos: q.ocultarPuntos === true,
+          // F4-04 — timer per-cuestionario (segundos). null = sin timer.
+          timerSegundos: q.timerSegundos === undefined ? null : q.timerSegundos,
+          // F4-04 — activar pantalla completa al iniciar el intento.
+          fullscreenOnStart: q.fullscreenOnStart === true,
+          // WO-9 — modo de presentación + tamaño de página.
+          modoPresentacion: q.modoPresentacion,
+          preguntasPorPagina: q.preguntasPorPagina,
+        },
+        // El front envía `subject` y `category` a nivel módulo en el
+        // payload. Si vienen, los usamos. Si NO vienen (ej. PATCH que
+        // sólo manda `quizzes`), caemos al `subject`/`category` del
+        // módulo existente.
+        {
+          subject: parsed.subject ?? existing?.subject ?? null,
+          category: parsed.category ?? existing?.category ?? null,
+        },
+      );
       const seedPolicyInt = q.seedPolicy ? parseInt(String(q.seedPolicy), 10) : 0;
 
       const matched = q.id ? existingQuizzes.find((eq) => eq.id === q.id) : undefined;
 
       if (matched) {
-        const latestVersion = matched.versions[0];
+        // WO-BUG-fix — el InMemoryPrisma usado en tests no soporta
+        // `include: { versions }` anidado, así que `matched.versions`
+        // viene `undefined`. Hacemos un `findMany` fallback (mismo
+        // patrón que `cloneModuloDeep`) y ordenamos en memoria para
+        // tomar la última versión. En el prisma real con include,
+        // esto es redundante pero inofensivo (el findMany devuelve
+        // [] cuando las versiones ya vienen en `matched.versions`).
+        let latestVersion =
+          Array.isArray((matched as { versions?: unknown[] }).versions) && (matched as { versions?: { versionNumber?: number }[] }).versions!.length > 0
+            ? (matched as { versions: { versionNumber?: number }[] }).versions[0]
+            : undefined;
+        if (!latestVersion) {
+          const versions = await tx.quizVersion.findMany({ where: { quizId: matched.id } });
+          versions.sort((a: { versionNumber?: number }, b: { versionNumber?: number }) => (b.versionNumber ?? 0) - (a.versionNumber ?? 0));
+          latestVersion = versions[0];
+        }
         const newVersionNum = (latestVersion?.versionNumber ?? 0) + 1;
         const newVersionId = `qv-${matched.id}-${newVersionNum}-${Date.now()}`;
 

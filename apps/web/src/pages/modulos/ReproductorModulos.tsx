@@ -3,15 +3,13 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { apiGet } from "../../lib/api";
 import type { Module } from "../../domain/module/module.types";
+import { resolveMateria as resolveSubject, resolveCategoria as resolveCategory } from "../../domain/module/materia";
 import { getSubjectColor } from "../../domain/module/subjectColors";
 import { Card, Badge, Button, Input, Spinner, Alert } from "../../ui";
 
 type ModulesResponse = {
   items: Module[];
 };
-
-const resolveSubject = (m: Module) => m.subject || m.category || "Sin materia";
-const resolveCategory = (m: Module) => m.category || m.subject || "Sin categoría";
 
 const truncate = (text: string, max: number) =>
   text.length <= max ? text : text.slice(0, max).trimEnd() + "…";

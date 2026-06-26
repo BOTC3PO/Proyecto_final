@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { apiGet } from "../../lib/api";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
+import { MATERIA_FALLBACK } from "../../domain/module/materia";
 
 type BancoItem = {
   quizId: string;
@@ -26,6 +27,13 @@ type BancoCuestionariosMultiProps = {
   origen: "todos" | "admin" | "escuela";
   onConfirm: (selections: ConfirmPayload[]) => void;
 };
+
+// WO-BUG — token canónico para el filtro "Sin materia". Coincide con
+// el fallback del helper `resolveMateria` (materia.ts). El back
+// devuelve `materia` como string vacío para cuestionarios legacy sin
+// la columna poblada; el front los agrupa acá para que SIGAN siendo
+// seleccionables en vez de desaparecer en silencio.
+const SIN_MATERIA = MATERIA_FALLBACK;
 
 function mulberry32(seed: number) {
   return () => {
@@ -82,11 +90,27 @@ export default function BancoCuestionariosMulti({
       .catch(() => setStatus("error"));
   }, [origen, search]);
 
-  const allMaterias = Array.from(new Set(items.map((i) => i.materia).filter(Boolean))) as string[];
+  // WO-BUG — derivar la materia efectiva (string vacío → "Sin materia")
+  // para que el filtro y el dropdown agrupen los cuestionarios legacy.
+  // Antes `allMaterias` filtraba con `filter(Boolean)`, así que los
+  // cuestionarios sin materia desaparecían del dropdown y de la lista
+  // en cuanto se elegía una materia — exactamente el bug reportado.
+  const materiaEfectiva = (item: BancoItem) => item.materia || SIN_MATERIA;
+  const tieneMateria = (m: string) => m !== SIN_MATERIA;
+  const allMateriasRaw = Array.from(new Set(items.map(materiaEfectiva)));
+  const allMaterias = allMateriasRaw.filter(tieneMateria).sort((a, b) => a.localeCompare(b, "es"));
+  const hasSinMateria = allMateriasRaw.some((m) => !tieneMateria(m));
   const allTipos = Array.from(new Set(items.map((i) => i.tipo)));
 
   const filtered = items.filter((item) => {
-    if (materiaFilter && item.materia !== materiaFilter) return false;
+    if (materiaFilter) {
+      const itemMateria = materiaEfectiva(item);
+      if (materiaFilter === SIN_MATERIA) {
+        if (tieneMateria(itemMateria)) return false;
+      } else if (itemMateria !== materiaFilter) {
+        return false;
+      }
+    }
     if (tipoFilter && item.tipo !== tipoFilter) return false;
     return true;
   });
@@ -126,7 +150,7 @@ export default function BancoCuestionariosMulti({
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        {allMaterias.length > 0 && (
+        {(allMaterias.length > 0 || hasSinMateria) && (
           <select
             value={materiaFilter}
             onChange={(e) => setMateriaFilter(e.target.value)}
@@ -134,6 +158,12 @@ export default function BancoCuestionariosMulti({
           >
             <option value="">Materia</option>
             {allMaterias.map((m) => <option key={m} value={m}>{m}</option>)}
+            {/* WO-BUG — los cuestionarios sin materia ahora son
+                visibles y seleccionables. Antes desaparecían en
+                silencio y no se podían elegir. */}
+            {hasSinMateria && (
+              <option value={SIN_MATERIA}>{SIN_MATERIA}</option>
+            )}
           </select>
         )}
         {allTipos.length > 1 && (
@@ -179,9 +209,14 @@ export default function BancoCuestionariosMulti({
               <div className="min-w-0 flex-1">
                 <p className="text-xs font-semibold text-[var(--c-text)] truncate">{item.title}</p>
                 <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-                  {item.materia && (
-                    <span className="text-[9px] bg-gray-100 text-gray-600 rounded px-1.5 py-0.5">{item.materia}</span>
-                  )}
+                  {/* WO-BUG — siempre se muestra el badge de materia.
+                      Los cuestionarios legacy sin materia (o con
+                      string vacío) caen acá como "Sin materia" en
+                      vez de quedar sin etiqueta, lo que los hacía
+                      indistinguibles. */}
+                  <span className="text-[9px] bg-gray-100 text-gray-600 rounded px-1.5 py-0.5">
+                    {materiaEfectiva(item)}
+                  </span>
                   <span className={`text-[9px] rounded px-1.5 py-0.5 ${ORIGEN_BADGE[item.origen] ?? "bg-gray-100 text-gray-600"}`}>
                     {item.origen === "admin" ? "Global" : "Escuela"}
                   </span>

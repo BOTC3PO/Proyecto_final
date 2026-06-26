@@ -5,6 +5,7 @@ import { useHasAnyRole } from "../../auth/use-roles";
 import { apiGet, apiPost } from "../../lib/api";
 import Toast from "../../components/Toast";
 import type { Module, ModuleVisibility } from "../../domain/module/module.types";
+import { resolveMateria, resolveCategoria } from "../../domain/module/materia";
 import { Card, Badge, Button, Select, Input, Spinner, Alert } from "../../ui";
 import type { BadgeVariant } from "../../ui";
 
@@ -17,9 +18,6 @@ const VISIBILITY_LABELS: Record<ModuleVisibility, string> = {
 type ModulesResponse = {
   items: Module[];
 };
-
-const resolveMateria = (module: Module) => module.subject || module.category || "Sin materia";
-const resolveCategoria = (module: Module) => module.category || module.subject || "Sin categoría";
 const resolveStatus = (module: Module) => {
   const moduleWithStatus = module as Module & { status?: string };
   if (moduleWithStatus.status) return moduleWithStatus.status;

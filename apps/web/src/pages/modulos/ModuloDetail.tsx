@@ -8,6 +8,7 @@ import type {
   ModuleTheoryBlock,
   ModuleVisibility,
 } from "../../domain/module/module.types";
+import { resolveMateria } from "../../domain/module/materia";
 import TheoryItemCard from "../../components/modulos/TheoryItemCard";
 import { lookupPalabra, prefixPalabra, type EntradaDiccionario } from "../../services/diccionario";
 import LangSelector from "../../components/vblang/LangSelector";
@@ -585,7 +586,7 @@ export default function ModuloDetail() {
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Materia</p>
-              <p className="mt-0.5 text-sm font-medium text-slate-800">{module.subject || module.category}</p>
+              <p className="mt-0.5 text-sm font-medium text-slate-800">{resolveMateria(module)}</p>
             </div>
           </div>
 

@@ -6,6 +6,7 @@ import { crearCuentaAlumnoStaff, vincularCuentaAlumnoStaff } from "../services/c
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
+import { resolveMateria } from "../domain/module/materia";
 import EsperandoPago from "../components/EsperandoPago";
 import {
   fetchEstadoSuscripcion, fetchHistorialPagos,
@@ -152,7 +153,7 @@ export default function Perfil() {
         // Agrupar por materia
         const porMateria = new Map<string, { total: number; completados: number }>();
         for (const m of modulosRes.items) {
-          const materia = m.subject ?? m.category ?? "General";
+          const materia = resolveMateria(m);
           const entry = porMateria.get(materia) ?? { total: 0, completados: 0 };
           entry.total += 1;
           if (completadosIds.has(m.id)) entry.completados += 1;

@@ -4,6 +4,7 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import { resolveMateria } from "../domain/module/materia";
 
 type ProgressItem = {
   moduloId: string;
@@ -79,7 +80,7 @@ export default function ProfesorEstadisticas() {
           return {
             id: m.id,
             titulo: m.title,
-            materia: m.subject ?? m.category ?? "General",
+            materia: resolveMateria(m),
             completados: moduloProgreso.filter(
               (p) => p.status === "completado"
             ).length,

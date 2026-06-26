@@ -13,6 +13,7 @@
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { apiDelete, apiGet, apiPost } from "../../lib/api";
 import type { Module } from "../../domain/module/module.types";
+import { resolveMateria } from "../../domain/module/materia";
 import { Modal, Input, Button, Spinner, Alert } from "../../ui";
 
 export type AsignarModulosModalProps = {
@@ -283,7 +284,7 @@ export default function AsignarModulosModal({
                         fontSize: "var(--text-xs)",
                         color: "var(--c-muted)",
                       }}>
-                        {m.subject || m.category || "Sin materia"}
+                        {resolveMateria(m)}
                       </span>
                     </span>
                   </label>
