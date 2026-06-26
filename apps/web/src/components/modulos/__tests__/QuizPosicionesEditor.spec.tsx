@@ -176,6 +176,100 @@ describe("QuizPosicionesEditor", () => {
     );
   });
 
+  /**
+   * WO-V2b — el shell "Tiza" recibe del host (este editor):
+   *  - el rail con las variantes del cuestionario,
+   *  - el activeRailId apuntando a la variante en edición,
+   *  - los quizzes del preview del alumno.
+   * Sin esto, el shell renderiza degradado (sin rail ni property grid ni
+   * preview). El test verifica que el rail se pinta con TODAS las
+   * variantes y que la activa está marcada con `aria-current="true"`.
+   *
+   * NOTA: al expandir la posición 1, se monta un `PlantillaEditorShell`
+   * por CADA variante (canvas muestra todas). Cada shell recibe su
+   * `activeRailId` apuntando a su propia variante, pero el mismo `rail`
+   * (lista de todas). Verificamos el rail de la variante `a`.
+   */
+  it("WO-V2b — cablea rail + activeRailId + previewQuizzes al PlantillaEditorShell", async () => {
+    const user = userEvent.setup();
+    const io: PlantillaIO = {
+      load: vi.fn(async () => ({
+        codigoDsl: 'enunciado: "P"\nrespuesta: 4\n',
+        version: 1,
+      })),
+      save: vi.fn(async () => {}),
+    };
+    const cuestionario = parseCuestionario({
+      temas: [{ id: "general", nombre: "General" }],
+      posiciones: [
+        {
+          tipo: "fijo",
+          temaPrincipal: "general",
+          puntaje: 1,
+          variantes: [
+            {
+              letra: "a",
+              origen: { origen: "plantilla", plantillaId: "pl-1", plantillaVersion: 1 },
+            },
+            {
+              letra: "b",
+              origen: { origen: "plantilla", plantillaId: "pl-2", plantillaVersion: 1 },
+            },
+          ],
+        },
+      ],
+    });
+
+    render(
+      <Harness
+        initial={baseQuiz({
+          title: "Cuestionario de prueba",
+          posiciones: cuestionario,
+        })}
+        io={io}
+      />,
+    );
+
+    // Expandir la posición.
+    await user.click(screen.getByRole("button", { name: /^Posición 1\./ }));
+
+    // Esperar a que los dos shells monten (uno por variante).
+    await waitFor(() =>
+      expect(screen.getAllByTestId("plantilla-editor-shell").length).toBe(2),
+    );
+
+    // Cada shell tiene su propio rail. Verificamos que listan AMBAS
+    // variantes (no solo la activa del shell local).
+    const rails = screen.getAllByTestId("plantilla-editor-rail");
+    expect(rails).toHaveLength(2);
+    for (const rail of rails) {
+      expect(rail).toHaveTextContent("pl-1");
+      expect(rail).toHaveTextContent("pl-2");
+    }
+
+    // Cada rail tiene su propia activa. La primera variante (`a`) está en
+    // el primer shell; la segunda (`b`) en el segundo. Verificamos que
+    // cada uno tiene exactamente un item activo y los ids son distintos.
+    const activeIds = rails
+      .map((r) => r.querySelector('[aria-current="true"]')?.textContent ?? "")
+      .map((s) => s.trim());
+    expect(activeIds[0]).toContain("pl-1");
+    expect(activeIds[1]).toContain("pl-2");
+
+    // El botón "Vista del alumno" del top bar del shell existe. Hay 2
+    // shells → 2 botones. Clickamos uno y verificamos que abre el overlay
+    // con el título del quiz en edición (ambos shells muestran el mismo
+    // preview con el mismo título → esperamos al menos 1 match).
+    const previewBtns = screen.getAllByRole("button", { name: /Vista del alumno/i });
+    expect(previewBtns.length).toBeGreaterThanOrEqual(1);
+    await user.click(previewBtns[0]);
+    await waitFor(() =>
+      expect(
+        screen.getAllByText("Cuestionario de prueba").length,
+      ).toBeGreaterThanOrEqual(1),
+    );
+  });
+
   it("mezcla orígenes: cambia una variante de banco a generador", async () => {
     const user = userEvent.setup();
     render(

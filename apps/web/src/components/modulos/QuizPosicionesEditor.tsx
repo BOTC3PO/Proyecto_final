@@ -39,6 +39,7 @@ import VarianteEditor, {
   type BancoQuestion,
   type PlantillaIO,
 } from "./VarianteEditor";
+import type { RailItem } from "../../editor/PlantillaEditorShell";
 
 interface Props {
   quiz: ModuleQuiz;
@@ -69,6 +70,64 @@ export default function QuizPosicionesEditor({
   const bancoQuestions: BancoQuestion[] = useMemo(
     () => (quiz.questions ?? []).map((q) => ({ id: q.id, prompt: q.prompt })),
     [quiz.questions],
+  );
+
+  /**
+   * WO-V2b — rail del shell "Tiza" (panel izquierdo del editor 3 columnas).
+   * Lista las preguntas/variantes del cuestionario en edición. Cada item tiene
+   * un id estable (`posN-letra` o `q-<id>`) y un `kind` que el shell muestra
+   * como subtítulo (origen de la variante). Si el cuestionario no tiene
+   * `posiciones` (caso viejo), caemos a `quiz.questions`.
+   */
+  const rail: RailItem[] = useMemo(() => {
+    if (cuestionario.posiciones.length > 0) {
+      const items: RailItem[] = [];
+      for (const pos of cuestionario.posiciones) {
+        for (const v of pos.variantes) {
+          const o = v.origen;
+          let title = "(sin título)";
+          let kind = "";
+          switch (o.origen) {
+            case "banco":
+              title = o.questionId || "(sin id)";
+              kind = "Banco";
+              break;
+            case "plantilla":
+              title = o.plantillaId
+                ? `${o.plantillaId}${o.plantillaVersion ? ` v${o.plantillaVersion}` : ""}`
+                : "(sin id)";
+              kind = "Plantilla VBLang";
+              break;
+            case "generador":
+              title = o.generatorId || "(sin id)";
+              kind = "Generador";
+              break;
+          }
+          items.push({
+            id: `${pos.numero}-${v.letra}`,
+            title,
+            kind,
+          });
+        }
+      }
+      return items;
+    }
+    return (quiz.questions ?? []).map((q) => ({
+      id: `q-${q.id}`,
+      title: q.prompt ? q.prompt.slice(0, 60) : q.id,
+      kind: "Manual",
+    }));
+  }, [cuestionario.posiciones, quiz.questions]);
+
+  /**
+   * WO-V2b — preview del alumno (overlay del shell). Mostramos el cuestionario
+   * en edición, no el módulo entero: la "vista del alumno" debe coincidir con
+   * lo que el docente está editando. `previewTitle` se usa como encabezado.
+   */
+  const previewQuizzes: ModuleQuiz[] = useMemo(() => [quiz], [quiz]);
+  const previewTitle = useMemo(
+    () => (quiz.title.trim() ? quiz.title : "Vista previa del editor"),
+    [quiz.title],
   );
 
   const commit = (next: CuestionarioPosiciones) => onChange({ posiciones: next });
@@ -187,6 +246,10 @@ export default function QuizPosicionesEditor({
                 ),
               )
             }
+            rail={rail}
+            activeRailId={`${posicion.numero}-${variante.letra}`}
+            previewQuizzes={previewQuizzes}
+            previewTitle={previewTitle}
           />
         )}
       />

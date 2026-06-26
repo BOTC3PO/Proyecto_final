@@ -39,10 +39,13 @@ import {
   getBancoQuestions,
 } from "../../generadoresV2/basic/banco";
 import PlantillaEditorSchema from "../vblang/PlantillaEditorSchema";
-import PlantillaEditorShell from "../../editor/PlantillaEditorShell";
+import PlantillaEditorShell, {
+  type RailItem,
+} from "../../editor/PlantillaEditorShell";
 import { useEditorClasico } from "../../editor/useEditorClasico";
 import PlantillaSelectorModal from "../vblang/PlantillaSelectorModal";
 import GeneradorPicker from "../vblang/GeneradorPicker";
+import type { ModuleQuiz } from "../../domain/module/module.types";
 
 /**
  * WO-D5 — el editor reconstruido (`EditorPlantilla`) es el default tras la
@@ -119,6 +122,17 @@ interface Props {
   plantillaIO?: PlantillaIO;
   /** Inyectable para tests; por defecto usa la API de banco escuela. */
   bancoEscuelaIO?: BancoEscuelaIO;
+  /**
+   * WO-V2b — items del rail (panel izquierdo) del `PlantillaEditorShell`.
+   * Si se omite, el shell se renderiza sin rail (degradado al centro).
+   */
+  rail?: RailItem[];
+  /** Id del item del rail que se está editando (resaltado). */
+  activeRailId?: string;
+  /** Cuestionarios para la vista del alumno (overlay del shell). */
+  previewQuizzes?: ModuleQuiz[];
+  /** Título del preview. */
+  previewTitle?: string;
 }
 
 /** Construye un origen "vacío" del tipo pedido, preservando ids ya cargados. */
@@ -156,6 +170,10 @@ export default function VarianteEditor({
   returnTo,
   plantillaIO = DEFAULT_PLANTILLA_IO,
   bancoEscuelaIO = DEFAULT_BANCO_ESCUELA_IO,
+  rail,
+  activeRailId,
+  previewQuizzes,
+  previewTitle,
 }: Props) {
   const origen = variante.origen;
   const selectId = `variante-${posicion.numero}-${variante.letra}-origen`;
@@ -201,6 +219,10 @@ export default function VarianteEditor({
           materiaHint={materiaHint}
           returnTo={returnTo}
           io={plantillaIO}
+          rail={rail}
+          activeRailId={activeRailId}
+          previewQuizzes={previewQuizzes}
+          previewTitle={previewTitle}
         />
       )}
     </div>
@@ -541,12 +563,20 @@ function PlantillaOrigenEditor({
   materiaHint,
   returnTo,
   io,
+  rail,
+  activeRailId,
+  previewQuizzes,
+  previewTitle,
 }: {
   origen: Extract<VarianteOrigen, { origen: "plantilla" }>;
   onChange: (o: VarianteOrigen) => void;
   materiaHint?: string;
   returnTo?: string;
   io: PlantillaIO;
+  rail?: RailItem[];
+  activeRailId?: string;
+  previewQuizzes?: ModuleQuiz[];
+  previewTitle?: string;
 }) {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -603,6 +633,10 @@ function PlantillaOrigenEditor({
         key={origen.plantillaId}
         plantillaId={origen.plantillaId}
         io={io}
+        rail={rail}
+        activeRailId={activeRailId}
+        previewQuizzes={previewQuizzes}
+        previewTitle={previewTitle}
       />
       {modalOpen && (
         <PlantillaSelectorModal
@@ -625,9 +659,17 @@ function PlantillaOrigenEditor({
 function PlantillaInlineEditor({
   plantillaId,
   io,
+  rail,
+  activeRailId,
+  previewQuizzes,
+  previewTitle,
 }: {
   plantillaId: string;
   io: PlantillaIO;
+  rail?: RailItem[];
+  activeRailId?: string;
+  previewQuizzes?: ModuleQuiz[];
+  previewTitle?: string;
 }) {
   const editorClasico = useEditorClasico();
   const [codigo, setCodigo] = useState<string | null>(null);
@@ -789,6 +831,10 @@ function PlantillaInlineEditor({
       }}
       codeParseError={parseError}
       lintReport={lintReport}
+      rail={rail}
+      activeRailId={activeRailId}
+      previewQuizzes={previewQuizzes}
+      previewTitle={previewTitle}
     />
   );
 }
