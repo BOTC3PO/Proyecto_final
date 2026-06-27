@@ -49,6 +49,7 @@ import {
 import { useEditorClasico } from "./useEditorClasico";
 import PlantillaEditorSchema from "../components/vblang/PlantillaEditorSchema";
 import VistaAlumnoOverlay from "../components/modulos/VistaAlumnoOverlay";
+import Menu from "../ui/Menu";
 import type { ModuleQuiz } from "../domain/module/module.types";
 
 /* ─── tipos públicos ────────────────────────────────────────────────── */
@@ -124,6 +125,35 @@ export interface PlantillaEditorShellProps {
   className?: string;
   /** Render del centro: default = EditorPlantilla (o clásico). */
   renderCenter?: (plantilla: Plantilla, onChange: (p: Plantilla) => void) => ReactNode;
+
+  /* ── WO-V2c: slots para fusionar el editor standalone (V1) en el shell ──
+   * Todos opcionales y aditivos: las consumidoras previas (VarianteEditor,
+   * TizaDemoPage) no pasan ninguno y conservan el comportamiento original. */
+
+  /** Botón "Volver" al inicio de la barra (antes del logo). */
+  onBack?: () => void;
+  /** Etiqueta del botón Volver (default "Volver"). */
+  backLabel?: string;
+  /** Estado contextual en la barra (ej. save-state + undo/redo), antes de Guardar. */
+  topBarStatus?: ReactNode;
+  /** Contenido del menú de overflow "⋯ Más" (acciones secundarias). Recibe
+   *  `close` para cerrar el panel tras seleccionar. */
+  overflowMenu?: (api: { close: () => void }) => ReactNode;
+  /** Limita los estados visibles del toggle de modo. Default todos. */
+  codeModes?: ReadonlyArray<"split" | "form" | "code">;
+  /** Reemplaza el contenido del rail izquierdo (ej. metadatos en standalone). */
+  renderRail?: ReactNode;
+  /** Reemplaza TODO el centro (form card + code drawer) por contenido propio.
+   *  La consumidora se hace cargo del scroll y del layout interno. */
+  renderCenterFull?: ReactNode;
+  /** Contenido extra apilado al final del property grid (ej. validación). */
+  auxExtra?: ReactNode;
+  /** WO-V2d — reemplaza TODO el aside derecho (property grid) por contenido
+   *  propio. La consumidora se hace cargo del header, scroll y layout interno. */
+  renderAux?: ReactNode;
+  /** Panel de preview colapsable lateral (estilo prototipo). Si se provee,
+   *  el botón "Vista del alumno" lo conmuta en vez de abrir el modal. */
+  renderPreviewPanel?: ReactNode;
 }
 
 /* ─── constantes visuales ────────────────────────────────────────────── */
@@ -169,10 +199,12 @@ const rootStyle: CSSProperties = {
 const topBarStyle: CSSProperties = {
   display: "flex",
   alignItems: "center",
-  gap: 14,
-  height: 60,
+  flexWrap: "wrap",
+  columnGap: 14,
+  rowGap: 6,
+  minHeight: 60,
   flex: "0 0 auto",
-  padding: "0 18px",
+  padding: "8px 18px",
   borderBottom: "1px solid var(--c-border)",
   background: "var(--c-surface)",
 };
@@ -245,6 +277,18 @@ const auxStyle: CSSProperties = {
   overflow: "hidden",
 };
 
+/* Panel de preview colapsable lateral (prototipo: 344px). */
+const previewPanelStyle: CSSProperties = {
+  width: 344,
+  flex: "0 0 344px",
+  borderLeft: "1px solid var(--c-border)",
+  background: "var(--c-surface-2)",
+  display: "flex",
+  flexDirection: "column",
+  minHeight: 0,
+  overflow: "hidden",
+};
+
 /* ─── helpers de campos para el property grid ───────────────────────── */
 
 /** Devuelve el field por `key` si está en el schema del tipo actual. */
@@ -305,6 +349,7 @@ function Breadcrumb({ items }: { items: string[] }) {
   if (items.length === 0) return null;
   return (
     <div
+      className="plantilla-shell__topbar-item"
       style={{
         display: "flex",
         alignItems: "center",
@@ -313,6 +358,7 @@ function Breadcrumb({ items }: { items: string[] }) {
         color: "var(--c-muted)",
         fontWeight: 500,
         minWidth: 0,
+        maxWidth: 320,
         overflow: "hidden",
         whiteSpace: "nowrap",
         textOverflow: "ellipsis",
@@ -863,6 +909,16 @@ export default function PlantillaEditorShell({
   onCodeModeChange,
   className,
   renderCenter,
+  onBack,
+  backLabel = "Volver",
+  topBarStatus,
+  overflowMenu,
+  codeModes,
+  renderRail,
+  renderCenterFull,
+  auxExtra,
+  renderAux,
+  renderPreviewPanel,
 }: PlantillaEditorShellProps) {
   const editorClasico = useEditorClasico();
   const [internalPreview, setInternalPreview] = useState(false);
@@ -938,8 +994,10 @@ export default function PlantillaEditorShell({
     );
 
   /* ── preview portal (modal reusando VistaAlumnoOverlay) ─────────── */
+  // Si la consumidora provee un panel lateral (renderPreviewPanel), se usa
+  // ese en su lugar (estilo prototipo) y no se monta el modal.
   const previewPortal =
-    previewOpen && typeof document !== "undefined"
+    !renderPreviewPanel && previewOpen && typeof document !== "undefined"
       ? createPortal(
           <VistaAlumnoOverlay
             open
@@ -961,9 +1019,52 @@ export default function PlantillaEditorShell({
       data-testid="plantilla-editor-shell"
     >
       {/* ── TOP BAR ────────────────────────────────────────────── */}
-      <div style={topBarStyle} role="toolbar" aria-label="Barra del editor">
+      <div
+        className="plantilla-shell__topbar"
+        style={topBarStyle}
+        role="toolbar"
+        aria-label="Barra del editor"
+      >
+        {/* Volver (opcional, primero en la barra) */}
+        {onBack ? (
+          <>
+            <button
+              type="button"
+              onClick={onBack}
+              data-testid="plantilla-shell-volver"
+              className="plantilla-shell__topbar-item"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                height: 32,
+                padding: "0 10px",
+                borderRadius: "var(--r-md)",
+                border: "1px solid var(--c-border)",
+                background: "var(--c-surface-2)",
+                color: "var(--c-text)",
+                fontSize: 12.5,
+                fontWeight: 600,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+              }}
+            >
+              <span aria-hidden="true">‹</span>
+              {backLabel}
+            </button>
+            <span
+              aria-hidden="true"
+              className="plantilla-shell__topbar-sep"
+              style={{ width: 1, height: 22, background: "var(--c-border)" }}
+            />
+          </>
+        ) : null}
+
         {/* Logo + nombre */}
-        <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
+        <div
+          className="plantilla-shell__topbar-item"
+          style={{ display: "flex", alignItems: "center", gap: 9 }}
+        >
           <span
             aria-hidden="true"
             style={{
@@ -981,23 +1082,27 @@ export default function PlantillaEditorShell({
           >
             ✎
           </span>
-          <span style={{ fontSize: 14.5, fontWeight: 700 }}>Tiza</span>
+          <span style={{ fontSize: 14.5, fontWeight: 700, whiteSpace: "nowrap" }}>
+            Tiza
+          </span>
         </div>
 
         <span
           aria-hidden="true"
+          className="plantilla-shell__topbar-sep"
           style={{ width: 1, height: 22, background: "var(--c-border)" }}
         />
 
         <Breadcrumb items={breadcrumb} />
 
-        <div style={{ flex: 1 }} />
+        <div style={{ flex: 1, minWidth: 0 }} />
 
         {/* Accent swatches */}
         {onAccentChange ? (
           <div
             role="group"
             aria-labelledby={`${idAccent}-label`}
+            className="plantilla-shell__topbar-item"
             style={{ display: "flex", alignItems: "center", gap: 6, paddingRight: 4 }}
           >
             <span id={`${idAccent}-label`} className="sr-only">
@@ -1018,6 +1123,7 @@ export default function PlantillaEditorShell({
         {onAccentChange ? (
           <span
             aria-hidden="true"
+            className="plantilla-shell__topbar-sep"
             style={{ width: 1, height: 22, background: "var(--c-border)" }}
           />
         ) : null}
@@ -1027,6 +1133,7 @@ export default function PlantillaEditorShell({
           <button
             type="button"
             onClick={handleToggleTheme}
+            className="plantilla-shell__topbar-item"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -1040,6 +1147,7 @@ export default function PlantillaEditorShell({
               fontSize: 13,
               fontWeight: 600,
               cursor: "pointer",
+              whiteSpace: "nowrap",
             }}
           >
             <span aria-hidden="true">{theme === "dark" ? "☾" : "☀"}</span>
@@ -1047,35 +1155,12 @@ export default function PlantillaEditorShell({
           </button>
         ) : null}
 
-        {/* Preview toggle */}
-        <button
-          type="button"
-          onClick={handleTogglePreview}
-          aria-pressed={previewOpen}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 7,
-            height: 34,
-            padding: "0 12px",
-            borderRadius: "var(--r-md)",
-            border: "1px solid var(--c-border)",
-            background: previewOpen ? "var(--c-accent-soft)" : "var(--c-surface-2)",
-            color: previewOpen ? "var(--c-accent)" : "var(--c-text)",
-            fontSize: 13,
-            fontWeight: 600,
-            cursor: "pointer",
-          }}
-        >
-          <span aria-hidden="true">▷</span>
-          <span>Vista del alumno</span>
-        </button>
-
-        {/* WO-V3 — toggle form/code (sólo si el host provee codeText) */}
-        {codeText !== undefined ? (
+        {/* WO-V3 — toggle form/code (si el host provee codeText o controla el modo) */}
+        {codeText !== undefined || codeModeControlled !== undefined ? (
           <div
             role="group"
             aria-label="Modo de edición"
+            className="plantilla-shell__topbar-item"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -1085,9 +1170,10 @@ export default function PlantillaEditorShell({
               borderRadius: "var(--r-md)",
               background: "var(--c-surface-2)",
               gap: 2,
+              whiteSpace: "nowrap",
             }}
           >
-            {(["form", "split", "code"] as const).map((m) => {
+            {(codeModes ?? (["form", "split", "code"] as const)).map((m) => {
               const active = codeMode === m;
               const label =
                 m === "form" ? "Form" : m === "code" ? "Código" : "Ambos";
@@ -1108,6 +1194,7 @@ export default function PlantillaEditorShell({
                     fontSize: 12,
                     fontWeight: 600,
                     cursor: "pointer",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   {label}
@@ -1117,11 +1204,88 @@ export default function PlantillaEditorShell({
           </div>
         ) : null}
 
+        {/* Preview toggle */}
+        <button
+          type="button"
+          onClick={handleTogglePreview}
+          aria-pressed={previewOpen}
+          className="plantilla-shell__topbar-item"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 7,
+            height: 34,
+            padding: "0 12px",
+            borderRadius: "var(--r-md)",
+            border: "1px solid var(--c-border)",
+            background: previewOpen ? "var(--c-accent-soft)" : "var(--c-surface-2)",
+            color: previewOpen ? "var(--c-accent)" : "var(--c-text)",
+            fontSize: 13,
+            fontWeight: 600,
+            cursor: "pointer",
+            whiteSpace: "nowrap",
+          }}
+        >
+          <span aria-hidden="true">▷</span>
+          <span>Vista del alumno</span>
+        </button>
+
+        {/* Menú overflow "⋯ Más" — acciones secundarias */}
+        {overflowMenu ? (
+          <Menu
+            align="end"
+            panelWidth="240px"
+            trigger={(props) => (
+              <button
+                type="button"
+                {...props}
+                aria-label="Más acciones"
+                title="Más acciones"
+                data-testid="plantilla-shell-overflow"
+                className="plantilla-shell__topbar-item"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 34,
+                  minWidth: 34,
+                  padding: "0 8px",
+                  borderRadius: "var(--r-md)",
+                  border: "1px solid var(--c-border)",
+                  background: props["aria-expanded"]
+                    ? "var(--c-accent-soft)"
+                    : "var(--c-surface-2)",
+                  color: props["aria-expanded"]
+                    ? "var(--c-accent)"
+                    : "var(--c-text)",
+                  fontSize: 16,
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  lineHeight: 1,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                <span aria-hidden="true">⋯</span>
+              </button>
+            )}
+          >
+            {(api) => (
+              <div style={{ display: "flex", flexDirection: "column", padding: 4 }}>
+                {overflowMenu(api)}
+              </div>
+            )}
+          </Menu>
+        ) : null}
+
+        {/* Estado contextual (save-state, undo/redo) — cerca de Guardar */}
+        {topBarStatus}
+
         {/* Save */}
         <button
           type="button"
           onClick={onSave}
           disabled={saving}
+          className="plantilla-shell__topbar-item"
           style={{
             height: 34,
             padding: "0 16px",
@@ -1134,6 +1298,7 @@ export default function PlantillaEditorShell({
             cursor: saving ? "wait" : "pointer",
             boxShadow: "var(--shadow)",
             opacity: saving ? 0.7 : 1,
+            whiteSpace: "nowrap",
           }}
         >
           {saving ? "Guardando…" : "Guardar"}
@@ -1144,10 +1309,12 @@ export default function PlantillaEditorShell({
       <div style={bodyStyle}>
         {/* RAIL */}
         <nav
-          aria-label="Cuestionario"
+          aria-label={renderRail ? "Metadatos" : "Cuestionario"}
           style={railStyle}
           data-testid="plantilla-editor-rail"
         >
+          {renderRail ?? (
+          <>
           <div
             style={{
               fontSize: 11,
@@ -1202,10 +1369,15 @@ export default function PlantillaEditorShell({
               <span aria-hidden="true">＋</span> Nueva pregunta
             </button>
           ) : null}
+          </>
+          )}
         </nav>
 
-        {/* CENTER — form (top) + code drawer (bottom), según codeMode */}
+        {/* CENTER — form (top) + code drawer (bottom), según codeMode.
+            Si la consumidora provee renderCenterFull, ocupa todo el centro. */}
         <main style={centerWrapStyle} aria-label="Editor de la pregunta">
+          {renderCenterFull ?? (
+          <>
           {/* ── FORMULARIO ─────────────────────────────────────── */}
           {codeMode !== "code" ? (
             <div style={centerScrollStyle}>
@@ -1253,6 +1425,8 @@ export default function PlantillaEditorShell({
               onClose={() => setCodeMode("form")}
             />
           ) : null}
+          </>
+          )}
         </main>
 
         {/* AUX (property grid) */}
@@ -1261,174 +1435,228 @@ export default function PlantillaEditorShell({
           style={auxStyle}
           data-testid="plantilla-editor-grid"
         >
-          <div
-            style={{
-              position: "sticky",
-              top: 0,
-              zIndex: 5,
-              background: "var(--c-surface)",
-              borderBottom: "1px solid var(--c-border)",
-              padding: "16px 18px",
-              display: "flex",
-              alignItems: "center",
-              gap: 11,
-            }}
-          >
-            <span
-              aria-hidden="true"
-              style={{
-                width: 32,
-                height: 32,
-                flex: "0 0 auto",
-                borderRadius: "var(--r-md)",
-                background: "var(--c-accent-soft)",
-                color: "var(--c-accent)",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 15,
-              }}
-            >
-              ⚙
-            </span>
-            <div>
+          {renderAux ?? (
+            <>
               <div
                 style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  color: "var(--c-text-3)",
-                }}
-              >
-                PROPIEDADES
-              </div>
-              <div style={{ fontSize: 15, fontWeight: 700 }}>
-                {schema?.label ?? "Pregunta"}
-              </div>
-            </div>
-          </div>
-
-          <div style={{ overflowY: "auto", padding: 18, flex: 1 }}>
-            <div style={{ marginBottom: 18 }}>
-              <Eyebrow>Tipo de pregunta</Eyebrow>
-              <div
-                style={{
+                  position: "sticky",
+                  top: 0,
+                  zIndex: 5,
+                  background: "var(--c-surface)",
+                  borderBottom: "1px solid var(--c-border)",
+                  padding: "16px 18px",
                   display: "flex",
                   alignItems: "center",
-                  gap: 8,
+                  gap: 11,
                 }}
               >
-                <div
+                <span
+                  aria-hidden="true"
                   style={{
-                    flex: 1,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 9,
-                    padding: "10px 12px",
-                    border: "1px solid var(--c-border)",
+                    width: 32,
+                    height: 32,
+                    flex: "0 0 auto",
                     borderRadius: "var(--r-md)",
-                    background: "var(--c-surface-2)",
-                    fontSize: 13.5,
-                    fontWeight: 600,
-                    color: "var(--c-text)",
+                    background: "var(--c-accent-soft)",
+                    color: "var(--c-accent)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 15,
                   }}
                 >
-                  <span style={{ color: "var(--c-accent)" }}>№</span>{" "}
-                  {schema?.label ?? tipo}
+                  ⚙
+                </span>
+                <div>
+                  <div
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 700,
+                      letterSpacing: "0.05em",
+                      color: "var(--c-text-3)",
+                    }}
+                  >
+                    PROPIEDADES
+                  </div>
+                  <div style={{ fontSize: 15, fontWeight: 700 }}>
+                    {schema?.label ?? "Pregunta"}
+                  </div>
                 </div>
               </div>
-              <div
-                style={{
-                  fontSize: 11.5,
-                  color: "var(--c-text-3)",
-                  marginTop: 6,
-                }}
-              >
-                Cambialo desde el panel central.
-              </div>
-            </div>
 
-            {enunField ? (
-              <PropertyFieldText
-                label="Enunciado"
-                value={enunValue}
-                placeholder="Texto de la consigna…"
-                multiline
-                onChange={updateEnun}
-                helpText={
-                  <>
-                    Usá{" "}
-                    <code
+              <div style={{ overflowY: "auto", padding: 18, flex: 1 }}>
+                <div style={{ marginBottom: 18 }}>
+                  <Eyebrow>Tipo de pregunta</Eyebrow>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                    }}
+                  >
+                    <div
                       style={{
-                        fontFamily: "var(--font-mono-css, ui-monospace, monospace)",
-                        color: "var(--c-accent)",
+                        flex: 1,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 9,
+                        padding: "10px 12px",
+                        border: "1px solid var(--c-border)",
+                        borderRadius: "var(--r-md)",
+                        background: "var(--c-surface-2)",
+                        fontSize: 13.5,
+                        fontWeight: 600,
+                        color: "var(--c-text)",
                       }}
                     >
-                      {"{var}"}
-                    </code>{" "}
-                    para insertar variables.
-                  </>
-                }
-              />
-            ) : null}
+                      <span style={{ color: "var(--c-accent)" }}>№</span>{" "}
+                      {schema?.label ?? tipo}
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 11.5,
+                      color: "var(--c-text-3)",
+                      marginTop: 6,
+                    }}
+                  >
+                    Cambialo desde el panel central.
+                  </div>
+                </div>
 
-            {respField ? (
-              <PropertyFieldText
-                label="Respuesta"
-                value={respValue}
-                placeholder="Expresión de la respuesta correcta…"
-                onChange={updateResp}
-                mono
-                helpText={
-                  respField.expression ? (
-                    <>
-                      Expresión sobre variables · podés reusar las declaradas.
-                    </>
-                  ) : (
-                    <>Texto exacto de la respuesta esperada.</>
-                  )
-                }
-              />
-            ) : null}
+                {enunField ? (
+                  <PropertyFieldText
+                    label="Enunciado"
+                    value={enunValue}
+                    placeholder="Texto de la consigna…"
+                    multiline
+                    onChange={updateEnun}
+                    helpText={
+                      <>
+                        Usá{" "}
+                        <code
+                          style={{
+                            fontFamily: "var(--font-mono-css, ui-monospace, monospace)",
+                            color: "var(--c-accent)",
+                          }}
+                        >
+                          {"{var}"}
+                        </code>{" "}
+                        para insertar variables.
+                      </>
+                    }
+                  />
+                ) : null}
 
-            {tolField || unidadField ? (
-              <div style={{ display: "flex", gap: 12, marginBottom: 18 }}>
-                {tolField ? (
-                  <div style={{ flex: 1 }}>
-                    <PropertyFieldNumber
-                      label="Tolerancia"
-                      value={tolValue}
-                      onChange={updateTol}
-                    />
+                {respField ? (
+                  <PropertyFieldText
+                    label="Respuesta"
+                    value={respValue}
+                    placeholder="Expresión de la respuesta correcta…"
+                    onChange={updateResp}
+                    mono
+                    helpText={
+                      respField.expression ? (
+                        <>
+                          Expresión sobre variables · podés reusar las declaradas.
+                        </>
+                      ) : (
+                        <>Texto exacto de la respuesta esperada.</>
+                      )
+                    }
+                  />
+                ) : null}
+
+                {tolField || unidadField ? (
+                  <div style={{ display: "flex", gap: 12, marginBottom: 18 }}>
+                    {tolField ? (
+                      <div style={{ flex: 1 }}>
+                        <PropertyFieldNumber
+                          label="Tolerancia"
+                          value={tolValue}
+                          onChange={updateTol}
+                        />
+                      </div>
+                    ) : null}
+                    {unidadField ? (
+                      <div style={{ flex: 1 }}>
+                        <PropertyFieldText
+                          label="Unidad"
+                          value={unidadValue}
+                          placeholder="—"
+                          onChange={updateUnidad}
+                        />
+                      </div>
+                    ) : null}
                   </div>
                 ) : null}
-                {unidadField ? (
-                  <div style={{ flex: 1 }}>
-                    <PropertyFieldText
-                      label="Unidad"
-                      value={unidadValue}
-                      placeholder="—"
-                      onChange={updateUnidad}
-                    />
+
+                {savedHint ? (
+                  <div
+                    role="status"
+                    style={{
+                      fontSize: 12,
+                      color: "var(--c-text-3)",
+                      marginTop: 8,
+                    }}
+                  >
+                    {savedHint}
                   </div>
                 ) : null}
+
+                {/* WO-V2c — contenido extra del property grid (ej. validación) */}
+                {auxExtra}
               </div>
-            ) : null}
+            </>
+          )}
+        </aside>
 
-            {savedHint ? (
-              <div
-                role="status"
+        {/* PREVIEW lateral colapsable (estilo prototipo) */}
+        {renderPreviewPanel && previewOpen ? (
+          <section
+            aria-label="Vista del alumno"
+            style={previewPanelStyle}
+            data-testid="plantilla-editor-preview"
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 9,
+                padding: "13px 16px",
+                borderBottom: "1px solid var(--c-border)",
+                background: "var(--c-surface)",
+                flex: "0 0 auto",
+              }}
+            >
+              <span aria-hidden="true" style={{ color: "var(--c-accent)" }}>
+                ▷
+              </span>
+              <span style={{ fontSize: 13.5, fontWeight: 700 }}>
+                Vista del alumno
+              </span>
+              <div style={{ flex: 1 }} />
+              <button
+                type="button"
+                onClick={handleTogglePreview}
+                aria-label="Cerrar vista del alumno"
                 style={{
-                  fontSize: 12,
+                  background: "transparent",
+                  border: 0,
                   color: "var(--c-text-3)",
-                  marginTop: 8,
+                  cursor: "pointer",
+                  fontSize: 18,
+                  lineHeight: 1,
                 }}
               >
-                {savedHint}
-              </div>
-            ) : null}
-          </div>
-        </aside>
+                ›
+              </button>
+            </div>
+            <div style={{ flex: "1 1 auto", minHeight: 0, overflowY: "auto" }}>
+              {renderPreviewPanel}
+            </div>
+          </section>
+        ) : null}
       </div>
 
       {previewPortal}

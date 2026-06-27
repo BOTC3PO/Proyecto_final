@@ -1585,19 +1585,76 @@
    PLANTILLA-EDITOR-SHELL — WO-V2 (Tiza 3-panel)
    Responsive: en <lg el rail y el property grid colapsan a
    barras apilables; el center mantiene foco. Tokens-only.
+
+   WO-V2c — top bar: flex-wrap, items no se enciman ni se cortan.
    ═══════════════════════════════════════════════════════════ */
+
+/* Top bar items: no shrink, no wrap (texto siempre entero). */
+.plantilla-shell__topbar-item {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* Separadores: visibles a partir de md, colapsados en angosto. */
+.plantilla-shell__topbar-sep {
+  flex: 0 0 auto;
+  width: 1px;
+  height: 22px;
+  background: var(--c-border);
+}
+
+@media (max-width: 1023px) {
+  .plantilla-shell__topbar-sep {
+    display: none;
+  }
+}
+
 @media (max-width: 1023px) {
   .plantilla-shell > div:nth-child(2) {
     flex-direction: column !important;
   }
   .plantilla-shell [data-testid="plantilla-editor-rail"],
-  .plantilla-shell [data-testid="plantilla-editor-grid"] {
+  .plantilla-shell [data-testid="plantilla-editor-grid"],
+  .plantilla-shell [data-testid="plantilla-editor-preview"] {
     width: 100% !important;
     flex: 0 0 auto !important;
     max-height: 220px;
     border: 0 !important;
     border-bottom: 1px solid var(--c-border) !important;
   }
+}
+
+/* Muy angosto: la barra se ajusta y los labels de los toggles
+   se acortan para que no se corten. */
+@media (max-width: 767px) {
+  .plantilla-shell__topbar {
+    padding: 8px 12px !important;
+    column-gap: 8px !important;
+  }
+}
+
+/* Indicador compacto del estado de guardado en el top bar.
+   Estados: idle, saving, saved, error. */
+.plantilla-shell__save-state-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--c-success, #1f8a5b);
+  flex: 0 0 auto;
+}
+.plantilla-shell__save-state[data-state="saving"] .plantilla-shell__save-state-dot {
+  background: var(--c-warning, #b45309);
+  animation: code-blip 1.6s infinite;
+}
+.plantilla-shell__save-state[data-state="saved"] .plantilla-shell__save-state-dot {
+  background: var(--c-success, #1f8a5b);
+}
+.plantilla-shell__save-state[data-state="error"] .plantilla-shell__save-state-dot {
+  background: var(--c-danger, #d64545);
+}
+.plantilla-shell__save-state[data-state="idle"] .plantilla-shell__save-state-dot {
+  background: var(--c-text-3, #98a2b2);
 }
 
 /* WO-V3 — pulso del indicador "en vivo" del code drawer */

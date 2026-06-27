@@ -70,7 +70,7 @@ const EditorCuestionarios = lazyWithRetry(() => import("./pages/EditorCuestionar
 const EditorCuestionariosV2 = lazyWithRetry(() => import("./pages/EditorCuestionariosV2"));
 const PlantillasIndex      = lazyWithRetry(() => import("./pages/PlantillasIndex"));
 const PlantillasBiblioteca = lazyWithRetry(() => import("./pages/PlantillasBiblioteca"));
-const PlantillaEditor      = lazyWithRetry(() => import("./pages/PlantillaEditor"));
+const PlantillaEditor      = lazyWithRetry(() => import("./pages/PlantillaEditorTiza"));
 const VblangDatasetsIndex  = lazyWithRetry(() => import("./pages/VblangDatasetsIndex"));
 const DatasetEditor        = lazyWithRetry(() => import("./pages/DatasetEditor"));
 const AdminGeneradores    = lazyWithRetry(() => import("./pages/AdminGeneradores"));
