@@ -1884,12 +1884,44 @@ export function inferTipoVar(expr: Expr): { label: string; tone: VarTone } {
   return { label: "Expresión", tone: "accent" };
 }
 
+/**
+ * Formatea un valor anidado (string SIEMPRE entre comillas, recursivo en
+ * objetos/arrays). Uso interno de `formatValor` para los miembros de un
+ * objeto o array — a diferencia del nivel superior, acá las strings se citan
+ * para que `{ nombre: "Argentina", iso: "ARG" }` se lea como literal de JS,
+ * no como texto plano.
+ */
+function formatValorAnidado(v: unknown): string {
+  if (v === null || v === undefined) return "—";
+  if (typeof v === "string") return JSON.stringify(v);
+  if (typeof v === "number" || typeof v === "boolean") return String(v);
+  if (Array.isArray(v)) return `[${v.map(formatValorAnidado).join(", ")}]`;
+  if (typeof v === "object") {
+    const entries = Object.entries(v as Record<string, unknown>)
+      .map(([k, val]) => `${k}: ${formatValorAnidado(val)}`)
+      .join(", ");
+    return `{ ${entries} }`;
+  }
+  return String(v);
+}
+
 /** Formatea el valor actual del preview ("ahora: X") para mostrarlo en la card. */
 export function formatValor(v: unknown): string {
   if (v === null || v === undefined) return "—";
   if (typeof v === "string") return v;
   if (typeof v === "number" || typeof v === "boolean") return String(v);
-  if (Array.isArray(v)) return `[${v.map((x) => String(x)).join(", ")}]`;
+  // Filas de dataset (objeto) o pool de filas (array de objetos): antes caía
+  // al fallback `String(v)`, que para objetos da literalmente "[object
+  // Object]" — ej. una variable `paises: [{nombre:"Argentina",...}, ...]` o
+  // `pais: uno_de(paises)` se veía como "[object Object],[object Object]".
+  // Recursamos en `formatValorAnidado` para mostrar el literal legible.
+  if (Array.isArray(v)) return `[${v.map(formatValorAnidado).join(", ")}]`;
+  if (typeof v === "object") {
+    const entries = Object.entries(v as Record<string, unknown>)
+      .map(([k, val]) => `${k}: ${formatValorAnidado(val)}`)
+      .join(", ");
+    return `{ ${entries} }`;
+  }
   return String(v);
 }
 

@@ -203,6 +203,27 @@ function getVariable(p: Plantilla, index: number): VariableDecl | null {
   return getVariables(p)[index] ?? null;
 }
 
+/**
+ * Formatea un valor anidado (string SIEMPRE entre comillas, recursivo).
+ * Ver mismo patrón en `PlantillaEditorSchema.formatValorAnidado`.
+ */
+function formatValueAnidado(v: unknown): string {
+  if (v === undefined || v === null) return "?";
+  if (typeof v === "number") {
+    return Number.isInteger(v) ? String(v) : v.toFixed(3).replace(/\.?0+$/, "");
+  }
+  if (typeof v === "string") return JSON.stringify(v);
+  if (typeof v === "boolean") return v ? "Sí" : "No";
+  if (Array.isArray(v)) return `[${v.map(formatValueAnidado).join(", ")}]`;
+  if (typeof v === "object") {
+    const entries = Object.entries(v as Record<string, unknown>)
+      .map(([k, val]) => `${k}: ${formatValueAnidado(val)}`)
+      .join(", ");
+    return `{ ${entries} }`;
+  }
+  return String(v);
+}
+
 function formatValue(v: unknown): string {
   if (v === undefined || v === null) return "?";
   if (typeof v === "number") {
@@ -210,6 +231,16 @@ function formatValue(v: unknown): string {
   }
   if (typeof v === "string") return v;
   if (typeof v === "boolean") return v ? "Sí" : "No";
+  // Filas de dataset (objeto) o pool de filas (array de objetos): antes caía
+  // a `String(v)` → "[object Object]" repetido. Ver formatValorAnidado en
+  // PlantillaEditorSchema.tsx para el mismo fix del editor clásico.
+  if (Array.isArray(v)) return `[${v.map(formatValueAnidado).join(", ")}]`;
+  if (typeof v === "object") {
+    const entries = Object.entries(v as Record<string, unknown>)
+      .map(([k, val]) => `${k}: ${formatValueAnidado(val)}`)
+      .join(", ");
+    return `{ ${entries} }`;
+  }
   return String(v);
 }
 

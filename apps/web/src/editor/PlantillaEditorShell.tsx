@@ -183,9 +183,20 @@ const ACCENT_KEYS: AccentKey[] = ["azul", "teal", "violeta", "naranja", "verde"]
 
 /* ─── estilos (todo tokens, inline para que sea obvio de auditar) ───── */
 
+// FIX-RESIZE-PANEL — el root necesita `height: "100%"` explícito. Sin esto,
+// el shell se dimensionaba al contenido (auto) en vez de heredar el alto del
+// contenedor (100vh en PlantillaEditorTiza/TizaDemoPage, vía la cadena
+// flex:1+minHeight:0 de sus wrappers). Como QuestionPropertyGrid y
+// VariablePropertyGrid tienen alturas de contenido bien distintas, cada vez
+// que cambiaba la selección (pregunta ↔ variable) todo el panel —y a veces
+// la página entera— se achicaba/agrandaba de golpe. `height:"100%"` resuelve
+// contra el contenedor real cuando existe (caso página) y cae a `auto` sin
+// efecto cuando no (caso embebido en VarianteEditor/Posiciones, que no tiene
+// un ancestro de alto fijo), así que no rompe ese uso.
 const rootStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
+  height: "100%",
   minHeight: 0,
   background: "var(--c-surface-2)",
   color: "var(--c-text)",
