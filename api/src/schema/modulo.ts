@@ -45,7 +45,15 @@ export const ModuleResourceSchema = z.discriminatedUnion("type", [
 export const ModuleQuizSchema = z.object({
   id: z.string().min(1),
   title: z.string().min(1),
-  type: z.enum(["practica", "evaluacion", "competencia"]),
+  // FIX-GUARDADO-QUIZTYPE — `"formal"` es el valor canónico que usa el
+  // editor (ModuloEditor/useModuloEditor) y, sobre todo, el runtime de
+  // calificación del backend: `quiz-attempts.ts` gatea `quiz.type === "formal"`
+  // para decidir si un intento aprobado cuenta para la nota del módulo, y
+  // `quiz-intentos.ts` define `QuizTipo = "practica" | "formal" | "competencia"`.
+  // El enum antes sólo aceptaba `"evaluacion"`, así que todo módulo con un
+  // cuestionario de evaluación fallaba con 400 al guardar. Mantenemos
+  // `"evaluacion"` por compatibilidad con datos/tests previos.
+  type: z.enum(["practica", "evaluacion", "competencia", "formal"]),
   mode: z.enum(["manual", "generated"]).optional(),
   visibility: ModuleQuizVisibilitySchema.default("publico"),
   schoolId: z.string().min(1).optional(),

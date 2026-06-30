@@ -22,9 +22,6 @@ const generatedQuizSchema = z.object({
   count: z.number().int().min(1),
 });
 
-const isTemporaryQuizId = (quizId?: string) =>
-  Boolean(quizId && quizId.startsWith("quiz-"));
-
 const isBookType = (t: string) => t === "book" || t === "Libro";
 
 type LoadResult = {
@@ -297,10 +294,14 @@ export function useModuloPersistence(): UsePersistenceReturn {
                   ? quiz.fixedSeed
                   : undefined,
             };
-            if (!isTemporaryQuizId(quizId)) {
-              return { ...payloadQuiz, id: quizId };
-            }
-            return payloadQuiz;
+            // FIX-GUARDADO-QUIZID — siempre enviamos el `id`, incluso para
+            // cuestionarios nuevos (ids `quiz-...` generados por `buildQuizId`).
+            // El `ModuleQuizSchema` del API exige `id` (string.min(1)) y el
+            // handler POST lo usa directo (`modulos.ts` → `id: quiz.id`), así
+            // que stripearlo provocaba 400 de validación al guardar. Además,
+            // mandar el id estable permite que el PATCH matchee el quiz
+            // existente (`applyModuleUpdate`) y versione en vez de duplicar.
+            return { ...payloadQuiz, id: quizId };
           }),
           updatedAt: new Date().toISOString(),
         };
@@ -351,7 +352,12 @@ export function useModuloPersistence(): UsePersistenceReturn {
           try { sessionStorage.removeItem(`modulo-draft:new`); } catch { /* ignorar */ }
           navigate("/modulos", { replace: true });
         }
-      } catch {
+      } catch (err) {
+        // FIX-GUARDADO — antes este catch era silencioso (`catch {}`), lo que
+        // ocultó durante mucho tiempo los 400 de validación del API (p. ej.
+        // `quiz.type` o `quiz.id` rechazados por el schema). Logueamos el error
+        // real para que un próximo desajuste front↔schema no quede invisible.
+        console.error("[useModuloPersistence] guardado falló:", err);
         setStatus("error");
         setMessage("No se pudo guardar el módulo.");
       }
