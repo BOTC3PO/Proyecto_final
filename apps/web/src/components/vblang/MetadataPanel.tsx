@@ -1,8 +1,13 @@
 /**
  * Panel lateral con metadata editable de la plantilla.
+ *
+ * Envuelto en React.memo: el padre (PlantillaEditor) re-renderiza por cada
+ * pulsación del editor de código, pero los metadatos no cambian. Mientras las
+ * props (`value`, `onChange`, `disabled`) sean estables, este panel se saltea
+ * el re-render.
  */
 
-import { useState } from "react";
+import { memo, useState } from "react";
 import type { Visibility } from "../../domain/vblang/plantilla.types";
 
 const MATERIAS = [
@@ -39,7 +44,7 @@ const VISIBILITY_LABELS: Record<Visibility, string> = {
   publica: "Pública (requiere moderación)",
 };
 
-export default function MetadataPanel({
+function MetadataPanel({
   value,
   onChange,
   disabled,
@@ -211,3 +216,5 @@ export default function MetadataPanel({
     </div>
   );
 }
+
+export default memo(MetadataPanel);

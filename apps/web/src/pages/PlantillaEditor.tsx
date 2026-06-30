@@ -64,6 +64,13 @@ const EMPTY_META: PlantillaMetadata = {
 
 type SaveStatus = "idle" | "saving" | "saved" | "error";
 
+/* Array vacío compartido para que `lintIssues ?? []` no cree una referencia
+   nueva en cada render cuando no hay lintReport. Permite que React.memo
+   sobre el form visual no se invalide por culpa de la lista vacía. */
+const EMPTY_ISSUES: NonNullable<
+  NonNullable<ReturnType<typeof usePlantillaCompilation>["lintReport"]>["issues"]
+> = [];
+
 /* ---------- Historial de código (undo/redo) ---------- */
 interface CodigoHist {
   past: string[];
@@ -232,15 +239,23 @@ export default function PlantillaEditor() {
     }
   }, [compilation.plantilla]);
 
-  // Estado del footer: cantidad de errores + líneas del código.
-  const numLineas = codigoDsl.split("\n").length;
-  const numErrores =
-    (compilation.parseError ? 1 : 0) +
-    (compilation.lintReport?.errors.length ?? 0);
+  // Estado del footer: cantidad de errores + líneas del código. Memoizado
+  // para que no se recalcule en renders que no cambiaron el código ni el
+  // reporte de lint (ej. toggleo de modo, saveStatus, modales).
+  const numLineas = useMemo(() => codigoDsl.split("\n").length, [codigoDsl]);
+  const numErrores = useMemo(
+    () =>
+      (compilation.parseError ? 1 : 0) +
+      (compilation.lintReport?.errors.length ?? 0),
+    [compilation.parseError, compilation.lintReport],
+  );
 
-  const handleGoToLocation = (line: number, col: number) => {
+  // Estabilizamos la referencia del callback: ahora ErrorPanel está envuelto
+  // en React.memo, así que si esta función cambia de identidad en cada render
+  // se invalida la memo y se re-renderiza igual.
+  const handleGoToLocation = useCallback((line: number, col: number) => {
     editorRef.current?.focusAt(line, col);
-  };
+  }, []);
 
   // Quick-fix del ErrorPanel: reemplaza el codigo actual y deja que el
   // debounce de usePlantillaCompilation revalide solo.
@@ -267,6 +282,32 @@ export default function PlantillaEditor() {
         : `${parts.length} errores de validación.`;
     return `${head} ${parts.join(". ")}`;
   }, [compilation.parseError, compilation.lintReport, dslApiError]);
+
+  // onChange estable para el form visual (PlantillaEditorSchema / EditorPlantilla).
+  // Sin esto, los `onChange={(next) => setCodigo(serialize(next))}` inline
+  // cambiaban de identidad en cada render e invalidaban cualquier React.memo
+  // que se coloque aguas abajo.
+  const handleVisualChange = useCallback(
+    (next: Parameters<NonNullable<Parameters<typeof PlantillaEditorSchema>[0]["onChange"]>>[0]) => {
+      setCodigo(serialize(next));
+    },
+    [setCodigo],
+  );
+
+  // `tieneErrores` y `lintIssues` estabilizados para el form visual.
+  // `compilation.lintReport?.issues ?? []` producía un array fresco en cada
+  // render, forzando la re-memoización del form aún cuando los issues no
+  // habían cambiado.
+  const tieneErroresForm = useMemo(
+    () =>
+      !!compilation.parseError ||
+      (compilation.lintReport?.errors.length ?? 0) > 0,
+    [compilation.parseError, compilation.lintReport],
+  );
+  const lintIssuesForForm = useMemo(
+    () => compilation.lintReport?.issues ?? EMPTY_ISSUES,
+    [compilation.lintReport],
+  );
 
   const handleImportFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -677,17 +718,17 @@ export default function PlantillaEditor() {
                   {editorClasico ? (
                     <PlantillaEditorSchema
                       plantilla={astParaRenderizar}
-                      onChange={(next) => setCodigo(serialize(next))}
+                      onChange={handleVisualChange}
                       valoresActuales={preview.variables0}
-                      tieneErrores={
-                        !!compilation.parseError ||
-                        (compilation.lintReport?.errors.length ?? 0) > 0
-                      }
+                      tieneErrores={tieneErroresForm}
                       // VB-B5 — pasamos los issues del lint al form para
                       // que cada campo culpable muestre su propio badge.
                       // El panel general (ErrorPanel) sigue mostrándolos
                       // todos; este es un complemento visual por campo.
-                      lintIssues={compilation.lintReport?.issues ?? []}
+                      // Memoizado: si el lintReport no cambia, la referencia
+                      // del array no cambia, así React.memo del form no se
+                      // invalida.
+                      lintIssues={lintIssuesForForm}
                     />
                   ) : (
                     // D5: el editor nuevo corre su propio lint interno y lo
@@ -695,7 +736,7 @@ export default function PlantillaEditor() {
                     // alimentado por `compilation`.
                     <EditorPlantilla
                       plantilla={astParaRenderizar}
-                      onChange={(next) => setCodigo(serialize(next))}
+                      onChange={handleVisualChange}
                     />
                   )}
                 </div>

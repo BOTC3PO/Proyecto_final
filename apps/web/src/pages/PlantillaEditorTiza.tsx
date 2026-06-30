@@ -1,22 +1,31 @@
 /**
  * pages/PlantillaEditorTiza.tsx — Editor de plantillas VBLang sobre el shell
- * "Tiza" (WO-V2c).
+ * "Tiza" (WO-V2c · centro limpio WO-V3a).
  *
- * Fusiona TODA la lógica del editor standalone V1 (`PlantillaEditor.tsx`:
+ * Reusa TODA la lógica del editor standalone V1 (`PlantillaEditor.tsx`:
  * undo/redo, guardado con guard anti-duplicado, importar JSON, metadatos,
- * compilación/preview/validación, carga por id, toast, wizard) con el chrome
- * del prototipo Tiza (`PlantillaEditorShell`):
+ * compilación/preview/validación, carga por id, toast, wizard) sobre el chrome
+ * limpio del prototipo Tiza (`PlantillaEditorShell`), con la misma disposición
+ * que la demo (`/demo/tiza`):
  *
  *   • Top bar mínimo: Volver · breadcrumb · acento · tema · toggle
- *     Formulario/Código · Vista del alumno · Guardar. Los secundarios
+ *     Form/Ambos/Código · Vista del alumno · Guardar. Los secundarios
  *     (Importar JSON, Ejemplos, Referencia, Copiar prompt, Datasets) viven en
  *     un menú de overflow "⋯ Más" (átomo `Menu`).
- *   • Columna izquierda única: metadatos compactos (no hay rail de preguntas
- *     en el editor de una sola plantilla).
- *   • Derecha: property grid contextual (del shell) + reporte de validación.
+ *   • Columna izquierda: rail CUESTIONARIO (working set de preguntas en
+ *     memoria: elegir / agregar / quitar) + navegador de secciones de la
+ *     pregunta activa. "Guardar" persiste la pregunta activa como su propia
+ *     plantilla; las preguntas sin guardar muestran un punto en el rail.
+ *   • Derecha: detalles (metadatos) plegables + property grid contextual
+ *     (`TizaPropertyGrid`) + validación.
  *   • Preview del alumno colapsable al costado (no modal).
- *   • Centro: el editor de código rico (modo Código) o el formulario
- *     (modo Formulario), más la consola de estado y el panel de errores.
+ *   • Centro (WO-V3a) según el modo del shell: la tarjeta del prototipo
+ *     (`TizaQuestionCard`) en Form/Ambos —Ambos suma un drawer de código de
+ *     lectura—, o el editor de código rico con panel de errores compacto en
+ *     Código. Sin consola al pie ni panel de errores global de 192px: la
+ *     validación se ve en el property grid y los errores de parseo, inline.
+ *     Los generadores y tipos avanzados se editan en modo Código (fidelidad
+ *     total); la tarjeta avisa cuando no los cubre.
  *
  * NO reescribe la lógica de campos ni el round-trip código↔formulario: reusa
  * los mismos componentes y hooks que V1. Es disposición/chrome.
@@ -29,12 +38,11 @@ import {
   useCallback,
   useEffect,
   useMemo,
-  useReducer,
   useRef,
   useState,
 } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { parse, serialize, type Plantilla } from "@vb/vblang";
+import { parse, serialize, QUESTION_TYPE_SCHEMAS, type Plantilla } from "@vb/vblang";
 import CodeEditor, {
   type CodeEditorHandle,
 } from "../components/vblang/CodeEditor";
@@ -51,14 +59,20 @@ import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import SnippetBar from "../components/vblang/SnippetBar";
 import NuevaPlantillaWizard from "../components/vblang/NuevaPlantillaWizard";
 import { useEditorClasico } from "../editor/useEditorClasico";
-import { extractDeclaredVariables } from "../components/vblang/plantillaAst";
+import {
+  extractDeclaredVariables,
+  getBlock,
+  readPistas,
+  readExplicacion,
+} from "../components/vblang/plantillaAst";
+import { isGeneradorBase } from "../components/vblang/plantillaFields";
+import Modal from "../ui/Modal";
 import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
 import PreviewPanel from "../components/vblang/PreviewPanel";
 import MetadataPanel, {
   type PlantillaMetadata,
 } from "../components/vblang/MetadataPanel";
-import { Pill } from "../components/ui";
 import PlantillaEditorShell, {
   type AccentKey,
 } from "../editor/PlantillaEditorShell";
@@ -135,6 +149,36 @@ function codigoHistReducer(s: CodigoHist, a: CodigoAction): CodigoHist {
   }
 }
 
+/* ---------- Working set: una pregunta del cuestionario (WO-V3a-b) ----------
+ * El editor maneja una LISTA de preguntas en memoria (el rail "CUESTIONARIO").
+ * Cada una tiene su propio DSL+historial, sus metadatos y, si ya se guardó, el
+ * id de su plantilla. "Guardar" persiste la pregunta activa como su propia
+ * plantilla (no existe una entidad "cuestionario" que las agrupe). */
+interface WorkQuestion {
+  key: string;
+  /** id de la plantilla persistida; null mientras no se guardó. */
+  plantillaId: string | null;
+  metadata: PlantillaMetadata;
+  /** Último DSL persistido ("" si nunca se guardó). */
+  savedCodigo: string;
+  hist: CodigoHist;
+}
+
+let _qSeq = 0;
+function makeQuestion(
+  dsl: string,
+  patch?: Partial<Omit<WorkQuestion, "key" | "hist">>,
+): WorkQuestion {
+  return {
+    key: `q${Date.now()}_${_qSeq++}`,
+    plantillaId: null,
+    metadata: { ...EMPTY_META },
+    savedCodigo: "",
+    ...patch,
+    hist: { past: [], present: dsl, future: [] },
+  };
+}
+
 /* ---------- Botón de ítem del menú overflow ---------- */
 function OverflowItem({
   onClick,
@@ -180,6 +224,80 @@ function OverflowItem({
   );
 }
 
+/* ---------- Ítem del navegador de secciones (rail izquierdo) ---------- */
+function RailNavItem({
+  icon,
+  label,
+  active,
+  mono,
+  onClick,
+}: {
+  icon: string;
+  label: string;
+  active: boolean;
+  mono?: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-current={active ? "true" : undefined}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        width: "100%",
+        textAlign: "left",
+        padding: "8px 10px",
+        borderRadius: "var(--r-md)",
+        cursor: "pointer",
+        background: active ? "var(--c-surface)" : "transparent",
+        border: active ? "1px solid var(--c-border)" : "1px solid transparent",
+        color: "var(--c-text)",
+      }}
+    >
+      <span
+        aria-hidden="true"
+        style={{
+          width: 20,
+          height: 20,
+          flex: "0 0 auto",
+          borderRadius: 6,
+          background: "var(--c-accent-soft)",
+          color: "var(--c-accent)",
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 11,
+          fontWeight: 700,
+        }}
+      >
+        {icon}
+      </span>
+      <span
+        style={{
+          fontSize: 13,
+          fontWeight: 600,
+          minWidth: 0,
+          flex: 1,
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          ...(mono
+            ? {
+                fontFamily: "var(--font-mono-css, ui-monospace, monospace)",
+                color: "var(--c-accent)",
+              }
+            : null),
+        }}
+      >
+        {label}
+      </span>
+    </button>
+  );
+}
+
 export default function PlantillaEditorTiza() {
   // El editor clásico viejo queda accesible por flag inverso (sin hooks de por
   // medio: la flag se lee de la URL, estable durante la vida del componente).
@@ -197,33 +315,65 @@ function PlantillaEditorTizaInner() {
   const returnTo = searchParams.get("returnTo");
   const isNew = !id;
 
-  const { theme, setTheme } = useTheme();
-  // El shell habla en "light" | "dark"; lo mapeamos al tema real de la app
-  // (tiza ↔ tiza-dark). Si el rol no permite tiza-dark, setTheme es no-op.
+  // El tema (claro/oscuro) lo maneja el tema global de la app, no el editor:
+  // sólo observamos el actual para que el acento se pinte con el tono correcto.
+  // No se expone toggle de tema acá (ver WO-V3a — correcciones).
+  const { theme } = useTheme();
   const shellTheme = theme.endsWith("-dark") ? "dark" : "light";
   const [accent, setAccent] = useState<AccentKey>("azul");
 
-  const [hist, dispatchCodigo] = useReducer(codigoHistReducer, {
-    past: [],
-    present: INITIAL_TEMPLATE,
-    future: [],
-  });
-  const codigoDsl = hist.present;
+  // Working set: lista de preguntas (rail CUESTIONARIO). La pregunta activa es
+  // la fuente de verdad del centro/property grid/preview; las demás viven en
+  // memoria hasta que se guardan (cada una como su propia plantilla).
+  const [questions, setQuestions] = useState<WorkQuestion[]>(() => [
+    makeQuestion(INITIAL_TEMPLATE),
+  ]);
+  const [activeKey, setActiveKey] = useState<string | null>(null);
+  const activeIdx = Math.max(
+    0,
+    questions.findIndex((q) => q.key === activeKey),
+  );
+  const active = questions[activeIdx] ?? questions[0];
+
+  const codigoDsl = active.hist.present;
+  const savedCodigo = active.savedCodigo;
+  const metadata = active.metadata;
+  const canUndo = active.hist.past.length > 0;
+  const canRedo = active.hist.future.length > 0;
+
+  const updateActive = useCallback(
+    (fn: (q: WorkQuestion) => WorkQuestion) =>
+      setQuestions((qs) => {
+        const idx = qs.findIndex((q) => q.key === activeKey);
+        const i = idx >= 0 ? idx : 0;
+        return qs.map((q, j) => (j === i ? fn(q) : q));
+      }),
+    [activeKey],
+  );
+  const dispatchActive = useCallback(
+    (a: CodigoAction) =>
+      updateActive((q) => ({ ...q, hist: codigoHistReducer(q.hist, a) })),
+    [updateActive],
+  );
   const setCodigo = useCallback(
-    (v: string) => dispatchCodigo({ type: "set", value: v }),
-    [],
+    (v: string) => dispatchActive({ type: "set", value: v }),
+    [dispatchActive],
   );
   const resetCodigo = useCallback(
-    (v: string) => dispatchCodigo({ type: "reset", value: v }),
-    [],
+    (v: string) => dispatchActive({ type: "reset", value: v }),
+    [dispatchActive],
   );
-  const undo = useCallback(() => dispatchCodigo({ type: "undo" }), []);
-  const redo = useCallback(() => dispatchCodigo({ type: "redo" }), []);
-  const canUndo = hist.past.length > 0;
-  const canRedo = hist.future.length > 0;
+  const undo = useCallback(() => dispatchActive({ type: "undo" }), [dispatchActive]);
+  const redo = useCallback(() => dispatchActive({ type: "redo" }), [dispatchActive]);
+  const setMetadata = useCallback(
+    (m: PlantillaMetadata | ((p: PlantillaMetadata) => PlantillaMetadata)) =>
+      updateActive((q) => ({
+        ...q,
+        metadata: typeof m === "function" ? m(q.metadata) : m,
+      })),
+    [updateActive],
+  );
 
-  const [savedCodigo, setSavedCodigo] = useState<string>(INITIAL_TEMPLATE);
-  const [metadata, setMetadata] = useState<PlantillaMetadata>(EMPTY_META);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   // FIX-PLANTILLA-DUP — guard sincrónico para bloquear clicks múltiples en
@@ -240,11 +390,19 @@ function PlantillaEditorTizaInner() {
     message: string;
     actions?: ToastAction[];
   } | null>(null);
-  const [modo, setModo] = useState<"codigo" | "visual">("codigo");
+  // WO-V3a — modo único del shell (Form / Ambos / Código). Default "split"
+  // (Ambos), como la demo y el prototipo: tarjeta + drawer de código.
+  const [codeMode, setCodeMode] = useState<"form" | "split" | "code">("split");
   const [selection, setSelection] = useState<TizaSelection>({ kind: "pregunta" });
   const [showTizaCode, setShowTizaCode] = useState(false);
   const [referenciaOpen, setReferenciaOpen] = useState(false);
   const [promptIAOpen, setPromptIAOpen] = useState(false);
+  const [ejemplosOpen, setEjemplosOpen] = useState(false);
+  const [datasetsOpen, setDatasetsOpen] = useState(false);
+  // Metadatos plegables (panel derecho). Abiertos al crear (nombre obligatorio).
+  const [metaOpen, setMetaOpen] = useState(isNew);
+  // Sección activa del navegador (rail) cuando la selección es la pregunta.
+  const [activeSection, setActiveSection] = useState<string>("tiza-sec-enunciado");
   const [wizardDismissed, setWizardDismissed] = useState(!isNew);
 
   const editorRef = useRef<CodeEditorHandle | null>(null);
@@ -253,30 +411,35 @@ function PlantillaEditorTizaInner() {
 
   useEffect(() => {
     if (isNew || !id) return;
-    let active = true;
+    let alive = true;
     setLoadStatus("loading");
     getPlantilla(id)
       .then((p) => {
-        if (!active) return;
-        resetCodigo(p.codigoDsl);
-        setSavedCodigo(p.codigoDsl);
-        setMetadata({
-          nombre: p.nombre,
-          descripcion: p.descripcion ?? "",
-          materia: p.materia ?? "",
-          tags: p.tags ?? [],
-          visibility: p.visibility,
+        if (!alive) return;
+        // Arranca el working set con la plantilla cargada como única pregunta.
+        const loaded = makeQuestion(p.codigoDsl, {
+          plantillaId: id,
+          savedCodigo: p.codigoDsl,
+          metadata: {
+            nombre: p.nombre,
+            descripcion: p.descripcion ?? "",
+            materia: p.materia ?? "",
+            tags: p.tags ?? [],
+            visibility: p.visibility,
+          },
         });
+        setQuestions([loaded]);
+        setActiveKey(loaded.key);
         setLoadStatus("ready");
       })
       .catch(() => {
-        if (!active) return;
+        if (!alive) return;
         setLoadStatus("error");
       });
     return () => {
-      active = false;
+      alive = false;
     };
-  }, [id, isNew, resetCodigo]);
+  }, [id, isNew]);
 
   const compilation = usePlantillaCompilation(codigoDsl);
   const preview = usePlantillaPreview(compilation.compiled);
@@ -309,12 +472,6 @@ function PlantillaEditorTizaInner() {
     return lastDeclaredRef.current;
   }, [compilation.plantilla]);
 
-  useEffect(() => {
-    if (compilation.plantilla) {
-      lastValidPlantillaRef.current = compilation.plantilla;
-    }
-  }, [compilation.plantilla]);
-
   // AST de respaldo para que el property grid del shell siempre tenga datos,
   // incluso si el código nunca compiló (caso borde).
   const fallbackAst = useMemo<Plantilla | null>(() => {
@@ -325,21 +482,47 @@ function PlantillaEditorTizaInner() {
     }
   }, []);
 
-  const astParaRenderizar =
-    compilation.plantilla ?? lastValidPlantillaRef.current ?? fallbackAst;
+  // El formulario se alimenta de un parse SINCRÓNICO del DSL activo (no del
+  // `compilation` debounced a 500ms): así los inputs no quedan "atrasados" al
+  // tipear (la latencia que se veía). `compilation` se sigue usando, debounced,
+  // sólo para errores/preview/validación.
+  const astSync = useMemo<Plantilla | null>(() => {
+    try {
+      return parse(codigoDsl);
+    } catch {
+      return null;
+    }
+  }, [codigoDsl]);
+  useEffect(() => {
+    if (astSync) lastValidPlantillaRef.current = astSync;
+  }, [astSync]);
 
-  const numLineas = codigoDsl.split("\n").length;
-  const numErrores =
-    (compilation.parseError ? 1 : 0) +
-    (compilation.lintReport?.errors.length ?? 0);
+  const astParaRenderizar =
+    astSync ?? lastValidPlantillaRef.current ?? fallbackAst;
+
+  // WO-V3a — ¿la tarjeta del prototipo cubre esta plantilla? Cubre numéricas
+  // con respuesta textual y sin listas; los generadores y los tipos con
+  // opciones/ítems se editan en modo Código (que es de fidelidad total).
+  const tarjetaCubre = (() => {
+    const p = astParaRenderizar;
+    if (!p || isGeneradorBase(p)) return false;
+    const schema = QUESTION_TYPE_SCHEMAS[p.tipoInferido];
+    if (!schema) return false;
+    const tieneRespuestaTextual = schema.fields.some(
+      (f) => f.key === "respuesta" && f.kind === "text",
+    );
+    const tieneListas = schema.fields.some((f) => f.kind === "list");
+    return tieneRespuestaTextual && !tieneListas;
+  })();
 
   const handleGoToLocation = (line: number, col: number) => {
     editorRef.current?.focusAt(line, col);
   };
 
-  const handleApplyFix = useCallback((newCode: string) => {
-    dispatchCodigo({ type: "set", value: newCode });
-  }, []);
+  const handleApplyFix = useCallback(
+    (newCode: string) => setCodigo(newCode),
+    [setCodigo],
+  );
 
   const errorSummary = useMemo(() => {
     const parts: string[] = [];
@@ -408,14 +591,17 @@ function PlantillaEditorTizaInner() {
         setSaveMessage("El nombre es obligatorio.");
         return;
       }
-      if (isNew) {
+      // Se guarda la pregunta ACTIVA como su propia plantilla. Al crear NO se
+      // navega (eso destruiría el working set); se fija el id en memoria.
+      if (active.plantillaId == null) {
         const created = await createPlantilla(payload);
         setSaveStatus("saved");
-        setSaveMessage("Plantilla creada.");
-        setSavedCodigo(codigoDsl);
-        const editUrl = `/plantillas/${created.id}${
-          returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : ""
-        }`;
+        setSaveMessage("Pregunta guardada.");
+        updateActive((q) => ({
+          ...q,
+          plantillaId: created.id,
+          savedCodigo: payload.codigoDsl,
+        }));
         if (returnTo) {
           setToastState({
             message: "Plantilla guardada.",
@@ -425,20 +611,18 @@ function PlantillaEditorTizaInner() {
                 primary: true,
                 onClick: () => navigate(returnTo),
               },
-              { label: "Seguir editando", onClick: () => navigate(editUrl) },
+              { label: "Seguir editando", onClick: () => setToastState(null) },
             ],
           });
-        } else {
-          navigate(editUrl);
         }
-      } else if (id) {
-        await updatePlantilla(id, {
+      } else {
+        await updatePlantilla(active.plantillaId, {
           ...payload,
           changelog: "Edición desde editor Tiza",
         });
         setSaveStatus("saved");
         setSaveMessage("Cambios guardados.");
-        setSavedCodigo(codigoDsl);
+        updateActive((q) => ({ ...q, savedCodigo: payload.codigoDsl }));
         if (returnTo) {
           setToastState({
             message: "Cambios guardados.",
@@ -544,25 +728,281 @@ function PlantillaEditorTizaInner() {
     </span>
   );
 
-  /* ── columna izquierda: metadatos compactos (sin rail de preguntas) ── */
-  const railMetadata = (
-    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+  /* ── columna izquierda: navegador de secciones (estilo rail del prototipo) ──
+     Salta a una sección de la tarjeta y fija el contexto del property grid. */
+  const variablesDecl =
+    (astParaRenderizar && getBlock(astParaRenderizar, "variables")?.declaraciones) || [];
+  const schemaActual = astParaRenderizar
+    ? QUESTION_TYPE_SCHEMAS[astParaRenderizar.tipoInferido]
+    : undefined;
+  const hasRespSec = !!schemaActual?.fields.some((f) => f.key === "respuesta");
+  const hasPistasSec = astParaRenderizar
+    ? readPistas(astParaRenderizar).length > 0
+    : false;
+  const hasExplicSec = astParaRenderizar
+    ? readExplicacion(astParaRenderizar).trim().length > 0
+    : false;
+
+  /** Selecciona la pregunta y scrollea la tarjeta a la sección (saliendo de
+   *  modo Código si hace falta). */
+  const goToSection = (anchor: string) => {
+    setSelection({ kind: "pregunta" });
+    setActiveSection(anchor);
+    if (codeMode === "code") setCodeMode("split");
+    window.setTimeout(() => {
+      document
+        .getElementById(anchor)
+        ?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }, 60);
+  };
+
+  /* ── rail CUESTIONARIO: working set de preguntas (elegir / agregar / quitar) ── */
+  const selectQuestion = (key: string) => {
+    setActiveKey(key);
+    setSelection({ kind: "pregunta" });
+    setActiveSection("tiza-sec-enunciado");
+    // El estado de guardado es global; lo reseteamos al cambiar de pregunta.
+    setSaveStatus("idle");
+    setSaveMessage(null);
+  };
+  const addQuestion = () => {
+    const nq = makeQuestion(INITIAL_TEMPLATE);
+    setQuestions((qs) => [...qs, nq]);
+    setActiveKey(nq.key);
+    setSelection({ kind: "pregunta" });
+    setActiveSection("tiza-sec-enunciado");
+    setMetaOpen(true);
+    setSaveStatus("idle");
+    setSaveMessage(null);
+  };
+  const removeQuestion = (key: string) => {
+    const q = questions.find((x) => x.key === key);
+    if (
+      q &&
+      q.hist.present !== q.savedCodigo &&
+      !window.confirm(
+        "Esta pregunta tiene cambios sin guardar. ¿Quitarla del cuestionario?",
+      )
+    ) {
+      return;
+    }
+    setQuestions((qs) => (qs.length <= 1 ? qs : qs.filter((x) => x.key !== key)));
+    setActiveKey((prev) => (prev === key ? null : prev));
+    setSelection({ kind: "pregunta" });
+  };
+
+  const railCuestionario = (
+    <div
+      style={{ display: "flex", flexDirection: "column", gap: 2, marginBottom: 14 }}
+    >
       <div
         style={{
           fontSize: 11,
           fontWeight: 700,
           letterSpacing: "0.06em",
           color: "var(--c-text-3)",
-          padding: "4px 4px 0",
+          padding: "4px 8px 8px",
         }}
       >
-        METADATOS
+        CUESTIONARIO
       </div>
-      <MetadataPanel
-        value={metadata}
-        onChange={setMetadata}
-        disabled={saveStatus === "saving"}
+      {questions.map((q, i) => {
+        const isActive = q.key === active.key;
+        const unsaved = q.hist.present !== q.savedCodigo;
+        const title = q.metadata.nombre.trim() || `Pregunta ${i + 1}`;
+        return (
+          <div key={q.key} style={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <button
+              type="button"
+              onClick={() => selectQuestion(q.key)}
+              aria-current={isActive ? "true" : undefined}
+              style={{
+                flex: 1,
+                minWidth: 0,
+                display: "flex",
+                alignItems: "center",
+                gap: 10,
+                padding: "8px 10px",
+                borderRadius: "var(--r-md)",
+                cursor: "pointer",
+                textAlign: "left",
+                background: isActive ? "var(--c-surface)" : "transparent",
+                border: isActive
+                  ? "1px solid var(--c-border)"
+                  : "1px solid transparent",
+                color: "var(--c-text)",
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{
+                  width: 22,
+                  height: 22,
+                  flex: "0 0 auto",
+                  borderRadius: 6,
+                  background: "var(--c-accent-soft)",
+                  color: "var(--c-accent)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 11,
+                  fontWeight: 700,
+                }}
+              >
+                {i + 1}
+              </span>
+              <span
+                style={{
+                  flex: 1,
+                  minWidth: 0,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {title}
+              </span>
+              {unsaved ? (
+                <span
+                  aria-hidden="true"
+                  title="Cambios sin guardar"
+                  style={{
+                    width: 7,
+                    height: 7,
+                    flex: "0 0 auto",
+                    borderRadius: 999,
+                    background: "var(--c-warning, #f59e0b)",
+                  }}
+                />
+              ) : null}
+            </button>
+            {questions.length > 1 ? (
+              <button
+                type="button"
+                onClick={() => removeQuestion(q.key)}
+                aria-label={`Quitar pregunta ${i + 1}`}
+                title="Quitar pregunta"
+                style={{
+                  flex: "0 0 auto",
+                  width: 24,
+                  height: 24,
+                  borderRadius: 6,
+                  border: 0,
+                  background: "transparent",
+                  color: "var(--c-text-3)",
+                  cursor: "pointer",
+                  fontSize: 14,
+                  lineHeight: 1,
+                }}
+              >
+                ×
+              </button>
+            ) : null}
+          </div>
+        );
+      })}
+      <button
+        type="button"
+        onClick={addQuestion}
+        style={{
+          marginTop: 6,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          padding: "9px 10px",
+          borderRadius: "var(--r-md)",
+          border: "1px dashed var(--c-border)",
+          background: "transparent",
+          color: "var(--c-accent)",
+          fontSize: 13,
+          fontWeight: 600,
+          cursor: "pointer",
+        }}
+      >
+        <span aria-hidden="true">＋</span> Nueva pregunta
+      </button>
+    </div>
+  );
+
+  const railSections = (
+    <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <div
+        style={{
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: "0.06em",
+          color: "var(--c-text-3)",
+          padding: "4px 8px 8px",
+        }}
+      >
+        SECCIONES
+      </div>
+      <RailNavItem
+        icon="¶"
+        label="Enunciado"
+        active={selection.kind === "pregunta" && activeSection === "tiza-sec-enunciado"}
+        onClick={() => goToSection("tiza-sec-enunciado")}
       />
+      {variablesDecl.length > 0 ? (
+        <>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.04em",
+              color: "var(--c-text-3)",
+              padding: "10px 8px 4px",
+            }}
+          >
+            Variables
+          </div>
+          {variablesDecl.map((v, i) => (
+            <RailNavItem
+              key={`${v.nombre}-${i}`}
+              icon={String(i + 1)}
+              label={v.nombre}
+              mono
+              active={selection.kind === "variable" && selection.index === i}
+              onClick={() => {
+                setSelection({ kind: "variable", index: i });
+                if (codeMode === "code") setCodeMode("split");
+                window.setTimeout(() => {
+                  document
+                    .getElementById("tiza-sec-variables")
+                    ?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+                }, 60);
+              }}
+            />
+          ))}
+          <div style={{ height: 8 }} />
+        </>
+      ) : null}
+      {hasRespSec ? (
+        <RailNavItem
+          icon="="
+          label="Respuesta"
+          active={selection.kind === "pregunta" && activeSection === "tiza-sec-respuesta"}
+          onClick={() => goToSection("tiza-sec-respuesta")}
+        />
+      ) : null}
+      {hasPistasSec ? (
+        <RailNavItem
+          icon="?"
+          label="Pistas"
+          active={selection.kind === "pregunta" && activeSection === "tiza-sec-pistas"}
+          onClick={() => goToSection("tiza-sec-pistas")}
+        />
+      ) : null}
+      {hasExplicSec ? (
+        <RailNavItem
+          icon="✎"
+          label="Explicación"
+          active={selection.kind === "pregunta" && activeSection === "tiza-sec-explicacion"}
+          onClick={() => goToSection("tiza-sec-explicacion")}
+        />
+      ) : null}
     </div>
   );
 
@@ -624,79 +1064,174 @@ function PlantillaEditorTizaInner() {
         aria-hidden="true"
         style={{ height: 1, background: "var(--c-border)", margin: "4px 6px" }}
       />
-      <div style={{ padding: "2px 6px" }}>
-        <EjemplosMenu onLoad={setCodigo} hasUnsavedChanges={hayCambios} />
-      </div>
-      <div style={{ padding: "2px 6px" }}>
-        <DatasetExplorer />
-      </div>
+      <OverflowItem
+        onClick={() => {
+          setEjemplosOpen(true);
+          close();
+        }}
+      >
+        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>☰</span>
+        Ejemplos
+      </OverflowItem>
+      <OverflowItem
+        onClick={() => {
+          setDatasetsOpen(true);
+          close();
+        }}
+      >
+        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>⊞</span>
+        Datasets
+      </OverflowItem>
     </>
   );
 
-  /* ── centro: editor de código rico (Código) o tarjeta Tiza (visual) ── */
-  const centerContent =
-    modo === "codigo" ? (
-      <>
-        <SnippetBar
-          onInsert={(text) => editorRef.current?.insertAtCursor(text)}
+  /* ── WO-V3a — centro limpio (prototipo) ──────────────────────────────
+     Form/Ambos = tarjeta del prototipo (TizaQuestionCard); Ambos suma el
+     drawer de código de lectura. Código = editor rico + panel de errores
+     compacto. Sin consola al pie ni ErrorPanel global de 192px: la
+     validación vive en el property grid (renderAux) y los errores de
+     parseo, inline. El toggle Form/Ambos/Código está en el top bar (shell). */
+
+  /* Modo Código: editor rico (autocompletado + ir-al-error) + errores. */
+  const codeArea = (
+    <div
+      style={{ flex: "1 1 auto", minHeight: 0, display: "flex", flexDirection: "column" }}
+    >
+      <SnippetBar
+        onInsert={(text) => editorRef.current?.insertAtCursor(text)}
+      />
+      <div className="flex-1 min-h-0">
+        <CodeEditor
+          ref={editorRef}
+          value={codigoDsl}
+          onChange={setCodigo}
+          declaredVariables={declaredVariables}
+          errorLine={compilation.parseError?.line ?? dslApiError?.line}
+          errorCol={compilation.parseError?.col ?? dslApiError?.col}
+          errorSummary={errorSummary}
         />
-        <div className="flex-1 min-h-0">
-          <CodeEditor
-            ref={editorRef}
-            value={codigoDsl}
-            onChange={setCodigo}
-            declaredVariables={declaredVariables}
-            errorLine={compilation.parseError?.line ?? dslApiError?.line}
-            errorCol={compilation.parseError?.col ?? dslApiError?.col}
-            errorSummary={errorSummary}
-          />
-        </div>
-      </>
-    ) : !astParaRenderizar ? (
-      <div
-        className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center text-sm text-[var(--c-muted,#64748b)]"
-        data-testid="vblang-form-no-disponible"
-      >
-        <p>
-          El código tiene errores. Arreglalos en modo Código para usar el
-          formulario.
-        </p>
-        <button
-          type="button"
-          onClick={() => setModo("codigo")}
-          className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
-        >
-          Volver a Código
-        </button>
       </div>
-    ) : (
+      {/* Errores + quick-fixes: sólo en modo Código, compacto. */}
       <div
-        className="editor-shell__scroll outline-none"
         style={{
-          flex: "1 1 auto",
-          minHeight: 0,
-          overflowY: "auto",
-          padding: "26px 30px",
+          flex: "0 0 auto",
+          maxHeight: 192,
+          borderTop: "1px solid var(--c-border)",
+          background: "var(--c-surface)",
+          display: "flex",
+          overflow: "hidden",
         }}
       >
-        {!compilation.plantilla && (
-          <div
-            role="status"
-            data-testid="vblang-form-retenido-banner"
-            className="flex items-start gap-3 border-b border-[var(--c-border)] bg-[var(--c-warning-soft,#fef3c7)] text-[var(--c-text)] px-3 py-2 text-xs"
+        <ErrorPanel
+          parseError={compilation.parseError ?? dslApiError}
+          lintReport={compilation.lintReport}
+          onGoToLocation={handleGoToLocation}
+          currentCode={codigoDsl}
+          onApplyFix={handleApplyFix}
+        />
+      </div>
+    </div>
+  );
+
+  /* Modo Form/Ambos: tarjeta del prototipo (+ drawer de lectura en Ambos). */
+  const cardArea = !astParaRenderizar ? (
+    <div
+      className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center text-sm text-[var(--c-muted,#64748b)]"
+      data-testid="vblang-form-no-disponible"
+    >
+      <p>
+        El código tiene errores. Arreglalos en modo Código para usar el
+        formulario.
+      </p>
+      <button
+        type="button"
+        onClick={() => setCodeMode("code")}
+        className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
+      >
+        Volver a Código
+      </button>
+    </div>
+  ) : (
+    <div
+      className="editor-shell__scroll outline-none"
+      style={{
+        flex: "1 1 auto",
+        minHeight: 0,
+        overflowY: "auto",
+        padding: "26px 30px",
+      }}
+    >
+      {!astSync && (
+        <div
+          role="status"
+          data-testid="vblang-form-retenido-banner"
+          className="flex items-start gap-3 border-b border-[var(--c-border)] bg-[var(--c-warning-soft,#fef3c7)] text-[var(--c-text)] px-3 py-2 text-xs"
+        >
+          <span className="flex-1">
+            El código tiene errores — estás viendo la última versión válida.
+            Si editás desde el formulario, el código con errores se reemplaza.
+          </span>
+          <button
+            type="button"
+            data-testid="vblang-form-ver-errores"
+            onClick={() => setCodeMode("code")}
+            className="shrink-0 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1 text-xs font-medium"
           >
-            <span className="flex-1">
-              El código tiene errores — estás viendo la última versión válida.
-              Si editás desde el formulario, el código con errores se reemplaza.
-            </span>
-            <button
-              type="button"
-              data-testid="vblang-form-ver-errores"
-              onClick={() => setModo("codigo")}
-              className="shrink-0 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1 text-xs font-medium"
+            Ver errores
+          </button>
+        </div>
+      )}
+      <div
+        style={{
+          maxWidth: 560,
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+          gap: 18,
+        }}
+      >
+        {!tarjetaCubre && (
+          <div
+            role="note"
+            data-testid="tiza-card-degradacion"
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: 9,
+              padding: "11px 13px",
+              borderRadius: "var(--r-md)",
+              border: "1px solid var(--c-border)",
+              background: "var(--c-surface-2)",
+              fontSize: 12.5,
+              lineHeight: 1.45,
+              color: "var(--c-text-2)",
+            }}
+          >
+            <span
+              aria-hidden="true"
+              style={{ color: "var(--c-accent)", fontWeight: 700 }}
             >
-              Ver errores
-            </button>
+              ⌖
+            </span>
+            <span>
+              Esta plantilla usa un generador o un tipo avanzado. La tarjeta edita
+              el enunciado y las variables; el resto de los campos se editan en{" "}
+              <button
+                type="button"
+                onClick={() => setCodeMode("code")}
+                style={{
+                  background: "transparent",
+                  border: 0,
+                  padding: 0,
+                  color: "var(--c-accent)",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                }}
+              >
+                modo Código
+              </button>
+              .
+            </span>
           </div>
         )}
         <TizaQuestionCard
@@ -707,15 +1242,18 @@ function PlantillaEditorTizaInner() {
           onSelectVariable={(idx) => setSelection({ kind: "variable", index: idx })}
           live={liveValues}
         />
-        <TizaCodeDrawer
-          code={codigoDsl}
-          visible={showTizaCode}
-          onToggle={() => setShowTizaCode((v) => !v)}
-        />
+        {codeMode === "split" && (
+          <TizaCodeDrawer
+            code={codigoDsl}
+            visible={showTizaCode}
+            onToggle={() => setShowTizaCode((v) => !v)}
+          />
+        )}
       </div>
-    );
+    </div>
+  );
 
-  /* Centro completo: contenido por modo + consola + panel de errores. */
+  /* Centro completo: skip-link + panel por modo. */
   const renderCenterFull = (
     <div
       style={{
@@ -735,55 +1273,7 @@ function PlantillaEditorTizaInner() {
         className="editor-shell__scroll outline-none"
         style={{ flex: "1 1 auto", minHeight: 0, display: "flex", flexDirection: "column" }}
       >
-        {centerContent}
-      </div>
-      <div
-        role="status"
-        aria-live="polite"
-        data-testid="vblang-status-footer"
-        className="vb-console"
-      >
-        {numErrores === 0 ? (
-          <Pill tone="ok">Sin errores ✓</Pill>
-        ) : (
-          <Pill tone="danger">
-            {numErrores} {numErrores === 1 ? "error" : "errores"}
-          </Pill>
-        )}
-        <span aria-hidden="true">·</span>
-        <span>
-          {numLineas} {numLineas === 1 ? "línea" : "líneas"}
-        </span>
-        {numErrores === 0 && (
-          <>
-            <span aria-hidden="true">·</span>
-            <span>listo para validar</span>
-          </>
-        )}
-        <span className="vb-console__spacer" aria-hidden="true" />
-        <button
-          type="button"
-          className="vb-console__link"
-          onClick={() => setReferenciaOpen(true)}
-        >
-          Ver referencia VBLang →
-        </button>
-      </div>
-      <div
-        style={{
-          height: 192,
-          flex: "0 0 auto",
-          borderTop: "1px solid var(--c-border)",
-          background: "var(--c-surface)",
-        }}
-      >
-        <ErrorPanel
-          parseError={compilation.parseError ?? dslApiError}
-          lintReport={compilation.lintReport}
-          onGoToLocation={handleGoToLocation}
-          currentCode={codigoDsl}
-          onApplyFix={handleApplyFix}
-        />
+        {codeMode === "code" ? codeArea : cardArea}
       </div>
     </div>
   );
@@ -793,7 +1283,7 @@ function PlantillaEditorTizaInner() {
       {isNew && !wizardDismissed && (
         <NuevaPlantillaWizard
           onPick={(dsl) => {
-            dispatchCodigo({ type: "reset", value: dsl });
+            resetCodigo(dsl);
             setWizardDismissed(true);
           }}
           onBlank={() => setWizardDismissed(true)}
@@ -823,25 +1313,104 @@ function PlantillaEditorTizaInner() {
               accent={accent}
               onAccentChange={setAccent}
               theme={shellTheme}
-              onThemeChange={(t) => setTheme(t === "dark" ? "tiza-dark" : "tiza")}
               onBack={() => navigate(returnTo || "/plantillas")}
               backLabel="Volver"
-              codeModeControlled={modo === "codigo" ? "code" : "form"}
-              onCodeModeChange={(m) => setModo(m === "code" ? "codigo" : "visual")}
-              codeModes={["form", "code"]}
+              codeModeControlled={codeMode}
+              onCodeModeChange={setCodeMode}
+              codeModes={["form", "split", "code"]}
               topBarStatus={topBarStatus}
               overflowMenu={overflowMenu}
-              renderRail={railMetadata}
+              renderRail={
+                <>
+                  {railCuestionario}
+                  {railSections}
+                </>
+              }
               renderCenterFull={renderCenterFull}
               renderAux={
-                <TizaPropertyGrid
-                  plantilla={astParaRenderizar ?? (fallbackAst as Plantilla)}
-                  onChange={(next) => setCodigo(serialize(next))}
-                  selection={selection}
-                  onSelectQuestion={() => setSelection({ kind: "pregunta" })}
-                  live={liveValues}
-                  validation={validation}
-                />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                    minHeight: 0,
+                  }}
+                >
+                  {/* Detalles (metadatos) plegables, arriba del property grid */}
+                  <div style={{ flex: "0 0 auto", borderBottom: "1px solid var(--c-border)" }}>
+                    <button
+                      type="button"
+                      onClick={() => setMetaOpen((v) => !v)}
+                      aria-expanded={metaOpen}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 9,
+                        width: "100%",
+                        padding: "13px 16px",
+                        background: "var(--c-surface)",
+                        border: 0,
+                        cursor: "pointer",
+                        textAlign: "left",
+                      }}
+                    >
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          color: "var(--c-text-3)",
+                          transform: metaOpen ? "rotate(90deg)" : "none",
+                          transition: "transform 120ms",
+                          display: "inline-block",
+                        }}
+                      >
+                        ›
+                      </span>
+                      <span
+                        style={{
+                          fontSize: 11,
+                          fontWeight: 700,
+                          letterSpacing: "0.05em",
+                          color: "var(--c-text-3)",
+                        }}
+                      >
+                        DETALLES
+                      </span>
+                      <span
+                        style={{
+                          flex: 1,
+                          minWidth: 0,
+                          fontSize: 13,
+                          fontWeight: 600,
+                          color: "var(--c-text)",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {metadata.nombre || "Sin nombre"}
+                      </span>
+                    </button>
+                    {metaOpen ? (
+                      <div style={{ padding: "0 16px 14px", maxHeight: "40vh", overflowY: "auto" }}>
+                        <MetadataPanel
+                          value={metadata}
+                          onChange={setMetadata}
+                          disabled={saveStatus === "saving"}
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                  <div style={{ flex: 1, minHeight: 0 }}>
+                    <TizaPropertyGrid
+                      plantilla={astParaRenderizar ?? (fallbackAst as Plantilla)}
+                      onChange={(next) => setCodigo(serialize(next))}
+                      selection={selection}
+                      onSelectQuestion={() => setSelection({ kind: "pregunta" })}
+                      live={liveValues}
+                      validation={validation}
+                    />
+                  </div>
+                </div>
               }
               renderPreviewPanel={
                 <div style={{ padding: 14 }}>
@@ -876,10 +1445,36 @@ function PlantillaEditorTizaInner() {
         open={promptIAOpen}
         onClose={() => setPromptIAOpen(false)}
         onInsert={(codigo) => {
-          dispatchCodigo({ type: "set", value: codigo });
+          setCodigo(codigo);
           setPromptIAOpen(false);
         }}
       />
+
+      {/* Ejemplos / Datasets como modales (antes se cortaban dentro del ⋯). */}
+      <Modal
+        open={ejemplosOpen}
+        onClose={() => setEjemplosOpen(false)}
+        title="Cargar un ejemplo"
+        size="md"
+      >
+        <EjemplosMenu
+          inline
+          hasUnsavedChanges={hayCambios}
+          onLoad={(dsl) => {
+            setCodigo(dsl);
+            setEjemplosOpen(false);
+          }}
+        />
+      </Modal>
+
+      <Modal
+        open={datasetsOpen}
+        onClose={() => setDatasetsOpen(false)}
+        title="Datasets disponibles"
+        size="md"
+      >
+        <DatasetExplorer inline />
+      </Modal>
 
       {toastState && (
         <Toast

@@ -4,9 +4,14 @@
  * DIFF-07: cada card es interactiva — el profe puede responder ("Tu respuesta…"
  * o eligiendo una opción) y comprobar, viendo si la corrección automática la da
  * por buena. La clave de respuesta queda oculta hasta comprobar / revelar.
+ *
+ * Envuelto en React.memo: las cards sólo cambian cuando cambia el `preview`
+ * (es decir, tras un debounce de compilación) o al pulsar Regenerar. Los
+ * re-renders del padre por otras causas (toggle de modo, saveStatus, modales)
+ * ya no propagan a las 3 cards ni a sus estados internos de respuesta.
  */
 
-import { useState } from "react";
+import { memo, useState } from "react";
 import type { ModuleQuizQuestion } from "@vb/vblang";
 import type { PreviewItem } from "../../hooks/usePlantillaPreview";
 
@@ -62,7 +67,7 @@ function isCorrect(q: ModuleQuizQuestion, user: string): boolean {
 /** Tipos que tienen autocorrección simple en el preview. */
 const INTERACTIVE_TYPES = new Set(["mc", "vf", "input", "completar"]);
 
-export default function PreviewPanel({
+function PreviewPanel({
   preview,
   onRegenerate,
 }: PreviewPanelProps) {
@@ -95,6 +100,8 @@ export default function PreviewPanel({
     </div>
   );
 }
+
+export default memo(PreviewPanel);
 
 function PreviewCard({ item }: { item: PreviewItem }) {
   return (

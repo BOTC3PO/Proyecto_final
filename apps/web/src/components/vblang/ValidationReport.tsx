@@ -1,7 +1,13 @@
 /**
  * Componente que muestra el reporte de validación + botón "Validar".
+ *
+ * Envuelto en React.memo: el `state` que viene del hook es estable entre
+ * renders (mismo objeto hasta que el user pulsa Validar); el `disabled` es un
+ * primitivo. Re-renders del padre por otras causas ya no recalculan los
+ * promedios ni re-pintan la lista de errores.
  */
 
+import { memo } from "react";
 import type { ValidationState } from "../../hooks/usePlantillaValidation";
 
 interface ValidationReportProps {
@@ -9,7 +15,7 @@ interface ValidationReportProps {
   disabled?: boolean;
 }
 
-export default function ValidationReport({
+function ValidationReport({
   state,
   disabled,
 }: ValidationReportProps) {
@@ -116,6 +122,8 @@ export default function ValidationReport({
     </div>
   );
 }
+
+export default memo(ValidationReport);
 
 /** Barra de progreso de validación: % de simulaciones OK + stats. */
 function ValidationProgress({

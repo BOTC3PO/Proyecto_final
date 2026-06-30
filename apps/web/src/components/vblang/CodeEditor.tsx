@@ -15,6 +15,7 @@ import {
   useEffect,
   useId,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
   type KeyboardEvent,
@@ -415,7 +416,15 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
     .filter(Boolean)
     .join(" ");
 
-  const { html, lineCount } = renderHighlighted(value, errorLine);
+  // Memoizamos el HTML del highlight: la tokenización regex + escapeHtml por
+  // cada línea es lo más caro del editor (~5-30 ms para 200 líneas) y no
+  // queremos re-correrla en re-renders que no cambiaron el código (ej. toggle
+  // de modo, apertura de un modal, cambio de saveStatus). El highlight sólo
+  // depende de `value` y `errorLine`.
+  const { html, lineCount } = useMemo(
+    () => renderHighlighted(value, errorLine),
+    [value, errorLine],
+  );
 
   /* ---------------- autocompletado (Tarea 11) ---------------- */
   const [suggestionState, setSuggestionState] = useState<{

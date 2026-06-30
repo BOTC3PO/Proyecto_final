@@ -9,13 +9,22 @@
  * Reusa plantillaFields/plantillaAst para el round-trip y no duplica lógica de datos.
  * Tokens-only.
  */
-import { useMemo, type CSSProperties, type ReactNode } from "react";
+import {
+  useState,
+  useMemo,
+  type CSSProperties,
+  type InputHTMLAttributes,
+  type ReactNode,
+  type TextareaHTMLAttributes,
+} from "react";
 import {
   type Expr,
   type Field,
   type Plantilla,
   type TextField,
+  type TipoPregunta,
   type VariableDecl,
+  ALL_QUESTION_TYPES,
   QUESTION_TYPE_SCHEMAS,
 } from "@vb/vblang";
 import Menu from "../../ui/Menu";
@@ -23,6 +32,7 @@ import CodeEditor from "../../editor/CodeEditor";
 import ValidationReport from "./ValidationReport";
 import type { ValidationState } from "../../hooks/usePlantillaValidation";
 import {
+  applyTipo,
   readTextField,
   readNumberField,
   writeTextField,
@@ -115,6 +125,58 @@ function inputStyle(monoSpace = false): CSSProperties {
       ? "var(--font-mono-css, ui-monospace, monospace)"
       : "var(--font-sans)",
   };
+}
+
+/* ─── inputs con buffer local (anti-latencia / anti-doble-llave) ──────────
+ * El `value` canónico se deriva del AST (con `partesToText`, que re-escapa
+ * `{`→`{{`). Si la caja se controlara con ese valor, tipear `{` lo mostraría
+ * como `{{` y borrarlo lo re-escaparía. Mientras la caja tiene foco usamos un
+ * draft local (texto crudo) y emitimos al modelo en cada cambio; al perder el
+ * foco volvemos al valor canónico. Así desaparecen la latencia y el doble {{. */
+type BufferedTextareaProps = {
+  value: string;
+  onCommit: (v: string) => void;
+} & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange">;
+
+function BufferedTextarea({ value, onCommit, onBlur, ...rest }: BufferedTextareaProps) {
+  const [draft, setDraft] = useState<string | null>(null);
+  return (
+    <textarea
+      {...rest}
+      value={draft ?? value}
+      onChange={(e) => {
+        setDraft(e.target.value);
+        onCommit(e.target.value);
+      }}
+      onBlur={(e) => {
+        setDraft(null);
+        onBlur?.(e);
+      }}
+    />
+  );
+}
+
+type BufferedInputProps = {
+  value: string;
+  onCommit: (v: string) => void;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange">;
+
+function BufferedInput({ value, onCommit, onBlur, ...rest }: BufferedInputProps) {
+  const [draft, setDraft] = useState<string | null>(null);
+  return (
+    <input
+      {...rest}
+      value={draft ?? value}
+      onChange={(e) => {
+        setDraft(e.target.value);
+        onCommit(e.target.value);
+      }}
+      onBlur={(e) => {
+        setDraft(null);
+        onBlur?.(e);
+      }}
+    />
+  );
 }
 
 /* ─── helpers de lectura/escritura ──────────────────────────────────── */
@@ -277,6 +339,7 @@ export function TizaQuestionCard({
 
       {/* ENUNCIADO */}
       <div
+        id="tiza-sec-enunciado"
         onClick={onSelectQuestion}
         style={{
           cursor: "pointer",
@@ -292,13 +355,13 @@ export function TizaQuestionCard({
         }}
       >
         <Eyebrow>Enunciado</Eyebrow>
-        <textarea
+        <BufferedTextarea
           value={enunciado}
           rows={2}
           placeholder="Escribí la consigna…"
-          onChange={(e) => {
+          onCommit={(v) => {
             if (!enunField) return;
-            const next = writeTextField(plantilla, enunField, e.target.value);
+            const next = writeTextField(plantilla, enunField, v);
             if (next) onChange(next);
           }}
           onClick={(e) => e.stopPropagation()}
@@ -324,7 +387,7 @@ export function TizaQuestionCard({
       {variables.length > 0 ? (
         <>
           <div style={{ height: 1, background: "var(--c-border)" }} />
-          <div>
+          <div id="tiza-sec-variables">
             <Eyebrow>Variables</Eyebrow>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 9 }}>
               {variables.map((v, i) => {
@@ -398,7 +461,7 @@ export function TizaQuestionCard({
       {(respField || tolField) && (
         <>
           <div style={{ height: 1, background: "var(--c-border)" }} />
-          <div style={{ display: "flex", gap: 22, flexWrap: "wrap" }}>
+          <div id="tiza-sec-respuesta" style={{ display: "flex", gap: 22, flexWrap: "wrap" }}>
             {respField ? (
               <div>
                 <Eyebrow>Respuesta</Eyebrow>
@@ -440,7 +503,7 @@ export function TizaQuestionCard({
       {pistas.length > 0 ? (
         <>
           <div style={{ height: 1, background: "var(--c-border)" }} />
-          <div>
+          <div id="tiza-sec-pistas">
             <Eyebrow>Pistas</Eyebrow>
           {pistas.map((text: string, i: number) => (
               <div
@@ -470,8 +533,7 @@ export function TizaQuestionCard({
                   {i + 1}
                 </div>
                 <div style={{ fontSize: 13.5, color: "var(--c-text-2)", lineHeight: 1.45 }}>
-                  {text}{" "}
-                  <span style={{ color: "var(--c-text-3)" }}>· −25%</span>
+                  {text}
                 </div>
               </div>
             ))}
@@ -483,7 +545,7 @@ export function TizaQuestionCard({
       {explicacion ? (
         <>
           <div style={{ height: 1, background: "var(--c-border)" }} />
-          <div>
+          <div id="tiza-sec-explicacion">
             <Eyebrow>Explicación</Eyebrow>
             <div style={{ fontSize: 13.5, color: "var(--c-text-2)", lineHeight: 1.5 }}>
               {explicacion}
@@ -679,42 +741,21 @@ function QuestionPropertyGrid({
         {/* TIPO */}
         <div>
           <Eyebrow>Tipo de pregunta</Eyebrow>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                alignItems: "center",
-                gap: 9,
-                padding: "10px 12px",
-                border: "1px solid var(--c-border)",
-                borderRadius: "var(--r-md)",
-                background: "var(--c-surface-2)",
-                fontSize: 13.5,
-                fontWeight: 600,
-                color: "var(--c-text)",
-              }}
-            >
-              <span style={{ color: "var(--c-accent)" }}>№</span>{" "}
-              {schema?.label ?? tipo}
-            </div>
-            <button
-              type="button"
-              disabled
-              title="Cambiar tipo desde el editor central"
-              style={{
-                padding: "10px 12px",
-                borderRadius: "var(--r-md)",
-                border: "1px solid var(--c-border)",
-                background: "transparent",
-                color: "var(--c-text-3)",
-                fontSize: 12.5,
-                fontWeight: 600,
-                cursor: "not-allowed",
-              }}
-            >
-              cambiar
-            </button>
+          <select
+            value={tipo}
+            onChange={(e) =>
+              onChange(applyTipo(plantilla, e.target.value as TipoPregunta))
+            }
+            style={{ ...inputStyle(), cursor: "pointer", fontWeight: 600 }}
+          >
+            {ALL_QUESTION_TYPES.map((t) => (
+              <option key={t} value={t}>
+                {QUESTION_TYPE_SCHEMAS[t].label}
+              </option>
+            ))}
+          </select>
+          <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+            Cambiar el tipo rearma los campos de la respuesta.
           </div>
         </div>
 
@@ -722,11 +763,11 @@ function QuestionPropertyGrid({
         {enunField ? (
           <div>
             <Eyebrow>Enunciado</Eyebrow>
-            <textarea
+            <BufferedTextarea
               value={enunciado}
               rows={3}
-              onChange={(e) => {
-                const next = writeTextField(plantilla, enunField, e.target.value);
+              onCommit={(v) => {
+                const next = writeTextField(plantilla, enunField, v);
                 if (next) onChange(next);
               }}
               style={inputStyle()}
@@ -743,11 +784,11 @@ function QuestionPropertyGrid({
         {respField ? (
           <div>
             <Eyebrow>Respuesta</Eyebrow>
-            <input
+            <BufferedInput
               type="text"
               value={respuesta}
-              onChange={(e) => {
-                const next = writeTextField(plantilla, respField, e.target.value);
+              onCommit={(v) => {
+                const next = writeTextField(plantilla, respField, v);
                 if (next) onChange(next);
               }}
               style={inputStyle(true)}
@@ -767,11 +808,11 @@ function QuestionPropertyGrid({
             {tolField ? (
               <div style={{ flex: 1 }}>
                 <Eyebrow>Tolerancia abs.</Eyebrow>
-                <input
+                <BufferedInput
                   type="number"
                   value={tolerancia}
-                  onChange={(e) => {
-                    const next = writeNumberField(plantilla, tolField, e.target.value);
+                  onCommit={(v) => {
+                    const next = writeNumberField(plantilla, tolField, v);
                     if (next) onChange(next);
                   }}
                   style={inputStyle(true)}
@@ -781,12 +822,12 @@ function QuestionPropertyGrid({
             {unidadField ? (
               <div style={{ flex: 1 }}>
                 <Eyebrow>Unidad</Eyebrow>
-                <input
+                <BufferedInput
                   type="text"
                   value={unidad}
                   placeholder="—"
-                  onChange={(e) => {
-                    const next = writeTextField(plantilla, unidadField, e.target.value);
+                  onCommit={(v) => {
+                    const next = writeTextField(plantilla, unidadField, v);
                     if (next) onChange(next);
                   }}
                   style={inputStyle()}
@@ -848,31 +889,38 @@ function QuestionPropertyGrid({
               >
                 {i + 1}
               </div>
-              <input
+              <BufferedInput
                 type="text"
                 value={text}
-                onChange={(e) => {
+                onCommit={(v) => {
                   const next = [...pistas];
-                  next[i] = e.target.value;
+                  next[i] = v;
                   onChange(writePistas(plantilla, next));
                 }}
                 style={{ ...inputStyle(), flex: 1, minWidth: 0 }}
               />
-              <select
-                value={25}
-                disabled
+              <button
+                type="button"
+                aria-label={`Quitar pista ${i + 1}`}
+                title="Quitar pista"
+                onClick={() =>
+                  onChange(writePistas(plantilla, pistas.filter((_, j) => j !== i)))
+                }
                 style={{
-                  border: "1px solid var(--c-border)",
+                  flex: "0 0 auto",
+                  width: 30,
+                  height: 30,
                   borderRadius: 8,
-                  padding: "8px 6px",
-                  fontSize: 12,
-                  color: "var(--c-text-2)",
+                  border: "1px solid var(--c-border)",
                   background: "var(--c-surface-2)",
-                  outline: "none",
+                  color: "var(--c-text-3)",
+                  cursor: "pointer",
+                  fontSize: 14,
+                  lineHeight: 1,
                 }}
               >
-                <option value={25}>−25%</option>
-              </select>
+                ×
+              </button>
             </div>
           ))}
           <button
@@ -898,10 +946,10 @@ function QuestionPropertyGrid({
           <div style={{ fontSize: 13, fontWeight: 660, marginBottom: 9 }}>
             Explicación
           </div>
-          <textarea
+          <BufferedTextarea
             value={explicacion}
             rows={3}
-            onChange={(e) => onChange(writeExplicacion(plantilla, e.target.value))}
+            onCommit={(v) => onChange(writeExplicacion(plantilla, v))}
             style={inputStyle()}
           />
         </div>
@@ -1062,11 +1110,11 @@ function VariablePropertyGrid({
           <div style={{ display: "flex", gap: 12, marginBottom: 18 }}>
             <div style={{ flex: 1 }}>
               <Eyebrow>Mínimo</Eyebrow>
-              <input
+              <BufferedInput
                 type="number"
                 value={bounds.min}
-                onChange={(e) => {
-                  const min = Number(e.target.value);
+                onCommit={(val) => {
+                  const min = Number(val);
                   const max = Number(bounds.max);
                   if (!Number.isFinite(min)) return;
                   onChange(
@@ -1082,11 +1130,11 @@ function VariablePropertyGrid({
             </div>
             <div style={{ flex: 1 }}>
               <Eyebrow>Máximo</Eyebrow>
-              <input
+              <BufferedInput
                 type="number"
                 value={bounds.max}
-                onChange={(e) => {
-                  const max = Number(e.target.value);
+                onCommit={(val) => {
+                  const max = Number(val);
                   const min = Number(bounds.min);
                   if (!Number.isFinite(max)) return;
                   onChange(
@@ -1107,11 +1155,11 @@ function VariablePropertyGrid({
         {kind === "list" ? (
           <div style={{ marginBottom: 18 }}>
             <Eyebrow>Opciones</Eyebrow>
-            <input
+            <BufferedInput
               type="text"
               value={options}
-              onChange={(e) => {
-                const items = e.target.value
+              onCommit={(val) => {
+                const items = val
                   .split(",")
                   .map((s) => s.trim())
                   .filter(Boolean);
@@ -1129,12 +1177,12 @@ function VariablePropertyGrid({
         {kind === "expr" ? (
           <div style={{ marginBottom: 18 }}>
             <Eyebrow>Expresión</Eyebrow>
-            <input
+            <BufferedInput
               type="text"
               value={exprText}
               placeholder="ej. a + b"
-              onChange={(e) => {
-                const expr = textToExpr(e.target.value);
+              onCommit={(val) => {
+                const expr = textToExpr(val);
                 if (expr) onChange(updateVariableExpr(plantilla, index, expr));
               }}
               style={inputStyle(true)}

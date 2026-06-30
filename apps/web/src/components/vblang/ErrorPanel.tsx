@@ -3,8 +3,15 @@
  * un botón "Ir a línea N" que llama a `onGoToLocation(line, col)`. Los
  * errores que matchean un quick-fix conocido ofrecen un botón "Aplicar
  * fix" que llama a `onApplyFix(newCode)`.
+ *
+ * Envuelto en React.memo: la lista sólo cambia con el `parseError` /
+ * `lintReport` que vienen del hook de compilación. El padre (PlantillaEditor)
+ * re-renderiza por cada keystroke del editor; mientras las callbacks
+ * (`onGoToLocation`, `onApplyFix`) estén estabilizadas, este panel se saltea
+ * el render.
  */
 
+import { memo } from "react";
 import type { LintReport } from "@vb/vblang";
 import { quickFixFor } from "./quickFixes";
 
@@ -28,7 +35,7 @@ interface UIIssue {
   suggestion?: string;
 }
 
-export default function ErrorPanel({
+function ErrorPanel({
   parseError,
   lintReport,
   onGoToLocation,
@@ -171,3 +178,5 @@ export default function ErrorPanel({
     </div>
   );
 }
+
+export default memo(ErrorPanel);
