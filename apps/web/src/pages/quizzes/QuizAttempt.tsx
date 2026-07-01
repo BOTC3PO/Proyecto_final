@@ -83,6 +83,9 @@ type QuizAttemptResponse = {
   quizId?: string;
   quizTitle?: string;
   status?: string;
+  /** WO-T2a — score/maxScore persistidos, para el resumen en modo revisión. */
+  score?: number;
+  maxScore?: number;
   questions?: ModuleQuizQuestion[];
   answers?: Record<string, AttemptAnswerValue> | Array<Record<string, unknown>>;
   quiz?: {
@@ -212,6 +215,19 @@ export default function QuizAttempt() {
         setAttempt(data);
         setAnswers(normalizeAnswers(data.answers));
         setStatus("ready");
+        // WO-T2a — modo revisión: un intento que ya no está `in_progress`
+        // (submitted/pending_review/graded/aborted/expired) se abre en
+        // read-only, sin timer ni gate de fullscreen, mostrando el
+        // resultado persistido en vez de esperar un submit nuevo.
+        const finished = data.status !== undefined && data.status !== "in_progress";
+        if (finished) {
+          setSubmitStatus("submitted");
+          setResult({ score: data.score, maxScore: data.maxScore });
+          setTiempoInicio(null);
+          setHasStarted(true);
+          setFullscreenWarning(false);
+          return;
+        }
         const timerSeg = typeof data.timerSegundos === "number" && data.timerSegundos > 0
           ? data.timerSegundos
           : null;
@@ -490,6 +506,9 @@ export default function QuizAttempt() {
   };
 
   const handleAnswerChange = (questionId: string, value: AttemptAnswerValue) => {
+    // WO-T2a — defensa en profundidad: en modo revisión los inputs ya están
+    // disabled, pero no se debe persistir ninguna respuesta nueva.
+    if (submitStatus === "submitted") return;
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
     const id = resolveAttemptId(attempt);
     if (id && (typeof value === "string" || Array.isArray(value))) {
@@ -502,6 +521,8 @@ export default function QuizAttempt() {
   };
 
   const handleToggleCheckbox = (questionId: string, option: string, checked: boolean) => {
+    // WO-T2a — ver nota en `handleAnswerChange`.
+    if (submitStatus === "submitted") return;
     let next: string[] = [];
     setAnswers((prev) => {
       const current = prev[questionId];
@@ -598,8 +619,12 @@ export default function QuizAttempt() {
     }
   };
 
+  // WO-T2a — en modo revisión (intento ya finalizado) el cronómetro no debe
+  // correr: no hay nada que enviar, y `onExpire` dispararía un submit sobre
+  // un intento ya cerrado.
+  const isFinishedAttempt = attempt?.status !== undefined && attempt.status !== "in_progress";
   const timerSegundosValue =
-    typeof attempt?.timerSegundos === "number" && attempt.timerSegundos > 0
+    !isFinishedAttempt && typeof attempt?.timerSegundos === "number" && attempt.timerSegundos > 0
       ? attempt.timerSegundos
       : null;
   const fullscreenEnabled = attempt?.fullscreenOnStart === true;
@@ -1126,6 +1151,11 @@ export default function QuizAttempt() {
             }}>
               Intento: {resolvedAttemptId}
             </p>
+            {isFinishedAttempt && (
+              <Alert variant="info" role="status" data-testid="review-mode-banner">
+                Estás revisando un intento ya enviado. Las respuestas no se pueden modificar.
+              </Alert>
+            )}
             {fullscreenWarning && (
               <Alert
                 variant="warning"

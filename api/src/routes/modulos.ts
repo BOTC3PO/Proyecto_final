@@ -8,7 +8,10 @@ import { isStaffRole } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
 import { sanitizeQuestionsForStudent } from "../lib/sanitize-questions";
 import { mergeMateriaIntoSettings } from "../lib/quiz-materia";
-import { ModuleSchema } from "../schema/modulo";
+import { ModuleSchema, CuestionarioPreguntasInputSchema } from "../schema/modulo";
+// Etapa 2 (Tiza — preguntas nativas) — GET/PUT del CuestionarioPreguntas de
+// un quiz por su id (ver rutas al final del archivo).
+import { parseCuestionarioPreguntas, validarCuestionarioPreguntas } from "../lib/quiz-preguntas";
 
 export const modulos = Router();
 
@@ -456,6 +459,11 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
           // vía `parseEvaluacionConfig`.
           modoPresentacion: (settings as any).modoPresentacion ?? undefined,
           preguntasPorPagina: (settings as any).preguntasPorPagina ?? undefined,
+          // WO-14 — ruteo por dificultad. `undefined` si están ausentes para
+          // que el front aplique el default del tipo vía `parseEvaluacionConfig`.
+          politicaDificultad: (settings as any).politicaDificultad ?? undefined,
+          dificultadInicial: (settings as any).dificultadInicial ?? undefined,
+          dificultadVentana: (settings as any).dificultadVentana ?? undefined,
         };
       })
       // WO-3 (bug de visibilidad) — un alumno (no dueño ni staff) NO debe ver
@@ -834,6 +842,10 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
                   // WO-9 — modo de presentación + tamaño de página.
                   modoPresentacion: quiz.modoPresentacion,
                   preguntasPorPagina: quiz.preguntasPorPagina,
+                  // WO-14 — ruteo por dificultad.
+                  politicaDificultad: quiz.politicaDificultad,
+                  dificultadInicial: quiz.dificultadInicial,
+                  dificultadVentana: quiz.dificultadVentana,
                 },
                 { subject: parsed.subject, category: parsed.category },
               ),
@@ -976,6 +988,10 @@ async function applyModuleUpdate(
           // WO-9 — modo de presentación + tamaño de página.
           modoPresentacion: q.modoPresentacion,
           preguntasPorPagina: q.preguntasPorPagina,
+          // WO-14 — ruteo por dificultad.
+          politicaDificultad: q.politicaDificultad,
+          dificultadInicial: q.dificultadInicial,
+          dificultadVentana: q.dificultadVentana,
         },
         // El front envía `subject` y `category` a nivel módulo en el
         // payload. Si vienen, los usamos. Si NO vienen (ej. PATCH que
@@ -1259,3 +1275,108 @@ modulos.delete("/api/modulos/:id", requireUser, async (req, res) => {
   if (result.count === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });
+
+// Etapa 2 (Tiza — preguntas nativas) — GET/PUT del `CuestionarioPreguntas`
+// de UN quiz por su `quizId`. El editor Tiza (`PlantillaEditorTiza.tsx`)
+// sólo conoce el `quizId` (llega por query param), no el `moduleId` — por
+// eso este endpoint resuelve el módulo dueño a partir del quiz, en vez de
+// vivir bajo `/api/modulos/:id/...` como el resto de las rutas de este
+// archivo.
+async function loadQuizConModulo(quizId: string) {
+  const quiz = await prisma.quiz.findFirst({ where: { id: quizId } });
+  if (!quiz) return null;
+  const modulo = quiz.moduleId
+    ? await prisma.modulo.findFirst({ where: { id: quiz.moduleId } })
+    : null;
+  const version = quiz.currentVersionId
+    ? await prisma.quizVersion.findFirst({ where: { id: quiz.currentVersionId } })
+    : null;
+  return { quiz, modulo, version };
+}
+
+modulos.get("/api/quizzes/:quizId/preguntas", requireUser, async (req, res) => {
+  try {
+    const quizId = req.params.quizId as string;
+    const loaded = await loadQuizConModulo(quizId);
+    if (!loaded) return res.status(404).json({ error: "quiz not found" });
+
+    const requesterRaw = req.user as
+      | { _id?: { toString?: () => string } | string; id?: string; role?: string | null; schoolId?: string | null }
+      | undefined;
+    const requesterId =
+      (typeof requesterRaw?.id === "string" && requesterRaw.id) ||
+      (typeof requesterRaw?._id === "string" && (requesterRaw._id as string)) ||
+      (requesterRaw?._id && typeof (requesterRaw._id as { toString?: () => string }).toString === "function"
+        ? (requesterRaw._id as { toString: () => string }).toString()
+        : null);
+    if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+
+    if (loaded.modulo ? !canEditModuloDirect(loaded.modulo, { _id: requesterId, role: requesterRaw?.role, schoolId: requesterRaw?.schoolId }) : !isStaffRole(requesterRaw?.role ?? null)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+
+    const settings = loaded.version?.settings
+      ? safeJsonParse<Record<string, unknown>>(loaded.version.settings, {})
+      : {};
+    const cuestionario = parseCuestionarioPreguntas((settings as any).preguntas);
+    res.json(cuestionario);
+  } catch (e: any) {
+    console.error("[GET /api/quizzes/:quizId/preguntas]", e);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+modulos.put(
+  "/api/quizzes/:quizId/preguntas",
+  requireUser,
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    try {
+      const quizId = req.params.quizId as string;
+      const loaded = await loadQuizConModulo(quizId);
+      if (!loaded) return res.status(404).json({ error: "quiz not found" });
+
+      const requesterRaw = req.user as
+        | { _id?: { toString?: () => string } | string; id?: string; role?: string | null; schoolId?: string | null }
+        | undefined;
+      const requesterId =
+        (typeof requesterRaw?.id === "string" && requesterRaw.id) ||
+        (typeof requesterRaw?._id === "string" && (requesterRaw._id as string)) ||
+        (requesterRaw?._id && typeof (requesterRaw._id as { toString?: () => string }).toString === "function"
+          ? (requesterRaw._id as { toString: () => string }).toString()
+          : null);
+      if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+
+      if (loaded.modulo ? !canEditModuloDirect(loaded.modulo, { _id: requesterId, role: requesterRaw?.role, schoolId: requesterRaw?.schoolId }) : !isStaffRole(requesterRaw?.role ?? null)) {
+        return res.status(403).json({ error: "forbidden" });
+      }
+      if (!loaded.version) {
+        return res.status(400).json({ error: "el quiz no tiene una versión válida" });
+      }
+
+      const parsed = CuestionarioPreguntasInputSchema.parse(req.body);
+      const cuestionario = parseCuestionarioPreguntas(parsed);
+      // WO — no bloquea el guardado: el docente puede estar armando el
+      // cuestionario incrementalmente (agregando relleno todavía). Se
+      // informa la validación en la respuesta para el aviso inline del
+      // front (criterio de Etapa 2 Tarea 4), mismo espíritu que otros
+      // campos "crudos" de `settings` (ver `posiciones`).
+      const validacion = validarCuestionarioPreguntas(cuestionario);
+
+      const settings = loaded.version.settings
+        ? safeJsonParse<Record<string, unknown>>(loaded.version.settings, {})
+        : {};
+      const nextSettings = { ...settings, preguntas: cuestionario };
+      await prisma.quizVersion.update({
+        where: { id: loaded.version.id },
+        data: { settings: JSON.stringify(nextSettings) },
+      });
+
+      res.json({ cuestionario, validacion });
+    } catch (e: any) {
+      if (e?.issues) return res.status(400).json({ error: "validation", issues: e.issues });
+      console.error("[PUT /api/quizzes/:quizId/preguntas]", e);
+      res.status(500).json({ error: "internal server error" });
+    }
+  }
+);

@@ -798,6 +798,19 @@ export default function ModuloDetail() {
                                   {new Date(attempt.completedAt ?? attempt.createdAt ?? "").toLocaleDateString()}
                                 </span>
                               ) : null}
+                              {/* WO-T2a — "Revisar" abre el intento ya finalizado en modo
+                                  read-only (GET, no crea ni consume un intento nuevo).
+                                  Distinto del botón "Rendir/Reintentar" de abajo, que SÍ
+                                  crea un intento nuevo vía POST. */}
+                              {attempt.status !== "in_progress" && (
+                                <button
+                                  type="button"
+                                  className="shrink-0 rounded-md px-2 py-1 text-[11px] font-semibold text-indigo-600 hover:bg-indigo-50"
+                                  onClick={() => navigate(`/quiz/attempt/${attempt.id}`)}
+                                >
+                                  Revisar
+                                </button>
+                              )}
                             </div>
                           ))}
                         </div>

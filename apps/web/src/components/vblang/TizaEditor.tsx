@@ -31,6 +31,11 @@ import Menu from "../../ui/Menu";
 import CodeEditor from "../../editor/CodeEditor";
 import ValidationReport from "./ValidationReport";
 import type { ValidationState } from "../../hooks/usePlantillaValidation";
+// Etapa 2 (Tiza — preguntas nativas) — se alía el import para no chocar con
+// `TipoPregunta` de `@vb/vblang` (el tipo de PREGUNTA — vf/opciones/input…),
+// que es un concepto totalmente distinto del ROL de la pregunta DENTRO del
+// cuestionario (obligatoria/relleno).
+import type { TipoPregunta as RolPreguntaQuiz } from "../../domain/quiz/preguntas";
 import {
   applyTipo,
   readTextField,
@@ -85,6 +90,29 @@ export interface TizaPropertyGridProps {
   onSelectQuestion: () => void;
   live: LiveValues;
   validation?: ValidationState;
+  /**
+   * Etapa 2 (Tiza — preguntas nativas) — rol de ESTA pregunta dentro del
+   * cuestionario (obligatoria/relleno + límite/pool). `undefined` cuando el
+   * editor no tiene `quizId` (plantilla suelta, standalone): la sección NO
+   * se renderiza en ese caso — no tiene sentido sin un cuestionario.
+   */
+  quizMeta?: QuizPreguntaMeta;
+  onChangeQuizMeta?: (next: QuizPreguntaMeta) => void;
+}
+
+/**
+ * Etapa 2 (Tiza — preguntas nativas) — metadatos de `PreguntaQuiz` editables
+ * desde el property grid. Espejo liviano de los campos relevantes de
+ * `PreguntaQuiz` (`domain/quiz/preguntas.ts`); NO incluye `plantillaId`
+ * (lo resuelve el host, `PlantillaEditorTiza.tsx`, a partir de la pregunta
+ * activa del rail) ni `dificultad`/`puntaje` (fuera del alcance de Etapa 2).
+ */
+export interface QuizPreguntaMeta {
+  rol: RolPreguntaQuiz;
+  /** Sólo aplica si `rol === "relleno"`. */
+  maxRepeticiones?: number;
+  /** Sólo aplica si `rol === "relleno"`. */
+  poolId?: string;
 }
 
 /* ─── helpers visuales ──────────────────────────────────────────────── */
@@ -701,6 +729,8 @@ export function TizaPropertyGrid({
   onSelectQuestion,
   live,
   validation,
+  quizMeta,
+  onChangeQuizMeta,
 }: TizaPropertyGridProps) {
   if (selection.kind === "variable") {
     return (
@@ -719,6 +749,8 @@ export function TizaPropertyGrid({
       onChange={onChange}
       live={live}
       validation={validation}
+      quizMeta={quizMeta}
+      onChangeQuizMeta={onChangeQuizMeta}
     />
   );
 }
@@ -730,11 +762,15 @@ function QuestionPropertyGrid({
   onChange,
   live,
   validation,
+  quizMeta,
+  onChangeQuizMeta,
 }: {
   plantilla: Plantilla;
   onChange: (p: Plantilla) => void;
   live: LiveValues;
   validation?: ValidationState;
+  quizMeta?: QuizPreguntaMeta;
+  onChangeQuizMeta?: (next: QuizPreguntaMeta) => void;
 }) {
   const tipo = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
@@ -984,6 +1020,83 @@ function QuestionPropertyGrid({
             style={inputStyle()}
           />
         </div>
+
+        {/* Etapa 2 (Tiza — preguntas nativas) — rol dentro del cuestionario.
+            Sólo se renderiza con `quizMeta` presente (hay `quizId`): no
+            tiene sentido para una plantilla suelta standalone. */}
+        {quizMeta && onChangeQuizMeta ? (
+          <div>
+            <div style={{ height: 1, background: "var(--c-border)", margin: "6px 0 16px" }} />
+            <Eyebrow>Rol en el cuestionario</Eyebrow>
+            <select
+              value={quizMeta.rol}
+              onChange={(e) =>
+                onChangeQuizMeta({
+                  ...quizMeta,
+                  rol: e.target.value as RolPreguntaQuiz,
+                })
+              }
+              style={{ ...inputStyle(), cursor: "pointer", fontWeight: 600 }}
+              data-testid="quiz-meta-rol-select"
+            >
+              <option value="obligatoria">Obligatoria (entra siempre, una vez)</option>
+              <option value="relleno">Relleno (pool, puede repetirse)</option>
+            </select>
+            <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+              {quizMeta.rol === "obligatoria"
+                ? "Esta pregunta aparece en TODOS los intentos del cuestionario."
+                : "El cuestionario sortea cuántas veces (hasta el límite) entra esta pregunta para llenar los slots de su pool."}
+            </div>
+
+            {quizMeta.rol === "relleno" ? (
+              <div style={{ display: "flex", flexDirection: "column", gap: 14, marginTop: 14 }}>
+                <div>
+                  <Eyebrow>Límite de repetición</Eyebrow>
+                  <input
+                    type="number"
+                    min={1}
+                    step={1}
+                    value={quizMeta.maxRepeticiones ?? ""}
+                    placeholder="Sin límite propio"
+                    onChange={(e) => {
+                      const raw = e.target.value;
+                      if (raw === "") {
+                        onChangeQuizMeta({ ...quizMeta, maxRepeticiones: undefined });
+                        return;
+                      }
+                      const n = Number(raw);
+                      if (Number.isFinite(n) && n >= 1) {
+                        onChangeQuizMeta({ ...quizMeta, maxRepeticiones: Math.floor(n) });
+                      }
+                    }}
+                    style={inputStyle()}
+                    data-testid="quiz-meta-max-repeticiones-input"
+                  />
+                  <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+                    Cuántas veces puede ocupar un slot. Vacío = sin límite propio (el
+                    tope lo pone la cantidad global del cuestionario).
+                  </div>
+                </div>
+                <div>
+                  <Eyebrow>Pool</Eyebrow>
+                  <BufferedInput
+                    type="text"
+                    value={quizMeta.poolId ?? ""}
+                    onCommit={(v) =>
+                      onChangeQuizMeta({ ...quizMeta, poolId: v.trim() || undefined })
+                    }
+                    style={inputStyle()}
+                    data-testid="quiz-meta-pool-id-input"
+                  />
+                  <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+                    Agrupa preguntas intercambiables. Vacío = pool implícita
+                    compartida por todas las de relleno sin pool propia.
+                  </div>
+                </div>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
 
         {/* VALIDACIÓN (conservada de V1/V2) */}
         {validation ? (

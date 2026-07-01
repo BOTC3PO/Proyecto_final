@@ -122,7 +122,17 @@ export const ModuleQuizSchema = z.object({
     .optional(),
   // WO-9 — tamaño de página cuando `modoPresentacion === "paginado"`.
   // Entero ≥ 1. Sin tope superior (rango razonable del front).
-  preguntasPorPagina: z.number().int().positive().optional()
+  preguntasPorPagina: z.number().int().positive().optional(),
+  // WO-14 — política de ruteo por dificultad, persistida en
+  // `settings.politicaDificultad`. Default `fija` (preserva el
+  // comportamiento previo a WO-14: la dificultad se ignoraba).
+  politicaDificultad: z.enum(["fija", "manual", "adaptativa_simple"]).optional(),
+  // WO-14 — dificultad inicial, persistida en `settings.dificultadInicial`.
+  dificultadInicial: z.enum(["basico", "intermedio", "avanzado"]).optional(),
+  // WO-14 — ventana de `adaptativa_simple`, persistida en
+  // `settings.dificultadVentana`. Entero ≥ 1 (el parser server-side clampea
+  // al rango válido).
+  dificultadVentana: z.number().int().positive().optional()
 }).superRefine((value, ctx) => {
   if (value.mode === "generated") {
     if (value.questions !== undefined) {
@@ -265,3 +275,25 @@ export const ModuleSchema = z.object({
 
 export type ModuleResource = z.infer<typeof ModuleResourceSchema>;
 export type Module = z.infer<typeof ModuleSchema>;
+
+// Etapa 2 (Tiza — preguntas nativas) — payload de
+// `PUT /api/quizzes/:quizId/preguntas`. Shape de `CuestionarioPreguntas`
+// (`api/src/lib/quiz-preguntas.ts`), validado a nivel de forma acá; la
+// validación de NEGOCIO (límites de pool insuficientes) la hace
+// `validarCuestionarioPreguntas` server-side (se informa en la respuesta,
+// no bloquea el guardado — mismo criterio que otros campos "crudos" de
+// `settings`, ver `posiciones` en `ModuleQuizSchema`).
+export const PreguntaQuizSchema = z.object({
+  plantillaId: z.string().min(1),
+  plantillaVersion: z.number().int().positive().optional(),
+  tipo: z.enum(["obligatoria", "relleno"]),
+  maxRepeticiones: z.number().int().positive().optional(),
+  poolId: z.string().min(1).optional(),
+  puntaje: z.number().optional(),
+  dificultad: z.enum(["basico", "intermedio", "avanzado"]).optional()
+});
+
+export const CuestionarioPreguntasInputSchema = z.object({
+  cantidadGlobal: z.number().int().positive(),
+  preguntas: z.array(PreguntaQuizSchema)
+});

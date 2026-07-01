@@ -51,6 +51,7 @@ import {
   TizaPropertyGrid,
   TizaCodeDrawer,
   type TizaSelection,
+  type QuizPreguntaMeta,
 } from "../components/vblang/TizaEditor";
 import DatasetExplorer from "../components/vblang/DatasetExplorer";
 import EjemplosMenu from "../components/vblang/EjemplosMenu";
@@ -86,6 +87,12 @@ import {
   updatePlantilla,
   DslApiError,
 } from "../domain/vblang/plantillaApi";
+import { getQuizPreguntas, saveQuizPreguntas } from "../domain/quiz/quizPreguntasApi";
+import {
+  validarCuestionarioPreguntas,
+  type CuestionarioPreguntas,
+  type PreguntaQuiz,
+} from "../domain/quiz/preguntas";
 import PlantillaEditorClasico from "./PlantillaEditor";
 
 const INITIAL_TEMPLATE = `variables:
@@ -162,6 +169,13 @@ interface WorkQuestion {
   /** Último DSL persistido ("" si nunca se guardó). */
   savedCodigo: string;
   hist: CodigoHist;
+  /**
+   * Etapa 2 (Tiza — preguntas nativas) — rol de esta pregunta DENTRO del
+   * cuestionario (`quizId` presente). `undefined` en modo standalone (sin
+   * `quizId`): no se persiste nada de esto en ese caso. Default
+   * "obligatoria" cuando hay `quizId` y la pregunta es nueva.
+   */
+  quizMeta?: QuizPreguntaMeta;
 }
 
 let _qSeq = 0;
@@ -314,6 +328,12 @@ function PlantillaEditorTizaInner() {
   const [searchParams] = useSearchParams();
   const returnTo = searchParams.get("returnTo");
   const isNew = !id;
+  // Etapa 2 (Tiza — preguntas nativas) — `quizId` como query param, mismo
+  // criterio que `returnTo` (contexto extra de esta misma página, no
+  // identidad del recurso — eso sigue siendo `:id`/plantilla). Presente =
+  // el editor está embebido en un cuestionario; ausente = plantilla suelta
+  // standalone (comportamiento previo a Etapa 2, intacto).
+  const quizId = searchParams.get("quizId");
 
   // El tema (claro/oscuro) lo maneja el tema global de la app, no el editor:
   // sólo observamos el actual para que el acento se pinte con el tono correcto.
@@ -385,7 +405,11 @@ function PlantillaEditorTizaInner() {
   >(undefined);
   const [loadStatus, setLoadStatus] = useState<
     "idle" | "loading" | "ready" | "error"
-  >(isNew ? "ready" : "loading");
+  >(isNew && !quizId ? "ready" : "loading");
+  // Etapa 2 (Tiza — preguntas nativas) — cuántas preguntas ve el alumno en
+  // total. Sólo tiene sentido con `quizId` presente; `null` en modo
+  // standalone (no se muestra el campo ni se persiste nada).
+  const [cantidadGlobal, setCantidadGlobal] = useState<number | null>(null);
   const [toastState, setToastState] = useState<{
     message: string;
     actions?: ToastAction[];
@@ -410,7 +434,10 @@ function PlantillaEditorTizaInner() {
   const lastValidPlantillaRef = useRef<Plantilla | null>(null);
 
   useEffect(() => {
-    if (isNew || !id) return;
+    // Etapa 2 — con `quizId` presente, la carga la maneja el effect de
+    // abajo (que también resuelve `id` cuando corresponde): evita que dos
+    // effects se pisen escribiendo `questions`/`activeKey`.
+    if (isNew || !id || quizId) return;
     let alive = true;
     setLoadStatus("loading");
     getPlantilla(id)
@@ -439,7 +466,105 @@ function PlantillaEditorTizaInner() {
     return () => {
       alive = false;
     };
-  }, [id, isNew]);
+  }, [id, isNew, quizId]);
+
+  // Etapa 2 (Tiza — preguntas nativas) — con `quizId` presente, puebla el
+  // rail con las preguntas YA linkeadas a ese cuestionario (hidratando cada
+  // `PreguntaQuiz` con su plantilla vía `getPlantilla`) y arranca/activa la
+  // pregunta que corresponda según `id`:
+  //   - `id` presente y ya está en el cuestionario → esa queda activa.
+  //   - `id` presente pero AÚN NO está en el cuestionario (plantilla
+  //     standalone que se está incorporando) → se carga aparte y se agrega
+  //     activa, con rol "obligatoria" por default.
+  //   - `isNew` (sin `id`) → se agrega una pregunta en blanco al final,
+  //     activa, con rol "obligatoria" por default (el docente la ajusta en
+  //     el property grid antes de guardar).
+  useEffect(() => {
+    if (!quizId) return;
+    let alive = true;
+    setLoadStatus("loading");
+
+    const hydrate = async (p: PreguntaQuiz): Promise<WorkQuestion | null> => {
+      try {
+        const plantilla = await getPlantilla(p.plantillaId);
+        return makeQuestion(plantilla.codigoDsl, {
+          plantillaId: p.plantillaId,
+          savedCodigo: plantilla.codigoDsl,
+          metadata: {
+            nombre: plantilla.nombre,
+            descripcion: plantilla.descripcion ?? "",
+            materia: plantilla.materia ?? "",
+            tags: plantilla.tags ?? [],
+            visibility: plantilla.visibility,
+          },
+          quizMeta: {
+            rol: p.tipo,
+            maxRepeticiones: p.maxRepeticiones,
+            poolId: p.poolId,
+          },
+        });
+      } catch {
+        return null;
+      }
+    };
+
+    (async () => {
+      try {
+        const cuestionario = await getQuizPreguntas(quizId);
+        if (!alive) return;
+        setCantidadGlobal(
+          cuestionario.cantidadGlobal > 0 ? cuestionario.cantidadGlobal : 1,
+        );
+
+        const hydrated = (await Promise.all(cuestionario.preguntas.map(hydrate))).filter(
+          (q): q is WorkQuestion => q !== null,
+        );
+        if (!alive) return;
+
+        const yaIncluida = !isNew && id
+          ? hydrated.find((q) => q.plantillaId === id)
+          : undefined;
+
+        let finalQuestions = hydrated;
+        let activeQ: WorkQuestion;
+        if (yaIncluida) {
+          activeQ = yaIncluida;
+        } else if (!isNew && id) {
+          // La plantilla de la URL todavía no está linkeada a este
+          // cuestionario (p. ej. se abrió directo por URL) — se agrega.
+          const p = await getPlantilla(id);
+          activeQ = makeQuestion(p.codigoDsl, {
+            plantillaId: id,
+            savedCodigo: p.codigoDsl,
+            metadata: {
+              nombre: p.nombre,
+              descripcion: p.descripcion ?? "",
+              materia: p.materia ?? "",
+              tags: p.tags ?? [],
+              visibility: p.visibility,
+            },
+            quizMeta: { rol: "obligatoria" },
+          });
+          finalQuestions = [...hydrated, activeQ];
+        } else {
+          // Nueva pregunta para sumar al cuestionario.
+          activeQ = makeQuestion(INITIAL_TEMPLATE, { quizMeta: { rol: "obligatoria" } });
+          finalQuestions = [...hydrated, activeQ];
+        }
+        if (!alive) return;
+        setQuestions(finalQuestions.length > 0 ? finalQuestions : [activeQ]);
+        setActiveKey(activeQ.key);
+        setLoadStatus("ready");
+      } catch {
+        if (alive) setLoadStatus("error");
+      }
+    })();
+
+    return () => {
+      alive = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- `id`/`isNew` se leen una sola vez al montar con este `quizId`; re-ejecutar en cada cambio de `id` navegaría en un loop (guardar cambia el plantillaId activo, no debe re-disparar la carga completa del cuestionario).
+  }, [quizId]);
 
   const compilation = usePlantillaCompilation(codigoDsl);
   const preview = usePlantillaPreview(compilation.compiled);
@@ -593,8 +718,10 @@ function PlantillaEditorTizaInner() {
       }
       // Se guarda la pregunta ACTIVA como su propia plantilla. Al crear NO se
       // navega (eso destruiría el working set); se fija el id en memoria.
+      let savedPlantillaId = active.plantillaId;
       if (active.plantillaId == null) {
         const created = await createPlantilla(payload);
+        savedPlantillaId = created.id;
         setSaveStatus("saved");
         setSaveMessage("Pregunta guardada.");
         updateActive((q) => ({
@@ -637,6 +764,31 @@ function PlantillaEditorTizaInner() {
           });
         }
       }
+
+      // Etapa 2 (Tiza — preguntas nativas) — con `quizId`, además de la
+      // plantilla se actualiza su entrada `PreguntaQuiz` en el
+      // `CuestionarioPreguntas` del quiz. UN solo PUT con el cuestionario
+      // completo derivado del working set (no un endpoint por pregunta):
+      // el rail ya tiene el estado completo en memoria. Si esto falla NO
+      // se deshace el guardado de la plantilla (ya persistida) — se avisa
+      // aparte, no se pierde el trabajo del docente.
+      if (quizId && cantidadGlobal !== null) {
+        const nextQuestions = questions.map((q) =>
+          q.key === active.key
+            ? { ...q, plantillaId: savedPlantillaId, savedCodigo: payload.codigoDsl }
+            : q,
+        );
+        try {
+          await saveQuizPreguntas(quizId, {
+            cantidadGlobal,
+            preguntas: buildPreguntasFromQuestions(nextQuestions),
+          });
+        } catch {
+          setSaveMessage(
+            (prev) => `${prev ?? "Guardado."} (No se pudo actualizar el cuestionario; reintentá.)`,
+          );
+        }
+      }
     } catch (err) {
       if (err instanceof DslApiError) {
         setDslApiError({ message: err.message, line: err.line, col: err.col });
@@ -652,6 +804,44 @@ function PlantillaEditorTizaInner() {
       isSavingRef.current = false;
     }
   };
+
+  // Etapa 2 (Tiza — preguntas nativas) — deriva la lista de `PreguntaQuiz`
+  // persistible a partir del working set. Sólo entran las YA guardadas
+  // (con `plantillaId`); una pregunta sin guardar todavía no es un enlace
+  // válido del cuestionario.
+  //
+  // IMPORTANTE: este hook (y el siguiente) DEBEN vivir ANTES de los
+  // `return` tempranos de `loadStatus` de más abajo — moverlos después
+  // viola las Rules of Hooks (la cantidad de hooks cambiaría entre el
+  // render "loading" y el render "ready").
+  const buildPreguntasFromQuestions = useCallback(
+    (qs: WorkQuestion[]): PreguntaQuiz[] =>
+      qs
+        .filter((q): q is WorkQuestion & { plantillaId: string } => q.plantillaId !== null)
+        .map((q) => {
+          const meta = q.quizMeta ?? { rol: "obligatoria" as const };
+          const out: PreguntaQuiz = { plantillaId: q.plantillaId, tipo: meta.rol };
+          if (meta.rol === "relleno") {
+            if (meta.maxRepeticiones !== undefined) out.maxRepeticiones = meta.maxRepeticiones;
+            if (meta.poolId !== undefined) out.poolId = meta.poolId;
+          }
+          return out;
+        }),
+    [],
+  );
+
+  // Validación LOCAL (sin red): mismo criterio que usará el backend al
+  // guardar, para avisar inline apenas los límites no alcanzan (Etapa 2
+  // Tarea 4). `null` en modo standalone (sin `quizId`/`cantidadGlobal`).
+  const cuestionarioValidacion = useMemo(() => {
+    if (!quizId || cantidadGlobal === null) return null;
+    const cuestionario: CuestionarioPreguntas = {
+      version: 1,
+      cantidadGlobal,
+      preguntas: buildPreguntasFromQuestions(questions),
+    };
+    return validarCuestionarioPreguntas(cuestionario);
+  }, [quizId, cantidadGlobal, questions, buildPreguntasFromQuestions]);
 
   if (loadStatus === "loading") {
     return (
@@ -766,7 +956,9 @@ function PlantillaEditorTizaInner() {
     setSaveMessage(null);
   };
   const addQuestion = () => {
-    const nq = makeQuestion(INITIAL_TEMPLATE);
+    const nq = makeQuestion(INITIAL_TEMPLATE, {
+      quizMeta: quizId ? { rol: "obligatoria" } : undefined,
+    });
     setQuestions((qs) => [...qs, nq]);
     setActiveKey(nq.key);
     setSelection({ kind: "pregunta" });
@@ -806,6 +998,59 @@ function PlantillaEditorTizaInner() {
       >
         CUESTIONARIO
       </div>
+      {/* Etapa 2 (Tiza — preguntas nativas) — cabecera con `cantidadGlobal`,
+          sólo con `quizId` presente. Aviso inline si los límites de alguna
+          pool no alcanzan (validación LOCAL, sin red — `cuestionarioValidacion`). */}
+      {quizId && cantidadGlobal !== null ? (
+        <div style={{ padding: "0 8px 10px", display: "flex", flexDirection: "column", gap: 6 }}>
+          <label style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12.5 }}>
+            <span style={{ color: "var(--c-text-2)", fontWeight: 600 }}>
+              Cantidad de preguntas
+            </span>
+            <input
+              type="number"
+              min={1}
+              step={1}
+              value={cantidadGlobal}
+              onChange={(e) => {
+                const raw = e.target.value;
+                if (raw === "") return;
+                const n = Number(raw);
+                if (Number.isFinite(n) && n >= 1) setCantidadGlobal(Math.floor(n));
+              }}
+              data-testid="cantidad-global-input"
+              style={{
+                width: 60,
+                border: "1px solid var(--c-border)",
+                borderRadius: "var(--r-md)",
+                padding: "5px 8px",
+                color: "var(--c-text)",
+                background: "var(--c-surface-2)",
+                fontSize: 12.5,
+                textAlign: "right",
+              }}
+            />
+          </label>
+          {cuestionarioValidacion && !cuestionarioValidacion.ok ? (
+            <div
+              role="alert"
+              data-testid="cuestionario-validacion-warning"
+              style={{
+                fontSize: 11.5,
+                lineHeight: 1.4,
+                color: "var(--c-warning-text, #92400e)",
+                background: "var(--c-warning-soft, #fef3c7)",
+                borderRadius: "var(--r-md)",
+                padding: "6px 8px",
+              }}
+            >
+              {cuestionarioValidacion.errores.map((err) => (
+                <div key={err}>{err}</div>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
       {questions.map((q, i) => {
         const isActive = q.key === active.key;
         const unsaved = q.hist.present !== q.savedCodigo;
@@ -1408,6 +1653,12 @@ function PlantillaEditorTizaInner() {
                       onSelectQuestion={() => setSelection({ kind: "pregunta" })}
                       live={liveValues}
                       validation={validation}
+                      quizMeta={quizId ? (active.quizMeta ?? { rol: "obligatoria" }) : undefined}
+                      onChangeQuizMeta={
+                        quizId
+                          ? (next) => updateActive((q) => ({ ...q, quizMeta: next }))
+                          : undefined
+                      }
                     />
                   </div>
                 </div>

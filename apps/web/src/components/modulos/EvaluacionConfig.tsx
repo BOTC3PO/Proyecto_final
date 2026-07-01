@@ -25,7 +25,10 @@
 import { useId } from "react";
 import {
   DEFAULT_EVALUACION_CONFIG,
+  DIFICULTAD_VENTANA_MAX,
+  DIFICULTAD_VENTANA_MIN,
   MODOS_PRESENTACION_VALIDOS,
+  POLITICAS_DIFICULTAD_VALIDAS,
   POLITICAS_SORTEO_VALIDAS,
   POLITICAS_VALIDAS,
   PREGUNTAS_POR_PAGINA_DEFAULT,
@@ -33,6 +36,7 @@ import {
   TIMER_SEGUNDOS_MIN,
   type EvaluacionConfig,
   type ModoPresentacion,
+  type PoliticaDificultad,
   type PoliticaNota,
   type PoliticaSorteo,
   type QuizTipo
@@ -55,6 +59,12 @@ interface Props {
   onChangeModoPresentacion?: (next: ModoPresentacion) => void;
   /** WO-9 — tamaño de página cuando `modoPresentacion === "paginado"`. */
   onChangePreguntasPorPagina?: (next: number) => void;
+  /** WO-14 — política de ruteo por dificultad. */
+  onChangePoliticaDificultad?: (next: PoliticaDificultad) => void;
+  /** WO-14 — dificultad inicial ("fija" o punto de partida de "adaptativa_simple"). */
+  onChangeDificultadInicial?: (next: "basico" | "intermedio" | "avanzado") => void;
+  /** WO-14 — ventana de respuestas que mira "adaptativa_simple" para subir/bajar 1 nivel. */
+  onChangeDificultadVentana?: (next: number) => void;
   /** Variante visual. Default: "panel" (con fieldset). "compact" = menos padding. */
   variant?: "panel" | "compact";
 }
@@ -76,6 +86,18 @@ const MODO_PRESENTACION_HINT: Record<ModoPresentacion, string> = {
   paginado: "Dividido en páginas. Útil para cuestionarios largos."
 };
 
+const POLITICA_DIFICULTAD_LABEL: Record<PoliticaDificultad, string> = {
+  fija: "Fija (dificultad inicial para todas las posiciones)",
+  manual: "Manual (por posición, próximamente)",
+  adaptativa_simple: "Adaptativa simple (sube/baja según desempeño)"
+};
+
+const POLITICA_DIFICULTAD_HINT: Record<PoliticaDificultad, string> = {
+  fija: "Todo el cuestionario usa la dificultad inicial elegida abajo.",
+  manual: "Por ahora se comporta igual que 'fija' (la elección por posición es una mejora futura).",
+  adaptativa_simple: "La dificultad sube o baja 1 nivel según las últimas respuestas del alumno."
+};
+
 function formatTimer(minutes: number): string {
   if (minutes < 60) return `${minutes} min`;
   const h = Math.floor(minutes / 60);
@@ -94,6 +116,9 @@ export default function EvaluacionConfig({
   onChangeOcultarPuntos,
   onChangeModoPresentacion,
   onChangePreguntasPorPagina,
+  onChangePoliticaDificultad,
+  onChangeDificultadInicial,
+  onChangeDificultadVentana,
   variant = "panel"
 }: Props) {
   const fieldsetClass =
@@ -117,6 +142,10 @@ export default function EvaluacionConfig({
   // WO-9 — ids de los inputs de modo de presentación.
   const modoPresentacionId = `${baseId}-modo-presentacion`;
   const preguntasPorPaginaId = `${baseId}-preguntas-por-pagina`;
+  // WO-14 — ids de los inputs de ruteo por dificultad.
+  const politicaDificultadId = `${baseId}-politica-dificultad`;
+  const dificultadInicialId = `${baseId}-dificultad-inicial`;
+  const dificultadVentanaId = `${baseId}-dificultad-ventana`;
 
   // Minutos para el input (el timer se guarda en segundos).
   const timerMinutos = config.timerSegundos === null ? null : Math.round(config.timerSegundos / 60);
@@ -380,6 +409,86 @@ export default function EvaluacionConfig({
             <span className="text-xs text-[var(--c-hint)]">
               (default: {PREGUNTAS_POR_PAGINA_DEFAULT})
             </span>
+          </div>
+        )}
+      </div>
+
+      {/* WO-14 — ruteo por dificultad. Se renderiza para todos los tipos
+          (practica / formal / competencia): aplica también a generadores,
+          no es exclusiva del modo evaluación. Default `fija` + `intermedio`
+          preserva el comportamiento previo a WO-14 (la dificultad se
+          ignoraba). */}
+      <div className="space-y-1.5" data-testid="config-dificultad">
+        <label htmlFor={politicaDificultadId} className="text-sm">
+          Ruteo por dificultad
+        </label>
+        <select
+          id={politicaDificultadId}
+          data-testid="config-politica-dificultad-select"
+          disabled={!onChangePoliticaDificultad}
+          value={config.politicaDificultad}
+          onChange={(e) => onChangePoliticaDificultad?.(e.target.value as PoliticaDificultad)}
+          className="rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-1 text-sm"
+        >
+          {POLITICAS_DIFICULTAD_VALIDAS.map((p) => (
+            <option key={p} value={p}>
+              {POLITICA_DIFICULTAD_LABEL[p]}
+            </option>
+          ))}
+        </select>
+        <p className="text-xs text-[var(--c-hint)]">
+          {POLITICA_DIFICULTAD_HINT[config.politicaDificultad]}
+        </p>
+
+        <div className="flex flex-wrap items-end gap-3 pl-1 pt-1">
+          <label htmlFor={dificultadInicialId} className="text-xs">
+            Dificultad inicial
+          </label>
+          <select
+            id={dificultadInicialId}
+            data-testid="config-dificultad-inicial-select"
+            disabled={!onChangeDificultadInicial}
+            value={config.dificultadInicial}
+            onChange={(e) =>
+              onChangeDificultadInicial?.(
+                e.target.value as "basico" | "intermedio" | "avanzado"
+              )
+            }
+            className="rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-1 text-sm"
+          >
+            <option value="basico">Básico</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="avanzado">Avanzado</option>
+          </select>
+        </div>
+
+        {config.politicaDificultad === "adaptativa_simple" && (
+          <div
+            className="flex flex-wrap items-end gap-2 pl-1 pt-1"
+            data-testid="config-dificultad-ventana"
+          >
+            <label htmlFor={dificultadVentanaId} className="text-xs">
+              Ventana (respuestas para subir/bajar 1 nivel)
+            </label>
+            <input
+              id={dificultadVentanaId}
+              type="number"
+              min={DIFICULTAD_VENTANA_MIN}
+              max={DIFICULTAD_VENTANA_MAX}
+              step={1}
+              disabled={!onChangeDificultadVentana}
+              value={config.dificultadVentana}
+              onChange={(e) => {
+                const raw = e.target.value;
+                if (raw === "") return;
+                const n = Number(raw);
+                if (Number.isFinite(n) && n >= 1) {
+                  onChangeDificultadVentana?.(Math.floor(n));
+                }
+              }}
+              className="w-16 rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-0.5 text-right text-sm tabular-nums"
+              data-testid="config-dificultad-ventana-input"
+            />
           </div>
         )}
       </div>

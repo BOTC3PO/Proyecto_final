@@ -1680,6 +1680,22 @@ export default function ModuloEditor() {
                               ✏️ Manual
                             </span>
                           )}
+                          {/* Etapa 2 (Tiza — preguntas nativas) — sólo para
+                              módulos YA guardados: un quiz recién agregado en
+                              esta sesión todavía no existe en el servidor
+                              (se crea junto con el módulo al guardar), así
+                              que abrirlo en Tiza con su `quizId` fallaría
+                              con 404. Se agrega en la lista de quizzes
+                              existentes, no en el flujo de "crear nuevo". */}
+                          {id && (
+                            <Link
+                              to={`/plantillas/nueva?quizId=${encodeURIComponent(quiz.id)}&returnTo=${encodeURIComponent(moduloReturnTo)}`}
+                              className="text-xs text-[var(--c-primary)] hover:underline"
+                              data-testid="quiz-tiza-preguntas-link"
+                            >
+                              Preguntas nativas en Tiza →
+                            </Link>
+                          )}
                         </div>
 
                         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -2245,7 +2261,11 @@ function EvaluacionConfigEditor({
     // también en el "settings" virtual para que `parseEvaluacionConfig`
     // resuelva los defaults por tipo de forma centralizada.
     modoPresentacion: quiz.modoPresentacion,
-    preguntasPorPagina: quiz.preguntasPorPagina
+    preguntasPorPagina: quiz.preguntasPorPagina,
+    // WO-14 — ruteo por dificultad.
+    politicaDificultad: quiz.politicaDificultad,
+    dificultadInicial: quiz.dificultadInicial,
+    dificultadVentana: quiz.dificultadVentana
   });
   const config = parseEvaluacionConfig(virtualSettings, quiz.type);
 
@@ -2264,6 +2284,10 @@ function EvaluacionConfigEditor({
       // WO-9 — wireado del modo de presentación + tamaño de página.
       onChangeModoPresentacion={(next) => updateQuiz(quiz.id, { modoPresentacion: next })}
       onChangePreguntasPorPagina={(next) => updateQuiz(quiz.id, { preguntasPorPagina: next })}
+      // WO-14 — wireado del ruteo por dificultad.
+      onChangePoliticaDificultad={(next) => updateQuiz(quiz.id, { politicaDificultad: next })}
+      onChangeDificultadInicial={(next) => updateQuiz(quiz.id, { dificultadInicial: next })}
+      onChangeDificultadVentana={(next) => updateQuiz(quiz.id, { dificultadVentana: next })}
     />
   );
 }

@@ -27,10 +27,12 @@
  *   - combustion (1)
  *   - neutralizacion_tipo (1)
  *
- * Subtipos NO migrados (8 PARAMétricos): tabla_periodica_numero_atomico,
+ * Subtipos NO migrados (6 PARAMétricos): tabla_periodica_numero_atomico,
  * electronegatividad, radio_atomico, valencia_tipica, particulas_subatomicas,
- * configuracion_electronica (éste con bug de distractores fijos en el
- * source — `.slice(0,3)` sin barajar).
+ * `configuracion_electronica` (los distractores YA están barajados en
+ * `AtomosEnlaces.ts:266` vía `this.shuffle(...).slice(0, 3)` — el
+ * comentario de la versión inicial describía un bug que ya fue
+ * arreglado; ver test `atomosEnlaces.distractores.spec.ts` 2/2).
  *
  * Nota: `precipitacion_tipo` también existe en el switch del .ts pero NO
  * está en la lista BANCO de la auditoría; se omite para mantener

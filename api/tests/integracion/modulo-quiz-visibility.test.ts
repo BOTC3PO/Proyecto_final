@@ -96,6 +96,10 @@ beforeEach(() => {
   seedQuiz("q-publico", "publico", {
     politicaSorteo: "por_intento",
     displayCount: 3,
+    // WO-14 — ruteo por dificultad, persistido en `settings`.
+    politicaDificultad: "adaptativa_simple",
+    dificultadInicial: "avanzado",
+    dificultadVentana: 3,
   });
   seedQuiz("q-escuela", "escuela");
 });
@@ -143,4 +147,22 @@ test("WO-3: el DTO expone politicaSorteo, displayCount y la escala del módulo",
   const pub = body.quizzes.find((q) => q.id === "q-publico");
   assert.equal(pub?.politicaSorteo, "por_intento");
   assert.equal(pub?.displayCount, 3);
+});
+
+test("WO-14: el DTO expone politicaDificultad, dificultadInicial y dificultadVentana", async () => {
+  const token = tokenFor({ id: OWNER, role: "TEACHER", schoolId: ESCUELA });
+  const res = await jsonRequest(baseUrl, "GET", `/api/modulos/${MOD}`, { token });
+  assert.equal(res.status, 200);
+  const body = res.body as {
+    quizzes: Array<{
+      id: string;
+      politicaDificultad?: string;
+      dificultadInicial?: string;
+      dificultadVentana?: number;
+    }>;
+  };
+  const pub = body.quizzes.find((q) => q.id === "q-publico");
+  assert.equal(pub?.politicaDificultad, "adaptativa_simple");
+  assert.equal(pub?.dificultadInicial, "avanzado");
+  assert.equal(pub?.dificultadVentana, 3);
 });

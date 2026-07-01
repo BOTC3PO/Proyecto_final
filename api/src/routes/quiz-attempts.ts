@@ -51,6 +51,15 @@ import {
 } from "../lib/vblang-materialize";
 import { parseComposition, selectPoolIndices } from "../lib/quiz-composition";
 import { excluirEspejosDeIds } from "../lib/espejo-filtro";
+// Etapa 1 (Tiza — preguntas nativas) — sorteo nuevo, sólo para quizzes que
+// declaran `settings.preguntas` (schema independiente de `composition`).
+import {
+  parseCuestionarioPreguntas,
+  sortearCuestionarioPreguntas,
+  tienePreguntas,
+  validarCuestionarioPreguntas,
+} from "../lib/quiz-preguntas";
+import type { ContextoSorteo, PoliticaSorteo } from "../lib/quiz-sorteo";
 
 type ModuleQuiz = {
   id?: string;
@@ -101,6 +110,17 @@ type ModuleQuiz = {
     variantes?: string[];
     pesoPorDefecto?: number;
   };
+  /** WO-3 — política de sorteo (`fijo_por_alumno` | `por_intento`). Etapa 1
+   *  (preguntas nativas) la reusa para el mismo concepto de estabilidad
+   *  entre intentos, en vez de inventar un campo nuevo. */
+  politicaSorteo?: string;
+  /**
+   * Etapa 1 (Tiza — preguntas nativas) — `CuestionarioPreguntas` crudo
+   * (`settings.preguntas`). Schema INDEPENDIENTE de `composition`; convive
+   * con él (un quiz usa uno u otro, nunca los dos). `undefined` = el quiz
+   * sigue en el modelo viejo (`composition`/banco estático).
+   */
+  preguntas?: unknown;
 };
 
 type ModuleWithQuizzes = {
@@ -238,6 +258,10 @@ type QuizAttemptRecord = {
   status: string;
   startedAt: Date;
   submittedAt: Date | null;
+  /** Etapa 1 (Tiza — preguntas nativas) — usado como `intento` del
+   *  `ContextoSorteo` en `resolvePreguntasGrading`. Ya existe en el modelo
+   *  Prisma (ver `attemptNo: 1` en la creación); faltaba en este subtipo. */
+  attemptNo?: number | null;
 };
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
@@ -299,6 +323,14 @@ const buildQuizFromCollection = (
     : {};
   if (settings && typeof settings === "object" && (settings as any).composition) {
     quiz.composition = (settings as any).composition;
+  }
+  if (settings && typeof settings === "object" && (settings as any).politicaSorteo) {
+    quiz.politicaSorteo = (settings as any).politicaSorteo;
+  }
+  // Etapa 1 (Tiza — preguntas nativas) — crudo, se parsea en el punto de uso
+  // (mismo criterio que `composition`).
+  if (settings && typeof settings === "object" && (settings as any).preguntas) {
+    quiz.preguntas = (settings as any).preguntas;
   }
   return quiz;
 };
@@ -594,6 +626,99 @@ const resolveVblangGrading = async (
   return { gradingQuestions, serverAuthoritative: true, mismatchQuestions };
 };
 
+// Etapa 1 (Tiza — preguntas nativas) — camino `settings.preguntas`. A
+// diferencia de `resolveVblangGrading` (UNA plantilla, pool regenerado por
+// seed), acá cada SLOT del sorteo puede venir de una plantilla DISTINTA
+// (`PreguntaQuiz.plantillaId`). Se sortea qué plantilla ocupa cada slot
+// (`sortearCuestionarioPreguntas`, puro y determinista) y se materializa
+// cada una individualmente con `materializeVblangPool(..., count=1)`,
+// reusando la MISMA infraestructura de compilación/generación que el
+// camino de una sola plantilla — no se inventa un segundo motor VBLang.
+//
+// Mismo criterio de autoridad que `resolveVblangGrading`: si CUALQUIER
+// slot no se puede materializar server-side (plantilla ausente, o usa
+// generador asistido/dataset sin provider), se cae A TODO el intento a
+// `serverAuthoritative: false` (fallback no-autoritativo) en vez de
+// mezclar slots server-autoritativos con slots que le creen al cliente —
+// mismo espíritu que "no completar con menos preguntas sin avisar" de la
+// validación: no se arma un resultado parcialmente confiable en silencio.
+const resolvePreguntasGrading = async (
+  quiz: ModuleQuiz,
+  attempt: QuizAttemptRecord,
+  payload: SubmitPayload
+): Promise<GradingResolution> => {
+  const fallback = (): GradingResolution => ({
+    gradingQuestions: gradingQuestionsFromPayload(quiz, payload),
+    serverAuthoritative: false,
+    mismatchQuestions: []
+  });
+
+  const cuestionario = parseCuestionarioPreguntas(quiz.preguntas);
+  if (!validarCuestionarioPreguntas(cuestionario).ok) return fallback();
+
+  // Política de estabilidad entre intentos: reusa `settings.politicaSorteo`
+  // (WO-3) — mismo concepto ("¿el sorteo cambia entre intentos?"), no se
+  // inventa un campo paralelo para preguntas nativas.
+  const politica: PoliticaSorteo =
+    quiz.politicaSorteo === "por_intento" ? "por_intento" : "fijo_por_alumno";
+  const ctx: ContextoSorteo = {
+    quizId: attempt.quizId,
+    alumnoId: attempt.userId,
+    intento: attempt.attemptNo ?? 1,
+    politica
+  };
+
+  let resultado: ReturnType<typeof sortearCuestionarioPreguntas>;
+  try {
+    resultado = sortearCuestionarioPreguntas(cuestionario, ctx);
+  } catch {
+    return fallback();
+  }
+
+  const clientIdByPrefix = new Map<string, string>();
+  const registerClientId = (id: string) => {
+    const p = questionHashPrefix(id);
+    if (!clientIdByPrefix.has(p)) clientIdByPrefix.set(p, id);
+  };
+  for (const id of payload.presentedIds ?? []) registerClientId(id);
+  for (const id of Object.keys(payload.answers ?? {})) registerClientId(id);
+  for (const q of payload.generatedQuestions ?? []) registerClientId(q.id);
+
+  // Cache de compilados por `plantillaId` DENTRO de este submit: el
+  // relleno puede repetir la misma plantilla en varios slots.
+  const compiledCache = new Map<string, ReturnType<typeof getCompiledPlantilla> | null>();
+  const gradingQuestions: ModuleQuiz["questions"] = [];
+
+  for (const slot of resultado.slots) {
+    const plantillaId = slot.pregunta.plantillaId;
+    let compiled = compiledCache.get(plantillaId);
+    if (compiled === undefined) {
+      const plantilla = await prisma.plantillaEjercicio.findFirst({ where: { id: plantillaId } });
+      const codigoDsl = (plantilla as { codigoDsl?: string } | null)?.codigoDsl;
+      compiled = codigoDsl ? getCompiledPlantilla(plantillaId, codigoDsl) : null;
+      compiledCache.set(plantillaId, compiled);
+    }
+    // Plantilla ausente, sin DSL, o que necesita un provider que no vive acá
+    // (generador asistido/dataset) → no autoritativo para TODO el intento.
+    if (!compiled) return fallback();
+    const pool = materializeVblangPool(compiled, slot.seed, 1);
+    if (!pool.ok || pool.questions.length === 0) return fallback();
+    const materializada = pool.questions[0];
+    const prefix = questionHashPrefix(materializada.id);
+    const clientId = clientIdByPrefix.get(prefix) ?? materializada.id;
+    // El `puntaje` declarado en `PreguntaQuiz` pisa el `points` que trae la
+    // plantilla materializada (si no está declarado, `gradeAnswers` aplica
+    // su default de 1 vía `questionWeight`, igual que cualquier otro path).
+    const conPuntaje: ModuleQuizQuestion =
+      slot.pregunta.puntaje !== undefined
+        ? { ...materializada, points: slot.pregunta.puntaje }
+        : materializada;
+    gradingQuestions.push(serverQuestionToGradable(conPuntaje, clientId));
+  }
+
+  return { gradingQuestions, serverAuthoritative: true, mismatchQuestions: [] };
+};
+
 /**
  * F2-04: criterio numérico combinado. Acepta respuesta dentro del MÁXIMO
  * entre la tolerancia relativa (ratio × |esperado|) y la tolerancia
@@ -873,7 +998,14 @@ quizAttempts.post(
     const now = new Date();
     const resolvedModuleId = payload.moduleId ?? metadata?.moduleId ?? null;
     const seed = buildSeed(quiz);
-    let maxScore = quiz.questions?.length ?? quiz.count ?? 0;
+    // Etapa 1 (Tiza — preguntas nativas) — `maxScore` inicial = cantidad
+    // GLOBAL declarada (estimado por cantidad de ítems, sin ponderar por
+    // `puntaje` — mismo criterio que las demás ramas de abajo, que tampoco
+    // ponderan a esta altura). El valor real y ponderado lo recalcula
+    // `gradeAnswers` en el submit, autoritativo.
+    let maxScore = tienePreguntas(quiz.preguntas)
+      ? parseCuestionarioPreguntas(quiz.preguntas).cantidadGlobal
+      : (quiz.questions?.length ?? quiz.count ?? 0);
     if (quiz.generatorId && (!quiz.questions || quiz.questions.length === 0)) {
       const generatedCount = quiz.count ?? 10;
       await generateQuestionsFromConfig(
@@ -1373,6 +1505,11 @@ quizAttempts.get(
     quizId: attempt.quizId,
     quizTitle: quiz?.title ?? metadata?.title ?? module?.title ?? "Quiz",
     status: attempt.status,
+    // WO-T2a — score/maxScore del intento persistido, para que el front pueda
+    // mostrar el resultado en modo revisión (intento ya finalizado) sin
+    // depender del response efímero del submit.
+    score: attempt.score,
+    maxScore: attempt.maxScore,
     timerSegundos: getEvalConfig.timerSegundos,
     deadline: getDeadline,
     questions: questionsForResponse,
@@ -1656,15 +1793,34 @@ quizAttempts.post(
       // Se conserva la composición para el peso por defecto.
       const hasStoredQuestions = (quiz.questions?.length ?? 0) > 0;
       const generatorId = typeof quiz.generatorId === "string" ? quiz.generatorId : null;
+      // Etapa 1 (Tiza — preguntas nativas) — chequeado PRIMERO: un quiz con
+      // `settings.preguntas` no tiene banco estático ni un `generatorId`
+      // único (cada `PreguntaQuiz` trae su propia plantilla), así que sin
+      // este branch caería en el `else` de abajo (`resolveStoredPresented`,
+      // pensado para banco+composition). Los quizzes existentes (con
+      // `composition`/banco/generatorId) NUNCA tienen `settings.preguntas`,
+      // así que este branch no les afecta ni un bit.
+      const isPreguntasNativas = tienePreguntas(quiz.preguntas);
       const isVblangTemplate =
-        !hasStoredQuestions && generatorId !== null && generatorId.startsWith("plantilla:");
+        !isPreguntasNativas &&
+        !hasStoredQuestions &&
+        generatorId !== null &&
+        generatorId.startsWith("plantilla:");
       const isGeneradorV2 =
-        !hasStoredQuestions && generatorId !== null && !generatorId.startsWith("plantilla:");
+        !isPreguntasNativas &&
+        !hasStoredQuestions &&
+        generatorId !== null &&
+        !generatorId.startsWith("plantilla:");
 
       let gradingQuestions: ModuleQuiz["questions"];
       let serverAuthoritative = true;
       let mismatchQuestions: string[] = [];
-      if (isVblangTemplate) {
+      if (isPreguntasNativas) {
+        const resolved = await resolvePreguntasGrading(quiz, attempt, payload);
+        gradingQuestions = resolved.gradingQuestions;
+        serverAuthoritative = resolved.serverAuthoritative;
+        mismatchQuestions = resolved.mismatchQuestions;
+      } else if (isVblangTemplate) {
         const resolved = await resolveVblangGrading(quiz, attempt, payload, generatorId!);
         gradingQuestions = resolved.gradingQuestions;
         serverAuthoritative = resolved.serverAuthoritative;

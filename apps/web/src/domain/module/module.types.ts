@@ -86,6 +86,25 @@ export type ModuleQuiz = {
    */
   preguntasPorPagina?: number;
   /**
+   * WO-14 — Política de ruteo por dificultad (`fija` | `manual` |
+   * `adaptativa_simple`). Default `fija` (preserva el comportamiento previo
+   * a WO-14: la dificultad se ignoraba). Persistido en
+   * `QuizVersion.settings.politicaDificultad`.
+   */
+  politicaDificultad?: "fija" | "manual" | "adaptativa_simple";
+  /**
+   * WO-14 — Dificultad inicial (usada por `fija` para todas las posiciones,
+   * o como punto de partida de `adaptativa_simple`). Default `intermedio`.
+   * Persistido en `QuizVersion.settings.dificultadInicial`.
+   */
+  dificultadInicial?: "basico" | "intermedio" | "avanzado";
+  /**
+   * WO-14 — Ventana (N últimas respuestas) que mira `adaptativa_simple`
+   * para subir/bajar 1 nivel de dificultad. Default 2. Persistido en
+   * `QuizVersion.settings.dificultadVentana`.
+   */
+  dificultadVentana?: number;
+  /**
    * Composición a nivel quiz (pool, selección, variantes, peso por defecto).
    * Se persiste en `QuizVersion.settings.composition`. NO es parte del DSL.
    *

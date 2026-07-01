@@ -855,3 +855,58 @@ test("(m2) el límite se chequea contando TODOS los estados no-aborted (in_progr
   assert.equal(res.status, 403);
   assert.equal((res.body as any).code, "max_attempts_reached");
 });
+
+// =============================================================================
+// (n) WO-T2a — "revisar" (GET) un intento ya finalizado no consume cupo
+// =============================================================================
+
+test("(n) GET /api/quiz-attempts/:id (revisar) repetidas veces NO crea ni consume un intento nuevo", async () => {
+  seedQuizVersionWithSettings({ type: "practica", maxIntentos: 1 });
+  const token = tokenFor({ id: ALUMNO_ID, role: "STUDENT", schoolId: ESCUELA_ID });
+
+  // El alumno agota su único intento.
+  const a1 = await createAttempt(token);
+  assert.equal(prisma.quizAttempt.rows.length, 1);
+
+  // Revisar (GET) el mismo intento varias veces no debe crear filas nuevas
+  // ni cambiar el conteo que usa `validarLimiteIntentos`.
+  for (let i = 0; i < 3; i++) {
+    const res = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${a1.id}`, { token });
+    assert.equal(res.status, 200);
+    assert.equal((res.body as any).status, "in_progress");
+  }
+  assert.equal(prisma.quizAttempt.rows.length, 1, "revisar no debe crear intentos nuevos");
+
+  // El límite sigue agotado: un segundo POST real se sigue rechazando.
+  const a2 = await createAttempt(token, 403);
+  assert.equal((a2.body as any).code, "max_attempts_reached");
+  assert.equal(prisma.quizAttempt.rows.length, 1);
+});
+
+test("(n2) GET /api/quiz-attempts/:id expone score/maxScore para el resumen de revisión", async () => {
+  seedQuizVersionWithSettings({ type: "practica" });
+  prisma.quizAttempt.rows.push({
+    id: "att-finished",
+    quizId: QUIZ_ID,
+    quizVersionId: QV_ID,
+    userId: ALUMNO_ID,
+    status: "submitted",
+    startedAt: "2024-01-01T10:00:00.000Z",
+    submittedAt: "2024-01-01T10:05:00.000Z",
+    score: 7,
+    maxScore: 10,
+    answers: "{}",
+    feedback: null,
+    grading: null,
+    seed: null,
+    seedPolicy: 0,
+    attemptNo: 1
+  });
+  const token = tokenFor({ id: ALUMNO_ID, role: "STUDENT", schoolId: ESCUELA_ID });
+  const res = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/att-finished`, { token });
+  assert.equal(res.status, 200);
+  const body = res.body as Record<string, unknown>;
+  assert.equal(body.status, "submitted");
+  assert.equal(body.score, 7);
+  assert.equal(body.maxScore, 10);
+});

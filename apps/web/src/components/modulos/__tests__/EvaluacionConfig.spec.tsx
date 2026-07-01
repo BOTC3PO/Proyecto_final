@@ -313,3 +313,101 @@ describe("EvaluacionConfig — WO-9 modo de presentación", () => {
   });
 });
 
+describe("EvaluacionConfig — WO-14 ruteo por dificultad", () => {
+  it("muestra el selector de ruteo por dificultad en cualquier tipo", () => {
+    for (const tipo of ["practica", "formal", "competencia"] as const) {
+      const config = parseEvaluacionConfig(null, tipo);
+      const { unmount } = render(<EvaluacionConfig tipo={tipo} config={config} />);
+      expect(screen.getByTestId("config-dificultad")).toBeInTheDocument();
+      unmount();
+    }
+  });
+
+  it("default: politicaDificultad 'fija', dificultadInicial 'intermedio' (preserva comportamiento previo a WO-14)", () => {
+    const config = parseEvaluacionConfig(null, "formal");
+    render(<EvaluacionConfig tipo="formal" config={config} />);
+    expect(
+      (screen.getByTestId("config-politica-dificultad-select") as HTMLSelectElement).value
+    ).toBe("fija");
+    expect(
+      (screen.getByTestId("config-dificultad-inicial-select") as HTMLSelectElement).value
+    ).toBe("intermedio");
+  });
+
+  it("el input de ventana SÓLO aparece cuando politicaDificultad === 'adaptativa_simple'", () => {
+    const cfgFija = parseEvaluacionConfig(null, "practica");
+    const { unmount } = render(<EvaluacionConfig tipo="practica" config={cfgFija} />);
+    expect(screen.queryByTestId("config-dificultad-ventana")).not.toBeInTheDocument();
+    unmount();
+
+    const cfgAdaptativa = parseEvaluacionConfig(
+      JSON.stringify({ politicaDificultad: "adaptativa_simple" }),
+      "practica",
+    );
+    render(<EvaluacionConfig tipo="practica" config={cfgAdaptativa} />);
+    expect(screen.getByTestId("config-dificultad-ventana")).toBeInTheDocument();
+    expect(
+      (screen.getByTestId("config-dificultad-ventana-input") as HTMLInputElement).value
+    ).toBe("2");
+  });
+
+  it("cambiar la política invoca onChangePoliticaDificultad", () => {
+    const onChange = vi.fn();
+    const config = parseEvaluacionConfig(null, "formal");
+    render(
+      <EvaluacionConfig
+        tipo="formal"
+        config={config}
+        onChangePoliticaDificultad={onChange}
+      />
+    );
+    const select = screen.getByTestId("config-politica-dificultad-select") as HTMLSelectElement;
+    fireEvent.change(select, { target: { value: "adaptativa_simple" } });
+    expect(onChange).toHaveBeenCalledWith("adaptativa_simple");
+  });
+
+  it("cambiar la dificultad inicial invoca onChangeDificultadInicial", () => {
+    const onChange = vi.fn();
+    const config = parseEvaluacionConfig(null, "formal");
+    render(
+      <EvaluacionConfig
+        tipo="formal"
+        config={config}
+        onChangeDificultadInicial={onChange}
+      />
+    );
+    const select = screen.getByTestId("config-dificultad-inicial-select") as HTMLSelectElement;
+    fireEvent.change(select, { target: { value: "avanzado" } });
+    expect(onChange).toHaveBeenCalledWith("avanzado");
+  });
+
+  it("cambiar la ventana invoca onChangeDificultadVentana con enteros ≥ 1", () => {
+    const onChange = vi.fn();
+    const config = parseEvaluacionConfig(
+      JSON.stringify({ politicaDificultad: "adaptativa_simple" }),
+      "formal",
+    );
+    render(
+      <EvaluacionConfig
+        tipo="formal"
+        config={config}
+        onChangeDificultadVentana={onChange}
+      />
+    );
+    const input = screen.getByTestId("config-dificultad-ventana-input") as HTMLInputElement;
+    fireEvent.change(input, { target: { value: "4" } });
+    expect(onChange).toHaveBeenCalledWith(4);
+  });
+
+  it("los inputs de dificultad son read-only sin callbacks", () => {
+    const config = parseEvaluacionConfig(
+      JSON.stringify({ politicaDificultad: "adaptativa_simple" }),
+      "formal",
+    );
+    render(<EvaluacionConfig tipo="formal" config={config} />);
+    expect(screen.getByTestId("config-politica-dificultad-select")).toBeDisabled();
+    expect(screen.getByTestId("config-dificultad-inicial-select")).toBeDisabled();
+    expect(screen.getByTestId("config-dificultad-ventana-input")).toBeDisabled();
+  });
+});
+
