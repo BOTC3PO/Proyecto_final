@@ -147,6 +147,80 @@ Verificado por `apps/web/src/generadoresV2/__tests__/porting-fisica-equivalencia
 | `relacion_distancia_tiempo` | basico     | 3 variantes (encontrar d, v o t) | `uno_de` |
 | `conversion_unidades`       | basico     | `m/s ↔ km/h` (factor 3.6)        | `uno_de` |
 
+### Física — Las 6 áreas restantes (WO-7b-ext)
+
+Archivos: 6 archivos en `packages/vblang/src/templates/fisica-<area>-oficiales.ts`
+(Dinámica, Electricidad, Energía, Ondas, Fluidos, Termodinámica), cada uno con
+sus plantillas y `subtipoOriginal` apuntando al generador legado
+(`apps/web/src/generadoresV2/fisica/<Clase>.ts`). Verificados por 6 archivos
+de equivalencia uno por área en
+`apps/web/src/generadoresV2/__tests__/porting-fisica-<area>-equivalencia.spec.ts`
+(oráculo compartido generador real ≡ oráculo ≡ plantilla real, con guard
+anti-vacío `toBeGreaterThan(5)`).
+
+23 plantillas en total (todas rama `basico`):
+
+| subtipoOriginal                  | área         | fórmula portada                                  | builtins       |
+|----------------------------------|--------------|--------------------------------------------------|----------------|
+| `peso`                           | Dinámica     | `P = m·g` (2 variantes: P / m)                   | —              |
+| `friccion`                       | Dinámica     | `Fr = μ·N` (3 variantes: Fr / μ / N)             | `redondear`    |
+| `plano_inclinado`                | Dinámica     | `F = m·g·sin(θ)`                                 | `sin_deg`      |
+| `ley_hooke`                      | Dinámica     | `F = k·x` (3 variantes: F / k / x)               | —              |
+| `ley_ohm`                        | Electricidad | `V = I·R` (3 variantes: V / I / R)               | `redondear`    |
+| `potencia_electrica`             | Electricidad | `P = V·I`                                        | —              |
+| `consumo_electrico`              | Electricidad | `E = (P·t)/1000` [kWh]                           | `redondear`    |
+| `trabajo_mecanico`               | Energía      | `W = F·d·cos(θ)` (θ ∈ {0°, 30°, 45°, 60°})       | `cos_deg`      |
+| `energia_cinetica`               | Energía      | `Ec = ½·m·v²`                                    | —              |
+| `energia_potencial`              | Energía      | `Ep = m·g·h`                                     | —              |
+| `conservacion_energia`           | Energía      | `v = √(2·g·h)`                                   | `sqrt`         |
+| `potencia_mecanica`              | Energía      | `P = W/t`                                        | `redondear`    |
+| `velocidad_ondas`                | Ondas        | `v = f·λ` (3 variantes: v / f / λ)               | `redondear`    |
+| `longitud_onda`                  | Ondas        | `λ = v/f` (2 variantes, v aire/agua)             | `redondear`    |
+| `frecuencia_periodo`             | Ondas        | `f = 1/T` (2 variantes: f desde T / T desde f)   | `redondear`    |
+| `densidad`                       | Fluidos      | `ρ = m/V` (3 variantes: ρ / m / V)               | `redondear`    |
+| `presion`                        | Fluidos      | `P = F/A` (3 variantes: P / F / A)               | `redondear`    |
+| `presion_hidrostatica`           | Fluidos      | `P = ρ·g·h` (ρ ∈ {1000, 1025})                   | `uno_de`       |
+| `caudal`                         | Fluidos      | `Q = A·v`                                        | `redondear`    |
+| `calor`                          | Termodinámica | `Q = m·c·ΔT` (3 variantes, 4 metales)           | `uno_de`       |
+| `conversion_temperatura`         | Termodinámica | 4 direcciones (°C↔°F, °C↔K)                       | `uno_de`       |
+| `cambios_estado`                 | Termodinámica | `Q = m·L` (fusión / vaporización)                 | `uno_de`       |
+| `dilatacion_termica`             | Termodinámica | `ΔL = L₀·α·ΔT` (3 metales)                        | `uno_de`       |
+
+**Gaps documentados (no se forzaron, quedan como insumo WO-8):**
+
+- `suma_fuerzas` (Dinámica): array de tamaño variable (`fuerzas: number[]`
+  con 2-3 elementos sorteados) — no entra con los builtins actuales.
+- `resistencia_serie` (Electricidad): `Rt = ΣRi` con array variable.
+- `resistencia_paralelo` (Electricidad): `1/Rt = Σ(1/Ri)` con array variable.
+
+**Notas técnicas del porting (extiende §Limitaciones):**
+
+- **`g` global vs `G = 9.8` del generador:** el DSL provee `g = 9.80665`
+  en `CONSTANTES_GLOBALES`, pero los generadores de Física hardcodean
+  `G = 9.8` en su `.ts`. Las plantillas que usan gravedad (`peso`,
+  `plano_inclinado`, `energia_potencial`, `conservacion_energia`,
+  `presion_hidrostatica`) hardcodean `9.8` explícito en la fórmula
+  para que el match generador↔plantilla sea exacto dentro de la
+  tolerancia requerida por el oráculo.
+- **Drift de redondeo en variantes con 3 incógnitas (ley_ohm, ley_hooke,
+  velocidad_ondas, etc.):** el generador computa la respuesta con la
+  fórmula (no devuelve el valor pre-sorteado de la incógnita). Las
+  plantillas reproducen esto computando desde la fórmula en el array
+  `respuestas:` (p. ej. `[R * I, I, redondear(V/I, 3)]` en lugar de
+  `[V, I, R]`), absorbiendo el drift de redondeo dentro de la tolerancia
+  del oráculo. Sin esta convención, la tolerancia tendría que ser ~10×
+  más generosa.
+- **Bug de enunciado en `densidad` (generador):** el generador muestra
+  `masaKg.toFixed(2)` y `(densidad * 1000).toFixed(1)` en el enunciado
+  pero usa los valores SIN redondear en la respuesta (drift ~1-50).
+  El test de equivalencia usa `tol: 5` para `densidad` y `tol: 0.005`
+  para `caudal` para tolerar esta imprecisión del generador legacy.
+  NO se arregla el generador en este WO (fuera de scope).
+- **Arrays multi-línea rompen el parser:** la sintaxis `[a, b,\n c]`
+  con cada elemento en su propia línea NO parsea (el lexer confunde
+  el `c` con un identificador de bloque). Hay que poner arrays de
+  objetos en una sola línea: `[{ a: 1 }, { a: 2 }]`.
+
 ### Limitaciones del DSL que aparecieron en WO-7b
 
 Durante el porting se encontraron 3 restricciones del DSL que no estaban
@@ -439,14 +513,12 @@ compartido, guard anti-vacío).
 
 ### Otras materias paramétricas
 
-- **Física** — clasificada limpia, calculadora real. **Cinemática portada
-  en WO-7b** (5 subtipos). Quedan: **Dinámica** (peso, fricción, plano
-  inclinado, ley de Hooke), **Electricidad** (ley de Ohm, potencia,
-  resistencias serie/paralelo), **Energía** (trabajo, Ec, Ep), **Ondas**
-  (v, λ, f, T), **Fluidos** (densidad, presión, caudal), **Termodinámica**
-  (calor, dilatación, cambio de estado) y **Temperatura** (conversiones).
-  Siguen el mismo patrón: cada subtipo es `tipo: input` numérico con
-  `tolerancia_abs` adecuada, fórmula del `calculadora.ts` ya implementada.
+- **Física** — clasificada limpia, calculadora real. **Portada en su
+  totalidad rama `basico` (28 subtipos en 7 áreas):** Cinemática (WO-7b,
+  5), Dinámica (4), Electricidad (3 + 2 gaps de array), Energía (5),
+  Ondas (3), Fluidos (4), Termodinámica (4). Ver tabla arriba. Las
+  ramas intermedio/avanzado de los 23 subtipos basico porteados
+  quedan como continuación mecánica con el mismo patrón.
 - **Química** — `Estequiometria` y `Termoquimica` portada en WO-7c
   (9 subtipos numéricos en `quimica-estequeometria-oficiales.ts`).
   Quedan: `Gases` (PV=nRT, en generador pero no portada), `AcidoBase`,

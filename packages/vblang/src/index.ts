@@ -118,6 +118,20 @@ export { ECONOMIA_GENERAL_OFICIALES } from "./templates/economia-general-oficial
 // `apps/web/src/generadoresV2/__tests__/porting-fisica-equivalencia.spec.ts`.
 export { FISICA_CINEMATICA_OFICIALES } from "./templates/fisica-cinematica-oficiales.js";
 
+// WO-7b-ext — Plantillas oficiales VBLang (Física: 6 áreas restantes).
+// Porting numérico de Dinámica, Electricidad, Energía, Ondas, Fluidos y
+// Termodinámica. 23 plantillas en total (los 2 subtipos basados en arrays
+// de tamaño variable — `suma_fuerzas`, `resistencia_serie`,
+// `resistencia_paralelo` — quedan como gap de builtins, documentados).
+// Verificación: 6 archivos de equivalencia uno por área, en
+// `apps/web/src/generadoresV2/__tests__/porting-fisica-<area>-equivalencia.spec.ts`.
+export { FISICA_DINAMICA_OFICIALES } from "./templates/fisica-dinamica-oficiales.js";
+export { FISICA_ELECTRICIDAD_OFICIALES } from "./templates/fisica-electricidad-oficiales.js";
+export { FISICA_ENERGIA_OFICIALES } from "./templates/fisica-energia-oficiales.js";
+export { FISICA_ONDAS_OFICIALES } from "./templates/fisica-ondas-oficiales.js";
+export { FISICA_FLUIDOS_OFICIALES } from "./templates/fisica-fluidos-oficiales.js";
+export { FISICA_TERMODINAMICA_OFICIALES } from "./templates/fisica-termodinamica-oficiales.js";
+
 // WO-8 — Plantilla de cobertura de los builtins nuevos (teoría de números,
 // estadística, valor absoluto, salida de fracción simplificada). Verificación
 // end-to-end de la expansión del DSL.

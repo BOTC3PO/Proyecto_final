@@ -515,14 +515,19 @@ function answersMatch(
 }
 
 describe("WO-7 / WO-7b — equivalencia generador↔plantilla (oráculo compartido)", () => {
-  it("hay un caso de equivalencia por cada plantilla oficial de Aritmética", () => {
-    const portadas = MATEMATICAS_ARITMETICA_OFICIALES.map((p) => p.subtipoOriginal).sort();
+  it("hay un caso de equivalencia por cada plantilla oficial de Aritmética (basico)", () => {
+    // Los ids con sufijo `-intermedio`, `-avanzado`, etc. son las plantillas
+    // de la 3ª ola (WO-7c) y se verifican en `aritmetica-3a-ola-equivalencia.spec.ts`.
+    // Este harness sólo cubre la rama basico. `numeros_primos` (basico) tiene
+    // respuesta vf (bool) y se excluye por la misma razón que en WO-7b original
+    // (queda cubierto por el test de validez DSL).
+    const is3aOla = (id: string) => /-(intermedio|avanzado)$|-intermedio-(suma|resta|mult|div)$/.test(id);
+    const portadasBasico = MATEMATICAS_ARITMETICA_OFICIALES
+      .filter((p) => !is3aOla(p.id) && p.subtipoOriginal !== "numeros_primos")
+      .map((p) => p.subtipoOriginal)
+      .sort();
     const cubiertas = CASES.map((c) => c.subtipoOriginal).sort();
-    // numeros_primos tiene respuesta vf (bool) — no encaja en el harness de
-    // números/strings; queda cubierto por el test de validez DSL de la
-    // plantilla (`matematicas-aritmetica-oficiales.test.ts`).
-    const expected = portadas.filter((s) => s !== "numeros_primos");
-    expect(cubiertas).toEqual(expected);
+    expect(cubiertas).toEqual(portadasBasico);
   });
 
   for (const c of CASES) {
