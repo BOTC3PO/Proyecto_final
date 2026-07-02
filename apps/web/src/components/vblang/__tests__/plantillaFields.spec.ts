@@ -26,11 +26,13 @@ import {
 } from "../plantillaFields";
 import {
   readExplicacion,
+  readPasos,
   readPistas,
   readRestricciones,
   readRespuestaNombre,
   readToleranciaAbs,
   writeExplicacion,
+  writePasos,
   writePistas,
   writeRestricciones,
   writeRespuestaNombre,
@@ -305,6 +307,15 @@ describe("WO-1 · bloques antes solo editables en DSL", () => {
     expect(dsl).toContain("pistas:");
     // la pista única de metadata SIGUE intacta (no se migra)
     expect(dsl).toContain('pista: "única"');
+  });
+
+  it("pasos round-trippean", () => {
+    let p = parse('enunciado: "x"\nrespuesta: 1\n');
+    p = writePasos(p, ["Primero", "Después"]);
+    expect(readPasos(p)).toEqual(["Primero", "Después"]);
+    expect(serialize(p)).toContain("pasos:");
+    p = writePasos(p, []);
+    expect(serialize(p)).not.toContain("pasos:");
   });
 
   it("round-trip idempotente con todos los bloques nuevos", () => {

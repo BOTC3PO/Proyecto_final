@@ -10,6 +10,7 @@
  * Tokens-only.
  */
 import {
+  useId,
   useState,
   useMemo,
   type CSSProperties,
@@ -36,8 +37,10 @@ import type { ValidationState } from "../../hooks/usePlantillaValidation";
 // que es un concepto totalmente distinto del ROL de la pregunta DENTRO del
 // cuestionario (obligatoria/relleno).
 import type { TipoPregunta as RolPreguntaQuiz } from "../../domain/quiz/preguntas";
+import type { Dificultad as DificultadPregunta } from "../../domain/quiz/posiciones";
 import {
   applyTipo,
+  applyGenerador,
   readTextField,
   readNumberField,
   writeTextField,
@@ -46,6 +49,7 @@ import {
   makeRandomIntExpr,
   makeListExpr,
 } from "./plantillaFields";
+import GeneradorPicker from "./GeneradorPicker";
 import {
   getBlock,
   exprToText,
@@ -55,6 +59,14 @@ import {
   DUMMY_LOC,
   readPistas,
   writePistas,
+  readPasos,
+  writePasos,
+  readRestricciones,
+  writeRestricciones,
+  readEnunciados,
+  writeEnunciados,
+  enunciadoToVariantes,
+  variantesToEnunciado,
   readExplicacion,
   writeExplicacion,
 } from "./plantillaAst";
@@ -98,6 +110,10 @@ export interface TizaPropertyGridProps {
    */
   quizMeta?: QuizPreguntaMeta;
   onChangeQuizMeta?: (next: QuizPreguntaMeta) => void;
+  /** WO-tiza-config (Fase 3) — poolIds ya usados por otras preguntas del
+   *  cuestionario, para sugerirlos en el input de Pool (datalist) y evitar
+   *  typos que parten un pool en dos en silencio. */
+  poolsDisponibles?: string[];
 }
 
 /**
@@ -105,7 +121,8 @@ export interface TizaPropertyGridProps {
  * desde el property grid. Espejo liviano de los campos relevantes de
  * `PreguntaQuiz` (`domain/quiz/preguntas.ts`); NO incluye `plantillaId`
  * (lo resuelve el host, `PlantillaEditorTiza.tsx`, a partir de la pregunta
- * activa del rail) ni `dificultad`/`puntaje` (fuera del alcance de Etapa 2).
+ * activa del rail). `dificultad`/`puntaje` se agregaron en WO-tiza-config
+ * (Fase 3 del plan): el schema y el runtime ya los soportaban, faltaba la UI.
  */
 export interface QuizPreguntaMeta {
   rol: RolPreguntaQuiz;
@@ -113,12 +130,58 @@ export interface QuizPreguntaMeta {
   maxRepeticiones?: number;
   /** Sólo aplica si `rol === "relleno"`. */
   poolId?: string;
+  /** Dificultad de la pregunta (base del ruteo por dificultad, WO-14).
+   *  `undefined` = sin asignar (el runtime la trata como intermedio). */
+  dificultad?: DificultadPregunta;
+  /** Peso de la pregunta en el puntaje. `undefined` = default (1). */
+  puntaje?: number;
 }
 
 /* ─── helpers visuales ──────────────────────────────────────────────── */
 
 const mono: CSSProperties = {
   fontFamily: "var(--font-mono-css, ui-monospace, monospace)",
+};
+
+/** Numeración circular reusada por los bloques tipo lista (pistas, pasos, variantes). */
+const numberBadgeStyle: CSSProperties = {
+  width: 20,
+  height: 20,
+  flex: "0 0 auto",
+  borderRadius: 6,
+  background: "var(--c-accent-soft)",
+  color: "var(--c-accent)",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: 11,
+  fontWeight: 700,
+};
+
+/** Botón "×" de quitar ítem, reusado por los bloques tipo lista editables. */
+const removeItemButtonStyle: CSSProperties = {
+  flex: "0 0 auto",
+  width: 30,
+  height: 30,
+  borderRadius: 8,
+  border: "1px solid var(--c-border)",
+  background: "var(--c-surface-2)",
+  color: "var(--c-text-3)",
+  cursor: "pointer",
+  fontSize: 14,
+  lineHeight: 1,
+};
+
+/** Botón de texto "＋ Otro ítem" / "Convertir…", reusado por los bloques tipo lista. */
+const addLinkButtonStyle: CSSProperties = {
+  marginTop: 2,
+  fontSize: 12.5,
+  fontWeight: 600,
+  color: "var(--c-accent)",
+  background: "transparent",
+  border: 0,
+  cursor: "pointer",
+  padding: "4px 0",
 };
 
 function Eyebrow({ children }: { children: ReactNode }) {
@@ -345,15 +408,23 @@ export function TizaQuestionCard({
 
   const variables = getVariables(plantilla);
   const pistas = readPistas(plantilla);
+  const pasos = readPasos(plantilla);
+  const restricciones = readRestricciones(plantilla);
   const explicacion = readExplicacion(plantilla);
+  // Etapa "preguntas nativas en Tiza" (fix bloques) — `enunciado:` y
+  // `enunciados:` (variantes) son mutuamente excluyentes en el parser
+  // (rechaza tener ambos). Mientras haya variantes activas, la sección de
+  // enunciado pasa a editar la lista en lugar del texto único.
+  const enunciadosActive = getBlock(plantilla, "enunciados") !== undefined;
+  const enunciadosItems = readEnunciados(plantilla);
 
   const enunciadoRendered = useMemo(() => {
-    let text = enunciado;
+    let text = enunciadosActive ? (enunciadosItems[0] ?? "") : enunciado;
     for (const [name, value] of Object.entries(live.variables ?? {})) {
       text = text.replaceAll(`{${name}}`, formatValue(value));
     }
     return text;
-  }, [enunciado, live.variables]);
+  }, [enunciado, enunciadosActive, enunciadosItems, live.variables]);
 
   const isQuestionSelected = selection.kind === "pregunta";
 
@@ -413,24 +484,85 @@ export function TizaQuestionCard({
           if (e.key === "Enter" || e.key === " ") onSelectQuestion();
         }}
       >
-        <Eyebrow>Enunciado</Eyebrow>
-        <BufferedTextarea
-          value={enunciado}
-          rows={2}
-          placeholder="Escribí la consigna…"
-          onCommit={(v) => {
-            if (!enunField) return;
-            const next = writeTextField(plantilla, enunField, v);
-            if (next) onChange(next);
-          }}
-          onClick={(e) => e.stopPropagation()}
-          style={{
-            ...inputStyle(),
-            fontSize: 17,
-            fontWeight: 560,
-            lineHeight: 1.4,
-          }}
-        />
+        <Eyebrow>{enunciadosActive ? "Enunciado (variantes)" : "Enunciado"}</Eyebrow>
+        {enunciadosActive ? (
+          <div onClick={(e) => e.stopPropagation()}>
+            {enunciadosItems.map((text, i) => (
+              <div
+                key={i}
+                style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 8 }}
+              >
+                <div style={{ ...numberBadgeStyle, marginTop: 10 }}>{i + 1}</div>
+                <BufferedTextarea
+                  value={text}
+                  rows={2}
+                  placeholder="Texto de la variante…"
+                  onCommit={(v) => {
+                    const next = [...enunciadosItems];
+                    next[i] = v;
+                    onChange(writeEnunciados(plantilla, next));
+                  }}
+                  style={{ ...inputStyle(), flex: 1, minWidth: 0 }}
+                />
+                <button
+                  type="button"
+                  aria-label={`Quitar variante ${i + 1}`}
+                  title="Quitar variante"
+                  disabled={enunciadosItems.length <= 1}
+                  onClick={() =>
+                    onChange(
+                      writeEnunciados(plantilla, enunciadosItems.filter((_, j) => j !== i)),
+                    )
+                  }
+                  style={{
+                    ...removeItemButtonStyle,
+                    marginTop: 2,
+                    opacity: enunciadosItems.length <= 1 ? 0.45 : 1,
+                    cursor: enunciadosItems.length <= 1 ? "not-allowed" : "pointer",
+                  }}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+            <div style={{ display: "flex", gap: 16 }}>
+              <button
+                type="button"
+                onClick={() =>
+                  onChange(writeEnunciados(plantilla, [...enunciadosItems, "Nueva variante…"]))
+                }
+                style={addLinkButtonStyle}
+              >
+                ＋ Otra variante
+              </button>
+              <button
+                type="button"
+                onClick={() => onChange(variantesToEnunciado(plantilla))}
+                style={addLinkButtonStyle}
+              >
+                Volver a enunciado único
+              </button>
+            </div>
+          </div>
+        ) : (
+          <BufferedTextarea
+            value={enunciado}
+            rows={2}
+            placeholder="Escribí la consigna…"
+            onCommit={(v) => {
+              if (!enunField) return;
+              const next = writeTextField(plantilla, enunField, v);
+              if (next) onChange(next);
+            }}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              ...inputStyle(),
+              fontSize: 17,
+              fontWeight: 560,
+              lineHeight: 1.4,
+            }}
+          />
+        )}
         <div
           style={{
             marginTop: 9,
@@ -558,6 +690,48 @@ export function TizaQuestionCard({
         </>
       )}
 
+      {/* PASOS DE RESOLUCIÓN */}
+      {pasos.length > 0 ? (
+        <>
+          <div style={{ height: 1, background: "var(--c-border)" }} />
+          <div id="tiza-sec-pasos">
+            <Eyebrow>Pasos de resolución</Eyebrow>
+            {pasos.map((text: string, i: number) => (
+              <div
+                key={i}
+                style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 8 }}
+              >
+                <div style={numberBadgeStyle}>{i + 1}</div>
+                <div style={{ fontSize: 13.5, color: "var(--c-text-2)", lineHeight: 1.45 }}>
+                  {text}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      ) : null}
+
+      {/* RESTRICCIONES */}
+      {restricciones.length > 0 ? (
+        <>
+          <div style={{ height: 1, background: "var(--c-border)" }} />
+          <div id="tiza-sec-restricciones">
+            <Eyebrow>Restricciones</Eyebrow>
+            {restricciones.map((text: string, i: number) => (
+              <div
+                key={i}
+                style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 8 }}
+              >
+                <div style={numberBadgeStyle}>{i + 1}</div>
+                <div style={{ ...mono, fontSize: 13.5, color: "var(--c-text-2)", lineHeight: 1.45 }}>
+                  {text}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      ) : null}
+
       {/* PISTAS */}
       {pistas.length > 0 ? (
         <>
@@ -574,21 +748,7 @@ export function TizaQuestionCard({
                   marginBottom: 8,
                 }}
               >
-                <div
-                  style={{
-                    width: 20,
-                    height: 20,
-                    flex: "0 0 auto",
-                    borderRadius: 6,
-                    background: "var(--c-accent-soft)",
-                    color: "var(--c-accent)",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 11,
-                    fontWeight: 700,
-                  }}
-                >
+                <div style={numberBadgeStyle}>
                   {i + 1}
                 </div>
                 <div style={{ fontSize: 13.5, color: "var(--c-text-2)", lineHeight: 1.45 }}>
@@ -617,10 +777,24 @@ export function TizaQuestionCard({
       <AddBlockButton
         onSelect={(kind) => {
           if (kind === "pista") {
-            const next = writePistas(plantilla, [...pistas, "Nueva pista…"]);
-            onChange(next);
+            onChange(writePistas(plantilla, [...pistas, "Nueva pista…"]));
+          } else if (kind === "pasos") {
+            onChange(writePasos(plantilla, [...pasos, "Nuevo paso…"]));
+          } else if (kind === "restric") {
+            // Placeholder debe parsear como fórmula real (`writeRestricciones`
+            // guarda `Expr[]`, no texto libre): "true" es un formula válida
+            // y editable, a diferencia de una frase que se descartaría en
+            // silencio al no parsear.
+            onChange(writeRestricciones(plantilla, [...restricciones, "true"]));
+          } else if (kind === "variante") {
+            // `enunciado:`/`enunciados:` son mutuamente excluyentes en el
+            // parser: si todavía no hay variantes, primero se migra el
+            // enunciado único a la primera variante.
+            const base = enunciadosActive ? plantilla : enunciadoToVariantes(plantilla);
+            const items = readEnunciados(base);
+            onChange(writeEnunciados(base, [...items, "Nueva variante…"]));
           }
-          // pasos / restric / variante / dataset quedan para futuras iteraciones
+          // dataset queda para futuras iteraciones (pronto, disabled)
         }}
       />
     </div>
@@ -731,6 +905,7 @@ export function TizaPropertyGrid({
   validation,
   quizMeta,
   onChangeQuizMeta,
+  poolsDisponibles,
 }: TizaPropertyGridProps) {
   if (selection.kind === "variable") {
     return (
@@ -751,6 +926,7 @@ export function TizaPropertyGrid({
       validation={validation}
       quizMeta={quizMeta}
       onChangeQuizMeta={onChangeQuizMeta}
+      poolsDisponibles={poolsDisponibles}
     />
   );
 }
@@ -764,6 +940,7 @@ function QuestionPropertyGrid({
   validation,
   quizMeta,
   onChangeQuizMeta,
+  poolsDisponibles,
 }: {
   plantilla: Plantilla;
   onChange: (p: Plantilla) => void;
@@ -771,9 +948,12 @@ function QuestionPropertyGrid({
   validation?: ValidationState;
   quizMeta?: QuizPreguntaMeta;
   onChangeQuizMeta?: (next: QuizPreguntaMeta) => void;
+  poolsDisponibles?: string[];
 }) {
   const tipo = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
+  // WO-tiza-config (Fase 3) — id del <datalist> de pools sugeridas.
+  const poolListId = useId();
   const enunField = fieldByKey(plantilla, "enunciado");
   const respField = fieldByKey(plantilla, "respuesta");
   const unidadField = fieldByKey(plantilla, "unidad");
@@ -784,7 +964,11 @@ function QuestionPropertyGrid({
   const unidad = unidadField ? readTextField(plantilla, unidadField) : "";
   const tolerancia = tolField ? readNumberField(plantilla, tolField) : "";
   const pistas = readPistas(plantilla);
+  const pasos = readPasos(plantilla);
+  const restricciones = readRestricciones(plantilla);
   const explicacion = readExplicacion(plantilla);
+  const enunciadosActive = getBlock(plantilla, "enunciados") !== undefined;
+  const enunciadosItems = readEnunciados(plantilla);
 
   return (
     <div
@@ -829,21 +1013,83 @@ function QuestionPropertyGrid({
         {/* ENUNCIADO */}
         {enunField ? (
           <div>
-            <Eyebrow>Enunciado</Eyebrow>
-            <BufferedTextarea
-              value={enunciado}
-              rows={3}
-              onCommit={(v) => {
-                const next = writeTextField(plantilla, enunField, v);
-                if (next) onChange(next);
-              }}
-              style={inputStyle()}
-            />
-            <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-              Usá{" "}
-              <code style={{ ...mono, color: "var(--c-accent)" }}>{"{var}"}</code> para
-              insertar variables.
-            </div>
+            <Eyebrow>{enunciadosActive ? "Enunciado (variantes)" : "Enunciado"}</Eyebrow>
+            {enunciadosActive ? (
+              <div>
+                {enunciadosItems.map((text, i) => (
+                  <div
+                    key={i}
+                    style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 8 }}
+                  >
+                    <div style={{ ...numberBadgeStyle, marginTop: 10 }}>{i + 1}</div>
+                    <BufferedTextarea
+                      value={text}
+                      rows={2}
+                      onCommit={(v) => {
+                        const next = [...enunciadosItems];
+                        next[i] = v;
+                        onChange(writeEnunciados(plantilla, next));
+                      }}
+                      style={{ ...inputStyle(), flex: 1, minWidth: 0 }}
+                    />
+                    <button
+                      type="button"
+                      aria-label={`Quitar variante ${i + 1}`}
+                      title="Quitar variante"
+                      disabled={enunciadosItems.length <= 1}
+                      onClick={() =>
+                        onChange(
+                          writeEnunciados(plantilla, enunciadosItems.filter((_, j) => j !== i)),
+                        )
+                      }
+                      style={{
+                        ...removeItemButtonStyle,
+                        marginTop: 2,
+                        opacity: enunciadosItems.length <= 1 ? 0.45 : 1,
+                        cursor: enunciadosItems.length <= 1 ? "not-allowed" : "pointer",
+                      }}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+                <div style={{ display: "flex", gap: 16 }}>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      onChange(writeEnunciados(plantilla, [...enunciadosItems, "Nueva variante…"]))
+                    }
+                    style={addLinkButtonStyle}
+                  >
+                    ＋ Otra variante
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onChange(variantesToEnunciado(plantilla))}
+                    style={addLinkButtonStyle}
+                  >
+                    Volver a enunciado único
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <>
+                <BufferedTextarea
+                  value={enunciado}
+                  rows={3}
+                  onCommit={(v) => {
+                    const next = writeTextField(plantilla, enunField, v);
+                    if (next) onChange(next);
+                  }}
+                  style={inputStyle()}
+                />
+                <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+                  Usá{" "}
+                  <code style={{ ...mono, color: "var(--c-accent)" }}>{"{var}"}</code> para
+                  insertar variables.
+                </div>
+              </>
+            )}
           </div>
         ) : null}
 
@@ -1008,6 +1254,114 @@ function QuestionPropertyGrid({
           </button>
         </div>
 
+        {/* BLOQUES: PASOS DE RESOLUCIÓN */}
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 9 }}>
+            <span style={{ fontSize: 13, fontWeight: 660 }}>Pasos de resolución</span>
+            <span
+              style={{
+                fontSize: 11,
+                color: "var(--c-text-3)",
+                background: "var(--c-surface-2)",
+                padding: "2px 7px",
+                borderRadius: 999,
+              }}
+            >
+              {pasos.length}
+            </span>
+          </div>
+          {pasos.map((text: string, i: number) => (
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+              <div style={numberBadgeStyle}>{i + 1}</div>
+              <BufferedInput
+                type="text"
+                value={text}
+                onCommit={(v) => {
+                  const next = [...pasos];
+                  next[i] = v;
+                  onChange(writePasos(plantilla, next));
+                }}
+                style={{ ...inputStyle(), flex: 1, minWidth: 0 }}
+              />
+              <button
+                type="button"
+                aria-label={`Quitar paso ${i + 1}`}
+                title="Quitar paso"
+                onClick={() => onChange(writePasos(plantilla, pasos.filter((_, j) => j !== i)))}
+                style={removeItemButtonStyle}
+              >
+                ×
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            onClick={() => onChange(writePasos(plantilla, [...pasos, "Nuevo paso…"]))}
+            style={addLinkButtonStyle}
+          >
+            ＋ Otro paso
+          </button>
+        </div>
+
+        {/* BLOQUES: RESTRICCIONES */}
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 9 }}>
+            <span style={{ fontSize: 13, fontWeight: 660 }}>Restricciones</span>
+            <span
+              style={{
+                fontSize: 11,
+                color: "var(--c-text-3)",
+                background: "var(--c-surface-2)",
+                padding: "2px 7px",
+                borderRadius: 999,
+              }}
+            >
+              {restricciones.length}
+            </span>
+          </div>
+          {restricciones.map((text: string, i: number) => (
+            <div key={i} style={{ marginBottom: 8 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <div style={numberBadgeStyle}>{i + 1}</div>
+                <BufferedInput
+                  type="text"
+                  value={text}
+                  placeholder="ej. a != 0"
+                  onCommit={(v) => {
+                    const next = [...restricciones];
+                    next[i] = v;
+                    onChange(writeRestricciones(plantilla, next));
+                  }}
+                  style={{ ...inputStyle(true), flex: 1, minWidth: 0 }}
+                />
+                <button
+                  type="button"
+                  aria-label={`Quitar restricción ${i + 1}`}
+                  title="Quitar restricción"
+                  onClick={() =>
+                    onChange(writeRestricciones(plantilla, restricciones.filter((_, j) => j !== i)))
+                  }
+                  style={removeItemButtonStyle}
+                >
+                  ×
+                </button>
+              </div>
+              {text.trim() !== "" && textToExpr(text) === null ? (
+                <div style={{ fontSize: 11, color: "var(--c-danger)", marginTop: 4, marginLeft: 28 }}>
+                  Fórmula inválida: no se guarda hasta corregirla.
+                </div>
+              ) : null}
+            </div>
+          ))}
+          <button
+            type="button"
+            onClick={() => onChange(writeRestricciones(plantilla, [...restricciones, "true"]))}
+            style={addLinkButtonStyle}
+          >
+            ＋ Otra restricción
+          </button>
+        </div>
+
         {/* EXPLICACIÓN */}
         <div>
           <div style={{ fontSize: 13, fontWeight: 660, marginBottom: 9 }}>
@@ -1019,6 +1373,46 @@ function QuestionPropertyGrid({
             onCommit={(v) => onChange(writeExplicacion(plantilla, v))}
             style={inputStyle()}
           />
+        </div>
+
+        {/* WO-tiza-config (Fase 4) — generador asistido (`generador: <id>`).
+            El motor ya existía end-to-end en @vb/vblang (VBLang.md §9);
+            esto agrega el dropdown que la spec ya pedía para el editor
+            visual, reusando `GeneradorPicker` (mismo componente del editor
+            clásico) + `applyGenerador`/`applyTipo` (lógica pura). Las
+            variables del generador se insertan al enunciado como `{var}`
+            desde los chips del panel de docs (modo "formulario"). */}
+        <div>
+          <div style={{ height: 1, background: "var(--c-border)", margin: "6px 0 16px" }} />
+          <Eyebrow>Generador base (opcional)</Eyebrow>
+          <div data-testid="tiza-generador-picker">
+            <GeneradorPicker
+              value={getBlock(plantilla, "generador")?.id ?? ""}
+              onChange={(id) =>
+                onChange(id ? applyGenerador(plantilla, id) : applyTipo(plantilla, tipo))
+              }
+              docsVariant="formulario"
+              onInsertVariable={
+                enunField
+                  ? (token) =>
+                      onChange(
+                        writeTextField(
+                          plantilla,
+                          enunField,
+                          enunciado === "" || enunciado.endsWith(" ")
+                            ? `${enunciado}${token}`
+                            : `${enunciado} ${token}`,
+                        ),
+                      )
+                  : undefined
+              }
+            />
+          </div>
+          <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+            El generador provee los datos y la respuesta; tu enunciado puede
+            usar sus variables. Elegir "— Elegir generador —" lo quita y
+            vuelve a la base por tipo.
+          </div>
         </div>
 
         {/* Etapa 2 (Tiza — preguntas nativas) — rol dentro del cuestionario.
@@ -1086,15 +1480,84 @@ function QuestionPropertyGrid({
                       onChangeQuizMeta({ ...quizMeta, poolId: v.trim() || undefined })
                     }
                     style={inputStyle()}
+                    list={poolListId}
                     data-testid="quiz-meta-pool-id-input"
                   />
+                  {/* WO-tiza-config (Fase 3) — sugerir pools existentes del
+                      cuestionario: un typo acá parte el pool en dos en
+                      silencio, así que el navegador ofrece las conocidas. */}
+                  <datalist id={poolListId} data-testid="quiz-meta-pool-datalist">
+                    {(poolsDisponibles ?? []).map((p) => (
+                      <option key={p} value={p} />
+                    ))}
+                  </datalist>
                   <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
                     Agrupa preguntas intercambiables. Vacío = pool implícita
                     compartida por todas las de relleno sin pool propia.
+                    {poolsDisponibles && poolsDisponibles.length > 0
+                      ? ` Pools existentes: ${poolsDisponibles.join(", ")}.`
+                      : ""}
                   </div>
                 </div>
               </div>
             ) : null}
+
+            {/* WO-tiza-config (Fase 3) — dificultad + puntaje por pregunta.
+                El schema (`PreguntaQuiz`) y el runtime ya los soportaban;
+                esto sólo agrega la UI. Aplican a cualquier rol. */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 14, marginTop: 14 }}>
+              <div>
+                <Eyebrow>Dificultad</Eyebrow>
+                <select
+                  value={quizMeta.dificultad ?? ""}
+                  onChange={(e) =>
+                    onChangeQuizMeta({
+                      ...quizMeta,
+                      dificultad: e.target.value
+                        ? (e.target.value as DificultadPregunta)
+                        : undefined,
+                    })
+                  }
+                  style={{ ...inputStyle(), cursor: "pointer" }}
+                  data-testid="quiz-meta-dificultad-select"
+                >
+                  <option value="">Sin asignar</option>
+                  <option value="basico">Básico</option>
+                  <option value="intermedio">Intermedio</option>
+                  <option value="avanzado">Avanzado</option>
+                </select>
+                <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+                  La usa el ruteo por dificultad del cuestionario (si está
+                  activado). Sin asignar cuenta como Intermedio.
+                </div>
+              </div>
+              <div>
+                <Eyebrow>Puntaje</Eyebrow>
+                <input
+                  type="number"
+                  min={0}
+                  step="any"
+                  value={quizMeta.puntaje ?? ""}
+                  placeholder="1"
+                  onChange={(e) => {
+                    const raw = e.target.value;
+                    if (raw === "") {
+                      onChangeQuizMeta({ ...quizMeta, puntaje: undefined });
+                      return;
+                    }
+                    const n = Number(raw);
+                    if (Number.isFinite(n) && n >= 0) {
+                      onChangeQuizMeta({ ...quizMeta, puntaje: n });
+                    }
+                  }}
+                  style={inputStyle()}
+                  data-testid="quiz-meta-puntaje-input"
+                />
+                <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+                  Peso de esta pregunta en el puntaje total. Vacío = 1.
+                </div>
+              </div>
+            </div>
           </div>
         ) : null}
 

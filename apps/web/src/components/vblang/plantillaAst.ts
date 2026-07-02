@@ -445,6 +445,26 @@ export function writePistas(p: Plantilla, texts: string[]): Plantilla {
   return withBlock(p, { kind: "pistas", items, loc: DUMMY_LOC });
 }
 
+/** pasos: secuencia ordenada de pasos de resolución, como texto. */
+export function readPasos(p: Plantilla): string[] {
+  const b = getBlock(p, "pasos");
+  return b ? b.pasos.map((it) => partesToText(it.partes)) : [];
+}
+
+/**
+ * Escribe `pasos:` desde una lista de strings. Mismo criterio que
+ * `writePistas`: cada string se conserva (incluso vacío) para que agregar
+ * filas no las haga desaparecer; lista vacía => quita el bloque.
+ */
+export function writePasos(p: Plantilla, texts: string[]): Plantilla {
+  if (texts.length === 0) return withoutBlock(p, "pasos");
+  const pasos = texts.map((text) => ({
+    partes: textToPartes(text),
+    loc: DUMMY_LOC,
+  }));
+  return withBlock(p, { kind: "pasos", pasos, loc: DUMMY_LOC });
+}
+
 /**
  * Convierte texto con `{expr}` / `{{` / `}}` a partes. Si una interpolación no
  * parsea como expresión, se conserva como texto literal (no se rompe).

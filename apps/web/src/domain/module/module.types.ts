@@ -44,6 +44,15 @@ export type ModuleQuiz = {
   competitionRules?: string;
   competitionRulesVisibility?: ModuleQuizVisibility;
   questions?: ModuleQuizQuestion[];
+  /**
+   * WO-tiza-config (Fase 5) — sólo-lectura, lo setea el GET del módulo: el
+   * quiz usa el modelo "preguntas nativas" de Tiza (`settings.preguntas`,
+   * el que realmente lee `quiz-attempts`). La UI lo usa para mostrar
+   * "Preguntas nativas en Tiza →" como entrada principal en vez del badge
+   * legacy armado desde `generatorId`. No se envía al guardar (el server
+   * lo ignora).
+   */
+  tienePreguntasNativas?: boolean;
   generatorId?: string;
   generatorVersion?: number;
   params?: Record<string, unknown>;

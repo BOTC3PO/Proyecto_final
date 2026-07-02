@@ -297,3 +297,28 @@ export const CuestionarioPreguntasInputSchema = z.object({
   cantidadGlobal: z.number().int().positive(),
   preguntas: z.array(PreguntaQuizSchema)
 });
+
+// WO-tiza-config — payload de `PATCH /api/quizzes/:quizId/meta`. Subconjunto
+// plano de `ModuleQuizSchema` (título + tipo/visibilidad + configuración de
+// evaluación) editable desde Tiza sin re-enviar `quizzes[]` completo. Cada
+// campo es opcional: sólo se persiste lo que viene en el payload. `strict()`
+// para que un typo de campo falle con 400 en vez de perderse en silencio.
+export const QuizMetaPatchSchema = z
+  .object({
+    title: z.string().min(1),
+    type: z.enum(["practica", "evaluacion", "competencia", "formal"]),
+    visibility: ModuleQuizVisibilitySchema,
+    maxIntentos: z.union([z.number().int().nonnegative(), z.null()]),
+    politicaNota: z.enum(["mejor", "ultima", "primera", "promedio"]),
+    politicaSorteo: z.enum(["fijo_por_alumno", "por_intento"]),
+    ocultarPuntos: z.boolean(),
+    timerSegundos: z.union([z.number().int().positive(), z.null()]),
+    fullscreenOnStart: z.boolean(),
+    modoPresentacion: z.enum(["lista", "una_por_pantalla", "paginado"]),
+    preguntasPorPagina: z.number().int().positive(),
+    politicaDificultad: z.enum(["fija", "manual", "adaptativa_simple"]),
+    dificultadInicial: z.enum(["basico", "intermedio", "avanzado"]),
+    dificultadVentana: z.number().int().positive()
+  })
+  .partial()
+  .strict();

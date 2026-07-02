@@ -8,7 +8,7 @@ import { isStaffRole } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
 import { sanitizeQuestionsForStudent } from "../lib/sanitize-questions";
 import { mergeMateriaIntoSettings } from "../lib/quiz-materia";
-import { ModuleSchema, CuestionarioPreguntasInputSchema } from "../schema/modulo";
+import { ModuleSchema, CuestionarioPreguntasInputSchema, QuizMetaPatchSchema } from "../schema/modulo";
 // Etapa 2 (Tiza — preguntas nativas) — GET/PUT del CuestionarioPreguntas de
 // un quiz por su id (ver rutas al final del archivo).
 import { parseCuestionarioPreguntas, validarCuestionarioPreguntas } from "../lib/quiz-preguntas";
@@ -464,6 +464,13 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
           politicaDificultad: (settings as any).politicaDificultad ?? undefined,
           dificultadInicial: (settings as any).dificultadInicial ?? undefined,
           dificultadVentana: (settings as any).dificultadVentana ?? undefined,
+          // WO-tiza-config (Fase 5) — flag de sólo-lectura: el quiz usa el
+          // modelo "preguntas nativas" de Tiza (`settings.preguntas`, el que
+          // lee quiz-attempts). La UI lo usa para mostrar la entrada correcta
+          // ("Preguntas nativas en Tiza →") en vez del badge legacy armado
+          // desde `generatorId`. No viaja de vuelta: el schema de PUT/PATCH
+          // lo ignora (zod strippea claves desconocidas).
+          tienePreguntasNativas: (settings as any).preguntas !== undefined,
         };
       })
       // WO-3 (bug de visibilidad) — un alumno (no dueño ni staff) NO debe ver
@@ -1026,6 +1033,21 @@ async function applyModuleUpdate(
         const newVersionNum = (latestVersion?.versionNumber ?? 0) + 1;
         const newVersionId = `qv-${matched.id}-${newVersionNum}-${Date.now()}`;
 
+        // WO-tiza-config — `settings.preguntas` (Tiza, preguntas nativas) NO
+        // forma parte de `ModuleQuizSchema`, así que el payload de PUT/PATCH
+        // de módulo nunca lo trae. Sin este arrastre, guardar el módulo desde
+        // ModuloEditor creaba una versión nueva SIN `preguntas` y borraba la
+        // configuración hecha en Tiza (que `quiz-attempts.ts` sí lee).
+        const prevSettings = (latestVersion as { settings?: string | null } | undefined)?.settings
+          ? safeJsonParse<Record<string, unknown>>(
+              (latestVersion as { settings: string }).settings,
+              {},
+            )
+          : {};
+        if (prevSettings.preguntas !== undefined && (settings as Record<string, unknown>).preguntas === undefined) {
+          (settings as Record<string, unknown>).preguntas = prevSettings.preguntas;
+        }
+
         await tx.quizVersion.create({
           data: {
             id: newVersionId,
@@ -1294,24 +1316,193 @@ async function loadQuizConModulo(quizId: string) {
   return { quiz, modulo, version };
 }
 
+type QuizRequesterRaw =
+  | { _id?: { toString?: () => string } | string; id?: string; role?: string | null; schoolId?: string | null }
+  | undefined;
+
+/** Resuelve el id del usuario autenticado desde `req.user` (mismo shape en las 3 rutas de este bloque). */
+function resolveRequesterId(requesterRaw: QuizRequesterRaw): string | null {
+  return (
+    (typeof requesterRaw?.id === "string" && requesterRaw.id) ||
+    (typeof requesterRaw?._id === "string" && (requesterRaw._id as string)) ||
+    (requesterRaw?._id && typeof (requesterRaw._id as { toString?: () => string }).toString === "function"
+      ? (requesterRaw._id as { toString: () => string }).toString()
+      : null)
+  );
+}
+
+function canAccessQuiz(
+  loaded: NonNullable<Awaited<ReturnType<typeof loadQuizConModulo>>>,
+  requesterId: string,
+  requesterRaw: QuizRequesterRaw,
+): boolean {
+  return loaded.modulo
+    ? canEditModuloDirect(loaded.modulo, { _id: requesterId, role: requesterRaw?.role, schoolId: requesterRaw?.schoolId })
+    : isStaffRole(requesterRaw?.role ?? null);
+}
+
+// WO-tiza-config — claves de `QuizVersion.settings` que forman la
+// "configuración de evaluación" editable desde Tiza (mismos campos que
+// `EvaluacionConfig` en ModuloEditor). `type`/`visibility` van aparte en la
+// respuesta porque no son config de evaluación sino identidad del quiz.
+const QUIZ_META_SETTINGS_KEYS = [
+  "maxIntentos",
+  "politicaNota",
+  "politicaSorteo",
+  "ocultarPuntos",
+  "timerSegundos",
+  "fullscreenOnStart",
+  "modoPresentacion",
+  "preguntasPorPagina",
+  "politicaDificultad",
+  "dificultadInicial",
+  "dificultadVentana",
+] as const;
+
+function buildQuizMetaResponse(loaded: NonNullable<Awaited<ReturnType<typeof loadQuizConModulo>>>) {
+  const settings = loaded.version?.settings
+    ? safeJsonParse<Record<string, unknown>>(loaded.version.settings, {})
+    : {};
+  const config: Record<string, unknown> = {};
+  for (const key of QUIZ_META_SETTINGS_KEYS) {
+    if (settings[key] !== undefined) config[key] = settings[key];
+  }
+  return {
+    id: loaded.quiz.id,
+    title: loaded.quiz.title ?? "",
+    type: typeof settings.type === "string" ? settings.type : "practica",
+    visibility: typeof settings.visibility === "string" ? settings.visibility : "publico",
+    config,
+  };
+}
+
+// WO — el editor Tiza muestra "Cuestionario: <título>" en la cabecera de
+// DETALLES cuando hay `quizId` (el título del cuestionario vive en
+// `Quiz.title`, no en la plantilla), y (WO-tiza-config) el panel DETALLES
+// edita tipo/visibilidad/config de evaluación: GET liviano con todo eso.
+// El path es `/meta` (no la raíz `/api/quizzes/:quizId`): este router se
+// monta antes que `quizBanco` (index.ts) y una ruta paramétrica en la raíz
+// capturaría cualquier path literal hermano, como `/api/quizzes/banco`.
+modulos.get("/api/quizzes/:quizId/meta", requireUser, async (req, res) => {
+  try {
+    const quizId = req.params.quizId as string;
+    const loaded = await loadQuizConModulo(quizId);
+    if (!loaded) return res.status(404).json({ error: "quiz not found" });
+
+    const requesterRaw = req.user as QuizRequesterRaw;
+    const requesterId = resolveRequesterId(requesterRaw);
+    if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+    if (!canAccessQuiz(loaded, requesterId, requesterRaw)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+
+    res.json(buildQuizMetaResponse(loaded));
+  } catch (e: any) {
+    console.error("[GET /api/quizzes/:quizId/meta]", e);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+// WO-tiza-config — PATCH parcial de título/tipo/visibilidad/config de
+// evaluación de UN quiz. Mismo patrón de persistencia que
+// `PUT /api/quizzes/:quizId/preguntas`: read-modify-write del `settings` de
+// la versión ACTUAL (sin crear versión nueva), así un patch chico desde Tiza
+// no puede pisar claves que no conoce (`preguntas`, `posiciones`, `materia`).
+modulos.patch("/api/quizzes/:quizId/meta", requireUser, async (req, res) => {
+  try {
+    const quizId = req.params.quizId as string;
+    const loaded = await loadQuizConModulo(quizId);
+    if (!loaded) return res.status(404).json({ error: "quiz not found" });
+
+    const requesterRaw = req.user as QuizRequesterRaw;
+    const requesterId = resolveRequesterId(requesterRaw);
+    if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+    if (!canAccessQuiz(loaded, requesterId, requesterRaw)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+
+    const parsed = QuizMetaPatchSchema.parse(req.body);
+    const now = new Date().toISOString();
+
+    if (parsed.title !== undefined) {
+      await prisma.quiz.update({
+        where: { id: loaded.quiz.id },
+        data: { title: parsed.title, updatedAt: now },
+      });
+      loaded.quiz.title = parsed.title;
+    }
+
+    const settingsPatch: Record<string, unknown> = {};
+    if (parsed.type !== undefined) settingsPatch.type = parsed.type;
+    if (parsed.visibility !== undefined) settingsPatch.visibility = parsed.visibility;
+    for (const key of QUIZ_META_SETTINGS_KEYS) {
+      if ((parsed as Record<string, unknown>)[key] !== undefined) {
+        settingsPatch[key] = (parsed as Record<string, unknown>)[key];
+      }
+    }
+    if (Object.keys(settingsPatch).length > 0) {
+      if (!loaded.version) {
+        return res.status(400).json({ error: "el quiz no tiene una versión válida" });
+      }
+      const settings = loaded.version.settings
+        ? safeJsonParse<Record<string, unknown>>(loaded.version.settings, {})
+        : {};
+      const nextSettings = { ...settings, ...settingsPatch };
+      await prisma.quizVersion.update({
+        where: { id: loaded.version.id },
+        data: { settings: JSON.stringify(nextSettings) },
+      });
+      loaded.version.settings = JSON.stringify(nextSettings);
+    }
+
+    res.json(buildQuizMetaResponse(loaded));
+  } catch (e: any) {
+    if (e?.issues) return res.status(400).json({ error: "validation", issues: e.issues });
+    console.error("[PATCH /api/quizzes/:quizId/meta]", e);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+// WO-tiza-config — "Eliminar cuestionario" desde Tiza. Soft-delete
+// (`isActive: false`), el mismo mecanismo que usa `applyModuleUpdate` cuando
+// un quiz desaparece de `quizzes[]` al guardar el módulo. Método DELETE sobre
+// la raíz paramétrica: hoy no hay ninguna ruta literal DELETE bajo
+// `/api/quizzes/` que pueda quedar tapada (la lección del shadowing de
+// `/api/quizzes/banco` aplica por método+path; banco es GET-only).
+modulos.delete("/api/quizzes/:quizId", requireUser, async (req, res) => {
+  try {
+    const quizId = req.params.quizId as string;
+    const loaded = await loadQuizConModulo(quizId);
+    if (!loaded) return res.status(404).json({ error: "quiz not found" });
+
+    const requesterRaw = req.user as QuizRequesterRaw;
+    const requesterId = resolveRequesterId(requesterRaw);
+    if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+    if (!canAccessQuiz(loaded, requesterId, requesterRaw)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+
+    await prisma.quiz.update({
+      where: { id: loaded.quiz.id },
+      data: { isActive: false, updatedAt: new Date().toISOString() },
+    });
+    res.json({ ok: true });
+  } catch (e: any) {
+    console.error("[DELETE /api/quizzes/:quizId]", e);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
 modulos.get("/api/quizzes/:quizId/preguntas", requireUser, async (req, res) => {
   try {
     const quizId = req.params.quizId as string;
     const loaded = await loadQuizConModulo(quizId);
     if (!loaded) return res.status(404).json({ error: "quiz not found" });
 
-    const requesterRaw = req.user as
-      | { _id?: { toString?: () => string } | string; id?: string; role?: string | null; schoolId?: string | null }
-      | undefined;
-    const requesterId =
-      (typeof requesterRaw?.id === "string" && requesterRaw.id) ||
-      (typeof requesterRaw?._id === "string" && (requesterRaw._id as string)) ||
-      (requesterRaw?._id && typeof (requesterRaw._id as { toString?: () => string }).toString === "function"
-        ? (requesterRaw._id as { toString: () => string }).toString()
-        : null);
+    const requesterRaw = req.user as QuizRequesterRaw;
+    const requesterId = resolveRequesterId(requesterRaw);
     if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
-
-    if (loaded.modulo ? !canEditModuloDirect(loaded.modulo, { _id: requesterId, role: requesterRaw?.role, schoolId: requesterRaw?.schoolId }) : !isStaffRole(requesterRaw?.role ?? null)) {
+    if (!canAccessQuiz(loaded, requesterId, requesterRaw)) {
       return res.status(403).json({ error: "forbidden" });
     }
 
@@ -1336,18 +1527,10 @@ modulos.put(
       const loaded = await loadQuizConModulo(quizId);
       if (!loaded) return res.status(404).json({ error: "quiz not found" });
 
-      const requesterRaw = req.user as
-        | { _id?: { toString?: () => string } | string; id?: string; role?: string | null; schoolId?: string | null }
-        | undefined;
-      const requesterId =
-        (typeof requesterRaw?.id === "string" && requesterRaw.id) ||
-        (typeof requesterRaw?._id === "string" && (requesterRaw._id as string)) ||
-        (requesterRaw?._id && typeof (requesterRaw._id as { toString?: () => string }).toString === "function"
-          ? (requesterRaw._id as { toString: () => string }).toString()
-          : null);
+      const requesterRaw = req.user as QuizRequesterRaw;
+      const requesterId = resolveRequesterId(requesterRaw);
       if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
-
-      if (loaded.modulo ? !canEditModuloDirect(loaded.modulo, { _id: requesterId, role: requesterRaw?.role, schoolId: requesterRaw?.schoolId }) : !isStaffRole(requesterRaw?.role ?? null)) {
+      if (!canAccessQuiz(loaded, requesterId, requesterRaw)) {
         return res.status(403).json({ error: "forbidden" });
       }
       if (!loaded.version) {

@@ -1636,7 +1636,15 @@ export default function ModuloEditor() {
                   <div className="space-y-6">
                     {quizzes.map((quiz) => {
                       const quizGenId = quiz.generatorId ?? "";
-                      const esPlantilla = quizGenId.startsWith("plantilla:");
+                      // WO-tiza-config (Fase 5) — si el quiz usa preguntas
+                      // nativas (`settings.preguntas`, el modelo que lee el
+                      // runtime), el badge legacy por `generatorId` queda
+                      // desincronizado (bug 1b del informe QA 2026-07-01):
+                      // no se muestra "Editar plantilla →" y la entrada
+                      // principal pasa a ser "Preguntas nativas en Tiza →".
+                      const tienePreguntasNativas = quiz.tienePreguntasNativas === true;
+                      const esPlantilla =
+                        !tienePreguntasNativas && quizGenId.startsWith("plantilla:");
                       const plantillaId = esPlantilla
                         ? quizGenId.slice("plantilla:".length)
                         : null;
@@ -1648,7 +1656,14 @@ export default function ModuloEditor() {
                         <div className="p-5 space-y-4">
                         {/* Sprint 10A — badge según origen del cuestionario */}
                         <div className="flex flex-wrap items-center gap-2">
-                          {esPlantilla ? (
+                          {tienePreguntasNativas ? (
+                            <span
+                              className="inline-flex items-center gap-1 rounded-full bg-[var(--c-success-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-success)]"
+                              data-testid="quiz-badge-preguntas-nativas"
+                            >
+                              🧩 Preguntas nativas (Tiza)
+                            </span>
+                          ) : esPlantilla ? (
                             <>
                               <span
                                 className="inline-flex items-center gap-1 rounded-full bg-[var(--c-success-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-success)]"

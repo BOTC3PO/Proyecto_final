@@ -87,7 +87,19 @@ import {
   updatePlantilla,
   DslApiError,
 } from "../domain/vblang/plantillaApi";
-import { getQuizPreguntas, saveQuizPreguntas } from "../domain/quiz/quizPreguntasApi";
+import {
+  getQuizPreguntas,
+  getQuizMeta,
+  saveQuizPreguntas,
+  patchQuizMeta,
+  deleteQuiz,
+  type QuizMeta,
+  type QuizMetaPatch,
+} from "../domain/quiz/quizPreguntasApi";
+import QuizConfigPanel, {
+  type QuizMetaSaveState,
+  type QuizResumenSorteo,
+} from "../components/vblang/QuizConfigPanel";
 import {
   validarCuestionarioPreguntas,
   type CuestionarioPreguntas,
@@ -190,6 +202,20 @@ function makeQuestion(
     savedCodigo: "",
     ...patch,
     hist: { past: [], present: dsl, future: [] },
+  };
+}
+
+/** WO-tiza-config — merge optimista de un `QuizMetaPatch` sobre el estado
+ *  local: título/tipo/visibilidad van top-level, el resto son claves de la
+ *  config de evaluación (`meta.config`). */
+function aplicarMetaPatch(prev: QuizMeta, patch: QuizMetaPatch): QuizMeta {
+  const { title, type, visibility, ...config } = patch;
+  return {
+    ...prev,
+    ...(title !== undefined ? { title } : {}),
+    ...(type !== undefined ? { type } : {}),
+    ...(visibility !== undefined ? { visibility } : {}),
+    config: { ...prev.config, ...config },
   };
 }
 
@@ -410,6 +436,13 @@ function PlantillaEditorTizaInner() {
   // total. Sólo tiene sentido con `quizId` presente; `null` en modo
   // standalone (no se muestra el campo ni se persiste nada).
   const [cantidadGlobal, setCantidadGlobal] = useState<number | null>(null);
+  // WO-tiza-config — meta del CUESTIONARIO (título/tipo/visibilidad/config de
+  // evaluación; viven en `Quiz.title` + `QuizVersion.settings`, no en la
+  // plantilla activa): sólo tiene sentido con `quizId`. `null` mientras carga;
+  // la cabecera muestra un placeholder hasta que resuelve.
+  const [quizMetaState, setQuizMetaState] = useState<QuizMeta | null>(null);
+  const [metaSaveState, setMetaSaveState] = useState<QuizMetaSaveState>("idle");
+  const quizTitle = quizMetaState?.title ?? null;
   const [toastState, setToastState] = useState<{
     message: string;
     actions?: ToastAction[];
@@ -427,11 +460,23 @@ function PlantillaEditorTizaInner() {
   const [metaOpen, setMetaOpen] = useState(isNew);
   // Sección activa del navegador (rail) cuando la selección es la pregunta.
   const [activeSection, setActiveSection] = useState<string>("tiza-sec-enunciado");
-  const [wizardDismissed, setWizardDismissed] = useState(!isNew);
+  // WO-tiza-config (Fase 5, bug 2 del informe QA) — el wizard de onboarding
+  // ("¿plantilla en blanco o de una lista?") es para plantillas realmente
+  // nuevas y sueltas. Entrar desde "Preguntas nativas en Tiza →" también usa
+  // `/plantillas/nueva`, pero con `quizId`: en ese caso el wizard NO debe
+  // dispararse (se está abriendo el cuestionario, no creando una plantilla).
+  const [wizardDismissed, setWizardDismissed] = useState(!isNew || quizId !== null);
 
   const editorRef = useRef<CodeEditorHandle | null>(null);
   const lastDeclaredRef = useRef<string[]>([]);
   const lastValidPlantillaRef = useRef<Plantilla | null>(null);
+  // WO-tiza-config — cola del PATCH de meta del cuestionario: los cambios se
+  // acumulan acá y se mandan con debounce (400ms) en un solo request; si hay
+  // uno en vuelo, lo pendiente espera a que termine (evita PATCHes fuera de
+  // orden pisándose entre sí).
+  const pendingMetaPatchRef = useRef<QuizMetaPatch>({});
+  const metaPatchTimerRef = useRef<number | null>(null);
+  const metaPatchInFlightRef = useRef(false);
 
   useEffect(() => {
     // Etapa 2 — con `quizId` presente, la carga la maneja el effect de
@@ -501,6 +546,9 @@ function PlantillaEditorTizaInner() {
             rol: p.tipo,
             maxRepeticiones: p.maxRepeticiones,
             poolId: p.poolId,
+            // WO-tiza-config (Fase 3) — restaurar dificultad/puntaje.
+            dificultad: p.dificultad,
+            puntaje: p.puntaje,
           },
         });
       } catch {
@@ -565,6 +613,92 @@ function PlantillaEditorTizaInner() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- `id`/`isNew` se leen una sola vez al montar con este `quizId`; re-ejecutar en cada cambio de `id` navegaría en un loop (guardar cambia el plantillaId activo, no debe re-disparar la carga completa del cuestionario).
   }, [quizId]);
+
+  // WO — meta del cuestionario para la cabecera + panel de configuración de
+  // DETALLES. Independiente de la carga de arriba (que hidrata el rail de
+  // preguntas): sólo un GET liviano, no bloquea el resto si falla (la
+  // cabecera queda con "…" y el panel de config no se muestra).
+  useEffect(() => {
+    if (!quizId) return;
+    let alive = true;
+    getQuizMeta(quizId)
+      .then((meta) => {
+        if (alive) setQuizMetaState(meta);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [quizId]);
+
+  // WO-tiza-config — envía lo acumulado en `pendingMetaPatchRef` en un solo
+  // PATCH. Si falla, re-encola el patch (se reintenta con el próximo cambio).
+  const flushMetaPatch = useCallback(async () => {
+    if (!quizId || metaPatchInFlightRef.current) return;
+    const patch = pendingMetaPatchRef.current;
+    if (Object.keys(patch).length === 0) return;
+    pendingMetaPatchRef.current = {};
+    metaPatchInFlightRef.current = true;
+    setMetaSaveState("saving");
+    try {
+      const next = await patchQuizMeta(quizId, patch);
+      if (Object.keys(pendingMetaPatchRef.current).length === 0) {
+        // Sólo pisar el estado local con la respuesta si no se encolaron
+        // cambios nuevos mientras el request estaba en vuelo.
+        setQuizMetaState(next);
+        setMetaSaveState("saved");
+      } else {
+        // Quedaron cambios encolados durante el vuelo: mandarlos ya (el
+        // macrotask corre después del `finally`, con `inFlight` ya en false).
+        window.setTimeout(() => void flushMetaPatch(), 0);
+      }
+    } catch {
+      // Re-encolar lo fallido (lo nuevo pisa a lo viejo) SIN re-disparar:
+      // se reintenta recién con el próximo cambio del usuario, para no
+      // entrar en un loop de reintentos ante un error persistente.
+      pendingMetaPatchRef.current = { ...patch, ...pendingMetaPatchRef.current };
+      setMetaSaveState("error");
+    } finally {
+      metaPatchInFlightRef.current = false;
+    }
+  }, [quizId]);
+
+  const queueMetaPatch = useCallback(
+    (patch: QuizMetaPatch) => {
+      // Optimista: reflejar el cambio en el estado local ya mismo.
+      setQuizMetaState((prev) => (prev ? aplicarMetaPatch(prev, patch) : prev));
+      pendingMetaPatchRef.current = { ...pendingMetaPatchRef.current, ...patch };
+      if (metaPatchTimerRef.current) window.clearTimeout(metaPatchTimerRef.current);
+      metaPatchTimerRef.current = window.setTimeout(() => void flushMetaPatch(), 400);
+    },
+    [flushMetaPatch],
+  );
+
+  // Flush best-effort al desmontar (p. ej. navegar con un cambio a <400ms).
+  useEffect(
+    () => () => {
+      if (metaPatchTimerRef.current) window.clearTimeout(metaPatchTimerRef.current);
+      void flushMetaPatch();
+    },
+    [flushMetaPatch],
+  );
+
+  const handleDeleteQuiz = useCallback(async () => {
+    if (!quizId) return;
+    if (
+      !window.confirm(
+        "¿Eliminar este cuestionario y todas sus preguntas? Esta acción no se puede deshacer.",
+      )
+    ) {
+      return;
+    }
+    try {
+      await deleteQuiz(quizId);
+      navigate(returnTo || "/plantillas");
+    } catch {
+      setToastState({ message: "No se pudo eliminar el cuestionario. Probá de nuevo." });
+    }
+  }, [quizId, navigate, returnTo]);
 
   const compilation = usePlantillaCompilation(codigoDsl);
   const preview = usePlantillaPreview(compilation.compiled);
@@ -825,6 +959,9 @@ function PlantillaEditorTizaInner() {
             if (meta.maxRepeticiones !== undefined) out.maxRepeticiones = meta.maxRepeticiones;
             if (meta.poolId !== undefined) out.poolId = meta.poolId;
           }
+          // WO-tiza-config (Fase 3) — dificultad/puntaje por pregunta.
+          if (meta.dificultad !== undefined) out.dificultad = meta.dificultad;
+          if (meta.puntaje !== undefined) out.puntaje = meta.puntaje;
           return out;
         }),
     [],
@@ -842,6 +979,44 @@ function PlantillaEditorTizaInner() {
     };
     return validarCuestionarioPreguntas(cuestionario);
   }, [quizId, cantidadGlobal, questions, buildPreguntasFromQuestions]);
+
+  // WO-tiza-config (Fase 3) — poolIds ya usados en el cuestionario, para el
+  // datalist del input de Pool (evita typos que parten un pool en dos).
+  const poolsDisponibles = useMemo(() => {
+    if (!quizId) return undefined;
+    const pools = new Set<string>();
+    for (const q of questions) {
+      const poolId = q.quizMeta?.poolId;
+      if (poolId) pools.add(poolId);
+    }
+    return [...pools].sort();
+  }, [quizId, questions]);
+
+  // WO-tiza-config — resumen del sorteo para la "Vista previa" del panel de
+  // configuración (calculado del working set del rail, sin red).
+  const resumenSorteo = useMemo<QuizResumenSorteo | null>(() => {
+    if (!quizId || cantidadGlobal === null) return null;
+    let obligatorias = 0;
+    const pools = new Map<string | null, number>();
+    for (const q of questions) {
+      const meta = q.quizMeta ?? { rol: "obligatoria" as const };
+      if (meta.rol === "relleno") {
+        const key = meta.poolId ?? null;
+        pools.set(key, (pools.get(key) ?? 0) + 1);
+      } else {
+        obligatorias += 1;
+      }
+    }
+    return {
+      cantidadGlobal,
+      obligatorias,
+      pools: [...pools.entries()].map(([id, count]) => ({ id, count })),
+      validacionErrores:
+        cuestionarioValidacion && !cuestionarioValidacion.ok
+          ? cuestionarioValidacion.errores
+          : [],
+    };
+  }, [quizId, cantidadGlobal, questions, cuestionarioValidacion]);
 
   if (loadStatus === "loading") {
     return (
@@ -1551,10 +1726,13 @@ function PlantillaEditorTizaInner() {
             <PlantillaEditorShell
               plantilla={astParaRenderizar ?? (fallbackAst as Plantilla)}
               onChange={(next) => setCodigo(serialize(next))}
-              breadcrumb={[
-                "Plantillas",
-                isNew ? "Nueva plantilla" : metadata.nombre || "Plantilla",
-              ]}
+              breadcrumb={
+                // WO-tiza-config (Fase 5, bug 2) — con `quizId` el contexto es
+                // el CUESTIONARIO, no una plantilla nueva/suelta.
+                quizId
+                  ? ["Cuestionarios", quizTitle ? `Cuestionario: ${quizTitle}` : "Cuestionario"]
+                  : ["Plantillas", isNew ? "Nueva plantilla" : metadata.nombre || "Plantilla"]
+              }
               accent={accent}
               onAccentChange={setAccent}
               theme={shellTheme}
@@ -1621,6 +1799,7 @@ function PlantillaEditorTizaInner() {
                         DETALLES
                       </span>
                       <span
+                        data-testid="tiza-detalles-titulo"
                         style={{
                           flex: 1,
                           minWidth: 0,
@@ -1632,11 +1811,39 @@ function PlantillaEditorTizaInner() {
                           whiteSpace: "nowrap",
                         }}
                       >
-                        {metadata.nombre || "Sin nombre"}
+                        {quizId
+                          ? `Cuestionario: ${quizTitle ?? "…"}`
+                          : metadata.nombre || "Sin nombre"}
                       </span>
                     </button>
                     {metaOpen ? (
                       <div style={{ padding: "0 16px 14px", maxHeight: "40vh", overflowY: "auto" }}>
+                        {/* WO-tiza-config (Fase 1+2) — configuración del
+                            CUESTIONARIO (título/tipo/visibilidad/evaluación/
+                            eliminar/vista previa del sorteo). Los controles
+                            van en el CUERPO del panel, no en la fila-botón
+                            del header (§2.1a del plan: HTML anidado inválido). */}
+                        {quizId && quizMetaState ? (
+                          <QuizConfigPanel
+                            meta={quizMetaState}
+                            saveState={metaSaveState}
+                            onPatch={queueMetaPatch}
+                            onDelete={() => void handleDeleteQuiz()}
+                            resumen={resumenSorteo}
+                            disabled={saveStatus === "saving"}
+                          />
+                        ) : quizId ? (
+                          <div
+                            style={{
+                              fontSize: 11.5,
+                              color: "var(--c-text-3)",
+                              marginBottom: 10,
+                              lineHeight: 1.4,
+                            }}
+                          >
+                            Metadatos de esta pregunta (plantilla individual).
+                          </div>
+                        ) : null}
                         <MetadataPanel
                           value={metadata}
                           onChange={setMetadata}
@@ -1659,6 +1866,7 @@ function PlantillaEditorTizaInner() {
                           ? (next) => updateActive((q) => ({ ...q, quizMeta: next }))
                           : undefined
                       }
+                      poolsDisponibles={poolsDisponibles}
                     />
                   </div>
                 </div>
