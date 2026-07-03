@@ -171,6 +171,7 @@ model Clase {
   miembros        ClaseMiembro[]
   modulos         ClaseModulo[]
   publicaciones   ClasePublicacion[]
+  asistencias     Asistencia[]
   @@map("clases")
 }
 
@@ -181,6 +182,26 @@ model ClaseMiembro {
   clase      Clase  @relation(fields: [claseId], references: [id])
   @@id([claseId, usuarioId, rolEnClase])
   @@map("clase_miembros")
+}
+
+// PLAN-A §3 — persistencia real de asistencia (antes `GET
+// /api/profesor/asistencia` devolvía [] hardcodeado: "la colección
+// 'asistencias' no existe aún en Prisma"). `estado` es
+// presente|ausente|tarde|justificado (validado en la capa de schema
+// zod, no en la DB, mismo patrón que `Clase.status`).
+model Asistencia {
+  id            String  @id
+  claseId       String  @map("clase_id")
+  alumnoId      String  @map("alumno_id")
+  fecha         String
+  estado        String
+  registradoPor String  @map("registrado_por")
+  notas         String?
+  createdAt     String  @map("created_at")
+  updatedAt     String  @map("updated_at")
+  clase         Clase   @relation(fields: [claseId], references: [id])
+  @@unique([claseId, alumnoId, fecha])
+  @@map("asistencias")
 }
 
 model ClaseModulo {

@@ -125,9 +125,15 @@ calendario.get("/api/calendario/unificado", requireUser,
 
       if (hasRole(getUserFromReq(req as never), "USER")
         && !hasAnyRole(getUserFromReq(req as never), ["TEACHER", "DIRECTIVO", "ADMIN"])) {
+        // PLAN-A §4 — `rolEnClase` es el rol EN LA CLASE (enum canónico
+        // ADMIN|TEACHER|STUDENT, ver ClassroomRoleSchema en schema/aula.ts
+        // y todos los `/api/aulas/unirse` etc.), no el `role` de cuenta
+        // ("USER"). Filtrar por "USER" nunca matcheaba ningún
+        // ClaseMiembro real (siempre se escribe "STUDENT") ⇒ el alumno
+        // nunca veía eventos de sus aulas.
         aulaWhere = {
           ...aulaWhere,
-          miembros: { some: { usuarioId: userId!, rolEnClase: "USER" } },
+          miembros: { some: { usuarioId: userId!, rolEnClase: "STUDENT" } },
         };
       } else if (hasRole(getUserFromReq(req as never), "TEACHER")) {
         // FIX-CALENDARIO — usar el criterio canónico de "docente del aula"

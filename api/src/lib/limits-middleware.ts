@@ -99,8 +99,11 @@ export async function checkAlumnoLimit(
 
     // FASE 4 — el espejo-alumno no cuenta contra el límite de alumnos
     // del plan (no es un alumno facturable).
+    // PLAN-A §4 — `rolEnClase` es "STUDENT" en la data real (el rol de
+    // cuenta "USER" nunca se escribe acá); con "USER" este conteo daba
+    // siempre 0 y el límite de alumnos por aula nunca se aplicaba.
     const alumnosCount = await prisma.claseMiembro.count({
-      where: { claseId: aulaId, rolEnClase: "USER", ...(await whereExcluirEspejos()) }
+      where: { claseId: aulaId, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) }
     });
 
     if (!(await puedeAgregarAlumno(schoolId, getRole(req), alumnosCount))) {

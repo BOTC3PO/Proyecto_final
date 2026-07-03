@@ -46,17 +46,6 @@ type CursoDocente = {
   status?: string;
 };
 
-type AsistenciaDocente = {
-  _id?: string;
-  id?: string;
-  curso?: string;
-  nombreCurso?: string;
-  presente?: number;
-  presentes?: number;
-  total?: number;
-  totalEstudiantes?: number;
-};
-
 type CalificacionDocente = {
   _id?: string;
   id?: string;
@@ -356,6 +345,9 @@ profesor.get("/api/profesor/menu", async (req, res) => {
   });
 });
 
+// PLAN-A §3 — antes esto devolvía `[]` hardcodeado porque el modelo
+// `Asistencia` no existía. Resumen del día de hoy por aula del
+// profesor (presentes marcados / total de alumnos del aula).
 profesor.get("/api/profesor/asistencia", async (req, res) => {
   const user = (req as { user?: AuthUser }).user;
   const teacherId = getTeacherId(user);
@@ -364,14 +356,44 @@ profesor.get("/api/profesor/asistencia", async (req, res) => {
     return;
   }
 
-  // Nota: la colección "asistencias" no existe aún en Prisma — devolvemos [] para evitar errores en UI.
-  const asistencias: AsistenciaDocente[] = [];
-  const resumen = asistencias.map((item, index) => ({
-    id: getDocumentId(item) || `asistencia-${index}`,
-    curso: item.curso ?? item.nombreCurso ?? "Curso sin nombre",
-    presente: item.presente ?? item.presentes ?? 0,
-    total: item.total ?? item.totalEstudiantes ?? 0
-  }));
+  const teacherMemberships = await prisma.claseMiembro.findMany({
+    where: { usuarioId: teacherId, rolEnClase: "TEACHER" },
+    select: { claseId: true }
+  });
+  const memberClaseIds = teacherMemberships.map((m) => m.claseId);
+
+  const aulas = await prisma.clase.findMany({
+    where: {
+      isDeleted: { not: true },
+      OR: [
+        { createdBy: teacherId },
+        { teacherId },
+        { teacherOfRecord: teacherId },
+        ...(memberClaseIds.length > 0 ? [{ id: { in: memberClaseIds } }] : [])
+      ]
+    },
+    select: { id: true, name: true }
+  });
+
+  const hoy = new Date().toISOString().slice(0, 10);
+  const resumen = await Promise.all(
+    aulas.map(async (aula) => {
+      const [totalAlumnos, presentesHoy] = await Promise.all([
+        prisma.claseMiembro.count({
+          where: { claseId: aula.id, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) }
+        }),
+        prisma.asistencia.count({
+          where: { claseId: aula.id, fecha: hoy, estado: "presente" }
+        })
+      ]);
+      return {
+        id: aula.id,
+        curso: aula.name ?? "Curso sin nombre",
+        presente: presentesHoy,
+        total: totalAlumnos
+      };
+    })
+  );
 
   res.status(200).json(resumen);
 });

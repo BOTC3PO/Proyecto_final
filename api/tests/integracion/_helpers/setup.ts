@@ -103,6 +103,12 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.modoAula.rows = [];
   // SEC-LIBRO — tabla de libros con dueño/ámbito.
   prisma.libro.rows = [];
+  // PLAN-A §2 — publicaciones/comentarios/moderación de aula.
+  prisma.publicacion.rows = [];
+  prisma.comentario.rows = [];
+  prisma.moderacionEvento.rows = [];
+  // PLAN-A §3 — asistencia.
+  prisma.asistencia.rows = [];
   return prisma;
 }
 

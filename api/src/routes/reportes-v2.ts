@@ -4,6 +4,7 @@ import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
 import { excluirEspejosDeIds } from "../lib/espejo-filtro";
+import { getResumenAsistenciaAula } from "./asistencia";
 
 export const reportesV2 = Router();
 
@@ -34,8 +35,10 @@ reportesV2.get(
 
       // Fetch classroom members with student role.
       // FASE 4 — el espejo-alumno no aparece en el boletín del aula.
+      // PLAN-A §4 — `rolEnClase` real es "STUDENT" (nunca se escribe
+      // "USER" en ClaseMiembro); con "USER" el boletín siempre venía vacío.
       const miembros = await prisma.claseMiembro.findMany({
-        where: { claseId: aulaId, rolEnClase: "USER" }
+        where: { claseId: aulaId, rolEnClase: "STUDENT" }
       });
       const alumnoIdsConEspejo = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
       const alumnoIds = await excluirEspejosDeIds(alumnoIdsConEspejo);
@@ -87,6 +90,11 @@ reportesV2.get(
         byAlumno.get(uid)!.push(attempt);
       }
 
+      // PLAN-A §3 — integrar el resumen de asistencia al boletín (fase 4
+      // del plan: "exponer asistencia en reportes").
+      const resumenAsistencia = await getResumenAsistenciaAula(aulaId);
+      const asistenciaPorAlumno = new Map(resumenAsistencia.map((r) => [r.alumnoId, r]));
+
       const alumnos = alumnoIds.map((alumnoId) => {
         const info = usuarioMap.get(alumnoId) ?? { nombre: alumnoId, username: "" };
         const misAttempts = byAlumno.get(alumnoId) ?? [];
@@ -119,6 +127,13 @@ reportesV2.get(
           promedioGeneral,
           materias,
           totalEvaluaciones: misAttempts.length,
+          asistencia: asistenciaPorAlumno.get(alumnoId) ?? {
+            presentes: 0,
+            ausentes: 0,
+            tarde: 0,
+            justificados: 0,
+            total: 0,
+          },
         };
       });
 

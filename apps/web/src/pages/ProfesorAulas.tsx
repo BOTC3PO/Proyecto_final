@@ -120,6 +120,12 @@ export default function ProfesorAulas() {
       .catch(() => {});
   }, []);
 
+  // PLAN-A §1 — la escuela efectiva del aula a crear: la elegida en el
+  // form (dropdown "Escuela") o, si no eligió ninguna, la del usuario.
+  // Si ninguna resuelve, no hay forma de crear el aula sin un ZodError
+  // crudo del backend — bloqueamos el submit acá con un mensaje claro.
+  const effectiveSchoolId = form.institutionId || user?.schoolId || "";
+
   const visibleClassrooms = useMemo(() => {
     if (!user) return [];
     if (isTeacher) {
@@ -158,6 +164,10 @@ export default function ProfesorAulas() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitError(null);
+    if (!editingId && !effectiveSchoolId) {
+      setSubmitError("Tu cuenta no tiene escuela asignada. Pedile a un administrador que te asigne una escuela antes de crear aulas.");
+      return;
+    }
     setIsSubmitting(true);
     try {
       if (editingId) {
@@ -203,12 +213,12 @@ export default function ProfesorAulas() {
             {
               userId: user._id ?? user.id,
               roleInClass: "TEACHER" as const,
-              schoolId: user.schoolId ?? "",
+              schoolId: effectiveSchoolId,
             },
             {
               userId: user._id ?? user.id,
               roleInClass: "ADMIN" as const,
-              schoolId: user.schoolId ?? "",
+              schoolId: effectiveSchoolId,
             },
           ] : [],
         };
@@ -423,11 +433,16 @@ export default function ProfesorAulas() {
               <div className="flex flex-wrap items-center gap-3 md:col-span-2">
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || (!editingId && !effectiveSchoolId)}
                   className="rounded-md bg-[var(--c-primary)] px-4 py-2 text-white hover:opacity-90 disabled:opacity-60"
                 >
                   {editingId ? "Guardar cambios" : "Crear aula"}
                 </button>
+                {!editingId && !effectiveSchoolId && (
+                  <span className="text-sm text-[var(--c-danger)]">
+                    Tu cuenta no tiene escuela asignada. Pedile a un administrador que te asigne una.
+                  </span>
+                )}
                 {editingId && (
                   <button
                     type="button"

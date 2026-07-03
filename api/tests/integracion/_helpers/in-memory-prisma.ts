@@ -750,6 +750,14 @@ export class InMemoryPrisma {
   // FASE 7 — `modoAula` (restricciones tienda/economia por aula).
   // Usado por `checkModoAula` (api/src/lib/modo-aula-middleware.ts).
   modoAula = new Table<ModoAulaRow>("modoAula");
+  // PLAN-A §2 — `publicacion`/`comentario` (routes/publicaciones.ts). No
+  // existían en el stub; los tests de esa ruta usaban Mongo real y hoy
+  // ni corren en `pnpm test`. Tablas genéricas, igual que `suscripcion`.
+  publicacion = new Table<Row>("publicacion");
+  comentario = new Table<Row>("comentario");
+  moderacionEvento = new Table<Row>("moderacionEvento");
+  // PLAN-A §3 — persistencia de asistencia (routes/asistencia.ts).
+  asistencia = new Table<Row>("asistencia");
 
   // override findMany on vblangDataset to support _count include.
   constructor() {

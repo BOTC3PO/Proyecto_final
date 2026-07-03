@@ -38,10 +38,28 @@ const withSchoolAliasValidation = <T extends z.ZodTypeAny>(schema: T) =>
     path: ["schoolId"]
   });
 
-export const UsuarioWriteSchema = withSchoolAliasValidation(
-  UsuarioBaseObjectSchema.extend({
-    password: z.string().min(8).max(128)
-  }).strict()
+// PLAN-A §1 — un TEACHER/DIRECTIVO dado de alta por un admin/directivo no
+// puede quedar sin escuela (mismo guardrail que RegisterSchema en
+// schema/auth.ts). USER/PARENT/GUEST/ADMIN sí pueden crearse sin escuela.
+const STAFF_REQUIRES_SCHOOL = new Set(["TEACHER", "DIRECTIVO"]);
+const withStaffSchoolRequired = <T extends z.ZodTypeAny>(schema: T) =>
+  schema.refine(
+    (data: any) => {
+      if (!STAFF_REQUIRES_SCHOOL.has(data.role)) return true;
+      return Boolean(data.schoolId || data.escuelaId);
+    },
+    {
+      message: "TEACHER y DIRECTIVO requieren schoolId (o escuelaId) al darlos de alta",
+      path: ["schoolId"]
+    }
+  );
+
+export const UsuarioWriteSchema = withStaffSchoolRequired(
+  withSchoolAliasValidation(
+    UsuarioBaseObjectSchema.extend({
+      password: z.string().min(8).max(128)
+    }).strict()
+  )
 );
 
 export const UsuarioReadSchema = withSchoolAliasValidation(

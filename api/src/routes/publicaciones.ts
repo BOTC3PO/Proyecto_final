@@ -91,12 +91,18 @@ publicaciones.post(
     const requesterId = getRequesterId(requester);
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
     const classroom = res.locals.classroom;
-    const currentStatus = normalizeClassroomStatus(classroom.status);
-    if (!currentStatus) {
-      return res.status(409).json({ error: "invalid classroom status" });
-    }
+    // PLAN-A §2 — aulas legacy sin `status` (o con un valor no
+    // reconocido) devolvían 409 "invalid classroom status" sin ninguna
+    // pista de qué pasaba ni cómo arreglarlo, y le impedían publicar a un
+    // profesor con un aula perfectamente en uso. Mismo fallback que ya
+    // usa `PUT /api/aulas/:id` (status ausente ⇒ ACTIVE, documentado):
+    // un aula sin status es, en la práctica, un aula activa legacy.
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
     if (!isClassroomActiveStatus(currentStatus)) {
-      return res.status(403).json({ error: "classroom is read-only" });
+      return res.status(403).json({
+        error: "classroom is read-only",
+        detail: `El aula tiene estado ${currentStatus}; sólo se puede publicar en aulas ACTIVE.`
+      });
     }
     const now = new Date();
     const nowIso = now.toISOString();
@@ -193,12 +199,18 @@ publicaciones.post(
     const requesterId = getRequesterId(requester);
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
     const classroom = res.locals.classroom;
-    const currentStatus = normalizeClassroomStatus(classroom.status);
-    if (!currentStatus) {
-      return res.status(409).json({ error: "invalid classroom status" });
-    }
+    // PLAN-A §2 — aulas legacy sin `status` (o con un valor no
+    // reconocido) devolvían 409 "invalid classroom status" sin ninguna
+    // pista de qué pasaba ni cómo arreglarlo, y le impedían publicar a un
+    // profesor con un aula perfectamente en uso. Mismo fallback que ya
+    // usa `PUT /api/aulas/:id` (status ausente ⇒ ACTIVE, documentado):
+    // un aula sin status es, en la práctica, un aula activa legacy.
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
     if (!isClassroomActiveStatus(currentStatus)) {
-      return res.status(403).json({ error: "classroom is read-only" });
+      return res.status(403).json({
+        error: "classroom is read-only",
+        detail: `El aula tiene estado ${currentStatus}; sólo se puede publicar en aulas ACTIVE.`
+      });
     }
     const publication = await prisma.publicacion.findFirst({
       where: { id: req.params.pubId as string as string, aulaId: req.params.id as string as string, isDeleted: { not: true } }

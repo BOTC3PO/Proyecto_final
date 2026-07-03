@@ -45,6 +45,23 @@ export const RegisterSchema = z
       path: ["role"]
     }
   )
+  .refine(
+    (data) => {
+      // PLAN-A §1 — un TEACHER o DIRECTIVO no puede quedar sin escuela
+      // asignada: hoy el front permite mandar `schoolCode` vacío ("Código
+      // de Escuela (Opcional)") y el usuario queda huérfano, rompiendo
+      // aulas/reportes/miembros para ese rol (items 1/33). USER/PARENT sí
+      // pueden registrarse sin escuela (se unen después por código de
+      // aula o quedan sin membresía).
+      const STAFF_REQUIRES_SCHOOL = new Set(["TEACHER", "DIRECTIVO"]);
+      if (!data.role || !STAFF_REQUIRES_SCHOOL.has(data.role)) return true;
+      return Boolean(data.schoolId || data.escuelaId || data.schoolCode);
+    },
+    {
+      message: "TEACHER y DIRECTIVO requieren schoolId o schoolCode al registrarse",
+      path: ["schoolCode"]
+    }
+  )
   .transform((data) => ({
     ...data,
     schoolId: data.schoolId ?? data.escuelaId ?? null

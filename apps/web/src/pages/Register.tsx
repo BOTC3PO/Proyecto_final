@@ -351,6 +351,10 @@ export default function RegistrationForm() {
       setStatus({ loading: false, error: "Selecciona el tipo de profesor." });
       return;
     }
+    if (formData.role === "TEACHER" && !formData.schoolCode.trim()) {
+      setStatus({ loading: false, error: "Ingresá el código de tu escuela para continuar." });
+      return;
+    }
     if (formData.password && formData.password !== formData.confirmPassword) {
       setStatus({ loading: false, error: "Las contraseñas no coinciden." });
       return;
@@ -488,14 +492,22 @@ export default function RegistrationForm() {
             )}
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">Código de Escuela (Opcional)</label>
+              <label className="block text-gray-800 text-lg mb-2 font-normal">
+                Código de Escuela{formData.role !== "TEACHER" ? " (Opcional)" : ""}
+              </label>
               <input
                 type="text"
                 value={formData.schoolCode}
                 onChange={(e) => setFormData({ ...formData, schoolCode: e.target.value })}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg 
+                required={formData.role === "TEACHER"}
+                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
                            focus:outline-none focus:border-blue-500 transition-colors"
               />
+              {formData.role === "TEACHER" && (
+                <p className="text-sm text-gray-500 mt-1">
+                  Como profesor necesitás pertenecer a una escuela para crear aulas.
+                </p>
+              )}
             </div>
 
             <div>

@@ -71,8 +71,11 @@ pedagogico.get("/api/pedagogico/riesgo/:aulaId", requireUser, async (req, res) =
     });
     if (!aula) return res.status(404).json({ error: "aula no encontrada" });
 
+    // PLAN-A §4 — `rolEnClase` real es "STUDENT" (el rol de cuenta "USER"
+    // nunca se escribe en ClaseMiembro); con "USER" esto siempre daba
+    // panel de riesgo vacío.
     const miembros = await prisma.claseMiembro.findMany({
-      where: { claseId: aulaId, rolEnClase: "USER" },
+      where: { claseId: aulaId, rolEnClase: "STUDENT" },
       select: { usuarioId: true },
     });
     // FASE 4 — el espejo-alumno no aparece en el panel de riesgo.
@@ -172,8 +175,11 @@ pedagogico.post("/api/pedagogico/desbloquear", requireUser, async (req, res) => 
       }
     }
 
+    // PLAN-A §4 — mismo mismatch: `rolEnClase` real es "STUDENT", nunca
+    // "USER". Con "USER" esta verificación rechazaba (403) a CUALQUIER
+    // alumno real de la aula.
     const isMember = await prisma.claseMiembro.findFirst({
-      where: { claseId: String(aulaId), usuarioId: String(alumnoId), rolEnClase: "USER" },
+      where: { claseId: String(aulaId), usuarioId: String(alumnoId), rolEnClase: "STUDENT" },
     });
     if (!isMember) {
       return res.status(403).json({ error: "el alumno no pertenece a esta aula" });

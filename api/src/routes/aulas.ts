@@ -379,8 +379,31 @@ aulas.get(
 aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const now = new Date().toISOString();
+
+    // PLAN-A §1 — el front no puede ser la fuente de verdad del schoolId de
+    // los miembros (mandaba `user.schoolId ?? ""`, desalineado del
+    // `institutionId` elegido en el form, produciendo ZodErrors crudos:
+    // `members[i].schoolId` too_small + "members must match the classroom
+    // schoolId"). Derivamos acá el schoolId del aula (lo que mandó el body
+    // como schoolId/institutionId, o si no vino, el del usuario autenticado)
+    // y lo forzamos en todos los miembros antes de validar.
+    const bodySchoolId =
+      (typeof req.body?.schoolId === "string" && req.body.schoolId.trim()) ||
+      (typeof req.body?.institutionId === "string" && req.body.institutionId.trim()) ||
+      "";
+    const derivedSchoolId = bodySchoolId || getRequesterSchoolId(req) || "";
+    if (!derivedSchoolId) {
+      return res.status(422).json({
+        error: "Tu cuenta no tiene escuela asignada. Pedile a un administrador que te asigne una escuela antes de crear aulas."
+      });
+    }
+
+    const rawMembers = Array.isArray(req.body?.members) ? req.body.members : [];
     const payload = {
       ...req.body,
+      schoolId: derivedSchoolId,
+      institutionId: derivedSchoolId,
+      members: rawMembers.map((member: Record<string, unknown>) => ({ ...member, schoolId: derivedSchoolId })),
       status: req.body?.status ?? "ACTIVE",
       createdAt: req.body?.createdAt ?? now,
       updatedAt: req.body?.updatedAt ?? now
@@ -405,10 +428,7 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
       });
     }
 
-    const schoolId = (parsed as { schoolId?: string }).schoolId
-      ?? parsed.institutionId
-      ?? getRequesterSchoolId(req)
-      ?? "";
+    const schoolId = derivedSchoolId;
 
     const grade = parsed.category ?? (parsed as { subject?: string }).subject ?? "General";
 
@@ -538,10 +558,10 @@ aulas.patch(
       const id = req.params.id as string;
       const parsed = ClassroomPatchSchema.parse(req.body);
       const classroom = res.locals.classroom;
-      const currentStatus = normalizeClassroomStatus(classroom.status);
-      if (!currentStatus) {
-        return res.status(409).json({ error: "invalid classroom status" });
-      }
+      // PLAN-A §2 — mismo fallback que PUT /api/aulas/:id (más arriba en
+      // este archivo): un aula legacy sin status termina siendo tratada
+      // como ACTIVE en vez de bloquear con un 409 sin contexto.
+      const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
       if (
         isClassroomReadOnlyStatus(currentStatus) &&
         (parsed.members || parsed.teacherId || parsed.teacherOfRecord)
@@ -635,10 +655,9 @@ aulas.post(
       status?: string;
       id?: string;
     };
-    const currentStatus = normalizeClassroomStatus(classroom.status);
-    if (!currentStatus) {
-      return res.status(409).json({ error: "invalid classroom status" });
-    }
+    // PLAN-A §2 — mismo fallback que PUT/PATCH /api/aulas/:id: status
+    // ausente (aula legacy) ⇒ ACTIVE, en vez de un 409 sin contexto.
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
     if (isClassroomReadOnlyStatus(currentStatus)) {
       return res.status(403).json({ error: "classroom is read-only" });
     }
@@ -776,10 +795,9 @@ aulas.delete("/api/admin/aulas/:id", requireAdminAuth, async (req, res) => {
   if (blockers.length > 0) {
     return res.status(409).json({ error: "delete blocked", reasons: blockers });
   }
-  const currentStatus = normalizeClassroomStatus(classroom.status);
-  if (!currentStatus) {
-    return res.status(409).json({ error: "invalid classroom status" });
-  }
+  // PLAN-A §2 — mismo fallback que el resto de las rutas de aulas: status
+  // ausente (legacy) ⇒ ACTIVE, en vez de un 409 sin contexto.
+  const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req);
   await prisma.auditoriaAula.create({

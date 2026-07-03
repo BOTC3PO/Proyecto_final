@@ -66,6 +66,7 @@ import { membresias } from "./routes/membresias";
 import { materiales } from "./routes/materiales";
 import { plantillas } from "./routes/plantillas";
 import { vblangDatasets } from "./routes/vblang-datasets";
+import { asistencia } from "./routes/asistencia";
 import { requireUser } from "./lib/user-auth";
 import { prisma } from "./lib/prisma";
 
@@ -190,6 +191,7 @@ app.use(reportes);
 app.use(reportesV2);
 app.use(encuestas);
 app.use(aulas);
+app.use(asistencia);
 app.use(economia);
 app.use(aulaFeed);
 app.use(publicaciones);

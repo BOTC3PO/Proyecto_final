@@ -81,7 +81,7 @@ adminRouter.get("/api/admin/usuarios/:id/modulos-completados", requireAdmin, asy
 
 adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) => {
   try {
-    const { role } = req.body ?? {};
+    const { role, escuelaId: escuelaIdInput } = req.body ?? {};
     const allowedRoles = ["ADMIN", "USER", "TEACHER", "PARENT", "DIRECTIVO", "GUEST"];
     if (!role || !allowedRoles.includes(role)) {
       return res.status(400).json({ error: "role inválido" });
@@ -102,9 +102,25 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
     if (!targetId) return res.status(400).json({ error: "invalid id" });
     const target = await prisma.usuario.findFirst({ where: { id: targetId, isDeleted: false } });
     if (!target) return res.status(404).json({ error: "usuario no encontrado" });
+
+    // PLAN-A §1 — este endpoint promovía el rol sin tocar `escuelaId` nunca,
+    // dejando TEACHER/DIRECTIVO huérfanos de escuela (item 33) cada vez que
+    // se promovía a alguien acá en lugar de por /api/usuarios. Exigimos que
+    // el target ya tenga escuela o que venga una en el body.
+    const escuelaId = typeof escuelaIdInput === "string" && escuelaIdInput.trim() ? escuelaIdInput.trim() : null;
+    if (["TEACHER", "DIRECTIVO"].includes(role) && !target.escuelaId && !escuelaId) {
+      return res.status(422).json({
+        error: "Este usuario no tiene escuela asignada. Incluí escuelaId en el body para asignarle una al promoverlo."
+      });
+    }
+
     await prisma.usuario.updateMany({
       where: { id: targetId },
-      data: { role, updatedAt: new Date().toISOString() }
+      data: {
+        role,
+        ...(escuelaId ? { escuelaId } : {}),
+        updatedAt: new Date().toISOString()
+      }
     });
     await prisma.moderacionEvento.create({
       data: {
