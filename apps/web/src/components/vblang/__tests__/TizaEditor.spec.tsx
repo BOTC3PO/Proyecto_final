@@ -7,7 +7,7 @@
  * cubre que cada bloque agregado se puede ver/editar/borrar, y que "Dataset
  * externo" sigue deshabilitado sin efecto.
  */
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
@@ -271,5 +271,91 @@ describe("Tiza · generador asistido (Fase 4)", () => {
     expect(dsl()).not.toContain("generador:");
     // `applyTipo` re-sembró la base por tipo (respuesta editable de nuevo).
     expect(dsl()).toContain("respuesta:");
+  });
+});
+
+/* PLAN-E §6 — "áreas en blanco con más de una plantilla". Causa real: el
+   índice de variable seleccionada queda obsoleto si la plantilla activa
+   cambia (undo/redo o cambio de pregunta en el rail) sin que algo reajuste
+   `selection`; `VariablePropertyGrid` hacía `return null` en ese caso y el
+   panel de propiedades quedaba en blanco en lugar de volver a la pregunta. */
+function StaleVariableHarness() {
+  const withVar = 'enunciado: "{a} + 1?"\nvariables:\n  a: aleatorio(1, 5)\nrespuesta: a + 1\n';
+  const withoutVar = 'enunciado: "1 + 1?"\nrespuesta: 2\n';
+  const [plantilla, setPlantilla] = useState<Plantilla>(() => parse(withVar));
+  const [selection, setSelection] = useState<{ kind: "pregunta" } | { kind: "variable"; index: number }>({
+    kind: "pregunta",
+  });
+  return (
+    <>
+      <TizaPropertyGrid
+        plantilla={plantilla}
+        onChange={(next) => setPlantilla(parse(serialize(next)))}
+        selection={selection}
+        onSelectQuestion={() => setSelection({ kind: "pregunta" })}
+        live={EMPTY_LIVE}
+      />
+      <button
+        type="button"
+        data-testid="select-variable"
+        onClick={() => setSelection({ kind: "variable", index: 0 })}
+      >
+        Seleccionar variable
+      </button>
+      <button
+        type="button"
+        data-testid="simulate-undo"
+        onClick={() => setPlantilla(parse(withoutVar))}
+      >
+        Simular undo (quita la variable)
+      </button>
+    </>
+  );
+}
+
+describe("Tiza · PLAN-E §6 — property grid no queda en blanco", () => {
+  it("si la variable seleccionada desaparece (undo/rail), vuelve a la vista de pregunta", async () => {
+    const user = userEvent.setup();
+    render(<StaleVariableHarness />);
+
+    expect(screen.getByText(/tipo de pregunta/i)).toBeInTheDocument();
+
+    await user.click(screen.getByTestId("select-variable"));
+    expect(screen.getByText(/variable · a/i)).toBeInTheDocument();
+
+    await user.click(screen.getByTestId("simulate-undo"));
+    // Antes del fix: el panel quedaba vacío (VariablePropertyGrid → null).
+    expect(screen.getByText(/tipo de pregunta/i)).toBeInTheDocument();
+  });
+});
+
+/* PLAN-E §11 — el chip "Usar en enunciado" del property grid de variable
+   decía "copiar" pero no tenía ningún onClick: era texto estático, no un
+   control clicable como el resto de los chips de variables. */
+describe("Tiza · PLAN-E §11 — chip de variable copia al portapapeles", () => {
+  it("clickear el chip copia `{nombre}` y muestra confirmación", async () => {
+    const user = userEvent.setup();
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", {
+      value: { writeText },
+      configurable: true,
+    });
+    const withVar = 'enunciado: "{a} + 1?"\nvariables:\n  a: aleatorio(1, 5)\nrespuesta: a + 1\n';
+    render(
+      <TizaPropertyGrid
+        plantilla={parse(withVar)}
+        onChange={() => {}}
+        selection={{ kind: "variable", index: 0 }}
+        onSelectQuestion={() => {}}
+        live={EMPTY_LIVE}
+      />,
+    );
+
+    const chip = screen.getByTestId("variable-copy-chip");
+    expect(chip.tagName).toBe("BUTTON");
+    await user.click(chip);
+
+    expect(writeText).toHaveBeenCalledWith("{a}");
+    expect(screen.getByText("¡copiado!")).toBeInTheDocument();
   });
 });

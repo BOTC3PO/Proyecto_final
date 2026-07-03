@@ -242,4 +242,31 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
       expect(screen.getByTestId("vblang-wizard")).toBeInTheDocument();
     });
   }, 10000);
+
+  // PLAN-E §13 — el pool de cada pregunta se muestra pasivo en el rail
+  // (chip), sin tener que entrar a cada una para verlo en el property grid.
+  it("con quizId: el rail muestra el pool de cada pregunta (chip pasivo)", async () => {
+    getQuizPreguntasMock.mockResolvedValue({
+      version: 1,
+      cantidadGlobal: 2,
+      preguntas: [
+        { plantillaId: "p1", tipo: "obligatoria" },
+        { plantillaId: "p2", tipo: "relleno", maxRepeticiones: 2, poolId: "pool-a" },
+      ],
+    });
+    getPlantillaMock.mockImplementation((id: string) =>
+      Promise.resolve(plantillaFixture(id, id === "p1" ? "Suma" : "Doble")),
+    );
+
+    await renderEditor("/plantillas/nueva?quizId=quiz-1");
+
+    await waitFor(() => {
+      expect(screen.getByText("Suma")).toBeInTheDocument();
+      expect(screen.getByText("Doble")).toBeInTheDocument();
+    });
+    // p1 (obligatoria) + la nueva pregunta en blanco que el editor agrega
+    // automáticamente (también obligatoria por default) → 2 chips "Sin pool".
+    expect(screen.getAllByTitle("Sin pool").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByTitle("Pool: pool-a")).toBeInTheDocument();
+  }, 10000);
 });

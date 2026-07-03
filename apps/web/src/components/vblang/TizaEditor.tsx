@@ -10,6 +10,7 @@
  * Tokens-only.
  */
 import {
+  useEffect,
   useId,
   useState,
   useMemo,
@@ -1592,6 +1593,18 @@ function VariablePropertyGrid({
   live: LiveValues;
 }) {
   const v = getVariable(plantilla, index);
+  // El índice queda obsoleto si la plantilla activa cambia (rail) o si la
+  // variable seleccionada se borra: sin este guard, el panel se queda en
+  // blanco (`return null`) en lugar de mostrar la pregunta — el "área en
+  // blanco" del ítem 6 de PLAN-E §6.
+  useEffect(() => {
+    if (!v) onSelectQuestion();
+  }, [v, onSelectQuestion]);
+  // PLAN-E §11 — el chip "Usar en enunciado" decía "copiar" pero no tenía
+  // ningún onClick: era texto estático, no un control. Se vuelve un botón
+  // real (mismo `navigator.clipboard` que `PromptIAPanel.tsx`). El hook
+  // tiene que vivir antes del `return null` de abajo (Rules of Hooks).
+  const [copied, setCopied] = useState(false);
   if (!v) return null;
 
   const kind = classifyVariable(v.expr);
@@ -1606,6 +1619,16 @@ function VariablePropertyGrid({
     else if (nextKind === "list") expr = makeChoiceExpr(["a", "b", "c"]);
     else expr = textToExpr("a + b") ?? numLit(0);
     onChange(updateVariableExpr(plantilla, index, expr));
+  };
+
+  const handleCopyVar = async () => {
+    try {
+      await navigator.clipboard.writeText(`{${v.nombre}}`);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      // Sin permiso de clipboard (ej. entorno de test): no rompe el flujo.
+    }
   };
 
   return (
@@ -1803,7 +1826,11 @@ function VariablePropertyGrid({
         {/* USAR EN ENUNCIADO */}
         <div style={{ height: 1, background: "var(--c-border)", margin: "6px 0 16px" }} />
         <Eyebrow>Usar en enunciado</Eyebrow>
-        <div
+        <button
+          type="button"
+          onClick={handleCopyVar}
+          aria-label={`Copiar {${v.nombre}} para pegar en el enunciado`}
+          data-testid="variable-copy-chip"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -1813,16 +1840,18 @@ function VariablePropertyGrid({
             fontWeight: 700,
             color: "var(--c-accent)",
             background: "var(--c-accent-soft)",
+            border: "1px solid transparent",
             padding: "7px 12px",
             borderRadius: 9,
             marginBottom: 18,
+            cursor: "pointer",
           }}
         >
           {"{" + v.nombre + "}"}{" "}
           <span style={{ fontSize: 11, color: "var(--c-text-3)", fontFamily: "var(--font-sans)" }}>
-            copiar
+            {copied ? "¡copiado!" : "copiar"}
           </span>
-        </div>
+        </button>
       </div>
     </div>
   );

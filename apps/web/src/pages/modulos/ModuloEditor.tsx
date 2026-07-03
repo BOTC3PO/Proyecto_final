@@ -399,9 +399,13 @@ export default function ModuloEditor() {
   }, [plantillaIdsEnUso, plantillaNombres]);
 
   const handleSelectPlantilla = (plantilla: PlantillaListItem) => {
+    // PLAN-E §10 — el nombre pertenece al cuestionario, no a la plantilla:
+    // antes se propagaba `plantilla.nombre` como título del quiz (dos
+    // "nombres" quedaban acoplados sin querer). El título del cuestionario
+    // se define acá, independiente del nombre de banco de la plantilla.
     const baseQuiz: ModuleQuiz = {
       id: `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`,
-      title: plantilla.nombre,
+      title: "Cuestionario sin título",
       type: "formal",
       status: "draft",
       version: 1,

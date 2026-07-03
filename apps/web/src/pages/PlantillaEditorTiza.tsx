@@ -1284,6 +1284,44 @@ function PlantillaEditorTizaInner() {
               >
                 {title}
               </span>
+              {/* PLAN-E §13 — el pool ya se edita desde el property grid
+                  (quizMeta.poolId); acá se muestra pasivo para no tener que
+                  entrar a cada pregunta para saber a qué pool pertenece. */}
+              {quizId ? (
+                <span
+                  aria-hidden="true"
+                  data-testid={`rail-pool-chip-${q.key}`}
+                  title={
+                    q.quizMeta?.rol === "relleno" && q.quizMeta.poolId
+                      ? `Pool: ${q.quizMeta.poolId}`
+                      : "Sin pool"
+                  }
+                  style={{
+                    flex: "0 0 auto",
+                    fontSize: 10.5,
+                    fontWeight: 700,
+                    color:
+                      q.quizMeta?.rol === "relleno" && q.quizMeta.poolId
+                        ? "var(--c-accent)"
+                        : "var(--c-text-3)",
+                    background:
+                      q.quizMeta?.rol === "relleno" && q.quizMeta.poolId
+                        ? "var(--c-accent-soft)"
+                        : "var(--c-surface-2)",
+                    border: "1px solid var(--c-border)",
+                    borderRadius: 999,
+                    padding: "1px 7px",
+                    maxWidth: 84,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {q.quizMeta?.rol === "relleno" && q.quizMeta.poolId
+                    ? q.quizMeta.poolId
+                    : "sin pool"}
+                </span>
+              ) : null}
               {unsaved ? (
                 <span
                   aria-hidden="true"

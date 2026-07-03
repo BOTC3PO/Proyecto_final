@@ -95,6 +95,12 @@ function pushTokens(out: HL[], src: string) {
         if (rest.startsWith(":")) {
           out.push({ text: ident, cls: "key" });
           out.push({ text: ":", cls: "key" });
+          // El regex sólo consumió `ident` (los ":" caen en el grupo
+          // `punct`, aparte). Sin este avance manual, la próxima vuelta del
+          // `while` vuelve a matchear el mismo ":" y lo empuja de nuevo
+          // (overlay muestra "variables::"), desincronizando el overlay
+          // coloreado del textarea real — el "doble texto" del ítem 9.
+          re.lastIndex += 1;
           atLineStart = false;
           continue;
         }

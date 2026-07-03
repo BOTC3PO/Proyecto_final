@@ -483,6 +483,12 @@ function TimelineEditor({
 
 interface VectorRow { id: string; label: string; componentes: string; color: string }
 
+/* PLAN-E §8 — el color por vector se auto-asigna por índice (rotando esta
+   paleta) en vez de un `<input type="color">` manual: el campo `color`
+   sigue viviendo en el AST (compatibilidad con plantillas guardadas), sólo
+   se retira el control de la UI. */
+const VECTOR_PALETTE = ["#2563eb", "#dc2626", "#16a34a", "#d97706", "#7c3aed", "#0891b2"];
+
 function parseComponentes(texto: string): { dx: number; dy: number } | null {
   const parts = texto.split(/[,;\s]+/).map((s) => s.trim()).filter((s) => s !== "");
   if (parts.length !== 2) return null;
@@ -546,25 +552,6 @@ function VectorDiagramEditor({
                     placeholder="Etiqueta"
                     style={{ flex: 1 }}
                   />
-                  <input
-                    type="color"
-                    aria-label={`Color del vector ${idx + 1}`}
-                    value={item.color}
-                    onChange={(e) => {
-                      const next = rows.slice();
-                      next[idx] = { ...item, color: e.target.value };
-                      write(next);
-                    }}
-                    style={{
-                      height: "var(--space-7)",
-                      width: "3rem",
-                      borderWidth: "1px",
-                      borderStyle: "solid",
-                      borderColor: "var(--c-border-strong)",
-                      borderRadius: "var(--r-md)",
-                      padding: 0,
-                    }}
-                  />
                 </div>
                 <Input
                   size="sm"
@@ -597,7 +584,12 @@ function VectorDiagramEditor({
           onClick={() =>
             write([
               ...rows,
-              { id: `v${rows.length + 1}`, label: `Vector ${rows.length + 1}`, componentes: "1, 0", color: "#2563eb" },
+              {
+                id: `v${rows.length + 1}`,
+                label: `Vector ${rows.length + 1}`,
+                componentes: "1, 0",
+                color: VECTOR_PALETTE[rows.length % VECTOR_PALETTE.length],
+              },
             ])
           }
         >

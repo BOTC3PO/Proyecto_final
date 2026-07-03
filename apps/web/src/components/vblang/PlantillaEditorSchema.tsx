@@ -682,6 +682,12 @@ interface VectorRow {
   color: string;
 }
 
+/* PLAN-E §8 — el color por vector se auto-asigna por índice (rotando esta
+   paleta) en vez de un `<input type="color">` manual: el campo `color`
+   sigue viviendo en el AST (compatibilidad con plantillas guardadas), sólo
+   se retira el control de la UI. */
+const VECTOR_PALETTE = ["#2563eb", "#dc2626", "#16a34a", "#d97706", "#7c3aed", "#0891b2"];
+
 /** "3, 4" → {dx:3, dy:4}. Devuelve `null` si no parsea. */
 function parseComponentes(texto: string): { dx: number; dy: number } | null {
   const parts = texto.split(/[,;\s]+/).map((s) => s.trim()).filter((s) => s !== "");
@@ -745,7 +751,7 @@ function VectorDiagramField({
           id: `v${rows.length + 1}`,
           label: `Vector ${rows.length + 1}`,
           componentes: "1, 0",
-          color: "#2563eb",
+          color: VECTOR_PALETTE[rows.length % VECTOR_PALETTE.length],
         })}
         label="Vectores"
         addLabel="Agregar vector"
@@ -760,13 +766,6 @@ function VectorDiagramField({
                 onChange={(e) => onItem({ ...item, label: e.target.value })}
                 placeholder="Etiqueta"
                 className="min-w-0 flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
-              />
-              <input
-                type="color"
-                aria-label={`Color del vector ${index + 1}`}
-                value={item.color}
-                onChange={(e) => onItem({ ...item, color: e.target.value })}
-                className="h-8 w-12 rounded border border-[var(--c-border,#cbd5e1)] p-0"
               />
             </div>
             <input
