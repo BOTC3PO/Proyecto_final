@@ -132,7 +132,11 @@ export const ModuleQuizSchema = z.object({
   // WO-14 — ventana de `adaptativa_simple`, persistida en
   // `settings.dificultadVentana`. Entero ≥ 1 (el parser server-side clampea
   // al rango válido).
-  dificultadVentana: z.number().int().positive().optional()
+  dificultadVentana: z.number().int().positive().optional(),
+  // PLAN-D §1 — política de cierre por expiración, persistida en
+  // `settings.politicaExpiracion`. Default `auto` (el parser server-side
+  // resuelve el default si está ausente).
+  politicaExpiracion: z.enum(["auto", "gracia60"]).optional()
 }).superRefine((value, ctx) => {
   if (value.mode === "generated") {
     if (value.questions !== undefined) {
@@ -318,7 +322,8 @@ export const QuizMetaPatchSchema = z
     preguntasPorPagina: z.number().int().positive(),
     politicaDificultad: z.enum(["fija", "manual", "adaptativa_simple"]),
     dificultadInicial: z.enum(["basico", "intermedio", "avanzado"]),
-    dificultadVentana: z.number().int().positive()
+    dificultadVentana: z.number().int().positive(),
+    politicaExpiracion: z.enum(["auto", "gracia60"])
   })
   .partial()
   .strict();

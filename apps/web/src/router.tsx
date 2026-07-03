@@ -39,7 +39,6 @@ import {
 // ── Lazy imports ───────────────────────────────────────────────────────────────
 
 const HomePage            = lazyWithRetry(() => import("./pages/Home"));
-const Pricing             = lazyWithRetry(() => import("./pages/Pricing"));
 const Contact             = lazyWithRetry(() => import("./pages/Contact"));
 const Explorar            = lazyWithRetry(() => import("./pages/Explorar"));
 const Metodologia         = lazyWithRetry(() => import("./pages/metodologia"));
@@ -108,6 +107,9 @@ const TizaDemoPage              = lazyWithRetry(() => import("./pages/TizaDemoPa
 const EnterpriseMiembros        = lazyWithRetry(() => import("./pages/EnterpriseMiembros"));
 const EnterpriseModulos         = lazyWithRetry(() => import("./pages/EnterpriseModulos"));
 const EnterpriseComisiones      = lazyWithRetry(() => import("./pages/EnterpriseComisiones"));
+const EnterprisePersonalizacion = lazyWithRetry(() => import("./pages/EnterprisePersonalizacion"));
+const EnterpriseCobros          = lazyWithRetry(() => import("./pages/EnterpriseCobros"));
+const Pagos                     = lazyWithRetry(() => import("./pages/Pagos"));
 const AdminComisiones           = lazyWithRetry(() => import("./pages/AdminComisiones"));
 const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfesor"));
 const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
@@ -158,8 +160,6 @@ export const router = createBrowserRouter([
           { index: true, element: withSuspense(<HomePage />) },
 
           { path: "explorar",   element: withSuspense(<Explorar />) },
-          { path: "precios",    element: withSuspense(<Pricing />) },
-          { path: "pricing",    element: <Navigate to="/precios" replace /> },
           { path: "login",      element: <Login /> },
           { path: "register",   element: <Register /> },
           { path: "recuperar",  element: <RecuperarContrasena /> },
@@ -234,6 +234,10 @@ export const router = createBrowserRouter([
           {
             path: 'economia',
             element: withSuspense(<Economia />),
+          },
+          {
+            path: 'pagos',
+            element: withSuspense(<Pagos />),
           },
           {
             path: 'tienda-temas',
@@ -501,6 +505,22 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['DIRECTIVO']}>
                 {withSuspense(<EnterpriseComisiones />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'enterprise/cobros',
+            element: (
+              <ProtectedRoute allow={['DIRECTIVO']}>
+                {withSuspense(<EnterpriseCobros />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'enterprise/personalizacion',
+            element: (
+              <ProtectedRoute allow={['DIRECTIVO']}>
+                {withSuspense(<EnterprisePersonalizacion />)}
               </ProtectedRoute>
             ),
           },

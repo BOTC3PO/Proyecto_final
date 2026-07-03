@@ -74,4 +74,26 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   PRECIO_ALUMNO_MENSUAL: Number(process.env.PRECIO_ALUMNO_MENSUAL ?? 1000),
   PRECIO_STAFF_MENSUAL: Number(process.env.PRECIO_STAFF_MENSUAL ?? 300),
   PRECIO_EXPANSION_PROFESOR: Number(process.env.PRECIO_EXPANSION_PROFESOR ?? 150),
+  // PLAN-B Fase 3 — pasarelas para cobros escuela→familias. Credenciales
+  // de PLATAFORMA de VB (el split/comisión); las de cada escuela se
+  // conectan por OAuth y quedan en `EscuelaPasarela` (cifradas con
+  // PASARELAS_ENCRYPTION_KEY). Vacías por default: sin credenciales, los
+  // adaptadores de provider responden "no configurado" en vez de
+  // intentar pegarle a la API real.
+  STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY ?? "",
+  STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET ?? "",
+  STRIPE_CONNECT_CLIENT_ID: process.env.STRIPE_CONNECT_CLIENT_ID ?? "",
+  CRYPTOMUS_MERCHANT_ID: process.env.CRYPTOMUS_MERCHANT_ID ?? "",
+  CRYPTOMUS_API_KEY: process.env.CRYPTOMUS_API_KEY ?? "",
+  // Clave simétrica (32 bytes, base64 o hex) para cifrar
+  // EscuelaPasarela.credencialesCifradas. Sin ella en dev cae a una fija
+  // NO apta para producción (arranca igual, pero avisa por consola).
+  PASARELAS_ENCRYPTION_KEY: process.env.PASARELAS_ENCRYPTION_KEY ?? "",
+  // PLAN-B Fase 4 — job de reconciliación: reintenta contra el provider
+  // los `Pago` en `pendiente`/`en_proceso` más viejos que el umbral, por
+  // si el webhook nunca llegó. Apagado por default en tests/dev (mismo
+  // patrón que BILLING_DELINQUENCY_JOB_ENABLED).
+  RECONCILIACION_JOB_ENABLED: parseBool(process.env.RECONCILIACION_JOB_ENABLED, false),
+  RECONCILIACION_JOB_INTERVAL_MINUTES: Number(process.env.RECONCILIACION_JOB_INTERVAL_MINUTES ?? 15),
+  RECONCILIACION_PAGO_MAX_AGE_MINUTES: Number(process.env.RECONCILIACION_PAGO_MAX_AGE_MINUTES ?? 30),
 };

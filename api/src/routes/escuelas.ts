@@ -7,7 +7,7 @@ import { toObjectId } from "../lib/ids";
 import { getQueryString } from "../lib/query";
 import { hasRole } from "../lib/roles";
 import { requireUser } from "../lib/user-auth";
-import { EscuelaPatchSchema, EscuelaSchema } from "../schema/escuela";
+import { EscuelaBrandingSchema, EscuelaPatchSchema, EscuelaSchema } from "../schema/escuela";
 
 export const escuelas = Router();
 
@@ -15,6 +15,26 @@ const escuelasMutationLimiter = createRateLimiter({
   windowMs: 10 * 60 * 1000,
   limit: 30
 });
+
+type ReqUser = { _id?: { toString?: () => string } | string; role?: string; roles?: string[]; schoolId?: string | null };
+
+// PLAN-C §4 (ítem 29) — quién puede editar el branding de una escuela:
+// ADMIN (cualquiera) o DIRECTIVO de esa MISMA escuela. Mismo patrón que
+// cobros.ts/escuela-pasarelas.ts.
+const puedeGestionarEscuela = (user: ReqUser | undefined, escuelaId: string): boolean =>
+  hasRole(user, "ADMIN") || (hasRole(user, "DIRECTIVO") && user?.schoolId === escuelaId);
+
+// `branding` se guarda como JSON serializado en texto (mismo patrón que
+// el resto del schema). Acá lo parseamos para que el front no tenga que
+// hacer JSON.parse manual; si está corrupto o ausente, null.
+const parseBranding = (raw: string | null | undefined): Record<string, unknown> | null => {
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+};
 
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
@@ -42,6 +62,19 @@ escuelas.post("/api/escuelas", requireAdmin, escuelasMutationLimiter, async (req
         updatedAt: now
       }
     });
+    // PLAN-C §2 (ítem 27): el creador queda asociado a la escuela que crea,
+    // manteniendo su rol ADMIN — evita admins huérfanos de escuela por
+    // default (síntoma raíz de PLAN-A §1). Un admin de plataforma sin
+    // escuela sigue siendo posible, pero ahora es una reasignación
+    // explícita después vía PATCH /api/admin/usuarios/:id/escuela, no un
+    // olvido silencioso acá.
+    const requesterId = getRequesterId(req);
+    if (requesterId) {
+      await prisma.usuario.updateMany({
+        where: { id: requesterId },
+        data: { escuelaId: created.id, updatedAt: now }
+      });
+    }
     res.status(201).json({ id: created.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -58,7 +91,7 @@ escuelas.get("/api/escuelas", requireUser, async (req, res) => {
     take: limit,
     orderBy: { createdAt: "desc" }
   });
-  res.json({ items, limit, offset: skip });
+  res.json({ items: items.map((i) => ({ ...i, branding: parseBranding(i.branding) })), limit, offset: skip });
 });
 
 escuelas.get("/api/escuelas/code/:code", async (req, res) => {
@@ -77,7 +110,33 @@ escuelas.get("/api/escuelas/:id", async (req, res) => {
     where: { id: rawId, isDeleted: { not: true } }
   });
   if (!item) return res.status(404).json({ error: "not found" });
-  res.json(item);
+  res.json({ ...item, branding: parseBranding(item.branding) });
+});
+
+// PLAN-C §4 (ítem 29) — personalización por escuela: logo/ícono/colores.
+escuelas.patch("/api/escuelas/:id/branding", requireUser, escuelasMutationLimiter, async (req, res) => {
+  try {
+    const rawId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    if (!toObjectId(rawId)) return res.status(400).json({ error: "invalid id" });
+    const escuela = await prisma.escuela.findFirst({ where: { id: rawId, isDeleted: { not: true } } });
+    if (!escuela) return res.status(404).json({ error: "not found" });
+
+    const requester = (req as { user?: ReqUser }).user;
+    if (!puedeGestionarEscuela(requester, rawId as string)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+
+    const parsed = EscuelaBrandingSchema.parse(req.body);
+    const actual = parseBranding(escuela.branding) ?? {};
+    const merged = { ...actual, ...parsed };
+    await prisma.escuela.update({
+      where: { id: rawId },
+      data: { branding: JSON.stringify(merged), updatedAt: new Date().toISOString() }
+    });
+    res.json({ ok: true, branding: merged });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
 });
 
 escuelas.patch("/api/escuelas/:id", requireUser, escuelasMutationLimiter, async (req, res) => {

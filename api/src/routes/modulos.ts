@@ -464,6 +464,8 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
           politicaDificultad: (settings as any).politicaDificultad ?? undefined,
           dificultadInicial: (settings as any).dificultadInicial ?? undefined,
           dificultadVentana: (settings as any).dificultadVentana ?? undefined,
+          // PLAN-D §1 — política de cierre por expiración.
+          politicaExpiracion: (settings as any).politicaExpiracion ?? undefined,
           // WO-tiza-config (Fase 5) — flag de sólo-lectura: el quiz usa el
           // modelo "preguntas nativas" de Tiza (`settings.preguntas`, el que
           // lee quiz-attempts). La UI lo usa para mostrar la entrada correcta
@@ -853,6 +855,8 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
                   politicaDificultad: quiz.politicaDificultad,
                   dificultadInicial: quiz.dificultadInicial,
                   dificultadVentana: quiz.dificultadVentana,
+                  // PLAN-D §1 — política de cierre por expiración.
+                  politicaExpiracion: quiz.politicaExpiracion,
                 },
                 { subject: parsed.subject, category: parsed.category },
               ),
@@ -999,6 +1003,8 @@ async function applyModuleUpdate(
           politicaDificultad: q.politicaDificultad,
           dificultadInicial: q.dificultadInicial,
           dificultadVentana: q.dificultadVentana,
+          // PLAN-D §1 — política de cierre por expiración.
+          politicaExpiracion: q.politicaExpiracion,
         },
         // El front envía `subject` y `category` a nivel módulo en el
         // payload. Si vienen, los usamos. Si NO vienen (ej. PATCH que
@@ -1357,6 +1363,7 @@ const QUIZ_META_SETTINGS_KEYS = [
   "politicaDificultad",
   "dificultadInicial",
   "dificultadVentana",
+  "politicaExpiracion",
 ] as const;
 
 function buildQuizMetaResponse(loaded: NonNullable<Awaited<ReturnType<typeof loadQuizConModulo>>>) {

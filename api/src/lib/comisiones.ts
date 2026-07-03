@@ -34,6 +34,9 @@ export async function registrarTransaccionEscuela(params: {
   escuelaId: string;
   montoTotal: number;
   mpPaymentId?: string | null;
+  /** PLAN-B Fase 4 — de qué pasarela vino el cobro. Default "mercadopago"
+   * (todo lo pre-Fase-3, el SaaS de suscripción, era siempre MP). */
+  provider?: string;
 }): Promise<{ id: string; comisionVB: number; montoNeto: number } | null> {
   try {
     const escuela = await prisma.escuela.findFirst({
@@ -54,6 +57,7 @@ export async function registrarTransaccionEscuela(params: {
         comisionVB,
         montoNeto,
         estado: "registrada",
+        provider: params.provider ?? "mercadopago",
         mpPaymentId: params.mpPaymentId ?? null,
         createdAt: new Date().toISOString(),
       },

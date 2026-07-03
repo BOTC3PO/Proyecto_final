@@ -10,7 +10,8 @@ import {
   QuizAttemptListQuerySchema,
   QuizAttemptSubmitSchema,
   QuizAttemptSummaryQuerySchema,
-  QuizVersionSchema
+  QuizVersionSchema,
+  type QuizAttemptSubmit
 } from "../schema/quiz-attempt";
 import { isStaffRole, canManageClassroom } from "../lib/authorization";
 import {
@@ -22,6 +23,7 @@ import {
   calcularDeadline,
   calcularNotas,
   contarIntentosPrevios,
+  debeAutoCerrarIntento,
   parseEvaluacionConfig,
   parseIntentoPolicy,
   validarLimiteIntentos,
@@ -1484,8 +1486,39 @@ quizAttempts.get(
     }
   })();
   const getEvalConfig = parseEvaluacionConfig(getVersion?.settings, getQuizTipo);
+
+  // PLAN-D §1 (Fase 3) — cierre lazy: si el intento venció (según
+  // `politicaExpiracion`), materializarlo como enviado-automático ANTES de
+  // construir la respuesta, para que el GET nunca devuelva un `in_progress`
+  // fantasma. Con las respuestas YA guardadas (F5-01), no las del payload
+  // (acá no hay payload: el alumno no lo tocó).
+  let currentAttempt = attempt;
+  if (
+    currentAttempt.status === "in_progress" &&
+    debeAutoCerrarIntento(
+      currentAttempt.startedAt as unknown as string,
+      getEvalConfig.timerSegundos,
+      getEvalConfig.politicaExpiracion
+    )
+  ) {
+    const storedAnswers = safeJsonParse<Record<string, string | string[]>>(
+      currentAttempt.answers as unknown as string,
+      {}
+    );
+    const autoPayload = QuizAttemptSubmitSchema.parse({ answers: storedAnswers });
+    const closed = await materializeSubmit(idParam, userId, currentAttempt, autoPayload, {
+      auto: true
+    });
+    if (closed) {
+      const refreshed = (await prisma.quizAttempt.findFirst({
+        where: { id: idParam, userId }
+      })) as QuizAttemptRecord | null;
+      if (refreshed) currentAttempt = refreshed;
+    }
+  }
+
   const getDeadline = calcularDeadline(
-    attempt.startedAt as unknown as string,
+    currentAttempt.startedAt as unknown as string,
     getEvalConfig.timerSegundos
   );
 
@@ -1497,38 +1530,38 @@ quizAttempts.get(
   const questionsForResponse =
     isStaffRole(requesterRole)
       ? (quiz?.questions ?? [])
-      : sanitizeQuestionsForStudent(quiz?.questions, attempt.quizVersionId ?? attempt.quizId);
+      : sanitizeQuestionsForStudent(quiz?.questions, currentAttempt.quizVersionId ?? currentAttempt.quizId);
   res.json({
-    id: attempt.id,
-    attemptId: attempt.id,
-    moduleId: attempt.moduleId ?? undefined,
-    quizId: attempt.quizId,
+    id: currentAttempt.id,
+    attemptId: currentAttempt.id,
+    moduleId: currentAttempt.moduleId ?? undefined,
+    quizId: currentAttempt.quizId,
     quizTitle: quiz?.title ?? metadata?.title ?? module?.title ?? "Quiz",
-    status: attempt.status,
+    status: currentAttempt.status,
     // WO-T2a — score/maxScore del intento persistido, para que el front pueda
     // mostrar el resultado en modo revisión (intento ya finalizado) sin
     // depender del response efímero del submit.
-    score: attempt.score,
-    maxScore: attempt.maxScore,
+    score: currentAttempt.score,
+    maxScore: currentAttempt.maxScore,
     timerSegundos: getEvalConfig.timerSegundos,
     deadline: getDeadline,
     questions: questionsForResponse,
-    answers: attempt.answers
-      ? safeJsonParse(attempt.answers as unknown as string, {} as Record<string, unknown>)
+    answers: currentAttempt.answers
+      ? safeJsonParse(currentAttempt.answers as unknown as string, {} as Record<string, unknown>)
       : {},
-    feedback: attempt.feedback
-      ? safeJsonParse(attempt.feedback as unknown as string, {} as Record<string, unknown>)
+    feedback: currentAttempt.feedback
+      ? safeJsonParse(currentAttempt.feedback as unknown as string, {} as Record<string, unknown>)
       : {},
     // WO07 — estado de corrección manual (auto-score + ítems pendientes/corregidos).
-    grading: attempt.grading
-      ? safeJsonParse(attempt.grading as unknown as string, {
+    grading: currentAttempt.grading
+      ? safeJsonParse(currentAttempt.grading as unknown as string, {
           autoScore: 0,
           items: {}
         })
       : undefined,
     quiz: quiz ? { title: quiz.title, questions: questionsForResponse } : undefined,
     generatorId: quiz?.generatorId ?? undefined,
-    seed: attempt.seed ?? undefined,
+    seed: currentAttempt.seed ?? undefined,
     count: quiz?.count ?? undefined,
     instructions: quiz?.instructions ?? undefined,
     displayCount: quiz?.displayCount ?? undefined,
@@ -1632,6 +1665,41 @@ quizAttempts.post(
         return res.status(409).json({ error: "attempt already submitted" });
       }
 
+      // PLAN-D §1 (Fase 3) — cierre lazy: si el intento venció mientras el
+      // alumno seguía respondiendo (pestaña abierta pasado el deadline), este
+      // POST lo materializa como enviado-automático en vez de aceptar una
+      // respuesta más sobre un intento que ya no está "en curso".
+      const { version: answerVersion } = await fetchQuizFromCollections(
+        attempt.quizId,
+        attempt.moduleId ?? undefined,
+        attempt.quizVersionId ?? undefined
+      );
+      const answerQuizTipo = (() => {
+        if (!answerVersion?.settings) return "practica";
+        try {
+          const p = JSON.parse(answerVersion.settings) as { type?: string };
+          return p.type ?? "practica";
+        } catch {
+          return "practica";
+        }
+      })();
+      const answerEvalConfig = parseEvaluacionConfig(answerVersion?.settings, answerQuizTipo);
+      if (
+        debeAutoCerrarIntento(
+          attempt.startedAt as unknown as string,
+          answerEvalConfig.timerSegundos,
+          answerEvalConfig.politicaExpiracion
+        )
+      ) {
+        const storedAnswers = safeJsonParse<Record<string, string | string[]>>(
+          attempt.answers as unknown as string,
+          {}
+        );
+        const autoPayload = QuizAttemptSubmitSchema.parse({ answers: storedAnswers });
+        await materializeSubmit(idParam, userId, attempt, autoPayload, { auto: true });
+        return res.status(409).json({ error: "attempt already submitted" });
+      }
+
       const stored = safeJsonParse<Record<string, string | string[]>>(
         attempt.answers as unknown as string,
         {}
@@ -1730,36 +1798,53 @@ quizAttempts.patch(
   }
 );
 
-quizAttempts.post(
-  "/api/quiz-attempts/:id/submit",
-  ...bodyLimitMB(2),
-  requireUser,
-  async (req, res) => {
-    try {
-      const payload = QuizAttemptSubmitSchema.parse(req.body);
-      const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
-      if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
-      const userId =
-        typeof req.user?._id?.toString === "function"
-          ? req.user._id.toString()
-          : typeof req.user?.id === "string"
-            ? req.user.id
-            : "";
-      if (!userId) return res.status(401).json({ error: "user not found" });
-      const attempt = await prisma.quizAttempt.findFirst({ where: { id: idParam, userId } }) as QuizAttemptRecord | null;
-      if (!attempt) return res.status(404).json({ error: "attempt not found" });
+// PLAN-D §1 (Fase 3) — resultado de `materializeSubmit`. `null` sólo puede
+// ocurrir en el modo `auto` (cierre lazy) cuando el quiz no es
+// materializable server-side (generadoresV2): en ese caso NO se auto-cierra,
+// el intento queda `in_progress` (mismo comportamiento previo a PLAN-D).
+type MaterializeSubmitResult = { status: number; body: Record<string, unknown> };
+
+function buildAlreadySubmittedBody(attempt: QuizAttemptRecord): Record<string, unknown> {
+  // PLAN-D §1 (riesgo "doble envío") — un intento que ya no está
+  // `in_progress` (enviado por el alumno o auto-cerrado por vencimiento) NO
+  // se vuelve a corregir: se devuelve un snapshot del resultado ya
+  // persistido. El detalle completo (nota, aprobado, etc.) vive en
+  // `GET /api/quiz-attempts/:id`, que el front ya usa para el modo revisión.
+  return {
+    status: attempt.status,
+    score: attempt.score,
+    maxScore: attempt.maxScore,
+    alreadySubmitted: true,
+    message: "Este intento ya fue enviado."
+  };
+}
+
+// PLAN-D §1 (Fase 3) — núcleo de corrección + persistencia de un submit,
+// extraído del handler HTTP para poder reutilizarlo desde el cierre lazy por
+// expiración (GET/:id y POST/:id/answer materializan un intento vencido sin
+// esperar a que el alumno presione Enviar). `options.auto` distingue un
+// cierre automático (sin payload del alumno, respuestas = lo guardado) de un
+// submit explícito.
+async function materializeSubmit(
+  idParam: string,
+  userId: string,
+  attempt: QuizAttemptRecord,
+  payload: QuizAttemptSubmit,
+  options: { auto?: boolean } = {}
+): Promise<MaterializeSubmitResult | null> {
       const { quiz: collectionQuiz, version, module, versionMissing } = await fetchQuizFromCollections(
         attempt.quizId,
         attempt.moduleId ?? undefined,
         attempt.quizVersionId ?? undefined
       );
       if (versionMissing) {
-        return res.status(409).json({
-          error: "la versión del quiz de este intento ya no está disponible"
-        });
+        return {
+          status: 409,
+          body: { error: "la versión del quiz de este intento ya no está disponible" }
+        };
       }
       const quiz = collectionQuiz ?? findQuiz(module, attempt.quizId);
-      if (!quiz) return res.status(404).json({ error: "quiz not found" });
+      if (!quiz) return { status: 404, body: { error: "quiz not found" } };
 
       // WO-3b — enforcar tiempo límite server-side.
       const submitQuizTipo = (() => {
@@ -1826,6 +1911,13 @@ quizAttempts.post(
         serverAuthoritative = resolved.serverAuthoritative;
         mismatchQuestions = resolved.mismatchQuestions;
       } else if (isGeneradorV2) {
+        // PLAN-D §1 — un cierre AUTOMÁTICO (sin submit explícito del alumno)
+        // no puede corregir generadoresV2: la clave de respuesta sólo viaja
+        // en `payload.generatedQuestions`, que un cierre lazy no tiene (no
+        // hay payload del alumno). Se deja el intento `in_progress`; el
+        // cierre lazy simplemente no aplica a este tipo de quiz (mismo
+        // comportamiento previo a PLAN-D).
+        if (options.auto) return null;
         // generadoresV2: la nota depende del cliente. No se bloquea (política de
         // producto para la tanda 2), sólo se marca para la UI del docente.
         serverAuthoritative = false;
@@ -1983,21 +2075,24 @@ quizAttempts.post(
       // WO07 — con ítems pendientes la nota aún no es final: no tocamos el
       // progreso formal hasta que el profe termine de corregir.
       if (hasPendingManual) {
-        return res.json({
-          status,
-          score,
-          maxScore,
-          pendingManual: manual.length,
-          // F5-04 — rango honesto: "tu nota está entre X e Y".
-          notaMinDisplay: gradeRange?.minDisplay ?? null,
-          notaMinCanonical10: gradeRange?.minCanonical10 ?? null,
-          notaMaxDisplay: gradeRange?.maxDisplay ?? null,
-          notaMaxCanonical10: gradeRange?.maxCanonical10 ?? null,
-          // `notaDisplay` y `aprobado` quedan ausentes: el cliente sabe que
-          // está en estado "pendiente" por la presencia de `pendingManual`
-          // y por la ausencia de `notaDisplay`.
-          message: `Respuestas enviadas. ${manual.length} pregunta(s) abierta(s) quedan pendientes de corrección por el profesor.`
-        });
+        return {
+          status: 200,
+          body: {
+            status,
+            score,
+            maxScore,
+            pendingManual: manual.length,
+            // F5-04 — rango honesto: "tu nota está entre X e Y".
+            notaMinDisplay: gradeRange?.minDisplay ?? null,
+            notaMinCanonical10: gradeRange?.minCanonical10 ?? null,
+            notaMaxDisplay: gradeRange?.maxDisplay ?? null,
+            notaMaxCanonical10: gradeRange?.maxCanonical10 ?? null,
+            // `notaDisplay` y `aprobado` quedan ausentes: el cliente sabe que
+            // está en estado "pendiente" por la presencia de `pendingManual`
+            // y por la ausencia de `notaDisplay`.
+            message: `Respuestas enviadas. ${manual.length} pregunta(s) abierta(s) quedan pendientes de corrección por el profesor.`
+          }
+        };
       }
 
       // Si es quiz formal y aprobó → actualizar progreso
@@ -2083,7 +2178,40 @@ quizAttempts.post(
         ocultarPuntos,
         message
       };
-      res.json(responseBody);
+      return { status: 200, body: responseBody };
+}
+
+quizAttempts.post(
+  "/api/quiz-attempts/:id/submit",
+  ...bodyLimitMB(2),
+  requireUser,
+  async (req, res) => {
+    try {
+      const payload = QuizAttemptSubmitSchema.parse(req.body);
+      const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+      if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
+      const userId =
+        typeof req.user?._id?.toString === "function"
+          ? req.user._id.toString()
+          : typeof req.user?.id === "string"
+            ? req.user.id
+            : "";
+      if (!userId) return res.status(401).json({ error: "user not found" });
+      const attempt = await prisma.quizAttempt.findFirst({ where: { id: idParam, userId } }) as QuizAttemptRecord | null;
+      if (!attempt) return res.status(404).json({ error: "attempt not found" });
+
+      // PLAN-D §1 (riesgo "doble envío") — un intento que ya no está
+      // `in_progress` (enviado por el alumno o auto-cerrado por vencimiento)
+      // no se vuelve a corregir: idempotencia, no error.
+      if (attempt.status !== "in_progress") {
+        return res.json(buildAlreadySubmittedBody(attempt));
+      }
+
+      const result = await materializeSubmit(idParam, userId, attempt, payload);
+      // `result` sólo es `null` en modo `auto` (cierre lazy); acá siempre es
+      // un submit explícito (auto=false por default), así que nunca ocurre.
+      if (!result) return res.status(409).json({ error: "no se pudo corregir el intento" });
+      res.status(result.status).json(result.body);
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });
     }

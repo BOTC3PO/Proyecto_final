@@ -1,6 +1,5 @@
 import { Router } from "express";
 import {
-  crearPreapproval,
   cancelarPreapproval,
   getPreapproval,
   verificarWebhookMP,
@@ -202,60 +201,16 @@ suscripciones.get("/api/admin/suscripciones", requireAdmin, async (req, res) => 
 });
 
 // ── POST /api/admin/suscripciones/activar ───────────────────
-suscripciones.post("/api/admin/suscripciones/activar", requireAdmin, async (req, res) => {
-  const { entidadTipo, entidadId, plan, monto, expansiones, meses } =
-    req.body as Record<string, unknown>;
-
-  if (!entidadTipo || !entidadId) {
-    return res.status(400).json({ error: "entidadTipo y entidadId requeridos" });
-  }
-
-  const now = new Date();
-  const periodoInicio = now.toISOString();
-  const periodoFin = new Date(
-    now.getFullYear(),
-    now.getMonth() + (typeof meses === "number" ? meses : 1),
-    now.getDate()
-  ).toISOString();
-
-  const id = genId();
-  await prisma.suscripcion.create({
-    data: {
-      id,
-      entidadTipo: String(entidadTipo),
-      entidadId: String(entidadId),
-      plan: typeof plan === "string" ? plan : "pago",
-      estado: "activa",
-      periodoInicio,
-      periodoFin,
-      montoMensual: typeof monto === "number" ? monto : 0,
-      moneda: "ARS",
-      expansiones: typeof expansiones === "number" ? expansiones : 0,
-      createdAt: periodoInicio,
-      updatedAt: periodoInicio,
-    },
+// PLAN-B Fase 1 — el SaaS por suscripción se retira del producto
+// (decisión del usuario 2026-07-02). Este endpoint creaba suscripciones
+// nuevas manualmente; queda retirado permanentemente. `Suscripcion`/
+// `HistorialPago` se conservan de sólo lectura para contabilidad
+// histórica (GETs de este archivo siguen funcionando).
+suscripciones.post("/api/admin/suscripciones/activar", requireAdmin, async (_req, res) => {
+  return res.status(410).json({
+    error: "saas_retirado",
+    mensaje: "El alta manual de suscripciones fue retirada. El negocio ahora cobra comisión sobre cobros escuela→familias (ver /api/cobros)."
   });
-
-  if (entidadTipo === "escuela" && typeof expansiones === "number") {
-    const maxAulas = LIMITES_GRATUITOS.max_aulas + expansiones * EXPANSION_UNIDADES.aulas;
-    const maxAlumnos = LIMITES_GRATUITOS.max_alumnos_por_aula +
-      expansiones * EXPANSION_UNIDADES.alumnos_por_aula;
-
-    await prisma.limiteEscuela.upsert({
-      where: { escuelaId: String(entidadId) },
-      create: {
-        escuelaId: String(entidadId),
-        maxProfesores: LIMITES_GRATUITOS.max_profesores,
-        maxDirectivos: LIMITES_GRATUITOS.max_directivos,
-        maxAulas,
-        maxAlumnosPorAula: maxAlumnos,
-        updatedAt: periodoInicio,
-      },
-      update: { maxAulas, maxAlumnosPorAula: maxAlumnos, updatedAt: periodoInicio },
-    });
-  }
-
-  return res.status(201).json({ id, ok: true });
 });
 
 // ── GET /api/admin/suscripciones/reembolsos ─────────────────
@@ -268,84 +223,14 @@ suscripciones.get("/api/admin/suscripciones/reembolsos", requireAdmin, async (_r
 });
 
 // ── POST /api/suscripciones/iniciar ─────────────────────────
-suscripciones.post("/api/suscripciones/iniciar", requireUser, async (req, res) => {
-  if (!ENV.PAYMENTS_ENABLED) {
-    return res.status(403).json({
-      error: "pagos_deshabilitados",
-      mensaje: "Este sistema no tiene pagos habilitados. Contactá al administrador.",
-    });
-  }
-
-  const userId = getId(req as never);
-  const schoolId = getSchoolId(req as never);
-  if (!userId) return res.status(401).json({ error: "no autenticado" });
-
-  const { tipo, expansiones, payerEmail, backUrl } = req.body as Record<string, unknown>;
-  if (!tipo || !payerEmail) return res.status(400).json({ error: "tipo y payerEmail requeridos" });
-
-  const entidadTipo = String(tipo) as "escuela" | "profesor" | "alumno";
-  const entidadId = entidadTipo === "escuela" ? (schoolId ?? userId) : userId;
-
-  let monto = 0;
-  let titulo = "";
-  if (entidadTipo === "alumno") {
-    monto = ENV.PRECIO_ALUMNO_MENSUAL;
-    titulo = "Virtual Book — Suscripción Alumno";
-  } else if (entidadTipo === "profesor") {
-    const exp = typeof expansiones === "number" ? expansiones : 1;
-    monto = exp * ENV.PRECIO_EXPANSION_PROFESOR;
-    titulo = `Virtual Book — Suscripción Profesor (${exp} expansión/es)`;
-  } else if (entidadTipo === "escuela") {
-    monto = ENV.PRECIO_STAFF_MENSUAL;
-    titulo = "Virtual Book — Suscripción Escuela";
-  }
-
-  if (monto <= 0) return res.status(400).json({ error: "monto inválido" });
-
-  try {
-    const externalRef = `${entidadTipo}:${entidadId}:${Date.now()}`;
-    const preapproval = await crearPreapproval({
-      payerEmail: String(payerEmail),
-      externalReference: externalRef,
-      titulo,
-      montoMensual: monto,
-      backUrl: typeof backUrl === "string" ? backUrl : `${ENV.APP_URL}/perfil`,
-    });
-
-    const now = new Date().toISOString();
-    // Al crear todavía no hay next_payment_date de MP: usamos +1 mes calendario.
-    const periodoFin = (() => { const d = new Date(); d.setMonth(d.getMonth() + 1); return d.toISOString(); })();
-    const id = genId();
-
-    await prisma.suscripcion.create({
-      data: {
-        id,
-        entidadTipo,
-        entidadId,
-        plan: "pago",
-        estado: "pendiente",
-        mpPreapprovalId: preapproval.id,
-        mpPayerEmail: String(payerEmail),
-        periodoInicio: now,
-        periodoFin,
-        montoMensual: monto,
-        moneda: "ARS",
-        expansiones: typeof expansiones === "number" ? expansiones : 0,
-        createdAt: now,
-        updatedAt: now,
-      },
-    });
-
-    return res.status(201).json({
-      suscripcionId: id,
-      initPoint: preapproval.init_point,
-      preapprovalId: preapproval.id,
-    });
-  } catch (err) {
-    return res.status(500).json({
-      error: err instanceof Error ? err.message : "error al crear suscripción",
-    });
-  }
+// PLAN-B Fase 1 — retirado permanentemente (ver nota arriba en
+// /api/admin/suscripciones/activar). Antes creaba un preapproval de MP
+// para alumno/profesor/escuela; el negocio ya no vende ese plan.
+suscripciones.post("/api/suscripciones/iniciar", requireUser, async (_req, res) => {
+  return res.status(410).json({
+    error: "saas_retirado",
+    mensaje: "Las suscripciones pagas fueron retiradas del producto. El negocio ahora cobra comisión sobre cobros escuela→familias (ver /api/cobros)."
+  });
 });
 
 // ── POST /api/suscripciones/webhook ─────────────────────────

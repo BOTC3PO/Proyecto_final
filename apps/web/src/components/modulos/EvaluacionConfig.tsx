@@ -29,6 +29,7 @@ import {
   DIFICULTAD_VENTANA_MIN,
   MODOS_PRESENTACION_VALIDOS,
   POLITICAS_DIFICULTAD_VALIDAS,
+  POLITICAS_EXPIRACION_VALIDAS,
   POLITICAS_SORTEO_VALIDAS,
   POLITICAS_VALIDAS,
   PREGUNTAS_POR_PAGINA_DEFAULT,
@@ -37,6 +38,7 @@ import {
   type EvaluacionConfig,
   type ModoPresentacion,
   type PoliticaDificultad,
+  type PoliticaExpiracion,
   type PoliticaNota,
   type PoliticaSorteo,
   type QuizTipo
@@ -65,6 +67,8 @@ interface Props {
   onChangeDificultadInicial?: (next: "basico" | "intermedio" | "avanzado") => void;
   /** WO-14 — ventana de respuestas que mira "adaptativa_simple" para subir/bajar 1 nivel. */
   onChangeDificultadVentana?: (next: number) => void;
+  /** PLAN-D §1 — qué hace el server cuando vence el timer sin submit. */
+  onChangePoliticaExpiracion?: (next: PoliticaExpiracion) => void;
   /** Variante visual. Default: "panel" (con fieldset). "compact" = menos padding. */
   variant?: "panel" | "compact";
 }
@@ -98,6 +102,16 @@ const POLITICA_DIFICULTAD_HINT: Record<PoliticaDificultad, string> = {
   adaptativa_simple: "La dificultad sube o baja 1 nivel según las últimas respuestas del alumno."
 };
 
+const POLITICA_EXPIRACION_LABEL: Record<PoliticaExpiracion, string> = {
+  auto: "Enviar automáticamente al vencer el timer",
+  gracia60: "Dar 60s extra y enviar automáticamente"
+};
+
+const POLITICA_EXPIRACION_HINT: Record<PoliticaExpiracion, string> = {
+  auto: "Si el alumno no envía a tiempo, el server cierra el intento con lo respondido hasta el vencimiento.",
+  gracia60: "El alumno tiene 60s adicionales para terminar la pregunta actual antes del envío automático."
+};
+
 function formatTimer(minutes: number): string {
   if (minutes < 60) return `${minutes} min`;
   const h = Math.floor(minutes / 60);
@@ -119,6 +133,7 @@ export default function EvaluacionConfig({
   onChangePoliticaDificultad,
   onChangeDificultadInicial,
   onChangeDificultadVentana,
+  onChangePoliticaExpiracion,
   variant = "panel"
 }: Props) {
   const fieldsetClass =
@@ -146,6 +161,8 @@ export default function EvaluacionConfig({
   const politicaDificultadId = `${baseId}-politica-dificultad`;
   const dificultadInicialId = `${baseId}-dificultad-inicial`;
   const dificultadVentanaId = `${baseId}-dificultad-ventana`;
+  // PLAN-D §1 — id del select de política de expiración.
+  const politicaExpiracionId = `${baseId}-politica-expiracion`;
 
   // Minutos para el input (el timer se guarda en segundos).
   const timerMinutos = config.timerSegundos === null ? null : Math.round(config.timerSegundos / 60);
@@ -226,6 +243,32 @@ export default function EvaluacionConfig({
               El alumno no verá cronómetro.
             </p>
           )}
+        </div>
+      )}
+
+      {/* PLAN-D §1 — sólo tiene efecto si hay timer activo. */}
+      {muestraTimer && !timerIlimitado && (
+        <div className="flex items-end gap-3" data-testid="config-politica-expiracion">
+          <label htmlFor={politicaExpiracionId} className="text-sm">
+            Al vencer el tiempo
+          </label>
+          <select
+            id={politicaExpiracionId}
+            data-testid="config-politica-expiracion-select"
+            disabled={!onChangePoliticaExpiracion}
+            value={config.politicaExpiracion}
+            onChange={(e) => onChangePoliticaExpiracion?.(e.target.value as PoliticaExpiracion)}
+            className="rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-1 text-sm"
+          >
+            {POLITICAS_EXPIRACION_VALIDAS.map((p) => (
+              <option key={p} value={p}>
+                {POLITICA_EXPIRACION_LABEL[p]}
+              </option>
+            ))}
+          </select>
+          <p className="text-xs text-[var(--c-hint)]">
+            {POLITICA_EXPIRACION_HINT[config.politicaExpiracion]}
+          </p>
         </div>
       )}
 

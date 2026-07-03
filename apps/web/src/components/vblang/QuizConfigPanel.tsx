@@ -217,6 +217,9 @@ export default function QuizConfigPanel({
           onChangeDificultadVentana={
             disabled ? undefined : (next) => onPatch({ dificultadVentana: next })
           }
+          onChangePoliticaExpiracion={
+            disabled ? undefined : (next) => onPatch({ politicaExpiracion: next })
+          }
         />
       </div>
 

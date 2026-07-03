@@ -15,6 +15,7 @@ import { useState, type CSSProperties, type ReactNode } from 'react';
 import { useAuth } from '../auth/use-auth';
 import { usePrimaryRole } from '../auth/use-roles';
 import { useTheme } from '../theme/ThemeContext';
+import { useSchoolBranding } from '../hooks/useSchoolBranding';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from '../nav/navConfig';
 import { Avatar, Menu, NavItem, type MenuTriggerProps } from '../ui';
 
@@ -25,12 +26,12 @@ const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
     { label: 'Escuela',   items: ['Calendario', 'Mensajes', 'Gobernanza'] },
   ],
   DIRECTIVO: [
-    { label: 'Escuela',        items: ['Panel escuela', 'Aulas', 'Miembros', 'Módulos', 'Plantillas', 'Datasets'] },
-    { label: 'Administración', items: ['Reportes', 'Calendario', 'Gobernanza', 'Mensajes'] },
+    { label: 'Escuela',        items: ['Panel escuela', 'Aulas', 'Miembros', 'Módulos', 'Plantillas', 'Datasets', 'Personalización'] },
+    { label: 'Administración', items: ['Cobros', 'Comisiones', 'Reportes', 'Calendario', 'Gobernanza', 'Mensajes'] },
   ],
   ADMIN: [
     { label: 'Sistema',  items: ['Panel', 'Usuarios', 'Materias', 'Módulos', 'Plantillas', 'Datasets'] },
-    { label: 'Control',  items: ['Moderación', 'Moderar plantillas', 'Reportes', 'Mensajes'] },
+    { label: 'Control',  items: ['Moderación', 'Moderar plantillas', 'Reportes', 'Comisiones', 'Mensajes'] },
   ],
 };
 
@@ -163,6 +164,7 @@ function Sidebar() {
   const { user, logout, switchCuenta } = useAuth();
   const { theme, setTheme, availableThemes } = useTheme();
   const navigate = useNavigate();
+  const schoolBranding = useSchoolBranding();
 
   const tieneEspejo = user?.cuentaVinculada?.tipoDestino === 'ALUMNO';
 
@@ -211,6 +213,14 @@ function Sidebar() {
         }}
       >
         <Link to="/" className="flex items-center" style={{ gap: 'var(--space-2)', textDecoration: 'none' }}>
+          {schoolBranding?.logoUrl ? (
+            <img
+              src={schoolBranding.logoUrl}
+              alt="Logo de la escuela"
+              className="flex-shrink-0"
+              style={{ width: 'var(--space-6)', height: 'var(--space-6)', objectFit: 'contain', borderRadius: 'var(--r-md)' }}
+            />
+          ) : (
           <span
             className="flex items-center justify-center flex-shrink-0"
             style={{
@@ -222,6 +232,7 @@ function Sidebar() {
           >
             <span style={{ color: 'var(--c-text-on-dark)', fontSize: 'var(--text-xs)', fontWeight: 'var(--fw-bold)' }}>VB</span>
           </span>
+          )}
           <span style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--fw-semibold)', color: 'var(--c-text)' }}>
             Virtual Book
           </span>

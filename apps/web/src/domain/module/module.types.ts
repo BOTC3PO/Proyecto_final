@@ -114,6 +114,13 @@ export type ModuleQuiz = {
    */
   dificultadVentana?: number;
   /**
+   * PLAN-D §1 — Qué hace el server cuando vence el timer sin submit
+   * (`auto` | `gracia60`). Sólo tiene efecto si `timerSegundos` no es
+   * `null`. Default `auto`. Persistido en
+   * `QuizVersion.settings.politicaExpiracion`.
+   */
+  politicaExpiracion?: "auto" | "gracia60";
+  /**
    * Composición a nivel quiz (pool, selección, variantes, peso por defecto).
    * Se persiste en `QuizVersion.settings.composition`. NO es parte del DSL.
    *

@@ -43,6 +43,7 @@ import { assetsRouter } from "./routes/assets";
 import { mediaRouter } from "./routes/media";
 import { createRateLimiter } from "./lib/rate-limit";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
+import { scheduleReconciliacionJob } from "./lib/pasarelas/reconciliacion";
 import { markUsersWithoutUsablePasswordForReset } from "./lib/password-health";
 import { dictionary } from "./routes/dictionary";
 import { readonlyRouter } from "./routes/readonly";
@@ -67,6 +68,8 @@ import { materiales } from "./routes/materiales";
 import { plantillas } from "./routes/plantillas";
 import { vblangDatasets } from "./routes/vblang-datasets";
 import { asistencia } from "./routes/asistencia";
+import { cobros } from "./routes/cobros";
+import { escuelaPasarelas } from "./routes/escuela-pasarelas";
 import { requireUser } from "./lib/user-auth";
 import { prisma } from "./lib/prisma";
 
@@ -109,6 +112,10 @@ app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
 app.use(morgan("tiny"));
 app.use("/api/payments/webhook", express.raw({ type: "application/json" }));
+// PLAN-B Fase 3 — el webhook de cada pasarela (cobros escuela→familias)
+// necesita el body crudo para verificar la firma (mismo motivo que
+// /api/payments/webhook arriba).
+app.use("/api/pasarelas/webhook", express.raw({ type: "application/json" }));
 // FIX-BODY-LIMIT — el `express.json()` sin `limit` usa el default
 // de body-parser (100kb). Como este parser corre ANTES de los
 // routers, era el límite efectivo de TODOS los endpoints: cuando
@@ -130,7 +137,10 @@ app.use(express.json({
   limit: `${ENV.MAX_PAGE_MB}mb`,
   verify: (req, _res, buf) => {
     const request = req as Request;
-    if (request.originalUrl === "/api/payments/webhook") {
+    if (
+      request.originalUrl === "/api/payments/webhook" ||
+      request.originalUrl.startsWith("/api/pasarelas/webhook/")
+    ) {
       request.rawBody = Buffer.from(buf);
     }
   }
@@ -192,6 +202,8 @@ app.use(reportesV2);
 app.use(encuestas);
 app.use(aulas);
 app.use(asistencia);
+app.use(cobros);
+app.use(escuelaPasarelas);
 app.use(economia);
 app.use(aulaFeed);
 app.use(publicaciones);
@@ -257,6 +269,7 @@ const bootstrap = async () => {
     console.log(`API on http://localhost:${ENV.PORT}`);
   });
   scheduleDelinquencyJob();
+  scheduleReconciliacionJob();
   void runStartupDataChecks();
   await markUsersWithoutUsablePasswordForReset({
     actorId: "system",

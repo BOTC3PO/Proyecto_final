@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import {
   fetchAdminUsuarios,
   fetchAdminModulosCompletados,
+  fetchEscuelas,
+  reasignarEscuela,
   promoteUsuario,
   banUsuario,
   advertenciaUsuario,
   type AdminUsuario,
+  type EscuelaResumen,
   type AdminModulosCompletados,
 } from "../services/admin";
 
@@ -16,6 +19,7 @@ type ModerarModal =
   | { type: "ban"; usuario: AdminUsuario }
   | { type: "warn"; usuario: AdminUsuario }
   | { type: "promote"; usuario: AdminUsuario; requiresGovernance?: boolean }
+  | { type: "escuela"; usuario: AdminUsuario }
   | null;
 
 const ROLE_LABELS: Record<string, string> = {
@@ -42,6 +46,12 @@ export default function AdminUsuarios() {
   const [banDias, setBanDias] = useState("1");
   const [warnMotivo, setWarnMotivo] = useState("");
   const [warnSeveridad, setWarnSeveridad] = useState("baja");
+  const [escuelas, setEscuelas] = useState<EscuelaResumen[]>([]);
+  const [escuelaDraft, setEscuelaDraft] = useState("");
+
+  useEffect(() => {
+    fetchEscuelas().then(setEscuelas).catch(() => setEscuelas([]));
+  }, []);
 
   const loadUsuarios = useCallback(async (search: string) => {
     setLoading(true);
@@ -83,6 +93,26 @@ export default function AdminUsuarios() {
       } else if (result.requiresGovernance) {
         setModal({ ...modal, requiresGovernance: true });
       }
+    } catch (e: unknown) {
+      setActionMsg(`Error: ${(e as Error).message}`);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleReasignarEscuela = async () => {
+    if (!modal || modal.type !== "escuela") return;
+    setSubmitting(true);
+    setActionMsg(null);
+    try {
+      await reasignarEscuela(modal.usuario.id, escuelaDraft || null);
+      setActionMsg(
+        escuelaDraft
+          ? `${modal.usuario.nombre} asignado a la escuela seleccionada.`
+          : `${modal.usuario.nombre} quedó sin escuela (admin de plataforma).`
+      );
+      setModal(null);
+      loadUsuarios(q);
     } catch (e: unknown) {
       setActionMsg(`Error: ${(e as Error).message}`);
     } finally {
@@ -205,6 +235,9 @@ export default function AdminUsuarios() {
                             {u.warningCount} advertencia{u.warningCount !== 1 ? "s" : ""}
                           </span>
                         )}
+                        <span className="rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-xs text-[var(--c-muted)]">
+                          {u.escuelaId ? (escuelas.find((e) => e.id === u.escuelaId)?.name ?? "Escuela asignada") : "Sin escuela"}
+                        </span>
                       </div>
                       <p className="mt-0.5 text-xs text-[var(--c-muted)]">
                         @{u.username}{u.email ? ` · ${u.email}` : ""}
@@ -219,6 +252,12 @@ export default function AdminUsuarios() {
                       )}
                     </div>
                     <div className="flex flex-wrap gap-2">
+                      <button
+                        onClick={() => { setEscuelaDraft(u.escuelaId ?? ""); setModal({ type: "escuela", usuario: u }); }}
+                        className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                      >
+                        Escuela
+                      </button>
                       {u.rol !== "ADMIN" && (
                         <button
                           onClick={() => setModal({ type: "promote", usuario: u })}
@@ -298,6 +337,44 @@ export default function AdminUsuarios() {
                   </div>
                 </>
               )}
+            </div>
+          </div>
+        )}
+
+        {modal?.type === "escuela" && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+            <div className="w-full max-w-md rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
+              <h3 className="text-lg font-semibold text-[var(--c-text)]">Asignar escuela</h3>
+              <p className="mt-1 text-sm text-[var(--c-muted)]">Usuario: <strong>{modal.usuario.nombre}</strong></p>
+              <label className="mt-4 flex flex-col gap-1">
+                <span className="text-xs font-medium text-[var(--c-muted)]">Escuela</span>
+                <select
+                  value={escuelaDraft}
+                  onChange={(e) => setEscuelaDraft(e.target.value)}
+                  className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                >
+                  <option value="">Sin escuela (admin de plataforma)</option>
+                  {escuelas.map((e) => (
+                    <option key={e.id} value={e.id}>{e.name}</option>
+                  ))}
+                </select>
+              </label>
+              {actionMsg && <p className="mt-2 text-sm text-[var(--c-danger)]">{actionMsg}</p>}
+              <div className="mt-5 flex gap-3">
+                <button
+                  onClick={handleReasignarEscuela}
+                  disabled={submitting}
+                  className="flex-1 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
+                >
+                  {submitting ? "Guardando…" : "Guardar"}
+                </button>
+                <button
+                  onClick={() => { setModal(null); setActionMsg(null); }}
+                  className="flex-1 rounded-xl border border-[var(--c-border)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                >
+                  Cancelar
+                </button>
+              </div>
             </div>
           </div>
         )}

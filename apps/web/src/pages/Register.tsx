@@ -274,9 +274,10 @@ function DateInput({
 
 export default function RegistrationForm() {
   const navigate = useNavigate();
-  const roleMap: Record<string, "USER" | "TEACHER"> = {
+  const roleMap: Record<string, "USER" | "TEACHER" | "PARENT"> = {
     student: "USER",
-    teacher: "TEACHER"
+    teacher: "TEACHER",
+    parent: "PARENT"
   };
   const [teacherTypes, setTeacherTypes] = useState<Array<{ value: string; label: string }>>([]);
   const [monthOptions, setMonthOptions] = useState<string[]>([]);
@@ -469,6 +470,7 @@ export default function RegistrationForm() {
                 <option value="">Selecciona un rol</option>
                 <option value="student">Usuario</option>
                 <option value="teacher">Profesor</option>
+                <option value="parent">Padre/Madre</option>
               </select>
             </div>
 

@@ -17,3 +17,15 @@ export const EscuelaPatchSchema = EscuelaSchema.pick({
   plan: true,
   pricePerStudent: true
 }).partial();
+
+// PLAN-C §4 (ítem 29) — personalización por escuela. Colores en formato
+// libre (hex u otro) — no validamos el formato exacto, sólo longitud, para
+// no acoplar el backend a una paleta específica del front.
+export const EscuelaBrandingSchema = z.object({
+  logoUrl: z.string().url().max(500).nullish(),
+  iconoUrl: z.string().url().max(500).nullish(),
+  colorPrimario: z.string().max(20).nullish(),
+  colorSecundario: z.string().max(20).nullish()
+});
+
+export type EscuelaBrandingInput = z.infer<typeof EscuelaBrandingSchema>;

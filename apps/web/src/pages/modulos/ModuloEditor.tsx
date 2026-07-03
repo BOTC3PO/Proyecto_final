@@ -2280,7 +2280,9 @@ function EvaluacionConfigEditor({
     // WO-14 — ruteo por dificultad.
     politicaDificultad: quiz.politicaDificultad,
     dificultadInicial: quiz.dificultadInicial,
-    dificultadVentana: quiz.dificultadVentana
+    dificultadVentana: quiz.dificultadVentana,
+    // PLAN-D §1 — política de cierre por expiración.
+    politicaExpiracion: quiz.politicaExpiracion
   });
   const config = parseEvaluacionConfig(virtualSettings, quiz.type);
 
@@ -2303,6 +2305,8 @@ function EvaluacionConfigEditor({
       onChangePoliticaDificultad={(next) => updateQuiz(quiz.id, { politicaDificultad: next })}
       onChangeDificultadInicial={(next) => updateQuiz(quiz.id, { dificultadInicial: next })}
       onChangeDificultadVentana={(next) => updateQuiz(quiz.id, { dificultadVentana: next })}
+      // PLAN-D §1 — wireado de la política de cierre por expiración.
+      onChangePoliticaExpiracion={(next) => updateQuiz(quiz.id, { politicaExpiracion: next })}
     />
   );
 }

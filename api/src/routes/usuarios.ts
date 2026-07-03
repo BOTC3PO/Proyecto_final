@@ -9,6 +9,7 @@ import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { hashPassword } from "../lib/passwords";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { tryProvisionarEspejoParaNuevoStaff } from "../lib/provisionar-espejo";
+import { acreditarSaldoInicial } from "../lib/economia-alta";
 import {
   provisionarEspejoPadreParaAlumno,
   PadreNoProvisionableError
@@ -104,6 +105,11 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
     // effort: un fallo se loguea y no rompe el alta.
     if (isStaffInRoles(resolveRoles(result))) {
       await tryProvisionarEspejoParaNuevoStaff(result.id);
+    }
+    // PLAN-B Fase 6 (ítem 34) — saldo de bienvenida (economía interna,
+    // no dinero real) para el alumno recién dado de alta por admin/directivo.
+    if (result.role === "USER") {
+      await acreditarSaldoInicial({ usuarioId: result.id, schoolId: result.escuelaId ?? null });
     }
     const passwordResetRequired =
       "passwordResetRequired" in parsed && (parsed as any).passwordResetRequired === true;

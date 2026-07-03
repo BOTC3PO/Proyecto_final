@@ -286,6 +286,17 @@ export default function Navbar() {
       console.error('Error al entrar como alumno:', e);
     }
   };
+  // PLAN-C §6 (ítem 31) — mismo mecanismo para la dirección alumno→padre
+  // (FASE 6, autoservicio): "Ver como padre" en el dropdown de USER.
+  const tienePadre = user?.cuentaVinculada?.tipoDestino === 'PADRE';
+  const handleEntrarComoPadre = async () => {
+    try {
+      const { landing } = await switchCuenta();
+      navigate(landing);
+    } catch (e) {
+      console.error('Error al entrar como padre:', e);
+    }
+  };
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -548,6 +559,26 @@ export default function Navbar() {
                             onClick={close}
                           >
                             Crear cuenta alumno
+                          </MenuRowLink>
+                        );
+                      }
+                      if (item.label === 'Ver como padre') {
+                        if (tienePadre) {
+                          return (
+                            <MenuRowButton key="ver-como-padre" onClick={() => { close(); void handleEntrarComoPadre(); }}>
+                              <DropdownIcon name={item.icon} />
+                              {item.label}
+                            </MenuRowButton>
+                          );
+                        }
+                        return (
+                          <MenuRowLink
+                            key="ver-como-padre"
+                            to="/perfil"
+                            icon={<DropdownIcon name={item.icon} />}
+                            onClick={close}
+                          >
+                            Crear cuenta padre
                           </MenuRowLink>
                         );
                       }

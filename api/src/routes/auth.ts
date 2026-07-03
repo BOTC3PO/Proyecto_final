@@ -17,6 +17,7 @@ import { normalizeSchoolId } from "../lib/school-ids";
 import { tryProvisionarEspejoParaNuevoStaff, provisionarEspejoAlumno, vincularCuentaAlumnoExistente, EspejoNoProvisionableError, ESPEJO_TIPO_CUENTA } from "../lib/provisionar-espejo";
 import { resolveCuentaVinculada } from "../lib/cuenta-vinculada";
 import { resolveRoles, isStaffInRoles, resolvePrimaryRole } from "../lib/roles";
+import { acreditarSaldoInicial } from "../lib/economia-alta";
 import { requireUser } from "../lib/user-auth";
 import {
   BootstrapAdminRequestSchema,
@@ -235,6 +236,12 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
     if (isStaffInRoles(resolveRoles(result))) {
       await tryProvisionarEspejoParaNuevoStaff(result.id);
     }
+    // PLAN-B Fase 6 (ítem 34) — saldo de bienvenida para alumnos nuevos
+    // (economía interna, no dinero real). Sólo USER: PARENT/TEACHER/
+    // DIRECTIVO/ADMIN no son "alumno". Best-effort, no rompe el alta.
+    if (role === "USER") {
+      await acreditarSaldoInicial({ usuarioId: result.id, schoolId: escuelaId ?? null });
+    }
     if (escuelaId && membershipRole) {
       assertValidMembershipTransition(null, "activa");
       assertMembershipInvariants({
@@ -292,6 +299,10 @@ auth.post("/api/auth/guest", authLimiter, async (req, res) => {
         updatedAt: now
       }
     });
+    // PLAN-B Fase 6 (ítem 34) — el guest ya aterriza en /alumno y juega
+    // como tal (ROLE_LANDING), así que también recibe el saldo de
+    // bienvenida. Sin escuela (los guests no tienen una todavía).
+    await acreditarSaldoInicial({ usuarioId: result.id, schoolId: null });
     const accessToken = createAccessToken({
       id: result.id.toString(),
       email,

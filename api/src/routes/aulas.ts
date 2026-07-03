@@ -23,8 +23,6 @@ import {
 
 export const aulas = Router();
 
-const FREE_CLASSROOM_LIMIT = 10;
-
 // FIX-TEST4-CLASSCODE — antes `code` quedaba `null` cuando el front
 // no mandaba `classCode`, y el alumno no podía unirse. Generamos un
 // código alfanumérico de 6 chars (sin 0/O/1/l/I para evitar
@@ -415,17 +413,6 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
     }
     if (parsed.classCode && !isClassroomActiveStatus(normalizedStatus)) {
       return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
-    }
-
-    // FREE_CLASSROOM_LIMIT check: createdBy is not in the Clase schema, count all non-deleted classes.
-    const activeClassroomCount = await prisma.clase.count({
-      where: { isDeleted: { not: true } }
-    });
-    if (activeClassroomCount >= FREE_CLASSROOM_LIMIT) {
-      return res.status(403).json({
-        error: "limite de clases activas excedido",
-        detail: `El limite gratuito es ${FREE_CLASSROOM_LIMIT} clases activas por profesor.`
-      });
     }
 
     const schoolId = derivedSchoolId;

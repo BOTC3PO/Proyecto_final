@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, type ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchProgresoHijos, type ChildProgress } from "../services/progreso";
 import {
   fetchActividadesHijo, fetchBoletinHijo, fetchAulasHijo,
@@ -6,6 +7,7 @@ import {
 } from "../services/padres";
 
 export default function HijosProgreso() {
+  const navigate = useNavigate();
   const [busqueda, setBusqueda] = useState("");
   const [area, setArea] = useState<"Todas" | "Matemática" | "Lengua" | "Ciencias" | "Historia" | "Geografía" | "Arte" | "Otro">("Todas");
   const [seleccionado, setSeleccionado] = useState<string | null>(null);
@@ -255,9 +257,24 @@ export default function HijosProgreso() {
                         <span>{m.progreso}%</span>
                       </div>
                       <div className="mt-3 flex items-center gap-2">
-                        <button className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">Ver detalles</button>
-                        <button className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">Abrir módulo</button>
-                        <button className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">Informe</button>
+                        <button
+                          onClick={() => navigate(`/modulos/${m.id}`)}
+                          className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                        >
+                          Ver detalles
+                        </button>
+                        <button
+                          onClick={() => navigate(`/modulos/${m.id}/jugar`)}
+                          className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                        >
+                          Abrir módulo
+                        </button>
+                        <button
+                          onClick={() => setTab("boletin")}
+                          className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                        >
+                          Informe
+                        </button>
                       </div>
                     </div>
                   ))}

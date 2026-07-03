@@ -758,6 +758,16 @@ export class InMemoryPrisma {
   moderacionEvento = new Table<Row>("moderacionEvento");
   // PLAN-A §3 — persistencia de asistencia (routes/asistencia.ts).
   asistencia = new Table<Row>("asistencia");
+  // PLAN-B Fase 2 — núcleo de cobros escuela→familias (routes/cobros.ts).
+  cobroEscuela = new Table<Row>("cobroEscuela");
+  cuotaAlumno = new Table<Row>("cuotaAlumno");
+  pago = new Table<Row>("pago");
+  // PLAN-B Fase 3 — conexión escuela↔pasarela.
+  escuelaPasarela = new Table<Row>("escuelaPasarela");
+  // PLAN-B Fase 6 — saldo inicial de alumno (lib/economia-alta.ts).
+  economiaTransaccion = new Table<Row>("economiaTransaccion");
+  economiaSaldo = new Table<Row>("economiaSaldo");
+  economiaConfig = new Table<Row>("economiaConfig");
 
   // override findMany on vblangDataset to support _count include.
   constructor() {

@@ -20,12 +20,120 @@ model Escuela {
   // queda como roadmap v2). modoGestion: "centralizado" | "autogestionado".
   modoGestion        String?  @default("centralizado") @map("modo_gestion")
   comisionPct        Float?   @map("comision_pct")
+  // PLAN-B Fase 6 (ítem 34) — saldo de bienvenida (economía interna del
+  // juego, no dinero real) que recibe cada alumno nuevo. Configurable por
+  // escuela; default 50 backfileado en la migración para las existentes.
+  saldoInicialAlumno Float    @default(50) @map("saldo_inicial_alumno")
+  // PLAN-C §4 (ítem 29) — personalización por escuela. JSON serializado:
+  // { logoUrl?, iconoUrl?, colorPrimario?, colorSecundario? }. Null =
+  // sin personalizar, usa el branding default de la plataforma.
+  branding           String?
   usuarios           Usuario[]
   membresias         Membresia[]
   clases             Clase[]
   transacciones      TransaccionEscuela[]
   liquidaciones      LiquidacionEscuela[]
+  cobros             CobroEscuela[]
+  pasarelas          EscuelaPasarela[]
   @@map("escuelas")
+}
+
+// PLAN-B §Fase 2 — núcleo de cobros escuela→familias, independiente de la
+// pasarela (la conexión con Mercado Pago/Stripe/Cryptomus es Fase 3).
+//
+// `CobroEscuela` es la "orden de cobro" que crea el directivo/admin (ej.
+// "Cuota julio 2026"). Al publicarla se generan las `CuotaAlumno` — una
+// instancia por alumno destinatario, con su propio estado y `montoFinal`
+// (permite becas/descuentos sin tocar el cobro original).
+model CobroEscuela {
+  id            String        @id
+  escuelaId     String        @map("escuela_id")
+  concepto      String
+  descripcion   String?
+  montoUnitario Float         @map("monto_unitario")
+  moneda        String        @default("ARS")
+  vencimiento   String?
+  // borrador | publicado | cerrado
+  estado        String        @default("borrador")
+  createdBy     String        @map("created_by")
+  createdAt     String        @map("created_at")
+  updatedAt     String        @map("updated_at")
+  escuela       Escuela       @relation(fields: [escuelaId], references: [id])
+  cuotas        CuotaAlumno[]
+  @@index([escuelaId])
+  @@map("cobros_escuela")
+}
+
+// Instancia de un `CobroEscuela` para UN alumno. `pagadorId` es quién
+// efectivamente paga (típicamente el padre/madre vinculado; puede ser el
+// propio alumno si es adulto). `montoFinal` puede diferir de
+// `cobro.montoUnitario` (becas/descuentos) sin tocar el cobro original.
+model CuotaAlumno {
+  id         String       @id
+  cobroId    String       @map("cobro_id")
+  alumnoId   String       @map("alumno_id")
+  pagadorId  String?      @map("pagador_id")
+  // pendiente | en_proceso | pagada | vencida | anulada
+  estado     String       @default("pendiente")
+  montoFinal Float        @map("monto_final")
+  pagoId     String?      @map("pago_id")
+  createdAt  String       @map("created_at")
+  updatedAt  String       @map("updated_at")
+  cobro      CobroEscuela @relation(fields: [cobroId], references: [id])
+  pago       Pago?        @relation(fields: [pagoId], references: [id])
+  @@unique([cobroId, alumnoId])
+  @@index([alumnoId])
+  @@index([pagadorId])
+  @@map("cuotas_alumno")
+}
+
+// La persistencia que `payments.ts` reclama (ver comentario histórico en
+// `api/src/lib/payments/index.ts`) — acá para el dominio cobros
+// escuela→familias. `provider` es "manual" mientras la escuela no tenga
+// una pasarela conectada (Fase 3); ahí queda todo el flujo operable sin
+// depender de credenciales externas. `raw` guarda el payload del webhook
+// del provider tal cual, para auditoría/debug.
+model Pago {
+  id               String        @id
+  provider         String
+  providerRef      String?       @map("provider_ref")
+  // pendiente | en_proceso | pagada | fallida | anulada
+  estado           String        @default("pendiente")
+  montoBruto       Float         @map("monto_bruto")
+  comisionVB       Float?        @map("comision_vb")
+  montoNetoEscuela Float?        @map("monto_neto_escuela")
+  raw              String?
+  createdAt        String        @map("created_at")
+  updatedAt        String        @map("updated_at")
+  cuotas           CuotaAlumno[]
+  // Idempotencia de webhooks: nunca crear dos Pago para el mismo
+  // (provider, providerRef) aunque el provider reintente la notificación.
+  @@unique([provider, providerRef])
+  @@map("pagos")
+}
+
+// PLAN-B Fase 3 — conexión de una escuela con un provider de pago.
+// `cuentaConectadaId` es la cuenta DE LA ESCUELA en el provider (ej. el
+// `stripe_user_id` que devuelve el OAuth de Stripe Connect, o el
+// `collector_id`/access_token de vendedor de Mercado Pago) — NUNCA la
+// cuenta de VB. `credencialesCifradas` guarda el token OAuth/API key
+// que haga falta, cifrado (nunca en texto plano ni en logs de webhook).
+// Cryptomus no tiene split nativo — para ese provider esta fila sólo
+// guarda la API key de la escuela para poder facturar/verificar en su
+// nombre; el dinero pasa por VB igual (modo v1, liquidación manual).
+model EscuelaPasarela {
+  id                   String  @id
+  escuelaId            String  @map("escuela_id")
+  // "mercadopago" | "stripe" | "cryptomus"
+  provider             String
+  cuentaConectadaId    String? @map("cuenta_conectada_id")
+  credencialesCifradas String? @map("credenciales_cifradas")
+  activa               Boolean @default(true)
+  createdAt            String  @map("created_at")
+  updatedAt            String  @map("updated_at")
+  escuela              Escuela @relation(fields: [escuelaId], references: [id])
+  @@unique([escuelaId, provider])
+  @@map("escuelas_pasarelas")
 }
 
 /// Fase 5.1 — registro contable de cada cobro de una escuela autogestionada.
@@ -36,6 +144,10 @@ model TransaccionEscuela {
   comisionVB  Float    @map("comision_vb")
   montoNeto   Float    @map("monto_neto")
   estado      String   @default("registrada")
+  // PLAN-B Fase 4 — de qué pasarela vino este cobro (mercadopago|stripe|
+  // cryptomus|manual). Default "mercadopago" para las filas históricas
+  // (todo lo pre-Fase-3 era del SaaS de suscripción, siempre MP).
+  provider    String   @default("mercadopago")
   mpPaymentId String?  @map("mp_payment_id")
   createdAt   String   @map("created_at")
   escuela     Escuela  @relation(fields: [escuelaId], references: [id])
@@ -51,6 +163,11 @@ model LiquidacionEscuela {
   montoLiquidado Float    @map("monto_liquidado")
   cantTransacc   Int      @map("cant_transacc")
   metodo         String
+  // PLAN-B Fase 4 — "manual" (VB retuvo el dinero — Cryptomus siempre,
+  // o modo centralizado — y liquida por fuera) vs "split_nativo"
+  // (Stripe/MP ya depositaron el neto directo a la escuela; esta fila
+  // es sólo INFORMATIVA/auto-conciliada, no dispara una transferencia).
+  tipo           String   @default("manual")
   createdAt      String   @map("created_at")
   escuela        Escuela  @relation(fields: [escuelaId], references: [id])
   @@index([escuelaId])
@@ -1158,6 +1275,12 @@ model MensajeDirecto {
   @@map("mensajes_directos")
 }
 
+// PLAN-B Fase 1 — LEGACY (2026-07-03). El SaaS por suscripción se retiró
+// del producto (decisión del usuario 2026-07-02: el negocio cobra
+// comisión sobre cobros escuela→familias, ver `CobroEscuela`/`Pago`).
+// Este modelo queda de SÓLO LECTURA para contabilidad histórica — no se
+// crean filas nuevas (`POST /api/suscripciones/iniciar` y
+// `POST /api/admin/suscripciones/activar` responden 410 Gone).
 model Suscripcion {
   id                  String          @id
   entidadTipo         String          @map("entidad_tipo")
@@ -1181,6 +1304,7 @@ model Suscripcion {
   @@map("suscripciones")
 }
 
+// PLAN-B Fase 1 — LEGACY (2026-07-03), mismo motivo que `Suscripcion`.
 model HistorialPago {
   id            String      @id
   suscripcionId String      @map("suscripcion_id")

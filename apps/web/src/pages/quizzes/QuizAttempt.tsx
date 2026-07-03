@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { apiGet, apiPost, apiPatch, ApiError } from "../../lib/api";
@@ -193,6 +193,10 @@ export default function QuizAttempt() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "submitted" | "error">(
     "idle"
   );
+  // PLAN-D §2 — estado visible del autosave (F5-01 ya guarda cada respuesta
+  // en el server; esto sólo refleja ese guardado en la UI, no cambia la
+  // lógica de persistencia).
+  const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "queued">("idle");
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
   const [result, setResult] = useState<SubmitResponse | null>(null);
   const [openPasos, setOpenPasos] = useState<Record<string, boolean>>({});
@@ -505,6 +509,30 @@ export default function QuizAttempt() {
     }
   };
 
+  // PLAN-D §2 — accesibilidad: navegar entre preguntas/páginas con las
+  // flechas del teclado, sin interferir con la edición de texto (se
+  // ignora si el foco está en un input/textarea/select).
+  const goPrevRef = useRef(goPrev);
+  goPrevRef.current = goPrev;
+  const goNextRef = useRef(goNext);
+  goNextRef.current = goNext;
+  useEffect(() => {
+    if (modoPresentacion === "lista") return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goPrevRef.current();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goNextRef.current();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [modoPresentacion]);
+
   const handleAnswerChange = (questionId: string, value: AttemptAnswerValue) => {
     // WO-T2a — defensa en profundidad: en modo revisión los inputs ya están
     // disabled, pero no se debe persistir ninguna respuesta nueva.
@@ -513,10 +541,13 @@ export default function QuizAttempt() {
     const id = resolveAttemptId(attempt);
     if (id && (typeof value === "string" || Array.isArray(value))) {
       recordAnswer(id, questionId, value);
+      setSaveStatus("saving");
       apiPost(`/api/quiz-attempts/${id}/answer`, {
         questionId,
         response: value,
-      }).catch(() => {});
+      })
+        .then(() => setSaveStatus("saved"))
+        .catch(() => setSaveStatus("queued"));
     }
   };
 
@@ -535,10 +566,13 @@ export default function QuizAttempt() {
     const id = resolveAttemptId(attempt);
     if (id) {
       recordAnswer(id, questionId, next);
+      setSaveStatus("saving");
       apiPost(`/api/quiz-attempts/${id}/answer`, {
         questionId,
         response: next,
-      }).catch(() => {});
+      })
+        .then(() => setSaveStatus("saved"))
+        .catch(() => setSaveStatus("queued"));
     }
   };
 
@@ -1202,6 +1236,28 @@ export default function QuizAttempt() {
                   label={`${answeredCount} de ${questions.length} respondidas`}
                   aria-label="Progreso del cuestionario"
                 />
+              )}
+
+              {/* PLAN-D §2 — estado del autosave. Sólo se muestra una vez que
+                  hubo al menos un intento de guardado (idle = todavía no
+                  respondió nada). */}
+              {submitStatus !== "submitted" && saveStatus !== "idle" && (
+                <p
+                  role="status"
+                  aria-live="polite"
+                  data-testid="quiz-save-status"
+                  style={{
+                    margin: 0,
+                    fontSize: "var(--text-xs)",
+                    color:
+                      saveStatus === "queued" ? "var(--c-warning)" : "var(--c-muted)",
+                  }}
+                >
+                  {saveStatus === "saving" && "Guardando…"}
+                  {saveStatus === "saved" && "Guardado"}
+                  {saveStatus === "queued" &&
+                    "Guardado localmente — se sincronizará cuando vuelva la conexión."}
+                </p>
               )}
 
               {/* elige_alumno selector */}

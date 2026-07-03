@@ -109,6 +109,15 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.moderacionEvento.rows = [];
   // PLAN-A §3 — asistencia.
   prisma.asistencia.rows = [];
+  // PLAN-B Fase 2 — núcleo de cobros escuela→familias.
+  prisma.cobroEscuela.rows = [];
+  prisma.cuotaAlumno.rows = [];
+  prisma.pago.rows = [];
+  prisma.escuelaPasarela.rows = [];
+  // PLAN-B Fase 6 — saldo inicial de alumno.
+  prisma.economiaTransaccion.rows = [];
+  prisma.economiaSaldo.rows = [];
+  prisma.economiaConfig.rows = [];
   return prisma;
 }
 
@@ -183,6 +192,10 @@ export async function startServer(
   routers: express.RequestHandler[],
 ): Promise<{ baseUrl: string; close: () => Promise<void> }> {
   const app = express();
+  // Mismo carve-out que api/src/index.ts: los webhooks de pago necesitan
+  // el body CRUDO para verificar firma, no el JSON ya parseado.
+  app.use("/api/payments/webhook", express.raw({ type: "application/json" }));
+  app.use("/api/pasarelas/webhook", express.raw({ type: "application/json" }));
   app.use(express.json());
   for (const r of routers) app.use(r);
   app.use((_req, res) => res.status(404).json({ error: "not found" }));

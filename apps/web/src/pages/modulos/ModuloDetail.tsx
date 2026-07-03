@@ -719,6 +719,10 @@ export default function ModuloDetail() {
                   return best == null ? a.score : Math.max(best, a.score);
                 }, null);
                 const hasCompleted = attempts.some((a) => a.status === "completed" || a.status === "submitted");
+                // PLAN-D §1 (Fase 2) — si hay un intento en curso, el botón
+                // principal debe reanudarlo (GET, sin crear ni consumir un
+                // intento nuevo) en vez de arrancar otro con "Reintentar".
+                const enCurso = attempts.find((a) => a.status === "in_progress");
 
                 return (
                   <article
@@ -821,7 +825,16 @@ export default function ModuloDetail() {
                       <button
                         type="button"
                         className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2 text-xs font-semibold text-white shadow-sm shadow-indigo-200 transition-all hover:from-indigo-500 hover:to-indigo-600 hover:shadow-md hover:shadow-indigo-200/50 active:scale-[0.98] disabled:from-slate-300 disabled:to-slate-300 disabled:shadow-none"
-                        onClick={() => handleStartAttempt(quiz.id)}
+                        onClick={() => {
+                          // PLAN-D §1 — reanudar NO pasa por POST /api/quiz-attempts
+                          // (crearía un intento nuevo y abandonaría el en curso);
+                          // navega directo al GET del intento existente.
+                          if (enCurso) {
+                            navigate(`/quiz/attempt/${enCurso.id}`);
+                            return;
+                          }
+                          void handleStartAttempt(quiz.id);
+                        }}
                         disabled={startStatus[quiz.id]?.status === "loading"}
                       >
                         {startStatus[quiz.id]?.status === "loading" ? (
@@ -831,6 +844,13 @@ export default function ModuloDetail() {
                               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                             </svg>
                             Iniciando...
+                          </>
+                        ) : enCurso ? (
+                          <>
+                            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                            </svg>
+                            Continuar intento
                           </>
                         ) : attempts.length > 0 ? (
                           <>

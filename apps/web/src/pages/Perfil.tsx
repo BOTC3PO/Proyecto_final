@@ -7,14 +7,6 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
 import { resolveMateria } from "../domain/module/materia";
-import EsperandoPago from "../components/EsperandoPago";
-import {
-  fetchEstadoSuscripcion, fetchHistorialPagos,
-  fetchLimites, iniciarSuscripcion,
-  cancelarSuscripcion, solicitarReembolso,
-  type EstadoSuscripcion, type PagoHistorial,
-  type LimitesEscuela,
-} from "../services/suscripciones";
 
 type TipoDestino = "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO";
 
@@ -109,16 +101,7 @@ export default function Perfil() {
   const [logros, setLogros] = useState<Logro[]>([]);
   const [progresoStatus, setProgresoStatus] =
     useState<"idle" | "loading" | "ready">("idle");
-  const [suscripcion, setSuscripcion] =
-    useState<EstadoSuscripcion | null>(null);
-  const [historial, setHistorial] = useState<PagoHistorial[]>([]);
-  const [limites, setLimites] = useState<LimitesEscuela | null>(null);
-  const [suscLoading, setSuscLoading] = useState(true);
-  const [payerEmail, setPayerEmail] = useState("");
-  const [suscAccion, setSuscAccion] =
-    useState<"idle" | "loading" | "error" | "ok">("idle");
-  const [suscMsg, setSuscMsg] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"perfil" | "progreso" | "logros" | "suscripcion" | "apariencia">("perfil");
+  const [activeTab, setActiveTab] = useState<"perfil" | "progreso" | "logros" | "apariencia">("perfil");
   const { theme, setTheme, availableThemes } = useTheme();
 
   useEffect(() => {
@@ -236,73 +219,6 @@ export default function Perfil() {
     return () => { active = false; };
   }, [perfil?.id]);
 
-  useEffect(() => {
-    let active = true;
-    Promise.all([
-      fetchEstadoSuscripcion(),
-      fetchHistorialPagos(),
-      fetchLimites(),
-    ])
-      .then(([estado, hist, lim]) => {
-        if (!active) return;
-        setSuscripcion(estado);
-        setHistorial(hist);
-        setLimites(lim.limites);
-      })
-      .catch(() => {})
-      .finally(() => { if (!active) return; setSuscLoading(false); });
-    return () => { active = false; };
-  }, [perfil?.id]);
-
-  const handleSuscribir = async (
-    tipo: "escuela" | "profesor" | "alumno"
-  ) => {
-    if (!payerEmail.trim()) {
-      setSuscMsg("Ingresá tu email de MercadoPago.");
-      return;
-    }
-    setSuscAccion("loading");
-    setSuscMsg(null);
-    try {
-      const result = await iniciarSuscripcion({
-        tipo,
-        payerEmail: payerEmail.trim(),
-        backUrl: window.location.href,
-      });
-      window.location.href = result.initPoint;
-    } catch (err) {
-      setSuscAccion("error");
-      setSuscMsg(
-        err instanceof Error ? err.message : "No se pudo iniciar el pago."
-      );
-    }
-  };
-
-  const handleCancelar = async (suscripcionId: string) => {
-    setSuscAccion("loading");
-    try {
-      const result = await cancelarSuscripcion(suscripcionId);
-      setSuscMsg(result.mensaje);
-      setSuscAccion("ok");
-      const updated = await fetchEstadoSuscripcion();
-      setSuscripcion(updated);
-    } catch {
-      setSuscAccion("error");
-      setSuscMsg("No se pudo cancelar.");
-    }
-  };
-
-  const handleReembolso = async (suscripcionId: string) => {
-    setSuscAccion("loading");
-    try {
-      const result = await solicitarReembolso(suscripcionId);
-      setSuscMsg(result.mensaje);
-      setSuscAccion("ok");
-    } catch {
-      setSuscAccion("error");
-      setSuscMsg("No se pudo solicitar el reembolso.");
-    }
-  };
 
   return (
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
@@ -347,13 +263,10 @@ export default function Perfil() {
                 { key: "perfil",      label: "Datos" },
                 { key: "progreso",    label: "Progreso" },
                 { key: "logros",      label: "Logros" },
-                ...(perfil?.role !== 'ADMIN'
-                  ? [{ key: "suscripcion" as const, label: "Suscripción" }]
-                  : []),
                 ...(availableThemes.length > 1
                   ? [{ key: "apariencia" as const, label: "Apariencia" }]
                   : []),
-              ] as { key: "perfil" | "progreso" | "logros" | "suscripcion" | "apariencia"; label: string }[]).map(({ key, label }) => (
+              ] as { key: "perfil" | "progreso" | "logros" | "apariencia"; label: string }[]).map(({ key, label }) => (
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
@@ -528,201 +441,6 @@ export default function Perfil() {
               </div>
             )}
 
-            {/* ── TAB: SUSCRIPCIÓN ── */}
-            {activeTab === "suscripcion" && perfil?.role !== 'ADMIN' && (
-              <div className="space-y-4">
-                {suscLoading && (
-                  <div className="h-24 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
-                )}
-
-                {!suscLoading && suscripcion && (
-                  <>
-                    {/* Esperando confirmación de un pago recién iniciado.
-                        Al volver de MercadoPago la suscripción queda "pendiente";
-                        la acreditación real llega por webhook → polleamos hasta activa. */}
-                    {(suscripcion.personal?.estado === "pendiente" ||
-                      suscripcion.escuela?.estado === "pendiente") && (
-                      <EsperandoPago
-                        estaConfirmado={(e) =>
-                          e.personal?.estado === "activa" ||
-                          e.escuela?.estado === "activa"
-                        }
-                        onConfirmado={(e) => {
-                          setSuscripcion(e);
-                          setSuscAccion("ok");
-                          setSuscMsg(null);
-                          fetchHistorialPagos().then(setHistorial).catch(() => {});
-                        }}
-                      />
-                    )}
-
-                    {/* Suscripción personal */}
-                    {suscripcion.personal && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">
-                        <div className="flex items-center justify-between">
-                          <p className="text-sm font-semibold text-[var(--c-text)]">Suscripción personal</p>
-                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                            suscripcion.personal.estado === "activa"
-                              ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
-                              : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
-                          }`}>
-                            {suscripcion.personal.estado}
-                          </span>
-                        </div>
-                        <p className="text-2xl font-semibold text-[var(--c-text)] capitalize">{suscripcion.personal.plan}</p>
-                        <p className="text-xs text-[var(--c-muted)]">
-                          Vence: {new Date(suscripcion.personal.periodo_fin).toLocaleDateString("es-AR")}
-                        </p>
-                        {suscripcion.personal.estado === "activa" && (
-                          <div className="flex gap-3 pt-1">
-                            <button
-                              disabled={suscAccion === "loading"}
-                              onClick={() => handleCancelar(suscripcion.personal!.id)}
-                              className="rounded-xl border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-muted)] hover:text-[var(--c-danger)] hover:border-[var(--c-danger)] transition-colors disabled:opacity-40"
-                            >
-                              Cancelar
-                            </button>
-                            {!suscripcion.personal.reembolso_solicitado && (
-                              <button
-                                disabled={suscAccion === "loading"}
-                                onClick={() => handleReembolso(suscripcion.personal!.id)}
-                                className="rounded-xl border border-[var(--c-border)] px-3 py-1.5 text-xs text-[var(--c-muted)] hover:bg-[var(--c-bg)] disabled:opacity-40"
-                              >
-                                Solicitar reembolso
-                              </button>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    {/* Suscripción escuela */}
-                    {suscripcion.escuela && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-2">
-                        <div className="flex items-center justify-between">
-                          <p className="text-sm font-semibold text-[var(--c-text)]">Suscripción escuela</p>
-                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                            suscripcion.escuela.estado === "activa"
-                              ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
-                              : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
-                          }`}>
-                            {suscripcion.escuela.estado}
-                          </span>
-                        </div>
-                        <p className="text-2xl font-semibold text-[var(--c-text)] capitalize">{suscripcion.escuela.plan}</p>
-                        <p className="text-xs text-[var(--c-muted)]">
-                          Vence: {new Date(suscripcion.escuela.periodo_fin).toLocaleDateString("es-AR")}
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Multiplicador */}
-                    {suscripcion.multiplicador && (
-                      <div className="bg-[color-mix(in_srgb,var(--c-success)_8%,transparent)] border border-[color-mix(in_srgb,var(--c-success)_20%,transparent)] rounded-xl px-4 py-3">
-                        <p className="text-xs font-semibold text-[var(--c-success)]">Multiplicador activo</p>
-                        <p className="text-xs text-[var(--c-muted)] mt-0.5">+15% de monedas en la economía del aula</p>
-                      </div>
-                    )}
-
-                    {/* Límites */}
-                    {limites && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-                        <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Límites del plan</p>
-                        <div className="grid grid-cols-2 gap-1.5 text-xs text-[var(--c-text)]">
-                          <span>Profesores: hasta {limites.max_profesores}</span>
-                          <span>Directivos: hasta {limites.max_directivos}</span>
-                          <span>Aulas activas: hasta {limites.max_aulas}</span>
-                          <span>Alumnos/aula: hasta {limites.max_alumnos_por_aula}</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Formulario suscribirse */}
-                    {!suscripcion.personal && suscripcion.paymentsEnabled && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-3">
-                        <p className="text-sm font-medium text-[var(--c-text)]">Activar suscripción</p>
-                        <input
-                          type="email"
-                          placeholder="Tu email de MercadoPago"
-                          className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
-                          value={payerEmail}
-                          onChange={(e) => setPayerEmail(e.target.value)}
-                        />
-                        <div className="flex flex-wrap gap-2">
-                          {perfil.role === "USER" && (
-                            <button
-                              disabled={suscAccion === "loading"}
-                              onClick={() => handleSuscribir("alumno")}
-                              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
-                            >
-                              Alumno — $1.000/mes
-                            </button>
-                          )}
-                          {perfil.role === "TEACHER" && (
-                            <button
-                              disabled={suscAccion === "loading"}
-                              onClick={() => handleSuscribir("profesor")}
-                              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
-                            >
-                              Expandir aulas — $150/mes
-                            </button>
-                          )}
-                          {perfil.role === "DIRECTIVO" && (
-                            <button
-                              disabled={suscAccion === "loading"}
-                              onClick={() => handleSuscribir("escuela")}
-                              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
-                            >
-                              Escuela — desde $300/mes
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {!suscripcion.paymentsEnabled && (
-                      <p className="text-sm text-[var(--c-muted)]">
-                        Los pagos están deshabilitados en este sistema. Contactá al administrador para gestionar tu suscripción.
-                      </p>
-                    )}
-
-                    {suscMsg && (
-                      <p className={`text-xs ${suscAccion === "error" ? "text-[var(--c-danger)]" : "text-[var(--c-success)]"}`}>
-                        {suscMsg}
-                      </p>
-                    )}
-
-                    {/* Historial de pagos */}
-                    {historial.length > 0 && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-                        <p className="text-sm font-medium text-[var(--c-text)] mb-3">Historial de pagos</p>
-                        <div className="space-y-2">
-                          {historial.slice(0, 5).map((pago) => (
-                            <div key={pago.id} className="flex items-center justify-between text-xs">
-                              <span className="text-[var(--c-muted)]">
-                                {new Date(pago.created_at).toLocaleDateString("es-AR")}
-                              </span>
-                              <span className="text-[var(--c-text)] font-medium">
-                                ${pago.monto.toLocaleString("es-AR")} {pago.moneda}
-                              </span>
-                              <span className={`rounded-full px-2 py-0.5 font-semibold ${
-                                pago.estado === "pagado"
-                                  ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
-                                  : pago.estado === "reembolsado"
-                                  ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)]"
-                                  : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
-                              }`}>
-                                {pago.estado}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
-            )}
             {/* ── TAB: APARIENCIA ── */}
             {activeTab === "apariencia" && availableThemes.length > 1 && (
               <div className="space-y-3">

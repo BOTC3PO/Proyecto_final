@@ -22,13 +22,20 @@
 import { useEffect, useId, useMemo, useState, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
 import type { ModuleQuiz, ModuleQuizQuestion } from "../../domain/module/module.types";
+import {
+  MODO_PRESENTACION_DEFAULT,
+  PREGUNTAS_POR_PAGINA_DEFAULT,
+  type ModoPresentacion,
+} from "../../domain/quiz/intentos";
 import TheoryItemCard, { type TheoryItem } from "./TheoryItemCard";
 import QuizGeneratedPreview from "./QuizGeneratedPreview";
 import OrdenarRenderer from "../quiz-renderers/OrdenarRenderer";
 import MarcarMapaRenderer from "../quiz-renderers/MarcarMapaRenderer";
 import AnalisisSintacticoRenderer from "../quiz-renderers/AnalisisSintacticoRenderer";
 import IdentificarPalabrasRenderer from "../quiz-renderers/IdentificarPalabrasRenderer";
-import { Badge, Button, Alert } from "../../ui";
+import Cronometro from "../quizzes/Cronometro";
+import { useCountdown } from "../../hooks/useCountdown";
+import { Badge, Button, Alert, Progress } from "../../ui";
 
 export interface VistaAlumnoOverlayProps {
   open: boolean;
@@ -271,8 +278,61 @@ interface ManualQuizPreviewProps {
   onMissing: (reason: string) => void;
 }
 
+// PLAN-D §2 — el preview respeta `modoPresentacion`/`preguntasPorPagina`/
+// `timerSegundos` del quiz, igual que la vista real (`QuizAttempt.tsx`),
+// reusando los mismos componentes presentacionales (`Progress`,
+// `Cronometro`). La corrección sigue siendo 100% local (sin red): el
+// timer es sólo ilustrativo, nunca auto-envía nada acá.
 function ManualQuizPreview({ quiz, onMissing }: ManualQuizPreviewProps) {
   const questions = quiz.questions ?? [];
+  const modoPresentacion: ModoPresentacion =
+    quiz.modoPresentacion ?? MODO_PRESENTACION_DEFAULT;
+  const preguntasPorPagina =
+    typeof quiz.preguntasPorPagina === "number" && quiz.preguntasPorPagina >= 1
+      ? Math.floor(quiz.preguntasPorPagina)
+      : PREGUNTAS_POR_PAGINA_DEFAULT;
+  const timerSegundos =
+    typeof quiz.timerSegundos === "number" && quiz.timerSegundos > 0
+      ? quiz.timerSegundos
+      : null;
+
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(0);
+  const [verifiedIds, setVerifiedIds] = useState<Set<string>>(new Set());
+  const countdown = useCountdown({ initialSeconds: timerSegundos });
+
+  const totalPaginas = Math.max(1, Math.ceil(questions.length / preguntasPorPagina));
+  const isSlide = modoPresentacion === "una_por_pantalla";
+  const isPaginado = modoPresentacion === "paginado";
+
+  const visibleQuestions = isSlide
+    ? questions.slice(slideIndex, slideIndex + 1)
+    : isPaginado
+      ? questions.slice(pageIndex * preguntasPorPagina, pageIndex * preguntasPorPagina + preguntasPorPagina)
+      : questions;
+  const globalIndexFor = (localIndex: number) =>
+    isSlide ? slideIndex : isPaginado ? pageIndex * preguntasPorPagina + localIndex : localIndex;
+
+  const goPrev = () => {
+    if (isSlide) setSlideIndex((i) => Math.max(0, i - 1));
+    else if (isPaginado) setPageIndex((i) => Math.max(0, i - 1));
+  };
+  const goNext = () => {
+    if (isSlide) setSlideIndex((i) => Math.min(questions.length - 1, i + 1));
+    else if (isPaginado) setPageIndex((i) => Math.min(totalPaginas - 1, i + 1));
+  };
+  const goTo = (i: number) => {
+    if (isSlide) setSlideIndex(Math.max(0, Math.min(questions.length - 1, i)));
+    else if (isPaginado) setPageIndex(Math.max(0, Math.min(totalPaginas - 1, i)));
+  };
+  const markVerified = (questionId: string) => {
+    setVerifiedIds((prev) => {
+      if (prev.has(questionId)) return prev;
+      const next = new Set(prev);
+      next.add(questionId);
+      return next;
+    });
+  };
 
   if (questions.length === 0) {
     return (
@@ -282,20 +342,100 @@ function ManualQuizPreview({ quiz, onMissing }: ManualQuizPreviewProps) {
     );
   }
 
+  const currentIndex = isSlide ? slideIndex : pageIndex;
+  const dotsCount = isSlide ? questions.length : totalPaginas;
+
   return (
-    <ol
-      style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "var(--space-5)" }}
+    <div
+      style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}
       data-testid="vista-alumno-manual-quiz"
+      data-modo-presentacion={modoPresentacion}
     >
-      {questions.map((q, idx) => (
-        <ManualQuestionPreview
-          key={q.id}
-          question={q}
-          index={idx}
-          onMissing={onMissing}
-        />
-      ))}
-    </ol>
+      {timerSegundos !== null && (
+        <Cronometro remaining={countdown.remaining} expired={countdown.isExpired} />
+      )}
+      <Progress
+        value={verifiedIds.size}
+        max={questions.length}
+        variant={verifiedIds.size === questions.length ? "success" : "primary"}
+        size="sm"
+        label={`${verifiedIds.size} de ${questions.length} verificadas`}
+        aria-label="Progreso del cuestionario (vista previa)"
+      />
+      <ol
+        style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "var(--space-5)" }}
+      >
+        {visibleQuestions.map((q, i) => (
+          <ManualQuestionPreview
+            key={q.id}
+            question={q}
+            index={globalIndexFor(i)}
+            onMissing={onMissing}
+            onVerified={markVerified}
+          />
+        ))}
+      </ol>
+      {modoPresentacion !== "lista" && (
+        <nav
+          aria-label="Navegación entre preguntas"
+          data-testid="vista-alumno-nav"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "var(--space-2)",
+            borderTop: "1px solid var(--c-border)",
+            paddingTop: "var(--space-3)",
+          }}
+        >
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={goPrev}
+            disabled={currentIndex === 0}
+            aria-label="Pregunta anterior"
+          >
+            Anterior
+          </Button>
+          <div
+            role="tablist"
+            aria-label="Indicador de pregunta"
+            data-testid="vista-alumno-nav-dots"
+            style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}
+          >
+            {Array.from({ length: dotsCount }, (_, i) => (
+              <button
+                key={i}
+                type="button"
+                role="tab"
+                aria-selected={i === currentIndex}
+                aria-label={`Ir a la pregunta ${i + 1}`}
+                onClick={() => goTo(i)}
+                data-testid={`vista-alumno-nav-dot-${i}`}
+                style={{
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "var(--r-xl)",
+                  height: "0.5rem",
+                  width: i === currentIndex ? "1.5rem" : "0.5rem",
+                  background: i === currentIndex ? "var(--c-primary)" : "var(--c-border)",
+                  padding: 0,
+                }}
+              />
+            ))}
+          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={goNext}
+            disabled={currentIndex === dotsCount - 1}
+            aria-label="Pregunta siguiente"
+          >
+            Siguiente
+          </Button>
+        </nav>
+      )}
+    </div>
   );
 }
 
@@ -303,10 +443,12 @@ function ManualQuestionPreview({
   question,
   index,
   onMissing,
+  onVerified,
 }: {
   question: ModuleQuizQuestion;
   index: number;
   onMissing: (reason: string) => void;
+  onVerified?: (questionId: string) => void;
 }) {
   const qt = question.questionType ?? "input";
   const [answer, setAnswer] = useState<string | string[] | Record<string, string>>("");
@@ -330,6 +472,10 @@ function ManualQuestionPreview({
     } else {
       setVerified(String(answer).trim() === String(correct).trim());
     }
+    // PLAN-D §2 — cuenta como "progresada" para la barra de progreso del
+    // preview, sin importar si acertó o no (mismo criterio que "respondida"
+    // en la vista real).
+    onVerified?.(question.id);
   };
 
   const questionCard: CSSProperties = {

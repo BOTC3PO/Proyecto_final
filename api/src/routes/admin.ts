@@ -28,7 +28,7 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
       skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
       take: Number.isNaN(limit) || limit <= 0 ? 50 : limit,
       orderBy: { createdAt: "desc" },
-      select: { id: true, fullName: true, username: true, email: true, role: true, createdAt: true, isBanned: true, warningCount: true }
+      select: { id: true, fullName: true, username: true, email: true, role: true, escuelaId: true, createdAt: true, isBanned: true, warningCount: true }
     });
     const usuarios = items.map((item) => ({
       id: item.id,
@@ -36,6 +36,7 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
       username: item.username ?? "",
       email: item.email ?? "",
       rol: item.role ?? "USER",
+      escuelaId: item.escuelaId ?? null,
       estado: "Activo",
       isBanned: item.isBanned === true,
       warningCount: typeof item.warningCount === "number" ? item.warningCount : 0,
@@ -132,6 +133,49 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
       }
     });
     res.json({ ok: true, role });
+  } catch {
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+// PLAN-C §2 (ítem 27) — reasignar/corregir la escuela de un usuario, sin
+// tocar su rol. A diferencia de PATCH .../rol (arriba), esto NO está
+// gateado por gobernanza: es reorganización administrativa (a qué escuela
+// pertenece), no una escalada de privilegios. `escuelaId: null` deja al
+// usuario explícitamente sin escuela (admin de plataforma).
+adminRouter.patch("/api/admin/usuarios/:id/escuela", requireAdmin, async (req, res) => {
+  try {
+    const targetId = String(req.params.id);
+    const target = await prisma.usuario.findFirst({ where: { id: targetId, isDeleted: false } });
+    if (!target) return res.status(404).json({ error: "usuario no encontrado" });
+
+    const { escuelaId: escuelaIdInput } = req.body ?? {};
+    let escuelaId: string | null = null;
+    if (escuelaIdInput !== null && escuelaIdInput !== undefined) {
+      if (typeof escuelaIdInput !== "string" || !escuelaIdInput.trim()) {
+        return res.status(400).json({ error: "escuelaId inválido" });
+      }
+      const escuela = await prisma.escuela.findFirst({
+        where: { id: escuelaIdInput, isDeleted: { not: true } }
+      });
+      if (!escuela) return res.status(404).json({ error: "escuela no encontrada" });
+      escuelaId = escuela.id;
+    }
+
+    await prisma.usuario.updateMany({
+      where: { id: targetId },
+      data: { escuelaId, updatedAt: new Date().toISOString() }
+    });
+    await prisma.moderacionEvento.create({
+      data: {
+        id: `me-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        tipo: "escuela_reasignada",
+        usuarioId: targetId,
+        motivo: escuelaId ? `Escuela asignada: ${escuelaId}` : "Escuela removida (admin de plataforma)",
+        createdAt: new Date().toISOString()
+      }
+    });
+    res.json({ ok: true, escuelaId });
   } catch {
     res.status(500).json({ error: "internal server error" });
   }

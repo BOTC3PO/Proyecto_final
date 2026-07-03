@@ -202,6 +202,13 @@ comisiones.get("/api/comisiones/admin/export.csv", requireAdmin, async (_req, re
     "comision_vb",
     "monto_neto",
     "estado",
+    // PLAN-B Fase 4 — de qué pasarela vino el cobro y su referencia.
+    // `provider_ref` es el mismo dato que `mp_payment_id` (se mantiene
+    // esa columna para no romper exports/imports ya existentes que
+    // dependan del nombre); para MP son iguales, para Stripe/Cryptomus
+    // `mp_payment_id` es en realidad su providerRef genérico.
+    "provider",
+    "provider_ref",
     "mp_payment_id",
   ];
   const esc = (v: unknown) => {
@@ -220,6 +227,8 @@ comisiones.get("/api/comisiones/admin/export.csv", requireAdmin, async (_req, re
         t.comisionVB,
         t.montoNeto,
         t.estado,
+        t.provider ?? "mercadopago",
+        t.mpPaymentId ?? "",
         t.mpPaymentId ?? "",
       ]
         .map(esc)

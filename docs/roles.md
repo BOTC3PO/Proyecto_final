@@ -59,3 +59,42 @@ Esto permite que un usuario sea docente en una escuela y directivo en otra.
 
 El rol **ADMIN** es estrictamente global: solo puede asignarse a nivel de sistema y no debe usarse
 como rol de membresía por escuela.
+
+## Matriz de permisos — modelo intranet (PLAN-C §1)
+
+> **Contexto de negocio**: el sistema deja de ser SaaS multi-tenant abierto y pasa a funcionar
+> como **intranet por escuela**. El admin gana capacidades de gestor de escuela sin ser
+> superusuario total: hay que separar "capacidades de escuela" (que un DIRECTIVO también puede
+> tener sobre la suya) de "capacidades de plataforma" (exclusivas del admin global).
+
+| Capacidad | ADMIN | DIRECTIVO | TEACHER | PADRE | ALUMNO |
+|---|---|---|---|---|---|
+| Gestionar usuarios de su escuela | ✔ | ✔ | – | – | – |
+| Moderar (aulas, publicaciones, mensajes) | ✔ | ✔ | su aula | – | – |
+| Configurar cobros/pasarelas ([PLAN-B](../tareas_pendientes/PLAN-B-negocio-comisiones-pasarelas.md)) | ✔ | ✔ | – | – | – |
+| Personalización (logo, ícono, páginas) | ✔ | propuesta: ✔ | – | – | – |
+| Config global del sistema (feature flags, generadores admin) | ✔ (global) | – | – | – | – |
+
+### Admin de plataforma vs. admin de escuela
+
+Hoy `requireAdmin`/`hasRole(user, "ADMIN")` no distinguen entre ambos casos — el mismo chequeo
+protege tanto "borrar el feature flag global de generadores" como "editar el % de comisión de MI
+escuela". El inventario completo (83 puntos de control auditados en `api/src/routes/` el
+2026-07-03) vive en [`admin-inventario-capacidades.md`](admin-inventario-capacidades.md).
+Resumen:
+
+- **~45 endpoints son genuinamente de plataforma** (usuarios/roles globales, config de sistema,
+  generadores, moderación global, seed, tienda, tarjeta de comisiones agregada): quedan
+  exclusivos de ADMIN, sin abrir a DIRECTIVO.
+- **~10 endpoints ya están correctamente scopeados por escuela** (cobros, pasarelas, modo de
+  comisión, umbral/riesgo pedagógico): usan `hasRole(user, "ADMIN") || (DIRECTIVO de esa
+  escuela)` — este es el patrón a replicar en el resto del plan (§3/§4).
+- **~15 endpoints son mixtos** (plantillas, libros, módulos, datasets VBLang, calendario,
+  mensajería): tienen visibilidad global con un bypass de ADMIN superpuesto, sin separación
+  clara de scope. Quedan marcados para revisión endpoint por endpoint a medida que cada uno se
+  toque (no se tocan todos de una — el riesgo de abrir/cerrar accesos por error es real).
+
+Regla de oro para código nuevo: si la capacidad tiene sentido decir "de MI escuela", usar el
+patrón `hasRole(user, "ADMIN") || (hasRole(user, "DIRECTIVO") && user.escuelaId === recurso.escuelaId)`
+en vez de `requireAdmin` puro (ver `api/src/routes/cobros.ts` y `escuela-pasarelas.ts` como
+referencia ya implementada).

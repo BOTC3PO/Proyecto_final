@@ -83,6 +83,17 @@ export const DIFICULTAD_VENTANA_DEFAULT = 2;
 export const DIFICULTAD_VENTANA_MIN = 1;
 export const DIFICULTAD_VENTANA_MAX = 10;
 
+// PLAN-D §1 — Política de cierre por expiración de un intento con timer.
+//  - `auto`: al vencer el timer (+ margen de red), el server materializa el
+//    intento como enviado con lo respondido hasta ahí.
+//  - `gracia60`: da 60s extra para terminar la pregunta actual antes de
+//    auto-enviar.
+export type PoliticaExpiracion = "auto" | "gracia60";
+
+export const POLITICAS_EXPIRACION_VALIDAS: PoliticaExpiracion[] = ["auto", "gracia60"];
+
+export const POLITICA_EXPIRACION_DEFAULT: PoliticaExpiracion = "auto";
+
 export type IntentoPolicy = {
   /** `null` = ilimitado. Entero ≥ 1 = tope. 0 = ilimitado (alias de null). */
   maxIntentos: number | null;
@@ -141,6 +152,9 @@ export type EvaluacionConfig = {
   /** WO-14 — ventana (N últimas respuestas) que mira la política
    *  `adaptativa_simple` para subir/bajar 1 nivel. Default 2. */
   dificultadVentana: number;
+  /** PLAN-D §1 — qué hace el server cuando vence el timer sin submit.
+   *  Sólo tiene efecto si `timerSegundos !== null`. Default `auto`. */
+  politicaExpiracion: PoliticaExpiracion;
 };
 
 export type EvaluacionConfigInput = Partial<{
@@ -155,6 +169,7 @@ export type EvaluacionConfigInput = Partial<{
   politicaDificultad: string | null;
   dificultadInicial: string | null;
   dificultadVentana: number | null;
+  politicaExpiracion: string | null;
 }>;
 
 export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
@@ -175,7 +190,8 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     // (`fija` + `intermedio` = el docente no tocó nada).
     politicaDificultad: POLITICA_DIFICULTAD_DEFAULT,
     dificultadInicial: DIFICULTAD_INICIAL_DEFAULT,
-    dificultadVentana: DIFICULTAD_VENTANA_DEFAULT
+    dificultadVentana: DIFICULTAD_VENTANA_DEFAULT,
+    politicaExpiracion: POLITICA_EXPIRACION_DEFAULT
   },
   formal: {
     timerSegundos: null, // default conservador — el docente activa explícitamente
@@ -188,7 +204,8 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT,
     politicaDificultad: POLITICA_DIFICULTAD_DEFAULT,
     dificultadInicial: DIFICULTAD_INICIAL_DEFAULT,
-    dificultadVentana: DIFICULTAD_VENTANA_DEFAULT
+    dificultadVentana: DIFICULTAD_VENTANA_DEFAULT,
+    politicaExpiracion: POLITICA_EXPIRACION_DEFAULT
   },
   competencia: {
     timerSegundos: 600, // 10 min — preserva el hardcode de QuizAttempt.tsx pre-F4-04
@@ -201,7 +218,8 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT,
     politicaDificultad: POLITICA_DIFICULTAD_DEFAULT,
     dificultadInicial: DIFICULTAD_INICIAL_DEFAULT,
-    dificultadVentana: DIFICULTAD_VENTANA_DEFAULT
+    dificultadVentana: DIFICULTAD_VENTANA_DEFAULT,
+    politicaExpiracion: POLITICA_EXPIRACION_DEFAULT
   }
 };
 
@@ -336,6 +354,18 @@ function coercePoliticaNota(raw: unknown, fallback: PoliticaNota): PoliticaNota 
 function coercePoliticaSorteo(raw: unknown, fallback: PoliticaSorteo): PoliticaSorteo {
   if (typeof raw === "string" && (POLITICAS_SORTEO_VALIDAS as string[]).includes(raw)) {
     return raw as PoliticaSorteo;
+  }
+  return fallback;
+}
+
+/** PLAN-D §1 — Coacciona un valor arbitrario a `PoliticaExpiracion`. Si es
+ *  inválido, devuelve el fallback (default: `POLITICA_EXPIRACION_DEFAULT`). */
+function coercePoliticaExpiracion(
+  raw: unknown,
+  fallback: PoliticaExpiracion
+): PoliticaExpiracion {
+  if (typeof raw === "string" && (POLITICAS_EXPIRACION_VALIDAS as string[]).includes(raw)) {
+    return raw as PoliticaExpiracion;
   }
   return fallback;
 }
@@ -587,6 +617,14 @@ export function parseEvaluacionConfig(
     dificultadVentana: coerceDificultadVentana(
       parsed.dificultadVentana,
       defaults.dificultadVentana
+    ),
+    // PLAN-D §1 — política de cierre por expiración. Ausente o inválida cae
+    // al default del tipo (`auto`), preservando el comportamiento previo a
+    // PLAN-D (nada auto-cerraba, pero `auto` es también la semántica más
+    // parecida a "no hacer nada especial").
+    politicaExpiracion: coercePoliticaExpiracion(
+      parsed.politicaExpiracion,
+      defaults.politicaExpiracion
     )
   };
 }
@@ -614,7 +652,8 @@ export function serializeEvaluacionConfig(config: EvaluacionConfig): Record<stri
     // sin recalcular defaults.
     politicaDificultad: config.politicaDificultad,
     dificultadInicial: config.dificultadInicial,
-    dificultadVentana: config.dificultadVentana
+    dificultadVentana: config.dificultadVentana,
+    politicaExpiracion: config.politicaExpiracion
   };
 }
 
@@ -694,4 +733,30 @@ export function validarTiempoLimite(
     return { exceeded: false };
   }
   return { exceeded: true, elapsedSec, limitSec: timerSegundos };
+}
+
+/**
+ * PLAN-D §1 (Fase 3) — ¿el server debe auto-cerrar YA este intento con
+ * timer? Distinto de `validarTiempoLimite` (que sólo marca `tiempoExcedido`
+ * en un submit explícito): esta función decide si un intento `in_progress`
+ * que el alumno NUNCA envió debe materializarse como enviado-automático en
+ * el próximo GET/answer/submit que lo toque (cierre lazy, sin cron).
+ *
+ * `gracia60` corre la ventana 60s más allá del timer (para terminar la
+ * pregunta actual); ambas políticas conservan el margen de red
+ * `TIMER_GRACE_SECONDS` para no cerrar por una latencia normal.
+ */
+export function debeAutoCerrarIntento(
+  startedAt: string | Date,
+  timerSegundos: number | null,
+  politicaExpiracion: PoliticaExpiracion,
+  now?: Date
+): boolean {
+  if (timerSegundos === null) return false;
+  const start = typeof startedAt === "string" ? new Date(startedAt) : startedAt;
+  if (isNaN(start.getTime())) return false;
+  const ref = now ?? new Date();
+  const elapsedSec = Math.floor((ref.getTime() - start.getTime()) / 1000);
+  const graciaExtra = politicaExpiracion === "gracia60" ? 60 : 0;
+  return elapsedSec > timerSegundos + graciaExtra + TIMER_GRACE_SECONDS;
 }

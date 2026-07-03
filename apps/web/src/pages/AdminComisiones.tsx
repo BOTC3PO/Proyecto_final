@@ -3,9 +3,9 @@
  * Lista cobros/comisión/saldo por escuela, permite liquidar el saldo pendiente
  * y exportar el registro contable a CSV.
  */
-import { useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import { apiGet, apiPost, apiGetText } from "../lib/api";
-import { Card, CardHead, CardBody, Button, Pill } from "../components/ui";
+import { Card, CardHead, CardBody, Button, Pill, Select } from "../components/ui";
 
 interface AdminItem {
   escuelaId: string;
@@ -28,6 +28,10 @@ export default function AdminComisiones() {
   const [error, setError] = useState<string | null>(null);
   const [msg, setMsg] = useState<string | null>(null);
   const [liquidando, setLiquidando] = useState<string | null>(null);
+  const [editando, setEditando] = useState<string | null>(null);
+  const [modoDraft, setModoDraft] = useState("centralizado");
+  const [pctDraft, setPctDraft] = useState(10);
+  const [guardandoModo, setGuardandoModo] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -57,6 +61,30 @@ export default function AdminComisiones() {
       setMsg("No hay saldo pendiente para liquidar (o falló la operación).");
     } finally {
       setLiquidando(null);
+    }
+  };
+
+  const empezarEdicion = (item: AdminItem) => {
+    setEditando(item.escuelaId);
+    setModoDraft(item.modoGestion);
+    setPctDraft(item.comisionPct);
+    setMsg(null);
+  };
+
+  const guardarModo = async (escuelaId: string) => {
+    setGuardandoModo(true);
+    setMsg(null);
+    try {
+      await apiPost(`/api/comisiones/escuela/${escuelaId}/modo`, {
+        modoGestion: modoDraft,
+        comisionPct: pctDraft,
+      });
+      setEditando(null);
+      await load();
+    } catch {
+      setMsg("No se pudo guardar el modo de gestión.");
+    } finally {
+      setGuardandoModo(false);
     }
   };
 
@@ -123,27 +151,63 @@ export default function AdminComisiones() {
               </thead>
               <tbody>
                 {items.map((it) => (
-                  <tr key={it.escuelaId} className="border-t border-[var(--c-border)]">
-                    <td className="py-1.5 font-medium text-[var(--c-text)]">{it.name}</td>
-                    <td className="py-1.5">
-                      <Pill tone={it.modoGestion === "autogestionado" ? "info" : "neutral"}>
-                        {it.modoGestion === "autogestionado" ? "Autogest." : "Central."}
-                      </Pill>
-                    </td>
-                    <td className="py-1.5">{it.comisionPct}%</td>
-                    <td className="py-1.5">{money(it.cobrosTotal)}</td>
-                    <td className="py-1.5">{money(it.comisionTotal)}</td>
-                    <td className="py-1.5 font-semibold">{money(it.saldoALiquidar)}</td>
-                    <td className="py-1.5 text-right">
-                      <Button
-                        size="sm"
-                        onClick={() => void liquidar(it.escuelaId)}
-                        disabled={liquidando === it.escuelaId || it.saldoALiquidar <= 0}
-                      >
-                        {liquidando === it.escuelaId ? "Liquidando…" : "Liquidar"}
-                      </Button>
-                    </td>
-                  </tr>
+                  <Fragment key={it.escuelaId}>
+                    <tr className="border-t border-[var(--c-border)]">
+                      <td className="py-1.5 font-medium text-[var(--c-text)]">{it.name}</td>
+                      <td className="py-1.5">
+                        <Pill tone={it.modoGestion === "autogestionado" ? "info" : "neutral"}>
+                          {it.modoGestion === "autogestionado" ? "Autogest." : "Central."}
+                        </Pill>
+                      </td>
+                      <td className="py-1.5">{it.comisionPct}%</td>
+                      <td className="py-1.5">{money(it.cobrosTotal)}</td>
+                      <td className="py-1.5">{money(it.comisionTotal)}</td>
+                      <td className="py-1.5 font-semibold">{money(it.saldoALiquidar)}</td>
+                      <td className="py-1.5 text-right space-x-2">
+                        <Button size="sm" variant="ghost" onClick={() => empezarEdicion(it)}>
+                          {editando === it.escuelaId ? "Cerrar" : "Editar"}
+                        </Button>
+                        <Button
+                          size="sm"
+                          onClick={() => void liquidar(it.escuelaId)}
+                          disabled={liquidando === it.escuelaId || it.saldoALiquidar <= 0}
+                        >
+                          {liquidando === it.escuelaId ? "Liquidando…" : "Liquidar"}
+                        </Button>
+                      </td>
+                    </tr>
+                    {editando === it.escuelaId && (
+                      <tr className="border-t border-[var(--c-border)] bg-[var(--c-surface-2)]">
+                        <td colSpan={7} className="py-2">
+                          <div className="flex items-end gap-3">
+                            <Select
+                              label="Modo"
+                              value={modoDraft}
+                              onChange={(e) => setModoDraft(e.target.value)}
+                            >
+                              <option value="centralizado">Centralizado (cobra VB)</option>
+                              <option value="autogestionado">Autogestionado (la escuela cobra)</option>
+                            </Select>
+                            <label className="flex flex-col gap-1">
+                              <span className="text-xs font-medium text-[var(--c-text-3)]">Comisión VB (%)</span>
+                              <input
+                                type="number"
+                                min={0}
+                                max={100}
+                                value={pctDraft}
+                                onChange={(e) => setPctDraft(Number(e.target.value))}
+                                disabled={modoDraft !== "autogestionado"}
+                                className="rounded-[var(--r-md)] border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-1.5 text-sm disabled:opacity-50"
+                              />
+                            </label>
+                            <Button size="sm" onClick={() => void guardarModo(it.escuelaId)} disabled={guardandoModo}>
+                              {guardandoModo ? "Guardando…" : "Guardar"}
+                            </Button>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </Fragment>
                 ))}
               </tbody>
             </table>

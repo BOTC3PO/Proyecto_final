@@ -6,11 +6,14 @@ export type AdminUsuario = {
   username: string;
   email: string;
   rol: string;
+  escuelaId: string | null;
   estado: string;
   isBanned: boolean;
   warningCount: number;
   createdAt: string;
 };
+
+export type EscuelaResumen = { id: string; name: string };
 
 export type AdminCurso = {
   id: string;
@@ -162,6 +165,15 @@ export async function fetchAdminModulosCompletados(userId: string): Promise<Admi
 
 export async function fetchAdminReportesGlobal(dias = 30): Promise<AdminReportesGlobal> {
   return apiGet<AdminReportesGlobal>(`/api/admin/reportes-global?dias=${dias}`);
+}
+
+export async function fetchEscuelas(limit = 100): Promise<EscuelaResumen[]> {
+  const data = await apiGet<{ items: EscuelaResumen[] }>(`/api/escuelas?limit=${limit}`);
+  return data.items;
+}
+
+export async function reasignarEscuela(userId: string, escuelaId: string | null): Promise<{ ok: boolean; escuelaId: string | null }> {
+  return apiPatch<{ ok: boolean; escuelaId: string | null }>(`/api/admin/usuarios/${userId}/escuela`, { escuelaId });
 }
 
 export async function promoteUsuario(userId: string, role: string): Promise<PromoteResult> {
