@@ -98,6 +98,18 @@ function seedWorld() {
       rolEnClase: "TEACHER",
     }
   );
+  prisma.modulo.rows.push({
+    id: MOD_ID,
+    slug: "mod-fc",
+    titulo: "Módulo FIX-CALIFICACIONES",
+    descripcion: "",
+    visibility: "privado",
+    schoolId: ESCUELA_ID,
+    ownerUserId: DOCENTE_ID,
+    dependencies: null,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  });
   prisma.quiz.rows.push({
     id: QUIZ_ID,
     moduleId: MOD_ID,
@@ -188,6 +200,34 @@ test("(c2) FIX-CALIFICACIONES: ?aulaId=X solo como docente del aula → 200 con 
   const body = res.body as { items: Array<{ id: string }>; total: number };
   assert.equal(body.total, 1);
   assert.equal(body.items[0].id, "att-fc-1");
+});
+
+test("(c8) ITEM-5: los items de ?aulaId=X traen moduleId/moduleTitle/quizTitle (el front arma el filtro de módulos con esto)", async () => {
+  // PLAN-F ítem 5 — el filtro de módulos de ProfesorCalificaciones.tsx
+  // parecía "no hacer nada" porque el dropdown nunca tenía otra opción
+  // que "Todos los módulos": el endpoint de listado no devolvía
+  // `moduleId`/`moduleTitle`/`quizTitle`, así que `moduleOptions` (que se
+  // arma a partir de esos campos) siempre quedaba vacío. El back SÍ
+  // filtraba bien cuando se le pasaba `moduleId` (ver c6); el problema
+  // era que la UI nunca podía llegar a pedirlo.
+  const token = tokenFor({
+    id: DOCENTE_ID,
+    role: "TEACHER",
+    schoolId: ESCUELA_ID,
+  });
+  const res = await jsonRequest(
+    baseUrl,
+    "GET",
+    `/api/quiz-attempts?aulaId=${AULA_ID}`,
+    { token }
+  );
+  assert.equal(res.status, 200);
+  const body = res.body as {
+    items: Array<{ id: string; moduleId: string | null; moduleTitle?: string; quizTitle?: string }>;
+  };
+  assert.equal(body.items[0].moduleId, MOD_ID);
+  assert.equal(body.items[0].moduleTitle, "Módulo FIX-CALIFICACIONES");
+  assert.equal(body.items[0].quizTitle, "Quiz FIX-CALIFICACIONES");
 });
 
 test("(c3) FIX-CALIFICACIONES: ?aulaId=X solo como docente de OTRO aula → 403", async () => {

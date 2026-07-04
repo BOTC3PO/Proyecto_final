@@ -18,6 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { apiGet } from "../lib/api";
+import { useMaterias } from "../domain/materia/useMaterias";
 import type { ModuleQuizQuestion } from "../domain/module/module.types";
 import type { GeneratorDescriptor, Ejercicio, VisualSpec, LineChartSpec, VectorDiagramSpec, TimelineSpec, LatexSpec, StaticImageSpec } from "../generadoresV2/core/types";
 import { DeterministicPrng } from "../generadoresV2/core/prng";
@@ -906,17 +907,10 @@ function GeneradoresPanel({
   // FIX-TEST4-ADMIN-02b — antes el dropdown de materias se
   // construía solo del `catalog` (estático). Si el admin
   // creaba "Programación" en /admin/materias, no aparecía
-  // acá. Ahora: union del catalog con la lista del admin.
-  // La lista combinada se deduplica y se ordena.
-  const [materiasAdmin, setMateriasAdmin] = useState<string[]>([]);
-  useEffect(() => {
-    apiGet<{ items: Array<{ nombre: string }> }>("/api/materias")
-      .then((data) => {
-        const nombres = (data.items ?? []).map((m) => m.nombre).filter(Boolean);
-        setMateriasAdmin(nombres);
-      })
-      .catch(() => { /* ignorar — el catalog es fallback */ });
-  }, []);
+  // acá. Ahora: union del catalog con la lista del admin
+  // (ITEM-30 — fuente única, ver useMaterias.ts). La lista
+  // combinada se deduplica y se ordena.
+  const { materias: materiasAdmin } = useMaterias();
 
   const materias = Array.from(new Set([
     ...catalog.map((c) => c.materia),

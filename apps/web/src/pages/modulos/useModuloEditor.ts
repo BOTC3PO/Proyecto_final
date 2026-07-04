@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { NavigateFunction } from "react-router-dom";
 import { apiGet } from "../../lib/api";
+import { useMaterias } from "../../domain/materia/useMaterias";
 import type { Module, ModuleDependency, ModuleQuiz } from "../../domain/module/module.types";
 import { getSubjectCapabilities } from "../../domain/module/module.types";
 import type { TheoryItem } from "../../components/modulos/TheoryItemCard";
@@ -126,21 +127,9 @@ export function useModuloEditor(
     ownerUserId: string | null;
   } | null>(null);
 
-  const FALLBACK_SUBJECTS = [
-    'Matemáticas', 'Lengua', 'Historia', 'Geografía',
-    'Física', 'Química', 'Biología', 'Informática',
-    'Economía', 'Filosofía', 'Arte', 'Educación Física',
-  ];
-  const [materias, setMaterias] = useState<string[]>([]);
-  useEffect(() => {
-    apiGet<{ items: Array<{ nombre: string }> }>('/api/materias')
-      .then((data) => {
-        const nombres = (data.items ?? []).map((m) => m.nombre).filter(Boolean);
-        setMaterias(nombres.length > 0 ? nombres : FALLBACK_SUBJECTS);
-      })
-      .catch(() => setMaterias(FALLBACK_SUBJECTS));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // ITEM-30 — fuente única de materias (ver useMaterias.ts). Antes este
+  // hook duplicaba el fetch + fallback contra `/api/materias`.
+  const { materias } = useMaterias();
 
   const [newTheoryItem, setNewTheoryItem] = useState<{
     title: string;
@@ -176,6 +165,10 @@ export function useModuloEditor(
   const [depResults, setDepResults] = useState<Array<{ id: string; title: string }>>([]);
   const [depLoading, setDepLoading] = useState(false);
   const [depPickerOpen, setDepPickerOpen] = useState(false);
+  // ITEM-24 — nombres resueltos de los módulos dependencia (para no mostrar
+  // el ID crudo en la UI). `undefined` = todavía no resuelto, `null` =
+  // se intentó resolver y el módulo ya no existe ("módulo eliminado").
+  const [depModuleNames, setDepModuleNames] = useState<Record<string, string | null>>({});
 
   // Auto-guardar borrador en sessionStorage (solo módulos nuevos).
   // BUG-08: incluir `quizzes` además de form/theoryItems para que el borrador
@@ -472,6 +465,9 @@ export function useModuloEditor(
     const alreadyAdded = form.dependencies.some((d) => d.id === mod.id);
     if (alreadyAdded) return;
     updateForm("dependencies", [...form.dependencies, { id: mod.id, type: "required" as const }]);
+    // El picker ya conoce el título (viene de la búsqueda): lo guardamos de
+    // una para no tener que resolverlo de nuevo contra el servidor.
+    setDepModuleNames((prev) => ({ ...prev, [mod.id]: mod.title }));
     setDepPickerOpen(false);
     setDepSearch("");
     setDepResults([]);
@@ -487,6 +483,37 @@ export function useModuloEditor(
       form.dependencies.map((d) => (d.id === depId ? { ...d, type } : d)),
     );
   };
+
+  // ITEM-24 — las dependencias que llegan del servidor (módulo ya guardado)
+  // sólo traen `{ id, type }`; resolvemos el título consultando el módulo
+  // referenciado. Si ya no existe (404 u otro error), lo marcamos `null`
+  // para que la UI muestre "módulo eliminado" en vez del ID crudo.
+  const dependencyIdsKey = form.dependencies.map((d) => d.id).join(",");
+  useEffect(() => {
+    const missingIds = form.dependencies
+      .map((d) => d.id)
+      .filter((depId) => !(depId in depModuleNames));
+    if (missingIds.length === 0) return;
+    let cancelled = false;
+    void Promise.all(
+      missingIds.map((depId) =>
+        apiGet<{ title?: string }>(`/api/modulos/${depId}`)
+          .then((mod): [string, string | null] => [depId, mod.title ?? null])
+          .catch((): [string, string | null] => [depId, null]),
+      ),
+    ).then((entries) => {
+      if (cancelled) return;
+      setDepModuleNames((prev) => {
+        const next = { ...prev };
+        for (const [depId, title] of entries) next[depId] = title;
+        return next;
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dependencyIdsKey]);
 
   // ── School search ──────────────────────────────────────────────────────────
   const searchEscuelas = useCallback(async (q: string) => {
@@ -644,6 +671,7 @@ export function useModuloEditor(
     removeDependency,
     updateDependencyType,
     searchModules,
+    depModuleNames,
     // Submit
     handleSubmit,
     // FIX-TEST4-MOD-02 — flag de carga inicial del módulo. La UI

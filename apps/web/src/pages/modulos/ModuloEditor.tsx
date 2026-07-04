@@ -207,6 +207,7 @@ export default function ModuloEditor() {
     removeDependency,
     updateDependencyType,
     searchModules,
+    depModuleNames,
     handleSubmit,
     // FIX-TEST4-MOD-02 — flag de carga inicial. Mientras es
     // true, mostramos un skeleton en lugar del form vacío (que
@@ -1497,7 +1498,15 @@ export default function ModuloEditor() {
                         className="flex items-center gap-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] px-4 py-3 transition-colors hover:border-[var(--c-primary)]/30"
                       >
                         <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--c-border)] text-[10px] font-bold text-[var(--c-muted)]">&#128279;</span>
-                        <span className="flex-1 truncate text-xs font-mono text-[var(--c-text)]">{dep.id}</span>
+                        <span className="flex-1 truncate text-xs text-[var(--c-text)]">
+                          {depModuleNames[dep.id] === null ? (
+                            <span className="italic text-[var(--c-muted)]">
+                              Módulo eliminado <span className="font-mono">({dep.id})</span>
+                            </span>
+                          ) : (
+                            depModuleNames[dep.id] ?? dep.id
+                          )}
+                        </span>
                         <select
                           className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2.5 py-1.5 text-xs focus:border-[var(--c-primary)] focus:outline-none"
                           value={dep.type}

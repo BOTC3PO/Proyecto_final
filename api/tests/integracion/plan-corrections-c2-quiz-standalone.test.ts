@@ -23,6 +23,9 @@
  *  (f) El mismo quiz standalone se puede reusar (clonar) en un SEGUNDO
  *      módulo distinto — dos clones independientes, ambos vivos.
  *  (g) usar-en-modulo exige permiso de edición sobre el módulo destino.
+ *  (i) PLAN-F ítem 22 — usar-en-modulo hereda la materia del módulo
+ *      destino (mismo fix que WO-BUG bff8b6f4 aplicó a duplicar-módulo,
+ *      pero a esta vía de creación — más nueva — nunca le había llegado).
  */
 
 import assert from "node:assert/strict";
@@ -185,6 +188,47 @@ test("(e) usar-en-modulo clona el quiz: el original queda intacto sin módulo", 
     token: docenteToken(),
   });
   assert.equal((preguntasOriginal.body as { cantidadGlobal: number }).cantidadGlobal, 1);
+});
+
+test("(i) ITEM-22: usar-en-modulo hereda la materia del módulo DESTINO (mismo fix que WO-BUG en duplicar)", async () => {
+  // Un quiz suelto no tiene módulo del que derivar materia, así que su
+  // `settings.materia` nace vacío. Antes `usar-en-modulo` copiaba
+  // `settings` tal cual: el clon quedaba con materia vacía aunque el
+  // módulo al que se lo agrega SÍ tenga materia — invisible al filtrar
+  // el banco por esa materia (PLAN-F ítem 22).
+  const createRes = await jsonRequest(baseUrl, "POST", "/api/quizzes", {
+    token: docenteToken(),
+    body: { title: "Reusable con materia" },
+  });
+  const { id: origenId } = createRes.body as { id: string };
+
+  const now = new Date().toISOString();
+  prisma.modulo.rows.push({
+    id: "mod-destino-materia",
+    titulo: "Modulo destino con materia",
+    descripcion: "",
+    subject: "Matemáticas",
+    category: "general",
+    visibility: "privado",
+    schoolId: ESCUELA_ID,
+    ownerUserId: DOCENTE_ID,
+    dependencies: null,
+    isDeleted: false,
+    createdAt: now,
+    updatedAt: now,
+  });
+
+  const usarRes = await jsonRequest(baseUrl, "POST", `/api/quizzes/${origenId}/usar-en-modulo`, {
+    token: docenteToken(),
+    body: { moduleId: "mod-destino-materia" },
+  });
+  assert.equal(usarRes.status, 201, JSON.stringify(usarRes.body));
+  const { id: clonId } = usarRes.body as { id: string };
+
+  const clonVersion = prisma.quizVersion.rows.find((v) => v.quizId === clonId);
+  assert.ok(clonVersion, "debe existir la QuizVersion del clon");
+  const settings = JSON.parse(clonVersion!.settings as string) as { materia?: string };
+  assert.equal(settings.materia, "Matemáticas", "el clon debe heredar la materia del módulo destino");
 });
 
 test("(f) el mismo quiz standalone se reusa (clona) en un segundo módulo distinto", async () => {

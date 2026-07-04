@@ -1661,12 +1661,22 @@ modulos.post("/api/quizzes/:quizId/usar-en-modulo", requireUser, async (req, res
         updatedAt: now,
       },
     });
+    // ITEM-22 — mismo bug que WO-BUG (bff8b6f4) pero en este path: copiar
+    // `settings` tal cual dejaba la materia del quiz original (a menudo
+    // vacía — un "quiz suelto" no tiene módulo del que derivarla) aunque
+    // el módulo DESTINO sí tuviera materia. El clon quedaba invisible al
+    // filtrar el banco por la materia del módulo al que se lo acababa de
+    // agregar. Igual que en duplicar-módulo: derivar del módulo destino.
+    const clonedSettings = mergeMateriaIntoSettings(
+      loaded.version?.settings,
+      { subject: targetModulo.subject ?? null, category: targetModulo.category ?? null },
+    );
     await prisma.quizVersion.create({
       data: {
         id: newVersionId,
         quizId: newQuizId,
         versionNumber: 1,
-        settings: loaded.version?.settings ?? null,
+        settings: JSON.stringify(clonedSettings),
         createdAt: now,
         createdBy: requesterId,
       },

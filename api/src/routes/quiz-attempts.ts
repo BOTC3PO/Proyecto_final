@@ -1215,19 +1215,51 @@ quizAttempts.get(
       const sorted = [...attempts].sort((a, b) =>
         String(b.startedAt ?? "").localeCompare(String(a.startedAt ?? ""))
       );
-      const items = sorted.slice(0, query.limit).map((a) => ({
-        id: a.id,
-        quizId: a.quizId,
-        quizVersionId: a.quizVersionId,
-        userId: a.userId,
-        status: a.status,
-        startedAt: a.startedAt,
-        submittedAt: a.submittedAt ?? null,
-        score: a.score,
-        maxScore: a.maxScore,
-        attemptNo: a.attemptNo ?? null,
-        seed: a.seed ?? null
-      }));
+      const page = sorted.slice(0, query.limit);
+
+      // ITEM-5 — el front (`ProfesorCalificaciones.tsx`) arma el filtro por
+      // módulo y el título del quiz a partir de `moduleId`/`moduleTitle`/
+      // `quizTitle` en cada item. Sin esto, el dropdown de módulos siempre
+      // queda vacío (nunca se puebla otra opción además de "Todos los
+      // módulos") y el filtro parece "no hacer nada" aunque el back sí
+      // filtra correctamente cuando se le pasa `moduleId` (ver más abajo).
+      const quizIds = Array.from(new Set(page.map((a) => a.quizId)));
+      const quizRecords = quizIds.length
+        ? await prisma.quiz.findMany({ where: { id: { in: quizIds } } })
+        : [];
+      const quizById = new Map(quizRecords.map((q) => [q.id, q]));
+      const moduleIds = Array.from(
+        new Set(
+          quizRecords
+            .map((q) => q.moduleId)
+            .filter((mid): mid is string => Boolean(mid))
+        )
+      );
+      const moduleRecords = moduleIds.length
+        ? await prisma.modulo.findMany({ where: { id: { in: moduleIds } } })
+        : [];
+      const moduloById = new Map(moduleRecords.map((m) => [m.id, m]));
+
+      const items = page.map((a) => {
+        const quizRecord = quizById.get(a.quizId);
+        const modulo = quizRecord?.moduleId ? moduloById.get(quizRecord.moduleId) : undefined;
+        return {
+          id: a.id,
+          quizId: a.quizId,
+          quizVersionId: a.quizVersionId,
+          quizTitle: quizRecord?.title ?? undefined,
+          moduleId: quizRecord?.moduleId ?? null,
+          moduleTitle: modulo?.titulo ?? undefined,
+          userId: a.userId,
+          status: a.status,
+          startedAt: a.startedAt,
+          submittedAt: a.submittedAt ?? null,
+          score: a.score,
+          maxScore: a.maxScore,
+          attemptNo: a.attemptNo ?? null,
+          seed: a.seed ?? null
+        };
+      });
       res.json({ items, total: attempts.length });
     } catch (error: any) {
       if (error?.name === "ZodError") {

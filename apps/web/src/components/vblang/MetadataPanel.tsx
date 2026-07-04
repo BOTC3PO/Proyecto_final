@@ -9,18 +9,7 @@
 
 import { memo, useState } from "react";
 import type { Visibility } from "../../domain/vblang/plantilla.types";
-
-const MATERIAS = [
-  "Matemática",
-  "Física",
-  "Química",
-  "Biología",
-  "Economía",
-  "Informática",
-  "Historia",
-  "Geografía",
-  "Lengua",
-] as const;
+import { useMaterias } from "../../domain/materia/useMaterias";
 
 const OTRA = "__otra__";
 
@@ -54,7 +43,10 @@ function MetadataPanel({
   };
 
   // Materia: select predefinido + opción "Otra…" que revela un input libre.
-  const materiaEnLista = (MATERIAS as readonly string[]).includes(value.materia);
+  // ITEM-30 — fuente única de materias (ver useMaterias.ts); antes esta
+  // lista estaba hardcodeada acá y no reflejaba las materias del admin.
+  const { materias: MATERIAS } = useMaterias();
+  const materiaEnLista = MATERIAS.includes(value.materia);
   const [materiaLibre, setMateriaLibre] = useState(
     value.materia !== "" && !materiaEnLista,
   );
