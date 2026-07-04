@@ -93,6 +93,7 @@ import {
   saveQuizPreguntas,
   patchQuizMeta,
   deleteQuiz,
+  crearQuizSuelto,
   type QuizMeta,
   type QuizMetaPatch,
 } from "../domain/quiz/quizPreguntasApi";
@@ -920,6 +921,36 @@ function PlantillaEditorTizaInner() {
         } catch {
           setSaveMessage(
             (prev) => `${prev ?? "Guardado."} (No se pudo actualizar el cuestionario; reintentá.)`,
+          );
+        }
+      } else if (isNew && !quizId && questions.length > 1) {
+        // PLAN-CORRECCIONES C2 — guardar desde /plantillas/nueva con 2+
+        // preguntas y sin quizId: antes, cada pregunta guardada se
+        // convertía en una plantilla suelta sin nada que las agrupara
+        // (bug de PLAN-E §14). Ahora se materializa un quiz "suelto"
+        // (sin módulo, `Quiz.moduleId` nullable) la PRIMERA vez que esto
+        // pasa, se le sube el `CuestionarioPreguntas` completo del rail,
+        // y la URL pasa a `?quizId=<real>` — de ahí en más los guardados
+        // siguen el camino normal de arriba (`if (quizId && ...)`), sin
+        // repetir la creación (protegido también por `isSavingRef`
+        // contra doble click).
+        const nextQuestions = questions.map((q) =>
+          q.key === active.key
+            ? { ...q, plantillaId: savedPlantillaId, savedCodigo: payload.codigoDsl }
+            : q,
+        );
+        try {
+          const nuevoQuiz = await crearQuizSuelto();
+          await saveQuizPreguntas(nuevoQuiz.id, {
+            cantidadGlobal: nextQuestions.filter((q) => q.plantillaId !== null).length,
+            preguntas: buildPreguntasFromQuestions(nextQuestions),
+          });
+          const nextParams = new URLSearchParams(searchParams);
+          nextParams.set("quizId", nuevoQuiz.id);
+          navigate(`/plantillas/nueva?${nextParams.toString()}`, { replace: true });
+        } catch {
+          setSaveMessage(
+            (prev) => `${prev ?? "Guardado."} (No se pudo agrupar las preguntas en un cuestionario; reintentá.)`,
           );
         }
       }

@@ -144,9 +144,16 @@ describe("QuizAttempt — F5-02 runtime de evaluación", () => {
     await waitFor(() => {
       expect(screen.getByText("¿2+2?")).toBeInTheDocument();
     });
-    // El cronómetro arranca mostrando 00:03.
-    const cronometro = screen.getByTestId("cronometro");
-    expect(cronometro.getAttribute("data-remaining-seconds")).toBe("3");
+    // C3 (PLAN-CORRECCIONES) — el cronómetro arranca mostrando 00:03, pero
+    // `useCountdown` sólo setea `remaining` desde `null` en un `useEffect`
+    // separado (dispara cuando `attempt.timerSegundos` llega, un tick
+    // después de que el texto de la pregunta ya está en el DOM). Sin
+    // `waitFor` acá esto era flaky: a veces `getByTestId` corría ANTES de
+    // que ese efecto asentara `remaining`.
+    const cronometro = await waitFor(() => screen.getByTestId("cronometro"));
+    await waitFor(() => {
+      expect(cronometro.getAttribute("data-remaining-seconds")).toBe("3");
+    });
 
     // Avanza 3 segundos (timer llega a 0). Las microtasks (await
     // flushOutbox, await apiPost) se procesan naturalmente.

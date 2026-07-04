@@ -60,6 +60,26 @@ import type { Calculator, Dificultad } from "../core/types";
 
 const NOOP_CALC: Calculator = { calcular: () => ({ resultado: 0, pasos: [] }) };
 
+// C3 (PLAN-CORRECCIONES): `Inputs`/`PortCase` faltaban del todo en este
+// archivo (usados en `CASES: PortCase[]` y como tipo de retorno de los
+// parsers, pero nunca declarados) — no eran sólo "Inputs mal tipado"
+// como decía la nota de arriba, directamente no existían. Mismo patrón
+// `any` que el resto de los `*-equivalencia.spec.ts` (WO-7/7b): las keys
+// son dinámicas y mezclan number con los pocos casos de string/array.
+type Inputs = Record<string, any>;
+
+interface PortCase {
+  subtipoOriginal: string;
+  generatorSubtipo: string;
+  dificultad: Dificultad;
+  kind: "symbolic" | "numeric";
+  oracleSymbolic?: (inp: Inputs) => string;
+  oracleNumeric?: (inp: Inputs) => number;
+  tol?: number;
+  inputsFromGenerator: (enunciado: string) => Inputs | null;
+  inputsFromTemplate: (vars: Record<string, unknown>) => Inputs;
+}
+
 /**
  * MCD entero (Euclides) — usado por el oráculo de `racionales_simples`
  * para producir la forma simplificada.
@@ -474,7 +494,7 @@ const CASES: PortCase[] = [
       if (!m) return null;
       return { verbal: m[1] };
     },
-    inputsFromTemplate: (v) => ({ verbal: String(v.caso.verbal) }),
+    inputsFromTemplate: (v) => ({ verbal: String((v.caso as { verbal: string }).verbal) }),
   },
 
   // ── 8. racionales_simples (basico, solo factor común) ──────────────

@@ -13,7 +13,6 @@ import { describe, expect, it } from "vitest";
 import {
   PREGUNTAS_SCHEMA_VERSION,
   POOL_SIN_ID,
-  agruparPorPool,
   elegirRelleno,
   parseCuestionarioPreguntas,
   repartirSlotsPorPool,

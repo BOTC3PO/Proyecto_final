@@ -144,7 +144,7 @@ describe("WO-9 QuizAttempt — modo una_por_pantalla", () => {
     expect(within(slide).queryByText("__prompt_q1__")).not.toBeInTheDocument();
     // Hay 5 dots (uno por pregunta).
     const dotsContainer = await waitFor(() => screen.getByTestId("quiz-nav-dots"));
-    const dots = within(dotsContainer).getAllByRole("button");
+    const dots = within(dotsContainer).getAllByRole("tab");
     expect(dots).toHaveLength(5);
   });
 
@@ -193,7 +193,7 @@ describe("WO-9 QuizAttempt — modo una_por_pantalla", () => {
     });
 
     // Navegar a la pregunta 3.
-    const dots = within(screen.getByTestId("quiz-nav-dots")).getAllByRole("button");
+    const dots = within(screen.getByTestId("quiz-nav-dots")).getAllByRole("tab");
     await act(async () => {
       fireEvent.click(dots[2]);
     });
@@ -226,7 +226,7 @@ describe("WO-9 QuizAttempt — modo paginado", () => {
 
     // 3 páginas (5 preguntas / 2 por página = ceil = 3).
     const pagesContainer = await waitFor(() => screen.getByTestId("quiz-nav-pages"));
-    const pages = within(pagesContainer).getAllByRole("button");
+    const pages = within(pagesContainer).getAllByRole("tab");
     expect(pages).toHaveLength(3);
   });
 
@@ -241,7 +241,7 @@ describe("WO-9 QuizAttempt — modo paginado", () => {
 
     // Ir a página 3.
     const pagesContainer = await waitFor(() => screen.getByTestId("quiz-nav-pages"));
-    const pages = within(pagesContainer).getAllByRole("button");
+    const pages = within(pagesContainer).getAllByRole("tab");
     await act(async () => {
       fireEvent.click(pages[2]);
     });
@@ -261,7 +261,7 @@ describe("WO-9 QuizAttempt — invariantes", () => {
     mockAttemptLoad({ modoPresentacion: "una_por_pantalla" });
     renderQuizAttempt();
     const dotsContainer = await waitFor(() => screen.getByTestId("quiz-nav-dots"));
-    const dots = within(dotsContainer).getAllByRole("button");
+    const dots = within(dotsContainer).getAllByRole("tab");
     expect(dots).toHaveLength(5);
 
     for (let i = 0; i < 5; i++) {

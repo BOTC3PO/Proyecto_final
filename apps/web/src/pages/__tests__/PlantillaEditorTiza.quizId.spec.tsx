@@ -20,10 +20,12 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 
 const getPlantillaMock = vi.fn();
+const createPlantillaMock = vi.fn();
+const updatePlantillaMock = vi.fn();
 vi.mock("../../domain/vblang/plantillaApi", () => ({
   getPlantilla: (...args: unknown[]) => getPlantillaMock(...args),
-  createPlantilla: vi.fn(),
-  updatePlantilla: vi.fn(),
+  createPlantilla: (...args: unknown[]) => createPlantillaMock(...args),
+  updatePlantilla: (...args: unknown[]) => updatePlantillaMock(...args),
   DslApiError: class extends Error {
     line?: number;
     col?: number;
@@ -35,12 +37,16 @@ const saveQuizPreguntasMock = vi.fn();
 const getQuizMetaMock = vi.fn();
 const patchQuizMetaMock = vi.fn();
 const deleteQuizMock = vi.fn();
+const crearQuizSueltoMock = vi.fn();
+const usarQuizEnModuloMock = vi.fn();
 vi.mock("../../domain/quiz/quizPreguntasApi", () => ({
   getQuizPreguntas: (...args: unknown[]) => getQuizPreguntasMock(...args),
   saveQuizPreguntas: (...args: unknown[]) => saveQuizPreguntasMock(...args),
   getQuizMeta: (...args: unknown[]) => getQuizMetaMock(...args),
   patchQuizMeta: (...args: unknown[]) => patchQuizMetaMock(...args),
   deleteQuiz: (...args: unknown[]) => deleteQuizMock(...args),
+  crearQuizSuelto: (...args: unknown[]) => crearQuizSueltoMock(...args),
+  usarQuizEnModulo: (...args: unknown[]) => usarQuizEnModuloMock(...args),
 }));
 
 /** Shape de `QuizMeta` (WO-tiza-config): title + tipo/visibilidad/config. */
@@ -83,11 +89,19 @@ async function renderEditor(path: string) {
 describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
   beforeEach(() => {
     getPlantillaMock.mockReset();
+    createPlantillaMock.mockReset();
+    updatePlantillaMock.mockReset();
     getQuizPreguntasMock.mockReset();
     saveQuizPreguntasMock.mockReset();
     getQuizMetaMock.mockReset();
     patchQuizMetaMock.mockReset();
     deleteQuizMock.mockReset();
+    crearQuizSueltoMock.mockReset();
+    usarQuizEnModuloMock.mockReset();
+    saveQuizPreguntasMock.mockResolvedValue({
+      cuestionario: { version: 1, cantidadGlobal: 0, preguntas: [] },
+      validacion: { ok: true, faltantes: [] },
+    });
     getQuizMetaMock.mockResolvedValue(quizMetaFixture("Quiz de prueba"));
     patchQuizMetaMock.mockImplementation((_quizId: string, patch: Record<string, unknown>) =>
       Promise.resolve({ ...quizMetaFixture("Quiz de prueba"), ...patch }),
@@ -269,4 +283,70 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
     expect(screen.getAllByTitle("Sin pool").length).toBeGreaterThanOrEqual(1);
     expect(screen.getByTitle("Pool: pool-a")).toBeInTheDocument();
   }, 10000);
+
+  // PLAN-CORRECCIONES C2 — guardar 2+ preguntas desde /plantillas/nueva SIN
+  // quizId ya no debe dejarlas como plantillas sueltas sin nada que las
+  // agrupe (bug de PLAN-E §14): la segunda vez que se guarda (con 2
+  // preguntas en el rail) debe materializar un quiz "suelto" y subirle el
+  // cuestionario completo.
+  it("sin quizId, guardar con 2 preguntas en el rail crea un quiz suelto con AMBAS (no plantillas huérfanas)", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    let nextPlantillaId = 0;
+    createPlantillaMock.mockImplementation((input: { nombre: string; codigoDsl: string }) => {
+      nextPlantillaId += 1;
+      return Promise.resolve({
+        ...plantillaFixture(`p-created-${nextPlantillaId}`, input.nombre),
+        codigoDsl: input.codigoDsl,
+      });
+    });
+    crearQuizSueltoMock.mockResolvedValue({ id: "quiz-nuevo-suelto" });
+
+    await renderEditor("/plantillas/nueva");
+
+    // Descartar el wizard de onboarding (blanco).
+    const wizardBlank = await screen.findByTestId("vblang-wizard-blank");
+    await user.click(wizardBlank);
+    await waitFor(() => {
+      expect(screen.queryByTestId("vblang-wizard")).not.toBeInTheDocument();
+    });
+
+    // Pregunta 1: nombrarla y guardar (todavía sólo hay 1 en el rail — no
+    // debe crear ningún quiz).
+    const nombreInput = await screen.findByLabelText(/Nombre/);
+    await user.type(nombreInput, "Pregunta uno");
+    await user.click(screen.getByRole("button", { name: "Guardar" }));
+    await waitFor(() => {
+      expect(createPlantillaMock).toHaveBeenCalledTimes(1);
+    });
+    expect(crearQuizSueltoMock).not.toHaveBeenCalled();
+
+    // Agregar una segunda pregunta al rail, nombrarla y guardar de nuevo:
+    // ahora questions.length===2 y quizId sigue null → debe materializar
+    // el quiz suelto con el cuestionario completo.
+    await user.click(screen.getByRole("button", { name: /Nueva pregunta/ }));
+    const nombreInput2 = await screen.findByLabelText(/Nombre/);
+    await user.clear(nombreInput2);
+    await user.type(nombreInput2, "Pregunta dos");
+    await user.click(screen.getByRole("button", { name: "Guardar" }));
+
+    await waitFor(() => {
+      expect(crearQuizSueltoMock).toHaveBeenCalledTimes(1);
+    });
+    await waitFor(() => {
+      expect(saveQuizPreguntasMock).toHaveBeenCalledWith(
+        "quiz-nuevo-suelto",
+        expect.objectContaining({
+          cantidadGlobal: 2,
+          preguntas: expect.arrayContaining([
+            expect.objectContaining({ plantillaId: "p-created-1" }),
+            expect.objectContaining({ plantillaId: "p-created-2" }),
+          ]),
+        }),
+      );
+    });
+    // Las dos preguntas quedan agrupadas en el mismo quiz — no 2 plantillas
+    // sueltas sin cuestionario que las una.
+    const call = saveQuizPreguntasMock.mock.calls[0][1] as { preguntas: unknown[] };
+    expect(call.preguntas).toHaveLength(2);
+  }, 15000);
 });

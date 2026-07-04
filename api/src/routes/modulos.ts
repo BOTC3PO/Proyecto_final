@@ -27,6 +27,46 @@ function withDefaultStatus<T extends AnyDoc>(module: T): T & { status: {} } {
   };
 }
 
+// PLAN-CORRECCIONES C1 — "publica pero no visible" (PLAN-A ítem 43).
+// `GET /api/modulos/:id` mapea las columnas de Prisma (`titulo`,
+// `descripcion`, `ownerUserId`) a los nombres que el front espera
+// (`title`, `description`, `createdBy` — ver `Module` en
+// `apps/web/src/domain/module/module.types.ts`). El listado
+// (`GET /api/modulos`) devolvía las filas crudas sin ese mapeo: el
+// título quedaba en blanco en cada card de `ModulosList.tsx`, la
+// pestaña "Mis módulos" filtraba por `module.createdBy` (siempre
+// `undefined` en la fila cruda) y no mostraba NADA, y la búsqueda por
+// texto tampoco matcheaba nunca. No era un problema de caché/re-fetch
+// (la hipótesis original) sino de contrato entre este endpoint y el
+// front. `withDefaultStatus` se sigue aplicando después para no tocar
+// esa convención.
+function toModuleListItem(item: AnyDoc): AnyDoc {
+  return {
+    id: item.id,
+    slug: item.slug ?? undefined,
+    title: item.titulo,
+    description: item.descripcion ?? "",
+    subject: item.subject ?? null,
+    level: item.level ?? null,
+    category: item.category ?? undefined,
+    durationMinutes: item.durationMinutes ?? undefined,
+    theoryItems: item.theoryItems ? safeJsonParse(item.theoryItems, [] as unknown[]) : [],
+    visibility: item.visibility,
+    schoolId: item.schoolId ?? undefined,
+    createdBy: item.ownerUserId ?? "",
+    clonedFrom: item.clonedFromId
+      ? {
+          id: item.clonedFromId,
+          title: item.clonedFromTitle ?? null,
+          ownerUserId: item.clonedFromOwnerUserId ?? null
+        }
+      : undefined,
+    createdAt: item.createdAt,
+    updatedAt: item.updatedAt,
+    teoriaId: item.teoriaId ?? undefined
+  };
+}
+
 /**
  * WO-3 — ¿Este cuestionario es visible para el solicitante?
  *
@@ -280,7 +320,7 @@ modulos.get("/api/modulos", async (req, res) => {
         take: limit,
         orderBy: { updatedAt: "desc" },
       })
-    ).map(withDefaultStatus);
+    ).map(toModuleListItem).map(withDefaultStatus);
   } else {
     items = (
       await prisma.modulo.findMany({
@@ -289,7 +329,7 @@ modulos.get("/api/modulos", async (req, res) => {
         take: limit,
         orderBy: { updatedAt: "desc" },
       })
-    ).map(withDefaultStatus);
+    ).map(toModuleListItem).map(withDefaultStatus);
   }
 
   return res.json({ items, limit, offset });
@@ -1342,9 +1382,14 @@ function canAccessQuiz(
   requesterId: string,
   requesterRaw: QuizRequesterRaw,
 ): boolean {
-  return loaded.modulo
-    ? canEditModuloDirect(loaded.modulo, { _id: requesterId, role: requesterRaw?.role, schoolId: requesterRaw?.schoolId })
-    : isStaffRole(requesterRaw?.role ?? null);
+  if (loaded.modulo) {
+    return canEditModuloDirect(loaded.modulo, { _id: requesterId, role: requesterRaw?.role, schoolId: requesterRaw?.schoolId });
+  }
+  // PLAN-CORRECCIONES C2 — quiz standalone (sin módulo todavía): antes
+  // de este fix cualquier staff (isStaffRole) podía editar el draft de
+  // OTRO docente, porque el fallback no chequeaba dueño. Ahora sólo el
+  // dueño o un ADMIN.
+  return loaded.quiz.ownerUserId === requesterId || requesterRaw?.role === "ADMIN";
 }
 
 // WO-tiza-config — claves de `QuizVersion.settings` que forman la
@@ -1476,6 +1521,168 @@ modulos.patch("/api/quizzes/:quizId/meta", requireUser, async (req, res) => {
 // la raíz paramétrica: hoy no hay ninguna ruta literal DELETE bajo
 // `/api/quizzes/` que pueda quedar tapada (la lección del shadowing de
 // `/api/quizzes/banco` aplica por método+path; banco es GET-only).
+// PLAN-CORRECCIONES C2 — lista los cuestionarios "sueltos" (sin módulo)
+// del propio docente, para el picker de "Usar cuestionario existente" en
+// `ModuloEditor`. No es paramétrica (raíz literal) — no hay riesgo de
+// shadowing con las rutas `/api/quizzes/:quizId/*` de abajo.
+modulos.get("/api/quizzes", requireUser, async (req, res) => {
+  try {
+    const requesterRaw = req.user as QuizRequesterRaw;
+    const requesterId = resolveRequesterId(requesterRaw);
+    if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+
+    const quizzes = await prisma.quiz.findMany({
+      where: { ownerUserId: requesterId, moduleId: null, isActive: true },
+    });
+    const items = quizzes
+      .sort((a, b) => String(b.updatedAt ?? "").localeCompare(String(a.updatedAt ?? "")))
+      .map((q) => ({
+        id: q.id,
+        title: q.title ?? "Cuestionario sin título",
+        updatedAt: q.updatedAt,
+      }));
+    res.json({ items });
+  } catch (e: any) {
+    console.error("[GET /api/quizzes]", e);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+// PLAN-CORRECCIONES C2 — cuestionario "suelto": se crea sin módulo desde
+// `/plantillas/nueva` cuando el docente arma 2+ preguntas sin haber
+// pasado por un módulo. Se edita/reabre con las mismas rutas
+// `/api/quizzes/:quizId/*` de arriba (ya toleran módulo ausente). El
+// `settings` arranca vacío (type=practica, visibility=publico); las
+// preguntas se guardan aparte con el `PUT .../preguntas` de siempre
+// (mismo camino que un quiz con módulo, sin duplicar esa lógica acá).
+modulos.post("/api/quizzes", requireUser, async (req, res) => {
+  try {
+    const requesterRaw = req.user as QuizRequesterRaw;
+    const requesterId = resolveRequesterId(requesterRaw);
+    if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+    if (!isStaffRole(requesterRaw?.role ?? null)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+
+    const body = (req.body ?? {}) as { title?: unknown };
+    const title = typeof body.title === "string" && body.title.trim() ? body.title.trim() : null;
+
+    const now = new Date().toISOString();
+    const quizId = generateId();
+    const versionId = generateId();
+
+    // El `Quiz` se crea PRIMERO: `QuizVersion.quizId` tiene FK a
+    // `quizzes.id` (no lo tolera el stub in-memory de los tests, que no
+    // valida FKs — sólo se ve contra Postgres real). `currentVersionId`
+    // se persiste después, cuando la versión ya existe.
+    await prisma.quiz.create({
+      data: {
+        id: quizId,
+        moduleId: null,
+        ownerUserId: requesterId,
+        title,
+        isActive: true,
+        currentVersionId: null,
+        createdAt: now,
+        updatedAt: now,
+      },
+    });
+    await prisma.quizVersion.create({
+      data: {
+        id: versionId,
+        quizId,
+        versionNumber: 1,
+        settings: JSON.stringify({ type: "practica", visibility: "publico" }),
+        createdAt: now,
+        createdBy: requesterId,
+      },
+    });
+    await prisma.quiz.update({
+      where: { id: quizId },
+      data: { currentVersionId: versionId },
+    });
+
+    res.status(201).json({ id: quizId });
+  } catch (e: any) {
+    console.error("[POST /api/quizzes]", e);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+// PLAN-CORRECCIONES C2 — "usar" un cuestionario (suelto o de otro módulo)
+// dentro de un módulo: CLONA el quiz (nuevo id, moduleId del destino,
+// copia el `settings` tal cual — las plantillas referenciadas por
+// `plantillaId`/`poolId` dentro de `settings.preguntas` NO se duplican,
+// siguen siendo las mismas filas de `PlantillaEjercicio` reusadas, mismo
+// espíritu que los pools). El quiz origen queda intacto: reusable de
+// nuevo en otro módulo más adelante.
+modulos.post("/api/quizzes/:quizId/usar-en-modulo", requireUser, async (req, res) => {
+  try {
+    const quizId = req.params.quizId as string;
+    const targetModuleId =
+      typeof (req.body as { moduleId?: unknown })?.moduleId === "string"
+        ? (req.body as { moduleId: string }).moduleId
+        : "";
+    if (!targetModuleId) return res.status(400).json({ error: "moduleId is required" });
+
+    const loaded = await loadQuizConModulo(quizId);
+    if (!loaded) return res.status(404).json({ error: "quiz not found" });
+
+    const requesterRaw = req.user as QuizRequesterRaw;
+    const requesterId = resolveRequesterId(requesterRaw);
+    if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+    if (!canAccessQuiz(loaded, requesterId, requesterRaw)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+
+    const targetModulo = await prisma.modulo.findFirst({ where: { id: targetModuleId } });
+    if (!targetModulo || targetModulo.isDeleted) {
+      return res.status(404).json({ error: "target module not found" });
+    }
+    if (!canEditModuloDirect(targetModulo, { _id: requesterId, role: requesterRaw?.role, schoolId: requesterRaw?.schoolId })) {
+      return res.status(403).json({ error: "forbidden on target module" });
+    }
+
+    const now = new Date().toISOString();
+    const newQuizId = generateId();
+    const newVersionId = generateId();
+
+    // Mismo orden que POST /api/quizzes: el Quiz primero (FK de
+    // QuizVersion.quizId), currentVersionId se completa después.
+    await prisma.quiz.create({
+      data: {
+        id: newQuizId,
+        moduleId: targetModuleId,
+        ownerUserId: null,
+        title: loaded.quiz.title ?? null,
+        isActive: true,
+        currentVersionId: null,
+        createdAt: now,
+        updatedAt: now,
+      },
+    });
+    await prisma.quizVersion.create({
+      data: {
+        id: newVersionId,
+        quizId: newQuizId,
+        versionNumber: 1,
+        settings: loaded.version?.settings ?? null,
+        createdAt: now,
+        createdBy: requesterId,
+      },
+    });
+    await prisma.quiz.update({
+      where: { id: newQuizId },
+      data: { currentVersionId: newVersionId },
+    });
+
+    res.status(201).json({ id: newQuizId });
+  } catch (e: any) {
+    console.error("[POST /api/quizzes/:quizId/usar-en-modulo]", e);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
 modulos.delete("/api/quizzes/:quizId", requireUser, async (req, res) => {
   try {
     const quizId = req.params.quizId as string;

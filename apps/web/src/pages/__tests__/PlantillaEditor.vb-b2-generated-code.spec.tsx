@@ -65,7 +65,7 @@ describe("VB-B2: panel 'Código generado' en vivo", () => {
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     // El form se monta tras el debounce del primer render.
     await waitFor(() => {
-      expect(result.getByTestId("vblang-form-tipo")).toBeInTheDocument();
+      expect(result.getByRole("combobox", { name: "Tipo de pregunta" })).toBeInTheDocument();
     });
     const toggle = result.getByTestId("vblang-generated-code-toggle");
     expect(toggle).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe("VB-B2: panel 'Código generado' en vivo", () => {
     const result = await renderAndDismissWizard();
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     await waitFor(() => {
-      expect(result.getByTestId("vblang-form-tipo")).toBeInTheDocument();
+      expect(result.getByRole("combobox", { name: "Tipo de pregunta" })).toBeInTheDocument();
     });
 
     const toggle = result.getByTestId("vblang-generated-code-toggle");
@@ -112,7 +112,7 @@ describe("VB-B2: panel 'Código generado' en vivo", () => {
     const result = await renderAndDismissWizard();
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     await waitFor(() => {
-      expect(result.getByTestId("vblang-form-tipo")).toBeInTheDocument();
+      expect(result.getByRole("combobox", { name: "Tipo de pregunta" })).toBeInTheDocument();
     });
     // Abrir el panel.
     fireEvent.click(result.getByTestId("vblang-generated-code-toggle"));
@@ -138,7 +138,7 @@ describe("VB-B2: panel 'Código generado' en vivo", () => {
     const result = await renderAndDismissWizard();
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     await waitFor(() => {
-      expect(result.getByTestId("vblang-form-tipo")).toBeInTheDocument();
+      expect(result.getByRole("combobox", { name: "Tipo de pregunta" })).toBeInTheDocument();
     });
     fireEvent.click(result.getByTestId("vblang-generated-code-toggle"));
     const panel = result.getByTestId("vblang-generated-code");
@@ -161,7 +161,7 @@ describe("VB-B2: panel 'Código generado' en vivo", () => {
     const result = await renderAndDismissWizard();
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     await waitFor(() => {
-      expect(result.getByTestId("vblang-form-tipo")).toBeInTheDocument();
+      expect(result.getByRole("combobox", { name: "Tipo de pregunta" })).toBeInTheDocument();
     });
     fireEvent.click(result.getByTestId("vblang-generated-code-toggle"));
     const panel = result.getByTestId("vblang-generated-code");

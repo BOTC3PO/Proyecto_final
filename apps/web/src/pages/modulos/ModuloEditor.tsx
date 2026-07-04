@@ -5,7 +5,14 @@ import { useAuth } from "../../auth/use-auth";
 import { useIsTeacher } from "../../auth/use-roles";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
 import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
+import { Modal, Button, Spinner, Alert } from "../../ui";
 import { batchGetPlantillas } from "../../domain/vblang/plantillaApi";
+import {
+  listarQuizzesSueltos,
+  usarQuizEnModulo,
+  getQuizMeta,
+  type QuizSuelto,
+} from "../../domain/quiz/quizPreguntasApi";
 import type { PlantillaListItem } from "../../domain/vblang/plantilla.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
@@ -341,6 +348,54 @@ export default function ModuloEditor() {
 
   // ─── Plantilla selector (Sprint 10A · Bloque B) ─────────────────────────
   const [plantillaModalOpen, setPlantillaModalOpen] = useState(false);
+  // ─── PLAN-CORRECCIONES C2 — reusar un cuestionario "suelto" (sin módulo)
+  // ya armado desde /plantillas/nueva. Sólo tiene sentido con el módulo ya
+  // guardado (`id` real): "usar-en-modulo" clona el quiz contra ese id en
+  // el server de inmediato (no queda en el borrador local como el resto de
+  // `quizzes[]`), así que reusarlo desde un módulo todavía sin guardar no
+  // tendría dónde clonar. El original sigue suelto — reusable de nuevo.
+  const [quizSueltoModalOpen, setQuizSueltoModalOpen] = useState(false);
+  const [quizzesSueltos, setQuizzesSueltos] = useState<QuizSuelto[]>([]);
+  const [quizzesSueltosStatus, setQuizzesSueltosStatus] = useState<
+    "idle" | "loading" | "ready" | "error"
+  >("idle");
+  const [usandoQuizSueltoId, setUsandoQuizSueltoId] = useState<string | null>(null);
+
+  const openQuizSueltoModal = () => {
+    setQuizSueltoModalOpen(true);
+    setQuizzesSueltosStatus("loading");
+    listarQuizzesSueltos()
+      .then((items) => {
+        setQuizzesSueltos(items);
+        setQuizzesSueltosStatus("ready");
+      })
+      .catch(() => setQuizzesSueltosStatus("error"));
+  };
+
+  const handleUsarQuizSuelto = async (quizSueltoId: string) => {
+    if (!id) return;
+    setUsandoQuizSueltoId(quizSueltoId);
+    try {
+      const clon = await usarQuizEnModulo(quizSueltoId, id);
+      const meta = await getQuizMeta(clon.id);
+      const nuevoQuiz: ModuleQuiz = {
+        id: clon.id,
+        title: meta.title || "Cuestionario sin título",
+        type: meta.type === "evaluacion" ? "formal" : (meta.type as ModuleQuiz["type"]),
+        status: "draft",
+        version: 1,
+        visibility: meta.visibility,
+        mode: "generated",
+        tienePreguntasNativas: true,
+      };
+      handleImportQuizzes([nuevoQuiz]);
+      setQuizSueltoModalOpen(false);
+    } catch {
+      setQuizzesSueltosStatus("error");
+    } finally {
+      setUsandoQuizSueltoId(null);
+    }
+  };
   // ─── Vista alumno (Tarea 14): overlay de previsualizacion local ──────────
   const [vistaAlumnoOpen, setVistaAlumnoOpen] = useState(false);
   // ─── Editor de mapa (M8v2): overlay full-screen en la misma pestaña ──────
@@ -472,6 +527,48 @@ export default function ModuloEditor() {
           createReturnTo={moduloReturnTo}
         />
       ) : null}
+
+      {/* PLAN-CORRECCIONES C2 — picker de cuestionarios "sueltos" (sin
+          módulo) del docente, para reusarlos en éste. */}
+      <Modal
+        open={quizSueltoModalOpen}
+        onClose={() => setQuizSueltoModalOpen(false)}
+        title="Usar cuestionario existente"
+        size="md"
+      >
+        {quizzesSueltosStatus === "loading" ? (
+          <div className="flex justify-center py-6">
+            <Spinner />
+          </div>
+        ) : quizzesSueltosStatus === "error" ? (
+          <Alert variant="danger">No se pudieron cargar tus cuestionarios sueltos.</Alert>
+        ) : quizzesSueltos.length === 0 ? (
+          <p className="text-sm text-[var(--c-muted)]">
+            No tenés cuestionarios sueltos todavía. Se crean automáticamente al
+            armar 2 o más preguntas desde "Crear pregunta" sin abrir un módulo.
+          </p>
+        ) : (
+          <ul className="flex flex-col gap-2" data-testid="quiz-suelto-list">
+            {quizzesSueltos.map((q) => (
+              <li
+                key={q.id}
+                className="flex items-center justify-between gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2"
+              >
+                <span className="text-sm text-[var(--c-text)]">{q.title}</span>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  disabled={usandoQuizSueltoId !== null}
+                  onClick={() => void handleUsarQuizSuelto(q.id)}
+                  data-testid={`usar-quiz-suelto-${q.id}`}
+                >
+                  {usandoQuizSueltoId === q.id ? "Agregando…" : "Usar"}
+                </Button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Modal>
 
       {/* Tarea 14 — vista alumno (overlay de previsualizacion local). */}
       <VistaAlumnoOverlay
@@ -1565,6 +1662,21 @@ export default function ModuloEditor() {
                     <span className="text-base leading-none">🧩</span>
                     Usar plantilla VBLang
                   </button>
+
+                  {/* PLAN-CORRECCIONES C2 — sólo con el módulo ya guardado
+                      (clona contra un id real de inmediato, no hay borrador
+                      local a donde "agregar" sin eso). */}
+                  {id ? (
+                    <button
+                      type="button"
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                      data-testid="open-quiz-suelto-selector"
+                      onClick={openQuizSueltoModal}
+                    >
+                      <span className="text-base leading-none">🔁</span>
+                      Usar cuestionario existente
+                    </button>
+                  ) : null}
 
                   <QuizImportJson onImportQuizzes={handleImportQuizzes} />
                 </div>

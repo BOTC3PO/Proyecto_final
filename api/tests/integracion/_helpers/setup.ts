@@ -109,6 +109,8 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.moderacionEvento.rows = [];
   // PLAN-A §3 — asistencia.
   prisma.asistencia.rows = [];
+  // PLAN-A §3.4 — log de eventos para reportes del padre.
+  prisma.eventoReportePadre.rows = [];
   // PLAN-B Fase 2 — núcleo de cobros escuela→familias.
   prisma.cobroEscuela.rows = [];
   prisma.cuotaAlumno.rows = [];

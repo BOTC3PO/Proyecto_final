@@ -105,7 +105,10 @@ describe("EditorSectionNav", () => {
       />,
     );
     const [link] = screen.getAllByTestId("editor-section-link-sec-x");
-    expect(link.className).toMatch(/pointer-events-none/);
+    // C3 (PLAN-CORRECCIONES): el disabled se aplica con `style` inline
+    // (`pointerEvents: "none"`), no con una clase Tailwind — el componente
+    // no usa className para eso en ningún lado.
+    expect((link as HTMLElement).style.pointerEvents).toBe("none");
     expect(link.getAttribute("aria-disabled")).toBe("true");
   });
 

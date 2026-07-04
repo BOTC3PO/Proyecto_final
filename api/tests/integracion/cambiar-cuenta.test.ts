@@ -179,7 +179,29 @@ test("FASE 2: switch a cuenta no vinculada → 403", async () => {
   assert.equal(res.status, 403);
 });
 
-test("FASE 2: switch sin vinculación → 403", async () => {
+// C3 (PLAN-CORRECCIONES, saneamiento de deuda preexistente) — este test
+// decía "switch sin vinculación → 403" usando role: "TEACHER", pero
+// `/api/auth/cambiar-cuenta` (auth.ts) tiene desde antes un branch de
+// "provisión on-demand": si el origen es STAFF (ADMIN/DIRECTIVO/TEACHER)
+// y no tiene espejo, se lo crea ahí mismo y el switch responde 200 — el
+// 403 sólo se preserva para roles NO-staff (USER/PARENT/GUEST). El test
+// quedó escrito ANTES de esa feature y nunca se actualizó. No es una
+// regresión de ningún WO reciente: falla igual en HEAD limpio.
+test("FASE 2: switch sin vinculación (no-staff) → 403", async () => {
+  resetPrisma();
+  const soloId = randomUUID();
+  seedUser({ id: soloId, role: "USER", schoolId: ESC, fullName: "Sin Espejo" });
+  const token = tokenFor({ id: soloId, role: "USER", schoolId: ESC });
+
+  const res = await jsonRequest(baseUrl, "POST", "/api/auth/cambiar-cuenta", {
+    token,
+    body: {},
+  });
+
+  assert.equal(res.status, 403);
+});
+
+test("FASE 2: switch sin vinculación (staff) → 200, provisión on-demand del espejo", async () => {
   resetPrisma();
   const soloId = randomUUID();
   seedUser({ id: soloId, role: "TEACHER", schoolId: ESC, fullName: "Sin Espejo" });
@@ -190,7 +212,11 @@ test("FASE 2: switch sin vinculación → 403", async () => {
     body: {},
   });
 
-  assert.equal(res.status, 403);
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  const vinculo = await prisma.cuentaVinculada.findFirst({
+    where: { OR: [{ usuarioAId: soloId }, { usuarioBId: soloId }] },
+  });
+  assert.ok(vinculo, "debe quedar provisionado un vínculo con el espejo recién creado");
 });
 
 // ─── 5. Token de espejo contra endpoint solo-staff → 403 ────────────────

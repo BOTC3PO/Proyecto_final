@@ -67,7 +67,7 @@ function normalizarMatematica(s: string): string {
     .replace(/×/g, "x");
 }
 
-type Inputs = Record<string, number>;
+type Inputs = Record<string, any>; // C3 (PLAN-CORRECCIONES): valores mixtos number/string (variante/direccion) — ver nota de tipos arriba.
 
 interface PortCase {
   subtipoOriginal: string;
@@ -106,8 +106,8 @@ const CASES: PortCase[] = [
       return { angulo: parseInt(m[2], 10), funcion: m[1] };
     },
     inputsFromTemplate: (v) => ({
-      angulo: Number(v.caso.angulo),
-      funcion: String(v.caso.funcion),
+      angulo: Number((v.caso as { angulo: number }).angulo),
+      funcion: String((v.caso as { funcion: string }).funcion),
     }),
   },
 

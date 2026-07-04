@@ -131,6 +131,38 @@ test("un STUDENT no puede tomar asistencia (403)", async () => {
   assert.equal(res.status, 403);
 });
 
+test("PLAN-A §3.4: registrar una ausencia emite EventoReportePadre", async () => {
+  const token = tokenFor({ id: DOCENTE, role: "TEACHER", schoolId: ESCUELA });
+  await jsonRequest(baseUrl, "PUT", `/api/aulas/${AULA_ID}/asistencia/${FECHA}`, {
+    token,
+    body: {
+      registros: [
+        { alumnoId: ALUMNO_1, estado: "presente" },
+        { alumnoId: ALUMNO_2, estado: "ausente" },
+      ],
+    },
+  });
+  assert.equal(prisma.eventoReportePadre.rows.length, 1);
+  const evento = JSON.parse(String(prisma.eventoReportePadre.rows[0].json));
+  assert.equal(evento.tipo, "inasistencia");
+  assert.equal(evento.alumnoId, ALUMNO_2);
+  assert.equal(evento.claseId, AULA_ID);
+  assert.equal(evento.fecha, FECHA);
+});
+
+test("PLAN-A §3.4: reenviar la misma planilla (ya ausente) no duplica el evento", async () => {
+  const token = tokenFor({ id: DOCENTE, role: "TEACHER", schoolId: ESCUELA });
+  await jsonRequest(baseUrl, "PUT", `/api/aulas/${AULA_ID}/asistencia/${FECHA}`, {
+    token,
+    body: { registros: [{ alumnoId: ALUMNO_1, estado: "ausente" }] },
+  });
+  await jsonRequest(baseUrl, "PUT", `/api/aulas/${AULA_ID}/asistencia/${FECHA}`, {
+    token,
+    body: { registros: [{ alumnoId: ALUMNO_1, estado: "ausente" }] },
+  });
+  assert.equal(prisma.eventoReportePadre.rows.length, 1, "no debe duplicar el evento al reenviar");
+});
+
 test("aula legacy sin status igual admite registrar asistencia (PLAN-A §2)", async () => {
   const otraAula = "aula-asistencia-legacy";
   const now = new Date().toISOString();

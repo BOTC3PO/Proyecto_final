@@ -5,7 +5,7 @@
  * Mismo patrón que `domain/vblang/plantillaApi.ts`: funciones finas sobre
  * `apiGet`/`apiPut`, sin lógica de negocio (esa vive en `preguntas.ts`).
  */
-import { apiDelete, apiGet, apiPatch, apiPut } from "../../lib/api";
+import { apiDelete, apiGet, apiPatch, apiPost, apiPut } from "../../lib/api";
 import type { CuestionarioPreguntas, ResultadoValidacionPreguntas } from "./preguntas";
 import type { EvaluacionConfigInput } from "./intentos";
 
@@ -51,6 +51,47 @@ export async function patchQuizMeta(quizId: string, patch: QuizMetaPatch): Promi
  *  mecanismo que quitarlo de `quizzes[]` al guardar el módulo). */
 export async function deleteQuiz(quizId: string): Promise<void> {
   await apiDelete<{ ok: boolean }>(`/api/quizzes/${encodeURIComponent(quizId)}`);
+}
+
+// ─── PLAN-CORRECCIONES C2 — cuestionarios "sueltos" ─────────────────────
+
+/**
+ * Crea un quiz SIN módulo (standalone). Se edita/reabre con las mismas
+ * rutas `getQuizMeta`/`getQuizPreguntas`/`saveQuizPreguntas` de arriba —
+ * ya toleran módulo ausente. Usado por `/plantillas/nueva` cuando el
+ * docente arma 2+ preguntas sin haber pasado por un módulo.
+ */
+export async function crearQuizSuelto(title?: string): Promise<{ id: string }> {
+  return apiPost<{ id: string }>("/api/quizzes", title ? { title } : {});
+}
+
+export interface QuizSuelto {
+  id: string;
+  title: string;
+  updatedAt: string;
+}
+
+/** Cuestionarios sueltos (sin módulo) del docente logueado — para el
+ *  picker de "Usar cuestionario existente" en `ModuloEditor`. */
+export async function listarQuizzesSueltos(): Promise<QuizSuelto[]> {
+  const data = await apiGet<{ items: QuizSuelto[] }>("/api/quizzes");
+  return data.items ?? [];
+}
+
+/**
+ * "Usa" (clona) un quiz suelto o de otro módulo dentro de `moduleId`. El
+ * quiz origen queda intacto y se puede reusar en más módulos después —
+ * las plantillas referenciadas no se duplican, siguen siendo las mismas
+ * filas de `PlantillaEjercicio`.
+ */
+export async function usarQuizEnModulo(
+  quizId: string,
+  moduleId: string,
+): Promise<{ id: string }> {
+  return apiPost<{ id: string }>(
+    `/api/quizzes/${encodeURIComponent(quizId)}/usar-en-modulo`,
+    { moduleId },
+  );
 }
 
 export interface SaveQuizPreguntasResponse {

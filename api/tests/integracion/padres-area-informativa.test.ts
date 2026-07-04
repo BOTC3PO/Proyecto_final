@@ -131,6 +131,61 @@ test("FASE 5: un padre no puede ver el hijo de OTRO padre (403)", async () => {
   assert.equal(res.status, 403);
 });
 
+test("PLAN-C §5: revocar el vínculo marca el estado y corta el acceso", async () => {
+  const padreId = randomUUID();
+  const hijoId = randomUUID();
+  seedPadre(padreId);
+  seedHijo(hijoId);
+  seedVinculoAprobado(padreId, hijoId);
+
+  const res = await jsonRequest(baseUrl, "POST", `/api/padres/hijos/${hijoId}/revocar`, {
+    token: padreToken(padreId)
+  });
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  const vinculo = prisma.progresoModuloVinculo.rows.find(
+    (v) => v.parentId === padreId && v.childId === hijoId
+  );
+  assert.equal(vinculo?.estado, "revocado");
+
+  const aulasRes = await jsonRequest(baseUrl, "GET", `/api/padres/hijos/${hijoId}/aulas`, {
+    token: padreToken(padreId)
+  });
+  assert.equal(aulasRes.status, 403, "tras revocar, el padre pierde el acceso al hijo");
+});
+
+test("PLAN-C §5: revocar sin vínculo activo → 404", async () => {
+  const padreId = randomUUID();
+  const hijoId = randomUUID();
+  seedPadre(padreId);
+  seedHijo(hijoId);
+  // Sin vínculo.
+
+  const res = await jsonRequest(baseUrl, "POST", `/api/padres/hijos/${hijoId}/revocar`, {
+    token: padreToken(padreId)
+  });
+  assert.equal(res.status, 404);
+});
+
+test("PLAN-C §5: un padre no puede revocar el vínculo de OTRO padre", async () => {
+  const padreA = randomUUID();
+  const padreB = randomUUID();
+  const hijoDeB = randomUUID();
+  seedPadre(padreA);
+  seedPadre(padreB);
+  seedHijo(hijoDeB);
+  seedVinculoAprobado(padreB, hijoDeB);
+
+  const res = await jsonRequest(baseUrl, "POST", `/api/padres/hijos/${hijoDeB}/revocar`, {
+    token: padreToken(padreA)
+  });
+  assert.equal(res.status, 404);
+
+  const vinculo = prisma.progresoModuloVinculo.rows.find(
+    (v) => v.parentId === padreB && v.childId === hijoDeB
+  );
+  assert.equal(vinculo?.estado, "aprobado", "el vínculo del padre B queda intacto");
+});
+
 test("FASE 5: el área informativa es solo lectura — no hay endpoint de escritura como el hijo", async () => {
   // El único PATCH del área (`/limites`) modifica los PERMISOS del
   // vínculo del PADRE (su monitoreo), NO la cuenta del hijo. Validamos

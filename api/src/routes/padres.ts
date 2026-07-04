@@ -259,6 +259,30 @@ padres.patch("/api/padres/hijos/:id/limites", requireUser, ...bodyLimitMB(1), as
   }
 });
 
+// POST /api/padres/hijos/:id/revocar
+// PLAN-C §5 diferido (b): el estado "revocado" ya existía en el modelo
+// (`ensureParentAccess`/`vincularHijoCore` lo leen) pero no había ruta
+// que lo escribiera. No reutiliza `ensureParentAccess` porque esa
+// función exige aprobación para vínculos "pendiente" — acá el padre
+// debe poder cancelar tanto un vínculo aprobado como uno pendiente.
+padres.post("/api/padres/hijos/:id/revocar", requireUser, async (req, res) => {
+  const parentId = resolveParentId(req);
+  if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
+  const childId = getParamId(req.params.id);
+  if (!childId) return res.status(400).json({ error: "invalid child id" });
+
+  const vinculo = await prisma.progresoModuloVinculo.findFirst({
+    where: { parentId, childId, estado: { not: "revocado" } },
+  });
+  if (!vinculo) return res.status(404).json({ error: "vinculo not found" });
+
+  await prisma.progresoModuloVinculo.updateMany({
+    where: { parentId, childId },
+    data: { estado: "revocado", updatedAt: new Date().toISOString() },
+  });
+  return res.json({ ok: true });
+});
+
 // GET /api/padres/hijos/:id/actividades
 // Padre ve las próximas actividades del aula de su hijo
 padres.get("/api/padres/hijos/:id/actividades", requireUser,

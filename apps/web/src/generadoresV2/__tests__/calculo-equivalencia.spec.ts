@@ -75,7 +75,7 @@ function stripConstante(s: string): string {
   return s.replace(/\s*\+\s*C\s*$/, "").replace(/^\((.+)\)$/, "$1");
 }
 
-type Inputs = Record<string, number>;
+type Inputs = Record<string, any>; // C3 (PLAN-CORRECCIONES): valores mixtos number/string (variante/direccion) — ver nota de tipos arriba.
 
 interface PortCase {
   subtipoOriginal: string;

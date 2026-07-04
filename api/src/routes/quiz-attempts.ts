@@ -1527,10 +1527,16 @@ quizAttempts.get(
   // el handler se abre al staff, debería saltarse la sanitización.
   const requesterRole =
     (req.user as { role?: string | null } | undefined)?.role ?? null;
+  // PLAN-C11 — un intento ya finalizado (modo revisión, WO-T2a) puede
+  // revelar pasos/pistas (es la resolución de algo que el alumno ya
+  // entregó); uno `in_progress` no, o filtraría la respuesta antes de
+  // responder.
   const questionsForResponse =
     isStaffRole(requesterRole)
       ? (quiz?.questions ?? [])
-      : sanitizeQuestionsForStudent(quiz?.questions, currentAttempt.quizVersionId ?? currentAttempt.quizId);
+      : sanitizeQuestionsForStudent(quiz?.questions, currentAttempt.quizVersionId ?? currentAttempt.quizId, {
+          revealSolution: currentAttempt.status !== "in_progress"
+        });
   res.json({
     id: currentAttempt.id,
     attemptId: currentAttempt.id,

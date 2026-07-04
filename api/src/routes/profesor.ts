@@ -226,12 +226,17 @@ profesor.get("/api/profesor/menu", async (req, res) => {
         for (const attempt of sorted.slice(0, 4)) {
           const quiz = quizById.get(attempt.quizId);
           if (!quiz) continue;
-          const mod = moduleSubject.get(quiz.moduleId);
+          // Filtrado arriba por `moduleId: { in: teacherModuloIds } }` —
+          // estos quizzes siempre tienen módulo; el `?? ""` es sólo para
+          // el tipo (Quiz.moduleId es nullable desde PLAN-CORRECCIONES C2,
+          // por los quizzes "sueltos").
+          const quizModuleId = quiz.moduleId ?? "";
+          const mod = moduleSubject.get(quizModuleId);
           recentEvaluations.push({
             id: attempt.id,
             title: quiz.title ?? "(sin título)",
             category: mod?.subject ?? mod?.titulo ?? "Sin materia",
-            moduleId: quiz.moduleId,
+            moduleId: quizModuleId,
             quizId: quiz.id,
             status: attempt.status,
             startedAt: attempt.startedAt,

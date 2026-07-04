@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { fetchProgresoHijos, type ChildProgress } from "../services/progreso";
 import {
   fetchActividadesHijo, fetchBoletinHijo, fetchAulasHijo,
-  type ActividadHijo, type MateriaBoletin, type AulaHijo,
+  fetchLimitesHijo, actualizarLimitesHijo, revocarVinculoHijo,
+  type ActividadHijo, type MateriaBoletin, type AulaHijo, type LimitesHijo,
 } from "../services/padres";
 
 export default function HijosProgreso() {
@@ -19,7 +20,11 @@ export default function HijosProgreso() {
   const [aulas, setAulas] = useState<AulaHijo[]>([]);
   const [actividadesLoading, setActividadesLoading] = useState(false);
   const [boletinLoading, setBoletinLoading] = useState(false);
-  const [tab, setTab] = useState<"modulos" | "actividades" | "boletin">("modulos");
+  const [tab, setTab] = useState<"modulos" | "actividades" | "boletin" | "configuracion">("modulos");
+  const [limites, setLimites] = useState<LimitesHijo | null>(null);
+  const [limitesLoading, setLimitesLoading] = useState(false);
+  const [guardandoLimites, setGuardandoLimites] = useState(false);
+  const [revocando, setRevocando] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -59,8 +64,40 @@ export default function HijosProgreso() {
     fetchAulasHijo(seleccionado)
       .then((data) => { if (!active) return; setAulas(data); })
       .catch(() => { if (!active) return; setAulas([]); });
+    setLimitesLoading(true);
+    fetchLimitesHijo(seleccionado)
+      .then((data) => { if (!active) return; setLimites(data); })
+      .catch(() => { if (!active) return; setLimites(null); })
+      .finally(() => { if (!active) return; setLimitesLoading(false); });
     return () => { active = false; };
   }, [seleccionado]);
+
+  const guardarLimites = async (cambios: Partial<Pick<LimitesHijo, "permisosTareas" | "permisosMensajes" | "notas">>) => {
+    if (!seleccionado) return;
+    setGuardandoLimites(true);
+    try {
+      const actualizado = await actualizarLimitesHijo(seleccionado, cambios);
+      setLimites(actualizado);
+    } finally {
+      setGuardandoLimites(false);
+    }
+  };
+
+  const onRevocarVinculo = async () => {
+    if (!seleccionado) return;
+    const ok = window.confirm(
+      "¿Revocar el vínculo con este hijo? Vas a dejar de ver su progreso, boletín y actividades hasta que se vuelva a vincular."
+    );
+    if (!ok) return;
+    setRevocando(true);
+    try {
+      await revocarVinculoHijo(seleccionado);
+      setHijosData((prev) => prev.filter((h) => h.id !== seleccionado));
+      setSeleccionado(null);
+    } finally {
+      setRevocando(false);
+    }
+  };
 
   const hijos = useMemo(() => {
     const byName = (c: ChildProgress) =>
@@ -214,6 +251,7 @@ export default function HijosProgreso() {
                 { key: "modulos", label: "Módulos" },
                 { key: "actividades", label: "Próximas actividades" },
                 { key: "boletin", label: "Boletín" },
+                { key: "configuracion", label: "Configuración" },
               ] as const).map((t) => (
                 <button
                   key={t.key}
@@ -374,6 +412,72 @@ export default function HijosProgreso() {
                     </div>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {tab === "configuracion" && (
+              <div className="mt-5 space-y-6 max-w-lg">
+                {limitesLoading && (
+                  <div className="h-24 rounded-xl animate-pulse bg-[var(--c-border)]" />
+                )}
+                {!limitesLoading && limites && (
+                  <div className="space-y-3">
+                    <p className="text-xs font-medium text-[var(--c-muted)]">Límites y permisos</p>
+                    <label className="flex items-center gap-2 text-sm text-[var(--c-text)]">
+                      <input
+                        type="checkbox"
+                        checked={limites.permisosTareas}
+                        disabled={guardandoLimites}
+                        onChange={(e) => {
+                          setLimites({ ...limites, permisosTareas: e.target.checked });
+                          void guardarLimites({ permisosTareas: e.target.checked });
+                        }}
+                      />
+                      Puede ver tareas/módulos asignados
+                    </label>
+                    <label className="flex items-center gap-2 text-sm text-[var(--c-text)]">
+                      <input
+                        type="checkbox"
+                        checked={limites.permisosMensajes}
+                        disabled={guardandoLimites}
+                        onChange={(e) => {
+                          setLimites({ ...limites, permisosMensajes: e.target.checked });
+                          void guardarLimites({ permisosMensajes: e.target.checked });
+                        }}
+                      />
+                      Puede recibir mensajes
+                    </label>
+                    <div>
+                      <label className="block text-xs font-medium text-[var(--c-muted)] mb-1" htmlFor="notas-hijo">
+                        Notas
+                      </label>
+                      <textarea
+                        id="notas-hijo"
+                        rows={3}
+                        className={`w-full ${inputCls}`}
+                        defaultValue={limites.notas ?? ""}
+                        disabled={guardandoLimites}
+                        onBlur={(e) => {
+                          if (e.target.value !== (limites.notas ?? "")) {
+                            void guardarLimites({ notas: e.target.value });
+                          }
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                <div className="pt-4 border-t border-[var(--c-border)]">
+                  <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Zona de riesgo</p>
+                  <button
+                    type="button"
+                    onClick={onRevocarVinculo}
+                    disabled={revocando}
+                    className="text-xs rounded-lg border border-[var(--c-danger)] text-[var(--c-danger)] px-3 py-1.5 hover:bg-[color-mix(in_srgb,var(--c-danger)_10%,transparent)] transition-colors disabled:opacity-50"
+                  >
+                    {revocando ? "Revocando…" : "Revocar vínculo con este hijo"}
+                  </button>
+                </div>
               </div>
             )}
           </section>

@@ -68,7 +68,7 @@ function round(v: number, dec: number): number {
   return Math.round(v * f) / f;
 }
 
-type Inputs = Record<string, number>;
+type Inputs = Record<string, any>; // C3 (PLAN-CORRECCIONES): valores mixtos number/string (variante/direccion) — ver nota de tipos arriba.
 
 /** Simplifica una fracción en formato "p/q" o "p" (entero) a su forma canónica. */
 function simplifyFraccionStr(s: string): string {
@@ -405,7 +405,7 @@ const CASES: PortCase[] = [
     dificultad: "basico",
     // media = sum / count. El generador sortea entre media/mediana/moda;
     // sólo "Calcula la media" matchea esta regex.
-    oracle: (i) => round(i.datos.reduce((s, v) => s + v, 0) / i.datos.length, 2),
+    oracle: (i) => round(i.datos.reduce((s: number, v: number) => s + v, 0) / i.datos.length, 2),
     inputsFromGenerator: (e) => {
       const m = e.match(/Calcula la media del conjunto de datos: \{([^}]+)\}\./);
       if (!m) return null;

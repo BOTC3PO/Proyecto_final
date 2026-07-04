@@ -53,12 +53,19 @@ plan; si se necesita en el futuro, es un campo aditivo en `Vote` (`peso: Float
 **Quórum y mayorías**: ya configurable por `ENV.GOV_GOVERNANCE_RULE`
 (`MAJORITY` | `SUPERMAJORITY_2_3` | `UNANIMOUS`, default supermayoría 2/3) para
 nivel GOVERNANCE, y por `ENV.GOV_CONTENT_MIN_YES` + `GOV_CONTENT_YES_GT_NO`
-para nivel CONTENT (`evaluateProposalOutcome`). No hay noción de quórum mínimo
-de participación (cuántos votantes elegibles tienen que votar, no sólo cuántos
-a favor) — **gap real**: hoy una propuesta con un solo voto "a favor" y cero
-"en contra" se aprueba igual bajo `MAJORITY`. Si se quiere quórum mínimo, es un
-parámetro nuevo (`GOV_MIN_QUORUM`) comparado contra la membresía elegible del
-target, no implementado hoy.
+para nivel CONTENT (`evaluateProposalOutcome`).
+
+**Quórum mínimo de participación — implementado 2026-07-03 (PLAN-C §7,
+gap #1)**: `ENV.GOV_MIN_QUORUM` (default `0` = desactivado) exige un mínimo
+de votos totales (`approve+reject+abstain`) antes de evaluar la
+mayoría/regla de nivel; si no se alcanza, la propuesta se cierra
+`REJECTED` con `rule: QUORUM_NOT_MET(...)`. **Simplificación consciente**:
+compara contra un número absoluto configurado por env, NO contra la
+membresía elegible real del target (contar "votantes elegibles" por
+target requeriría resolver membresía de escuela/aula por
+`targetType`/`targetId`, que es una feature aparte). Si en el futuro se
+necesita quórum proporcional a la membresía, es una extensión de este
+mismo chequeo en `evaluateProposalOutcome`, no un rediseño.
 
 ## 3. Vinculante vs. consultivo
 
@@ -111,9 +118,9 @@ Ninguno de estos gaps bloquea el uso actual de gobernanza (aula/escuela pueden
 proponer y votar hoy mismo con lo que existe). Quedan priorizados por si se
 retoman:
 
-1. **Quórum mínimo de participación** (no sólo mayoría de los votos emitidos) —
-   el gap más importante detectado; sin esto, una propuesta con 1 voto se
-   aprueba igual que una con 100.
+1. ~~**Quórum mínimo de participación**~~ — **resuelto 2026-07-03** (ver §2,
+   `GOV_MIN_QUORUM`); versión simplificada (número absoluto por env, no
+   membresía elegible del target).
 2. **Etiqueta explícita vinculante/consultivo** en la respuesta de la API y en
    el front, en vez de que dependa de una lista blanca interna invisible al
    usuario.

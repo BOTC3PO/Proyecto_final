@@ -1,4 +1,4 @@
-import { apiGet, apiPost } from "../lib/api";
+import { apiGet, apiPatch, apiPost } from "../lib/api";
 
 export type ActividadHijo = {
   id: string;
@@ -60,6 +60,29 @@ export async function fetchAulasHijo(hijoId: string): Promise<AulaHijo[]> {
     `/api/padres/hijos/${hijoId}/aulas`
   );
   return data.aulas ?? [];
+}
+
+// ─── PLAN-C §5 diferido — límites del hijo + revocar vínculo ───────────
+
+export type LimitesHijo = {
+  permisosTareas: boolean;
+  permisosMensajes: boolean;
+  notas: string | null;
+};
+
+export async function fetchLimitesHijo(hijoId: string): Promise<LimitesHijo> {
+  return apiGet<LimitesHijo>(`/api/padres/hijos/${hijoId}/limites`);
+}
+
+export async function actualizarLimitesHijo(
+  hijoId: string,
+  cambios: Partial<Pick<LimitesHijo, "permisosTareas" | "permisosMensajes" | "notas">>
+): Promise<LimitesHijo> {
+  return apiPatch<LimitesHijo>(`/api/padres/hijos/${hijoId}/limites`, cambios);
+}
+
+export async function revocarVinculoHijo(hijoId: string): Promise<{ ok: boolean }> {
+  return apiPost<{ ok: boolean }>(`/api/padres/hijos/${hijoId}/revocar`, {});
 }
 
 export type CrearCuentaAlumnoResponse = {

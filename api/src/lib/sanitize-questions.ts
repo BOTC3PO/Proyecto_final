@@ -6,6 +6,16 @@
  * detectar accesos indebidos al payload (alguien leyendo la respuesta real y
  * enviándola como si fuera propia) se planta un **canario**:
  *
+ * PLAN-C11 (2026-07-03, hallazgo de `ALCANCE_VBLang_2.0.md` §14.6): el
+ * adapter de VBLang (`to-module-quiz-question.ts`) propaga `pasos`
+ * (resolución paso a paso) y `pistas` tal cual al `ModuleQuizQuestion`.
+ * Esta función no los filtraba — un alumno con devtools podía leer la
+ * resolución completa ANTES de responder, aunque la UI (`QuizAttempt.tsx`)
+ * sólo la muestra tras el submit. `pasos`/`pistas` ahora se stripean por
+ * default igual que `explanation`; el único caller que necesita mostrarlos
+ * de verdad (revisión de un intento YA finalizado, para "Ver resolución")
+ * pasa `{ revealSolution: true }` explícitamente.
+ *
  *   answerKey: "VB-CANARY-<8 hex chars derivados de scope+questionId>"
  *
  * El canario es **estable** (no aleatorio) para que:
@@ -52,8 +62,9 @@ export function isCanaryAnswer(value: unknown): boolean {
 type Question = Record<string, unknown> & { id: string };
 
 /**
- * Devuelve una copia del array de preguntas sin `explanation` y con
- * `answerKey` reemplazado por un canario estable. NO muta el input.
+ * Devuelve una copia del array de preguntas sin `explanation`/`pasos`/
+ * `pistas` y con `answerKey` reemplazado por un canario estable. NO muta
+ * el input.
  *
  * El `scopeId` puede ser el quizId, la versión del quiz, o un identificador
  * equivalente que el caller ya tenga a mano. Solo se usa para derivar el
@@ -62,22 +73,37 @@ type Question = Record<string, unknown> & { id: string };
  * - Si la pregunta no tiene `id`, se omite (no podemos derivar un canario
  *   estable). El id es obligatorio por contrato del DSL.
  * - Si la pregunta no tiene `answerKey` (informativa / abierta), se devuelve
- *   tal cual excepto `explanation` (que sí se elimina).
+ *   tal cual excepto `explanation`/`pasos`/`pistas` (que sí se eliminan).
+ * - `options.revealSolution`: `true` sólo cuando el caller ya verificó que
+ *   corresponde mostrar la resolución (ej. intento ya finalizado, modo
+ *   revisión) — en ese caso `pasos`/`pistas` NO se eliminan. `explanation`
+ *   y `answerKey` siguen sanitizados siempre (sin caller que los necesite
+ *   hoy del lado alumno).
  */
 export function sanitizeQuestionsForStudent<T extends Question>(
   questions: readonly T[] | undefined,
-  scopeId: string
+  scopeId: string,
+  options?: { revealSolution?: boolean }
 ): T[] {
   if (!Array.isArray(questions) || questions.length === 0) return [];
+  const revealSolution = options?.revealSolution ?? false;
   return questions.map((q) => {
     if (!q || typeof q.id !== "string" || q.id.length === 0) {
       // Sin id no podemos derivar canario; devolvemos la pregunta sin
-      // explanation pero conservando el resto de campos.
-      const { explanation: _ex, ...rest } = q ?? {};
+      // explanation/pasos/pistas pero conservando el resto de campos.
+      if (revealSolution) {
+        const { explanation: _ex, ...rest } = q ?? {};
+        return rest as T;
+      }
+      const { explanation: _ex, pasos: _pa, pistas: _pi, ...rest } = (q ?? {}) as Record<string, unknown>;
       return rest as T;
     }
     const sanitized: Record<string, unknown> = { ...q };
     delete sanitized.explanation;
+    if (!revealSolution) {
+      delete sanitized.pasos;
+      delete sanitized.pistas;
+    }
     if ("answerKey" in sanitized && sanitized.answerKey !== undefined) {
       sanitized.answerKey = buildCanaryAnswer(scopeId, q.id);
     }

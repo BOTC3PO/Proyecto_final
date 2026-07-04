@@ -140,7 +140,11 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
       const versionMateria = String(settings.materia ?? "");
       if (materia && versionMateria && versionMateria !== materia) continue;
 
-      const modulo = moduloMap.get(quiz.moduleId);
+      // Filtrado arriba por `moduleId: { in: moduloIds } }` — estos
+      // quizzes siempre tienen módulo; el `?? ""` es sólo para el tipo
+      // (Quiz.moduleId es nullable desde PLAN-CORRECCIONES C2, por los
+      // quizzes "sueltos", que no aparecen en el banco).
+      const modulo = moduloMap.get(quiz.moduleId ?? "");
       const origenValue: "admin" | "escuela" =
         modulo?.schoolId ? "escuela" : "admin";
 

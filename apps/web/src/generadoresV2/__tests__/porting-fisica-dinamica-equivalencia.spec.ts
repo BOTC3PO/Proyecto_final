@@ -32,7 +32,7 @@ import { crearCalculadoraFisica } from "../fisica/calculadora";
 const NOOP_CALC: Calculator = { calcular: () => ({ resultado: 0, pasos: [] }) };
 const FISICA_CALC = crearCalculadoraFisica();
 
-type Inputs = Record<string, number>;
+type Inputs = Record<string, any>; // C3 (PLAN-CORRECCIONES): valores mixtos number/string (variante/direccion) — ver nota de tipos arriba.
 
 interface PortCase {
   subtipoOriginal: string;

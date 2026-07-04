@@ -494,7 +494,9 @@ export type ModuloRow = {
 
 export type QuizRow = {
   id: string;
-  moduleId: string;
+  // PLAN-CORRECCIONES C2 — nullable: quiz standalone sin módulo.
+  moduleId?: string | null;
+  ownerUserId?: string | null;
   title?: string | null;
   currentVersionId?: string | null;
   isActive?: boolean;
@@ -758,6 +760,8 @@ export class InMemoryPrisma {
   moderacionEvento = new Table<Row>("moderacionEvento");
   // PLAN-A §3 — persistencia de asistencia (routes/asistencia.ts).
   asistencia = new Table<Row>("asistencia");
+  // PLAN-A §3.4 — log de eventos para reportes del padre (routes/asistencia.ts).
+  eventoReportePadre = new Table<Row>("eventoReportePadre");
   // PLAN-B Fase 2 — núcleo de cobros escuela→familias (routes/cobros.ts).
   cobroEscuela = new Table<Row>("cobroEscuela");
   cuotaAlumno = new Table<Row>("cuotaAlumno");

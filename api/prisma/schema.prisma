@@ -567,13 +567,20 @@ model QuizQuestionSet {
 
 model Quiz {
   id               String  @id
-  moduleId         String  @map("module_id")
+  // PLAN-CORRECCIONES C2 — nullable: un quiz "suelto" (standalone) vive
+  // sin módulo hasta que el docente lo usa (clona) dentro de uno. Ver
+  // migración 20260703180000_quiz_standalone.
+  moduleId         String? @map("module_id")
+  // Dueño del quiz mientras es standalone (moduleId null). Con módulo
+  // asignado, la autorización pasa a depender del módulo (como antes)
+  // y este campo queda sin usar.
+  ownerUserId      String? @map("owner_user_id")
   title            String?
   isActive         Boolean @default(true) @map("is_active")
   currentVersionId String? @map("current_version_id")
   createdAt        String  @default("") @map("created_at")
   updatedAt        String  @default("") @map("updated_at")
-  modulo           Modulo  @relation(fields: [moduleId], references: [id])
+  modulo           Modulo? @relation(fields: [moduleId], references: [id])
   versions         QuizVersion[]
   attempts         QuizAttempt[]
   @@map("quizzes")

@@ -51,6 +51,12 @@ const baseItem = {
   materia: "Matemáticas",
   tipo: "cuestionario" as const,
   autor: "u1",
+  // C3 (PLAN-CORRECCIONES): FIX-TEST4-PROF-04 cambió el filtro de "Mis
+  // materiales" de `autor === user.id` a `ownerUserId === user.id`
+  // (ProfesorMateriales.tsx:116) — este fixture nunca se actualizó, así
+  // que el tab "propios" quedaba siempre vacío y "compartir-mat-1" no
+  // aparecía nunca.
+  ownerUserId: "u1",
   escuelaId: "s1",
   compartido: false,
   createdAt: "2026-06-01T00:00:00.000Z",

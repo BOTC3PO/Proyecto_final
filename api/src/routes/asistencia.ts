@@ -137,6 +137,7 @@ asistencia.put(
       const existing = await prisma.asistencia.findFirst({
         where: { claseId: aulaId, alumnoId: registro.alumnoId, fecha }
       });
+      const eraAusente = existing?.estado === "ausente";
       if (existing) {
         await prisma.asistencia.update({
           where: { id: existing.id },
@@ -159,6 +160,24 @@ asistencia.put(
             registradoPor: requesterId,
             createdAt: now,
             updatedAt: now
+          }
+        });
+      }
+      // PLAN-A §3.4 — evento para reportes del padre cuando una
+      // inasistencia se registra (o se corrige *a* "ausente"); no
+      // duplicar si ya estaba marcada ausente y se reenvía la misma
+      // planilla (idempotencia, mismo criterio que el upsert de arriba).
+      if (registro.estado === "ausente" && !eraAusente) {
+        await prisma.eventoReportePadre.create({
+          data: {
+            json: JSON.stringify({
+              tipo: "inasistencia",
+              claseId: aulaId,
+              alumnoId: registro.alumnoId,
+              fecha,
+              registradoPor: requesterId
+            }),
+            createdAt: now
           }
         });
       }

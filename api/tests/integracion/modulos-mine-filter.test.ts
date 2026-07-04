@@ -103,13 +103,17 @@ test("QA-FIX-07: TEACHER con ?mine=true solo ve sus módulos (no los ajenos)", a
   const res = await jsonRequest(baseUrl, "GET", "/api/modulos?mine=true", { token });
 
   assert.equal(res.status, 200);
-  const body = res.body as { items: Array<{ id: string; ownerUserId: string }> };
+  // PLAN-CORRECCIONES C1 — el endpoint mapea `ownerUserId` (columna
+  // Prisma) a `createdBy` (contrato del front, igual que
+  // `GET /api/modulos/:id`); antes de ese fix el listado devolvía la
+  // fila cruda con `ownerUserId`.
+  const body = res.body as { items: Array<{ id: string; createdBy: string }> };
   const ids = body.items.map((m) => m.id).sort();
   // Candado Q4: NO debe incluir MOD_B1, MOD_B2 ni MOD_PUB.
   assert.deepEqual(ids, [MOD_A1, MOD_A2], `unexpected items: ${JSON.stringify(ids)}`);
   // Sanity: todos los items son efectivamente del TEACHER_A.
   for (const m of body.items) {
-    assert.equal(m.ownerUserId, TEACHER_A, `item ${m.id} no es de TEACHER_A`);
+    assert.equal(m.createdBy, TEACHER_A, `item ${m.id} no es de TEACHER_A`);
   }
 });
 

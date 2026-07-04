@@ -206,6 +206,72 @@ test("FIX-QUIZATTEMPT: alumno sigue viendo canarios (sanitizacion intacta tras e
   }
 });
 
+const setQuestionsConResolucion = () => {
+  const questionsConResolucion = QUESTIONS.map((q) => ({
+    ...q,
+    pasos: [`Paso 1 de ${q.id}`, `Paso 2 de ${q.id}`],
+    pistas: [`Pista de ${q.id}`],
+  }));
+  const qv = prisma.quizVersion.rows.find((v) => v.id === QV_ID);
+  assert.ok(qv, "quizVersion de prueba debe existir");
+  (qv as { questions: unknown }).questions = JSON.stringify(questionsConResolucion) as unknown;
+};
+
+test("PLAN-C11: alumno NO ve pasos/pistas mientras el intento sigue in_progress", async () => {
+  setQuestionsConResolucion();
+
+  const alumnoToken = tokenFor({ id: ALUMNO_ID, role: "USER", schoolId: ESCUELA_ID });
+  const createRes = await jsonRequest(baseUrl, "POST", "/api/quiz-attempts", {
+    token: alumnoToken,
+    body: { quizId: QUIZ_ID, moduleId: MOD_ID },
+  });
+  assert.equal(createRes.status, 201);
+  const { id: attemptId } = createRes.body as { id: string };
+
+  const getRes = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, {
+    token: alumnoToken,
+  });
+  assert.equal(getRes.status, 200);
+  const body = getRes.body as { questions: Array<Record<string, unknown>> };
+  assert.equal(body.questions.length, 2);
+  for (const q of body.questions) {
+    assert.equal("pasos" in q, false, `pregunta ${q.id}: pasos no debe viajar antes de responder (fuga)`);
+    assert.equal("pistas" in q, false, `pregunta ${q.id}: pistas no debe viajar antes de responder (fuga)`);
+  }
+});
+
+test("PLAN-C11: alumno SÍ ve pasos/pistas una vez el intento está finalizado (modo revisión)", async () => {
+  setQuestionsConResolucion();
+
+  const alumnoToken = tokenFor({ id: ALUMNO_ID, role: "USER", schoolId: ESCUELA_ID });
+  const createRes = await jsonRequest(baseUrl, "POST", "/api/quiz-attempts", {
+    token: alumnoToken,
+    body: { quizId: QUIZ_ID, moduleId: MOD_ID },
+  });
+  assert.equal(createRes.status, 201);
+  const { id: attemptId } = createRes.body as { id: string };
+
+  // Simula el intento ya finalizado (ej. tras el submit).
+  const attempt = prisma.quizAttempt.rows.find((a) => a.id === attemptId);
+  assert.ok(attempt, "el intento debe existir");
+  (attempt as { status: string }).status = "submitted";
+
+  const getRes = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, {
+    token: alumnoToken,
+  });
+  assert.equal(getRes.status, 200);
+  const body = getRes.body as { questions: Array<Record<string, unknown>> };
+  assert.equal(body.questions.length, 2);
+  for (const q of body.questions) {
+    assert.ok(Array.isArray(q.pasos) && (q.pasos as unknown[]).length > 0, `pregunta ${q.id}: pasos debe verse en revisión`);
+  }
+  // explanation y answerKey real siguen sin exponerse, incluso en revisión
+  // (fuera de alcance de este fix — nadie los consume del lado alumno hoy).
+  for (const q of body.questions) {
+    assert.equal("explanation" in q, false);
+  }
+});
+
 test("FIX-QUIZATTEMPT: staff (docente dueno) ve las preguntas con answerKey real", async () => {
   // FIX-QUIZATTEMPT — la ruta `GET /api/quiz-attempts/:id` actual filtra
   // por `userId` (solo el alumno dueno). Para verificar el camino staff

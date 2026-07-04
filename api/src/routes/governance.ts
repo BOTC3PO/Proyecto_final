@@ -268,7 +268,8 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
     const outcome = evaluateProposalOutcome({
       level: proposal.level,
       approve: summary.approve,
-      reject: summary.reject
+      reject: summary.reject,
+      abstain: summary.abstain
     });
     const nextStatus = outcome.approved ? "APPROVED" : "REJECTED";
 

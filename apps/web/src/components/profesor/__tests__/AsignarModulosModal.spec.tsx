@@ -126,7 +126,11 @@ describe("AsignarModulosModal", () => {
     await waitFor(() => {
       expect(screen.getByTestId("asignar-modulos-list")).toBeInTheDocument();
     });
-    fireEvent.keyDown(window, { key: "Escape" });
+    // C3 (PLAN-CORRECCIONES): el átomo `Modal` (ui/Modal.tsx) engancha el
+    // ESC con `document.addEventListener("keydown", ..., true)`, no en
+    // `window` — despachar el evento en `window` nunca llegaba a ese
+    // listener (mismo patrón que `NuevaPlantillaWizard.spec.tsx`).
+    fireEvent.keyDown(document, { key: "Escape" });
     expect(onClose).toHaveBeenCalled();
   });
 

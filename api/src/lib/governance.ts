@@ -116,8 +116,21 @@ export const evaluateProposalOutcome = (params: {
   level: GovernanceLevel;
   approve: number;
   reject: number;
+  abstain?: number;
 }) => {
-  const { level, approve, reject } = params;
+  const { level, approve, reject, abstain = 0 } = params;
+
+  // PLAN-C §7 (gap #1 de docs/gobernanza-diseno.md): sin esto, una
+  // propuesta con 1 voto a favor se aprobaba igual que una con 100.
+  // GOV_MIN_QUORUM=0 (default) preserva el comportamiento previo.
+  const minQuorum = Math.max(0, ENV.GOV_MIN_QUORUM);
+  const totalVotes = approve + reject + abstain;
+  if (minQuorum > 0 && totalVotes < minQuorum) {
+    return {
+      approved: false,
+      rule: `QUORUM_NOT_MET(min=${minQuorum}, got=${totalVotes})`
+    };
+  }
 
   if (level === "CONTENT") {
     const meetsMinYes = approve >= Math.max(0, ENV.GOV_CONTENT_MIN_YES);

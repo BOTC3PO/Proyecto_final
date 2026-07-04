@@ -26,7 +26,7 @@ import type { Calculator, Dificultad } from "../core/types";
 
 const NOOP_CALC: Calculator = { calcular: () => ({ resultado: 0, pasos: [] }) };
 
-type Inputs = Record<string, number>;
+type Inputs = Record<string, any>; // C3 (PLAN-CORRECCIONES): valores mixtos number/string (variante/direccion) — ver nota de tipos arriba.
 
 interface PortCase {
   subtipoOriginal: string;

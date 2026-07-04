@@ -92,12 +92,12 @@ tipo: input
     });
     // Por default arranca en modo "codigo": el CodeEditor está montado.
     expect(result.queryByTestId("vblang-code-editor")).not.toBeNull();
-    expect(result.queryByTestId("vblang-form-tipo")).toBeNull();
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).toBeNull();
 
     // Click en el toggle a "Formulario": se desmonta el CodeEditor y aparece el form.
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     expect(result.queryByTestId("vblang-code-editor")).toBeNull();
-    expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).not.toBeNull();
 
     // Vuelta a "Código": el CodeEditor reaparece.
     fireEvent.click(result.getByTestId("vblang-modo-codigo"));
@@ -111,9 +111,7 @@ tipo: input
     });
     // Cambiamos a modo visual.
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
-    const tipoSelect = result.getByTestId(
-      "vblang-form-tipo",
-    ) as HTMLSelectElement;
+    const tipoSelect = result.getByRole("combobox", { name: "Tipo de pregunta" }) as HTMLSelectElement;
     expect(tipoSelect.value).toBe("input");
     // Cambiamos el tipo a "mc".
     await act(async () => {
@@ -145,7 +143,7 @@ tipo: input
     });
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     // El formulario DEBE seguir rendizándose (retenido) con un banner visible.
-    expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).not.toBeNull();
     expect(
       result.getByTestId("vblang-form-retenido-banner"),
     ).toBeInTheDocument();
@@ -172,9 +170,7 @@ tipo: input
 
     // Cambiamos el `tipo` desde el form retenido. Esto serializa y pisa el
     // código, reemplazando la versión rota por una válida.
-    const tipoSelect = result.getByTestId(
-      "vblang-form-tipo",
-    ) as HTMLSelectElement;
+    const tipoSelect = result.getByRole("combobox", { name: "Tipo de pregunta" }) as HTMLSelectElement;
     await act(async () => {
       fireEvent.change(tipoSelect, { target: { value: "mc" } });
       vi.advanceTimersByTime(700);
@@ -182,7 +178,7 @@ tipo: input
     // El banner debe haber desaparecido.
     expect(result.queryByTestId("vblang-form-retenido-banner")).toBeNull();
     // El form sigue presente.
-    expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).not.toBeNull();
 
     // Volvemos al modo código y verificamos que el código quedó válido
     // (contiene `tipo: mc` y ya no tiene la apertura de paréntesis rota).
@@ -206,7 +202,7 @@ tipo: input
     });
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     // Como nunca hubo una versión válida, debe verse el fallback.
-    expect(result.queryByTestId("vblang-form-tipo")).toBeNull();
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).toBeNull();
     expect(
       result.getByTestId("vblang-form-no-disponible"),
     ).toBeInTheDocument();
@@ -221,7 +217,7 @@ tipo: input
     });
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     // Form presente, banner ausente.
-    expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).not.toBeNull();
     expect(result.queryByTestId("vblang-form-retenido-banner")).toBeNull();
   });
 

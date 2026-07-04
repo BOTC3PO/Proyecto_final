@@ -1395,16 +1395,21 @@ function QuestionPropertyGrid({
               docsVariant="formulario"
               onInsertVariable={
                 enunField
-                  ? (token) =>
-                      onChange(
-                        writeTextField(
-                          plantilla,
-                          enunField,
-                          enunciado === "" || enunciado.endsWith(" ")
-                            ? `${enunciado}${token}`
-                            : `${enunciado} ${token}`,
-                        ),
-                      )
+                  ? (token) => {
+                      // C3 (PLAN-CORRECCIONES): `writeTextField` puede
+                      // devolver `null` para bloques que no maneja (acá
+                      // sólo se llama con `enunField`, que siempre cae en
+                      // el caso "enunciado" — no-op defensivo si algún día
+                      // deja de ser así).
+                      const next = writeTextField(
+                        plantilla,
+                        enunField,
+                        enunciado === "" || enunciado.endsWith(" ")
+                          ? `${enunciado}${token}`
+                          : `${enunciado} ${token}`,
+                      );
+                      if (next) onChange(next);
+                    }
                   : undefined
               }
             />

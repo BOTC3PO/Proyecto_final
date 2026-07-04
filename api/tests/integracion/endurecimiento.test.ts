@@ -221,14 +221,33 @@ test("FASE 7 (switch ajeno): switch a una cuenta de tercero sin vínculo → 403
   assert.equal(res.status, 403, "switch a tercero sin vínculo → 403");
 });
 
-test("FASE 7 (switch ajeno): switch sin ningún vínculo → 403", async () => {
+// C3 (PLAN-CORRECCIONES, saneamiento de deuda preexistente) — mismo caso
+// que `cambiar-cuenta.test.ts` ("FASE 2: switch sin vinculación"): un
+// TEACHER (staff) sin vínculo NO recibe 403 — `auth.ts` lo auto-provisiona
+// (feature ya existente, este test quedó escrito antes y sin actualizar).
+// El 403 sigue siendo el comportamiento correcto para roles no-staff.
+test("FASE 7 (switch ajeno): switch sin ningún vínculo, rol no-staff → 403", async () => {
+  const soloId = randomUUID();
+  seedUser({ id: soloId, role: "USER", schoolId: ESC, fullName: "Sin Vinculo" });
+  const token = tokenFor({ id: soloId, role: "USER", roles: ["USER"], schoolId: ESC });
+
+  const res = await jsonRequest(baseUrl, "POST", "/api/auth/cambiar-cuenta", { token, body: {} });
+
+  assert.equal(res.status, 403);
+});
+
+test("FASE 7 (switch ajeno): switch sin ningún vínculo, rol staff → 200 (provisión on-demand)", async () => {
   const soloId = randomUUID();
   seedUser({ id: soloId, role: "TEACHER", schoolId: ESC, fullName: "Sin Vinculo" });
   const token = tokenFor({ id: soloId, role: "TEACHER", roles: ["TEACHER"], schoolId: ESC });
 
   const res = await jsonRequest(baseUrl, "POST", "/api/auth/cambiar-cuenta", { token, body: {} });
 
-  assert.equal(res.status, 403);
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  const vinculo = await prisma.cuentaVinculada.findFirst({
+    where: { OR: [{ usuarioAId: soloId }, { usuarioBId: soloId }] },
+  });
+  assert.ok(vinculo, "debe quedar provisionado un vínculo con el espejo recién creado");
 });
 
 // ════════════════════════════════════════════════════════════════════════
