@@ -164,10 +164,16 @@ app.use(
 );
 
 // Rate limiter global
+// El cupo se cuenta por usuario autenticado (ver createRateLimiter),
+// no por IP, así que 500/15min por actor era innecesariamente bajo
+// para una SPA que dispara varias llamadas por navegación (contexto
+// de escuela, listados, etc.) — un docente navegando normalmente
+// podía agotarlo. 2000/15min sigue conteniendo abuso real por cuenta
+// individual sin penalizar el uso legítimo.
 app.use(
   createRateLimiter({
     windowMs: 15 * 60 * 1000,
-    limit: 500
+    limit: 2000
   })
 );
 app.use(health);
