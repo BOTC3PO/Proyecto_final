@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { apiGet, apiPost, getAuthToken } from '../lib/api';
 
@@ -7,7 +7,9 @@ type MaterialItem = {
   id: string;
   titulo: string;
   materia: string;
-  tipo: 'cuestionario' | 'documento' | 'otro';
+  // PLAN-G §1 (item 25) — además de 'cuestionario' (módulos, como antes),
+  // ahora puede ser uno de los 4 tipos de "material guardado".
+  tipo: 'cuestionario' | 'documento' | 'otro' | 'mapa' | 'timeline' | 'interactivo' | 'presentacion';
   autor: string;
   ownerUserId?: string | null;
   escuelaId: string | null;
@@ -15,6 +17,17 @@ type MaterialItem = {
   compartido: boolean;
   createdAt: string;
   questions?: number;
+  // 'modulo' (comportamiento de siempre) | 'material' (guardado nuevo, PLAN-G §1).
+  origen?: 'modulo' | 'material';
+};
+
+// PLAN-G §1 (item 25) — a qué ruta de editor navegar para reabrir cada
+// tipo de material guardado.
+const MATERIAL_EDITOR_ROUTE: Record<string, string> = {
+  mapa: '/herramientas/mapa-editor',
+  timeline: '/herramientas/linea-tiempo-editor',
+  interactivo: '/bloques/editor',
+  presentacion: '/herramientas/presentacion-editor',
 };
 
 type ShareScope = 'privado' | 'escuela' | 'publico';
@@ -27,6 +40,7 @@ const SHARE_SCOPE_OPTIONS: Array<{ value: ShareScope; label: string; helper: str
 
 export default function ProfesorMateriales() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [items, setItems] = useState<MaterialItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<'propios' | 'escuela'>('escuela');
@@ -202,7 +216,17 @@ export default function ProfesorMateriales() {
               </p>
             </div>
             <div className="flex gap-2 flex-shrink-0">
-              {tab === 'propios' && (
+              {item.origen === 'material' && MATERIAL_EDITOR_ROUTE[item.tipo] && (
+                <button
+                  type="button"
+                  onClick={() => navigate(`${MATERIAL_EDITOR_ROUTE[item.tipo]}?materialId=${item.id}`)}
+                  data-testid={`abrir-${item.id}`}
+                  className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+                >
+                  Abrir
+                </button>
+              )}
+              {tab === 'propios' && item.origen !== 'material' && (
                 <button
                   onClick={() => openShareDialog(item)}
                   data-testid={`compartir-${item.id}`}
@@ -211,13 +235,15 @@ export default function ProfesorMateriales() {
                   {item.compartido ? 'Cambiar alcance' : 'Compartir'}
                 </button>
               )}
-              <button
-                type="button"
-                onClick={() => handleDescargar(item)}
-                className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-              >
-                ↓ Descargar
-              </button>
+              {item.origen !== 'material' && (
+                <button
+                  type="button"
+                  onClick={() => handleDescargar(item)}
+                  className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                >
+                  ↓ Descargar
+                </button>
+              )}
             </div>
           </div>
         ))}

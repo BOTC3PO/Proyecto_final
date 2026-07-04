@@ -18,6 +18,7 @@ import { LatexBlockRenderer } from "../../blocks/renderers/LatexBlockRenderer";
 import { TableBlockRenderer } from "../../blocks/renderers/TableBlockRenderer";
 import { ChartBlockRenderer } from "../../blocks/renderers/ChartBlockRenderer";
 import { FlowBlockRenderer } from "../../blocks/renderers/FlowBlockRenderer";
+import { GuardarComoMaterial } from "../materiales/GuardarComoMaterial";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
@@ -1903,6 +1904,10 @@ type Props = {
   initialAccentColor?: AccentColor;
   onDone: (slides: Slide[], theme: ThemeKey, accentColor?: AccentColor) => void;
   onClose: () => void;
+  // PLAN-G §1 (item 25) — si la presentación se abrió desde un material
+  // guardado, permite que "Guardar como material" cree una versión nueva
+  // en vez de un material nuevo.
+  materialId?: string | null;
 };
 
 // ─── Main component ───────────────────────────────────────────────────────────
@@ -1914,6 +1919,7 @@ export default function TheorySlideEditor({
   initialAccentColor,
   onDone,
   onClose,
+  materialId,
 }: Props) {
   const {
     slides,
@@ -2001,6 +2007,13 @@ export default function TheorySlideEditor({
             <Plus size={12} />
             Diapositiva
           </Button>
+
+          <GuardarComoMaterial
+            tipo="presentacion"
+            defaultTitulo={presentationTitle}
+            materialId={materialId}
+            getContenido={() => ({ version: 3, theme, accentColor, slides })}
+          />
 
           <Button
             variant="primary"

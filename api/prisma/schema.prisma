@@ -634,6 +634,48 @@ model QuizAttempt {
   @@map("quiz_attempts")
 }
 
+// PLAN-G §1 (ítem 25) — "Material" escolar: contrato único para lo que
+// producen los editores standalone (mapas, línea de tiempo, herramienta
+// interactiva/bloques, presentaciones) cuando el docente los guarda como
+// pieza reusable e independiente de un módulo puntual. Sigue el patrón
+// padre+versión de Quiz/QuizVersion (no sobrescribe a ciegas: cada
+// "Guardar como material" crea una MaterialVersion nueva) cruzado con el
+// scoping de Libro (ownerUserId/schoolId/visibility). Deliberadamente NO
+// reemplaza cómo Modulo.theoryItems[].detail persiste hoy — es un destino
+// de guardado adicional y opcional.
+model Material {
+  id               String   @id
+  tipo             String   // 'mapa' | 'timeline' | 'interactivo' | 'presentacion'
+  titulo           String
+  ownerUserId      String   @map("owner_user_id")
+  schoolId         String?  @map("school_id")
+  visibility       String   @default("privado")
+  currentVersionId String?  @map("current_version_id")
+  isDeleted        Boolean  @default(false) @map("is_deleted")
+  createdAt        String   @default("") @map("created_at")
+  updatedAt        String   @default("") @map("updated_at")
+  versions         MaterialVersion[]
+
+  @@index([ownerUserId])
+  @@index([schoolId, visibility])
+  @@map("materiales_guardados")
+}
+
+model MaterialVersion {
+  id            String   @id
+  materialId    String   @map("material_id")
+  versionNumber Int      @map("version_number")
+  schemaVersion Int      @default(1) @map("schema_version")
+  contenido     String   // JSON serializado, shape según Material.tipo
+  contentHash   String?  @map("content_hash")
+  createdAt     String   @default("") @map("created_at")
+  createdBy     String?  @map("created_by")
+  material      Material @relation(fields: [materialId], references: [id])
+
+  @@unique([materialId, versionNumber])
+  @@map("material_versions")
+}
+
 model ActividadAula {
   id          String  @id
   aulaId      String  @map("aula_id")

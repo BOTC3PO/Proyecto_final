@@ -17,6 +17,7 @@ import { migrateMapaConfig } from "./mapa.migrate";
 import { AnnotationLayer, pointsToPolyline } from "./AnnotationLayer";
 import { GeoJsonLayer } from "../../../lib/maps/GeoJsonLayer";
 import { useViewBoxZoom } from "../../../lib/maps/useViewBoxZoom";
+import { escalaPorZoom } from "../../../lib/maps/escala-por-zoom";
 
 const MAP_WIDTH = 960;
 const MAP_HEIGHT = 520;
@@ -143,6 +144,9 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
     svgRef,
     active: true,
   });
+
+  // ITEM-45.a — ver escala-por-zoom.ts / MapaEditorFull.tsx.
+  const zoom = escalaPorZoom(viewBox.w, MAP_WIDTH);
 
   const [localConfig, setLocalConfig] = useState<MapaConfig>(() => migrateMapaConfig(config));
 
@@ -521,7 +525,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                       fillOpacity={isHovered ? 0.55 : 0.28}
                       stroke="currentColor"
                       strokeOpacity={0.6}
-                      strokeWidth={0.4}
+                      strokeWidth={0.4 * zoom}
                       onMouseEnter={() => setHoveredCountry(name ?? null)}
                       onMouseLeave={() => setHoveredCountry(null)}
                     />
@@ -553,6 +557,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                   color={c.color}
                   project={project}
                   visible={c.visible}
+                  zoom={zoom}
                 />
               ))}
 
@@ -564,6 +569,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                   selectedId={selectedId}
                   onSelect={handleSelectAnnotation}
                   editable={editable}
+                  zoom={zoom}
                 />
               )}
 
@@ -573,7 +579,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                   points={pointsToPolyline(pendingZona, project)}
                   fill="none"
                   stroke="var(--c-primary)"
-                  strokeWidth={1.5}
+                  strokeWidth={1.5 * zoom}
                   strokeDasharray="4 2"
                   opacity={0.7}
                 />
@@ -584,10 +590,10 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                 <circle
                   cx={project(pendingFlecha[0], pendingFlecha[1])[0]}
                   cy={project(pendingFlecha[0], pendingFlecha[1])[1]}
-                  r={5}
+                  r={5 * zoom}
                   fill="var(--c-warning)"
                   stroke="var(--c-surface)"
-                  strokeWidth={1.5}
+                  strokeWidth={1.5 * zoom}
                 />
               )}
             </svg>

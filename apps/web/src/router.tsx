@@ -47,6 +47,8 @@ const Clases              = lazyWithRetry(() => import("./pages/aula"));
 const MisClases           = lazyWithRetry(() => import("./pages/MisClases"));
 const BookEditorPage      = lazyWithRetry(() => import("./bookEditor/BookEditorPage"));
 const BlockEditorPage     = lazyWithRetry(() => import("./blocks/v2/BlockEditorPage"));
+const PresentacionEditorPage = lazyWithRetry(() => import("./pages/herramientas/PresentacionEditorPage"));
+const LineaTiempoEditorPage = lazyWithRetry(() => import("./pages/herramientas/LineaTiempoEditorPage"));
 const ProfesorAulas       = lazyWithRetry(() => import("./pages/ProfesorAulas"));
 const ProfesorConfiguracion = lazyWithRetry(() => import("./pages/ProfesorConfiguracion"));
 const ProfesorEstadisticas  = lazyWithRetry(() => import("./pages/ProfesorEstadisticas"));
@@ -750,6 +752,9 @@ export const router = createBrowserRouter([
           { path: "editor/:id",         element: withSuspense(<BookEditorPage />) },
           { path: "bloques/editor",     element: withSuspense(<BlockEditorPage />) },
           { path: "bloques/editor/:id", element: withSuspense(<BlockEditorPage />) },
+          // PLAN-G §1 (item 25) — reabrir una presentación / línea de tiempo guardada como material.
+          { path: "herramientas/presentacion-editor", element: withSuspense(<PresentacionEditorPage />) },
+          { path: "herramientas/linea-tiempo-editor", element: withSuspense(<LineaTiempoEditorPage />) },
         ],
       },
 

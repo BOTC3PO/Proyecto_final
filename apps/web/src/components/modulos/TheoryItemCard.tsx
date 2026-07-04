@@ -20,6 +20,13 @@ export type TheoryItem = {
   title: string;
   type: TheoryItemType;
   detail: string;
+  // PLAN-G §1 (item 25) — metadata NO vinculante: si este item se creó
+  // insertando un material guardado, apunta al `Material.id` de origen
+  // (mismo patrón que `clonedFromId` en Libro/Quiz, WO-13). El `detail`
+  // sigue siendo la fuente de verdad — un snapshot copiado al insertar,
+  // no una referencia viva. Editar el material después no actualiza
+  // este item.
+  sourceMaterialId?: string | null;
 };
 
 type TheoryItemCardProps = {

@@ -55,6 +55,7 @@ import {
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 import MapaEditorFull from "../herramientas/MapaEditorFull";
+import { InsertarMaterialGuardado } from "../../components/materiales/InsertarMaterialGuardado";
 
 // ─── Pills de estado (prototipo `.pill`) ───────────────────────────────────
 // Mismas tonalidades que el componente de diseño `ui/Pill`, pero con
@@ -151,6 +152,7 @@ export default function ModuloEditor() {
     newTheoryItem,
     setNewTheoryItem,
     handleAddTheoryItem,
+    insertMaterialTheoryItem,
     updateTheoryItem,
     removeTheoryItem,
     moveTheoryItem,
@@ -985,7 +987,11 @@ export default function ModuloEditor() {
 
                 {/* New theory item form */}
                 <div className="space-y-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--c-muted)]">Agregar recurso</p>
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[var(--c-muted)]">Agregar recurso</p>
+                    {/* PLAN-G §1 (item 25) — insertar un material guardado (copia snapshot, no vínculo vivo). */}
+                    <InsertarMaterialGuardado onInsert={insertMaterialTheoryItem} />
+                  </div>
                   <div className="grid gap-3 md:grid-cols-[1fr_180px]">
                     <input
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
@@ -1261,7 +1267,7 @@ export default function ModuloEditor() {
                           <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--c-border)] text-xs font-bold font-mono text-[var(--c-muted)]">
                             {itemIdx + 1}
                           </span>
-                          <div className="flex-1 space-y-3">
+                          <div className="min-w-0 flex-1 space-y-3">
                             <TheoryItemCard item={item} />
                             <div className="flex flex-col gap-2">
                               <input

@@ -69,6 +69,8 @@ import { FunctionSquare, Shapes } from "lucide-react";
 import { useBlockEditor } from "./state/useBlockEditor";
 import { fetchBlockDocument, saveBlockDocument } from "./services/blocksApi";
 import { Button, Pill, Input, Select } from "../../components/ui";
+import { GuardarComoMaterial } from "../../components/materiales/GuardarComoMaterial";
+import { apiGet } from "../../lib/api";
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -619,13 +621,21 @@ function SortableBlockItem({
 export default function BlockEditorPage({
   initialDocument,
   onDone,
+  materialId: materialIdProp,
 }: {
   initialDocument?: BlockDocument;
   onDone?: (doc: BlockDocument) => void;
+  // PLAN-G §1 (item 25) — si el documento se abrió desde un material
+  // guardado, permite que "Guardar como material" cree una versión
+  // nueva en vez de un material nuevo. En modo standalone también se
+  // puede recibir por query param (?materialId=), ver más abajo.
+  materialId?: string | null;
 } = {}) {
   const { id } = useParams<{ id?: string }>();
   const [searchParams] = useSearchParams();
   const ssKey = searchParams.get("sskey");
+  const materialIdParam = searchParams.get("materialId");
+  const materialId = materialIdProp ?? materialIdParam;
 
   const { state, dispatch, undo, redo, canUndo, canRedo, selectedBlock } = useBlockEditor();
   const { document: doc, title, selectedBlockId, dirty } = state;
@@ -698,6 +708,24 @@ export default function BlockEditorPage({
         } catch {
           // fall through
         }
+      }
+
+      // Priority 1.5 (PLAN-G §1, item 25): ?materialId= → fetch material
+      // guardado (contenido ya parseado por el back).
+      if (materialIdParam) {
+        try {
+          const material = await apiGet<{ version: { contenido: BlockDocument } }>(
+            `/api/materiales/guardados/${materialIdParam}`,
+          );
+          const candidate = material.version.contenido as unknown;
+          dispatch({
+            type: "LOAD_DOCUMENT",
+            document: isValidBlockDocument(candidate) ? candidate : createEmptyBlockDocument(),
+          });
+        } catch {
+          dispatch({ type: "LOAD_DOCUMENT", document: createEmptyBlockDocument() });
+        }
+        return;
       }
 
       // Priority 2: :id route param → fetch from API
@@ -1083,6 +1111,12 @@ export default function BlockEditorPage({
         <Button variant="ghost" size="sm" onClick={exportFile}>
           Exportar
         </Button>
+        <GuardarComoMaterial
+          tipo="interactivo"
+          defaultTitulo={title}
+          materialId={materialId}
+          getContenido={() => doc}
+        />
         <Button variant="primary" size="sm" onClick={onDone ? () => onDone(doc) : handleSaveApi}>
           {onDone ? "Guardar" : "Guardar API"}
         </Button>

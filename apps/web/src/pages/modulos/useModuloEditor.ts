@@ -333,6 +333,29 @@ export function useModuloEditor(
     setTuesdayPickerFor(null);
   };
 
+  // PLAN-G §1 (item 25) — insertar un material guardado como TheoryItem.
+  // Copia snapshot (no referencia viva): editar el material después no
+  // actualiza este item, igual que `clonedFromId` en Libro/Quiz (WO-13).
+  const MATERIAL_TIPO_TO_THEORY_TYPE: Record<string, string> = {
+    mapa: "HerramientaStandalone",
+    timeline: "HerramientaStandalone",
+    interactivo: "Herramienta",
+    presentacion: "Presentación",
+  };
+
+  const insertMaterialTheoryItem = (material: { id: string; tipo: string; titulo: string; contenido: unknown }) => {
+    const type = MATERIAL_TIPO_TO_THEORY_TYPE[material.tipo];
+    if (!type) return;
+    const nextItem: TheoryItem = {
+      id: `theory-${Date.now()}`,
+      title: material.titulo,
+      type,
+      detail: JSON.stringify(material.contenido),
+      sourceMaterialId: material.id,
+    };
+    setTheoryItems((prev) => [...prev, nextItem]);
+  };
+
   const updateTheoryItem = (itemId: string, patch: Partial<TheoryItem>) => {
     setTheoryItems((prev) =>
       prev.map((item) => (item.id === itemId ? { ...item, ...patch } : item)),
@@ -603,6 +626,7 @@ export function useModuloEditor(
     newTheoryItem,
     setNewTheoryItem,
     handleAddTheoryItem,
+    insertMaterialTheoryItem,
     updateTheoryItem,
     removeTheoryItem,
     moveTheoryItem,

@@ -1,5 +1,6 @@
 import { useId, useState } from "react";
 import { type LineaTiempoConfig } from "./types";
+import { GuardarComoMaterial } from "../../materiales/GuardarComoMaterial";
 
 // ── Alumno (readonly) ────────────────────────────────────────────────
 
@@ -98,6 +99,10 @@ function LineaTiempoAlumno({ config }: AlumnoProps) {
 type EditorProps = {
   config?: LineaTiempoConfig;
   onChange: (config: LineaTiempoConfig) => void;
+  // PLAN-G §1 (item 25) — si la línea de tiempo se abrió desde un
+  // material guardado, permite que "Guardar como material" cree una
+  // versión nueva en vez de un material nuevo.
+  materialId?: string | null;
 };
 
 function makeId() {
@@ -115,7 +120,7 @@ const FIELD_CLS =
 const MOVE_BTN_CLS =
   "text-xs text-[var(--c-text-3)] hover:text-[var(--c-text)] px-1 disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm";
 
-function LineaTiempoEditor({ config, onChange }: EditorProps) {
+function LineaTiempoEditor({ config, onChange, materialId }: EditorProps) {
   const cfg = config ?? emptyConfig();
   const tituloId = useId();
   const [announce, setAnnounce] = useState("");
@@ -165,6 +170,13 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
           onChange={(e) => update({ titulo: e.target.value })}
         />
       </div>
+
+      <GuardarComoMaterial
+        tipo="timeline"
+        defaultTitulo={cfg.titulo || "Línea de tiempo"}
+        materialId={materialId}
+        getContenido={() => cfg}
+      />
 
       <div>
         <div className="flex items-center justify-between mb-2">
@@ -277,12 +289,16 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
 // ── Export ────────────────────────────────────────────────────────────
 
 type Props =
-  | { config: LineaTiempoConfig; onChange?: never }
-  | { config?: LineaTiempoConfig; onChange: (config: LineaTiempoConfig) => void };
+  | { config: LineaTiempoConfig; onChange?: never; materialId?: never }
+  | {
+      config?: LineaTiempoConfig;
+      onChange: (config: LineaTiempoConfig) => void;
+      materialId?: string | null;
+    };
 
-export function LineaTiempo({ config, onChange }: Props) {
+export function LineaTiempo({ config, onChange, materialId }: Props) {
   if (onChange !== undefined) {
-    return <LineaTiempoEditor config={config} onChange={onChange} />;
+    return <LineaTiempoEditor config={config} onChange={onChange} materialId={materialId} />;
   }
   if (!config) return null;
   return <LineaTiempoAlumno config={config} />;

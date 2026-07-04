@@ -599,6 +599,32 @@ export type BloqueJsonRow = {
   updatedAt: string;
 };
 
+// PLAN-G §1 (item 25) — "material guardado" (mapa/timeline/interactivo/
+// presentacion), patrón padre+version igual a Quiz/QuizVersion.
+export type MaterialRow = {
+  id: string;
+  tipo: string;
+  titulo: string;
+  ownerUserId: string;
+  schoolId?: string | null;
+  visibility: string;
+  currentVersionId?: string | null;
+  isDeleted?: boolean;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type MaterialVersionRow = {
+  id: string;
+  materialId: string;
+  versionNumber: number;
+  schemaVersion: number;
+  contenido: string;
+  contentHash?: string | null;
+  createdAt: string;
+  createdBy?: string | null;
+};
+
 // SEC-LIBRO — fila de `libros` para el rig de tests. Tiene los
 // campos de ownership que agregó la migración
 // 20260617030000_sec_libro_ownership. Nullable para reflejar libros
@@ -712,6 +738,8 @@ export class InMemoryPrisma {
   encuesta = new Table<EncuestaRow>("encuesta");
   encuestaRespuesta = new Table<EncuestaRespuestaRow>("encuestaRespuesta");
   bloqueJson = new Table<BloqueJsonRow>("bloqueJson");
+  material = new Table<MaterialRow>("material");
+  materialVersion = new Table<MaterialVersionRow>("materialVersion");
   configModulo = new Table<ConfigModuloRow>("configModulo");
   // SEC-LIBRO — modelo `libro` (tabla `libros`). El handler usa
   // `prisma.libro.findFirst`, `findMany`, `create`, `updateMany`.

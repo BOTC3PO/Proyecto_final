@@ -9,7 +9,7 @@
 // lo monta decide qué hacer con el resultado (la ruta standalone persiste a
 // sessionStorage — ver MapaEditorPage; ModuloEditor lo monta en un overlay y
 // actualiza la herramienta en memoria).
-import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent, type MouseEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent, type MouseEvent, type PointerEvent } from "react";
 import { topologyToFeatures } from "../../lib/maps/topojson-lite";
 import type { CountryFeature, TopologyLike } from "../../lib/maps/topojson-lite";
 import { mapaBaseUrl } from "../../lib/maps/base-url";
@@ -28,6 +28,7 @@ import {
 import { makeCapaId, migrateMapaConfig } from "../../components/modulos/standalone/mapa.migrate";
 import { AnnotationLayer, pointsToPolyline } from "../../components/modulos/standalone/AnnotationLayer";
 import { datasetDetailToMapaDataset, datasetTieneCoordenadas } from "../../components/modulos/standalone/mapa.datasets";
+import { GuardarComoMaterial } from "../../components/materiales/GuardarComoMaterial";
 import { listDatasets, getDataset } from "../../domain/vblang/datasetApi";
 import type { DatasetListItem } from "../../domain/vblang/dataset.types";
 import { useMapEditorShortcuts } from "./mapa-editor-shortcuts";
@@ -47,6 +48,8 @@ import {
 import { GeoJsonLayer } from "../../lib/maps/GeoJsonLayer";
 import { validarGeoJsonText } from "../../lib/maps/geojson-import";
 import { useViewBoxZoom } from "../../lib/maps/useViewBoxZoom";
+import { escalaPorZoom } from "../../lib/maps/escala-por-zoom";
+import { buscarLugares, type GeonameResultado } from "../../lib/maps/geonamesApi";
 import styles from "./MapaEditorFull.module.css";
 
 const MAP_WIDTH = 1000;
@@ -144,9 +147,13 @@ export interface MapaEditorFullProps {
   onSave: (config: MapaConfig) => void;
   /** Llamado al tocar «Volver» (tras confirmar el descarte si hubo cambios). */
   onCancel: () => void;
+  // PLAN-G §1 (item 25) — si el mapa se abrió desde un material guardado,
+  // permite que "Guardar como material" cree una versión nueva en vez de
+  // un material nuevo.
+  materialId?: string | null;
 }
 
-export default function MapaEditorFull({ initialConfig, onSave, onCancel }: MapaEditorFullProps) {
+export default function MapaEditorFull({ initialConfig, onSave, onCancel, materialId }: MapaEditorFullProps) {
   // ─── Config inicial (migrada) ───────────────────────────────────
   const [config, setConfig] = useState<MapaConfig>(() => migrateMapaConfig(initialConfig));
 
@@ -186,11 +193,19 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
   const svgRef = useRef<SVGSVGElement>(null);
 
   // ─── Zoom / pan ─────────────────────────────────────────────────
-  // M7: extraído a useViewBoxZoom. El editor solo activa el pan cuando la
-  // herramienta es "select"; con cualquier otra herramienta el pan queda
-  // deshabilitado y los handlers de creación (click/dblclick) tienen prioridad.
+  // M7: extraído a useViewBoxZoom.
+  // ITEM-45.c — antes el pan sólo se activaba con la herramienta "Mover"
+  // (`active: activeTool === "select"`): para desplazar el lienzo mientras
+  // se dibujaba una ruta/área multipunto había que cambiar de herramienta,
+  // lo que CANCELABA los puntos ya puestos (el useEffect de "cambiar de
+  // herramienta" limpia `pendingArea`/`pendingRuta`/`pendingMedir`). Ahora
+  // el pan está activo siempre; para no confundir un pan con un click de
+  // creación se usa el mismo patrón que `MarcarMapaRenderer.tsx`
+  // (`wasPanRef` + umbral de movimiento) — ver `handlePointerDownCombined`/
+  // `handlePointerUpCombined` más abajo.
   const {
     viewBox,
+    setViewBox,
     handlePointerDown: handlePanDown,
     handlePointerMove: handlePanMove,
     handlePointerUp: handlePanUp,
@@ -202,8 +217,37 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
     height: MAP_HEIGHT,
     minVb: MIN_VB,
     svgRef,
-    active: activeTool === "select",
+    active: true,
   });
+
+  // ITEM-45.c — distingue "arrastrar para pan" de "click para crear un
+  // punto/marcador": si el puntero se movió más de `PAN_THRESHOLD_PX` entre
+  // pointerdown y pointerup, el click subsiguiente se ignora (no agrega
+  // nada) — igual que `MarcarMapaRenderer.tsx`.
+  const PAN_THRESHOLD_PX = 4;
+  const downAtRef = useRef<{ x: number; y: number } | null>(null);
+  const wasPanRef = useRef(false);
+
+  const handlePointerDownCombined = useCallback((e: PointerEvent<SVGSVGElement>) => {
+    downAtRef.current = { x: e.clientX, y: e.clientY };
+    wasPanRef.current = false;
+    handlePanDown(e);
+  }, [handlePanDown]);
+
+  const handlePointerUpCombined = useCallback((e: PointerEvent<SVGSVGElement>) => {
+    const d = downAtRef.current;
+    downAtRef.current = null;
+    if (d) {
+      const dx = e.clientX - d.x;
+      const dy = e.clientY - d.y;
+      if (Math.hypot(dx, dy) > PAN_THRESHOLD_PX) wasPanRef.current = true;
+    }
+    handlePanUp(e);
+  }, [handlePanUp]);
+
+  // ITEM-45.a — factor para neutralizar el crecimiento de marcadores/rutas/
+  // áreas/textos al acercar (ver escala-por-zoom.ts). 1 = sin zoom.
+  const zoom = escalaPorZoom(viewBox.w, MAP_WIDTH);
 
   // (zoomBy, handleWheel, useEffect nativo de wheel, handlePointer*: borrados
   // — viven ahora dentro del hook.)
@@ -247,6 +291,33 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
     () => (features.length ? createInverseProjector(features, MAP_WIDTH, MAP_HEIGHT) : null),
     [features],
   );
+
+  // ─── Buscar lugar (ITEM-45.b) ────────────────────────────────────
+  // Antes el docente tenía que hacer click "a ojo" sobre un mapamundi de
+  // baja resolución para ubicar un país/ciudad. Esto busca por nombre
+  // (incluye nombres alternativos/traducidos) contra `geonames_index.sqlite`
+  // — datos que ya existían pero ningún endpoint consultaba — y al elegir
+  // un resultado centra el mapa ahí y agrega un marcador.
+  const [lugarQuery, setLugarQuery] = useState("");
+  const [lugarResultados, setLugarResultados] = useState<GeonameResultado[]>([]);
+  const [lugarLoading, setLugarLoading] = useState(false);
+
+  useEffect(() => {
+    const q = lugarQuery.trim();
+    if (q.length < 2) {
+      setLugarResultados([]);
+      setLugarLoading(false);
+      return;
+    }
+    setLugarLoading(true);
+    const handle = setTimeout(() => {
+      buscarLugares(q)
+        .then((items) => setLugarResultados(items))
+        .catch(() => setLugarResultados([]))
+        .finally(() => setLugarLoading(false));
+    }, 250);
+    return () => clearTimeout(handle);
+  }, [lugarQuery]);
 
   // ─── Datasets desde la API del módulo ───────────────────────────
   const [datasetList, setDatasetList] = useState<DatasetListItem[]>([]);
@@ -349,6 +420,22 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
     setSelectedAnnoId(anno.id);
   }, [config, activeCapaId, updateConfig]);
 
+  // ITEM-45.b — centra el lienzo en el lugar elegido (ciudad = zoom más
+  // cerrado que país) y agrega un marcador con su nombre.
+  const irALugar = useCallback((lugar: GeonameResultado) => {
+    if (!project) return;
+    const [px, py] = project(lugar.lon, lugar.lat);
+    const w = lugar.tipo === "ciudad" ? 120 : 300;
+    const h = w * (MAP_HEIGHT / MAP_WIDTH);
+    const nx = Math.min(MAP_WIDTH - w, Math.max(0, px - w / 2));
+    const ny = Math.min(MAP_HEIGHT - h, Math.max(0, py - h / 2));
+    setViewBox({ x: nx, y: ny, w, h });
+    addAnotacion({ id: genAnnoId(), tipo: "marcador", lat: lugar.lat, lon: lugar.lon, etiqueta: lugar.nombre });
+    setLugarQuery("");
+    setLugarResultados([]);
+    setAnnounce(`Mapa centrado en ${lugar.nombre}. Se agregó un marcador.`);
+  }, [project, addAnotacion, setViewBox]);
+
   // Helpers de cierre por herramienta — idempotentes: si no hay nada que
   // cerrar, no hacen nada (así los podemos llamar desde múltiples handlers).
   const cerrarArea = useCallback(() => {
@@ -364,6 +451,12 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
   }, [pendingRuta, addAnotacion]);
 
   const handleSvgClick = useCallback((e: MouseEvent<SVGSVGElement>) => {
+    // ITEM-45.c — si el gesto fue un pan (se movió más que el umbral entre
+    // pointerdown y pointerup), no crear nada: es un arrastre, no un click.
+    if (wasPanRef.current) {
+      wasPanRef.current = false;
+      return;
+    }
     const coords = clientToLonLat(e.clientX, e.clientY);
     if (!coords) return;
     const [lon, lat] = coords;
@@ -856,6 +949,12 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
           <button type="button" className={styles.iconBtn} onClick={exportarImagen} aria-label="Exportar como imagen PNG" title="Exportar imagen">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg>
           </button>
+          <GuardarComoMaterial
+            tipo="mapa"
+            defaultTitulo={config.titulo}
+            materialId={materialId}
+            getContenido={() => config}
+          />
           <button type="button" className={`${styles.btn} ${styles.btnPrimary}`} onClick={handleSave}>
             Guardar
           </button>
@@ -925,6 +1024,53 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                   <option value="110m">110m (ligero)</option>
                   <option value="50m">50m (detallado)</option>
                 </select>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>Buscar lugar</h2>
+            <div className={styles.sectionBody}>
+              <div className={styles.field} style={{ position: "relative" }}>
+                <label className={styles.fieldLabel} htmlFor="map-buscar-lugar">
+                  País o ciudad
+                </label>
+                <input
+                  id="map-buscar-lugar"
+                  className={styles.fieldInput}
+                  value={lugarQuery}
+                  placeholder="Ej: Mogadiscio, Alemania…"
+                  onChange={(e) => setLugarQuery(e.target.value)}
+                  autoComplete="off"
+                  data-testid="buscar-lugar-input"
+                />
+                {lugarLoading && (
+                  <p className="mt-1 text-[11px] text-[var(--c-muted)]">Buscando…</p>
+                )}
+                {!lugarLoading && lugarQuery.trim().length >= 2 && lugarResultados.length === 0 && (
+                  <p className="mt-1 text-[11px] text-[var(--c-muted)]">Sin resultados.</p>
+                )}
+                {lugarResultados.length > 0 && (
+                  <ul
+                    className="mt-1 max-h-48 overflow-y-auto rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-1"
+                    data-testid="buscar-lugar-resultados"
+                  >
+                    {lugarResultados.map((lugar) => (
+                      <li key={lugar.geonameid}>
+                        <button
+                          type="button"
+                          className="w-full rounded-md px-2 py-1.5 text-left text-xs text-[var(--c-text)] transition-colors hover:bg-[var(--c-hover)]"
+                          onClick={() => irALugar(lugar)}
+                        >
+                          {lugar.nombre}
+                          <span className="ml-1 text-[var(--c-muted)]">
+                            {lugar.tipo === "pais" ? "" : `· ${lugar.pais}`}
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </div>
@@ -1133,10 +1279,10 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
               onMouseMove={handleMouseMove}
               onClick={handleSvgClick}
               onDoubleClick={handleSvgDoubleClick}
-              onPointerDown={handlePanDown}
+              onPointerDown={handlePointerDownCombined}
               onPointerMove={handlePanMove}
-              onPointerUp={handlePanUp}
-              onPointerLeave={handlePanUp}
+              onPointerUp={handlePointerUpCombined}
+              onPointerLeave={handlePointerUpCombined}
             >
               {/* fondo + cuadrícula de atlas (decorativa, theme-driven) */}
               <defs>
@@ -1165,7 +1311,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                       fillOpacity={isHovered ? 0.5 : 0.25}
                       stroke="currentColor"
                       strokeOpacity={0.6}
-                      strokeWidth={0.4}
+                      strokeWidth={0.4 * zoom}
                       onMouseEnter={() => setHoveredCountry(name ?? null)}
                       onMouseLeave={() => setHoveredCountry(null)}
                     />
@@ -1181,6 +1327,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                   color={c.color}
                   project={project}
                   visible={c.visible}
+                  zoom={zoom}
                 />
               ))}
 
@@ -1192,6 +1339,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                   selectedId={selectedAnnoId}
                   onSelect={handleSelectAnnotation}
                   editable
+                  zoom={zoom}
                 />
               )}
 
@@ -1218,7 +1366,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                       points={polyPts}
                       fill="none"
                       stroke="var(--c-primary)"
-                      strokeWidth={1.5}
+                      strokeWidth={1.5 * zoom}
                       strokeDasharray="4 2"
                       opacity={0.9}
                     />
@@ -1231,10 +1379,10 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                           key={`area-pt-${i}`}
                           cx={px}
                           cy={py}
-                          r={isFirst && ptsArr.length >= 3 ? 6 : 3.5}
+                          r={(isFirst && ptsArr.length >= 3 ? 6 : 3.5) * zoom}
                           fill={isFirst ? "var(--c-primary)" : "var(--c-surface)"}
                           stroke="var(--c-primary)"
-                          strokeWidth={isFirst ? 2.5 : 1.5}
+                          strokeWidth={(isFirst ? 2.5 : 1.5) * zoom}
                         />
                       );
                     })}
@@ -1257,7 +1405,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                       points={polyPts}
                       fill="none"
                       stroke="var(--c-warning)"
-                      strokeWidth={2}
+                      strokeWidth={2 * zoom}
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       opacity={0.9}
@@ -1269,7 +1417,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                         x2={cursorXY[0]}
                         y2={cursorXY[1]}
                         stroke="var(--c-warning)"
-                        strokeWidth={1.5}
+                        strokeWidth={1.5 * zoom}
                         strokeDasharray="3 3"
                         opacity={0.7}
                       />
@@ -1281,10 +1429,10 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                           key={`ruta-pt-${i}`}
                           cx={px}
                           cy={py}
-                          r={4}
+                          r={4 * zoom}
                           fill="var(--c-surface)"
                           stroke="var(--c-warning)"
-                          strokeWidth={1.5}
+                          strokeWidth={1.5 * zoom}
                         />
                       );
                     })}
@@ -1302,7 +1450,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                   : null;
                 return (
                   <g pointerEvents="none">
-                    <circle cx={ox} cy={oy} r={5} fill="var(--c-success)" stroke="var(--c-surface)" strokeWidth={1.5} />
+                    <circle cx={ox} cy={oy} r={5 * zoom} fill="var(--c-success)" stroke="var(--c-surface)" strokeWidth={1.5 * zoom} />
                     {cursorXY && (
                       <>
                         <line
@@ -1311,7 +1459,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                           x2={cursorXY[0]}
                           y2={cursorXY[1]}
                           stroke="var(--c-success)"
-                          strokeWidth={2}
+                          strokeWidth={2 * zoom}
                           strokeDasharray="4 2"
                         />
                         {km != null && Number.isFinite(km) && (
@@ -1319,11 +1467,11 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                             x={(ox + cursorXY[0]) / 2}
                             y={(oy + cursorXY[1]) / 2 - 8}
                             textAnchor="middle"
-                            fontSize={12}
+                            fontSize={12 * zoom}
                             fontWeight={700}
                             fill="var(--c-success)"
                             stroke="var(--c-surface)"
-                            strokeWidth={3}
+                            strokeWidth={3 * zoom}
                             paintOrder="stroke"
                           >
                             {`${Math.round(km).toLocaleString("es-AR")} km`}
@@ -1346,19 +1494,19 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                       x2={dx}
                       y2={dy}
                       stroke="var(--c-success)"
-                      strokeWidth={2}
+                      strokeWidth={2 * zoom}
                     />
-                    <circle cx={ox} cy={oy} r={5} fill="var(--c-success)" stroke="var(--c-surface)" strokeWidth={1.5} />
-                    <circle cx={dx} cy={dy} r={5} fill="var(--c-success)" stroke="var(--c-surface)" strokeWidth={1.5} />
+                    <circle cx={ox} cy={oy} r={5 * zoom} fill="var(--c-success)" stroke="var(--c-surface)" strokeWidth={1.5 * zoom} />
+                    <circle cx={dx} cy={dy} r={5 * zoom} fill="var(--c-success)" stroke="var(--c-surface)" strokeWidth={1.5 * zoom} />
                     <text
                       x={(ox + dx) / 2}
                       y={(oy + dy) / 2 - 8}
                       textAnchor="middle"
-                      fontSize={12}
+                      fontSize={12 * zoom}
                       fontWeight={700}
                       fill="var(--c-success)"
                       stroke="var(--c-surface)"
-                      strokeWidth={3}
+                      strokeWidth={3 * zoom}
                       paintOrder="stroke"
                     >
                       {`${Math.round(medidaKm.km).toLocaleString("es-AR")} km`}
@@ -1453,7 +1601,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel }: Mapa
                   .filter((c) => c.visible && (annoCountByCapa.get(c.id) ?? 0) > 0)
                   .map((c) => (
                     <li key={c.id}>
-                      <span className="sw" style={{ background: c.color }} aria-hidden="true" />
+                      <span className={styles.sw} style={{ background: c.color }} aria-hidden="true" />
                       <span>{c.nombre}</span>
                     </li>
                   ))}

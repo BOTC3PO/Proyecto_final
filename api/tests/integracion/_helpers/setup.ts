@@ -90,6 +90,9 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.encuestaRespuesta.rows = [];
   prisma.bloqueJson.rows = [];
   prisma.configModulo.rows = [];
+  // PLAN-G §1 (item 25) — materiales guardados (mapa/timeline/interactivo/presentacion).
+  prisma.material.rows = [];
+  prisma.materialVersion.rows = [];
   // FASE 1 — limpiar también las tablas de membresia y la puente de
   // cuentas vinculadas. Cada test empieza con un store limpio.
   prisma.membresia.rows = [];

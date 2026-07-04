@@ -1,9 +1,21 @@
+import { createHash, randomUUID } from 'crypto';
 import { Router } from 'express';
 import { prisma } from '../lib/prisma';
 import { requireUser } from '../lib/user-auth';
 import { hasRole } from '../lib/roles';
 
 export const materiales = Router();
+
+// PLAN-G §1 (item 25) — tipos válidos de "material guardado". No es un
+// enum de Prisma (coherente con `Modulo.visibility`/`Libro.visibility`,
+// que también son String libres).
+const MATERIAL_TIPOS = ['mapa', 'timeline', 'interactivo', 'presentacion'] as const;
+type MaterialTipo = typeof MATERIAL_TIPOS[number];
+
+function computeContentHash(contenido: unknown): string {
+  const str = typeof contenido === 'string' ? contenido : JSON.stringify(contenido);
+  return createHash('sha256').update(str).digest('hex');
+}
 
 // MULTIROL-01: `roles[]` opcional para chequeos multi-rol.
 type AuthUser = {
@@ -79,18 +91,55 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
     owners.map((u) => [u.id, u.fullName || u.username || u.id])
   );
 
-  const items = modulos.map((m) => ({
-    id: m.id,
-    titulo: m.titulo,
-    materia: m.subject ?? 'Sin materia',
-    tipo: 'cuestionario',
-    autor: ownerMap.get(m.ownerUserId ?? '') ?? m.ownerUserId ?? 'Desconocido',
-    ownerUserId: m.ownerUserId ?? null,
-    escuelaId: m.schoolId ?? null,
-    visibility: m.visibility ?? 'privado',
-    compartido: m.visibility === 'escuela' || m.visibility === 'publico',
-    createdAt: m.createdAt,
-  }));
+  // PLAN-G §1 (item 25) — fusionar "materiales guardados" (tabla nueva
+  // `Material`) en el mismo listado, con el mismo filtro de visibilidad.
+  // Se agrega `origen` para que el front sepa a qué endpoint pegarle al
+  // reabrir/descargar cada item ("modulo" sigue igual que antes,
+  // "material" es el destino de guardado nuevo de PLAN-G §1).
+  const materialesGuardados = await prisma.material.findMany({
+    where: { OR: filters, isDeleted: false },
+    orderBy: { createdAt: 'desc' },
+  });
+  const materialOwnerIds = Array.from(
+    new Set(materialesGuardados.map((m) => m.ownerUserId).filter((v): v is string => !!v))
+  );
+  const missingOwnerIds = materialOwnerIds.filter((id) => !ownerMap.has(id));
+  if (missingOwnerIds.length) {
+    const extraOwners = await prisma.usuario.findMany({
+      where: { id: { in: missingOwnerIds } },
+      select: { id: true, fullName: true, username: true },
+    });
+    for (const u of extraOwners) ownerMap.set(u.id, u.fullName || u.username || u.id);
+  }
+
+  const items = [
+    ...modulos.map((m) => ({
+      id: m.id,
+      titulo: m.titulo,
+      materia: m.subject ?? 'Sin materia',
+      tipo: 'cuestionario',
+      autor: ownerMap.get(m.ownerUserId ?? '') ?? m.ownerUserId ?? 'Desconocido',
+      ownerUserId: m.ownerUserId ?? null,
+      escuelaId: m.schoolId ?? null,
+      visibility: m.visibility ?? 'privado',
+      compartido: m.visibility === 'escuela' || m.visibility === 'publico',
+      createdAt: m.createdAt,
+      origen: 'modulo' as const,
+    })),
+    ...materialesGuardados.map((mat) => ({
+      id: mat.id,
+      titulo: mat.titulo,
+      materia: 'Sin materia',
+      tipo: mat.tipo,
+      autor: ownerMap.get(mat.ownerUserId) ?? mat.ownerUserId ?? 'Desconocido',
+      ownerUserId: mat.ownerUserId ?? null,
+      escuelaId: mat.schoolId ?? null,
+      visibility: mat.visibility ?? 'privado',
+      compartido: mat.visibility === 'escuela' || mat.visibility === 'publico',
+      createdAt: mat.createdAt,
+      origen: 'material' as const,
+    })),
+  ];
 
   return res.json({ items });
 });
@@ -187,4 +236,152 @@ materiales.get('/api/materiales/:id/download', requireUser, async (req, res) => 
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
   res.send(JSON.stringify(modulo, null, 2));
+});
+
+// PLAN-G §1 (item 25) — "Guardar como material" desde los 4 editores
+// standalone. Tabla nueva `materiales_guardados`/`material_versions`
+// (modelos Prisma `Material`/`MaterialVersion`), patrón padre+version
+// igual a quizzes/quiz_versions: cada guardado posterior crea una
+// versión nueva, nunca sobrescribe la anterior.
+
+// POST /api/materiales/guardados — crea un material nuevo (versión 1).
+materiales.post('/api/materiales/guardados', requireUser, async (req, res) => {
+  const user = (req as { user?: AuthUser }).user;
+  const userId = getUserId(user);
+  if (!userId) return res.status(403).json({ error: 'forbidden' });
+
+  const body = (req.body ?? {}) as { tipo?: string; titulo?: string; contenido?: unknown };
+  const tipo = body.tipo;
+  if (!tipo || !MATERIAL_TIPOS.includes(tipo as MaterialTipo)) {
+    return res.status(400).json({ error: `tipo inválido (debe ser uno de: ${MATERIAL_TIPOS.join(', ')})` });
+  }
+  const titulo = typeof body.titulo === 'string' ? body.titulo.trim() : '';
+  if (!titulo) return res.status(400).json({ error: 'titulo es requerido' });
+  if (body.contenido === undefined) return res.status(400).json({ error: 'contenido es requerido' });
+
+  const now = new Date().toISOString();
+  const materialId = randomUUID();
+  const versionId = randomUUID();
+  const contenidoStr = JSON.stringify(body.contenido);
+
+  await prisma.material.create({
+    data: {
+      id: materialId,
+      tipo,
+      titulo,
+      ownerUserId: userId,
+      schoolId: null,
+      visibility: 'privado',
+      currentVersionId: versionId,
+      isDeleted: false,
+      createdAt: now,
+      updatedAt: now,
+    },
+  });
+  await prisma.materialVersion.create({
+    data: {
+      id: versionId,
+      materialId,
+      versionNumber: 1,
+      schemaVersion: 1,
+      contenido: contenidoStr,
+      contentHash: computeContentHash(contenidoStr),
+      createdAt: now,
+      createdBy: userId,
+    },
+  });
+
+  return res.status(201).json({ id: materialId, versionId, versionNumber: 1 });
+});
+
+// POST /api/materiales/guardados/:id/versiones — guarda una versión
+// nueva sobre un material existente (no sobrescribe la anterior).
+materiales.post('/api/materiales/guardados/:id/versiones', requireUser, async (req, res) => {
+  const user = (req as { user?: AuthUser }).user;
+  const userId = getUserId(user);
+  if (!userId) return res.status(403).json({ error: 'forbidden' });
+
+  const id = String(req.params.id ?? '');
+  const material = await prisma.material.findFirst({ where: { id, isDeleted: false } });
+  if (!material) return res.status(404).json({ error: 'not found' });
+
+  const isOwner = material.ownerUserId === userId;
+  const isAdmin = hasRole(user ?? null, 'ADMIN');
+  if (!isOwner && !isAdmin) return res.status(403).json({ error: 'forbidden' });
+
+  const body = (req.body ?? {}) as { contenido?: unknown };
+  if (body.contenido === undefined) return res.status(400).json({ error: 'contenido es requerido' });
+
+  const existingVersions = await prisma.materialVersion.findMany({ where: { materialId: id } });
+  const nextVersionNumber = existingVersions.length + 1;
+  const now = new Date().toISOString();
+  const versionId = randomUUID();
+  const contenidoStr = JSON.stringify(body.contenido);
+
+  await prisma.materialVersion.create({
+    data: {
+      id: versionId,
+      materialId: id,
+      versionNumber: nextVersionNumber,
+      schemaVersion: 1,
+      contenido: contenidoStr,
+      contentHash: computeContentHash(contenidoStr),
+      createdAt: now,
+      createdBy: userId,
+    },
+  });
+  await prisma.material.updateMany({
+    where: { id },
+    data: { currentVersionId: versionId, updatedAt: now },
+  });
+
+  return res.status(201).json({ id, versionId, versionNumber: nextVersionNumber });
+});
+
+// GET /api/materiales/guardados/:id — devuelve el material + su versión
+// actual (contenido ya parseado), para reabrirlo en su editor de origen.
+materiales.get('/api/materiales/guardados/:id', requireUser, async (req, res) => {
+  const user = (req as { user?: AuthUser }).user;
+  const userId = getUserId(user);
+  if (!userId) return res.status(403).json({ error: 'forbidden' });
+
+  const id = String(req.params.id ?? '');
+  const material = await prisma.material.findFirst({ where: { id, isDeleted: false } });
+  if (!material) return res.status(404).json({ error: 'not found' });
+
+  const isOwner = material.ownerUserId === userId;
+  const isAdmin = hasRole(user ?? null, 'ADMIN');
+  const userSchoolId = typeof user?.schoolId === 'string' ? user.schoolId : null;
+  const sameSchoolShared =
+    userSchoolId !== null &&
+    material.schoolId === userSchoolId &&
+    (material.visibility === 'escuela' || material.visibility === 'publico');
+  if (!isOwner && !isAdmin && !sameSchoolShared) {
+    return res.status(403).json({ error: 'forbidden' });
+  }
+
+  const version = material.currentVersionId
+    ? await prisma.materialVersion.findFirst({ where: { id: material.currentVersionId } })
+    : null;
+  if (!version) return res.status(404).json({ error: 'version not found' });
+
+  let contenido: unknown = version.contenido;
+  if (typeof contenido === 'string') {
+    try { contenido = JSON.parse(contenido); } catch { /* leave as string */ }
+  }
+
+  return res.json({
+    id: material.id,
+    tipo: material.tipo,
+    titulo: material.titulo,
+    visibility: material.visibility,
+    schoolId: material.schoolId ?? null,
+    ownerUserId: material.ownerUserId,
+    version: {
+      id: version.id,
+      versionNumber: version.versionNumber,
+      contenido,
+      createdAt: version.createdAt,
+    },
+  });
 });

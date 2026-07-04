@@ -20,6 +20,8 @@ export type GeoJsonLayerProps = {
   project: Projector;
   /** Si es false, no se dibuja nada. Útil para ocultar una capa entera. */
   visible: boolean;
+  /** ITEM-45.a — factor de `escalaPorZoom` (1 = sin zoom). Ver AnnotationLayer. */
+  zoom?: number;
 };
 
 /** Convierte un anillo de puntos [lon,lat] a la cadena `points` de un polyline/polygon. */
@@ -62,7 +64,7 @@ function drawGeometry(
   }
 }
 
-export function GeoJsonLayer({ data, color, project, visible }: GeoJsonLayerProps) {
+export function GeoJsonLayer({ data, color, project, visible, zoom = 1 }: GeoJsonLayerProps) {
   if (!visible) return null;
   const elementos: { tipo: "polygon" | "line" | "point"; path?: string; cx?: number; cy?: number }[] = [];
   data.features.forEach((f: GeoJsonFeature) => {
@@ -91,7 +93,7 @@ export function GeoJsonLayer({ data, color, project, visible }: GeoJsonLayerProp
               fillOpacity={0.25}
               stroke={color}
               strokeOpacity={0.8}
-              strokeWidth={1}
+              strokeWidth={1 * zoom}
               data-gj="polygon"
             />
           );
@@ -104,7 +106,7 @@ export function GeoJsonLayer({ data, color, project, visible }: GeoJsonLayerProp
               fill="none"
               stroke={color}
               strokeOpacity={0.9}
-              strokeWidth={1.5}
+              strokeWidth={1.5 * zoom}
               strokeLinecap="round"
               strokeLinejoin="round"
               data-gj="line"
@@ -116,10 +118,10 @@ export function GeoJsonLayer({ data, color, project, visible }: GeoJsonLayerProp
             key={idx}
             cx={el.cx}
             cy={el.cy}
-            r={2.5}
+            r={2.5 * zoom}
             fill={color}
             stroke="var(--c-surface)"
-            strokeWidth={0.5}
+            strokeWidth={0.5 * zoom}
             data-gj="point"
           />
         );

@@ -34,6 +34,12 @@ const RUTAS = [
   { path: "/metodologia",    rol: null, nombre: "metodologia"       },
   { path: "/terminos",       rol: null, nombre: "terminos"          },
   { path: "/privacidad",     rol: null, nombre: "privacidad"        },
+  { path: "/recuperar",      rol: null, nombre: "recuperar"         },
+  { path: "/herramientas",   rol: null, nombre: "herramientas-hub"  },
+  { path: "/herramientas/estadistica", rol: null, nombre: "herramientas-estadistica" },
+  { path: "/herramientas/naturales",   rol: null, nombre: "herramientas-naturales"   },
+  { path: "/herramientas/cocina",      rol: null, nombre: "herramientas-cocina"      },
+  { path: "/demo/tiza",      rol: null, nombre: "demo-tiza"         },
 
   // ── Alumno ────────────────────────────────────────────────
   { path: "/alumno",         rol: "alumno",   nombre: "alumno-dashboard"  },
@@ -45,7 +51,10 @@ const RUTAS = [
   { path: "/perfil",         rol: "alumno",   nombre: "alumno-perfil"     },
   { path: "/mensajes",       rol: "alumno",   nombre: "alumno-mensajes"   },
   { path: "/laboratorio-web3", rol: "alumno", nombre: "laboratorio-web3"  },
-  { path: "/profesor/calendario", rol: "alumno",   nombre: "alumno-calendario"  },
+  { path: "/calendario",     rol: "alumno",   nombre: "alumno-calendario" },
+  { path: "/economia",       rol: "alumno",   nombre: "alumno-economia"   },
+  { path: "/pagos",          rol: "alumno",   nombre: "alumno-pagos"      },
+  { path: "/tienda-temas",   rol: "alumno",   nombre: "alumno-tienda-temas" },
 
   // ── Padre ─────────────────────────────────────────────────
   { path: "/hijos",          rol: "padre",    nombre: "padre-hijos"       },
@@ -66,9 +75,23 @@ const RUTAS = [
   { path: "/modulos",                 rol: "profesor", nombre: "profesor-modulos"       },
   { path: "/gobernanza",              rol: "profesor", nombre: "profesor-gobernanza"    },
   { path: "/mensajes",                rol: "profesor", nombre: "profesor-mensajes"      },
+  { path: "/profesor/materiales",     rol: "profesor", nombre: "profesor-materiales"    },
+  { path: "/profesor/configuracion",  rol: "profesor", nombre: "profesor-configuracion" },
+  { path: "/profesor/cursos/nuevo",   rol: "profesor", nombre: "profesor-curso-nuevo"   },
+  { path: "/modulos/crear",           rol: "profesor", nombre: "modulo-crear"           },
+  { path: "/plantillas",              rol: "profesor", nombre: "plantillas-lista"       },
+  { path: "/plantillas/biblioteca",   rol: "profesor", nombre: "plantillas-biblioteca"  },
+  { path: "/plantillas/nueva",        rol: "profesor", nombre: "plantillas-nueva"       },
+  { path: "/datasets",                rol: "profesor", nombre: "datasets-lista"         },
+  { path: "/datasets/biblioteca",     rol: "profesor", nombre: "datasets-biblioteca"    },
+  { path: "/datasets/nuevo",          rol: "profesor", nombre: "datasets-nuevo"         },
   { path: "/editor",                  rol: "profesor", nombre: "editor-libros"          },
   { path: "/bloques/editor",          rol: "profesor", nombre: "editor-bloques"         },
+  { path: "/herramientas/mapa-editor",           rol: "profesor", nombre: "editor-mapas"        },
+  { path: "/herramientas/presentacion-editor",   rol: "profesor", nombre: "editor-presentacion" },
+  { path: "/herramientas/linea-tiempo-editor",   rol: "profesor", nombre: "editor-linea-tiempo" },
   { path: "/profesor/editor-cuestionarios", rol: "profesor", nombre: "editor-cuestionarios" },
+  { path: "/profesor/editor-cuestionarios-v2", rol: "profesor", nombre: "editor-cuestionarios-v2" },
 
   // ── Directivo ─────────────────────────────────────────────
   { path: "/enterprise",          rol: "directivo", nombre: "directivo-dashboard"  },
@@ -77,6 +100,9 @@ const RUTAS = [
   { path: "/enterprise/modulos",  rol: "directivo", nombre: "directivo-modulos"    },
   { path: "/enterprise/reportes",    rol: "directivo", nombre: "directivo-reportes"   },
   { path: "/enterprise/calendario", rol: "directivo", nombre: "directivo-calendario" },
+  { path: "/enterprise/comisiones", rol: "directivo", nombre: "directivo-comisiones" },
+  { path: "/enterprise/cobros",     rol: "directivo", nombre: "directivo-cobros"     },
+  { path: "/enterprise/personalizacion", rol: "directivo", nombre: "directivo-personalizacion" },
   { path: "/gobernanza",            rol: "directivo", nombre: "directivo-gobernanza" },
   { path: "/mensajes",            rol: "directivo", nombre: "directivo-mensajes"   },
   { path: "/perfil",              rol: "directivo", nombre: "directivo-perfil"     },
@@ -84,9 +110,13 @@ const RUTAS = [
   // ── Admin ─────────────────────────────────────────────────
   { path: "/admin",              rol: "admin", nombre: "admin-panel"        },
   { path: "/admin/usuarios",     rol: "admin", nombre: "admin-usuarios"     },
+  { path: "/admin/cursos",       rol: "admin", nombre: "admin-cursos"       },
   { path: "/admin/materias",     rol: "admin", nombre: "admin-materias"     },
   { path: "/admin/reportes",     rol: "admin", nombre: "admin-reportes"     },
   { path: "/admin/moderacion",   rol: "admin", nombre: "admin-moderacion"   },
+  { path: "/admin/plantillas-moderacion", rol: "admin", nombre: "admin-plantillas-moderacion" },
+  { path: "/admin/pages",        rol: "admin", nombre: "admin-pages"        },
+  { path: "/admin/comisiones",   rol: "admin", nombre: "admin-comisiones"   },
   { path: "/admin/generadores",  rol: "admin", nombre: "admin-generadores"  },
 ];
 
@@ -111,10 +141,11 @@ async function login(page, rol) {
 
 async function capturar(page, ruta, viewport, outDir) {
   try {
-    await page.goto(`${BASE_URL}${ruta.path}`, {
-      waitUntil: "networkidle",
-      timeout: 15000,
-    });
+    // networkidle puede no llegar nunca (mapas con tiles, polling):
+    // si expira, capturamos igual con lo que haya renderizado.
+    await page
+      .goto(`${BASE_URL}${ruta.path}`, { waitUntil: "networkidle", timeout: 15000 })
+      .catch(() => {});
     await sleep(800);
 
     const dir = path.join(outDir, viewport.name);
@@ -127,8 +158,10 @@ async function capturar(page, ruta, viewport, outDir) {
     });
 
     console.log(`  ✓ ${viewport.name}/${ruta.nombre}.png`);
+    return true;
   } catch (err) {
-    console.log(`  ✗ ${viewport.name}/${ruta.nombre} — ${err.message}`);
+    console.log(`  ✗ ${viewport.name}/${ruta.nombre} — ${err.message.split("\n")[0]}`);
+    return false;
   }
 }
 
@@ -137,7 +170,15 @@ async function capturar(page, ruta, viewport, outDir) {
 const OUT_DIR = path.resolve("screenshots");
 await mkdir(OUT_DIR, { recursive: true });
 
-const browser = await chromium.launch({ headless: true });
+// El navegador puede morir a mitad del run (poca RAM, sin swap):
+// se relanza on-demand en vez de abortar todo.
+let browser = null;
+async function getBrowser() {
+  if (browser && browser.isConnected()) return browser;
+  if (browser) await browser.close().catch(() => {});
+  browser = await chromium.launch({ headless: true });
+  return browser;
+}
 
 // Agrupar rutas por rol para minimizar logins
 const porRol = {};
@@ -150,33 +191,49 @@ for (const ruta of RUTAS) {
 for (const viewport of VIEWPORTS) {
   console.log(`\n── ${viewport.name} (${viewport.width}x${viewport.height}) ──`);
 
-  const context = await browser.newContext({
-    viewport: { width: viewport.width, height: viewport.height },
-  });
-  const page = await context.newPage();
-
-  // Rutas públicas
-  if (porRol["__public__"]) {
-    console.log("\n  Públicas:");
-    for (const ruta of porRol["__public__"]) {
-      await capturar(page, ruta, viewport, OUT_DIR);
-    }
-  }
-
-  // Rutas por rol
+  // Un contexto NUEVO por rol: navegar a /login no borra el token de
+  // localStorage, así que reutilizar el contexto contaminaba las
+  // capturas del rol siguiente con la sesión del anterior.
   for (const [rol, rutas] of Object.entries(porRol)) {
-    if (rol === "__public__") continue;
-    console.log(`\n  ${rol}:`);
-    await login(page, rol);
-    for (const ruta of rutas) {
-      await capturar(page, ruta, viewport, OUT_DIR);
-    }
-    // Logout para el siguiente rol
-    await page.goto(`${BASE_URL}/login`);
-    await sleep(500);
-  }
+    // Pendientes de este rol; si el navegador muere a mitad, se
+    // relanza y se retoma desde la ruta que falló (1 reintento).
+    let pendientes = [...rutas];
+    let intentos = 0;
 
-  await context.close();
+    while (pendientes.length > 0 && intentos < 3) {
+      intentos++;
+      let context;
+      try {
+        const b = await getBrowser();
+        context = await b.newContext({
+          viewport: { width: viewport.width, height: viewport.height },
+        });
+        const page = await context.newPage();
+
+        if (rol === "__public__") {
+          console.log("\n  Públicas:");
+        } else {
+          console.log(`\n  ${rol}${intentos > 1 ? ` (reintento ${intentos})` : ""}:`);
+          await login(page, rol);
+        }
+
+        while (pendientes.length > 0) {
+          const ruta = pendientes[0];
+          const ok = await capturar(page, ruta, viewport, OUT_DIR);
+          if (!ok && !browser.isConnected()) break; // navegador muerto → relanzar
+          pendientes.shift();
+        }
+      } catch (err) {
+        console.log(`  ⚠ ${rol}: ${err.message.split("\n")[0]}`);
+      } finally {
+        await context?.close().catch(() => {});
+      }
+    }
+
+    for (const ruta of pendientes) {
+      console.log(`  ✗ ${viewport.name}/${ruta.nombre} — abandonada tras ${intentos} intentos`);
+    }
+  }
 }
 
 await browser.close();
