@@ -17,11 +17,14 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { makeEmptyMapaConfig, type MapaConfig } from "../../components/modulos/standalone/types";
 import { apiGet } from "../../lib/api";
+import { useAuth } from "../../auth/use-auth";
 import MapaEditorFull from "./MapaEditorFull";
 
 export default function MapaEditorPage() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  // PLAN-L — sin sesión, MapaEditorFull entra en modo demo (sin guardar).
+  const { user } = useAuth();
   const ssKey = searchParams.get("sskey") ?? "new-mapa";
   const materialId = searchParams.get("materialId");
 
@@ -82,6 +85,7 @@ export default function MapaEditorPage() {
       onSave={handleSave}
       onCancel={handleCancel}
       materialId={materialId}
+      demoMode={!user}
     />
   );
 }

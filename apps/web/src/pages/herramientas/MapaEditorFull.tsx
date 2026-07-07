@@ -10,6 +10,7 @@
 // sessionStorage — ver MapaEditorPage; ModuloEditor lo monta en un overlay y
 // actualiza la herramienta en memoria).
 import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent, type MouseEvent, type PointerEvent } from "react";
+import { Link } from "react-router-dom";
 import { topologyToFeatures } from "../../lib/maps/topojson-lite";
 import type { CountryFeature, TopologyLike } from "../../lib/maps/topojson-lite";
 import { mapaBaseUrl } from "../../lib/maps/base-url";
@@ -151,11 +152,17 @@ export interface MapaEditorFullProps {
   // permite que "Guardar como material" cree una versión nueva en vez de
   // un material nuevo.
   materialId?: string | null;
+  // PLAN-L — sólo lo setea MapaEditorPage (ruta pública standalone) cuando
+  // no hay sesión. ModuloEditor nunca lo pasa: el docente que edita un
+  // mapa embebido en un módulo siempre tiene sesión y ve los botones de
+  // guardado de siempre.
+  demoMode?: boolean;
 }
 
-export default function MapaEditorFull({ initialConfig, onSave, onCancel, materialId }: MapaEditorFullProps) {
+export default function MapaEditorFull({ initialConfig, onSave, onCancel, materialId, demoMode = false }: MapaEditorFullProps) {
   // ─── Config inicial (migrada) ───────────────────────────────────
   const [config, setConfig] = useState<MapaConfig>(() => migrateMapaConfig(initialConfig));
+  const [demoBannerDismissed, setDemoBannerDismissed] = useState(false);
 
   const [activeTool, setActiveTool] = useState<Tool>("select");
   const [activeCapaId, setActiveCapaId] = useState<string>(
@@ -919,6 +926,29 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
       {/* Región de anuncios para lectores de pantalla. */}
       <div role="status" aria-live="polite" className="sr-only">{announce}</div>
 
+      {/* PLAN-L — banner discreto y descartable del modo demo (guest). */}
+      {demoMode && !demoBannerDismissed && (
+        <div
+          role="status"
+          className="flex items-center justify-between gap-3 px-4 py-2 text-sm"
+          style={{
+            background: "color-mix(in srgb, var(--c-warning) 12%, var(--c-surface))",
+            borderBottom: "1px solid var(--c-border)",
+            color: "var(--c-text)",
+          }}
+        >
+          <span>Estás probando el editor — tu trabajo no se guarda.</span>
+          <button
+            type="button"
+            onClick={() => setDemoBannerDismissed(true)}
+            aria-label="Descartar aviso"
+            style={{ background: "none", border: "none", cursor: "pointer", color: "var(--c-muted)", fontSize: "1rem", lineHeight: 1, padding: 0 }}
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {/* HEADER */}
       <header className={styles.mapbar} role="banner">
         <button
@@ -949,15 +979,23 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
           <button type="button" className={styles.iconBtn} onClick={exportarImagen} aria-label="Exportar como imagen PNG" title="Exportar imagen">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg>
           </button>
-          <GuardarComoMaterial
-            tipo="mapa"
-            defaultTitulo={config.titulo}
-            materialId={materialId}
-            getContenido={() => config}
-          />
-          <button type="button" className={`${styles.btn} ${styles.btnPrimary}`} onClick={handleSave}>
-            Guardar
-          </button>
+          {demoMode ? (
+            <Link to="/register" className={`${styles.btn} ${styles.btnPrimary}`}>
+              Registrate para guardar tu mapa
+            </Link>
+          ) : (
+            <>
+              <GuardarComoMaterial
+                tipo="mapa"
+                defaultTitulo={config.titulo}
+                materialId={materialId}
+                getContenido={() => config}
+              />
+              <button type="button" className={`${styles.btn} ${styles.btnPrimary}`} onClick={handleSave}>
+                Guardar
+              </button>
+            </>
+          )}
         </div>
       </header>
 

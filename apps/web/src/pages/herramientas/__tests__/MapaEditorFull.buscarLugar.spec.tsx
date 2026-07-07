@@ -29,6 +29,13 @@ vi.mock("../../../lib/maps/geonamesApi", () => ({
   buscarLugares: buscarLugaresMock,
 }));
 
+// PLAN-L — MapaEditorPage ahora lee useAuth() para decidir demoMode.
+// Sesión logueada acá: preserva el comportamiento full-featured que
+// estos tests ya asumían antes de PLAN-L.
+vi.mock("../../../auth/use-auth", () => ({
+  useAuth: () => ({ user: { id: "test-user", name: "Test User", role: "USER", roles: ["USER"] } }),
+}));
+
 import MapaEditorPage from "../MapaEditorPage";
 
 beforeEach(() => {
