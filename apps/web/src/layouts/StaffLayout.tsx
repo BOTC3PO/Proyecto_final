@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+import { useState } from 'react';
 import { usePrimaryRole } from '../auth/use-roles';
 import { NAV_BY_ROLE } from '../nav/navConfig';
 import { OfflineIndicator } from '../components/OfflineIndicator';
@@ -11,7 +12,7 @@ const ROLE_LABEL: Record<string, string> = {
   ADMIN: 'Administrador',
 };
 
-function Topbar() {
+function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSidebar: () => void }) {
   const location = useLocation();
   // MULTIROL-02: el "rol principal" (mayor jerarquía) sigue siendo
   // la llave del NAV_BY_ROLE / ROLE_LABEL, así que seguimos
@@ -28,8 +29,21 @@ function Topbar() {
   );
 
   return (
-    <header className="h-14 flex-shrink-0 flex items-center justify-between px-6 border-b border-[var(--c-border)] bg-[var(--c-surface)]">
-      <p className="text-sm font-semibold text-[var(--c-text)]">
+    <header className="h-14 flex-shrink-0 flex items-center gap-3 px-6 border-b border-[var(--c-border)] bg-[var(--c-surface)]">
+      {/* PLAN-I §1 — drawer off-canvas < md; StaffSidebar recibe open/onClose. */}
+      <button
+        type="button"
+        onClick={onOpenSidebar}
+        aria-label="Abrir navegación"
+        aria-expanded={sidebarOpen}
+        aria-controls="staff-sidebar-drawer"
+        className="md:hidden -ml-2 inline-flex p-2 rounded-md text-[var(--c-text)]"
+      >
+        <svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <p className="text-sm font-semibold text-[var(--c-text)] flex-1">
         {active?.label ?? 'Panel'}
       </p>
       {/* FIX-NAVBAR-MODE — un badge de rol explícito para que el
@@ -50,11 +64,12 @@ function Topbar() {
 }
 
 export default function StaffLayout() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="layout-root flex min-h-screen bg-[var(--c-bg)]">
-      <StaffSidebar />
+      <StaffSidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
-        <Topbar />
+        <Topbar sidebarOpen={sidebarOpen} onOpenSidebar={() => setSidebarOpen(true)} />
         <main className="flex-grow overflow-y-auto">
           <Outlet />
         </main>

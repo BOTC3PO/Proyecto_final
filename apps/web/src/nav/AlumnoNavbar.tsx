@@ -7,11 +7,11 @@
  *
  * Paralela a Navbar (D6): mismo patrón de átomos, mismos tokens.
  */
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { useHasRole } from '../auth/use-roles';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
-import { useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { NavItem, Avatar, Menu, type MenuTriggerProps } from '../ui';
 
 // ── Filas del menú de usuario (token-puro, igual que Navbar) ─────────────────
@@ -184,6 +184,23 @@ const VOLVER_STYLE: CSSProperties = {
 export default function AlumnoNavbar() {
   const { user, logout, switchCuenta } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  // PLAN-I §2 — mismo patrón que nav/Navbar.tsx (público): < md, hamburguesa
+  // + panel colapsable; el menú de usuario/avatar queda fuera, siempre visible.
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsMobileMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const items = NAV_BY_ROLE['USER'];
   // MULTIROL-02: el dropdown se elige por el rol principal del user
   // (USER por default; un TEACHER+USER en vista de alumno sigue viendo
@@ -303,23 +320,49 @@ export default function AlumnoNavbar() {
       )}
 
       <div className="flex items-center justify-between max-w-6xl gap-4 px-4 py-3 mx-auto">
-        <Link
-          to="/alumno"
-          style={{
-            fontWeight: 'var(--fw-bold)',
-            fontSize: 'var(--text-base)',
-            color: 'var(--c-text)',
-            textDecoration: 'none',
-          }}
-        >
-          Virtual Book
-        </Link>
+        <div className="flex items-center" style={{ gap: 'var(--space-2)' }}>
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((v) => !v)}
+            aria-label={isMobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="alumno-mobile-menu"
+            className="md:hidden"
+            style={{
+              display: 'inline-flex',
+              padding: 'var(--space-1)',
+              color: 'var(--c-text)',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            <svg width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {!isMobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              )}
+            </svg>
+          </button>
+
+          <Link
+            to="/alumno"
+            style={{
+              fontWeight: 'var(--fw-bold)',
+              fontSize: 'var(--text-base)',
+              color: 'var(--c-text)',
+              textDecoration: 'none',
+            }}
+          >
+            Virtual Book
+          </Link>
+        </div>
 
         <ul
           role="list"
+          className="hidden md:flex"
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
             alignItems: 'center',
             gap: 'var(--space-1)',
             listStyle: 'none',
@@ -429,6 +472,31 @@ export default function AlumnoNavbar() {
           </Menu>
         </div>
       </div>
+
+      {isMobileMenuOpen && (
+        <div
+          id="alumno-mobile-menu"
+          className="md:hidden"
+          style={{
+            borderTopWidth: '1px',
+            borderTopStyle: 'solid',
+            borderTopColor: 'var(--c-border)',
+          }}
+        >
+          <ul
+            role="list"
+            style={{ listStyle: 'none', margin: 0, padding: 'var(--space-2) var(--space-4)' }}
+          >
+            {items.map((it) => (
+              <li key={it.to} style={{ paddingBlock: 'var(--space-1)' }}>
+                <NavItem to={it.to} end={it.exact ?? true} orientation="sidebar">
+                  {it.label}
+                </NavItem>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

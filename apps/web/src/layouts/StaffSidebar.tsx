@@ -11,13 +11,13 @@
  * visible global; menú de usuario accesible (Escape, teclado) vía Menu.
  */
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { useAuth } from '../auth/use-auth';
 import { usePrimaryRole } from '../auth/use-roles';
 import { useTheme } from '../theme/ThemeContext';
 import { useSchoolBranding } from '../hooks/useSchoolBranding';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from '../nav/navConfig';
-import { Avatar, Menu, NavItem, type MenuTriggerProps } from '../ui';
+import { Avatar, Menu, Modal, NavItem, type MenuTriggerProps } from '../ui';
 
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
@@ -151,7 +151,10 @@ function SidebarMenuTrigger({ menu, initials, name, roleLabel }: {
   );
 }
 
-function Sidebar() {
+function Sidebar({ variant = 'desktop', onNavigate }: {
+  variant?: 'desktop' | 'drawer';
+  onNavigate?: () => void;
+}) {
   const { user, logout, switchCuenta } = useAuth();
   const { theme, setTheme, availableThemes } = useTheme();
   const navigate = useNavigate();
@@ -181,12 +184,16 @@ function Sidebar() {
 
   return (
     <aside
-      className="flex flex-col flex-shrink-0 w-56 h-screen overflow-y-auto"
+      className={
+        variant === 'desktop'
+          ? 'hidden md:flex flex-col flex-shrink-0 w-56 h-screen overflow-y-auto'
+          : 'flex flex-col w-56 h-full overflow-y-auto'
+      }
       style={{
-        position: 'sticky',
-        top: 0,
-        borderRightWidth: '1px',
-        borderRightStyle: 'solid',
+        position: variant === 'desktop' ? 'sticky' : undefined,
+        top: variant === 'desktop' ? 0 : undefined,
+        borderRightWidth: variant === 'desktop' ? '1px' : undefined,
+        borderRightStyle: variant === 'desktop' ? 'solid' : undefined,
         borderRightColor: 'var(--c-border)',
         background: 'var(--c-surface)',
         willChange: 'transform',
@@ -231,7 +238,12 @@ function Sidebar() {
       </div>
 
       {/* Nav */}
-      <nav aria-label="Navegación lateral" className="flex-1 overflow-y-auto" style={{ paddingBlock: 'var(--space-3)' }}>
+      <nav
+        aria-label="Navegación lateral"
+        className="flex-1 overflow-y-auto"
+        style={{ paddingBlock: 'var(--space-3)' }}
+        onClick={onNavigate}
+      >
         {sections.map((section) => {
           const sectionItems = navItems.filter(item =>
             section.items.includes(item.label)
@@ -426,6 +438,82 @@ function MenuRowItemLink({ to, children, onClick }: {
   );
 }
 
-export default function StaffSidebar() {
-  return <Sidebar />;
+// PLAN-I §1 — drawer off-canvas < md, sidebar sticky sin cambios >= md.
+// `open`/`onClose` son opcionales: si el layout que lo monta ya tiene su
+// propia barra superior (StaffLayout.tsx) los controla ahí y pasa las
+// props; si no (RoleLayout.tsx, sin topbar) el componente se autogestiona
+// y renderiza su propio botón hamburguesa flotante.
+export type StaffSidebarProps = {
+  open?: boolean;
+  onClose?: () => void;
+};
+
+export default function StaffSidebar({ open: openProp, onClose: onCloseProp }: StaffSidebarProps = {}) {
+  const controlled = openProp !== undefined;
+  const [internalOpen, setInternalOpen] = useState(false);
+  const open = controlled ? Boolean(openProp) : internalOpen;
+  const close = () => (controlled ? onCloseProp?.() : setInternalOpen(false));
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) close();
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [controlled, onCloseProp]);
+
+  return (
+    <>
+      {!controlled && (
+        <button
+          type="button"
+          onClick={() => setInternalOpen(true)}
+          aria-label="Abrir navegación"
+          aria-expanded={open}
+          aria-controls="staff-sidebar-drawer"
+          className="md:hidden fixed"
+          style={{
+            top: 'var(--space-3)',
+            left: 'var(--space-3)',
+            zIndex: 30,
+            display: 'inline-flex',
+            padding: 'var(--space-2)',
+            borderRadius: 'var(--r-md)',
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: 'var(--c-border)',
+            background: 'var(--c-surface)',
+            color: 'var(--c-text)',
+            cursor: 'pointer',
+          }}
+        >
+          <svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      )}
+      <Sidebar variant="desktop" />
+      <Modal
+        open={open}
+        onClose={close}
+        ariaLabel="Navegación"
+        id="staff-sidebar-drawer"
+        closeOnBackdrop
+        style={{
+          position: 'fixed',
+          inset: '0 auto 0 0',
+          width: '14rem',
+          maxWidth: '85vw',
+          height: '100vh',
+          maxHeight: '100vh',
+          margin: 0,
+          padding: 0,
+          borderRadius: 0,
+        }}
+      >
+        <Sidebar variant="drawer" onNavigate={close} />
+      </Modal>
+    </>
+  );
 }
