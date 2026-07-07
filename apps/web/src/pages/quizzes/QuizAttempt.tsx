@@ -43,6 +43,7 @@ import OrdenarRenderer from "../../components/quiz-renderers/OrdenarRenderer";
 import MarcarMapaRenderer from "../../components/quiz-renderers/MarcarMapaRenderer";
 import AnalisisSintacticoRenderer from "../../components/quiz-renderers/AnalisisSintacticoRenderer";
 import IdentificarPalabrasRenderer from "../../components/quiz-renderers/IdentificarPalabrasRenderer";
+import AnalisisSpansRenderer from "../../components/quiz-renderers/AnalisisSpansRenderer";
 import { buildCorrectasFromEtiquetas } from "../../domain/quiz/checkAnswerSpecial";
 import {
   Card,
@@ -611,6 +612,9 @@ export default function QuizAttempt() {
                 ...(q.correccion ? { correccion: q.correccion } : {}),
                 ...(q.manualGrading ? { manualGrading: q.manualGrading } : {}),
                 ...(q.questionType === "abierta" ? { prompt: q.prompt } : {}),
+                // PLAN-E §21 — sin esto, el path no-autoritativo corrige
+                // proporcional como todo-o-nada.
+                ...(q.puntajeParcial ? { puntajeParcial: q.puntajeParcial } : {}),
               }))
           : undefined;
       const response = await apiPost<SubmitResponse>(
@@ -759,7 +763,10 @@ export default function QuizAttempt() {
     const selected = answersLocal[question.id] ?? "";
     const hasOptions = Array.isArray(question.options) && question.options.length > 0;
     const questionType = question.questionType ?? (hasOptions ? "mc" : "input");
-    const isMulti = Array.isArray(question.answerKey) && hasOptions;
+    // PLAN-E §21 Parte A: el flag `multiple` sobrevive la sanitización (el
+    // answerKey del alumno es un canario string, no un array).
+    const isMulti =
+      hasOptions && (question.multiple === true || Array.isArray(question.answerKey));
     return (
       <>
         {parseVisualContext(question.visualContext) ? (
@@ -845,6 +852,19 @@ export default function QuizAttempt() {
             textoAnalizar={question.textoAnalizar ?? ""}
             marcadas={Array.isArray(selected) ? (selected as string[]) : undefined}
             onChange={(marcadas) => handleAnswerChangeLocal(question.id, marcadas)}
+            disabled={inputsDisabledLocal}
+            correctas={
+              submitStatusLocal === "submitted" && Array.isArray(question.answerKey)
+                ? (question.answerKey as string[])
+                : undefined
+            }
+          />
+        ) : questionType === "analisis_spans" ? (
+          <AnalisisSpansRenderer
+            textoAnalizar={question.textoAnalizar ?? ""}
+            etiquetasDisponibles={question.etiquetasDisponibles ?? []}
+            value={Array.isArray(selected) ? (selected as string[]) : undefined}
+            onChange={(spans) => handleAnswerChangeLocal(question.id, spans)}
             disabled={inputsDisabledLocal}
             correctas={
               submitStatusLocal === "submitted" && Array.isArray(question.answerKey)

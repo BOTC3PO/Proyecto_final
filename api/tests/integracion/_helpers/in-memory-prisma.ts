@@ -746,6 +746,7 @@ export class InMemoryPrisma {
   libro = new Table<LibroRow>("libro");
   vblangDataset = new Table<DatasetRow>("vblangDataset");
   vblangDatasetFila = new Table<FilaRow>("vblangDatasetFila");
+  formula = new Table<Row>("formula");
   suscripcion = new Table<Row>("suscripcion");
   historialPago = new Table<Row>("historialPago");
   limiteEscuela = new Table<Row>("limiteEscuela");

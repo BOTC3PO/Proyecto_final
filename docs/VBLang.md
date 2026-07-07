@@ -134,7 +134,7 @@ Una plantilla VBLang es un archivo de texto con **bloques con nombre**. Cada blo
 | `opciones:` | No | Cantidad de opciones múltiple-choice. |
 | `tipo:` | No | Tipo de pregunta (`mc`, `input`, `vf`, `ordenar`, etc.). Default: `input`. |
 | `enunciado:` | Sí | Texto del ejercicio mostrado al alumno. |
-| `enunciados:` | Sí (en lugar de `enunciado:`) | Lista de variantes de enunciado; se elige una al azar por ejercicio, de forma estable por seed. Mutuamente excluyente con `enunciado:`. |
+| `enunciados:` | Sí (en lugar de `enunciado:`) | Lista de variantes de enunciado; se elige una al azar por ejercicio, de forma estable por seed. Mutuamente excluyente con `enunciado:`. Cada variante puede declarar tipo propio (`- mc "..."`, sólo tipos básicos; ver sección 7). |
 | `pasos:` | No | Resolución paso a paso (visible al alumno post-respuesta). |
 | `visual:` | No | Visual adjunto (chart, mapa, timeline, imagen). |
 | `generador:` | No | Generador hardcoded de Virtual Book a usar. |
@@ -764,6 +764,38 @@ Cada ítem es un string entre comillas precedido por `- `, igual que el bloque `
 - **Cobertura en validación**. La validación de 100 simulaciones (sección 13.1) fuerza cada variante al menos una vez en la ventana inicial, para que un error de interpolación en cualquier variante (ej. una variable mal escrita) haga fallar la validación, no que pase desapercibido con probabilidad 1/N.
 - **Linter contextual**. El linter emite un warning por cada variable no declarada con el formato `enunciados[i]: variable "x" no declarada` para que el docente ubique el error en la variante correcta. También avisa si hay variantes duplicadas exactas.
 
+#### Variantes con tipo propio (PLAN-E §15)
+
+Una variante puede declarar su **propio tipo de pregunta** anteponiendo el
+tipo al string:
+
+```vblang
+variables:
+  a: random(1, 100)
+  b: random(1, 100)
+
+opciones: 4
+
+enunciados:
+  - "Escribí el resultado de {a} + {b}."
+  - mc "Marcá el resultado de {a} + {b}."
+
+tipo: input
+respuesta: a + b
+```
+
+- **Default heredar**: una variante sin tipo usa el `tipo:` de la plantilla.
+- **Sólo tipos básicos**: `mc`, `vf`, `input`, `completar` (comparten la
+  semántica de `respuesta:`). Sobre plantillas de tipos especiales
+  (`ordenar`, `marcar_mapa`, etc.) las variantes con tipo se rechazan al
+  compilar.
+- **El corrector corrige por la variante servida**: el tipo del ejercicio
+  generado (`GenerationResult.tipo`) es el de la variante sorteada; como la
+  corrección regenera por seed, alumno y corrector ven siempre el mismo tipo.
+- **Una variante `mc` exige `opciones:` o `opciones_explicitas:`**, igual que
+  el tipo base `mc`. Una variante `vf` exige que `respuesta:` evalúe a
+  booleano (error en runtime/validación si no).
+
 #### Cuándo usar `enunciados:` y cuándo no
 
 - **Sí**: cuando el mismo ejercicio admite varias redacciones equivalentes (tono formal vs. informal, con o sin contexto, distintos verbos de consigna). Sirve también para diversidad entre alumnos.
@@ -1331,7 +1363,48 @@ enunciado: |
   Marcá las palabras del texto que forman parte de una metáfora.
 ```
 
-### 12.5 Resumen de tipos
+### 12.5 Tipo `analisis_spans` (PLAN-E §21 Parte B)
+
+Análisis sintáctico por **rangos de palabras contiguas**: el alumno marca un
+rango (clic en la primera y la última palabra), le asigna una etiqueta de la
+lista visible y agrega el span. Los spans **pueden solaparse** (el núcleo vive
+dentro del sujeto) — es el caso real del análisis sintáctico escolar.
+
+```vblang
+enunciado: "Analizá la oración."
+tipo: analisis_spans
+texto_analizar: "El perro grande corre por el parque"
+
+spans_pedidos:
+  - { desde: 0, hasta: 2, etiqueta: "sujeto" }
+  - { desde: 3, hasta: 6, etiqueta: "predicado" }
+  - { desde: 1, hasta: 1, etiqueta: "nucleo_sujeto" }
+
+etiquetas_disponibles:
+  - "objeto directo"        # distractor; las correctas se agregan solas
+
+puntaje_parcial: proporcional # opcional; default todo_o_nada
+```
+
+- **Unidad = PALABRA** (token separado por espacios; sin morfemas). `desde`/
+  `hasta` son índices 0-based **inclusive** sobre `texto_analizar`; el
+  generador valida rango (`0 ≤ desde ≤ hasta < cantidad de palabras`).
+- **Etiquetas visibles**: `etiquetas_disponibles:` es opcional; las etiquetas
+  usadas en `spans_pedidos:` se agregan solas si faltan. Sirve para sumar
+  distractores.
+- **Selección múltiple por token** (nivel 1b): dos spans con el mismo rango y
+  distinta etiqueta ("perro" = núcleo Y sustantivo) — el formato ya lo cubre.
+- **Corrección**: exacta por conjunto, NO NLP. Cada span viaja como string
+  canónico `"desde-hasta:etiqueta"` en `answerKey` (la sanitización lo cubre
+  con el canario: la clave no llega al alumno). Con
+  `puntaje_parcial: proporcional`, el puntaje es
+  `max(0, spans correctos − spans de más) / total correctos` (mismo esquema
+  que el `mc` múltiple de `multiple: true`).
+- **Diferencia con `analisis_sintactico`**: aquel etiqueta palabras SUELTAS
+  (pares palabra → etiqueta, todo-o-nada); `analisis_spans` etiqueta rangos,
+  admite solapamiento y puntaje parcial.
+
+### 12.6 Resumen de tipos
 
 | Tipo | UI | Respuesta del alumno | Cuándo usar |
 |---|---|---|---|
@@ -1341,7 +1414,8 @@ enunciado: |
 | `completar` | Campo texto inline | Palabra(s) | Completar huecos. |
 | `ordenar` | Drag-and-drop | Lista ordenada | Cronología, jerarquía. |
 | `marcar_mapa` | Mapa interactivo | Click en región | Geografía. |
-| `analisis_sintactico` | Texto + etiquetas | Rangos etiquetados | Lengua. |
+| `analisis_sintactico` | Texto + etiquetas | Palabras etiquetadas | Lengua (palabras sueltas). |
+| `analisis_spans` | Texto + rangos | Spans etiquetados (solapables) | Lengua (sujeto/predicado/núcleos). |
 | `identificar_palabras` | Texto tokenizado | Set de índices | Lengua, literatura. |
 
 ---

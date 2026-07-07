@@ -68,6 +68,7 @@ import { membresias } from "./routes/membresias";
 import { materiales } from "./routes/materiales";
 import { plantillas } from "./routes/plantillas";
 import { vblangDatasets } from "./routes/vblang-datasets";
+import { formulas } from "./routes/formulas";
 import { asistencia } from "./routes/asistencia";
 import { cobros } from "./routes/cobros";
 import { escuelaPasarelas } from "./routes/escuela-pasarelas";
@@ -242,6 +243,7 @@ app.use(membresias);
 app.use(materiales);
 app.use(plantillas);
 app.use(vblangDatasets);
+app.use(formulas);
 app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {

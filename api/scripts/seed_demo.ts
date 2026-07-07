@@ -633,6 +633,11 @@ async function main() {
   await seedDatasetTablaPeriodica();
   console.log(`  ✓ dataset "${TABLA_PERIODICA_NOMBRE}" (${TABLA_PERIODICA_FILAS.length} elementos)`);
 
+  // ── 11b. Banco de fórmulas globales (PLAN-E §19) ────────────────────────────
+  console.log("∑ Sembrando banco de fórmulas globales...");
+  await seedFormulasGlobales();
+  console.log(`  ✓ ${FORMULAS_GLOBALES.length} fórmulas globales`);
+
   // ── 12. Catálogo de tienda (temas + avatares) ──────────────────────────────
   console.log("🛒 Sembrando catálogo de tienda...");
   await seedTienda();
@@ -1084,7 +1089,75 @@ async function seedDatasetTablaPeriodica() {
   });
 }
 
-export { main as runSeedDemo };
+/**
+ * PLAN-E §19 — banco de fórmulas globales. Owner `SYSTEM_OWNER_ID`,
+ * `visibility: "publica"` (mismo patrón F6-01). Incluye las fórmulas de las
+ * plantillas oficiales de física (calorimetría, temperatura) + un set
+ * canónico de matemática/física/química. Idempotente por id fijo.
+ */
+const FORMULAS_GLOBALES: Array<{
+  nombre: string;
+  materia: string;
+  latex: string;
+  descripcion?: string;
+}> = [
+  // Matemática
+  { nombre: "Fórmula resolvente (Bhaskara)", materia: "Matemática", latex: "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}", descripcion: "Raíces de ax² + bx + c = 0" },
+  { nombre: "Teorema de Pitágoras", materia: "Matemática", latex: "a^2 + b^2 = c^2" },
+  { nombre: "Área del círculo", materia: "Matemática", latex: "A = \\pi r^2" },
+  { nombre: "Perímetro de la circunferencia", materia: "Matemática", latex: "P = 2\\pi r" },
+  { nombre: "Área del triángulo", materia: "Matemática", latex: "A = \\frac{b \\cdot h}{2}" },
+  { nombre: "Pendiente de una recta", materia: "Matemática", latex: "m = \\frac{y_2 - y_1}{x_2 - x_1}" },
+  { nombre: "Distancia entre dos puntos", materia: "Matemática", latex: "d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}" },
+  // Física — incluye las de las plantillas oficiales de termodinámica
+  { nombre: "Calor sensible", materia: "Física", latex: "Q = m \\cdot c \\cdot \\Delta T", descripcion: "Plantilla oficial de calorimetría" },
+  { nombre: "Calor latente", materia: "Física", latex: "Q = m \\cdot L", descripcion: "Plantilla oficial de cambios de estado" },
+  { nombre: "Celsius a Fahrenheit", materia: "Física", latex: "F = \\frac{9}{5}C + 32", descripcion: "Plantilla oficial de conversión de temperatura" },
+  { nombre: "Celsius a Kelvin", materia: "Física", latex: "K = C + 273.15", descripcion: "Plantilla oficial de conversión de temperatura" },
+  { nombre: "Velocidad media (MRU)", materia: "Física", latex: "v = \\frac{\\Delta x}{\\Delta t}" },
+  { nombre: "Posición en MRUV", materia: "Física", latex: "x = x_0 + v_0 t + \\frac{1}{2} a t^2" },
+  { nombre: "Segunda ley de Newton", materia: "Física", latex: "F = m \\cdot a" },
+  { nombre: "Energía cinética", materia: "Física", latex: "E_c = \\frac{1}{2} m v^2" },
+  { nombre: "Energía potencial gravitatoria", materia: "Física", latex: "E_p = m \\cdot g \\cdot h" },
+  { nombre: "Ley de Ohm", materia: "Física", latex: "V = I \\cdot R" },
+  // Química
+  { nombre: "Cantidad de sustancia (moles)", materia: "Química", latex: "n = \\frac{m}{M}", descripcion: "m: masa, M: masa molar" },
+  { nombre: "Concentración molar", materia: "Química", latex: "M = \\frac{n}{V}" },
+  { nombre: "Ecuación de los gases ideales", materia: "Química", latex: "P \\cdot V = n \\cdot R \\cdot T" },
+];
+
+async function seedFormulasGlobales() {
+  for (let i = 0; i < FORMULAS_GLOBALES.length; i++) {
+    const f = FORMULAS_GLOBALES[i];
+    const id = `formula-oficial-${i}`;
+    await prisma.formula.upsert({
+      where: { id },
+      update: {
+        nombre: f.nombre,
+        materia: f.materia,
+        latex: f.latex,
+        descripcion: f.descripcion ?? null,
+        isDeleted: false,
+        updatedAt: now,
+      },
+      create: {
+        id,
+        ownerUserId: SYSTEM_OWNER_ID,
+        schoolId: null,
+        visibility: "publica",
+        nombre: f.nombre,
+        materia: f.materia,
+        latex: f.latex,
+        descripcion: f.descripcion ?? null,
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+      },
+    });
+  }
+}
+
+export { main as runSeedDemo, seedFormulasGlobales };
 
 if (require.main === module) {
   main()

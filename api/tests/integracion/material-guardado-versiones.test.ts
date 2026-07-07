@@ -196,6 +196,44 @@ test("(e) GET /api/materiales fusiona modulos y materiales en items[], con orige
   assert.equal(materialItem!.origen, "material");
 });
 
+// G3 Fase 3.3 (opción b) — los libros (tabla `libros`) se fusionan en el
+// listado con origen='libro' y título extraído del JSON, respetando el
+// mismo filtro de visibilidad.
+test("(f) GET /api/materiales fusiona libros propios con origen='libro'", async () => {
+  prisma.libro.rows.push({
+    id: "libro-fusion-1",
+    json: JSON.stringify({ book: { metadata: { title: "Mi libro de prueba" } } }),
+    ownerUserId: DOCENTE_ID,
+    schoolId: null,
+    visibility: "privado",
+    updatedAt: new Date().toISOString(),
+  });
+  // Libro privado de OTRO docente: no debe aparecer.
+  prisma.libro.rows.push({
+    id: "libro-fusion-ajeno",
+    json: JSON.stringify({ book: { metadata: { title: "Libro ajeno privado" } } }),
+    ownerUserId: DOCENTE_OTRO_ID,
+    schoolId: null,
+    visibility: "privado",
+    updatedAt: new Date().toISOString(),
+  });
+
+  const res = await jsonRequest(baseUrl, "GET", "/api/materiales", { token: docenteToken() });
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  const body = res.body as { items: Array<{ id: string; titulo: string; tipo: string; origen: string }> };
+
+  const libroItem = body.items.find((i) => i.id === "libro-fusion-1");
+  assert.ok(libroItem, "debe listar el libro propio");
+  assert.equal(libroItem!.origen, "libro");
+  assert.equal(libroItem!.tipo, "libro");
+  assert.equal(libroItem!.titulo, "Mi libro de prueba");
+
+  assert.ok(
+    !body.items.some((i) => i.id === "libro-fusion-ajeno"),
+    "no debe listar el libro privado de otro docente",
+  );
+});
+
 test("GET /api/materiales no lista un material privado de otro docente", async () => {
   await jsonRequest(baseUrl, "POST", "/api/materiales/guardados", {
     token: docenteToken(),

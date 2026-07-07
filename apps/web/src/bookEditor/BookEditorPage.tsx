@@ -11,6 +11,8 @@ import { migrateToV11ForEditor } from "./services/migrate";
 import { canEditLibro, fetchBook, fetchBookWithMeta, fetchBooks, saveBook } from "./services/booksApi";
 import type { BookListItem, BookMeta } from "./services/booksApi";
 import { makeEmptyBook } from "./services/newBook";
+import Toast from "../components/Toast";
+import type { ToastVariant } from "../components/Toast";
 
 // ===== Helpers =====
 function classNames(...xs: Array<string | false | null | undefined>) {
@@ -1165,7 +1167,8 @@ function LibraryModal({
       dispatch({ type: "LOAD_BOOK", book });
       onClose();
     } catch (e: unknown) {
-      alert("Error al cargar: " + String(e));
+      // G3 Fase 3.2 — el modal ya tiene un slot de error accesible; nada de alert().
+      setErr("Error al cargar: " + String(e));
     }
   };
 
@@ -1523,7 +1526,7 @@ function PageCanvas({
       <div className="flex-1 space-y-2">
         {page.content.length === 0 && (
           <p className="text-center text-[var(--c-muted)] italic text-sm py-16">
-            Página vacía — usa el panel inferior para agregar bloques
+            Página vacía — usa la barra de arriba para agregar bloques
           </p>
         )}
         {page.content.map((block) => (
@@ -1604,6 +1607,13 @@ export default function BookEditorPage() {
   // Save feedback
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
 
+  // G3 Fase 3.2 — feedback no-bloqueante (reemplaza los alert()).
+  const [toast, setToast] = useState<{ msg: string; variant: ToastVariant } | null>(null);
+
+  // G3 4.a-1 — panel de issues de validación (antes: sólo el conteo en el badge,
+  // los mensajes no se mostraban en ningún lado).
+  const [showIssues, setShowIssues] = useState(false);
+
   // SEC-LIBRO — metadata de ownership del libro cargado (solo
   // cuando viene de un id existente). Si el viewer no puede editar
   // (no es dueño, ni staff de la escuela dueña en libros escuela,
@@ -1663,7 +1673,7 @@ export default function BookEditorPage() {
   // ===== FSA handlers =====
   const openLocalFile = useCallback(async () => {
     if (!window.showOpenFilePicker) {
-      alert("File System Access API no soportada en este navegador. Usa Chrome/Edge.");
+      setToast({ msg: "File System Access API no soportada en este navegador. Usa Chrome/Edge.", variant: "warning" });
       return;
     }
     try {
@@ -1683,7 +1693,7 @@ export default function BookEditorPage() {
       setFsaFileName(handle.name);
     } catch (e: unknown) {
       if (e instanceof Error && e.name === "AbortError") return;
-      alert("Error al abrir archivo: " + String(e));
+      setToast({ msg: "Error al abrir archivo: " + String(e), variant: "danger" });
     }
   }, [dispatch]);
 
@@ -1748,7 +1758,7 @@ export default function BookEditorPage() {
         setFsaHandle(null);
         setFsaFileName(file.name);
       } catch (err: unknown) {
-        alert("Error al importar: " + String(err));
+        setToast({ msg: "Error al importar: " + String(err), variant: "danger" });
       }
       e.target.value = "";
     },
@@ -1759,14 +1769,15 @@ export default function BookEditorPage() {
     if (!book) return;
     setSaveStatus('saving');
     try {
-      const res = await saveBook(book);
-      alert(`Guardado en servidor. ID: ${res.id}`);
+      // El "✓ Guardado" del header ya da el feedback de éxito; el ID interno no
+      // le sirve al docente (era el peor de los alert()).
+      await saveBook(book);
       dispatch({ type: "MARK_DIRTY", dirty: false });
       setSaveStatus('saved');
       setTimeout(() => setSaveStatus('idle'), 2000);
     } catch (e: unknown) {
       setSaveStatus('error');
-      alert("Error al guardar: " + String(e));
+      setToast({ msg: "Error al guardar: " + String(e), variant: "danger" });
     }
   }, [book, dispatch]);
 
@@ -1979,27 +1990,57 @@ export default function BookEditorPage() {
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
           Imágenes
         </button>
-        <button onClick={() => setShowLibrary(true)} title="Biblioteca"
+        <button onClick={() => setShowLibrary(true)} title="Mis documentos"
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
-          Biblioteca
+          Mis documentos
         </button>
         <button onClick={() => setShowJson(true)} title="Ver JSON" aria-label="Ver JSON"
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors font-mono">
           <span aria-hidden="true">{'{ }'}</span>
         </button>
 
-        {/* Issues badge */}
+        {/* Issues badge — clickeable: abre el panel con los mensajes (G3 4.a-1) */}
         {(errorCount > 0 || warnCount > 0) && (
-          <div className="flex gap-1">
-            {errorCount > 0 && (
-              <span className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded">
-                {errorCount}E
-              </span>
-            )}
-            {warnCount > 0 && (
-              <span className="text-[10px] bg-amber-500 text-white px-1.5 py-0.5 rounded">
-                {warnCount}W
-              </span>
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setShowIssues((v) => !v)}
+              aria-expanded={showIssues}
+              aria-label={`Ver ${errorCount + warnCount} problemas de validación`}
+              title="Ver problemas de validación"
+              className="flex gap-1 items-center cursor-pointer rounded hover:opacity-80 transition-opacity"
+            >
+              {errorCount > 0 && (
+                <span className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded">
+                  {errorCount}E
+                </span>
+              )}
+              {warnCount > 0 && (
+                <span className="text-[10px] bg-amber-500 text-white px-1.5 py-0.5 rounded">
+                  {warnCount}W
+                </span>
+              )}
+            </button>
+            {showIssues && (
+              <div
+                role="region"
+                aria-label="Problemas de validación"
+                className="absolute right-0 top-full mt-2 w-96 max-h-80 overflow-y-auto rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-lg z-30 p-2 space-y-1"
+              >
+                {issues.map((issue, i) => (
+                  <div key={i} className="flex items-start gap-2 text-xs p-1.5 rounded hover:bg-[var(--c-bg)]">
+                    <span className={`flex-shrink-0 px-1 rounded text-white text-[10px] ${issue.level === "error" ? "bg-red-600" : "bg-amber-500"}`}>
+                      {issue.level === "error" ? "E" : "W"}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="text-[var(--c-text)]">{issue.message}</span>
+                      {issue.path && (
+                        <span className="block text-[10px] text-[var(--c-muted)] font-mono truncate">{issue.path}</span>
+                      )}
+                    </span>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         )}
@@ -2432,6 +2473,14 @@ export default function BookEditorPage() {
       )}
       {showJson && (
         <JsonModal book={book} onClose={() => setShowJson(false)} />
+      )}
+      {toast && (
+        <Toast
+          message={toast.msg}
+          variant={toast.variant}
+          onClose={() => setToast(null)}
+          durationMs={5000}
+        />
       )}
     </div>
   );

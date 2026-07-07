@@ -17,6 +17,7 @@ export type ModuleQuizQuestionType =
   | "ordenar"
   | "marcar_mapa"
   | "analisis_sintactico"
+  | "analisis_spans"
   | "identificar_palabras"
   | "abierta"
   /**
@@ -96,10 +97,18 @@ export interface ModuleQuizQuestion {
   paisIso?: string;
   /** marcar_mapa: bounding box fijo [oeste, sur, este, norte] para lock de vista. */
   encuadre?: [number, number, number, number];
-  /** analisis_sintactico / identificar_palabras: texto completo a presentar. */
+  /** analisis_sintactico / analisis_spans / identificar_palabras: texto completo a presentar. */
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */
   etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
+  /**
+   * PLAN-E §21 Parte B — analisis_spans: etiquetas que ve el alumno
+   * (correctas + distractores). La clave correcta NO viaja acá: va en
+   * `answerKey` como strings canónicos `"desde-hasta:etiqueta"` (índices de
+   * PALABRA 0-based inclusive), así la sanitización la cubre con el canario
+   * y la corrección server-side reusa el camino genérico de arrays.
+   */
+  etiquetasDisponibles?: string[];
 
   /* ----- WO07 — pregunta abierta ----- */
   /**
@@ -112,6 +121,19 @@ export interface ModuleQuizQuestion {
    * reproductor no la auto-corrige y la deja "pendiente".
    */
   manualGrading?: boolean;
+
+  /* ----- PLAN-E §21 Parte A — mc de selección múltiple ----- */
+  /**
+   * mc múltiple: `answerKey` es array con TODAS las correctas y el player
+   * usa checkboxes. Este flag debe sobrevivir la sanitización (el alumno no
+   * ve `answerKey`, pero necesita saber que es multi-selección).
+   */
+  multiple?: boolean;
+  /**
+   * mc múltiple: modo de puntaje. `proporcional` =
+   * max(0, aciertos − marcadas de más) / total correctas. Default todo_o_nada.
+   */
+  puntajeParcial?: "todo_o_nada" | "proporcional";
 }
 
 export interface AdapterOptions {

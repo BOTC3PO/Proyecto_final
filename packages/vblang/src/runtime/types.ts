@@ -5,6 +5,7 @@ import type {
   Expr,
   PasoItem,
   Plantilla,
+  PuntajeParcialModo,
   TextoOInterpolacion,
   TipoPregunta,
   VariableDecl,
@@ -77,6 +78,14 @@ export interface CompiledPlantilla {
   visual?: CampoKV[];
   /** WO07 — modo de corrección de una pregunta `abierta`. */
   correccion?: CorreccionModo;
+  /** PLAN-E §21 Parte A — mc de selección múltiple (varias correctas). */
+  multiple?: boolean;
+  /** PLAN-E §21 Parte A/B — puntaje parcial (mc múltiple y analisis_spans). */
+  puntajeParcial?: PuntajeParcialModo;
+  /** PLAN-E §21 Parte B — clave de spans (desde/hasta/etiqueta como Exprs). */
+  spansPedidos?: EtiquetaPedida[];
+  /** PLAN-E §21 Parte B — etiquetas visibles para el alumno (Exprs → strings). */
+  etiquetasDisponibles?: Expr[];
 }
 
 export interface GenerationOptions {
@@ -168,10 +177,26 @@ export interface GenerationResult {
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta). */
   etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
+  /**
+   * PLAN-E §21 Parte B — analisis_spans: clave correcta. Índices de PALABRA
+   * (0-based, inclusive) sobre `textoAnalizar`; los spans pueden solaparse.
+   */
+  spansPedidos?: Array<{ desde: number; hasta: number; etiqueta: string }>;
+  /** analisis_spans: etiquetas que ve el alumno (correctas + distractores). */
+  etiquetasDisponibles?: string[];
 
   /**
    * WO07 — abierta: modo de corrección. `ninguna` (no puntúa) o `manual` (la
    * corrige el profe). Las preguntas `abierta` no tienen `respuesta`.
    */
   correccion?: CorreccionModo;
+
+  /**
+   * PLAN-E §21 Parte A — mc de selección múltiple. `multiple: true` implica
+   * que `opciones` puede tener VARIAS correctas; el adapter arma
+   * `answerKey` como array y el player usa checkboxes.
+   */
+  multiple?: boolean;
+  /** PLAN-E §21 Parte A — modo de puntaje (default todo_o_nada). */
+  puntajeParcial?: PuntajeParcialModo;
 }

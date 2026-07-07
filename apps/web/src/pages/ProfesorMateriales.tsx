@@ -9,7 +9,7 @@ type MaterialItem = {
   materia: string;
   // PLAN-G §1 (item 25) — además de 'cuestionario' (módulos, como antes),
   // ahora puede ser uno de los 4 tipos de "material guardado".
-  tipo: 'cuestionario' | 'documento' | 'otro' | 'mapa' | 'timeline' | 'interactivo' | 'presentacion';
+  tipo: 'cuestionario' | 'documento' | 'otro' | 'mapa' | 'timeline' | 'interactivo' | 'presentacion' | 'libro';
   autor: string;
   ownerUserId?: string | null;
   escuelaId: string | null;
@@ -17,8 +17,9 @@ type MaterialItem = {
   compartido: boolean;
   createdAt: string;
   questions?: number;
-  // 'modulo' (comportamiento de siempre) | 'material' (guardado nuevo, PLAN-G §1).
-  origen?: 'modulo' | 'material';
+  // 'modulo' (comportamiento de siempre) | 'material' (guardado nuevo, PLAN-G §1)
+  // | 'libro' (tabla `libros`, fusionada en G3 Fase 3).
+  origen?: 'modulo' | 'material' | 'libro';
 };
 
 // PLAN-G §1 (item 25) — a qué ruta de editor navegar para reabrir cada
@@ -155,6 +156,13 @@ export default function ProfesorMateriales() {
         >
           + Crear cuestionario
         </Link>
+        {/* G3 Fase 3.1 — el editor de libros no tenía ningún entry point. */}
+        <Link
+          to="/editor"
+          className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+        >
+          + Crear libro
+        </Link>
       </div>
 
       {msg && (
@@ -226,7 +234,17 @@ export default function ProfesorMateriales() {
                   Abrir
                 </button>
               )}
-              {tab === 'propios' && item.origen !== 'material' && (
+              {item.origen === 'libro' && (
+                <button
+                  type="button"
+                  onClick={() => navigate(`/editor/${item.id}`)}
+                  data-testid={`abrir-${item.id}`}
+                  className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+                >
+                  Abrir
+                </button>
+              )}
+              {tab === 'propios' && (!item.origen || item.origen === 'modulo') && (
                 <button
                   onClick={() => openShareDialog(item)}
                   data-testid={`compartir-${item.id}`}
@@ -235,7 +253,7 @@ export default function ProfesorMateriales() {
                   {item.compartido ? 'Cambiar alcance' : 'Compartir'}
                 </button>
               )}
-              {item.origen !== 'material' && (
+              {(!item.origen || item.origen === 'modulo') && (
                 <button
                   type="button"
                   onClick={() => handleDescargar(item)}

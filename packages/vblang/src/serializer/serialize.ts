@@ -356,8 +356,12 @@ function emitBloque(b: Bloque): string {
       // variante, escapando strings via emitInterpolatedString (que ya
       // maneja { } literales y caracteres especiales).
       if (b.items.length === 0) return "enunciados:";
+      // PLAN-E §15: variante con tipo propio → `- mc "..."`.
       const body = b.items
-        .map((it) => `${INDENT}- ${emitInterpolatedString(it.partes)}`)
+        .map(
+          (it) =>
+            `${INDENT}- ${it.tipo ? `${it.tipo} ` : ""}${emitInterpolatedString(it.partes)}`,
+        )
         .join("\n");
       return `enunciados:\n${body}`;
     }
@@ -399,6 +403,22 @@ function emitBloque(b: Bloque): string {
     }
     case "correccion":
       return `correccion: ${b.modo}`;
+    case "multiple":
+      return `multiple: ${b.valor ? "true" : "false"}`;
+    case "puntaje_parcial":
+      return `puntaje_parcial: ${b.modo}`;
+    case "spans_pedidos": {
+      // PLAN-E §21 Parte B — mismo formato de ítem que `etiquetas_pedidas:`.
+      const body = b.spans
+        .map((s) => emitEtiquetaPedida(s, INDENT))
+        .join("\n");
+      return `spans_pedidos:\n${body}`;
+    }
+    case "etiquetas_disponibles": {
+      if (b.items.length === 0) return "etiquetas_disponibles:";
+      const body = b.items.map((i) => `${INDENT}- ${emitExpr(i)}`).join("\n");
+      return `etiquetas_disponibles:\n${body}`;
+    }
     case "opciones_explicitas": {
       if (b.items.length === 0) return "opciones_explicitas:";
       // Si hay una sola expresión y NO es un literal-array multi-elemento,

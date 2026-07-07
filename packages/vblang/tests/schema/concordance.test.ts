@@ -49,6 +49,12 @@ const KNOWN_BLOCK_KINDS = [
   "etiquetas_pedidas",
   "opciones_explicitas",
   "correccion",
+  // PLAN-E §21 Parte A — selección múltiple.
+  "multiple",
+  "puntaje_parcial",
+  // PLAN-E §21 Parte B — análisis por rangos de palabras.
+  "spans_pedidos",
+  "etiquetas_disponibles",
 ] as const satisfies readonly BloqueKind[];
 const KNOWN_BLOCK_SET = new Set<string>(KNOWN_BLOCK_KINDS);
 
@@ -74,6 +80,8 @@ const ALL_TIPOS: TipoPregunta[] = [
   "ordenar",
   "marcar_mapa",
   "analisis_sintactico",
+  // PLAN-E §21 Parte B — análisis por rangos de palabras.
+  "analisis_spans",
   "identificar_palabras",
   "abierta",
   // WO-11 — respuesta simbólica.

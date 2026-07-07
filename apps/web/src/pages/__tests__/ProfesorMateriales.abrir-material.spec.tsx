@@ -97,6 +97,36 @@ describe("PLAN-G §1: Abrir un material guardado", () => {
     expect(await screen.findByTestId("compartir-mod-1")).toBeTruthy();
   });
 
+  it("(f) un item 'libro' muestra Abrir que navega a /editor/:id, sin Descargar/Compartir", async () => {
+    const libroItem = {
+      id: "libro-1",
+      titulo: "Mi libro",
+      materia: "Sin materia",
+      tipo: "libro" as const,
+      autor: "u1",
+      ownerUserId: "u1",
+      escuelaId: "s1",
+      compartido: false,
+      createdAt: "2026-07-05T00:00:00.000Z",
+      origen: "libro" as const,
+    };
+    mockGet.mockResolvedValue({ items: [libroItem] });
+    renderPage();
+    fireEvent.click(await screen.findByText("Mis materiales"));
+
+    const abrirBtn = await screen.findByTestId("abrir-libro-1");
+    expect(screen.queryByTestId("compartir-libro-1")).toBeNull();
+    fireEvent.click(abrirBtn);
+    expect(mockNavigate).toHaveBeenCalledWith("/editor/libro-1");
+  });
+
+  it("(g) el entry point '+ Crear libro' apunta a /editor", async () => {
+    mockGet.mockResolvedValue({ items: [] });
+    renderPage();
+    const link = await screen.findByRole("link", { name: /crear libro/i });
+    expect(link.getAttribute("href")).toBe("/editor");
+  });
+
   it("(b) click en Abrir navega a la ruta del editor con ?materialId=", async () => {
     mockGet.mockResolvedValue({ items: [materialItem] });
     renderPage();

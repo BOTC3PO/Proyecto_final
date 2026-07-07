@@ -33,6 +33,7 @@ import OrdenarRenderer from "../quiz-renderers/OrdenarRenderer";
 import MarcarMapaRenderer from "../quiz-renderers/MarcarMapaRenderer";
 import AnalisisSintacticoRenderer from "../quiz-renderers/AnalisisSintacticoRenderer";
 import IdentificarPalabrasRenderer from "../quiz-renderers/IdentificarPalabrasRenderer";
+import AnalisisSpansRenderer from "../quiz-renderers/AnalisisSpansRenderer";
 import Cronometro from "../quizzes/Cronometro";
 import { useCountdown } from "../../hooks/useCountdown";
 import { Badge, Button, Alert, Progress } from "../../ui";
@@ -571,6 +572,14 @@ function ManualQuestionPreview({
         <IdentificarPalabrasRenderer
           textoAnalizar={question.textoAnalizar ?? ""}
           marcadas={Array.isArray(answer) ? answer : []}
+          onChange={(v) => setAnswer(v)}
+          disabled={verified !== null}
+        />
+      ) : qt === "analisis_spans" ? (
+        <AnalisisSpansRenderer
+          textoAnalizar={question.textoAnalizar ?? ""}
+          etiquetasDisponibles={question.etiquetasDisponibles ?? []}
+          value={Array.isArray(answer) ? answer : undefined}
           onChange={(v) => setAnswer(v)}
           disabled={verified !== null}
         />

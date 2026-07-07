@@ -1429,6 +1429,27 @@ model PlantillaEjercicioVersion {
   @@index([plantillaId])
 }
 
+// PLAN-E §19 — banco de fórmulas (nombre + LaTeX + materia). Scoping
+// global/escuela: las globales son visibility "publica" con owner "system".
+model Formula {
+  id          String  @id
+  ownerUserId String  @map("owner_user_id")
+  schoolId    String? @map("school_id")
+  visibility  String  // "privada" | "escuela" | "publica"
+  nombre      String
+  materia     String?
+  latex       String
+  descripcion String?
+  isDeleted   Boolean @default(false) @map("is_deleted")
+  createdAt   String  @map("created_at")
+  updatedAt   String  @map("updated_at")
+
+  @@map("formulas")
+  @@index([schoolId, visibility])
+  @@index([materia])
+  @@index([ownerUserId])
+}
+
 model VblangDataset {
   id            String   @id
   ownerUserId   String   @map("owner_user_id")
@@ -1437,6 +1458,7 @@ model VblangDataset {
   nombre        String   // identificador único por owner
   descripcion   String?
   columnas      String   // JSON: { nombre: "string", capital: "string", ... }
+  sourceUrl     String?  @map("source_url") // PLAN-E §20: URL externa (HTTPS, CSV/JSON) para refresco manual
   isDeleted     Boolean  @default(false) @map("is_deleted")
   createdAt     String   @map("created_at")
   updatedAt     String   @map("updated_at")

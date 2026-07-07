@@ -56,6 +56,10 @@ export const RESUMENES_BLOQUES: Record<string, string> = {
   etiquetas_pedidas: "Lista de pares palabra → etiqueta esperados (tipo analisis_sintactico).",
   opciones_explicitas: "Lista fija de opciones a presentar al alumno (tipos mc / ordenar).",
   correccion: "Modo de corrección de preguntas abiertas: `ninguna` (informativa) o `manual` (la corrige el docente).",
+  multiple: "Selección múltiple para mc: `true` marca como correctas todas las opciones que coincidan con `respuesta:` o `respuestas_validas:` (checkboxes).",
+  puntaje_parcial: "Puntaje de la selección múltiple: `todo_o_nada` (default) o `proporcional` (aciertos menos marcadas de más, sobre el total de correctas).",
+  spans_pedidos: "Clave del análisis por spans: lista de `{ desde, hasta, etiqueta }` con índices de PALABRA (0-based, inclusive) sobre `texto_analizar`; pueden solaparse (tipo analisis_spans).",
+  etiquetas_disponibles: "Etiquetas que ve el alumno en analisis_spans (correctas + distractores); las usadas en `spans_pedidos:` se agregan solas si faltan.",
 };
 
 /** Resúmenes de bloque, en el orden de `BLOCK_NAMES`. */

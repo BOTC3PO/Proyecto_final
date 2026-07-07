@@ -52,6 +52,12 @@ const ANSWER_BLOCKS: Bloque["kind"][] = [
   "unidad",
   "tolerancia",
   "correccion",
+  // PLAN-E §21 Parte A — selección múltiple.
+  "multiple",
+  "puntaje_parcial",
+  // PLAN-E §21 Parte B — análisis por rangos de palabras.
+  "spans_pedidos",
+  "etiquetas_disponibles",
 ];
 
 /* ---------------- lecturas ---------------- */
@@ -101,6 +107,10 @@ export function readBoolField(p: Plantilla, field: Field): boolean {
     const b = getBlock(p, "respuesta");
     return b?.expr.kind === "bool" ? b.expr.value : false;
   }
+  if (field.block === "multiple") {
+    const b = getBlock(p, "multiple");
+    return b ? b.valor : false;
+  }
   return false;
 }
 
@@ -113,6 +123,10 @@ export function readEnumField(p: Plantilla, field: Field): string {
     const b = getBlock(p, "correccion");
     return b ? b.modo : "";
   }
+  if (field.block === "puntaje_parcial") {
+    const b = getBlock(p, "puntaje_parcial");
+    return b ? b.modo : "";
+  }
   return "";
 }
 
@@ -123,6 +137,10 @@ export function readListStrings(p: Plantilla, field: ListField): string[] {
   }
   if (field.block === "respuestas_validas") {
     const b = getBlock(p, "respuestas_validas");
+    return b ? b.items.map(exprToStringValue) : [];
+  }
+  if (field.block === "etiquetas_disponibles") {
+    const b = getBlock(p, "etiquetas_disponibles");
     return b ? b.items.map(exprToStringValue) : [];
   }
   return [];
@@ -141,6 +159,30 @@ export function readEtiquetas(p: Plantilla): EtiquetaRow[] {
     const etiqueta = et.campos.find((c) => c.key === "etiqueta");
     return {
       palabra: palabra ? exprToStringValue(palabra.value) : "",
+      etiqueta: etiqueta ? exprToStringValue(etiqueta.value) : "",
+    };
+  });
+}
+
+/** PLAN-E §21 Parte B — fila del editor de spans (índices de palabra). */
+export interface SpanRow {
+  desde: number;
+  hasta: number;
+  etiqueta: string;
+}
+
+export function readSpans(p: Plantilla): SpanRow[] {
+  const b = getBlock(p, "spans_pedidos");
+  if (!b) return [];
+  return b.spans.map((sp) => {
+    const num = (key: string): number => {
+      const c = sp.campos.find((x) => x.key === key);
+      return c?.value.kind === "num" ? c.value.value : 0;
+    };
+    const etiqueta = sp.campos.find((x) => x.key === "etiqueta");
+    return {
+      desde: num("desde"),
+      hasta: num("hasta"),
       etiqueta: etiqueta ? exprToStringValue(etiqueta.value) : "",
     };
   });
@@ -213,6 +255,12 @@ export function writeNumberField(
 }
 
 export function writeBoolField(p: Plantilla, field: Field, value: boolean): Plantilla {
+  if (field.block === "multiple") {
+    // `multiple: false` = ausente (round-trip sin basura).
+    return value
+      ? withBlock(p, { kind: "multiple", valor: true, loc: DUMMY_LOC })
+      : withoutBlock(p, "multiple");
+  }
   if (field.block !== "respuesta") return p;
   return withBlock(p, { kind: "respuesta", expr: boolLit(value), loc: DUMMY_LOC });
 }
@@ -229,6 +277,14 @@ export function writeEnumField(p: Plantilla, field: Field, value: string): Plant
     return withBlock(p, {
       kind: "correccion",
       modo: value === "manual" ? "manual" : "ninguna",
+      loc: DUMMY_LOC,
+    });
+  }
+  if (field.block === "puntaje_parcial") {
+    if (value === "") return withoutBlock(p, "puntaje_parcial");
+    return withBlock(p, {
+      kind: "puntaje_parcial",
+      modo: value === "proporcional" ? "proporcional" : "todo_o_nada",
       loc: DUMMY_LOC,
     });
   }
@@ -254,7 +310,28 @@ export function writeListStrings(
       loc: DUMMY_LOC,
     });
   }
+  if (field.block === "etiquetas_disponibles") {
+    // Lista opcional: vacía = bloque ausente (round-trip sin basura).
+    if (items.length === 0) return withoutBlock(p, "etiquetas_disponibles");
+    return withBlock(p, {
+      kind: "etiquetas_disponibles",
+      items: items.map(strLit),
+      loc: DUMMY_LOC,
+    });
+  }
   return p;
+}
+
+export function writeSpans(p: Plantilla, rows: SpanRow[]): Plantilla {
+  const spans: EtiquetaPedida[] = rows.map((r) => ({
+    id: "",
+    campos: [
+      { key: "desde", value: numLit(r.desde) },
+      { key: "hasta", value: numLit(r.hasta) },
+      { key: "etiqueta", value: strLit(r.etiqueta) },
+    ],
+  }));
+  return withBlock(p, { kind: "spans_pedidos", spans, loc: DUMMY_LOC });
 }
 
 export function writeEtiquetas(p: Plantilla, rows: EtiquetaRow[]): Plantilla {
@@ -334,6 +411,27 @@ function seedBlocks(tipo: TipoPregunta): Bloque[] {
             campos: [
               { key: "palabra", value: strLit("gato") },
               { key: "etiqueta", value: strLit("sustantivo") },
+            ],
+          },
+        ],
+        loc: DUMMY_LOC,
+      });
+      break;
+    case "analisis_spans":
+      blocks.push({
+        kind: "texto_analizar",
+        expr: strLit("El perro grande corre por el parque"),
+        loc: DUMMY_LOC,
+      });
+      blocks.push({
+        kind: "spans_pedidos",
+        spans: [
+          {
+            id: "",
+            campos: [
+              { key: "desde", value: numLit(0) },
+              { key: "hasta", value: numLit(2) },
+              { key: "etiqueta", value: strLit("sujeto") },
             ],
           },
         ],
@@ -760,6 +858,12 @@ const HANDLED_BLOCKS = new Set<Bloque["kind"]>([
   // WO-1: tolerancia absoluta (número crudo, junto a la relativa).
   "tolerancia_abs",
   "correccion",
+  // PLAN-E §21 Parte A — selección múltiple.
+  "multiple",
+  "puntaje_parcial",
+  // PLAN-E §21 Parte B — análisis por rangos de palabras.
+  "spans_pedidos",
+  "etiquetas_disponibles",
   "generador",
   "variables",
   // WO-1: restricciones (dash-list de fórmulas) y pistas escalonadas (plural).

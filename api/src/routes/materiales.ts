@@ -3,6 +3,7 @@ import { Router } from 'express';
 import { prisma } from '../lib/prisma';
 import { requireUser } from '../lib/user-auth';
 import { hasRole } from '../lib/roles';
+import { safeParseLibroJson } from './libros';
 
 export const materiales = Router();
 
@@ -112,6 +113,26 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
     for (const u of extraOwners) ownerMap.set(u.id, u.fullName || u.username || u.id);
   }
 
+  // G3 Fase 3.3 (opción b) — fusionar libros (tabla `libros`, persistencia
+  // propia del editor de libros) en el mismo listado, con el mismo filtro de
+  // visibilidad. Se referencia la fila existente en vez de duplicarla en
+  // `Material` para no crear un guardado paralelo (PLAN-G §1 lo prohíbe).
+  // `Libro` no tiene columna de título ni createdAt: viven en el JSON.
+  const librosRows = await prisma.libro.findMany({
+    where: { OR: filters },
+    select: { id: true, json: true, ownerUserId: true, schoolId: true, visibility: true, updatedAt: true },
+  });
+  const libroOwnerIds = librosRows
+    .map((l) => l.ownerUserId)
+    .filter((v): v is string => !!v && !ownerMap.has(v));
+  if (libroOwnerIds.length) {
+    const extraOwners = await prisma.usuario.findMany({
+      where: { id: { in: Array.from(new Set(libroOwnerIds)) } },
+      select: { id: true, fullName: true, username: true },
+    });
+    for (const u of extraOwners) ownerMap.set(u.id, u.fullName || u.username || u.id);
+  }
+
   const items = [
     ...modulos.map((m) => ({
       id: m.id,
@@ -139,6 +160,22 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
       createdAt: mat.createdAt,
       origen: 'material' as const,
     })),
+    ...librosRows.map((l) => {
+      const parsed = safeParseLibroJson(l.json, l.id);
+      return {
+        id: l.id,
+        titulo: parsed.title,
+        materia: 'Sin materia',
+        tipo: 'libro',
+        autor: ownerMap.get(l.ownerUserId ?? '') ?? l.ownerUserId ?? 'Desconocido',
+        ownerUserId: l.ownerUserId ?? null,
+        escuelaId: l.schoolId ?? null,
+        visibility: l.visibility ?? 'privado',
+        compartido: l.visibility === 'escuela' || l.visibility === 'publico',
+        createdAt: parsed.createdAt ?? l.updatedAt ?? '',
+        origen: 'libro' as const,
+      };
+    }),
   ];
 
   return res.json({ items });

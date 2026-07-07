@@ -16,7 +16,7 @@ const MAX_PAGE_SIZE = 50;
  * del libro sin tirar el handler si el JSON está malformado. Replica
  * el patrón de `safeJsonParse` que ya usan datasets/modulos.
  */
-function safeParseLibroJson(
+export function safeParseLibroJson(
   rawJson: string,
   id: string,
 ): { title: string; createdAt?: string; updatedAt?: string } {

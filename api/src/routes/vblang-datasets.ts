@@ -33,6 +33,7 @@ type DatasetRow = {
   nombre: string;
   descripcion: string | null;
   columnas: string;
+  sourceUrl?: string | null;
   isDeleted: boolean;
   createdAt: string;
   updatedAt: string;
@@ -58,6 +59,145 @@ function parseDatos(raw: string): Record<string, unknown> {
     // fallthrough
   }
   return {};
+}
+
+// ─── PLAN-E §20 — datasets externos ─────────────────────────────────────────
+// Fetch server-side de una URL HTTPS (CSV o JSON) para refrescar las filas.
+// El runtime no cambia: sigue leyendo VblangDatasetFila.
+
+const EXTERNO_MAX_BYTES = 2 * 1024 * 1024; // 2MB
+const EXTERNO_MAX_FILAS = 5000;
+const EXTERNO_TIMEOUT_MS = 10_000;
+
+// ponytail: bloqueo SSRF por hostname literal; DNS rebinding fuera de alcance v1
+function esHostProhibido(hostname: string): boolean {
+  const h = hostname.toLowerCase();
+  if (h === "localhost" || h.endsWith(".local") || h.endsWith(".internal")) return true;
+  if (/^(127\.|10\.|192\.168\.|169\.254\.|0\.)/.test(h)) return true;
+  if (/^172\.(1[6-9]|2\d|3[01])\./.test(h)) return true;
+  if (h.includes(":")) return true; // IPv6 literal
+  return false;
+}
+
+/** CSV mínimo con soporte de comillas (RFC 4180: "" escapa comilla, saltos dentro de comillas). */
+export function parseCsv(text: string): Array<Record<string, string>> {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let cell = "";
+  let inQuotes = false;
+  const src = text.replace(/^﻿/, "");
+  for (let i = 0; i < src.length; i++) {
+    const ch = src[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (src[i + 1] === '"') {
+          cell += '"';
+          i++;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        cell += ch;
+      }
+    } else if (ch === '"') {
+      inQuotes = true;
+    } else if (ch === ",") {
+      row.push(cell);
+      cell = "";
+    } else if (ch === "\n" || ch === "\r") {
+      if (ch === "\r" && src[i + 1] === "\n") i++;
+      row.push(cell);
+      cell = "";
+      rows.push(row);
+      row = [];
+    } else {
+      cell += ch;
+    }
+  }
+  if (cell !== "" || row.length > 0) {
+    row.push(cell);
+    rows.push(row);
+  }
+  const nonEmpty = rows.filter((r) => r.some((c) => c.trim() !== ""));
+  if (nonEmpty.length < 2) return [];
+  const header = nonEmpty[0].map((h) => h.trim());
+  return nonEmpty.slice(1).map((r) => {
+    const obj: Record<string, string> = {};
+    header.forEach((col, idx) => {
+      obj[col] = r[idx] ?? "";
+    });
+    return obj;
+  });
+}
+
+/** Coerciona valores crudos (strings de CSV, o JSON laxo) a los tipos de `columnas`. */
+export function coerceFilas(
+  columnas: ColumnasMap,
+  filas: Array<Record<string, unknown>>,
+): Array<Record<string, unknown>> {
+  return filas.map((fila) => {
+    const out: Record<string, unknown> = {};
+    for (const [col, tipo] of Object.entries(columnas)) {
+      const raw = fila[col];
+      if (typeof raw === "string" && tipo === "number") {
+        const n = Number(raw.trim().replace(",", "."));
+        out[col] = Number.isFinite(n) ? n : raw;
+      } else if (typeof raw === "string" && tipo === "boolean") {
+        const lower = raw.trim().toLowerCase();
+        if (["true", "1", "si", "sí", "verdadero"].includes(lower)) out[col] = true;
+        else if (["false", "0", "no", "falso"].includes(lower)) out[col] = false;
+        else out[col] = raw;
+      } else if (tipo === "string" && (typeof raw === "number" || typeof raw === "boolean")) {
+        out[col] = String(raw);
+      } else if (raw !== undefined) {
+        out[col] = raw;
+      }
+      // columna faltante: se deja sin definir y validateDatasetFilas la reporta
+    }
+    return out;
+  });
+}
+
+/** Baja y parsea la fuente externa. Lanza Error con mensaje apto para el usuario. */
+async function fetchFilasExternas(
+  sourceUrl: string,
+): Promise<Array<Record<string, unknown>>> {
+  const url = new URL(sourceUrl);
+  if (url.protocol !== "https:") throw new Error("La URL debe ser HTTPS");
+  if (esHostProhibido(url.hostname)) throw new Error("Host no permitido");
+
+  const res = await fetch(sourceUrl, {
+    signal: AbortSignal.timeout(EXTERNO_TIMEOUT_MS),
+    redirect: "error",
+  });
+  if (!res.ok) throw new Error(`La fuente respondió ${res.status}`);
+  const contentLength = Number(res.headers.get("content-length") ?? "0");
+  if (contentLength > EXTERNO_MAX_BYTES) {
+    throw new Error("La fuente supera el límite de 2MB");
+  }
+  const text = await res.text();
+  if (text.length > EXTERNO_MAX_BYTES) {
+    throw new Error("La fuente supera el límite de 2MB");
+  }
+
+  const contentType = res.headers.get("content-type") ?? "";
+  const esJson =
+    contentType.includes("json") || url.pathname.toLowerCase().endsWith(".json");
+  if (esJson) {
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(text);
+    } catch {
+      throw new Error("El JSON de la fuente no es válido");
+    }
+    if (!Array.isArray(parsed)) {
+      throw new Error("El JSON debe ser un array de objetos");
+    }
+    return parsed.filter(
+      (f): f is Record<string, unknown> => !!f && typeof f === "object",
+    );
+  }
+  return parseCsv(text);
 }
 
 function canReadDataset(row: DatasetRow, user: AuthUser): boolean {
@@ -168,6 +308,7 @@ vblangDatasets.get("/api/vblang/datasets", requireUser, async (req, res) => {
         ownerUserId: r.ownerUserId,
         schoolId: r.schoolId ?? undefined,
         columnas: parseColumnas(r.columnas),
+        sourceUrl: r.sourceUrl ?? undefined,
         filasCount: (r as unknown as { _count?: { filas: number } })._count?.filas ?? 0,
         createdAt: r.createdAt,
         updatedAt: r.updatedAt,
@@ -258,6 +399,7 @@ vblangDatasets.get("/api/vblang/datasets/:id", requireUser, async (req, res) => 
       ownerUserId: row.ownerUserId,
       schoolId: row.schoolId ?? undefined,
       columnas: parseColumnas(row.columnas),
+      sourceUrl: row.sourceUrl ?? undefined,
       // Sprint 9B: incluimos el id de cada fila para que el editor pueda
       // direccionar PUT/DELETE por filaId. Mantenemos `datos` como Record
       // para compatibilidad con el preview del DSL (uno_de(dataset)).
@@ -321,6 +463,7 @@ vblangDatasets.post("/api/vblang/datasets", requireUser, async (req, res) => {
           nombre: data.nombre,
           descripcion: data.descripcion ?? null,
           columnas: JSON.stringify(data.columnas),
+          sourceUrl: data.sourceUrl ?? null,
           isDeleted: false,
           createdAt: now,
           updatedAt: now,
@@ -352,6 +495,7 @@ vblangDatasets.post("/api/vblang/datasets", requireUser, async (req, res) => {
       ownerUserId: created!.ownerUserId,
       schoolId: created!.schoolId ?? undefined,
       columnas: parseColumnas(created!.columnas),
+      sourceUrl: created!.sourceUrl ?? undefined,
       filas: filas.map((f) => ({ id: f.id, datos: parseDatos(f.datos) })),
       createdAt: created!.createdAt,
       updatedAt: created!.updatedAt,
@@ -390,6 +534,7 @@ vblangDatasets.put("/api/vblang/datasets/:id", requireUser, async (req, res) => 
     if (data.descripcion !== undefined) update.descripcion = data.descripcion;
     if (data.visibility !== undefined) update.visibility = data.visibility;
     if (data.columnas !== undefined) update.columnas = JSON.stringify(data.columnas);
+    if (data.sourceUrl !== undefined) update.sourceUrl = data.sourceUrl;
     const updated = await prisma.vblangDataset.update({
       where: { id },
       data: update,
@@ -402,6 +547,7 @@ vblangDatasets.put("/api/vblang/datasets/:id", requireUser, async (req, res) => 
       ownerUserId: updated.ownerUserId,
       schoolId: updated.schoolId ?? undefined,
       columnas: parseColumnas(updated.columnas),
+      sourceUrl: updated.sourceUrl ?? undefined,
       createdAt: updated.createdAt,
       updatedAt: updated.updatedAt,
     });
@@ -411,6 +557,88 @@ vblangDatasets.put("/api/vblang/datasets/:id", requireUser, async (req, res) => 
       .json({ error: err instanceof Error ? err.message : "internal server error" });
   }
 });
+
+// POST /api/vblang/datasets/:id/refresh — PLAN-E §20
+// Baja la fuente externa (sourceUrl) y REEMPLAZA todas las filas del dataset.
+vblangDatasets.post(
+  "/api/vblang/datasets/:id/refresh",
+  requireUser,
+  async (req, res) => {
+    try {
+      const user = (req as { user?: AuthUser }).user ?? {};
+      const id = String(req.params.id);
+      const row = await prisma.vblangDataset.findUnique({ where: { id } });
+      if (!row || row.isDeleted) {
+        res.status(404).json({ error: "Dataset no encontrado" });
+        return;
+      }
+      if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
+        res.status(403).json({ error: "Solo el owner o ADMIN puede refrescar" });
+        return;
+      }
+      const sourceUrl = row.sourceUrl;
+      if (!sourceUrl) {
+        res.status(400).json({ error: "El dataset no tiene URL de origen" });
+        return;
+      }
+
+      let crudas: Array<Record<string, unknown>>;
+      try {
+        crudas = await fetchFilasExternas(sourceUrl);
+      } catch (err) {
+        res.status(422).json({
+          error: err instanceof Error ? err.message : "No se pudo leer la fuente",
+        });
+        return;
+      }
+      if (crudas.length === 0) {
+        res.status(422).json({ error: "La fuente no tiene filas" });
+        return;
+      }
+      if (crudas.length > EXTERNO_MAX_FILAS) {
+        res.status(422).json({
+          error: `La fuente tiene ${crudas.length} filas; el máximo es ${EXTERNO_MAX_FILAS}`,
+        });
+        return;
+      }
+
+      const columnas = parseColumnas(row.columnas);
+      const filas = coerceFilas(columnas, crudas);
+      const validation = validateDatasetFilas(columnas, filas);
+      if (!validation.ok) {
+        res.status(422).json({
+          error: "Filas inválidas",
+          filaIndex: validation.filaIndex,
+          message: validation.message,
+        });
+        return;
+      }
+
+      const now = new Date().toISOString();
+      await prisma.$transaction(async (tx) => {
+        await tx.vblangDatasetFila.deleteMany({ where: { datasetId: id } });
+        await tx.vblangDatasetFila.createMany({
+          data: filas.map((datos, i) => ({
+            id: randomUUID(),
+            datasetId: id,
+            orden: i,
+            datos: JSON.stringify(datos),
+            createdAt: now,
+          })),
+        });
+        await tx.vblangDataset.update({
+          where: { id },
+          data: { updatedAt: now },
+        });
+      });
+      res.json({ ok: true, filas: filas.length });
+    } catch (err) {
+      res
+        .status(500)
+        .json({ error: err instanceof Error ? err.message : "internal server error" });
+    }
+  },
+);
 
 // POST /api/vblang/datasets/:id/filas
 vblangDatasets.post(

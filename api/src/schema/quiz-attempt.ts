@@ -37,7 +37,10 @@ export const QuizAttemptSubmitSchema = z.object({
         correccion: z.enum(["ninguna", "manual"]).optional(),
         manualGrading: z.boolean().optional(),
         // Enunciado para que el profe lo vea en la pantalla de corrección.
-        prompt: z.string().optional()
+        prompt: z.string().optional(),
+        // PLAN-E §21 — puntaje proporcional para answerKey array (mc múltiple
+        // y analisis_spans) en el path no-autoritativo.
+        puntajeParcial: z.enum(["todo_o_nada", "proporcional"]).optional()
       })
     )
     .optional(),

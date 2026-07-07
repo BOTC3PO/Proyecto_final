@@ -22,6 +22,7 @@ import {
   addRows,
   deleteRow,
   getDataset,
+  refreshDataset,
   updateDataset,
   updateRow,
 } from "../domain/vblang/datasetApi";
@@ -117,6 +118,11 @@ export default function DatasetEditor() {
   const [metaSaving, setMetaSaving] = useState(false);
   const [metaMessage, setMetaMessage] = useState<string | null>(null);
 
+  // PLAN-E §20: fuente externa
+  const [sourceUrl, setSourceUrl] = useState("");
+  const [refreshing, setRefreshing] = useState(false);
+  const [refreshMessage, setRefreshMessage] = useState<string | null>(null);
+
   const columnasOrden = useMemo(
     () => (dataset ? Object.keys(dataset.columnas) : []),
     [dataset],
@@ -141,6 +147,7 @@ export default function DatasetEditor() {
         setNombre(d.nombre);
         setDescripcion(d.descripcion ?? "");
         setVisibility(d.visibility);
+        setSourceUrl(d.sourceUrl ?? "");
         setRows(d.filas.map((f) => buildRowDraft(f, Object.keys(d.columnas))));
         setStatus("ready");
       })
@@ -167,6 +174,7 @@ export default function DatasetEditor() {
         nombre: nombre.trim() || dataset.nombre,
         descripcion: descripcion.trim() || undefined,
         visibility,
+        sourceUrl: sourceUrl.trim() || null,
       });
       // El PUT del backend no devuelve `filas`; preservamos las locales.
       setDataset((prev) => (prev ? { ...prev, ...updated, filas: prev.filas } : prev));
@@ -184,6 +192,39 @@ export default function DatasetEditor() {
       );
     } finally {
       setMetaSaving(false);
+    }
+  };
+
+  // PLAN-E §20: guarda la URL si cambió, baja la fuente y reemplaza las filas.
+  const handleRefresh = async () => {
+    if (!id || !dataset) return;
+    const url = sourceUrl.trim();
+    if (!url) return;
+    if (
+      !window.confirm(
+        "Refrescar desde la URL REEMPLAZA todas las filas actuales. ¿Continuar?",
+      )
+    ) {
+      return;
+    }
+    setRefreshing(true);
+    setRefreshMessage(null);
+    try {
+      if (url !== (dataset.sourceUrl ?? "")) {
+        await updateDataset(id, { sourceUrl: url });
+      }
+      const r = await refreshDataset(id);
+      const fresh = await getDataset(id);
+      setDataset(fresh);
+      setRows(fresh.filas.map((f) => buildRowDraft(f, Object.keys(fresh.columnas))));
+      invalidarDataset(fresh.nombre);
+      setRefreshMessage(`${r.filas} filas importadas.`);
+    } catch (err) {
+      setRefreshMessage(
+        err instanceof Error ? err.message : "No se pudo refrescar la fuente.",
+      );
+    } finally {
+      setRefreshing(false);
     }
   };
 
@@ -373,6 +414,33 @@ export default function DatasetEditor() {
               rows={2}
               className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm"
             />
+          </label>
+          <label className="block space-y-1">
+            <span className="text-xs font-medium text-slate-600">
+              URL de origen (HTTPS, CSV o JSON — refresco manual)
+            </span>
+            <div className="flex gap-2">
+              <input
+                type="url"
+                value={sourceUrl}
+                onChange={(e) => setSourceUrl(e.target.value)}
+                placeholder="https://ejemplo.com/datos.csv"
+                className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm font-mono"
+                data-testid="dataset-source-url-input"
+              />
+              <button
+                type="button"
+                onClick={handleRefresh}
+                disabled={refreshing || !sourceUrl.trim()}
+                className="shrink-0 rounded-md border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-700 hover:bg-emerald-100 disabled:opacity-50"
+                data-testid="dataset-refresh-button"
+              >
+                {refreshing ? "Refrescando…" : "Refrescar desde URL"}
+              </button>
+            </div>
+            {refreshMessage && (
+              <p className="text-xs text-slate-500">{refreshMessage}</p>
+            )}
           </label>
           <div className="flex items-center gap-3">
             <button

@@ -61,8 +61,15 @@ export {
   type EquivalenciaOpts,
 } from "./evaluator/symbolic.js";
 
-export { toModuleQuizQuestion } from "./adapters/to-module-quiz-question.js";
+export {
+  toModuleQuizQuestion,
+  spanToKey,
+  spanFromKey,
+} from "./adapters/to-module-quiz-question.js";
 export { AdapterError } from "./adapters/errors.js";
+// PLAN-E §21 Parte B — tokenización compartida editor/player (palabra = token
+// por espacios; misma unidad que los índices de `spans_pedidos`).
+export { splitPalabras } from "./runtime/generate-special.js";
 
 // F6-04 — Plantillas oficiales VBLang (EconomiaAR).
 export { ECONOMIA_AR_OFICIALES } from "./templates/economia-ar-oficiales.js";

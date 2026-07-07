@@ -97,6 +97,10 @@ type ModuleQuiz = {
     manualGrading?: boolean;
     /** Enunciado (para mostrar en la pantalla de corrección del profe). */
     prompt?: string;
+    /** PLAN-E §21 Parte A — mc múltiple: answerKey array con TODAS las correctas. */
+    multiple?: boolean;
+    /** PLAN-E §21 Parte A — proporcional = max(0, aciertos − de más) / correctas. */
+    puntajeParcial?: "todo_o_nada" | "proporcional";
   }>;
   count?: number;
   seedPolicy?: string;
@@ -455,6 +459,8 @@ type SubmitPayload = {
     correccion?: "ninguna" | "manual";
     manualGrading?: boolean;
     prompt?: string;
+    /** PLAN-E §21 — proporcional para answerKey array (mc múltiple / spans). */
+    puntajeParcial?: "todo_o_nada" | "proporcional";
   }>;
   presentedIds?: string[];
 };
@@ -538,6 +544,9 @@ const serverQuestionToGradable = (
   if (sq.correccion !== undefined) q.correccion = sq.correccion;
   if (sq.manualGrading !== undefined) q.manualGrading = sq.manualGrading;
   if (sq.prompt !== undefined) q.prompt = sq.prompt;
+  // PLAN-E §21 — sin esto, el path autoritativo VBLang corregía proporcional
+  // como todo-o-nada (mc múltiple y analisis_spans).
+  if (sq.puntajeParcial !== undefined) q.puntajeParcial = sq.puntajeParcial;
   return q;
 };
 
@@ -830,6 +839,20 @@ const gradeAnswers = (
       if (!Array.isArray(response)) continue;
       const expectedSet = new Set(expected);
       const responseSet = new Set(response);
+      // PLAN-E §21 — puntaje proporcional (mc múltiple y análisis por spans):
+      // max(0, aciertos − marcadas de más) / total correctas.
+      if (question.puntajeParcial === "proporcional") {
+        let aciertos = 0;
+        let deMas = 0;
+        for (const r of responseSet) {
+          if (expectedSet.has(r)) aciertos += 1;
+          else deMas += 1;
+        }
+        if (expectedSet.size > 0) {
+          score += weight * (Math.max(0, aciertos - deMas) / expectedSet.size);
+        }
+        continue;
+      }
       if (expectedSet.size !== responseSet.size) continue;
       const matches = Array.from(expectedSet).every((value) => responseSet.has(value));
       if (matches) score += weight;
