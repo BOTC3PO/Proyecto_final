@@ -50,6 +50,7 @@ import { validarGeoJsonText } from "../../lib/maps/geojson-import";
 import { useViewBoxZoom } from "../../lib/maps/useViewBoxZoom";
 import { escalaPorZoom } from "../../lib/maps/escala-por-zoom";
 import { buscarLugares, type GeonameResultado } from "../../lib/maps/geonamesApi";
+import { listPaisesConProvincias, fetchProvinciasTopo, type ProvinciaCatalogoItem } from "../../lib/maps/provinciasApi";
 import styles from "./MapaEditorFull.module.css";
 
 const MAP_WIDTH = 1000;
@@ -333,6 +334,34 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
     }, 250);
     return () => clearTimeout(handle);
   }, [lugarQuery]);
+
+  // ─── División provincial (PLAN-N §3) ─────────────────────────────
+  // El dato ya existía (`GET /api/maps/provincias/:pais`, 251 países,
+  // servido para el camino de cuestionario de MarcarMapaRenderer) pero el
+  // editor libre no ofrecía ninguna capa con esta división. Reusa el mismo
+  // mecanismo de "capa GeoJSON" que ya soporta importar un archivo (M5):
+  // se arma una MapaCapa con `geojson` en vez de subir un archivo.
+  const [provinciasCatalogo, setProvinciasCatalogo] = useState<ProvinciaCatalogoItem[]>([]);
+  const [provinciasPais, setProvinciasPais] = useState("");
+  const [provinciasLoading, setProvinciasLoading] = useState(false);
+  const [provinciasError, setProvinciasError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    listPaisesConProvincias()
+      .then((items) => {
+        if (cancelled) return;
+        setProvinciasCatalogo([...items].sort((a, b) => a.nombre.localeCompare(b.nombre)));
+      })
+      .catch(() => {
+        if (!cancelled) setProvinciasCatalogo([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  // agregarCapaProvincias vive junto al resto del CRUD de capas (usa
+  // updateConfig/config.capas, declarados más abajo) — ver esa sección.
 
   // ─── Datasets desde la API del módulo ───────────────────────────
   const [datasetList, setDatasetList] = useState<DatasetListItem[]>([]);
@@ -791,6 +820,40 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
     if (activeCapaId === capaId) setActiveCapaId(fallbackId);
   }, [capas, config, activeCapaId, updateConfig]);
 
+  // PLAN-N §3 — capa "División provincial de [país]": mismo mecanismo que
+  // importarGeoJson (una MapaCapa con `geojson`), sólo que el TopoJSON viene
+  // de la API de provincias en vez de un archivo subido.
+  const agregarCapaProvincias = useCallback(async () => {
+    const pais = provinciasCatalogo.find((p) => p.pais === provinciasPais);
+    if (!pais) return;
+    setProvinciasLoading(true);
+    setProvinciasError(null);
+    try {
+      const topo = await fetchProvinciasTopo(pais.pais);
+      const features = topologyToFeatures(topo);
+      const newCapa: MapaCapa = {
+        id: makeCapaId(),
+        nombre: `Provincias de ${pais.nombre}`,
+        color: PALETTE[capas.length % PALETTE.length],
+        visible: true,
+        geojson: {
+          nombre: pais.nombre,
+          data: {
+            type: "FeatureCollection",
+            features: features.map((f) => ({ type: "Feature", geometry: f.geometry, properties: f.properties })),
+          },
+        },
+      };
+      updateConfig({ ...config, capas: [...capas, newCapa] });
+      setActiveCapaId(newCapa.id);
+      setAnnounce(`Capa Provincias de ${pais.nombre} agregada con ${features.length} división(es).`);
+    } catch {
+      setProvinciasError(`No se pudo cargar la división provincial de ${pais.nombre}.`);
+    } finally {
+      setProvinciasLoading(false);
+    }
+  }, [provinciasCatalogo, provinciasPais, capas, config, updateConfig]);
+
   // ─── Atajos de teclado ──────────────────────────────────────────
   // Como los handlers de Esc/Enter dependen de estado mutable (que cambia en
   // cada render) los mantenemos en refs para que el `useEffect` del hook de
@@ -1152,6 +1215,40 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                   </ul>
                 )}
               </div>
+            </div>
+          </div>
+
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>División provincial</h2>
+            <div className={styles.sectionBody}>
+              <div className={styles.field}>
+                <label className={styles.fieldLabel} htmlFor="map-provincias-pais">País</label>
+                <select
+                  id="map-provincias-pais"
+                  className={styles.fieldSelect}
+                  value={provinciasPais}
+                  onChange={(e) => setProvinciasPais(e.target.value)}
+                  disabled={provinciasCatalogo.length === 0}
+                >
+                  <option value="">— Elegir país —</option>
+                  {provinciasCatalogo.map((p) => (
+                    <option key={p.pais} value={p.pais}>{p.nombre}</option>
+                  ))}
+                </select>
+              </div>
+              <button
+                type="button"
+                className={styles.btn}
+                onClick={agregarCapaProvincias}
+                disabled={!provinciasPais || provinciasLoading}
+              >
+                {provinciasLoading ? "Cargando…" : "Agregar capa de provincias"}
+              </button>
+              {provinciasError && (
+                <p role="alert" className="mt-1 text-[11px] text-[var(--c-danger)]">
+                  {provinciasError}
+                </p>
+              )}
             </div>
           </div>
 
