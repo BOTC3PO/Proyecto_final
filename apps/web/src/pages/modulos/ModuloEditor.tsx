@@ -20,7 +20,6 @@ import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
 import QuizPosicionesEditor from "../../components/modulos/QuizPosicionesEditor";
-import QuizImportJson from "../../components/modulos/QuizImportJson";
 import EvaluacionConfig from "../../components/modulos/EvaluacionConfig";
 import { parseEvaluacionConfig } from "../../domain/quiz/intentos";
 import { SCORING_SYSTEMS, DEFAULT_SCORING_SYSTEM_ID } from "@vb/vblang";
@@ -1697,45 +1696,17 @@ export default function ModuloEditor() {
                     </button>
                   ) : null}
 
-                  <QuizImportJson onImportQuizzes={handleImportQuizzes} />
                 </div>
 
-                {/* Editores clásicos — V1 y V2 quedan accesibles como legacy */}
-                <div className="flex flex-wrap items-center gap-3 text-xs">
-                  <span className="text-[var(--c-muted)]">Abrir editor clásico:</span>
-                  <button
-                    type="button"
-                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                    onClick={() => {
-                      const returnTo = id
-                        ? `/modulos/${id}/editar`
-                        : `/modulos/crear`;
-                      navigate(
-                        `/profesor/editor-cuestionarios-v2?moduleId=${
-                          id ?? "nuevo"
-                        }&mode=manual&returnTo=${encodeURIComponent(returnTo)}`
-                      );
-                    }}
-                  >
-                    ✏️ Editor V2 (manual)
-                  </button>
-                  <button
-                    type="button"
-                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                    onClick={() => {
-                      const returnTo = id
-                        ? `/modulos/${id}/editar`
-                        : `/modulos/crear`;
-                      navigate(
-                        `/profesor/editor-cuestionarios?moduleId=${
-                          id ?? "nuevo"
-                        }&mode=manual&returnTo=${encodeURIComponent(returnTo)}`
-                      );
-                    }}
-                  >
-                    ✏️ Editor V1
-                  </button>
-                  {subjectCapabilities?.supportsGenerators && (
+                {/* PLAN-K §4 — los editores clásicos V1/V2 (manual) se retiran de
+                    acá: el flujo moderno (Usar plantilla VBLang / Usar
+                    cuestionario existente) los reemplaza por completo. Las rutas
+                    /profesor/editor-cuestionarios[-v2] siguen vivas para links
+                    viejos, sin entry point acá. El generador legacy se queda:
+                    subjects sin generadores portados a VBLang (PLAN-E §22
+                    pendiente) todavía dependen de este camino. */}
+                {subjectCapabilities?.supportsGenerators && (
+                  <div className="flex flex-wrap items-center gap-3 text-xs">
                     <button
                       type="button"
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
@@ -1752,8 +1723,8 @@ export default function ModuloEditor() {
                     >
                       ⚡ Generados (legacy)
                     </button>
-                  )}
-                </div>
+                  </div>
+                )}
 
                 {/* Leyenda explicativa */}
                 <div className="flex flex-wrap gap-3 text-xs text-[var(--c-muted)]">

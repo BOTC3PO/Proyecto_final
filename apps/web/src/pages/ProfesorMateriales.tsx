@@ -142,16 +142,11 @@ export default function ProfesorMateriales() {
           </p>
         </div>
         <Link
-          // FIX-MATERIAL-EDITOR — antes el botón "Crear cuestionario"
-          // navegaba a `/profesor/editor-cuestionarios` (V1, ya
-          // deprecado en favor del V2 con composición + variantes).
-          // El V1 rompía el guardado, no soportaba `pool` ni
-          // `displayCount` y mandaba `subject` y `theoryItems` al
-          // formato viejo. Bug 3.2 del informe
-          // `test-parte-3-profesor.md`. Ahora se abre el V2 con
-          // `returnTo` para que el docente vuelva a la lista de
-          // materiales después de armar el cuestionario.
-          to="/profesor/editor-cuestionarios-v2?returnTo=/profesor/materiales&mode=manual"
+          // PLAN-K §5 — V1/V2 quedan retirados como entry point (siguen
+          // vivos para links viejos, ver PLAN-K §4). El flujo moderno es
+          // Tiza standalone, con `returnTo` para volver a materiales
+          // después de armar el cuestionario.
+          to="/plantillas/nueva?returnTo=/profesor/materiales"
           className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
         >
           + Crear cuestionario
