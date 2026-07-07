@@ -466,6 +466,11 @@ model TeoriaJson {
   @@map("teoria_json")
 }
 
+/// @deprecated PLAN-J §4 (2026-07-07): "Páginas TuesdayJS" se retiró del
+/// producto (sin valor hoy, decisión del usuario). Tabla conservada por
+/// datos históricos — no borrar. Si las novelas visuales vuelven, el
+/// camino es un `tipo: "novela"` nuevo en Material/MaterialVersion
+/// (patrón PLAN-G §1), no revivir este modelo.
 model TuesdayDoc {
   id            String  @id
   schemaVersion Int     @default(1) @map("schema_version")

@@ -137,7 +137,7 @@ export default function ProfesorEstadisticas() {
           )}
           {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
           {!loading && !error && estadisticas.length === 0 && (
-            <p className="text-sm text-[var(--c-muted)]">No hay módulos asignados a este aula.</p>
+            <p className="text-sm text-[var(--c-muted)]">No hay módulos asignados a esta aula.</p>
           )}
           {!loading && !error && estadisticas.map((e) => (
             <article key={e.id}

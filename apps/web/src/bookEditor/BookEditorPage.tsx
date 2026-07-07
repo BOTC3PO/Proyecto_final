@@ -2318,7 +2318,7 @@ export default function BookEditorPage() {
                     >
                       {page.title || `Pág. ${idx + 1}`}
                     </p>
-                    <p className="text-xs text-[var(--c-muted)]">{page.content.length} bloques</p>
+                    <p className="text-xs text-[var(--c-muted)] truncate">{page.content.length} bloques</p>
                   </div>
                   {isActive && (
                     <div className="flex flex-col gap-0.5 opacity-0 group-hover:opacity-100">

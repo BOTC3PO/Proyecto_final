@@ -472,12 +472,11 @@ export default function StaffSidebar({ open: openProp, onClose: onCloseProp }: S
           aria-label="Abrir navegación"
           aria-expanded={open}
           aria-controls="staff-sidebar-drawer"
-          className="md:hidden fixed"
+          className="md:hidden fixed inline-flex"
           style={{
             top: 'var(--space-3)',
             left: 'var(--space-3)',
             zIndex: 30,
-            display: 'inline-flex',
             padding: 'var(--space-2)',
             borderRadius: 'var(--r-md)',
             borderWidth: '1px',

@@ -1,4 +1,4 @@
-import { useRef, useState, type ChangeEvent } from "react";
+import { useId, useRef, useState, type ChangeEvent } from "react";
 import type { ModuleQuiz, ModuleQuizQuestion, ModuleQuizVisibility } from "../../domain/module/module.types";
 
 type QuizImportJsonProps = {
@@ -268,6 +268,7 @@ export default function QuizImportJson({ onImportQuizzes }: QuizImportJsonProps)
   const [importStatus, setImportStatus] = useState<ImportStatus>({ status: "idle", message: "" });
   const [fileName, setFileName] = useState("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const inputId = useId();
 
   const resetInput = () => {
     if (fileInputRef.current) {
@@ -279,7 +280,7 @@ export default function QuizImportJson({ onImportQuizzes }: QuizImportJsonProps)
     const file = event.target.files?.[0];
     if (!file) return;
     setImportStatus({ status: "idle", message: "" });
-    setFileName("");
+    setFileName(file.name);
     try {
       const raw = await file.text();
       const parsed = JSON.parse(raw) as unknown;
@@ -311,7 +312,6 @@ export default function QuizImportJson({ onImportQuizzes }: QuizImportJsonProps)
         } satisfies ModuleQuiz;
       });
 
-      setFileName(file.name);
       if (onImportQuizzes) {
         onImportQuizzes(quizzes);
         const totalQuestions = quizzes.reduce((sum, quiz) => sum + (quiz.questions?.length ?? 0), 0);
@@ -338,13 +338,23 @@ export default function QuizImportJson({ onImportQuizzes }: QuizImportJsonProps)
   return (
     <div className="border rounded-lg p-4 space-y-2">
       <h3 className="text-sm font-semibold">Importar JSON</h3>
-      <input
-        type="file"
-        accept=".json"
-        className="block w-full text-sm text-gray-700 file:mr-4 file:rounded-md file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
-        ref={fileInputRef}
-        onChange={handleFileChange}
-      />
+      <div className="flex items-center gap-3">
+        <label
+          htmlFor={inputId}
+          className="cursor-pointer rounded-md bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-100"
+        >
+          Seleccionar archivo
+        </label>
+        <input
+          id={inputId}
+          type="file"
+          accept=".json"
+          className="sr-only"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+        />
+        <span className="text-sm text-gray-500">{fileName || "Sin archivos seleccionados"}</span>
+      </div>
       <p className="text-xs text-gray-500">
         Incluye en cada pregunta: enunciado, opciones (si aplica) y respuesta correcta.
       </p>

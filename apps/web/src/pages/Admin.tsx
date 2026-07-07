@@ -34,13 +34,6 @@ const adminSections = [
     to: '/admin/reportes',
     desc: 'Estadísticas globales de la plataforma: usuarios, módulos y moderación.',
   },
-  // FIX-BUG-ROLE-01 — antes no había UI para gestionar
-  // `Page` (TuesdayJS docs). Ahora hay un panel en `/admin/pages`.
-  {
-    label: 'Páginas (TuesdayJS)',
-    to: '/admin/pages',
-    desc: 'Lista y vista previa de los documentos TuesdayJS referenciados desde módulos y cuestionarios.',
-  },
   {
     label: 'Gobernanza',
     to: '/gobernanza',

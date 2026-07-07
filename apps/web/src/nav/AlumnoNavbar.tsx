@@ -327,9 +327,8 @@ export default function AlumnoNavbar() {
             aria-label={isMobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
             aria-expanded={isMobileMenuOpen}
             aria-controls="alumno-mobile-menu"
-            className="md:hidden"
+            className="md:hidden inline-flex"
             style={{
-              display: 'inline-flex',
               padding: 'var(--space-1)',
               color: 'var(--c-text)',
               background: 'transparent',

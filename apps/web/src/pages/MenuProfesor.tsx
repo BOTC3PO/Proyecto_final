@@ -529,20 +529,24 @@ export default function menuProfesor() {
 
               <div className="flex items-center gap-2 flex-shrink-0">
                 {!modoAulaActivo && (
-                  <select
-                    value={modoAulaAulaId}
-                    onChange={(e) => setModoAulaAulaId(e.target.value)}
-                    className="rounded-lg text-xs px-2 py-1.5 bg-white border border-amber-300 text-[var(--c-text)] focus:outline-none"
-                    aria-label="Aula para modo aula"
-                  >
-                    {aulas.filter(a =>
-                      (a.status === 'ACTIVE' || a.status === 'activa')
-                    ).map(a => (
-                      <option key={getAulaId(a)} value={getAulaId(a)}>
-                        {a.name}
-                      </option>
-                    ))}
-                  </select>
+                  aulas.some(a => a.status === 'ACTIVE' || a.status === 'activa') ? (
+                    <select
+                      value={modoAulaAulaId}
+                      onChange={(e) => setModoAulaAulaId(e.target.value)}
+                      className="rounded-lg text-xs px-2 py-1.5 bg-white border border-amber-300 text-[var(--c-text)] focus:outline-none"
+                      aria-label="Aula para modo aula"
+                    >
+                      {aulas.filter(a =>
+                        (a.status === 'ACTIVE' || a.status === 'activa')
+                      ).map(a => (
+                        <option key={getAulaId(a)} value={getAulaId(a)}>
+                          {a.name}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <span className="text-xs text-[var(--c-muted)] px-2 py-1.5">Sin aulas activas</span>
+                  )
                 )}
                 <button
                   disabled={modoAulaLoading || !modoAulaAulaId}
@@ -650,7 +654,7 @@ export default function menuProfesor() {
                         <div className="flex-1 min-w-0">
                           <p className="text-xs font-medium text-[var(--c-text)] truncate">{m.title}</p>
                           <p className="text-[10px] text-[var(--c-muted)]">
-                            {m.category} · {m.durationMinutes ?? '?'} min
+                            {m.category}{m.durationMinutes != null ? ` · ${m.durationMinutes} min` : ''}
                           </p>
                         </div>
                         <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-full flex-shrink-0 ${

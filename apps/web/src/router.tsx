@@ -11,7 +11,6 @@ import { lazyWithRetry } from "./lib/lazyWithRetry";
 import { RouteErrorBoundary } from "./components/RouteErrorBoundary";
 
 // Páginas estáticas — necesarias en la carga inicial o muy pequeñas
-import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
@@ -84,10 +83,6 @@ const AdminCursos               = lazyWithRetry(() => import("./pages/AdminCurso
 const AdminMaterias             = lazyWithRetry(() => import("./pages/AdminMaterias"));
 const AdminModeracion           = lazyWithRetry(() => import("./pages/AdminModeracion"));
 const PlantillasModeracion      = lazyWithRetry(() => import("./pages/admin/PlantillasModeracion"));
-// FIX-BUG-ROLE-01 — antes no había UI para listar/gestionar
-// `Page` (TuesdayJS docs). Ahora hay un panel en
-// `/admin/pages` accesible solo a ADMIN.
-const AdminPages                = lazyWithRetry(() => import("./pages/admin/AdminPages"));
 const AdminReportesGlobal       = lazyWithRetry(() => import("./pages/AdminReportesGlobal"));
 const Perfil                    = lazyWithRetry(() => import("./pages/Perfil"));
 const Tareas                    = lazyWithRetry(() => import("./pages/Tareas"));
@@ -166,7 +161,6 @@ export const router = createBrowserRouter([
           { path: "register",   element: <Register /> },
           { path: "recuperar",  element: <RecuperarContrasena /> },
 
-          { path: "landing",          element: <Landing /> },
           { path: "contact",          element: withSuspense(<Contact />) },
           { path: "terminos",         element: withSuspense(<Terminos />) },
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
@@ -432,17 +426,6 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['ADMIN']}>
                 {withSuspense(<AdminReportesGlobal />)}
-              </ProtectedRoute>
-            ),
-          },
-          // FIX-BUG-ROLE-01 — UI para listar/gestionar `Page`
-          // (TuesdayJS docs). Antes solo existía el endpoint
-          // (`GET /api/pages`) sin página admin.
-          {
-            path: 'admin/pages',
-            element: (
-              <ProtectedRoute allow={['ADMIN']}>
-                {withSuspense(<AdminPages />)}
               </ProtectedRoute>
             ),
           },

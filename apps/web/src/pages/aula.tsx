@@ -607,7 +607,7 @@ export default function Aula() {
                   data-testid="feed-empty"
                 >
                   <p className="text-sm text-[var(--c-muted)]">
-                    Todavía no hay publicaciones en este aula.
+                    Todavía no hay publicaciones en esta aula.
                   </p>
                   {isTeacherOfClass && (
                     <button

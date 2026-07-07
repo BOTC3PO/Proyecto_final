@@ -14,6 +14,7 @@ import {
   type QuizAttemptSubmit
 } from "../schema/quiz-attempt";
 import { isStaffRole, canManageClassroom } from "../lib/authorization";
+import { resolveRoles } from "../lib/roles";
 import {
   isCanaryAnswer,
   sanitizeQuestionsForStudent
@@ -999,6 +1000,14 @@ quizAttempts.post(
   requireUser,
   async (req, res) => {
   try {
+    // PLAN-J §3c #6 — PARENT es solo-lectura en módulos/quizzes: puede ver
+    // el módulo de su hijo, pero no rendir la prueba en su nombre. Sólo se
+    // bloquea si TODOS los roles del usuario son PARENT (un PARENT+USER o
+    // PARENT+TEACHER retiene su otra capacidad).
+    const requesterRoles = resolveRoles(req.user);
+    if (requesterRoles.length > 0 && requesterRoles.every((r) => r === "PARENT")) {
+      return res.status(403).json({ error: "role cannot start quiz attempts" });
+    }
     const payload = QuizAttemptCreateSchema.parse(req.body);
     const module = payload.moduleId
       ? await prisma.modulo.findFirst({ where: { id: payload.moduleId } }).then((m) =>

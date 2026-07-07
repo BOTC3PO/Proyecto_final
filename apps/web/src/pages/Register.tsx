@@ -274,11 +274,6 @@ function DateInput({
 
 export default function RegistrationForm() {
   const navigate = useNavigate();
-  const roleMap: Record<string, "USER" | "TEACHER" | "PARENT"> = {
-    student: "USER",
-    teacher: "TEACHER",
-    parent: "PARENT"
-  };
   const [teacherTypes, setTeacherTypes] = useState<Array<{ value: string; label: string }>>([]);
   const [monthOptions, setMonthOptions] = useState<string[]>([]);
   const [optionsError, setOptionsError] = useState<string | null>(null);
@@ -329,11 +324,10 @@ export default function RegistrationForm() {
   };
 
   const handleRoleChange = (value: string) => {
-    const mappedRole = roleMap[value] ?? value;
     setFormData((s) => ({
       ...s,
-      role: mappedRole,
-      teacherType: mappedRole === "TEACHER" ? s.teacherType : ""
+      role: value,
+      teacherType: value === "TEACHER" ? s.teacherType : ""
     }));
   };
 
@@ -460,17 +454,18 @@ export default function RegistrationForm() {
             <input type="hidden" name="birthday_iso" value={formData.birthdateISO} />
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">Rol</label>
+              <label htmlFor="register-role" className="block text-gray-800 text-lg mb-2 font-normal">Rol</label>
               <select
+                id="register-role"
                 value={formData.role}
                 onChange={(e) => handleRoleChange(e.target.value)}
                 className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg bg-white
                            focus:outline-none focus:border-blue-500 transition-colors"
               >
                 <option value="">Selecciona un rol</option>
-                <option value="student">Usuario</option>
-                <option value="teacher">Profesor</option>
-                <option value="parent">Padre/Madre</option>
+                <option value="USER">Usuario</option>
+                <option value="TEACHER">Profesor</option>
+                <option value="PARENT">Padre/Madre</option>
               </select>
             </div>
 
@@ -544,7 +539,7 @@ export default function RegistrationForm() {
                              focus:ring-2 focus:ring-blue-500 cursor-pointer"
                 />
                 <span className="text-gray-700 text-base leading-relaxed">
-                  El Nombre Completo Real Solo Será Visible Para Profesores o Compañeros De Un Aula Virtual
+                  El nombre completo real solo será visible para profesores o compañeros de un aula virtual.
                 </span>
               </label>
 

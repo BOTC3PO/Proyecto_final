@@ -822,7 +822,7 @@ export default function ModuloEditor() {
                       aria-invalid={fieldErr("subject") || undefined}
                       aria-describedby={fieldErr("subject") ? "modulo-err-subject" : undefined}
                     >
-                      <option value="">-- Seleccionar materia --</option>
+                      <option value="">Elegir materia</option>
                       {materias.map((m) => (
                         <option key={m} value={m.toLowerCase().replace(/\s+/g, '')}>
                           {m}
@@ -1632,12 +1632,16 @@ export default function ModuloEditor() {
                     <>
                       {quizzes.length === 0 ? (
                         <StatusPill tone="neutral">Sin cuestionarios</StatusPill>
-                      ) : sectionStatus.quizzesOk ? (
-                        <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
                       ) : (
-                        <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Con errores</StatusPill>
+                        <>
+                          {sectionStatus.quizzesOk ? (
+                            <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
+                          ) : (
+                            <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Con errores</StatusPill>
+                          )}
+                          <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{quizCountLabel}</span>
+                        </>
                       )}
-                      <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{quizCountLabel}</span>
                     </>
                   }
                 />
