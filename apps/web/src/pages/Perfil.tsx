@@ -66,23 +66,6 @@ const ROLE_LABELS: Record<string, string> = {
   GUEST: "Invitado",
 };
 
-const THEME_SWATCH_COLORS: Record<string, string> = {
-  "clasico-vb":  "#2563eb",
-  "clasico":     "#1e40af",
-  "minimal":     "#1a1a18",
-  "aurora":      "#7c3aed",
-  "bosque":      "#15803d",
-  "nocturno":    "#1e293b",
-  "nocturno-vb": "#0f172a",
-  "vibrante":    "#e11d48",
-  "galaxy":      "#4f46e5",
-  "sunset":      "#f97316",
-  "ocean":       "#0891b2",
-  "candy":       "#ec4899",
-  "neon":        "#22d3ee",
-  "admin":       "#6b7280",
-};
-
 const ROLE_COLORS: Record<string, string> = {
   ADMIN: "bg-blue-100 text-blue-800",
   USER: "bg-emerald-100 text-emerald-800",
@@ -452,6 +435,7 @@ export default function Perfil() {
                     <button
                       key={opt.id}
                       type="button"
+                      data-theme={opt.id}
                       onClick={() => setTheme(opt.id)}
                       className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
                         theme === opt.id
@@ -461,7 +445,7 @@ export default function Perfil() {
                     >
                       <span
                         className="w-4 h-4 rounded-full shrink-0 border border-black/10"
-                        style={{ backgroundColor: THEME_SWATCH_COLORS[opt.id] ?? "#888" }}
+                        style={{ backgroundColor: "var(--c-primary)" }}
                       />
                       <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
                       {theme === opt.id && (

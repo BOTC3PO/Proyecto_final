@@ -16,6 +16,7 @@ import {
   fetchSubastasActivas, fetchMisPujas, crearPuja,
   type ExamenSubasta, type PujaItem
 } from "../services/subastas";
+import { fetchSurveys, type Survey } from "../services/encuestas";
 import AulaActionsBar from "../components/aula/AulaActionsBar";
 import AsignarModulosModal from "../components/profesor/AsignarModulosModal";
 import MatrizProgreso from "../components/profesor/MatrizProgreso";
@@ -98,6 +99,10 @@ export default function Aula() {
   const [resourceLinks, setResourceLinks] = useState<ResourceLink[]>([]);
   const [resourceLinksLoading, setResourceLinksLoading] = useState(true);
   const [resourceLinksError, setResourceLinksError] = useState<string | null>(null);
+  // PLAN-H §3: encuestas activas del aula, resumen para el alumno (vota
+  // entrando a /encuestas?aulaId=... — el detalle completo vive ahí).
+  const [surveys, setSurveys] = useState<Survey[]>([]);
+  const [surveysLoading, setSurveysLoading] = useState(true);
   const [subastas, setSubastas] = useState<ExamenSubasta[]>([]);
   const [misPujas, setMisPujas] = useState<Record<string, PujaItem[]>>({});
   const [pujaForm, setPujaForm] =
@@ -292,6 +297,17 @@ export default function Aula() {
     return () => { active = false; };
   }, [classroomId]);
 
+  useEffect(() => {
+    if (!classroomId || !canActAsLearner) return;
+    let active = true;
+    setSurveysLoading(true);
+    fetchSurveys(classroomId)
+      .then((response) => { if (!active) return; setSurveys(response.items); })
+      .catch(() => { if (!active) return; setSurveys([]); })
+      .finally(() => { if (!active) return; setSurveysLoading(false); });
+    return () => { active = false; };
+  }, [classroomId, canActAsLearner]);
+
   // FIX-ACCIONES-AULA — el chequeo original (`user.role === "TEACHER"`)
   // mostraba la barra de acciones del aula para CUALQUIER docente
   // logueado, incluso si no era miembro del aula. Eso era privilegio
@@ -376,6 +392,11 @@ export default function Aula() {
     if (classroom?.id) return classroom.id;
     return "Sin código";
   }, [classroom?.classCode, classroom?.id, isClassroomActive]);
+
+  const activeSurveysCount = useMemo(() => {
+    const now = new Date();
+    return surveys.filter((survey) => survey.status !== "cerrada" && now < new Date(survey.endAt)).length;
+  }, [surveys]);
 
   const getResourceTypeMeta = (type: ResourceLinkType) => {
     switch (type) {
@@ -730,6 +751,30 @@ export default function Aula() {
                 })}
               </div>
             </div>
+
+            {/* Encuestas — PLAN-H §3: acceso desde el aula, sin selector manual. */}
+            {canActAsLearner && classroomId && (
+              <div className={cardCls} data-testid="aula-encuestas-card">
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">🗳️ Encuestas</h3>
+                <div className="mt-3 text-sm">
+                  {surveysLoading ? (
+                    <div className="h-8 rounded-lg animate-pulse bg-[var(--c-border)]" />
+                  ) : activeSurveysCount === 0 ? (
+                    <p className="text-[var(--c-muted)]">No hay encuestas activas para esta aula.</p>
+                  ) : (
+                    <p className="text-[var(--c-muted)]">
+                      {activeSurveysCount} encuesta{activeSurveysCount === 1 ? "" : "s"} activa{activeSurveysCount === 1 ? "" : "s"}.
+                    </p>
+                  )}
+                  <Link
+                    to={`/encuestas?aulaId=${encodeURIComponent(classroomId)}`}
+                    className="mt-2 inline-flex items-center gap-1.5 text-[var(--c-primary)] hover:underline"
+                  >
+                    Ver y votar →
+                  </Link>
+                </div>
+              </div>
+            )}
 
             {/* Próximas actividades */}
             <div className={cardCls}>

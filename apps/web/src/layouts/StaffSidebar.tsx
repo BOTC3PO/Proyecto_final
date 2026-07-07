@@ -35,15 +35,6 @@ const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   ],
 };
 
-const THEME_SWATCHES: Record<string, string> = {
-  'clasico-vb': '#2563eb',
-  'clasico':    '#1e40af',
-  'minimal':    '#1a1a18',
-  'aurora':     '#7c3aed',
-  'bosque':     '#15803d',
-  'admin':      '#ffffff',
-};
-
 const ROLE_LABEL: Record<string, string> = {
   TEACHER: 'Docente',
   DIRECTIVO: 'Directivo',
@@ -308,18 +299,19 @@ function Sidebar() {
               <button
                 key={t.id}
                 type="button"
+                data-theme={t.id}
                 onClick={() => setTheme(t.id)}
                 title={t.name}
                 aria-label={`Tema ${t.name}`}
                 aria-pressed={theme === t.id}
                 className="flex-shrink-0"
                 style={{
-                  width: 'var(--space-5)',
-                  height: 'var(--space-5)',
+                  width: 'var(--space-4)',
+                  height: 'var(--space-4)',
                   borderRadius: '50%',
-                  borderWidth: '2px',
+                  borderWidth: '1px',
                   borderStyle: 'solid',
-                  background: THEME_SWATCHES[t.id] ?? 'var(--c-primary)',
+                  background: 'var(--c-primary)',
                   borderColor: theme === t.id ? 'var(--c-text)' : 'transparent',
                   outline: theme === t.id ? '2px solid var(--c-border)' : 'none',
                   outlineOffset: '1px',

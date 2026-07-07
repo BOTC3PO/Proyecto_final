@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import type { Survey, SurveyStatus, SurveyType } from "../services/encuestas";
 import {
   createSurvey,
@@ -14,11 +15,19 @@ import { getAulaId } from "../lib/aula-id";
 const toLocalInputValue = (date: Date) => date.toISOString().slice(0, 16);
 
 export default function ProfesorEncuestas() {
+  // PLAN-H §3: llegar con ?aulaId=... (desde AulaActionsBar) fija el aula
+  // y esconde el selector — crear/listar queda scopeado a esa aula sin
+  // que el docente pueda elegir otra por error.
+  const location = useLocation();
+  const lockedAulaId = useMemo(
+    () => new URLSearchParams(location.search).get("aulaId"),
+    [location.search]
+  );
   const [items, setItems] = useState<Survey[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [classrooms, setClassrooms] = useState<Classroom[]>([]);
-  const [classroomId, setClassroomId] = useState("");
+  const [classroomId, setClassroomId] = useState(lockedAulaId ?? "");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [type, setType] = useState<SurveyType>("normal");
@@ -182,6 +191,14 @@ export default function ProfesorEncuestas() {
               <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-classroom">
                 Aula
               </label>
+              {lockedAulaId ? (
+                <p
+                  id="survey-classroom"
+                  className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-2 text-sm text-[var(--c-text)]"
+                >
+                  {classrooms.find((classroom) => getAulaId(classroom) === lockedAulaId)?.name ?? lockedAulaId}
+                </p>
+              ) : (
               <select
                 id="survey-classroom"
                 className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
@@ -198,6 +215,7 @@ export default function ProfesorEncuestas() {
                   </option>
                 ))}
               </select>
+              )}
             </div>
             <div className="grid gap-2">
               <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-title">

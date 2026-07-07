@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import type { Survey, SurveyResults } from "../services/encuestas";
 import { fetchSurveyResults, fetchSurveys, fetchSurveyScoreValues, voteSurvey } from "../services/encuestas";
 import { fetchClassrooms } from "../services/aulas";
@@ -12,8 +13,15 @@ type ResultsMap = Record<string, SurveyResults>;
 
 const usuarioId = "demo-alumno";
 export default function AlumnoEncuestas() {
+  // PLAN-H §3: llegar con ?aulaId=... (desde la tarjeta de encuestas del
+  // aula) fija el aula y esconde el selector.
+  const location = useLocation();
+  const lockedAulaId = useMemo(
+    () => new URLSearchParams(location.search).get("aulaId"),
+    [location.search]
+  );
   const [classrooms, setClassrooms] = useState<Classroom[]>([]);
-  const [classroomId, setClassroomId] = useState("");
+  const [classroomId, setClassroomId] = useState(lockedAulaId ?? "");
   const [surveys, setSurveys] = useState<Survey[]>([]);
   const [selections, setSelections] = useState<SelectionMap>({});
   const [scoreSelections, setScoreSelections] = useState<ScoreSelectionMap>({});
@@ -160,6 +168,11 @@ export default function AlumnoEncuestas() {
 
         {/* Selector de aula */}
         <div className="flex items-center gap-3 flex-wrap">
+          {lockedAulaId ? (
+            <p className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-sm text-[var(--c-text)]">
+              {classrooms.find((classroom) => getAulaId(classroom) === lockedAulaId)?.name ?? lockedAulaId}
+            </p>
+          ) : (
           <select
             id="student-classroom"
             className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
@@ -173,6 +186,7 @@ export default function AlumnoEncuestas() {
               </option>
             ))}
           </select>
+          )}
           <button
             type="button"
             className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-sm text-[var(--c-text)] hover:border-[var(--c-primary)] transition-colors"

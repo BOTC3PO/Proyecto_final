@@ -2,7 +2,8 @@
  * Tests de AulaActionsBar (Tarea 16).
  *
  * Verifica:
- *  - Muestra las 3 acciones (Asistencia, Anuncio, Estadísticas).
+ *  - Muestra las 5 acciones (Asistencia, Anuncio, Asignar módulo,
+ *    Estadísticas, Encuestas — PLAN-H §3).
  *  - Los href de los links preservan el aulaId en query string.
  *  - El botón "Publicar anuncio" invoca onPublicarClick.
  *  - Si no hay classroomId, no se renderiza nada.
@@ -29,23 +30,28 @@ const DEFAULT_PROPS: React.ComponentProps<typeof AulaActionsBar> = {
 };
 
 describe("AulaActionsBar", () => {
-  it("muestra las 4 acciones esperadas", () => {
+  it("muestra las 5 acciones esperadas", () => {
     renderBar(DEFAULT_PROPS);
     expect(screen.getByTestId("aula-action-asistencia")).toBeInTheDocument();
     expect(screen.getByTestId("aula-action-publicar")).toBeInTheDocument();
     expect(screen.getByTestId("aula-action-asignar-modulo")).toBeInTheDocument();
     expect(screen.getByTestId("aula-action-estadisticas")).toBeInTheDocument();
+    expect(screen.getByTestId("aula-action-encuestas")).toBeInTheDocument();
   });
 
-  it("los href de Asistencia y Estadísticas llevan aulaId en query", () => {
+  it("los href de Asistencia, Estadísticas y Encuestas llevan aulaId en query", () => {
     renderBar({ ...DEFAULT_PROPS, classroomId: "aula-xyz" });
     const asistencia = screen.getByTestId("aula-action-asistencia");
     const estadisticas = screen.getByTestId("aula-action-estadisticas");
+    const encuestas = screen.getByTestId("aula-action-encuestas");
     expect(asistencia.getAttribute("href")).toBe(
       "/profesor/asistencia?aulaId=aula-xyz",
     );
     expect(estadisticas.getAttribute("href")).toBe(
       "/profesor/estadisticas?aulaId=aula-xyz",
+    );
+    expect(encuestas.getAttribute("href")).toBe(
+      "/profesor/encuestas?aulaId=aula-xyz",
     );
   });
 

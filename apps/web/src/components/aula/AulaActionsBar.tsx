@@ -12,6 +12,7 @@
  *  3. Asignar módulo → abre `AsignarModulosModal` (no es un <Link>:
  *     invoca `onAsignarModulosClick`)
  *  4. Estadísticas → navega a `/profesor/estadisticas?aulaId=...`
+ *  5. Encuestas → navega a `/profesor/encuestas?aulaId=...` (PLAN-H §3)
  *
  * No se renderiza para alumnos, familias ni docentes invitados.
  */
@@ -78,6 +79,14 @@ export default function AulaActionsBar({
         >
           <span aria-hidden="true">📊</span>
           Estadísticas
+        </Link>
+        <Link
+          to={`/profesor/encuestas?aulaId=${encodeURIComponent(classroomId)}`}
+          data-testid="aula-action-encuestas"
+          className={linkCls}
+        >
+          <span aria-hidden="true">🗳️</span>
+          Encuestas
         </Link>
       </div>
     </div>
