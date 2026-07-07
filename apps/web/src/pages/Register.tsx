@@ -1,6 +1,6 @@
 // RegistrationForm.tsx
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { apiPost } from "../lib/api";
 import { fetchRegistroOpciones } from "../services/registro";
 
@@ -274,6 +274,11 @@ function DateInput({
 
 export default function RegistrationForm() {
   const navigate = useNavigate();
+  // PLAN-M — puente demo→cuenta del editor de mapas (y cualquier otro flujo
+  // que quiera volver a un lugar puntual tras registrarse): se reenvía a
+  // onboarding/login y de ahí a destino, ver OnboardingTema.tsx y Login.tsx.
+  const [searchParams] = useSearchParams();
+  const returnTo = searchParams.get("returnTo");
   const [teacherTypes, setTeacherTypes] = useState<Array<{ value: string; label: string }>>([]);
   const [monthOptions, setMonthOptions] = useState<string[]>([]);
   const [optionsError, setOptionsError] = useState<string | null>(null);
@@ -378,13 +383,14 @@ export default function RegistrationForm() {
           consentedAt: new Date().toISOString()
         }
       });
+      const returnToQS = returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : "";
       // Solo el alumno (USER) ve el onboarding de tema
       if (formData.role === 'USER') {
-        navigate('/onboarding/tema', {
+        navigate(`/onboarding/tema${returnToQS}`, {
           state: { nombre: formData.fullName.split(' ')[0] },
         });
       } else {
-        navigate('/login');
+        navigate(`/login${returnToQS}`);
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : "No pudimos completar el registro.";

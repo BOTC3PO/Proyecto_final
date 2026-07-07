@@ -18,6 +18,8 @@ type Props = {
   materialId?: string | null;
   onSaved?: (result: GuardarComoMaterialResult) => void;
   className?: string;
+  /** PLAN-M — abre el diálogo de título ya al montar (recuperación de borrador demo). */
+  autoOpen?: boolean;
 };
 
 type Status = "idle" | "asking-title" | "saving" | "saved" | "error";
@@ -36,8 +38,9 @@ export function GuardarComoMaterial({
   materialId,
   onSaved,
   className,
+  autoOpen,
 }: Props) {
-  const [status, setStatus] = useState<Status>("idle");
+  const [status, setStatus] = useState<Status>(autoOpen ? "asking-title" : "idle");
   const [titulo, setTitulo] = useState(defaultTitulo ?? "");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const tituloId = useId();

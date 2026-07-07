@@ -80,4 +80,18 @@ describe("GuardarComoMaterial", () => {
 
     expect(await screen.findByText(/no se pudo guardar/i)).toBeTruthy();
   });
+
+  it("PLAN-M: autoOpen abre el diálogo ya al montar, sin click previo", () => {
+    render(
+      <GuardarComoMaterial
+        tipo="mapa"
+        defaultTitulo="Recuperado"
+        getContenido={() => ({})}
+        autoOpen
+      />,
+    );
+
+    expect(screen.getByRole("dialog")).toBeTruthy();
+    expect(screen.getByLabelText(/título/i)).toHaveValue("Recuperado");
+  });
 });

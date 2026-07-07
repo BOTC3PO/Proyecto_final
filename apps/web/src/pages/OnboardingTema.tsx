@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
 const TEMAS_USER = [
@@ -105,6 +105,10 @@ const STORAGE_KEY = 'vb-theme';
 export default function OnboardingTema() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  // PLAN-M — reenvía returnTo a /login (ver Register.tsx y Login.tsx).
+  const returnTo = searchParams.get('returnTo');
+  const returnToQS = returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : '';
   const nombre = (location.state as { nombre?: string } | null)?.nombre ?? 'estudiante';
 
   const [selected, setSelected] = useState('nocturno-vb');
@@ -113,7 +117,7 @@ export default function OnboardingTema() {
     try {
       localStorage.setItem(STORAGE_KEY, selected);
     } catch { /* ignore */ }
-    navigate('/login', { state: { fromOnboarding: true } });
+    navigate(`/login${returnToQS}`, { state: { fromOnboarding: true } });
   };
 
   const tema = TEMAS_USER.find(t => t.id === selected) ?? TEMAS_USER[0];
@@ -209,7 +213,7 @@ export default function OnboardingTema() {
 
         {/* Skip */}
         <button
-          onClick={() => navigate('/login')}
+          onClick={() => navigate(`/login${returnToQS}`)}
           className="w-full text-center text-xs transition-opacity hover:opacity-70"
           style={{ color: tema.muted }}
         >

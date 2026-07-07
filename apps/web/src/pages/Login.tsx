@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiPost } from "../lib/api";
 
@@ -9,9 +9,17 @@ type LoginForm = {
   remember: boolean;
 };
 
+// PLAN-M — sólo se sigue un returnTo same-origin ("/algo"); nunca "//host"
+// (protocol-relative) ni una URL absoluta, para no abrir un open-redirect.
+function safeReturnTo(path: string | null): string | null {
+  return path && path.startsWith("/") && !path.startsWith("//") ? path : null;
+}
+
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
+  const [searchParams] = useSearchParams();
+  const returnTo = safeReturnTo(searchParams.get("returnTo"));
   const [form, setForm] = useState<LoginForm>({
     user: "",
     password: "",
@@ -88,7 +96,7 @@ export default function Login() {
         PARENT: "/menualumno",
         GUEST: "/",
       };
-      navigate(redirectByRole[payload.role] ?? "/");
+      navigate(returnTo ?? redirectByRole[payload.role] ?? "/");
     } catch (error) {
       const message = error instanceof Error ? error.message : "No pudimos iniciar sesión.";
       setStatus({ loading: false, error: message });

@@ -10,7 +10,6 @@
 // sessionStorage — ver MapaEditorPage; ModuloEditor lo monta en un overlay y
 // actualiza la herramienta en memoria).
 import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent, type MouseEvent, type PointerEvent } from "react";
-import { Link } from "react-router-dom";
 import { topologyToFeatures } from "../../lib/maps/topojson-lite";
 import type { CountryFeature, TopologyLike } from "../../lib/maps/topojson-lite";
 import { mapaBaseUrl } from "../../lib/maps/base-url";
@@ -157,12 +156,21 @@ export interface MapaEditorFullProps {
   // mapa embebido en un módulo siempre tiene sesión y ve los botones de
   // guardado de siempre.
   demoMode?: boolean;
+  // PLAN-M — invocado al pedir registrarse desde el modo demo, con la config
+  // vigente, para que MapaEditorPage guarde el borrador (localStorage) antes
+  // de navegar a /register. Sólo tiene sentido junto con demoMode.
+  onRequestRegister?: (config: MapaConfig) => void;
+  // PLAN-M — presente cuando el mapa se restauró desde un borrador de demo
+  // guardado antes de registrarse: banner "Recuperamos tu mapa", abre directo
+  // "Guardar como material", y `onSaved` limpia el borrador.
+  draftRecovery?: { onSaved: () => void };
 }
 
-export default function MapaEditorFull({ initialConfig, onSave, onCancel, materialId, demoMode = false }: MapaEditorFullProps) {
+export default function MapaEditorFull({ initialConfig, onSave, onCancel, materialId, demoMode = false, onRequestRegister, draftRecovery }: MapaEditorFullProps) {
   // ─── Config inicial (migrada) ───────────────────────────────────
   const [config, setConfig] = useState<MapaConfig>(() => migrateMapaConfig(initialConfig));
   const [demoBannerDismissed, setDemoBannerDismissed] = useState(false);
+  const [draftBannerDismissed, setDraftBannerDismissed] = useState(false);
 
   const [activeTool, setActiveTool] = useState<Tool>("select");
   const [activeCapaId, setActiveCapaId] = useState<string>(
@@ -949,6 +957,29 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
         </div>
       )}
 
+      {/* PLAN-M — banner discreto y descartable al restaurar un borrador de demo. */}
+      {draftRecovery && !draftBannerDismissed && (
+        <div
+          role="status"
+          className="flex items-center justify-between gap-3 px-4 py-2 text-sm"
+          style={{
+            background: "color-mix(in srgb, var(--c-success) 12%, var(--c-surface))",
+            borderBottom: "1px solid var(--c-border)",
+            color: "var(--c-text)",
+          }}
+        >
+          <span>Recuperamos tu mapa. Guardalo para no perderlo.</span>
+          <button
+            type="button"
+            onClick={() => setDraftBannerDismissed(true)}
+            aria-label="Descartar aviso de recuperación"
+            style={{ background: "none", border: "none", cursor: "pointer", color: "var(--c-muted)", fontSize: "1rem", lineHeight: 1, padding: 0 }}
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {/* HEADER */}
       <header className={styles.mapbar} role="banner">
         <button
@@ -980,9 +1011,13 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg>
           </button>
           {demoMode ? (
-            <Link to="/register" className={`${styles.btn} ${styles.btnPrimary}`}>
+            <button
+              type="button"
+              className={`${styles.btn} ${styles.btnPrimary}`}
+              onClick={() => onRequestRegister?.(config)}
+            >
               Registrate para guardar tu mapa
-            </Link>
+            </button>
           ) : (
             <>
               <GuardarComoMaterial
@@ -990,8 +1025,15 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                 defaultTitulo={config.titulo}
                 materialId={materialId}
                 getContenido={() => config}
+                autoOpen={!!draftRecovery}
+                onSaved={draftRecovery?.onSaved}
               />
-              <button type="button" className={`${styles.btn} ${styles.btnPrimary}`} onClick={handleSave}>
+              <button
+                type="button"
+                className={`${styles.btn} ${styles.btnPrimary}`}
+                onClick={handleSave}
+                title="Guarda un borrador en este navegador (no reemplaza «Guardar como material»)"
+              >
                 Guardar
               </button>
             </>
