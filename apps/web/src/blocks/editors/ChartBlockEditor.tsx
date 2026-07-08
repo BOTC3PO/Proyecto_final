@@ -66,6 +66,8 @@ export function ChartBlockEditor({
   const sourceTableId = useId()
   const xColId = useId()
   const labelsId = useId()
+  const xAxisLabelId = useId()
+  const yAxisLabelId = useId()
   const tableBlocks = doc.blocks.filter((b) => b.type === "table") as TableBlock[]
   const source = block.sourceTableId ? "table" : "manual"
   const isMultiSeries =
@@ -75,6 +77,9 @@ export function ChartBlockEditor({
     block.chartType === "bar-stacked" ||
     block.chartType === "bar-grouped" ||
     block.chartType === "area-stacked"
+  // PLAN-O — Ejes + Estilo: mismos tipos "cartesianos" que sabe dibujar
+  // ChartBlockRenderer con CartesianGrid/XAxis/YAxis (ver ese archivo).
+  const hasAxes = isMultiSeries || block.chartType === "timeseries"
 
   const updateDatasetLabel = (i: number, label: string) => {
     const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
@@ -251,6 +256,54 @@ export function ChartBlockEditor({
               + Agregar serie
             </button>
           )}
+        </>
+      )}
+
+      {hasAxes && (
+        <>
+          <div className="pt-1 border-t border-[var(--c-border)]">
+            <span className={labelCls}>Estilo</span>
+            <label className="flex items-center gap-2 text-xs text-[var(--c-muted)] cursor-pointer py-0.5">
+              <input
+                type="checkbox"
+                checked={block.showGrid !== false}
+                onChange={(e) => onUpdate({ showGrid: e.target.checked })}
+              />
+              Cuadrícula
+            </label>
+            <label className="flex items-center gap-2 text-xs text-[var(--c-muted)] cursor-pointer py-0.5">
+              <input
+                type="checkbox"
+                checked={block.showLegend !== false}
+                onChange={(e) => onUpdate({ showLegend: e.target.checked })}
+              />
+              Leyenda
+            </label>
+          </div>
+
+          <div className="pt-1 border-t border-[var(--c-border)]">
+            <span className={labelCls}>Ejes</span>
+            <label htmlFor={xAxisLabelId} className="text-xs text-[var(--c-muted)] block mb-1 mt-1">
+              Etiqueta eje X
+            </label>
+            <input
+              id={xAxisLabelId}
+              className={inputCls}
+              value={block.xAxisLabel ?? ""}
+              placeholder="Ej: tiempo (s)"
+              onChange={(e) => onUpdate({ xAxisLabel: e.target.value })}
+            />
+            <label htmlFor={yAxisLabelId} className="text-xs text-[var(--c-muted)] block mb-1 mt-2">
+              Etiqueta eje Y
+            </label>
+            <input
+              id={yAxisLabelId}
+              className={inputCls}
+              value={block.yAxisLabel ?? ""}
+              placeholder="Ej: velocidad (m/s)"
+              onChange={(e) => onUpdate({ yAxisLabel: e.target.value })}
+            />
+          </div>
         </>
       )}
 

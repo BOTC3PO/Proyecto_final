@@ -637,6 +637,17 @@ export function ChartBlockRenderer({ block, doc }: Props) {
   const firstDatasetValues = block.data?.datasets[0]?.values ?? []
   const processSteps = block.showProcess ? getProcessSteps(block) : []
 
+  // PLAN-O — Ejes + Estilo: sólo para los tipos cartesianos de abajo
+  // (bar, bar-stacked, bar-grouped, line, area, area-stacked, timeseries).
+  const showGrid = block.showGrid !== false
+  const showLegend = block.showLegend !== false
+  const xAxisLabelProp = block.xAxisLabel
+    ? { value: block.xAxisLabel, position: "insideBottom" as const, offset: -5 }
+    : undefined
+  const yAxisLabelProp = block.yAxisLabel
+    ? { value: block.yAxisLabel, angle: -90, position: "insideLeft" as const }
+    : undefined
+
   // ── Radar ─────────────────────────────────────────────────────────────────
   if (block.chartType === "radar") {
     return (
@@ -703,11 +714,11 @@ export function ChartBlockRenderer({ block, doc }: Props) {
         {title}
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="x" />
-            <YAxis />
+            {showGrid && <CartesianGrid strokeDasharray="3 3" />}
+            <XAxis dataKey="x" label={xAxisLabelProp} />
+            <YAxis label={yAxisLabelProp} />
             <Tooltip />
-            <Legend />
+            {showLegend && <Legend />}
             {seriesKeys.map((key, i) => (
               <Line
                 key={key}
@@ -732,11 +743,11 @@ export function ChartBlockRenderer({ block, doc }: Props) {
         {title}
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="x" />
-            <YAxis />
+            {showGrid && <CartesianGrid strokeDasharray="3 3" />}
+            <XAxis dataKey="x" label={xAxisLabelProp} />
+            <YAxis label={yAxisLabelProp} />
             <Tooltip />
-            <Legend />
+            {showLegend && <Legend />}
             {seriesKeys.map((key, i) => (
               <Area
                 key={key}
@@ -762,11 +773,11 @@ export function ChartBlockRenderer({ block, doc }: Props) {
         {title}
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="x" />
-            <YAxis />
+            {showGrid && <CartesianGrid strokeDasharray="3 3" />}
+            <XAxis dataKey="x" label={xAxisLabelProp} />
+            <YAxis label={yAxisLabelProp} />
             <Tooltip />
-            <Legend />
+            {showLegend && <Legend />}
             {seriesKeys.map((key, i) => (
               <Area
                 key={key}
@@ -793,11 +804,11 @@ export function ChartBlockRenderer({ block, doc }: Props) {
         {title}
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="x" />
-            <YAxis />
+            {showGrid && <CartesianGrid strokeDasharray="3 3" />}
+            <XAxis dataKey="x" label={xAxisLabelProp} />
+            <YAxis label={yAxisLabelProp} />
             <Tooltip />
-            <Legend />
+            {showLegend && <Legend />}
             {seriesKeys.map((key, i) => (
               <Bar key={key} dataKey={key} fill={seriesColors[i]} stackId="stack" />
             ))}
@@ -816,11 +827,11 @@ export function ChartBlockRenderer({ block, doc }: Props) {
         {title}
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="x" />
-            <YAxis />
+            {showGrid && <CartesianGrid strokeDasharray="3 3" />}
+            <XAxis dataKey="x" label={xAxisLabelProp} />
+            <YAxis label={yAxisLabelProp} />
             <Tooltip />
-            <Legend />
+            {showLegend && <Legend />}
             {seriesKeys.map((key, i) => (
               <Bar key={key} dataKey={key} fill={seriesColors[i]} />
             ))}
@@ -855,11 +866,11 @@ export function ChartBlockRenderer({ block, doc }: Props) {
         {title}
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="x" tick={{ fontSize: 11 }} tickFormatter={tickFormatter} />
-            <YAxis />
+            {showGrid && <CartesianGrid strokeDasharray="3 3" />}
+            <XAxis dataKey="x" tick={{ fontSize: 11 }} tickFormatter={tickFormatter} label={xAxisLabelProp} />
+            <YAxis label={yAxisLabelProp} />
             <Tooltip />
-            <Legend />
+            {showLegend && <Legend />}
             {seriesKeys.map((key, i) => (
               <Line
                 key={key}

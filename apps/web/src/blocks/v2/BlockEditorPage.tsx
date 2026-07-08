@@ -120,6 +120,14 @@ function blockIcon(type: Block["type"]): string {
   }
 }
 
+/** "hace Ns" / "hace Nmin" para el indicador de guardado del header. */
+function formatElapsed(sinceMs: number): string {
+  const s = Math.max(0, Math.floor((Date.now() - sinceMs) / 1000));
+  if (s < 60) return `hace ${s} s`;
+  const m = Math.floor(s / 60);
+  return `hace ${m} min`;
+}
+
 function blockTypeName(type: Block["type"]): string {
   switch (type) {
     case "text":
@@ -150,6 +158,40 @@ function blockTypeName(type: Block["type"]): string {
       return "Fórmula";
     default:
       return type;
+  }
+}
+
+/** Descripción corta para la tarjeta de la paleta de bloques (PLAN-O). */
+function blockSublabel(type: Block["type"]): string {
+  switch (type) {
+    case "text":
+      return "Párrafo rico";
+    case "latex":
+      return "Ecuación";
+    case "table":
+      return "Datos";
+    case "chart":
+      return "Barras · línea";
+    case "flow":
+      return "Diagrama";
+    case "math":
+      return "Plot";
+    case "shape":
+      return "Geometría editable";
+    case "image":
+      return "URL o archivo";
+    case "audio":
+      return "Clip de audio";
+    case "video":
+      return "Video embebido";
+    case "pdf":
+      return "Documento PDF";
+    case "link":
+      return "Enlace externo";
+    case "formula":
+      return "Con variables";
+    default:
+      return "";
   }
 }
 
@@ -248,6 +290,19 @@ function InspectorCard({
 
 const inputCls =
   "w-full text-xs border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 focus:outline-none focus:border-[var(--c-primary)]";
+
+// PLAN-O — atajos de una letra para agregar un bloque (sólo si no hay foco
+// en un input/textarea/select). Mismo mapeo que la barra de estado muestra.
+const QUICK_ADD_KEYS: Record<string, Block["type"]> = {
+  b: "text",
+  f: "math",
+  g: "chart",
+  l: "latex",
+  t: "table",
+};
+
+const fileMenuItemCls =
+  "w-full text-left px-3 py-1.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--c-focus-ring)]";
 
 
 function CanvasBlockContent({
@@ -647,12 +702,30 @@ export default function BlockEditorPage({
   // Hidden file input for "Cargar" button
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Add-block dropdown
-  const [showAddMenu, setShowAddMenu] = useState(false);
-  const addMenuRef = useRef<HTMLDivElement>(null);
+  // File actions overflow (Abrir/Guardar local, Cargar, Importar, Exportar)
+  const [showFileMenu, setShowFileMenu] = useState(false);
+  const fileMenuRef = useRef<HTMLDivElement>(null);
 
   // Inline title editing
   const [editingTitle, setEditingTitle] = useState(false);
+
+  // PLAN-O — vista de lienzo escritorio/móvil (mismo patrón que BookEditorPage).
+  const [desktopView, setDesktopView] = useState(true);
+
+  // PLAN-O — "Guardado hace Ns": se marca cada vez que `dirty` pasa de true a
+  // false (cualquier vía: API, archivo local, o volver desde el overlay).
+  const [lastSavedAt, setLastSavedAt] = useState<number | null>(null);
+  const wasDirtyRef = useRef(dirty);
+  useEffect(() => {
+    if (wasDirtyRef.current && !dirty) setLastSavedAt(Date.now());
+    wasDirtyRef.current = dirty;
+  }, [dirty]);
+  const [, forceSavedTick] = useState(0);
+  useEffect(() => {
+    if (lastSavedAt == null) return;
+    const id = setInterval(() => forceSavedTick((n) => n + 1), 1000);
+    return () => clearInterval(id);
+  }, [lastSavedAt]);
 
   // DnD sensors for sidebar
   const sensors = useSensors(
@@ -750,18 +823,18 @@ export default function BlockEditorPage({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // ─── Close add menu on outside click ───────────────────────────────────────
+  // ─── Close file menu on outside click ──────────────────────────────────────
 
   useEffect(() => {
-    if (!showAddMenu) return;
+    if (!showFileMenu) return;
     function handler(e: MouseEvent) {
-      if (addMenuRef.current && !addMenuRef.current.contains(e.target as Node)) {
-        setShowAddMenu(false);
+      if (fileMenuRef.current && !fileMenuRef.current.contains(e.target as Node)) {
+        setShowFileMenu(false);
       }
     }
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [showAddMenu]);
+  }, [showFileMenu]);
 
   // ─── Focus title input when editing ────────────────────────────────────────
 
@@ -977,6 +1050,9 @@ export default function BlockEditorPage({
         if (idx >= 0 && idx < doc.blocks.length - 1) {
           dispatch({ type: "SELECT_BLOCK", blockId: doc.blocks[idx + 1].id });
         }
+      } else if (!ctrl && !isInput && QUICK_ADD_KEYS[e.key.toLowerCase()]) {
+        e.preventDefault();
+        dispatch({ type: "ADD_BLOCK", blockType: QUICK_ADD_KEYS[e.key.toLowerCase()] });
       }
     };
     document.addEventListener("keydown", handler);
@@ -1036,33 +1112,47 @@ export default function BlockEditorPage({
             ← Volver
           </Button>
         )}
-        {/* Title */}
-        <div className="flex items-center gap-2 min-w-0">
-          {editingTitle ? (
-            <input
-              ref={titleInputRef}
-              aria-label="Título del documento"
-              className="text-sm font-semibold bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-0.5 border border-[var(--c-border)] focus:outline-none focus:border-[var(--c-primary)] max-w-[200px]"
-              value={title}
-              onChange={(e) => dispatch({ type: "UPDATE_TITLE", title: e.target.value })}
-              onBlur={() => setEditingTitle(false)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === "Escape") setEditingTitle(false);
-              }}
-            />
-          ) : (
-            <Button
-              variant="ghost"
-              size="sm"
-              className="font-semibold truncate max-w-[200px]"
-              onClick={() => setEditingTitle(true)}
-              title="Clic para editar título"
-            >
-              {title || "Sin título"}
-            </Button>
-          )}
 
-          {dirty && <Pill tone="warn">Sin guardar</Pill>}
+        {/* Doc identity: ícono + eyebrow + título editable */}
+        <div className="flex items-center gap-2 min-w-0">
+          <span
+            className="w-8 h-8 rounded-lg bg-[var(--c-bg)] flex items-center justify-center text-[var(--c-text)] flex-shrink-0"
+            aria-hidden="true"
+          >
+            <Shapes size={16} />
+          </span>
+          <div className="min-w-0 leading-tight">
+            <div className="text-[10px] font-bold uppercase tracking-wide text-[var(--c-muted)]">
+              Motor gráfico
+            </div>
+            {editingTitle ? (
+              <input
+                ref={titleInputRef}
+                aria-label="Título del documento"
+                className="text-sm font-semibold bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1 -mx-1 border border-[var(--c-border)] focus:outline-none focus:border-[var(--c-primary)] max-w-[200px]"
+                value={title}
+                onChange={(e) => dispatch({ type: "UPDATE_TITLE", title: e.target.value })}
+                onBlur={() => setEditingTitle(false)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === "Escape") setEditingTitle(false);
+                }}
+              />
+            ) : (
+              <button
+                type="button"
+                className="text-sm font-semibold text-[var(--c-text)] truncate max-w-[200px] rounded px-1 -mx-1 hover:bg-[var(--c-bg)] block text-left"
+                onClick={() => setEditingTitle(true)}
+                title="Clic para editar título"
+              >
+                {title || "Sin título"}
+              </button>
+            )}
+          </div>
+          {dirty ? (
+            <Pill tone="warn">Sin guardar</Pill>
+          ) : (
+            lastSavedAt != null && <Pill tone="ok">Guardado · {formatElapsed(lastSavedAt)}</Pill>
+          )}
         </div>
 
         {/* Center: filename */}
@@ -1074,6 +1164,36 @@ export default function BlockEditorPage({
 
         <div className="flex-1" />
 
+        {/* Escritorio / Móvil */}
+        <div
+          role="group"
+          aria-label="Vista del lienzo"
+          className="inline-flex items-center gap-0.5 bg-[var(--c-bg)] border border-[var(--c-border)] rounded-lg p-0.5"
+        >
+          <button
+            type="button"
+            aria-pressed={desktopView}
+            onClick={() => setDesktopView(true)}
+            className={cx(
+              "px-2 py-1 rounded-md text-xs font-medium",
+              desktopView ? "bg-[var(--c-surface)] text-[var(--c-text)] shadow-sm" : "text-[var(--c-muted)]"
+            )}
+          >
+            Escritorio
+          </button>
+          <button
+            type="button"
+            aria-pressed={!desktopView}
+            onClick={() => setDesktopView(false)}
+            className={cx(
+              "px-2 py-1 rounded-md text-xs font-medium",
+              !desktopView ? "bg-[var(--c-surface)] text-[var(--c-text)] shadow-sm" : "text-[var(--c-muted)]"
+            )}
+          >
+            Móvil
+          </button>
+        </div>
+
         {/* Undo / Redo */}
         <Button variant="ghost" size="sm" onClick={undo} disabled={!canUndo} title="Deshacer (Ctrl+Z)">
           ↩ Deshacer
@@ -1082,19 +1202,7 @@ export default function BlockEditorPage({
           ↪ Rehacer
         </Button>
 
-        <span className="text-[var(--c-muted)] text-xs" aria-hidden="true">|</span>
-
-        {/* Local file */}
-        <Button variant="ghost" size="sm" onClick={openLocalFile} title="Abrir archivo local">
-          Abrir local
-        </Button>
-        <Button variant="ghost" size="sm" onClick={saveLocalFile} title="Guardar en archivo local (Ctrl+S)">
-          Guardar local
-        </Button>
-
-        <span className="text-[var(--c-muted)] text-xs" aria-hidden="true">|</span>
-
-        {/* Import / Export / API */}
+        {/* Archivo: abrir/guardar local, cargar, importar, exportar (PLAN-O: colapsado a un menú) */}
         <input
           ref={fileInputRef}
           type="file"
@@ -1102,15 +1210,44 @@ export default function BlockEditorPage({
           className="hidden"
           onChange={loadFromFile}
         />
-        <Button variant="ghost" size="sm" onClick={() => fileInputRef.current?.click()}>
-          Cargar
-        </Button>
-        <Button variant="ghost" size="sm" onClick={importFile}>
-          Importar
-        </Button>
-        <Button variant="ghost" size="sm" onClick={exportFile}>
-          Exportar
-        </Button>
+        <div className="relative" ref={fileMenuRef}>
+          <Button
+            variant="ghost"
+            size="sm"
+            aria-haspopup="menu"
+            aria-expanded={showFileMenu}
+            aria-label="Archivo: abrir, guardar, cargar, importar o exportar"
+            title="Archivo"
+            onClick={() => setShowFileMenu((v) => !v)}
+          >
+            ⋯
+          </Button>
+          {showFileMenu && (
+            <div
+              role="menu"
+              aria-label="Acciones de archivo"
+              className="absolute top-8 right-0 z-30 w-44 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl py-1 shadow-lg"
+            >
+              <button type="button" role="menuitem" className={fileMenuItemCls} onClick={() => { setShowFileMenu(false); openLocalFile(); }}>
+                Abrir local
+              </button>
+              <button type="button" role="menuitem" className={fileMenuItemCls} title="Ctrl+S" onClick={() => { setShowFileMenu(false); saveLocalFile(); }}>
+                Guardar local
+              </button>
+              <div className="my-1 border-t border-[var(--c-border)]" aria-hidden="true" />
+              <button type="button" role="menuitem" className={fileMenuItemCls} onClick={() => { setShowFileMenu(false); fileInputRef.current?.click(); }}>
+                Cargar
+              </button>
+              <button type="button" role="menuitem" className={fileMenuItemCls} onClick={() => { setShowFileMenu(false); importFile(); }}>
+                Importar
+              </button>
+              <button type="button" role="menuitem" className={fileMenuItemCls} onClick={() => { setShowFileMenu(false); exportFile(); }}>
+                Exportar
+              </button>
+            </div>
+          )}
+        </div>
+
         <GuardarComoMaterial
           tipo="interactivo"
           defaultTitulo={title}
@@ -1118,66 +1255,50 @@ export default function BlockEditorPage({
           getContenido={() => doc}
         />
         <Button variant="primary" size="sm" onClick={onDone ? () => onDone(doc) : handleSaveApi}>
-          {onDone ? "Guardar" : "Guardar API"}
+          Guardar
         </Button>
       </header>
 
       {/* ═══ BODY ═════════════════════════════════════════════════════════════ */}
       <div className="flex flex-1 overflow-hidden">
         {/* ─── LEFT SIDEBAR ──────────────────────────────────────────────── */}
-        <aside className="w-56 flex-shrink-0 bg-[var(--c-surface)] border-r border-[var(--c-border)] flex flex-col overflow-hidden">
-          {/* Sidebar header */}
-          <div className="flex items-center justify-between px-3 py-2 border-b border-[var(--c-border)]">
-            <span className="text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide">
-              Bloques
-            </span>
-
-            {/* Add block button */}
-            <div className="relative" ref={addMenuRef}>
-              <button
-                type="button"
-                aria-label="Agregar bloque"
-                aria-haspopup="menu"
-                aria-expanded={showAddMenu}
-                className="w-6 h-6 flex items-center justify-center rounded bg-[var(--c-primary)] hover:opacity-90 text-white text-sm font-bold leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
-                onClick={() => setShowAddMenu((v) => !v)}
-                title="Agregar bloque"
-              >
-                +
-              </button>
-              {showAddMenu && (
-                <div
-                  role="menu"
-                  aria-label="Tipo de bloque a agregar"
-                  className="absolute top-7 right-0 z-30 w-36 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl py-1"
+        <aside className="w-60 flex-shrink-0 bg-[var(--c-surface)] border-r border-[var(--c-border)] flex flex-col overflow-hidden">
+          {/* Paleta de tipos (PLAN-O: grid de íconos permanente, no dropdown) */}
+          <div className="flex-shrink-0 border-b border-[var(--c-border)]">
+            <div className="px-3 pt-2 pb-1">
+              <span className="text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide">
+                Bloques
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5 px-2 pb-2" role="group" aria-label="Agregar bloque">
+              {BLOCK_TYPES.map(({ type, label, icon }) => (
+                <button
+                  key={type}
+                  type="button"
+                  className="flex flex-col items-start gap-0.5 rounded-lg border border-[var(--c-border)] p-2 text-left hover:border-[var(--c-primary)] hover:bg-[var(--c-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+                  onClick={() => dispatch({ type: "ADD_BLOCK", blockType: type })}
+                  title={`Agregar ${label}`}
                 >
-                  {BLOCK_TYPES.map(({ type, label, icon }) => (
-                    <button
-                      key={type}
-                      type="button"
-                      role="menuitem"
-                      className="w-full text-left px-3 py-1.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--c-focus-ring)]"
-                      onClick={() => {
-                        dispatch({ type: "ADD_BLOCK", blockType: type });
-                        setShowAddMenu(false);
-                      }}
-                    >
-                      {icon ?? (type === "math" ? (
-                        <FunctionSquare size={14} className="text-[var(--c-primary)] flex-shrink-0" aria-hidden="true" />
-                      ) : (
-                        <span className="font-mono text-[var(--c-primary)] w-4 text-center" aria-hidden="true">
-                          {blockIcon(type)}
-                        </span>
-                      ))}
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              )}
+                  <span aria-hidden="true">
+                    {icon ?? (type === "math" ? (
+                      <FunctionSquare size={14} className="text-[var(--c-primary)]" />
+                    ) : (
+                      <span className="font-mono text-[var(--c-primary)]">{blockIcon(type)}</span>
+                    ))}
+                  </span>
+                  <span className="text-xs font-semibold text-[var(--c-text)] leading-tight">{label}</span>
+                  <span className="text-[10px] text-[var(--c-muted)] leading-tight">{blockSublabel(type)}</span>
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* Block list */}
+          {/* Estructura: outline del documento */}
+          <div className="px-3 pt-2 pb-1 flex-shrink-0">
+            <span className="text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide">
+              Estructura
+            </span>
+          </div>
           <div className="flex-1 overflow-y-auto">
             {doc.blocks.length === 0 ? (
               <p className="text-xs text-[var(--c-muted)] italic px-3 py-4 text-center">
@@ -1223,7 +1344,7 @@ export default function BlockEditorPage({
           className="flex-1 bg-[var(--c-bg)] overflow-y-auto"
           onClick={() => dispatch({ type: "SELECT_BLOCK", blockId: null })}
         >
-          <div className="px-8 py-6 max-w-3xl mx-auto">
+          <div className={cx("px-8 py-6 mx-auto transition-[max-width]", desktopView ? "max-w-3xl" : "max-w-sm")}>
             {doc.blocks.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-64 gap-4 text-center">
                 <span className="text-5xl text-[var(--c-border)]">⊕</span>
@@ -1507,6 +1628,16 @@ export default function BlockEditorPage({
           </div>
         </aside>
       </div>
+
+      {/* ═══ BARRA DE ESTADO ══════════════════════════════════════════════════ */}
+      <footer className="flex-shrink-0 h-6 px-3 flex items-center justify-between text-[11px] text-[var(--c-muted)] bg-[var(--c-surface)] border-t border-[var(--c-border)]">
+        <span>
+          {selectedBlock ? `Bloque seleccionado: ${blockTypeName(selectedBlock.type)}` : "Ningún bloque seleccionado"}
+          {" · "}
+          {doc.blocks.length} bloque{doc.blocks.length === 1 ? "" : "s"} en el documento
+        </span>
+        <span aria-hidden="true">B texto · F f(x) · G gráfico · L LaTeX · T tabla · ⌫ eliminar</span>
+      </footer>
     </div>
   );
 }

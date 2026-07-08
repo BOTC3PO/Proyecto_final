@@ -68,6 +68,12 @@ export type ChartBlock = {
   showStats?: boolean      // muestra tabla de estadísticas descriptivas debajo del gráfico
   showProcess?: boolean    // muestra los pasos de cálculo paso a paso
   statFunction?: "mean" | "median" | "mode" | "variance" | "stddev" | "frequency" | "quartiles" | "zscore" | "regression" | "correlation" | "summary"
+  // PLAN-O — Ejes + Estilo (sólo aplica a los tipos cartesianos: bar,
+  // bar-stacked, bar-grouped, line, area, area-stacked, timeseries).
+  xAxisLabel?: string
+  yAxisLabel?: string
+  showGrid?: boolean       // default true
+  showLegend?: boolean     // default true
 }
 
 export type FlowBlock = {
