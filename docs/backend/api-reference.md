@@ -5,7 +5,7 @@
 | **Versión** | 1.0 |
 | **Estado** | Vigente |
 | **Audiencia** | Backend, full-stack, integradores |
-| **Última actualización** | 2026-05-30 |
+| **Última actualización** | 2026-07-08 (PLAN-P §5 — actualización acotada: `modulos.ts`, `libros.ts`, `materiales.ts`; el resto del catálogo sigue fechado 2026-05-30) |
 | **Fuente de verdad** | `api/src/routes/*.ts` (56 routers) + `api/src/index.ts` |
 
 > Catálogo derivado del código real. Cada endpoint indica método, path completo, guarda de
@@ -190,8 +190,26 @@ Routers: `aulas.ts`, `aula-feed.ts`, `publicaciones.ts`, `moderacion.ts`, `calen
 
 ### materiales.ts
 
-- `GET /api/materiales` — **autenticado** — — — `{ items:[{id, titulo, materia, tipo, autor, escuelaId, compartido, createdAt}] }` — `403 "forbidden"` — `materiales.ts:20`
-- `POST /api/materiales/:id/compartir` — **autenticado; solo owner** — param `id` — — `{ ok:true }` — `403 "forbidden"` — `materiales.ts:60`
+> **PLAN-P §5**: sección corregida/ampliada — la versión previa sólo cubría 2 de las 6 rutas reales
+> y no distinguía que `compartir`/`download` operan sobre `Modulo`, no sobre el modelo `Material`.
+
+- `GET /api/materiales` — **autenticado** — — — listado combinado: `Modulo` (tipo `"cuestionario"`) +
+  `Material` (`materiales_guardados`) + `Libro` (tipo `"libro"`) propios o compartidos con la
+  escuela — `403 "forbidden"` — `materiales.ts:51`
+- `POST /api/materiales/:id/compartir` — **autenticado; solo owner** — param `id` — **body**:
+  `scope` (`privado`/`escuela`/`publico`), `targetIds?` — `{ ok:true }` — cambia visibilidad de un
+  **`Modulo`** (`prisma.modulo.updateMany`), no de un `Material` — `403 "forbidden"` — `materiales.ts:193`
+- `GET /api/materiales/:id/download` — **autenticado; owner/admin/mismo-escuela-compartido** —
+  param `id` — — descarga un **`Modulo`** como adjunto JSON — `403`, `404` — `materiales.ts:244`
+- `POST /api/materiales/guardados` — **autenticado** — — **body**: `tipo` (∈ `MATERIAL_TIPOS`),
+  `titulo`, `contenido` — `201 { id }` — crea `Material` + primera `MaterialVersion` (versión 1) —
+  `400` tipo inválido — `materiales.ts:285`
+- `POST /api/materiales/guardados/:id/versiones` — **autenticado; owner/admin** — param `id` —
+  **body**: `contenido` — `{ ok:true, versionNumber }` — agrega versión nueva, nunca sobrescribe —
+  `403`, `404` — `materiales.ts:336`
+- `GET /api/materiales/guardados/:id` — **autenticado** — param `id` — — `{ id, tipo, titulo,
+  contenido }` (de la versión actual, `currentVersionId`) — para reabrir en el editor de origen —
+  `404` — `materiales.ts:380`
 
 ### resource-links.ts
 
@@ -210,19 +228,49 @@ Routers: `libros.ts`, `modulos.ts`, `pages.ts`, `block-documents.ts`, `progreso.
 
 ### libros.ts
 
-- `POST /api/libros` — **autenticado** — — **body**: `book` (`book.metadata.id`, `book.metadata.title`), `createdAt?`, `updatedAt?` — `201 { id }` — `400 "book payload is required"`, `400 "book.metadata.id and book.metadata.title are required"` — `libros.ts:11`
-- `GET /api/libros` — **autenticado** — query `q`, `id`, `page`, `pageSize` — — `{ items:[{id,title,createdAt,updatedAt}], page, pageSize, total, totalPages }` — `500` — `libros.ts:48`
-- `GET /api/libros/:id` — **autenticado** — param `id` — — `{ ...doc, id }` — `404 "not found"` — `libros.ts:96`
+> **PLAN-P §5**: agregadas `duplicar` y `visibility` (no existían en la pasada previa) y los
+> query params reales de `GET /api/libros`; líneas corregidas contra el archivo actual (807 líneas).
+
+- `POST /api/libros` — **autenticado** — — **body**: `book` (`book.metadata.id`,
+  `book.metadata.title`), `createdAt?`, `updatedAt?` — `201 { id }` — crea si el `id` no existe
+  (403 si no-staff); si existe y no es editable pero sí visible+compartido, dispara **copy-on-write**
+  (clona en vez de bloquear) en lugar de sobrescribir — `visibility` del body sólo se aplica al crear
+  — `400`, `403` — `libros.ts:265`
+- `POST /api/libros/:id/duplicar` — **autenticado; requiere lectura** — param `id` — — `{ id }` —
+  clona el libro, agrega " (copia)" al título, setea provenance — `403`, `404` — `libros.ts:436`
+- `GET /api/libros` — **autenticado** — query `q`, `id`, `page`, `pageSize` (def 12, máx 50),
+  `owner` (`mias`/`otros`/`todas`), `visibility` (`privado`/`escuela`/`publica`/`todas`) — —
+  `{ items:[{id,title,createdAt,updatedAt}], page, pageSize, total, totalPages }` — `500` —
+  `libros.ts:484`
+- `GET /api/libros/:id` — **autenticado** — param `id` — — `{ ...doc, id, ownerUserId, visibility,
+  schoolId, clonedFrom? }` — `404 "not found"` — `libros.ts:650`
+- `PATCH /api/libros/:id/visibility` — **autenticado; sólo owner/admin** — param `id` — **body**:
+  `visibility` (`privado`/`escuela`) — `{ ok:true }` — pasar a `"escuela"` exige que el requester
+  tenga `schoolId` — `403`, `404` — `libros.ts:728`
 
 ### modulos.ts
 
-- `GET /api/modulos/buscar` — **autenticado** (requireUser inline si `?mine=true`) — query `mine`, `limit`, `offset`, `query`, `createdBy`, `schoolId`, `visibility` (CSV publico/escuela/privado) — — `{ items, limit, offset }` — — `modulos.ts:50`
-- `GET /api/modulos` — **autenticado** — query `limit`, `offset`, `aulaId` — — `{ items, limit, offset }` — — `modulos.ts:111`
-- `GET /api/modulos/:id` — **autenticado** — param `id` — — `{ id, slug, title, description, visibility, schoolId, dependencies, createdBy, createdAt, updatedAt, teoriaId, quizzes:[...], status }` — `404 "not found"` — `modulos.ts:150`
-- `POST /api/modulos` — **autenticado** — — **body**: `ModuleSchema` (`title`, `description`, `visibility`, `schoolId`, `createdBy`, `dependencies`, `aulaId`, `subject`, `quizzes:[...]`) — `201 { id, moduleId }` — `400 invalid payload` + guard de aula escribible — `modulos.ts:212`
-- `PUT /api/modulos/:id` — **autenticado** — param `id` — **body**: `ModuleUpdateSchema` (partial) — `{ ok:true }` — `404`, `400 {error:"validation", issues}` — `modulos.ts:422`
-- `PATCH /api/modulos/:id` — **autenticado** — param `id` — **body**: partial — `{ ok:true }` — `404`, `400 validation` — `modulos.ts:445`
-- `DELETE /api/modulos/:id` — **autenticado** — param `id` — — `204` — `404 "not found"` — `modulos.ts:468`
+> **PLAN-P §5**: líneas corregidas (el archivo pasó de módulo-solo a 1789 líneas tras C2) y
+> agregadas las 8 rutas de "quiz standalone"/Tiza que faltaban por completo. Ver
+> [`../modulos.md`](../modulos.md) para el modelo `Modulo`, invariantes de `applyModuleUpdate` e
+> intentos.
+
+- `GET /api/modulos/buscar` — **autenticado** (requireUser inline si `?mine=true`) — query `mine`, `limit`, `offset`, `query`, `createdBy`, `schoolId`, `visibility` (CSV publico/escuela/privado) — — `{ items, limit, offset }` — — `modulos.ts:209`
+- `GET /api/modulos` — **autenticado** — query `limit`, `offset`, `aulaId` — — `{ items, limit, offset }` — — `modulos.ts:270`
+- `GET /api/modulos/:id` — **autenticado** — param `id` — — `{ id, slug, title, description, visibility, schoolId, dependencies, createdBy, createdAt, updatedAt, teoriaId, quizzes:[...] }` (preguntas sanitizadas si el requester no es dueño/staff; **sin campo `status`** — no hay ciclo publicado/borrador implementado) — `404 "not found"` — `modulos.ts:338`
+- `POST /api/modulos/:id/duplicar` — **autenticado; dueño o staff** — param `id` — — `{ id }` — clona el módulo completo (deep clone, incl. quizzes) — `403`, `404` — `modulos.ts:703`
+- `POST /api/modulos` — **autenticado** — — **body**: `ModuleSchema` (`title`, `description`, `visibility`, `schoolId`, `createdBy`, `dependencies`, `aulaId`, `subject`, `quizzes:[...]`) — `201 { id, moduleId }` — `400 invalid payload` + guard de aula escribible — `modulos.ts:766`
+- `PUT /api/modulos/:id` — **autenticado** — param `id` — **body**: `ModuleUpdateSchema` (partial) — `{ ok:true }` — vía `applyModuleUpdate` (invariantes en [`../modulos.md`](../modulos.md#applymoduleupdate)), con copy-on-write si no puede editar el original — `404`, `400 {error:"validation", issues}` — `modulos.ts:1165`
+- `PATCH /api/modulos/:id` — **autenticado** — param `id` — **body**: partial — `{ ok:true }` — mismo `applyModuleUpdate` que PUT — `404`, `400 validation` — `modulos.ts:1252`
+- `DELETE /api/modulos/:id` — **autenticado** — param `id` — — `204` — **hard delete** (`deleteMany`) pese a que `Modulo.isDeleted` existe como columna — `404 "not found"` — `modulos.ts:1330`
+- `GET /api/quizzes/:quizId/meta` — **autenticado** — param `quizId` — — `{ title, type, visibility, ...config de evaluación }` — metadata liviana para el editor "Tiza" — `404` — `modulos.ts:1438`
+- `PATCH /api/quizzes/:quizId/meta` — **autenticado** — param `quizId` — **body**: partial — `{ ok:true }` — update read-modify-write, **no** crea `QuizVersion` nueva (a diferencia de PUT/PATCH módulo) — `404` — `modulos.ts:1463`
+- `GET /api/quizzes` — **autenticado; staff** — — — `{ items:[...] }` — quizzes standalone (`moduleId: null`) del propio docente — `modulos.ts:1528`
+- `POST /api/quizzes` — **autenticado; staff** — — **body**: `title?` — `201 { id }` — crea un quiz standalone vacío — `modulos.ts:1558`
+- `POST /api/quizzes/:quizId/usar-en-modulo` — **autenticado** — param `quizId` — **body**: `moduleId` — `201 { id }` — **clona** el quiz (suelto o de otro módulo) dentro del módulo destino; el original standalone queda intacto y reusable — `404` — `modulos.ts:1619`
+- `DELETE /api/quizzes/:quizId` — **autenticado** — param `quizId` — — `{ ok:true }` — soft-delete (`isActive:false`), nunca borra la fila — `404` — `modulos.ts:1696`
+- `GET /api/quizzes/:quizId/preguntas` — **autenticado** — param `quizId` — — `CuestionarioPreguntas` (formato nativo Tiza, leído de `settings.preguntas`) — `404` — `modulos.ts:1720`
+- `PUT /api/quizzes/:quizId/preguntas` — **autenticado** — param `quizId` — **body**: `CuestionarioPreguntas` — `{ ok:true }` — valida pero no bloquea el guardado ante warnings — `400`, `404` — `modulos.ts:1744`
 
 ### pages.ts
 

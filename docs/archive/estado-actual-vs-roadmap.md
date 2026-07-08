@@ -1,3 +1,7 @@
+> **ARCHIVADO 2026-07-08 (PLAN-P §1).** Snapshot muy temprano y ya superado: el
+> propio índice (`docs/README.md`) y los manuales que lista lo desmienten punto
+> por punto. Se conserva solo como referencia histórica.
+
 # Estado actual vs Roadmap
 
 ## Implementado

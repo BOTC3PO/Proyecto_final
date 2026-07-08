@@ -1,7 +1,9 @@
 # Documentación del backend
 
 Documentación técnica de la API (Express + TypeScript, Prisma + PostgreSQL), derivada del código
-real en `api/`. Última actualización: 2026-05-30.
+real en `api/`. Última actualización: 2026-07-08 (`modelo-de-datos.md` y `api-reference.md`
+actualizados de forma acotada en PLAN-P §5; `auth-y-roles.md`/`migraciones.md` siguen fechados
+2026-05-30).
 
 | Documento | Contenido |
 |---|---|
