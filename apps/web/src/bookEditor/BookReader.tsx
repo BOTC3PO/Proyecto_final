@@ -145,7 +145,11 @@ function PageView({ page, book }: { page: Page; book: Book }) {
 
   return (
     <section
-      className="rounded-xl border border-gray-200 mx-auto my-6 flex flex-col"
+      // PLAN-Q §3.3 — el padding fijo (48px 96px) dejaba ~198px de
+      // contenido en un teléfono de 390px (192px se iban en márgenes).
+      // Responsive: cómodo en el pulgar en mobile, el aspecto de página
+      // "de libro" con márgenes anchos vuelve recién en desktop (lg).
+      className="rounded-xl border border-gray-200 mx-auto my-6 flex flex-col px-4 py-6 sm:px-10 sm:py-8 lg:px-24 lg:py-12"
       style={{
         background: paperColor,
         color: textColor,
@@ -153,7 +157,6 @@ function PageView({ page, book }: { page: Page; book: Book }) {
         maxWidth: 1100,
         width: "100%",
         minHeight: 600,
-        padding: "48px 96px",
       }}
       aria-label={page.title ?? `Página ${page.number}`}
     >
