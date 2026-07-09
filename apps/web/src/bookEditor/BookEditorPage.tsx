@@ -172,19 +172,25 @@ function ToolbarButton({
   active,
   title,
   onClick,
+  disabled,
 }: {
   children: React.ReactNode;
   active?: boolean;
   title?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }) {
   return (
     <button
+      type="button"
       title={title}
       onClick={onClick}
+      disabled={disabled}
       className={classNames(
         "min-w-[24px] h-6 px-1.5 text-xs rounded flex items-center justify-center transition-colors",
-        active
+        disabled
+          ? "text-[var(--c-muted)] opacity-40 cursor-not-allowed"
+          : active
           ? "bg-[color-mix(in_srgb,var(--c-primary)_15%,transparent)] text-[var(--c-primary)]"
           : "text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)]"
       )}
@@ -1395,6 +1401,36 @@ function InlineBlock({
                   patch: { text: e.target.value },
                 })
               }
+              // PLAN-W §3 fase 2 — escritura fluida: Enter parte el
+              // párrafo en el punto del cursor y mueve el foco al
+              // nuevo (sin pasar por AddBlockBar); Backspace en un
+              // párrafo VACÍO lo borra y sube el foco al anterior.
+              onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+                const el = e.currentTarget;
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  const pos = el.selectionStart ?? text.length;
+                  dispatch({
+                    type: "SPLIT_PARAGRAPH",
+                    pageId: page.id,
+                    blockId: block.id,
+                    beforeText: text.slice(0, pos),
+                    afterText: text.slice(pos),
+                  });
+                  return;
+                }
+                if (
+                  e.key === "Backspace" &&
+                  text.length === 0 &&
+                  (el.selectionStart ?? 0) === 0 &&
+                  pageIdx > 0
+                ) {
+                  e.preventDefault();
+                  const previous = page.content[pageIdx - 1];
+                  dispatch({ type: "DELETE_BLOCK", pageId: page.id, blockId: block.id });
+                  dispatch({ type: "SELECT_BLOCK", blockId: previous.id });
+                }
+              }}
               onClick={(e: React.MouseEvent) => e.stopPropagation()}
             />
           ) : (
@@ -1558,6 +1594,11 @@ function AddBlockBar({
 }: {
   dispatch: (a: EditorAction) => void;
 }) {
+  // PLAN-W §3 fase 2 — Enter al final de un párrafo existente crea el
+  // siguiente (escritura fluida, ver InlineBlock), pero "Párrafo" se
+  // queda acá: sigue siendo la única forma de arrancar un párrafo en
+  // una página vacía o después de un bloque no-texto (imagen/divisor),
+  // donde no hay un párrafo previo desde el cual presionar Enter.
   const types: Array<{ t: Block["type"]; label: string }> = [
     { t: "heading", label: "Título" },
     { t: "paragraph", label: "Párrafo" },
@@ -2046,35 +2087,46 @@ export default function BookEditorPage() {
         )}
       </header>
 
-      {/* ===== TOOLBAR WORD-STYLE ===== */}
-      {hasSelectedBlock && selectedBlock && selectedPage && (
+      {/* ===== TOOLBAR WORD-STYLE =====
+          PLAN-W §3 fase 1 — siempre visible (antes sólo aparecía con un
+          bloque seleccionado). Sin bloque, los controles quedan
+          deshabilitados en vez de desaparecer, como la cinta de Word. */}
+      {(() => {
+        const block = selectedBlock;
+        const page = selectedPage;
+        const isDisabled = !block || !page;
+        const isParagraph = block?.type === 'paragraph';
+        const isHeading = block?.type === 'heading';
+        return (
         <div className="flex-shrink-0 border-b border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 flex items-center gap-1 flex-wrap">
 
           {/* Fuente */}
           <select
-            className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 focus:outline-none focus:border-[var(--c-primary)]"
+            disabled={isDisabled}
+            className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 focus:outline-none focus:border-[var(--c-primary)] disabled:opacity-40 disabled:cursor-not-allowed"
             style={{
               width: 110,
               fontFamily:
-                selectedBlock.type === 'paragraph'
-                  ? (selectedBlock.runs?.[0]?.style?.fontFamily ?? book.metadata.theme?.fontFamily ?? '')
-                  : selectedBlock.type === 'heading'
-                  ? (selectedBlock.textStyle?.fontFamily ?? '')
+                isParagraph
+                  ? (block.runs?.[0]?.style?.fontFamily ?? book.metadata.theme?.fontFamily ?? '')
+                  : isHeading
+                  ? (block.textStyle?.fontFamily ?? '')
                   : '',
             }}
             value={
-              selectedBlock.type === 'paragraph'
-                ? (selectedBlock.runs?.[0]?.style?.fontFamily ?? '')
-                : selectedBlock.type === 'heading'
-                ? (selectedBlock.textStyle?.fontFamily ?? '')
+              isParagraph
+                ? (block.runs?.[0]?.style?.fontFamily ?? '')
+                : isHeading
+                ? (block.textStyle?.fontFamily ?? '')
                 : ''
             }
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              if (!block || !page) return;
               const val = e.target.value;
-              if (selectedBlock.type === 'paragraph') {
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { fontFamily: val || undefined } });
-              } else if (selectedBlock.type === 'heading') {
-                dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { fontFamily: val || undefined } } });
+              if (block.type === 'paragraph') {
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { fontFamily: val || undefined } });
+              } else if (block.type === 'heading') {
+                dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { textStyle: { fontFamily: val || undefined } } });
               }
             }}
           >
@@ -2086,42 +2138,44 @@ export default function BookEditorPage() {
 
           <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
 
-          {/* Tamaño (solo párrafo) */}
-          {selectedBlock.type === 'paragraph' && (
-            <select
-              className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 w-14 focus:outline-none focus:border-[var(--c-primary)]"
-              value={selectedBlock.runs?.[0]?.style?.fontSizePx ?? ''}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                const val = Number(e.target.value);
-                if (!val) return;
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { fontSizePx: val } });
-              }}
-            >
-              <option value="">px</option>
-              {[8,9,10,11,12,14,16,18,20,22,24,28,32,36,40,48,60,72].map((s) => (
-                <option key={s} value={s}>{s}</option>
-              ))}
-            </select>
-          )}
+          {/* Tamaño (solo párrafo; sin selección se muestra deshabilitado) */}
+          <select
+            disabled={isDisabled || !isParagraph}
+            className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 w-14 focus:outline-none focus:border-[var(--c-primary)] disabled:opacity-40 disabled:cursor-not-allowed"
+            value={isParagraph ? (block.runs?.[0]?.style?.fontSizePx ?? '') : ''}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              if (!block || !page || block.type !== 'paragraph') return;
+              const val = Number(e.target.value);
+              if (!val) return;
+              dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { fontSizePx: val } });
+            }}
+          >
+            <option value="">px</option>
+            {[8,9,10,11,12,14,16,18,20,22,24,28,32,36,40,48,60,72].map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
 
           <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
 
           {/* Bold */}
           <ToolbarButton
+            disabled={isDisabled}
             active={
-              selectedBlock.type === 'paragraph'
-                ? !!selectedBlock.runs?.[0]?.style?.bold
-                : selectedBlock.type === 'heading'
-                ? !!selectedBlock.textStyle?.bold
+              isParagraph
+                ? !!block.runs?.[0]?.style?.bold
+                : isHeading
+                ? !!block.textStyle?.bold
                 : false
             }
             title="Negrita (Ctrl+B)"
             onClick={() => {
-              if (selectedBlock.type === 'paragraph') {
-                const cur = !!selectedBlock.runs?.[0]?.style?.bold;
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { bold: !cur } });
-              } else if (selectedBlock.type === 'heading') {
-                dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { bold: !selectedBlock.textStyle?.bold } } });
+              if (!block || !page) return;
+              if (block.type === 'paragraph') {
+                const cur = !!block.runs?.[0]?.style?.bold;
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { bold: !cur } });
+              } else if (block.type === 'heading') {
+                dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { textStyle: { bold: !block.textStyle?.bold } } });
               }
             }}
           >
@@ -2130,40 +2184,41 @@ export default function BookEditorPage() {
 
           {/* Italic */}
           <ToolbarButton
+            disabled={isDisabled}
             active={
-              selectedBlock.type === 'paragraph'
-                ? !!selectedBlock.runs?.[0]?.style?.italic
-                : selectedBlock.type === 'heading'
-                ? !!selectedBlock.textStyle?.italic
+              isParagraph
+                ? !!block.runs?.[0]?.style?.italic
+                : isHeading
+                ? !!block.textStyle?.italic
                 : false
             }
             title="Cursiva (Ctrl+I)"
             onClick={() => {
-              if (selectedBlock.type === 'paragraph') {
-                const cur = !!selectedBlock.runs?.[0]?.style?.italic;
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { italic: !cur } });
-              } else if (selectedBlock.type === 'heading') {
-                dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { italic: !selectedBlock.textStyle?.italic } } });
+              if (!block || !page) return;
+              if (block.type === 'paragraph') {
+                const cur = !!block.runs?.[0]?.style?.italic;
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { italic: !cur } });
+              } else if (block.type === 'heading') {
+                dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { textStyle: { italic: !block.textStyle?.italic } } });
               }
             }}
           >
             <em>I</em>
           </ToolbarButton>
 
-          {/* Underline (solo párrafo) */}
-          {selectedBlock.type === 'paragraph' && (
-            <ToolbarButton
-              active={!!selectedBlock.runs?.[0]?.style?.underline}
-              title="Subrayado (Ctrl+U)"
-              onClick={() => {
-                if (selectedBlock.type !== 'paragraph') return;
-                const cur = !!selectedBlock.runs?.[0]?.style?.underline;
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { underline: !cur } });
-              }}
-            >
-              <span style={{ textDecoration: 'underline' }}>U</span>
-            </ToolbarButton>
-          )}
+          {/* Underline (solo párrafo; deshabilitado si no aplica) */}
+          <ToolbarButton
+            disabled={isDisabled || !isParagraph}
+            active={isParagraph && !!block.runs?.[0]?.style?.underline}
+            title="Subrayado (Ctrl+U)"
+            onClick={() => {
+              if (!block || !page || block.type !== 'paragraph') return;
+              const cur = !!block.runs?.[0]?.style?.underline;
+              dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { underline: !cur } });
+            }}
+          >
+            <span style={{ textDecoration: 'underline' }}>U</span>
+          </ToolbarButton>
 
           <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
 
@@ -2171,17 +2226,19 @@ export default function BookEditorPage() {
           {(['left','center','right','justify'] as const).map((align) => (
             <ToolbarButton
               key={align}
+              disabled={isDisabled}
               title={align}
               active={
-                (selectedBlock.type === 'paragraph' || selectedBlock.type === 'heading')
-                  ? selectedBlock.blockStyle?.align === align
+                (isParagraph || isHeading)
+                  ? block.blockStyle?.align === align
                   : false
               }
               onClick={() => {
-                if (selectedBlock.type === 'paragraph') {
-                  dispatch({ type: "UPDATE_PARAGRAPH_BLOCKSTYLE", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { align } });
-                } else if (selectedBlock.type === 'heading') {
-                  dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { blockStyle: { align } } });
+                if (!block || !page) return;
+                if (block.type === 'paragraph') {
+                  dispatch({ type: "UPDATE_PARAGRAPH_BLOCKSTYLE", pageId: page.id, blockId: block.id, patch: { align } });
+                } else if (block.type === 'heading') {
+                  dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { blockStyle: { align } } });
                 }
               }}
             >
@@ -2195,38 +2252,40 @@ export default function BookEditorPage() {
           <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
 
           {/* Color de texto */}
-          <label className="flex items-center gap-1 cursor-pointer" title="Color de texto">
+          <label className={classNames("flex items-center gap-1", isDisabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer")} title="Color de texto">
             <span className="text-xs text-[var(--c-muted)]">A</span>
             <input
               type="color"
-              className="w-5 h-5 rounded cursor-pointer border border-[var(--c-border)]"
+              disabled={isDisabled}
+              className="w-5 h-5 rounded cursor-pointer border border-[var(--c-border)] disabled:cursor-not-allowed"
               value={
-                selectedBlock.type === 'paragraph'
-                  ? (selectedBlock.runs?.[0]?.style?.color ?? '#000000')
-                  : selectedBlock.type === 'heading'
-                  ? (selectedBlock.textStyle?.color ?? '#000000')
+                isParagraph
+                  ? (block.runs?.[0]?.style?.color ?? '#000000')
+                  : isHeading
+                  ? (block.textStyle?.color ?? '#000000')
                   : '#000000'
               }
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                if (!block || !page) return;
                 const color = e.target.value;
-                if (selectedBlock.type === 'paragraph') {
-                  dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { color } });
-                } else if (selectedBlock.type === 'heading') {
-                  dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { color } } });
+                if (block.type === 'paragraph') {
+                  dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { color } });
+                } else if (block.type === 'heading') {
+                  dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { textStyle: { color } } });
                 }
               }}
             />
           </label>
 
-          {/* Nivel de heading */}
-          {selectedBlock.type === 'heading' && (
+          {/* Nivel de heading (solo si el bloque es heading) */}
+          {isHeading && page && (
             <>
               <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
               <select
                 className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 w-16 focus:outline-none"
-                value={selectedBlock.level}
+                value={block.level}
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                  dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { level: Number(e.target.value) as 1|2|3|4|5|6 } });
+                  dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { level: Number(e.target.value) as 1|2|3|4|5|6 } });
                 }}
               >
                 {[1,2,3,4,5,6].map((l) => <option key={l} value={l}>H{l}</option>)}
@@ -2239,15 +2298,17 @@ export default function BookEditorPage() {
 
           {/* Tipo de bloque */}
           <span className="text-xs text-[var(--c-muted)] px-2 py-1 rounded bg-[var(--c-bg)]">
-            {selectedBlock.type === 'paragraph' ? '¶ Párrafo'
-              : selectedBlock.type === 'heading' ? `H${(selectedBlock as { level: number }).level} Título`
-              : selectedBlock.type === 'image' ? 'Imagen'
-              : selectedBlock.type === 'divider' ? '─ Separador'
-              : selectedBlock.type === 'pageBreak' ? 'Salto de página'
-              : (selectedBlock as { type: string }).type}
+            {!block ? 'Sin selección'
+              : block.type === 'paragraph' ? '¶ Párrafo'
+              : block.type === 'heading' ? `H${(block as { level: number }).level} Título`
+              : block.type === 'image' ? 'Imagen'
+              : block.type === 'divider' ? '─ Separador'
+              : block.type === 'pageBreak' ? 'Salto de página'
+              : (block as { type: string }).type}
           </span>
         </div>
-      )}
+        );
+      })()}
 
       {/* WO-13 — banner de procedencia. Aparece si el libro que se
           está editando es una copia (creada por copy-on-write al

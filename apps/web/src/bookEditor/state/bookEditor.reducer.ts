@@ -73,6 +73,12 @@ export type EditorAction =
   | { type: "DELETE_BLOCK"; pageId: string; blockId: string }
   | { type: "DUPLICATE_PAGE"; pageId: string }
   | { type: "DUPLICATE_BLOCK"; pageId: string; blockId: string }
+  // PLAN-W §3 fase 2 — escritura fluida: Enter al final (o en medio) de
+  // un párrafo lo parte en dos, sin pasar por AddBlockBar. `beforeText`
+  // queda en el bloque actual; `afterText` arma un párrafo nuevo justo
+  // después, que hereda el estilo del run (mismo criterio que Word: el
+  // párrafo nuevo sigue el formato del anterior).
+  | { type: "SPLIT_PARAGRAPH"; pageId: string; blockId: string; beforeText: string; afterText: string }
   | { type: "RESTORE_BOOK"; book: Book }
   | {
       type: "UPDATE_METADATA";
@@ -473,6 +479,46 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
         newBlockId = newBlock.id;
 
         const content = [...p.content];
+        content.splice(idx + 1, 0, newBlock);
+        return { ...p, content };
+      });
+
+      return {
+        ...state,
+        book: updatedBook,
+        selectedBlockId: newBlockId || state.selectedBlockId,
+        dirty: true,
+      };
+    }
+
+    case "SPLIT_PARAGRAPH": {
+      if (!state.book) return state;
+
+      const { pageId, blockId, beforeText, afterText } = action;
+      let newBlockId = "";
+
+      const updatedBook = updatePage(state.book, pageId, (p) => {
+        const idx = p.content.findIndex((b) => b.id === blockId);
+        if (idx < 0) return p;
+
+        const current = p.content[idx];
+        if (current.type !== "paragraph") return p;
+
+        const run0 = current.runs?.[0] ?? { text: "" };
+        const updatedCurrent: Block = {
+          ...current,
+          runs: [{ ...run0, text: beforeText }],
+        };
+        const newBlock: Block = {
+          type: "paragraph",
+          id: makeBlockId(pageId, "paragraph", idx + 2),
+          runs: [{ ...run0, text: afterText }],
+          blockStyle: current.blockStyle,
+        };
+        newBlockId = newBlock.id;
+
+        const content = [...p.content];
+        content[idx] = updatedCurrent;
         content.splice(idx + 1, 0, newBlock);
         return { ...p, content };
       });

@@ -198,7 +198,13 @@ export function useModuloPersistence(): UsePersistenceReturn {
         if (!form.description.trim()) fieldErrors.push('La descripción es obligatoria.');
         if (!form.subject.trim()) fieldErrors.push('La materia es obligatoria.');
         // category siempre tiene al menos "sin-categoria" como valor por defecto
-        if (!form.level.trim()) fieldErrors.push('El nivel es obligatorio.');
+        // PLAN-W §2 (repro Javier) — en categoría "evaluacion" el input de
+        // Nivel se oculta (ModuloEditor.tsx: `!isEvaluacionMode`); exigirlo
+        // igual dejaba al docente sin forma de completarlo nunca (el campo
+        // no existe en pantalla para escribir el valor que el guardado pide).
+        if (form.category !== "evaluacion" && !form.level.trim()) {
+          fieldErrors.push('El nivel es obligatorio.');
+        }
 
         if (fieldErrors.length > 0) {
           setStatus("error");

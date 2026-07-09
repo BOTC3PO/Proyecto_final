@@ -571,7 +571,10 @@ export function useModuloEditor(
       // el back (mismo riesgo que `subject`, ya fixeado). Default a ""
       // para no crashear al cambiar la materia (cualquier setForm
       // re-evalúa este useMemo y dispara el `.trim()`).
-      (form.level ?? "").trim().length > 0;
+      // PLAN-W §2 — en categoría "evaluacion" el input de Nivel está
+      // oculto (mismo criterio que `isEvaluacionMode`); no puede ser
+      // parte de lo que falta para completar la sección.
+      (form.category === "evaluacion" || (form.level ?? "").trim().length > 0);
     const theoryOk = theoryItems.length > 0;
     const quizzesOk =
       quizzes.length === 0 ||
