@@ -931,6 +931,7 @@ model ProgresoModuloVinculo {
   solicitadoAt String? @map("solicitado_at")
   createdAt    String  @map("created_at")
   updatedAt    String  @map("updated_at")
+  @@unique([parentId, childId])
   @@map("vinculos_padre_hijo")
 }
 

@@ -23,6 +23,7 @@
  * escuela, etc.) lo hace cada ruta antes de llamar acá.
  */
 
+import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
 import { resolveRoles } from "./roles";
 
@@ -147,21 +148,31 @@ export const vincularHijoCore = async (
   }
 
   const estado = forzarAprobado ? "aprobado" : estadoSiNuevo;
-  await prisma.progresoModuloVinculo.create({
-    data: {
-      parentId,
-      childId,
-      estado,
-      solicitadoAt: now.toISOString(),
-      createdAt: now.toISOString(),
-      updatedAt: now.toISOString(),
-      nombre: datos.nombre,
-      usuario: datos.usuario,
-      grado: datos.grado,
-      escuela: datos.escuela ?? null,
-      notas: datos.notas ?? null,
-      permisos
+  try {
+    await prisma.progresoModuloVinculo.create({
+      data: {
+        parentId,
+        childId,
+        estado,
+        solicitadoAt: now.toISOString(),
+        createdAt: now.toISOString(),
+        updatedAt: now.toISOString(),
+        nombre: datos.nombre,
+        usuario: datos.usuario,
+        grado: datos.grado,
+        escuela: datos.escuela ?? null,
+        notas: datos.notas ?? null,
+        permisos
+      }
+    });
+  } catch (e) {
+    // Dos requests concurrentes pasaron el chequeo de "existing" antes de
+    // que cualquiera hiciera el insert; la unique constraint (parentId,
+    // childId) corta la segunda fila en vez de duplicarla.
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002") {
+      return { ok: false, status: 409, error: "child already linked" };
     }
-  });
+    throw e;
+  }
   return { ok: true, status: 201, created: true, estado };
 };
