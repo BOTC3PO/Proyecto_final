@@ -5,7 +5,7 @@ import { useAuth } from "../../src/auth/AuthContext";
 import { colors } from "../../src/theme/tokens";
 
 export default function AlumnoLayout() {
-  const { status } = useAuth();
+  const { status, user } = useAuth();
 
   if (status === "loading") {
     return (
@@ -15,6 +15,14 @@ export default function AlumnoLayout() {
     );
   }
   if (status === "signedOut") return <Redirect href="/login" />;
+  // PLAN-R Parte 4 — un PARENT que cae acá por deep link viejo va a su
+  // propio shell. Mismo criterio que `resolvePrimaryRole` en
+  // apps/web/src/auth/roleHelpers.ts: PARENT rankea sobre USER en la
+  // jerarquía de "rol principal" (ADMIN > DIRECTIVO > TEACHER > PARENT
+  // > USER > GUEST) — un PARENT+USER aterriza en /padre igual que un
+  // PARENT puro, no es sólo el caso "sin ningún otro rol".
+  const roles = user?.roles?.length ? user.roles : user?.role ? [user.role] : [];
+  if (roles.includes("PARENT")) return <Redirect href="/(padre)" />;
 
   return (
     <Tabs

@@ -155,3 +155,28 @@ EXPO_PUBLIC_API_BASE_URL=http://192.168.0.69:5050
   responder → enviar → nota real. TypeScript limpio. La UI en sí
   (estilos, gestos, navegación) sigue sin verse en pantalla — recomendado
   probarlo en el teléfono antes de cerrar esto del todo.
+
+## Estado (Parte 4 — padre + cobros)
+
+- ✅ Shell de padre nuevo (`app/(padre)/`, tabs Hijos/Pagos/Perfil).
+  `app/index.tsx` ahora hace switch real por rol (antes todo signedIn
+  iba a `(alumno)`) — un PARENT (incluso PARENT+USER, mismo criterio
+  que `resolvePrimaryRole` de la web) aterriza acá. Guards cruzados en
+  ambos shells para deep links viejos.
+- ✅ Hijos: progreso resumido por hijo (`GET /api/progreso/hijos`) —
+  a propósito sin actividades/boletín/límites/revocar (eso es gestión,
+  el plan pide "resumido").
+- ✅ Pagos: cuotas pendientes + historial (`GET /api/cuotas/mias`) +
+  pagar abre el checkout en el navegador del SISTEMA (`Linking.openURL`,
+  no el WebView propio — más compatible con 3D-secure/redirects de
+  pasarela) + refresco automático al volver (`AppState`).
+- ⚠️ **Bug real encontrado, fuera de alcance de este plan**:
+  `GET /api/progreso/hijos` devuelve una fila por cada vínculo
+  padre-hijo, no por hijo único — 15 duplicados para 1 solo hijo con
+  la cuenta de prueba. Mitigado con dedup defensivo del lado cliente;
+  el fix real queda flaggeado aparte (afecta también a la web).
+- ⚠️ Mismo bloqueo de Chrome que Parte 3: `/api/progreso/hijos` se
+  probó por curl (ahí se encontró el bug de arriba); `/api/cuotas/*`
+  se verificó por lectura directa del código del backend, no por curl
+  (login de prueba rate-limited de tanto probarlo esta sesión).
+  TypeScript limpio. Falta la prueba visual real en teléfono.

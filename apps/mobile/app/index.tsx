@@ -4,7 +4,7 @@ import { useAuth } from "../src/auth/AuthContext";
 import { colors } from "../src/theme/tokens";
 
 export default function Index() {
-  const { status } = useAuth();
+  const { status, user } = useAuth();
 
   if (status === "loading") {
     return (
@@ -13,11 +13,15 @@ export default function Index() {
       </View>
     );
   }
+  if (status === "signedOut") return <Redirect href="/login" />;
 
-  // ponytail: PLAN-R Parte 1 sólo construye el shell de alumno — todo
-  // signedIn va ahí sin mirar el rol. Cuando la Parte 4 (padre) o la
-  // Parte 5 (docente-consulta) agreguen sus shells, esto se vuelve un
-  // switch por `user.role`.
-  if (status === "signedIn") return <Redirect href="/(alumno)" />;
-  return <Redirect href="/login" />;
+  // PLAN-R Parte 4 — switch real por rol (Partes 1-3 mandaban todo
+  // signedIn a (alumno) sin mirar el rol; ese comentario decía "esto se
+  // vuelve un switch cuando la Parte 4 agregue su shell" — es ahora).
+  // ponytail: docente-consulta (Parte 5) todavía no tiene shell propio,
+  // así que TEACHER/DIRECTIVO/ADMIN caen a (alumno) por ahora (mismo
+  // fallback que ya existía, sólo ya no aplica a PARENT).
+  const roles = user?.roles?.length ? user.roles : user?.role ? [user.role] : [];
+  if (roles.includes("PARENT")) return <Redirect href="/(padre)" />;
+  return <Redirect href="/(alumno)" />;
 }
