@@ -88,15 +88,39 @@ EXPO_PUBLIC_API_BASE_URL=http://192.168.0.69:5050
 
 - ✅ Login real contra `POST /api/auth/login`, refresh automático en
   401, sesión persistente en SecureStore (sobrevive reinicio de app).
-- ✅ Shell de alumno: tabs Inicio/Módulos/Tareas/Mensajes/Perfil.
-  Inicio muestra datos reales (`/api/modulos`, `/api/progreso`,
-  `/api/tareas`, `/api/economia/saldos`); las otras 3 pestañas son
-  placeholders — contenido real es Parte 2.
+- ✅ Shell de alumno: tabs Inicio/Módulos/Tareas/Calendario/Mensajes/
+  Perfil. Inicio muestra datos reales (`/api/modulos`, `/api/progreso`,
+  `/api/tareas`, `/api/economia/saldos`).
 - ✅ `WebContent` (puente WebView) mínimo viable: carga una ruta web
-  autenticada. Falta el modo chromeless (`?embed=1`, sin navbar) para
-  cuando Parte 2 lo necesite pesado.
+  autenticada. Sin modo chromeless (`?embed=1`, sin navbar) — pantalla
+  completa nativa alrededor lo compensa por ahora; anotado como tarea
+  web si se necesita más adelante.
 - ⚠️ **No verificado en Android/iOS real** — este entorno de desarrollo
   no tiene emulador ni dispositivo conectado (sin `adb`, sin
   `emulator`). Verificado sí: typecheck limpio, Metro bundlea sin
   errores, y el flujo completo (login → dashboard con datos reales)
   funciona vía `expo start --web` con el CORS de arriba agregado.
+
+## Estado (Parte 2)
+
+- ✅ Módulos: lista (`/api/modulos`, búsqueda + filtro por materia) +
+  detalle (`/api/modulos/:id`).
+- ✅ Teoría, dispatch por tipo: Texto/Nota/Artículo/Documento/Video son
+  texto plano nativo (expandible); Enlace abre por `Linking` (o
+  WebContent si es ruta interna); Presentación/Herramienta/
+  HerramientaStandalone/Libro/TuesdayJS abren el módulo completo en
+  WebContent — reusa `TheoryItemCard` de la web en vez de reconstruir
+  un router por tipo de recurso.
+- ✅ Cuestionarios: sólo lista, tap abre el módulo en WebContent —
+  jugar nativo es Parte 3 a propósito.
+- ✅ Calendario (tab nueva): lista de eventos del mes actual
+  (`/api/calendario/unificado`), sin edición ni navegación de mes.
+- ✅ Mensajes: tabs Mensajes/Avisos, lista + detalle + responder
+  (`/api/mensajeria/hilos*`, `/api/mensajeria/avisos*`). Crear hilo
+  nuevo (buscar destinatario) queda afuera — sólo responder existentes.
+- ⚠️ Mismo bloqueo de entorno que Parte 1 (sin device/emulador); esta
+  vez además la extensión del navegador de este entorno quedó
+  intermitente durante la verificación, así que Parte 2 sólo se
+  typecheckeó limpio y se revisó por lectura de código — no se probó
+  en vivo ni siquiera vía `--web`. Recomendado probar en un teléfono
+  real antes de dar esto por cerrado.

@@ -38,6 +38,10 @@ export default function AlumnoLayout() {
         options={{ title: "Tareas", tabBarIcon: ({ color, size }) => <Feather name="clipboard" color={color} size={size} /> }}
       />
       <Tabs.Screen
+        name="calendario"
+        options={{ title: "Calendario", tabBarIcon: ({ color, size }) => <Feather name="calendar" color={color} size={size} /> }}
+      />
+      <Tabs.Screen
         name="mensajes"
         options={{ title: "Mensajes", tabBarIcon: ({ color, size }) => <Feather name="message-circle" color={color} size={size} /> }}
       />
