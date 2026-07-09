@@ -114,8 +114,8 @@ EXPO_PUBLIC_API_BASE_URL=http://192.168.0.69:5050
   HerramientaStandalone/Libro/TuesdayJS abren el módulo completo en
   WebContent — reusa `TheoryItemCard` de la web en vez de reconstruir
   un router por tipo de recurso.
-- ✅ Cuestionarios: sólo lista, tap abre el módulo en WebContent —
-  jugar nativo es Parte 3 a propósito.
+- ✅ Cuestionarios: lista (tap ahora arranca/retoma el intento nativo —
+  ver Parte 3 abajo; en su momento esto abría el módulo en WebContent).
 - ✅ Calendario (tab nueva): lista de eventos del mes actual
   (`/api/calendario/unificado`), sin edición ni navegación de mes.
 - ✅ Mensajes: tabs Mensajes/Avisos, lista + detalle + responder
@@ -127,3 +127,31 @@ EXPO_PUBLIC_API_BASE_URL=http://192.168.0.69:5050
   typecheckeó limpio y se revisó por lectura de código — no se probó
   en vivo ni siquiera vía `--web`. Recomendado probar en un teléfono
   real antes de dar esto por cerrado.
+
+## Estado (Parte 3 — "el corazón" del plan)
+
+- ✅ `app/quiz/[attemptId].tsx`: una pregunta por pantalla, nativo para
+  mc (single y multi)/vf/input (teclado numérico si corresponde)/
+  ordenar (botones ↑↓, sin drag). Timer anclado a `deadline`
+  (`src/hooks/useDeadlineCountdown.ts`, resync con `AppState` al volver
+  del segundo plano) con auto-submit al expirar.
+- ✅ Reanudación: tocar un cuestionario busca un intento `in_progress`
+  propio antes de crear uno nuevo (`modulos/[id].tsx`) — sin
+  bookkeeping local, el server ya es la fuente de verdad. Verificado
+  por curl: crear sin enviar → volver a listar por `quizId` → mismo
+  intento, nunca duplicado.
+- ⚠️ **Simplificación real de alcance**: tipos de pregunta complejos
+  (marcar_mapa, análisis sintáctico, etc.) NO se embeben pregunta-por-
+  pregunta como pide el plan — necesitaría una ruta web nueva con canal
+  `postMessage` de vuelta, que es un cambio más grande que los "chicos"
+  de Partes 1/2. Por ahora esos tipos muestran una tarjeta que abre el
+  **intento completo** en la web vía WebContent (sigue siendo válido,
+  el estado vive en el server — se puede alternar nativo↔web sin
+  perder nada, sólo no es la experiencia 100% nativa que describe el
+  plan para esos casos).
+- ⚠️ Sin Chrome disponible esta vez (ver abajo), se verificó el
+  contrato completo por curl con datos reales en vez de UI: crear
+  intento → preguntas con la forma exacta que el código espera →
+  responder → enviar → nota real. TypeScript limpio. La UI en sí
+  (estilos, gestos, navegación) sigue sin verse en pantalla — recomendado
+  probarlo en el teléfono antes de cerrar esto del todo.

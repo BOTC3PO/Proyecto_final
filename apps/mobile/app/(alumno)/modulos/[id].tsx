@@ -17,16 +17,20 @@
  *     de reconstruir un router por-item; el alumno toca la misma
  *     tarjeta ahí adentro. Evita inventar rutas web nuevas para esto.
  *
- * Quizzes: sólo lista (jugar nativo es Parte 3) — tap abre el módulo
- * en WebContent, mismo fallback.
+ * Quizzes (PLAN-R Parte 3): tap busca un intento `in_progress` propio
+ * para ese quiz (GET /api/quiz-attempts?quizId=) y lo retoma; si no hay
+ * ninguno, crea uno nuevo (POST /api/quiz-attempts). Así "matar la app
+ * a mitad del quiz" se resuelve gratis: al volver y tocar el mismo
+ * cuestionario, el server todavía lo tiene `in_progress`.
  */
 import { useEffect, useState } from "react";
 import { ActivityIndicator, Linking, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { Feather } from "@expo/vector-icons";
-import { apiGet } from "../../../src/api/client";
+import { apiGet, apiPost } from "../../../src/api/client";
 import { colors } from "../../../src/theme/tokens";
-import type { ModuloDetalle, TheoryItem } from "../../../src/types/modulo";
+import type { ModuloDetalle, ModuloQuizResumen, TheoryItem } from "../../../src/types/modulo";
+import type { QuizAttemptCreateResponse } from "../../../src/types/quiz";
 
 const TEXT_TYPES = new Set([
   "Texto", "Nota", "Artículo", "Documento", "Video",
@@ -91,6 +95,8 @@ export default function ModuloDetalleScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const [modulo, setModulo] = useState<ModuloDetalle | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [startingQuizId, setStartingQuizId] = useState<string | null>(null);
+  const [quizError, setQuizError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -106,6 +112,29 @@ export default function ModuloDetalleScreen() {
   const openInWeb = () => {
     if (!modulo) return;
     router.push({ pathname: "/webview", params: { path: `/modulos/${modulo.id}`, title: modulo.title } });
+  };
+
+  const startOrResumeQuiz = async (quiz: ModuloQuizResumen) => {
+    if (!modulo || startingQuizId) return;
+    setStartingQuizId(quiz.id);
+    setQuizError(null);
+    try {
+      const existentes = await apiGet<{ items: { id: string; status: string }[] }>(
+        `/api/quiz-attempts?quizId=${quiz.id}`,
+      );
+      const enCurso = existentes.items.find((a) => a.status === "in_progress");
+      const attemptId =
+        enCurso?.id ??
+        (await apiPost<QuizAttemptCreateResponse>("/api/quiz-attempts", {
+          quizId: quiz.id,
+          moduleId: modulo.id,
+        })).id;
+      router.push(`/quiz/${attemptId}`);
+    } catch (e) {
+      setQuizError(e instanceof Error ? e.message : "No se pudo abrir el cuestionario.");
+    } finally {
+      setStartingQuizId(null);
+    }
   };
 
   if (error) {
@@ -164,16 +193,23 @@ export default function ModuloDetalleScreen() {
 
       <View className="gap-2">
         <Text className="text-base font-semibold text-vb-text">Cuestionarios</Text>
+        {quizError ? <Text className="text-xs text-vb-danger">{quizError}</Text> : null}
         {!modulo.quizzes || modulo.quizzes.length === 0 ? (
           <Text className="text-sm text-vb-muted">Este módulo todavía no tiene cuestionarios.</Text>
         ) : (
           modulo.quizzes.map((quiz) => (
             <TouchableOpacity
               key={quiz.id}
-              onPress={openInWeb}
+              onPress={() => startOrResumeQuiz(quiz)}
+              disabled={startingQuizId === quiz.id}
               className="bg-vb-surface border border-vb-border rounded-xl p-3.5 flex-row items-center gap-2"
+              style={{ opacity: startingQuizId === quiz.id ? 0.6 : 1 }}
             >
-              <Feather name="help-circle" size={16} color={colors.muted} />
+              {startingQuizId === quiz.id ? (
+                <ActivityIndicator size="small" color={colors.muted} />
+              ) : (
+                <Feather name="help-circle" size={16} color={colors.muted} />
+              )}
               <Text className="text-sm font-medium text-vb-text flex-1">{quiz.title}</Text>
             </TouchableOpacity>
           ))
