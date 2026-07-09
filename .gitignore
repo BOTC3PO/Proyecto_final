@@ -69,3 +69,6 @@ api/media/
 
 # === Plan de tareas local (no se trackea) ===
 tareas_pendientes/
+
+# === Artefacto accidental de colisión CONTENT_SQLITE_PATH (PLAN-S) ===
+api/src/base/modulos_quizzes.sqlite

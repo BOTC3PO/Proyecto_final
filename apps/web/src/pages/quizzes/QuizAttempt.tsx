@@ -22,7 +22,7 @@ import {
   MODO_PRESENTACION_DEFAULT,
   PREGUNTAS_POR_PAGINA_DEFAULT as PREG_PAG_DEFAULT,
 } from "../../domain/module/module.types";
-import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import VisualizerRenderer from "../../components/modulos/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
 import PostSubmitResult from "../../components/quizzes/PostSubmitResult";

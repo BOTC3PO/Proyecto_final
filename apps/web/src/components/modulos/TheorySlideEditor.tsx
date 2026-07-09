@@ -10,7 +10,7 @@ import {
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Settings } from "lucide-react";
 import { Button, Input, Textarea, Select } from "../ui";
 import type { VisualSpec } from "../../generadoresV2/core/types";
-import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import VisualizerRenderer from "./VisualizerRenderer";
 import { useSlideEditor } from "./hooks/useSlideEditor";
 import type { Block, ChartBlock, FlowBlock, LatexBlock, TableBlock } from "../../blocks/types";
 import { TextBlockRenderer } from "../../blocks/renderers/TextBlockRenderer";

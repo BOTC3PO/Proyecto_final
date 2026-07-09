@@ -13,7 +13,7 @@ import {
   layoutContainerClass,
   BlockSpecRenderer,
 } from "./TheorySlideEditor";
-import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import VisualizerRenderer from "./VisualizerRenderer";
 
 // ─── Overlay class resolver ───────────────────────────────────────────────────
 
