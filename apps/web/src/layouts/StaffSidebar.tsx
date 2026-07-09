@@ -18,20 +18,26 @@ import { useTheme } from '../theme/ThemeContext';
 import { useSchoolBranding } from '../hooks/useSchoolBranding';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from '../nav/navConfig';
 import { Avatar, Menu, Modal, NavItem, type MenuTriggerProps } from '../ui';
+import { useI18n } from '../i18n/I18nContext';
 
+// `label` (de sección) y los `items` (ids de NAV_BY_ROLE) son claves de
+// traducción — ver namespaces `sidebar.` / `nav.` en i18n/es.json.
+// NOTA: 'Asistencia'/'Calificaciones' no existen como id en NAV_BY_ROLE
+// hoy (no están en TEACHER); se dejan tal cual (sectionItems los filtra
+// a 0 resultados silenciosamente, comportamiento preexistente).
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
-    { label: 'Académico', items: ['Panel', 'Aulas', 'Materiales', 'Módulos', 'Plantillas', 'Datasets', 'Evaluaciones'] },
-    { label: 'Gestión',   items: ['Asistencia', 'Calificaciones', 'Reportes', 'Encuestas'] },
-    { label: 'Escuela',   items: ['Calendario', 'Mensajes', 'Gobernanza'] },
+    { label: 'academico', items: ['panel', 'aulas', 'materiales', 'modulos', 'plantillas', 'datasets', 'evaluaciones'] },
+    { label: 'gestion',   items: ['asistencia', 'calificaciones', 'reportes', 'encuestas'] },
+    { label: 'escuela',   items: ['calendario', 'mensajes', 'gobernanza'] },
   ],
   DIRECTIVO: [
-    { label: 'Escuela',        items: ['Panel escuela', 'Aulas', 'Miembros', 'Módulos', 'Plantillas', 'Datasets', 'Personalización'] },
-    { label: 'Administración', items: ['Cobros', 'Comisiones', 'Reportes', 'Calendario', 'Gobernanza', 'Mensajes'] },
+    { label: 'escuela',        items: ['panelEscuela', 'aulas', 'miembros', 'modulos', 'plantillas', 'datasets', 'personalizacion'] },
+    { label: 'administracion', items: ['cobros', 'comisiones', 'reportes', 'calendario', 'gobernanza', 'mensajes'] },
   ],
   ADMIN: [
-    { label: 'Sistema',  items: ['Panel', 'Usuarios', 'Materias', 'Módulos', 'Plantillas', 'Datasets'] },
-    { label: 'Control',  items: ['Moderación', 'Moderar plantillas', 'Reportes', 'Comisiones', 'Mensajes'] },
+    { label: 'sistema',  items: ['panel', 'usuarios', 'materias', 'modulos', 'plantillas', 'datasets'] },
+    { label: 'control',  items: ['moderacion', 'moderarPlantillas', 'reportes', 'comisiones', 'mensajes'] },
   ],
 };
 
@@ -157,6 +163,7 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
 }) {
   const { user, logout, switchCuenta } = useAuth();
   const { theme, setTheme, availableThemes } = useTheme();
+  const { t } = useI18n();
   const navigate = useNavigate();
   const schoolBranding = useSchoolBranding();
 
@@ -214,7 +221,7 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
           {schoolBranding?.logoUrl ? (
             <img
               src={schoolBranding.logoUrl}
-              alt="Logo de la escuela"
+              alt={t('common.logoEscuela')}
               className="flex-shrink-0"
               style={{ width: 'var(--space-6)', height: 'var(--space-6)', objectFit: 'contain', borderRadius: 'var(--r-md)' }}
             />
@@ -239,7 +246,7 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
 
       {/* Nav */}
       <nav
-        aria-label="Navegación lateral"
+        aria-label={t('aria.navLateral')}
         className="flex-1 overflow-y-auto"
         style={{ paddingBlock: 'var(--space-3)' }}
         onClick={onNavigate}
@@ -264,7 +271,7 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
                     color: 'var(--c-muted)',
                   }}
                 >
-                  {section.label}
+                  {t(`sidebar.${section.label}`)}
                 </p>
               )}
               {sectionItems.map(item => (
@@ -274,7 +281,7 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
                   end={item.exact ?? true}
                   orientation="sidebar"
                 >
-                  {item.label}
+                  {t(`nav.${item.label}`)}
                 </NavItem>
               ))}
             </div>
@@ -304,18 +311,18 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
               color: 'var(--c-muted)',
             }}
           >
-            Tema
+            {t('common.tema')}
           </p>
           <div className="flex flex-wrap" style={{ gap: 'var(--space-1)' }}>
-            {availableThemes.map(t => (
+            {availableThemes.map(opt => (
               <button
-                key={t.id}
+                key={opt.id}
                 type="button"
-                data-theme={t.id}
-                onClick={() => setTheme(t.id)}
-                title={t.name}
-                aria-label={`Tema ${t.name}`}
-                aria-pressed={theme === t.id}
+                data-theme={opt.id}
+                onClick={() => setTheme(opt.id)}
+                title={opt.name}
+                aria-label={`${t('common.tema')} ${opt.name}`}
+                aria-pressed={theme === opt.id}
                 className="flex-shrink-0"
                 style={{
                   width: 'var(--space-4)',
@@ -324,8 +331,8 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
                   borderWidth: '1px',
                   borderStyle: 'solid',
                   background: 'var(--c-primary)',
-                  borderColor: theme === t.id ? 'var(--c-text)' : 'transparent',
-                  outline: theme === t.id ? '2px solid var(--c-border)' : 'none',
+                  borderColor: theme === opt.id ? 'var(--c-text)' : 'transparent',
+                  outline: theme === opt.id ? '2px solid var(--c-border)' : 'none',
                   outlineOffset: '1px',
                   cursor: 'pointer',
                 }}
@@ -378,23 +385,23 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
                 if (item.kind === 'logout')
                   return (
                     <MenuRow key="logout" danger onClick={() => { close(); logout(); }}>
-                      Cerrar sesión
+                      {t('dropdown.cerrarSesion')}
                     </MenuRow>
                   );
-                if (item.label === 'Ver como alumno') {
+                if (item.id === 'verComoAlumno') {
                   if (!tieneEspejo) return null;
                   return (
                     <MenuRow
                       key="entrar-como-alumno"
                       onClick={() => { close(); void handleEntrarComoAlumno(); }}
                     >
-                      Entrar como alumno
+                      {t('dropdown.entrarComoAlumno')}
                     </MenuRow>
                   );
                 }
                 return (
                   <MenuRowItemLink key={item.to} to={item.to} onClick={close}>
-                    {item.label}
+                    {t(`dropdown.${item.label}`)}
                   </MenuRowItemLink>
                 );
               })}
@@ -449,6 +456,7 @@ export type StaffSidebarProps = {
 };
 
 export default function StaffSidebar({ open: openProp, onClose: onCloseProp }: StaffSidebarProps = {}) {
+  const { t } = useI18n();
   const controlled = openProp !== undefined;
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlled ? Boolean(openProp) : internalOpen;
@@ -469,7 +477,7 @@ export default function StaffSidebar({ open: openProp, onClose: onCloseProp }: S
         <button
           type="button"
           onClick={() => setInternalOpen(true)}
-          aria-label="Abrir navegación"
+          aria-label={t('aria.abrirNav')}
           aria-expanded={open}
           aria-controls="staff-sidebar-drawer"
           className="md:hidden fixed inline-flex"
@@ -496,7 +504,7 @@ export default function StaffSidebar({ open: openProp, onClose: onCloseProp }: S
       <Modal
         open={open}
         onClose={close}
-        ariaLabel="Navegación"
+        ariaLabel={t('aria.navegacion')}
         id="staff-sidebar-drawer"
         closeOnBackdrop
         style={{

@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiPost } from "../lib/api";
+import { useI18n } from "../i18n/I18nContext";
 
 type LoginForm = {
   user: string;
@@ -18,6 +19,7 @@ function safeReturnTo(path: string | null): string | null {
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
+  const { t } = useI18n();
   const [searchParams] = useSearchParams();
   const returnTo = safeReturnTo(searchParams.get("returnTo"));
   const [form, setForm] = useState<LoginForm>({
@@ -43,8 +45,8 @@ export default function Login() {
 
   const validate = () => {
     const err: Partial<LoginForm> = {};
-    if (!form.user.trim()) err.user = "Ingresá tu correo o usuario.";
-    if (!form.password.trim()) err.password = "Ingresá tu contraseña.";
+    if (!form.user.trim()) err.user = t("login.errorUsuario");
+    if (!form.password.trim()) err.password = t("login.errorContrasena");
     setErrors(err);
     return Object.keys(err).length === 0;
   };
@@ -98,7 +100,7 @@ export default function Login() {
       };
       navigate(returnTo ?? redirectByRole[payload.role] ?? "/");
     } catch (error) {
-      const message = error instanceof Error ? error.message : "No pudimos iniciar sesión.";
+      const message = error instanceof Error ? error.message : t("login.errorGenerico");
       setStatus({ loading: false, error: message });
       return;
     }
@@ -112,14 +114,14 @@ export default function Login() {
           <section className="w-full max-w-xl rounded-xl bg-white shadow-sm border border-gray-200">
             <div className="p-8 sm:p-10">
               <h1 className="text-center text-2xl font-semibold text-gray-900">
-                Iniciar Sesión
+                {t("common.iniciarSesionBtn")}
               </h1>
 
               <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                 {/* Usuario */}
                 <div className="space-y-1.5">
                   <label htmlFor="user" className="block text-sm font-medium text-gray-700">
-                    Correo Electrónico o Usuario público
+                    {t("login.labelUsuario")}
                   </label>
                   <input
                     id="user"
@@ -138,7 +140,7 @@ export default function Login() {
                 {/* Contraseña */}
                 <div className="space-y-1.5">
                   <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                    Contraseña
+                    {t("auth.contrasena")}
                   </label>
                   <input
                     id="password"
@@ -165,10 +167,10 @@ export default function Login() {
                       onChange={handleChange}
                       className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="text-sm text-gray-700">Recuérdame</span>
+                    <span className="text-sm text-gray-700">{t("login.recuerdame")}</span>
                   </label>
                   <Link to="/recuperar" className="text-sm text-blue-600 hover:text-blue-700">
-                    ¿Olvidaste tu contraseña?
+                    {t("login.olvidasteContrasena")}
                   </Link>
                 </div>
 
@@ -184,13 +186,13 @@ export default function Login() {
                   className="w-full rounded-md bg-blue-600 px-4 py-2.5 text-white text-sm font-semibold shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
                   disabled={status.loading}
                 >
-                  {status.loading ? "Ingresando..." : "Iniciar Sesión"}
+                  {status.loading ? t("login.ingresando") : t("common.iniciarSesionBtn")}
                 </button>
 
                 <p className="text-center text-sm text-gray-600">
-                  ¿No tienes una cuenta?{" "}
+                  {t("login.noTienesCuenta")}{" "}
                   <Link to="/register" className="font-medium text-blue-600 hover:text-blue-700">
-                    Regístrate
+                    {t("login.registrate")}
                   </Link>
                 </p>
               </form>

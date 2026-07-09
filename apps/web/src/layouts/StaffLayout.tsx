@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { usePrimaryRole } from '../auth/use-roles';
 import { NAV_BY_ROLE } from '../nav/navConfig';
 import { OfflineIndicator } from '../components/OfflineIndicator';
+import { useI18n } from '../i18n/I18nContext';
 import StaffSidebar from './StaffSidebar';
 
 const ROLE_LABEL: Record<string, string> = {
@@ -13,6 +14,7 @@ const ROLE_LABEL: Record<string, string> = {
 };
 
 function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSidebar: () => void }) {
+  const { t } = useI18n();
   const location = useLocation();
   // MULTIROL-02: el "rol principal" (mayor jerarquía) sigue siendo
   // la llave del NAV_BY_ROLE / ROLE_LABEL, así que seguimos
@@ -34,7 +36,7 @@ function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSi
       <button
         type="button"
         onClick={onOpenSidebar}
-        aria-label="Abrir navegación"
+        aria-label={t('aria.abrirNav')}
         aria-expanded={sidebarOpen}
         aria-controls="staff-sidebar-drawer"
         className="md:hidden -ml-2 inline-flex p-2 rounded-md text-[var(--c-text)]"
@@ -44,7 +46,7 @@ function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSi
         </svg>
       </button>
       <p className="text-sm font-semibold text-[var(--c-text)] flex-1">
-        {active?.label ?? 'Panel'}
+        {t(`nav.${active?.label ?? 'panel'}`)}
       </p>
       {/* FIX-NAVBAR-MODE — un badge de rol explícito para que el
           docente/directivo/admin siempre sepa que está en el "modo
@@ -57,7 +59,7 @@ function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSi
         data-testid="staff-mode-badge"
         className="inline-flex items-center gap-1.5 rounded-full bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-[var(--c-primary)]"
       >
-        Modo {ROLE_LABEL[role] ?? role}
+        {t('common.modo')} {ROLE_LABEL[role] ?? role}
       </span>
     </header>
   );

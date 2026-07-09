@@ -24,6 +24,7 @@ import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from "./navConfig";
 import { apiGet } from "../lib/api";
 import { prefetchRoute } from "../routing/prefetch";
 import { Avatar, Menu, NavItem, type MenuTriggerProps } from "../ui";
+import { useI18n } from "../i18n/I18nContext";
 
 function CoinBadge({ userId }: { userId: string }) {
   const [coins, setCoins] = useState<number | null>(null);
@@ -99,15 +100,16 @@ const publicHomePath = '/';
 
 // ── Públicos (GUEST): bar coloreada con tokens de nav ──────────────────────
 
+// `label` es la clave de traducción en el namespace `nav.` (ver i18n/es.json).
 type PublicLink = { to: string; label: string; prefetch?: () => void };
 
 const PUBLIC_LINKS: PublicLink[] = [
-  { to: publicHomePath, label: "Inicio" },
-  { to: "/metodologia", label: "Metodología", prefetch: () => void prefetchRoute.metodologia() },
-  { to: "/explorar", label: "Juegos Educativos", prefetch: () => void prefetchRoute.explorar() },
-  { to: "/contact", label: "Contacto", prefetch: () => void prefetchRoute.contact() },
-  { to: "/terminos", label: "Términos" },
-  { to: "/privacidad", label: "Privacidad" },
+  { to: publicHomePath, label: "inicio" },
+  { to: "/metodologia", label: "metodologia", prefetch: () => void prefetchRoute.metodologia() },
+  { to: "/explorar", label: "juegosEducativos", prefetch: () => void prefetchRoute.explorar() },
+  { to: "/contact", label: "contacto", prefetch: () => void prefetchRoute.contact() },
+  { to: "/terminos", label: "terminos" },
+  { to: "/privacidad", label: "privacidad" },
 ];
 
 function PublicNavLink({
@@ -159,6 +161,7 @@ function PublicNavLink({
 
 function LoginLink({ block, onClick }: { block?: boolean; onClick?: () => void }) {
   const [hovered, setHovered] = useState(false);
+  const { t } = useI18n();
   const style: CSSProperties = {
     display: block ? "flex" : "inline-flex",
     width: block ? "100%" : undefined,
@@ -189,7 +192,7 @@ function LoginLink({ block, onClick }: { block?: boolean; onClick?: () => void }
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
         <path fillRule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clipRule="evenodd" />
       </svg>
-      <span style={{ display: block ? "inline" : undefined }}>Iniciar Sesión</span>
+      <span style={{ display: block ? "inline" : undefined }}>{t('common.iniciarSesionBtn')}</span>
     </NavLink>
   );
 }
@@ -275,6 +278,7 @@ const LogoutIcon = () => (
 
 export default function Navbar() {
   const { user, logout, switchCuenta } = useAuth();
+  const { t } = useI18n();
   const navigate = useNavigate();
   // FASE 5b — el switch real a la cuenta espejo (igual que StaffSidebar).
   const tieneEspejo = user?.cuentaVinculada?.tipoDestino === 'ALUMNO';
@@ -341,7 +345,7 @@ export default function Navbar() {
     return (
       <>
         <nav
-          aria-label="Navegación principal"
+          aria-label={t('aria.navPrincipal')}
           style={{
             background: "#2563eb",
             color: "#ffffff",
@@ -354,7 +358,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={toggleMobileMenu}
-                aria-label={isMobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+                aria-label={isMobileMenuOpen ? t('aria.cerrarMenuNav') : t('aria.abrirMenuNav')}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="public-mobile-menu"
                 style={{
@@ -379,7 +383,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               to={publicHomePath}
-              aria-label="Inicio — Proyecto Challenger"
+              aria-label={t('aria.logoInicio')}
               style={{ display: "inline-flex", color: "var(--c-nav-text)" }}
             >
               <svg
@@ -400,7 +404,7 @@ export default function Navbar() {
               {PUBLIC_LINKS.map((l) => (
                 <li key={l.to}>
                   <PublicNavLink to={l.to} onMouseEnter={l.prefetch}>
-                    {l.label}
+                    {t(`nav.${l.label}`)}
                   </PublicNavLink>
                 </li>
               ))}
@@ -428,7 +432,7 @@ export default function Navbar() {
             <div className="flex flex-col gap-1 px-4 py-3">
               {PUBLIC_LINKS.map((l) => (
                 <PublicNavLink key={l.to} to={l.to} block onClick={() => setIsMobileMenuOpen(false)}>
-                  {l.label}
+                  {t(`nav.${l.label}`)}
                 </PublicNavLink>
               ))}
               <div className="pt-2">
@@ -446,7 +450,7 @@ export default function Navbar() {
 
   return (
     <nav
-      aria-label="Navegación principal"
+      aria-label={t('aria.navPrincipal')}
       style={{
         position: "sticky",
         top: 0,
@@ -475,7 +479,7 @@ export default function Navbar() {
           {items?.map((it) => (
             <li key={it.to}>
               <NavItem to={it.to} end={it.exact ?? true} orientation="horizontal">
-                {it.label}
+                {t(`nav.${it.label}`)}
               </NavItem>
             </li>
           ))}
@@ -491,7 +495,7 @@ export default function Navbar() {
                 <UserMenuTrigger
                   menu={p}
                   role={role}
-                  name={user?.name ?? "Usuario"}
+                  name={user?.name ?? t('common.usuarioFallback')}
                   initials={userInitials}
                 />
               )}
@@ -509,7 +513,7 @@ export default function Navbar() {
                     }}
                   >
                     <p style={{ margin: 0, fontSize: "var(--text-sm)", fontWeight: "var(--fw-semibold)", color: "var(--c-text)" }}>
-                      {user?.name ?? "Usuario"}
+                      {user?.name ?? t('common.usuarioFallback')}
                     </p>
                     <p style={{ margin: 0, fontSize: "var(--text-xs)", color: "var(--c-muted)", textTransform: "capitalize" }}>
                       {role.toLowerCase()}
@@ -534,11 +538,11 @@ export default function Navbar() {
                         return (
                           <MenuRowButton key="logout" danger onClick={() => { close(); logout(); }}>
                             <LogoutIcon />
-                            Cerrar sesión
+                            {t('dropdown.cerrarSesion')}
                           </MenuRowButton>
                         );
                       }
-                      if (item.label === 'Ver como alumno') {
+                      if (item.id === 'verComoAlumno') {
                         // FASE 5b — unificado con StaffSidebar. Con espejo:
                         // dispara el switch real. Sin espejo: lleva a Perfil
                         // para crear/vincular la cuenta alumno, en vez de un
@@ -547,7 +551,7 @@ export default function Navbar() {
                           return (
                             <MenuRowButton key="ver-como-alumno" onClick={() => { close(); void handleEntrarComoAlumno(); }}>
                               <DropdownIcon name={item.icon} />
-                              {item.label}
+                              {t(`dropdown.${item.label}`)}
                             </MenuRowButton>
                           );
                         }
@@ -558,16 +562,16 @@ export default function Navbar() {
                             icon={<DropdownIcon name={item.icon} />}
                             onClick={close}
                           >
-                            Crear cuenta alumno
+                            {t('dropdown.crearCuentaAlumno')}
                           </MenuRowLink>
                         );
                       }
-                      if (item.label === 'Ver como padre') {
+                      if (item.id === 'verComoPadre') {
                         if (tienePadre) {
                           return (
                             <MenuRowButton key="ver-como-padre" onClick={() => { close(); void handleEntrarComoPadre(); }}>
                               <DropdownIcon name={item.icon} />
-                              {item.label}
+                              {t(`dropdown.${item.label}`)}
                             </MenuRowButton>
                           );
                         }
@@ -578,7 +582,7 @@ export default function Navbar() {
                             icon={<DropdownIcon name={item.icon} />}
                             onClick={close}
                           >
-                            Crear cuenta padre
+                            {t('dropdown.crearCuentaPadre')}
                           </MenuRowLink>
                         );
                       }
@@ -589,7 +593,7 @@ export default function Navbar() {
                           icon={<DropdownIcon name={item.icon} />}
                           onClick={close}
                         >
-                          {item.label}
+                          {t(`dropdown.${item.label}`)}
                         </MenuRowLink>
                       );
                     })}
@@ -619,6 +623,7 @@ function UserMenuTrigger({
   initials: string;
 }) {
   const [hovered, setHovered] = useState(false);
+  const { t } = useI18n();
   const expanded = menu["aria-expanded"];
   return (
     <button
@@ -626,7 +631,7 @@ function UserMenuTrigger({
       onClick={menu.onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      aria-label="Menú de usuario"
+      aria-label={t('aria.menuUsuario')}
       aria-haspopup={menu["aria-haspopup"]}
       aria-expanded={expanded}
       aria-controls={menu["aria-controls"]}
