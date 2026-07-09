@@ -15,13 +15,16 @@ export default function AlumnoLayout() {
     );
   }
   if (status === "signedOut") return <Redirect href="/login" />;
-  // PLAN-R Parte 4 — un PARENT que cae acá por deep link viejo va a su
-  // propio shell. Mismo criterio que `resolvePrimaryRole` en
-  // apps/web/src/auth/roleHelpers.ts: PARENT rankea sobre USER en la
-  // jerarquía de "rol principal" (ADMIN > DIRECTIVO > TEACHER > PARENT
-  // > USER > GUEST) — un PARENT+USER aterriza en /padre igual que un
-  // PARENT puro, no es sólo el caso "sin ningún otro rol".
+  // PLAN-R Partes 4-5 — quien cae acá por deep link viejo pero rankea
+  // más arriba en la jerarquía de rol principal (ADMIN > DIRECTIVO >
+  // TEACHER > PARENT > USER > GUEST, mismo criterio que
+  // `resolvePrimaryRole` de apps/web/src/auth/roleHelpers.ts) va a su
+  // propio shell — un TEACHER+USER o PARENT+USER aterriza ahí igual
+  // que el rol puro, no es sólo el caso "sin ningún otro rol".
   const roles = user?.roles?.length ? user.roles : user?.role ? [user.role] : [];
+  if (roles.some((r) => r === "ADMIN" || r === "DIRECTIVO" || r === "TEACHER")) {
+    return <Redirect href="/(docente)" />;
+  }
   if (roles.includes("PARENT")) return <Redirect href="/(padre)" />;
 
   return (

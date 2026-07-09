@@ -1488,3 +1488,22 @@ model VblangDatasetFila {
   @@map("vblang_dataset_filas")
   @@index([datasetId, orden])
 }
+
+// PLAN-R Parte 5 — token de push (Expo) de la app móvil. Un usuario
+// puede tener el token registrado en más de un dispositivo (@@unique
+// es sobre el token en sí, no sobre userId — reinstalar/reloguearse
+// en otro teléfono agrega una fila nueva, no pisa la anterior). El
+// envío real (expo-server-sdk, disparado desde mensajería/tareas/
+// cobros) queda para otra sesión — este modelo sólo guarda dónde
+// mandar el push cuando exista ese código.
+model PushToken {
+  id        String  @id
+  userId    String  @map("user_id")
+  token     String  @unique
+  platform  String? // "ios" | "android"
+  createdAt String  @map("created_at")
+  updatedAt String  @map("updated_at")
+
+  @@map("push_tokens")
+  @@index([userId])
+}

@@ -180,3 +180,43 @@ EXPO_PUBLIC_API_BASE_URL=http://192.168.0.69:5050
   se verificó por lectura directa del código del backend, no por curl
   (login de prueba rate-limited de tanto probarlo esta sesión).
   TypeScript limpio. Falta la prueba visual real en teléfono.
+
+## Estado (Parte 5 — redondeo, plan completo)
+
+- ✅ Shell docente-consulta (`app/(docente)/`, tabs Aulas/Entregas/
+  Perfil) — tercer y último brazo del switch de rol. **Asistencia
+  táctil** (`app/aulas/[aulaId].tsx`) es la única escritura permitida
+  en este shell: marcar presente/ausente/tarde/justificado por alumno,
+  sólo el día de hoy. Verificado por curl end-to-end (leer → guardar →
+  releer) con una cuenta docente real.
+- ✅ Push — **fundación, no el sistema completo**: `expo-notifications`
+  + tabla nueva `push_tokens` (migración aplicada) + `POST/DELETE
+  /api/push-tokens` + `usePushRegistration()` (pide permiso, registra
+  el token) corriendo para los 3 shells. Verificado por curl.
+  **Falta el envío real** (mensaje nuevo/tarea por vencer/cuota
+  emitida) — necesita `expo-server-sdk` del lado API + un cron para
+  "tarea por vencer" + engancharse en 3 flujos existentes distintos.
+  Es su propia sesión, no cabía acá.
+- ✅ `eas.json` (perfiles development/preview/production) + scripts
+  `pnpm --filter mobile build:preview`/`build:production`. **No corrí
+  ningún build** — `eas login`/`eas init` necesitan tu cuenta de Expo,
+  no algo que yo haga por vos. Una vez que corras `eas init`, el
+  `projectId` que genera va en `app.json` → `extra.eas.projectId`, y
+  ahí mismo `usePushRegistration` empieza a registrar tokens de verdad
+  (hoy es un no-op silencioso sin ese id).
+- ⚠️ **"Vista de entregas" no es viable todavía**: no existe ningún
+  endpoint que sirva entregas (el modelo `Entrega` es un blob sin
+  handler). El tab existe con un mensaje honesto en vez de datos
+  inventados.
+- Verificación: asistencia y push-tokens confirmados por curl
+  end-to-end. Suite completa de la API en verde (789/789) después de
+  la migración nueva. TypeScript limpio (mobile y api). Falta, como
+  siempre, la prueba visual real en teléfono.
+
+## Publicar un build real (cuando quieras)
+
+```bash
+npx eas-cli login        # tu cuenta de Expo
+npx eas-cli init         # crea el proyecto EAS, escribe el projectId en app.json
+pnpm --filter mobile build:preview   # APK directo, instalable sin store
+```

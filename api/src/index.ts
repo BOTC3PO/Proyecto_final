@@ -71,6 +71,7 @@ import { formulas } from "./routes/formulas";
 import { asistencia } from "./routes/asistencia";
 import { cobros } from "./routes/cobros";
 import { escuelaPasarelas } from "./routes/escuela-pasarelas";
+import { pushTokens } from "./routes/push-tokens";
 import { requireUser } from "./lib/user-auth";
 import { prisma } from "./lib/prisma";
 
@@ -241,6 +242,7 @@ app.use(materiales);
 app.use(plantillas);
 app.use(vblangDatasets);
 app.use(formulas);
+app.use(pushTokens);
 app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
