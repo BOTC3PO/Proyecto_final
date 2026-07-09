@@ -289,6 +289,7 @@ model Clase {
   modulos         ClaseModulo[]
   publicaciones   ClasePublicacion[]
   asistencias     Asistencia[]
+  periodos        ClasePeriodo[]
   @@map("clases")
 }
 
@@ -319,6 +320,25 @@ model Asistencia {
   clase         Clase   @relation(fields: [claseId], references: [id])
   @@unique([claseId, alumnoId, fecha])
   @@map("asistencias")
+}
+
+// PLAN-V §1 — períodos académicos declarados EN el aula (nunca un motor
+// de calendario global): lista libre y ordenada de `{ nombre, desde,
+// hasta }` por docente. "2 semestres + verano" son 3 filas; anual es 1.
+// `desde`/`hasta` son fechas ISO (yyyy-mm-dd) como string, mismo patrón
+// que `Asistencia.fecha` — la comparación lexicográfica alcanza.
+model ClasePeriodo {
+  id        String @id
+  claseId   String @map("clase_id")
+  nombre    String
+  desde     String
+  hasta     String
+  orden     Int
+  createdAt String @map("created_at")
+  updatedAt String @map("updated_at")
+  clase     Clase  @relation(fields: [claseId], references: [id])
+  @@index([claseId])
+  @@map("clase_periodos")
 }
 
 model ClaseModulo {

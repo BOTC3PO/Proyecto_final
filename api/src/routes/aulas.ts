@@ -1,7 +1,7 @@
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
-import { toObjectId } from "../lib/ids";
+import { toObjectId, generateId } from "../lib/ids";
 import { canManageClassroom, requirePolicy } from "../lib/authorization";
 import {
   requireClassroomScope,
@@ -17,6 +17,7 @@ import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
   ClassroomCreateSchema,
   ClassroomPatchSchema,
+  ClasePeriodoSchema,
   isClassroomActiveStatus,
   isClassroomReadOnlyStatus,
   normalizeClassroomStatus
@@ -929,6 +930,125 @@ aulas.delete(
       where: { claseId: id, usuarioId: targetUserId, rolEnClase: { in: [...TITULAR_ROLES] } }
     });
     if (result.count === 0) return res.status(404).json({ error: "co-titular not found" });
+    res.status(204).send();
+  }
+);
+
+// ─── PLAN-V §1 — períodos académicos del aula ───────────────────────────────
+// "El boletín es por materia y año... la variante se acepta DENTRO DEL
+// AULA, no en un subsistema": lista libre y ordenada de { nombre, desde,
+// hasta } por aula. Sin agregación de notas todavía (eso es §3, en otro
+// sprint) — esto sólo persiste y ordena los períodos.
+const STAFF_MANAGE_GATE = {
+  allowMemberRoles: ["ADMIN", "TEACHER"],
+  allowSchoolMatch: true,
+  notFoundMessage: "not found"
+};
+
+aulas.get(
+  "/api/aulas/:id/periodos",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope(STAFF_MANAGE_GATE),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const items = await prisma.clasePeriodo.findMany({
+      where: { claseId: id },
+      orderBy: { orden: "asc" }
+    });
+    res.json({ items });
+  }
+);
+
+aulas.post(
+  "/api/aulas/:id/periodos",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope(STAFF_MANAGE_GATE),
+  express.json(),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const classroom = res.locals.classroom as { status?: string };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const parsed = ClasePeriodoSchema.safeParse(req.body);
+    if (!parsed.success) {
+      return res.status(400).json({ error: parsed.error.issues[0]?.message ?? "invalid payload" });
+    }
+    const existing = await prisma.clasePeriodo.findMany({ where: { claseId: id } });
+    const nextOrden = existing.reduce((max, p) => Math.max(max, p.orden), -1) + 1;
+    const now = new Date().toISOString();
+    const created = await prisma.clasePeriodo.create({
+      data: {
+        id: generateId(),
+        claseId: id,
+        nombre: parsed.data.nombre,
+        desde: parsed.data.desde,
+        hasta: parsed.data.hasta,
+        orden: nextOrden,
+        createdAt: now,
+        updatedAt: now
+      }
+    });
+    res.status(201).json(created);
+  }
+);
+
+aulas.patch(
+  "/api/aulas/:id/periodos/:periodoId",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope(STAFF_MANAGE_GATE),
+  express.json(),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const periodoId = req.params.periodoId as string;
+    const classroom = res.locals.classroom as { status?: string };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const existing = await prisma.clasePeriodo.findFirst({ where: { id: periodoId, claseId: id } });
+    if (!existing) return res.status(404).json({ error: "periodo not found" });
+    const parsed = ClasePeriodoSchema.safeParse({
+      nombre: req.body?.nombre ?? existing.nombre,
+      desde: req.body?.desde ?? existing.desde,
+      hasta: req.body?.hasta ?? existing.hasta
+    });
+    if (!parsed.success) {
+      return res.status(400).json({ error: parsed.error.issues[0]?.message ?? "invalid payload" });
+    }
+    const result = await prisma.clasePeriodo.updateMany({
+      where: { id: periodoId, claseId: id },
+      data: {
+        nombre: parsed.data.nombre,
+        desde: parsed.data.desde,
+        hasta: parsed.data.hasta,
+        updatedAt: new Date().toISOString()
+      }
+    });
+    if (result.count === 0) return res.status(404).json({ error: "periodo not found" });
+    res.json({ ok: true });
+  }
+);
+
+aulas.delete(
+  "/api/aulas/:id/periodos/:periodoId",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope(STAFF_MANAGE_GATE),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const periodoId = req.params.periodoId as string;
+    const classroom = res.locals.classroom as { status?: string };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const result = await prisma.clasePeriodo.deleteMany({ where: { id: periodoId, claseId: id } });
+    if (result.count === 0) return res.status(404).json({ error: "periodo not found" });
     res.status(204).send();
   }
 );

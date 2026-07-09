@@ -31,6 +31,11 @@ type AulaDoc = {
   classCode?: string | null;
   members?: ClassroomMember[];
   isDeleted?: boolean;
+  // PLAN-V §1 — faltaba acá: los handlers que leen `res.locals.classroom.status`
+  // para su guardia de "aula read-only" (PATCH /api/aulas/:id y afines)
+  // siempre veían `undefined` y caían al default "ACTIVE", así que el
+  // bloqueo de ARCHIVED/LOCKED nunca corría en la práctica.
+  status?: string;
 };
 
 /**
@@ -209,6 +214,7 @@ export const requireClassroomScope =
       teacherId: claseRaw.teacherId ?? null,
       teacherOfRecord: claseRaw.teacherOfRecord ?? null,
       isDeleted: claseRaw.isDeleted,
+      status: claseRaw.status ?? undefined,
       // FIX-CONFIG-CODIGO — el modelo Prisma `Clase` expone `code` y
       // `classCode` (códigos legacy y de join, ver `schema.prisma:104`).
       // Antes no se propagaban al `res.locals.classroom`, así que el

@@ -9,7 +9,11 @@ import {
   fetchTitularesCandidatos,
   agregarTitular,
   quitarTitular,
+  fetchPeriodos,
+  crearPeriodo,
+  eliminarPeriodo,
   type Titular,
+  type Periodo,
 } from "../services/aulas";
 import { createActivity, deleteActivity, fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchClaseModulos, assignModulo, unassignModulo, type ClaseModuloItem } from "../services/clase-modulos";
@@ -78,6 +82,10 @@ export default function ProfesorAulaConfiguracion() {
   const [candidatoSeleccionado, setCandidatoSeleccionado] = useState("");
   const [titularSaving, setTitularSaving] = useState(false);
   const [titularError, setTitularError] = useState<string | null>(null);
+  const [periodos, setPeriodos] = useState<Periodo[]>([]);
+  const [periodoForm, setPeriodoForm] = useState({ nombre: "", desde: "", hasta: "" });
+  const [periodoSaving, setPeriodoSaving] = useState(false);
+  const [periodoError, setPeriodoError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) {
@@ -167,6 +175,33 @@ export default function ProfesorAulaConfiguracion() {
     } finally {
       setTitularSaving(false);
     }
+  };
+
+  useEffect(() => {
+    if (!id) return;
+    fetchPeriodos(id).then((data) => setPeriodos(data.items)).catch(() => {});
+  }, [id]);
+
+  const handleCrearPeriodo = async () => {
+    if (!id || !periodoForm.nombre.trim() || !periodoForm.desde || !periodoForm.hasta) return;
+    setPeriodoSaving(true);
+    setPeriodoError(null);
+    try {
+      await crearPeriodo(id, periodoForm);
+      setPeriodoForm({ nombre: "", desde: "", hasta: "" });
+      const data = await fetchPeriodos(id);
+      setPeriodos(data.items);
+    } catch (e) {
+      setPeriodoError(e instanceof Error ? e.message : "No se pudo crear el período.");
+    } finally {
+      setPeriodoSaving(false);
+    }
+  };
+
+  const handleEliminarPeriodo = async (periodoId: string) => {
+    if (!id) return;
+    await eliminarPeriodo(id, periodoId);
+    setPeriodos((prev) => prev.filter((p) => p.id !== periodoId));
   };
 
   const modulosDisponibles = todosModulos.filter((m) => {
@@ -670,6 +705,78 @@ export default function ProfesorAulaConfiguracion() {
                 </p>
               )}
               {titularError && <p className="text-xs text-[var(--c-danger)]">{titularError}</p>}
+            </div>
+          </section>
+
+          {/* PLAN-V §1 — períodos académicos EN el aula (no un motor de
+              calendario global): lista libre y ordenada de nombre+rango
+              de fechas. La agregación de notas por período es otro sprint. */}
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Períodos académicos</p>
+            </div>
+            <div className="p-4 space-y-3">
+              {periodos.length === 0 ? (
+                <p className="text-sm text-[var(--c-muted)]">Sin períodos cargados (ej: "1er bimestre", "Verano").</p>
+              ) : (
+                <ul className="space-y-2">
+                  {periodos.map((p) => (
+                    <li key={p.id} className="flex items-center justify-between gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm">
+                      <div>
+                        <span className="font-medium text-[var(--c-text)]">{p.nombre}</span>
+                        <span className="ml-2 text-xs text-[var(--c-muted)]">{p.desde} → {p.hasta}</span>
+                      </div>
+                      <button
+                        type="button"
+                        className="text-xs text-red-400 hover:text-red-600"
+                        onClick={() => handleEliminarPeriodo(p.id)}
+                      >
+                        Quitar
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <div className="grid gap-2 sm:grid-cols-[2fr_1fr_1fr_auto] items-end">
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                  Nombre
+                  <input
+                    type="text"
+                    placeholder="Ej: 1er bimestre"
+                    value={periodoForm.nombre}
+                    onChange={(e) => setPeriodoForm((f) => ({ ...f, nombre: e.target.value }))}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                  Desde
+                  <input
+                    type="date"
+                    value={periodoForm.desde}
+                    onChange={(e) => setPeriodoForm((f) => ({ ...f, desde: e.target.value }))}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                  Hasta
+                  <input
+                    type="date"
+                    value={periodoForm.hasta}
+                    onChange={(e) => setPeriodoForm((f) => ({ ...f, hasta: e.target.value }))}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+                <button
+                  type="button"
+                  disabled={periodoSaving || !periodoForm.nombre.trim() || !periodoForm.desde || !periodoForm.hasta}
+                  onClick={handleCrearPeriodo}
+                  className="rounded-lg bg-[var(--c-primary)] px-3 py-2 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+                >
+                  + Agregar
+                </button>
+              </div>
+              {periodoError && <p className="text-xs text-[var(--c-danger)]">{periodoError}</p>}
             </div>
           </section>
           </>

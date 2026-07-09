@@ -1,4 +1,4 @@
-import { apiDelete, apiGet, apiPost, apiPut } from "../lib/api";
+import { apiDelete, apiGet, apiPatch, apiPost, apiPut } from "../lib/api";
 import type { Classroom, ClassroomListResponse } from "../domain/classroom/classroom.types";
 
 export type ClassroomStudentProgress = {
@@ -76,4 +76,38 @@ export async function agregarTitular(classroomId: string, userId: string): Promi
 
 export async function quitarTitular(classroomId: string, userId: string): Promise<void> {
   await apiDelete<void>(`/api/aulas/${classroomId}/titulares/${userId}`);
+}
+
+// PLAN-V §1 — períodos académicos del aula ("2 semestres + verano",
+// bimestral, anual...). Sin agregación de notas todavía (eso es §3).
+export type Periodo = {
+  id: string;
+  claseId: string;
+  nombre: string;
+  desde: string;
+  hasta: string;
+  orden: number;
+};
+
+export async function fetchPeriodos(classroomId: string): Promise<{ items: Periodo[] }> {
+  return apiGet(`/api/aulas/${classroomId}/periodos`);
+}
+
+export async function crearPeriodo(
+  classroomId: string,
+  payload: { nombre: string; desde: string; hasta: string }
+): Promise<Periodo> {
+  return apiPost(`/api/aulas/${classroomId}/periodos`, payload);
+}
+
+export async function actualizarPeriodo(
+  classroomId: string,
+  periodoId: string,
+  payload: Partial<{ nombre: string; desde: string; hasta: string }>
+): Promise<{ ok: boolean }> {
+  return apiPatch(`/api/aulas/${classroomId}/periodos/${periodoId}`, payload);
+}
+
+export async function eliminarPeriodo(classroomId: string, periodoId: string): Promise<void> {
+  await apiDelete<void>(`/api/aulas/${classroomId}/periodos/${periodoId}`);
 }

@@ -439,6 +439,18 @@ export type ClaseModuloRow = {
   required: boolean;
 };
 
+// PLAN-V §1 — períodos académicos declarados en el aula.
+export type ClasePeriodoRow = {
+  id: string;
+  claseId: string;
+  nombre: string;
+  desde: string;
+  hasta: string;
+  orden: number;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type ActividadAulaRow = {
   id: string;
   aulaId: string;
@@ -756,6 +768,7 @@ export class InMemoryPrisma {
   clase = new Table<ClaseRow>("clase");
   claseMiembro = new Table<ClaseMiembroRow>("claseMiembro");
   claseModulo = new Table<ClaseModuloRow>("claseModulo");
+  clasePeriodo = new Table<ClasePeriodoRow>("clasePeriodo");
   actividadAula = new Table<ActividadAulaRow>("actividadAula");
   calendarioEscuela = new Table<CalendarioEscuelaRow>("calendarioEscuela");
   modulo = new Table<ModuloRow>("modulo");

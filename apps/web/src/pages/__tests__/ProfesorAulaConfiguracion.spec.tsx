@@ -28,6 +28,11 @@ vi.mock("../../services/aulas", async () => {
     fetchTitularesCandidatos: vi.fn(async () => ({ items: [] })),
     agregarTitular: vi.fn(),
     quitarTitular: vi.fn(),
+    // PLAN-V §1 — períodos académicos: mismo criterio, vacío por default.
+    fetchPeriodos: vi.fn(async () => ({ items: [] })),
+    crearPeriodo: vi.fn(),
+    actualizarPeriodo: vi.fn(),
+    eliminarPeriodo: vi.fn(),
   };
 });
 vi.mock("../../services/actividades", async () => {
