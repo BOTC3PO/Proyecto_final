@@ -52,3 +52,28 @@ export async function fetchClassroomProgressSnapshots(
 ): Promise<ClassroomProgressSnapshot[]> {
   return [];
 }
+
+// PLAN-U §6 — co-titulares de aula ("2 profesores, o 1 profesor + 1
+// directivo"). El dueño original no se toca; el co-titular es una
+// membresía TEACHER/DIRECTIVO extra.
+export type Titular = { id: string; name: string; role?: string };
+
+export async function fetchTitulares(
+  classroomId: string
+): Promise<{ owner: Titular | null; coTitulares: Titular[] }> {
+  return apiGet(`/api/aulas/${classroomId}/titulares`);
+}
+
+export async function fetchTitularesCandidatos(
+  classroomId: string
+): Promise<{ items: Titular[] }> {
+  return apiGet(`/api/aulas/${classroomId}/titulares-candidatos`);
+}
+
+export async function agregarTitular(classroomId: string, userId: string): Promise<{ ok: boolean }> {
+  return apiPost(`/api/aulas/${classroomId}/titulares`, { userId });
+}
+
+export async function quitarTitular(classroomId: string, userId: string): Promise<void> {
+  await apiDelete<void>(`/api/aulas/${classroomId}/titulares/${userId}`);
+}

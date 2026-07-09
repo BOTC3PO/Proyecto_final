@@ -12,6 +12,7 @@ import { whereExcluirEspejos } from "../lib/espejo-filtro";
 import { provisionarEspejoAlumno } from "../lib/provisionar-espejo";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
+import { hasRole } from "../lib/roles";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
   ClassroomCreateSchema,
@@ -746,6 +747,188 @@ aulas.delete(
       }
     });
     if (result.count === 0) return res.status(404).json({ error: "not found" });
+    res.status(204).send();
+  }
+);
+
+// ─── PLAN-U §6 — co-titulares de aula ───────────────────────────────────────
+// "2 profesores, o 1 profesor + 1 directivo, dueños de la misma aula."
+// El dueño original (createdBy/teacherId/teacherOfRecord en `Clase`) NUNCA
+// se toca acá: el co-titular se modela como una fila extra en `ClaseMiembro`
+// con `rolEnClase` TEACHER o DIRECTIVO, que `isClassroomTeacher` (classroom-
+// scope.ts) ya reconoce como autoridad docente completa. Máximo 2 titulares
+// en total (dueño + 1 co-titular); nunca 0 (el dueño no es removible acá).
+const TITULAR_ROLES = ["TEACHER", "DIRECTIVO"] as const;
+
+const isOriginalOwner = (
+  classroom: { createdBy?: string | null; teacherId?: string | null; teacherOfRecord?: string | null },
+  userId: string
+) =>
+  classroom.createdBy === userId ||
+  classroom.teacherId === userId ||
+  classroom.teacherOfRecord === userId;
+
+aulas.get(
+  "/api/aulas/:id/titulares",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  async (req, res) => {
+    const classroom = res.locals.classroom as {
+      createdBy?: string | null;
+      teacherId?: string | null;
+      teacherOfRecord?: string | null;
+      members?: Array<{ userId: string; roleInClass: string }>;
+    };
+    const ownerId = classroom.teacherId ?? classroom.createdBy ?? classroom.teacherOfRecord ?? null;
+    const coTitulares = (classroom.members ?? []).filter(
+      (m) => (TITULAR_ROLES as readonly string[]).includes(m.roleInClass) && m.userId !== ownerId
+    );
+    const nameMap = await resolveUserNames([ownerId, ...coTitulares.map((m) => m.userId)]);
+    res.json({
+      owner: ownerId ? { id: ownerId, name: nameMap.get(ownerId) ?? ownerId } : null,
+      coTitulares: coTitulares.map((m) => ({
+        id: m.userId,
+        name: nameMap.get(m.userId) ?? m.userId,
+        role: m.roleInClass
+      }))
+    });
+  }
+);
+
+aulas.get(
+  "/api/aulas/:id/titulares-candidatos",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  async (req, res) => {
+    const classroom = res.locals.classroom as {
+      schoolId?: string;
+      createdBy?: string | null;
+      teacherId?: string | null;
+      teacherOfRecord?: string | null;
+      members?: Array<{ userId: string; roleInClass: string }>;
+    };
+    if (!classroom.schoolId) return res.json({ items: [] });
+    const excluded = new Set(
+      [classroom.createdBy, classroom.teacherId, classroom.teacherOfRecord].filter(
+        (v): v is string => !!v
+      )
+    );
+    for (const m of classroom.members ?? []) {
+      if ((TITULAR_ROLES as readonly string[]).includes(m.roleInClass)) excluded.add(m.userId);
+    }
+    const candidates = await prisma.usuario.findMany({
+      where: { escuelaId: classroom.schoolId, isDeleted: { not: true } },
+      select: { id: true, fullName: true, username: true, role: true, roles: true }
+    });
+    const items = candidates
+      .filter((u) => !excluded.has(u.id) && (hasRole(u, "TEACHER") || hasRole(u, "DIRECTIVO")))
+      .map((u) => ({
+        id: u.id,
+        name: u.fullName || u.username || u.id,
+        role: hasRole(u, "TEACHER") ? "TEACHER" : "DIRECTIVO"
+      }));
+    res.json({ items });
+  }
+);
+
+aulas.post(
+  "/api/aulas/:id/titulares",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  express.json(),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const classroom = res.locals.classroom as {
+      schoolId?: string;
+      createdBy?: string | null;
+      teacherId?: string | null;
+      teacherOfRecord?: string | null;
+      members?: Array<{ userId: string; roleInClass: string }>;
+      status?: string;
+    };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const userId = typeof req.body?.userId === "string" ? req.body.userId.trim() : "";
+    if (!userId) return res.status(400).json({ error: "userId is required" });
+    if (isOriginalOwner(classroom, userId)) {
+      return res.status(400).json({ error: "user is already the classroom owner" });
+    }
+    const existingCoTitulares = (classroom.members ?? []).filter((m) =>
+      (TITULAR_ROLES as readonly string[]).includes(m.roleInClass)
+    );
+    if (existingCoTitulares.some((m) => m.userId === userId)) {
+      return res.status(409).json({ error: "user is already a co-titular" });
+    }
+    // Máximo 2 titulares totales: el dueño + 1 co-titular.
+    if (existingCoTitulares.length >= 1) {
+      return res.status(400).json({ error: "classroom already has 2 titulares" });
+    }
+    const target = await prisma.usuario.findFirst({
+      where: { id: userId, isDeleted: { not: true } },
+      select: { role: true, roles: true, escuelaId: true }
+    });
+    if (!target) return res.status(400).json({ error: "user not found" });
+    const isTeacher = hasRole(target, "TEACHER");
+    const isDirectivo = hasRole(target, "DIRECTIVO");
+    if (!isTeacher && !isDirectivo) {
+      return res.status(400).json({ error: "user must be TEACHER or DIRECTIVO" });
+    }
+    if (normalizeSchoolId(target.escuelaId ?? "") !== classroom.schoolId) {
+      return res.status(403).json({ error: "user school mismatch" });
+    }
+    await prisma.claseMiembro.create({
+      data: { claseId: id, usuarioId: userId, rolEnClase: isTeacher ? "TEACHER" : "DIRECTIVO" }
+    });
+    res.status(201).json({ ok: true });
+  }
+);
+
+aulas.delete(
+  "/api/aulas/:id/titulares/:userId",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const targetUserId = req.params.userId as string;
+    const classroom = res.locals.classroom as {
+      createdBy?: string | null;
+      teacherId?: string | null;
+      teacherOfRecord?: string | null;
+      status?: string;
+    };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    if (isOriginalOwner(classroom, targetUserId)) {
+      return res.status(400).json({ error: "cannot remove the original owner" });
+    }
+    const result = await prisma.claseMiembro.deleteMany({
+      where: { claseId: id, usuarioId: targetUserId, rolEnClase: { in: [...TITULAR_ROLES] } }
+    });
+    if (result.count === 0) return res.status(404).json({ error: "co-titular not found" });
     res.status(204).send();
   }
 );

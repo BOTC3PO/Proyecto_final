@@ -2,7 +2,15 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { normalizeClassroomStatus } from "../domain/classroom/classroom.types";
-import { fetchClassroomDetail, updateClassroom } from "../services/aulas";
+import {
+  fetchClassroomDetail,
+  updateClassroom,
+  fetchTitulares,
+  fetchTitularesCandidatos,
+  agregarTitular,
+  quitarTitular,
+  type Titular,
+} from "../services/aulas";
 import { createActivity, deleteActivity, fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchClaseModulos, assignModulo, unassignModulo, type ClaseModuloItem } from "../services/clase-modulos";
 import { apiGet } from "../lib/api";
@@ -64,6 +72,12 @@ export default function ProfesorAulaConfiguracion() {
   const [todosModulos, setTodosModulos] = useState<Module[]>([]);
   const [moduloSearch, setModuloSearch] = useState("");
   const [moduloSaving, setModuloSaving] = useState(false);
+  const [owner, setOwner] = useState<Titular | null>(null);
+  const [coTitulares, setCoTitulares] = useState<Titular[]>([]);
+  const [candidatos, setCandidatos] = useState<Titular[]>([]);
+  const [candidatoSeleccionado, setCandidatoSeleccionado] = useState("");
+  const [titularSaving, setTitularSaving] = useState(false);
+  const [titularError, setTitularError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) {
@@ -107,6 +121,53 @@ export default function ProfesorAulaConfiguracion() {
       .then((data) => setTodosModulos(data.items))
       .catch(() => {});
   }, [id]);
+
+  const reloadTitulares = (classroomId: string) => {
+    fetchTitulares(classroomId)
+      .then((data) => {
+        setOwner(data.owner);
+        setCoTitulares(data.coTitulares);
+      })
+      .catch(() => {});
+    fetchTitularesCandidatos(classroomId)
+      .then((data) => setCandidatos(data.items))
+      .catch(() => {});
+  };
+
+  useEffect(() => {
+    if (!id) return;
+    reloadTitulares(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
+  const handleAgregarTitular = async () => {
+    if (!id || !candidatoSeleccionado) return;
+    setTitularSaving(true);
+    setTitularError(null);
+    try {
+      await agregarTitular(id, candidatoSeleccionado);
+      setCandidatoSeleccionado("");
+      reloadTitulares(id);
+    } catch (e) {
+      setTitularError(e instanceof Error ? e.message : "No se pudo agregar el co-titular.");
+    } finally {
+      setTitularSaving(false);
+    }
+  };
+
+  const handleQuitarTitular = async (userId: string) => {
+    if (!id) return;
+    setTitularSaving(true);
+    setTitularError(null);
+    try {
+      await quitarTitular(id, userId);
+      reloadTitulares(id);
+    } catch (e) {
+      setTitularError(e instanceof Error ? e.message : "No se pudo quitar el co-titular.");
+    } finally {
+      setTitularSaving(false);
+    }
+  };
 
   const modulosDisponibles = todosModulos.filter((m) => {
     const yaAsignado = asignados.some((a) => a.moduloId === m.id);
@@ -543,6 +604,72 @@ export default function ProfesorAulaConfiguracion() {
                 </ul>
               )}
             </div>
+            </div>
+          </section>
+
+          {/* PLAN-U §6 — co-titulares: "2 profesores, o 1 profesor + 1
+              directivo" dueños de la misma aula. El dueño original nunca
+              se quita acá. */}
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Co-titulares</p>
+            </div>
+            <div className="p-4 space-y-3">
+              <ul className="space-y-2">
+                {owner && (
+                  <li className="flex items-center justify-between gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm">
+                    <span className="font-medium text-[var(--c-text)]">{owner.name}</span>
+                    <span className="text-xs text-[var(--c-muted)]">Titular original</span>
+                  </li>
+                )}
+                {coTitulares.map((t) => (
+                  <li key={t.id} className="flex items-center justify-between gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm">
+                    <div>
+                      <span className="font-medium text-[var(--c-text)]">{t.name}</span>
+                      <span className="ml-2 text-xs text-[var(--c-muted)]">{t.role}</span>
+                    </div>
+                    <button
+                      type="button"
+                      disabled={titularSaving}
+                      className="text-xs text-red-400 hover:text-red-600 disabled:opacity-50"
+                      onClick={() => handleQuitarTitular(t.id)}
+                    >
+                      Quitar
+                    </button>
+                  </li>
+                ))}
+              </ul>
+
+              {coTitulares.length === 0 && candidatos.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <select
+                    value={candidatoSeleccionado}
+                    onChange={(e) => setCandidatoSeleccionado(e.target.value)}
+                    className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  >
+                    <option value="">Elegir docente/directivo de la escuela...</option>
+                    {candidatos.map((c) => (
+                      <option key={c.id} value={c.id}>
+                        {c.name} ({c.role})
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    type="button"
+                    disabled={titularSaving || !candidatoSeleccionado}
+                    onClick={handleAgregarTitular}
+                    className="rounded-lg bg-[var(--c-primary)] px-3 py-2 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+                  >
+                    + Agregar co-titular
+                  </button>
+                </div>
+              )}
+              {coTitulares.length === 0 && candidatos.length === 0 && (
+                <p className="text-sm text-[var(--c-muted)]">
+                  No hay docentes o directivos disponibles en tu escuela para agregar como co-titular.
+                </p>
+              )}
+              {titularError && <p className="text-xs text-[var(--c-danger)]">{titularError}</p>}
             </div>
           </section>
           </>
