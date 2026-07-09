@@ -20,23 +20,26 @@ shell de alumno, puente `WebContent` hacia la web). Ver
 
 ## Correr en desarrollo
 
-Necesitás la API y la web corriendo (desde la raíz del repo):
+Desde la raíz del repo, un solo comando levanta los 3 (api :5050 + web
+:5173 + Expo en modo LAN — necesario para el WebView y para probar
+desde un teléfono):
 
 ```bash
-pnpm dev   # api :5050 + web :5173
+pnpm dev:mobile
 ```
 
-Después, desde `apps/mobile/`:
+(`pnpm dev`, sin `:mobile`, sigue existiendo y sólo levanta api+web —
+lo de siempre para trabajar en la web sola.)
 
-```bash
-npx expo start          # imprime un QR + exp://<tu-IP-LAN>:8081
-npx expo start --web    # fallback en navegador, ver limitaciones abajo
-```
+Alternativa manual, sólo la app (si api/web ya están arriba por su
+cuenta): `pnpm --filter mobile run dev` (alias de `expo start --lan`),
+o desde `apps/mobile/` directamente `npx expo start --web` para el
+fallback en navegador (ver limitaciones abajo).
 
 ### Probar en un teléfono físico (Android/iOS, misma red WiFi)
 
 1. Instalá **Expo Go** en el teléfono.
-2. Corré `npx expo start` en esta carpeta.
+2. Corré `pnpm dev:mobile` (o `npx expo start` desde esta carpeta).
 3. Escaneá el QR (o entrá manualmente `exp://<IP-LAN-de-tu-PC>:8081`).
 4. La app resuelve la URL de la API sola: usa la MISMA IP que Metro
    (`Constants.expoConfig.hostUri`, puerto :5050) — no hace falta
