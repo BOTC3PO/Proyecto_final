@@ -74,6 +74,8 @@ export type ChartBlock = {
   yAxisLabel?: string
   showGrid?: boolean       // default true
   showLegend?: boolean     // default true
+  strokeWidth?: number     // grosor de línea (line, area, area-stacked, timeseries); default 2
+  showValues?: boolean     // etiquetas de valor sobre las marcas; default false
 }
 
 export type FlowBlock = {

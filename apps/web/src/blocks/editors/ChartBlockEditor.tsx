@@ -1,4 +1,4 @@
-import { useId } from "react"
+import { useId, useState } from "react"
 import type { ChartBlock, TableBlock, BlockDocument } from "../types"
 import { ChartBlockRenderer } from "../renderers/ChartBlockRenderer"
 import { Button } from "../../components/ui"
@@ -80,21 +80,16 @@ export function ChartBlockEditor({
   // PLAN-O — Ejes + Estilo: mismos tipos "cartesianos" que sabe dibujar
   // ChartBlockRenderer con CartesianGrid/XAxis/YAxis (ver ese archivo).
   const hasAxes = isMultiSeries || block.chartType === "timeseries"
+  // Grosor de línea: sólo los tipos que dibujan trazo (Line/Area).
+  const hasStroke =
+    block.chartType === "line" ||
+    block.chartType === "area" ||
+    block.chartType === "area-stacked" ||
+    block.chartType === "timeseries"
 
   const updateDatasetLabel = (i: number, label: string) => {
     const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
       idx === i ? { ...ds, label } : ds
-    )
-    onUpdate({ data: { ...block.data, datasets } })
-  }
-
-  const updateDatasetValues = (i: number, raw: string) => {
-    const values = raw
-      .split(",")
-      .map((s) => Number(s.trim()))
-      .filter((n) => !isNaN(n))
-    const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
-      idx === i ? { ...ds, values } : ds
     )
     onUpdate({ data: { ...block.data, datasets } })
   }
@@ -107,18 +102,66 @@ export function ChartBlockEditor({
   }
 
   const addDataset = () => {
-    const datasets = [...(block.data?.datasets ?? []), { label: "", values: [] }]
-    onUpdate({ data: { ...block.data, datasets } })
+    const nextDatasets = [
+      ...(block.data?.datasets ?? []),
+      { label: "", values: Array.from({ length: rowCount }, () => 0) },
+    ]
+    onUpdate({ data: { ...block.data, datasets: nextDatasets } })
   }
 
   const removeDataset = (i: number) => {
     const datasets = (block.data?.datasets ?? []).filter((_, idx) => idx !== i)
+    setGridVersion((v) => v + 1)
     onUpdate({ data: { ...block.data, datasets } })
   }
 
-  const updateLabels = (raw: string) => {
-    const labels = raw.split(",").map((s) => s.trim())
-    onUpdate({ data: { ...block.data, labels } })
+  // PLAN-O (corrección) — DATOS como tabla de filas editable, como el
+  // prototipo: una fila por etiqueta, una columna por serie, + Agregar fila.
+  // Los inputs de valores son uncontrolled (onBlur) para poder tipear "-" o
+  // borrar sin pelear con el parseo; `gridVersion` remonta el tbody cuando
+  // se elimina una fila/serie para que no queden defaultValue viejos.
+  const [gridVersion, setGridVersion] = useState(0)
+  const labels = block.data?.labels ?? []
+  const datasets = block.data?.datasets ?? []
+  const rowCount = Math.max(labels.length, ...datasets.map((ds) => ds.values.length), 0)
+  const rows = Array.from({ length: rowCount }, (_, r) => r)
+
+  const paddedLabels = () =>
+    Array.from({ length: rowCount }, (_, r) => labels[r] ?? "")
+  const paddedValues = (ds: { values: number[] }) =>
+    Array.from({ length: rowCount }, (_, r) => ds.values[r] ?? 0)
+
+  const updateRowLabel = (row: number, value: string) => {
+    const next = paddedLabels()
+    next[row] = value
+    onUpdate({ data: { ...block.data, labels: next } })
+  }
+
+  const updateCellValue = (row: number, seriesIdx: number, raw: string) => {
+    const num = Number(raw.trim())
+    const nextDatasets = datasets.map((ds, idx) => {
+      if (idx !== seriesIdx) return ds
+      const values = paddedValues(ds)
+      values[row] = isNaN(num) ? 0 : num
+      return { ...ds, values }
+    })
+    onUpdate({ data: { ...block.data, datasets: nextDatasets } })
+  }
+
+  const addRow = () => {
+    const nextLabels = [...paddedLabels(), ""]
+    const nextDatasets = datasets.map((ds) => ({ ...ds, values: [...paddedValues(ds), 0] }))
+    onUpdate({ data: { ...block.data, labels: nextLabels, datasets: nextDatasets } })
+  }
+
+  const removeRow = (row: number) => {
+    const nextLabels = paddedLabels().filter((_, r) => r !== row)
+    const nextDatasets = datasets.map((ds) => ({
+      ...ds,
+      values: paddedValues(ds).filter((_, r) => r !== row),
+    }))
+    setGridVersion((v) => v + 1)
+    onUpdate({ data: { ...block.data, labels: nextLabels, datasets: nextDatasets } })
   }
 
   return (
@@ -193,70 +236,110 @@ export function ChartBlockEditor({
           </div>
         </>
       ) : (
-        <>
-          <div>
-            <label htmlFor={labelsId} className={labelCls}>
-              Etiquetas (separadas por coma)
-            </label>
-            <input
-              id={labelsId}
-              className={inputCls}
-              value={block.data?.labels.join(", ") ?? ""}
-              onChange={(e) => updateLabels(e.target.value)}
-              placeholder="A, B, C"
-            />
+        <div>
+          <span id={labelsId} className={labelCls}>Datos</span>
+          <div className="overflow-x-auto border border-[var(--c-border)] rounded">
+            <table className="w-full border-collapse text-xs" aria-labelledby={labelsId}>
+              <thead>
+                <tr className="bg-[var(--c-bg)]">
+                  <th className="border-b border-r border-[var(--c-border)] px-1 py-1 text-left font-medium text-[var(--c-muted)] min-w-[72px]">
+                    Etiqueta
+                  </th>
+                  {datasets.map((ds, i) => (
+                    <th key={i} className="border-b border-r border-[var(--c-border)] px-1 py-1 min-w-[64px]">
+                      <div className="flex items-center gap-1">
+                        <input
+                          className={inputCls + " min-w-[48px]"}
+                          value={ds.label}
+                          aria-label={`Nombre de la serie ${i + 1}`}
+                          onChange={(e) => updateDatasetLabel(i, e.target.value)}
+                          placeholder={`Serie ${i + 1}`}
+                        />
+                        {isMultiSeries && (
+                          <input
+                            type="color"
+                            className="w-5 h-5 rounded border border-[var(--c-border)] cursor-pointer p-0.5 shrink-0 bg-transparent"
+                            value={ds.color ?? "#6366f1"}
+                            aria-label={`Color de la serie ${i + 1}`}
+                            onChange={(e) => updateDatasetColor(i, e.target.value)}
+                            title="Color de serie"
+                          />
+                        )}
+                        {isMultiSeries && datasets.length > 1 && (
+                          <button
+                            type="button"
+                            onClick={() => removeDataset(i)}
+                            className="text-[var(--c-danger)] hover:opacity-80 px-0.5 text-sm shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
+                            aria-label={`Eliminar serie ${i + 1}`}
+                            title="Eliminar serie"
+                          >
+                            ×
+                          </button>
+                        )}
+                      </div>
+                    </th>
+                  ))}
+                  <th className="border-b border-[var(--c-border)] w-6" aria-hidden="true" />
+                </tr>
+              </thead>
+              <tbody key={`${block.id}-${gridVersion}`}>
+                {rows.map((r) => (
+                  <tr key={r}>
+                    <td className="border-b border-r border-[var(--c-border)] px-1 py-0.5">
+                      <input
+                        className={inputCls}
+                        defaultValue={labels[r] ?? ""}
+                        aria-label={`Etiqueta de la fila ${r + 1}`}
+                        onBlur={(e) => updateRowLabel(r, e.target.value)}
+                        placeholder={`Fila ${r + 1}`}
+                      />
+                    </td>
+                    {datasets.map((ds, i) => (
+                      <td key={i} className="border-b border-r border-[var(--c-border)] px-1 py-0.5">
+                        <input
+                          className={inputCls + " text-right"}
+                          inputMode="decimal"
+                          defaultValue={ds.values[r] ?? 0}
+                          aria-label={`Valor de la serie ${i + 1}, fila ${r + 1}`}
+                          onBlur={(e) => updateCellValue(r, i, e.target.value)}
+                        />
+                      </td>
+                    ))}
+                    <td className="border-b border-[var(--c-border)] text-center">
+                      <button
+                        type="button"
+                        onClick={() => removeRow(r)}
+                        className="text-[var(--c-danger)] hover:opacity-80 px-1 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
+                        aria-label={`Eliminar fila ${r + 1}`}
+                        title="Eliminar fila"
+                      >
+                        ×
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          {(block.data?.datasets ?? []).map((ds, i) => (
-            <div key={i} className="space-y-1 border border-[var(--c-border)] rounded p-2">
-              <div className="flex items-center gap-1">
-                <input
-                  className={inputCls + " flex-1"}
-                  value={ds.label}
-                  aria-label={`Nombre de la serie ${i + 1}`}
-                  onChange={(e) => updateDatasetLabel(i, e.target.value)}
-                  placeholder="Nombre de serie"
-                />
-                {isMultiSeries && (
-                  <input
-                    type="color"
-                    className="w-6 h-6 rounded border border-[var(--c-border)] cursor-pointer p-0.5 shrink-0 bg-transparent"
-                    value={ds.color ?? "#6366f1"}
-                    aria-label={`Color de la serie ${i + 1}`}
-                    onChange={(e) => updateDatasetColor(i, e.target.value)}
-                    title="Color de serie"
-                  />
-                )}
-                {isMultiSeries && (block.data?.datasets ?? []).length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => removeDataset(i)}
-                    className="text-[var(--c-danger)] hover:opacity-80 px-1 text-sm shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
-                    aria-label={`Eliminar serie ${i + 1}`}
-                    title="Eliminar serie"
-                  >
-                    ×
-                  </button>
-                )}
-              </div>
-              <input
-                className={inputCls}
-                defaultValue={ds.values.join(", ")}
-                aria-label={`Valores de la serie ${i + 1} (separados por coma)`}
-                onBlur={(e) => updateDatasetValues(i, e.target.value)}
-                placeholder="0, 0, 0"
-              />
-            </div>
-          ))}
-          {isMultiSeries && (
+          <div className="flex gap-1 mt-1">
             <button
               type="button"
-              onClick={addDataset}
-              className="text-xs px-2 py-1 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-hover)] rounded w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+              onClick={addRow}
+              className="text-xs px-2 py-1 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-hover)] rounded flex-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
             >
-              + Agregar serie
+              + Agregar fila
             </button>
-          )}
-        </>
+            {isMultiSeries && (
+              <button
+                type="button"
+                onClick={addDataset}
+                className="text-xs px-2 py-1 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-hover)] rounded flex-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+              >
+                + Agregar serie
+              </button>
+            )}
+          </div>
+        </div>
       )}
 
       {hasAxes && (
@@ -279,6 +362,30 @@ export function ChartBlockEditor({
               />
               Leyenda
             </label>
+            <label className="flex items-center gap-2 text-xs text-[var(--c-muted)] cursor-pointer py-0.5">
+              <input
+                type="checkbox"
+                checked={block.showValues === true}
+                onChange={(e) => onUpdate({ showValues: e.target.checked })}
+              />
+              Etiquetas de valor
+            </label>
+            {hasStroke && (
+              <label className="flex items-center gap-2 text-xs text-[var(--c-muted)] cursor-pointer py-0.5">
+                <span className="shrink-0">Grosor línea</span>
+                <input
+                  type="range"
+                  min={1}
+                  max={6}
+                  step={0.5}
+                  className="flex-1 min-w-0"
+                  value={block.strokeWidth ?? 2}
+                  aria-label="Grosor de línea"
+                  onChange={(e) => onUpdate({ strokeWidth: Number(e.target.value) })}
+                />
+                <span className="font-mono w-6 text-right">{block.strokeWidth ?? 2}</span>
+              </label>
+            )}
           </div>
 
           <div className="pt-1 border-t border-[var(--c-border)]">

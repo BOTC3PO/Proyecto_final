@@ -69,6 +69,7 @@ function renderBlock(block: Block, book: Book) {
         lineHeight,
         fontWeight: run0?.style?.bold ? "bold" : "normal",
         fontStyle: run0?.style?.italic ? "italic" : "normal",
+        textDecoration: run0?.style?.underline ? "underline" : undefined,
         whiteSpace: "pre-wrap",
       };
       return <p style={style}>{text}</p>;

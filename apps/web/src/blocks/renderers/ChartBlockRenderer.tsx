@@ -24,6 +24,7 @@ import {
   PolarRadiusAxis,
   ComposedChart,
   Treemap,
+  LabelList,
 } from "recharts"
 import type { ChartBlock, BlockDocument, TableBlock } from "../types"
 import {
@@ -641,6 +642,17 @@ export function ChartBlockRenderer({ block, doc }: Props) {
   // (bar, bar-stacked, bar-grouped, line, area, area-stacked, timeseries).
   const showGrid = block.showGrid !== false
   const showLegend = block.showLegend !== false
+  const strokeWidth = block.strokeWidth ?? 2
+  // Etiquetas de valor sobre las marcas (checkbox "Etiquetas de valor").
+  // En apilados van adentro del segmento; en el resto, arriba de la marca.
+  const valueLabels = (key: string) =>
+    block.showValues ? (
+      <LabelList
+        dataKey={key}
+        position={block.chartType.includes("stacked") ? "inside" : "top"}
+        fontSize={10}
+      />
+    ) : null
   const xAxisLabelProp = block.xAxisLabel
     ? { value: block.xAxisLabel, position: "insideBottom" as const, offset: -5 }
     : undefined
@@ -725,8 +737,11 @@ export function ChartBlockRenderer({ block, doc }: Props) {
                 type="monotone"
                 dataKey={key}
                 stroke={seriesColors[i]}
+                strokeWidth={strokeWidth}
                 dot={false}
-              />
+              >
+                {valueLabels(key)}
+              </Line>
             ))}
           </LineChart>
         </ResponsiveContainer>
@@ -754,9 +769,12 @@ export function ChartBlockRenderer({ block, doc }: Props) {
                 type="monotone"
                 dataKey={key}
                 stroke={seriesColors[i]}
+                strokeWidth={strokeWidth}
                 fill={seriesColors[i]}
                 fillOpacity={0.3}
-              />
+              >
+                {valueLabels(key)}
+              </Area>
             ))}
           </AreaChart>
         </ResponsiveContainer>
@@ -784,10 +802,13 @@ export function ChartBlockRenderer({ block, doc }: Props) {
                 type="monotone"
                 dataKey={key}
                 stroke={seriesColors[i]}
+                strokeWidth={strokeWidth}
                 fill={seriesColors[i]}
                 fillOpacity={0.3}
                 stackId="stack"
-              />
+              >
+                {valueLabels(key)}
+              </Area>
             ))}
           </AreaChart>
         </ResponsiveContainer>
@@ -810,7 +831,9 @@ export function ChartBlockRenderer({ block, doc }: Props) {
             <Tooltip />
             {showLegend && <Legend />}
             {seriesKeys.map((key, i) => (
-              <Bar key={key} dataKey={key} fill={seriesColors[i]} stackId="stack" />
+              <Bar key={key} dataKey={key} fill={seriesColors[i]} stackId="stack">
+                {valueLabels(key)}
+              </Bar>
             ))}
           </BarChart>
         </ResponsiveContainer>
@@ -833,7 +856,9 @@ export function ChartBlockRenderer({ block, doc }: Props) {
             <Tooltip />
             {showLegend && <Legend />}
             {seriesKeys.map((key, i) => (
-              <Bar key={key} dataKey={key} fill={seriesColors[i]} />
+              <Bar key={key} dataKey={key} fill={seriesColors[i]}>
+                {valueLabels(key)}
+              </Bar>
             ))}
           </BarChart>
         </ResponsiveContainer>
@@ -877,8 +902,11 @@ export function ChartBlockRenderer({ block, doc }: Props) {
                 type="monotone"
                 dataKey={key}
                 stroke={seriesColors[i]}
+                strokeWidth={strokeWidth}
                 dot={false}
-              />
+              >
+                {valueLabels(key)}
+              </Line>
             ))}
           </LineChart>
         </ResponsiveContainer>

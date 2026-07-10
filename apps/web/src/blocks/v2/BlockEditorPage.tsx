@@ -69,6 +69,7 @@ import { FunctionSquare, Shapes } from "lucide-react";
 import { useBlockEditor } from "./state/useBlockEditor";
 import { fetchBlockDocument, saveBlockDocument } from "./services/blocksApi";
 import { Button, Pill, Input, Select } from "../../components/ui";
+import Modal from "../../ui/Modal";
 import { GuardarComoMaterial } from "../../components/materiales/GuardarComoMaterial";
 import { apiGet } from "../../lib/api";
 
@@ -711,6 +712,9 @@ export default function BlockEditorPage({
 
   // PLAN-O — vista de lienzo escritorio/móvil (mismo patrón que BookEditorPage).
   const [desktopView, setDesktopView] = useState(true);
+  // PLAN-O (corrección) — "Vista previa": el documento como lo ve el
+  // alumno (mismos renderers del visor), sin chrome de edición.
+  const [showPreview, setShowPreview] = useState(false);
 
   // PLAN-O — "Guardado hace Ns": se marca cada vez que `dirty` pasa de true a
   // false (cualquier vía: API, archivo local, o volver desde el overlay).
@@ -1248,6 +1252,9 @@ export default function BlockEditorPage({
           )}
         </div>
 
+        <Button variant="ghost" size="sm" onClick={() => setShowPreview(true)}>
+          Vista previa
+        </Button>
         <GuardarComoMaterial
           tipo="interactivo"
           defaultTitulo={title}
@@ -1258,6 +1265,24 @@ export default function BlockEditorPage({
           Guardar
         </Button>
       </header>
+
+      {/* ═══ VISTA PREVIA ═════════════════════════════════════════════════════ */}
+      <Modal
+        open={showPreview}
+        onClose={() => setShowPreview(false)}
+        title={title || "Vista previa"}
+        size="lg"
+      >
+        <div className="max-h-[70vh] overflow-y-auto space-y-4 pr-1">
+          {doc.blocks.length === 0 ? (
+            <p className="text-sm text-[var(--c-muted)] italic text-center py-8">
+              El documento no tiene bloques todavía.
+            </p>
+          ) : (
+            doc.blocks.map((b) => <SingleBlockRenderer key={b.id} block={b} doc={doc} />)
+          )}
+        </div>
+      </Modal>
 
       {/* ═══ BODY ═════════════════════════════════════════════════════════════ */}
       <div className="flex flex-1 overflow-hidden">

@@ -1302,7 +1302,8 @@ function InlineBlock({
     const style: React.CSSProperties = {
       fontFamily: blockFontFamily,
       fontSize,
-      color: textColor,
+      // PLAN-W fase 1 (corrección): color de textStyle antes no se veía acá.
+      color: block.textStyle?.color ?? textColor,
       textAlign: align,
       fontWeight: block.textStyle?.bold !== false ? "bold" : "normal",
       fontStyle: block.textStyle?.italic ? "italic" : "normal",
@@ -1358,7 +1359,12 @@ function InlineBlock({
     const style: React.CSSProperties = {
       fontFamily: blockFontFamily,
       fontSize: blockFontSize,
-      color: textColor,
+      // PLAN-W fase 1 (corrección): el lienzo tiene que mostrar lo que la
+      // toolbar setea en runs[0].style — antes B/I/U/color no se veían acá.
+      color: run0?.style?.color ?? textColor,
+      fontWeight: run0?.style?.bold ? "bold" : "normal",
+      fontStyle: run0?.style?.italic ? "italic" : "normal",
+      textDecoration: run0?.style?.underline ? "underline" : undefined,
       textAlign: align,
       textIndent: indentPx ? `${indentPx}px` : undefined,
       background: "transparent",
@@ -2277,21 +2283,37 @@ export default function BookEditorPage() {
             />
           </label>
 
-          {/* Nivel de heading (solo si el bloque es heading) */}
-          {isHeading && page && (
-            <>
-              <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
-              <select
-                className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 w-16 focus:outline-none"
-                value={block.level}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                  dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { level: Number(e.target.value) as 1|2|3|4|5|6 } });
+          {/* PLAN-W §3 fase 1 — galería de estilos: Normal / Título 1-4
+              convierten el bloque actual (párrafo ↔ título), como los
+              estilos rápidos de Word. Reemplaza al select H1-H6 previo. */}
+          <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
+          <div className="flex items-center gap-0.5" role="group" aria-label="Estilos de bloque">
+            <ToolbarButton
+              disabled={isDisabled || (!isParagraph && !isHeading)}
+              active={isParagraph}
+              title="Texto normal"
+              onClick={() => {
+                if (!block || !page) return;
+                dispatch({ type: "CONVERT_BLOCK", pageId: page.id, blockId: block.id, to: "paragraph" });
+              }}
+            >
+              Normal
+            </ToolbarButton>
+            {([1, 2, 3, 4] as const).map((l) => (
+              <ToolbarButton
+                key={l}
+                disabled={isDisabled || (!isParagraph && !isHeading)}
+                active={isHeading && block.level === l}
+                title={`Título ${l}`}
+                onClick={() => {
+                  if (!block || !page) return;
+                  dispatch({ type: "CONVERT_BLOCK", pageId: page.id, blockId: block.id, to: { heading: l } });
                 }}
               >
-                {[1,2,3,4,5,6].map((l) => <option key={l} value={l}>H{l}</option>)}
-              </select>
-            </>
-          )}
+                <span style={{ fontSize: 13 - l, fontWeight: 700 }}>T{l}</span>
+              </ToolbarButton>
+            ))}
+          </div>
 
           {/* Spacer */}
           <div className="flex-1" />

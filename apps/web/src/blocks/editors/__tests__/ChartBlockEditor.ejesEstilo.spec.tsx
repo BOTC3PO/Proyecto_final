@@ -96,4 +96,106 @@ describe("ChartBlockEditor — Estilo y Ejes (PLAN-O)", () => {
 
     expect(screen.getByText("Ejes")).toBeInTheDocument();
   });
+
+  it("Etiquetas de valor arranca destildada y tildar llama con showValues: true", () => {
+    const onUpdate = vi.fn();
+    render(<ChartBlockEditor block={barBlock()} doc={emptyDoc} onUpdate={onUpdate} />);
+
+    const checkbox = screen.getByLabelText("Etiquetas de valor");
+    expect(checkbox).not.toBeChecked();
+    fireEvent.click(checkbox);
+    expect(onUpdate).toHaveBeenCalledWith({ showValues: true });
+  });
+
+  it("Grosor de línea: aparece sólo en tipos con trazo y llama con strokeWidth", () => {
+    const onUpdate = vi.fn();
+    const { rerender } = render(
+      <ChartBlockEditor block={barBlock({ chartType: "line" })} doc={emptyDoc} onUpdate={onUpdate} />
+    );
+
+    const slider = screen.getByLabelText("Grosor de línea");
+    fireEvent.change(slider, { target: { value: "3.5" } });
+    expect(onUpdate).toHaveBeenCalledWith({ strokeWidth: 3.5 });
+
+    rerender(<ChartBlockEditor block={barBlock()} doc={emptyDoc} onUpdate={onUpdate} />);
+    expect(screen.queryByLabelText("Grosor de línea")).not.toBeInTheDocument();
+  });
+});
+
+describe("ChartBlockEditor — tabla de datos editable (PLAN-O corrección)", () => {
+  it("modo manual: una fila por etiqueta y una columna por serie", () => {
+    render(<ChartBlockEditor block={barBlock()} doc={emptyDoc} onUpdate={vi.fn()} />);
+
+    expect(screen.getByLabelText("Etiqueta de la fila 1")).toHaveValue("A");
+    expect(screen.getByLabelText("Etiqueta de la fila 2")).toHaveValue("B");
+    expect(screen.getByLabelText("Valor de la serie 1, fila 1")).toHaveValue("1");
+    expect(screen.getByLabelText("Valor de la serie 1, fila 2")).toHaveValue("2");
+    expect(screen.getByText("+ Agregar fila")).toBeInTheDocument();
+  });
+
+  it("editar una celda (blur) llama a onUpdate con el valor puesto en su fila", () => {
+    const onUpdate = vi.fn();
+    render(<ChartBlockEditor block={barBlock()} doc={emptyDoc} onUpdate={onUpdate} />);
+
+    fireEvent.blur(screen.getByLabelText("Valor de la serie 1, fila 2"), {
+      target: { value: "9" },
+    });
+    expect(onUpdate).toHaveBeenCalledWith({
+      data: {
+        labels: ["A", "B"],
+        datasets: [{ label: "Serie 1", values: [1, 9] }],
+      },
+    });
+  });
+
+  it("+ Agregar fila agrega etiqueta vacía y un 0 en cada serie (con padding)", () => {
+    const onUpdate = vi.fn();
+    // Serie 2 más corta a propósito: el padding tiene que emparejarla.
+    const block = barBlock({
+      data: {
+        labels: ["A", "B"],
+        datasets: [
+          { label: "S1", values: [1, 2] },
+          { label: "S2", values: [5] },
+        ],
+      },
+    });
+    render(<ChartBlockEditor block={block} doc={emptyDoc} onUpdate={onUpdate} />);
+
+    fireEvent.click(screen.getByText("+ Agregar fila"));
+    expect(onUpdate).toHaveBeenCalledWith({
+      data: {
+        labels: ["A", "B", ""],
+        datasets: [
+          { label: "S1", values: [1, 2, 0] },
+          { label: "S2", values: [5, 0, 0] },
+        ],
+      },
+    });
+  });
+
+  it("eliminar una fila la saca de las etiquetas y de todas las series", () => {
+    const onUpdate = vi.fn();
+    const block = barBlock({
+      data: {
+        labels: ["A", "B"],
+        datasets: [
+          { label: "S1", values: [1, 2] },
+          { label: "S2", values: [5, 6] },
+        ],
+      },
+    });
+    render(<ChartBlockEditor block={block} doc={emptyDoc} onUpdate={onUpdate} />);
+
+    fireEvent.click(screen.getByLabelText("Eliminar fila 1"));
+    expect(onUpdate).toHaveBeenCalledWith({
+      data: {
+        labels: ["B"],
+        datasets: [
+          { label: "S1", values: [2] },
+          { label: "S2", values: [6] },
+        ],
+      },
+    });
+  });
 });
