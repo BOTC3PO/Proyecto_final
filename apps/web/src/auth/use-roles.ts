@@ -17,6 +17,7 @@ import {
   hasRole,
   isAdmin,
   isDirectivo,
+  isPureParent,
   isStaff,
   isTeacher,
   resolvePrimaryRole,
@@ -90,4 +91,11 @@ export function useIsDirectivo(): boolean {
 export function useCanActAsLearner(): boolean {
   const { user } = useAuth();
   return useMemo(() => canActAsLearner(user as RoleUser | null), [user]);
+}
+
+/** ¿El user es PARENT puro (sin ningún otro rol)? Un PARENT+USER o
+ *  PARENT+TEACHER devuelve `false` (retiene su otra capacidad). */
+export function useIsPureParent(): boolean {
+  const { user } = useAuth();
+  return useMemo(() => isPureParent(user as RoleUser | null), [user]);
 }

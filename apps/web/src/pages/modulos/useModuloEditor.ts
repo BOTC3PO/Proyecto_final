@@ -26,6 +26,8 @@ export type ModuleFormState = {
   durationMinutes: number;
   visibility: Module["visibility"];
   visibilitySchoolId: string;
+  // PLAN-X §7 — oculto de los listados generales salvo dueño/invitado/aula.
+  descatalogado: boolean;
   dependencies: ModuleDependency[];
   /** WO-3 — escala de notas del módulo (id de sistema del catálogo de scoring). */
   scoringSystemId?: string;
@@ -81,7 +83,7 @@ export function useModuloEditor(
   const defaultForm: ModuleFormState = {
     title: "", description: "", subject: "", category: "sin-categoria",
     level: "", durationMinutes: 30, visibility: "publico",
-    visibilitySchoolId: "", dependencies: [],
+    visibilitySchoolId: "", descatalogado: false, dependencies: [],
   };
 
   const [form, setForm] = useState<ModuleFormState>(() => {

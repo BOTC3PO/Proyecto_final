@@ -146,6 +146,7 @@ export function useModuloPersistence(): UsePersistenceReturn {
         durationMinutes: module.durationMinutes ?? 30,
         visibility: module.visibility,
         visibilitySchoolId: module.schoolId ?? "",
+        descatalogado: module.descatalogado === true,
         dependencies: module.dependencies ?? [],
         // WO-3 — escala de notas del módulo (si el back la trae).
         scoringSystemId: module.scoringConfig?.systemId,
@@ -270,6 +271,7 @@ export function useModuloPersistence(): UsePersistenceReturn {
           visibility: form.visibility,
           schoolId:
             form.visibility === "escuela" ? form.visibilitySchoolId || undefined : undefined,
+          descatalogado: form.descatalogado,
           dependencies: form.dependencies,
           // WO-3 — escala de notas del módulo. Sólo se envía si el docente eligió
           // una; ausente = el back deja `scoringConfig` nulo (fallback histórico).

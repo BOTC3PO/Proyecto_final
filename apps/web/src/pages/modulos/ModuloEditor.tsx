@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { useIsTeacher } from "../../auth/use-roles";
+import { apiGet, apiPost, apiDelete, ApiError } from "../../lib/api";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
 import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
 import { Modal, Button, Spinner, Alert } from "../../ui";
@@ -881,6 +882,31 @@ export default function ModuloEditor() {
                     </select>
                   </div>
                 </div>
+
+                {/* PLAN-X §7 — descatalogado: oculto de los listados generales
+                    sin borrarse. Sigue visible para vos, para alumnos
+                    invitados y para cualquier aula donde lo asignes. */}
+                <label className="flex items-start gap-2.5 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-sm text-[var(--c-text)]">
+                  <input
+                    type="checkbox"
+                    className="mt-0.5"
+                    checked={form.descatalogado}
+                    onChange={(event) => updateForm("descatalogado", event.target.checked)}
+                    data-testid="modulo-field-descatalogado"
+                  />
+                  <span>
+                    <span className="font-medium flex items-center gap-1.5">&#128065;&#8203;&#128683; Descatalogado</span>
+                    <span className="mt-0.5 block text-xs text-[var(--c-muted)]">
+                      No aparece en los listados generales de módulos. Sigue
+                      visible para vos, para alumnos que invites abajo, y
+                      para cualquier aula donde lo asignes.
+                    </span>
+                  </span>
+                </label>
+
+                {isEditing && form.descatalogado ? (
+                  <ModuloInvitadosPanel moduloId={id!} />
+                ) : null}
 
                 {/* School picker — only shown when visibility = "escuela" */}
                 {form.visibility === "escuela" ? (
@@ -2414,5 +2440,150 @@ function EvaluacionConfigEditor({
       // PLAN-D §1 — wireado de la política de cierre por expiración.
       onChangePoliticaExpiracion={(next) => updateQuiz(quiz.id, { politicaExpiracion: next })}
     />
+  );
+}
+
+// PLAN-X §7 — gestión de invitados de un módulo descatalogado. Sólo el
+// dueño puede llamar estos endpoints (403 server-side si no lo es); el
+// panel sólo se muestra en el editor del propio módulo, así que en la
+// práctica siempre es el dueño quien lo ve.
+type InvitadoItem = { usuarioId: string; name: string };
+type UsuarioCandidato = { id: string; username: string };
+
+function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
+  const [invitados, setInvitados] = useState<InvitadoItem[]>([]);
+  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [candidatos, setCandidatos] = useState<UsuarioCandidato[]>([]);
+  const [search, setSearch] = useState("");
+  const [inviting, setInviting] = useState<string | null>(null);
+
+  const loadInvitados = () => {
+    setStatus("loading");
+    apiGet<{ items: InvitadoItem[] }>(`/api/modulos/${moduloId}/invitados`)
+      .then((data) => {
+        setInvitados(data.items ?? []);
+        setStatus("ready");
+      })
+      .catch((error) => {
+        setStatus("error");
+        setErrorMessage(error instanceof Error ? error.message : "No se pudo cargar la lista.");
+      });
+  };
+
+  useEffect(() => {
+    loadInvitados();
+    apiGet<{ items: UsuarioCandidato[] }>("/api/usuarios")
+      .then((data) => setCandidatos(data.items ?? []))
+      .catch(() => setCandidatos([]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [moduloId]);
+
+  const invitedIds = useMemo(() => new Set(invitados.map((i) => i.usuarioId)), [invitados]);
+  const matches = useMemo(() => {
+    const term = search.trim().toLowerCase();
+    if (!term) return [];
+    return candidatos
+      .filter((u) => !invitedIds.has(u.id) && u.username.toLowerCase().includes(term))
+      .slice(0, 8);
+  }, [search, candidatos, invitedIds]);
+
+  const invitar = async (usuarioId: string) => {
+    setInviting(usuarioId);
+    try {
+      await apiPost(`/api/modulos/${moduloId}/invitados`, { usuarioId });
+      setSearch("");
+      loadInvitados();
+    } catch (error) {
+      setErrorMessage(
+        error instanceof ApiError ? error.message : "No se pudo invitar al alumno."
+      );
+    } finally {
+      setInviting(null);
+    }
+  };
+
+  const desinvitar = async (usuarioId: string) => {
+    try {
+      await apiDelete(`/api/modulos/${moduloId}/invitados/${usuarioId}`);
+      setInvitados((prev) => prev.filter((i) => i.usuarioId !== usuarioId));
+    } catch (error) {
+      setErrorMessage(
+        error instanceof ApiError ? error.message : "No se pudo quitar la invitación."
+      );
+    }
+  };
+
+  return (
+    <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-3">
+      <p className="flex items-center gap-2 text-xs font-semibold text-[var(--c-text)]">
+        Alumnos invitados
+        <span className="rounded-full bg-[var(--c-surface)] px-2 py-0.5 text-[10px] text-[var(--c-muted)]">
+          {invitados.length}
+        </span>
+      </p>
+      <p className="text-xs text-[var(--c-muted)]">
+        Los alumnos invitados ven este módulo aunque esté descatalogado.
+      </p>
+
+      {errorMessage && (
+        <p className="text-xs text-[var(--c-danger)]">{errorMessage}</p>
+      )}
+
+      <div className="relative">
+        <input
+          className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-xs transition-colors focus:border-[var(--c-primary)] focus:outline-none"
+          placeholder="Buscar alumno por usuario..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          data-testid="modulo-invitar-search"
+        />
+        {matches.length > 0 && (
+          <ul className="absolute z-10 mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm">
+            {matches.map((u) => (
+              <li key={u.id}>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between px-3 py-2 text-left text-xs hover:bg-[var(--c-bg)]"
+                  onClick={() => invitar(u.id)}
+                  disabled={inviting === u.id}
+                >
+                  <span>{u.username}</span>
+                  <span className="text-[var(--c-primary)]">
+                    {inviting === u.id ? "Invitando..." : "Invitar"}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {status === "loading" ? (
+        <p className="text-xs text-[var(--c-muted)]">Cargando invitados...</p>
+      ) : status === "error" ? (
+        <p className="text-xs text-[var(--c-danger)]">No se pudo cargar la lista de invitados.</p>
+      ) : invitados.length === 0 ? (
+        <p className="text-xs text-[var(--c-muted)]">Todavía no invitaste a nadie.</p>
+      ) : (
+        <ul className="space-y-1.5" data-testid="modulo-invitados-list">
+          {invitados.map((i) => (
+            <li
+              key={i.usuarioId}
+              className="flex items-center justify-between rounded-md bg-[var(--c-surface)] px-2.5 py-1.5 text-xs"
+            >
+              <span>{i.name}</span>
+              <button
+                type="button"
+                className="text-[var(--c-danger)] hover:underline"
+                onClick={() => desinvitar(i.usuarioId)}
+              >
+                Quitar
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

@@ -31,6 +31,12 @@ export const QuizAttemptSubmitSchema = z.object({
         answerKey: z.union([z.string(), z.array(z.string())]).optional(),
         points: z.number().positive().optional(),
         toleranciaRelativa: z.number().optional(),
+        // F2-04: tolerancia absoluta (el cliente la envía cuando la plantilla
+        // la declara; sin esto zod la stripeaba y el criterio F2-04 se perdía
+        // en el path no-autoritativo).
+        toleranciaAbsoluta: z.number().optional(),
+        // WO-11 — tipo de pregunta ("expresion" → equivalencia simbólica).
+        questionType: z.string().optional(),
         // WO07 — pregunta abierta: sin clave de respuesta.
         //  - "ninguna": informativa, no puntúa (se excluye del maxScore).
         //  - "manual": la corrige el profe; el ítem queda pendiente al enviar.

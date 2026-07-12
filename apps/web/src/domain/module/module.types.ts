@@ -515,6 +515,9 @@ export type Module = {
   recommendedCourse?: string;
   visibility: ModuleVisibility;
   visibilityConfig?: ModuleVisibilityConfig | null;
+  // PLAN-X §7 — el profesor dueño oculta el módulo de los listados
+  // generales sin borrarlo; sigue visible para invitados y aulas.
+  descatalogado?: boolean;
   dependencies: ModuleDependency[];
   scoringConfig?: ModuleScoringConfig;
   rewardsConfig?: ModuleRewardsConfig;

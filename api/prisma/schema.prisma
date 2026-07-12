@@ -351,6 +351,21 @@ model ClaseModulo {
   @@map("clase_modulos")
 }
 
+// PLAN-X §7 — invitación individual a un módulo descatalogado. Espejo
+// deliberado de `ClaseModulo` (misma forma de join-table liviana, sin
+// relación Prisma a `Modulo`/`Usuario` — mismo criterio que esa tabla).
+// Un alumno invitado ve el módulo en los listados aunque esté
+// descatalogado; el docente dueño (o quien lo invitó) lo da de baja
+// borrando la fila.
+model ModuloInvitacion {
+  moduloId   String  @map("modulo_id")
+  usuarioId  String  @map("usuario_id")
+  invitedBy  String? @map("invited_by")
+  createdAt  String  @default("") @map("created_at")
+  @@id([moduloId, usuarioId])
+  @@map("modulo_invitaciones")
+}
+
 model ClasePublicacion {
   id          String @id
   claseId     String @map("clase_id")
@@ -570,6 +585,12 @@ model Modulo {
   libroId              String?  @map("libro_id")
   defaultQuestionCount Int?     @map("default_question_count")
   dependencies         String?
+  // PLAN-X §7 — "descatalogado": el profesor dueño oculta el módulo de
+  // los listados generales (`GET /api/modulos`, `/buscar`) sin borrarlo.
+  // Sigue visible para el dueño, para alumnos invitados
+  // (`ModuloInvitacion`) y para cualquier aula donde ya esté asignado
+  // (`ClaseModulo` — asignar a un aula es en sí el acto de habilitarlo).
+  descatalogado        Boolean  @default(false)
   isDeleted            Boolean  @default(false) @map("is_deleted")
   createdAt            String   @default("") @map("created_at")
   updatedAt            String   @default("") @map("updated_at")

@@ -655,6 +655,9 @@ export default function QuizAttempt() {
                 points: q.points,
                 toleranciaRelativa: q.toleranciaRelativa,
                 toleranciaAbsoluta: q.toleranciaAbsoluta,
+                // WO-11 — el server necesita el tipo para activar equivalencia
+                // simbólica ("expresion") en el path no-autoritativo.
+                questionType: q.questionType,
                 ...(q.correccion ? { correccion: q.correccion } : {}),
                 ...(q.manualGrading ? { manualGrading: q.manualGrading } : {}),
                 ...(q.questionType === "abierta" ? { prompt: q.prompt } : {}),

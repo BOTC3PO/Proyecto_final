@@ -252,6 +252,8 @@ export const ModuleSchema = z.object({
   recommendedCourse: z.string().min(1).optional(),
   visibility: ModuleVisibilitySchema,
   status: ModuleStatusSchema.default("ACTIVE"),
+  // PLAN-X §7 — oculto de los listados generales salvo dueño/invitado/aula.
+  descatalogado: z.boolean().optional(),
   visibilityConfig: ModuleVisibilityConfigSchema.nullable().optional(),
   dependencies: z.array(ModuleDependencySchema),
   scoringConfig: ModuleScoringConfigSchema.optional(),

@@ -23,6 +23,8 @@ import {
   jsonRequest,
 } from "./_helpers/setup";
 
+type SurveyOption = { id: string; label: string };
+
 let baseUrl: string;
 let close: () => Promise<void>;
 
@@ -33,6 +35,15 @@ const SURVEY_ID = "survey-abc-123";
 before(async () => {
   seedUser({ id: TEACHER_ID, role: "TEACHER" });
   seedUser({ id: STUDENT_ID, role: "STUDENT" });
+  prisma.clase.rows.push({
+    id: "aula-1",
+    escuelaId: "escuela-survey",
+    name: "Aula encuestas",
+    isDeleted: false,
+    status: "ACTIVE",
+    createdBy: TEACHER_ID,
+    createdAt: new Date().toISOString(),
+  });
 
   const { encuestas } = await import("../../src/routes/encuestas");
   const server = await startServer([encuestas]);
@@ -175,4 +186,49 @@ test("SEC-01: GET /api/encuestas con STUDENT → 200 (lectura pública con sesi�
     headers: { authorization: `Bearer ${token}` },
   });
   assert.equal(res.status, 200);
+});
+
+// ─── §1 PLAN-X: options debe llegar parseado (array), no como string JSON ──
+
+test("PLAN-X §1: GET /api/encuestas devuelve options como array, no string", async () => {
+  const teacherToken = tokenFor({ id: TEACHER_ID, role: "TEACHER" });
+  const studentToken = tokenFor({ id: STUDENT_ID, role: "STUDENT" });
+  const now = new Date();
+  const createRes = await jsonRequest(baseUrl, "POST", "/api/encuestas", {
+    token: teacherToken,
+    body: {
+      id: "survey-options-1",
+      title: "Encuesta con opciones",
+      description: "Verifica parseo de options",
+      classroomId: "aula-1",
+      type: "normal",
+      options: [
+        { id: "opt-1", label: "Opción 1" },
+        { id: "opt-2", label: "Opción 2" },
+      ],
+      startAt: now.toISOString(),
+      endAt: new Date(now.getTime() + 60_000).toISOString(),
+    },
+  });
+  assert.equal(createRes.status, 201, JSON.stringify(createRes.body));
+
+  const listRes = await fetch(`${baseUrl}/api/encuestas?aulaId=aula-1`, {
+    headers: { authorization: `Bearer ${studentToken}` },
+  });
+  assert.equal(listRes.status, 200);
+  const listBody = (await listRes.json()) as { items: Array<{ options: SurveyOption[] }> };
+  const listed = listBody.items.find((item) => Array.isArray(item.options) && item.options.length === 2);
+  assert.ok(listed, "la encuesta creada debe tener options como array de 2 elementos");
+  assert.deepEqual(
+    listed!.options.map((o) => o.id).sort(),
+    ["opt-1", "opt-2"]
+  );
+
+  const detailRes = await fetch(`${baseUrl}/api/encuestas/survey-options-1?aulaId=aula-1`, {
+    headers: { authorization: `Bearer ${studentToken}` },
+  });
+  assert.equal(detailRes.status, 200);
+  const detailBody = (await detailRes.json()) as { options: SurveyOption[] };
+  assert.ok(Array.isArray(detailBody.options), "GET /:id debe devolver options como array");
+  assert.equal(detailBody.options.length, 2);
 });

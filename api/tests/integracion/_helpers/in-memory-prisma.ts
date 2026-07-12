@@ -500,8 +500,18 @@ export type ModuloRow = {
   schoolId?: string | null;
   ownerUserId: string;
   dependencies?: string | null;
+  // PLAN-X §7 — oculto de los listados generales salvo dueño/invitado/aula.
+  descatalogado?: boolean;
   createdAt: string;
   updatedAt: string;
+};
+
+// PLAN-X §7 — invitación individual a un módulo descatalogado.
+export type ModuloInvitacionRow = {
+  moduloId: string;
+  usuarioId: string;
+  invitedBy?: string | null;
+  createdAt: string;
 };
 
 export type QuizRow = {
@@ -772,6 +782,7 @@ export class InMemoryPrisma {
   actividadAula = new Table<ActividadAulaRow>("actividadAula");
   calendarioEscuela = new Table<CalendarioEscuelaRow>("calendarioEscuela");
   modulo = new Table<ModuloRow>("modulo");
+  moduloInvitacion = new Table<ModuloInvitacionRow>("moduloInvitacion");
   quiz = new Table<QuizRow>("quiz");
   quizVersion = new Table<QuizVersionRow>("quizVersion");
   quizAttempt = new Table<QuizAttemptRow>("quizAttempt");

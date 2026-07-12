@@ -83,6 +83,7 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.actividadAula.rows = [];
   prisma.calendarioEscuela.rows = [];
   prisma.modulo.rows = [];
+  prisma.moduloInvitacion.rows = [];
   prisma.quiz.rows = [];
   prisma.quizVersion.rows = [];
   prisma.quizAttempt.rows = [];

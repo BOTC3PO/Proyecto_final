@@ -1,10 +1,8 @@
 /**
- * Mapeo del banco de preguntas hand-authored a/desde el shape JSON que
- * acepta `QuizImportJson.tsx` (Tarea 20). Round-trip: exportar y reimportar
- * produce las mismas preguntas (mismo `prompt`, mismas opciones, mismo
- * `answerKey`).
+ * Mapeo del banco de preguntas hand-authored al shape JSON que exporta
+ * el botón "Exportar JSON" de `BancoPreguntasEditor` (Tarea 20).
  *
- * Shape que el import acepta (de `QuizImportJson.buildQuestion`):
+ * Shape exportado:
  *   { enunciado, questionType: "mc" | "vf" | "input",
  *     options: string[], answerKey: string | string[],
  *     explanation: string }

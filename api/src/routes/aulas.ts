@@ -711,6 +711,25 @@ aulas.post(
       return res.status(400).json({ error: "classroom must keep at least one ADMIN and one TEACHER" });
     }
 
+    // PLAN-X §4 — persistir la altas/baja en ClaseMiembro. Antes `updatedMembers`
+    // se calculaba y se descartaba: sólo se tocaba `updatedAt`, el cambio de
+    // docente nunca quedaba guardado. Mismo patrón (create/deleteMany, sin
+    // upsert) que `POST/DELETE /api/aulas/:id/titulares`: la PK compuesta
+    // (claseId, usuarioId, rolEnClase) no soporta upsert en el stub de tests.
+    const alreadyTeacher = members.some(
+      (member) => member.userId === teacherId && member.roleInClass === "TEACHER"
+    );
+    if (!alreadyTeacher) {
+      await prisma.claseMiembro.create({
+        data: { claseId: id, usuarioId: teacherId, rolEnClase: "TEACHER" }
+      });
+    }
+    if (removeTeacherId && removeTeacherId !== teacherId) {
+      await prisma.claseMiembro.deleteMany({
+        where: { claseId: id, usuarioId: removeTeacherId, rolEnClase: "TEACHER" }
+      });
+    }
+
     // Update the clase record — members are not stored in Clase model, only status/timestamps.
     const result = await prisma.clase.updateMany({
       where: { id, isDeleted: { not: true } },

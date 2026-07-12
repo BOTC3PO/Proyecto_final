@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
+import { isPureParent } from "../../auth/roleHelpers";
 import { apiGet, apiPost } from "../../lib/api";
 import type {
   Module,
@@ -156,6 +157,10 @@ export default function ModuloDetail() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { user } = useAuth();
+  // PLAN-X §3 — el server ya bloquea POST /api/quiz-attempts para un
+  // PARENT puro (PLAN-J §3c #6); sin esto el botón lo dejaba clickear
+  // y recién se enteraba con un 403.
+  const pureParent = isPureParent(user);
 
   // UX-01: "Volver" contextual. Si el alumno llegó desde un aula u otra
   // pantalla, respetar `?returnTo=`; si no, retroceder en el historial.
@@ -965,6 +970,11 @@ export default function ModuloDetail() {
                     ) : null}
 
                     <div className="flex flex-wrap items-center gap-3">
+                      {pureParent ? (
+                        <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-4 py-2 text-xs font-medium text-slate-500">
+                          Como familiar podés ver este cuestionario pero no rendirlo.
+                        </span>
+                      ) : (
                       <button
                         type="button"
                         className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2 text-xs font-semibold text-white shadow-sm shadow-indigo-200 transition-all hover:from-indigo-500 hover:to-indigo-600 hover:shadow-md hover:shadow-indigo-200/50 active:scale-[0.98] disabled:from-slate-300 disabled:to-slate-300 disabled:shadow-none"
@@ -1011,6 +1021,7 @@ export default function ModuloDetail() {
                           </>
                         )}
                       </button>
+                      )}
                       <button
                         type="button"
                         className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50 active:scale-[0.98]"

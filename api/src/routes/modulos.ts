@@ -52,6 +52,7 @@ function toModuleListItem(item: AnyDoc): AnyDoc {
     durationMinutes: item.durationMinutes ?? undefined,
     theoryItems: item.theoryItems ? safeJsonParse(item.theoryItems, [] as unknown[]) : [],
     visibility: item.visibility,
+    descatalogado: item.descatalogado === true,
     schoolId: item.schoolId ?? undefined,
     createdBy: item.ownerUserId ?? "",
     clonedFrom: item.clonedFromId
@@ -64,6 +65,36 @@ function toModuleListItem(item: AnyDoc): AnyDoc {
     createdAt: item.createdAt,
     updatedAt: item.updatedAt,
     teoriaId: item.teoriaId ?? undefined
+  };
+}
+
+// PLAN-X §7 — where-clause de visibilidad para los listados generales
+// (`GET /api/modulos` sin `aulaId`, `GET /api/modulos/buscar`): un módulo
+// descatalogado se excluye salvo que el solicitante sea su dueño o tenga
+// una invitación (`ModuloInvitacion`). Sin `requesterId` (sin sesión en
+// este router aislado, o anónimo) degrada a "sólo lo no descatalogado".
+async function buildDescatalogadoVisibilityFilter(
+  requesterId: string | null,
+): Promise<Record<string, unknown>> {
+  // `NOT: { descatalogado: true }` en vez de `{ descatalogado: false }`:
+  // filas seedeadas por tests preexistentes (decenas de archivos, de
+  // antes de que este campo existiera) nunca setean `descatalogado`
+  // explícitamente → queda `undefined` en el stub in-memory (que no
+  // aplica `@default(false)` de Prisma). `NOT: true` matchea tanto
+  // `false` como `undefined`/`null`; `descatalogado: false` NO matchea
+  // `undefined` y esas filas desaparecían de todos los listados.
+  if (!requesterId) return { NOT: { descatalogado: true } };
+  const invitaciones = await prisma.moduloInvitacion.findMany({
+    where: { usuarioId: requesterId },
+    select: { moduloId: true },
+  });
+  const invitedIds = invitaciones.map((i) => i.moduloId);
+  return {
+    OR: [
+      { NOT: { descatalogado: true } },
+      { ownerUserId: requesterId },
+      ...(invitedIds.length > 0 ? [{ id: { in: invitedIds } }] : []),
+    ],
   };
 }
 
@@ -250,6 +281,12 @@ modulos.get("/api/modulos/buscar", async (req, res) => {
   if (query) {
     andFilters.push({ OR: [{ titulo: { contains: query, mode: "insensitive" } }] });
   }
+  // PLAN-X §7 — `requesterId` (quién busca) es independiente de `createdBy`
+  // (de quién se buscan módulos): un profesor puede buscar los públicos de
+  // OTRO colega. El filtro de descatalogado siempre mira a quién pide.
+  const requesterId: string | null =
+    mine && createdBy ? createdBy : resolveRequesterId(req.user as QuizRequesterRaw);
+  andFilters.push(await buildDescatalogadoVisibilityFilter(requesterId));
 
   const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
   const where =
@@ -291,15 +328,27 @@ modulos.get("/api/modulos", async (req, res) => {
   // `req.user._id` viene de `toObjectId(...)` en
   // src/lib/user-auth.ts:67 → siempre string. `.toString()`
   // funciona sobre string también (idempotente).
-  const requesterId =
+  const requesterIdForMine =
     mine && req.user
       ? (typeof req.user._id === "string"
           ? req.user._id
           : (req.user._id as { toString?: () => string })?.toString?.() ?? null)
       : null;
+  // PLAN-X §7 — a diferencia de `requesterIdForMine` (sólo se resuelve si
+  // `mine=true`), el filtro de descatalogado necesita saber quién pide
+  // SIEMPRE (para que el dueño/invitado vea lo suyo incluso sin `mine`).
+  // No fuerza auth acá: en prod `requireUser` ya corrió globalmente
+  // (index.ts) y `req.user` está poblado; sin sesión, degrada a "sólo lo
+  // no descatalogado", igual que un visitante anónimo.
+  const requesterId = requesterIdForMine ?? resolveRequesterId(req.user as QuizRequesterRaw);
+  const descatalogadoFilter = await buildDescatalogadoVisibilityFilter(requesterId);
 
   let items;
   if (aulaId) {
+    // Nota: la asignación a una aula (`ClaseModulo`) YA es un camino de
+    // visibilidad explícito por sí mismo (el profesor "lo agrega a un
+    // aula para que sea visible") — este branch no filtra por
+    // descatalogado, un módulo asignado se ve igual esté o no.
     const claseModulos = await prisma.claseModulo.findMany({
       where: { claseId: aulaId },
       select: { moduloId: true },
@@ -314,7 +363,7 @@ modulos.get("/api/modulos", async (req, res) => {
       await prisma.modulo.findMany({
         where: {
           id: { in: moduloIds },
-          ...(mine && requesterId ? { ownerUserId: requesterId } : {}),
+          ...(mine && requesterIdForMine ? { ownerUserId: requesterIdForMine } : {}),
         },
         skip: safeOffset,
         take: limit,
@@ -324,7 +373,9 @@ modulos.get("/api/modulos", async (req, res) => {
   } else {
     items = (
       await prisma.modulo.findMany({
-        where: mine && requesterId ? { ownerUserId: requesterId } : {},
+        where: mine && requesterIdForMine
+          ? { ownerUserId: requesterIdForMine }
+          : descatalogadoFilter,
         skip: safeOffset,
         take: limit,
         orderBy: { updatedAt: "desc" },
@@ -412,6 +463,8 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
         ? safeJsonParse(item.theoryItems, [] as unknown[])
         : [],
       visibility: item.visibility,
+      // PLAN-X §7 — flag para que el editor muestre el toggle actual.
+      descatalogado: item.descatalogado === true,
       schoolId: item.schoolId ?? undefined,
       // WO-3 — escala de notas (módulo). Se devuelve parseada; ausente = el
       // front/grade-path aplican el default histórico.
@@ -824,6 +877,9 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
       schoolId: parsed.schoolId ?? null,
       ownerUserId: parsed.createdBy,
       dependencies: parsed.dependencies.length ? JSON.stringify(parsed.dependencies) : null,
+      // PLAN-X §7 — mismo motivo que `isDeleted: false` arriba: el
+      // InMemoryPrisma de los tests no aplica `@default(false)`.
+      descatalogado: parsed.descatalogado ?? false,
       // WO-3 — escala de notas a nivel módulo (systemId + minPassingScore). Se
       // guarda como JSON; el grade path la lee con `resolveScoringConfig`. Si
       // falta, el cálculo cae al fallback histórico (scale-0-100 + umbral).
@@ -967,6 +1023,8 @@ async function applyModuleUpdate(
     // actualiza; si no, queda intacto.
     if (parsed.level !== undefined) updateData.level = parsed.level ?? null;
     if (parsed.visibility !== undefined) updateData.visibility = parsed.visibility;
+    // PLAN-X §7 — toggle de "descatalogado" (owner-only, gateado en el handler).
+    if (parsed.descatalogado !== undefined) updateData.descatalogado = parsed.descatalogado;
     if (parsed.schoolId !== undefined) updateData.schoolId = parsed.schoolId ?? null;
     // WO-3 — escala de notas (módulo). Misma semántica: si viene, se actualiza.
     if (parsed.scoringConfig !== undefined) {
@@ -1350,6 +1408,95 @@ modulos.delete("/api/modulos/:id", requireUser, async (req, res) => {
     }
   }
   const result = await prisma.modulo.deleteMany({ where: { id: req.params.id as string } });
+  if (result.count === 0) return res.status(404).json({ error: "not found" });
+  res.status(204).send();
+});
+
+// ─── PLAN-X §7 — invitados de un módulo descatalogado ───────────────────────
+// "el modo descatalogado es como un modo oculto pero que el mismo profesor
+// pone para que el contenido no aparezca; los alumnos tienen que ser
+// invitados... o el profesor tiene que agregarlo en un aula" (Javier,
+// 2026-07-12). Sólo el DUEÑO gestiona invitados — mismo criterio que "el
+// mismo profesor pone" el modo. La asignación a una aula (`ClaseModulo`,
+// `AsignarModulosModal`) ya es un camino de visibilidad separado y no
+// pasa por acá.
+const resolveModuleUserNames = async (userIds: string[]) => {
+  const unique = Array.from(new Set(userIds.filter((v) => !!v)));
+  if (unique.length === 0) return new Map<string, string>();
+  const users = await prisma.usuario.findMany({
+    where: { id: { in: unique } },
+    select: { id: true, fullName: true, username: true },
+  });
+  const map = new Map<string, string>();
+  for (const u of users) {
+    map.set(u.id, u.fullName || u.username || u.id);
+  }
+  return map;
+};
+
+const requireModuleOwner = async (
+  req: express.Request,
+  res: express.Response,
+): Promise<{ id: string; ownerUserId: string | null } | null> => {
+  const moduloId = req.params.id as string;
+  const modulo = await prisma.modulo.findFirst({ where: { id: moduloId } });
+  if (!modulo) {
+    res.status(404).json({ error: "not found" });
+    return null;
+  }
+  const requesterId = resolveRequesterId(req.user as QuizRequesterRaw);
+  if (!requesterId || modulo.ownerUserId !== requesterId) {
+    res.status(403).json({ error: "sólo el dueño del módulo gestiona invitados" });
+    return null;
+  }
+  return modulo as { id: string; ownerUserId: string | null };
+};
+
+modulos.get("/api/modulos/:id/invitados", requireUser, async (req, res) => {
+  const modulo = await requireModuleOwner(req, res);
+  if (!modulo) return;
+  const invitaciones = await prisma.moduloInvitacion.findMany({ where: { moduloId: modulo.id } });
+  const nameMap = await resolveModuleUserNames(invitaciones.map((i) => i.usuarioId));
+  res.json({
+    items: invitaciones.map((i) => ({
+      usuarioId: i.usuarioId,
+      name: nameMap.get(i.usuarioId) ?? i.usuarioId,
+      invitedBy: i.invitedBy ?? null,
+      createdAt: i.createdAt,
+    })),
+  });
+});
+
+modulos.post("/api/modulos/:id/invitados", requireUser, express.json(), async (req, res) => {
+  const modulo = await requireModuleOwner(req, res);
+  if (!modulo) return;
+  const usuarioId = typeof req.body?.usuarioId === "string" ? req.body.usuarioId.trim() : "";
+  if (!usuarioId) return res.status(400).json({ error: "usuarioId is required" });
+  const target = await prisma.usuario.findFirst({ where: { id: usuarioId, isDeleted: { not: true } } });
+  if (!target) return res.status(400).json({ error: "user not found" });
+  const existing = await prisma.moduloInvitacion.findFirst({
+    where: { moduloId: modulo.id, usuarioId },
+  });
+  if (existing) return res.status(409).json({ error: "already invited" });
+  const requesterId = resolveRequesterId(req.user as QuizRequesterRaw);
+  await prisma.moduloInvitacion.create({
+    data: {
+      moduloId: modulo.id,
+      usuarioId,
+      invitedBy: requesterId,
+      createdAt: new Date().toISOString(),
+    },
+  });
+  res.status(201).json({ ok: true });
+});
+
+modulos.delete("/api/modulos/:id/invitados/:usuarioId", requireUser, async (req, res) => {
+  const modulo = await requireModuleOwner(req, res);
+  if (!modulo) return;
+  const usuarioId = req.params.usuarioId as string;
+  const result = await prisma.moduloInvitacion.deleteMany({
+    where: { moduloId: modulo.id, usuarioId },
+  });
   if (result.count === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });
