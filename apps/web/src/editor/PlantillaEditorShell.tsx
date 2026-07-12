@@ -205,6 +205,13 @@ const rootStyle: CSSProperties = {
   border: "1px solid var(--c-border)",
   boxShadow: "var(--shadow)",
   overflow: "hidden",
+  // FIX-SCROLL-FANTASMA — sin containing block posicionado, cualquier
+  // descendiente `position:absolute` (p. ej. los live-region `sr-only`,
+  // que Tailwind implementa con absolute) resuelve contra el documento y
+  // NO lo clipea ningún `overflow` de ancestros estáticos: la página
+  // entera quedaba scrolleable con un espacio en blanco abajo. Con el
+  // root `relative`, el propio `overflow: hidden` de arriba los contiene.
+  position: "relative",
 };
 
 const topBarStyle: CSSProperties = {

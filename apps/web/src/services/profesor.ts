@@ -70,7 +70,6 @@ const PROFESOR_QUICK_LINK_ROUTES = new Set([
   "/profesor/reportes",
   "/profesor/mensajes",
   "/profesor/configuracion",
-  "/profesor/editor-cuestionarios",
   "/profesor/crear-modulo",
   "/modulos",
   "/modulos/crear"
@@ -88,7 +87,6 @@ const PROFESOR_QUICK_LINK_BY_ID: Record<string, string> = {
   reportes: "/profesor/reportes",
   mensajes: "/profesor/mensajes",
   configuracion: "/profesor/configuracion",
-  editor_cuestionarios: "/profesor/editor-cuestionarios",
   crear_modulo: "/modulos/crear",
   modulos: "/modulos"
 };

@@ -326,6 +326,167 @@ test("404 al usar-en-modulo un quiz inexistente", async () => {
   assert.equal(res.status, 404);
 });
 
+// ─── PLAN-CUESTIONARIOS — POST con moduleId + GET ?scope=todos ──────────
+
+test("PLAN-CUESTIONARIOS: POST /api/quizzes con moduleId crea el quiz adosado al módulo y hereda su materia", async () => {
+  const now = new Date().toISOString();
+  prisma.modulo.rows.push({
+    id: "mod-crear-directo",
+    titulo: "Modulo crear directo",
+    descripcion: "",
+    subject: "Historia",
+    category: "general",
+    visibility: "privado",
+    schoolId: ESCUELA_ID,
+    ownerUserId: DOCENTE_ID,
+    dependencies: null,
+    isDeleted: false,
+    createdAt: now,
+    updatedAt: now,
+  });
+
+  const res = await jsonRequest(baseUrl, "POST", "/api/quizzes", {
+    token: docenteToken(),
+    body: { moduleId: "mod-crear-directo" },
+  });
+  assert.equal(res.status, 201, JSON.stringify(res.body));
+  const { id } = res.body as { id: string };
+
+  const quiz = prisma.quiz.rows.find((q) => q.id === id);
+  assert.equal(quiz?.moduleId, "mod-crear-directo");
+  // Mismo shape que el clon de usar-en-modulo: la autorización pasa a
+  // depender del módulo, el owner directo queda null.
+  assert.equal(quiz?.ownerUserId ?? null, null);
+
+  const version = prisma.quizVersion.rows.find((v) => v.quizId === id);
+  assert.ok(version, "debe existir la QuizVersion inicial");
+  const settings = JSON.parse(version!.settings as string) as { materia?: string };
+  assert.equal(settings.materia, "Historia", "hereda la materia del módulo (ITEM-22)");
+});
+
+test("PLAN-CUESTIONARIOS: POST /api/quizzes con moduleId ajeno → 403; inexistente → 404", async () => {
+  const now = new Date().toISOString();
+  prisma.modulo.rows.push({
+    id: "mod-ajeno-post",
+    titulo: "Modulo de otro",
+    descripcion: "",
+    visibility: "privado",
+    schoolId: ESCUELA_ID,
+    ownerUserId: DOCENTE_OTRO_ID,
+    dependencies: null,
+    isDeleted: false,
+    createdAt: now,
+    updatedAt: now,
+  });
+
+  const ajeno = await jsonRequest(baseUrl, "POST", "/api/quizzes", {
+    token: docenteToken(),
+    body: { moduleId: "mod-ajeno-post" },
+  });
+  assert.equal(ajeno.status, 403, JSON.stringify(ajeno.body));
+
+  const inexistente = await jsonRequest(baseUrl, "POST", "/api/quizzes", {
+    token: docenteToken(),
+    body: { moduleId: "mod-que-no-existe" },
+  });
+  assert.equal(inexistente.status, 404);
+});
+
+test("PLAN-CUESTIONARIOS: GET /api/quizzes?scope=todos lista sueltos + quizzes de módulos propios, enriquecidos", async () => {
+  // Un suelto con 2 preguntas.
+  const suelto = await jsonRequest(baseUrl, "POST", "/api/quizzes", {
+    token: docenteToken(),
+    body: { title: "Suelto enriquecido" },
+  });
+  const sueltoId = (suelto.body as { id: string }).id;
+  await jsonRequest(baseUrl, "PUT", `/api/quizzes/${sueltoId}/preguntas`, {
+    token: docenteToken(),
+    body: {
+      cantidadGlobal: 2,
+      preguntas: [
+        { plantillaId: "pl-1", tipo: "obligatoria" },
+        { plantillaId: "pl-2", tipo: "obligatoria" },
+      ],
+    },
+  });
+
+  // Un módulo propio con un quiz creado directo, y un módulo ajeno con
+  // el suyo (que NO debe aparecer).
+  const now = new Date().toISOString();
+  prisma.modulo.rows.push(
+    {
+      id: "mod-scope-mio",
+      titulo: "Modulo scope mio",
+      descripcion: "",
+      visibility: "privado",
+      schoolId: ESCUELA_ID,
+      ownerUserId: DOCENTE_ID,
+      dependencies: null,
+      isDeleted: false,
+      createdAt: now,
+      updatedAt: now,
+    },
+    {
+      id: "mod-scope-ajeno",
+      titulo: "Modulo scope ajeno",
+      descripcion: "",
+      visibility: "privado",
+      schoolId: ESCUELA_ID,
+      ownerUserId: DOCENTE_OTRO_ID,
+      dependencies: null,
+      isDeleted: false,
+      createdAt: now,
+      updatedAt: now,
+    },
+  );
+  const enModulo = await jsonRequest(baseUrl, "POST", "/api/quizzes", {
+    token: docenteToken(),
+    body: { title: "Del módulo", moduleId: "mod-scope-mio" },
+  });
+  const enModuloId = (enModulo.body as { id: string }).id;
+  const delOtro = await jsonRequest(baseUrl, "POST", "/api/quizzes", {
+    token: otroDocenteToken(),
+    body: { title: "Del módulo ajeno", moduleId: "mod-scope-ajeno" },
+  });
+  const delOtroId = (delOtro.body as { id: string }).id;
+
+  const listRes = await jsonRequest(baseUrl, "GET", "/api/quizzes?scope=todos", {
+    token: docenteToken(),
+  });
+  assert.equal(listRes.status, 200, JSON.stringify(listRes.body));
+  const items = (listRes.body as {
+    items: Array<{
+      id: string;
+      type: string;
+      cantidadPreguntas: number;
+      moduleId: string | null;
+      moduleTitle: string | null;
+    }>;
+  }).items;
+  const byId = new Map(items.map((i) => [i.id, i]));
+
+  const sueltoItem = byId.get(sueltoId);
+  assert.ok(sueltoItem, "el suelto debe aparecer");
+  assert.equal(sueltoItem!.cantidadPreguntas, 2);
+  assert.equal(sueltoItem!.moduleId, null);
+  assert.equal(sueltoItem!.type, "practica");
+
+  const moduloItem = byId.get(enModuloId);
+  assert.ok(moduloItem, "el quiz del módulo propio debe aparecer con scope=todos");
+  assert.equal(moduloItem!.moduleId, "mod-scope-mio");
+  assert.equal(moduloItem!.moduleTitle, "Modulo scope mio");
+
+  assert.ok(!byId.has(delOtroId), "el quiz del módulo AJENO no debe aparecer");
+
+  // El default (sin scope) sigue siendo sólo sueltos — contrato del picker.
+  const defaultRes = await jsonRequest(baseUrl, "GET", "/api/quizzes", {
+    token: docenteToken(),
+  });
+  const defaultIds = (defaultRes.body as { items: Array<{ id: string }> }).items.map((i) => i.id);
+  assert.ok(defaultIds.includes(sueltoId));
+  assert.ok(!defaultIds.includes(enModuloId), "sin scope=todos no entran los de módulo");
+});
+
 test("(h) GET /api/quizzes lista sólo los quizzes sueltos propios (no los de otro docente ni un clon ya adjunto a un módulo)", async () => {
   const mio = await jsonRequest(baseUrl, "POST", "/api/quizzes", {
     token: docenteToken(),

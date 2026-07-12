@@ -459,7 +459,6 @@ export default function menuProfesor() {
     encuestas:            '📣',
     estadisticas:         '📈',
     crear_modulo:         '➕',
-    editor_cuestionarios: '✏️',
     calendario:           '📅',
   };
 

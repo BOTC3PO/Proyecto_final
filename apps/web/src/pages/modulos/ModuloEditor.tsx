@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { useIsTeacher } from "../../auth/use-roles";
 import { apiGet, apiPost, apiDelete, ApiError } from "../../lib/api";
@@ -9,6 +9,7 @@ import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorMod
 import { Modal, Button, Spinner, Alert } from "../../ui";
 import { batchGetPlantillas } from "../../domain/vblang/plantillaApi";
 import {
+  crearQuizEnModulo,
   listarQuizzesSueltos,
   usarQuizEnModulo,
   getQuizMeta,
@@ -135,7 +136,6 @@ function CardHeader({
 export default function ModuloEditor() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
   const { user } = useAuth();
 
   const {
@@ -234,37 +234,10 @@ export default function ModuloEditor() {
   const fieldErr = (f: keyof typeof FIELD_ERROR_MSG) =>
     validationErrors.includes(FIELD_ERROR_MSG[f]);
 
-  // FIX-MODULO-QUIZ-IMPORT — el `useEffect` original tenía deps `[]`
-  // y solo corría en mount. Cuando el docente ya estaba en el editor
-  // de módulo, iba a "Editor V2", creaba un cuestionario, y volvía
-  // con `navigate(returnTo, { state: { importedQuiz } })`, el state
-  // llegaba a `location.state` pero el effect NO se re-disparaba
-  // (deps `[]` y el componente ya estaba montado). Resultado: el
-  // cuestionario "no se cargaba en el módulo" — bug 7.9 de
-  // `docs/qa/test-parte-3-profesor.md`.
-  //
-  // Fix: depender de `location.state` para re-correr el effect cada
-  // vez que llega un nuevo `importedQuiz`. Se reemplaza el state
-  // apenas se consume para que navegaciones sucesivas (ej. ir y
-  // volver) sigan funcionando, sin que el efecto quede "pegado" en
-  // el primer quiz si el docente entra y sale varias veces del V2.
-  const importedQuizState = (location.state as
-    | { importedQuiz?: Record<string, unknown> }
-    | null)?.importedQuiz;
-  useEffect(() => {
-    if (!importedQuizState) return;
-    window.history.replaceState(
-      window.history.state ?? {},
-      "",
-      window.location.pathname + window.location.search,
-    );
-    handleImportQuizzes([importedQuizState as ModuleQuiz]);
-    // handleImportQuizzes viene de useModuloEditor (estable entre
-    // renders para un mismo id). `location.state` se reemplaza
-    // arriba así que la próxima vez que no haya importedQuiz el
-    // effect no hace nada.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [importedQuizState]);
+  // PLAN-CUESTIONARIOS — el effect FIX-MODULO-QUIZ-IMPORT que consumía
+  // `location.state.importedQuiz` se retiró junto con los editores
+  // clásicos V1/V2 (desconectados del router): nada navega de vuelta
+  // con ese state ya.
 
   const [draftRestored, setDraftRestored] = useState(false);
 
@@ -397,6 +370,40 @@ export default function ModuloEditor() {
       setQuizzesSueltosStatus("error");
     } finally {
       setUsandoQuizSueltoId(null);
+    }
+  };
+
+  // PLAN-CUESTIONARIOS — "Crear cuestionario": el módulo crea un quiz
+  // Tiza vacío YA adosado (POST /api/quizzes con moduleId) y la tarjeta
+  // aparece en la lista con las reglas de cuestionario (tipo/visibilidad/
+  // evaluación) y el link "Preguntas nativas en Tiza →" para escribir las
+  // preguntas. Sólo con módulo guardado (`id` real), igual que
+  // "Usar cuestionario existente".
+  const [creandoCuestionario, setCreandoCuestionario] = useState(false);
+  const [crearCuestionarioError, setCrearCuestionarioError] = useState(false);
+
+  const handleCrearCuestionario = async () => {
+    if (!id) return;
+    setCreandoCuestionario(true);
+    setCrearCuestionarioError(false);
+    try {
+      const creado = await crearQuizEnModulo(id);
+      const meta = await getQuizMeta(creado.id);
+      const nuevoQuiz: ModuleQuiz = {
+        id: creado.id,
+        title: meta.title || "Cuestionario sin título",
+        type: meta.type === "evaluacion" ? "formal" : (meta.type as ModuleQuiz["type"]),
+        status: "draft",
+        version: 1,
+        visibility: meta.visibility,
+        mode: "generated",
+        tienePreguntasNativas: true,
+      };
+      handleImportQuizzes([nuevoQuiz]);
+    } catch {
+      setCrearCuestionarioError(true);
+    } finally {
+      setCreandoCuestionario(false);
     }
   };
   // ─── Vista alumno (Tarea 14): overlay de previsualizacion local ──────────
@@ -1695,11 +1702,28 @@ export default function ModuloEditor() {
                 </label>
 
                 <div className="flex flex-wrap items-start gap-3">
+                  {/* PLAN-CUESTIONARIOS — acción primaria: el módulo CREA el
+                      cuestionario (reglas de cuestionario + preguntas en
+                      Tiza). Sólo con módulo guardado, igual que
+                      "Usar cuestionario existente". */}
+                  {id ? (
+                    <button
+                      type="button"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity disabled:opacity-60"
+                      data-testid="crear-cuestionario"
+                      disabled={creandoCuestionario}
+                      onClick={() => void handleCrearCuestionario()}
+                    >
+                      <span className="text-base leading-none">➕</span>
+                      {creandoCuestionario ? "Creando…" : "Crear cuestionario"}
+                    </button>
+                  ) : null}
+
                   {/* Sprint 10A: abrir selector de plantilla en lugar de
                       redirigir directamente a crear una nueva. */}
                   <button
                     type="button"
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
                     data-testid="open-plantilla-selector"
                     onClick={() => setPlantillaModalOpen(true)}
                   >
@@ -1724,36 +1748,21 @@ export default function ModuloEditor() {
 
                 </div>
 
-                {/* PLAN-K §4 — los editores clásicos V1/V2 (manual) se retiran de
-                    acá: el flujo moderno (Usar plantilla VBLang / Usar
-                    cuestionario existente) los reemplaza por completo. Las rutas
-                    /profesor/editor-cuestionarios[-v2] siguen vivas para links
-                    viejos, sin entry point acá. El generador legacy se queda:
-                    subjects sin generadores portados a VBLang (PLAN-E §22
-                    pendiente) todavía dependen de este camino. */}
-                {subjectCapabilities?.supportsGenerators && (
-                  <div className="flex flex-wrap items-center gap-3 text-xs">
-                    <button
-                      type="button"
-                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                      onClick={() => {
-                        const returnTo = id
-                          ? `/modulos/${id}/editar`
-                          : `/modulos/crear`;
-                        navigate(
-                          `/profesor/editor-cuestionarios?moduleId=${
-                            id ?? "nuevo"
-                          }&mode=generated&returnTo=${encodeURIComponent(returnTo)}`
-                        );
-                      }}
-                    >
-                      ⚡ Generados (legacy)
-                    </button>
-                  </div>
+                {crearCuestionarioError && (
+                  <Alert variant="danger">No se pudo crear el cuestionario. Probá de nuevo.</Alert>
                 )}
+
+                {/* PLAN-CUESTIONARIOS — el entry point "⚡ Generados (legacy)"
+                    (editor clásico V1) se retiró: los editores V1/V2 quedaron
+                    desconectados del router. */}
 
                 {/* Leyenda explicativa */}
                 <div className="flex flex-wrap gap-3 text-xs text-[var(--c-muted)]">
+                  {!id && (
+                    <span>
+                      💾 Guardá el módulo para poder crear cuestionarios con preguntas nativas.
+                    </span>
+                  )}
                   <span>
                     🧩 <strong>Plantilla VBLang</strong> — código DSL con preview en vivo y validación
                   </span>

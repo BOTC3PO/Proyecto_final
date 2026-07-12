@@ -65,9 +65,11 @@ const QuizAttempt           = lazyWithRetry(() => import("./pages/quizzes/QuizAt
 const ProfesorCalendario    = lazyWithRetry(() => import("./pages/ProfesorCalendario"));
 
 // Ya eran lazy — mantener igual
+// PLAN-CUESTIONARIOS — los editores clásicos V1/V2 (EditorCuestionarios,
+// EditorCuestionariosV2) quedaron DESCONECTADOS del router: el sistema de
+// cuestionarios es Tiza (/cuestionarios + /plantillas/nueva?quizId=…).
 const LaboratorioWeb3    = lazyWithRetry(() => import("./pages/LaboratorioWeb3"));
-const EditorCuestionarios = lazyWithRetry(() => import("./pages/EditorCuestionarios"));
-const EditorCuestionariosV2 = lazyWithRetry(() => import("./pages/EditorCuestionariosV2"));
+const CuestionariosIndex   = lazyWithRetry(() => import("./pages/CuestionariosIndex"));
 const PlantillasIndex      = lazyWithRetry(() => import("./pages/PlantillasIndex"));
 const PlantillasBiblioteca = lazyWithRetry(() => import("./pages/PlantillasBiblioteca"));
 const PlantillaEditor      = lazyWithRetry(() => import("./pages/PlantillaEditorTiza"));
@@ -641,18 +643,10 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'profesor/editor-cuestionarios',
+            path: 'cuestionarios',
             element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
-                {withSuspense(<EditorCuestionarios />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'profesor/editor-cuestionarios-v2',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
-                {withSuspense(<EditorCuestionariosV2 />)}
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<CuestionariosIndex />)}
               </ProtectedRoute>
             ),
           },

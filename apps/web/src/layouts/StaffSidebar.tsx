@@ -27,16 +27,16 @@ import { useI18n } from '../i18n/I18nContext';
 // a 0 resultados silenciosamente, comportamiento preexistente).
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
-    { label: 'academico', items: ['panel', 'aulas', 'materiales', 'modulos', 'plantillas', 'datasets', 'evaluaciones'] },
+    { label: 'academico', items: ['panel', 'aulas', 'materiales', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'evaluaciones'] },
     { label: 'gestion',   items: ['asistencia', 'calificaciones', 'reportes', 'encuestas'] },
     { label: 'escuela',   items: ['calendario', 'mensajes', 'gobernanza'] },
   ],
   DIRECTIVO: [
-    { label: 'escuela',        items: ['panelEscuela', 'aulas', 'miembros', 'modulos', 'plantillas', 'datasets', 'personalizacion'] },
+    { label: 'escuela',        items: ['panelEscuela', 'aulas', 'miembros', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'personalizacion'] },
     { label: 'administracion', items: ['cobros', 'comisiones', 'reportes', 'calendario', 'gobernanza', 'mensajes'] },
   ],
   ADMIN: [
-    { label: 'sistema',  items: ['panel', 'usuarios', 'materias', 'modulos', 'plantillas', 'datasets'] },
+    { label: 'sistema',  items: ['panel', 'usuarios', 'materias', 'modulos', 'cuestionarios', 'plantillas', 'datasets'] },
     { label: 'control',  items: ['moderacion', 'moderarPlantillas', 'reportes', 'comisiones', 'mensajes'] },
   ],
 };

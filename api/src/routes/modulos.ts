@@ -1700,16 +1700,67 @@ modulos.get("/api/quizzes", requireUser, async (req, res) => {
     const requesterId = resolveRequesterId(requesterRaw);
     if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
 
-    const quizzes = await prisma.quiz.findMany({
+    // PLAN-CUESTIONARIOS — `scope=todos` agrega los quizzes de módulos
+    // PROPIOS (para la página /cuestionarios). El default ("sueltos")
+    // conserva el contrato del picker "Usar cuestionario existente".
+    const scope = req.query.scope === "todos" ? "todos" : "sueltos";
+
+    const sueltos = await prisma.quiz.findMany({
       where: { ownerUserId: requesterId, moduleId: null, isActive: true },
     });
+    let deModulos: typeof sueltos = [];
+    const moduloTitulos = new Map<string, string>();
+    if (scope === "todos") {
+      // Dos queries (módulos propios → sus quizzes) en vez de un filtro
+      // por relación: el stub in-memory de los tests no soporta relaciones.
+      const modulosPropios = await prisma.modulo.findMany({
+        where: { ownerUserId: requesterId, isDeleted: false },
+      });
+      for (const m of modulosPropios) moduloTitulos.set(m.id, m.titulo);
+      if (modulosPropios.length > 0) {
+        deModulos = await prisma.quiz.findMany({
+          where: { moduleId: { in: modulosPropios.map((m) => m.id) }, isActive: true },
+        });
+      }
+    }
+    const quizzes = [...sueltos, ...deModulos];
+
+    // Enriquecido con la versión vigente: tipo/materia/#preguntas. El
+    // picker viejo ignora los campos extra, así que es aditivo.
+    const versionIds = quizzes
+      .map((q) => q.currentVersionId)
+      .filter((v): v is string => typeof v === "string" && v.length > 0);
+    const versions = versionIds.length
+      ? await prisma.quizVersion.findMany({ where: { id: { in: versionIds } } })
+      : [];
+    const settingsByVersion = new Map(versions.map((v) => [v.id, v.settings]));
+
     const items = quizzes
       .sort((a, b) => String(b.updatedAt ?? "").localeCompare(String(a.updatedAt ?? "")))
-      .map((q) => ({
-        id: q.id,
-        title: q.title ?? "Cuestionario sin título",
-        updatedAt: q.updatedAt,
-      }));
+      .map((q) => {
+        const raw = q.currentVersionId ? settingsByVersion.get(q.currentVersionId) : null;
+        const settings = safeJsonParse<Record<string, unknown>>(raw ?? null, {});
+        const cuestionario = settings.preguntas as { preguntas?: unknown[] } | undefined;
+        return {
+          id: q.id,
+          title: q.title ?? "Cuestionario sin título",
+          updatedAt: q.updatedAt,
+          type: typeof settings.type === "string" ? settings.type : "practica",
+          // materiaDeclarada (PLAN-Z, quiz suelto) con fallback a la
+          // materia derivada del módulo (mergeMateriaIntoSettings).
+          materia:
+            typeof settings.materiaDeclarada === "string" && settings.materiaDeclarada
+              ? settings.materiaDeclarada
+              : typeof settings.materia === "string"
+                ? settings.materia
+                : "",
+          cantidadPreguntas: Array.isArray(cuestionario?.preguntas)
+            ? cuestionario!.preguntas!.length
+            : 0,
+          moduleId: q.moduleId ?? null,
+          moduleTitle: q.moduleId ? (moduloTitulos.get(q.moduleId) ?? null) : null,
+        };
+      });
     res.json({ items });
   } catch (e: any) {
     console.error("[GET /api/quizzes]", e);
@@ -1724,6 +1775,10 @@ modulos.get("/api/quizzes", requireUser, async (req, res) => {
 // `settings` arranca vacío (type=practica, visibility=publico); las
 // preguntas se guardan aparte con el `PUT .../preguntas` de siempre
 // (mismo camino que un quiz con módulo, sin duplicar esa lógica acá).
+// PLAN-CUESTIONARIOS — `moduleId` opcional: crea el cuestionario YA
+// adosado a un módulo propio ("Crear cuestionario" en ModuloEditor).
+// Mismo shape que el clon de usar-en-modulo: ownerUserId null (la
+// autorización pasa a depender del módulo) y materia heredada del módulo.
 modulos.post("/api/quizzes", requireUser, async (req, res) => {
   try {
     const requesterRaw = req.user as QuizRequesterRaw;
@@ -1733,8 +1788,27 @@ modulos.post("/api/quizzes", requireUser, async (req, res) => {
       return res.status(403).json({ error: "forbidden" });
     }
 
-    const body = (req.body ?? {}) as { title?: unknown };
+    const body = (req.body ?? {}) as { title?: unknown; moduleId?: unknown };
     const title = typeof body.title === "string" && body.title.trim() ? body.title.trim() : null;
+    const moduleId =
+      typeof body.moduleId === "string" && body.moduleId ? body.moduleId : null;
+
+    let targetModulo: Awaited<ReturnType<typeof prisma.modulo.findFirst>> = null;
+    if (moduleId) {
+      targetModulo = await prisma.modulo.findFirst({ where: { id: moduleId } });
+      if (!targetModulo || targetModulo.isDeleted) {
+        return res.status(404).json({ error: "target module not found" });
+      }
+      if (
+        !canEditModuloDirect(targetModulo, {
+          _id: requesterId,
+          role: requesterRaw?.role,
+          schoolId: requesterRaw?.schoolId,
+        })
+      ) {
+        return res.status(403).json({ error: "forbidden on target module" });
+      }
+    }
 
     const now = new Date().toISOString();
     const quizId = generateId();
@@ -1747,8 +1821,8 @@ modulos.post("/api/quizzes", requireUser, async (req, res) => {
     await prisma.quiz.create({
       data: {
         id: quizId,
-        moduleId: null,
-        ownerUserId: requesterId,
+        moduleId,
+        ownerUserId: moduleId ? null : requesterId,
         title,
         isActive: true,
         currentVersionId: null,
@@ -1756,12 +1830,19 @@ modulos.post("/api/quizzes", requireUser, async (req, res) => {
         updatedAt: now,
       },
     });
+    const baseSettings: Record<string, unknown> = { type: "practica", visibility: "publico" };
+    const settings = targetModulo
+      ? mergeMateriaIntoSettings(baseSettings, {
+          subject: targetModulo.subject ?? null,
+          category: targetModulo.category ?? null,
+        })
+      : baseSettings;
     await prisma.quizVersion.create({
       data: {
         id: versionId,
         quizId,
         versionNumber: 1,
-        settings: JSON.stringify({ type: "practica", visibility: "publico" }),
+        settings: JSON.stringify(settings),
         createdAt: now,
         createdBy: requesterId,
       },

@@ -88,6 +88,36 @@ export async function listarQuizzesSueltos(): Promise<QuizSuelto[]> {
   return data.items ?? [];
 }
 
+// ─── PLAN-CUESTIONARIOS — página /cuestionarios ──────────────────────────
+
+/** Ítem enriquecido de `GET /api/quizzes?scope=todos`: sueltos + los
+ *  quizzes de módulos propios, con tipo/materia/#preguntas. */
+export interface CuestionarioListItem {
+  id: string;
+  title: string;
+  updatedAt: string;
+  type: QuizMetaTipo;
+  materia: string;
+  cantidadPreguntas: number;
+  moduleId: string | null;
+  moduleTitle: string | null;
+}
+
+export async function listarCuestionarios(): Promise<CuestionarioListItem[]> {
+  const data = await apiGet<{ items: CuestionarioListItem[] }>("/api/quizzes?scope=todos");
+  return data.items ?? [];
+}
+
+/** Crea un cuestionario vacío YA adosado a un módulo propio ("Crear
+ *  cuestionario" en ModuloEditor). El server valida permiso de edición
+ *  sobre el módulo y hereda su materia. */
+export async function crearQuizEnModulo(
+  moduleId: string,
+  title?: string,
+): Promise<{ id: string }> {
+  return apiPost<{ id: string }>("/api/quizzes", title ? { title, moduleId } : { moduleId });
+}
+
 /**
  * "Usa" (clona) un quiz suelto o de otro módulo dentro de `moduleId`. El
  * quiz origen queda intacto y se puede reusar en más módulos después —
