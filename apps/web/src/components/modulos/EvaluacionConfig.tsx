@@ -69,8 +69,12 @@ interface Props {
   onChangeDificultadVentana?: (next: number) => void;
   /** PLAN-D §1 — qué hace el server cuando vence el timer sin submit. */
   onChangePoliticaExpiracion?: (next: PoliticaExpiracion) => void;
-  /** Variante visual. Default: "panel" (con fieldset). "compact" = menos padding. */
-  variant?: "panel" | "compact";
+  /** Variante visual. Default: "panel" (con fieldset). "compact" = menos
+   *  padding. "card" (PLAN-Z fase 2, mockup §7): el fieldset conserva sólo
+   *  la línea de defaults y las secciones gated por tipo; ocultar-puntos,
+   *  presentación y dificultad se promueven fuera de la caja como campos
+   *  de la tarjeta de configuración (etiquetas eyebrow, par a 2 columnas). */
+  variant?: "panel" | "compact" | "card";
 }
 
 const POLITICA_SORTEO_LABEL: Record<PoliticaSorteo, string> = {
@@ -178,27 +182,45 @@ export default function EvaluacionConfig({
   const muestraSorteo = isFormal || isCompetencia;
   const muestraFullscreen = isFormal;
 
-  return (
-    <fieldset
-      className={fieldsetClass}
-      data-testid="evaluacion-config"
-      data-tipo={tipo}
-    >
-      <legend className={headingClass}>
-        Configuración de evaluación
-        <span className="ml-2 text-xs font-normal text-[var(--c-hint)]">
-          ({tipo})
-        </span>
-      </legend>
+  const legendNode = (
+    <legend className={headingClass}>
+      Configuración de evaluación
+      <span className="ml-2 text-xs font-normal text-[var(--c-hint)]">
+        ({tipo})
+      </span>
+    </legend>
+  );
 
-      <p className="text-xs text-[var(--c-hint)]">
-        Defaults para este tipo: timer{" "}
-        <strong>{defaults.timerSegundos === null ? "sin timer" : formatTimer(Math.round(defaults.timerSegundos / 60))}</strong>,{" "}
-        política <strong>{defaults.politicaNota}</strong>,{" "}
-        intentos <strong>{defaults.maxIntentos === null ? "ilimitados" : defaults.maxIntentos}</strong>,{" "}
-        fullscreen <strong>{defaults.fullscreenOnStart ? "sí" : "no"}</strong>.
-      </p>
+  const defaultsLine = (
+    <p className="text-xs text-[var(--c-hint)]">
+      Defaults para este tipo: timer{" "}
+      <strong>{defaults.timerSegundos === null ? "sin timer" : formatTimer(Math.round(defaults.timerSegundos / 60))}</strong>,{" "}
+      política <strong>{defaults.politicaNota}</strong>,{" "}
+      intentos <strong>{defaults.maxIntentos === null ? "ilimitados" : defaults.maxIntentos}</strong>,{" "}
+      fullscreen <strong>{defaults.fullscreenOnStart ? "sí" : "no"}</strong>.
+    </p>
+  );
 
+  const ocultarPuntosNode = (
+    <div className="flex items-center gap-2" data-testid="config-ocultar-puntos">
+      <input
+        id={ocultarPuntosId}
+        type="checkbox"
+        data-testid="config-ocultar-puntos-checkbox"
+        checked={config.ocultarPuntos}
+        disabled={!onChangeOcultarPuntos}
+        onChange={(e) => onChangeOcultarPuntos?.(e.target.checked)}
+      />
+      <label htmlFor={ocultarPuntosId} className="text-sm">
+        Ocultar el puntaje crudo al alumno (sólo se muestra la nota)
+      </label>
+    </div>
+  );
+
+  // Secciones gated por tipo (timer/expiración/intentos/política/sorteo/
+  // fullscreen): compartidas entre variantes, siempre dentro del fieldset.
+  const seccionesAvanzadas = (
+    <>
       {muestraTimer && (
         <div className="flex flex-wrap items-end gap-3" data-testid="config-timer">
           <label htmlFor={timerId} className="text-sm">
@@ -382,20 +404,182 @@ export default function EvaluacionConfig({
           </label>
         </div>
       )}
+    </>
+  );
 
-      <div className="flex items-center gap-2" data-testid="config-ocultar-puntos">
-        <input
-          id={ocultarPuntosId}
-          type="checkbox"
-          data-testid="config-ocultar-puntos-checkbox"
-          checked={config.ocultarPuntos}
-          disabled={!onChangeOcultarPuntos}
-          onChange={(e) => onChangeOcultarPuntos?.(e.target.checked)}
-        />
-        <label htmlFor={ocultarPuntosId} className="text-sm">
-          Ocultar el puntaje crudo al alumno (sólo se muestra la nota)
-        </label>
+  // PLAN-Z fase 2 (§7) — variante "card": la caja conserva sólo el resumen de
+  // defaults y las secciones gated por tipo; el resto se promueve como campos
+  // de la tarjeta (eyebrow en mayúsculas, par presentación|ruteo a 2 columnas,
+  // mismos ids/testids que las otras variantes).
+  if (variant === "card") {
+    const cardEyebrow =
+      "mb-1.5 block text-[10.5px] font-bold uppercase tracking-[0.05em] text-[var(--c-text-3)]";
+    const cardSelect =
+      "w-full cursor-pointer rounded-md border border-[var(--c-border)] bg-[var(--c-surface-2)] px-2 py-[7px] text-[12.5px] text-[var(--c-text)]";
+    return (
+      <div className="space-y-3.5" data-testid="evaluacion-config" data-tipo={tipo}>
+        <fieldset className="space-y-3 rounded-md border border-[var(--c-border)] p-3">
+          {legendNode}
+          {defaultsLine}
+          {seccionesAvanzadas}
+        </fieldset>
+
+        {ocultarPuntosNode}
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: 14,
+            alignItems: "start",
+          }}
+        >
+          <div data-testid="config-modo-presentacion">
+            <label htmlFor={modoPresentacionId} className={cardEyebrow}>
+              Modo de presentación
+            </label>
+            <select
+              id={modoPresentacionId}
+              data-testid="config-modo-presentacion-select"
+              disabled={!onChangeModoPresentacion}
+              value={config.modoPresentacion}
+              onChange={(e) => onChangeModoPresentacion?.(e.target.value as ModoPresentacion)}
+              className={cardSelect}
+            >
+              {MODOS_PRESENTACION_VALIDOS.map((m) => (
+                <option key={m} value={m}>
+                  {MODO_PRESENTACION_LABEL[m]}
+                </option>
+              ))}
+            </select>
+            <p className="mt-1.5 text-xs leading-snug text-[var(--c-hint)]">
+              {MODO_PRESENTACION_HINT[config.modoPresentacion]}
+            </p>
+            {config.modoPresentacion === "paginado" && (
+              <div
+                className="flex flex-wrap items-end gap-2 pt-1.5"
+                data-testid="config-preguntas-por-pagina"
+              >
+                <label htmlFor={preguntasPorPaginaId} className="text-xs">
+                  Preguntas por página
+                </label>
+                <input
+                  id={preguntasPorPaginaId}
+                  type="number"
+                  min={1}
+                  max={50}
+                  step={1}
+                  disabled={!onChangePreguntasPorPagina}
+                  value={config.preguntasPorPagina}
+                  onChange={(e) => {
+                    const raw = e.target.value;
+                    if (raw === "") return;
+                    const n = Number(raw);
+                    if (Number.isFinite(n) && n >= 1) {
+                      onChangePreguntasPorPagina?.(Math.floor(n));
+                    }
+                  }}
+                  className="w-20 rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-0.5 text-right text-sm tabular-nums"
+                  data-testid="config-preguntas-por-pagina-input"
+                />
+                <span className="text-xs text-[var(--c-hint)]">
+                  (default: {PREGUNTAS_POR_PAGINA_DEFAULT})
+                </span>
+              </div>
+            )}
+          </div>
+
+          <div data-testid="config-dificultad">
+            <label htmlFor={politicaDificultadId} className={cardEyebrow}>
+              Ruteo por dificultad
+            </label>
+            <select
+              id={politicaDificultadId}
+              data-testid="config-politica-dificultad-select"
+              disabled={!onChangePoliticaDificultad}
+              value={config.politicaDificultad}
+              onChange={(e) => onChangePoliticaDificultad?.(e.target.value as PoliticaDificultad)}
+              className={cardSelect}
+            >
+              {POLITICAS_DIFICULTAD_VALIDAS.map((p) => (
+                <option key={p} value={p}>
+                  {POLITICA_DIFICULTAD_LABEL[p]}
+                </option>
+              ))}
+            </select>
+            <p className="mt-1.5 text-xs leading-snug text-[var(--c-hint)]">
+              {POLITICA_DIFICULTAD_HINT[config.politicaDificultad]}
+            </p>
+            {config.politicaDificultad === "adaptativa_simple" && (
+              <div
+                className="flex flex-wrap items-end gap-2 pt-1.5"
+                data-testid="config-dificultad-ventana"
+              >
+                <label htmlFor={dificultadVentanaId} className="text-xs">
+                  Ventana (respuestas para subir/bajar 1 nivel)
+                </label>
+                <input
+                  id={dificultadVentanaId}
+                  type="number"
+                  min={DIFICULTAD_VENTANA_MIN}
+                  max={DIFICULTAD_VENTANA_MAX}
+                  step={1}
+                  disabled={!onChangeDificultadVentana}
+                  value={config.dificultadVentana}
+                  onChange={(e) => {
+                    const raw = e.target.value;
+                    if (raw === "") return;
+                    const n = Number(raw);
+                    if (Number.isFinite(n) && n >= 1) {
+                      onChangeDificultadVentana?.(Math.floor(n));
+                    }
+                  }}
+                  className="w-16 rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-0.5 text-right text-sm tabular-nums"
+                  data-testid="config-dificultad-ventana-input"
+                />
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor={dificultadInicialId} className={cardEyebrow}>
+            Dificultad inicial
+          </label>
+          <select
+            id={dificultadInicialId}
+            data-testid="config-dificultad-inicial-select"
+            disabled={!onChangeDificultadInicial}
+            value={config.dificultadInicial}
+            onChange={(e) =>
+              onChangeDificultadInicial?.(
+                e.target.value as "basico" | "intermedio" | "avanzado"
+              )
+            }
+            className={`${cardSelect} max-w-[220px]`}
+          >
+            <option value="basico">Básico</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="avanzado">Avanzado</option>
+          </select>
+        </div>
       </div>
+    );
+  }
+
+  return (
+    <fieldset
+      className={fieldsetClass}
+      data-testid="evaluacion-config"
+      data-tipo={tipo}
+    >
+      {legendNode}
+
+      {defaultsLine}
+
+      {seccionesAvanzadas}
+
+      {ocultarPuntosNode}
 
       {/* WO-9 — modo de presentación del cuestionario al alumno. Se renderiza
           para todos los tipos (practica / formal / competencia): la decisión

@@ -323,7 +323,17 @@ export const QuizMetaPatchSchema = z
     politicaDificultad: z.enum(["fija", "manual", "adaptativa_simple"]),
     dificultadInicial: z.enum(["basico", "intermedio", "avanzado"]),
     dificultadVentana: z.number().int().positive(),
-    politicaExpiracion: z.enum(["auto", "gracia60"])
+    politicaExpiracion: z.enum(["auto", "gracia60"]),
+    // PLAN-Z fase 3/4 — "un solo set de metadatos" a nivel cuestionario.
+    // `materia` acá es la declarada por el docente en la plantilla-config
+    // (persiste en `settings.materiaDeclarada`, NO en `settings.materia` —
+    // esa clave la administra `mergeMateriaIntoSettings`/PLAN-F §22 con
+    // semántica propia: "la del módulo manda al adoptar". Mezclarlas
+    // rompería esa garantía, decidida por Javier en PLAN-Z §3.6).
+    materia: z.string().max(100),
+    nivel: z.string().max(100),
+    tags: z.array(z.string().min(1).max(50)),
+    descripcion: z.string().max(1000)
   })
   .partial()
   .strict();

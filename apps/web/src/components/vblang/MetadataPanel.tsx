@@ -25,6 +25,11 @@ interface MetadataPanelProps {
   value: PlantillaMetadata;
   onChange: (next: PlantillaMetadata) => void;
   disabled?: boolean;
+  /** PLAN-Z fase 3 — en modo cuestionario, materia/tags/descripción/
+   *  visibilidad se editan UNA vez en la plantilla-config del cuestionario
+   *  (`QuizConfigPanel`) y se heredan silenciosamente a cada pregunta al
+   *  guardar (decisión §3.1). Acá sólo queda el nombre (etiqueta del rail). */
+  compact?: boolean;
 }
 
 const VISIBILITY_LABELS: Record<Visibility, string> = {
@@ -37,6 +42,7 @@ function MetadataPanel({
   value,
   onChange,
   disabled,
+  compact,
 }: MetadataPanelProps) {
   const update = <K extends keyof PlantillaMetadata>(key: K, v: PlantillaMetadata[K]) => {
     onChange({ ...value, [key]: v });
@@ -90,6 +96,8 @@ function MetadataPanel({
         />
       </label>
 
+      {!compact && (
+      <>
       <label className="block">
         <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
           Descripción
@@ -204,6 +212,8 @@ function MetadataPanel({
           ))}
         </select>
       </label>
+      </>
+      )}
       </div>
     </div>
   );

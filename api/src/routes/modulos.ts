@@ -1093,6 +1093,16 @@ async function applyModuleUpdate(
         if (prevSettings.preguntas !== undefined && (settings as Record<string, unknown>).preguntas === undefined) {
           (settings as Record<string, unknown>).preguntas = prevSettings.preguntas;
         }
+        // PLAN-Z fase 3/4 — mismo problema que `preguntas` arriba:
+        // `materiaDeclarada`/`nivel`/`tags`/`descripcion` (editados desde
+        // la plantilla-config de Tiza) tampoco forman parte de
+        // `ModuleQuizSchema`, así que un guardado de módulo los borraría
+        // en cada versión nueva sin este arrastre.
+        for (const carryKey of ["materiaDeclarada", "nivel", "tags", "descripcion"] as const) {
+          if (prevSettings[carryKey] !== undefined && (settings as Record<string, unknown>)[carryKey] === undefined) {
+            (settings as Record<string, unknown>)[carryKey] = prevSettings[carryKey];
+          }
+        }
 
         await tx.quizVersion.create({
           data: {
@@ -1424,6 +1434,12 @@ function buildQuizMetaResponse(loaded: NonNullable<Awaited<ReturnType<typeof loa
     title: loaded.quiz.title ?? "",
     type: typeof settings.type === "string" ? settings.type : "practica",
     visibility: typeof settings.visibility === "string" ? settings.visibility : "publico",
+    // PLAN-Z fase 3/4 — `materia` se lee de `materiaDeclarada` (NO de
+    // `settings.materia`, esa la administra `mergeMateriaIntoSettings`).
+    materia: typeof settings.materiaDeclarada === "string" ? settings.materiaDeclarada : "",
+    nivel: typeof settings.nivel === "string" ? settings.nivel : "",
+    tags: Array.isArray(settings.tags) ? settings.tags.filter((t): t is string => typeof t === "string") : [],
+    descripcion: typeof settings.descripcion === "string" ? settings.descripcion : "",
     config,
   };
 }
@@ -1487,6 +1503,12 @@ modulos.patch("/api/quizzes/:quizId/meta", requireUser, async (req, res) => {
     const settingsPatch: Record<string, unknown> = {};
     if (parsed.type !== undefined) settingsPatch.type = parsed.type;
     if (parsed.visibility !== undefined) settingsPatch.visibility = parsed.visibility;
+    // PLAN-Z fase 3/4 — `materia` mapea a `materiaDeclarada` (no a
+    // `settings.materia`, ver comment en `QuizMetaPatchSchema`).
+    if (parsed.materia !== undefined) settingsPatch.materiaDeclarada = parsed.materia;
+    if (parsed.nivel !== undefined) settingsPatch.nivel = parsed.nivel;
+    if (parsed.tags !== undefined) settingsPatch.tags = parsed.tags;
+    if (parsed.descripcion !== undefined) settingsPatch.descripcion = parsed.descripcion;
     for (const key of QUIZ_META_SETTINGS_KEYS) {
       if ((parsed as Record<string, unknown>)[key] !== undefined) {
         settingsPatch[key] = (parsed as Record<string, unknown>)[key];

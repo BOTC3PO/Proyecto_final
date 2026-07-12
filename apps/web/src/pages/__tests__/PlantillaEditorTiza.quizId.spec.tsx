@@ -49,13 +49,18 @@ vi.mock("../../domain/quiz/quizPreguntasApi", () => ({
   usarQuizEnModulo: (...args: unknown[]) => usarQuizEnModuloMock(...args),
 }));
 
-/** Shape de `QuizMeta` (WO-tiza-config): title + tipo/visibilidad/config. */
+/** Shape de `QuizMeta` (WO-tiza-config + PLAN-Z fase 3/4): title +
+ *  tipo/visibilidad/materia/nivel/tags/descripcion/config. */
 function quizMetaFixture(title: string) {
   return {
     id: "quiz-1",
     title,
     type: "practica" as const,
     visibility: "publico" as const,
+    materia: "",
+    nivel: "",
+    tags: [] as string[],
+    descripcion: "",
     config: {},
   };
 }
@@ -194,9 +199,9 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
     expect(screen.getByTestId("tiza-detalles-titulo")).not.toHaveTextContent("Suma");
   }, 10000);
 
-  // WO-tiza-config (Fase 1+2) — panel de configuración del cuestionario en
-  // el cuerpo de DETALLES: tipo/visibilidad/evaluación/eliminar.
-  it("con quizId: el panel de config muestra tipo/visibilidad y un cambio dispara patchQuizMeta (debounce)", async () => {
+  // PLAN-Z fase 2 (§7) — la config vive en la tarjeta central, a la que se
+  // entra por el ítem "Configuraciones" pineado del rail.
+  it("con quizId: seleccionar Configuraciones muestra la tarjeta de config y un cambio dispara patchQuizMeta (debounce)", async () => {
     const user = (await import("@testing-library/user-event")).default.setup();
     getQuizPreguntasMock.mockResolvedValue({
       version: 1,
@@ -207,12 +212,20 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
 
     await renderEditor("/plantillas/nueva?quizId=quiz-1");
 
-    // En modo "nueva" el cuerpo de DETALLES ya arranca abierto (metaOpen =
-    // isNew) — el panel de config aparece apenas resuelve getQuizMeta.
+    // La config ya NO vive en DETALLES (PLAN-Z fase 2): hasta seleccionar el
+    // ítem pineado, el panel no está montado.
+    await screen.findByTestId("rail-config-item");
+    expect(screen.queryByTestId("quiz-config-panel")).not.toBeInTheDocument();
+
+    await user.click(screen.getByTestId("rail-config-item"));
+    expect(await screen.findByTestId("tiza-config-card")).toBeInTheDocument();
     const tipoSelect = await screen.findByTestId("quiz-config-tipo-select");
     expect((tipoSelect as HTMLSelectElement).value).toBe("practica");
     expect(screen.getByTestId("quiz-config-visibility-select")).toBeInTheDocument();
     expect(screen.getByTestId("quiz-config-delete-button")).toBeInTheDocument();
+    // El panel derecho muestra el empty-state (la config no tiene property
+    // grid) — detalle del mockup §7.
+    expect(screen.getByTestId("tiza-propiedades-empty")).toBeInTheDocument();
 
     await user.selectOptions(tipoSelect, "formal");
     await waitFor(
@@ -221,18 +234,107 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
       },
       { timeout: 3000 },
     );
+
+    // Volver a una pregunta del rail restaura el centro y el property grid.
+    await user.click(screen.getByRole("button", { name: /Suma/ }));
+    expect(screen.queryByTestId("tiza-config-card")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("tiza-propiedades-empty")).not.toBeInTheDocument();
   }, 15000);
 
-  it("sin quizId (standalone): el panel de config del cuestionario NO se muestra", async () => {
-    const user = (await import("@testing-library/user-event")).default.setup();
+  it("sin quizId (standalone): ni el ítem Configuraciones ni el panel de config se muestran", async () => {
     await renderEditor("/plantillas/nueva");
     await waitFor(() => {
       expect(screen.getByTestId("vblang-metadata-panel")).toBeTruthy();
     });
-    // En modo nuevo el panel DETALLES ya arranca abierto (metaOpen = isNew).
+    expect(screen.queryByTestId("rail-config-item")).not.toBeInTheDocument();
     expect(screen.queryByTestId("quiz-config-panel")).not.toBeInTheDocument();
-    void user;
   });
+
+  // PLAN-Z fase 2 (§7) — sección POOLS de la tarjeta de config: agrupa las
+  // preguntas por pool y permite reasignarlas (asignar pool ⇒ rol relleno).
+  it("POOLS: agrupa por pool, reasignar actualiza el chip del rail y se pueden crear pools nuevas", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    getQuizPreguntasMock.mockResolvedValue({
+      version: 1,
+      cantidadGlobal: 2,
+      preguntas: [
+        { plantillaId: "p1", tipo: "obligatoria" },
+        { plantillaId: "p2", tipo: "relleno", maxRepeticiones: 2, poolId: "pool-a" },
+      ],
+    });
+    getPlantillaMock.mockImplementation((id: string) =>
+      Promise.resolve(plantillaFixture(id, id === "p1" ? "Suma" : "Doble")),
+    );
+
+    await renderEditor("/plantillas/nueva?quizId=quiz-1");
+    await user.click(await screen.findByTestId("rail-config-item"));
+
+    const pools = await screen.findByTestId("tiza-config-pools");
+    // "Doble" está en pool-a (grupo con 1); "Suma" (obligatoria) figura como
+    // sin pool.
+    expect(pools).toHaveTextContent("pool-a (1)");
+    expect((screen.getByLabelText("Pool de Doble") as HTMLSelectElement).value).toBe(
+      "pool-a",
+    );
+    expect((screen.getByLabelText("Pool de Suma") as HTMLSelectElement).value).toBe("");
+
+    // Reasignar "Suma" a pool-a: su quizMeta pasa a relleno/pool-a y el grupo
+    // lo refleja.
+    await user.selectOptions(screen.getByLabelText("Pool de Suma"), "pool-a");
+    await waitFor(() => {
+      expect(screen.getByTestId("tiza-config-pools")).toHaveTextContent("pool-a (2)");
+    });
+
+    // Crear una pool nueva ("+ Pool") y mover "Doble" ahí.
+    await user.type(screen.getByLabelText("Nombre del pool"), "pool-b");
+    await user.click(screen.getByRole("button", { name: "+ Pool" }));
+    await user.selectOptions(screen.getByLabelText("Pool de Doble"), "pool-b");
+    await waitFor(() => {
+      const poolsBox = screen.getByTestId("tiza-config-pools");
+      expect(poolsBox).toHaveTextContent("pool-b (1)");
+      expect(poolsBox).toHaveTextContent("pool-a (1)");
+    });
+  }, 15000);
+
+  // PLAN-Z fase 2 — regresión encontrada en vivo: la hidratación deja ACTIVA
+  // la pregunta en blanco auto-agregada; guardar desde la config cortaba TODO
+  // con "El nombre es obligatorio" y el cuestionario nunca se sincronizaba.
+  // La activa en blanco sin tocar ahora recibe el mismo guard que el resto
+  // del rail.
+  it("guardar desde la config con la blanca activa NO corta: sincroniza el cuestionario con el pool nuevo", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    getQuizPreguntasMock.mockResolvedValue({
+      version: 1,
+      cantidadGlobal: 2,
+      preguntas: [
+        { plantillaId: "p1", tipo: "obligatoria" },
+        { plantillaId: "p2", tipo: "relleno", maxRepeticiones: 2, poolId: "pool-a" },
+      ],
+    });
+    getPlantillaMock.mockImplementation((id: string) =>
+      Promise.resolve(plantillaFixture(id, id === "p1" ? "Suma" : "Doble")),
+    );
+
+    await renderEditor("/plantillas/nueva?quizId=quiz-1");
+    // Sin activar ninguna pregunta: la blanca auto-agregada sigue activa.
+    await user.click(await screen.findByTestId("rail-config-item"));
+    await user.selectOptions(await screen.findByLabelText("Pool de Suma"), "pool-a");
+    await user.click(screen.getByRole("button", { name: "Guardar" }));
+
+    await waitFor(() => {
+      expect(saveQuizPreguntasMock).toHaveBeenCalledWith(
+        "quiz-1",
+        expect.objectContaining({
+          preguntas: [
+            expect.objectContaining({ plantillaId: "p1", tipo: "relleno", poolId: "pool-a" }),
+            expect.objectContaining({ plantillaId: "p2", tipo: "relleno", poolId: "pool-a" }),
+          ],
+        }),
+      );
+    });
+    // La blanca sin tocar no se persistió (mismo guard que el rail).
+    expect(createPlantillaMock).not.toHaveBeenCalled();
+  }, 15000);
 
   // WO-tiza-config (Fase 5, bug 2 del informe QA) — entrar con `quizId` NO es
   // "crear plantilla nueva": el wizard de onboarding no debe dispararse.
@@ -257,9 +359,10 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
     });
   }, 10000);
 
-  // PLAN-E §13 — el pool de cada pregunta se muestra pasivo en el rail
-  // (chip), sin tener que entrar a cada una para verlo en el property grid.
-  it("con quizId: el rail muestra el pool de cada pregunta (chip pasivo)", async () => {
+  // PLAN-Z fase 2 (§7) — el chip pasivo de pool del rail (PLAN-E §13) se
+  // retiró: la membresía de pools ahora se ve toda junta en la sección POOLS
+  // de la plantilla-config (test de POOLS más abajo).
+  it("con quizId: el rail ya NO muestra chips de pool (mockup §7)", async () => {
     getQuizPreguntasMock.mockResolvedValue({
       version: 1,
       cantidadGlobal: 2,
@@ -278,10 +381,8 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
       expect(screen.getByText("Suma")).toBeInTheDocument();
       expect(screen.getByText("Doble")).toBeInTheDocument();
     });
-    // p1 (obligatoria) + la nueva pregunta en blanco que el editor agrega
-    // automáticamente (también obligatoria por default) → 2 chips "Sin pool".
-    expect(screen.getAllByTitle("Sin pool").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getByTitle("Pool: pool-a")).toBeInTheDocument();
+    expect(screen.queryByTitle("Sin pool")).not.toBeInTheDocument();
+    expect(screen.queryByTitle("Pool: pool-a")).not.toBeInTheDocument();
   }, 10000);
 
   // PLAN-CORRECCIONES C2 — guardar 2+ preguntas desde /plantillas/nueva SIN
@@ -348,5 +449,160 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
     // sueltas sin cuestionario que las una.
     const call = saveQuizPreguntasMock.mock.calls[0][1] as { preguntas: unknown[] };
     expect(call.preguntas).toHaveLength(2);
+  }, 15000);
+
+  // PLAN-Z fase 1 — guardar-todo: UN solo Guardar persiste TODO el rail
+  // (antes había que activar cada pregunta y guardar una por una;
+  // buildPreguntasFromQuestions filtraba las no guardadas y el cuestionario
+  // persistido quedaba incompleto).
+  it("guardar-todo: un solo Guardar persiste las 2 preguntas del rail y agrupa ambas", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    let nextPlantillaId = 0;
+    createPlantillaMock.mockImplementation((input: { nombre: string; codigoDsl: string }) => {
+      nextPlantillaId += 1;
+      return Promise.resolve({
+        ...plantillaFixture(`p-todo-${nextPlantillaId}`, input.nombre),
+        codigoDsl: input.codigoDsl,
+      });
+    });
+    crearQuizSueltoMock.mockResolvedValue({ id: "quiz-suelto-todo" });
+
+    await renderEditor("/plantillas/nueva");
+    const wizardBlank = await screen.findByTestId("vblang-wizard-blank");
+    await user.click(wizardBlank);
+    await waitFor(() => {
+      expect(screen.queryByTestId("vblang-wizard")).not.toBeInTheDocument();
+    });
+
+    // Pregunta 1: sólo nombrarla — SIN guardar.
+    const nombreInput = await screen.findByLabelText(/Nombre/);
+    await user.type(nombreInput, "Pregunta uno");
+
+    // Pregunta 2: agregar al rail, nombrarla, y UN único Guardar.
+    await user.click(screen.getByRole("button", { name: /Nueva pregunta/ }));
+    const nombreInput2 = await screen.findByLabelText(/Nombre/);
+    await user.clear(nombreInput2);
+    await user.type(nombreInput2, "Pregunta dos");
+    await user.click(screen.getByRole("button", { name: "Guardar" }));
+
+    // Un solo click guardó AMBAS plantillas (la activa y la no-activa).
+    await waitFor(() => {
+      expect(createPlantillaMock).toHaveBeenCalledTimes(2);
+    });
+    const nombresGuardados = createPlantillaMock.mock.calls.map(
+      (c) => (c[0] as { nombre: string }).nombre,
+    );
+    expect(nombresGuardados).toContain("Pregunta uno");
+    expect(nombresGuardados).toContain("Pregunta dos");
+
+    // Y el quiz suelto agrupa las 2 (no 1 como antes de PLAN-Z fase 1).
+    await waitFor(() => {
+      expect(saveQuizPreguntasMock).toHaveBeenCalledWith(
+        "quiz-suelto-todo",
+        expect.objectContaining({ cantidadGlobal: 2 }),
+      );
+    });
+    const call = saveQuizPreguntasMock.mock.calls[0][1] as { preguntas: unknown[] };
+    expect(call.preguntas).toHaveLength(2);
+  }, 15000);
+
+  it("guardar-todo: la pregunta en blanco nunca tocada NO se persiste", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    getQuizPreguntasMock.mockResolvedValue({
+      version: 1,
+      cantidadGlobal: 1,
+      preguntas: [{ plantillaId: "p1", tipo: "obligatoria" }],
+    });
+    getPlantillaMock.mockResolvedValue(plantillaFixture("p1", "Suma"));
+    updatePlantillaMock.mockResolvedValue(plantillaFixture("p1", "Suma"));
+
+    await renderEditor("/plantillas/nueva?quizId=quiz-1");
+    // La hidratación deja activa la pregunta en blanco auto-agregada;
+    // pasar a "Suma" y guardar: la blanca (sin tocar) debe quedar afuera.
+    await user.click(await screen.findByText("Suma"));
+    await user.click(screen.getByRole("button", { name: "Guardar" }));
+
+    await waitFor(() => {
+      expect(updatePlantillaMock).toHaveBeenCalledWith("p1", expect.anything());
+    });
+    expect(createPlantillaMock).not.toHaveBeenCalled();
+  }, 10000);
+
+  it("PLAN-Z fase 3 §3.1: guardar hereda materia/tags/descripcion/visibilidad de la plantilla-config, no del MetadataPanel por-pregunta", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    getQuizMetaMock.mockResolvedValue({
+      ...quizMetaFixture("Quiz de física"),
+      materia: "física",
+      nivel: "3° año",
+      tags: ["cinemática"],
+      descripcion: "Repaso de MRU.",
+      visibility: "escuela",
+    });
+    getQuizPreguntasMock.mockResolvedValue({
+      version: 1,
+      cantidadGlobal: 1,
+      preguntas: [{ plantillaId: "p1", tipo: "obligatoria" }],
+    });
+    // La plantilla individual trae SU PROPIA materia ("matematicas", ver
+    // plantillaFixture) — el guardado NO debe usarla en modo cuestionario.
+    getPlantillaMock.mockResolvedValue(plantillaFixture("p1", "MRU"));
+    updatePlantillaMock.mockResolvedValue(plantillaFixture("p1", "MRU"));
+
+    await renderEditor("/plantillas/nueva?quizId=quiz-1");
+    // "MRU" también aparece en el enunciado compilado del preview — se
+    // apunta al ítem del rail (un <button>), no a cualquier texto suelto.
+    await user.click(await screen.findByRole("button", { name: /MRU/ }));
+    await user.click(screen.getByRole("button", { name: "Guardar" }));
+
+    await waitFor(() => {
+      expect(updatePlantillaMock).toHaveBeenCalledWith(
+        "p1",
+        expect.objectContaining({
+          materia: "física",
+          tags: ["cinemática"],
+          descripcion: "Repaso de MRU.",
+          visibility: "escuela",
+        }),
+      );
+    });
+  }, 10000);
+
+  it("guardar-todo: si una pregunta falla, la activa se guarda igual y el rail marca el error", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    createPlantillaMock.mockImplementation((input: { nombre: string }) => {
+      if (input.nombre === "Pregunta uno") {
+        return Promise.reject(new Error("boom del servidor"));
+      }
+      return Promise.resolve(plantillaFixture("p-ok", input.nombre));
+    });
+    crearQuizSueltoMock.mockResolvedValue({ id: "quiz-suelto-err" });
+
+    await renderEditor("/plantillas/nueva");
+    const wizardBlank = await screen.findByTestId("vblang-wizard-blank");
+    await user.click(wizardBlank);
+    await waitFor(() => {
+      expect(screen.queryByTestId("vblang-wizard")).not.toBeInTheDocument();
+    });
+
+    const nombreInput = await screen.findByLabelText(/Nombre/);
+    await user.type(nombreInput, "Pregunta uno");
+    await user.click(screen.getByRole("button", { name: /Nueva pregunta/ }));
+    const nombreInput2 = await screen.findByLabelText(/Nombre/);
+    await user.clear(nombreInput2);
+    await user.type(nombreInput2, "Pregunta dos");
+    await user.click(screen.getByRole("button", { name: "Guardar" }));
+
+    // La activa ("Pregunta dos") se guardó; la fallada quedó marcada en rojo
+    // en el rail con el motivo, sin tirar abajo el guardado del resto.
+    await waitFor(() => {
+      expect(
+        screen.getByRole("img", { name: /No se pudo guardar: boom del servidor/ }),
+      ).toBeInTheDocument();
+    });
+    const nombresOk = createPlantillaMock.mock.results
+      .map((r, i) => ({ r, nombre: (createPlantillaMock.mock.calls[i][0] as { nombre: string }).nombre }))
+      .filter(({ r }) => r.type === "return")
+      .map(({ nombre }) => nombre);
+    expect(nombresOk).toContain("Pregunta dos");
   }, 15000);
 });

@@ -1,12 +1,14 @@
 /**
- * WO-tiza-config (Fase 1+2 del plan "portar configuración de quiz a Tiza") —
- * panel de configuración del CUESTIONARIO dentro del cuerpo plegable de
- * DETALLES en `PlantillaEditorTiza`, sólo con `quizId` presente.
+ * WO-tiza-config / PLAN-Z fase 2 — panel de configuración del CUESTIONARIO.
+ * Vive en la tarjeta central "Configuraciones" de `PlantillaEditorTiza`
+ * (ítem pineado del rail, §7 del PLAN-Z), sólo con `quizId` presente.
+ * Antes vivía en el cuerpo plegable de DETALLES (aside angosto); ahora el
+ * host es ancho: Tipo/Visibilidad van en par a dos columnas (mockup §7) y
+ * `EvaluacionConfig` se reusa tal cual (sus filas flex-wrap fluyen solas).
  *
- * Layout apilado a una columna: el aside de Tiza es de ancho fijo (~360px,
- * `PlantillaEditorShell`), así que acá NO se replican las grillas de 3
- * columnas de `ModuloEditor` (§2.1b del plan). `EvaluacionConfig` se reusa
- * tal cual (sus filas son flex-wrap, degradan bien a una columna).
+ * `pools` es un slot del host (la sección POOLS agrupa el working set de
+ * preguntas, que este panel no conoce) — va entre la vista previa del
+ * sorteo y "Eliminar cuestionario", como en el mockup.
  *
  * Persistencia: cada cambio dispara `onPatch` con un patch parcial; el host
  * (la página) lo encola y lo manda a `PATCH /api/quizzes/:quizId/meta` con
@@ -16,6 +18,7 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import EvaluacionConfig from "../modulos/EvaluacionConfig";
 import { parseEvaluacionConfig, type QuizTipo } from "../../domain/quiz/intentos";
+import { useMaterias } from "../../domain/materia/useMaterias";
 import type {
   QuizMeta,
   QuizMetaPatch,
@@ -42,6 +45,8 @@ interface Props {
   onDelete: () => void;
   resumen: QuizResumenSorteo | null;
   disabled?: boolean;
+  /** Sección POOLS del host (agrupa el working set de preguntas). */
+  pools?: ReactNode;
 }
 
 /* Mismo lenguaje visual que el property grid de TizaEditor (tokens --c-*). */
@@ -80,6 +85,173 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
+const OTRA_MATERIA = "__otra__";
+
+/** PLAN-Z fase 3/4 — "un solo set de metadatos" a nivel cuestionario:
+ *  materia/nivel/tags/descripción, editados UNA vez acá y heredados
+ *  silenciosamente a cada Plantilla-pregunta al guardar (decisión §3.1
+ *  del plan). Reemplaza el `MetadataPanel` por-pregunta para estos 4
+ *  campos en el modo cuestionario. */
+function ContenidoFields({
+  meta,
+  onPatch,
+  disabled,
+}: {
+  meta: QuizMeta;
+  onPatch: (patch: QuizMetaPatch) => void;
+  disabled?: boolean;
+}) {
+  const { materias: MATERIAS } = useMaterias();
+  const materiaEnLista = MATERIAS.includes(meta.materia);
+  const [materiaLibre, setMateriaLibre] = useState(meta.materia !== "" && !materiaEnLista);
+  const [tagDraft, setTagDraft] = useState("");
+  const [descripcionDraft, setDescripcionDraft] = useState<string | null>(null);
+
+  const addTag = (raw: string) => {
+    const t = raw.trim();
+    setTagDraft("");
+    if (t === "" || meta.tags.includes(t)) return;
+    onPatch({ tags: [...meta.tags, t] });
+  };
+  const removeTag = (t: string) => onPatch({ tags: meta.tags.filter((x) => x !== t) });
+
+  const commitDescripcion = () => {
+    if (descripcionDraft === null) return;
+    const next = descripcionDraft.trim();
+    setDescripcionDraft(null);
+    if (next !== meta.descripcion) onPatch({ descripcion: next });
+  };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+      <div style={eyebrowStyle}>Contenido</div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gap: 14,
+          alignItems: "start",
+        }}
+      >
+        <Field label="Materia">
+          <select
+            value={materiaLibre ? OTRA_MATERIA : meta.materia}
+            disabled={disabled}
+            onChange={(e) => {
+              if (e.target.value === OTRA_MATERIA) {
+                setMateriaLibre(true);
+                onPatch({ materia: "" });
+              } else {
+                setMateriaLibre(false);
+                onPatch({ materia: e.target.value });
+              }
+            }}
+            style={{ ...inputStyle, cursor: "pointer" }}
+            data-testid="quiz-config-materia-select"
+          >
+            <option value="">(sin materia)</option>
+            {MATERIAS.map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+            <option value={OTRA_MATERIA}>Otra…</option>
+          </select>
+          {materiaLibre && (
+            <input
+              type="text"
+              value={meta.materia}
+              disabled={disabled}
+              onChange={(e) => onPatch({ materia: e.target.value })}
+              maxLength={100}
+              placeholder="Escribí la materia"
+              style={{ ...inputStyle, marginTop: 6 }}
+              data-testid="quiz-config-materia-input"
+            />
+          )}
+        </Field>
+
+        <Field label="Nivel">
+          <input
+            type="text"
+            value={meta.nivel}
+            disabled={disabled}
+            onChange={(e) => onPatch({ nivel: e.target.value })}
+            maxLength={100}
+            placeholder="Ej: 3° año"
+            style={inputStyle}
+            data-testid="quiz-config-nivel-input"
+          />
+        </Field>
+      </div>
+
+      <Field label="Tags">
+        {meta.tags.length > 0 && (
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 6 }}>
+            {meta.tags.map((t) => (
+              <span
+                key={t}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  borderRadius: 999,
+                  background: "var(--c-surface-2)",
+                  padding: "2px 8px",
+                  fontSize: 11.5,
+                  color: "var(--c-text)",
+                }}
+              >
+                {t}
+                <button
+                  type="button"
+                  onClick={() => removeTag(t)}
+                  disabled={disabled}
+                  aria-label={`Quitar tag ${t}`}
+                  style={{ color: "var(--c-text-3)", cursor: "pointer" }}
+                >
+                  ×
+                </button>
+              </span>
+            ))}
+          </div>
+        )}
+        <input
+          type="text"
+          value={tagDraft}
+          disabled={disabled}
+          onChange={(e) => setTagDraft(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              addTag(tagDraft);
+            } else if (e.key === "Backspace" && tagDraft === "" && meta.tags.length > 0) {
+              removeTag(meta.tags[meta.tags.length - 1]);
+            }
+          }}
+          onBlur={() => addTag(tagDraft)}
+          placeholder="Escribí y Enter (ej. cinemática)"
+          style={inputStyle}
+          data-testid="quiz-config-tags-input"
+        />
+      </Field>
+
+      <Field label="Descripción">
+        <textarea
+          value={descripcionDraft ?? meta.descripcion}
+          disabled={disabled}
+          onChange={(e) => setDescripcionDraft(e.target.value)}
+          onBlur={commitDescripcion}
+          rows={2}
+          maxLength={1000}
+          style={{ ...inputStyle, resize: "vertical" }}
+          data-testid="quiz-config-descripcion-input"
+        />
+      </Field>
+    </div>
+  );
+}
+
 /** `evaluacion` es el alias legacy de `formal` (ver ModuleQuizSchema): el
  *  select lo muestra y lo guarda como `formal` (canónico para el runtime). */
 function normalizarTipo(tipo: QuizMetaTipo): "practica" | "formal" | "competencia" {
@@ -93,6 +265,7 @@ export default function QuizConfigPanel({
   onDelete,
   resumen,
   disabled,
+  pools,
 }: Props) {
   const [previewOpen, setPreviewOpen] = useState(false);
   // Borrador local del título: se commitea en blur/Enter (mismo criterio que
@@ -114,10 +287,9 @@ export default function QuizConfigPanel({
   return (
     <div
       data-testid="quiz-config-panel"
-      style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 14 }}
+      style={{ display: "flex", flexDirection: "column", gap: 14 }}
     >
-      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }}>
-        <div style={{ ...eyebrowStyle, marginBottom: 0 }}>Cuestionario</div>
+      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "flex-end", gap: 8, minHeight: 14 }}>
         <span
           aria-live="polite"
           data-testid="quiz-config-save-state"
@@ -154,46 +326,58 @@ export default function QuizConfigPanel({
         />
       </Field>
 
-      <Field label="Tipo">
-        <select
-          value={tipo}
-          disabled={disabled}
-          onChange={(e) => onPatch({ type: e.target.value as QuizMetaTipo })}
-          style={{ ...inputStyle, cursor: "pointer" }}
-          data-testid="quiz-config-tipo-select"
-        >
-          <option value="practica">Práctica — no cuenta para la nota</option>
-          <option value="formal">Evaluación formal — cuenta para la nota</option>
-          <option value="competencia">Competencia</option>
-        </select>
-        <div style={hintStyle}>
-          {tipo === "formal"
-            ? "Este cuestionario contará para la nota final del alumno."
-            : tipo === "practica"
-              ? "Este cuestionario es de práctica y no afecta la nota."
-              : "Ranking por tiempo entre alumnos."}
-        </div>
-      </Field>
+      {/* PLAN-Z §7 — par a dos columnas (mockup); degrada a una si no entra. */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gap: 14,
+          alignItems: "start",
+        }}
+      >
+        <Field label="Tipo">
+          <select
+            value={tipo}
+            disabled={disabled}
+            onChange={(e) => onPatch({ type: e.target.value as QuizMetaTipo })}
+            style={{ ...inputStyle, cursor: "pointer" }}
+            data-testid="quiz-config-tipo-select"
+          >
+            <option value="practica">Práctica — no cuenta para la nota</option>
+            <option value="formal">Evaluación formal — cuenta para la nota</option>
+            <option value="competencia">Competencia</option>
+          </select>
+          <div style={hintStyle}>
+            {tipo === "formal"
+              ? "Este cuestionario contará para la nota final del alumno."
+              : tipo === "practica"
+                ? "Este cuestionario es de práctica y no afecta la nota."
+                : "Ranking por tiempo entre alumnos."}
+          </div>
+        </Field>
 
-      <Field label="Visibilidad">
-        <select
-          value={meta.visibility}
-          disabled={disabled}
-          onChange={(e) => onPatch({ visibility: e.target.value as QuizMetaVisibility })}
-          style={{ ...inputStyle, cursor: "pointer" }}
-          data-testid="quiz-config-visibility-select"
-        >
-          <option value="publico">Público</option>
-          <option value="escuela">Escuela</option>
-        </select>
-      </Field>
+        <Field label="Visibilidad">
+          <select
+            value={meta.visibility}
+            disabled={disabled}
+            onChange={(e) => onPatch({ visibility: e.target.value as QuizMetaVisibility })}
+            style={{ ...inputStyle, cursor: "pointer" }}
+            data-testid="quiz-config-visibility-select"
+          >
+            <option value="publico">Público</option>
+            <option value="escuela">Escuela</option>
+          </select>
+        </Field>
+      </div>
+
+      <ContenidoFields meta={meta} onPatch={onPatch} disabled={disabled} />
 
       <div>
         <div style={eyebrowStyle}>Configuración de evaluación</div>
         <EvaluacionConfig
           tipo={tipo}
           config={config}
-          variant="compact"
+          variant="card"
           onChangeTimerSegundos={disabled ? undefined : (next) => onPatch({ timerSegundos: next })}
           onChangeMaxIntentos={disabled ? undefined : (next) => onPatch({ maxIntentos: next })}
           onChangePoliticaNota={disabled ? undefined : (next) => onPatch({ politicaNota: next })}
@@ -225,23 +409,23 @@ export default function QuizConfigPanel({
 
       {resumen ? (
         <div>
+          {/* Link de acento con ›, como el mockup §7 (no botón con borde). */}
           <button
             type="button"
             onClick={() => setPreviewOpen((v) => !v)}
             aria-expanded={previewOpen}
             data-testid="quiz-config-preview-toggle"
             style={{
-              border: "1px solid var(--c-border)",
-              borderRadius: "var(--r-md)",
-              background: "var(--c-surface-2)",
-              color: "var(--c-text-2)",
-              fontSize: 12,
+              border: 0,
+              background: "transparent",
+              padding: 0,
+              color: "var(--c-accent)",
+              fontSize: 12.5,
               fontWeight: 600,
-              padding: "6px 10px",
               cursor: "pointer",
             }}
           >
-            {previewOpen ? "Ocultar vista previa del sorteo" : "Vista previa del sorteo"}
+            {previewOpen ? "Ocultar vista previa del sorteo" : "Vista previa del sorteo ›"}
           </button>
           {previewOpen ? (
             <div
@@ -290,6 +474,8 @@ export default function QuizConfigPanel({
         </div>
       ) : null}
 
+      {pools ?? null}
+
       <div>
         <button
           type="button"
@@ -310,9 +496,6 @@ export default function QuizConfigPanel({
           Eliminar cuestionario
         </button>
       </div>
-
-      <div style={{ height: 1, background: "var(--c-border)" }} />
-      <div style={{ ...eyebrowStyle, marginBottom: 0 }}>Pregunta activa (plantilla)</div>
     </div>
   );
 }

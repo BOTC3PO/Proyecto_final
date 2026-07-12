@@ -23,6 +23,16 @@ export interface QuizMeta {
   title: string;
   type: QuizMetaTipo;
   visibility: QuizMetaVisibility;
+  /** PLAN-Z fase 3/4 — "un solo set de metadatos" a nivel cuestionario.
+   *  `materia` persiste en `settings.materiaDeclarada` (server-side), NO
+   *  en `settings.materia` — esa clave la administra en exclusiva
+   *  `mergeMateriaIntoSettings` (la materia del MÓDULO manda al adoptar,
+   *  decisión de Javier en PLAN-Z §3.6). Se copian silenciosamente a cada
+   *  Plantilla-pregunta al guardar (decisión §3.1). */
+  materia: string;
+  nivel: string;
+  tags: string[];
+  descripcion: string;
   /** Claves crudas de `settings` de la config de evaluación (sólo las
    *  seteadas). Resolver defaults con `parseEvaluacionConfig(config, type)`. */
   config: EvaluacionConfigInput;
@@ -30,7 +40,7 @@ export interface QuizMeta {
 
 /** WO-tiza-config — patch parcial de `PATCH /api/quizzes/:quizId/meta`. */
 export type QuizMetaPatch = Partial<
-  Pick<QuizMeta, "title" | "type" | "visibility">
+  Pick<QuizMeta, "title" | "type" | "visibility" | "materia" | "nivel" | "tags" | "descripcion">
 > &
   EvaluacionConfigInput;
 
