@@ -896,7 +896,9 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
           data: {
             id: quiz.id,
             moduleId: parsed.id,
-            title: quiz.title,
+            // PLAN-Y — `title` ahora es opcional en el schema (Tiza es el
+            // editor canónico); en creación cae a "".
+            title: quiz.title ?? "",
             // FIX-GUARDADO — el schema Prisma tiene `@default(true)` para
             // `isActive`, pero el in-memory prisma usado en tests no aplica
             // defaults. Seteamos explícitamente para que el GET lo encuentre.
@@ -926,9 +928,11 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
             settings: JSON.stringify(
               mergeMateriaIntoSettings(
                 {
-                  type: quiz.type,
+                  // PLAN-Y — POST = creación: defaults acá (el schema ya no
+                  // los inyecta; ausente sólo importa en el update).
+                  type: quiz.type ?? "practica",
                   mode: quiz.mode,
-                  visibility: quiz.visibility,
+                  visibility: quiz.visibility ?? "publico",
                   composition: quiz.composition,
                   ocultarPuntos: quiz.ocultarPuntos === true,
                   // F4-04 — campos de modo evaluación. Se persisten en
@@ -1066,11 +1070,18 @@ async function applyModuleUpdate(
       // payload). Antes este path NO tocaba `settings.materia`, así
       // que los cuestionarios editados/agregados por PUT/PATCH
       // quedaban huérfanos y desaparecían del banco filtrado.
+      // PLAN-Y — builder "sparse": campo ausente en el payload → NO se
+      // escribe (ni default ni null). Antes `type`/`visibility`/
+      // `ocultarPuntos`/`timerSegundos`/`fullscreenOnStart` recibían un
+      // default forzado que hacía imposible el carry-forward de abajo (la
+      // clave nunca quedaba `undefined`) y el guardado del módulo pisaba lo
+      // configurado en Tiza. Los defaults se aplican sólo en el branch de
+      // CREACIÓN (quiz nuevo, sin versión previa).
       const settings = mergeMateriaIntoSettings(
         {
-          type: q.type ?? "practica",
+          type: q.type,
           mode: q.mode,
-          visibility: q.visibility ?? "publico",
+          visibility: q.visibility,
           // Composición a nivel quiz (pool/selección/variantes/peso). No DSL.
           composition: q.composition,
           // F3-04 + F4-04 — config del modo evaluación, persistida en
@@ -1087,13 +1098,13 @@ async function applyModuleUpdate(
           displayCount: q.displayCount,
           // WO-2 / F4-03 — cuestionario por posiciones (crudo).
           posiciones: q.posiciones,
-          // F4-03 — toggle "ocultar puntos al alumno". Se persiste en
-          // `settings.ocultarPuntos`. Default false.
-          ocultarPuntos: q.ocultarPuntos === true,
+          // F4-03 — toggle "ocultar puntos al alumno".
+          ocultarPuntos: q.ocultarPuntos === undefined ? undefined : q.ocultarPuntos === true,
           // F4-04 — timer per-cuestionario (segundos). null = sin timer.
-          timerSegundos: q.timerSegundos === undefined ? null : q.timerSegundos,
+          timerSegundos: q.timerSegundos,
           // F4-04 — activar pantalla completa al iniciar el intento.
-          fullscreenOnStart: q.fullscreenOnStart === true,
+          fullscreenOnStart:
+            q.fullscreenOnStart === undefined ? undefined : q.fullscreenOnStart === true,
           // WO-9 — modo de presentación + tamaño de página.
           modoPresentacion: q.modoPresentacion,
           preguntasPorPagina: q.preguntasPorPagina,
@@ -1156,7 +1167,21 @@ async function applyModuleUpdate(
         // la plantilla-config de Tiza) tampoco forman parte de
         // `ModuleQuizSchema`, así que un guardado de módulo los borraría
         // en cada versión nueva sin este arrastre.
-        for (const carryKey of ["materiaDeclarada", "nivel", "tags", "descripcion"] as const) {
+        // PLAN-Y — se suman `instructions` (nuevo, Tiza-only), `type`/
+        // `visibility` y toda la config de evaluación
+        // (QUIZ_META_SETTINGS_KEYS): Tiza es la única fuente de verdad de
+        // la config del cuestionario; el módulo sólo la escribe si la
+        // manda explícitamente (payload viejo = comportamiento viejo).
+        for (const carryKey of [
+          "materiaDeclarada",
+          "nivel",
+          "tags",
+          "descripcion",
+          "instructions",
+          "type",
+          "visibility",
+          ...QUIZ_META_SETTINGS_KEYS,
+        ]) {
           if (prevSettings[carryKey] !== undefined && (settings as Record<string, unknown>)[carryKey] === undefined) {
             (settings as Record<string, unknown>)[carryKey] = prevSettings[carryKey];
           }
@@ -1182,7 +1207,9 @@ async function applyModuleUpdate(
         await tx.quiz.update({
           where: { id: matched.id },
           data: {
-            title: q.title ?? "",
+            // PLAN-Y — título ausente en el payload → se conserva el actual
+            // (Tiza lo edita por PATCH /meta; antes `?? ""` lo borraba).
+            title: q.title ?? matched.title ?? "",
             isActive: true,
             currentVersionId: newVersionId,
             updatedAt: now,
@@ -1192,6 +1219,15 @@ async function applyModuleUpdate(
         const newQuizId =
           q.id ?? `qz-${moduleId}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
         const newVersionId = `qv-${newQuizId}-1`;
+
+        // PLAN-Y — quiz NUEVO: acá sí se aplican los defaults que el builder
+        // sparse de arriba ya no fuerza (contrato de creación intacto).
+        const s = settings as Record<string, unknown>;
+        if (s.type === undefined) s.type = "practica";
+        if (s.visibility === undefined) s.visibility = "publico";
+        if (s.ocultarPuntos === undefined) s.ocultarPuntos = false;
+        if (s.timerSegundos === undefined) s.timerSegundos = null;
+        if (s.fullscreenOnStart === undefined) s.fullscreenOnStart = false;
 
         await tx.quiz.create({
           data: {
@@ -1587,6 +1623,9 @@ function buildQuizMetaResponse(loaded: NonNullable<Awaited<ReturnType<typeof loa
     nivel: typeof settings.nivel === "string" ? settings.nivel : "",
     tags: Array.isArray(settings.tags) ? settings.tags.filter((t): t is string => typeof t === "string") : [],
     descripcion: typeof settings.descripcion === "string" ? settings.descripcion : "",
+    // PLAN-Y fase 3 — instrucciones para el alumno (Tiza-only; el textarea
+    // de ModuloEditor era un campo fantasma que nunca persistió).
+    instructions: typeof settings.instructions === "string" ? settings.instructions : "",
     config,
   };
 }
@@ -1656,6 +1695,8 @@ modulos.patch("/api/quizzes/:quizId/meta", requireUser, async (req, res) => {
     if (parsed.nivel !== undefined) settingsPatch.nivel = parsed.nivel;
     if (parsed.tags !== undefined) settingsPatch.tags = parsed.tags;
     if (parsed.descripcion !== undefined) settingsPatch.descripcion = parsed.descripcion;
+    // PLAN-Y fase 3 — instrucciones para el alumno.
+    if (parsed.instructions !== undefined) settingsPatch.instructions = parsed.instructions;
     for (const key of QUIZ_META_SETTINGS_KEYS) {
       if ((parsed as Record<string, unknown>)[key] !== undefined) {
         settingsPatch[key] = (parsed as Record<string, unknown>)[key];

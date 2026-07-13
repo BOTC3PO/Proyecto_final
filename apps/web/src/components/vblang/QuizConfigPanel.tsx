@@ -106,6 +106,9 @@ function ContenidoFields({
   const [materiaLibre, setMateriaLibre] = useState(meta.materia !== "" && !materiaEnLista);
   const [tagDraft, setTagDraft] = useState("");
   const [descripcionDraft, setDescripcionDraft] = useState<string | null>(null);
+  // PLAN-Y fase 3 — instrucciones para el alumno (mismo patrón draft+blur
+  // que descripción, para no disparar un PATCH por tecla).
+  const [instruccionesDraft, setInstruccionesDraft] = useState<string | null>(null);
 
   const addTag = (raw: string) => {
     const t = raw.trim();
@@ -120,6 +123,13 @@ function ContenidoFields({
     const next = descripcionDraft.trim();
     setDescripcionDraft(null);
     if (next !== meta.descripcion) onPatch({ descripcion: next });
+  };
+
+  const commitInstrucciones = () => {
+    if (instruccionesDraft === null) return;
+    const next = instruccionesDraft.trim();
+    setInstruccionesDraft(null);
+    if (next !== meta.instructions) onPatch({ instructions: next });
   };
 
   return (
@@ -246,6 +256,23 @@ function ContenidoFields({
           maxLength={1000}
           style={{ ...inputStyle, resize: "vertical" }}
           data-testid="quiz-config-descripcion-input"
+        />
+      </Field>
+
+      {/* PLAN-Y fase 3 — se muestran al alumno al iniciar el intento
+          (QuizAttempt). Antes vivía como campo fantasma en ModuloEditor
+          (nunca se persistía); Tiza es su único editor. */}
+      <Field label="Instrucciones para el alumno">
+        <textarea
+          value={instruccionesDraft ?? meta.instructions}
+          disabled={disabled}
+          onChange={(e) => setInstruccionesDraft(e.target.value)}
+          onBlur={commitInstrucciones}
+          rows={2}
+          maxLength={2000}
+          placeholder="Ej: Leé cada pregunta con atención. Tenés 30 minutos."
+          style={{ ...inputStyle, resize: "vertical" }}
+          data-testid="quiz-config-instructions-input"
         />
       </Field>
     </div>

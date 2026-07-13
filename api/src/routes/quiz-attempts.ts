@@ -339,6 +339,12 @@ const buildQuizFromCollection = (
   if (settings && typeof settings === "object" && (settings as any).preguntas) {
     quiz.preguntas = (settings as any).preguntas;
   }
+  // PLAN-Y fase 3 — instrucciones para el alumno (editadas en Tiza,
+  // persistidas en `settings.instructions`). El response del attempt ya las
+  // pasaba (`quiz?.instructions`) pero nunca llegaban: nadie las seteaba acá.
+  if (settings && typeof settings === "object" && typeof (settings as any).instructions === "string") {
+    quiz.instructions = (settings as any).instructions;
+  }
   return quiz;
 };
 

@@ -60,6 +60,8 @@ import PromptIAPanel from "../components/vblang/PromptIAPanel";
 import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import SnippetBar from "../components/vblang/SnippetBar";
 import NuevaPlantillaWizard from "../components/vblang/NuevaPlantillaWizard";
+import PlantillaSelectorModal from "../components/vblang/PlantillaSelectorModal";
+import type { PlantillaListItem } from "../domain/vblang/plantilla.types";
 import { useEditorClasico } from "../editor/useEditorClasico";
 import {
   extractDeclaredVariables,
@@ -499,6 +501,11 @@ function PlantillaEditorTizaInner() {
   // `/plantillas/nueva`, pero con `quizId`: en ese caso el wizard NO debe
   // dispararse (se está abriendo el cuestionario, no creando una plantilla).
   const [wizardDismissed, setWizardDismissed] = useState(!isNew || quizId !== null);
+  // PLAN-Y bis — "Importar plantilla del banco" trae una plantilla existente
+  // como pregunta del cuestionario (modelo `preguntas`, con su `plantillaId`).
+  // Reemplaza al "Usar plantilla VBLang" a nivel módulo (que creaba el quiz
+  // legacy `generatorId: plantilla:X`). El selector es el mismo componente.
+  const [plantillaSelectorOpen, setPlantillaSelectorOpen] = useState(false);
 
   const editorRef = useRef<CodeEditorHandle | null>(null);
   const lastDeclaredRef = useRef<string[]>([]);
@@ -1312,6 +1319,47 @@ function PlantillaEditorTizaInner() {
     setSaveStatus("idle");
     setSaveMessage(null);
   };
+  // PLAN-Y bis — importar una plantilla existente del banco como pregunta.
+  // Misma hidratación que el effect de carga (getPlantilla → makeQuestion con
+  // `plantillaId`): la plantilla entra al rail con rol "obligatoria" por
+  // default (el docente ajusta rol/pool/dificultad en el property grid). Si
+  // ya está en el cuestionario, sólo la activa (no duplica).
+  const importarPlantilla = async (item: PlantillaListItem) => {
+    setPlantillaSelectorOpen(false);
+    const yaEsta = questions.find((q) => q.plantillaId === item.id);
+    if (yaEsta) {
+      setActiveKey(yaEsta.key);
+      setConfigSelected(false);
+      setSelection({ kind: "pregunta" });
+      return;
+    }
+    try {
+      const p = await getPlantilla(item.id);
+      const nq = makeQuestion(p.codigoDsl, {
+        plantillaId: item.id,
+        savedCodigo: p.codigoDsl,
+        metadata: {
+          nombre: p.nombre,
+          descripcion: p.descripcion ?? "",
+          materia: p.materia ?? "",
+          tags: p.tags ?? [],
+          visibility: p.visibility,
+        },
+        quizMeta: quizId ? { rol: "obligatoria" } : undefined,
+      });
+      setQuestions((qs) => [...qs, nq]);
+      setActiveKey(nq.key);
+      setConfigSelected(false);
+      setSelection({ kind: "pregunta" });
+      setActiveSection("tiza-sec-enunciado");
+      setMetaOpen(true);
+      setSaveStatus("idle");
+      setSaveMessage(null);
+    } catch {
+      setToastState({ message: "No se pudo importar la plantilla. Probá de nuevo." });
+    }
+  };
+
   const removeQuestion = (key: string) => {
     const q = questions.find((x) => x.key === key);
     if (
@@ -1592,6 +1640,29 @@ function PlantillaEditorTizaInner() {
         }}
       >
         <span aria-hidden="true">＋</span> Nueva pregunta
+      </button>
+      {/* PLAN-Y bis — importar una plantilla existente del banco como pregunta
+          del cuestionario (reemplaza al "Usar plantilla VBLang" de módulo). */}
+      <button
+        type="button"
+        onClick={() => setPlantillaSelectorOpen(true)}
+        data-testid="tiza-importar-plantilla"
+        style={{
+          marginTop: 4,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          padding: "9px 10px",
+          borderRadius: "var(--r-md)",
+          border: "1px dashed var(--c-border)",
+          background: "transparent",
+          color: "var(--c-text-2)",
+          fontSize: 13,
+          fontWeight: 600,
+          cursor: "pointer",
+        }}
+      >
+        <span aria-hidden="true">🧩</span> Importar plantilla del banco
       </button>
     </div>
   );
@@ -2461,6 +2532,17 @@ function PlantillaEditorTizaInner() {
       >
         <DatasetExplorer inline />
       </Modal>
+
+      {/* PLAN-Y bis — selector de plantilla del banco (reusa el mismo modal
+          que ModuloEditor). Al elegir, la plantilla entra como pregunta. */}
+      {plantillaSelectorOpen && (
+        <PlantillaSelectorModal
+          onClose={() => setPlantillaSelectorOpen(false)}
+          onSelect={(plantilla) => void importarPlantilla(plantilla)}
+          materiaHint={quizMetaState?.materia || undefined}
+          createReturnTo={returnTo || undefined}
+        />
+      )}
 
       {toastState && (
         <Toast

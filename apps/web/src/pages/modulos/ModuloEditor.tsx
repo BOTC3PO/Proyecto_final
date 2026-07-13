@@ -5,25 +5,24 @@ import { useAuth } from "../../auth/use-auth";
 import { useIsTeacher } from "../../auth/use-roles";
 import { apiGet, apiPost, apiDelete, ApiError } from "../../lib/api";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
-import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
 import { Modal, Button, Spinner, Alert } from "../../ui";
 import { batchGetPlantillas } from "../../domain/vblang/plantillaApi";
+import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
+import type { PlantillaListItem } from "../../domain/vblang/plantilla.types";
 import {
   crearQuizEnModulo,
   listarQuizzesSueltos,
   usarQuizEnModulo,
   getQuizMeta,
+  saveQuizPreguntas,
   type QuizSuelto,
 } from "../../domain/quiz/quizPreguntasApi";
-import type { PlantillaListItem } from "../../domain/vblang/plantilla.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
 import QuizPosicionesEditor from "../../components/modulos/QuizPosicionesEditor";
-import EvaluacionConfig from "../../components/modulos/EvaluacionConfig";
-import { parseEvaluacionConfig } from "../../domain/quiz/intentos";
 import { SCORING_SYSTEMS, DEFAULT_SCORING_SYSTEM_ID } from "@vb/vblang";
 import VistaAlumnoOverlay from "../../components/modulos/VistaAlumnoOverlay";
 import EditorSectionNav, {
@@ -170,8 +169,6 @@ export default function ModuloEditor() {
     handleImportQuizzes,
     quizPreviewOpen,
     setQuizPreviewOpen,
-    quizBlurErrors,
-    validateQuizTitle,
     sectionStatus,
     bookSearch,
     setBookSearch,
@@ -322,8 +319,6 @@ export default function ModuloEditor() {
     },
   ];
 
-  // ─── Plantilla selector (Sprint 10A · Bloque B) ─────────────────────────
-  const [plantillaModalOpen, setPlantillaModalOpen] = useState(false);
   // ─── PLAN-CORRECCIONES C2 — reusar un cuestionario "suelto" (sin módulo)
   // ya armado desde /plantillas/nueva. Sólo tiene sentido con el módulo ya
   // guardado (`id` real): "usar-en-modulo" clona el quiz contra ese id en
@@ -406,6 +401,45 @@ export default function ModuloEditor() {
       setCreandoCuestionario(false);
     }
   };
+
+  // PLAN-Y bis — "Cuestionario desde plantilla": mismo resultado que
+  // "Crear cuestionario" (un quiz Tiza nativo adosado al módulo) pero
+  // arrancando con la plantilla elegida YA importada como su primera
+  // pregunta. Reemplaza al viejo "Usar plantilla VBLang" (que creaba el
+  // quiz legacy `generatorId: plantilla:X`): ahora la plantilla entra al
+  // modelo `preguntas` (con su `plantillaId`), el mismo que lee el runtime.
+  const [plantillaModalOpen, setPlantillaModalOpen] = useState(false);
+  const [importandoPlantilla, setImportandoPlantilla] = useState(false);
+
+  const handleCrearDesdePlantilla = async (plantilla: PlantillaListItem) => {
+    if (!id) return;
+    setImportandoPlantilla(true);
+    setCrearCuestionarioError(false);
+    try {
+      const creado = await crearQuizEnModulo(id);
+      await saveQuizPreguntas(creado.id, {
+        cantidadGlobal: 1,
+        preguntas: [{ plantillaId: plantilla.id, tipo: "obligatoria" }],
+      });
+      const meta = await getQuizMeta(creado.id);
+      const nuevoQuiz: ModuleQuiz = {
+        id: creado.id,
+        title: meta.title || "Cuestionario sin título",
+        type: meta.type === "evaluacion" ? "formal" : (meta.type as ModuleQuiz["type"]),
+        status: "draft",
+        version: 1,
+        visibility: meta.visibility,
+        mode: "generated",
+        tienePreguntasNativas: true,
+      };
+      handleImportQuizzes([nuevoQuiz]);
+      setPlantillaModalOpen(false);
+    } catch {
+      setCrearCuestionarioError(true);
+    } finally {
+      setImportandoPlantilla(false);
+    }
+  };
   // ─── Vista alumno (Tarea 14): overlay de previsualizacion local ──────────
   const [vistaAlumnoOpen, setVistaAlumnoOpen] = useState(false);
   // ─── Editor de mapa (M8v2): overlay full-screen en la misma pestaña ──────
@@ -463,32 +497,6 @@ export default function ModuloEditor() {
     };
   }, [plantillaIdsEnUso, plantillaNombres]);
 
-  const handleSelectPlantilla = (plantilla: PlantillaListItem) => {
-    // PLAN-E §10 — el nombre pertenece al cuestionario, no a la plantilla:
-    // antes se propagaba `plantilla.nombre` como título del quiz (dos
-    // "nombres" quedaban acoplados sin querer). El título del cuestionario
-    // se define acá, independiente del nombre de banco de la plantilla.
-    const baseQuiz: ModuleQuiz = {
-      id: `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`,
-      title: "Cuestionario sin título",
-      type: "formal",
-      status: "draft",
-      version: 1,
-      visibility: "publico",
-      mode: "generated",
-      generatorId: `plantilla:${plantilla.id}`,
-      generatorVersion: plantilla.version,
-      count: 5,
-      seedPolicy: "perAttempt",
-      params: {},
-    };
-    handleImportQuizzes([baseQuiz]);
-    setPlantillaNombres((prev) => ({
-      ...prev,
-      [plantilla.id]: plantilla.nombre,
-    }));
-    setPlantillaModalOpen(false);
-  };
 
   const moduloReturnTo = id
     ? `/modulos/${id}/editar`
@@ -528,11 +536,12 @@ export default function ModuloEditor() {
         />
       ) : null}
 
-      {/* Sprint 10A — modal de selección de plantilla VBLang. */}
+      {/* PLAN-Y bis — selector de plantilla del banco. Al elegir, crea un
+          cuestionario Tiza con la plantilla como pregunta (modelo nativo). */}
       {plantillaModalOpen ? (
         <PlantillaSelectorModal
           onClose={() => setPlantillaModalOpen(false)}
-          onSelect={handleSelectPlantilla}
+          onSelect={(plantilla) => void handleCrearDesdePlantilla(plantilla)}
           materiaHint={form.subject || undefined}
           createReturnTo={moduloReturnTo}
         />
@@ -1702,6 +1711,22 @@ export default function ModuloEditor() {
                 </label>
 
                 <div className="flex flex-wrap items-start gap-3">
+                  {/* PLAN-Y bis — módulo NUEVO (sin `id`): los botones de
+                      crear/importar cuestionarios necesitan un módulo guardado
+                      (server-first). En vez de dejar la sección sin botones,
+                      mostramos uno que guarda el módulo (submit del form);
+                      tras guardar se navega a su editor y aparecen los tres. */}
+                  {!id ? (
+                    <button
+                      type="submit"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity"
+                      data-testid="guardar-para-cuestionarios"
+                    >
+                      <span className="text-base leading-none">💾</span>
+                      Guardar módulo para agregar cuestionarios
+                    </button>
+                  ) : null}
+
                   {/* PLAN-CUESTIONARIOS — acción primaria: el módulo CREA el
                       cuestionario (reglas de cuestionario + preguntas en
                       Tiza). Sólo con módulo guardado, igual que
@@ -1719,17 +1744,24 @@ export default function ModuloEditor() {
                     </button>
                   ) : null}
 
-                  {/* Sprint 10A: abrir selector de plantilla en lugar de
-                      redirigir directamente a crear una nueva. */}
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                    data-testid="open-plantilla-selector"
-                    onClick={() => setPlantillaModalOpen(true)}
-                  >
-                    <span className="text-base leading-none">🧩</span>
-                    Usar plantilla VBLang
-                  </button>
+                  {/* PLAN-Y bis — "Cuestionario desde plantilla": crea un quiz
+                      Tiza nativo (como "Crear cuestionario") con la plantilla
+                      elegida YA importada como su primera pregunta (modelo
+                      `preguntas`). Reemplaza al viejo "Usar plantilla VBLang"
+                      (quiz legacy `generatorId: plantilla:X`). Sólo con módulo
+                      guardado (`crearQuizEnModulo` necesita un id real). */}
+                  {id ? (
+                    <button
+                      type="button"
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors disabled:opacity-60"
+                      data-testid="open-plantilla-selector"
+                      disabled={importandoPlantilla}
+                      onClick={() => setPlantillaModalOpen(true)}
+                    >
+                      <span className="text-base leading-none">🧩</span>
+                      {importandoPlantilla ? "Importando…" : "Cuestionario desde plantilla"}
+                    </button>
+                  ) : null}
 
                   {/* PLAN-CORRECCIONES C2 — sólo con el módulo ya guardado
                       (clona contra un id real de inmediato, no hay borrador
@@ -1764,7 +1796,7 @@ export default function ModuloEditor() {
                     </span>
                   )}
                   <span>
-                    🧩 <strong>Plantilla VBLang</strong> — código DSL con preview en vivo y validación
+                    🧩 Dentro de un cuestionario podés escribir preguntas nativas o importar plantillas VBLang del banco.
                   </span>
                 </div>
 
@@ -1849,74 +1881,41 @@ export default function ModuloEditor() {
                               className="text-xs text-[var(--c-primary)] hover:underline"
                               data-testid="quiz-tiza-preguntas-link"
                             >
-                              Preguntas nativas en Tiza →
+                              Editar en Tiza (preguntas y configuración) →
                             </Link>
                           )}
                         </div>
 
+                        {/* PLAN-Y — la config (título/tipo/visibilidad/
+                            instrucciones/evaluación) se edita SOLO en Tiza
+                            (Configuraciones). Acá queda un resumen
+                            read-only: editarla en dos lados hacía que el
+                            guardado del módulo pisara lo guardado en Tiza. */}
                         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                          <div className="grid flex-1 gap-4 md:grid-cols-3">
-                            <label className="text-xs font-medium text-[var(--c-muted)]">
-                              Título
-                              <input
-                                className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm text-[var(--c-text)] transition-colors focus:outline-none ${
-                                  quizBlurErrors[quiz.id]?.length
-                                    ? "border-[var(--c-danger)] bg-[var(--c-danger-soft)]"
-                                    : "border-[var(--c-border)] bg-[var(--c-bg)] focus:border-[var(--c-primary)]"
-                                }`}
-                                value={quiz.title}
-                                onChange={(event) =>
-                                  updateQuiz(quiz.id, { title: event.target.value })
-                                }
-                                onBlur={() => validateQuizTitle(quiz.id, quiz.title)}
-                              />
-                              {quizBlurErrors[quiz.id]?.map((err) => (
-                                <span key={err} className="mt-1 block text-xs text-[var(--c-danger)]">
-                                  {err}
-                                </span>
-                              ))}
-                            </label>
-                            <label className="text-xs font-medium text-[var(--c-muted)]">
-                              Tipo
-                              <select
-                                className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
-                                value={quiz.type}
-                                onChange={(event) =>
-                                  updateQuiz(quiz.id, {
-                                    type: event.target.value as ModuleQuiz["type"],
-                                  })
-                                }
-                              >
-                                <option value="practica">Práctica — no cuenta para la nota</option>
-                                <option value="formal">Evaluación formal — cuenta para la nota</option>
-                                <option value="competencia">Competencia</option>
-                              </select>
-                              {quiz.type === "formal" && (
-                                <p className="text-xs text-[var(--c-warning)] mt-1">
-                                  Este cuestionario contará para la nota final del alumno.
-                                </p>
-                              )}
-                              {quiz.type === "practica" && (
-                                <p className="text-xs text-[var(--c-muted)] mt-1">
-                                  Este cuestionario es de práctica y no afecta la nota.
-                                </p>
-                              )}
-                            </label>
-                            <label className="text-xs font-medium text-[var(--c-muted)]">
-                              Visibilidad
-                              <select
-                                className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
-                                value={quiz.visibility}
-                                onChange={(event) =>
-                                  updateQuiz(quiz.id, {
-                                    visibility: event.target.value as ModuleQuiz["visibility"],
-                                  })
-                                }
-                              >
-                                <option value="publico">Público</option>
-                                <option value="escuela">Escuela</option>
-                              </select>
-                            </label>
+                          <div className="min-w-0 flex-1" data-testid="quiz-config-resumen">
+                            <p className="truncate text-sm font-semibold text-[var(--c-text)]">
+                              {quiz.title.trim() || "Cuestionario sin título"}
+                            </p>
+                            <p className="mt-1 text-xs text-[var(--c-muted)]">
+                              {quiz.type === "practica"
+                                ? "Práctica — no cuenta para la nota"
+                                : quiz.type === "competencia"
+                                  ? "Competencia"
+                                  : "Evaluación formal — cuenta para la nota"}
+                              {" · "}
+                              {quiz.visibility === "escuela" ? "Escuela" : "Público"}
+                              {typeof quiz.timerSegundos === "number" && quiz.timerSegundos > 0
+                                ? ` · Timer: ${Math.round(quiz.timerSegundos / 60)} min`
+                                : ""}
+                              {typeof quiz.maxIntentos === "number" && quiz.maxIntentos > 0
+                                ? ` · Intentos: ${quiz.maxIntentos}`
+                                : ""}
+                            </p>
+                            <p className="mt-1 text-xs text-[var(--c-muted)]">
+                              {id && !quiz.localOnly
+                                ? "El título, tipo, visibilidad, instrucciones y evaluación se configuran en Tiza."
+                                : "Guardá el módulo para configurar este cuestionario en Tiza."}
+                            </p>
                           </div>
                           <div className="flex flex-col items-end gap-2">
                             <button
@@ -1964,26 +1963,6 @@ export default function ModuloEditor() {
                             )}
                           </div>
                         ) : null}
-
-                        <label className="text-xs font-medium text-[var(--c-muted)]">
-                          Instrucciones para el alumno
-                          <span className="ml-1 font-normal text-[var(--c-muted)]">(opcional)</span>
-                          <textarea
-                            className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
-                            rows={2}
-                            placeholder="Ej: Leé cada pregunta con atención. Tenés 30 minutos."
-                            value={quiz.instructions ?? ""}
-                            onChange={(e) => updateQuiz(quiz.id, { instructions: e.target.value })}
-                          />
-                        </label>
-
-                        {/* F4-04 — panel de configuración de evaluación (timer,
-                            intentos, política, fullscreen, ocultarPuntos).
-                            Se renderiza para todos los tipos; el componente
-                            hace gating por tipo (sin timer para práctica).
-                            El componente lee los campos del quiz y dispara
-                            los callbacks con el valor nuevo. */}
-                        <EvaluacionConfigEditor quiz={quiz} updateQuiz={updateQuiz} />
 
                         {quiz.mode === "generated" ? (
                           <QuizEditorGenerated
@@ -2380,74 +2359,6 @@ function ExistingTuesdayField({
       onSearch={onSearch}
       onSelect={onSelect}
       onClose={onClose}
-    />
-  );
-}
-
-/**
- * F4-04 — Sub-componente que monta `<EvaluacionConfig>` dentro de la tarjeta
- * del quiz en el editor. Resuelve la config desde los campos del quiz
- * (con `parseEvaluacionConfig` para aplicar defaults del tipo) y conecta
- * cada callback con `updateQuiz`.
- *
- * El campo `settings` JSON no se persiste en el form state (es derivado):
- * los campos viven top-level en el quiz (`quiz.maxIntentos`, etc.) y el
- * PUT de `modulos.ts` los agrupa en `settings`. La separación es
- * intencional: el form es plano, el storage es JSON.
- */
-function EvaluacionConfigEditor({
-  quiz,
-  updateQuiz
-}: {
-  quiz: ModuleQuiz;
-  updateQuiz: (quizId: string, patch: Partial<ModuleQuiz>) => void;
-}) {
-  // `parseEvaluacionConfig` espera un JSON, pero como los campos viven
-  // top-level en el form, sintetizamos un "settings" virtual para
-  // delegar la resolución de defaults en una sola función.
-  const virtualSettings = JSON.stringify({
-    type: quiz.type,
-    maxIntentos: quiz.maxIntentos,
-    politicaNota: quiz.politicaNota,
-    politicaSorteo: quiz.politicaSorteo,
-    timerSegundos: quiz.timerSegundos,
-    fullscreenOnStart: quiz.fullscreenOnStart,
-    ocultarPuntos: quiz.ocultarPuntos,
-    // WO-9 — modo de presentación + tamaño de página. Se sintetizan
-    // también en el "settings" virtual para que `parseEvaluacionConfig`
-    // resuelva los defaults por tipo de forma centralizada.
-    modoPresentacion: quiz.modoPresentacion,
-    preguntasPorPagina: quiz.preguntasPorPagina,
-    // WO-14 — ruteo por dificultad.
-    politicaDificultad: quiz.politicaDificultad,
-    dificultadInicial: quiz.dificultadInicial,
-    dificultadVentana: quiz.dificultadVentana,
-    // PLAN-D §1 — política de cierre por expiración.
-    politicaExpiracion: quiz.politicaExpiracion
-  });
-  const config = parseEvaluacionConfig(virtualSettings, quiz.type);
-
-  return (
-    <EvaluacionConfig
-      tipo={quiz.type}
-      config={config}
-      onChangeTimerSegundos={(next) => updateQuiz(quiz.id, { timerSegundos: next })}
-      onChangeMaxIntentos={(next) => updateQuiz(quiz.id, { maxIntentos: next })}
-      onChangePoliticaNota={(next) => updateQuiz(quiz.id, { politicaNota: next })}
-      onChangePoliticaSorteo={(next) => updateQuiz(quiz.id, { politicaSorteo: next })}
-      onChangeFullscreenOnStart={(next) =>
-        updateQuiz(quiz.id, { fullscreenOnStart: next })
-      }
-      onChangeOcultarPuntos={(next) => updateQuiz(quiz.id, { ocultarPuntos: next })}
-      // WO-9 — wireado del modo de presentación + tamaño de página.
-      onChangeModoPresentacion={(next) => updateQuiz(quiz.id, { modoPresentacion: next })}
-      onChangePreguntasPorPagina={(next) => updateQuiz(quiz.id, { preguntasPorPagina: next })}
-      // WO-14 — wireado del ruteo por dificultad.
-      onChangePoliticaDificultad={(next) => updateQuiz(quiz.id, { politicaDificultad: next })}
-      onChangeDificultadInicial={(next) => updateQuiz(quiz.id, { dificultadInicial: next })}
-      onChangeDificultadVentana={(next) => updateQuiz(quiz.id, { dificultadVentana: next })}
-      // PLAN-D §1 — wireado de la política de cierre por expiración.
-      onChangePoliticaExpiracion={(next) => updateQuiz(quiz.id, { politicaExpiracion: next })}
     />
   );
 }

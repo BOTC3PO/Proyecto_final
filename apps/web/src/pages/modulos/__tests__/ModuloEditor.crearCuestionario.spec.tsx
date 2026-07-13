@@ -62,16 +62,19 @@ vi.mock("../../../domain/vblang/datasetApi", () => ({
   listDatasets: vi.fn().mockResolvedValue({ items: [] }),
 }));
 
+const listPlantillas = vi.fn();
 vi.mock("../../../domain/vblang/plantillaApi", () => ({
-  listPlantillas: vi.fn().mockResolvedValue({ items: [] }),
+  listPlantillas: (...a: unknown[]) => listPlantillas(...a),
   batchGetPlantillas: vi.fn().mockResolvedValue([]),
 }));
 
 const crearQuizEnModulo = vi.fn();
 const getQuizMeta = vi.fn();
+const saveQuizPreguntas = vi.fn();
 vi.mock("../../../domain/quiz/quizPreguntasApi", () => ({
   crearQuizEnModulo: (...a: unknown[]) => crearQuizEnModulo(...a),
   getQuizMeta: (...a: unknown[]) => getQuizMeta(...a),
+  saveQuizPreguntas: (...a: unknown[]) => saveQuizPreguntas(...a),
   listarQuizzesSueltos: vi.fn().mockResolvedValue([]),
   usarQuizEnModulo: vi.fn(),
 }));
@@ -102,6 +105,7 @@ import ModuloEditor from "../ModuloEditor";
 beforeEach(() => {
   vi.clearAllMocks();
   window.sessionStorage.clear();
+  listPlantillas.mockResolvedValue({ items: [] });
   mockApiGet.mockImplementation((path: string) => {
     if (path === `/api/modulos/${moduleFixture.id}`) {
       return Promise.resolve(moduleFixture);
@@ -159,11 +163,63 @@ describe("PLAN-CUESTIONARIOS: Crear cuestionario desde el módulo", () => {
     );
   });
 
-  it("sin módulo guardado no hay botón (y el legacy V1 ya no existe)", async () => {
+  // PLAN-Y bis — "Cuestionario desde plantilla": crea un quiz Tiza nativo con
+  // la plantilla elegida importada como su primera pregunta (modelo
+  // `preguntas`), NO el quiz legacy `generatorId: plantilla:X`.
+  it("crea el cuestionario e importa la plantilla elegida como pregunta (modelo nativo)", async () => {
+    crearQuizEnModulo.mockResolvedValue({ id: "quiz-desde-plantilla-1" });
+    saveQuizPreguntas.mockResolvedValue({
+      cuestionario: { version: 1, cantidadGlobal: 1, preguntas: [] },
+      validacion: { ok: true, faltantes: [] },
+    });
+    getQuizMeta.mockResolvedValue({
+      id: "quiz-desde-plantilla-1",
+      title: "",
+      type: "practica",
+      visibility: "publico",
+      materia: "matematicas",
+      nivel: "",
+      tags: [],
+      descripcion: "",
+      instructions: "",
+      config: {},
+    });
+    listPlantillas.mockResolvedValue({
+      items: [{ id: "plantilla-9", nombre: "Suma de fracciones", version: 1 }],
+    });
+
+    const user = userEvent.setup();
+    renderEditor(`/modulos/${moduleFixture.id}/editar`);
+
+    await user.click(await screen.findByTestId("open-plantilla-selector"));
+    await user.click(await screen.findByTestId("plantilla-option-plantilla-9"));
+
+    // Crea el quiz Tiza adosado y le persiste la plantilla como pregunta
+    // obligatoria (NO un quiz `generatorId: plantilla:X`).
+    await waitFor(() =>
+      expect(crearQuizEnModulo).toHaveBeenCalledWith(moduleFixture.id),
+    );
+    await waitFor(() =>
+      expect(saveQuizPreguntas).toHaveBeenCalledWith("quiz-desde-plantilla-1", {
+        cantidadGlobal: 1,
+        preguntas: [{ plantillaId: "plantilla-9", tipo: "obligatoria" }],
+      }),
+    );
+    // La tarjeta aparece con el badge de preguntas nativas (modelo moderno).
+    expect(await screen.findByTestId("quiz-badge-preguntas-nativas")).toBeTruthy();
+  });
+
+  it("sin módulo guardado: los botones de crear están gated, pero hay un botón para guardar", async () => {
     renderEditor("/modulos/crear");
 
-    await screen.findByText("Usar plantilla VBLang");
+    // PLAN-Y bis — el módulo nuevo (server-first) no puede crear cuestionarios
+    // todavía: los tres botones de crear/importar están gated tras `id`. En su
+    // lugar hay un botón que guarda el módulo (submit) para habilitarlos.
+    expect(await screen.findByTestId("guardar-para-cuestionarios")).toBeTruthy();
     expect(screen.queryByTestId("crear-cuestionario")).toBeNull();
+    expect(screen.queryByTestId("open-plantilla-selector")).toBeNull();
+    expect(screen.queryByTestId("open-quiz-suelto-selector")).toBeNull();
+    // El legacy V1 ("Generados") tampoco existe.
     expect(screen.queryByText(/Generados \(legacy\)/)).toBeNull();
   });
 });

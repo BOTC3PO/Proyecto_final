@@ -182,6 +182,8 @@ test("(f) GET /api/quizzes/:quizId/meta devuelve id + title + tipo/visibilidad/c
     nivel: "",
     tags: [],
     descripcion: "",
+    // PLAN-Y fase 3 — instrucciones para el alumno (Tiza-only).
+    instructions: "",
     config: {},
   });
 });
@@ -229,6 +231,8 @@ test("(h) PATCH meta persiste title + type + config sin pisar otras claves de se
     nivel: "",
     tags: [],
     descripcion: "",
+    // PLAN-Y fase 3 — instrucciones para el alumno (Tiza-only).
+    instructions: "",
     config: { maxIntentos: 2, politicaNota: "mejor", timerSegundos: 600 },
   });
 

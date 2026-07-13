@@ -53,6 +53,14 @@ export type ModuleQuiz = {
    * lo ignora).
    */
   tienePreguntasNativas?: boolean;
+  /**
+   * PLAN-Y — sólo-cliente: el quiz fue creado en ESTA sesión del editor
+   * (ej. "Usar plantilla del banco") y todavía no existe en el servidor.
+   * El payload de guardado manda `title`/`type`/`visibility` únicamente
+   * para estos (creación); para los ya persistidos la config es de Tiza y
+   * el guardado del módulo no la toca. Se limpia tras guardar con éxito.
+   */
+  localOnly?: boolean;
   generatorId?: string;
   generatorVersion?: number;
   params?: Record<string, unknown>;

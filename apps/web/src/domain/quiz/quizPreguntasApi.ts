@@ -33,6 +33,10 @@ export interface QuizMeta {
   nivel: string;
   tags: string[];
   descripcion: string;
+  /** PLAN-Y fase 3 — instrucciones para el alumno (se muestran al iniciar
+   *  el intento, `QuizAttempt.tsx`). Persisten en `settings.instructions`.
+   *  Tiza es su único editor. */
+  instructions: string;
   /** Claves crudas de `settings` de la config de evaluación (sólo las
    *  seteadas). Resolver defaults con `parseEvaluacionConfig(config, type)`. */
   config: EvaluacionConfigInput;
@@ -40,7 +44,10 @@ export interface QuizMeta {
 
 /** WO-tiza-config — patch parcial de `PATCH /api/quizzes/:quizId/meta`. */
 export type QuizMetaPatch = Partial<
-  Pick<QuizMeta, "title" | "type" | "visibility" | "materia" | "nivel" | "tags" | "descripcion">
+  Pick<
+    QuizMeta,
+    "title" | "type" | "visibility" | "materia" | "nivel" | "tags" | "descripcion" | "instructions"
+  >
 > &
   EvaluacionConfigInput;
 

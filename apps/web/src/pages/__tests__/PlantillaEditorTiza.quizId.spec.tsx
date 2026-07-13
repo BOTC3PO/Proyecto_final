@@ -22,10 +22,14 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 const getPlantillaMock = vi.fn();
 const createPlantillaMock = vi.fn();
 const updatePlantillaMock = vi.fn();
+// PLAN-Y bis — `listPlantillas` lo usa `PlantillaSelectorModal` (importador de
+// plantillas del banco dentro del cuestionario).
+const listPlantillasMock = vi.fn();
 vi.mock("../../domain/vblang/plantillaApi", () => ({
   getPlantilla: (...args: unknown[]) => getPlantillaMock(...args),
   createPlantilla: (...args: unknown[]) => createPlantillaMock(...args),
   updatePlantilla: (...args: unknown[]) => updatePlantillaMock(...args),
+  listPlantillas: (...args: unknown[]) => listPlantillasMock(...args),
   DslApiError: class extends Error {
     line?: number;
     col?: number;
@@ -96,6 +100,8 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
     getPlantillaMock.mockReset();
     createPlantillaMock.mockReset();
     updatePlantillaMock.mockReset();
+    listPlantillasMock.mockReset();
+    listPlantillasMock.mockResolvedValue({ items: [] });
     getQuizPreguntasMock.mockReset();
     saveQuizPreguntasMock.mockReset();
     getQuizMetaMock.mockReset();
@@ -566,6 +572,64 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
       );
     });
   }, 10000);
+
+  // PLAN-Y bis — "Importar plantilla del banco": trae una plantilla existente
+  // como pregunta del cuestionario (modelo `preguntas`, con su `plantillaId`).
+  // Reemplaza al "Usar plantilla VBLang" a nivel módulo (quiz legacy
+  // `generatorId: plantilla:X`).
+  it("importar plantilla del banco la agrega al rail como pregunta con su plantillaId", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    getQuizPreguntasMock.mockResolvedValue({
+      version: 1,
+      cantidadGlobal: 1,
+      preguntas: [{ plantillaId: "p1", tipo: "obligatoria" }],
+    });
+    getPlantillaMock.mockImplementation((id: string) =>
+      Promise.resolve(
+        plantillaFixture(id, id === "p1" ? "Suma" : "Importada del banco"),
+      ),
+    );
+    listPlantillasMock.mockResolvedValue({
+      items: [{ id: "p-banco", nombre: "Importada del banco", version: 1 }],
+    });
+
+    await renderEditor("/plantillas/nueva?quizId=quiz-1");
+    await waitFor(() => expect(screen.getByText("Suma")).toBeInTheDocument());
+
+    await user.click(screen.getByTestId("tiza-importar-plantilla"));
+    await user.click(await screen.findByTestId("plantilla-option-p-banco"));
+
+    // Se hidrató la plantilla elegida y entró al rail como pregunta nueva.
+    await waitFor(() => {
+      expect(getPlantillaMock).toHaveBeenCalledWith("p-banco");
+      expect(screen.getByText("Importada del banco")).toBeInTheDocument();
+    });
+  }, 15000);
+
+  it("importar una plantilla ya presente en el rail no la duplica", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    getQuizPreguntasMock.mockResolvedValue({
+      version: 1,
+      cantidadGlobal: 1,
+      preguntas: [{ plantillaId: "p1", tipo: "obligatoria" }],
+    });
+    getPlantillaMock.mockResolvedValue(plantillaFixture("p1", "Suma"));
+    listPlantillasMock.mockResolvedValue({
+      items: [{ id: "p1", nombre: "Suma", version: 1 }],
+    });
+
+    await renderEditor("/plantillas/nueva?quizId=quiz-1");
+    await waitFor(() => expect(screen.getByText("Suma")).toBeInTheDocument());
+
+    await user.click(screen.getByTestId("tiza-importar-plantilla"));
+    await user.click(await screen.findByTestId("plantilla-option-p1"));
+
+    // Sigue habiendo un solo ítem "Suma" en el rail (se activó, no se duplicó).
+    await waitFor(() => {
+      expect(screen.queryByTestId("plantilla-selector-modal")).not.toBeInTheDocument();
+    });
+    expect(screen.getAllByText("Suma")).toHaveLength(1);
+  }, 15000);
 
   it("guardar-todo: si una pregunta falla, la activa se guarda igual y el rail marca el error", async () => {
     const user = (await import("@testing-library/user-event")).default.setup();

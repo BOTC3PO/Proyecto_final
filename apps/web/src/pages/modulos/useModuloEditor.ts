@@ -607,6 +607,15 @@ export function useModuloEditor(
       quizzes,
       navigate,
       setValidationErrors,
+      // PLAN-Y — tras guardar, los quizzes `localOnly` ya existen en el
+      // server: se limpia el flag para que el próximo guardado no re-mande
+      // su title/type/visibility (Tiza pasa a ser su único editor).
+      onSaved: () =>
+        setQuizzes((prev) =>
+          prev.some((q) => q.localOnly)
+            ? prev.map((q) => (q.localOnly ? { ...q, localOnly: false } : q))
+            : prev,
+        ),
     });
   };
 
