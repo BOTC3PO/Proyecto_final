@@ -6,6 +6,7 @@ import { crearCuentaAlumnoStaff, vincularCuentaAlumnoStaff } from "../services/c
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
+import { useI18n } from "../i18n/I18nContext";
 import { resolveMateria } from "../domain/module/materia";
 
 type TipoDestino = "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO";
@@ -66,23 +67,6 @@ const ROLE_LABELS: Record<string, string> = {
   GUEST: "Invitado",
 };
 
-const THEME_SWATCH_COLORS: Record<string, string> = {
-  "clasico-vb":  "#2563eb",
-  "clasico":     "#1e40af",
-  "minimal":     "#1a1a18",
-  "aurora":      "#7c3aed",
-  "bosque":      "#15803d",
-  "nocturno":    "#1e293b",
-  "nocturno-vb": "#0f172a",
-  "vibrante":    "#e11d48",
-  "galaxy":      "#4f46e5",
-  "sunset":      "#f97316",
-  "ocean":       "#0891b2",
-  "candy":       "#ec4899",
-  "neon":        "#22d3ee",
-  "admin":       "#6b7280",
-};
-
 const ROLE_COLORS: Record<string, string> = {
   ADMIN: "bg-blue-100 text-blue-800",
   USER: "bg-emerald-100 text-emerald-800",
@@ -103,6 +87,7 @@ export default function Perfil() {
     useState<"idle" | "loading" | "ready">("idle");
   const [activeTab, setActiveTab] = useState<"perfil" | "progreso" | "logros" | "apariencia">("perfil");
   const { theme, setTheme, availableThemes } = useTheme();
+  const { lang, setLang, availableLanguages, t } = useI18n();
 
   useEffect(() => {
     let active = true;
@@ -263,9 +248,10 @@ export default function Perfil() {
                 { key: "perfil",      label: "Datos" },
                 { key: "progreso",    label: "Progreso" },
                 { key: "logros",      label: "Logros" },
-                ...(availableThemes.length > 1
-                  ? [{ key: "apariencia" as const, label: "Apariencia" }]
-                  : []),
+                // Apariencia siempre visible: aloja tema (gated adentro
+                // por availableThemes.length > 1) e idioma (siempre hay
+                // más de un idioma disponible).
+                { key: "apariencia" as const, label: "Apariencia" },
               ] as { key: "perfil" | "progreso" | "logros" | "apariencia"; label: string }[]).map(({ key, label }) => (
                 <button
                   key={key}
@@ -442,33 +428,67 @@ export default function Perfil() {
             )}
 
             {/* ── TAB: APARIENCIA ── */}
-            {activeTab === "apariencia" && availableThemes.length > 1 && (
-              <div className="space-y-3">
-                <p className="text-sm text-[var(--c-muted)]">
-                  Elegí el tema visual de la plataforma.
-                </p>
-                <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-                  {THEME_OPTIONS.filter((opt) => availableThemes.some((t) => t.id === opt.id)).map((opt) => (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => setTheme(opt.id)}
-                      className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
-                        theme === opt.id
-                          ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] ring-1 ring-[var(--c-primary)]"
-                          : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
-                      }`}
-                    >
-                      <span
-                        className="w-4 h-4 rounded-full shrink-0 border border-black/10"
-                        style={{ backgroundColor: THEME_SWATCH_COLORS[opt.id] ?? "#888" }}
-                      />
-                      <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
-                      {theme === opt.id && (
-                        <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">Activo</span>
-                      )}
-                    </button>
-                  ))}
+            {activeTab === "apariencia" && (
+              <div className="space-y-6">
+                {availableThemes.length > 1 && (
+                  <div className="space-y-3">
+                    <p className="text-sm text-[var(--c-muted)]">
+                      Elegí el tema visual de la plataforma.
+                    </p>
+                    <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+                      {THEME_OPTIONS.filter((opt) => availableThemes.some((th) => th.id === opt.id)).map((opt) => (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          data-theme={opt.id}
+                          onClick={() => setTheme(opt.id)}
+                          className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
+                            theme === opt.id
+                              ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] ring-1 ring-[var(--c-primary)]"
+                              : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
+                          }`}
+                        >
+                          <span
+                            className="w-4 h-4 rounded-full shrink-0 border border-black/10"
+                            style={{ backgroundColor: "var(--c-primary)" }}
+                          />
+                          <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
+                          {theme === opt.id && (
+                            <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">Activo</span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* PLAN-T — selector de idioma de interfaz, persistido en
+                    localStorage (mismo patrón que ThemeContext). Cambia sin
+                    recargar: todo componente que usa useI18n() re-renderiza. */}
+                <div className="space-y-3">
+                  <p className="text-sm text-[var(--c-muted)]">
+                    {t("perfil.idiomaDescripcion")}
+                  </p>
+                  <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+                    {availableLanguages.map((opt) => (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => setLang(opt.id)}
+                        data-testid={`idioma-${opt.id}`}
+                        className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
+                          lang === opt.id
+                            ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] ring-1 ring-[var(--c-primary)]"
+                            : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
+                        }`}
+                      >
+                        <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
+                        {lang === opt.id && (
+                          <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">Activo</span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}

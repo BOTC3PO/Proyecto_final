@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
+import { isPureParent } from "../../auth/roleHelpers";
 import { apiGet, apiPost } from "../../lib/api";
 import type {
   Module,
@@ -95,32 +96,45 @@ const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
 // `bloque.type === "text"` que no matcheaba con el "Texto" canónico
 // que emite el editor. La extraemos como helper puro para poder
 // testearla sin levantar el componente ni tocar `window.speechSynthesis`.
-export const extractTextForTts = (
+// PLAN-G §2 — versión con segmentos: cada texto conserva el id del bloque
+// de teoría de origen (si lo hay) para poder resaltar el párrafo que se
+// está leyendo. `extractTextForTts` se mantiene como proyección para no
+// romper a los consumidores/tests existentes.
+export type TtsSegment = { text: string; blockId?: string };
+
+export const extractTtsSegments = (
   module: Partial<Module> & {
     theoryBlocks?: ModuleTheoryBlock[];
     theoryItems?: ModuleTheoryBlock[];
   }
-): string[] => {
+): TtsSegment[] => {
   const bloques = module.theoryBlocks ?? module.theoryItems ?? [];
-  const textos: string[] = [];
-  if (module.title) textos.push(module.title);
-  if (module.description) textos.push(module.description);
+  const segmentos: TtsSegment[] = [];
+  if (module.title) segmentos.push({ text: module.title });
+  if (module.description) segmentos.push({ text: module.description });
 
   const isTextType = (t: string) =>
     t === "Texto" || t.toLowerCase() === "text";
 
   for (const bloque of bloques) {
     if (isTextType(bloque.type) && bloque.detail) {
-      if (bloque.title) textos.push(bloque.title);
-      textos.push(bloque.detail);
+      if (bloque.title) segmentos.push({ text: bloque.title, blockId: bloque.id });
+      segmentos.push({ text: bloque.detail, blockId: bloque.id });
     }
     if (bloque.type === "image") {
       const alt = (bloque as { alt?: string }).alt;
-      if (alt) textos.push(`Imagen: ${alt}`);
+      if (alt) segmentos.push({ text: `Imagen: ${alt}`, blockId: bloque.id });
     }
   }
-  return textos;
+  return segmentos;
 };
+
+export const extractTextForTts = (
+  module: Partial<Module> & {
+    theoryBlocks?: ModuleTheoryBlock[];
+    theoryItems?: ModuleTheoryBlock[];
+  }
+): string[] => extractTtsSegments(module).map((s) => s.text);
 
 type ModuloDetailResponse = Module & {
   theoryItems?: ModuleTheoryBlock[];
@@ -143,6 +157,10 @@ export default function ModuloDetail() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { user } = useAuth();
+  // PLAN-X §3 — el server ya bloquea POST /api/quiz-attempts para un
+  // PARENT puro (PLAN-J §3c #6); sin esto el botón lo dejaba clickear
+  // y recién se enteraba con un 403.
+  const pureParent = isPureParent(user);
 
   // UX-01: "Volver" contextual. Si el alumno llegó desde un aula u otra
   // pantalla, respetar `?returnTo=`; si no, retroceder en el historial.
@@ -161,8 +179,16 @@ export default function ModuloDetail() {
   const [previewQuestions, setPreviewQuestions] =
     useState<Record<string, Array<{ id: string; label: string }>>>({});
   const [attemptsByQuiz, setAttemptsByQuiz] = useState<Record<string, QuizAttemptSummary[]>>({});
-  const [ttsActivo, setTtsActivo] = useState(false);
-  const [, setTtsIndex] = useState(0);
+  // PLAN-G §2 — TTS completo: play/pausa/velocidad + resaltado del bloque
+  // leído. La velocidad vive también en un ref para que cada utterance
+  // nueva la lea sin re-crear el closure de lectura.
+  const [ttsEstado, setTtsEstado] = useState<"idle" | "leyendo" | "pausado">("idle");
+  const [ttsRate, setTtsRate] = useState(0.9);
+  const ttsRateRef = useRef(0.9);
+  const [ttsBlockId, setTtsBlockId] = useState<string | null>(null);
+  // PLAN-G §2 — modo foco: oculta todo menos la teoría, en tipografía de lectura.
+  const [modoFoco, setModoFoco] = useState(false);
+  const ttsActivo = ttsEstado !== "idle";
   const [dictOpen, setDictOpen] = useState(false);
   const [dictQuery, setDictQuery] = useState("");
   const [dictEntry, setDictEntry] = useState<EntradaDiccionario | null>(null);
@@ -183,35 +209,39 @@ export default function ModuloDetail() {
 
     window.speechSynthesis.cancel();
 
-    // FIX-LEER-VOZ-ALTA — la lógica de extracción de textos vive en
-    // `extractTextForTts` (exportada para tests) y maneja el match
+    // FIX-LEER-VOZ-ALTA — la lógica de extracción vive en
+    // `extractTtsSegments` (exportada para tests) y maneja el match
     // case-sensitive + tolerante a minúsculas para "Texto"/"text".
-    const textos = extractTextForTts(module ?? {});
+    const segmentos = extractTtsSegments(module ?? {});
 
-    if (textos.length === 0) {
+    if (segmentos.length === 0) {
       alert("No hay texto para leer en este módulo.");
       return;
     }
 
-    setTtsActivo(true);
+    setTtsEstado("leyendo");
 
     let i = 0;
     const leerSiguiente = () => {
-      if (i >= textos.length) {
-        setTtsActivo(false);
-        setTtsIndex(0);
+      if (i >= segmentos.length) {
+        setTtsEstado("idle");
+        setTtsBlockId(null);
         return;
       }
-      setTtsIndex(i);
-      const utterance = new SpeechSynthesisUtterance(textos[i]);
-      utterance.lang = "es-AR";
-      utterance.rate = 0.9;
+      const seg = segmentos[i];
+      setTtsBlockId(seg.blockId ?? null);
+      const utterance = new SpeechSynthesisUtterance(seg.text);
+      // PLAN-G §2 — voz según el idioma elegido en el diccionario (PLAN-H §2);
+      // "es" mapea al acento local es-AR como hasta ahora.
+      utterance.lang = dictLang === "es" ? "es-AR" : dictLang;
+      utterance.rate = ttsRateRef.current;
       utterance.onend = () => {
         i++;
         leerSiguiente();
       };
       utterance.onerror = () => {
-        setTtsActivo(false);
+        setTtsEstado("idle");
+        setTtsBlockId(null);
       };
       window.speechSynthesis.speak(utterance);
     };
@@ -219,11 +249,46 @@ export default function ModuloDetail() {
     leerSiguiente();
   };
 
+  const pausarReanudarTTS = () => {
+    if (ttsEstado === "leyendo") {
+      window.speechSynthesis.pause();
+      setTtsEstado("pausado");
+    } else if (ttsEstado === "pausado") {
+      window.speechSynthesis.resume();
+      setTtsEstado("leyendo");
+    }
+  };
+
   const detenerTTS = () => {
     window.speechSynthesis.cancel();
-    setTtsActivo(false);
-    setTtsIndex(0);
+    setTtsEstado("idle");
+    setTtsBlockId(null);
   };
+
+  const cambiarVelocidadTTS = (rate: number) => {
+    setTtsRate(rate);
+    // ponytail: la Web Speech API no permite cambiar el rate de una
+    // utterance en curso — aplica desde el próximo segmento leído.
+    ttsRateRef.current = rate;
+  };
+
+  // Resaltado: llevar el bloque leído a la vista.
+  useEffect(() => {
+    if (!ttsBlockId) return;
+    document
+      .getElementById(`teoria-${ttsBlockId}`)
+      ?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [ttsBlockId]);
+
+  // Modo foco: Esc para salir (accesibilidad por teclado).
+  useEffect(() => {
+    if (!modoFoco) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setModoFoco(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [modoFoco]);
 
   useEffect(() => {
     if (!dictOpen) return;
@@ -539,19 +604,67 @@ export default function ModuloDetail() {
           </button>
           <div className="flex items-start justify-between gap-4">
             <h1 className="text-2xl font-bold text-white md:text-3xl">{module.title}</h1>
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0 flex-wrap justify-end">
+              {!ttsActivo ? (
+                <button
+                  type="button"
+                  onClick={leerModulo}
+                  title="Leer módulo en voz alta"
+                  className="rounded-xl px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-2 bg-blue-100 text-blue-700 hover:bg-blue-200"
+                >
+                  🔊 Leer en voz alta
+                </button>
+              ) : (
+                <div
+                  role="group"
+                  aria-label="Controles de lectura en voz alta"
+                  className="flex items-center gap-1.5 rounded-xl bg-white/90 px-2 py-1.5 shadow-sm"
+                >
+                  <button
+                    type="button"
+                    onClick={pausarReanudarTTS}
+                    aria-label={ttsEstado === "leyendo" ? "Pausar lectura" : "Reanudar lectura"}
+                    className="rounded-lg px-3 py-1 text-sm font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 transition-colors"
+                  >
+                    {ttsEstado === "leyendo" ? "⏸ Pausar" : "▶ Reanudar"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={detenerTTS}
+                    aria-label="Detener lectura"
+                    className="rounded-lg px-3 py-1 text-sm font-semibold bg-red-100 text-red-700 hover:bg-red-200 transition-colors"
+                  >
+                    ⏹ Detener
+                  </button>
+                  <label className="flex items-center gap-1 text-xs font-medium text-slate-600">
+                    <span className="sr-only">Velocidad de lectura</span>
+                    <select
+                      value={ttsRate}
+                      onChange={(e) => cambiarVelocidadTTS(Number(e.target.value))}
+                      title="Velocidad de lectura (aplica desde el próximo párrafo)"
+                      className="rounded-lg border border-slate-200 bg-white px-1.5 py-1 text-xs"
+                    >
+                      <option value={0.75}>0.75×</option>
+                      <option value={0.9}>0.9×</option>
+                      <option value={1}>1×</option>
+                      <option value={1.25}>1.25×</option>
+                      <option value={1.5}>1.5×</option>
+                    </select>
+                  </label>
+                </div>
+              )}
               <button
                 type="button"
-                onClick={ttsActivo ? detenerTTS : leerModulo}
-                aria-pressed={ttsActivo}
-                title={ttsActivo ? "Detener lectura" : "Leer módulo en voz alta"}
+                onClick={() => setModoFoco((v) => !v)}
+                aria-pressed={modoFoco}
+                title={modoFoco ? "Salir del modo foco (Esc)" : "Modo foco: sólo la teoría, tipografía de lectura"}
                 className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-2 ${
-                  ttsActivo
-                    ? "bg-red-100 text-red-700 hover:bg-red-200"
-                    : "bg-blue-100 text-blue-700 hover:bg-blue-200"
+                  modoFoco
+                    ? "bg-indigo-600 text-white hover:bg-indigo-500"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                 }`}
               >
-                {ttsActivo ? "⏹ Detener" : "🔊 Leer en voz alta"}
+                🎯 {modoFoco ? "Salir del foco" : "Modo foco"}
               </button>
               <button
                 type="button"
@@ -576,8 +689,8 @@ export default function ModuloDetail() {
       </div>
 
       <div className="mx-auto max-w-4xl space-y-8 px-6 -mt-6">
-        {/* Info Grid */}
-        <section className="grid gap-4 rounded-xl border border-slate-200/60 bg-white p-6 shadow-lg shadow-slate-200/50 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Info Grid — oculto en modo foco (PLAN-G §2) */}
+        <section className={`${modoFoco ? "hidden" : ""} grid gap-4 rounded-xl border border-slate-200/60 bg-white p-6 shadow-lg shadow-slate-200/50 sm:grid-cols-2 lg:grid-cols-3`}>
           <div className="flex items-start gap-3">
             <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${palette.icon}`}>
               <svg className="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
@@ -657,7 +770,7 @@ export default function ModuloDetail() {
         </section>
 
         {/* Divider */}
-        <div className="border-t border-slate-200/60" />
+        <div className={`${modoFoco ? "hidden" : ""} border-t border-slate-200/60`} />
 
         {/* Theory Section */}
         <section className="space-y-4">
@@ -679,19 +792,54 @@ export default function ModuloDetail() {
               </p>
             </div>
           ) : (
-            <div className="grid gap-3">
-              {theoryItems.map((item) => (
-                <TheoryItemCard key={item.id} item={item} />
-              ))}
+            // PLAN-G §2 — índice lateral por secciones (≥2 items, pantallas
+            // grandes) + resaltado del bloque que el TTS está leyendo.
+            <div className={theoryItems.length > 1 ? "lg:grid lg:grid-cols-[14rem_1fr] lg:gap-6 lg:items-start" : ""}>
+              {theoryItems.length > 1 && (
+                <nav aria-label="Índice de teoría" className="hidden lg:block lg:sticky lg:top-4 space-y-1 mb-4 lg:mb-0">
+                  <p className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Índice</p>
+                  {theoryItems.map((item, i) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() =>
+                        document
+                          .getElementById(`teoria-${item.id}`)
+                          ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                      }
+                      className={`block w-full truncate rounded-lg px-2 py-1 text-left text-sm transition-colors ${
+                        ttsBlockId === item.id
+                          ? "bg-indigo-100 font-medium text-indigo-700"
+                          : "text-slate-600 hover:bg-slate-100"
+                      }`}
+                    >
+                      {i + 1}. {item.title || "Sin título"}
+                    </button>
+                  ))}
+                </nav>
+              )}
+              <div className={`grid gap-3 ${modoFoco ? "mx-auto w-full max-w-prose" : ""}`}>
+                {theoryItems.map((item) => (
+                  <div
+                    key={item.id}
+                    id={`teoria-${item.id}`}
+                    className={`scroll-mt-4 rounded-lg transition-shadow ${
+                      ttsBlockId === item.id ? "ring-2 ring-blue-400 shadow-md" : ""
+                    }`}
+                  >
+                    <TheoryItemCard item={item} lectura={modoFoco} />
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </section>
 
         {/* Divider */}
-        <div className="border-t border-slate-200/60" />
+        <div className={`${modoFoco ? "hidden" : ""} border-t border-slate-200/60`} />
 
-        {/* Quizzes Section */}
-        <section className="space-y-4">
+        {/* Quizzes Section — oculta en modo foco (PLAN-G §2) */}
+        <section className={`${modoFoco ? "hidden" : ""} space-y-4`}>
           <div className="flex items-center gap-3">
             <h2 className="text-lg font-bold text-slate-900">Quizzes</h2>
             <span className="inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-purple-100 px-2 text-xs font-bold text-purple-700">
@@ -822,6 +970,11 @@ export default function ModuloDetail() {
                     ) : null}
 
                     <div className="flex flex-wrap items-center gap-3">
+                      {pureParent ? (
+                        <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-4 py-2 text-xs font-medium text-slate-500">
+                          Como familiar podés ver este cuestionario pero no rendirlo.
+                        </span>
+                      ) : (
                       <button
                         type="button"
                         className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2 text-xs font-semibold text-white shadow-sm shadow-indigo-200 transition-all hover:from-indigo-500 hover:to-indigo-600 hover:shadow-md hover:shadow-indigo-200/50 active:scale-[0.98] disabled:from-slate-300 disabled:to-slate-300 disabled:shadow-none"
@@ -868,6 +1021,7 @@ export default function ModuloDetail() {
                           </>
                         )}
                       </button>
+                      )}
                       <button
                         type="button"
                         className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50 active:scale-[0.98]"

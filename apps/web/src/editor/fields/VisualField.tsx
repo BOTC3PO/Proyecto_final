@@ -1,4 +1,4 @@
-import { useState, useId, type CSSProperties } from "react";
+import { useEffect, useState, useId, type CSSProperties } from "react";
 import type { Plantilla } from "@vb/vblang";
 import { Button, Checkbox, Field, Input, Select } from "../../ui";
 import FieldGroup from "../FieldGroup";
@@ -14,6 +14,7 @@ import {
   removeVisual,
 } from "../../components/vblang/plantillaFields";
 import { uploadPng } from "../../components/vblang/mediaApi";
+import { apiGet } from "../../lib/api";
 
 export type VisualFieldProps = {
   plantilla: Plantilla;
@@ -175,6 +176,55 @@ function VisualPngEditor({
   );
 }
 
+/** PLAN-E §19 — picker del banco de fórmulas (globales + escuela + mías). */
+interface FormulaBancoItem {
+  id: string;
+  nombre: string;
+  materia?: string;
+  latex: string;
+}
+
+function BancoFormulasPicker({ onPick }: { onPick: (latex: string) => void }) {
+  const [items, setItems] = useState<FormulaBancoItem[]>([]);
+  useEffect(() => {
+    apiGet<{ items: FormulaBancoItem[] }>("/api/formulas")
+      .then((r) => setItems(r.items))
+      .catch(() => {
+        // sin banco (offline, sin permisos): el picker simplemente no aparece
+      });
+  }, []);
+  if (items.length === 0) return null;
+
+  const porMateria = new Map<string, FormulaBancoItem[]>();
+  for (const f of items) {
+    const key = f.materia ?? "Otras";
+    porMateria.set(key, [...(porMateria.get(key) ?? []), f]);
+  }
+  return (
+    <Field label="Insertar del banco de fórmulas">
+      <Select
+        value=""
+        onChange={(e) => {
+          const elegida = items.find((f) => f.id === e.target.value);
+          if (elegida) onPick(elegida.latex);
+        }}
+        data-testid="banco-formulas-picker"
+      >
+        <option value="">Elegí una fórmula…</option>
+        {[...porMateria.entries()].map(([materia, fs]) => (
+          <optgroup key={materia} label={materia}>
+            {fs.map((f) => (
+              <option key={f.id} value={f.id}>
+                {f.nombre}
+              </option>
+            ))}
+          </optgroup>
+        ))}
+      </Select>
+    </Field>
+  );
+}
+
 function LatexEditor({
   plantilla,
   onChange,
@@ -190,6 +240,7 @@ function LatexEditor({
 
   return (
     <div style={colStyle}>
+      <BancoFormulasPicker onPick={(latex) => patch({ content: latex })} />
       <BufferedText
         label="Fórmula (LaTeX)"
         help="Sintaxis KaTeX, ej.: \frac{a}{b} = c^2"

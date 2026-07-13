@@ -11,9 +11,9 @@
  *
  * Tarea 20: arriba del editor hay un input de busqueda (filtro visual,
  * case-insensitive sobre el enunciado) y un boton "Exportar JSON" que
- * descarga `banco-preguntas-{fecha}.json` con el shape que acepta el
- * import existente (`QuizImportJson`). El filtro es solo visual: el
- * export siempre incluye TODAS las preguntas.
+ * descarga `banco-preguntas-{fecha}.json` (ver `bancoExport.ts` para el
+ * shape). El filtro es solo visual: el export siempre incluye TODAS las
+ * preguntas.
  */
 import { useId, useMemo, useState } from "react";
 import { AccessibleList } from "../vblang/AccessibleList";
@@ -155,8 +155,7 @@ export default function BancoPreguntasEditor({
   );
   const filterActive = searchTrim.length > 0;
 
-  // Tarea 20: exportar todas las preguntas (no las filtradas) al JSON que
-  // sabe leer `QuizImportJson`.
+  // Tarea 20: exportar todas las preguntas (no las filtradas).
   const handleExportar = () => {
     const json = exportBancoToJson(questions);
     const blob = new Blob([json], { type: "application/json;charset=utf-8" });

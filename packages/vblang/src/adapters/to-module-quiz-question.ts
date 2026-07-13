@@ -25,6 +25,24 @@ function generateId(seed: string): string {
   return `vb-${hash}-${c}`;
 }
 
+/**
+ * PLAN-E §21 Parte B — codec canónico de un span: `"desde-hasta:etiqueta"`
+ * (índices de PALABRA 0-based inclusive). Es el formato de `answerKey` y de
+ * la respuesta del alumno; comparten codec para que la corrección sea la
+ * comparación de conjuntos de strings genérica del server.
+ */
+export function spanToKey(sp: { desde: number; hasta: number; etiqueta: string }): string {
+  return `${sp.desde}-${sp.hasta}:${sp.etiqueta}`;
+}
+
+export function spanFromKey(
+  key: string,
+): { desde: number; hasta: number; etiqueta: string } | null {
+  const m = /^(\d+)-(\d+):(.+)$/.exec(key);
+  if (!m) return null;
+  return { desde: Number(m[1]), hasta: Number(m[2]), etiqueta: m[3] };
+}
+
 function mapTipo(tipo: GenerationResult["tipo"]): ModuleQuizQuestionType {
   switch (tipo) {
     case "input":
@@ -34,6 +52,7 @@ function mapTipo(tipo: GenerationResult["tipo"]): ModuleQuizQuestionType {
     case "ordenar":
     case "marcar_mapa":
     case "analisis_sintactico":
+    case "analisis_spans":
     case "identificar_palabras":
     case "abierta":
     case "expresion":
@@ -53,14 +72,16 @@ function mapOpciones(opciones?: OpcionGenerada[]): string[] | undefined {
 
 function mapAnswerKey(gen: GenerationResult): string | string[] | undefined {
   if (gen.opciones && gen.opciones.length > 0) {
-    const correcta = gen.opciones.find((o) => o.correcta);
-    if (!correcta) {
+    const correctas = gen.opciones.filter((o) => o.correcta);
+    if (correctas.length === 0) {
       throw new AdapterError(
         `ninguna opción está marcada como correcta`,
         "sin-respuesta-correcta",
       );
     }
-    return correcta.texto;
+    // PLAN-E §21 Parte A: mc múltiple → answerKey con TODAS las correctas.
+    if (gen.multiple) return correctas.map((o) => o.texto);
+    return correctas[0].texto;
   }
   if (gen.respuestasValidas && gen.respuestasValidas.length > 0) {
     return gen.respuestasValidas.map((v) => formatoDefault(v));
@@ -192,6 +213,19 @@ export function toModuleQuizQuestion(
     result.textoAnalizar = gen.textoAnalizar;
     result.etiquetasPedidas = gen.etiquetasPedidas;
     // No answerKey: las respuestas correctas están embebidas en etiquetasPedidas.
+  } else if (gen.tipo === "analisis_spans") {
+    if (!gen.textoAnalizar || !gen.spansPedidos || !gen.etiquetasDisponibles) {
+      throw new AdapterError(
+        "analisis_spans requiere `textoAnalizar`, `spansPedidos` y `etiquetasDisponibles` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    result.textoAnalizar = gen.textoAnalizar;
+    result.etiquetasDisponibles = gen.etiquetasDisponibles;
+    // La clave va SÓLO en answerKey (codec canónico): la sanitización la
+    // reemplaza por el canario y el alumno no puede leerla del payload.
+    result.answerKey = gen.spansPedidos.map(spanToKey);
+    result.puntajeParcial = gen.puntajeParcial ?? "todo_o_nada";
   } else if (gen.tipo === "identificar_palabras") {
     if (!gen.textoAnalizar || !gen.respuestasValidas) {
       throw new AdapterError(
@@ -206,6 +240,13 @@ export function toModuleQuizQuestion(
     const modo = gen.correccion ?? "ninguna";
     result.correccion = modo;
     if (modo === "manual") result.manualGrading = true;
+  }
+
+  // PLAN-E §21 Parte A — mc de selección múltiple: el flag debe llegar al
+  // player (sobrevive la sanitización, a diferencia del answerKey).
+  if (gen.tipo === "mc" && gen.multiple) {
+    result.multiple = true;
+    result.puntajeParcial = gen.puntajeParcial ?? "todo_o_nada";
   }
 
   const explanation =

@@ -49,6 +49,14 @@ export const DatasetCreateSchema = z.object({
   visibility: z.enum(VISIBILITY),
   columnas: z.record(z.string(), z.enum(["string", "number", "boolean"])),
   filas: z.array(z.record(z.string(), z.unknown())).optional(),
+  // PLAN-E §20: fuente externa. Sólo HTTPS; null borra la URL.
+  sourceUrl: z
+    .string()
+    .max(500)
+    .url()
+    .startsWith("https://", "sourceUrl debe ser HTTPS")
+    .nullable()
+    .optional(),
 });
 
 export const DatasetUpdateSchema = DatasetCreateSchema.partial();

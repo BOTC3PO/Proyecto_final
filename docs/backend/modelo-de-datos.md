@@ -5,7 +5,7 @@
 | **Versión** | 1.0 |
 | **Estado** | Vigente |
 | **Audiencia** | Backend, full-stack, data |
-| **Última actualización** | 2026-05-30 |
+| **Última actualización** | 2026-07-08 (PLAN-P §5 — actualización acotada: `Material`/`MaterialVersion`, `Quiz` standalone, fix `Libro`/`LibroJson`) |
 | **Fuente de verdad** | `api/prisma/schema.prisma` (91 modelos) |
 
 > Este documento se deriva directamente de `api/prisma/schema.prisma`. Reemplaza al
@@ -166,23 +166,48 @@ erDiagram
 | `Modulo` | `modulos` | Unidad de contenido; visibilidad, dueño, vínculos a teoría/libro/quiz. |
 | `TeoriaJson` | `teoria_json` | Documento de teoría versionado (relación con `Modulo`). |
 | `TuesdayDoc` | `tuesdayjs_docs` | Documento "TuesdayJS" versionado. |
-| `LibroJson` | `libros_json` | Libro serializado (con `schemaVersion` y `contentHash`). |
-| `BloqueJson` | `bloques_json` | Bloque de contenido reutilizable versionado. |
-| `Libro` | `libros` | Libro como blob `json` (variante legacy). |
+| `LibroJson` | `libros_json` | **Muerto** — esquema de un diseño de persistencia anterior; ningún código de `api/src` ni `apps/web/src` lo lee/escribe hoy (confirmado por grep). No usar como referencia. |
+| `BloqueJson` | `bloques_json` | Mismo estado que `LibroJson` — sin consumidores confirmados. |
+| `Libro` | `libros` | **El libro real y vivo** (`json` = `Book` serializado) + scoping (`ownerUserId`, `schoolId`, `visibility`) y provenance de clonado. Ver [`../book-editor.md`](../book-editor.md#guardado-y-scoping-backend). |
 | `Page` | `pages` | Página simple con `title`/`content`. |
 | `Materia` | `materias` | Materia como blob `json`. |
-| `ConfigModulo` | `config_modulos` | Listas de configuración de módulos (`items`). |
+| `Material` | `materiales_guardados` | "Guardar como material" genérico (mapa/timeline/interactivo/presentación) usado por varios editores — no confundir con `Modulo` ni `Libro`. Ver detalle abajo. |
+| `MaterialVersion` | `material_versions` | Historial de versiones de un `Material` (append-only, mismo patrón que `Quiz`/`QuizVersion`). |
+| `ConfigModulo` | `config_modulos` | **No es config de un módulo individual**: catálogo global editable por ADMIN (`items: String[]` como JSON), p. ej. la lista de materias/categorías disponibles en los editores (`GET/PUT /api/config/materias`, `/api/config/categorias`). |
 | `ProgresoModulo` | `progreso_modulos` | Progreso de un usuario en un módulo dentro de un aula. |
-| `ProgresoModuloVinculo` | `vinculos_padre_hijo` | Vínculo padre↔hijo y permisos asociados. |
+| `ProgresoModuloVinculo` | `vinculos_padre_hijo` | **A pesar del nombre**, es el vínculo padre↔hijo (cuentas PARENT↔alumno) y sus permisos — no progreso de módulo. |
 | `ResourceLink` | `resource_links` | Enlace de recurso asociado a aula/escuela con visibilidad. |
 | `Tarea` | `tareas` | Tarea como blob `json` (aula/escuela opcional). |
 | `Entrega` | `entregas` | Entrega como blob `json`. |
 | `Publicacion` | `publicaciones` | Publicación del feed de aula (variante sin FK). |
 | `Comentario` | `comentarios` | Comentario sobre una publicación (blob `json`). |
 
-**Campos clave `Modulo`:** `id`, `slug? @unique`, `titulo`, `descripcion?`, `visibility @default("private")`,
-`schoolId?`, `ownerUserId?`, `teoriaId?` (FK a `TeoriaJson`), `tuesdayDocId?`, `libroId?`,
-`defaultQuestionCount?`, `dependencies?`, `isDeleted`. Relaciones: `teoria?`, `quizzes[]`.
+**Campos clave `Modulo`:** `id`, `slug? @unique`, `titulo`, `descripcion?`, `subject?`, `level?`,
+`category?`, `durationMinutes?`, `theoryItems?: String` (JSON de teoría embebida — ver
+[`../modulos.md`](../modulos.md#theoryitems), no confundir con `teoriaId`, modelo viejo por
+referencia), `scoringConfig?: String` (escala de notas), `visibility @default("private")` (valores
+reales usados por el código: `"privado"|"escuela"|"publico"`, el default de columna en inglés es
+residual), `schoolId?`, `ownerUserId?`, `teoriaId?` (FK a `TeoriaJson`), `tuesdayDocId?`, `libroId?`
+(ambos ids libres, no `@relation` de Prisma), `defaultQuestionCount?`, `dependencies?: String` (JSON
+`{id, type:"required"|"unlocks"}[]` — sólo `"required"` se consume hoy, ver
+[`../modulos.md`](../modulos.md#dependencias)), `isDeleted`. Relaciones: `teoria?`, `quizzes[]`.
+**No tiene** columna `status` (el schema Zod de la API sí declara un `status` `ACTIVE`/`ARCHIVED`,
+pero no se persiste — no hay ciclo de vida publicado/borrador implementado) ni columna `aulaId` (la
+relación módulo↔aula es la tabla `ClaseModulo`, no una FK directa acá).
+
+### Material / MaterialVersion — "guardar como material"
+
+Sistema de persistencia genérico usado por varios editores (mapas, bloques, libros vía el listado
+combinado) para guardar contenido reusable fuera de un módulo. `Material`: `id, tipo` (String libre
+∈ `"mapa"|"timeline"|"interactivo"|"presentacion"`, mismo patrón sin-enum-Prisma que
+`Modulo.visibility`), `titulo, ownerUserId, schoolId?, visibility @default("privado")`,
+`currentVersionId?`, `isDeleted`. `MaterialVersion`: `id, materialId, versionNumber, schemaVersion
+@default(1), contenido: String` (el JSON según `tipo`), `contentHash?, createdBy?`.
+`@@unique([materialId, versionNumber])`. Cada guardado posterior **crea una versión nueva, nunca
+sobrescribe la anterior** (histórico real) — pero hoy no hay ninguna ruta que liste/lea versiones
+viejas, sólo la actual (`GET /api/materiales/guardados/:id`). **Sin relación con `Modulo`**: no existe
+`moduleId` en `Material` ni ningún flujo "usar en módulo" para materiales (a diferencia de `Quiz`, que
+sí tiene `usar-en-modulo`).
 
 **Campos clave `ProgresoModulo`:** `id @default(uuid())`, `usuarioId`, `moduloId`, `aulaId?`,
 `status`, `score?`, `attempts @default(0)`, `completedAt?`, `updatedAt`.
@@ -262,7 +287,7 @@ erDiagram
 
 | Modelo | Tabla | Propósito |
 |---|---|---|
-| `Quiz` | `quizzes` | Evaluación de un módulo; apunta a la versión activa. |
+| `Quiz` | `quizzes` | Evaluación; apunta a la versión activa. `moduleId?` es **nullable** desde PLAN-CORRECCIONES C2 (migración `20260703180000_quiz_standalone`): un quiz puede vivir "suelto" sin módulo, con `ownerUserId?` como dueño mientras tanto (ver [`../modulos.md`](../modulos.md#quiz--quizversion-post-c2)). |
 | `QuizVersion` | `quiz_versions` | Versión inmutable de un quiz (preguntas o generador + params). |
 | `QuizQuestionSet` | `quiz_question_sets` | Conjunto de preguntas reutilizable (deduplicado por `contentHash`). |
 | `QuizAttempt` | `quiz_attempts` | Intento de un usuario sobre una versión de quiz. |
@@ -475,6 +500,16 @@ erDiagram
 > El nivel de acceso por estado de suscripción (`active`/`read_only`/`disabled`) y la política de
 > mora están en [`auth-y-roles.md`](./auth-y-roles.md) y [`../politica-mora.md`](../politica-mora.md).
 > El detalle del modelo de comisión (Fase 5.1) está en [`../pagos/`](../pagos/).
+
+> **Modelos del pivot a comisiones (PLAN-B, aún no reflejados arriba)**: `CobroEscuela`
+> (`schema.prisma:48`, cobro emitido por una escuela a sus familias — `concepto, montoUnitario,
+> estado: "borrador"|"publicado"|"cerrado"`, relación 1-a-muchos con `CuotaAlumno`) y `Pago`
+> (`schema.prisma:96`, registro de pago genérico por proveedor — `provider, providerRef,
+> estado: "pendiente"|"en_proceso"|"pagada"|"fallida"|"anulada", montoBruto, comisionVB,
+> montoNetoEscuela`, `@@unique([provider, providerRef])` para idempotencia de webhooks). No se
+> expande a diagrama acá (fuera del alcance de PLAN-P, que sólo evita que los manuales de
+> módulos/libros/bloques apunten a modelos inexistentes) — mencionados para que este documento no
+> quede ciego a modelos ya presentes en `schema.prisma`.
 
 ---
 

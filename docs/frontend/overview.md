@@ -202,9 +202,6 @@ graph TD
 `/profesor/calendario/detalle` → `/profesor/calendario` · `/profesor/mensajes` → `/mensajes` ·
 `/profesor/crear-modulo` → `/modulos/crear` · `/profesor/modulos` → `/modulos` · `*` → `/404`.
 
-> Páginas presentes en `pages/` pero **no** referenciadas por `router.tsx`: `pages/About.tsx` y
-> `pages/ProfesorModulos.tsx` (la ruta `/profesor/modulos` usa un `<Navigate>` inline, no esta page).
-
 ## Propósito de cada página
 
 > Una línea por page; "Usa" lista los servicios/hooks/componentes principales. Derivado leyendo cada
@@ -230,7 +227,6 @@ graph TD
 | `OnboardingTema` | Selección de tema visual tras el registro (localStorage). | react-router, localStorage |
 | `PerfilPublico` | Perfil público por username con módulos completados. | `GET /api/perfil/:username` |
 | `dev/UiShowcase` | Showcase del sistema de diseño (solo dev). | components/ui |
-| `About` | Página "Acerca" (no ruteada actualmente). | — |
 
 ### Alumno y familia
 
@@ -278,7 +274,6 @@ graph TD
 | `ProfesorConfiguracion` | Redirige a `/perfil`. | Navigate |
 | `ProfesorCalendario` | Calendario unificado de eventos escuela/aula. | services/calendarioUnificado |
 | `ProfesorReportes` | Reportes de boletín/asistencia/progreso/riesgo. | services/reportes-v2 |
-| `ProfesorModulos` | Redirige a `/modulos` (no ruteada; redirect inline en router). | Navigate |
 
 ### Admin
 

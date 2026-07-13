@@ -12,6 +12,7 @@ import type {
   DatasetDetail,
   DatasetListParams,
   DatasetListResponse,
+  DatasetRefreshResponse,
   DatasetUpdateInput,
   DatasetUpdateRowResponse,
 } from "./dataset.types";
@@ -56,6 +57,14 @@ export async function updateDataset(
 export async function deleteDataset(id: string): Promise<{ ok: true }> {
   await apiDelete(`/api/vblang/datasets/${encodeURIComponent(id)}`);
   return { ok: true };
+}
+
+/** PLAN-E §20: baja la fuente externa y reemplaza todas las filas. */
+export async function refreshDataset(id: string): Promise<DatasetRefreshResponse> {
+  return apiPost<DatasetRefreshResponse>(
+    `/api/vblang/datasets/${encodeURIComponent(id)}/refresh`,
+    {},
+  );
 }
 
 export async function addRows(

@@ -1,28 +1,28 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { useIsTeacher } from "../../auth/use-roles";
+import { apiGet, apiPost, apiDelete, ApiError } from "../../lib/api";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
-import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
 import { Modal, Button, Spinner, Alert } from "../../ui";
 import { batchGetPlantillas } from "../../domain/vblang/plantillaApi";
+import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
+import type { PlantillaListItem } from "../../domain/vblang/plantilla.types";
 import {
+  crearQuizEnModulo,
   listarQuizzesSueltos,
   usarQuizEnModulo,
   getQuizMeta,
+  saveQuizPreguntas,
   type QuizSuelto,
 } from "../../domain/quiz/quizPreguntasApi";
-import type { PlantillaListItem } from "../../domain/vblang/plantilla.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
 import QuizPosicionesEditor from "../../components/modulos/QuizPosicionesEditor";
-import QuizImportJson from "../../components/modulos/QuizImportJson";
-import EvaluacionConfig from "../../components/modulos/EvaluacionConfig";
-import { parseEvaluacionConfig } from "../../domain/quiz/intentos";
 import { SCORING_SYSTEMS, DEFAULT_SCORING_SYSTEM_ID } from "@vb/vblang";
 import VistaAlumnoOverlay from "../../components/modulos/VistaAlumnoOverlay";
 import EditorSectionNav, {
@@ -55,6 +55,7 @@ import {
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 import MapaEditorFull from "../herramientas/MapaEditorFull";
+import { InsertarMaterialGuardado } from "../../components/materiales/InsertarMaterialGuardado";
 
 // ─── Pills de estado (prototipo `.pill`) ───────────────────────────────────
 // Mismas tonalidades que el componente de diseño `ui/Pill`, pero con
@@ -134,7 +135,6 @@ function CardHeader({
 export default function ModuloEditor() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
   const { user } = useAuth();
 
   const {
@@ -151,6 +151,7 @@ export default function ModuloEditor() {
     newTheoryItem,
     setNewTheoryItem,
     handleAddTheoryItem,
+    insertMaterialTheoryItem,
     updateTheoryItem,
     removeTheoryItem,
     moveTheoryItem,
@@ -168,8 +169,6 @@ export default function ModuloEditor() {
     handleImportQuizzes,
     quizPreviewOpen,
     setQuizPreviewOpen,
-    quizBlurErrors,
-    validateQuizTitle,
     sectionStatus,
     bookSearch,
     setBookSearch,
@@ -207,6 +206,7 @@ export default function ModuloEditor() {
     removeDependency,
     updateDependencyType,
     searchModules,
+    depModuleNames,
     handleSubmit,
     // FIX-TEST4-MOD-02 — flag de carga inicial. Mientras es
     // true, mostramos un skeleton en lugar del form vacío (que
@@ -231,37 +231,10 @@ export default function ModuloEditor() {
   const fieldErr = (f: keyof typeof FIELD_ERROR_MSG) =>
     validationErrors.includes(FIELD_ERROR_MSG[f]);
 
-  // FIX-MODULO-QUIZ-IMPORT — el `useEffect` original tenía deps `[]`
-  // y solo corría en mount. Cuando el docente ya estaba en el editor
-  // de módulo, iba a "Editor V2", creaba un cuestionario, y volvía
-  // con `navigate(returnTo, { state: { importedQuiz } })`, el state
-  // llegaba a `location.state` pero el effect NO se re-disparaba
-  // (deps `[]` y el componente ya estaba montado). Resultado: el
-  // cuestionario "no se cargaba en el módulo" — bug 7.9 de
-  // `docs/qa/test-parte-3-profesor.md`.
-  //
-  // Fix: depender de `location.state` para re-correr el effect cada
-  // vez que llega un nuevo `importedQuiz`. Se reemplaza el state
-  // apenas se consume para que navegaciones sucesivas (ej. ir y
-  // volver) sigan funcionando, sin que el efecto quede "pegado" en
-  // el primer quiz si el docente entra y sale varias veces del V2.
-  const importedQuizState = (location.state as
-    | { importedQuiz?: Record<string, unknown> }
-    | null)?.importedQuiz;
-  useEffect(() => {
-    if (!importedQuizState) return;
-    window.history.replaceState(
-      window.history.state ?? {},
-      "",
-      window.location.pathname + window.location.search,
-    );
-    handleImportQuizzes([importedQuizState as ModuleQuiz]);
-    // handleImportQuizzes viene de useModuloEditor (estable entre
-    // renders para un mismo id). `location.state` se reemplaza
-    // arriba así que la próxima vez que no haya importedQuiz el
-    // effect no hace nada.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [importedQuizState]);
+  // PLAN-CUESTIONARIOS — el effect FIX-MODULO-QUIZ-IMPORT que consumía
+  // `location.state.importedQuiz` se retiró junto con los editores
+  // clásicos V1/V2 (desconectados del router): nada navega de vuelta
+  // con ese state ya.
 
   const [draftRestored, setDraftRestored] = useState(false);
 
@@ -346,8 +319,6 @@ export default function ModuloEditor() {
     },
   ];
 
-  // ─── Plantilla selector (Sprint 10A · Bloque B) ─────────────────────────
-  const [plantillaModalOpen, setPlantillaModalOpen] = useState(false);
   // ─── PLAN-CORRECCIONES C2 — reusar un cuestionario "suelto" (sin módulo)
   // ya armado desde /plantillas/nueva. Sólo tiene sentido con el módulo ya
   // guardado (`id` real): "usar-en-modulo" clona el quiz contra ese id en
@@ -394,6 +365,79 @@ export default function ModuloEditor() {
       setQuizzesSueltosStatus("error");
     } finally {
       setUsandoQuizSueltoId(null);
+    }
+  };
+
+  // PLAN-CUESTIONARIOS — "Crear cuestionario": el módulo crea un quiz
+  // Tiza vacío YA adosado (POST /api/quizzes con moduleId) y la tarjeta
+  // aparece en la lista con las reglas de cuestionario (tipo/visibilidad/
+  // evaluación) y el link "Preguntas nativas en Tiza →" para escribir las
+  // preguntas. Sólo con módulo guardado (`id` real), igual que
+  // "Usar cuestionario existente".
+  const [creandoCuestionario, setCreandoCuestionario] = useState(false);
+  const [crearCuestionarioError, setCrearCuestionarioError] = useState(false);
+
+  const handleCrearCuestionario = async () => {
+    if (!id) return;
+    setCreandoCuestionario(true);
+    setCrearCuestionarioError(false);
+    try {
+      const creado = await crearQuizEnModulo(id);
+      const meta = await getQuizMeta(creado.id);
+      const nuevoQuiz: ModuleQuiz = {
+        id: creado.id,
+        title: meta.title || "Cuestionario sin título",
+        type: meta.type === "evaluacion" ? "formal" : (meta.type as ModuleQuiz["type"]),
+        status: "draft",
+        version: 1,
+        visibility: meta.visibility,
+        mode: "generated",
+        tienePreguntasNativas: true,
+      };
+      handleImportQuizzes([nuevoQuiz]);
+    } catch {
+      setCrearCuestionarioError(true);
+    } finally {
+      setCreandoCuestionario(false);
+    }
+  };
+
+  // PLAN-Y bis — "Cuestionario desde plantilla": mismo resultado que
+  // "Crear cuestionario" (un quiz Tiza nativo adosado al módulo) pero
+  // arrancando con la plantilla elegida YA importada como su primera
+  // pregunta. Reemplaza al viejo "Usar plantilla VBLang" (que creaba el
+  // quiz legacy `generatorId: plantilla:X`): ahora la plantilla entra al
+  // modelo `preguntas` (con su `plantillaId`), el mismo que lee el runtime.
+  const [plantillaModalOpen, setPlantillaModalOpen] = useState(false);
+  const [importandoPlantilla, setImportandoPlantilla] = useState(false);
+
+  const handleCrearDesdePlantilla = async (plantilla: PlantillaListItem) => {
+    if (!id) return;
+    setImportandoPlantilla(true);
+    setCrearCuestionarioError(false);
+    try {
+      const creado = await crearQuizEnModulo(id);
+      await saveQuizPreguntas(creado.id, {
+        cantidadGlobal: 1,
+        preguntas: [{ plantillaId: plantilla.id, tipo: "obligatoria" }],
+      });
+      const meta = await getQuizMeta(creado.id);
+      const nuevoQuiz: ModuleQuiz = {
+        id: creado.id,
+        title: meta.title || "Cuestionario sin título",
+        type: meta.type === "evaluacion" ? "formal" : (meta.type as ModuleQuiz["type"]),
+        status: "draft",
+        version: 1,
+        visibility: meta.visibility,
+        mode: "generated",
+        tienePreguntasNativas: true,
+      };
+      handleImportQuizzes([nuevoQuiz]);
+      setPlantillaModalOpen(false);
+    } catch {
+      setCrearCuestionarioError(true);
+    } finally {
+      setImportandoPlantilla(false);
     }
   };
   // ─── Vista alumno (Tarea 14): overlay de previsualizacion local ──────────
@@ -453,32 +497,6 @@ export default function ModuloEditor() {
     };
   }, [plantillaIdsEnUso, plantillaNombres]);
 
-  const handleSelectPlantilla = (plantilla: PlantillaListItem) => {
-    // PLAN-E §10 — el nombre pertenece al cuestionario, no a la plantilla:
-    // antes se propagaba `plantilla.nombre` como título del quiz (dos
-    // "nombres" quedaban acoplados sin querer). El título del cuestionario
-    // se define acá, independiente del nombre de banco de la plantilla.
-    const baseQuiz: ModuleQuiz = {
-      id: `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`,
-      title: "Cuestionario sin título",
-      type: "formal",
-      status: "draft",
-      version: 1,
-      visibility: "publico",
-      mode: "generated",
-      generatorId: `plantilla:${plantilla.id}`,
-      generatorVersion: plantilla.version,
-      count: 5,
-      seedPolicy: "perAttempt",
-      params: {},
-    };
-    handleImportQuizzes([baseQuiz]);
-    setPlantillaNombres((prev) => ({
-      ...prev,
-      [plantilla.id]: plantilla.nombre,
-    }));
-    setPlantillaModalOpen(false);
-  };
 
   const moduloReturnTo = id
     ? `/modulos/${id}/editar`
@@ -518,11 +536,12 @@ export default function ModuloEditor() {
         />
       ) : null}
 
-      {/* Sprint 10A — modal de selección de plantilla VBLang. */}
+      {/* PLAN-Y bis — selector de plantilla del banco. Al elegir, crea un
+          cuestionario Tiza con la plantilla como pregunta (modelo nativo). */}
       {plantillaModalOpen ? (
         <PlantillaSelectorModal
           onClose={() => setPlantillaModalOpen(false)}
-          onSelect={handleSelectPlantilla}
+          onSelect={(plantilla) => void handleCrearDesdePlantilla(plantilla)}
           materiaHint={form.subject || undefined}
           createReturnTo={moduloReturnTo}
         />
@@ -819,7 +838,7 @@ export default function ModuloEditor() {
                       aria-invalid={fieldErr("subject") || undefined}
                       aria-describedby={fieldErr("subject") ? "modulo-err-subject" : undefined}
                     >
-                      <option value="">-- Seleccionar materia --</option>
+                      <option value="">Elegir materia</option>
                       {materias.map((m) => (
                         <option key={m} value={m.toLowerCase().replace(/\s+/g, '')}>
                           {m}
@@ -879,6 +898,31 @@ export default function ModuloEditor() {
                     </select>
                   </div>
                 </div>
+
+                {/* PLAN-X §7 — descatalogado: oculto de los listados generales
+                    sin borrarse. Sigue visible para vos, para alumnos
+                    invitados y para cualquier aula donde lo asignes. */}
+                <label className="flex items-start gap-2.5 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-sm text-[var(--c-text)]">
+                  <input
+                    type="checkbox"
+                    className="mt-0.5"
+                    checked={form.descatalogado}
+                    onChange={(event) => updateForm("descatalogado", event.target.checked)}
+                    data-testid="modulo-field-descatalogado"
+                  />
+                  <span>
+                    <span className="font-medium flex items-center gap-1.5">&#128065;&#8203;&#128683; Descatalogado</span>
+                    <span className="mt-0.5 block text-xs text-[var(--c-muted)]">
+                      No aparece en los listados generales de módulos. Sigue
+                      visible para vos, para alumnos que invites abajo, y
+                      para cualquier aula donde lo asignes.
+                    </span>
+                  </span>
+                </label>
+
+                {isEditing && form.descatalogado ? (
+                  <ModuloInvitadosPanel moduloId={id!} />
+                ) : null}
 
                 {/* School picker — only shown when visibility = "escuela" */}
                 {form.visibility === "escuela" ? (
@@ -984,7 +1028,11 @@ export default function ModuloEditor() {
 
                 {/* New theory item form */}
                 <div className="space-y-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--c-muted)]">Agregar recurso</p>
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[var(--c-muted)]">Agregar recurso</p>
+                    {/* PLAN-G §1 (item 25) — insertar un material guardado (copia snapshot, no vínculo vivo). */}
+                    <InsertarMaterialGuardado onInsert={insertMaterialTheoryItem} />
+                  </div>
                   <div className="grid gap-3 md:grid-cols-[1fr_180px]">
                     <input
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
@@ -1260,7 +1308,7 @@ export default function ModuloEditor() {
                           <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--c-border)] text-xs font-bold font-mono text-[var(--c-muted)]">
                             {itemIdx + 1}
                           </span>
-                          <div className="flex-1 space-y-3">
+                          <div className="min-w-0 flex-1 space-y-3">
                             <TheoryItemCard item={item} />
                             <div className="flex flex-col gap-2">
                               <input
@@ -1497,7 +1545,15 @@ export default function ModuloEditor() {
                         className="flex items-center gap-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] px-4 py-3 transition-colors hover:border-[var(--c-primary)]/30"
                       >
                         <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--c-border)] text-[10px] font-bold text-[var(--c-muted)]">&#128279;</span>
-                        <span className="flex-1 truncate text-xs font-mono text-[var(--c-text)]">{dep.id}</span>
+                        <span className="flex-1 truncate text-xs text-[var(--c-text)]">
+                          {depModuleNames[dep.id] === null ? (
+                            <span className="italic text-[var(--c-muted)]">
+                              Módulo eliminado <span className="font-mono">({dep.id})</span>
+                            </span>
+                          ) : (
+                            depModuleNames[dep.id] ?? dep.id
+                          )}
+                        </span>
                         <select
                           className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2.5 py-1.5 text-xs focus:border-[var(--c-primary)] focus:outline-none"
                           value={dep.type}
@@ -1617,12 +1673,16 @@ export default function ModuloEditor() {
                     <>
                       {quizzes.length === 0 ? (
                         <StatusPill tone="neutral">Sin cuestionarios</StatusPill>
-                      ) : sectionStatus.quizzesOk ? (
-                        <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
                       ) : (
-                        <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Con errores</StatusPill>
+                        <>
+                          {sectionStatus.quizzesOk ? (
+                            <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
+                          ) : (
+                            <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Con errores</StatusPill>
+                          )}
+                          <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{quizCountLabel}</span>
+                        </>
                       )}
-                      <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{quizCountLabel}</span>
                     </>
                   }
                 />
@@ -1651,17 +1711,57 @@ export default function ModuloEditor() {
                 </label>
 
                 <div className="flex flex-wrap items-start gap-3">
-                  {/* Sprint 10A: abrir selector de plantilla en lugar de
-                      redirigir directamente a crear una nueva. */}
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity"
-                    data-testid="open-plantilla-selector"
-                    onClick={() => setPlantillaModalOpen(true)}
-                  >
-                    <span className="text-base leading-none">🧩</span>
-                    Usar plantilla VBLang
-                  </button>
+                  {/* PLAN-Y bis — módulo NUEVO (sin `id`): los botones de
+                      crear/importar cuestionarios necesitan un módulo guardado
+                      (server-first). En vez de dejar la sección sin botones,
+                      mostramos uno que guarda el módulo (submit del form);
+                      tras guardar se navega a su editor y aparecen los tres. */}
+                  {!id ? (
+                    <button
+                      type="submit"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity"
+                      data-testid="guardar-para-cuestionarios"
+                    >
+                      <span className="text-base leading-none">💾</span>
+                      Guardar módulo para agregar cuestionarios
+                    </button>
+                  ) : null}
+
+                  {/* PLAN-CUESTIONARIOS — acción primaria: el módulo CREA el
+                      cuestionario (reglas de cuestionario + preguntas en
+                      Tiza). Sólo con módulo guardado, igual que
+                      "Usar cuestionario existente". */}
+                  {id ? (
+                    <button
+                      type="button"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity disabled:opacity-60"
+                      data-testid="crear-cuestionario"
+                      disabled={creandoCuestionario}
+                      onClick={() => void handleCrearCuestionario()}
+                    >
+                      <span className="text-base leading-none">➕</span>
+                      {creandoCuestionario ? "Creando…" : "Crear cuestionario"}
+                    </button>
+                  ) : null}
+
+                  {/* PLAN-Y bis — "Cuestionario desde plantilla": crea un quiz
+                      Tiza nativo (como "Crear cuestionario") con la plantilla
+                      elegida YA importada como su primera pregunta (modelo
+                      `preguntas`). Reemplaza al viejo "Usar plantilla VBLang"
+                      (quiz legacy `generatorId: plantilla:X`). Sólo con módulo
+                      guardado (`crearQuizEnModulo` necesita un id real). */}
+                  {id ? (
+                    <button
+                      type="button"
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors disabled:opacity-60"
+                      data-testid="open-plantilla-selector"
+                      disabled={importandoPlantilla}
+                      onClick={() => setPlantillaModalOpen(true)}
+                    >
+                      <span className="text-base leading-none">🧩</span>
+                      {importandoPlantilla ? "Importando…" : "Cuestionario desde plantilla"}
+                    </button>
+                  ) : null}
 
                   {/* PLAN-CORRECCIONES C2 — sólo con el módulo ya guardado
                       (clona contra un id real de inmediato, no hay borrador
@@ -1678,68 +1778,25 @@ export default function ModuloEditor() {
                     </button>
                   ) : null}
 
-                  <QuizImportJson onImportQuizzes={handleImportQuizzes} />
                 </div>
 
-                {/* Editores clásicos — V1 y V2 quedan accesibles como legacy */}
-                <div className="flex flex-wrap items-center gap-3 text-xs">
-                  <span className="text-[var(--c-muted)]">Abrir editor clásico:</span>
-                  <button
-                    type="button"
-                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                    onClick={() => {
-                      const returnTo = id
-                        ? `/modulos/${id}/editar`
-                        : `/modulos/crear`;
-                      navigate(
-                        `/profesor/editor-cuestionarios-v2?moduleId=${
-                          id ?? "nuevo"
-                        }&mode=manual&returnTo=${encodeURIComponent(returnTo)}`
-                      );
-                    }}
-                  >
-                    ✏️ Editor V2 (manual)
-                  </button>
-                  <button
-                    type="button"
-                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                    onClick={() => {
-                      const returnTo = id
-                        ? `/modulos/${id}/editar`
-                        : `/modulos/crear`;
-                      navigate(
-                        `/profesor/editor-cuestionarios?moduleId=${
-                          id ?? "nuevo"
-                        }&mode=manual&returnTo=${encodeURIComponent(returnTo)}`
-                      );
-                    }}
-                  >
-                    ✏️ Editor V1
-                  </button>
-                  {subjectCapabilities?.supportsGenerators && (
-                    <button
-                      type="button"
-                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                      onClick={() => {
-                        const returnTo = id
-                          ? `/modulos/${id}/editar`
-                          : `/modulos/crear`;
-                        navigate(
-                          `/profesor/editor-cuestionarios?moduleId=${
-                            id ?? "nuevo"
-                          }&mode=generated&returnTo=${encodeURIComponent(returnTo)}`
-                        );
-                      }}
-                    >
-                      ⚡ Generados (legacy)
-                    </button>
-                  )}
-                </div>
+                {crearCuestionarioError && (
+                  <Alert variant="danger">No se pudo crear el cuestionario. Probá de nuevo.</Alert>
+                )}
+
+                {/* PLAN-CUESTIONARIOS — el entry point "⚡ Generados (legacy)"
+                    (editor clásico V1) se retiró: los editores V1/V2 quedaron
+                    desconectados del router. */}
 
                 {/* Leyenda explicativa */}
                 <div className="flex flex-wrap gap-3 text-xs text-[var(--c-muted)]">
+                  {!id && (
+                    <span>
+                      💾 Guardá el módulo para poder crear cuestionarios con preguntas nativas.
+                    </span>
+                  )}
                   <span>
-                    🧩 <strong>Plantilla VBLang</strong> — código DSL con preview en vivo y validación
+                    🧩 Dentro de un cuestionario podés escribir preguntas nativas o importar plantillas VBLang del banco.
                   </span>
                 </div>
 
@@ -1824,74 +1881,41 @@ export default function ModuloEditor() {
                               className="text-xs text-[var(--c-primary)] hover:underline"
                               data-testid="quiz-tiza-preguntas-link"
                             >
-                              Preguntas nativas en Tiza →
+                              Editar en Tiza (preguntas y configuración) →
                             </Link>
                           )}
                         </div>
 
+                        {/* PLAN-Y — la config (título/tipo/visibilidad/
+                            instrucciones/evaluación) se edita SOLO en Tiza
+                            (Configuraciones). Acá queda un resumen
+                            read-only: editarla en dos lados hacía que el
+                            guardado del módulo pisara lo guardado en Tiza. */}
                         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                          <div className="grid flex-1 gap-4 md:grid-cols-3">
-                            <label className="text-xs font-medium text-[var(--c-muted)]">
-                              Título
-                              <input
-                                className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm text-[var(--c-text)] transition-colors focus:outline-none ${
-                                  quizBlurErrors[quiz.id]?.length
-                                    ? "border-[var(--c-danger)] bg-[var(--c-danger-soft)]"
-                                    : "border-[var(--c-border)] bg-[var(--c-bg)] focus:border-[var(--c-primary)]"
-                                }`}
-                                value={quiz.title}
-                                onChange={(event) =>
-                                  updateQuiz(quiz.id, { title: event.target.value })
-                                }
-                                onBlur={() => validateQuizTitle(quiz.id, quiz.title)}
-                              />
-                              {quizBlurErrors[quiz.id]?.map((err) => (
-                                <span key={err} className="mt-1 block text-xs text-[var(--c-danger)]">
-                                  {err}
-                                </span>
-                              ))}
-                            </label>
-                            <label className="text-xs font-medium text-[var(--c-muted)]">
-                              Tipo
-                              <select
-                                className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
-                                value={quiz.type}
-                                onChange={(event) =>
-                                  updateQuiz(quiz.id, {
-                                    type: event.target.value as ModuleQuiz["type"],
-                                  })
-                                }
-                              >
-                                <option value="practica">Práctica — no cuenta para la nota</option>
-                                <option value="formal">Evaluación formal — cuenta para la nota</option>
-                                <option value="competencia">Competencia</option>
-                              </select>
-                              {quiz.type === "formal" && (
-                                <p className="text-xs text-[var(--c-warning)] mt-1">
-                                  Este cuestionario contará para la nota final del alumno.
-                                </p>
-                              )}
-                              {quiz.type === "practica" && (
-                                <p className="text-xs text-[var(--c-muted)] mt-1">
-                                  Este cuestionario es de práctica y no afecta la nota.
-                                </p>
-                              )}
-                            </label>
-                            <label className="text-xs font-medium text-[var(--c-muted)]">
-                              Visibilidad
-                              <select
-                                className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
-                                value={quiz.visibility}
-                                onChange={(event) =>
-                                  updateQuiz(quiz.id, {
-                                    visibility: event.target.value as ModuleQuiz["visibility"],
-                                  })
-                                }
-                              >
-                                <option value="publico">Público</option>
-                                <option value="escuela">Escuela</option>
-                              </select>
-                            </label>
+                          <div className="min-w-0 flex-1" data-testid="quiz-config-resumen">
+                            <p className="truncate text-sm font-semibold text-[var(--c-text)]">
+                              {quiz.title.trim() || "Cuestionario sin título"}
+                            </p>
+                            <p className="mt-1 text-xs text-[var(--c-muted)]">
+                              {quiz.type === "practica"
+                                ? "Práctica — no cuenta para la nota"
+                                : quiz.type === "competencia"
+                                  ? "Competencia"
+                                  : "Evaluación formal — cuenta para la nota"}
+                              {" · "}
+                              {quiz.visibility === "escuela" ? "Escuela" : "Público"}
+                              {typeof quiz.timerSegundos === "number" && quiz.timerSegundos > 0
+                                ? ` · Timer: ${Math.round(quiz.timerSegundos / 60)} min`
+                                : ""}
+                              {typeof quiz.maxIntentos === "number" && quiz.maxIntentos > 0
+                                ? ` · Intentos: ${quiz.maxIntentos}`
+                                : ""}
+                            </p>
+                            <p className="mt-1 text-xs text-[var(--c-muted)]">
+                              {id && !quiz.localOnly
+                                ? "El título, tipo, visibilidad, instrucciones y evaluación se configuran en Tiza."
+                                : "Guardá el módulo para configurar este cuestionario en Tiza."}
+                            </p>
                           </div>
                           <div className="flex flex-col items-end gap-2">
                             <button
@@ -1939,26 +1963,6 @@ export default function ModuloEditor() {
                             )}
                           </div>
                         ) : null}
-
-                        <label className="text-xs font-medium text-[var(--c-muted)]">
-                          Instrucciones para el alumno
-                          <span className="ml-1 font-normal text-[var(--c-muted)]">(opcional)</span>
-                          <textarea
-                            className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
-                            rows={2}
-                            placeholder="Ej: Leé cada pregunta con atención. Tenés 30 minutos."
-                            value={quiz.instructions ?? ""}
-                            onChange={(e) => updateQuiz(quiz.id, { instructions: e.target.value })}
-                          />
-                        </label>
-
-                        {/* F4-04 — panel de configuración de evaluación (timer,
-                            intentos, política, fullscreen, ocultarPuntos).
-                            Se renderiza para todos los tipos; el componente
-                            hace gating por tipo (sin timer para práctica).
-                            El componente lee los campos del quiz y dispara
-                            los callbacks con el valor nuevo. */}
-                        <EvaluacionConfigEditor quiz={quiz} updateQuiz={updateQuiz} />
 
                         {quiz.mode === "generated" ? (
                           <QuizEditorGenerated
@@ -2359,70 +2363,147 @@ function ExistingTuesdayField({
   );
 }
 
-/**
- * F4-04 — Sub-componente que monta `<EvaluacionConfig>` dentro de la tarjeta
- * del quiz en el editor. Resuelve la config desde los campos del quiz
- * (con `parseEvaluacionConfig` para aplicar defaults del tipo) y conecta
- * cada callback con `updateQuiz`.
- *
- * El campo `settings` JSON no se persiste en el form state (es derivado):
- * los campos viven top-level en el quiz (`quiz.maxIntentos`, etc.) y el
- * PUT de `modulos.ts` los agrupa en `settings`. La separación es
- * intencional: el form es plano, el storage es JSON.
- */
-function EvaluacionConfigEditor({
-  quiz,
-  updateQuiz
-}: {
-  quiz: ModuleQuiz;
-  updateQuiz: (quizId: string, patch: Partial<ModuleQuiz>) => void;
-}) {
-  // `parseEvaluacionConfig` espera un JSON, pero como los campos viven
-  // top-level en el form, sintetizamos un "settings" virtual para
-  // delegar la resolución de defaults en una sola función.
-  const virtualSettings = JSON.stringify({
-    type: quiz.type,
-    maxIntentos: quiz.maxIntentos,
-    politicaNota: quiz.politicaNota,
-    politicaSorteo: quiz.politicaSorteo,
-    timerSegundos: quiz.timerSegundos,
-    fullscreenOnStart: quiz.fullscreenOnStart,
-    ocultarPuntos: quiz.ocultarPuntos,
-    // WO-9 — modo de presentación + tamaño de página. Se sintetizan
-    // también en el "settings" virtual para que `parseEvaluacionConfig`
-    // resuelva los defaults por tipo de forma centralizada.
-    modoPresentacion: quiz.modoPresentacion,
-    preguntasPorPagina: quiz.preguntasPorPagina,
-    // WO-14 — ruteo por dificultad.
-    politicaDificultad: quiz.politicaDificultad,
-    dificultadInicial: quiz.dificultadInicial,
-    dificultadVentana: quiz.dificultadVentana,
-    // PLAN-D §1 — política de cierre por expiración.
-    politicaExpiracion: quiz.politicaExpiracion
-  });
-  const config = parseEvaluacionConfig(virtualSettings, quiz.type);
+// PLAN-X §7 — gestión de invitados de un módulo descatalogado. Sólo el
+// dueño puede llamar estos endpoints (403 server-side si no lo es); el
+// panel sólo se muestra en el editor del propio módulo, así que en la
+// práctica siempre es el dueño quien lo ve.
+type InvitadoItem = { usuarioId: string; name: string };
+type UsuarioCandidato = { id: string; username: string };
+
+function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
+  const [invitados, setInvitados] = useState<InvitadoItem[]>([]);
+  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [candidatos, setCandidatos] = useState<UsuarioCandidato[]>([]);
+  const [search, setSearch] = useState("");
+  const [inviting, setInviting] = useState<string | null>(null);
+
+  const loadInvitados = () => {
+    setStatus("loading");
+    apiGet<{ items: InvitadoItem[] }>(`/api/modulos/${moduloId}/invitados`)
+      .then((data) => {
+        setInvitados(data.items ?? []);
+        setStatus("ready");
+      })
+      .catch((error) => {
+        setStatus("error");
+        setErrorMessage(error instanceof Error ? error.message : "No se pudo cargar la lista.");
+      });
+  };
+
+  useEffect(() => {
+    loadInvitados();
+    apiGet<{ items: UsuarioCandidato[] }>("/api/usuarios")
+      .then((data) => setCandidatos(data.items ?? []))
+      .catch(() => setCandidatos([]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [moduloId]);
+
+  const invitedIds = useMemo(() => new Set(invitados.map((i) => i.usuarioId)), [invitados]);
+  const matches = useMemo(() => {
+    const term = search.trim().toLowerCase();
+    if (!term) return [];
+    return candidatos
+      .filter((u) => !invitedIds.has(u.id) && u.username.toLowerCase().includes(term))
+      .slice(0, 8);
+  }, [search, candidatos, invitedIds]);
+
+  const invitar = async (usuarioId: string) => {
+    setInviting(usuarioId);
+    try {
+      await apiPost(`/api/modulos/${moduloId}/invitados`, { usuarioId });
+      setSearch("");
+      loadInvitados();
+    } catch (error) {
+      setErrorMessage(
+        error instanceof ApiError ? error.message : "No se pudo invitar al alumno."
+      );
+    } finally {
+      setInviting(null);
+    }
+  };
+
+  const desinvitar = async (usuarioId: string) => {
+    try {
+      await apiDelete(`/api/modulos/${moduloId}/invitados/${usuarioId}`);
+      setInvitados((prev) => prev.filter((i) => i.usuarioId !== usuarioId));
+    } catch (error) {
+      setErrorMessage(
+        error instanceof ApiError ? error.message : "No se pudo quitar la invitación."
+      );
+    }
+  };
 
   return (
-    <EvaluacionConfig
-      tipo={quiz.type}
-      config={config}
-      onChangeTimerSegundos={(next) => updateQuiz(quiz.id, { timerSegundos: next })}
-      onChangeMaxIntentos={(next) => updateQuiz(quiz.id, { maxIntentos: next })}
-      onChangePoliticaNota={(next) => updateQuiz(quiz.id, { politicaNota: next })}
-      onChangePoliticaSorteo={(next) => updateQuiz(quiz.id, { politicaSorteo: next })}
-      onChangeFullscreenOnStart={(next) =>
-        updateQuiz(quiz.id, { fullscreenOnStart: next })
-      }
-      onChangeOcultarPuntos={(next) => updateQuiz(quiz.id, { ocultarPuntos: next })}
-      // WO-9 — wireado del modo de presentación + tamaño de página.
-      onChangeModoPresentacion={(next) => updateQuiz(quiz.id, { modoPresentacion: next })}
-      onChangePreguntasPorPagina={(next) => updateQuiz(quiz.id, { preguntasPorPagina: next })}
-      // WO-14 — wireado del ruteo por dificultad.
-      onChangePoliticaDificultad={(next) => updateQuiz(quiz.id, { politicaDificultad: next })}
-      onChangeDificultadInicial={(next) => updateQuiz(quiz.id, { dificultadInicial: next })}
-      onChangeDificultadVentana={(next) => updateQuiz(quiz.id, { dificultadVentana: next })}
-      // PLAN-D §1 — wireado de la política de cierre por expiración.
-      onChangePoliticaExpiracion={(next) => updateQuiz(quiz.id, { politicaExpiracion: next })}
-    />
+    <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-3">
+      <p className="flex items-center gap-2 text-xs font-semibold text-[var(--c-text)]">
+        Alumnos invitados
+        <span className="rounded-full bg-[var(--c-surface)] px-2 py-0.5 text-[10px] text-[var(--c-muted)]">
+          {invitados.length}
+        </span>
+      </p>
+      <p className="text-xs text-[var(--c-muted)]">
+        Los alumnos invitados ven este módulo aunque esté descatalogado.
+      </p>
+
+      {errorMessage && (
+        <p className="text-xs text-[var(--c-danger)]">{errorMessage}</p>
+      )}
+
+      <div className="relative">
+        <input
+          className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-xs transition-colors focus:border-[var(--c-primary)] focus:outline-none"
+          placeholder="Buscar alumno por usuario..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          data-testid="modulo-invitar-search"
+        />
+        {matches.length > 0 && (
+          <ul className="absolute z-10 mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm">
+            {matches.map((u) => (
+              <li key={u.id}>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between px-3 py-2 text-left text-xs hover:bg-[var(--c-bg)]"
+                  onClick={() => invitar(u.id)}
+                  disabled={inviting === u.id}
+                >
+                  <span>{u.username}</span>
+                  <span className="text-[var(--c-primary)]">
+                    {inviting === u.id ? "Invitando..." : "Invitar"}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {status === "loading" ? (
+        <p className="text-xs text-[var(--c-muted)]">Cargando invitados...</p>
+      ) : status === "error" ? (
+        <p className="text-xs text-[var(--c-danger)]">No se pudo cargar la lista de invitados.</p>
+      ) : invitados.length === 0 ? (
+        <p className="text-xs text-[var(--c-muted)]">Todavía no invitaste a nadie.</p>
+      ) : (
+        <ul className="space-y-1.5" data-testid="modulo-invitados-list">
+          {invitados.map((i) => (
+            <li
+              key={i.usuarioId}
+              className="flex items-center justify-between rounded-md bg-[var(--c-surface)] px-2.5 py-1.5 text-xs"
+            >
+              <span>{i.name}</span>
+              <button
+                type="button"
+                className="text-[var(--c-danger)] hover:underline"
+                onClick={() => desinvitar(i.usuarioId)}
+              >
+                Quitar
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

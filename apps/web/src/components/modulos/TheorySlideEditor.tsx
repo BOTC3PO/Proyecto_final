@@ -10,7 +10,7 @@ import {
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Settings } from "lucide-react";
 import { Button, Input, Textarea, Select } from "../ui";
 import type { VisualSpec } from "../../generadoresV2/core/types";
-import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import VisualizerRenderer from "./VisualizerRenderer";
 import { useSlideEditor } from "./hooks/useSlideEditor";
 import type { Block, ChartBlock, FlowBlock, LatexBlock, TableBlock } from "../../blocks/types";
 import { TextBlockRenderer } from "../../blocks/renderers/TextBlockRenderer";
@@ -18,6 +18,7 @@ import { LatexBlockRenderer } from "../../blocks/renderers/LatexBlockRenderer";
 import { TableBlockRenderer } from "../../blocks/renderers/TableBlockRenderer";
 import { ChartBlockRenderer } from "../../blocks/renderers/ChartBlockRenderer";
 import { FlowBlockRenderer } from "../../blocks/renderers/FlowBlockRenderer";
+import { GuardarComoMaterial } from "../materiales/GuardarComoMaterial";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
@@ -1159,7 +1160,8 @@ function createEmptyBlock(type: "chart" | "table" | "latex" | "flow"): Block {
   }
 }
 
-function BlockSpecRenderer({ block }: { block: Block }) {
+/** Exportado para que SlidePresenter renderice el MISMO camino que el editor (WYSIWYG). */
+export function BlockSpecRenderer({ block }: { block: Block }) {
   const doc = { version: 1 as const, blocks: [block] };
   switch (block.type) {
     case "text":  return <TextBlockRenderer block={block} />;
@@ -1784,6 +1786,30 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
     ? "codigo"
     : "texto";
 
+  // G3 Fase 2: cambiar de tipo destruía blockSpec/body sin confirmación ni undo.
+  // ponytail: window.confirm alcanza; dialog propio sólo si molesta en uso real.
+  const cambiarATexto = (isCode: boolean) => {
+    if (
+      slide.blockSpec &&
+      !window.confirm("La diapositiva tiene un bloque gráfico configurado. ¿Descartarlo? Esta acción no se puede deshacer.")
+    ) {
+      return;
+    }
+    setShowBlockPicker(false);
+    onChange({ isCode, blockSpec: undefined });
+  };
+
+  const elegirBloque = (t: "chart" | "table" | "latex" | "flow") => {
+    if (
+      slide.body?.trim() &&
+      !window.confirm("La diapositiva tiene texto en el cuerpo. ¿Reemplazarlo por el bloque? Esta acción no se puede deshacer.")
+    ) {
+      return;
+    }
+    setShowBlockPicker(false);
+    onChange({ blockSpec: createEmptyBlock(t), body: undefined, isCode: false });
+  };
+
   return (
     <div className="vb-slide-insp">
       <div className="vb-insp-tabs" role="tablist" aria-label="Inspector de diapositiva">
@@ -1838,8 +1864,8 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
           <div>
             <p className="vb-insp-eyebrow">Tipo de contenido</p>
             <div className="vb-ctype-row" role="radiogroup" aria-label="Tipo de contenido">
-              <button type="button" className="vb-ctype" aria-pressed={ctype === "texto"} onClick={() => { setShowBlockPicker(false); onChange({ isCode: false, blockSpec: undefined }); }}>Texto</button>
-              <button type="button" className="vb-ctype" aria-pressed={ctype === "codigo"} onClick={() => { setShowBlockPicker(false); onChange({ isCode: true, blockSpec: undefined }); }}>Código</button>
+              <button type="button" className="vb-ctype" aria-pressed={ctype === "texto"} onClick={() => cambiarATexto(false)}>Texto</button>
+              <button type="button" className="vb-ctype" aria-pressed={ctype === "codigo"} onClick={() => cambiarATexto(true)}>Código</button>
               <button type="button" className="vb-ctype" aria-pressed={ctype === "bloque"} onClick={() => { setShowBlockPicker(!slide.blockSpec); }}>Bloque</button>
             </div>
           </div>
@@ -1856,7 +1882,16 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
             <div>
               <div className="flex items-center justify-between mb-2">
                 <p className="vb-insp-eyebrow" style={{ marginBottom: 0 }}>Bloque gráfico — {BLOCK_TYPE_LABELS[slide.blockSpec.type]}</p>
-                <Button variant="ghost" size="sm" className="text-[var(--c-danger)]" onClick={() => onChange({ blockSpec: undefined })}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-[var(--c-danger)]"
+                  onClick={() => {
+                    if (window.confirm("¿Quitar el bloque gráfico? Esta acción no se puede deshacer.")) {
+                      onChange({ blockSpec: undefined });
+                    }
+                  }}
+                >
                   <X size={12} /> Quitar
                 </Button>
               </div>
@@ -1867,7 +1902,7 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
               <p className="vb-insp-eyebrow">Insertar bloque del motor gráfico</p>
               <div className="vb-blocks-grid">
                 {(["chart", "table", "latex", "flow"] as const).map((t) => (
-                  <button key={t} type="button" className="vb-block-card" onClick={() => { setShowBlockPicker(false); onChange({ blockSpec: createEmptyBlock(t), body: undefined, isCode: false }); }}>
+                  <button key={t} type="button" className="vb-block-card" onClick={() => elegirBloque(t)}>
                     {BLOCK_TYPE_LABELS[t]}
                   </button>
                 ))}
@@ -1903,6 +1938,10 @@ type Props = {
   initialAccentColor?: AccentColor;
   onDone: (slides: Slide[], theme: ThemeKey, accentColor?: AccentColor) => void;
   onClose: () => void;
+  // PLAN-G §1 (item 25) — si la presentación se abrió desde un material
+  // guardado, permite que "Guardar como material" cree una versión nueva
+  // en vez de un material nuevo.
+  materialId?: string | null;
 };
 
 // ─── Main component ───────────────────────────────────────────────────────────
@@ -1914,6 +1953,7 @@ export default function TheorySlideEditor({
   initialAccentColor,
   onDone,
   onClose,
+  materialId,
 }: Props) {
   const {
     slides,
@@ -2002,6 +2042,13 @@ export default function TheorySlideEditor({
             Diapositiva
           </Button>
 
+          <GuardarComoMaterial
+            tipo="presentacion"
+            defaultTitulo={presentationTitle}
+            materialId={materialId}
+            getContenido={() => ({ version: 3, theme, accentColor, slides })}
+          />
+
           <Button
             variant="primary"
             size="sm"
@@ -2057,8 +2104,8 @@ export default function TheorySlideEditor({
                   </div>
                 </button>
 
-                {/* Action buttons on hover */}
-                <div className="absolute right-1 top-2 hidden group-hover:flex flex-col gap-0.5 bg-[var(--c-surface)]/80 rounded p-0.5 backdrop-blur-sm">
+                {/* Action buttons — siempre en el DOM (accesibles por teclado), visibles al hover/focus */}
+                <div className="absolute right-1 top-2 flex flex-col gap-0.5 bg-[var(--c-surface)]/80 rounded p-0.5 backdrop-blur-sm opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
                   <Button
                     variant="icon"
                     size="sm"

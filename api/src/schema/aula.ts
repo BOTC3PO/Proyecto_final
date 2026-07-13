@@ -120,3 +120,21 @@ export const ClassroomPatchSchema = ClassroomBaseSchema.partial().superRefine(ap
 export const ClassroomSchema = ClassroomCreateSchema;
 
 export type Classroom = z.infer<typeof ClassroomSchema>;
+
+// PLAN-V §1 — período académico EN el aula (nombre libre, fechas ISO
+// yyyy-mm-dd). Sin taxonomía rígida a propósito: el docente nombra
+// "1er bimestre", "Verano", lo que corresponda a su escuela.
+const isoDate = z.string().trim().regex(/^\d{4}-\d{2}-\d{2}$/, "fecha inválida (yyyy-mm-dd)");
+
+export const ClasePeriodoSchema = z
+  .object({
+    nombre: z.string().trim().min(1, "nombre requerido"),
+    desde: isoDate,
+    hasta: isoDate
+  })
+  .refine((data) => data.desde <= data.hasta, {
+    message: "desde debe ser anterior o igual a hasta",
+    path: ["hasta"]
+  });
+
+export type ClasePeriodoInput = z.infer<typeof ClasePeriodoSchema>;

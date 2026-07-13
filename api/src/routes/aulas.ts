@@ -1,7 +1,7 @@
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
-import { toObjectId } from "../lib/ids";
+import { toObjectId, generateId } from "../lib/ids";
 import { canManageClassroom, requirePolicy } from "../lib/authorization";
 import {
   requireClassroomScope,
@@ -12,10 +12,12 @@ import { whereExcluirEspejos } from "../lib/espejo-filtro";
 import { provisionarEspejoAlumno } from "../lib/provisionar-espejo";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
+import { hasRole } from "../lib/roles";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
   ClassroomCreateSchema,
   ClassroomPatchSchema,
+  ClasePeriodoSchema,
   isClassroomActiveStatus,
   isClassroomReadOnlyStatus,
   normalizeClassroomStatus
@@ -709,6 +711,25 @@ aulas.post(
       return res.status(400).json({ error: "classroom must keep at least one ADMIN and one TEACHER" });
     }
 
+    // PLAN-X §4 — persistir la altas/baja en ClaseMiembro. Antes `updatedMembers`
+    // se calculaba y se descartaba: sólo se tocaba `updatedAt`, el cambio de
+    // docente nunca quedaba guardado. Mismo patrón (create/deleteMany, sin
+    // upsert) que `POST/DELETE /api/aulas/:id/titulares`: la PK compuesta
+    // (claseId, usuarioId, rolEnClase) no soporta upsert en el stub de tests.
+    const alreadyTeacher = members.some(
+      (member) => member.userId === teacherId && member.roleInClass === "TEACHER"
+    );
+    if (!alreadyTeacher) {
+      await prisma.claseMiembro.create({
+        data: { claseId: id, usuarioId: teacherId, rolEnClase: "TEACHER" }
+      });
+    }
+    if (removeTeacherId && removeTeacherId !== teacherId) {
+      await prisma.claseMiembro.deleteMany({
+        where: { claseId: id, usuarioId: removeTeacherId, rolEnClase: "TEACHER" }
+      });
+    }
+
     // Update the clase record — members are not stored in Clase model, only status/timestamps.
     const result = await prisma.clase.updateMany({
       where: { id, isDeleted: { not: true } },
@@ -746,6 +767,307 @@ aulas.delete(
       }
     });
     if (result.count === 0) return res.status(404).json({ error: "not found" });
+    res.status(204).send();
+  }
+);
+
+// ─── PLAN-U §6 — co-titulares de aula ───────────────────────────────────────
+// "2 profesores, o 1 profesor + 1 directivo, dueños de la misma aula."
+// El dueño original (createdBy/teacherId/teacherOfRecord en `Clase`) NUNCA
+// se toca acá: el co-titular se modela como una fila extra en `ClaseMiembro`
+// con `rolEnClase` TEACHER o DIRECTIVO, que `isClassroomTeacher` (classroom-
+// scope.ts) ya reconoce como autoridad docente completa. Máximo 2 titulares
+// en total (dueño + 1 co-titular); nunca 0 (el dueño no es removible acá).
+const TITULAR_ROLES = ["TEACHER", "DIRECTIVO"] as const;
+
+const isOriginalOwner = (
+  classroom: { createdBy?: string | null; teacherId?: string | null; teacherOfRecord?: string | null },
+  userId: string
+) =>
+  classroom.createdBy === userId ||
+  classroom.teacherId === userId ||
+  classroom.teacherOfRecord === userId;
+
+aulas.get(
+  "/api/aulas/:id/titulares",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  async (req, res) => {
+    const classroom = res.locals.classroom as {
+      createdBy?: string | null;
+      teacherId?: string | null;
+      teacherOfRecord?: string | null;
+      members?: Array<{ userId: string; roleInClass: string }>;
+    };
+    const ownerId = classroom.teacherId ?? classroom.createdBy ?? classroom.teacherOfRecord ?? null;
+    const coTitulares = (classroom.members ?? []).filter(
+      (m) => (TITULAR_ROLES as readonly string[]).includes(m.roleInClass) && m.userId !== ownerId
+    );
+    const nameMap = await resolveUserNames([ownerId, ...coTitulares.map((m) => m.userId)]);
+    res.json({
+      owner: ownerId ? { id: ownerId, name: nameMap.get(ownerId) ?? ownerId } : null,
+      coTitulares: coTitulares.map((m) => ({
+        id: m.userId,
+        name: nameMap.get(m.userId) ?? m.userId,
+        role: m.roleInClass
+      }))
+    });
+  }
+);
+
+aulas.get(
+  "/api/aulas/:id/titulares-candidatos",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  async (req, res) => {
+    const classroom = res.locals.classroom as {
+      schoolId?: string;
+      createdBy?: string | null;
+      teacherId?: string | null;
+      teacherOfRecord?: string | null;
+      members?: Array<{ userId: string; roleInClass: string }>;
+    };
+    if (!classroom.schoolId) return res.json({ items: [] });
+    const excluded = new Set(
+      [classroom.createdBy, classroom.teacherId, classroom.teacherOfRecord].filter(
+        (v): v is string => !!v
+      )
+    );
+    for (const m of classroom.members ?? []) {
+      if ((TITULAR_ROLES as readonly string[]).includes(m.roleInClass)) excluded.add(m.userId);
+    }
+    const candidates = await prisma.usuario.findMany({
+      where: { escuelaId: classroom.schoolId, isDeleted: { not: true } },
+      select: { id: true, fullName: true, username: true, role: true, roles: true }
+    });
+    const items = candidates
+      .filter((u) => !excluded.has(u.id) && (hasRole(u, "TEACHER") || hasRole(u, "DIRECTIVO")))
+      .map((u) => ({
+        id: u.id,
+        name: u.fullName || u.username || u.id,
+        role: hasRole(u, "TEACHER") ? "TEACHER" : "DIRECTIVO"
+      }));
+    res.json({ items });
+  }
+);
+
+aulas.post(
+  "/api/aulas/:id/titulares",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  express.json(),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const classroom = res.locals.classroom as {
+      schoolId?: string;
+      createdBy?: string | null;
+      teacherId?: string | null;
+      teacherOfRecord?: string | null;
+      members?: Array<{ userId: string; roleInClass: string }>;
+      status?: string;
+    };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const userId = typeof req.body?.userId === "string" ? req.body.userId.trim() : "";
+    if (!userId) return res.status(400).json({ error: "userId is required" });
+    if (isOriginalOwner(classroom, userId)) {
+      return res.status(400).json({ error: "user is already the classroom owner" });
+    }
+    const existingCoTitulares = (classroom.members ?? []).filter((m) =>
+      (TITULAR_ROLES as readonly string[]).includes(m.roleInClass)
+    );
+    if (existingCoTitulares.some((m) => m.userId === userId)) {
+      return res.status(409).json({ error: "user is already a co-titular" });
+    }
+    // Máximo 2 titulares totales: el dueño + 1 co-titular.
+    if (existingCoTitulares.length >= 1) {
+      return res.status(400).json({ error: "classroom already has 2 titulares" });
+    }
+    const target = await prisma.usuario.findFirst({
+      where: { id: userId, isDeleted: { not: true } },
+      select: { role: true, roles: true, escuelaId: true }
+    });
+    if (!target) return res.status(400).json({ error: "user not found" });
+    const isTeacher = hasRole(target, "TEACHER");
+    const isDirectivo = hasRole(target, "DIRECTIVO");
+    if (!isTeacher && !isDirectivo) {
+      return res.status(400).json({ error: "user must be TEACHER or DIRECTIVO" });
+    }
+    if (normalizeSchoolId(target.escuelaId ?? "") !== classroom.schoolId) {
+      return res.status(403).json({ error: "user school mismatch" });
+    }
+    await prisma.claseMiembro.create({
+      data: { claseId: id, usuarioId: userId, rolEnClase: isTeacher ? "TEACHER" : "DIRECTIVO" }
+    });
+    res.status(201).json({ ok: true });
+  }
+);
+
+aulas.delete(
+  "/api/aulas/:id/titulares/:userId",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const targetUserId = req.params.userId as string;
+    const classroom = res.locals.classroom as {
+      createdBy?: string | null;
+      teacherId?: string | null;
+      teacherOfRecord?: string | null;
+      status?: string;
+    };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    if (isOriginalOwner(classroom, targetUserId)) {
+      return res.status(400).json({ error: "cannot remove the original owner" });
+    }
+    const result = await prisma.claseMiembro.deleteMany({
+      where: { claseId: id, usuarioId: targetUserId, rolEnClase: { in: [...TITULAR_ROLES] } }
+    });
+    if (result.count === 0) return res.status(404).json({ error: "co-titular not found" });
+    res.status(204).send();
+  }
+);
+
+// ─── PLAN-V §1 — períodos académicos del aula ───────────────────────────────
+// "El boletín es por materia y año... la variante se acepta DENTRO DEL
+// AULA, no en un subsistema": lista libre y ordenada de { nombre, desde,
+// hasta } por aula. Sin agregación de notas todavía (eso es §3, en otro
+// sprint) — esto sólo persiste y ordena los períodos.
+const STAFF_MANAGE_GATE = {
+  allowMemberRoles: ["ADMIN", "TEACHER"],
+  allowSchoolMatch: true,
+  notFoundMessage: "not found"
+};
+
+aulas.get(
+  "/api/aulas/:id/periodos",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope(STAFF_MANAGE_GATE),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const items = await prisma.clasePeriodo.findMany({
+      where: { claseId: id },
+      orderBy: { orden: "asc" }
+    });
+    res.json({ items });
+  }
+);
+
+aulas.post(
+  "/api/aulas/:id/periodos",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope(STAFF_MANAGE_GATE),
+  express.json(),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const classroom = res.locals.classroom as { status?: string };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const parsed = ClasePeriodoSchema.safeParse(req.body);
+    if (!parsed.success) {
+      return res.status(400).json({ error: parsed.error.issues[0]?.message ?? "invalid payload" });
+    }
+    const existing = await prisma.clasePeriodo.findMany({ where: { claseId: id } });
+    const nextOrden = existing.reduce((max, p) => Math.max(max, p.orden), -1) + 1;
+    const now = new Date().toISOString();
+    const created = await prisma.clasePeriodo.create({
+      data: {
+        id: generateId(),
+        claseId: id,
+        nombre: parsed.data.nombre,
+        desde: parsed.data.desde,
+        hasta: parsed.data.hasta,
+        orden: nextOrden,
+        createdAt: now,
+        updatedAt: now
+      }
+    });
+    res.status(201).json(created);
+  }
+);
+
+aulas.patch(
+  "/api/aulas/:id/periodos/:periodoId",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope(STAFF_MANAGE_GATE),
+  express.json(),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const periodoId = req.params.periodoId as string;
+    const classroom = res.locals.classroom as { status?: string };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const existing = await prisma.clasePeriodo.findFirst({ where: { id: periodoId, claseId: id } });
+    if (!existing) return res.status(404).json({ error: "periodo not found" });
+    const parsed = ClasePeriodoSchema.safeParse({
+      nombre: req.body?.nombre ?? existing.nombre,
+      desde: req.body?.desde ?? existing.desde,
+      hasta: req.body?.hasta ?? existing.hasta
+    });
+    if (!parsed.success) {
+      return res.status(400).json({ error: parsed.error.issues[0]?.message ?? "invalid payload" });
+    }
+    const result = await prisma.clasePeriodo.updateMany({
+      where: { id: periodoId, claseId: id },
+      data: {
+        nombre: parsed.data.nombre,
+        desde: parsed.data.desde,
+        hasta: parsed.data.hasta,
+        updatedAt: new Date().toISOString()
+      }
+    });
+    if (result.count === 0) return res.status(404).json({ error: "periodo not found" });
+    res.json({ ok: true });
+  }
+);
+
+aulas.delete(
+  "/api/aulas/:id/periodos/:periodoId",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope(STAFF_MANAGE_GATE),
+  async (req, res) => {
+    const id = req.params.id as string;
+    const periodoId = req.params.periodoId as string;
+    const classroom = res.locals.classroom as { status?: string };
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
+    if (isClassroomReadOnlyStatus(currentStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const result = await prisma.clasePeriodo.deleteMany({ where: { id: periodoId, claseId: id } });
+    if (result.count === 0) return res.status(404).json({ error: "periodo not found" });
     res.status(204).send();
   }
 );

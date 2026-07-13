@@ -439,6 +439,18 @@ export type ClaseModuloRow = {
   required: boolean;
 };
 
+// PLAN-V §1 — períodos académicos declarados en el aula.
+export type ClasePeriodoRow = {
+  id: string;
+  claseId: string;
+  nombre: string;
+  desde: string;
+  hasta: string;
+  orden: number;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type ActividadAulaRow = {
   id: string;
   aulaId: string;
@@ -488,8 +500,18 @@ export type ModuloRow = {
   schoolId?: string | null;
   ownerUserId: string;
   dependencies?: string | null;
+  // PLAN-X §7 — oculto de los listados generales salvo dueño/invitado/aula.
+  descatalogado?: boolean;
   createdAt: string;
   updatedAt: string;
+};
+
+// PLAN-X §7 — invitación individual a un módulo descatalogado.
+export type ModuloInvitacionRow = {
+  moduloId: string;
+  usuarioId: string;
+  invitedBy?: string | null;
+  createdAt: string;
 };
 
 export type QuizRow = {
@@ -597,6 +619,32 @@ export type BloqueJsonRow = {
   contentHash?: string | null;
   createdAt: string;
   updatedAt: string;
+};
+
+// PLAN-G §1 (item 25) — "material guardado" (mapa/timeline/interactivo/
+// presentacion), patrón padre+version igual a Quiz/QuizVersion.
+export type MaterialRow = {
+  id: string;
+  tipo: string;
+  titulo: string;
+  ownerUserId: string;
+  schoolId?: string | null;
+  visibility: string;
+  currentVersionId?: string | null;
+  isDeleted?: boolean;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type MaterialVersionRow = {
+  id: string;
+  materialId: string;
+  versionNumber: number;
+  schemaVersion: number;
+  contenido: string;
+  contentHash?: string | null;
+  createdAt: string;
+  createdBy?: string | null;
 };
 
 // SEC-LIBRO — fila de `libros` para el rig de tests. Tiene los
@@ -712,12 +760,15 @@ export class InMemoryPrisma {
   encuesta = new Table<EncuestaRow>("encuesta");
   encuestaRespuesta = new Table<EncuestaRespuestaRow>("encuestaRespuesta");
   bloqueJson = new Table<BloqueJsonRow>("bloqueJson");
+  material = new Table<MaterialRow>("material");
+  materialVersion = new Table<MaterialVersionRow>("materialVersion");
   configModulo = new Table<ConfigModuloRow>("configModulo");
   // SEC-LIBRO — modelo `libro` (tabla `libros`). El handler usa
   // `prisma.libro.findFirst`, `findMany`, `create`, `updateMany`.
   libro = new Table<LibroRow>("libro");
   vblangDataset = new Table<DatasetRow>("vblangDataset");
   vblangDatasetFila = new Table<FilaRow>("vblangDatasetFila");
+  formula = new Table<Row>("formula");
   suscripcion = new Table<Row>("suscripcion");
   historialPago = new Table<Row>("historialPago");
   limiteEscuela = new Table<Row>("limiteEscuela");
@@ -727,9 +778,11 @@ export class InMemoryPrisma {
   clase = new Table<ClaseRow>("clase");
   claseMiembro = new Table<ClaseMiembroRow>("claseMiembro");
   claseModulo = new Table<ClaseModuloRow>("claseModulo");
+  clasePeriodo = new Table<ClasePeriodoRow>("clasePeriodo");
   actividadAula = new Table<ActividadAulaRow>("actividadAula");
   calendarioEscuela = new Table<CalendarioEscuelaRow>("calendarioEscuela");
   modulo = new Table<ModuloRow>("modulo");
+  moduloInvitacion = new Table<ModuloInvitacionRow>("moduloInvitacion");
   quiz = new Table<QuizRow>("quiz");
   quizVersion = new Table<QuizVersionRow>("quizVersion");
   quizAttempt = new Table<QuizAttemptRow>("quizAttempt");

@@ -31,6 +31,11 @@ type AulaDoc = {
   classCode?: string | null;
   members?: ClassroomMember[];
   isDeleted?: boolean;
+  // PLAN-V §1 — faltaba acá: los handlers que leen `res.locals.classroom.status`
+  // para su guardia de "aula read-only" (PATCH /api/aulas/:id y afines)
+  // siempre veían `undefined` y caían al default "ACTIVE", así que el
+  // bloqueo de ARCHIVED/LOCKED nunca corría en la práctica.
+  status?: string;
 };
 
 /**
@@ -85,7 +90,9 @@ export const computeViewerRoleInClass = (
   const member = members.find((m) => m.userId === userId);
   if (!member) return null;
   const role = (member.roleInClass ?? "").toString().toUpperCase();
-  if (role === "TEACHER" || role === "ADMIN") return "TEACHER";
+  // PLAN-U §6 — un co-titular DIRECTIVO (aula con "1 profesor + 1
+  // directivo") actúa como docente EN la clase, igual que ADMIN.
+  if (role === "TEACHER" || role === "ADMIN" || role === "DIRECTIVO") return "TEACHER";
   if (role === "STUDENT") return "STUDENT";
   return null;
 };
@@ -96,7 +103,8 @@ export const computeViewerRoleInClass = (
  * Devuelve true cuando el usuario tiene autoridad de docente sobre la clase por
  * cualquiera de estos caminos:
  *  - es ADMIN global;
- *  - es miembro con rol TEACHER en `clase_miembros`;
+ *  - es miembro con rol TEACHER o DIRECTIVO en `clase_miembros` (PLAN-U §6:
+ *    co-titular — "2 profesores" o "1 profesor + 1 directivo");
  *  - es DUEÑO de la clase por `createdBy`, `teacherId` o `teacherOfRecord`.
  *
  * ESTE es el único criterio válido de "docente/dueño del aula". Cualquier ruta
@@ -117,7 +125,16 @@ export const isClassroomTeacher = (
   if (isClassroomOwner(classroom, userId)) return true;
   if (!userId) return false;
   const members = Array.isArray(classroom.members) ? classroom.members : [];
-  return members.some((entry) => entry.userId === userId && entry.roleInClass === "TEACHER");
+  // PLAN-U §6 — co-titulares: "2 profesores" o "1 profesor + 1
+  // directivo" dueños de la misma aula. El segundo titular se modela
+  // como `ClaseMiembro` con `rolEnClase` TEACHER o DIRECTIVO (nunca se
+  // le miente el rol; a diferencia de STUDENT, ambos dan autoridad
+  // docente completa sobre la clase).
+  return members.some(
+    (entry) =>
+      entry.userId === userId &&
+      (entry.roleInClass === "TEACHER" || entry.roleInClass === "DIRECTIVO")
+  );
 };
 
 type ClassroomScopeOptions = {
@@ -197,6 +214,7 @@ export const requireClassroomScope =
       teacherId: claseRaw.teacherId ?? null,
       teacherOfRecord: claseRaw.teacherOfRecord ?? null,
       isDeleted: claseRaw.isDeleted,
+      status: claseRaw.status ?? undefined,
       // FIX-CONFIG-CODIGO — el modelo Prisma `Clase` expone `code` y
       // `classCode` (códigos legacy y de join, ver `schema.prisma:104`).
       // Antes no se propagaban al `res.locals.classroom`, así que el

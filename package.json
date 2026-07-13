@@ -9,6 +9,7 @@
     "test": "pnpm --filter ./apps/web test",
     "test:web": "pnpm --filter ./apps/web test",
     "test:api": "pnpm --filter ./api test",
-    "dev": "pnpm --filter api --filter web --parallel run dev"
+    "dev": "pnpm --filter api --filter web --parallel run dev",
+    "dev:mobile": "pnpm --filter api --filter web --filter mobile --parallel run dev"
   }
 }

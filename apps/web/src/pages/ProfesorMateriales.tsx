@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { apiGet, apiPost, getAuthToken } from '../lib/api';
 
@@ -7,7 +7,9 @@ type MaterialItem = {
   id: string;
   titulo: string;
   materia: string;
-  tipo: 'cuestionario' | 'documento' | 'otro';
+  // PLAN-G §1 (item 25) — además de 'cuestionario' (módulos, como antes),
+  // ahora puede ser uno de los 4 tipos de "material guardado".
+  tipo: 'cuestionario' | 'documento' | 'otro' | 'mapa' | 'timeline' | 'interactivo' | 'presentacion' | 'libro';
   autor: string;
   ownerUserId?: string | null;
   escuelaId: string | null;
@@ -15,6 +17,18 @@ type MaterialItem = {
   compartido: boolean;
   createdAt: string;
   questions?: number;
+  // 'modulo' (comportamiento de siempre) | 'material' (guardado nuevo, PLAN-G §1)
+  // | 'libro' (tabla `libros`, fusionada en G3 Fase 3).
+  origen?: 'modulo' | 'material' | 'libro';
+};
+
+// PLAN-G §1 (item 25) — a qué ruta de editor navegar para reabrir cada
+// tipo de material guardado.
+const MATERIAL_EDITOR_ROUTE: Record<string, string> = {
+  mapa: '/herramientas/mapa-editor',
+  timeline: '/herramientas/linea-tiempo-editor',
+  interactivo: '/bloques/editor',
+  presentacion: '/herramientas/presentacion-editor',
 };
 
 type ShareScope = 'privado' | 'escuela' | 'publico';
@@ -27,6 +41,7 @@ const SHARE_SCOPE_OPTIONS: Array<{ value: ShareScope; label: string; helper: str
 
 export default function ProfesorMateriales() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [items, setItems] = useState<MaterialItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<'propios' | 'escuela'>('escuela');
@@ -127,19 +142,21 @@ export default function ProfesorMateriales() {
           </p>
         </div>
         <Link
-          // FIX-MATERIAL-EDITOR — antes el botón "Crear cuestionario"
-          // navegaba a `/profesor/editor-cuestionarios` (V1, ya
-          // deprecado en favor del V2 con composición + variantes).
-          // El V1 rompía el guardado, no soportaba `pool` ni
-          // `displayCount` y mandaba `subject` y `theoryItems` al
-          // formato viejo. Bug 3.2 del informe
-          // `test-parte-3-profesor.md`. Ahora se abre el V2 con
-          // `returnTo` para que el docente vuelva a la lista de
-          // materiales después de armar el cuestionario.
-          to="/profesor/editor-cuestionarios-v2?returnTo=/profesor/materiales&mode=manual"
+          // PLAN-K §5 — V1/V2 quedan retirados como entry point (siguen
+          // vivos para links viejos, ver PLAN-K §4). El flujo moderno es
+          // Tiza standalone, con `returnTo` para volver a materiales
+          // después de armar el cuestionario.
+          to="/plantillas/nueva?returnTo=/profesor/materiales"
           className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
         >
           + Crear cuestionario
+        </Link>
+        {/* G3 Fase 3.1 — el editor de libros no tenía ningún entry point. */}
+        <Link
+          to="/editor"
+          className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+        >
+          + Crear libro
         </Link>
       </div>
 
@@ -202,7 +219,27 @@ export default function ProfesorMateriales() {
               </p>
             </div>
             <div className="flex gap-2 flex-shrink-0">
-              {tab === 'propios' && (
+              {item.origen === 'material' && MATERIAL_EDITOR_ROUTE[item.tipo] && (
+                <button
+                  type="button"
+                  onClick={() => navigate(`${MATERIAL_EDITOR_ROUTE[item.tipo]}?materialId=${item.id}`)}
+                  data-testid={`abrir-${item.id}`}
+                  className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+                >
+                  Abrir
+                </button>
+              )}
+              {item.origen === 'libro' && (
+                <button
+                  type="button"
+                  onClick={() => navigate(`/editor/${item.id}`)}
+                  data-testid={`abrir-${item.id}`}
+                  className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+                >
+                  Abrir
+                </button>
+              )}
+              {tab === 'propios' && (!item.origen || item.origen === 'modulo') && (
                 <button
                   onClick={() => openShareDialog(item)}
                   data-testid={`compartir-${item.id}`}
@@ -211,13 +248,15 @@ export default function ProfesorMateriales() {
                   {item.compartido ? 'Cambiar alcance' : 'Compartir'}
                 </button>
               )}
-              <button
-                type="button"
-                onClick={() => handleDescargar(item)}
-                className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-              >
-                ↓ Descargar
-              </button>
+              {(!item.origen || item.origen === 'modulo') && (
+                <button
+                  type="button"
+                  onClick={() => handleDescargar(item)}
+                  className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                >
+                  ↓ Descargar
+                </button>
+              )}
             </div>
           </div>
         ))}

@@ -289,6 +289,7 @@ model Clase {
   modulos         ClaseModulo[]
   publicaciones   ClasePublicacion[]
   asistencias     Asistencia[]
+  periodos        ClasePeriodo[]
   @@map("clases")
 }
 
@@ -321,6 +322,25 @@ model Asistencia {
   @@map("asistencias")
 }
 
+// PLAN-V §1 — períodos académicos declarados EN el aula (nunca un motor
+// de calendario global): lista libre y ordenada de `{ nombre, desde,
+// hasta }` por docente. "2 semestres + verano" son 3 filas; anual es 1.
+// `desde`/`hasta` son fechas ISO (yyyy-mm-dd) como string, mismo patrón
+// que `Asistencia.fecha` — la comparación lexicográfica alcanza.
+model ClasePeriodo {
+  id        String @id
+  claseId   String @map("clase_id")
+  nombre    String
+  desde     String
+  hasta     String
+  orden     Int
+  createdAt String @map("created_at")
+  updatedAt String @map("updated_at")
+  clase     Clase  @relation(fields: [claseId], references: [id])
+  @@index([claseId])
+  @@map("clase_periodos")
+}
+
 model ClaseModulo {
   claseId    String  @map("clase_id")
   moduloId   String  @map("modulo_id")
@@ -329,6 +349,21 @@ model ClaseModulo {
   clase      Clase   @relation(fields: [claseId], references: [id])
   @@id([claseId, moduloId])
   @@map("clase_modulos")
+}
+
+// PLAN-X §7 — invitación individual a un módulo descatalogado. Espejo
+// deliberado de `ClaseModulo` (misma forma de join-table liviana, sin
+// relación Prisma a `Modulo`/`Usuario` — mismo criterio que esa tabla).
+// Un alumno invitado ve el módulo en los listados aunque esté
+// descatalogado; el docente dueño (o quien lo invitó) lo da de baja
+// borrando la fila.
+model ModuloInvitacion {
+  moduloId   String  @map("modulo_id")
+  usuarioId  String  @map("usuario_id")
+  invitedBy  String? @map("invited_by")
+  createdAt  String  @default("") @map("created_at")
+  @@id([moduloId, usuarioId])
+  @@map("modulo_invitaciones")
 }
 
 model ClasePublicacion {
@@ -466,6 +501,11 @@ model TeoriaJson {
   @@map("teoria_json")
 }
 
+/// @deprecated PLAN-J §4 (2026-07-07): "Páginas TuesdayJS" se retiró del
+/// producto (sin valor hoy, decisión del usuario). Tabla conservada por
+/// datos históricos — no borrar. Si las novelas visuales vuelven, el
+/// camino es un `tipo: "novela"` nuevo en Material/MaterialVersion
+/// (patrón PLAN-G §1), no revivir este modelo.
 model TuesdayDoc {
   id            String  @id
   schemaVersion Int     @default(1) @map("schema_version")
@@ -545,6 +585,12 @@ model Modulo {
   libroId              String?  @map("libro_id")
   defaultQuestionCount Int?     @map("default_question_count")
   dependencies         String?
+  // PLAN-X §7 — "descatalogado": el profesor dueño oculta el módulo de
+  // los listados generales (`GET /api/modulos`, `/buscar`) sin borrarlo.
+  // Sigue visible para el dueño, para alumnos invitados
+  // (`ModuloInvitacion`) y para cualquier aula donde ya esté asignado
+  // (`ClaseModulo` — asignar a un aula es en sí el acto de habilitarlo).
+  descatalogado        Boolean  @default(false)
   isDeleted            Boolean  @default(false) @map("is_deleted")
   createdAt            String   @default("") @map("created_at")
   updatedAt            String   @default("") @map("updated_at")
@@ -632,6 +678,48 @@ model QuizAttempt {
   quiz          Quiz    @relation(fields: [quizId], references: [id])
   version       QuizVersion @relation(fields: [quizVersionId], references: [id])
   @@map("quiz_attempts")
+}
+
+// PLAN-G §1 (ítem 25) — "Material" escolar: contrato único para lo que
+// producen los editores standalone (mapas, línea de tiempo, herramienta
+// interactiva/bloques, presentaciones) cuando el docente los guarda como
+// pieza reusable e independiente de un módulo puntual. Sigue el patrón
+// padre+versión de Quiz/QuizVersion (no sobrescribe a ciegas: cada
+// "Guardar como material" crea una MaterialVersion nueva) cruzado con el
+// scoping de Libro (ownerUserId/schoolId/visibility). Deliberadamente NO
+// reemplaza cómo Modulo.theoryItems[].detail persiste hoy — es un destino
+// de guardado adicional y opcional.
+model Material {
+  id               String   @id
+  tipo             String   // 'mapa' | 'timeline' | 'interactivo' | 'presentacion'
+  titulo           String
+  ownerUserId      String   @map("owner_user_id")
+  schoolId         String?  @map("school_id")
+  visibility       String   @default("privado")
+  currentVersionId String?  @map("current_version_id")
+  isDeleted        Boolean  @default(false) @map("is_deleted")
+  createdAt        String   @default("") @map("created_at")
+  updatedAt        String   @default("") @map("updated_at")
+  versions         MaterialVersion[]
+
+  @@index([ownerUserId])
+  @@index([schoolId, visibility])
+  @@map("materiales_guardados")
+}
+
+model MaterialVersion {
+  id            String   @id
+  materialId    String   @map("material_id")
+  versionNumber Int      @map("version_number")
+  schemaVersion Int      @default(1) @map("schema_version")
+  contenido     String   // JSON serializado, shape según Material.tipo
+  contentHash   String?  @map("content_hash")
+  createdAt     String   @default("") @map("created_at")
+  createdBy     String?  @map("created_by")
+  material      Material @relation(fields: [materialId], references: [id])
+
+  @@unique([materialId, versionNumber])
+  @@map("material_versions")
 }
 
 model ActividadAula {
@@ -884,6 +972,7 @@ model ProgresoModuloVinculo {
   solicitadoAt String? @map("solicitado_at")
   createdAt    String  @map("created_at")
   updatedAt    String  @map("updated_at")
+  @@unique([parentId, childId])
   @@map("vinculos_padre_hijo")
 }
 
@@ -1387,6 +1476,27 @@ model PlantillaEjercicioVersion {
   @@index([plantillaId])
 }
 
+// PLAN-E §19 — banco de fórmulas (nombre + LaTeX + materia). Scoping
+// global/escuela: las globales son visibility "publica" con owner "system".
+model Formula {
+  id          String  @id
+  ownerUserId String  @map("owner_user_id")
+  schoolId    String? @map("school_id")
+  visibility  String  // "privada" | "escuela" | "publica"
+  nombre      String
+  materia     String?
+  latex       String
+  descripcion String?
+  isDeleted   Boolean @default(false) @map("is_deleted")
+  createdAt   String  @map("created_at")
+  updatedAt   String  @map("updated_at")
+
+  @@map("formulas")
+  @@index([schoolId, visibility])
+  @@index([materia])
+  @@index([ownerUserId])
+}
+
 model VblangDataset {
   id            String   @id
   ownerUserId   String   @map("owner_user_id")
@@ -1395,6 +1505,7 @@ model VblangDataset {
   nombre        String   // identificador único por owner
   descripcion   String?
   columnas      String   // JSON: { nombre: "string", capital: "string", ... }
+  sourceUrl     String?  @map("source_url") // PLAN-E §20: URL externa (HTTPS, CSV/JSON) para refresco manual
   isDeleted     Boolean  @default(false) @map("is_deleted")
   createdAt     String   @map("created_at")
   updatedAt     String   @map("updated_at")
@@ -1418,4 +1529,23 @@ model VblangDatasetFila {
 
   @@map("vblang_dataset_filas")
   @@index([datasetId, orden])
+}
+
+// PLAN-R Parte 5 — token de push (Expo) de la app móvil. Un usuario
+// puede tener el token registrado en más de un dispositivo (@@unique
+// es sobre el token en sí, no sobre userId — reinstalar/reloguearse
+// en otro teléfono agrega una fila nueva, no pisa la anterior). El
+// envío real (expo-server-sdk, disparado desde mensajería/tareas/
+// cobros) queda para otra sesión — este modelo sólo guarda dónde
+// mandar el push cuando exista ese código.
+model PushToken {
+  id        String  @id
+  userId    String  @map("user_id")
+  token     String  @unique
+  platform  String? // "ios" | "android"
+  createdAt String  @map("created_at")
+  updatedAt String  @map("updated_at")
+
+  @@map("push_tokens")
+  @@index([userId])
 }

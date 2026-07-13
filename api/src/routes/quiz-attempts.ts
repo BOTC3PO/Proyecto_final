@@ -14,6 +14,7 @@ import {
   type QuizAttemptSubmit
 } from "../schema/quiz-attempt";
 import { isStaffRole, canManageClassroom } from "../lib/authorization";
+import { resolveRoles } from "../lib/roles";
 import {
   isCanaryAnswer,
   sanitizeQuestionsForStudent
@@ -97,6 +98,10 @@ type ModuleQuiz = {
     manualGrading?: boolean;
     /** Enunciado (para mostrar en la pantalla de corrección del profe). */
     prompt?: string;
+    /** PLAN-E §21 Parte A — mc múltiple: answerKey array con TODAS las correctas. */
+    multiple?: boolean;
+    /** PLAN-E §21 Parte A — proporcional = max(0, aciertos − de más) / correctas. */
+    puntajeParcial?: "todo_o_nada" | "proporcional";
   }>;
   count?: number;
   seedPolicy?: string;
@@ -334,6 +339,12 @@ const buildQuizFromCollection = (
   if (settings && typeof settings === "object" && (settings as any).preguntas) {
     quiz.preguntas = (settings as any).preguntas;
   }
+  // PLAN-Y fase 3 — instrucciones para el alumno (editadas en Tiza,
+  // persistidas en `settings.instructions`). El response del attempt ya las
+  // pasaba (`quiz?.instructions`) pero nunca llegaban: nadie las seteaba acá.
+  if (settings && typeof settings === "object" && typeof (settings as any).instructions === "string") {
+    quiz.instructions = (settings as any).instructions;
+  }
   return quiz;
 };
 
@@ -455,6 +466,8 @@ type SubmitPayload = {
     correccion?: "ninguna" | "manual";
     manualGrading?: boolean;
     prompt?: string;
+    /** PLAN-E §21 — proporcional para answerKey array (mc múltiple / spans). */
+    puntajeParcial?: "todo_o_nada" | "proporcional";
   }>;
   presentedIds?: string[];
 };
@@ -538,6 +551,9 @@ const serverQuestionToGradable = (
   if (sq.correccion !== undefined) q.correccion = sq.correccion;
   if (sq.manualGrading !== undefined) q.manualGrading = sq.manualGrading;
   if (sq.prompt !== undefined) q.prompt = sq.prompt;
+  // PLAN-E §21 — sin esto, el path autoritativo VBLang corregía proporcional
+  // como todo-o-nada (mc múltiple y analisis_spans).
+  if (sq.puntajeParcial !== undefined) q.puntajeParcial = sq.puntajeParcial;
   return q;
 };
 
@@ -830,6 +846,20 @@ const gradeAnswers = (
       if (!Array.isArray(response)) continue;
       const expectedSet = new Set(expected);
       const responseSet = new Set(response);
+      // PLAN-E §21 — puntaje proporcional (mc múltiple y análisis por spans):
+      // max(0, aciertos − marcadas de más) / total correctas.
+      if (question.puntajeParcial === "proporcional") {
+        let aciertos = 0;
+        let deMas = 0;
+        for (const r of responseSet) {
+          if (expectedSet.has(r)) aciertos += 1;
+          else deMas += 1;
+        }
+        if (expectedSet.size > 0) {
+          score += weight * (Math.max(0, aciertos - deMas) / expectedSet.size);
+        }
+        continue;
+      }
       if (expectedSet.size !== responseSet.size) continue;
       const matches = Array.from(expectedSet).every((value) => responseSet.has(value));
       if (matches) score += weight;
@@ -976,6 +1006,14 @@ quizAttempts.post(
   requireUser,
   async (req, res) => {
   try {
+    // PLAN-J §3c #6 — PARENT es solo-lectura en módulos/quizzes: puede ver
+    // el módulo de su hijo, pero no rendir la prueba en su nombre. Sólo se
+    // bloquea si TODOS los roles del usuario son PARENT (un PARENT+USER o
+    // PARENT+TEACHER retiene su otra capacidad).
+    const requesterRoles = resolveRoles(req.user);
+    if (requesterRoles.length > 0 && requesterRoles.every((r) => r === "PARENT")) {
+      return res.status(403).json({ error: "role cannot start quiz attempts" });
+    }
     const payload = QuizAttemptCreateSchema.parse(req.body);
     const module = payload.moduleId
       ? await prisma.modulo.findFirst({ where: { id: payload.moduleId } }).then((m) =>
@@ -1215,19 +1253,51 @@ quizAttempts.get(
       const sorted = [...attempts].sort((a, b) =>
         String(b.startedAt ?? "").localeCompare(String(a.startedAt ?? ""))
       );
-      const items = sorted.slice(0, query.limit).map((a) => ({
-        id: a.id,
-        quizId: a.quizId,
-        quizVersionId: a.quizVersionId,
-        userId: a.userId,
-        status: a.status,
-        startedAt: a.startedAt,
-        submittedAt: a.submittedAt ?? null,
-        score: a.score,
-        maxScore: a.maxScore,
-        attemptNo: a.attemptNo ?? null,
-        seed: a.seed ?? null
-      }));
+      const page = sorted.slice(0, query.limit);
+
+      // ITEM-5 — el front (`ProfesorCalificaciones.tsx`) arma el filtro por
+      // módulo y el título del quiz a partir de `moduleId`/`moduleTitle`/
+      // `quizTitle` en cada item. Sin esto, el dropdown de módulos siempre
+      // queda vacío (nunca se puebla otra opción además de "Todos los
+      // módulos") y el filtro parece "no hacer nada" aunque el back sí
+      // filtra correctamente cuando se le pasa `moduleId` (ver más abajo).
+      const quizIds = Array.from(new Set(page.map((a) => a.quizId)));
+      const quizRecords = quizIds.length
+        ? await prisma.quiz.findMany({ where: { id: { in: quizIds } } })
+        : [];
+      const quizById = new Map(quizRecords.map((q) => [q.id, q]));
+      const moduleIds = Array.from(
+        new Set(
+          quizRecords
+            .map((q) => q.moduleId)
+            .filter((mid): mid is string => Boolean(mid))
+        )
+      );
+      const moduleRecords = moduleIds.length
+        ? await prisma.modulo.findMany({ where: { id: { in: moduleIds } } })
+        : [];
+      const moduloById = new Map(moduleRecords.map((m) => [m.id, m]));
+
+      const items = page.map((a) => {
+        const quizRecord = quizById.get(a.quizId);
+        const modulo = quizRecord?.moduleId ? moduloById.get(quizRecord.moduleId) : undefined;
+        return {
+          id: a.id,
+          quizId: a.quizId,
+          quizVersionId: a.quizVersionId,
+          quizTitle: quizRecord?.title ?? undefined,
+          moduleId: quizRecord?.moduleId ?? null,
+          moduleTitle: modulo?.titulo ?? undefined,
+          userId: a.userId,
+          status: a.status,
+          startedAt: a.startedAt,
+          submittedAt: a.submittedAt ?? null,
+          score: a.score,
+          maxScore: a.maxScore,
+          attemptNo: a.attemptNo ?? null,
+          seed: a.seed ?? null
+        };
+      });
       res.json({ items, total: attempts.length });
     } catch (error: any) {
       if (error?.name === "ZodError") {

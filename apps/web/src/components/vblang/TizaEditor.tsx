@@ -420,7 +420,7 @@ export function TizaQuestionCard({
   const enunciadosItems = readEnunciados(plantilla);
 
   const enunciadoRendered = useMemo(() => {
-    let text = enunciadosActive ? (enunciadosItems[0] ?? "") : enunciado;
+    let text = enunciadosActive ? (enunciadosItems[0]?.text ?? "") : enunciado;
     for (const [name, value] of Object.entries(live.variables ?? {})) {
       text = text.replaceAll(`{${name}}`, formatValue(value));
     }
@@ -488,23 +488,44 @@ export function TizaQuestionCard({
         <Eyebrow>{enunciadosActive ? "Enunciado (variantes)" : "Enunciado"}</Eyebrow>
         {enunciadosActive ? (
           <div onClick={(e) => e.stopPropagation()}>
-            {enunciadosItems.map((text, i) => (
+            {enunciadosItems.map((item, i) => (
               <div
                 key={i}
                 style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 8 }}
               >
                 <div style={{ ...numberBadgeStyle, marginTop: 10 }}>{i + 1}</div>
                 <BufferedTextarea
-                  value={text}
+                  value={item.text}
                   rows={2}
                   placeholder="Texto de la variante…"
                   onCommit={(v) => {
                     const next = [...enunciadosItems];
-                    next[i] = v;
+                    next[i] = { ...next[i], text: v };
                     onChange(writeEnunciados(plantilla, next));
                   }}
                   style={{ ...inputStyle(), flex: 1, minWidth: 0 }}
                 />
+                {/* PLAN-E §15: tipo propio de la variante (vacío = heredar) */}
+                <select
+                  aria-label={`Tipo de la variante ${i + 1}`}
+                  title="Tipo de la variante (heredado por defecto)"
+                  value={item.tipo ?? ""}
+                  onChange={(e) => {
+                    const next = [...enunciadosItems];
+                    const { tipo: _tipo, ...rest } = next[i];
+                    next[i] = e.target.value
+                      ? { ...rest, tipo: e.target.value as NonNullable<typeof item.tipo> }
+                      : rest;
+                    onChange(writeEnunciados(plantilla, next));
+                  }}
+                  style={{ ...inputStyle(), width: 118, marginTop: 2, flex: "none" }}
+                >
+                  <option value="">Heredado</option>
+                  <option value="mc">Opción múltiple</option>
+                  <option value="vf">V/F</option>
+                  <option value="input">Numérica</option>
+                  <option value="completar">Completar</option>
+                </select>
                 <button
                   type="button"
                   aria-label={`Quitar variante ${i + 1}`}
@@ -530,7 +551,12 @@ export function TizaQuestionCard({
               <button
                 type="button"
                 onClick={() =>
-                  onChange(writeEnunciados(plantilla, [...enunciadosItems, "Nueva variante…"]))
+                  onChange(
+                    writeEnunciados(plantilla, [
+                      ...enunciadosItems,
+                      { text: "Nueva variante…" },
+                    ]),
+                  )
                 }
                 style={addLinkButtonStyle}
               >
@@ -793,7 +819,7 @@ export function TizaQuestionCard({
             // enunciado único a la primera variante.
             const base = enunciadosActive ? plantilla : enunciadoToVariantes(plantilla);
             const items = readEnunciados(base);
-            onChange(writeEnunciados(base, [...items, "Nueva variante…"]));
+            onChange(writeEnunciados(base, [...items, { text: "Nueva variante…" }]));
           }
           // dataset queda para futuras iteraciones (pronto, disabled)
         }}
@@ -1058,7 +1084,12 @@ function QuestionPropertyGrid({
                   <button
                     type="button"
                     onClick={() =>
-                      onChange(writeEnunciados(plantilla, [...enunciadosItems, "Nueva variante…"]))
+                      onChange(
+                    writeEnunciados(plantilla, [
+                      ...enunciadosItems,
+                      { text: "Nueva variante…" },
+                    ]),
+                  )
                     }
                     style={addLinkButtonStyle}
                   >

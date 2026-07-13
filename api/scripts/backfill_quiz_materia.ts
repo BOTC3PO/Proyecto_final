@@ -78,7 +78,11 @@ async function main(): Promise<void> {
     // así que resolvemos modulo + quiz en 2 pasos (mismo patrón que
     // modulos.ts).
     const quiz = await prisma.quiz.findFirst({ where: { id: v.quizId } });
-    if (!quiz) {
+    // PLAN-CORRECCIONES C2 — `Quiz.moduleId` es nullable desde que existen
+    // quizzes "sueltos" (sin módulo). Sin este chequeo, `findFirst({ where:
+    // { id: null } })` tira `PrismaClientValidationError` y el backfill
+    // completo aborta apenas encuentra uno.
+    if (!quiz || !quiz.moduleId) {
       idsSinModulo.push(v.id);
       sinModuloMateria++;
       continue;

@@ -3,6 +3,7 @@ import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { hasRole } from "../lib/roles";
 import { excluirEspejosDeIds } from "../lib/espejo-filtro";
+import { isClassroomTeacher } from "../lib/classroom-scope";
 
 export const pedagogico = Router();
 
@@ -152,7 +153,7 @@ pedagogico.post("/api/pedagogico/desbloquear", requireUser, async (req, res) => 
   try {
     const aula = await prisma.clase.findFirst({
       where: { id: String(aulaId), isDeleted: { not: true } },
-      select: { escuelaId: true, createdBy: true, teacherId: true },
+      include: { miembros: true },
     });
 
     if (!aula) {
@@ -167,9 +168,13 @@ pedagogico.post("/api/pedagogico/desbloquear", requireUser, async (req, res) => 
           return res.status(403).json({ error: "sin permiso sobre esta aula" });
         }
       } else {
-        const isCreator = aula.createdBy === userId;
-        const isTeacher = aula.teacherId === userId;
-        if (!isCreator && !isTeacher) {
+        // PLAN-U §6 — usa el criterio canónico (reconoce co-titulares
+        // TEACHER/DIRECTIVO en clase_miembros, no solo al dueño original).
+        const members = (aula.miembros ?? []).map((m) => ({
+          userId: m.usuarioId,
+          roleInClass: m.rolEnClase,
+        }));
+        if (!isClassroomTeacher({ ...aula, members }, userId)) {
           return res.status(403).json({ error: "sin permiso sobre esta aula" });
         }
       }

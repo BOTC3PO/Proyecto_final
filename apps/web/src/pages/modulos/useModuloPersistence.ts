@@ -54,6 +54,11 @@ export type UsePersistenceReturn = {
     quizzes: ModuleQuiz[];
     navigate: NavigateFunction;
     setValidationErrors: (errs: string[]) => void;
+    /** PLAN-Y — se invoca tras un guardado exitoso en modo edición; el
+     *  editor lo usa para limpiar el flag `localOnly` de los quizzes que
+     *  acaban de crearse en el server (así el próximo guardado ya no manda
+     *  su title/type/visibility y no puede pisar lo editado en Tiza). */
+    onSaved?: () => void;
   }) => Promise<void>;
 };
 
@@ -146,6 +151,7 @@ export function useModuloPersistence(): UsePersistenceReturn {
         durationMinutes: module.durationMinutes ?? 30,
         visibility: module.visibility,
         visibilitySchoolId: module.schoolId ?? "",
+        descatalogado: module.descatalogado === true,
         dependencies: module.dependencies ?? [],
         // WO-3 — escala de notas del módulo (si el back la trae).
         scoringSystemId: module.scoringConfig?.systemId,
@@ -179,6 +185,7 @@ export function useModuloPersistence(): UsePersistenceReturn {
       quizzes,
       navigate,
       setValidationErrors: setExtErrors,
+      onSaved,
     }: Parameters<UsePersistenceReturn["handleSubmit"]>[0]) => {
       event.preventDefault();
       setStatus("saving");
@@ -198,7 +205,13 @@ export function useModuloPersistence(): UsePersistenceReturn {
         if (!form.description.trim()) fieldErrors.push('La descripción es obligatoria.');
         if (!form.subject.trim()) fieldErrors.push('La materia es obligatoria.');
         // category siempre tiene al menos "sin-categoria" como valor por defecto
-        if (!form.level.trim()) fieldErrors.push('El nivel es obligatorio.');
+        // PLAN-W §2 (repro Javier) — en categoría "evaluacion" el input de
+        // Nivel se oculta (ModuloEditor.tsx: `!isEvaluacionMode`); exigirlo
+        // igual dejaba al docente sin forma de completarlo nunca (el campo
+        // no existe en pantalla para escribir el valor que el guardado pide).
+        if (form.category !== "evaluacion" && !form.level.trim()) {
+          fieldErrors.push('El nivel es obligatorio.');
+        }
 
         if (fieldErrors.length > 0) {
           setStatus("error");
@@ -264,6 +277,7 @@ export function useModuloPersistence(): UsePersistenceReturn {
           visibility: form.visibility,
           schoolId:
             form.visibility === "escuela" ? form.visibilitySchoolId || undefined : undefined,
+          descatalogado: form.descatalogado,
           dependencies: form.dependencies,
           // WO-3 — escala de notas del módulo. Sólo se envía si el docente eligió
           // una; ausente = el back deja `scoringConfig` nulo (fallback histórico).
@@ -277,32 +291,43 @@ export function useModuloPersistence(): UsePersistenceReturn {
             detail: item.detail,
           })),
           resources: bookResources,
-          quizzes: quizzes.map((quiz) => {
-            const { id: quizId, ...rest } = quiz;
-            const payloadQuiz = {
-              ...rest,
-              title: quiz.title.trim() || `Cuestionario ${quiz.id.slice(-4)}`,
-              questions: quiz.mode === "manual" ? quiz.questions ?? [] : undefined,
-              generatorId: quiz.mode === "generated" ? quiz.generatorId : undefined,
-              generatorVersion: quiz.mode === "generated" ? quiz.generatorVersion : undefined,
-              params: quiz.mode === "generated" ? quiz.params : undefined,
-              count: quiz.mode === "generated" ? quiz.count : undefined,
-              seedPolicy:
-                quiz.mode === "generated" ? quiz.seedPolicy ?? "perAttempt" : undefined,
-              fixedSeed:
-                quiz.mode === "generated" && quiz.seedPolicy === "fixed"
-                  ? quiz.fixedSeed
-                  : undefined,
-            };
-            // FIX-GUARDADO-QUIZID — siempre enviamos el `id`, incluso para
-            // cuestionarios nuevos (ids `quiz-...` generados por `buildQuizId`).
-            // El `ModuleQuizSchema` del API exige `id` (string.min(1)) y el
-            // handler POST lo usa directo (`modulos.ts` → `id: quiz.id`), así
-            // que stripearlo provocaba 400 de validación al guardar. Además,
-            // mandar el id estable permite que el PATCH matchee el quiz
-            // existente (`applyModuleUpdate`) y versione en vez de duplicar.
-            return { ...payloadQuiz, id: quizId };
-          }),
+          // PLAN-Y — el payload del quiz ya NO manda la config
+          // (title/type/visibility/instructions/config de evaluación): Tiza
+          // es su único editor (PATCH /api/quizzes/:id/meta) y mandarla acá
+          // pisaba lo configurado allá en cada guardado del módulo. Sólo
+          // viaja el CONTENIDO (preguntas/generador/posiciones). Excepción:
+          // un quiz `localOnly` (creado en esta sesión, ej. plantilla del
+          // banco) todavía no existe en el server, así que manda
+          // title/type/visibility una única vez, para la creación.
+          // FIX-GUARDADO-QUIZID — siempre enviamos el `id`, incluso para
+          // cuestionarios nuevos (ids `quiz-...` generados client-side): el
+          // `ModuleQuizSchema` del API lo exige y el id estable permite que
+          // `applyModuleUpdate` matchee y versione en vez de duplicar.
+          quizzes: quizzes.map((quiz) => ({
+            id: quiz.id,
+            mode: quiz.mode,
+            questions: quiz.mode === "manual" ? quiz.questions ?? [] : undefined,
+            displayCount: quiz.displayCount,
+            generatorId: quiz.mode === "generated" ? quiz.generatorId : undefined,
+            generatorVersion: quiz.mode === "generated" ? quiz.generatorVersion : undefined,
+            params: quiz.mode === "generated" ? quiz.params : undefined,
+            count: quiz.mode === "generated" ? quiz.count : undefined,
+            seedPolicy:
+              quiz.mode === "generated" ? quiz.seedPolicy ?? "perAttempt" : undefined,
+            fixedSeed:
+              quiz.mode === "generated" && quiz.seedPolicy === "fixed"
+                ? quiz.fixedSeed
+                : undefined,
+            posiciones: quiz.posiciones,
+            composition: quiz.composition,
+            ...(quiz.localOnly
+              ? {
+                  title: quiz.title.trim() || `Cuestionario ${quiz.id.slice(-4)}`,
+                  type: quiz.type,
+                  visibility: quiz.visibility,
+                }
+              : {}),
+          })),
           updatedAt: new Date().toISOString(),
         };
 
@@ -326,6 +351,7 @@ export function useModuloPersistence(): UsePersistenceReturn {
           setStatus("saved");
           setValidationErrors([]);
           setExtErrors([]);
+          onSaved?.();
           if (result.copied && result.id && result.id !== id) {
             const originTitle = result.clonedFrom?.title ?? "el módulo original";
             setMessage(
@@ -339,7 +365,7 @@ export function useModuloPersistence(): UsePersistenceReturn {
             setMessage("Cambios guardados.");
           }
         } else {
-          await apiPost<Module>("/api/modulos", {
+          const created = await apiPost<{ id?: string; moduleId?: string }>("/api/modulos", {
             ...basePayload,
             createdBy: user.id,
             authorName: user.name ?? "",
@@ -350,7 +376,15 @@ export function useModuloPersistence(): UsePersistenceReturn {
           setValidationErrors([]);
           setExtErrors([]);
           try { sessionStorage.removeItem(`modulo-draft:new`); } catch { /* ignorar */ }
-          navigate("/modulos", { replace: true });
+          // PLAN-Y bis — tras crear el módulo, ir a SU editor (no a la lista):
+          // los botones para crear/importar cuestionarios necesitan un módulo
+          // guardado (server-first). Antes se navegaba a "/modulos" y el
+          // docente tenía que reabrir el módulo para poder agregar
+          // cuestionarios. El id del módulo nuevo viene en la respuesta del POST.
+          const nuevoId = created?.id ?? created?.moduleId;
+          navigate(nuevoId ? `/modulos/${encodeURIComponent(nuevoId)}/editar` : "/modulos", {
+            replace: true,
+          });
         }
       } catch (err) {
         // FIX-GUARDADO — antes este catch era silencioso (`catch {}`), lo que

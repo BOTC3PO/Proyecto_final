@@ -143,6 +143,14 @@ export type TipoPregunta =
   | "ordenar"
   | "marcar_mapa"
   | "analisis_sintactico"
+  /**
+   * PLAN-E §21 Parte B — análisis por RANGOS de palabras (spans). A
+   * diferencia de `analisis_sintactico` (una etiqueta por palabra suelta),
+   * el alumno etiqueta rangos contiguos que pueden solaparse (núcleo dentro
+   * del sujeto). Corrección exacta por conjunto de spans, con puntaje
+   * parcial opcional (`puntaje_parcial: proporcional`).
+   */
+  | "analisis_spans"
   | "identificar_palabras"
   | "abierta"
   /**
@@ -190,6 +198,13 @@ export interface VariableDecl {
 
 export interface PasoItem {
   partes: TextoOInterpolacion[];
+  /**
+   * PLAN-E §15 — sólo para ítems de `enunciados:`: tipo propio de la
+   * variante (`- mc "..."`). Ausente = hereda el tipo de la plantilla.
+   * Restringido a los tipos básicos (mc/vf/input/completar); el runtime
+   * sirve y corrige por el tipo de la variante sorteada.
+   */
+  tipo?: TipoPregunta;
   loc: Loc;
 }
 
@@ -367,6 +382,47 @@ export interface CorreccionBloque {
   modo: CorreccionModo;
   loc: Loc;
 }
+/**
+ * PLAN-E §21 Parte A — mc de selección múltiple. `multiple: true` marca
+ * como correctas TODAS las opciones que matcheen `respuesta:` o alguna de
+ * `respuestas_validas:`; el player usa checkboxes.
+ */
+export interface MultipleBloque {
+  kind: "multiple";
+  valor: boolean;
+  loc: Loc;
+}
+/**
+ * PLAN-E §21 Parte B — clave del análisis por spans. Reusa la forma de
+ * `EtiquetaPedida` (objeto literal con campos Expr): cada ítem es
+ * `- { desde: <expr>, hasta: <expr>, etiqueta: <expr> }` con índices de
+ * PALABRA 0-based inclusive sobre `texto_analizar`.
+ */
+export interface SpansPedidosBloque {
+  kind: "spans_pedidos";
+  spans: EtiquetaPedida[];
+  loc: Loc;
+}
+/**
+ * PLAN-E §21 Parte B — etiquetas que ve el alumno (correctas + distractores).
+ * Las usadas en `spans_pedidos` se agregan solas si faltan.
+ */
+export interface EtiquetasDisponiblesBloque {
+  kind: "etiquetas_disponibles";
+  items: Expr[];
+  loc: Loc;
+}
+
+export type PuntajeParcialModo = "todo_o_nada" | "proporcional";
+/**
+ * PLAN-E §21 Parte A — puntaje parcial para selección múltiple:
+ * proporcional = max(0, aciertos − marcadas de más) / total correctas.
+ */
+export interface PuntajeParcialBloque {
+  kind: "puntaje_parcial";
+  modo: PuntajeParcialModo;
+  loc: Loc;
+}
 
 export type Bloque =
   | MetadataBloque
@@ -395,7 +451,11 @@ export type Bloque =
   | TextoAnalizarBloque
   | EtiquetasPedidasBloque
   | OpcionesExplicitasBloque
-  | CorreccionBloque;
+  | CorreccionBloque
+  | MultipleBloque
+  | PuntajeParcialBloque
+  | SpansPedidosBloque
+  | EtiquetasDisponiblesBloque;
 
 export type BloqueKind = Bloque["kind"];
 

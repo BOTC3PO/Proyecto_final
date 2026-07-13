@@ -277,6 +277,121 @@ export function generateAnalisisSintactico(
 }
 
 /* ------------------------------------------------------------------------- */
+/* analisis_spans (PLAN-E §21 Parte B)                                        */
+/* ------------------------------------------------------------------------- */
+
+/**
+ * Unidad de indexación de `analisis_spans`: PALABRA = token separado por
+ * espacios. La misma tokenización debe usarla el renderer del alumno.
+ */
+export function splitPalabras(texto: string): string[] {
+  return texto.split(/\s+/).filter((w) => w.length > 0);
+}
+
+export function generateAnalisisSpans(
+  compiled: CompiledPlantilla,
+  scope: Scope,
+  ctx: EvalContext,
+  seed: string,
+  intento: number,
+  enunciado: string,
+  pasos: string[] | undefined,
+  pistas: string[] | undefined,
+  explicacion: string | undefined,
+): GenerationResult {
+  if (!compiled.textoAnalizar) {
+    throw new EvalError("tipo `analisis_spans` requiere `texto_analizar:`");
+  }
+  if (!compiled.spansPedidos || compiled.spansPedidos.length === 0) {
+    throw new EvalError("tipo `analisis_spans` requiere `spans_pedidos:`");
+  }
+
+  const textoRaw = evaluateExpr(compiled.textoAnalizar, scope, ctx);
+  if (typeof textoRaw !== "string") {
+    throw new EvalError(
+      `texto_analizar debe evaluar a string, recibió ${typeof textoRaw}`,
+      compiled.textoAnalizar.loc,
+    );
+  }
+  const cantPalabras = splitPalabras(textoRaw).length;
+
+  const spans: Array<{ desde: number; hasta: number; etiqueta: string }> = [];
+  for (const sp of compiled.spansPedidos) {
+    const desdeCampo = sp.campos.find((c) => c.key === "desde");
+    const hastaCampo = sp.campos.find((c) => c.key === "hasta");
+    const etiquetaCampo = sp.campos.find((c) => c.key === "etiqueta");
+    if (!desdeCampo || !hastaCampo || !etiquetaCampo) {
+      throw new EvalError(
+        `cada item de \`spans_pedidos\` debe tener los campos \`desde\`, \`hasta\` y \`etiqueta\``,
+      );
+    }
+    const desdeVal = evaluateExpr(desdeCampo.value, scope, ctx);
+    const hastaVal = evaluateExpr(hastaCampo.value, scope, ctx);
+    const etiquetaVal = evaluateExpr(etiquetaCampo.value, scope, ctx);
+    if (typeof desdeVal !== "number" || !Number.isInteger(desdeVal)) {
+      throw new EvalError(
+        `el campo \`desde\` debe evaluar a un entero, recibió ${typeof desdeVal}`,
+        desdeCampo.value.loc,
+      );
+    }
+    if (typeof hastaVal !== "number" || !Number.isInteger(hastaVal)) {
+      throw new EvalError(
+        `el campo \`hasta\` debe evaluar a un entero, recibió ${typeof hastaVal}`,
+        hastaCampo.value.loc,
+      );
+    }
+    if (typeof etiquetaVal !== "string" || etiquetaVal.trim() === "") {
+      throw new EvalError(
+        `el campo \`etiqueta\` debe evaluar a un string no vacío`,
+        etiquetaCampo.value.loc,
+      );
+    }
+    if (desdeVal < 0 || hastaVal < desdeVal || hastaVal >= cantPalabras) {
+      throw new EvalError(
+        `span [${desdeVal}, ${hastaVal}] fuera de rango: \`texto_analizar\` tiene ${cantPalabras} palabras (índices 0..${cantPalabras - 1}, desde ≤ hasta)`,
+        desdeCampo.value.loc,
+      );
+    }
+    spans.push({ desde: desdeVal, hasta: hastaVal, etiqueta: etiquetaVal });
+  }
+
+  // Etiquetas visibles: las declaradas + las usadas en la clave (se agregan
+  // solas si faltan, en orden de aparición).
+  const disponibles: string[] = [];
+  const agregar = (e: string) => {
+    if (!disponibles.includes(e)) disponibles.push(e);
+  };
+  for (const expr of compiled.etiquetasDisponibles ?? []) {
+    const val = evaluateExpr(expr, scope, ctx);
+    if (typeof val === "string") agregar(val);
+    else if (Array.isArray(val)) {
+      for (const v of coerceStringArray(val, "etiquetas_disponibles")) agregar(v);
+    } else {
+      throw new EvalError(
+        `etiquetas_disponibles: cada item debe evaluar a string, recibió ${typeof val}`,
+        expr.loc,
+      );
+    }
+  }
+  for (const sp of spans) agregar(sp.etiqueta);
+
+  return {
+    tipo: "analisis_spans",
+    enunciado,
+    pasos,
+    pistas,
+    explicacion,
+    variables: scope.toRecord(),
+    seed,
+    intentos: intento,
+    textoAnalizar: textoRaw,
+    spansPedidos: spans,
+    etiquetasDisponibles: disponibles,
+    puntajeParcial: compiled.puntajeParcial ?? "todo_o_nada",
+  };
+}
+
+/* ------------------------------------------------------------------------- */
 /* identificar_palabras                                                       */
 /* ------------------------------------------------------------------------- */
 

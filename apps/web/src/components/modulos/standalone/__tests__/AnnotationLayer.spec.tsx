@@ -91,6 +91,49 @@ describe("AnnotationLayer", () => {
     expect(visible.getAttribute("marker-end")).toBe("url(#arrow-r1)");
   });
 
+  it("ITEM-45.a: zoom<1 achica radio/grosor/fontSize proporcionalmente (marcador)", () => {
+    const anotaciones: MapaAnotacion[] = [
+      { id: "m1", tipo: "marcador", lat: 0, lon: 0, etiqueta: "Punto" },
+    ];
+    const { container } = render(
+      <svg>
+        <AnnotationLayer
+          anotaciones={anotaciones}
+          project={projectId}
+          selectedId={null}
+          onSelect={() => {}}
+          editable={false}
+          zoom={0.5}
+        />
+      </svg>,
+    );
+    const circle = container.querySelector("circle");
+    // Radio sin selección = 6; con zoom=0.5 → 3.
+    expect(circle?.getAttribute("r")).toBe("3");
+    expect(circle?.getAttribute("stroke-width")).toBe("0.75");
+    const text = container.querySelector("text");
+    expect(text?.getAttribute("font-size")).toBe("5.5");
+  });
+
+  it("ITEM-45.a: zoom=1 (default) preserva el tamaño de siempre", () => {
+    const anotaciones: MapaAnotacion[] = [
+      { id: "m1", tipo: "marcador", lat: 0, lon: 0, etiqueta: "Punto" },
+    ];
+    const { container } = render(
+      <svg>
+        <AnnotationLayer
+          anotaciones={anotaciones}
+          project={projectId}
+          selectedId={null}
+          onSelect={() => {}}
+          editable={false}
+        />
+      </svg>,
+    );
+    const circle = container.querySelector("circle");
+    expect(circle?.getAttribute("r")).toBe("6");
+  });
+
   it("una ruta con < 2 puntos no se renderiza", () => {
     const anotaciones: MapaAnotacion[] = [
       { id: "r1", tipo: "ruta", puntos: [[0, 0]] },

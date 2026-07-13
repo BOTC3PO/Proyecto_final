@@ -344,7 +344,10 @@ export default function ModulosList() {
         {/* ── Content ────────────────────────────────────────── */}
         {status === "ready" && modules.length > 0 && (
           <section style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
-            {/* Tabs */}
+            {/* Tabs — PLAN-W §1: fija (sticky) al scrollear la lista, para
+                no perder el filtro activo con 20+ módulos. Sólo los tabs,
+                no los Filtros (ambos fijos comen mucho alto en pantallas
+                bajas, ver plan). */}
             <div
               role="tablist"
               aria-label="Filtrar módulos"
@@ -356,6 +359,9 @@ export default function ModulosList() {
                 background: "var(--c-surface)",
                 borderRadius: "var(--r-lg)",
                 border: "1px solid var(--c-border)",
+                position: "sticky",
+                top: 0,
+                zIndex: 10,
               }}
             >
               {TABS.map((tab) => (

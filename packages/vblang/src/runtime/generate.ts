@@ -19,11 +19,12 @@ import { createPrng, type PRNG } from "./prng.js";
 import type { GeneradorAsistidoEjercicio } from "./provider.js";
 import {
   generateAnalisisSintactico,
+  generateAnalisisSpans,
   generateIdentificarPalabras,
   generateMarcarMapa,
   generateOrdenar,
 } from "./generate-special.js";
-import type { PasoItem, TextoOInterpolacion } from "../parser/ast.js";
+import type { PasoItem, TextoOInterpolacion, TipoPregunta } from "../parser/ast.js";
 import { camposToVisualSpec } from "./visual.js";
 import type {
   CompiledPlantilla,
@@ -49,7 +50,7 @@ function resolverVarianteEnunciado(
   compiled: CompiledPlantilla,
   prng: PRNG,
   options: GenerationOptions,
-): TextoOInterpolacion[] | undefined {
+): PasoItem | undefined {
   const variantes = compiled.enunciados;
   if (!variantes || variantes.length === 0) return undefined;
   // Consumir el PRNG SIEMPRE (una sola vez) para que la secuencia sea
@@ -57,13 +58,14 @@ function resolverVarianteEnunciado(
   // - forceVariant: usar el indice forzado (modo validator).
   // - por defecto: Math.floor(next() * length) (que es lo que produjo el
   //   valor que acabamos de consumir).
+  // PLAN-E §15: devuelve el ítem completo — el caller usa `partes` para
+  // interpolar y `tipo` (si la variante lo declara) como tipo servido.
   const r = prng.next();
   const idx =
     typeof options.forceVariant === "number"
       ? options.forceVariant % variantes.length
       : Math.floor(r * variantes.length);
-  const item: PasoItem = variantes[Math.max(0, Math.min(variantes.length - 1, idx))];
-  return item.partes;
+  return variantes[Math.max(0, Math.min(variantes.length - 1, idx))];
 }
 
 /**
@@ -133,12 +135,14 @@ function generateAssisted(
   // Tarea 06: si la plantilla declara `enunciados:`, elegir una variante con
   // el PRNG y usar esas partes para interpolar. Gana sobre el del generador
   // y sobre `enunciado:` propio (mutuamente excluyente ya validado en parser).
-  const variantesPartes = resolverVarianteEnunciado(compiled, prng, options);
+  // PLAN-E §15: en el path asistido el `tipo` de la variante se ignora — la
+  // forma del ejercicio del generador decide el tipo servido.
+  const variante = resolverVarianteEnunciado(compiled, prng, options);
 
   // Si la plantilla declara enunciado: propio, gana sobre el del generador.
   const enunciado =
-    variantesPartes
-      ? interpolar(variantesPartes, scope, ctx)
+    variante
+      ? interpolar(variante.partes, scope, ctx)
       : compiled.enunciado.length > 0
       ? interpolar(compiled.enunciado, scope, ctx)
       : ejercicio.enunciado;
@@ -390,9 +394,9 @@ export function generate(
     // Tarea 06: si la plantilla declara `enunciados:`, elegir una variante
     // con el PRNG y usar esas partes. resolverVarianteEnunciado consume el
     // PRNG una sola vez (o no lo toca si la plantilla no usa `enunciados:`).
-    const variantesPartes = resolverVarianteEnunciado(compiled, prng, options);
+    const variante = resolverVarianteEnunciado(compiled, prng, options);
     const enunciadoTexto = interpolar(
-      variantesPartes ?? compiled.enunciado,
+      variante?.partes ?? compiled.enunciado,
       scope,
       ctx,
     );
@@ -450,6 +454,20 @@ export function generate(
         explicacionTexto,
       );
     }
+    // PLAN-E §21 Parte B — análisis por rangos de palabras.
+    if (compiled.tipoInferido === "analisis_spans") {
+      return generateAnalisisSpans(
+        compiled,
+        scope,
+        ctx,
+        options.seed,
+        intento,
+        enunciadoTexto,
+        pasosTexto,
+        pistasTexto,
+        explicacionTexto,
+      );
+    }
     if (compiled.tipoInferido === "identificar_palabras") {
       return generateIdentificarPalabras(
         compiled,
@@ -482,11 +500,30 @@ export function generate(
     }
 
     // Tipos básicos: mc, vf, input, completar.
+    // PLAN-E §15: si la variante sorteada declara tipo propio, ese es el
+    // tipo servido — el corrector regenera por seed y corrige por este tipo.
+    const tipoServido = variante?.tipo ?? compiled.tipoInferido;
     // Opciones para mc/vf.
-    const opciones = construirOpciones(compiled, respuestaVal, scope, ctx);
+    const opciones = construirOpciones(
+      tipoServido,
+      compiled,
+      respuestaVal,
+      respuestasValidasVals,
+      scope,
+      ctx,
+    );
+    // PLAN-E §21 Parte A: flags de selección múltiple sólo cuando el tipo
+    // servido es mc (una variante input sobre base multiple no los lleva).
+    const esMultiple = tipoServido === "mc" && compiled.multiple === true;
 
     return {
-      tipo: compiled.tipoInferido,
+      tipo: tipoServido,
+      ...(esMultiple
+        ? {
+            multiple: true,
+            puntajeParcial: compiled.puntajeParcial ?? "todo_o_nada",
+          }
+        : {}),
       enunciado: enunciadoTexto,
       pasos: pasosTexto,
       pistas: pistasTexto,
@@ -511,12 +548,14 @@ export function generate(
 }
 
 function construirOpciones(
+  tipo: TipoPregunta,
   compiled: CompiledPlantilla,
   respuestaVal: unknown,
+  respuestasValidasVals: unknown[] | undefined,
   scope: Scope,
   ctx: EvalContext,
 ): OpcionGenerada[] | undefined {
-  if (compiled.tipoInferido === "vf") {
+  if (tipo === "vf") {
     if (typeof respuestaVal !== "boolean") {
       throw new EvalError(
         `tipo vf requiere que la respuesta evalúe a verdadero/falso, recibió ${typeof respuestaVal}`,
@@ -528,7 +567,7 @@ function construirOpciones(
     ];
   }
 
-  if (compiled.tipoInferido === "mc") {
+  if (tipo === "mc") {
     if (compiled.opcionesExplicitas) {
       let textos: unknown[];
       if (compiled.opcionesExplicitas.length === 1) {
@@ -548,9 +587,18 @@ function construirOpciones(
         );
       }
 
+      // PLAN-E §21 Parte A: con `multiple: true` son correctas TODAS las
+      // opciones que matcheen `respuesta:` o alguna de `respuestas_validas:`.
+      const esCorrecta = (t: unknown): boolean => {
+        if (compiled.respuesta !== undefined && deepEqual(t, respuestaVal)) return true;
+        if (compiled.multiple === true) {
+          return (respuestasValidasVals ?? []).some((v) => deepEqual(t, v));
+        }
+        return deepEqual(t, respuestaVal);
+      };
       const opciones: OpcionGenerada[] = textos.map((t) => ({
         texto: formatoDefault(t),
-        correcta: deepEqual(t, respuestaVal),
+        correcta: esCorrecta(t),
       }));
       if (!opciones.some((o) => o.correcta)) {
         throw new EvalError(

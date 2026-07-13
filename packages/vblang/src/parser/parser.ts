@@ -105,7 +105,8 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
     has("respuesta_iso") ||
     has("respuesta_nombre") ||
     has("respuesta_orden") ||
-    has("etiquetas_pedidas");
+    has("etiquetas_pedidas") ||
+    has("spans_pedidos");
 
   const tipoBloqueTmp = get("tipo") as TipoBloque | undefined;
   // WO07: `abierta` es el ÚNICO tipo sin clave de respuesta (informativa o de
@@ -139,6 +140,8 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
   else if (has("respuesta_nombre") && has("mapa")) tipoInferido = "marcar_mapa";
   else if (has("respuesta_orden")) tipoInferido = "ordenar";
   else if (has("etiquetas_pedidas")) tipoInferido = "analisis_sintactico";
+  // PLAN-E §21 Parte B — spans por rango de palabras.
+  else if (has("spans_pedidos")) tipoInferido = "analisis_spans";
   // WO-11 — `respuesta_expr` infiere `tipo: expresion` (cambio aditivo;
   // los tipos existentes no se ven afectados). Si el `tipo:` está
   // declarado como `input` o `expresion` y hay `respuesta_expr`, se
@@ -187,6 +190,16 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
         );
       }
       tipoInferido = "analisis_sintactico";
+    } else if (declarado === "analisis_spans") {
+      // PLAN-E §21 Parte B.
+      if (!has("spans_pedidos") || !has("texto_analizar")) {
+        throw new ParseError(
+          "`tipo: analisis_spans` requiere `spans_pedidos:` y `texto_analizar:`",
+          tipoBloque.loc.line,
+          tipoBloque.loc.col,
+        );
+      }
+      tipoInferido = "analisis_spans";
     } else if (declarado === "expresion") {
       // WO-11 — `tipo: expresion` requiere `respuesta_expr:` (string
       // con la expresión algebraica esperada). El otro bloque de

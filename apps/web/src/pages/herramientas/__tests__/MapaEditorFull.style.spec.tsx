@@ -25,6 +25,13 @@ vi.mock("../../../domain/vblang/datasetApi", () => ({
   getDataset: vi.fn().mockResolvedValue({ id: "x", nombre: "x", columnas: [] }),
 }));
 
+// PLAN-L — MapaEditorPage ahora lee useAuth() para decidir demoMode.
+// Sesión logueada acá: preserva el comportamiento full-featured que
+// estos tests ya asumían antes de PLAN-L.
+vi.mock("../../../auth/use-auth", () => ({
+  useAuth: () => ({ user: { id: "test-user", name: "Test User", role: "USER", roles: ["USER"] } }),
+}));
+
 // M8v2: la carga por ?sskey= + sessionStorage vive en el wrapper de ruta.
 import MapaEditorPage from "../MapaEditorPage";
 

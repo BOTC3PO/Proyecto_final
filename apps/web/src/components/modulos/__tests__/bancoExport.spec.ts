@@ -2,8 +2,8 @@
  * Tests del exportador del banco de preguntas (Tarea 20) +
  * round-trip export -> import (Tarea 20, aceptacion).
  *
- * El export produce el shape JSON que `QuizImportJson` sabe leer; el
- * round-trip asegura que al reimportar obtenemos las mismas preguntas.
+ * El round-trip asegura que el shape exportado, al reimportarse con la
+ * lógica de normalización esperada, produce las mismas preguntas.
  */
 
 import { describe, expect, it } from "vitest";
@@ -14,8 +14,9 @@ import {
 } from "../bancoExport";
 import type { MCQuestion, TFQuestion } from "../../../generadoresV2/basic/types";
 
-// Replica minima de la logica de normalizacion de `QuizImportJson` (buildQuestion),
-// copiada textualmente para el test de round-trip. Mantener en sync si cambia.
+// Replica minima de la logica de normalizacion esperada del importador
+// (buildQuestion), copiada textualmente para el test de round-trip.
+// Mantener en sync si cambia el shape exportado.
 type ImportedQuestion = {
   id: string;
   prompt: string;

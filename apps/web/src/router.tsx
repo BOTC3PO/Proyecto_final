@@ -11,7 +11,6 @@ import { lazyWithRetry } from "./lib/lazyWithRetry";
 import { RouteErrorBoundary } from "./components/RouteErrorBoundary";
 
 // Páginas estáticas — necesarias en la carga inicial o muy pequeñas
-import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
@@ -47,6 +46,8 @@ const Clases              = lazyWithRetry(() => import("./pages/aula"));
 const MisClases           = lazyWithRetry(() => import("./pages/MisClases"));
 const BookEditorPage      = lazyWithRetry(() => import("./bookEditor/BookEditorPage"));
 const BlockEditorPage     = lazyWithRetry(() => import("./blocks/v2/BlockEditorPage"));
+const PresentacionEditorPage = lazyWithRetry(() => import("./pages/herramientas/PresentacionEditorPage"));
+const LineaTiempoEditorPage = lazyWithRetry(() => import("./pages/herramientas/LineaTiempoEditorPage"));
 const ProfesorAulas       = lazyWithRetry(() => import("./pages/ProfesorAulas"));
 const ProfesorConfiguracion = lazyWithRetry(() => import("./pages/ProfesorConfiguracion"));
 const ProfesorEstadisticas  = lazyWithRetry(() => import("./pages/ProfesorEstadisticas"));
@@ -64,9 +65,11 @@ const QuizAttempt           = lazyWithRetry(() => import("./pages/quizzes/QuizAt
 const ProfesorCalendario    = lazyWithRetry(() => import("./pages/ProfesorCalendario"));
 
 // Ya eran lazy — mantener igual
+// PLAN-CUESTIONARIOS — los editores clásicos V1/V2 (EditorCuestionarios,
+// EditorCuestionariosV2) quedaron DESCONECTADOS del router: el sistema de
+// cuestionarios es Tiza (/cuestionarios + /plantillas/nueva?quizId=…).
 const LaboratorioWeb3    = lazyWithRetry(() => import("./pages/LaboratorioWeb3"));
-const EditorCuestionarios = lazyWithRetry(() => import("./pages/EditorCuestionarios"));
-const EditorCuestionariosV2 = lazyWithRetry(() => import("./pages/EditorCuestionariosV2"));
+const CuestionariosIndex   = lazyWithRetry(() => import("./pages/CuestionariosIndex"));
 const PlantillasIndex      = lazyWithRetry(() => import("./pages/PlantillasIndex"));
 const PlantillasBiblioteca = lazyWithRetry(() => import("./pages/PlantillasBiblioteca"));
 const PlantillaEditor      = lazyWithRetry(() => import("./pages/PlantillaEditorTiza"));
@@ -82,10 +85,6 @@ const AdminCursos               = lazyWithRetry(() => import("./pages/AdminCurso
 const AdminMaterias             = lazyWithRetry(() => import("./pages/AdminMaterias"));
 const AdminModeracion           = lazyWithRetry(() => import("./pages/AdminModeracion"));
 const PlantillasModeracion      = lazyWithRetry(() => import("./pages/admin/PlantillasModeracion"));
-// FIX-BUG-ROLE-01 — antes no había UI para listar/gestionar
-// `Page` (TuesdayJS docs). Ahora hay un panel en
-// `/admin/pages` accesible solo a ADMIN.
-const AdminPages                = lazyWithRetry(() => import("./pages/admin/AdminPages"));
 const AdminReportesGlobal       = lazyWithRetry(() => import("./pages/AdminReportesGlobal"));
 const Perfil                    = lazyWithRetry(() => import("./pages/Perfil"));
 const Tareas                    = lazyWithRetry(() => import("./pages/Tareas"));
@@ -164,7 +163,6 @@ export const router = createBrowserRouter([
           { path: "register",   element: <Register /> },
           { path: "recuperar",  element: <RecuperarContrasena /> },
 
-          { path: "landing",          element: <Landing /> },
           { path: "contact",          element: withSuspense(<Contact />) },
           { path: "terminos",         element: withSuspense(<Terminos />) },
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
@@ -433,17 +431,6 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
-          // FIX-BUG-ROLE-01 — UI para listar/gestionar `Page`
-          // (TuesdayJS docs). Antes solo existía el endpoint
-          // (`GET /api/pages`) sin página admin.
-          {
-            path: 'admin/pages',
-            element: (
-              <ProtectedRoute allow={['ADMIN']}>
-                {withSuspense(<AdminPages />)}
-              </ProtectedRoute>
-            ),
-          },
           {
             path: 'admin/generadores',
             element: (
@@ -656,18 +643,10 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'profesor/editor-cuestionarios',
+            path: 'cuestionarios',
             element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
-                {withSuspense(<EditorCuestionarios />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'profesor/editor-cuestionarios-v2',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
-                {withSuspense(<EditorCuestionariosV2 />)}
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<CuestionariosIndex />)}
               </ProtectedRoute>
             ),
           },
@@ -750,6 +729,9 @@ export const router = createBrowserRouter([
           { path: "editor/:id",         element: withSuspense(<BookEditorPage />) },
           { path: "bloques/editor",     element: withSuspense(<BlockEditorPage />) },
           { path: "bloques/editor/:id", element: withSuspense(<BlockEditorPage />) },
+          // PLAN-G §1 (item 25) — reabrir una presentación / línea de tiempo guardada como material.
+          { path: "herramientas/presentacion-editor", element: withSuspense(<PresentacionEditorPage />) },
+          { path: "herramientas/linea-tiempo-editor", element: withSuspense(<LineaTiempoEditorPage />) },
         ],
       },
 

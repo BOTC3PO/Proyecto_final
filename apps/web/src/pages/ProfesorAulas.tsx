@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
+import { useMaterias } from "../domain/materia/useMaterias";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { useAuth } from "../auth/use-auth";
@@ -47,7 +48,8 @@ export default function ProfesorAulas() {
   );
   const [mostrarArchivadas, setMostrarArchivadas] = useState(false);
   const [escuelas, setEscuelas] = useState<Array<{ id: string; name: string }>>([]);
-  const [materias, setMaterias] = useState<string[]>([]);
+  // ITEM-30 — fuente única de materias (ver useMaterias.ts).
+  const { materias } = useMaterias();
 
   useEffect(() => {
     let active = true;
@@ -108,14 +110,6 @@ export default function ProfesorAulas() {
         if (items.length === 1) {
           setForm((f) => ({ ...f, institutionId: items[0].id }));
         }
-      })
-      .catch(() => {});
-  }, []);
-
-  useEffect(() => {
-    apiGet<{ items: Array<{ nombre: string }> }>("/api/materias")
-      .then((data) => {
-        setMaterias((data.items ?? []).map((m) => m.nombre));
       })
       .catch(() => {});
   }, []);

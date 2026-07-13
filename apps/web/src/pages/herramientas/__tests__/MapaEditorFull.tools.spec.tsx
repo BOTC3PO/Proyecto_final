@@ -35,6 +35,13 @@ vi.mock("../../../domain/vblang/datasetApi", () => ({
   getDataset: vi.fn().mockResolvedValue({ id: "x", nombre: "x", columnas: [] }),
 }));
 
+// PLAN-L — MapaEditorPage ahora lee useAuth() para decidir demoMode.
+// Sesión logueada acá: preserva el comportamiento full-featured que
+// estos tests ya asumían antes de PLAN-L.
+vi.mock("../../../auth/use-auth", () => ({
+  useAuth: () => ({ user: { id: "test-user", name: "Test User", role: "USER", roles: ["USER"] } }),
+}));
+
 // M8v2: el editor es un componente controlado; la carga por ?sskey= +
 // sessionStorage vive en el wrapper de ruta (MapaEditorPage), que es lo que
 // estos tests montan.
@@ -203,6 +210,39 @@ describe("MapaEditorFull — handlers de creación (M3)", () => {
       const headers = screen.getAllByText(/^Ruta$/);
       expect(headers.length).toBeGreaterThan(0);
     });
+  });
+
+  it("ITEM-45.c: arrastrar (pan) durante 'ruta' NO agrega un punto, pero un click normal sí", async () => {
+    renderEditor();
+    await esperarListo();
+    await esperarSvg();
+    setTool("ruta");
+    clickSvg(100, 100);
+    clickSvg(200, 200);
+    expect(
+      screen.getByRole("button", { name: "Cerrar ruta con 2 puntos" }),
+    ).toBeInTheDocument();
+
+    // Arrastre (pan): pointerdown + pointermove con desplazamiento > umbral +
+    // pointerup + el click nativo que el browser dispara al soltar. Antes
+    // esto agregaba un 3er punto en la posición final del arrastre (el pan
+    // estaba deshabilitado fuera de la herramienta "Mover", así que el
+    // arrastre se interpretaba como un click); ahora debe pasar el mapa
+    // (pan) y NO tocar la ruta pendiente.
+    const svg = document.querySelector('svg[role="application"]') as SVGSVGElement;
+    fireEvent.pointerDown(svg, { clientX: 900, clientY: 400, pointerId: 1 });
+    fireEvent.pointerMove(svg, { clientX: 600, clientY: 250, pointerId: 1 });
+    fireEvent.pointerUp(svg, { clientX: 600, clientY: 250, pointerId: 1 });
+    fireEvent.click(svg, { clientX: 600, clientY: 250 });
+    expect(
+      screen.getByRole("button", { name: "Cerrar ruta con 2 puntos" }),
+    ).toBeInTheDocument();
+
+    // Un click normal (sin arrastre previo) sigue agregando puntos.
+    clickSvg(250, 250);
+    expect(
+      screen.getByRole("button", { name: "Cerrar ruta con 3 puntos" }),
+    ).toBeInTheDocument();
   });
 
   it("ruta: Enter cierra con 2+ puntos", async () => {

@@ -16,6 +16,7 @@ import type {
   Expr,
   Plantilla,
   TextoOInterpolacion,
+  TipoPregunta,
 } from "@vb/vblang";
 import { parseExprText } from "./exprParse";
 
@@ -210,28 +211,45 @@ export function partesToText(partes: TextoOInterpolacion[]): string {
 /* ---------------- enunciados (lista de variantes) ---------------- */
 
 /**
- * Lee el bloque `enunciados:` como un array de strings (cada variante ya
- * pasada por `partesToText` para que sea editable como texto). Si el bloque
- * no existe, devuelve `[]`. Si el bloque `enunciado:` (singular) está
- * presente, devuelve `[]` también — son mutuamente excluyentes.
+ * PLAN-E §15 — una variante del bloque `enunciados:` como la edita la UI:
+ * texto plano + tipo propio opcional (ausente = hereda el de la plantilla).
  */
-export function readEnunciados(p: Plantilla): string[] {
-  const b = getBlock(p, "enunciados");
-  if (!b) return [];
-  return b.items.map((it) => partesToText(it.partes));
+export interface EnunciadoVariante {
+  text: string;
+  tipo?: TipoPregunta;
 }
 
 /**
- * Escribe el bloque `enunciados:` a partir de un array de strings. Cada
- * string se parsea con `textToPartes` para preservar las interpolaciones.
- * Si el array queda vacío, elimina el bloque (round-trip sin basura).
+ * Lee el bloque `enunciados:` como variantes editables (cada texto ya pasado
+ * por `partesToText`). Si el bloque no existe, devuelve `[]`. Si el bloque
+ * `enunciado:` (singular) está presente, devuelve `[]` también — son
+ * mutuamente excluyentes.
  */
-export function writeEnunciados(p: Plantilla, items: string[]): Plantilla {
+export function readEnunciados(p: Plantilla): EnunciadoVariante[] {
+  const b = getBlock(p, "enunciados");
+  if (!b) return [];
+  return b.items.map((it) => ({
+    text: partesToText(it.partes),
+    ...(it.tipo !== undefined ? { tipo: it.tipo } : {}),
+  }));
+}
+
+/**
+ * Escribe el bloque `enunciados:` a partir de variantes. Cada texto se
+ * parsea con `textToPartes` para preservar las interpolaciones; el `tipo`
+ * propio (si hay) se preserva en el ítem del AST. Si el array queda vacío,
+ * elimina el bloque (round-trip sin basura).
+ */
+export function writeEnunciados(
+  p: Plantilla,
+  items: EnunciadoVariante[],
+): Plantilla {
   if (items.length === 0) {
     return withoutBlock(p, "enunciados");
   }
-  const variantes = items.map((text) => ({
+  const variantes = items.map(({ text, tipo }) => ({
     partes: textToPartes(text),
+    ...(tipo !== undefined ? { tipo } : {}),
     loc: DUMMY_LOC,
   }));
   return withBlock(p, { kind: "enunciados", items: variantes, loc: DUMMY_LOC });
@@ -246,7 +264,7 @@ export function enunciadoToVariantes(p: Plantilla): Plantilla {
   if (!single) return p;
   const text = partesToText(single.partes);
   let next = withoutBlock(p, "enunciado");
-  next = writeEnunciados(next, [text]);
+  next = writeEnunciados(next, [{ text }]);
   return next;
 }
 

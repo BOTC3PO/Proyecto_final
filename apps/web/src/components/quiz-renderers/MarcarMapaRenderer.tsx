@@ -21,6 +21,7 @@ import { topologyToFeatures } from "../../lib/maps/topojson-lite";
 import type { CountryFeature, TopologyLike } from "../../lib/maps/topojson-lite";
 import { createMercatorPathGenerator, createProjector } from "../../lib/maps/svg-geo-lite";
 import { useViewBoxZoom } from "../../lib/maps/useViewBoxZoom";
+import { needsTapOverlay, tapOverlayRadius } from "../../lib/maps/tapOverlay";
 
 const PAN_THRESHOLD_PX = 4;
 
@@ -124,6 +125,30 @@ export default function MarcarMapaRenderer({
   const svgRef = useRef<SVGSVGElement>(null);
   const downAt = useRef<{ x: number; y: number } | null>(null);
   const wasPan = useRef(false);
+
+  // PLAN-Q §2.2 — tap target mínimo para regiones minúsculas (gotcha CABA
+  // del ledger §13.7). `getBBox()` da el tamaño real en unidades del
+  // viewBox base (zoom-independiente); se cachea una vez por feature.
+  // ponytail: umbral por fracción del viewBox actual, no medición de
+  // píxeles reales de pantalla (evita un ResizeObserver sólo para esto) —
+  // se autocorrige al hacer zoom porque la fracción crece con el zoom.
+  const bboxCache = useRef<Map<string, { cx: number; cy: number; w: number; h: number }>>(new Map());
+  const [, forceBboxTick] = useState(0);
+  const registerFeaturePath = useCallback(
+    (key: string) => (el: SVGPathElement | null) => {
+      if (!el || bboxCache.current.has(key)) return;
+      try {
+        const b = el.getBBox();
+        if (b.width > 0 && b.height > 0) {
+          bboxCache.current.set(key, { cx: b.x + b.width / 2, cy: b.y + b.height / 2, w: b.width, h: b.height });
+          forceBboxTick((n) => n + 1);
+        }
+      } catch {
+        // getBBox puede tirar si el path todavía no entró al layout.
+      }
+    },
+    [],
+  );
 
   const { mode, url } = useMemo(() => resolveMapConfig(mapaId, paisIso), [mapaId, paisIso]);
   const isLocked = mode === "provinces" || !!encuadre;
@@ -303,9 +328,11 @@ export default function MarcarMapaRenderer({
               stroke = "#3b82f6";
             }
 
+            const bboxKey = stableKey ?? String(idx);
             return (
               <path
                 key={stableKey ?? idx}
+                ref={registerFeaturePath(bboxKey)}
                 d={pathGenerator(feature)}
                 fill={fill}
                 stroke={stroke}
@@ -329,6 +356,33 @@ export default function MarcarMapaRenderer({
                   {stableKey ? ` (${stableKey})` : ""}
                 </title>
               </path>
+            );
+          })}
+
+        {!disabled &&
+          features.map((feature, idx) => {
+            const key = featureAnswerKey(feature, mode, modoRespuesta);
+            const stableKey = featureIsoKey(feature, mode) ?? key;
+            const bbox = bboxCache.current.get(stableKey ?? String(idx));
+            if (!bbox || !key || !needsTapOverlay(bbox, viewBox)) return null;
+            return (
+              <circle
+                key={`tap-${stableKey ?? idx}`}
+                cx={bbox.cx}
+                cy={bbox.cy}
+                r={tapOverlayRadius(viewBox)}
+                fill="transparent"
+                data-testid={stableKey ? `marcar-mapa-tap-overlay-${stableKey}` : undefined}
+                onMouseEnter={() => setHovered(stableKey)}
+                onMouseLeave={() => setHovered(null)}
+                onClick={() => {
+                  if (wasPan.current) {
+                    wasPan.current = false;
+                    return;
+                  }
+                  onSelect?.(key);
+                }}
+              />
             );
           })}
 

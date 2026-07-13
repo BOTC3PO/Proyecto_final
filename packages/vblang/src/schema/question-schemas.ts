@@ -146,6 +146,37 @@ const mcSchema: QuestionTypeSchema = {
       required: true,
       block: "respuesta",
     },
+    // PLAN-E §21 Parte A — selección múltiple (opcionales).
+    {
+      kind: "bool",
+      key: "multiple",
+      label: "Selección múltiple (varias correctas)",
+      help: "El alumno marca con checkboxes. Las correctas adicionales van en la lista de abajo.",
+      required: false,
+      block: "multiple",
+    },
+    {
+      kind: "list",
+      key: "respuestas_validas",
+      label: "Correctas adicionales (selección múltiple)",
+      help: "Cada ítem debe coincidir con el texto exacto de una opción.",
+      required: false,
+      block: "respuestas_validas",
+      emits: "respuestas_validas",
+      itemShape: "string",
+    },
+    {
+      kind: "enum",
+      key: "puntaje_parcial",
+      label: "Puntaje",
+      help: "Proporcional: (aciertos − marcadas de más) / total correctas, piso 0.",
+      required: false,
+      block: "puntaje_parcial",
+      options: [
+        { value: "todo_o_nada", label: "Todo o nada" },
+        { value: "proporcional", label: "Proporcional" },
+      ],
+    },
   ],
   sampleDsl: `enunciado: "¿Cuál es un número primo?"
 tipo: mc
@@ -316,6 +347,72 @@ etiquetas_pedidas:
 `,
 };
 
+// PLAN-E §21 Parte B — análisis por RANGOS de palabras (spans solapables).
+const analisisSpansSchema: QuestionTypeSchema = {
+  tipo: "analisis_spans",
+  label: "Análisis sintáctico por rangos",
+  descripcion:
+    "El alumno etiqueta rangos de palabras contiguas (ej. 'El perro grande' → sujeto). " +
+    "Los rangos pueden solaparse (núcleo dentro del sujeto). Corrección exacta por conjunto.",
+  declaraTipo: true,
+  fields: [
+    enunciadoField(),
+    {
+      kind: "text",
+      key: "texto_analizar",
+      label: "Texto a analizar",
+      help: "La oración que el alumno debe analizar. La unidad es la PALABRA (separada por espacios).",
+      required: true,
+      block: "texto_analizar",
+    },
+    {
+      kind: "list",
+      key: "spans_pedidos",
+      label: "Spans correctos",
+      help:
+        "Cada span: desde/hasta son índices de palabra (0 = primera, inclusive) y su etiqueta. " +
+        "Pueden solaparse.",
+      required: true,
+      block: "spans_pedidos",
+      emits: "spans_pedidos",
+      itemShape: "span",
+      minItems: 1,
+    },
+    {
+      kind: "list",
+      key: "etiquetas_disponibles",
+      label: "Etiquetas visibles (distractores)",
+      help:
+        "Etiquetas extra que ve el alumno además de las correctas (que se agregan solas).",
+      required: false,
+      block: "etiquetas_disponibles",
+      emits: "etiquetas_disponibles",
+      itemShape: "string",
+    },
+    {
+      kind: "enum",
+      key: "puntaje_parcial",
+      label: "Puntaje",
+      help: "Proporcional: (spans correctos − spans de más) / total correctos, piso 0.",
+      required: false,
+      block: "puntaje_parcial",
+      options: [
+        { value: "todo_o_nada", label: "Todo o nada" },
+        { value: "proporcional", label: "Proporcional" },
+      ],
+    },
+  ],
+  sampleDsl: `enunciado: "Analizá la oración."
+tipo: analisis_spans
+texto_analizar: "El perro grande corre por el parque"
+spans_pedidos:
+  - { desde: 0, hasta: 2, etiqueta: "sujeto" }
+  - { desde: 3, hasta: 6, etiqueta: "predicado" }
+etiquetas_disponibles:
+  - "objeto directo"
+`,
+};
+
 const identificarPalabrasSchema: QuestionTypeSchema = {
   tipo: "identificar_palabras",
   label: "Identificar palabras",
@@ -391,6 +488,7 @@ export const QUESTION_TYPE_SCHEMAS: Record<TipoPregunta, QuestionTypeSchema> = {
   ordenar: ordenarSchema,
   marcar_mapa: marcarMapaSchema,
   analisis_sintactico: analisisSintacticoSchema,
+  analisis_spans: analisisSpansSchema,
   identificar_palabras: identificarPalabrasSchema,
   abierta: abiertaSchema,
   // WO-11 — respuesta simbólica. Schema aditivo.
@@ -406,6 +504,7 @@ export const ALL_QUESTION_TYPES: TipoPregunta[] = [
   "ordenar",
   "marcar_mapa",
   "analisis_sintactico",
+  "analisis_spans",
   "identificar_palabras",
   "abierta",
   // WO-11 — simbólico al final (tipo más nuevo, aún en adopción).

@@ -22,7 +22,7 @@ import {
   type ReactNode,
 } from "react";
 import type { Plantilla, TextField } from "@vb/vblang";
-import { Badge, Button, Input } from "../../ui";
+import { Badge, Button, Input, Select } from "../../ui";
 import BufferedText, { type BufferedTextHandle } from "../BufferedText";
 import FieldGroup from "../FieldGroup";
 import {
@@ -192,8 +192,17 @@ function EnunciadosList({
   onChange: (next: Plantilla) => void;
 }) {
   const items = readEnunciados(plantilla);
-  const update = (next: string[]) => onChange(writeEnunciados(plantilla, next));
+  const update = (next: typeof items) => onChange(writeEnunciados(plantilla, next));
   const errMap = useFieldErrorMap();
+
+  // PLAN-E §15: tipo propio por variante (heredar = sin tipo).
+  const TIPOS_VARIANTE: Array<{ value: string; label: string }> = [
+    { value: "", label: "Tipo heredado" },
+    { value: "mc", label: "Opción múltiple" },
+    { value: "vf", label: "Verdadero/Falso" },
+    { value: "input", label: "Respuesta numérica" },
+    { value: "completar", label: "Completar" },
+  ];
 
   const headStyle: CSSProperties = {
     display: "flex",
@@ -222,21 +231,39 @@ function EnunciadosList({
         </span>
       </div>
       <ul style={listStyle}>
-        {items.map((tmpl, idx) => {
+        {items.map((item, idx) => {
           const itemError = errorTextFor(errMap, `enunciados.${idx}`);
           return (
             <li key={idx} style={{ ...rowStyle, flexWrap: "wrap" }}>
               <Input
                 aria-label={`Variante de enunciado ${idx + 1}`}
-                value={tmpl}
+                value={item.text}
                 invalid={itemError != null}
                 placeholder="Texto de la variante (acepta {variable})"
                 onChange={(e) => {
                   const next = items.slice();
-                  next[idx] = e.target.value;
+                  next[idx] = { ...next[idx], text: e.target.value };
                   update(next);
                 }}
               />
+              <Select
+                aria-label={`Tipo de la variante ${idx + 1}`}
+                value={item.tipo ?? ""}
+                onChange={(e) => {
+                  const next = items.slice();
+                  const { tipo: _tipo, ...rest } = next[idx];
+                  next[idx] = e.target.value
+                    ? { ...rest, tipo: e.target.value as NonNullable<typeof item.tipo> }
+                    : rest;
+                  update(next);
+                }}
+              >
+                {TIPOS_VARIANTE.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </Select>
               <Button
                 variant="danger"
                 size="sm"
@@ -259,7 +286,7 @@ function EnunciadosList({
         })}
       </ul>
       <div style={actionsStyle}>
-        <Button variant="ghost" size="sm" onClick={() => update([...items, ""])}>
+        <Button variant="ghost" size="sm" onClick={() => update([...items, { text: "" }])}>
           + Agregar variante
         </Button>
         <Button

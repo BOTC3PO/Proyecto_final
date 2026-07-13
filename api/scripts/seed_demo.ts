@@ -30,6 +30,11 @@ import {
   TABLA_PERIODICA_FILAS,
   TABLA_PERIODICA_NOMBRE,
 } from "../src/lib/tabla-periodica-dataset";
+import { validateDslSyntax } from "../src/lib/vblang-validation";
+import {
+  parseCuestionarioPreguntas,
+  validarCuestionarioPreguntas,
+} from "../src/lib/quiz-preguntas";
 
 // FIX: alinear el hash con el verificador de la app (PBKDF2 via
 // `hashPassword`). Antes usaba `bcrypt.hashSync` y producía un hash
@@ -427,6 +432,25 @@ async function main() {
 
   console.log("  ✓ 3 módulos con teoría — 2 quizzes");
 
+  // ── 4bis. Cuestionarios "Tiza" (preguntas nativas) ──────────────────────────
+  // ITEM-35 — hasta acá el seed sólo cubría el modelo viejo de banco fijo
+  // (`questions`). Se agregan 3 cuestionarios más en los modelos que Tiza
+  // (Etapa 1/2) y el flujo de plantillas VBLang realmente ejercitan en
+  // runtime: `settings.preguntas` (obligatorias, y pool/relleno con
+  // dificultad/puntaje) y `generatorId` (generador asistido desde
+  // plantilla). Las plantillas se validan con el mismo compilador que usa
+  // `POST /api/plantillas` (`validateDslSyntax`) y los cuestionarios de
+  // preguntas con `validarCuestionarioPreguntas` — mismas funciones que
+  // corren en el runtime, no JSON a mano sin chequear.
+  console.log("✏️  Creando plantillas y cuestionarios Tiza (preguntas nativas)...");
+  await seedQuizzesTiza();
+
+  // ── Intentos de ejemplo ──────────────────────────────────────────────────
+  // Antes NINGÚN quiz del seed tenía intentos: calificaciones/reportes
+  // arrancaban siempre vacíos en un ambiente recién sembrado.
+  console.log("🧾 Creando intentos de ejemplo...");
+  await seedIntentosDemo();
+
   // ── 5. Progreso ──────────────────────────────────────────────────────────────
   console.log("📊 Creando progreso...");
   await prisma.progresoModulo.createMany({
@@ -609,6 +633,11 @@ async function main() {
   await seedDatasetTablaPeriodica();
   console.log(`  ✓ dataset "${TABLA_PERIODICA_NOMBRE}" (${TABLA_PERIODICA_FILAS.length} elementos)`);
 
+  // ── 11b. Banco de fórmulas globales (PLAN-E §19) ────────────────────────────
+  console.log("∑ Sembrando banco de fórmulas globales...");
+  await seedFormulasGlobales();
+  console.log(`  ✓ ${FORMULAS_GLOBALES.length} fórmulas globales`);
+
   // ── 12. Catálogo de tienda (temas + avatares) ──────────────────────────────
   console.log("🛒 Sembrando catálogo de tienda...");
   await seedTienda();
@@ -620,6 +649,272 @@ async function main() {
   // muestre una experiencia realista.
   console.log("🪞 Enriqueciendo el espejo-alumno del docente demo...");
   await seedEspejoTeacherDemo();
+}
+
+const DSL_DEMO_SUMA = `metadata:
+  tema: "matematicas/aritmetica/suma"
+  dificultad: 1
+
+variables:
+  a: random(10, 99)
+  b: random(10, 99)
+
+enunciado: |
+  Calculá la suma: {a} + {b}
+
+respuesta: a + b
+tolerancia: 0
+`;
+
+const DSL_DEMO_PRODUCTO = `metadata:
+  tema: "matematicas/aritmetica/multiplicacion"
+  dificultad: 2
+
+variables:
+  a: random(2, 12)
+  b: random(2, 12)
+
+enunciado: |
+  Calculá el producto: {a} × {b}
+
+respuesta: a * b
+tolerancia: 0
+`;
+
+/**
+ * ITEM-35 — 2 plantillas VBLang + 3 cuestionarios de ejemplo en los modelos
+ * "vivos" de Tiza (`settings.preguntas` y `generatorId`), en un módulo
+ * dedicado (`mod-demo-tiza`) para no alterar el conteo de quizzes de los
+ * módulos clásicos ya sembrados más arriba.
+ */
+async function seedQuizzesTiza() {
+  for (const [id, dsl] of [
+    ["plant-demo-suma", DSL_DEMO_SUMA],
+    ["plant-demo-producto", DSL_DEMO_PRODUCTO],
+  ] as [string, string][]) {
+    const validacion = validateDslSyntax(dsl);
+    if (!validacion.ok) {
+      throw new Error(`[seed] la plantilla ${id} no compila: ${validacion.message}`);
+    }
+  }
+
+  await prisma.plantillaEjercicio.createMany({
+    skipDuplicates: true,
+    data: [
+      {
+        id: "plant-demo-suma",
+        ownerUserId: "usr-teach-001",
+        schoolId: "esc-0001",
+        visibility: "publica",
+        nombre: "Suma de dos números",
+        descripcion: "Plantilla de demostración: suma de dos números de 2 cifras.",
+        materia: "Matemáticas",
+        tags: JSON.stringify(["aritmetica", "suma"]),
+        codigoDsl: DSL_DEMO_SUMA,
+        version: 1,
+        publicAprobado: true,
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+      },
+      {
+        id: "plant-demo-producto",
+        ownerUserId: "usr-teach-001",
+        schoolId: "esc-0001",
+        visibility: "publica",
+        nombre: "Producto de dos números",
+        descripcion: "Plantilla de demostración: multiplicación de dos números.",
+        materia: "Matemáticas",
+        tags: JSON.stringify(["aritmetica", "multiplicacion"]),
+        codigoDsl: DSL_DEMO_PRODUCTO,
+        version: 1,
+        publicAprobado: true,
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+      },
+    ],
+  });
+
+  await prisma.modulo.createMany({
+    skipDuplicates: true,
+    data: [
+      {
+        id: "mod-demo-tiza",
+        slug: "practica-aritmetica-tiza",
+        titulo: "Práctica de aritmética (Tiza)",
+        descripcion:
+          "Cuestionarios de ejemplo en los modelos nativos de Tiza: preguntas obligatorias, pool de relleno con dificultad/puntaje, y generador asistido desde plantilla VBLang.",
+        subject: "matematicas",
+        visibility: "public",
+        schoolId: "esc-0001",
+        ownerUserId: "usr-teach-001",
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+      },
+    ],
+  });
+
+  await prisma.claseModulo.createMany({
+    skipDuplicates: true,
+    data: [{ claseId: "cls-demo-mat-3a", moduloId: "mod-demo-tiza", assignedAt: now, required: false }],
+  });
+
+  // (1) Simple: sólo preguntas obligatorias, sin pool ni relleno.
+  const cuestionarioSimple = parseCuestionarioPreguntas({
+    cantidadGlobal: 2,
+    preguntas: [
+      { plantillaId: "plant-demo-suma", tipo: "obligatoria" },
+      { plantillaId: "plant-demo-producto", tipo: "obligatoria" },
+    ],
+  });
+  const validacionSimple = validarCuestionarioPreguntas(cuestionarioSimple);
+  if (!validacionSimple.ok) {
+    throw new Error(`[seed] quiz-demo-tiza-simple inválido: ${validacionSimple.errores.join("; ")}`);
+  }
+
+  // (2) Pool/relleno + dificultad/puntaje — ejercita la ronda tiza-config.
+  const cuestionarioPool = parseCuestionarioPreguntas({
+    cantidadGlobal: 3,
+    preguntas: [
+      { plantillaId: "plant-demo-suma", tipo: "obligatoria", dificultad: "basico", puntaje: 5 },
+      {
+        plantillaId: "plant-demo-producto",
+        tipo: "relleno",
+        poolId: "pool-aritmetica",
+        maxRepeticiones: 3,
+        dificultad: "avanzado",
+        puntaje: 10,
+      },
+    ],
+  });
+  const validacionPool = validarCuestionarioPreguntas(cuestionarioPool);
+  if (!validacionPool.ok) {
+    throw new Error(`[seed] quiz-demo-tiza-pool inválido: ${validacionPool.errores.join("; ")}`);
+  }
+
+  for (const [qid, vid, title, settings] of [
+    [
+      "quiz-demo-tiza-simple",
+      "qv-demo-tiza-simple",
+      "Práctica Tiza — preguntas obligatorias",
+      { type: "practica", preguntas: cuestionarioSimple },
+    ],
+    [
+      "quiz-demo-tiza-pool",
+      "qv-demo-tiza-pool",
+      "Evaluación Tiza — pool con dificultad y puntaje",
+      { type: "formal", preguntas: cuestionarioPool },
+    ],
+  ] as [string, string, string, Record<string, unknown>][]) {
+    await prisma.quiz.upsert({
+      where: { id: qid },
+      create: { id: qid, moduleId: "mod-demo-tiza", title, isActive: true, createdAt: now, updatedAt: now },
+      update: {},
+    });
+    await prisma.quizVersion.upsert({
+      where: { quizId_versionNumber: { quizId: qid, versionNumber: 1 } },
+      create: {
+        id: vid,
+        quizId: qid,
+        versionNumber: 1,
+        schemaVersion: 1,
+        questions: JSON.stringify([]),
+        settings: JSON.stringify(settings),
+        seedPolicy: 0,
+        createdAt: now,
+        createdBy: "usr-teach-001",
+      },
+      update: {},
+    });
+    await prisma.quiz.update({ where: { id: qid }, data: { currentVersionId: vid } });
+  }
+
+  // (3) Generador asistido: quiz "generado" desde una plantilla VBLang —
+  // mismo `generatorId: "plantilla:<id>"` que arma ModuloEditor.tsx al
+  // elegir una plantilla del banco (`handleSelectPlantilla`).
+  await prisma.quiz.upsert({
+    where: { id: "quiz-demo-tiza-generado" },
+    create: {
+      id: "quiz-demo-tiza-generado",
+      moduleId: "mod-demo-tiza",
+      title: "Práctica Tiza — generador asistido (plantilla VBLang)",
+      isActive: true,
+      createdAt: now,
+      updatedAt: now,
+    },
+    update: {},
+  });
+  await prisma.quizVersion.upsert({
+    where: { quizId_versionNumber: { quizId: "quiz-demo-tiza-generado", versionNumber: 1 } },
+    create: {
+      id: "qv-demo-tiza-generado",
+      quizId: "quiz-demo-tiza-generado",
+      versionNumber: 1,
+      schemaVersion: 1,
+      questions: JSON.stringify([]),
+      generatorId: "plantilla:plant-demo-suma",
+      generatorVersion: "1",
+      count: 5,
+      seedPolicy: 1,
+      settings: JSON.stringify({ type: "practica" }),
+      plantillaId: "plant-demo-suma",
+      createdAt: now,
+      createdBy: "usr-teach-001",
+    },
+    update: {},
+  });
+  await prisma.quiz.update({
+    where: { id: "quiz-demo-tiza-generado" },
+    data: { currentVersionId: "qv-demo-tiza-generado" },
+  });
+
+  console.log("  ✓ 2 plantillas VBLang + 3 quizzes Tiza (simple, pool, generado)");
+}
+
+/**
+ * ITEM-35 — intentos de ejemplo sobre los 5 quizzes de demostración (2
+ * clásicos + 3 Tiza), para que calificaciones/reportes no arranquen vacíos
+ * en un ambiente recién sembrado.
+ */
+async function seedIntentosDemo() {
+  const intentos: Array<{
+    id: string;
+    quizId: string;
+    quizVersionId: string;
+    userId: string;
+    score: number;
+    maxScore: number;
+  }> = [
+    { id: "att-demo-001", quizId: "quiz-demo-001", quizVersionId: "qv-demo-001", userId: "usr-stude-001", score: 80, maxScore: 100 },
+    { id: "att-demo-002", quizId: "quiz-demo-001", quizVersionId: "qv-demo-001", userId: "usr-stude-002", score: 100, maxScore: 100 },
+    { id: "att-demo-003", quizId: "quiz-demo-002", quizVersionId: "qv-demo-002", userId: "usr-stude-001", score: 67, maxScore: 100 },
+    { id: "att-demo-tiza-simple-1", quizId: "quiz-demo-tiza-simple", quizVersionId: "qv-demo-tiza-simple", userId: "usr-stude-001", score: 100, maxScore: 100 },
+    { id: "att-demo-tiza-simple-2", quizId: "quiz-demo-tiza-simple", quizVersionId: "qv-demo-tiza-simple", userId: "usr-stude-002", score: 50, maxScore: 100 },
+    { id: "att-demo-tiza-pool-1", quizId: "quiz-demo-tiza-pool", quizVersionId: "qv-demo-tiza-pool", userId: "usr-stude-001", score: 90, maxScore: 100 },
+    { id: "att-demo-tiza-generado-1", quizId: "quiz-demo-tiza-generado", quizVersionId: "qv-demo-tiza-generado", userId: "usr-stude-002", score: 80, maxScore: 100 },
+  ];
+
+  await prisma.quizAttempt.createMany({
+    skipDuplicates: true,
+    data: intentos.map((a) => ({
+      id: a.id,
+      quizId: a.quizId,
+      quizVersionId: a.quizVersionId,
+      userId: a.userId,
+      status: "submitted",
+      startedAt: now,
+      submittedAt: now,
+      score: a.score,
+      maxScore: a.maxScore,
+      answers: "{}",
+      seedPolicy: 0,
+      attemptNo: 1,
+    })),
+  });
+
+  console.log(`  ✓ ${intentos.length} intentos de ejemplo`);
 }
 
 /**
@@ -794,7 +1089,75 @@ async function seedDatasetTablaPeriodica() {
   });
 }
 
-export { main as runSeedDemo };
+/**
+ * PLAN-E §19 — banco de fórmulas globales. Owner `SYSTEM_OWNER_ID`,
+ * `visibility: "publica"` (mismo patrón F6-01). Incluye las fórmulas de las
+ * plantillas oficiales de física (calorimetría, temperatura) + un set
+ * canónico de matemática/física/química. Idempotente por id fijo.
+ */
+const FORMULAS_GLOBALES: Array<{
+  nombre: string;
+  materia: string;
+  latex: string;
+  descripcion?: string;
+}> = [
+  // Matemática
+  { nombre: "Fórmula resolvente (Bhaskara)", materia: "Matemática", latex: "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}", descripcion: "Raíces de ax² + bx + c = 0" },
+  { nombre: "Teorema de Pitágoras", materia: "Matemática", latex: "a^2 + b^2 = c^2" },
+  { nombre: "Área del círculo", materia: "Matemática", latex: "A = \\pi r^2" },
+  { nombre: "Perímetro de la circunferencia", materia: "Matemática", latex: "P = 2\\pi r" },
+  { nombre: "Área del triángulo", materia: "Matemática", latex: "A = \\frac{b \\cdot h}{2}" },
+  { nombre: "Pendiente de una recta", materia: "Matemática", latex: "m = \\frac{y_2 - y_1}{x_2 - x_1}" },
+  { nombre: "Distancia entre dos puntos", materia: "Matemática", latex: "d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}" },
+  // Física — incluye las de las plantillas oficiales de termodinámica
+  { nombre: "Calor sensible", materia: "Física", latex: "Q = m \\cdot c \\cdot \\Delta T", descripcion: "Plantilla oficial de calorimetría" },
+  { nombre: "Calor latente", materia: "Física", latex: "Q = m \\cdot L", descripcion: "Plantilla oficial de cambios de estado" },
+  { nombre: "Celsius a Fahrenheit", materia: "Física", latex: "F = \\frac{9}{5}C + 32", descripcion: "Plantilla oficial de conversión de temperatura" },
+  { nombre: "Celsius a Kelvin", materia: "Física", latex: "K = C + 273.15", descripcion: "Plantilla oficial de conversión de temperatura" },
+  { nombre: "Velocidad media (MRU)", materia: "Física", latex: "v = \\frac{\\Delta x}{\\Delta t}" },
+  { nombre: "Posición en MRUV", materia: "Física", latex: "x = x_0 + v_0 t + \\frac{1}{2} a t^2" },
+  { nombre: "Segunda ley de Newton", materia: "Física", latex: "F = m \\cdot a" },
+  { nombre: "Energía cinética", materia: "Física", latex: "E_c = \\frac{1}{2} m v^2" },
+  { nombre: "Energía potencial gravitatoria", materia: "Física", latex: "E_p = m \\cdot g \\cdot h" },
+  { nombre: "Ley de Ohm", materia: "Física", latex: "V = I \\cdot R" },
+  // Química
+  { nombre: "Cantidad de sustancia (moles)", materia: "Química", latex: "n = \\frac{m}{M}", descripcion: "m: masa, M: masa molar" },
+  { nombre: "Concentración molar", materia: "Química", latex: "M = \\frac{n}{V}" },
+  { nombre: "Ecuación de los gases ideales", materia: "Química", latex: "P \\cdot V = n \\cdot R \\cdot T" },
+];
+
+async function seedFormulasGlobales() {
+  for (let i = 0; i < FORMULAS_GLOBALES.length; i++) {
+    const f = FORMULAS_GLOBALES[i];
+    const id = `formula-oficial-${i}`;
+    await prisma.formula.upsert({
+      where: { id },
+      update: {
+        nombre: f.nombre,
+        materia: f.materia,
+        latex: f.latex,
+        descripcion: f.descripcion ?? null,
+        isDeleted: false,
+        updatedAt: now,
+      },
+      create: {
+        id,
+        ownerUserId: SYSTEM_OWNER_ID,
+        schoolId: null,
+        visibility: "publica",
+        nombre: f.nombre,
+        materia: f.materia,
+        latex: f.latex,
+        descripcion: f.descripcion ?? null,
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+      },
+    });
+  }
+}
+
+export { main as runSeedDemo, seedFormulasGlobales };
 
 if (require.main === module) {
   main()

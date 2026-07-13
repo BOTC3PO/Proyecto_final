@@ -14,8 +14,9 @@
  *     un menú de overflow "⋯ Más" (átomo `Menu`).
  *   • Columna izquierda: rail CUESTIONARIO (working set de preguntas en
  *     memoria: elegir / agregar / quitar) + navegador de secciones de la
- *     pregunta activa. "Guardar" persiste la pregunta activa como su propia
- *     plantilla; las preguntas sin guardar muestran un punto en el rail.
+ *     pregunta activa. "Guardar" persiste TODO el rail (PLAN-Z fase 1):
+ *     cada pregunta nueva o con DSL cambiado se guarda como su propia
+ *     plantilla; las que fallan quedan marcadas en rojo en el rail.
  *   • Derecha: detalles (metadatos) plegables + property grid contextual
  *     (`TizaPropertyGrid`) + validación.
  *   • Preview del alumno colapsable al costado (no modal).
@@ -59,6 +60,8 @@ import PromptIAPanel from "../components/vblang/PromptIAPanel";
 import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import SnippetBar from "../components/vblang/SnippetBar";
 import NuevaPlantillaWizard from "../components/vblang/NuevaPlantillaWizard";
+import PlantillaSelectorModal from "../components/vblang/PlantillaSelectorModal";
+import type { PlantillaListItem } from "../domain/vblang/plantilla.types";
 import { useEditorClasico } from "../editor/useEditorClasico";
 import {
   extractDeclaredVariables,
@@ -96,6 +99,7 @@ import {
   crearQuizSuelto,
   type QuizMeta,
   type QuizMetaPatch,
+  type QuizMetaVisibility,
 } from "../domain/quiz/quizPreguntasApi";
 import QuizConfigPanel, {
   type QuizMetaSaveState,
@@ -172,8 +176,10 @@ function codigoHistReducer(s: CodigoHist, a: CodigoAction): CodigoHist {
 /* ---------- Working set: una pregunta del cuestionario (WO-V3a-b) ----------
  * El editor maneja una LISTA de preguntas en memoria (el rail "CUESTIONARIO").
  * Cada una tiene su propio DSL+historial, sus metadatos y, si ya se guardó, el
- * id de su plantilla. "Guardar" persiste la pregunta activa como su propia
- * plantilla (no existe una entidad "cuestionario" que las agrupe). */
+ * id de su plantilla. "Guardar" persiste TODO el rail (PLAN-Z fase 1): la
+ * activa siempre, y toda otra pregunta nueva o con DSL distinto del último
+ * guardado. Con `quizId` (o al agrupar 2+ sin quizId, C2) el cuestionario
+ * completo se sube después de las plantillas. */
 interface WorkQuestion {
   key: string;
   /** id de la plantilla persistida; null mientras no se guardó. */
@@ -210,14 +216,28 @@ function makeQuestion(
  *  local: título/tipo/visibilidad van top-level, el resto son claves de la
  *  config de evaluación (`meta.config`). */
 function aplicarMetaPatch(prev: QuizMeta, patch: QuizMetaPatch): QuizMeta {
-  const { title, type, visibility, ...config } = patch;
+  const { title, type, visibility, materia, nivel, tags, descripcion, ...config } = patch;
   return {
     ...prev,
     ...(title !== undefined ? { title } : {}),
     ...(type !== undefined ? { type } : {}),
     ...(visibility !== undefined ? { visibility } : {}),
+    // PLAN-Z fase 3/4 — top-level, igual que title/type/visibility (NO
+    // son config de evaluación).
+    ...(materia !== undefined ? { materia } : {}),
+    ...(nivel !== undefined ? { nivel } : {}),
+    ...(tags !== undefined ? { tags } : {}),
+    ...(descripcion !== undefined ? { descripcion } : {}),
     config: { ...prev.config, ...config },
   };
+}
+
+// PLAN-Z fase 3, decisión §3.2 — mapeo de visibilidad al heredar de la
+// plantilla-config del cuestionario (2 valores: publico|escuela) a la
+// de cada Plantilla-pregunta (3 valores: privada|escuela|publica). No
+// hay equivalente de "privada" a nivel quiz — "publico" mapea a "publica".
+function mapQuizVisibilityToPlantilla(v: QuizMetaVisibility): PlantillaMetadata["visibility"] {
+  return v === "publico" ? "publica" : "escuela";
 }
 
 /* ---------- Botón de ítem del menú overflow ---------- */
@@ -430,6 +450,10 @@ function PlantillaEditorTizaInner() {
   const [dslApiError, setDslApiError] = useState<
     { message: string; line?: number; col?: number } | undefined
   >(undefined);
+  // PLAN-Z fase 1 — errores de guardado por pregunta del rail (guardar-todo
+  // no es todo-o-nada: las que fallan quedan marcadas y el resto se guarda).
+  // Se reemplaza entero en cada Guardar, así los errores viejos no quedan.
+  const [railSaveErrors, setRailSaveErrors] = useState<Record<string, string>>({});
   const [loadStatus, setLoadStatus] = useState<
     "idle" | "loading" | "ready" | "error"
   >(isNew && !quizId ? "ready" : "loading");
@@ -452,6 +476,16 @@ function PlantillaEditorTizaInner() {
   // (Ambos), como la demo y el prototipo: tarjeta + drawer de código.
   const [codeMode, setCodeMode] = useState<"form" | "split" | "code">("split");
   const [selection, setSelection] = useState<TizaSelection>({ kind: "pregunta" });
+  // PLAN-Z fase 2 (§7) — "⚙ Configuraciones" pineada como ítem #1 del rail
+  // CUESTIONARIO (sólo con `quizId`): seleccionada, el centro muestra la
+  // tarjeta de configuración del cuestionario en lugar de la pregunta activa,
+  // y el panel derecho un empty-state (la config no tiene property grid).
+  const [configSelected, setConfigSelected] = useState(false);
+  // Pools creadas desde la sección POOLS de la config que todavía no tienen
+  // preguntas asignadas: una pool sólo persiste como `poolId` de alguna
+  // pregunta relleno, así que hasta que se asigna vive en este estado local.
+  const [poolsNuevas, setPoolsNuevas] = useState<string[]>([]);
+  const [nuevoPoolNombre, setNuevoPoolNombre] = useState("");
   const [showTizaCode, setShowTizaCode] = useState(false);
   const [referenciaOpen, setReferenciaOpen] = useState(false);
   const [promptIAOpen, setPromptIAOpen] = useState(false);
@@ -467,6 +501,11 @@ function PlantillaEditorTizaInner() {
   // `/plantillas/nueva`, pero con `quizId`: en ese caso el wizard NO debe
   // dispararse (se está abriendo el cuestionario, no creando una plantilla).
   const [wizardDismissed, setWizardDismissed] = useState(!isNew || quizId !== null);
+  // PLAN-Y bis — "Importar plantilla del banco" trae una plantilla existente
+  // como pregunta del cuestionario (modelo `preguntas`, con su `plantillaId`).
+  // Reemplaza al "Usar plantilla VBLang" a nivel módulo (que creaba el quiz
+  // legacy `generatorId: plantilla:X`). El selector es el mismo componente.
+  const [plantillaSelectorOpen, setPlantillaSelectorOpen] = useState(false);
 
   const editorRef = useRef<CodeEditorHandle | null>(null);
   const lastDeclaredRef = useRef<string[]>([]);
@@ -838,15 +877,43 @@ function PlantillaEditorTizaInner() {
     setSaveMessage(null);
     setDslApiError(undefined);
     try {
+      // PLAN-Z fase 3, decisión §3.1 — en modo cuestionario (quizId),
+      // descripción/materia/tags/visibilidad de CADA Plantilla-pregunta se
+      // heredan silenciosamente de la plantilla-config (quizMetaState) en
+      // vez del MetadataPanel por-pregunta (que en ese modo sólo edita
+      // nombre — ver `compact` más arriba). Modo standalone sin cambios.
+      const contenidoHeredado =
+        quizId && quizMetaState
+          ? {
+              descripcion: quizMetaState.descripcion.trim() || undefined,
+              materia: quizMetaState.materia.trim() || undefined,
+              tags: quizMetaState.tags.length > 0 ? quizMetaState.tags : undefined,
+              visibility: mapQuizVisibilityToPlantilla(quizMetaState.visibility),
+            }
+          : null;
       const payload = {
         nombre: metadata.nombre.trim(),
-        descripcion: metadata.descripcion.trim() || undefined,
-        materia: metadata.materia.trim() || undefined,
-        tags: metadata.tags.length > 0 ? metadata.tags : undefined,
+        ...(contenidoHeredado ?? {
+          descripcion: metadata.descripcion.trim() || undefined,
+          materia: metadata.materia.trim() || undefined,
+          tags: metadata.tags.length > 0 ? metadata.tags : undefined,
+          visibility: metadata.visibility,
+        }),
         codigoDsl,
-        visibility: metadata.visibility,
       };
-      if (!payload.nombre) {
+      // PLAN-Z fase 2 — la pregunta en blanco auto-agregada puede quedar
+      // ACTIVA (p. ej. guardando desde la plantilla-config recién abierta):
+      // recibe el mismo guard que el resto del rail (no se persiste si nunca
+      // se tocó) en vez de cortar TODO el guardado con "El nombre es
+      // obligatorio". Sólo aplica si hay algo más que guardar; una única
+      // pregunta en blanco standalone sigue exigiendo nombre.
+      const activeUntouched =
+        active.plantillaId == null &&
+        active.hist.past.length === 0 &&
+        codigoDsl === INITIAL_TEMPLATE &&
+        !payload.nombre;
+      const skipActive = activeUntouched && (quizId !== null || questions.length > 1);
+      if (!payload.nombre && !skipActive) {
         setSaveStatus("error");
         setSaveMessage("El nombre es obligatorio.");
         return;
@@ -854,7 +921,10 @@ function PlantillaEditorTizaInner() {
       // Se guarda la pregunta ACTIVA como su propia plantilla. Al crear NO se
       // navega (eso destruiría el working set); se fija el id en memoria.
       let savedPlantillaId = active.plantillaId;
-      if (active.plantillaId == null) {
+      if (skipActive) {
+        setSaveStatus("saved");
+        setSaveMessage("Guardado.");
+      } else if (active.plantillaId == null) {
         const created = await createPlantilla(payload);
         savedPlantillaId = created.id;
         setSaveStatus("saved");
@@ -900,19 +970,100 @@ function PlantillaEditorTizaInner() {
         }
       }
 
-      // Etapa 2 (Tiza — preguntas nativas) — con `quizId`, además de la
-      // plantilla se actualiza su entrada `PreguntaQuiz` en el
-      // `CuestionarioPreguntas` del quiz. UN solo PUT con el cuestionario
-      // completo derivado del working set (no un endpoint por pregunta):
-      // el rail ya tiene el estado completo en memoria. Si esto falla NO
-      // se deshace el guardado de la plantilla (ya persistida) — se avisa
-      // aparte, no se pierde el trabajo del docente.
-      if (quizId && cantidadGlobal !== null) {
-        const nextQuestions = questions.map((q) =>
-          q.key === active.key
-            ? { ...q, plantillaId: savedPlantillaId, savedCodigo: payload.codigoDsl }
-            : q,
+      // PLAN-Z fase 1 — guardar-todo: además de la activa (recién guardada
+      // arriba), se persiste TODA otra pregunta del rail que sea nueva
+      // (`plantillaId` null) o tenga DSL distinto del último guardado. La
+      // metadata sólo se edita sobre la activa, así que "DSL dirty" cubre a
+      // las no-activas. No es todo-o-nada: la que falla (DSL inválido, red)
+      // queda marcada en el rail y el resto se guarda igual — no se pierde
+      // el trabajo del docente.
+      const railResults = new Map<string, { plantillaId: string; savedCodigo: string }>();
+      const railFailures: Record<string, string> = {};
+      for (const [i, q] of questions.entries()) {
+        if (q.key === active.key) continue;
+        const isDirty = q.plantillaId == null || q.hist.present !== q.savedCodigo;
+        if (!isDirty) continue;
+        // La pregunta en blanco que el editor agrega solo (hidratación con
+        // quizId / "+ Nueva pregunta") no se persiste si el docente nunca
+        // la tocó: sin historial, DSL inicial intacto y sin nombre.
+        const untouched =
+          q.plantillaId == null &&
+          q.hist.past.length === 0 &&
+          q.hist.present === INITIAL_TEMPLATE &&
+          !q.metadata.nombre.trim();
+        if (untouched) continue;
+        const qPayload = {
+          // Mismo fallback que la etiqueta del rail: una pregunta sin
+          // nombrar no bloquea el guardado del cuestionario.
+          nombre: q.metadata.nombre.trim() || `Pregunta ${i + 1}`,
+          // PLAN-Z fase 3 §3.1 — mismo criterio heredado que la activa arriba.
+          ...(contenidoHeredado ?? {
+            descripcion: q.metadata.descripcion.trim() || undefined,
+            materia: q.metadata.materia.trim() || undefined,
+            tags: q.metadata.tags.length > 0 ? q.metadata.tags : undefined,
+            visibility: q.metadata.visibility,
+          }),
+          codigoDsl: q.hist.present,
+        };
+        try {
+          if (q.plantillaId == null) {
+            const created = await createPlantilla(qPayload);
+            railResults.set(q.key, { plantillaId: created.id, savedCodigo: qPayload.codigoDsl });
+          } else {
+            await updatePlantilla(q.plantillaId, {
+              ...qPayload,
+              changelog: "Edición desde editor Tiza",
+            });
+            railResults.set(q.key, { plantillaId: q.plantillaId, savedCodigo: qPayload.codigoDsl });
+          }
+        } catch (err) {
+          railFailures[q.key] =
+            err instanceof DslApiError
+              ? `DSL inválido${err.line != null ? ` (línea ${err.line})` : ""}: ${err.message}`
+              : err instanceof Error
+                ? err.message
+                : "No se pudo guardar.";
+        }
+      }
+      setRailSaveErrors(railFailures);
+      if (railResults.size > 0) {
+        setQuestions((qs) =>
+          qs.map((q) => {
+            const r = railResults.get(q.key);
+            return r ? { ...q, plantillaId: r.plantillaId, savedCodigo: r.savedCodigo } : q;
+          }),
         );
+      }
+      const failedCount = Object.keys(railFailures).length;
+      if (failedCount > 0) {
+        const nombres = questions
+          .map((q, i) => (railFailures[q.key] ? q.metadata.nombre.trim() || `Pregunta ${i + 1}` : null))
+          .filter((n): n is string => n !== null);
+        setSaveMessage(
+          (prev) =>
+            `${prev ?? "Guardado."} No se ${failedCount === 1 ? "pudo guardar" : "pudieron guardar"}: ${nombres.join(", ")} (marcadas en el rail).`,
+        );
+      }
+
+      // Working set con TODOS los ids reales ya aplicados (el estado de React
+      // se actualiza async; los sync de abajo necesitan el valor ahora).
+      const nextQuestions = questions.map((q) => {
+        if (q.key === active.key) {
+          // La activa salteada por el guard queda como está (sin persistir).
+          return skipActive
+            ? q
+            : { ...q, plantillaId: savedPlantillaId, savedCodigo: payload.codigoDsl };
+        }
+        const r = railResults.get(q.key);
+        return r ? { ...q, plantillaId: r.plantillaId, savedCodigo: r.savedCodigo } : q;
+      });
+
+      // Etapa 2 (Tiza — preguntas nativas) — con `quizId`, además de las
+      // plantillas se actualiza el `CuestionarioPreguntas` del quiz. UN solo
+      // PUT con el cuestionario completo derivado del working set (no un
+      // endpoint por pregunta). Si esto falla NO se deshace el guardado de
+      // las plantillas (ya persistidas) — se avisa aparte.
+      if (quizId && cantidadGlobal !== null) {
         try {
           await saveQuizPreguntas(quizId, {
             cantidadGlobal,
@@ -925,20 +1076,13 @@ function PlantillaEditorTizaInner() {
         }
       } else if (isNew && !quizId && questions.length > 1) {
         // PLAN-CORRECCIONES C2 — guardar desde /plantillas/nueva con 2+
-        // preguntas y sin quizId: antes, cada pregunta guardada se
-        // convertía en una plantilla suelta sin nada que las agrupara
-        // (bug de PLAN-E §14). Ahora se materializa un quiz "suelto"
-        // (sin módulo, `Quiz.moduleId` nullable) la PRIMERA vez que esto
-        // pasa, se le sube el `CuestionarioPreguntas` completo del rail,
-        // y la URL pasa a `?quizId=<real>` — de ahí en más los guardados
-        // siguen el camino normal de arriba (`if (quizId && ...)`), sin
-        // repetir la creación (protegido también por `isSavingRef`
-        // contra doble click).
-        const nextQuestions = questions.map((q) =>
-          q.key === active.key
-            ? { ...q, plantillaId: savedPlantillaId, savedCodigo: payload.codigoDsl }
-            : q,
-        );
+        // preguntas y sin quizId: se materializa un quiz "suelto" (sin
+        // módulo, `Quiz.moduleId` nullable) la PRIMERA vez, se le sube el
+        // `CuestionarioPreguntas` completo del rail (con PLAN-Z fase 1 ya
+        // vienen TODAS las preguntas guardadas, no sólo las que el docente
+        // guardó una a una), y la URL pasa a `?quizId=<real>` — de ahí en
+        // más los guardados siguen el camino normal de arriba, sin repetir
+        // la creación (protegido también por `isSavingRef`).
         try {
           const nuevoQuiz = await crearQuizSuelto();
           await saveQuizPreguntas(nuevoQuiz.id, {
@@ -1155,6 +1299,7 @@ function PlantillaEditorTizaInner() {
   /* ── rail CUESTIONARIO: working set de preguntas (elegir / agregar / quitar) ── */
   const selectQuestion = (key: string) => {
     setActiveKey(key);
+    setConfigSelected(false);
     setSelection({ kind: "pregunta" });
     setActiveSection("tiza-sec-enunciado");
     // El estado de guardado es global; lo reseteamos al cambiar de pregunta.
@@ -1167,12 +1312,54 @@ function PlantillaEditorTizaInner() {
     });
     setQuestions((qs) => [...qs, nq]);
     setActiveKey(nq.key);
+    setConfigSelected(false);
     setSelection({ kind: "pregunta" });
     setActiveSection("tiza-sec-enunciado");
     setMetaOpen(true);
     setSaveStatus("idle");
     setSaveMessage(null);
   };
+  // PLAN-Y bis — importar una plantilla existente del banco como pregunta.
+  // Misma hidratación que el effect de carga (getPlantilla → makeQuestion con
+  // `plantillaId`): la plantilla entra al rail con rol "obligatoria" por
+  // default (el docente ajusta rol/pool/dificultad en el property grid). Si
+  // ya está en el cuestionario, sólo la activa (no duplica).
+  const importarPlantilla = async (item: PlantillaListItem) => {
+    setPlantillaSelectorOpen(false);
+    const yaEsta = questions.find((q) => q.plantillaId === item.id);
+    if (yaEsta) {
+      setActiveKey(yaEsta.key);
+      setConfigSelected(false);
+      setSelection({ kind: "pregunta" });
+      return;
+    }
+    try {
+      const p = await getPlantilla(item.id);
+      const nq = makeQuestion(p.codigoDsl, {
+        plantillaId: item.id,
+        savedCodigo: p.codigoDsl,
+        metadata: {
+          nombre: p.nombre,
+          descripcion: p.descripcion ?? "",
+          materia: p.materia ?? "",
+          tags: p.tags ?? [],
+          visibility: p.visibility,
+        },
+        quizMeta: quizId ? { rol: "obligatoria" } : undefined,
+      });
+      setQuestions((qs) => [...qs, nq]);
+      setActiveKey(nq.key);
+      setConfigSelected(false);
+      setSelection({ kind: "pregunta" });
+      setActiveSection("tiza-sec-enunciado");
+      setMetaOpen(true);
+      setSaveStatus("idle");
+      setSaveMessage(null);
+    } catch {
+      setToastState({ message: "No se pudo importar la plantilla. Probá de nuevo." });
+    }
+  };
+
   const removeQuestion = (key: string) => {
     const q = questions.find((x) => x.key === key);
     if (
@@ -1204,13 +1391,74 @@ function PlantillaEditorTizaInner() {
       >
         CUESTIONARIO
       </div>
+      {/* PLAN-Z fase 2 (§7) — plantilla-config pineada como ítem #1: siempre
+          visible, no se borra ni se reordena. "Cantidad de preguntas" queda
+          en el rail (decisión del mockup §7, no se muda a la tarjeta). */}
+      {quizId ? (
+        <button
+          type="button"
+          data-testid="rail-config-item"
+          onClick={() => {
+            setConfigSelected(true);
+            setSaveStatus("idle");
+            setSaveMessage(null);
+          }}
+          aria-current={configSelected ? "true" : undefined}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            width: "100%",
+            textAlign: "left",
+            padding: "8px 10px",
+            marginBottom: 8,
+            borderRadius: "var(--r-md)",
+            cursor: "pointer",
+            background: configSelected ? "var(--c-surface)" : "transparent",
+            border: configSelected
+              ? "1px solid var(--c-accent)"
+              : "1px solid var(--c-border)",
+            color: "var(--c-text)",
+          }}
+        >
+          <span
+            aria-hidden="true"
+            style={{
+              width: 22,
+              height: 22,
+              flex: "0 0 auto",
+              borderRadius: 6,
+              background: "var(--c-accent-soft)",
+              color: "var(--c-accent)",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 12,
+            }}
+          >
+            ⚙
+          </span>
+          <span style={{ fontSize: 13, fontWeight: 600 }}>Configuraciones</span>
+        </button>
+      ) : null}
       {/* Etapa 2 (Tiza — preguntas nativas) — cabecera con `cantidadGlobal`,
           sólo con `quizId` presente. Aviso inline si los límites de alguna
           pool no alcanzan (validación LOCAL, sin red — `cuestionarioValidacion`). */}
       {quizId && cantidadGlobal !== null ? (
         <div style={{ padding: "0 8px 10px", display: "flex", flexDirection: "column", gap: 6 }}>
-          <label style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12.5 }}>
-            <span style={{ color: "var(--c-text-2)", fontWeight: 600 }}>
+          {/* Una sola línea, como el mockup §7 (la etiqueta no debe partirse). */}
+          <label style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11.5 }}>
+            <span
+              style={{
+                color: "var(--c-text-2)",
+                fontWeight: 600,
+                whiteSpace: "nowrap",
+                flex: 1,
+                minWidth: 0,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
               Cantidad de preguntas
             </span>
             <input
@@ -1226,13 +1474,14 @@ function PlantillaEditorTizaInner() {
               }}
               data-testid="cantidad-global-input"
               style={{
-                width: 60,
+                width: 36,
+                flex: "0 0 auto",
                 border: "1px solid var(--c-border)",
                 borderRadius: "var(--r-md)",
-                padding: "5px 8px",
+                padding: "4px 6px",
                 color: "var(--c-text)",
                 background: "var(--c-surface-2)",
-                fontSize: 12.5,
+                fontSize: 12,
                 textAlign: "right",
               }}
             />
@@ -1258,7 +1507,7 @@ function PlantillaEditorTizaInner() {
         </div>
       ) : null}
       {questions.map((q, i) => {
-        const isActive = q.key === active.key;
+        const isActive = !configSelected && q.key === active.key;
         const unsaved = q.hist.present !== q.savedCodigo;
         const title = q.metadata.nombre.trim() || `Pregunta ${i + 1}`;
         return (
@@ -1315,45 +1564,25 @@ function PlantillaEditorTizaInner() {
               >
                 {title}
               </span>
-              {/* PLAN-E §13 — el pool ya se edita desde el property grid
-                  (quizMeta.poolId); acá se muestra pasivo para no tener que
-                  entrar a cada pregunta para saber a qué pool pertenece. */}
-              {quizId ? (
+              {/* PLAN-Z fase 2 (§7) — el chip pasivo de pool (PLAN-E §13) se
+                  retiró del rail: el mockup no lo tiene y la sección POOLS de
+                  la plantilla-config muestra la membresía de todas juntas. */}
+              {railSaveErrors[q.key] ? (
+                // PLAN-Z fase 1 — esta pregunta falló en el último
+                // guardar-todo: punto rojo con el motivo en el title.
                 <span
-                  aria-hidden="true"
-                  data-testid={`rail-pool-chip-${q.key}`}
-                  title={
-                    q.quizMeta?.rol === "relleno" && q.quizMeta.poolId
-                      ? `Pool: ${q.quizMeta.poolId}`
-                      : "Sin pool"
-                  }
+                  role="img"
+                  aria-label={`No se pudo guardar: ${railSaveErrors[q.key]}`}
+                  title={`No se pudo guardar: ${railSaveErrors[q.key]}`}
                   style={{
+                    width: 7,
+                    height: 7,
                     flex: "0 0 auto",
-                    fontSize: 10.5,
-                    fontWeight: 700,
-                    color:
-                      q.quizMeta?.rol === "relleno" && q.quizMeta.poolId
-                        ? "var(--c-accent)"
-                        : "var(--c-text-3)",
-                    background:
-                      q.quizMeta?.rol === "relleno" && q.quizMeta.poolId
-                        ? "var(--c-accent-soft)"
-                        : "var(--c-surface-2)",
-                    border: "1px solid var(--c-border)",
                     borderRadius: 999,
-                    padding: "1px 7px",
-                    maxWidth: 84,
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
+                    background: "var(--c-danger, #dc2626)",
                   }}
-                >
-                  {q.quizMeta?.rol === "relleno" && q.quizMeta.poolId
-                    ? q.quizMeta.poolId
-                    : "sin pool"}
-                </span>
-              ) : null}
-              {unsaved ? (
+                />
+              ) : unsaved ? (
                 <span
                   aria-hidden="true"
                   title="Cambios sin guardar"
@@ -1411,6 +1640,29 @@ function PlantillaEditorTizaInner() {
         }}
       >
         <span aria-hidden="true">＋</span> Nueva pregunta
+      </button>
+      {/* PLAN-Y bis — importar una plantilla existente del banco como pregunta
+          del cuestionario (reemplaza al "Usar plantilla VBLang" de módulo). */}
+      <button
+        type="button"
+        onClick={() => setPlantillaSelectorOpen(true)}
+        data-testid="tiza-importar-plantilla"
+        style={{
+          marginTop: 4,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          padding: "9px 10px",
+          borderRadius: "var(--r-md)",
+          border: "1px dashed var(--c-border)",
+          background: "transparent",
+          color: "var(--c-text-2)",
+          fontSize: 13,
+          fontWeight: 600,
+          cursor: "pointer",
+        }}
+      >
+        <span aria-hidden="true">🧩</span> Importar plantilla del banco
       </button>
     </div>
   );
@@ -1492,6 +1744,254 @@ function PlantillaEditorTizaInner() {
           onClick={() => goToSection("tiza-sec-explicacion")}
         />
       ) : null}
+    </div>
+  );
+
+  /* ── PLAN-Z fase 2 (§7) — tarjeta central "Configuraciones" ──────────────
+     El `QuizConfigPanel` promovido de DETALLES a plantilla-config pineada,
+     más la sección POOLS (agrupa el working set por pool, un select por
+     pregunta). Asignar un pool implica rol "relleno" (los pools son de
+     relleno — mismo acople que el property grid); "sin pool" junta a las
+     obligatorias y a las relleno de la pool implícita. */
+  const etiquetaPregunta = (q: WorkQuestion, i: number) =>
+    q.metadata.nombre.trim() || `Pregunta ${i + 1}`;
+  const poolDe = (q: WorkQuestion) =>
+    q.quizMeta?.rol === "relleno" && q.quizMeta.poolId ? q.quizMeta.poolId : null;
+  const setPoolDe = (key: string, poolId: string | null) => {
+    setQuestions((qs) =>
+      qs.map((q): WorkQuestion => {
+        if (q.key !== key) return q;
+        if (poolId) {
+          return { ...q, quizMeta: { ...q.quizMeta, rol: "relleno", poolId } };
+        }
+        if (!q.quizMeta) return q;
+        const rest = { ...q.quizMeta };
+        delete rest.poolId;
+        return { ...q, quizMeta: rest };
+      }),
+    );
+  };
+  const agregarPool = () => {
+    const nombre = nuevoPoolNombre.trim();
+    if (!nombre) return;
+    setPoolsNuevas((ps) =>
+      ps.includes(nombre) || (poolsDisponibles ?? []).includes(nombre)
+        ? ps
+        : [...ps, nombre],
+    );
+    setNuevoPoolNombre("");
+  };
+
+  const poolNombres = [
+    ...new Set([...(poolsDisponibles ?? []), ...poolsNuevas]),
+  ].sort();
+  const gruposPools: { id: string | null; items: { q: WorkQuestion; i: number }[] }[] =
+    [null as string | null, ...poolNombres].map((id) => ({
+      id,
+      items: questions
+        .map((q, i) => ({ q, i }))
+        .filter(({ q }) => poolDe(q) === id),
+    }));
+
+  const poolsSection = (
+    <div data-testid="tiza-config-pools">
+      <div
+        style={{
+          fontSize: 10.5,
+          fontWeight: 700,
+          letterSpacing: "0.05em",
+          textTransform: "uppercase",
+          color: "var(--c-text-3)",
+          marginBottom: 5,
+        }}
+      >
+        Pools
+      </div>
+      <div
+        style={{
+          border: "1px solid var(--c-border)",
+          borderRadius: "var(--r-md)",
+          padding: "10px 12px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+        }}
+      >
+        {gruposPools.map(({ id, items }) => (
+          <div key={id ?? "(sin pool)"}>
+            <div style={{ fontSize: 12.5, fontWeight: 700, marginBottom: 4 }}>
+              {id ?? "sin pool"}{" "}
+              <span style={{ color: "var(--c-text-3)", fontWeight: 500 }}>
+                ({items.length})
+              </span>
+            </div>
+            {items.map(({ q, i }) => (
+              <div
+                key={q.key}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 10,
+                  padding: "3px 0 3px 8px",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: 12.5,
+                    minWidth: 0,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {etiquetaPregunta(q, i)}
+                </span>
+                <select
+                  aria-label={`Pool de ${etiquetaPregunta(q, i)}`}
+                  title='Asignar un pool convierte la pregunta en relleno (entra al sorteo); "sin pool" incluye a las obligatorias.'
+                  value={poolDe(q) ?? ""}
+                  onChange={(e) => setPoolDe(q.key, e.target.value || null)}
+                  style={{
+                    flex: "0 0 auto",
+                    border: "1px solid var(--c-border)",
+                    borderRadius: "var(--r-md)",
+                    padding: "3px 6px",
+                    fontSize: 12,
+                    color: "var(--c-text)",
+                    background: "var(--c-surface-2)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <option value="">sin pool</option>
+                  {poolNombres.map((p) => (
+                    <option key={p} value={p}>
+                      {p}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            ))}
+          </div>
+        ))}
+        <div style={{ display: "flex", gap: 8 }}>
+          <input
+            type="text"
+            placeholder="Nombre del pool"
+            aria-label="Nombre del pool"
+            value={nuevoPoolNombre}
+            onChange={(e) => setNuevoPoolNombre(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") agregarPool();
+            }}
+            style={{
+              flex: 1,
+              minWidth: 0,
+              border: "1px solid var(--c-border)",
+              borderRadius: "var(--r-md)",
+              padding: "6px 9px",
+              fontSize: 12.5,
+              color: "var(--c-text)",
+              background: "var(--c-surface-2)",
+            }}
+          />
+          <button
+            type="button"
+            onClick={agregarPool}
+            style={{
+              flex: "0 0 auto",
+              border: "1px solid var(--c-border)",
+              borderRadius: "var(--r-md)",
+              background: "var(--c-surface-2)",
+              color: "var(--c-text-2)",
+              fontSize: 12,
+              fontWeight: 600,
+              padding: "6px 10px",
+              cursor: "pointer",
+            }}
+          >
+            + Pool
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  const configArea = (
+    <div
+      className="editor-shell__scroll outline-none"
+      style={{
+        flex: "1 1 auto",
+        minHeight: 0,
+        overflowY: "auto",
+        padding: "26px 30px",
+      }}
+    >
+      <div style={{ maxWidth: 720, margin: "0 auto" }}>
+        <section
+          data-testid="tiza-config-card"
+          aria-label="Configuraciones del cuestionario"
+          style={{
+            border: "1px solid var(--c-accent)",
+            borderRadius: "var(--r-lg, 12px)",
+            background: "var(--c-surface)",
+            padding: "18px 22px",
+            display: "flex",
+            flexDirection: "column",
+            gap: 14,
+          }}
+        >
+          <header
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              paddingBottom: 14,
+              borderBottom: "1px solid var(--c-border)",
+            }}
+          >
+            <span
+              aria-hidden="true"
+              style={{
+                width: 32,
+                height: 32,
+                flex: "0 0 auto",
+                borderRadius: "var(--r-md)",
+                background: "var(--c-accent-soft)",
+                color: "var(--c-accent)",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 15,
+              }}
+            >
+              ⚙
+            </span>
+            <div>
+              <div style={{ fontSize: 15, fontWeight: 700 }}>Configuraciones</div>
+              <div style={{ fontSize: 12, color: "var(--c-text-2)" }}>
+                Configuración general del cuestionario: evaluación, presentación,
+                dificultad y pools.
+              </div>
+            </div>
+          </header>
+          {quizMetaState ? (
+            <QuizConfigPanel
+              meta={quizMetaState}
+              saveState={metaSaveState}
+              onPatch={queueMetaPatch}
+              onDelete={() => void handleDeleteQuiz()}
+              resumen={resumenSorteo}
+              disabled={saveStatus === "saving"}
+              pools={poolsSection}
+            />
+          ) : (
+            <div style={{ fontSize: 12.5, color: "var(--c-text-3)" }}>
+              Cargando configuración…
+            </div>
+          )}
+        </section>
+      </div>
     </div>
   );
 
@@ -1762,7 +2262,13 @@ function PlantillaEditorTizaInner() {
         className="editor-shell__scroll outline-none"
         style={{ flex: "1 1 auto", minHeight: 0, display: "flex", flexDirection: "column" }}
       >
-        {codeMode === "code" ? codeArea : cardArea}
+        {/* PLAN-Z fase 2 — la config es Form-only por construcción (§3.3):
+            seleccionada, el centro muestra la tarjeta en cualquier modo. */}
+        {configSelected && quizId
+          ? configArea
+          : codeMode === "code"
+            ? codeArea
+            : cardArea}
       </div>
     </div>
   );
@@ -1815,11 +2321,40 @@ function PlantillaEditorTizaInner() {
               renderRail={
                 <>
                   {railCuestionario}
-                  {railSections}
+                  {/* SECCIONES navega la pregunta activa: sin sentido con la
+                      config seleccionada (mockup §7: sólo CUESTIONARIO). */}
+                  {configSelected && quizId ? null : railSections}
                 </>
               }
               renderCenterFull={renderCenterFull}
               renderAux={
+                configSelected && quizId ? (
+                  // PLAN-Z fase 2 (§7) — la config no tiene property grid:
+                  // empty-state en PROPIEDADES (detalle nuevo del mockup).
+                  <div data-testid="tiza-propiedades-empty" style={{ padding: 16 }}>
+                    <div
+                      style={{
+                        fontSize: 11,
+                        fontWeight: 700,
+                        letterSpacing: "0.05em",
+                        color: "var(--c-text-3)",
+                      }}
+                    >
+                      PROPIEDADES
+                    </div>
+                    <p
+                      style={{
+                        marginTop: 8,
+                        fontSize: 12.5,
+                        lineHeight: 1.5,
+                        color: "var(--c-text-2)",
+                      }}
+                    >
+                      Configuraciones no tiene propiedades de pregunta.
+                      Seleccioná una pregunta del rail para ver sus propiedades.
+                    </p>
+                  </div>
+                ) : (
                 <div
                   style={{
                     display: "flex",
@@ -1887,21 +2422,12 @@ function PlantillaEditorTizaInner() {
                     </button>
                     {metaOpen ? (
                       <div style={{ padding: "0 16px 14px", maxHeight: "40vh", overflowY: "auto" }}>
-                        {/* WO-tiza-config (Fase 1+2) — configuración del
-                            CUESTIONARIO (título/tipo/visibilidad/evaluación/
-                            eliminar/vista previa del sorteo). Los controles
-                            van en el CUERPO del panel, no en la fila-botón
-                            del header (§2.1a del plan: HTML anidado inválido). */}
-                        {quizId && quizMetaState ? (
-                          <QuizConfigPanel
-                            meta={quizMetaState}
-                            saveState={metaSaveState}
-                            onPatch={queueMetaPatch}
-                            onDelete={() => void handleDeleteQuiz()}
-                            resumen={resumenSorteo}
-                            disabled={saveStatus === "saving"}
-                          />
-                        ) : quizId ? (
+                        {/* PLAN-Z fase 2/3 — la configuración del CUESTIONARIO
+                            (incl. materia/nivel/tags/descripción, fase 3) ya
+                            no vive acá: se promovió a la plantilla-config
+                            pineada del rail (tarjeta central). DETALLES queda
+                            para el nombre de la pregunta activa (compact). */}
+                        {quizId ? (
                           <div
                             style={{
                               fontSize: 11.5,
@@ -1910,13 +2436,15 @@ function PlantillaEditorTizaInner() {
                               lineHeight: 1.4,
                             }}
                           >
-                            Metadatos de esta pregunta (plantilla individual).
+                            Nombre de esta pregunta. Materia/tags/descripción
+                            se editan en Configuraciones y se heredan a todas.
                           </div>
                         ) : null}
                         <MetadataPanel
                           value={metadata}
                           onChange={setMetadata}
                           disabled={saveStatus === "saving"}
+                          compact={!!quizId}
                         />
                       </div>
                     ) : null}
@@ -1939,6 +2467,7 @@ function PlantillaEditorTizaInner() {
                     />
                   </div>
                 </div>
+                )
               }
               renderPreviewPanel={
                 <div style={{ padding: 14 }}>
@@ -2003,6 +2532,17 @@ function PlantillaEditorTizaInner() {
       >
         <DatasetExplorer inline />
       </Modal>
+
+      {/* PLAN-Y bis — selector de plantilla del banco (reusa el mismo modal
+          que ModuloEditor). Al elegir, la plantilla entra como pregunta. */}
+      {plantillaSelectorOpen && (
+        <PlantillaSelectorModal
+          onClose={() => setPlantillaSelectorOpen(false)}
+          onSelect={(plantilla) => void importarPlantilla(plantilla)}
+          materiaHint={quizMetaState?.materia || undefined}
+          createReturnTo={returnTo || undefined}
+        />
+      )}
 
       {toastState && (
         <Toast

@@ -20,11 +20,20 @@ export type TheoryItem = {
   title: string;
   type: TheoryItemType;
   detail: string;
+  // PLAN-G §1 (item 25) — metadata NO vinculante: si este item se creó
+  // insertando un material guardado, apunta al `Material.id` de origen
+  // (mismo patrón que `clonedFromId` en Libro/Quiz, WO-13). El `detail`
+  // sigue siendo la fuente de verdad — un snapshot copiado al insertar,
+  // no una referencia viva. Editar el material después no actualiza
+  // este item.
+  sourceMaterialId?: string | null;
 };
 
 type TheoryItemCardProps = {
   item: TheoryItem;
   actionLabel?: string;
+  /** PLAN-G §2 — modo foco: tipografía de lectura para bloques de texto. */
+  lectura?: boolean;
 };
 
 // Maps type values → display label (supports old English and new Spanish)
@@ -63,7 +72,7 @@ const isHerramientaStandaloneType = (t: string) => t === "HerramientaStandalone"
 const isExternalUrl = (v: string) => v.startsWith("http://") || v.startsWith("https://");
 const isInternalLink = (v: string) => v.startsWith("/");
 
-export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProps) {
+export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryItemCardProps) {
   const typeLabel = getTypeLabel(item.type);
   const [presenterOpen, setPresenterOpen] = useState(false);
   // SEC-LIBRO — overlay del lector. Cuando el item es un libro
@@ -283,11 +292,19 @@ export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProp
   // --- Note / Text / Article / Video / fallback ---
   const isTextContent = isNoteType(item.type) || item.type === "Video";
   return (
-    <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+    <article className={`rounded-lg border border-gray-200 bg-white shadow-sm ${lectura ? "p-6 sm:p-8" : "p-4"}`}>
       <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
-      <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
+      <h4 className={lectura ? "text-xl font-semibold text-gray-900" : "text-base font-semibold text-gray-900"}>
+        {item.title}
+      </h4>
       {isTextContent && item.detail ? (
-        <p className="mt-2 text-sm text-gray-600 whitespace-pre-wrap">{item.detail}</p>
+        <p
+          className={`mt-2 whitespace-pre-wrap ${
+            lectura ? "font-serif text-lg leading-loose text-slate-800" : "text-sm text-gray-600"
+          }`}
+        >
+          {item.detail}
+        </p>
       ) : null}
     </article>
   );

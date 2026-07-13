@@ -11,8 +11,9 @@ import {
   THEMES,
   ACCENT_COLORS,
   layoutContainerClass,
+  BlockSpecRenderer,
 } from "./TheorySlideEditor";
-import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import VisualizerRenderer from "./VisualizerRenderer";
 
 // ─── Overlay class resolver ───────────────────────────────────────────────────
 
@@ -93,6 +94,23 @@ function SlideContent({
   // Accent style applied to heading via inline style (overrides Tailwind color safely)
   const headingAccentStyle =
     accentCfg && !hasBgOverlay ? { color: accentCfg.swatch } : undefined;
+
+  // blockSpec gana sobre toolSpec — misma precedencia que SlideStage en el editor
+  if (slide.blockSpec) {
+    return (
+      <>
+        {slide.heading ? (
+          <h2 className={headingCls} style={headingAccentStyle} data-sa>{slide.heading}</h2>
+        ) : null}
+        {slide.subtitle ? (
+          <p className={subtitleCls} data-sa>{slide.subtitle}</p>
+        ) : null}
+        <div className="flex-1 min-h-0 overflow-auto rounded-lg" data-sa>
+          <BlockSpecRenderer block={slide.blockSpec} />
+        </div>
+      </>
+    );
+  }
 
   // When toolSpec is present, render heading + subtitle + the interactive tool
   if (slide.toolSpec) {

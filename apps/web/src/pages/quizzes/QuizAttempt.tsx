@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction, type TouchEvent } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { apiGet, apiPost, apiPatch, ApiError } from "../../lib/api";
@@ -12,6 +12,7 @@ import { useCountdown } from "../../hooks/useCountdown";
 import { useFlushOnHidden } from "../../hooks/useFlushOnHidden";
 import { useFullscreen } from "../../hooks/useFullscreen";
 import { useFlushCounter } from "../../hooks/useFlushCounter";
+import { useIsNarrowViewport } from "../../hooks/useIsNarrowViewport";
 import Cronometro from "../../components/quizzes/Cronometro";
 import type {
   ModoPresentacion,
@@ -21,7 +22,7 @@ import {
   MODO_PRESENTACION_DEFAULT,
   PREGUNTAS_POR_PAGINA_DEFAULT as PREG_PAG_DEFAULT,
 } from "../../domain/module/module.types";
-import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import VisualizerRenderer from "../../components/modulos/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
 import PostSubmitResult from "../../components/quizzes/PostSubmitResult";
@@ -43,6 +44,7 @@ import OrdenarRenderer from "../../components/quiz-renderers/OrdenarRenderer";
 import MarcarMapaRenderer from "../../components/quiz-renderers/MarcarMapaRenderer";
 import AnalisisSintacticoRenderer from "../../components/quiz-renderers/AnalisisSintacticoRenderer";
 import IdentificarPalabrasRenderer from "../../components/quiz-renderers/IdentificarPalabrasRenderer";
+import AnalisisSpansRenderer from "../../components/quiz-renderers/AnalisisSpansRenderer";
 import { buildCorrectasFromEtiquetas } from "../../domain/quiz/checkAnswerSpecial";
 import {
   Card,
@@ -113,6 +115,15 @@ type QuizAttemptResponse = {
    * 10 min exclusivo del modo competencia.
    */
   timerSegundos?: number | null;
+  /**
+   * WO-3b — deadline absoluto (ISO), calculado server-side desde
+   * `startedAt + timerSegundos`. PLAN-Q §2.3: ancla la cuenta regresiva al
+   * reloj real en vez de sólo contar ticks de `setInterval` — un
+   * `setInterval` se pausa/atrasa con la pantalla apagada o la app en
+   * segundo plano en el teléfono, y `timerSegundos` solo no distingue un
+   * intento recién arrancado de uno reanudado con tiempo ya consumido.
+   */
+  deadline?: string | null;
   /**
    * F4-04 — Si es `true`, el botón "Iniciar evaluación" llama a
    * `document.documentElement.requestFullscreen()` antes de cargar el
@@ -444,8 +455,23 @@ export default function QuizAttempt() {
 
   const [slideIndex, setSlideIndex] = useState(0);
   const [pageIndex, setPageIndex] = useState(0);
-  const modoPresentacion: ModoPresentacion =
+  const modoPresentacionServidor: ModoPresentacion =
     attempt?.modoPresentacion ?? MODO_PRESENTACION_DEFAULT;
+  const isNarrowViewport = useIsNarrowViewport();
+  // PLAN-Q §2.1 — en el teléfono, sugerir "una por pantalla" cuando el
+  // docente no configuró nada explícito (quedó en "lista", el default de
+  // WO-9). No pisa "paginado" (elegido a propósito) y el alumno puede
+  // volver a la lista con el toggle — preferencia de sesión, no se
+  // persiste ni cambia la config del profesor.
+  const [modoOverride, setModoOverride] = useState<ModoPresentacion | null>(null);
+  const sugerenciaMobileDisponible =
+    modoPresentacionServidor === "lista" &&
+    isNarrowViewport &&
+    !eligeAlumno &&
+    presentedQuestions.length > 1;
+  const modoPresentacion: ModoPresentacion =
+    modoOverride ??
+    (sugerenciaMobileDisponible ? "una_por_pantalla" : modoPresentacionServidor);
   const preguntasPorPagina =
     typeof attempt?.preguntasPorPagina === "number" && attempt.preguntasPorPagina >= 1
       ? Math.floor(attempt.preguntasPorPagina)
@@ -507,6 +533,27 @@ export default function QuizAttempt() {
     } else if (modoPresentacion === "paginado") {
       setPageIndex(Math.max(0, Math.min(totalPaginas - 1, i)));
     }
+  };
+
+  // PLAN-Q §2.2 — swipe horizontal en modo "una por pantalla" (gesto
+  // esperado en teléfono, antes sólo flechas/botones). Umbral 50px y
+  // exige que el desplazamiento sea más horizontal que vertical, para no
+  // interceptar un scroll vertical de la pregunta.
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const handleSlideTouchStart = (e: TouchEvent) => {
+    const t = e.touches[0];
+    touchStartRef.current = t ? { x: t.clientX, y: t.clientY } : null;
+  };
+  const handleSlideTouchEnd = (e: TouchEvent) => {
+    const start = touchStartRef.current;
+    touchStartRef.current = null;
+    const t = e.changedTouches[0];
+    if (!start || !t) return;
+    const deltaX = t.clientX - start.x;
+    const deltaY = t.clientY - start.y;
+    if (Math.abs(deltaX) < 50 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+    if (deltaX < 0) goNext();
+    else goPrev();
   };
 
   // PLAN-D §2 — accesibilidad: navegar entre preguntas/páginas con las
@@ -608,9 +655,15 @@ export default function QuizAttempt() {
                 points: q.points,
                 toleranciaRelativa: q.toleranciaRelativa,
                 toleranciaAbsoluta: q.toleranciaAbsoluta,
+                // WO-11 — el server necesita el tipo para activar equivalencia
+                // simbólica ("expresion") en el path no-autoritativo.
+                questionType: q.questionType,
                 ...(q.correccion ? { correccion: q.correccion } : {}),
                 ...(q.manualGrading ? { manualGrading: q.manualGrading } : {}),
                 ...(q.questionType === "abierta" ? { prompt: q.prompt } : {}),
+                // PLAN-E §21 — sin esto, el path no-autoritativo corrige
+                // proporcional como todo-o-nada.
+                ...(q.puntajeParcial ? { puntajeParcial: q.puntajeParcial } : {}),
               }))
           : undefined;
       const response = await apiPost<SubmitResponse>(
@@ -663,8 +716,33 @@ export default function QuizAttempt() {
       : null;
   const fullscreenEnabled = attempt?.fullscreenOnStart === true;
 
+  // PLAN-Q §2.3 — segundos restantes ANCLADOS a `attempt.deadline` (reloj
+  // real), no sólo a `timerSegundos` (duración total, ciega a cuánto ya
+  // pasó si el intento se reanuda) ni a los ticks acumulados de
+  // `setInterval` (que se atrasan con la pantalla apagada / la app en
+  // segundo plano). `resyncTick` fuerza un recálculo cuando la pestaña
+  // vuelve a estar visible; useCountdown ya resetea su estado interno
+  // cada vez que `initialSeconds` cambia, así que reusarlo alcanza — no
+  // hace falta tocar ese hook.
+  const [resyncTick, setResyncTick] = useState(0);
+  useEffect(() => {
+    const onVisible = () => {
+      if (document.visibilityState === "visible") setResyncTick((n) => n + 1);
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => document.removeEventListener("visibilitychange", onVisible);
+  }, []);
+  const remainingFromDeadline = useMemo(() => {
+    if (timerSegundosValue === null || !attempt?.deadline) return null;
+    const ms = new Date(attempt.deadline).getTime() - Date.now();
+    if (Number.isNaN(ms)) return null;
+    return Math.max(0, Math.round(ms / 1000));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [timerSegundosValue, attempt?.deadline, resyncTick]);
+  const countdownInitialSeconds = remainingFromDeadline ?? timerSegundosValue;
+
   const countdown = useCountdown({
-    initialSeconds: timerSegundosValue,
+    initialSeconds: countdownInitialSeconds,
     onExpire: () => {
       if (submitStatus !== "submitted" && submitStatus !== "submitting") {
         void handleSubmit();
@@ -744,6 +822,15 @@ export default function QuizAttempt() {
     );
   }
 
+  // PLAN-Q §2.2 — teclado numérico en el teléfono para preguntas "input"
+  // cuya respuesta correcta es un número (ej. cinemática: "v * t"). No hay
+  // un campo explícito de tipo de dato en ModuleQuizQuestion; se infiere
+  // de answerKey, que no afecta la corrección (sigue comparando strings).
+  function esRespuestaNumerica(answerKey: string | string[] | undefined): boolean {
+    const val = Array.isArray(answerKey) ? answerKey[0] : answerKey;
+    return typeof val === "string" && val.trim() !== "" && !Number.isNaN(Number(val));
+  }
+
   // ── Render question ──────────────────────────────────────────────────────
   function renderPregunta(
     question: ModuleQuizQuestion,
@@ -759,7 +846,10 @@ export default function QuizAttempt() {
     const selected = answersLocal[question.id] ?? "";
     const hasOptions = Array.isArray(question.options) && question.options.length > 0;
     const questionType = question.questionType ?? (hasOptions ? "mc" : "input");
-    const isMulti = Array.isArray(question.answerKey) && hasOptions;
+    // PLAN-E §21 Parte A: el flag `multiple` sobrevive la sanitización (el
+    // answerKey del alumno es un canario string, no un array).
+    const isMulti =
+      hasOptions && (question.multiple === true || Array.isArray(question.answerKey));
     return (
       <>
         {parseVisualContext(question.visualContext) ? (
@@ -771,7 +861,11 @@ export default function QuizAttempt() {
             }}>
               <Badge variant="info" size="sm">Herramienta interactiva</Badge>
             </div>
-            <div style={{ padding: "var(--space-3)", background: "var(--c-surface)" }}>
+            {/* PLAN-Q §2.2 — visuales con ancho fijo (ej. circuit 360px, vector-diagram
+                300px) scrollean DENTRO de la tarjeta en viewport angosto, nunca empujan
+                la página entera. El overflow:hidden de la Card recorta las esquinas, no
+                el contenido: el scroll vive en este div interno. */}
+            <div style={{ padding: "var(--space-3)", background: "var(--c-surface)", overflowX: "auto" }}>
               <VisualizerRenderer spec={parseVisualContext(question.visualContext)!} />
             </div>
           </Card>
@@ -845,6 +939,19 @@ export default function QuizAttempt() {
             textoAnalizar={question.textoAnalizar ?? ""}
             marcadas={Array.isArray(selected) ? (selected as string[]) : undefined}
             onChange={(marcadas) => handleAnswerChangeLocal(question.id, marcadas)}
+            disabled={inputsDisabledLocal}
+            correctas={
+              submitStatusLocal === "submitted" && Array.isArray(question.answerKey)
+                ? (question.answerKey as string[])
+                : undefined
+            }
+          />
+        ) : questionType === "analisis_spans" ? (
+          <AnalisisSpansRenderer
+            textoAnalizar={question.textoAnalizar ?? ""}
+            etiquetasDisponibles={question.etiquetasDisponibles ?? []}
+            value={Array.isArray(selected) ? (selected as string[]) : undefined}
+            onChange={(spans) => handleAnswerChangeLocal(question.id, spans)}
             disabled={inputsDisabledLocal}
             correctas={
               submitStatusLocal === "submitted" && Array.isArray(question.answerKey)
@@ -943,6 +1050,9 @@ export default function QuizAttempt() {
         ) : (
           <Input
             type="text"
+            inputMode={esRespuestaNumerica(question.answerKey) ? "decimal" : "text"}
+            autoComplete="off"
+            autoCapitalize={esRespuestaNumerica(question.answerKey) ? "off" : "sentences"}
             value={typeof selected === "string" ? selected : ""}
             onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
             placeholder="Escribí tu respuesta"
@@ -1298,6 +1408,38 @@ export default function QuizAttempt() {
                 </fieldset>
               )}
 
+              {/* PLAN-Q §2.1 — toggle de la sugerencia mobile (una por
+                  pantalla vs lista completa). Sólo aparece cuando la
+                  sugerencia aplica; es preferencia de sesión, no persiste. */}
+              {(sugerenciaMobileDisponible || modoOverride) && (
+                <button
+                  type="button"
+                  data-testid="quiz-modo-mobile-toggle"
+                  onClick={() =>
+                    setModoOverride((cur) =>
+                      (cur ?? (sugerenciaMobileDisponible ? "una_por_pantalla" : modoPresentacionServidor)) ===
+                      "una_por_pantalla"
+                        ? "lista"
+                        : "una_por_pantalla",
+                    )
+                  }
+                  style={{
+                    alignSelf: "flex-start",
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    fontSize: "var(--text-xs)",
+                    color: "var(--c-primary)",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                  }}
+                >
+                  {modoPresentacion === "una_por_pantalla"
+                    ? "Ver todas las preguntas en una lista"
+                    : "Ver de a una pregunta por pantalla"}
+                </button>
+              )}
+
               {/* Questions */}
               {questions.length === 0 ? (
                 <p style={{
@@ -1348,6 +1490,8 @@ export default function QuizAttempt() {
                     <div
                       data-testid="quiz-slide"
                       data-slide-index={slideIndex}
+                      onTouchStart={handleSlideTouchStart}
+                      onTouchEnd={handleSlideTouchEnd}
                       style={{
                         display: "flex",
                         flexDirection: "column",
@@ -1356,6 +1500,7 @@ export default function QuizAttempt() {
                         border: "1px solid var(--c-border)",
                         borderRadius: "var(--r-lg)",
                         background: "var(--c-surface)",
+                        touchAction: "pan-y",
                       }}
                     >
                       {visibleQuestions[0] ? (

@@ -1,8 +1,9 @@
 // RegistrationForm.tsx
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { apiPost } from "../lib/api";
 import { fetchRegistroOpciones } from "../services/registro";
+import { useI18n } from "../i18n/I18nContext";
 
 /* ===========================
    DateInput (sin lucide-react)
@@ -45,6 +46,7 @@ function DateInput({
   startOnMonday = true,
   months = []
 }: DateInputProps) {
+  const { t } = useI18n();
   const controlledDate = parseDisplay(value) || null;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -150,11 +152,11 @@ function DateInput({
       {isOpen && (
         <div
           role="dialog"
-          aria-label="Selector de fecha"
+          aria-label={t("register.ariaSelectorFecha")}
           className="absolute z-50 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 p-4 w-full max-w-sm"
         >
           <div className="flex items-center justify-between mb-4 gap-2">
-            <button type="button" onClick={goPrev} className="p-2 hover:bg-gray-100 rounded-lg" aria-label="Mes anterior">
+            <button type="button" onClick={goPrev} className="p-2 hover:bg-gray-100 rounded-lg" aria-label={t("common.mesAnterior")}>
               <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
@@ -186,7 +188,7 @@ function DateInput({
               </select>
             </div>
 
-            <button type="button" onClick={goNext} className="p-2 hover:bg-gray-100 rounded-lg" aria-label="Mes siguiente">
+            <button type="button" onClick={goNext} className="p-2 hover:bg-gray-100 rounded-lg" aria-label={t("common.mesSiguiente")}>
               <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -246,20 +248,20 @@ function DateInput({
               onClick={() => { commit(null); setIsOpen(false); }}
               className="w-1/2 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg"
             >
-              Limpiar
+              {t("common.limpiar")}
             </button>
             <button
               type="button"
               onClick={() => {
-                const t = new Date();
-                commit(t);
-                setCurrentMonth(t.getMonth());
-                setCurrentYear(t.getFullYear());
+                const now = new Date();
+                commit(now);
+                setCurrentMonth(now.getMonth());
+                setCurrentYear(now.getFullYear());
                 setIsOpen(false);
               }}
               className="w-1/2 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-lg font-medium"
             >
-              Hoy
+              {t("common.hoy")}
             </button>
           </div>
         </div>
@@ -274,11 +276,12 @@ function DateInput({
 
 export default function RegistrationForm() {
   const navigate = useNavigate();
-  const roleMap: Record<string, "USER" | "TEACHER" | "PARENT"> = {
-    student: "USER",
-    teacher: "TEACHER",
-    parent: "PARENT"
-  };
+  const { t } = useI18n();
+  // PLAN-M — puente demo→cuenta del editor de mapas (y cualquier otro flujo
+  // que quiera volver a un lugar puntual tras registrarse): se reenvía a
+  // onboarding/login y de ahí a destino, ver OnboardingTema.tsx y Login.tsx.
+  const [searchParams] = useSearchParams();
+  const returnTo = searchParams.get("returnTo");
   const [teacherTypes, setTeacherTypes] = useState<Array<{ value: string; label: string }>>([]);
   const [monthOptions, setMonthOptions] = useState<string[]>([]);
   const [optionsError, setOptionsError] = useState<string | null>(null);
@@ -329,11 +332,10 @@ export default function RegistrationForm() {
   };
 
   const handleRoleChange = (value: string) => {
-    const mappedRole = roleMap[value] ?? value;
     setFormData((s) => ({
       ...s,
-      role: mappedRole,
-      teacherType: mappedRole === "TEACHER" ? s.teacherType : ""
+      role: value,
+      teacherType: value === "TEACHER" ? s.teacherType : ""
     }));
   };
 
@@ -341,27 +343,27 @@ export default function RegistrationForm() {
     e.preventDefault();
     // ejemplo de validación mínima
     if (!formData.termsAccepted) {
-      setStatus({ loading: false, error: "Debes aceptar los Términos y Condiciones." });
+      setStatus({ loading: false, error: t("register.errorTerminos") });
       return;
     }
     if (!formData.role) {
-      setStatus({ loading: false, error: "Selecciona un rol para continuar." });
+      setStatus({ loading: false, error: t("register.errorRol") });
       return;
     }
     if (formData.role === "TEACHER" && !formData.teacherType) {
-      setStatus({ loading: false, error: "Selecciona el tipo de profesor." });
+      setStatus({ loading: false, error: t("register.errorTipoProfesor") });
       return;
     }
     if (formData.role === "TEACHER" && !formData.schoolCode.trim()) {
-      setStatus({ loading: false, error: "Ingresá el código de tu escuela para continuar." });
+      setStatus({ loading: false, error: t("register.errorCodigoEscuela") });
       return;
     }
     if (formData.password && formData.password !== formData.confirmPassword) {
-      setStatus({ loading: false, error: "Las contraseñas no coinciden." });
+      setStatus({ loading: false, error: t("register.errorContrasenasNoCoinciden") });
       return;
     }
     if (!formData.fullName || !formData.username || !formData.email || !formData.password) {
-      setStatus({ loading: false, error: "Completa los campos obligatorios antes de continuar." });
+      setStatus({ loading: false, error: t("register.errorCamposObligatorios") });
       return;
     }
     setStatus({ loading: true, error: null });
@@ -384,16 +386,17 @@ export default function RegistrationForm() {
           consentedAt: new Date().toISOString()
         }
       });
+      const returnToQS = returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : "";
       // Solo el alumno (USER) ve el onboarding de tema
       if (formData.role === 'USER') {
-        navigate('/onboarding/tema', {
+        navigate(`/onboarding/tema${returnToQS}`, {
           state: { nombre: formData.fullName.split(' ')[0] },
         });
       } else {
-        navigate('/login');
+        navigate(`/login${returnToQS}`);
       }
     } catch (error) {
-      const message = error instanceof Error ? error.message : "No pudimos completar el registro.";
+      const message = error instanceof Error ? error.message : t("register.errorGenerico");
       setStatus({ loading: false, error: message });
       return;
     }
@@ -404,33 +407,33 @@ export default function RegistrationForm() {
     <div className="min-h-screen bg-[#f3f4f6] py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
-          <h2 className="text-3xl font-bold text-blue-600 text-center mb-8">Registro</h2>
+          <h2 className="text-3xl font-bold text-blue-600 text-center mb-8">{t("register.titulo")}</h2>
 
           <div className="space-y-6">
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">Nombre Completo</label>
+              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelNombreCompleto")}</label>
               <input
                 type="text"
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg 
+                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
                            focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">Nombre de Usuario Público</label>
+              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelUsuarioPublico")}</label>
               <input
                 type="text"
                 value={formData.username}
                 onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg 
+                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
                            focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">Email</label>
+              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelEmail")}</label>
               <input
                 type="email"
                 value={formData.email}
@@ -442,7 +445,8 @@ export default function RegistrationForm() {
 
             {/* DateInput integrado */}
             <DateInput
-              label="Cumpleaños"
+              label={t("register.labelCumpleanos")}
+              placeholder={t("register.placeholderFecha")}
               value={formData.birthdate}
               onChange={handleDateChange}
               fromYear={1900}
@@ -454,36 +458,37 @@ export default function RegistrationForm() {
               months={monthOptions}
             />
             {optionsError && (
-              <p className="text-sm text-red-600">No se pudieron cargar las opciones: {optionsError}</p>
+              <p className="text-sm text-red-600">{t("register.errorOpciones")}: {optionsError}</p>
             )}
             {/* Campo oculto ISO para enviar al backend si querés */}
             <input type="hidden" name="birthday_iso" value={formData.birthdateISO} />
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">Rol</label>
+              <label htmlFor="register-role" className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelRol")}</label>
               <select
+                id="register-role"
                 value={formData.role}
                 onChange={(e) => handleRoleChange(e.target.value)}
                 className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg bg-white
                            focus:outline-none focus:border-blue-500 transition-colors"
               >
-                <option value="">Selecciona un rol</option>
-                <option value="student">Usuario</option>
-                <option value="teacher">Profesor</option>
-                <option value="parent">Padre/Madre</option>
+                <option value="">{t("register.opcionSeleccionaRol")}</option>
+                <option value="USER">{t("register.rolUsuario")}</option>
+                <option value="TEACHER">{t("register.rolProfesor")}</option>
+                <option value="PARENT">{t("register.rolPadre")}</option>
               </select>
             </div>
 
             {formData.role === "TEACHER" && (
               <div>
-                <label className="block text-gray-800 text-lg mb-2 font-normal">Tipo de Profesor</label>
+                <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelTipoProfesor")}</label>
                 <select
                   value={formData.teacherType}
                   onChange={(e) => setFormData({ ...formData, teacherType: e.target.value })}
                   className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg bg-white
                              focus:outline-none focus:border-blue-500 transition-colors"
                 >
-                  <option value="">Selecciona el tipo</option>
+                  <option value="">{t("register.opcionSeleccionaTipo")}</option>
                   {teacherTypes.map((type) => (
                     <option key={type.value} value={type.value}>
                       {type.label}
@@ -495,7 +500,7 @@ export default function RegistrationForm() {
 
             <div>
               <label className="block text-gray-800 text-lg mb-2 font-normal">
-                Código de Escuela{formData.role !== "TEACHER" ? " (Opcional)" : ""}
+                {t("register.labelCodigoEscuela")}{formData.role !== "TEACHER" ? t("register.opcional") : ""}
               </label>
               <input
                 type="text"
@@ -507,29 +512,29 @@ export default function RegistrationForm() {
               />
               {formData.role === "TEACHER" && (
                 <p className="text-sm text-gray-500 mt-1">
-                  Como profesor necesitás pertenecer a una escuela para crear aulas.
+                  {t("register.notaCodigoEscuela")}
                 </p>
               )}
             </div>
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">Contraseña</label>
+              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("auth.contrasena")}</label>
               <input
                 type="password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg 
+                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
                            focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">Repetir Contraseña</label>
+              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelRepetirContrasena")}</label>
               <input
                 type="password"
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg 
+                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
                            focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
@@ -544,7 +549,7 @@ export default function RegistrationForm() {
                              focus:ring-2 focus:ring-blue-500 cursor-pointer"
                 />
                 <span className="text-gray-700 text-base leading-relaxed">
-                  El Nombre Completo Real Solo Será Visible Para Profesores o Compañeros De Un Aula Virtual
+                  {t("register.consentimientoNombre")}
                 </span>
               </label>
 
@@ -553,11 +558,11 @@ export default function RegistrationForm() {
                   type="checkbox"
                   checked={formData.termsAccepted}
                   onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
-                  className="mt-1 w-5 h-5 text-blue-600 border-2 border-gray-300 rounded 
+                  className="mt-1 w-5 h-5 text-blue-600 border-2 border-gray-300 rounded
                              focus:ring-2 focus:ring-blue-500 cursor-pointer"
                 />
                 <span className="text-gray-700 text-base leading-relaxed">
-                  Acepto los Términos y Condiciones del Servicio
+                  {t("register.consentimientoTerminos")}
                 </span>
               </label>
             </div>
@@ -574,7 +579,7 @@ export default function RegistrationForm() {
                          hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
               disabled={status.loading}
             >
-              {status.loading ? "Registrando..." : "Registrarse"}
+              {status.loading ? t("register.registrando") : t("register.botonRegistrarse")}
             </button>
           </div>
         </form>

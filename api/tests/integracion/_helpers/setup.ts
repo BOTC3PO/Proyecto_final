@@ -69,6 +69,7 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.usuario.rows = [];
   prisma.vblangDataset.rows = [];
   prisma.vblangDatasetFila.rows = [];
+  prisma.formula.rows = [];
   prisma.suscripcion.rows = [];
   prisma.historialPago.rows = [];
   prisma.limiteEscuela.rows = [];
@@ -78,9 +79,11 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.clase.rows = [];
   prisma.claseMiembro.rows = [];
   prisma.claseModulo.rows = [];
+  prisma.clasePeriodo.rows = [];
   prisma.actividadAula.rows = [];
   prisma.calendarioEscuela.rows = [];
   prisma.modulo.rows = [];
+  prisma.moduloInvitacion.rows = [];
   prisma.quiz.rows = [];
   prisma.quizVersion.rows = [];
   prisma.quizAttempt.rows = [];
@@ -90,6 +93,9 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.encuestaRespuesta.rows = [];
   prisma.bloqueJson.rows = [];
   prisma.configModulo.rows = [];
+  // PLAN-G §1 (item 25) — materiales guardados (mapa/timeline/interactivo/presentacion).
+  prisma.material.rows = [];
+  prisma.materialVersion.rows = [];
   // FASE 1 — limpiar también las tablas de membresia y la puente de
   // cuentas vinculadas. Cada test empieza con un store limpio.
   prisma.membresia.rows = [];

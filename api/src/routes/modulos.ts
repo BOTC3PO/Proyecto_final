@@ -52,6 +52,7 @@ function toModuleListItem(item: AnyDoc): AnyDoc {
     durationMinutes: item.durationMinutes ?? undefined,
     theoryItems: item.theoryItems ? safeJsonParse(item.theoryItems, [] as unknown[]) : [],
     visibility: item.visibility,
+    descatalogado: item.descatalogado === true,
     schoolId: item.schoolId ?? undefined,
     createdBy: item.ownerUserId ?? "",
     clonedFrom: item.clonedFromId
@@ -64,6 +65,36 @@ function toModuleListItem(item: AnyDoc): AnyDoc {
     createdAt: item.createdAt,
     updatedAt: item.updatedAt,
     teoriaId: item.teoriaId ?? undefined
+  };
+}
+
+// PLAN-X §7 — where-clause de visibilidad para los listados generales
+// (`GET /api/modulos` sin `aulaId`, `GET /api/modulos/buscar`): un módulo
+// descatalogado se excluye salvo que el solicitante sea su dueño o tenga
+// una invitación (`ModuloInvitacion`). Sin `requesterId` (sin sesión en
+// este router aislado, o anónimo) degrada a "sólo lo no descatalogado".
+async function buildDescatalogadoVisibilityFilter(
+  requesterId: string | null,
+): Promise<Record<string, unknown>> {
+  // `NOT: { descatalogado: true }` en vez de `{ descatalogado: false }`:
+  // filas seedeadas por tests preexistentes (decenas de archivos, de
+  // antes de que este campo existiera) nunca setean `descatalogado`
+  // explícitamente → queda `undefined` en el stub in-memory (que no
+  // aplica `@default(false)` de Prisma). `NOT: true` matchea tanto
+  // `false` como `undefined`/`null`; `descatalogado: false` NO matchea
+  // `undefined` y esas filas desaparecían de todos los listados.
+  if (!requesterId) return { NOT: { descatalogado: true } };
+  const invitaciones = await prisma.moduloInvitacion.findMany({
+    where: { usuarioId: requesterId },
+    select: { moduloId: true },
+  });
+  const invitedIds = invitaciones.map((i) => i.moduloId);
+  return {
+    OR: [
+      { NOT: { descatalogado: true } },
+      { ownerUserId: requesterId },
+      ...(invitedIds.length > 0 ? [{ id: { in: invitedIds } }] : []),
+    ],
   };
 }
 
@@ -250,6 +281,12 @@ modulos.get("/api/modulos/buscar", async (req, res) => {
   if (query) {
     andFilters.push({ OR: [{ titulo: { contains: query, mode: "insensitive" } }] });
   }
+  // PLAN-X §7 — `requesterId` (quién busca) es independiente de `createdBy`
+  // (de quién se buscan módulos): un profesor puede buscar los públicos de
+  // OTRO colega. El filtro de descatalogado siempre mira a quién pide.
+  const requesterId: string | null =
+    mine && createdBy ? createdBy : resolveRequesterId(req.user as QuizRequesterRaw);
+  andFilters.push(await buildDescatalogadoVisibilityFilter(requesterId));
 
   const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
   const where =
@@ -291,15 +328,27 @@ modulos.get("/api/modulos", async (req, res) => {
   // `req.user._id` viene de `toObjectId(...)` en
   // src/lib/user-auth.ts:67 → siempre string. `.toString()`
   // funciona sobre string también (idempotente).
-  const requesterId =
+  const requesterIdForMine =
     mine && req.user
       ? (typeof req.user._id === "string"
           ? req.user._id
           : (req.user._id as { toString?: () => string })?.toString?.() ?? null)
       : null;
+  // PLAN-X §7 — a diferencia de `requesterIdForMine` (sólo se resuelve si
+  // `mine=true`), el filtro de descatalogado necesita saber quién pide
+  // SIEMPRE (para que el dueño/invitado vea lo suyo incluso sin `mine`).
+  // No fuerza auth acá: en prod `requireUser` ya corrió globalmente
+  // (index.ts) y `req.user` está poblado; sin sesión, degrada a "sólo lo
+  // no descatalogado", igual que un visitante anónimo.
+  const requesterId = requesterIdForMine ?? resolveRequesterId(req.user as QuizRequesterRaw);
+  const descatalogadoFilter = await buildDescatalogadoVisibilityFilter(requesterId);
 
   let items;
   if (aulaId) {
+    // Nota: la asignación a una aula (`ClaseModulo`) YA es un camino de
+    // visibilidad explícito por sí mismo (el profesor "lo agrega a un
+    // aula para que sea visible") — este branch no filtra por
+    // descatalogado, un módulo asignado se ve igual esté o no.
     const claseModulos = await prisma.claseModulo.findMany({
       where: { claseId: aulaId },
       select: { moduloId: true },
@@ -314,7 +363,7 @@ modulos.get("/api/modulos", async (req, res) => {
       await prisma.modulo.findMany({
         where: {
           id: { in: moduloIds },
-          ...(mine && requesterId ? { ownerUserId: requesterId } : {}),
+          ...(mine && requesterIdForMine ? { ownerUserId: requesterIdForMine } : {}),
         },
         skip: safeOffset,
         take: limit,
@@ -324,7 +373,9 @@ modulos.get("/api/modulos", async (req, res) => {
   } else {
     items = (
       await prisma.modulo.findMany({
-        where: mine && requesterId ? { ownerUserId: requesterId } : {},
+        where: mine && requesterIdForMine
+          ? { ownerUserId: requesterIdForMine }
+          : descatalogadoFilter,
         skip: safeOffset,
         take: limit,
         orderBy: { updatedAt: "desc" },
@@ -412,6 +463,8 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
         ? safeJsonParse(item.theoryItems, [] as unknown[])
         : [],
       visibility: item.visibility,
+      // PLAN-X §7 — flag para que el editor muestre el toggle actual.
+      descatalogado: item.descatalogado === true,
       schoolId: item.schoolId ?? undefined,
       // WO-3 — escala de notas (módulo). Se devuelve parseada; ausente = el
       // front/grade-path aplican el default histórico.
@@ -824,6 +877,9 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
       schoolId: parsed.schoolId ?? null,
       ownerUserId: parsed.createdBy,
       dependencies: parsed.dependencies.length ? JSON.stringify(parsed.dependencies) : null,
+      // PLAN-X §7 — mismo motivo que `isDeleted: false` arriba: el
+      // InMemoryPrisma de los tests no aplica `@default(false)`.
+      descatalogado: parsed.descatalogado ?? false,
       // WO-3 — escala de notas a nivel módulo (systemId + minPassingScore). Se
       // guarda como JSON; el grade path la lee con `resolveScoringConfig`. Si
       // falta, el cálculo cae al fallback histórico (scale-0-100 + umbral).
@@ -840,7 +896,9 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
           data: {
             id: quiz.id,
             moduleId: parsed.id,
-            title: quiz.title,
+            // PLAN-Y — `title` ahora es opcional en el schema (Tiza es el
+            // editor canónico); en creación cae a "".
+            title: quiz.title ?? "",
             // FIX-GUARDADO — el schema Prisma tiene `@default(true)` para
             // `isActive`, pero el in-memory prisma usado en tests no aplica
             // defaults. Seteamos explícitamente para que el GET lo encuentre.
@@ -870,9 +928,11 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
             settings: JSON.stringify(
               mergeMateriaIntoSettings(
                 {
-                  type: quiz.type,
+                  // PLAN-Y — POST = creación: defaults acá (el schema ya no
+                  // los inyecta; ausente sólo importa en el update).
+                  type: quiz.type ?? "practica",
                   mode: quiz.mode,
-                  visibility: quiz.visibility,
+                  visibility: quiz.visibility ?? "publico",
                   composition: quiz.composition,
                   ocultarPuntos: quiz.ocultarPuntos === true,
                   // F4-04 — campos de modo evaluación. Se persisten en
@@ -967,6 +1027,8 @@ async function applyModuleUpdate(
     // actualiza; si no, queda intacto.
     if (parsed.level !== undefined) updateData.level = parsed.level ?? null;
     if (parsed.visibility !== undefined) updateData.visibility = parsed.visibility;
+    // PLAN-X §7 — toggle de "descatalogado" (owner-only, gateado en el handler).
+    if (parsed.descatalogado !== undefined) updateData.descatalogado = parsed.descatalogado;
     if (parsed.schoolId !== undefined) updateData.schoolId = parsed.schoolId ?? null;
     // WO-3 — escala de notas (módulo). Misma semántica: si viene, se actualiza.
     if (parsed.scoringConfig !== undefined) {
@@ -1008,11 +1070,18 @@ async function applyModuleUpdate(
       // payload). Antes este path NO tocaba `settings.materia`, así
       // que los cuestionarios editados/agregados por PUT/PATCH
       // quedaban huérfanos y desaparecían del banco filtrado.
+      // PLAN-Y — builder "sparse": campo ausente en el payload → NO se
+      // escribe (ni default ni null). Antes `type`/`visibility`/
+      // `ocultarPuntos`/`timerSegundos`/`fullscreenOnStart` recibían un
+      // default forzado que hacía imposible el carry-forward de abajo (la
+      // clave nunca quedaba `undefined`) y el guardado del módulo pisaba lo
+      // configurado en Tiza. Los defaults se aplican sólo en el branch de
+      // CREACIÓN (quiz nuevo, sin versión previa).
       const settings = mergeMateriaIntoSettings(
         {
-          type: q.type ?? "practica",
+          type: q.type,
           mode: q.mode,
-          visibility: q.visibility ?? "publico",
+          visibility: q.visibility,
           // Composición a nivel quiz (pool/selección/variantes/peso). No DSL.
           composition: q.composition,
           // F3-04 + F4-04 — config del modo evaluación, persistida en
@@ -1029,13 +1098,13 @@ async function applyModuleUpdate(
           displayCount: q.displayCount,
           // WO-2 / F4-03 — cuestionario por posiciones (crudo).
           posiciones: q.posiciones,
-          // F4-03 — toggle "ocultar puntos al alumno". Se persiste en
-          // `settings.ocultarPuntos`. Default false.
-          ocultarPuntos: q.ocultarPuntos === true,
+          // F4-03 — toggle "ocultar puntos al alumno".
+          ocultarPuntos: q.ocultarPuntos === undefined ? undefined : q.ocultarPuntos === true,
           // F4-04 — timer per-cuestionario (segundos). null = sin timer.
-          timerSegundos: q.timerSegundos === undefined ? null : q.timerSegundos,
+          timerSegundos: q.timerSegundos,
           // F4-04 — activar pantalla completa al iniciar el intento.
-          fullscreenOnStart: q.fullscreenOnStart === true,
+          fullscreenOnStart:
+            q.fullscreenOnStart === undefined ? undefined : q.fullscreenOnStart === true,
           // WO-9 — modo de presentación + tamaño de página.
           modoPresentacion: q.modoPresentacion,
           preguntasPorPagina: q.preguntasPorPagina,
@@ -1093,6 +1162,30 @@ async function applyModuleUpdate(
         if (prevSettings.preguntas !== undefined && (settings as Record<string, unknown>).preguntas === undefined) {
           (settings as Record<string, unknown>).preguntas = prevSettings.preguntas;
         }
+        // PLAN-Z fase 3/4 — mismo problema que `preguntas` arriba:
+        // `materiaDeclarada`/`nivel`/`tags`/`descripcion` (editados desde
+        // la plantilla-config de Tiza) tampoco forman parte de
+        // `ModuleQuizSchema`, así que un guardado de módulo los borraría
+        // en cada versión nueva sin este arrastre.
+        // PLAN-Y — se suman `instructions` (nuevo, Tiza-only), `type`/
+        // `visibility` y toda la config de evaluación
+        // (QUIZ_META_SETTINGS_KEYS): Tiza es la única fuente de verdad de
+        // la config del cuestionario; el módulo sólo la escribe si la
+        // manda explícitamente (payload viejo = comportamiento viejo).
+        for (const carryKey of [
+          "materiaDeclarada",
+          "nivel",
+          "tags",
+          "descripcion",
+          "instructions",
+          "type",
+          "visibility",
+          ...QUIZ_META_SETTINGS_KEYS,
+        ]) {
+          if (prevSettings[carryKey] !== undefined && (settings as Record<string, unknown>)[carryKey] === undefined) {
+            (settings as Record<string, unknown>)[carryKey] = prevSettings[carryKey];
+          }
+        }
 
         await tx.quizVersion.create({
           data: {
@@ -1114,7 +1207,9 @@ async function applyModuleUpdate(
         await tx.quiz.update({
           where: { id: matched.id },
           data: {
-            title: q.title ?? "",
+            // PLAN-Y — título ausente en el payload → se conserva el actual
+            // (Tiza lo edita por PATCH /meta; antes `?? ""` lo borraba).
+            title: q.title ?? matched.title ?? "",
             isActive: true,
             currentVersionId: newVersionId,
             updatedAt: now,
@@ -1124,6 +1219,15 @@ async function applyModuleUpdate(
         const newQuizId =
           q.id ?? `qz-${moduleId}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
         const newVersionId = `qv-${newQuizId}-1`;
+
+        // PLAN-Y — quiz NUEVO: acá sí se aplican los defaults que el builder
+        // sparse de arriba ya no fuerza (contrato de creación intacto).
+        const s = settings as Record<string, unknown>;
+        if (s.type === undefined) s.type = "practica";
+        if (s.visibility === undefined) s.visibility = "publico";
+        if (s.ocultarPuntos === undefined) s.ocultarPuntos = false;
+        if (s.timerSegundos === undefined) s.timerSegundos = null;
+        if (s.fullscreenOnStart === undefined) s.fullscreenOnStart = false;
 
         await tx.quiz.create({
           data: {
@@ -1344,6 +1448,95 @@ modulos.delete("/api/modulos/:id", requireUser, async (req, res) => {
   res.status(204).send();
 });
 
+// ─── PLAN-X §7 — invitados de un módulo descatalogado ───────────────────────
+// "el modo descatalogado es como un modo oculto pero que el mismo profesor
+// pone para que el contenido no aparezca; los alumnos tienen que ser
+// invitados... o el profesor tiene que agregarlo en un aula" (Javier,
+// 2026-07-12). Sólo el DUEÑO gestiona invitados — mismo criterio que "el
+// mismo profesor pone" el modo. La asignación a una aula (`ClaseModulo`,
+// `AsignarModulosModal`) ya es un camino de visibilidad separado y no
+// pasa por acá.
+const resolveModuleUserNames = async (userIds: string[]) => {
+  const unique = Array.from(new Set(userIds.filter((v) => !!v)));
+  if (unique.length === 0) return new Map<string, string>();
+  const users = await prisma.usuario.findMany({
+    where: { id: { in: unique } },
+    select: { id: true, fullName: true, username: true },
+  });
+  const map = new Map<string, string>();
+  for (const u of users) {
+    map.set(u.id, u.fullName || u.username || u.id);
+  }
+  return map;
+};
+
+const requireModuleOwner = async (
+  req: express.Request,
+  res: express.Response,
+): Promise<{ id: string; ownerUserId: string | null } | null> => {
+  const moduloId = req.params.id as string;
+  const modulo = await prisma.modulo.findFirst({ where: { id: moduloId } });
+  if (!modulo) {
+    res.status(404).json({ error: "not found" });
+    return null;
+  }
+  const requesterId = resolveRequesterId(req.user as QuizRequesterRaw);
+  if (!requesterId || modulo.ownerUserId !== requesterId) {
+    res.status(403).json({ error: "sólo el dueño del módulo gestiona invitados" });
+    return null;
+  }
+  return modulo as { id: string; ownerUserId: string | null };
+};
+
+modulos.get("/api/modulos/:id/invitados", requireUser, async (req, res) => {
+  const modulo = await requireModuleOwner(req, res);
+  if (!modulo) return;
+  const invitaciones = await prisma.moduloInvitacion.findMany({ where: { moduloId: modulo.id } });
+  const nameMap = await resolveModuleUserNames(invitaciones.map((i) => i.usuarioId));
+  res.json({
+    items: invitaciones.map((i) => ({
+      usuarioId: i.usuarioId,
+      name: nameMap.get(i.usuarioId) ?? i.usuarioId,
+      invitedBy: i.invitedBy ?? null,
+      createdAt: i.createdAt,
+    })),
+  });
+});
+
+modulos.post("/api/modulos/:id/invitados", requireUser, express.json(), async (req, res) => {
+  const modulo = await requireModuleOwner(req, res);
+  if (!modulo) return;
+  const usuarioId = typeof req.body?.usuarioId === "string" ? req.body.usuarioId.trim() : "";
+  if (!usuarioId) return res.status(400).json({ error: "usuarioId is required" });
+  const target = await prisma.usuario.findFirst({ where: { id: usuarioId, isDeleted: { not: true } } });
+  if (!target) return res.status(400).json({ error: "user not found" });
+  const existing = await prisma.moduloInvitacion.findFirst({
+    where: { moduloId: modulo.id, usuarioId },
+  });
+  if (existing) return res.status(409).json({ error: "already invited" });
+  const requesterId = resolveRequesterId(req.user as QuizRequesterRaw);
+  await prisma.moduloInvitacion.create({
+    data: {
+      moduloId: modulo.id,
+      usuarioId,
+      invitedBy: requesterId,
+      createdAt: new Date().toISOString(),
+    },
+  });
+  res.status(201).json({ ok: true });
+});
+
+modulos.delete("/api/modulos/:id/invitados/:usuarioId", requireUser, async (req, res) => {
+  const modulo = await requireModuleOwner(req, res);
+  if (!modulo) return;
+  const usuarioId = req.params.usuarioId as string;
+  const result = await prisma.moduloInvitacion.deleteMany({
+    where: { moduloId: modulo.id, usuarioId },
+  });
+  if (result.count === 0) return res.status(404).json({ error: "not found" });
+  res.status(204).send();
+});
+
 // Etapa 2 (Tiza — preguntas nativas) — GET/PUT del `CuestionarioPreguntas`
 // de UN quiz por su `quizId`. El editor Tiza (`PlantillaEditorTiza.tsx`)
 // sólo conoce el `quizId` (llega por query param), no el `moduleId` — por
@@ -1424,6 +1617,15 @@ function buildQuizMetaResponse(loaded: NonNullable<Awaited<ReturnType<typeof loa
     title: loaded.quiz.title ?? "",
     type: typeof settings.type === "string" ? settings.type : "practica",
     visibility: typeof settings.visibility === "string" ? settings.visibility : "publico",
+    // PLAN-Z fase 3/4 — `materia` se lee de `materiaDeclarada` (NO de
+    // `settings.materia`, esa la administra `mergeMateriaIntoSettings`).
+    materia: typeof settings.materiaDeclarada === "string" ? settings.materiaDeclarada : "",
+    nivel: typeof settings.nivel === "string" ? settings.nivel : "",
+    tags: Array.isArray(settings.tags) ? settings.tags.filter((t): t is string => typeof t === "string") : [],
+    descripcion: typeof settings.descripcion === "string" ? settings.descripcion : "",
+    // PLAN-Y fase 3 — instrucciones para el alumno (Tiza-only; el textarea
+    // de ModuloEditor era un campo fantasma que nunca persistió).
+    instructions: typeof settings.instructions === "string" ? settings.instructions : "",
     config,
   };
 }
@@ -1487,6 +1689,14 @@ modulos.patch("/api/quizzes/:quizId/meta", requireUser, async (req, res) => {
     const settingsPatch: Record<string, unknown> = {};
     if (parsed.type !== undefined) settingsPatch.type = parsed.type;
     if (parsed.visibility !== undefined) settingsPatch.visibility = parsed.visibility;
+    // PLAN-Z fase 3/4 — `materia` mapea a `materiaDeclarada` (no a
+    // `settings.materia`, ver comment en `QuizMetaPatchSchema`).
+    if (parsed.materia !== undefined) settingsPatch.materiaDeclarada = parsed.materia;
+    if (parsed.nivel !== undefined) settingsPatch.nivel = parsed.nivel;
+    if (parsed.tags !== undefined) settingsPatch.tags = parsed.tags;
+    if (parsed.descripcion !== undefined) settingsPatch.descripcion = parsed.descripcion;
+    // PLAN-Y fase 3 — instrucciones para el alumno.
+    if (parsed.instructions !== undefined) settingsPatch.instructions = parsed.instructions;
     for (const key of QUIZ_META_SETTINGS_KEYS) {
       if ((parsed as Record<string, unknown>)[key] !== undefined) {
         settingsPatch[key] = (parsed as Record<string, unknown>)[key];
@@ -1531,16 +1741,67 @@ modulos.get("/api/quizzes", requireUser, async (req, res) => {
     const requesterId = resolveRequesterId(requesterRaw);
     if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
 
-    const quizzes = await prisma.quiz.findMany({
+    // PLAN-CUESTIONARIOS — `scope=todos` agrega los quizzes de módulos
+    // PROPIOS (para la página /cuestionarios). El default ("sueltos")
+    // conserva el contrato del picker "Usar cuestionario existente".
+    const scope = req.query.scope === "todos" ? "todos" : "sueltos";
+
+    const sueltos = await prisma.quiz.findMany({
       where: { ownerUserId: requesterId, moduleId: null, isActive: true },
     });
+    let deModulos: typeof sueltos = [];
+    const moduloTitulos = new Map<string, string>();
+    if (scope === "todos") {
+      // Dos queries (módulos propios → sus quizzes) en vez de un filtro
+      // por relación: el stub in-memory de los tests no soporta relaciones.
+      const modulosPropios = await prisma.modulo.findMany({
+        where: { ownerUserId: requesterId, isDeleted: false },
+      });
+      for (const m of modulosPropios) moduloTitulos.set(m.id, m.titulo);
+      if (modulosPropios.length > 0) {
+        deModulos = await prisma.quiz.findMany({
+          where: { moduleId: { in: modulosPropios.map((m) => m.id) }, isActive: true },
+        });
+      }
+    }
+    const quizzes = [...sueltos, ...deModulos];
+
+    // Enriquecido con la versión vigente: tipo/materia/#preguntas. El
+    // picker viejo ignora los campos extra, así que es aditivo.
+    const versionIds = quizzes
+      .map((q) => q.currentVersionId)
+      .filter((v): v is string => typeof v === "string" && v.length > 0);
+    const versions = versionIds.length
+      ? await prisma.quizVersion.findMany({ where: { id: { in: versionIds } } })
+      : [];
+    const settingsByVersion = new Map(versions.map((v) => [v.id, v.settings]));
+
     const items = quizzes
       .sort((a, b) => String(b.updatedAt ?? "").localeCompare(String(a.updatedAt ?? "")))
-      .map((q) => ({
-        id: q.id,
-        title: q.title ?? "Cuestionario sin título",
-        updatedAt: q.updatedAt,
-      }));
+      .map((q) => {
+        const raw = q.currentVersionId ? settingsByVersion.get(q.currentVersionId) : null;
+        const settings = safeJsonParse<Record<string, unknown>>(raw ?? null, {});
+        const cuestionario = settings.preguntas as { preguntas?: unknown[] } | undefined;
+        return {
+          id: q.id,
+          title: q.title ?? "Cuestionario sin título",
+          updatedAt: q.updatedAt,
+          type: typeof settings.type === "string" ? settings.type : "practica",
+          // materiaDeclarada (PLAN-Z, quiz suelto) con fallback a la
+          // materia derivada del módulo (mergeMateriaIntoSettings).
+          materia:
+            typeof settings.materiaDeclarada === "string" && settings.materiaDeclarada
+              ? settings.materiaDeclarada
+              : typeof settings.materia === "string"
+                ? settings.materia
+                : "",
+          cantidadPreguntas: Array.isArray(cuestionario?.preguntas)
+            ? cuestionario!.preguntas!.length
+            : 0,
+          moduleId: q.moduleId ?? null,
+          moduleTitle: q.moduleId ? (moduloTitulos.get(q.moduleId) ?? null) : null,
+        };
+      });
     res.json({ items });
   } catch (e: any) {
     console.error("[GET /api/quizzes]", e);
@@ -1555,6 +1816,10 @@ modulos.get("/api/quizzes", requireUser, async (req, res) => {
 // `settings` arranca vacío (type=practica, visibility=publico); las
 // preguntas se guardan aparte con el `PUT .../preguntas` de siempre
 // (mismo camino que un quiz con módulo, sin duplicar esa lógica acá).
+// PLAN-CUESTIONARIOS — `moduleId` opcional: crea el cuestionario YA
+// adosado a un módulo propio ("Crear cuestionario" en ModuloEditor).
+// Mismo shape que el clon de usar-en-modulo: ownerUserId null (la
+// autorización pasa a depender del módulo) y materia heredada del módulo.
 modulos.post("/api/quizzes", requireUser, async (req, res) => {
   try {
     const requesterRaw = req.user as QuizRequesterRaw;
@@ -1564,8 +1829,27 @@ modulos.post("/api/quizzes", requireUser, async (req, res) => {
       return res.status(403).json({ error: "forbidden" });
     }
 
-    const body = (req.body ?? {}) as { title?: unknown };
+    const body = (req.body ?? {}) as { title?: unknown; moduleId?: unknown };
     const title = typeof body.title === "string" && body.title.trim() ? body.title.trim() : null;
+    const moduleId =
+      typeof body.moduleId === "string" && body.moduleId ? body.moduleId : null;
+
+    let targetModulo: Awaited<ReturnType<typeof prisma.modulo.findFirst>> = null;
+    if (moduleId) {
+      targetModulo = await prisma.modulo.findFirst({ where: { id: moduleId } });
+      if (!targetModulo || targetModulo.isDeleted) {
+        return res.status(404).json({ error: "target module not found" });
+      }
+      if (
+        !canEditModuloDirect(targetModulo, {
+          _id: requesterId,
+          role: requesterRaw?.role,
+          schoolId: requesterRaw?.schoolId,
+        })
+      ) {
+        return res.status(403).json({ error: "forbidden on target module" });
+      }
+    }
 
     const now = new Date().toISOString();
     const quizId = generateId();
@@ -1578,8 +1862,8 @@ modulos.post("/api/quizzes", requireUser, async (req, res) => {
     await prisma.quiz.create({
       data: {
         id: quizId,
-        moduleId: null,
-        ownerUserId: requesterId,
+        moduleId,
+        ownerUserId: moduleId ? null : requesterId,
         title,
         isActive: true,
         currentVersionId: null,
@@ -1587,12 +1871,19 @@ modulos.post("/api/quizzes", requireUser, async (req, res) => {
         updatedAt: now,
       },
     });
+    const baseSettings: Record<string, unknown> = { type: "practica", visibility: "publico" };
+    const settings = targetModulo
+      ? mergeMateriaIntoSettings(baseSettings, {
+          subject: targetModulo.subject ?? null,
+          category: targetModulo.category ?? null,
+        })
+      : baseSettings;
     await prisma.quizVersion.create({
       data: {
         id: versionId,
         quizId,
         versionNumber: 1,
-        settings: JSON.stringify({ type: "practica", visibility: "publico" }),
+        settings: JSON.stringify(settings),
         createdAt: now,
         createdBy: requesterId,
       },
@@ -1661,12 +1952,22 @@ modulos.post("/api/quizzes/:quizId/usar-en-modulo", requireUser, async (req, res
         updatedAt: now,
       },
     });
+    // ITEM-22 — mismo bug que WO-BUG (bff8b6f4) pero en este path: copiar
+    // `settings` tal cual dejaba la materia del quiz original (a menudo
+    // vacía — un "quiz suelto" no tiene módulo del que derivarla) aunque
+    // el módulo DESTINO sí tuviera materia. El clon quedaba invisible al
+    // filtrar el banco por la materia del módulo al que se lo acababa de
+    // agregar. Igual que en duplicar-módulo: derivar del módulo destino.
+    const clonedSettings = mergeMateriaIntoSettings(
+      loaded.version?.settings,
+      { subject: targetModulo.subject ?? null, category: targetModulo.category ?? null },
+    );
     await prisma.quizVersion.create({
       data: {
         id: newVersionId,
         quizId: newQuizId,
         versionNumber: 1,
-        settings: loaded.version?.settings ?? null,
+        settings: JSON.stringify(clonedSettings),
         createdAt: now,
         createdBy: requesterId,
       },

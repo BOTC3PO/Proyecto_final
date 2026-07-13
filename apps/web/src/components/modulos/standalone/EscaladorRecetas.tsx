@@ -156,7 +156,7 @@ function emptyConfig(): RecetaConfig {
 }
 
 const INPUT_CLS =
-  "w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]";
+  "rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]";
 
 function EscaladorEditor({ config, onChange }: EditorProps) {
   const cfg = config ?? emptyConfig();
@@ -195,7 +195,7 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
           <label htmlFor={tituloId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Título</label>
           <input
             id={tituloId}
-            className={INPUT_CLS}
+            className={`${INPUT_CLS} w-full`}
             value={cfg.titulo}
             placeholder="Nombre de la receta"
             onChange={(e) => update({ titulo: e.target.value })}
@@ -205,7 +205,7 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
           <label htmlFor={descId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Descripción (opcional)</label>
           <input
             id={descId}
-            className={INPUT_CLS}
+            className={`${INPUT_CLS} w-full`}
             value={cfg.descripcion ?? ""}
             placeholder="Descripción breve"
             onChange={(e) => update({ descripcion: e.target.value })}

@@ -76,6 +76,18 @@ export const TokenKind = {
   KW_ETIQUETAS_PEDIDAS: "KW_ETIQUETAS_PEDIDAS",
   KW_OPCIONES_EXPLICITAS: "KW_OPCIONES_EXPLICITAS",
   KW_CORRECCION: "KW_CORRECCION",
+  // PLAN-E §21 Parte A — mc de selección múltiple: `multiple: true` habilita
+  // varias correctas (las de `respuestas_validas:`) y checkboxes en el
+  // player; `puntaje_parcial:` elige todo_o_nada (default) o proporcional
+  // ((aciertos − marcadas de más) / total correctas, piso 0).
+  KW_MULTIPLE: "KW_MULTIPLE",
+  KW_PUNTAJE_PARCIAL: "KW_PUNTAJE_PARCIAL",
+  // PLAN-E §21 Parte B — análisis por spans: rangos de PALABRAS contiguas
+  // etiquetados contra una clave cerrada (`- { desde: 0, hasta: 2,
+  // etiqueta: "sujeto" }`). `etiquetas_disponibles:` es el set que ve el
+  // alumno (correctas + distractores).
+  KW_SPANS_PEDIDOS: "KW_SPANS_PEDIDOS",
+  KW_ETIQUETAS_DISPONIBLES: "KW_ETIQUETAS_DISPONIBLES",
 
   FOR: "FOR",
   IN: "IN",
@@ -123,6 +135,10 @@ export const BLOCK_KEYWORDS: Record<string, TokenKind> = {
   etiquetas_pedidas: TokenKind.KW_ETIQUETAS_PEDIDAS,
   opciones_explicitas: TokenKind.KW_OPCIONES_EXPLICITAS,
   correccion: TokenKind.KW_CORRECCION,
+  multiple: TokenKind.KW_MULTIPLE,
+  puntaje_parcial: TokenKind.KW_PUNTAJE_PARCIAL,
+  spans_pedidos: TokenKind.KW_SPANS_PEDIDOS,
+  etiquetas_disponibles: TokenKind.KW_ETIQUETAS_DISPONIBLES,
 };
 
 export const ALWAYS_KEYWORDS: Record<string, TokenKind> = {

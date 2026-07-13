@@ -152,7 +152,7 @@ export default function ProfesorCalificaciones() {
           {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
           {!loading && !error && Object.keys(byQuiz).length === 0 && (
             <p className="text-sm text-[var(--c-muted)]">
-              No hay evaluaciones formales completadas en este aula.
+              No hay evaluaciones formales completadas en esta aula.
             </p>
           )}
           {!loading && !error && Object.entries(byQuiz).map(([quizId, lista]) => {

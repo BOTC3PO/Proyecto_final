@@ -77,6 +77,7 @@ import {
   readPista,
   readPuntaje,
   readStaticImage,
+  readSpans,
   readTextField,
   removeVisual,
   resetEnunciadoPlaceholder,
@@ -89,9 +90,11 @@ import {
   writeNumberField,
   writePista,
   writePuntaje,
+  writeSpans,
   writeStaticImage,
   writeTextField,
   type EtiquetaRow,
+  type SpanRow,
 } from "./plantillaFields";
 import { getGeneradorProvidedVars } from "../../vblang/generadorVars";
 // VB-B5 — errores de lint a nivel campo. El panel general sigue
@@ -365,6 +368,36 @@ function FieldControl({
     );
   }
 
+  // PLAN-E §21 Parte B — spans por rango de palabras: cada fila edita
+  // desde/hasta (índices de palabra 0-based inclusive) + etiqueta, con la
+  // vista previa del fragmento sobre `texto_analizar`.
+  if (lf.itemShape === "span") {
+    const rows = readSpans(plantilla);
+    const textoBloque = getBlock(plantilla, "texto_analizar");
+    const texto =
+      textoBloque?.expr.kind === "str" ? textoBloque.expr.value : "";
+    const palabras = texto.split(/\s+/).filter((w) => w.length > 0);
+    return (
+      <AccessibleList<SpanRow>
+        items={rows}
+        onChange={(next) => onChange(writeSpans(plantilla, next))}
+        createItem={() => ({ desde: 0, hasta: 0, etiqueta: "" })}
+        label={field.label}
+        addLabel="Agregar span"
+        itemNoun="span"
+        minItems={lf.minItems ?? 0}
+        renderItem={(item, index, onItem) => (
+          <SpanRowEditor
+            item={item}
+            index={index}
+            onItem={onItem}
+            palabras={palabras}
+          />
+        )}
+      />
+    );
+  }
+
   // identificar_palabras: las respuestas válidas son palabras → autocompletado
   // y validación contra el diccionario. Otros tipos (completar) usan texto plano.
   const esPalabras =
@@ -469,6 +502,79 @@ function EtiquetaRowEditor({
         >
           Sugerencia del diccionario: usar «{sugerida}»
         </button>
+      )}
+    </div>
+  );
+}
+
+/**
+ * PLAN-E §21 Parte B — fila de span: desde/hasta como <select> de palabras del
+ * texto (imposible salirse de rango) y etiqueta libre. Si el texto todavía no
+ * está escrito, caen a inputs numéricos.
+ */
+function SpanRowEditor({
+  item,
+  index,
+  onItem,
+  palabras,
+}: {
+  item: SpanRow;
+  index: number;
+  onItem: (next: SpanRow) => void;
+  palabras: string[];
+}) {
+  const fragmento =
+    palabras.length > 0 && item.desde <= item.hasta && item.hasta < palabras.length
+      ? palabras.slice(item.desde, item.hasta + 1).join(" ")
+      : null;
+  const selectClass =
+    "min-w-0 flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm";
+  const wordSelect = (
+    key: "desde" | "hasta",
+    value: number,
+  ) =>
+    palabras.length > 0 ? (
+      <select
+        aria-label={`${key === "desde" ? "Desde" : "Hasta"} (span ${index + 1})`}
+        value={value}
+        onChange={(e) => onItem({ ...item, [key]: Number(e.target.value) })}
+        className={selectClass}
+      >
+        {palabras.map((w, i) => (
+          <option key={i} value={i}>
+            {i}: {w}
+          </option>
+        ))}
+      </select>
+    ) : (
+      <input
+        type="number"
+        min={0}
+        aria-label={`${key === "desde" ? "Desde" : "Hasta"} (span ${index + 1})`}
+        value={value}
+        onChange={(e) => onItem({ ...item, [key]: Number(e.target.value) })}
+        className={selectClass}
+      />
+    );
+  return (
+    <div className="flex flex-col gap-0.5">
+      <div className="flex gap-1">
+        {wordSelect("desde", item.desde)}
+        {wordSelect("hasta", item.hasta)}
+        <input
+          aria-label={`Etiqueta (span ${index + 1})`}
+          value={item.etiqueta}
+          placeholder="etiqueta"
+          onChange={(e) => onItem({ ...item, etiqueta: e.target.value })}
+          className={selectClass}
+        />
+      </div>
+      {fragmento !== null ? (
+        <span className="text-[10px] text-[var(--c-muted,#64748b)]">«{fragmento}»</span>
+      ) : (
+        <span className="text-[10px] text-[var(--c-danger,#dc2626)]">
+          Rango fuera del texto (desde ≤ hasta, dentro de las palabras).
+        </span>
       )}
     </div>
   );
@@ -2176,7 +2282,7 @@ function EnunciadosListField({
 }) {
   const items = readEnunciados(plantilla);
 
-  const update = (next: string[]) => onChange(writeEnunciados(plantilla, next));
+  const update = (next: typeof items) => onChange(writeEnunciados(plantilla, next));
 
   return (
     <div className="flex flex-col gap-1.5" data-testid="vblang-enunciados-list">
@@ -2207,10 +2313,10 @@ function EnunciadosListField({
                 <input
                   type="text"
                   aria-label={`Variante de enunciado ${idx + 1}`}
-                  value={tmpl}
+                  value={tmpl.text}
                   onChange={(e) => {
                     const next = items.slice();
-                    next[idx] = e.target.value;
+                    next[idx] = { ...next[idx], text: e.target.value };
                     update(next);
                   }}
                   placeholder="Texto de la variante (acepta {variable})"
@@ -2221,6 +2327,27 @@ function EnunciadosListField({
                       : "border-[var(--c-border,#cbd5e1)]")
                   }
                 />
+                {/* PLAN-E §15: tipo propio de la variante (vacío = heredar) */}
+                <select
+                  aria-label={`Tipo de la variante ${idx + 1}`}
+                  title="Tipo de la variante (heredado por defecto)"
+                  value={tmpl.tipo ?? ""}
+                  onChange={(e) => {
+                    const next = items.slice();
+                    const { tipo: _tipo, ...rest } = next[idx];
+                    next[idx] = e.target.value
+                      ? { ...rest, tipo: e.target.value as NonNullable<typeof tmpl.tipo> }
+                      : rest;
+                    update(next);
+                  }}
+                  className="shrink-0 rounded border border-[var(--c-border,#cbd5e1)] px-1 py-1 text-xs"
+                >
+                  <option value="">Heredado</option>
+                  <option value="mc">Opción múltiple</option>
+                  <option value="vf">V/F</option>
+                  <option value="input">Numérica</option>
+                  <option value="completar">Completar</option>
+                </select>
                 <button
                   type="button"
                   aria-label={`Eliminar variante ${idx + 1}`}
@@ -2242,7 +2369,7 @@ function EnunciadosListField({
       <div className="flex gap-1">
         <button
           type="button"
-          onClick={() => update([...items, ""])}
+          onClick={() => update([...items, { text: "" }])}
           className="rounded border border-dashed border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs text-[var(--c-muted,#64748b)] hover:border-[var(--c-primary,#3b82f6)] hover:text-[var(--c-primary,#3b82f6)]"
         >
           + Agregar variante

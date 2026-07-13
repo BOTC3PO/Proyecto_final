@@ -9,18 +9,7 @@
 
 import { memo, useState } from "react";
 import type { Visibility } from "../../domain/vblang/plantilla.types";
-
-const MATERIAS = [
-  "Matemática",
-  "Física",
-  "Química",
-  "Biología",
-  "Economía",
-  "Informática",
-  "Historia",
-  "Geografía",
-  "Lengua",
-] as const;
+import { useMaterias } from "../../domain/materia/useMaterias";
 
 const OTRA = "__otra__";
 
@@ -36,6 +25,11 @@ interface MetadataPanelProps {
   value: PlantillaMetadata;
   onChange: (next: PlantillaMetadata) => void;
   disabled?: boolean;
+  /** PLAN-Z fase 3 — en modo cuestionario, materia/tags/descripción/
+   *  visibilidad se editan UNA vez en la plantilla-config del cuestionario
+   *  (`QuizConfigPanel`) y se heredan silenciosamente a cada pregunta al
+   *  guardar (decisión §3.1). Acá sólo queda el nombre (etiqueta del rail). */
+  compact?: boolean;
 }
 
 const VISIBILITY_LABELS: Record<Visibility, string> = {
@@ -48,13 +42,17 @@ function MetadataPanel({
   value,
   onChange,
   disabled,
+  compact,
 }: MetadataPanelProps) {
   const update = <K extends keyof PlantillaMetadata>(key: K, v: PlantillaMetadata[K]) => {
     onChange({ ...value, [key]: v });
   };
 
   // Materia: select predefinido + opción "Otra…" que revela un input libre.
-  const materiaEnLista = (MATERIAS as readonly string[]).includes(value.materia);
+  // ITEM-30 — fuente única de materias (ver useMaterias.ts); antes esta
+  // lista estaba hardcodeada acá y no reflejaba las materias del admin.
+  const { materias: MATERIAS } = useMaterias();
+  const materiaEnLista = MATERIAS.includes(value.materia);
   const [materiaLibre, setMateriaLibre] = useState(
     value.materia !== "" && !materiaEnLista,
   );
@@ -98,6 +96,8 @@ function MetadataPanel({
         />
       </label>
 
+      {!compact && (
+      <>
       <label className="block">
         <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
           Descripción
@@ -212,6 +212,8 @@ function MetadataPanel({
           ))}
         </select>
       </label>
+      </>
+      )}
       </div>
     </div>
   );

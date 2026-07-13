@@ -53,6 +53,14 @@ export type ModuleQuiz = {
    * lo ignora).
    */
   tienePreguntasNativas?: boolean;
+  /**
+   * PLAN-Y — sólo-cliente: el quiz fue creado en ESTA sesión del editor
+   * (ej. "Usar plantilla del banco") y todavía no existe en el servidor.
+   * El payload de guardado manda `title`/`type`/`visibility` únicamente
+   * para estos (creación); para los ya persistidos la config es de Tiza y
+   * el guardado del módulo no la toca. Se limpia tras guardar con éxito.
+   */
+  localOnly?: boolean;
   generatorId?: string;
   generatorVersion?: number;
   params?: Record<string, unknown>;
@@ -168,6 +176,7 @@ export type ModuleQuizQuestion = {
     | "ordenar"
     | "marcar_mapa"
     | "analisis_sintactico"
+    | "analisis_spans"
     | "identificar_palabras"
     | "abierta"
     | "expresion";
@@ -225,16 +234,28 @@ export type ModuleQuizQuestion = {
   paisIso?: string;
   /** marcar_mapa: bounding box fijo [oeste, sur, este, norte] para lock de vista. */
   encuadre?: [number, number, number, number];
-  /** analisis_sintactico / identificar_palabras: texto a presentar al alumno. */
+  /** analisis_sintactico / analisis_spans / identificar_palabras: texto a presentar al alumno. */
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */
   etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
+  /**
+   * PLAN-E §21 Parte B — analisis_spans: etiquetas visibles para el alumno
+   * (correctas + distractores). La clave viaja SÓLO en `answerKey` como
+   * strings canónicos `"desde-hasta:etiqueta"` (la sanitización la cubre).
+   */
+  etiquetasDisponibles?: string[];
 
   // WO07 — pregunta abierta (sin clave de respuesta).
   /** abierta: `ninguna` no puntúa; `manual` la corrige el profe. */
   correccion?: "ninguna" | "manual";
   /** abierta + `manual`: el ítem queda pendiente de corrección al enviar. */
   manualGrading?: boolean;
+
+  // PLAN-E §21 Parte A — mc de selección múltiple.
+  /** mc múltiple: checkboxes; answerKey (docente) es array con las correctas. */
+  multiple?: boolean;
+  /** mc múltiple: `proporcional` = max(0, aciertos − de más) / correctas. */
+  puntajeParcial?: "todo_o_nada" | "proporcional";
 };
 
 export type ModuleGeneratorRef = {
@@ -502,6 +523,9 @@ export type Module = {
   recommendedCourse?: string;
   visibility: ModuleVisibility;
   visibilityConfig?: ModuleVisibilityConfig | null;
+  // PLAN-X §7 — el profesor dueño oculta el módulo de los listados
+  // generales sin borrarlo; sigue visible para invitados y aulas.
+  descatalogado?: boolean;
   dependencies: ModuleDependency[];
   scoringConfig?: ModuleScoringConfig;
   rewardsConfig?: ModuleRewardsConfig;

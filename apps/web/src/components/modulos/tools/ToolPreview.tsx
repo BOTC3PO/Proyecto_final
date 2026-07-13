@@ -4,7 +4,7 @@ import type { VisualSpec } from "../../../../archive/visualizadores/types";
 import type { VisualSpec as CoreVisualSpec } from "../../../generadoresV2/core/types";
 import { normalizeSpec } from "../../../../archive/visualizadores/normalizeSpec";
 import { validateSpec } from "../../../../archive/visualizadores/specValidation";
-import VisualizerRenderer from "../../../stubs/VisualizerRenderer";
+import VisualizerRenderer from "../VisualizerRenderer";
 
 // ─── Error boundary ───────────────────────────────────────────────────────────
 

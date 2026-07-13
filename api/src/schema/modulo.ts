@@ -44,7 +44,13 @@ export const ModuleResourceSchema = z.discriminatedUnion("type", [
 
 export const ModuleQuizSchema = z.object({
   id: z.string().min(1),
-  title: z.string().min(1),
+  // PLAN-Y — `title`/`type`/`visibility` pasan a opcionales SIN default:
+  // ausente tiene que ser distinguible de "mandado" para que el guardado
+  // del módulo no pise lo que Tiza escribió por PATCH /api/quizzes/:id/meta
+  // (el `.default("publico")` de visibility re-inyectaba el valor aunque el
+  // cliente no lo mandara). Los defaults se aplican sólo al CREAR un quiz
+  // (POST /api/modulos y branch create de applyModuleUpdate).
+  title: z.string().min(1).optional(),
   // FIX-GUARDADO-QUIZTYPE — `"formal"` es el valor canónico que usa el
   // editor (ModuloEditor/useModuloEditor) y, sobre todo, el runtime de
   // calificación del backend: `quiz-attempts.ts` gatea `quiz.type === "formal"`
@@ -53,9 +59,9 @@ export const ModuleQuizSchema = z.object({
   // El enum antes sólo aceptaba `"evaluacion"`, así que todo módulo con un
   // cuestionario de evaluación fallaba con 400 al guardar. Mantenemos
   // `"evaluacion"` por compatibilidad con datos/tests previos.
-  type: z.enum(["practica", "evaluacion", "competencia", "formal"]),
+  type: z.enum(["practica", "evaluacion", "competencia", "formal"]).optional(),
   mode: z.enum(["manual", "generated"]).optional(),
-  visibility: ModuleQuizVisibilitySchema.default("publico"),
+  visibility: ModuleQuizVisibilitySchema.optional(),
   schoolId: z.string().min(1).optional(),
   schoolName: z.string().min(1).optional(),
   competitionRules: z.string().min(1).optional(),
@@ -252,6 +258,8 @@ export const ModuleSchema = z.object({
   recommendedCourse: z.string().min(1).optional(),
   visibility: ModuleVisibilitySchema,
   status: ModuleStatusSchema.default("ACTIVE"),
+  // PLAN-X §7 — oculto de los listados generales salvo dueño/invitado/aula.
+  descatalogado: z.boolean().optional(),
   visibilityConfig: ModuleVisibilityConfigSchema.nullable().optional(),
   dependencies: z.array(ModuleDependencySchema),
   scoringConfig: ModuleScoringConfigSchema.optional(),
@@ -323,7 +331,23 @@ export const QuizMetaPatchSchema = z
     politicaDificultad: z.enum(["fija", "manual", "adaptativa_simple"]),
     dificultadInicial: z.enum(["basico", "intermedio", "avanzado"]),
     dificultadVentana: z.number().int().positive(),
-    politicaExpiracion: z.enum(["auto", "gracia60"])
+    politicaExpiracion: z.enum(["auto", "gracia60"]),
+    // PLAN-Z fase 3/4 — "un solo set de metadatos" a nivel cuestionario.
+    // `materia` acá es la declarada por el docente en la plantilla-config
+    // (persiste en `settings.materiaDeclarada`, NO en `settings.materia` —
+    // esa clave la administra `mergeMateriaIntoSettings`/PLAN-F §22 con
+    // semántica propia: "la del módulo manda al adoptar". Mezclarlas
+    // rompería esa garantía, decidida por Javier en PLAN-Z §3.6).
+    materia: z.string().max(100),
+    nivel: z.string().max(100),
+    tags: z.array(z.string().min(1).max(50)),
+    descripcion: z.string().max(1000),
+    // PLAN-Y fase 3 — instrucciones para el alumno. Campo NUEVO acá: el
+    // textarea de ModuloEditor nunca persistió (no estaba en
+    // `ModuleQuizSchema`, zod lo strippeaba). Tiza es su único editor.
+    // Se persiste en `settings.instructions`; el runtime lo lee en
+    // `buildQuizFromCollection` y `QuizAttempt.tsx` ya lo renderiza.
+    instructions: z.string().max(2000)
   })
   .partial()
   .strict();

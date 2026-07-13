@@ -11,37 +11,34 @@
  * visible global; menú de usuario accesible (Escape, teclado) vía Menu.
  */
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { useAuth } from '../auth/use-auth';
 import { usePrimaryRole } from '../auth/use-roles';
 import { useTheme } from '../theme/ThemeContext';
 import { useSchoolBranding } from '../hooks/useSchoolBranding';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from '../nav/navConfig';
-import { Avatar, Menu, NavItem, type MenuTriggerProps } from '../ui';
+import { Avatar, Menu, Modal, NavItem, type MenuTriggerProps } from '../ui';
+import { useI18n } from '../i18n/I18nContext';
 
+// `label` (de sección) y los `items` (ids de NAV_BY_ROLE) son claves de
+// traducción — ver namespaces `sidebar.` / `nav.` en i18n/es.json.
+// NOTA: 'Asistencia'/'Calificaciones' no existen como id en NAV_BY_ROLE
+// hoy (no están en TEACHER); se dejan tal cual (sectionItems los filtra
+// a 0 resultados silenciosamente, comportamiento preexistente).
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
-    { label: 'Académico', items: ['Panel', 'Aulas', 'Materiales', 'Módulos', 'Plantillas', 'Datasets', 'Evaluaciones'] },
-    { label: 'Gestión',   items: ['Asistencia', 'Calificaciones', 'Reportes', 'Encuestas'] },
-    { label: 'Escuela',   items: ['Calendario', 'Mensajes', 'Gobernanza'] },
+    { label: 'academico', items: ['panel', 'aulas', 'materiales', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'evaluaciones'] },
+    { label: 'gestion',   items: ['asistencia', 'calificaciones', 'reportes', 'encuestas'] },
+    { label: 'escuela',   items: ['calendario', 'mensajes', 'gobernanza'] },
   ],
   DIRECTIVO: [
-    { label: 'Escuela',        items: ['Panel escuela', 'Aulas', 'Miembros', 'Módulos', 'Plantillas', 'Datasets', 'Personalización'] },
-    { label: 'Administración', items: ['Cobros', 'Comisiones', 'Reportes', 'Calendario', 'Gobernanza', 'Mensajes'] },
+    { label: 'escuela',        items: ['panelEscuela', 'aulas', 'miembros', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'personalizacion'] },
+    { label: 'administracion', items: ['cobros', 'comisiones', 'reportes', 'calendario', 'gobernanza', 'mensajes'] },
   ],
   ADMIN: [
-    { label: 'Sistema',  items: ['Panel', 'Usuarios', 'Materias', 'Módulos', 'Plantillas', 'Datasets'] },
-    { label: 'Control',  items: ['Moderación', 'Moderar plantillas', 'Reportes', 'Comisiones', 'Mensajes'] },
+    { label: 'sistema',  items: ['panel', 'usuarios', 'materias', 'modulos', 'cuestionarios', 'plantillas', 'datasets'] },
+    { label: 'control',  items: ['moderacion', 'moderarPlantillas', 'reportes', 'comisiones', 'mensajes'] },
   ],
-};
-
-const THEME_SWATCHES: Record<string, string> = {
-  'clasico-vb': '#2563eb',
-  'clasico':    '#1e40af',
-  'minimal':    '#1a1a18',
-  'aurora':     '#7c3aed',
-  'bosque':     '#15803d',
-  'admin':      '#ffffff',
 };
 
 const ROLE_LABEL: Record<string, string> = {
@@ -160,9 +157,13 @@ function SidebarMenuTrigger({ menu, initials, name, roleLabel }: {
   );
 }
 
-function Sidebar() {
+function Sidebar({ variant = 'desktop', onNavigate }: {
+  variant?: 'desktop' | 'drawer';
+  onNavigate?: () => void;
+}) {
   const { user, logout, switchCuenta } = useAuth();
   const { theme, setTheme, availableThemes } = useTheme();
+  const { t } = useI18n();
   const navigate = useNavigate();
   const schoolBranding = useSchoolBranding();
 
@@ -190,12 +191,16 @@ function Sidebar() {
 
   return (
     <aside
-      className="flex flex-col flex-shrink-0 w-56 h-screen overflow-y-auto"
+      className={
+        variant === 'desktop'
+          ? 'hidden md:flex flex-col flex-shrink-0 w-56 h-screen overflow-y-auto'
+          : 'flex flex-col w-56 h-full overflow-y-auto'
+      }
       style={{
-        position: 'sticky',
-        top: 0,
-        borderRightWidth: '1px',
-        borderRightStyle: 'solid',
+        position: variant === 'desktop' ? 'sticky' : undefined,
+        top: variant === 'desktop' ? 0 : undefined,
+        borderRightWidth: variant === 'desktop' ? '1px' : undefined,
+        borderRightStyle: variant === 'desktop' ? 'solid' : undefined,
         borderRightColor: 'var(--c-border)',
         background: 'var(--c-surface)',
         willChange: 'transform',
@@ -216,7 +221,7 @@ function Sidebar() {
           {schoolBranding?.logoUrl ? (
             <img
               src={schoolBranding.logoUrl}
-              alt="Logo de la escuela"
+              alt={t('common.logoEscuela')}
               className="flex-shrink-0"
               style={{ width: 'var(--space-6)', height: 'var(--space-6)', objectFit: 'contain', borderRadius: 'var(--r-md)' }}
             />
@@ -240,7 +245,12 @@ function Sidebar() {
       </div>
 
       {/* Nav */}
-      <nav aria-label="Navegación lateral" className="flex-1 overflow-y-auto" style={{ paddingBlock: 'var(--space-3)' }}>
+      <nav
+        aria-label={t('aria.navLateral')}
+        className="flex-1 overflow-y-auto"
+        style={{ paddingBlock: 'var(--space-3)' }}
+        onClick={onNavigate}
+      >
         {sections.map((section) => {
           const sectionItems = navItems.filter(item =>
             section.items.includes(item.label)
@@ -261,7 +271,7 @@ function Sidebar() {
                     color: 'var(--c-muted)',
                   }}
                 >
-                  {section.label}
+                  {t(`sidebar.${section.label}`)}
                 </p>
               )}
               {sectionItems.map(item => (
@@ -271,7 +281,7 @@ function Sidebar() {
                   end={item.exact ?? true}
                   orientation="sidebar"
                 >
-                  {item.label}
+                  {t(`nav.${item.label}`)}
                 </NavItem>
               ))}
             </div>
@@ -301,27 +311,28 @@ function Sidebar() {
               color: 'var(--c-muted)',
             }}
           >
-            Tema
+            {t('common.tema')}
           </p>
           <div className="flex flex-wrap" style={{ gap: 'var(--space-1)' }}>
-            {availableThemes.map(t => (
+            {availableThemes.map(opt => (
               <button
-                key={t.id}
+                key={opt.id}
                 type="button"
-                onClick={() => setTheme(t.id)}
-                title={t.name}
-                aria-label={`Tema ${t.name}`}
-                aria-pressed={theme === t.id}
+                data-theme={opt.id}
+                onClick={() => setTheme(opt.id)}
+                title={opt.name}
+                aria-label={`${t('common.tema')} ${opt.name}`}
+                aria-pressed={theme === opt.id}
                 className="flex-shrink-0"
                 style={{
-                  width: 'var(--space-5)',
-                  height: 'var(--space-5)',
+                  width: 'var(--space-4)',
+                  height: 'var(--space-4)',
                   borderRadius: '50%',
-                  borderWidth: '2px',
+                  borderWidth: '1px',
                   borderStyle: 'solid',
-                  background: THEME_SWATCHES[t.id] ?? 'var(--c-primary)',
-                  borderColor: theme === t.id ? 'var(--c-text)' : 'transparent',
-                  outline: theme === t.id ? '2px solid var(--c-border)' : 'none',
+                  background: 'var(--c-primary)',
+                  borderColor: theme === opt.id ? 'var(--c-text)' : 'transparent',
+                  outline: theme === opt.id ? '2px solid var(--c-border)' : 'none',
                   outlineOffset: '1px',
                   cursor: 'pointer',
                 }}
@@ -374,23 +385,23 @@ function Sidebar() {
                 if (item.kind === 'logout')
                   return (
                     <MenuRow key="logout" danger onClick={() => { close(); logout(); }}>
-                      Cerrar sesión
+                      {t('dropdown.cerrarSesion')}
                     </MenuRow>
                   );
-                if (item.label === 'Ver como alumno') {
+                if (item.id === 'verComoAlumno') {
                   if (!tieneEspejo) return null;
                   return (
                     <MenuRow
                       key="entrar-como-alumno"
                       onClick={() => { close(); void handleEntrarComoAlumno(); }}
                     >
-                      Entrar como alumno
+                      {t('dropdown.entrarComoAlumno')}
                     </MenuRow>
                   );
                 }
                 return (
                   <MenuRowItemLink key={item.to} to={item.to} onClick={close}>
-                    {item.label}
+                    {t(`dropdown.${item.label}`)}
                   </MenuRowItemLink>
                 );
               })}
@@ -434,6 +445,82 @@ function MenuRowItemLink({ to, children, onClick }: {
   );
 }
 
-export default function StaffSidebar() {
-  return <Sidebar />;
+// PLAN-I §1 — drawer off-canvas < md, sidebar sticky sin cambios >= md.
+// `open`/`onClose` son opcionales: si el layout que lo monta ya tiene su
+// propia barra superior (StaffLayout.tsx) los controla ahí y pasa las
+// props; si no (RoleLayout.tsx, sin topbar) el componente se autogestiona
+// y renderiza su propio botón hamburguesa flotante.
+export type StaffSidebarProps = {
+  open?: boolean;
+  onClose?: () => void;
+};
+
+export default function StaffSidebar({ open: openProp, onClose: onCloseProp }: StaffSidebarProps = {}) {
+  const { t } = useI18n();
+  const controlled = openProp !== undefined;
+  const [internalOpen, setInternalOpen] = useState(false);
+  const open = controlled ? Boolean(openProp) : internalOpen;
+  const close = () => (controlled ? onCloseProp?.() : setInternalOpen(false));
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) close();
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [controlled, onCloseProp]);
+
+  return (
+    <>
+      {!controlled && (
+        <button
+          type="button"
+          onClick={() => setInternalOpen(true)}
+          aria-label={t('aria.abrirNav')}
+          aria-expanded={open}
+          aria-controls="staff-sidebar-drawer"
+          className="md:hidden fixed inline-flex"
+          style={{
+            top: 'var(--space-3)',
+            left: 'var(--space-3)',
+            zIndex: 30,
+            padding: 'var(--space-2)',
+            borderRadius: 'var(--r-md)',
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: 'var(--c-border)',
+            background: 'var(--c-surface)',
+            color: 'var(--c-text)',
+            cursor: 'pointer',
+          }}
+        >
+          <svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      )}
+      <Sidebar variant="desktop" />
+      <Modal
+        open={open}
+        onClose={close}
+        ariaLabel={t('aria.navegacion')}
+        id="staff-sidebar-drawer"
+        closeOnBackdrop
+        style={{
+          position: 'fixed',
+          inset: '0 auto 0 0',
+          width: '14rem',
+          maxWidth: '85vw',
+          height: '100vh',
+          maxHeight: '100vh',
+          margin: 0,
+          padding: 0,
+          borderRadius: 0,
+        }}
+      >
+        <Sidebar variant="drawer" onNavigate={close} />
+      </Modal>
+    </>
+  );
 }

@@ -177,6 +177,13 @@ test("(f) GET /api/quizzes/:quizId/meta devuelve id + title + tipo/visibilidad/c
     title: "Quiz 1",
     type: "practica",
     visibility: "publico",
+    // PLAN-Z fase 3/4 — "un solo set de metadatos" a nivel cuestionario.
+    materia: "",
+    nivel: "",
+    tags: [],
+    descripcion: "",
+    // PLAN-Y fase 3 — instrucciones para el alumno (Tiza-only).
+    instructions: "",
     config: {},
   });
 });
@@ -220,6 +227,12 @@ test("(h) PATCH meta persiste title + type + config sin pisar otras claves de se
     title: "Quiz renombrado",
     type: "formal",
     visibility: "escuela",
+    materia: "",
+    nivel: "",
+    tags: [],
+    descripcion: "",
+    // PLAN-Y fase 3 — instrucciones para el alumno (Tiza-only).
+    instructions: "",
     config: { maxIntentos: 2, politicaNota: "mejor", timerSegundos: 600 },
   });
 

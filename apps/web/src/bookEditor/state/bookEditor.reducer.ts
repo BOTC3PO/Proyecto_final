@@ -73,6 +73,16 @@ export type EditorAction =
   | { type: "DELETE_BLOCK"; pageId: string; blockId: string }
   | { type: "DUPLICATE_PAGE"; pageId: string }
   | { type: "DUPLICATE_BLOCK"; pageId: string; blockId: string }
+  // PLAN-W §3 fase 2 — escritura fluida: Enter al final (o en medio) de
+  // un párrafo lo parte en dos, sin pasar por AddBlockBar. `beforeText`
+  // queda en el bloque actual; `afterText` arma un párrafo nuevo justo
+  // después, que hereda el estilo del run (mismo criterio que Word: el
+  // párrafo nuevo sigue el formato del anterior).
+  | { type: "SPLIT_PARAGRAPH"; pageId: string; blockId: string; beforeText: string; afterText: string }
+  // PLAN-W §3 fase 1 — galería de estilos (Normal / Título 1-4): convierte
+  // el bloque entre párrafo y título preservando texto, alineación y estilo
+  // de texto. Sobre un heading, pedir otro nivel sólo cambia `level`.
+  | { type: "CONVERT_BLOCK"; pageId: string; blockId: string; to: "paragraph" | { heading: 1 | 2 | 3 | 4 | 5 | 6 } }
   | { type: "RESTORE_BOOK"; book: Book }
   | {
       type: "UPDATE_METADATA";
@@ -483,6 +493,91 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
         selectedBlockId: newBlockId || state.selectedBlockId,
         dirty: true,
       };
+    }
+
+    case "SPLIT_PARAGRAPH": {
+      if (!state.book) return state;
+
+      const { pageId, blockId, beforeText, afterText } = action;
+      let newBlockId = "";
+
+      const updatedBook = updatePage(state.book, pageId, (p) => {
+        const idx = p.content.findIndex((b) => b.id === blockId);
+        if (idx < 0) return p;
+
+        const current = p.content[idx];
+        if (current.type !== "paragraph") return p;
+
+        const run0 = current.runs?.[0] ?? { text: "" };
+        const updatedCurrent: Block = {
+          ...current,
+          runs: [{ ...run0, text: beforeText }],
+        };
+        const newBlock: Block = {
+          type: "paragraph",
+          id: makeBlockId(pageId, "paragraph", idx + 2),
+          runs: [{ ...run0, text: afterText }],
+          blockStyle: current.blockStyle,
+        };
+        newBlockId = newBlock.id;
+
+        const content = [...p.content];
+        content[idx] = updatedCurrent;
+        content.splice(idx + 1, 0, newBlock);
+        return { ...p, content };
+      });
+
+      return {
+        ...state,
+        book: updatedBook,
+        selectedBlockId: newBlockId || state.selectedBlockId,
+        dirty: true,
+      };
+    }
+
+    case "CONVERT_BLOCK": {
+      if (!state.book) return state;
+
+      const { pageId, blockId, to } = action;
+
+      const updatedBook = updatePage(state.book, pageId, (p) => {
+        const idx = p.content.findIndex((b) => b.id === blockId);
+        if (idx < 0) return p;
+
+        const current = p.content[idx];
+        let converted: Block;
+
+        if (to === "paragraph") {
+          if (current.type !== "heading") return p;
+          converted = {
+            type: "paragraph",
+            id: current.id,
+            runs: [{ text: current.text, style: current.textStyle ? { ...current.textStyle } : undefined }],
+            blockStyle: current.blockStyle,
+          };
+        } else if (current.type === "heading") {
+          converted = { ...current, level: to.heading };
+        } else if (current.type === "paragraph") {
+          const text = current.text ?? (current.runs ?? []).map((r) => r.text).join("");
+          const run0Style = current.runs?.[0]?.style;
+          converted = {
+            type: "heading",
+            id: current.id,
+            level: to.heading,
+            text,
+            blockStyle: current.blockStyle,
+            textStyle: run0Style ? { ...run0Style } : undefined,
+          };
+        } else {
+          return p;
+        }
+
+        const content = [...p.content];
+        content[idx] = converted;
+        return { ...p, content };
+      });
+
+      return { ...state, book: updatedBook, dirty: true };
     }
 
     case "RESTORE_BOOK":

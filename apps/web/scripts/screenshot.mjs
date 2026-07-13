@@ -168,10 +168,11 @@ async function login(page, rol) {
 
 async function capturar(page, ruta, viewportName, outDir) {
   try {
-    await page.goto(`${BASE_URL}${ruta.path}`, {
-      waitUntil: "networkidle",
-      timeout: 15000,
-    });
+    // networkidle puede no llegar nunca (mapas con tiles, polling):
+    // si expira, capturamos igual con lo que haya renderizado.
+    await page
+      .goto(`${BASE_URL}${ruta.path}`, { waitUntil: "networkidle", timeout: 15000 })
+      .catch(() => {});
     await sleep(800);
 
     const dir = path.join(outDir, viewportName);

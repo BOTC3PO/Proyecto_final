@@ -134,3 +134,14 @@ export function canActAsLearner(
 ): boolean {
   return hasRole(user, "USER");
 }
+
+/** ¿El user es PARENT puro (todos sus roles son PARENT, sin ningún
+ *  otro)? Espejo exacto del guard server-side de
+ *  `POST /api/quiz-attempts` (PLAN-J §3c #6): un PARENT+USER o
+ *  PARENT+TEACHER retiene su otra capacidad y NO cuenta como puro. */
+export function isPureParent(
+  user: RoleUser | string | null | undefined,
+): boolean {
+  const roles = resolveRoles(user);
+  return roles.length > 0 && roles.every((r) => r === "PARENT");
+}

@@ -7,12 +7,13 @@
  *
  * Paralela a Navbar (D6): mismo patrón de átomos, mismos tokens.
  */
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { useHasRole } from '../auth/use-roles';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
-import { useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { NavItem, Avatar, Menu, type MenuTriggerProps } from '../ui';
+import { useI18n } from '../i18n/I18nContext';
 
 // ── Filas del menú de usuario (token-puro, igual que Navbar) ─────────────────
 
@@ -101,6 +102,7 @@ function UserMenuTrigger({
   initials: string;
 }) {
   const [hovered, setHovered] = useState(false);
+  const { t } = useI18n();
   const expanded = menu['aria-expanded'];
   return (
     <button
@@ -108,7 +110,7 @@ function UserMenuTrigger({
       onClick={menu.onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      aria-label="Menú de usuario"
+      aria-label={t('aria.menuUsuario')}
       aria-haspopup={menu['aria-haspopup']}
       aria-expanded={expanded}
       aria-controls={menu['aria-controls']}
@@ -183,7 +185,25 @@ const VOLVER_STYLE: CSSProperties = {
 
 export default function AlumnoNavbar() {
   const { user, logout, switchCuenta } = useAuth();
+  const { t } = useI18n();
   const navigate = useNavigate();
+  const location = useLocation();
+  // PLAN-I §2 — mismo patrón que nav/Navbar.tsx (público): < md, hamburguesa
+  // + panel colapsable; el menú de usuario/avatar queda fuera, siempre visible.
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsMobileMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const items = NAV_BY_ROLE['USER'];
   // MULTIROL-02: el dropdown se elige por el rol principal del user
   // (USER por default; un TEACHER+USER en vista de alumno sigue viendo
@@ -250,7 +270,7 @@ export default function AlumnoNavbar() {
 
   return (
     <nav
-      aria-label="Navegación del alumno"
+      aria-label={t('aria.navAlumno')}
       style={{
         position: 'sticky',
         top: 0,
@@ -280,7 +300,7 @@ export default function AlumnoNavbar() {
             color: 'var(--c-primary)',
           }}
         >
-          <span>Cuenta de alumno</span>
+          <span>{t('alumnoNavbar.cuentaAlumno')}</span>
           <span aria-hidden="true">·</span>
           <button
             type="button"
@@ -297,29 +317,54 @@ export default function AlumnoNavbar() {
               padding: 0,
             }}
           >
-            Volver al panel principal
+            {t('alumnoNavbar.volverPanelPrincipal')}
           </button>
         </div>
       )}
 
       <div className="flex items-center justify-between max-w-6xl gap-4 px-4 py-3 mx-auto">
-        <Link
-          to="/alumno"
-          style={{
-            fontWeight: 'var(--fw-bold)',
-            fontSize: 'var(--text-base)',
-            color: 'var(--c-text)',
-            textDecoration: 'none',
-          }}
-        >
-          Virtual Book
-        </Link>
+        <div className="flex items-center" style={{ gap: 'var(--space-2)' }}>
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((v) => !v)}
+            aria-label={isMobileMenuOpen ? t('aria.cerrarMenuNav') : t('aria.abrirMenuNav')}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="alumno-mobile-menu"
+            className="md:hidden inline-flex"
+            style={{
+              padding: 'var(--space-1)',
+              color: 'var(--c-text)',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            <svg width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {!isMobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              )}
+            </svg>
+          </button>
+
+          <Link
+            to="/alumno"
+            style={{
+              fontWeight: 'var(--fw-bold)',
+              fontSize: 'var(--text-base)',
+              color: 'var(--c-text)',
+              textDecoration: 'none',
+            }}
+          >
+            Virtual Book
+          </Link>
+        </div>
 
         <ul
           role="list"
+          className="hidden md:flex"
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
             alignItems: 'center',
             gap: 'var(--space-1)',
             listStyle: 'none',
@@ -330,7 +375,7 @@ export default function AlumnoNavbar() {
           {items.map((it) => (
             <li key={it.to}>
               <NavItem to={it.to} end={it.exact ?? true} orientation="horizontal">
-                {it.label}
+                {t(`nav.${it.label}`)}
               </NavItem>
             </li>
           ))}
@@ -345,11 +390,11 @@ export default function AlumnoNavbar() {
         >
           {esEspejo ? (
             <button type="button" onClick={handleVolver} style={VOLVER_STYLE}>
-              ← Volver a mi panel
+              {t('common.volverAMiPanel')}
             </button>
           ) : roleHome ? (
             <Link to={roleHome} style={VOLVER_STYLE}>
-              ← Volver a mi panel
+              {t('common.volverAMiPanel')}
             </Link>
           ) : null}
 
@@ -359,7 +404,7 @@ export default function AlumnoNavbar() {
             trigger={(p) => (
               <UserMenuTrigger
                 menu={p}
-                name={user?.name ?? 'Usuario'}
+                name={user?.name ?? t('common.usuarioFallback')}
                 initials={initials}
               />
             )}
@@ -377,7 +422,7 @@ export default function AlumnoNavbar() {
                   }}
                 >
                   <p style={{ margin: 0, fontSize: 'var(--text-sm)', fontWeight: 'var(--fw-semibold)', color: 'var(--c-text)' }}>
-                    {user?.name ?? 'Usuario'}
+                    {user?.name ?? t('common.usuarioFallback')}
                   </p>
                 </div>
                 <div style={{ paddingBlock: 'var(--space-1)' }}>
@@ -399,27 +444,27 @@ export default function AlumnoNavbar() {
                       return (
                         <MenuRowButton key="logout" danger onClick={() => { close(); logout(); }}>
                           <LogoutIcon />
-                          Cerrar sesión
+                          {t('dropdown.cerrarSesion')}
                         </MenuRowButton>
                       );
                     }
-                    if (item.label === 'Ver como alumno') {
+                    if (item.id === 'verComoAlumno') {
                       if (tieneEspejo) {
                         return (
                           <MenuRowButton key="ver-como-alumno" onClick={() => { close(); void handleEntrarComoAlumno(); }}>
-                            {item.label}
+                            {t(`dropdown.${item.label}`)}
                           </MenuRowButton>
                         );
                       }
                       return (
                         <MenuRowLink key="ver-como-alumno" to="/perfil" onClick={close}>
-                          Crear cuenta alumno
+                          {t('dropdown.crearCuentaAlumno')}
                         </MenuRowLink>
                       );
                     }
                     return (
                       <MenuRowLink key={item.to} to={item.to} onClick={close}>
-                        {item.label}
+                        {t(`dropdown.${item.label}`)}
                       </MenuRowLink>
                     );
                   })}
@@ -429,6 +474,31 @@ export default function AlumnoNavbar() {
           </Menu>
         </div>
       </div>
+
+      {isMobileMenuOpen && (
+        <div
+          id="alumno-mobile-menu"
+          className="md:hidden"
+          style={{
+            borderTopWidth: '1px',
+            borderTopStyle: 'solid',
+            borderTopColor: 'var(--c-border)',
+          }}
+        >
+          <ul
+            role="list"
+            style={{ listStyle: 'none', margin: 0, padding: 'var(--space-2) var(--space-4)' }}
+          >
+            {items.map((it) => (
+              <li key={it.to} style={{ paddingBlock: 'var(--space-1)' }}>
+                <NavItem to={it.to} end={it.exact ?? true} orientation="sidebar">
+                  {t(`nav.${it.label}`)}
+                </NavItem>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

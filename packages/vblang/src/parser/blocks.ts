@@ -4,6 +4,11 @@ import type {
   Bloque,
   CampoKV,
   CorreccionBloque,
+  MultipleBloque,
+  PuntajeParcialBloque,
+  PuntajeParcialModo,
+  SpansPedidosBloque,
+  EtiquetasDisponiblesBloque,
   CorreccionModo,
   DatasetBloque,
   EnunciadoBloque,
@@ -74,6 +79,7 @@ const VALID_TIPOS: TipoPregunta[] = [
   "ordenar",
   "marcar_mapa",
   "analisis_sintactico",
+  "analisis_spans",
   "identificar_palabras",
   "abierta",
   // WO-11 — respuesta simbólica (expresión algebraica). Se corrige por
@@ -154,6 +160,13 @@ function parseDashedExprList(
   return { items, endTok: dedent };
 }
 
+/**
+ * PLAN-E §15 — tipos permitidos para una variante de `enunciados:` con tipo
+ * propio (`- mc "..."`). Sólo los básicos: comparten la semántica de
+ * `respuesta:` y se sirven/corrigen por el tipo de la variante sorteada.
+ */
+const VARIANTE_TIPOS: TipoPregunta[] = ["mc", "vf", "input", "completar"];
+
 function parseDashedStringList(
   c: TokenCursor,
   ctx: string,
@@ -173,6 +186,21 @@ function parseDashedStringList(
       );
     }
     c.consume();
+    // PLAN-E §15: `- mc "texto"` — tipo propio de la variante, sólo en
+    // `enunciados:`. Un IDENT antes del string se interpreta como tipo.
+    let tipoVariante: TipoPregunta | undefined;
+    if (ctx === "enunciados" && c.peek().kind === TokenKind.IDENT) {
+      const tipoTok = c.peek();
+      if (!VARIANTE_TIPOS.includes(tipoTok.value as TipoPregunta)) {
+        throw new ParseError(
+          `Tipo de variante desconocido \`${tipoTok.value}\`. Tipos válidos: ${VARIANTE_TIPOS.join(", ")}`,
+          tipoTok.line,
+          tipoTok.col,
+        );
+      }
+      c.consume();
+      tipoVariante = tipoTok.value as TipoPregunta;
+    }
     const strTok = c.peek();
     if (
       strTok.kind !== TokenKind.STRING &&
@@ -186,7 +214,11 @@ function parseDashedStringList(
     }
     c.consume();
     const partes = parseEnunciadoString(strTok.value, tokLoc(strTok));
-    items.push({ partes, loc: tokLoc(strTok) });
+    items.push({
+      partes,
+      ...(tipoVariante !== undefined ? { tipo: tipoVariante } : {}),
+      loc: tokLoc(strTok),
+    });
     skipNewlines(c);
   }
   const dedent = c.consumeKind(TokenKind.DEDENT, "DEDENT");
@@ -547,6 +579,55 @@ export function parseCorreccionBloque(c: TokenCursor): CorreccionBloque {
   };
 }
 
+// PLAN-E §21 Parte A — `multiple: true|false` (sólo tiene efecto con mc).
+export function parseMultipleBloque(c: TokenCursor): MultipleBloque {
+  const kwTok = c.consumeKind(TokenKind.KW_MULTIPLE, "'multiple'");
+  consumeColon(c);
+  const tok = c.peek();
+  if (tok.kind !== TokenKind.IDENT || (tok.value !== "true" && tok.value !== "false")) {
+    throw new ParseError(
+      "`multiple:` debe ser `true` o `false`",
+      tok.line,
+      tok.col,
+    );
+  }
+  c.consume();
+  return {
+    kind: "multiple",
+    valor: tok.value === "true",
+    loc: spanLoc(tokLoc(kwTok), tokLoc(tok)),
+  };
+}
+
+const VALID_PUNTAJE_PARCIAL = new Set(["todo_o_nada", "proporcional"]);
+
+// PLAN-E §21 Parte A — `puntaje_parcial: todo_o_nada|proporcional`.
+export function parsePuntajeParcialBloque(c: TokenCursor): PuntajeParcialBloque {
+  const kwTok = c.consumeKind(TokenKind.KW_PUNTAJE_PARCIAL, "'puntaje_parcial'");
+  consumeColon(c);
+  const tok = c.peek();
+  if (tok.kind !== TokenKind.IDENT && tok.kind !== TokenKind.STRING) {
+    throw new ParseError(
+      "`puntaje_parcial:` debe ser `todo_o_nada` o `proporcional`",
+      tok.line,
+      tok.col,
+    );
+  }
+  c.consume();
+  if (!VALID_PUNTAJE_PARCIAL.has(tok.value)) {
+    throw new ParseError(
+      `Modo de puntaje desconocido \`${tok.value}\`. Modos válidos: todo_o_nada, proporcional.`,
+      tok.line,
+      tok.col,
+    );
+  }
+  return {
+    kind: "puntaje_parcial",
+    modo: tok.value as PuntajeParcialModo,
+    loc: spanLoc(tokLoc(kwTok), tokLoc(tok)),
+  };
+}
+
 export function parseGeneradorBloque(c: TokenCursor): GeneradorBloque {
   const kwTok = c.consumeKind(TokenKind.KW_GENERADOR, "'generador'");
   consumeColon(c);
@@ -776,7 +857,11 @@ function isBlockKeyword(k: TokenKind): boolean {
     k === TokenKind.KW_TEXTO_ANALIZAR ||
     k === TokenKind.KW_ETIQUETAS_PEDIDAS ||
     k === TokenKind.KW_OPCIONES_EXPLICITAS ||
-    k === TokenKind.KW_CORRECCION
+    k === TokenKind.KW_CORRECCION ||
+    k === TokenKind.KW_MULTIPLE ||
+    k === TokenKind.KW_PUNTAJE_PARCIAL ||
+    k === TokenKind.KW_SPANS_PEDIDOS ||
+    k === TokenKind.KW_ETIQUETAS_DISPONIBLES
   );
 }
 
@@ -928,6 +1013,71 @@ export function parseEtiquetasPedidasBloque(
   };
 }
 
+// PLAN-E §21 Parte B — misma gramática de ítems que `etiquetas_pedidas:`
+// (objetos literales), con campos desde/hasta/etiqueta validados en runtime.
+export function parseSpansPedidosBloque(c: TokenCursor): SpansPedidosBloque {
+  const kwTok = c.consumeKind(TokenKind.KW_SPANS_PEDIDOS, "'spans_pedidos'");
+  consumeColon(c);
+  skipNewlines(c);
+  c.consumeKind(TokenKind.INDENT, "un bloque indentado");
+  const spans: EtiquetaPedida[] = [];
+  while (true) {
+    skipNewlines(c);
+    if (c.peek().kind === TokenKind.DEDENT) break;
+    if (c.peek().kind !== TokenKind.DASH) {
+      const t = c.peek();
+      throw new ParseError(
+        `Se esperaba '-' al inicio de cada span en \`spans_pedidos:\``,
+        t.line,
+        t.col,
+      );
+    }
+    c.consume();
+    const expr = parseExpression(c);
+    if (expr.kind !== "object") {
+      throw new ParseError(
+        `Cada span debe ser un objeto literal { desde: 0, hasta: 2, etiqueta: "sujeto" }`,
+        expr.loc.line,
+        expr.loc.col,
+      );
+    }
+    const campos = expr.entries.map((e) => ({ key: e.key, value: e.value }));
+    spans.push({ id: "", campos });
+    skipNewlines(c);
+  }
+  const dedent = c.consumeKind(TokenKind.DEDENT, "DEDENT");
+  if (spans.length === 0) {
+    throw new ParseError(
+      `\`spans_pedidos:\` requiere al menos un span`,
+      kwTok.line,
+      kwTok.col,
+    );
+  }
+  return {
+    kind: "spans_pedidos",
+    spans,
+    loc: spanLoc(tokLoc(kwTok), tokLoc(dedent)),
+  };
+}
+
+// PLAN-E §21 Parte B — dash-list de expresiones (strings), igual que
+// `opciones_explicitas:` en su forma multi-línea.
+export function parseEtiquetasDisponiblesBloque(
+  c: TokenCursor,
+): EtiquetasDisponiblesBloque {
+  const kwTok = c.consumeKind(
+    TokenKind.KW_ETIQUETAS_DISPONIBLES,
+    "'etiquetas_disponibles'",
+  );
+  consumeColon(c);
+  const { items, endTok } = parseDashedExprList(c, "etiquetas_disponibles");
+  return {
+    kind: "etiquetas_disponibles",
+    items,
+    loc: spanLoc(tokLoc(kwTok), tokLoc(endTok)),
+  };
+}
+
 export function parseOpcionesExplicitasBloque(
   c: TokenCursor,
 ): OpcionesExplicitasBloque {
@@ -1013,6 +1163,14 @@ export function parseBloque(c: TokenCursor): Bloque {
       return parseOpcionesExplicitasBloque(c);
     case TokenKind.KW_CORRECCION:
       return parseCorreccionBloque(c);
+    case TokenKind.KW_MULTIPLE:
+      return parseMultipleBloque(c);
+    case TokenKind.KW_PUNTAJE_PARCIAL:
+      return parsePuntajeParcialBloque(c);
+    case TokenKind.KW_SPANS_PEDIDOS:
+      return parseSpansPedidosBloque(c);
+    case TokenKind.KW_ETIQUETAS_DISPONIBLES:
+      return parseEtiquetasDisponiblesBloque(c);
     default:
       // Fall through to caller for typo handling
       throw new ParseError(

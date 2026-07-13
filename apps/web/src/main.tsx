@@ -2,6 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
+// PLAN-R — hidrata la sesión ANTES de montar si venimos del WebView de
+// la app móvil (no-op en la web normal). Debe correr antes que
+// AuthProvider lea localStorage por primera vez.
+import { hydrateSessionFromWebViewParam } from "./lib/webviewSessionBridge";
+hydrateSessionFromWebViewParam();
 // Fuentes del rediseño (self-hosted vía @fontsource — andan offline en la demo).
 import "@fontsource-variable/manrope/index.css";
 import "@fontsource-variable/jetbrains-mono/index.css";
