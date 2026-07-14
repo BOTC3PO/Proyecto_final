@@ -16,8 +16,8 @@
  *     para módulos legacy o sin materia persistida.
  *
  * `resolveCategoria` es la inversa: prioriza `category` y cae a `subject`.
- * Existe el mismo patrón duplicado (ModulosList, ReproductorModulos) y
- * queda unificado acá.
+ * Existe el mismo patrón duplicado (ModulosList; también lo tenía
+ * ReproductorModulos, hoy en archive/web/pages/) y queda unificado acá.
  */
 
 const FALLBACK_MATERIA = "Sin materia";

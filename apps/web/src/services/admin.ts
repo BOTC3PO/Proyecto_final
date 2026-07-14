@@ -15,13 +15,6 @@ export type AdminUsuario = {
 
 export type EscuelaResumen = { id: string; name: string };
 
-export type AdminCurso = {
-  id: string;
-  titulo: string;
-  estado: string;
-  estudiantes: number;
-};
-
 export type AdminMateria = {
   id: string;
   nombre: string;
@@ -145,10 +138,6 @@ export async function fetchAdminUsuarios(params?: { q?: string; role?: string; l
   if (params?.limit) qs.set("limit", String(params.limit));
   const query = qs.toString();
   return apiGet<AdminUsuario[]>(`/api/admin/usuarios${query ? `?${query}` : ""}`);
-}
-
-export async function fetchAdminCursos(): Promise<AdminCurso[]> {
-  return apiGet<AdminCurso[]>("/api/admin/cursos");
 }
 
 export async function fetchAdminPanelData(): Promise<AdminPanelData> {

@@ -18,7 +18,7 @@ import type { Ejercicio, GeneratorDescriptor, Dificultad } from "../../generador
 import { getDescriptoresBasic } from "../../generadoresV2/basic/banco";
 
 // F6-07: synthetic module para resolver `basic/<bank_id>` en runtime.
-// Ver `EditorCuestionarios.tsx` para el rationale.
+// Ver `archive/web/pages/EditorCuestionarios.tsx` para el rationale.
 async function loadBasicGeneratorModule(): Promise<unknown> {
   await import("../../generadoresV2/bancos-init");
   return {

@@ -128,8 +128,8 @@ export default function DatasetEditor() {
     [dataset],
   );
 
-  // Sin id → no podemos editar (este caso lo cubre la ruta /datasets/nuevo
-  // que en v1 lleva al modal de creación desde el índice). Mostramos hint.
+  // Sin id → no podemos editar; la creación se hace desde el modal del
+  // índice de datasets, que navega acá con el id ya creado. Mostramos hint.
   useEffect(() => {
     if (!id) {
       setStatus("error");

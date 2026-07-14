@@ -16,24 +16,8 @@ import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import RecuperarContrasena from "./pages/RecuperarContrasena";
 
-// Herramientas educativas (stubs pequeños, mismo módulo)
-import {
-  HerramientasEducativas,
-  HerramientasMapaEditor,
-  HerramientasEstadistica,
-  HerramientasCienciasSociales,
-  HerramientasFilosofia,
-  HerramientasArte,
-  HerramientasBiologia,
-  HerramientasMusica,
-  HerramientasPolitica,
-  HerramientasCivica,
-  HerramientasAmbiental,
-  HerramientasInformatica,
-  HerramientasNaturales,
-  HerramientasCocina,
-  HerramientasVidaPractica,
-} from "./stubs/herramientas";
+// Herramientas educativas — sólo sobrevive el editor de mapas; el hub y los
+// stubs en blanco están en `archive/web/stubs/herramientas.tsx`.
 
 // ── Lazy imports ───────────────────────────────────────────────────────────────
 
@@ -47,6 +31,7 @@ const MisClases           = lazyWithRetry(() => import("./pages/MisClases"));
 const BookEditorPage      = lazyWithRetry(() => import("./bookEditor/BookEditorPage"));
 const BlockEditorPage     = lazyWithRetry(() => import("./blocks/v2/BlockEditorPage"));
 const PresentacionEditorPage = lazyWithRetry(() => import("./pages/herramientas/PresentacionEditorPage"));
+const MapaEditorPage      = lazyWithRetry(() => import("./pages/herramientas/MapaEditorPage"));
 const LineaTiempoEditorPage = lazyWithRetry(() => import("./pages/herramientas/LineaTiempoEditorPage"));
 const ProfesorAulas       = lazyWithRetry(() => import("./pages/ProfesorAulas"));
 const ProfesorConfiguracion = lazyWithRetry(() => import("./pages/ProfesorConfiguracion"));
@@ -56,7 +41,6 @@ const ProfesorMateriales    = lazyWithRetry(() => import("./pages/ProfesorMateri
 const ModulosList          = lazyWithRetry(() => import("./pages/modulos/ModulosList"));
 const ModuloDetail         = lazyWithRetry(() => import("./pages/modulos/ModuloDetail"));
 const ModuloEditor         = lazyWithRetry(() => import("./pages/modulos/ModuloEditor"));
-const ReproductorModulos   = lazyWithRetry(() => import("./pages/modulos/ReproductorModulos"));
 const ProfesorEncuestas     = lazyWithRetry(() => import("./pages/ProfesorEncuestas"));
 const HijosProgreso         = lazyWithRetry(() => import("./pages/HijosProgreso"));
 const ProfesorReportes      = lazyWithRetry(() => import("./pages/ProfesorReportes"));
@@ -66,22 +50,20 @@ const ProfesorCalendario    = lazyWithRetry(() => import("./pages/ProfesorCalend
 
 // Ya eran lazy — mantener igual
 // PLAN-CUESTIONARIOS — los editores clásicos V1/V2 (EditorCuestionarios,
-// EditorCuestionariosV2) quedaron DESCONECTADOS del router: el sistema de
-// cuestionarios es Tiza (/cuestionarios + /plantillas/nueva?quizId=…).
-const LaboratorioWeb3    = lazyWithRetry(() => import("./pages/LaboratorioWeb3"));
+// EditorCuestionariosV2) quedaron DESCONECTADOS del router y hoy viven en
+// `archive/web/pages/`: el sistema de cuestionarios es Tiza
+// (/cuestionarios + /plantillas/nueva?quizId=…).
 const CuestionariosIndex   = lazyWithRetry(() => import("./pages/CuestionariosIndex"));
 const PlantillasIndex      = lazyWithRetry(() => import("./pages/PlantillasIndex"));
 const PlantillasBiblioteca = lazyWithRetry(() => import("./pages/PlantillasBiblioteca"));
 const PlantillaEditor      = lazyWithRetry(() => import("./pages/PlantillaEditorTiza"));
 const VblangDatasetsIndex  = lazyWithRetry(() => import("./pages/VblangDatasetsIndex"));
 const DatasetEditor        = lazyWithRetry(() => import("./pages/DatasetEditor"));
-const AdminGeneradores    = lazyWithRetry(() => import("./pages/AdminGeneradores"));
 
 // Resto de páginas → lazy
 const HijosAgregar             = lazyWithRetry(() => import("./pages/HijosAgregar"));
 const Admin                    = lazyWithRetry(() => import("./pages/Admin"));
 const AdminUsuarios             = lazyWithRetry(() => import("./pages/AdminUsuarios"));
-const AdminCursos               = lazyWithRetry(() => import("./pages/AdminCursos"));
 const AdminMaterias             = lazyWithRetry(() => import("./pages/AdminMaterias"));
 const AdminModeracion           = lazyWithRetry(() => import("./pages/AdminModeracion"));
 const PlantillasModeracion      = lazyWithRetry(() => import("./pages/admin/PlantillasModeracion"));
@@ -114,7 +96,6 @@ const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfes
 const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
 const Terminos                  = lazyWithRetry(() => import("./pages/Terminos"));
 const Privacidad                = lazyWithRetry(() => import("./pages/Privacidad"));
-const GuestOnboarding           = lazyWithRetry(() => import("./pages/GuestOnboarding"));
 const Gobernanza                = lazyWithRetry(() => import("./pages/Gobernanza"));
 const GobernanzaPropuesta       = lazyWithRetry(() => import("./pages/GobernanzaPropuesta"));
 const GobernanzaNuevaPropuesta  = lazyWithRetry(() => import("./pages/GobernanzaNuevaPropuesta"));
@@ -167,8 +148,6 @@ export const router = createBrowserRouter([
           { path: "terminos",         element: withSuspense(<Terminos />) },
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
-          { path: "laboratorio-web3", element: withSuspense(<LaboratorioWeb3 />) },
-          { path: "onboarding-guest",    element: withSuspense(<GuestOnboarding />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
           { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
 
@@ -176,22 +155,9 @@ export const router = createBrowserRouter([
           { path: "demo/tiza", element: withSuspense(<TizaDemoPage />) },
           { path: "demo/tiza-editor", element: <Navigate to="/demo/tiza" replace /> },
 
-          // Herramientas Educativas (public)
-          { path: "herramientas",                    element: <HerramientasEducativas /> },
-          { path: "herramientas/estadistica",        element: <HerramientasEstadistica /> },
-          { path: "herramientas/ciencias-sociales",  element: <HerramientasCienciasSociales /> },
-          { path: "herramientas/mapa-editor",        element: <HerramientasMapaEditor /> },
-          { path: "herramientas/filosofia",          element: <HerramientasFilosofia /> },
-          { path: "herramientas/arte",               element: <HerramientasArte /> },
-          { path: "herramientas/biologia",           element: <HerramientasBiologia /> },
-          { path: "herramientas/musica",             element: <HerramientasMusica /> },
-          { path: "herramientas/politica",           element: <HerramientasPolitica /> },
-          { path: "herramientas/civica",             element: <HerramientasCivica /> },
-          { path: "herramientas/ambiental",          element: <HerramientasAmbiental /> },
-          { path: "herramientas/informatica",        element: <HerramientasInformatica /> },
-          { path: "herramientas/naturales",          element: <HerramientasNaturales /> },
-          { path: "herramientas/cocina",             element: <HerramientasCocina /> },
-          { path: "herramientas/vida-practica",      element: <HerramientasVidaPractica /> },
+          // Herramientas Educativas (public) — sólo el editor de mapas; el
+          // resto de rutas /herramientas/* se archivó (stubs en blanco).
+          { path: "herramientas/mapa-editor",        element: withSuspense(<MapaEditorPage />) },
 
           { path: "404", element: <NotFound /> },
         ],
@@ -392,14 +358,6 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'admin/cursos',
-            element: (
-              <ProtectedRoute allow={['ADMIN']}>
-                {withSuspense(<AdminCursos />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
             path: 'admin/materias',
             element: (
               <ProtectedRoute allow={['ADMIN']}>
@@ -428,14 +386,6 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['ADMIN']}>
                 {withSuspense(<AdminReportesGlobal />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'admin/generadores',
-            element: (
-              <ProtectedRoute allow={['ADMIN']}>
-                {withSuspense(<AdminGeneradores />)}
               </ProtectedRoute>
             ),
           },
@@ -627,14 +577,6 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'reproductor',
-            element: (
-              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'DIRECTIVO']}>
-                {withSuspense(<ReproductorModulos />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
             path: 'quiz/attempt/:attemptId',
             element: (
               <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN']}>
@@ -695,14 +637,6 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
                 {withSuspense(<VblangDatasetsIndex mode="biblioteca" />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'datasets/nuevo',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
-                {withSuspense(<DatasetEditor />)}
               </ProtectedRoute>
             ),
           },

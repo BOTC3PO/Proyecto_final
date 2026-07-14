@@ -17,8 +17,8 @@
  *
  * **Cableado**:
  *   - `catalog.ts` lo importa → `getStaticCatalog()` ve los bancos.
- *   - `EditorCuestionarios.tsx` y `EditorCuestionariosV2.tsx` y
- *     `ModuloDetail.tsx` lo importan → `loadGeneratorModule("basic")`
+ *   - `ModuloDetail.tsx` lo importa (los editores V1/V2 que también lo
+ *     hacían viven en `archive/web/pages/`) → `loadGeneratorModule("basic")`
  *     resuelve al synthetic module que envuelve a `getDescriptoresBasic`.
  *
  * **Por qué un init separado y no side-effect en cada `index.ts` de
