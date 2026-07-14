@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchAdminMaterias,
   createAdminMateria,
@@ -10,6 +11,7 @@ type EditForm = { nombre: string; descripcion: string; nivel: string };
 const emptyForm = (): EditForm => ({ nombre: "", descripcion: "", nivel: "" });
 
 export default function AdminMaterias() {
+  const { t } = useI18n();
   const [materias, setMaterias] = useState<AdminMateria[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -87,8 +89,8 @@ export default function AdminMaterias() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <h1 className="text-xl font-semibold text-[var(--c-text)]">Gestión de materias</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-0.5">Administrá las materias disponibles en la plataforma.</p>
+            <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("adminMaterias.gestionDeMaterias")}</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("adminMaterias.administraLasMateriasDisponiblesEn")}</p>
           </div>
           <button
             onClick={() => { setShowCreate(!showCreate); setCreateForm(emptyForm()); setCreateError(null); }}
@@ -100,41 +102,41 @@ export default function AdminMaterias() {
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-4 py-3 border-b border-[var(--c-border)]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Materias registradas</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("adminMaterias.materiasRegistradas")}</p>
           </div>
           <div className="p-4">
 
           {showCreate && (
             <form onSubmit={handleCreate} className="mb-4 space-y-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Nueva materia</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("adminMaterias.nuevaMateria")}</p>
               <div className="grid gap-3 sm:grid-cols-3">
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs text-[var(--c-muted)]">Nombre *</span>
+                  <span className="text-xs text-[var(--c-muted)]">{t("adminMaterias.nombre")}</span>
                   <input
                     type="text"
                     value={createForm.nombre}
                     onChange={(e) => setCreateForm({ ...createForm, nombre: e.target.value })}
-                    placeholder="Ej: Matemáticas"
+                    placeholder={t("adminMaterias.ejMatematicas")}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs text-[var(--c-muted)]">Nivel</span>
+                  <span className="text-xs text-[var(--c-muted)]">{t("adminMaterias.nivel")}</span>
                   <input
                     type="text"
                     value={createForm.nivel}
                     onChange={(e) => setCreateForm({ ...createForm, nivel: e.target.value })}
-                    placeholder="Ej: Primaria"
+                    placeholder={t("adminMaterias.ejPrimaria")}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs text-[var(--c-muted)]">Descripción</span>
+                  <span className="text-xs text-[var(--c-muted)]">{t("comun.descripcion")}</span>
                   <input
                     type="text"
                     value={createForm.descripcion}
                     onChange={(e) => setCreateForm({ ...createForm, descripcion: e.target.value })}
-                    placeholder="Descripción breve"
+                    placeholder={t("adminMaterias.descripcionBreve")}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
@@ -159,7 +161,7 @@ export default function AdminMaterias() {
             {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
 
             {!loading && !error && materias.length === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">No hay materias registradas.</p>
+              <p className="text-sm text-[var(--c-muted)]">{t("adminMaterias.noHayMateriasRegistradas")}</p>
             )}
 
             {!loading && !error && materias.map((materia) => (
@@ -168,7 +170,7 @@ export default function AdminMaterias() {
                   <form onSubmit={handleSave} className="space-y-3">
                     <div className="grid gap-3 sm:grid-cols-3">
                       <label className="flex flex-col gap-1">
-                        <span className="text-xs text-[var(--c-muted)]">Nombre *</span>
+                        <span className="text-xs text-[var(--c-muted)]">{t("adminMaterias.nombre")}</span>
                         <input
                           type="text"
                           value={editForm.nombre}
@@ -177,7 +179,7 @@ export default function AdminMaterias() {
                         />
                       </label>
                       <label className="flex flex-col gap-1">
-                        <span className="text-xs text-[var(--c-muted)]">Nivel</span>
+                        <span className="text-xs text-[var(--c-muted)]">{t("adminMaterias.nivel")}</span>
                         <input
                           type="text"
                           value={editForm.nivel}
@@ -186,7 +188,7 @@ export default function AdminMaterias() {
                         />
                       </label>
                       <label className="flex flex-col gap-1">
-                        <span className="text-xs text-[var(--c-muted)]">Descripción</span>
+                        <span className="text-xs text-[var(--c-muted)]">{t("comun.descripcion")}</span>
                         <input
                           type="text"
                           value={editForm.descripcion}
@@ -208,9 +210,7 @@ export default function AdminMaterias() {
                         type="button"
                         onClick={() => setEditingId(null)}
                         className="rounded-lg border border-[var(--c-border)] px-4 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                      >
-                        Cancelar
-                      </button>
+                      >{t("comun.cancelar")}</button>
                     </div>
                   </form>
                 ) : (
@@ -234,9 +234,7 @@ export default function AdminMaterias() {
                       <button
                         onClick={() => startEdit(materia)}
                         className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                      >
-                        Editar
-                      </button>
+                      >{t("comun.editar")}</button>
                     </div>
                   </div>
                 )}

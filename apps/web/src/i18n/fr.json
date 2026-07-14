@@ -1296,7 +1296,6 @@
 
   "quizAttempt.array": "| Tableau",
   "quizAttempt.cargandoIntento": "Chargement de la tentative...",
-  "quizAttempt.voidAnswerslocalRecord": "void, answersLocal: Record",
   "quizAttempt.herramientaInteractiva": "Outil interactif",
   "quizAttempt.preguntaInformativaNoAfectaTu": "Question informative : n'affecte pas votre note.",
   "quizAttempt.noSePudoCargarEl": "Impossible de charger la tentative.",

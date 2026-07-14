@@ -109,6 +109,7 @@ import {
 import VariablesEditor from "./VariablesEditor";
 import type { LintIssue } from "@vb/vblang";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface Props {
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
@@ -1362,6 +1363,7 @@ export default function PlantillaEditorSchema({
   lintIssues = [],
   uploadImage = uploadPng,
 }: Props) {
+  const { t } = useI18n();
   const baseGenerador = isGeneradorBase(plantilla);
   const tipo: TipoPregunta = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
@@ -1434,17 +1436,15 @@ export default function PlantillaEditorSchema({
           <LangSelector value={lang} onChange={setLang} />
         </div>
 
-        <Section title="Base de la pregunta">
-        <div role="radiogroup" aria-label="Base de la pregunta" className="flex gap-3">
+        <Section title={t("plantillaEditorSchema.baseDeLaPregunta")}>
+        <div role="radiogroup" aria-label={t("plantillaEditorSchema.baseDeLaPregunta")} className="flex gap-3">
           <label className="flex items-center gap-1 text-xs">
             <input
               type="radio"
               name="base"
               checked={!baseGenerador}
               onChange={() => onChange(applyTipo(plantilla, tipo === undefined ? "input" : tipo))}
-            />
-            Tipo de pregunta
-          </label>
+            />{t("plantillaEditorSchema.tipoDePregunta")}</label>
           <label className="flex items-center gap-1 text-xs">
             <input
               type="radio"
@@ -1453,14 +1453,12 @@ export default function PlantillaEditorSchema({
               onChange={() =>
                 applyGeneradorWithCheck(plantilla, generadorId || defaultGeneradorId)
               }
-            />
-            Generador asistido
-          </label>
+            />{t("plantillaEditorSchema.generadorAsistido")}</label>
         </div>
       </Section>
 
       {baseGenerador ? (
-        <Section title="Generador asistido">
+        <Section title={t("plantillaEditorSchema.generadorAsistido")}>
           <GeneradorPicker
             value={generadorId}
             onChange={(id) => applyGeneradorWithCheck(plantilla, id)}
@@ -1474,18 +1472,12 @@ export default function PlantillaEditorSchema({
             onChange={onChange}
             variables={getGeneradorProvidedVars(generadorId)}
           />
-          <ReadOnlyPlaceholder>
-            Con un generador activo, los datos y la respuesta los provee el
-            generador. Escribí la consigna acá e insertá las variables tocándolas
-            en la lista de arriba.
-          </ReadOnlyPlaceholder>
+          <ReadOnlyPlaceholder>{t("plantillaEditorSchema.conUnGeneradorActivoLos")}</ReadOnlyPlaceholder>
         </Section>
       ) : (
-        <Section title="Tipo de pregunta">
+        <Section title={t("plantillaEditorSchema.tipoDePregunta")}>
           <div className="flex flex-col gap-0.5">
-            <label htmlFor="tipo-select" className="text-xs font-medium">
-              Tipo
-            </label>
+            <label htmlFor="tipo-select" className="text-xs font-medium">{t("comun.tipo")}</label>
             <select
               id="tipo-select"
               data-testid="vblang-form-tipo"
@@ -1547,7 +1539,7 @@ export default function PlantillaEditorSchema({
 
       {!baseGenerador && (
         <Section
-          title="Variables"
+          title={t("plantillaEditorTiza.variables")}
           // VB-B5 — el bloque variables no está en `schema.fields`
           // (es un Section aparte), así que lo marcamos a mano para
           // que `lintIssueToFieldId("var-duplicada" | "range-invalid")`
@@ -1570,14 +1562,14 @@ export default function PlantillaEditorSchema({
         </Section>
       )}
 
-      <Section title="Puntaje y pista">
+      <Section title={t("plantillaEditorSchema.puntajeYPista")}>
         <PuntajePistaField plantilla={plantilla} onChange={onChange} />
       </Section>
 
       {/* WO-1: pistas escalonadas (bloque `pistas:` plural). Conviven con la
           "Pista" única de arriba (metadata.pista): aquélla se muestra completa,
           éstas se piden de a una. No hay migración entre ambas. */}
-      <Section title="Pistas escalonadas">
+      <Section title={t("plantillaEditorSchema.pistasEscalonadas")}>
         <PistasField plantilla={plantilla} onChange={onChange} />
         <span className="text-[10px] text-[var(--c-muted,#64748b)]">
           Secuencia que el alumno pide de a una. Distinta de la «Pista» única de
@@ -1586,19 +1578,19 @@ export default function PlantillaEditorSchema({
       </Section>
 
       {/* WO-1: explicación mostrada tras responder (interpola variables). */}
-      <Section title="Explicación">
+      <Section title={t("plantillaEditorTiza.explicacion")}>
         <ExplicacionField plantilla={plantilla} onChange={onChange} />
       </Section>
 
       {/* WO-1: restricciones (fórmulas que deben cumplirse, p. ej. a != 0).
           El generador las provee/ignora, por eso sólo en base "tipo". */}
       {!baseGenerador && (
-        <Section title="Restricciones">
+        <Section title={t("plantillaEditorSchema.restricciones")}>
           <RestriccionesField plantilla={plantilla} onChange={onChange} />
         </Section>
       )}
 
-      <Section title="Visual (opcional)">
+      <Section title={t("plantillaEditorSchema.visualOpcional")}>
         <VisualField
           plantilla={plantilla}
           onChange={onChange}
@@ -1607,16 +1599,14 @@ export default function PlantillaEditorSchema({
       </Section>
 
       {extras.length > 0 && (
-        <Section title="Otros bloques (preservados)">
-          <ReadOnlyPlaceholder>
-            Estos bloques no se editan en el formulario y se preservan tal cual en
-            el código: <code>{extras.join(", ")}</code>. Editalos desde el modo
+        <Section title={t("plantillaEditorSchema.otrosBloquesPreservados")}>
+          <ReadOnlyPlaceholder>{t("plantillaEditorSchema.estosBloquesNoSeEditan")}<code>{extras.join(", ")}</code>. Editalos desde el modo
             Código.
           </ReadOnlyPlaceholder>
         </Section>
       )}
 
-      <Section title="Resumen">
+      <Section title={t("menuProfesor.resumen")}>
         <ResumenPanel
           plantilla={plantilla}
           baseGenerador={baseGenerador}

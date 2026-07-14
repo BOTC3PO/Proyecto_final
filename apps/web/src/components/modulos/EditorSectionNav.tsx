@@ -19,6 +19,7 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 
+import { useI18n } from "../../i18n/I18nContext";
 export interface EditorSectionStatus {
   /** "ok" cuando la sección está completa, "incomplete" cuando le falta algo. */
   status: "ok" | "incomplete";
@@ -45,6 +46,7 @@ export default function EditorSectionNav({
   sections,
   className = "",
 }: EditorSectionNavProps) {
+  const { t } = useI18n();
   const [activeId, setActiveId] = useState<string | null>(
     sections[0]?.id ?? null,
   );
@@ -110,7 +112,7 @@ export default function EditorSectionNav({
 
   return (
     <nav
-      aria-label="Secciones del editor"
+      aria-label={t("editorSectionNav.seccionesDelEditor")}
       data-testid="editor-section-nav"
       className={className}
     >

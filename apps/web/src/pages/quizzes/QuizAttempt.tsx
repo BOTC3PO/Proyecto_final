@@ -60,6 +60,7 @@ import {
   Divider,
 } from "../../ui";
 import Progress from "../../ui/Progress";
+import { useI18n } from "../../i18n/I18nContext";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;
@@ -195,6 +196,7 @@ const normalizeAnswers = (
 };
 
 export default function QuizAttempt() {
+  const { t } = useI18n();
   const { attemptId } = useParams();
   const navigate = useNavigate();
   const [attempt, setAttempt] = useState<QuizAttemptResponse | null>(null);
@@ -814,9 +816,7 @@ export default function QuizAttempt() {
           gap: "var(--space-3)",
         }}>
           <Spinner size="lg" label="Cargando intento" />
-          <p style={{ fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
-            Cargando intento...
-          </p>
+          <p style={{ fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("intentoDetalle.cargandoIntento")}</p>
         </div>
       </main>
     );
@@ -840,8 +840,7 @@ export default function QuizAttempt() {
     openPasosLocal: Record<string, boolean>,
     setOpenPasosLocal: Dispatch<SetStateAction<Record<string, boolean>>>,
     handleAnswerChangeLocal: (questionId: string, value: AttemptAnswerValue) => void,
-    handleToggleCheckboxLocal: (questionId: string, option: string, checked: boolean) => void,
-    answersLocal: Record<string, AttemptAnswerValue>,
+    handleToggleCheckboxLocal: (questionId: string, option: string, checked: boolean) =>void, answersLocal: Record<string, AttemptAnswerValue>,
   ) {
     const selected = answersLocal[question.id] ?? "";
     const hasOptions = Array.isArray(question.options) && question.options.length > 0;
@@ -859,7 +858,7 @@ export default function QuizAttempt() {
               borderBottom: "1px solid var(--c-border)",
               background: "var(--c-info-soft)",
             }}>
-              <Badge variant="info" size="sm">Herramienta interactiva</Badge>
+              <Badge variant="info" size="sm">{t("quizAttempt.herramientaInteractiva")}</Badge>
             </div>
             {/* PLAN-Q §2.2 — visuales con ancho fijo (ej. circuit 360px, vector-diagram
                 300px) scrollean DENTRO de la tarjeta en viewport angosto, nunca empujan
@@ -965,7 +964,7 @@ export default function QuizAttempt() {
               rows={4}
               value={typeof selected === "string" ? selected : ""}
               onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
-              placeholder="Escribí tu respuesta"
+              placeholder={t("quizAttempt.escribiTuRespuesta")}
               disabled={inputsDisabledLocal}
               aria-label={`Respuesta para pregunta ${indexGlobal}`}
             />
@@ -980,9 +979,7 @@ export default function QuizAttempt() {
                 margin: 0,
                 fontSize: "var(--text-xs)",
                 color: "var(--c-muted)",
-              }}>
-                Pregunta informativa: no afecta tu nota.
-              </p>
+              }}>{t("quizAttempt.preguntaInformativaNoAfectaTu")}</p>
             )}
           </div>
         ) : questionType === "input" ? (
@@ -990,7 +987,7 @@ export default function QuizAttempt() {
             rows={3}
             value={typeof selected === "string" ? selected : ""}
             onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
-            placeholder="Escribí tu respuesta"
+            placeholder={t("quizAttempt.escribiTuRespuesta")}
             disabled={inputsDisabledLocal}
             aria-label={`Respuesta para pregunta ${indexGlobal}`}
           />
@@ -1055,7 +1052,7 @@ export default function QuizAttempt() {
             autoCapitalize={esRespuestaNumerica(question.answerKey) ? "off" : "sentences"}
             value={typeof selected === "string" ? selected : ""}
             onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
-            placeholder="Escribí tu respuesta"
+            placeholder={t("quizAttempt.escribiTuRespuesta")}
             disabled={inputsDisabledLocal}
             aria-label={`Respuesta para pregunta ${indexGlobal}`}
           />
@@ -1112,17 +1109,13 @@ export default function QuizAttempt() {
       }}>
         <Card variant="elevated" padding="lg" style={{ maxWidth: "28rem" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-            <Alert variant="danger" title="Error">
-              No se pudo cargar el intento.
-            </Alert>
+            <Alert variant="danger" title={t("intentoDetalle.error")}>{t("intentoDetalle.noSePudoCargarEl")}</Alert>
             {errorMessage && (
               <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
                 {errorMessage}
               </p>
             )}
-            <Button variant="ghost" size="sm" onClick={() => navigate(-1)}>
-              Volver
-            </Button>
+            <Button variant="ghost" size="sm" onClick={() => navigate(-1)}>{t("comun.volver")}</Button>
           </div>
         </Card>
       </main>
@@ -1138,9 +1131,7 @@ export default function QuizAttempt() {
         justifyContent: "center",
         background: "var(--c-bg)",
       }}>
-        <p style={{ fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
-          No se encontró el intento solicitado.
-        </p>
+        <p style={{ fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("quizAttempt.noSeEncontroElIntento")}</p>
       </main>
     );
   }
@@ -1176,11 +1167,7 @@ export default function QuizAttempt() {
               fontSize: "var(--text-sm)",
               lineHeight: "var(--lh-relaxed)",
               color: "var(--c-muted)",
-            }}>
-              Esta evaluación requiere pantalla completa. Al hacer click en
-              "Empezar evaluación" tu navegador entrará en modo pantalla
-              completa.
-            </p>
+            }}>{t("quizAttempt.estaEvaluacionRequierePantallaCompleta")}</p>
             <ul style={{
               margin: 0,
               paddingLeft: "var(--space-4)",
@@ -1191,19 +1178,16 @@ export default function QuizAttempt() {
               flexDirection: "column",
               gap: "var(--space-1)",
             }}>
-              <li>El tiempo corre desde el momento en que empezás.</li>
-              <li>Si cambiás de pestaña, tus respuestas se guardan automáticamente.</li>
-              <li>Al agotarse el tiempo, el intento se envía solo.</li>
+              <li>{t("quizAttempt.elTiempoCorreDesdeEl")}</li>
+              <li>{t("quizAttempt.siCambiasDePestanaTus")}</li>
+              <li>{t("quizAttempt.alAgotarseElTiempoEl")}</li>
             </ul>
             {fullscreenWarning && (
               <Alert
                 variant="warning"
                 role="status"
                 data-testid="fullscreen-fallback"
-              >
-                No se pudo entrar a pantalla completa. La evaluación continúa
-                igual, pero te recomendamos no cambiar de pestaña.
-              </Alert>
+              >{t("quizAttempt.noSePudoEntrarA")}</Alert>
             )}
             <div style={{ display: "flex", gap: "var(--space-3)" }}>
               <Button
@@ -1216,9 +1200,7 @@ export default function QuizAttempt() {
                   setHasStarted(true);
                 }}
                 style={{ flex: 1 }}
-              >
-                Empezar evaluación
-              </Button>
+              >{t("quizAttempt.empezarEvaluacion")}</Button>
               <Link
                 to="/modulos"
                 style={{
@@ -1235,9 +1217,7 @@ export default function QuizAttempt() {
                   textDecoration: "none",
                   background: "transparent",
                 }}
-              >
-                Cancelar
-              </Link>
+              >{t("comun.cancelar")}</Link>
             </div>
           </div>
         </Card>
@@ -1275,7 +1255,7 @@ export default function QuizAttempt() {
                 textDecoration: "none",
                 fontWeight: "var(--fw-medium)",
               }}
-              aria-label="Volver a módulos"
+              aria-label={t("quizAttempt.volverAModulos")}
             >
               &larr; Volver a módulos
             </Link>
@@ -1296,19 +1276,14 @@ export default function QuizAttempt() {
               Intento: {resolvedAttemptId}
             </p>
             {isFinishedAttempt && (
-              <Alert variant="info" role="status" data-testid="review-mode-banner">
-                Estás revisando un intento ya enviado. Las respuestas no se pueden modificar.
-              </Alert>
+              <Alert variant="info" role="status" data-testid="review-mode-banner">{t("quizAttempt.estasRevisandoUnIntentoYa")}</Alert>
             )}
             {fullscreenWarning && (
               <Alert
                 variant="warning"
                 role="status"
                 data-testid="fullscreen-fallback-banner"
-              >
-                Pantalla completa no disponible. Tus respuestas se guardan
-                automáticamente al cambiar de pestaña.
-              </Alert>
+              >{t("quizAttempt.pantallaCompletaNoDisponibleTus")}</Alert>
             )}
             <Cronometro
               remaining={countdown.remaining}
@@ -1321,14 +1296,10 @@ export default function QuizAttempt() {
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
               {/* Quiz type banners */}
               {attempt?.quizType === "formal" && (
-                <Alert variant="warning" role="status">
-                  Evaluación formal — cuenta para tu nota
-                </Alert>
+                <Alert variant="warning" role="status">{t("quizAttempt.evaluacionFormalCuentaParaTu")}</Alert>
               )}
               {attempt?.quizType === "practica" && (
-                <Alert variant="info" role="status">
-                  Práctica — no afecta tu nota
-                </Alert>
+                <Alert variant="info" role="status">{t("quizAttempt.practicaNoAfectaTuNota")}</Alert>
               )}
               {attempt?.instructions && (
                 <Alert variant="info" role="none">
@@ -1344,7 +1315,7 @@ export default function QuizAttempt() {
                   variant={answeredCount === questions.length ? "success" : "primary"}
                   size="sm"
                   label={`${answeredCount} de ${questions.length} respondidas`}
-                  aria-label="Progreso del cuestionario"
+                  aria-label={t("quizAttempt.progresoDelCuestionario")}
                 />
               )}
 
@@ -1384,19 +1355,15 @@ export default function QuizAttempt() {
                     fontSize: "var(--text-sm)",
                     fontWeight: "var(--fw-semibold)",
                     color: "var(--c-text)",
-                  }}>
-                    Elegí qué ejercicio querés responder
-                  </legend>
+                  }}>{t("quizAttempt.elegiQueEjercicioQueresResponder")}</legend>
                   <p style={{
                     margin: 0,
                     marginBottom: "var(--space-2)",
                     fontSize: "var(--text-xs)",
                     color: "var(--c-muted)",
-                  }}>
-                    Solo el ejercicio que elijas cuenta para tu nota.
-                  </p>
+                  }}>{t("quizAttempt.soloElEjercicioQueElijas")}</p>
                   <RadioGroup
-                    aria-label="Elección de ejercicio"
+                    aria-label={t("quizAttempt.eleccionDeEjercicio")}
                     value={chosenQuestionId}
                     onValueChange={setChosenQuestionId}
                     name="elige-alumno-choice"
@@ -1522,7 +1489,7 @@ export default function QuizAttempt() {
                   {/* Navigation */}
                   {modoPresentacion !== "lista" && (
                     <nav
-                      aria-label="Navegación entre preguntas"
+                      aria-label={t("quizAttempt.navegacionEntrePreguntas")}
                       data-testid="quiz-nav"
                       style={{
                         display: "flex",
@@ -1543,15 +1510,14 @@ export default function QuizAttempt() {
                             : pageIndex === 0
                         }
                         data-testid="quiz-nav-prev"
-                        aria-label="Pregunta anterior"
+                        aria-label={t("quizAttempt.preguntaAnterior")}
                       >
-                        <ChevronLeft size={16} aria-hidden="true" /> Anterior
-                      </Button>
+                        <ChevronLeft size={16} aria-hidden="true" />{t("quizAttempt.anterior")}</Button>
                       {modoPresentacion === "una_por_pantalla" ? (
                         <div
                           data-testid="quiz-nav-dots"
                           role="tablist"
-                          aria-label="Indicador de pregunta"
+                          aria-label={t("quizAttempt.indicadorDePregunta")}
                           style={{
                             display: "flex",
                             alignItems: "center",
@@ -1585,7 +1551,7 @@ export default function QuizAttempt() {
                         <div
                           data-testid="quiz-nav-pages"
                           role="tablist"
-                          aria-label="Indicador de página"
+                          aria-label={t("quizAttempt.indicadorDePagina")}
                           style={{ display: "flex", alignItems: "center", gap: "var(--space-1)" }}
                         >
                           {Array.from({ length: totalPaginas }, (_, i) => (
@@ -1627,9 +1593,8 @@ export default function QuizAttempt() {
                             : pageIndex === totalPaginas - 1
                         }
                         data-testid="quiz-nav-next"
-                        aria-label="Siguiente pregunta"
-                      >
-                        Siguiente <ChevronRight size={16} aria-hidden="true" />
+                        aria-label={t("quizAttempt.siguientePregunta")}
+                      >{t("quizAttempt.siguiente")}<ChevronRight size={16} aria-hidden="true" />
                       </Button>
                     </nav>
                   )}
@@ -1659,9 +1624,7 @@ export default function QuizAttempt() {
                 >
                   {submitStatus === "submitting" ? (
                     <>
-                      <Spinner size="sm" label={null} />
-                      Enviando...
-                    </>
+                      <Spinner size="sm" label={null} />{t("quizAttempt.enviando")}</>
                   ) : countdown.isExpired
                     ? "Tiempo agotado — enviar"
                     : submitStatus === "submitted"
@@ -1693,20 +1656,16 @@ export default function QuizAttempt() {
                   fontSize: "var(--text-lg)",
                   fontWeight: "var(--fw-semibold)",
                   color: "var(--c-text)",
-                }}>
-                  Tabla de posiciones
-                </h2>
+                }}>{t("quizAttempt.tablaDePosiciones")}</h2>
                 {rankingLoading ? (
                   <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
                     <Spinner size="sm" label={null} />
-                    <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
-                      Cargando ranking...
-                    </p>
+                    <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("quizAttempt.cargandoRanking")}</p>
                   </div>
                 ) : (
                   <div
                     role="list"
-                    aria-label="Ranking de competencia"
+                    aria-label={t("quizAttempt.rankingDeCompetencia")}
                     style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}
                   >
                     {ranking.map((entry) => {

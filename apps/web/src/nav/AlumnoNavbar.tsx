@@ -356,9 +356,7 @@ export default function AlumnoNavbar() {
               color: 'var(--c-text)',
               textDecoration: 'none',
             }}
-          >
-            Virtual Book
-          </Link>
+          >{t("comun.virtualBook")}</Link>
         </div>
 
         <ul

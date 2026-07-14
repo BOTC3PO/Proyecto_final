@@ -26,6 +26,7 @@ import {
   updateDataset,
   updateRow,
 } from "../domain/vblang/datasetApi";
+import { useI18n } from "../i18n/I18nContext";
 import type {
   ColumnaTipo,
   DatasetDetail,
@@ -102,6 +103,7 @@ function buildRowDraft(fila: DatasetFila, columnas: string[]): RowDraft {
 // ─── Componente principal ────────────────────────────────────────────────────
 
 export default function DatasetEditor() {
+  const { t } = useI18n();
   const { id } = useParams();
   const navigate = useNavigate();
   const [dataset, setDataset] = useState<DatasetDetail | null>(null);
@@ -340,7 +342,7 @@ export default function DatasetEditor() {
   if (status === "loading") {
     return (
       <main className="min-h-screen flex items-center justify-center bg-slate-50">
-        <p className="text-sm text-slate-500 animate-pulse">Cargando dataset…</p>
+        <p className="text-sm text-slate-500 animate-pulse">{t("datasetEditor.cargandoDataset")}</p>
       </main>
     );
   }
@@ -354,9 +356,7 @@ export default function DatasetEditor() {
             type="button"
             onClick={() => navigate("/datasets")}
             className="text-blue-600 text-sm hover:underline"
-          >
-            ← Volver a datasets
-          </button>
+          >{t("datasetEditor.volverADatasets")}</button>
         </div>
       </main>
     );
@@ -370,15 +370,13 @@ export default function DatasetEditor() {
       data-testid="dataset-editor"
     >
       <div className="mx-auto max-w-6xl space-y-5">
-        <Link to="/datasets" className="text-sm text-blue-600 hover:underline">
-          ← Volver a datasets
-        </Link>
+        <Link to="/datasets" className="text-sm text-blue-600 hover:underline">{t("datasetEditor.volverADatasets")}</Link>
 
         {/* Metadata */}
         <section className="rounded-xl border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-4 space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="block space-y-1">
-              <span className="text-xs font-medium text-slate-600">Nombre</span>
+              <span className="text-xs font-medium text-slate-600">{t("comun.nombre")}</span>
               <input
                 type="text"
                 value={nombre}
@@ -388,9 +386,7 @@ export default function DatasetEditor() {
               />
             </label>
             <label className="block space-y-1">
-              <span className="text-xs font-medium text-slate-600">
-                Visibilidad
-              </span>
+              <span className="text-xs font-medium text-slate-600">{t("comun.visibilidad")}</span>
               <select
                 value={visibility}
                 onChange={(e) =>
@@ -398,16 +394,14 @@ export default function DatasetEditor() {
                 }
                 className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm"
               >
-                <option value="privada">Privada</option>
-                <option value="escuela">Escuela</option>
-                <option value="publica">Pública</option>
+                <option value="privada">{t("comun.privada")}</option>
+                <option value="escuela">{t("sidebar.escuela")}</option>
+                <option value="publica">{t("comun.publica")}</option>
               </select>
             </label>
           </div>
           <label className="block space-y-1">
-            <span className="text-xs font-medium text-slate-600">
-              Descripción
-            </span>
+            <span className="text-xs font-medium text-slate-600">{t("comun.descripcion")}</span>
             <textarea
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
@@ -416,9 +410,7 @@ export default function DatasetEditor() {
             />
           </label>
           <label className="block space-y-1">
-            <span className="text-xs font-medium text-slate-600">
-              URL de origen (HTTPS, CSV o JSON — refresco manual)
-            </span>
+            <span className="text-xs font-medium text-slate-600">{t("datasetEditor.urlDeOrigenHttpsCsv")}</span>
             <div className="flex gap-2">
               <input
                 type="url"
@@ -489,9 +481,7 @@ export default function DatasetEditor() {
                     <td
                       colSpan={columnasOrden.length + 1}
                       className="p-6 text-center text-slate-400 text-sm"
-                    >
-                      Sin filas todavía.
-                    </td>
+                    >{t("datasetEditor.sinFilasTodavia")}</td>
                   </tr>
                 )}
                 {rows.map((row) => (
@@ -537,7 +527,7 @@ export default function DatasetEditor() {
                       <button
                         type="button"
                         onClick={() => handleDeleteRow(row.id)}
-                        title="Eliminar fila"
+                        title={t("datasetEditor.eliminarFila")}
                         className="text-slate-400 hover:text-red-600 text-lg leading-none px-2"
                         data-testid={`dataset-delete-row-${row.id}`}
                       >
@@ -565,9 +555,7 @@ export default function DatasetEditor() {
               onClick={handleAddRow}
               className="rounded-md border border-blue-300 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 hover:bg-blue-100"
               data-testid="dataset-add-row"
-            >
-              + Agregar fila
-            </button>
+            >{t("datasetEditor.agregarFila")}</button>
           </div>
         </section>
       </div>

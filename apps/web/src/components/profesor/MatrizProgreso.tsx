@@ -25,6 +25,7 @@ import {
   type AulaMatrizStatus,
 } from "../../services/progreso-aula";
 
+import { useI18n } from "../../i18n/I18nContext";
 export type MatrizProgresoProps = {
   classroomId: string;
 };
@@ -95,6 +96,7 @@ function truncateTitle(title: string, max = 28): string {
 }
 
 export default function MatrizProgreso({ classroomId }: MatrizProgresoProps) {
+  const { t } = useI18n();
   const [state, setState] = useState<LoadState>({ status: "loading" });
 
   const load = async () => {
@@ -126,7 +128,7 @@ export default function MatrizProgreso({ classroomId }: MatrizProgresoProps) {
         className="space-y-2"
         data-testid="matriz-progreso-loading"
         aria-busy="true"
-        aria-label="Cargando matriz de progreso"
+        aria-label={t("matrizProgreso.cargandoMatrizDeProgreso")}
       >
         {[1, 2, 3].map((i) => (
           <div
@@ -151,9 +153,7 @@ export default function MatrizProgreso({ classroomId }: MatrizProgresoProps) {
           type="button"
           onClick={load}
           className="mt-2 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-sm font-medium text-[var(--c-text)] hover:bg-[var(--c-primary-soft,#dbeafe)]"
-        >
-          Reintentar
-        </button>
+        >{t("comun.reintentar")}</button>
       </div>
     );
   }
@@ -182,9 +182,7 @@ export default function MatrizProgreso({ classroomId }: MatrizProgresoProps) {
               <th
                 scope="col"
                 className="sticky left-0 z-10 min-w-[10rem] border-b border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]"
-              >
-                Alumno
-              </th>
+              >{t("enterpriseCobros.alumno")}</th>
               {modulos.map((m) => (
                 <th
                   key={m.id}
@@ -246,9 +244,7 @@ export default function MatrizProgreso({ classroomId }: MatrizProgresoProps) {
               <th
                 scope="row"
                 className="sticky left-0 z-10 min-w-[10rem] border-t border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]"
-              >
-                Completado
-              </th>
+              >{t("moduloDetail.completado")}</th>
               {modulos.map((m) => {
                 const done = alumnos.filter(
                   (a) => a.progresos[m.id] === "completado",

@@ -10,6 +10,7 @@ import {
   type UsuarioItem,
 } from '../services/tienda';
 import type { ThemeOption } from '../theme/ThemeContext';
+import { useI18n } from "../i18n/I18nContext";
 
 type SaldoResponse = {
   saldo: number;
@@ -137,6 +138,7 @@ function ThemeCard({
 }
 
 export default function TiendaTemas() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const { theme, setTheme, availableThemes } = useTheme();
 
@@ -284,10 +286,8 @@ export default function TiendaTemas() {
         {/* Encabezado */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <h1 className="text-2xl font-semibold text-[var(--c-text)]">Tienda de temas</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-0.5">
-              Personalizá tu experiencia con tus monedas.
-            </p>
+            <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("dropdown.tiendaTemas")}</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("tiendaTemas.personalizaTuExperienciaConTus")}</p>
           </div>
           <div className="flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--c-warning)_35%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] px-3 py-1.5">
             <span>🪙</span>
@@ -325,14 +325,10 @@ export default function TiendaTemas() {
             data-testid="tienda-vacia"
             className="rounded-xl border border-dashed border-amber-300 bg-amber-50 p-6 text-sm text-amber-800"
           >
-            <p className="font-semibold">La tienda todavía no tiene items para comprar.</p>
-            <p className="mt-1 text-amber-700">
-              Es probable que el seed <code className="rounded bg-amber-100 px-1.5 py-0.5 text-xs">seed_tienda</code> no se haya corrido en esta base de datos.
-              Pedile al admin que ejecute <code className="rounded bg-amber-100 px-1.5 py-0.5 text-xs">npm run seed:tienda</code> en <code className="rounded bg-amber-100 px-1.5 py-0.5 text-xs">/api</code>.
+            <p className="font-semibold">{t("tiendaTemas.laTiendaTodaviaNoTiene")}</p>
+            <p className="mt-1 text-amber-700">{t("tiendaTemas.esProbableQueElSeed")}<code className="rounded bg-amber-100 px-1.5 py-0.5 text-xs">seed_tienda</code>{t("tiendaTemas.noSeHayaCorridoEn")}<code className="rounded bg-amber-100 px-1.5 py-0.5 text-xs">{t("tiendaTemas.npmRunSeedTienda")}</code> en <code className="rounded bg-amber-100 px-1.5 py-0.5 text-xs">/api</code>.
             </p>
-            <p className="mt-3 text-amber-700">
-              Mientras tanto, podés usar los temas gratuitos disponibles abajo.
-            </p>
+            <p className="mt-3 text-amber-700">{t("tiendaTemas.mientrasTantoPodesUsarLos")}</p>
           </div>
         ) : (
           <>
@@ -344,8 +340,8 @@ export default function TiendaTemas() {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-base">🏆</span>
-                    <h2 className="text-sm font-semibold text-[var(--c-text)]">Tema oficial</h2>
-                    <span className="text-xs text-[var(--c-muted)]">— Ganador de la encuesta · Gratis</span>
+                    <h2 className="text-sm font-semibold text-[var(--c-text)]">{t("tiendaTemas.temaOficial")}</h2>
+                    <span className="text-xs text-[var(--c-muted)]">{t("tiendaTemas.ganadorDeLaEncuestaGratis")}</span>
                   </div>
                   <div
                     className="relative rounded-2xl overflow-hidden border-2 transition-all max-w-sm"
@@ -359,27 +355,19 @@ export default function TiendaTemas() {
                       style={{ background: meta.preview ?? meta.bg }}
                     >
                       <div className="text-center z-10 px-4">
-                        <p className="text-sm font-bold" style={{ color: meta.primary }}>
-                          VB2 — Oficial
-                        </p>
-                        <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                          ✨ Animado · Gratis para siempre
-                        </p>
+                        <p className="text-sm font-bold" style={{ color: meta.primary }}>{t("tiendaTemas.vb2Oficial")}</p>
+                        <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>{t("tiendaTemas.animadoGratisParaSiempre")}</p>
                       </div>
                       {isActive && (
                         <div className="absolute top-2 right-2">
                           <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white"
-                            style={{ background: meta.primary }}>
-                            Activo
-                          </span>
+                            style={{ background: meta.primary }}>{t("perfil.activo")}</span>
                         </div>
                       )}
                     </div>
                     <div className="px-4 py-3 flex items-center justify-between"
                       style={{ background: meta.surface }}>
-                      <span className="text-xs font-semibold" style={{ color: meta.primary }}>
-                        🏆 Gratis
-                      </span>
+                      <span className="text-xs font-semibold" style={{ color: meta.primary }}>{t("tiendaTemas.gratis")}</span>
                       <button
                         onClick={() => setTheme('vb2')}
                         disabled={isActive}
@@ -398,19 +386,19 @@ export default function TiendaTemas() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-base">⚡</span>
-                <h2 className="text-sm font-semibold text-[var(--c-text)]">Legendarios</h2>
-                <span className="text-xs text-[var(--c-muted)]">— Animación de fondo exclusiva</span>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">{t("tiendaTemas.legendarios")}</h2>
+                <span className="text-xs text-[var(--c-muted)]">{t("tiendaTemas.animacionDeFondoExclusiva")}</span>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
                 {availableThemes
-                  .filter((t) => THEME_META[t.id]?.legendary)
-                  .map((t) => {
-                    const meta = THEME_META[t.id]!;
-                    const owned = economy.ownedThemes.includes(t.id) || FREE_THEMES.includes(t.id);
-                    const isActive = theme === t.id;
+                  .filter((th) => THEME_META[th.id]?.legendary)
+                  .map((th) => {
+                    const meta = THEME_META[th.id]!;
+                    const owned = economy.ownedThemes.includes(th.id) || FREE_THEMES.includes(th.id);
+                    const isActive = theme === th.id;
                     return (
                       <div
-                        key={t.id}
+                        key={th.id}
                         className="relative rounded-2xl overflow-hidden border-2 transition-all"
                         style={{
                           borderColor: isActive ? meta.primary : owned ? meta.primary + '66' : '#333',
@@ -427,18 +415,14 @@ export default function TiendaTemas() {
                           }} />
                           <div className="relative z-10 text-center px-3">
                             <p className="text-sm font-bold" style={{ color: meta.primary, textShadow: `0 0 10px ${meta.primary}` }}>
-                              {t.name}
+                              {th.name}
                             </p>
-                            <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                              ⚡ Legendario · Animado
-                            </p>
+                            <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.7)' }}>{t("tiendaTemas.legendarioAnimado")}</p>
                           </div>
                           {isActive && (
                             <div className="absolute top-2 right-2">
                               <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white"
-                                style={{ background: meta.primary }}>
-                                Activo
-                              </span>
+                                style={{ background: meta.primary }}>{t("perfil.activo")}</span>
                             </div>
                           )}
                         </div>
@@ -449,11 +433,11 @@ export default function TiendaTemas() {
                           style={{ background: meta.surface }}
                         >
                           <span className="text-xs font-semibold" style={{ color: meta.primary }}>
-                            {owned ? '✓ Desbloqueado' : `🪙 ${t.price}`}
+                            {owned ? '✓ Desbloqueado' : `🪙 ${th.price}`}
                           </span>
                           {owned ? (
                             <button
-                              onClick={() => setTheme(t.id)}
+                              onClick={() => setTheme(th.id)}
                               disabled={isActive}
                               className="rounded-lg px-2.5 py-1 text-xs font-semibold text-white disabled:opacity-50 transition-opacity hover:opacity-80"
                               style={{ background: meta.primary }}
@@ -462,12 +446,12 @@ export default function TiendaTemas() {
                             </button>
                           ) : (
                             <button
-                              onClick={() => handlePurchaseTheme(t.id)}
-                              disabled={comprando === t.id || economy.coins < t.price}
+                              onClick={() => handlePurchaseTheme(th.id)}
+                              disabled={comprando === th.id || economy.coins < th.price}
                               className="rounded-lg px-2.5 py-1 text-xs font-semibold text-white disabled:opacity-40 transition-opacity hover:opacity-80"
                               style={{ background: meta.primary }}
                             >
-                              {comprando === t.id ? '...' : 'Comprar'}
+                              {comprando === th.id ? '...' : 'Comprar'}
                             </button>
                           )}
                         </div>
@@ -481,7 +465,7 @@ export default function TiendaTemas() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-base">✨</span>
-                <h2 className="text-sm font-semibold text-[var(--c-text)]">Animados</h2>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">{t("tiendaTemas.animados")}</h2>
               </div>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {availableThemes
@@ -510,7 +494,7 @@ export default function TiendaTemas() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-base">🎨</span>
-                <h2 className="text-sm font-semibold text-[var(--c-text)]">Estáticos</h2>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">{t("tiendaTemas.estaticos")}</h2>
               </div>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {availableThemes

@@ -20,6 +20,7 @@ import { fetchSurveys, type Survey } from "../services/encuestas";
 import AulaActionsBar from "../components/aula/AulaActionsBar";
 import AsignarModulosModal from "../components/profesor/AsignarModulosModal";
 import MatrizProgreso from "../components/profesor/MatrizProgreso";
+import { useI18n } from "../i18n/I18nContext";
 
 type ProgressItem = {
   moduloId: string;
@@ -65,6 +66,7 @@ function getAvatarColor(initials: string): string {
 }
 
 export default function Aula() {
+  const { t } = useI18n();
   const { user } = useAuth();
   // MULTIROL-02: leer cada rol por helper centralizado (mirando
   // `roles[]` con fallback al singular). El `user.role` se mantiene
@@ -221,7 +223,7 @@ export default function Aula() {
       await createPublication(classroomId, {
         contenido: newPublication.trim(),
         authorInitials: initials,
-        title: "Nueva publicación",
+        title: t("aula.nuevaPublicacion"),
         archivos: publicationFiles.map((file) => ({ name: file.name, size: file.size, type: file.type })),
       });
       setNewPublication("");
@@ -401,9 +403,9 @@ export default function Aula() {
 
   const getResourceTypeMeta = (type: ResourceLinkType) => {
     switch (type) {
-      case "drive": return { label: "Drive", badge: "bg-emerald-100 text-emerald-700" };
-      case "youtube": return { label: "YouTube", badge: "bg-red-100 text-red-700" };
-      default: return { label: "Externo", badge: "bg-[var(--c-bg)] text-[var(--c-muted)]" };
+      case "drive": return { label: t("aula.drive"), badge: "bg-emerald-100 text-emerald-700" };
+      case "youtube": return { label: t("aula.youtube"), badge: "bg-red-100 text-red-700" };
+      default: return { label: t("aula.externo"), badge: "bg-[var(--c-bg)] text-[var(--c-muted)]" };
     }
   };
 
@@ -449,9 +451,7 @@ export default function Aula() {
               <Link
                 className="absolute right-5 bottom-3 bg-[var(--c-surface)] text-[var(--c-primary)] px-4 py-1.5 rounded-lg border border-[var(--c-border)] text-sm font-medium"
                 to={`/profesor/aulas/${classroomId}`}
-              >
-                Gestionar aula
-              </Link>
+              >{t("aula.gestionarAula")}</Link>
             ) : (
               <span className="absolute right-5 bottom-3 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
                 Acceso {accessLabel}
@@ -493,9 +493,7 @@ export default function Aula() {
                   <p className="text-sm font-medium text-[var(--c-text)]">
                     {modoAulaActivo ? "Modo Aula activo" : "Modo Aula"}
                   </p>
-                  <p className="text-xs text-[var(--c-muted)]">
-                    Restringe tienda y economía para los alumnos de esta clase.
-                  </p>
+                  <p className="text-xs text-[var(--c-muted)]">{t("aula.restringeTiendaYEconomiaPara")}</p>
                 </div>
                 <button
                   type="button"
@@ -515,7 +513,7 @@ export default function Aula() {
               >
                 <summary className="cursor-pointer text-sm font-semibold text-[var(--c-text)] select-none list-none flex items-center gap-2">
                   <span aria-hidden="true">📈</span>
-                  <span>Progreso del curso</span>
+                  <span>{t("aula.progresoDelCurso")}</span>
                   <span className="ml-auto text-xs text-[var(--c-muted)]">
                     (matriz de avance)
                   </span>
@@ -537,8 +535,8 @@ export default function Aula() {
                 </div>
                 <input
                   className={`flex-1 ${inputCls}`}
-                  aria-label="Escribí una novedad"
-                  placeholder="Escribe una novedad..."
+                  aria-label={t("aula.escribiUnaNovedad")}
+                  placeholder={t("aula.escribeUnaNovedad")}
                   value={newPublication}
                   onChange={(event) => {
                     setNewPublication(event.target.value);
@@ -562,11 +560,11 @@ export default function Aula() {
               <div className="flex flex-wrap items-center gap-3 mt-3 text-[var(--c-muted)]">
                 <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
                   <span aria-hidden="true">📎</span>
-                  <span className="sr-only">Adjuntar archivo</span>
+                  <span className="sr-only">{t("aula.adjuntarArchivo")}</span>
                 </label>
                 <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
                   <span aria-hidden="true">🖼️</span>
-                  <span className="sr-only">Adjuntar imagen</span>
+                  <span className="sr-only">{t("aula.adjuntarImagen")}</span>
                 </label>
                 <input
                   id="aula-archivos" type="file" multiple className="hidden"
@@ -607,17 +605,13 @@ export default function Aula() {
                   className="rounded-xl border border-dashed border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-center"
                   data-testid="feed-empty"
                 >
-                  <p className="text-sm text-[var(--c-muted)]">
-                    Todavía no hay publicaciones en esta aula.
-                  </p>
+                  <p className="text-sm text-[var(--c-muted)]">{t("aula.todaviaNoHayPublicacionesEn")}</p>
                   {isTeacherOfClass && (
                     <button
                       type="button"
                       onClick={handlePublicarClick}
                       className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-sm font-medium text-[var(--c-primary)] hover:bg-[var(--c-primary-soft,#dbeafe)]"
-                    >
-                      📢 Escribir la primera publicación
-                    </button>
+                    >{t("aula.escribirLaPrimeraPublicacion")}</button>
                   )}
                 </div>
               )}
@@ -649,7 +643,7 @@ export default function Aula() {
           <aside className="space-y-5">
             {/* Leaderboard */}
             <div className={cardCls}>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">🏆 Top Estudiantes</h3>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.topEstudiantes")}</h3>
               <ul className="mt-3 space-y-2 text-sm">
                 {feedLoading && <li className="h-4 rounded animate-pulse bg-[var(--c-border)]" />}
                 {feedError && !feedLoading && <li className="text-[var(--c-danger)]">{feedError}</li>}
@@ -657,9 +651,7 @@ export default function Aula() {
                   <li
                     className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-3 text-center text-xs text-[var(--c-muted)]"
                     data-testid="leaderboard-empty"
-                  >
-                    El ranking aparece cuando hay actividad.
-                  </li>
+                  >{t("aula.elRankingApareceCuandoHay")}</li>
                 )}
                 {!feedLoading && !feedError && leaderboard.map((entry, index) => (
                   <li key={entry.id} className="flex justify-between text-[var(--c-text)]">
@@ -672,12 +664,12 @@ export default function Aula() {
 
             {/* Progreso */}
             <div className={cardCls}>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Progreso de la clase</h3>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.progresoDeLaClase")}</h3>
               <div className="mt-3 space-y-3 text-sm">
                 {progressLoading && <div className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />}
                 {progressError && !progressLoading && <p className="text-[var(--c-danger)]">{progressError}</p>}
                 {!progressLoading && !progressError && classProgress.length === 0 && (
-                  <p className="text-[var(--c-muted)]">No hay módulos disponibles para esta aula.</p>
+                  <p className="text-[var(--c-muted)]">{t("aula.noHayModulosDisponiblesPara")}</p>
                 )}
                 {!progressLoading && !progressError && classProgress.map((module) => (
                   <div key={module.id}>
@@ -723,14 +715,14 @@ export default function Aula() {
 
             {/* Enlaces útiles */}
             <div className={cardCls}>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Enlaces útiles</h3>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.enlacesUtiles")}</h3>
               <div className="mt-3 space-y-2 text-sm">
                 {resourceLinksLoading && <div className="h-8 rounded-lg animate-pulse bg-[var(--c-border)]" />}
                 {resourceLinksError && !resourceLinksLoading && (
                   <p className="text-[var(--c-danger)]">{resourceLinksError}</p>
                 )}
                 {!resourceLinksLoading && !resourceLinksError && resourceLinks.length === 0 && (
-                  <p className="text-[var(--c-muted)]">No hay enlaces disponibles.</p>
+                  <p className="text-[var(--c-muted)]">{t("aula.noHayEnlacesDisponibles")}</p>
                 )}
                 {!resourceLinksLoading && !resourceLinksError && resourceLinks.map((link) => {
                   const meta = getResourceTypeMeta(link.type);
@@ -756,12 +748,12 @@ export default function Aula() {
             {/* Encuestas — PLAN-H §3: acceso desde el aula, sin selector manual. */}
             {canActAsLearner && classroomId && (
               <div className={cardCls} data-testid="aula-encuestas-card">
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">🗳️ Encuestas</h3>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.encuestas")}</h3>
                 <div className="mt-3 text-sm">
                   {surveysLoading ? (
                     <div className="h-8 rounded-lg animate-pulse bg-[var(--c-border)]" />
                   ) : activeSurveysCount === 0 ? (
-                    <p className="text-[var(--c-muted)]">No hay encuestas activas para esta aula.</p>
+                    <p className="text-[var(--c-muted)]">{t("alumnoEncuestas.noHayEncuestasActivasPara")}</p>
                   ) : (
                     <p className="text-[var(--c-muted)]">
                       {activeSurveysCount} encuesta{activeSurveysCount === 1 ? "" : "s"} activa{activeSurveysCount === 1 ? "" : "s"}.
@@ -770,16 +762,14 @@ export default function Aula() {
                   <Link
                     to={`/encuestas?aulaId=${encodeURIComponent(classroomId)}`}
                     className="mt-2 inline-flex items-center gap-1.5 text-[var(--c-primary)] hover:underline"
-                  >
-                    Ver y votar →
-                  </Link>
+                  >{t("aula.verYVotar")}</Link>
                 </div>
               </div>
             )}
 
             {/* Próximas actividades */}
             <div className={cardCls}>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Próximas actividades</h3>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("hijosProgreso.proximasActividades")}</h3>
               <ul className="mt-3 text-sm space-y-2">
                 {feedLoading && <li className="h-10 rounded-lg animate-pulse bg-[var(--c-border)]" />}
                 {feedError && !feedLoading && <li className="text-[var(--c-danger)]">{feedError}</li>}
@@ -787,9 +777,7 @@ export default function Aula() {
                   <li
                     className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-3 text-center text-xs text-[var(--c-muted)]"
                     data-testid="upcoming-empty"
-                  >
-                    No hay actividades programadas.
-                  </li>
+                  >{t("aula.noHayActividadesProgramadas")}</li>
                 )}
                 {!feedLoading && !feedError && upcomingActivities.map((activity) => (
                   <li key={activity.id}
@@ -816,7 +804,7 @@ export default function Aula() {
             {/* Subastas */}
             {subastas.length > 0 && (
               <div className={`${cardCls} space-y-3`}>
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">🏷️ Subastas activas</h3>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.subastasActivas")}</h3>
                 {subastas.map((examen) => {
                   const misPujasExamen = misPujas[examen.id] ?? [];
                   const totalPujado = misPujasExamen.filter((p) => p.estado !== "rechazada").reduce((acc, p) => acc + p.puntos, 0);
@@ -827,7 +815,7 @@ export default function Aula() {
                   return (
                     <div key={examen.id} className="rounded-xl border border-[var(--c-border)] p-3 space-y-2">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-semibold text-[var(--c-text)]">Parcial</span>
+                        <span className="text-xs font-semibold text-[var(--c-text)]">{t("aula.parcial")}</span>
                         {examen.fechaExamen && (
                           <span className="text-xs text-[var(--c-muted)]">
                             {new Date(examen.fechaExamen).toLocaleDateString("es-AR", { day: "numeric", month: "short" })}
@@ -857,9 +845,7 @@ export default function Aula() {
                                 className={`mt-1 w-full ${inputCls}`}
                               />
                             </label>
-                            <label className="text-xs text-[var(--c-muted)]">
-                              Monedas/punto
-                              <input
+                            <label className="text-xs text-[var(--c-muted)]">{t("aula.monedasPunto")}<input
                                 type="number" min={1} value={form.montoPorPunto}
                                 onChange={(e) => setPujaForm((prev) => ({
                                   ...prev, [examen.id]: { ...form, montoPorPunto: Number(e.target.value) }
@@ -881,13 +867,13 @@ export default function Aula() {
                             {status === "loading" ? "Pujando..." : "Pujar"}
                           </button>
                           {status === "error" && (
-                            <p className="text-xs text-[var(--c-danger)]">No se pudo registrar la puja.</p>
+                            <p className="text-xs text-[var(--c-danger)]">{t("aula.noSePudoRegistrarLa")}</p>
                           )}
                         </div>
                       )}
                       {misPujasExamen.length > 0 && (
                         <div className="pt-1 border-t border-[var(--c-border)]">
-                          <p className="text-xs text-[var(--c-muted)] mb-1">Tus pujas:</p>
+                          <p className="text-xs text-[var(--c-muted)] mb-1">{t("aula.tusPujas")}</p>
                           {misPujasExamen.map((p) => (
                             <div key={p.id} className="flex justify-between text-xs text-[var(--c-text)]">
                               <span>{p.puntos} punto(s) × {p.montoPorPunto} 🪙</span>

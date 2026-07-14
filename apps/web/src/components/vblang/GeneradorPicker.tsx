@@ -4,6 +4,7 @@ import GeneradorDocsPanel, {
   type GeneradorDocsVariant,
 } from "./GeneradorDocsPanel";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface Props {
   value: string;
   onChange: (id: string) => void;
@@ -19,6 +20,7 @@ export default function GeneradorPicker({
   docsVariant = "referencia",
   onInsertVariable,
 }: Props) {
+  const { t } = useI18n();
   const generadores = useMemo(() => listGeneradores(), []);
   const [filtro, setFiltro] = useState("");
   const selectId = useId();
@@ -66,8 +68,8 @@ export default function GeneradorPicker({
         type="search"
         value={filtro}
         onChange={(e) => setFiltro(e.target.value)}
-        placeholder="Filtrar por materia o generador..."
-        aria-label="Filtrar generadores"
+        placeholder={t("generadorPicker.filtrarPorMateriaOGenerador")}
+        aria-label={t("quizEditorGenerated.filtrarGeneradores")}
         aria-controls={selectId}
         className="w-full rounded border border-[var(--c-border,#e2e8f0)] bg-white px-2 py-1 text-xs"
       />
@@ -78,9 +80,7 @@ export default function GeneradorPicker({
       <label
         htmlFor={selectId}
         className="block text-xs font-medium text-[var(--c-text)]"
-      >
-        Generador
-      </label>
+      >{t("generadorPicker.generador")}</label>
       <select
         id={selectId}
         value={value}
@@ -88,7 +88,7 @@ export default function GeneradorPicker({
         className="w-full rounded border border-[var(--c-border,#e2e8f0)] bg-white px-2 py-1 text-xs"
         data-testid="vblang-form-generador-picker"
       >
-        <option value="">— Elegir generador —</option>
+        <option value="">{t("generadorPicker.elegirGenerador")}</option>
         {notFound && <option value={value}>{value} (no encontrado)</option>}
         {ordered.map((g) => (
           <optgroup key={g.id} label={`${g.materiaLabel} — ${g.id}`}>

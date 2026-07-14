@@ -9,10 +9,12 @@ import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import { Card, CardHead, CardBody, Button, Input } from "../components/ui";
 import { fetchEscuela, actualizarBranding, type EscuelaBranding } from "../services/escuelas";
+import { useI18n } from "../i18n/I18nContext";
 
 const emptyBranding: EscuelaBranding = { logoUrl: "", iconoUrl: "", colorPrimario: "", colorSecundario: "" };
 
 export default function EnterprisePersonalizacion() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [branding, setBranding] = useState<EscuelaBranding>(emptyBranding);
@@ -63,17 +65,17 @@ export default function EnterprisePersonalizacion() {
   return (
     <div className="mx-auto max-w-3xl space-y-4 p-6">
       <header>
-        <h1 className="text-xl font-bold text-[var(--c-text)]">Personalización</h1>
-        <p className="text-sm text-[var(--c-muted)]">Logo, ícono y colores de tu escuela.</p>
+        <h1 className="text-xl font-bold text-[var(--c-text)]">{t("nav.personalizacion")}</h1>
+        <p className="text-sm text-[var(--c-muted)]">{t("enterprisePersonalizacion.logoIconoYColoresDe")}</p>
       </header>
 
       {loading ? (
-        <p className="text-sm text-[var(--c-muted)] animate-pulse">Cargando…</p>
+        <p className="text-sm text-[var(--c-muted)] animate-pulse">{t("comun.cargando")}</p>
       ) : error ? (
         <p role="alert" className="text-sm text-[var(--c-danger)]">{error}</p>
       ) : (
         <Card>
-          <CardHead><h2 className="text-sm font-bold">Branding</h2></CardHead>
+          <CardHead><h2 className="text-sm font-bold">{t("enterprisePersonalizacion.branding")}</h2></CardHead>
           <CardBody>
             <div className="grid gap-4 sm:grid-cols-2">
               <Input
@@ -103,8 +105,8 @@ export default function EnterprisePersonalizacion() {
             </div>
             {branding.logoUrl && (
               <div className="mt-4 flex items-center gap-3">
-                <span className="text-xs text-[var(--c-muted)]">Vista previa:</span>
-                <img src={branding.logoUrl} alt="Logo de la escuela" className="h-10 max-w-[160px] object-contain" />
+                <span className="text-xs text-[var(--c-muted)]">{t("enterprisePersonalizacion.vistaPrevia")}</span>
+                <img src={branding.logoUrl} alt={t("common.logoEscuela")} className="h-10 max-w-[160px] object-contain" />
               </div>
             )}
             {msg && <p role="status" aria-live="polite" className="mt-3 text-sm text-[var(--c-info)]">{msg}</p>}

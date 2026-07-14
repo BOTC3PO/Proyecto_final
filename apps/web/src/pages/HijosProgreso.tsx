@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, type ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchProgresoHijos, type ChildProgress } from "../services/progreso";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchActividadesHijo, fetchBoletinHijo, fetchAulasHijo,
   fetchLimitesHijo, actualizarLimitesHijo, revocarVinculoHijo,
@@ -8,6 +9,7 @@ import {
 } from "../services/padres";
 
 export default function HijosProgreso() {
+  const { t } = useI18n();
   const navigate = useNavigate();
   const [busqueda, setBusqueda] = useState("");
   const [area, setArea] = useState<"Todas" | "Matemática" | "Lengua" | "Ciencias" | "Historia" | "Geografía" | "Arte" | "Otro">("Todas");
@@ -127,13 +129,13 @@ export default function HijosProgreso() {
         <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 sm:p-6">
           <div className="flex flex-col md:flex-row gap-4 md:items-end md:justify-between">
             <div>
-              <h1 className="text-xl font-semibold text-[var(--c-text)]">Hijos</h1>
-              <p className="text-sm text-[var(--c-muted)]">Seguimiento del progreso por alumno/a.</p>
+              <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("hijosProgreso.hijos")}</h1>
+              <p className="text-sm text-[var(--c-muted)]">{t("hijosProgreso.seguimientoDelProgresoPorAlumno")}</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <input
                 type="text"
-                placeholder="Buscar por nombre o @usuario"
+                placeholder={t("hijosProgreso.buscarPorNombreOUsuario")}
                 value={busqueda}
                 onChange={onBuscar}
                 className={`w-full sm:w-64 ${inputCls}`}
@@ -200,7 +202,7 @@ export default function HijosProgreso() {
               );
             })}
             {!loading && !error && hijos.length === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">No hay hijos registrados.</p>
+              <p className="text-sm text-[var(--c-muted)]">{t("hijosProgreso.noHayHijosRegistrados")}</p>
             )}
           </div>
         </div>
@@ -231,7 +233,7 @@ export default function HijosProgreso() {
                 vínculo, la(s) clase(s) del hijo aparecen acá. */}
             {aulas.length > 0 && (
               <div className="mt-4">
-                <p className="text-xs font-medium text-[var(--c-muted)] mb-1.5">Aulas</p>
+                <p className="text-xs font-medium text-[var(--c-muted)] mb-1.5">{t("nav.aulas")}</p>
                 <div className="flex flex-wrap gap-2">
                   {aulas.map((a) => (
                     <span
@@ -248,10 +250,10 @@ export default function HijosProgreso() {
             {/* Tabs */}
             <div className="mt-5 flex gap-1 border-b border-[var(--c-border)]">
               {([
-                { key: "modulos", label: "Módulos" },
-                { key: "actividades", label: "Próximas actividades" },
-                { key: "boletin", label: "Boletín" },
-                { key: "configuracion", label: "Configuración" },
+                { key: "modulos", label: t("nav.modulos") },
+                { key: "actividades", label: t("hijosProgreso.proximasActividades") },
+                { key: "boletin", label: t("hijosProgreso.boletin") },
+                { key: "configuracion", label: t("hijosProgreso.configuracion") },
               ] as const).map((t) => (
                 <button
                   key={t.key}
@@ -291,34 +293,28 @@ export default function HijosProgreso() {
                         <div style={{ width: `${m.progreso}%` }} className="h-1.5 rounded-full bg-[var(--c-primary)]" />
                       </div>
                       <div className="mt-1 flex items-center justify-between text-xs text-[var(--c-muted)]">
-                        <span>Progreso</span>
+                        <span>{t("nav.progreso")}</span>
                         <span>{m.progreso}%</span>
                       </div>
                       <div className="mt-3 flex items-center gap-2">
                         <button
                           onClick={() => navigate(`/modulos/${m.id}`)}
                           className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                        >
-                          Ver detalles
-                        </button>
+                        >{t("hijosProgreso.verDetalles")}</button>
                         <button
                           onClick={() => navigate(`/modulos/${m.id}/jugar`)}
                           className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                        >
-                          Abrir módulo
-                        </button>
+                        >{t("hijosProgreso.abrirModulo")}</button>
                         <button
                           onClick={() => setTab("boletin")}
                           className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                        >
-                          Informe
-                        </button>
+                        >{t("hijosProgreso.informe")}</button>
                       </div>
                     </div>
                   ))}
                 </div>
                 {modulosFiltrados.length === 0 && (
-                  <p className="text-sm text-[var(--c-muted)] mt-4">No hay módulos para el filtro seleccionado.</p>
+                  <p className="text-sm text-[var(--c-muted)] mt-4">{t("hijosProgreso.noHayModulosParaEl")}</p>
                 )}
               </div>
             )}
@@ -332,7 +328,7 @@ export default function HijosProgreso() {
                   </>
                 )}
                 {!actividadesLoading && actividades.length === 0 && (
-                  <p className="text-sm text-[var(--c-muted)]">No hay actividades próximas para este alumno.</p>
+                  <p className="text-sm text-[var(--c-muted)]">{t("hijosProgreso.noHayActividadesProximasPara")}</p>
                 )}
                 {!actividadesLoading && actividades.map((act) => (
                   <div key={act.id}
@@ -369,7 +365,7 @@ export default function HijosProgreso() {
                   </>
                 )}
                 {!boletinLoading && boletin.length === 0 && (
-                  <p className="text-sm text-[var(--c-muted)]">No hay evaluaciones formales registradas.</p>
+                  <p className="text-sm text-[var(--c-muted)]">{t("hijosProgreso.noHayEvaluacionesFormalesRegistradas")}</p>
                 )}
                 {!boletinLoading && boletin.map((materia) => (
                   <div key={materia.materia}
@@ -422,7 +418,7 @@ export default function HijosProgreso() {
                 )}
                 {!limitesLoading && limites && (
                   <div className="space-y-3">
-                    <p className="text-xs font-medium text-[var(--c-muted)]">Límites y permisos</p>
+                    <p className="text-xs font-medium text-[var(--c-muted)]">{t("hijosProgreso.limitesYPermisos")}</p>
                     <label className="flex items-center gap-2 text-sm text-[var(--c-text)]">
                       <input
                         type="checkbox"
@@ -432,9 +428,7 @@ export default function HijosProgreso() {
                           setLimites({ ...limites, permisosTareas: e.target.checked });
                           void guardarLimites({ permisosTareas: e.target.checked });
                         }}
-                      />
-                      Puede ver tareas/módulos asignados
-                    </label>
+                      />{t("hijosProgreso.puedeVerTareasModulosAsignados")}</label>
                     <label className="flex items-center gap-2 text-sm text-[var(--c-text)]">
                       <input
                         type="checkbox"
@@ -444,13 +438,9 @@ export default function HijosProgreso() {
                           setLimites({ ...limites, permisosMensajes: e.target.checked });
                           void guardarLimites({ permisosMensajes: e.target.checked });
                         }}
-                      />
-                      Puede recibir mensajes
-                    </label>
+                      />{t("hijosProgreso.puedeRecibirMensajes")}</label>
                     <div>
-                      <label className="block text-xs font-medium text-[var(--c-muted)] mb-1" htmlFor="notas-hijo">
-                        Notas
-                      </label>
+                      <label className="block text-xs font-medium text-[var(--c-muted)] mb-1" htmlFor="notas-hijo">{t("hijosProgreso.notas")}</label>
                       <textarea
                         id="notas-hijo"
                         rows={3}
@@ -468,7 +458,7 @@ export default function HijosProgreso() {
                 )}
 
                 <div className="pt-4 border-t border-[var(--c-border)]">
-                  <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Zona de riesgo</p>
+                  <p className="text-xs font-medium text-[var(--c-muted)] mb-2">{t("hijosProgreso.zonaDeRiesgo")}</p>
                   <button
                     type="button"
                     onClick={onRevocarVinculo}

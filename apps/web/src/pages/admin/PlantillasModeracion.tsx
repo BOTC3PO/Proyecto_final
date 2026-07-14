@@ -6,6 +6,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiGet, apiPost } from "../../lib/api";
+import { useI18n } from "../../i18n/I18nContext";
 import type {
   PlantillaListItem,
   PlantillaListResponse,
@@ -14,6 +15,7 @@ import type {
 type Status = "loading" | "ready" | "error";
 
 export default function PlantillasModeracion() {
+  const { t } = useI18n();
   const [items, setItems] = useState<PlantillaListItem[]>([]);
   const [status, setStatus] = useState<Status>("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -55,25 +57,19 @@ export default function PlantillasModeracion() {
     <main className="min-h-screen bg-[var(--c-bg,#f8fafc)] p-6">
       <div className="mx-auto max-w-5xl space-y-4">
         <header>
-          <h1 className="text-2xl font-bold">Moderación de plantillas VBLang</h1>
-          <p className="mt-1 text-sm text-[var(--c-muted,#64748b)]">
-            Plantillas públicas pendientes de aprobación.
-          </p>
+          <h1 className="text-2xl font-bold">{t("plantillasModeracion.moderacionDePlantillasVblang")}</h1>
+          <p className="mt-1 text-sm text-[var(--c-muted,#64748b)]">{t("plantillasModeracion.plantillasPublicasPendientesDeAprobacion")}</p>
         </header>
 
         {status === "loading" && (
-          <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">
-            Cargando…
-          </p>
+          <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">{t("comun.cargando")}</p>
         )}
         {status === "error" && (
           <p className="text-sm text-red-600">{errorMessage}</p>
         )}
         {status === "ready" && items.length === 0 && (
           <div className="rounded-xl border-2 border-dashed border-[var(--c-border,#e2e8f0)] py-10 text-center">
-            <p className="text-sm text-[var(--c-muted,#64748b)]">
-              No hay plantillas pendientes de moderación.
-            </p>
+            <p className="text-sm text-[var(--c-muted,#64748b)]">{t("plantillasModeracion.noHayPlantillasPendientesDe")}</p>
           </div>
         )}
         {status === "ready" && items.length > 0 && (
@@ -109,25 +105,19 @@ export default function PlantillasModeracion() {
                       // FIX-TEST4-X-03 — idem: `border-slate-300`
                       // y `hover:bg-slate-50` → tokens del tema.
                       className="rounded-md border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                    >
-                      Ver
-                    </Link>
+                    >{t("modulosList.ver")}</Link>
                     <button
                       type="button"
                       disabled={acting === p.id}
                       onClick={() => void handleAction(p.id, "aprobar")}
                       className="rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
-                    >
-                      Aprobar
-                    </button>
+                    >{t("plantillasModeracion.aprobar")}</button>
                     <button
                       type="button"
                       disabled={acting === p.id}
                       onClick={() => void handleAction(p.id, "rechazar")}
                       className="rounded-md bg-red-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-red-700 disabled:opacity-50"
-                    >
-                      Rechazar
-                    </button>
+                    >{t("plantillasModeracion.rechazar")}</button>
                   </div>
                 </div>
               </li>

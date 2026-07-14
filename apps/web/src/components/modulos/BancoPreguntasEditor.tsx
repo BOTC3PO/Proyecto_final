@@ -20,6 +20,7 @@ import { AccessibleList } from "../vblang/AccessibleList";
 import type { MCQuestion, Question, TFQuestion } from "../../generadoresV2/basic/types";
 import { buildBancoFileName, exportBancoToJson } from "./bancoExport";
 
+import { useI18n } from "../../i18n/I18nContext";
 type BancoPreguntasEditorProps = {
   questions: Question[];
   onChange: (questions: Question[]) => void;
@@ -141,6 +142,7 @@ export default function BancoPreguntasEditor({
   questions,
   onChange,
 }: BancoPreguntasEditorProps) {
+  const { t } = useI18n();
   // Tarea 20: filtro visual por enunciado (case-insensitive, en memoria).
   const [search, setSearch] = useState("");
   const searchTrim = search.trim().toLowerCase();
@@ -176,8 +178,8 @@ export default function BancoPreguntasEditor({
           type="search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Buscar por enunciado..."
-          aria-label="Buscar preguntas por enunciado"
+          placeholder={t("bancoPreguntasEditor.buscarPorEnunciado")}
+          aria-label={t("bancoPreguntasEditor.buscarPreguntasPorEnunciado")}
           data-testid="banco-buscador"
           className="flex-1 min-w-[12rem] rounded border border-[var(--c-border,#cbd5e1)] bg-white px-2 py-1 text-sm"
         />
@@ -193,12 +195,10 @@ export default function BancoPreguntasEditor({
         <button
           type="button"
           onClick={handleExportar}
-          aria-label="Exportar todas las preguntas a JSON (formato compatible con el import)"
+          aria-label={t("bancoPreguntasEditor.exportarTodasLasPreguntasA")}
           data-testid="banco-exportar"
           className="rounded border border-[var(--c-border,#cbd5e1)] bg-white px-3 py-1 text-xs font-semibold text-[var(--c-text,#0f172a)] hover:bg-[var(--c-surface,#f1f5f9)]"
-        >
-          ⬇ Exportar JSON
-        </button>
+        >{t("profesorReportes.exportarJson")}</button>
       </div>
       <AccessibleList
         items={questions}
@@ -224,8 +224,8 @@ export default function BancoPreguntasEditor({
                     onItemChange(convertType(question, e.target.value as "mc" | "tf"))
                   }
                 >
-                  <option value="mc">Opción múltiple</option>
-                  <option value="tf">Verdadero/Falso</option>
+                  <option value="mc">{t("bancoPreguntasEditor.opcionMultiple")}</option>
+                  <option value="tf">{t("bancoPreguntasEditor.verdaderoFalso")}</option>
                 </select>
               </label>
             </div>
@@ -233,7 +233,7 @@ export default function BancoPreguntasEditor({
             <textarea
               className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
               rows={2}
-              placeholder="Enunciado de la pregunta"
+              placeholder={t("bancoPreguntasEditor.enunciadoDeLaPregunta")}
               aria-label={`Enunciado de la pregunta ${index + 1}`}
               value={question.prompt}
               onChange={(e) => onItemChange({ ...question, prompt: e.target.value })}

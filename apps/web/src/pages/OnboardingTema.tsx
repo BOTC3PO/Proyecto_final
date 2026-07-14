@@ -1,5 +1,6 @@
 import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useI18n } from "../i18n/I18nContext";
 
 const TEMAS_USER = [
   {
@@ -103,6 +104,7 @@ const TEMAS_USER = [
 const STORAGE_KEY = 'vb-theme';
 
 export default function OnboardingTema() {
+  const { t } = useI18n();
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
@@ -145,58 +147,54 @@ export default function OnboardingTema() {
           <h1 className="text-2xl font-semibold" style={{ color: tema.text }}>
             ¡Bienvenido, {nombre}!
           </h1>
-          <p className="text-sm" style={{ color: tema.muted }}>
-            Elegí cómo querés que se vea Virtual Book. Podés cambiarlo después desde tu perfil.
-          </p>
+          <p className="text-sm" style={{ color: tema.muted }}>{t("onboardingTema.elegiComoQueresQueSe")}</p>
         </div>
 
         {/* Grid de temas */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {TEMAS_USER.map((t) => (
+          {TEMAS_USER.map((tema) => (
             <button
-              key={t.id}
-              onClick={() => setSelected(t.id)}
+              key={tema.id}
+              onClick={() => setSelected(tema.id)}
               className="rounded-xl p-3 text-left transition-all"
               style={{
-                background: t.surface,
-                border: `2px solid ${selected === t.id ? t.primary : t.border}`,
-                outline: selected === t.id ? `3px solid ${t.primary}33` : 'none',
+                background: tema.surface,
+                border: `2px solid ${selected === tema.id ? tema.primary : tema.border}`,
+                outline: selected === tema.id ? `3px solid ${tema.primary}33` : 'none',
                 outlineOffset: '1px',
               }}
             >
               {/* Preview de colores */}
               <div className="flex gap-1 mb-2.5">
-                {t.preview.map((color, i) => (
+                {tema.preview.map((color, i) => (
                   <div
                     key={i}
                     className="h-5 rounded"
                     style={{
                       background: color,
                       flex: i === 0 ? 2 : i === 1 ? 1 : 1,
-                      border: `1px solid ${t.border}`,
+                      border: `1px solid ${tema.border}`,
                     }}
                   />
                 ))}
               </div>
               <p
                 className="text-xs font-semibold truncate"
-                style={{ color: t.text }}
+                style={{ color: tema.text }}
               >
-                {t.name}
+                {tema.name}
               </p>
               <p
                 className="text-[10px] mt-0.5 leading-tight"
-                style={{ color: t.muted }}
+                style={{ color: tema.muted }}
               >
-                {t.description}
+                {tema.description}
               </p>
-              {selected === t.id && (
+              {selected === tema.id && (
                 <div
                   className="mt-2 text-[10px] font-bold"
-                  style={{ color: t.primary }}
-                >
-                  ✓ Seleccionado
-                </div>
+                  style={{ color: tema.primary }}
+                >{t("onboardingTema.seleccionado")}</div>
               )}
             </button>
           ))}
@@ -216,9 +214,7 @@ export default function OnboardingTema() {
           onClick={() => navigate(`/login${returnToQS}`)}
           className="w-full text-center text-xs transition-opacity hover:opacity-70"
           style={{ color: tema.muted }}
-        >
-          Saltar por ahora
-        </button>
+        >{t("onboardingTema.saltarPorAhora")}</button>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import { useState } from "react";
 import { buildPromptIA, limpiarRespuestaIA } from "../../vblang/llmPrompt";
 import { Button, Textarea } from "../ui";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface PromptIAPanelProps {
   open: boolean;
   onClose: () => void;
@@ -21,6 +22,7 @@ interface PromptIAPanelProps {
 type CopyStatus = "idle" | "copied" | "error";
 
 export default function PromptIAPanel({ open, onClose, onInsert }: PromptIAPanelProps) {
+  const { t } = useI18n();
   const [descripcion, setDescripcion] = useState("");
   const [respuesta, setRespuesta] = useState("");
   const [copyStatus, setCopyStatus] = useState<CopyStatus>("idle");
@@ -53,15 +55,15 @@ export default function PromptIAPanel({ open, onClose, onInsert }: PromptIAPanel
       />
       <aside
         role="dialog"
-        aria-label="Copiar prompt para IA"
+        aria-label={t("plantillaEditor.copiarPromptParaIa")}
         className="fixed right-0 top-0 z-50 flex h-full w-full max-w-sm flex-col border-l border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] shadow-xl"
       >
         <header className="flex items-center justify-between border-b border-[var(--c-border,#e2e8f0)] px-4 py-3">
-          <h2 className="text-sm font-bold text-[var(--c-text)]">Copiar prompt para IA</h2>
+          <h2 className="text-sm font-bold text-[var(--c-text)]">{t("plantillaEditor.copiarPromptParaIa")}</h2>
           <button
             type="button"
             onClick={onClose}
-            aria-label="Cerrar"
+            aria-label={t("comun.cerrar")}
             className="rounded px-2 py-0.5 text-sm text-[var(--c-muted,#64748b)] hover:bg-[var(--c-bg,#f1f5f9)]"
           >
             ✕
@@ -70,15 +72,10 @@ export default function PromptIAPanel({ open, onClose, onInsert }: PromptIAPanel
 
         <div className="flex-1 overflow-auto px-4 py-3 text-xs space-y-4">
           <section>
-            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
-              1. Describí el ejercicio
-            </h3>
-            <p className="mb-1.5 text-[var(--c-muted,#64748b)]">
-              En lenguaje natural: tema, tipo de pregunta, qué variables debería
-              tener, etc.
-            </p>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("promptIAPanel.1DescribiElEjercicio")}</h3>
+            <p className="mb-1.5 text-[var(--c-muted,#64748b)]">{t("promptIAPanel.enLenguajeNaturalTemaTipo")}</p>
             <Textarea
-              aria-label="Descripción del ejercicio"
+              aria-label={t("promptIAPanel.descripcionDelEjercicio")}
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
               rows={4}
@@ -87,13 +84,8 @@ export default function PromptIAPanel({ open, onClose, onInsert }: PromptIAPanel
           </section>
 
           <section>
-            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
-              2. Copiá el prompt
-            </h3>
-            <p className="mb-1.5 text-[var(--c-muted,#64748b)]">
-              Incluye la referencia del DSL, tu descripción y el formato de
-              respuesta. Pegalo en cualquier IA (ChatGPT, Claude, Gemini, etc.).
-            </p>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("promptIAPanel.2CopiaElPrompt")}</h3>
+            <p className="mb-1.5 text-[var(--c-muted,#64748b)]">{t("promptIAPanel.incluyeLaReferenciaDelDsl")}</p>
             <Button variant="primary" size="sm" onClick={() => void handleCopy()}>
               {copyStatus === "copied"
                 ? "✓ Copiado"
@@ -104,19 +96,17 @@ export default function PromptIAPanel({ open, onClose, onInsert }: PromptIAPanel
           </section>
 
           <section>
-            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
-              3. Pegá la respuesta
-            </h3>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("promptIAPanel.3PegaLaRespuesta")}</h3>
             <p className="mb-1.5 text-[var(--c-muted,#64748b)]">
               Pegá lo que te devolvió la IA (con o sin ```fences```) e insertalo
               en el editor. El validador revisa el código al instante.
             </p>
             <Textarea
-              aria-label="Respuesta de la IA"
+              aria-label={t("promptIAPanel.respuestaDeLaIa")}
               value={respuesta}
               onChange={(e) => setRespuesta(e.target.value)}
               rows={6}
-              placeholder="Pegá acá la respuesta de la IA…"
+              placeholder={t("promptIAPanel.pegaAcaLaRespuestaDe")}
             />
             <Button
               variant="ghost"
@@ -124,9 +114,7 @@ export default function PromptIAPanel({ open, onClose, onInsert }: PromptIAPanel
               onClick={handleInsert}
               disabled={!respuesta.trim()}
               className="mt-1.5"
-            >
-              Insertar en el editor
-            </Button>
+            >{t("promptIAPanel.insertarEnElEditor")}</Button>
           </section>
         </div>
       </aside>

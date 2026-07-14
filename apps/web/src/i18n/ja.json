@@ -1296,7 +1296,6 @@
 
   "quizAttempt.array": "| 配列",
   "quizAttempt.cargandoIntento": "試行を読み込み中…",
-  "quizAttempt.voidAnswerslocalRecord": "void, answersLocal: Record",
   "quizAttempt.herramientaInteractiva": "インタラクティブツール",
   "quizAttempt.preguntaInformativaNoAfectaTu": "情報質問：成績に影響しません。",
   "quizAttempt.noSePudoCargarEl": "試行を読み込めませんでした。",

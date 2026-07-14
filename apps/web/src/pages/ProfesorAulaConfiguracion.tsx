@@ -19,6 +19,7 @@ import { createActivity, deleteActivity, fetchUpcomingActivities, type UpcomingA
 import { fetchClaseModulos, assignModulo, unassignModulo, type ClaseModuloItem } from "../services/clase-modulos";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
+import { useI18n } from "../i18n/I18nContext";
 
 type FormState = {
   name: string;
@@ -51,6 +52,7 @@ const buildInitialState = (classroom: Classroom): FormState => ({
 });
 
 export default function ProfesorAulaConfiguracion() {
+  const { t } = useI18n();
   // FIX-CONFIG: la ruta es `profesor/aulas/:aulaId` (router.tsx:282),
   // no `:id`. Antes se leía `id` (siempre undefined) y el `if (!id) return`
   // en el useEffect corría ANTES del `.finally(() => setIsLoading(false))`,
@@ -317,17 +319,13 @@ export default function ProfesorAulaConfiguracion() {
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div>
             <h1 className="text-xl font-semibold text-[var(--c-text)]">{classroomTitle}</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-0.5">
-              Ajusta el nombre, descripción y visibilidad del aula.
-            </p>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorAulaConfiguracion.ajustaElNombreDescripcionY")}</p>
           </div>
           {id && (
             <Link
               className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
               to={`/clases/${encodeURIComponent(id)}`}
-            >
-              ← Volver al aula
-            </Link>
+            >{t("profesorAulaConfiguracion.volverAlAula")}</Link>
           )}
         </div>
 
@@ -341,36 +339,30 @@ export default function ProfesorAulaConfiguracion() {
           <>
           <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-4 py-3 border-b border-[var(--c-border)]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Configuración general</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorAulaConfiguracion.configuracionGeneral")}</p>
           </div>
           <form className="p-4 grid gap-4 md:grid-cols-2" onSubmit={handleSubmit}>
             <div className="grid gap-4 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">
-                Nombre del aula
-                <input
+              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">{t("profesorAulaConfiguracion.nombreDelAula")}<input
                   className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   value={form.name}
                   onChange={(event) => handleFieldChange("name", event.target.value)}
                   required
                 />
               </label>
-              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">
-                Estado
-                <select
+              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">{t("comun.estado")}<select
                   className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   value={form.status}
                   onChange={(event) => handleFieldChange("status", event.target.value)}
                 >
-                  <option value="ACTIVE">Activa</option>
-                  <option value="ARCHIVED">Archivada</option>
-                  <option value="LOCKED">Bloqueada</option>
+                  <option value="ACTIVE">{t("profesorAulaConfiguracion.activa")}</option>
+                  <option value="ARCHIVED">{t("profesorAulaConfiguracion.archivada")}</option>
+                  <option value="LOCKED">{t("profesorAulaConfiguracion.bloqueada")}</option>
                 </select>
               </label>
             </div>
 
-            <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">
-              Descripción
-              <textarea
+            <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">{t("comun.descripcion")}<textarea
                 className="min-h-[120px] rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 value={form.description}
                 onChange={(event) => handleFieldChange("description", event.target.value)}
@@ -379,40 +371,32 @@ export default function ProfesorAulaConfiguracion() {
             </label>
 
             <div className="grid gap-4 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">
-                Tipo de acceso
-                <select
+              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">{t("enterpriseDashboard.tipoDeAcceso")}<select
                   className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   value={form.accessType}
                   onChange={(event) => handleFieldChange("accessType", event.target.value)}
                 >
-                  <option value="publica">Pública</option>
-                  <option value="privada">Privada</option>
+                  <option value="publica">{t("comun.publica")}</option>
+                  <option value="privada">{t("comun.privada")}</option>
                 </select>
               </label>
-              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">
-                Institución (opcional)
-                <input
+              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">{t("profesorAulaConfiguracion.institucionOpcional")}<input
                   className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   value={form.institutionId}
                   onChange={(event) => handleFieldChange("institutionId", event.target.value)}
                 />
               </label>
-              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">
-                Categoría (opcional)
-                <input
+              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">{t("profesorAulaConfiguracion.categoriaOpcional")}<input
                   className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   value={form.category}
                   onChange={(event) => handleFieldChange("category", event.target.value)}
                 />
               </label>
-              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">
-                Curso / grado
-                <input
+              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">{t("profesorAulaConfiguracion.cursoGrado")}<input
                   className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   value={form.grade}
                   onChange={(event) => handleFieldChange("grade", event.target.value)}
-                  placeholder="Ej: 5°"
+                  placeholder={t("profesorAulaConfiguracion.ej5")}
                 />
               </label>
             </div>
@@ -423,9 +407,7 @@ export default function ProfesorAulaConfiguracion() {
             <div className="rounded-xl border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-4 flex flex-wrap items-center gap-3 md:col-span-2"
                  data-testid="config-classcode">
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-                  Código de clase (para que se sumen los alumnos)
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorAulaConfiguracion.codigoDeClaseParaQue")}</p>
                 <p className="text-2xl font-mono font-semibold text-[var(--c-text)] mt-1 select-all" data-testid="config-classcode-value">
                   {form.classCode || "Sin código asignado"}
                 </p>
@@ -443,9 +425,7 @@ export default function ProfesorAulaConfiguracion() {
                   }
                 }}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-primary-soft,#dbeafe)] disabled:opacity-50 transition-colors"
-              >
-                📋 Copiar código
-              </button>
+              >{t("profesorAulaConfiguracion.copiarCodigo")}</button>
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -464,12 +444,12 @@ export default function ProfesorAulaConfiguracion() {
 
           <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="px-4 py-3 border-b border-[var(--c-border)]">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Próximas actividades</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("hijosProgreso.proximasActividades")}</p>
             </div>
             <div className="p-4 space-y-3">
 
             {activities.length === 0 ? (
-              <p className="text-sm text-[var(--c-muted)]">Sin actividades cargadas.</p>
+              <p className="text-sm text-[var(--c-muted)]">{t("profesorAulaConfiguracion.sinActividadesCargadas")}</p>
             ) : (
               <ul className="space-y-2">
                 {activities.map((act) => (
@@ -494,53 +474,43 @@ export default function ProfesorAulaConfiguracion() {
                       type="button"
                       className="text-xs text-red-400 hover:text-red-600"
                       onClick={() => handleDeleteActivity(act.id)}
-                    >
-                      Eliminar
-                    </button>
+                    >{t("comun.eliminar")}</button>
                   </li>
                 ))}
               </ul>
             )}
 
             <div className="grid gap-3 sm:grid-cols-2">
-              <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                Tipo
-                <select
+              <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.tipo")}<select
                   value={actForm.tipo}
                   onChange={(e) => setActForm((p) => ({
                     ...p, tipo: e.target.value as "clase" | "evaluacion" | "evento"
                   }))}
                   className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 >
-                  <option value="clase">📖 Clase</option>
-                  <option value="evaluacion">📝 Evaluación</option>
-                  <option value="evento">📅 Evento</option>
+                  <option value="clase">{t("profesorAulaConfiguracion.clase")}</option>
+                  <option value="evaluacion">{t("profesorAulaConfiguracion.evaluacion")}</option>
+                  <option value="evento">{t("profesorAulaConfiguracion.evento")}</option>
                 </select>
               </label>
-              <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                Fecha y hora
-                <input
+              <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorAulaConfiguracion.fechaYHora")}<input
                   type="datetime-local"
                   value={actForm.fecha}
                   onChange={(e) => setActForm((p) => ({ ...p, fecha: e.target.value }))}
                   className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 />
               </label>
-              <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)] sm:col-span-2">
-                Título *
-                <input
+              <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)] sm:col-span-2">{t("mensajeria.titulo")}<input
                   type="text"
-                  placeholder="Ej: Clase de repaso, Evaluación parcial..."
+                  placeholder={t("profesorAulaConfiguracion.ejClaseDeRepasoEvaluacion")}
                   value={actForm.titulo}
                   onChange={(e) => setActForm((p) => ({ ...p, titulo: e.target.value }))}
                   className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 />
               </label>
-              <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)] sm:col-span-2">
-                Descripción (opcional)
-                <textarea
+              <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)] sm:col-span-2">{t("comun.descripcionOpcional")}<textarea
                   rows={2}
-                  placeholder="Detalle adicional..."
+                  placeholder={t("profesorAulaConfiguracion.detalleAdicional")}
                   value={actForm.descripcion}
                   onChange={(e) => setActForm((p) => ({ ...p, descripcion: e.target.value }))}
                   className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
@@ -565,12 +535,12 @@ export default function ProfesorAulaConfiguracion() {
 
           <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="px-4 py-3 border-b border-[var(--c-border)]">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Módulos asignados</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorAulaConfiguracion.modulosAsignados")}</p>
             </div>
             <div className="p-4 space-y-3">
 
             {asignados.length === 0 ? (
-              <p className="text-sm text-[var(--c-muted)]">Sin módulos asignados.</p>
+              <p className="text-sm text-[var(--c-muted)]">{t("profesorAulaConfiguracion.sinModulosAsignados")}</p>
             ) : (
               <ul className="space-y-2">
                 {asignados.map((item) => {
@@ -592,9 +562,7 @@ export default function ProfesorAulaConfiguracion() {
                         type="button"
                         className="text-xs text-red-400 hover:text-red-600"
                         onClick={() => handleUnassign(item.moduloId)}
-                      >
-                        Quitar
-                      </button>
+                      >{t("comun.quitar")}</button>
                     </li>
                   );
                 })}
@@ -604,7 +572,7 @@ export default function ProfesorAulaConfiguracion() {
             <div className="space-y-2">
               <input
                 type="search"
-                placeholder="Buscar módulo para asignar..."
+                placeholder={t("profesorAulaConfiguracion.buscarModuloParaAsignar")}
                 value={moduloSearch}
                 onChange={(e) => setModuloSearch(e.target.value)}
                 className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
@@ -612,9 +580,7 @@ export default function ProfesorAulaConfiguracion() {
               {moduloSearch.trim() && (
                 <ul className="max-h-48 overflow-y-auto rounded-lg border border-[var(--c-border)] divide-y divide-[var(--c-border)]">
                   {modulosDisponibles.length === 0 ? (
-                    <li className="px-3 py-2 text-sm text-[var(--c-muted)]">
-                      Sin resultados.
-                    </li>
+                    <li className="px-3 py-2 text-sm text-[var(--c-muted)]">{t("profesorAulaConfiguracion.sinResultados")}</li>
                   ) : (
                     modulosDisponibles.slice(0, 10).map((m) => (
                       <li key={m.id}
@@ -630,9 +596,7 @@ export default function ProfesorAulaConfiguracion() {
                           disabled={moduloSaving}
                           className="text-xs font-semibold text-[var(--c-primary)] hover:underline disabled:opacity-50"
                           onClick={() => handleAssign(m.id)}
-                        >
-                          + Asignar
-                        </button>
+                        >{t("profesorAulaConfiguracion.asignar")}</button>
                       </li>
                     ))
                   )}
@@ -647,30 +611,28 @@ export default function ProfesorAulaConfiguracion() {
               se quita acá. */}
           <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="px-4 py-3 border-b border-[var(--c-border)]">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Co-titulares</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorAulaConfiguracion.coTitulares")}</p>
             </div>
             <div className="p-4 space-y-3">
               <ul className="space-y-2">
                 {owner && (
                   <li className="flex items-center justify-between gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm">
                     <span className="font-medium text-[var(--c-text)]">{owner.name}</span>
-                    <span className="text-xs text-[var(--c-muted)]">Titular original</span>
+                    <span className="text-xs text-[var(--c-muted)]">{t("profesorAulaConfiguracion.titularOriginal")}</span>
                   </li>
                 )}
-                {coTitulares.map((t) => (
-                  <li key={t.id} className="flex items-center justify-between gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm">
+                {coTitulares.map((ct) => (
+                  <li key={ct.id} className="flex items-center justify-between gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm">
                     <div>
-                      <span className="font-medium text-[var(--c-text)]">{t.name}</span>
-                      <span className="ml-2 text-xs text-[var(--c-muted)]">{t.role}</span>
+                      <span className="font-medium text-[var(--c-text)]">{ct.name}</span>
+                      <span className="ml-2 text-xs text-[var(--c-muted)]">{ct.role}</span>
                     </div>
                     <button
                       type="button"
                       disabled={titularSaving}
                       className="text-xs text-red-400 hover:text-red-600 disabled:opacity-50"
-                      onClick={() => handleQuitarTitular(t.id)}
-                    >
-                      Quitar
-                    </button>
+                      onClick={() => handleQuitarTitular(ct.id)}
+                    >{t("comun.quitar")}</button>
                   </li>
                 ))}
               </ul>
@@ -682,7 +644,7 @@ export default function ProfesorAulaConfiguracion() {
                     onChange={(e) => setCandidatoSeleccionado(e.target.value)}
                     className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   >
-                    <option value="">Elegir docente/directivo de la escuela...</option>
+                    <option value="">{t("profesorAulaConfiguracion.elegirDocenteDirectivoDeLa")}</option>
                     {candidatos.map((c) => (
                       <option key={c.id} value={c.id}>
                         {c.name} ({c.role})
@@ -694,15 +656,11 @@ export default function ProfesorAulaConfiguracion() {
                     disabled={titularSaving || !candidatoSeleccionado}
                     onClick={handleAgregarTitular}
                     className="rounded-lg bg-[var(--c-primary)] px-3 py-2 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
-                  >
-                    + Agregar co-titular
-                  </button>
+                  >{t("profesorAulaConfiguracion.agregarCoTitular")}</button>
                 </div>
               )}
               {coTitulares.length === 0 && candidatos.length === 0 && (
-                <p className="text-sm text-[var(--c-muted)]">
-                  No hay docentes o directivos disponibles en tu escuela para agregar como co-titular.
-                </p>
+                <p className="text-sm text-[var(--c-muted)]">{t("profesorAulaConfiguracion.noHayDocentesODirectivos")}</p>
               )}
               {titularError && <p className="text-xs text-[var(--c-danger)]">{titularError}</p>}
             </div>
@@ -713,11 +671,11 @@ export default function ProfesorAulaConfiguracion() {
               de fechas. La agregación de notas por período es otro sprint. */}
           <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="px-4 py-3 border-b border-[var(--c-border)]">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Períodos académicos</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorAulaConfiguracion.periodosAcademicos")}</p>
             </div>
             <div className="p-4 space-y-3">
               {periodos.length === 0 ? (
-                <p className="text-sm text-[var(--c-muted)]">Sin períodos cargados (ej: "1er bimestre", "Verano").</p>
+                <p className="text-sm text-[var(--c-muted)]">{t("profesorAulaConfiguracion.sinPeriodosCargadosEj1er")}</p>
               ) : (
                 <ul className="space-y-2">
                   {periodos.map((p) => (
@@ -730,37 +688,29 @@ export default function ProfesorAulaConfiguracion() {
                         type="button"
                         className="text-xs text-red-400 hover:text-red-600"
                         onClick={() => handleEliminarPeriodo(p.id)}
-                      >
-                        Quitar
-                      </button>
+                      >{t("comun.quitar")}</button>
                     </li>
                   ))}
                 </ul>
               )}
 
               <div className="grid gap-2 sm:grid-cols-[2fr_1fr_1fr_auto] items-end">
-                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                  Nombre
-                  <input
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.nombre")}<input
                     type="text"
-                    placeholder="Ej: 1er bimestre"
+                    placeholder={t("profesorAulaConfiguracion.ej1erBimestre")}
                     value={periodoForm.nombre}
                     onChange={(e) => setPeriodoForm((f) => ({ ...f, nombre: e.target.value }))}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
-                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                  Desde
-                  <input
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorAulaConfiguracion.desde")}<input
                     type="date"
                     value={periodoForm.desde}
                     onChange={(e) => setPeriodoForm((f) => ({ ...f, desde: e.target.value }))}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
-                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                  Hasta
-                  <input
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorAulaConfiguracion.hasta")}<input
                     type="date"
                     value={periodoForm.hasta}
                     onChange={(e) => setPeriodoForm((f) => ({ ...f, hasta: e.target.value }))}
@@ -772,18 +722,14 @@ export default function ProfesorAulaConfiguracion() {
                   disabled={periodoSaving || !periodoForm.nombre.trim() || !periodoForm.desde || !periodoForm.hasta}
                   onClick={handleCrearPeriodo}
                   className="rounded-lg bg-[var(--c-primary)] px-3 py-2 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
-                >
-                  + Agregar
-                </button>
+                >{t("profesorAulaConfiguracion.agregar")}</button>
               </div>
               {periodoError && <p className="text-xs text-[var(--c-danger)]">{periodoError}</p>}
             </div>
           </section>
           </>
         ) : (
-          <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-sm text-[var(--c-muted)]">
-            No encontramos el aula solicitada.
-          </div>
+          <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-sm text-[var(--c-muted)]">{t("profesorAulaConfiguracion.noEncontramosElAulaSolicitada")}</div>
         )}
       </div>
   );

@@ -9,6 +9,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { apiGet, apiPost } from "../../lib/api";
 
+import { useI18n } from "../../i18n/I18nContext";
 type PendingItem = {
   questionId: string;
   prompt: string;
@@ -120,6 +121,7 @@ function ItemCorreccion({
 }
 
 export default function CorreccionesPendientes({ aulaId }: { aulaId?: string }) {
+  const { t } = useI18n();
   const [attempts, setAttempts] = useState<PendingAttempt[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -166,9 +168,7 @@ export default function CorreccionesPendientes({ aulaId }: { aulaId?: string }) 
   return (
     <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
       <div className="px-4 py-3 border-b border-[var(--c-border)] flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-          Pendientes de corrección
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("correccionesPendientes.pendientesDeCorreccion")}</p>
         {totalPendientes > 0 && (
           <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
             {totalPendientes} pregunta(s)
@@ -185,9 +185,7 @@ export default function CorreccionesPendientes({ aulaId }: { aulaId?: string }) 
         )}
         {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
         {!loading && !error && attempts.length === 0 && (
-          <p className="text-sm text-[var(--c-muted)]">
-            No hay preguntas abiertas pendientes de corrección.
-          </p>
+          <p className="text-sm text-[var(--c-muted)]">{t("correccionesPendientes.noHayPreguntasAbiertasPendientes")}</p>
         )}
         {!loading &&
           !error &&

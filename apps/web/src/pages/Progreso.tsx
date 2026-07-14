@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchProgresoEstudiante, type ProgresoEstudianteResponse } from "../services/progreso";
+import { useI18n } from "../i18n/I18nContext";
 
 type AvanceModulo = {
   id: string;
@@ -41,6 +42,7 @@ function AvanceCard({ avance }: { avance: AvanceModulo }) {
 }
 
 export default function Progreso() {
+  const { t } = useI18n();
   const [data, setData] = useState<ProgresoEstudianteResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -72,10 +74,8 @@ export default function Progreso() {
 
         {/* Encabezado */}
         <div>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Mi progreso</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-1">
-            Tu avance por módulo y áreas a reforzar.
-          </p>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("progreso.miProgreso")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">{t("progreso.tuAvancePorModuloY")}</p>
         </div>
 
         {/* Estado de carga */}
@@ -92,7 +92,7 @@ export default function Progreso() {
         {/* Sin avances */}
         {!loading && !error && (!data || data.avances.length === 0) && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
-            <p className="text-sm font-medium text-[var(--c-muted)]">No hay avances registrados todavía.</p>
+            <p className="text-sm font-medium text-[var(--c-muted)]">{t("progreso.noHayAvancesRegistradosTodavia")}</p>
           </div>
         )}
 
@@ -107,15 +107,15 @@ export default function Progreso() {
             <div className="grid grid-cols-3 gap-3">
               <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 text-center">
                 <p className="text-2xl font-semibold text-[var(--c-success)]">{completados}</p>
-                <p className="text-xs text-[var(--c-muted)] mt-1">Completados</p>
+                <p className="text-xs text-[var(--c-muted)] mt-1">{t("adminReportesGlobal.completados")}</p>
               </div>
               <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 text-center">
                 <p className="text-2xl font-semibold text-[var(--c-warning)]">{enProgreso}</p>
-                <p className="text-xs text-[var(--c-muted)] mt-1">En progreso</p>
+                <p className="text-xs text-[var(--c-muted)] mt-1">{t("progreso.enProgreso")}</p>
               </div>
               <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 text-center">
                 <p className="text-2xl font-semibold text-[var(--c-text)]">{total}</p>
-                <p className="text-xs text-[var(--c-muted)] mt-1">Total</p>
+                <p className="text-xs text-[var(--c-muted)] mt-1">{t("enterpriseComisiones.total")}</p>
               </div>
             </div>
           );

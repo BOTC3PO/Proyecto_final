@@ -6,6 +6,7 @@ import { usePrimaryRole } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { fetchTareas, type TareaResumen } from "../services/tareas";
+import { useI18n } from "../i18n/I18nContext";
 
 interface Student {
   name: string;
@@ -136,6 +137,7 @@ const TareaRow: React.FC<{ tarea: TareaResumen }> = ({ tarea }) => {
 };
 
 export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass }) => {
+  const { t } = useI18n();
   const { user } = useAuth();
   const [completedModules, setCompletedModules] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -224,8 +226,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           <p className="text-xs uppercase tracking-widest text-[var(--c-muted)] mb-1">
             {new Date().toLocaleDateString("es-AR", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
           </p>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">
-            Bienvenido, <span className="text-[var(--c-primary)]">{student.name}</span>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("menualumno.bienvenido")}<span className="text-[var(--c-primary)]">{student.name}</span>
           </h1>
           <p className="text-sm text-[var(--c-muted)] mt-1">
             Alumno · {completedModules} módulos completados
@@ -237,12 +238,10 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           <div>
             <div className="flex items-center gap-1.5 mb-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-[var(--c-success)]" />
-              <span className="text-[10px] uppercase tracking-widest text-[var(--c-primary)] font-medium">
-                Próxima clase
-              </span>
+              <span className="text-[10px] uppercase tracking-widest text-[var(--c-primary)] font-medium">{t("menuProfesor.proximaClase")}</span>
             </div>
             <p className="text-base font-semibold text-[var(--c-text)]">{nextClass.title}</p>
-            <p className="text-xs text-[var(--c-muted)] mt-0.5">Hoy</p>
+            <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("common.hoy")}</p>
           </div>
           <div className="text-right flex-shrink-0">
             <p className="text-3xl font-semibold text-[var(--c-text)] tracking-tight">{nextClass.time}</p>
@@ -287,19 +286,17 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           {/* Módulos */}
           <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
             <div className="flex items-center justify-between mb-3">
-              <p className="text-sm font-medium text-[var(--c-text)]">Mis módulos</p>
-              <Link to="/modulos" className="text-xs text-[var(--c-primary)] hover:underline">
-                Ver todos →
-              </Link>
+              <p className="text-sm font-medium text-[var(--c-text)]">{t("menualumno.misModulos")}</p>
+              <Link to="/modulos" className="text-xs text-[var(--c-primary)] hover:underline">{t("menualumno.verTodos")}</Link>
             </div>
             {progressStatus === "loading" && (
-              <p className="text-xs text-[var(--c-muted)] py-4 text-center">Cargando...</p>
+              <p className="text-xs text-[var(--c-muted)] py-4 text-center">{t("comun.cargando2")}</p>
             )}
             {progressStatus === "error" && (
               <p className="text-xs text-[var(--c-danger)] py-4 text-center">{progressError}</p>
             )}
             {progressStatus === "ready" && modulesCount === 0 && (
-              <p className="text-xs text-[var(--c-muted)] py-4 text-center">Sin módulos asignados.</p>
+              <p className="text-xs text-[var(--c-muted)] py-4 text-center">{t("profesorAulaConfiguracion.sinModulosAsignados")}</p>
             )}
             {progressStatus === "ready" && modulesCount > 0 && (
               <div>
@@ -316,17 +313,15 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           {/* Tareas */}
           <div>
             <div className="flex items-center justify-between mb-3">
-              <p className="text-sm font-medium text-[var(--c-text)]">Tareas pendientes</p>
-              <Link to="/tareas" className="text-xs text-[var(--c-primary)] hover:underline">
-                Ver todas →
-              </Link>
+              <p className="text-sm font-medium text-[var(--c-text)]">{t("tareas.tareasPendientes")}</p>
+              <Link to="/tareas" className="text-xs text-[var(--c-primary)] hover:underline">{t("menuProfesor.verTodas")}</Link>
             </div>
             {tareasLoading && (
-              <p className="text-xs text-[var(--c-muted)]">Cargando...</p>
+              <p className="text-xs text-[var(--c-muted)]">{t("comun.cargando2")}</p>
             )}
             {!tareasLoading && tareas.length === 0 && (
               <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-4 py-6 text-center">
-                <p className="text-xs text-[var(--c-muted)]">No hay tareas pendientes.</p>
+                <p className="text-xs text-[var(--c-muted)]">{t("tareas.noHayTareasPendientes")}</p>
               </div>
             )}
             {!tareasLoading && tareas.length > 0 && (
@@ -345,6 +340,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
 };
 
 export default function Page() {
+  const { t } = useI18n();
   const { user } = useAuth();
   // FIX-BUG-ALU-02 — antes el role se hardcodeaba a "Alumno"
   // y el dashboard mostraba módulos completados del staff
@@ -380,9 +376,7 @@ export default function Page() {
           <Link
             to={primary === "TEACHER" ? "/profesor" : primary === "DIRECTIVO" ? "/enterprise" : "/admin"}
             className="font-semibold underline"
-          >
-            Volver a tu panel
-          </Link>
+          >{t("menualumno.volverATuPanel")}</Link>
         </div>
       )}
       <StudentDashboard

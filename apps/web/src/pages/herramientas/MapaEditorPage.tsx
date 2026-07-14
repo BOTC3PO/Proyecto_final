@@ -25,8 +25,10 @@ import { apiGet } from "../../lib/api";
 import { useAuth } from "../../auth/use-auth";
 import { loadDraft, saveDraft, clearDraft } from "./mapa-draft";
 import MapaEditorFull from "./MapaEditorFull";
+import { useI18n } from "../../i18n/I18nContext";
 
 export default function MapaEditorPage() {
+  const { t } = useI18n();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   // PLAN-L — sin sesión, MapaEditorFull entra en modo demo (sin guardar).
@@ -105,9 +107,7 @@ export default function MapaEditorPage() {
 
   if (loadingMaterial) {
     return (
-      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">
-        Cargando material…
-      </div>
+      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">{t("lineaTiempoEditorPage.cargandoMaterial")}</div>
     );
   }
 

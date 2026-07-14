@@ -5,6 +5,7 @@ import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import CorreccionesPendientes from "../components/profesor/CorreccionesPendientes";
+import { useI18n } from "../i18n/I18nContext";
 
 type QuizAttemptResult = {
   id: string;
@@ -22,6 +23,7 @@ type QuizAttemptResult = {
 };
 
 export default function ProfesorCalificaciones() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
@@ -98,13 +100,13 @@ export default function ProfesorCalificaciones() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Calificaciones</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">Resultados de evaluaciones formales por aula.</p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorCalificaciones.calificaciones")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorCalificaciones.resultadosDeEvaluacionesFormalesPor")}</p>
         </div>
 
         {aulas.length > 1 && (
           <div className="flex items-center gap-3">
-            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Aula</label>
+            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">{t("comun.aula")}</label>
             <select
               value={aulaId}
               onChange={(e) => setAulaId(e.target.value)}
@@ -123,14 +125,14 @@ export default function ProfesorCalificaciones() {
             (mejorable: fetchear los módulos del aula por
             separado). */}
         <div className="flex items-center gap-3">
-          <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Módulo</label>
+          <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">{t("adminReportesGlobal.modulo")}</label>
           <select
             value={moduleId}
             onChange={(e) => setModuleId(e.target.value)}
             data-testid="calificaciones-filtro-modulo"
             className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
           >
-            <option value="">Todos los módulos</option>
+            <option value="">{t("profesorCalificaciones.todosLosModulos")}</option>
             {moduleOptions.map((m) => (
               <option key={m.id} value={m.id}>{m.title}</option>
             ))}
@@ -141,7 +143,7 @@ export default function ProfesorCalificaciones() {
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-4 py-3 border-b border-[var(--c-border)]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Evaluaciones formales</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorCalificaciones.evaluacionesFormales")}</p>
           </div>
           <div className="p-4 space-y-3">
           {loading && (
@@ -151,9 +153,7 @@ export default function ProfesorCalificaciones() {
           )}
           {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
           {!loading && !error && Object.keys(byQuiz).length === 0 && (
-            <p className="text-sm text-[var(--c-muted)]">
-              No hay evaluaciones formales completadas en esta aula.
-            </p>
+            <p className="text-sm text-[var(--c-muted)]">{t("profesorCalificaciones.noHayEvaluacionesFormalesCompletadas")}</p>
           )}
           {!loading && !error && Object.entries(byQuiz).map(([quizId, lista]) => {
             const titulo = lista[0]?.quizTitle ?? quizId;
@@ -206,9 +206,7 @@ export default function ProfesorCalificaciones() {
                           to={`/profesor/intentos/${a.id}`}
                           className="text-blue-600 hover:underline"
                           data-testid="ver-detalle-intento"
-                        >
-                          Ver detalle
-                        </Link>
+                        >{t("profesorCalificaciones.verDetalle")}</Link>
                       </span>
                     </div>
                   ))}

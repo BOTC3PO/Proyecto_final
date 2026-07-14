@@ -1296,7 +1296,6 @@
 
   "quizAttempt.array": "| 数组",
   "quizAttempt.cargandoIntento": "正在加载尝试...",
-  "quizAttempt.voidAnswerslocalRecord": "void, answersLocal: Record",
   "quizAttempt.herramientaInteractiva": "交互式工具",
   "quizAttempt.preguntaInformativaNoAfectaTu": "提示性问题：不影响你的成绩。",
   "quizAttempt.noSePudoCargarEl": "无法加载尝试。",

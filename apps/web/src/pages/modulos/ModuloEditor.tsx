@@ -56,6 +56,7 @@ import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorR
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 import MapaEditorFull from "../herramientas/MapaEditorFull";
 import { InsertarMaterialGuardado } from "../../components/materiales/InsertarMaterialGuardado";
+import { useI18n } from "../../i18n/I18nContext";
 
 // ─── Pills de estado (prototipo `.pill`) ───────────────────────────────────
 // Mismas tonalidades que el componente de diseño `ui/Pill`, pero con
@@ -133,6 +134,7 @@ function CardHeader({
 }
 
 export default function ModuloEditor() {
+  const { t } = useI18n();
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -223,8 +225,8 @@ export default function ModuloEditor() {
   // aria-describedby/aria-invalid. Los mensajes son deterministas (ver
   // useModuloPersistence), así que el mapeo string→campo es estable.
   const FIELD_ERROR_MSG = {
-    title: "El título es obligatorio.",
-    description: "La descripción es obligatoria.",
+    title: t("moduloEditor.elTituloEsObligatorio"),
+    description: t("moduloEditor.laDescripcionEsObligatoria"),
     subject: "La materia es obligatoria.",
     level: "El nivel es obligatorio.",
   } as const;
@@ -271,7 +273,7 @@ export default function ModuloEditor() {
   const sectionNavItems: EditorSectionDef[] = [
     {
       id: "sec-general",
-      label: "General",
+      label: t("profesorAulas.general"),
       status: {
         status: sectionStatus.generalOk ? "ok" : "incomplete",
         label: sectionStatus.generalOk ? "Completa" : "Incompleta",
@@ -279,7 +281,7 @@ export default function ModuloEditor() {
     },
     {
       id: "sec-teoria",
-      label: "Teoría",
+      label: t("moduloDetail.teoria"),
       status: {
         status: sectionStatus.theoryOk ? "ok" : "incomplete",
         label: sectionStatus.theoryOk ? "Completa" : "Incompleta",
@@ -287,7 +289,7 @@ export default function ModuloEditor() {
     },
     {
       id: "sec-herramientas",
-      label: "Herramientas",
+      label: t("moduloEditor.herramientas"),
       status: {
         status: theoryItems.some(
           (t) => t.type === "Herramienta" || t.type === "HerramientaStandalone",
@@ -303,7 +305,7 @@ export default function ModuloEditor() {
     },
     {
       id: "sec-cuestionarios",
-      label: "Cuestionarios",
+      label: t("nav.cuestionarios"),
       status: {
         status: sectionStatus.quizzesOk ? "ok" : "incomplete",
         label: sectionStatus.quizzesOk ? "Completa" : "Incompleta",
@@ -311,10 +313,10 @@ export default function ModuloEditor() {
     },
     {
       id: "sec-dependencias",
-      label: "Dependencias",
+      label: t("moduloEditor.dependencias"),
       status: {
         status: "incomplete", // no hay flag propio: siempre se muestra como opcional
-        label: "Opcional",
+        label: t("profesorCalendario.opcional"),
       },
     },
   ];
@@ -517,7 +519,7 @@ export default function ModuloEditor() {
         label: `P${i + 1}: ${q.prompt}`,
       }));
     }
-    return [{ id: `${quiz.id}-empty`, label: "Sin preguntas configuradas." }];
+    return [{ id: `${quiz.id}-empty`, label: t("moduloEditor.sinPreguntasConfiguradas") }];
   };
 
   // ─── Render ───────────────────────────────────────────────────────────────
@@ -552,7 +554,7 @@ export default function ModuloEditor() {
       <Modal
         open={quizSueltoModalOpen}
         onClose={() => setQuizSueltoModalOpen(false)}
-        title="Usar cuestionario existente"
+        title={t("moduloEditor.usarCuestionarioExistente")}
         size="md"
       >
         {quizzesSueltosStatus === "loading" ? (
@@ -560,12 +562,9 @@ export default function ModuloEditor() {
             <Spinner />
           </div>
         ) : quizzesSueltosStatus === "error" ? (
-          <Alert variant="danger">No se pudieron cargar tus cuestionarios sueltos.</Alert>
+          <Alert variant="danger">{t("moduloEditor.noSePudieronCargarTus")}</Alert>
         ) : quizzesSueltos.length === 0 ? (
-          <p className="text-sm text-[var(--c-muted)]">
-            No tenés cuestionarios sueltos todavía. Se crean automáticamente al
-            armar 2 o más preguntas desde "Crear pregunta" sin abrir un módulo.
-          </p>
+          <p className="text-sm text-[var(--c-muted)]">{t("moduloEditor.noTenesCuestionariosSueltosTodavia")}</p>
         ) : (
           <ul className="flex flex-col gap-2" data-testid="quiz-suelto-list">
             {quizzesSueltos.map((q) => (
@@ -610,7 +609,7 @@ export default function ModuloEditor() {
               className="fixed inset-0 z-[100] bg-[var(--c-bg)]"
               role="dialog"
               aria-modal="true"
-              aria-label="Editor de mapa"
+              aria-label={t("moduloEditor.editorDeMapa")}
             >
               <MapaEditorFull
                 initialConfig={mapaEditing.config}
@@ -634,8 +633,8 @@ export default function ModuloEditor() {
 
       <main className="flex-1 bg-[var(--c-bg)] min-h-screen">
         <header className="vb-page-bar" role="banner">
-          <nav className="crumb" aria-label="Migas de pan">
-            <Link to="/modulos" className="hover:text-[var(--c-text)]">Módulos</Link>
+          <nav className="crumb" aria-label={t("plantillaEditor.migasDePan")}>
+            <Link to="/modulos" className="hover:text-[var(--c-text)]">{t("nav.modulos")}</Link>
             <svg className="w-3 h-3" viewBox="0 0 24 24" aria-hidden="true">
               <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6"/>
             </svg>
@@ -662,14 +661,12 @@ export default function ModuloEditor() {
           <button
             type="button"
             onClick={() => setVistaAlumnoOpen(true)}
-            aria-label="Abrir vista alumno"
+            aria-label={t("moduloEditor.abrirVistaAlumno")}
             data-testid="vista-alumno-open"
             className="rounded-md border border-[var(--c-primary)] px-3 py-1 text-xs font-semibold text-[var(--c-primary)] hover:bg-[var(--c-primary)] hover:text-white"
-          >
-            👁 Vista alumno
-          </button>
+          >{t("moduloEditor.vistaAlumno")}</button>
         </header>
-        <a href="#main-content" className="skip-link">Saltar al contenido</a>
+        <a href="#main-content" className="skip-link">{t("moduloEditor.saltarAlContenido")}</a>
         <div id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 outline-none">
           <div className="lg:grid lg:grid-cols-[180px_1fr] lg:gap-6">
             <EditorSectionNav sections={sectionNavItems} />
@@ -692,16 +689,12 @@ export default function ModuloEditor() {
                   Estás editando una copia
                   {clonedFrom.title ? ` de “${clonedFrom.title}”` : ""}.
                 </p>
-                <p className="mt-0.5 text-xs text-amber-800/80">
-                  El original quedó intacto. Esta copia es tuya: el dueño es tu cuenta y podés editarla libremente.
-                </p>
+                <p className="mt-0.5 text-xs text-amber-800/80">{t("moduloEditor.elOriginalQuedoIntactoEsta")}</p>
               </div>
             </div>
           )}
           <div className="mb-6">
-            <p className="text-sm text-[var(--c-muted)]">
-              Cargá teoría, cuestionarios manuales o generados para construir el módulo.
-            </p>
+            <p className="text-sm text-[var(--c-muted)]">{t("moduloEditor.cargaTeoriaCuestionariosManualesO")}</p>
           </div>
 
           {/* FIX-TEST4-MOD-02 — usar `isModuleLoading` en vez de
@@ -733,7 +726,7 @@ export default function ModuloEditor() {
                   <div className="h-24 rounded-lg bg-[var(--c-border)]" />
                 </div>
               </div>
-              <p className="text-center text-sm text-[var(--c-muted)]">Cargando módulo...</p>
+              <p className="text-center text-sm text-[var(--c-muted)]">{t("moduloDetail.cargandoModulo")}</p>
             </div>
           ) : (
             <form className="space-y-8" onSubmit={handleSubmit}>
@@ -744,8 +737,7 @@ export default function ModuloEditor() {
                   className="flex items-center justify-between gap-3 rounded-xl border border-[color-mix(in_srgb,var(--c-warning)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_8%,transparent)] px-4 py-2.5"
                 >
                   <p className="text-xs text-[var(--c-warning)]">
-                    <span aria-hidden="true">📋 </span>Se restauró un borrador de tu sesión anterior.
-                  </p>
+                    <span aria-hidden="true">📋 </span>{t("moduloEditor.seRestauroUnBorradorDe")}</p>
                   <button
                     type="button"
                     onClick={() => {
@@ -754,9 +746,7 @@ export default function ModuloEditor() {
                       window.location.reload();
                     }}
                     className="text-xs text-[var(--c-muted)] hover:text-[var(--c-danger)] transition-colors flex-shrink-0"
-                  >
-                    Descartar borrador
-                  </button>
+                  >{t("moduloEditor.descartarBorrador")}</button>
                 </div>
               )}
               {/* ── Información general ── */}
@@ -764,14 +754,14 @@ export default function ModuloEditor() {
                 <div className="p-6 space-y-5">
                 <CardHeader
                   icon={<span>&#9881;</span>}
-                  title="Información general"
+                  title={t("moduloEditor.informacionGeneral")}
                   subtitle="Título, materia y nivel del módulo."
                   headingId="sec-general-heading"
                   right={
                     sectionStatus.generalOk ? (
-                      <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
+                      <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span>{t("moduloEditor.completo")}</StatusPill>
                     ) : (
-                      <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Incompleto</StatusPill>
+                      <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span>{t("moduloEditor.incompleto")}</StatusPill>
                     )
                   }
                 />
@@ -800,9 +790,9 @@ export default function ModuloEditor() {
                       onChange={(e) => updateForm("category", e.target.value)}
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                     >
-                      <option value="sin-categoria">Sin categoría</option>
-                      <option value="evaluacion">📝 Evaluación</option>
-                      <option value="competencia">🏆 Competencia</option>
+                      <option value="sin-categoria">{t("moduloEditor.sinCategoria")}</option>
+                      <option value="evaluacion">{t("profesorAulaConfiguracion.evaluacion")}</option>
+                      <option value="competencia">{t("moduloEditor.competencia")}</option>
                     </select>
                   </label>
                 </div>
@@ -838,7 +828,7 @@ export default function ModuloEditor() {
                       aria-invalid={fieldErr("subject") || undefined}
                       aria-describedby={fieldErr("subject") ? "modulo-err-subject" : undefined}
                     >
-                      <option value="">Elegir materia</option>
+                      <option value="">{t("moduloEditor.elegirMateria")}</option>
                       {materias.map((m) => (
                         <option key={m} value={m.toLowerCase().replace(/\s+/g, '')}>
                           {m}
@@ -858,7 +848,7 @@ export default function ModuloEditor() {
                       id="modulo-field-level"
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.level}
-                      placeholder="Ej: 1° año secundario"
+                      placeholder={t("moduloEditor.ej1AnoSecundario")}
                       onChange={(event) => updateForm("level", event.target.value)}
                       aria-invalid={fieldErr("level") || undefined}
                       aria-describedby={fieldErr("level") ? "modulo-err-level" : undefined}
@@ -892,9 +882,9 @@ export default function ModuloEditor() {
                         }
                       }}
                     >
-                      <option value="publico">Público</option>
-                      <option value="privado">Privado (solo vos)</option>
-                      <option value="escuela">Escuela</option>
+                      <option value="publico">{t("profesorEvaluaciones.publico")}</option>
+                      <option value="privado">{t("moduloEditor.privadoSoloVos")}</option>
+                      <option value="escuela">{t("sidebar.escuela")}</option>
                     </select>
                   </div>
                 </div>
@@ -912,11 +902,7 @@ export default function ModuloEditor() {
                   />
                   <span>
                     <span className="font-medium flex items-center gap-1.5">&#128065;&#8203;&#128683; Descatalogado</span>
-                    <span className="mt-0.5 block text-xs text-[var(--c-muted)]">
-                      No aparece en los listados generales de módulos. Sigue
-                      visible para vos, para alumnos que invites abajo, y
-                      para cualquier aula donde lo asignes.
-                    </span>
+                    <span className="mt-0.5 block text-xs text-[var(--c-muted)]">{t("moduloEditor.noApareceEnLosListados")}</span>
                   </span>
                 </label>
 
@@ -928,9 +914,7 @@ export default function ModuloEditor() {
                 {form.visibility === "escuela" ? (
                   <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-3">
                     <p className="flex items-center gap-2 text-xs font-semibold text-[var(--c-text)]">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--c-warning-soft)] text-[var(--c-warning)] text-[10px]">&#127979;</span>
-                      ¿A qué escuela aplica esta visibilidad?
-                    </p>
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--c-warning-soft)] text-[var(--c-warning)] text-[10px]">&#127979;</span>{t("moduloEditor.aQueEscuelaAplicaEsta")}</p>
                     {form.visibilitySchoolId ? (
                       <div className="flex items-center gap-3 rounded-lg bg-[var(--c-surface)] px-3 py-2">
                         <span className="text-xs text-[var(--c-text)]">
@@ -947,9 +931,7 @@ export default function ModuloEditor() {
                             updateForm("visibilitySchoolId", "");
                             searchEscuelas("");
                           }}
-                        >
-                          Cambiar
-                        </button>
+                        >{t("moduloEditor.cambiar")}</button>
                       </div>
                     ) : (
                       <>
@@ -960,7 +942,7 @@ export default function ModuloEditor() {
                                 ? "border-[color-mix(in_srgb,var(--c-danger)_40%,transparent)] bg-[var(--c-danger-soft)] focus:border-[var(--c-danger)] focus:ring-[color-mix(in_srgb,var(--c-danger)_25%,transparent)]"
                                 : "border-[var(--c-border)] bg-[var(--c-surface)] focus:border-[var(--c-primary)] focus:ring-[color-mix(in_srgb,var(--c-primary)_22%,transparent)]"
                             }`}
-                            placeholder="Buscar escuela..."
+                            placeholder={t("moduloEditor.buscarEscuela")}
                             value={escuelaSearch}
                             onChange={(e) => {
                               setEscuelaSearch(e.target.value);
@@ -972,7 +954,7 @@ export default function ModuloEditor() {
                           />
                         </div>
                         {escuelaLoading ? (
-                          <p className="text-xs text-[var(--c-muted)] animate-pulse">Buscando...</p>
+                          <p className="text-xs text-[var(--c-muted)] animate-pulse">{t("mensajeria.buscando")}</p>
                         ) : escuelaResults.length > 0 ? (
                           <ul className="max-h-36 overflow-y-auto space-y-1 rounded-lg bg-[var(--c-surface)] p-1">
                             {escuelaResults.map((escuela) => (
@@ -1011,15 +993,15 @@ export default function ModuloEditor() {
                 <div className="p-6 space-y-5">
                 <CardHeader
                   icon={<span>&#128214;</span>}
-                  title="Teoría"
+                  title={t("moduloDetail.teoria")}
                   subtitle="Recursos de estudio: textos, videos, libros y herramientas."
                   headingId="sec-teoria-heading"
                   right={
                     <>
                       {sectionStatus.theoryOk ? (
-                        <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
+                        <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span>{t("moduloEditor.completo")}</StatusPill>
                       ) : (
-                        <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Sin recursos</StatusPill>
+                        <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span>{t("moduloEditor.sinRecursos")}</StatusPill>
                       )}
                       <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{theoryItems.length} recursos</span>
                     </>
@@ -1029,14 +1011,14 @@ export default function ModuloEditor() {
                 {/* New theory item form */}
                 <div className="space-y-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[var(--c-muted)]">Agregar recurso</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[var(--c-muted)]">{t("moduloEditor.agregarRecurso")}</p>
                     {/* PLAN-G §1 (item 25) — insertar un material guardado (copia snapshot, no vínculo vivo). */}
                     <InsertarMaterialGuardado onInsert={insertMaterialTheoryItem} />
                   </div>
                   <div className="grid gap-3 md:grid-cols-[1fr_180px]">
                     <input
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
-                      placeholder="Título del recurso"
+                      placeholder={t("moduloEditor.tituloDelRecurso")}
                       value={newTheoryItem.title}
                       onChange={(event) =>
                         setNewTheoryItem((prev) => ({ ...prev, title: event.target.value }))
@@ -1111,9 +1093,7 @@ export default function ModuloEditor() {
                         type="button"
                         className="rounded-lg border border-[var(--c-border)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:opacity-80 transition-opacity"
                         onClick={() => setBlockEditorFor("new")}
-                      >
-                        Abrir editor de bloques
-                      </button>
+                      >{t("moduloEditor.abrirEditorDeBloques")}</button>
                       {newTheoryItem.detail && (
                         <span className="text-xs text-[var(--c-muted)]">
                           {newTheoryItem.detail.startsWith("{")
@@ -1154,7 +1134,7 @@ export default function ModuloEditor() {
                           }
                         }}
                       >
-                        <option value="">Seleccionar herramienta...</option>
+                        <option value="">{t("moduloEditor.seleccionarHerramienta")}</option>
                         {STANDALONE_TOOLS.map((t) => (
                           <option key={t.value} value={t.value}>{t.label}</option>
                         ))}
@@ -1189,7 +1169,7 @@ export default function ModuloEditor() {
                               </span>
                               <button
                                 type="button"
-                                aria-label="Abrir editor de mapa"
+                                aria-label={t("moduloEditor.abrirEditorDeMapa")}
                                 className="rounded-md border border-[var(--c-primary)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-hover)]"
                                 onClick={() =>
                                   setMapaEditing({ herramientaId: "new", config: cfg })
@@ -1197,9 +1177,7 @@ export default function ModuloEditor() {
                               >
                                 <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
                                   <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
-                                </svg>
-                                Abrir editor de mapa
-                              </button>
+                                </svg>{t("moduloEditor.abrirEditorDeMapa")}</button>
                             </div>
                           );
                         }
@@ -1211,23 +1189,21 @@ export default function ModuloEditor() {
                       <input
                         className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                         placeholder="https://youtu.be/... o https://vimeo.com/..."
-                        aria-label="URL del video"
+                        aria-label={t("moduloEditor.urlDelVideo")}
                         type="url"
                         value={newTheoryItem.detail}
                         onChange={(event) =>
                           setNewTheoryItem((prev) => ({ ...prev, detail: event.target.value }))
                         }
                       />
-                      <p className="text-xs text-[var(--c-muted)]">
-                        Soporta YouTube, Vimeo o un enlace directo a archivo de video.
-                      </p>
+                      <p className="text-xs text-[var(--c-muted)]">{t("moduloEditor.soportaYoutubeVimeoOUn")}</p>
                     </div>
                   ) : isDocumentoType(newTheoryItem.type) ? (
                     <div className="space-y-1">
                       <input
                         className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                         placeholder="https://... (PDF, DOC, etc.)"
-                        aria-label="URL del documento"
+                        aria-label={t("moduloEditor.urlDelDocumento")}
                         type="url"
                         value={newTheoryItem.detail}
                         onChange={(event) =>
@@ -1242,7 +1218,7 @@ export default function ModuloEditor() {
                     <input
                       className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                       placeholder="https://..."
-                      aria-label="URL del enlace"
+                      aria-label={t("moduloEditor.urlDelEnlace")}
                       type="url"
                       value={newTheoryItem.detail}
                       onChange={(event) =>
@@ -1253,7 +1229,7 @@ export default function ModuloEditor() {
                     <textarea
                       className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                       rows={4}
-                      placeholder="Escribí el contenido del texto aquí..."
+                      placeholder={t("moduloEditor.escribiElContenidoDelTexto")}
                       value={newTheoryItem.detail}
                       onChange={(event) =>
                         setNewTheoryItem((prev) => ({ ...prev, detail: event.target.value }))
@@ -1266,15 +1242,14 @@ export default function ModuloEditor() {
                     className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity"
                     onClick={handleAddTheoryItem}
                   >
-                    <span className="text-base leading-none">+</span> Agregar recurso
-                  </button>
+                    <span className="text-base leading-none">+</span>{t("moduloEditor.agregarRecurso")}</button>
                 </div>
 
                 {/* Existing theory items */}
                 {theoryItems.length === 0 ? (
                   <div role="status" className="rounded-xl border-2 border-dashed border-[var(--c-border)] py-8 text-center">
-                    <p className="text-sm text-[var(--c-muted)]">No hay elementos teóricos cargados.</p>
-                    <p className="mt-1 text-xs text-[var(--c-muted)]">Usá el formulario de arriba para agregar recursos.</p>
+                    <p className="text-sm text-[var(--c-muted)]">{t("moduloEditor.noHayElementosTeoricosCargados")}</p>
+                    <p className="mt-1 text-xs text-[var(--c-muted)]">{t("moduloEditor.usaElFormularioDeArriba")}</p>
                   </div>
                 ) : (
                   <div className="space-y-3">
@@ -1285,8 +1260,8 @@ export default function ModuloEditor() {
                           <div className="flex flex-col gap-1 pt-0.5 shrink-0">
                             <button
                               type="button"
-                              title="Mover arriba"
-                              aria-label="Mover recurso hacia arriba"
+                              title={t("moduloEditor.moverArriba")}
+                              aria-label={t("moduloEditor.moverRecursoHaciaArriba")}
                               disabled={itemIdx === 0}
                               className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-sm text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "up")}
@@ -1295,8 +1270,8 @@ export default function ModuloEditor() {
                             </button>
                             <button
                               type="button"
-                              title="Mover abajo"
-                              aria-label="Mover recurso hacia abajo"
+                              title={t("moduloEditor.moverAbajo")}
+                              aria-label={t("moduloEditor.moverRecursoHaciaAbajo")}
                               disabled={itemIdx === theoryItems.length - 1}
                               className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-sm text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "down")}
@@ -1313,8 +1288,8 @@ export default function ModuloEditor() {
                             <div className="flex flex-col gap-2">
                               <input
                                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-xs transition-colors focus:border-[var(--c-primary)] focus:outline-none"
-                                placeholder="Título"
-                                aria-label="Título del recurso"
+                                placeholder={t("comun.titulo")}
+                                aria-label={t("moduloEditor.tituloDelRecurso")}
                                 value={item.title}
                                 onChange={(event) =>
                                   updateTheoryItem(item.id, { title: event.target.value })
@@ -1354,43 +1329,41 @@ export default function ModuloEditor() {
                                     type="button"
                                     className="text-xs text-[var(--c-primary)] hover:underline"
                                     onClick={() => setSlidesEditorFor(item.id)}
-                                  >
-                                    Editar presentación
-                                  </button>
+                                  >{t("moduloEditor.editarPresentacion")}</button>
                                 </div>
                               ) : isVideoType(item.type) ? (
                                 <div className="space-y-1">
                                   <input
                                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                     placeholder="https://youtu.be/... o https://vimeo.com/..."
-                                    aria-label="URL del video"
+                                    aria-label={t("moduloEditor.urlDelVideo")}
                                     type="url"
                                     value={item.detail}
                                     onChange={(event) =>
                                       updateTheoryItem(item.id, { detail: event.target.value })
                                     }
                                   />
-                                  <p className="text-[11px] text-[var(--c-muted)]">YouTube, Vimeo o enlace directo a video.</p>
+                                  <p className="text-[11px] text-[var(--c-muted)]">{t("moduloEditor.youtubeVimeoOEnlaceDirecto")}</p>
                                 </div>
                               ) : isDocumentoType(item.type) ? (
                                 <div className="space-y-1">
                                   <input
                                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                     placeholder="https://... (PDF, DOC, etc.)"
-                                    aria-label="URL del documento"
+                                    aria-label={t("moduloEditor.urlDelDocumento")}
                                     type="url"
                                     value={item.detail}
                                     onChange={(event) =>
                                       updateTheoryItem(item.id, { detail: event.target.value })
                                     }
                                   />
-                                  <p className="text-[11px] text-[var(--c-muted)]">PDF → visor integrado · otros formatos → descarga.</p>
+                                  <p className="text-[11px] text-[var(--c-muted)]">{t("moduloEditor.pdfVisorIntegradoOtrosFormatos")}</p>
                                 </div>
                               ) : isLinkType(item.type) ? (
                                 <input
                                   className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                   placeholder="https://..."
-                                  aria-label="URL del enlace"
+                                  aria-label={t("moduloEditor.urlDelEnlace")}
                                   value={item.detail}
                                   onChange={(event) =>
                                     updateTheoryItem(item.id, { detail: event.target.value })
@@ -1402,9 +1375,7 @@ export default function ModuloEditor() {
                                     type="button"
                                     className="rounded-lg border border-[var(--c-border)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:opacity-80 transition-opacity"
                                     onClick={() => setBlockEditorFor(item.id)}
-                                  >
-                                    Abrir editor de bloques
-                                  </button>
+                                  >{t("moduloEditor.abrirEditorDeBloques")}</button>
                                   {item.detail && (
                                     <span className="text-xs text-[var(--c-muted)]">
                                       {item.detail.startsWith("{")
@@ -1436,7 +1407,7 @@ export default function ModuloEditor() {
                                       }
                                     }}
                                   >
-                                    <option value="">Seleccionar herramienta...</option>
+                                    <option value="">{t("moduloEditor.seleccionarHerramienta")}</option>
                                     {STANDALONE_TOOLS.map((t) => (
                                       <option key={t.value} value={t.value}>{t.label}</option>
                                     ))}
@@ -1471,7 +1442,7 @@ export default function ModuloEditor() {
                                           </span>
                                           <button
                                             type="button"
-                                            aria-label="Abrir editor de mapa"
+                                            aria-label={t("moduloEditor.abrirEditorDeMapa")}
                                             className="rounded-md border border-[var(--c-primary)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-hover)]"
                                             onClick={() =>
                                               setMapaEditing({ herramientaId: item.id, config: cfg })
@@ -1479,9 +1450,7 @@ export default function ModuloEditor() {
                                           >
                                             <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
                                               <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
-                                            </svg>
-                                            Abrir editor de mapa
-                                          </button>
+                                            </svg>{t("moduloEditor.abrirEditorDeMapa")}</button>
                                         </div>
                                       );
                                     }
@@ -1506,9 +1475,7 @@ export default function ModuloEditor() {
                                     removeTheoryItem(item.id);
                                   }
                                 }}
-                              >
-                                Eliminar
-                              </button>
+                              >{t("comun.eliminar")}</button>
                             </div>
                           </div>
                          </div>
@@ -1531,10 +1498,10 @@ export default function ModuloEditor() {
                 <div className="p-6 space-y-4">
                 <CardHeader
                   icon={<span>&#128279;</span>}
-                  title="Dependencias"
+                  title={t("moduloEditor.dependencias")}
                   headingId="sec-dependencias-heading"
                   subtitle="Indicá si este módulo requiere completar otro antes, o si desbloquea módulos al terminarse."
-                  right={<StatusPill tone="neutral">Opcional</StatusPill>}
+                  right={<StatusPill tone="neutral">{t("profesorCalendario.opcional")}</StatusPill>}
                 />
 
                 {form.dependencies.length > 0 ? (
@@ -1547,8 +1514,7 @@ export default function ModuloEditor() {
                         <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--c-border)] text-[10px] font-bold text-[var(--c-muted)]">&#128279;</span>
                         <span className="flex-1 truncate text-xs text-[var(--c-text)]">
                           {depModuleNames[dep.id] === null ? (
-                            <span className="italic text-[var(--c-muted)]">
-                              Módulo eliminado <span className="font-mono">({dep.id})</span>
+                            <span className="italic text-[var(--c-muted)]">{t("moduloEditor.moduloEliminado")}<span className="font-mono">({dep.id})</span>
                             </span>
                           ) : (
                             depModuleNames[dep.id] ?? dep.id
@@ -1561,22 +1527,20 @@ export default function ModuloEditor() {
                             updateDependencyType(dep.id, e.target.value as "required" | "unlocks")
                           }
                         >
-                          <option value="required">Requerido antes</option>
-                          <option value="unlocks">Desbloquea al terminar</option>
+                          <option value="required">{t("moduloEditor.requeridoAntes")}</option>
+                          <option value="unlocks">{t("moduloEditor.desbloqueaAlTerminar")}</option>
                         </select>
                         <button
                           type="button"
                           className="rounded-md border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] px-2 py-1 text-xs font-medium text-[var(--c-danger)] transition-all hover:bg-[color-mix(in_srgb,var(--c-danger)_18%,var(--c-surface))] hover:border-[color-mix(in_srgb,var(--c-danger)_45%,transparent)]"
                           onClick={() => removeDependency(dep.id)}
-                        >
-                          Quitar
-                        </button>
+                        >{t("comun.quitar")}</button>
                       </li>
                     ))}
                   </ul>
                 ) : (
                   <div role="status" className="rounded-xl border-2 border-dashed border-[var(--c-border)] py-6 text-center">
-                    <p className="text-sm text-[var(--c-muted)]">Sin dependencias configuradas.</p>
+                    <p className="text-sm text-[var(--c-muted)]">{t("moduloEditor.sinDependenciasConfiguradas")}</p>
                   </div>
                 )}
 
@@ -1584,7 +1548,7 @@ export default function ModuloEditor() {
                   <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-3">
                     <input
                       className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-xs focus:border-[var(--c-primary)] focus:outline-none"
-                      placeholder="Buscar módulo por título..."
+                      placeholder={t("moduloEditor.buscarModuloPorTitulo")}
                       value={depSearch}
                       autoFocus
                       onChange={(e) => {
@@ -1593,7 +1557,7 @@ export default function ModuloEditor() {
                       }}
                     />
                     {depLoading ? (
-                      <p className="text-xs text-[var(--c-muted)] animate-pulse">Buscando...</p>
+                      <p className="text-xs text-[var(--c-muted)] animate-pulse">{t("mensajeria.buscando")}</p>
                     ) : depResults.length > 0 ? (
                       <ul className="max-h-40 overflow-y-auto space-y-1 rounded-lg bg-[var(--c-surface)] p-1">
                         {depResults
@@ -1627,9 +1591,7 @@ export default function ModuloEditor() {
                         setDepSearch("");
                         clearDepResults();
                       }}
-                    >
-                      Cancelar
-                    </button>
+                    >{t("comun.cancelar")}</button>
                   </div>
                 ) : (
                   <button
@@ -1639,9 +1601,7 @@ export default function ModuloEditor() {
                       setDepPickerOpen(true);
                       searchModules("");
                     }}
-                  >
-                    + Agregar dependencia
-                  </button>
+                  >{t("moduloEditor.agregarDependencia")}</button>
                 )}
                 </div>
               </section>
@@ -1651,12 +1611,8 @@ export default function ModuloEditor() {
               <div className="rounded-xl border border-[color-mix(in_srgb,var(--c-warning)_30%,transparent)] bg-[var(--c-warning-soft)] px-5 py-4 flex items-start gap-3">
                 <span className="text-2xl" aria-hidden="true">📝</span>
                 <div>
-                  <p className="text-sm font-semibold text-[var(--c-text)]">Modo Evaluación</p>
-                  <p className="text-xs text-[var(--c-muted)] mt-1">
-                    El módulo está configurado como evaluación. El alumno ve directamente el
-                    cuestionario sin sección de teoría. Usá las instrucciones del cuestionario
-                    para dar contexto.
-                  </p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">{t("moduloEditor.modoEvaluacion")}</p>
+                  <p className="text-xs text-[var(--c-muted)] mt-1">{t("moduloEditor.elModuloEstaConfiguradoComo")}</p>
                 </div>
               </div>
               )}
@@ -1666,19 +1622,19 @@ export default function ModuloEditor() {
                 <div className="p-6 space-y-5">
                 <CardHeader
                   icon={<span>&#10068;</span>}
-                  title="Cuestionarios"
+                  title={t("nav.cuestionarios")}
                   headingId="sec-cuestionarios-heading"
                   subtitle="Evaluaciones manuales, generadas o desde plantillas VBLang."
                   right={
                     <>
                       {quizzes.length === 0 ? (
-                        <StatusPill tone="neutral">Sin cuestionarios</StatusPill>
+                        <StatusPill tone="neutral">{t("moduloEditor.sinCuestionarios")}</StatusPill>
                       ) : (
                         <>
                           {sectionStatus.quizzesOk ? (
-                            <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
+                            <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span>{t("moduloEditor.completo")}</StatusPill>
                           ) : (
-                            <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Con errores</StatusPill>
+                            <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span>{t("moduloEditor.conErrores")}</StatusPill>
                           )}
                           <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{quizCountLabel}</span>
                         </>
@@ -1692,9 +1648,9 @@ export default function ModuloEditor() {
                     elige, se usa la escala 0–100 por defecto (comportamiento
                     histórico, reconciliado con el umbral). */}
                 <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-muted)] sm:max-w-sm">
-                  <span className="flex items-center gap-1.5">📏 Escala de notas</span>
+                  <span className="flex items-center gap-1.5">{t("moduloEditor.escalaDeNotas")}</span>
                   <select
-                    aria-label="Escala de notas del módulo"
+                    aria-label={t("moduloEditor.escalaDeNotasDelModulo")}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                     value={form.scoringSystemId ?? DEFAULT_SCORING_SYSTEM_ID}
                     onChange={(e) => updateForm("scoringSystemId", e.target.value)}
@@ -1705,9 +1661,7 @@ export default function ModuloEditor() {
                       </option>
                     ))}
                   </select>
-                  <span className="font-normal text-[var(--c-muted)]">
-                    Con qué escala se muestra la nota final al alumno.
-                  </span>
+                  <span className="font-normal text-[var(--c-muted)]">{t("moduloEditor.conQueEscalaSeMuestra")}</span>
                 </label>
 
                 <div className="flex flex-wrap items-start gap-3">
@@ -1722,9 +1676,7 @@ export default function ModuloEditor() {
                       className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity"
                       data-testid="guardar-para-cuestionarios"
                     >
-                      <span className="text-base leading-none">💾</span>
-                      Guardar módulo para agregar cuestionarios
-                    </button>
+                      <span className="text-base leading-none">💾</span>{t("moduloEditor.guardarModuloParaAgregarCuestionarios")}</button>
                   ) : null}
 
                   {/* PLAN-CUESTIONARIOS — acción primaria: el módulo CREA el
@@ -1773,15 +1725,13 @@ export default function ModuloEditor() {
                       data-testid="open-quiz-suelto-selector"
                       onClick={openQuizSueltoModal}
                     >
-                      <span className="text-base leading-none">🔁</span>
-                      Usar cuestionario existente
-                    </button>
+                      <span className="text-base leading-none">🔁</span>{t("moduloEditor.usarCuestionarioExistente")}</button>
                   ) : null}
 
                 </div>
 
                 {crearCuestionarioError && (
-                  <Alert variant="danger">No se pudo crear el cuestionario. Probá de nuevo.</Alert>
+                  <Alert variant="danger">{t("moduloEditor.noSePudoCrearEl")}</Alert>
                 )}
 
                 {/* PLAN-CUESTIONARIOS — el entry point "⚡ Generados (legacy)"
@@ -1791,19 +1741,15 @@ export default function ModuloEditor() {
                 {/* Leyenda explicativa */}
                 <div className="flex flex-wrap gap-3 text-xs text-[var(--c-muted)]">
                   {!id && (
-                    <span>
-                      💾 Guardá el módulo para poder crear cuestionarios con preguntas nativas.
-                    </span>
+                    <span>{t("moduloEditor.guardaElModuloParaPoder")}</span>
                   )}
-                  <span>
-                    🧩 Dentro de un cuestionario podés escribir preguntas nativas o importar plantillas VBLang del banco.
-                  </span>
+                  <span>{t("moduloEditor.dentroDeUnCuestionarioPodes")}</span>
                 </div>
 
                 {quizzes.length === 0 ? (
                   <div role="status" className="rounded-xl border-2 border-dashed border-[var(--c-border)] py-8 text-center">
-                    <p className="text-sm text-[var(--c-muted)]">No hay cuestionarios configurados.</p>
-                    <p className="mt-1 text-xs text-[var(--c-muted)]">Usá los botones de arriba para agregar cuestionarios.</p>
+                    <p className="text-sm text-[var(--c-muted)]">{t("moduloEditor.noHayCuestionariosConfigurados")}</p>
+                    <p className="mt-1 text-xs text-[var(--c-muted)]">{t("moduloEditor.usaLosBotonesDeArriba")}</p>
                   </div>
                 ) : (
                   <div className="space-y-6">
@@ -1833,17 +1779,13 @@ export default function ModuloEditor() {
                             <span
                               className="inline-flex items-center gap-1 rounded-full bg-[var(--c-success-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-success)]"
                               data-testid="quiz-badge-preguntas-nativas"
-                            >
-                              🧩 Preguntas nativas (Tiza)
-                            </span>
+                            >{t("moduloEditor.preguntasNativasTiza")}</span>
                           ) : esPlantilla ? (
                             <>
                               <span
                                 className="inline-flex items-center gap-1 rounded-full bg-[var(--c-success-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-success)]"
                                 data-testid="quiz-badge-plantilla"
-                              >
-                                🧩 Plantilla VBLang
-                              </span>
+                              >{t("moduloEditor.plantillaVblang")}</span>
                               {plantillaNombre && (
                                 <span className="text-xs text-[var(--c-muted)]">
                                   {plantillaNombre}
@@ -1854,19 +1796,13 @@ export default function ModuloEditor() {
                                   to={`/plantillas/${plantillaId}?returnTo=${encodeURIComponent(moduloReturnTo)}`}
                                   className="text-xs text-[var(--c-primary)] hover:underline"
                                   data-testid="quiz-plantilla-edit-link"
-                                >
-                                  Editar plantilla →
-                                </Link>
+                                >{t("moduloEditor.editarPlantilla")}</Link>
                               )}
                             </>
                           ) : quiz.mode === "generated" ? (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-[var(--c-info-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-info)]">
-                              ⚡ Generado
-                            </span>
+                            <span className="inline-flex items-center gap-1 rounded-full bg-[var(--c-info-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-info)]">{t("moduloEditor.generado")}</span>
                           ) : (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-muted)]">
-                              ✏️ Manual
-                            </span>
+                            <span className="inline-flex items-center gap-1 rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-muted)]">{t("moduloEditor.manual")}</span>
                           )}
                           {/* Etapa 2 (Tiza — preguntas nativas) — sólo para
                               módulos YA guardados: un quiz recién agregado en
@@ -1880,9 +1816,7 @@ export default function ModuloEditor() {
                               to={`/plantillas/nueva?quizId=${encodeURIComponent(quiz.id)}&returnTo=${encodeURIComponent(moduloReturnTo)}`}
                               className="text-xs text-[var(--c-primary)] hover:underline"
                               data-testid="quiz-tiza-preguntas-link"
-                            >
-                              Editar en Tiza (preguntas y configuración) →
-                            </Link>
+                            >{t("moduloEditor.editarEnTizaPreguntasY")}</Link>
                           )}
                         </div>
 
@@ -1926,9 +1860,7 @@ export default function ModuloEditor() {
                                   removeQuiz(quiz.id);
                                 }
                               }}
-                            >
-                              Eliminar cuestionario
-                            </button>
+                            >{t("moduloEditor.eliminarCuestionario")}</button>
                             <button
                               type="button"
                               className="rounded-lg border border-[var(--c-border)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:opacity-80 transition-opacity"
@@ -1946,9 +1878,7 @@ export default function ModuloEditor() {
 
                         {quizPreviewOpen[quiz.id] ? (
                           <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
-                            <p className="mb-2 font-semibold">
-                              Vista previa del estudiante (no registra intento)
-                            </p>
+                            <p className="mb-2 font-semibold">{t("moduloEditor.vistaPreviaDelEstudianteNo")}</p>
                             {quiz.mode === "generated" ? (
                               <QuizGeneratedPreview
                                 generatorId={quiz.generatorId ?? ""}
@@ -1980,9 +1910,7 @@ export default function ModuloEditor() {
                               onChange={(next) => updateQuiz(quiz.id, { questions: next })}
                             />
                             {(quiz.mode === "manual" || quiz.mode === undefined) && (quiz.questions?.length ?? 0) > 0 ? (
-                              <label className="text-xs font-medium text-[var(--c-muted)]">
-                                Preguntas por examen
-                                <span className="ml-1 font-normal text-[var(--c-muted)]">
+                              <label className="text-xs font-medium text-[var(--c-muted)]">{t("moduloEditor.preguntasPorExamen")}<span className="ml-1 font-normal text-[var(--c-muted)]">
                                   (de {quiz.questions?.length ?? 0} en el pool)
                                 </span>
                                 <input
@@ -2034,9 +1962,9 @@ export default function ModuloEditor() {
                   {/* Resumen de estado del módulo */}
                   <div className="flex flex-wrap items-center gap-2" aria-live="polite">
                     {sectionStatus.generalOk ? (
-                      <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Listo para guardar</StatusPill>
+                      <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span>{t("moduloEditor.listoParaGuardar")}</StatusPill>
                     ) : (
-                      <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Falta completar información general</StatusPill>
+                      <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span>{t("moduloEditor.faltaCompletarInformacionGeneral")}</StatusPill>
                     )}
                     {!isEvaluacionMode && (
                       <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">
@@ -2113,47 +2041,38 @@ function BookPicker({
   onSelect,
   onClose,
 }: BookPickerProps) {
+  const { t } = useI18n();
   if (!isOpen) {
     return (
       <div className="flex items-center gap-3">
         {selectedId ? (
           <>
-            <span className="text-xs text-[var(--c-muted)]">
-              Libro: <strong>{selectedTitle || selectedId}</strong>
+            <span className="text-xs text-[var(--c-muted)]">{t("moduloEditor.libro")}<strong>{selectedTitle || selectedId}</strong>
             </span>
-            <button type="button" className="text-xs text-[var(--c-primary)] hover:underline" onClick={onOpenPicker}>
-              Cambiar
-            </button>
+            <button type="button" className="text-xs text-[var(--c-primary)] hover:underline" onClick={onOpenPicker}>{t("moduloEditor.cambiar")}</button>
           </>
         ) : (
           <button
             type="button"
             className="w-full rounded-lg border border-dashed border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:border-[var(--c-primary)] hover:text-[var(--c-primary)] text-left transition-colors"
             onClick={onOpenPicker}
-          >
-            Seleccionar documento...
-          </button>
+          >{t("moduloEditor.seleccionarDocumento")}</button>
         )}
         <Link
           to="/editor"
           className="text-xs text-[var(--c-primary)] hover:underline whitespace-nowrap"
-        >
-          + Crear nuevo
-        </Link>
+        >{t("moduloEditor.crearNuevo")}</Link>
       </div>
     );
   }
 
   return (
     <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 space-y-2">
-      <p className="text-xs text-[var(--c-muted)] mt-0.5 mb-3">
-        Para contenido simple usá los bloques de arriba. El editor de texto
-        es para documentos más extensos o con formato avanzado.
-      </p>
+      <p className="text-xs text-[var(--c-muted)] mt-0.5 mb-3">{t("moduloEditor.paraContenidoSimpleUsaLos")}</p>
       <div className="flex gap-2">
         <input
           className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-2 py-1.5 text-xs focus:border-[var(--c-primary)] focus:outline-none"
-          placeholder="Buscar libro por título..."
+          placeholder={t("moduloEditor.buscarLibroPorTitulo")}
           value={search}
           onChange={(e) => onSearch(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && onSearch(search)}
@@ -2161,7 +2080,7 @@ function BookPicker({
         />
       </div>
       {loading ? (
-        <p className="text-xs text-[var(--c-muted)]">Buscando...</p>
+        <p className="text-xs text-[var(--c-muted)]">{t("mensajeria.buscando")}</p>
       ) : results.length > 0 ? (
         <ul className="space-y-0.5 max-h-40 overflow-y-auto">
           {results.map((book) => (
@@ -2178,18 +2097,14 @@ function BookPicker({
           ))}
         </ul>
       ) : (
-        <p className="text-xs text-[var(--c-muted)]">Sin resultados.</p>
+        <p className="text-xs text-[var(--c-muted)]">{t("profesorAulaConfiguracion.sinResultados")}</p>
       )}
       <div className="flex gap-3 pt-1 border-t border-[var(--c-border)]">
         <Link
           to="/editor"
           className="text-xs text-[var(--c-primary)] hover:underline"
-        >
-          + Crear nuevo documento
-        </Link>
-        <button type="button" className="text-xs text-[var(--c-muted)] hover:text-[var(--c-muted)]" onClick={onClose}>
-          Cancelar
-        </button>
+        >{t("moduloEditor.crearNuevoDocumento")}</Link>
+        <button type="button" className="text-xs text-[var(--c-muted)] hover:text-[var(--c-muted)]" onClick={onClose}>{t("comun.cancelar")}</button>
       </div>
     </div>
   );
@@ -2218,26 +2133,22 @@ function TuesdayPicker({
   onSelect,
   onClose,
 }: TuesdayPickerProps) {
+  const { t } = useI18n();
   if (!isOpen) {
     return (
       <div className="flex items-center gap-3">
         {selectedId ? (
           <>
-            <span className="text-xs text-[var(--c-muted)]">
-              Documento: <strong>{selectedId}</strong>
+            <span className="text-xs text-[var(--c-muted)]">{t("moduloEditor.documento")}<strong>{selectedId}</strong>
             </span>
-            <button type="button" className="text-xs text-[var(--c-primary)] hover:underline" onClick={onOpenPicker}>
-              Cambiar
-            </button>
+            <button type="button" className="text-xs text-[var(--c-primary)] hover:underline" onClick={onOpenPicker}>{t("moduloEditor.cambiar")}</button>
           </>
         ) : (
           <button
             type="button"
             className="w-full rounded-lg border border-dashed border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:border-[var(--c-primary)] hover:text-[var(--c-primary)] text-left transition-colors"
             onClick={onOpenPicker}
-          >
-            Seleccionar documento TuesdayJS...
-          </button>
+          >{t("moduloEditor.seleccionarDocumentoTuesdayjs")}</button>
         )}
       </div>
     );
@@ -2248,7 +2159,7 @@ function TuesdayPicker({
       <div className="flex gap-2">
         <input
           className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-2 py-1.5 text-xs focus:border-[var(--c-primary)] focus:outline-none"
-          placeholder="Buscar documento por título..."
+          placeholder={t("moduloEditor.buscarDocumentoPorTitulo")}
           value={search}
           onChange={(e) => onSearch(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && onSearch(search)}
@@ -2256,7 +2167,7 @@ function TuesdayPicker({
         />
       </div>
       {loading ? (
-        <p className="text-xs text-[var(--c-muted)]">Buscando...</p>
+        <p className="text-xs text-[var(--c-muted)]">{t("mensajeria.buscando")}</p>
       ) : results.length > 0 ? (
         <ul className="space-y-0.5 max-h-40 overflow-y-auto">
           {results.map((doc) => (
@@ -2273,12 +2184,10 @@ function TuesdayPicker({
           ))}
         </ul>
       ) : (
-        <p className="text-xs text-[var(--c-muted)]">Sin resultados.</p>
+        <p className="text-xs text-[var(--c-muted)]">{t("profesorAulaConfiguracion.sinResultados")}</p>
       )}
       <div className="pt-1 border-t border-[var(--c-border)]">
-        <button type="button" className="text-xs text-[var(--c-muted)] hover:text-[var(--c-muted)]" onClick={onClose}>
-          Cancelar
-        </button>
+        <button type="button" className="text-xs text-[var(--c-muted)] hover:text-[var(--c-muted)]" onClick={onClose}>{t("comun.cancelar")}</button>
       </div>
     </div>
   );
@@ -2371,6 +2280,7 @@ type InvitadoItem = { usuarioId: string; name: string };
 type UsuarioCandidato = { id: string; username: string };
 
 function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
+  const { t } = useI18n();
   const [invitados, setInvitados] = useState<InvitadoItem[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -2436,15 +2346,11 @@ function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
 
   return (
     <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-3">
-      <p className="flex items-center gap-2 text-xs font-semibold text-[var(--c-text)]">
-        Alumnos invitados
-        <span className="rounded-full bg-[var(--c-surface)] px-2 py-0.5 text-[10px] text-[var(--c-muted)]">
+      <p className="flex items-center gap-2 text-xs font-semibold text-[var(--c-text)]">{t("moduloEditor.alumnosInvitados")}<span className="rounded-full bg-[var(--c-surface)] px-2 py-0.5 text-[10px] text-[var(--c-muted)]">
           {invitados.length}
         </span>
       </p>
-      <p className="text-xs text-[var(--c-muted)]">
-        Los alumnos invitados ven este módulo aunque esté descatalogado.
-      </p>
+      <p className="text-xs text-[var(--c-muted)]">{t("moduloEditor.losAlumnosInvitadosVenEste")}</p>
 
       {errorMessage && (
         <p className="text-xs text-[var(--c-danger)]">{errorMessage}</p>
@@ -2453,7 +2359,7 @@ function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
       <div className="relative">
         <input
           className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-xs transition-colors focus:border-[var(--c-primary)] focus:outline-none"
-          placeholder="Buscar alumno por usuario..."
+          placeholder={t("moduloEditor.buscarAlumnoPorUsuario")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           data-testid="modulo-invitar-search"
@@ -2480,11 +2386,11 @@ function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
       </div>
 
       {status === "loading" ? (
-        <p className="text-xs text-[var(--c-muted)]">Cargando invitados...</p>
+        <p className="text-xs text-[var(--c-muted)]">{t("moduloEditor.cargandoInvitados")}</p>
       ) : status === "error" ? (
-        <p className="text-xs text-[var(--c-danger)]">No se pudo cargar la lista de invitados.</p>
+        <p className="text-xs text-[var(--c-danger)]">{t("moduloEditor.noSePudoCargarLa")}</p>
       ) : invitados.length === 0 ? (
-        <p className="text-xs text-[var(--c-muted)]">Todavía no invitaste a nadie.</p>
+        <p className="text-xs text-[var(--c-muted)]">{t("moduloEditor.todaviaNoInvitasteANadie")}</p>
       ) : (
         <ul className="space-y-1.5" data-testid="modulo-invitados-list">
           {invitados.map((i) => (
@@ -2497,9 +2403,7 @@ function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
                 type="button"
                 className="text-[var(--c-danger)] hover:underline"
                 onClick={() => desinvitar(i.usuarioId)}
-              >
-                Quitar
-              </button>
+              >{t("comun.quitar")}</button>
             </li>
           ))}
         </ul>

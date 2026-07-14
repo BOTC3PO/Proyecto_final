@@ -9,6 +9,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
 import { Card, CardHead, CardBody, Button, Pill, Select } from "../components/ui";
+import { useI18n } from "../i18n/I18nContext";
 
 interface Transaccion {
   id: string;
@@ -45,6 +46,7 @@ const money = (n: number) =>
 const fecha = (s: string) => (s ? s.slice(0, 10) : "—");
 
 export default function EnterpriseComisiones() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [data, setData] = useState<ResumenResp | null>(null);
@@ -96,7 +98,7 @@ export default function EnterpriseComisiones() {
   };
 
   if (loading) {
-    return <p className="p-6 text-sm text-[var(--c-muted)] animate-pulse">Cargando comisiones…</p>;
+    return <p className="p-6 text-sm text-[var(--c-muted)] animate-pulse">{t("enterpriseComisiones.cargandoComisiones")}</p>;
   }
   if (error) {
     return <p role="alert" className="p-6 text-sm text-[var(--c-danger)]">{error}</p>;
@@ -106,13 +108,13 @@ export default function EnterpriseComisiones() {
   return (
     <div className="mx-auto max-w-4xl space-y-5 p-6">
       <header>
-        <h1 className="text-xl font-bold text-[var(--c-text)]">Comisiones de la escuela</h1>
+        <h1 className="text-xl font-bold text-[var(--c-text)]">{t("enterpriseComisiones.comisionesDeLaEscuela")}</h1>
         <p className="text-sm text-[var(--c-muted)]">{data.escuela.name}</p>
       </header>
 
       <Card>
         <CardHead>
-          <h2 className="text-sm font-bold">Modo de gestión</h2>
+          <h2 className="text-sm font-bold">{t("enterpriseComisiones.modoDeGestion")}</h2>
           <Pill tone={modo === "autogestionado" ? "info" : "neutral"}>
             {modo === "autogestionado" ? "Autogestionado" : "Centralizado"}
           </Pill>
@@ -124,11 +126,11 @@ export default function EnterpriseComisiones() {
               value={modo}
               onChange={(e) => setModo(e.target.value)}
             >
-              <option value="centralizado">Centralizado (cobra VB)</option>
-              <option value="autogestionado">Autogestionado (la escuela cobra)</option>
+              <option value="centralizado">{t("adminComisiones.centralizadoCobraVb")}</option>
+              <option value="autogestionado">{t("adminComisiones.autogestionadoLaEscuelaCobra")}</option>
             </Select>
             <label className="flex flex-col gap-1">
-              <span className="text-xs font-medium text-[var(--c-text-3)]">Comisión VB (%)</span>
+              <span className="text-xs font-medium text-[var(--c-text-3)]">{t("adminComisiones.comisionVb")}</span>
               <input
                 type="number"
                 min={0}
@@ -140,10 +142,7 @@ export default function EnterpriseComisiones() {
               />
             </label>
           </div>
-          <p className="text-xs text-[var(--c-text-3)]">
-            En modo autogestionado, VB retiene <strong>{pct}%</strong> por cada cobro y
-            liquida el resto a la escuela.
-          </p>
+          <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseComisiones.enModoAutogestionadoVbRetiene")}<strong>{pct}%</strong>{t("enterpriseComisiones.porCadaCobroYLiquida")}</p>
           <Button onClick={() => void guardarModo()} disabled={savingModo} size="sm">
             {savingModo ? "Guardando…" : "Guardar"}
           </Button>
@@ -159,32 +158,32 @@ export default function EnterpriseComisiones() {
         </Card>
         <Card>
           <CardBody>
-            <p className="text-xs text-[var(--c-text-3)]">Comisión retenida</p>
+            <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseComisiones.comisionRetenida")}</p>
             <p className="mt-1 text-lg font-bold text-[var(--c-text)]">{money(data.resumen.comisionRetenidaMes)}</p>
           </CardBody>
         </Card>
         <Card>
           <CardBody>
-            <p className="text-xs text-[var(--c-text-3)]">Saldo a liquidar</p>
+            <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseComisiones.saldoALiquidar")}</p>
             <p className="mt-1 text-lg font-bold text-[var(--c-text)]">{money(data.resumen.saldoALiquidar)}</p>
           </CardBody>
         </Card>
       </div>
 
       <Card>
-        <CardHead><h2 className="text-sm font-bold">Transacciones</h2></CardHead>
+        <CardHead><h2 className="text-sm font-bold">{t("enterpriseComisiones.transacciones")}</h2></CardHead>
         <CardBody>
           {data.transacciones.length === 0 ? (
-            <p className="text-sm text-[var(--c-muted)]">Sin transacciones registradas.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("enterpriseComisiones.sinTransaccionesRegistradas")}</p>
           ) : (
             <table className="w-full text-left text-xs">
               <thead className="text-[var(--c-text-3)]">
                 <tr>
-                  <th className="py-1">Fecha</th>
-                  <th className="py-1">Total</th>
-                  <th className="py-1">Comisión</th>
-                  <th className="py-1">Neto</th>
-                  <th className="py-1">Estado</th>
+                  <th className="py-1">{t("enterpriseComisiones.fecha")}</th>
+                  <th className="py-1">{t("enterpriseComisiones.total")}</th>
+                  <th className="py-1">{t("adminComisiones.comision")}</th>
+                  <th className="py-1">{t("enterpriseComisiones.neto")}</th>
+                  <th className="py-1">{t("comun.estado")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -206,19 +205,19 @@ export default function EnterpriseComisiones() {
       </Card>
 
       <Card>
-        <CardHead><h2 className="text-sm font-bold">Liquidaciones</h2></CardHead>
+        <CardHead><h2 className="text-sm font-bold">{t("enterpriseComisiones.liquidaciones")}</h2></CardHead>
         <CardBody>
           {data.liquidaciones.length === 0 ? (
-            <p className="text-sm text-[var(--c-muted)]">Sin liquidaciones aún.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("enterpriseComisiones.sinLiquidacionesAun")}</p>
           ) : (
             <table className="w-full text-left text-xs">
               <thead className="text-[var(--c-text-3)]">
                 <tr>
-                  <th className="py-1">Fecha</th>
-                  <th className="py-1">Período</th>
-                  <th className="py-1">Monto</th>
+                  <th className="py-1">{t("enterpriseComisiones.fecha")}</th>
+                  <th className="py-1">{t("enterpriseComisiones.periodo")}</th>
+                  <th className="py-1">{t("comun.monto")}</th>
                   <th className="py-1"># Transacc.</th>
-                  <th className="py-1">Método</th>
+                  <th className="py-1">{t("enterpriseComisiones.metodo")}</th>
                 </tr>
               </thead>
               <tbody>

@@ -19,6 +19,7 @@ import { GeoJsonLayer } from "../../../lib/maps/GeoJsonLayer";
 import { useViewBoxZoom } from "../../../lib/maps/useViewBoxZoom";
 import { escalaPorZoom } from "../../../lib/maps/escala-por-zoom";
 
+import { useI18n } from "../../../i18n/I18nContext";
 const MAP_WIDTH = 960;
 const MAP_HEIGHT = 520;
 
@@ -48,6 +49,7 @@ type EditPanelProps = {
 };
 
 function EditPanel({ anotacion, onChange, onDelete, onClose }: EditPanelProps) {
+  const { t } = useI18n();
   const tipoLabel =
     anotacion.tipo === "marcador" ? "Marcador" : anotacion.tipo === "zona" ? "Zona" : "Flecha";
   return (
@@ -61,7 +63,7 @@ function EditPanel({ anotacion, onChange, onDelete, onClose }: EditPanelProps) {
         <button
           type="button"
           onClick={onClose}
-          aria-label="Cerrar panel de edición"
+          aria-label={t("mapaStandalone.cerrarPanelDeEdicion")}
           className="text-[var(--c-text-3)] hover:text-[var(--c-text)] text-xs px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
         >
           <span aria-hidden="true">✕</span>
@@ -81,7 +83,7 @@ function EditPanel({ anotacion, onChange, onDelete, onClose }: EditPanelProps) {
       </label>
 
       <label className="block space-y-1">
-        <span className="text-xs text-[var(--c-muted)]">Color</span>
+        <span className="text-xs text-[var(--c-muted)]">{t("mapaEditorFull.color")}</span>
         <input
           type="color"
           className="h-8 w-full cursor-pointer rounded border border-[var(--c-border)] bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
@@ -94,9 +96,7 @@ function EditPanel({ anotacion, onChange, onDelete, onClose }: EditPanelProps) {
         type="button"
         onClick={onDelete}
         className="w-full rounded border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] py-1 text-xs font-medium text-[var(--c-danger)] hover:bg-[color-mix(in_srgb,var(--c-danger)_20%,var(--c-surface))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
-      >
-        Eliminar
-      </button>
+      >{t("comun.eliminar")}</button>
     </div>
   );
 }
@@ -116,6 +116,7 @@ type Props = {
 type ActiveTool = "marcador" | "zona" | "flecha";
 
 export default function MapaStandalone({ config, editable = false, onChange, datasets, ariaLabel }: Props) {
+  const { t } = useI18n();
   const [features, setFeatures] = useState<CountryFeature[]>([]);
   const [mapStatus, setMapStatus] = useState<"idle" | "loading" | "ready" | "error">("loading");
   // Contador que se incrementa para re-disparar el fetch desde el botón «Reintentar».
@@ -357,32 +358,28 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
       {editable && (
         <div
           role="toolbar"
-          aria-label="Herramientas del mapa"
+          aria-label={t("mapaEditorFull.herramientasDelMapa")}
           className="flex flex-wrap items-center gap-2 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface-3)] px-3 py-2"
         >
           {/* Modo */}
-          <label className="flex items-center gap-1.5 text-xs text-[var(--c-muted)]">
-            Modo
-            <select
+          <label className="flex items-center gap-1.5 text-xs text-[var(--c-muted)]">{t("common.modo")}<select
               className={selectCls}
               value={localConfig.modo}
               onChange={(e) => update({ ...localConfig, modo: e.target.value as MapaConfig["modo"] })}
             >
-              <option value="political">Político</option>
-              <option value="physical">Físico</option>
+              <option value="political">{t("mapaEditorFull.politico")}</option>
+              <option value="physical">{t("mapaEditorFull.fisico")}</option>
             </select>
           </label>
 
           {/* Escala */}
-          <label className="flex items-center gap-1.5 text-xs text-[var(--c-muted)]">
-            Escala
-            <select
+          <label className="flex items-center gap-1.5 text-xs text-[var(--c-muted)]">{t("mapaEditorFull.escala")}<select
               className={selectCls}
               value={localConfig.escala}
               onChange={(e) => update({ ...localConfig, escala: e.target.value as MapaConfig["escala"] })}
             >
-              <option value="110m">110m (ligero)</option>
-              <option value="50m">50m (detallado)</option>
+              <option value="110m">{t("mapaEditorFull.110mLigero")}</option>
+              <option value="50m">{t("mapaEditorFull.50mDetallado")}</option>
             </select>
           </label>
 
@@ -432,7 +429,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
           )}
 
           {activeTool === "flecha" && pendingFlecha && (
-            <span className="text-xs text-[var(--c-warning)] font-medium" aria-live="polite">Click para definir destino…</span>
+            <span className="text-xs text-[var(--c-warning)] font-medium" aria-live="polite">{t("mapaStandalone.clickParaDefinirDestino")}</span>
           )}
 
           <div className="ml-auto">
@@ -440,9 +437,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
               type="button"
               className="rounded-lg border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-surface)] px-3 py-1 text-xs font-medium text-[var(--c-danger)] hover:bg-[var(--c-danger-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
               onClick={clearAll}
-            >
-              Limpiar todo
-            </button>
+            >{t("mapaStandalone.limpiarTodo")}</button>
           </div>
         </div>
       )}
@@ -466,9 +461,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
               className="flex items-center justify-center bg-[var(--c-surface-3)] text-[var(--c-muted)] text-sm"
               style={{ width: "100%", aspectRatio: `${MAP_WIDTH}/${MAP_HEIGHT}` }}
               role="status"
-            >
-              Cargando mapa…
-            </div>
+            >{t("mapaEditorFull.cargandoMapa")}</div>
           ) : mapStatus === "error" ? (
             <div
               className="flex items-center justify-center p-6 text-sm"
@@ -477,17 +470,13 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
               data-testid="mapa-error"
             >
               <div className="max-w-xs rounded-lg border border-[color-mix(in_srgb,var(--c-danger)_35%,transparent)] bg-[var(--c-surface)] p-4 text-center space-y-3">
-                <p className="font-semibold text-[var(--c-text)]">No se pudo cargar el mapa base.</p>
-                <p className="text-xs text-[var(--c-muted)]">
-                  Verificá la conexión con el servidor o cambiá el modo/escala.
-                </p>
+                <p className="font-semibold text-[var(--c-text)]">{t("mapaEditorFull.noSePudoCargarEl")}</p>
+                <p className="text-xs text-[var(--c-muted)]">{t("mapaEditorFull.verificaLaConexionConEl")}</p>
                 <button
                   type="button"
                   className="rounded-lg border border-[var(--c-primary)] bg-[var(--c-primary)] px-3 py-1 text-xs font-semibold text-[var(--c-accent-fg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
                   onClick={handleRetry}
-                >
-                  Reintentar
-                </button>
+                >{t("comun.reintentar")}</button>
               </div>
             </div>
           ) : (
@@ -604,14 +593,14 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
           <div
             className="pointer-events-auto absolute right-2 top-2 flex flex-col gap-0.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm"
             role="group"
-            aria-label="Zoom del mapa"
+            aria-label={t("mapaEditorFull.zoomDelMapa")}
             data-testid="mapa-zoom-controls"
           >
             <button
               type="button"
               onClick={zoomIn}
-              aria-label="Acercar"
-              title="Acercar (rueda hacia arriba)"
+              aria-label={t("mapaEditorFull.acercar")}
+              title={t("mapaStandalone.acercarRuedaHaciaArriba")}
               className="grid h-8 w-8 place-items-center text-[var(--c-text)] hover:bg-[var(--c-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -622,8 +611,8 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
             <button
               type="button"
               onClick={zoomOut}
-              aria-label="Alejar"
-              title="Alejar (rueda hacia abajo)"
+              aria-label={t("mapaEditorFull.alejar")}
+              title={t("mapaStandalone.alejarRuedaHaciaAbajo")}
               className="grid h-8 w-8 place-items-center text-[var(--c-text)] hover:bg-[var(--c-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -634,8 +623,8 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
             <button
               type="button"
               onClick={resetZoom}
-              aria-label="Restablecer zoom"
-              title="Restablecer zoom (Inicio)"
+              aria-label={t("mapaEditorFull.restablecerZoom")}
+              title={t("mapaStandalone.restablecerZoomInicio")}
               className="grid h-8 w-8 place-items-center text-[var(--c-text)] hover:bg-[var(--c-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">

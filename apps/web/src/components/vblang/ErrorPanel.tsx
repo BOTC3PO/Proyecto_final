@@ -15,6 +15,7 @@ import { memo } from "react";
 import type { LintReport } from "@vb/vblang";
 import { quickFixFor } from "./quickFixes";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface ErrorPanelProps {
   parseError?: { message: string; line?: number; col?: number; suggestion?: string };
   lintReport?: LintReport;
@@ -42,6 +43,7 @@ function ErrorPanel({
   currentCode,
   onApplyFix,
 }: ErrorPanelProps) {
+  const { t } = useI18n();
   const issues: UIIssue[] = [];
   if (parseError) {
     issues.push({
@@ -83,12 +85,10 @@ function ErrorPanel({
     return (
       <div
         role="region"
-        aria-label="Errores y advertencias"
+        aria-label={t("errorPanel.erroresYAdvertencias")}
         data-testid="vblang-error-panel"
         className="h-full overflow-auto p-3 text-xs text-[var(--c-hint)]"
-      >
-        Escribí código para validar.
-      </div>
+      >{t("errorPanel.escribiCodigoParaValidar")}</div>
     );
   }
 
@@ -96,11 +96,11 @@ function ErrorPanel({
     return (
       <div
         role="region"
-        aria-label="Errores y advertencias"
+        aria-label={t("errorPanel.erroresYAdvertencias")}
         data-testid="vblang-error-panel"
         className="h-full overflow-auto p-3 text-xs"
       >
-        <p className="text-[var(--c-success)] font-medium">Sin errores ✓</p>
+        <p className="text-[var(--c-success)] font-medium">{t("plantillaEditor.sinErrores")}</p>
       </div>
     );
   }
@@ -108,7 +108,7 @@ function ErrorPanel({
   return (
     <div
       role="region"
-      aria-label="Errores y advertencias"
+      aria-label={t("errorPanel.erroresYAdvertencias")}
       data-testid="vblang-error-panel"
       className="h-full overflow-auto p-3 text-xs space-y-2"
     >

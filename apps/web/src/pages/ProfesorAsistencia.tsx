@@ -4,6 +4,7 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchPlanillaAsistencia,
   guardarPlanillaAsistencia,
@@ -23,6 +24,7 @@ const todayIso = () => new Date().toISOString().slice(0, 10);
 type FilaEditable = AlumnoAsistencia & { notasBorrador: string };
 
 export default function ProfesorAsistencia() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const [searchParams] = useSearchParams();
   const presetAulaId = searchParams.get("aulaId") ?? "";
@@ -122,18 +124,14 @@ export default function ProfesorAsistencia() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
       <div>
-        <h1 className="text-xl font-semibold text-[var(--c-text)]">Asistencia</h1>
-        <p className="text-sm text-[var(--c-muted)] mt-0.5">
-          Pasá lista del aula seleccionada para la fecha elegida.
-        </p>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorAsistencia.asistencia")}</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorAsistencia.pasaListaDelAulaSeleccionada")}</p>
       </div>
 
       <div className="flex flex-wrap items-end gap-3">
         {aulas.length > 1 && (
           <div>
-            <label className="block text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide mb-1">
-              Aula
-            </label>
+            <label className="block text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide mb-1">{t("comun.aula")}</label>
             <select
               value={aulaId}
               onChange={(e) => setAulaId(e.target.value)}
@@ -148,9 +146,7 @@ export default function ProfesorAsistencia() {
           </div>
         )}
         <div>
-          <label className="block text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide mb-1">
-            Fecha
-          </label>
+          <label className="block text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide mb-1">{t("enterpriseComisiones.fecha")}</label>
           <input
             type="date"
             value={fecha}
@@ -163,17 +159,13 @@ export default function ProfesorAsistencia() {
             type="button"
             onClick={marcarTodosPresentes}
             className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)]"
-          >
-            Marcar todos presentes
-          </button>
+          >{t("profesorAsistencia.marcarTodosPresentes")}</button>
         )}
       </div>
 
       <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
         <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-            Planilla del día
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorAsistencia.planillaDelDia")}</p>
           {filas.length > 0 && (
             <span className="text-xs text-[var(--c-muted)]">
               {pendientes > 0 ? `${pendientes} sin marcar` : "Todos marcados"}
@@ -191,7 +183,7 @@ export default function ProfesorAsistencia() {
           {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
           {!loading && !error && filas.length === 0 && (
             <div className="rounded-xl border-2 border-dashed border-[var(--c-border)] py-8 text-center">
-              <p className="text-sm text-[var(--c-muted)]">Esta aula no tiene alumnos todavía.</p>
+              <p className="text-sm text-[var(--c-muted)]">{t("profesorAsistencia.estaAulaNoTieneAlumnos")}</p>
             </div>
           )}
           {!loading &&
@@ -209,7 +201,7 @@ export default function ProfesorAsistencia() {
                     onChange={(e) => cambiarEstado(fila.alumnoId, e.target.value as EstadoAsistencia)}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   >
-                    <option value="">Sin marcar</option>
+                    <option value="">{t("profesorAsistencia.sinMarcar")}</option>
                     {ESTADOS.map((e) => (
                       <option key={e.value} value={e.value}>
                         {e.label}
@@ -218,7 +210,7 @@ export default function ProfesorAsistencia() {
                   </select>
                   <input
                     type="text"
-                    placeholder="Notas (opcional)"
+                    placeholder={t("hijosAgregar.notasOpcional")}
                     value={fila.notasBorrador}
                     onChange={(e) => cambiarNotas(fila.alumnoId, e.target.value)}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-2 py-1.5 text-sm w-40 focus:outline-none focus:border-[var(--c-primary)]"

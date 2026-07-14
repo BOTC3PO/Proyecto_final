@@ -5,12 +5,14 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel } from "../domain/classroom/classroom.types";
 import { fetchEnterpriseAulas } from "../services/enterprise";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 
 const ACCESS_LABELS: Record<Classroom["accessType"], string> = {
   publica: "Pública", privada: "Privada",
 };
 
 export default function EnterpriseAulas() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [aulas, setAulas] = useState<Classroom[]>([]);
@@ -40,8 +42,8 @@ export default function EnterpriseAulas() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
       <div>
-        <h1 className="text-xl font-semibold text-[var(--c-text)]">Aulas</h1>
-        <p className="text-sm text-[var(--c-muted)] mt-0.5">Aulas activas de tu institución.</p>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.aulas")}</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("enterpriseAulas.aulasActivasDeTuInstitucion")}</p>
       </div>
 
       {error && (
@@ -65,7 +67,7 @@ export default function EnterpriseAulas() {
 
         {!loading && !error && aulas.length === 0 && (
           <div className="px-4 py-10 text-center">
-            <p className="text-sm text-[var(--c-muted)]">No hay aulas registradas.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("enterpriseAulas.noHayAulasRegistradas")}</p>
           </div>
         )}
 
@@ -94,9 +96,7 @@ export default function EnterpriseAulas() {
               <Link
                 to={`/clases?id=${getAulaId(aula)}`}
                 className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
-              >
-                Ver →
-              </Link>
+              >{t("enterpriseAulas.ver")}</Link>
             </div>
           </div>
         ))}

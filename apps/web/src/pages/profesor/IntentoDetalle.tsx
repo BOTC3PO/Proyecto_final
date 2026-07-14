@@ -20,6 +20,7 @@ import {
   type AttemptEventsSummary
 } from "../../domain/quiz/attemptEvents";
 import { Card, Badge, Alert, Spinner } from "../../ui";
+import { useI18n } from "../../i18n/I18nContext";
 
 type StaffAttempt = {
   id: string;
@@ -46,6 +47,7 @@ function statusVariant(s: string): "success" | "warning" | "neutral" | "danger" 
 }
 
 export default function ProfesorIntentoDetalle() {
+  const { t } = useI18n();
   const { attemptId } = useParams();
   const [attempt, setAttempt] = useState<StaffAttempt | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -92,9 +94,7 @@ export default function ProfesorIntentoDetalle() {
           gap: "var(--space-3)",
         }}>
           <Spinner size="lg" label="Cargando intento" />
-          <p style={{ fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
-            Cargando intento...
-          </p>
+          <p style={{ fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("intentoDetalle.cargandoIntento")}</p>
         </div>
       </main>
     );
@@ -111,9 +111,7 @@ export default function ProfesorIntentoDetalle() {
       }}>
         <Card variant="elevated" padding="lg" style={{ maxWidth: "28rem" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-            <Alert variant="danger" title="Error">
-              No se pudo cargar el intento.
-            </Alert>
+            <Alert variant="danger" title={t("intentoDetalle.error")}>{t("intentoDetalle.noSePudoCargarEl")}</Alert>
             {errorMessage && (
               <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
                 {errorMessage}
@@ -145,16 +143,16 @@ export default function ProfesorIntentoDetalle() {
 
   const metaItems: { label: string; value: string; badge?: boolean }[] = [
     {
-      label: "Score",
+      label: t("intentoDetalle.score"),
       value: `${attempt.score ?? "—"}/${attempt.maxScore ?? "—"}`,
     },
     {
-      label: "Estado",
+      label: t("comun.estado"),
       value: attempt.status,
       badge: true,
     },
-    { label: "Inicio", value: started },
-    { label: "Entrega", value: submitted },
+    { label: t("nav.inicio"), value: started },
+    { label: t("intentoDetalle.entrega"), value: submitted },
   ];
 
   return (
@@ -187,7 +185,7 @@ export default function ProfesorIntentoDetalle() {
                 textDecoration: "none",
                 fontWeight: "var(--fw-medium)",
               }}
-              aria-label="Volver a calificaciones"
+              aria-label={t("intentoDetalle.volverACalificaciones")}
             >
               &larr; Volver a calificaciones
             </Link>
@@ -204,8 +202,7 @@ export default function ProfesorIntentoDetalle() {
               margin: 0,
               fontSize: "var(--text-sm)",
               color: "var(--c-muted)",
-            }}>
-              Alumno: <code style={{
+            }}>{t("intentoDetalle.alumno")}<code style={{
                 fontSize: "var(--text-xs)",
                 fontFamily: "var(--font-mono)",
                 padding: "var(--space-1)",

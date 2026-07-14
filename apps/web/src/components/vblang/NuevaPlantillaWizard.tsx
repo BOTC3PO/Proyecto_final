@@ -15,6 +15,7 @@ import { parse } from "@vb/vblang";
 import { SPRINT_9B_EXAMPLES, type VblangExample } from "../../vblang/examples";
 import { Modal } from "../../ui";
 
+import { useI18n } from "../../i18n/I18nContext";
 export interface ExampleGroup {
   tipo: string;
   label: string;
@@ -103,6 +104,7 @@ export default function NuevaPlantillaWizard({
   onClose,
   examples = SPRINT_9B_EXAMPLES,
 }: NuevaPlantillaWizardProps) {
+  const { t } = useI18n();
   const groups = useMemo(() => {
     if (examples === SPRINT_9B_EXAMPLES) return buildGroups();
     const buckets = new Map<string, VblangExample[]>();
@@ -124,7 +126,7 @@ export default function NuevaPlantillaWizard({
     <Modal
       open={true}
       onClose={onClose}
-      title="Empezá una nueva plantilla"
+      title={t("nuevaPlantillaWizard.empezaUnaNuevaPlantilla")}
       size="lg"
       data-testid="vblang-wizard"
       style={{ position: "relative" }}
@@ -132,7 +134,7 @@ export default function NuevaPlantillaWizard({
       {/* Close button */}
       <button
         type="button"
-        aria-label="Cerrar wizard"
+        aria-label={t("nuevaPlantillaWizard.cerrarWizard")}
         onClick={onClose}
         style={{
           position: "absolute",
@@ -154,10 +156,7 @@ export default function NuevaPlantillaWizard({
         margin: "0 0 var(--space-4)",
         fontSize: "var(--text-sm)",
         color: "var(--c-muted)",
-      }}>
-        Elegí un ejemplo para arrancar con la estructura ya armada, o empezá
-        en blanco.
-      </p>
+      }}>{t("nuevaPlantillaWizard.elegiUnEjemploParaArrancar")}</p>
 
       <div
         style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}
@@ -201,9 +200,7 @@ export default function NuevaPlantillaWizard({
         ))}
 
         <section>
-          <h3 style={sectionHeading}>
-            En blanco
-          </h3>
+          <h3 style={sectionHeading}>{t("nuevaPlantillaWizard.enBlanco")}</h3>
           <button
             type="button"
             onClick={onBlank}
@@ -215,18 +212,13 @@ export default function NuevaPlantillaWizard({
               fontWeight: "var(--fw-medium)",
               fontSize: "var(--text-sm)",
               color: "var(--c-text)",
-            }}>
-              Empezar en blanco
-            </span>
+            }}>{t("nuevaPlantillaWizard.empezarEnBlanco")}</span>
             <span style={{
               display: "block",
               marginTop: "2px",
               fontSize: "var(--text-xs)",
               color: "var(--c-muted)",
-            }}>
-              Arranca con un template mínimo de variables + enunciado +
-              respuesta (útil para input numérico).
-            </span>
+            }}>{t("nuevaPlantillaWizard.arrancaConUnTemplateMinimo")}</span>
           </button>
         </section>
       </div>

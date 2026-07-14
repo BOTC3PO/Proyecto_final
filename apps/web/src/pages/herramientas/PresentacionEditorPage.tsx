@@ -13,6 +13,7 @@ import TheorySlideEditor, {
   type AccentColor,
 } from "../../components/modulos/TheorySlideEditor";
 import { apiGet } from "../../lib/api";
+import { useI18n } from "../../i18n/I18nContext";
 
 type PresentacionContenido = {
   slides: Slide[];
@@ -21,6 +22,7 @@ type PresentacionContenido = {
 };
 
 export default function PresentacionEditorPage() {
+  const { t } = useI18n();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const materialId = searchParams.get("materialId");
@@ -47,17 +49,13 @@ export default function PresentacionEditorPage() {
 
   if (loading) {
     return (
-      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">
-        Cargando material…
-      </div>
+      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">{t("lineaTiempoEditorPage.cargandoMaterial")}</div>
     );
   }
 
   if (!materialId || !contenido) {
     return (
-      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">
-        No se encontró la presentación.
-      </div>
+      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">{t("presentacionEditorPage.noSeEncontroLaPresentacion")}</div>
     );
   }
 

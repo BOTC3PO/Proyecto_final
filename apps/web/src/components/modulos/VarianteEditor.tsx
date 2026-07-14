@@ -47,6 +47,7 @@ import PlantillaSelectorModal from "../vblang/PlantillaSelectorModal";
 import GeneradorPicker from "../vblang/GeneradorPicker";
 import type { ModuleQuiz } from "../../domain/module/module.types";
 
+import { useI18n } from "../../i18n/I18nContext";
 /**
  * WO-D5 — el editor reconstruido (`EditorPlantilla`) es el default tras la
  * paridad. El viejo (`PlantillaEditorSchema`) queda accesible por flag inverso
@@ -175,13 +176,14 @@ export default function VarianteEditor({
   previewQuizzes,
   previewTitle,
 }: Props) {
+  const { t } = useI18n();
   const origen = variante.origen;
   const selectId = `variante-${posicion.numero}-${variante.letra}-origen`;
 
   return (
     <div className="space-y-2 rounded-md border border-[var(--c-border)] bg-[var(--c-surface-1)] p-2">
       <label className="flex items-center gap-2 text-xs">
-        <span className="font-medium text-[var(--c-text-2,inherit)]">Origen</span>
+        <span className="font-medium text-[var(--c-text-2,inherit)]">{t("varianteEditor.origen")}</span>
         <select
           id={selectId}
           aria-label={`Origen de la variante ${variante.letra} de la posición ${posicion.numero}`}
@@ -671,6 +673,7 @@ function PlantillaInlineEditor({
   previewQuizzes?: ModuleQuiz[];
   previewTitle?: string;
 }) {
+  const { t } = useI18n();
   const editorClasico = useEditorClasico();
   const [codigo, setCodigo] = useState<string | null>(null);
   const [estado, setEstado] = useState<"cargando" | "listo" | "error">(
@@ -755,12 +758,11 @@ function PlantillaInlineEditor({
   }, [ast]);
 
   if (estado === "cargando") {
-    return <p className="text-xs text-[var(--c-hint)]">Cargando plantilla…</p>;
+    return <p className="text-xs text-[var(--c-hint)]">{t("plantillaEditor.cargandoPlantilla")}</p>;
   }
   if (estado === "error" || ast === null) {
     return (
-      <p role="alert" className="text-xs text-[var(--c-danger,#b91c1c)]">
-        No se pudo cargar la plantilla <code>{plantillaId}</code>.
+      <p role="alert" className="text-xs text-[var(--c-danger,#b91c1c)]">{t("varianteEditor.noSePudoCargarLa")}<code>{plantillaId}</code>.
       </p>
     );
   }

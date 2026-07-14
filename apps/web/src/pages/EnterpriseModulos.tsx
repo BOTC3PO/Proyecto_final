@@ -4,8 +4,10 @@ import { useAuth } from "../auth/use-auth";
 import type { Module } from "../domain/module/module.types";
 import { resolveMateria } from "../domain/module/materia";
 import { fetchEnterpriseModulos } from "../services/enterprise";
+import { useI18n } from "../i18n/I18nContext";
 
 export default function EnterpriseModulos() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [modules, setModules] = useState<Module[]>([]);
@@ -29,10 +31,8 @@ export default function EnterpriseModulos() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
       <div>
-        <h1 className="text-xl font-semibold text-[var(--c-text)]">Módulos escolares</h1>
-        <p className="text-sm text-[var(--c-muted)] mt-0.5">
-          Módulos disponibles para tu institución.
-        </p>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("enterpriseModulos.modulosEscolares")}</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("enterpriseModulos.modulosDisponiblesParaTuInstitucion")}</p>
       </div>
 
       {error && (
@@ -44,7 +44,7 @@ export default function EnterpriseModulos() {
       <section className="grid gap-4 md:grid-cols-2">
           {loading && [1,2,3,4].map(i => <div key={i} className="h-28 animate-pulse rounded-xl bg-[var(--c-border)]" />)}
           {!loading && !error && modules.length === 0 && (
-            <p className="text-sm text-[var(--c-muted)]">No hay módulos disponibles.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("enterpriseModulos.noHayModulosDisponibles")}</p>
           )}
           {!loading && !error && modules.map((module) => (
             <article key={module.id}
@@ -67,9 +67,7 @@ export default function EnterpriseModulos() {
                 <Link
                   to={`/modulos/${module.id}`}
                   className="text-xs font-semibold text-[var(--c-primary)] hover:underline"
-                >
-                  Ver módulo →
-                </Link>
+                >{t("enterpriseModulos.verModulo")}</Link>
               </div>
             </article>
           ))}

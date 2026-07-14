@@ -15,6 +15,7 @@ import { memo, useState } from "react";
 import type { ModuleQuizQuestion } from "@vb/vblang";
 import type { PreviewItem } from "../../hooks/usePlantillaPreview";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface PreviewPanelProps {
   preview: PreviewItem[];
   onRegenerate: () => void;
@@ -71,26 +72,25 @@ function PreviewPanel({
   preview,
   onRegenerate,
 }: PreviewPanelProps) {
+  const { t } = useI18n();
   return (
     <div
       role="region"
-      aria-label="Vista previa de la plantilla"
+      aria-label={t("previewPanel.vistaPreviaDeLaPlantilla")}
       className="panel-section flex h-full"
       data-testid="vblang-preview-panel"
     >
       <div className="panel-section__head">
-        <h3 className="panel-section__title">Vista previa</h3>
+        <h3 className="panel-section__title">{t("comun.vistaPrevia")}</h3>
         <button
           type="button"
           onClick={onRegenerate}
           className="rounded-md bg-[var(--c-primary,#3b82f6)] px-3 py-1 text-xs font-medium text-white hover:opacity-90"
-        >
-          Regenerar
-        </button>
+        >{t("previewPanel.regenerar")}</button>
       </div>
       <div className="panel-section__body space-y-3">
         {preview.length === 0 ? (
-          <p className="text-xs text-[var(--c-hint)]">Sin preview todavía.</p>
+          <p className="text-xs text-[var(--c-hint)]">{t("previewPanel.sinPreviewTodavia")}</p>
         ) : (
           preview.map((item, idx) => (
             <PreviewCard key={`${item.seed}-${idx}`} item={item} />
@@ -128,6 +128,7 @@ function PreviewCard({ item }: { item: PreviewItem }) {
 
 /** Zona de respuesta interactiva + comprobación por card. */
 function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
+  const { t } = useI18n();
   const tipo = question.questionType ?? "input";
   const [text, setText] = useState("");
   const [selected, setSelected] = useState<string | null>(null);
@@ -167,7 +168,7 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
   return (
     <div className="mt-2 space-y-1.5">
       {usesOptions ? (
-        <ul role="radiogroup" aria-label="Tu respuesta" className="space-y-1">
+        <ul role="radiogroup" aria-label={t("previewPanel.tuRespuesta")} className="space-y-1">
           {question.options!.map((opt, i) => (
             <li key={i}>
               <label className="flex items-center gap-2 text-[var(--c-text)]">
@@ -187,13 +188,13 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
         </ul>
       ) : (
         <input
-          aria-label="Tu respuesta"
+          aria-label={t("previewPanel.tuRespuesta")}
           value={text}
           onChange={(e) => {
             setText(e.target.value);
             setChecked(false);
           }}
-          placeholder="Tu respuesta…"
+          placeholder={t("previewPanel.tuRespuesta2")}
           className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
         />
       )}
@@ -204,9 +205,7 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
           disabled={!canCheck}
           onClick={() => setChecked(true)}
           className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-xs font-medium text-white disabled:opacity-40"
-        >
-          Comprobar
-        </button>
+        >{t("previewPanel.comprobar")}</button>
         {checked && (
           <span
             role="status"

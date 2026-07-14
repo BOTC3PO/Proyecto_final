@@ -145,28 +145,28 @@ export default function Perfil() {
         const logrosCalc: Logro[] = [
           {
             id: "primer-modulo",
-            label: "Primer paso",
+            label: t("perfil.primerPaso"),
             descripcion: "Completaste tu primer módulo.",
             icono: "🎯",
             obtenido: totalCompletados >= 1,
           },
           {
             id: "cinco-modulos",
-            label: "En camino",
+            label: t("perfil.enCamino"),
             descripcion: "Completaste 5 módulos.",
             icono: "📚",
             obtenido: totalCompletados >= 5,
           },
           {
             id: "diez-modulos",
-            label: "Estudioso",
+            label: t("perfil.estudioso"),
             descripcion: "Completaste 10 módulos.",
             icono: "🏆",
             obtenido: totalCompletados >= 10,
           },
           {
             id: "veinticinco-modulos",
-            label: "Experto",
+            label: t("perfil.experto"),
             descripcion: "Completaste 25 módulos.",
             icono: "⭐",
             obtenido: totalCompletados >= 25,
@@ -232,9 +232,7 @@ export default function Perfil() {
                     {ROLE_LABELS[perfil.role] ?? perfil.role}
                   </span>
                   {perfil.isBanned && (
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]">
-                      Suspendido
-                    </span>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]">{t("perfil.suspendido")}</span>
                   )}
                 </div>
                 <p className="text-xs text-[var(--c-muted)] mt-0.5">@{perfil.username}</p>
@@ -245,13 +243,13 @@ export default function Perfil() {
             {/* Tabs */}
             <div className="flex gap-1 border-b border-[var(--c-border)]">
               {([
-                { key: "perfil",      label: "Datos" },
-                { key: "progreso",    label: "Progreso" },
-                { key: "logros",      label: "Logros" },
+                { key: "perfil",      label: t("perfil.datos") },
+                { key: "progreso",    label: t("nav.progreso") },
+                { key: "logros",      label: t("perfil.logros") },
                 // Apariencia siempre visible: aloja tema (gated adentro
                 // por availableThemes.length > 1) e idioma (siempre hay
                 // más de un idioma disponible).
-                { key: "apariencia" as const, label: "Apariencia" },
+                { key: "apariencia" as const, label: t("perfil.apariencia") },
               ] as { key: "perfil" | "progreso" | "logros" | "apariencia"; label: string }[]).map(({ key, label }) => (
                 <button
                   key={key}
@@ -280,13 +278,13 @@ export default function Perfil() {
                   currentRole={perfil.role}
                 />
                 {[
-                  { label: "Nombre completo", value: perfil.fullName },
-                  { label: "Usuario",         value: `@${perfil.username}` },
-                  { label: "Email",           value: perfil.email },
-                  { label: "Miembro desde",   value: perfil.createdAt
+                  { label: t("perfil.nombreCompleto"), value: perfil.fullName },
+                  { label: t("common.usuarioFallback"),         value: `@${perfil.username}` },
+                  { label: t("register.labelEmail"),           value: perfil.email },
+                  { label: t("perfil.miembroDesde"),   value: perfil.createdAt
                       ? new Date(perfil.createdAt).toLocaleDateString("es-AR")
                       : "—" },
-                  { label: "Módulos completados", value: `${perfil.modulosCompletados.total} (${perfil.modulosCompletados.publicos} públicos · ${perfil.modulosCompletados.privados} privados)` },
+                  { label: t("comun.modulosCompletados"), value: `${perfil.modulosCompletados.total} (${perfil.modulosCompletados.publicos} públicos · ${perfil.modulosCompletados.privados} privados)` },
                 ].map(({ label, value }) => (
                   <div key={label} className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-4 py-3 flex items-center justify-between gap-3">
                     <p className="text-xs text-[var(--c-muted)]">{label}</p>
@@ -330,11 +328,11 @@ export default function Perfil() {
                 {/* Hijos vinculados (solo PARENT) */}
                 {perfil.role === "PARENT" && (
                   <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-                    <p className="text-sm font-medium text-[var(--c-text)] mb-3">Hijos vinculados</p>
+                    <p className="text-sm font-medium text-[var(--c-text)] mb-3">{t("perfil.hijosVinculados")}</p>
                     {perfil.hijos.length === 0 ? (
                       <p className="text-xs text-[var(--c-muted)]">
                         No tenés hijos vinculados.{" "}
-                        <a href="/hijos/agregar" className="text-[var(--c-primary)] underline">Agregar un hijo</a>
+                        <a href="/hijos/agregar" className="text-[var(--c-primary)] underline">{t("perfil.agregarUnHijo")}</a>
                       </p>
                     ) : (
                       <div className="space-y-2">
@@ -347,9 +345,7 @@ export default function Perfil() {
                             <a
                               href="/hijos"
                               className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                            >
-                              Ver progreso
-                            </a>
+                            >{t("perfil.verProgreso")}</a>
                           </div>
                         ))}
                       </div>
@@ -371,7 +367,7 @@ export default function Perfil() {
                 )}
                 {progresoStatus === "ready" && fortalezas.length === 0 && (
                   <div className="rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
-                    <p className="text-sm text-[var(--c-muted)]">Sin datos de progreso por materia todavía.</p>
+                    <p className="text-sm text-[var(--c-muted)]">{t("perfil.sinDatosDeProgresoPor")}</p>
                   </div>
                 )}
                 {fortalezas.map((f) => (
@@ -402,7 +398,7 @@ export default function Perfil() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {logros.length === 0 && (
                   <div className="col-span-2 rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
-                    <p className="text-sm text-[var(--c-muted)]">Sin logros disponibles todavía.</p>
+                    <p className="text-sm text-[var(--c-muted)]">{t("perfil.sinLogrosDisponiblesTodavia")}</p>
                   </div>
                 )}
                 {logros.map((logro) => (
@@ -419,7 +415,7 @@ export default function Perfil() {
                       <p className="text-sm font-semibold text-[var(--c-text)]">{logro.label}</p>
                       <p className="text-xs text-[var(--c-muted)] mt-0.5">{logro.descripcion}</p>
                       {!logro.obtenido && (
-                        <p className="text-[10px] text-[var(--c-muted)] mt-1">No obtenido</p>
+                        <p className="text-[10px] text-[var(--c-muted)] mt-1">{t("perfil.noObtenido")}</p>
                       )}
                     </div>
                   </div>
@@ -432,9 +428,7 @@ export default function Perfil() {
               <div className="space-y-6">
                 {availableThemes.length > 1 && (
                   <div className="space-y-3">
-                    <p className="text-sm text-[var(--c-muted)]">
-                      Elegí el tema visual de la plataforma.
-                    </p>
+                    <p className="text-sm text-[var(--c-muted)]">{t("perfil.elegiElTemaVisualDe")}</p>
                     <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
                       {THEME_OPTIONS.filter((opt) => availableThemes.some((th) => th.id === opt.id)).map((opt) => (
                         <button
@@ -454,7 +448,7 @@ export default function Perfil() {
                           />
                           <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
                           {theme === opt.id && (
-                            <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">Activo</span>
+                            <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">{t("perfil.activo")}</span>
                           )}
                         </button>
                       ))}
@@ -484,7 +478,7 @@ export default function Perfil() {
                       >
                         <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
                         {lang === opt.id && (
-                          <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">Activo</span>
+                          <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">{t("perfil.activo")}</span>
                         )}
                       </button>
                     ))}
@@ -505,6 +499,7 @@ export default function Perfil() {
 // Una vez creada, "Entrar como alumno" dispara el switch (mismo
 // mecanismo que el staff) y aterriza en el panel de alumno.
 function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
+  const { t } = useI18n();
   const { switchCuenta } = useAuth();
   const navigate = useNavigate();
   // Estado local: refleja si el espejo ya existe (al cargar o tras crearlo).
@@ -552,11 +547,8 @@ function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
 
   return (
     <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-2">
-      <p className="text-sm font-medium text-[var(--c-text)]">Mi cuenta de alumno</p>
-      <p className="text-xs text-[var(--c-muted)]">
-        Además de monitorear a tus hijos, podés tener tu propia cuenta de
-        alumno para estudiar. Es opcional y separada de tu cuenta de padre.
-      </p>
+      <p className="text-sm font-medium text-[var(--c-text)]">{t("perfil.miCuentaDeAlumno")}</p>
+      <p className="text-xs text-[var(--c-muted)]">{t("perfil.ademasDeMonitorearATus")}</p>
       <div className="pt-1">
         {existe ? (
           <button
@@ -592,6 +584,7 @@ function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
 // de alumno o vincular una cuenta USER existente. Una vez que existe,
 // "Entrar como alumno" dispara el switch (mismo mecanismo que el padre).
 function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
+  const { t } = useI18n();
   const { switchCuenta } = useAuth();
   const navigate = useNavigate();
   const [existe, setExiste] = useState(tieneEspejo);
@@ -647,12 +640,8 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
 
   return (
     <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-2">
-      <p className="text-sm font-medium text-[var(--c-text)]">Mi cuenta de alumno</p>
-      <p className="text-xs text-[var(--c-muted)]">
-        Te deja previsualizar la experiencia del estudiante. Podés crear una
-        cuenta de alumno nueva o vincular una cuenta existente (por usuario o
-        email).
-      </p>
+      <p className="text-sm font-medium text-[var(--c-text)]">{t("perfil.miCuentaDeAlumno")}</p>
+      <p className="text-xs text-[var(--c-muted)]">{t("perfil.teDejaPrevisualizarLaExperiencia")}</p>
       {existe ? (
         <div className="pt-1">
           <button
@@ -678,7 +667,7 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
             <input
               value={ident}
               onChange={(e) => setIdent(e.target.value)}
-              placeholder="usuario o email del alumno"
+              placeholder={t("perfil.usuarioOEmailDelAlumno")}
               className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-1.5 text-xs text-[var(--c-text)]"
             />
             <button
@@ -709,6 +698,7 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
 // Una vez creada, "Entrar como padre" dispara el switch
 // (mismo mecanismo que Fases 2/3) y aterriza en /padre.
 function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
+  const { t } = useI18n();
   const { switchCuenta } = useAuth();
   const navigate = useNavigate();
   // Estado local: refleja si el padre ya existe (al cargar o tras crearlo).
@@ -756,13 +746,8 @@ function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
 
   return (
     <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-2">
-      <p className="text-sm font-medium text-[var(--c-text)]">Mi cuenta de padre</p>
-      <p className="text-xs text-[var(--c-muted)]">
-        Además de estudiar, podés tener tu propia cuenta de padre
-        para monitorear a tus hijos. Es opcional, separada de tu
-        cuenta de alumno y se activa al instante (no requiere
-        aprobación de un admin).
-      </p>
+      <p className="text-sm font-medium text-[var(--c-text)]">{t("perfil.miCuentaDePadre")}</p>
+      <p className="text-xs text-[var(--c-muted)]">{t("perfil.ademasDeEstudiarPodesTener")}</p>
       <div className="pt-1">
         {existe ? (
           <button
@@ -797,6 +782,7 @@ function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
 // solicitar un cambio de rol. El back valida la edad y la
 // idempotencia (no duplica solicitudes pendientes).
 function RoleSolicitudBanner({ currentRole }: { currentRole: string }) {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const [targetRole, setTargetRole] = useState<"TEACHER" | "PARENT" | "DIRECTIVO" | "ADMIN">("TEACHER");
   const [motivo, setMotivo] = useState("");
@@ -833,47 +819,36 @@ function RoleSolicitudBanner({ currentRole }: { currentRole: string }) {
     <div className="rounded-xl border-2 border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_5%,transparent)] p-4 space-y-3">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-sm font-semibold text-[var(--c-text)]">
-            ¿Querés cambiar tu rol?
-          </p>
-          <p className="text-xs text-[var(--c-muted)] mt-1">
-            Si tenés más de 18 años y querés ser docente, padre/madre o directivo,
-            podés solicitarlo acá. El admin revisará tu pedido.
-          </p>
+          <p className="text-sm font-semibold text-[var(--c-text)]">{t("perfil.queresCambiarTuRol")}</p>
+          <p className="text-xs text-[var(--c-muted)] mt-1">{t("perfil.siTenesMasDe18")}</p>
         </div>
         {!open && (
           <button
             onClick={() => setOpen(true)}
             className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity shrink-0"
             data-testid="perfil-solicitar-rol"
-          >
-            Solicitar
-          </button>
+          >{t("perfil.solicitar")}</button>
         )}
       </div>
 
       {open && (
         <div className="space-y-2">
-          <label className="grid gap-1 text-xs font-medium text-[var(--c-text)]">
-            Rol deseado
-            <select
+          <label className="grid gap-1 text-xs font-medium text-[var(--c-text)]">{t("perfil.rolDeseado")}<select
               value={targetRole}
               onChange={(e) => setTargetRole(e.target.value as "TEACHER" | "PARENT" | "DIRECTIVO" | "ADMIN")}
               className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
             >
-              <option value="TEACHER">Docente</option>
-              <option value="PARENT">Padre/Madre</option>
-              <option value="DIRECTIVO">Directivo de escuela</option>
-              <option value="ADMIN">Administrador</option>
+              <option value="TEACHER">{t("perfil.docente")}</option>
+              <option value="PARENT">{t("register.rolPadre")}</option>
+              <option value="DIRECTIVO">{t("perfil.directivoDeEscuela")}</option>
+              <option value="ADMIN">{t("perfil.administrador")}</option>
             </select>
           </label>
-          <label className="grid gap-1 text-xs font-medium text-[var(--c-text)]">
-            Motivo (opcional)
-            <textarea
+          <label className="grid gap-1 text-xs font-medium text-[var(--c-text)]">{t("perfil.motivoOpcional")}<textarea
               rows={2}
               value={motivo}
               onChange={(e) => setMotivo(e.target.value)}
-              placeholder="Contale al admin por qué querés este rol."
+              placeholder={t("perfil.contaleAlAdminPorQue")}
               className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
             />
           </label>
@@ -882,9 +857,7 @@ function RoleSolicitudBanner({ currentRole }: { currentRole: string }) {
               onClick={() => { setOpen(false); setMsg(null); }}
               disabled={sending}
               className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors"
-            >
-              Cancelar
-            </button>
+            >{t("comun.cancelar")}</button>
             <button
               onClick={handleSubmit}
               disabled={sending}

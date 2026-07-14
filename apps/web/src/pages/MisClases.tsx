@@ -7,6 +7,7 @@ import {
   getClassroomStatusLabel,
 } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 
 type AulasResponse = { items: Classroom[] };
 
@@ -26,6 +27,7 @@ function StatusBadge({ status }: { status: Classroom["status"] }) {
 }
 
 export default function MisClases() {
+  const { t } = useI18n();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -76,10 +78,8 @@ export default function MisClases() {
 
         {/* Encabezado */}
         <div>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Mis clases</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-1">
-            Seleccioná un aula para ver su contenido.
-          </p>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("misClases.misClases")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">{t("misClases.seleccionaUnAulaParaVer")}</p>
         </div>
 
         {/* Unirse con código — FIX-TEST4-ALU-01 — antes el input
@@ -99,14 +99,14 @@ export default function MisClases() {
           </label>
           <input
             type="text"
-            placeholder="Código de aula"
+            placeholder={t("misClases.codigoDeAula")}
             value={codigo}
             onChange={(e) => setCodigo(e.target.value.toUpperCase())}
             onKeyDown={(e) => { if (e.key === "Enter") void handleJoin(); }}
             className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] uppercase tracking-widest w-36"
             maxLength={8}
             autoFocus={aulas.length === 0}
-            aria-label="Código de aula"
+            aria-label={t("misClases.codigoDeAula")}
           />
           <button
             onClick={() => void handleJoin()}
@@ -160,12 +160,8 @@ export default function MisClases() {
         {/* Estado vacío */}
         {!loading && !error && aulas.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
-            <p className="text-sm font-medium text-[var(--c-muted)]">
-              Todavía no estás en ninguna aula.
-            </p>
-            <p className="text-xs text-[var(--c-muted)] mt-1">
-              Pedile a tu profesor el código de acceso.
-            </p>
+            <p className="text-sm font-medium text-[var(--c-muted)]">{t("misClases.todaviaNoEstasEnNinguna")}</p>
+            <p className="text-xs text-[var(--c-muted)] mt-1">{t("misClases.pedileATuProfesorEl")}</p>
           </div>
         )}
 

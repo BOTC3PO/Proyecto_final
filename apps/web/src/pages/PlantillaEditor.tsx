@@ -38,6 +38,7 @@ import { Button, Pill } from "../components/ui";
 import { usePlantillaCompilation } from "../hooks/usePlantillaCompilation";
 import { usePlantillaPreview } from "../hooks/usePlantillaPreview";
 import { usePlantillaValidation } from "../hooks/usePlantillaValidation";
+import { useI18n } from "../i18n/I18nContext";
 import {
   createPlantilla,
   getPlantilla,
@@ -114,6 +115,7 @@ function codigoHistReducer(s: CodigoHist, a: CodigoAction): CodigoHist {
 }
 
 export default function PlantillaEditor() {
+  const { t } = useI18n();
   const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -374,12 +376,12 @@ export default function PlantillaEditor() {
             message: "Plantilla guardada.",
             actions: [
               {
-                label: "Volver al módulo",
+                label: t("plantillaEditor.volverAlModulo"),
                 primary: true,
                 onClick: () => navigate(returnTo),
               },
               {
-                label: "Seguir editando",
+                label: t("plantillaEditor.seguirEditando"),
                 onClick: () => navigate(editUrl),
               },
             ],
@@ -400,11 +402,11 @@ export default function PlantillaEditor() {
             message: "Cambios guardados.",
             actions: [
               {
-                label: "Volver al módulo",
+                label: t("plantillaEditor.volverAlModulo"),
                 primary: true,
                 onClick: () => navigate(returnTo),
               },
-              { label: "Seguir editando", onClick: () => setToastState(null) },
+              { label: t("plantillaEditor.seguirEditando"), onClick: () => setToastState(null) },
             ],
           });
         }
@@ -432,16 +434,14 @@ export default function PlantillaEditor() {
   if (loadStatus === "loading") {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">
-          Cargando plantilla…
-        </p>
+        <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">{t("plantillaEditor.cargandoPlantilla")}</p>
       </main>
     );
   }
   if (loadStatus === "error") {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p role="alert" className="text-sm text-[var(--c-danger)]">No se pudo cargar la plantilla.</p>
+        <p role="alert" className="text-sm text-[var(--c-danger)]">{t("plantillaEditor.noSePudoCargarLa")}</p>
       </main>
     );
   }
@@ -486,16 +486,14 @@ export default function PlantillaEditor() {
             type="button"
             data-testid="plantilla-volver"
             onClick={() => navigate(returnTo || "/plantillas")}
-            aria-label="Volver"
+            aria-label={t("comun.volver")}
             className="inline-flex items-center gap-1.5 rounded-md border border-[var(--c-border)] px-2.5 py-1 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
               <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12l6-6M5 12l6 6"/>
-            </svg>
-            Volver
-          </button>
-          <nav className="crumb" aria-label="Migas de pan">
-            <Link to="/plantillas" className="hover:text-[var(--c-text)]">Plantillas</Link>
+            </svg>{t("comun.volver")}</button>
+          <nav className="crumb" aria-label={t("plantillaEditor.migasDePan")}>
+            <Link to="/plantillas" className="hover:text-[var(--c-text)]">{t("nav.plantillas")}</Link>
             <svg className="w-3 h-3" viewBox="0 0 24 24" aria-hidden="true">
               <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6"/>
             </svg>
@@ -504,18 +502,18 @@ export default function PlantillaEditor() {
             </span>
           </nav>
           <div className="vb-name">
-            <span className="vb-name-eyebrow">VBLang · Plantilla</span>
+            <span className="vb-name-eyebrow">{t("plantillaEditor.vblangPlantilla")}</span>
             <input
-              aria-label="Nombre de la plantilla"
+              aria-label={t("plantillaEditor.nombreDeLaPlantilla")}
               value={metadata.nombre}
               onChange={(e) => setMetadata((m) => ({ ...m, nombre: e.target.value }))}
-              placeholder="Nombre de la plantilla…"
+              placeholder={t("plantillaEditor.nombreDeLaPlantilla2")}
               className="vb-name-title"
             />
           </div>
           <div
             role="tablist"
-            aria-label="Modo del editor"
+            aria-label={t("plantillaEditor.modoDelEditor")}
             className="flex rounded-md border border-[var(--c-border)] text-xs"
           >
             <button
@@ -532,9 +530,7 @@ export default function PlantillaEditor() {
                   ? "bg-[var(--c-primary)] text-white"
                   : "text-[var(--c-text)]"
               }`}
-            >
-              Código
-            </button>
+            >{t("plantillaEditor.codigo")}</button>
             <button
               type="button"
               role="tab"
@@ -549,9 +545,7 @@ export default function PlantillaEditor() {
                   ? "bg-[var(--c-primary)] text-white"
                   : "text-[var(--c-text)]"
               }`}
-            >
-              Formulario
-            </button>
+            >{t("plantillaEditor.formulario")}</button>
           </div>
           <div
             className={`save-state${saveStatus === "saving" ? " is-saving" : ""}${saveStatus === "error" ? " is-error" : ""}`}
@@ -577,8 +571,8 @@ export default function PlantillaEditor() {
               size="sm"
               onClick={undo}
               disabled={!canUndo}
-              aria-label="Deshacer"
-              title="Deshacer"
+              aria-label={t("plantillaEditor.deshacer")}
+              title={t("plantillaEditor.deshacer")}
             >
               ↶
             </Button>
@@ -587,8 +581,8 @@ export default function PlantillaEditor() {
               size="sm"
               onClick={redo}
               disabled={!canRedo}
-              aria-label="Rehacer"
-              title="Rehacer"
+              aria-label={t("plantillaEditor.rehacer")}
+              title={t("plantillaEditor.rehacer")}
             >
               ↷
             </Button>
@@ -597,9 +591,7 @@ export default function PlantillaEditor() {
             variant="ghost"
             size="sm"
             onClick={() => fileInputRef.current?.click()}
-          >
-            Importar JSON
-          </Button>
+          >{t("plantillaEditor.importarJson")}</Button>
           <input
             ref={fileInputRef}
             type="file"
@@ -611,12 +603,8 @@ export default function PlantillaEditor() {
             onLoad={setCodigo}
             hasUnsavedChanges={codigoDsl !== savedCodigo}
           />
-          <Button variant="ghost" size="sm" onClick={() => setReferenciaOpen(true)}>
-            Referencia
-          </Button>
-          <Button variant="ghost" size="sm" onClick={() => setPromptIAOpen(true)}>
-            Copiar prompt para IA
-          </Button>
+          <Button variant="ghost" size="sm" onClick={() => setReferenciaOpen(true)}>{t("plantillaEditor.referencia")}</Button>
+          <Button variant="ghost" size="sm" onClick={() => setPromptIAOpen(true)}>{t("plantillaEditor.copiarPromptParaIa")}</Button>
           <DatasetExplorer />
           <Button
             variant="primary"
@@ -628,7 +616,7 @@ export default function PlantillaEditor() {
           </Button>
         </header>
 
-        <a href="#vblang-panel" className="skip-link">Saltar al editor</a>
+        <a href="#vblang-panel" className="skip-link">{t("plantillaEditor.saltarAlEditor")}</a>
         <div
           id="vblang-panel"
           tabIndex={-1}
@@ -666,17 +654,12 @@ export default function PlantillaEditor() {
                   className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center text-sm text-[var(--c-muted,#64748b)]"
                   data-testid="vblang-form-no-disponible"
                 >
-                  <p>
-                    El código tiene errores. Arreglalos en modo Código para usar el
-                    formulario.
-                  </p>
+                  <p>{t("plantillaEditor.elCodigoTieneErroresArreglalos")}</p>
                   <button
                     type="button"
                     onClick={() => setModo("codigo")}
                     className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
-                  >
-                    Volver a Código
-                  </button>
+                  >{t("plantillaEditor.volverACodigo")}</button>
                 </div>
               );
             }
@@ -689,11 +672,7 @@ export default function PlantillaEditor() {
                     data-testid="vblang-form-retenido-banner"
                     className="flex items-start gap-3 border-b border-[var(--c-border)] bg-[var(--c-warning-soft,#fef3c7)] text-[var(--c-text)] px-3 py-2 text-xs"
                   >
-                    <span className="flex-1">
-                      El código tiene errores — estás viendo la última versión
-                      válida. Si editás desde el formulario, el código con
-                      errores se reemplaza.
-                    </span>
+                    <span className="flex-1">{t("plantillaEditor.elCodigoTieneErroresEstas")}</span>
                     <button
                       type="button"
                       data-testid="vblang-form-ver-errores"
@@ -709,9 +688,7 @@ export default function PlantillaEditor() {
                         });
                       }}
                       className="shrink-0 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1 text-xs font-medium"
-                    >
-                      Ver errores
-                    </button>
+                    >{t("plantillaEditor.verErrores")}</button>
                   </div>
                 )}
                 <div className="flex-1 min-h-0">
@@ -761,11 +738,9 @@ export default function PlantillaEditor() {
                   >
                     <span className="flex items-center gap-2">
                       <span aria-hidden="true">{showGeneratedCode ? "▾" : "▸"}</span>
-                      <span>Código generado</span>
+                      <span>{t("plantillaEditor.codigoGenerado")}</span>
                     </span>
-                    <span className="text-[10px] text-[var(--c-muted,#94a3b8)]">
-                      read-only · sincronizado con el formulario
-                    </span>
+                    <span className="text-[10px] text-[var(--c-muted,#94a3b8)]">{t("plantillaEditor.readOnlySincronizadoConEl")}</span>
                   </button>
                   {showGeneratedCode && (
                     <pre
@@ -776,7 +751,7 @@ export default function PlantillaEditor() {
                       // código) o por el formulario. Evita el conflicto
                       // "dos editores de texto que pisan el mismo state".
                       className="max-h-48 overflow-auto px-3 pb-3 pt-1 text-[11px] font-mono leading-snug text-[var(--c-text)] whitespace-pre-wrap break-words"
-                      aria-label="DSL generado por el formulario (read-only)"
+                      aria-label={t("plantillaEditor.dslGeneradoPorElFormulario")}
                     >
                       {codigoDsl || "(vacío)"}
                     </pre>
@@ -793,7 +768,7 @@ export default function PlantillaEditor() {
           className="vb-console"
         >
           {numErrores === 0 ? (
-            <Pill tone="ok">Sin errores ✓</Pill>
+            <Pill tone="ok">{t("plantillaEditor.sinErrores")}</Pill>
           ) : (
             <Pill tone="danger">
               {numErrores} {numErrores === 1 ? "error" : "errores"}
@@ -806,7 +781,7 @@ export default function PlantillaEditor() {
           {numErrores === 0 && (
             <>
               <span aria-hidden="true">·</span>
-              <span>listo para validar</span>
+              <span>{t("plantillaEditor.listoParaValidar")}</span>
             </>
           )}
           <span className="vb-console__spacer" aria-hidden="true" />
@@ -814,9 +789,7 @@ export default function PlantillaEditor() {
             type="button"
             className="vb-console__link"
             onClick={() => setReferenciaOpen(true)}
-          >
-            Ver referencia VBLang →
-          </button>
+          >{t("plantillaEditor.verReferenciaVblang")}</button>
         </div>
         <footer className="h-48 border-t border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)]">
           <ErrorPanel

@@ -9,6 +9,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import { Card, CardHead, CardBody, Button, Pill, Input, Select, Textarea } from "../components/ui";
 import { fetchClassrooms } from "../services/aulas";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchCobros,
   crearCobro,
@@ -48,6 +49,7 @@ const PROVIDERS: Array<{ id: ProviderPasarela; label: string }> = [
 ];
 
 function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
+  const { t } = useI18n();
   const [items, setItems] = useState<EscuelaPasarelaResumen[]>([]);
   const [loading, setLoading] = useState(true);
   const [msg, setMsg] = useState<string | null>(null);
@@ -107,17 +109,13 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
   return (
     <Card>
       <CardHead>
-        <h2 className="text-sm font-bold">Pasarelas de pago</h2>
+        <h2 className="text-sm font-bold">{t("enterpriseCobros.pasarelasDePago")}</h2>
       </CardHead>
       <CardBody className="space-y-4">
-        <p className="text-xs text-[var(--c-text-3)]">
-          Conectá la cuenta de la escuela en cada provider para que el checkout de las
-          familias use el pago online real. Sin conexión, los cobros quedan en modo manual
-          (confirmación por staff).
-        </p>
+        <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseCobros.conectaLaCuentaDeLa")}</p>
 
         {loading ? (
-          <p className="text-sm text-[var(--c-muted)] animate-pulse">Cargando…</p>
+          <p className="text-sm text-[var(--c-muted)] animate-pulse">{t("comun.cargando")}</p>
         ) : (
           <ul className="space-y-2">
             {PROVIDERS.map(({ id, label }) => {
@@ -139,7 +137,7 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
                         </Button>
                       </>
                     ) : (
-                      <Pill tone="neutral">No conectada</Pill>
+                      <Pill tone="neutral">{t("enterpriseCobros.noConectada")}</Pill>
                     )}
                   </div>
                 </li>
@@ -160,14 +158,14 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
             label="Cuenta conectada / Merchant ID"
             value={cuentaConectadaId}
             onChange={(e) => setCuentaConectadaId(e.target.value)}
-            placeholder="ID de cuenta OAuth del provider"
+            placeholder={t("enterpriseCobros.idDeCuentaOauthDel")}
           />
           <Input
             label="API key / Access token"
             type="password"
             value={credencial}
             onChange={(e) => setCredencial(e.target.value)}
-            placeholder="Se cifra antes de guardar"
+            placeholder={t("enterpriseCobros.seCifraAntesDeGuardar")}
           />
         </div>
         <Button size="sm" onClick={() => void conectar()} disabled={guardando}>
@@ -184,6 +182,7 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
 }
 
 function CuotasDeCobro({ cobroId, moneda }: { cobroId: string; moneda: string }) {
+  const { t } = useI18n();
   const [cuotas, setCuotas] = useState<CuotaAlumno[]>([]);
   const [loading, setLoading] = useState(true);
   const [confirmando, setConfirmando] = useState<string | null>(null);
@@ -212,16 +211,16 @@ function CuotasDeCobro({ cobroId, moneda }: { cobroId: string; moneda: string })
     }
   };
 
-  if (loading) return <p className="text-xs text-[var(--c-muted)] animate-pulse">Cargando cuotas…</p>;
-  if (cuotas.length === 0) return <p className="text-xs text-[var(--c-muted)]">Sin cuotas todavía.</p>;
+  if (loading) return <p className="text-xs text-[var(--c-muted)] animate-pulse">{t("enterpriseCobros.cargandoCuotas")}</p>;
+  if (cuotas.length === 0) return <p className="text-xs text-[var(--c-muted)]">{t("enterpriseCobros.sinCuotasTodavia")}</p>;
 
   return (
     <table className="w-full text-left text-xs">
       <thead className="text-[var(--c-text-3)]">
         <tr>
-          <th className="py-1">Alumno</th>
-          <th className="py-1">Monto</th>
-          <th className="py-1">Estado</th>
+          <th className="py-1">{t("enterpriseCobros.alumno")}</th>
+          <th className="py-1">{t("comun.monto")}</th>
+          <th className="py-1">{t("comun.estado")}</th>
           <th className="py-1"></th>
         </tr>
       </thead>
@@ -248,6 +247,7 @@ function CuotasDeCobro({ cobroId, moneda }: { cobroId: string; moneda: string })
 }
 
 export default function EnterpriseCobros() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const escuelaId = user?.schoolId ?? "";
   const [cobros, setCobros] = useState<CobroEscuela[]>([]);
@@ -326,16 +326,14 @@ export default function EnterpriseCobros() {
   };
 
   if (!escuelaId) {
-    return <p className="p-6 text-sm text-[var(--c-danger)]">No se identificó la escuela.</p>;
+    return <p className="p-6 text-sm text-[var(--c-danger)]">{t("enterpriseCobros.noSeIdentificoLaEscuela")}</p>;
   }
 
   return (
     <div className="mx-auto max-w-5xl space-y-5 p-6">
       <header>
-        <h1 className="text-xl font-bold text-[var(--c-text)]">Cobros a familias</h1>
-        <p className="text-sm text-[var(--c-muted)]">
-          Creá conceptos de cobro, publicalos a un aula y seguí el estado de pago de cada alumno.
-        </p>
+        <h1 className="text-xl font-bold text-[var(--c-text)]">{t("enterpriseCobros.cobrosAFamilias")}</h1>
+        <p className="text-sm text-[var(--c-muted)]">{t("enterpriseCobros.creaConceptosDeCobroPublicalos")}</p>
       </header>
 
       {error && (
@@ -346,11 +344,11 @@ export default function EnterpriseCobros() {
 
       <Card>
         <CardHead>
-          <h2 className="text-sm font-bold">Nuevo cobro</h2>
+          <h2 className="text-sm font-bold">{t("enterpriseCobros.nuevoCobro")}</h2>
         </CardHead>
         <CardBody className="space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
-            <Input label="Concepto" value={concepto} onChange={(e) => setConcepto(e.target.value)} placeholder="Cuota julio" />
+            <Input label="Concepto" value={concepto} onChange={(e) => setConcepto(e.target.value)} placeholder={t("enterpriseCobros.cuotaJulio")} />
             <Input
               label="Monto unitario"
               type="number"
@@ -370,13 +368,13 @@ export default function EnterpriseCobros() {
 
       <Card>
         <CardHead>
-          <h2 className="text-sm font-bold">Cobros</h2>
+          <h2 className="text-sm font-bold">{t("nav.cobros")}</h2>
         </CardHead>
         <CardBody>
           {loading ? (
-            <p className="text-sm text-[var(--c-muted)] animate-pulse">Cargando…</p>
+            <p className="text-sm text-[var(--c-muted)] animate-pulse">{t("comun.cargando")}</p>
           ) : cobros.length === 0 ? (
-            <p className="text-sm text-[var(--c-muted)]">Todavía no creaste ningún cobro.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("enterpriseCobros.todaviaNoCreasteNingunCobro")}</p>
           ) : (
             <ul className="space-y-2">
               {cobros.map((c) => (
@@ -403,7 +401,7 @@ export default function EnterpriseCobros() {
                         value={aulaPorCobro[c.id] ?? ""}
                         onChange={(e) => setAulaPorCobro((prev) => ({ ...prev, [c.id]: e.target.value }))}
                       >
-                        <option value="">Elegí un aula…</option>
+                        <option value="">{t("enterpriseCobros.elegiUnAula")}</option>
                         {aulas.map((a) => (
                           <option key={a.id} value={a.id}>
                             {a.name}

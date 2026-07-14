@@ -25,6 +25,7 @@ import {
 } from "./plantillaFields";
 import { DUMMY_LOC } from "./plantillaAst";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface VariablesEditorProps {
   plantilla: Plantilla;
   variables: VariableDecl[];
@@ -99,6 +100,7 @@ export default function VariablesEditor({
   valores,
   onChange,
 }: VariablesEditorProps) {
+  const { t } = useI18n();
   // Active index: la última card clickeada. Default: la última
   // variable (para que el "+Añadir" se inserte al final por default).
   // Si no hay variables, queda en -1 (sin card activa).
@@ -131,7 +133,7 @@ export default function VariablesEditor({
 
   return (
     <div className="flex flex-col gap-2">
-      <ul className="vb-var-cards" aria-label="Variables de la plantilla">
+      <ul className="vb-var-cards" aria-label={t("variablesEditor.variablesDeLaPlantilla")}>
         {variables.map((d, idx) => (
           <VariableCard
             key={`${idx}-${d.nombre}`}
@@ -148,9 +150,7 @@ export default function VariablesEditor({
         ))}
       </ul>
       <div className="flex flex-wrap items-center gap-1.5">
-        <span className="text-[10px] text-[var(--c-muted,#64748b)]">
-          + Añadir
-        </span>
+        <span className="text-[10px] text-[var(--c-muted,#64748b)]">{t("variablesEditor.anadir")}</span>
         {(Object.keys(KIND_LABELS) as VariableKind[]).map((k) => (
           <button
             key={k}

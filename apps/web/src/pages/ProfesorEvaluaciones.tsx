@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
+import { useI18n } from "../i18n/I18nContext";
 
 type BancoItem = {
   quizId: string;
@@ -87,6 +88,7 @@ const labelMap = {
 };
 
 export default function ProfesorEvaluaciones() {
+  const { t } = useI18n();
   const [quizzes, setQuizzes] = useState<QuizItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -147,7 +149,7 @@ export default function ProfesorEvaluaciones() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
       <div>
-        <h1 className="text-xl font-semibold text-[var(--c-text)]">Evaluaciones</h1>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.evaluaciones")}</h1>
         <p className="text-sm text-[var(--c-muted)] mt-0.5">
           {/* FIX-TEST4-PROF-03 — esta página está reservada a
               evaluaciones formales. Las prácticas van a
@@ -159,12 +161,10 @@ export default function ProfesorEvaluaciones() {
 
       <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
         <div className="px-4 py-3 border-b border-[var(--c-border)]">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Filtros</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorEvaluaciones.filtros")}</p>
         </div>
         <div className="p-4 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">
-            Escuela
-            <select
+          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">{t("sidebar.escuela")}<select
               className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               value={selectedSchool}
               onChange={(event) => setSelectedSchool(event.target.value)}
@@ -176,9 +176,7 @@ export default function ProfesorEvaluaciones() {
               ))}
             </select>
           </label>
-          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">
-            Tipo
-            <select
+          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">{t("comun.tipo")}<select
               className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               value={selectedType}
               onChange={(event) => setSelectedType(event.target.value)}
@@ -187,50 +185,44 @@ export default function ProfesorEvaluaciones() {
                   evaluaciones. La opción "Todos" sigue disponible
                   para que el docente pueda ver el resto si lo
                   necesita. */}
-              <option value="all">Todos</option>
-              <option value="evaluacion">Evaluación</option>
-              <option value="formal">Formal</option>
-              <option value="practica">Práctica</option>
-              <option value="competencia">Competencia</option>
+              <option value="all">{t("profesorEvaluaciones.todos")}</option>
+              <option value="evaluacion">{t("profesorCalendario.evaluacion")}</option>
+              <option value="formal">{t("profesorEvaluaciones.formal")}</option>
+              <option value="practica">{t("profesorEvaluaciones.practica")}</option>
+              <option value="competencia">{t("profesorEvaluaciones.competencia")}</option>
             </select>
           </label>
-          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">
-            Modo de creación
-            <select
+          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">{t("profesorEvaluaciones.modoDeCreacion")}<select
               className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               value={selectedCreation}
               onChange={(event) => setSelectedCreation(event.target.value)}
             >
-              <option value="all">Todos</option>
-              <option value="manual">Manual</option>
-              <option value="automatico">Automático</option>
+              <option value="all">{t("profesorEvaluaciones.todos")}</option>
+              <option value="manual">{t("profesorEvaluaciones.manual")}</option>
+              <option value="automatico">{t("profesorEvaluaciones.automatico")}</option>
             </select>
           </label>
-          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">
-            Visibilidad
-            <select
+          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">{t("comun.visibilidad")}<select
               className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               value={selectedVisibility}
               onChange={(event) => setSelectedVisibility(event.target.value)}
             >
-              <option value="all">Todas</option>
-              <option value="publico">Público</option>
-              <option value="privado">Privado</option>
-              <option value="solo-aula">Solo aula</option>
+              <option value="all">{t("comun.todas")}</option>
+              <option value="publico">{t("profesorEvaluaciones.publico")}</option>
+              <option value="privado">{t("profesorEvaluaciones.privado")}</option>
+              <option value="solo-aula">{t("profesorEvaluaciones.soloAula")}</option>
             </select>
           </label>
-          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">
-            Tipo de generación
-            <select
+          <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">{t("profesorEvaluaciones.tipoDeGeneracion")}<select
               className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               value={selectedGeneration}
               onChange={(event) => setSelectedGeneration(event.target.value)}
             >
-              <option value="all">Todos</option>
-              <option value="banco">Banco de preguntas</option>
-              <option value="ia">Generación con IA</option>
-              <option value="plantilla">Plantilla</option>
-              <option value="mixto">Mixto</option>
+              <option value="all">{t("profesorEvaluaciones.todos")}</option>
+              <option value="banco">{t("profesorEvaluaciones.bancoDePreguntas")}</option>
+              <option value="ia">{t("profesorEvaluaciones.generacionConIa")}</option>
+              <option value="plantilla">{t("profesorEvaluaciones.plantilla")}</option>
+              <option value="mixto">{t("profesorEvaluaciones.mixto")}</option>
             </select>
           </label>
         </div>
@@ -238,7 +230,7 @@ export default function ProfesorEvaluaciones() {
 
       <section className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="text-sm font-semibold text-[var(--c-text)]">Cuestionarios</p>
+          <p className="text-sm font-semibold text-[var(--c-text)]">{t("nav.cuestionarios")}</p>
           <span className="text-sm text-[var(--c-muted)]">
             {filteredQuizzes.length} resultados
           </span>
@@ -255,9 +247,7 @@ export default function ProfesorEvaluaciones() {
             {error}
           </div>
         ) : filteredQuizzes.length === 0 ? (
-          <div className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-sm text-[var(--c-muted)]">
-            No se encontraron cuestionarios con los filtros seleccionados.
-          </div>
+          <div className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-sm text-[var(--c-muted)]">{t("profesorEvaluaciones.noSeEncontraronCuestionariosCon")}</div>
         ) : (
           <div className="grid gap-4 lg:grid-cols-2">
             {filteredQuizzes.map((quiz) => (
@@ -276,19 +266,19 @@ export default function ProfesorEvaluaciones() {
                 </div>
                 <div className="grid gap-3 text-sm text-[var(--c-muted)] sm:grid-cols-2">
                   <div>
-                    <p className="font-medium text-[var(--c-text)]">Creación</p>
+                    <p className="font-medium text-[var(--c-text)]">{t("profesorEvaluaciones.creacion")}</p>
                     <p>{labelMap.modoCreacion[quiz.modoCreacion]}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-[var(--c-text)]">Visibilidad</p>
+                    <p className="font-medium text-[var(--c-text)]">{t("comun.visibilidad")}</p>
                     <p>{labelMap.visibilidad[quiz.visibilidad]}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-[var(--c-text)]">Generación</p>
+                    <p className="font-medium text-[var(--c-text)]">{t("profesorEvaluaciones.generacion")}</p>
                     <p>{labelMap.tipoGeneracion[quiz.tipoGeneracion]}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-[var(--c-text)]">Contenido</p>
+                    <p className="font-medium text-[var(--c-text)]">{t("profesorEvaluaciones.contenido")}</p>
                     <p>
                       {quiz.preguntas} preguntas
                       {quiz.duracionMin ? ` · ${quiz.duracionMin} min` : ""}
@@ -302,9 +292,7 @@ export default function ProfesorEvaluaciones() {
                   <Link
                     to={`/profesor/intentos/quizzes/${quiz.id}`}
                     className="text-xs text-[var(--c-primary)] hover:underline"
-                  >
-                    Ver detalle →
-                  </Link>
+                  >{t("profesorEvaluaciones.verDetalle")}</Link>
                 </div>
               </article>
             ))}

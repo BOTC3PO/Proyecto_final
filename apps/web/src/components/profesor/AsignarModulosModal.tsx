@@ -16,6 +16,7 @@ import type { Module } from "../../domain/module/module.types";
 import { resolveMateria } from "../../domain/module/materia";
 import { Modal, Input, Button, Spinner, Alert } from "../../ui";
 
+import { useI18n } from "../../i18n/I18nContext";
 export type AsignarModulosModalProps = {
   classroomId: string;
   classroomName: string;
@@ -40,6 +41,7 @@ export default function AsignarModulosModal({
   onClose,
   onChange,
 }: AsignarModulosModalProps) {
+  const { t } = useI18n();
   const [modulos, setModulos] = useState<Module[]>([]);
   const [asignados, setAsignados] = useState<Set<string>>(new Set());
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -149,9 +151,7 @@ export default function AsignarModulosModal({
             fontSize: "var(--text-lg)",
             fontWeight: "var(--fw-semibold)",
             color: "var(--c-text)",
-          }}>
-            Asignar módulos al aula
-          </h2>
+          }}>{t("asignarModulosModal.asignarModulosAlAula")}</h2>
           <p style={{
             margin: "2px 0 0",
             fontSize: "var(--text-xs)",
@@ -163,7 +163,7 @@ export default function AsignarModulosModal({
         <button
           type="button"
           onClick={onClose}
-          aria-label="Cerrar modal"
+          aria-label={t("asignarModulosModal.cerrarModal")}
           style={{
             background: "none",
             border: "none",
@@ -185,8 +185,8 @@ export default function AsignarModulosModal({
           size="sm"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Buscar módulo por título…"
-          aria-label="Buscar módulo"
+          placeholder={t("asignarModulosModal.buscarModuloPorTitulo")}
+          aria-label={t("asignarModulosModal.buscarModulo")}
           data-testid="asignar-modulos-search"
         />
       </div>
@@ -212,9 +212,7 @@ export default function AsignarModulosModal({
           <div style={{ textAlign: "center", padding: "var(--space-4)" }}>
             <Alert variant="danger">Error: {errorMessage}</Alert>
             <div style={{ marginTop: "var(--space-3)" }}>
-              <Button variant="ghost" size="sm" onClick={loadAll}>
-                Reintentar
-              </Button>
+              <Button variant="ghost" size="sm" onClick={loadAll}>{t("comun.reintentar")}</Button>
             </div>
           </div>
         )}
@@ -320,9 +318,7 @@ export default function AsignarModulosModal({
         padding: "var(--space-3)",
         borderTop: "1px solid var(--c-border)",
       }}>
-        <Button variant="ghost" size="sm" onClick={onClose}>
-          Cerrar
-        </Button>
+        <Button variant="ghost" size="sm" onClick={onClose}>{t("comun.cerrar")}</Button>
       </footer>
     </Modal>
   );

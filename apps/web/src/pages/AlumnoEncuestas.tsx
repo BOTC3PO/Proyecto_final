@@ -5,6 +5,7 @@ import { fetchSurveyResults, fetchSurveys, fetchSurveyScoreValues, voteSurvey } 
 import { fetchClassrooms } from "../services/aulas";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 
 type SelectionMap = Record<string, string>;
 type ScoreSelectionMap = Record<string, Record<string, number>>;
@@ -13,6 +14,7 @@ type ResultsMap = Record<string, SurveyResults>;
 
 const usuarioId = "demo-alumno";
 export default function AlumnoEncuestas() {
+  const { t } = useI18n();
   // PLAN-H §3: llegar con ?aulaId=... (desde la tarjeta de encuestas del
   // aula) fija el aula y esconde el selector.
   const location = useLocation();
@@ -160,10 +162,8 @@ export default function AlumnoEncuestas() {
 
         {/* Encabezado */}
         <div>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Encuestas</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-1">
-            Votá en las encuestas activas de tu aula.
-          </p>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("dropdown.encuestas")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">{t("alumnoEncuestas.votaEnLasEncuestasActivas")}</p>
         </div>
 
         {/* Selector de aula */}
@@ -179,7 +179,7 @@ export default function AlumnoEncuestas() {
             value={classroomId}
             onChange={(event) => setClassroomId(event.target.value)}
           >
-            <option value="" disabled>Seleccioná un aula</option>
+            <option value="" disabled>{t("alumnoEncuestas.seleccionaUnAula")}</option>
             {classrooms.map((classroom) => (
               <option key={getAulaId(classroom)} value={getAulaId(classroom)}>
                 {classroom.name}
@@ -191,9 +191,7 @@ export default function AlumnoEncuestas() {
             type="button"
             className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-sm text-[var(--c-text)] hover:border-[var(--c-primary)] transition-colors"
             onClick={() => refresh(classroomId)}
-          >
-            Actualizar
-          </button>
+          >{t("alumnoEncuestas.actualizar")}</button>
         </div>
 
         {/* Mensajes globales */}
@@ -214,7 +212,7 @@ export default function AlumnoEncuestas() {
         {/* Sin encuestas */}
         {!isLoading && surveys.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
-            <p className="text-sm text-[var(--c-muted)]">No hay encuestas activas para esta aula.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("alumnoEncuestas.noHayEncuestasActivasPara")}</p>
           </div>
         )}
 
@@ -272,9 +270,7 @@ export default function AlumnoEncuestas() {
                       )}
                       {survey.type === "puntuacion" && (
                         <div className="space-y-2">
-                          <p className="text-xs text-[var(--c-muted)]">
-                            Puntúa cada opción. Podés dejar en blanco las que no querés calificar.
-                          </p>
+                          <p className="text-xs text-[var(--c-muted)]">{t("alumnoEncuestas.puntuaCadaOpcionPodesDejar")}</p>
                           {survey.options.map((option) => (
                             <div key={option.id} className="flex items-center justify-between gap-3 text-sm text-[var(--c-text)]">
                               <span>{option.label}</span>
@@ -289,7 +285,7 @@ export default function AlumnoEncuestas() {
                                   }));
                                 }}
                               >
-                                <option value={0}>Sin puntuar</option>
+                                <option value={0}>{t("alumnoEncuestas.sinPuntuar")}</option>
                                 {scoreValues.map((value) => (
                                   <option key={`${survey.id}-${option.id}-${value}`} value={value}>{value}</option>
                                 ))}
@@ -300,7 +296,7 @@ export default function AlumnoEncuestas() {
                       )}
                       {survey.type === "segunda_vuelta" && (
                         <div className="space-y-2">
-                          <p className="text-xs text-[var(--c-muted)]">Ordená tus preferencias con un orden único para cada opción.</p>
+                          <p className="text-xs text-[var(--c-muted)]">{t("alumnoEncuestas.ordenaTusPreferenciasConUn")}</p>
                           {survey.options.map((option) => {
                             const maxRank = survey.options.length;
                             const currentRank = rankingSelections[survey.id]?.[option.id] ?? 0;
@@ -318,7 +314,7 @@ export default function AlumnoEncuestas() {
                                     }));
                                   }}
                                 >
-                                  <option value={0}>Sin preferencia</option>
+                                  <option value={0}>{t("alumnoEncuestas.sinPreferencia")}</option>
                                   {Array.from({ length: maxRank }, (_, idx) => idx + 1).map((rankValue) => (
                                     <option key={`${survey.id}-${option.id}-${rankValue}`} value={rankValue}>{rankValue}</option>
                                   ))}
@@ -335,9 +331,7 @@ export default function AlumnoEncuestas() {
                         type="button"
                         className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                         onClick={() => handleVote(survey)}
-                      >
-                        Votar
-                      </button>
+                      >{t("alumnoEncuestas.votar")}</button>
                     </div>
                   )}
 
@@ -348,9 +342,7 @@ export default function AlumnoEncuestas() {
                         type="button"
                         className="rounded-xl border border-[var(--c-border)] px-3 py-1.5 text-sm text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
                         onClick={() => handleFetchResults(survey.id)}
-                      >
-                        Ver resultados
-                      </button>
+                      >{t("alumnoEncuestas.verResultados")}</button>
                       {surveyResults && (
                         <div className="space-y-1">
                           <p className="text-xs text-[var(--c-muted)]">Total votos: {surveyResults.totalVotes}</p>
@@ -371,7 +363,7 @@ export default function AlumnoEncuestas() {
                           ))}
                           {survey.type === "segunda_vuelta" && surveyResults.rounds && surveyResults.rounds.length > 0 && (
                             <div className="mt-2 space-y-2 text-xs text-[var(--c-muted)]">
-                              <p className="font-semibold text-[var(--c-text)]">Rondas</p>
+                              <p className="font-semibold text-[var(--c-text)]">{t("alumnoEncuestas.rondas")}</p>
                               {surveyResults.rounds.map((round) => (
                                 <div key={`round-${survey.id}-${round.round}`} className="rounded-lg bg-[var(--c-bg)] p-3">
                                   <p className="font-semibold text-[var(--c-text)]">Ronda {round.round}</p>

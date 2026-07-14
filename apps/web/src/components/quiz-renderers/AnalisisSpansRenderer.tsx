@@ -14,6 +14,7 @@
 
 import { useMemo, useState } from "react";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface AnalisisSpansRendererProps {
   textoAnalizar: string;
   /** Etiquetas que ve el alumno (correctas + distractores). */
@@ -47,6 +48,7 @@ export default function AnalisisSpansRenderer({
   disabled = false,
   correctas,
 }: AnalisisSpansRendererProps) {
+  const { t } = useI18n();
   const palabras = useMemo(
     () => textoAnalizar.split(/\s+/).filter((w) => w.length > 0),
     [textoAnalizar],
@@ -141,7 +143,7 @@ export default function AnalisisSpansRenderer({
             value={etiqueta}
             onChange={(e) => setEtiqueta(e.target.value)}
             className="rounded border border-slate-300 bg-white px-1 py-0.5 text-xs"
-            aria-label="Etiqueta del rango"
+            aria-label={t("analisisSpansRenderer.etiquetaDelRango")}
             data-testid="analisis-spans-etiqueta"
           >
             {etiquetasDisponibles.map((et) => (
@@ -156,9 +158,7 @@ export default function AnalisisSpansRenderer({
             disabled={desde === null || hasta === null || etiqueta === ""}
             className="rounded border border-slate-300 bg-slate-50 px-2 py-0.5 text-xs font-medium hover:bg-slate-100 disabled:opacity-50"
             data-testid="analisis-spans-agregar"
-          >
-            Agregar
-          </button>
+          >{t("analisisSpansRenderer.agregar")}</button>
         </div>
       )}
 
@@ -195,7 +195,7 @@ export default function AnalisisSpansRenderer({
 
       {disabled && faltantes.length > 0 && (
         <div className="mt-3 text-xs text-slate-600" data-testid="analisis-spans-faltantes">
-          <span className="font-medium">Faltaron:</span>{" "}
+          <span className="font-medium">{t("analisisSpansRenderer.faltaron")}</span>{" "}
           {faltantes.map(describirSpan).join(" · ")}
         </div>
       )}

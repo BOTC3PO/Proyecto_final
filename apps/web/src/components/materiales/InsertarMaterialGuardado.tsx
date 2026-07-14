@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { apiGet } from "../../lib/api";
 
+import { useI18n } from "../../i18n/I18nContext";
 type MaterialListItem = {
   id: string;
   titulo: string;
@@ -32,6 +33,7 @@ type Props = {
  * de un módulo. Copia snapshot: no crea un vínculo vivo con el material.
  */
 export function InsertarMaterialGuardado({ onInsert }: Props) {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState<MaterialListItem[]>([]);
@@ -70,17 +72,13 @@ export function InsertarMaterialGuardado({ onInsert }: Props) {
         type="button"
         onClick={() => setOpen((o) => !o)}
         className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
-      >
-        Insertar material guardado
-      </button>
+      >{t("insertarMaterialGuardado.insertarMaterialGuardado")}</button>
       {open && (
         <div className="absolute z-10 mt-1 w-72 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-lg p-2 max-h-64 overflow-y-auto">
-          {loading && <p className="text-xs text-[var(--c-muted)] px-2 py-1">Cargando…</p>}
+          {loading && <p className="text-xs text-[var(--c-muted)] px-2 py-1">{t("comun.cargando")}</p>}
           {error && <p className="text-xs text-[var(--c-danger)] px-2 py-1">{error}</p>}
           {!loading && !error && items.length === 0 && (
-            <p className="text-xs text-[var(--c-muted)] px-2 py-1">
-              Todavía no guardaste ningún material.
-            </p>
+            <p className="text-xs text-[var(--c-muted)] px-2 py-1">{t("insertarMaterialGuardado.todaviaNoGuardasteNingunMaterial")}</p>
           )}
           {items.map((item) => (
             <button

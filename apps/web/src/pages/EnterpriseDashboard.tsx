@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { createClassroom } from "../services/aulas";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchEnterpriseDashboard,
   fetchEnterpriseStaff,
@@ -10,6 +11,7 @@ import {
 } from "../services/enterprise";
 
 export default function EnterpriseDashboard() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [dashboard, setDashboard] = useState<EnterpriseDashboardData | null>(null);
@@ -91,18 +93,14 @@ export default function EnterpriseDashboard() {
 
       <div className="flex items-center justify-between gap-4 flex-wrap">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Panel de la escuela</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">
-            Supervisá el estado académico de tu institución.
-          </p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("enterpriseDashboard.panelDeLaEscuela")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("enterpriseDashboard.supervisaElEstadoAcademicoDe")}</p>
         </div>
         <div className="flex gap-2">
           <Link
             to="/enterprise/aulas"
             className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-          >
-            + Crear aula
-          </Link>
+          >{t("enterpriseDashboard.crearAula")}</Link>
         </div>
       </div>
 
@@ -129,16 +127,14 @@ export default function EnterpriseDashboard() {
 
         {/* Accesos rápidos */}
         <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
-          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">
-            Accesos rápidos
-          </p>
+          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">{t("enterpriseDashboard.accesosRapidos")}</p>
           {[
-            { label: 'Aulas',      to: '/enterprise/aulas',     icon: '🏫' },
-            { label: 'Miembros',   to: '/enterprise/miembros',  icon: '👥' },
-            { label: 'Módulos',    to: '/enterprise/modulos',   icon: '🎓' },
-            { label: 'Reportes',   to: '/enterprise/reportes',  icon: '📊' },
-            { label: 'Calendario', to: '/enterprise/calendario',icon: '📅' },
-            { label: 'Mensajes',   to: '/mensajes',             icon: '💬' },
+            { label: t("nav.aulas"),      to: '/enterprise/aulas',     icon: '🏫' },
+            { label: t("nav.miembros"),   to: '/enterprise/miembros',  icon: '👥' },
+            { label: t("nav.modulos"),    to: '/enterprise/modulos',   icon: '🎓' },
+            { label: t("nav.reportes"),   to: '/enterprise/reportes',  icon: '📊' },
+            { label: t("nav.calendario"), to: '/enterprise/calendario',icon: '📅' },
+            { label: t("nav.mensajes"),   to: '/mensajes',             icon: '💬' },
           ].map(({ label, to, icon }) => (
             <Link
               key={to}
@@ -153,47 +149,45 @@ export default function EnterpriseDashboard() {
 
         {/* Crear aula */}
         <div className="lg:col-span-2 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
-          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">
-            Crear aula
-          </p>
+          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">{t("enterpriseDashboard.crearAula2")}</p>
           <form className="p-4 grid gap-3 sm:grid-cols-2" onSubmit={handleSubmit}>
             <label className="flex flex-col gap-1 sm:col-span-2">
-              <span className="text-xs font-medium text-[var(--c-muted)]">Nombre *</span>
+              <span className="text-xs font-medium text-[var(--c-muted)]">{t("adminMaterias.nombre")}</span>
               <input
                 required value={form.name}
                 onChange={(e) => setForm(p => ({ ...p, name: e.target.value }))}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                placeholder="Ej: 3° B — Primaria"
+                placeholder={t("enterpriseDashboard.ej3BPrimaria")}
               />
             </label>
             <label className="flex flex-col gap-1 sm:col-span-2">
-              <span className="text-xs font-medium text-[var(--c-muted)]">Descripción</span>
+              <span className="text-xs font-medium text-[var(--c-muted)]">{t("comun.descripcion")}</span>
               <textarea
                 rows={2} value={form.description}
                 onChange={(e) => setForm(p => ({ ...p, description: e.target.value }))}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] resize-none"
-                placeholder="Objetivos del aula"
+                placeholder={t("enterpriseDashboard.objetivosDelAula")}
               />
             </label>
             <label className="flex flex-col gap-1">
-              <span className="text-xs font-medium text-[var(--c-muted)]">Tipo de acceso</span>
+              <span className="text-xs font-medium text-[var(--c-muted)]">{t("enterpriseDashboard.tipoDeAcceso")}</span>
               <select
                 value={form.accessType}
                 onChange={(e) => setForm(p => ({ ...p, accessType: e.target.value as 'publica' | 'privada' }))}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               >
-                <option value="privada">Privada</option>
-                <option value="publica">Pública</option>
+                <option value="privada">{t("comun.privada")}</option>
+                <option value="publica">{t("comun.publica")}</option>
               </select>
             </label>
             <label className="flex flex-col gap-1">
-              <span className="text-xs font-medium text-[var(--c-muted)]">Docente responsable</span>
+              <span className="text-xs font-medium text-[var(--c-muted)]">{t("enterpriseDashboard.docenteResponsable")}</span>
               <select
                 value={form.teacherId}
                 onChange={(e) => setForm(p => ({ ...p, teacherId: e.target.value }))}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               >
-                <option value="">Sin asignar</option>
+                <option value="">{t("enterpriseDashboard.sinAsignar")}</option>
                 {teachers.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}
               </select>
             </label>

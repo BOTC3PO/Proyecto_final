@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { apiGetPublic } from "../lib/api";
 import type { ThemeId } from "../theme/ThemeContext";
+import { useI18n } from "../i18n/I18nContext";
 
 const ROLE_LABELS: Record<string, string> = {
   USER: "Alumno", TEACHER: "Docente",
@@ -34,6 +35,7 @@ type PerfilPublicoData = {
 };
 
 export default function PerfilPublico() {
+  const { t } = useI18n();
   const { username } = useParams<{ username: string }>();
   const [data, setData] = useState<PerfilPublicoData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -78,17 +80,13 @@ export default function PerfilPublico() {
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-4
         px-6 py-16 items-center text-center">
         <p className="text-6xl">🔍</p>
-        <h1 className="text-2xl font-bold text-slate-900">
-          Usuario no encontrado
-        </h1>
+        <h1 className="text-2xl font-bold text-slate-900">{t("perfilPublico.usuarioNoEncontrado")}</h1>
         <p className="text-slate-500">
           @{username} no existe o su perfil no es público.
         </p>
         <Link to="/"
           className="mt-2 rounded-xl bg-[var(--c-primary)] px-5 py-2.5 text-sm
-            font-semibold text-white hover:opacity-90 transition-opacity">
-          Volver al inicio
-        </Link>
+            font-semibold text-white hover:opacity-90 transition-opacity">{t("perfilPublico.volverAlInicio")}</Link>
       </div>
     );
   }
@@ -170,18 +168,14 @@ export default function PerfilPublico() {
             {data.totalCompletados}
           </p>
           <p className="text-sm mt-1"
-            style={{ color: "var(--c-muted)" }}>
-            módulos completados
-          </p>
+            style={{ color: "var(--c-muted)" }}>{t("perfilPublico.modulosCompletados")}</p>
         </section>
 
         {/* Módulos públicos completados */}
         {data.modulosCompletados.length > 0 && (
           <section className="space-y-3">
             <h2 className="text-base font-semibold"
-              style={{ color: "var(--c-text)" }}>
-              Módulos completados
-            </h2>
+              style={{ color: "var(--c-text)" }}>{t("comun.modulosCompletados")}</h2>
             <div className="grid gap-3 sm:grid-cols-2">
               {data.modulosCompletados.map((mod) => (
                 <div
@@ -208,9 +202,7 @@ export default function PerfilPublico() {
                       color: "#ffffff",
                       opacity: 0.9,
                     }}
-                  >
-                    ✓ Completado
-                  </span>
+                  >{t("perfilPublico.completado")}</span>
                 </div>
               ))}
             </div>
@@ -223,9 +215,7 @@ export default function PerfilPublico() {
             to="/"
             className="text-xs hover:underline"
             style={{ color: "var(--c-muted)" }}
-          >
-            Virtual Book
-          </Link>
+          >{t("comun.virtualBook")}</Link>
         </div>
       </div>
     </div>

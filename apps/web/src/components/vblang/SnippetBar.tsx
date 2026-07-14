@@ -1,3 +1,4 @@
+import { useI18n } from "../../i18n/I18nContext";
 /**
  * SnippetBar: barra de inserción rápida de bloques del DSL.
  *
@@ -71,19 +72,18 @@ export default function SnippetBar({
   onInsert,
   snippets = VBLANG_SNIPPETS,
 }: SnippetBarProps) {
+  const { t } = useI18n();
   return (
     <div
       role="toolbar"
-      aria-label="Insertar bloque del DSL"
+      aria-label={t("snippetBar.insertarBloqueDelDsl")}
       data-testid="vblang-snippet-bar"
       className="flex flex-wrap items-center gap-1 border-b border-[var(--c-border,#cbd5e1)] bg-[var(--c-surface-2,#f8fafc)] px-2 py-1 text-xs"
     >
       <span
         aria-hidden="true"
         className="mr-1 text-[10px] uppercase tracking-wide text-[var(--c-muted,#64748b)]"
-      >
-        Snippets
-      </span>
+      >{t("snippetBar.snippets")}</span>
       {snippets.map((s) => (
         <button
           key={s.id}

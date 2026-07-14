@@ -2,6 +2,7 @@ import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import DateInput from "../components/DateInput";
 import { ApiError, apiPost } from "../lib/api";
 import { fetchRegistroOpciones } from "../services/registro";
+import { useI18n } from "../i18n/I18nContext";
 
 type HijoForm = {
   nombre: string;
@@ -17,6 +18,7 @@ type HijoForm = {
 type FieldErrors = Partial<Record<keyof HijoForm, string>>;
 
 export default function HijosAgregar() {
+  const { t } = useI18n();
   const [grados, setGrados] = useState<string[]>([]);
   const [loadingGrados, setLoadingGrados] = useState(true);
   const [gradosError, setGradosError] = useState<string | null>(null);
@@ -123,16 +125,14 @@ export default function HijosAgregar() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-6 py-4 border-b border-[var(--c-border)]">
-            <h1 className="text-xl font-semibold text-[var(--c-text)]">Agregar hijo</h1>
+            <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.agregarHijo")}</h1>
           </div>
           <div className="p-6 sm:p-8">
             <form className="space-y-6" onSubmit={onSubmit} noValidate>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Nombre */}
                 <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-[var(--c-text)] mb-1">
-                    Nombre Completo
-                  </label>
+                  <label htmlFor="nombre" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("register.labelNombreCompleto")}</label>
                   <input
                     id="nombre" name="nombre" type="text" value={form.nombre} onChange={onChange}
                     className={errors.nombre ? inputErrCls : inputCls}
@@ -142,12 +142,10 @@ export default function HijosAgregar() {
 
                 {/* Usuario */}
                 <div>
-                  <label htmlFor="usuario" className="block text-sm font-medium text-[var(--c-text)] mb-1">
-                    Usuario Público
-                  </label>
+                  <label htmlFor="usuario" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("hijosAgregar.usuarioPublico")}</label>
                   <input
                     id="usuario" name="usuario" type="text" value={form.usuario} onChange={onChange}
-                    placeholder="@usuario"
+                    placeholder={t("hijosAgregar.usuario")}
                     className={errors.usuario ? inputErrCls : inputCls}
                   />
                   {errors.usuario && <p className="text-xs text-[var(--c-danger)] mt-1">{errors.usuario}</p>}
@@ -169,16 +167,14 @@ export default function HijosAgregar() {
 
                 {/* Grado */}
                 <div className="md:col-span-1">
-                  <label htmlFor="grado" className="block text-sm font-medium text-[var(--c-text)] mb-1">
-                    Grado / Curso
-                  </label>
+                  <label htmlFor="grado" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("hijosAgregar.gradoCurso")}</label>
                   <select
                     id="grado" name="grado" value={form.grado} onChange={onChange}
                     className={errors.grado ? inputErrCls : inputCls}
                   >
-                    <option value="">Seleccioná…</option>
-                    {loadingGrados && <option value="">Cargando grados...</option>}
-                    {!loadingGrados && gradosError && <option value="">Sin grados disponibles</option>}
+                    <option value="">{t("hijosAgregar.selecciona")}</option>
+                    {loadingGrados && <option value="">{t("hijosAgregar.cargandoGrados")}</option>}
+                    {!loadingGrados && gradosError && <option value="">{t("hijosAgregar.sinGradosDisponibles")}</option>}
                     {!loadingGrados &&
                       !gradosError &&
                       grados.map((g) => (
@@ -191,9 +187,7 @@ export default function HijosAgregar() {
 
                 {/* Escuela */}
                 <div className="md:col-span-2">
-                  <label htmlFor="escuela" className="block text-sm font-medium text-[var(--c-text)] mb-1">
-                    Escuela (opcional)
-                  </label>
+                  <label htmlFor="escuela" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("hijosAgregar.escuelaOpcional")}</label>
                   <input
                     id="escuela" name="escuela" type="text" value={form.escuela} onChange={onChange}
                     className={inputCls}
@@ -202,13 +196,11 @@ export default function HijosAgregar() {
 
                 {/* Notas */}
                 <div className="md:col-span-2">
-                  <label htmlFor="notas" className="block text-sm font-medium text-[var(--c-text)] mb-1">
-                    Notas (opcional)
-                  </label>
+                  <label htmlFor="notas" className="block text-sm font-medium text-[var(--c-text)] mb-1">{t("hijosAgregar.notasOpcional")}</label>
                   <textarea
                     id="notas" name="notas" rows={3} value={form.notas} onChange={onChange}
                     className={`${inputCls} resize-none`}
-                    placeholder="Observaciones, preferencias, apoyos necesarios…"
+                    placeholder={t("hijosAgregar.observacionesPreferenciasApoyosNecesarios")}
                   />
                 </div>
               </div>
@@ -220,7 +212,7 @@ export default function HijosAgregar() {
                     type="checkbox" name="permisosTareas" checked={form.permisosTareas} onChange={onChange}
                     className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
                   />
-                  <span className="text-sm text-[var(--c-text)]">Permitir ver tareas y entregas</span>
+                  <span className="text-sm text-[var(--c-text)]">{t("hijosAgregar.permitirVerTareasYEntregas")}</span>
                 </label>
 
                 <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -228,7 +220,7 @@ export default function HijosAgregar() {
                     type="checkbox" name="permisosMensajes" checked={form.permisosMensajes} onChange={onChange}
                     className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
                   />
-                  <span className="text-sm text-[var(--c-text)]">Permitir ver mensajes del aula</span>
+                  <span className="text-sm text-[var(--c-text)]">{t("hijosAgregar.permitirVerMensajesDelAula")}</span>
                 </label>
               </div>
 
@@ -244,9 +236,7 @@ export default function HijosAgregar() {
                     setErrors({});
                   }}
                   className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                >
-                  Limpiar
-                </button>
+                >{t("common.limpiar")}</button>
                 <button
                   type="submit"
                   disabled={saving}

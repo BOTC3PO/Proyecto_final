@@ -3,6 +3,7 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchBoletin, fetchAsistencia, fetchProgresoReporte,
   type BoletinResponse, type AsistenciaResponse,
@@ -21,6 +22,7 @@ type AlumnoRiesgo = {
 };
 
 export default function ProfesorReportes() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
@@ -105,14 +107,14 @@ export default function ProfesorReportes() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Reportes</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">Boletín, asistencia y progreso de tu aula.</p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.reportes")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorReportes.boletinAsistenciaYProgresoDe")}</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-4">
           {aulas.length > 1 && (
             <div className="flex items-center gap-2">
-              <label className="text-sm font-medium text-[var(--c-text)]">Aula:</label>
+              <label className="text-sm font-medium text-[var(--c-text)]">{t("profesorReportes.aula")}</label>
               <select
                 value={aulaId}
                 onChange={(e) => setAulaId(e.target.value)}
@@ -129,17 +131,15 @@ export default function ProfesorReportes() {
             onClick={handleExportar}
             disabled={loading || (!boletin && !asistencia && !progreso)}
             className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors"
-          >
-            ⬇ Exportar JSON
-          </button>
+          >{t("profesorReportes.exportarJson")}</button>
         </div>
 
         <div className="flex gap-1 border-b border-[var(--c-border)]">
           {[
-            { key: "boletin", label: "📋 Boletín" },
-            { key: "asistencia", label: "📅 Asistencia" },
-            { key: "progreso", label: "📊 Progreso" },
-            { key: "riesgo", label: "⚠ En riesgo" },
+            { key: "boletin", label: t("profesorReportes.boletin2") },
+            { key: "asistencia", label: t("profesorReportes.asistencia2") },
+            { key: "progreso", label: t("profesorReportes.progreso") },
+            { key: "riesgo", label: t("profesorReportes.enRiesgo2") },
           ].map((t) => (
             <button
               key={t.key}
@@ -171,14 +171,14 @@ export default function ProfesorReportes() {
         {!loading && tab === "boletin" && boletin && (
           <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="px-4 py-3 border-b border-[var(--c-border)]">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Boletín</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("hijosProgreso.boletin")}</p>
               <p className="text-xs text-[var(--c-muted)] mt-0.5">
                 {boletin.alumnos.length} alumnos · Generado {new Date(boletin.generadoEn).toLocaleDateString("es-AR")}
               </p>
             </div>
             <div className="p-4 space-y-3">
             {boletin.alumnos.length === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">Sin alumnos con evaluaciones.</p>
+              <p className="text-sm text-[var(--c-muted)]">{t("profesorReportes.sinAlumnosConEvaluaciones")}</p>
             )}
             {boletin.alumnos.map((alumno) => (
               <article key={alumno.alumnoId}
@@ -206,8 +206,7 @@ export default function ProfesorReportes() {
                       <div key={m.materia}
                         className="rounded-lg bg-[var(--c-bg)] px-3 py-2 text-xs">
                         <p className="font-medium text-[var(--c-text)]">{m.materia}</p>
-                        <p className="text-[var(--c-muted)] mt-0.5">
-                          Promedio: <span className="font-semibold">{m.promedio}</span>
+                        <p className="text-[var(--c-muted)] mt-0.5">{t("profesorReportes.promedio")}<span className="font-semibold">{m.promedio}</span>
                           {" · "}{m.evaluaciones} eval.
                         </p>
                       </div>
@@ -215,9 +214,7 @@ export default function ProfesorReportes() {
                   </div>
                 )}
                 {alumno.materias.length === 0 && (
-                  <p className="mt-2 text-xs text-[var(--c-muted)]">
-                    Sin evaluaciones formales completadas.
-                  </p>
+                  <p className="mt-2 text-xs text-[var(--c-muted)]">{t("profesorReportes.sinEvaluacionesFormalesCompletadas")}</p>
                 )}
               </article>
             ))}
@@ -228,14 +225,14 @@ export default function ProfesorReportes() {
         {!loading && tab === "asistencia" && asistencia && (
           <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="px-4 py-3 border-b border-[var(--c-border)]">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Asistencia</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorAsistencia.asistencia")}</p>
             </div>
             <div className="p-4 space-y-3">
             <div className="grid gap-4 sm:grid-cols-3">
               {[
-                { label: "Clases", value: asistencia.resumen.totalClases, color: "text-blue-700 bg-blue-50" },
-                { label: "Evaluaciones", value: asistencia.resumen.totalEvaluaciones, color: "text-amber-700 bg-amber-50" },
-                { label: "Eventos", value: asistencia.resumen.totalEventos, color: "text-violet-700 bg-violet-50" },
+                { label: t("nav.clases"), value: asistencia.resumen.totalClases, color: "text-blue-700 bg-blue-50" },
+                { label: t("nav.evaluaciones"), value: asistencia.resumen.totalEvaluaciones, color: "text-amber-700 bg-amber-50" },
+                { label: t("comun.eventos"), value: asistencia.resumen.totalEventos, color: "text-violet-700 bg-violet-50" },
               ].map((item) => (
                 <div key={item.label}
                   className={`rounded-xl p-5 text-center ${item.color}`}>
@@ -246,7 +243,7 @@ export default function ProfesorReportes() {
             </div>
             <div className="space-y-2">
               {asistencia.actividades.length === 0 && (
-                <p className="text-sm text-[var(--c-muted)]">Sin actividades registradas.</p>
+                <p className="text-sm text-[var(--c-muted)]">{t("profesorReportes.sinActividadesRegistradas")}</p>
               )}
               {asistencia.actividades.map((act) => (
                 <div key={act.id}
@@ -276,11 +273,11 @@ export default function ProfesorReportes() {
         {!loading && tab === "progreso" && progreso && (
           <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="px-4 py-3 border-b border-[var(--c-border)]">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Progreso</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("nav.progreso")}</p>
             </div>
             <div className="p-4 space-y-3">
             {progreso.modulos.length === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">Sin módulos asignados al aula.</p>
+              <p className="text-sm text-[var(--c-muted)]">{t("profesorReportes.sinModulosAsignadosAlAula")}</p>
             )}
             {progreso.modulos.map((mod) => (
               <article key={mod.moduloId}
@@ -328,7 +325,7 @@ export default function ProfesorReportes() {
         {!loading && tab === "riesgo" && (
           <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="px-4 py-3 border-b border-[var(--c-border)]">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">En riesgo</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorReportes.enRiesgo")}</p>
             </div>
             <div className="p-4 space-y-3">
             {riesgoLoading && (
@@ -339,12 +336,8 @@ export default function ProfesorReportes() {
             {!riesgoLoading && riesgo.length === 0 && (
               <div className="rounded-xl border border-emerald-200
                 bg-emerald-50 p-6 text-center">
-                <p className="text-emerald-700 font-semibold">
-                  ✓ Ningún alumno en riesgo
-                </p>
-                <p className="text-sm text-emerald-600 mt-1">
-                  Todos tienen buen progreso y pocos intentos fallidos.
-                </p>
+                <p className="text-emerald-700 font-semibold">{t("profesorReportes.ningunAlumnoEnRiesgo")}</p>
+                <p className="text-sm text-emerald-600 mt-1">{t("profesorReportes.todosTienenBuenProgresoY")}</p>
               </div>
             )}
             {!riesgoLoading && riesgo.map((alumno) => (
@@ -368,9 +361,7 @@ export default function ProfesorReportes() {
                     </div>
                   </div>
                   <span className="rounded-full bg-amber-200
-                    px-3 py-1 text-xs font-semibold text-amber-800">
-                    Necesita ayuda
-                  </span>
+                    px-3 py-1 text-xs font-semibold text-amber-800">{t("profesorReportes.necesitaAyuda")}</span>
                 </div>
                 <div className="mt-3 h-2 w-full rounded-full bg-amber-100">
                   <div

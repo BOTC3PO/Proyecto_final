@@ -38,6 +38,7 @@ import Cronometro from "../quizzes/Cronometro";
 import { useCountdown } from "../../hooks/useCountdown";
 import { Badge, Button, Alert, Progress } from "../../ui";
 
+import { useI18n } from "../../i18n/I18nContext";
 export interface VistaAlumnoOverlayProps {
   open: boolean;
   onClose: () => void;
@@ -58,6 +59,7 @@ export default function VistaAlumnoOverlay({
   theoryItems,
   quizzes,
 }: VistaAlumnoOverlayProps) {
+  const { t } = useI18n();
   const titleId = useId();
   const [missing, setMissing] = useState<MissingReport[]>([]);
 
@@ -136,17 +138,14 @@ export default function VistaAlumnoOverlay({
     >
       <div style={banner} data-testid="vista-alumno-banner">
         <span>
-          <strong>Vista previa</strong> — los intentos no se guardan.
-        </span>
+          <strong>{t("comun.vistaPrevia")}</strong>{t("vistaAlumnoOverlay.losIntentosNoSeGuardan")}</span>
         <Button
           variant="ghost"
           size="sm"
           onClick={onClose}
-          aria-label="Cerrar vista alumno"
+          aria-label={t("vistaAlumnoOverlay.cerrarVistaAlumno")}
           data-testid="vista-alumno-close"
-        >
-          Cerrar ✕
-        </Button>
+        >{t("vistaAlumnoOverlay.cerrar")}</Button>
       </div>
 
       <div style={contentArea}>
@@ -164,14 +163,10 @@ export default function VistaAlumnoOverlay({
         </h1>
 
         <section style={{ marginBottom: "var(--space-6)", display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-          <h2 style={sectionHeading}>
-            Teoría
-            <Badge variant="primary" size="sm">{theoryItems.length}</Badge>
+          <h2 style={sectionHeading}>{t("moduloDetail.teoria")}<Badge variant="primary" size="sm">{theoryItems.length}</Badge>
           </h2>
           {theoryItems.length === 0 ? (
-            <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
-              Este módulo todavía no tiene elementos de teoría.
-            </p>
+            <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("moduloDetail.esteModuloTodaviaNoTiene")}</p>
           ) : (
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
               {theoryItems.map((item) => (
@@ -182,14 +177,10 @@ export default function VistaAlumnoOverlay({
         </section>
 
         <section style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-          <h2 style={sectionHeading}>
-            Quizzes
-            <Badge variant="accent" size="sm">{quizzes.length}</Badge>
+          <h2 style={sectionHeading}>{t("moduloDetail.quizzes")}<Badge variant="accent" size="sm">{quizzes.length}</Badge>
           </h2>
           {quizzes.length === 0 ? (
-            <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
-              Este módulo todavía no tiene quizzes.
-            </p>
+            <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("vistaAlumnoOverlay.esteModuloTodaviaNoTiene2")}</p>
           ) : (
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
               {quizzes.map((quiz) => (
@@ -245,15 +236,14 @@ export default function VistaAlumnoOverlay({
             style={{ marginTop: "var(--space-6)" }}
             data-testid="vista-alumno-missing"
           >
-            <Alert variant="warning" title="Limitaciones de la vista previa">
+            <Alert variant="warning" title={t("vistaAlumnoOverlay.limitacionesDeLaVistaPrevia")}>
               <ul style={{
                 margin: "var(--space-2) 0 0",
                 paddingLeft: "var(--space-4)",
                 fontSize: "var(--text-sm)",
               }}>
                 {missing.map((m, i) => (
-                  <li key={`${m.quizId}-${i}`}>
-                    Quiz <code style={{
+                  <li key={`${m.quizId}-${i}`}>{t("vistaAlumnoOverlay.quiz")}<code style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: "var(--text-xs)",
                       padding: "1px var(--space-1)",
@@ -285,6 +275,7 @@ interface ManualQuizPreviewProps {
 // `Cronometro`). La corrección sigue siendo 100% local (sin red): el
 // timer es sólo ilustrativo, nunca auto-envía nada acá.
 function ManualQuizPreview({ quiz, onMissing }: ManualQuizPreviewProps) {
+  const { t } = useI18n();
   const questions = quiz.questions ?? [];
   const modoPresentacion: ModoPresentacion =
     quiz.modoPresentacion ?? MODO_PRESENTACION_DEFAULT;
@@ -337,9 +328,7 @@ function ManualQuizPreview({ quiz, onMissing }: ManualQuizPreviewProps) {
 
   if (questions.length === 0) {
     return (
-      <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
-        Este quiz todavía no tiene preguntas.
-      </p>
+      <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("vistaAlumnoOverlay.esteQuizTodaviaNoTiene")}</p>
     );
   }
 
@@ -361,7 +350,7 @@ function ManualQuizPreview({ quiz, onMissing }: ManualQuizPreviewProps) {
         variant={verifiedIds.size === questions.length ? "success" : "primary"}
         size="sm"
         label={`${verifiedIds.size} de ${questions.length} verificadas`}
-        aria-label="Progreso del cuestionario (vista previa)"
+        aria-label={t("vistaAlumnoOverlay.progresoDelCuestionarioVistaPrevia")}
       />
       <ol
         style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "var(--space-5)" }}
@@ -378,7 +367,7 @@ function ManualQuizPreview({ quiz, onMissing }: ManualQuizPreviewProps) {
       </ol>
       {modoPresentacion !== "lista" && (
         <nav
-          aria-label="Navegación entre preguntas"
+          aria-label={t("quizAttempt.navegacionEntrePreguntas")}
           data-testid="vista-alumno-nav"
           style={{
             display: "flex",
@@ -394,13 +383,11 @@ function ManualQuizPreview({ quiz, onMissing }: ManualQuizPreviewProps) {
             size="sm"
             onClick={goPrev}
             disabled={currentIndex === 0}
-            aria-label="Pregunta anterior"
-          >
-            Anterior
-          </Button>
+            aria-label={t("quizAttempt.preguntaAnterior")}
+          >{t("quizAttempt.anterior")}</Button>
           <div
             role="tablist"
-            aria-label="Indicador de pregunta"
+            aria-label={t("quizAttempt.indicadorDePregunta")}
             data-testid="vista-alumno-nav-dots"
             style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}
           >
@@ -430,10 +417,8 @@ function ManualQuizPreview({ quiz, onMissing }: ManualQuizPreviewProps) {
             size="sm"
             onClick={goNext}
             disabled={currentIndex === dotsCount - 1}
-            aria-label="Pregunta siguiente"
-          >
-            Siguiente
-          </Button>
+            aria-label={t("vistaAlumnoOverlay.preguntaSiguiente")}
+          >{t("quizAttempt.siguiente")}</Button>
         </nav>
       )}
     </div>

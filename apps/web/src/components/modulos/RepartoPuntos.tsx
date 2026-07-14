@@ -23,6 +23,7 @@ import { useMemo } from "react";
 import type { CuestionarioPosiciones, Tema } from "../../domain/quiz/posiciones";
 import { resumenPuntaje, type PosicionConTema } from "../../domain/quiz/puntaje";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface Props {
   cuestionario: CuestionarioPosiciones;
   /**
@@ -44,6 +45,7 @@ export default function RepartoPuntos({
   acertadas,
   variant = "table"
 }: Props) {
+  const { t } = useI18n();
   const resumen = useMemo(
     () =>
       resumenPuntaje({
@@ -61,9 +63,7 @@ export default function RepartoPuntos({
 
   if (totalPosiciones === 0) {
     return (
-      <p className="text-sm text-[var(--c-hint)]" role="status">
-        El cuestionario no tiene posiciones todavía.
-      </p>
+      <p className="text-sm text-[var(--c-hint)]" role="status">{t("posicionesCanvas.elCuestionarioNoTienePosiciones")}</p>
     );
   }
 
@@ -71,10 +71,9 @@ export default function RepartoPuntos({
     return (
       <p
         className="text-sm text-[var(--c-text-2,inherit)]"
-        aria-label="Resumen del puntaje del cuestionario"
+        aria-label={t("repartoPuntos.resumenDelPuntajeDelCuestionario")}
         data-testid="reparto-compact"
-      >
-        Total: <strong>{resumen.total}</strong>{" "}
+      >{t("repartoPuntos.total")}<strong>{resumen.total}</strong>{" "}
         {resumen.total === 1 ? "punto" : "puntos"} en {seccionesConPuntos}{" "}
         {seccionesConPuntos === 1 ? "sección" : "secciones"} (
         {totalPosiciones} {totalPosiciones === 1 ? "posición" : "posiciones"}).
@@ -89,12 +88,11 @@ export default function RepartoPuntos({
     <div
       className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface-1)] p-3"
       data-testid="reparto-table"
-      aria-label="Reparto del puntaje por sección"
+      aria-label={t("repartoPuntos.repartoDelPuntajePorSeccion")}
     >
       <div className="mb-2 flex items-center justify-between">
-        <h3 className="text-sm font-semibold">Reparto por sección</h3>
-        <p className="text-sm">
-          Total: <strong>{resumen.total}</strong>{" "}
+        <h3 className="text-sm font-semibold">{t("repartoPuntos.repartoPorSeccion")}</h3>
+        <p className="text-sm">{t("repartoPuntos.total")}<strong>{resumen.total}</strong>{" "}
           {resumen.total === 1 ? "punto" : "puntos"}
         </p>
       </div>
@@ -106,14 +104,14 @@ export default function RepartoPuntos({
         <table className="w-full text-sm">
           <thead>
             <tr className="text-left text-xs text-[var(--c-hint)]">
-              <th className="pb-1 pr-2 font-medium">Sección</th>
-              <th className="pb-1 pr-2 text-right font-medium">Puntos</th>
-              <th className="pb-1 pr-2 text-right font-medium">% del total</th>
+              <th className="pb-1 pr-2 font-medium">{t("repartoPuntos.seccion")}</th>
+              <th className="pb-1 pr-2 text-right font-medium">{t("repartoPuntos.puntos")}</th>
+              <th className="pb-1 pr-2 text-right font-medium">{t("repartoPuntos.delTotal")}</th>
               {tieneScore && (
-                <th className="pb-1 pr-2 text-right font-medium">Score</th>
+                <th className="pb-1 pr-2 text-right font-medium">{t("intentoDetalle.score")}</th>
               )}
               {tieneScore && (
-                <th className="pb-1 pr-2 text-right font-medium">Ratio</th>
+                <th className="pb-1 pr-2 text-right font-medium">{t("repartoPuntos.ratio")}</th>
               )}
             </tr>
           </thead>

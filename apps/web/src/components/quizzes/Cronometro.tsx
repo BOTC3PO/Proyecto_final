@@ -1,3 +1,4 @@
+import { useI18n } from "../../i18n/I18nContext";
 /**
  * F5-02 — Cronómetro visual del intento de evaluación.
  *
@@ -32,6 +33,7 @@ export function formatTiempo(seg: number): string {
 }
 
 export function Cronometro({ remaining, expired }: CronometroProps) {
+  const { t } = useI18n();
   if (remaining === null && !expired) return null;
 
   if (expired) {
@@ -41,9 +43,7 @@ export function Cronometro({ remaining, expired }: CronometroProps) {
         data-testid="cronometro-expired"
         className="inline-flex items-center gap-2 rounded-full border-2 border-red-300 bg-red-100 px-4 py-2 text-sm font-bold text-red-700"
       >
-        <span aria-hidden="true">⏰</span>
-        Tiempo agotado — enviando respuestas...
-      </div>
+        <span aria-hidden="true">⏰</span>{t("cronometro.tiempoAgotadoEnviandoRespuestas")}</div>
     );
   }
 

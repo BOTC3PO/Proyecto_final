@@ -26,6 +26,7 @@ import type {
   QuizMetaVisibility,
 } from "../../domain/quiz/quizPreguntasApi";
 
+import { useI18n } from "../../i18n/I18nContext";
 /** Resumen del sorteo para la "Vista previa" (calculado por el host desde el
  *  working set de preguntas del rail — sin red). */
 export interface QuizResumenSorteo {
@@ -294,6 +295,7 @@ export default function QuizConfigPanel({
   disabled,
   pools,
 }: Props) {
+  const { t } = useI18n();
   const [previewOpen, setPreviewOpen] = useState(false);
   // Borrador local del título: se commitea en blur/Enter (mismo criterio que
   // `BufferedInput` de TizaEditor — evita un PATCH por tecla).
@@ -370,9 +372,9 @@ export default function QuizConfigPanel({
             style={{ ...inputStyle, cursor: "pointer" }}
             data-testid="quiz-config-tipo-select"
           >
-            <option value="practica">Práctica — no cuenta para la nota</option>
-            <option value="formal">Evaluación formal — cuenta para la nota</option>
-            <option value="competencia">Competencia</option>
+            <option value="practica">{t("quizConfigPanel.practicaNoCuentaParaLa")}</option>
+            <option value="formal">{t("quizConfigPanel.evaluacionFormalCuentaParaLa")}</option>
+            <option value="competencia">{t("profesorEvaluaciones.competencia")}</option>
           </select>
           <div style={hintStyle}>
             {tipo === "formal"
@@ -391,8 +393,8 @@ export default function QuizConfigPanel({
             style={{ ...inputStyle, cursor: "pointer" }}
             data-testid="quiz-config-visibility-select"
           >
-            <option value="publico">Público</option>
-            <option value="escuela">Escuela</option>
+            <option value="publico">{t("profesorEvaluaciones.publico")}</option>
+            <option value="escuela">{t("sidebar.escuela")}</option>
           </select>
         </Field>
       </div>
@@ -400,7 +402,7 @@ export default function QuizConfigPanel({
       <ContenidoFields meta={meta} onPatch={onPatch} disabled={disabled} />
 
       <div>
-        <div style={eyebrowStyle}>Configuración de evaluación</div>
+        <div style={eyebrowStyle}>{t("evaluacionConfig.configuracionDeEvaluacion")}</div>
         <EvaluacionConfig
           tipo={tipo}
           config={config}
@@ -467,8 +469,7 @@ export default function QuizConfigPanel({
                 color: "var(--c-text-2)",
               }}
             >
-              <div>
-                Cada intento toma <strong>{resumen.cantidadGlobal}</strong>{" "}
+              <div>{t("quizConfigPanel.cadaIntentoToma")}<strong>{resumen.cantidadGlobal}</strong>{" "}
                 {resumen.cantidadGlobal === 1 ? "pregunta" : "preguntas"}.
               </div>
               <div>
@@ -492,9 +493,7 @@ export default function QuizConfigPanel({
                   ))}
                 </div>
               ) : (
-                <div style={{ marginTop: 6, color: "var(--c-success, #16a34a)" }}>
-                  ✓ El material alcanza para llenar el cuestionario.
-                </div>
+                <div style={{ marginTop: 6, color: "var(--c-success, #16a34a)" }}>{t("quizConfigPanel.elMaterialAlcanzaParaLlenar")}</div>
               )}
             </div>
           ) : null}
@@ -519,9 +518,7 @@ export default function QuizConfigPanel({
             padding: "6px 10px",
             cursor: disabled ? "default" : "pointer",
           }}
-        >
-          Eliminar cuestionario
-        </button>
+        >{t("moduloEditor.eliminarCuestionario")}</button>
       </div>
     </div>
   );

@@ -11,10 +11,12 @@ import {
 import { fetchClassrooms } from "../services/aulas";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 
 const toLocalInputValue = (date: Date) => date.toISOString().slice(0, 16);
 
 export default function ProfesorEncuestas() {
+  const { t } = useI18n();
   // PLAN-H §3: llegar con ?aulaId=... (desde AulaActionsBar) fija el aula
   // y esconde el selector — crear/listar queda scopeado a esa aula sin
   // que el docente pueda elegir otra por error.
@@ -178,19 +180,15 @@ export default function ProfesorEncuestas() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <header className="space-y-2">
-          <h1 className="text-2xl font-semibold">Encuestas</h1>
-          <p className="text-[var(--c-muted)]">
-            Crea y gestiona encuestas para decidir opciones con tus alumnos.
-          </p>
+          <h1 className="text-2xl font-semibold">{t("dropdown.encuestas")}</h1>
+          <p className="text-[var(--c-muted)]">{t("profesorEncuestas.creaYGestionaEncuestasPara")}</p>
         </header>
 
         <section className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">Crear encuesta</h2>
+          <h2 className="text-lg font-semibold text-[var(--c-text)]">{t("profesorEncuestas.crearEncuesta")}</h2>
           <form className="mt-4 grid gap-4" onSubmit={handleSubmit}>
             <div className="grid gap-2">
-              <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-classroom">
-                Aula
-              </label>
+              <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-classroom">{t("comun.aula")}</label>
               {lockedAulaId ? (
                 <p
                   id="survey-classroom"
@@ -206,9 +204,7 @@ export default function ProfesorEncuestas() {
                 onChange={(event) => setClassroomId(event.target.value)}
                 required
               >
-                <option value="" disabled>
-                  Selecciona un aula
-                </option>
+                <option value="" disabled>{t("profesorEncuestas.seleccionaUnAula")}</option>
                 {classrooms.map((classroom) => (
                   <option key={getAulaId(classroom)} value={getAulaId(classroom)}>
                     {classroom.name}
@@ -218,67 +214,57 @@ export default function ProfesorEncuestas() {
               )}
             </div>
             <div className="grid gap-2">
-              <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-title">
-                Título
-              </label>
+              <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-title">{t("comun.titulo")}</label>
               <input
                 id="survey-title"
                 className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
-                placeholder="Ej: Elección de proyecto final"
+                placeholder={t("profesorEncuestas.ejEleccionDeProyectoFinal")}
                 required
               />
             </div>
 
             <div className="grid gap-2">
-              <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-description">
-                Descripción
-              </label>
+              <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-description">{t("comun.descripcion")}</label>
               <textarea
                 id="survey-description"
                 className="min-h-[96px] rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
-                placeholder="Explica a tus alumnos cómo votar o qué decidir."
+                placeholder={t("profesorEncuestas.explicaATusAlumnosComo")}
                 required
               />
             </div>
 
             <div className="grid gap-2 md:grid-cols-2">
               <div className="grid gap-2">
-                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-type">
-                  Tipo de encuesta
-                </label>
+                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-type">{t("profesorEncuestas.tipoDeEncuesta")}</label>
                 <select
                   id="survey-type"
                   className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   value={type}
                   onChange={(event) => setType(event.target.value as SurveyType)}
                 >
-                  <option value="normal">Encuesta normal</option>
-                  <option value="puntuacion">Encuesta por puntuación</option>
-                  <option value="segunda_vuelta">Segunda vuelta instantánea</option>
+                  <option value="normal">{t("profesorEncuestas.encuestaNormal")}</option>
+                  <option value="puntuacion">{t("profesorEncuestas.encuestaPorPuntuacion")}</option>
+                  <option value="segunda_vuelta">{t("profesorEncuestas.segundaVueltaInstantanea")}</option>
                 </select>
               </div>
               <div className="grid gap-2">
-                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-status">
-                  Estado inicial
-                </label>
+                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-status">{t("profesorEncuestas.estadoInicial")}</label>
                 <select
                   id="survey-status"
                   className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   value={status}
                   onChange={(event) => setStatus(event.target.value as SurveyStatus)}
                 >
-                  <option value="activa">Activa</option>
-                  <option value="borrador">Borrador</option>
+                  <option value="activa">{t("profesorAulaConfiguracion.activa")}</option>
+                  <option value="borrador">{t("profesorEncuestas.borrador")}</option>
                 </select>
               </div>
               <div className="grid gap-2">
-                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-max-options">
-                  Máximo de opciones (opcional)
-                </label>
+                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-max-options">{t("profesorEncuestas.maximoDeOpcionesOpcional")}</label>
                 <input
                   id="survey-max-options"
                   type="number"
@@ -288,16 +274,14 @@ export default function ProfesorEncuestas() {
                   onChange={(event) =>
                     setMaxOptions(event.target.value === "" ? "" : Number(event.target.value))
                   }
-                  placeholder="Ej: 6"
+                  placeholder={t("profesorEncuestas.ej6")}
                 />
               </div>
             </div>
 
             <div className="grid gap-2 md:grid-cols-2">
               <div className="grid gap-2">
-                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-start">
-                  Fecha inicio
-                </label>
+                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-start">{t("profesorEncuestas.fechaInicio")}</label>
                 <input
                   id="survey-start"
                   type="datetime-local"
@@ -308,9 +292,7 @@ export default function ProfesorEncuestas() {
                 />
               </div>
               <div className="grid gap-2">
-                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-end">
-                  Fecha fin
-                </label>
+                <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="survey-end">{t("profesorEncuestas.fechaFin")}</label>
                 <input
                   id="survey-end"
                   type="datetime-local"
@@ -323,7 +305,7 @@ export default function ProfesorEncuestas() {
             </div>
 
             <div className="grid gap-2">
-              <span className="text-sm font-medium text-[var(--c-text)]">Opciones de respuesta</span>
+              <span className="text-sm font-medium text-[var(--c-text)]">{t("profesorEncuestas.opcionesDeRespuesta")}</span>
               <div className="space-y-2">
                 {options.map((option, index) => (
                   <div key={`option-${index}`} className="flex gap-2">
@@ -339,9 +321,7 @@ export default function ProfesorEncuestas() {
                         type="button"
                         className="rounded-md border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)]"
                         onClick={() => handleRemoveOption(index)}
-                      >
-                        Quitar
-                      </button>
+                      >{t("comun.quitar")}</button>
                     )}
                   </div>
                 ))}
@@ -350,9 +330,7 @@ export default function ProfesorEncuestas() {
                 type="button"
                 className="w-fit rounded-md border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-primary)] hover:bg-[var(--c-bg)]"
                 onClick={handleAddOption}
-              >
-                Agregar opción
-              </button>
+              >{t("profesorEncuestas.agregarOpcion")}</button>
             </div>
 
             <div className="flex flex-col gap-3 md:flex-row md:items-center">
@@ -361,17 +339,13 @@ export default function ProfesorEncuestas() {
                   type="checkbox"
                   checked={showResultsRealtime}
                   onChange={(event) => setShowResultsRealtime(event.target.checked)}
-                />
-                Resultados en tiempo real
-              </label>
+                />{t("profesorEncuestas.resultadosEnTiempoReal")}</label>
               <label className="flex items-center gap-2 text-sm text-[var(--c-text)]">
                 <input
                   type="checkbox"
                   checked={showResultsBeforeClose}
                   onChange={(event) => setShowResultsBeforeClose(event.target.checked)}
-                />
-                Mostrar resultados antes del cierre
-              </label>
+                />{t("profesorEncuestas.mostrarResultadosAntesDelCierre")}</label>
             </div>
 
             {error && <p className="text-sm text-[var(--c-danger)]">{error}</p>}
@@ -380,27 +354,23 @@ export default function ProfesorEncuestas() {
               type="submit"
               className="rounded-md bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
               disabled={!canSubmit}
-            >
-              Guardar encuesta
-            </button>
+            >{t("profesorEncuestas.guardarEncuesta")}</button>
           </form>
         </section>
 
         <section className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">Encuestas creadas</h2>
+            <h2 className="text-lg font-semibold text-[var(--c-text)]">{t("profesorEncuestas.encuestasCreadas")}</h2>
             <button
               type="button"
               className="rounded-md border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)]"
               onClick={() => refresh(classroomId)}
-            >
-              Actualizar
-            </button>
+            >{t("alumnoEncuestas.actualizar")}</button>
           </div>
           {isLoading ? (
-            <p className="mt-4 text-sm text-[var(--c-muted)]">Cargando encuestas...</p>
+            <p className="mt-4 text-sm text-[var(--c-muted)]">{t("profesorEncuestas.cargandoEncuestas")}</p>
           ) : items.length === 0 ? (
-            <p className="mt-4 text-sm text-[var(--c-muted)]">Aún no hay encuestas creadas.</p>
+            <p className="mt-4 text-sm text-[var(--c-muted)]">{t("profesorEncuestas.aunNoHayEncuestasCreadas")}</p>
           ) : (
             <div className="mt-4 space-y-3">
               {items.map((survey) => (
@@ -422,17 +392,13 @@ export default function ProfesorEncuestas() {
                         type="button"
                         className="rounded-md border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-primary)] hover:bg-[var(--c-bg)]"
                         onClick={() => handleClose(survey.id)}
-                      >
-                        Cerrar
-                      </button>
+                      >{t("comun.cerrar")}</button>
                     )}
                     <button
                       type="button"
                       className="rounded-md border border-red-200 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
                       onClick={() => handleDelete(survey.id)}
-                    >
-                      Eliminar
-                    </button>
+                    >{t("comun.eliminar")}</button>
                   </div>
                 </article>
               ))}

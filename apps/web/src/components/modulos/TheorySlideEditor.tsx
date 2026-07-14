@@ -20,6 +20,7 @@ import { ChartBlockRenderer } from "../../blocks/renderers/ChartBlockRenderer";
 import { FlowBlockRenderer } from "../../blocks/renderers/FlowBlockRenderer";
 import { GuardarComoMaterial } from "../materiales/GuardarComoMaterial";
 
+import { useI18n } from "../../i18n/I18nContext";
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
 export type LayoutPreset = "centered" | "top" | "split" | "bottom-text" | "quote";
@@ -1026,6 +1027,7 @@ type StageProps = {
 
 /** Lienzo WYSIWYG 16:9: título/subtítulo/cuerpo editables sobre la slide real. */
 function SlideStage({ slide, index, total, theme, accentColor, onChange, onPrev, onNext }: StageProps) {
+  const { t } = useI18n();
   const cfg = THEMES[theme] ?? THEMES.minimal;
   const accentCfg = accentColor ? ACCENT_COLORS[accentColor] : null;
   const isQuote = slide.layout === "quote";
@@ -1048,8 +1050,8 @@ function SlideStage({ slide, index, total, theme, accentColor, onChange, onPrev,
   } else if (isSplit) {
     body = (
       <div className="vb-s-cols">
-        <EditableText key={`${slide.id}-l`} value={slide.leftColumn ?? slide.body ?? ""} onChange={(t) => onChange({ leftColumn: t || undefined })} className="vb-s-body" placeholder="Columna izquierda…" ariaLabel="Columna izquierda" multiline />
-        <EditableText key={`${slide.id}-r`} value={slide.rightColumn ?? ""} onChange={(t) => onChange({ rightColumn: t || undefined })} className="vb-s-body" placeholder="Columna derecha…" ariaLabel="Columna derecha" multiline />
+        <EditableText key={`${slide.id}-l`} value={slide.leftColumn ?? slide.body ?? ""} onChange={(t) => onChange({ leftColumn: t || undefined })} className="vb-s-body" placeholder={t("theorySlideEditor.columnaIzquierda")} ariaLabel="Columna izquierda" multiline />
+        <EditableText key={`${slide.id}-r`} value={slide.rightColumn ?? ""} onChange={(t) => onChange({ rightColumn: t || undefined })} className="vb-s-body" placeholder={t("theorySlideEditor.columnaDerecha")} ariaLabel="Columna derecha" multiline />
       </div>
     );
   } else if (!isQuote) {
@@ -1067,17 +1069,16 @@ function SlideStage({ slide, index, total, theme, accentColor, onChange, onPrev,
   }
 
   return (
-    <section className="vb-stage" aria-label="Lienzo de la diapositiva">
+    <section className="vb-stage" aria-label={t("theorySlideEditor.lienzoDeLaDiapositiva")}>
       <div className="vb-stage-toolbar">
-        <span className="info">
-          Diapositiva <strong>{index + 1}</strong> de {total}
+        <span className="info">{t("theorySlideEditor.diapositiva")}<strong>{index + 1}</strong> de {total}
         </span>
         <span className="vb-stage-badge" aria-hidden="true">16 : 9</span>
         <div className="end">
-          <Button variant="icon" size="sm" aria-label="Diapositiva anterior" title="Anterior (←)" disabled={index === 0} onClick={onPrev}>
+          <Button variant="icon" size="sm" aria-label={t("theorySlideEditor.diapositivaAnterior")} title={t("slidePresenter.anterior")} disabled={index === 0} onClick={onPrev}>
             <ChevronLeft size={16} />
           </Button>
-          <Button variant="icon" size="sm" aria-label="Siguiente diapositiva" title="Siguiente (→)" disabled={index === total - 1} onClick={onNext}>
+          <Button variant="icon" size="sm" aria-label={t("theorySlideEditor.siguienteDiapositiva")} title={t("theorySlideEditor.siguiente")} disabled={index === total - 1} onClick={onNext}>
             <ChevronRight size={16} />
           </Button>
         </div>
@@ -1119,9 +1120,9 @@ function SlideStage({ slide, index, total, theme, accentColor, onChange, onPrev,
       <footer className="vb-stage-foot">
         <span className="pos" aria-live="polite">{index + 1} / {total}</span>
         <span aria-hidden="true" className="vb-stage-dot">·</span>
-        <span className="info">Layout: <strong>{LAYOUT_META[slide.layout].label}</strong></span>
+        <span className="info">{t("theorySlideEditor.layout")}<strong>{LAYOUT_META[slide.layout].label}</strong></span>
         <div className="vb-stage-hints">
-          <kbd>←→</kbd> cambiar · <kbd>⌫</kbd> eliminar
+          <kbd>←→</kbd>{t("theorySlideEditor.cambiar")}<kbd>⌫</kbd> eliminar
         </div>
       </footer>
     </section>
@@ -1768,6 +1769,7 @@ const OVERLAY_LABELS: Record<"none" | "medium" | "dark", string> = {
 };
 
 function SlideInspector({ slide, onChange }: InspectorProps) {
+  const { t } = useI18n();
   const [tab, setTab] = useState<InspectorTab>("diseno");
   const [showBlockPicker, setShowBlockPicker] = useState(false);
   useEffect(() => { setShowBlockPicker(false); }, [slide.id]);
@@ -1812,7 +1814,7 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
 
   return (
     <div className="vb-slide-insp">
-      <div className="vb-insp-tabs" role="tablist" aria-label="Inspector de diapositiva">
+      <div className="vb-insp-tabs" role="tablist" aria-label={t("theorySlideEditor.inspectorDeDiapositiva")}>
         {(([["diseno", "Diseño"], ["contenido", "Contenido"], ["notas", "Notas"]]) as [InspectorTab, string][]).map(([key, label]) => (
           <button key={key} type="button" role="tab" aria-selected={tab === key} tabIndex={tab === key ? 0 : -1} onClick={() => setTab(key)}>
             {label}
@@ -1823,8 +1825,8 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
       {tab === "diseno" && (
         <div className="vb-insp-pane">
           <div>
-            <p className="vb-insp-eyebrow">Distribución del contenido</p>
-            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Distribución del contenido">
+            <p className="vb-insp-eyebrow">{t("theorySlideEditor.distribucionDelContenido")}</p>
+            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label={t("theorySlideEditor.distribucionDelContenido")}>
               {(Object.keys(LAYOUT_META) as LayoutPreset[]).map((preset) => (
                 <button
                   key={preset}
@@ -1843,11 +1845,11 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
           </div>
 
           <div className="vb-field">
-            <label className="vb-field-label" htmlFor={bgId}>Imagen de fondo (opcional)</label>
+            <label className="vb-field-label" htmlFor={bgId}>{t("theorySlideEditor.imagenDeFondoOpcional")}</label>
             <input id={bgId} type="url" className="vb-field-input" placeholder="https://ejemplo.com/imagen.jpg" value={slide.bgImage ?? ""} onChange={(e) => onChange({ bgImage: e.target.value || undefined })} />
             {slide.bgImage && (
               <div className="mt-2 flex items-center gap-2 flex-wrap">
-                <span className="text-xs text-[var(--c-muted)]">Capa de color:</span>
+                <span className="text-xs text-[var(--c-muted)]">{t("theorySlideEditor.capaDeColor")}</span>
                 {(["none", "medium", "dark"] as const).map((opt) => (
                   <Button key={opt} variant="ghost" size="sm" pressed={(slide.bgOverlay ?? "none") === opt} aria-label={`Capa de color: ${OVERLAY_LABELS[opt]}`} onClick={() => onChange({ bgOverlay: opt })}>
                     {OVERLAY_LABELS[opt]}
@@ -1862,19 +1864,19 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
       {tab === "contenido" && (
         <div className="vb-insp-pane">
           <div>
-            <p className="vb-insp-eyebrow">Tipo de contenido</p>
-            <div className="vb-ctype-row" role="radiogroup" aria-label="Tipo de contenido">
-              <button type="button" className="vb-ctype" aria-pressed={ctype === "texto"} onClick={() => cambiarATexto(false)}>Texto</button>
-              <button type="button" className="vb-ctype" aria-pressed={ctype === "codigo"} onClick={() => cambiarATexto(true)}>Código</button>
-              <button type="button" className="vb-ctype" aria-pressed={ctype === "bloque"} onClick={() => { setShowBlockPicker(!slide.blockSpec); }}>Bloque</button>
+            <p className="vb-insp-eyebrow">{t("theorySlideEditor.tipoDeContenido")}</p>
+            <div className="vb-ctype-row" role="radiogroup" aria-label={t("theorySlideEditor.tipoDeContenido")}>
+              <button type="button" className="vb-ctype" aria-pressed={ctype === "texto"} onClick={() => cambiarATexto(false)}>{t("mapaEditorFull.texto2")}</button>
+              <button type="button" className="vb-ctype" aria-pressed={ctype === "codigo"} onClick={() => cambiarATexto(true)}>{t("plantillaEditor.codigo")}</button>
+              <button type="button" className="vb-ctype" aria-pressed={ctype === "bloque"} onClick={() => { setShowBlockPicker(!slide.blockSpec); }}>{t("theorySlideEditor.bloque")}</button>
             </div>
           </div>
 
           {ctype === "codigo" && (
             <div className="vb-field">
-              <label className="vb-field-label" htmlFor={langId}>Lenguaje del código</label>
-              <input id={langId} className="vb-field-input" placeholder="js, python, …" value={slide.language ?? ""} onChange={(e) => onChange({ language: e.target.value || undefined })} />
-              <p className="text-xs text-[var(--c-muted)] mt-1">Editá el código directamente en el lienzo.</p>
+              <label className="vb-field-label" htmlFor={langId}>{t("theorySlideEditor.lenguajeDelCodigo")}</label>
+              <input id={langId} className="vb-field-input" placeholder={t("theorySlideEditor.jsPython")} value={slide.language ?? ""} onChange={(e) => onChange({ language: e.target.value || undefined })} />
+              <p className="text-xs text-[var(--c-muted)] mt-1">{t("theorySlideEditor.editaElCodigoDirectamenteEn")}</p>
             </div>
           )}
 
@@ -1892,14 +1894,13 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
                     }
                   }}
                 >
-                  <X size={12} /> Quitar
-                </Button>
+                  <X size={12} />{t("comun.quitar")}</Button>
               </div>
               <BlockSpecEditor block={slide.blockSpec} onChange={(b) => onChange({ blockSpec: b })} />
             </div>
           ) : showBlockPicker ? (
             <div>
-              <p className="vb-insp-eyebrow">Insertar bloque del motor gráfico</p>
+              <p className="vb-insp-eyebrow">{t("theorySlideEditor.insertarBloqueDelMotorGrafico")}</p>
               <div className="vb-blocks-grid">
                 {(["chart", "table", "latex", "flow"] as const).map((t) => (
                   <button key={t} type="button" className="vb-block-card" onClick={() => elegirBloque(t)}>
@@ -1909,7 +1910,7 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
               </div>
             </div>
           ) : ctype === "texto" ? (
-            <p className="text-xs text-[var(--c-muted)]">Editá el cuerpo directamente en el lienzo. Usá guiones (-) para listas.</p>
+            <p className="text-xs text-[var(--c-muted)]">{t("theorySlideEditor.editaElCuerpoDirectamenteEn")}</p>
           ) : null}
         </div>
       )}
@@ -1917,8 +1918,8 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
       {tab === "notas" && (
         <div className="vb-insp-pane">
           <div className="vb-field">
-            <label className="vb-field-label" htmlFor={notesId}>Notas del orador</label>
-            <textarea id={notesId} className="vb-field-input vb-field-textarea" rows={8} placeholder="Notas para quien presenta (no se muestran en la diapositiva)…" value={notes} onChange={(e) => onChange({ notes: e.target.value || undefined })} />
+            <label className="vb-field-label" htmlFor={notesId}>{t("theorySlideEditor.notasDelOrador")}</label>
+            <textarea id={notesId} className="vb-field-input vb-field-textarea" rows={8} placeholder={t("theorySlideEditor.notasParaQuienPresentaNo")} value={notes} onChange={(e) => onChange({ notes: e.target.value || undefined })} />
             <p className="text-xs text-[var(--c-muted)] mt-1" aria-live="polite">
               {wordCount} {wordCount === 1 ? "palabra" : "palabras"} · ~{minutes} min de lectura
             </p>
@@ -1955,6 +1956,7 @@ export default function TheorySlideEditor({
   onClose,
   materialId,
 }: Props) {
+  const { t } = useI18n();
   const {
     slides,
     currentIndex,
@@ -1983,7 +1985,7 @@ export default function TheorySlideEditor({
         <div className="flex items-center gap-3 flex-shrink-0">
           {/* Theme swatches */}
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-[var(--c-muted)] mr-0.5">Tema:</span>
+            <span className="text-xs text-[var(--c-muted)] mr-0.5">{t("theorySlideEditor.tema")}</span>
             {(Object.entries(THEMES) as [ThemeKey, ThemeConfig][]).map(([key, cfg]) => (
               <button
                 key={key}
@@ -2004,11 +2006,11 @@ export default function TheorySlideEditor({
 
           {/* Accent color swatches */}
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-[var(--c-muted)] mr-0.5">Acento:</span>
+            <span className="text-xs text-[var(--c-muted)] mr-0.5">{t("theorySlideEditor.acento")}</span>
             <button
               type="button"
-              title="Sin color de acento"
-              aria-label="Sin color de acento"
+              title={t("theorySlideEditor.sinColorDeAcento")}
+              aria-label={t("theorySlideEditor.sinColorDeAcento")}
               aria-pressed={accentColor === undefined}
               className={`w-5 h-5 rounded-full border-2 transition-all motion-reduce:transition-none flex-shrink-0 bg-[var(--c-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
                 accentColor === undefined
@@ -2038,9 +2040,7 @@ export default function TheorySlideEditor({
           </div>
 
           <Button variant="ghost" size="sm" onClick={addSlide}>
-            <Plus size={12} />
-            Diapositiva
-          </Button>
+            <Plus size={12} />{t("theorySlideEditor.diapositiva")}</Button>
 
           <GuardarComoMaterial
             tipo="presentacion"
@@ -2053,16 +2053,14 @@ export default function TheorySlideEditor({
             variant="primary"
             size="sm"
             onClick={() => onDone(slides, theme, accentColor)}
-          >
-            Listo
-          </Button>
+          >{t("theorySlideEditor.listo")}</Button>
 
           <Button
             variant="icon"
             size="sm"
             onClick={onClose}
-            title="Cerrar sin guardar"
-            aria-label="Cerrar sin guardar"
+            title={t("theorySlideEditor.cerrarSinGuardar")}
+            aria-label={t("theorySlideEditor.cerrarSinGuardar")}
           >
             <X size={16} />
           </Button>
@@ -2096,7 +2094,7 @@ export default function TheorySlideEditor({
                     <span className="text-[10px] text-[var(--c-muted)] tabular-nums flex-shrink-0">{index + 1}</span>
                     <span className="text-[10px] text-[var(--c-border)]">·</span>
                     <span className="text-xs text-[var(--c-text)] truncate leading-none">
-                      {slide.heading || <span className="text-[var(--c-border)] italic">Sin título</span>}
+                      {slide.heading || <span className="text-[var(--c-border)] italic">{t("mapaEditorFull.sinTitulo")}</span>}
                     </span>
                     {slide.toolSpec && (
                       <Settings size={9} className="text-[var(--c-border)] flex-shrink-0 ml-auto" />
@@ -2109,7 +2107,7 @@ export default function TheorySlideEditor({
                   <Button
                     variant="icon"
                     size="sm"
-                    title="Mover arriba"
+                    title={t("moduloEditor.moverArriba")}
                     aria-label={`Mover diapositiva ${index + 1} arriba`}
                     disabled={index === 0}
                     onClick={() => moveSlide(index, index - 1)}
@@ -2119,7 +2117,7 @@ export default function TheorySlideEditor({
                   <Button
                     variant="icon"
                     size="sm"
-                    title="Duplicar"
+                    title={t("theorySlideEditor.duplicar")}
                     aria-label={`Duplicar diapositiva ${index + 1}`}
                     onClick={() => dupSlide(index)}
                   >
@@ -2128,7 +2126,7 @@ export default function TheorySlideEditor({
                   <Button
                     variant="icon"
                     size="sm"
-                    title="Mover abajo"
+                    title={t("moduloEditor.moverAbajo")}
                     aria-label={`Mover diapositiva ${index + 1} abajo`}
                     disabled={index === slides.length - 1}
                     onClick={() => moveSlide(index, index + 1)}
@@ -2146,9 +2144,7 @@ export default function TheorySlideEditor({
             className="w-full justify-center rounded-none border-x-0 border-b-0 flex-shrink-0 py-3"
             onClick={addSlide}
           >
-            <Plus size={12} />
-            Agregar diapositiva
-          </Button>
+            <Plus size={12} />{t("theorySlideEditor.agregarDiapositiva")}</Button>
         </div>
 
         {/* Editor: lienzo WYSIWYG (centro) + inspector con tabs (derecha) */}
@@ -2180,9 +2176,7 @@ export default function TheorySlideEditor({
                       className="text-[var(--c-danger)]"
                       onClick={() => removeSlide(currentSlide.id)}
                     >
-                      <Trash2 size={12} />
-                      Eliminar diapositiva
-                    </Button>
+                      <Trash2 size={12} />{t("theorySlideEditor.eliminarDiapositiva")}</Button>
                   </div>
                 ) : null}
               </div>

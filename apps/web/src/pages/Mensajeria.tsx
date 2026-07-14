@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import { useIsStaff } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchHilos, fetchHilo, enviarMensaje,
   fetchAvisos, crearAviso, marcarAvisoLeido,
@@ -86,6 +87,7 @@ const DESTINO_LABELS: Record<string, string> = {
 type Tab = "mensajes" | "avisos";
 
 export default function Mensajeria() {
+  const { t } = useI18n();
   const { user } = useAuth();
   // MULTIROL-02: canPublish = staff (DIRECTIVO/TEACHER/ADMIN en
   // cualquier slot de roles[]).
@@ -326,10 +328,8 @@ export default function Mensajeria() {
 
         {/* Encabezado */}
         <div>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Mensajes</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-1">
-            Mensajes directos y avisos de tu escuela.
-          </p>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("nav.mensajes")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">{t("mensajeria.mensajesDirectosYAvisosDe")}</p>
         </div>
 
         {/* Tabs */}
@@ -356,13 +356,11 @@ export default function Mensajeria() {
             {/* Lista de hilos */}
             <div className="lg:col-span-1 flex flex-col gap-2">
               <div className="flex items-center justify-between mb-1">
-                <p className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Conversaciones</p>
+                <p className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">{t("mensajeria.conversaciones")}</p>
                 <button
                   onClick={() => setMostrarNuevo((v) => !v)}
                   className="text-xs text-[var(--c-primary)] hover:underline"
-                >
-                  + Nuevo
-                </button>
+                >{t("mensajeria.nuevo")}</button>
               </div>
 
               {/* Formulario nuevo mensaje */}
@@ -370,12 +368,12 @@ export default function Mensajeria() {
                 <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-3 space-y-2 mb-2">
                   <input
                     type="text"
-                    placeholder="Buscar usuario..."
+                    placeholder={t("mensajeria.buscarUsuario")}
                     className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
                     value={busqueda}
                     onChange={(e) => setBusqueda(e.target.value)}
                   />
-                  {buscando && <p className="text-xs text-[var(--c-muted)]">Buscando...</p>}
+                  {buscando && <p className="text-xs text-[var(--c-muted)]">{t("mensajeria.buscando")}</p>}
                   {resultados.length > 0 && !destinatario && (
                     <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] overflow-hidden">
                       {resultados.map((r) => (
@@ -396,7 +394,7 @@ export default function Mensajeria() {
                     <>
                       <p className="text-xs text-[var(--c-success)] font-medium">Para: {destinatario.nombre}</p>
                       <textarea
-                        placeholder="Escribí tu mensaje..."
+                        placeholder={t("mensajeria.escribiTuMensaje")}
                         rows={2}
                         className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)] resize-none"
                         value={nuevoMsg}
@@ -413,9 +411,7 @@ export default function Mensajeria() {
                         <button
                           onClick={() => { setDestinatario(null); setBusqueda(""); }}
                           className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
-                        >
-                          Cancelar
-                        </button>
+                        >{t("comun.cancelar")}</button>
                       </div>
                     </>
                   )}
@@ -432,7 +428,7 @@ export default function Mensajeria() {
 
               {!hilosLoading && hilos.length === 0 && (
                 <div className="rounded-xl border border-dashed border-[var(--c-border)] p-8 text-center">
-                  <p className="text-xs text-[var(--c-muted)]">Sin conversaciones todavía.</p>
+                  <p className="text-xs text-[var(--c-muted)]">{t("mensajeria.sinConversacionesTodavia")}</p>
                 </div>
               )}
 
@@ -463,13 +459,13 @@ export default function Mensajeria() {
             <div className="lg:col-span-2 flex flex-col rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
               {!hiloActivo ? (
                 <div className="flex-1 flex items-center justify-center p-8">
-                  <p className="text-sm text-[var(--c-muted)]">Seleccioná una conversación</p>
+                  <p className="text-sm text-[var(--c-muted)]">{t("mensajeria.seleccionaUnaConversacion")}</p>
                 </div>
               ) : (
                 <>
                   {/* Mensajes */}
                   <div className="flex-1 overflow-y-auto p-4 space-y-3 min-h-[360px] max-h-[420px]">
-                    {mensajesLoading && <p className="text-xs text-[var(--c-muted)]">Cargando...</p>}
+                    {mensajesLoading && <p className="text-xs text-[var(--c-muted)]">{t("comun.cargando2")}</p>}
                     {mensajes.map((m) => {
                       const esMio = m.sender_id === user?.id;
                       return (
@@ -494,7 +490,7 @@ export default function Mensajeria() {
                   <div className="border-t border-[var(--c-border)] p-3 flex gap-2">
                     <input
                       type="text"
-                      placeholder="Escribí un mensaje..."
+                      placeholder={t("mensajeria.escribiUnMensaje")}
                       className="flex-1 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
                       value={body}
                       onChange={(e) => setBody(e.target.value)}
@@ -527,16 +523,16 @@ export default function Mensajeria() {
             {/* Formulario de nuevo aviso — solo para TEACHER/DIRECTIVO/ADMIN */}
             {canPublish && (
               <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 space-y-3">
-                <p className="text-sm font-medium text-[var(--c-text)]">Publicar aviso</p>
+                <p className="text-sm font-medium text-[var(--c-text)]">{t("mensajeria.publicarAviso")}</p>
                 <input
                   type="text"
-                  placeholder="Título"
+                  placeholder={t("comun.titulo")}
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
                   value={avisoTitulo}
                   onChange={(e) => setAvisoTitulo(e.target.value)}
                 />
                 <textarea
-                  placeholder="Mensaje..."
+                  placeholder={t("mensajeria.mensaje")}
                   rows={3}
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)] resize-none"
                   value={avisoCuerpo}
@@ -549,7 +545,7 @@ export default function Mensajeria() {
                       onChange={(e) => setEscuelaSeleccionada(e.target.value)}
                       className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     >
-                      <option value="">Todas mis escuelas</option>
+                      <option value="">{t("mensajeria.todasMisEscuelas")}</option>
                       {escuelas.map((e) => (
                         <option key={e.id} value={e.id}>{e.nombre}</option>
                       ))}
@@ -591,7 +587,7 @@ export default function Mensajeria() {
 
             {!avisosLoading && avisos.length === 0 && (
               <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
-                <p className="text-sm text-[var(--c-muted)]">No hay avisos publicados.</p>
+                <p className="text-sm text-[var(--c-muted)]">{t("mensajeria.noHayAvisosPublicados")}</p>
               </div>
             )}
 
@@ -618,9 +614,7 @@ export default function Mensajeria() {
                       <button
                         onClick={() => handleLeerAviso(aviso.id)}
                         className="text-[10px] text-[var(--c-primary)] hover:underline"
-                      >
-                        Marcar como leído
-                      </button>
+                      >{t("mensajeria.marcarComoLeido")}</button>
                     )}
                     {/* FIX-TEST4-AVISOS-EDIT — botones Editar/Eliminar
                         visibles para todos los avisos visibles. El
@@ -629,15 +623,11 @@ export default function Mensajeria() {
                     <button
                       onClick={() => abrirEditarAviso(aviso)}
                       className="text-[10px] text-[var(--c-primary)] hover:underline"
-                    >
-                      Editar
-                    </button>
+                    >{t("comun.editar")}</button>
                     <button
                       onClick={() => handleEliminarAviso(aviso.id)}
                       className="text-[10px] text-red-500 hover:underline"
-                    >
-                      Eliminar
-                    </button>
+                    >{t("comun.eliminar")}</button>
                   </div>
                 </div>
               </div>
@@ -662,13 +652,9 @@ export default function Mensajeria() {
               <h3
                 id="aviso-editar-titulo"
                 className="text-base font-semibold text-[var(--c-text)]"
-              >
-                Editar aviso
-              </h3>
+              >{t("mensajeria.editarAviso")}</h3>
               <form onSubmit={handleEditarAviso} className="mt-3 space-y-3">
-                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                  Título *
-                  <input
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.titulo")}<input
                     type="text"
                     required
                     value={avisoEditTitulo}
@@ -676,9 +662,7 @@ export default function Mensajeria() {
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
-                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                  Cuerpo *
-                  <textarea
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.cuerpo")}<textarea
                     required
                     rows={3}
                     value={avisoEditCuerpo}
@@ -686,17 +670,15 @@ export default function Mensajeria() {
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
-                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                  Destino
-                  <select
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.destino")}<select
                     value={avisoEditDestino}
                     onChange={(e) => setAvisoEditDestino(e.target.value)}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   >
-                    <option value="todos">Toda la escuela</option>
-                    <option value="alumnos">Alumnos</option>
-                    <option value="profesores">Profesores</option>
-                    <option value="padres">Padres</option>
+                    <option value="todos">{t("mensajeria.todaLaEscuela")}</option>
+                    <option value="alumnos">{t("mensajeria.alumnos")}</option>
+                    <option value="profesores">{t("mensajeria.profesores")}</option>
+                    <option value="padres">{t("mensajeria.padres")}</option>
                   </select>
                 </label>
                 <div className="flex justify-end gap-2 pt-2">
@@ -705,9 +687,7 @@ export default function Mensajeria() {
                     onClick={cerrarEditarAviso}
                     disabled={avisoEditSaving}
                     className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors"
-                  >
-                    Cancelar
-                  </button>
+                  >{t("comun.cancelar")}</button>
                   <button
                     type="submit"
                     disabled={avisoEditSaving || !avisoEditTitulo.trim() || !avisoEditCuerpo.trim()}

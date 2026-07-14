@@ -1,3 +1,4 @@
+import { useI18n } from "../../i18n/I18nContext";
 /**
  * Drawer de referencia rápida del DSL VBLang: bloques, funciones, tipos de
  * pregunta y reglas críticas. Contenido estático espejado de
@@ -83,6 +84,7 @@ const TIPOS: { nombre: string; desc: string }[] = [
 ];
 
 export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProps) {
+  const { t } = useI18n();
   if (!open) return null;
 
   return (
@@ -95,15 +97,15 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
       />
       <aside
         role="dialog"
-        aria-label="Referencia rápida de VBLang"
+        aria-label={t("referenciaRapida.referenciaRapidaDeVblang")}
         className="fixed right-0 top-0 z-50 flex h-full w-full max-w-sm flex-col border-l border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] shadow-xl"
       >
         <header className="flex items-center justify-between border-b border-[var(--c-border,#e2e8f0)] px-4 py-3">
-          <h2 className="text-sm font-bold text-[var(--c-text)]">Referencia VBLang</h2>
+          <h2 className="text-sm font-bold text-[var(--c-text)]">{t("plantillaEditorTiza.referenciaVblang")}</h2>
           <button
             type="button"
             onClick={onClose}
-            aria-label="Cerrar referencia"
+            aria-label={t("referenciaRapida.cerrarReferencia")}
             className="rounded px-2 py-0.5 text-sm text-[var(--c-muted,#64748b)] hover:bg-[var(--c-bg,#f1f5f9)]"
           >
             ✕
@@ -112,9 +114,7 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
 
         <div className="flex-1 overflow-auto px-4 py-3 text-xs space-y-5">
           <section>
-            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
-              Reglas críticas
-            </h3>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("referenciaRapida.reglasCriticas")}</h3>
             <ul className="list-disc space-y-1 pl-4 text-[var(--c-text)]">
               {REGLAS.map((r) => (
                 <li key={r}>{r}</li>
@@ -123,9 +123,7 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
           </section>
 
           <section>
-            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
-              Bloques
-            </h3>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("referenciaRapida.bloques")}</h3>
             <dl className="space-y-1.5">
               {BLOQUES.map((b) => (
                 <div key={b.nombre}>
@@ -149,9 +147,7 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
           </section>
 
           <section>
-            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
-              Tipos de pregunta
-            </h3>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("referenciaRapida.tiposDePregunta")}</h3>
             <dl className="space-y-1.5">
               {TIPOS.map((t) => (
                 <div key={t.nombre}>
@@ -165,9 +161,7 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
           </section>
 
           <section>
-            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
-              Funciones
-            </h3>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("referenciaRapida.funciones")}</h3>
             <div className="flex flex-wrap gap-1">
               {FUNCIONES.map((f) => (
                 <code
@@ -181,13 +175,8 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
           </section>
 
           <section>
-            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
-              Generadores asistidos
-            </h3>
-            <p className="mb-1.5 text-[var(--c-muted,#64748b)]">
-              Al elegir un generador en el formulario visual vas a ver qué
-              variables expone y sus ejemplos. La receta para cablearlo:
-            </p>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("referenciaRapida.generadoresAsistidos")}</h3>
+            <p className="mb-1.5 text-[var(--c-muted,#64748b)]">{t("referenciaRapida.alElegirUnGeneradorEn")}</p>
             <ol className="list-decimal space-y-1 pl-4 text-[var(--c-text)]">
               {GENERADOR_RECETA.map((r) => (
                 <li key={r.paso}>
@@ -203,9 +192,7 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
           </section>
 
           <section>
-            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
-              Constantes
-            </h3>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("referenciaRapida.constantes")}</h3>
             <div className="flex flex-wrap gap-1">
               {CONSTANTES.map((c) => (
                 <code

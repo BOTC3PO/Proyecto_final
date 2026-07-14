@@ -10,6 +10,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Card, CardHead, CardBody, Button, Pill } from "../components/ui";
 import { fetchCuotasMias, iniciarCheckout, type CuotaAlumno } from "../services/cobros";
+import { useI18n } from "../i18n/I18nContext";
 
 const money = (n: number, moneda = "ARS") =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: moneda }).format(n ?? 0);
@@ -24,6 +25,7 @@ const PILL_ESTADO: Record<string, "neutral" | "info" | "ok" | "warn"> = {
 };
 
 export default function Pagos() {
+  const { t } = useI18n();
   const [items, setItems] = useState<CuotaAlumno[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -69,7 +71,7 @@ export default function Pagos() {
   const historial = items.filter((c) => c.estado === "pagada" || c.estado === "vencida" || c.estado === "anulada");
 
   if (loading) {
-    return <p className="p-6 text-sm text-[var(--c-muted)] animate-pulse">Cargando pagos…</p>;
+    return <p className="p-6 text-sm text-[var(--c-muted)] animate-pulse">{t("pagos.cargandoPagos")}</p>;
   }
   if (error) {
     return (
@@ -82,8 +84,8 @@ export default function Pagos() {
   return (
     <div className="mx-auto max-w-3xl space-y-5 p-6">
       <header>
-        <h1 className="text-xl font-bold text-[var(--c-text)]">Pagos</h1>
-        <p className="text-sm text-[var(--c-muted)]">Cuotas pendientes e historial de pagos.</p>
+        <h1 className="text-xl font-bold text-[var(--c-text)]">{t("nav.pagos")}</h1>
+        <p className="text-sm text-[var(--c-muted)]">{t("pagos.cuotasPendientesEHistorialDe")}</p>
       </header>
 
       {msg && (
@@ -94,11 +96,11 @@ export default function Pagos() {
 
       <Card>
         <CardHead>
-          <h2 className="text-sm font-bold">Pendientes</h2>
+          <h2 className="text-sm font-bold">{t("pagos.pendientes")}</h2>
         </CardHead>
         <CardBody>
           {pendientes.length === 0 ? (
-            <p className="text-sm text-[var(--c-muted)]">No tenés cuotas pendientes.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("pagos.noTenesCuotasPendientes")}</p>
           ) : (
             <ul className="space-y-2">
               {pendientes.map((c) => (
@@ -129,18 +131,18 @@ export default function Pagos() {
 
       <Card>
         <CardHead>
-          <h2 className="text-sm font-bold">Historial</h2>
+          <h2 className="text-sm font-bold">{t("pagos.historial")}</h2>
         </CardHead>
         <CardBody>
           {historial.length === 0 ? (
-            <p className="text-sm text-[var(--c-muted)]">Sin pagos registrados todavía.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("pagos.sinPagosRegistradosTodavia")}</p>
           ) : (
             <table className="w-full text-left text-xs">
               <thead className="text-[var(--c-text-3)]">
                 <tr>
-                  <th className="py-1">Concepto</th>
-                  <th className="py-1">Monto</th>
-                  <th className="py-1">Estado</th>
+                  <th className="py-1">{t("enterpriseCobros.concepto")}</th>
+                  <th className="py-1">{t("comun.monto")}</th>
+                  <th className="py-1">{t("comun.estado")}</th>
                 </tr>
               </thead>
               <tbody>

@@ -15,6 +15,7 @@ import {
 } from "./TheorySlideEditor";
 import VisualizerRenderer from "./VisualizerRenderer";
 
+import { useI18n } from "../../i18n/I18nContext";
 // ─── Overlay class resolver ───────────────────────────────────────────────────
 
 function overlayClass(slide: Slide, cfg: ThemeConfig): string | null {
@@ -224,6 +225,7 @@ type Props = {
 };
 
 export default function SlidePresenter({ slides, theme, title, accentColor, onClose }: Props) {
+  const { t } = useI18n();
   const [current, setCurrent] = useState(0);
   const [visible, setVisible] = useState(true);
   const transitioning = useRef(false);
@@ -318,7 +320,7 @@ export default function SlidePresenter({ slides, theme, title, accentColor, onCl
             type="button"
             className="p-1.5 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors"
             onClick={onClose}
-            title="Cerrar (Esc)"
+            title={t("slidePresenter.cerrarEsc")}
           >
             <X size={16} />
           </button>
@@ -377,7 +379,7 @@ export default function SlidePresenter({ slides, theme, title, accentColor, onCl
           className={`p-2 rounded-full transition-colors ${cfg.navButton}`}
           onClick={goPrev}
           disabled={current === 0}
-          title="Anterior (←)"
+          title={t("slidePresenter.anterior")}
         >
           <ChevronLeft size={20} />
         </button>
@@ -402,16 +404,14 @@ export default function SlidePresenter({ slides, theme, title, accentColor, onCl
           className={`p-2 rounded-full transition-colors ${cfg.navButton}`}
           onClick={goNext}
           disabled={current === slides.length - 1}
-          title="Siguiente (→ o Espacio)"
+          title={t("slidePresenter.siguienteOEspacio")}
         >
           <ChevronRight size={20} />
         </button>
       </div>
 
       {/* Keyboard hint */}
-      <p className="absolute bottom-2 right-4 text-xs text-white/25 hidden md:block pointer-events-none select-none">
-        ← → para navegar · Esc para salir
-      </p>
+      <p className="absolute bottom-2 right-4 text-xs text-white/25 hidden md:block pointer-events-none select-none">{t("slidePresenter.paraNavegarEscParaSalir")}</p>
     </div>
   );
 }

@@ -23,6 +23,7 @@ import { createMercatorPathGenerator, createProjector } from "../../lib/maps/svg
 import { useViewBoxZoom } from "../../lib/maps/useViewBoxZoom";
 import { needsTapOverlay, tapOverlayRadius } from "../../lib/maps/tapOverlay";
 
+import { useI18n } from "../../i18n/I18nContext";
 const PAN_THRESHOLD_PX = 4;
 
 const MAP_WIDTH = 960;
@@ -119,6 +120,7 @@ export default function MarcarMapaRenderer({
   modoRespuesta = "iso",
   encuadre,
 }: MarcarMapaRendererProps) {
+  const { t } = useI18n();
   const [features, setFeatures] = useState<CountryFeature[]>([]);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [hovered, setHovered] = useState<string | null>(null);
@@ -249,7 +251,7 @@ export default function MarcarMapaRenderer({
         {mapaId === "world_states_provinces" && !paisIso ? (
           <>Mapa de provincias requiere un código de país (ej. <code className="font-mono">respuesta_iso: &quot;AR-C&quot;</code>).</>
         ) : (
-          <>Mapa <code className="font-mono">{mapaId}</code> no reconocido. (Mapas disponibles: <code className="font-mono">politico_mundo</code>, <code className="font-mono">world_states_provinces</code>.)</>
+          <>{t("marcarMapaRenderer.mapa")}<code className="font-mono">{mapaId}</code> no reconocido. (Mapas disponibles: <code className="font-mono">politico_mundo</code>, <code className="font-mono">world_states_provinces</code>.)</>
         )}
       </div>
     );
@@ -261,9 +263,7 @@ export default function MarcarMapaRenderer({
         className="flex items-center justify-center bg-slate-100 text-slate-400 text-sm rounded-lg"
         style={{ width: "100%", aspectRatio: `${MAP_WIDTH}/${MAP_HEIGHT}` }}
         data-testid="marcar-mapa-loading"
-      >
-        Cargando mapa…
-      </div>
+      >{t("mapaEditorFull.cargandoMapa")}</div>
     );
   }
 
@@ -272,9 +272,7 @@ export default function MarcarMapaRenderer({
       <div
         className="rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-800"
         data-testid="marcar-mapa-error"
-      >
-        No se pudo cargar el mapa.
-      </div>
+      >{t("marcarMapaRenderer.noSePudoCargarEl")}</div>
     );
   }
 
@@ -410,14 +408,14 @@ export default function MarcarMapaRenderer({
         <div
           className="pointer-events-auto absolute right-2 top-2 flex flex-col gap-0.5 rounded-lg border border-slate-200 bg-white shadow-sm"
           role="group"
-          aria-label="Zoom del mapa"
+          aria-label={t("mapaEditorFull.zoomDelMapa")}
           data-testid="marcar-mapa-zoom-controls"
         >
           <button
             type="button"
             onClick={zoomIn}
-            aria-label="Acercar"
-            title="Acercar (rueda hacia arriba)"
+            aria-label={t("mapaEditorFull.acercar")}
+            title={t("mapaStandalone.acercarRuedaHaciaArriba")}
             className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -428,8 +426,8 @@ export default function MarcarMapaRenderer({
           <button
             type="button"
             onClick={zoomOut}
-            aria-label="Alejar"
-            title="Alejar (rueda hacia abajo)"
+            aria-label={t("mapaEditorFull.alejar")}
+            title={t("mapaStandalone.alejarRuedaHaciaAbajo")}
             className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -440,8 +438,8 @@ export default function MarcarMapaRenderer({
           <button
             type="button"
             onClick={resetZoom}
-            aria-label="Restablecer zoom"
-            title="Restablecer zoom (Inicio)"
+            aria-label={t("mapaEditorFull.restablecerZoom")}
+            title={t("mapaStandalone.restablecerZoomInicio")}
             className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">

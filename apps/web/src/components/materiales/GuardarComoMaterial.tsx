@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import { apiPost } from "../../lib/api";
 
+import { useI18n } from "../../i18n/I18nContext";
 export type MaterialTipo = "mapa" | "timeline" | "interactivo" | "presentacion";
 
 export type GuardarComoMaterialResult = {
@@ -40,6 +41,7 @@ export function GuardarComoMaterial({
   className,
   autoOpen,
 }: Props) {
+  const { t } = useI18n();
   const [status, setStatus] = useState<Status>(autoOpen ? "asking-title" : "idle");
   const [titulo, setTitulo] = useState(defaultTitulo ?? "");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -102,7 +104,7 @@ export function GuardarComoMaterial({
         {status === "saving" ? "Guardando…" : "Guardar como material"}
       </button>
       {status === "saved" && (
-        <span className="text-xs text-[var(--c-success)]">✓ Guardado</span>
+        <span className="text-xs text-[var(--c-success)]">{t("guardarComoMaterial.guardado")}</span>
       )}
       {status === "error" && (
         <span className="text-xs text-[var(--c-danger)]">{errorMsg}</span>
@@ -120,15 +122,9 @@ export function GuardarComoMaterial({
             className="w-full max-w-md rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] p-5 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 id={`${tituloId}-label`} className="text-base font-semibold text-[var(--c-text)]">
-              Guardar como material
-            </h3>
-            <p className="mt-1 text-xs text-[var(--c-muted)]">
-              Elegí un título para poder reabrirlo o reusarlo más adelante.
-            </p>
-            <label htmlFor={tituloId} className="mt-4 block text-xs font-medium text-[var(--c-muted)]">
-              Título
-            </label>
+            <h3 id={`${tituloId}-label`} className="text-base font-semibold text-[var(--c-text)]">{t("guardarComoMaterial.guardarComoMaterial")}</h3>
+            <p className="mt-1 text-xs text-[var(--c-muted)]">{t("guardarComoMaterial.elegiUnTituloParaPoder")}</p>
+            <label htmlFor={tituloId} className="mt-4 block text-xs font-medium text-[var(--c-muted)]">{t("comun.titulo")}</label>
             <input
               id={tituloId}
               autoFocus
@@ -138,24 +134,20 @@ export function GuardarComoMaterial({
                 if (e.key === "Enter") handleConfirmTitulo();
               }}
               className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
-              placeholder="Nombre del material"
+              placeholder={t("guardarComoMaterial.nombreDelMaterial")}
             />
             <div className="mt-5 flex justify-end gap-2">
               <button
                 type="button"
                 onClick={reset}
                 className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-              >
-                Cancelar
-              </button>
+              >{t("comun.cancelar")}</button>
               <button
                 type="button"
                 onClick={handleConfirmTitulo}
                 disabled={!titulo.trim()}
                 className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
-              >
-                Guardar
-              </button>
+              >{t("mapaEditorFull.guardar")}</button>
             </div>
           </div>
         </div>

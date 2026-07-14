@@ -24,6 +24,7 @@ import {
   type AttemptEventsSummary
 } from "../../domain/quiz/attemptEvents";
 
+import { useI18n } from "../../i18n/I18nContext";
 export interface AttemptEventsPanelProps {
   /** El JSON `grading` del intento. Puede ser null si todavía no se
    *  computó (intento en curso). */
@@ -33,6 +34,7 @@ export interface AttemptEventsPanelProps {
 }
 
 export function AttemptEventsPanel({ grading, defaultCollapsed = false }: AttemptEventsPanelProps) {
+  const { t } = useI18n();
   const summary: AttemptEventsSummary = summarizeAttemptEvents(grading);
   const clean = summary.tabSwitchCount === 0 && !summary.canaryTriggered;
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
@@ -40,13 +42,11 @@ export function AttemptEventsPanel({ grading, defaultCollapsed = false }: Attemp
   return (
     <section
       data-testid="attempt-events-panel"
-      aria-label="Eventos del intento"
+      aria-label={t("attemptEventsPanel.eventosDelIntento")}
       className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
     >
       <header className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-slate-800">
-          Eventos del intento
-        </h3>
+        <h3 className="text-sm font-semibold text-slate-800">{t("attemptEventsPanel.eventosDelIntento")}</h3>
         <button
           type="button"
           onClick={() => setCollapsed((c) => !c)}
@@ -65,7 +65,7 @@ export function AttemptEventsPanel({ grading, defaultCollapsed = false }: Attemp
               className="flex items-center gap-2 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-700"
             >
               <span aria-hidden="true">✓</span>
-              <span>Sin eventos registrados</span>
+              <span>{t("attemptEventsPanel.sinEventosRegistrados")}</span>
             </div>
           ) : (
             <>
@@ -84,7 +84,7 @@ export function AttemptEventsPanel({ grading, defaultCollapsed = false }: Attemp
                   className="flex items-center gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"
                 >
                   <span aria-hidden="true">🪤</span>
-                  <span>Canario disparado (respuestas inválidas detectadas)</span>
+                  <span>{t("attemptEventsPanel.canarioDisparadoRespuestasInvalidasDetectadas")}</span>
                 </div>
               )}
             </>

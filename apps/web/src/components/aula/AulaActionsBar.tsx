@@ -19,6 +19,7 @@
 
 import { Link } from "react-router-dom";
 
+import { useI18n } from "../../i18n/I18nContext";
 export type AulaActionsBarProps = {
   classroomId: string;
   onPublicarClick: () => void;
@@ -32,62 +33,51 @@ export default function AulaActionsBar({
   onAsignarModulosClick,
   className = "",
 }: AulaActionsBarProps) {
+  const { t } = useI18n();
   if (!classroomId) return null;
   const linkCls =
     "inline-flex items-center justify-center gap-1.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-sm font-medium text-[var(--c-text)] hover:bg-[var(--c-primary-soft,#dbeafe)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-primary)] motion-reduce:transition-none";
   return (
     <div
       role="region"
-      aria-label="Acciones del aula"
+      aria-label={t("aulaActionsBar.accionesDelAula")}
       data-testid="aula-actions-bar"
       className={`rounded-xl border border-[var(--c-border)] bg-[var(--c-primary-soft,#dbeafe)]/40 p-3 sm:p-4 ${className}`}
     >
       <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] sm:mr-2">
-          Acciones del aula
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] sm:mr-2">{t("aulaActionsBar.accionesDelAula")}</p>
         <Link
           to={`/profesor/asistencia?aulaId=${encodeURIComponent(classroomId)}`}
           data-testid="aula-action-asistencia"
           className={linkCls}
         >
-          <span aria-hidden="true">📋</span>
-          Tomar asistencia
-        </Link>
+          <span aria-hidden="true">📋</span>{t("aulaActionsBar.tomarAsistencia")}</Link>
         <button
           type="button"
           onClick={onPublicarClick}
           data-testid="aula-action-publicar"
           className={linkCls}
         >
-          <span aria-hidden="true">📢</span>
-          Publicar anuncio
-        </button>
+          <span aria-hidden="true">📢</span>{t("aulaActionsBar.publicarAnuncio")}</button>
         <button
           type="button"
           onClick={onAsignarModulosClick}
           data-testid="aula-action-asignar-modulo"
           className={linkCls}
         >
-          <span aria-hidden="true">📚</span>
-          Asignar módulo
-        </button>
+          <span aria-hidden="true">📚</span>{t("aulaActionsBar.asignarModulo")}</button>
         <Link
           to={`/profesor/estadisticas?aulaId=${encodeURIComponent(classroomId)}`}
           data-testid="aula-action-estadisticas"
           className={linkCls}
         >
-          <span aria-hidden="true">📊</span>
-          Estadísticas
-        </Link>
+          <span aria-hidden="true">📊</span>{t("profesorEstadisticas.estadisticas")}</Link>
         <Link
           to={`/profesor/encuestas?aulaId=${encodeURIComponent(classroomId)}`}
           data-testid="aula-action-encuestas"
           className={linkCls}
         >
-          <span aria-hidden="true">🗳️</span>
-          Encuestas
-        </Link>
+          <span aria-hidden="true">🗳️</span>{t("dropdown.encuestas")}</Link>
       </div>
     </div>
   );

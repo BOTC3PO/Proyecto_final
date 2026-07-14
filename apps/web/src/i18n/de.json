@@ -1296,7 +1296,6 @@
 
   "quizAttempt.array": "| Array",
   "quizAttempt.cargandoIntento": "Lade Versuch...",
-  "quizAttempt.voidAnswerslocalRecord": "void, answersLocal: Record",
   "quizAttempt.herramientaInteractiva": "Interaktives Werkzeug",
   "quizAttempt.preguntaInformativaNoAfectaTu": "Informationsfrage: hat keinen Einfluss auf Ihre Note.",
   "quizAttempt.noSePudoCargarEl": "Der Versuch konnte nicht geladen werden.",

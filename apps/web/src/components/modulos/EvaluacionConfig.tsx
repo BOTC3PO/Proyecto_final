@@ -44,6 +44,7 @@ import {
   type QuizTipo
 } from "../../domain/quiz/intentos";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface Props {
   /** El tipo actual del cuestionario. Determina qué secciones se renderizan. */
   tipo: QuizTipo;
@@ -140,6 +141,7 @@ export default function EvaluacionConfig({
   onChangePoliticaExpiracion,
   variant = "panel"
 }: Props) {
+  const { t } = useI18n();
   const fieldsetClass =
     variant === "compact"
       ? "rounded-md border border-[var(--c-border)] p-3 space-y-3"
@@ -183,9 +185,7 @@ export default function EvaluacionConfig({
   const muestraFullscreen = isFormal;
 
   const legendNode = (
-    <legend className={headingClass}>
-      Configuración de evaluación
-      <span className="ml-2 text-xs font-normal text-[var(--c-hint)]">
+    <legend className={headingClass}>{t("evaluacionConfig.configuracionDeEvaluacion")}<span className="ml-2 text-xs font-normal text-[var(--c-hint)]">
         ({tipo})
       </span>
     </legend>
@@ -211,9 +211,7 @@ export default function EvaluacionConfig({
         disabled={!onChangeOcultarPuntos}
         onChange={(e) => onChangeOcultarPuntos?.(e.target.checked)}
       />
-      <label htmlFor={ocultarPuntosId} className="text-sm">
-        Ocultar el puntaje crudo al alumno (sólo se muestra la nota)
-      </label>
+      <label htmlFor={ocultarPuntosId} className="text-sm">{t("evaluacionConfig.ocultarElPuntajeCrudoAl")}</label>
     </div>
   );
 
@@ -223,9 +221,7 @@ export default function EvaluacionConfig({
     <>
       {muestraTimer && (
         <div className="flex flex-wrap items-end gap-3" data-testid="config-timer">
-          <label htmlFor={timerId} className="text-sm">
-            Timer
-          </label>
+          <label htmlFor={timerId} className="text-sm">{t("evaluacionConfig.timer")}</label>
           <label className="flex items-center gap-1 text-xs">
             <input
               type="checkbox"
@@ -234,7 +230,7 @@ export default function EvaluacionConfig({
               disabled={!onChangeTimerSegundos}
               onChange={(e) => onChangeTimerSegundos?.(e.target.checked ? null : 60 * 10)}
             />
-            <span>Sin timer</span>
+            <span>{t("evaluacionConfig.sinTimer")}</span>
           </label>
           <div className="flex items-center gap-1">
             <input
@@ -261,9 +257,7 @@ export default function EvaluacionConfig({
             </span>
           </div>
           {timerIlimitado && (
-            <p className="text-xs text-[var(--c-hint)]" data-testid="config-timer-help">
-              El alumno no verá cronómetro.
-            </p>
+            <p className="text-xs text-[var(--c-hint)]" data-testid="config-timer-help">{t("evaluacionConfig.elAlumnoNoVeraCronometro")}</p>
           )}
         </div>
       )}
@@ -271,9 +265,7 @@ export default function EvaluacionConfig({
       {/* PLAN-D §1 — sólo tiene efecto si hay timer activo. */}
       {muestraTimer && !timerIlimitado && (
         <div className="flex items-end gap-3" data-testid="config-politica-expiracion">
-          <label htmlFor={politicaExpiracionId} className="text-sm">
-            Al vencer el tiempo
-          </label>
+          <label htmlFor={politicaExpiracionId} className="text-sm">{t("evaluacionConfig.alVencerElTiempo")}</label>
           <select
             id={politicaExpiracionId}
             data-testid="config-politica-expiracion-select"
@@ -296,9 +288,7 @@ export default function EvaluacionConfig({
 
       {muestraIntentos && (
         <div className="flex flex-wrap items-end gap-3" data-testid="config-intentos">
-          <label htmlFor={maxIntentosId} className="text-sm">
-            Intentos permitidos
-          </label>
+          <label htmlFor={maxIntentosId} className="text-sm">{t("evaluacionConfig.intentosPermitidos")}</label>
           <label className="flex items-center gap-1 text-xs">
             <input
               type="checkbox"
@@ -307,7 +297,7 @@ export default function EvaluacionConfig({
               disabled={!onChangeMaxIntentos}
               onChange={(e) => onChangeMaxIntentos?.(e.target.checked ? null : 3)}
             />
-            <span>Ilimitados</span>
+            <span>{t("evaluacionConfig.ilimitados")}</span>
           </label>
           <div className="flex items-center gap-1">
             <input
@@ -335,9 +325,7 @@ export default function EvaluacionConfig({
 
       {muestraPolitica && (
         <div className="flex items-end gap-3" data-testid="config-politica">
-          <label htmlFor={politicaId} className="text-sm">
-            Política de nota
-          </label>
+          <label htmlFor={politicaId} className="text-sm">{t("evaluacionConfig.politicaDeNota")}</label>
           <select
             id={politicaId}
             data-testid="config-politica-select"
@@ -363,9 +351,7 @@ export default function EvaluacionConfig({
 
       {muestraSorteo && (
         <div className="flex items-end gap-3" data-testid="config-sorteo">
-          <label htmlFor={politicaSorteoId} className="text-sm">
-            Sorteo de variantes
-          </label>
+          <label htmlFor={politicaSorteoId} className="text-sm">{t("evaluacionConfig.sorteoDeVariantes")}</label>
           <select
             id={politicaSorteoId}
             data-testid="config-sorteo-select"
@@ -399,9 +385,7 @@ export default function EvaluacionConfig({
             disabled={!onChangeFullscreenOnStart}
             onChange={(e) => onChangeFullscreenOnStart?.(e.target.checked)}
           />
-          <label htmlFor={fullscreenId} className="text-sm">
-            Activar pantalla completa al iniciar el intento
-          </label>
+          <label htmlFor={fullscreenId} className="text-sm">{t("evaluacionConfig.activarPantallaCompletaAlIniciar")}</label>
         </div>
       )}
     </>
@@ -435,9 +419,7 @@ export default function EvaluacionConfig({
           }}
         >
           <div data-testid="config-modo-presentacion">
-            <label htmlFor={modoPresentacionId} className={cardEyebrow}>
-              Modo de presentación
-            </label>
+            <label htmlFor={modoPresentacionId} className={cardEyebrow}>{t("evaluacionConfig.modoDePresentacion")}</label>
             <select
               id={modoPresentacionId}
               data-testid="config-modo-presentacion-select"
@@ -460,9 +442,7 @@ export default function EvaluacionConfig({
                 className="flex flex-wrap items-end gap-2 pt-1.5"
                 data-testid="config-preguntas-por-pagina"
               >
-                <label htmlFor={preguntasPorPaginaId} className="text-xs">
-                  Preguntas por página
-                </label>
+                <label htmlFor={preguntasPorPaginaId} className="text-xs">{t("evaluacionConfig.preguntasPorPagina")}</label>
                 <input
                   id={preguntasPorPaginaId}
                   type="number"
@@ -490,9 +470,7 @@ export default function EvaluacionConfig({
           </div>
 
           <div data-testid="config-dificultad">
-            <label htmlFor={politicaDificultadId} className={cardEyebrow}>
-              Ruteo por dificultad
-            </label>
+            <label htmlFor={politicaDificultadId} className={cardEyebrow}>{t("evaluacionConfig.ruteoPorDificultad")}</label>
             <select
               id={politicaDificultadId}
               data-testid="config-politica-dificultad-select"
@@ -515,9 +493,7 @@ export default function EvaluacionConfig({
                 className="flex flex-wrap items-end gap-2 pt-1.5"
                 data-testid="config-dificultad-ventana"
               >
-                <label htmlFor={dificultadVentanaId} className="text-xs">
-                  Ventana (respuestas para subir/bajar 1 nivel)
-                </label>
+                <label htmlFor={dificultadVentanaId} className="text-xs">{t("evaluacionConfig.ventanaRespuestasParaSubirBajar")}</label>
                 <input
                   id={dificultadVentanaId}
                   type="number"
@@ -543,9 +519,7 @@ export default function EvaluacionConfig({
         </div>
 
         <div>
-          <label htmlFor={dificultadInicialId} className={cardEyebrow}>
-            Dificultad inicial
-          </label>
+          <label htmlFor={dificultadInicialId} className={cardEyebrow}>{t("evaluacionConfig.dificultadInicial")}</label>
           <select
             id={dificultadInicialId}
             data-testid="config-dificultad-inicial-select"
@@ -558,9 +532,9 @@ export default function EvaluacionConfig({
             }
             className={`${cardSelect} max-w-[220px]`}
           >
-            <option value="basico">Básico</option>
-            <option value="intermedio">Intermedio</option>
-            <option value="avanzado">Avanzado</option>
+            <option value="basico">{t("comun.basico")}</option>
+            <option value="intermedio">{t("comun.intermedio")}</option>
+            <option value="avanzado">{t("comun.avanzado")}</option>
           </select>
         </div>
       </div>
@@ -586,9 +560,7 @@ export default function EvaluacionConfig({
           es del docente, no del tipo. El default es `lista` (preserva el
           comportamiento previo a WO-9). */}
       <div className="space-y-1.5" data-testid="config-modo-presentacion">
-        <label htmlFor={modoPresentacionId} className="text-sm">
-          Modo de presentación
-        </label>
+        <label htmlFor={modoPresentacionId} className="text-sm">{t("evaluacionConfig.modoDePresentacion")}</label>
         <select
           id={modoPresentacionId}
           data-testid="config-modo-presentacion-select"
@@ -611,9 +583,7 @@ export default function EvaluacionConfig({
             className="flex flex-wrap items-end gap-2 pl-1 pt-1"
             data-testid="config-preguntas-por-pagina"
           >
-            <label htmlFor={preguntasPorPaginaId} className="text-xs">
-              Preguntas por página
-            </label>
+            <label htmlFor={preguntasPorPaginaId} className="text-xs">{t("evaluacionConfig.preguntasPorPagina")}</label>
             <input
               id={preguntasPorPaginaId}
               type="number"
@@ -646,9 +616,7 @@ export default function EvaluacionConfig({
           preserva el comportamiento previo a WO-14 (la dificultad se
           ignoraba). */}
       <div className="space-y-1.5" data-testid="config-dificultad">
-        <label htmlFor={politicaDificultadId} className="text-sm">
-          Ruteo por dificultad
-        </label>
+        <label htmlFor={politicaDificultadId} className="text-sm">{t("evaluacionConfig.ruteoPorDificultad")}</label>
         <select
           id={politicaDificultadId}
           data-testid="config-politica-dificultad-select"
@@ -668,9 +636,7 @@ export default function EvaluacionConfig({
         </p>
 
         <div className="flex flex-wrap items-end gap-3 pl-1 pt-1">
-          <label htmlFor={dificultadInicialId} className="text-xs">
-            Dificultad inicial
-          </label>
+          <label htmlFor={dificultadInicialId} className="text-xs">{t("evaluacionConfig.dificultadInicial")}</label>
           <select
             id={dificultadInicialId}
             data-testid="config-dificultad-inicial-select"
@@ -683,9 +649,9 @@ export default function EvaluacionConfig({
             }
             className="rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-1 text-sm"
           >
-            <option value="basico">Básico</option>
-            <option value="intermedio">Intermedio</option>
-            <option value="avanzado">Avanzado</option>
+            <option value="basico">{t("comun.basico")}</option>
+            <option value="intermedio">{t("comun.intermedio")}</option>
+            <option value="avanzado">{t("comun.avanzado")}</option>
           </select>
         </div>
 
@@ -694,9 +660,7 @@ export default function EvaluacionConfig({
             className="flex flex-wrap items-end gap-2 pl-1 pt-1"
             data-testid="config-dificultad-ventana"
           >
-            <label htmlFor={dificultadVentanaId} className="text-xs">
-              Ventana (respuestas para subir/bajar 1 nivel)
-            </label>
+            <label htmlFor={dificultadVentanaId} className="text-xs">{t("evaluacionConfig.ventanaRespuestasParaSubirBajar")}</label>
             <input
               id={dificultadVentanaId}
               type="number"

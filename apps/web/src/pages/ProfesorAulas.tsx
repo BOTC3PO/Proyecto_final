@@ -6,6 +6,7 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { useAuth } from "../auth/use-auth";
 import { useCanActAsLearner, useHasRole, useIsTeacher } from "../auth/use-roles";
+import { useI18n } from "../i18n/I18nContext";
 import {
   createClassroom,
   fetchClassrooms,
@@ -27,6 +28,7 @@ const emptyForm = {
 };
 
 export default function ProfesorAulas() {
+  const { t } = useI18n();
   const { user } = useAuth();
   // MULTIROL-02: leer cada rol por helper centralizado. Un USER
   // también cuenta como teacher-of-classroom si su rol principal es
@@ -334,13 +336,11 @@ export default function ProfesorAulas() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-xl font-semibold text-[var(--c-text)]">Aulas virtuales</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-0.5">Acceso y administración de aulas para tus cursos.</p>
+            <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorAulas.aulasVirtuales")}</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorAulas.accesoYAdministracionDeAulas")}</p>
           </div>
           {!isTeacher && (
-            <span className="rounded-md bg-[var(--c-border)] px-4 py-2 text-sm text-[var(--c-muted)]">
-              Solo docentes pueden crear aulas
-            </span>
+            <span className="rounded-md bg-[var(--c-border)] px-4 py-2 text-sm text-[var(--c-muted)]">{t("profesorAulas.soloDocentesPuedenCrearAulas")}</span>
           )}
         </div>
 
@@ -353,7 +353,7 @@ export default function ProfesorAulas() {
             </div>
             <form className="p-4 grid gap-3 md:grid-cols-2" onSubmit={handleSubmit}>
               <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-[var(--c-text)]">Nombre del aula</label>
+                <label className="block text-sm font-medium text-[var(--c-text)]">{t("profesorAulaConfiguracion.nombreDelAula")}</label>
                 <input
                   value={form.name}
                   onChange={(event) => handleFieldChange("name", event.target.value)}
@@ -362,19 +362,19 @@ export default function ProfesorAulas() {
                 />
               </div>
               <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-[var(--c-text)]">Estado</label>
+                <label className="block text-sm font-medium text-[var(--c-text)]">{t("comun.estado")}</label>
                 <select
                   value={form.status}
                   onChange={(event) => handleFieldChange("status", event.target.value)}
                   className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 focus:outline-none focus:border-[var(--c-primary)]"
                 >
-                  <option value="ACTIVE">Activa</option>
-                  <option value="ARCHIVED">Archivada</option>
-                  <option value="LOCKED">Bloqueada</option>
+                  <option value="ACTIVE">{t("profesorAulaConfiguracion.activa")}</option>
+                  <option value="ARCHIVED">{t("profesorAulaConfiguracion.archivada")}</option>
+                  <option value="LOCKED">{t("profesorAulaConfiguracion.bloqueada")}</option>
                 </select>
               </div>
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-[var(--c-text)]">Descripción</label>
+                <label className="block text-sm font-medium text-[var(--c-text)]">{t("comun.descripcion")}</label>
                 <textarea
                   value={form.description}
                   onChange={(event) => handleFieldChange("description", event.target.value)}
@@ -384,25 +384,23 @@ export default function ProfesorAulas() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[var(--c-text)]">Tipo de acceso</label>
+                <label className="block text-sm font-medium text-[var(--c-text)]">{t("enterpriseDashboard.tipoDeAcceso")}</label>
                 <select
                   value={form.accessType}
                   onChange={(event) => handleFieldChange("accessType", event.target.value)}
                   className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 focus:outline-none focus:border-[var(--c-primary)]"
                 >
-                  <option value="publica">Pública</option>
-                  <option value="privada">Privada</option>
+                  <option value="publica">{t("comun.publica")}</option>
+                  <option value="privada">{t("comun.privada")}</option>
                 </select>
               </div>
               <div>
-                <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-                  Escuela
-                  <select
+                <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">{t("sidebar.escuela")}<select
                     value={form.institutionId}
                     onChange={(e) => setForm((f) => ({ ...f, institutionId: e.target.value }))}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   >
-                    <option value="">Sin escuela (aula personal)</option>
+                    <option value="">{t("profesorAulas.sinEscuelaAulaPersonal")}</option>
                     {escuelas.map((e) => (
                       <option key={e.id} value={e.id}>{e.name}</option>
                     ))}
@@ -410,14 +408,12 @@ export default function ProfesorAulas() {
                 </label>
               </div>
               <div>
-                <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-                  Materia
-                  <select
+                <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">{t("comun.materia")}<select
                     value={form.category ?? ""}
                     onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   >
-                    <option value="">General</option>
+                    <option value="">{t("profesorAulas.general")}</option>
                     {materias.map((m) => (
                       <option key={m} value={m}>{m}</option>
                     ))}
@@ -433,18 +429,14 @@ export default function ProfesorAulas() {
                   {editingId ? "Guardar cambios" : "Crear aula"}
                 </button>
                 {!editingId && !effectiveSchoolId && (
-                  <span className="text-sm text-[var(--c-danger)]">
-                    Tu cuenta no tiene escuela asignada. Pedile a un administrador que te asigne una.
-                  </span>
+                  <span className="text-sm text-[var(--c-danger)]">{t("profesorAulas.tuCuentaNoTieneEscuela")}</span>
                 )}
                 {editingId && (
                   <button
                     type="button"
                     className="rounded-md border border-[var(--c-border)] px-4 py-2 text-[var(--c-text)] hover:bg-[var(--c-bg)]"
                     onClick={resetForm}
-                  >
-                    Cancelar edición
-                  </button>
+                  >{t("profesorAulas.cancelarEdicion")}</button>
                 )}
                 {submitError && <span className="text-sm text-[var(--c-danger)]">{submitError}</span>}
               </div>
@@ -477,9 +469,7 @@ export default function ProfesorAulas() {
                     checked={mostrarArchivadas}
                     onChange={(e) => setMostrarArchivadas(e.target.checked)}
                     className="rounded"
-                  />
-                  Mostrar archivadas
-                </label>
+                  />{t("profesorAulas.mostrarArchivadas")}</label>
               </div>
               <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {aulasFiltradas.map((classroom) => (
@@ -516,7 +506,7 @@ export default function ProfesorAulas() {
                     <span>{new Date(classroom.updatedAt).toLocaleDateString()}</span>
                   </div>
                   <div className="mt-4 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
-                    <h3 className="text-sm font-semibold text-[var(--c-text)]">Progreso de estudiantes</h3>
+                    <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("profesorAulas.progresoDeEstudiantes")}</h3>
                     {progressError && (
                       <p className="mt-1 text-xs text-[var(--c-danger)]">Error al cargar progreso: {progressError}</p>
                     )}
@@ -526,21 +516,21 @@ export default function ProfesorAulas() {
                     <div className="mt-3 grid grid-cols-2 gap-3 text-[11px] text-[var(--c-muted)]">
                       <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">{progressByClassroom[classroom.id]?.totalStudents ?? 0}</p>
-                        <p>Estudiantes registrados</p>
+                        <p>{t("profesorAulas.estudiantesRegistrados")}</p>
                       </div>
                       <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">{progressByClassroom[classroom.id]?.activeStudents ?? 0}</p>
-                        <p>Activos esta semana</p>
+                        <p>{t("profesorAulas.activosEstaSemana")}</p>
                       </div>
                       <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">
                           {formatPercent(progressByClassroom[classroom.id]?.avgCompletion ?? 0)}
                         </p>
-                        <p>Progreso promedio</p>
+                        <p>{t("profesorAulas.progresoPromedio")}</p>
                       </div>
                       <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">{progressByClassroom[classroom.id]?.avgScore ?? 0}</p>
-                        <p>Score promedio</p>
+                        <p>{t("profesorAulas.scorePromedio")}</p>
                       </div>
                     </div>
                     <ul className="mt-3 space-y-2">
@@ -568,19 +558,19 @@ export default function ProfesorAulas() {
                     </ul>
                   </div>
                   <div className="mt-4 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-4 text-xs text-[var(--c-muted)]">
-                    <h3 className="text-sm font-semibold text-[var(--c-text)]">Reportes grupales e individuales</h3>
-                    <p className="mt-1 text-[var(--c-muted)]">Configura el formato y descarga reportes según tu necesidad.</p>
+                    <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("profesorAulas.reportesGrupalesEIndividuales")}</h3>
+                    <p className="mt-1 text-[var(--c-muted)]">{t("profesorAulas.configuraElFormatoYDescarga")}</p>
                     <div className="mt-3 flex flex-wrap items-center gap-2">
-                      <label className="text-[11px] text-[var(--c-muted)]">Formato</label>
+                      <label className="text-[11px] text-[var(--c-muted)]">{t("profesorAulas.formato")}</label>
                       <select
                         value={reportSelections[classroom.id]?.format ?? "pdf"}
                         onChange={(event) => updateReportSelection(classroom.id, { format: event.target.value as "pdf" | "xlsx" })}
                         className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-[11px] focus:outline-none focus:border-[var(--c-primary)]"
                       >
                         <option value="pdf">PDF</option>
-                        <option value="xlsx">Excel</option>
+                        <option value="xlsx">{t("profesorAulas.excel")}</option>
                       </select>
-                      <label className="ml-2 text-[11px] text-[var(--c-muted)]">Estudiante</label>
+                      <label className="ml-2 text-[11px] text-[var(--c-muted)]">{t("profesorAulas.estudiante")}</label>
                       <select
                         value={reportSelections[classroom.id]?.studentId ?? ""}
                         onChange={(event) => updateReportSelection(classroom.id, { studentId: event.target.value })}
@@ -598,16 +588,12 @@ export default function ProfesorAulas() {
                         type="button"
                         className="rounded-md border border-[var(--c-border)] px-3 py-1 text-[11px] font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)]"
                         onClick={() => handleReportDownload(classroom, "grupal")}
-                      >
-                        Descargar grupal
-                      </button>
+                      >{t("profesorAulas.descargarGrupal")}</button>
                       <button
                         type="button"
                         className="rounded-md border border-emerald-200 px-3 py-1 text-[11px] font-semibold text-emerald-700 hover:bg-emerald-50"
                         onClick={() => handleReportDownload(classroom, "individual")}
-                      >
-                        Descargar individual
-                      </button>
+                      >{t("profesorAulas.descargarIndividual")}</button>
                     </div>
                   </div>
         {isTeacher && (

@@ -10,8 +10,10 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 import type { LineaTiempoConfig } from "../../components/modulos/standalone/types";
 import { apiGet } from "../../lib/api";
+import { useI18n } from "../../i18n/I18nContext";
 
 export default function LineaTiempoEditorPage() {
+  const { t } = useI18n();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const materialId = searchParams.get("materialId");
@@ -34,31 +36,25 @@ export default function LineaTiempoEditorPage() {
 
   if (loading) {
     return (
-      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">
-        Cargando material…
-      </div>
+      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">{t("lineaTiempoEditorPage.cargandoMaterial")}</div>
     );
   }
 
   if (!materialId || !config) {
     return (
-      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">
-        No se encontró la línea de tiempo.
-      </div>
+      <div className="p-8 text-center text-sm text-[var(--c-muted)]" role="status">{t("lineaTiempoEditorPage.noSeEncontroLaLinea")}</div>
     );
   }
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4">
       <div className="flex items-center justify-between gap-4">
-        <h1 className="text-xl font-semibold text-[var(--c-text)]">Editor de línea de tiempo</h1>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("lineaTiempoEditorPage.editorDeLineaDeTiempo")}</h1>
         <button
           type="button"
           onClick={() => navigate("/profesor/materiales")}
           className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-        >
-          Volver a materiales
-        </button>
+        >{t("lineaTiempoEditorPage.volverAMateriales")}</button>
       </div>
       <LineaTiempo config={config} onChange={setConfig} materialId={materialId} />
     </div>

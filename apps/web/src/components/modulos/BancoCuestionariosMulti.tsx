@@ -3,6 +3,7 @@ import { apiGet } from "../../lib/api";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 import { MATERIA_FALLBACK } from "../../domain/module/materia";
 
+import { useI18n } from "../../i18n/I18nContext";
 type BancoItem = {
   quizId: string;
   title: string;
@@ -55,6 +56,7 @@ export default function BancoCuestionariosMulti({
   origen,
   onConfirm,
 }: BancoCuestionariosMultiProps) {
+  const { t } = useI18n();
   const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
   const [materiaFilter, setMateriaFilter] = useState("");
@@ -146,7 +148,7 @@ export default function BancoCuestionariosMulti({
       <div className="flex flex-wrap gap-2">
         <input
           className="flex-1 min-w-0 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-xs focus:outline-none focus:border-[var(--c-primary)]"
-          placeholder="Buscar..."
+          placeholder={t("bancoCuestionariosMulti.buscar")}
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
@@ -156,7 +158,7 @@ export default function BancoCuestionariosMulti({
             onChange={(e) => setMateriaFilter(e.target.value)}
             className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-xs"
           >
-            <option value="">Materia</option>
+            <option value="">{t("comun.materia")}</option>
             {allMaterias.map((m) => <option key={m} value={m}>{m}</option>)}
             {/* WO-BUG — los cuestionarios sin materia ahora son
                 visibles y seleccionables. Antes desaparecían en
@@ -172,19 +174,19 @@ export default function BancoCuestionariosMulti({
             onChange={(e) => setTipoFilter(e.target.value)}
             className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-xs"
           >
-            <option value="">Tipo</option>
+            <option value="">{t("comun.tipo")}</option>
             {allTipos.map((t) => <option key={t} value={t}>{t}</option>)}
           </select>
         )}
       </div>
 
-      {status === "loading" && <p className="text-xs text-[var(--c-muted)]">Cargando...</p>}
-      {status === "error" && <p className="text-xs text-red-500">Error al cargar el banco.</p>}
+      {status === "loading" && <p className="text-xs text-[var(--c-muted)]">{t("comun.cargando2")}</p>}
+      {status === "error" && <p className="text-xs text-red-500">{t("bancoCuestionariosMulti.errorAlCargarElBanco")}</p>}
       {status === "idle" && total > 0 && (
         <p className="text-xs text-[var(--c-muted)]">{total} disponible{total !== 1 ? "s" : ""}</p>
       )}
       {status === "idle" && filtered.length === 0 && total === 0 && (
-        <p className="text-xs text-[var(--c-muted)]">No hay cuestionarios aquí.</p>
+        <p className="text-xs text-[var(--c-muted)]">{t("bancoCuestionariosMulti.noHayCuestionariosAqui")}</p>
       )}
 
       {/* Cards */}
@@ -222,7 +224,7 @@ export default function BancoCuestionariosMulti({
                   </span>
                   <span className="text-[9px] text-[var(--c-muted)]">{item.questionCount} preg.</span>
                   {item.generatorId && (
-                    <span className="text-[9px] bg-blue-100 text-blue-700 rounded px-1.5 py-0.5">Auto</span>
+                    <span className="text-[9px] bg-blue-100 text-blue-700 rounded px-1.5 py-0.5">{t("bancoCuestionariosMulti.auto")}</span>
                   )}
                 </div>
                 {item.previewQuestions.slice(0, 2).map((pq, pi) => (
@@ -268,7 +270,7 @@ export default function BancoCuestionariosMulti({
                   onChange={(e) => setNPerQuiz(Math.max(1, parseInt(e.target.value) || 1))}
                   className="w-12 rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-1.5 py-0.5 text-xs text-center"
                 />
-                <span className="text-[10px] text-[var(--c-muted)]">por cuestionario</span>
+                <span className="text-[10px] text-[var(--c-muted)]">{t("bancoCuestionariosMulti.porCuestionario")}</span>
               </div>
             )}
           </div>
@@ -276,9 +278,7 @@ export default function BancoCuestionariosMulti({
             type="button"
             onClick={handleConfirm}
             className="w-full rounded-lg bg-[var(--c-primary)] py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity"
-          >
-            Importar al cuestionario
-          </button>
+          >{t("bancoCuestionariosMulti.importarAlCuestionario")}</button>
         </div>
       )}
     </div>

@@ -52,6 +52,7 @@ import { escalaPorZoom } from "../../lib/maps/escala-por-zoom";
 import { buscarLugares, type GeonameResultado } from "../../lib/maps/geonamesApi";
 import { listPaisesConProvincias, fetchProvinciasTopo, type ProvinciaCatalogoItem } from "../../lib/maps/provinciasApi";
 import styles from "./MapaEditorFull.module.css";
+import { useI18n } from "../../i18n/I18nContext";
 
 const MAP_WIDTH = 1000;
 const MAP_HEIGHT = 620;
@@ -168,6 +169,7 @@ export interface MapaEditorFullProps {
 }
 
 export default function MapaEditorFull({ initialConfig, onSave, onCancel, materialId, demoMode = false, onRequestRegister, draftRecovery }: MapaEditorFullProps) {
+  const { t } = useI18n();
   // ─── Config inicial (migrada) ───────────────────────────────────
   const [config, setConfig] = useState<MapaConfig>(() => migrateMapaConfig(initialConfig));
   const [demoBannerDismissed, setDemoBannerDismissed] = useState(false);
@@ -992,7 +994,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
   // ─── Render ─────────────────────────────────────────────────────
   return (
     <div className={styles.mapview}>
-      <a href="#mapa-canvas" className="skip-link">Saltar al lienzo</a>
+      <a href="#mapa-canvas" className="skip-link">{t("mapaEditorFull.saltarAlLienzo")}</a>
 
       {/* Región de anuncios para lectores de pantalla. */}
       <div role="status" aria-live="polite" className="sr-only">{announce}</div>
@@ -1008,11 +1010,11 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
             color: "var(--c-text)",
           }}
         >
-          <span>Estás probando el editor — tu trabajo no se guarda.</span>
+          <span>{t("mapaEditorFull.estasProbandoElEditorTu")}</span>
           <button
             type="button"
             onClick={() => setDemoBannerDismissed(true)}
-            aria-label="Descartar aviso"
+            aria-label={t("mapaEditorFull.descartarAviso")}
             style={{ background: "none", border: "none", cursor: "pointer", color: "var(--c-muted)", fontSize: "1rem", lineHeight: 1, padding: 0 }}
           >
             ✕
@@ -1031,11 +1033,11 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
             color: "var(--c-text)",
           }}
         >
-          <span>Recuperamos tu mapa. Guardalo para no perderlo.</span>
+          <span>{t("mapaEditorFull.recuperamosTuMapaGuardaloPara")}</span>
           <button
             type="button"
             onClick={() => setDraftBannerDismissed(true)}
-            aria-label="Descartar aviso de recuperación"
+            aria-label={t("mapaEditorFull.descartarAvisoDeRecuperacion")}
             style={{ background: "none", border: "none", cursor: "pointer", color: "var(--c-muted)", fontSize: "1rem", lineHeight: 1, padding: 0 }}
           >
             ✕
@@ -1049,28 +1051,25 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
           type="button"
           className={`${styles.btn} ${styles.btnGhost}`}
           onClick={handleCancel}
-          aria-label="Volver sin guardar"
+          aria-label={t("mapaEditorFull.volverSinGuardar")}
         >
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12l6-6M5 12l6 6"/>
-          </svg>
-          Volver
-        </button>
+          </svg>{t("comun.volver")}</button>
         <span style={{ width: 1, height: 24, background: "var(--c-border)" }} aria-hidden="true" />
         <div>
-          <nav className="text-xs text-[var(--c-muted)] flex items-center gap-1.5" aria-label="Migas de pan">
-            Mapa: <span className="text-[var(--c-text)] font-semibold">{config.titulo || "Sin título"}</span>
+          <nav className="text-xs text-[var(--c-muted)] flex items-center gap-1.5" aria-label={t("plantillaEditor.migasDePan")}>{t("mapaEditorFull.mapa")}<span className="text-[var(--c-text)] font-semibold">{config.titulo || "Sin título"}</span>
           </nav>
-          <h1 className="text-base font-bold tracking-tight m-0">Editor de mapa</h1>
+          <h1 className="text-base font-bold tracking-tight m-0">{t("moduloEditor.editorDeMapa")}</h1>
         </div>
         <div className={styles.mapbarEnd}>
-          <button type="button" className={styles.iconBtn} onClick={undo} disabled={historyIdx === 0} aria-label="Deshacer" title="Deshacer (Ctrl+Z)">
+          <button type="button" className={styles.iconBtn} onClick={undo} disabled={historyIdx === 0} aria-label={t("plantillaEditor.deshacer")} title={t("mapaEditorFull.deshacerCtrlZ")}>
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M9 14l-4-4 4-4M5 10h8a5 5 0 0 1 5 5v3"/></svg>
           </button>
-          <button type="button" className={styles.iconBtn} onClick={redo} disabled={historyIdx >= history.length - 1} aria-label="Rehacer" title="Rehacer (Ctrl+Shift+Z)">
+          <button type="button" className={styles.iconBtn} onClick={redo} disabled={historyIdx >= history.length - 1} aria-label={t("plantillaEditor.rehacer")} title={t("mapaEditorFull.rehacerCtrlShiftZ")}>
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M15 14l4-4-4-4M19 10h-8a5 5 0 0 0-5 5v3"/></svg>
           </button>
-          <button type="button" className={styles.iconBtn} onClick={exportarImagen} aria-label="Exportar como imagen PNG" title="Exportar imagen">
+          <button type="button" className={styles.iconBtn} onClick={exportarImagen} aria-label={t("mapaEditorFull.exportarComoImagenPng")} title={t("mapaEditorFull.exportarImagen")}>
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg>
           </button>
           {demoMode ? (
@@ -1078,9 +1077,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
               type="button"
               className={`${styles.btn} ${styles.btnPrimary}`}
               onClick={() => onRequestRegister?.(config)}
-            >
-              Registrate para guardar tu mapa
-            </button>
+            >{t("mapaEditorFull.registrateParaGuardarTuMapa")}</button>
           ) : (
             <>
               <GuardarComoMaterial
@@ -1095,10 +1092,8 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                 type="button"
                 className={`${styles.btn} ${styles.btnPrimary}`}
                 onClick={handleSave}
-                title="Guarda un borrador en este navegador (no reemplaza «Guardar como material»)"
-              >
-                Guardar
-              </button>
+                title={t("mapaEditorFull.guardaUnBorradorEnEste")}
+              >{t("mapaEditorFull.guardar")}</button>
             </>
           )}
         </div>
@@ -1107,10 +1102,10 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
       {/* GRID 3 COL */}
       <div className={styles.mapgrid}>
         {/* COL IZQ: herramientas + capas */}
-        <aside className={styles.panel} aria-label="Herramientas y capas">
+        <aside className={styles.panel} aria-label={t("mapaEditorFull.herramientasYCapas")}>
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Herramientas</h2>
-            <div className={`${styles.sectionBody} vb-tool-list`} role="toolbar" aria-label="Herramientas del mapa">
+            <h2 className={styles.sectionTitle}>{t("moduloEditor.herramientas")}</h2>
+            <div className={`${styles.sectionBody} vb-tool-list`} role="toolbar" aria-label={t("mapaEditorFull.herramientasDelMapa")}>
               {TOOLS.map((t) => (
                 <button
                   key={t.id}
@@ -1132,66 +1127,64 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
           </div>
 
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Mapa base</h2>
+            <h2 className={styles.sectionTitle}>{t("mapaEditorFull.mapaBase")}</h2>
             <div className={styles.sectionBody}>
               <div className={styles.field}>
-                <label className={styles.fieldLabel} htmlFor="map-titulo">Título</label>
+                <label className={styles.fieldLabel} htmlFor="map-titulo">{t("comun.titulo")}</label>
                 <input
                   id="map-titulo"
                   className={styles.fieldInput}
                   value={config.titulo ?? ""}
-                  placeholder="Sin título"
+                  placeholder={t("mapaEditorFull.sinTitulo")}
                   onChange={(e) => updateConfig({ ...config, titulo: e.target.value })}
                 />
               </div>
               <div className={styles.field}>
-                <label className={styles.fieldLabel} htmlFor="map-modo">Modo</label>
+                <label className={styles.fieldLabel} htmlFor="map-modo">{t("common.modo")}</label>
                 <select
                   id="map-modo"
                   className={styles.fieldSelect}
                   value={config.modo}
                   onChange={(e) => updateConfig({ ...config, modo: e.target.value as MapaConfig["modo"] })}
                 >
-                  <option value="political">Político</option>
-                  <option value="physical">Físico</option>
+                  <option value="political">{t("mapaEditorFull.politico")}</option>
+                  <option value="physical">{t("mapaEditorFull.fisico")}</option>
                 </select>
               </div>
               <div className={styles.field}>
-                <label className={styles.fieldLabel} htmlFor="map-escala">Escala</label>
+                <label className={styles.fieldLabel} htmlFor="map-escala">{t("mapaEditorFull.escala")}</label>
                 <select
                   id="map-escala"
                   className={styles.fieldSelect}
                   value={config.escala}
                   onChange={(e) => updateConfig({ ...config, escala: e.target.value as MapaConfig["escala"] })}
                 >
-                  <option value="110m">110m (ligero)</option>
-                  <option value="50m">50m (detallado)</option>
+                  <option value="110m">{t("mapaEditorFull.110mLigero")}</option>
+                  <option value="50m">{t("mapaEditorFull.50mDetallado")}</option>
                 </select>
               </div>
             </div>
           </div>
 
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Buscar lugar</h2>
+            <h2 className={styles.sectionTitle}>{t("mapaEditorFull.buscarLugar")}</h2>
             <div className={styles.sectionBody}>
               <div className={styles.field} style={{ position: "relative" }}>
-                <label className={styles.fieldLabel} htmlFor="map-buscar-lugar">
-                  País o ciudad
-                </label>
+                <label className={styles.fieldLabel} htmlFor="map-buscar-lugar">{t("mapaEditorFull.paisOCiudad")}</label>
                 <input
                   id="map-buscar-lugar"
                   className={styles.fieldInput}
                   value={lugarQuery}
-                  placeholder="Ej: Mogadiscio, Alemania…"
+                  placeholder={t("mapaEditorFull.ejMogadiscioAlemania")}
                   onChange={(e) => setLugarQuery(e.target.value)}
                   autoComplete="off"
                   data-testid="buscar-lugar-input"
                 />
                 {lugarLoading && (
-                  <p className="mt-1 text-[11px] text-[var(--c-muted)]">Buscando…</p>
+                  <p className="mt-1 text-[11px] text-[var(--c-muted)]">{t("mapaEditorFull.buscando")}</p>
                 )}
                 {!lugarLoading && lugarQuery.trim().length >= 2 && lugarResultados.length === 0 && (
-                  <p className="mt-1 text-[11px] text-[var(--c-muted)]">Sin resultados.</p>
+                  <p className="mt-1 text-[11px] text-[var(--c-muted)]">{t("profesorAulaConfiguracion.sinResultados")}</p>
                 )}
                 {lugarResultados.length > 0 && (
                   <ul
@@ -1219,10 +1212,10 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
           </div>
 
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>División provincial</h2>
+            <h2 className={styles.sectionTitle}>{t("mapaEditorFull.divisionProvincial")}</h2>
             <div className={styles.sectionBody}>
               <div className={styles.field}>
-                <label className={styles.fieldLabel} htmlFor="map-provincias-pais">País</label>
+                <label className={styles.fieldLabel} htmlFor="map-provincias-pais">{t("mapaEditorFull.pais")}</label>
                 <select
                   id="map-provincias-pais"
                   className={styles.fieldSelect}
@@ -1230,7 +1223,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                   onChange={(e) => setProvinciasPais(e.target.value)}
                   disabled={provinciasCatalogo.length === 0}
                 >
-                  <option value="">— Elegir país —</option>
+                  <option value="">{t("mapaEditorFull.elegirPais")}</option>
                   {provinciasCatalogo.map((p) => (
                     <option key={p.pais} value={p.pais}>{p.nombre}</option>
                   ))}
@@ -1253,15 +1246,13 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
           </div>
 
           <div className={`${styles.section} ${styles.sectionFlex}`} style={{ flex: 1 }}>
-            <h2 className={styles.sectionTitle}>
-              Capas
-              <span style={{ display: "inline-flex", gap: 4 }}>
+            <h2 className={styles.sectionTitle}>{t("mapaEditorFull.capas")}<span style={{ display: "inline-flex", gap: 4 }}>
                 <button
                   type="button"
                   className={styles.iconBtn}
                   onClick={() => geoJsonInputRef.current?.click()}
-                  aria-label="Importar capa desde archivo GeoJSON"
-                  title="Importar GeoJSON"
+                  aria-label={t("mapaEditorFull.importarCapaDesdeArchivoGeojson")}
+                  title={t("mapaEditorFull.importarGeojson")}
                   data-testid="importar-geojson-btn"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
@@ -1276,7 +1267,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                   style={{ display: "none" }}
                   data-testid="importar-geojson-input"
                 />
-                <button type="button" className={styles.iconBtn} onClick={addCapa} aria-label="Agregar capa" style={{ width: 28, height: 28 }}>
+                <button type="button" className={styles.iconBtn} onClick={addCapa} aria-label={t("mapaEditorFull.agregarCapa")} style={{ width: 28, height: 28 }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" d="M12 5v14M5 12h14"/>
                   </svg>
@@ -1294,7 +1285,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                   type="button"
                   onClick={() => setGeoJsonError(null)}
                   className="ml-2 underline"
-                  aria-label="Cerrar mensaje de error"
+                  aria-label={t("mapaEditorFull.cerrarMensajeDeError")}
                 >
                   ×
                 </button>
@@ -1311,13 +1302,13 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                   type="button"
                   onClick={() => setGeoJsonWarning(null)}
                   className="ml-2 underline"
-                  aria-label="Cerrar advertencia"
+                  aria-label={t("mapaEditorFull.cerrarAdvertencia")}
                 >
                   ×
                 </button>
               </div>
             )}
-            <ul className={styles.sectionBody} aria-label="Lista de capas" style={{ listStyle: "none", margin: 0 }}>
+            <ul className={styles.sectionBody} aria-label={t("mapaEditorFull.listaDeCapas")} style={{ listStyle: "none", margin: 0 }}>
               {capas.map((capa, index) => {
                 const count = annoCountByCapa.get(capa.id) ?? 0;
                 const isActive = activeCapaId === capa.id;
@@ -1342,7 +1333,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                         onClick={() => moveCapa(index, -1)}
                         disabled={index === 0}
                         aria-label={`Subir capa ${capa.nombre}`}
-                        title="Subir capa"
+                        title={t("mapaEditorFull.subirCapa")}
                       >
                         <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" d="M6 14l6-6 6 6"/></svg>
                       </button>
@@ -1353,7 +1344,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                         onClick={() => moveCapa(index, 1)}
                         disabled={index === capas.length - 1}
                         aria-label={`Bajar capa ${capa.nombre}`}
-                        title="Bajar capa"
+                        title={t("mapaEditorFull.bajarCapa")}
                       >
                         <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" d="M6 10l6 6 6-6"/></svg>
                       </button>
@@ -1381,7 +1372,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                         className={styles.iconBtn}
                         style={{ width: 26, height: 26 }}
                         aria-label={`Eliminar capa ${capa.nombre}`}
-                        title="Eliminar capa"
+                        title={t("mapaEditorFull.eliminarCapa")}
                         disabled={capas.length <= 1}
                         onClick={() => {
                           if (window.confirm(`¿Eliminar la capa "${capa.nombre}"? Las anotaciones asociadas pasan a la primera capa restante.`)) {
@@ -1396,16 +1387,14 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                     </div>
                     {isActive && (
                       <div className={styles.field} style={{ marginTop: 4 }}>
-                        <label className={styles.fieldLabel} htmlFor={`capa-ds-${capa.id}`}>
-                          Dataset de la capa
-                        </label>
+                        <label className={styles.fieldLabel} htmlFor={`capa-ds-${capa.id}`}>{t("mapaEditorFull.datasetDeLaCapa")}</label>
                         <select
                           id={`capa-ds-${capa.id}`}
                           className={styles.fieldSelect}
                           value={capa.datasetId ?? ""}
                           onChange={(e) => setCapaDataset(capa.id, e.target.value || undefined)}
                         >
-                          <option value="">— Sin dataset —</option>
+                          <option value="">{t("mapaEditorFull.sinDataset")}</option>
                           {datasetList.map((d) => (
                             <option key={d.id} value={d.id}>{d.nombre}</option>
                           ))}
@@ -1420,11 +1409,9 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
         </aside>
 
         {/* COL CENTRO: canvas */}
-        <section className={styles.canvas} aria-label="Lienzo del mapa" id="mapa-canvas" tabIndex={-1}>
+        <section className={styles.canvas} aria-label={t("mapaEditorFull.lienzoDelMapa")} id="mapa-canvas" tabIndex={-1}>
           {mapStatus === "loading" ? (
-            <div className="absolute inset-0 grid place-items-center text-[var(--c-muted)] text-sm">
-              Cargando mapa…
-            </div>
+            <div className="absolute inset-0 grid place-items-center text-[var(--c-muted)] text-sm">{t("mapaEditorFull.cargandoMapa")}</div>
           ) : mapStatus === "error" ? (
             <div
               className="absolute inset-0 grid place-items-center p-6"
@@ -1432,17 +1419,13 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
               data-testid="mapa-error"
             >
               <div className="max-w-sm rounded-lg border border-[color-mix(in_srgb,var(--c-danger)_35%,transparent)] bg-[var(--c-surface)] p-4 text-center text-sm space-y-3">
-                <p className="font-semibold text-[var(--c-text)]">No se pudo cargar el mapa base.</p>
-                <p className="text-xs text-[var(--c-muted)]">
-                  Verificá la conexión con el servidor o cambiá el modo/escala.
-                </p>
+                <p className="font-semibold text-[var(--c-text)]">{t("mapaEditorFull.noSePudoCargarEl")}</p>
+                <p className="text-xs text-[var(--c-muted)]">{t("mapaEditorFull.verificaLaConexionConEl")}</p>
                 <button
                   type="button"
                   className={`${styles.btn} ${styles.btnPrimary}`}
                   onClick={handleRetry}
-                >
-                  Reintentar
-                </button>
+                >{t("comun.reintentar")}</button>
               </div>
             </div>
           ) : (
@@ -1451,7 +1434,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
               viewBox={`${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`}
               className={styles.canvasSvg}
               role="application"
-              aria-label="Lienzo del mapa interactivo"
+              aria-label={t("mapaEditorFull.lienzoDelMapaInteractivo")}
               style={{ cursor: svgCursor, touchAction: "none" }}
               onMouseMove={handleMouseMove}
               onClick={handleSvgClick}
@@ -1695,7 +1678,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
           )}
 
           {/* Overlays sobre el canvas */}
-          <div className={styles.canvasOverlay} role="group" aria-label="Modo del mapa">
+          <div className={styles.canvasOverlay} role="group" aria-label={t("mapaEditorFull.modoDelMapa")}>
             <span className={styles.chip}>
               {config.modo === "physical" ? "Físico" : "Político"}
             </span>
@@ -1735,26 +1718,24 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                 className={styles.hintBtn}
                 onClick={fijarMedicionComoAnotacion}
                 aria-label={`Fijar la medición de ${Math.round(medidaKm.km)} kilómetros como anotación`}
-              >
-                Fijar como anotación
-              </button>
+              >{t("mapaEditorFull.fijarComoAnotacion")}</button>
             )}
           </div>
           <div className={styles.canvasOverlayRight}>
-            <div className={styles.canvasZoom} role="group" aria-label="Zoom del mapa">
-              <button type="button" onClick={zoomIn} aria-label="Acercar" title="Acercar">
+            <div className={styles.canvasZoom} role="group" aria-label={t("mapaEditorFull.zoomDelMapa")}>
+              <button type="button" onClick={zoomIn} aria-label={t("mapaEditorFull.acercar")} title={t("mapaEditorFull.acercar")}>
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M12 6v12M6 12h12"/></svg>
               </button>
               <span className={styles.sep} aria-hidden="true" />
-              <button type="button" onClick={zoomOut} aria-label="Alejar" title="Alejar">
+              <button type="button" onClick={zoomOut} aria-label={t("mapaEditorFull.alejar")} title={t("mapaEditorFull.alejar")}>
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M6 12h12"/></svg>
               </button>
               <span className={styles.sep} aria-hidden="true" />
-              <button type="button" onClick={resetZoom} aria-label="Restablecer zoom" title="Restablecer zoom">
+              <button type="button" onClick={resetZoom} aria-label={t("mapaEditorFull.restablecerZoom")} title={t("mapaEditorFull.restablecerZoom")}>
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-7 3.3M3 4v4h4"/></svg>
               </button>
             </div>
-            <div className={styles.canvasReadout} aria-label="Coordenadas del cursor" aria-live="polite">
+            <div className={styles.canvasReadout} aria-label={t("mapaEditorFull.coordenadasDelCursor")} aria-live="polite">
               {cursorCoords
                 ? `lat ${cursorCoords.lat.toFixed(2)}° · lon ${cursorCoords.lon.toFixed(2)}°`
                 : "lat — · lon —"}
@@ -1771,8 +1752,8 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
 
           {/* Leyenda automática (capas visibles con anotaciones) */}
           {capas.some((c) => c.visible && (annoCountByCapa.get(c.id) ?? 0) > 0) && (
-            <aside className={styles.canvasLegend} aria-label="Leyenda del mapa">
-              <h3>Leyenda</h3>
+            <aside className={styles.canvasLegend} aria-label={t("mapaEditorFull.leyendaDelMapa")}>
+              <h3>{t("mapaEditorFull.leyenda")}</h3>
               <ul>
                 {capas
                   .filter((c) => c.visible && (annoCountByCapa.get(c.id) ?? 0) > 0)
@@ -1788,7 +1769,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
         </section>
 
         {/* COL DER: inspector */}
-        <aside className={`${styles.panel} ${styles.panelInspect}`} aria-label="Inspector">
+        <aside className={`${styles.panel} ${styles.panelInspect}`} aria-label={t("mapaEditorFull.inspector")}>
           {selectedAnno ? (
             <div className={styles.section}>
               <h2 className={styles.sectionTitle}>
@@ -1803,7 +1784,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                   : "Flecha"}
               </h2>
               <div className={styles.sectionBody}>
-                <div role="tablist" aria-label="Secciones del inspector" className="flex border border-[var(--c-border)] rounded-md p-0.5 bg-[var(--c-bg)]">
+                <div role="tablist" aria-label={t("mapaEditorFull.seccionesDelInspector")} className="flex border border-[var(--c-border)] rounded-md p-0.5 bg-[var(--c-bg)]">
                   {(["datos", "estilo", "avanzado"] as const).map((t) => (
                     <button
                       key={t}
@@ -1827,27 +1808,25 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                   <div className="space-y-3">
                     {selectedAnno.tipo === "texto" ? (
                       <div className={styles.field}>
-                        <label className={styles.fieldLabel} htmlFor="anno-contenido">Contenido</label>
+                        <label className={styles.fieldLabel} htmlFor="anno-contenido">{t("profesorEvaluaciones.contenido")}</label>
                         <textarea
                           id="anno-contenido"
                           className={styles.fieldTextarea}
                           value={selectedAnno.contenido}
-                          placeholder="Texto a mostrar en el mapa"
+                          placeholder={t("mapaEditorFull.textoAMostrarEnEl")}
                           rows={3}
                           onChange={(e) => updateSelectedAnno({ contenido: e.target.value })}
                         />
-                        <p className="text-[11px] text-[var(--c-muted)]">
-                          Si lo dejás vacío, la anotación se descarta al cambiar de selección.
-                        </p>
+                        <p className="text-[11px] text-[var(--c-muted)]">{t("mapaEditorFull.siLoDejasVacioLa")}</p>
                       </div>
                     ) : (
                       <div className={styles.field}>
-                        <label className={styles.fieldLabel} htmlFor="anno-etiqueta">Nombre</label>
+                        <label className={styles.fieldLabel} htmlFor="anno-etiqueta">{t("comun.nombre")}</label>
                         <input
                           id="anno-etiqueta"
                           className={styles.fieldInput}
                           value={"etiqueta" in selectedAnno ? (selectedAnno.etiqueta ?? "") : ""}
-                          placeholder="Nombre de la anotación"
+                          placeholder={t("mapaEditorFull.nombreDeLaAnotacion")}
                           onChange={(e) => updateSelectedAnno({ etiqueta: e.target.value })}
                         />
                       </div>
@@ -1857,7 +1836,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                       // con valores parciales como "-" o "13." mientras se tipea).
                       <div className={styles.fieldRow}>
                         <div className={styles.field}>
-                          <label className={styles.fieldLabel} htmlFor="anno-lat">Latitud</label>
+                          <label className={styles.fieldLabel} htmlFor="anno-lat">{t("mapaEditorFull.latitud")}</label>
                           <input
                             id="anno-lat"
                             type="number"
@@ -1872,7 +1851,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                           />
                         </div>
                         <div className={styles.field}>
-                          <label className={styles.fieldLabel} htmlFor="anno-lon">Longitud</label>
+                          <label className={styles.fieldLabel} htmlFor="anno-lon">{t("mapaEditorFull.longitud")}</label>
                           <input
                             id="anno-lon"
                             type="number"
@@ -1990,7 +1969,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                           onChange={(c) => updateSelectedAnno({ color: c })}
                         />
                         <div className={styles.field}>
-                          <span className={styles.fieldLabel}>Flecha al final</span>
+                          <span className={styles.fieldLabel}>{t("mapaEditorFull.flechaAlFinal")}</span>
                           <label className="flex items-center gap-2 text-sm">
                             <input
                               type="checkbox"
@@ -2080,7 +2059,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                 {inspectorTab === "avanzado" && (
                   <div className="space-y-3">
                     <div className={styles.field}>
-                      <label className={styles.fieldLabel} htmlFor="anno-capa">Capa</label>
+                      <label className={styles.fieldLabel} htmlFor="anno-capa">{t("mapaEditorFull.capa")}</label>
                       <select
                         id="anno-capa"
                         className={styles.fieldSelect}
@@ -2100,9 +2079,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                         updateConfig({ ...config, anotaciones: config.anotaciones.filter((a) => a.id !== selectedAnno.id) });
                         setSelectedAnnoId(null);
                       }}
-                    >
-                      Eliminar anotación
-                    </button>
+                    >{t("mapaEditorFull.eliminarAnotacion")}</button>
                   </div>
                 )}
               </div>
@@ -2115,9 +2092,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
                     <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="1.6"/>
                     <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" d="M12 11v6M12 7.5v.5"/>
                   </svg>
-                  <div>
-                    Seleccioná una anotación del lienzo para editarla, o usá una herramienta para crear una nueva.
-                  </div>
+                  <div>{t("mapaEditorFull.seleccionaUnaAnotacionDelLienzo")}</div>
                 </div>
               </div>
             </div>
@@ -2125,12 +2100,11 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
 
           {/* Listado de anotaciones */}
           <div className={`${styles.section} ${styles.sectionFlex}`} style={{ flex: 1 }}>
-            <h2 className={styles.sectionTitle}>
-              Anotaciones <span style={{ color: "var(--c-muted)", fontWeight: 600 }}>· {config.anotaciones.length}</span>
+            <h2 className={styles.sectionTitle}>{t("mapaEditorFull.anotaciones")}<span style={{ color: "var(--c-muted)", fontWeight: 600 }}>· {config.anotaciones.length}</span>
             </h2>
-            <div className={styles.sectionBody} role="list" aria-label="Lista de anotaciones">
+            <div className={styles.sectionBody} role="list" aria-label={t("mapaEditorFull.listaDeAnotaciones")}>
               {config.anotaciones.length === 0 && (
-                <p className="text-xs text-[var(--c-muted)] text-center py-4">Sin anotaciones aún.</p>
+                <p className="text-xs text-[var(--c-muted)] text-center py-4">{t("mapaEditorFull.sinAnotacionesAun")}</p>
               )}
               {config.anotaciones.map((a) => {
                 const capa = capas.find((c) => c.id === a.capaId);
@@ -2166,12 +2140,12 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
 
       {/* STATUS BAR */}
       <footer className="vb-status-bar" role="contentinfo">
-        <span className="stat">Herramienta: <strong>{TOOLS.find((t) => t.id === activeTool)?.label}</strong></span>
-        <span className="stat">Capa activa: <strong>{capas.find((c) => c.id === activeCapaId)?.nombre ?? "—"}</strong></span>
-        <span className="stat">Anotaciones: <strong>{config.anotaciones.length}</strong></span>
+        <span className="stat">{t("mapaEditorFull.herramienta")}<strong>{TOOLS.find((t) => t.id === activeTool)?.label}</strong></span>
+        <span className="stat">{t("mapaEditorFull.capaActiva")}<strong>{capas.find((c) => c.id === activeCapaId)?.nombre ?? "—"}</strong></span>
+        <span className="stat">{t("mapaEditorFull.anotaciones2")}<strong>{config.anotaciones.length}</strong></span>
         <span className="spacer" />
         <span className="stat">
-          <kbd>V</kbd> mover · <kbd>M</kbd> marcador · <kbd>R</kbd> ruta · <kbd>A</kbd> área · <kbd>T</kbd> texto · <kbd>L</kbd> medir · <kbd>⌫</kbd> eliminar
+          <kbd>V</kbd>{t("mapaEditorFull.mover")}<kbd>M</kbd>{t("mapaEditorFull.marcador")}<kbd>R</kbd>{t("mapaEditorFull.ruta")}<kbd>A</kbd>{t("mapaEditorFull.area")}<kbd>T</kbd>{t("mapaEditorFull.texto")}<kbd>L</kbd>{t("mapaEditorFull.medir")}<kbd>⌫</kbd> eliminar
         </span>
       </footer>
     </div>

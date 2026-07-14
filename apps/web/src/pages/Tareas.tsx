@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { fetchTareas, type TareaResumen } from "../services/tareas";
+import { useI18n } from "../i18n/I18nContext";
 
 function TareaCard({ tarea }: { tarea: TareaResumen }) {
   const vence = new Date(tarea.vence);
@@ -36,6 +37,7 @@ function TareaCard({ tarea }: { tarea: TareaResumen }) {
 }
 
 export default function Tareas() {
+  const { t } = useI18n();
   const [tareas, setTareas] = useState<TareaResumen[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -87,10 +89,8 @@ export default function Tareas() {
         {/* Encabezado */}
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold text-[var(--c-text)]">Tareas pendientes</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-1">
-              Actividades asignadas por tus profesores.
-            </p>
+            <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("tareas.tareasPendientes")}</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-1">{t("tareas.actividadesAsignadasPorTusProfesores")}</p>
           </div>
           {urgentesCount > 0 && (
             <div className="flex items-center gap-1.5 rounded-full bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] border border-[color-mix(in_srgb,var(--c-danger)_20%,transparent)] px-3 py-1.5 flex-shrink-0">
@@ -104,9 +104,9 @@ export default function Tareas() {
         {/* Tabs filtro */}
         <div className="flex gap-1 border-b border-[var(--c-border)]">
           {([
-            { key: "todas",       label: "Todas" },
-            { key: "urgentes",    label: "Urgentes" },
-            { key: "esta-semana", label: "Esta semana" },
+            { key: "todas",       label: t("comun.todas") },
+            { key: "urgentes",    label: t("tareas.urgentes") },
+            { key: "esta-semana", label: t("tareas.estaSemana") },
           ] as const).map(({ key, label }) => (
             <button
               key={key}
@@ -135,15 +135,13 @@ export default function Tareas() {
 
         {!loading && !error && tareas.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
-            <p className="text-sm font-medium text-[var(--c-muted)]">No hay tareas pendientes.</p>
+            <p className="text-sm font-medium text-[var(--c-muted)]">{t("tareas.noHayTareasPendientes")}</p>
           </div>
         )}
 
         {!loading && !error && tareas.length > 0 && tareasFiltradas.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
-            <p className="text-sm text-[var(--c-muted)]">
-              No hay tareas en este filtro.
-            </p>
+            <p className="text-sm text-[var(--c-muted)]">{t("tareas.noHayTareasEnEste")}</p>
           </div>
         )}
 

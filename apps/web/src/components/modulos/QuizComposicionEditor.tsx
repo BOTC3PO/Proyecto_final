@@ -15,6 +15,7 @@ import {
   type QuizSelectionMode,
 } from "../../domain/quiz/composition";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface Props {
   /** Composición actual (o undefined → defaults). */
   value: QuizComposition | undefined;
@@ -34,6 +35,7 @@ const SELECCION_OPTS: { value: QuizSelectionMode; label: string; help: string }[
 ];
 
 export default function QuizComposicionEditor({ value, total, onChange }: Props) {
+  const { t } = useI18n();
   const comp = value ?? DEFAULT_COMPOSITION;
   const tomarTodas = comp.tomar === "todas";
   const k = typeof comp.tomar === "number" ? comp.tomar : Math.max(1, total);
@@ -44,15 +46,11 @@ export default function QuizComposicionEditor({ value, total, onChange }: Props)
 
   return (
     <fieldset className="rounded-lg border border-[var(--c-border,#e2e8f0)] p-3 space-y-3 text-xs">
-      <legend className="px-1 text-xs font-semibold text-[var(--c-text)]">
-        Composición del quiz
-      </legend>
+      <legend className="px-1 text-xs font-semibold text-[var(--c-text)]">{t("quizComposicionEditor.composicionDelQuiz")}</legend>
 
       {/* Cuántas presentar */}
       <div className="space-y-1.5">
-        <span className="block font-medium text-[var(--c-text)]">
-          ¿Cuántas preguntas se presentan?
-        </span>
+        <span className="block font-medium text-[var(--c-text)]">{t("quizComposicionEditor.cuantasPreguntasSePresentan")}</span>
         <label className="flex items-center gap-2">
           <input
             type="radio"
@@ -68,15 +66,13 @@ export default function QuizComposicionEditor({ value, total, onChange }: Props)
             name={`${baseId}-tomar`}
             checked={!tomarTodas}
             onChange={() => patch({ tomar: Math.min(Math.max(1, k), Math.max(1, total)) })}
-          />
-          Un subconjunto de
-          <input
+          />{t("quizComposicionEditor.unSubconjuntoDe")}<input
             type="number"
             min={1}
             max={total || undefined}
             value={tomarTodas ? "" : k}
             disabled={tomarTodas}
-            aria-label="Cantidad de preguntas a tomar (K)"
+            aria-label={t("quizComposicionEditor.cantidadDePreguntasATomar")}
             onChange={(e) => {
               const n = Number(e.target.value);
               if (Number.isFinite(n) && n > 0) patch({ tomar: n });
@@ -93,9 +89,7 @@ export default function QuizComposicionEditor({ value, total, onChange }: Props)
           <label
             htmlFor={`${baseId}-seleccion`}
             className="block font-medium text-[var(--c-text)]"
-          >
-            ¿Cómo se eligen?
-          </label>
+          >{t("quizComposicionEditor.comoSeEligen")}</label>
           <select
             id={`${baseId}-seleccion`}
             value={comp.seleccion}
@@ -119,9 +113,7 @@ export default function QuizComposicionEditor({ value, total, onChange }: Props)
         <label
           htmlFor={`${baseId}-peso`}
           className="block font-medium text-[var(--c-text)]"
-        >
-          Puntos por pregunta (peso)
-        </label>
+        >{t("quizComposicionEditor.puntosPorPreguntaPeso")}</label>
         <input
           id={`${baseId}-peso`}
           type="number"
@@ -141,9 +133,7 @@ export default function QuizComposicionEditor({ value, total, onChange }: Props)
         <label
           htmlFor={`${baseId}-variantes`}
           className="block font-medium text-[var(--c-text)]"
-        >
-          Variantes de consigna
-          <span className="ml-1 font-normal text-[var(--c-hint)]">
+        >{t("quizComposicionEditor.variantesDeConsigna")}<span className="ml-1 font-normal text-[var(--c-hint)]">
             (una por línea; la serie elige una por seed)
           </span>
         </label>

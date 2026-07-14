@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../auth/use-auth';
 import { apiGet, apiPost } from '../lib/api';
+import { useI18n } from "../i18n/I18nContext";
 
 type EducationMessage = {
   id: string;
@@ -133,6 +134,7 @@ const defaultEconomyState: EconomyState = {
 };
 
 export default function Economia() {
+  const { t } = useI18n();
   const { user } = useAuth();
 
   const [activeTab, setActiveTab] = useState<'tablero' | 'invertir' | 'simulador' | 'intercambio'>('tablero');
@@ -418,7 +420,7 @@ export default function Economia() {
         tone: "spend"
       });
       pushEducationMessage({
-        title: "Cambio de moneda",
+        title: t("economia.cambioDeMoneda"),
         body: `Aprendés que las monedas tienen valor de cambio: ${FOREIGN_EXCHANGE_RATE} 🪙 = 1 FX.`,
         tone: "info"
       });
@@ -437,7 +439,7 @@ export default function Economia() {
   const handleTransfer = async () => {
     if (!transferTo.trim() || transferAmount <= 0) {
       pushEducationMessage({
-        title: 'Datos incompletos',
+        title: t("economia.datosIncompletos"),
         body: 'Completá el destinatario y el monto para enviar monedas.',
         tone: 'warning',
       });
@@ -445,7 +447,7 @@ export default function Economia() {
     }
     if (economy.coins < transferAmount) {
       pushEducationMessage({
-        title: 'Saldo insuficiente',
+        title: t("economia.saldoInsuficiente"),
         body: `Tenés ${economy.coins} 🪙 pero querés enviar ${transferAmount}.`,
         tone: 'warning',
       });
@@ -459,7 +461,7 @@ export default function Economia() {
       });
       setEconomy((prev) => ({ ...prev, coins: prev.coins - transferAmount }));
       pushEducationMessage({
-        title: '¡Enviado!',
+        title: t("economia.enviado"),
         body: `Enviaste ${transferAmount} 🪙 a ${transferTo}.`,
         tone: 'success',
       });
@@ -469,7 +471,7 @@ export default function Economia() {
       window.dispatchEvent(new CustomEvent('vb:coins-updated'));
     } catch (err) {
       pushEducationMessage({
-        title: 'Error al enviar',
+        title: t("economia.errorAlEnviar"),
         body: err instanceof Error ? err.message : 'No se pudo completar el envío.',
         tone: 'warning',
       });
@@ -483,8 +485,8 @@ export default function Economia() {
         {/* Encabezado */}
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold text-[var(--c-text)]">Economía</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-1">Tu tablero financiero educativo</p>
+            <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("dropdown.economia")}</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-1">{t("economia.tuTableroFinancieroEducativo")}</p>
           </div>
           <div className="flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--c-warning)_35%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] px-3 py-1.5 flex-shrink-0">
             <span aria-hidden="true">🪙</span>
@@ -498,17 +500,17 @@ export default function Economia() {
         {cicloActivo && (
           <div className="grid grid-cols-3 gap-3">
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-              <p className="text-xs text-[var(--c-muted)] mb-1">Ciclo económico</p>
+              <p className="text-xs text-[var(--c-muted)] mb-1">{t("economia.cicloEconomico")}</p>
               <p className="text-base font-semibold text-[var(--c-text)] capitalize">{cicloActivo.tipo}</p>
               <p className="text-xs text-[var(--c-muted)] mt-0.5">Intensidad {cicloActivo.intensidad}/10</p>
             </div>
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-              <p className="text-xs text-[var(--c-muted)] mb-1">Tasa plazo fijo</p>
+              <p className="text-xs text-[var(--c-muted)] mb-1">{t("economia.tasaPlazoFijo")}</p>
               <p className="text-base font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% anual</p>
-              <p className="text-xs text-[var(--c-muted)] mt-0.5">Tasa variable</p>
+              <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.tasaVariable")}</p>
             </div>
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-              <p className="text-xs text-[var(--c-muted)] mb-1">Moneda extranjera</p>
+              <p className="text-xs text-[var(--c-muted)] mb-1">{t("economia.monedaExtranjera")}</p>
               <p className="text-base font-semibold text-[var(--c-text)]">{economy.foreignCoins} FX</p>
               <p className="text-xs text-[var(--c-muted)] mt-0.5">1 FX = 100 monedas</p>
             </div>
@@ -529,10 +531,10 @@ export default function Economia() {
         {/* Tabs */}
         <div className="flex gap-1 border-b border-[var(--c-border)]">
           {([
-            { key: 'tablero',     label: 'Tablero' },
-            { key: 'invertir',    label: 'Invertir' },
-            { key: 'simulador',   label: 'Simulador' },
-            { key: 'intercambio', label: 'Intercambio' },
+            { key: 'tablero',     label: t("economia.tablero") },
+            { key: 'invertir',    label: t("economia.invertir") },
+            { key: 'simulador',   label: t("economia.simulador") },
+            { key: 'intercambio', label: t("economia.intercambio") },
           ] as const).map(({ key, label }) => (
             <button
               key={key}
@@ -555,7 +557,7 @@ export default function Economia() {
             {/* Tablero económico */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Tablero Económico</h3>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.tableroEconomico")}</h3>
                 {cicloActivo && (
                   <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]">
                     Ciclo {cicloActivo.tipo}
@@ -563,23 +565,23 @@ export default function Economia() {
                 )}
               </div>
               <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
-                <span className="text-xs text-[var(--c-muted)]">Monedas disponibles</span>
+                <span className="text-xs text-[var(--c-muted)]">{t("economia.monedasDisponibles")}</span>
                 <span className="text-sm font-semibold text-[var(--c-text)]">
                   {economy.coins.toLocaleString('es-AR')} 🪙
                 </span>
               </div>
               <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
-                <span className="text-xs text-[var(--c-muted)]">Moneda extranjera</span>
+                <span className="text-xs text-[var(--c-muted)]">{t("economia.monedaExtranjera")}</span>
                 <span className="text-sm font-semibold text-[var(--c-text)]">{economy.foreignCoins} FX</span>
               </div>
               {cicloActivo && (
                 <>
                   <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
-                    <span className="text-xs text-[var(--c-muted)]">Tasa plazo fijo</span>
+                    <span className="text-xs text-[var(--c-muted)]">{t("economia.tasaPlazoFijo")}</span>
                     <span className="text-sm font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% anual</span>
                   </div>
                   <div className="flex items-center justify-between py-2">
-                    <span className="text-xs text-[var(--c-muted)]">Vigencia del ciclo</span>
+                    <span className="text-xs text-[var(--c-muted)]">{t("economia.vigenciaDelCiclo")}</span>
                     <span className="text-xs text-[var(--c-muted)]">
                       hasta {new Date(cicloActivo.fin).toLocaleDateString('es-AR')}
                     </span>
@@ -590,12 +592,12 @@ export default function Economia() {
 
             {/* Compra de moneda extranjera */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Compra de moneda extranjera</h3>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.compraDeMonedaExtranjera")}</h3>
               <p className="text-xs text-[var(--c-muted)]">
                 Simulá el cambio de tus monedas a FX. Tipo de cambio: 100 monedas = 1 FX.
               </p>
               <div>
-                <label className="text-xs text-[var(--c-muted)] block mb-1.5">Monedas a cambiar</label>
+                <label className="text-xs text-[var(--c-muted)] block mb-1.5">{t("economia.monedasACambiar")}</label>
                 <input
                   type="number"
                   min={100}
@@ -611,9 +613,7 @@ export default function Economia() {
               <button
                 onClick={handleExchange}
                 className="w-full rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-              >
-                Comprar FX
-              </button>
+              >{t("economia.comprarFx")}</button>
             </div>
           </div>
         )}
@@ -625,16 +625,14 @@ export default function Economia() {
             {/* Plazo fijo */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
               <div>
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Plazo fijo educativo</h3>
-                <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                  Bloqueá tus monedas por un tiempo y ganá intereses.
-                </p>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.plazoFijoEducativo")}</h3>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.bloqueaTusMonedasPorUn")}</p>
               </div>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { label: 'Monto', value: fixedTermAmount, set: setFixedTermAmount, min: 100 },
-                  { label: 'Tasa % anual', value: fixedTermRate, set: setFixedTermRate, min: 1 },
-                  { label: 'Días', value: fixedTermDays, set: setFixedTermDays, min: 1 },
+                  { label: t("comun.monto"), value: fixedTermAmount, set: setFixedTermAmount, min: 100 },
+                  { label: t("economia.tasaAnual"), value: fixedTermRate, set: setFixedTermRate, min: 1 },
+                  { label: t("economia.dias"), value: fixedTermDays, set: setFixedTermDays, min: 1 },
                 ].map(({ label, value, set, min }) => (
                   <div key={label}>
                     <label className="text-[10px] text-[var(--c-muted)] block mb-1">{label}</label>
@@ -648,13 +646,13 @@ export default function Economia() {
               </div>
               <div className="rounded-xl bg-[var(--c-bg)] border border-[var(--c-border)] px-4 py-3">
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="text-[var(--c-muted)]">Interés estimado</span>
+                  <span className="text-[var(--c-muted)]">{t("economia.interesEstimado")}</span>
                   <span className="font-semibold text-[var(--c-success)]">
                     🪙 {fixedTermInterest.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-[var(--c-muted)]">Total al vencer</span>
+                  <span className="text-[var(--c-muted)]">{t("economia.totalAlVencer")}</span>
                   <span className="font-semibold text-[var(--c-text)]">
                     🪙 {fixedTermTotal.toFixed(2)}
                   </span>
@@ -669,7 +667,7 @@ export default function Economia() {
               </button>
               {plazos.length > 0 && (
                 <div className="space-y-2 pt-2 border-t border-[var(--c-border)]">
-                  <p className="text-xs font-medium text-[var(--c-muted)]">Plazos activos</p>
+                  <p className="text-xs font-medium text-[var(--c-muted)]">{t("economia.plazosActivos")}</p>
                   {plazos.map((p) => (
                     <div key={p.id} className="flex items-center justify-between text-xs">
                       <span className="text-[var(--c-text)]">🪙 {p.monto} · {p.dias}d · {p.tasa_anual}%</span>
@@ -695,16 +693,14 @@ export default function Economia() {
             {/* FCI */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
               <div>
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">FCI de desbloqueo rápido</h3>
-                <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                  Rendimiento variable. Rescate en 24hs.
-                </p>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.fciDeDesbloqueoRapido")}</h3>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.rendimientoVariableRescateEn24hs")}</p>
               </div>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { label: 'Monto', value: fciAmount, set: setFciAmount, min: 100 },
-                  { label: 'Tasa % mensual', value: fciRate, set: setFciRate, min: 1 },
-                  { label: 'Días', value: fciDays, set: setFciDays, min: 1 },
+                  { label: t("comun.monto"), value: fciAmount, set: setFciAmount, min: 100 },
+                  { label: t("economia.tasaMensual"), value: fciRate, set: setFciRate, min: 1 },
+                  { label: t("economia.dias"), value: fciDays, set: setFciDays, min: 1 },
                 ].map(({ label, value, set, min }) => (
                   <div key={label}>
                     <label className="text-[10px] text-[var(--c-muted)] block mb-1">{label}</label>
@@ -718,13 +714,13 @@ export default function Economia() {
               </div>
               <div className="rounded-xl bg-[var(--c-bg)] border border-[var(--c-border)] px-4 py-3">
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="text-[var(--c-muted)]">Ganancia estimada</span>
+                  <span className="text-[var(--c-muted)]">{t("economia.gananciaEstimada")}</span>
                   <span className="font-semibold text-[var(--c-success)]">
                     🪙 {fciInterest.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-[var(--c-muted)]">Total al vencer</span>
+                  <span className="text-[var(--c-muted)]">{t("economia.totalAlVencer")}</span>
                   <span className="font-semibold text-[var(--c-text)]">
                     🪙 {fciTotal.toFixed(2)}
                   </span>
@@ -739,7 +735,7 @@ export default function Economia() {
               </button>
               {fcis.length > 0 && (
                 <div className="space-y-2 pt-2 border-t border-[var(--c-border)]">
-                  <p className="text-xs font-medium text-[var(--c-muted)]">Posiciones activas</p>
+                  <p className="text-xs font-medium text-[var(--c-muted)]">{t("economia.posicionesActivas")}</p>
                   {fcis.map((f) => (
                     <div key={f.id} className="flex items-center justify-between text-xs">
                       <span className="text-[var(--c-text)]">🪙 {f.monto} · {f.dias}d · {f.tasa_mensual}%m</span>
@@ -768,10 +764,8 @@ export default function Economia() {
           <div className="space-y-4">
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">
               <div>
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Simulador de eventos económicos</h3>
-                <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                  Mini-simulaciones "¿qué pasaría si...?" para practicar antes de activar eventos reales.
-                </p>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.simuladorDeEventosEconomicos")}</h3>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.miniSimulacionesQuePasariaSi")}</p>
               </div>
               {ECONOMIC_SIMULATIONS.map((scenario) => (
                 <div key={scenario.id} className="border border-[var(--c-border)] rounded-xl overflow-hidden">
@@ -816,7 +810,7 @@ export default function Economia() {
             {/* Mensajes educativos */}
             {educationMessages.length > 0 && (
               <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Mensajes educativos</h3>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.mensajesEducativos")}</h3>
                 {educationMessages.slice(-3).map((msg) => (
                   <div
                     key={msg.id}
@@ -841,17 +835,15 @@ export default function Economia() {
         {activeTab === 'intercambio' && (
           <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4 max-w-md">
             <div>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Intercambio entre alumnos</h3>
-              <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                Enviá monedas a compañeros de forma simple.
-              </p>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.intercambioEntreAlumnos")}</h3>
+              <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.enviaMonedasACompanerosDe")}</p>
             </div>
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-[var(--c-muted)] block mb-1.5">Destinatario</label>
+                <label className="text-xs text-[var(--c-muted)] block mb-1.5">{t("economia.destinatario")}</label>
                 <input
                   type="text"
-                  placeholder="Ej: Juan Pérez"
+                  placeholder={t("economia.ejJuanPerez")}
                   value={transferTo}
                   onChange={(e) => setTransferTo(e.target.value)}
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
@@ -859,7 +851,7 @@ export default function Economia() {
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">Monto</label>
+                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">{t("comun.monto")}</label>
                   <input
                     type="number" min={1} value={transferAmount}
                     onChange={(e) => setTransferAmount(Number(e.target.value))}
@@ -867,10 +859,10 @@ export default function Economia() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">Nota (opcional)</label>
+                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">{t("economia.notaOpcional")}</label>
                   <input
                     type="text"
-                    placeholder="Gracias por ayudar"
+                    placeholder={t("economia.graciasPorAyudar")}
                     value={transferNote}
                     onChange={(e) => setTransferNote(e.target.value)}
                     className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"

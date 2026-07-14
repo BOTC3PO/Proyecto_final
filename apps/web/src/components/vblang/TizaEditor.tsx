@@ -72,6 +72,7 @@ import {
   writeExplicacion,
 } from "./plantillaAst";
 
+import { useI18n } from "../../i18n/I18nContext";
 /* ─── tipos ─────────────────────────────────────────────────────────── */
 
 export type TizaSelection =
@@ -397,6 +398,7 @@ export function TizaQuestionCard({
   onSelectVariable,
   live,
 }: TizaQuestionCardProps) {
+  const { t } = useI18n();
   const tipo = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
   const enunField = fieldByKey(plantilla, "enunciado");
@@ -497,7 +499,7 @@ export function TizaQuestionCard({
                 <BufferedTextarea
                   value={item.text}
                   rows={2}
-                  placeholder="Texto de la variante…"
+                  placeholder={t("tizaEditor.textoDeLaVariante")}
                   onCommit={(v) => {
                     const next = [...enunciadosItems];
                     next[i] = { ...next[i], text: v };
@@ -508,7 +510,7 @@ export function TizaQuestionCard({
                 {/* PLAN-E §15: tipo propio de la variante (vacío = heredar) */}
                 <select
                   aria-label={`Tipo de la variante ${i + 1}`}
-                  title="Tipo de la variante (heredado por defecto)"
+                  title={t("plantillaEditorSchema.tipoDeLaVarianteHeredado")}
                   value={item.tipo ?? ""}
                   onChange={(e) => {
                     const next = [...enunciadosItems];
@@ -520,16 +522,16 @@ export function TizaQuestionCard({
                   }}
                   style={{ ...inputStyle(), width: 118, marginTop: 2, flex: "none" }}
                 >
-                  <option value="">Heredado</option>
-                  <option value="mc">Opción múltiple</option>
+                  <option value="">{t("plantillaEditorSchema.heredado")}</option>
+                  <option value="mc">{t("bancoPreguntasEditor.opcionMultiple")}</option>
                   <option value="vf">V/F</option>
-                  <option value="input">Numérica</option>
-                  <option value="completar">Completar</option>
+                  <option value="input">{t("plantillaEditorSchema.numerica")}</option>
+                  <option value="completar">{t("plantillaEditorSchema.completar")}</option>
                 </select>
                 <button
                   type="button"
                   aria-label={`Quitar variante ${i + 1}`}
-                  title="Quitar variante"
+                  title={t("tizaEditor.quitarVariante")}
                   disabled={enunciadosItems.length <= 1}
                   onClick={() =>
                     onChange(
@@ -559,23 +561,19 @@ export function TizaQuestionCard({
                   )
                 }
                 style={addLinkButtonStyle}
-              >
-                ＋ Otra variante
-              </button>
+              >{t("tizaEditor.otraVariante")}</button>
               <button
                 type="button"
                 onClick={() => onChange(variantesToEnunciado(plantilla))}
                 style={addLinkButtonStyle}
-              >
-                Volver a enunciado único
-              </button>
+              >{t("tizaEditor.volverAEnunciadoUnico")}</button>
             </div>
           </div>
         ) : (
           <BufferedTextarea
             value={enunciado}
             rows={2}
-            placeholder="Escribí la consigna…"
+            placeholder={t("tizaEditor.escribiLaConsigna")}
             onCommit={(v) => {
               if (!enunField) return;
               const next = writeTextField(plantilla, enunField, v);
@@ -596,8 +594,7 @@ export function TizaQuestionCard({
             fontSize: 13.5,
             color: "var(--c-text-2)",
           }}
-        >
-          Vista: <span style={{ color: "var(--c-text)", fontWeight: 560 }}>{enunciadoRendered}</span>
+        >{t("tizaEditor.vista")}<span style={{ color: "var(--c-text)", fontWeight: 560 }}>{enunciadoRendered}</span>
         </div>
       </div>
 
@@ -606,7 +603,7 @@ export function TizaQuestionCard({
         <>
           <div style={{ height: 1, background: "var(--c-border)" }} />
           <div id="tiza-sec-variables">
-            <Eyebrow>Variables</Eyebrow>
+            <Eyebrow>{t("plantillaEditorTiza.variables")}</Eyebrow>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 9 }}>
               {variables.map((v, i) => {
                 const selected =
@@ -682,7 +679,7 @@ export function TizaQuestionCard({
           <div id="tiza-sec-respuesta" style={{ display: "flex", gap: 22, flexWrap: "wrap" }}>
             {respField ? (
               <div>
-                <Eyebrow>Respuesta</Eyebrow>
+                <Eyebrow>{t("plantillaEditorTiza.respuesta")}</Eyebrow>
                 <div
                   style={{
                     ...mono,
@@ -700,7 +697,7 @@ export function TizaQuestionCard({
             ) : null}
             {tolField ? (
               <div>
-                <Eyebrow>Tolerancia</Eyebrow>
+                <Eyebrow>{t("tizaEditor.tolerancia")}</Eyebrow>
                 <div
                   style={{
                     ...mono,
@@ -722,7 +719,7 @@ export function TizaQuestionCard({
         <>
           <div style={{ height: 1, background: "var(--c-border)" }} />
           <div id="tiza-sec-pasos">
-            <Eyebrow>Pasos de resolución</Eyebrow>
+            <Eyebrow>{t("tizaEditor.pasosDeResolucion")}</Eyebrow>
             {pasos.map((text: string, i: number) => (
               <div
                 key={i}
@@ -743,7 +740,7 @@ export function TizaQuestionCard({
         <>
           <div style={{ height: 1, background: "var(--c-border)" }} />
           <div id="tiza-sec-restricciones">
-            <Eyebrow>Restricciones</Eyebrow>
+            <Eyebrow>{t("plantillaEditorSchema.restricciones")}</Eyebrow>
             {restricciones.map((text: string, i: number) => (
               <div
                 key={i}
@@ -764,7 +761,7 @@ export function TizaQuestionCard({
         <>
           <div style={{ height: 1, background: "var(--c-border)" }} />
           <div id="tiza-sec-pistas">
-            <Eyebrow>Pistas</Eyebrow>
+            <Eyebrow>{t("plantillaEditorTiza.pistas")}</Eyebrow>
           {pistas.map((text: string, i: number) => (
               <div
                 key={i}
@@ -792,7 +789,7 @@ export function TizaQuestionCard({
         <>
           <div style={{ height: 1, background: "var(--c-border)" }} />
           <div id="tiza-sec-explicacion">
-            <Eyebrow>Explicación</Eyebrow>
+            <Eyebrow>{t("plantillaEditorTiza.explicacion")}</Eyebrow>
             <div style={{ fontSize: 13.5, color: "var(--c-text-2)", lineHeight: 1.5 }}>
               {explicacion}
             </div>
@@ -1902,6 +1899,7 @@ export interface TizaCodeDrawerProps {
 }
 
 export function TizaCodeDrawer({ code, visible, onToggle }: TizaCodeDrawerProps) {
+  const { t } = useI18n();
   return (
     <div
       style={{
@@ -1934,7 +1932,7 @@ export function TizaCodeDrawer({ code, visible, onToggle }: TizaCodeDrawerProps)
         <span aria-hidden="true" style={{ ...mono, fontSize: 13, fontWeight: 700, color: "var(--c-accent)" }}>
           {"</>"}
         </span>
-        <span style={{ fontSize: 13.5, fontWeight: 660 }}>Código generado · VBLang</span>
+        <span style={{ fontSize: 13.5, fontWeight: 660 }}>{t("tizaEditor.codigoGeneradoVblang")}</span>
         <span
           style={{
             display: "inline-flex",
@@ -1957,11 +1955,9 @@ export function TizaCodeDrawer({ code, visible, onToggle }: TizaCodeDrawerProps)
               background: "var(--c-success)",
               animation: "code-blip 1.6s infinite",
             }}
-          />
-          en vivo
-        </span>
+          />{t("tizaEditor.enVivo")}</span>
         <div style={{ flex: 1 }} />
-        <span style={{ fontSize: 12, color: "var(--c-text-3)" }}>solo lectura</span>
+        <span style={{ fontSize: 12, color: "var(--c-text-3)" }}>{t("tizaEditor.soloLectura")}</span>
         <span
           aria-hidden="true"
           style={{

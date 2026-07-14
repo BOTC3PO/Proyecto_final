@@ -14,6 +14,7 @@
 import { Link } from "react-router-dom";
 import type { ClassModuleProgress } from "../../pages/aula";
 
+import { useI18n } from "../../i18n/I18nContext";
 export type ContinuarCardProps = {
   modules: ClassModuleProgress[];
 };
@@ -30,6 +31,7 @@ export function pickContinueTarget(
 }
 
 export default function ContinuarCard({ modules }: ContinuarCardProps) {
+  const { t } = useI18n();
   const target = pickContinueTarget(modules);
   if (!target) return null;
   return (
@@ -37,9 +39,7 @@ export default function ContinuarCard({ modules }: ContinuarCardProps) {
       className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4"
       data-testid="continuar-card"
     >
-      <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-        Continuar donde dejaste
-      </p>
+      <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("continuarCard.continuarDondeDejaste")}</p>
       <h3 className="mt-1 text-base font-semibold text-[var(--c-text)]">
         {target.title}
       </h3>
@@ -66,9 +66,7 @@ export default function ContinuarCard({ modules }: ContinuarCardProps) {
         to={`/modulos/${target.id}`}
         data-testid="continuar-link"
         className="mt-3 inline-flex items-center justify-center gap-1.5 rounded-lg bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-primary)]"
-      >
-        Continuar →
-      </Link>
+      >{t("continuarCard.continuar")}</Link>
     </div>
   );
 }

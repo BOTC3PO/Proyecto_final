@@ -1,39 +1,36 @@
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
+import { useI18n } from "../i18n/I18nContext";
 
 export default function Explorar() {
+  const { t } = useI18n();
   useDocumentMeta({
-    title: 'Explorar Rutas de Aprendizaje — Virtual Book',
-    description: 'Descubre módulos recomendados, profesores destacados y experiencias interactivas para reforzar tus habilidades desde un solo lugar.',
+    title: t("explorar.explorarRutasDeAprendizajeVirtual"),
+    description: t("explorar.descubreModulosRecomendadosProfesoresDestacados"),
   });
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-10">
       <header className="space-y-3">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Explorar</p>
-        <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">
-          Descubre rutas de aprendizaje diseñadas para avanzar rápido.
-        </h1>
-        <p className="max-w-2xl text-base text-slate-600">
-          Encuentra módulos recomendados, profesores destacados y experiencias interactivas para
-          reforzar tus habilidades desde un solo lugar.
-        </p>
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">{t("nav.explorar")}</p>
+        <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">{t("explorar.descubreRutasDeAprendizajeDisenadas")}</h1>
+        <p className="max-w-2xl text-base text-slate-600">{t("explorar.encuentraModulosRecomendadosProfesoresDestacados")}</p>
       </header>
 
       <section className="grid gap-4 md:grid-cols-3">
         {[
           {
-            title: "Módulos recomendados",
+            title: t("explorar.modulosRecomendados"),
             description:
-              "Contenido curado según tu nivel para empezar con actividades que sí importan.",
+              t("explorar.contenidoCuradoSegunTuNivel"),
           },
           {
-            title: "Aprendizaje guiado",
+            title: t("explorar.aprendizajeGuiado"),
             description:
-              "Sigue rutas con objetivos claros y micro-retos para mantener el avance constante.",
+              t("explorar.sigueRutasConObjetivosClaros"),
           },
           {
-            title: "Comunidad activa",
+            title: t("explorar.comunidadActiva"),
             description:
-              "Conecta con profesores y alumnos, comparte recursos y participa en retos.",
+              t("explorar.conectaConProfesoresYAlumnos"),
           },
         ].map((card) => (
           <article
@@ -47,17 +44,11 @@ export default function Explorar() {
       </section>
 
       <section className="rounded-2xl bg-slate-900 p-6 text-white">
-        <h2 className="text-xl font-semibold">¿Listo para empezar?</h2>
-        <p className="mt-2 text-sm text-slate-200">
-          Crea tu cuenta y desbloquea recomendaciones personalizadas basadas en tu progreso.
-        </p>
+        <h2 className="text-xl font-semibold">{t("explorar.listoParaEmpezar")}</h2>
+        <p className="mt-2 text-sm text-slate-200">{t("explorar.creaTuCuentaYDesbloquea")}</p>
         <div className="mt-4 flex flex-wrap gap-3">
-          <button className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-900">
-            Crear cuenta
-          </button>
-          <button className="rounded-full border border-white/40 px-4 py-2 text-sm font-semibold">
-            Ver catálogo
-          </button>
+          <button className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-900">{t("explorar.crearCuenta")}</button>
+          <button className="rounded-full border border-white/40 px-4 py-2 text-sm font-semibold">{t("explorar.verCatalogo")}</button>
         </div>
       </section>
     </main>

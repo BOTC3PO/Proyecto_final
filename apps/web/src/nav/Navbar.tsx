@@ -27,6 +27,7 @@ import { Avatar, Menu, NavItem, type MenuTriggerProps } from "../ui";
 import { useI18n } from "../i18n/I18nContext";
 
 function CoinBadge({ userId }: { userId: string }) {
+  const { t } = useI18n();
   const [coins, setCoins] = useState<number | null>(null);
   const fetchCoins = () => {
     apiGet<{ saldo: number }>(`/api/economia/saldos?usuarioId=${userId}`)
@@ -63,7 +64,7 @@ function CoinBadge({ userId }: { userId: string }) {
     userSelect: "none",
   };
   return (
-    <Link to="/economia" title="Ver economía" aria-label={`${coins} monedas`} style={badge}>
+    <Link to="/economia" title={t("navbar.verEconomia")} aria-label={`${coins} monedas`} style={badge}>
       <span aria-hidden="true">🪙</span>
       <span>{coins.toLocaleString('es-AR')}</span>
     </Link>
@@ -471,9 +472,7 @@ export default function Navbar() {
             color: "var(--c-text)",
             textDecoration: "none",
           }}
-        >
-          Virtual Book
-        </Link>
+        >{t("comun.virtualBook")}</Link>
 
         <ul className="flex flex-wrap items-center gap-1">
           {items?.map((it) => (

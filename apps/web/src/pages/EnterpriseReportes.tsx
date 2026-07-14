@@ -3,6 +3,7 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchEscuelaReporte, fetchBoletin, fetchProgresoReporte,
   type EscuelaResponse, type BoletinResponse,
@@ -10,6 +11,7 @@ import {
 } from "../services/reportes-v2";
 
 export default function EnterpriseReportes() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [escuela, setEscuela] = useState<EscuelaResponse | null>(null);
@@ -67,10 +69,8 @@ export default function EnterpriseReportes() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
       <div>
-        <h1 className="text-xl font-semibold text-[var(--c-text)]">Reportes</h1>
-        <p className="text-sm text-[var(--c-muted)] mt-0.5">
-          Métricas globales e informes por aula.
-        </p>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.reportes")}</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("enterpriseReportes.metricasGlobalesEInformesPor")}</p>
       </div>
 
       {error && (
@@ -88,11 +88,11 @@ export default function EnterpriseReportes() {
         ) : escuela && (
           <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { label: "Aulas activas", value: escuela.indicadores.totalAulas, color: "text-blue-700" },
-              { label: "Usuarios", value: escuela.indicadores.totalUsuarios, color: "text-violet-700" },
-              { label: "Actividades", value: escuela.indicadores.totalActividades, color: "text-amber-700" },
-              { label: "Módulos completados", value: escuela.indicadores.progresoCompletado, color: "text-emerald-700" },
-              { label: "Progreso total", value: `${escuela.indicadores.porcentajeCompletado}%`, color: "text-[var(--c-text)]" },
+              { label: t("enterpriseReportes.aulasActivas"), value: escuela.indicadores.totalAulas, color: "text-blue-700" },
+              { label: t("nav.usuarios"), value: escuela.indicadores.totalUsuarios, color: "text-violet-700" },
+              { label: t("enterpriseReportes.actividades"), value: escuela.indicadores.totalActividades, color: "text-amber-700" },
+              { label: t("comun.modulosCompletados"), value: escuela.indicadores.progresoCompletado, color: "text-emerald-700" },
+              { label: t("enterpriseReportes.progresoTotal"), value: `${escuela.indicadores.porcentajeCompletado}%`, color: "text-[var(--c-text)]" },
             ].map((item) => (
               <div key={item.label}
                 className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
@@ -108,9 +108,7 @@ export default function EnterpriseReportes() {
         {aulas.length > 0 && (
           <>
             <div className="flex items-center gap-3">
-              <label className="text-sm font-medium text-[var(--c-text)]">
-                Ver reporte de aula:
-              </label>
+              <label className="text-sm font-medium text-[var(--c-text)]">{t("enterpriseReportes.verReporteDeAula")}</label>
               <select
                 value={aulaId}
                 onChange={(e) => setAulaId(e.target.value)}
@@ -133,7 +131,7 @@ export default function EnterpriseReportes() {
             {!aulaLoading && progreso && progreso.modulos.length > 0 && (
               <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
                 <div className="px-4 py-3 border-b border-[var(--c-border)]">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Progreso por módulo</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("enterpriseReportes.progresoPorModulo")}</p>
                 </div>
                 <div className="p-4 space-y-3">
                 {progreso.modulos.map((mod) => (
@@ -169,15 +167,9 @@ export default function EnterpriseReportes() {
                   <table className="min-w-full text-sm">
                     <thead>
                       <tr className="border-b border-[var(--c-border)]">
-                        <th className="px-4 py-2 text-left text-[10px] uppercase tracking-widest text-[var(--c-muted)] font-semibold">
-                          Alumno
-                        </th>
-                        <th className="px-4 py-2 text-center text-[10px] uppercase tracking-widest text-[var(--c-muted)] font-semibold">
-                          Promedio
-                        </th>
-                        <th className="px-4 py-2 text-center text-[10px] uppercase tracking-widest text-[var(--c-muted)] font-semibold">
-                          Evaluaciones
-                        </th>
+                        <th className="px-4 py-2 text-left text-[10px] uppercase tracking-widest text-[var(--c-muted)] font-semibold">{t("enterpriseCobros.alumno")}</th>
+                        <th className="px-4 py-2 text-center text-[10px] uppercase tracking-widest text-[var(--c-muted)] font-semibold">{t("enterpriseReportes.promedio")}</th>
+                        <th className="px-4 py-2 text-center text-[10px] uppercase tracking-widest text-[var(--c-muted)] font-semibold">{t("nav.evaluaciones")}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-[var(--c-border)]">

@@ -3,6 +3,7 @@ import { useAuth } from "../auth/use-auth";
 import { useHasAnyRole, useIsStaff } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchCalendarioUnificado, crearEventoEscuela,
   crearEventoAula, eliminarEventoEscuela,
@@ -73,6 +74,7 @@ function eventoEnDia(ev: EventoCalendario, dia: string): boolean {
 }
 
 export default function ProfesorCalendario() {
+  const { t } = useI18n();
   const { user } = useAuth();
   // MULTIROL-02: canEditEscuela = directivo o admin. canEditAula = staff.
   // Migrado a helpers centralizados (multi-rol friendly): un TEACHER+USER
@@ -296,8 +298,8 @@ export default function ProfesorCalendario() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Calendario</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">Vista unificada de tu escuela y tus aulas.</p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.calendario")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorCalendario.vistaUnificadaDeTuEscuela")}</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-4">
@@ -319,9 +321,7 @@ export default function ProfesorCalendario() {
               setYear(hoy.getFullYear());
               setMonth(hoy.getMonth() + 1);
             }}
-            className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:bg-[var(--c-bg)]">
-            Hoy
-          </button>
+            className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:bg-[var(--c-bg)]">{t("common.hoy")}</button>
 
           <div className="flex gap-2 ml-auto">
             <button type="button"
@@ -330,18 +330,14 @@ export default function ProfesorCalendario() {
                 mostrarEscuela
                   ? "bg-teal-50 text-teal-700 border-teal-300"
                   : "bg-[var(--c-bg)] text-[var(--c-muted)] border-[var(--c-border)]"
-              }`}>
-              🏫 Escuela
-            </button>
+              }`}>{t("profesorCalendario.escuela")}</button>
             <button type="button"
               onClick={() => setMostrarAulas((v) => !v)}
               className={`rounded-lg px-3 py-1 text-xs font-medium border transition-colors ${
                 mostrarAulas
                   ? "bg-blue-50 text-blue-700 border-blue-300"
                   : "bg-[var(--c-bg)] text-[var(--c-muted)] border-[var(--c-border)]"
-              }`}>
-              📚 Aulas
-            </button>
+              }`}>{t("profesorCalendario.aulas")}</button>
           </div>
         </div>
 
@@ -438,9 +434,7 @@ export default function ProfesorCalendario() {
                     })}
                 </h2>
                 {eventosHoy.length === 0 ? (
-                  <p className="text-xs text-[var(--c-muted)]">
-                    Sin eventos en este día.
-                  </p>
+                  <p className="text-xs text-[var(--c-muted)]">{t("profesorCalendario.sinEventosEnEsteDia")}</p>
                 ) : (
                   <div className="space-y-2">
                     {eventosHoy.map((ev) => {
@@ -495,15 +489,13 @@ export default function ProfesorCalendario() {
                                   type="button"
                                   onClick={() => handleAbrirEditar(ev)}
                                   className="rounded-md px-2 py-1 text-[11px] font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
-                                  title="Editar"
-                                >
-                                  Editar
-                                </button>
+                                  title={t("comun.editar")}
+                                >{t("comun.editar")}</button>
                                 <button
                                   type="button"
                                   onClick={() => handleEliminar(ev)}
                                   className="text-[var(--c-muted)] hover:text-red-400 transition-colors px-1"
-                                  title="Eliminar"
+                                  title={t("comun.eliminar")}
                                 >
                                   ✕
                                 </button>
@@ -520,9 +512,7 @@ export default function ProfesorCalendario() {
 
             {(canEditEscuela || canEditAula) && (
               <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
-                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">
-                  Agregar evento
-                </h2>
+                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">{t("profesorCalendario.agregarEvento")}</h2>
 
                 {canEditEscuela && canEditAula && (
                   <div className="flex gap-1 mb-3 border-b border-[var(--c-border)]">
@@ -551,9 +541,7 @@ export default function ProfesorCalendario() {
                 )}
 
                 <form onSubmit={handleGuardar} className="space-y-3">
-                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                    Tipo
-                    <select
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.tipo")}<select
                       value={form.tipo}
                       onChange={(e) => setForm((f) => ({
                         ...f, tipo: e.target.value
@@ -569,9 +557,7 @@ export default function ProfesorCalendario() {
                   </label>
 
                   {tab === "aula" && aulas.length > 0 && (
-                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                      Aula
-                      <select
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.aula")}<select
                         value={form.aulaId}
                         onChange={(e) => setForm((f) => ({
                           ...f, aulaId: e.target.value
@@ -592,16 +578,14 @@ export default function ProfesorCalendario() {
                       acotado a esa aula. El directivo/admin ve
                       todas las aulas de la escuela. */}
                   {tab === "escuela" && aulas.length > 0 && (
-                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                      Aplicar a
-                      <select
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorCalendario.aplicarA")}<select
                         value={form.aulaId}
                         onChange={(e) => setForm((f) => ({
                           ...f, aulaId: e.target.value
                         }))}
                         className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                       >
-                        <option value="">Toda la escuela (global)</option>
+                        <option value="">{t("profesorCalendario.todaLaEscuelaGlobal")}</option>
                         {aulas.map((a) => (
                           <option key={a.id} value={a.id}>
                             {a.name}
@@ -611,22 +595,18 @@ export default function ProfesorCalendario() {
                     </label>
                   )}
 
-                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                    Título *
-                    <input type="text" required
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.titulo")}<input type="text" required
                       value={form.titulo}
                       onChange={(e) => setForm((f) => ({
                         ...f, titulo: e.target.value
                       }))}
-                      placeholder="Ej: Día del maestro"
+                      placeholder={t("profesorCalendario.ejDiaDelMaestro")}
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     />
                   </label>
 
                   <div className="grid grid-cols-2 gap-2">
-                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                      Desde *
-                      <input type="date" required
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorCalendario.desde")}<input type="date" required
                         value={form.fechaInicio}
                         onChange={(e) => setForm((f) => ({
                           ...f, fechaInicio: e.target.value,
@@ -636,9 +616,7 @@ export default function ProfesorCalendario() {
                         className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                       />
                     </label>
-                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                      Hasta
-                      <input type="date"
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorAulaConfiguracion.hasta")}<input type="date"
                         value={form.fechaFin}
                         min={form.fechaInicio}
                         onChange={(e) => setForm((f) => ({
@@ -649,14 +627,12 @@ export default function ProfesorCalendario() {
                     </label>
                   </div>
 
-                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                    Descripción
-                    <textarea rows={2}
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.descripcion")}<textarea rows={2}
                       value={form.descripcion}
                       onChange={(e) => setForm((f) => ({
                         ...f, descripcion: e.target.value
                       }))}
-                      placeholder="Opcional"
+                      placeholder={t("profesorCalendario.opcional")}
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     />
                   </label>
@@ -707,9 +683,7 @@ export default function ProfesorCalendario() {
                 Editar evento {editando.origen === "escuela" ? "de escuela" : "del aula"}
               </h3>
               <form onSubmit={handleGuardarEdicion} className="mt-3 space-y-3">
-                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                  Tipo
-                  <select
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.tipo")}<select
                     value={editForm.tipo}
                     onChange={(e) => setEditForm((f) => ({
                       ...f, tipo: e.target.value as TipoEventoEscuela | TipoEventoAula,
@@ -725,16 +699,14 @@ export default function ProfesorCalendario() {
                 </label>
 
                 {editando.origen === "escuela" && aulas.length > 0 && (
-                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                    Aplicar a
-                    <select
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorCalendario.aplicarA")}<select
                       value={editForm.aulaId}
                       onChange={(e) => setEditForm((f) => ({
                         ...f, aulaId: e.target.value
                       }))}
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     >
-                      <option value="">Toda la escuela (global)</option>
+                      <option value="">{t("profesorCalendario.todaLaEscuelaGlobal")}</option>
                       {aulas.map((a) => (
                         <option key={a.id} value={a.id}>
                           {a.name}
@@ -744,9 +716,7 @@ export default function ProfesorCalendario() {
                   </label>
                 )}
 
-                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                  Título *
-                  <input type="text" required
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.titulo")}<input type="text" required
                     value={editForm.titulo}
                     onChange={(e) => setEditForm((f) => ({
                       ...f, titulo: e.target.value
@@ -756,9 +726,7 @@ export default function ProfesorCalendario() {
                 </label>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                    Desde *
-                    <input type="date" required
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorCalendario.desde")}<input type="date" required
                       value={editForm.fechaInicio}
                       onChange={(e) => setEditForm((f) => ({
                         ...f, fechaInicio: e.target.value
@@ -766,9 +734,7 @@ export default function ProfesorCalendario() {
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     />
                   </label>
-                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                    Hasta
-                    <input type="date"
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorAulaConfiguracion.hasta")}<input type="date"
                       value={editForm.fechaFin}
                       onChange={(e) => setEditForm((f) => ({
                         ...f, fechaFin: e.target.value
@@ -778,9 +744,7 @@ export default function ProfesorCalendario() {
                   </label>
                 </div>
 
-                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                  Descripción
-                  <textarea rows={2}
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.descripcion")}<textarea rows={2}
                     value={editForm.descripcion}
                     onChange={(e) => setEditForm((f) => ({
                       ...f, descripcion: e.target.value
@@ -793,9 +757,7 @@ export default function ProfesorCalendario() {
                   <button type="button"
                     onClick={handleCerrarEditar}
                     disabled={editGuardando}
-                    className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors">
-                    Cancelar
-                  </button>
+                    className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors">{t("comun.cancelar")}</button>
                   <button type="submit"
                     disabled={editGuardando || !editForm.titulo.trim() || !editForm.fechaInicio}
                     className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity">

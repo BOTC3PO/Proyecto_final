@@ -16,6 +16,7 @@ import type {
 } from "../../domain/vblang/plantilla.types";
 import { Modal, Button, Input, Spinner, Alert } from "../../ui";
 
+import { useI18n } from "../../i18n/I18nContext";
 type Tab = "mias" | "biblioteca";
 
 interface Props {
@@ -31,6 +32,7 @@ export default function PlantillaSelectorModal({
   materiaHint,
   createReturnTo,
 }: Props) {
+  const { t } = useI18n();
   const navigate = useNavigate();
   const [tab, setTab] = useState<Tab>("mias");
   const [q, setQ] = useState("");
@@ -113,13 +115,11 @@ export default function PlantillaSelectorModal({
           fontSize: "var(--text-lg)",
           fontWeight: "var(--fw-semibold)",
           color: "var(--c-text)",
-        }}>
-          Seleccionar plantilla VBLang
-        </h2>
+        }}>{t("plantillaSelectorModal.seleccionarPlantillaVblang")}</h2>
         <button
           type="button"
           onClick={onClose}
-          aria-label="Cerrar"
+          aria-label={t("comun.cerrar")}
           style={{
             background: "none",
             border: "none",
@@ -136,12 +136,8 @@ export default function PlantillaSelectorModal({
 
       {/* Tabs */}
       <div style={{ display: "flex", gap: "var(--space-2)", padding: "0 var(--space-4)", ...sectionBorder }}>
-        <button type="button" onClick={() => setTab("mias")} style={tabBtn(tab === "mias")}>
-          Mis plantillas
-        </button>
-        <button type="button" onClick={() => setTab("biblioteca")} style={tabBtn(tab === "biblioteca")}>
-          Biblioteca
-        </button>
+        <button type="button" onClick={() => setTab("mias")} style={tabBtn(tab === "mias")}>{t("plantillasIndex.misPlantillas")}</button>
+        <button type="button" onClick={() => setTab("biblioteca")} style={tabBtn(tab === "biblioteca")}>{t("plantillasIndex.biblioteca")}</button>
       </div>
 
       {/* Search */}
@@ -149,7 +145,7 @@ export default function PlantillaSelectorModal({
         <Input
           type="search"
           size="sm"
-          placeholder="Buscar por nombre…"
+          placeholder={t("plantillaSelectorModal.buscarPorNombre")}
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
@@ -267,12 +263,8 @@ export default function PlantillaSelectorModal({
             cursor: "pointer",
             fontFamily: "var(--font-sans)",
           }}
-        >
-          + Crear nueva plantilla
-        </button>
-        <Button variant="ghost" size="sm" onClick={onClose}>
-          Cancelar
-        </Button>
+        >{t("plantillaSelectorModal.crearNuevaPlantilla")}</button>
+        <Button variant="ghost" size="sm" onClick={onClose}>{t("comun.cancelar")}</Button>
       </footer>
     </Modal>
   );

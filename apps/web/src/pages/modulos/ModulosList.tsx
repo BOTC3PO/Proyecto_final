@@ -8,6 +8,7 @@ import type { Module, ModuleVisibility } from "../../domain/module/module.types"
 import { resolveMateria, resolveCategoria } from "../../domain/module/materia";
 import { Card, Badge, Button, Select, Input, Spinner, Alert } from "../../ui";
 import type { BadgeVariant } from "../../ui";
+import { useI18n } from "../../i18n/I18nContext";
 
 const VISIBILITY_LABELS: Record<ModuleVisibility, string> = {
   publico: "Público",
@@ -63,6 +64,7 @@ function getCategoryAccent(category: string): string {
 }
 
 export default function ModulosList() {
+  const { t } = useI18n();
   const { user } = useAuth();
   // MULTIROL-02: `canCreate`/`canEdit` migran al helper centralizado
   // (multi-rol friendly): alcanza con que el user TENGA TEACHER o
@@ -190,9 +192,9 @@ export default function ModulosList() {
   };
 
   const TABS: { key: "mine" | "school" | "public"; label: string }[] = [
-    { key: "mine", label: "Mis módulos" },
-    { key: "school", label: "Escuela" },
-    { key: "public", label: "Públicos" },
+    { key: "mine", label: t("menualumno.misModulos") },
+    { key: "school", label: t("sidebar.escuela") },
+    { key: "public", label: t("modulosList.publicos") },
   ];
 
   return (
@@ -232,17 +234,13 @@ export default function ModulosList() {
               fontWeight: "var(--fw-bold)",
               lineHeight: "var(--lh-tight)",
               color: "var(--c-text-on-dark)",
-            }}>
-              Módulos
-            </h1>
+            }}>{t("nav.modulos")}</h1>
             <p style={{
               margin: 0,
               fontSize: "var(--text-sm)",
               color: "var(--c-text-on-dark)",
               opacity: 0.85,
-            }}>
-              Explora el listado de módulos disponibles y gestiona su contenido.
-            </p>
+            }}>{t("modulosList.exploraElListadoDeModulos")}</p>
           </div>
           {canCreate && (
             <Link
@@ -260,9 +258,7 @@ export default function ModulosList() {
                 border: "1px solid color-mix(in srgb, var(--c-text-on-dark) 25%, transparent)",
                 textDecoration: "none",
               }}
-            >
-              + Crear módulo
-            </Link>
+            >{t("menuProfesor.crearModulo")}</Link>
           )}
         </header>
 
@@ -277,16 +273,14 @@ export default function ModulosList() {
               padding: "var(--space-6) 0",
             }}>
               <Spinner size="lg" label="Cargando módulos" />
-              <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
-                Cargando módulos...
-              </p>
+              <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("modulosList.cargandoModulos")}</p>
             </div>
           </Card>
         )}
 
         {/* ── Error state ────────────────────────────────────── */}
         {status === "error" && (
-          <Alert variant="danger" title="Error al cargar">
+          <Alert variant="danger" title={t("moduloDetail.errorAlCargar")}>
             {errorMessage ?? "Ocurrió un error inesperado."}
           </Alert>
         )}
@@ -307,16 +301,12 @@ export default function ModulosList() {
                 fontSize: "var(--text-base)",
                 fontWeight: "var(--fw-semibold)",
                 color: "var(--c-text)",
-              }}>
-                No hay módulos disponibles
-              </p>
+              }}>{t("modulosList.noHayModulosDisponibles")}</p>
               <p style={{
                 margin: 0,
                 fontSize: "var(--text-sm)",
                 color: "var(--c-muted)",
-              }}>
-                Comienza creando tu primer módulo para empezar.
-              </p>
+              }}>{t("modulosList.comienzaCreandoTuPrimerModulo")}</p>
               {canCreate && (
                 <Link
                   to="/modulos/crear"
@@ -333,9 +323,7 @@ export default function ModulosList() {
                     background: "var(--c-primary)",
                     textDecoration: "none",
                   }}
-                >
-                  + Crear el primer módulo
-                </Link>
+                >{t("modulosList.crearElPrimerModulo")}</Link>
               )}
             </div>
           </Card>
@@ -350,7 +338,7 @@ export default function ModulosList() {
                 bajas, ver plan). */}
             <div
               role="tablist"
-              aria-label="Filtrar módulos"
+              aria-label={t("modulosList.filtrarModulos")}
               style={{
                 display: "flex",
                 flexWrap: "wrap",
@@ -392,9 +380,7 @@ export default function ModulosList() {
                   textTransform: "uppercase" as const,
                   letterSpacing: "0.05em",
                   color: "var(--c-muted)",
-                }}>
-                  Filtros
-                </p>
+                }}>{t("profesorEvaluaciones.filtros")}</p>
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
                   <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
                     <label
@@ -403,15 +389,13 @@ export default function ModulosList() {
                         fontWeight: "var(--fw-medium)",
                         color: "var(--c-muted)",
                       }}
-                    >
-                      Materia
-                    </label>
+                    >{t("comun.materia")}</label>
                     <Select
                       size="sm"
                       value={selectedSubject}
                       onChange={(event) => setSelectedSubject(event.target.value)}
                     >
-                      <option value="all">Todas</option>
+                      <option value="all">{t("comun.todas")}</option>
                       {subjectOptions.map((subject) => (
                         <option key={subject} value={subject}>{subject}</option>
                       ))}
@@ -424,15 +408,13 @@ export default function ModulosList() {
                         fontWeight: "var(--fw-medium)",
                         color: "var(--c-muted)",
                       }}
-                    >
-                      Categoría
-                    </label>
+                    >{t("modulosList.categoria")}</label>
                     <Select
                       size="sm"
                       value={selectedCategory}
                       onChange={(event) => setSelectedCategory(event.target.value)}
                     >
-                      <option value="all">Todas</option>
+                      <option value="all">{t("comun.todas")}</option>
                       {categoryOptions.map((category) => (
                         <option key={category} value={category}>{category}</option>
                       ))}
@@ -456,15 +438,13 @@ export default function ModulosList() {
                         fontWeight: "var(--fw-medium)",
                         color: "var(--c-muted)",
                       }}
-                    >
-                      Estado
-                    </label>
+                    >{t("comun.estado")}</label>
                     <Select
                       size="sm"
                       value={selectedStatus}
                       onChange={(event) => setSelectedStatus(event.target.value)}
                     >
-                      <option value="all">Todos</option>
+                      <option value="all">{t("profesorEvaluaciones.todos")}</option>
                       {statusOptions.map((item) => (
                         <option key={item} value={item}>{STATUS_LABELS[item] ?? item}</option>
                       ))}
@@ -477,15 +457,13 @@ export default function ModulosList() {
                         fontWeight: "var(--fw-medium)",
                         color: "var(--c-muted)",
                       }}
-                    >
-                      Búsqueda
-                    </label>
+                    >{t("modulosList.busqueda")}</label>
                     <Input
                       type="search"
                       size="sm"
                       value={searchTerm}
                       onChange={(event) => setSearchTerm(event.target.value)}
-                      placeholder="Buscar módulo..."
+                      placeholder={t("modulosList.buscarModulo")}
                     />
                   </div>
                 </div>
@@ -508,16 +486,12 @@ export default function ModulosList() {
                     fontSize: "var(--text-base)",
                     fontWeight: "var(--fw-semibold)",
                     color: "var(--c-text)",
-                  }}>
-                    Sin resultados
-                  </p>
+                  }}>{t("modulosList.sinResultados")}</p>
                   <p style={{
                     margin: 0,
                     fontSize: "var(--text-sm)",
                     color: "var(--c-muted)",
-                  }}>
-                    No encontramos módulos con los filtros seleccionados.
-                  </p>
+                  }}>{t("modulosList.noEncontramosModulosConLos")}</p>
                 </div>
               </Card>
             ) : (
@@ -615,15 +589,11 @@ export default function ModulosList() {
                             flexShrink: 0,
                           }}>
                             <Link to={`/modulos/${module.id}`} style={{ textDecoration: "none" }}>
-                              <Button variant="ghost" size="sm">
-                                Ver
-                              </Button>
+                              <Button variant="ghost" size="sm">{t("modulosList.ver")}</Button>
                             </Link>
                             {canEdit && (
                               <Link to={`/modulos/${module.id}/editar`} style={{ textDecoration: "none" }}>
-                                <Button variant="ghost" size="sm">
-                                  Editar
-                                </Button>
+                                <Button variant="ghost" size="sm">{t("comun.editar")}</Button>
                               </Link>
                             )}
                             {canEdit && (

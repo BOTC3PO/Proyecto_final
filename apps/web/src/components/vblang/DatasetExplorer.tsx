@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import { listDatasets } from "../../domain/vblang/datasetApi";
 import type { DatasetListItem } from "../../domain/vblang/dataset.types";
 
+import { useI18n } from "../../i18n/I18nContext";
 type Estado =
   | { fase: "idle" }
   | { fase: "loading" }
@@ -20,6 +21,7 @@ type Estado =
 export default function DatasetExplorer({
   inline = false,
 }: { inline?: boolean } = {}) {
+  const { t } = useI18n();
   const [abierto, setAbierto] = useState(false);
   // En modo inline el panel está siempre abierto (lo monta el consumidor, ej.
   // dentro de un modal); no hay disparador propio.
@@ -63,20 +65,17 @@ export default function DatasetExplorer({
 
   const panelInner = (
     <>
-      <p className="mb-2 text-xs text-[var(--c-muted,#64748b)]">
-        Usalos con <code className="font-mono">dataset: "&lt;nombre&gt;"</code>.
+      <p className="mb-2 text-xs text-[var(--c-muted,#64748b)]">{t("datasetExplorer.usalosCon")}<code className="font-mono">dataset: "&lt;nombre&gt;"</code>.
       </p>
 
       {estado.fase === "loading" && (
-        <p className="text-xs text-[var(--c-muted,#64748b)]">Cargando…</p>
+        <p className="text-xs text-[var(--c-muted,#64748b)]">{t("comun.cargando")}</p>
       )}
       {estado.fase === "error" && (
         <p className="text-xs text-[var(--c-danger,#dc2626)]">{estado.mensaje}</p>
       )}
       {estado.fase === "ready" && estado.items.length === 0 && (
-        <p className="text-xs text-[var(--c-muted,#64748b)]">
-          No hay datasets disponibles. Creá uno en la sección Datasets.
-        </p>
+        <p className="text-xs text-[var(--c-muted,#64748b)]">{t("datasetExplorer.noHayDatasetsDisponiblesCrea")}</p>
       )}
       {estado.fase === "ready" && estado.items.length > 0 && (
         <ul className="space-y-2">
@@ -108,7 +107,7 @@ export default function DatasetExplorer({
 
   if (inline) {
     return (
-      <div ref={panelRef} role="region" aria-label="Datasets disponibles">
+      <div ref={panelRef} role="region" aria-label={t("plantillaEditorTiza.datasetsDisponibles")}>
         {panelInner}
       </div>
     );
@@ -122,14 +121,12 @@ export default function DatasetExplorer({
         aria-expanded={abierto}
         aria-haspopup="true"
         className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg,#f8fafc)]"
-      >
-        Datasets
-      </button>
+      >{t("nav.datasets")}</button>
 
       {abierto && (
         <div
           role="region"
-          aria-label="Datasets disponibles"
+          aria-label={t("plantillaEditorTiza.datasetsDisponibles")}
           className="absolute right-0 z-20 mt-1 max-h-96 w-80 overflow-y-auto rounded-lg border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-3 shadow-lg"
         >
           {panelInner}

@@ -34,6 +34,7 @@ import {
 import { DUMMY_LOC, exprToText } from "./plantillaAst";
 import { parseExprText } from "./exprParse";
 
+import { useI18n } from "../../i18n/I18nContext";
 const KIND_LABELS: Record<VariableKind, string> = {
   "random-int": "Aleatorio entero",
   "random-float": "Aleatorio decimal",
@@ -65,6 +66,7 @@ export default function VariableCard({
   onRemove,
   onAddAfter,
 }: VariableCardProps) {
+  const { t } = useI18n();
   // El "kind" lo derivamos de la expresión; si el usuario cambia el
   // tipo desde el form, reescribimos la expresión (eso pasa en
   // `setKind`).
@@ -126,9 +128,9 @@ export default function VariableCard({
   const rangeArgs = extractRangeArgs(decl.expr, kind);
   const listItems = extractListItems(decl.expr);
 
-  const t = inferTipoVar(decl.expr);
-  const tipoBadge = t.label;
-  const tipoTone = t.tone;
+  const tipoVar = inferTipoVar(decl.expr);
+  const tipoBadge = tipoVar.label;
+  const tipoTone = tipoVar.tone;
 
   const handleRemove = useCallback(() => {
     onRemove(index);
@@ -189,9 +191,7 @@ export default function VariableCard({
             aria-label={`Eliminar variable ${decl.nombre}`}
             data-testid={`vblang-var-remove-${index}`}
             className="ml-auto rounded border border-red-200 px-2 py-0.5 text-[10px] font-medium text-red-700 hover:bg-red-50"
-          >
-            Eliminar
-          </button>
+          >{t("comun.eliminar")}</button>
         </div>
 
         {/* Body específico del tipo */}
@@ -227,7 +227,7 @@ export default function VariableCard({
           </div>
         ) : kind === "list" ? (
           <div className="mt-1 flex flex-col gap-1 text-xs">
-            <span className="text-[var(--c-muted,#64748b)]">ítems (uno por línea)</span>
+            <span className="text-[var(--c-muted,#64748b)]">{t("variableCard.itemsUnoPorLinea")}</span>
             <textarea
               value={listItems?.join("\n") ?? ""}
               onChange={(e) =>
@@ -273,7 +273,7 @@ export default function VariableCard({
           </div>
         ) : (
           <div className="mt-1 text-xs">
-            <span className="text-[var(--c-muted,#64748b)]">expresión</span>
+            <span className="text-[var(--c-muted,#64748b)]">{t("variableCard.expresion")}</span>
             <input
               type="text"
               value={exprToText(decl.expr)}
@@ -281,7 +281,7 @@ export default function VariableCard({
               aria-label={`Expresión de ${decl.nombre}`}
               data-testid={`vblang-var-expr-${index}`}
               className="ml-1 w-3/4 rounded border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-2 py-0.5 font-mono text-xs"
-              placeholder="a + 1"
+              placeholder={t("variableCard.a1")}
             />
           </div>
         )}
@@ -300,7 +300,7 @@ export default function VariableCard({
       {/* Botón contextual "+Añadir" al costado de la card activa */}
       {isActive && (
         <div className="vb-var-card__addafter" onClick={(e) => e.stopPropagation()}>
-          <span className="text-[10px] text-[var(--c-muted,#64748b)]">Añadir</span>
+          <span className="text-[10px] text-[var(--c-muted,#64748b)]">{t("variableCard.anadir")}</span>
           {(Object.keys(KIND_LABELS) as VariableKind[]).map((k) => (
             <button
               key={k}

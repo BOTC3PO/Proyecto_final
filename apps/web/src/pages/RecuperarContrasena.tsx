@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { ApiError, apiPost } from "../lib/api";
+import { useI18n } from "../i18n/I18nContext";
 
 type RecuperarContrasenaForm = {
   email: string;
@@ -12,6 +13,7 @@ type RecuperarContrasenaStatus = {
 };
 
 export default function RecuperarContrasena() {
+  const { t } = useI18n();
   const [form, setForm] = useState<RecuperarContrasenaForm>({ email: "" });
   const [errors, setErrors] = useState<Partial<RecuperarContrasenaForm>>({});
   const [status, setStatus] = useState<RecuperarContrasenaStatus>({
@@ -66,14 +68,12 @@ export default function RecuperarContrasena() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
         <section className="rounded-2xl bg-white shadow-lg p-8 sm:p-10 space-y-6">
           <header className="space-y-2 text-center">
-            <h1 className="text-2xl font-semibold text-gray-900">Recuperar contraseña</h1>
-            <p className="text-gray-600">Ingresá tu correo y te enviaremos instrucciones para restablecerla.</p>
+            <h1 className="text-2xl font-semibold text-gray-900">{t("recuperarContrasena.recuperarContrasena")}</h1>
+            <p className="text-gray-600">{t("recuperarContrasena.ingresaTuCorreoYTe")}</p>
           </header>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Correo electrónico
-              </label>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">{t("recuperarContrasena.correoElectronico")}</label>
               <input
                 id="email"
                 name="email"
@@ -83,7 +83,7 @@ export default function RecuperarContrasena() {
                 className={`mt-1 w-full rounded-md border px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
                   errors.email ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="tuemail@ejemplo.com"
+                placeholder={t("recuperarContrasena.tuemailEjemploCom")}
               />
               {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
             </div>

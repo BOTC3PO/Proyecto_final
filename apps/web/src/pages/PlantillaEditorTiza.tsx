@@ -111,6 +111,7 @@ import {
   type PreguntaQuiz,
 } from "../domain/quiz/preguntas";
 import PlantillaEditorClasico from "./PlantillaEditor";
+import { useI18n } from "../i18n/I18nContext";
 
 const INITIAL_TEMPLATE = `variables:
   a: random(1, 10)
@@ -370,6 +371,7 @@ export default function PlantillaEditorTiza() {
 }
 
 function PlantillaEditorTizaInner() {
+  const { t } = useI18n();
   const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -939,11 +941,11 @@ function PlantillaEditorTizaInner() {
             message: "Plantilla guardada.",
             actions: [
               {
-                label: "Volver al módulo",
+                label: t("plantillaEditor.volverAlModulo"),
                 primary: true,
                 onClick: () => navigate(returnTo),
               },
-              { label: "Seguir editando", onClick: () => setToastState(null) },
+              { label: t("plantillaEditor.seguirEditando"), onClick: () => setToastState(null) },
             ],
           });
         }
@@ -960,11 +962,11 @@ function PlantillaEditorTizaInner() {
             message: "Cambios guardados.",
             actions: [
               {
-                label: "Volver al módulo",
+                label: t("plantillaEditor.volverAlModulo"),
                 primary: true,
                 onClick: () => navigate(returnTo),
               },
-              { label: "Seguir editando", onClick: () => setToastState(null) },
+              { label: t("plantillaEditor.seguirEditando"), onClick: () => setToastState(null) },
             ],
           });
         }
@@ -1196,18 +1198,14 @@ function PlantillaEditorTizaInner() {
   if (loadStatus === "loading") {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">
-          Cargando plantilla…
-        </p>
+        <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">{t("plantillaEditor.cargandoPlantilla")}</p>
       </main>
     );
   }
   if (loadStatus === "error") {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p role="alert" className="text-sm text-[var(--c-danger)]">
-          No se pudo cargar la plantilla.
-        </p>
+        <p role="alert" className="text-sm text-[var(--c-danger)]">{t("plantillaEditor.noSePudoCargarLa")}</p>
       </main>
     );
   }
@@ -1438,7 +1436,7 @@ function PlantillaEditorTizaInner() {
           >
             ⚙
           </span>
-          <span style={{ fontSize: 13, fontWeight: 600 }}>Configuraciones</span>
+          <span style={{ fontSize: 13, fontWeight: 600 }}>{t("plantillaEditorTiza.configuraciones")}</span>
         </button>
       ) : null}
       {/* Etapa 2 (Tiza — preguntas nativas) — cabecera con `cantidadGlobal`,
@@ -1458,9 +1456,7 @@ function PlantillaEditorTizaInner() {
                 overflow: "hidden",
                 textOverflow: "ellipsis",
               }}
-            >
-              Cantidad de preguntas
-            </span>
+            >{t("plantillaEditorTiza.cantidadDePreguntas")}</span>
             <input
               type="number"
               min={1}
@@ -1585,7 +1581,7 @@ function PlantillaEditorTizaInner() {
               ) : unsaved ? (
                 <span
                   aria-hidden="true"
-                  title="Cambios sin guardar"
+                  title={t("plantillaEditorTiza.cambiosSinGuardar")}
                   style={{
                     width: 7,
                     height: 7,
@@ -1601,7 +1597,7 @@ function PlantillaEditorTizaInner() {
                 type="button"
                 onClick={() => removeQuestion(q.key)}
                 aria-label={`Quitar pregunta ${i + 1}`}
-                title="Quitar pregunta"
+                title={t("plantillaEditorTiza.quitarPregunta")}
                 style={{
                   flex: "0 0 auto",
                   width: 24,
@@ -1639,8 +1635,7 @@ function PlantillaEditorTizaInner() {
           cursor: "pointer",
         }}
       >
-        <span aria-hidden="true">＋</span> Nueva pregunta
-      </button>
+        <span aria-hidden="true">＋</span>{t("plantillaEditorTiza.nuevaPregunta")}</button>
       {/* PLAN-Y bis — importar una plantilla existente del banco como pregunta
           del cuestionario (reemplaza al "Usar plantilla VBLang" de módulo). */}
       <button
@@ -1662,8 +1657,7 @@ function PlantillaEditorTizaInner() {
           cursor: "pointer",
         }}
       >
-        <span aria-hidden="true">🧩</span> Importar plantilla del banco
-      </button>
+        <span aria-hidden="true">🧩</span>{t("plantillaEditorTiza.importarPlantillaDelBanco")}</button>
     </div>
   );
 
@@ -1696,9 +1690,7 @@ function PlantillaEditorTizaInner() {
               color: "var(--c-text-3)",
               padding: "10px 8px 4px",
             }}
-          >
-            Variables
-          </div>
+          >{t("plantillaEditorTiza.variables")}</div>
           {variablesDecl.map((v, i) => (
             <RailNavItem
               key={`${v.nombre}-${i}`}
@@ -1804,9 +1796,7 @@ function PlantillaEditorTizaInner() {
           color: "var(--c-text-3)",
           marginBottom: 5,
         }}
-      >
-        Pools
-      </div>
+      >{t("plantillaEditorTiza.pools")}</div>
       <div
         style={{
           border: "1px solid var(--c-border)",
@@ -1863,7 +1853,7 @@ function PlantillaEditorTizaInner() {
                     cursor: "pointer",
                   }}
                 >
-                  <option value="">sin pool</option>
+                  <option value="">{t("plantillaEditorTiza.sinPool")}</option>
                   {poolNombres.map((p) => (
                     <option key={p} value={p}>
                       {p}
@@ -1877,8 +1867,8 @@ function PlantillaEditorTizaInner() {
         <div style={{ display: "flex", gap: 8 }}>
           <input
             type="text"
-            placeholder="Nombre del pool"
-            aria-label="Nombre del pool"
+            placeholder={t("plantillaEditorTiza.nombreDelPool")}
+            aria-label={t("plantillaEditorTiza.nombreDelPool")}
             value={nuevoPoolNombre}
             onChange={(e) => setNuevoPoolNombre(e.target.value)}
             onKeyDown={(e) => {
@@ -1909,9 +1899,7 @@ function PlantillaEditorTizaInner() {
               padding: "6px 10px",
               cursor: "pointer",
             }}
-          >
-            + Pool
-          </button>
+          >{t("plantillaEditorTiza.pool")}</button>
         </div>
       </div>
     </div>
@@ -1930,7 +1918,7 @@ function PlantillaEditorTizaInner() {
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
         <section
           data-testid="tiza-config-card"
-          aria-label="Configuraciones del cuestionario"
+          aria-label={t("plantillaEditorTiza.configuracionesDelCuestionario")}
           style={{
             border: "1px solid var(--c-accent)",
             borderRadius: "var(--r-lg, 12px)",
@@ -1968,11 +1956,8 @@ function PlantillaEditorTizaInner() {
               ⚙
             </span>
             <div>
-              <div style={{ fontSize: 15, fontWeight: 700 }}>Configuraciones</div>
-              <div style={{ fontSize: 12, color: "var(--c-text-2)" }}>
-                Configuración general del cuestionario: evaluación, presentación,
-                dificultad y pools.
-              </div>
+              <div style={{ fontSize: 15, fontWeight: 700 }}>{t("plantillaEditorTiza.configuraciones")}</div>
+              <div style={{ fontSize: 12, color: "var(--c-text-2)" }}>{t("plantillaEditorTiza.configuracionGeneralDelCuestionarioEvaluacion")}</div>
             </div>
           </header>
           {quizMetaState ? (
@@ -1986,9 +1971,7 @@ function PlantillaEditorTizaInner() {
               pools={poolsSection}
             />
           ) : (
-            <div style={{ fontSize: 12.5, color: "var(--c-text-3)" }}>
-              Cargando configuración…
-            </div>
+            <div style={{ fontSize: 12.5, color: "var(--c-text-3)" }}>{t("plantillaEditorTiza.cargandoConfiguracion")}</div>
           )}
         </section>
       </div>
@@ -2005,9 +1988,7 @@ function PlantillaEditorTizaInner() {
         }}
         disabled={!canUndo}
       >
-        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>↶</span>
-        Deshacer
-      </OverflowItem>
+        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>↶</span>{t("plantillaEditor.deshacer")}</OverflowItem>
       <OverflowItem
         onClick={() => {
           redo();
@@ -2015,9 +1996,7 @@ function PlantillaEditorTizaInner() {
         }}
         disabled={!canRedo}
       >
-        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>↷</span>
-        Rehacer
-      </OverflowItem>
+        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>↷</span>{t("plantillaEditor.rehacer")}</OverflowItem>
       <div
         aria-hidden="true"
         style={{ height: 1, background: "var(--c-border)", margin: "4px 6px" }}
@@ -2028,27 +2007,21 @@ function PlantillaEditorTizaInner() {
           close();
         }}
       >
-        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>↥</span>
-        Importar JSON
-      </OverflowItem>
+        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>↥</span>{t("plantillaEditor.importarJson")}</OverflowItem>
       <OverflowItem
         onClick={() => {
           setReferenciaOpen(true);
           close();
         }}
       >
-        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>≡</span>
-        Referencia VBLang
-      </OverflowItem>
+        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>≡</span>{t("plantillaEditorTiza.referenciaVblang")}</OverflowItem>
       <OverflowItem
         onClick={() => {
           setPromptIAOpen(true);
           close();
         }}
       >
-        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>✦</span>
-        Copiar prompt para IA
-      </OverflowItem>
+        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>✦</span>{t("plantillaEditor.copiarPromptParaIa")}</OverflowItem>
       <div
         aria-hidden="true"
         style={{ height: 1, background: "var(--c-border)", margin: "4px 6px" }}
@@ -2059,18 +2032,14 @@ function PlantillaEditorTizaInner() {
           close();
         }}
       >
-        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>☰</span>
-        Ejemplos
-      </OverflowItem>
+        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>☰</span>{t("plantillaEditorTiza.ejemplos")}</OverflowItem>
       <OverflowItem
         onClick={() => {
           setDatasetsOpen(true);
           close();
         }}
       >
-        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>⊞</span>
-        Datasets
-      </OverflowItem>
+        <span aria-hidden="true" style={{ width: 14, display: "inline-flex", justifyContent: "center" }}>⊞</span>{t("nav.datasets")}</OverflowItem>
     </>
   );
 
@@ -2128,17 +2097,12 @@ function PlantillaEditorTizaInner() {
       className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center text-sm text-[var(--c-muted,#64748b)]"
       data-testid="vblang-form-no-disponible"
     >
-      <p>
-        El código tiene errores. Arreglalos en modo Código para usar el
-        formulario.
-      </p>
+      <p>{t("plantillaEditor.elCodigoTieneErroresArreglalos")}</p>
       <button
         type="button"
         onClick={() => setCodeMode("code")}
         className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
-      >
-        Volver a Código
-      </button>
+      >{t("plantillaEditor.volverACodigo")}</button>
     </div>
   ) : (
     <div
@@ -2156,18 +2120,13 @@ function PlantillaEditorTizaInner() {
           data-testid="vblang-form-retenido-banner"
           className="flex items-start gap-3 border-b border-[var(--c-border)] bg-[var(--c-warning-soft,#fef3c7)] text-[var(--c-text)] px-3 py-2 text-xs"
         >
-          <span className="flex-1">
-            El código tiene errores — estás viendo la última versión válida.
-            Si editás desde el formulario, el código con errores se reemplaza.
-          </span>
+          <span className="flex-1">{t("plantillaEditor.elCodigoTieneErroresEstas")}</span>
           <button
             type="button"
             data-testid="vblang-form-ver-errores"
             onClick={() => setCodeMode("code")}
             className="shrink-0 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1 text-xs font-medium"
-          >
-            Ver errores
-          </button>
+          >{t("plantillaEditor.verErrores")}</button>
         </div>
       )}
       <div
@@ -2216,9 +2175,7 @@ function PlantillaEditorTizaInner() {
                   fontWeight: 700,
                   cursor: "pointer",
                 }}
-              >
-                modo Código
-              </button>
+              >{t("plantillaEditorTiza.modoCodigo")}</button>
               .
             </span>
           </div>
@@ -2252,9 +2209,7 @@ function PlantillaEditorTizaInner() {
         minHeight: 0,
       }}
     >
-      <a href="#vblang-panel" className="skip-link">
-        Saltar al editor
-      </a>
+      <a href="#vblang-panel" className="skip-link">{t("plantillaEditor.saltarAlEditor")}</a>
       <div
         id="vblang-panel"
         tabIndex={-1}
@@ -2349,10 +2304,7 @@ function PlantillaEditorTizaInner() {
                         lineHeight: 1.5,
                         color: "var(--c-text-2)",
                       }}
-                    >
-                      Configuraciones no tiene propiedades de pregunta.
-                      Seleccioná una pregunta del rail para ver sus propiedades.
-                    </p>
+                    >{t("plantillaEditorTiza.configuracionesNoTienePropiedadesDe")}</p>
                   </div>
                 ) : (
                 <div
@@ -2511,7 +2463,7 @@ function PlantillaEditorTizaInner() {
       <Modal
         open={ejemplosOpen}
         onClose={() => setEjemplosOpen(false)}
-        title="Cargar un ejemplo"
+        title={t("plantillaEditorTiza.cargarUnEjemplo")}
         size="md"
       >
         <EjemplosMenu
@@ -2527,7 +2479,7 @@ function PlantillaEditorTizaInner() {
       <Modal
         open={datasetsOpen}
         onClose={() => setDatasetsOpen(false)}
-        title="Datasets disponibles"
+        title={t("plantillaEditorTiza.datasetsDisponibles")}
         size="md"
       >
         <DatasetExplorer inline />

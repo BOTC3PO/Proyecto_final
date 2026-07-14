@@ -4,6 +4,7 @@ import HerramientaPicker from "./HerramientaPicker";
 import VisualizerRenderer from "./VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 
+import { useI18n } from "../../i18n/I18nContext";
 const QUESTION_TYPES: Array<NonNullable<ModuleQuizQuestion["questionType"]>> = [
   "mc",
   "vf",
@@ -40,6 +41,7 @@ function parseVisualContext(
 }
 
 export default function QuizEditorManual({ questions, onChange }: QuizEditorManualProps) {
+  const { t } = useI18n();
   const [herramientaPickerFor, setHerramientaPickerFor] = useState<number | null>(null);
   const [expandedSteps, setExpandedSteps] = useState<Set<string>>(new Set());
 
@@ -87,7 +89,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
   return (
     <div className="space-y-4">
       {questions.length === 0 ? (
-        <p className="text-sm text-gray-500">Aún no agregaste preguntas manuales.</p>
+        <p className="text-sm text-gray-500">{t("quizEditorManual.aunNoAgregastePreguntasManuales")}</p>
       ) : null}
 
       {questions.map((question, index) => {
@@ -124,16 +126,14 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                 type="button"
                 className="text-xs text-red-500 hover:underline"
                 onClick={() => removeQuestion(index)}
-              >
-                Quitar
-              </button>
+              >{t("comun.quitar")}</button>
             </div>
 
             {visualContext ? (
               <div className="rounded-lg border border-blue-200 bg-blue-50 overflow-hidden">
                 <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-blue-200">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold text-blue-700">Herramienta interactiva</span>
+                    <span className="text-xs font-semibold text-blue-700">{t("quizAttempt.herramientaInteractiva")}</span>
                     {visualContext.subject ? (
                       <span className="text-xs text-blue-500">· {visualContext.subject}</span>
                     ) : null}
@@ -145,9 +145,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                     type="button"
                     className="text-xs text-red-500 hover:underline"
                     onClick={() => updateQuestion(index, { visualContext: undefined })}
-                  >
-                    Quitar herramienta
-                  </button>
+                  >{t("quizEditorManual.quitarHerramienta")}</button>
                 </div>
                 <div className="p-3 bg-white">
                   <VisualizerRenderer spec={visualContext.spec} />
@@ -158,23 +156,19 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                 type="button"
                 className="text-xs text-blue-600 hover:underline border border-blue-200 rounded px-2 py-1"
                 onClick={() => setHerramientaPickerFor(index)}
-              >
-                + Agregar herramienta interactiva
-              </button>
+              >{t("quizEditorManual.agregarHerramientaInteractiva")}</button>
             )}
 
             <textarea
               className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
               rows={2}
-              placeholder="Enunciado de la pregunta"
+              placeholder={t("bancoPreguntasEditor.enunciadoDeLaPregunta")}
               value={question.prompt}
               onChange={(event) => updateQuestion(index, { prompt: event.target.value })}
             />
 
             <div className="grid gap-3 md:grid-cols-3">
-              <label className="text-xs font-medium text-gray-600">
-                Tipo
-                <select
+              <label className="text-xs font-medium text-gray-600">{t("comun.tipo")}<select
                   className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
                   value={questionType}
                   onChange={(event) => {
@@ -198,20 +192,16 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                 </select>
               </label>
 
-              <label className="text-xs font-medium text-gray-600">
-                Tema / foco
-                <input
+              <label className="text-xs font-medium text-gray-600">{t("quizEditorManual.temaFoco")}<input
                   className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
-                  placeholder="Ej: derivadas, vocabulario"
+                  placeholder={t("quizEditorManual.ejDerivadasVocabulario")}
                   value={question.focus ?? ""}
                   onChange={(e) => updateQuestion(index, { focus: e.target.value })}
                 />
               </label>
 
               {questionType === "input" ? (
-                <label className="text-xs font-medium text-gray-600">
-                  Respuesta esperada
-                  <input
+                <label className="text-xs font-medium text-gray-600">{t("quizEditorManual.respuestaEsperada")}<input
                     className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
                     value={
                       Array.isArray(question.answerKey)
@@ -219,7 +209,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                         : (question.answerKey ?? "")
                     }
                     onChange={(event) => updateQuestion(index, { answerKey: event.target.value })}
-                    placeholder="Respuesta"
+                    placeholder={t("plantillaEditorTiza.respuesta")}
                   />
                 </label>
               ) : null}
@@ -266,9 +256,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                         type="button"
                         className="text-xs text-red-500 hover:underline"
                         onClick={() => removeOption(index, optionIndex)}
-                      >
-                        Quitar
-                      </button>
+                      >{t("comun.quitar")}</button>
                     ) : null}
                   </div>
                 ))}
@@ -277,9 +265,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                     type="button"
                     className="text-xs text-blue-600 hover:underline"
                     onClick={() => addOption(index)}
-                  >
-                    + Agregar opción
-                  </button>
+                  >{t("quizEditorManual.agregarOpcion")}</button>
                 ) : null}
               </div>
             ) : null}
@@ -287,7 +273,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
             <textarea
               className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
               rows={2}
-              placeholder="Explicación (opcional)"
+              placeholder={t("quizEditorManual.explicacionOpcional")}
               value={question.explanation ?? ""}
               onChange={(event) => updateQuestion(index, { explanation: event.target.value })}
             />
@@ -321,23 +307,17 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
           type="button"
           className="rounded-md border px-3 py-2 text-xs"
           onClick={() => addQuestion("mc")}
-        >
-          + Opción múltiple
-        </button>
+        >{t("quizEditorManual.opcionMultiple")}</button>
         <button
           type="button"
           className="rounded-md border px-3 py-2 text-xs"
           onClick={() => addQuestion("vf")}
-        >
-          + Verdadero/Falso
-        </button>
+        >{t("quizEditorManual.verdaderoFalso")}</button>
         <button
           type="button"
           className="rounded-md border px-3 py-2 text-xs"
           onClick={() => addQuestion("input")}
-        >
-          + Respuesta abierta
-        </button>
+        >{t("quizEditorManual.respuestaAbierta")}</button>
       </div>
 
       {herramientaPickerFor !== null ? (

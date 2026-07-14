@@ -13,6 +13,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useI18n } from "../i18n/I18nContext";
 import {
   crearQuizSuelto,
   listarCuestionarios,
@@ -39,6 +40,7 @@ function tizaHref(quizId: string): string {
 }
 
 function CuestionarioCard({ item }: { item: CuestionarioListItem }) {
+  const { t } = useI18n();
   const updated = new Date(item.updatedAt);
   return (
     <article
@@ -78,7 +80,7 @@ function CuestionarioCard({ item }: { item: CuestionarioListItem }) {
             📦 {item.moduleTitle ?? "Módulo"}
           </Link>
         ) : (
-          <span data-testid="cuestionario-suelto-badge">Suelto (sin módulo)</span>
+          <span data-testid="cuestionario-suelto-badge">{t("cuestionariosIndex.sueltoSinModulo")}</span>
         )}
       </div>
       <footer className="mt-3 flex items-center justify-between text-[10px] text-[var(--c-muted,#64748b)]">
@@ -86,15 +88,14 @@ function CuestionarioCard({ item }: { item: CuestionarioListItem }) {
         <Link
           to={tizaHref(item.id)}
           className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-[10px] font-medium text-white hover:opacity-90"
-        >
-          Abrir en el editor
-        </Link>
+        >{t("cuestionariosIndex.abrirEnElEditor")}</Link>
       </footer>
     </article>
   );
 }
 
 export default function CuestionariosIndex() {
+  const { t } = useI18n();
   const navigate = useNavigate();
   const [items, setItems] = useState<CuestionarioListItem[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -145,13 +146,11 @@ export default function CuestionariosIndex() {
       <div className="mx-auto max-w-6xl space-y-4">
         <header className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h1 className="text-2xl font-bold">Cuestionarios</h1>
+            <h1 className="text-2xl font-bold">{t("nav.cuestionarios")}</h1>
             <p className="mt-0.5 text-xs text-[var(--c-muted,#64748b)]">
               Tus cuestionarios sueltos y los de tus módulos. Las plantillas
               (piezas individuales) viven en{" "}
-              <Link to="/plantillas" className="text-[var(--c-primary,#3b82f6)] hover:underline">
-                Plantillas
-              </Link>
+              <Link to="/plantillas" className="text-[var(--c-primary,#3b82f6)] hover:underline">{t("nav.plantillas")}</Link>
               .
             </p>
           </div>
@@ -169,7 +168,7 @@ export default function CuestionariosIndex() {
         <section className="flex flex-wrap gap-2">
           <input
             type="search"
-            placeholder="Buscar por título, materia o módulo…"
+            placeholder={t("cuestionariosIndex.buscarPorTituloMateriaO")}
             value={q}
             onChange={(e) => setQ(e.target.value)}
             className="flex-1 min-w-[12rem] rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
@@ -177,7 +176,7 @@ export default function CuestionariosIndex() {
         </section>
 
         {status === "loading" && (
-          <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">Cargando…</p>
+          <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">{t("comun.cargando")}</p>
         )}
         {status === "error" && <p className="text-sm text-red-600">{errorMessage}</p>}
         {status === "ready" && visibles.length === 0 && (
@@ -193,9 +192,7 @@ export default function CuestionariosIndex() {
                 onClick={() => void handleNuevo()}
                 disabled={creating}
                 className="mt-3 inline-block text-sm text-[var(--c-primary,#3b82f6)] hover:underline disabled:opacity-60"
-              >
-                Crear el primero →
-              </button>
+              >{t("cuestionariosIndex.crearElPrimero")}</button>
             )}
           </div>
         )}

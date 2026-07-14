@@ -41,6 +41,7 @@ import VarianteEditor, {
 } from "./VarianteEditor";
 import type { RailItem } from "../../editor/PlantillaEditorShell";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface Props {
   quiz: ModuleQuiz;
   /** Persiste el cuestionario editado en `quiz.posiciones`. */
@@ -60,6 +61,7 @@ export default function QuizPosicionesEditor({
   returnTo,
   plantillaIO,
 }: Props) {
+  const { t } = useI18n();
   // Migración lazy: si el quiz no tiene `posiciones`, se deriva de
   // `composition`+`questions`. `migrarCuestionario` es idempotente.
   const cuestionario: CuestionarioPosiciones = useMemo(
@@ -126,7 +128,7 @@ export default function QuizPosicionesEditor({
    */
   const previewQuizzes: ModuleQuiz[] = useMemo(() => [quiz], [quiz]);
   const previewTitle = useMemo(
-    () => (quiz.title.trim() ? quiz.title : "Vista previa del editor"),
+    () => (quiz.title.trim() ? quiz.title : t("quizPosicionesEditor.vistaPreviaDelEditor")),
     [quiz.title],
   );
 
@@ -151,26 +153,17 @@ export default function QuizPosicionesEditor({
 
   return (
     <fieldset className="space-y-3 rounded-lg border border-[var(--c-border)] p-3">
-      <legend className="px-1 text-xs font-semibold text-[var(--c-text)]">
-        Posiciones del cuestionario
-      </legend>
+      <legend className="px-1 text-xs font-semibold text-[var(--c-text)]">{t("posicionesCanvas.posicionesDelCuestionario")}</legend>
 
       {!quiz.posiciones && cuestionario.posiciones.length > 0 && (
-        <p className="text-[11px] text-[var(--c-hint)]" role="status">
-          Cuestionario migrado del modelo anterior. Se guardará en el modelo de
-          posiciones al editarlo.
-        </p>
+        <p className="text-[11px] text-[var(--c-hint)]" role="status">{t("quizPosicionesEditor.cuestionarioMigradoDelModeloAnterior")}</p>
       )}
 
-      <p className="text-[11px] text-[var(--c-hint)]">
-        Cada posición genera exactamente una pregunta por intento (el sorteo
-        elige una variante). La cantidad total de preguntas que ve el alumno es
-        igual al número de posiciones.
-      </p>
+      <p className="text-[11px] text-[var(--c-hint)]">{t("quizPosicionesEditor.cadaPosicionGeneraExactamenteUna")}</p>
 
       {/* Gestión de temas (secciones). */}
       <div className="flex flex-wrap items-center gap-2 text-xs">
-        <span className="font-medium text-[var(--c-text-2,inherit)]">Temas:</span>
+        <span className="font-medium text-[var(--c-text-2,inherit)]">{t("quizPosicionesEditor.temas")}</span>
         {cuestionario.temas.map((t) => (
           <span
             key={t.id}
@@ -180,9 +173,9 @@ export default function QuizPosicionesEditor({
           </span>
         ))}
         <input
-          aria-label="Nombre del nuevo tema"
+          aria-label={t("quizPosicionesEditor.nombreDelNuevoTema")}
           className="rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-0.5 text-xs"
-          placeholder="Nuevo tema…"
+          placeholder={t("quizPosicionesEditor.nuevoTema")}
           value={nuevoTema}
           onChange={(e) => setNuevoTema(e.target.value)}
           onKeyDown={(e) => {
@@ -196,9 +189,7 @@ export default function QuizPosicionesEditor({
           type="button"
           className="rounded border border-[var(--c-border)] px-2 py-0.5 text-xs hover:bg-[var(--c-hover)]"
           onClick={agregarNuevoTema}
-        >
-          + Tema
-        </button>
+        >{t("quizPosicionesEditor.tema")}</button>
       </div>
 
       <PosicionesCanvas

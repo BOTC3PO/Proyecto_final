@@ -2,6 +2,7 @@ import { useId, useState } from "react";
 import { type LineaTiempoConfig } from "./types";
 import { GuardarComoMaterial } from "../../materiales/GuardarComoMaterial";
 
+import { useI18n } from "../../../i18n/I18nContext";
 // ── Alumno (readonly) ────────────────────────────────────────────────
 
 type AlumnoProps = { config: LineaTiempoConfig };
@@ -23,15 +24,14 @@ function isYear(fecha: string): boolean {
 }
 
 function LineaTiempoAlumno({ config }: AlumnoProps) {
+  const { t } = useI18n();
   return (
     <div className="space-y-3">
       {config.titulo && (
         <h3 className="text-base font-semibold text-[var(--c-text)]">{config.titulo}</h3>
       )}
       {config.eventos.length === 0 ? (
-        <p className="text-sm text-[var(--c-muted)] italic py-4 text-center">
-          Esta línea de tiempo todavía no tiene eventos.
-        </p>
+        <p className="text-sm text-[var(--c-muted)] italic py-4 text-center">{t("lineaTiempo.estaLineaDeTiempoTodavia")}</p>
       ) : (
         <div className="relative pl-16">
           {/* Vertical line */}
@@ -121,6 +121,7 @@ const MOVE_BTN_CLS =
   "text-xs text-[var(--c-text-3)] hover:text-[var(--c-text)] px-1 disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm";
 
 function LineaTiempoEditor({ config, onChange, materialId }: EditorProps) {
+  const { t } = useI18n();
   const cfg = config ?? emptyConfig();
   const tituloId = useId();
   const [announce, setAnnounce] = useState("");
@@ -161,12 +162,12 @@ function LineaTiempoEditor({ config, onChange, materialId }: EditorProps) {
     <div className="space-y-4">
       <div role="status" aria-live="polite" className="sr-only">{announce}</div>
       <div>
-        <label htmlFor={tituloId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Título (opcional)</label>
+        <label htmlFor={tituloId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">{t("lineaTiempo.tituloOpcional")}</label>
         <input
           id={tituloId}
           className={`${FIELD_CLS} px-3 py-2`}
           value={cfg.titulo ?? ""}
-          placeholder="Título de la línea de tiempo"
+          placeholder={t("lineaTiempo.tituloDeLaLineaDe")}
           onChange={(e) => update({ titulo: e.target.value })}
         />
       </div>
@@ -180,14 +181,12 @@ function LineaTiempoEditor({ config, onChange, materialId }: EditorProps) {
 
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">Eventos</span>
+          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">{t("comun.eventos")}</span>
           <button
             type="button"
             className="text-xs text-[var(--c-primary)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm px-1"
             onClick={addEvento}
-          >
-            + Agregar
-          </button>
+          >{t("profesorAulaConfiguracion.agregar")}</button>
         </div>
         <div className="space-y-3">
           {cfg.eventos.map((ev, idx) => (
@@ -225,28 +224,28 @@ function LineaTiempoEditor({ config, onChange, materialId }: EditorProps) {
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label htmlFor={`${ev.id}-titulo`} className="block text-xs text-[var(--c-muted)] mb-0.5">Título</label>
+                  <label htmlFor={`${ev.id}-titulo`} className="block text-xs text-[var(--c-muted)] mb-0.5">{t("comun.titulo")}</label>
                   <input
                     id={`${ev.id}-titulo`}
                     className={FIELD_CLS}
                     value={ev.titulo}
-                    placeholder="Ej: Revolución Francesa"
+                    placeholder={t("lineaTiempo.ejRevolucionFrancesa")}
                     onChange={(e) => updateEvento(ev.id, { titulo: e.target.value })}
                   />
                 </div>
                 <div>
-                  <label htmlFor={`${ev.id}-fecha`} className="block text-xs text-[var(--c-muted)] mb-0.5">Fecha</label>
+                  <label htmlFor={`${ev.id}-fecha`} className="block text-xs text-[var(--c-muted)] mb-0.5">{t("enterpriseComisiones.fecha")}</label>
                   <input
                     id={`${ev.id}-fecha`}
                     className={FIELD_CLS}
                     value={ev.fecha}
-                    placeholder="Ej: 1789, Siglo XVIII"
+                    placeholder={t("lineaTiempo.ej1789SigloXviii")}
                     onChange={(e) => updateEvento(ev.id, { fecha: e.target.value })}
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor={`${ev.id}-desc`} className="block text-xs text-[var(--c-muted)] mb-0.5">Descripción (opcional)</label>
+                <label htmlFor={`${ev.id}-desc`} className="block text-xs text-[var(--c-muted)] mb-0.5">{t("comun.descripcionOpcional")}</label>
                 <input
                   id={`${ev.id}-desc`}
                   className={FIELD_CLS}
@@ -255,14 +254,12 @@ function LineaTiempoEditor({ config, onChange, materialId }: EditorProps) {
                 />
               </div>
               <div>
-                <label htmlFor={`${ev.id}-tags`} className="block text-xs text-[var(--c-muted)] mb-0.5">
-                  Tags (separados por coma)
-                </label>
+                <label htmlFor={`${ev.id}-tags`} className="block text-xs text-[var(--c-muted)] mb-0.5">{t("lineaTiempo.tagsSeparadosPorComa")}</label>
                 <input
                   id={`${ev.id}-tags`}
                   className={FIELD_CLS}
                   value={(ev.tags ?? []).join(", ")}
-                  placeholder="Ej: política, guerra"
+                  placeholder={t("lineaTiempo.ejPoliticaGuerra")}
                   onChange={(e) =>
                     updateEvento(ev.id, {
                       tags: e.target.value
@@ -276,9 +273,7 @@ function LineaTiempoEditor({ config, onChange, materialId }: EditorProps) {
             </div>
           ))}
           {cfg.eventos.length === 0 && (
-            <p className="text-xs text-[var(--c-text-3)] italic">
-              Todavía no hay eventos. Usá «+ Agregar» para crear el primero.
-            </p>
+            <p className="text-xs text-[var(--c-text-3)] italic">{t("lineaTiempo.todaviaNoHayEventosUsa")}</p>
           )}
         </div>
       </div>

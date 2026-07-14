@@ -28,6 +28,7 @@ import {
   pickDefaultLang,
 } from "../../services/diccionario";
 
+import { useI18n } from "../../i18n/I18nContext";
 export interface LangSelectorProps {
   /** Valor actual controlado. */
   value: string;
@@ -52,6 +53,7 @@ export default function LangSelector({
   className,
   fetchLanguagesFn = fetchLanguages,
 }: LangSelectorProps) {
+  const { t } = useI18n();
   const selectId = useId();
   const statusId = useId();
 
@@ -91,9 +93,7 @@ export default function LangSelector({
       <span
         className="inline-block text-xs text-[var(--c-text-muted,#64748b)]"
         aria-live="polite"
-      >
-        Cargando idiomas…
-      </span>
+      >{t("langSelector.cargandoIdiomas")}</span>
     );
   }
 
@@ -104,10 +104,7 @@ export default function LangSelector({
         role="status"
         className="inline-block text-xs text-amber-700"
         aria-live="polite"
-      >
-        Diccionario no disponible. El autocompletado y la validación
-        de palabras quedan deshabilitados.
-      </span>
+      >{t("langSelector.diccionarioNoDisponibleElAutocompletado")}</span>
     );
   }
 

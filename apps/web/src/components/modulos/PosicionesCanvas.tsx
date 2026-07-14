@@ -43,6 +43,7 @@ import { Card } from "../ui/Card";
 import Pill, { type PillTone } from "../ui/Pill";
 import Button from "../ui/Button";
 
+import { useI18n } from "../../i18n/I18nContext";
 /** Paleta de acentos por tema (cuando el tema no trae `color` propio). */
 const TEMA_PALETTE = [
   "#2563eb", // azul
@@ -145,6 +146,7 @@ export default function PosicionesCanvas({
   onChangeTipo,
   onChangeTema,
 }: Props) {
+  const { t } = useI18n();
   const { temas, posiciones } = cuestionario;
   const temaIndex = new Map(temas.map((t, i) => [t.id, i]));
   const temaById = new Map(temas.map((t) => [t.id, t]));
@@ -188,18 +190,14 @@ export default function PosicionesCanvas({
   if (posiciones.length === 0) {
     return (
       <div className="space-y-3">
-        <p className="text-sm text-[var(--c-hint)]" role="status">
-          El cuestionario no tiene posiciones todavía.
-        </p>
+        <p className="text-sm text-[var(--c-hint)]" role="status">{t("posicionesCanvas.elCuestionarioNoTienePosiciones")}</p>
         {onAddPosicion && (
           <Button
             variant="ghost"
             size="sm"
             onClick={() => onAddPosicion({ tipo: "fijo" })}
-            aria-label="Añadir la primera posición del cuestionario"
-          >
-            + Añadir posición
-          </Button>
+            aria-label={t("posicionesCanvas.anadirLaPrimeraPosicionDel")}
+          >{t("posicionesCanvas.anadirPosicion")}</Button>
         )}
       </div>
     );
@@ -207,7 +205,7 @@ export default function PosicionesCanvas({
 
   return (
     <div className="space-y-3">
-      <ol className="space-y-2" aria-label="Posiciones del cuestionario">
+      <ol className="space-y-2" aria-label={t("posicionesCanvas.posicionesDelCuestionario")}>
         {posiciones.map((pos, i) => {
           const idxTema = temaIndex.get(pos.temaPrincipal) ?? 0;
           const color = temaColor(temaById.get(pos.temaPrincipal), idxTema);
@@ -254,9 +252,9 @@ export default function PosicionesCanvas({
                         }
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <option value="fijo">Fija</option>
-                        <option value="obligatorio">Pool</option>
-                        <option value="relleno">Relleno</option>
+                        <option value="fijo">{t("posicionesCanvas.fija")}</option>
+                        <option value="obligatorio">{t("posicionesCanvas.pool")}</option>
+                        <option value="relleno">{t("posicionesCanvas.relleno")}</option>
                       </select>
                     ) : (
                       <Pill tone={tipo.tone}>{tipo.label}</Pill>
@@ -376,9 +374,7 @@ export default function PosicionesCanvas({
                               size="sm"
                               className="ml-auto"
                               onClick={() => onEditVariante(pos.numero, v.letra)}
-                            >
-                              Editar
-                            </Button>
+                            >{t("comun.editar")}</Button>
                           )}
                           {onRemoveVariante && (
                             <Button
@@ -386,9 +382,7 @@ export default function PosicionesCanvas({
                               size="sm"
                               aria-label={`Quitar la variante ${v.letra} de la posición ${pos.numero}`}
                               onClick={() => onRemoveVariante(pos.numero, v.letra)}
-                            >
-                              Quitar
-                            </Button>
+                            >{t("comun.quitar")}</Button>
                           )}
                         </div>
                         {renderVarianteEditor && (
@@ -426,10 +420,8 @@ export default function PosicionesCanvas({
             variant="ghost"
             size="sm"
             onClick={() => onAddPosicion({ tipo: "fijo" })}
-            aria-label="Añadir una posición al final del cuestionario"
-          >
-            + Añadir posición
-          </Button>
+            aria-label={t("posicionesCanvas.anadirUnaPosicionAlFinal")}
+          >{t("posicionesCanvas.anadirPosicion")}</Button>
         </div>
       )}
     </div>

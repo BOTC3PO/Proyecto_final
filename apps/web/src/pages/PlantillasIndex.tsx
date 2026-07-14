@@ -13,6 +13,7 @@ import {
   forkPlantilla,
   listPlantillas,
 } from "../domain/vblang/plantillaApi";
+import { useI18n } from "../i18n/I18nContext";
 import type {
   PlantillaListItem,
   PlantillaListParams,
@@ -138,6 +139,7 @@ function PlantillaCard({
 }
 
 export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps) {
+  const { t } = useI18n();
   const navigate = useNavigate();
   const [items, setItems] = useState<PlantillaListItem[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -209,13 +211,11 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
     <main className="min-h-screen bg-[var(--c-bg,#f8fafc)] p-6" data-testid="plantillas-index">
       <div className="mx-auto max-w-6xl space-y-4">
         <header className="flex flex-wrap items-center justify-between gap-3">
-          <h1 className="text-2xl font-bold">Plantillas VBLang</h1>
+          <h1 className="text-2xl font-bold">{t("plantillasIndex.plantillasVblang")}</h1>
           <Link
             to="/plantillas/nueva"
             className="rounded-md bg-[var(--c-primary,#3b82f6)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
-          >
-            + Nueva plantilla
-          </Link>
+          >{t("plantillasIndex.nuevaPlantilla")}</Link>
         </header>
 
         <nav className="flex gap-2 border-b border-[var(--c-border,#e2e8f0)]">
@@ -229,9 +229,7 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
                   : "text-[var(--c-muted,#64748b)]"
               }`
             }
-          >
-            Mis plantillas
-          </NavLink>
+          >{t("plantillasIndex.misPlantillas")}</NavLink>
           <NavLink
             to="/plantillas/biblioteca"
             className={({ isActive }) =>
@@ -241,22 +239,20 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
                   : "text-[var(--c-muted,#64748b)]"
               }`
             }
-          >
-            Biblioteca
-          </NavLink>
+          >{t("plantillasIndex.biblioteca")}</NavLink>
         </nav>
 
         <section className="flex flex-wrap gap-2">
           <input
             type="search"
-            placeholder="Buscar…"
+            placeholder={t("plantillasIndex.buscar")}
             value={q}
             onChange={(e) => setQ(e.target.value)}
             className="flex-1 min-w-[12rem] rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
           />
           <input
             type="text"
-            placeholder="Materia"
+            placeholder={t("comun.materia")}
             value={materia}
             onChange={(e) => setMateria(e.target.value)}
             className="w-40 rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
@@ -270,17 +266,15 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
             }
             className="rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
           >
-            <option value="todas">Todas</option>
-            <option value="privadas">Privadas</option>
-            <option value="escuela">Escuela</option>
-            <option value="publicas">Públicas</option>
+            <option value="todas">{t("comun.todas")}</option>
+            <option value="privadas">{t("plantillasIndex.privadas")}</option>
+            <option value="escuela">{t("sidebar.escuela")}</option>
+            <option value="publicas">{t("plantillasIndex.publicas")}</option>
           </select>
         </section>
 
         {status === "loading" && (
-          <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">
-            Cargando…
-          </p>
+          <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">{t("comun.cargando")}</p>
         )}
         {status === "error" && (
           <p className="text-sm text-red-600">{errorMessage}</p>
@@ -296,9 +290,7 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
               <Link
                 to="/plantillas/nueva"
                 className="mt-3 inline-block text-sm text-[var(--c-primary,#3b82f6)] hover:underline"
-              >
-                Crear la primera plantilla →
-              </Link>
+              >{t("plantillasIndex.crearLaPrimeraPlantilla")}</Link>
             )}
           </div>
         )}

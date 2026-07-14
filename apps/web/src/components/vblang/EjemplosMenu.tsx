@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SPRINT_9B_EXAMPLES } from "../../vblang/examples";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface EjemplosMenuProps {
   onLoad: (codigoDsl: string) => void;
   hasUnsavedChanges: boolean;
@@ -18,6 +19,7 @@ export default function EjemplosMenu({
   hasUnsavedChanges,
   inline = false,
 }: EjemplosMenuProps) {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const [pendiente, setPendiente] = useState<string | null>(null);
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -51,24 +53,18 @@ export default function EjemplosMenu({
   const panelInner =
     pendiente !== null ? (
       <div className="p-2 text-xs space-y-2">
-        <p className="text-[var(--c-text)]">
-          Tenés cambios sin guardar. ¿Reemplazar el código por el ejemplo?
-        </p>
+        <p className="text-[var(--c-text)]">{t("ejemplosMenu.tenesCambiosSinGuardarReemplazar")}</p>
         <div className="flex justify-end gap-2">
           <button
             type="button"
             onClick={() => setPendiente(null)}
             className="rounded border border-[var(--c-border,#e2e8f0)] px-2 py-1"
-          >
-            Cancelar
-          </button>
+          >{t("comun.cancelar")}</button>
           <button
             type="button"
             onClick={confirmar}
             className="rounded bg-[var(--c-primary,#3b82f6)] px-2 py-1 font-semibold text-white"
-          >
-            Reemplazar
-          </button>
+          >{t("ejemplosMenu.reemplazar")}</button>
         </div>
       </div>
     ) : (
@@ -95,7 +91,7 @@ export default function EjemplosMenu({
 
   if (inline) {
     return (
-      <div ref={rootRef} role="menu" aria-label="Plantillas de ejemplo">
+      <div ref={rootRef} role="menu" aria-label={t("ejemplosMenu.plantillasDeEjemplo")}>
         {panelInner}
       </div>
     );
@@ -109,14 +105,12 @@ export default function EjemplosMenu({
         aria-haspopup="menu"
         aria-expanded={open}
         className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg,#f1f5f9)]"
-      >
-        Ejemplos ▾
-      </button>
+      >{t("ejemplosMenu.ejemplos")}</button>
 
       {open && (
         <div
           role="menu"
-          aria-label="Plantillas de ejemplo"
+          aria-label={t("ejemplosMenu.plantillasDeEjemplo")}
           className="absolute right-0 z-50 mt-1 w-72 rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-1 shadow-lg"
         >
           {panelInner}

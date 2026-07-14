@@ -5,6 +5,7 @@ import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import { resolveMateria } from "../domain/module/materia";
+import { useI18n } from "../i18n/I18nContext";
 
 type ProgressItem = {
   moduloId: string;
@@ -30,6 +31,7 @@ type EstadisticaModulo = {
 };
 
 export default function ProfesorEstadisticas() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const [searchParams] = useSearchParams();
   const presetAulaId = searchParams.get("aulaId") ?? "";
@@ -104,13 +106,13 @@ export default function ProfesorEstadisticas() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Estadísticas</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">Progreso de alumnos por módulo en tu aula.</p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorEstadisticas.estadisticas")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorEstadisticas.progresoDeAlumnosPorModulo")}</p>
         </div>
 
         {aulas.length > 1 && (
           <div className="flex items-center gap-3">
-            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Aula</label>
+            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">{t("comun.aula")}</label>
             <select
               value={aulaId}
               onChange={(e) => setAulaId(e.target.value)}
@@ -125,7 +127,7 @@ export default function ProfesorEstadisticas() {
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-4 py-3 border-b border-[var(--c-border)]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Progreso por módulo</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("enterpriseReportes.progresoPorModulo")}</p>
           </div>
           <div className="p-4 space-y-3">
           {loading && (
@@ -137,7 +139,7 @@ export default function ProfesorEstadisticas() {
           )}
           {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
           {!loading && !error && estadisticas.length === 0 && (
-            <p className="text-sm text-[var(--c-muted)]">No hay módulos asignados a esta aula.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("profesorEstadisticas.noHayModulosAsignadosA")}</p>
           )}
           {!loading && !error && estadisticas.map((e) => (
             <article key={e.id}

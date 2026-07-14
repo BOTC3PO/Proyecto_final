@@ -12,6 +12,7 @@ import { EscaladorRecetas } from "./standalone/EscaladorRecetas";
 import { LineaTiempo } from "./standalone/LineaTiempo";
 import MapaStandalone from "./standalone/MapaStandalone";
 
+import { useI18n } from "../../i18n/I18nContext";
 // All supported theory item types (old English + new Spanish + catch-all string)
 export type TheoryItemType = string;
 
@@ -73,6 +74,7 @@ const isExternalUrl = (v: string) => v.startsWith("http://") || v.startsWith("ht
 const isInternalLink = (v: string) => v.startsWith("/");
 
 export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryItemCardProps) {
+  const { t } = useI18n();
   const typeLabel = getTypeLabel(item.type);
   const [presenterOpen, setPresenterOpen] = useState(false);
   // SEC-LIBRO — overlay del lector. Cuando el item es un libro
@@ -94,7 +96,7 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
           </div>
           <div className="flex flex-col items-center gap-2 py-4 text-slate-400">
             <Wrench size={24} className="opacity-40" />
-            <span className="text-sm">Herramienta no configurada</span>
+            <span className="text-sm">{t("theoryItemCard.herramientaNoConfigurada")}</span>
           </div>
         </article>
       );
@@ -163,9 +165,7 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
                 className="flex-shrink-0 flex items-center gap-1.5 rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-indigo-700"
                 onClick={() => setPresenterOpen(true)}
               >
-                <Play size={12} />
-                Presentar
-              </button>
+                <Play size={12} />{t("theoryItemCard.presentar")}</button>
             ) : null}
           </div>
         </article>

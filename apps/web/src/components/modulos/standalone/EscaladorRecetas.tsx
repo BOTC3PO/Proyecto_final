@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import { type RecetaConfig } from "./types";
 
+import { useI18n } from "../../../i18n/I18nContext";
 // ── Alumno (readonly) ────────────────────────────────────────────────
 
 type AlumnoProps = { config: RecetaConfig };
@@ -11,6 +12,7 @@ function formatAmount(value: number): string {
 }
 
 function EscaladorAlumno({ config }: AlumnoProps) {
+  const { t } = useI18n();
   const [multiplier, setMultiplier] = useState(1);
   const [pasosOpen, setPasosOpen] = useState(true);
 
@@ -44,7 +46,7 @@ function EscaladorAlumno({ config }: AlumnoProps) {
           max={20}
           step={0.5}
           value={multiplier}
-          aria-label="Multiplicador de la receta"
+          aria-label={t("escaladorRecetas.multiplicadorDeLaReceta")}
           onChange={(e) => setMultiplier(Number(e.target.value))}
           className="w-full accent-[var(--c-primary)]"
         />
@@ -74,9 +76,7 @@ function EscaladorAlumno({ config }: AlumnoProps) {
       {/* Ingredientes */}
       {config.ingredientes.length > 0 && (
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)] mb-2">
-            Ingredientes
-          </h4>
+          <h4 className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)] mb-2">{t("escaladorRecetas.ingredientes")}</h4>
           <div className="grid grid-cols-2 gap-2">
             {config.ingredientes.map((ing) => {
               const scaled = formatAmount(ing.cantidadBase * multiplier);
@@ -159,6 +159,7 @@ const INPUT_CLS =
   "rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]";
 
 function EscaladorEditor({ config, onChange }: EditorProps) {
+  const { t } = useI18n();
   const cfg = config ?? emptyConfig();
   const tituloId = useId();
   const descId = useId();
@@ -192,27 +193,27 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
     <div className="space-y-4">
       <div className="space-y-2">
         <div>
-          <label htmlFor={tituloId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Título</label>
+          <label htmlFor={tituloId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">{t("comun.titulo")}</label>
           <input
             id={tituloId}
             className={`${INPUT_CLS} w-full`}
             value={cfg.titulo}
-            placeholder="Nombre de la receta"
+            placeholder={t("escaladorRecetas.nombreDeLaReceta")}
             onChange={(e) => update({ titulo: e.target.value })}
           />
         </div>
         <div>
-          <label htmlFor={descId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Descripción (opcional)</label>
+          <label htmlFor={descId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">{t("comun.descripcionOpcional")}</label>
           <input
             id={descId}
             className={`${INPUT_CLS} w-full`}
             value={cfg.descripcion ?? ""}
-            placeholder="Descripción breve"
+            placeholder={t("adminMaterias.descripcionBreve")}
             onChange={(e) => update({ descripcion: e.target.value })}
           />
         </div>
         <div>
-          <label htmlFor={porcionesId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Porciones base</label>
+          <label htmlFor={porcionesId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">{t("theorySlideEditor.porcionesBase")}</label>
           <input
             id={porcionesId}
             type="number"
@@ -226,14 +227,12 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
 
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">Ingredientes</span>
+          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">{t("escaladorRecetas.ingredientes")}</span>
           <button
             type="button"
             className="text-xs text-[var(--c-primary)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm px-1"
             onClick={addIngrediente}
-          >
-            + Agregar
-          </button>
+          >{t("profesorAulaConfiguracion.agregar")}</button>
         </div>
         <div className="space-y-2">
           {cfg.ingredientes.map((ing, idx) => (
@@ -241,7 +240,7 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
               <input
                 className={`${INPUT_CLS} flex-1`}
                 aria-label={`Nombre del ingrediente ${idx + 1}`}
-                placeholder="Nombre"
+                placeholder={t("comun.nombre")}
                 value={ing.nombre}
                 onChange={(e) => updateIngrediente(ing.id, { nombre: e.target.value })}
               />
@@ -251,14 +250,14 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
                 step={0.01}
                 className={`${INPUT_CLS} w-20`}
                 aria-label={`Cantidad del ingrediente ${idx + 1}`}
-                placeholder="Cant."
+                placeholder={t("escaladorRecetas.cant")}
                 value={ing.cantidadBase}
                 onChange={(e) => updateIngrediente(ing.id, { cantidadBase: Number(e.target.value) })}
               />
               <input
                 className={`${INPUT_CLS} w-20`}
                 aria-label={`Unidad del ingrediente ${idx + 1}`}
-                placeholder="Unidad"
+                placeholder={t("theorySlideEditor.unidad")}
                 value={ing.unidad}
                 onChange={(e) => updateIngrediente(ing.id, { unidad: e.target.value })}
               />
@@ -273,23 +272,19 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
             </div>
           ))}
           {cfg.ingredientes.length === 0 && (
-            <p className="text-xs text-[var(--c-text-3)] italic">
-              Todavía no hay ingredientes. Usá «+ Agregar» para sumar el primero.
-            </p>
+            <p className="text-xs text-[var(--c-text-3)] italic">{t("escaladorRecetas.todaviaNoHayIngredientesUsa")}</p>
           )}
         </div>
       </div>
 
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">Pasos</span>
+          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">{t("escaladorRecetas.pasos")}</span>
           <button
             type="button"
             className="text-xs text-[var(--c-primary)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm px-1"
             onClick={addPaso}
-          >
-            + Agregar
-          </button>
+          >{t("profesorAulaConfiguracion.agregar")}</button>
         </div>
         <div className="space-y-2">
           {cfg.pasos.map((paso, i) => (
@@ -300,7 +295,7 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
                 rows={2}
                 aria-label={`Descripción del paso ${i + 1}`}
                 value={paso}
-                placeholder="Descripción del paso"
+                placeholder={t("escaladorRecetas.descripcionDelPaso")}
                 onChange={(e) => updatePaso(i, e.target.value)}
               />
               <button
@@ -314,9 +309,7 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
             </div>
           ))}
           {cfg.pasos.length === 0 && (
-            <p className="text-xs text-[var(--c-text-3)] italic">
-              Todavía no hay pasos. Usá «+ Agregar» para escribir el primero.
-            </p>
+            <p className="text-xs text-[var(--c-text-3)] italic">{t("escaladorRecetas.todaviaNoHayPasosUsa")}</p>
           )}
         </div>
       </div>
