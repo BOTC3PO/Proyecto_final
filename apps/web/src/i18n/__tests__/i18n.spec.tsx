@@ -3,7 +3,6 @@ import { renderHook, act } from "@testing-library/react";
 import { I18nProvider, useI18n } from "../I18nContext";
 import { CATALOGS } from "../index";
 import es from "../es.json";
-import en from "../en.json";
 
 describe("i18n", () => {
   beforeEach(() => {
@@ -42,11 +41,16 @@ describe("i18n", () => {
     expect(localStorage.getItem("vb-lang")).toBe("en");
   });
 
-  it("paridad de claves entre es.json y en.json (informativo: agregar un idioma = copiar y traducir)", () => {
-    const esKeys = Object.keys(es).sort();
-    const enKeys = Object.keys(en).sort();
-    const missingInEn = esKeys.filter((k) => !enKeys.includes(k));
-    const missingInEs = enKeys.filter((k) => !esKeys.includes(k));
-    expect({ missingInEn, missingInEs }).toEqual({ missingInEn: [], missingInEs: [] });
+  it("paridad de claves de TODOS los catálogos contra es.json (agregar un idioma = copiar y traducir)", () => {
+    const esKeys = new Set(Object.keys(es));
+    const report: Record<string, { faltan: string[]; sobran: string[] }> = {};
+    for (const [langId, catalog] of Object.entries(CATALOGS)) {
+      if (langId === "es") continue;
+      const keys = new Set(Object.keys(catalog));
+      const faltan = [...esKeys].filter((k) => !keys.has(k));
+      const sobran = [...keys].filter((k) => !esKeys.has(k));
+      if (faltan.length || sobran.length) report[langId] = { faltan, sobran };
+    }
+    expect(report).toEqual({});
   });
 });
