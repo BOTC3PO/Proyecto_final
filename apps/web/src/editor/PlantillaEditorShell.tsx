@@ -128,7 +128,8 @@ export interface PlantillaEditorShellProps {
 
   /* ── WO-V2c: slots para fusionar el editor standalone (V1) en el shell ──
    * Todos opcionales y aditivos: las consumidoras previas (VarianteEditor,
-   * TizaDemoPage) no pasan ninguno y conservan el comportamiento original. */
+   * y TizaDemoPage, hoy archivada) no pasan ninguno y conservan el
+   * comportamiento original. */
 
   /** Botón "Volver" al inicio de la barra (antes del logo). */
   onBack?: () => void;

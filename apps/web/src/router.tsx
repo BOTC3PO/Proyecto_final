@@ -83,8 +83,6 @@ const EnterpriseDashboard       = lazyWithRetry(() => import("./pages/Enterprise
 const EnterpriseReportes        = lazyWithRetry(() => import("./pages/EnterpriseReportes"));
 const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
 
-// Demo pública del sistema Tiza (WO-V1/V2/V3) — accesible sin auth.
-const TizaDemoPage              = lazyWithRetry(() => import("./pages/TizaDemoPage"));
 const EnterpriseMiembros        = lazyWithRetry(() => import("./pages/EnterpriseMiembros"));
 const EnterpriseModulos         = lazyWithRetry(() => import("./pages/EnterpriseModulos"));
 const EnterpriseComisiones      = lazyWithRetry(() => import("./pages/EnterpriseComisiones"));
@@ -150,10 +148,6 @@ export const router = createBrowserRouter([
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
           { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
-
-          // Demo pública del sistema Tiza (WO-V1/V2/V3) — sin auth.
-          { path: "demo/tiza", element: withSuspense(<TizaDemoPage />) },
-          { path: "demo/tiza-editor", element: <Navigate to="/demo/tiza" replace /> },
 
           // Herramientas Educativas (public) — sólo el editor de mapas; el
           // resto de rutas /herramientas/* se archivó (stubs en blanco).

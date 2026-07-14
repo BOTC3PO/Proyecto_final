@@ -6,7 +6,7 @@
  * undo/redo, guardado con guard anti-duplicado, importar JSON, metadatos,
  * compilación/preview/validación, carga por id, toast, wizard) sobre el chrome
  * limpio del prototipo Tiza (`PlantillaEditorShell`), con la misma disposición
- * que la demo (`/demo/tiza`):
+ * que la demo (archivada en `archive/web/pages/TizaDemoPage.tsx`):
  *
  *   • Top bar mínimo: Volver · breadcrumb · acento · tema · toggle
  *     Form/Ambos/Código · Vista del alumno · Guardar. Los secundarios
