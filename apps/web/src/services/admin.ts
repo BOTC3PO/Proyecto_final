@@ -129,7 +129,7 @@ export type MensajeReportado = {
 
 export type PromoteResult =
   | { ok: true; role: string }
-  | { ok: false; requiresGovernance: true; error: string };
+  | { ok: false; error: string };
 
 export async function fetchAdminUsuarios(params?: { q?: string; role?: string; limit?: number }): Promise<AdminUsuario[]> {
   const qs = new URLSearchParams();
@@ -172,7 +172,7 @@ export async function promoteUsuario(userId: string, role: string): Promise<Prom
   } catch (err: unknown) {
     const e = err as { status?: number; message?: string };
     if (e?.status === 403) {
-      return { ok: false, requiresGovernance: true, error: e?.message ?? "Requiere gobernanza" };
+      return { ok: false, error: e?.message ?? "Solo el administrador principal puede promover directamente." };
     }
     throw err;
   }

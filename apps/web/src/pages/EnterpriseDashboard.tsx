@@ -138,7 +138,6 @@ export default function EnterpriseDashboard() {
             { label: 'Módulos',    to: '/enterprise/modulos',   icon: '🎓' },
             { label: 'Reportes',   to: '/enterprise/reportes',  icon: '📊' },
             { label: 'Calendario', to: '/enterprise/calendario',icon: '📅' },
-            { label: 'Gobernanza', to: '/gobernanza',           icon: '⚖️' },
             { label: 'Mensajes',   to: '/mensajes',             icon: '💬' },
           ].map(({ label, to, icon }) => (
             <Link
@@ -213,22 +212,6 @@ export default function EnterpriseDashboard() {
             </div>
           </form>
         </div>
-      </div>
-
-      {/* Gobernanza CTA */}
-      <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-5 py-4 flex items-center justify-between gap-4">
-        <div>
-          <p className="text-sm font-semibold text-[var(--c-text)]">Gobernanza colaborativa</p>
-          <p className="text-xs text-[var(--c-muted)] mt-0.5">
-            Participá en propuestas de cambio para módulos y generadores de ejercicios.
-          </p>
-        </div>
-        <Link
-          to="/gobernanza"
-          className="flex-shrink-0 rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
-        >
-          Ir a gobernanza →
-        </Link>
       </div>
 
     </div>

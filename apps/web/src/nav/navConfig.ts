@@ -72,7 +72,6 @@ export const NAV_BY_ROLE: NavMap = {
     { id: 'comisiones',       label: 'comisiones',       to: '/enterprise/comisiones', exact: true },
     { id: 'personalizacion',  label: 'personalizacion',  to: '/enterprise/personalizacion', exact: true },
     { id: 'calendario',       label: 'calendario',       to: '/enterprise/calendario', exact: true },
-    { id: 'gobernanza',       label: 'gobernanza',       to: '/gobernanza',           exact: true },
     { id: 'mensajes',         label: 'mensajes',         to: '/mensajes',             exact: true },
   ],
   GUEST: [

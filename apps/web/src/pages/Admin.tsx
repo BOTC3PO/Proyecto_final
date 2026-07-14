@@ -34,11 +34,6 @@ const adminSections = [
     to: '/admin/reportes',
     desc: 'Estadísticas globales de la plataforma: usuarios, módulos y moderación.',
   },
-  {
-    label: 'Gobernanza',
-    to: '/gobernanza',
-    desc: 'Propuestas de cambio y votaciones colaborativas entre administradores.',
-  },
 ];
 
 export default function Admin() {

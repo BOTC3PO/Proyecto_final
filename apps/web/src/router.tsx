@@ -94,9 +94,6 @@ const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfes
 const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
 const Terminos                  = lazyWithRetry(() => import("./pages/Terminos"));
 const Privacidad                = lazyWithRetry(() => import("./pages/Privacidad"));
-const Gobernanza                = lazyWithRetry(() => import("./pages/Gobernanza"));
-const GobernanzaPropuesta       = lazyWithRetry(() => import("./pages/GobernanzaPropuesta"));
-const GobernanzaNuevaPropuesta  = lazyWithRetry(() => import("./pages/GobernanzaNuevaPropuesta"));
 const Mensajeria                = lazyWithRetry(() => import("./pages/Mensajeria"));
 const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPublico"));
 const Economia                  = lazyWithRetry(() => import("./pages/Economia"));
@@ -460,30 +457,6 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['DIRECTIVO', 'ADMIN']}>
                 {withSuspense(<ProfesorCalendario />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'gobernanza',
-            element: (
-              <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
-                {withSuspense(<Gobernanza />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'gobernanza/propuestas/nueva',
-            element: (
-              <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
-                {withSuspense(<GobernanzaNuevaPropuesta />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'gobernanza/propuestas/:id',
-            element: (
-              <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
-                {withSuspense(<GobernanzaPropuesta />)}
               </ProtectedRoute>
             ),
           },

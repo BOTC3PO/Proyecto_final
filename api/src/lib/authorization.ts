@@ -77,21 +77,6 @@ export const canReadAsLearner = (input?: string | null | RoleUser) => {
   });
 };
 
-export const canProposeGovernanceChange = (input?: string | null | RoleUser) =>
-  isStaffRole(input);
-
-export const canVoteContent = (input?: string | null | RoleUser) => {
-  const ru = toRoleUser(input);
-  if (hasRole(ru, "ADMIN")) return true;
-  const roles = resolveRoles(ru);
-  return roles.some((r) => {
-    const membership = getCanonicalMembershipRole(r);
-    return membership === "DIRECTIVO" || membership === "TEACHER" || membership === "STUDENT";
-  });
-};
-
-export const canVoteGovernance = (input?: string | null | RoleUser) => staffFromInput(input);
-
 type ClassroomMember = { userId?: string; roleInClass?: string };
 type AuthorizationUser = RoleUser & {
   _id?: { toString?: () => string } | string;

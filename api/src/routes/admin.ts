@@ -95,8 +95,7 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
     const isBootstrap = actorDoc && (actorDoc as Record<string, unknown>).createdBy === undefined;
     if (!isBootstrap) {
       return res.status(403).json({
-        error: "Solo el administrador principal puede promover directamente. Usa gobernanza.",
-        requiresGovernance: true
+        error: "Solo el administrador principal puede cambiar roles."
       });
     }
     const targetId = String(req.params.id);
@@ -140,9 +139,9 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
 
 // PLAN-C §2 (ítem 27) — reasignar/corregir la escuela de un usuario, sin
 // tocar su rol. A diferencia de PATCH .../rol (arriba), esto NO está
-// gateado por gobernanza: es reorganización administrativa (a qué escuela
-// pertenece), no una escalada de privilegios. `escuelaId: null` deja al
-// usuario explícitamente sin escuela (admin de plataforma).
+// restringido al admin principal: es reorganización administrativa (a qué
+// escuela pertenece), no una escalada de privilegios. `escuelaId: null`
+// deja al usuario explícitamente sin escuela (admin de plataforma).
 adminRouter.patch("/api/admin/usuarios/:id/escuela", requireAdmin, async (req, res) => {
   try {
     const targetId = String(req.params.id);

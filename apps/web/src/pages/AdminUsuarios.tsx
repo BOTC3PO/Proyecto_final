@@ -18,7 +18,7 @@ type ModulosMap = Record<string, AdminModulosCompletados>;
 type ModerarModal =
   | { type: "ban"; usuario: AdminUsuario }
   | { type: "warn"; usuario: AdminUsuario }
-  | { type: "promote"; usuario: AdminUsuario; requiresGovernance?: boolean }
+  | { type: "promote"; usuario: AdminUsuario }
   | { type: "escuela"; usuario: AdminUsuario }
   | null;
 
@@ -90,8 +90,8 @@ export default function AdminUsuarios() {
         setActionMsg(`${modal.usuario.nombre} promovido a ADMIN correctamente.`);
         setModal(null);
         loadUsuarios(q);
-      } else if (result.requiresGovernance) {
-        setModal({ ...modal, requiresGovernance: true });
+      } else {
+        setActionMsg(result.error);
       }
     } catch (e: unknown) {
       setActionMsg(`Error: ${(e as Error).message}`);
@@ -290,53 +290,28 @@ export default function AdminUsuarios() {
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
             <div className="w-full max-w-md rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
               <h3 className="text-lg font-semibold text-[var(--c-text)]">Promover a Administrador</h3>
-              {modal.requiresGovernance ? (
-                <>
-                  <p className="mt-3 text-sm text-[var(--c-muted)]">
-                    Solo el administrador principal puede promover directamente. Crea una propuesta de gobernanza para que sea votada.
-                  </p>
-                  <div className="mt-5 flex gap-3">
-                    <Link
-                      to="/gobernanza"
-                      className="flex-1 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-center text-sm font-semibold text-white hover:opacity-90 transition-colors"
-                      onClick={() => setModal(null)}
-                    >
-                      Ir a Gobernanza
-                    </Link>
-                    <button
-                      onClick={() => setModal(null)}
-                      className="flex-1 rounded-xl border border-[var(--c-border)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                    >
-                      Cancelar
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <p className="mt-3 text-sm text-[var(--c-muted)]">
-                    ¿Estás seguro de que quieres promover a <strong>{modal.usuario.nombre}</strong> al rol de Administrador?
-                  </p>
-                  <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-700">
-                    Esta acción le dará acceso completo a todas las funciones de administración.
-                  </p>
-                  {actionMsg && <p className="mt-2 text-sm text-[var(--c-danger)]">{actionMsg}</p>}
-                  <div className="mt-5 flex gap-3">
-                    <button
-                      onClick={handlePromote}
-                      disabled={submitting}
-                      className="flex-1 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
-                    >
-                      {submitting ? "Procesando…" : "Confirmar promoción"}
-                    </button>
-                    <button
-                      onClick={() => { setModal(null); setActionMsg(null); }}
-                      className="flex-1 rounded-xl border border-[var(--c-border)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                    >
-                      Cancelar
-                    </button>
-                  </div>
-                </>
-              )}
+              <p className="mt-3 text-sm text-[var(--c-muted)]">
+                ¿Estás seguro de que quieres promover a <strong>{modal.usuario.nombre}</strong> al rol de Administrador?
+              </p>
+              <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-700">
+                Esta acción le dará acceso completo a todas las funciones de administración.
+              </p>
+              {actionMsg && <p className="mt-2 text-sm text-[var(--c-danger)]">{actionMsg}</p>}
+              <div className="mt-5 flex gap-3">
+                <button
+                  onClick={handlePromote}
+                  disabled={submitting}
+                  className="flex-1 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
+                >
+                  {submitting ? "Procesando…" : "Confirmar promoción"}
+                </button>
+                <button
+                  onClick={() => { setModal(null); setActionMsg(null); }}
+                  className="flex-1 rounded-xl border border-[var(--c-border)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                >
+                  Cancelar
+                </button>
+              </div>
             </div>
           </div>
         )}

@@ -55,14 +55,6 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
     process.env.BILLING_DELINQUENCY_JOB_INTERVAL_MINUTES ?? 60
   ),
   BILLING_DELINQUENCY_JOB_ENABLED: parseBool(process.env.BILLING_DELINQUENCY_JOB_ENABLED, true),
-  GOV_CONTENT_MIN_YES: Number(process.env.GOV_CONTENT_MIN_YES ?? 1),
-  GOV_CONTENT_YES_GT_NO: parseBool(process.env.GOV_CONTENT_YES_GT_NO, true),
-  GOV_GOVERNANCE_RULE: (process.env.GOV_GOVERNANCE_RULE ?? "SUPERMAJORITY_2_3").toUpperCase(),
-  // PLAN-C §7 (gap #1 de docs/gobernanza-diseno.md): mínimo de votos
-  // emitidos (approve+reject+abstain) para que una propuesta pueda
-  // aprobarse, además de la mayoría/regla de nivel. 0 = sin quórum
-  // mínimo (comportamiento previo, default).
-  GOV_MIN_QUORUM: Number(process.env.GOV_MIN_QUORUM ?? 0),
   ENABLE_SEED_ENDPOINT: parseBool(process.env.ENABLE_SEED_ENDPOINT, false),
   AUTH_RATE_LIMIT_DISABLED: parseBool(process.env.AUTH_RATE_LIMIT_DISABLED, false),
   // MercadoPago

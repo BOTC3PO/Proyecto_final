@@ -29,11 +29,11 @@ const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
     { label: 'academico', items: ['panel', 'aulas', 'materiales', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'evaluaciones'] },
     { label: 'gestion',   items: ['asistencia', 'calificaciones', 'reportes', 'encuestas'] },
-    { label: 'escuela',   items: ['calendario', 'mensajes', 'gobernanza'] },
+    { label: 'escuela',   items: ['calendario', 'mensajes'] },
   ],
   DIRECTIVO: [
     { label: 'escuela',        items: ['panelEscuela', 'aulas', 'miembros', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'personalizacion'] },
-    { label: 'administracion', items: ['cobros', 'comisiones', 'reportes', 'calendario', 'gobernanza', 'mensajes'] },
+    { label: 'administracion', items: ['cobros', 'comisiones', 'reportes', 'calendario', 'mensajes'] },
   ],
   ADMIN: [
     { label: 'sistema',  items: ['panel', 'usuarios', 'materias', 'modulos', 'cuestionarios', 'plantillas', 'datasets'] },

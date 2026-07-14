@@ -976,31 +976,6 @@ model ProgresoModuloVinculo {
   @@map("vinculos_padre_hijo")
 }
 
-model Proposal {
-  id           String @id
-  targetType   String @map("target_type")
-  targetId     String @map("target_id")
-  proposalType String @map("proposal_type")
-  payload      String
-  level        String
-  createdBy    String @map("created_by")
-  createdAt    String @map("created_at")
-  status       String
-  rationale    String?
-  votes        Vote[]
-  @@map("proposals")
-}
-
-model Vote {
-  id         String   @id
-  proposalId String   @map("proposal_id")
-  voterId    String   @map("voter_id")
-  value      String
-  createdAt  String   @map("created_at")
-  proposal   Proposal @relation(fields: [proposalId], references: [id])
-  @@map("votes")
-}
-
 model Prompt {
   id           String @id
   targetType   String @map("target_type")
