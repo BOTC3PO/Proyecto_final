@@ -386,12 +386,13 @@ export default function Aula() {
     return "Docente asignado";
   }, [classroom?.teacherName, isTeacherOfClass, user?.name]);
 
+  // FIX-CLASSCODE-ENTERPRISE — nunca mostrar el id (aula-<uuid>) como
+  // código: no entra en el input de unirse y no matchea en el back. Las
+  // aulas sin código lo reciben por backfill al leer el detail.
   const classCode = useMemo(() => {
     if (!isClassroomActive) return "No disponible";
-    if (classroom?.classCode) return classroom.classCode;
-    if (classroom?.id) return classroom.id;
-    return "Sin código";
-  }, [classroom?.classCode, classroom?.id, isClassroomActive]);
+    return classroom?.classCode || "Sin código";
+  }, [classroom?.classCode, isClassroomActive]);
 
   const activeSurveysCount = useMemo(() => {
     const now = new Date();

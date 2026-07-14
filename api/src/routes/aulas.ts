@@ -38,7 +38,7 @@ const generateClassCode = (): string => {
   return out;
 };
 
-const ensureUniqueClassCode = async (maxAttempts = 6): Promise<string> => {
+export const ensureUniqueClassCode = async (maxAttempts = 6): Promise<string> => {
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
     const candidate = generateClassCode();
     const taken = await prisma.clase.findFirst({ where: { code: candidate } });
@@ -353,6 +353,24 @@ aulas.get(
       classroom.members,
       requesterId ?? null
     );
+    // FIX-CLASSCODE-ENTERPRISE — backfill perezoso: aulas creadas por rutas
+    // que no generaban código (enterprise) quedaron con code/classCode null
+    // y la UI mostraba el id largo como "código". La primera lectura del
+    // detail les asigna uno real.
+    if (
+      !classroom.classCode &&
+      !classroom.code &&
+      !classroom.isDeleted &&
+      isClassroomActiveStatus(normalizeClassroomStatus(classroom.status as string | undefined))
+    ) {
+      const nuevoCodigo = await ensureUniqueClassCode();
+      await prisma.clase.update({
+        where: { id: classroom.id as string },
+        data: { code: nuevoCodigo, classCode: nuevoCodigo }
+      });
+      classroom.code = nuevoCodigo;
+      classroom.classCode = nuevoCodigo;
+    }
     // FIX-TEST4-X05B-NOMBRES — resolver IDs de docentes a nombres
     // humanos en el detail también.
     const nameMap = await resolveUserNames([

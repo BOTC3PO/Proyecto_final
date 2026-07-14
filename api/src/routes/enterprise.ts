@@ -13,6 +13,7 @@ import {
   isClassroomActiveStatus,
   normalizeClassroomStatus
 } from "../schema/aula";
+import { ensureUniqueClassCode } from "./aulas";
 
 export const enterprise = Router();
 
@@ -263,8 +264,20 @@ enterprise.post(
       res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
       return;
     }
-    const result = await prisma.clase.create({ data: parsed as any });
-    res.status(201).json({ id: result.id, classroomId: parsed.id });
+    // FIX-CLASSCODE-ENTERPRISE — este create no generaba código de clase
+    // (a diferencia de POST /api/aulas), dejando `code`/`classCode` en null;
+    // la UI caía a mostrar el id largo (aula-<uuid>), que no sirve para
+    // unirse. Mismo generador que aulas.ts; sólo para aulas ACTIVE.
+    const finalClassCode =
+      parsed.classCode ??
+      (isClassroomActiveStatus(normalizedStatus) ? await ensureUniqueClassCode() : undefined);
+    const result = await prisma.clase.create({
+      data: {
+        ...parsed,
+        ...(finalClassCode ? { code: finalClassCode, classCode: finalClassCode } : {})
+      } as any
+    });
+    res.status(201).json({ id: result.id, classroomId: parsed.id, classCode: finalClassCode ?? null });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
