@@ -59,8 +59,8 @@ export default function ContinuarCard({ modules }: ContinuarCardProps) {
       </div>
       <p className="mt-1 text-xs text-[var(--c-muted)]">
         {target.progressPercent === 0
-          ? "Sin iniciar"
-          : `${target.progressPercent}% completado`}
+          ? t("continuarCard.sinIniciar")
+          : `${target.progressPercent}% ${t("continuarCard.completadoSufijo")}`}
       </p>
       <Link
         to={`/modulos/${target.id}`}

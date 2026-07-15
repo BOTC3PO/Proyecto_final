@@ -29,10 +29,10 @@ type QuizEditorGeneratedProps = {
   showPreview?: boolean;
 };
 
-const DIFICULTAD_OPTS: Array<{ value: Dificultad; label: string }> = [
-  { value: "basico", label: "Básico" },
-  { value: "intermedio", label: "Intermedio" },
-  { value: "avanzado", label: "Avanzado" },
+const DIFICULTAD_OPTS: Array<{ value: Dificultad; labelKey: string }> = [
+  { value: "basico", labelKey: "comun.basico" },
+  { value: "intermedio", labelKey: "comun.intermedio" },
+  { value: "avanzado", labelKey: "comun.avanzado" },
 ];
 
 export default function QuizEditorGenerated({
@@ -363,7 +363,7 @@ export default function QuizEditorGenerated({
                       setEnunciadoTemplates(next);
                     }}
                     className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-xs focus:border-blue-400 focus:outline-none"
-                    placeholder="Ej: Calculá la {operacion|suma} de los siguientes numeros…"
+                    placeholder={t("quizEditorGenerated.ejCalculaLaOperacionsuma")}
                   />
                   <button
                     type="button"
@@ -401,7 +401,7 @@ export default function QuizEditorGenerated({
                   : "bg-gray-50 border-gray-300 text-gray-700 hover:bg-blue-50 hover:border-blue-400"
               }`}
             >
-              {opt.label}
+              {t(opt.labelKey)}
             </button>
           ))}
         </div>

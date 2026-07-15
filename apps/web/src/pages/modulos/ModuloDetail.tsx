@@ -16,6 +16,7 @@ import LangSelector from "../../components/vblang/LangSelector";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import type { Ejercicio, GeneratorDescriptor, Dificultad } from "../../generadoresV2/core/types";
 import { getDescriptoresBasic } from "../../generadoresV2/basic/banco";
+import { useI18n } from "../../i18n/I18nContext";
 
 // F6-07: synthetic module para resolver `basic/<bank_id>` en runtime.
 // Ver `archive/web/pages/EditorCuestionarios.tsx` para el rationale.
@@ -153,6 +154,7 @@ type QuizAttemptSummary = {
 };
 
 export default function ModuloDetail() {
+  const { t } = useI18n();
   const { id } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -215,7 +217,7 @@ export default function ModuloDetail() {
     const segmentos = extractTtsSegments(module ?? {});
 
     if (segmentos.length === 0) {
-      alert("No hay texto para leer en este módulo.");
+      alert(t("moduloDetail.noHayTextoParaLeer"));
       return;
     }
 
@@ -349,7 +351,7 @@ export default function ModuloDetail() {
         ...prev,
         [quizId]: {
           status: "error",
-          message: "Necesitás iniciar sesión para comenzar el quiz."
+          message: t("moduloDetail.necesitasIniciarSesionParaComenzar")
         }
       }));
       return;
@@ -374,7 +376,7 @@ export default function ModuloDetail() {
         ...prev,
         [quizId]: {
           status: "error",
-          message: error instanceof Error ? error.message : "No se pudo iniciar el quiz."
+          message: error instanceof Error ? error.message : t("moduloDetail.noSePudoIniciarEl")
         }
       }));
     }
@@ -395,7 +397,7 @@ export default function ModuloDetail() {
     if (!quiz.generatorId || !quiz.count) {
       setPreviewQuestions((prev) => ({
         ...prev,
-        [quiz.id]: [{ id: "empty", label: "Sin preguntas ni generador configurado." }],
+        [quiz.id]: [{ id: "empty", label: t("moduloDetail.sinPreguntasNiGeneradorConfigurado") }],
       }));
       return;
     }
@@ -426,7 +428,7 @@ export default function ModuloDetail() {
       if (!descriptor) {
         setPreviewQuestions((prev) => ({
           ...prev,
-          [quiz.id]: [{ id: "no-desc", label: "Generador no disponible en el cliente." }],
+          [quiz.id]: [{ id: "no-desc", label: t("moduloDetail.generadorNoDisponibleEnEl") }],
         }));
         return;
       }
@@ -453,7 +455,7 @@ export default function ModuloDetail() {
     } catch {
       setPreviewQuestions((prev) => ({
         ...prev,
-        [quiz.id]: [{ id: "err", label: "No se pudo generar la vista previa." }],
+        [quiz.id]: [{ id: "err", label: t("moduloDetail.noSePudoGenerarLa") }],
       }));
     }
   };
@@ -474,7 +476,7 @@ export default function ModuloDetail() {
         setModule(null);
         setStatus("error");
         setErrorMessage(
-          error instanceof Error ? error.message : "No se pudo cargar el módulo."
+          error instanceof Error ? error.message : t("moduloDetail.noSePudoCargarEl")
         );
       });
     return () => {
@@ -539,7 +541,7 @@ export default function ModuloDetail() {
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
-            <span className="text-sm font-medium text-slate-600">Cargando módulo...</span>
+            <span className="text-sm font-medium text-slate-600">{t("moduloDetail.cargandoModulo")}</span>
           </div>
         </div>
       </main>
@@ -574,7 +576,7 @@ export default function ModuloDetail() {
             <svg className="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m6.75 12H9.75m3 0V18m-3-5.625h.008v.008H9.75v-.008ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
             </svg>
-            <span className="text-sm text-slate-600">No se encontró información del módulo.</span>
+            <span className="text-sm text-slate-600">{t("moduloDetail.noSeEncontroInformacionDel")}</span>
           </div>
         </div>
       </main>
@@ -609,39 +611,39 @@ export default function ModuloDetail() {
                 <button
                   type="button"
                   onClick={leerModulo}
-                  title="Leer módulo en voz alta"
+                  title={t("moduloDetail.leerModuloEnVozAlta")}
                   className="rounded-xl px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-2 bg-blue-100 text-blue-700 hover:bg-blue-200"
                 >
-                  🔊 Leer en voz alta
+                  {t("moduloDetail.leerEnVozAlta")}
                 </button>
               ) : (
                 <div
                   role="group"
-                  aria-label="Controles de lectura en voz alta"
+                  aria-label={t("moduloDetail.controlesDeLecturaEnVoz")}
                   className="flex items-center gap-1.5 rounded-xl bg-white/90 px-2 py-1.5 shadow-sm"
                 >
                   <button
                     type="button"
                     onClick={pausarReanudarTTS}
-                    aria-label={ttsEstado === "leyendo" ? "Pausar lectura" : "Reanudar lectura"}
+                    aria-label={ttsEstado === "leyendo" ? t("moduloDetail.pausarLectura") : t("moduloDetail.reanudarLectura")}
                     className="rounded-lg px-3 py-1 text-sm font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 transition-colors"
                   >
-                    {ttsEstado === "leyendo" ? "⏸ Pausar" : "▶ Reanudar"}
+                    {ttsEstado === "leyendo" ? t("moduloDetail.pausar") : t("moduloDetail.reanudar")}
                   </button>
                   <button
                     type="button"
                     onClick={detenerTTS}
-                    aria-label="Detener lectura"
+                    aria-label={t("moduloDetail.detenerLectura")}
                     className="rounded-lg px-3 py-1 text-sm font-semibold bg-red-100 text-red-700 hover:bg-red-200 transition-colors"
                   >
-                    ⏹ Detener
+                    {t("moduloDetail.detener")}
                   </button>
                   <label className="flex items-center gap-1 text-xs font-medium text-slate-600">
-                    <span className="sr-only">Velocidad de lectura</span>
+                    <span className="sr-only">{t("moduloDetail.velocidadDeLectura")}</span>
                     <select
                       value={ttsRate}
                       onChange={(e) => cambiarVelocidadTTS(Number(e.target.value))}
-                      title="Velocidad de lectura (aplica desde el próximo párrafo)"
+                      title={t("moduloDetail.velocidadDeLecturaAplicaDesde")}
                       className="rounded-lg border border-slate-200 bg-white px-1.5 py-1 text-xs"
                     >
                       <option value={0.75}>0.75×</option>
@@ -722,7 +724,7 @@ export default function ModuloDetail() {
               </svg>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Duración</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">{t("moduloDetail.duracion")}</p>
               <p className="mt-0.5 text-sm font-medium text-slate-800">{module.durationMinutes} minutos</p>
             </div>
           </div>
@@ -759,7 +761,7 @@ export default function ModuloDetail() {
               </svg>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Última actualización</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">{t("moduloDetail.ultimaActualizacion")}</p>
               <p className="mt-0.5 text-sm font-medium text-slate-800">
                 {module.updatedAt
                   ? new Date(module.updatedAt).toLocaleDateString()
@@ -775,7 +777,7 @@ export default function ModuloDetail() {
         {/* Theory Section */}
         <section className="space-y-4">
           <div className="flex items-center gap-3">
-            <h2 className="text-lg font-bold text-slate-900">Teoría</h2>
+            <h2 className="text-lg font-bold text-slate-900">{t("moduloDetail.teoria")}</h2>
             <span className="inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-indigo-100 px-2 text-xs font-bold text-indigo-700">
               {theoryItems.length}
             </span>
@@ -788,7 +790,7 @@ export default function ModuloDetail() {
                 </svg>
               </div>
               <p className="text-sm font-medium text-slate-500">
-                Este módulo todavía no tiene elementos de teoría.
+                {t("moduloDetail.esteModuloTodaviaNoTiene")}
               </p>
             </div>
           ) : (
@@ -796,8 +798,8 @@ export default function ModuloDetail() {
             // grandes) + resaltado del bloque que el TTS está leyendo.
             <div className={theoryItems.length > 1 ? "lg:grid lg:grid-cols-[14rem_1fr] lg:gap-6 lg:items-start" : ""}>
               {theoryItems.length > 1 && (
-                <nav aria-label="Índice de teoría" className="hidden lg:block lg:sticky lg:top-4 space-y-1 mb-4 lg:mb-0">
-                  <p className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Índice</p>
+                <nav aria-label={t("moduloDetail.indiceDeTeoria")} className="hidden lg:block lg:sticky lg:top-4 space-y-1 mb-4 lg:mb-0">
+                  <p className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">{t("moduloDetail.indice")}</p>
                   {theoryItems.map((item, i) => (
                     <button
                       key={item.id}
@@ -940,10 +942,10 @@ export default function ModuloDetail() {
                               </span>
                               {attempt.score != null ? (
                                 <span>
-                                  Puntaje: <strong className="text-slate-700">{attempt.score}{attempt.maxScore != null ? `/${attempt.maxScore}` : ""}</strong>
+                                  {t("moduloDetail.puntaje")} <strong className="text-slate-700">{attempt.score}{attempt.maxScore != null ? `/${attempt.maxScore}` : ""}</strong>
                                 </span>
                               ) : (
-                                <span className="italic text-slate-400">Sin puntaje registrado</span>
+                                <span className="italic text-slate-400">{t("moduloDetail.sinPuntajeRegistrado")}</span>
                               )}
                               {(attempt.completedAt ?? attempt.createdAt) ? (
                                 <span className="ml-auto text-slate-400">
@@ -1091,7 +1093,7 @@ export default function ModuloDetail() {
         <aside
           role="dialog"
           aria-modal="true"
-          aria-label="Panel de diccionario"
+          aria-label={t("moduloDetail.panelDeDiccionario")}
           className="fixed right-4 top-24 z-40 w-80 rounded-2xl border border-slate-200 bg-white shadow-xl flex flex-col max-h-[70vh]"
         >
 

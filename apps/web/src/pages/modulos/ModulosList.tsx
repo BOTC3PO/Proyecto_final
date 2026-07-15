@@ -10,10 +10,10 @@ import { Card, Badge, Button, Select, Input, Spinner, Alert } from "../../ui";
 import type { BadgeVariant } from "../../ui";
 import { useI18n } from "../../i18n/I18nContext";
 
-const VISIBILITY_LABELS: Record<ModuleVisibility, string> = {
-  publico: "Público",
-  privado: "Privado",
-  escuela: "Escuela",
+const VISIBILITY_LABEL_KEYS: Record<ModuleVisibility, string> = {
+  publico: "moduloEditor.publico",
+  privado: "profesorEvaluaciones.privado",
+  escuela: "sidebar.escuela",
 };
 
 type ModulesResponse = {
@@ -29,11 +29,11 @@ const resolveStatus = (module: Module) => {
   return "sin_estado";
 };
 
-const STATUS_LABELS: Record<string, string> = {
-  draft: "Borrador",
-  published: "Publicado",
-  archived: "Archivado",
-  sin_estado: "Sin estado",
+const STATUS_LABEL_KEYS: Record<string, string> = {
+  draft: "profesorEncuestas.borrador",
+  published: "modulosList.publicado",
+  archived: "modulosList.archivado",
+  sin_estado: "modulosList.sinEstado",
 };
 
 function visibilityBadgeVariant(v: string): BadgeVariant {
@@ -158,7 +158,7 @@ export default function ModulosList() {
         setModules([]);
         setStatus("error");
         setErrorMessage(
-          error instanceof Error ? error.message : "No se pudieron cargar los módulos."
+          error instanceof Error ? error.message : t("modulosList.noSePudieronCargarLos")
         );
       });
     return () => {
@@ -272,7 +272,7 @@ export default function ModulosList() {
               gap: "var(--space-3)",
               padding: "var(--space-6) 0",
             }}>
-              <Spinner size="lg" label="Cargando módulos" />
+              <Spinner size="lg" label={t("modulosList.cargandoModulos2")} />
               <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("modulosList.cargandoModulos")}</p>
             </div>
           </Card>
@@ -446,7 +446,7 @@ export default function ModulosList() {
                     >
                       <option value="all">{t("profesorEvaluaciones.todos")}</option>
                       {statusOptions.map((item) => (
-                        <option key={item} value={item}>{STATUS_LABELS[item] ?? item}</option>
+                        <option key={item} value={item}>{STATUS_LABEL_KEYS[item] ? t(STATUS_LABEL_KEYS[item]) : item}</option>
                       ))}
                     </Select>
                   </div>
@@ -498,9 +498,9 @@ export default function ModulosList() {
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
                 {filteredModules.map((module) => {
                   const visibilityLabel = module.visibility
-                    ? VISIBILITY_LABELS[module.visibility]
-                    : "Sin definir";
-                  const statusLabel = STATUS_LABELS[resolveStatus(module)] ?? "Sin estado";
+                    ? t(VISIBILITY_LABEL_KEYS[module.visibility])
+                    : t("modulosList.sinDefinir");
+                  const statusLabel = t(STATUS_LABEL_KEYS[resolveStatus(module)] ?? "modulosList.sinEstado");
                   const accentColor = getCategoryAccent(module.category ?? "");
 
                   return (
@@ -605,7 +605,7 @@ export default function ModulosList() {
                                 data-testid={`modulo-duplicar-${module.id}`}
                                 aria-label={`Duplicar ${module.title}`}
                               >
-                                {duplicatingId === module.id ? "Duplicando..." : "Duplicar"}
+                                {duplicatingId === module.id ? t("modulosList.duplicando") : t("theorySlideEditor.duplicar")}
                               </Button>
                             )}
                           </div>

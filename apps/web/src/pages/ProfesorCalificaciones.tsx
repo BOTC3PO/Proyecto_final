@@ -177,10 +177,10 @@ export default function ProfesorCalificaciones() {
                     {titulo}
                   </h3>
                   <div className="flex items-center gap-2 text-xs text-[var(--c-muted)]">
-                    <span>{completados.length} entrega(s)</span>
+                    <span>{completados.length} {t('profesorCalificaciones.entregaS')}</span>
                     {promedio !== null && (
                       <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-700">
-                        Promedio: {promedio}
+                        {t('profesorReportes.promedio')} {promedio}
                       </span>
                     )}
                   </div>

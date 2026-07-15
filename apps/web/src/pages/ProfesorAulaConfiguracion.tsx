@@ -20,6 +20,7 @@ import { fetchClaseModulos, assignModulo, unassignModulo, type ClaseModuloItem }
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 
 type FormState = {
   name: string;
@@ -53,6 +54,7 @@ const buildInitialState = (classroom: Classroom): FormState => ({
 
 export default function ProfesorAulaConfiguracion() {
   const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   // FIX-CONFIG: la ruta es `profesor/aulas/:aulaId` (router.tsx:282),
   // no `:id`. Antes se leía `id` (siempre undefined) y el `if (!id) return`
   // en el useEffect corría ANTES del `.finally(() => setIsLoading(false))`,
@@ -159,7 +161,7 @@ export default function ProfesorAulaConfiguracion() {
       setCandidatoSeleccionado("");
       reloadTitulares(id);
     } catch (e) {
-      setTitularError(e instanceof Error ? e.message : "No se pudo agregar el co-titular.");
+      setTitularError(e instanceof Error ? e.message : t("profesorAulaConfiguracion.noSePudoAgregarEl"));
     } finally {
       setTitularSaving(false);
     }
@@ -173,7 +175,7 @@ export default function ProfesorAulaConfiguracion() {
       await quitarTitular(id, userId);
       reloadTitulares(id);
     } catch (e) {
-      setTitularError(e instanceof Error ? e.message : "No se pudo quitar el co-titular.");
+      setTitularError(e instanceof Error ? e.message : t("profesorAulaConfiguracion.noSePudoQuitarEl"));
     } finally {
       setTitularSaving(false);
     }
@@ -194,7 +196,7 @@ export default function ProfesorAulaConfiguracion() {
       const data = await fetchPeriodos(id);
       setPeriodos(data.items);
     } catch (e) {
-      setPeriodoError(e instanceof Error ? e.message : "No se pudo crear el período.");
+      setPeriodoError(e instanceof Error ? e.message : t("profesorAulaConfiguracion.noSePudoCrearEl"));
     } finally {
       setPeriodoSaving(false);
     }
@@ -254,7 +256,7 @@ export default function ProfesorAulaConfiguracion() {
       const updated = await fetchUpcomingActivities(id);
       setActivities(updated);
     } catch (e) {
-      setActError(e instanceof Error ? e.message : "No se pudo crear la actividad.");
+      setActError(e instanceof Error ? e.message : t("profesorAulaConfiguracion.noSePudoCrearLa"));
     } finally {
       setActSaving(false);
     }
@@ -307,7 +309,7 @@ export default function ProfesorAulaConfiguracion() {
       if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError("No pudimos guardar la configuración del aula.");
+        setError(t("profesorAulaConfiguracion.noPudimosGuardarLaConfiguracion"));
       }
     } finally {
       setIsSaving(false);
@@ -348,6 +350,8 @@ export default function ProfesorAulaConfiguracion() {
                   value={form.name}
                   onChange={(event) => handleFieldChange("name", event.target.value)}
                   required
+                  onInvalid={onInvalid}
+                  onInput={onInput}
                 />
               </label>
               <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">{t("comun.estado")}<select
@@ -367,6 +371,8 @@ export default function ProfesorAulaConfiguracion() {
                 value={form.description}
                 onChange={(event) => handleFieldChange("description", event.target.value)}
                 required
+                onInvalid={onInvalid}
+                onInput={onInput}
               />
             </label>
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { createClassroom } from "../services/aulas";
 import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import {
   fetchEnterpriseDashboard,
   fetchEnterpriseStaff,
@@ -10,8 +11,16 @@ import {
   type EnterpriseStaffMember,
 } from "../services/enterprise";
 
+const INDICADOR_LABEL_KEY: Record<string, string> = {
+  aulas: "menuProfesor.aulasActivas",
+  alumnos: "mensajeria.alumnos",
+  docentes: "comun.docentes",
+  directivos: "comun.directivos",
+};
+
 export default function EnterpriseDashboard() {
   const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [dashboard, setDashboard] = useState<EnterpriseDashboardData | null>(null);
@@ -28,7 +37,7 @@ export default function EnterpriseDashboard() {
 
   useEffect(() => {
     if (!schoolId) {
-      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setError(t('comun.tuCuentaNoTieneUna'));
       setLoading(false);
       return;
     }
@@ -80,9 +89,9 @@ export default function EnterpriseDashboard() {
         updatedAt: now,
       });
       setForm({ name: "", description: "", accessType: "privada", teacherId: "" });
-      setMessage("✓ Aula creada correctamente.");
+      setMessage(t("enterpriseDashboard.aulaCreadaCorrectamente"));
     } catch (err) {
-      setMessage(err instanceof Error ? err.message : "No se pudo crear el aula.");
+      setMessage(err instanceof Error ? err.message : t("enterpriseDashboard.noSePudoCrearEl"));
     } finally {
       setSubmitting(false);
     }
@@ -116,7 +125,7 @@ export default function EnterpriseDashboard() {
           ? [1,2,3,4].map(i => <div key={i} className="h-20 animate-pulse rounded-xl bg-[var(--c-border)]" />)
           : dashboard?.indicadores.map((item) => (
             <div key={item.id} className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
-              <p className="text-[10px] uppercase tracking-widest text-[var(--c-muted)] mb-1">{item.label}</p>
+              <p className="text-[10px] uppercase tracking-widest text-[var(--c-muted)] mb-1">{INDICADOR_LABEL_KEY[item.id] ? t(INDICADOR_LABEL_KEY[item.id]) : item.label}</p>
               <p className="text-2xl font-semibold text-[var(--c-text)]">{item.value}</p>
             </div>
           ))
@@ -156,6 +165,8 @@ export default function EnterpriseDashboard() {
               <input
                 required value={form.name}
                 onChange={(e) => setForm(p => ({ ...p, name: e.target.value }))}
+                onInvalid={onInvalid}
+                onInput={onInput}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 placeholder={t("enterpriseDashboard.ej3BPrimaria")}
               />

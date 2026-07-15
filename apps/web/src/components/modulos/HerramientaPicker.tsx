@@ -15,6 +15,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { LineChartSpec, VectorDiagramSpec, StaticImageSpec, LatexSpec } from "../../generadoresV2/core/types";
 import { Button, Input, Textarea } from "../ui";
 import { AccessibleList } from "../vblang/AccessibleList";
+import { useI18n } from "../../i18n/I18nContext";
 
 interface HerramientaPickerProps {
   isOpen: boolean;
@@ -24,12 +25,12 @@ interface HerramientaPickerProps {
 
 type ToolType = "line-chart" | "vector-diagram" | "latex" | "static-image" | "timeline";
 
-const TOOLS: Array<{ type: ToolType; label: string; description: string }> = [
-  { type: "line-chart",      label: "Gráfico de líneas",  description: "Series temporales, física, economía" },
-  { type: "vector-diagram",  label: "Diagrama de vectores", description: "Fuerzas, física" },
-  { type: "latex",           label: "Fórmula LaTeX",      description: "Cualquier expresión matemática" },
-  { type: "static-image",   label: "Imagen",              description: "URL de imagen de contexto" },
-  { type: "timeline",        label: "Línea de tiempo",    description: "Historia, biología" },
+const TOOLS: Array<{ type: ToolType; labelKey: string; descriptionKey: string }> = [
+  { type: "line-chart",      labelKey: "herramientaPicker.graficoDeLineas",   descriptionKey: "herramientaPicker.seriesTemporalesFisicaEconomia" },
+  { type: "vector-diagram",  labelKey: "herramientaPicker.diagramaDeVectores", descriptionKey: "herramientaPicker.fuerzasFisica" },
+  { type: "latex",           labelKey: "herramientaPicker.formulaLatex",      descriptionKey: "herramientaPicker.cualquierExpresionMatematica" },
+  { type: "static-image",    labelKey: "herramientaPicker.imagen",            descriptionKey: "herramientaPicker.urlDeImagenDeContexto" },
+  { type: "timeline",        labelKey: "herramientaPicker.lineaDeTiempo",     descriptionKey: "herramientaPicker.historiaBiologia" },
 ];
 
 // ── Helpers de validación ──────────────────────────────────────────────────────
@@ -44,6 +45,7 @@ function isNumeric(s: string): boolean {
 type PointRow = { x: string; y: string };
 
 function LineChartForm({ onConfirm }: { onConfirm: (spec: LineChartSpec) => void }) {
+  const { t } = useI18n();
   const [title, setTitle] = useState("");
   const [xLabel, setXLabel] = useState("");
   const [yLabel, setYLabel] = useState("");
@@ -65,7 +67,7 @@ function LineChartForm({ onConfirm }: { onConfirm: (spec: LineChartSpec) => void
       series: [
         {
           id: "s1",
-          label: yLabel || "Serie 1",
+          label: yLabel || t("plantillaEditorSchema.serie1"),
           points: points.map((p) => ({ x: Number(p.x), y: Number(p.y) })),
         },
       ],
@@ -74,15 +76,15 @@ function LineChartForm({ onConfirm }: { onConfirm: (spec: LineChartSpec) => void
 
   return (
     <div className="flex flex-col gap-3">
-      <Input label="Título" hint="Opcional" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <Input label={t("comun.titulo")} hint={t("profesorCalendario.opcional")} value={title} onChange={(e) => setTitle(e.target.value)} />
       <div className="grid grid-cols-2 gap-2">
-        <Input label="Eje X" placeholder="ej: tiempo" value={xLabel} onChange={(e) => setXLabel(e.target.value)} />
-        <Input label="Eje Y" placeholder="ej: posición" value={yLabel} onChange={(e) => setYLabel(e.target.value)} />
+        <Input label={t("herramientaPicker.ejeX")} placeholder={t("herramientaPicker.ejTiempo")} value={xLabel} onChange={(e) => setXLabel(e.target.value)} />
+        <Input label={t("herramientaPicker.ejeY")} placeholder={t("herramientaPicker.ejPosicion")} value={yLabel} onChange={(e) => setYLabel(e.target.value)} />
       </div>
 
       <AccessibleList<PointRow>
-        label="Puntos (x, y)"
-        addLabel="Agregar punto"
+        label={t("herramientaPicker.puntosXY")}
+        addLabel={t("herramientaPicker.agregarPunto")}
         itemNoun="punto"
         minItems={1}
         items={points}
@@ -91,19 +93,19 @@ function LineChartForm({ onConfirm }: { onConfirm: (spec: LineChartSpec) => void
         renderItem={(point, index, onItemChange) => (
           <div className="grid grid-cols-2 gap-2">
             <Input
-              aria-label={`X del punto ${index + 1}`}
+              aria-label={`${t("herramientaPicker.xDelPunto")} ${index + 1}`}
               inputMode="decimal"
               placeholder="x"
               value={point.x}
-              error={isNumeric(point.x) ? undefined : "Número inválido"}
+              error={isNumeric(point.x) ? undefined : t("herramientaPicker.numeroInvalido")}
               onChange={(e) => onItemChange({ ...point, x: e.target.value })}
             />
             <Input
-              aria-label={`Y del punto ${index + 1}`}
+              aria-label={`${t("herramientaPicker.yDelPunto")} ${index + 1}`}
               inputMode="decimal"
               placeholder="y"
               value={point.y}
-              error={isNumeric(point.y) ? undefined : "Número inválido"}
+              error={isNumeric(point.y) ? undefined : t("herramientaPicker.numeroInvalido")}
               onChange={(e) => onItemChange({ ...point, y: e.target.value })}
             />
           </div>
@@ -111,7 +113,7 @@ function LineChartForm({ onConfirm }: { onConfirm: (spec: LineChartSpec) => void
       />
 
       <Button type="button" onClick={handleConfirm} disabled={hasErrors} className="w-full">
-        Confirmar gráfico
+        {t("herramientaPicker.confirmarGrafico")}
       </Button>
     </div>
   );
@@ -120,6 +122,7 @@ function LineChartForm({ onConfirm }: { onConfirm: (spec: LineChartSpec) => void
 type VectorRow = { id: string; label: string; dx: string; dy: string };
 
 function VectorForm({ onConfirm }: { onConfirm: (spec: VectorDiagramSpec) => void }) {
+  const { t } = useI18n();
   const [rows, setRows] = useState<VectorRow[]>([
     { id: "v1", label: "F1", dx: "1", dy: "0" },
     { id: "v2", label: "F2", dx: "0", dy: "1" },
@@ -142,8 +145,8 @@ function VectorForm({ onConfirm }: { onConfirm: (spec: VectorDiagramSpec) => voi
   return (
     <div className="flex flex-col gap-3">
       <AccessibleList<VectorRow>
-        label="Vectores"
-        addLabel="Agregar vector"
+        label={t("plantillaEditorSchema.vectores")}
+        addLabel={t("plantillaEditorSchema.agregarVector")}
         itemNoun="vector"
         minItems={1}
         items={rows}
@@ -153,25 +156,25 @@ function VectorForm({ onConfirm }: { onConfirm: (spec: VectorDiagramSpec) => voi
           <div className="grid grid-cols-4 gap-2">
             <Input
               className="col-span-2"
-              aria-label={`Etiqueta del vector ${index + 1}`}
-              placeholder="Etiqueta"
+              aria-label={`${t("herramientaPicker.etiquetaDelVector")} ${index + 1}`}
+              placeholder={t("herramientaPicker.etiqueta")}
               value={row.label}
               onChange={(e) => onItemChange({ ...row, label: e.target.value })}
             />
             <Input
-              aria-label={`dx del vector ${index + 1}`}
+              aria-label={`dx ${t("herramientaPicker.delVector")} ${index + 1}`}
               inputMode="decimal"
               placeholder="dx"
               value={row.dx}
-              error={isNumeric(row.dx) ? undefined : "Inválido"}
+              error={isNumeric(row.dx) ? undefined : t("herramientaPicker.invalido")}
               onChange={(e) => onItemChange({ ...row, dx: e.target.value })}
             />
             <Input
-              aria-label={`dy del vector ${index + 1}`}
+              aria-label={`dy ${t("herramientaPicker.delVector")} ${index + 1}`}
               inputMode="decimal"
               placeholder="dy"
               value={row.dy}
-              error={isNumeric(row.dy) ? undefined : "Inválido"}
+              error={isNumeric(row.dy) ? undefined : t("herramientaPicker.invalido")}
               onChange={(e) => onItemChange({ ...row, dy: e.target.value })}
             />
           </div>
@@ -179,13 +182,14 @@ function VectorForm({ onConfirm }: { onConfirm: (spec: VectorDiagramSpec) => voi
       />
 
       <Button type="button" onClick={handleConfirm} disabled={hasErrors} className="w-full">
-        Confirmar diagrama
+        {t("herramientaPicker.confirmarDiagrama")}
       </Button>
     </div>
   );
 }
 
 function LatexForm({ onConfirm }: { onConfirm: (spec: LatexSpec) => void }) {
+  const { t } = useI18n();
   const [content, setContent] = useState("E = mc^2");
   const [displayMode, setDisplayMode] = useState(true);
   const checkboxId = useId();
@@ -193,10 +197,10 @@ function LatexForm({ onConfirm }: { onConfirm: (spec: LatexSpec) => void }) {
   return (
     <div className="flex flex-col gap-3">
       <Textarea
-        label="Código LaTeX"
+        label={t("herramientaPicker.codigoLatex")}
         className="font-mono"
         rows={4}
-        placeholder="ej: E = mc^2"
+        placeholder={t("herramientaPicker.ejEMc2")}
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
@@ -207,7 +211,7 @@ function LatexForm({ onConfirm }: { onConfirm: (spec: LatexSpec) => void }) {
           checked={displayMode}
           onChange={(e) => setDisplayMode(e.target.checked)}
         />
-        Modo bloque (displayMode)
+        {t("herramientaPicker.modoBloqueDisplaymode")}
       </label>
       <Button
         type="button"
@@ -215,24 +219,25 @@ function LatexForm({ onConfirm }: { onConfirm: (spec: LatexSpec) => void }) {
         disabled={content.trim() === ""}
         className="w-full"
       >
-        Confirmar fórmula
+        {t("herramientaPicker.confirmarFormula")}
       </Button>
     </div>
   );
 }
 
 function StaticImageForm({ onConfirm }: { onConfirm: (spec: StaticImageSpec) => void }) {
+  const { t } = useI18n();
   const [src, setSrc] = useState("");
   const [alt, setAlt] = useState("");
 
   const srcError = src.trim() !== "" && !/^https?:\/\/|^\//.test(src.trim())
-    ? "Debe ser una URL válida (http(s):// o ruta absoluta)"
+    ? t("herramientaPicker.debeSerUnaUrlValida")
     : undefined;
 
   return (
     <div className="flex flex-col gap-3">
       <Input
-        label="URL de la imagen"
+        label={t("herramientaPicker.urlDeLaImagen")}
         type="url"
         required
         placeholder="https://ejemplo.com/imagen.jpg"
@@ -241,8 +246,8 @@ function StaticImageForm({ onConfirm }: { onConfirm: (spec: StaticImageSpec) => 
         onChange={(e) => setSrc(e.target.value)}
       />
       <Input
-        label="Texto alternativo"
-        hint="Describe la imagen para lectores de pantalla"
+        label={t("herramientaPicker.textoAlternativo")}
+        hint={t("herramientaPicker.describeLaImagenParaLectores")}
         value={alt}
         onChange={(e) => setAlt(e.target.value)}
       />
@@ -252,7 +257,7 @@ function StaticImageForm({ onConfirm }: { onConfirm: (spec: StaticImageSpec) => 
         onClick={() => onConfirm({ kind: "static-image", src, alt })}
         className="w-full"
       >
-        Confirmar imagen
+        {t("herramientaPicker.confirmarImagen")}
       </Button>
     </div>
   );
@@ -266,6 +271,7 @@ type TimelineSpecLite = {
 };
 
 function TimelineForm({ onConfirm }: { onConfirm: (spec: TimelineSpecLite) => void }) {
+  const { t } = useI18n();
   const [title, setTitle] = useState("");
   const [events, setEvents] = useState<TimelineEventRow[]>([
     { id: "e1", date: "1900", title: "Evento 1", description: "" },
@@ -288,11 +294,11 @@ function TimelineForm({ onConfirm }: { onConfirm: (spec: TimelineSpecLite) => vo
 
   return (
     <div className="flex flex-col gap-3">
-      <Input label="Título" hint="Opcional" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <Input label={t("comun.titulo")} hint={t("profesorCalendario.opcional")} value={title} onChange={(e) => setTitle(e.target.value)} />
 
       <AccessibleList<TimelineEventRow>
-        label="Eventos"
-        addLabel="Agregar evento"
+        label={t("comun.eventos")}
+        addLabel={t("profesorCalendario.agregarEvento")}
         itemNoun="evento"
         minItems={1}
         items={events}
@@ -302,25 +308,25 @@ function TimelineForm({ onConfirm }: { onConfirm: (spec: TimelineSpecLite) => vo
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-2 gap-2">
               <Input
-                aria-label={`Fecha o año del evento ${index + 1}`}
+                aria-label={`${t("herramientaPicker.fechaOAnoDelEvento")} ${index + 1}`}
                 required
-                placeholder="Fecha / año"
+                placeholder={t("herramientaPicker.fechaAno")}
                 value={ev.date}
-                error={ev.date.trim() === "" ? "Requerido" : undefined}
+                error={ev.date.trim() === "" ? t("herramientaPicker.requerido") : undefined}
                 onChange={(e) => onItemChange({ ...ev, date: e.target.value })}
               />
               <Input
-                aria-label={`Título del evento ${index + 1}`}
+                aria-label={`${t("herramientaPicker.tituloDelEvento")} ${index + 1}`}
                 required
-                placeholder="Título del evento"
+                placeholder={t("herramientaPicker.tituloDelEvento")}
                 value={ev.title}
-                error={ev.title.trim() === "" ? "Requerido" : undefined}
+                error={ev.title.trim() === "" ? t("herramientaPicker.requerido") : undefined}
                 onChange={(e) => onItemChange({ ...ev, title: e.target.value })}
               />
             </div>
             <Input
-              aria-label={`Descripción del evento ${index + 1}`}
-              placeholder="Descripción (opcional)"
+              aria-label={`${t("herramientaPicker.descripcionDelEvento")} ${index + 1}`}
+              placeholder={t("comun.descripcionOpcional")}
               value={ev.description}
               onChange={(e) => onItemChange({ ...ev, description: e.target.value })}
             />
@@ -329,7 +335,7 @@ function TimelineForm({ onConfirm }: { onConfirm: (spec: TimelineSpecLite) => vo
       />
 
       <Button type="button" onClick={handleConfirm} disabled={hasErrors} className="w-full">
-        Confirmar línea de tiempo
+        {t("herramientaPicker.confirmarLineaDeTiempo")}
       </Button>
     </div>
   );
@@ -338,6 +344,7 @@ function TimelineForm({ onConfirm }: { onConfirm: (spec: TimelineSpecLite) => vo
 // ── Main modal ─────────────────────────────────────────────────────────────────
 
 export default function HerramientaPicker({ isOpen, onSelect, onClose }: HerramientaPickerProps) {
+  const { t } = useI18n();
   const [selectedTool, setSelectedTool] = useState<ToolType | null>(null);
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
@@ -360,9 +367,9 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
   const heading = useMemo(
     () =>
       selectedTool
-        ? TOOLS.find((t) => t.type === selectedTool)?.label ?? "Herramienta"
-        : "Agregar herramienta interactiva",
-    [selectedTool],
+        ? t(TOOLS.find((tool) => tool.type === selectedTool)?.labelKey ?? "herramientaPicker.herramienta")
+        : t("herramientaPicker.agregarHerramientaInteractiva"),
+    [selectedTool, t],
   );
 
   if (!isOpen) return null;
@@ -396,7 +403,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
             size="sm"
             onClick={() => (selectedTool ? setSelectedTool(null) : onClose())}
           >
-            {selectedTool ? "← Volver" : "Cerrar"}
+            {selectedTool ? t("notFound.volver") : t("comun.cerrar")}
           </Button>
         </div>
 
@@ -411,8 +418,8 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
                     className="flex w-full items-start gap-3 rounded-[var(--r-md)] border border-[var(--c-border)] p-3 text-left transition-colors motion-reduce:transition-none hover:border-[var(--c-primary)] hover:bg-[var(--c-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
                   >
                     <div>
-                      <p className="text-sm font-medium text-[var(--c-text)]">{tool.label}</p>
-                      <p className="mt-0.5 text-xs text-[var(--c-text-3)]">{tool.description}</p>
+                      <p className="text-sm font-medium text-[var(--c-text)]">{t(tool.labelKey)}</p>
+                      <p className="mt-0.5 text-xs text-[var(--c-text-3)]">{t(tool.descriptionKey)}</p>
                     </div>
                   </button>
                 </li>

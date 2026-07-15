@@ -264,7 +264,7 @@ export default function QuizAttempt() {
         if (!active) return;
         setStatus("error");
         setErrorMessage(
-          error instanceof Error ? error.message : "No se pudo cargar el intento."
+          error instanceof Error ? error.message : t("quizAttempt.noSePudoCargarEl")
         );
       });
     return () => {
@@ -703,7 +703,7 @@ export default function QuizAttempt() {
     } catch (error) {
       setSubmitStatus("error");
       setSubmitMessage(
-        error instanceof Error ? error.message : "No se pudo enviar el intento."
+        error instanceof Error ? error.message : t("quizAttempt.noSePudoEnviarEl")
       );
     }
   };

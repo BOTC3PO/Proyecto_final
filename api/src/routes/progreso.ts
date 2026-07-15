@@ -242,12 +242,17 @@ progreso.get("/api/progreso/estudiante", requireUser, async (req, res) => {
     });
     const completados = progresoItems.filter((p) => p.status === "completado").length;
     const total = progresoItems.length;
+    // FIX-I18N — `kind` (+ `restantes` para el caso "progreso") es lo que
+    // consume el front para traducir; `titulo`/`mensaje` quedan como
+    // fallback en español para consumidores que no localizan.
     const sugerencia =
       total === 0
-        ? { titulo: "Empieza tu camino", mensaje: "Explora los módulos disponibles y comienza tu primer desafío." }
+        ? { kind: "vacio" as const, titulo: "Empieza tu camino", mensaje: "Explora los módulos disponibles y comienza tu primer desafío." }
         : completados === total
-          ? { titulo: "¡Módulos completados!", mensaje: "Excelente trabajo. Sigue explorando nuevos contenidos." }
+          ? { kind: "completo" as const, titulo: "¡Módulos completados!", mensaje: "Excelente trabajo. Sigue explorando nuevos contenidos." }
           : {
+              kind: "progreso" as const,
+              restantes: total - completados,
               titulo: "Continúa aprendiendo",
               mensaje: `Tienes ${total - completados} módulo${total - completados !== 1 ? "s" : ""} en progreso. ¡Sigue adelante!`
             };

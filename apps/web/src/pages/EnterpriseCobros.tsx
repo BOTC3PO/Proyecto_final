@@ -310,7 +310,7 @@ export default function EnterpriseCobros() {
   const publicar = async (cobroId: string) => {
     const aulaId = aulaPorCobro[cobroId];
     if (!aulaId) {
-      setError("Elegí un aula para publicar el cobro.");
+      setError(t("enterpriseCobros.elegiUnAulaParaPublicar"));
       return;
     }
     setPublicando(cobroId);
@@ -359,9 +359,9 @@ export default function EnterpriseCobros() {
             <Input label="Moneda" value={moneda} onChange={(e) => setMoneda(e.target.value)} placeholder="ARS" />
             <Input label="Vencimiento" type="date" value={vencimiento} onChange={(e) => setVencimiento(e.target.value)} />
           </div>
-          <Textarea label="Descripción (opcional)" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+          <Textarea label={t("comun.descripcionOpcional")} value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
           <Button size="sm" onClick={() => void crear()} disabled={creando || !concepto || montoUnitario <= 0}>
-            {creando ? "Creando…" : "Crear cobro"}
+            {creando ? t("comun.creando") : t("enterpriseCobros.crearCobro")}
           </Button>
         </CardBody>
       </Card>

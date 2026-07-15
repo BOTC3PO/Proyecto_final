@@ -157,7 +157,7 @@ export default function DatasetEditor() {
         if (cancelled) return;
         setStatus("error");
         setErrorMessage(
-          err instanceof Error ? err.message : "No se pudo cargar el dataset.",
+          err instanceof Error ? err.message : t("datasetEditor.noSePudoCargarEl"),
         );
       });
     return () => {
@@ -190,7 +190,7 @@ export default function DatasetEditor() {
       setTimeout(() => setMetaMessage(null), 2000);
     } catch (err) {
       setMetaMessage(
-        err instanceof Error ? err.message : "No se pudo guardar metadata.",
+        err instanceof Error ? err.message : t("datasetEditor.noSePudoGuardarMetadata"),
       );
     } finally {
       setMetaSaving(false);
@@ -223,7 +223,7 @@ export default function DatasetEditor() {
       setRefreshMessage(`${r.filas} filas importadas.`);
     } catch (err) {
       setRefreshMessage(
-        err instanceof Error ? err.message : "No se pudo refrescar la fuente.",
+        err instanceof Error ? err.message : t("datasetEditor.noSePudoRefrescarLa"),
       );
     } finally {
       setRefreshing(false);
@@ -318,21 +318,21 @@ export default function DatasetEditor() {
       invalidarDataset(dataset.nombre);
     } catch (err) {
       window.alert(
-        err instanceof Error ? err.message : "No se pudo agregar la fila.",
+        err instanceof Error ? err.message : t("datasetEditor.noSePudoAgregarLa"),
       );
     }
   };
 
   const handleDeleteRow = async (rowId: string) => {
     if (!id) return;
-    if (!window.confirm("¿Eliminar esta fila?")) return;
+    if (!window.confirm(t("datasetEditor.eliminarEstaFila"))) return;
     try {
       await deleteRow(id, rowId);
       setRows((prev) => prev.filter((r) => r.id !== rowId));
       if (dataset) invalidarDataset(dataset.nombre);
     } catch (err) {
       window.alert(
-        err instanceof Error ? err.message : "No se pudo eliminar la fila.",
+        err instanceof Error ? err.message : t("datasetEditor.noSePudoEliminarLa"),
       );
     }
   };

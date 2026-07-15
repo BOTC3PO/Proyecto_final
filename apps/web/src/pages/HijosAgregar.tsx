@@ -90,7 +90,7 @@ export default function HijosAgregar() {
       });
       setErrors({});
     } catch (err: any) {
-      let message = "No se pudo guardar";
+      let message = t("hijosAgregar.noSePudoGuardar");
       let status = 0;
       if (err instanceof ApiError) {
         status = err.status;
@@ -156,7 +156,7 @@ export default function HijosAgregar() {
                   <DateInput
                     id="cumple"
                     name="cumple"
-                    label="Cumpleaños"
+                    label={t("register.labelCumpleanos")}
                     placeholder="DD/MM/AAAA"
                     value={form.cumple}
                     onChange={(v) => setForm((p) => ({ ...p, cumple: v }))}

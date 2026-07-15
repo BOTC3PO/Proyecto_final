@@ -6,7 +6,7 @@ import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
 import { useCanActAsLearner, useHasRole } from "../auth/use-roles";
 import type { Classroom } from "../domain/classroom/classroom.types";
-import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
+import { getClassroomStatusLabelKey, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
 import { createPublication, fetchPublications, type Publication } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
@@ -160,7 +160,7 @@ export default function Aula() {
       setUpcomingActivities(activitiesResponse);
     } catch (error) {
       if (!active.current) return;
-      setFeedError(error instanceof Error ? error.message : "No pudimos cargar la información del aula.");
+      setFeedError(error instanceof Error ? error.message : t("aula.noPudimosCargarLaInformacion"));
     } finally {
       if (!active.current) return;
       setFeedLoading(false);
@@ -234,7 +234,7 @@ export default function Aula() {
       await loadFeed(activeRef);
     } catch (error) {
       setPublicationStatus("error");
-      setPublicationMessage(error instanceof Error ? error.message : "No pudimos publicar la novedad.");
+      setPublicationMessage(error instanceof Error ? error.message : t("aula.noPudimosPublicarLaNovedad"));
     }
   };
 
@@ -260,7 +260,7 @@ export default function Aula() {
       })
       .catch((error) => {
         if (!active) return;
-        setProgressError(error instanceof Error ? error.message : "No pudimos cargar el progreso del aula.");
+        setProgressError(error instanceof Error ? error.message : t("aula.noPudimosCargarElProgreso"));
         setClassProgress([]);
       })
       .finally(() => { if (!active) return; setProgressLoading(false); });
@@ -293,7 +293,7 @@ export default function Aula() {
       .catch((error) => {
         if (!active) return;
         setResourceLinks([]);
-        setResourceLinksError(error instanceof Error ? error.message : "No pudimos cargar los enlaces.");
+        setResourceLinksError(error instanceof Error ? error.message : t("aula.noPudimosCargarLosEnlaces"));
       })
       .finally(() => { if (!active) return; setResourceLinksLoading(false); });
     return () => { active = false; };
@@ -360,41 +360,41 @@ export default function Aula() {
   // esa membresía es STUDENT, mostramos "Estudiante" aunque
   // el rol global del user sea TEACHER.
   const roleLabel = useMemo(() => {
-    if (!user) return "Invitado";
+    if (!user) return t("comun.invitado");
     const ctxRole = (classroom as { viewerRoleInClass?: string | null } | null)?.viewerRoleInClass;
-    if (ctxRole === "STUDENT") return "Estudiante";
-    if (isTeacher) return isTeacherOfClass ? "Docente" : "Docente invitado";
-    if (canActAsLearner) return "Estudiante";
-    if (isParent) return "Familia";
-    return "Invitado";
-  }, [isTeacherOfClass, user, isTeacher, canActAsLearner, isParent, classroom]);
+    if (ctxRole === "STUDENT") return t("profesorAulas.estudiante");
+    if (isTeacher) return isTeacherOfClass ? t("perfil.docente") : t("aula.docenteInvitado");
+    if (canActAsLearner) return t("profesorAulas.estudiante");
+    if (isParent) return t("aula.familia");
+    return t("comun.invitado");
+  }, [isTeacherOfClass, user, isTeacher, canActAsLearner, isParent, classroom, t]);
 
   // FIX-BUG-ALU-03 — idem: si la membresía contextual es
   // STUDENT, mostrar "estudiante · pública" aunque el rol
   // global sea staff. Antes decía "visitante · pública" para
   // un TEACHER+USER que era STUDENT-miembro.
   const accessLabel = useMemo(() => {
-    const accessTypeLabel = classroom?.accessType === "privada" ? "privada" : "pública";
+    const accessTypeLabel = classroom?.accessType === "privada" ? t("aula.privada") : t("aula.publica");
     const ctxRole = (classroom as { viewerRoleInClass?: string | null } | null)?.viewerRoleInClass;
-    if (ctxRole === "STUDENT") return `estudiante · ${accessTypeLabel}`;
-    if (canActAsLearner) return `estudiante · ${accessTypeLabel}`;
-    if (isParent) return `familiar · ${accessTypeLabel}`;
-    return `visitante · ${accessTypeLabel}`;
-  }, [classroom?.accessType, user, canActAsLearner, isParent, classroom]);
+    if (ctxRole === "STUDENT") return `${t("aula.estudiante")} · ${accessTypeLabel}`;
+    if (canActAsLearner) return `${t("aula.estudiante")} · ${accessTypeLabel}`;
+    if (isParent) return `${t("aula.familiar")} · ${accessTypeLabel}`;
+    return `${t("aula.visitante")} · ${accessTypeLabel}`;
+  }, [classroom?.accessType, user, canActAsLearner, isParent, classroom, t]);
 
   const teacherName = useMemo(() => {
     if (classroom?.teacherName) return classroom.teacherName;
-    if (isTeacherOfClass) return user?.name ?? "Docente asignado";
-    return "Docente asignado";
-  }, [classroom?.teacherName, isTeacherOfClass, user?.name]);
+    if (isTeacherOfClass) return user?.name ?? t("aula.docenteAsignado");
+    return t("aula.docenteAsignado");
+  }, [classroom?.teacherName, isTeacherOfClass, user?.name, t]);
 
   // FIX-CLASSCODE-ENTERPRISE — nunca mostrar el id (aula-<uuid>) como
   // código: no entra en el input de unirse y no matchea en el back. Las
   // aulas sin código lo reciben por backfill al leer el detail.
   const classCode = useMemo(() => {
-    if (!isClassroomActive) return "No disponible";
-    return classroom?.classCode || "Sin código";
-  }, [classroom?.classCode, isClassroomActive]);
+    if (!isClassroomActive) return t("aula.noDisponible");
+    return classroom?.classCode || t("aula.sinCodigo");
+  }, [classroom?.classCode, isClassroomActive, t]);
 
   const activeSurveysCount = useMemo(() => {
     const now = new Date();
@@ -441,10 +441,10 @@ export default function Aula() {
         <header className="bg-[var(--c-primary)] text-white rounded-xl h-28 relative">
           <h1 className="sr-only">{classroom?.name ?? "Aula"}</h1>
           <div className="absolute left-5 bottom-3 text-sm">
-            {roleLabel} • {teacherName} | Código de clase: {classCode}
+            {roleLabel} • {teacherName} | {t("aula.codigoDeClase")} {classCode}
           </div>
           <span className="absolute left-5 top-3 rounded-full bg-white/20 px-3 py-1 text-xs uppercase tracking-wide">
-            {getClassroomStatusLabel(classroom?.status)}
+            {t(getClassroomStatusLabelKey(classroom?.status))}
           </span>
           {isTeacher ? (
             classroomId ? (
@@ -454,12 +454,12 @@ export default function Aula() {
               >{t("aula.gestionarAula")}</Link>
             ) : (
               <span className="absolute right-5 bottom-3 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
-                Acceso {accessLabel}
+                {t("aula.acceso")} {accessLabel}
               </span>
             )
           ) : (
             <div className="absolute right-5 bottom-3 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
-              Acceso {accessLabel}
+              {t("aula.acceso")} {accessLabel}
             </div>
           )}
         </header>
@@ -554,7 +554,7 @@ export default function Aula() {
                   onClick={handleSubmitPublication}
                   disabled={publicationStatus === "submitting" || isClassroomReadOnly}
                 >
-                  {publicationStatus === "submitting" ? "Publicando..." : "Publicar"}
+                  {publicationStatus === "submitting" ? t("aula.publicando") : t("aula.publicar")}
                 </button>
               </div>
               <div className="flex flex-wrap items-center gap-3 mt-3 text-[var(--c-muted)]">
@@ -684,10 +684,10 @@ export default function Aula() {
                           ? "bg-blue-100 text-blue-700"
                           : "bg-[var(--c-bg)] text-[var(--c-muted)]"
                       }`}>
-                        {module.isLocked ? "Bloqueado"
-                          : module.progressPercent >= 100 ? "Completado"
-                          : module.progressPercent > 0 ? "En progreso"
-                          : "Sin iniciar"}
+                        {module.isLocked ? t("aula.bloqueado")
+                          : module.progressPercent >= 100 ? t("moduloDetail.completado")
+                          : module.progressPercent > 0 ? t("moduloDetail.enProgreso")
+                          : t("aula.sinIniciar")}
                       </span>
                     </div>
                     <div

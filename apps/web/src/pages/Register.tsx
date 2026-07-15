@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { apiPost } from "../lib/api";
 import { fetchRegistroOpciones } from "../services/registro";
 import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 
 /* ===========================
    DateInput (sin lucide-react)
@@ -34,7 +35,7 @@ function parseDisplay(s?: string | null): Date | null {
 }
 
 function DateInput({
-  label = "Cumpleaños",
+  label,
   placeholder = "DD/MM/AAAA",
   value = "",
   onChange,
@@ -124,7 +125,7 @@ function DateInput({
     <div className="relative w-full" ref={containerRef}>
       {label && (
         <label className="block text-gray-800 text-lg mb-2 font-normal">
-          {label} {required && <span className="text-red-500">*</span>}
+          {label ?? t("register.labelCumpleanos")} {required && <span className="text-red-500">*</span>}
         </label>
       )}
 
@@ -277,6 +278,7 @@ function DateInput({
 export default function RegistrationForm() {
   const navigate = useNavigate();
   const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   // PLAN-M — puente demo→cuenta del editor de mapas (y cualquier otro flujo
   // que quiera volver a un lugar puntual tras registrarse): se reenvía a
   // onboarding/login y de ahí a destino, ver OnboardingTema.tsx y Login.tsx.
@@ -507,6 +509,8 @@ export default function RegistrationForm() {
                 value={formData.schoolCode}
                 onChange={(e) => setFormData({ ...formData, schoolCode: e.target.value })}
                 required={formData.role === "TEACHER"}
+                onInvalid={onInvalid}
+                onInput={onInput}
                 className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
                            focus:outline-none focus:border-blue-500 transition-colors"
               />

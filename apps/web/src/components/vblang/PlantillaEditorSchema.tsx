@@ -1224,6 +1224,7 @@ function VisualPngField({
   onChange: (next: Plantilla) => void;
   uploadImage: (file: Blob) => Promise<string>;
 }) {
+  const { t } = useI18n();
   const current = readStaticImage(plantilla);
   // Una imagen "cargada" es un bloque con `src` no vacío. Un static-image recién
   // sembrado (al elegir el kind) tiene `src` vacío → todavía no insertada.
@@ -1284,7 +1285,7 @@ function VisualPngField({
         onChange={(e) => setAlt(e.target.value)}
         aria-required="true"
         aria-invalid={alt.trim() === "" || undefined}
-        placeholder="Describí la imagen para lectores de pantalla"
+        placeholder={t("plantillaEditorSchema.describiLaImagenParaLectores")}
         className="rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
       />
       {alt.trim() === "" && (

@@ -58,7 +58,7 @@ export default function EnterpriseComisiones() {
 
   const load = useCallback(async () => {
     if (!schoolId) {
-      setError("No se identificó la escuela.");
+      setError(t("enterpriseCobros.noSeIdentificoLaEscuela"));
       setLoading(false);
       return;
     }
@@ -91,7 +91,7 @@ export default function EnterpriseComisiones() {
       });
       await load();
     } catch {
-      setError("No se pudo guardar el modo de gestión.");
+      setError(t("enterpriseComisiones.noSePudoGuardarEl"));
     } finally {
       setSavingModo(false);
     }

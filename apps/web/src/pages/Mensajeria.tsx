@@ -3,6 +3,7 @@ import { useAuth } from "../auth/use-auth";
 import { useIsStaff } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
 import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import {
   fetchHilos, fetchHilo, enviarMensaje,
   fetchAvisos, crearAviso, marcarAvisoLeido,
@@ -88,6 +89,7 @@ type Tab = "mensajes" | "avisos";
 
 export default function Mensajeria() {
   const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: canPublish = staff (DIRECTIVO/TEACHER/ADMIN en
   // cualquier slot de roles[]).
@@ -256,7 +258,7 @@ export default function Mensajeria() {
       setAvisos(updated);
     } catch (err) {
       setAvisoMsg(
-        err instanceof Error ? err.message : "No se pudo publicar."
+        err instanceof Error ? err.message : t("mensajeria.noSePudoPublicar")
       );
     } finally {
       setPublicando(false);
@@ -306,19 +308,19 @@ export default function Mensajeria() {
       setAvisos(updated);
       cerrarEditarAviso();
     } catch (err) {
-      setAvisoMsg(err instanceof Error ? err.message : "No se pudo editar.");
+      setAvisoMsg(err instanceof Error ? err.message : t("mensajeria.noSePudoEditar"));
     } finally {
       setAvisoEditSaving(false);
     }
   };
 
   const handleEliminarAviso = async (avisoId: string) => {
-    if (!window.confirm("¿Eliminar este aviso? Esta acción no se puede deshacer.")) return;
+    if (!window.confirm(t("mensajeria.eliminarEsteAvisoEstaAccion"))) return;
     try {
       await eliminarAviso(avisoId);
       setAvisos((prev) => prev.filter((a) => a.id !== avisoId));
     } catch (err) {
-      setAvisoMsg(err instanceof Error ? err.message : "No se pudo eliminar.");
+      setAvisoMsg(err instanceof Error ? err.message : t("mensajeria.noSePudoEliminar"));
     }
   };
 
@@ -657,6 +659,8 @@ export default function Mensajeria() {
                 <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.titulo")}<input
                     type="text"
                     required
+                    onInvalid={onInvalid}
+                    onInput={onInput}
                     value={avisoEditTitulo}
                     onChange={(e) => setAvisoEditTitulo(e.target.value)}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
@@ -664,6 +668,8 @@ export default function Mensajeria() {
                 </label>
                 <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.cuerpo")}<textarea
                     required
+                    onInvalid={onInvalid}
+                    onInput={onInput}
                     rows={3}
                     value={avisoEditCuerpo}
                     onChange={(e) => setAvisoEditCuerpo(e.target.value)}

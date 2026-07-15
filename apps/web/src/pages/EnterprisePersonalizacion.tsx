@@ -25,7 +25,7 @@ export default function EnterprisePersonalizacion() {
 
   const load = useCallback(async () => {
     if (!schoolId) {
-      setError("Tu cuenta no tiene una escuela asignada. Contactá al administrador.");
+      setError(t("comun.tuCuentaNoTieneUna"));
       setLoading(false);
       return;
     }
@@ -35,7 +35,7 @@ export default function EnterprisePersonalizacion() {
       const escuela = await fetchEscuela(schoolId);
       setBranding({ ...emptyBranding, ...(escuela.branding ?? {}) });
     } catch {
-      setError("No pudimos cargar la personalización de la escuela.");
+      setError(t("enterprisePersonalizacion.noPudimosCargarLaPersonalizacion"));
     } finally {
       setLoading(false);
     }
@@ -54,9 +54,9 @@ export default function EnterprisePersonalizacion() {
         colorSecundario: branding.colorSecundario || null
       });
       setBranding({ ...emptyBranding, ...resp.branding });
-      setMsg("Personalización guardada.");
+      setMsg(t("enterprisePersonalizacion.personalizacionGuardada"));
     } catch {
-      setMsg("No se pudo guardar la personalización.");
+      setMsg(t("enterprisePersonalizacion.noSePudoGuardarLa"));
     } finally {
       setSaving(false);
     }
@@ -79,13 +79,13 @@ export default function EnterprisePersonalizacion() {
           <CardBody>
             <div className="grid gap-4 sm:grid-cols-2">
               <Input
-                label="URL del logo"
+                label={t("enterprisePersonalizacion.urlDelLogo")}
                 value={branding.logoUrl ?? ""}
                 onChange={(e) => setBranding((b) => ({ ...b, logoUrl: e.target.value }))}
                 placeholder="https://…"
               />
               <Input
-                label="URL del ícono"
+                label={t("enterprisePersonalizacion.urlDelIcono")}
                 value={branding.iconoUrl ?? ""}
                 onChange={(e) => setBranding((b) => ({ ...b, iconoUrl: e.target.value }))}
                 placeholder="https://…"

@@ -134,10 +134,14 @@ export default function Progreso() {
         {!loading && !error && data?.sugerencia && (
           <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
             <p className="text-sm font-semibold text-[var(--c-primary)]">
-              {data.sugerencia.titulo}
+              {data.sugerencia.kind === "vacio" ? t("progreso.empiezaTuCamino")
+                : data.sugerencia.kind === "completo" ? t("progreso.modulosCompletados")
+                : t("progreso.continuaAprendiendo")}
             </p>
             <p className="text-sm text-[var(--c-muted)] mt-1">
-              {data.sugerencia.mensaje}
+              {data.sugerencia.kind === "vacio" ? t("progreso.exploraLosModulosDisponibles")
+                : data.sugerencia.kind === "completo" ? t("progreso.excelenteTrabajoSigueExplorando")
+                : `${t("progreso.tienesNModulos")} ${data.sugerencia.restantes ?? 0} ${t("progreso.enProgresoSigueAdelante")}`}
             </p>
           </div>
         )}

@@ -111,7 +111,7 @@ export default function CuestionariosIndex() {
       })
       .catch((err) => {
         setStatus("error");
-        setErrorMessage(err instanceof Error ? err.message : "Error de carga");
+        setErrorMessage(err instanceof Error ? err.message : t("comun.errorDeCarga"));
       });
   }, []);
 
@@ -136,7 +136,7 @@ export default function CuestionariosIndex() {
     } catch (err) {
       setCreating(false);
       window.alert(
-        err instanceof Error ? err.message : "No se pudo crear el cuestionario.",
+        err instanceof Error ? err.message : t("cuestionariosIndex.noSePudoCrearEl"),
       );
     }
   };

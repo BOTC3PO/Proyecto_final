@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
+import { useI18n } from '../i18n/I18nContext';
 import { apiGet, apiPost, getAuthToken } from '../lib/api';
 
 type MaterialItem = {
@@ -33,14 +34,15 @@ const MATERIAL_EDITOR_ROUTE: Record<string, string> = {
 
 type ShareScope = 'privado' | 'escuela' | 'publico';
 
-const SHARE_SCOPE_OPTIONS: Array<{ value: ShareScope; label: string; helper: string }> = [
-  { value: 'privado', label: 'Solo yo', helper: 'Nadie más puede verlo.' },
-  { value: 'escuela', label: 'Mi escuela', helper: 'Docentes y alumnos de tu institución.' },
-  { value: 'publico', label: 'Público', helper: 'Cualquier docente registrado en la plataforma.' },
+const SHARE_SCOPE_OPTIONS: Array<{ value: ShareScope; labelKey: string; helperKey: string }> = [
+  { value: 'privado', labelKey: 'profesorMateriales.soloYo', helperKey: 'profesorMateriales.nadieMasPuedeVerlo' },
+  { value: 'escuela', labelKey: 'bancoCuestionarios.miEscuela', helperKey: 'profesorMateriales.docentesYAlumnosDeTu' },
+  { value: 'publico', labelKey: 'quizConfigPanel.publico', helperKey: 'profesorMateriales.cualquierDocenteRegistradoEnLa' },
 ];
 
 export default function ProfesorMateriales() {
   const { user } = useAuth();
+  const { t } = useI18n();
   const navigate = useNavigate();
   const [items, setItems] = useState<MaterialItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -82,12 +84,13 @@ export default function ProfesorMateriales() {
       await apiPost(`/api/materiales/${shareDialogItem.id}/compartir`, {
         scope: shareScope,
       });
-      const label = SHARE_SCOPE_OPTIONS.find((o) => o.value === shareScope)?.label ?? shareScope;
-      setMsg(`✓ Material compartido: ${label}.`);
+      const opt = SHARE_SCOPE_OPTIONS.find((o) => o.value === shareScope);
+      const label = opt ? t(opt.labelKey) : shareScope;
+      setMsg(`✓ ${t('profesorMateriales.materialCompartido')} ${label}.`);
       closeShareDialog();
       fetchItems();
     } catch {
-      setMsg('Error al compartir.');
+      setMsg(t('profesorMateriales.errorAlCompartir'));
       setShareBusy(false);
     }
   };
@@ -103,7 +106,7 @@ export default function ProfesorMateriales() {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
       if (!response.ok) {
-        setMsg('Error al descargar el material.');
+        setMsg(t('profesorMateriales.errorAlDescargarElMaterial'));
         return;
       }
       const blob = await response.blob();
@@ -136,9 +139,9 @@ export default function ProfesorMateriales() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Material didáctico</h1>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t('profesorMateriales.materialDidactico')}</h1>
           <p className="text-sm text-[var(--c-muted)] mt-0.5">
-            Cuestionarios y materiales compartidos entre docentes de tu institución.
+            {t('profesorMateriales.cuestionariosYMaterialesCompartidosEntre')}
           </p>
         </div>
         <Link
@@ -149,14 +152,14 @@ export default function ProfesorMateriales() {
           to="/plantillas/nueva?returnTo=/profesor/materiales"
           className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
         >
-          + Crear cuestionario
+          {t('profesorMateriales.crearCuestionario')}
         </Link>
         {/* G3 Fase 3.1 — el editor de libros no tenía ningún entry point. */}
         <Link
           to="/editor"
           className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
         >
-          + Crear libro
+          {t('profesorMateriales.crearLibro')}
         </Link>
       </div>
 
@@ -169,8 +172,8 @@ export default function ProfesorMateriales() {
       {/* Tabs */}
       <div className="flex gap-1 border-b border-[var(--c-border)]">
         {([
-          { key: 'escuela', label: 'De la escuela' },
-          { key: 'propios', label: 'Mis materiales' },
+          { key: 'escuela', label: t('profesorMateriales.deLaEscuela') },
+          { key: 'propios', label: t('profesorMateriales.misMateriales') },
         ] as const).map(({ key, label }) => (
           <button
             key={key}
@@ -199,8 +202,8 @@ export default function ProfesorMateriales() {
         <div className="rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
           <p className="text-sm text-[var(--c-muted)]">
             {tab === 'escuela'
-              ? 'Todavía no hay materiales compartidos en tu escuela.'
-              : 'No tenés materiales propios. Creá un cuestionario para empezar.'}
+              ? t('profesorMateriales.todaviaNoHayMaterialesCompartidos')
+              : t('profesorMateriales.noTenesMaterialesPropiosCrea')}
           </p>
         </div>
       )}
@@ -214,8 +217,8 @@ export default function ProfesorMateriales() {
             <div className="min-w-0">
               <p className="text-sm font-semibold text-[var(--c-text)] truncate">{item.titulo}</p>
               <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                {item.materia} · {item.autor}
-                {item.questions ? ` · ${item.questions} preguntas` : ''}
+                {item.materia === 'Sin materia' ? t('menuProfesor.sinMateria') : item.materia} · {item.autor}
+                {item.questions ? ` · ${item.questions} ${t('comun.preguntas')}` : ''}
               </p>
             </div>
             <div className="flex gap-2 flex-shrink-0">
@@ -226,7 +229,7 @@ export default function ProfesorMateriales() {
                   data-testid={`abrir-${item.id}`}
                   className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
                 >
-                  Abrir
+                  {t('profesorMateriales.abrir')}
                 </button>
               )}
               {item.origen === 'libro' && (
@@ -236,7 +239,7 @@ export default function ProfesorMateriales() {
                   data-testid={`abrir-${item.id}`}
                   className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
                 >
-                  Abrir
+                  {t('profesorMateriales.abrir')}
                 </button>
               )}
               {tab === 'propios' && (!item.origen || item.origen === 'modulo') && (
@@ -245,7 +248,7 @@ export default function ProfesorMateriales() {
                   data-testid={`compartir-${item.id}`}
                   className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
                 >
-                  {item.compartido ? 'Cambiar alcance' : 'Compartir'}
+                  {item.compartido ? t('profesorMateriales.cambiarAlcance') : t('profesorMateriales.compartir')}
                 </button>
               )}
               {(!item.origen || item.origen === 'modulo') && (
@@ -254,7 +257,7 @@ export default function ProfesorMateriales() {
                   onClick={() => handleDescargar(item)}
                   className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
                 >
-                  ↓ Descargar
+                  {t('profesorMateriales.descargar')}
                 </button>
               )}
             </div>
@@ -277,11 +280,10 @@ export default function ProfesorMateriales() {
             id="compartir-modal-title"
             className="text-base font-semibold text-[var(--c-text)]"
           >
-            Compartir "{shareDialogItem.titulo}"
+            {t('profesorMateriales.compartir')} "{shareDialogItem.titulo}"
           </h3>
           <p className="mt-1 text-xs text-[var(--c-muted)]">
-            Elegí con quién querés compartir este material. Podés cambiar el
-            alcance más tarde.
+            {t('profesorMateriales.elegiConQuienQueresCompartir')}
           </p>
           <div className="mt-4 space-y-2" data-testid="compartir-scope-group">
             {SHARE_SCOPE_OPTIONS.map((opt) => {
@@ -306,10 +308,10 @@ export default function ProfesorMateriales() {
                   />
                   <span>
                     <span className="block text-sm font-medium text-[var(--c-text)]">
-                      {opt.label}
+                      {t(opt.labelKey)}
                     </span>
                     <span className="block text-xs text-[var(--c-muted)] mt-0.5">
-                      {opt.helper}
+                      {t(opt.helperKey)}
                     </span>
                   </span>
                 </label>
@@ -323,7 +325,7 @@ export default function ProfesorMateriales() {
               disabled={shareBusy}
               className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors"
             >
-              Cancelar
+              {t('comun.cancelar')}
             </button>
             <button
               type="button"
@@ -332,7 +334,7 @@ export default function ProfesorMateriales() {
               data-testid="compartir-confirmar"
               className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
             >
-              {shareBusy ? 'Compartiendo…' : 'Confirmar'}
+              {shareBusy ? t('profesorMateriales.compartiendo') : t('profesorMateriales.confirmar')}
             </button>
           </div>
         </div>

@@ -25,7 +25,7 @@ export default function EnterpriseReportes() {
 
   useEffect(() => {
     if (!schoolId) {
-      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setError(t('comun.tuCuentaNoTieneUna'));
       setLoading(false);
       return;
     }

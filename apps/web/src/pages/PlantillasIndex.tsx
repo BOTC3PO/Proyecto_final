@@ -164,7 +164,7 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
       })
       .catch((err) => {
         setStatus("error");
-        setErrorMessage(err instanceof Error ? err.message : "Error de carga");
+        setErrorMessage(err instanceof Error ? err.message : t("comun.errorDeCarga"));
       });
   }, [q, materia, visibilityFilter, mode]);
 
@@ -178,7 +178,7 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
       load();
     } catch (err) {
       window.alert(
-        err instanceof Error ? err.message : "No se pudo eliminar la plantilla.",
+        err instanceof Error ? err.message : t("plantillasIndex.noSePudoEliminarLa"),
       );
     }
   };
@@ -189,7 +189,7 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
       navigate(`/plantillas/${created.id}`);
     } catch (err) {
       window.alert(
-        err instanceof Error ? err.message : "No se pudo hacer fork.",
+        err instanceof Error ? err.message : t("plantillasIndex.noSePudoHacerFork"),
       );
     }
   };
@@ -202,7 +202,7 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
       navigate(`/plantillas/${created.id}`);
     } catch (err) {
       window.alert(
-        err instanceof Error ? err.message : "No se pudo clonar la plantilla.",
+        err instanceof Error ? err.message : t("plantillasIndex.noSePudoClonarLa"),
       );
     }
   };

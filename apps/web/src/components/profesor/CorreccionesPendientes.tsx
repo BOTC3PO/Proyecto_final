@@ -49,6 +49,7 @@ function ItemCorreccion({
   item: PendingItem;
   onGraded: (questionId: string) => void;
 }) {
+  const { t } = useI18n();
   const [score, setScore] = useState<string>("");
   const [feedback, setFeedback] = useState("");
   const [saving, setSaving] = useState(false);
@@ -69,7 +70,7 @@ function ItemCorreccion({
       });
       onGraded(item.questionId);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "No se pudo guardar la corrección.");
+      setError(e instanceof Error ? e.message : t("correccionesPendientes.noSePudoGuardarLa"));
     } finally {
       setSaving(false);
     }
@@ -77,9 +78,9 @@ function ItemCorreccion({
 
   return (
     <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 space-y-2">
-      <p className="text-sm font-medium text-[var(--c-text)]">{item.prompt || "(sin enunciado)"}</p>
+      <p className="text-sm font-medium text-[var(--c-text)]">{item.prompt || t("comun.sinEnunciado")}</p>
       <div className="rounded-md bg-[var(--c-surface)] border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-text)] whitespace-pre-wrap">
-        {respuestaTexto(item.response) || <span className="text-[var(--c-muted)] italic">Sin respuesta</span>}
+        {respuestaTexto(item.response) || <span className="text-[var(--c-muted)] italic">{t("correccionesPendientes.sinRespuesta")}</span>}
       </div>
       <div className="flex flex-wrap items-end gap-3">
         <label className="flex flex-col gap-0.5 text-xs text-[var(--c-muted)]">
@@ -102,7 +103,7 @@ function ItemCorreccion({
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             aria-label={`Feedback para "${item.prompt}"`}
-            placeholder="Comentario para el alumno"
+            placeholder={t("correccionesPendientes.comentarioParaElAlumno")}
             className="w-full rounded border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1 text-sm text-[var(--c-text)]"
           />
         </label>

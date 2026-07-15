@@ -419,7 +419,7 @@ export default function PlantillaEditor() {
       } else {
         setSaveStatus("error");
         setSaveMessage(
-          err instanceof Error ? err.message : "No se pudo guardar.",
+          err instanceof Error ? err.message : t("plantillaEditor.noSePudoGuardar"),
         );
       }
     } finally {

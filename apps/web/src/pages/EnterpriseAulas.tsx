@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import type { Classroom } from "../domain/classroom/classroom.types";
-import { getClassroomStatusLabel } from "../domain/classroom/classroom.types";
+import { getClassroomStatusLabelKey } from "../domain/classroom/classroom.types";
 import { fetchEnterpriseAulas } from "../services/enterprise";
 import { getAulaId } from "../lib/aula-id";
 import { useI18n } from "../i18n/I18nContext";
@@ -21,7 +21,7 @@ export default function EnterpriseAulas() {
 
   useEffect(() => {
     if (!schoolId) {
-      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setError(t('comun.tuCuentaNoTieneUna'));
       setLoading(false);
       return;
     }
@@ -91,7 +91,7 @@ export default function EnterpriseAulas() {
                   ? 'bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]'
                   : 'bg-[color-mix(in_srgb,var(--c-muted)_12%,transparent)] text-[var(--c-muted)]'
               }`}>
-                {getClassroomStatusLabel(aula.status)}
+                {t(getClassroomStatusLabelKey(aula.status))}
               </span>
               <Link
                 to={`/clases?id=${getAulaId(aula)}`}

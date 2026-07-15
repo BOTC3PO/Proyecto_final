@@ -4,6 +4,7 @@ import { useHasAnyRole, useIsStaff } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import {
   fetchCalendarioUnificado, crearEventoEscuela,
   crearEventoAula, eliminarEventoEscuela,
@@ -31,6 +32,20 @@ const TIPO_CONFIG: Record<string, {
   evento_institucional: { label: "Institucional",  color: "text-teal-700",    bg: "bg-teal-50",    border: "border-teal-300",    peso: 2 },
 };
 
+const TIPO_LABEL_KEY: Record<string, string> = {
+  clase:                "profesorCalendario.clase",
+  evaluacion:           "profesorCalendario.evaluacion",
+  evento:               "profesorCalendario.evento",
+  feriado:              "profesorCalendario.feriado",
+  vacaciones:           "profesorCalendario.vacaciones",
+  sin_clases:           "profesorCalendario.sinClases",
+  acto_escolar:         "profesorCalendario.actoEscolar",
+  evento_institucional: "profesorCalendario.institucional",
+};
+
+const DIAS_KEYS = ["profesorCalendario.dom","profesorCalendario.lun","profesorCalendario.mar","profesorCalendario.mie","profesorCalendario.jue","profesorCalendario.vie","profesorCalendario.sab"];
+const MESES_KEYS = ["profesorCalendario.enero","profesorCalendario.febrero","profesorCalendario.marzo","profesorCalendario.abril","profesorCalendario.mayo","profesorCalendario.junio","profesorCalendario.julio","profesorCalendario.agosto","profesorCalendario.septiembre","profesorCalendario.octubre","profesorCalendario.noviembre","profesorCalendario.diciembre"];
+
 const TIPOS_ESCUELA: TipoEventoEscuela[] = [
   "feriado", "vacaciones", "acto_escolar",
   "evento_institucional", "sin_clases",
@@ -38,12 +53,6 @@ const TIPOS_ESCUELA: TipoEventoEscuela[] = [
 
 const TIPOS_AULA: TipoEventoAula[] = [
   "clase", "evaluacion", "evento", "sin_clases",
-];
-
-const DIAS = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
-const MESES = [
-  "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-  "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
 ];
 
 function getDias(year: number, month: number): (Date | null)[] {
@@ -75,6 +84,7 @@ function eventoEnDia(ev: EventoCalendario, dia: string): boolean {
 
 export default function ProfesorCalendario() {
   const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: canEditEscuela = directivo o admin. canEditAula = staff.
   // Migrado a helpers centralizados (multi-rol friendly): un TEACHER+USER
@@ -222,11 +232,11 @@ export default function ProfesorCalendario() {
           fechaFin: form.fechaFin || undefined,
         });
       }
-      setMsg("✓ Evento guardado");
+      setMsg(t("profesorCalendario.eventoGuardado"));
       setForm((f) => ({ ...f, titulo: "", descripcion: "" }));
       cargarEventos();
     } catch {
-      setMsg("No se pudo guardar el evento.");
+      setMsg(t("profesorCalendario.noSePudoGuardarEl"));
     } finally {
       setGuardando(false);
     }
@@ -309,7 +319,7 @@ export default function ProfesorCalendario() {
               ←
             </button>
             <span className="w-44 text-center text-base font-semibold text-[var(--c-text)]">
-              {MESES[month - 1]} {year}
+              {t(MESES_KEYS[month - 1])} {year}
             </span>
             <button type="button" onClick={nextMes}
               className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm hover:bg-[var(--c-bg)]">
@@ -345,7 +355,7 @@ export default function ProfesorCalendario() {
           {Object.entries(TIPO_CONFIG).map(([tipo, cfg]) => (
             <span key={tipo}
               className={`rounded-full border px-2 py-0.5 text-xs font-medium ${cfg.bg} ${cfg.color} ${cfg.border}`}>
-              {cfg.label}
+              {TIPO_LABEL_KEY[tipo] ? t(TIPO_LABEL_KEY[tipo]) : cfg.label}
             </span>
           ))}
         </div>
@@ -353,10 +363,10 @@ export default function ProfesorCalendario() {
         <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
           <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="grid grid-cols-7 border-b border-[var(--c-border)] bg-[var(--c-bg)]">
-              {DIAS.map((d) => (
-                <div key={d}
+              {DIAS_KEYS.map((dk) => (
+                <div key={dk}
                   className="py-2 text-center text-xs font-semibold text-[var(--c-muted)]">
-                  {d}
+                  {t(dk)}
                 </div>
               ))}
             </div>
@@ -412,7 +422,7 @@ export default function ProfesorCalendario() {
                         })}
                         {evs.length > 3 && (
                           <div className="text-[10px] text-[var(--c-muted)] pl-1">
-                            +{evs.length - 3} más
+                            +{evs.length - 3} {t("comun.mas")}
                           </div>
                         )}
                       </div>
@@ -467,7 +477,7 @@ export default function ProfesorCalendario() {
                               )}
                               <div className="flex items-center gap-2 mt-1">
                                 <span className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${cfg?.bg} ${cfg?.color} ${cfg?.border}`}>
-                                  {cfg?.label ?? ev.tipo}
+                                  {TIPO_LABEL_KEY[ev.tipo] ? t(TIPO_LABEL_KEY[ev.tipo]) : (cfg?.label ?? ev.tipo)}
                                 </span>
                                 {ev.fechaFin !== ev.fechaInicio && (
                                   <span className="text-[10px] text-[var(--c-muted)]">
@@ -516,25 +526,25 @@ export default function ProfesorCalendario() {
 
                 {canEditEscuela && canEditAula && (
                   <div className="flex gap-1 mb-3 border-b border-[var(--c-border)]">
-                    {(["escuela","aula"] as const).map((t) => (
-                      <button key={t} type="button"
+                    {(["escuela","aula"] as const).map((tabKey) => (
+                      <button key={tabKey} type="button"
                         onClick={() => {
-                          setTab(t);
+                          setTab(tabKey);
                           setForm((f) => ({
                             ...f,
-                            tipo: t === "escuela" ? "feriado" : "clase",
+                            tipo: tabKey === "escuela" ? "feriado" : "clase",
                             // FIX-CALENDARIO-B: resetear el aulaId al
                             // cambiar de tab para que el dropdown
                             // escuela arranque en "Global".
-                            aulaId: t === "aula" && aulas[0] ? aulas[0].id : "",
+                            aulaId: tabKey === "aula" && aulas[0] ? aulas[0].id : "",
                           }));
                         }}
                         className={`px-3 py-1.5 text-xs font-medium border-b-2 -mb-px transition-colors ${
-                          tab === t
+                          tab === tabKey
                             ? "border-[var(--c-primary)] text-[var(--c-primary)]"
                             : "border-transparent text-[var(--c-muted)]"
                         }`}>
-                        {t === "escuela" ? "🏫 Escuela" : "📚 Aula"}
+                        {tabKey === "escuela" ? t("profesorCalendario.escuela") : t("profesorCalendario.aula")}
                       </button>
                     ))}
                   </div>
@@ -548,9 +558,9 @@ export default function ProfesorCalendario() {
                       }))}
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     >
-                      {(tab === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((t) => (
-                        <option key={t} value={t}>
-                          {TIPO_CONFIG[t]?.label ?? t}
+                      {(tab === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((tv) => (
+                        <option key={tv} value={tv}>
+                          {TIPO_LABEL_KEY[tv] ? t(TIPO_LABEL_KEY[tv]) : (TIPO_CONFIG[tv]?.label ?? tv)}
                         </option>
                       ))}
                     </select>
@@ -601,6 +611,8 @@ export default function ProfesorCalendario() {
                         ...f, titulo: e.target.value
                       }))}
                       placeholder={t("profesorCalendario.ejDiaDelMaestro")}
+                      onInvalid={onInvalid}
+                      onInput={onInput}
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     />
                   </label>
@@ -613,6 +625,8 @@ export default function ProfesorCalendario() {
                           fechaFin: f.fechaFin < e.target.value
                             ? e.target.value : f.fechaFin,
                         }))}
+                        onInvalid={onInvalid}
+                        onInput={onInput}
                         className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                       />
                     </label>
@@ -645,7 +659,7 @@ export default function ProfesorCalendario() {
                       (tab === "aula" && !form.aulaId)
                     }
                     className="w-full rounded-xl bg-[var(--c-primary)] py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-                    {guardando ? "Guardando..." : "Guardar evento"}
+                    {guardando ? t("comun.guardando2") : t("profesorCalendario.guardarEvento")}
                   </button>
 
                   {msg && (
@@ -680,7 +694,7 @@ export default function ProfesorCalendario() {
                 id="calendario-editar-titulo"
                 className="text-base font-semibold text-[var(--c-text)]"
               >
-                Editar evento {editando.origen === "escuela" ? "de escuela" : "del aula"}
+                {t("profesorCalendario.editarEvento")} {editando.origen === "escuela" ? t("profesorCalendario.deEscuela") : t("profesorCalendario.delAula")}
               </h3>
               <form onSubmit={handleGuardarEdicion} className="mt-3 space-y-3">
                 <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.tipo")}<select
@@ -690,9 +704,9 @@ export default function ProfesorCalendario() {
                     }))}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   >
-                    {(editando.origen === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((t) => (
-                      <option key={t} value={t}>
-                        {TIPO_CONFIG[t]?.label ?? t}
+                    {(editando.origen === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((tv) => (
+                      <option key={tv} value={tv}>
+                        {TIPO_LABEL_KEY[tv] ? t(TIPO_LABEL_KEY[tv]) : (TIPO_CONFIG[tv]?.label ?? tv)}
                       </option>
                     ))}
                   </select>
@@ -721,6 +735,8 @@ export default function ProfesorCalendario() {
                     onChange={(e) => setEditForm((f) => ({
                       ...f, titulo: e.target.value
                     }))}
+                    onInvalid={onInvalid}
+                    onInput={onInput}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
@@ -731,6 +747,8 @@ export default function ProfesorCalendario() {
                       onChange={(e) => setEditForm((f) => ({
                         ...f, fechaInicio: e.target.value
                       }))}
+                      onInvalid={onInvalid}
+                      onInput={onInput}
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     />
                   </label>
@@ -761,7 +779,7 @@ export default function ProfesorCalendario() {
                   <button type="submit"
                     disabled={editGuardando || !editForm.titulo.trim() || !editForm.fechaInicio}
                     className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity">
-                    {editGuardando ? "Guardando..." : "Guardar cambios"}
+                    {editGuardando ? t("comun.guardando2") : t("comun.guardarCambios")}
                   </button>
                 </div>
               </form>

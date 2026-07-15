@@ -40,6 +40,12 @@ type ProgressResponse = {
   unlocks: ProgressUnlock[];
 };
 
+const ROLE_LABEL_KEY: Record<string, string> = {
+  TEACHER: "perfil.docente",
+  DIRECTIVO: "comun.directivo",
+  ADMIN: "perfil.administrador",
+};
+
 const StatCard: React.FC<{
   icon: React.ReactNode;
   value: string | number;
@@ -101,6 +107,7 @@ const ModuloRow: React.FC<{
 };
 
 const TareaRow: React.FC<{ tarea: TareaResumen }> = ({ tarea }) => {
+  const { t } = useI18n();
   const vence = new Date(tarea.vence);
   const hoy = new Date();
   hoy.setHours(23, 59, 59, 0);
@@ -120,14 +127,14 @@ const TareaRow: React.FC<{ tarea: TareaResumen }> = ({ tarea }) => {
     : estaSemana
     ? "bg-[color-mix(in_srgb,var(--c-warning)_12%,transparent)] text-[var(--c-warning)]"
     : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]";
-  const badgeLabel = urgente ? "Urgente" : estaSemana ? "Esta semana" : "Sin urgencia";
+  const badgeLabel = urgente ? t("tareas.urgente") : estaSemana ? t("tareas.estaSemana") : t("tareas.sinUrgencia");
 
   return (
     <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-3.5 py-2.5 flex items-center gap-2.5">
       <div className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColor}`} />
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-[var(--c-text)] truncate">{tarea.titulo}</p>
-        <p className="text-xs text-[var(--c-muted)]">{tarea.curso} · Vence {tarea.vence}</p>
+        <p className="text-xs text-[var(--c-muted)]">{tarea.curso} · {t("menualumno.vence")} {tarea.vence}</p>
       </div>
       <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${badgeCls}`}>
         {badgeLabel}
@@ -155,7 +162,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
       setProgressPercent(0);
       setModulesCount(0);
       setProgressStatus("error");
-      setProgressError("No se encontró un alumno autenticado.");
+      setProgressError(t("menualumno.noSeEncontroUnAlumno"));
       return () => { active = false; };
     }
     setProgressStatus("loading");
@@ -183,7 +190,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
         setProgressPercent(0);
         setProgressStatus("error");
         setProgressError(
-          error instanceof Error ? error.message : "No se pudo cargar el progreso."
+          error instanceof Error ? error.message : t("menualumno.noSePudoCargarEl")
         );
       });
     return () => { active = false; };
@@ -229,7 +236,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("menualumno.bienvenido")}<span className="text-[var(--c-primary)]">{student.name}</span>
           </h1>
           <p className="text-sm text-[var(--c-muted)] mt-1">
-            Alumno · {completedModules} módulos completados
+            {t("matrizProgreso.alumno")} · {completedModules} {t("perfilPublico.modulosCompletados")}
           </p>
         </div>
 
@@ -253,29 +260,29 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           <StatCard
             icon={<Trophy className="w-5 h-5" />}
             value={completedModules}
-            label="Módulos completados"
-            hint={progressStatus === "loading" ? "Cargando..." : `de ${modulesCount} en total`}
+            label={t("comun.modulosCompletados")}
+            hint={progressStatus === "loading" ? t("comun.cargando2") : `${t("menualumno.deLabel")} ${modulesCount} ${t("menualumno.enTotal")}`}
             hintColor="muted"
           />
           <StatCard
             icon={<GraduationCap className="w-5 h-5" />}
             value={`${progressPercent}%`}
-            label="Progreso general"
-            hint={progressPercent >= 50 ? "En camino" : "Seguí así"}
+            label={t("menualumno.progresoGeneral")}
+            hint={progressPercent >= 50 ? t("perfil.enCamino") : t("menualumno.seguiAsi")}
             hintColor={progressPercent >= 50 ? "success" : "warning"}
           />
           <StatCard
             icon={<Clock3 className="w-5 h-5" />}
             value={tareas.length}
-            label="Tareas pendientes"
-            hint={tareasUrgentes > 0 ? `${tareasUrgentes} vence${tareasUrgentes > 1 ? "n" : ""} hoy` : "Al día"}
+            label={t("menualumno.tareasPendientes")}
+            hint={tareasUrgentes > 0 ? `${tareasUrgentes} ${tareasUrgentes > 1 ? t("tareas.vencenHoy") : t("tareas.venceHoy")}` : t("profesorAulas.alDia")}
             hintColor={tareasUrgentes > 0 ? "warning" : "success"}
           />
           <StatCard
             icon={<Award className="w-5 h-5" />}
             value={coins !== null ? coins.toLocaleString("es-AR") : "—"}
-            label="Monedas"
-            hint="Ciclo económico activo"
+            label={t("menualumno.monedas")}
+            hint={t("menualumno.cicloEconomicoActivo")}
             hintColor="muted"
           />
         </div>
@@ -301,8 +308,8 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             {progressStatus === "ready" && modulesCount > 0 && (
               <div>
                 <ModuloRow
-                  nombre="Módulos completados"
-                  meta={`${completedModules} de ${modulesCount}`}
+                  nombre={t("comun.modulosCompletados")}
+                  meta={`${completedModules} ${t("menualumno.deLabel")} ${modulesCount}`}
                   pct={progressPercent}
                   icon={<Trophy className="w-4 h-4" />}
                 />
@@ -361,7 +368,8 @@ export default function Page() {
   // Para USER real, mostramos "Alumno". Para staff en preview,
   // mostramos el rol real para que entienda que está viendo
   // SU cuenta.
-  const roleLabel = isStaffView ? (primary ?? "Staff") : "Alumno";
+  const roleLabelKey = isStaffView ? ROLE_LABEL_KEY[primary ?? ""] : "matrizProgreso.alumno";
+  const roleLabel = roleLabelKey ? t(roleLabelKey) : (primary ?? t("menualumno.staff"));
   return (
     <>
       {isStaffView && (
@@ -370,9 +378,8 @@ export default function Page() {
           className="sticky top-0 z-30 bg-amber-50 border-b border-amber-200 px-4 py-2 text-center text-xs text-amber-800"
           role="status"
         >
-          👀 Estás viendo la vista previa de alumno. Los datos
-          que ves son tuyos como {roleLabel.toLowerCase()}, no
-          los de un alumno real.{" "}
+          👀 {t("menualumno.viendoVistaPreviaAlumno")}{" "}
+          {roleLabel.toLowerCase()}{t("menualumno.noSonDeUnAlumnoReal")}{" "}
           <Link
             to={primary === "TEACHER" ? "/profesor" : primary === "DIRECTIVO" ? "/enterprise" : "/admin"}
             className="font-semibold underline"

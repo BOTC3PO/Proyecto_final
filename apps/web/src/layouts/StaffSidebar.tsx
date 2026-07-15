@@ -41,10 +41,10 @@ const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   ],
 };
 
-const ROLE_LABEL: Record<string, string> = {
-  TEACHER: 'Docente',
-  DIRECTIVO: 'Directivo',
-  ADMIN: 'Admin',
+const ROLE_LABEL_KEY: Record<string, string> = {
+  TEACHER: 'perfil.docente',
+  DIRECTIVO: 'comun.directivo',
+  ADMIN: 'perfil.administrador',
 };
 
 // Fila del menú de usuario con hover token-puro.
@@ -361,7 +361,7 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
               menu={p}
               initials={initials}
               name={user?.name ?? ''}
-              roleLabel={ROLE_LABEL[role] ?? role}
+              roleLabel={ROLE_LABEL_KEY[role] ? t(ROLE_LABEL_KEY[role]) : role}
             />
           )}
         >

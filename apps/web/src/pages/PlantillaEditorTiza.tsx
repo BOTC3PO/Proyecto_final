@@ -738,7 +738,7 @@ function PlantillaEditorTizaInner() {
       await deleteQuiz(quizId);
       navigate(returnTo || "/plantillas");
     } catch {
-      setToastState({ message: "No se pudo eliminar el cuestionario. Probá de nuevo." });
+      setToastState({ message: t("plantillaEditorTiza.noSePudoEliminarEl") });
     }
   }, [quizId, navigate, returnTo]);
 
@@ -1108,7 +1108,7 @@ function PlantillaEditorTizaInner() {
       } else {
         setSaveStatus("error");
         setSaveMessage(
-          err instanceof Error ? err.message : "No se pudo guardar.",
+          err instanceof Error ? err.message : t("plantillaEditorTiza.noSePudoGuardar"),
         );
       }
     } finally {
@@ -1354,7 +1354,7 @@ function PlantillaEditorTizaInner() {
       setSaveStatus("idle");
       setSaveMessage(null);
     } catch {
-      setToastState({ message: "No se pudo importar la plantilla. Probá de nuevo." });
+      setToastState({ message: t("plantillaEditorTiza.noSePudoImportarLa") });
     }
   };
 
@@ -1731,7 +1731,7 @@ function PlantillaEditorTizaInner() {
       {hasExplicSec ? (
         <RailNavItem
           icon="✎"
-          label="Explicación"
+          label={t("plantillaEditorTiza.explicacion")}
           active={selection.kind === "pregunta" && activeSection === "tiza-sec-explicacion"}
           onClick={() => goToSection("tiza-sec-explicacion")}
         />
@@ -1839,7 +1839,7 @@ function PlantillaEditorTizaInner() {
                 </span>
                 <select
                   aria-label={`Pool de ${etiquetaPregunta(q, i)}`}
-                  title='Asignar un pool convierte la pregunta en relleno (entra al sorteo); "sin pool" incluye a las obligatorias.'
+                  title={t("plantillaEditorTiza.asignarUnPoolConvierteLa")}
                   value={poolDe(q) ?? ""}
                   onChange={(e) => setPoolDe(q.key, e.target.value || null)}
                   style={{

@@ -155,7 +155,7 @@ export default function ProfesorEvaluaciones() {
               evaluaciones formales. Las prácticas van a
               `/profesor/calificaciones` y las competencias tienen
               su propio panel en el panel principal. */}
-          Cuestionarios formales de evaluación. Las prácticas y competencias se gestionan desde el panel principal.
+          {t('profesorEvaluaciones.cuestionariosFormalesDeEvaluacion')}
         </p>
       </div>
 
@@ -171,7 +171,7 @@ export default function ProfesorEvaluaciones() {
             >
               {schools.map((school) => (
                 <option key={school} value={school}>
-                  {school === "all" ? "Todas" : school}
+                  {school === "all" ? t('comun.todas') : school}
                 </option>
               ))}
             </select>

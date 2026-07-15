@@ -334,7 +334,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
   }, [localConfig, update]);
 
   const clearAll = useCallback(() => {
-    if (!window.confirm("¿Eliminar todas las anotaciones?")) return;
+    if (!window.confirm(t("mapaStandalone.eliminarTodasLasAnotaciones"))) return;
     update({ ...localConfig, anotaciones: [] });
     setSelectedId(null);
     setPendingZona(null);

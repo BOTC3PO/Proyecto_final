@@ -22,7 +22,7 @@ function translate(lang: LanguageId, key: string): string {
   return value;
 }
 
-const I18nContext = createContext<I18nContextValue>({
+export const I18nContext = createContext<I18nContextValue>({
   lang: DEFAULT_LANGUAGE,
   setLang: () => {},
   availableLanguages: LANGUAGES,

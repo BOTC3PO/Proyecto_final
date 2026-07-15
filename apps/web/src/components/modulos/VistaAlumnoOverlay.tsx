@@ -436,6 +436,7 @@ function ManualQuestionPreview({
   onMissing: (reason: string) => void;
   onVerified?: (questionId: string) => void;
 }) {
+  const { t } = useI18n();
   const qt = question.questionType ?? "input";
   const [answer, setAnswer] = useState<string | string[] | Record<string, string>>("");
   const [verified, setVerified] = useState<null | boolean>(null);
@@ -498,7 +499,7 @@ function ManualQuestionPreview({
           Pregunta {index + 1} · {qt}
         </p>
         <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-text)" }}>
-          {question.prompt || <em style={{ color: "var(--c-muted)" }}>(sin enunciado)</em>}
+          {question.prompt || <em style={{ color: "var(--c-muted)" }}>{t("comun.sinEnunciado")}</em>}
         </p>
       </div>
 

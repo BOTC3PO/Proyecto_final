@@ -12,11 +12,13 @@ import { fetchClassrooms } from "../services/aulas";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 
 const toLocalInputValue = (date: Date) => date.toISOString().slice(0, 16);
 
 export default function ProfesorEncuestas() {
   const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   // PLAN-H §3: llegar con ?aulaId=... (desde AulaActionsBar) fija el aula
   // y esconde el selector — crear/listar queda scopeado a esa aula sin
   // que el docente pueda elegir otra por error.
@@ -59,7 +61,7 @@ export default function ProfesorEncuestas() {
       const response = await fetchSurveys(targetClassroomId);
       setItems(response.items);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudieron cargar las encuestas.");
+      setError(err instanceof Error ? err.message : t("profesorEncuestas.noSePudieronCargarLas"));
     } finally {
       setIsLoading(false);
     }
@@ -79,7 +81,7 @@ export default function ProfesorEncuestas() {
           setItems([]);
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : "No se pudieron cargar las aulas.");
+        setError(err instanceof Error ? err.message : t("profesorEncuestas.noSePudieronCargarLas2"));
       } finally {
         setIsLoading(false);
       }
@@ -152,18 +154,18 @@ export default function ProfesorEncuestas() {
       if (defaults) setOptions(defaults.defaultOptions);
       await refresh(classroomId);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo crear la encuesta.");
+      setError(err instanceof Error ? err.message : t("profesorEncuestas.noSePudoCrearLa"));
     }
   };
 
   const handleDelete = async (id: string) => {
-    if (!window.confirm("¿Seguro que deseas eliminar esta encuesta?")) return;
+    if (!window.confirm(t("profesorEncuestas.seguroQueDeseasEliminarEsta"))) return;
     try {
       setError(null);
       await deleteSurvey(id);
       await refresh(classroomId);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo eliminar la encuesta.");
+      setError(err instanceof Error ? err.message : t("profesorEncuestas.noSePudoEliminarLa"));
     }
   };
 
@@ -173,7 +175,7 @@ export default function ProfesorEncuestas() {
       await updateSurvey(id, { status: "cerrada" });
       await refresh(classroomId);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo cerrar la encuesta.");
+      setError(err instanceof Error ? err.message : t("profesorEncuestas.noSePudoCerrarLa"));
     }
   };
 
@@ -203,6 +205,8 @@ export default function ProfesorEncuestas() {
                 value={classroomId}
                 onChange={(event) => setClassroomId(event.target.value)}
                 required
+                onInvalid={onInvalid}
+                onInput={onInput}
               >
                 <option value="" disabled>{t("profesorEncuestas.seleccionaUnAula")}</option>
                 {classrooms.map((classroom) => (
@@ -222,6 +226,8 @@ export default function ProfesorEncuestas() {
                 onChange={(event) => setTitle(event.target.value)}
                 placeholder={t("profesorEncuestas.ejEleccionDeProyectoFinal")}
                 required
+                onInvalid={onInvalid}
+                onInput={onInput}
               />
             </div>
 
@@ -234,6 +240,8 @@ export default function ProfesorEncuestas() {
                 onChange={(event) => setDescription(event.target.value)}
                 placeholder={t("profesorEncuestas.explicaATusAlumnosComo")}
                 required
+                onInvalid={onInvalid}
+                onInput={onInput}
               />
             </div>
 
@@ -289,6 +297,8 @@ export default function ProfesorEncuestas() {
                   value={startAt}
                   onChange={(event) => setStartAt(event.target.value)}
                   required
+                  onInvalid={onInvalid}
+                  onInput={onInput}
                 />
               </div>
               <div className="grid gap-2">
@@ -300,6 +310,8 @@ export default function ProfesorEncuestas() {
                   value={endAt}
                   onChange={(event) => setEndAt(event.target.value)}
                   required
+                  onInvalid={onInvalid}
+                  onInput={onInput}
                 />
               </div>
             </div>
@@ -313,8 +325,10 @@ export default function ProfesorEncuestas() {
                       className="flex-1 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                       value={option}
                       onChange={(event) => handleOptionChange(index, event.target.value)}
-                      placeholder={`Opción ${index + 1}`}
+                      placeholder={`${t("profesorEncuestas.opcion")} ${index + 1}`}
                       required
+                      onInvalid={onInvalid}
+                      onInput={onInput}
                     />
                     {options.length > 2 && (
                       <button

@@ -355,7 +355,7 @@ export default function AdminUsuarios() {
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-[var(--c-muted)]">Duración (días, 0 = permanente)</span>
+                  <span className="text-xs font-medium text-[var(--c-muted)]">{t("adminModeracion.duracionDiasPermanente")}</span>
                   <input
                     type="number"
                     min={0}

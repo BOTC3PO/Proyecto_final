@@ -57,6 +57,7 @@ import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 import MapaEditorFull from "../herramientas/MapaEditorFull";
 import { InsertarMaterialGuardado } from "../../components/materiales/InsertarMaterialGuardado";
 import { useI18n } from "../../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../../lib/formValidationMessages";
 
 // ─── Pills de estado (prototipo `.pill`) ───────────────────────────────────
 // Mismas tonalidades que el componente de diseño `ui/Pill`, pero con
@@ -133,8 +134,21 @@ function CardHeader({
   );
 }
 
+const THEORY_TYPE_LABEL_KEY: Record<string, string> = {
+  Video: "theoryItemCard.video",
+  Texto: "theorySlideEditor.texto",
+  "Presentación": "comun.presentacion",
+  Enlace: "theoryItemCard.enlace",
+  Libro: "theoryItemCard.libro",
+  Documento: "theoryItemCard.documento",
+  Herramienta: "quizAttempt.herramientaInteractiva",
+  HerramientaStandalone: "theoryItemCard.herramientaStandalone",
+  TuesdayJS: "theoryItemCard.tuesdayjs",
+};
+
 export default function ModuloEditor() {
   const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -227,8 +241,8 @@ export default function ModuloEditor() {
   const FIELD_ERROR_MSG = {
     title: t("moduloEditor.elTituloEsObligatorio"),
     description: t("moduloEditor.laDescripcionEsObligatoria"),
-    subject: "La materia es obligatoria.",
-    level: "El nivel es obligatorio.",
+    subject: t("moduloEditor.laMateriaEsObligatoria"),
+    level: t("moduloEditor.elNivelEsObligatorio"),
   } as const;
   const fieldErr = (f: keyof typeof FIELD_ERROR_MSG) =>
     validationErrors.includes(FIELD_ERROR_MSG[f]);
@@ -755,7 +769,7 @@ export default function ModuloEditor() {
                 <CardHeader
                   icon={<span>&#9881;</span>}
                   title={t("moduloEditor.informacionGeneral")}
-                  subtitle="Título, materia y nivel del módulo."
+                  subtitle={t("moduloEditor.tituloMateriaYNivelDel")}
                   headingId="sec-general-heading"
                   right={
                     sectionStatus.generalOk ? (
@@ -767,13 +781,15 @@ export default function ModuloEditor() {
                 />
                 <div className="grid gap-5 md:grid-cols-2">
                   <label className="block text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#128221; Título</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">&#128221; {t("comun.titulo")}</span>
                     <input
                       id="modulo-field-title"
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.title}
                       onChange={(event) => updateForm("title", event.target.value)}
                       required
+                      onInvalid={onInvalid}
+                      onInput={onInput}
                       aria-invalid={fieldErr("title") || undefined}
                       aria-describedby={fieldErr("title") ? "modulo-err-title" : undefined}
                     />
@@ -784,7 +800,7 @@ export default function ModuloEditor() {
                     )}
                   </label>
                   <label className="block text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#128193; Categoría</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">&#128193; {t("modulosList.categoria")}</span>
                     <select
                       value={form.category}
                       onChange={(e) => updateForm("category", e.target.value)}
@@ -798,7 +814,7 @@ export default function ModuloEditor() {
                 </div>
 
                 <label className="block text-sm font-medium text-[var(--c-text)]">
-                  <span className="mb-1.5 flex items-center gap-1.5">&#128196; Descripción</span>
+                  <span className="mb-1.5 flex items-center gap-1.5">&#128196; {t("comun.descripcion")}</span>
                   <textarea
                     id="modulo-field-description"
                     className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
@@ -806,6 +822,8 @@ export default function ModuloEditor() {
                     value={form.description}
                     onChange={(event) => updateForm("description", event.target.value)}
                     required
+                    onInvalid={onInvalid}
+                    onInput={onInput}
                     aria-invalid={fieldErr("description") || undefined}
                     aria-describedby={fieldErr("description") ? "modulo-err-description" : undefined}
                   />
@@ -818,13 +836,15 @@ export default function ModuloEditor() {
 
                 <div className="grid gap-5 md:grid-cols-4">
                   <label className="block text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#128218; Materia</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">&#128218; {t("comun.materia")}</span>
                     <select
                       id="modulo-field-subject"
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.subject}
                       onChange={(event) => handleSubjectChange(event.target.value)}
                       required
+                      onInvalid={onInvalid}
+                      onInput={onInput}
                       aria-invalid={fieldErr("subject") || undefined}
                       aria-describedby={fieldErr("subject") ? "modulo-err-subject" : undefined}
                     >
@@ -861,7 +881,7 @@ export default function ModuloEditor() {
                   </label>
                   )}
                   <label className="block text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#9202; Duración (min)</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">&#9202; {t("moduloEditor.duracionMin")}</span>
                     <input
                       type="number"
                       min={1}
@@ -994,7 +1014,7 @@ export default function ModuloEditor() {
                 <CardHeader
                   icon={<span>&#128214;</span>}
                   title={t("moduloDetail.teoria")}
-                  subtitle="Recursos de estudio: textos, videos, libros y herramientas."
+                  subtitle={t("moduloEditor.recursosDeEstudioTextosVideos")}
                   headingId="sec-teoria-heading"
                   right={
                     <>
@@ -1037,7 +1057,7 @@ export default function ModuloEditor() {
                     >
                       {subjectCapabilities.theoryTypes.map((opt) => (
                         <option key={opt.value} value={opt.value} disabled={opt.disabled}>
-                          {opt.label}
+                          {THEORY_TYPE_LABEL_KEY[opt.value] ? t(THEORY_TYPE_LABEL_KEY[opt.value]) : opt.label}
                           {opt.disabled && opt.disabledReason ? ` — ${opt.disabledReason}` : ""}
                         </option>
                       ))}
@@ -1471,7 +1491,7 @@ export default function ModuloEditor() {
                                 type="button"
                                 className="self-start rounded-md border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] px-2.5 py-1 text-xs font-medium text-[var(--c-danger)] transition-all hover:bg-[color-mix(in_srgb,var(--c-danger)_18%,var(--c-surface))] hover:border-[color-mix(in_srgb,var(--c-danger)_45%,transparent)]"
                                 onClick={() => {
-                                  if (window.confirm("¿Eliminar este recurso de teoría? Esta acción no se puede deshacer.")) {
+                                  if (window.confirm(t("moduloEditor.eliminarEsteRecursoDeTeoria"))) {
                                     removeTheoryItem(item.id);
                                   }
                                 }}
@@ -1500,7 +1520,7 @@ export default function ModuloEditor() {
                   icon={<span>&#128279;</span>}
                   title={t("moduloEditor.dependencias")}
                   headingId="sec-dependencias-heading"
-                  subtitle="Indicá si este módulo requiere completar otro antes, o si desbloquea módulos al terminarse."
+                  subtitle={t("moduloEditor.indicaSiEsteModuloRequiere")}
                   right={<StatusPill tone="neutral">{t("profesorCalendario.opcional")}</StatusPill>}
                 />
 
@@ -1856,7 +1876,7 @@ export default function ModuloEditor() {
                               type="button"
                               className="rounded-md border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] px-2.5 py-1 text-xs font-medium text-[var(--c-danger)] transition-all hover:bg-[color-mix(in_srgb,var(--c-danger)_18%,var(--c-surface))] hover:border-[color-mix(in_srgb,var(--c-danger)_45%,transparent)]"
                               onClick={() => {
-                                if (window.confirm("¿Eliminar este cuestionario y todas sus preguntas? Esta acción no se puede deshacer.")) {
+                                if (window.confirm(t("moduloEditor.eliminarEsteCuestionarioYTodas"))) {
                                   removeQuiz(quiz.id);
                                 }
                               }}
@@ -2297,7 +2317,7 @@ function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
       })
       .catch((error) => {
         setStatus("error");
-        setErrorMessage(error instanceof Error ? error.message : "No se pudo cargar la lista.");
+        setErrorMessage(error instanceof Error ? error.message : t("moduloEditor.noSePudoCargarLa2"));
       });
   };
 
@@ -2326,7 +2346,7 @@ function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
       loadInvitados();
     } catch (error) {
       setErrorMessage(
-        error instanceof ApiError ? error.message : "No se pudo invitar al alumno."
+        error instanceof ApiError ? error.message : t("moduloEditor.noSePudoInvitarAl")
       );
     } finally {
       setInviting(null);
@@ -2339,7 +2359,7 @@ function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
       setInvitados((prev) => prev.filter((i) => i.usuarioId !== usuarioId));
     } catch (error) {
       setErrorMessage(
-        error instanceof ApiError ? error.message : "No se pudo quitar la invitación."
+        error instanceof ApiError ? error.message : t("moduloEditor.noSePudoQuitarLa")
       );
     }
   };

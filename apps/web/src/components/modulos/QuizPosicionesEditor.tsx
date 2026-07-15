@@ -87,7 +87,7 @@ export default function QuizPosicionesEditor({
       for (const pos of cuestionario.posiciones) {
         for (const v of pos.variantes) {
           const o = v.origen;
-          let title = "(sin título)";
+          let title = t("comun.sinTitulo");
           let kind = "";
           switch (o.origen) {
             case "banco":

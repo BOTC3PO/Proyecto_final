@@ -146,28 +146,28 @@ export default function Perfil() {
           {
             id: "primer-modulo",
             label: t("perfil.primerPaso"),
-            descripcion: "Completaste tu primer módulo.",
+            descripcion: t("perfil.completasteTuPrimerModulo"),
             icono: "🎯",
             obtenido: totalCompletados >= 1,
           },
           {
             id: "cinco-modulos",
             label: t("perfil.enCamino"),
-            descripcion: "Completaste 5 módulos.",
+            descripcion: t("perfil.completaste5Modulos"),
             icono: "📚",
             obtenido: totalCompletados >= 5,
           },
           {
             id: "diez-modulos",
             label: t("perfil.estudioso"),
-            descripcion: "Completaste 10 módulos.",
+            descripcion: t("perfil.completaste10Modulos"),
             icono: "🏆",
             obtenido: totalCompletados >= 10,
           },
           {
             id: "veinticinco-modulos",
             label: t("perfil.experto"),
-            descripcion: "Completaste 25 módulos.",
+            descripcion: t("perfil.completaste25Modulos"),
             icono: "⭐",
             obtenido: totalCompletados >= 25,
           },
@@ -176,8 +176,8 @@ export default function Perfil() {
             .filter((f) => f.porcentaje === 100 && f.total >= 3)
             .map((f) => ({
               id: `dominio-${f.materia.toLowerCase()}`,
-              label: `Dominio de ${f.materia}`,
-              descripcion: `Completaste todos los módulos de ${f.materia}.`,
+              label: `${t("perfil.dominioDe")} ${f.materia}`,
+              descripcion: `${t("perfil.completasteTodosLosModulosDe")} ${f.materia}.`,
               icono: "🎓",
               obtenido: true,
             })),
@@ -186,8 +186,8 @@ export default function Perfil() {
             .filter((f) => f.porcentaje >= 75 && f.total >= 2)
             .map((f) => ({
               id: `avanzado-${f.materia.toLowerCase()}`,
-              label: `Avanzado en ${f.materia}`,
-              descripcion: `Superaste el 75% de los módulos de ${f.materia}.`,
+              label: `${t("perfil.avanzadoEn")} ${f.materia}`,
+              descripcion: `${t("perfil.superasteEl75DeLosModulosDe")} ${f.materia}.`,
               icono: "💡",
               obtenido: true,
             })),
@@ -517,13 +517,13 @@ function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
       setMsg({
         kind: "ok",
         text: res.created
-          ? "✓ Tu cuenta de alumno está lista. Ya podés entrar como alumno."
-          : "Ya tenías una cuenta de alumno. Ya podés entrar como alumno.",
+          ? t("perfil.tuCuentaDeAlumnoEsta")
+          : t("perfil.yaTeniasUnaCuentaDe"),
       });
     } catch (err) {
       setMsg({
         kind: "err",
-        text: err instanceof Error ? err.message : "No se pudo crear la cuenta de alumno.",
+        text: err instanceof Error ? err.message : t("perfil.noSePudoCrearLa"),
       });
     } finally {
       setCreando(false);
@@ -540,7 +540,7 @@ function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
       setEntrando(false);
       setMsg({
         kind: "err",
-        text: err instanceof Error ? err.message : "No se pudo entrar como alumno.",
+        text: err instanceof Error ? err.message : t("perfil.noSePudoEntrarComo"),
       });
     }
   };
@@ -557,7 +557,7 @@ function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
             data-testid="padre-entrar-como-alumno"
             className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
           >
-            {entrando ? "Entrando…" : "Entrar como alumno"}
+            {entrando ? t("perfil.entrando") : t("dropdown.entrarComoAlumno")}
           </button>
         ) : (
           <button
@@ -566,7 +566,7 @@ function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
             data-testid="padre-crear-cuenta-alumno"
             className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
           >
-            {creando ? "Creando…" : "Crear mi cuenta de alumno"}
+            {creando ? t("comun.creando") : t("perfil.crearMiCuentaDeAlumno")}
           </button>
         )}
       </div>
@@ -601,11 +601,11 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
       setMsg({
         kind: "ok",
         text: res.created
-          ? "✓ Tu cuenta de alumno está lista. Ya podés entrar como alumno."
-          : "Ya tenías una cuenta de alumno. Ya podés entrar como alumno.",
+          ? t("perfil.tuCuentaDeAlumnoEsta")
+          : t("perfil.yaTeniasUnaCuentaDe"),
       });
     } catch (err) {
-      setMsg({ kind: "err", text: err instanceof Error ? err.message : "No se pudo crear la cuenta de alumno." });
+      setMsg({ kind: "err", text: err instanceof Error ? err.message : t("perfil.noSePudoCrearLa") });
     } finally {
       setBusy(null);
     }
@@ -618,9 +618,9 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
     try {
       await vincularCuentaAlumnoStaff(ident.trim());
       setExiste(true);
-      setMsg({ kind: "ok", text: "✓ Cuenta de alumno vinculada. Ya podés entrar como alumno." });
+      setMsg({ kind: "ok", text: t("perfil.cuentaDeAlumnoVinculadaYa") });
     } catch (err) {
-      setMsg({ kind: "err", text: err instanceof Error ? err.message : "No se pudo vincular la cuenta." });
+      setMsg({ kind: "err", text: err instanceof Error ? err.message : t("perfil.noSePudoVincularLa") });
     } finally {
       setBusy(null);
     }
@@ -634,7 +634,7 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
       navigate(landing);
     } catch (err) {
       setBusy(null);
-      setMsg({ kind: "err", text: err instanceof Error ? err.message : "No se pudo entrar como alumno." });
+      setMsg({ kind: "err", text: err instanceof Error ? err.message : t("perfil.noSePudoEntrarComo") });
     }
   };
 
@@ -650,7 +650,7 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
             data-testid="staff-entrar-como-alumno"
             className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
           >
-            {busy === "entrar" ? "Entrando…" : "Entrar como alumno"}
+            {busy === "entrar" ? t("perfil.entrando") : t("dropdown.entrarComoAlumno")}
           </button>
         </div>
       ) : (
@@ -661,7 +661,7 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
             data-testid="staff-crear-cuenta-alumno"
             className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
           >
-            {busy === "crear" ? "Creando…" : "Crear mi cuenta de alumno"}
+            {busy === "crear" ? t("comun.creando") : t("perfil.crearMiCuentaDeAlumno")}
           </button>
           <div className="flex items-center gap-2">
             <input
@@ -676,7 +676,7 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
               data-testid="staff-vincular-cuenta-alumno"
               className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:opacity-90 disabled:opacity-50 transition-opacity"
             >
-              {busy === "vincular" ? "Vinculando…" : "Vincular existente"}
+              {busy === "vincular" ? t("perfil.vinculando") : t("perfil.vincularExistente")}
             </button>
           </div>
         </div>
@@ -716,13 +716,13 @@ function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
       setMsg({
         kind: "ok",
         text: res.created
-          ? "✓ Tu cuenta de padre está lista. Ya podés entrar como padre."
-          : "Ya tenías una cuenta de padre. Ya podés entrar como padre.",
+          ? t("perfil.tuCuentaDePadreEsta")
+          : t("perfil.yaTeniasUnaCuentaDe2"),
       });
     } catch (err) {
       setMsg({
         kind: "err",
-        text: err instanceof Error ? err.message : "No se pudo crear la cuenta de padre.",
+        text: err instanceof Error ? err.message : t("perfil.noSePudoCrearLa2"),
       });
     } finally {
       setCreando(false);
@@ -739,7 +739,7 @@ function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
       setEntrando(false);
       setMsg({
         kind: "err",
-        text: err instanceof Error ? err.message : "No se pudo entrar como padre.",
+        text: err instanceof Error ? err.message : t("perfil.noSePudoEntrarComo2"),
       });
     }
   };
@@ -756,7 +756,7 @@ function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
             data-testid="alumno-entrar-como-padre"
             className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
           >
-            {entrando ? "Entrando…" : "Entrar como padre"}
+            {entrando ? t("perfil.entrando") : t("perfil.entrarComoPadre")}
           </button>
         ) : (
           <button
@@ -765,7 +765,7 @@ function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
             data-testid="alumno-crear-cuenta-padre"
             className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
           >
-            {creando ? "Creando…" : "Crear mi cuenta de padre"}
+            {creando ? t("comun.creando") : t("perfil.crearMiCuentaDePadre")}
           </button>
         )}
       </div>
@@ -808,7 +808,7 @@ function RoleSolicitudBanner({ currentRole }: { currentRole: string }) {
     } catch (err) {
       setMsg({
         kind: "err",
-        text: err instanceof Error ? err.message : "No se pudo enviar la solicitud."
+        text: err instanceof Error ? err.message : t("perfil.noSePudoEnviarLa")
       });
     } finally {
       setSending(false);

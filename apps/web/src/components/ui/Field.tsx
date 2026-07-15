@@ -10,6 +10,8 @@
  */
 import { useId } from "react";
 import type { ReactNode } from "react";
+import { useI18n } from "../../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../../lib/formValidationMessages";
 
 // label XOR aria-label, exigido por tipos.
 export type AccessibleName =
@@ -32,6 +34,8 @@ export interface FieldControlProps {
   "aria-invalid"?: boolean;
   "aria-label"?: string;
   required?: boolean;
+  onInvalid: ReturnType<typeof makeValidityMessageHandlers>["onInvalid"];
+  onInput: ReturnType<typeof makeValidityMessageHandlers>["onInput"];
 }
 
 type FieldProps = FieldOwnProps & {
@@ -48,10 +52,12 @@ export default function Field({
   ...rest
 }: FieldProps) {
   const ariaLabel = (rest as { "aria-label"?: string })["aria-label"];
+  const { t } = useI18n();
   const id = useId();
   const hintId = hint ? `${id}-hint` : undefined;
   const errorId = error ? `${id}-error` : undefined;
   const describedBy = [hintId, errorId].filter(Boolean).join(" ") || undefined;
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
 
   const control: FieldControlProps = {
     id,
@@ -59,6 +65,8 @@ export default function Field({
     "aria-invalid": error ? true : undefined,
     "aria-label": label ? undefined : ariaLabel,
     required,
+    onInvalid,
+    onInput,
   };
 
   return (

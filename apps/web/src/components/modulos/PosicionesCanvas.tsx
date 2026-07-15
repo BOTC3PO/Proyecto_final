@@ -452,6 +452,7 @@ function AddMenu({
   onRemovePosicion?: (numero: number) => void;
   onCerrar: () => void;
 }) {
+  const { t } = useI18n();
   const anclaLabel = esUltima
     ? `al final (después de la posición ${posicionNumero})`
     : `entre la posición ${posicionNumero} y la ${posicionNumero + 1}`;
@@ -469,7 +470,7 @@ function AddMenu({
         <Button
           variant="icon"
           size="sm"
-          aria-label="Cerrar menú"
+          aria-label={t("posicionesCanvas.cerrarMenu")}
           onClick={onCerrar}
         >
           ×

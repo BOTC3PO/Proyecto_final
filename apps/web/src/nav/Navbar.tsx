@@ -277,6 +277,14 @@ const LogoutIcon = () => (
   </svg>
 );
 
+const ROLE_LABEL_KEY: Record<string, string> = {
+  TEACHER: 'perfil.docente',
+  DIRECTIVO: 'comun.directivo',
+  ADMIN: 'perfil.administrador',
+  USER: 'matrizProgreso.alumno',
+  PARENT: 'adminUsuarios.padre',
+};
+
 export default function Navbar() {
   const { user, logout, switchCuenta } = useAuth();
   const { t } = useI18n();
@@ -515,7 +523,7 @@ export default function Navbar() {
                       {user?.name ?? t('common.usuarioFallback')}
                     </p>
                     <p style={{ margin: 0, fontSize: "var(--text-xs)", color: "var(--c-muted)", textTransform: "capitalize" }}>
-                      {role.toLowerCase()}
+                      {ROLE_LABEL_KEY[role] ? t(ROLE_LABEL_KEY[role]) : role.toLowerCase()}
                     </p>
                   </div>
                   <div style={{ paddingBlock: "var(--space-1)" }}>

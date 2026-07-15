@@ -58,7 +58,7 @@ export default function Pagos() {
         window.location.href = resp.url;
         return;
       }
-      setMsg("Tu escuela todavía no conectó un medio de pago online. Coordiná el pago con la administración.");
+      setMsg(t("pagos.tuEscuelaTodaviaNoConecto"));
       await load();
     } catch {
       setMsg("No se pudo iniciar el pago.");

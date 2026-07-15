@@ -249,9 +249,9 @@ export default function MarcarMapaRenderer({
         data-testid="marcar-mapa-error"
       >
         {mapaId === "world_states_provinces" && !paisIso ? (
-          <>Mapa de provincias requiere un código de país (ej. <code className="font-mono">respuesta_iso: &quot;AR-C&quot;</code>).</>
+          <>{t("marcarMapaRenderer.mapaDeProvinciasRequiereUn")} <code className="font-mono">respuesta_iso: &quot;AR-C&quot;</code>).</>
         ) : (
-          <>{t("marcarMapaRenderer.mapa")}<code className="font-mono">{mapaId}</code> no reconocido. (Mapas disponibles: <code className="font-mono">politico_mundo</code>, <code className="font-mono">world_states_provinces</code>.)</>
+          <>{t("marcarMapaRenderer.mapa")}<code className="font-mono">{mapaId}</code> {t("marcarMapaRenderer.noReconocidoMapasDisponibles")} <code className="font-mono">politico_mundo</code>, <code className="font-mono">world_states_provinces</code>.)</>
         )}
       </div>
     );

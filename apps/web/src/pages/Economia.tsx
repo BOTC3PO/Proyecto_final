@@ -18,15 +18,15 @@ type CoinFeedback = {
 
 type SimulationScenario = {
   id: string;
-  title: string;
-  question: string;
+  titleKey: string;
+  questionKey: string;
   impact: {
     coinDelta: number;
     foreignCoinDelta: number;
     fixedTermRateDelta: number;
     fciRateDelta: number;
   };
-  learning: string;
+  learningKey: string;
 };
 
 type SaldoResponse = {
@@ -88,39 +88,39 @@ type FciPosicion = {
 const ECONOMIC_SIMULATIONS: SimulationScenario[] = [
   {
     id: "sim-demanda",
-    title: "Demanda inesperada",
-    question: "¿Qué pasaría si sube la demanda por un producto escolar clave?",
+    titleKey: "economia.demandaInesperada",
+    questionKey: "economia.quePasariaSiSubeLa",
     impact: {
       coinDelta: -15,
       foreignCoinDelta: 0,
       fixedTermRateDelta: 3,
       fciRateDelta: 1
     },
-    learning: "Cuando la demanda sube, los precios suben y conviene revisar el ahorro."
+    learningKey: "economia.cuandoLaDemandaSubeLos"
   },
   {
     id: "sim-dolar",
-    title: "Movimiento del tipo de cambio",
-    question: "¿Qué pasaría si el tipo de cambio se encarece en una semana?",
+    titleKey: "economia.movimientoDelTipoDeCambio",
+    questionKey: "economia.quePasariaSiElTipo",
     impact: {
       coinDelta: -10,
       foreignCoinDelta: 0.2,
       fixedTermRateDelta: 0,
       fciRateDelta: -1
     },
-    learning: "Un cambio fuerte en FX afecta decisiones de compra y ahorro."
+    learningKey: "economia.unCambioFuerteEnFx"
   },
   {
     id: "sim-confianza",
-    title: "Confianza en la economía",
-    question: "¿Qué pasaría si la confianza mejora y baja la urgencia de gastar?",
+    titleKey: "economia.confianzaEnLaEconomia",
+    questionKey: "economia.quePasariaSiLaConfianza",
     impact: {
       coinDelta: 12,
       foreignCoinDelta: 0,
       fixedTermRateDelta: -2,
       fciRateDelta: 1
     },
-    learning: "Más confianza suele impulsar el ahorro y mejorar el saldo disponible."
+    learningKey: "economia.masConfianzaSueleImpulsarEl"
   }
 ];
 
@@ -316,7 +316,7 @@ export default function Economia() {
       });
     } catch (err) {
       setInstrumentoMsg(
-        err instanceof Error ? err.message : "No se pudo abrir el plazo fijo."
+        err instanceof Error ? err.message : t("economia.noSePudoAbrirEl")
       );
     } finally {
       setPfInvirtiendo(false);
@@ -369,7 +369,7 @@ export default function Economia() {
       });
     } catch (err) {
       setInstrumentoMsg(
-        err instanceof Error ? err.message : "No se pudo abrir el FCI."
+        err instanceof Error ? err.message : t("economia.noSePudoAbrirEl2")
       );
     } finally {
       setFciInvirtiendo(false);
@@ -402,7 +402,7 @@ export default function Economia() {
       });
     } catch (err) {
       setInstrumentoMsg(
-        err instanceof Error ? err.message : "No se pudo rescatar."
+        err instanceof Error ? err.message : t("economia.noSePudoRescatar")
       );
     } finally {
       setRescatando(null);
@@ -472,7 +472,7 @@ export default function Economia() {
     } catch (err) {
       pushEducationMessage({
         title: t("economia.errorAlEnviar"),
-        body: err instanceof Error ? err.message : 'No se pudo completar el envío.',
+        body: err instanceof Error ? err.message : t("economia.noSePudoCompletarEl"),
         tone: 'warning',
       });
     }
@@ -594,7 +594,7 @@ export default function Economia() {
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
               <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.compraDeMonedaExtranjera")}</h3>
               <p className="text-xs text-[var(--c-muted)]">
-                Simulá el cambio de tus monedas a FX. Tipo de cambio: 100 monedas = 1 FX.
+                {t("economia.simulaCambioFx")}
               </p>
               <div>
                 <label className="text-xs text-[var(--c-muted)] block mb-1.5">{t("economia.monedasACambiar")}</label>
@@ -607,7 +607,7 @@ export default function Economia() {
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 />
                 <p className="text-xs text-[var(--c-muted)] mt-1.5">
-                  Recibís: {Math.floor(exchangeAmount / 100)} FX
+                  {t("economia.recibis")} {Math.floor(exchangeAmount / 100)} FX
                 </p>
               </div>
               <button
@@ -774,11 +774,11 @@ export default function Economia() {
                     className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-[var(--c-bg)] transition-colors"
                   >
                     <div>
-                      <p className="text-sm font-medium text-[var(--c-text)]">{scenario.title}</p>
-                      <p className="text-xs text-[var(--c-muted)] mt-0.5">{scenario.question}</p>
+                      <p className="text-sm font-medium text-[var(--c-text)]">{t(scenario.titleKey)}</p>
+                      <p className="text-xs text-[var(--c-muted)] mt-0.5">{t(scenario.questionKey)}</p>
                     </div>
                     <span className="text-xs text-[var(--c-primary)] flex-shrink-0 ml-3">
-                      {openSimulationId === scenario.id ? 'Ocultar' : 'Ver resultado'}
+                      {openSimulationId === scenario.id ? t("economia.ocultar") : t("economia.verResultado")}
                     </span>
                   </button>
                   {openSimulationId === scenario.id && (
@@ -786,7 +786,7 @@ export default function Economia() {
                       <div className="grid grid-cols-2 gap-2 text-xs">
                         {scenario.impact.coinDelta !== 0 && (
                           <div className={`rounded-lg px-3 py-2 ${scenario.impact.coinDelta > 0 ? 'bg-[color-mix(in_srgb,var(--c-success)_10%,transparent)] text-[var(--c-success)]' : 'bg-[color-mix(in_srgb,var(--c-danger)_10%,transparent)] text-[var(--c-danger)]'}`}>
-                            Monedas: {scenario.impact.coinDelta > 0 ? '+' : ''}{scenario.impact.coinDelta}
+                            {t("menualumno.monedas")}: {scenario.impact.coinDelta > 0 ? '+' : ''}{scenario.impact.coinDelta}
                           </div>
                         )}
                         {scenario.impact.foreignCoinDelta !== 0 && (
@@ -796,11 +796,11 @@ export default function Economia() {
                         )}
                         {scenario.impact.fixedTermRateDelta !== 0 && (
                           <div className="rounded-lg px-3 py-2 bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] text-[var(--c-warning)]">
-                            Tasa PF: {scenario.impact.fixedTermRateDelta > 0 ? '+' : ''}{scenario.impact.fixedTermRateDelta}%
+                            {t("economia.tasaPf")}: {scenario.impact.fixedTermRateDelta > 0 ? '+' : ''}{scenario.impact.fixedTermRateDelta}%
                           </div>
                         )}
                       </div>
-                      <p className="text-xs text-[var(--c-muted)] italic">{scenario.learning}</p>
+                      <p className="text-xs text-[var(--c-muted)] italic">{t(scenario.learningKey)}</p>
                     </div>
                   )}
                 </div>

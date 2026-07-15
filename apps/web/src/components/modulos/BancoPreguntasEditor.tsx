@@ -65,14 +65,15 @@ function McEditor({
   question: MCQuestion;
   onChange: (q: MCQuestion) => void;
 }) {
+  const { t } = useI18n();
   const groupName = useId();
   return (
     <AccessibleList
       items={question.options}
       onChange={(options) => onChange({ ...question, options })}
       createItem={() => ({ text: "", correct: false, because: "" })}
-      label="Opciones — marcá la correcta"
-      addLabel="Agregar opción"
+      label={t("bancoPreguntasEditor.opcionesMarcaLaCorrecta")}
+      addLabel={t("profesorEncuestas.agregarOpcion")}
       itemNoun="opción"
       minItems={2}
       renderItem={(opt, i, onItemChange) => (
@@ -204,8 +205,8 @@ export default function BancoPreguntasEditor({
         items={questions}
         onChange={onChange}
         createItem={createMC}
-        label="Preguntas del banco"
-        addLabel="Agregar pregunta"
+        label={t("bancoPreguntasEditor.preguntasDelBanco")}
+        addLabel={t("bancoPreguntasEditor.agregarPregunta")}
         itemNoun="pregunta"
         isItemHidden={(q) => !matches(q)}
         renderItem={(question, index, onItemChange) => (

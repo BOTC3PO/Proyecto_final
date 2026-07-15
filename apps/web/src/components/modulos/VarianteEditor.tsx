@@ -250,6 +250,7 @@ function BancoOrigenEditor({
   materiaHint?: string;
   bancoEscuelaIO: BancoEscuelaIO;
 }) {
+  const { t } = useI18n();
   const [tab, setTab] = useState<BancoTab>("quiz");
 
   const importAndSelect = (q: ModuleQuizQuestion) => {
@@ -259,11 +260,11 @@ function BancoOrigenEditor({
 
   return (
     <div className="space-y-2 text-xs">
-      <div className="flex gap-1" role="tablist" aria-label="Fuente del banco">
+      <div className="flex gap-1" role="tablist" aria-label={t("varianteEditor.fuenteDelBanco")}>
         {([
-          ["quiz", "Este quiz"],
-          ["f6", "Bancos F6"],
-          ["escuela", "Banco escuela"],
+          ["quiz", t("varianteEditor.esteQuiz")],
+          ["f6", t("varianteEditor.bancosF6")],
+          ["escuela", t("varianteEditor.bancoEscuela")],
         ] as [BancoTab, string][]).map(([key, label]) => (
           <button
             key={key}
@@ -307,7 +308,7 @@ function BancoOrigenEditor({
 
       {origen.questionId && (
         <p className="text-[11px] text-[var(--c-hint)]">
-          Pregunta seleccionada: <code className="font-mono">{origen.questionId}</code>
+          {t("varianteEditor.preguntaSeleccionada")} <code className="font-mono">{origen.questionId}</code>
         </p>
       )}
     </div>
@@ -323,26 +324,26 @@ function BancoQuizTab({
   bancoQuestions: BancoQuestion[];
   onChange: (o: VarianteOrigen) => void;
 }) {
+  const { t } = useI18n();
   if (bancoQuestions.length === 0) {
     return (
       <p className="text-[var(--c-hint)]">
-        No hay preguntas manuales en este cuestionario. Agregá preguntas en el
-        editor manual para referenciarlas desde el banco.
+        {t("varianteEditor.noHayPreguntasManualesEn")}
       </p>
     );
   }
   return (
     <label className="block">
       <span className="mb-0.5 block font-medium text-[var(--c-text-2,inherit)]">
-        Pregunta del quiz
+        {t("varianteEditor.preguntaDelQuiz")}
       </span>
       <select
-        aria-label="Pregunta del banco para esta variante"
+        aria-label={t("varianteEditor.preguntaDelBancoParaEsta")}
         className="w-full rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-2 py-1 text-xs"
         value={origen.questionId}
         onChange={(e) => onChange({ origen: "banco", questionId: e.target.value })}
       >
-        <option value="">— Elegí una pregunta —</option>
+        <option value="">{t("varianteEditor.elegiUnaPregunta")}</option>
         {bancoQuestions.map((q) => (
           <option key={q.id} value={q.id}>
             {q.prompt ? q.prompt.slice(0, 80) : q.id}
@@ -362,6 +363,7 @@ function BancoF6Tab({
   onSelect: (q: ModuleQuizQuestion) => void;
   materiaHint?: string;
 }) {
+  const { t } = useI18n();
   const catalog = useMemo(() => {
     const all = listBancoCatalog();
     if (!materiaHint) return all;
@@ -377,20 +379,20 @@ function BancoF6Tab({
   );
 
   if (catalog.length === 0) {
-    return <p className="text-[var(--c-hint)]">No hay bancos F6 registrados.</p>;
+    return <p className="text-[var(--c-hint)]">{t("varianteEditor.noHayBancosF6Registrados")}</p>;
   }
 
   return (
     <div className="space-y-1.5">
       <label className="block">
-        <span className="mb-0.5 block font-medium text-[var(--c-text-2,inherit)]">Banco</span>
+        <span className="mb-0.5 block font-medium text-[var(--c-text-2,inherit)]">{t("varianteEditor.banco")}</span>
         <select
-          aria-label="Banco F6 a explorar"
+          aria-label={t("varianteEditor.bancoF6AExplorar")}
           className="w-full rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-2 py-1 text-xs"
           value={selectedBanco}
           onChange={(e) => setSelectedBanco(e.target.value)}
         >
-          <option value="">— Elegí un banco —</option>
+          <option value="">{t("varianteEditor.elegiUnBanco")}</option>
           {catalog.map((b) => (
             <option key={b.bancoId} value={b.bancoId}>
               {b.titulo} ({b.questionCount} preg.) — {b.materia}
@@ -401,9 +403,9 @@ function BancoF6Tab({
 
       {selectedBanco && questions.length > 0 && (
         <label className="block">
-          <span className="mb-0.5 block font-medium text-[var(--c-text-2,inherit)]">Pregunta</span>
+          <span className="mb-0.5 block font-medium text-[var(--c-text-2,inherit)]">{t("varianteEditor.pregunta")}</span>
           <select
-            aria-label="Pregunta del banco F6"
+            aria-label={t("varianteEditor.preguntaDelBancoF6")}
             className="w-full rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-2 py-1 text-xs"
             value={origen.questionId}
             onChange={(e) => {
@@ -411,7 +413,7 @@ function BancoF6Tab({
               if (q) onSelect(q);
             }}
           >
-            <option value="">— Elegí una pregunta —</option>
+            <option value="">{t("varianteEditor.elegiUnaPregunta")}</option>
             {questions.map((q) => (
               <option key={q.id} value={q.id}>
                 {q.prompt ? q.prompt.slice(0, 80) : q.id}
@@ -435,6 +437,7 @@ function BancoEscuelaTab({
   materiaHint?: string;
   io: BancoEscuelaIO;
 }) {
+  const { t } = useI18n();
   const [banks, setBanks] = useState<
     { quizId: string; title: string; materia?: string; questionCount: number }[]
   >([]);
@@ -473,25 +476,25 @@ function BancoEscuelaTab({
   }, [io, selectedQuiz]);
 
   if (loading) {
-    return <p className="text-[var(--c-hint)]">Cargando bancos de escuela…</p>;
+    return <p className="text-[var(--c-hint)]">{t("varianteEditor.cargandoBancosDeEscuela")}</p>;
   }
   if (banks.length === 0) {
-    return <p className="text-[var(--c-hint)]">No hay bancos de escuela disponibles.</p>;
+    return <p className="text-[var(--c-hint)]">{t("varianteEditor.noHayBancosDeEscuela")}</p>;
   }
 
   return (
     <div className="space-y-1.5">
       <label className="block">
         <span className="mb-0.5 block font-medium text-[var(--c-text-2,inherit)]">
-          Cuestionario
+          {t("varianteEditor.cuestionario")}
         </span>
         <select
-          aria-label="Banco de escuela a explorar"
+          aria-label={t("varianteEditor.bancoDeEscuelaAExplorar")}
           className="w-full rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-2 py-1 text-xs"
           value={selectedQuiz}
           onChange={(e) => setSelectedQuiz(e.target.value)}
         >
-          <option value="">— Elegí un cuestionario —</option>
+          <option value="">{t("varianteEditor.elegiUnCuestionario")}</option>
           {banks.map((b) => (
             <option key={b.quizId} value={b.quizId}>
               {b.title} ({b.questionCount} preg.){b.materia ? ` — ${b.materia}` : ""}
@@ -501,16 +504,16 @@ function BancoEscuelaTab({
       </label>
 
       {selectedQuiz && loadingQs && (
-        <p className="text-[var(--c-hint)]">Cargando preguntas…</p>
+        <p className="text-[var(--c-hint)]">{t("varianteEditor.cargandoPreguntas")}</p>
       )}
 
       {selectedQuiz && !loadingQs && questions.length > 0 && (
         <label className="block">
           <span className="mb-0.5 block font-medium text-[var(--c-text-2,inherit)]">
-            Pregunta
+            {t("varianteEditor.pregunta")}
           </span>
           <select
-            aria-label="Pregunta del banco de escuela"
+            aria-label={t("varianteEditor.preguntaDelBancoDeEscuela")}
             className="w-full rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-2 py-1 text-xs"
             value={origen.questionId}
             onChange={(e) => {
@@ -518,7 +521,7 @@ function BancoEscuelaTab({
               if (q) onSelect(q);
             }}
           >
-            <option value="">— Elegí una pregunta —</option>
+            <option value="">{t("varianteEditor.elegiUnaPregunta")}</option>
             {questions.map((q) => (
               <option key={q.id} value={q.id}>
                 {q.prompt ? q.prompt.slice(0, 80) : q.id}

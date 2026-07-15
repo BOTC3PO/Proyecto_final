@@ -6,7 +6,7 @@ const TEMAS_USER = [
   {
     id: 'vb2',
     name: 'VB2 — Oficial',
-    description: 'El tema ganador. Oscuro, moderno y elegante.',
+    descriptionKey: 'onboardingTema.elTemaGanadorOscuroModerno',
     bg: '#0d0e1a',
     surface: '#13152a',
     border: '#1e2140',
@@ -18,7 +18,7 @@ const TEMAS_USER = [
   {
     id: 'nocturno-vb',
     name: 'Nocturno VB',
-    description: 'Oscuro con acentos violeta. Ideal para estudiar de noche.',
+    descriptionKey: 'onboardingTema.oscuroConAcentosVioletaIdeal',
     bg: '#0d0d18',
     surface: '#16162a',
     border: '#2a2a4a',
@@ -30,7 +30,7 @@ const TEMAS_USER = [
   {
     id: 'nocturno',
     name: 'Nocturno',
-    description: 'Oscuro clásico con acentos azules.',
+    descriptionKey: 'onboardingTema.oscuroClasicoConAcentosAzules',
     bg: '#0f172a',
     surface: '#1e293b',
     border: '#334155',
@@ -42,7 +42,7 @@ const TEMAS_USER = [
   {
     id: 'clasico-vb',
     name: 'Clásico VB',
-    description: 'Claro y limpio con azul como acento.',
+    descriptionKey: 'onboardingTema.claroYLimpioConAzul',
     bg: '#f8fafc',
     surface: '#ffffff',
     border: '#e2e8f0',
@@ -54,7 +54,7 @@ const TEMAS_USER = [
   {
     id: 'aurora',
     name: 'Aurora',
-    description: 'Fondo violeta suave y elegante.',
+    descriptionKey: 'onboardingTema.fondoVioletaSuaveYElegante',
     bg: '#fdf4ff',
     surface: '#ffffff',
     border: '#f3e8ff',
@@ -66,7 +66,7 @@ const TEMAS_USER = [
   {
     id: 'bosque',
     name: 'Bosque',
-    description: 'Verde natural y relajante.',
+    descriptionKey: 'onboardingTema.verdeNaturalYRelajante',
     bg: '#f0fdf4',
     surface: '#ffffff',
     border: '#bbf7d0',
@@ -78,7 +78,7 @@ const TEMAS_USER = [
   {
     id: 'minimal',
     name: 'Minimal',
-    description: 'Tonos arena cálidos sin distracciones.',
+    descriptionKey: 'onboardingTema.tonosArenaCalidosSinDistracciones',
     bg: '#f2f0eb',
     surface: '#faf9f6',
     border: '#dbd9d2',
@@ -90,7 +90,7 @@ const TEMAS_USER = [
   {
     id: 'dorado',
     name: 'Dorado',
-    description: 'Metálico y exclusivo. El tema más premium.',
+    descriptionKey: 'onboardingTema.metalicoYExclusivoElTema',
     bg: '#0a0800',
     surface: '#120f00',
     border: '#2a2000',
@@ -145,7 +145,7 @@ export default function OnboardingTema() {
             VB
           </div>
           <h1 className="text-2xl font-semibold" style={{ color: tema.text }}>
-            ¡Bienvenido, {nombre}!
+            {t("onboardingTema.bienvenido")} {nombre}!
           </h1>
           <p className="text-sm" style={{ color: tema.muted }}>{t("onboardingTema.elegiComoQueresQueSe")}</p>
         </div>
@@ -188,7 +188,7 @@ export default function OnboardingTema() {
                 className="text-[10px] mt-0.5 leading-tight"
                 style={{ color: tema.muted }}
               >
-                {tema.description}
+                {t(tema.descriptionKey)}
               </p>
               {selected === tema.id && (
                 <div
@@ -206,7 +206,7 @@ export default function OnboardingTema() {
           className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-90"
           style={{ background: tema.primary }}
         >
-          Continuar con {tema.name}
+          {t("onboardingTema.continuarCon")} {tema.name}
         </button>
 
         {/* Skip */}

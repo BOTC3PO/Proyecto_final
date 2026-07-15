@@ -57,10 +57,10 @@ export default function AdminComisiones() {
     setMsg(null);
     try {
       await apiPost("/api/comisiones/admin/liquidar", { escuelaId });
-      setMsg("Liquidación registrada.");
+      setMsg(t("adminComisiones.liquidacionRegistrada"));
       await load();
     } catch {
-      setMsg("No hay saldo pendiente para liquidar (o falló la operación).");
+      setMsg(t("adminComisiones.noHaySaldoPendientePara"));
     } finally {
       setLiquidando(null);
     }
@@ -84,7 +84,7 @@ export default function AdminComisiones() {
       setEditando(null);
       await load();
     } catch {
-      setMsg("No se pudo guardar el modo de gestión.");
+      setMsg(t("adminComisiones.noSePudoGuardarEl"));
     } finally {
       setGuardandoModo(false);
     }

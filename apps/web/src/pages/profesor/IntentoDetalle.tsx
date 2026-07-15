@@ -70,7 +70,7 @@ export default function ProfesorIntentoDetalle() {
         if (!active) return;
         setStatus("error");
         setErrorMessage(
-          error instanceof Error ? error.message : "No se pudo cargar el intento."
+          error instanceof Error ? error.message : t("intentoDetalle.noSePudoCargarEl")
         );
       });
     return () => {

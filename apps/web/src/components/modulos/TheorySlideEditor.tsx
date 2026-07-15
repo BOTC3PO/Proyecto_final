@@ -227,15 +227,15 @@ export type Slide = {
 
 export type ToolParamDef = {
   id: string;
-  label: string;
+  labelKey: string;
   input: "number" | "boolean" | "select" | "text" | "color";
   unit?: string;
   min?: number;
   max?: number;
   step?: number;
   defaultValue: number | boolean | string;
-  options?: { label: string; value: string }[];
-  description?: string;
+  options?: { labelKey?: string; label?: string; value: string }[];
+  descriptionKey?: string;
   /** Dot-notation path within the VisualSpec to set the value (supports array indices like "waves.0.amplitude") */
   path: string;
   /** Only show this param when another field in the spec equals a specific value */
@@ -246,394 +246,394 @@ export type ToolParamDef = {
 export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
   "chart": [
     {
-      id: "chartType", label: "Tipo de gráfico", input: "select",
+      id: "chartType", labelKey: "theorySlideEditor.tipoDeGrafico", input: "select",
       path: "chartType", defaultValue: "bar",
       options: [
-        { label: "Barras",      value: "bar"     },
-        { label: "Líneas",      value: "line"    },
-        { label: "Área",        value: "area"    },
-        { label: "Torta",       value: "pie"     },
-        { label: "Dispersión",  value: "scatter" },
+        { labelKey: "theorySlideEditor.barras",      value: "bar"     },
+        { labelKey: "theorySlideEditor.lineas",      value: "line"    },
+        { labelKey: "theorySlideEditor.area",        value: "area"    },
+        { labelKey: "theorySlideEditor.torta",       value: "pie"     },
+        { labelKey: "theorySlideEditor.dispersion",  value: "scatter" },
       ],
     },
   ],
   "funciones-graficas": [
-    { id: "xMin",  label: "X mínimo",    input: "number", path: "axes.x.min",            defaultValue: -10, min: -100, max: -1,  step: 1   },
-    { id: "xMax",  label: "X máximo",    input: "number", path: "axes.x.max",            defaultValue: 10,  min: 1,    max: 100,  step: 1   },
-    { id: "yMin",  label: "Y mínimo",    input: "number", path: "axes.y.min",            defaultValue: -10, min: -100, max: -1,  step: 1   },
-    { id: "yMax",  label: "Y máximo",    input: "number", path: "axes.y.max",            defaultValue: 10,  min: 1,    max: 100,  step: 1   },
-    { id: "expr",  label: "Expresión f₁", input: "text",  path: "functions.0.expression", defaultValue: "x^2", description: "Expresión matemática de la primera función (ej: 2*x+1, x^2-3)" },
+    { id: "xMin",  labelKey: "theorySlideEditor.xMinimo",    input: "number", path: "axes.x.min",            defaultValue: -10, min: -100, max: -1,  step: 1   },
+    { id: "xMax",  labelKey: "theorySlideEditor.xMaximo",    input: "number", path: "axes.x.max",            defaultValue: 10,  min: 1,    max: 100,  step: 1   },
+    { id: "yMin",  labelKey: "theorySlideEditor.yMinimo",    input: "number", path: "axes.y.min",            defaultValue: -10, min: -100, max: -1,  step: 1   },
+    { id: "yMax",  labelKey: "theorySlideEditor.yMaximo",    input: "number", path: "axes.y.max",            defaultValue: 10,  min: 1,    max: 100,  step: 1   },
+    { id: "expr",  labelKey: "theorySlideEditor.expresionF", input: "text",  path: "functions.0.expression", defaultValue: "x^2", descriptionKey: "theorySlideEditor.expresionMatematicaDeLaPrimera" },
   ],
   "physics-motion-chart": [
     {
-      id: "motionType", label: "Tipo de movimiento", input: "select",
+      id: "motionType", labelKey: "theorySlideEditor.tipoDeMovimiento", input: "select",
       path: "motion.type", defaultValue: "MRU",
-      options: [{ label: "MRU — vel. constante", value: "MRU" }, { label: "MRUV — acelerado", value: "MRUV" }],
+      options: [{ labelKey: "theorySlideEditor.mruVelConstante", value: "MRU" }, { labelKey: "theorySlideEditor.mruvAcelerado", value: "MRUV" }],
     },
-    { id: "time", label: "Tiempo total",   input: "number", path: "motion.time",             defaultValue: 10, min: 1, max: 60,  step: 1,   unit: "s"    },
-    { id: "x0",   label: "Pos. inicial",   input: "number", path: "motion.initialPosition",  defaultValue: 0,  min: -100, max: 100, step: 1, unit: "m"  },
-    { id: "v0",   label: "Vel. inicial",   input: "number", path: "motion.initialVelocity",  defaultValue: 5,  min: -50, max: 50, step: 1,   unit: "m/s" },
-    { id: "a",    label: "Aceleración",    input: "number", path: "motion.acceleration",     defaultValue: 2,  min: -20, max: 20, step: 0.5, unit: "m/s²", description: "Solo aplica en MRUV" },
+    { id: "time", labelKey: "theorySlideEditor.tiempoTotal",   input: "number", path: "motion.time",             defaultValue: 10, min: 1, max: 60,  step: 1,   unit: "s"    },
+    { id: "x0",   labelKey: "theorySlideEditor.posInicial",   input: "number", path: "motion.initialPosition",  defaultValue: 0,  min: -100, max: 100, step: 1, unit: "m"  },
+    { id: "v0",   labelKey: "theorySlideEditor.velInicial",   input: "number", path: "motion.initialVelocity",  defaultValue: 5,  min: -50, max: 50, step: 1,   unit: "m/s" },
+    { id: "a",    labelKey: "theorySlideEditor.aceleracion",    input: "number", path: "motion.acceleration",     defaultValue: 2,  min: -20, max: 20, step: 0.5, unit: "m/s²", descriptionKey: "theorySlideEditor.soloAplicaEnMruv" },
   ],
   "stat-distribution": [
     {
-      id: "distType", label: "Distribución", input: "select",
+      id: "distType", labelKey: "theorySlideEditor.distribucion", input: "select",
       path: "distributionType", defaultValue: "normal",
-      options: [{ label: "Normal", value: "normal" }, { label: "Binomial", value: "binomial" }, { label: "Uniforme", value: "uniform" }],
+      options: [{ labelKey: "theorySlideEditor.normal", value: "normal" }, { labelKey: "theorySlideEditor.binomial", value: "binomial" }, { labelKey: "theorySlideEditor.uniforme", value: "uniform" }],
     },
     // Normal
-    { id: "mean",   label: "Media (μ)",          input: "number", path: "parameters.mean",   defaultValue: 0,   min: -100, max: 100, step: 1,   condition: { path: "distributionType", value: "normal" } },
-    { id: "stdDev", label: "Desv. estándar (σ)", input: "number", path: "parameters.stdDev", defaultValue: 1,   min: 0.1,  max: 20,  step: 0.1, condition: { path: "distributionType", value: "normal" } },
+    { id: "mean",   labelKey: "theorySlideEditor.media",          input: "number", path: "parameters.mean",   defaultValue: 0,   min: -100, max: 100, step: 1,   condition: { path: "distributionType", value: "normal" } },
+    { id: "stdDev", labelKey: "theorySlideEditor.desvEstandar", input: "number", path: "parameters.stdDev", defaultValue: 1,   min: 0.1,  max: 20,  step: 0.1, condition: { path: "distributionType", value: "normal" } },
     // Binomial
-    { id: "n", label: "Ensayos (n)",      input: "number", path: "parameters.n", defaultValue: 10,  min: 1,    max: 50,   step: 1,    condition: { path: "distributionType", value: "binomial" } },
-    { id: "p", label: "Probabilidad (p)", input: "number", path: "parameters.p", defaultValue: 0.5, min: 0.01, max: 0.99, step: 0.01, condition: { path: "distributionType", value: "binomial" } },
+    { id: "n", labelKey: "theorySlideEditor.ensayosN",      input: "number", path: "parameters.n", defaultValue: 10,  min: 1,    max: 50,   step: 1,    condition: { path: "distributionType", value: "binomial" } },
+    { id: "p", labelKey: "theorySlideEditor.probabilidadP", input: "number", path: "parameters.p", defaultValue: 0.5, min: 0.01, max: 0.99, step: 0.01, condition: { path: "distributionType", value: "binomial" } },
     // Uniforme
-    { id: "uMin", label: "Mínimo", input: "number", path: "parameters.min", defaultValue: 0,  min: -100, max: 100, step: 1, condition: { path: "distributionType", value: "uniform" } },
-    { id: "uMax", label: "Máximo", input: "number", path: "parameters.max", defaultValue: 10, min: -100, max: 100, step: 1, condition: { path: "distributionType", value: "uniform" } },
+    { id: "uMin", labelKey: "theorySlideEditor.minimo", input: "number", path: "parameters.min", defaultValue: 0,  min: -100, max: 100, step: 1, condition: { path: "distributionType", value: "uniform" } },
+    { id: "uMax", labelKey: "theorySlideEditor.maximo", input: "number", path: "parameters.max", defaultValue: 10, min: -100, max: 100, step: 1, condition: { path: "distributionType", value: "uniform" } },
     // Común
-    { id: "samples", label: "Muestras", input: "number", path: "samples", defaultValue: 100, min: 10, max: 1000, step: 10 },
+    { id: "samples", labelKey: "theorySlideEditor.muestras", input: "number", path: "samples", defaultValue: 100, min: 10, max: 1000, step: 10 },
   ],
   "wave-interference": [
-    { id: "w1amp",  label: "Amplitud onda 1",   input: "number",  path: "waves.0.amplitude",          defaultValue: 1, min: 0.1, max: 5,  step: 0.1        },
-    { id: "w1freq", label: "Frecuencia onda 1", input: "number",  path: "waves.0.frequency",          defaultValue: 1, min: 0.1, max: 10, step: 0.1, unit: "Hz" },
-    { id: "w2amp",  label: "Amplitud onda 2",   input: "number",  path: "waves.1.amplitude",          defaultValue: 1, min: 0.1, max: 5,  step: 0.1        },
-    { id: "w2freq", label: "Frecuencia onda 2", input: "number",  path: "waves.1.frequency",          defaultValue: 2, min: 0.1, max: 10, step: 0.1, unit: "Hz" },
-    { id: "superpos", label: "Ver superposición", input: "boolean", path: "superposition.enabled",   defaultValue: true },
+    { id: "w1amp",  labelKey: "theorySlideEditor.amplitudOnda1",   input: "number",  path: "waves.0.amplitude",          defaultValue: 1, min: 0.1, max: 5,  step: 0.1        },
+    { id: "w1freq", labelKey: "theorySlideEditor.frecuenciaOnda1", input: "number",  path: "waves.0.frequency",          defaultValue: 1, min: 0.1, max: 10, step: 0.1, unit: "Hz" },
+    { id: "w2amp",  labelKey: "theorySlideEditor.amplitudOnda2",   input: "number",  path: "waves.1.amplitude",          defaultValue: 1, min: 0.1, max: 5,  step: 0.1        },
+    { id: "w2freq", labelKey: "theorySlideEditor.frecuenciaOnda2", input: "number",  path: "waves.1.frequency",          defaultValue: 2, min: 0.1, max: 10, step: 0.1, unit: "Hz" },
+    { id: "superpos", labelKey: "theorySlideEditor.verSuperposicion", input: "boolean", path: "superposition.enabled",   defaultValue: true },
   ],
   "funciones-grafico": [
-    { id: "xMin", label: "X mínimo", input: "number", path: "axes.x.min", defaultValue: -10, min: -100, max: -1, step: 1 },
-    { id: "xMax", label: "X máximo", input: "number", path: "axes.x.max", defaultValue: 10,  min: 1, max: 100, step: 1  },
+    { id: "xMin", labelKey: "theorySlideEditor.xMinimo", input: "number", path: "axes.x.min", defaultValue: -10, min: -100, max: -1, step: 1 },
+    { id: "xMax", labelKey: "theorySlideEditor.xMaximo", input: "number", path: "axes.x.max", defaultValue: 10,  min: 1, max: 100, step: 1  },
   ],
 
   // ── Estadística ─────────────────────────────────────────────────────────────
   "stat-regression": [
-    { id: "regrType",   label: "Tipo de regresión",  input: "select", path: "regression.type",   defaultValue: "linear",
-      options: [{ label: "Lineal", value: "linear" }, { label: "Cuadrática", value: "quadratic" }] },
-    { id: "slope",     label: "Pendiente (a)",       input: "number", path: "generator.slope",     defaultValue: 2,   min: -10, max: 10,  step: 0.5 },
-    { id: "intercept", label: "Intercepto (b)",      input: "number", path: "generator.intercept", defaultValue: 0,   min: -20, max: 20,  step: 0.5 },
-    { id: "curvature", label: "Curvatura (c)",       input: "number", path: "generator.curvature", defaultValue: 0.2, min: -3,  max: 3,   step: 0.1,
+    { id: "regrType",   labelKey: "theorySlideEditor.tipoDeRegresion",  input: "select", path: "regression.type",   defaultValue: "linear",
+      options: [{ labelKey: "theorySlideEditor.lineal", value: "linear" }, { labelKey: "theorySlideEditor.cuadratica", value: "quadratic" }] },
+    { id: "slope",     labelKey: "theorySlideEditor.pendienteA",       input: "number", path: "generator.slope",     defaultValue: 2,   min: -10, max: 10,  step: 0.5 },
+    { id: "intercept", labelKey: "theorySlideEditor.interceptoB",      input: "number", path: "generator.intercept", defaultValue: 0,   min: -20, max: 20,  step: 0.5 },
+    { id: "curvature", labelKey: "theorySlideEditor.curvaturaC",       input: "number", path: "generator.curvature", defaultValue: 0.2, min: -3,  max: 3,   step: 0.1,
       condition: { path: "regression.type", value: "quadratic" } },
-    { id: "noise",     label: "Dispersión",          input: "number", path: "generator.noise",     defaultValue: 1,   min: 0,   max: 8,   step: 0.5 },
-    { id: "nPoints",   label: "Nº de puntos",        input: "number", path: "generator.nPoints",   defaultValue: 10,  min: 4,   max: 30,  step: 1   },
-    { id: "genXMin",   label: "X mínimo",            input: "number", path: "generator.xMin",      defaultValue: 0,   min: -50, max: 50,  step: 1   },
-    { id: "genXMax",   label: "X máximo",            input: "number", path: "generator.xMax",      defaultValue: 10,  min: 1,   max: 100, step: 1   },
-    { id: "xLabel",    label: "Etiqueta eje X",      input: "text",   path: "axes.x.label",        defaultValue: "Variable X" },
-    { id: "yLabel",    label: "Etiqueta eje Y",      input: "text",   path: "axes.y.label",        defaultValue: "Variable Y" },
+    { id: "noise",     labelKey: "theorySlideEditor.dispersion",          input: "number", path: "generator.noise",     defaultValue: 1,   min: 0,   max: 8,   step: 0.5 },
+    { id: "nPoints",   labelKey: "theorySlideEditor.nDePuntos",        input: "number", path: "generator.nPoints",   defaultValue: 10,  min: 4,   max: 30,  step: 1   },
+    { id: "genXMin",   labelKey: "theorySlideEditor.xMinimo",            input: "number", path: "generator.xMin",      defaultValue: 0,   min: -50, max: 50,  step: 1   },
+    { id: "genXMax",   labelKey: "theorySlideEditor.xMaximo",            input: "number", path: "generator.xMax",      defaultValue: 10,  min: 1,   max: 100, step: 1   },
+    { id: "xLabel",    labelKey: "theorySlideEditor.etiquetaEjeX",      input: "text",   path: "axes.x.label",        defaultValue: "Variable X" },
+    { id: "yLabel",    labelKey: "theorySlideEditor.etiquetaEjeY",      input: "text",   path: "axes.y.label",        defaultValue: "Variable Y" },
   ],
 
   // ── Ciencias Sociales ────────────────────────────────────────────────────────
   "social-population-pyramid": [
-    { id: "title",       label: "Título",         input: "text",   path: "title",       defaultValue: "Pirámide de población" },
-    { id: "description", label: "Descripción",    input: "text",   path: "description", defaultValue: "" },
-    { id: "unit",        label: "Unidad",         input: "select", path: "unit",        defaultValue: "percent",
-      options: [{ label: "Porcentaje", value: "percent" }, { label: "Personas", value: "count" }] },
-    { id: "maleColor",   label: "Color hombres",  input: "color",  path: "maleColor",   defaultValue: "#60a5fa" },
-    { id: "femaleColor", label: "Color mujeres",  input: "color",  path: "femaleColor", defaultValue: "#fb7185" },
+    { id: "title",       labelKey: "comun.titulo",         input: "text",   path: "title",       defaultValue: "Pirámide de población" },
+    { id: "description", labelKey: "comun.descripcion",    input: "text",   path: "description", defaultValue: "" },
+    { id: "unit",        labelKey: "theorySlideEditor.unidad",         input: "select", path: "unit",        defaultValue: "percent",
+      options: [{ labelKey: "theorySlideEditor.porcentaje", value: "percent" }, { labelKey: "theorySlideEditor.personas", value: "count" }] },
+    { id: "maleColor",   labelKey: "theorySlideEditor.colorHombres",  input: "color",  path: "maleColor",   defaultValue: "#60a5fa" },
+    { id: "femaleColor", labelKey: "theorySlideEditor.colorMujeres",  input: "color",  path: "femaleColor", defaultValue: "#fb7185" },
   ],
   "social-choropleth": [
-    { id: "title",     label: "Título",         input: "text",   path: "title",          defaultValue: "Índice de desarrollo" },
-    { id: "variable",  label: "Variable",       input: "text",   path: "variable",       defaultValue: "IDH" },
-    { id: "unit",      label: "Unidad",         input: "text",   path: "unit",           defaultValue: "" },
-    { id: "scaleMin",  label: "Escala mínima",  input: "number", path: "scale.min",      defaultValue: 0,   min: -1_000_000, max: 1_000_000, step: 0.01 },
-    { id: "scaleMax",  label: "Escala máxima",  input: "number", path: "scale.max",      defaultValue: 1,   min: -1_000_000, max: 1_000_000, step: 0.01 },
-    { id: "colorFrom", label: "Color mínimo",   input: "color",  path: "scale.colors.0", defaultValue: "#dbeafe" },
-    { id: "colorTo",   label: "Color máximo",   input: "color",  path: "scale.colors.1", defaultValue: "#1d4ed8" },
+    { id: "title",     labelKey: "comun.titulo",         input: "text",   path: "title",          defaultValue: "Índice de desarrollo" },
+    { id: "variable",  labelKey: "theorySlideEditor.variable",       input: "text",   path: "variable",       defaultValue: "IDH" },
+    { id: "unit",      labelKey: "theorySlideEditor.unidad",         input: "text",   path: "unit",           defaultValue: "" },
+    { id: "scaleMin",  labelKey: "theorySlideEditor.escalaMinima",  input: "number", path: "scale.min",      defaultValue: 0,   min: -1_000_000, max: 1_000_000, step: 0.01 },
+    { id: "scaleMax",  labelKey: "theorySlideEditor.escalaMaxima",  input: "number", path: "scale.max",      defaultValue: 1,   min: -1_000_000, max: 1_000_000, step: 0.01 },
+    { id: "colorFrom", labelKey: "theorySlideEditor.colorMinimo",   input: "color",  path: "scale.colors.0", defaultValue: "#dbeafe" },
+    { id: "colorTo",   labelKey: "theorySlideEditor.colorMaximo",   input: "color",  path: "scale.colors.1", defaultValue: "#1d4ed8" },
   ],
 
   // ── Filosofía ────────────────────────────────────────────────────────────────
   "phil-argument-map": [
-    { id: "claim", label: "Afirmación central", input: "text", path: "claim.text", defaultValue: "Ingrese la afirmación central" },
+    { id: "claim", labelKey: "theorySlideEditor.afirmacionCentral", input: "text", path: "claim.text", defaultValue: "Ingrese la afirmación central" },
   ],
   "phil-dilemma": [
-    { id: "scenario", label: "Descripción del dilema", input: "text", path: "scenario", defaultValue: "Describa el dilema ético" },
+    { id: "scenario", labelKey: "theorySlideEditor.descripcionDelDilema", input: "text", path: "scenario", defaultValue: "Describa el dilema ético" },
   ],
 
   // ── Arte ─────────────────────────────────────────────────────────────────────
   "art-color-wheel": [
-    { id: "hue",     label: "Matiz base (0–360)", input: "number", path: "selectedHue", defaultValue: 200, min: 0, max: 360, step: 1 },
-    { id: "harmony", label: "Armonía",            input: "select", path: "harmony",     defaultValue: "complementary",
+    { id: "hue",     labelKey: "theorySlideEditor.matizBase0360", input: "number", path: "selectedHue", defaultValue: 200, min: 0, max: 360, step: 1 },
+    { id: "harmony", labelKey: "theorySlideEditor.armonia",            input: "select", path: "harmony",     defaultValue: "complementary",
       options: [
-        { label: "Complementaria",       value: "complementary"       },
-        { label: "Triádica",             value: "triadic"             },
-        { label: "Análoga",              value: "analogous"           },
-        { label: "Split-complementaria", value: "split-complementary" },
+        { labelKey: "theorySlideEditor.complementaria",       value: "complementary"       },
+        { labelKey: "theorySlideEditor.triadica",             value: "triadic"             },
+        { labelKey: "theorySlideEditor.analoga",              value: "analogous"           },
+        { labelKey: "theorySlideEditor.splitComplementaria", value: "split-complementary" },
       ] },
   ],
   "art-composition": [
-    { id: "rule", label: "Regla de composición", input: "select", path: "rule", defaultValue: "rule-of-thirds",
+    { id: "rule", labelKey: "theorySlideEditor.reglaDeComposicion", input: "select", path: "rule", defaultValue: "rule-of-thirds",
       options: [
-        { label: "Regla de tercios", value: "rule-of-thirds" },
-        { label: "Proporción áurea", value: "golden-ratio"   },
-        { label: "Simetría",         value: "symmetry"       },
-        { label: "Diagonal",         value: "diagonal"       },
+        { labelKey: "theorySlideEditor.reglaDeTercios", value: "rule-of-thirds" },
+        { labelKey: "theorySlideEditor.proporcionAurea", value: "golden-ratio"   },
+        { labelKey: "theorySlideEditor.simetria",         value: "symmetry"       },
+        { labelKey: "theorySlideEditor.diagonal",         value: "diagonal"       },
       ] },
-    { id: "cw", label: "Ancho del lienzo", input: "number", path: "canvasWidth",  defaultValue: 640, min: 200, max: 1920, step: 10, unit: "px" },
-    { id: "ch", label: "Alto del lienzo",  input: "number", path: "canvasHeight", defaultValue: 480, min: 150, max: 1080, step: 10, unit: "px" },
+    { id: "cw", labelKey: "theorySlideEditor.anchoDelLienzo", input: "number", path: "canvasWidth",  defaultValue: 640, min: 200, max: 1920, step: 10, unit: "px" },
+    { id: "ch", labelKey: "theorySlideEditor.altoDelLienzo",  input: "number", path: "canvasHeight", defaultValue: 480, min: 150, max: 1080, step: 10, unit: "px" },
   ],
 
   // ── Biología ─────────────────────────────────────────────────────────────────
   "bio-cell-diagram": [
-    { id: "cellType", label: "Tipo de célula", input: "select", path: "cellType", defaultValue: "animal",
-      options: [{ label: "Animal", value: "animal" }, { label: "Vegetal", value: "plant" }, { label: "Bacteria", value: "bacteria" }] },
+    { id: "cellType", labelKey: "theorySlideEditor.tipoDeCelula", input: "select", path: "cellType", defaultValue: "animal",
+      options: [{ labelKey: "theorySlideEditor.animal", value: "animal" }, { labelKey: "theorySlideEditor.vegetal", value: "plant" }, { labelKey: "theorySlideEditor.bacteria", value: "bacteria" }] },
   ],
   "bio-genetics": [
-    { id: "cross", label: "Tipo de cruce", input: "select", path: "cross", defaultValue: "monohybrid",
-      options: [{ label: "Monohíbrido", value: "monohybrid" }, { label: "Dihíbrido", value: "dihybrid" }] },
+    { id: "cross", labelKey: "theorySlideEditor.tipoDeCruce", input: "select", path: "cross", defaultValue: "monohybrid",
+      options: [{ labelKey: "theorySlideEditor.monohibrido", value: "monohybrid" }, { labelKey: "theorySlideEditor.dihibrido", value: "dihybrid" }] },
   ],
   "bio-population-dynamics": [
-    { id: "model", label: "Modelo", input: "select", path: "model", defaultValue: "logistic",
+    { id: "model", labelKey: "theorySlideEditor.modelo", input: "select", path: "model", defaultValue: "logistic",
       options: [
-        { label: "Logístico",      value: "logistic"       },
-        { label: "Lotka-Volterra", value: "lotka-volterra" },
-        { label: "Exponencial",    value: "exponential"    },
+        { labelKey: "theorySlideEditor.logistico",      value: "logistic"       },
+        { labelKey: "theorySlideEditor.lotkaVolterra", value: "lotka-volterra" },
+        { labelKey: "theorySlideEditor.exponencial",    value: "exponential"    },
       ] },
-    { id: "capacity", label: "Capacidad de carga (K)", input: "number", path: "parameters.carryingCapacity", defaultValue: 1000, min: 10, max: 100000, step: 10, description: "Solo modelo logístico" },
-    { id: "growRate",  label: "Tasa de crecimiento",   input: "number", path: "parameters.growthRate",       defaultValue: 0.1,  min: 0.01, max: 5, step: 0.01 },
+    { id: "capacity", labelKey: "theorySlideEditor.capacidadDeCargaK", input: "number", path: "parameters.carryingCapacity", defaultValue: 1000, min: 10, max: 100000, step: 10, descriptionKey: "theorySlideEditor.soloModeloLogistico" },
+    { id: "growRate",  labelKey: "theorySlideEditor.tasaDeCrecimiento",   input: "number", path: "parameters.growthRate",       defaultValue: 0.1,  min: 0.01, max: 5, step: 0.01 },
   ],
 
   // ── Música ───────────────────────────────────────────────────────────────────
   "music-waveform": [
-    { id: "baseFreq", label: "Frecuencia base", input: "number", path: "baseFrequency", defaultValue: 440, min: 20, max: 20000, step: 1, unit: "Hz" },
-    { id: "note",     label: "Nota",            input: "text",   path: "note",          defaultValue: "A4" },
+    { id: "baseFreq", labelKey: "theorySlideEditor.frecuenciaBase", input: "number", path: "baseFrequency", defaultValue: 440, min: 20, max: 20000, step: 1, unit: "Hz" },
+    { id: "note",     labelKey: "theorySlideEditor.nota",            input: "text",   path: "note",          defaultValue: "A4" },
   ],
   "music-rhythm-grid": [
-    { id: "tempo",    label: "Tempo",             input: "number", path: "tempo",               defaultValue: 120, min: 40, max: 240, step: 1,  unit: "BPM" },
-    { id: "measures", label: "Compases",          input: "number", path: "measures",            defaultValue: 2,   min: 1,  max: 8,   step: 1 },
-    { id: "tsBeats",  label: "Pulsos por compás", input: "number", path: "timeSignature.beats", defaultValue: 4,   min: 2,  max: 12,  step: 1 },
+    { id: "tempo",    labelKey: "theorySlideEditor.tempo",             input: "number", path: "tempo",               defaultValue: 120, min: 40, max: 240, step: 1,  unit: "BPM" },
+    { id: "measures", labelKey: "theorySlideEditor.compases",          input: "number", path: "measures",            defaultValue: 2,   min: 1,  max: 8,   step: 1 },
+    { id: "tsBeats",  labelKey: "theorySlideEditor.pulsosPorCompas", input: "number", path: "timeSignature.beats", defaultValue: 4,   min: 2,  max: 12,  step: 1 },
   ],
 
   // ── Política ─────────────────────────────────────────────────────────────────
   "pol-voting-systems": [
-    { id: "c1name", label: "Candidato 1", input: "text", path: "candidates.0.name", defaultValue: "Candidato A" },
-    { id: "c2name", label: "Candidato 2", input: "text", path: "candidates.1.name", defaultValue: "Candidato B" },
-    { id: "c3name", label: "Candidato 3", input: "text", path: "candidates.2.name", defaultValue: "Candidato C" },
+    { id: "c1name", labelKey: "theorySlideEditor.candidato1", input: "text", path: "candidates.0.name", defaultValue: "Candidato A" },
+    { id: "c2name", labelKey: "theorySlideEditor.candidato2", input: "text", path: "candidates.1.name", defaultValue: "Candidato B" },
+    { id: "c3name", labelKey: "theorySlideEditor.candidato3", input: "text", path: "candidates.2.name", defaultValue: "Candidato C" },
   ],
   "pol-power-distribution": [
-    { id: "system", label: "Sistema de gobierno", input: "select", path: "system", defaultValue: "presidential",
+    { id: "system", labelKey: "theorySlideEditor.sistemaDeGobierno", input: "select", path: "system", defaultValue: "presidential",
       options: [
-        { label: "Presidencialismo", value: "presidential" },
-        { label: "Parlamentarismo",  value: "parliamentary" },
-        { label: "Federalismo",      value: "federal"       },
+        { labelKey: "theorySlideEditor.presidencialismo", value: "presidential" },
+        { labelKey: "theorySlideEditor.parlamentarismo",  value: "parliamentary" },
+        { labelKey: "theorySlideEditor.federalismo",      value: "federal"       },
       ] },
   ],
 
   // ── Educación Cívica ─────────────────────────────────────────────────────────
   "civic-rights-tree": [
-    { id: "rootLabel", label: "Nodo raíz", input: "text", path: "root.label", defaultValue: "Constitución" },
+    { id: "rootLabel", labelKey: "theorySlideEditor.nodoRaiz", input: "text", path: "root.label", defaultValue: "Constitución" },
   ],
   "civic-budget": [
-    { id: "totalBudget", label: "Presupuesto total", input: "number", path: "totalBudget", defaultValue: 100000, min: 0, max: 1000000000, step: 1000 },
-    { id: "currency",    label: "Moneda",            input: "text",   path: "currency",    defaultValue: "$" },
+    { id: "totalBudget", labelKey: "theorySlideEditor.presupuestoTotal", input: "number", path: "totalBudget", defaultValue: 100000, min: 0, max: 1000000000, step: 1000 },
+    { id: "currency",    labelKey: "theorySlideEditor.moneda",            input: "text",   path: "currency",    defaultValue: "$" },
   ],
 
   // ── Ciencias Ambientales ─────────────────────────────────────────────────────
   "env-ecosystem": [
-    { id: "biome", label: "Bioma", input: "select", path: "biome", defaultValue: "bosque-tropical",
+    { id: "biome", labelKey: "theorySlideEditor.bioma", input: "select", path: "biome", defaultValue: "bosque-tropical",
       options: [
-        { label: "Bosque tropical", value: "bosque-tropical" },
-        { label: "Desierto",        value: "desierto"        },
-        { label: "Océano",          value: "oceano"          },
-        { label: "Pradera",         value: "pradera"         },
-        { label: "Tundra",          value: "tundra"          },
+        { labelKey: "theorySlideEditor.bosqueTropical", value: "bosque-tropical" },
+        { labelKey: "theorySlideEditor.desierto",        value: "desierto"        },
+        { labelKey: "theorySlideEditor.oceano",          value: "oceano"          },
+        { labelKey: "theorySlideEditor.pradera",         value: "pradera"         },
+        { labelKey: "theorySlideEditor.tundra",          value: "tundra"          },
       ] },
-    { id: "energyLoss", label: "Pérdida de energía entre niveles", input: "number", path: "energyLoss", defaultValue: 90, min: 1, max: 99, step: 1, unit: "%" },
+    { id: "energyLoss", labelKey: "theorySlideEditor.perdidaDeEnergiaEntreNiveles", input: "number", path: "energyLoss", defaultValue: 90, min: 1, max: 99, step: 1, unit: "%" },
   ],
   "env-carbon-cycle": [
-    { id: "humanFluxAmt", label: "Flujo humano de carbono", input: "number", path: "humanFlux.amount", defaultValue: 9, min: 0, max: 100, step: 0.5, unit: "GtC/año" },
+    { id: "humanFluxAmt", labelKey: "theorySlideEditor.flujoHumanoDeCarbono", input: "number", path: "humanFlux.amount", defaultValue: 9, min: 0, max: 100, step: 0.5, unit: "GtC/año" },
   ],
 
   // ── Informática ──────────────────────────────────────────────────────────────
   "cs-sorting": [
-    { id: "algorithm", label: "Algoritmo", input: "select", path: "algorithm", defaultValue: "bubble",
+    { id: "algorithm", labelKey: "theorySlideEditor.algoritmo", input: "select", path: "algorithm", defaultValue: "bubble",
       options: [
-        { label: "Burbuja",   value: "bubble"    },
-        { label: "Selección", value: "selection" },
-        { label: "Inserción", value: "insertion" },
-        { label: "Merge",     value: "merge"     },
-        { label: "Quick",     value: "quick"     },
+        { labelKey: "theorySlideEditor.burbuja",   value: "bubble"    },
+        { labelKey: "theorySlideEditor.seleccion", value: "selection" },
+        { labelKey: "theorySlideEditor.insercion", value: "insertion" },
+        { labelKey: "theorySlideEditor.merge",     value: "merge"     },
+        { labelKey: "theorySlideEditor.quick",     value: "quick"     },
       ] },
-    { id: "step", label: "Paso inicial", input: "number", path: "currentStep", defaultValue: 0, min: 0, max: 100, step: 1 },
+    { id: "step", labelKey: "theorySlideEditor.pasoInicial", input: "number", path: "currentStep", defaultValue: 0, min: 0, max: 100, step: 1 },
   ],
   "cs-graph": [
-    { id: "directed",  label: "Dirigido",  input: "boolean", path: "directed",  defaultValue: false },
-    { id: "weighted",  label: "Ponderado", input: "boolean", path: "weighted",  defaultValue: false },
-    { id: "algorithm", label: "Algoritmo", input: "select",  path: "algorithm", defaultValue: "bfs",
+    { id: "directed",  labelKey: "theorySlideEditor.dirigido",  input: "boolean", path: "directed",  defaultValue: false },
+    { id: "weighted",  labelKey: "theorySlideEditor.ponderado", input: "boolean", path: "weighted",  defaultValue: false },
+    { id: "algorithm", labelKey: "theorySlideEditor.algoritmo", input: "select",  path: "algorithm", defaultValue: "bfs",
       options: [
         { label: "BFS",      value: "bfs"      },
         { label: "DFS",      value: "dfs"      },
-        { label: "Dijkstra", value: "dijkstra" },
-        { label: "Ninguno",  value: "none"     },
+        { labelKey: "theorySlideEditor.dijkstra", value: "dijkstra" },
+        { labelKey: "theorySlideEditor.ninguno",  value: "none"     },
       ] },
   ],
   "cs-binary-tree": [
-    { id: "traversal", label: "Recorrido", input: "select", path: "traversalOrder", defaultValue: "inorder",
+    { id: "traversal", labelKey: "theorySlideEditor.recorrido", input: "select", path: "traversalOrder", defaultValue: "inorder",
       options: [
-        { label: "Inorden",   value: "inorder"    },
-        { label: "Preorden",  value: "preorder"   },
-        { label: "Postorden", value: "postorder"  },
-        { label: "Por nivel", value: "levelorder" },
+        { labelKey: "theorySlideEditor.inorden",   value: "inorder"    },
+        { labelKey: "theorySlideEditor.preorden",  value: "preorder"   },
+        { labelKey: "theorySlideEditor.postorden", value: "postorder"  },
+        { labelKey: "theorySlideEditor.porNivel", value: "levelorder" },
       ] },
-    { id: "isBST", label: "Es BST", input: "boolean", path: "isBST", defaultValue: true },
+    { id: "isBST", labelKey: "theorySlideEditor.esBst", input: "boolean", path: "isBST", defaultValue: true },
   ],
 
   // ── Ciencias Naturales ───────────────────────────────────────────────────────
   "nat-weather": [
-    { id: "season", label: "Estación", input: "select", path: "season", defaultValue: "primavera",
+    { id: "season", labelKey: "theorySlideEditor.estacion", input: "select", path: "season", defaultValue: "primavera",
       options: [
-        { label: "Verano",    value: "verano"    },
-        { label: "Otoño",     value: "otono"     },
-        { label: "Invierno",  value: "invierno"  },
-        { label: "Primavera", value: "primavera" },
+        { labelKey: "theorySlideEditor.verano",    value: "verano"    },
+        { labelKey: "theorySlideEditor.otono",     value: "otono"     },
+        { labelKey: "theorySlideEditor.invierno",  value: "invierno"  },
+        { labelKey: "theorySlideEditor.primavera", value: "primavera" },
       ] },
-    { id: "temp",   label: "Temperatura",     input: "number", path: "variables.temperature",  defaultValue: 22,   min: -60,  max: 60,   step: 0.5, unit: "°C"   },
-    { id: "hum",    label: "Humedad",         input: "number", path: "variables.humidity",      defaultValue: 65,   min: 0,    max: 100,  step: 1,   unit: "%"    },
-    { id: "pres",   label: "Presión",         input: "number", path: "variables.pressure",      defaultValue: 1013, min: 900,  max: 1100, step: 1,   unit: "hPa"  },
-    { id: "wind",   label: "Vel. del viento", input: "number", path: "variables.windSpeed",     defaultValue: 15,   min: 0,    max: 200,  step: 1,   unit: "km/h" },
-    { id: "precip", label: "Precipitación",   input: "number", path: "variables.precipitation", defaultValue: 12,   min: 0,    max: 500,  step: 1,   unit: "mm"   },
+    { id: "temp",   labelKey: "theorySlideEditor.temperatura",     input: "number", path: "variables.temperature",  defaultValue: 22,   min: -60,  max: 60,   step: 0.5, unit: "°C"   },
+    { id: "hum",    labelKey: "theorySlideEditor.humedad",         input: "number", path: "variables.humidity",      defaultValue: 65,   min: 0,    max: 100,  step: 1,   unit: "%"    },
+    { id: "pres",   labelKey: "theorySlideEditor.presion",         input: "number", path: "variables.pressure",      defaultValue: 1013, min: 900,  max: 1100, step: 1,   unit: "hPa"  },
+    { id: "wind",   labelKey: "theorySlideEditor.velDelViento", input: "number", path: "variables.windSpeed",     defaultValue: 15,   min: 0,    max: 200,  step: 1,   unit: "km/h" },
+    { id: "precip", labelKey: "theorySlideEditor.precipitacion",   input: "number", path: "variables.precipitation", defaultValue: 12,   min: 0,    max: 500,  step: 1,   unit: "mm"   },
   ],
   "nat-water-cycle": [
-    { id: "humanImpact", label: "Factor impacto humano", input: "number", path: "humanImpactFactor", defaultValue: 0.25, min: 0, max: 1, step: 0.05, description: "0 = sin impacto, 1 = impacto máximo" },
+    { id: "humanImpact", labelKey: "theorySlideEditor.factorImpactoHumano", input: "number", path: "humanImpactFactor", defaultValue: 0.25, min: 0, max: 1, step: 0.05, descriptionKey: "theorySlideEditor.impactoHumano01" },
   ],
 
   // ── Cocina ───────────────────────────────────────────────────────────────────
   "cook-recipe-scaler": [
-    { id: "servingsBase",    label: "Porciones base",     input: "number", path: "servingsBase",    defaultValue: 4, min: 1, max: 100, step: 1 },
-    { id: "servingsCurrent", label: "Porciones actuales", input: "number", path: "servingsCurrent", defaultValue: 4, min: 1, max: 100, step: 1 },
+    { id: "servingsBase",    labelKey: "theorySlideEditor.porcionesBase",     input: "number", path: "servingsBase",    defaultValue: 4, min: 1, max: 100, step: 1 },
+    { id: "servingsCurrent", labelKey: "theorySlideEditor.porcionesActuales", input: "number", path: "servingsCurrent", defaultValue: 4, min: 1, max: 100, step: 1 },
   ],
   "cook-maillard": [
-    { id: "temperature", label: "Temperatura", input: "number", path: "temperature", defaultValue: 150, min: 0,  max: 300, step: 1,   unit: "°C"  },
-    { id: "time",        label: "Tiempo",      input: "number", path: "time",        defaultValue: 5,   min: 0,  max: 60,  step: 0.5, unit: "min" },
-    { id: "moisture",    label: "Humedad",     input: "number", path: "moisture",    defaultValue: 30,  min: 0,  max: 100, step: 1,   unit: "%"   },
+    { id: "temperature", labelKey: "theorySlideEditor.temperatura", input: "number", path: "temperature", defaultValue: 150, min: 0,  max: 300, step: 1,   unit: "°C"  },
+    { id: "time",        labelKey: "theorySlideEditor.tiempo",      input: "number", path: "time",        defaultValue: 5,   min: 0,  max: 60,  step: 0.5, unit: "min" },
+    { id: "moisture",    labelKey: "theorySlideEditor.humedad",     input: "number", path: "moisture",    defaultValue: 30,  min: 0,  max: 100, step: 1,   unit: "%"   },
   ],
 
   // ── Vida Práctica ─────────────────────────────────────────────────────────────
   "life-budget": [
-    { id: "income",   label: "Ingreso mensual", input: "number", path: "monthlyIncome", defaultValue: 100000, min: 0, max: 100000000, step: 1000 },
-    { id: "currency", label: "Moneda",          input: "text",   path: "currency",      defaultValue: "$" },
+    { id: "income",   labelKey: "theorySlideEditor.ingresoMensual", input: "number", path: "monthlyIncome", defaultValue: 100000, min: 0, max: 100000000, step: 1000 },
+    { id: "currency", labelKey: "theorySlideEditor.moneda",          input: "text",   path: "currency",      defaultValue: "$" },
   ],
   "life-time-matrix": [
-    { id: "totalHours", label: "Horas semanales", input: "number", path: "totalHoursPerWeek", defaultValue: 40, min: 1, max: 168, step: 1, unit: "hs" },
+    { id: "totalHours", labelKey: "theorySlideEditor.horasSemanales", input: "number", path: "totalHoursPerWeek", defaultValue: 40, min: 1, max: 168, step: 1, unit: "hs" },
   ],
 
   // ── Física ───────────────────────────────────────────────────────────────────
   "physics-forces-vectors": [
-    { id: "unit",      label: "Unidad",             input: "text",    path: "unit",                   defaultValue: "N"   },
-    { id: "showAxes",  label: "Mostrar ejes",        input: "boolean", path: "options.showAxes",       defaultValue: true  },
-    { id: "showComps", label: "Mostrar componentes", input: "boolean", path: "options.showComponents", defaultValue: false },
+    { id: "unit",      labelKey: "theorySlideEditor.unidad",             input: "text",    path: "unit",                   defaultValue: "N"   },
+    { id: "showAxes",  labelKey: "theorySlideEditor.mostrarEjes",        input: "boolean", path: "options.showAxes",       defaultValue: true  },
+    { id: "showComps", labelKey: "theorySlideEditor.mostrarComponentes", input: "boolean", path: "options.showComponents", defaultValue: false },
   ],
   "energy-chart": [
-    { id: "xVar",       label: "Variable eje X",          input: "select", path: "axes.x.variable",       defaultValue: "tiempo",
-      options: [{ label: "Tiempo", value: "tiempo" }, { label: "Posición", value: "posicion" }] },
-    { id: "conservTol", label: "Tolerancia conservación", input: "number", path: "conservation.tolerance", defaultValue: 2, min: 0, max: 100, step: 0.5, unit: "J" },
+    { id: "xVar",       labelKey: "theorySlideEditor.variableEjeX",          input: "select", path: "axes.x.variable",       defaultValue: "tiempo",
+      options: [{ labelKey: "theorySlideEditor.tiempo", value: "tiempo" }, { labelKey: "theorySlideEditor.posicion", value: "posicion" }] },
+    { id: "conservTol", labelKey: "theorySlideEditor.toleranciaConservacion", input: "number", path: "conservation.tolerance", defaultValue: 2, min: 0, max: 100, step: 0.5, unit: "J" },
   ],
   "circuit": [
-    { id: "comp0val", label: "Valor componente 1", input: "number", path: "components.0.value", defaultValue: 9,  min: 0, max: 10000, step: 0.1 },
-    { id: "comp1val", label: "Valor componente 2", input: "number", path: "components.1.value", defaultValue: 30, min: 0, max: 10000, step: 0.1 },
-    { id: "comp2val", label: "Valor componente 3", input: "number", path: "components.2.value", defaultValue: 60, min: 0, max: 10000, step: 0.1 },
+    { id: "comp0val", labelKey: "theorySlideEditor.valorComponente1", input: "number", path: "components.0.value", defaultValue: 9,  min: 0, max: 10000, step: 0.1 },
+    { id: "comp1val", labelKey: "theorySlideEditor.valorComponente2", input: "number", path: "components.1.value", defaultValue: 30, min: 0, max: 10000, step: 0.1 },
+    { id: "comp2val", labelKey: "theorySlideEditor.valorComponente3", input: "number", path: "components.2.value", defaultValue: 60, min: 0, max: 10000, step: 0.1 },
   ],
   "field-lines": [
-    { id: "polarity0",  label: "Polaridad fuente 1", input: "select", path: "sources.0.polarity",  defaultValue: "positiva",
-      options: [{ label: "Positiva / Norte", value: "positiva" }, { label: "Negativa / Sur", value: "negativa" }] },
-    { id: "magnitude0", label: "Magnitud fuente 1",  input: "number", path: "sources.0.magnitude", defaultValue: 1, min: 0, max: 100, step: 0.5 },
-    { id: "polarity1",  label: "Polaridad fuente 2", input: "select", path: "sources.1.polarity",  defaultValue: "negativa",
-      options: [{ label: "Positiva / Norte", value: "positiva" }, { label: "Negativa / Sur", value: "negativa" }] },
+    { id: "polarity0",  labelKey: "theorySlideEditor.polaridadFuente1", input: "select", path: "sources.0.polarity",  defaultValue: "positiva",
+      options: [{ labelKey: "theorySlideEditor.positivaNorte", value: "positiva" }, { labelKey: "theorySlideEditor.negativaSur", value: "negativa" }] },
+    { id: "magnitude0", labelKey: "theorySlideEditor.magnitudFuente1",  input: "number", path: "sources.0.magnitude", defaultValue: 1, min: 0, max: 100, step: 0.5 },
+    { id: "polarity1",  labelKey: "theorySlideEditor.polaridadFuente2", input: "select", path: "sources.1.polarity",  defaultValue: "negativa",
+      options: [{ labelKey: "theorySlideEditor.positivaNorte", value: "positiva" }, { labelKey: "theorySlideEditor.negativaSur", value: "negativa" }] },
   ],
   "optics-rays": [
-    { id: "elemType",  label: "Elemento óptico",      input: "select", path: "element.type",        defaultValue: "lente-convergente",
+    { id: "elemType",  labelKey: "theorySlideEditor.elementoOptico",      input: "select", path: "element.type",        defaultValue: "lente-convergente",
       options: [
-        { label: "Lente convergente", value: "lente-convergente" },
-        { label: "Lente divergente",  value: "lente-divergente"  },
-        { label: "Espejo plano",      value: "espejo-plano"      },
-        { label: "Espejo cóncavo",    value: "espejo-concavo"    },
-        { label: "Espejo convexo",    value: "espejo-convexo"    },
+        { labelKey: "theorySlideEditor.lenteConvergente", value: "lente-convergente" },
+        { labelKey: "theorySlideEditor.lenteDivergente",  value: "lente-divergente"  },
+        { labelKey: "theorySlideEditor.espejoPlano",      value: "espejo-plano"      },
+        { labelKey: "theorySlideEditor.espejoConcavo",    value: "espejo-concavo"    },
+        { labelKey: "theorySlideEditor.espejoConvexo",    value: "espejo-convexo"    },
       ] },
-    { id: "objHeight", label: "Altura del objeto",    input: "number", path: "object.height",       defaultValue: 40, min: 1,    max: 200,  step: 1,  unit: "px" },
-    { id: "elemX",     label: "Posición del elemento",input: "number", path: "element.positionX",   defaultValue: 0,  min: -400, max: 400,  step: 10, unit: "px" },
+    { id: "objHeight", labelKey: "theorySlideEditor.alturaDelObjeto",    input: "number", path: "object.height",       defaultValue: 40, min: 1,    max: 200,  step: 1,  unit: "px" },
+    { id: "elemX",     labelKey: "theorySlideEditor.posicionDelElemento",input: "number", path: "element.positionX",   defaultValue: 0,  min: -400, max: 400,  step: 10, unit: "px" },
   ],
   "physics-simulation": [
-    { id: "param0", label: "Altura inicial (h₀)",    input: "number", path: "parameters.0.value", defaultValue: 50, min: 0,    max: 1000, step: 1,   unit: "m"   },
-    { id: "param1", label: "Velocidad inicial (v₀)", input: "number", path: "parameters.1.value", defaultValue: 0,  min: -100, max: 100,  step: 0.5, unit: "m/s" },
+    { id: "param0", labelKey: "theorySlideEditor.alturaInicialH",    input: "number", path: "parameters.0.value", defaultValue: 50, min: 0,    max: 1000, step: 1,   unit: "m"   },
+    { id: "param1", labelKey: "theorySlideEditor.velocidadInicialV", input: "number", path: "parameters.1.value", defaultValue: 0,  min: -100, max: 100,  step: 0.5, unit: "m/s" },
   ],
 
   // ── Química ──────────────────────────────────────────────────────────────────
   "chem-reaction": [
-    { id: "reactant0", label: "Reactivo 1 (fórmula)", input: "text", path: "reactants.0.formula", defaultValue: "CH₄" },
-    { id: "product0",  label: "Producto 1 (fórmula)", input: "text", path: "products.0.formula",  defaultValue: "CO₂" },
+    { id: "reactant0", labelKey: "theorySlideEditor.reactivo1Formula", input: "text", path: "reactants.0.formula", defaultValue: "CH₄" },
+    { id: "product0",  labelKey: "theorySlideEditor.producto1Formula", input: "text", path: "products.0.formula",  defaultValue: "CO₂" },
   ],
   "chem-structure": [
-    { id: "edModel", label: "Modelo atómico", input: "select", path: "electronDistribution.model", defaultValue: "bohr",
+    { id: "edModel", labelKey: "theorySlideEditor.modeloAtomico", input: "select", path: "electronDistribution.model", defaultValue: "bohr",
       options: [
-        { label: "Bohr",             value: "bohr"             },
-        { label: "Nube electrónica", value: "nube-electronica" },
-        { label: "Cuántico",         value: "cuantico"         },
+        { labelKey: "theorySlideEditor.bohr",             value: "bohr"             },
+        { labelKey: "theorySlideEditor.nubeElectronica", value: "nube-electronica" },
+        { labelKey: "theorySlideEditor.cuantico",         value: "cuantico"         },
       ] },
-    { id: "edAtom", label: "Elemento", input: "text", path: "electronDistribution.atom", defaultValue: "C" },
+    { id: "edAtom", labelKey: "theorySlideEditor.elemento", input: "text", path: "electronDistribution.atom", defaultValue: "C" },
   ],
   "chem-periodic-table": [
-    { id: "highlightProp", label: "Propiedad destacada", input: "select", path: "highlightProperty.key", defaultValue: "electronegativity",
+    { id: "highlightProp", labelKey: "theorySlideEditor.propiedadDestacada", input: "select", path: "highlightProperty.key", defaultValue: "electronegativity",
       options: [
-        { label: "Clasificación",      value: "classification"    },
-        { label: "Electronegatividad", value: "electronegativity" },
-        { label: "Radio atómico",      value: "atomicRadius"      },
-        { label: "Energía ionización", value: "ionizationEnergy"  },
+        { labelKey: "theorySlideEditor.clasificacion",      value: "classification"    },
+        { labelKey: "theorySlideEditor.electronegatividad", value: "electronegativity" },
+        { labelKey: "theorySlideEditor.radioAtomico",      value: "atomicRadius"      },
+        { labelKey: "theorySlideEditor.energiaIonizacion", value: "ionizationEnergy"  },
       ] },
-    { id: "scaleType", label: "Tipo de escala", input: "select", path: "scale.type", defaultValue: "sequential",
-      options: [{ label: "Secuencial", value: "sequential" }, { label: "Categórico", value: "categorical" }] },
+    { id: "scaleType", labelKey: "theorySlideEditor.tipoDeEscala", input: "select", path: "scale.type", defaultValue: "sequential",
+      options: [{ labelKey: "theorySlideEditor.secuencial", value: "sequential" }, { labelKey: "theorySlideEditor.categorico", value: "categorical" }] },
   ],
   "chem-vsepr": [
-    { id: "defaultMolId", label: "Molécula por defecto", input: "text", path: "defaultMoleculeId", defaultValue: "h2o" },
+    { id: "defaultMolId", labelKey: "theorySlideEditor.moleculaPorDefecto", input: "text", path: "defaultMoleculeId", defaultValue: "h2o" },
   ],
   "chem-titration": [
-    { id: "currentPH", label: "pH actual",            input: "number", path: "indicator.currentPH", defaultValue: 7,  min: 0, max: 14,  step: 0.1 },
-    { id: "axisXMax",  label: "Volumen máx. (eje X)", input: "number", path: "axes.x.max",          defaultValue: 50, min: 5, max: 200, step: 1,  unit: "mL" },
+    { id: "currentPH", labelKey: "theorySlideEditor.phActual",            input: "number", path: "indicator.currentPH", defaultValue: 7,  min: 0, max: 14,  step: 0.1 },
+    { id: "axisXMax",  labelKey: "theorySlideEditor.volumenMaxEjeX", input: "number", path: "axes.x.max",          defaultValue: 50, min: 5, max: 200, step: 1,  unit: "mL" },
   ],
 
   // ── Matemáticas ──────────────────────────────────────────────────────────────
   "geometria-plana-espacial": [
-    { id: "fig0dim",  label: "Dimensión figura 1", input: "select", path: "figures.0.dimension", defaultValue: "plana",
-      options: [{ label: "Plana (2D)", value: "plana" }, { label: "Espacial (3D)", value: "espacial" }] },
-    { id: "fig0name", label: "Nombre figura 1",    input: "text",   path: "figures.0.name",      defaultValue: "Triángulo rectángulo" },
+    { id: "fig0dim",  labelKey: "theorySlideEditor.dimensionFigura1", input: "select", path: "figures.0.dimension", defaultValue: "plana",
+      options: [{ labelKey: "theorySlideEditor.plana2d", value: "plana" }, { labelKey: "theorySlideEditor.espacial3d", value: "espacial" }] },
+    { id: "fig0name", labelKey: "theorySlideEditor.nombreFigura1",    input: "text",   path: "figures.0.name",      defaultValue: "Triángulo rectángulo" },
   ],
   "trigonometria-avanzada": [
-    { id: "circleR",  label: "Radio círculo unitario", input: "number", path: "unitCircle.radius",     defaultValue: 1,   min: 0.1, max: 10,  step: 0.1 },
-    { id: "f0amp",    label: "Amplitud función 1",     input: "number", path: "functions.0.amplitude", defaultValue: 1,   min: 0.1, max: 10,  step: 0.1 },
-    { id: "f0period", label: "Período función 1",      input: "number", path: "functions.0.period",    defaultValue: 360, min: 1,   max: 720, step: 1,  unit: "°" },
+    { id: "circleR",  labelKey: "theorySlideEditor.radioCirculoUnitario", input: "number", path: "unitCircle.radius",     defaultValue: 1,   min: 0.1, max: 10,  step: 0.1 },
+    { id: "f0amp",    labelKey: "theorySlideEditor.amplitudFuncion1",     input: "number", path: "functions.0.amplitude", defaultValue: 1,   min: 0.1, max: 10,  step: 0.1 },
+    { id: "f0period", labelKey: "theorySlideEditor.periodoFuncion1",      input: "number", path: "functions.0.period",    defaultValue: 360, min: 1,   max: 720, step: 1,  unit: "°" },
   ],
   "algebra-calculo-visual": [
-    { id: "intLower", label: "Límite inferior integral", input: "number", path: "integrals.0.bounds.lower", defaultValue: 0, min: -100, max: 100, step: 0.5 },
-    { id: "intUpper", label: "Límite superior integral", input: "number", path: "integrals.0.bounds.upper", defaultValue: 3, min: -100, max: 100, step: 0.5 },
+    { id: "intLower", labelKey: "theorySlideEditor.limiteInferiorIntegral", input: "number", path: "integrals.0.bounds.lower", defaultValue: 0, min: -100, max: 100, step: 0.5 },
+    { id: "intUpper", labelKey: "theorySlideEditor.limiteSuperiorIntegral", input: "number", path: "integrals.0.bounds.upper", defaultValue: 3, min: -100, max: 100, step: 0.5 },
   ],
 
   // ── Matemáticas (variantes básicas — referencian paths compatibles) ──────────
   // geometria, trigonometria y algebra-calculo son versiones simplificadas de sus
   // contrapartes avanzadas. Los paths de texto son comunes entre ambas versiones.
   "geometria": [
-    { id: "fig0name", label: "Nombre figura 1", input: "text" as const, path: "figures.0.name", defaultValue: "Triángulo rectángulo" },
-    { id: "fig0formula", label: "Fórmula figura 1", input: "text" as const, path: "figures.0.formula", defaultValue: "A = base × altura / 2" },
+    { id: "fig0name", labelKey: "theorySlideEditor.nombreFigura1", input: "text" as const, path: "figures.0.name", defaultValue: "Triángulo rectángulo" },
+    { id: "fig0formula", labelKey: "theorySlideEditor.formulaFigura1", input: "text" as const, path: "figures.0.formula", defaultValue: "A = base × altura / 2" },
   ],
   "trigonometria": [
-    { id: "ident0expr", label: "Identidad principal", input: "text" as const, path: "identities.0.expression", defaultValue: "sin²θ + cos²θ = 1" },
+    { id: "ident0expr", labelKey: "theorySlideEditor.identidadPrincipal", input: "text" as const, path: "identities.0.expression", defaultValue: "sin²θ + cos²θ = 1" },
   ],
   "algebra-calculo": [
-    { id: "topic0label", label: "Tema principal", input: "text" as const, path: "topics.0.label", defaultValue: "Derivadas" },
-    { id: "topic0formula", label: "Fórmula", input: "text" as const, path: "topics.0.formula", defaultValue: "f'(x) = lim(Δx→0) [f(x+Δx) - f(x)] / Δx" },
+    { id: "topic0label", labelKey: "theorySlideEditor.temaPrincipal", input: "text" as const, path: "topics.0.label", defaultValue: "Derivadas" },
+    { id: "topic0formula", labelKey: "theorySlideEditor.formula", input: "text" as const, path: "topics.0.formula", defaultValue: "f'(x) = lim(Δx→0) [f(x+Δx) - f(x)] / Δx" },
   ],
 
   // ── Gráficos generales ───────────────────────────────────────────────────────
   "timeline": [
-    { id: "rangeStart", label: "Año inicio", input: "number", path: "range.start", defaultValue: 1900, min: -5000, max: 3000, step: 1 },
-    { id: "rangeEnd",   label: "Año fin",    input: "number", path: "range.end",   defaultValue: 2000, min: -5000, max: 3000, step: 1 },
+    { id: "rangeStart", labelKey: "theorySlideEditor.anoInicio", input: "number", path: "range.start", defaultValue: 1900, min: -5000, max: 3000, step: 1 },
+    { id: "rangeEnd",   labelKey: "theorySlideEditor.anoFin",    input: "number", path: "range.end",   defaultValue: 2000, min: -5000, max: 3000, step: 1 },
   ],
   "concept-map": [
-    { id: "centralNode", label: "Concepto central", input: "text", path: "nodes.0.label", defaultValue: "Concepto principal" },
+    { id: "centralNode", labelKey: "theorySlideEditor.conceptoCentral", input: "text", path: "nodes.0.label", defaultValue: "Concepto principal" },
   ],
   "flow": [
-    { id: "firstStep", label: "Primer paso", input: "text", path: "steps.0.label", defaultValue: "Inicio" },
+    { id: "firstStep", labelKey: "theorySlideEditor.primerPaso", input: "text", path: "steps.0.label", defaultValue: "Inicio" },
   ],
   "map": [
-    { id: "zoom", label: "Zoom",     input: "number", path: "viewport.zoom",     defaultValue: 5,     min: 1,    max: 20,  step: 1    },
-    { id: "lat",  label: "Latitud",  input: "number", path: "viewport.center.0", defaultValue: -34.6, min: -90,  max: 90,  step: 0.01 },
-    { id: "lng",  label: "Longitud", input: "number", path: "viewport.center.1", defaultValue: -58.4, min: -180, max: 180, step: 0.01 },
+    { id: "zoom", labelKey: "theorySlideEditor.zoom",     input: "number", path: "viewport.zoom",     defaultValue: 5,     min: 1,    max: 20,  step: 1    },
+    { id: "lat",  labelKey: "theorySlideEditor.latitud",  input: "number", path: "viewport.center.0", defaultValue: -34.6, min: -90,  max: 90,  step: 0.01 },
+    { id: "lng",  labelKey: "theorySlideEditor.longitud", input: "number", path: "viewport.center.1", defaultValue: -58.4, min: -180, max: 180, step: 0.01 },
   ],
 };
 
@@ -1652,6 +1652,7 @@ export function ToolParamControl({
   value: unknown;
   onChange: (v: number | boolean | string) => void;
 }) {
+  const { t } = useI18n();
   // Un id estable por control para asociar `label`/`htmlFor` (WCAG 1.3.1 / 4.1.2):
   // así la etiqueta visible es el nombre accesible real, sin `aria-label` redundante.
   const controlId = useId();
@@ -1662,7 +1663,7 @@ export function ToolParamControl({
     return (
       <div className="flex items-center gap-3">
         <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">
-          {param.label}
+          {t(param.labelKey)}
           {param.unit && <span className="text-[var(--c-border)] ml-1">({param.unit})</span>}
         </label>
         <input
@@ -1685,7 +1686,7 @@ export function ToolParamControl({
     const strVal = value !== undefined ? String(value) : String(param.defaultValue);
     return (
       <div className="flex items-center gap-3">
-        <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
+        <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{t(param.labelKey)}</label>
         <select
           id={controlId}
           className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
@@ -1693,7 +1694,7 @@ export function ToolParamControl({
           onChange={(e) => onChange(e.target.value)}
         >
           {param.options?.map((opt) => (
-            <option key={opt.value} value={opt.value}>{opt.label}</option>
+            <option key={opt.value} value={opt.value}>{opt.labelKey ? t(opt.labelKey) : opt.label}</option>
           ))}
         </select>
       </div>
@@ -1702,7 +1703,7 @@ export function ToolParamControl({
   if (param.input === "boolean") {
     return (
       <div className="flex items-center gap-3">
-        <span className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</span>
+        <span className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{t(param.labelKey)}</span>
         <label htmlFor={controlId} className="flex items-center gap-2 cursor-pointer select-none">
           <input
             id={controlId}
@@ -1720,9 +1721,9 @@ export function ToolParamControl({
     return (
       <div>
         <div className="flex items-baseline justify-between mb-1">
-          <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)]">{param.label}</label>
-          {param.description && (
-            <span className="text-[10px] text-[var(--c-border)]">{param.description}</span>
+          <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)]">{t(param.labelKey)}</label>
+          {param.descriptionKey && (
+            <span className="text-[10px] text-[var(--c-border)]">{t(param.descriptionKey)}</span>
           )}
         </div>
         <input
@@ -1738,7 +1739,7 @@ export function ToolParamControl({
     const strVal = value !== undefined ? String(value) : String(param.defaultValue);
     return (
       <div className="flex items-center gap-3">
-        <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
+        <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{t(param.labelKey)}</label>
         <input
           id={controlId}
           type="color"
@@ -1793,7 +1794,7 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
   const cambiarATexto = (isCode: boolean) => {
     if (
       slide.blockSpec &&
-      !window.confirm("La diapositiva tiene un bloque gráfico configurado. ¿Descartarlo? Esta acción no se puede deshacer.")
+      !window.confirm(t("theorySlideEditor.laDiapositivaTieneUnBloque"))
     ) {
       return;
     }
@@ -1801,15 +1802,15 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
     onChange({ isCode, blockSpec: undefined });
   };
 
-  const elegirBloque = (t: "chart" | "table" | "latex" | "flow") => {
+  const elegirBloque = (kind: "chart" | "table" | "latex" | "flow") => {
     if (
       slide.body?.trim() &&
-      !window.confirm("La diapositiva tiene texto en el cuerpo. ¿Reemplazarlo por el bloque? Esta acción no se puede deshacer.")
+      !window.confirm(t("theorySlideEditor.laDiapositivaTieneTextoEn"))
     ) {
       return;
     }
     setShowBlockPicker(false);
-    onChange({ blockSpec: createEmptyBlock(t), body: undefined, isCode: false });
+    onChange({ blockSpec: createEmptyBlock(kind), body: undefined, isCode: false });
   };
 
   return (
@@ -1889,7 +1890,7 @@ function SlideInspector({ slide, onChange }: InspectorProps) {
                   size="sm"
                   className="text-[var(--c-danger)]"
                   onClick={() => {
-                    if (window.confirm("¿Quitar el bloque gráfico? Esta acción no se puede deshacer.")) {
+                    if (window.confirm(t("theorySlideEditor.quitarElBloqueGraficoEsta"))) {
                       onChange({ blockSpec: undefined });
                     }
                   }}

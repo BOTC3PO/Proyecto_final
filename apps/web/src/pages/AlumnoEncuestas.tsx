@@ -41,7 +41,7 @@ export default function AlumnoEncuestas() {
       const response = await fetchSurveys(targetClassroomId);
       setSurveys(response.items);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudieron cargar las encuestas.");
+      setError(err instanceof Error ? err.message : t("alumnoEncuestas.noSePudieronCargarLas"));
     } finally {
       setIsLoading(false);
     }
@@ -59,7 +59,7 @@ export default function AlumnoEncuestas() {
           setClassroomId((prev) => prev || getAulaId(response.items[0]));
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : "No se pudieron cargar las aulas.");
+        setError(err instanceof Error ? err.message : t("alumnoEncuestas.noSePudieronCargarLas2"));
       } finally {
         setIsLoading(false);
       }
@@ -139,9 +139,9 @@ export default function AlumnoEncuestas() {
       await voteSurvey(survey.id, payload, usuarioId);
       const surveyResults = await fetchSurveyResults(survey.id, classroomId);
       setResults((prev) => ({ ...prev, [survey.id]: surveyResults }));
-      setInfo("¡Voto registrado!");
+      setInfo(t("alumnoEncuestas.votoRegistrado"));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo registrar el voto.");
+      setError(err instanceof Error ? err.message : t("alumnoEncuestas.noSePudoRegistrarEl"));
     }
   };
 
@@ -150,7 +150,7 @@ export default function AlumnoEncuestas() {
       const surveyResults = await fetchSurveyResults(surveyId, classroomId);
       setResults((prev) => ({ ...prev, [surveyId]: surveyResults }));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudieron cargar los resultados.");
+      setError(err instanceof Error ? err.message : t("alumnoEncuestas.noSePudieronCargarLos"));
     }
   };
 

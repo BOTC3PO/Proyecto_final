@@ -155,7 +155,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
       map[key] = c.tipo;
     }
     if (Object.keys(map).length === 0) {
-      setError("Necesitás al menos una columna.");
+      setError(t("vblangDatasetsIndex.necesitasAlMenosUnaColumna"));
       return;
     }
     setSubmitting(true);
@@ -169,7 +169,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
       });
       onCreated(ds.id);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo crear el dataset.");
+      setError(err instanceof Error ? err.message : t("vblangDatasetsIndex.noSePudoCrearEl"));
       setSubmitting(false);
     }
   };
@@ -329,7 +329,7 @@ export default function VblangDatasetsIndex({
       })
       .catch((err) => {
         setStatus("error");
-        setErrorMessage(err instanceof Error ? err.message : "Error de carga");
+        setErrorMessage(err instanceof Error ? err.message : t("comun.errorDeCarga"));
       });
   }, [q, visibilityFilter, mode]);
 
@@ -343,7 +343,7 @@ export default function VblangDatasetsIndex({
       load();
     } catch (err) {
       window.alert(
-        err instanceof Error ? err.message : "No se pudo eliminar el dataset.",
+        err instanceof Error ? err.message : t("vblangDatasetsIndex.noSePudoEliminarEl"),
       );
     }
   };

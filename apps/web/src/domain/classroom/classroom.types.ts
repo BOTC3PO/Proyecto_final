@@ -13,12 +13,13 @@ export const normalizeClassroomStatus = (
   return null;
 };
 
-export const getClassroomStatusLabel = (status?: ClassroomStatus | string | null) => {
+/** Devuelve la CLAVE i18n del estado del aula (no el texto) — el caller debe pasarla por `t()`. */
+export const getClassroomStatusLabelKey = (status?: ClassroomStatus | string | null) => {
   const normalized = normalizeClassroomStatus(status);
-  if (normalized === "ARCHIVED") return "Archivada";
-  if (normalized === "LOCKED") return "Bloqueada";
-  if (normalized === "ACTIVE") return "Activa";
-  return "Sin estado";
+  if (normalized === "ARCHIVED") return "profesorAulas.archivada";
+  if (normalized === "LOCKED") return "profesorAulas.bloqueada";
+  if (normalized === "ACTIVE") return "profesorAulas.activa";
+  return "modulosList.sinEstado";
 };
 
 export type Classroom = {

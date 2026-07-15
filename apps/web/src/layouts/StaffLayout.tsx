@@ -7,10 +7,10 @@ import { OfflineIndicator } from '../components/OfflineIndicator';
 import { useI18n } from '../i18n/I18nContext';
 import StaffSidebar from './StaffSidebar';
 
-const ROLE_LABEL: Record<string, string> = {
-  TEACHER: 'Docente',
-  DIRECTIVO: 'Directivo',
-  ADMIN: 'Administrador',
+const ROLE_LABEL_KEY: Record<string, string> = {
+  TEACHER: 'perfil.docente',
+  DIRECTIVO: 'comun.directivo',
+  ADMIN: 'perfil.administrador',
 };
 
 function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSidebar: () => void }) {
@@ -59,7 +59,7 @@ function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSi
         data-testid="staff-mode-badge"
         className="inline-flex items-center gap-1.5 rounded-full bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-[var(--c-primary)]"
       >
-        {t('common.modo')} {ROLE_LABEL[role] ?? role}
+        {t('common.modo')} {ROLE_LABEL_KEY[role] ? t(ROLE_LABEL_KEY[role]) : role}
       </span>
     </header>
   );

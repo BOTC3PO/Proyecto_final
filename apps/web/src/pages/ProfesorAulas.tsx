@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import { useMaterias } from "../domain/materia/useMaterias";
 import type { Classroom } from "../domain/classroom/classroom.types";
-import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
+import { getClassroomStatusLabelKey, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { useAuth } from "../auth/use-auth";
 import { useCanActAsLearner, useHasRole, useIsTeacher } from "../auth/use-roles";
 import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import {
   createClassroom,
   fetchClassrooms,
@@ -15,7 +16,7 @@ import {
   type ClassroomProgressSnapshot
 } from "../services/aulas";
 
-const formatAccess = (accessType: Classroom["accessType"]) => (accessType === "publica" ? "Pública" : "Privada");
+const formatAccessKey = (accessType: Classroom["accessType"]) => (accessType === "publica" ? "comun.publica" : "comun.privada");
 const formatPercent = (value: number) => `${Math.round(value)}%`;
 
 const emptyForm = {
@@ -29,6 +30,7 @@ const emptyForm = {
 
 export default function ProfesorAulas() {
   const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: leer cada rol por helper centralizado. Un USER
   // también cuenta como teacher-of-classroom si su rol principal es
@@ -348,7 +350,7 @@ export default function ProfesorAulas() {
           <section id="crear" className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
               <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-                {editingId ? 'Editar aula' : 'Crear nueva aula'}
+                {editingId ? t('profesorAulas.editarAula') : t('profesorAulas.crearNuevaAula')}
               </p>
             </div>
             <form className="p-4 grid gap-3 md:grid-cols-2" onSubmit={handleSubmit}>
@@ -359,6 +361,8 @@ export default function ProfesorAulas() {
                   onChange={(event) => handleFieldChange("name", event.target.value)}
                   className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 focus:outline-none focus:border-[var(--c-primary)]"
                   required
+                  onInvalid={onInvalid}
+                  onInput={onInput}
                 />
               </div>
               <div className="md:col-span-1">
@@ -381,6 +385,8 @@ export default function ProfesorAulas() {
                   className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 focus:outline-none focus:border-[var(--c-primary)]"
                   rows={3}
                   required
+                  onInvalid={onInvalid}
+                  onInput={onInput}
                 />
               </div>
               <div>
@@ -426,7 +432,7 @@ export default function ProfesorAulas() {
                   disabled={isSubmitting || (!editingId && !effectiveSchoolId)}
                   className="rounded-md bg-[var(--c-primary)] px-4 py-2 text-white hover:opacity-90 disabled:opacity-60"
                 >
-                  {editingId ? "Guardar cambios" : "Crear aula"}
+                  {editingId ? t("comun.guardarCambios") : t("enterpriseDashboard.crearAula2")}
                 </button>
                 {!editingId && !effectiveSchoolId && (
                   <span className="text-sm text-[var(--c-danger)]">{t("profesorAulas.tuCuentaNoTieneEscuela")}</span>
@@ -461,7 +467,7 @@ export default function ProfesorAulas() {
             <>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-[var(--c-text)]">
-                  Mis aulas ({visibleClassrooms.length})
+                  {t('menuProfesor.misAulas')} ({visibleClassrooms.length})
                 </p>
                 <label className="flex items-center gap-2 text-xs text-[var(--c-muted)] cursor-pointer">
                   <input
@@ -487,11 +493,11 @@ export default function ProfesorAulas() {
                           : "bg-green-100 text-green-700"
                       }`}
                     >
-                      {getClassroomStatusLabel(classroom.status ?? "ACTIVE")}
+                      {t(getClassroomStatusLabelKey(classroom.status ?? "ACTIVE"))}
                     </span>
                   </div>
                   <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[var(--c-muted)]">
-                    <span className="rounded-full bg-blue-50 px-2 py-1 text-blue-700">{formatAccess(classroom.accessType)}</span>
+                    <span className="rounded-full bg-blue-50 px-2 py-1 text-blue-700">{t(formatAccessKey(classroom.accessType))}</span>
                     {classroom.category && (
                       <span className="rounded-full bg-purple-50 px-2 py-1 text-purple-700">{classroom.category}</span>
                     )}
@@ -501,7 +507,7 @@ export default function ProfesorAulas() {
                     <span>
                       {/* FIX-TEST4-X05B-NOMBRES — mostrar nombre del
                           docente en lugar del ID crudo. */}
-                      Creada por {classroom.createdByName ?? classroom.createdBy}
+                      {t('profesorAulas.creadaPor')} {classroom.createdByName ?? classroom.createdBy}
                     </span>
                     <span>{new Date(classroom.updatedAt).toLocaleDateString()}</span>
                   </div>
@@ -511,7 +517,7 @@ export default function ProfesorAulas() {
                       <p className="mt-1 text-xs text-[var(--c-danger)]">Error al cargar progreso: {progressError}</p>
                     )}
                     <p className="mt-1 text-[var(--c-muted)]">
-                      Última actualización: {progressByClassroom[classroom.id]?.lastUpdate ?? "--"}
+                      {t("moduloDetail.ultimaActualizacion")}: {progressByClassroom[classroom.id]?.lastUpdate ?? "--"}
                     </p>
                     <div className="mt-3 grid grid-cols-2 gap-3 text-[11px] text-[var(--c-muted)]">
                       <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
@@ -539,7 +545,7 @@ export default function ProfesorAulas() {
                           <div>
                             <p className="font-semibold text-[var(--c-text)]">{student.name}</p>
                             <p className="text-[11px] text-[var(--c-muted)]">
-                              Progreso {formatPercent(student.completion)} · Score {student.score}
+                              {t("nav.progreso")} {formatPercent(student.completion)} · {t("intentoDetalle.score")} {student.score}
                             </p>
                           </div>
                           <span
@@ -551,7 +557,7 @@ export default function ProfesorAulas() {
                                 : "bg-blue-100 text-blue-700"
                             }`}
                           >
-                            {student.status === "destacado" ? "Destacado" : student.status === "en_riesgo" ? "En riesgo" : "Al día"}
+                            {student.status === "destacado" ? t("profesorAulas.destacado") : student.status === "en_riesgo" ? t("profesorReportes.enRiesgo") : t("profesorAulas.alDia")}
                           </span>
                         </li>
                       ))}
@@ -652,6 +658,7 @@ function AulaCardActions({
   onArchive: () => void;
   onReuse: () => void;
 }) {
+  const { t } = useI18n();
   const [menuOpen, setMenuOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -675,14 +682,14 @@ function AulaCardActions({
         // al aula con un click sin pasar por Configurar.
         className="inline-flex items-center gap-1.5 rounded-md bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity"
       >
-        Entrar →
+        {t("profesorAulas.entrar")}
       </Link>
       <Link
         to={`/profesor/aulas/${encodeURIComponent(classroomId)}`}
         data-testid={`aula-card-configurar-${classroomId}`}
         className="inline-flex items-center gap-1.5 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
       >
-        Configurar
+        {t("profesorAulas.configurar")}
       </Link>
 
       {/* Menú kebab con el resto de acciones */}
@@ -690,7 +697,7 @@ function AulaCardActions({
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Más opciones"
+          aria-label={t("profesorAulas.masOpciones")}
           data-testid={`aula-card-menu-${classroomId}`}
           className="inline-flex items-center justify-center rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] w-7 h-7 text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors"
         >

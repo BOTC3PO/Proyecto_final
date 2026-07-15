@@ -24,13 +24,13 @@ interface Props {
   onChange: (next: QuizComposition) => void;
 }
 
-const SELECCION_OPTS: { value: QuizSelectionMode; label: string; help: string }[] = [
-  { value: "fijo", label: "Orden fijo", help: "Siempre las mismas, en orden." },
-  { value: "azar", label: "Al azar", help: "Subconjunto aleatorio por intento (seed)." },
+const SELECCION_OPTS: { value: QuizSelectionMode; labelKey: string; helpKey: string }[] = [
+  { value: "fijo", labelKey: "quizComposicionEditor.ordenFijo", helpKey: "quizComposicionEditor.siempreLasMismasEnOrden" },
+  { value: "azar", labelKey: "quizComposicionEditor.alAzar", helpKey: "quizComposicionEditor.subconjuntoAleatorioPorIntentoSeed" },
   {
     value: "elige_alumno",
-    label: "Elige el alumno",
-    help: "Se muestran todas; el alumno elige cuál(es) responder y solo esa(s) puntúa(n).",
+    labelKey: "quizComposicionEditor.eligeElAlumno",
+    helpKey: "quizComposicionEditor.seMuestranTodasElAlumno",
   },
 ];
 
@@ -98,12 +98,12 @@ export default function QuizComposicionEditor({ value, total, onChange }: Props)
           >
             {SELECCION_OPTS.map((o) => (
               <option key={o.value} value={o.value}>
-                {o.label}
+                {t(o.labelKey)}
               </option>
             ))}
           </select>
           <p className="text-[var(--c-hint)]">
-            {SELECCION_OPTS.find((o) => o.value === comp.seleccion)?.help}
+            {t(SELECCION_OPTS.find((o) => o.value === comp.seleccion)?.helpKey ?? "quizComposicionEditor.ordenFijo")}
           </p>
         </div>
       )}

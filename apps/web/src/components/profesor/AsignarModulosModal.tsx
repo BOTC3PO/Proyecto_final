@@ -204,7 +204,7 @@ export default function AsignarModulosModal({
             style={{ display: "flex", justifyContent: "center", padding: "var(--space-6)" }}
             data-testid="asignar-modulos-loading"
           >
-            <Spinner size="md" label="Cargando módulos" />
+            <Spinner size="md" label={t("asignarModulosModal.cargandoModulos")} />
           </div>
         )}
 

@@ -4,14 +4,21 @@ import { apiGet, apiPost } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import {
   normalizeClassroomStatus,
-  getClassroomStatusLabel,
+  getClassroomStatusLabelKey,
 } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import { useI18n } from "../i18n/I18nContext";
 
 type AulasResponse = { items: Classroom[] };
 
+const TAB_LABEL_KEY: Record<string, string> = {
+  todas: "comun.todas",
+  activas: "misClases.activas",
+  archivadas: "misClases.archivadas",
+};
+
 function StatusBadge({ status }: { status: Classroom["status"] }) {
+  const { t } = useI18n();
   const normalized = normalizeClassroomStatus(status);
   const styles = {
     ACTIVE:   "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]",
@@ -21,7 +28,7 @@ function StatusBadge({ status }: { status: Classroom["status"] }) {
   const cls = normalized ? styles[normalized] : styles.ARCHIVED;
   return (
     <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${cls}`}>
-      {getClassroomStatusLabel(status)}
+      {t(getClassroomStatusLabelKey(status))}
     </span>
   );
 }
@@ -59,7 +66,7 @@ export default function MisClases() {
       setCodigo("");
       fetchAulas();
     } catch (err) {
-      setJoinMsg(err instanceof Error ? err.message : "Código inválido o aula no encontrada.");
+      setJoinMsg(err instanceof Error ? err.message : t("misClases.codigoInvalidoOAulaNo"));
     } finally {
       setJoining(false);
     }
@@ -94,8 +101,8 @@ export default function MisClases() {
         }`}>
           <label className="text-xs font-medium text-[var(--c-text)] flex-1 min-w-[180px]">
             {aulas.length === 0
-              ? "¿Tenés un código de clase? Uníte ahora:"
-              : "Unirse a otra aula con código:"}
+              ? t("misClases.tenesUnCodigoDeClase")
+              : t("misClases.unirseAOtraAulaCon")}
           </label>
           <input
             type="text"
@@ -113,7 +120,7 @@ export default function MisClases() {
             disabled={joining || !codigo.trim()}
             className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
           >
-            {joining ? "Uniéndose..." : "Unirse"}
+            {joining ? t("misClases.uniendose") : t("misClases.unirse")}
           </button>
           {joinMsg && (
             <p className={`text-xs w-full ${
@@ -136,7 +143,7 @@ export default function MisClases() {
                   : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
               }`}
             >
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              {t(TAB_LABEL_KEY[tab])}
             </button>
           ))}
         </div>
@@ -169,7 +176,7 @@ export default function MisClases() {
         {!loading && !error && aulas.length > 0 && aulasFiltradas.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
             <p className="text-sm text-[var(--c-muted)]">
-              No hay aulas {filtro === "activas" ? "activas" : "archivadas"}.
+              {t("misClases.noHayAulas")} {filtro === "activas" ? t("misClases.activas").toLowerCase() : t("misClases.archivadas").toLowerCase()}.
             </p>
           </div>
         )}

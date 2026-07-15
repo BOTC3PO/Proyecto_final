@@ -60,13 +60,13 @@ const MIN_VB = 80; // límite de zoom-in (ancho mínimo del viewBox)
 
 type Tool = "select" | "marcador" | "ruta" | "area" | "texto" | "medir";
 
-const TOOLS: { id: Tool; label: string; kbd: string; iconPath: string }[] = [
-  { id: "select",   label: "Mover",      kbd: "V", iconPath: "M5 3l5 16 2.5-6.5L19 10z" },
-  { id: "marcador", label: "Marcador",   kbd: "M", iconPath: "M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12z" },
-  { id: "ruta",     label: "Ruta",       kbd: "R", iconPath: "M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8 16c2-4 6-8 10-10" },
-  { id: "area",     label: "Área",       kbd: "A", iconPath: "M12 3l8 5-3 11H7L4 8z" },
-  { id: "texto",    label: "Texto",      kbd: "T", iconPath: "M5 5h14M12 5v14M9 19h6" },
-  { id: "medir",    label: "Medir",      kbd: "L", iconPath: "M3 17l14-14 4 4-14 14z" },
+const TOOLS: { id: Tool; labelKey: string; kbd: string; iconPath: string }[] = [
+  { id: "select",   labelKey: "mapaEditorFull.mover2",    kbd: "V", iconPath: "M5 3l5 16 2.5-6.5L19 10z" },
+  { id: "marcador", labelKey: "mapaEditorFull.marcador2", kbd: "M", iconPath: "M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12z" },
+  { id: "ruta",     labelKey: "mapaEditorFull.ruta2",     kbd: "R", iconPath: "M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8 16c2-4 6-8 10-10" },
+  { id: "area",     labelKey: "mapaEditorFull.area2",     kbd: "A", iconPath: "M12 3l8 5-3 11H7L4 8z" },
+  { id: "texto",    labelKey: "mapaEditorFull.texto2",    kbd: "T", iconPath: "M5 5h14M12 5v14M9 19h6" },
+  { id: "medir",    labelKey: "mapaEditorFull.medir2",    kbd: "L", iconPath: "M3 17l14-14 4 4-14 14z" },
 ];
 
 const PALETTE = [
@@ -108,10 +108,11 @@ function niceNumber(x: number): number {
  * Local al editor — no se exporta.
  */
 function ColorPicker({ value, onChange }: { value: string; onChange: (c: string) => void }) {
+  const { t } = useI18n();
   return (
     <div className={styles.field}>
-      <span className={styles.fieldLabel}>Color</span>
-      <div className={styles.swatches} role="radiogroup" aria-label="Color de la anotación">
+      <span className={styles.fieldLabel}>{t("mapaEditorFull.color")}</span>
+      <div className={styles.swatches} role="radiogroup" aria-label={t("mapaEditorFull.colorDeLaAnotacion")}>
         {PALETTE.map((c) => (
           <button
             key={c}
@@ -920,7 +921,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
     // `history[0]` es el snapshot inicial (la config migrada del mount):
     // comparar contra él detecta cambios sin guardar.
     const dirty = JSON.stringify(config) !== JSON.stringify(history[0]);
-    if (dirty && !window.confirm("¿Descartar los cambios del mapa?")) return;
+    if (dirty && !window.confirm(t("mapaEditorFull.descartarLosCambiosDelMapa"))) return;
     onCancel();
   }, [config, history, onCancel]);
 
@@ -1106,21 +1107,21 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>{t("moduloEditor.herramientas")}</h2>
             <div className={`${styles.sectionBody} vb-tool-list`} role="toolbar" aria-label={t("mapaEditorFull.herramientasDelMapa")}>
-              {TOOLS.map((t) => (
+              {TOOLS.map((tool) => (
                 <button
-                  key={t.id}
+                  key={tool.id}
                   type="button"
                   className="vb-tool"
-                  aria-pressed={activeTool === t.id}
-                  aria-label={t.label}
-                  title={`${t.label} (${t.kbd})`}
-                  onClick={() => setActiveTool(t.id)}
+                  aria-pressed={activeTool === tool.id}
+                  aria-label={t(tool.labelKey)}
+                  title={`${t(tool.labelKey)} (${tool.kbd})`}
+                  onClick={() => setActiveTool(tool.id)}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d={t.iconPath}/>
+                    <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d={tool.iconPath}/>
                   </svg>
-                  <span>{t.label}</span>
-                  <span className="kbd">{t.kbd}</span>
+                  <span>{t(tool.labelKey)}</span>
+                  <span className="kbd">{tool.kbd}</span>
                 </button>
               ))}
             </div>
@@ -1691,7 +1692,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
             aria-live="polite"
             data-testid="mapa-hint"
           >
-            {hint.visual || `${TOOLS.find((t) => t.id === activeTool)?.label} listo.`}
+            {hint.visual || `${t(TOOLS.find((tool) => tool.id === activeTool)?.labelKey ?? "mapaEditorFull.mover2")} ${t("mapaEditorFull.listo")}`}
             {activeTool === "area" && pendingArea && pendingArea.length >= 3 && (
               <button
                 type="button"
@@ -2140,7 +2141,7 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
 
       {/* STATUS BAR */}
       <footer className="vb-status-bar" role="contentinfo">
-        <span className="stat">{t("mapaEditorFull.herramienta")}<strong>{TOOLS.find((t) => t.id === activeTool)?.label}</strong></span>
+        <span className="stat">{t("mapaEditorFull.herramienta")}<strong>{t(TOOLS.find((tool) => tool.id === activeTool)?.labelKey ?? "mapaEditorFull.mover2")}</strong></span>
         <span className="stat">{t("mapaEditorFull.capaActiva")}<strong>{capas.find((c) => c.id === activeCapaId)?.nombre ?? "—"}</strong></span>
         <span className="stat">{t("mapaEditorFull.anotaciones2")}<strong>{config.anotaciones.length}</strong></span>
         <span className="spacer" />

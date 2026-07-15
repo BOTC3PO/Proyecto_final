@@ -1,10 +1,11 @@
 import { Component } from "react";
-import type { ReactNode } from "react";
+import type { ContextType, ReactNode } from "react";
 import type { VisualSpec } from "../../../../archive/visualizadores/types";
 import type { VisualSpec as CoreVisualSpec } from "../../../generadoresV2/core/types";
 import { normalizeSpec } from "../../../../archive/visualizadores/normalizeSpec";
 import { validateSpec } from "../../../../archive/visualizadores/specValidation";
 import VisualizerRenderer from "../VisualizerRenderer";
+import { I18nContext } from "../../../i18n/I18nContext";
 
 // ─── Error boundary ───────────────────────────────────────────────────────────
 
@@ -14,20 +15,24 @@ class PreviewErrorBoundary extends Component<
   { children: ReactNode },
   BoundaryState
 > {
+  static contextType = I18nContext;
+  declare context: ContextType<typeof I18nContext>;
+
   state: BoundaryState = { error: null };
 
   static getDerivedStateFromError(error: unknown): BoundaryState {
-    const message =
-      error instanceof Error ? error.message : "Error desconocido en la vista previa";
+    const message = error instanceof Error ? error.message : "__default__";
     return { error: message };
   }
 
   render() {
     if (this.state.error) {
+      const { t } = this.context;
+      const message = this.state.error === "__default__" ? t("toolPreview.errorDesconocidoEnLaVista") : this.state.error;
       return (
         <div className="flex flex-col items-center justify-center p-6 text-center text-gray-400 h-full min-h-[120px]">
-          <p className="text-sm font-medium text-gray-500 mb-1">Vista previa no disponible</p>
-          <p className="text-xs font-mono text-gray-300 max-w-xs truncate">{this.state.error}</p>
+          <p className="text-sm font-medium text-gray-500 mb-1">{t("toolPreview.vistaPreviaNoDisponible")}</p>
+          <p className="text-xs font-mono text-gray-300 max-w-xs truncate">{message}</p>
         </div>
       );
     }

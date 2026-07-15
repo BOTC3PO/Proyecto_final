@@ -31,7 +31,7 @@ export default function PlantillasModeracion() {
       })
       .catch((err) => {
         setStatus("error");
-        setErrorMessage(err instanceof Error ? err.message : "Error de carga");
+        setErrorMessage(err instanceof Error ? err.message : t("comun.errorDeCarga"));
       });
   }, []);
 

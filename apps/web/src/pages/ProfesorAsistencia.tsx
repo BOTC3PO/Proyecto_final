@@ -103,7 +103,7 @@ export default function ProfesorAsistencia() {
       .filter((f): f is FilaEditable & { estado: EstadoAsistencia } => f.estado !== null)
       .map((f) => ({ alumnoId: f.alumnoId, estado: f.estado, notas: f.notasBorrador || null }));
     if (registros.length === 0) {
-      setSaveMessage({ kind: "err", text: "Marcá el estado de al menos un alumno antes de guardar." });
+      setSaveMessage({ kind: "err", text: t("profesorAsistencia.marcaElEstadoDeAl") });
       return;
     }
     setSaving(true);
@@ -114,7 +114,7 @@ export default function ProfesorAsistencia() {
     } catch (err) {
       setSaveMessage({
         kind: "err",
-        text: err instanceof Error ? err.message : "No se pudo guardar la asistencia.",
+        text: err instanceof Error ? err.message : t("profesorAsistencia.noSePudoGuardarLa"),
       });
     } finally {
       setSaving(false);

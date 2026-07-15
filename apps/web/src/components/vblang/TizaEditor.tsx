@@ -75,6 +75,22 @@ import {
 import { useI18n } from "../../i18n/I18nContext";
 /* ─── tipos ─────────────────────────────────────────────────────────── */
 
+// Etiqueta i18n por tipo de pregunta. Fuente de las labels: QUESTION_TYPE_SCHEMAS
+// (paquete @vb/vblang, en español); acá las traducimos por id en runtime.
+const TIPO_PREGUNTA_KEY: Record<string, string> = {
+  input: "tipoPregunta.input",
+  mc: "tipoPregunta.mc",
+  vf: "tipoPregunta.vf",
+  completar: "tipoPregunta.completar",
+  ordenar: "tipoPregunta.ordenar",
+  marcar_mapa: "tipoPregunta.marcarMapa",
+  analisis_sintactico: "tipoPregunta.analisisSintactico",
+  analisis_spans: "tipoPregunta.analisisSpans",
+  identificar_palabras: "tipoPregunta.identificarPalabras",
+  abierta: "tipoPregunta.abierta",
+  expresion: "tipoPregunta.expresion",
+};
+
 export type TizaSelection =
   | { kind: "pregunta" }
   | { kind: "variable"; index: number };
@@ -463,7 +479,7 @@ export function TizaQuestionCard({
             borderRadius: 999,
           }}
         >
-          <span aria-hidden="true">№</span> {schema?.label ?? tipo}
+          <span aria-hidden="true">№</span> {TIPO_PREGUNTA_KEY[tipo] ? t(TIPO_PREGUNTA_KEY[tipo]) : (schema?.label ?? tipo)}
         </span>
         <span style={{ fontSize: 12, color: "var(--c-text-3)" }}>
           {schema?.descripcion ?? "Editá las propiedades a la derecha."}
@@ -974,6 +990,7 @@ function QuestionPropertyGrid({
   onChangeQuizMeta?: (next: QuizPreguntaMeta) => void;
   poolsDisponibles?: string[];
 }) {
+  const { t } = useI18n();
   const tipo = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
   // WO-tiza-config (Fase 3) — id del <datalist> de pools sugeridas.
@@ -1003,7 +1020,7 @@ function QuestionPropertyGrid({
         flexDirection: "column",
       }}
     >
-      <PropertyGridHeader icon="№" title={schema?.label ?? "Pregunta"} />
+      <PropertyGridHeader icon="№" title={TIPO_PREGUNTA_KEY[tipo] ? t(TIPO_PREGUNTA_KEY[tipo]) : (schema?.label ?? "Pregunta")} />
       <div
         style={{
           padding: 18,
@@ -1023,9 +1040,9 @@ function QuestionPropertyGrid({
             }
             style={{ ...inputStyle(), cursor: "pointer", fontWeight: 600 }}
           >
-            {ALL_QUESTION_TYPES.map((t) => (
-              <option key={t} value={t}>
-                {QUESTION_TYPE_SCHEMAS[t].label}
+            {ALL_QUESTION_TYPES.map((qt) => (
+              <option key={qt} value={qt}>
+                {TIPO_PREGUNTA_KEY[qt] ? t(TIPO_PREGUNTA_KEY[qt]) : QUESTION_TYPE_SCHEMAS[qt].label}
               </option>
             ))}
           </select>
