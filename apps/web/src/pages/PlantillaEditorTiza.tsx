@@ -107,8 +107,10 @@ import QuizConfigPanel, {
 } from "../components/vblang/QuizConfigPanel";
 import {
   validarCuestionarioPreguntas,
+  POOL_SIN_ID,
   type CuestionarioPreguntas,
   type PreguntaQuiz,
+  type ListaRelleno,
 } from "../domain/quiz/preguntas";
 import PlantillaEditorClasico from "./PlantillaEditor";
 import { useI18n } from "../i18n/I18nContext";
@@ -463,6 +465,15 @@ function PlantillaEditorTizaInner() {
   // total. Sólo tiene sentido con `quizId` presente; `null` en modo
   // standalone (no se muestra el campo ni se persiste nada).
   const [cantidadGlobal, setCantidadGlobal] = useState<number | null>(null);
+  // PLAN-sorteo-opcional — si el cuestionario sortea o muestra todas las
+  // preguntas siempre. Default `true` (comportamiento previo a la feature).
+  const [sorteoActivo, setSorteoActivo] = useState(true);
+  // PLAN-sorteo-opcional — cantidad explícita de puestos por lista (pool) de
+  // relleno, fijada a mano por el docente (reemplaza el reparto proporcional
+  // automático para las pools presentes acá). Clave: `poolId` real o
+  // `POOL_SIN_ID` para la pool implícita. Una pool AUSENTE de este mapa usa
+  // el reparto automático (mismo criterio que `resolverSlotsPorPool`).
+  const [listasCantidad, setListasCantidad] = useState<Record<string, number>>({});
   // WO-tiza-config — meta del CUESTIONARIO (título/tipo/visibilidad/config de
   // evaluación; viven en `Quiz.title` + `QuizVersion.settings`, no en la
   // plantilla activa): sólo tiene sentido con `quizId`. `null` mientras carga;
@@ -604,6 +615,10 @@ function PlantillaEditorTizaInner() {
         if (!alive) return;
         setCantidadGlobal(
           cuestionario.cantidadGlobal > 0 ? cuestionario.cantidadGlobal : 1,
+        );
+        setSorteoActivo(cuestionario.sorteoActivo !== false);
+        setListasCantidad(
+          Object.fromEntries((cuestionario.listas ?? []).map((l) => [l.poolId, l.cantidad])),
         );
 
         const hydrated = (await Promise.all(cuestionario.preguntas.map(hydrate))).filter(
@@ -1067,9 +1082,12 @@ function PlantillaEditorTizaInner() {
       // las plantillas (ya persistidas) — se avisa aparte.
       if (quizId && cantidadGlobal !== null) {
         try {
+          const preguntasAGuardar = buildPreguntasFromQuestions(nextQuestions);
           await saveQuizPreguntas(quizId, {
+            sorteoActivo,
             cantidadGlobal,
-            preguntas: buildPreguntasFromQuestions(nextQuestions),
+            listas: buildListasFromCantidad(preguntasAGuardar),
+            preguntas: preguntasAGuardar,
           });
         } catch {
           setSaveMessage(
@@ -1088,6 +1106,7 @@ function PlantillaEditorTizaInner() {
         try {
           const nuevoQuiz = await crearQuizSuelto();
           await saveQuizPreguntas(nuevoQuiz.id, {
+            sorteoActivo,
             cantidadGlobal: nextQuestions.filter((q) => q.plantillaId !== null).length,
             preguntas: buildPreguntasFromQuestions(nextQuestions),
           });
@@ -1144,18 +1163,46 @@ function PlantillaEditorTizaInner() {
     [],
   );
 
+  // PLAN-sorteo-opcional — deriva `listas` de `listasCantidad` (estado local)
+  // más las pools de relleno realmente presentes en `preguntas`: sólo
+  // declara cantidad para las pools que el docente fijó a mano; el resto
+  // sigue el reparto automático (ver `resolverSlotsPorPool`, backend). Un
+  // mapa vacío da `undefined` (comportamiento previo a esta feature).
+  const buildListasFromCantidad = useCallback(
+    (preguntas: PreguntaQuiz[]): ListaRelleno[] | undefined => {
+      const poolsPresentes = new Set(
+        preguntas.filter((p) => p.tipo === "relleno").map((p) => p.poolId ?? POOL_SIN_ID),
+      );
+      const listas = [...poolsPresentes]
+        .filter((poolId) => listasCantidad[poolId] !== undefined)
+        .map((poolId) => ({ poolId, cantidad: listasCantidad[poolId] }));
+      return listas.length > 0 ? listas : undefined;
+    },
+    [listasCantidad],
+  );
+
   // Validación LOCAL (sin red): mismo criterio que usará el backend al
   // guardar, para avisar inline apenas los límites no alcanzan (Etapa 2
   // Tarea 4). `null` en modo standalone (sin `quizId`/`cantidadGlobal`).
   const cuestionarioValidacion = useMemo(() => {
     if (!quizId || cantidadGlobal === null) return null;
+    const preguntas = buildPreguntasFromQuestions(questions);
     const cuestionario: CuestionarioPreguntas = {
       version: 1,
+      sorteoActivo,
       cantidadGlobal,
-      preguntas: buildPreguntasFromQuestions(questions),
+      listas: buildListasFromCantidad(preguntas),
+      preguntas,
     };
     return validarCuestionarioPreguntas(cuestionario);
-  }, [quizId, cantidadGlobal, questions, buildPreguntasFromQuestions]);
+  }, [
+    quizId,
+    cantidadGlobal,
+    sorteoActivo,
+    questions,
+    buildPreguntasFromQuestions,
+    buildListasFromCantidad,
+  ]);
 
   // WO-tiza-config (Fase 3) — poolIds ya usados en el cuestionario, para el
   // datalist del input de Pool (evita typos que parten un pool en dos).
@@ -1185,15 +1232,22 @@ function PlantillaEditorTizaInner() {
       }
     }
     return {
+      sorteoActivo,
       cantidadGlobal,
       obligatorias,
-      pools: [...pools.entries()].map(([id, count]) => ({ id, count })),
+      pools: [...pools.entries()].map(([id, count]) => ({
+        id,
+        count,
+        // PLAN-sorteo-opcional — cantidad FIJA por el docente para esta
+        // lista (si la fijó); `undefined` = reparto proporcional automático.
+        cantidad: listasCantidad[id ?? POOL_SIN_ID],
+      })),
       validacionErrores:
         cuestionarioValidacion && !cuestionarioValidacion.ok
           ? cuestionarioValidacion.errores
           : [],
     };
-  }, [quizId, cantidadGlobal, questions, cuestionarioValidacion]);
+  }, [quizId, cantidadGlobal, sorteoActivo, questions, listasCantidad, cuestionarioValidacion]);
 
   if (loadStatus === "loading") {
     return (
@@ -1462,6 +1516,7 @@ function PlantillaEditorTizaInner() {
               min={1}
               step={1}
               value={cantidadGlobal}
+              disabled={!sorteoActivo}
               onChange={(e) => {
                 const raw = e.target.value;
                 if (raw === "") return;
@@ -1479,9 +1534,26 @@ function PlantillaEditorTizaInner() {
                 background: "var(--c-surface-2)",
                 fontSize: 12,
                 textAlign: "right",
+                opacity: sorteoActivo ? 1 : 0.5,
               }}
             />
           </label>
+          {/* PLAN-sorteo-opcional — sin sorteo, el cuestionario muestra TODAS
+              las preguntas guardadas siempre (ignora cantidadGlobal/listas). */}
+          <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11.5, color: "var(--c-text-2)" }}>
+            <input
+              type="checkbox"
+              checked={sorteoActivo}
+              onChange={(e) => setSorteoActivo(e.target.checked)}
+              data-testid="sorteo-activo-checkbox"
+            />
+            {t("plantillaEditorTiza.sorteoActivo")}
+          </label>
+          {!sorteoActivo ? (
+            <p style={{ margin: 0, fontSize: 11, color: "var(--c-text-3)" }}>
+              {t("plantillaEditorTiza.sorteoDesactivadoNota")}
+            </p>
+          ) : null}
           {cuestionarioValidacion && !cuestionarioValidacion.ok ? (
             <div
               role="alert"
@@ -1807,13 +1879,71 @@ function PlantillaEditorTizaInner() {
           gap: 10,
         }}
       >
-        {gruposPools.map(({ id, items }) => (
+        {gruposPools.map(({ id, items }) => {
+          // PLAN-sorteo-opcional — la pool implícita ("sin pool") mezcla
+          // obligatorias sueltas con relleno sin poolId; sólo tiene sentido
+          // fijarle cantidad de puestos si de verdad hay relleno adentro.
+          // Una pool NOMBRADA siempre es 100% relleno (así se construye
+          // `poolDe`/`gruposPools`).
+          const esRelleno = id !== null || items.some(({ q }) => q.quizMeta?.rol === "relleno");
+          const listaKey = id ?? POOL_SIN_ID;
+          return (
           <div key={id ?? "(sin pool)"}>
-            <div style={{ fontSize: 12.5, fontWeight: 700, marginBottom: 4 }}>
-              {id ?? "sin pool"}{" "}
-              <span style={{ color: "var(--c-text-3)", fontWeight: 500 }}>
-                ({items.length})
+            <div style={{ fontSize: 12.5, fontWeight: 700, marginBottom: 4, display: "flex", alignItems: "center", gap: 8 }}>
+              <span>
+                {id ?? "sin pool"}{" "}
+                <span style={{ color: "var(--c-text-3)", fontWeight: 500 }}>
+                  ({items.length})
+                </span>
               </span>
+              {esRelleno ? (
+                <label
+                  style={{
+                    marginLeft: "auto",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 4,
+                    fontSize: 11,
+                    fontWeight: 500,
+                    color: "var(--c-text-2)",
+                    opacity: sorteoActivo ? 1 : 0.5,
+                  }}
+                >
+                  {t("plantillaEditorTiza.puestos")}
+                  <input
+                    type="number"
+                    min={0}
+                    step={1}
+                    disabled={!sorteoActivo}
+                    placeholder={t("plantillaEditorTiza.auto")}
+                    value={listasCantidad[listaKey] ?? ""}
+                    onChange={(e) => {
+                      const raw = e.target.value;
+                      setListasCantidad((prev) => {
+                        const next = { ...prev };
+                        if (raw === "") {
+                          delete next[listaKey];
+                          return next;
+                        }
+                        const n = Number(raw);
+                        if (Number.isFinite(n) && n >= 0) next[listaKey] = Math.floor(n);
+                        return next;
+                      });
+                    }}
+                    data-testid={`lista-cantidad-input-${listaKey}`}
+                    style={{
+                      width: 40,
+                      border: "1px solid var(--c-border)",
+                      borderRadius: "var(--r-md)",
+                      padding: "2px 4px",
+                      fontSize: 11,
+                      textAlign: "right",
+                      background: "var(--c-surface-2)",
+                      color: "var(--c-text)",
+                    }}
+                  />
+                </label>
+              ) : null}
             </div>
             {items.map(({ q, i }) => (
               <div
@@ -1863,7 +1993,8 @@ function PlantillaEditorTizaInner() {
               </div>
             ))}
           </div>
-        ))}
+          );
+        })}
         <div style={{ display: "flex", gap: 8 }}>
           <input
             type="text"

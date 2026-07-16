@@ -305,8 +305,20 @@ export const PreguntaQuizSchema = z.object({
   dificultad: z.enum(["basico", "intermedio", "avanzado"]).optional()
 });
 
+// Puestos explícitos por lista (pool) de relleno — reemplaza el reparto
+// proporcional automático para las pools que declara (ver
+// `ListaRelleno`/`validarCuestionarioPreguntas` en `quiz-preguntas.ts`).
+export const ListaRellenoSchema = z.object({
+  poolId: z.string().min(1),
+  cantidad: z.number().int().nonnegative()
+});
+
 export const CuestionarioPreguntasInputSchema = z.object({
+  // Ausente = sorteo activo (retrocompat). `false` = el cuestionario
+  // muestra todas las preguntas sin sortear.
+  sorteoActivo: z.boolean().optional(),
   cantidadGlobal: z.number().int().positive(),
+  listas: z.array(ListaRellenoSchema).optional(),
   preguntas: z.array(PreguntaQuizSchema)
 });
 

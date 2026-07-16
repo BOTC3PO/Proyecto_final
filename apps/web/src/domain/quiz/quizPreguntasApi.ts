@@ -154,7 +154,10 @@ export interface SaveQuizPreguntasResponse {
  */
 export async function saveQuizPreguntas(
   quizId: string,
-  cuestionario: Pick<CuestionarioPreguntas, "cantidadGlobal" | "preguntas">,
+  cuestionario: Pick<
+    CuestionarioPreguntas,
+    "cantidadGlobal" | "preguntas" | "sorteoActivo" | "listas"
+  >,
 ): Promise<SaveQuizPreguntasResponse> {
   return apiPut<SaveQuizPreguntasResponse>(
     `/api/quizzes/${encodeURIComponent(quizId)}/preguntas`,

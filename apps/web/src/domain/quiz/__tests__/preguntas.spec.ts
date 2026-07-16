@@ -20,6 +20,7 @@ import {
   tienePreguntas,
   validarCuestionarioPreguntas,
   type CuestionarioPreguntas,
+  type ListaRelleno,
   type PreguntaQuiz,
 } from "../preguntas";
 
@@ -352,5 +353,160 @@ describe("preguntas.ts — sortearCuestionarioPreguntas", () => {
     const deB = r.slots.filter((s) => s.pregunta.poolId === "b").length;
     expect(deA).toBe(4);
     expect(deB).toBe(2);
+  });
+});
+
+describe("preguntas.ts — sorteoActivo (PLAN-sorteo-opcional)", () => {
+  it("parseCuestionarioPreguntas: ausente equivale a true (retrocompat)", () => {
+    const c = parseCuestionarioPreguntas({ cantidadGlobal: 2, preguntas: [] });
+    expect(c.sorteoActivo).toBe(true);
+  });
+
+  it("parseCuestionarioPreguntas: sorteoActivo: false se preserva", () => {
+    const c = parseCuestionarioPreguntas({
+      sorteoActivo: false,
+      cantidadGlobal: 2,
+      preguntas: [],
+    });
+    expect(c.sorteoActivo).toBe(false);
+  });
+
+  it("validarCuestionarioPreguntas: sin sorteo, siempre ok sin importar cantidadGlobal/preguntas", () => {
+    const c: CuestionarioPreguntas = {
+      version: PREGUNTAS_SCHEMA_VERSION,
+      sorteoActivo: false,
+      cantidadGlobal: 999, // deliberadamente disparatado — se ignora
+      preguntas: [obligatoria("p1")],
+    };
+    expect(validarCuestionarioPreguntas(c)).toEqual({ ok: true, errores: [] });
+  });
+
+  it("sortearCuestionarioPreguntas: sin sorteo, devuelve TODAS las preguntas una vez cada una", () => {
+    const c: CuestionarioPreguntas = {
+      version: PREGUNTAS_SCHEMA_VERSION,
+      sorteoActivo: false,
+      cantidadGlobal: 1, // se ignora
+      preguntas: [
+        obligatoria("obl-1"),
+        relleno("rel-1", { poolId: "a" }),
+        relleno("rel-2", { poolId: "b" }),
+      ],
+    };
+    const r = sortearCuestionarioPreguntas(c, { quizId: "q1", alumnoId: "a1" });
+    expect(r.slots.map((s) => s.pregunta.plantillaId)).toEqual(["obl-1", "rel-1", "rel-2"]);
+  });
+
+  it("sortearCuestionarioPreguntas: sin sorteo no lanza aunque el cuestionario sería inválido con sorteo activo", () => {
+    const c: CuestionarioPreguntas = {
+      version: PREGUNTAS_SCHEMA_VERSION,
+      sorteoActivo: false,
+      cantidadGlobal: 50, // inalcanzable si hubiera que sortear
+      preguntas: [obligatoria("p1")],
+    };
+    expect(() =>
+      sortearCuestionarioPreguntas(c, { quizId: "q1", alumnoId: "a1" }),
+    ).not.toThrow();
+  });
+});
+
+describe("preguntas.ts — listas (puestos explícitos por pool, PLAN-sorteo-opcional)", () => {
+  it("parseCuestionarioPreguntas: listas presente deriva cantidadGlobal (ignora el valor recibido)", () => {
+    const c = parseCuestionarioPreguntas({
+      cantidadGlobal: 999, // se ignora: se recalcula
+      preguntas: [
+        { plantillaId: "obl-1", tipo: "obligatoria" },
+        { plantillaId: "r1", tipo: "relleno", poolId: "a" },
+        { plantillaId: "r2", tipo: "relleno", poolId: "a" },
+      ],
+      listas: [{ poolId: "a", cantidad: 3 }],
+    });
+    // 1 obligatoria + 3 puestos de la lista "a" = 4.
+    expect(c.cantidadGlobal).toBe(4);
+    expect(c.listas).toEqual<ListaRelleno[]>([{ poolId: "a", cantidad: 3 }]);
+  });
+
+  it("parseCuestionarioPreguntas: listas vacío/ausente no toca cantidadGlobal", () => {
+    const c = parseCuestionarioPreguntas({ cantidadGlobal: 5, preguntas: [], listas: [] });
+    expect(c.cantidadGlobal).toBe(5);
+    expect(c.listas).toBeUndefined();
+  });
+
+  it("validarCuestionarioPreguntas: error si listas no cubre una pool de relleno real", () => {
+    const c: CuestionarioPreguntas = {
+      version: PREGUNTAS_SCHEMA_VERSION,
+      cantidadGlobal: 3,
+      preguntas: [relleno("r1", { poolId: "a" }), relleno("r2", { poolId: "b" })],
+      listas: [{ poolId: "a", cantidad: 3 }], // falta declarar "b"
+    };
+    const r = validarCuestionarioPreguntas(c);
+    expect(r.ok).toBe(false);
+    expect(r.errores[0]).toMatch(/falta declarar.*"b"/);
+  });
+
+  it("validarCuestionarioPreguntas: error si listas declara una pool sin preguntas", () => {
+    const c: CuestionarioPreguntas = {
+      version: PREGUNTAS_SCHEMA_VERSION,
+      cantidadGlobal: 3,
+      preguntas: [relleno("r1", { poolId: "a" })],
+      listas: [
+        { poolId: "a", cantidad: 3 },
+        { poolId: "fantasma", cantidad: 1 },
+      ],
+    };
+    const r = validarCuestionarioPreguntas(c);
+    expect(r.ok).toBe(false);
+    expect(r.errores.some((e) => e.includes('"fantasma"'))).toBe(true);
+  });
+
+  it("validarCuestionarioPreguntas: listas cubre exacto y respeta maxRepeticiones", () => {
+    const c: CuestionarioPreguntas = {
+      version: PREGUNTAS_SCHEMA_VERSION,
+      cantidadGlobal: 3,
+      preguntas: [relleno("r1", { poolId: "a", maxRepeticiones: 1 })],
+      listas: [{ poolId: "a", cantidad: 3 }], // pide 3, la pool sólo da 1
+    };
+    const r = validarCuestionarioPreguntas(c);
+    expect(r.ok).toBe(false);
+    expect(r.errores[0]).toContain('pool "a"');
+    expect(r.errores[0]).toContain("no alcanzan para llenar 3");
+  });
+
+  it("sortearCuestionarioPreguntas: listas fija los puestos por pool en vez del reparto proporcional", () => {
+    // Sin `listas`, el reparto proporcional (2/3 vs 1/3 de 6 slots) daría 4/2.
+    // Con `listas` invertido a propósito, debe respetar 1/5 en vez de eso.
+    const c: CuestionarioPreguntas = {
+      version: PREGUNTAS_SCHEMA_VERSION,
+      cantidadGlobal: 6,
+      preguntas: [
+        relleno("a1", { poolId: "a", maxRepeticiones: 10 }),
+        relleno("a2", { poolId: "a", maxRepeticiones: 10 }),
+        relleno("b1", { poolId: "b", maxRepeticiones: 10 }),
+      ],
+      listas: [
+        { poolId: "a", cantidad: 1 },
+        { poolId: "b", cantidad: 5 },
+      ],
+    };
+    const r = sortearCuestionarioPreguntas(c, { quizId: "q1", alumnoId: "a1" });
+    const deA = r.slots.filter((s) => s.pregunta.poolId === "a").length;
+    const deB = r.slots.filter((s) => s.pregunta.poolId === "b").length;
+    expect(deA).toBe(1);
+    expect(deB).toBe(5);
+  });
+
+  it("sortearCuestionarioPreguntas: cobertura parcial de listas es un error explícito, no cae en silencio al reparto proporcional", () => {
+    const c: CuestionarioPreguntas = {
+      version: PREGUNTAS_SCHEMA_VERSION,
+      cantidadGlobal: 6,
+      preguntas: [
+        relleno("a1", { poolId: "a", maxRepeticiones: 10 }),
+        relleno("a2", { poolId: "a", maxRepeticiones: 10 }),
+        relleno("b1", { poolId: "b", maxRepeticiones: 10 }),
+      ],
+      listas: [{ poolId: "a", cantidad: 1 }], // falta declarar "b"
+    };
+    expect(() => sortearCuestionarioPreguntas(c, { quizId: "q1", alumnoId: "a1" })).toThrow(
+      /falta declarar.*"b"/,
+    );
   });
 });

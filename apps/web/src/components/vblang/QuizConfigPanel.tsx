@@ -30,10 +30,16 @@ import { useI18n } from "../../i18n/I18nContext";
 /** Resumen del sorteo para la "Vista previa" (calculado por el host desde el
  *  working set de preguntas del rail — sin red). */
 export interface QuizResumenSorteo {
+  /** PLAN-sorteo-opcional — si es `false`, el cuestionario no sortea: entran
+   *  todas las preguntas guardadas siempre (el resto de este resumen no
+   *  aplica, ver render). */
+  sorteoActivo: boolean;
   cantidadGlobal: number;
   obligatorias: number;
-  /** Pools de relleno: `id === null` es la pool implícita (sin poolId). */
-  pools: { id: string | null; count: number }[];
+  /** Pools de relleno: `id === null` es la pool implícita (sin poolId).
+   *  `cantidad` presente = el docente fijó los puestos a mano para esta
+   *  pool (PLAN-sorteo-opcional); ausente = reparto proporcional automático. */
+  pools: { id: string | null; count: number; cantidad?: number }[];
   validacionErrores: string[];
 }
 
@@ -469,31 +475,41 @@ export default function QuizConfigPanel({
                 color: "var(--c-text-2)",
               }}
             >
-              <div>{t("quizConfigPanel.cadaIntentoToma")}<strong>{resumen.cantidadGlobal}</strong>{" "}
-                {resumen.cantidadGlobal === 1 ? "pregunta" : "preguntas"}.
-              </div>
-              <div>
-                {resumen.obligatorias} obligatoria{resumen.obligatorias === 1 ? "" : "s"} (entran
-                siempre)
-                {resumen.cantidadGlobal > resumen.obligatorias
-                  ? ` + ${resumen.cantidadGlobal - resumen.obligatorias} de relleno sorteadas`
-                  : ""}
-                .
-              </div>
-              {resumen.pools.map((p) => (
-                <div key={p.id ?? "(implícita)"}>
-                  · Pool {p.id ? `"${p.id}"` : "implícita (sin nombre)"}: {p.count} pregunta
-                  {p.count === 1 ? "" : "s"} de relleno
-                </div>
-              ))}
-              {resumen.validacionErrores.length > 0 ? (
-                <div style={{ marginTop: 6, color: "var(--c-warning-text, #92400e)" }}>
-                  {resumen.validacionErrores.map((err) => (
-                    <div key={err}>⚠ {err}</div>
-                  ))}
-                </div>
+              {!resumen.sorteoActivo ? (
+                // PLAN-sorteo-opcional — sin sorteo no hay nada que repartir:
+                // todas las preguntas guardadas entran siempre.
+                <div>{t("quizConfigPanel.sorteoDesactivadoResumen")}</div>
               ) : (
-                <div style={{ marginTop: 6, color: "var(--c-success, #16a34a)" }}>{t("quizConfigPanel.elMaterialAlcanzaParaLlenar")}</div>
+                <>
+                  <div>{t("quizConfigPanel.cadaIntentoToma")}<strong>{resumen.cantidadGlobal}</strong>{" "}
+                    {resumen.cantidadGlobal === 1 ? "pregunta" : "preguntas"}.
+                  </div>
+                  <div>
+                    {resumen.obligatorias} obligatoria{resumen.obligatorias === 1 ? "" : "s"} (entran
+                    siempre)
+                    {resumen.cantidadGlobal > resumen.obligatorias
+                      ? ` + ${resumen.cantidadGlobal - resumen.obligatorias} de relleno sorteadas`
+                      : ""}
+                    .
+                  </div>
+                  {resumen.pools.map((p) => (
+                    <div key={p.id ?? "(implícita)"}>
+                      · Pool {p.id ? `"${p.id}"` : "implícita (sin nombre)"}:{" "}
+                      {p.cantidad !== undefined
+                        ? `${p.cantidad} puesto${p.cantidad === 1 ? "" : "s"} fijo${p.cantidad === 1 ? "" : "s"} (de ${p.count} pregunta${p.count === 1 ? "" : "s"})`
+                        : `${p.count} pregunta${p.count === 1 ? "" : "s"} de relleno`}
+                    </div>
+                  ))}
+                  {resumen.validacionErrores.length > 0 ? (
+                    <div style={{ marginTop: 6, color: "var(--c-warning-text, #92400e)" }}>
+                      {resumen.validacionErrores.map((err) => (
+                        <div key={err}>⚠ {err}</div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div style={{ marginTop: 6, color: "var(--c-success, #16a34a)" }}>{t("quizConfigPanel.elMaterialAlcanzaParaLlenar")}</div>
+                  )}
+                </>
               )}
             </div>
           ) : null}

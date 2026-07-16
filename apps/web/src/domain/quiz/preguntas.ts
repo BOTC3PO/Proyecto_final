@@ -55,10 +55,43 @@ export interface PreguntaQuiz {
   dificultad?: Dificultad;
 }
 
+/** Tamaño explícito de una lista (pool) de relleno — reemplaza, para esa
+ *  pool puntual, el reparto proporcional automático de `repartirSlotsPorPool`
+ *  por un número que el docente fija a mano. Ver `CuestionarioPreguntas.listas`. */
+export interface ListaRelleno {
+  /** Coincide con el `poolId` de sus preguntas de relleno miembro, o
+   *  `POOL_SIN_ID` para fijarle cantidad a la pool implícita (relleno sin
+   *  `poolId`). */
+  poolId: string;
+  /** Cuántos puestos ocupa esta lista en el cuestionario (sorteados de
+   *  entre sus preguntas, con repetición acotada por `maxRepeticiones`
+   *  igual que hoy). */
+  cantidad: number;
+}
+
 export interface CuestionarioPreguntas {
   version: typeof PREGUNTAS_SCHEMA_VERSION;
-  /** Cuántas preguntas ve el alumno en total (obligatorias + relleno). */
+  /** Si es `false`, el cuestionario NO sortea: el alumno ve TODAS las
+   *  preguntas (obligatorias + relleno) una vez cada una, en el orden
+   *  declarado, ignorando `cantidadGlobal` y `listas` por completo. Ausente
+   *  (quizzes ya persistidos antes de esta feature) equivale a `true` —
+   *  ver `parseCuestionarioPreguntas` y los consumidores, que tratan
+   *  `undefined` como sorteo activo. */
+  sorteoActivo?: boolean;
+  /** Cuántas preguntas ve el alumno en total (obligatorias + relleno).
+   *  Ignorado si `sorteoActivo === false`. Si `listas` está presente, este
+   *  valor es DERIVADO (obligatorias + suma de `listas[].cantidad`) — ver
+   *  `parseCuestionarioPreguntas`. */
   cantidadGlobal: number;
+  /** Cantidad explícita de puestos por pool de relleno, para reemplazar el
+   *  reparto proporcional automático. AUSENTE o vacío = comportamiento
+   *  previo a esta feature (reparto proporcional vía
+   *  `repartirSlotsPorPool`). Si está presente, DEBE cubrir exactamente las
+   *  pools de relleno que existen entre `preguntas` (ver
+   *  `validarCuestionarioPreguntas`) — no admite cobertura parcial, para no
+   *  tener dos números (`cantidadGlobal` y el reparto) que puedan
+   *  desincronizarse. */
+  listas?: ListaRelleno[];
   preguntas: PreguntaQuiz[];
 }
 
@@ -114,6 +147,14 @@ function parsePreguntaQuiz(raw: unknown): PreguntaQuiz {
   return out;
 }
 
+function parseListaRelleno(raw: unknown): ListaRelleno | null {
+  const r = isObject(raw) ? raw : {};
+  const poolId = nonEmptyString(r.poolId);
+  const cantidad = finiteNumber(r.cantidad);
+  if (poolId === undefined || cantidad === undefined || cantidad < 0) return null;
+  return { poolId, cantidad: Math.floor(cantidad) };
+}
+
 /**
  * Deserializa/normaliza un cuestionario por preguntas desde JSON crudo.
  * `parseCuestionarioPreguntas(JSON.parse(JSON.stringify(c)))` reconstruye
@@ -123,10 +164,28 @@ function parsePreguntaQuiz(raw: unknown): PreguntaQuiz {
 export function parseCuestionarioPreguntas(raw: unknown): CuestionarioPreguntas {
   const r = isObject(raw) ? raw : {};
   const cantidadGlobalRaw = finiteNumber(r.cantidadGlobal);
-  const cantidadGlobal =
+  let cantidadGlobal =
     cantidadGlobalRaw !== undefined && cantidadGlobalRaw > 0 ? Math.floor(cantidadGlobalRaw) : 0;
+  const sorteoActivo = r.sorteoActivo === false ? false : true;
   const preguntas = asArray(r.preguntas).map(parsePreguntaQuiz);
-  return { version: PREGUNTAS_SCHEMA_VERSION, cantidadGlobal, preguntas };
+  const listasParsed = asArray(r.listas)
+    .map(parseListaRelleno)
+    .filter((l): l is ListaRelleno => l !== null);
+  const listas = listasParsed.length > 0 ? listasParsed : undefined;
+  // Con `listas` presente, `cantidadGlobal` es DERIVADO (obligatorias + suma
+  // de puestos declarados) — evita que quede desincronizado del reparto real.
+  if (listas !== undefined) {
+    const obligatorias = preguntas.filter((p) => p.tipo === "obligatoria").length;
+    cantidadGlobal = obligatorias + listas.reduce((acc, l) => acc + l.cantidad, 0);
+  }
+  const out: CuestionarioPreguntas = {
+    version: PREGUNTAS_SCHEMA_VERSION,
+    sorteoActivo,
+    cantidadGlobal,
+    preguntas,
+  };
+  if (listas !== undefined) out.listas = listas;
+  return out;
 }
 
 // ───────────────────────────────────────────────────────────────
@@ -212,13 +271,50 @@ export interface ResultadoValidacionPreguntas {
 }
 
 /**
+ * Decide cuántos slots le tocan a cada pool de relleno: si `listas` cubre
+ * EXACTAMENTE las pools presentes en `relleno` (mismos poolIds, ni de más
+ * ni de menos), usa esos valores tal cual (fijados a mano por el docente,
+ * ver `CuestionarioPreguntas.listas`); si no, cae al reparto proporcional
+ * automático de siempre (`repartirSlotsPorPool`). Cobertura parcial (algunas
+ * pools declaradas, otras no) se trata como "no cubre" — vuelve al reparto
+ * proporcional para TODAS, evitando mezclar dos criterios de reparto en el
+ * mismo cuestionario.
+ */
+function resolverSlotsPorPool(
+  relleno: PreguntaQuiz[],
+  slotsTotales: number,
+  listas: ListaRelleno[] | undefined,
+): Map<string, number> {
+  const pools = agruparPorPool(relleno);
+  if (listas && listas.length > 0) {
+    const poolsReales = new Set(pools.keys());
+    const poolsDeclaradas = new Set(listas.map((l) => l.poolId));
+    const cubreExacto =
+      poolsReales.size === poolsDeclaradas.size &&
+      [...poolsReales].every((id) => poolsDeclaradas.has(id));
+    if (cubreExacto) {
+      return new Map(listas.map((l) => [l.poolId, l.cantidad]));
+    }
+  }
+  return repartirSlotsPorPool(relleno, slotsTotales);
+}
+
+/**
  * Valida que `cuestionario` sea sorteable:
+ *  - Si `sorteoActivo === false`, no hay nada que sortear ni validar:
+ *    todas las preguntas entran siempre, `cantidadGlobal`/`listas` se
+ *    ignoran.
  *  - `cantidadGlobal >= 1`.
  *  - Las obligatorias no exceden `cantidadGlobal`.
  *  - Si sobran slots para relleno, tiene que haber preguntas de relleno.
+ *  - Si `listas` está presente, DEBE cubrir exactamente las pools de
+ *    relleno existentes (ni faltar ninguna ni sobrar una declarada sin
+ *    preguntas) — cobertura parcial es un error explícito, no un fallback
+ *    silencioso.
  *  - Para cada pool de relleno, la capacidad (suma de `maxRepeticiones`;
  *    una pregunta SIN `maxRepeticiones` aporta capacidad ilimitada) tiene
- *    que alcanzar los slots que le tocan según `repartirSlotsPorPool`.
+ *    que alcanzar los slots que le tocan (fijados en `listas` o repartidos
+ *    proporcionalmente).
  *
  * NO lanza — devuelve un resultado con `errores` legibles. El llamador
  * (`sortearCuestionarioPreguntas`) es quien decide qué hacer con un
@@ -228,6 +324,10 @@ export interface ResultadoValidacionPreguntas {
 export function validarCuestionarioPreguntas(
   cuestionario: CuestionarioPreguntas,
 ): ResultadoValidacionPreguntas {
+  if (cuestionario.sorteoActivo === false) {
+    return { ok: true, errores: [] };
+  }
+
   const errores: string[] = [];
   if (cuestionario.cantidadGlobal < 1) {
     errores.push("cantidadGlobal debe ser al menos 1");
@@ -255,8 +355,25 @@ export function validarCuestionarioPreguntas(
     return { ok: false, errores };
   }
 
-  const slotsPorPool = repartirSlotsPorPool(relleno, slotsRelleno);
   const pools = agruparPorPool(relleno);
+  if (cuestionario.listas && cuestionario.listas.length > 0) {
+    const poolsReales = new Set(pools.keys());
+    const poolsDeclaradas = new Set(cuestionario.listas.map((l) => l.poolId));
+    for (const id of poolsReales) {
+      if (!poolsDeclaradas.has(id)) {
+        const nombre = id === POOL_SIN_ID ? "(sin poolId)" : id;
+        errores.push(`falta declarar la cantidad de puestos de la lista "${nombre}"`);
+      }
+    }
+    for (const id of poolsDeclaradas) {
+      if (!poolsReales.has(id)) {
+        errores.push(`la lista "${id}" no tiene preguntas de relleno asociadas`);
+      }
+    }
+    if (errores.length > 0) return { ok: false, errores };
+  }
+
+  const slotsPorPool = resolverSlotsPorPool(relleno, slotsRelleno, cuestionario.listas);
   for (const [poolId, preguntasPool] of pools) {
     const slots = slotsPorPool.get(poolId) ?? 0;
     if (slots === 0) continue;
@@ -381,9 +498,14 @@ export function elegirRelleno(
 /**
  * Sortea el cuestionario completo para un alumno: todas las obligatorias
  * (una vez cada una, en el orden declarado) + los slots de relleno
- * repartidos entre pools (`repartirSlotsPorPool`) y elegidos con
- * repetición acotada (`elegirRelleno`). Puro y determinista: mismo
- * `(quizId, alumnoId, politica, intento)` → mismo resultado siempre.
+ * repartidos entre pools (proporcional, o fijo por `listas` si está
+ * presente) y elegidos con repetición acotada (`elegirRelleno`). Puro y
+ * determinista: mismo `(quizId, alumnoId, politica, intento)` → mismo
+ * resultado siempre.
+ *
+ * Si `sorteoActivo === false`, no sortea nada: devuelve TODAS las
+ * preguntas (obligatorias + relleno) una vez cada una, en el orden
+ * declarado — `cantidadGlobal`/`listas` no se leen en ese caso.
  *
  * Decisión de manejo de error: si `cuestionario` no es sorteable
  * (`validarCuestionarioPreguntas` devuelve `ok: false`), esta función
@@ -398,13 +520,23 @@ export function sortearCuestionarioPreguntas(
   cuestionario: CuestionarioPreguntas,
   ctx: ContextoSorteo,
 ): SorteoPreguntasResultado {
+  const politica = ctx.politica ?? "fijo_por_alumno";
+  const intento = Math.max(0, ctx.intento ?? 0);
+
+  if (cuestionario.sorteoActivo === false) {
+    const slots: SlotPreguntaElegida[] = cuestionario.preguntas.map((pregunta, i) => ({
+      indice: i,
+      tipo: pregunta.tipo,
+      pregunta,
+      seed: seedSlot(ctx.quizId, ctx.alumnoId, i, politica, intento),
+    }));
+    return { alumnoId: ctx.alumnoId, quizId: ctx.quizId, intento, politica, slots };
+  }
+
   const validacion = validarCuestionarioPreguntas(cuestionario);
   if (!validacion.ok) {
     throw new Error(`cuestionario de preguntas inválido: ${validacion.errores.join("; ")}`);
   }
-
-  const politica = ctx.politica ?? "fijo_por_alumno";
-  const intento = Math.max(0, ctx.intento ?? 0);
 
   const obligatorias = cuestionario.preguntas.filter((p) => p.tipo === "obligatoria");
   const relleno = cuestionario.preguntas.filter((p) => p.tipo === "relleno");
@@ -420,7 +552,7 @@ export function sortearCuestionarioPreguntas(
   }));
 
   if (slotsRelleno > 0) {
-    const slotsPorPool = repartirSlotsPorPool(relleno, slotsRelleno);
+    const slotsPorPool = resolverSlotsPorPool(relleno, slotsRelleno, cuestionario.listas);
     const pools = agruparPorPool(relleno);
     let slotIndexGlobal = obligatorias.length;
     // Orden determinista entre pools: orden de primera aparición (mismo
