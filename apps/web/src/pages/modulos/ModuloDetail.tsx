@@ -587,6 +587,12 @@ export default function ModuloDetail() {
     ? VISIBILITY_LABELS[module.visibility]
     : "Sin definir";
   const levelLabel = module.level ?? module.difficultyLevel ?? "Sin nivel";
+  // FIX-MODULO-DURACION — antes renderizaba `{module.durationMinutes} minutos`
+  // sin fallback: un módulo sin duración (0/null/undefined) mostraba
+  // el card con "minutos" solo, sin número. Mismo patrón que levelLabel.
+  const durationLabel = module.durationMinutes
+    ? `${module.durationMinutes} minutos`
+    : "Sin duración";
   const palette = getModulePalette(module.category ?? "");
 
   return (
@@ -725,7 +731,7 @@ export default function ModuloDetail() {
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">{t("moduloDetail.duracion")}</p>
-              <p className="mt-0.5 text-sm font-medium text-slate-800">{module.durationMinutes} minutos</p>
+              <p className="mt-0.5 text-sm font-medium text-slate-800">{durationLabel}</p>
             </div>
           </div>
 

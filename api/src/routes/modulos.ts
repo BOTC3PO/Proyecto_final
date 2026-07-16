@@ -6,6 +6,7 @@ import { assertClassroomWritable } from "../lib/classroom";
 import { requireUser } from "../lib/user-auth";
 import { isStaffRole } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
+import { resolveUserNames } from "../lib/resolve-user-names";
 import { sanitizeQuestionsForStudent } from "../lib/sanitize-questions";
 import { mergeMateriaIntoSettings } from "../lib/quiz-materia";
 import { ModuleSchema, CuestionarioPreguntasInputSchema, QuizMetaPatchSchema } from "../schema/modulo";
@@ -434,6 +435,12 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
       versionByQuiz[q.id] = versions[0];
     }
 
+    // FIX-MODULO-AUTOR — el GET nunca resolvía `ownerUserId` a un
+    // nombre: ModuloDetail.tsx (`module.authorName ?? module.createdBy`)
+    // siempre caía al ID crudo ("usr-teach-001") en la card "Autor".
+    // Mismo patrón que ya se usa en aulas.ts/publicaciones.ts.
+    const authorNameMap = await resolveUserNames([item.ownerUserId]);
+
     const moduleDto: Record<string, unknown> = {
       id: item.id,
       slug: item.slug ?? undefined,
@@ -475,6 +482,7 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
         ? safeJsonParse(item.dependencies, [] as unknown[])
         : [],
       createdBy: item.ownerUserId ?? "",
+      authorName: item.ownerUserId ? (authorNameMap.get(item.ownerUserId) ?? undefined) : undefined,
       // WO-13 — provenance. La UI muestra "Copiado de: <título>
       // (de <owner>)" cuando estas columnas están pobladas. Si el
       // módulo no es una copia, los 3 campos quedan ausentes.
