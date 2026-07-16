@@ -342,7 +342,7 @@ export default function ProfesorReportes() {
             )}
             {!riesgoLoading && riesgo.map((alumno) => (
               <article key={alumno.alumnoId}
-                className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+                className="rounded-xl border border-[var(--c-warning)] bg-[var(--c-warning-soft)] p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="font-semibold text-[var(--c-text)]">
