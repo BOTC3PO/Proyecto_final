@@ -282,32 +282,43 @@ adminRouter.get("/api/materias", requireUser, async (_req, res) => {
         try { return JSON.parse(r.json); } catch { return null; }
       })
       .filter(Boolean)
-      .filter((m: Record<string, unknown>) => m.isDeleted !== true)
-      .sort((a: Record<string, unknown>, b: Record<string, unknown>) =>
-        String(a.nombre ?? "").localeCompare(String(b.nombre ?? ""))
-      );
-    // FIX-TEST4-ADMIN-02 — antes si la tabla `materias` estaba
-    // vacía (seed no corrido, o admin nunca creó nada), el
-    // editor de módulos caía al `FALLBACK_SUBJECTS` hardcodeado
-    // y nunca mostraba las materias del admin. Ahora: si la
-    // tabla tiene items, esos ganan. Si está vacía, el endpoint
-    // devuelve la lista canónica (la misma que el
-    // FALLBACK_SUBJECTS del front) para que la UI tenga
-    // opciones. El admin puede agregar más, y esas se sumarán
-    // sin duplicar (el front deduplica con `new Set`).
+      .filter((m: Record<string, unknown>) => m.isDeleted !== true);
+    // FIX-TEST4-ADMIN-02 — la lista canónica (`FALLBACK`, la misma
+    // que `FALLBACK_MATERIAS` del front) es el baseline siempre
+    // disponible, para que la UI nunca se quede sin opciones aunque
+    // la tabla esté vacía (seed no corrido, admin nunca creó nada).
+    // Las filas de la DB pisan el baseline por nombre (case-
+    // insensitive) o agregan materias nuevas.
+    //
+    // FIX-MATERIAS-INACTIVA — antes el merge era incondicional (DB +
+    // FALLBACK siempre concatenados) y nunca miraba `activa`: el
+    // toggle "Activa/Inactiva" de /admin/materias persistía bien pero
+    // no tenía ningún efecto acá — la materia seguía ofreciéndose en
+    // el editor de módulos y en todo lo demás (`useMaterias.ts` es la
+    // fuente única de todos los selectores). Además, si el nombre
+    // coincidía con uno del FALLBACK (ej. "Historia"), ni siquiera se
+    // podía desactivar: el fallback la traía igual. Ahora cada
+    // entrada de la DB pisa su baseline (o se agrega) con su propio
+    // `activa`, y sólo las activas llegan al final.
     const FALLBACK = [
       "Matemáticas", "Lengua", "Historia", "Geografía",
       "Física", "Química", "Biología", "Informática",
       "Economía", "Filosofía", "Arte", "Educación Física",
     ];
-    const seen = new Set<string>();
-    const items: Array<{ nombre: string }> = [];
-    for (const m of [...fromDb, ...FALLBACK.map((nombre) => ({ nombre }))]) {
-      const nombre = String((m as { nombre?: string }).nombre ?? "").trim();
-      if (!nombre || seen.has(nombre.toLowerCase())) continue;
-      seen.add(nombre.toLowerCase());
-      items.push({ nombre });
+    const byNameLower = new Map<string, { nombre: string; activa: boolean }>();
+    for (const nombre of FALLBACK) {
+      byNameLower.set(nombre.toLowerCase(), { nombre, activa: true });
     }
+    for (const m of fromDb) {
+      const nombre = String((m as { nombre?: string }).nombre ?? "").trim();
+      if (!nombre) continue;
+      const activa = (m as { activa?: boolean }).activa !== false;
+      byNameLower.set(nombre.toLowerCase(), { nombre, activa });
+    }
+    const items = [...byNameLower.values()]
+      .filter((m) => m.activa)
+      .sort((a, b) => a.nombre.localeCompare(b.nombre))
+      .map((m) => ({ nombre: m.nombre }));
     return res.json({ items });
   } catch (err) {
     return res.status(500).json({
