@@ -177,7 +177,10 @@ encuestas.delete("/api/encuestas/:id", requireUser, requireStaff, async (req, re
   if (!assertClassroomWritable(res, classroom)) {
     return;
   }
-  const result = await prisma.encuesta.deleteMany({ where: { id } });
+  const result = await prisma.$transaction(async (tx) => {
+    await tx.encuestaRespuesta.deleteMany({ where: { surveyId: id } });
+    return tx.encuesta.deleteMany({ where: { id } });
+  });
   if (result.count === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });
