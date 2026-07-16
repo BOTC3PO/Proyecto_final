@@ -231,9 +231,17 @@ progreso.get("/api/progreso/estudiante", requireUser, async (req, res) => {
     const avances = progresoItems.map((item, index) => {
       const modulo = modulosMap.get(item.moduloId ?? "");
       const titulo = modulo?.title ?? item.moduloId ?? `Módulo ${index + 1}`;
-      const statusRaw = item.status ?? "en-curso";
+      // FIX-PROGRESO-ESTADO — comparaba contra "en-curso" (guion), pero
+      // el valor real que escribe quiz-attempts.ts (y que ya usan
+      // correctamente las otras dos funciones de este mismo archivo,
+      // líneas ~458/530) es "en_progreso" (guion bajo). Nunca matcheaba:
+      // todo módulo no completado cae acá al fallback "0%", aunque el
+      // alumno tuviera avance real — visible como contradicción directa
+      // contra aula.tsx (ContinuarCard), que sí usa el valor correcto y
+      // mostraba 50% para el mismo módulo/alumno.
+      const statusRaw = item.status ?? "en_progreso";
       const porcentaje =
-        statusRaw === "completado" ? "100%" : statusRaw === "en-curso" ? "En progreso" : "0%";
+        statusRaw === "completado" ? "100%" : statusRaw === "en_progreso" ? "En progreso" : "0%";
       return {
         id: item.id ?? `avance-${index}`,
         modulo: titulo,
