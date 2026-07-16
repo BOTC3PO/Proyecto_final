@@ -386,9 +386,21 @@ padres.get("/api/padres/hijos/:id/boletin", requireUser,
         take: 50,
       });
 
-      // Buscar módulos para obtener materia
-      const moduleIds = [...new Set(
+      // attempt.quizId apunta al Quiz, no al Modulo — hay que resolver el
+      // quiz primero para sacar título y moduleId, y recién ahí buscar el
+      // módulo (mismo patrón que quiz-attempts.ts al armar ProfesorCalificaciones).
+      const quizIds = [...new Set(
         attempts.map((a) => String((a as any).quizId ?? "")).filter(Boolean)
+      )];
+      const quizzes = quizIds.length
+        ? await prisma.quiz.findMany({
+            where: { id: { in: quizIds } },
+            select: { id: true, title: true, moduleId: true },
+          })
+        : [];
+      const quizMap = new Map(quizzes.map((q) => [q.id, q]));
+      const moduleIds = [...new Set(
+        quizzes.map((q) => q.moduleId).filter((id): id is string => Boolean(id))
       )];
       const modules = moduleIds.length
         ? await prisma.modulo.findMany({
@@ -408,12 +420,13 @@ padres.get("/api/padres/hijos/:id/boletin", requireUser,
       }>>();
 
       for (const attempt of attempts) {
-        const mod = moduleMap.get(String((attempt as any).quizId ?? ""));
+        const quiz = quizMap.get(String((attempt as any).quizId ?? ""));
+        const mod = quiz?.moduleId ? moduleMap.get(quiz.moduleId) : undefined;
         const materia = String((mod as any)?.subject ?? (mod as any)?.category ?? "General");
         if (!porMateria.has(materia)) porMateria.set(materia, []);
         porMateria.get(materia)!.push({
           quizId: String(attempt.quizId ?? ""),
-          quizTitle: undefined,
+          quizTitle: quiz?.title ?? undefined,
           score: typeof attempt.score === "number" ? attempt.score : null,
           maxScore: typeof attempt.maxScore === "number" ? attempt.maxScore : null,
           fecha: String(attempt.submittedAt ?? attempt.startedAt ?? ""),
