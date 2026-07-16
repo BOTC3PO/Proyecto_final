@@ -535,7 +535,13 @@ aulas.put(
       if (parsed.isDeleted !== undefined) updateData.isDeleted = parsed.isDeleted;
       if (nextStatus) updateData.status = nextStatus;
       if (parsed.classCode !== undefined && !isClassroomReadOnlyStatus(nextStatus)) {
-        updateData.code = parsed.classCode;
+        // FIX-CLASSCODE-PUT-COLUMN — escribía en `code` (columna legacy)
+        // en vez de `classCode`/`class_code`, que es lo que la UI lee
+        // (aula.tsx, ProfesorAulaConfiguracion.tsx). Un aula con sólo
+        // `code` legado nunca se sanaba aunque el form la reenviara en
+        // cada guardado — el round-trip pisaba `code` con el mismo valor
+        // y dejaba `classCode` vacío para siempre.
+        updateData.classCode = parsed.classCode;
       }
       const result = await prisma.clase.updateMany({
         where: { id, isDeleted: { not: true } },
@@ -621,7 +627,13 @@ aulas.patch(
       if (parsed.isDeleted !== undefined) updateData.isDeleted = parsed.isDeleted;
       if (nextStatus) updateData.status = nextStatus;
       if (parsed.classCode !== undefined && !isClassroomReadOnlyStatus(nextStatus)) {
-        updateData.code = parsed.classCode;
+        // FIX-CLASSCODE-PUT-COLUMN — escribía en `code` (columna legacy)
+        // en vez de `classCode`/`class_code`, que es lo que la UI lee
+        // (aula.tsx, ProfesorAulaConfiguracion.tsx). Un aula con sólo
+        // `code` legado nunca se sanaba aunque el form la reenviara en
+        // cada guardado — el round-trip pisaba `code` con el mismo valor
+        // y dejaba `classCode` vacío para siempre.
+        updateData.classCode = parsed.classCode;
       }
       const result = await prisma.clase.updateMany({
         where: { id, isDeleted: { not: true } },

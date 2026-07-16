@@ -43,12 +43,15 @@ type FormState = {
 
 const buildInitialState = (classroom: Classroom): FormState => ({
   name: classroom.name,
-  description: classroom.description,
+  description: classroom.description ?? "",
   accessType: classroom.accessType,
   status: normalizeClassroomStatus(classroom.status) ?? "ACTIVE",
   institutionId: classroom.institutionId ?? "",
   category: classroom.category ?? "",
-  classCode: classroom.classCode ?? "",
+  // FIX-CLASSCODE-LEGACY — si el aula sólo tiene el `code` viejo
+  // (backfill nunca corrió porque el guard exige AMBOS vacíos, ver
+  // aulas.ts:360), mostrarlo igual: el back ya lo acepta para unirse.
+  classCode: classroom.classCode ?? classroom.code ?? "",
   grade: (classroom as { grade?: string }).grade ?? "",
 });
 
@@ -276,7 +279,12 @@ export default function ProfesorAulaConfiguracion() {
     try {
       await updateClassroom(id, {
         name: form.name,
-        description: form.description,
+        // FIX-AULA-DESCRIPCION-REQUIRED — `description` no se persiste (no
+        // tiene columna en `Clase`) pero el schema del back sigue exigiendo
+        // min(1) cuando la clave está presente (`.partial()` sólo afloja la
+        // AUSENCIA de la clave, no la validación si viene ""). Omitirla
+        // cuando está vacía evita el 400 al guardar cualquier aula existente.
+        description: form.description || undefined,
         accessType: form.accessType,
         status: form.status,
         institutionId: form.institutionId || undefined,
@@ -366,13 +374,15 @@ export default function ProfesorAulaConfiguracion() {
               </label>
             </div>
 
+            {/* FIX-AULA-DESCRIPCION-REQUIRED — `description` no tiene columna en
+                `Clase` (no se persiste, ver schema.prisma) y el PUT usa
+                `ClassroomPatchSchema` (todo opcional), así que exigirlo acá sólo
+                bloqueaba "Guardar cambios" en cualquier aula existente (ninguna
+                tiene descripción porque nunca se guarda). */}
             <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">{t("comun.descripcion")}<textarea
                 className="min-h-[120px] rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 value={form.description}
                 onChange={(event) => handleFieldChange("description", event.target.value)}
-                required
-                onInvalid={onInvalid}
-                onInput={onInput}
               />
             </label>
 

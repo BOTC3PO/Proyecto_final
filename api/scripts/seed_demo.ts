@@ -186,6 +186,7 @@ async function main() {
         isDeleted: false,
         status: "ACTIVE",
         createdAt: now,
+        updatedAt: now,
       },
       {
         id: "cls-demo-eco-4b",
@@ -196,6 +197,7 @@ async function main() {
         isDeleted: false,
         status: "ACTIVE",
         createdAt: now,
+        updatedAt: now,
       },
     ],
   });
@@ -746,7 +748,7 @@ async function seedQuizzesTiza() {
         descripcion:
           "Cuestionarios de ejemplo en los modelos nativos de Tiza: preguntas obligatorias, pool de relleno con dificultad/puntaje, y generador asistido desde plantilla VBLang.",
         subject: "matematicas",
-        visibility: "public",
+        visibility: "publico",
         schoolId: "esc-0001",
         ownerUserId: "usr-teach-001",
         isDeleted: false,

@@ -393,7 +393,7 @@ export default function Aula() {
   // aulas sin código lo reciben por backfill al leer el detail.
   const classCode = useMemo(() => {
     if (!isClassroomActive) return t("aula.noDisponible");
-    return classroom?.classCode || t("aula.sinCodigo");
+    return classroom?.classCode || classroom?.code || t("aula.sinCodigo");
   }, [classroom?.classCode, isClassroomActive, t]);
 
   const activeSurveysCount = useMemo(() => {

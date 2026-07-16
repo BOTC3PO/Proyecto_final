@@ -11,6 +11,10 @@
  *  2. Un alumno puede unirse con ese código vía POST /api/aulas/unirse.
  *  3. Un aula ARCHIVED sin código NO recibe backfill (classCode sólo
  *     aplica a aulas ACTIVE).
+ *  4. FIX-CLASSCODE-PUT-COLUMN — PUT /api/aulas/:id con `classCode`
+ *     persiste en la columna `classCode` (no en la legacy `code`,
+ *     que es lo que escribía antes y dejaba `classCode` vacío para
+ *     siempre en un aula con sólo código legado).
  */
 
 import assert from "node:assert/strict";
@@ -112,4 +116,17 @@ test("un aula no-ACTIVE sin código no recibe backfill", async () => {
   });
   assert.equal(res.status, 200);
   assert.ok(!(res.body as { classCode?: string }).classCode, "ARCHIVED no debe generar código");
+});
+
+test("FIX-CLASSCODE-PUT-COLUMN: PUT con classCode persiste en la columna classCode, no en code", async () => {
+  const res = await jsonRequest(baseUrl, "PUT", `/api/aulas/${AULA_SIN_CODIGO}`, {
+    token: teacherToken(),
+    body: { classCode: "NUEVO1" },
+  });
+  assert.equal(res.status, 200);
+
+  const row = prisma.clase.rows.find((r: { id: string }) => r.id === AULA_SIN_CODIGO) as
+    | { code?: string; classCode?: string }
+    | undefined;
+  assert.equal(row?.classCode, "NUEVO1", "debe escribir en classCode");
 });

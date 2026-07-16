@@ -31,6 +31,12 @@ export type Classroom = {
   accessType: ClassroomAccess;
   status: ClassroomStatus;
   classCode?: string;
+  // Código legacy pre-`classCode` (columna `code` en Prisma). El back
+  // acepta cualquiera de los dos para unirse (`aulas.ts` /unirse), así
+  // que la UI también debe caer acá cuando `classCode` está vacío pero
+  // el aula ya tiene un `code` funcional (aulas viejas sin backfill,
+  // ver FIX-CLASSCODE-ENTERPRISE).
+  code?: string;
   createdBy: string;
   // IDs del esquema Prisma (devueltos por el back). El front los
   // usa para chequeos de ownership. Los `*Name` equivalentes son

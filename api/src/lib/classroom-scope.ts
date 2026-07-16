@@ -20,6 +20,13 @@ type AulaDoc = {
   id?: string;
   schoolId?: string;
   institutionId?: string;
+  // FIX-AULA-DETAIL-NAME — el GET /api/aulas/:id devuelve `res.locals.classroom`
+  // tal cual (aulas.ts:381, `res.json({ ...classroom, ... })`). Sin `name`/`grade`
+  // acá, la respuesta nunca los traía: "Nombre del aula" y "Curso/grado" quedaban
+  // vacíos en ProfesorAulaConfiguracion.tsx y el <h1 sr-only> de aula.tsx siempre
+  // caía al fallback "Aula" (bug de accesibilidad silencioso).
+  name?: string;
+  grade?: string;
   createdBy?: string | null;
   teacherId?: string | null;
   teacherOfRecord?: string | null;
@@ -210,6 +217,8 @@ export const requireClassroomScope =
     const classroom: AulaDoc = {
       id: claseRaw.id,
       schoolId: claseRaw.escuelaId ?? undefined,
+      name: claseRaw.name ?? undefined,
+      grade: claseRaw.grade ?? undefined,
       createdBy: claseRaw.createdBy ?? null,
       teacherId: claseRaw.teacherId ?? null,
       teacherOfRecord: claseRaw.teacherOfRecord ?? null,

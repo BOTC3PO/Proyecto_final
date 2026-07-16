@@ -88,8 +88,8 @@ beforeEach(() => {
     { id: AULA_OTHER_SCHOOL, escuelaId: SCHOOL_B, name: "5°A OtraEscuela", grade: "5°", isDeleted: false, status: "ACTIVE", createdAt: now }
   );
   prisma.claseMiembro.rows.push(
-    { claseId: AULA_5A, usuarioId: STUDENT_5A, rolEnClase: "USER" },
-    { claseId: AULA_5B, usuarioId: STUDENT_5B, rolEnClase: "USER" }
+    { claseId: AULA_5A, usuarioId: STUDENT_5A, rolEnClase: "STUDENT" },
+    { claseId: AULA_5B, usuarioId: STUDENT_5B, rolEnClase: "STUDENT" }
   );
 });
 
