@@ -1782,8 +1782,15 @@ export default function ModuloEditor() {
                       // no se muestra "Editar plantilla →" y la entrada
                       // principal pasa a ser "Preguntas nativas en Tiza →".
                       const tienePreguntasNativas = quiz.tienePreguntasNativas === true;
+                      // Un quiz legacy (generatorId="plantilla:X") puede haber
+                      // sido editado después con QuizPosicionesEditor
+                      // (settings.posiciones, lo que de verdad sortea
+                      // quiz-sorteo.ts) — ahí el badge "Plantilla VBLang" +
+                      // "Editar plantilla →" quedaría apuntando a una sola
+                      // plantilla aunque el contenido real sea multi-posición.
+                      const tienePosiciones = (quiz.posiciones?.posiciones?.length ?? 0) > 0;
                       const esPlantilla =
-                        !tienePreguntasNativas && quizGenId.startsWith("plantilla:");
+                        !tienePreguntasNativas && !tienePosiciones && quizGenId.startsWith("plantilla:");
                       const plantillaId = esPlantilla
                         ? quizGenId.slice("plantilla:".length)
                         : null;
