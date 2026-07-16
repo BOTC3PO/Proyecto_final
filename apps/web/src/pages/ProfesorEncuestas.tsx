@@ -4,7 +4,6 @@ import type { Survey, SurveyStatus, SurveyType } from "../services/encuestas";
 import {
   createSurvey,
   deleteSurvey,
-  fetchSurveyDefaults,
   fetchSurveys,
   updateSurvey
 } from "../services/encuestas";
@@ -13,6 +12,10 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import { useI18n } from "../i18n/I18nContext";
 import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
+
+// Issue #661 — /api/encuestas/defaults nunca existió en el backend;
+// dos opciones en blanco de arranque, mismo nombre que handleAddOption.
+const DEFAULT_SURVEY_OPTIONS = ["Opción 1", "Opción 2"];
 
 const toLocalInputValue = (date: Date) => {
   const pad = (n: number) => String(n).padStart(2, "0");
@@ -44,7 +47,7 @@ export default function ProfesorEncuestas() {
   const [showResultsRealtime, setShowResultsRealtime] = useState(false);
   const [status, setStatus] = useState<SurveyStatus>("activa");
   const [maxOptions, setMaxOptions] = useState<number | "">("");
-  const [options, setOptions] = useState<string[]>([]);
+  const [options, setOptions] = useState<string[]>(DEFAULT_SURVEY_OPTIONS);
 
   const canSubmit = useMemo(() => {
     return (
@@ -74,8 +77,6 @@ export default function ProfesorEncuestas() {
     const load = async () => {
       try {
         setIsLoading(true);
-        const defaults = await fetchSurveyDefaults();
-        if (defaults) setOptions(defaults.defaultOptions);
         const response = await fetchClassrooms();
         setClassrooms(response.items);
         if (response.items.length > 0) {
@@ -153,8 +154,7 @@ export default function ProfesorEncuestas() {
       setShowResultsRealtime(false);
       setStatus("activa");
       setMaxOptions("");
-      const defaults = await fetchSurveyDefaults();
-      if (defaults) setOptions(defaults.defaultOptions);
+      setOptions(DEFAULT_SURVEY_OPTIONS);
       await refresh(classroomId);
     } catch (err) {
       setError(err instanceof Error ? err.message : t("profesorEncuestas.noSePudoCrearLa"));

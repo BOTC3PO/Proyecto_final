@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import type { Survey, SurveyResults } from "../services/encuestas";
-import { fetchSurveyResults, fetchSurveys, fetchSurveyScoreValues, voteSurvey } from "../services/encuestas";
+import { fetchSurveyResults, fetchSurveys, voteSurvey } from "../services/encuestas";
 import { fetchClassrooms } from "../services/aulas";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
@@ -13,6 +13,9 @@ type RankingSelectionMap = Record<string, Record<string, number>>;
 type ResultsMap = Record<string, SurveyResults>;
 
 const usuarioId = "demo-alumno";
+// Issue #661 — /api/encuestas/puntuaciones nunca existió en el backend;
+// escala fija de 1 a 5 en vez de un fetch que siempre fallaba en silencio.
+const SCORE_VALUES = [1, 2, 3, 4, 5];
 export default function AlumnoEncuestas() {
   const { t, lang } = useI18n();
   // PLAN-H §3: llegar con ?aulaId=... (desde la tarjeta de encuestas del
@@ -32,7 +35,6 @@ export default function AlumnoEncuestas() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
-  const [scoreValues, setScoreValues] = useState<number[]>([]);
 
   const refresh = async (targetClassroomId: string) => {
     try {
@@ -51,8 +53,6 @@ export default function AlumnoEncuestas() {
     const load = async () => {
       try {
         setIsLoading(true);
-        const scores = await fetchSurveyScoreValues();
-        if (scores) setScoreValues(scores.values);
         const response = await fetchClassrooms();
         setClassrooms(response.items);
         if (response.items.length > 0) {
@@ -297,7 +297,7 @@ export default function AlumnoEncuestas() {
                                 }}
                               >
                                 <option value={0}>{t("alumnoEncuestas.sinPuntuar")}</option>
-                                {scoreValues.map((value) => (
+                                {SCORE_VALUES.map((value) => (
                                   <option key={`${survey.id}-${option.id}-${value}`} value={value}>{value}</option>
                                 ))}
                               </select>

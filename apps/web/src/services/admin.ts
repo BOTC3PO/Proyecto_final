@@ -23,63 +23,6 @@ export type AdminMateria = {
   activa: boolean;
 };
 
-export type AdminPanelRole = "schoolAdmin" | "teacher";
-
-export type AdminPanelUser = {
-  id: string;
-  name: string;
-  role: AdminPanelRole;
-  schoolId: string;
-  managedClassIds: string[];
-};
-
-export type AdminPanelClass = {
-  id: string;
-  name: string;
-  grade: string;
-  schoolId: string;
-  studentsCount: number;
-  teachers: string[];
-};
-
-export type AdminPanelThread = {
-  id: string;
-  studentName: string;
-  parentName: string;
-  parentRegistered: boolean;
-  lastMessageFrom: "parent" | "admin";
-  lastMessagePreview: string;
-  unreadForAdmin: boolean;
-};
-
-export type AdminPanelTransfer = {
-  id: string;
-  studentName: string;
-  fromSchool: string;
-  toSchool: string;
-  status: "pending" | "approved" | "rejected";
-};
-
-export type AdminPanelMission = {
-  id: string;
-  title: string;
-  description: string;
-  targetAmount: number;
-  durationDays: number;
-  rewardCoins: number;
-  badgeLabel: string;
-  scope: "school" | "class";
-  active: boolean;
-};
-
-export type AdminPanelData = {
-  currentUser: AdminPanelUser;
-  classes: AdminPanelClass[];
-  threads: AdminPanelThread[];
-  transfers: AdminPanelTransfer[];
-  missions: AdminPanelMission[];
-};
-
 export type AdminStats = {
   totalUsuarios: number;
   escuelasActivas: number;
@@ -138,10 +81,6 @@ export async function fetchAdminUsuarios(params?: { q?: string; role?: string; l
   if (params?.limit) qs.set("limit", String(params.limit));
   const query = qs.toString();
   return apiGet<AdminUsuario[]>(`/api/admin/usuarios${query ? `?${query}` : ""}`);
-}
-
-export async function fetchAdminPanelData(): Promise<AdminPanelData> {
-  return apiGet<AdminPanelData>("/api/admin/panel");
 }
 
 export async function fetchAdminStats(): Promise<AdminStats> {
