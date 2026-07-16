@@ -17,7 +17,20 @@ tienda.get("/api/tienda", requireUser, async (req, res) => {
     where: { activo: 1, ...(tipo ? { tipo } : {}) },
     orderBy: [{ tipo: "asc" }, { orden: "asc" }],
   });
-  return res.json({ items });
+  return res.json({
+    items: items.map((item) => ({
+      id: item.id,
+      tipo: item.tipo,
+      nombre: item.nombre,
+      descripcion: item.descripcion,
+      precio: item.precio,
+      moneda: item.moneda,
+      asset_id: item.assetId,
+      preview_css: item.previewCss,
+      activo: item.activo,
+      orden: item.orden,
+    })),
+  });
 });
 
 // ── GET /api/tienda/mis-items ───────────────────────────────
