@@ -527,14 +527,14 @@ export default function menuProfesor() {
               data-testid="panel-modo-aula-prominente"
               className={`rounded-xl border-2 p-4 flex flex-wrap items-center gap-4 ${
                 modoAulaActivo
-                  ? 'border-emerald-500 bg-emerald-50'
-                  : 'border-amber-300 bg-amber-50'
+                  ? 'border-[var(--c-success)] bg-[var(--c-success-soft)]'
+                  : 'border-[var(--c-warning)] bg-[var(--c-warning-soft)]'
               }`}
             >
               <div className="flex items-center gap-3 flex-1 min-w-0">
                 <div
                   className={`w-3 h-3 rounded-full flex-shrink-0 ${
-                    modoAulaActivo ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'
+                    modoAulaActivo ? 'bg-[var(--c-success)] animate-pulse' : 'bg-[var(--c-warning)]'
                   }`}
                 />
                 <div className="min-w-0">
@@ -547,7 +547,7 @@ export default function menuProfesor() {
                       : t('menuProfesor.restringidoActivaElModoAula')}
                   </p>
                   {modoAulaActivo && (
-                    <p className="text-xs text-emerald-700 mt-0.5">
+                    <p className="text-xs text-[var(--c-success)] mt-0.5">
                       {t('menuProfesor.tiendaYEconomiaDeshabilitadasPara')}
                     </p>
                   )}
@@ -560,7 +560,7 @@ export default function menuProfesor() {
                     <select
                       value={modoAulaAulaId}
                       onChange={(e) => setModoAulaAulaId(e.target.value)}
-                      className="rounded-lg text-xs px-2 py-1.5 bg-white border border-amber-300 text-[var(--c-text)] focus:outline-none"
+                      className="rounded-lg text-xs px-2 py-1.5 bg-[var(--c-surface)] border border-[var(--c-warning)] text-[var(--c-text)] focus:outline-none"
                       aria-label={t('menuProfesor.aulaParaModoAula')}
                     >
                       {aulas.filter(a =>
@@ -580,8 +580,8 @@ export default function menuProfesor() {
                   onClick={handleToggleModoAula}
                   className={`rounded-lg px-4 py-1.5 text-xs font-semibold transition-opacity disabled:opacity-40 ${
                     modoAulaActivo
-                      ? 'bg-emerald-600 text-white hover:opacity-90'
-                      : 'bg-amber-600 text-white hover:opacity-90'
+                      ? 'bg-[var(--c-success)] text-[var(--c-accent-fg)] hover:opacity-90'
+                      : 'bg-[var(--c-warning)] text-[var(--c-accent-fg)] hover:opacity-90'
                   }`}
                 >
                   {modoAulaLoading
