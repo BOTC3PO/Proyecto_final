@@ -2,16 +2,11 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
+import { fetchAulaMatriz } from "../services/progreso-aula";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import { resolveMateria } from "../domain/module/materia";
 import { useI18n } from "../i18n/I18nContext";
-
-type ProgressItem = {
-  moduloId: string;
-  status: "iniciado" | "en_progreso" | "completado";
-  usuarioId?: string;
-};
 
 type ModuloItem = {
   id: string;
@@ -68,29 +63,25 @@ export default function ProfesorEstadisticas() {
       apiGet<{ items: ModuloItem[] }>(
         `/api/modulos?aulaId=${encodeURIComponent(aulaId)}`
       ),
-      apiGet<{ items: ProgressItem[] }>(
-        `/api/progreso?aulaId=${encodeURIComponent(aulaId)}`
-      ),
+      fetchAulaMatriz(aulaId),
     ])
-      .then(([modulosData, progresoData]) => {
+      .then(([modulosData, matriz]) => {
         if (!active) return;
-        const progreso = progresoData.items ?? [];
+        const alumnos = matriz.alumnos ?? [];
         const stats = (modulosData.items ?? []).map((m) => {
-          const moduloProgreso = progreso.filter(
-            (p) => p.moduloId === m.id
-          );
+          const statuses = alumnos
+            .map((a) => a.progresos[m.id])
+            .filter((s): s is NonNullable<typeof s> => Boolean(s));
           return {
             id: m.id,
             titulo: m.title,
             materia: resolveMateria(m),
-            completados: moduloProgreso.filter(
-              (p) => p.status === "completado"
-            ).length,
-            enProgreso: moduloProgreso.filter(
-              (p) => p.status === "en_progreso" || p.status === "iniciado"
+            completados: statuses.filter((s) => s === "completado").length,
+            enProgreso: statuses.filter(
+              (s) => s === "en_progreso" || s === "iniciado"
             ).length,
             sinIniciar: 0,
-            total: moduloProgreso.length,
+            total: statuses.length,
           };
         });
         setEstadisticas(stats);
