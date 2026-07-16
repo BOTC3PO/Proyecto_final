@@ -32,7 +32,7 @@ const defaultEconomyState: EconomyState = {
   activeTheme: 'clasico',
 };
 
-const FREE_THEMES = ['clasico', 'nocturno', 'clasico-vb', 'nocturno-vb', 'minimal'];
+const FREE_THEMES = ['clasico', 'nocturno', 'clasico-vb', 'nocturno-vb', 'minimal', 'pizarra'];
 
 const THEME_META: Record<string, {
   bg: string; surface: string; primary: string;
@@ -42,6 +42,7 @@ const THEME_META: Record<string, {
   'vb2':          { bg: '#0d0e1a', surface: '#13152a', primary: '#6c63ff', animated: true,
     preview: 'linear-gradient(135deg,#0d0e1a,#1e1f3a,#0d0e2a)' },
   'clasico':       { bg: '#f1f5f9', surface: '#ffffff', primary: '#2563eb' },
+  'pizarra':       { bg: '#17281f', surface: '#1f3a2e', primary: '#f2d675' },
   'clasico-vb':    { bg: '#f8fafc', surface: '#ffffff', primary: '#2563eb' },
   'nocturno':      { bg: '#0f172a', surface: '#1e293b', primary: '#60a5fa' },
   'nocturno-vb':   { bg: '#0d0d18', surface: '#16162a', primary: '#7c6fcd' },

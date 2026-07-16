@@ -557,6 +557,43 @@
   --c-nav-text:#e8d5f5;
 }
 
+/* ── PIZARRA — pizarrón verde con textura de tiza ──────────
+   primary=amarillo tiza, accent=blanco tiza (mismo par que se ve en el
+   degradé del selector de tema, StaffSidebar.tsx). El "efecto pizarra"
+   son 2 capas cosméticas encima de los 12 tokens base: un grano sutil
+   de polvo de tiza en el fondo (radial-gradient repetido, sin imagen ni
+   JS) y un trazo suave tipo tiza en los títulos (text-shadow, no
+   gradiente animado — es un tema gratuito/estático, no "legendario"). */
+[data-theme="pizarra"] {
+  --c-bg:      #17281f;
+  --c-surface: #1f3a2e;
+  --c-border:  #3c584a;
+  --c-text:    #eef1e6;
+  --c-muted:   #a9baa9;
+  --c-primary: #f2d675;
+  --c-accent:  #d7e4dd;
+  --c-success: #8bd17c;
+  --c-warning: #f2b705;
+  --c-danger:  #e2726b;
+  --c-nav-bg:  #14231c;
+  --c-nav-text:#eef1e6;
+}
+[data-theme="pizarra"] body,
+[data-theme="pizarra"] #root {
+  background-color: #17281f;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 3px 4px;
+}
+[data-theme="pizarra"] h1,
+[data-theme="pizarra"] h2 {
+  color: var(--c-primary);
+  text-shadow: 0 0 1px rgba(238, 241, 230, 0.55), 0 0 10px rgba(242, 214, 117, 0.3);
+  letter-spacing: 0.01em;
+}
+
 /* ── VB2 — Tema oficial Virtual Book (Opción 2 ganadora) ───── */
 [data-theme="vb2"] {
   --c-bg:      #0d0e1a;

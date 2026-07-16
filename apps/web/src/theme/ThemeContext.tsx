@@ -6,7 +6,7 @@ import { fetchMisItems } from "../services/tienda";
 import { SupernovaParticles } from "./SupernovaParticles";
 
 export type ThemeId =
-  | "tiza" | "tiza-dark"
+  | "tiza" | "tiza-dark" | "pizarra"
   | "clasico" | "clasico-vb" | "aurora" | "nocturno" | "nocturno-vb"
   | "vibrante" | "bosque" | "minimal" | "minimal-v2"
   | "vb2"
@@ -27,6 +27,7 @@ export const THEME_OPTIONS: ThemeOption[] = [
   // Gratuitos
   { id: "tiza",          name: "Tiza",          animated: false, price: 0   },
   { id: "tiza-dark",     name: "Tiza Oscuro",   animated: false, price: 0   },
+  { id: "pizarra",       name: "Pizarra",       animated: false, price: 0   },
   { id: "vb2",          name: "VB2 — Oficial",  animated: true,  price: 0   },
   { id: "clasico",       name: "Clásico",       animated: false, price: 0   },
   { id: "clasico-vb",    name: "Clásico VB",    animated: false, price: 0   },
@@ -65,7 +66,7 @@ export const THEME_OPTIONS: ThemeOption[] = [
 export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
   USER: [
     // Gratuitos (default: tiza)
-    "tiza", "tiza-dark", "nocturno-vb", "vb2", "nocturno", "clasico", "clasico-vb", "minimal", "minimal-v2",
+    "tiza", "tiza-dark", "pizarra", "nocturno-vb", "vb2", "nocturno", "clasico", "clasico-vb", "minimal", "minimal-v2",
     // Estáticos de pago
     "aurora", "bosque", "vibrante",
     "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",
@@ -78,6 +79,7 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
   TEACHER: [
     "tiza",
     "tiza-dark",
+    "pizarra",
     "clasico-vb",
     "clasico",
     "minimal",
@@ -88,6 +90,7 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
   DIRECTIVO: [
     "tiza",
     "tiza-dark",
+    "pizarra",
     "clasico-vb",
     "clasico",
     "minimal",
@@ -97,7 +100,7 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
   ],
   ADMIN: [
     "admin",
-    "tiza", "tiza-dark", "clasico-vb", "clasico", "minimal", "minimal-v2", "vb2",
+    "tiza", "tiza-dark", "pizarra", "clasico-vb", "clasico", "minimal", "minimal-v2", "vb2",
     "aurora", "bosque", "vibrante",
     "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",
     "galaxy", "sunset", "ocean", "candy", "neon",
