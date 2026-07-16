@@ -50,6 +50,9 @@ const TEMAS_LEGENDARIOS: ItemDef[] = [
   { id: "item-tema-cosmos",        tipo: "tema", nombre: "Cosmos",        descripcion: "Universo con estrellas y nebulosas.",    precio: 300, assetId: "cosmos",        orden: 31 },
   { id: "item-tema-magma",         tipo: "tema", nombre: "Magma",         descripcion: "Lava fluyendo desde las profundidades.", precio: 280, assetId: "magma",         orden: 32 },
   { id: "item-tema-dorado",        tipo: "tema", nombre: "Dorado",        descripcion: "Oro animado legendario.",                precio: 500, assetId: "dorado",        orden: 33 },
+  { id: "item-tema-supernova",      tipo: "tema", nombre: "Supernova",     descripcion: "Explosión estelar con partículas que derivan en tiempo real.", precio: 600, assetId: "supernova", orden: 34 },
+  { id: "item-tema-retro",          tipo: "tema", nombre: "Retro Arcade",  descripcion: "Synthwave ochentoso: scanlines CRT, grilla retro y chrome neón.", precio: 320, assetId: "retro", orden: 35 },
+  { id: "item-tema-argentina",      tipo: "tema", nombre: "Argentina",     descripcion: "Celeste y blanco con el Sol de Mayo girando en el horizonte.",   precio: 260, assetId: "argentina", orden: 36 },
 ];
 
 const AVATARES_BASE: ItemDef[] = [

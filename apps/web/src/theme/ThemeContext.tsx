@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState,
 import { useAuth } from "../auth/use-auth";
 import { usePrimaryRole } from "../auth/use-roles";
 import { fetchMisItems } from "../services/tienda";
+import { SupernovaParticles } from "./SupernovaParticles";
 
 export type ThemeId =
   | "tiza" | "tiza-dark"
@@ -12,7 +13,7 @@ export type ThemeId =
   | "obsidian" | "sakura" | "carbon" | "arctic" | "lava" | "emerald" | "dusk"
   | "galaxy" | "sunset" | "ocean" | "candy" | "neon"
   | "aurora-boreal" | "cosmos" | "magma"
-  | "dorado"
+  | "dorado" | "supernova" | "retro" | "argentina"
   | "admin";
 
 export type ThemeOption = {
@@ -55,6 +56,9 @@ export const THEME_OPTIONS: ThemeOption[] = [
   { id: "cosmos",        name: "Cosmos",        animated: true,  price: 300 },
   { id: "magma",         name: "Magma",         animated: true,  price: 280 },
   { id: "dorado",       name: "Dorado",        animated: true,  price: 500 },
+  { id: "supernova",    name: "Supernova",     animated: true,  price: 600 },
+  { id: "retro",        name: "Retro Arcade",  animated: true,  price: 320 },
+  { id: "argentina",    name: "Argentina",     animated: true,  price: 260 },
 ];
 
 // Temas disponibles por rol
@@ -69,7 +73,7 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
     "galaxy", "sunset", "ocean", "candy", "neon",
     // Legendarios
     "aurora-boreal", "cosmos", "magma",
-    "dorado",
+    "dorado", "supernova", "retro", "argentina",
   ],
   TEACHER: [
     "tiza",
@@ -97,7 +101,7 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
     "aurora", "bosque", "vibrante",
     "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",
     "galaxy", "sunset", "ocean", "candy", "neon",
-    "aurora-boreal", "cosmos", "magma", "dorado",
+    "aurora-boreal", "cosmos", "magma", "dorado", "supernova", "retro", "argentina",
   ],
   GUEST:     ["tiza"],
 };
@@ -222,6 +226,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, availableThemes, isThemeOwned }}>
+      {theme === "supernova" && <SupernovaParticles />}
       {children}
     </ThemeContext.Provider>
   );

@@ -75,6 +75,12 @@ const THEME_META: Record<string, {
     preview: 'linear-gradient(135deg,#0a0200,#2d0a00,#1a0300)' },
   'dorado':        { bg: '#0a0800', surface: '#120f00', primary: '#f5c842', animated: true, legendary: true,
     preview: 'linear-gradient(135deg,#0a0800,#241c00,#1a1400)' },
+  'supernova':     { bg: '#05010a', surface: '#0d0518', primary: '#ff5f6d', animated: true, legendary: true,
+    preview: 'linear-gradient(135deg,#05010a,#3d0f2a,#05010a)' },
+  'retro':         { bg: '#1a0b2e', surface: '#241238', primary: '#ff2e88', animated: true, legendary: true,
+    preview: 'linear-gradient(135deg,#1a0b2e,#4a2a6a,#1a0b2e)' },
+  'argentina':     { bg: '#eaf3fb', surface: '#ffffff', primary: '#75aadb', animated: true, legendary: true,
+    preview: 'linear-gradient(180deg,#75aadb,#ffffff,#75aadb)' },
 };
 
 function ThemeCard({

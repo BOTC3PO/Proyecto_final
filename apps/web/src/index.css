@@ -701,180 +701,12 @@
   background: transparent !important;
 }
 
-/* ── Temas LEGENDARIOS ──────────────────────────────────────────── */
-
-/* LEGENDARIO 1: Aurora Boreal */
-[data-theme="aurora-boreal"] {
-  --c-bg:      #030a1a;
-  --c-surface: #071428;
-  --c-border:  #0f2548;
-  --c-text:    #e0f2fe;
-  --c-muted:   #7dd3fc;
-  --c-primary: #00e5ff;
-  --c-accent:  #00ff9d;
-  --c-success: #00ff9d;
-  --c-warning: #fbbf24;
-  --c-danger:  #f87171;
-  --c-nav-bg:  #030a1a;
-  --c-nav-text:#e0f2fe;
-}
-
-[data-theme="aurora-boreal"] body,
-[data-theme="aurora-boreal"] #root {
-  position: relative;
-  background: #030a1a;
-}
-
-[data-theme="aurora-boreal"] body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 40% at 20% 30%, rgba(0,229,255,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 35% at 70% 20%, rgba(0,255,157,0.12) 0%, transparent 55%),
-    radial-gradient(ellipse 90% 30% at 50% 60%, rgba(100,0,200,0.08) 0%, transparent 60%),
-    #030a1a;
-  animation: aurora-boreal-move 12s ease-in-out infinite;
-}
-
-@keyframes aurora-boreal-move {
-  0%   { background-position: 0% 0%, 100% 0%, 50% 100%; opacity: 0.8; }
-  25%  { background-position: 30% 20%, 70% 30%, 20% 80%; opacity: 1; }
-  50%  { background-position: 60% 10%, 40% 50%, 80% 30%; opacity: 0.9; }
-  75%  { background-position: 20% 40%, 80% 10%, 50% 70%; opacity: 1; }
-  100% { background-position: 0% 0%, 100% 0%, 50% 100%; opacity: 0.8; }
-}
-
-/* LEGENDARIO 2: Cosmos */
-[data-theme="cosmos"] {
-  --c-bg:      #02000a;
-  --c-surface: #06001a;
-  --c-border:  #150040;
-  --c-text:    #f0e8ff;
-  --c-muted:   #9d7fd4;
-  --c-primary: #bf5fff;
-  --c-accent:  #ff61e6;
-  --c-success: #39e07b;
-  --c-warning: #ffcc44;
-  --c-danger:  #ff4d6d;
-  --c-nav-bg:  #02000a;
-  --c-nav-text:#f0e8ff;
-}
-
-[data-theme="cosmos"] body,
-[data-theme="cosmos"] #root {
-  position: relative;
-  background: #02000a;
-}
-
-[data-theme="cosmos"] body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 15% 85%, rgba(191,95,255,0.2) 0%, transparent 40%),
-    radial-gradient(circle at 85% 15%, rgba(255,97,230,0.15) 0%, transparent 35%),
-    radial-gradient(circle at 50% 50%, rgba(57,224,123,0.06) 0%, transparent 50%),
-    radial-gradient(circle at 30% 20%, rgba(100,0,255,0.12) 0%, transparent 30%),
-    #02000a;
-  background-size: 100% 100%;
-  animation: cosmos-pulse 15s ease-in-out infinite;
-}
-
-[data-theme="cosmos"] body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
-    radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 40% 10%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 55% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.8) 0%, transparent 100%),
-    radial-gradient(1px 1px at 80% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 90% 50%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 15% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 60% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(2px 2px at 20% 25%, rgba(191,95,255,0.9) 0%, transparent 100%),
-    radial-gradient(2px 2px at 75% 65%, rgba(255,97,230,0.8) 0%, transparent 100%),
-    radial-gradient(2px 2px at 45% 90%, rgba(57,224,123,0.7) 0%, transparent 100%);
-  animation: cosmos-twinkle 4s ease-in-out infinite alternate;
-}
-
-@keyframes cosmos-pulse {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50%      { opacity: 1;   transform: scale(1.02); }
-}
-
-@keyframes cosmos-twinkle {
-  0%   { opacity: 0.6; }
-  100% { opacity: 1; }
-}
-
-/* LEGENDARIO 3: Magma */
-[data-theme="magma"] {
-  --c-bg:      #0a0200;
-  --c-surface: #150400;
-  --c-border:  #2d0a00;
-  --c-text:    #fff3e0;
-  --c-muted:   #ff8a50;
-  --c-primary: #ff6d00;
-  --c-accent:  #ffab00;
-  --c-success: #76ff03;
-  --c-warning: #ffcc00;
-  --c-danger:  #ff1744;
-  --c-nav-bg:  #0a0200;
-  --c-nav-text:#fff3e0;
-}
-
-[data-theme="magma"] body,
-[data-theme="magma"] #root {
-  position: relative;
-  background: #0a0200;
-}
-
-[data-theme="magma"] body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 50% at 20% 90%, rgba(255,60,0,0.3) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 80% 95%, rgba(255,140,0,0.2) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 30% at 50% 80%, rgba(200,20,0,0.2) 0%, transparent 50%),
-    radial-gradient(ellipse 30% 20% at 30% 70%, rgba(255,80,0,0.15) 0%, transparent 40%),
-    #0a0200;
-  animation: magma-flow 8s ease-in-out infinite;
-}
-
-[data-theme="magma"] body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 60% 20% at 10% 100%, rgba(255,100,0,0.25) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 15% at 90% 100%, rgba(255,60,0,0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 10% at 50% 100%, rgba(180,30,0,0.15) 0%, transparent 80%);
-  animation: magma-flow 8s ease-in-out infinite reverse;
-}
-
-@keyframes magma-flow {
-  0%   { transform: translateY(0px) scaleX(1);    opacity: 0.7; }
-  25%  { transform: translateY(-8px) scaleX(1.02);  opacity: 1;   }
-  50%  { transform: translateY(-3px) scaleX(0.98);  opacity: 0.85; }
-  75%  { transform: translateY(-12px) scaleX(1.01); opacity: 1;   }
-  100% { transform: translateY(0px) scaleX(1);    opacity: 0.7; }
-}
+/* Aurora Boreal / Cosmos / Magma — la definición completa (vars + fondo
+   animado + shimmer de h1 + scrollbar) vive más abajo, en "TEMAS
+   LEGENDARIOS — gradientes complejos misma técnica". Este bloque era
+   un borrador anterior con la misma idea vía body::before/::after que
+   quedó duplicado y siempre perdía la cascada contra la versión de
+   abajo — nunca se llegó a ver. Eliminado (era CSS muerto). */
 /* ═══════════════════════════════════════════════════════════
    TEMAS ANIMADOS — patrón único que funciona en React
    ═══════════════════════════════════════════════════════════ */
@@ -1572,10 +1404,343 @@
   --c-bg:      rgba(10, 8, 0, 0.65);
 }
 
+/* LEGENDARIO 5: Supernova — shockwave + starfield estático (mismo
+   patrón que aurora-boreal/cosmos) más una capa de embers animada por
+   JS (SupernovaParticles.tsx, anime.js) que se monta por encima. */
+[data-theme="supernova"] {
+  --c-bg:      #05010a;
+  --c-surface: #0d0518;
+  --c-border:  #2a0f3d;
+  --c-text:    #fff5e6;
+  --c-muted:   #c9a0ff;
+  --c-primary: #ff5f6d;
+  --c-accent:  #7dd3ff;
+  --c-success: #4ade80;
+  --c-warning: #fbbf24;
+  --c-danger:  #f87171;
+  --c-nav-bg:  #05010a;
+  --c-nav-text:#fff5e6;
+}
+
+/* Sólo `body` lleva el fondo — si #root también lo tuviera, su propio
+   fondo (contenido en flujo normal, nivel de stacking por encima de
+   z-index negativo) taparía por completo el body::before/::after de
+   abajo. Gotcha real: encontrado al ver que el brillo nunca se notaba. */
+[data-theme="supernova"] body {
+  position: relative;
+  background: #05010a;
+}
+
+[data-theme="supernova"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,95,109,0.25) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(125,211,255,0.1) 0%, transparent 65%),
+    #05010a;
+  animation: supernova-shockwave 10s ease-in-out infinite;
+}
+
+[data-theme="supernova"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 12% 20%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 28% 55%, rgba(255,245,230,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 62% 75%, rgba(255,159,109,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 35%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 85%, rgba(125,211,255,0.6) 0%, transparent 100%),
+    radial-gradient(2px 2px at 20% 80%, rgba(255,95,109,0.9) 0%, transparent 100%),
+    radial-gradient(2px 2px at 70% 10%, rgba(255,245,230,0.8) 0%, transparent 100%);
+  animation: supernova-twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes supernova-shockwave {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.06); }
+}
+
+@keyframes supernova-twinkle {
+  0%   { opacity: 0.55; }
+  100% { opacity: 1; }
+}
+
+[data-theme="supernova"] h1,
+[data-theme="supernova"] .text-\[var\(--c-primary\)\] {
+  background: linear-gradient(90deg, #ff5f6d, #fff5e6, #7dd3ff, #fff5e6, #ff5f6d);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: supernova-shimmer 6s linear infinite;
+}
+
+@keyframes supernova-shimmer {
+  0%   { background-position: 200% 0%; }
+  100% { background-position: -100% 0%; }
+}
+
+[data-theme="supernova"] .bg-\[var\(--c-primary\)\] {
+  background: linear-gradient(135deg, #ff5f6d 0%, #ffab7d 50%, #ff5f6d 100%) !important;
+  color: #1a0208 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 15px rgba(255, 95, 109, 0.4), 0 0 30px rgba(255, 95, 109, 0.15);
+}
+
+[data-theme="supernova"] .layout-root,
+[data-theme="supernova"] .layout-root main,
+[data-theme="supernova"] .page-root {
+  background: transparent !important;
+}
+
+[data-theme="supernova"] {
+  --c-surface: rgba(13, 5, 24, 0.9);
+  --c-bg:      rgba(5, 1, 10, 0.65);
+}
+
+/* Capa de embers de SupernovaParticles.tsx — mismo z-index/pointer-events
+   que los pseudo-elementos de arriba, para quedar detrás del contenido. */
+.vb-supernova-particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.vb-supernova-particle {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0;
+  background: radial-gradient(circle, #fff5e6 0%, #ff9d6c 45%, transparent 75%);
+  box-shadow: 0 0 6px 1px rgba(255, 140, 90, 0.7);
+  will-change: transform, opacity;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LEGENDARIO 6: Retro Arcade — synthwave ochentoso.
+   Técnica deliberadamente distinta a los temas de arriba: nada de
+   drift/pulse suave. Scanlines CRT + grilla de "ruta" con easing en
+   steps() (movimiento a los saltos, no interpolado — la sensación
+   8-bit) y texto chrome con text-shadow apilado en vez de
+   background-clip. Reusa la curva de easing de Tailwind (`animate-pulse`:
+   cubic-bezier(0.4,0,0.6,1)) para el flicker de neón, y `color-mix()`
+   (el mismo idioma de color que ya usa el resto del CSS con tokens de
+   Tailwind) para las líneas semitransparentes en vez de rgba() a mano.
+   ═══════════════════════════════════════════════════════════ */
+[data-theme="retro"] {
+  --c-bg:      #1a0b2e;
+  --c-surface: #241238;
+  --c-border:  #4a2a6a;
+  --c-text:    #f0e6ff;
+  --c-muted:   #b48ee0;
+  --c-primary: #ff2e88;
+  --c-accent:  #00e5ff;
+  --c-success: #39ff14;
+  --c-warning: #ffe600;
+  --c-danger:  #ff2e2e;
+  --c-nav-bg:  #12081f;
+  --c-nav-text:#f0e6ff;
+}
+
+[data-theme="retro"] body {
+  position: relative;
+  background: #1a0b2e;
+}
+
+/* Grilla de "ruta" synthwave — se desplaza a los saltos (steps), no
+   suave, para que se note el carácter retro/8-bit del movimiento. */
+[data-theme="retro"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--c-accent) 12%, transparent) 0px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--c-primary) 10%, transparent) 0px, transparent 1px 48px),
+    radial-gradient(ellipse 70% 50% at 50% 100%, color-mix(in srgb, var(--c-primary) 18%, transparent) 0%, transparent 70%);
+  background-size: 48px 48px, 48px 48px, 100% 100%;
+  animation: retro-grid-scroll 1.2s steps(6) infinite;
+}
+
+@keyframes retro-grid-scroll {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to   { background-position: 0 48px, 48px 0, 0 0; }
+}
+
+/* Scanlines CRT — franjas horizontales fijas con un roll a los saltos,
+   como el vertical hold de un televisor viejo. */
+[data-theme="retro"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.25) 0px,
+    rgba(0, 0, 0, 0.25) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: retro-scanline-roll 4s steps(20) infinite;
+}
+
+@keyframes retro-scanline-roll {
+  from { background-position-y: 0; }
+  to   { background-position-y: 100px; }
+}
+
+/* Chrome 80s: doble contorno por text-shadow en vez de gradiente en
+   el texto (técnica distinta al shimmer de Dorado/Supernova). */
+[data-theme="retro"] h1,
+[data-theme="retro"] h2 {
+  color: #ffffff;
+  text-shadow:
+    2px 2px 0 var(--c-accent),
+    -2px -2px 0 var(--c-primary),
+    0 0 20px color-mix(in srgb, var(--c-primary) 60%, transparent);
+}
+
+/* Flicker de neón en botones primarios — misma curva que
+   Tailwind `animate-pulse` (cubic-bezier(0.4,0,0.6,1)), pero sin
+   llegar a opacity 0 para que el botón siga leyéndose como clickeable. */
+[data-theme="retro"] .bg-\[var\(--c-primary\)\] {
+  box-shadow: 0 0 12px color-mix(in srgb, var(--c-primary) 70%, transparent);
+  animation: retro-neon-flicker 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes retro-neon-flicker {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.85; }
+}
+
+[data-theme="retro"] .layout-root,
+[data-theme="retro"] .layout-root main,
+[data-theme="retro"] .page-root {
+  background: transparent !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LEGENDARIO 7: Argentina — celeste y blanco con el Sol de Mayo.
+   Técnica distinta otra vez: tema CLARO (todos los demás legendarios
+   son oscuros) con un conic-gradient rotando de a poco — ningún otro
+   tema de la app usa conic-gradient ni transform:rotate. Sin drift de
+   background-position, sin partículas: sólo el sol girando despacio
+   en el horizonte, sutil y legible.
+   ═══════════════════════════════════════════════════════════ */
+[data-theme="argentina"] {
+  --c-bg:      #eaf3fb;
+  --c-surface: #ffffff;
+  --c-border:  #bcdcf5;
+  --c-text:    #0b2942;
+  --c-muted:   #4b7ba6;
+  /* Deliberadamente MÁS OSCURO que la banda celeste del fondo/nav
+     (#75aadb) — un primary del mismo celeste que el fondo se volvía
+     invisible en cualquier texto que cayera sobre la banda superior
+     (ej. el link con el nombre de usuario en el saludo). */
+  --c-primary: #1f6fb2;
+  --c-accent:  #f6b40e;
+  --c-success: #2e9e5b;
+  --c-warning: #f6b40e;
+  --c-danger:  #d64545;
+  --c-nav-bg:  #75aadb;
+  --c-nav-text:#ffffff;
+}
+
+/* Bandera real: tres franjas IGUALES (33/33/33), no una franja fina
+   arriba/abajo con blanco gigante en el medio — la proporción incorrecta
+   era justamente lo que hacía que el tema se sintiera "raro" y no se
+   leyera como la bandera. */
+[data-theme="argentina"] body {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #75aadb 0%, #75aadb 33.33%,
+    #eaf3fb 33.33%, #eaf3fb 66.66%,
+    #75aadb 66.66%, #75aadb 100%
+  );
+  background-attachment: fixed;
+}
+
+/* Sol de Mayo: disco sólido + rayos, completo y centrado en el
+   viewport (no recortado fuera de pantalla como un glow difuso) para
+   que se lea de una sin dudar qué es. Baja opacidad para no competir
+   con el contenido real. */
+[data-theme="argentina"] body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 32vmax;
+  height: 32vmax;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--c-accent) 0% 24%, transparent 25%),
+    conic-gradient(
+      from 0deg,
+      var(--c-accent) 0deg 4deg, transparent 4deg 15deg,
+      var(--c-accent) 15deg 19deg, transparent 19deg 30deg,
+      var(--c-accent) 30deg 34deg, transparent 34deg 45deg,
+      var(--c-accent) 45deg 49deg, transparent 49deg 60deg,
+      var(--c-accent) 60deg 64deg, transparent 64deg 75deg,
+      var(--c-accent) 75deg 79deg, transparent 79deg 90deg,
+      var(--c-accent) 90deg 94deg, transparent 94deg 105deg,
+      var(--c-accent) 105deg 109deg, transparent 109deg 120deg,
+      var(--c-accent) 120deg 124deg, transparent 124deg 135deg,
+      var(--c-accent) 135deg 139deg, transparent 139deg 150deg,
+      var(--c-accent) 150deg 154deg, transparent 154deg 165deg,
+      var(--c-accent) 165deg 169deg, transparent 169deg 180deg,
+      var(--c-accent) 180deg 184deg, transparent 184deg 195deg,
+      var(--c-accent) 195deg 199deg, transparent 199deg 210deg,
+      var(--c-accent) 210deg 214deg, transparent 214deg 225deg,
+      var(--c-accent) 225deg 229deg, transparent 229deg 240deg,
+      var(--c-accent) 240deg 244deg, transparent 244deg 255deg,
+      var(--c-accent) 255deg 259deg, transparent 259deg 270deg,
+      var(--c-accent) 270deg 274deg, transparent 274deg 285deg,
+      var(--c-accent) 285deg 289deg, transparent 289deg 300deg,
+      var(--c-accent) 300deg 304deg, transparent 304deg 315deg,
+      var(--c-accent) 315deg 319deg, transparent 319deg 330deg,
+      var(--c-accent) 330deg 334deg, transparent 334deg 345deg,
+      var(--c-accent) 345deg 349deg, transparent 349deg 360deg
+    );
+  opacity: 0.16;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: argentina-sol-rotate 90s linear infinite;
+}
+
+@keyframes argentina-sol-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+[data-theme="argentina"] nav {
+  background: var(--c-nav-bg) !important;
+  border-bottom-color: color-mix(in srgb, var(--c-accent) 40%, transparent) !important;
+}
+
+[data-theme="argentina"] .layout-root,
+[data-theme="argentina"] .layout-root main,
+[data-theme="argentina"] .page-root {
+  background: transparent !important;
+}
+
 /* GPU compositing for heavy animated themes — prevents sidebar freeze */
 [data-theme="aurora-boreal"] aside,
 [data-theme="cosmos"] aside,
-[data-theme="magma"] aside {
+[data-theme="magma"] aside,
+[data-theme="supernova"] aside,
+[data-theme="retro"] aside,
+[data-theme="argentina"] aside {
   will-change: transform;
   transform: translateZ(0);
   isolation: isolate;
