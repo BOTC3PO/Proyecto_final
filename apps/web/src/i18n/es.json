@@ -2329,6 +2329,8 @@
   "comun.currentcolor": "currentColor",
   "comun.onchange": "onChange",
   "comun.directivo": "Directivo",
+  "comun.docentes": "Docentes",
+  "comun.directivos": "Directivos",
   "comun.field": "Field",
   "comun.aulaid": "aulaId",
   "comun.returnto": "returnTo",

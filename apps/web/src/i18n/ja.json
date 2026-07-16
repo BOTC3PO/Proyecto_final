@@ -2191,6 +2191,8 @@
   "comun.currentcolor": "currentColor",
   "comun.onchange": "onChange",
   "comun.directivo": "指示",
+  "comun.docentes": "教師",
+  "comun.directivos": "校長",
   "comun.field": "フィールド",
   "comun.aulaid": "aulaId",
   "comun.returnto": "戻る",
