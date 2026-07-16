@@ -77,6 +77,16 @@ test("FASE 5: el padre crea su cuenta de alumno (opt-in) y queda vinculada", asy
   assert.equal(body.cuentaVinculada!.tipoDestino, "ALUMNO");
   assert.equal(body.cuentaVinculada!.destinoUsuarioId, body.espejo.id);
   assert.equal(prisma.cuentaVinculada.rows.length, 1);
+
+  // FIX-STAFF-TEMAS-BLOQUEADOS — a diferencia del espejo de STAFF, el de
+  // PADRE NO recibe saldo de bienvenida: exclusión deliberada (ver
+  // economia-alta.ts) porque el padre no está dando de alta un hijo
+  // nuevo, está creando su propio doble para explorar la app.
+  assert.equal(
+    prisma.economiaTransaccion.rows.filter((t) => t.usuarioId === body.espejo.id).length,
+    0,
+    "el espejo de padre no recibe crédito de saldo inicial"
+  );
 });
 
 test("FASE 5: la creación es idempotente (segunda llamada devuelve el mismo espejo, created=false)", async () => {

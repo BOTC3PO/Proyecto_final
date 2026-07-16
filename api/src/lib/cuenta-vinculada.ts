@@ -115,3 +115,24 @@ export const resolveCuentaVinculada = async (
   // seguridad, caemos al default histórico ("PRINCIPAL").
   return { destinoUsuarioId: other.id, tipoDestino: "PRINCIPAL" };
 };
+
+/**
+ * FIX-STAFF-TEMAS-BLOQUEADOS — a diferencia de `resolveCuentaVinculada`
+ * (que resuelve CUALQUIER par, incluidas la FASE 6 padre↔hijo real y la
+ * FASE 8 staff↔alumno real — personas DISTINTAS), esto sólo devuelve el
+ * id cuando el otro lado es GENUINAMENTE un espejo (`tipoCuenta ===
+ * ESPEJO_ALUMNO`) — la misma persona con otro login. Lo usa
+ * `GET /api/tienda/mis-items` para mergear compras: nunca hay que
+ * mostrarle a un usuario lo que compró OTRA persona real vinculada.
+ */
+export const resolveEspejoId = async (userId: string): Promise<string | null> => {
+  const vinculo = await prisma.cuentaVinculada.findFirst({
+    where: { OR: [{ usuarioAId: userId }, { usuarioBId: userId }] }
+  });
+  if (!vinculo) return null;
+  const otherId = vinculo.usuarioAId === userId ? vinculo.usuarioBId : vinculo.usuarioAId;
+  const other = await prisma.usuario.findFirst({
+    where: { id: otherId, isDeleted: { not: true } }
+  });
+  return other && isEspejoAlumno(other.tipoCuenta) ? other.id : null;
+};

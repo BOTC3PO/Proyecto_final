@@ -55,6 +55,7 @@ import { randomBytes, randomUUID } from "node:crypto";
 import { prisma } from "./prisma";
 import { STAFF_ROLES, isStaffInRoles, isParentInRoles, resolveRoles } from "./roles";
 import { recordAuditLog } from "./audit-log";
+import { acreditarSaldoInicial } from "./economia-alta";
 
 export const ESPEJO_TIPO_CUENTA = "ESPEJO_ALUMNO" as const;
 
@@ -164,8 +165,9 @@ export const provisionarEspejoAlumno = async (
   // Guard 1: elegibilidad. Por defecto solo staff. Con `allowParent`
   // (Fase 5, opt-in del padre) también un PARENT. USER/GUEST nunca.
   const rolesPrincipal = resolveRoles(principal);
+  const esStaff = isStaffInRoles(rolesPrincipal);
   const elegible =
-    isStaffInRoles(rolesPrincipal) ||
+    esStaff ||
     (opts?.allowParent === true && isParentInRoles(rolesPrincipal));
   if (!elegible) {
     throw new EspejoNoProvisionableError(
@@ -199,6 +201,14 @@ export const provisionarEspejoAlumno = async (
         : existingVinculo.usuarioAId;
     const other = await prisma.usuario.findFirst({ where: { id: otherId } });
     if (other && other.tipoCuenta === ESPEJO_TIPO_CUENTA) {
+      // FIX-STAFF-TEMAS-BLOQUEADOS — backfill perezoso: staff que ya
+      // tenía su espejo provisionado ANTES de este fix (no recibió saldo
+      // de bienvenida al crearse) lo recibe acá, en la próxima llamada
+      // natural a esta función (login, "entrar como alumno", backfill).
+      // Idempotente (ver acreditarSaldoInicial), no rompe si ya se acreditó.
+      if (esStaff) {
+        await acreditarSaldoInicial({ usuarioId: other.id, schoolId: other.escuelaId ?? null });
+      }
       return {
         espejo: {
           id: other.id,
@@ -290,6 +300,18 @@ export const provisionarEspejoAlumno = async (
       createdAt: now
     }
   });
+
+  // FIX-STAFF-TEMAS-BLOQUEADOS — a diferencia del espejo de PADRE (ver
+  // exclusión deliberada en economia-alta.ts: el padre "no está dando de
+  // alta un hijo nuevo"), el espejo de STAFF sí recibe el saldo de
+  // bienvenida: es la única cuenta con acceso real a /economia y
+  // /tienda-temas (TEACHER/DIRECTIVO/ADMIN no tienen ruta propia, ver
+  // FIX-VISTA-PREVIA-STAFF), así que sin esto un tema pago quedaría
+  // bloqueado para siempre pese al merge de compras en
+  // GET /api/tienda/mis-items (ver tienda.ts).
+  if (esStaff) {
+    await acreditarSaldoInicial({ usuarioId: espejoId, schoolId: escuelaEfectiva });
+  }
 
   // FASE 7 — auditar la creación del espejo. El audit log permite
   // reconstruir quién se espejó (principalId), qué espejo se creó

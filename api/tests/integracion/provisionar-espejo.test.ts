@@ -125,6 +125,43 @@ test("FASE 1: segunda llamada devuelve el mismo espejo (created=false)", async (
   );
 });
 
+// ─── FIX-STAFF-TEMAS-BLOQUEADOS: saldo de bienvenida del espejo de staff ──
+// A diferencia del espejo de PADRE (excluido a propósito, ver
+// economia-alta.ts), el espejo de STAFF sí recibe saldo: es la única
+// cuenta con acceso real a /tienda-temas (ver GET /api/tienda/mis-items).
+
+test("FIX-STAFF-TEMAS-BLOQUEADOS: el espejo de un TEACHER recibe saldo de bienvenida", async () => {
+  resetPrisma();
+  const teacherId = randomUUID();
+  seedStaff(teacherId, "TEACHER", "Ana Profesora");
+
+  const result = await provisionarEspejoAlumno(teacherId);
+
+  const transacciones = prisma.economiaTransaccion.rows.filter(
+    (t) => t.usuarioId === result.espejo.id && t.tipo === "saldo_inicial"
+  );
+  assert.equal(transacciones.length, 1, "el espejo recibe exactamente 1 crédito de saldo inicial");
+
+  const saldos = prisma.economiaSaldo.rows.filter((s) => s.usuarioId === result.espejo.id);
+  assert.equal(saldos.length, 1);
+  assert.ok((saldos[0].saldo as number) > 0, "el espejo queda con saldo > 0");
+});
+
+test("FIX-STAFF-TEMAS-BLOQUEADOS: llamadas repetidas no duplican el crédito", async () => {
+  resetPrisma();
+  const teacherId = randomUUID();
+  seedStaff(teacherId, "TEACHER", "Ana Profesora");
+
+  const first = await provisionarEspejoAlumno(teacherId);
+  await provisionarEspejoAlumno(teacherId);
+  await provisionarEspejoAlumno(teacherId);
+
+  const transacciones = prisma.economiaTransaccion.rows.filter(
+    (t) => t.usuarioId === first.espejo.id && t.tipo === "saldo_inicial"
+  );
+  assert.equal(transacciones.length, 1, "no se duplica el crédito en llamadas repetidas");
+});
+
 test("FASE 1: idempotencia: 5 llamadas = 1 espejo + 1 membresia + 1 vinculacion", async () => {
   resetPrisma();
   const teacherId = randomUUID();
