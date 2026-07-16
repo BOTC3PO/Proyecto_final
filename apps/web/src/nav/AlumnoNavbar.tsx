@@ -204,12 +204,21 @@ export default function AlumnoNavbar() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const items = NAV_BY_ROLE['USER'];
   // MULTIROL-02: el dropdown se elige por el rol principal del user
-  // (USER por default; un TEACHER+USER en vista de alumno sigue viendo
-  // el dropdown USER, igual que antes). La nav de alumno siempre es
-  // la de USER, así que el default ya estaba bien.
+  // (USER por default).
   const primary = user?.roles?.[0] ?? user?.role ?? 'USER';
+  // FIX-NAVBAR-ROL-DUAL (docs/qa/bug-visual-aula-rol-dual.md, bug 1) —
+  // antes `items` estaba hardcodeado a NAV_BY_ROLE['USER'] sin importar
+  // quién mirara: un TEACHER en su PROPIA cuenta viendo /clases/:aulaId
+  // ve más datos que un alumno (ACCIONES DEL AULA, "Gestionar aula",
+  // editar/borrar publicaciones — ver aula.tsx), así que mostrarle la
+  // navegación de alumno arriba era la mitad de la mezcla incoherente
+  // (arriba "sos alumno", el resto de la página "sos docente"). Ahora
+  // la nav de arriba respeta el rol real de la cuenta, igual que el
+  // dropdown y el resto del contenido de la página. Una cuenta espejo
+  // real (USER puro, cuentaVinculada.tipoDestino === 'PRINCIPAL') sigue
+  // viendo NAV_BY_ROLE['USER'] sin cambios: `primary` ya es 'USER' ahí.
+  const items = NAV_BY_ROLE[primary as keyof typeof NAV_BY_ROLE] ?? NAV_BY_ROLE['USER'];
   const baseDropdown = DROPDOWN_BY_ROLE[primary as keyof typeof DROPDOWN_BY_ROLE]
     ?? DROPDOWN_BY_ROLE['USER'];
   // FIX-TEST4-X-02 — antes si un TEACHER entraba a `/alumno`, el
@@ -223,6 +232,9 @@ export default function AlumnoNavbar() {
   const userOnlyDropdown = hasUser && isStaffRole
     ? DROPDOWN_BY_ROLE['USER']
     : [];
+  // FASE 3 — si la sesión es una cuenta espejo (USER puro con vínculo),
+  // el botón "Volver" dispara el switch en lugar de navegar por rol.
+  const esEspejo = user?.cuentaVinculada?.tipoDestino === 'PRINCIPAL';
   const dropdownItems = [
     ...userOnlyDropdown.filter((i) => i.kind === 'link' && i.to !== '/perfil'),
     { kind: 'divider' as const },
@@ -232,10 +244,6 @@ export default function AlumnoNavbar() {
   const initials = user?.name
     ? user.name.split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase()
     : '?';
-
-  // FASE 3 — si la sesión es una cuenta espejo (USER puro con vínculo),
-  // el botón "Volver" dispara el switch en lugar de navegar por rol.
-  const esEspejo = user?.cuentaVinculada?.tipoDestino === 'PRINCIPAL';
 
   const handleVolver = async () => {
     try {
@@ -321,6 +329,7 @@ export default function AlumnoNavbar() {
           </button>
         </div>
       )}
+
 
       <div className="flex items-center justify-between max-w-6xl gap-4 px-4 py-3 mx-auto">
         <div className="flex items-center" style={{ gap: 'var(--space-2)' }}>

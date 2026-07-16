@@ -3,9 +3,10 @@ import { recordAuditLog } from "../lib/audit-log";
 import { prisma } from "../lib/prisma";
 import { isClassroomActiveStatus, normalizeClassroomStatus } from "../schema/aula";
 import { requirePolicy } from "../lib/authorization";
-import { requireClassroomScope } from "../lib/classroom-scope";
+import { requireClassroomScope, isClassroomTeacher } from "../lib/classroom-scope";
 import { createRateLimiter } from "../lib/rate-limit";
 import { requireUser } from "../lib/user-auth";
+import { resolveUserNames, initialsFromName } from "../lib/resolve-user-names";
 
 export const publicaciones = Router();
 
@@ -22,9 +23,12 @@ type PublicationAttachment = {
 
 type CreatePublicationPayload = {
   contenido: string;
-  authorInitials?: string;
   title?: string;
   archivos?: PublicationAttachment[];
+};
+
+type UpdatePublicationPayload = {
+  contenido: string;
 };
 
 type CreateCommentPayload = {
@@ -68,9 +72,24 @@ publicaciones.get(
     if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
       return res.status(403).json({ error: "forbidden" });
     }
-    const items = await prisma.publicacion.findMany({
+    const rows = await prisma.publicacion.findMany({
       where: { aulaId: req.params.id as string as string, isDeleted: { not: true } },
       orderBy: { publishedAt: "desc" }
+    });
+    // FIX-PUBLICACIONES-AUTOR — antes el front mandaba `authorInitials`
+    // al crear, pero `Publicacion` no tiene esa columna (se descartaba
+    // en silencio) y el GET nunca resolvía `authorId` a un nombre: el
+    // feed siempre mostraba "?" sin importar quién publicó. Resolvemos
+    // acá, igual que `createdByName`/`teacherName` en aulas.ts.
+    const nameMap = await resolveUserNames(rows.map((r) => r.authorId));
+    const items = rows.map((r) => {
+      const authorName = nameMap.get(r.authorId) ?? null;
+      return {
+        ...r,
+        authorName,
+        authorInitials: authorName ? initialsFromName(authorName) : "?",
+        isOwn: r.authorId === requesterId
+      };
     });
     res.json({ items });
   }
@@ -142,6 +161,90 @@ publicaciones.post(
       }
     });
     res.status(201).json(publication);
+  }
+);
+
+// FIX-PUBLICACIONES-EDITAR — sólo quien publicó puede editar el
+// contenido de su propio mensaje. A diferencia del DELETE, el staff
+// del aula no puede editar palabras ajenas (moderar ≠ reescribir).
+publicaciones.patch(
+  "/api/aulas/:id/publicaciones/:pubId",
+  requireUser,
+  requireClassroomScope({ allowMemberRoles: "any", allowSchoolMatch: true }),
+  async (req, res) => {
+    const requester = getRequester(req as { user?: { _id?: { toString?: () => string }; role?: string } });
+    const requesterId = getRequesterId(requester);
+    if (!requesterId) return res.status(403).json({ error: "forbidden" });
+    const payload = req.body as UpdatePublicationPayload | undefined;
+    if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
+      return res.status(400).json({ error: "contenido requerido" });
+    }
+    const publication = await prisma.publicacion.findFirst({
+      where: { id: req.params.pubId as string, aulaId: req.params.id as string, isDeleted: { not: true } }
+    });
+    if (!publication) return res.status(404).json({ error: "publicacion not found" });
+    if (publication.authorId !== requesterId) {
+      return res.status(403).json({ error: "solo quien publicó puede editar este mensaje" });
+    }
+    const updated = await prisma.publicacion.update({
+      where: { id: publication.id },
+      data: { body: payload.contenido.trim(), updatedAt: new Date().toISOString() }
+    });
+    await recordAuditLog({
+      actorId: requesterId,
+      action: "publicaciones.update",
+      targetType: "publicacion",
+      targetId: publication.id,
+      metadata: { aulaId: publication.aulaId }
+    });
+    res.json(updated);
+  }
+);
+
+// FIX-PUBLICACIONES-BORRAR — el dueño del mensaje siempre puede
+// borrar el propio; además el staff del aula (mismo criterio que
+// habilita crear publicaciones) puede moderar y borrar cualquiera.
+// Soft delete: reusa isDeleted/deletedBy, que ya existían en el
+// modelo pero nunca se escribían desde una ruta.
+publicaciones.delete(
+  "/api/aulas/:id/publicaciones/:pubId",
+  requireUser,
+  requireClassroomScope({ allowMemberRoles: "any", allowSchoolMatch: true }),
+  async (req, res) => {
+    const requester = getRequester(req as { user?: { _id?: { toString?: () => string }; role?: string } });
+    const requesterId = getRequesterId(requester);
+    if (!requesterId) return res.status(403).json({ error: "forbidden" });
+    const publication = await prisma.publicacion.findFirst({
+      where: { id: req.params.pubId as string, aulaId: req.params.id as string, isDeleted: { not: true } }
+    });
+    if (!publication) return res.status(404).json({ error: "publicacion not found" });
+    const classroom = res.locals.classroom;
+    const isOwner = publication.authorId === requesterId;
+    const isStaffOfClass = isClassroomTeacher(classroom, requesterId, requester?.role ?? null);
+    if (!isOwner && !isStaffOfClass) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+    await prisma.publicacion.update({
+      where: { id: publication.id },
+      data: { isDeleted: true, deletedBy: requesterId, updatedAt: new Date().toISOString() }
+    });
+    await prisma.moderacionEvento.create({
+      data: {
+        tipo: "publicacion_borrada",
+        publicacionId: publication.id,
+        aulaId: publication.aulaId,
+        usuarioId: requesterId,
+        createdAt: new Date().toISOString()
+      }
+    });
+    await recordAuditLog({
+      actorId: requesterId,
+      action: "publicaciones.delete",
+      targetType: "publicacion",
+      targetId: publication.id,
+      metadata: { aulaId: publication.aulaId, isOwner }
+    });
+    res.json({ ok: true });
   }
 );
 

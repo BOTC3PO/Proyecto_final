@@ -8,7 +8,7 @@ import { useCanActAsLearner, useHasRole } from "../auth/use-roles";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabelKey, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
-import { createPublication, fetchPublications, type Publication } from "../services/publicaciones";
+import { createPublication, updatePublication, deletePublication, fetchPublications, type Publication } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchResourceLinks, type ResourceLink, type ResourceLinkType } from "../services/resource-links";
@@ -95,6 +95,9 @@ export default function Aula() {
   const [publicationFiles, setPublicationFiles] = useState<File[]>([]);
   const [publicationStatus, setPublicationStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [publicationMessage, setPublicationMessage] = useState<string | null>(null);
+  const [editingPublicationId, setEditingPublicationId] = useState<string | null>(null);
+  const [editingPublicationBody, setEditingPublicationBody] = useState("");
+  const [publicationActionError, setPublicationActionError] = useState<string | null>(null);
   const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>([]);
   const [progressLoading, setProgressLoading] = useState(true);
   const [progressError, setProgressError] = useState<string | null>(null);
@@ -217,12 +220,8 @@ export default function Aula() {
     setPublicationStatus("submitting");
     setPublicationMessage(null);
     try {
-      const initials = user?.name
-        ? user.name.split(" ").filter(Boolean).map((part) => part[0]).join("").slice(0, 2).toUpperCase()
-        : "AA";
       await createPublication(classroomId, {
         contenido: newPublication.trim(),
-        authorInitials: initials,
         title: t("aula.nuevaPublicacion"),
         archivos: publicationFiles.map((file) => ({ name: file.name, size: file.size, type: file.type })),
       });
@@ -235,6 +234,42 @@ export default function Aula() {
     } catch (error) {
       setPublicationStatus("error");
       setPublicationMessage(error instanceof Error ? error.message : t("aula.noPudimosPublicarLaNovedad"));
+    }
+  };
+
+  const handleStartEditPublication = (publication: Publication) => {
+    setEditingPublicationId(publication.id);
+    setEditingPublicationBody(publication.body);
+    setPublicationActionError(null);
+  };
+
+  const handleCancelEditPublication = () => {
+    setEditingPublicationId(null);
+    setEditingPublicationBody("");
+  };
+
+  const handleSaveEditPublication = async () => {
+    if (!classroomId || !editingPublicationId || !editingPublicationBody.trim()) return;
+    try {
+      await updatePublication(classroomId, editingPublicationId, editingPublicationBody.trim());
+      setEditingPublicationId(null);
+      setEditingPublicationBody("");
+      const activeRef = { current: true };
+      await loadFeed(activeRef);
+    } catch (error) {
+      setPublicationActionError(error instanceof Error ? error.message : "No pudimos editar la publicación.");
+    }
+  };
+
+  const handleDeletePublication = async (publicationId: string) => {
+    if (!classroomId) return;
+    if (!window.confirm(t("aula.confirmarBorrarPublicacion"))) return;
+    try {
+      await deletePublication(classroomId, publicationId);
+      const activeRef = { current: true };
+      await loadFeed(activeRef);
+    } catch (error) {
+      setPublicationActionError(error instanceof Error ? error.message : "No pudimos borrar la publicación.");
     }
   };
 
@@ -527,69 +562,79 @@ export default function Aula() {
             {canActAsLearner && classProgress.length > 0 && (
               <ContinuarCard modules={classProgress} />
             )}
-            {/* Publication input */}
-            <div ref={publicationFormRef} className={cardCls} data-testid="aula-publication-form">
-              <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(userInitials)}`}>
-                  {userInitials}
+            {/* Publication input — FIX-PUBLICACIONES-COMPOSER-ROL: el
+                composer quedaba visible para cualquier rol, pero el back
+                sólo acepta POST de staff (ADMIN/TEACHER, ver
+                requireClassroomScope allowSchoolMatch en publicaciones.ts:
+                cualquier docente de la escuela puede publicar, no sólo el
+                titular del aula — ver test "TEACHER que NO es miembro").
+                Antes un alumno veía el mismo composer y sólo al confirmar
+                le aparecía el 403 crudo "forbidden". Gateado a isTeacher
+                (no isTeacherOfClass: sería más estricto que el back). */}
+            {(isTeacher || isAdmin) && (
+              <div ref={publicationFormRef} className={cardCls} data-testid="aula-publication-form">
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(userInitials)}`}>
+                    {userInitials}
+                  </div>
+                  <input
+                    className={`flex-1 ${inputCls}`}
+                    aria-label={t("aula.escribiUnaNovedad")}
+                    placeholder={t("aula.escribeUnaNovedad")}
+                    value={newPublication}
+                    onChange={(event) => {
+                      setNewPublication(event.target.value);
+                      // UX-03: limpiar el error de publicación apenas el usuario
+                      // corrige (vuelve a escribir).
+                      if (publicationStatus === "error") {
+                        setPublicationStatus("idle");
+                        setPublicationMessage("");
+                      }
+                    }}
+                    disabled={isClassroomReadOnly}
+                  />
+                  <button
+                    className="ml-3 bg-[var(--c-primary)] text-white px-4 py-2 rounded-lg text-sm disabled:opacity-60"
+                    onClick={handleSubmitPublication}
+                    disabled={publicationStatus === "submitting" || isClassroomReadOnly}
+                  >
+                    {publicationStatus === "submitting" ? t("aula.publicando") : t("aula.publicar")}
+                  </button>
                 </div>
-                <input
-                  className={`flex-1 ${inputCls}`}
-                  aria-label={t("aula.escribiUnaNovedad")}
-                  placeholder={t("aula.escribeUnaNovedad")}
-                  value={newPublication}
-                  onChange={(event) => {
-                    setNewPublication(event.target.value);
-                    // UX-03: limpiar el error de publicación apenas el usuario
-                    // corrige (vuelve a escribir).
-                    if (publicationStatus === "error") {
-                      setPublicationStatus("idle");
-                      setPublicationMessage("");
-                    }
-                  }}
-                  disabled={isClassroomReadOnly}
-                />
-                <button
-                  className="ml-3 bg-[var(--c-primary)] text-white px-4 py-2 rounded-lg text-sm disabled:opacity-60"
-                  onClick={handleSubmitPublication}
-                  disabled={publicationStatus === "submitting" || isClassroomReadOnly}
-                >
-                  {publicationStatus === "submitting" ? t("aula.publicando") : t("aula.publicar")}
-                </button>
-              </div>
-              <div className="flex flex-wrap items-center gap-3 mt-3 text-[var(--c-muted)]">
-                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
-                  <span aria-hidden="true">📎</span>
-                  <span className="sr-only">{t("aula.adjuntarArchivo")}</span>
-                </label>
-                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
-                  <span aria-hidden="true">🖼️</span>
-                  <span className="sr-only">{t("aula.adjuntarImagen")}</span>
-                </label>
-                <input
-                  id="aula-archivos" type="file" multiple className="hidden"
-                  onChange={(event) => handleFilesChange(event.target.files)}
-                  disabled={isClassroomReadOnly}
-                />
-                {publicationFiles.length > 0 && (
-                  <span className="text-xs text-[var(--c-muted)]">{publicationFiles.length} archivo(s) adjunto(s)</span>
+                <div className="flex flex-wrap items-center gap-3 mt-3 text-[var(--c-muted)]">
+                  <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
+                    <span aria-hidden="true">📎</span>
+                    <span className="sr-only">{t("aula.adjuntarArchivo")}</span>
+                  </label>
+                  <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
+                    <span aria-hidden="true">🖼️</span>
+                    <span className="sr-only">{t("aula.adjuntarImagen")}</span>
+                  </label>
+                  <input
+                    id="aula-archivos" type="file" multiple className="hidden"
+                    onChange={(event) => handleFilesChange(event.target.files)}
+                    disabled={isClassroomReadOnly}
+                  />
+                  {publicationFiles.length > 0 && (
+                    <span className="text-xs text-[var(--c-muted)]">{publicationFiles.length} archivo(s) adjunto(s)</span>
+                  )}
+                </div>
+                {isClassroomReadOnly && (
+                  <p className="mt-3 text-xs text-amber-600">
+                    Esta aula está {normalizedStatus === "ARCHIVED" ? "archivada" : "bloqueada"} y no admite publicaciones.
+                  </p>
+                )}
+                {publicationMessage && (
+                  <p
+                    role={publicationStatus === "error" ? "alert" : "status"}
+                    aria-live={publicationStatus === "error" ? "assertive" : "polite"}
+                    className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-green-600"}`}
+                  >
+                    {publicationMessage}
+                  </p>
                 )}
               </div>
-              {isClassroomReadOnly && (
-                <p className="mt-3 text-xs text-amber-600">
-                  Esta aula está {normalizedStatus === "ARCHIVED" ? "archivada" : "bloqueada"} y no admite publicaciones.
-                </p>
-              )}
-              {publicationMessage && (
-                <p
-                  role={publicationStatus === "error" ? "alert" : "status"}
-                  aria-live={publicationStatus === "error" ? "assertive" : "polite"}
-                  className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-green-600"}`}
-                >
-                  {publicationMessage}
-                </p>
-              )}
-            </div>
+            )}
 
             {/* Feed */}
             <div className="space-y-4">
@@ -621,9 +666,52 @@ export default function Aula() {
                     <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(publication.authorInitials ?? "?")}`}>
                       {publication.authorInitials ?? "?"}
                     </div>
-                    <div className="font-semibold text-sm text-[var(--c-text)]">{publication.title}</div>
+                    <div className="min-w-0 flex-1">
+                      <div className="font-semibold text-sm text-[var(--c-text)]">{publication.title}</div>
+                      {publication.authorName && (
+                        <div className="text-xs text-[var(--c-muted)]">{publication.authorName}</div>
+                      )}
+                    </div>
+                    {publication.isOwn && editingPublicationId !== publication.id && (
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button
+                          type="button"
+                          className="text-xs text-[var(--c-muted)] hover:text-[var(--c-primary)] px-2 py-1"
+                          onClick={() => handleStartEditPublication(publication)}
+                        >{t("comun.editar")}</button>
+                        <button
+                          type="button"
+                          className="text-xs text-[var(--c-muted)] hover:text-[var(--c-danger)] px-2 py-1"
+                          onClick={() => handleDeletePublication(publication.id)}
+                        >{t("comun.eliminar")}</button>
+                      </div>
+                    )}
                   </div>
-                  <p className="mt-3 text-sm text-[var(--c-text)]">{publication.body}</p>
+                  {editingPublicationId === publication.id ? (
+                    <div className="mt-3 space-y-2">
+                      <textarea
+                        className={`w-full ${inputCls}`}
+                        value={editingPublicationBody}
+                        onChange={(event) => setEditingPublicationBody(event.target.value)}
+                        rows={3}
+                      />
+                      <div className="flex gap-2">
+                        <button
+                          type="button"
+                          className="bg-[var(--c-primary)] text-white px-3 py-1.5 rounded-lg text-xs disabled:opacity-60"
+                          onClick={handleSaveEditPublication}
+                          disabled={!editingPublicationBody.trim()}
+                        >{t("comun.guardar")}</button>
+                        <button
+                          type="button"
+                          className="px-3 py-1.5 rounded-lg text-xs border border-[var(--c-border)]"
+                          onClick={handleCancelEditPublication}
+                        >{t("comun.cancelar")}</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="mt-3 text-sm text-[var(--c-text)]">{publication.body}</p>
+                  )}
                   {publication.links && (
                     <div className="flex gap-6 mt-3">
                       {publication.links.map((link) => (
@@ -632,6 +720,9 @@ export default function Aula() {
                         </a>
                       ))}
                     </div>
+                  )}
+                  {publicationActionError && editingPublicationId === publication.id && (
+                    <p className="text-xs text-[var(--c-danger)] mt-2">{publicationActionError}</p>
                   )}
                   <p className="text-xs text-[var(--c-muted)] mt-2">{publication.publishedAtLabel}</p>
                 </article>

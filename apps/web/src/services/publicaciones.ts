@@ -1,11 +1,18 @@
-import { apiGet, apiPost } from "../lib/api";
+import { apiGet, apiPost, apiPatch, apiDelete } from "../lib/api";
 
 export type Publication = {
   id: string;
+  authorId: string;
+  // FIX-PUBLICACIONES-AUTOR — resueltos por el back (GET) desde
+  // authorId; ya no se aceptan del cliente al crear (se descartaban
+  // en silencio, la columna no existe en Publicacion).
+  authorName: string | null;
   authorInitials: string;
+  isOwn: boolean;
   title: string;
   body: string;
   links?: { label: string; href: string }[];
+  publishedAt: string;
   publishedAtLabel: string;
   archivos?: PublicationAttachment[];
 };
@@ -17,7 +24,13 @@ export type PublicationAttachment = {
 };
 
 type PublicationsResponse = {
-  items: Publication[];
+  items: Omit<Publication, "publishedAtLabel">[];
+};
+
+const formatPublishedAt = (iso: string): string => {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toLocaleString("es-AR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
 };
 
 // FIX-TEST4-PUBLICACIONES-404 — el back expone el POST canónico en
@@ -31,16 +44,23 @@ const publicationsPath = (classroomId: string) =>
 export async function fetchPublications(classroomId?: string): Promise<Publication[]> {
   if (!classroomId) return [];
   const response = await apiGet<PublicationsResponse>(publicationsPath(classroomId));
-  return response.items;
+  return response.items.map((item) => ({ ...item, publishedAtLabel: formatPublishedAt(item.publishedAt) }));
 }
 
 type CreatePublicationPayload = {
   contenido: string;
-  authorInitials?: string;
   title?: string;
   archivos?: PublicationAttachment[];
 };
 
 export async function createPublication(classroomId: string, payload: CreatePublicationPayload): Promise<Publication> {
   return apiPost<Publication>(publicationsPath(classroomId), payload);
+}
+
+export async function updatePublication(classroomId: string, publicationId: string, contenido: string): Promise<Publication> {
+  return apiPatch<Publication>(`${publicationsPath(classroomId)}/${encodeURIComponent(publicationId)}`, { contenido });
+}
+
+export async function deletePublication(classroomId: string, publicationId: string): Promise<void> {
+  await apiDelete<{ ok: boolean }>(`${publicationsPath(classroomId)}/${encodeURIComponent(publicationId)}`);
 }

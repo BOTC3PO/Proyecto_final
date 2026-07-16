@@ -177,12 +177,13 @@ describe("aula.tsx — barra de acciones del docente (Tarea 16)", () => {
     setupUser(STUDENT_USER);
     setupClassroom();
     renderAula();
-    // Esperá a que cargue el aula.
+    // Esperá a que cargue el aula (el composer de novedades está
+    // gateado a staff — FIX-PUBLICACIONES-COMPOSER-ROL — así que un
+    // alumno no lo ve; usamos el feed vacío como señal de "ya cargó").
     await waitFor(() => {
-      expect(
-        screen.getByTestId("aula-publication-form"),
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("feed-empty")).toBeInTheDocument();
     });
+    expect(screen.queryByTestId("aula-publication-form")).not.toBeInTheDocument();
     expect(screen.queryByTestId("aula-actions-bar")).not.toBeInTheDocument();
     // Tarea 18: la matriz de progreso tampoco debe verse para alumnos.
     expect(screen.queryByTestId("progreso-curso-details")).not.toBeInTheDocument();
@@ -194,10 +195,9 @@ describe("aula.tsx — barra de acciones del docente (Tarea 16)", () => {
     // El mock de publicaciones (in-memory) devuelve [] por defecto, eso
     // ya dispara el render del estado vacio.
     renderAula();
-    await waitFor(() => {
-      expect(screen.getByTestId("aula-publication-form")).toBeInTheDocument();
-    });
-    // El feed vacio aparece una vez que deja de estar en loading.
+    // El feed vacio aparece una vez que deja de estar en loading. El
+    // composer no aplica acá: está gateado a staff (FIX-PUBLICACIONES-
+    // COMPOSER-ROL) y este test corre como alumno.
     await waitFor(() => {
       expect(screen.getByTestId("feed-empty")).toBeInTheDocument();
     });
@@ -344,10 +344,10 @@ describe("FIX-AULA-PARAM: leaderboard/actividades se llaman CON el aulaId del pa
     setupUser(STUDENT_USER);
     setupClassroom();
     renderAulaSinQuery();
+    // El composer está gateado a staff (FIX-PUBLICACIONES-COMPOSER-ROL);
+    // este test corre como alumno, así que esperamos el feed vacío.
     await waitFor(() => {
-      expect(
-        screen.getByTestId("aula-publication-form"),
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("feed-empty")).toBeInTheDocument();
     });
     // Candado: el bug original hacía que se llamara con undefined.
     await waitFor(() => {
@@ -365,9 +365,7 @@ describe("FIX-AULA-PARAM: leaderboard/actividades se llaman CON el aulaId del pa
     setupClassroom();
     renderAulaSinQuery();
     await waitFor(() => {
-      expect(
-        screen.getByTestId("aula-publication-form"),
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("feed-empty")).toBeInTheDocument();
     });
     await waitFor(() => {
       expect(fetchUpcomingActivities).toHaveBeenCalledWith("aula-1");

@@ -9,6 +9,7 @@ import {
   computeViewerRoleInClass,
 } from "../lib/classroom-scope";
 import { whereExcluirEspejos } from "../lib/espejo-filtro";
+import { resolveUserNames } from "../lib/resolve-user-names";
 import { provisionarEspejoAlumno } from "../lib/provisionar-espejo";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
@@ -52,23 +53,8 @@ export const ensureUniqueClassCode = async (maxAttempts = 6): Promise<string> =>
 // FIX-TEST4-X05B-NOMBRES — antes el GET devolvía los IDs
 // `createdBy`, `teacherId`, `teacherOfRecord` como strings crudos.
 // El front los mostraba como "user-abc123". Ahora resolvemos esos
-// IDs a `fullName` (cae a `username` si no hay nombre, o al ID si
-// no se encuentra el user). Devuelve los nombres como campos
-// adicionales (`createdByName`, etc.) sin romper los IDs existentes.
-const resolveUserNames = async (userIds: Array<string | null | undefined>) => {
-  const unique = Array.from(new Set(userIds.filter((v): v is string => !!v && typeof v === "string")));
-  if (unique.length === 0) return new Map<string, string>();
-  const users = await prisma.usuario.findMany({
-    where: { id: { in: unique } },
-    select: { id: true, fullName: true, username: true },
-  });
-  const map = new Map<string, string>();
-  for (const u of users) {
-    map.set(u.id, u.fullName || u.username || u.id);
-  }
-  return map;
-};
-
+// con `resolveUserNames` (lib/resolve-user-names.ts, compartida con
+// publicaciones.ts para `authorName`).
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
   if (Number.isNaN(parsed) || parsed <= 0) return 20;
