@@ -459,7 +459,10 @@ export default function Perfil() {
                               className="w-4 h-4 rounded-full shrink-0 border border-black/10"
                               style={{ backgroundColor: "var(--c-primary)" }}
                             />
-                            <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
+                            {/* FIX-TEMA-CIRCULOS — mismo catálogo tema.<id>
+                                que StaffSidebar.tsx, en vez del nombre
+                                crudo de THEME_OPTIONS. */}
+                            <span className="text-sm font-medium text-[var(--c-text)]">{t(`tema.${opt.id}`)}</span>
                             {!owned ? (
                               <span className="ml-auto text-xs font-semibold text-[var(--c-muted)]">🔒 {opt.price}</span>
                             ) : theme === opt.id && (
