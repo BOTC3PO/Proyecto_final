@@ -73,6 +73,13 @@ export default function Aula() {
   // solo para `useMemo` que mira además otras cosas del aula.
   const isAdmin = useHasRole("ADMIN");
   const isTeacher = useHasRole("TEACHER");
+  // FIX-VISTA-PREVIA-STAFF — DIRECTIVO llega acá vía "Ver" en
+  // EnterpriseAulas.tsx (ruta /aulas/:aulaId, StaffLayout). Antes no
+  // se chequeaba en ningún lado de esta página (ni isTeacherOfClass
+  // ni roleLabel ni el gate del composer), así que un directivo veía
+  // "Invitado" y ninguna de las acciones de gestión pese a tener
+  // autoridad sobre toda la escuela.
+  const isDirectivo = useHasRole("DIRECTIVO");
   const canActAsLearner = useCanActAsLearner();
   const isParent = useHasRole("PARENT");
   const userInitials = user?.name
@@ -368,7 +375,7 @@ export default function Aula() {
   // `docs/qa/test-parte-3-profesor.md`.
   const isTeacherOfClass = useMemo(() => {
     if (!user || !classroom) return false;
-    if (isAdmin) return true;
+    if (isAdmin || isDirectivo) return true;
     if (!isTeacher) return false;
     if (classroom.viewerIsTeacher === true) return true;
     if (classroom.viewerIsTeacher === false) return false;
@@ -385,7 +392,7 @@ export default function Aula() {
       return true;
     }
     return false;
-  }, [classroom, user, isAdmin, isTeacher]);
+  }, [classroom, user, isAdmin, isDirectivo, isTeacher]);
 
   // FIX-BUG-ALU-03 — antes un TEACHER global que era
   // STUDENT-miembro en el aula de un colega veía "Docente
@@ -399,10 +406,12 @@ export default function Aula() {
     const ctxRole = (classroom as { viewerRoleInClass?: string | null } | null)?.viewerRoleInClass;
     if (ctxRole === "STUDENT") return t("profesorAulas.estudiante");
     if (isTeacher) return isTeacherOfClass ? t("perfil.docente") : t("aula.docenteInvitado");
+    if (isAdmin) return t("perfil.administrador");
+    if (isDirectivo) return t("comun.directivo");
     if (canActAsLearner) return t("profesorAulas.estudiante");
     if (isParent) return t("aula.familia");
     return t("comun.invitado");
-  }, [isTeacherOfClass, user, isTeacher, canActAsLearner, isParent, classroom, t]);
+  }, [isTeacherOfClass, user, isTeacher, isAdmin, isDirectivo, canActAsLearner, isParent, classroom, t]);
 
   // FIX-BUG-ALU-03 — idem: si la membresía contextual es
   // STUDENT, mostrar "estudiante · pública" aunque el rol
@@ -412,10 +421,12 @@ export default function Aula() {
     const accessTypeLabel = classroom?.accessType === "privada" ? t("aula.privada") : t("aula.publica");
     const ctxRole = (classroom as { viewerRoleInClass?: string | null } | null)?.viewerRoleInClass;
     if (ctxRole === "STUDENT") return `${t("aula.estudiante")} · ${accessTypeLabel}`;
+    if (isAdmin) return `${t("perfil.administrador")} · ${accessTypeLabel}`;
+    if (isDirectivo) return `${t("comun.directivo")} · ${accessTypeLabel}`;
     if (canActAsLearner) return `${t("aula.estudiante")} · ${accessTypeLabel}`;
     if (isParent) return `${t("aula.familiar")} · ${accessTypeLabel}`;
     return `${t("aula.visitante")} · ${accessTypeLabel}`;
-  }, [classroom?.accessType, user, canActAsLearner, isParent, classroom, t]);
+  }, [classroom?.accessType, user, isAdmin, isDirectivo, canActAsLearner, isParent, classroom, t]);
 
   const teacherName = useMemo(() => {
     if (classroom?.teacherName) return classroom.teacherName;
@@ -564,14 +575,15 @@ export default function Aula() {
             )}
             {/* Publication input — FIX-PUBLICACIONES-COMPOSER-ROL: el
                 composer quedaba visible para cualquier rol, pero el back
-                sólo acepta POST de staff (ADMIN/TEACHER, ver
+                sólo acepta POST de staff (ADMIN/DIRECTIVO/TEACHER, ver
+                canPostInClass/STAFF_ROLES en authorization.ts +
                 requireClassroomScope allowSchoolMatch en publicaciones.ts:
-                cualquier docente de la escuela puede publicar, no sólo el
+                cualquier staff de la escuela puede publicar, no sólo el
                 titular del aula — ver test "TEACHER que NO es miembro").
                 Antes un alumno veía el mismo composer y sólo al confirmar
                 le aparecía el 403 crudo "forbidden". Gateado a isTeacher
                 (no isTeacherOfClass: sería más estricto que el back). */}
-            {(isTeacher || isAdmin) && (
+            {(isTeacher || isAdmin || isDirectivo) && (
               <div ref={publicationFormRef} className={cardCls} data-testid="aula-publication-form">
                 <div className="flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(userInitials)}`}>

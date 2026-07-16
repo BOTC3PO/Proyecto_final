@@ -334,7 +334,7 @@ export default function ProfesorAulaConfiguracion() {
           {id && (
             <Link
               className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-              to={`/clases/${encodeURIComponent(id)}`}
+              to={`/aulas/${encodeURIComponent(id)}`}
             >{t("profesorAulaConfiguracion.volverAlAula")}</Link>
           )}
         </div>

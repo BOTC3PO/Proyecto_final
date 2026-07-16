@@ -93,8 +93,15 @@ export default function EnterpriseAulas() {
               }`}>
                 {t(getClassroomStatusLabelKey(aula.status))}
               </span>
+              {/* FIX-VISTA-PREVIA-STAFF — antes iba a `/clases?id=...`, que
+                  matchea la ruta LISTA (`clases`, MisClases) no
+                  `clases/:aulaId`: el query param nunca se leía y el botón
+                  mostraba el listado genérico del propio staff en vez del
+                  aula clickeada. `/aulas/:aulaId` (StaffLayout) usa el
+                  path param, igual que ya hacía "Entrar" en
+                  ProfesorAulas.tsx. */}
               <Link
-                to={`/clases?id=${getAulaId(aula)}`}
+                to={`/aulas/${encodeURIComponent(getAulaId(aula))}`}
                 className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
               >{t("enterpriseAulas.ver")}</Link>
             </div>

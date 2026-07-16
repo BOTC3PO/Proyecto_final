@@ -154,10 +154,22 @@ export const router = createBrowserRouter([
         ],
       },
 
-      // ── Layout Alumno (USER + vista alumno para staff) ────────────────────
+      // ── Layout Alumno (USER + PARENT) ──────────────────────────────────────
+      // FIX-VISTA-PREVIA-STAFF — TEACHER/DIRECTIVO/ADMIN sacados de este
+      // `allow`: entrar acá bajo su PROPIA cuenta (sin cambiar a la cuenta
+      // espejo) producía bugs visuales sistemáticos en varias páginas
+      // (navbar mezclado, labels de rol incorrectos, dashboards mostrando
+      // datos propios como si fueran de un alumno — ver
+      // docs/qa/bug-visual-aula-rol-dual.md y
+      // docs/qa/test-parte-3-profesor*.md, bugs 2.5/2.6). La única forma
+      // real de ver el lado alumno sigue siendo la cuenta espejo
+      // (switchCuenta, sesión distinta con role=USER real). La excepción
+      // es `/clases/:aulaId`: eso es la vista de gestión del aula que un
+      // docente/directivo/admin SÍ usa con su cuenta propia — ahora vive
+      // en `/aulas/:aulaId` bajo el layout staff (ver más abajo).
       {
         element: (
-          <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
+          <ProtectedRoute allow={['USER', 'PARENT']}>
             <AlumnoLayout />
           </ProtectedRoute>
         ),
@@ -249,6 +261,19 @@ export const router = createBrowserRouter([
                 {withSuspense(<ProfesorAulaConfiguracion />)}
               </ProtectedRoute>
             ),
+          },
+          // FIX-VISTA-PREVIA-STAFF — vista de gestión del aula (feed de
+          // novedades, tomar asistencia, publicar anuncio, progreso,
+          // etc.) para TEACHER/DIRECTIVO/ADMIN con su cuenta propia.
+          // Mismo componente que usa el alumno (`Clases` = pages/aula.tsx,
+          // internamente ya distingue el rol vía isTeacherOfClass/
+          // isTeacher), pero servido bajo StaffLayout para no mezclar
+          // el navbar/chrome de alumno. Reemplaza el uso de
+          // `/clases/:aulaId` para estos tres roles (ver "Entrar"/"Ver"
+          // en ProfesorAulas.tsx / EnterpriseAulas.tsx).
+          {
+            path: 'aulas/:aulaId',
+            element: withSuspense(<Clases />),
           },
           {
             path: 'profesor/evaluaciones',

@@ -609,10 +609,10 @@ export default function ProfesorAulas() {
                     // card. Ahora: dos botones primarios
                     // prominentes ("Entrar" y "Configurar") y un
                     // menú kebab con el resto. "Entrar" lleva a
-                    // la vista del aula (`/clases/:aulaId`) que
-                    // es la misma URL que usa el alumno, así el
-                    // docente entra al aula con un click desde
-                    // el listado.
+                    // la vista del aula (`/aulas/:aulaId`,
+                    // StaffLayout — FIX-VISTA-PREVIA-STAFF), así
+                    // el docente entra al aula con un click desde
+                    // el listado sin la navegación de alumno.
                     <AulaCardActions
                       classroomId={(classroom as { _id?: string } & typeof classroom)._id ?? classroom.id}
                       isSubmitting={isSubmitting}
@@ -637,7 +637,7 @@ export default function ProfesorAulas() {
  * FIX-BUG-NEW-01 — Componente de acciones de la card de aula.
  * Dos botones primarios ("Entrar" y "Configurar") + menú kebab
  * con el resto de acciones. "Entrar" navega a la vista del aula
- * (`/clases/:aulaId`) que es la MISMA URL que el alumno usa;
+ * (`/aulas/:aulaId`, bajo StaffLayout — FIX-VISTA-PREVIA-STAFF);
  * el docente entra con un click desde el listado sin tener que
  * configurar primero.
  */
@@ -675,7 +675,7 @@ function AulaCardActions({
   return (
     <div className="mt-4 flex flex-wrap items-center gap-2">
       <Link
-        to={`/clases/${encodeURIComponent(classroomId)}`}
+        to={`/aulas/${encodeURIComponent(classroomId)}`}
         data-testid={`aula-card-entrar-${classroomId}`}
         // FIX-BUG-NEW-01 — botón primario "Entrar" siempre
         // visible. La card es para teachers; el docente entra
