@@ -820,6 +820,7 @@
   "profesorCalificaciones.evaluacionesFormales": "Evaluaciones formales",
   "profesorCalificaciones.noHayEvaluacionesFormalesCompletadas": "No hay evaluaciones formales completadas en esta aula.",
   "profesorCalificaciones.verDetalle": "Ver detalle",
+  "profesorCalificaciones.alumnoDesconocido": "Alumno desconocido",
 
   "profesorEncuestas.creaYGestionaEncuestasPara": "Crea y gestiona encuestas para decidir opciones con tus alumnos.",
   "profesorEncuestas.crearEncuesta": "Crear encuesta",

@@ -768,6 +768,7 @@
   "profesorCalificaciones.evaluacionesFormales": "正式な評価",
   "profesorCalificaciones.noHayEvaluacionesFormalesCompletadas": "この教室には、まだ正式な評価が完了していません。",
   "profesorCalificaciones.verDetalle": "詳細を表示",
+  "profesorCalificaciones.alumnoDesconocido": "不明な生徒",
   "profesorEncuestas.creaYGestionaEncuestasPara": "生徒と一緒に選択肢を決定するためのアンケートを作成および管理します。",
   "profesorEncuestas.crearEncuesta": "アンケートを作成",
   "profesorEncuestas.seleccionaUnAula": "教室を選択",

@@ -54,6 +54,7 @@ import {
 } from "../lib/vblang-materialize";
 import { parseComposition, selectPoolIndices } from "../lib/quiz-composition";
 import { excluirEspejosDeIds } from "../lib/espejo-filtro";
+import { resolveUserNames } from "../lib/resolve-user-names";
 // Etapa 1 (Tiza — preguntas nativas) — sorteo nuevo, sólo para quizzes que
 // declaran `settings.preguntas` (schema independiente de `composition`).
 import {
@@ -1338,6 +1339,12 @@ quizAttempts.get(
         ? await prisma.modulo.findMany({ where: { id: { in: moduleIds } } })
         : [];
       const moduloById = new Map(moduleRecords.map((m) => [m.id, m]));
+      // FIX-CALIFICACIONES-ALUMNO — ProfesorCalificaciones.tsx lista
+      // intentos de VARIOS alumnos de un aula (modo 3, con aulaId) pero
+      // el DTO nunca traía un nombre — la fila no tenía forma de decir
+      // de quién era cada entrega. Mismo patrón de resolveUserNames ya
+      // usado en aulas.ts/publicaciones.ts/modulos.ts.
+      const userNameMap = await resolveUserNames(page.map((a) => a.userId));
 
       const items = page.map((a) => {
         const quizRecord = quizById.get(a.quizId);
@@ -1350,6 +1357,7 @@ quizAttempts.get(
           moduleId: quizRecord?.moduleId ?? null,
           moduleTitle: modulo?.titulo ?? undefined,
           userId: a.userId,
+          userName: userNameMap.get(a.userId) ?? undefined,
           status: a.status,
           startedAt: a.startedAt,
           submittedAt: a.submittedAt ?? null,

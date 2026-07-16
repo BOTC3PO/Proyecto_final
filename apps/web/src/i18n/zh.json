@@ -768,6 +768,7 @@
   "profesorCalificaciones.evaluacionesFormales": "正式评估",
   "profesorCalificaciones.noHayEvaluacionesFormalesCompletadas": "此教室没有完成任何正式评估。",
   "profesorCalificaciones.verDetalle": "查看详情",
+  "profesorCalificaciones.alumnoDesconocido": "未知学生",
   "profesorEncuestas.creaYGestionaEncuestasPara": "创建和管理调查问卷，以便与您的学生一起决定选项。",
   "profesorEncuestas.crearEncuesta": "创建问卷",
   "profesorEncuestas.seleccionaUnAula": "选择一个教室",

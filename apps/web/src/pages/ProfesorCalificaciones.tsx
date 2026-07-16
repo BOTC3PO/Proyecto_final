@@ -17,9 +17,14 @@ type QuizAttemptResult = {
   score?: number;
   maxScore?: number;
   quizType?: string;
-  completedAt?: string;
-  createdAt?: string;
+  // FIX-CALIFICACIONES-ALUMNO — el back nunca mandó `completedAt`/
+  // `createdAt` (el modelo real usa `submittedAt`/`startedAt`, ver
+  // quiz-attempts.ts); estos dos campos siempre eran `undefined` y la
+  // fecha de cada fila mostraba "—" sin importar el intento.
+  submittedAt?: string;
+  startedAt?: string;
   userId?: string;
+  userName?: string;
 };
 
 export default function ProfesorCalificaciones() {
@@ -189,10 +194,18 @@ export default function ProfesorCalificaciones() {
                   {lista.slice(0, 10).map((a) => (
                     <div key={a.id}
                       className="flex items-center justify-between rounded-lg bg-[var(--c-bg)] px-3 py-2 text-xs">
-                      <span className="text-[var(--c-muted)]">
-                        {a.completedAt ?? a.createdAt
-                          ? new Date(a.completedAt ?? a.createdAt ?? "").toLocaleDateString("es-AR")
-                          : "—"}
+                      <span className="flex items-center gap-2 min-w-0">
+                        {/* FIX-CALIFICACIONES-ALUMNO — antes esta lista no
+                            decía de qué alumno era cada entrega (sólo se
+                            veía al abrir "Ver detalle" uno por uno). */}
+                        <span className="font-medium text-[var(--c-text)] truncate">
+                          {a.userName ?? t("profesorCalificaciones.alumnoDesconocido")}
+                        </span>
+                        <span className="text-[var(--c-muted)] shrink-0">
+                          {a.submittedAt ?? a.startedAt
+                            ? new Date(a.submittedAt ?? a.startedAt ?? "").toLocaleDateString("es-AR")
+                            : "—"}
+                        </span>
                       </span>
                       <span className="flex items-center gap-2">
                         <span className={`font-semibold ${
