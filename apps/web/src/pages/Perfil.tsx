@@ -86,7 +86,8 @@ export default function Perfil() {
   const [progresoStatus, setProgresoStatus] =
     useState<"idle" | "loading" | "ready">("idle");
   const [activeTab, setActiveTab] = useState<"perfil" | "progreso" | "logros" | "apariencia">("perfil");
-  const { theme, setTheme, availableThemes } = useTheme();
+  const navigate = useNavigate();
+  const { theme, setTheme, availableThemes, isThemeOwned } = useTheme();
   const { lang, setLang, availableLanguages, t } = useI18n();
 
   useEffect(() => {
@@ -430,29 +431,49 @@ export default function Perfil() {
                   <div className="space-y-3">
                     <p className="text-sm text-[var(--c-muted)]">{t("perfil.elegiElTemaVisualDe")}</p>
                     <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-                      {THEME_OPTIONS.filter((opt) => availableThemes.some((th) => th.id === opt.id)).map((opt) => (
-                        <button
-                          key={opt.id}
-                          type="button"
-                          data-theme={opt.id}
-                          onClick={() => setTheme(opt.id)}
-                          className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
-                            theme === opt.id
-                              ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] ring-1 ring-[var(--c-primary)]"
-                              : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
-                          }`}
-                        >
-                          <span
-                            className="w-4 h-4 rounded-full shrink-0 border border-black/10"
-                            style={{ backgroundColor: "var(--c-primary)" }}
-                          />
-                          <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
-                          {theme === opt.id && (
-                            <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">{t("perfil.activo")}</span>
-                          )}
-                        </button>
-                      ))}
+                      {THEME_OPTIONS.filter((opt) => availableThemes.some((th) => th.id === opt.id)).map((opt) => {
+                        const owned = isThemeOwned(opt.id);
+                        return (
+                          <button
+                            key={opt.id}
+                            type="button"
+                            data-theme={opt.id}
+                            // FIX-TEMAS-SIN-COMPRAR — antes este selector no
+                            // chequeaba si el tema estaba comprado; ahora
+                            // setTheme() ya lo bloquea del lado del context,
+                            // acá sólo reflejamos el estado (deshabilitado +
+                            // link a la tienda) para que no sea un click
+                            // silencioso que no hace nada.
+                            onClick={() => owned && setTheme(opt.id)}
+                            disabled={!owned}
+                            title={owned ? undefined : t("perfil.comprarEnLaTienda")}
+                            className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
+                              !owned
+                                ? "border-[var(--c-border)] bg-[var(--c-surface)] opacity-50 cursor-not-allowed"
+                                : theme === opt.id
+                                ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] ring-1 ring-[var(--c-primary)]"
+                                : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
+                            }`}
+                          >
+                            <span
+                              className="w-4 h-4 rounded-full shrink-0 border border-black/10"
+                              style={{ backgroundColor: "var(--c-primary)" }}
+                            />
+                            <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
+                            {!owned ? (
+                              <span className="ml-auto text-xs font-semibold text-[var(--c-muted)]">🔒 {opt.price}</span>
+                            ) : theme === opt.id && (
+                              <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">{t("perfil.activo")}</span>
+                            )}
+                          </button>
+                        );
+                      })}
                     </div>
+                    <button
+                      type="button"
+                      onClick={() => navigate('/tienda-temas')}
+                      className="text-xs font-medium text-[var(--c-primary)] hover:underline"
+                    >{t("perfil.irALaTiendaDeTemas")}</button>
                   </div>
                 )}
 

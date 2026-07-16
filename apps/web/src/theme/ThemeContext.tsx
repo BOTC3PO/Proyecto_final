@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState,
   type ReactNode } from "react";
 import { useAuth } from "../auth/use-auth";
 import { usePrimaryRole } from "../auth/use-roles";
+import { fetchMisItems } from "../services/tienda";
 
 export type ThemeId =
   | "tiza" | "tiza-dark"
@@ -107,12 +108,14 @@ type ThemeContextValue = {
   theme: ThemeId;
   setTheme: (id: ThemeId) => void;
   availableThemes: ThemeOption[];
+  isThemeOwned: (id: ThemeId) => boolean;
 };
 
 const ThemeContext = createContext<ThemeContextValue>({
   theme: "tiza",
   setTheme: () => {},
   availableThemes: [],
+  isThemeOwned: () => false,
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -135,6 +138,46 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return allowed[0] ?? "tiza";
   });
 
+  // FIX-TEMAS-SIN-COMPRAR — `setTheme` sólo validaba `allowed` (el set
+  // por ROL, THEMES_BY_ROLE), nunca si el usuario había comprado el
+  // tema. TiendaTemas.tsx armaba su propio gate de compra a mano (UI),
+  // pero Perfil.tsx tiene su propio selector que llama `setTheme`
+  // directo — sin ese gate, cualquier tema de pago quedaba
+  // "activable" gratis desde el perfil. Se mueve la verificación de
+  // dueño acá (única fuente de la verdad para CUALQUIER selector,
+  // presente o futuro), usando el mismo endpoint autoritativo del
+  // back (`/api/tienda/mis-items`) que ya consumía TiendaTemas.tsx.
+  // `null` = todavía no cargó la lista de compras: mientras tanto no
+  // se considera dueño de ningún tema de pago (fail-closed).
+  const [ownedThemeIds, setOwnedThemeIds] = useState<string[] | null>(null);
+
+  useEffect(() => {
+    if (!user?.id) { setOwnedThemeIds([]); return; }
+    let active = true;
+    fetchMisItems()
+      .then((items) => {
+        if (!active) return;
+        const owned = items
+          .filter((i) => i.tipo === "tema")
+          .map((i) => {
+            const raw = i.asset_id ?? i.item_id;
+            return raw.startsWith("tema-") ? raw.slice(5) : raw;
+          });
+        setOwnedThemeIds(owned);
+      })
+      .catch(() => { if (active) setOwnedThemeIds([]); });
+    return () => { active = false; };
+  }, [user?.id]);
+
+  const isThemeOwned = (id: ThemeId): boolean => {
+    const opt = THEME_OPTIONS.find((o) => o.id === id);
+    // Temas fuera del catálogo de la tienda (ej. "admin", exclusivo de
+    // rol) no se compran — no corresponde bloquearlos acá.
+    if (!opt) return true;
+    if (opt.price === 0) return true;
+    return ownedThemeIds !== null && ownedThemeIds.includes(id);
+  };
+
   useEffect(() => {
     const handler = () => {
       setThemeState('tiza');
@@ -144,9 +187,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return () => window.removeEventListener('vb:logout', handler);
   }, []);
 
+  // Corrige un tema ya activo (guardado en localStorage antes de este
+  // fix) que resulte no comprado una vez que la lista de compras
+  // terminó de cargar — cierra el hueco para sesiones que ya se
+  // habían "colado" un tema de pago sin pasar por la tienda.
+  useEffect(() => {
+    if (ownedThemeIds === null) return;
+    if (isThemeOwned(theme)) return;
+    setThemeState(allowed[0] ?? "tiza");
+    try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ownedThemeIds]);
+
   const setTheme = (id: ThemeId) => {
     if (forceTheme) return;
     if (!allowed.includes(id)) return;
+    if (!isThemeOwned(id)) return;
     setThemeState(id);
     try { localStorage.setItem(STORAGE_KEY, id); } catch { /* ignore */ }
   };
@@ -165,7 +221,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   );
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, availableThemes }}>
+    <ThemeContext.Provider value={{ theme, setTheme, availableThemes, isThemeOwned }}>
       {children}
     </ThemeContext.Provider>
   );
