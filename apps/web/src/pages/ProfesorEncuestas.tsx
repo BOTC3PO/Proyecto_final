@@ -14,7 +14,10 @@ import { getAulaId } from "../lib/aula-id";
 import { useI18n } from "../i18n/I18nContext";
 import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 
-const toLocalInputValue = (date: Date) => date.toISOString().slice(0, 16);
+const toLocalInputValue = (date: Date) => {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+};
 
 export default function ProfesorEncuestas() {
   const { t } = useI18n();
