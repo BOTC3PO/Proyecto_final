@@ -15,7 +15,7 @@ import type {
 type Status = "loading" | "ready" | "error";
 
 export default function PlantillasModeracion() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [items, setItems] = useState<PlantillaListItem[]>([]);
   const [status, setStatus] = useState<Status>("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -84,7 +84,7 @@ export default function PlantillasModeracion() {
                     <h3 className="font-semibold text-sm">{p.nombre}</h3>
                     <p className="text-xs text-[var(--c-muted,#64748b)] mt-0.5">
                       por {p.ownerName ?? p.ownerUserId} ·{" "}
-                      {new Date(p.updatedAt).toLocaleDateString()}
+                      {new Date(p.updatedAt).toLocaleDateString(lang)}
                       {p.materia ? ` · ${p.materia}` : ""}
                     </p>
                     {p.descripcion && (

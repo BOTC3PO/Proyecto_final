@@ -40,7 +40,7 @@ function tizaHref(quizId: string): string {
 }
 
 function CuestionarioCard({ item }: { item: CuestionarioListItem }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const updated = new Date(item.updatedAt);
   return (
     <article
@@ -84,7 +84,7 @@ function CuestionarioCard({ item }: { item: CuestionarioListItem }) {
         )}
       </div>
       <footer className="mt-3 flex items-center justify-between text-[10px] text-[var(--c-muted,#64748b)]">
-        <span>Actualizado {updated.toLocaleDateString()}</span>
+        <span>Actualizado {updated.toLocaleDateString(lang)}</span>
         <Link
           to={tizaHref(item.id)}
           className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-[10px] font-medium text-white hover:opacity-90"

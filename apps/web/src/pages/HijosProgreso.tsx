@@ -9,7 +9,7 @@ import {
 } from "../services/padres";
 
 export default function HijosProgreso() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const navigate = useNavigate();
   const [busqueda, setBusqueda] = useState("");
   const [area, setArea] = useState<"Todas" | "Matemática" | "Lengua" | "Ciencias" | "Historia" | "Geografía" | "Arte" | "Otro">("Todas");
@@ -392,7 +392,7 @@ export default function HijosProgreso() {
                           <div className="flex items-center gap-3">
                             {ev.fecha && (
                               <span className="text-[var(--c-muted)]">
-                                {new Date(ev.fecha).toLocaleDateString("es-AR")}
+                                {new Date(ev.fecha).toLocaleDateString(lang)}
                               </span>
                             )}
                             <span className={`font-semibold ${

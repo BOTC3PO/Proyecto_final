@@ -44,6 +44,7 @@ function PlantillaCard({
   onFork: (id: string) => void;
   onClonar: (id: string) => void;
 }) {
+  const { lang } = useI18n();
   const updated = new Date(item.updatedAt);
   return (
     <article className="rounded-xl border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-4 shadow-sm hover:shadow transition-shadow">
@@ -98,7 +99,7 @@ function PlantillaCard({
         </div>
       )}
       <footer className="mt-3 flex items-center justify-between text-[10px] text-[var(--c-muted,#64748b)]">
-        <span>Actualizada {updated.toLocaleDateString()}</span>
+        <span>Actualizada {updated.toLocaleDateString(lang)}</span>
         <div className="flex gap-2">
           {mode === "biblioteca" ? (
             item.esOficial ? (

@@ -134,7 +134,7 @@ const defaultEconomyState: EconomyState = {
 };
 
 export default function Economia() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { user } = useAuth();
 
   const [activeTab, setActiveTab] = useState<'tablero' | 'invertir' | 'simulador' | 'intercambio'>('tablero');
@@ -306,7 +306,7 @@ export default function Economia() {
         rescatado_at: null,
       }]);
       setInstrumentoMsg(
-        `✓ Plazo fijo abierto. Vence el ${new Date(result.venceAt).toLocaleDateString("es-AR")}. ` +
+        `✓ Plazo fijo abierto. Vence el ${new Date(result.venceAt).toLocaleDateString(lang)}. ` +
         `Recibirás ${result.total.toFixed(2)} 🪙.`
       );
       setCoinFeedback({
@@ -583,7 +583,7 @@ export default function Economia() {
                   <div className="flex items-center justify-between py-2">
                     <span className="text-xs text-[var(--c-muted)]">{t("economia.vigenciaDelCiclo")}</span>
                     <span className="text-xs text-[var(--c-muted)]">
-                      hasta {new Date(cicloActivo.fin).toLocaleDateString('es-AR')}
+                      hasta {new Date(cicloActivo.fin).toLocaleDateString(lang)}
                     </span>
                   </div>
                 </>

@@ -28,7 +28,7 @@ type QuizAttemptResult = {
 };
 
 export default function ProfesorCalificaciones() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { user } = useAuth();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
@@ -203,7 +203,7 @@ export default function ProfesorCalificaciones() {
                         </span>
                         <span className="text-[var(--c-muted)] shrink-0">
                           {a.submittedAt ?? a.startedAt
-                            ? new Date(a.submittedAt ?? a.startedAt ?? "").toLocaleDateString("es-AR")
+                            ? new Date(a.submittedAt ?? a.startedAt ?? "").toLocaleDateString(lang)
                             : "—"}
                         </span>
                       </span>

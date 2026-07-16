@@ -144,7 +144,7 @@ const TareaRow: React.FC<{ tarea: TareaResumen }> = ({ tarea }) => {
 };
 
 export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass }) => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { user } = useAuth();
   const [completedModules, setCompletedModules] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -231,7 +231,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
         {/* Saludo */}
         <div>
           <p className="text-xs uppercase tracking-widest text-[var(--c-muted)] mb-1">
-            {new Date().toLocaleDateString("es-AR", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
+            {new Date().toLocaleDateString(lang, { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
           </p>
           <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("menualumno.bienvenido")}<span className="text-[var(--c-primary)]">{student.name}</span>
           </h1>

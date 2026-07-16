@@ -14,7 +14,7 @@ type ResultsMap = Record<string, SurveyResults>;
 
 const usuarioId = "demo-alumno";
 export default function AlumnoEncuestas() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   // PLAN-H §3: llegar con ?aulaId=... (desde la tarjeta de encuestas del
   // aula) fija el aula y esconde el selector.
   const location = useLocation();
@@ -255,7 +255,7 @@ export default function AlumnoEncuestas() {
                     </span>
                   </div>
                   <p className="text-xs text-[var(--c-muted)]">
-                    Disponible hasta {new Date(survey.endAt).toLocaleString("es-AR")}
+                    Disponible hasta {new Date(survey.endAt).toLocaleString(lang)}
                   </p>
 
                   {/* Opciones de votación */}

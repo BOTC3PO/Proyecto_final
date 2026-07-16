@@ -66,7 +66,7 @@ function getAvatarColor(initials: string): string {
 }
 
 export default function Aula() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { user } = useAuth();
   // MULTIROL-02: leer cada rol por helper centralizado (mirando
   // `roles[]` con fallback al singular). El `user.role` se mantiene
@@ -160,7 +160,7 @@ export default function Aula() {
     setFeedError(null);
     try {
       const [publicationsResponse, leaderboardResponse, activitiesResponse] = await Promise.all([
-        fetchPublications(classroomId ?? undefined),
+        fetchPublications(classroomId ?? undefined, lang),
         fetchLeaderboard(classroomId ?? undefined),
         fetchUpcomingActivities(classroomId ?? undefined),
       ]);
@@ -921,7 +921,7 @@ export default function Aula() {
                         <span className="text-xs font-semibold text-[var(--c-text)]">{t("aula.parcial")}</span>
                         {examen.fechaExamen && (
                           <span className="text-xs text-[var(--c-muted)]">
-                            {new Date(examen.fechaExamen).toLocaleDateString("es-AR", { day: "numeric", month: "short" })}
+                            {new Date(examen.fechaExamen).toLocaleDateString(lang, { day: "numeric", month: "short" })}
                           </span>
                         )}
                       </div>

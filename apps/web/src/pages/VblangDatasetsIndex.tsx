@@ -41,6 +41,7 @@ function DatasetCard({
   mode: DatasetsIndexMode;
   onDelete: (id: string) => void;
 }) {
+  const { lang } = useI18n();
   const updated = new Date(item.updatedAt);
   const cols = Object.keys(item.columnas);
   return (
@@ -89,7 +90,7 @@ function DatasetCard({
         </div>
       )}
       <footer className="mt-3 flex items-center justify-between text-[10px] text-[var(--c-muted,#64748b)]">
-        <span>Actualizado {updated.toLocaleDateString()}</span>
+        <span>Actualizado {updated.toLocaleDateString(lang)}</span>
         {mode === "mias" && (
           <button
             type="button"

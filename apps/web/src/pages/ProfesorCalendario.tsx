@@ -83,7 +83,7 @@ function eventoEnDia(ev: EventoCalendario, dia: string): boolean {
 }
 
 export default function ProfesorCalendario() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: canEditEscuela = directivo o admin. canEditAula = staff.
@@ -438,7 +438,7 @@ export default function ProfesorCalendario() {
               <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
                 <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">
                   {new Date(diaSeleccionado + "T12:00:00")
-                    .toLocaleDateString("es-AR", {
+                    .toLocaleDateString(lang, {
                       weekday: "long", day: "numeric",
                       month: "long"
                     })}
@@ -483,7 +483,7 @@ export default function ProfesorCalendario() {
                                   <span className="text-[10px] text-[var(--c-muted)]">
                                     hasta {new Date(
                                       ev.fechaFin + "T12:00:00"
-                                    ).toLocaleDateString("es-AR", {
+                                    ).toLocaleDateString(lang, {
                                       day: "numeric", month: "short"
                                     })}
                                   </span>

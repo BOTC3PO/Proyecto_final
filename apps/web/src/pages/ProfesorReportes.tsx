@@ -22,7 +22,7 @@ type AlumnoRiesgo = {
 };
 
 export default function ProfesorReportes() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { user } = useAuth();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
@@ -173,7 +173,7 @@ export default function ProfesorReportes() {
             <div className="px-4 py-3 border-b border-[var(--c-border)]">
               <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("hijosProgreso.boletin")}</p>
               <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                {boletin.alumnos.length} alumnos · Generado {new Date(boletin.generadoEn).toLocaleDateString("es-AR")}
+                {boletin.alumnos.length} alumnos · Generado {new Date(boletin.generadoEn).toLocaleDateString(lang)}
               </p>
             </div>
             <div className="p-4 space-y-3">

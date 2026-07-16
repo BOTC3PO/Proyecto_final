@@ -47,7 +47,7 @@ function statusVariant(s: string): "success" | "warning" | "neutral" | "danger" 
 }
 
 export default function ProfesorIntentoDetalle() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { attemptId } = useParams();
   const [attempt, setAttempt] = useState<StaffAttempt | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -135,10 +135,10 @@ export default function ProfesorIntentoDetalle() {
   }
 
   const submitted = attempt.submittedAt
-    ? new Date(attempt.submittedAt).toLocaleString()
+    ? new Date(attempt.submittedAt).toLocaleString(lang)
     : "—";
   const started = attempt.startedAt
-    ? new Date(attempt.startedAt).toLocaleString()
+    ? new Date(attempt.startedAt).toLocaleString(lang)
     : "—";
 
   const metaItems: { label: string; value: string; badge?: boolean }[] = [

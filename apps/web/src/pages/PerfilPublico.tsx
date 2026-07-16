@@ -35,7 +35,7 @@ type PerfilPublicoData = {
 };
 
 export default function PerfilPublico() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { username } = useParams<{ username: string }>();
   const [data, setData] = useState<PerfilPublicoData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -148,7 +148,7 @@ export default function PerfilPublico() {
           {data.createdAt && (
             <p className="text-xs" style={{ color: "var(--c-muted)" }}>
               Miembro desde{" "}
-              {new Date(data.createdAt).toLocaleDateString("es-AR", {
+              {new Date(data.createdAt).toLocaleDateString(lang, {
                 month: "long", year: "numeric"
               })}
             </p>

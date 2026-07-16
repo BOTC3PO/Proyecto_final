@@ -154,7 +154,7 @@ type QuizAttemptSummary = {
 };
 
 export default function ModuloDetail() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { id } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -770,7 +770,7 @@ export default function ModuloDetail() {
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">{t("moduloDetail.ultimaActualizacion")}</p>
               <p className="mt-0.5 text-sm font-medium text-slate-800">
                 {module.updatedAt
-                  ? new Date(module.updatedAt).toLocaleDateString()
+                  ? new Date(module.updatedAt).toLocaleDateString(lang)
                   : "—"}
               </p>
             </div>
@@ -955,7 +955,7 @@ export default function ModuloDetail() {
                               )}
                               {(attempt.completedAt ?? attempt.createdAt) ? (
                                 <span className="ml-auto text-slate-400">
-                                  {new Date(attempt.completedAt ?? attempt.createdAt ?? "").toLocaleDateString()}
+                                  {new Date(attempt.completedAt ?? attempt.createdAt ?? "").toLocaleDateString(lang)}
                                 </span>
                               ) : null}
                               {/* WO-T2a — "Revisar" abre el intento ya finalizado en modo

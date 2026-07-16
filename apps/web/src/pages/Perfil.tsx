@@ -283,7 +283,7 @@ export default function Perfil() {
                   { label: t("common.usuarioFallback"),         value: `@${perfil.username}` },
                   { label: t("register.labelEmail"),           value: perfil.email },
                   { label: t("perfil.miembroDesde"),   value: perfil.createdAt
-                      ? new Date(perfil.createdAt).toLocaleDateString("es-AR")
+                      ? new Date(perfil.createdAt).toLocaleDateString(lang)
                       : "—" },
                   { label: t("comun.modulosCompletados"), value: `${perfil.modulosCompletados.total} (${perfil.modulosCompletados.publicos} públicos · ${perfil.modulosCompletados.privados} privados)` },
                 ].map(({ label, value }) => (

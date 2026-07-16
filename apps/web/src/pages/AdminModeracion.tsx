@@ -13,7 +13,7 @@ type BanModal = { userId: string; nombre: string } | null;
 type WarnModal = { userId: string; nombre: string } | null;
 
 export default function AdminModeracion() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [clases, setClases] = useState<ClasePublica[]>([]);
   const [mensajes, setMensajes] = useState<MensajeReportado[]>([]);
   const [loadingClases, setLoadingClases] = useState(true);
@@ -112,7 +112,7 @@ export default function AdminModeracion() {
                     <p className="text-sm font-medium text-[var(--c-text)]">{c.nombre ?? c.name ?? c._id}</p>
                     {c.updatedAt && (
                       <p className="text-xs text-[var(--c-muted)]">
-                        Actualizado: {new Date(c.updatedAt).toLocaleDateString("es")}
+                        Actualizado: {new Date(c.updatedAt).toLocaleDateString(lang)}
                       </p>
                     )}
                   </div>
@@ -144,7 +144,7 @@ export default function AdminModeracion() {
                     <p className="text-sm text-[var(--c-text)] line-clamp-2">{m.cuerpo ?? m.body ?? "(sin contenido)"}</p>
                     {m.tipo && <p className="mt-0.5 text-xs text-[var(--c-muted)]">Tipo: {m.tipo}</p>}
                     {m.createdAt && (
-                      <p className="text-xs text-[var(--c-muted)]">{new Date(m.createdAt).toLocaleDateString("es")}</p>
+                      <p className="text-xs text-[var(--c-muted)]">{new Date(m.createdAt).toLocaleDateString(lang)}</p>
                     )}
                   </div>
                   <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600">{t("adminModeracion.reportado")}</span>

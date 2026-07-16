@@ -3,6 +3,7 @@ import { fetchTareas, type TareaResumen } from "../services/tareas";
 import { useI18n } from "../i18n/I18nContext";
 
 function TareaCard({ tarea }: { tarea: TareaResumen }) {
+  const { lang } = useI18n();
   const vence = new Date(tarea.vence);
   const hoy = new Date(); hoy.setHours(23, 59, 59, 0);
   const finSemana = new Date(hoy); finSemana.setDate(finSemana.getDate() + 7);
@@ -26,7 +27,7 @@ function TareaCard({ tarea }: { tarea: TareaResumen }) {
       </div>
       <div className="flex items-center gap-2 flex-shrink-0">
         <span className="text-xs text-[var(--c-muted)]">
-          {new Date(tarea.vence).toLocaleDateString("es-AR", { day: "numeric", month: "short" })}
+          {new Date(tarea.vence).toLocaleDateString(lang, { day: "numeric", month: "short" })}
         </span>
         <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${badgeCls}`}>
           {badgeLabel}

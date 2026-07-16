@@ -3,6 +3,7 @@ import { useAuth } from "../auth/use-auth";
 import { useIsStaff } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
 import { useI18n } from "../i18n/I18nContext";
+import type { LanguageId } from "../i18n";
 import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import {
   fetchHilos, fetchHilo, enviarMensaje,
@@ -32,7 +33,7 @@ const parseDate = (raw: unknown): Date | null => {
 // hora ("14:32"). Para mensajes de hace 3 días no se sabía qué día
 // era. Ahora: si es hoy, solo hora; si fue ayer, "ayer"; si es de
 // esta semana, día corto; si es más viejo, fecha completa.
-const formatMensajeTime = (raw: unknown): string => {
+const formatMensajeTime = (raw: unknown, lang: LanguageId): string => {
   const d = parseDate(raw);
   if (!d) return "";
   const ahora = new Date();
@@ -41,7 +42,7 @@ const formatMensajeTime = (raw: unknown): string => {
     d.getMonth() === ahora.getMonth() &&
     d.getDate() === ahora.getDate();
   if (mismoDia) {
-    return d.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" });
+    return d.toLocaleTimeString(lang, { hour: "2-digit", minute: "2-digit" });
   }
   const ayer = new Date(ahora);
   ayer.setDate(ayer.getDate() - 1);
@@ -50,26 +51,26 @@ const formatMensajeTime = (raw: unknown): string => {
     d.getMonth() === ayer.getMonth() &&
     d.getDate() === ayer.getDate();
   if (fueAyer) {
-    const hora = d.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" });
+    const hora = d.toLocaleTimeString(lang, { hour: "2-digit", minute: "2-digit" });
     return `ayer · ${hora}`;
   }
   const diffMs = ahora.getTime() - d.getTime();
   const diffDias = diffMs / (1000 * 60 * 60 * 24);
   if (diffDias < 7) {
-    const dia = d.toLocaleDateString("es-AR", { weekday: "short" });
-    const hora = d.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" });
+    const dia = d.toLocaleDateString(lang, { weekday: "short" });
+    const hora = d.toLocaleTimeString(lang, { hour: "2-digit", minute: "2-digit" });
     return `${dia} · ${hora}`;
   }
-  return d.toLocaleDateString("es-AR", { day: "2-digit", month: "2-digit", year: "2-digit" });
+  return d.toLocaleDateString(lang, { day: "2-digit", month: "2-digit", year: "2-digit" });
 };
 
 // FIX-TEST4-MSG-FECHA — los avisos antes solo mostraban fecha
 // (`toLocaleDateString`). Ahora incluyen la hora para que se sepa el
 // orden cronológico entre avisos del mismo día.
-const formatAvisoTime = (raw: unknown): string => {
+const formatAvisoTime = (raw: unknown, lang: LanguageId): string => {
   const d = parseDate(raw);
   if (!d) return "";
-  return d.toLocaleString("es-AR", { dateStyle: "short", timeStyle: "short" });
+  return d.toLocaleString(lang, { dateStyle: "short", timeStyle: "short" });
 };
 
 const ROLE_LABELS: Record<string, string> = {
@@ -88,7 +89,7 @@ const DESTINO_LABELS: Record<string, string> = {
 type Tab = "mensajes" | "avisos";
 
 export default function Mensajeria() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: canPublish = staff (DIRECTIVO/TEACHER/ADMIN en
@@ -479,7 +480,7 @@ export default function Mensajeria() {
                           }`}>
                             <p>{m.body}</p>
                             <p className={`text-[10px] mt-1 ${esMio ? "text-white/60" : "text-[var(--c-muted)]"}`}>
-                              {formatMensajeTime(m.created_at)}
+                              {formatMensajeTime(m.created_at, lang)}
                             </p>
                           </div>
                         </div>
@@ -609,7 +610,7 @@ export default function Mensajeria() {
                 <p className="text-xs text-[var(--c-muted)]">{aviso.cuerpo}</p>
                 <div className="flex items-center justify-between pt-1">
                   <span className="text-[10px] text-[var(--c-muted)]">
-                    {formatAvisoTime(aviso.created_at)}
+                    {formatAvisoTime(aviso.created_at, lang)}
                   </span>
                   <div className="flex items-center gap-2">
                     {!aviso.leido && (

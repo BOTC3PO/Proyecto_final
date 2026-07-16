@@ -7,7 +7,7 @@ import { fetchEnterpriseModulos } from "../services/enterprise";
 import { useI18n } from "../i18n/I18nContext";
 
 export default function EnterpriseModulos() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [modules, setModules] = useState<Module[]>([]);
@@ -61,7 +61,7 @@ export default function EnterpriseModulos() {
               <div className="mt-3 flex items-center justify-between">
                 <span className="text-xs text-[var(--c-muted)]">
                   {module.updatedAt
-                    ? new Date(module.updatedAt).toLocaleDateString("es-AR")
+                    ? new Date(module.updatedAt).toLocaleDateString(lang)
                     : "—"}
                 </span>
                 <Link

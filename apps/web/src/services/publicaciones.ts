@@ -27,10 +27,10 @@ type PublicationsResponse = {
   items: Omit<Publication, "publishedAtLabel">[];
 };
 
-const formatPublishedAt = (iso: string): string => {
+const formatPublishedAt = (iso: string, lang: string): string => {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return "";
-  return date.toLocaleString("es-AR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  return date.toLocaleString(lang, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
 };
 
 // FIX-TEST4-PUBLICACIONES-404 — el back expone el POST canónico en
@@ -41,10 +41,10 @@ const formatPublishedAt = (iso: string): string => {
 const publicationsPath = (classroomId: string) =>
   `/api/aulas/${encodeURIComponent(classroomId)}/publicaciones`;
 
-export async function fetchPublications(classroomId?: string): Promise<Publication[]> {
+export async function fetchPublications(classroomId?: string, lang = "es-AR"): Promise<Publication[]> {
   if (!classroomId) return [];
   const response = await apiGet<PublicationsResponse>(publicationsPath(classroomId));
-  return response.items.map((item) => ({ ...item, publishedAtLabel: formatPublishedAt(item.publishedAt) }));
+  return response.items.map((item) => ({ ...item, publishedAtLabel: formatPublishedAt(item.publishedAt, lang) }));
 }
 
 type CreatePublicationPayload = {

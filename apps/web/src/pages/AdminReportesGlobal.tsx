@@ -3,7 +3,7 @@ import { fetchAdminReportesGlobal, type AdminReportesGlobal } from "../services/
 import { useI18n } from "../i18n/I18nContext";
 
 export default function AdminReportesGlobal() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [data, setData] = useState<AdminReportesGlobal | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -145,7 +145,7 @@ export default function AdminReportesGlobal() {
                       </div>
                       {e.createdAt && (
                         <span className="text-xs text-[var(--c-muted)]">
-                          {new Date(e.createdAt).toLocaleDateString("es")}
+                          {new Date(e.createdAt).toLocaleDateString(lang)}
                         </span>
                       )}
                     </div>

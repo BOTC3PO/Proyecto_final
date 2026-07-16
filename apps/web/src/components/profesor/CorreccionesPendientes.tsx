@@ -122,7 +122,7 @@ function ItemCorreccion({
 }
 
 export default function CorreccionesPendientes({ aulaId }: { aulaId?: string }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [attempts, setAttempts] = useState<PendingAttempt[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -198,7 +198,7 @@ export default function CorreccionesPendientes({ aulaId }: { aulaId?: string }) 
                   <p className="text-xs text-[var(--c-muted)]">{a.quizTitle}</p>
                 </div>
                 <span className="text-xs text-[var(--c-muted)]">
-                  {a.submittedAt ? new Date(a.submittedAt).toLocaleDateString("es-AR") : ""}
+                  {a.submittedAt ? new Date(a.submittedAt).toLocaleDateString(lang) : ""}
                 </span>
               </div>
               <div className="space-y-2">

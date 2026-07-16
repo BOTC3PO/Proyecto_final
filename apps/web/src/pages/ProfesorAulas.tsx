@@ -29,7 +29,7 @@ const emptyForm = {
 };
 
 export default function ProfesorAulas() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: leer cada rol por helper centralizado. Un USER
@@ -509,7 +509,7 @@ export default function ProfesorAulas() {
                           docente en lugar del ID crudo. */}
                       {t('profesorAulas.creadaPor')} {classroom.createdByName ?? classroom.createdBy}
                     </span>
-                    <span>{new Date(classroom.updatedAt).toLocaleDateString()}</span>
+                    <span>{new Date(classroom.updatedAt).toLocaleDateString(lang)}</span>
                   </div>
                   <div className="mt-4 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
                     <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("profesorAulas.progresoDeEstudiantes")}</h3>
