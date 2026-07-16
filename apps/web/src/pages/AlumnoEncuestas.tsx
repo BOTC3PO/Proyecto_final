@@ -137,9 +137,20 @@ export default function AlumnoEncuestas() {
         return;
       }
       await voteSurvey(survey.id, payload, usuarioId);
-      const surveyResults = await fetchSurveyResults(survey.id, classroomId);
-      setResults((prev) => ({ ...prev, [survey.id]: surveyResults }));
       setInfo(t("alumnoEncuestas.votoRegistrado"));
+      const canShowResults =
+        now >= new Date(survey.endAt) || survey.status === "cerrada" || survey.showResultsBeforeClose || survey.showResultsRealtime;
+      if (canShowResults) {
+        // Best-effort: si el docente no habilitó ver resultados antes del
+        // cierre, el backend devuelve 403 acá — no debe pisar el mensaje
+        // de "voto registrado" de arriba, que sí refleja lo que pasó.
+        try {
+          const surveyResults = await fetchSurveyResults(survey.id, classroomId);
+          setResults((prev) => ({ ...prev, [survey.id]: surveyResults }));
+        } catch {
+          // resultados no disponibles todavía; el voto ya quedó registrado.
+        }
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : t("alumnoEncuestas.noSePudoRegistrarEl"));
     }
