@@ -157,12 +157,95 @@ function SidebarMenuTrigger({ menu, initials, name, roleLabel }: {
   );
 }
 
+// Disparador compacto del desplegable de tema — mismo patrón visual que
+// SidebarMenuTrigger (swatch chico + texto de dos líneas + chevron que
+// rota), para no gastar la franja fija que ocupaba la grilla de círculos.
+function ThemeMenuTrigger({ menu, activeId, label, tema }: {
+  menu: MenuTriggerProps;
+  activeId: string;
+  label: string;
+  tema: string;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={menu.onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      aria-haspopup={menu["aria-haspopup"]}
+      aria-expanded={menu["aria-expanded"]}
+      aria-controls={menu["aria-controls"]}
+      style={{
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        gap: 'var(--space-3)',
+        paddingBlock: 'var(--space-2)',
+        paddingInline: 'var(--space-4)',
+        background: hovered ? 'var(--c-hover)' : 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+        transition: 'background-color 120ms ease',
+      }}
+    >
+      <span
+        data-theme={activeId}
+        aria-hidden="true"
+        style={{
+          width: 'var(--space-3)',
+          height: 'var(--space-3)',
+          borderRadius: '50%',
+          flexShrink: 0,
+          background: 'linear-gradient(135deg, var(--c-primary), var(--c-accent))',
+          boxShadow: 'inset 0 0 0 1px rgba(128, 128, 128, 0.55)',
+        }}
+      />
+      <span style={{ flex: 1, minWidth: 0, textAlign: 'left' }}>
+        <span
+          style={{
+            display: 'block',
+            fontSize: 'var(--text-xs)',
+            fontWeight: 'var(--fw-medium)',
+            color: 'var(--c-text)',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {label}
+        </span>
+        <span style={{ display: 'block', fontSize: 'var(--text-xs)', color: 'var(--c-muted)' }}>
+          {tema}
+        </span>
+      </span>
+      <svg
+        aria-hidden="true"
+        width="14"
+        height="14"
+        style={{
+          color: 'var(--c-muted)',
+          flexShrink: 0,
+          transition: 'transform 120ms ease',
+          transform: menu["aria-expanded"] ? 'rotate(180deg)' : 'none',
+        }}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  );
+}
+
 function Sidebar({ variant = 'desktop', onNavigate }: {
   variant?: 'desktop' | 'drawer';
   onNavigate?: () => void;
 }) {
   const { user, logout, switchCuenta } = useAuth();
-  const { theme, setTheme, availableThemes } = useTheme();
+  const { theme, setTheme, availableThemes, isThemeOwned } = useTheme();
   const { t } = useI18n();
   const navigate = useNavigate();
   const schoolBranding = useSchoolBranding();
@@ -289,69 +372,93 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
         })}
       </nav>
 
-      {/* Selector de tema */}
+      {/* Selector de tema — FIX-TEMA-CIRCULOS-03: pasa de una grilla de
+          círculos siempre visible a un desplegable (mismo primitivo `Menu`
+          que ya usa el menú de usuario más abajo, con `placement="up"` para
+          no quedar tapado por el footer), así el sidebar deja de gastar una
+          franja fija en esto todo el tiempo. */}
       {availableThemes.length > 1 && (
         <div
           style={{
-            paddingInline: 'var(--space-5)',
-            paddingBlock: 'var(--space-3)',
             borderTopWidth: '1px',
             borderTopStyle: 'solid',
             borderTopColor: 'var(--c-border)',
           }}
         >
-          <p
-            style={{
-              margin: 0,
-              marginBottom: 'var(--space-2)',
-              fontSize: 'var(--text-xs)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              fontWeight: 'var(--fw-medium)',
-              color: 'var(--c-muted)',
-            }}
+          <Menu
+            align="start"
+            placement="up"
+            fullWidth
+            panelWidth="100%"
+            trigger={(p) => (
+              <ThemeMenuTrigger menu={p} activeId={theme} label={t(`tema.${theme}`)} tema={t('common.tema')} />
+            )}
           >
-            {t('common.tema')}
-          </p>
-          <div className="flex flex-wrap" style={{ gap: 'var(--space-1)' }}>
-            {availableThemes.map(opt => {
-              // FIX-TEMA-CIRCULOS — el nombre venía crudo de
-              // THEME_OPTIONS (ThemeContext.tsx), sin pasar por el
-              // catálogo de traducciones. Ahora usa `tema.<id>` (por
-              // ahora sólo en es.json — el resto de los idiomas cae
-              // al español vía el fallback de `translate()` hasta que
-              // se traduzcan).
-              const themeLabel = t(`tema.${opt.id}`);
-              return (
-                <button
-                  key={opt.id}
-                  type="button"
-                  data-theme={opt.id}
-                  onClick={() => setTheme(opt.id)}
-                  title={themeLabel}
-                  aria-label={`${t('common.tema')} ${themeLabel}`}
-                  aria-pressed={theme === opt.id}
-                  className="flex-shrink-0"
-                  style={{
-                    // FIX-TEMA-CIRCULOS — de --space-4 (16px) a --space-3
-                    // (12px): más chico pero sigue siendo un objetivo de
-                    // click claro, con el borde/outline de "activo" y el
-                    // title nuevo compensando la identificación.
-                    width: 'var(--space-3)',
-                    height: 'var(--space-3)',
-                    borderRadius: '50%',
-                    borderWidth: '1px',
-                    borderStyle: 'solid',
-                    background: 'var(--c-primary)',
-                    borderColor: theme === opt.id ? 'var(--c-text)' : 'transparent',
-                    outline: theme === opt.id ? '2px solid var(--c-border)' : 'none',
-                    outlineOffset: '1px',
-                    cursor: 'pointer',
-                  }}
-                />
-              );
-            })}
-          </div>
+            {({ close }) => (
+              <div
+                style={{
+                  padding: 'var(--space-3) var(--space-4)',
+                  background: 'var(--c-surface)',
+                }}
+              >
+                <div className="flex flex-wrap" style={{ gap: 'var(--space-2)' }}>
+                  {availableThemes.map(opt => {
+                    // FIX-TEMA-CIRCULOS — el nombre venía crudo de
+                    // THEME_OPTIONS (ThemeContext.tsx), sin pasar por el
+                    // catálogo de traducciones. Ahora usa `tema.<id>`.
+                    const themeLabel = t(`tema.${opt.id}`);
+                    const owned = isThemeOwned(opt.id);
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        data-theme={opt.id}
+                        onClick={() => { if (owned) { setTheme(opt.id); close(); } }}
+                        disabled={!owned}
+                        title={owned ? themeLabel : `${themeLabel} — ${t('perfil.comprarEnLaTienda')}`}
+                        aria-label={`${t('common.tema')} ${themeLabel}`}
+                        aria-pressed={theme === opt.id}
+                        className="flex-shrink-0"
+                        style={{
+                          // FIX-TEMA-CIRCULOS-02 — --space-3 (12px) a
+                          // --space-2 (8px): más chico. El fondo pasa de un
+                          // color plano (`--c-primary`, siempre
+                          // representativo por el `data-theme={opt.id}` de
+                          // arriba, que scopea las custom properties SOLO a
+                          // este botón) a un degradé primary→accent del
+                          // mismo tema: más "representativo" sin depender de
+                          // un mapa de colores duplicado (ver THEME_META en
+                          // TiendaTemas.tsx, que hace lo mismo a mano para
+                          // su propia vista previa más grande).
+                          width: 'var(--space-2)',
+                          height: 'var(--space-2)',
+                          borderRadius: '50%',
+                          borderWidth: '1px',
+                          borderStyle: 'solid',
+                          background: 'linear-gradient(135deg, var(--c-primary), var(--c-accent))',
+                          // FIX-TEMA-CIRCULOS-03 — ring gris semitransparente
+                          // SIEMPRE presente (no sólo en el tema activo):
+                          // sin esto, temas casi negros (minimal/minimal-v2,
+                          // primary=accent≈#1a1a1a) quedaban invisibles
+                          // contra un `--c-surface` oscuro (ej. tiza-dark),
+                          // porque el borde de "activo" era la única fuente
+                          // de contraste y ahí era `transparent`. Gris medio
+                          // semi-transparente da contraste contra fondos y
+                          // colores claros U oscuros por igual.
+                          boxShadow: '0 1px 2px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(128, 128, 128, 0.55)',
+                          borderColor: theme === opt.id ? 'var(--c-text)' : 'transparent',
+                          outline: theme === opt.id ? '2px solid var(--c-border)' : 'none',
+                          outlineOffset: '1px',
+                          opacity: owned ? 1 : 0.35,
+                          cursor: owned ? 'pointer' : 'not-allowed',
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </Menu>
         </div>
       )}
 
