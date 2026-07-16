@@ -314,30 +314,43 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
             {t('common.tema')}
           </p>
           <div className="flex flex-wrap" style={{ gap: 'var(--space-1)' }}>
-            {availableThemes.map(opt => (
-              <button
-                key={opt.id}
-                type="button"
-                data-theme={opt.id}
-                onClick={() => setTheme(opt.id)}
-                title={opt.name}
-                aria-label={`${t('common.tema')} ${opt.name}`}
-                aria-pressed={theme === opt.id}
-                className="flex-shrink-0"
-                style={{
-                  width: 'var(--space-4)',
-                  height: 'var(--space-4)',
-                  borderRadius: '50%',
-                  borderWidth: '1px',
-                  borderStyle: 'solid',
-                  background: 'var(--c-primary)',
-                  borderColor: theme === opt.id ? 'var(--c-text)' : 'transparent',
-                  outline: theme === opt.id ? '2px solid var(--c-border)' : 'none',
-                  outlineOffset: '1px',
-                  cursor: 'pointer',
-                }}
-              />
-            ))}
+            {availableThemes.map(opt => {
+              // FIX-TEMA-CIRCULOS — el nombre venía crudo de
+              // THEME_OPTIONS (ThemeContext.tsx), sin pasar por el
+              // catálogo de traducciones. Ahora usa `tema.<id>` (por
+              // ahora sólo en es.json — el resto de los idiomas cae
+              // al español vía el fallback de `translate()` hasta que
+              // se traduzcan).
+              const themeLabel = t(`tema.${opt.id}`);
+              return (
+                <button
+                  key={opt.id}
+                  type="button"
+                  data-theme={opt.id}
+                  onClick={() => setTheme(opt.id)}
+                  title={themeLabel}
+                  aria-label={`${t('common.tema')} ${themeLabel}`}
+                  aria-pressed={theme === opt.id}
+                  className="flex-shrink-0"
+                  style={{
+                    // FIX-TEMA-CIRCULOS — de --space-4 (16px) a --space-3
+                    // (12px): más chico pero sigue siendo un objetivo de
+                    // click claro, con el borde/outline de "activo" y el
+                    // title nuevo compensando la identificación.
+                    width: 'var(--space-3)',
+                    height: 'var(--space-3)',
+                    borderRadius: '50%',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    background: 'var(--c-primary)',
+                    borderColor: theme === opt.id ? 'var(--c-text)' : 'transparent',
+                    outline: theme === opt.id ? '2px solid var(--c-border)' : 'none',
+                    outlineOffset: '1px',
+                    cursor: 'pointer',
+                  }}
+                />
+              );
+            })}
           </div>
         </div>
       )}
