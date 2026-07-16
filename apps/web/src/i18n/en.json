@@ -2789,7 +2789,7 @@
   "moduloEditor.fisico": "physical",
   "moduloEditor.m36l6262": "M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16",
   "moduloEditor.sinDetalleAdicional": "No additional details.",
-  "moduloEditor.eliminarEsteRecursoDeTeoria": "Delete this theory",
+  "moduloEditor.eliminarEsteRecursoDeTeoria": "Delete this theory resource? This action cannot be undone.",
   "moduloEditor.indicaSiEsteModuloRequiere": "Indicates whether this module requires completing another module first, or if it unlocks other modules upon completion.",
   "moduloEditor.evaluacionesManualesGeneradasODesde": "Manual evaluations, generated evaluations, or evaluations from VBLang templates.",
   "moduloEditor.scoringsystemid": "Scoring System ID",
