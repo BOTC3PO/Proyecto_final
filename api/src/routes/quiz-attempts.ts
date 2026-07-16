@@ -61,6 +61,7 @@ import {
   sortearCuestionarioPreguntas,
   tienePreguntas,
   validarCuestionarioPreguntas,
+  type CuestionarioPreguntas,
 } from "../lib/quiz-preguntas";
 import type { ContextoSorteo, PoliticaSorteo } from "../lib/quiz-sorteo";
 
@@ -653,13 +654,114 @@ const resolveVblangGrading = async (
 // reusando la MISMA infraestructura de compilación/generación que el
 // camino de una sola plantilla — no se inventa un segundo motor VBLang.
 //
-// Mismo criterio de autoridad que `resolveVblangGrading`: si CUALQUIER
-// slot no se puede materializar server-side (plantilla ausente, o usa
-// generador asistido/dataset sin provider), se cae A TODO el intento a
-// `serverAuthoritative: false` (fallback no-autoritativo) en vez de
-// mezclar slots server-autoritativos con slots que le creen al cliente —
-// mismo espíritu que "no completar con menos preguntas sin avisar" de la
-// validación: no se arma un resultado parcialmente confiable en silencio.
+// Reusado por dos consumidores: `resolvePreguntasGrading` (submit,
+// autoritativo) y el GET de `/api/quiz-attempts/:id` (mostrarle el
+// cuestionario al alumno ANTES de responder — hasta ahora inexistente,
+// ver `tareas_pendientes/PLAN-mostrar-preguntas-nativas-al-alumno.md`).
+//
+// `id` estable entre llamadas independientes: `materializeVblangPool` arma
+// el id como `vb-<fnv1a(seed)>-<contador>`, donde el contador es un GLOBAL
+// de módulo que NUNCA se resetea entre requests (`to-module-quiz-question.ts`,
+// `let idCounter = 0`) — dos GETs separados del mismo intento (ej. el
+// alumno refresca la página) devolverían el MISMO contenido con un id
+// DISTINTO, y las respuestas ya guardadas (F5-01, keyed por id) quedarían
+// huérfanas. El prefijo (`fnv1a(seed)`) sí es 100% determinista (depende
+// sólo del seed del slot, no del contador) — se lo pisa acá con un sufijo
+// fijo `-0` para que el id completo sea estable entre llamadas. El submit
+// sigue funcionando igual de cualquier forma: `resolvePreguntasGrading`
+// reconcilia por PREFIJO contra lo que mande el cliente, nunca por id
+// completo.
+function idEstablePorSlot(materializada: ModuleQuizQuestion): string {
+  return `${questionHashPrefix(materializada.id)}-0`;
+}
+
+// Anti-duplicado (pedido de Javier): si el relleno repite la misma
+// plantilla en varios slots (ver `maxRepeticiones`), el sorteo de VALORES
+// dentro del DSL podría, por azar, generar el MISMO enunciado dos veces
+// (ej. "Cuánto es 1+1?" en dos slots distintos) — con rangos de variables
+// chicos no es tan raro. Presupuesto de reintentos con seed alternativo
+// ANTES de resignarse a aceptar el duplicado (nunca hace fallar el
+// intento por esto: agotado el presupuesto, o si el reintento mismo no
+// materializa, se queda con lo último que sí generó).
+const MAX_REINTENTOS_ANTIDUP = 5;
+
+// Devuelve `null` si CUALQUIER slot no se pudo materializar server-side
+// (plantilla ausente, o usa generador asistido/dataset sin provider) — todo
+// o nada, mismo criterio que el resto del módulo: no se arma un
+// cuestionario parcialmente confiable en silencio.
+async function materializarPreguntasNativas(
+  cuestionario: CuestionarioPreguntas,
+  ctx: ContextoSorteo
+): Promise<ModuleQuizQuestion[] | null> {
+  let resultado: ReturnType<typeof sortearCuestionarioPreguntas>;
+  try {
+    resultado = sortearCuestionarioPreguntas(cuestionario, ctx);
+  } catch {
+    return null;
+  }
+
+  // Cache de compilados por `plantillaId` DENTRO de esta llamada: el
+  // relleno puede repetir la misma plantilla en varios slots.
+  const compiledCache = new Map<string, ReturnType<typeof getCompiledPlantilla> | null>();
+  const materializadas: ModuleQuizQuestion[] = [];
+  // Enunciados ya usados EN ESTE cuestionario (un alumno, un intento) — no
+  // across alumnos ni intentos: cada quien puede repetir independiente.
+  const enunciadosUsados = new Set<string>();
+
+  for (const slot of resultado.slots) {
+    const plantillaId = slot.pregunta.plantillaId;
+    let compiled = compiledCache.get(plantillaId);
+    if (compiled === undefined) {
+      const plantilla = await prisma.plantillaEjercicio.findFirst({ where: { id: plantillaId } });
+      const codigoDsl = (plantilla as { codigoDsl?: string } | null)?.codigoDsl;
+      compiled = codigoDsl ? getCompiledPlantilla(plantillaId, codigoDsl) : null;
+      compiledCache.set(plantillaId, compiled);
+    }
+    // Plantilla ausente, sin DSL, o que necesita un provider que no vive acá
+    // (generador asistido/dataset) → no autoritativo para TODO el intento.
+    if (!compiled) return null;
+    const pool = materializeVblangPool(compiled, slot.seed, 1);
+    if (!pool.ok || pool.questions.length === 0) return null;
+    let materializada = pool.questions[0];
+
+    let reintento = 0;
+    while (enunciadosUsados.has(materializada.prompt) && reintento < MAX_REINTENTOS_ANTIDUP) {
+      const seedAlterno = `${slot.seed}::dup${reintento}`;
+      const poolAlterno = materializeVblangPool(compiled, seedAlterno, 1);
+      if (!poolAlterno.ok || poolAlterno.questions.length === 0) break;
+      materializada = poolAlterno.questions[0];
+      reintento += 1;
+    }
+    enunciadosUsados.add(materializada.prompt);
+
+    // El `puntaje` declarado en `PreguntaQuiz` pisa el `points` que trae la
+    // plantilla materializada (si no está declarado, `gradeAnswers` aplica
+    // su default de 1 vía `questionWeight`, igual que cualquier otro path).
+    const conPuntaje: ModuleQuizQuestion = {
+      ...materializada,
+      id: idEstablePorSlot(materializada),
+      ...(slot.pregunta.puntaje !== undefined ? { points: slot.pregunta.puntaje } : {})
+    };
+    materializadas.push(conPuntaje);
+  }
+
+  return materializadas;
+}
+
+function contextoSorteoPreguntas(
+  quiz: ModuleQuiz,
+  quizId: string,
+  alumnoId: string,
+  intento: number | null | undefined
+): ContextoSorteo {
+  // Política de estabilidad entre intentos: reusa `settings.politicaSorteo`
+  // (WO-3) — mismo concepto ("¿el sorteo cambia entre intentos?"), no se
+  // inventa un campo paralelo para preguntas nativas.
+  const politica: PoliticaSorteo =
+    quiz.politicaSorteo === "por_intento" ? "por_intento" : "fijo_por_alumno";
+  return { quizId, alumnoId, intento: intento ?? 1, politica };
+}
+
 const resolvePreguntasGrading = async (
   quiz: ModuleQuiz,
   attempt: QuizAttemptRecord,
@@ -674,24 +776,9 @@ const resolvePreguntasGrading = async (
   const cuestionario = parseCuestionarioPreguntas(quiz.preguntas);
   if (!validarCuestionarioPreguntas(cuestionario).ok) return fallback();
 
-  // Política de estabilidad entre intentos: reusa `settings.politicaSorteo`
-  // (WO-3) — mismo concepto ("¿el sorteo cambia entre intentos?"), no se
-  // inventa un campo paralelo para preguntas nativas.
-  const politica: PoliticaSorteo =
-    quiz.politicaSorteo === "por_intento" ? "por_intento" : "fijo_por_alumno";
-  const ctx: ContextoSorteo = {
-    quizId: attempt.quizId,
-    alumnoId: attempt.userId,
-    intento: attempt.attemptNo ?? 1,
-    politica
-  };
-
-  let resultado: ReturnType<typeof sortearCuestionarioPreguntas>;
-  try {
-    resultado = sortearCuestionarioPreguntas(cuestionario, ctx);
-  } catch {
-    return fallback();
-  }
+  const ctx = contextoSorteoPreguntas(quiz, attempt.quizId, attempt.userId, attempt.attemptNo);
+  const materializadas = await materializarPreguntasNativas(cuestionario, ctx);
+  if (!materializadas) return fallback();
 
   const clientIdByPrefix = new Map<string, string>();
   const registerClientId = (id: string) => {
@@ -702,37 +789,11 @@ const resolvePreguntasGrading = async (
   for (const id of Object.keys(payload.answers ?? {})) registerClientId(id);
   for (const q of payload.generatedQuestions ?? []) registerClientId(q.id);
 
-  // Cache de compilados por `plantillaId` DENTRO de este submit: el
-  // relleno puede repetir la misma plantilla en varios slots.
-  const compiledCache = new Map<string, ReturnType<typeof getCompiledPlantilla> | null>();
-  const gradingQuestions: ModuleQuiz["questions"] = [];
-
-  for (const slot of resultado.slots) {
-    const plantillaId = slot.pregunta.plantillaId;
-    let compiled = compiledCache.get(plantillaId);
-    if (compiled === undefined) {
-      const plantilla = await prisma.plantillaEjercicio.findFirst({ where: { id: plantillaId } });
-      const codigoDsl = (plantilla as { codigoDsl?: string } | null)?.codigoDsl;
-      compiled = codigoDsl ? getCompiledPlantilla(plantillaId, codigoDsl) : null;
-      compiledCache.set(plantillaId, compiled);
-    }
-    // Plantilla ausente, sin DSL, o que necesita un provider que no vive acá
-    // (generador asistido/dataset) → no autoritativo para TODO el intento.
-    if (!compiled) return fallback();
-    const pool = materializeVblangPool(compiled, slot.seed, 1);
-    if (!pool.ok || pool.questions.length === 0) return fallback();
-    const materializada = pool.questions[0];
+  const gradingQuestions: ModuleQuiz["questions"] = materializadas.map((materializada) => {
     const prefix = questionHashPrefix(materializada.id);
     const clientId = clientIdByPrefix.get(prefix) ?? materializada.id;
-    // El `puntaje` declarado en `PreguntaQuiz` pisa el `points` que trae la
-    // plantilla materializada (si no está declarado, `gradeAnswers` aplica
-    // su default de 1 vía `questionWeight`, igual que cualquier otro path).
-    const conPuntaje: ModuleQuizQuestion =
-      slot.pregunta.puntaje !== undefined
-        ? { ...materializada, points: slot.pregunta.puntaje }
-        : materializada;
-    gradingQuestions.push(serverQuestionToGradable(conPuntaje, clientId));
-  }
+    return serverQuestionToGradable(materializada, clientId);
+  });
 
   return { gradingQuestions, serverAuthoritative: true, mismatchQuestions: [] };
 };
@@ -1597,14 +1658,28 @@ quizAttempts.get(
   // el handler se abre al staff, debería saltarse la sanitización.
   const requesterRole =
     (req.user as { role?: string | null } | undefined)?.role ?? null;
+  // Etapa 1 (Tiza — preguntas nativas) — hasta acá este handler sólo leía
+  // `quiz.questions` (el campo legacy de preguntas manuales/generadorId),
+  // que para un cuestionario `settings.preguntas` está vacío: el alumno
+  // nunca llegaba a VER las preguntas (sólo se corregían bien al entregar,
+  // vía `resolvePreguntasGrading`). Acá se materializa lo mismo que el
+  // submit, con el mismo `ctx` determinista — mismo contenido en ambos
+  // lados, id estable entre GETs repetidos (`idEstablePorSlot`).
+  const preguntasQuestions = tienePreguntas(quiz?.preguntas)
+    ? await materializarPreguntasNativas(
+        parseCuestionarioPreguntas(quiz!.preguntas),
+        contextoSorteoPreguntas(quiz!, currentAttempt.quizId, currentAttempt.userId, currentAttempt.attemptNo)
+      )
+    : null;
+  const questionsBase = preguntasQuestions ?? quiz?.questions ?? [];
   // PLAN-C11 — un intento ya finalizado (modo revisión, WO-T2a) puede
   // revelar pasos/pistas (es la resolución de algo que el alumno ya
   // entregó); uno `in_progress` no, o filtraría la respuesta antes de
   // responder.
   const questionsForResponse =
     isStaffRole(requesterRole)
-      ? (quiz?.questions ?? [])
-      : sanitizeQuestionsForStudent(quiz?.questions, currentAttempt.quizVersionId ?? currentAttempt.quizId, {
+      ? questionsBase
+      : sanitizeQuestionsForStudent(questionsBase, currentAttempt.quizVersionId ?? currentAttempt.quizId, {
           revealSolution: currentAttempt.status !== "in_progress"
         });
   res.json({

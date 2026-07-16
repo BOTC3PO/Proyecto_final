@@ -408,3 +408,227 @@ test("(e) REGRESIÓN: un quiz SIN settings.preguntas (composition viejo) no pasa
   assert.equal(body.maxScore, 2, "sólo las 2 presentadas por composition/tomar, comportamiento intacto");
   assert.equal(body.score, 2);
 });
+
+// PLAN-mostrar-preguntas-nativas-al-alumno — hasta acá el GET del intento
+// sólo leía `quiz.questions` (legacy); un cuestionario preguntas-nativas
+// devolvía `questions: []` y el alumno nunca veía nada. Estos tests cubren
+// el GET, no sólo el submit (los de arriba ya lo hacían).
+test("(f) GET /api/quiz-attempts/:id materializa las preguntas nativas para el alumno (antes devolvía [])", async () => {
+  seedPlantilla(PLANTILLA_OBL, DSL_OBLIGATORIA);
+  seedPlantilla(PLANTILLA_REL, DSL_RELLENO);
+  const preguntasSettings = {
+    cantidadGlobal: 3,
+    preguntas: [
+      { plantillaId: PLANTILLA_OBL, tipo: "obligatoria" },
+      { plantillaId: PLANTILLA_REL, tipo: "relleno" },
+    ],
+  };
+  seedModuloYQuiz({ type: "practica", preguntas: preguntasSettings });
+  const token = tokenFor({ id: ALUMNO_ID, role: "STUDENT", schoolId: ESCUELA_ID });
+  const { id: attemptId } = await createAttempt(token);
+
+  const res = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, { token });
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  const body = res.body as { questions: Array<{ id: string; prompt?: string }> };
+  assert.equal(body.questions.length, 3, "1 obligatoria + 2 de relleno = 3 preguntas para mostrar");
+  for (const q of body.questions) {
+    assert.ok(q.prompt && q.prompt.length > 0, "cada pregunta debe traer un enunciado materializado");
+  }
+});
+
+test("(g) GET repetido del mismo intento devuelve los mismos ids (estable pese al contador global de idCounter)", async () => {
+  seedPlantilla(PLANTILLA_OBL, DSL_OBLIGATORIA);
+  const preguntasSettings = {
+    cantidadGlobal: 1,
+    preguntas: [{ plantillaId: PLANTILLA_OBL, tipo: "obligatoria" }],
+  };
+  seedModuloYQuiz({ type: "practica", preguntas: preguntasSettings });
+  const token = tokenFor({ id: ALUMNO_ID, role: "STUDENT", schoolId: ESCUELA_ID });
+  const { id: attemptId } = await createAttempt(token);
+
+  const res1 = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, { token });
+  const res2 = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, { token });
+  const ids1 = (res1.body as { questions: Array<{ id: string }> }).questions.map((q) => q.id);
+  const ids2 = (res2.body as { questions: Array<{ id: string }> }).questions.map((q) => q.id);
+  assert.deepEqual(ids1, ids2, "dos GETs separados no deben devolver ids distintos para la misma pregunta");
+});
+
+test("(h) round-trip real: responder con los ids que dio el GET se corrige bien en el submit", async () => {
+  seedPlantilla(PLANTILLA_OBL, DSL_OBLIGATORIA);
+  seedPlantilla(PLANTILLA_REL, DSL_RELLENO);
+  seedModuloYQuiz({
+    type: "practica",
+    preguntas: {
+      cantidadGlobal: 2,
+      preguntas: [
+        { plantillaId: PLANTILLA_OBL, tipo: "obligatoria" },
+        { plantillaId: PLANTILLA_REL, tipo: "relleno" },
+      ],
+    },
+  });
+  const token = tokenFor({ id: ALUMNO_ID, role: "STUDENT", schoolId: ESCUELA_ID });
+  const { id: attemptId } = await createAttempt(token);
+
+  const get = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, { token });
+  const questions = (get.body as {
+    questions: Array<{ id: string; answerKey?: string | string[] }>;
+  }).questions;
+  assert.equal(questions.length, 2);
+  // El GET sanitiza la respuesta para el alumno (no debería traer
+  // answerKey) — igual que el camino legacy. Resolvemos las respuestas
+  // correctas del lado del test con el mismo motor que usa producción.
+  const materializadas = clientMaterializePreguntas(
+    { cantidadGlobal: 2, preguntas: [
+      { plantillaId: PLANTILLA_OBL, tipo: "obligatoria" },
+      { plantillaId: PLANTILLA_REL, tipo: "relleno" },
+    ] },
+    { quizId: QUIZ_ID, alumnoId: ALUMNO_ID, intento: 1 },
+  );
+  const answerByPrefix = new Map(
+    materializadas.map((m) => [questionHashPrefix(m.question.id), String(m.question.answerKey)]),
+  );
+  const answers: Record<string, string> = {};
+  for (const q of questions) {
+    const key = answerByPrefix.get(questionHashPrefix(q.id));
+    assert.ok(key !== undefined, `el id del GET (${q.id}) debe casar por prefijo con la materialización`);
+    answers[q.id] = key!;
+  }
+
+  const submit = await jsonRequest(baseUrl, "POST", `/api/quiz-attempts/${attemptId}/submit`, {
+    token,
+    body: { answers, presentedIds: questions.map((q) => q.id) },
+  });
+  assert.equal(submit.status, 200, JSON.stringify(submit.body));
+  const body = submit.body as { score: number; maxScore: number };
+  assert.equal(body.maxScore, 2);
+  assert.equal(body.score, 2, "responder con los ids/valores que dio el GET debe puntuar completo");
+});
+
+test("(i) anti-duplicado: la misma plantilla repetida en 2 slots nunca da el mismo enunciado", async () => {
+  // Rango chico a propósito (sólo 3 valores posibles): sin anti-duplicado,
+  // 2 slots independientes de la MISMA plantilla colisionarían (mismo n)
+  // con probabilidad ~1/3 cada uno — en 20 alumnos distintos, la chance de
+  // que NINGUNO colisione sin el fix es ~0.06%. Con el fix, ninguno debe.
+  const DSL_RANGO_CHICO = `variables:
+  n: random(1, 3)
+
+enunciado: "Cuanto es n + n si n = {n}?"
+
+respuesta: n + n
+tolerancia: 0`;
+  seedPlantilla(PLANTILLA_REL, DSL_RANGO_CHICO);
+  seedModuloYQuiz({
+    type: "practica",
+    preguntas: {
+      cantidadGlobal: 2,
+      preguntas: [{ plantillaId: PLANTILLA_REL, tipo: "relleno", maxRepeticiones: 2 }],
+    },
+  });
+
+  for (let i = 0; i < 20; i++) {
+    const alumnoId = `alumno-antidup-${i}`;
+    seedUser({ id: alumnoId, role: "STUDENT", schoolId: ESCUELA_ID });
+    const token = tokenFor({ id: alumnoId, role: "STUDENT", schoolId: ESCUELA_ID });
+    const { id: attemptId } = await createAttempt(token);
+    const get = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, { token });
+    assert.equal(get.status, 200, JSON.stringify(get.body));
+    const prompts = (get.body as { questions: Array<{ prompt?: string }> }).questions.map(
+      (q) => q.prompt,
+    );
+    assert.equal(prompts.length, 2);
+    assert.notEqual(
+      prompts[0],
+      prompts[1],
+      `alumno ${alumnoId}: los 2 enunciados no deberían repetirse dentro del mismo intento`,
+    );
+  }
+});
+
+test("(j) resumir el intento: responder una, 'irse y volver' (GET de nuevo), la respuesta guardada sigue ahí y se puede terminar", async () => {
+  seedPlantilla(PLANTILLA_OBL, DSL_OBLIGATORIA);
+  seedPlantilla(PLANTILLA_REL, DSL_RELLENO);
+  const preguntasSettings = {
+    cantidadGlobal: 2,
+    preguntas: [
+      { plantillaId: PLANTILLA_OBL, tipo: "obligatoria" },
+      { plantillaId: PLANTILLA_REL, tipo: "relleno" },
+    ],
+  };
+  seedModuloYQuiz({ type: "practica", preguntas: preguntasSettings });
+  const token = tokenFor({ id: ALUMNO_ID, role: "STUDENT", schoolId: ESCUELA_ID });
+  const { id: attemptId } = await createAttempt(token);
+
+  // 1er GET ("abre el cuestionario").
+  const get1 = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, { token });
+  assert.equal(get1.status, 200);
+  const body1 = get1.body as {
+    status: string;
+    questions: Array<{ id: string; answerKey?: string | string[] }>;
+  };
+  assert.equal(body1.status, "in_progress");
+  assert.equal(body1.questions.length, 2);
+
+  const materializadas = clientMaterializePreguntas(preguntasSettings, {
+    quizId: QUIZ_ID,
+    alumnoId: ALUMNO_ID,
+    intento: 1,
+  });
+  const answerByPrefix = new Map(
+    materializadas.map((m) => [questionHashPrefix(m.question.id), String(m.question.answerKey)]),
+  );
+  const primeraId = body1.questions[0].id;
+  const primeraRespuesta = answerByPrefix.get(questionHashPrefix(primeraId));
+  assert.ok(primeraRespuesta !== undefined);
+
+  // Responde SÓLO la primera (F5-01, guardado incremental).
+  const answerRes = await jsonRequest(baseUrl, "POST", `/api/quiz-attempts/${attemptId}/answer`, {
+    token,
+    body: { questionId: primeraId, response: primeraRespuesta },
+  });
+  assert.equal(answerRes.status, 200, JSON.stringify(answerRes.body));
+
+  // "Se va y vuelve" — 2do GET: mismas preguntas (mismos ids), sigue
+  // in_progress, y la respuesta ya contestada sigue guardada.
+  const get2 = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, { token });
+  assert.equal(get2.status, 200);
+  const body2 = get2.body as {
+    status: string;
+    questions: Array<{ id: string }>;
+    answers: Record<string, string>;
+  };
+  assert.equal(body2.status, "in_progress", "el intento sigue en curso, no se perdió al volver a entrar");
+  assert.deepEqual(
+    body2.questions.map((q) => q.id),
+    body1.questions.map((q) => q.id),
+    "las preguntas no cambian entre GETs del mismo intento en curso",
+  );
+  assert.equal(
+    body2.answers[primeraId],
+    primeraRespuesta,
+    "la respuesta ya guardada sigue ahí al volver a entrar",
+  );
+
+  // Termina: responde la segunda y envía.
+  const segundaId = body2.questions[1].id;
+  const segundaRespuesta = answerByPrefix.get(questionHashPrefix(segundaId));
+  assert.ok(segundaRespuesta !== undefined);
+  const submit = await jsonRequest(baseUrl, "POST", `/api/quiz-attempts/${attemptId}/submit`, {
+    token,
+    body: {
+      answers: { [primeraId]: primeraRespuesta!, [segundaId]: segundaRespuesta! },
+      presentedIds: [primeraId, segundaId],
+    },
+  });
+  assert.equal(submit.status, 200, JSON.stringify(submit.body));
+  const submitBody = submit.body as { score: number; maxScore: number };
+  assert.equal(submitBody.score, 2);
+  assert.equal(submitBody.maxScore, 2);
+
+  // Después de entregado, un intento de responder de nuevo se rechaza (no
+  // se puede "seguir" un intento ya enviado).
+  const answerDespues = await jsonRequest(baseUrl, "POST", `/api/quiz-attempts/${attemptId}/answer`, {
+    token,
+    body: { questionId: primeraId, response: primeraRespuesta },
+  });
+  assert.equal(answerDespues.status, 409, "un intento ya entregado no acepta más respuestas");
+});
