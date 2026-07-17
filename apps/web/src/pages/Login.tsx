@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiPost } from "../lib/api";
 import { useI18n } from "../i18n/I18nContext";
+import BrandMark from "../components/Brand";
 
 type LoginForm = {
   user: string;
@@ -113,6 +114,10 @@ export default function Login() {
         <div className="py-16 flex items-center justify-center">
           <section className="w-full max-w-xl rounded-xl bg-white shadow-sm border border-gray-200">
             <div className="p-8 sm:p-10">
+              <div className="mb-6 flex items-center justify-center gap-2">
+                <BrandMark size={28} />
+                <span className="text-lg font-bold text-gray-900">{t("comun.virtualBook")}</span>
+              </div>
               <h1 className="text-center text-2xl font-semibold text-gray-900">
                 {t("common.iniciarSesionBtn")}
               </h1>
