@@ -72,3 +72,6 @@ tareas_pendientes/
 
 # === Artefacto accidental de colisión CONTENT_SQLITE_PATH (PLAN-S) ===
 api/src/base/modulos_quizzes.sqlite
+
+# Diccionario: descargas kaikki + sqlite generado (GBs, no versionar)
+install/data/
