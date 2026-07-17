@@ -190,9 +190,15 @@ def extract_lang_section(wikitext: str, lang: str) -> Optional[str]:
 
     rest = wikitext[start:]
 
-    # Buscar la siguiente sección del mismo nivel (= o ==)
-    # PT usa ={{-xx-}}= así que la siguiente sección también puede ser nivel 1
-    next_section = re.search(r"\n=(?!==[^=])[^=\n]", rest[2:])
+    # Buscar el próximo encabezado de idioma: nivel 1 (=X=, convención PT) o
+    # nivel 2 (==X==, el resto). El patrón viejo (`\n=(?!==[^=])[^=\n]`) sólo
+    # matcheaba nivel 1: para cualquier artículo con encabezados =={{lengua|xx}}==
+    # (es/en/fr/it/la) nunca encontraba el límite y devolvía TODO el resto del
+    # artículo, mezclando las definiciones de los idiomas siguientes con las
+    # del idioma pedido. `(={1,2})[^=\n]...\1(?!=)` exige que abra y cierre con
+    # la MISMA cantidad de "=" (1 o 2), así nunca corta en una subsección de
+    # nivel 3+ (===Sustantivo===, ===Sinónimos===) del propio idioma.
+    next_section = re.search(r"\n(={1,2})[^=\n][^\n]*\1(?!=)", rest[2:])
     if next_section:
         return rest[:next_section.start() + 2]
     return rest
