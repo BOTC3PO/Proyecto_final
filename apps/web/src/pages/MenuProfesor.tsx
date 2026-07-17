@@ -12,6 +12,7 @@ import {
   filterProfesorQuickLinks,
   type ProfesorMenuDashboard
 } from "../services/profesor";
+import { listarCuestionarios } from "../domain/quiz/quizPreguntasApi";
 
 type LocalConceptLink = {
   id: string;
@@ -67,6 +68,7 @@ export default function menuProfesor() {
   const [modules, setModules] = useState<Module[]>([]);
   const [modulesStatus, setModulesStatus] = useState<"loading" | "ready" | "error">("loading");
   const [_modulesError, setModulesError] = useState<string | null>(null);
+  const [cuestionariosCount, setCuestionariosCount] = useState(0);
   const [searchTerm] = useState("");
   const [selectedCategory] = useState("todas");
   const [selectedVisibility] = useState("todas");
@@ -179,6 +181,19 @@ export default function menuProfesor() {
           error instanceof Error ? error.message : t("menuProfesor.noSePudieronCargarLos")
         );
       });
+    return () => {
+      active = false;
+    };
+  }, [user?.id]);
+
+  useEffect(() => {
+    let active = true;
+    listarCuestionarios()
+      .then((items) => {
+        if (!active) return;
+        setCuestionariosCount(items.length);
+      })
+      .catch(() => {});
     return () => {
       active = false;
     };
@@ -870,6 +885,10 @@ export default function menuProfesor() {
                 <div className="flex items-center justify-between">
                   <p className="text-xs text-[var(--c-muted)]">{t('menuProfesor.modulosCreados')}</p>
                   <p className="text-sm font-semibold text-[var(--c-text)]">{modules.length}</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-[var(--c-muted)]">{t('nav.cuestionarios')}</p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">{cuestionariosCount}</p>
                 </div>
                 <div className="flex items-center justify-between">
                   <p className="text-xs text-[var(--c-muted)]">{t('nav.evaluaciones')}</p>
