@@ -25,6 +25,7 @@ import { apiGet } from "../lib/api";
 import { prefetchRoute } from "../routing/prefetch";
 import { Avatar, Menu, NavItem, type MenuTriggerProps } from "../ui";
 import { useI18n } from "../i18n/I18nContext";
+import BrandMark from "../components/Brand";
 
 function CoinBadge({ userId }: { userId: string }) {
   const { t } = useI18n();
@@ -393,19 +394,10 @@ export default function Navbar() {
             <Link
               to={publicHomePath}
               aria-label={t('aria.logoInicio')}
-              style={{ display: "inline-flex", color: "var(--c-nav-text)" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: "var(--space-2)", color: "#ffffff", textDecoration: "none", fontWeight: "var(--fw-bold)" }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-              </svg>
+              <BrandMark size={32} />
+              <span className="hidden sm:inline">{t("comun.virtualBook")}</span>
             </Link>
 
             {/* Navegación Desktop */}
@@ -475,12 +467,18 @@ export default function Navbar() {
         <Link
           to="/"
           style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "var(--space-2)",
             fontWeight: "var(--fw-bold)",
             fontSize: "var(--text-base)",
             color: "var(--c-text)",
             textDecoration: "none",
           }}
-        >{t("comun.virtualBook")}</Link>
+        >
+          <BrandMark size={22} />
+          {t("comun.virtualBook")}
+        </Link>
 
         <ul className="flex flex-wrap items-center gap-1">
           {items?.map((it) => (

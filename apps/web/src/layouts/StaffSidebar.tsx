@@ -18,6 +18,7 @@ import { useTheme } from '../theme/ThemeContext';
 import { useSchoolBranding } from '../hooks/useSchoolBranding';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from '../nav/navConfig';
 import { Avatar, Menu, Modal, NavItem, type MenuTriggerProps } from '../ui';
+import BrandMark from '../components/Brand';
 import { useI18n } from '../i18n/I18nContext';
 
 // `label` (de sección) y los `items` (ids de NAV_BY_ROLE) son claves de
@@ -309,17 +310,7 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
               style={{ width: 'var(--space-6)', height: 'var(--space-6)', objectFit: 'contain', borderRadius: 'var(--r-md)' }}
             />
           ) : (
-          <span
-            className="flex items-center justify-center flex-shrink-0"
-            style={{
-              width: 'var(--space-6)',
-              height: 'var(--space-6)',
-              borderRadius: 'var(--r-md)',
-              background: 'var(--c-primary)',
-            }}
-          >
-            <span style={{ color: 'var(--c-text-on-dark)', fontSize: 'var(--text-xs)', fontWeight: 'var(--fw-bold)' }}>VB</span>
-          </span>
+            <BrandMark size={24} />
           )}
           <span style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--fw-semibold)', color: 'var(--c-text)' }}>
             Virtual Book

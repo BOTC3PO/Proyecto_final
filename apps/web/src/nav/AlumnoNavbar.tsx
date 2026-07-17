@@ -14,6 +14,7 @@ import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
 import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { NavItem, Avatar, Menu, type MenuTriggerProps } from '../ui';
 import { useI18n } from '../i18n/I18nContext';
+import BrandMark from '../components/Brand';
 
 // ── Filas del menú de usuario (token-puro, igual que Navbar) ─────────────────
 
@@ -360,12 +361,18 @@ export default function AlumnoNavbar() {
           <Link
             to="/alumno"
             style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 'var(--space-2)',
               fontWeight: 'var(--fw-bold)',
               fontSize: 'var(--text-base)',
               color: 'var(--c-text)',
               textDecoration: 'none',
             }}
-          >{t("comun.virtualBook")}</Link>
+          >
+            <BrandMark size={22} />
+            {t("comun.virtualBook")}
+          </Link>
         </div>
 
         <ul

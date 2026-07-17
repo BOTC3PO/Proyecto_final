@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import type { Block, Book, BookAsset, BookNote, Page } from "../domain/book/book.types";
 import { useAuth } from "../auth/use-auth";
 import BookReader from "./BookReader";
+import BrandMark from "../components/Brand";
 import { useBookEditor } from "./state/useBookEditor";
 import type { EditorAction } from "./state/bookEditor.reducer";
 import { ensureUniqueIds } from "./services/ids";
@@ -1932,9 +1933,7 @@ export default function BookEditorPage() {
 
         {/* Logo / título editable */}
         <div className="flex items-center gap-2 min-w-0 max-w-[220px]">
-          <div className="w-5 h-5 rounded bg-[var(--c-primary)] flex items-center justify-center flex-shrink-0">
-            <span className="text-white text-[9px] font-bold">VB</span>
-          </div>
+          <BrandMark size={20} />
           <span className="text-[10px] text-[var(--c-muted)] hidden sm:block flex-shrink-0">
             Editor de texto
           </span>
