@@ -64,7 +64,7 @@ export default function RecuperarContrasena() {
   };
 
   return (
-    <main className="flex-1 bg-gray-100">
+    <div className="flex-1 bg-gray-100">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
         <section className="rounded-2xl bg-white shadow-lg p-8 sm:p-10 space-y-6">
           <header className="space-y-2 text-center">
@@ -110,6 +110,6 @@ export default function RecuperarContrasena() {
           </form>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

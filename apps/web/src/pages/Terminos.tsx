@@ -173,7 +173,7 @@ export default function Terminos() {
   const { lang } = useI18n();
   const [idioma, setIdioma] = useState<"es" | "en">(lang === "en" ? "en" : "es");
   return (
-    <main className="flex-1 bg-gray-100">
+    <div className="flex-1 bg-gray-100">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16">
         <section className="rounded-2xl bg-white shadow-lg p-8 sm:p-10 space-y-8">
           <div className="flex justify-end gap-1">
@@ -209,6 +209,6 @@ export default function Terminos() {
           ))}
         </section>
       </div>
-    </main>
+    </div>
   );
 }

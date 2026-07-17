@@ -4,7 +4,6 @@ import { useAuth } from '../auth/use-auth';
 import { usePrimaryRole } from '../auth/use-roles';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { useI18n } from "../i18n/I18nContext";
-import BrandMark from "../components/Brand";
 
 const ROLE_DASHBOARD: Record<string, string> = {
   ADMIN: '/admin',
@@ -36,12 +35,8 @@ export default function HomePage() {
   }, [user, navigate, primary]);
 
   return (
-    <main className="flex-grow">
+    <div className="flex-grow">
       <div className="my-12">
-        <div className="flex items-center justify-center gap-3">
-          <BrandMark size={48} />
-          <span className="text-2xl font-bold text-gray-900">{t("comun.virtualBook")}</span>
-        </div>
         <h2 className="mt-8 mb-3 text-6xl font-bold text-center text-blue-600">{t("home.revolucionaElAprendizaje")}</h2>
         <h3 className="mb-5 text-center text">{t("home.aprendeATuRitmoCon")}</h3>
       </div>
@@ -73,6 +68,6 @@ export default function HomePage() {
           <p className="text-sm text-gray-600">{t("home.protegemosTusDatosYGarantizamos")}</p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

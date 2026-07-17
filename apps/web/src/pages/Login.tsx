@@ -109,7 +109,7 @@ export default function Login() {
   };
 
   return (
-    <main className="flex-1 bg-[#f3f4f6]">
+    <div className="flex-1 bg-[#f3f4f6]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="py-16 flex items-center justify-center">
           <section className="w-full max-w-xl rounded-xl bg-white shadow-sm border border-gray-200">
@@ -205,6 +205,6 @@ export default function Login() {
           </section>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

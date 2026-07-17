@@ -7,7 +7,7 @@ export default function GuestLayout() {
   return (
     <div className="layout-root flex flex-col min-h-screen bg-[var(--c-bg)]">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow flex flex-col">
         <Outlet />
       </main>
       <Footer />
