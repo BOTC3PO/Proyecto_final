@@ -4,7 +4,7 @@
 |---|---|
 | **Estado** | Vigente |
 | **Audiencia** | Frontend, contenido, autores de generadores |
-| **Última actualización** | 2026-05-30 |
+| **Última actualización** | 2026-07-18 — fusión con `documentacion V2/docs/`: verificado el catálogo de materias/generadores contra el código actual (sin cambios respecto a 2026-05-30) y agregada la conexión con el editor Tiza (PLAN-Y). |
 | **Fuente de verdad** | `apps/web/src/generadoresV2/`, `apps/web/src/vblang/` |
 
 > Documentación de arquitectura derivada del código. El **catálogo de prompts por generador**
@@ -150,7 +150,16 @@ cada archivo.
 
 > El front consume plantillas/datasets VBLang vía `domain/vblang/plantillaApi.ts` y `datasetApi.ts`
 > (endpoints `/api/plantillas/*` y `/api/vblang/datasets/*`, ver
-> [`../backend/api-reference.md`](../backend/api-reference.md#dominio-vblang-plantillas-y-datasets)).
+> [`../backend/api-reference.md`](../backend/api-reference.md#dominio-vblang-plantillas-fórmulas-y-datasets)).
+
+## Consumo desde el editor Tiza 🆕 (PLAN-Y)
+
+El catálogo de `generadoresV2` (vía el provider VBLang de arriba) alimenta **"Importar plantilla
+del banco"** en el rail del editor Tiza (`pages/PlantillaEditorTiza`) — las plantillas se importan
+**dentro** del cuestionario que se está editando, no como referencia externa (el legacy
+`plantilla:X` de los editores V1/V2 archivados se conserva sólo para cuestionarios viejos que aún
+lo usan). La configuración del quiz (sorteo opcional de preguntas, listas con puestos) vive
+únicamente en Tiza — `ModuloEditor` ya no la duplica.
 
 ## Archivos fuente documentados
 

@@ -4,7 +4,7 @@
 |---|---|
 | **Estado** | Vigente |
 | **Audiencia** | Frontend, full-stack |
-| **Última actualización** | 2026-05-30 |
+| **Última actualización** | 2026-07-18 — fusión con `documentacion V2/docs/`: `AlumnoLayout` restringido a `[USER,PARENT]` (FIX-VISTA-PREVIA-STAFF, 2026-07-16 — corrige el árbol de layouts y la tabla de rutas de abajo, que estaban desactualizados), ruta nueva `/aulas/:aulaId` bajo `StaffLayout`, editores V1/V2 de cuestionarios confirmados archivados (reemplazados por Tiza), i18n (§ nueva), multirol y cuenta espejo en el cliente, conteos reales (68 páginas, 29 servicios). El resto de la versión 2026-05-30 sigue vigente. |
 | **Fuente de verdad** | `apps/web/src/` (`main.tsx`, `router.tsx`, `layouts/`, `pages/`, `services/`, `domain/`, `auth/`) |
 
 > Documentación derivada del código real de la web (React 19 + Vite 7 + TypeScript). El contrato
@@ -39,7 +39,7 @@ dominio del cliente vive en `domain/`.
 |---|---|---|
 | `RootLayout` | Raíz de todas las rutas | Envuelve en `<AuthProvider>` + `<ThemeProvider>` y un `<Outlet>`. Sin UI propia. |
 | `GuestLayout` | Público / GUEST | `Navbar` + `Footer` + `OfflineIndicator`. |
-| `AlumnoLayout` | Alumno (y staff en vista alumno) | `AlumnoNavbar` + `AnimatedBackground` + `OfflineIndicator`. |
+| `AlumnoLayout` | 🆕 **Sólo `[USER, PARENT]`** desde el 2026-07-16 (antes admitía staff en "vista previa alumno" — ver nota abajo) | `AlumnoNavbar` + `AnimatedBackground` + `OfflineIndicator`. |
 | `StaffLayout` | TEACHER/DIRECTIVO/ADMIN | `StaffSidebar` + `Topbar` (título según `NAV_BY_ROLE`) + `OfflineIndicator`. |
 | `RoleLayout` | Mixto (alumno/familia/staff) | Si el rol es staff → `StaffSidebar`; si no → `Navbar`. |
 | `SharedLayout` | Genérico | `Navbar` + `OfflineIndicator`. (No referenciado por `router.tsx` actualmente — `POR CONFIRMAR (layouts/SharedLayout.tsx)`.) |
@@ -54,14 +54,14 @@ aplica `ProtectedRoute` con su lista de roles permitidos.
 graph TD
     Root["RootLayout<br/>AuthProvider + ThemeProvider"]
     Root --> Guest["GuestLayout<br/>(público) · Navbar + Footer"]
-    Root --> Alumno["ProtectedRoute<br/>[USER,TEACHER,DIRECTIVO,ADMIN,PARENT]<br/>→ AlumnoLayout"]
-    Root --> Staff["ProtectedRoute<br/>[TEACHER,DIRECTIVO,ADMIN]<br/>→ StaffLayout (+ guardas por ruta)"]
+    Root --> Alumno["ProtectedRoute<br/>[USER,PARENT]<br/>→ AlumnoLayout"]
+    Root --> Staff["ProtectedRoute<br/>[TEACHER,DIRECTIVO,ADMIN]<br/>→ StaffLayout (+ guardas por ruta,<br/>incl. /aulas/:aulaId 🆕)"]
     Root --> Role["ProtectedRoute<br/>[USER,PARENT,TEACHER,DIRECTIVO,ADMIN]<br/>→ RoleLayout"]
     Root --> Editors["ProtectedRoute<br/>[USER,TEACHER,ADMIN,DIRECTIVO]<br/>→ Outlet (sin shell)"]
 
     Guest --> G1["/, /login, /register,<br/>/explorar, /precios, /u/:username,<br/>/herramientas/*, /404"]
     Alumno --> A1["/alumno, /clases[/:aulaId],<br/>/tareas, /encuestas, /progreso,<br/>/economia, /tienda-temas, /calendario"]
-    Staff --> S1["/profesor/* [TEACHER]<br/>/admin/* [ADMIN]<br/>/enterprise/* [DIRECTIVO]<br/>/gobernanza/* [ADMIN,DIRECTIVO,TEACHER]"]
+    Staff --> S1["/profesor/* [TEACHER]<br/>/admin/* [ADMIN]<br/>/enterprise/* [DIRECTIVO]<br/>/aulas/:aulaId [TEACHER,DIRECTIVO,ADMIN] 🆕"]
     Role --> R1["/mensajes, /perfil, /modulos/*,<br/>/reproductor, /quiz/attempt/:id,<br/>/plantillas/*, /datasets/*, /hijos/*"]
     Editors --> E1["/editor[/:id] → BookEditorPage<br/>/bloques/editor[/:id] → BlockEditorPage"]
 ```
@@ -69,6 +69,18 @@ graph TD
 > `RoleLayout` decide en runtime el shell: si el rol es staff (TEACHER/DIRECTIVO/ADMIN) renderiza
 > `StaffSidebar`; si no, `Navbar`. Dentro de `StaffLayout` y `RoleLayout` varias rutas vuelven a
 > envolver con `ProtectedRoute` para restringir más (p. ej. `/admin/*` exige `ADMIN`).
+>
+> 🆕 **FIX-VISTA-PREVIA-STAFF (2026-07-16):** hasta esa fecha, `AlumnoLayout` admitía también a
+> staff (para una "vista previa alumno"), pero el switch de rol dual (mismo layout, distinto rol)
+> producía bugs visuales sistemáticos (navbar mezclado, labels de rol incorrectos, dashboards
+> mostrando datos propios como si fueran de un alumno — `docs/qa/bug-visual-aula-rol-dual.md`,
+> `docs/qa/test-parte-3-profesor*.md`). La única forma real de ver el lado alumno sigue siendo la
+> **cuenta espejo** (switch de cuenta, sesión distinta con `role: USER` real, ver
+> [`../backend/auth-y-roles.md#31-cuenta-espejo`](../backend/auth-y-roles.md#31-cuenta-espejo-🆕-apisrclibcuenta-vinculadats)).
+> La excepción es `/clases/:aulaId`: es la vista de **gestión** del aula que un docente/directivo/
+> admin sí usa con su cuenta propia — esa vista se movió a `/aulas/:aulaId` bajo `StaffLayout`
+> (mismo componente `pages/aula.tsx` que usa el alumno, que ya distingue el rol internamente vía
+> `isTeacherOfClass`/`isTeacher`, pero servido sin mezclar el navbar de alumno).
 
 ### Control de acceso — `ProtectedRoute`
 
@@ -107,7 +119,7 @@ graph TD
 | `/404` | `pages/NotFound` | público |
 | `/dev/ui` | `pages/dev/UiShowcase` | público (solo `import.meta.env.DEV`) |
 
-### AlumnoLayout — `allow: [USER, TEACHER, DIRECTIVO, ADMIN, PARENT]`
+### AlumnoLayout — `allow: [USER, PARENT]` (🆕 restringido desde 2026-07-16; antes incluía TEACHER/DIRECTIVO/ADMIN)
 
 | Ruta | Page |
 |---|---|
@@ -155,9 +167,13 @@ graph TD
 | `/enterprise/modulos` | `pages/EnterpriseModulos` | DIRECTIVO |
 | `/enterprise/comisiones` | `pages/EnterpriseComisiones` | DIRECTIVO |
 | `/enterprise/calendario` | `pages/ProfesorCalendario` | DIRECTIVO, ADMIN |
-| `/gobernanza` | `pages/Gobernanza` | ADMIN, DIRECTIVO, TEACHER |
-| `/gobernanza/propuestas/nueva` | `pages/GobernanzaNuevaPropuesta` | ADMIN, DIRECTIVO, TEACHER |
-| `/gobernanza/propuestas/:id` | `pages/GobernanzaPropuesta` | ADMIN, DIRECTIVO, TEACHER |
+| `/aulas/:aulaId` 🆕 | `pages/aula` (mismo componente que `/clases/:aulaId` del alumno) | TEACHER, DIRECTIVO, ADMIN |
+
+> ⚠️ **`/gobernanza/*` retirado por completo** (2026-07-14, junto con el backend — ver
+> [`../backend/api-reference.md`](../backend/api-reference.md#dominio-encuestas-estadísticas-y-reportes)).
+> Las páginas `Gobernanza`, `GobernanzaNuevaPropuesta`, `GobernanzaPropuesta` y el servicio
+> `governance.ts` de la tabla de servicios (más abajo) ya no existen en el código — eliminados de
+> esta tabla, que en la versión 1.0 (2026-05-30) todavía los listaba.
 
 ### RoleLayout — grupo `allow: [USER, PARENT, TEACHER, DIRECTIVO, ADMIN]` (+ guarda por ruta)
 
@@ -175,12 +191,17 @@ graph TD
 | `/modulos/:id/jugar` | `pages/modulos/ModuloDetail` | USER, TEACHER, DIRECTIVO, ADMIN, PARENT |
 | `/reproductor` | `pages/modulos/ReproductorModulos` | USER, PARENT, TEACHER, ADMIN, DIRECTIVO |
 | `/quiz/attempt/:attemptId` | `pages/quizzes/QuizAttempt` | USER, PARENT, TEACHER, ADMIN |
-| `/profesor/editor-cuestionarios` | `pages/EditorCuestionarios` | TEACHER, ADMIN, DIRECTIVO, USER |
-| `/profesor/editor-cuestionarios-v2` | `pages/EditorCuestionariosV2` | TEACHER, ADMIN, DIRECTIVO, USER |
 | `/plantillas` | `pages/PlantillasIndex` | TEACHER, ADMIN, DIRECTIVO |
 | `/plantillas/biblioteca` | `pages/PlantillasBiblioteca` | TEACHER, ADMIN, DIRECTIVO |
-| `/plantillas/nueva` | `pages/PlantillaEditor` | TEACHER, ADMIN, DIRECTIVO |
-| `/plantillas/:id` | `pages/PlantillaEditor` | TEACHER, ADMIN, DIRECTIVO |
+| `/plantillas/nueva` | `pages/PlantillaEditorTiza` 🆕 | TEACHER, ADMIN, DIRECTIVO |
+| `/plantillas/:id` | `pages/PlantillaEditorTiza` 🆕 | TEACHER, ADMIN, DIRECTIVO |
+
+> ⚠️ **`/profesor/editor-cuestionarios[-v2]` retirados**: `pages/EditorCuestionarios` y
+> `EditorCuestionariosV2` (listados en la versión 1.0 de este documento) ya **no existen** como
+> archivo ni como ruta — se archivaron en `archive/web/pages/` (auditoría de huérfanos, 2026-07-14).
+> El sistema de cuestionarios vigente es **Tiza** (`PlantillaEditorTiza`, montado en `/plantillas/nueva`
+> y `/plantillas/:id`) — la config del quiz vive únicamente ahí (PLAN-Y, 2026-07-13), no en
+> `ModuloEditor`. `/cuestionarios` (`pages/CuestionariosIndex`) es el punto de entrada.
 | `/datasets` | `pages/VblangDatasetsIndex` | TEACHER, ADMIN, DIRECTIVO |
 | `/datasets/biblioteca` | `pages/VblangDatasetsIndex` (`mode="biblioteca"`) | TEACHER, ADMIN, DIRECTIVO |
 | `/datasets/nuevo` | `pages/DatasetEditor` | TEACHER, ADMIN, DIRECTIVO |
@@ -253,8 +274,9 @@ graph TD
 | `modulos/ModuloEditor` | Editor de módulos (teoría, quizzes, herramientas). | useModuloEditor, vblang/plantillaApi, editores de quiz/teoría/bloques |
 | `modulos/ReproductorModulos` | Reproductor/catálogo de módulos con filtros. | `GET /api/modulos`, domain/module, subjectColors |
 | `quizzes/QuizAttempt` | Resolución de un intento de quiz. | apiGet/apiPost, generadoresV2, vblang, renderers |
-| `EditorCuestionarios` | Editor de cuestionarios (generadores, banco, preview). | generadoresV2, components/modulos |
-| `EditorCuestionariosV2` | Editor V2 con drag-and-drop de fuentes (manual/generador/banco). | @dnd-kit, generadoresV2 |
+| `CuestionariosIndex` 🆕 | Punto de entrada al sistema de cuestionarios Tiza. | domain/vblang, plantillaApi |
+
+> ⚠️ `EditorCuestionarios`/`EditorCuestionariosV2` (editores clásicos V1/V2) archivados — reemplazados por Tiza (`PlantillaEditorTiza`, ver tabla de rutas arriba).
 
 ### Profesor
 
@@ -300,18 +322,20 @@ graph TD
 | `EnterpriseModulos` | Módulos disponibles para la institución. | services/enterprise |
 | `EnterpriseComisiones` | Comisiones de la escuela para directivos. | apiGet/apiPost |
 
-### Gobernanza y VBLang
+### VBLang
+
+> ⚠️ Sección "Gobernanza y VBLang" de la versión 1.0 renombrada: `Gobernanza`,
+> `GobernanzaNuevaPropuesta`, `GobernanzaPropuesta` y `services/governance.ts` **ya no existen**
+> (retiro completo, 2026-07-14).
 
 | Página | Propósito | Usa |
 |---|---|---|
-| `Gobernanza` | Lista propuestas de gobernanza (tabs, apoyos). | services/governance |
-| `GobernanzaNuevaPropuesta` | Crea una nueva propuesta. | createProposal |
-| `GobernanzaPropuesta` | Detalle: votos, apoyos, cierre. | services/governance |
 | `PlantillasIndex` | Listado de plantillas VBLang (Mías/Biblioteca). | domain/vblang/plantillaApi |
 | `PlantillasBiblioteca` | Reusa `PlantillasIndex` en modo biblioteca. | PlantillasIndex |
-| `PlantillaEditor` | Editor V3 de plantillas VBLang (compile/lint/preview). | @vb/vblang, hooks usePlantilla* |
+| `PlantillaEditorTiza` 🆕 | Editor Tiza de plantillas/cuestionarios VBLang (compile/lint/preview + config de quiz centralizada). | @vb/vblang, hooks usePlantilla* |
 | `VblangDatasetsIndex` | Listado de datasets VBLang + creación rápida. | domain/vblang/datasetApi |
 | `DatasetEditor` | Editor tabular de un dataset (auto-save, validación). | domain/vblang/datasetApi, datasetCache |
+| `TiendaTemas` (ver tabla "Alumno y familia") | Tienda de temas visuales, compra validada contra `ThemeContext`. | useTheme, services/tienda |
 
 ## Capa de servicios (`services/`)
 
@@ -345,7 +369,6 @@ compartido `lib/api.ts`.
 | `diccionario.ts` | `lookupPalabra`, `prefixPalabra` | `GET /api/dictionary/lookup`, `GET /api/dictionary/prefix` |
 | `encuestas.ts` | `fetchSurveys`, `createSurvey`, `updateSurvey`, `deleteSurvey`, `voteSurvey`, `fetchSurveyResults`, … | `GET/POST /api/encuestas`, `PATCH/DELETE /api/encuestas/:id`, `POST /api/encuestas/:id/votos`, `GET /api/encuestas/:id/resultados`, `GET /api/encuestas/defaults`¹, `GET /api/encuestas/puntuaciones`¹ |
 | `enterprise.ts` | `fetchEnterpriseStaff`, `fetchEnterpriseDashboard`, `fetchEnterpriseAulas`, `fetchEnterpriseModulos` | `GET /api/usuarios?schoolId=…`, `GET /api/aulas?schoolId=…`, `GET /api/modulos?visibility=escuela…` |
-| `governance.ts` | `fetchProposals`, `fetchProposal`, `createProposal`, `castVote`, `closeProposal`, `fetchPrompts`, `fetchApoyos`, `apoyarPropuesta` | `GET/POST /api/proposals`, `GET /api/proposals/:id`, `POST /api/proposals/:id/{vote,close}`, `GET /api/proposals/:id/apoyos`, `GET /api/prompts` |
 | `leaderboard.ts` | `fetchLeaderboard` | `GET /api/aula/leaderboard` |
 | `mensajeria.ts` | `fetchHilos`, `fetchHilo`, `enviarMensaje`, `fetchAvisos`, `crearAviso`, `marcarAvisoLeido`, `buscarUsuarios`, `fetchNoLeidos` | `GET/POST /api/mensajeria/hilos`, `GET /api/mensajeria/hilos/:id`, `GET/POST /api/mensajeria/avisos`, `POST /api/mensajeria/avisos/:id/leer`, `GET /api/mensajeria/usuarios`, `GET /api/mensajeria/no-leidos` |
 | `modulos.ts` | `fetchModuleCreatorOptions`, `fetchMateriasConfig`, `fetchCategoriasConfig` | `GET /api/modulos/opciones`¹, `GET /api/config/materias`, `GET /api/config/categorias` |
@@ -360,6 +383,12 @@ compartido `lib/api.ts`.
 | `suscripciones.ts` | `fetchEstadoSuscripcion`, `fetchLimites`, `fetchHistorialPagos`, `iniciarSuscripcion`, `cancelarSuscripcion`, `solicitarReembolso` | `GET /api/suscripciones/{estado,limites,historial}`, `POST /api/suscripciones/{iniciar,cancelar,reembolso}` |
 | `tareas.ts` | `fetchTareas` | `GET /api/tareas` |
 | `tienda.ts` | `fetchCatalogo`, `fetchMisItems`, `comprarItem` | `GET /api/tienda`, `GET /api/tienda/mis-items`, `POST /api/tienda/comprar` |
+| `asistencia.ts` 🆕 | Fetch/upsert de la planilla de asistencia del aula | `GET/PUT /api/aulas/:id/asistencia[/:fecha]` |
+| `cobros.ts` 🆕 | Crear/publicar cobros, cuotas propias, checkout, confirmación manual | `GET/POST /api/cobros`, `POST /api/cobros/:id/publicar`, `GET /api/cuotas/mias`, `POST /api/cuotas/:id/{checkout,confirmar-pago}` |
+| `cuenta-alumno-staff.ts` 🆕 | Switch a la cuenta espejo de alumno y viceversa (sin re-login) | endpoints de cambio de cuenta (`roles.ts` backend) |
+| `escuelas.ts` 🆕 | CRUD y consulta de escuelas | `GET/POST/PATCH /api/escuelas[/:id]`, `GET /api/escuelas/code/:code` |
+| `progreso-aula.ts` 🆕 | Progreso agregado de un aula (distinto de `progreso.ts`, que es del alumno) | `GET /api/progreso?aulaId=…` |
+| `roles.ts` 🆕 | Helpers de rol multirol en el cliente (`hasRole`, `isStaffRole`) | — (lógica cliente, sin endpoint propio) |
 
 > ¹ **Deriva cliente↔servidor** — endpoints que el cliente invoca pero que **no existen** en el
 > backend actual (verificado contra `api/src/routes/*`, ver
@@ -386,6 +415,18 @@ Lógica y tipos del cliente, independientes del transporte HTTP:
 | `domain/module/` | `module.types.ts`, `subjectColors.ts` — tipos de módulo y colores por materia. |
 | `domain/vblang/` | `plantilla.types.ts`, `plantillaApi.ts`, `dataset.types.ts`, `datasetApi.ts` — tipos y clientes de plantillas/datasets VBLang. |
 
+## i18n 🆕 (`apps/web/src/i18n/`)
+
+Sistema propio, **sin librería externa**: `I18nContext.tsx` + hook `t()`. **12 catálogos** JSON
+(`de`, `en`, `eo`, `es-AR`, `es`, `fr`, `it`, `ja`, `ko`, `pt-BR`, `pt-PT`, `zh`), cableado en la
+mayoría de las páginas (2026-07-09). **Regla dura del proyecto**: agregar una clave nueva exige
+tocar **todos** los catálogos, no sólo `es.json` — hay un test de paridad de claves que falla si
+falta una en cualquier idioma. Gotchas documentados: *shadowing* de la variable `t` (colisiona
+fácil con otros usos comunes de ese nombre), imports multilínea que rompen el linter de i18n, y el
+caché incremental de `tsc` puede reportar errores fantasma tras tocar un catálogo (limpiar caché).
+Sin cablear (decisión, no deuda): strings dinámicos generados en runtime y los editores de
+escritorio (mapas, libro, cuestionarios — desktop-only por decisión del equipo).
+
 ## Auth y estado de usuario en el cliente
 
 - **`auth/auth-provider.tsx`** (`AuthProvider`): mantiene el `user` y lo persiste en `localStorage`
@@ -393,7 +434,12 @@ Lógica y tipos del cliente, independientes del transporte HTTP:
   refreshToken, {remember})`, `logout()` y `loginAs` (deshabilitado — usar el flujo real). `login`
   delega el guardado de tokens en `setAuthToken`/`setRefreshToken` de `lib/api.ts`.
 - **`auth/use-auth.ts`** + **`auth/AuthContex.tsx`**: hook y contexto (`User`, `useAuth`).
-- **`auth/roles.ts`**: tipo `Role`.
+- **`auth/roles.ts`**: tipo `Role`. 🆕 **Multirol**: los ~47 checks de rol del front se
+  centralizaron usando `hasRole`/`isStaffRole` re-exportados desde `authorization` (espejo del
+  backend, ver [`../backend/auth-y-roles.md#21-multirol`](../backend/auth-y-roles.md#21-multirol-🆕-apisrclibrolests-multirol-01)) — un usuario puede tener menús de más de un rol activos a la vez.
+- 🆕 **Cuenta espejo**: `services/cuenta-alumno-staff.ts` implementa el switch de cuenta
+  staff↔alumno espejo (o padre→alumno opt-in) sin re-login, reemplazando la vieja "vista previa
+  alumno" de `AlumnoLayout` (ver nota FIX-VISTA-PREVIA-STAFF más arriba).
 - **`logout()`** limpia tokens, el `user`, el tema persistido (`vb-theme`) y emite `vb:logout`.
 - **Tema:** `theme/ThemeContext.tsx` (`ThemeProvider`/`useTheme`) gestiona el tema visual (comprable
   en la tienda); ver `pages/TiendaTemas` y `pages/OnboardingTema`.
@@ -405,6 +451,9 @@ Lógica y tipos del cliente, independientes del transporte HTTP:
 
 - `apps/web/src/main.tsx`, `App.tsx`, `router.tsx`
 - `apps/web/src/layouts/*`, `nav/*`, `routing/ProtectedRoute.tsx`
-- `apps/web/src/pages/**` (80 archivos)
-- `apps/web/src/services/*` (24), `lib/api.ts`
+- `apps/web/src/pages/**` (**68 archivos** — la 1.0 decía 80; la diferencia incluye el archivado
+  de `EditorCuestionarios[V2]`, `Gobernanza*` y otras páginas huérfanas en 2026-07-14)
+- `apps/web/src/services/*` (**29** — 🆕 `asistencia`, `cobros`, `cuenta-alumno-staff`, `escuelas`,
+  `progreso-aula`, `roles`; `governance.ts` retirado), `lib/api.ts`
 - `apps/web/src/domain/**`, `auth/*`, `theme/ThemeContext.tsx`, `hooks/*`, `entitlements/*`
+- `apps/web/src/i18n/*` 🆕 (12 catálogos + `I18nContext.tsx`)

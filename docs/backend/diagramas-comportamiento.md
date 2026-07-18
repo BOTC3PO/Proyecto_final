@@ -5,8 +5,8 @@
 | **Versión** | 1.0 |
 | **Estado** | Vigente |
 | **Audiencia** | Backend, full-stack, tesis |
-| **Última actualización** | 2026-06-02 |
-| **Fuente de verdad** | `api/src/routes/quiz-attempts.ts`, `packages/vblang/`, `apps/web/src/vblang/`, `api/src/routes/progreso.ts`, `api/src/routes/governance.ts` |
+| **Última actualización** | 2026-06-02 (§4 desactualizada desde 2026-07-14, ver nota ahí) |
+| **Fuente de verdad** | `api/src/routes/quiz-attempts.ts`, `packages/vblang/`, `apps/web/src/vblang/`, `api/src/routes/progreso.ts` — ⚠️ `api/src/routes/governance.ts` **ya no existe** (retirado, ver §4) |
 
 > Complementa al [modelo de datos](./modelo-de-datos.md) (ER estructural) con los
 > **diagramas de comportamiento** del sistema: la máquina de estados del intento de quiz
@@ -180,7 +180,13 @@ stateDiagram-v2
 
 ---
 
-## 4. (Opcional) Flujo de votación de governance
+## 4. (Opcional) Flujo de votación de governance ⚠️ RETIRADO
+
+> **Este flujo ya no existe.** Gobernanza se retiró por completo del producto (commit `be9873ae`,
+> 2026-07-14, decisión del usuario): se dropearon las tablas `proposals`/`votes`, se borró
+> `api/src/lib/governance.ts` y el router `api/src/routes/governance.ts`. El diagrama de abajo
+> queda como **registro histórico** de un flujo que existió — no describe el sistema actual. Ver
+> [`modelo-de-datos.md#6-moderación-y-auditoría`](./modelo-de-datos.md#6-moderación-y-auditoría).
 
 Una `Proposal` nace `OPEN`, acumula `Vote` (APPROVE/REJECT/ABSTAIN) y, al cerrarse, se evalúa
 contra la regla del nivel (`MAJORITY` / `SUPERMAJORITY_2_3` / `UNANIMOUS`,
