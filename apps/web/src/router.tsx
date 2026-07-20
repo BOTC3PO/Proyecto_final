@@ -28,6 +28,7 @@ const Explorar            = lazyWithRetry(() => import("./pages/Explorar"));
 const Metodologia         = lazyWithRetry(() => import("./pages/metodologia"));
 const MenuAlumno          = lazyWithRetry(() => import("./pages/menu-alumno"));
 const Clases              = lazyWithRetry(() => import("./pages/aula"));
+const AulaMapaModulos     = lazyWithRetry(() => import("./pages/AulaMapaModulos"));
 const MisClases           = lazyWithRetry(() => import("./pages/MisClases"));
 const BookEditorPage      = lazyWithRetry(() => import("./bookEditor/BookEditorPage"));
 const BlockEditorPage     = lazyWithRetry(() => import("./blocks/v2/BlockEditorPage"));
@@ -189,6 +190,10 @@ export const router = createBrowserRouter([
           {
             path: 'clases/:aulaId',
             element: withSuspense(<Clases />),
+          },
+          {
+            path: 'clases/:aulaId/mapa',
+            element: withSuspense(<AulaMapaModulos />),
           },
           {
             path: 'tareas',

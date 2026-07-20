@@ -22,6 +22,8 @@ import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
+import QuizPreguntasNativasPreview from "../../components/modulos/QuizPreguntasNativasPreview";
+import DesbloqueosManualesPanel from "../../components/modulos/DesbloqueosManualesPanel";
 import QuizPosicionesEditor from "../../components/modulos/QuizPosicionesEditor";
 import { SCORING_SYSTEMS, DEFAULT_SCORING_SYSTEM_ID } from "@vb/vblang";
 import VistaAlumnoOverlay from "../../components/modulos/VistaAlumnoOverlay";
@@ -1631,6 +1633,10 @@ export default function ModuloEditor() {
                     }}
                   >{t("moduloEditor.agregarDependencia")}</button>
                 )}
+
+                {/* "Niveles por aula con mapa de flujo" — desbloqueo manual:
+                    sólo con el módulo ya guardado (necesita un moduloId real). */}
+                {id && <DesbloqueosManualesPanel moduloId={id} />}
                 </div>
               </section>
               </>)}
@@ -1941,7 +1947,9 @@ export default function ModuloEditor() {
                         {quizPreviewOpen[quiz.id] ? (
                           <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
                             <p className="mb-2 font-semibold">{t("moduloEditor.vistaPreviaDelEstudianteNo")}</p>
-                            {quiz.mode === "generated" ? (
+                            {tienePreguntasNativas ? (
+                              <QuizPreguntasNativasPreview quizId={quiz.id} />
+                            ) : quiz.mode === "generated" ? (
                               <QuizGeneratedPreview
                                 generatorId={quiz.generatorId ?? ""}
                                 count={quiz.count ?? 3}

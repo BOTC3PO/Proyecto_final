@@ -604,6 +604,25 @@ model Modulo {
   @@map("modulos")
 }
 
+// "Niveles por aula con mapa de flujo" — desbloqueo manual: un docente
+// puede saltear el candado por dependencias para UN alumno puntual
+// (usuarioId) o para TODA un aula (aulaId) — exactamente uno de los dos
+// debe estar poblado (se valida en la ruta, no acá: sqlite/postgres sin
+// CHECK constraint portable en este proyecto). Gana sobre el candado por
+// dependencias, no lo reemplaza — sigue existiendo aunque ya no bloquee.
+model ModuloDesbloqueo {
+  id          String  @id @default(uuid())
+  moduloId    String  @map("modulo_id")
+  usuarioId   String? @map("usuario_id")
+  aulaId      String? @map("aula_id")
+  otorgadoPor String  @map("otorgado_por")
+  createdAt   String  @map("created_at")
+  @@index([moduloId])
+  @@index([usuarioId])
+  @@index([aulaId])
+  @@map("modulo_desbloqueos")
+}
+
 model QuizQuestionSet {
   id            String  @id
   schemaVersion Int     @default(1) @map("schema_version")

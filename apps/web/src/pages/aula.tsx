@@ -875,7 +875,20 @@ export default function Aula() {
 
             {/* Progreso */}
             <div className={cardCls}>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.progresoDeLaClase")}</h3>
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.progresoDeLaClase")}</h3>
+                {/* "Niveles por aula con mapa de flujo" — mismo isLocked que
+                    ya aplica POST /api/quiz-attempts, sólo que acá se ve
+                    de un vistazo qué desbloquea qué. */}
+                {classroomId && classProgress.length > 0 && (
+                  <Link
+                    to={`/clases/${classroomId}/mapa`}
+                    className="text-xs font-medium text-[var(--c-primary)] hover:underline"
+                  >
+                    {t("aulaMapaModulos.titulo")} →
+                  </Link>
+                )}
+              </div>
               <div className="mt-3 space-y-3 text-sm">
                 {progressLoading && <div className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />}
                 {progressError && !progressLoading && <p className="text-[var(--c-danger)]">{progressError}</p>}

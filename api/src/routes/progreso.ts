@@ -7,6 +7,8 @@ import { assertClassroomWritable } from "../lib/classroom";
 import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
 import { excluirEspejosDeIds } from "../lib/espejo-filtro";
+import { parseModuleDependencies, computeModuleLock, type DependenciesById } from "../lib/module-dependencies";
+import { hasActiveModuleOverride } from "../lib/module-unlock-overrides";
 import { ProgressSchema } from "../schema/progreso";
 
 export const progreso = Router();
@@ -180,31 +182,36 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
   const completedIds = new Set(
     items.filter((item) => item.status === "completado").map((item) => item.moduloId)
   );
-  const parseDependencies = (raw: string | null | undefined): unknown[] => {
-    if (!raw) return [];
-    try { const parsed = JSON.parse(raw); return Array.isArray(parsed) ? parsed : []; } catch { return []; }
-  };
-  const getRequiredDependencyIds = (dependencies: unknown) => {
-    if (!Array.isArray(dependencies)) return [];
-    return dependencies
-      .map((dep) => {
-        if (typeof dep === "string") return dep;
-        if (!dep || typeof dep !== "object") return null;
-        const record = dep as { id?: unknown; type?: unknown };
-        if (record.type !== "required" || typeof record.id !== "string") return null;
-        return record.id;
+  // FIX-DEPENDENCIAS-UNLOCKS — un "unlocks" declarado por un módulo FUERA
+  // de este aula (`modules`, filtrado por `aulaId`) también puede
+  // bloquear uno de acá; hace falta el universo completo de
+  // dependencias, no sólo las del aula, para calcularlo bien.
+  const allDependenciesById = new Map(
+    (
+      await prisma.modulo.findMany({
+        where: { dependencies: { not: null } },
+        select: { id: true, dependencies: true }
       })
-      .filter((dep): dep is string => Boolean(dep));
-  };
-  const unlocks = modules.map((module) => {
-    const deps = getRequiredDependencyIds(parseDependencies(module.dependencies));
-    const missingDependencies = deps.filter((dep) => !completedIds.has(dep));
-    return {
-      moduloId: module.id,
-      isLocked: missingDependencies.length > 0,
-      missingDependencies
-    };
-  });
+    ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+  );
+  const unlocks = await Promise.all(
+    modules.map(async (module) => {
+      const { isLocked: locked, missingDependencyIds } = computeModuleLock(
+        module.id,
+        parseModuleDependencies(module.dependencies),
+        allDependenciesById,
+        completedIds
+      );
+      // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
+      // sobre el candado por dependencias.
+      const isLocked = locked && !(await hasActiveModuleOverride(module.id, usuarioId));
+      return {
+        moduloId: module.id,
+        isLocked,
+        missingDependencies: missingDependencyIds
+      };
+    })
+  );
   res.json({ items, unlocks });
 });
 
@@ -427,6 +434,14 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
       })
     : [];
   const moduleMap = new Map(modules.map((module) => [module.id ?? "", module]));
+  const allDependenciesById: DependenciesById = new Map(
+    (
+      await prisma.modulo.findMany({
+        where: { dependencies: { not: null } },
+        select: { id: true, dependencies: true }
+      })
+    ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+  );
   const progressByChild = new Map<string, typeof progressItems>();
   for (const item of progressItems) {
     const list = progressByChild.get(item.usuarioId as string) ?? [];
@@ -441,7 +456,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
     completedByChild.set(item.usuarioId as string, set);
   }
 
-  const responses = allowed.map((v) => {
+  const responses = await Promise.all(allowed.map(async (v) => {
     const childId = String(v.childId ?? "");
     const child = childMap.get(childId);
     const progress = progressByChild.get(childId) ?? [];
@@ -449,14 +464,17 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
     const total = progress.length;
     const completados = progress.filter((item) => item.status === "completado").length;
     const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
-    const modulos = progress.map((item) => {
+    const modulos = await Promise.all(progress.map(async (item) => {
       const module = moduleMap.get(item.moduloId ?? "");
-      const rawDeps = module?.dependencies; const depsArray = rawDeps ? (() => { try { const p = JSON.parse(rawDeps); return Array.isArray(p) ? p : []; } catch { return []; } })() : []; const dependencies = depsArray as Array<{ type?: string; id?: string }>;
-      const requiredDeps = dependencies
-        .map((dep) => (dep?.type === "required" ? dep.id : null))
-        .filter((dep): dep is string => Boolean(dep));
-      const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
-      const isLocked = missingDeps.length > 0;
+      const { isLocked: locked } = computeModuleLock(
+        item.moduloId ?? "",
+        parseModuleDependencies(module?.dependencies),
+        allDependenciesById,
+        completedSet
+      );
+      // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
+      // sobre el candado por dependencias.
+      const isLocked = locked && !(await hasActiveModuleOverride(item.moduloId ?? "", childId));
       const estado =
         item.status === "completado"
           ? "Completado"
@@ -477,7 +495,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
         estado,
         ultimaActividad: formatActivityDate(item.updatedAt ?? undefined)
       };
-    });
+    }));
     return {
       id: childId,
       nombre: String(child?.fullName ?? v.nombre ?? "Sin nombre"),
@@ -486,7 +504,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
       progresoGeneral,
       modulos
     };
-  });
+  }));
   res.json(responses);
 });
 
@@ -520,20 +538,38 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
       })
     : [];
   const moduleMap = new Map(modules.map((module) => [module.id ?? "", module]));
+  const allDependenciesById: DependenciesById = new Map(
+    (
+      await prisma.modulo.findMany({
+        where: { dependencies: { not: null } },
+        select: { id: true, dependencies: true }
+      })
+    ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+  );
   const completedSet = new Set(
     progress.filter((item) => item.status === "completado").map((item) => item.moduloId)
   );
   const total = progress.length;
   const completados = progress.filter((item) => item.status === "completado").length;
   const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
-  const modulos = progress.map((item) => {
+  const modulos = await Promise.all(progress.map(async (item) => {
     const module = moduleMap.get(item.moduloId ?? "");
-    const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
-    const requiredDeps = (dependencies as Array<{ type?: string; id?: string }>)
-      .map((dep) => (dep?.type === "required" ? dep.id : null))
-      .filter((dep): dep is string => Boolean(dep));
-    const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
-    const isLocked = missingDeps.length > 0;
+    // FIX-DEPENDENCIAS — esta copia comparaba `Array.isArray` sobre el
+    // string crudo de `module.dependencies` (columna JSON serializada)
+    // SIN pasarlo por `JSON.parse` primero: un string nunca es array,
+    // así que `isLocked` acá jamás daba `true`, aunque las otras dos
+    // copias del mismo cálculo (arregladas junto con ésta) sí
+    // detectaban el bloqueo. `parseModuleDependencies` deserializa
+    // antes de mirar el array.
+    const { isLocked: locked } = computeModuleLock(
+      item.moduloId ?? "",
+      parseModuleDependencies(module?.dependencies),
+      allDependenciesById,
+      completedSet
+    );
+    // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
+    // sobre el candado por dependencias.
+    const isLocked = locked && !(await hasActiveModuleOverride(item.moduloId ?? "", childId));
     const estado =
       item.status === "completado"
         ? "Completado"
@@ -549,7 +585,7 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
       estado,
       ultimaActividad: formatActivityDate(item.updatedAt ?? undefined)
     };
-  });
+  }));
   res.json({
     id: childId,
     nombre: (child.fullName ?? vinculo.nombre ?? "Sin nombre") as string,

@@ -102,6 +102,8 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.cuentaVinculada.rows = [];
   // FASE 5 — vínculos padre↔hijo.
   prisma.progresoModuloVinculo.rows = [];
+  // "Niveles por aula con mapa de flujo" — desbloqueos manuales.
+  prisma.moduloDesbloqueo.rows = [];
   prisma.auditLog.rows = [];
   // FASE 6 — `suggestions` (solicitar-rol crea filas acá).
   prisma.suggestion.rows = [];

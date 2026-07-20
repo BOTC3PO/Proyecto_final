@@ -724,6 +724,17 @@ export type ProgresoModuloVinculoRow = {
   updatedAt: string;
 };
 
+// "Niveles por aula con mapa de flujo" — desbloqueo manual: exactamente
+// uno de usuarioId/aulaId debe estar poblado (validado en la ruta).
+export type ModuloDesbloqueoRow = {
+  id: string;
+  moduloId: string;
+  usuarioId?: string | null;
+  aulaId?: string | null;
+  otorgadoPor: string;
+  createdAt: string;
+};
+
 // FASE 6 — fila de `suggestions` (panel de gobernanza). El endpoint
 // `POST /api/solicitar-rol` crea una `Suggestion` con
 // `suggestionType = "CAMBIO_ROL"`. El stub la necesitaba para que
@@ -800,6 +811,10 @@ export class InMemoryPrisma {
   // (la columna es `@default(uuid())` en el schema), así que el
   // constructor parchea `create` para autogenerarlo.
   progresoModuloVinculo = new Table<ProgresoModuloVinculoRow>("progresoModuloVinculo");
+  // "Niveles por aula con mapa de flujo" — desbloqueo manual por docente
+  // (routes/modulos.ts). El id se genera con randomUUID() en la ruta
+  // (mismo patrón que quiz-attempts.ts), no hace falta parchear create().
+  moduloDesbloqueo = new Table<ModuloDesbloqueoRow>("moduloDesbloqueo");
   auditLog = new Table<AuditLogRow>("auditLog");
   // FASE 6 — `suggestions` (gobernanza + `solicitar-rol`).
   suggestion = new Table<SuggestionRow>("suggestion");

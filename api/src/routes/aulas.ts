@@ -16,6 +16,13 @@ import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
+  parseModuleDependencies,
+  getRequiredDependencyIds,
+  getUnlocksDependencyIds,
+  computeModuleLock,
+} from "../lib/module-dependencies";
+import { hasActiveModuleOverride } from "../lib/module-unlock-overrides";
+import {
   ClassroomCreateSchema,
   ClassroomPatchSchema,
   ClasePeriodoSchema,
@@ -1187,6 +1194,132 @@ aulas.get("/api/aulas/:id/modulos", requireUser, async (req, res) => {
     res.status(500).json({ error: err instanceof Error ? err.message : "error" });
   }
 });
+
+/**
+ * GET /api/aulas/:id/mapa-modulos — mapa de flujo de los módulos
+ * asignados al aula, para que el alumno vea de un vistazo qué desbloquea
+ * qué. Nodos = módulos asignados al aula, con `status` (progreso del
+ * requester) e `isLocked` (dependencias "required" sin completar,
+ * mismo cálculo que ya usa POST /api/quiz-attempts). `links` sólo
+ * incluye dependencias ENTRE módulos del mismo aula — una dependencia
+ * hacia un módulo fuera del aula no se puede dibujar como arista acá.
+ */
+aulas.get(
+  "/api/aulas/:id/mapa-modulos",
+  requireUser,
+  requireClassroomScope({ allowMemberRoles: "any", allowSchoolMatch: true }),
+  async (req, res) => {
+    try {
+      const aulaId = req.params.id as string;
+      const user = (req as {
+        user?: { id?: string; _id?: { toString?: () => string } | string };
+      }).user;
+      const requesterId =
+        (typeof user?.id === "string" && user.id) ||
+        (typeof user?._id === "string" && (user._id as string)) ||
+        (user?._id && typeof (user._id as { toString?: () => string }).toString === "function"
+          ? (user._id as { toString: () => string }).toString()
+          : null);
+      if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+
+      const claseModulos = await prisma.claseModulo.findMany({
+        where: { claseId: aulaId },
+        select: { moduloId: true },
+      });
+      const moduloIds = claseModulos.map((cm) => cm.moduloId);
+      if (moduloIds.length === 0) return res.json({ modulos: [], links: [] });
+
+      const modulos = await prisma.modulo.findMany({
+        where: { id: { in: moduloIds } },
+        select: { id: true, titulo: true, subject: true, category: true, dependencies: true },
+      });
+      const progresoItems = await prisma.progresoModulo.findMany({
+        where: { usuarioId: requesterId, moduloId: { in: moduloIds } },
+        select: { moduloId: true, status: true },
+      });
+      const statusByModulo = new Map(progresoItems.map((p) => [p.moduloId, p.status]));
+      const completedIds = new Set(
+        progresoItems.filter((p) => p.status === "completado").map((p) => p.moduloId)
+      );
+      // FIX-DEPENDENCIAS-UNLOCKS — el candado usa el universo COMPLETO de
+      // dependencias (un "unlocks" fuera del aula puede bloquear un
+      // módulo de acá); las aristas dibujadas, en cambio, sólo conectan
+      // nodos que están en este mapa (no se puede dibujar una arista a
+      // un módulo que no se ve).
+      const allDependenciesById = new Map(
+        (
+          await prisma.modulo.findMany({
+            where: { dependencies: { not: null } },
+            select: { id: true, dependencies: true },
+          })
+        ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+      );
+
+      const moduloIdSet = new Set(moduloIds);
+      const links: { id: string; sourceId: string; targetId: string }[] = [];
+      const lockByModulo = new Map<string, { locked: boolean; missingDependencyIds: string[] }>();
+      modulos.forEach((m) => {
+        const deps = parseModuleDependencies(m.dependencies);
+        const { isLocked: locked, missingDependencyIds } = computeModuleLock(
+          m.id,
+          deps,
+          allDependenciesById,
+          completedIds
+        );
+        lockByModulo.set(m.id, { locked, missingDependencyIds });
+        getRequiredDependencyIds(deps).forEach((depId) => {
+          if (!moduloIdSet.has(depId)) return;
+          links.push({ id: `${depId}->${m.id}`, sourceId: depId, targetId: m.id });
+        });
+        getUnlocksDependencyIds(deps).forEach((targetId) => {
+          if (!moduloIdSet.has(targetId)) return;
+          links.push({ id: `${m.id}->${targetId}`, sourceId: m.id, targetId });
+        });
+      });
+
+      // Título resuelto para el tooltip del mapa (mismo criterio que
+      // `missingDependencies` en GET /api/modulos/:id): una sola consulta
+      // batcheada para todos los ids faltantes de todos los nodos.
+      const allMissingIds = Array.from(
+        new Set(Array.from(lockByModulo.values()).flatMap((l) => l.missingDependencyIds))
+      );
+      const missingTitleById = new Map(
+        allMissingIds.length === 0
+          ? []
+          : (
+              await prisma.modulo.findMany({
+                where: { id: { in: allMissingIds } },
+                select: { id: true, titulo: true },
+              })
+            ).map((m) => [m.id, m.titulo])
+      );
+
+      const nodos = await Promise.all(
+        modulos.map(async (m) => {
+          const lock = lockByModulo.get(m.id)!;
+          // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
+          // sobre el candado por dependencias.
+          const isLocked = lock.locked && !(await hasActiveModuleOverride(m.id, requesterId));
+          return {
+            id: m.id,
+            title: m.titulo,
+            subject: m.subject ?? null,
+            status: statusByModulo.get(m.id) ?? "no_iniciado",
+            isLocked,
+            missingDependencies: lock.missingDependencyIds.map((depId) => ({
+              id: depId,
+              title: missingTitleById.get(depId) ?? depId,
+            })),
+          };
+        })
+      );
+
+      res.json({ modulos: nodos, links });
+    } catch (err) {
+      res.status(500).json({ error: err instanceof Error ? err.message : "error" });
+    }
+  }
+);
 
 /**
  * Helper de auth para los endpoints de asignación/desasignación de módulos.

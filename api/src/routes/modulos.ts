@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { randomUUID } from "crypto";
 import { prisma } from "../lib/prisma";
 import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
@@ -9,6 +10,8 @@ import { recordAuditLog } from "../lib/audit-log";
 import { resolveUserNames } from "../lib/resolve-user-names";
 import { sanitizeQuestionsForStudent } from "../lib/sanitize-questions";
 import { mergeMateriaIntoSettings } from "../lib/quiz-materia";
+import { computeModuleLock, parseModuleDependencies } from "../lib/module-dependencies";
+import { hasActiveModuleOverride } from "../lib/module-unlock-overrides";
 import { ModuleSchema, CuestionarioPreguntasInputSchema, QuizMetaPatchSchema } from "../schema/modulo";
 // Etapa 2 (Tiza — preguntas nativas) — GET/PUT del CuestionarioPreguntas de
 // un quiz por su id (ver rutas al final del archivo).
@@ -441,6 +444,46 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
     // Mismo patrón que ya se usa en aulas.ts/publicaciones.ts.
     const authorNameMap = await resolveUserNames([item.ownerUserId]);
 
+    // FIX-DEPENDENCIAS — el candado por dependencias "required" (ver
+    // module-dependencies.ts) sólo se calculaba en progreso.ts, sin que
+    // ModuloDetail.tsx (la página que abre el alumno) tuviera forma de
+    // mostrarlo. Se calcula acá, en el mismo GET que ya trae el módulo,
+    // para no pedir un round-trip aparte. `missingDependencies` viene
+    // con título resuelto para poder mostrar "Completá primero: X".
+    let isLocked = false;
+    let missingDependencies: { id: string; title: string }[] = [];
+    if (requesterId) {
+      const completedRows = await prisma.progresoModulo.findMany({
+        where: { usuarioId: requesterId, status: "completado" },
+        select: { moduloId: true },
+      });
+      const completedModuleIds = new Set(completedRows.map((r) => r.moduloId));
+      // FIX-DEPENDENCIAS-UNLOCKS — un "unlocks" declarado desde CUALQUIER
+      // otro módulo puede bloquear a éste.
+      const allDependenciesById = new Map(
+        (
+          await prisma.modulo.findMany({
+            where: { dependencies: { not: null } },
+            select: { id: true, dependencies: true },
+          })
+        ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+      );
+      const lock = computeModuleLock(
+        item.id,
+        parseModuleDependencies(item.dependencies),
+        allDependenciesById,
+        completedModuleIds
+      );
+      isLocked = lock.isLocked && !(await hasActiveModuleOverride(item.id, requesterId));
+      if (lock.missingDependencyIds.length > 0) {
+        const missingModules = await prisma.modulo.findMany({
+          where: { id: { in: lock.missingDependencyIds } },
+          select: { id: true, titulo: true },
+        });
+        missingDependencies = missingModules.map((m) => ({ id: m.id, title: m.titulo }));
+      }
+    }
+
     const moduleDto: Record<string, unknown> = {
       id: item.id,
       slug: item.slug ?? undefined,
@@ -481,6 +524,8 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
       dependencies: item.dependencies
         ? safeJsonParse(item.dependencies, [] as unknown[])
         : [],
+      isLocked,
+      missingDependencies,
       createdBy: item.ownerUserId ?? "",
       authorName: item.ownerUserId ? (authorNameMap.get(item.ownerUserId) ?? undefined) : undefined,
       // WO-13 — provenance. La UI muestra "Copiado de: <título>
@@ -1540,6 +1585,77 @@ modulos.delete("/api/modulos/:id/invitados/:usuarioId", requireUser, async (req,
   const usuarioId = req.params.usuarioId as string;
   const result = await prisma.moduloInvitacion.deleteMany({
     where: { moduloId: modulo.id, usuarioId },
+  });
+  if (result.count === 0) return res.status(404).json({ error: "not found" });
+  res.status(204).send();
+});
+
+// ─── "Niveles por aula con mapa de flujo" — desbloqueo manual ───────────────
+// El docente dueño del módulo puede saltear el candado por dependencias
+// para UN alumno puntual (`usuarioId`) o para TODA un aula (`aulaId`) —
+// exactamente uno de los dos. Mismo criterio de autorización que
+// "invitados" (sólo el dueño), reusando sus helpers.
+modulos.get("/api/modulos/:id/desbloqueos", requireUser, async (req, res) => {
+  const modulo = await requireModuleOwner(req, res);
+  if (!modulo) return;
+  const desbloqueos = await prisma.moduloDesbloqueo.findMany({ where: { moduloId: modulo.id } });
+  const nameMap = await resolveModuleUserNames(
+    desbloqueos.map((d) => d.usuarioId).filter((v): v is string => Boolean(v))
+  );
+  const aulaIds = Array.from(
+    new Set(desbloqueos.map((d) => d.aulaId).filter((v): v is string => Boolean(v)))
+  );
+  const aulas = aulaIds.length
+    ? await prisma.clase.findMany({ where: { id: { in: aulaIds } }, select: { id: true, name: true } })
+    : [];
+  const aulaNameMap = new Map(aulas.map((a) => [a.id, a.name]));
+  res.json({
+    items: desbloqueos.map((d) => ({
+      id: d.id,
+      usuarioId: d.usuarioId ?? null,
+      usuarioNombre: d.usuarioId ? (nameMap.get(d.usuarioId) ?? d.usuarioId) : null,
+      aulaId: d.aulaId ?? null,
+      aulaNombre: d.aulaId ? (aulaNameMap.get(d.aulaId) ?? d.aulaId) : null,
+      otorgadoPor: d.otorgadoPor,
+      createdAt: d.createdAt,
+    })),
+  });
+});
+
+modulos.post("/api/modulos/:id/desbloqueos", requireUser, express.json(), async (req, res) => {
+  const modulo = await requireModuleOwner(req, res);
+  if (!modulo) return;
+  const usuarioId = typeof req.body?.usuarioId === "string" ? req.body.usuarioId.trim() : "";
+  const aulaId = typeof req.body?.aulaId === "string" ? req.body.aulaId.trim() : "";
+  if ((usuarioId && aulaId) || (!usuarioId && !aulaId)) {
+    return res.status(400).json({ error: "hay que indicar exactamente uno de usuarioId o aulaId" });
+  }
+  if (usuarioId) {
+    const target = await prisma.usuario.findFirst({ where: { id: usuarioId, isDeleted: { not: true } } });
+    if (!target) return res.status(400).json({ error: "user not found" });
+  } else {
+    const aula = await prisma.clase.findFirst({ where: { id: aulaId } });
+    if (!aula) return res.status(400).json({ error: "classroom not found" });
+  }
+  const requesterId = resolveRequesterId(req.user as QuizRequesterRaw);
+  const created = await prisma.moduloDesbloqueo.create({
+    data: {
+      id: randomUUID(),
+      moduloId: modulo.id,
+      usuarioId: usuarioId || null,
+      aulaId: aulaId || null,
+      otorgadoPor: requesterId ?? "",
+      createdAt: new Date().toISOString(),
+    },
+  });
+  res.status(201).json({ id: created.id });
+});
+
+modulos.delete("/api/modulos/:id/desbloqueos/:desbloqueoId", requireUser, async (req, res) => {
+  const modulo = await requireModuleOwner(req, res);
+  if (!modulo) return;
+  const result = await prisma.moduloDesbloqueo.deleteMany({
+    where: { id: req.params.desbloqueoId as string, moduloId: modulo.id },
   });
   if (result.count === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();

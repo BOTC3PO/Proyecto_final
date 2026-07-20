@@ -80,16 +80,18 @@ function getModulePalette(category: string) {
   };
 }
 
-const VISIBILITY_LABELS: Record<ModuleVisibility, string> = {
-  publico: "Público",
-  privado: "Privado",
-  escuela: "Escuela",
+// i18n — mismas claves que ModulosList.tsx (VISIBILITY_LABEL_KEYS) para el
+// mismo concepto; antes estaban hardcodeadas en español acá.
+const VISIBILITY_LABEL_KEYS: Record<ModuleVisibility, string> = {
+  publico: "moduloEditor.publico",
+  privado: "profesorEvaluaciones.privado",
+  escuela: "sidebar.escuela",
 };
 
-const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
-  practica: "Práctica",
-  formal: "Evaluación formal",
-  competencia: "Competencia",
+const QUIZ_TYPE_LABEL_KEYS: Record<ModuleQuiz["type"], string> = {
+  practica: "profesorEvaluaciones.practica",
+  formal: "moduloDetail.evaluacionFormal",
+  competencia: "profesorEvaluaciones.competencia",
 };
 
 // FIX-LEER-VOZ-ALTA — la lógica que junta los textos a leer en voz
@@ -584,7 +586,7 @@ export default function ModuloDetail() {
   }
 
   const visibilityLabel = module.visibility
-    ? VISIBILITY_LABELS[module.visibility]
+    ? t(VISIBILITY_LABEL_KEYS[module.visibility])
     : "Sin definir";
   const levelLabel = module.level ?? module.difficultyLevel ?? "Sin nivel";
   // FIX-MODULO-DURACION — antes renderizaba `{module.durationMinutes} minutos`
@@ -777,6 +779,30 @@ export default function ModuloDetail() {
           </div>
         </section>
 
+        {/* FIX-DEPENDENCIAS — antes esto no existía: `module.dependencies`
+            se configuraba en ModuloEditor.tsx y se calculaba en
+            progreso.ts (`isLocked`, mostrado como pastilla en el costado
+            de aula.tsx), pero acá — donde el alumno realmente abre el
+            módulo — no había ningún indicio de bloqueo, así que se podía
+            rendir igual sin cumplir el prerrequisito. */}
+        {module.isLocked && (module.missingDependencies?.length ?? 0) > 0 && (
+          <div
+            role="alert"
+            className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4"
+          >
+            <svg className="h-5 w-5 shrink-0 text-amber-600" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+            </svg>
+            <div>
+              <p className="text-sm font-semibold text-amber-800">{t("moduloDetail.moduloBloqueado")}</p>
+              <p className="mt-1 text-xs text-amber-700">
+                {t("moduloDetail.completaPrimero")}{" "}
+                {module.missingDependencies!.map((d) => d.title).join(", ")}
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Divider */}
         <div className={`${modoFoco ? "hidden" : ""} border-t border-slate-200/60`} />
 
@@ -889,7 +915,7 @@ export default function ModuloDetail() {
                       <div>
                         <h3 className="text-sm font-bold text-slate-800">{quiz.title}</h3>
                         <p className="mt-0.5 text-xs font-medium text-slate-500">
-                          Tipo: {QUIZ_TYPE_LABELS[quiz.type]}
+                          {t("comun.tipo")}: {t(QUIZ_TYPE_LABEL_KEYS[quiz.type])}
                         </p>
                       </div>
                       {/* Progress badge */}
@@ -981,6 +1007,23 @@ export default function ModuloDetail() {
                       {pureParent ? (
                         <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-4 py-2 text-xs font-medium text-slate-500">
                           Como familiar podés ver este cuestionario pero no rendirlo.
+                        </span>
+                      ) : module.isLocked && !enCurso ? (
+                        // FIX-DEPENDENCIAS — no dejamos ni intentar: el back
+                        // igual lo rechaza (403 module_locked), pero mostrar
+                        // el candado acá evita el viaje redondo y confunde
+                        // menos que "Empezar" seguido de un error. Un
+                        // intento YA en curso (`enCurso`) se puede seguir
+                        // continuando aunque el módulo se haya bloqueado
+                        // después de arrancarlo.
+                        <span
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-50 px-4 py-2 text-xs font-medium text-amber-700"
+                          data-testid={`quiz-bloqueado-${quiz.id}`}
+                        >
+                          <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                          </svg>
+                          {t("moduloDetail.moduloBloqueado")}
                         </span>
                       ) : (
                       <button

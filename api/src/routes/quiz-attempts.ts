@@ -56,6 +56,8 @@ import { parseComposition, selectPoolIndices } from "../lib/quiz-composition";
 import { excluirEspejosDeIds } from "../lib/espejo-filtro";
 import { resolveUserNames } from "../lib/resolve-user-names";
 import { acreditarPorPrimerCuestionario } from "../lib/economia-alta";
+import { parseModuleDependencies, computeModuleLock } from "../lib/module-dependencies";
+import { hasActiveModuleOverride } from "../lib/module-unlock-overrides";
 // Etapa 1 (Tiza — preguntas nativas) — sorteo nuevo, sólo para quizzes que
 // declaran `settings.preguntas` (schema independiente de `composition`).
 import {
@@ -1100,6 +1102,51 @@ quizAttempts.post(
     if (!userId) return res.status(401).json({ error: "user not found" });
     const now = new Date();
     const resolvedModuleId = payload.moduleId ?? metadata?.moduleId ?? null;
+    // FIX-DEPENDENCIAS — `Modulo.dependencies` (tipo "required") se
+    // calculaba en progreso.ts (`isLocked`) y se mostraba como pastilla
+    // "Bloqueado" en aula.tsx, pero nada impedía rendir el cuestionario
+    // igual: el candado era sólo decorativo. Staff exceptuado (un
+    // docente probando su propio contenido no tiene `ProgresoModulo`
+    // como alumno, así que quedaría "bloqueado" por defecto).
+    if (resolvedModuleId && !isStaffRole(req.user?.role ?? null)) {
+      const moduleForLock = await prisma.modulo.findFirst({
+        where: { id: resolvedModuleId },
+        select: { dependencies: true }
+      });
+      if (moduleForLock) {
+        const completedRows = await prisma.progresoModulo.findMany({
+          where: { usuarioId: userId, status: "completado" },
+          select: { moduloId: true }
+        });
+        const completedModuleIds = new Set(completedRows.map((r) => r.moduloId));
+        // FIX-DEPENDENCIAS-UNLOCKS — un "unlocks" declarado desde CUALQUIER
+        // otro módulo puede bloquear a éste; hace falta el universo
+        // completo de dependencias (no sólo las propias) para saberlo.
+        const allDependenciesById = new Map(
+          (
+            await prisma.modulo.findMany({
+              where: { dependencies: { not: null } },
+              select: { id: true, dependencies: true }
+            })
+          ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+        );
+        const { isLocked, missingDependencyIds } = computeModuleLock(
+          resolvedModuleId,
+          parseModuleDependencies(moduleForLock.dependencies),
+          allDependenciesById,
+          completedModuleIds
+        );
+        // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
+        // sobre el candado por dependencias, no lo reemplaza.
+        if (isLocked && !(await hasActiveModuleOverride(resolvedModuleId, userId))) {
+          return res.status(403).json({
+            error: "Todavía no completaste los módulos previos requeridos.",
+            code: "module_locked",
+            missingDependencyIds
+          });
+        }
+      }
+    }
     const seed = buildSeed(quiz);
     // Etapa 1 (Tiza — preguntas nativas) — `maxScore` inicial = cantidad
     // GLOBAL declarada (estimado por cantidad de ítems, sin ponderar por

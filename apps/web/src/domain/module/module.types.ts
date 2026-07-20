@@ -527,6 +527,13 @@ export type Module = {
   // generales sin borrarlo; sigue visible para invitados y aulas.
   descatalogado?: boolean;
   dependencies: ModuleDependency[];
+  // FIX-DEPENDENCIAS — calculado por el back para el requester actual
+  // (GET /api/modulos/:id): true si falta completar alguna dependencia
+  // "required". `missingDependencies` trae título resuelto para mostrar
+  // "Completá primero: X". Ausente en respuestas donde el back no lo
+  // calculó (ej. listados) — tratar como no bloqueado.
+  isLocked?: boolean;
+  missingDependencies?: { id: string; title: string }[];
   scoringConfig?: ModuleScoringConfig;
   rewardsConfig?: ModuleRewardsConfig;
   generatorRef?: ModuleGeneratorRef | null;
