@@ -8,7 +8,7 @@ import { useCanActAsLearner, useHasRole } from "../auth/use-roles";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabelKey, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
-import { createPublication, updatePublication, deletePublication, fetchPublications, type Publication } from "../services/publicaciones";
+import { createPublication, updatePublication, deletePublication, fetchPublications, fetchComments, createComment, type Publication, type Comment } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchResourceLinks, type ResourceLink, type ResourceLinkType } from "../services/resource-links";
@@ -105,6 +105,16 @@ export default function Aula() {
   const [editingPublicationId, setEditingPublicationId] = useState<string | null>(null);
   const [editingPublicationBody, setEditingPublicationBody] = useState("");
   const [publicationActionError, setPublicationActionError] = useState<string | null>(null);
+  // Tarea 14 — comentarios de alumnos en publicaciones. Carga perezosa
+  // (recién al abrir el hilo de una publicación), mismo patrón que otros
+  // paneles colapsables de la app: menos requests de arranque en aulas
+  // con feeds largos.
+  const [commentsOpen, setCommentsOpen] = useState<Record<string, boolean>>({});
+  const [comments, setComments] = useState<Record<string, Comment[]>>({});
+  const [commentsLoading, setCommentsLoading] = useState<Record<string, boolean>>({});
+  const [newComment, setNewComment] = useState<Record<string, string>>({});
+  const [commentSubmitting, setCommentSubmitting] = useState<Record<string, boolean>>({});
+  const [commentError, setCommentError] = useState<Record<string, string>>({});
   const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>([]);
   const [progressLoading, setProgressLoading] = useState(true);
   const [progressError, setProgressError] = useState<string | null>(null);
@@ -277,6 +287,38 @@ export default function Aula() {
       await loadFeed(activeRef);
     } catch (error) {
       setPublicationActionError(error instanceof Error ? error.message : "No pudimos borrar la publicación.");
+    }
+  };
+
+  // Tarea 14 — comentarios de alumnos en publicaciones (según el ajuste
+  // "Permitir comentarios" del aula, ver ProfesorAulaConfiguracion).
+  const handleToggleComments = (publicationId: string) => {
+    setCommentsOpen((prev) => ({ ...prev, [publicationId]: !prev[publicationId] }));
+    if (comments[publicationId] || !classroomId) return;
+    setCommentsLoading((prev) => ({ ...prev, [publicationId]: true }));
+    fetchComments(classroomId, publicationId)
+      .then((items) => setComments((prev) => ({ ...prev, [publicationId]: items })))
+      .catch(() => setCommentError((prev) => ({ ...prev, [publicationId]: t("aula.noPudimosCargarLosComentarios") })))
+      .finally(() => setCommentsLoading((prev) => ({ ...prev, [publicationId]: false })));
+  };
+
+  const handleSubmitComment = async (publicationId: string) => {
+    if (!classroomId) return;
+    const body = (newComment[publicationId] ?? "").trim();
+    if (!body) return;
+    setCommentSubmitting((prev) => ({ ...prev, [publicationId]: true }));
+    setCommentError((prev) => ({ ...prev, [publicationId]: "" }));
+    try {
+      const created = await createComment(classroomId, publicationId, body);
+      setComments((prev) => ({ ...prev, [publicationId]: [...(prev[publicationId] ?? []), created] }));
+      setNewComment((prev) => ({ ...prev, [publicationId]: "" }));
+    } catch (error) {
+      setCommentError((prev) => ({
+        ...prev,
+        [publicationId]: error instanceof Error ? error.message : t("aula.noPudimosPublicarElComentario"),
+      }));
+    } finally {
+      setCommentSubmitting((prev) => ({ ...prev, [publicationId]: false }));
     }
   };
 
@@ -632,7 +674,7 @@ export default function Aula() {
                   )}
                 </div>
                 {isClassroomReadOnly && (
-                  <p className="mt-3 text-xs text-amber-600">
+                  <p className="mt-3 text-xs text-[var(--c-warning)]">
                     Esta aula está {normalizedStatus === "ARCHIVED" ? "archivada" : "bloqueada"} y no admite publicaciones.
                   </p>
                 )}
@@ -640,7 +682,7 @@ export default function Aula() {
                   <p
                     role={publicationStatus === "error" ? "alert" : "status"}
                     aria-live={publicationStatus === "error" ? "assertive" : "polite"}
-                    className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-green-600"}`}
+                    className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-[var(--c-success)]"}`}
                   >
                     {publicationMessage}
                   </p>
@@ -737,6 +779,72 @@ export default function Aula() {
                     <p className="text-xs text-[var(--c-danger)] mt-2">{publicationActionError}</p>
                   )}
                   <p className="text-xs text-[var(--c-muted)] mt-2">{publication.publishedAtLabel}</p>
+
+                  {/* Tarea 14 — comentarios de alumnos, gateados por el
+                      ajuste "Permitir comentarios" del aula. El botón para
+                      abrir/cerrar el hilo siempre está (staff también lee),
+                      el composer sólo para alumnos y si el aula lo permite. */}
+                  <button
+                    type="button"
+                    className="mt-3 text-xs font-medium text-[var(--c-muted)] hover:text-[var(--c-primary)]"
+                    onClick={() => handleToggleComments(publication.id)}
+                    data-testid={`toggle-comentarios-${publication.id}`}
+                  >
+                    💬 {commentsOpen[publication.id]
+                      ? t("aula.ocultarComentarios")
+                      : comments[publication.id]
+                        ? `${t("aula.comentarios")} (${comments[publication.id].length})`
+                        : t("aula.verComentarios")}
+                  </button>
+
+                  {commentsOpen[publication.id] && (
+                    <div className="mt-2 space-y-2 border-t border-[var(--c-border)] pt-3">
+                      {commentsLoading[publication.id] ? (
+                        <div className="h-8 rounded animate-pulse bg-[var(--c-border)]" />
+                      ) : (
+                        <ul className="space-y-2">
+                          {(comments[publication.id] ?? []).map((comment) => (
+                            <li key={comment.id} className="rounded-lg bg-[var(--c-bg)] px-3 py-2 text-sm">
+                              <span className="font-semibold text-[var(--c-text)]">{comment.authorName ?? "?"}</span>
+                              <span className="ml-2 text-[var(--c-text)]">{comment.body}</span>
+                            </li>
+                          ))}
+                          {(comments[publication.id] ?? []).length === 0 && (
+                            <li className="text-xs text-[var(--c-muted)]">{t("aula.todaviaNoHayComentarios")}</li>
+                          )}
+                        </ul>
+                      )}
+
+                      {canActAsLearner && classroom?.allowComments !== false && (
+                        <div className="flex items-center gap-2">
+                          <input
+                            className={`flex-1 ${inputCls}`}
+                            aria-label={t("aula.escribiUnComentario")}
+                            placeholder={t("aula.escribiUnComentario")}
+                            value={newComment[publication.id] ?? ""}
+                            onChange={(event) =>
+                              setNewComment((prev) => ({ ...prev, [publication.id]: event.target.value }))
+                            }
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter") void handleSubmitComment(publication.id);
+                            }}
+                            disabled={commentSubmitting[publication.id]}
+                          />
+                          <button
+                            type="button"
+                            className="rounded-lg bg-[var(--c-primary)] text-white px-3 py-1.5 text-xs disabled:opacity-60"
+                            onClick={() => void handleSubmitComment(publication.id)}
+                            disabled={commentSubmitting[publication.id] || !(newComment[publication.id] ?? "").trim()}
+                          >
+                            {t("aula.comentar")}
+                          </button>
+                        </div>
+                      )}
+                      {commentError[publication.id] && (
+                        <p className="text-xs text-[var(--c-danger)]">{commentError[publication.id]}</p>
+                      )}
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
@@ -930,7 +1038,7 @@ export default function Aula() {
                           <span className="font-medium text-[var(--c-text)]">{examen.precioPromedioAjustado ?? "—"} 🪙/punto</span>
                         </p>
                         <p>Podés pujar:{" "}
-                          <span className={`font-medium ${restante <= 0 ? "text-[var(--c-danger)]" : "text-emerald-600"}`}>
+                          <span className={`font-medium ${restante <= 0 ? "text-[var(--c-danger)]" : "text-[var(--c-success)]"}`}>
                             {restante <= 0 ? "Límite alcanzado" : `${restante} punto(s) más`}
                           </span>
                         </p>
@@ -981,9 +1089,9 @@ export default function Aula() {
                             <div key={p.id} className="flex justify-between text-xs text-[var(--c-text)]">
                               <span>{p.puntos} punto(s) × {p.montoPorPunto} 🪙</span>
                               <span className={
-                                p.estado === "aceptada" ? "text-emerald-600"
+                                p.estado === "aceptada" ? "text-[var(--c-success)]"
                                 : p.estado === "rechazada" ? "text-[var(--c-danger)]"
-                                : "text-amber-600"
+                                : "text-[var(--c-warning)]"
                               }>{p.estado}</span>
                             </div>
                           ))}

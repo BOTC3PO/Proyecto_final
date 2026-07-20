@@ -39,6 +39,9 @@ type FormState = {
   // Ahora se muestra y se preserva en el round-trip.
   classCode: string;
   grade: string;
+  // Tarea 14 — ajuste del aula: permite que los alumnos comenten
+  // publicaciones del feed.
+  allowComments: boolean;
 };
 
 const buildInitialState = (classroom: Classroom): FormState => ({
@@ -53,6 +56,7 @@ const buildInitialState = (classroom: Classroom): FormState => ({
   // aulas.ts:360), mostrarlo igual: el back ya lo acepta para unirse.
   classCode: classroom.classCode ?? classroom.code ?? "",
   grade: (classroom as { grade?: string }).grade ?? "",
+  allowComments: classroom.allowComments ?? true,
 });
 
 export default function ProfesorAulaConfiguracion() {
@@ -296,6 +300,7 @@ export default function ProfesorAulaConfiguracion() {
         // vacío, para que el back lo persista como `""` y no como
         // null en un round-trip).
         classCode: form.classCode || undefined,
+        allowComments: form.allowComments,
       });
       setClassroom((prev) =>
         prev
@@ -308,6 +313,7 @@ export default function ProfesorAulaConfiguracion() {
               institutionId: form.institutionId || undefined,
               category: form.category || undefined,
               classCode: form.classCode || undefined,
+              allowComments: form.allowComments,
               updatedAt: new Date().toISOString(),
             }
           : prev
@@ -443,6 +449,22 @@ export default function ProfesorAulaConfiguracion() {
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-primary-soft,#dbeafe)] disabled:opacity-50 transition-colors"
               >{t("profesorAulaConfiguracion.copiarCodigo")}</button>
             </div>
+
+            {/* Tarea 14 — ajuste del aula: habilitar/deshabilitar que los
+                alumnos comenten publicaciones del feed. */}
+            <label className="flex items-start gap-2.5 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-sm md:col-span-2 cursor-pointer">
+              <input
+                type="checkbox"
+                className="mt-0.5"
+                checked={form.allowComments}
+                onChange={(event) => setForm((prev) => (prev ? { ...prev, allowComments: event.target.checked } : prev))}
+                data-testid="config-allow-comments"
+              />
+              <span>
+                <span className="font-semibold text-[var(--c-text)]">{t("profesorAulaConfiguracion.permitirComentarios")}</span>
+                <span className="block text-xs text-[var(--c-muted)] mt-0.5">{t("profesorAulaConfiguracion.permitirComentariosHelp")}</span>
+              </span>
+            </label>
 
             <div className="flex flex-wrap items-center gap-3">
               <button

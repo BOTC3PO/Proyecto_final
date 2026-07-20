@@ -1753,9 +1753,13 @@ modulos.get("/api/quizzes", requireUser, async (req, res) => {
     // PROPIOS (para la página /cuestionarios). El default ("sueltos")
     // conserva el contrato del picker "Usar cuestionario existente".
     const scope = req.query.scope === "todos" ? "todos" : "sueltos";
+    // Archivar cuestionarios — `archivados=true` invierte el filtro de
+    // `isActive` para listar sólo los archivados (pantalla "Ver archivados"
+    // de /cuestionarios). Default: sólo los activos, como siempre.
+    const wantArchived = req.query.archivados === "true";
 
     const sueltos = await prisma.quiz.findMany({
-      where: { ownerUserId: requesterId, moduleId: null, isActive: true },
+      where: { ownerUserId: requesterId, moduleId: null, isActive: !wantArchived },
     });
     let deModulos: typeof sueltos = [];
     const moduloTitulos = new Map<string, string>();
@@ -1768,7 +1772,7 @@ modulos.get("/api/quizzes", requireUser, async (req, res) => {
       for (const m of modulosPropios) moduloTitulos.set(m.id, m.titulo);
       if (modulosPropios.length > 0) {
         deModulos = await prisma.quiz.findMany({
-          where: { moduleId: { in: modulosPropios.map((m) => m.id) }, isActive: true },
+          where: { moduleId: { in: modulosPropios.map((m) => m.id) }, isActive: !wantArchived },
         });
       }
     }
@@ -2012,6 +2016,34 @@ modulos.delete("/api/quizzes/:quizId", requireUser, async (req, res) => {
     res.json({ ok: true });
   } catch (e: any) {
     console.error("[DELETE /api/quizzes/:quizId]", e);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+// Archivar cuestionarios — restaurar. Mismo mecanismo que el DELETE de
+// arriba (isActive), en la dirección inversa. Mismo chequeo de permiso
+// (`canAccessQuiz`) que archivar, para que sólo el dueño/docente con
+// acceso pueda revertirlo.
+modulos.post("/api/quizzes/:quizId/restaurar", requireUser, async (req, res) => {
+  try {
+    const quizId = req.params.quizId as string;
+    const loaded = await loadQuizConModulo(quizId);
+    if (!loaded) return res.status(404).json({ error: "quiz not found" });
+
+    const requesterRaw = req.user as QuizRequesterRaw;
+    const requesterId = resolveRequesterId(requesterRaw);
+    if (!requesterId) return res.status(401).json({ error: "user not authenticated" });
+    if (!canAccessQuiz(loaded, requesterId, requesterRaw)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+
+    await prisma.quiz.update({
+      where: { id: loaded.quiz.id },
+      data: { isActive: true, updatedAt: new Date().toISOString() },
+    });
+    res.json({ ok: true });
+  } catch (e: any) {
+    console.error("[POST /api/quizzes/:quizId/restaurar]", e);
     res.status(500).json({ error: "internal server error" });
   }
 });

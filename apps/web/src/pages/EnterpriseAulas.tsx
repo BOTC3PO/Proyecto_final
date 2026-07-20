@@ -55,7 +55,7 @@ export default function EnterpriseAulas() {
       <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
         <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
           <p className="text-sm font-semibold text-[var(--c-text)]">
-            {loading ? 'Cargando...' : `${aulas.length} aulas`}
+            {loading ? t("comun.cargando") : `${aulas.length} ${t("nav.aulas")}`}
           </p>
         </div>
 
@@ -82,7 +82,19 @@ export default function EnterpriseAulas() {
                 <p className="text-xs text-[var(--c-muted)] truncate mt-0.5">{aula.description}</p>
               )}
               <p className="text-[10px] text-[var(--c-muted)] mt-0.5">
-                {ACCESS_LABELS[aula.accessType]} · {aula.teacherIds?.length ?? 0} docente{(aula.teacherIds?.length ?? 0) !== 1 ? 's' : ''}
+                {/* `teacherIds` nunca lo puebla el back (ver Classroom.teacherIds
+                    en classroom.types.ts) — mostraba "0 docentes" siempre.
+                    El back resuelve el nombre del docente asignado por
+                    columna (teacherOfRecord/teacher/createdBy) o, si el
+                    aula sólo tiene un co-titular vía `clase_miembros`
+                    (ver aulas.ts), por `members`. */}
+                {ACCESS_LABELS[aula.accessType]} · {
+                  aula.teacherOfRecordName
+                    ?? aula.teacherName
+                    ?? aula.createdByName
+                    ?? aula.members?.find((m) => m.roleInClass === "TEACHER" && m.name)?.name
+                    ?? t("enterpriseAulas.sinDocenteAsignado")
+                }
               </p>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">

@@ -12,6 +12,43 @@ const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } 
 const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
   req.user?.schoolId ?? null;
 
+// `usuarios.escuela_id` (y el claim `schoolId` del JWT que sale de esa
+// columna) sólo lo puebla el alta de TEACHER/DIRECTIVO/ADMIN — un
+// USER (alumno) o PARENT lo tienen SIEMPRE null, aunque el alumno esté
+// inscripto en un aula real. La fuente canónica es `membresias`
+// (mismo criterio que `provisionar-espejo.ts`); un PARENT ni eso
+// tiene, así que cae al de su hijo vinculado (`vinculos_padre_hijo`,
+// sólo si `estado === "aprobado"`). Sin este fallback, alumnos y
+// padres nunca encontraban a nadie para escribirle (mensajeria/usuarios
+// vacío) ni veían sus propios hilos/avisos.
+async function resolveEffectiveSchoolId(userId: string): Promise<string | null> {
+  const membresia = await prisma.membresia.findFirst({
+    where: { usuarioId: userId, estado: "activa" },
+    select: { escuelaId: true },
+  });
+  if (membresia?.escuelaId) return membresia.escuelaId;
+
+  const vinculo = await prisma.progresoModuloVinculo.findFirst({
+    where: { parentId: userId, estado: "aprobado" },
+    select: { childId: true },
+  });
+  if (!vinculo) return null;
+
+  const membresiaHijo = await prisma.membresia.findFirst({
+    where: { usuarioId: vinculo.childId, estado: "activa" },
+    select: { escuelaId: true },
+  });
+  return membresiaHijo?.escuelaId ?? null;
+}
+
+async function getEffectiveSchoolId(req: { user?: { id?: string; schoolId?: string | null } }) {
+  const claimed = req.user?.schoolId ?? null;
+  if (claimed) return claimed;
+  const userId = req.user?.id;
+  if (!userId) return null;
+  return resolveEffectiveSchoolId(userId);
+}
+
 const getRole = (req: { user?: { role?: string } }) =>
   req.user?.role ?? null;
 
@@ -35,8 +72,10 @@ async function mismaEscuela(
     }),
   ]);
   if (!userA || !userB) return { ok: false };
-  const escA = String(userA.escuelaId ?? "");
-  const escB = String(userB.escuelaId ?? "");
+  const [escA, escB] = await Promise.all([
+    userA.escuelaId || resolveEffectiveSchoolId(userAId),
+    userB.escuelaId || resolveEffectiveSchoolId(userBId),
+  ]);
   if (!escA || !escB || escA !== escB) return { ok: false };
   return { ok: true, escuelaId: escA };
 }
@@ -44,8 +83,8 @@ async function mismaEscuela(
 // ── GET /api/mensajeria/hilos ────────────────────────────────
 mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const schoolId = getSchoolId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
+  const schoolId = await getEffectiveSchoolId(req as never);
 
   const hilos = await prisma.hilo.findMany({
     where: {
@@ -211,8 +250,8 @@ mensajeria.post("/api/mensajeria/hilos", requireUser, async (req, res) => {
 // ── GET /api/mensajeria/no-leidos ────────────────────────────
 mensajeria.get("/api/mensajeria/no-leidos", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const schoolId = getSchoolId(req as never);
   if (!userId) return res.json({ total: 0 });
+  const schoolId = await getEffectiveSchoolId(req as never);
 
   const [aggA, aggB] = await Promise.all([
     prisma.hilo.aggregate({
@@ -247,9 +286,10 @@ mensajeria.get("/api/mensajeria/no-leidos", requireUser, async (req, res) => {
 // ── GET /api/mensajeria/avisos ───────────────────────────────
 mensajeria.get("/api/mensajeria/avisos", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const schoolId = getSchoolId(req as never);
   const user = getUserFromReq(req as never);
-  if (!userId || !schoolId) return res.json({ items: [] });
+  if (!userId) return res.json({ items: [] });
+  const schoolId = await getEffectiveSchoolId(req as never);
+  if (!schoolId) return res.json({ items: [] });
 
   const destinosValidos: string[] = ["todos"];
   if (hasRole(user, "USER")) destinosValidos.push("alumnos");
@@ -413,8 +453,9 @@ mensajeria.delete("/api/mensajeria/avisos/:id", requireUser, async (req, res) =>
 // ── GET /api/mensajeria/usuarios ─────────────────────────────
 mensajeria.get("/api/mensajeria/usuarios", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const schoolId = getSchoolId(req as never);
-  if (!userId || !schoolId) return res.json({ items: [] });
+  if (!userId) return res.json({ items: [] });
+  const schoolId = await getEffectiveSchoolId(req as never);
+  if (!schoolId) return res.json({ items: [] });
 
   const q = typeof req.query.q === "string" ? req.query.q.trim() : "";
 
@@ -427,8 +468,8 @@ mensajeria.get("/api/mensajeria/usuarios", requireUser, async (req, res) => {
 
     if (q) {
       (whereFilter as Record<string, unknown>).OR = [
-        { fullName: { contains: q } },
-        { username: { contains: q } },
+        { fullName: { contains: q, mode: "insensitive" } },
+        { username: { contains: q, mode: "insensitive" } },
       ];
       delete whereFilter.id;
       (whereFilter as Record<string, unknown>).AND = [{ id: { not: userId } }];

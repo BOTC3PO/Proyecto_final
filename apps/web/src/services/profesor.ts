@@ -44,6 +44,10 @@ export type ProfesorMenuDashboard = {
   };
   activeStudents: number;
   progressNextClass: number;
+  /** Simetría con "Módulos creados" en la card Resumen: cuántos intentos
+   *  de cuestionario ya rindieron los alumnos del docente (enviados o
+   *  corregidos). */
+  quizzesCompletedByStudents: number;
   recentEvaluations: ProfesorRecentEvaluation[];
   kpiCards: ProfesorKpiCard[];
   weeklyPlan: ProfesorWeeklyPlanItem[];
@@ -126,6 +130,7 @@ export async function fetchProfesorMenuDashboard(): Promise<ProfesorMenuDashboar
     // todavía no incluye `recentEvaluations` (sprint anterior al fix).
     // El panel lo trata como lista vacía en lugar de fallar.
     recentEvaluations: data.recentEvaluations ?? [],
+    quizzesCompletedByStudents: data.quizzesCompletedByStudents ?? 0,
     quickLinks: filterProfesorQuickLinks(data.quickLinks)
   };
 }

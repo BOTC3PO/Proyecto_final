@@ -5,7 +5,7 @@ import { useAuth } from "../../auth/use-auth";
 import { useIsTeacher } from "../../auth/use-roles";
 import { apiGet, apiPost, apiDelete, ApiError } from "../../lib/api";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
-import { Modal, Button, Spinner, Alert } from "../../ui";
+import { Modal, Button, Spinner, Alert, Menu } from "../../ui";
 import { batchGetPlantillas } from "../../domain/vblang/plantillaApi";
 import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
 import type { PlantillaListItem } from "../../domain/vblang/plantilla.types";
@@ -341,6 +341,14 @@ export default function ModuloEditor() {
   // el server de inmediato (no queda en el borrador local como el resto de
   // `quizzes[]`), así que reusarlo desde un módulo todavía sin guardar no
   // tendría dónde clonar. El original sigue suelto — reusable de nuevo.
+  // Tarea 13 — el editor de generador (`QuizEditorGenerated`) es legacy:
+  // sólo tiene sentido para quizzes viejos con `generatorId` real (no para
+  // los nativos de Tiza, que siempre traen `mode: "generated"` como marca
+  // heredada pero editan sus preguntas en Tiza). Se esconde detrás de
+  // "Más acciones" en vez de mostrarse siempre — antes aparecía inline en
+  // TODAS las tarjetas de cuestionario, incluidas las nativas donde es
+  // pura confusión (nunca hace nada).
+  const [quizGeneradorLegacyOpen, setQuizGeneradorLegacyOpen] = useState<Record<string, boolean>>({});
   const [quizSueltoModalOpen, setQuizSueltoModalOpen] = useState(false);
   const [quizzesSueltos, setQuizzesSueltos] = useState<QuizSuelto[]>([]);
   const [quizzesSueltosStatus, setQuizzesSueltosStatus] = useState<
@@ -1900,6 +1908,33 @@ export default function ModuloEditor() {
                             >
                               {quizPreviewOpen[quiz.id] ? "Ocultar vista previa" : "Vista previa"}
                             </button>
+                            {quiz.mode === "generated" && !tienePreguntasNativas ? (
+                              <Menu
+                                align="end"
+                                panelWidth="220px"
+                                trigger={(props) => (
+                                  <button
+                                    type="button"
+                                    {...props}
+                                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                                    data-testid="quiz-mas-acciones"
+                                  >{t("moduloEditor.masAcciones")}</button>
+                                )}
+                              >
+                                {({ close }) => (
+                                  <button
+                                    type="button"
+                                    role="menuitem"
+                                    data-testid="quiz-configurar-generador-legacy"
+                                    className="w-full px-3 py-2 text-left text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)]"
+                                    onClick={() => {
+                                      setQuizGeneradorLegacyOpen((prev) => ({ ...prev, [quiz.id]: !prev[quiz.id] }));
+                                      close();
+                                    }}
+                                  >{t("moduloEditor.configurarGeneradorLegacy")}</button>
+                                )}
+                              </Menu>
+                            ) : null}
                           </div>
                         </div>
 
@@ -1921,15 +1956,19 @@ export default function ModuloEditor() {
                           </div>
                         ) : null}
 
-                        {quiz.mode === "generated" ? (
-                          <QuizEditorGenerated
-                            generatorId={quiz.generatorId ?? ""}
-                            generatorVersion={quiz.generatorVersion ?? 1}
-                            params={(quiz.params as Record<string, unknown>) ?? {}}
-                            count={quiz.count ?? 0}
-                            onChange={(next) => updateQuiz(quiz.id, { ...next })}
-                            showPreview={isTeacher}
-                          />
+                        {tienePreguntasNativas ? null : quiz.mode === "generated" ? (
+                          quizGeneradorLegacyOpen[quiz.id] ? (
+                            <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
+                              <QuizEditorGenerated
+                                generatorId={quiz.generatorId ?? ""}
+                                generatorVersion={quiz.generatorVersion ?? 1}
+                                params={(quiz.params as Record<string, unknown>) ?? {}}
+                                count={quiz.count ?? 0}
+                                onChange={(next) => updateQuiz(quiz.id, { ...next })}
+                                showPreview={isTeacher}
+                              />
+                            </div>
+                          ) : null
                         ) : (
                           <>
                             <QuizEditorManual

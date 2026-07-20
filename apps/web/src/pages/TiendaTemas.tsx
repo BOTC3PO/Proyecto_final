@@ -147,7 +147,7 @@ function ThemeCard({
 export default function TiendaTemas() {
   const { t } = useI18n();
   const { user } = useAuth();
-  const { theme, setTheme, availableThemes } = useTheme();
+  const { theme, setTheme, availableThemes, markThemeOwned } = useTheme();
 
   const [economy, setEconomy] = useState<EconomyState>(defaultEconomyState);
   const [catalogoTienda, setCatalogoTienda] = useState<TiendaItemAPI[]>([]);
@@ -273,7 +273,7 @@ export default function TiendaTemas() {
           nombre: catalogItem.nombre,
           asset_id: catalogItem.asset_id,
         }]);
-        setTheme(themeId as import('../theme/ThemeContext').ThemeId);
+        markThemeOwned(themeId as import('../theme/ThemeContext').ThemeId, true);
         setTiendaMsg(`✓ ¡${themeOpt.name} desbloqueado!`);
         window.dispatchEvent(new CustomEvent('vb:coins-updated'));
       } else {

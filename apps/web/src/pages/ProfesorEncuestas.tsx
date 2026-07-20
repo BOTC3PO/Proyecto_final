@@ -58,7 +58,7 @@ export default function ProfesorEncuestas() {
       startAt.length > 0 &&
       endAt.length > 0
     );
-  }, [title, description, options, startAt, endAt]);
+  }, [classroomId, title, description, options, startAt, endAt]);
 
   const refresh = async (targetClassroomId: string) => {
     try {

@@ -12,10 +12,11 @@ Cada idioma sale de SU PROPIA edición de Wiktionary (definiciones en
 el idioma nativo), igual que el pipeline viejo:
 
   es, pt, fr, it, de, ja, ko, zh ← kaikki.org/dictionary/downloads/<lang>/
-  en, eo                         ← raw-wiktextract-data.jsonl.gz
-                                   (edición inglesa; eo no tiene edición
-                                   propia en kaikki — glosas en inglés.
-                                   Upgrade futuro: ReVo XML para eo.)
+  en, eo, la                     ← raw-wiktextract-data.jsonl.gz
+                                   (edición inglesa; eo y la no tienen
+                                   edición propia en kaikki — glosas en
+                                   inglés. Upgrade futuro: ReVo XML
+                                   para eo.)
 
 Espacio requerido: ~4GB de descargas + ~2-3GB de sqlite (staging incluido).
 El archivo más pesado es la edición inglesa (2.8GB comprimido); si no
@@ -42,6 +43,7 @@ import sqlite3
 import sys
 import time
 from pathlib import Path
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 BASE = "https://kaikki.org/dictionary/"
@@ -61,11 +63,13 @@ SOURCES: list[tuple[str, str, set[str]]] = [
     ("ko", BASE + "downloads/ko/ko-extract.jsonl.gz", {"ko"}),
     ("zh", BASE + "downloads/zh/zh-extract.jsonl.gz", {"zh"}),
     # La edición inglesa es una sola bola gigante con todos los idiomas;
-    # de ahí salen en (nativo) y eo (no tiene edición kaikki propia).
-    ("en", BASE + "raw-wiktextract-data.jsonl.gz", {"en", "eo"}),
+    # de ahí salen en (nativo) + eo y la (sin edición kaikki propia;
+    # el latín es la 2ª lengua más grande de la edición inglesa, ~1M
+    # sentidos — el diccionario viejo de la API también lo tenía).
+    ("en", BASE + "raw-wiktextract-data.jsonl.gz", {"en", "eo", "la"}),
 ]
 
-ALL_LANGS = {"es", "en", "pt", "fr", "it", "de", "ja", "ko", "zh", "eo"}
+ALL_LANGS = {"es", "en", "pt", "fr", "it", "de", "ja", "ko", "zh", "eo", "la"}
 
 MAX_DEFS = 10
 MAX_SYNS = 20
@@ -78,7 +82,15 @@ def download(url: str, dest: Path) -> None:
     req = Request(url, headers={"User-Agent": "VirtualBook-Dict/1.0"})
     if existing:
         req.add_header("Range", f"bytes={existing}-")
-    with urlopen(req, timeout=60) as resp:
+    try:
+        resp_ctx = urlopen(req, timeout=60)
+    except HTTPError as e:
+        if e.code == 416 and existing:
+            # Range desde el final del archivo = ya está completo.
+            print(f"  ✓ ya descargado: {dest.name}")
+            return
+        raise
+    with resp_ctx as resp:
         if existing and resp.status == 200:
             existing = 0  # el server no soporta resume: arrancar de cero
         total = int(resp.headers.get("Content-Length", 0)) + existing
@@ -122,7 +134,11 @@ def parse_line(d: dict, target_langs: set[str]) -> tuple[str, str, list, list, d
         glosses = sense.get("glosses") or []
         if glosses:
             g = glosses[-1].strip()  # la más específica de la jerarquía
-            if len(g) > 3:
+            # No filtrar por largo: en la edición inglesa las glosas de
+            # otros idiomas son una sola palabra ("dog" para eo hundo,
+            # "cat" para kato) — un mínimo de largo >3 se comía esos
+            # lemas enteros y dejaba sólo las formas flexionadas.
+            if g:
                 defs.append(g)
         for s in sense.get("synonyms") or []:
             w = (s.get("word") or "").strip()

@@ -55,6 +55,7 @@ import {
 import { parseComposition, selectPoolIndices } from "../lib/quiz-composition";
 import { excluirEspejosDeIds } from "../lib/espejo-filtro";
 import { resolveUserNames } from "../lib/resolve-user-names";
+import { acreditarPorPrimerCuestionario } from "../lib/economia-alta";
 // Etapa 1 (Tiza — preguntas nativas) — sorteo nuevo, sólo para quizzes que
 // declaran `settings.preguntas` (schema independiente de `composition`).
 import {
@@ -2204,6 +2205,31 @@ async function materializeSubmit(
           submittedAt: updatedAt.toISOString()
         }
       });
+
+      // Monedas por completar un cuestionario POR PRIMERA VEZ (mismo
+      // alumno + mismo quiz). Sólo en el submit inmediato (sin ítems
+      // manuales pendientes) — ver nota en acreditarPorPrimerCuestionario
+      // sobre el caso pending_review→graded, no cubierto acá.
+      if (!hasPendingManual) {
+        try {
+          const previousCompleted = await prisma.quizAttempt.count({
+            where: {
+              quizId: attempt.quizId,
+              userId,
+              status: { in: ["submitted", "graded"] },
+              id: { not: idParam }
+            }
+          });
+          if (previousCompleted === 0) {
+            await acreditarPorPrimerCuestionario({
+              usuarioId: userId,
+              quizId: attempt.quizId,
+              schoolId: attempt.schoolId
+            });
+          }
+        } catch { /* best-effort: no bloquear el submit */ }
+      }
+
       // Obtener umbral del quiz o usar default 60
       const umbralRow = await prisma.quizUmbral.findUnique({
         where: { quizId: attempt.quizId },

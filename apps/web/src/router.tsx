@@ -9,6 +9,7 @@ import StaffLayout from "./layouts/StaffLayout";
 import RoleLayout from "./layouts/RoleLayout";
 import { lazyWithRetry } from "./lib/lazyWithRetry";
 import { RouteErrorBoundary } from "./components/RouteErrorBoundary";
+import { useI18n } from "./i18n/I18nContext";
 
 // Páginas estáticas — necesarias en la carga inicial o muy pequeñas
 import Login from "./pages/Login";
@@ -102,11 +103,14 @@ const OnboardingTema            = lazyWithRetry(() => import("./pages/Onboarding
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
-const PageLoader = () => (
-  <div className="flex min-h-screen items-center justify-center">
-    <p className="text-sm text-slate-400 animate-pulse">Cargando...</p>
-  </div>
-);
+const PageLoader = () => {
+  const { t } = useI18n();
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <p className="text-sm text-slate-400 animate-pulse">{t("comun.cargando")}</p>
+    </div>
+  );
+};
 
 const withSuspense = (element: ReactNode) => (
   <RouteErrorBoundary>

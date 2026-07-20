@@ -197,11 +197,19 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
 
   // FIX-TEST4-X05B-NOMBRES — resolver los IDs de docentes a nombres
   // humanos. Una sola query para todos los items de la página.
+  // FIX-ENTERPRISE-AULAS-DOCENTES — sumamos también los TEACHER de
+  // `miembros` (co-titulares agregados vía `clase_miembros`, sin
+  // pasar por `teacherId`/`teacherOfRecord`/`createdBy`).
+  const memberTeacherIds = items.flatMap((item) =>
+    (item.miembros ?? [])
+      .filter((m) => m.rolEnClase === "TEACHER")
+      .map((m) => m.usuarioId)
+  );
   const allUserIds = items.flatMap((item) => [
     item.createdBy,
     item.teacherId,
     item.teacherOfRecord,
-  ]);
+  ]).concat(memberTeacherIds);
   const nameMap = await resolveUserNames(allUserIds);
 
   res.json({
@@ -213,7 +221,10 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
       const { miembros, ...rest } = item;
       const members = (miembros ?? []).map((m) => ({
         userId: m.usuarioId,
-        roleInClass: m.rolEnClase
+        roleInClass: m.rolEnClase,
+        // Sólo resolvemos nombre para TEACHER (es lo único que la UI
+        // de aulas necesita mostrar hoy); el resto queda undefined.
+        ...(m.rolEnClase === "TEACHER" ? { name: nameMap.get(m.usuarioId) ?? null } : {})
       }));
       const doc = {
         id: rest.id ?? "",
@@ -231,6 +242,14 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
         createdByName: rest.createdBy ? (nameMap.get(rest.createdBy) ?? null) : null,
         teacherName: rest.teacherId ? (nameMap.get(rest.teacherId) ?? null) : null,
         teacherOfRecordName: rest.teacherOfRecord ? (nameMap.get(rest.teacherOfRecord) ?? null) : null,
+        // FIX-ENTERPRISE-AULAS-DOCENTES — un co-titular agregado vía
+        // `clase_miembros` (rolEnClase=TEACHER) y no via
+        // `teacherId`/`teacherOfRecord`/`createdBy` quedaba invisible
+        // en el listado del directivo ("N docentes" quedaba en 0 pese
+        // a tener docente). `members` ya se computaba acá arriba para
+        // `viewerIsTeacher`/`viewerRoleInClass`; sólo faltaba
+        // devolverlo.
+        members,
         // MULTIROL-03: el rol del viewer EN ESTA clase (no el global
         // de la cuenta). Resuelve bug 7 del reporte rol-dual:
         // MisClases puede mostrar "Estudiante" / "Docente" por aula.
@@ -529,6 +548,7 @@ aulas.put(
         // y dejaba `classCode` vacío para siempre.
         updateData.classCode = parsed.classCode;
       }
+      if (parsed.allowComments !== undefined) updateData.allowComments = parsed.allowComments;
       const result = await prisma.clase.updateMany({
         where: { id, isDeleted: { not: true } },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -621,6 +641,7 @@ aulas.patch(
         // y dejaba `classCode` vacío para siempre.
         updateData.classCode = parsed.classCode;
       }
+      if (parsed.allowComments !== undefined) updateData.allowComments = parsed.allowComments;
       const result = await prisma.clase.updateMany({
         where: { id, isDeleted: { not: true } },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

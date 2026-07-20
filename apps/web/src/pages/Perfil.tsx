@@ -285,7 +285,7 @@ export default function Perfil() {
                   { label: t("perfil.miembroDesde"),   value: perfil.createdAt
                       ? new Date(perfil.createdAt).toLocaleDateString(lang)
                       : "—" },
-                  { label: t("comun.modulosCompletados"), value: `${perfil.modulosCompletados.total} (${perfil.modulosCompletados.publicos} públicos · ${perfil.modulosCompletados.privados} privados)` },
+                  { label: t("comun.modulosCompletados"), value: `${perfil.modulosCompletados.total} (${perfil.modulosCompletados.publicos} ${t("comun.publicos")} · ${perfil.modulosCompletados.privados} ${t("comun.privados")})` },
                 ].map(({ label, value }) => (
                   <div key={label} className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-4 py-3 flex items-center justify-between gap-3">
                     <p className="text-xs text-[var(--c-muted)]">{label}</p>

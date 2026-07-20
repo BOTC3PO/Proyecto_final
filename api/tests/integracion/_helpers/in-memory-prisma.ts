@@ -415,6 +415,7 @@ export type ClaseRow = {
   grade: string;
   code?: string | null;
   classCode?: string | null;
+  allowComments?: boolean;
   isDeleted: boolean;
   status: string;
   createdBy?: string | null;
@@ -825,6 +826,13 @@ export class InMemoryPrisma {
   economiaTransaccion = new Table<Row>("economiaTransaccion");
   economiaSaldo = new Table<Row>("economiaSaldo");
   economiaConfig = new Table<Row>("economiaConfig");
+  // FIX-MENSAJERIA-ESCUELA-EFECTIVA — mensajeria.ts (hilos 1:1 y avisos)
+  // no tenía ninguna tabla stubeada; la ruta nunca había tenido tests
+  // de integración.
+  hilo = new Table<Row>("hilo");
+  mensajeDirecto = new Table<Row>("mensajeDirecto");
+  aviso = new Table<Row>("aviso");
+  avisoLeido = new Table<Row>("avisoLeido");
 
   // override findMany on vblangDataset to support _count include.
   constructor() {

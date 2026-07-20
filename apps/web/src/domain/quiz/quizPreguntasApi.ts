@@ -65,9 +65,16 @@ export async function patchQuizMeta(quizId: string, patch: QuizMetaPatch): Promi
 }
 
 /** WO-tiza-config — soft-delete del cuestionario (isActive=false, mismo
- *  mecanismo que quitarlo de `quizzes[]` al guardar el módulo). */
+ *  mecanismo que quitarlo de `quizzes[]` al guardar el módulo). También
+ *  usada como "Archivar" desde /cuestionarios — es exactamente el mismo
+ *  mecanismo reversible, ver `restaurarCuestionario`. */
 export async function deleteQuiz(quizId: string): Promise<void> {
   await apiDelete<{ ok: boolean }>(`/api/quizzes/${encodeURIComponent(quizId)}`);
+}
+
+/** Revierte `deleteQuiz`/archivar (isActive=true de nuevo). */
+export async function restaurarCuestionario(quizId: string): Promise<void> {
+  await apiPost<{ ok: boolean }>(`/api/quizzes/${encodeURIComponent(quizId)}/restaurar`, {});
 }
 
 // ─── PLAN-CORRECCIONES C2 — cuestionarios "sueltos" ─────────────────────
@@ -110,8 +117,9 @@ export interface CuestionarioListItem {
   moduleTitle: string | null;
 }
 
-export async function listarCuestionarios(): Promise<CuestionarioListItem[]> {
-  const data = await apiGet<{ items: CuestionarioListItem[] }>("/api/quizzes?scope=todos");
+export async function listarCuestionarios(opts?: { archivados?: boolean }): Promise<CuestionarioListItem[]> {
+  const qs = opts?.archivados ? "&archivados=true" : "";
+  const data = await apiGet<{ items: CuestionarioListItem[] }>(`/api/quizzes?scope=todos${qs}`);
   return data.items ?? [];
 }
 

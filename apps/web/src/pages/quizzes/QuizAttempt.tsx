@@ -679,6 +679,10 @@ export default function QuizAttempt() {
       setResult(response);
       setSubmitStatus("submitted");
       setSubmitMessage(response.message ?? "Respuestas enviadas para corrección.");
+      // El submit puede haber acreditado monedas (primer cuestionario
+      // completado) — mismo evento que usa TiendaTemas.tsx para que el
+      // CoinBadge de la navbar se refresque sin recargar la página.
+      window.dispatchEvent(new CustomEvent("vb:coins-updated"));
       if (id) clearOutbox(id);
       const esCompetenciaParaRanking = attempt?.quizType === "competencia";
       if (esCompetenciaParaRanking && tiempoInicio) {
@@ -1640,7 +1644,12 @@ export default function QuizAttempt() {
                   </Alert>
                 )}
                 <PostSubmitResult
-                  result={result}
+                  // El Alert de arriba ya muestra `submitMessage` (== result.message
+                  // recién enviado el intento) en un banner con color; evita repetirlo
+                  // acá abajo en texto plano. En modo revisión (reabrir un intento ya
+                  // cerrado) `submitMessage` es null y `result.message` no existe, así
+                  // que este spread no afecta ese camino.
+                  result={submitMessage && result ? { ...result, message: undefined } : result}
                   {...(attempt?.ocultarPuntos ? { ocultarPuntos: true } : {})}
                 />
               </div>

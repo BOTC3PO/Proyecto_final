@@ -160,4 +160,52 @@ describe("useViewBoxZoom", () => {
     expect(getApi().viewBox.x).toBeGreaterThan(0);
     expect(getApi().viewBox.y).toBeGreaterThan(0);
   });
+
+  describe("bounds — zona bloqueada por el editor (limitar/bloquear el mapa)", () => {
+    const BOUNDS = { x: 200, y: 100, w: 300, h: 186 };
+
+    it("estado inicial: el viewBox arranca en `bounds`, no en el lienzo completo", () => {
+      render(<Harness options={{ bounds: BOUNDS }} />);
+      expect(getApi().viewBox).toEqual(BOUNDS);
+    });
+
+    it("reset vuelve a `bounds`, no al lienzo completo", () => {
+      render(<Harness options={{ bounds: BOUNDS }} />);
+      act(() => { getApi().zoomIn(); });
+      expect(getApi().viewBox.w).toBeLessThan(BOUNDS.w);
+      act(() => { getApi().reset(); });
+      expect(getApi().viewBox).toEqual(BOUNDS);
+    });
+
+    it("zoomOut satura en `bounds`, nunca revela el resto del mundo", () => {
+      render(<Harness options={{ bounds: BOUNDS }} />);
+      act(() => { getApi().zoomIn(); getApi().zoomOut(); getApi().zoomOut(); getApi().zoomOut(); getApi().zoomOut(); });
+      expect(getApi().viewBox.w).toBe(BOUNDS.w);
+      expect(getApi().viewBox.x).toBe(BOUNDS.x);
+      expect(getApi().viewBox.y).toBe(BOUNDS.y);
+    });
+
+    it("pan por pointer no puede salir de `bounds`", () => {
+      const { getByTestId } = render(<Harness options={{ bounds: BOUNDS }} />);
+      act(() => { getApi().zoomIn(); getApi().zoomIn(); getApi().zoomIn(); });
+      const svg = getByTestId("svg");
+      const api = getApi();
+      act(() => {
+        // Arrastre gigante hacia la esquina superior-izquierda: debe
+        // saturar en `bounds.x`/`bounds.y`, no en 0/0 (el mundo completo).
+        api.handlePointerDown({ clientX: 500, clientY: 500, pointerId: 1, target: null } as any);
+        api.handlePointerMove({ clientX: 5000, clientY: 5000, pointerId: 1 } as any);
+        api.handlePointerUp({ clientX: 5000, clientY: 5000, pointerId: 1 } as any);
+      });
+      expect(getApi().viewBox.x).toBeGreaterThanOrEqual(BOUNDS.x);
+      expect(getApi().viewBox.y).toBeGreaterThanOrEqual(BOUNDS.y);
+    });
+
+    it("si `bounds` cambia (se fija/quita la zona), el viewBox se re-encuadra al límite nuevo", () => {
+      const { rerender } = render(<Harness options={{ bounds: BOUNDS }} />);
+      expect(getApi().viewBox).toEqual(BOUNDS);
+      rerender(<Harness options={{ bounds: undefined }} />);
+      expect(getApi().viewBox).toEqual({ x: 0, y: 0, w: WIDTH, h: HEIGHT });
+    });
+  });
 });

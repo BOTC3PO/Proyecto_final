@@ -197,6 +197,12 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     startedAt: string;
   };
   const recentEvaluations: RecentEvaluation[] = [];
+  // Para la card "Resumen" del panel — simetría con "Módulos creados":
+  // cuántos intentos de cuestionario ya rindieron los alumnos del
+  // docente. "Hecho" = enviado o corregido (mismos dos estados reales
+  // que genera el submit, ver quiz-attempts.ts); "completed" NO es un
+  // status que el submit llegue a generar, no se usa acá a propósito.
+  let quizzesCompletedByStudents = 0;
   if (aulaIds.length > 0 || moduloFilters.length > 0) {
     // 1) Traemos los módulos del docente (dueño o asignado a un aula
     //    suya) — los mismos que ya usamos arriba.
@@ -220,6 +226,9 @@ profesor.get("/api/profesor/menu", async (req, res) => {
           where: { quizId: { in: quizIds } },
           select: { id: true, quizId: true, status: true, startedAt: true },
         });
+        quizzesCompletedByStudents = attempts.filter(
+          (a) => a.status === "submitted" || a.status === "graded",
+        ).length;
         const sorted = [...attempts].sort((a, b) =>
           String(b.startedAt ?? "").localeCompare(String(a.startedAt ?? ""))
         );
@@ -285,6 +294,7 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     },
     activeStudents: activeStudents.size,
     progressNextClass,
+    quizzesCompletedByStudents,
     recentEvaluations,
     kpiCards: [
       {

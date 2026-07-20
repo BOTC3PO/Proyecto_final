@@ -20,6 +20,8 @@ import {
 } from "../../lib/maps/svg-geo-lite";
 import {
   MAPA_CAPA_DEFAULT_ID,
+  boundsToPixels,
+  pixelsToBounds,
   type MapaConfig,
   type MapaAnotacion,
   type MapaCapa,
@@ -237,7 +239,27 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
     minVb: MIN_VB,
     svgRef,
     active: true,
+    // Limitar/bloquear la zona del mapa: si el profesor fijó una zona
+    // (botón "Bloquear zona actual"), ni el pan ni el zoom-out pueden
+    // salir de ella — mismo mecanismo de clamp que ya usa el resto del
+    // hook, sólo que contra `bounds` en vez de contra todo el mundo.
+    // `config.bounds` es una fracción 0..1 (independiente del tamaño de
+    // lienzo) — se convierte a píxeles de ESTE lienzo (1000×620) recién acá.
+    bounds: config.bounds ? boundsToPixels(config.bounds, MAP_WIDTH, MAP_HEIGHT) : undefined,
   });
+
+  // "Bloquear zona actual" guarda el encuadre actual como límite; "Quitar
+  // bloqueo" vuelve a dejar todo el mundo navegable. El `useEffect` interno
+  // de `useViewBoxZoom` reencuadra solo cuando `bounds` cambia. Van por
+  // `updateConfig` (definido más abajo) para entrar al historial de
+  // undo/redo como cualquier otro cambio del editor.
+  const handleFijarZona = useCallback(() => {
+    updateConfig({ ...config, bounds: pixelsToBounds(viewBox, MAP_WIDTH, MAP_HEIGHT) });
+  }, [config, viewBox]);
+  const handleQuitarZona = useCallback(() => {
+    const { bounds: _bounds, ...rest } = config;
+    updateConfig(rest as MapaConfig);
+  }, [config]);
 
   // ITEM-45.c — distingue "arrastrar para pan" de "click para crear un
   // punto/marcador": si el puntero se movió más de `PAN_THRESHOLD_PX` entre
@@ -1735,6 +1757,29 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
               <button type="button" onClick={resetZoom} aria-label={t("mapaEditorFull.restablecerZoom")} title={t("mapaEditorFull.restablecerZoom")}>
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-7 3.3M3 4v4h4"/></svg>
               </button>
+            </div>
+            <div className={styles.canvasZoom} role="group" aria-label={t("mapaEditorFull.zonaBloqueada")}>
+              {config.bounds ? (
+                <button
+                  type="button"
+                  onClick={handleQuitarZona}
+                  aria-label={t("mapaEditorFull.quitarBloqueoDeZona")}
+                  title={t("mapaEditorFull.quitarBloqueoDeZonaHelp")}
+                  data-testid="mapa-quitar-zona"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" d="M17 10.5V7a5 5 0 0 0-9.9-1M6.5 10.5h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1Z"/></svg>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleFijarZona}
+                  aria-label={t("mapaEditorFull.bloquearZonaActual")}
+                  title={t("mapaEditorFull.bloquearZonaActualHelp")}
+                  data-testid="mapa-fijar-zona"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" d="M6.5 10.5h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1Zm1.5 0V7a4 4 0 0 1 8 0v3.5"/></svg>
+                </button>
+              )}
             </div>
             <div className={styles.canvasReadout} aria-label={t("mapaEditorFull.coordenadasDelCursor")} aria-live="polite">
               {cursorCoords

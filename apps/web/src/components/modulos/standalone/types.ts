@@ -140,7 +140,40 @@ export type MapaConfig = {
    *  "capa default" implícita gestionada por el editor. */
   capas?: MapaCapa[];
   anotaciones: MapaAnotacion[];
+  /** Limitar/bloquear la zona donde carga el mapa: rectángulo fuera del
+   *  cual no se puede hacer pan ni zoom-out. `undefined` = todo el mundo
+   *  navegable (comportamiento de siempre). Se fija desde el botón
+   *  "Bloquear zona actual" del editor — no es una selección de lat/lon
+   *  a mano.
+   *
+   *  Guardado como FRACCIÓN (0..1) del ancho/alto del lienzo, NO en
+   *  píxeles: el editor (MapaEditorFull, 1000×620) y el visor
+   *  (MapaStandalone, 960×520) usan lienzos de tamaño distinto — un
+   *  rectángulo en píxeles de uno quedaría mal ubicado en el otro. Usar
+   *  `boundsToPixels`/`pixelsToBounds` para convertir. */
+  bounds?: { x: number; y: number; w: number; h: number };
 };
+
+/** Convierte `MapaConfig.bounds` (fracción 0..1) a coordenadas de píxel del
+ *  viewBox de UN lienzo particular (el editor y el visor tienen tamaños
+ *  distintos, cada consumidor pasa su propio width/height). */
+export function boundsToPixels(
+  bounds: { x: number; y: number; w: number; h: number },
+  width: number,
+  height: number,
+): { x: number; y: number; w: number; h: number } {
+  return { x: bounds.x * width, y: bounds.y * height, w: bounds.w * width, h: bounds.h * height };
+}
+
+/** Inversa de `boundsToPixels`: de un viewBox en píxeles de un lienzo
+ *  particular a la fracción 0..1 que se persiste en `MapaConfig.bounds`. */
+export function pixelsToBounds(
+  viewBox: { x: number; y: number; w: number; h: number },
+  width: number,
+  height: number,
+): { x: number; y: number; w: number; h: number } {
+  return { x: viewBox.x / width, y: viewBox.y / height, w: viewBox.w / width, h: viewBox.h / height };
+}
 
 export type StandaloneConfig = RecetaConfig | LineaTiempoConfig | TablaPeriodica | MapaConfig;
 

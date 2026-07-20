@@ -463,7 +463,12 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
           : isLocked
             ? "Bloqueado"
             : "En curso";
-      const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 60 : 25;
+      // `progreso_modulos` no guarda un porcentaje real, sólo `status`
+      // (enum). El 50% para "en_progreso" es un placeholder — pero
+      // DEBE coincidir con el mismo placeholder que usa la vista del
+      // propio alumno (apps/web/src/pages/aula.tsx:300), si no el
+      // padre ve un % distinto al que ve su hijo para el mismo módulo.
+      const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 50 : 25;
       return {
         id: item.moduloId,
         titulo: (module?.titulo ?? "Módulo") as string,

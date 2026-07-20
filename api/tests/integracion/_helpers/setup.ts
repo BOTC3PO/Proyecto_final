@@ -126,6 +126,11 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.economiaTransaccion.rows = [];
   prisma.economiaSaldo.rows = [];
   prisma.economiaConfig.rows = [];
+  // FIX-MENSAJERIA-ESCUELA-EFECTIVA — hilos 1:1 y avisos.
+  prisma.hilo.rows = [];
+  prisma.mensajeDirecto.rows = [];
+  prisma.aviso.rows = [];
+  prisma.avisoLeido.rows = [];
   return prisma;
 }
 

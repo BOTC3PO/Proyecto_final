@@ -71,6 +71,12 @@ export type Classroom = {
    * autoridad de docente la cubre `viewerIsTeacher` por separado).
    */
   viewerRoleInClass?: "TEACHER" | "STUDENT" | null;
+  /**
+   * Tarea 14 — ajuste del aula: habilita/deshabilita que los alumnos
+   * comenten publicaciones del feed. `undefined` (aulas creadas antes de
+   * este campo) se trata como habilitado, igual que el default del back.
+   */
+  allowComments?: boolean;
   createdAt: string;
   updatedAt: string;
   members?: Array<{
@@ -78,6 +84,8 @@ export type Classroom = {
     roleInClass: "TEACHER" | "ADMIN" | "STUDENT";
     schoolId?: string;
     joinedAt?: string;
+    /** Sólo resuelto por el back para miembros TEACHER (ver aulas.ts GET /api/aulas). */
+    name?: string | null;
   }>;
 };
 

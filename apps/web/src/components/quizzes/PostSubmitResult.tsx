@@ -77,7 +77,7 @@ export default function PostSubmitResult({
   return (
     <div className="space-y-1" data-testid="post-submit-result">
       {tieneScore && !ocultarPuntos && (
-        <p className="text-sm text-gray-600" data-testid="post-submit-score">
+        <p className="text-sm text-[var(--c-muted)]" data-testid="post-submit-score">
           Puntaje: {result.score ?? "-"} / {result.maxScore ?? "-"}
         </p>
       )}
@@ -86,7 +86,7 @@ export default function PostSubmitResult({
         // contradecir el rango. Mostramos sólo el rango + el mensaje
         // del backend.
         <p
-          className="text-sm font-semibold text-amber-700"
+          className="text-sm font-semibold text-[var(--c-warning)]"
           data-testid="post-submit-grade-range"
         >
           {formatGradeRangeLabel(result)}
@@ -95,7 +95,7 @@ export default function PostSubmitResult({
         result.notaDisplay &&
         result.notaDisplay !== "—" && (
           <p
-            className="text-sm font-semibold text-gray-800"
+            className="text-sm font-semibold text-[var(--c-text)]"
             data-testid="post-submit-grade"
           >
             Nota: {result.notaDisplay}
@@ -106,12 +106,12 @@ export default function PostSubmitResult({
         )
       )}
       {result.message && (
-        <p className="text-sm text-gray-600" data-testid="post-submit-message">
+        <p className="text-sm text-[var(--c-muted)]" data-testid="post-submit-message">
           {result.message}
         </p>
       )}
       {result.feedback && (
-        <p className="text-sm text-gray-600">{result.feedback}</p>
+        <p className="text-sm text-[var(--c-muted)]">{result.feedback}</p>
       )}
     </div>
   );

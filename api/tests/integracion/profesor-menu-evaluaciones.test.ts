@@ -165,3 +165,31 @@ test("FIX-PANEL-EVALUACIONES: docente sin módulos devuelve recentEvaluations=[]
   assert.equal(res.status, 200);
   assert.deepEqual(res.body.recentEvaluations, []);
 });
+
+// Simetría del panel — card "Resumen": `quizzesCompletedByStudents` cuenta
+// los intentos ENVIADOS o CORREGIDOS (no los que siguen `in_progress`),
+// de los mismos quizzes que arman `recentEvaluations` arriba.
+test("PANEL-RESUMEN-SIMETRIA: quizzesCompletedByStudents cuenta submitted+graded, no in_progress", async () => {
+  const token = tokenFor({ id: TEACHER, role: "TEACHER", schoolId: SCHOOL });
+  const res = await jsonRequest(baseUrl, "GET", "/api/profesor/menu", { token });
+  assert.equal(res.status, 200);
+  // Seed: ATT_OLD (submitted), ATT_MID (submitted), ATT_NEW (in_progress).
+  assert.equal(res.body.quizzesCompletedByStudents, 2);
+});
+
+test("PANEL-RESUMEN-SIMETRIA: un intento 'graded' también cuenta como hecho", async () => {
+  prisma.quizAttempt.rows.push({
+    id: "att-graded", quizId: Q1, userId: "u4", status: "graded", startedAt: "2026-06-17T00:00:00.000Z",
+  });
+  const token = tokenFor({ id: TEACHER, role: "TEACHER", schoolId: SCHOOL });
+  const res = await jsonRequest(baseUrl, "GET", "/api/profesor/menu", { token });
+  assert.equal(res.body.quizzesCompletedByStudents, 3);
+});
+
+test("PANEL-RESUMEN-SIMETRIA: docente sin módulos devuelve quizzesCompletedByStudents=0", async () => {
+  resetPrisma();
+  seedUser({ id: "teacher-empty", role: "TEACHER", schoolId: SCHOOL });
+  const token = tokenFor({ id: "teacher-empty", role: "TEACHER", schoolId: SCHOOL });
+  const res = await jsonRequest(baseUrl, "GET", "/api/profesor/menu", { token });
+  assert.equal(res.body.quizzesCompletedByStudents, 0);
+});

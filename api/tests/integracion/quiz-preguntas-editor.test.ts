@@ -274,6 +274,42 @@ test("(j) DELETE marca isActive=false; docente ajeno -> 403", async () => {
   assert.equal(row?.isActive, false);
 });
 
+// Archivar cuestionarios — POST /api/quizzes/:quizId/restaurar revierte el
+// DELETE de arriba (isActive=true), con el mismo chequeo de permiso. GET
+// /api/quizzes?archivados=true lista sólo los archivados; el default
+// (sin el query param) sigue sin mostrarlos.
+test("(l) POST /restaurar revierte isActive=true; docente ajeno -> 403; GET ?archivados=true los lista", async () => {
+  const token = tokenFor({ id: DOCENTE_ID, role: "TEACHER", schoolId: ESCUELA_ID });
+  await jsonRequest(baseUrl, "DELETE", `/api/quizzes/${QUIZ_ID}`, { token });
+
+  const tokenOtro = tokenFor({ id: DOCENTE_OTRO_ID, role: "TEACHER", schoolId: ESCUELA_OTRA_ID });
+  const forbidden = await jsonRequest(baseUrl, "POST", `/api/quizzes/${QUIZ_ID}/restaurar`, {
+    token: tokenOtro,
+  });
+  assert.equal(forbidden.status, 403);
+
+  // Archivado: no aparece en la lista default, sí en la de archivados.
+  const listaDefault = await jsonRequest(baseUrl, "GET", "/api/quizzes?scope=todos", { token });
+  const idsDefault = (listaDefault.body as { items: Array<{ id: string }> }).items.map((i) => i.id);
+  assert.ok(!idsDefault.includes(QUIZ_ID));
+
+  const listaArchivados = await jsonRequest(
+    baseUrl,
+    "GET",
+    "/api/quizzes?scope=todos&archivados=true",
+    { token },
+  );
+  const idsArchivados = (listaArchivados.body as { items: Array<{ id: string }> }).items.map((i) => i.id);
+  assert.ok(idsArchivados.includes(QUIZ_ID));
+
+  const res = await jsonRequest(baseUrl, "POST", `/api/quizzes/${QUIZ_ID}/restaurar`, { token });
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  const row = prisma.quiz.rows.find((q: { id: string }) => q.id === QUIZ_ID) as
+    | { isActive?: boolean }
+    | undefined;
+  assert.equal(row?.isActive, true);
+});
+
 // WO-tiza-config — regresión del bug de pérdida de datos: guardar el módulo
 // desde ModuloEditor (PATCH /api/modulos/:id con quizzes[]) creaba una
 // versión nueva SIN `settings.preguntas` porque ese campo no viaja en

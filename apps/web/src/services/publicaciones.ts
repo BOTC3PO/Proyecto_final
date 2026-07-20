@@ -64,3 +64,26 @@ export async function updatePublication(classroomId: string, publicationId: stri
 export async function deletePublication(classroomId: string, publicationId: string): Promise<void> {
   await apiDelete<{ ok: boolean }>(`${publicationsPath(classroomId)}/${encodeURIComponent(publicationId)}`);
 }
+
+// Tarea 14 — comentarios de alumnos en publicaciones. El back
+// (api/src/routes/publicaciones.ts) ya exponía estos dos endpoints; no
+// tenían ningún consumidor en el front.
+export type Comment = {
+  id: string;
+  body: string;
+  authorId: string;
+  authorName: string | null;
+  createdAt: string;
+};
+
+const commentsPath = (classroomId: string, publicationId: string) =>
+  `${publicationsPath(classroomId)}/${encodeURIComponent(publicationId)}/comentarios`;
+
+export async function fetchComments(classroomId: string, publicationId: string): Promise<Comment[]> {
+  const response = await apiGet<{ items: Comment[] }>(commentsPath(classroomId, publicationId));
+  return response.items;
+}
+
+export async function createComment(classroomId: string, publicationId: string, contenido: string): Promise<Comment> {
+  return apiPost<Comment>(commentsPath(classroomId, publicationId), { contenido });
+}

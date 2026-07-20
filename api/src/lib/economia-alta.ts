@@ -95,3 +95,69 @@ export async function acreditarSaldoInicial(params: {
     return null;
   }
 }
+
+const DEFAULT_MONTO_PRIMER_CUESTIONARIO = 10;
+
+/**
+ * Recompensa por completar un cuestionario POR PRIMERA VEZ (mismo alumno +
+ * mismo quiz). El caller (quiz-attempts.ts, submit) es responsable de
+ * decidir "primera vez" contando intentos previos `submitted`/`graded` de
+ * ese quiz — acá sólo se agrega una segunda capa de idempotencia por si el
+ * submit se reintenta (mismo criterio que `acreditarSaldoInicial`: nunca
+ * confiar en un solo chequeo para no duplicar plata).
+ *
+ * ponytail: sólo dispara en el submit inmediato (status "submitted"), no
+ * en la transición `pending_review` → `graded` cuando un cuestionario
+ * tiene ítems de corrección manual — agregar ese segundo hook si hace
+ * falta premiar también esos casos.
+ */
+export async function acreditarPorPrimerCuestionario(params: {
+  usuarioId: string;
+  quizId: string;
+  schoolId?: string | null;
+}): Promise<{ monto: number; moneda: string } | null> {
+  try {
+    const yaAcreditado = await prisma.economiaTransaccion.findFirst({
+      where: { usuarioId: params.usuarioId, tipo: "quiz_primera_vez", referenciaId: params.quizId }
+    });
+    if (yaAcreditado) return null;
+
+    const monto = DEFAULT_MONTO_PRIMER_CUESTIONARIO;
+    const moneda = await resolveMonedaConfig();
+    const now = new Date().toISOString();
+
+    await prisma.economiaTransaccion.create({
+      data: {
+        id: randomUUID(),
+        usuarioId: params.usuarioId,
+        aulaId: "sistema",
+        schoolId: params.schoolId ?? "sistema",
+        tipo: "quiz_primera_vez",
+        monto,
+        moneda,
+        motivo: "Primer cuestionario completado",
+        referenciaId: params.quizId,
+        createdAt: now
+      }
+    });
+
+    const existingSaldo = await prisma.economiaSaldo.findFirst({
+      where: { usuarioId: params.usuarioId }
+    });
+    if (existingSaldo) {
+      await prisma.economiaSaldo.updateMany({
+        where: { usuarioId: params.usuarioId },
+        data: { saldo: (existingSaldo.saldo as number) + monto, moneda, updatedAt: now }
+      });
+    } else {
+      await prisma.economiaSaldo.create({
+        data: { id: randomUUID(), usuarioId: params.usuarioId, saldo: monto, moneda, updatedAt: now }
+      });
+    }
+
+    return { monto, moneda };
+  } catch {
+    // Best-effort: un fallo acá no debe romper el submit del cuestionario.
+    return null;
+  }
+}

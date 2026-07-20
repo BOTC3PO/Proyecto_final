@@ -44,6 +44,10 @@ export const ClassroomBaseSchema = z.object({
   accessType: ClassroomAccessSchema,
   status: ClassroomStatusSchema,
   classCode: z.string().min(1).optional(),
+  // Tarea 14 — ajuste del aula: habilita/deshabilita que los alumnos
+  // comenten publicaciones. Sólo relevante en PATCH/PUT (partial); en
+  // create no se manda, la columna Prisma ya default-ea a true.
+  allowComments: z.boolean().optional(),
   createdBy: z.string().min(1),
   members: z.array(ClassroomMemberSchema).min(1),
   teacherOfRecord: z.string().min(1).optional(),

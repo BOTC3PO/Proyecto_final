@@ -891,6 +891,12 @@ export default function menuProfesor() {
                   <p className="text-sm font-semibold text-[var(--c-text)]">{cuestionariosCount}</p>
                 </div>
                 <div className="flex items-center justify-between">
+                  <p className="text-xs text-[var(--c-muted)]">{t('menuProfesor.cuestionariosHechos')}</p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">
+                    {dashboard?.quizzesCompletedByStudents ?? 0}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between">
                   <p className="text-xs text-[var(--c-muted)]">{t('nav.evaluaciones')}</p>
                   <Link
                     to="/profesor/evaluaciones"

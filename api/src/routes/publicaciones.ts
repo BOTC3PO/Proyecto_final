@@ -315,6 +315,12 @@ publicaciones.post(
         detail: `El aula tiene estado ${currentStatus}; sólo se puede publicar en aulas ACTIVE.`
       });
     }
+    // Tarea 14 — ajuste del aula: el docente/directivo puede desactivar
+    // los comentarios de alumnos por aula. `undefined` (aulas legacy) se
+    // trata como habilitado, igual que el default de la columna.
+    if (classroom.allowComments === false) {
+      return res.status(403).json({ error: "comments disabled for this classroom" });
+    }
     const publication = await prisma.publicacion.findFirst({
       where: { id: req.params.pubId as string as string, aulaId: req.params.id as string as string, isDeleted: { not: true } }
     });

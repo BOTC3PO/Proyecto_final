@@ -9,6 +9,7 @@ import {
 } from "../../../lib/maps/svg-geo-lite";
 import {
   MAPA_CAPA_DEFAULT_ID,
+  boundsToPixels,
   type MapaConfig,
   type MapaAnotacion,
   type MapaDataset,
@@ -144,6 +145,11 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
     minVb: 40,
     svgRef,
     active: true,
+    // Limitar/bloquear la zona: si el profesor fijó una zona en el editor,
+    // el alumno tampoco puede alejar/desplazar fuera de ella acá. `bounds`
+    // es una fracción 0..1 — se convierte a píxeles de ESTE lienzo
+    // (960×520, distinto del editor) recién acá.
+    bounds: config.bounds ? boundsToPixels(config.bounds, MAP_WIDTH, MAP_HEIGHT) : undefined,
   });
 
   // ITEM-45.a — ver escala-por-zoom.ts / MapaEditorFull.tsx.

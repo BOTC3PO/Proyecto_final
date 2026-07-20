@@ -275,6 +275,11 @@ model Clase {
   grade           String
   code            String?
   classCode       String?  @map("class_code")
+  // Tarea 14 — ajuste del aula: permite que los alumnos comenten las
+  // publicaciones del feed (POST /api/aulas/:id/publicaciones/:pubId/comentarios
+  // ya existía en el back pero sin ningún gate de aula ni UI). Default true
+  // preserva el comportamiento previo (el endpoint siempre aceptaba).
+  allowComments   Boolean  @default(true) @map("allow_comments")
   isDeleted       Boolean  @default(false) @map("is_deleted")
   status          String   @default("ACTIVE")
   createdBy       String?  @map("created_by")

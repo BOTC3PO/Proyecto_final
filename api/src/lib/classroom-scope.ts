@@ -43,6 +43,11 @@ type AulaDoc = {
   // siempre veían `undefined` y caían al default "ACTIVE", así que el
   // bloqueo de ARCHIVED/LOCKED nunca corría en la práctica.
   status?: string;
+  // Tarea 14 — ajuste del aula: habilita/deshabilita que los alumnos
+  // comenten publicaciones (POST .../comentarios en publicaciones.ts).
+  // `undefined` (aulas legacy / stub de test sin el campo) se trata como
+  // `true`, igual que el default de la columna Prisma.
+  allowComments?: boolean;
 };
 
 /**
@@ -231,6 +236,7 @@ export const requireClassroomScope =
       // como `undefined` aunque la fila los tuviera poblados.
       code: claseRaw.code ?? null,
       classCode: claseRaw.classCode ?? null,
+      allowComments: claseRaw.allowComments ?? true,
       members: claseRaw.miembros.map((m: { usuarioId: string; rolEnClase: string }) => ({
         userId: m.usuarioId,
         roleInClass: m.rolEnClase

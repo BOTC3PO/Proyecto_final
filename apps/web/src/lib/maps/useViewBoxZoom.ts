@@ -39,6 +39,11 @@ export type UseViewBoxZoomOptions = {
   svgRef: RefObject<SVGSVGElement | null>;
   /** Si es false, `handlePointerDown` no inicia pan. Default true. */
   active?: boolean;
+  /** Restringe pan/zoom/reset a este rectángulo en vez de todo el lienzo
+   *  `[0,0,width,height]` — la zona bloqueada que puede fijar el editor
+   *  (ver `MapaConfig.bounds`). `undefined` = comportamiento de siempre
+   *  (todo el mundo navegable). */
+  bounds?: ViewBox;
 };
 
 export type UseViewBoxZoomResult = {
@@ -74,9 +79,22 @@ export function useViewBoxZoom({
   buttonFactor = DEFAULT_BUTTON_FACTOR,
   svgRef,
   active = true,
+  bounds,
 }: UseViewBoxZoomOptions): UseViewBoxZoomResult {
-  const [viewBox, setViewBox] = useState<ViewBox>({ x: 0, y: 0, w: width, h: height });
+  // Rectángulo navegable: todo el lienzo por default, o la zona fijada por
+  // el editor. `zoomBy`/pan/`reset` clampean contra ESTO, no contra
+  // `[0,0,width,height]` directo.
+  const limits = bounds ?? { x: 0, y: 0, w: width, h: height };
+  const [viewBox, setViewBox] = useState<ViewBox>(limits);
   const panState = useRef<{ startX: number; startY: number; origin: ViewBox } | null>(null);
+
+  // Si `bounds` cambia (el editor fija/quita la zona bloqueada), el
+  // encuadre actual puede quedar afuera del nuevo rectángulo navegable —
+  // lo reseteamos al límite nuevo, mismo criterio que `reset()`.
+  useEffect(() => {
+    setViewBox(limits);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bounds?.x, bounds?.y, bounds?.w, bounds?.h, width, height]);
 
   // Mapea coordenadas de cliente (px en pantalla) a coords del viewBox actual.
   // Es interna — el consumidor no la necesita.
@@ -97,32 +115,29 @@ export function useViewBoxZoom({
     (factor: number, focus?: [number, number]) => {
       setViewBox((vb) => {
         // factor < 1 achica, factor > 1 agranda. El clamp protege en ambos
-        // extremos: no se achica más que `minVb` ni se agranda más que el
-        // lienzo completo (`width`).
-        const newW = Math.min(width, Math.max(minVb, vb.w * factor));
-        const newH = newW * (height / width);
+        // extremos: no se achica más que `minVb` ni se agranda más que
+        // `limits` (todo el lienzo, o la zona fijada por el editor).
+        const newW = Math.min(limits.w, Math.max(minVb, vb.w * factor));
+        const newH = newW * (limits.h / limits.w);
         const fx = focus ? focus[0] : vb.x + vb.w / 2;
         const fy = focus ? focus[1] : vb.y + vb.h / 2;
         const ratioX = (fx - vb.x) / vb.w;
         const ratioY = (fy - vb.y) / vb.h;
         let nx = fx - ratioX * newW;
         let ny = fy - ratioY * newH;
-        nx = Math.min(width - newW, Math.max(0, nx));
-        ny = Math.min(height - newH, Math.max(0, ny));
+        nx = Math.min(limits.x + limits.w - newW, Math.max(limits.x, nx));
+        ny = Math.min(limits.y + limits.h - newH, Math.max(limits.y, ny));
         return { x: nx, y: ny, w: newW, h: newH };
       });
     },
-    [width, height, minVb],
+    [limits.x, limits.y, limits.w, limits.h, minVb],
   );
 
   // `zoomIn` achica: factor 1/buttonFactor < 1. El editor usa la misma
   // convención: "Acercar" → factor 1/1.3.
   const zoomIn = useCallback(() => zoomBy(1 / buttonFactor), [zoomBy, buttonFactor]);
   const zoomOut = useCallback(() => zoomBy(buttonFactor), [zoomBy, buttonFactor]);
-  const reset = useCallback(
-    () => setViewBox({ x: 0, y: 0, w: width, h: height }),
-    [width, height],
-  );
+  const reset = useCallback(() => setViewBox(limits), [limits.x, limits.y, limits.w, limits.h]);
 
   // El handler de wheel es un listener NATIVO no-pasivo en lugar de un
   // handler React sintético, por dos razones:
@@ -181,11 +196,11 @@ export function useViewBoxZoom({
       const rect = svg.getBoundingClientRect();
       const dx = ((e.clientX - pan.startX) / rect.width) * pan.origin.w;
       const dy = ((e.clientY - pan.startY) / rect.height) * pan.origin.h;
-      const nx = Math.min(width - pan.origin.w, Math.max(0, pan.origin.x - dx));
-      const ny = Math.min(height - pan.origin.h, Math.max(0, pan.origin.y - dy));
+      const nx = Math.min(limits.x + limits.w - pan.origin.w, Math.max(limits.x, pan.origin.x - dx));
+      const ny = Math.min(limits.y + limits.h - pan.origin.h, Math.max(limits.y, pan.origin.y - dy));
       setViewBox({ ...pan.origin, x: nx, y: ny });
     },
-    [svgRef, width, height],
+    [svgRef, limits.x, limits.y, limits.w, limits.h],
   );
 
   const handlePointerUp = useCallback(() => {

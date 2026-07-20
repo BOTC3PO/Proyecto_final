@@ -116,6 +116,7 @@ type ThemeContextValue = {
   setTheme: (id: ThemeId) => void;
   availableThemes: ThemeOption[];
   isThemeOwned: (id: ThemeId) => boolean;
+  markThemeOwned: (id: ThemeId, activate?: boolean) => void;
 };
 
 const ThemeContext = createContext<ThemeContextValue>({
@@ -123,6 +124,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   setTheme: () => {},
   availableThemes: [],
   isThemeOwned: () => false,
+  markThemeOwned: () => {},
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -214,6 +216,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     try { localStorage.setItem(STORAGE_KEY, id); } catch { /* ignore */ }
   };
 
+  // Actualización optimista tras una compra: `ownedThemeIds` sólo se
+  // carga una vez al montar (fetchMisItems), así que un `setTheme(id)`
+  // llamado justo después de comprar fallaba en silencio (su gate
+  // `isThemeOwned` todavía veía la lista vieja, de antes de la compra).
+  // `activate` hace las dos cosas en un mismo call — separarlas en
+  // `markThemeOwned(id)` + `setTheme(id)` no alcanza: el `setState` de
+  // arriba no se refleja en el closure de `isThemeOwned` hasta el
+  // próximo render.
+  const markThemeOwned = (id: ThemeId, activate = false) => {
+    setOwnedThemeIds((prev) => [...new Set([...(prev ?? []), id])]);
+    if (activate && !forceTheme && allowed.includes(id)) {
+      setThemeState(id);
+      try { localStorage.setItem(STORAGE_KEY, id); } catch { /* ignore */ }
+    }
+  };
+
   // Aplicar data-theme al <html>
   useEffect(() => {
     const t = forceTheme ?? theme;
@@ -228,7 +246,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   );
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, availableThemes, isThemeOwned }}>
+    <ThemeContext.Provider value={{ theme, setTheme, availableThemes, isThemeOwned, markThemeOwned }}>
       {theme === "supernova" && <SupernovaParticles />}
       {children}
     </ThemeContext.Provider>

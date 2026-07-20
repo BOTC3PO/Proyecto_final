@@ -16,7 +16,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useI18n } from "../i18n/I18nContext";
 import {
   crearQuizSuelto,
+  deleteQuiz,
   listarCuestionarios,
+  restaurarCuestionario,
   type CuestionarioListItem,
   type QuizMetaTipo,
 } from "../domain/quiz/quizPreguntasApi";
@@ -39,12 +41,22 @@ function tizaHref(quizId: string): string {
   return `/plantillas/nueva?quizId=${encodeURIComponent(quizId)}&returnTo=${encodeURIComponent("/cuestionarios")}`;
 }
 
-function CuestionarioCard({ item }: { item: CuestionarioListItem }) {
+function CuestionarioCard({
+  item,
+  archived,
+  busy,
+  onToggleArchive,
+}: {
+  item: CuestionarioListItem;
+  archived: boolean;
+  busy: boolean;
+  onToggleArchive: (item: CuestionarioListItem) => void;
+}) {
   const { t, lang } = useI18n();
   const updated = new Date(item.updatedAt);
   return (
     <article
-      className="rounded-xl border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-4 shadow-sm hover:shadow transition-shadow"
+      className={`rounded-xl border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-4 shadow-sm hover:shadow transition-shadow ${archived ? "opacity-60" : ""}`}
       data-testid="cuestionario-card"
     >
       <header className="flex items-start justify-between gap-3">
@@ -83,12 +95,25 @@ function CuestionarioCard({ item }: { item: CuestionarioListItem }) {
           <span data-testid="cuestionario-suelto-badge">{t("cuestionariosIndex.sueltoSinModulo")}</span>
         )}
       </div>
-      <footer className="mt-3 flex items-center justify-between text-[10px] text-[var(--c-muted,#64748b)]">
+      <footer className="mt-3 flex items-center justify-between gap-2 text-[10px] text-[var(--c-muted,#64748b)]">
         <span>Actualizado {updated.toLocaleDateString(lang)}</span>
-        <Link
-          to={tizaHref(item.id)}
-          className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-[10px] font-medium text-white hover:opacity-90"
-        >{t("cuestionariosIndex.abrirEnElEditor")}</Link>
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={() => onToggleArchive(item)}
+            disabled={busy}
+            className="rounded-md border border-[var(--c-border,#e2e8f0)] px-2 py-1 text-[10px] font-medium text-[var(--c-muted,#64748b)] hover:bg-[var(--c-bg,#f8fafc)] disabled:opacity-60"
+            data-testid={archived ? "cuestionario-restaurar" : "cuestionario-archivar"}
+          >
+            {busy
+              ? (archived ? t("cuestionariosIndex.restaurando") : t("cuestionariosIndex.archivando"))
+              : (archived ? t("cuestionariosIndex.restaurar") : t("cuestionariosIndex.archivar"))}
+          </button>
+          <Link
+            to={tizaHref(item.id)}
+            className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-[10px] font-medium text-white hover:opacity-90"
+          >{t("cuestionariosIndex.abrirEnElEditor")}</Link>
+        </div>
       </footer>
     </article>
   );
@@ -102,9 +127,12 @@ export default function CuestionariosIndex() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [q, setQ] = useState("");
   const [creating, setCreating] = useState(false);
+  const [archivados, setArchivados] = useState(false);
+  const [busyId, setBusyId] = useState<string | null>(null);
 
   useEffect(() => {
-    listarCuestionarios()
+    setStatus("loading");
+    listarCuestionarios({ archivados })
       .then((res) => {
         setItems(res);
         setStatus("ready");
@@ -113,7 +141,30 @@ export default function CuestionariosIndex() {
         setStatus("error");
         setErrorMessage(err instanceof Error ? err.message : t("comun.errorDeCarga"));
       });
-  }, []);
+  }, [archivados]);
+
+  const handleToggleArchive = async (item: CuestionarioListItem) => {
+    if (!archivados && !window.confirm(t("cuestionariosIndex.confirmarArchivar"))) return;
+    setBusyId(item.id);
+    try {
+      if (archivados) {
+        await restaurarCuestionario(item.id);
+      } else {
+        await deleteQuiz(item.id);
+      }
+      // El item deja de pertenecer a la vista actual apenas cambia de
+      // estado (archivado ↔ activo) — sacarlo local evita un refetch.
+      setItems((prev) => prev.filter((it) => it.id !== item.id));
+    } catch (err) {
+      window.alert(
+        err instanceof Error
+          ? err.message
+          : t(archivados ? "cuestionariosIndex.noSePudoRestaurar" : "cuestionariosIndex.noSePudoArchivar"),
+      );
+    } finally {
+      setBusyId(null);
+    }
+  };
 
   // Filtro local por título/materia/módulo — la lista es del propio
   // docente, no hace falta paginar/filtrar server-side todavía.
@@ -165,7 +216,7 @@ export default function CuestionariosIndex() {
           </button>
         </header>
 
-        <section className="flex flex-wrap gap-2">
+        <section className="flex flex-wrap items-center gap-3">
           <input
             type="search"
             placeholder={t("cuestionariosIndex.buscarPorTituloMateriaO")}
@@ -173,6 +224,14 @@ export default function CuestionariosIndex() {
             onChange={(e) => setQ(e.target.value)}
             className="flex-1 min-w-[12rem] rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
           />
+          <label className="flex items-center gap-1.5 text-xs text-[var(--c-muted,#64748b)] whitespace-nowrap">
+            <input
+              type="checkbox"
+              checked={archivados}
+              onChange={(e) => setArchivados(e.target.checked)}
+            />
+            {t("cuestionariosIndex.verArchivados")}
+          </label>
         </section>
 
         {status === "loading" && (
@@ -182,11 +241,13 @@ export default function CuestionariosIndex() {
         {status === "ready" && visibles.length === 0 && (
           <div className="rounded-xl border-2 border-dashed border-[var(--c-border,#e2e8f0)] py-10 text-center">
             <p className="text-sm text-[var(--c-muted,#64748b)]">
-              {items.length === 0
-                ? "Todavía no creaste cuestionarios."
-                : "Ningún cuestionario coincide con la búsqueda."}
+              {items.length > 0
+                ? t("cuestionariosIndex.ningunCuestionarioCoincideConLa")
+                : archivados
+                  ? t("cuestionariosIndex.noHayArchivados")
+                  : "Todavía no creaste cuestionarios."}
             </p>
-            {items.length === 0 && (
+            {items.length === 0 && !archivados && (
               <button
                 type="button"
                 onClick={() => void handleNuevo()}
@@ -199,7 +260,13 @@ export default function CuestionariosIndex() {
         {status === "ready" && visibles.length > 0 && (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {visibles.map((it) => (
-              <CuestionarioCard key={it.id} item={it} />
+              <CuestionarioCard
+                key={it.id}
+                item={it}
+                archived={archivados}
+                busy={busyId === it.id}
+                onToggleArchive={(item) => void handleToggleArchive(item)}
+              />
             ))}
           </div>
         )}
