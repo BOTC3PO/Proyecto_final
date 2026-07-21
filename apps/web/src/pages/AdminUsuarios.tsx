@@ -23,13 +23,13 @@ type ModerarModal =
   | { type: "escuela"; usuario: AdminUsuario }
   | null;
 
-const ROLE_LABELS: Record<string, string> = {
-  ADMIN: "Admin",
-  USER: "Alumno",
-  TEACHER: "Docente",
-  PARENT: "Padre",
-  DIRECTIVO: "Directivo",
-  GUEST: "Invitado",
+const ROLE_LABEL_KEY: Record<string, string> = {
+  ADMIN: "adminUsuarios.admin",
+  USER: "matrizProgreso.alumno",
+  TEACHER: "perfil.docente",
+  PARENT: "adminUsuarios.padre",
+  DIRECTIVO: "comun.directivo",
+  GUEST: "comun.invitado",
 };
 
 export default function AdminUsuarios() {
@@ -42,6 +42,7 @@ export default function AdminUsuarios() {
   const [searchInput, setSearchInput] = useState("");
   const [modal, setModal] = useState<ModerarModal>(null);
   const [actionMsg, setActionMsg] = useState<string | null>(null);
+  const [actionOk, setActionOk] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
   const [banMotivo, setBanMotivo] = useState("");
@@ -89,14 +90,17 @@ export default function AdminUsuarios() {
     try {
       const result = await promoteUsuario(modal.usuario.id, "ADMIN");
       if (result.ok) {
-        setActionMsg(`${modal.usuario.nombre} promovido a ADMIN correctamente.`);
+        setActionOk(true);
+        setActionMsg(`${modal.usuario.nombre} ${t("adminUsuarios.promovidoAAdminCorrectamente")}`);
         setModal(null);
         loadUsuarios(q);
       } else {
+        setActionOk(false);
         setActionMsg(result.error);
       }
     } catch (e: unknown) {
-      setActionMsg(`Error: ${(e as Error).message}`);
+      setActionOk(false);
+      setActionMsg(`${t("comun.error")}: ${(e as Error).message}`);
     } finally {
       setSubmitting(false);
     }
@@ -108,15 +112,17 @@ export default function AdminUsuarios() {
     setActionMsg(null);
     try {
       await reasignarEscuela(modal.usuario.id, escuelaDraft || null);
+      setActionOk(true);
       setActionMsg(
         escuelaDraft
-          ? `${modal.usuario.nombre} asignado a la escuela seleccionada.`
-          : `${modal.usuario.nombre} quedó sin escuela (admin de plataforma).`
+          ? `${modal.usuario.nombre} ${t("adminUsuarios.asignadoALaEscuelaSeleccionada")}`
+          : `${modal.usuario.nombre} ${t("adminUsuarios.quedoSinEscuelaAdminDePlataforma")}`
       );
       setModal(null);
       loadUsuarios(q);
     } catch (e: unknown) {
-      setActionMsg(`Error: ${(e as Error).message}`);
+      setActionOk(false);
+      setActionMsg(`${t("comun.error")}: ${(e as Error).message}`);
     } finally {
       setSubmitting(false);
     }
@@ -124,17 +130,20 @@ export default function AdminUsuarios() {
 
   const handleBan = async () => {
     if (!modal || modal.type !== "ban") return;
-    if (!banMotivo.trim()) { setActionMsg("El motivo es requerido."); return; }
+    if (!banMotivo.trim()) { setActionOk(false); setActionMsg(t("adminUsuarios.elMotivoEsRequerido")); return; }
     setSubmitting(true);
     setActionMsg(null);
     try {
       await banUsuario(modal.usuario.id, banMotivo, Number(banDias));
-      setActionMsg(`Usuario ${modal.usuario.nombre} baneado por ${banDias} día(s).`);
+      const dias = Number(banDias);
+      setActionOk(true);
+      setActionMsg(`${t("adminUsuarios.usuario")} ${modal.usuario.nombre} ${t("adminUsuarios.baneadoPor")} ${banDias} ${dias === 1 ? t("comun.dia") : t("comun.dias")}.`);
       setModal(null);
       setBanMotivo(""); setBanDias("1");
       loadUsuarios(q);
     } catch (e: unknown) {
-      setActionMsg(`Error: ${(e as Error).message}`);
+      setActionOk(false);
+      setActionMsg(`${t("comun.error")}: ${(e as Error).message}`);
     } finally {
       setSubmitting(false);
     }
@@ -142,17 +151,19 @@ export default function AdminUsuarios() {
 
   const handleWarn = async () => {
     if (!modal || modal.type !== "warn") return;
-    if (!warnMotivo.trim()) { setActionMsg("El motivo es requerido."); return; }
+    if (!warnMotivo.trim()) { setActionOk(false); setActionMsg(t("adminUsuarios.elMotivoEsRequerido")); return; }
     setSubmitting(true);
     setActionMsg(null);
     try {
       await advertenciaUsuario(modal.usuario.id, warnMotivo, warnSeveridad);
-      setActionMsg(`Advertencia enviada a ${modal.usuario.nombre}.`);
+      setActionOk(true);
+      setActionMsg(`${t("adminUsuarios.advertenciaEnviadaA")} ${modal.usuario.nombre}.`);
       setModal(null);
       setWarnMotivo(""); setWarnSeveridad("baja");
       loadUsuarios(q);
     } catch (e: unknown) {
-      setActionMsg(`Error: ${(e as Error).message}`);
+      setActionOk(false);
+      setActionMsg(`${t("comun.error")}: ${(e as Error).message}`);
     } finally {
       setSubmitting(false);
     }
@@ -166,7 +177,7 @@ export default function AdminUsuarios() {
         </div>
 
         {actionMsg && (
-          <div className={`rounded-xl border px-4 py-3 text-sm ${actionMsg.startsWith("Error") ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`}>
+          <div className={`rounded-xl border px-4 py-3 text-sm ${actionOk ? "border-emerald-200 bg-emerald-50 text-emerald-700" : "border-red-200 bg-red-50 text-red-700"}`}>
             {actionMsg}
           </div>
         )}
@@ -196,9 +207,9 @@ export default function AdminUsuarios() {
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
           <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--c-border)]">
             <h2 className="text-lg font-semibold text-[var(--c-text)]">
-              Usuarios{q && <span className="ml-2 text-sm font-normal text-[var(--c-muted)]">"{q}"</span>}
+              {t("nav.usuarios")}{q && <span className="ml-2 text-sm font-normal text-[var(--c-muted)]">"{q}"</span>}
             </h2>
-            <span className="text-sm text-[var(--c-muted)]">{loading ? "…" : `${usuarios.length} resultado(s)`}</span>
+            <span className="text-sm text-[var(--c-muted)]">{loading ? "…" : `${usuarios.length} ${usuarios.length === 1 ? t("comun.resultado") : t("comun.resultados")}`}</span>
           </div>
 
           {loading && (
@@ -208,7 +219,7 @@ export default function AdminUsuarios() {
               ))}
             </div>
           )}
-          {!loading && error && <p className="p-6 text-sm text-[var(--c-danger)]">Error: {error}</p>}
+          {!loading && error && <p className="p-6 text-sm text-[var(--c-danger)]">{t("comun.error")}: {error}</p>}
           {!loading && !error && usuarios.length === 0 && (
             <p className="p-6 text-sm text-[var(--c-muted)]">{t("adminUsuarios.noSeEncontraronUsuarios")}</p>
           )}
@@ -223,18 +234,18 @@ export default function AdminUsuarios() {
                       <div className="flex flex-wrap items-center gap-2">
                         <p className="text-sm font-semibold text-[var(--c-text)]">{u.nombre}</p>
                         <span className="rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-xs text-[var(--c-muted)]">
-                          {ROLE_LABELS[u.rol] ?? u.rol}
+                          {ROLE_LABEL_KEY[u.rol] ? t(ROLE_LABEL_KEY[u.rol]) : u.rol}
                         </span>
                         {u.isBanned && (
                           <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">{t("adminUsuarios.baneado")}</span>
                         )}
                         {u.warningCount > 0 && (
                           <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs text-amber-700">
-                            {u.warningCount} advertencia{u.warningCount !== 1 ? "s" : ""}
+                            {u.warningCount} {u.warningCount === 1 ? t("comun.advertencia") : t("comun.advertencias")}
                           </span>
                         )}
                         <span className="rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-xs text-[var(--c-muted)]">
-                          {u.escuelaId ? (escuelas.find((e) => e.id === u.escuelaId)?.name ?? "Escuela asignada") : "Sin escuela"}
+                          {u.escuelaId ? (escuelas.find((e) => e.id === u.escuelaId)?.name ?? t("adminUsuarios.escuelaAsignada")) : t("adminUsuarios.sinEscuela")}
                         </span>
                       </div>
                       <p className="mt-0.5 text-xs text-[var(--c-muted)]">
@@ -242,10 +253,10 @@ export default function AdminUsuarios() {
                       </p>
                       {m && (
                         <p className="mt-1 text-xs text-[var(--c-muted)]">
-                          Módulos completados:{" "}
-                          <span className="font-medium text-violet-700">{m.publicos} públicos</span>
+                          {t("comun.modulosCompletados")}:{" "}
+                          <span className="font-medium text-violet-700">{m.publicos} {t("comun.publicos")}</span>
                           {" / "}
-                          <span className="font-medium text-[var(--c-muted)]">{m.privados} privados</span>
+                          <span className="font-medium text-[var(--c-muted)]">{m.privados} {t("comun.privados")}</span>
                         </p>
                       )}
                     </div>
@@ -268,7 +279,7 @@ export default function AdminUsuarios() {
                         onClick={() => setModal({ type: "ban", usuario: u })}
                         className="rounded-lg border border-red-200 px-3 py-1.5 text-xs font-semibold text-red-700 hover:bg-red-50 transition-colors"
                       >
-                        {u.isBanned ? "Re-banear" : "Banear"}
+                        {u.isBanned ? t("adminUsuarios.reBanear") : t("adminUsuarios.banear")}
                       </button>
                     </div>
                   </div>
@@ -291,7 +302,7 @@ export default function AdminUsuarios() {
                   disabled={submitting}
                   className="flex-1 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
                 >
-                  {submitting ? "Procesando…" : "Confirmar promoción"}
+                  {submitting ? t("adminUsuarios.procesando") : t("adminUsuarios.confirmarPromocion")}
                 </button>
                 <button
                   onClick={() => { setModal(null); setActionMsg(null); }}
@@ -327,7 +338,7 @@ export default function AdminUsuarios() {
                   disabled={submitting}
                   className="flex-1 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
                 >
-                  {submitting ? "Guardando…" : "Guardar"}
+                  {submitting ? t("comun.guardando") : t("comun.guardar")}
                 </button>
                 <button
                   onClick={() => { setModal(null); setActionMsg(null); }}
@@ -372,7 +383,7 @@ export default function AdminUsuarios() {
                   disabled={submitting}
                   className="flex-1 rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-50 transition-colors"
                 >
-                  {submitting ? "Aplicando…" : "Aplicar ban"}
+                  {submitting ? t("adminUsuarios.aplicando") : t("adminUsuarios.aplicarBan")}
                 </button>
                 <button
                   onClick={() => { setModal(null); setActionMsg(null); setBanMotivo(""); setBanDias("1"); }}
@@ -419,7 +430,7 @@ export default function AdminUsuarios() {
                   disabled={submitting}
                   className="flex-1 rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-amber-600 disabled:opacity-50 transition-colors"
                 >
-                  {submitting ? "Enviando…" : "Enviar advertencia"}
+                  {submitting ? t("adminUsuarios.enviando") : t("adminUsuarios.enviarAdvertencia")}
                 </button>
                 <button
                   onClick={() => { setModal(null); setActionMsg(null); setWarnMotivo(""); setWarnSeveridad("baja"); }}

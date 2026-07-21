@@ -58,13 +58,13 @@ type Logro = {
   obtenido: boolean;
 };
 
-const ROLE_LABELS: Record<string, string> = {
-  ADMIN: "Administrador",
-  USER: "Alumno",
-  TEACHER: "Docente",
-  PARENT: "Padre/Madre",
-  DIRECTIVO: "Directivo",
-  GUEST: "Invitado",
+const ROLE_LABEL_KEY: Record<string, string> = {
+  ADMIN: "perfil.administrador",
+  USER: "matrizProgreso.alumno",
+  TEACHER: "perfil.docente",
+  PARENT: "register.rolPadre",
+  DIRECTIVO: "comun.directivo",
+  GUEST: "comun.invitado",
 };
 
 const ROLE_COLORS: Record<string, string> = {
@@ -230,7 +230,7 @@ export default function Perfil() {
                 <div className="flex items-center gap-2 flex-wrap">
                   <p className="text-base font-semibold text-[var(--c-text)] truncate">{perfil.fullName}</p>
                   <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${ROLE_COLORS[perfil.role] ?? "bg-gray-100 text-gray-600"}`}>
-                    {ROLE_LABELS[perfil.role] ?? perfil.role}
+                    {ROLE_LABEL_KEY[perfil.role] ? t(ROLE_LABEL_KEY[perfil.role]) : perfil.role}
                   </span>
                   {perfil.isBanned && (
                     <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]">{t("perfil.suspendido")}</span>
@@ -295,7 +295,7 @@ export default function Perfil() {
                 {perfil.warningCount > 0 && (
                   <div className="bg-[color-mix(in_srgb,var(--c-warning)_8%,transparent)] border border-[color-mix(in_srgb,var(--c-warning)_25%,transparent)] rounded-xl px-4 py-3">
                     <p className="text-xs font-medium text-[var(--c-warning)]">
-                      {perfil.warningCount} advertencia{perfil.warningCount > 1 ? "s" : ""} registrada{perfil.warningCount > 1 ? "s" : ""}
+                      {perfil.warningCount} {perfil.warningCount > 1 ? t("perfil.advertenciasRegistradas") : t("perfil.advertenciaRegistrada")}
                     </p>
                   </div>
                 )}
@@ -332,7 +332,7 @@ export default function Perfil() {
                     <p className="text-sm font-medium text-[var(--c-text)] mb-3">{t("perfil.hijosVinculados")}</p>
                     {perfil.hijos.length === 0 ? (
                       <p className="text-xs text-[var(--c-muted)]">
-                        No tenés hijos vinculados.{" "}
+                        {t("perfil.noTenesHijosVinculados")}{" "}
                         <a href="/hijos/agregar" className="text-[var(--c-primary)] underline">{t("perfil.agregarUnHijo")}</a>
                       </p>
                     ) : (
@@ -387,7 +387,7 @@ export default function Perfil() {
                       />
                     </div>
                     <p className="text-xs text-[var(--c-muted)] mt-1.5">
-                      {f.completados} de {f.total} módulos
+                      {f.completados} {t("menualumno.deLabel")} {f.total} {f.total === 1 ? t("comun.modulo") : t("comun.modulos")}
                     </p>
                   </div>
                 ))}
@@ -824,8 +824,8 @@ function RoleSolicitudBanner({ currentRole }: { currentRole: string }) {
       setMsg({
         kind: "ok",
         text: res.alreadyPending
-          ? "Ya tenés una solicitud pendiente. El admin la revisará pronto."
-          : "✓ Solicitud enviada. El admin la revisará pronto."
+          ? t("perfil.yaTenesUnaSolicitudPendiente")
+          : t("perfil.solicitudEnviadaElAdminLa")
       });
       setOpen(false);
       setMotivo("");
@@ -887,7 +887,7 @@ function RoleSolicitudBanner({ currentRole }: { currentRole: string }) {
               disabled={sending}
               className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
             >
-              {sending ? "Enviando..." : "Enviar solicitud"}
+              {sending ? t("quizAttempt.enviando") : t("perfil.enviarSolicitud")}
             </button>
           </div>
         </div>

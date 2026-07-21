@@ -19,10 +19,18 @@ export default function AdminReportesGlobal() {
     return () => { active = false; };
   }, [dias]);
 
-  const TIPO_LABELS: Record<string, string> = {
-    ban: "Ban",
-    advertencia: "Advertencia",
-    role_change: "Cambio de rol",
+  const TIPO_LABEL_KEY: Record<string, string> = {
+    ban: "adminReportesGlobal.ban",
+    advertencia: "adminReportesGlobal.advertencia",
+    role_change: "adminReportesGlobal.cambioDeRol",
+  };
+  const ROLE_LABEL_KEY: Record<string, string> = {
+    ADMIN: "adminUsuarios.admin",
+    USER: "matrizProgreso.alumno",
+    TEACHER: "perfil.docente",
+    PARENT: "adminUsuarios.padre",
+    DIRECTIVO: "comun.directivo",
+    GUEST: "comun.invitado",
   };
 
   return (
@@ -64,7 +72,7 @@ export default function AdminReportesGlobal() {
           <>
             <section className="grid gap-4 sm:grid-cols-3">
               {[
-                { label: `Nuevos usuarios (${dias}d)`, value: data.registro.total, color: "text-blue-700" },
+                { label: `${t("adminReportesGlobal.nuevosUsuarios")} (${dias}d)`, value: data.registro.total, color: "text-blue-700" },
                 { label: t("adminReportesGlobal.usuariosActivosTotal"), value: data.usuarios.activos, color: "text-emerald-700" },
                 { label: t("adminReportesGlobal.usuariosInactivos"), value: data.usuarios.inactivos, color: "text-[var(--c-muted)]" },
               ].map((item) => (
@@ -79,13 +87,13 @@ export default function AdminReportesGlobal() {
               <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
                 <div className="px-4 py-3 border-b border-[var(--c-border)]">
                   <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-                    Nuevos registros por rol — {dias} días
+                    {t("adminReportesGlobal.nuevosRegistrosPorRol")} — {dias} {dias === 1 ? t("comun.dia") : t("comun.dias")}
                   </p>
                 </div>
                 <div className="p-4 flex flex-wrap gap-3">
                   {Object.entries(data.registro.porRol).map(([rol, count]) => (
                     <div key={rol} className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] px-4 py-2">
-                      <p className="text-xs text-[var(--c-muted)]">{rol}</p>
+                      <p className="text-xs text-[var(--c-muted)]">{ROLE_LABEL_KEY[rol] ? t(ROLE_LABEL_KEY[rol]) : rol}</p>
                       <p className="text-xl font-bold text-[var(--c-text)]">{count as number}</p>
                     </div>
                   ))}
@@ -139,7 +147,7 @@ export default function AdminReportesGlobal() {
                           e.tipo === "advertencia" ? "bg-amber-100 text-amber-700" :
                           "bg-[var(--c-bg)] text-[var(--c-muted)]"
                         }`}>
-                          {TIPO_LABELS[e.tipo] ?? e.tipo}
+                          {TIPO_LABEL_KEY[e.tipo] ? t(TIPO_LABEL_KEY[e.tipo]) : e.tipo}
                         </span>
                         {e.motivo && <span className="ml-2 text-sm text-[var(--c-muted)]">{e.motivo}</span>}
                       </div>

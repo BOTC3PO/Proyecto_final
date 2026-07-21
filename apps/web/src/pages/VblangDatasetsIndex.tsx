@@ -32,6 +32,12 @@ const VISIBILITY_BADGE: Record<string, string> = {
   publica: "bg-emerald-100 text-emerald-700",
 };
 
+const VISIBILITY_LABEL_KEY: Record<string, string> = {
+  privada: "comun.privada",
+  escuela: "sidebar.escuela",
+  publica: "comun.publica",
+};
+
 function DatasetCard({
   item,
   mode,
@@ -41,7 +47,7 @@ function DatasetCard({
   mode: DatasetsIndexMode;
   onDelete: (id: string) => void;
 }) {
-  const { lang } = useI18n();
+  const { t, lang } = useI18n();
   const updated = new Date(item.updatedAt);
   const cols = Object.keys(item.columnas);
   return (
@@ -55,8 +61,8 @@ function DatasetCard({
             {item.nombre}
           </h3>
           <p className="text-xs text-[var(--c-muted,#64748b)] truncate">
-            {cols.length} columna{cols.length === 1 ? "" : "s"} ·{" "}
-            {item.filasCount} fila{item.filasCount === 1 ? "" : "s"}
+            {cols.length} {cols.length === 1 ? t("comun.columna") : t("comun.columnas")} ·{" "}
+            {item.filasCount} {item.filasCount === 1 ? t("comun.fila") : t("comun.filas")}
           </p>
         </Link>
         <span
@@ -64,7 +70,7 @@ function DatasetCard({
             VISIBILITY_BADGE[item.visibility] ?? "bg-slate-100 text-slate-700"
           }`}
         >
-          {item.visibility}
+          {VISIBILITY_LABEL_KEY[item.visibility] ? t(VISIBILITY_LABEL_KEY[item.visibility]) : item.visibility}
         </span>
       </header>
       {item.descripcion && (
@@ -84,24 +90,24 @@ function DatasetCard({
           ))}
           {cols.length > 6 && (
             <span className="text-[10px] text-slate-400">
-              +{cols.length - 6} más
+              +{cols.length - 6} {t("comun.mas")}
             </span>
           )}
         </div>
       )}
       <footer className="mt-3 flex items-center justify-between text-[10px] text-[var(--c-muted,#64748b)]">
-        <span>Actualizado {updated.toLocaleDateString(lang)}</span>
+        <span>{t("comun.actualizado")} {updated.toLocaleDateString(lang)}</span>
         {mode === "mias" && (
           <button
             type="button"
             onClick={() => {
-              if (window.confirm(`¿Eliminar dataset "${item.nombre}"?`)) {
+              if (window.confirm(`${t("vblangDatasetsIndex.eliminarDataset")} "${item.nombre}"?`)) {
                 onDelete(item.id);
               }
             }}
             className="rounded-md border border-red-200 px-2 py-1 text-[10px] font-medium text-red-700 hover:bg-red-50"
           >
-            Eliminar
+            {t("comun.eliminar")}
           </button>
         )}
       </footer>
@@ -142,7 +148,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!nombre.trim()) {
-      setError("El nombre es requerido.");
+      setError(t("vblangDatasetsIndex.elNombreEsRequerido"));
       return;
     }
     const map: Record<string, ColumnaTipo> = {};
@@ -150,7 +156,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
       const key = c.nombre.trim();
       if (!key) continue;
       if (map[key]) {
-        setError(`Columna "${key}" duplicada.`);
+        setError(`${t("vblangDatasetsIndex.columna")} "${key}" ${t("vblangDatasetsIndex.duplicada")}.`);
         return;
       }
       map[key] = c.tipo;
@@ -205,7 +211,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="paises"
+            placeholder={t("vblangDatasetsIndex.ejPaises")}
             autoFocus
           />
         </label>
@@ -273,8 +279,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
             className="text-xs font-medium text-blue-600 hover:underline"
           >{t("vblangDatasetsIndex.agregarColumna")}</button>
           <p className="text-[10px] text-amber-700 bg-amber-50 border border-amber-200 rounded p-2">
-            Las columnas se definen al crear el dataset. En v1 no se pueden
-            agregar/eliminar después; solo editar filas.
+            {t("vblangDatasetsIndex.lasColumnasSeDefinenAl")}
           </p>
         </div>
 
@@ -295,7 +300,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
             disabled={submitting}
             className="rounded-md bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700 disabled:bg-slate-300"
           >
-            {submitting ? "Creando…" : "Crear dataset"}
+            {submitting ? t("comun.creando") : t("vblangDatasetsIndex.crearDataset")}
           </button>
         </div>
       </form>
@@ -423,8 +428,8 @@ export default function VblangDatasetsIndex({
           <div className="rounded-xl border-2 border-dashed border-[var(--c-border,#e2e8f0)] py-10 text-center">
             <p className="text-sm text-[var(--c-muted,#64748b)]">
               {mode === "biblioteca"
-                ? "No hay datasets compartidos todavía."
-                : "Todavía no creaste datasets."}
+                ? t("vblangDatasetsIndex.noHayDatasetsCompartidosTodavia")
+                : t("vblangDatasetsIndex.todaviaNoCreasteDatasets")}
             </p>
             {mode === "mias" && (
               <button

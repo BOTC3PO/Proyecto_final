@@ -45,6 +45,7 @@ export default function Admin() {
   const [loadingConfig, setLoadingConfig] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState<string | null>(null);
+  const [saveOk, setSaveOk] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const [emisionDiaria, setEmisionDiaria] = useState("");
@@ -94,9 +95,11 @@ export default function Admin() {
         deflacion: { tasa: deflacionLimitada, activa: deflacionActiva },
       });
       setConfig(updated);
-      setSaveMsg("Configuración guardada correctamente.");
+      setSaveOk(true);
+      setSaveMsg(t("admin.configuracionGuardadaCorrectamente"));
     } catch (e: unknown) {
-      setSaveMsg(`Error: ${(e as Error).message}`);
+      setSaveOk(false);
+      setSaveMsg(`${t("comun.error")}: ${(e as Error).message}`);
     } finally {
       setSaving(false);
     }
@@ -235,10 +238,10 @@ export default function Admin() {
                   disabled={saving}
                   className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
                 >
-                  {saving ? 'Guardando...' : 'Guardar configuración'}
+                  {saving ? t("comun.guardando") : t("admin.guardarConfiguracion")}
                 </button>
                 {saveMsg && (
-                  <p className={`text-sm ${saveMsg.startsWith('Error') ? 'text-[var(--c-danger)]' : 'text-[var(--c-success)]'}`}>
+                  <p className={`text-sm ${saveOk ? 'text-[var(--c-success)]' : 'text-[var(--c-danger)]'}`}>
                     {saveMsg}
                   </p>
                 )}

@@ -38,7 +38,7 @@ export default function AdminMaterias() {
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!createForm.nombre.trim()) { setCreateError("El nombre es requerido."); return; }
+    if (!createForm.nombre.trim()) { setCreateError(t("adminMaterias.elNombreEsRequerido")); return; }
     setCreating(true);
     setCreateError(null);
     try {
@@ -62,7 +62,7 @@ export default function AdminMaterias() {
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingId) return;
-    if (!editForm.nombre.trim()) { setSaveError("El nombre es requerido."); return; }
+    if (!editForm.nombre.trim()) { setSaveError(t("adminMaterias.elNombreEsRequerido")); return; }
     setSaving(true);
     setSaveError(null);
     try {
@@ -96,7 +96,7 @@ export default function AdminMaterias() {
             onClick={() => { setShowCreate(!showCreate); setCreateForm(emptyForm()); setCreateError(null); }}
             className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
           >
-            {showCreate ? 'Cancelar' : '+ Nueva materia'}
+            {showCreate ? t("comun.cancelar") : t("adminMaterias.nuevaMateria2")}
           </button>
         </div>
 
@@ -147,7 +147,7 @@ export default function AdminMaterias() {
                 disabled={creating}
                 className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
               >
-                {creating ? "Creando…" : "Crear materia"}
+                {creating ? t("comun.creando") : t("adminMaterias.crearMateria")}
               </button>
             </form>
           )}
@@ -158,7 +158,7 @@ export default function AdminMaterias() {
                 {[1,2,3].map(i => <div key={i} className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
               </div>
             )}
-            {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
+            {error && <p className="text-sm text-[var(--c-danger)]">{t("comun.error")}: {error}</p>}
 
             {!loading && !error && materias.length === 0 && (
               <p className="text-sm text-[var(--c-muted)]">{t("adminMaterias.noHayMateriasRegistradas")}</p>
@@ -204,7 +204,7 @@ export default function AdminMaterias() {
                         disabled={saving}
                         className="rounded-lg bg-[var(--c-primary)] px-4 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
                       >
-                        {saving ? "Guardando…" : "Guardar"}
+                        {saving ? t("comun.guardando") : t("comun.guardar")}
                       </button>
                       <button
                         type="button"
@@ -217,7 +217,7 @@ export default function AdminMaterias() {
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
                       <p className="text-sm font-semibold text-[var(--c-text)]">{materia.nombre}</p>
-                      {materia.nivel && <p className="text-xs text-[var(--c-muted)]">Nivel: {materia.nivel}</p>}
+                      {materia.nivel && <p className="text-xs text-[var(--c-muted)]">{t("adminMaterias.nivel")}: {materia.nivel}</p>}
                       {materia.descripcion && <p className="text-xs text-[var(--c-muted)]">{materia.descripcion}</p>}
                     </div>
                     <div className="flex items-center gap-2">
@@ -229,7 +229,7 @@ export default function AdminMaterias() {
                             : "bg-[var(--c-bg)] text-[var(--c-muted)] hover:bg-[var(--c-border)]"
                         }`}
                       >
-                        {materia.activa ? "Activa" : "Inactiva"}
+                        {materia.activa ? t("profesorAulaConfiguracion.activa") : t("adminMaterias.inactiva")}
                       </button>
                       <button
                         onClick={() => startEdit(materia)}

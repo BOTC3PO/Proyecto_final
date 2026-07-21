@@ -73,17 +73,17 @@ const formatAvisoTime = (raw: unknown, lang: LanguageId): string => {
   return d.toLocaleString(lang, { dateStyle: "short", timeStyle: "short" });
 };
 
-const ROLE_LABELS: Record<string, string> = {
-  USER: "Alumno", TEACHER: "Profesor",
-  DIRECTIVO: "Directivo", PARENT: "Padre/Madre",
-  ADMIN: "Admin",
+const ROLE_LABEL_KEY: Record<string, string> = {
+  USER: "matrizProgreso.alumno", TEACHER: "register.rolProfesor",
+  DIRECTIVO: "comun.directivo", PARENT: "register.rolPadre",
+  ADMIN: "mensajeria.admin",
 };
 
-const DESTINO_LABELS: Record<string, string> = {
-  todos: "Toda la escuela",
-  padres: "Padres",
-  alumnos: "Alumnos",
-  profesores: "Profesores",
+const DESTINO_LABEL_KEY: Record<string, string> = {
+  todos: "mensajeria.todaLaEscuela",
+  padres: "mensajeria.padres",
+  alumnos: "mensajeria.alumnos",
+  profesores: "mensajeria.profesores",
 };
 
 type Tab = "mensajes" | "avisos";
@@ -125,6 +125,7 @@ export default function Mensajeria() {
   const [avisoDestino, setAvisoDestino] = useState("todos");
   const [publicando, setPublicando] = useState(false);
   const [avisoMsg, setAvisoMsg] = useState<string | null>(null);
+  const [avisoMsgOk, setAvisoMsgOk] = useState(true);
   const [escuelas, setEscuelas] = useState<Array<{ id: string; nombre: string }>>([]);
   const [escuelaSeleccionada, setEscuelaSeleccionada] = useState("");
 
@@ -254,10 +255,12 @@ export default function Mensajeria() {
       });
       setAvisoTitulo("");
       setAvisoCuerpo("");
-      setAvisoMsg("✓ Aviso publicado correctamente.");
+      setAvisoMsgOk(true);
+      setAvisoMsg(t("mensajeria.avisoPublicadoCorrectamente"));
       const updated = await fetchAvisos();
       setAvisos(updated);
     } catch (err) {
+      setAvisoMsgOk(false);
       setAvisoMsg(
         err instanceof Error ? err.message : t("mensajeria.noSePudoPublicar")
       );
@@ -337,17 +340,17 @@ export default function Mensajeria() {
 
         {/* Tabs */}
         <div className="flex gap-1 border-b border-[var(--c-border)]">
-          {(["mensajes", "avisos"] as const).map((t) => (
+          {(["mensajes", "avisos"] as const).map((tabId) => (
             <button
-              key={t}
-              onClick={() => setTab(t)}
+              key={tabId}
+              onClick={() => setTab(tabId)}
               className={`px-4 py-2 text-sm font-medium capitalize border-b-2 transition-colors ${
-                tab === t
+                tab === tabId
                   ? "border-[var(--c-primary)] text-[var(--c-primary)]"
                   : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
               }`}
             >
-              {t === "mensajes" ? "Mensajes" : "Avisos"}
+              {tabId === "mensajes" ? t("nav.mensajes") : t("mensajeria.avisos")}
             </button>
           ))}
         </div>
@@ -387,7 +390,7 @@ export default function Mensajeria() {
                         >
                           {r.nombre}
                           <span className="ml-1 text-xs text-[var(--c-muted)]">
-                            · {ROLE_LABELS[r.role] ?? r.role}
+                            · {ROLE_LABEL_KEY[r.role] ? t(ROLE_LABEL_KEY[r.role]) : r.role}
                           </span>
                         </button>
                       ))}
@@ -395,7 +398,7 @@ export default function Mensajeria() {
                   )}
                   {destinatario && (
                     <>
-                      <p className="text-xs text-[var(--c-success)] font-medium">Para: {destinatario.nombre}</p>
+                      <p className="text-xs text-[var(--c-success)] font-medium">{t("mensajeria.para")} {destinatario.nombre}</p>
                       <textarea
                         placeholder={t("mensajeria.escribiTuMensaje")}
                         rows={2}
@@ -409,7 +412,7 @@ export default function Mensajeria() {
                           onClick={handleNuevoMensaje}
                           className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
                         >
-                          {enviando ? "Enviando..." : "Enviar"}
+                          {enviando ? t("quizAttempt.enviando") : t("mensajeria.enviar")}
                         </button>
                         <button
                           onClick={() => { setDestinatario(null); setBusqueda(""); }}
@@ -453,7 +456,7 @@ export default function Mensajeria() {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-[var(--c-muted)] mt-0.5 truncate">{h.ultimoMsg ?? "Sin mensajes"}</p>
+                  <p className="text-xs text-[var(--c-muted)] mt-0.5 truncate">{h.ultimoMsg ?? t("mensajeria.sinMensajes")}</p>
                 </button>
               ))}
             </div>
@@ -510,7 +513,7 @@ export default function Mensajeria() {
                       onClick={handleEnviar}
                       className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40 hover:opacity-90 transition-opacity"
                     >
-                      {enviando ? "..." : "Enviar"}
+                      {enviando ? "..." : t("mensajeria.enviar")}
                     </button>
                   </div>
                 </>
@@ -559,8 +562,8 @@ export default function Mensajeria() {
                     value={avisoDestino}
                     onChange={(e) => setAvisoDestino(e.target.value)}
                   >
-                    {Object.entries(DESTINO_LABELS).map(([k, v]) => (
-                      <option key={k} value={k}>{v}</option>
+                    {Object.entries(DESTINO_LABEL_KEY).map(([k, key]) => (
+                      <option key={k} value={k}>{t(key)}</option>
                     ))}
                   </select>
                   <button
@@ -568,11 +571,11 @@ export default function Mensajeria() {
                     onClick={handlePublicarAviso}
                     className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40 hover:opacity-90 transition-opacity"
                   >
-                    {publicando ? "Publicando..." : "Publicar"}
+                    {publicando ? t("mensajeria.publicando") : t("mensajeria.publicar")}
                   </button>
                 </div>
                 {avisoMsg && (
-                  <p className={`text-xs ${avisoMsg.startsWith("✓") ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
+                  <p className={`text-xs ${avisoMsgOk ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
                     {avisoMsg}
                   </p>
                 )}
@@ -604,7 +607,7 @@ export default function Mensajeria() {
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-sm font-semibold text-[var(--c-text)]">{aviso.titulo}</p>
                   <span className="text-[10px] text-[var(--c-muted)] flex-shrink-0">
-                    {DESTINO_LABELS[aviso.destino] ?? aviso.destino}
+                    {DESTINO_LABEL_KEY[aviso.destino] ? t(DESTINO_LABEL_KEY[aviso.destino]) : aviso.destino}
                   </span>
                 </div>
                 <p className="text-xs text-[var(--c-muted)]">{aviso.cuerpo}</p>
@@ -700,7 +703,7 @@ export default function Mensajeria() {
                     disabled={avisoEditSaving || !avisoEditTitulo.trim() || !avisoEditCuerpo.trim()}
                     className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
                   >
-                    {avisoEditSaving ? "Guardando..." : "Guardar cambios"}
+                    {avisoEditSaving ? t("comun.guardando2") : t("comun.guardarCambios")}
                   </button>
                 </div>
               </form>

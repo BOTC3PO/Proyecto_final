@@ -313,7 +313,7 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
             <BrandMark size={24} />
           )}
           <span style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--fw-semibold)', color: 'var(--c-text)' }}>
-            Virtual Book
+            {t("comun.virtualBook")}
           </span>
         </Link>
       </div>

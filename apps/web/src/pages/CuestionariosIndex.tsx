@@ -23,11 +23,11 @@ import {
   type QuizMetaTipo,
 } from "../domain/quiz/quizPreguntasApi";
 
-const TIPO_LABEL: Record<QuizMetaTipo, string> = {
-  practica: "Práctica",
-  formal: "Evaluación formal",
-  evaluacion: "Evaluación formal", // alias legacy de "formal"
-  competencia: "Competencia",
+const TIPO_LABEL_KEY: Record<QuizMetaTipo, string> = {
+  practica: "profesorEvaluaciones.practica",
+  formal: "cuestionariosIndex.evaluacionFormal",
+  evaluacion: "cuestionariosIndex.evaluacionFormal", // alias legacy de "formal"
+  competencia: "quizConfigPanel.competencia",
 };
 
 const TIPO_BADGE: Record<QuizMetaTipo, string> = {
@@ -73,14 +73,14 @@ function CuestionarioCard({
             TIPO_BADGE[item.type] ?? "bg-[var(--c-bg,#f8fafc)] text-[var(--c-muted,#64748b)]"
           }`}
         >
-          {TIPO_LABEL[item.type] ?? item.type}
+          {TIPO_LABEL_KEY[item.type] ? t(TIPO_LABEL_KEY[item.type]) : item.type}
         </span>
       </header>
       <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-[var(--c-muted,#64748b)]">
         <span>
           {item.cantidadPreguntas === 0
-            ? "Sin preguntas"
-            : `${item.cantidadPreguntas} pregunta${item.cantidadPreguntas === 1 ? "" : "s"}`}
+            ? t("cuestionariosIndex.sinPreguntas")
+            : `${item.cantidadPreguntas} ${item.cantidadPreguntas === 1 ? t("comun.pregunta") : t("comun.preguntas")}`}
         </span>
         <span aria-hidden="true">·</span>
         {item.moduleId ? (
@@ -89,14 +89,14 @@ function CuestionarioCard({
             className="text-[var(--c-primary,#3b82f6)] hover:underline"
             data-testid="cuestionario-modulo-link"
           >
-            📦 {item.moduleTitle ?? "Módulo"}
+            📦 {item.moduleTitle ?? t("profesorCalificaciones.modulo")}
           </Link>
         ) : (
           <span data-testid="cuestionario-suelto-badge">{t("cuestionariosIndex.sueltoSinModulo")}</span>
         )}
       </div>
       <footer className="mt-3 flex items-center justify-between gap-2 text-[10px] text-[var(--c-muted,#64748b)]">
-        <span>Actualizado {updated.toLocaleDateString(lang)}</span>
+        <span>{t("comun.actualizado")} {updated.toLocaleDateString(lang)}</span>
         <div className="flex items-center gap-1.5">
           <button
             type="button"
@@ -199,8 +199,7 @@ export default function CuestionariosIndex() {
           <div>
             <h1 className="text-2xl font-bold">{t("nav.cuestionarios")}</h1>
             <p className="mt-0.5 text-xs text-[var(--c-muted,#64748b)]">
-              Tus cuestionarios sueltos y los de tus módulos. Las plantillas
-              (piezas individuales) viven en{" "}
+              {t("cuestionariosIndex.tusCuestionariosSueltosYLos")}{" "}
               <Link to="/plantillas" className="text-[var(--c-primary,#3b82f6)] hover:underline">{t("nav.plantillas")}</Link>
               .
             </p>
@@ -212,7 +211,7 @@ export default function CuestionariosIndex() {
             className="rounded-md bg-[var(--c-primary,#3b82f6)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-60"
             data-testid="nuevo-cuestionario"
           >
-            {creating ? "Creando…" : "+ Nuevo cuestionario"}
+            {creating ? t("comun.creando") : t("cuestionariosIndex.nuevoCuestionario")}
           </button>
         </header>
 
@@ -245,7 +244,7 @@ export default function CuestionariosIndex() {
                 ? t("cuestionariosIndex.ningunCuestionarioCoincideConLa")
                 : archivados
                   ? t("cuestionariosIndex.noHayArchivados")
-                  : "Todavía no creaste cuestionarios."}
+                  : t("cuestionariosIndex.todaviaNoCreasteCuestionarios")}
             </p>
             {items.length === 0 && !archivados && (
               <button

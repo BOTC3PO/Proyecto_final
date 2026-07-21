@@ -31,6 +31,12 @@ const VISIBILITY_BADGE: Record<string, string> = {
   publica: "bg-emerald-100 text-emerald-700",
 };
 
+const VISIBILITY_LABEL_KEY: Record<string, string> = {
+  privada: "comun.privada",
+  escuela: "sidebar.escuela",
+  publica: "comun.publica",
+};
+
 function PlantillaCard({
   item,
   mode,
@@ -44,7 +50,7 @@ function PlantillaCard({
   onFork: (id: string) => void;
   onClonar: (id: string) => void;
 }) {
-  const { lang } = useI18n();
+  const { t, lang } = useI18n();
   const updated = new Date(item.updatedAt);
   return (
     <article className="rounded-xl border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-4 shadow-sm hover:shadow transition-shadow">
@@ -67,7 +73,7 @@ function PlantillaCard({
               className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-700"
               data-testid="plantilla-oficial-badge"
             >
-              ★ Oficial
+              {t("plantillasIndex.oficial")}
             </span>
           )}
           <span
@@ -75,7 +81,7 @@ function PlantillaCard({
               VISIBILITY_BADGE[item.visibility] ?? "bg-slate-100 text-slate-700"
             }`}
           >
-            {item.visibility}
+            {VISIBILITY_LABEL_KEY[item.visibility] ? t(VISIBILITY_LABEL_KEY[item.visibility]) : item.visibility}
           </span>
         </div>
       </header>
@@ -86,20 +92,20 @@ function PlantillaCard({
       )}
       {item.tags && item.tags.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-1">
-          {item.tags.map((t) => (
+          {item.tags.map((tag) => (
             // FIX-TEST4-X-03 — antes `bg-slate-100 text-slate-600`
             // (hardcoded). Ahora tokens del tema.
             <span
-              key={t}
+              key={tag}
               className="rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-[10px] text-[var(--c-muted)]"
             >
-              {t}
+              {tag}
             </span>
           ))}
         </div>
       )}
       <footer className="mt-3 flex items-center justify-between text-[10px] text-[var(--c-muted,#64748b)]">
-        <span>Actualizada {updated.toLocaleDateString(lang)}</span>
+        <span>{t("plantillasIndex.actualizada")} {updated.toLocaleDateString(lang)}</span>
         <div className="flex gap-2">
           {mode === "biblioteca" ? (
             item.esOficial ? (
@@ -109,7 +115,7 @@ function PlantillaCard({
                 className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-[10px] font-medium text-white hover:opacity-90"
                 data-testid="plantilla-usar-como-base"
               >
-                Usar como base
+                {t("plantillasIndex.usarComoBase")}
               </button>
             ) : (
               <button
@@ -117,20 +123,20 @@ function PlantillaCard({
                 onClick={() => onFork(item.id)}
                 className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-[10px] font-medium text-white hover:opacity-90"
               >
-                Fork
+                {t("plantillasIndex.fork")}
               </button>
             )
           ) : (
             <button
               type="button"
               onClick={() => {
-                if (window.confirm(`¿Eliminar plantilla "${item.nombre}"?`)) {
+                if (window.confirm(`${t("plantillasIndex.eliminarPlantilla")} "${item.nombre}"?`)) {
                   onDelete(item.id);
                 }
               }}
               className="rounded-md border border-red-200 px-2 py-1 text-[10px] font-medium text-red-700 hover:bg-red-50"
             >
-              Eliminar
+              {t("comun.eliminar")}
             </button>
           )}
         </div>
@@ -284,8 +290,8 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
           <div className="rounded-xl border-2 border-dashed border-[var(--c-border,#e2e8f0)] py-10 text-center">
             <p className="text-sm text-[var(--c-muted,#64748b)]">
               {mode === "biblioteca"
-                ? "No hay plantillas en la biblioteca todavía."
-                : "Todavía no creaste plantillas."}
+                ? t("plantillasIndex.noHayPlantillasEnLa")
+                : t("plantillasIndex.todaviaNoCreastePlantillas")}
             </p>
             {mode === "mias" && (
               <Link
