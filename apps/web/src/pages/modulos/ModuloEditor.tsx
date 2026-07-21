@@ -19,11 +19,13 @@ import {
 } from "../../domain/quiz/quizPreguntasApi";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
-import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
 import QuizPreguntasNativasPreview from "../../components/modulos/QuizPreguntasNativasPreview";
 import DesbloqueosManualesPanel from "../../components/modulos/DesbloqueosManualesPanel";
+import DependenciasFlowMap, {
+  type DependenciasFlowMapModulo,
+} from "../../components/modulos/DependenciasFlowMap";
 import QuizPosicionesEditor from "../../components/modulos/QuizPosicionesEditor";
 import { SCORING_SYSTEMS, DEFAULT_SCORING_SYSTEM_ID } from "@vb/vblang";
 import VistaAlumnoOverlay from "../../components/modulos/VistaAlumnoOverlay";
@@ -148,6 +150,47 @@ const THEORY_TYPE_LABEL_KEY: Record<string, string> = {
   TuesdayJS: "theoryItemCard.tuesdayjs",
 };
 
+// Adaptado de tareas_pendientes/VB editores — cada recurso colapsa a una fila
+// compacta (título + tipo + estado) y sólo carga el preview/formulario real
+// al expandir. Este chequeo de "incompleto" es sólo para el pill de la fila
+// colapsada; reusa el mismo criterio que ya usa cada tipo en el formulario
+// ("Sin detalle adicional." como sentinel de vacío, cfg nulo, sin slides).
+function theoryItemIncomplete(item: TheoryItem): boolean {
+  if (!item.title.trim()) return true;
+  if (isHerramientaStandaloneType(item.type)) {
+    return !parseStandaloneConfig(item.detail === "Sin detalle adicional." ? "" : item.detail);
+  }
+  if (isPresentationType(item.type)) {
+    return detailToPresentation(item.detail).slides.length === 0;
+  }
+  return !item.detail || item.detail.trim() === "" || item.detail === "Sin detalle adicional.";
+}
+
+const STANDALONE_TOOL_ICON: Record<string, string> = {
+  "tabla-periodica": "⚛️",
+  "escalador-recetas": "🍲",
+  "linea-tiempo": "🕒",
+  mapa: "🗺️",
+};
+
+// Ícono por tipo para la fila colapsada (caja de 32px, como .type-ico en el
+// mockup de VB) — mismo criterio de "compat inglés/español" que ya usa
+// THEORY_TYPE_LABEL_KEY/isXType en este archivo.
+function theoryItemIcon(item: TheoryItem): string {
+  if (isHerramientaStandaloneType(item.type)) {
+    const cfg = parseStandaloneConfig(item.detail === "Sin detalle adicional." ? "" : item.detail);
+    return (cfg && STANDALONE_TOOL_ICON[cfg.tool]) || "🧰";
+  }
+  if (isHerramientaType(item.type)) return "🧩";
+  if (isBookType(item.type)) return "📕";
+  if (isTuesdayType(item.type)) return "📄";
+  if (isPresentationType(item.type)) return "🖼️";
+  if (isVideoType(item.type)) return "🎬";
+  if (isDocumentoType(item.type)) return "📄";
+  if (isLinkType(item.type)) return "🔗";
+  return "📝";
+}
+
 export default function ModuloEditor() {
   const { t } = useI18n();
   const { onInvalid, onInput } = makeValidityMessageHandlers(t);
@@ -185,8 +228,6 @@ export default function ModuloEditor() {
     updateQuiz,
     removeQuiz,
     handleImportQuizzes,
-    quizPreviewOpen,
-    setQuizPreviewOpen,
     sectionStatus,
     bookSearch,
     setBookSearch,
@@ -292,7 +333,7 @@ export default function ModuloEditor() {
       label: t("profesorAulas.general"),
       status: {
         status: sectionStatus.generalOk ? "ok" : "incomplete",
-        label: sectionStatus.generalOk ? "Completa" : "Incompleta",
+        label: sectionStatus.generalOk ? t("moduloEditor.completa") : t("moduloEditor.incompleta"),
       },
     },
     {
@@ -300,23 +341,26 @@ export default function ModuloEditor() {
       label: t("moduloDetail.teoria"),
       status: {
         status: sectionStatus.theoryOk ? "ok" : "incomplete",
-        label: sectionStatus.theoryOk ? "Completa" : "Incompleta",
+        label: sectionStatus.theoryOk ? t("moduloEditor.completa") : t("moduloEditor.incompleta"),
       },
     },
     {
       id: "sec-herramientas",
       label: t("moduloEditor.herramientas"),
       status: {
+        // OJO shadowing: el `t` del callback de .some() es el theoryItem,
+        // no la función de traducción — por eso el t() de las labels de
+        // abajo va AFUERA de los callbacks, no adentro.
         status: theoryItems.some(
-          (t) => t.type === "Herramienta" || t.type === "HerramientaStandalone",
+          (item) => item.type === "Herramienta" || item.type === "HerramientaStandalone",
         )
           ? "ok"
           : "incomplete",
         label: theoryItems.some(
-          (t) => t.type === "Herramienta" || t.type === "HerramientaStandalone",
+          (item) => item.type === "Herramienta" || item.type === "HerramientaStandalone",
         )
-          ? "Con herramientas"
-          : "Opcional",
+          ? t("moduloEditor.conHerramientas")
+          : t("moduloEditor.opcional"),
       },
     },
     {
@@ -324,7 +368,7 @@ export default function ModuloEditor() {
       label: t("nav.cuestionarios"),
       status: {
         status: sectionStatus.quizzesOk ? "ok" : "incomplete",
-        label: sectionStatus.quizzesOk ? "Completa" : "Incompleta",
+        label: sectionStatus.quizzesOk ? t("moduloEditor.completa") : t("moduloEditor.incompleta"),
       },
     },
     {
@@ -377,7 +421,7 @@ export default function ModuloEditor() {
       const meta = await getQuizMeta(clon.id);
       const nuevoQuiz: ModuleQuiz = {
         id: clon.id,
-        title: meta.title || "Cuestionario sin título",
+        title: meta.title || t("moduloEditor.cuestionarioSinTitulo"),
         type: meta.type === "evaluacion" ? "formal" : (meta.type as ModuleQuiz["type"]),
         status: "draft",
         version: 1,
@@ -412,7 +456,7 @@ export default function ModuloEditor() {
       const meta = await getQuizMeta(creado.id);
       const nuevoQuiz: ModuleQuiz = {
         id: creado.id,
-        title: meta.title || "Cuestionario sin título",
+        title: meta.title || t("moduloEditor.cuestionarioSinTitulo"),
         type: meta.type === "evaluacion" ? "formal" : (meta.type as ModuleQuiz["type"]),
         status: "draft",
         version: 1,
@@ -450,7 +494,7 @@ export default function ModuloEditor() {
       const meta = await getQuizMeta(creado.id);
       const nuevoQuiz: ModuleQuiz = {
         id: creado.id,
-        title: meta.title || "Cuestionario sin título",
+        title: meta.title || t("moduloEditor.cuestionarioSinTitulo"),
         type: meta.type === "evaluacion" ? "formal" : (meta.type as ModuleQuiz["type"]),
         status: "draft",
         version: 1,
@@ -468,6 +512,34 @@ export default function ModuloEditor() {
   };
   // ─── Vista alumno (Tarea 14): overlay de previsualizacion local ──────────
   const [vistaAlumnoOpen, setVistaAlumnoOpen] = useState(false);
+  // ─── Mapa visual de dependencias — reusa el layout de AulaFlowMap
+  // (computeFlowLayout) para mostrar la red de "mis módulos" y agregar/
+  // quitar dependencias con un click en vez de buscar por texto.
+  const [depMapOpen, setDepMapOpen] = useState(false);
+  const [depMapModulos, setDepMapModulos] = useState<DependenciasFlowMapModulo[]>([]);
+  const [depMapLoading, setDepMapLoading] = useState(false);
+  const loadDepMap = async () => {
+    setDepMapOpen(true);
+    setDepMapLoading(true);
+    try {
+      const result = await apiGet<{ items?: DependenciasFlowMapModulo[] }>(
+        "/api/modulos?mine=true&limit=200",
+      );
+      setDepMapModulos((result.items ?? []).filter((m) => m.id !== id));
+    } catch {
+      setDepMapModulos([]);
+    } finally {
+      setDepMapLoading(false);
+    }
+  };
+  const handleDepMapToggle = (mod: { id: string; title: string }) => {
+    const yaAgregada = form.dependencies.some((d) => d.id === mod.id);
+    if (yaAgregada) {
+      removeDependency(mod.id);
+    } else {
+      addDependency(mod);
+    }
+  };
   // ─── Editor de mapa (M8v2): overlay full-screen en la misma pestaña ──────
   // `herramientaId` identifica a qué herramienta del módulo vuelve el
   // resultado: "new" = formulario de recurso nuevo, otro valor = item.id.
@@ -530,15 +602,18 @@ export default function ModuloEditor() {
 
   const quizCountLabel =
     quizzes.length === 0
-      ? "Sin cuestionarios"
-      : `${quizzes.length} cuestionario${quizzes.length === 1 ? "" : "s"}`;
+      ? t("moduloEditor.sinCuestionarios")
+      : `${quizzes.length} ${quizzes.length === 1 ? t("comun.cuestionario") : t("comun.cuestionarios")}`;
 
-  // Preview de cuestionarios MANUALES: muestra los enunciados reales del pool.
-  // Para los GENERADOS se usa <QuizGeneratedPreview /> (UX-04), que corre el
-  // generador real en vez de inventar "semillas".
+  // Preview de cuestionarios MANUALES: muestra los enunciados reales del pool
+  // completo (ya está cargado en memoria, sin costo de red — a diferencia de
+  // <QuizGeneratedPreview /> / <QuizPreguntasNativasPreview />, que sí truncan
+  // porque corren el generador/fetchean contra el server). Desde que el
+  // editor manual de preguntas se sacó de esta sección (Tiza ya lo cubre),
+  // esta es la única vía para ver el contenido del cuestionario acá.
   const buildQuizPreviewItems = (quiz: ModuleQuiz) => {
     if (quiz.questions && quiz.questions.length > 0) {
-      return quiz.questions.slice(0, 3).map((q, i) => ({
+      return quiz.questions.map((q, i) => ({
         id: q.id,
         label: `P${i + 1}: ${q.prompt}`,
       }));
@@ -604,7 +679,7 @@ export default function ModuloEditor() {
                   onClick={() => void handleUsarQuizSuelto(q.id)}
                   data-testid={`usar-quiz-suelto-${q.id}`}
                 >
-                  {usandoQuizSueltoId === q.id ? "Agregando…" : "Usar"}
+                  {usandoQuizSueltoId === q.id ? t("moduloEditor.agregando") : t("moduloEditor.usar")}
                 </Button>
               </li>
             ))}
@@ -616,7 +691,7 @@ export default function ModuloEditor() {
       <VistaAlumnoOverlay
         open={vistaAlumnoOpen}
         onClose={() => setVistaAlumnoOpen(false)}
-        title={form.title || "Vista previa del módulo"}
+        title={form.title || t("moduloEditor.vistaPreviaDelModulo")}
         theoryItems={theoryItems}
         quizzes={quizzes}
       />
@@ -663,7 +738,7 @@ export default function ModuloEditor() {
               <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6"/>
             </svg>
             <span className="text-[var(--c-text)]">
-              {isEditing ? (form.title || "Editar módulo") : "Nuevo módulo"}
+              {isEditing ? (form.title || t("moduloEditor.editarModulo")) : t("moduloEditor.nuevoModulo")}
             </span>
           </nav>
           <div
@@ -674,12 +749,12 @@ export default function ModuloEditor() {
             <span className="dot" aria-hidden="true"></span>
             <span>
               {status === "saving"
-                ? "Guardando…"
+                ? t("comun.guardando")
                 : status === "saved"
-                  ? "Guardado"
+                  ? t("comun.guardado")
                   : status === "error"
-                    ? "Error"
-                    : "Borrador local"}
+                    ? t("comun.error")
+                    : t("moduloEditor.borradorLocal")}
             </span>
           </div>
           <button
@@ -691,10 +766,15 @@ export default function ModuloEditor() {
           >{t("moduloEditor.vistaAlumno")}</button>
         </header>
         <a href="#main-content" className="skip-link">{t("moduloEditor.saltarAlContenido")}</a>
-        <div id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 outline-none">
-          <div className="lg:grid lg:grid-cols-[180px_1fr] lg:gap-6">
-            <EditorSectionNav sections={sectionNavItems} />
-            <div className="min-w-0">
+        <div id="main-content" tabIndex={-1} className="px-4 py-6 sm:px-6 lg:px-8 outline-none">
+          <div className="lg:flex lg:items-start lg:gap-6">
+            {/* Nav pegado al costado (cerca del sidebar de la app) en vez de
+                centrado junto con el contenido — el contenido se centra
+                solo, con su propio ancho máximo, en el espacio que queda. */}
+            <div className="lg:w-[180px] lg:shrink-0">
+              <EditorSectionNav sections={sectionNavItems} />
+            </div>
+            <div className="min-w-0 lg:flex-1 mx-auto max-w-5xl">
           {/* WO-13 — banner de procedencia. Sólo aparece si el módulo
               que se está editando es una copia (creada por
               copy-on-write al guardar, o explícitamente con el
@@ -901,7 +981,7 @@ export default function ModuloEditor() {
                     />
                   </label>
                   <div className="text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#128065; Visibilidad</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">&#128065; {t("comun.visibilidad")}</span>
                     <select
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.visibility}
@@ -931,7 +1011,7 @@ export default function ModuloEditor() {
                     data-testid="modulo-field-descatalogado"
                   />
                   <span>
-                    <span className="font-medium flex items-center gap-1.5">&#128065;&#8203;&#128683; Descatalogado</span>
+                    <span className="font-medium flex items-center gap-1.5">&#128065;&#8203;&#128683; {t("moduloEditor.descatalogado")}</span>
                     <span className="mt-0.5 block text-xs text-[var(--c-muted)]">{t("moduloEditor.noApareceEnLosListados")}</span>
                   </span>
                 </label>
@@ -948,7 +1028,7 @@ export default function ModuloEditor() {
                     {form.visibilitySchoolId ? (
                       <div className="flex items-center gap-3 rounded-lg bg-[var(--c-surface)] px-3 py-2">
                         <span className="text-xs text-[var(--c-text)]">
-                          Escuela seleccionada:{" "}
+                          {t("moduloEditor.escuelaSeleccionada")}{" "}
                           <strong>
                             {escuelaResults.find((e) => e.id === form.visibilitySchoolId)?.name ??
                               form.visibilitySchoolId}
@@ -1004,7 +1084,7 @@ export default function ModuloEditor() {
                           </ul>
                         ) : (
                           <p className="text-xs text-[var(--c-muted)]">
-                            {escuelaSearch ? "Sin resultados." : "Escribí para buscar."}
+                            {escuelaSearch ? t("moduloEditor.sinResultados") : t("moduloEditor.escribiParaBuscar")}
                           </p>
                         )}
                         <p role="status" aria-live="polite" className="sr-only">
@@ -1033,7 +1113,9 @@ export default function ModuloEditor() {
                       ) : (
                         <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span>{t("moduloEditor.sinRecursos")}</StatusPill>
                       )}
-                      <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{theoryItems.length} recursos</span>
+                      <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">
+                        {theoryItems.length} {theoryItems.length === 1 ? t("comun.recurso") : t("comun.recursos")}
+                      </span>
                     </>
                   }
                 />
@@ -1104,8 +1186,8 @@ export default function ModuloEditor() {
                     <div className="flex items-center gap-3">
                       <span className="text-xs text-[var(--c-muted)]">
                         {detailToPresentation(newTheoryItem.detail).slides.length === 0
-                          ? "Sin diapositivas"
-                          : `${detailToPresentation(newTheoryItem.detail).slides.length} diapositiva(s)`}
+                          ? t("moduloEditor.sinDiapositivas")
+                          : `${detailToPresentation(newTheoryItem.detail).slides.length} ${detailToPresentation(newTheoryItem.detail).slides.length === 1 ? t("comun.diapositiva") : t("comun.diapositivas")}`}
                       </span>
                       <button
                         type="button"
@@ -1113,8 +1195,8 @@ export default function ModuloEditor() {
                         onClick={() => setSlidesEditorFor("new")}
                       >
                         {detailToPresentation(newTheoryItem.detail).slides.length === 0
-                          ? "Crear presentación"
-                          : "Editar presentación"}
+                          ? t("moduloEditor.crearPresentacion")
+                          : t("moduloEditor.editarPresentacion")}
                       </button>
                     </div>
                   ) : isHerramientaType(newTheoryItem.type) ? (
@@ -1127,7 +1209,7 @@ export default function ModuloEditor() {
                       {newTheoryItem.detail && (
                         <span className="text-xs text-[var(--c-muted)]">
                           {newTheoryItem.detail.startsWith("{")
-                            ? "Documento local"
+                            ? t("moduloEditor.documentoLocal")
                             : `ID: ${newTheoryItem.detail.slice(0, 8)}…`}
                         </span>
                       )}
@@ -1195,7 +1277,7 @@ export default function ModuloEditor() {
                           return (
                             <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 flex items-center gap-3">
                               <span className="text-xs text-[var(--c-muted)] flex-1">
-                                Mapa {cfg.modo === "political" ? "político" : "físico"} · {cfg.anotaciones.length} anotaciones
+                                {t("marcarMapaRenderer.mapa")} {cfg.modo === "political" ? t("moduloEditor.politico") : t("moduloEditor.fisico")} · {cfg.anotaciones.length} {cfg.anotaciones.length === 1 ? t("comun.anotacion") : t("comun.anotaciones")}
                               </span>
                               <button
                                 type="button"
@@ -1284,16 +1366,46 @@ export default function ModuloEditor() {
                 ) : (
                   <div className="space-y-3">
                     {theoryItems.map((item, itemIdx) => (
-                      <div key={item.id} className="group rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 space-y-2 transition-colors hover:border-[var(--c-primary)]/30">
-                        <div className="flex items-start gap-3">
+                      <details
+                        key={item.id}
+                        data-testid={`theory-item-${item.id}`}
+                        className="group overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] transition-colors open:border-[var(--c-primary)]/30"
+                      >
+                        <summary className="flex list-none items-start gap-3 rounded-xl p-4 sm:p-5 cursor-pointer marker:content-none [&::-webkit-details-marker]:hidden hover:bg-[var(--c-hover)]">
+                          {/* Position label — anillo circular, como .order en el mockup */}
+                          <span className="shrink-0 mt-1 flex h-7 w-7 items-center justify-center rounded-full border border-[var(--c-border)] bg-[var(--c-bg)] text-xs font-bold font-mono text-[var(--c-muted)]">
+                            {itemIdx + 1}
+                          </span>
+                          {/* Type icon — caja de 32px, como .type-ico en el mockup */}
+                          <span
+                            aria-hidden="true"
+                            className="shrink-0 flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-base"
+                          >
+                            {theoryItemIcon(item)}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                              <span className="truncate max-w-[320px] text-sm font-bold text-[var(--c-text)]">
+                                {item.title || t("moduloEditor.tituloDelRecurso")}
+                              </span>
+                              {theoryItemIncomplete(item) ? (
+                                <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span>{t("moduloEditor.incompleto")}</StatusPill>
+                              ) : (
+                                <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span>{t("moduloEditor.completo")}</StatusPill>
+                              )}
+                            </div>
+                            <p className="mt-0.5 text-xs text-[var(--c-muted)]">
+                              {THEORY_TYPE_LABEL_KEY[item.type] ? t(THEORY_TYPE_LABEL_KEY[item.type]) : item.type}
+                            </p>
+                          </div>
                           {/* Reorder buttons */}
-                          <div className="flex flex-col gap-1 pt-0.5 shrink-0">
+                          <div className="flex shrink-0 items-center gap-1" onClick={(event) => event.stopPropagation()}>
                             <button
                               type="button"
                               title={t("moduloEditor.moverArriba")}
                               aria-label={t("moduloEditor.moverRecursoHaciaArriba")}
                               disabled={itemIdx === 0}
-                              className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-sm text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] disabled:cursor-not-allowed disabled:opacity-30"
+                              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-sm text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "up")}
                             >
                               <span aria-hidden="true">▲</span>
@@ -1303,16 +1415,15 @@ export default function ModuloEditor() {
                               title={t("moduloEditor.moverAbajo")}
                               aria-label={t("moduloEditor.moverRecursoHaciaAbajo")}
                               disabled={itemIdx === theoryItems.length - 1}
-                              className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-sm text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] disabled:cursor-not-allowed disabled:opacity-30"
+                              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-sm text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "down")}
                             >
                               <span aria-hidden="true">▼</span>
                             </button>
                           </div>
-                          {/* Position label */}
-                          <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--c-border)] text-xs font-bold font-mono text-[var(--c-muted)]">
-                            {itemIdx + 1}
-                          </span>
+                          <span className="shrink-0 mt-1 text-[var(--c-muted)] transition-transform group-open:rotate-90" aria-hidden="true">▶</span>
+                        </summary>
+                        <div className="border-t border-[var(--c-border)] bg-[var(--c-bg)] p-4 sm:p-5">
                           <div className="min-w-0 flex-1 space-y-3">
                             <TheoryItemCard item={item} />
                             <div className="flex flex-col gap-2">
@@ -1409,7 +1520,7 @@ export default function ModuloEditor() {
                                   {item.detail && (
                                     <span className="text-xs text-[var(--c-muted)]">
                                       {item.detail.startsWith("{")
-                                        ? "Documento local"
+                                        ? t("moduloEditor.documentoLocal")
                                         : `ID: ${item.detail.slice(0, 8)}…`}
                                     </span>
                                   )}
@@ -1468,7 +1579,7 @@ export default function ModuloEditor() {
                                       return (
                                         <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 flex items-center gap-3">
                                           <span className="text-xs text-[var(--c-muted)] flex-1">
-                                            Mapa {cfg.modo === "political" ? "político" : "físico"} · {cfg.anotaciones.length} anotaciones
+                                            {t("marcarMapaRenderer.mapa")} {cfg.modo === "political" ? t("moduloEditor.politico") : t("moduloEditor.fisico")} · {cfg.anotaciones.length} {cfg.anotaciones.length === 1 ? t("comun.anotacion") : t("comun.anotaciones")}
                                           </span>
                                           <button
                                             type="button"
@@ -1508,9 +1619,9 @@ export default function ModuloEditor() {
                               >{t("comun.eliminar")}</button>
                             </div>
                           </div>
-                         </div>
-                       </div>
-                     ))}
+                        </div>
+                      </details>
+                    ))}
                    </div>
                  )}
                  </div>
@@ -1607,7 +1718,7 @@ export default function ModuloEditor() {
                       </ul>
                     ) : (
                       <p className="text-xs text-[var(--c-muted)]">
-                        {depSearch.length > 0 ? "Sin resultados." : "Escribí para buscar."}
+                        {depSearch.length > 0 ? t("moduloEditor.sinResultados") : t("moduloEditor.escribiParaBuscar")}
                       </p>
                     )}
                     <p role="status" aria-live="polite" className="sr-only">
@@ -1624,15 +1735,40 @@ export default function ModuloEditor() {
                     >{t("comun.cancelar")}</button>
                   </div>
                 ) : (
-                  <button
-                    type="button"
-                    className="w-full rounded-xl border-2 border-dashed border-[var(--c-border)] px-4 py-3 text-xs font-medium text-[var(--c-muted)] transition-colors hover:border-[var(--c-primary)] hover:text-[var(--c-primary)]"
-                    onClick={() => {
-                      setDepPickerOpen(true);
-                      searchModules("");
-                    }}
-                  >{t("moduloEditor.agregarDependencia")}</button>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      className="flex-1 rounded-xl border-2 border-dashed border-[var(--c-border)] px-4 py-3 text-xs font-medium text-[var(--c-muted)] transition-colors hover:border-[var(--c-primary)] hover:text-[var(--c-primary)]"
+                      onClick={() => {
+                        setDepPickerOpen(true);
+                        searchModules("");
+                      }}
+                    >{t("moduloEditor.agregarDependencia")}</button>
+                    <button
+                      type="button"
+                      className="rounded-xl border-2 border-dashed border-[var(--c-border)] px-4 py-3 text-xs font-medium text-[var(--c-muted)] transition-colors hover:border-[var(--c-primary)] hover:text-[var(--c-primary)]"
+                      onClick={() => (depMapOpen ? setDepMapOpen(false) : loadDepMap())}
+                    >
+                      {depMapOpen ? t("dependenciasFlowMap.ocultarMapa") : t("dependenciasFlowMap.verMapa")}
+                    </button>
+                  </div>
                 )}
+
+                {depMapOpen ? (
+                  <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
+                    {depMapLoading ? (
+                      <p className="text-xs text-[var(--c-muted)] animate-pulse">{t("mensajeria.buscando")}</p>
+                    ) : (
+                      <DependenciasFlowMap
+                        modulos={depMapModulos}
+                        currentModuleId={id ?? "__nuevo__"}
+                        currentModuleTitle={form.title.trim() || t("moduloEditor.tituloDelRecurso")}
+                        currentModuleDependencies={form.dependencies}
+                        onToggle={handleDepMapToggle}
+                      />
+                    )}
+                  </div>
+                ) : null}
 
                 {/* "Niveles por aula con mapa de flujo" — desbloqueo manual:
                     sólo con el módulo ya guardado (necesita un moduloId real). */}
@@ -1658,7 +1794,7 @@ export default function ModuloEditor() {
                   icon={<span>&#10068;</span>}
                   title={t("nav.cuestionarios")}
                   headingId="sec-cuestionarios-heading"
-                  subtitle="Evaluaciones manuales, generadas o desde plantillas VBLang."
+                  subtitle={t("moduloEditor.evaluacionesManualesGeneradasODesde")}
                   right={
                     <>
                       {quizzes.length === 0 ? (
@@ -1726,7 +1862,7 @@ export default function ModuloEditor() {
                       onClick={() => void handleCrearCuestionario()}
                     >
                       <span className="text-base leading-none">➕</span>
-                      {creandoCuestionario ? "Creando…" : "Crear cuestionario"}
+                      {creandoCuestionario ? t("comun.creando") : t("moduloEditor.crearCuestionario")}
                     </button>
                   ) : null}
 
@@ -1745,7 +1881,7 @@ export default function ModuloEditor() {
                       onClick={() => setPlantillaModalOpen(true)}
                     >
                       <span className="text-base leading-none">🧩</span>
-                      {importandoPlantilla ? "Importando…" : "Cuestionario desde plantilla"}
+                      {importandoPlantilla ? t("moduloEditor.importando") : t("moduloEditor.cuestionarioDesdePlantilla")}
                     </button>
                   ) : null}
 
@@ -1869,27 +2005,27 @@ export default function ModuloEditor() {
                         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                           <div className="min-w-0 flex-1" data-testid="quiz-config-resumen">
                             <p className="truncate text-sm font-semibold text-[var(--c-text)]">
-                              {quiz.title.trim() || "Cuestionario sin título"}
+                              {quiz.title.trim() || t("moduloEditor.cuestionarioSinTitulo")}
                             </p>
                             <p className="mt-1 text-xs text-[var(--c-muted)]">
                               {quiz.type === "practica"
-                                ? "Práctica — no cuenta para la nota"
+                                ? t("quizConfigPanel.practicaNoCuentaParaLa")
                                 : quiz.type === "competencia"
-                                  ? "Competencia"
-                                  : "Evaluación formal — cuenta para la nota"}
+                                  ? t("quizConfigPanel.competencia")
+                                  : t("quizConfigPanel.evaluacionFormalCuentaParaLa")}
                               {" · "}
-                              {quiz.visibility === "escuela" ? "Escuela" : "Público"}
+                              {quiz.visibility === "escuela" ? t("sidebar.escuela") : t("moduloEditor.publico")}
                               {typeof quiz.timerSegundos === "number" && quiz.timerSegundos > 0
-                                ? ` · Timer: ${Math.round(quiz.timerSegundos / 60)} min`
+                                ? ` · ${t("evaluacionConfig.timer")}: ${Math.round(quiz.timerSegundos / 60)} min`
                                 : ""}
                               {typeof quiz.maxIntentos === "number" && quiz.maxIntentos > 0
-                                ? ` · Intentos: ${quiz.maxIntentos}`
+                                ? ` · ${t("comun.intentos")}: ${quiz.maxIntentos}`
                                 : ""}
                             </p>
                             <p className="mt-1 text-xs text-[var(--c-muted)]">
                               {id && !quiz.localOnly
-                                ? "El título, tipo, visibilidad, instrucciones y evaluación se configuran en Tiza."
-                                : "Guardá el módulo para configurar este cuestionario en Tiza."}
+                                ? t("moduloEditor.elTituloTipoVisibilidadInstrucciones")
+                                : t("moduloEditor.guardaElModuloParaConfigurar")}
                             </p>
                           </div>
                           <div className="flex flex-col items-end gap-2">
@@ -1902,18 +2038,6 @@ export default function ModuloEditor() {
                                 }
                               }}
                             >{t("moduloEditor.eliminarCuestionario")}</button>
-                            <button
-                              type="button"
-                              className="rounded-lg border border-[var(--c-border)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:opacity-80 transition-opacity"
-                              onClick={() =>
-                                setQuizPreviewOpen((prev) => ({
-                                  ...prev,
-                                  [quiz.id]: !prev[quiz.id],
-                                }))
-                              }
-                            >
-                              {quizPreviewOpen[quiz.id] ? "Ocultar vista previa" : "Vista previa"}
-                            </button>
                             {quiz.mode === "generated" && !tienePreguntasNativas ? (
                               <Menu
                                 align="end"
@@ -1944,26 +2068,49 @@ export default function ModuloEditor() {
                           </div>
                         </div>
 
-                        {quizPreviewOpen[quiz.id] ? (
-                          <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
-                            <p className="mb-2 font-semibold">{t("moduloEditor.vistaPreviaDelEstudianteNo")}</p>
-                            {tienePreguntasNativas ? (
-                              <QuizPreguntasNativasPreview quizId={quiz.id} />
-                            ) : quiz.mode === "generated" ? (
-                              <QuizGeneratedPreview
-                                generatorId={quiz.generatorId ?? ""}
-                                count={quiz.count ?? 3}
-                              />
-                            ) : (
-                              <ul className="list-disc space-y-1 pl-4">
-                                {buildQuizPreviewItems(quiz).map((item) => (
-                                  <li key={item.id}>{item.label}</li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        ) : null}
+                        {/* Vista previa — siempre visible (mismo criterio que
+                            TheoryItemCard en Teoría: mostrar el contenido real,
+                            no un botón extra para revelarlo). */}
+                        <article className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4 shadow-sm">
+                          <p className="mb-3 flex items-center gap-1.5 text-xs uppercase tracking-wide text-[var(--c-muted)]">
+                            <span aria-hidden="true">📝</span>{t("moduloEditor.vistaPreviaDelEstudianteNo")}</p>
+                          {tienePreguntasNativas ? (
+                            <QuizPreguntasNativasPreview quizId={quiz.id} />
+                          ) : quiz.mode === "generated" ? (
+                            <QuizGeneratedPreview
+                              generatorId={quiz.generatorId ?? ""}
+                              count={quiz.count ?? 3}
+                            />
+                          ) : (
+                            <ol className="space-y-2">
+                              {buildQuizPreviewItems(quiz).map((item, i) => (
+                                <li
+                                  key={item.id}
+                                  className="flex items-start gap-2.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-sm text-[var(--c-text)]"
+                                >
+                                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--c-border)] text-[10px] font-bold text-[var(--c-muted)]">
+                                    {i + 1}
+                                  </span>
+                                  <span className="min-w-0">{item.label}</span>
+                                </li>
+                              ))}
+                            </ol>
+                          )}
+                        </article>
 
+                        {/* Tiza ya permite editar título/tipo/visibilidad/
+                            instrucciones/evaluación/timer/intentos/preguntas
+                            de CUALQUIER cuestionario ("Editar en Tiza" arriba
+                            funciona para los tres orígenes) — lo único que no
+                            cubre es la escala de notas del módulo (más arriba
+                            en esta sección). El editor manual de preguntas que
+                            vivía acá duplicaba esa edición; lo sacamos y la
+                            "Vista previa" de arriba (siempre visible, con los
+                            enunciados reales) queda como la única vía de ver
+                            el contenido del cuestionario desde el módulo. El
+                            editor del generador legacy sigue porque es un
+                            modo que Tiza no cubre (quizzes generados viejos,
+                            sin preguntas nativas). */}
                         {tienePreguntasNativas ? null : quiz.mode === "generated" ? (
                           quizGeneradorLegacyOpen[quiz.id] ? (
                             <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
@@ -1977,32 +2124,24 @@ export default function ModuloEditor() {
                               />
                             </div>
                           ) : null
-                        ) : (
-                          <>
-                            <QuizEditorManual
-                              questions={quiz.questions ?? []}
-                              onChange={(next) => updateQuiz(quiz.id, { questions: next })}
+                        ) : (quiz.mode === "manual" || quiz.mode === undefined) && (quiz.questions?.length ?? 0) > 0 ? (
+                          <label className="text-xs font-medium text-[var(--c-muted)]">{t("moduloEditor.preguntasPorExamen")}<span className="ml-1 font-normal text-[var(--c-muted)]">
+                              (de {quiz.questions?.length ?? 0} en el pool)
+                            </span>
+                            <input
+                              className="mt-1 w-32 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
+                              type="number"
+                              min={1}
+                              max={quiz.questions?.length ?? 1}
+                              value={quiz.displayCount ?? quiz.questions?.length ?? ""}
+                              onChange={(e) => {
+                                const val = Number(e.target.value) || undefined;
+                                updateQuiz(quiz.id, { displayCount: val });
+                              }}
+                              placeholder={String(quiz.questions?.length ?? "")}
                             />
-                            {(quiz.mode === "manual" || quiz.mode === undefined) && (quiz.questions?.length ?? 0) > 0 ? (
-                              <label className="text-xs font-medium text-[var(--c-muted)]">{t("moduloEditor.preguntasPorExamen")}<span className="ml-1 font-normal text-[var(--c-muted)]">
-                                  (de {quiz.questions?.length ?? 0} en el pool)
-                                </span>
-                                <input
-                                  className="mt-1 w-32 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
-                                  type="number"
-                                  min={1}
-                                  max={quiz.questions?.length ?? 1}
-                                  value={quiz.displayCount ?? quiz.questions?.length ?? ""}
-                                  onChange={(e) => {
-                                    const val = Number(e.target.value) || undefined;
-                                    updateQuiz(quiz.id, { displayCount: val });
-                                  }}
-                                  placeholder={String(quiz.questions?.length ?? "")}
-                                />
-                              </label>
-                            ) : null}
-                          </>
-                        )}
+                          </label>
+                        ) : null}
 
                         {/* WO-2 / F4-03 — Cuestionario por posiciones: pool de
                             variantes por posición (alternativas), tema y puntaje.
@@ -2032,7 +2171,7 @@ export default function ModuloEditor() {
                 </ul>
               ) : null}
               <div className="sticky bottom-0 -mx-4 mt-2 border-t border-[var(--c-border)] bg-[color-mix(in_srgb,var(--c-surface)_92%,transparent)] px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-4 gap-y-2">
+                <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2">
                   {/* Resumen de estado del módulo */}
                   <div className="flex flex-wrap items-center gap-2" aria-live="polite">
                     {sectionStatus.generalOk ? (
@@ -2070,10 +2209,10 @@ export default function ModuloEditor() {
                       disabled={status === "saving"}
                     >
                       {status === "saving"
-                        ? "Guardando..."
+                        ? t("comun.guardando")
                         : isEditing
-                          ? "Guardar cambios"
-                          : "Crear módulo"}
+                          ? t("comun.guardarCambios")
+                          : t("moduloEditor.crearModulo")}
                     </button>
                   </div>
                 </div>
@@ -2450,7 +2589,7 @@ function ModuloInvitadosPanel({ moduloId }: { moduloId: string }) {
                 >
                   <span>{u.username}</span>
                   <span className="text-[var(--c-primary)]">
-                    {inviting === u.id ? "Invitando..." : "Invitar"}
+                    {inviting === u.id ? t("moduloEditor.invitando") : t("moduloEditor.invitar")}
                   </span>
                 </button>
               </li>

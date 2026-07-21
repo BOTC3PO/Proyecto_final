@@ -4,8 +4,9 @@ import { getAulaId } from "../lib/aula-id";
 import { useAuth } from "../auth/use-auth";
 import { useI18n } from "../i18n/I18nContext";
 import { apiGet, apiPost } from "../lib/api";
-import type { Module, ModuleDependency } from "../domain/module/module.types";
+import type { Module } from "../domain/module/module.types";
 import { resolveMateria } from "../domain/module/materia";
+import { getRequiredDependencyIds, getUnlocksDependencyIds } from "../domain/module/module-dependencies";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import {
   fetchProfesorMenuDashboard,
@@ -26,22 +27,6 @@ type LocalConceptMapSpec = {
   nodes: { id: string; label: string; description?: string }[];
   links: LocalConceptLink[];
 };
-
-const getRequiredDependencyIds = (dependencies: Array<ModuleDependency | string>) =>
-  dependencies
-    .map((dependency) => {
-      if (typeof dependency === "string") return dependency;
-      return dependency.type === "required" ? dependency.id : null;
-    })
-    .filter((dependency): dependency is string => Boolean(dependency));
-
-const getUnlocksDependencyIds = (dependencies: Array<ModuleDependency | string>) =>
-  dependencies
-    .map((dependency) => {
-      if (typeof dependency === "string") return null;
-      return dependency.type === "unlocks" ? dependency.id : null;
-    })
-    .filter((dependency): dependency is string => Boolean(dependency));
 
 const collectDependencyChain = (startId: string, adjacency: Map<string, string[]>) => {
   const visited = new Set<string>();

@@ -172,7 +172,7 @@ describe("ModuloEditor — overlay de editor de mapa (M8v2)", () => {
     await waitFor(() => {
       expect(screen.queryByTestId("mapa-editor-overlay")).not.toBeInTheDocument();
     });
-    expect(screen.getByText("Mapa político · 1 anotaciones")).toBeInTheDocument();
+    expect(screen.getByText("Mapa político · 1 anotación")).toBeInTheDocument();
   });
 
   it("Cancelar con cambios pide confirmación; al confirmar no toca la herramienta", async () => {

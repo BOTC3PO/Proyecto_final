@@ -27,16 +27,25 @@ export type RecetaConfig = {
 };
 
 // Config para línea de tiempo — lo que guarda el docente en detail (JSON)
+export type LineaTiempoCategoria = { id: string; nombre: string; color: string };
+
+export type LineaTiempoEvento = {
+  id: string;
+  titulo: string;
+  /** Año del evento; negativo = a. C. `null` = sin año conocido (contenido legado sin fecha numérica). */
+  anio: number | null;
+  /** Detalle breve opcional junto al año (ej. "20 de julio"). */
+  detalle?: string;
+  descripcion?: string;
+  categoriaId?: string;
+};
+
 export type LineaTiempoConfig = {
   tool: "linea-tiempo";
   titulo?: string;
-  eventos: {
-    id: string;
-    titulo: string;
-    fecha: string;
-    descripcion?: string;
-    tags?: string[];
-  }[];
+  orientacion?: "horizontal" | "vertical";
+  categorias?: LineaTiempoCategoria[];
+  eventos: LineaTiempoEvento[];
 };
 
 // Tabla periódica no tiene config — detail es simplemente "tabla-periodica"

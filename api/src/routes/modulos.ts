@@ -55,6 +55,10 @@ function toModuleListItem(item: AnyDoc): AnyDoc {
     category: item.category ?? undefined,
     durationMinutes: item.durationMinutes ?? undefined,
     theoryItems: item.theoryItems ? safeJsonParse(item.theoryItems, [] as unknown[]) : [],
+    // Mapa de dependencias del editor (ver DependenciasFlowMap) — necesita
+    // las dependencias de CADA módulo candidato para dibujar las aristas
+    // entre ellos, no sólo las del módulo que se está editando.
+    dependencies: parseModuleDependencies(item.dependencies),
     visibility: item.visibility,
     descatalogado: item.descatalogado === true,
     schoolId: item.schoolId ?? undefined,

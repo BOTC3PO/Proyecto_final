@@ -12,15 +12,13 @@
 import { useState } from "react";
 import type { MapaModuloLink, MapaModuloNodo } from "../../services/clase-modulos";
 import { useI18n } from "../../i18n/I18nContext";
-
-type Position = { x: number; y: number };
-
-const NODE_WIDTH = 220;
-const NODE_HEIGHT = 120;
-const LEVEL_GAP = 260;
-const ROW_GAP = 140;
-const SIDE_PADDING = 60;
-const TOP_PADDING = 50;
+import {
+  computeFlowLayout,
+  FLOW_NODE_WIDTH as NODE_WIDTH,
+  FLOW_NODE_HEIGHT as NODE_HEIGHT,
+  FLOW_SIDE_PADDING as SIDE_PADDING,
+  FLOW_TOP_PADDING as TOP_PADDING,
+} from "../../lib/flowLayout";
 
 // Convención ya usada en aula.tsx: `progreso_modulos` no guarda un
 // porcentaje real, sólo `status` — completado/en_progreso/el resto se
@@ -30,69 +28,6 @@ const PROGRESS_BY_STATUS: Record<MapaModuloNodo["status"], number> = {
   en_progreso: 50,
   no_iniciado: 0,
 };
-
-function computeLayout(nodos: MapaModuloNodo[], links: MapaModuloLink[]) {
-  const positions = new Map<string, Position>();
-  const incomingCounts = new Map(nodos.map((n) => [n.id, 0]));
-  const outgoing = new Map<string, string[]>();
-
-  links.forEach((link) => {
-    if (!incomingCounts.has(link.targetId) || !incomingCounts.has(link.sourceId)) return;
-    incomingCounts.set(link.targetId, (incomingCounts.get(link.targetId) ?? 0) + 1);
-    const existing = outgoing.get(link.sourceId) ?? [];
-    existing.push(link.targetId);
-    outgoing.set(link.sourceId, existing);
-  });
-
-  const depthMap = new Map<string, number>();
-  const queue: Array<{ id: string; depth: number }> = [];
-  nodos.filter((n) => (incomingCounts.get(n.id) ?? 0) === 0).forEach((n) => {
-    depthMap.set(n.id, 0);
-    queue.push({ id: n.id, depth: 0 });
-  });
-  if (queue.length === 0 && nodos.length > 0) {
-    depthMap.set(nodos[0].id, 0);
-    queue.push({ id: nodos[0].id, depth: 0 });
-  }
-
-  while (queue.length > 0) {
-    const current = queue.shift();
-    if (!current) continue;
-    (outgoing.get(current.id) ?? []).forEach((neighborId) => {
-      const nextDepth = current.depth + 1;
-      if (!depthMap.has(neighborId) || (depthMap.get(neighborId) ?? 0) > nextDepth) {
-        depthMap.set(neighborId, nextDepth);
-        queue.push({ id: neighborId, depth: nextDepth });
-      }
-    });
-  }
-
-  let maxDepth = 0;
-  const levelMap = new Map<number, MapaModuloNodo[]>();
-  nodos.forEach((n) => {
-    const depth = depthMap.get(n.id) ?? 0;
-    maxDepth = Math.max(maxDepth, depth);
-    const bucket = levelMap.get(depth) ?? [];
-    bucket.push(n);
-    levelMap.set(depth, bucket);
-  });
-
-  const maxNodes = Math.max(1, ...Array.from(levelMap.values()).map((g) => g.length));
-  const width = SIDE_PADDING * 2 + maxDepth * LEVEL_GAP + NODE_WIDTH;
-  const height = TOP_PADDING * 2 + (maxNodes - 1) * ROW_GAP + NODE_HEIGHT;
-
-  levelMap.forEach((levelNodes, depth) => {
-    const offset = (maxNodes - levelNodes.length) * ROW_GAP * 0.5;
-    levelNodes.forEach((n, index) => {
-      positions.set(n.id, {
-        x: SIDE_PADDING + depth * LEVEL_GAP,
-        y: TOP_PADDING + offset + index * ROW_GAP,
-      });
-    });
-  });
-
-  return { positions, width, height };
-}
 
 type NodeStyle = { border: string; bg: string; accent: string; title: string; track: string };
 
@@ -124,7 +59,7 @@ export type AulaFlowMapProps = {
 export default function AulaFlowMap({ modulos, links, onSelectModulo }: AulaFlowMapProps) {
   const { t } = useI18n();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const layout = computeLayout(modulos, links);
+  const layout = computeFlowLayout(modulos, links);
   const width = Math.max(layout.width, NODE_WIDTH + SIDE_PADDING * 2);
   const height = Math.max(layout.height, NODE_HEIGHT + TOP_PADDING * 2);
   const lockedById = new Map(modulos.map((n) => [n.id, n.isLocked]));

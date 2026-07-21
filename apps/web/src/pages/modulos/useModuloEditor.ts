@@ -159,7 +159,6 @@ export function useModuloEditor(
 
   const [slidesEditorFor, setSlidesEditorFor] = useState<"new" | string | null>(null);
   const [blockEditorFor, setBlockEditorFor] = useState<"new" | string | null>(null);
-  const [quizPreviewOpen, setQuizPreviewOpen] = useState<Record<string, boolean>>({});
   const [quizBlurErrors, setQuizBlurErrors] = useState<Record<string, string[]>>({});
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
@@ -661,8 +660,6 @@ export function useModuloEditor(
     updateQuiz,
     removeQuiz,
     handleImportQuizzes,
-    quizPreviewOpen,
-    setQuizPreviewOpen,
     quizBlurErrors,
     validateQuizTitle,
     sectionStatus,

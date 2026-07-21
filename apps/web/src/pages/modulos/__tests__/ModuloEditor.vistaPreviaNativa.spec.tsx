@@ -7,11 +7,13 @@
  * `QuizPreguntasNativasPreview`, que genera y muestra las preguntas
  * reales.
  *
- * Cubre: clickear "Vista previa" en un quiz nativo muestra el
- * enunciado real generado, no el texto genérico.
+ * Cubre: la vista previa de un quiz nativo (siempre visible, sin botón
+ * para revelarla — ver "vista previa más correspondiente para
+ * cuestionarios") muestra el enunciado real generado, no el texto
+ * genérico.
  */
 import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
-import { render, screen, cleanup, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, cleanup, waitFor } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 
 const { moduleFixtureNativo, mockApiGet, mockGetQuizPreguntas, mockGetPlantilla } = vi.hoisted(() => ({
@@ -149,9 +151,6 @@ afterEach(() => {
 describe("ModuloEditor — Vista previa de cuestionario Tiza nativo", () => {
   it("muestra el enunciado real generado, no el texto genérico", async () => {
     renderEditor();
-
-    const toggle = await screen.findByText("Vista previa");
-    fireEvent.click(toggle);
 
     await waitFor(() => {
       expect(screen.getByText(/¿Cuál es la capital de Francia\?/)).toBeInTheDocument();

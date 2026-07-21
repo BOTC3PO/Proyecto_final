@@ -89,12 +89,12 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
     const config = parseStandaloneConfig(item.detail);
     if (!config) {
       return (
-        <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+        <article className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
           <div className="flex items-center gap-2 mb-2">
-            <p className="text-xs uppercase tracking-wide text-slate-400">{typeLabel}</p>
-            <h4 className="ml-auto text-sm font-semibold text-slate-800">{item.title}</h4>
+            <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">{typeLabel}</p>
+            <h4 className="ml-auto text-sm font-semibold text-[var(--c-text)]">{item.title}</h4>
           </div>
-          <div className="flex flex-col items-center gap-2 py-4 text-slate-400">
+          <div className="flex flex-col items-center gap-2 py-4 text-[var(--c-muted)]">
             <Wrench size={24} className="opacity-40" />
             <span className="text-sm">{t("theoryItemCard.herramientaNoConfigurada")}</span>
           </div>
@@ -102,8 +102,8 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
       );
     }
     return (
-      <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-        <p className="text-xs uppercase tracking-wide text-slate-400 mb-3">{item.title}</p>
+      <article className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
+        <p className="text-xs uppercase tracking-wide text-[var(--c-muted)] mb-3">{item.title}</p>
         {config.tool === "tabla-periodica" && <TablaPeriodica />}
         {config.tool === "escalador-recetas" && <EscaladorRecetas config={config} />}
         {config.tool === "linea-tiempo" && <LineaTiempo config={config} />}
@@ -116,12 +116,12 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
   if (isHerramientaType(item.type)) {
     const doc = deserializeBlockDocument(item.detail);
     return (
-      <article className="rounded-lg border border-blue-200 bg-white shadow-sm overflow-hidden">
-        <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 border-b border-blue-200">
-          <span className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+      <article className="rounded-lg border border-[color-mix(in_srgb,var(--c-primary)_30%,var(--c-border))] bg-[var(--c-surface)] shadow-sm overflow-hidden">
+        <div className="flex items-center gap-2 bg-[color-mix(in_srgb,var(--c-primary)_10%,var(--c-surface))] px-4 py-2 border-b border-[color-mix(in_srgb,var(--c-primary)_30%,var(--c-border))]">
+          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-primary)]">
             {typeLabel}
           </span>
-          <h4 className="ml-auto text-sm font-semibold text-slate-800">{item.title}</h4>
+          <h4 className="ml-auto text-sm font-semibold text-[var(--c-text)]">{item.title}</h4>
         </div>
         <div className="p-4">
           <BlockRenderer doc={doc} />
@@ -145,24 +145,24 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
             onClose={() => setPresenterOpen(false)}
           />
         ) : null}
-        <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+        <article className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
-              <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
-              <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
-              <p className="mt-1 text-xs text-gray-500">
+              <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">{typeLabel}</p>
+              <h4 className="text-base font-semibold text-[var(--c-text)]">{item.title}</h4>
+              <p className="mt-1 text-xs text-[var(--c-muted)]">
                 {slides.length === 0
                   ? "Sin diapositivas"
                   : `${slides.length} diapositiva${slides.length !== 1 ? "s" : ""}`}
               </p>
               {firstSlide?.body ? (
-                <p className="mt-2 text-sm text-gray-600 line-clamp-2">{firstSlide.body}</p>
+                <p className="mt-2 text-sm text-[var(--c-muted)] line-clamp-2">{firstSlide.body}</p>
               ) : null}
             </div>
             {slides.length > 0 ? (
               <button
                 type="button"
-                className="flex-shrink-0 flex items-center gap-1.5 rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-indigo-700"
+                className="flex-shrink-0 flex items-center gap-1.5 rounded-md bg-[var(--c-primary)] px-3 py-1.5 text-xs font-medium text-[var(--c-text-on-dark)] hover:opacity-90"
                 onClick={() => setPresenterOpen(true)}
               >
                 <Play size={12} />{t("theoryItemCard.presentar")}</button>
@@ -197,30 +197,30 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
             onClose={() => setBookReaderOpen(false)}
           />
         ) : null}
-        <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+        <article className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
-              <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
+              <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">{typeLabel}</p>
+              <h4 className="text-base font-semibold text-[var(--c-text)]">{item.title}</h4>
             </div>
             {hasBookId ? (
               <button
                 type="button"
-                className="text-xs font-medium text-blue-600 hover:underline"
+                className="text-xs font-medium text-[var(--c-primary)] hover:underline"
                 onClick={() => setBookReaderOpen(true)}
               >
                 {label}
               </button>
             ) : internalHref ? (
               <Link
-                className="text-xs font-medium text-blue-600 hover:underline"
+                className="text-xs font-medium text-[var(--c-primary)] hover:underline"
                 to={internalHref}
               >
                 {label}
               </Link>
             ) : externalHref ? (
               <a
-                className="text-xs font-medium text-blue-600 hover:underline"
+                className="text-xs font-medium text-[var(--c-primary)] hover:underline"
                 href={externalHref}
                 target="_blank"
                 rel="noreferrer"
@@ -230,7 +230,7 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
             ) : null}
           </div>
           {bookId ? (
-            <p className="mt-2 text-xs text-gray-400 break-all">{bookId}</p>
+            <p className="mt-2 text-xs text-[var(--c-muted)] break-all">{bookId}</p>
           ) : null}
         </article>
       </>
@@ -241,15 +241,15 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
   if (isTuesdayType(item.type)) {
     const docId = item.detail;
     return (
-      <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+      <article className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
-            <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
+            <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">{typeLabel}</p>
+            <h4 className="text-base font-semibold text-[var(--c-text)]">{item.title}</h4>
           </div>
         </div>
         {docId ? (
-          <p className="mt-2 text-xs text-gray-400 break-all">ID: {docId}</p>
+          <p className="mt-2 text-xs text-[var(--c-muted)] break-all">ID: {docId}</p>
         ) : null}
       </article>
     );
@@ -259,20 +259,20 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
   if (isLinkType(item.type)) {
     const label = actionLabel ?? "Abrir enlace";
     return (
-      <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+      <article className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
-            <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
+            <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">{typeLabel}</p>
+            <h4 className="text-base font-semibold text-[var(--c-text)]">{item.title}</h4>
           </div>
           {item.detail ? (
             isInternalLink(item.detail) ? (
-              <Link className="text-xs font-medium text-blue-600 hover:underline" to={item.detail}>
+              <Link className="text-xs font-medium text-[var(--c-primary)] hover:underline" to={item.detail}>
                 {label}
               </Link>
             ) : (
               <a
-                className="text-xs font-medium text-blue-600 hover:underline"
+                className="text-xs font-medium text-[var(--c-primary)] hover:underline"
                 href={item.detail}
                 target="_blank"
                 rel="noreferrer"
@@ -283,7 +283,7 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
           ) : null}
         </div>
         {item.detail ? (
-          <p className="mt-2 text-xs text-gray-500 break-all">{item.detail}</p>
+          <p className="mt-2 text-xs text-[var(--c-muted)] break-all">{item.detail}</p>
         ) : null}
       </article>
     );
@@ -292,15 +292,15 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
   // --- Note / Text / Article / Video / fallback ---
   const isTextContent = isNoteType(item.type) || item.type === "Video";
   return (
-    <article className={`rounded-lg border border-gray-200 bg-white shadow-sm ${lectura ? "p-6 sm:p-8" : "p-4"}`}>
-      <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
-      <h4 className={lectura ? "text-xl font-semibold text-gray-900" : "text-base font-semibold text-gray-900"}>
+    <article className={`rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm ${lectura ? "p-6 sm:p-8" : "p-4"}`}>
+      <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">{typeLabel}</p>
+      <h4 className={lectura ? "text-xl font-semibold text-[var(--c-text)]" : "text-base font-semibold text-[var(--c-text)]"}>
         {item.title}
       </h4>
       {isTextContent && item.detail ? (
         <p
           className={`mt-2 whitespace-pre-wrap ${
-            lectura ? "font-serif text-lg leading-loose text-slate-800" : "text-sm text-gray-600"
+            lectura ? "font-serif text-lg leading-loose text-[var(--c-text)]" : "text-sm text-[var(--c-muted)]"
           }`}
         >
           {item.detail}
