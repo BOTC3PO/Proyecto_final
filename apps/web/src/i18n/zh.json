@@ -4073,5 +4073,11 @@
   "vblangDatasetsIndex.duplicada": "重复",
   "vblangDatasetsIndex.ejPaises": "国家",
   "vblangDatasetsIndex.eliminarDataset": "确定删除数据集",
-  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "列在创建数据集时定义。在 v1 中创建后无法添加/删除列，只能编辑行。"
+  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "列在创建数据集时定义。在 v1 中创建后无法添加/删除列，只能编辑行。",
+  "tema.papiro": "莎草纸",
+  "tema.pergamino": "羊皮纸",
+  "tema.papel-arroz": "宣纸",
+  "tema.incunable": "摇篮本",
+  "tema.papel-periodico": "新闻纸",
+  "tema.papel-digital": "数字纸张"
 }

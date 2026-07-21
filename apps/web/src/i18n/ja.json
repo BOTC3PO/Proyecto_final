@@ -4073,5 +4073,11 @@
   "vblangDatasetsIndex.duplicada": "重複",
   "vblangDatasetsIndex.ejPaises": "国",
   "vblangDatasetsIndex.eliminarDataset": "データセットを削除しますか",
-  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "列はデータセット作成時に定義されます。v1では後から追加・削除できません。行の編集のみ可能です。"
+  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "列はデータセット作成時に定義されます。v1では後から追加・削除できません。行の編集のみ可能です。",
+  "tema.papiro": "パピルス",
+  "tema.pergamino": "羊皮紙",
+  "tema.papel-arroz": "和紙",
+  "tema.incunable": "揺籃期本",
+  "tema.papel-periodico": "新聞紙",
+  "tema.papel-digital": "デジタル用紙"
 }

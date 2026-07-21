@@ -32,7 +32,10 @@ const defaultEconomyState: EconomyState = {
   activeTheme: 'clasico',
 };
 
-const FREE_THEMES = ['clasico', 'nocturno', 'clasico-vb', 'nocturno-vb', 'minimal', 'pizarra'];
+const FREE_THEMES = [
+  'clasico', 'nocturno', 'clasico-vb', 'nocturno-vb', 'minimal', 'pizarra',
+  'papiro', 'pergamino', 'papel-arroz', 'incunable', 'papel-periodico', 'papel-digital',
+];
 
 const THEME_META: Record<string, {
   bg: string; surface: string; primary: string;
@@ -48,6 +51,14 @@ const THEME_META: Record<string, {
   'nocturno-vb':   { bg: '#0d0d18', surface: '#16162a', primary: '#7c6fcd' },
   'minimal':       { bg: '#f2f0eb', surface: '#faf9f6', primary: '#1a1a18' },
   'minimal-v2':    { bg: '#f6f5f1', surface: '#ffffff', primary: '#1a1a1a' },
+  // "Papel a través de la historia"
+  'papiro':          { bg: '#dcc48a', surface: '#e8d5a3', primary: '#1c4e8a' },
+  'pergamino':       { bg: '#ece0c0', surface: '#f5ecd6', primary: '#7a1f2b' },
+  'papel-arroz':     { bg: '#f4f1e8', surface: '#faf8f0', primary: '#b3261e' },
+  'incunable':       { bg: '#ede6d3', surface: '#f6f0e0', primary: '#6b1414' },
+  'papel-periodico': { bg: '#e5e1d6', surface: '#eeeae0', primary: '#7a1414' },
+  'papel-digital':   { bg: '#050b12', surface: '#0b141d', primary: '#00e5c7',
+    preview: 'linear-gradient(135deg,#050b12,#0b1a24,#050b12)' },
   'aurora':        { bg: '#fdf4ff', surface: '#ffffff', primary: '#7c3aed' },
   'bosque':        { bg: '#f0fdf4', surface: '#ffffff', primary: '#15803d' },
   'vibrante':      { bg: '#fff7ed', surface: '#ffffff', primary: '#ea580c' },

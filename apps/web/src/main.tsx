@@ -13,6 +13,18 @@ import "@fontsource-variable/jetbrains-mono/index.css";
 import "@fontsource/spectral/400.css";
 import "@fontsource/spectral/600.css";
 import "@fontsource/spectral/700.css";
+// Fuentes de la colección "Papel a través de la historia" (6 temas nuevos,
+// una por era) — mismo criterio self-hosted que las de arriba.
+import "@fontsource/cinzel/400.css";
+import "@fontsource/cinzel/700.css";
+import "@fontsource/uncial-antiqua/400.css";
+import "@fontsource/nanum-brush-script/400.css";
+import "@fontsource/eb-garamond/400.css";
+import "@fontsource/eb-garamond/600.css";
+import "@fontsource/eb-garamond/700.css";
+import "@fontsource/unifrakturmaguntia/400.css";
+import "@fontsource/old-standard-tt/400.css";
+import "@fontsource/old-standard-tt/700.css";
 import "./index.css";
 // Fundación de tokens del rediseño (División 0): escalas aditivas de
 // espaciado, tipografía y elevación. Convive con los --c-* existentes.

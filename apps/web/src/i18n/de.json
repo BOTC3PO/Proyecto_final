@@ -4073,5 +4073,11 @@
   "vblangDatasetsIndex.duplicada": "doppelt vorhanden",
   "vblangDatasetsIndex.ejPaises": "Länder",
   "vblangDatasetsIndex.eliminarDataset": "Datensatz löschen",
-  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "Spalten werden beim Erstellen des Datensatzes festgelegt. In v1 können sie danach nicht hinzugefügt/entfernt werden; nur Zeilen können bearbeitet werden."
+  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "Spalten werden beim Erstellen des Datensatzes festgelegt. In v1 können sie danach nicht hinzugefügt/entfernt werden; nur Zeilen können bearbeitet werden.",
+  "tema.papiro": "Papyrus",
+  "tema.pergamino": "Pergament",
+  "tema.papel-arroz": "Reispapier",
+  "tema.incunable": "Inkunabel",
+  "tema.papel-periodico": "Zeitungspapier",
+  "tema.papel-digital": "Digitales Papier"
 }

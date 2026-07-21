@@ -14,6 +14,8 @@ export type ThemeId =
   | "galaxy" | "sunset" | "ocean" | "candy" | "neon"
   | "aurora-boreal" | "cosmos" | "magma"
   | "dorado" | "supernova" | "retro" | "argentina"
+  // "Papel a través de la historia" — colección gratuita, una era por tema.
+  | "papiro" | "pergamino" | "papel-arroz" | "incunable" | "papel-periodico" | "papel-digital"
   | "admin";
 
 export type ThemeOption = {
@@ -35,6 +37,13 @@ export const THEME_OPTIONS: ThemeOption[] = [
   { id: "nocturno-vb",   name: "Nocturno VB",   animated: false, price: 0   },
   { id: "minimal",       name: "Minimal",       animated: false, price: 0   },
   { id: "minimal-v2",    name: "Minimal V2",    animated: false, price: 0   },
+  // "Papel a través de la historia" — colección gratuita
+  { id: "papiro",           name: "Papiro",           animated: false, price: 0 },
+  { id: "pergamino",        name: "Pergamino",        animated: false, price: 0 },
+  { id: "papel-arroz",      name: "Papel de Arroz",   animated: false, price: 0 },
+  { id: "incunable",        name: "Incunable",        animated: false, price: 0 },
+  { id: "papel-periodico",  name: "Papel Periódico",  animated: false, price: 0 },
+  { id: "papel-digital",    name: "Papel Digital",    animated: false, price: 0 },
   // Estáticos de pago
   { id: "aurora",        name: "Aurora",        animated: false, price: 40  },
   { id: "bosque",        name: "Bosque",        animated: false, price: 40  },
@@ -67,6 +76,8 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
   USER: [
     // Gratuitos (default: tiza)
     "tiza", "tiza-dark", "pizarra", "nocturno-vb", "vb2", "nocturno", "clasico", "clasico-vb", "minimal", "minimal-v2",
+    // Papel a través de la historia
+    "papiro", "pergamino", "papel-arroz", "incunable", "papel-periodico", "papel-digital",
     // Estáticos de pago
     "aurora", "bosque", "vibrante",
     "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",
@@ -86,6 +97,7 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
     "minimal-v2",
     "aurora",
     "bosque",
+    "papiro", "pergamino", "papel-arroz", "incunable", "papel-periodico", "papel-digital",
   ],
   DIRECTIVO: [
     "tiza",
@@ -97,10 +109,12 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
     "minimal-v2",
     "aurora",
     "bosque",
+    "papiro", "pergamino", "papel-arroz", "incunable", "papel-periodico", "papel-digital",
   ],
   ADMIN: [
     "admin",
     "tiza", "tiza-dark", "pizarra", "clasico-vb", "clasico", "minimal", "minimal-v2", "vb2",
+    "papiro", "pergamino", "papel-arroz", "incunable", "papel-periodico", "papel-digital",
     "aurora", "bosque", "vibrante",
     "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",
     "galaxy", "sunset", "ocean", "candy", "neon",

@@ -4073,5 +4073,11 @@
   "vblangDatasetsIndex.duplicada": "중복됨",
   "vblangDatasetsIndex.ejPaises": "국가",
   "vblangDatasetsIndex.eliminarDataset": "데이터셋을 삭제하시겠습니까",
-  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "열은 데이터셋 생성 시 정의됩니다. v1에서는 이후 추가/삭제할 수 없으며, 행만 편집할 수 있습니다."
+  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "열은 데이터셋 생성 시 정의됩니다. v1에서는 이후 추가/삭제할 수 없으며, 행만 편집할 수 있습니다.",
+  "tema.papiro": "파피루스",
+  "tema.pergamino": "양피지",
+  "tema.papel-arroz": "한지",
+  "tema.incunable": "요람본",
+  "tema.papel-periodico": "신문지",
+  "tema.papel-digital": "디지털 종이"
 }

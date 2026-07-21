@@ -4073,5 +4073,11 @@
   "vblangDatasetsIndex.duplicada": "duplicata",
   "vblangDatasetsIndex.ejPaises": "paesi",
   "vblangDatasetsIndex.eliminarDataset": "Eliminare il dataset",
-  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "Le colonne si definiscono alla creazione del dataset. Nella v1 non possono essere aggiunte/rimosse in seguito; si possono modificare solo le righe."
+  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "Le colonne si definiscono alla creazione del dataset. Nella v1 non possono essere aggiunte/rimosse in seguito; si possono modificare solo le righe.",
+  "tema.papiro": "Papiro",
+  "tema.pergamino": "Pergamena",
+  "tema.papel-arroz": "Carta di riso",
+  "tema.incunable": "Incunabolo",
+  "tema.papel-periodico": "Carta da giornale",
+  "tema.papel-digital": "Carta digitale"
 }

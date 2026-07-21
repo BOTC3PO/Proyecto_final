@@ -594,6 +594,267 @@
   letter-spacing: 0.01em;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   "PAPEL A TRAVÉS DE LA HISTORIA" — colección gratuita de 6 temas,
+   uno por cada soporte de escritura que la humanidad usó antes del
+   papel moderno (y uno que lo sucede). Mismo criterio que el resto
+   del archivo: 12 tokens --c-* + 1-2 capas cosméticas encima. Las
+   tipografías de época son self-hosted (@fontsource, ver main.tsx) y
+   se aplican SOLO a h1/h2 — el chrome de la UI (botones, inputs,
+   tablas densas como AdminUsuarios) se queda en Manrope para no
+   perder legibilidad en pantallas con mucha data.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── PAPIRO (1/6) — Antiguo Egipto. Tinta sepia sobre fibra tejida,
+   azul egipcio (el primer pigmento sintético de la historia) y pan de
+   oro. La trama es literal: el papiro se arma tejiendo tiras de caña
+   en dos capas perpendiculares. */
+[data-theme="papiro"] {
+  --c-bg:      #dcc48a;
+  --c-surface: #e8d5a3;
+  --c-border:  #b8945a;
+  --c-text:    #3d2b1a;
+  --c-muted:   #7a5c3a;
+  --c-primary: #1c4e8a;
+  --c-accent:  #c9a227;
+  --c-success: #6b8e4e;
+  --c-warning: #b5822e;
+  --c-danger:  #9c3b2e;
+  --c-nav-bg:  #7a5228;
+  --c-nav-text:#f5e8c8;
+}
+[data-theme="papiro"] body,
+[data-theme="papiro"] #root {
+  background-color: #dcc48a;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(61, 43, 26, 0.05) 0px, transparent 1px 5px),
+    repeating-linear-gradient(90deg, rgba(61, 43, 26, 0.05) 0px, transparent 1px 5px);
+}
+[data-theme="papiro"] h1,
+[data-theme="papiro"] h2 {
+  font-family: "Cinzel", var(--font-serif);
+  letter-spacing: 0.04em;
+  color: var(--c-primary);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 12px rgba(201, 162, 39, 0.35);
+}
+
+/* ── PERGAMINO (2/6) — Antigüedad/Edad Media. Vitela con tinta
+   ferrogálica y rúbrica roja (los títulos de los manuscritos se
+   escribían literalmente en rojo — de ahí "rúbrica"). Encabezados en
+   Uncial Antiqua, la letra que usaban los propios manuscritos
+   iluminados, con un brillo dorado que respira como luz de vela. */
+[data-theme="pergamino"] {
+  --c-bg:      #ece0c0;
+  --c-surface: #f5ecd6;
+  --c-border:  #c2a86e;
+  --c-text:    #2b2013;
+  --c-muted:   #6b5a3a;
+  --c-primary: #7a1f2b;
+  --c-accent:  #af8b1f;
+  --c-success: #3f6b2e;
+  --c-warning: #af8b1f;
+  --c-danger:  #7a1f2b;
+  --c-nav-bg:  #3a2a14;
+  --c-nav-text:#ecd9a8;
+}
+[data-theme="pergamino"] body,
+[data-theme="pergamino"] #root {
+  background-color: #ece0c0;
+  background-image:
+    radial-gradient(rgba(107, 90, 58, 0.06) 1px, transparent 1px),
+    radial-gradient(rgba(107, 90, 58, 0.04) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 3px 4px;
+}
+[data-theme="pergamino"] h1,
+[data-theme="pergamino"] h2 {
+  font-family: "Uncial Antiqua", var(--font-serif);
+  font-weight: 400;
+  color: var(--c-primary);
+  animation: pergamino-candela 3s ease-in-out infinite;
+}
+@keyframes pergamino-candela {
+  0%, 100% { text-shadow: 0 0 6px rgba(175, 139, 31, 0.35), 0 0 1px rgba(43, 32, 19, 0.4); }
+  50%      { text-shadow: 0 0 12px rgba(175, 139, 31, 0.6), 0 0 1px rgba(43, 32, 19, 0.4); }
+}
+
+/* ── PAPEL DE ARROZ (3/6) — China/Japón imperial. Washi con tinta
+   sumi y sello bermellón (el color de los sellos "hanko"/chop, que
+   todavía se usan). Encabezados en Nanum Brush Script — pincel, no
+   tipografía de molde — y una mancha de tinta que se difumina en una
+   esquina, como un brochazo suelto sobre la hoja. */
+[data-theme="papel-arroz"] {
+  --c-bg:      #f4f1e8;
+  --c-surface: #faf8f0;
+  --c-border:  #d8d2bd;
+  --c-text:    #2a2a28;
+  --c-muted:   #7a766a;
+  --c-primary: #b3261e;
+  --c-accent:  #4a6b5a;
+  --c-success: #4a6b5a;
+  --c-warning: #c98a2e;
+  --c-danger:  #b3261e;
+  --c-nav-bg:  #2a2a28;
+  --c-nav-text:#f4f1e8;
+}
+[data-theme="papel-arroz"] body,
+[data-theme="papel-arroz"] #root {
+  background-color: #f4f1e8;
+  background-image:
+    radial-gradient(ellipse 32% 22% at 96% 2%, rgba(42, 42, 40, 0.05) 0%, transparent 70%),
+    radial-gradient(rgba(42, 42, 40, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 4px 4px;
+}
+[data-theme="papel-arroz"] h1,
+[data-theme="papel-arroz"] h2 {
+  font-family: "Nanum Brush Script", cursive, var(--font-serif);
+  font-weight: 400;
+  color: var(--c-primary);
+  letter-spacing: 0.01em;
+}
+
+/* ── INCUNABLE (4/6) — primeros libros impresos, ~1450. Los
+   "incunables" son los libros de la infancia de la imprenta (de
+   "incunabula", cuna, en latín). Encabezados en UnifrakturMaguntia —
+   la misma familia gótica ("Textura") que Gutenberg fundió en plomo
+   para su Biblia de 42 líneas — y una trama de puntos que imita el
+   sobre-entintado de la prensa manual. */
+[data-theme="incunable"] {
+  --c-bg:      #ede6d3;
+  --c-surface: #f6f0e0;
+  --c-border:  #a89873;
+  --c-text:    #241c10;
+  --c-muted:   #6e6248;
+  --c-primary: #6b1414;
+  --c-accent:  #8a6d1f;
+  --c-success: #4a5c2e;
+  --c-warning: #8a6d1f;
+  --c-danger:  #6b1414;
+  --c-nav-bg:  #241c10;
+  --c-nav-text:#ede6d3;
+}
+[data-theme="incunable"] body,
+[data-theme="incunable"] #root {
+  background-color: #ede6d3;
+  background-image: repeating-radial-gradient(circle at 0 0, rgba(36, 28, 16, 0.035) 0, transparent 2px);
+  background-size: 6px 6px;
+}
+[data-theme="incunable"] h1,
+[data-theme="incunable"] h2 {
+  font-family: "UnifrakturMaguntia", var(--font-serif);
+  font-weight: 400;
+  color: var(--c-primary);
+  letter-spacing: 0.01em;
+}
+[data-theme="incunable"] h3 {
+  font-family: "EB Garamond", var(--font-serif);
+  font-weight: 700;
+}
+
+/* ── PAPEL PERIÓDICO (5/6) — Revolución Industrial, s. XIX. Trama de
+   semitono (los puntos con que se imprimían fotos en offset antes del
+   CMYK moderno), encabezados en Old Standard TT — la familia de los
+   diarios de tapa dura de comienzos de siglo — y un barrido de luz
+   muy tenue que cruza la pantalla cada tanto, como el rodillo de una
+   rotativa pasando. */
+[data-theme="papel-periodico"] {
+  --c-bg:      #e5e1d6;
+  --c-surface: #eeeae0;
+  --c-border:  #b7b2a3;
+  --c-text:    #1f1d19;
+  --c-muted:   #6b6658;
+  --c-primary: #7a1414;
+  --c-accent:  #2c2c2c;
+  --c-success: #3d5c2e;
+  --c-warning: #8a6a1f;
+  --c-danger:  #7a1414;
+  --c-nav-bg:  #1f1d19;
+  --c-nav-text:#e5e1d6;
+}
+[data-theme="papel-periodico"] body {
+  position: relative;
+}
+[data-theme="papel-periodico"] body,
+[data-theme="papel-periodico"] #root {
+  background-color: #e5e1d6;
+  background-image: radial-gradient(rgba(31, 29, 25, 0.09) 0.6px, transparent 0.6px);
+  background-size: 3px 3px;
+}
+[data-theme="papel-periodico"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 40%, rgba(255, 255, 255, 0.5) 50%, transparent 60%);
+  background-size: 300% 100%;
+  animation: rotativa-barrido 9s ease-in-out infinite;
+}
+@keyframes rotativa-barrido {
+  0%, 85%, 100% { background-position: 200% 0; }
+  92%           { background-position: -20% 0; }
+}
+[data-theme="papel-periodico"] h1,
+[data-theme="papel-periodico"] h2 {
+  font-family: "Old Standard TT", var(--font-serif);
+  font-weight: 700;
+  color: var(--c-text);
+  letter-spacing: 0.01em;
+}
+
+/* ── PAPEL DIGITAL (6/6) — cierra el recorrido: la última "hoja" ya
+   no es un objeto físico, es una pantalla. Fondo que respira con un
+   degradé lento (mismo mecanismo que VB2/Galaxy) y encabezados en
+   JetBrains Mono con un cursor de terminal parpadeando al final —
+   guiño a que el texto acá se escribe tecleando, no a mano. */
+[data-theme="papel-digital"] {
+  --c-bg:      #050b12;
+  --c-surface: #0b141d;
+  --c-border:  #1c3a4a;
+  --c-text:    #d6f5ff;
+  --c-muted:   #7fa8b8;
+  --c-primary: #00e5c7;
+  --c-accent:  #7c5cff;
+  --c-success: #00e5a0;
+  --c-warning: #ffcc33;
+  --c-danger:  #ff5f6d;
+  --c-nav-bg:  #030608;
+  --c-nav-text:#d6f5ff;
+}
+[data-theme="papel-digital"] body,
+[data-theme="papel-digital"] #root {
+  background: linear-gradient(135deg, #050b12 0%, #0a1620 30%, #071018 60%, #050b12 100%);
+  background-size: 400% 400%;
+  animation: papel-digital-bg 16s ease infinite;
+}
+@keyframes papel-digital-bg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+[data-theme="papel-digital"] h1,
+[data-theme="papel-digital"] h2 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--c-primary);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--c-primary) 55%, transparent);
+}
+[data-theme="papel-digital"] h1::after {
+  content: "▌";
+  margin-left: 0.15em;
+  color: var(--c-primary);
+  animation: papel-digital-cursor 1s steps(1) infinite;
+}
+@keyframes papel-digital-cursor {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+[data-theme="papel-digital"] .layout-root,
+[data-theme="papel-digital"] .layout-root main,
+[data-theme="papel-digital"] .page-root {
+  background: transparent !important;
+}
+
 /* ── VB2 — Tema oficial Virtual Book (Opción 2 ganadora) ───── */
 [data-theme="vb2"] {
   --c-bg:      #0d0e1a;

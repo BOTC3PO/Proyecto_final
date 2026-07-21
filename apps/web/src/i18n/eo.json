@@ -4073,5 +4073,11 @@
   "vblangDatasetsIndex.duplicada": "duobligita",
   "vblangDatasetsIndex.ejPaises": "landoj",
   "vblangDatasetsIndex.eliminarDataset": "Ĉu forigi la datumaron",
-  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "La kolumnoj estas difinitaj kiam la datumaro estas kreata. En v1 oni ne povas aldoni/forigi ilin poste; nur redakti vicojn."
+  "vblangDatasetsIndex.lasColumnasSeDefinenAl": "La kolumnoj estas difinitaj kiam la datumaro estas kreata. En v1 oni ne povas aldoni/forigi ilin poste; nur redakti vicojn.",
+  "tema.papiro": "Papiruso",
+  "tema.pergamino": "Pergameno",
+  "tema.papel-arroz": "Riza papero",
+  "tema.incunable": "Inkunablo",
+  "tema.papel-periodico": "Ĵurnala papero",
+  "tema.papel-digital": "Cifereca papero"
 }
