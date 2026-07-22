@@ -23,6 +23,11 @@ export const ENV = {
   // Si el bucket está detrás de un dominio/CDN público, GET /api/media/:x
   // redirige ahí en vez de proxyear el archivo entero a través del API.
   MEDIA_S3_PUBLIC_URL: process.env.MEDIA_S3_PUBLIC_URL ?? "",
+  // Redis para rate limiting distribuido — vacío (default) = MemoryStore
+  // por proceso (correcto con 1 sola instancia del API). Con 2+
+  // instancias, sin esto el límite efectivo se vuelve limit×instancias
+  // (cada proceso cuenta por su cuenta). Ver rate-limit.ts.
+  REDIS_URL: process.env.REDIS_URL ?? "",
   DB_KIND: (process.env.DB_KIND ?? "sqlite").toLowerCase(),
   SQLITE_PATH: process.env.SQLITE_PATH ?? "./src/diccionarios/Diccionario.sqlite",
 SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
