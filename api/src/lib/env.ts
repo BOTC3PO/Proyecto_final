@@ -9,6 +9,20 @@ export const ENV = {
   PORT: Number(process.env.PORT ?? 5050),
   // URL pública del front; back_url de MercadoPago cae acá si no se pasa una explícita.
   APP_URL: process.env.APP_URL ?? "http://localhost:5173",
+  // Storage de media (uploads de /api/media) — "local" (disco, default,
+  // válido para 1 sola instancia) o "s3" (cualquier endpoint
+  // S3-compatible: AWS S3, Cloudflare R2, Backblaze B2, MinIO — necesario
+  // para correr 2+ instancias del API, ver tareas_pendientes/
+  // PLAN-escalabilidad-api.md).
+  MEDIA_STORAGE: (process.env.MEDIA_STORAGE ?? "local").toLowerCase(),
+  MEDIA_S3_BUCKET: process.env.MEDIA_S3_BUCKET ?? "",
+  MEDIA_S3_ENDPOINT: process.env.MEDIA_S3_ENDPOINT ?? "",
+  MEDIA_S3_REGION: process.env.MEDIA_S3_REGION ?? "auto",
+  MEDIA_S3_ACCESS_KEY_ID: process.env.MEDIA_S3_ACCESS_KEY_ID ?? "",
+  MEDIA_S3_SECRET_ACCESS_KEY: process.env.MEDIA_S3_SECRET_ACCESS_KEY ?? "",
+  // Si el bucket está detrás de un dominio/CDN público, GET /api/media/:x
+  // redirige ahí en vez de proxyear el archivo entero a través del API.
+  MEDIA_S3_PUBLIC_URL: process.env.MEDIA_S3_PUBLIC_URL ?? "",
   DB_KIND: (process.env.DB_KIND ?? "sqlite").toLowerCase(),
   SQLITE_PATH: process.env.SQLITE_PATH ?? "./src/diccionarios/Diccionario.sqlite",
 SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),

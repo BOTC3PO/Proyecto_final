@@ -12,6 +12,7 @@ import { prisma } from "../prisma";
 import { ENV } from "../env";
 import { getProvider } from "./index";
 import { confirmarPago } from "../cobros-confirmacion";
+import { withAdvisoryLock } from "../pg-lock";
 
 const now = () => new Date().toISOString();
 
@@ -66,7 +67,10 @@ export const scheduleReconciliacionJob = () => {
   const intervalMs = Math.max(ENV.RECONCILIACION_JOB_INTERVAL_MINUTES, 5) * 60 * 1000;
   const runJob = async () => {
     try {
-      await reconciliarPagosPendientes();
+      // Advisory lock — evita confirmar/reintentar el mismo pago dos
+      // veces si corren 2+ instancias del API (ver tareas_pendientes/
+      // PLAN-escalabilidad-api.md).
+      await withAdvisoryLock("pasarelas-reconciliacion", () => reconciliarPagosPendientes());
     } catch (error) {
       console.error("Reconciliación de pagos falló", error);
     }

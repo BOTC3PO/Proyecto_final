@@ -20,15 +20,12 @@
  * exige el cliente al insertar el adjunto.
  */
 import express, { Router } from "express";
-import { promises as fs } from "fs";
 import path from "path";
 import crypto from "crypto";
 import { requireUser } from "../lib/user-auth";
+import { putMedia, getMedia, mediaPublicUrl } from "../lib/media-storage";
 
 export const mediaRouter = Router();
-
-/** Directorio de media (fuera de `src`, en la raíz del paquete api). */
-const MEDIA_ROOT = path.resolve(__dirname, "../../media");
 
 /** Tipos de archivo soportados para los adjuntos. */
 export type MediaKind = "image" | "audio" | "video" | "pdf";
@@ -245,20 +242,19 @@ mediaRouter.get("/:archivo", async (req, res) => {
   if (!isValidMediaName(archivo)) {
     return res.status(400).json({ error: "invalid path" });
   }
-  const full = path.resolve(MEDIA_ROOT, archivo);
-  if (!full.startsWith(MEDIA_ROOT + path.sep)) {
-    return res.status(400).json({ error: "invalid path" });
+  const publicUrl = mediaPublicUrl(archivo);
+  if (publicUrl) {
+    return res.redirect(302, publicUrl);
   }
-  try {
-    const content = await fs.readFile(full);
-    const mime = mimeForFile(archivo) ?? "application/octet-stream";
-    res.setHeader("Content-Type", mime);
-    res.setHeader("Cache-Control", "public, max-age=86400");
-    res.setHeader("Content-Length", String(content.length));
-    res.send(content);
-  } catch {
-    res.status(404).json({ error: "not found" });
+  const content = await getMedia(archivo);
+  if (!content) {
+    return res.status(404).json({ error: "not found" });
   }
+  const mime = mimeForFile(archivo) ?? "application/octet-stream";
+  res.setHeader("Content-Type", mime);
+  res.setHeader("Cache-Control", "public, max-age=86400");
+  res.setHeader("Content-Length", String(content.length));
+  res.send(content);
 });
 
 /**
@@ -282,8 +278,7 @@ mediaRouter.post(
     const ext = EXTENSION_BY_KIND[check.kind];
     const name = `${crypto.randomBytes(16).toString("hex")}.${ext}`;
     try {
-      await fs.mkdir(MEDIA_ROOT, { recursive: true });
-      await fs.writeFile(path.resolve(MEDIA_ROOT, name), buf);
+      await putMedia(name, buf);
     } catch {
       return res.status(500).json({ error: "no se pudo guardar el archivo" });
     }
