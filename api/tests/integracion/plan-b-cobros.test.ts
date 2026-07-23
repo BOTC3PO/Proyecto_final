@@ -1,6 +1,6 @@
 /**
  * PLAN-B Fase 2 — núcleo de cobros escuela→familias (provider-agnostic;
- * Fase 3 conecta Mercado Pago/Stripe/Cryptomus sin tocar este contrato).
+ * Fase 3 conecta Mercado Pago/Cryptomus sin tocar este contrato).
  *
  * Cubre:
  *  - Sólo DIRECTIVO de la escuela (o ADMIN) crea/publica cobros; TEACHER
@@ -12,9 +12,8 @@
  *    de su hijo, un tercero no ve nada.
  *  - Checkout crea un Pago pendiente e idempotente; un ajeno no puede
  *    iniciar checkout de una cuota que no es suya.
- *  - Confirmar-pago (staff-only) asienta TransaccionEscuela en escuela
- *    autogestionada, y no lo hace (pero igual marca pagada) en
- *    centralizada.
+ *  - Confirmar-pago (staff-only) asienta TransaccionEscuela con la
+ *    comisión correspondiente (sistema siempre autogestionado).
  */
 import assert from "node:assert/strict";
 import { after, before, beforeEach, test } from "node:test";
@@ -24,7 +23,6 @@ let baseUrl: string;
 let close: () => Promise<void>;
 
 const ESCUELA_AUTOGESTIONADA = "esc-cobros-auto";
-const ESCUELA_CENTRALIZADA = "esc-cobros-central";
 const ESCUELA_OTRA = "esc-cobros-otra";
 const DIRECTIVO = "directivo-cobros";
 const DIRECTIVO_OTRA_ESCUELA = "directivo-otra-escuela";
@@ -53,15 +51,8 @@ beforeEach(() => {
     id: ESCUELA_AUTOGESTIONADA,
     name: "Escuela Autogestionada",
     isDeleted: false,
-    modoGestion: "autogestionado",
-    comisionPct: 10,
-    createdAt: nowIso
-  });
-  prisma.escuela.rows.push({
-    id: ESCUELA_CENTRALIZADA,
-    name: "Escuela Centralizada",
-    isDeleted: false,
-    modoGestion: "centralizado",
+    comisionPct: 6,
+    comisionPctIntl: 1.5,
     createdAt: nowIso
   });
 
@@ -242,49 +233,10 @@ test("POST /api/cuotas/:id/confirmar-pago — escuela autogestionada asienta Tra
   assert.equal(res.status, 200, JSON.stringify(res.body));
   const body = res.body as { transaccion: { comisionVB: number; montoNeto: number } | null; cuota: { estado: string } };
   assert.equal(body.cuota.estado, "pagada");
-  assert.ok(body.transaccion, "escuela autogestionada debe generar asiento");
-  assert.equal(body.transaccion?.comisionVB, 500);
-  assert.equal(body.transaccion?.montoNeto, 4500);
+  assert.ok(body.transaccion, "debe generar asiento contable");
+  assert.equal(body.transaccion?.comisionVB, 300);
+  assert.equal(body.transaccion?.montoNeto, 4700);
 
   const transaccionRow = prisma.transaccionEscuela.rows.find((t) => t.escuelaId === ESCUELA_AUTOGESTIONADA);
   assert.ok(transaccionRow, "debe existir la fila en TransaccionEscuela");
-});
-
-test("POST /api/cuotas/:id/confirmar-pago — escuela centralizada marca pagada sin asentar comisión", async () => {
-  seedUser({ id: `${DIRECTIVO}-central`, role: "DIRECTIVO", schoolId: ESCUELA_CENTRALIZADA });
-  seedUser({ id: `${ALUMNO_1}-central`, role: "USER", schoolId: ESCUELA_CENTRALIZADA });
-  const nowIso = new Date().toISOString();
-  const aulaCentral = "aula-cobros-central";
-  prisma.clase.rows.push({
-    id: aulaCentral,
-    escuelaId: ESCUELA_CENTRALIZADA,
-    name: "Aula central",
-    grade: "5°",
-    isDeleted: false,
-    status: "ACTIVE",
-    createdAt: nowIso
-  });
-  prisma.claseMiembro.rows.push({ claseId: aulaCentral, usuarioId: `${ALUMNO_1}-central`, rolEnClase: "STUDENT" });
-
-  const tokenDirectivoCentral = tokenFor({ id: `${DIRECTIVO}-central`, role: "DIRECTIVO", schoolId: ESCUELA_CENTRALIZADA });
-  const createRes = await jsonRequest(baseUrl, "POST", "/api/cobros", {
-    token: tokenDirectivoCentral,
-    body: { concepto: "Cuota central", montoUnitario: 3000 }
-  });
-  const cobro = createRes.body as { id: string };
-  await jsonRequest(baseUrl, "POST", `/api/cobros/${cobro.id}/publicar`, {
-    token: tokenDirectivoCentral,
-    body: { aulaId: aulaCentral }
-  });
-  const cuota = prisma.cuotaAlumno.rows.find((c) => c.cobroId === cobro.id)!;
-  const tokenAlumno = tokenFor({ id: `${ALUMNO_1}-central`, role: "USER", schoolId: ESCUELA_CENTRALIZADA });
-  await jsonRequest(baseUrl, "POST", `/api/cuotas/${cuota.id}/checkout`, { token: tokenAlumno });
-
-  const res = await jsonRequest(baseUrl, "POST", `/api/cuotas/${cuota.id}/confirmar-pago`, {
-    token: tokenDirectivoCentral
-  });
-  assert.equal(res.status, 200);
-  const body = res.body as { transaccion: unknown; cuota: { estado: string } };
-  assert.equal(body.transaccion, null, "escuela centralizada no genera asiento de comisión");
-  assert.equal(body.cuota.estado, "pagada");
 });

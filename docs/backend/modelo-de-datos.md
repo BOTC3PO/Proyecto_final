@@ -40,7 +40,7 @@
 | Dominio | Modelos | ¿Relaciones FK en Prisma? |
 |---|---|---|
 | Auth / usuarios / membresías | `Usuario` (🆕 `roles String[]`, `tipoCuenta`), `Membresia`, **`CuentaVinculada`** 🆕 | Sí |
-| Escuela / aula | `Escuela` (🆕 `modoGestion`, `comisionPct`, `saldoInicialAlumno`, `branding`), `Clase`, `ClaseMiembro`, `ClaseModulo`, **`ModuloInvitacion`** 🆕, `ClasePublicacion`, `ModoAula`, `ActividadAula`, `CalendarioEscuela` (🆕 `aulaId` nullable), **`Asistencia`** 🆕, **`ClasePeriodo`** 🆕, `AuditoriaAula`, `LimiteEscuela`, `Transferencia` | Parcial |
+| Escuela / aula | `Escuela` (🆕 `comisionPct`, `comisionPctIntl`, `saldoInicialAlumno`, `branding`), `Clase`, `ClaseMiembro`, `ClaseModulo`, **`ModuloInvitacion`** 🆕, `ClasePublicacion`, `ModoAula`, `ActividadAula`, `CalendarioEscuela` (🆕 `aulaId` nullable), **`Asistencia`** 🆕, **`ClasePeriodo`** 🆕, `AuditoriaAula`, `LimiteEscuela`, `Transferencia` | Parcial |
 | Libros / módulos / pages / progreso | `Modulo` (🆕 `subject`, `theoryItems`, `level`, `category`, `durationMinutes`, `scoringConfig`, `clonedFrom*`, `descatalogado`), `TeoriaJson`, `TuesdayDoc`, `LibroJson`, `BloqueJson`, `Libro`, `Page`, `Materia`, `ConfigModulo`, `ProgresoModulo`, `ProgresoModuloVinculo`, `ResourceLink`, `Tarea`, `Entrega`, `Publicacion`, `Comentario` | Parcial |
 | Quiz / banco / generadores | `Quiz`, `QuizVersion`, `QuizQuestionSet`, `QuizAttempt`, `QuizUmbral`, `QuizCompetencia`, `DesbloqueoManual`, `GeneratorConfig`, `GeneratorChangelog`, `GeneradorAdmin` | Sí |
 | Economía / ledger / tienda | `EconomiaConfig`, `SaldoUsuario`, `LedgerMovimiento`, `EconomiaRecompensa`, `EconomiaModulo`, `EconomiaEvento`, `EconomiaRiesgoCurso`, `EconomiaSaldo`, `EconomiaTransaccion`, `EconomiaExamen`, `EconomiaExamenPuja`, `EconomiaExamenPunto`, `EconomiaIntercambio`, `EconomiaCompra`, `EconomiaAuditoria`, `Billetera`, `PlazoFijo`, `FciPosicion`, `TiendaItem`, `UsuarioItem` | Parcial |
@@ -140,7 +140,8 @@ erDiagram
 | `Transferencia` | `transferencias` | Traslado de un estudiante entre escuelas. |
 
 **Campos clave `Escuela`:** `id`, `name`, `code? @unique`, `address?`, `subscriptionStatus?`,
-`plan?`, `isDeleted`, `modoGestion?` (`centralizado`|`autogestionado`), `comisionPct?`.
+`plan?`, `isDeleted`, `comisionPct?` (doméstico/MercadoPago, 5-7%), `comisionPctIntl?`
+(internacional/Cryptomus, 1-2%). Sistema siempre autogestionado — no existe modo "centralizado".
 Relaciones: `usuarios[]`, `membresias[]`, `clases[]`, `transacciones[]`, `liquidaciones[]`.
 
 **Campos clave `Clase`:** `id`, `escuelaId` (FK), `name`, `grade`, `code?`, `classCode?`,
@@ -552,7 +553,7 @@ erDiagram
 | `CobroEscuela` | `cobros_escuela` | Orden de cobro que crea el directivo/admin (ej. "Cuota julio 2026"). `concepto`, `montoUnitario`, `moneda @default("ARS")`, `estado`: `"borrador"\|"publicado"\|"cerrado"`. Al publicarla se generan las `CuotaAlumno`. |
 | `CuotaAlumno` | `cuotas_alumno` | Instancia de un `CobroEscuela` para **un** alumno. `pagadorId` es quién efectivamente paga (típicamente el padre vinculado; puede ser el propio alumno si es adulto). `montoFinal` puede diferir de `cobro.montoUnitario` (becas/descuentos) sin tocar el cobro original. `estado`: `pendiente\|en_proceso\|pagada\|vencida\|anulada`. `@@unique([cobroId, alumnoId])`. |
 | `Pago` | `pagos` | Registro de pago genérico por proveedor. `provider`, `providerRef?`, `estado`: `pendiente\|en_proceso\|pagada\|fallida\|anulada`, `montoBruto`, `comisionVB?`, `montoNetoEscuela?`, `raw?` (payload del webhook tal cual, para auditoría). **`@@unique([provider, providerRef])`** — idempotencia: nunca se crea un segundo `Pago` para el mismo pago aunque el proveedor reintente el webhook. |
-| `EscuelaPasarela` | `escuelas_pasarelas` | Conexión de una escuela con un provider (`"mercadopago"\|"stripe"\|"cryptomus"`). `cuentaConectadaId` es la cuenta **de la escuela** en el provider (nunca la de VB). `credencialesCifradas` guarda el token OAuth/API key cifrado. Cryptomus no tiene split nativo — modo v1, liquidación manual. `@@unique([escuelaId, provider])`. |
+| `EscuelaPasarela` | `escuelas_pasarelas` | Conexión de una escuela con un provider (`"mercadopago"\|"cryptomus"`). `cuentaConectadaId` es la cuenta **de la escuela** en el provider (nunca la de VB). `credencialesCifradas` guarda el token OAuth/API key cifrado. Cryptomus no tiene split nativo — modo v1, liquidación manual. `@@unique([escuelaId, provider])`. |
 
 **Campos clave `CuotaAlumno`:** `id`, `cobroId` (FK), `alumnoId`, `pagadorId?`, `estado`,
 `montoFinal`, `pagoId?` (FK a `Pago`), `createdAt`, `updatedAt`.
@@ -591,7 +592,8 @@ erDiagram
 > Endpoints en [`api-reference.md`](./api-reference.md#71-cobros-y-pasarelas-🆕). Modelo de negocio:
 > **autogestionado** (decisión 2026-07-05) — VB no maneja el dinero, cada escuela cobra con su
 > propia cuenta de pasarela; VB sólo registra/concilia (`TransaccionEscuela`/`LiquidacionEscuela`,
-> §7). Comisión definida: MercadoPago 5-7%, Stripe 2%, Cryptomus 2%. Detalle en
+> §7). Comisión VB: 5-7% en pagos domésticos (MercadoPago/Argentina), 1-2% en pagos
+> internacionales (Cryptomus) — Stripe se sacó como pasarela. Detalle en
 > [`../pagos/comision-roadmap-v2.md`](../pagos/comision-roadmap-v2.md).
 
 ---

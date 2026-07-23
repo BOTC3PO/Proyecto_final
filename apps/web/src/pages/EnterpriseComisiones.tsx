@@ -1,14 +1,16 @@
 /**
  * Fase 5.1 — Panel de comisiones de la escuela (DIRECTIVO).
  *
- * Permite elegir el modo de gestión (centralizado/autogestionado) y el % de
- * comisión, y muestra cobros del mes, comisión retenida, saldo a liquidar e
- * historial de transacciones y liquidaciones.
+ * Sistema autogestionado: la escuela cobra con su propia cuenta conectada,
+ * VB nunca maneja los fondos. Permite fijar el % de comisión (doméstico vía
+ * MercadoPago y/o internacional vía Cryptomus) y muestra cobros del mes,
+ * comisión retenida, saldo a liquidar e historial de transacciones y
+ * liquidaciones.
  */
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
-import { Card, CardHead, CardBody, Button, Pill, Select } from "../components/ui";
+import { Card, CardHead, CardBody, Button, Pill } from "../components/ui";
 import { useI18n } from "../i18n/I18nContext";
 
 interface Transaccion {
@@ -29,7 +31,7 @@ interface Liquidacion {
   createdAt: string;
 }
 interface ResumenResp {
-  escuela: { id: string; name: string; modoGestion: string; comisionPct: number };
+  escuela: { id: string; name: string; comisionPct: number; comisionPctIntl: number };
   resumen: {
     periodo: string;
     cobrosMes: number;
@@ -52,9 +54,9 @@ export default function EnterpriseComisiones() {
   const [data, setData] = useState<ResumenResp | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [savingModo, setSavingModo] = useState(false);
-  const [modo, setModo] = useState("centralizado");
-  const [pct, setPct] = useState(10);
+  const [savingComision, setSavingComision] = useState(false);
+  const [pctAr, setPctAr] = useState(6);
+  const [pctIntl, setPctIntl] = useState(1.5);
 
   const load = useCallback(async () => {
     if (!schoolId) {
@@ -69,8 +71,8 @@ export default function EnterpriseComisiones() {
         `/api/comisiones/escuela/${schoolId}/resumen`,
       );
       setData(resp);
-      setModo(resp.escuela.modoGestion);
-      setPct(resp.escuela.comisionPct);
+      setPctAr(resp.escuela.comisionPct);
+      setPctIntl(resp.escuela.comisionPctIntl);
     } catch {
       setError("No pudimos cargar las comisiones.");
     } finally {
@@ -82,18 +84,18 @@ export default function EnterpriseComisiones() {
     void load();
   }, [load]);
 
-  const guardarModo = async () => {
-    setSavingModo(true);
+  const guardarComision = async () => {
+    setSavingComision(true);
     try {
-      await apiPost(`/api/comisiones/escuela/${schoolId}/modo`, {
-        modoGestion: modo,
-        comisionPct: pct,
+      await apiPost(`/api/comisiones/escuela/${schoolId}/comision`, {
+        comisionPct: pctAr,
+        comisionPctIntl: pctIntl,
       });
       await load();
     } catch {
       setError(t("enterpriseComisiones.noSePudoGuardarEl"));
     } finally {
-      setSavingModo(false);
+      setSavingComision(false);
     }
   };
 
@@ -114,37 +116,39 @@ export default function EnterpriseComisiones() {
 
       <Card>
         <CardHead>
-          <h2 className="text-sm font-bold">{t("enterpriseComisiones.modoDeGestion")}</h2>
-          <Pill tone={modo === "autogestionado" ? "info" : "neutral"}>
-            {modo === "autogestionado" ? "Autogestionado" : "Centralizado"}
-          </Pill>
+          <h2 className="text-sm font-bold">{t("enterpriseComisiones.comisionVb")}</h2>
         </CardHead>
         <CardBody className="space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
-            <Select
-              label="Modo"
-              value={modo}
-              onChange={(e) => setModo(e.target.value)}
-            >
-              <option value="centralizado">{t("adminComisiones.centralizadoCobraVb")}</option>
-              <option value="autogestionado">{t("adminComisiones.autogestionadoLaEscuelaCobra")}</option>
-            </Select>
             <label className="flex flex-col gap-1">
               <span className="text-xs font-medium text-[var(--c-text-3)]">{t("adminComisiones.comisionVb")}</span>
               <input
                 type="number"
-                min={0}
-                max={100}
-                value={pct}
-                onChange={(e) => setPct(Number(e.target.value))}
-                disabled={modo !== "autogestionado"}
-                className="rounded-[var(--r-md)] border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-1.5 text-sm disabled:opacity-50"
+                min={5}
+                max={7}
+                step={0.1}
+                value={pctAr}
+                onChange={(e) => setPctAr(Number(e.target.value))}
+                className="rounded-[var(--r-md)] border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-1.5 text-sm"
+              />
+            </label>
+            <label className="flex flex-col gap-1">
+              <span className="text-xs font-medium text-[var(--c-text-3)]">{t("adminComisiones.comisionVbIntl")}</span>
+              <input
+                type="number"
+                min={1}
+                max={2}
+                step={0.1}
+                value={pctIntl}
+                onChange={(e) => setPctIntl(Number(e.target.value))}
+                className="rounded-[var(--r-md)] border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-1.5 text-sm"
               />
             </label>
           </div>
-          <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseComisiones.enModoAutogestionadoVbRetiene")}<strong>{pct}%</strong>{t("enterpriseComisiones.porCadaCobroYLiquida")}</p>
-          <Button onClick={() => void guardarModo()} disabled={savingModo} size="sm">
-            {savingModo ? "Guardando…" : "Guardar"}
+          <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseComisiones.enModoAutogestionadoVbRetiene")}<strong>{pctAr}%</strong>{t("enterpriseComisiones.porCadaCobroYLiquida")}</p>
+          <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseComisiones.enModoAutogestionadoVbRetiene")}<strong>{pctIntl}%</strong>{t("enterpriseComisiones.enPagosInternacionalesLiquida")}</p>
+          <Button onClick={() => void guardarComision()} disabled={savingComision} size="sm">
+            {savingComision ? "Guardando…" : "Guardar"}
           </Button>
         </CardBody>
       </Card>

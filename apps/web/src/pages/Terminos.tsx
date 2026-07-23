@@ -53,7 +53,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "6. Pagos y economía interna",
       parrafos: [
-        "Cuando una escuela cobra cuotas o aranceles a las familias a través de la Plataforma, el vínculo de pago es entre la escuela y la familia; el Operador actúa como proveedor tecnológico e intermediario de cobro, procesando los pagos mediante pasarelas de terceros (por ejemplo Mercado Pago, Stripe o Cryptomus) y reteniendo una comisión de intermediación previamente informada a la escuela. El Operador no es responsable por las políticas de precios, becas o descuentos que cada escuela defina.",
+        "Cuando una escuela cobra cuotas o aranceles a las familias a través de la Plataforma, el vínculo de pago es entre la escuela y la familia; el Operador actúa como proveedor tecnológico e intermediario de cobro, procesando los pagos mediante pasarelas de terceros (por ejemplo Mercado Pago o Cryptomus) y reteniendo una comisión de intermediación previamente informada a la escuela. El Operador no es responsable por las políticas de precios, becas o descuentos que cada escuela defina.",
         "La tienda de temas visuales de la Plataforma utiliza una moneda interna del propio sistema (no dinero real, no convertible a moneda de curso legal ni a criptomonedas). Los saldos y compras de esa moneda interna no tienen valor de reembolso y no pueden transferirse fuera de la Plataforma.",
       ],
     },
@@ -127,7 +127,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "6. Payments and Internal Economy",
       parrafos: [
-        "When a school charges families fees or tuition through the Platform, the payment relationship is between the school and the family; the Operator acts as a technology provider and payment intermediary, processing payments through third-party gateways (for example Mercado Pago, Stripe, or Cryptomus) and retaining an intermediation fee previously disclosed to the school. The Operator is not responsible for the pricing, scholarship, or discount policies each school sets.",
+        "When a school charges families fees or tuition through the Platform, the payment relationship is between the school and the family; the Operator acts as a technology provider and payment intermediary, processing payments through third-party gateways (for example Mercado Pago or Cryptomus) and retaining an intermediation fee previously disclosed to the school. The Operator is not responsible for the pricing, scholarship, or discount policies each school sets.",
         "The Platform's visual theme store uses an internal, system-only currency (not real money, not convertible into legal tender or cryptocurrency). Balances and purchases made with this internal currency have no refund value and cannot be transferred outside the Platform.",
       ],
     },

@@ -1,9 +1,9 @@
 /**
  * PLAN-B Fase 4 — job de reconciliación. Verifica que `checkStatus` de
  * cada adapter (mockeando `fetch`) confirme o marque fallido un `Pago`
- * viejo en `pendiente`/`en_proceso`, y que respete la ventana de edad
- * (`maxAgeMinutes`) y el modo "centralizado" (sin comisión) vs
- * "autogestionado" (con `TransaccionEscuela`).
+ * viejo en `pendiente`/`en_proceso`, que respete la ventana de edad
+ * (`maxAgeMinutes`) y que siempre asiente `TransaccionEscuela` (sistema
+ * autogestionado, no hay modo "centralizado").
  */
 import assert from "node:assert/strict";
 import { beforeEach, test } from "node:test";
@@ -14,7 +14,6 @@ import { reconciliarPagosPendientes } from "../../src/lib/pasarelas/reconciliaci
 ENV.MP_ACCESS_TOKEN = "test-mp-token";
 
 const ESCUELA_AUTOGESTIONADA = "esc-reconciliacion-auto";
-const ESCUELA_CENTRALIZADA = "esc-reconciliacion-central";
 const VIEJO = new Date(Date.now() - 60 * 60 * 1000).toISOString(); // hace 1h
 const RECIENTE = new Date().toISOString();
 
@@ -24,15 +23,8 @@ beforeEach(() => {
     id: ESCUELA_AUTOGESTIONADA,
     name: "Escuela Autogestionada",
     isDeleted: false,
-    modoGestion: "autogestionado",
-    comisionPct: 10,
-    createdAt: VIEJO
-  });
-  prisma.escuela.rows.push({
-    id: ESCUELA_CENTRALIZADA,
-    name: "Escuela Centralizada",
-    isDeleted: false,
-    modoGestion: "centralizado",
+    comisionPct: 6,
+    comisionPctIntl: 1.5,
     createdAt: VIEJO
   });
 });
@@ -106,31 +98,6 @@ test("confirma un Pago viejo cuando el provider dice 'approved' y asienta comisi
   assert.ok((pago.comisionVB as number) > 0);
   const tx = prisma.transaccionEscuela.rows.find((t) => t.escuelaId === ESCUELA_AUTOGESTIONADA);
   assert.ok(tx, "debe asentar TransaccionEscuela");
-});
-
-test("centralizada: confirma el Pago pero no asienta TransaccionEscuela", async () => {
-  const { pagoId } = seedCobroCuotaPago({
-    escuelaId: ESCUELA_CENTRALIZADA,
-    provider: "mercadopago",
-    providerRef: "cuota:central:1",
-    estadoPago: "pendiente",
-    createdAt: VIEJO
-  });
-
-  const originalFetch = globalThis.fetch;
-  globalThis.fetch = (async () =>
-    ({ ok: true, json: async () => ({ results: [{ status: "approved" }] }) }) as Response) as typeof fetch;
-  try {
-    const resultado = await reconciliarPagosPendientes(30);
-    assert.equal(resultado.confirmados, 1);
-  } finally {
-    globalThis.fetch = originalFetch;
-  }
-
-  const pago = prisma.pago.rows.find((p) => p.id === pagoId)!;
-  assert.equal(pago.estado, "pagada");
-  const tx = prisma.transaccionEscuela.rows.find((t) => t.escuelaId === ESCUELA_CENTRALIZADA);
-  assert.equal(tx, undefined);
 });
 
 test("marca fallida cuando el provider dice 'rejected'", async () => {

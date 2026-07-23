@@ -32,8 +32,9 @@ export const CobroPublicarSchema = z
 export type CobroCreateInput = z.infer<typeof CobroCreateSchema>;
 export type CobroPublicarInput = z.infer<typeof CobroPublicarSchema>;
 
-// PLAN-B Fase 5 — conexión de pasarela por escuela (onboarding).
-export const PROVIDERS_PASARELA = ["mercadopago", "stripe", "cryptomus"] as const;
+// PLAN-B Fase 5 — conexión de pasarela por escuela (onboarding). Stripe
+// sacado del listado (problema con la pasarela, decisión de negocio).
+export const PROVIDERS_PASARELA = ["mercadopago", "cryptomus"] as const;
 
 export const EscuelaPasarelaConectarSchema = z.object({
   provider: z.enum(PROVIDERS_PASARELA),

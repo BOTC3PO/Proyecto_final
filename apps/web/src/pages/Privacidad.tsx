@@ -26,7 +26,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
       parrafos: [
         "Datos de cuenta: nombre de usuario, nombre completo, email, contraseña, rol (alumno, docente, familia, directivo o administrador) y la escuela a la que pertenecés. A las familias y alumnos les pedimos además la fecha de nacimiento, para adaptar la experiencia y el trato que corresponde a un menor de edad.",
         "Datos de uso educativo: el contenido que generás dentro de un aula (respuestas a cuestionarios, progreso, calificaciones, boletines) y los mensajes que enviás por la mensajería directa o dentro de un aula.",
-        "Datos de pago: cuando una escuela cobra cuotas a través de la Plataforma, el número de tarjeta y demás datos sensibles del medio de pago los procesa directamente la pasarela elegida (Mercado Pago, Stripe o Cryptomus) — la Plataforma no almacena esos datos, sólo el resultado de la transacción.",
+        "Datos de pago: cuando una escuela cobra cuotas a través de la Plataforma, el número de tarjeta y demás datos sensibles del medio de pago los procesa directamente la pasarela elegida (Mercado Pago o Cryptomus) — la Plataforma no almacena esos datos, sólo el resultado de la transacción.",
       ],
     },
     {
@@ -87,7 +87,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
       parrafos: [
         "Account data: username, full name, email, password, role (student, teacher, family member, school administrator, or platform administrator), and the school your account belongs to. We also ask families and students for their date of birth, to tailor the experience and give minors the treatment that corresponds to them.",
         "Educational usage data: the content you generate within a classroom (quiz answers, progress, grades, report cards) and the messages you send through direct messaging or within a classroom.",
-        "Payment data: when a school charges fees through the Platform, the card number and other sensitive payment details are processed directly by the chosen payment gateway (Mercado Pago, Stripe, or Cryptomus) — the Platform does not store that data, only the result of the transaction.",
+        "Payment data: when a school charges fees through the Platform, the card number and other sensitive payment details are processed directly by the chosen payment gateway (Mercado Pago or Cryptomus) — the Platform does not store that data, only the result of the transaction.",
       ],
     },
     {

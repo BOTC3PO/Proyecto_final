@@ -4,12 +4,18 @@
  * Montado tras `requireUser` (auth global). Los endpoints de admin agregan
  * `requireAdmin` por-ruta. El registro contable por transacción lo hace
  * `registrarTransaccionEscuela` (lib/comisiones), invocado desde el webhook de
- * suscripciones al acreditar un cobro de escuela autogestionada.
+ * suscripciones al acreditar un cobro de escuela. Sistema siempre
+ * autogestionado: no hay modo "centralizado" (VB nunca cobra directo).
  */
 import { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
-import { DEFAULT_COMISION_PCT } from "../lib/comisiones";
+import {
+  COMISION_PCT_RANGO_AR,
+  COMISION_PCT_RANGO_INTL,
+  DEFAULT_COMISION_PCT_AR,
+  DEFAULT_COMISION_PCT_INTL,
+} from "../lib/comisiones";
 import { hasRole } from "../lib/roles";
 
 export const comisiones = Router();
@@ -60,8 +66,8 @@ comisiones.get(
       escuela: {
         id: escuela.id,
         name: escuela.name,
-        modoGestion: escuela.modoGestion ?? "centralizado",
-        comisionPct: escuela.comisionPct ?? DEFAULT_COMISION_PCT,
+        comisionPct: escuela.comisionPct ?? DEFAULT_COMISION_PCT_AR,
+        comisionPctIntl: escuela.comisionPctIntl ?? DEFAULT_COMISION_PCT_INTL,
       },
       resumen: {
         periodo,
@@ -76,10 +82,11 @@ comisiones.get(
   },
 );
 
-// ── POST /api/comisiones/escuela/:escuelaId/modo ────────────────
-// Elegir modo de gestión y % de comisión. Admin o directivo de esa escuela.
+// ── POST /api/comisiones/escuela/:escuelaId/comision ────────────
+// Fijar el % de comisión (doméstico/MercadoPago y/o internacional/Cryptomus).
+// Admin o directivo de esa escuela. Cada valor se clampa a su rango real.
 comisiones.post(
-  "/api/comisiones/escuela/:escuelaId/modo",
+  "/api/comisiones/escuela/:escuelaId/comision",
   async (req, res) => {
     const { escuelaId } = req.params;
     const user = getUserFromReq(req as never);
@@ -88,23 +95,30 @@ comisiones.post(
     if (!hasRole(user, "ADMIN") && !esDirectivoDeEscuela) {
       return res.status(403).json({ error: "Sin permiso" });
     }
-    const body = req.body as { modoGestion?: unknown; comisionPct?: unknown };
-    const modoGestion =
-      body.modoGestion === "autogestionado" ? "autogestionado" : "centralizado";
-    let comisionPct: number | null = null;
+    const body = req.body as { comisionPct?: unknown; comisionPctIntl?: unknown };
+    const data: { comisionPct?: number; comisionPctIntl?: number } = {};
     if (typeof body.comisionPct === "number" && Number.isFinite(body.comisionPct)) {
-      comisionPct = Math.min(Math.max(body.comisionPct, 0), 100);
+      data.comisionPct = Math.min(
+        Math.max(body.comisionPct, COMISION_PCT_RANGO_AR.min),
+        COMISION_PCT_RANGO_AR.max,
+      );
+    }
+    if (typeof body.comisionPctIntl === "number" && Number.isFinite(body.comisionPctIntl)) {
+      data.comisionPctIntl = Math.min(
+        Math.max(body.comisionPctIntl, COMISION_PCT_RANGO_INTL.min),
+        COMISION_PCT_RANGO_INTL.max,
+      );
     }
 
     try {
       const updated = await prisma.escuela.update({
         where: { id: escuelaId },
-        data: { modoGestion, comisionPct },
+        data,
       });
       return res.json({
         ok: true,
-        modoGestion: updated.modoGestion,
         comisionPct: updated.comisionPct,
+        comisionPctIntl: updated.comisionPctIntl,
       });
     } catch {
       return res.status(404).json({ error: "Escuela no encontrada" });
@@ -121,24 +135,22 @@ comisiones.get("/api/comisiones/admin", requireAdmin, async (_req, res) => {
   const transacciones = await prisma.transaccionEscuela.findMany({});
   const liquidaciones = await prisma.liquidacionEscuela.findMany({});
 
-  const items = escuelas
-    .map((e) => {
-      const txs = transacciones.filter((t) => t.escuelaId === e.id);
-      const liqs = liquidaciones.filter((l) => l.escuelaId === e.id);
-      const pendientes = txs.filter((t) => t.estado === "registrada");
-      return {
-        escuelaId: e.id,
-        name: e.name,
-        modoGestion: e.modoGestion ?? "centralizado",
-        comisionPct: e.comisionPct ?? DEFAULT_COMISION_PCT,
-        cobrosTotal: sum(txs, "montoTotal"),
-        comisionTotal: sum(txs, "comisionVB"),
-        saldoALiquidar: sum(pendientes, "montoNeto"),
-        cantTransacc: txs.length,
-        cantLiquidaciones: liqs.length,
-      };
-    })
-    .filter((i) => i.cantTransacc > 0 || i.modoGestion === "autogestionado");
+  const items = escuelas.map((e) => {
+    const txs = transacciones.filter((t) => t.escuelaId === e.id);
+    const liqs = liquidaciones.filter((l) => l.escuelaId === e.id);
+    const pendientes = txs.filter((t) => t.estado === "registrada");
+    return {
+      escuelaId: e.id,
+      name: e.name,
+      comisionPct: e.comisionPct ?? DEFAULT_COMISION_PCT_AR,
+      comisionPctIntl: e.comisionPctIntl ?? DEFAULT_COMISION_PCT_INTL,
+      cobrosTotal: sum(txs, "montoTotal"),
+      comisionTotal: sum(txs, "comisionVB"),
+      saldoALiquidar: sum(pendientes, "montoNeto"),
+      cantTransacc: txs.length,
+      cantLiquidaciones: liqs.length,
+    };
+  });
 
   return res.json({ items });
 });
@@ -205,7 +217,7 @@ comisiones.get("/api/comisiones/admin/export.csv", requireAdmin, async (_req, re
     // PLAN-B Fase 4 — de qué pasarela vino el cobro y su referencia.
     // `provider_ref` es el mismo dato que `mp_payment_id` (se mantiene
     // esa columna para no romper exports/imports ya existentes que
-    // dependan del nombre); para MP son iguales, para Stripe/Cryptomus
+    // dependan del nombre); para MP son iguales, para Cryptomus
     // `mp_payment_id` es en realidad su providerRef genérico.
     "provider",
     "provider_ref",

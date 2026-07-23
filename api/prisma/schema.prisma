@@ -17,9 +17,13 @@ model Escuela {
   createdAt          String   @map("created_at")
   updatedAt          String?  @map("updated_at")
   // Fase 5.1 — modelo de comisión (demostrable; el split real con OAuth de MP
-  // queda como roadmap v2). modoGestion: "centralizado" | "autogestionado".
-  modoGestion        String?  @default("centralizado") @map("modo_gestion")
+  // queda como roadmap v2). Sistema autogestionado: la escuela cobra con su
+  // propia cuenta conectada (EscuelaPasarela), VB nunca maneja los fondos —
+  // sólo retiene esta comisión y liquida el resto. comisionPct = tarifa
+  // doméstica (MercadoPago/Argentina, 5-7%); comisionPctIntl = tarifa
+  // internacional (Cryptomus, 1-2%).
   comisionPct        Float?   @map("comision_pct")
+  comisionPctIntl    Float?   @map("comision_pct_intl")
   // PLAN-B Fase 6 (ítem 34) — saldo de bienvenida (economía interna del
   // juego, no dinero real) que recibe cada alumno nuevo. Configurable por
   // escuela; default 50 backfileado en la migración para las existentes.
@@ -114,7 +118,6 @@ model Pago {
 
 // PLAN-B Fase 3 — conexión de una escuela con un provider de pago.
 // `cuentaConectadaId` es la cuenta DE LA ESCUELA en el provider (ej. el
-// `stripe_user_id` que devuelve el OAuth de Stripe Connect, o el
 // `collector_id`/access_token de vendedor de Mercado Pago) — NUNCA la
 // cuenta de VB. `credencialesCifradas` guarda el token OAuth/API key
 // que haga falta, cifrado (nunca en texto plano ni en logs de webhook).
@@ -124,7 +127,7 @@ model Pago {
 model EscuelaPasarela {
   id                   String  @id
   escuelaId            String  @map("escuela_id")
-  // "mercadopago" | "stripe" | "cryptomus"
+  // "mercadopago" | "cryptomus"
   provider             String
   cuentaConectadaId    String? @map("cuenta_conectada_id")
   credencialesCifradas String? @map("credenciales_cifradas")
@@ -144,9 +147,9 @@ model TransaccionEscuela {
   comisionVB  Float    @map("comision_vb")
   montoNeto   Float    @map("monto_neto")
   estado      String   @default("registrada")
-  // PLAN-B Fase 4 — de qué pasarela vino este cobro (mercadopago|stripe|
-  // cryptomus|manual). Default "mercadopago" para las filas históricas
-  // (todo lo pre-Fase-3 era del SaaS de suscripción, siempre MP).
+  // PLAN-B Fase 4 — de qué pasarela vino este cobro (mercadopago|cryptomus|
+  // manual). Default "mercadopago" para las filas históricas (todo lo
+  // pre-Fase-3 era del SaaS de suscripción, siempre MP).
   provider    String   @default("mercadopago")
   mpPaymentId String?  @map("mp_payment_id")
   createdAt   String   @map("created_at")
