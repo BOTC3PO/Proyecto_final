@@ -19,6 +19,7 @@ import {
   conectarPasarela,
   togglePasarela,
   confirmarPagoManual,
+  iniciarAutorizacionMercadoPago,
   type CobroEscuela,
   type CuotaAlumno,
   type EscuelaPasarelaResumen,
@@ -44,7 +45,6 @@ const PILL_ESTADO_CUOTA: Record<string, "neutral" | "info" | "ok" | "warn"> = {
 
 const PROVIDERS: Array<{ id: ProviderPasarela; label: string }> = [
   { id: "mercadopago", label: "Mercado Pago" },
-  { id: "stripe", label: "Stripe" },
   { id: "cryptomus", label: "Cryptomus" }
 ];
 
@@ -57,6 +57,7 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
   const [cuentaConectadaId, setCuentaConectadaId] = useState("");
   const [credencial, setCredencial] = useState("");
   const [guardando, setGuardando] = useState(false);
+  const [conectandoMP, setConectandoMP] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -73,6 +74,30 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
   useEffect(() => {
     void load();
   }, [load]);
+
+  // El callback de OAuth de MP redirige acá con ?mp=conectado|error después
+  // del approve — mostramos el resultado una vez y limpiamos la URL.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const mp = params.get("mp");
+    if (!mp) return;
+    setMsg(mp === "conectado" ? "Mercado Pago conectado correctamente." : "No se pudo conectar Mercado Pago.");
+    params.delete("mp");
+    const rest = params.toString();
+    window.history.replaceState({}, "", window.location.pathname + (rest ? `?${rest}` : ""));
+  }, []);
+
+  const conectarMercadoPago = async () => {
+    setConectandoMP(true);
+    setMsg(null);
+    try {
+      const { url } = await iniciarAutorizacionMercadoPago(escuelaId);
+      window.location.href = url;
+    } catch {
+      setMsg("No se pudo iniciar la conexión con Mercado Pago.");
+      setConectandoMP(false);
+    }
+  };
 
   const resumenPorProvider = new Map(items.map((i) => [i.provider, i]));
 
@@ -137,7 +162,14 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
                         </Button>
                       </>
                     ) : (
-                      <Pill tone="neutral">{t("enterpriseCobros.noConectada")}</Pill>
+                      <>
+                        <Pill tone="neutral">{t("enterpriseCobros.noConectada")}</Pill>
+                        {id === "mercadopago" && (
+                          <Button size="sm" onClick={() => void conectarMercadoPago()} disabled={conectandoMP}>
+                            {conectandoMP ? "Redirigiendo…" : "Conectar con Mercado Pago"}
+                          </Button>
+                        )}
+                      </>
                     )}
                   </div>
                 </li>

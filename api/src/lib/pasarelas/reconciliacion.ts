@@ -11,6 +11,7 @@
 import { prisma } from "../prisma";
 import { ENV } from "../env";
 import { getProvider } from "./index";
+import { accessTokenDesdeCredenciales } from "../mercadopago-oauth";
 import { confirmarPago } from "../cobros-confirmacion";
 import { withAdvisoryLock } from "../pg-lock";
 
@@ -35,16 +36,28 @@ export const reconciliarPagosPendientes = async (maxAgeMinutes = ENV.RECONCILIAC
       continue;
     }
 
+    // Los pagos de MercadoPago con split viven en la cuenta del vendedor —
+    // hay que consultarlos con SU access_token (ver mercadopago-provider.ts).
+    // Se busca acá (no en checkStatus) porque de paso sirve para confirmar
+    // el pago más abajo, sin repetir las mismas consultas dos veces.
+    const cuota = await prisma.cuotaAlumno.findFirst({ where: { pagoId: pago.id } });
+    const cobro = cuota ? await prisma.cobroEscuela.findFirst({ where: { id: cuota.cobroId } }) : null;
+    let accessToken: string | null = null;
+    if (pago.provider === "mercadopago" && cobro) {
+      const pasarela = await prisma.escuelaPasarela.findFirst({
+        where: { escuelaId: cobro.escuelaId, provider: "mercadopago" }
+      });
+      accessToken = accessTokenDesdeCredenciales(pasarela?.credencialesCifradas);
+    }
+
     let estado: string | null;
     try {
-      estado = await adapter.checkStatus(pago.providerRef);
+      estado = await adapter.checkStatus(pago.providerRef, { accessToken });
     } catch {
       estado = null;
     }
 
     if (estado === "pagada") {
-      const cuota = await prisma.cuotaAlumno.findFirst({ where: { pagoId: pago.id } });
-      const cobro = cuota ? await prisma.cobroEscuela.findFirst({ where: { id: cuota.cobroId } }) : null;
       if (cuota && cobro) {
         await confirmarPago(pago as never, cuota, cobro);
         confirmados++;

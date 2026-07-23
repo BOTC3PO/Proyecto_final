@@ -1,5 +1,5 @@
 /**
- * PLAN-B Fase 3 — los 3 adaptadores de pasarela (esqueleto, sin
+ * PLAN-B Fase 3 — los 2 adaptadores de pasarela (esqueleto, sin
  * credenciales reales — ver PLAN-B-negocio-comisiones-pasarelas.md
  * §Fase 3). Estos tests verifican la LÓGICA (armado de request, cálculo
  * de comisión, verificación de firma) mockeando `fetch`; ninguno pega
@@ -19,14 +19,11 @@ import { createHash, createHmac } from "node:crypto";
 import { test } from "node:test";
 import { ENV } from "../../src/lib/env";
 import { MercadoPagoProvider } from "../../src/lib/pasarelas/mercadopago-provider";
-import { StripeProvider } from "../../src/lib/pasarelas/stripe-provider";
 import { CryptomusProvider } from "../../src/lib/pasarelas/cryptomus-provider";
 import { PasarelaNoConfiguradaError } from "../../src/lib/pasarelas/provider";
 
 ENV.MP_ACCESS_TOKEN = "test-mp-token";
 ENV.MP_WEBHOOK_SECRET = "test-mp-webhook-secret";
-ENV.STRIPE_SECRET_KEY = "test-stripe-key";
-ENV.STRIPE_WEBHOOK_SECRET = "test-stripe-webhook-secret";
 ENV.CRYPTOMUS_MERCHANT_ID = "test-merchant-id";
 ENV.CRYPTOMUS_API_KEY = "test-cryptomus-api-key";
 
@@ -34,16 +31,20 @@ const ESCUELA = {
   id: "esc-pasarela-1",
   nombre: "Escuela Pasarela",
   comisionPct: 10,
-  cuentaConectadaId: "cuenta-conectada-escuela"
+  cuentaConectadaId: "123456789",
+  // access_token propio del vendedor (OAuth) — sin esto MercadoPagoProvider
+  // rechaza el checkout (confirmado contra la API real: "collector_id
+  // invalid" al usar collector_id + token de la plataforma en vez de esto).
+  accessToken: "vendor-access-token"
 };
 const CUOTA = { id: "cuota-1", montoFinal: 1000, moneda: "ARS", concepto: "Cuota julio" };
 
 // ─── Mercado Pago ──────────────────────────────────────────────
 
-test("MercadoPagoProvider.createCheckout rechaza si la escuela no conectó cuenta", async () => {
+test("MercadoPagoProvider.createCheckout rechaza si la escuela no autorizó por OAuth", async () => {
   const provider = new MercadoPagoProvider();
   await assert.rejects(
-    () => provider.createCheckout({ cuota: CUOTA, escuela: { ...ESCUELA, cuentaConectadaId: null }, backUrl: "https://x" }),
+    () => provider.createCheckout({ cuota: CUOTA, escuela: { ...ESCUELA, accessToken: null }, backUrl: "https://x" }),
     PasarelaNoConfiguradaError
   );
 });
@@ -51,9 +52,11 @@ test("MercadoPagoProvider.createCheckout rechaza si la escuela no conectó cuent
 test("MercadoPagoProvider.createCheckout arma marketplace_fee y devuelve url/providerRef", async () => {
   const provider = new MercadoPagoProvider();
   let capturedBody: Record<string, unknown> | null = null;
+  let capturedAuth: string | undefined;
   const originalFetch = globalThis.fetch;
   globalThis.fetch = (async (_url: unknown, init: RequestInit) => {
     capturedBody = JSON.parse(init.body as string);
+    capturedAuth = (init.headers as Record<string, string>).Authorization;
     return { ok: true, json: async () => ({ init_point: "https://mp.test/checkout/abc" }) } as Response;
   }) as typeof fetch;
   try {
@@ -61,7 +64,8 @@ test("MercadoPagoProvider.createCheckout arma marketplace_fee y devuelve url/pro
     assert.equal(result.url, "https://mp.test/checkout/abc");
     assert.ok(result.providerRef.startsWith("cuota:cuota-1:"));
     assert.equal(capturedBody?.marketplace_fee, 100, "10% de 1000");
-    assert.equal(capturedBody?.collector_id, ESCUELA.cuentaConectadaId);
+    assert.equal(capturedBody?.collector_id, undefined, "ya no se manda collector_id, el access_token del vendedor lo determina");
+    assert.equal(capturedAuth, `Bearer ${ESCUELA.accessToken}`, "autenticado como el vendedor, no como la plataforma");
   } finally {
     globalThis.fetch = originalFetch;
   }
@@ -89,56 +93,6 @@ test("MercadoPagoProvider.verifyWebhook acepta una firma válida y rechaza una i
 
   const eventoInvalido = provider.verifyWebhook(body, { "x-signature": "ts=1,v1=deadbeef", "x-request-id": xRequestId });
   assert.equal(eventoInvalido, null);
-});
-
-// ─── Stripe ────────────────────────────────────────────────────
-
-test("StripeProvider.createCheckout rechaza si la escuela no conectó Connect", async () => {
-  const provider = new StripeProvider();
-  await assert.rejects(
-    () => provider.createCheckout({ cuota: CUOTA, escuela: { ...ESCUELA, cuentaConectadaId: null }, backUrl: "https://x" }),
-    PasarelaNoConfiguradaError
-  );
-});
-
-test("StripeProvider.createCheckout arma application_fee_amount en centavos y transfer_data.destination", async () => {
-  const provider = new StripeProvider();
-  const originalFetch = globalThis.fetch;
-  let capturedBody = "";
-  globalThis.fetch = (async (_url: unknown, init: RequestInit) => {
-    capturedBody = init.body as string;
-    return { ok: true, json: async () => ({ url: "https://checkout.stripe.test/session" }) } as Response;
-  }) as typeof fetch;
-  try {
-    const result = await provider.createCheckout({ cuota: CUOTA, escuela: ESCUELA, backUrl: "https://x" });
-    assert.equal(result.url, "https://checkout.stripe.test/session");
-    const params = new URLSearchParams(capturedBody);
-    assert.equal(params.get("payment_intent_data[application_fee_amount]"), "10000", "10% de 1000 en centavos");
-    assert.equal(params.get("payment_intent_data[transfer_data][destination]"), ESCUELA.cuentaConectadaId);
-  } finally {
-    globalThis.fetch = originalFetch;
-  }
-});
-
-test("StripeProvider.verifyWebhook acepta una firma válida y rechaza una manipulada", () => {
-  const provider = new StripeProvider();
-  const rawBody = JSON.stringify({
-    type: "checkout.session.completed",
-    data: { object: { metadata: { providerRef: "cuota_1_123" }, amount_total: 100000 } }
-  });
-  const timestamp = Math.floor(Date.now() / 1000).toString();
-  const v1 = createHmac("sha256", ENV.STRIPE_WEBHOOK_SECRET)
-    .update(`${timestamp}.${rawBody}`)
-    .digest("hex");
-
-  const evento = provider.verifyWebhook(rawBody, { "stripe-signature": `t=${timestamp},v1=${v1}` });
-  assert.ok(evento);
-  assert.equal(evento?.estado, "pagada");
-  assert.equal(evento?.providerRef, "cuota_1_123");
-  assert.equal(evento?.montoBruto, 1000, "amount_total viene en centavos");
-
-  const invalido = provider.verifyWebhook(rawBody, { "stripe-signature": `t=${timestamp},v1=deadbeef` });
-  assert.equal(invalido, null);
 });
 
 // ─── Cryptomus ─────────────────────────────────────────────────
@@ -197,23 +151,6 @@ test("MercadoPagoProvider.checkStatus mapea approved/rejected/otro a pagada/fall
     globalThis.fetch = responder("rejected");
     assert.equal(await provider.checkStatus("ref-1"), "fallida");
     globalThis.fetch = responder("in_process");
-    assert.equal(await provider.checkStatus("ref-1"), "pendiente");
-  } finally {
-    globalThis.fetch = originalFetch;
-  }
-});
-
-test("StripeProvider.checkStatus mapea succeeded/canceled/otro a pagada/fallida/pendiente", async () => {
-  const provider = new StripeProvider();
-  const originalFetch = globalThis.fetch;
-  const responder = (status: string) =>
-    (async () => ({ ok: true, json: async () => ({ data: [{ status }] }) }) as Response) as typeof fetch;
-  try {
-    globalThis.fetch = responder("succeeded");
-    assert.equal(await provider.checkStatus("ref-1"), "pagada");
-    globalThis.fetch = responder("canceled");
-    assert.equal(await provider.checkStatus("ref-1"), "fallida");
-    globalThis.fetch = responder("processing");
     assert.equal(await provider.checkStatus("ref-1"), "pendiente");
   } finally {
     globalThis.fetch = originalFetch;

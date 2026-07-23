@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from "node:fs";
+import { createServer as createHttpsServer } from "node:https";
 import express, { type NextFunction, type Request, type Response } from "express";
 import compression from "compression";
 import helmet from "helmet";
@@ -273,10 +275,28 @@ app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
   res.status(statusCode).json({ error: message });
 });
 
+// HTTPS local (mkcert) — sólo si los certs existen (`.certs/`, gitignored,
+// mismo par que apps/web/.certs/). El front ahora corre en https:// y llama
+// a la API directo (sin proxy, ver lib/api.ts); mixed content HTTP+HTTPS
+// no es ideal aunque Chrome exima a localhost — y el redirect_uri de OAuth
+// de MP también prefiere https.
+const CERT_KEY = "./.certs/localhost-key.pem";
+const CERT_FILE = "./.certs/localhost.pem";
+const httpsCreds =
+  existsSync(CERT_KEY) && existsSync(CERT_FILE)
+    ? { key: readFileSync(CERT_KEY), cert: readFileSync(CERT_FILE) }
+    : null;
+
 const bootstrap = async () => {
-  app.listen(ENV.PORT, () => {
-    console.log(`API on http://localhost:${ENV.PORT}`);
-  });
+  if (httpsCreds) {
+    createHttpsServer(httpsCreds, app).listen(ENV.PORT, () => {
+      console.log(`API on https://localhost:${ENV.PORT}`);
+    });
+  } else {
+    app.listen(ENV.PORT, () => {
+      console.log(`API on http://localhost:${ENV.PORT}`);
+    });
+  }
   scheduleDelinquencyJob();
   scheduleReconciliacionJob();
   void runStartupDataChecks();

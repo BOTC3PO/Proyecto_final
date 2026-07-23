@@ -1,18 +1,26 @@
 /**
  * PLAN-B Fase 3 — Mercado Pago con split nativo (roadmap v2 de
- * docs/pagos/comision-roadmap-v2.md, ahora implementado como esqueleto).
+ * docs/pagos/comision-roadmap-v2.md, implementado 2026-07-22).
  *
  * Distinto del `crearPreapproval` de `lib/mercadopago.ts` (eso es el SaaS
  * retirado — suscripción recurrente). Acá es un pago ÚNICO (Checkout Pro
- * "preference") con `marketplace_fee`: MP deposita el neto en la cuenta
- * de la escuela (`cuentaConectadaId`, obtenida por OAuth de vendedor) y
- * la comisión en la cuenta de VB (dueña de `ENV.MP_ACCESS_TOKEN`).
+ * "preference") con `marketplace_fee`. La preferencia se crea AUTENTICADA
+ * COMO EL VENDEDOR (`escuela.accessToken`, propio de la escuela, obtenido
+ * por OAuth — ver `lib/mercadopago-oauth.ts`), no con el token de la
+ * plataforma + `collector_id`: confirmado contra la API real de MP que ese
+ * enfoque (documentado como "roadmap" originalmente) da
+ * `"collector_id invalid"` — la integración real de marketplace exige el
+ * access_token propio del vendedor (doc oficial: "Cómo integrar el
+ * checkout en marketplace"). MP deposita el neto en la cuenta de la
+ * escuela y la comisión (`marketplace_fee`) en la cuenta de VB dueña de
+ * la aplicación — automático, sin acción del vendedor en cada cobro.
  *
- * NOTA: la forma exacta de `marketplace_fee`/`collector_id` en la API de
- * MP puede haber cambiado — verificar contra la documentación vigente de
- * Mercado Pago antes de un go-live real; esto es un esqueleto fiel a la
- * forma de la API pero sin probar contra credenciales reales (ver
- * PLAN-B-negocio-comisiones-pasarelas.md §Fase 3).
+ * El intercambio de OAuth (`intercambiarCode`) todavía no se probó
+ * contra un `code` real: la escuela necesita autorizar por OAuth, lo que
+ * a su vez requiere `MP_CLIENT_SECRET` — sólo disponible con credenciales
+ * de PRODUCCIÓN activadas del lado de VB (confirmado en la doc oficial de
+ * credenciales). Sin eso, este código compila y está listo, pero el path
+ * real de punta a punta queda pendiente de un entorno con producción.
  */
 import { ENV } from "../env";
 import { verificarWebhookMP } from "../mercadopago";
@@ -45,13 +53,16 @@ export class MercadoPagoProvider implements PaymentProvider {
     escuela: EscuelaParaCheckout;
     backUrl: string;
   }): Promise<CheckoutResult> {
-    if (!ENV.MP_ACCESS_TOKEN) {
-      throw new PasarelaNoConfiguradaError("mercadopago", "falta MP_ACCESS_TOKEN de la plataforma");
-    }
-    if (!params.escuela.cuentaConectadaId) {
+    // La integración real de marketplace de MP exige crear la preferencia
+    // AUTENTICADO COMO EL VENDEDOR (su propio access_token de OAuth) — no
+    // alcanza con mandar collector_id + el token de la plataforma.
+    // Confirmado contra la API real: sin esto, MP devuelve
+    // "collector_id invalid" (o acepta la preferencia pero el pago falla
+    // igual, si collector_id coincide con la cuenta dueña del token).
+    if (!params.escuela.accessToken) {
       throw new PasarelaNoConfiguradaError(
         "mercadopago",
-        `la escuela ${params.escuela.nombre} todavía no conectó su cuenta de Mercado Pago`
+        `la escuela ${params.escuela.nombre} todavía no autorizó a VB por OAuth`
       );
     }
 
@@ -62,7 +73,7 @@ export class MercadoPagoProvider implements PaymentProvider {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${ENV.MP_ACCESS_TOKEN}`
+        Authorization: `Bearer ${params.escuela.accessToken}`
       },
       body: JSON.stringify({
         items: [
@@ -74,7 +85,6 @@ export class MercadoPagoProvider implements PaymentProvider {
           }
         ],
         marketplace_fee: marketplaceFee,
-        collector_id: params.escuela.cuentaConectadaId,
         external_reference: externalReference,
         back_urls: {
           success: params.backUrl,
@@ -119,11 +129,15 @@ export class MercadoPagoProvider implements PaymentProvider {
     };
   }
 
-  async checkStatus(providerRef: string): Promise<WebhookEventEstado | null> {
-    if (!ENV.MP_ACCESS_TOKEN) return null;
+  async checkStatus(providerRef: string, opts?: { accessToken?: string | null }): Promise<WebhookEventEstado | null> {
+    // Pagos de marketplace (split) viven en la cuenta del vendedor — hay
+    // que buscarlos con SU access_token, no el de la plataforma. Cae al
+    // token de plataforma para el flujo legacy sin split (suscripciones).
+    const token = opts?.accessToken ?? ENV.MP_ACCESS_TOKEN;
+    if (!token) return null;
     const response = await fetch(
       `${MP_BASE}/v1/payments/search?external_reference=${encodeURIComponent(providerRef)}&sort=date_created&criteria=desc`,
-      { headers: { Authorization: `Bearer ${ENV.MP_ACCESS_TOKEN}` } }
+      { headers: { Authorization: `Bearer ${token}` } }
     );
     if (!response.ok) return null;
     const data = (await response.json()) as { results?: Array<{ status?: string }> };

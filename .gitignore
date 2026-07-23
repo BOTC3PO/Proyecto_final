@@ -21,6 +21,9 @@ web-build/
 .cache/
 out/
 
+# Certificados HTTPS locales (mkcert, sólo dev — claves privadas)
+.certs/
+
 # TypeScript
 *.tsbuildinfo
 
@@ -75,3 +78,4 @@ api/src/base/modulos_quizzes.sqlite
 
 # Diccionario: descargas kaikki + sqlite generado (GBs, no versionar)
 install/data/
+api/src/diccionarios/Diccionario.sqlite.bak-20260717

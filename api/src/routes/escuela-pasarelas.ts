@@ -10,7 +10,9 @@ import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
+import { ENV } from "../lib/env";
 import { cifrarCredencial } from "../lib/pasarelas-crypto";
+import { buildAuthorizationUrl, verifyState, intercambiarCode } from "../lib/mercadopago-oauth";
 import { EscuelaPasarelaConectarSchema, EscuelaPasarelaActualizarSchema } from "../schema/cobros";
 
 export const escuelaPasarelas = Router();
@@ -125,4 +127,64 @@ escuelaPasarelas.patch("/api/escuelas/:escuelaId/pasarelas/:provider", requireUs
     data: { activa: parsed.data.activa, updatedAt: now() }
   });
   return res.json(aPublico(actualizado));
+});
+
+// GET /api/escuelas/:escuelaId/pasarelas/mercadopago/authorize — arma la URL
+// de autorización de MP para que la escuela conecte su cuenta. Requisito
+// real de MP: sin esto, `marketplace_fee` rechaza el `collector_id` de la
+// escuela con "collector_id invalid".
+escuelaPasarelas.get("/api/escuelas/:escuelaId/pasarelas/mercadopago/authorize", requireUser, async (req, res) => {
+  const user = req.user as ReqUser | undefined;
+  const escuelaId = req.params.escuelaId as string;
+  if (!puedeGestionarEscuela(user, escuelaId)) {
+    return res.status(403).json({ error: "Sin permiso" });
+  }
+  if (!ENV.MP_CLIENT_ID) {
+    return res.status(503).json({ error: "MP_CLIENT_ID no configurado en la plataforma" });
+  }
+  return res.json({ url: buildAuthorizationUrl(escuelaId) });
+});
+
+// GET /api/escuelas/pasarelas/mercadopago/callback — MP redirige el
+// navegador acá tras el approve. Público a propósito (no manda el JWT del
+// usuario): el `state` es lo que liga este callback a una escuela.
+escuelaPasarelas.get("/api/escuelas/pasarelas/mercadopago/callback", async (req, res) => {
+  const code = typeof req.query.code === "string" ? req.query.code : "";
+  const state = typeof req.query.state === "string" ? req.query.state : "";
+  const verified = state ? verifyState(state) : null;
+  if (!code || !verified) {
+    return res.redirect(`${ENV.APP_URL}/enterprise/cobros?mp=error`);
+  }
+  const tokens = await intercambiarCode(code);
+  if (!tokens) {
+    return res.redirect(`${ENV.APP_URL}/enterprise/cobros?mp=error`);
+  }
+
+  const nowIso = now();
+  const credencialesCifradas = cifrarCredencial(
+    JSON.stringify({ accessToken: tokens.accessToken, refreshToken: tokens.refreshToken })
+  );
+  const existente = await prisma.escuelaPasarela.findFirst({
+    where: { escuelaId: verified.escuelaId, provider: "mercadopago" }
+  });
+  if (existente) {
+    await prisma.escuelaPasarela.update({
+      where: { id: existente.id },
+      data: { cuentaConectadaId: tokens.userId, credencialesCifradas, activa: true, updatedAt: nowIso }
+    });
+  } else {
+    await prisma.escuelaPasarela.create({
+      data: {
+        id: genId(),
+        escuelaId: verified.escuelaId,
+        provider: "mercadopago",
+        cuentaConectadaId: tokens.userId,
+        credencialesCifradas,
+        activa: true,
+        createdAt: nowIso,
+        updatedAt: nowIso
+      }
+    });
+  }
+  return res.redirect(`${ENV.APP_URL}/enterprise/cobros?mp=conectado`);
 });

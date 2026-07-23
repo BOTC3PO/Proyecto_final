@@ -1,6 +1,6 @@
 /**
- * PLAN-B Fase 3 — abstracción común a los 3 providers de pago (Mercado
- * Pago / Stripe / Cryptomus) para el dominio cobros escuela→familias.
+ * PLAN-B Fase 3 — abstracción común a los providers de pago (Mercado
+ * Pago / Cryptomus) para el dominio cobros escuela→familias.
  *
  * `createCheckout`/`verifyWebhook` son el ÚNICO punto de contacto entre
  * `routes/cobros.ts` y cada provider — cambiar de provider, o agregar uno
@@ -17,10 +17,18 @@ export type CuotaParaCheckout = {
 export type EscuelaParaCheckout = {
   id: string;
   nombre: string;
-  /** % que retiene VB — 0 si la escuela es "centralizada" (no hay split). */
+  /** % que retiene VB para este cobro (doméstico o internacional según el provider). */
   comisionPct: number;
   /** Cuenta de la escuela en el provider (OAuth). Null si no conectó todavía. */
   cuentaConectadaId: string | null;
+  /**
+   * Access token PROPIO de la escuela, obtenido por OAuth (ver
+   * lib/mercadopago-oauth.ts). La integración real de marketplace de MP
+   * exige crear la preferencia autenticado como el vendedor — no alcanza
+   * con `collector_id` + el token de la plataforma (confirmado contra la
+   * API real: "collector_id invalid"). Null si no autorizó todavía.
+   */
+  accessToken?: string | null;
 };
 
 export type CheckoutResult = {
@@ -46,12 +54,12 @@ export class PasarelaNoConfiguradaError extends Error {
 }
 
 export interface PaymentProvider {
-  readonly nombre: "mercadopago" | "stripe" | "cryptomus";
+  readonly nombre: "mercadopago" | "cryptomus";
   /**
    * true si el provider soporta split nativo (el dinero de la escuela no
-   * pasa por la cuenta de VB — Stripe Connect / MP marketplace_fee).
-   * false en Cryptomus: ahí VB recibe todo y liquida manualmente
-   * (mismo modelo v1 que `registrarTransaccionEscuela`).
+   * pasa por la cuenta de VB — MP marketplace_fee). false en Cryptomus:
+   * ahí VB recibe todo y liquida manualmente (mismo modelo v1 que
+   * `registrarTransaccionEscuela`).
    */
   readonly supportsSplit: boolean;
   createCheckout(params: {
@@ -61,10 +69,10 @@ export interface PaymentProvider {
   }): Promise<CheckoutResult>;
   /**
    * `headers` son los headers CRUDOS del request (cada provider firma
-   * distinto — MP usa x-signature/x-request-id, Stripe stripe-signature,
-   * Cryptomus un campo `sign` en el propio body — de ahí que no haya un
-   * único parámetro "signature" genérico). Devuelve null si la firma no
-   * valida; el caller responde 401 y no confía en el payload.
+   * distinto — MP usa x-signature/x-request-id, Cryptomus un campo `sign`
+   * en el propio body — de ahí que no haya un único parámetro "signature"
+   * genérico). Devuelve null si la firma no valida; el caller responde 401
+   * y no confía en el payload.
    */
   verifyWebhook(rawBody: string, headers: Record<string, string | string[] | undefined>): WebhookEvent | null;
   refund?(providerRef: string): Promise<void>;
@@ -74,9 +82,10 @@ export interface PaymentProvider {
    * cuyo webhook nunca llegó (o llegó y se perdió). Devuelve `null` si no
    * se pudo determinar el estado (provider no configurado, pago no
    * encontrado todavía, error de red) — el caller lo trata como "seguir
-   * esperando", nunca como fallo.
+   * esperando", nunca como fallo. `opts.accessToken` es el token propio
+   * del vendedor (marketplace de MP) cuando aplica.
    */
-  checkStatus?(providerRef: string): Promise<WebhookEventEstado | null>;
+  checkStatus?(providerRef: string, opts?: { accessToken?: string | null }): Promise<WebhookEventEstado | null>;
 }
 
 export const round2 = (n: number): number => Math.round(n * 100) / 100;

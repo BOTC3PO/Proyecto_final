@@ -87,14 +87,14 @@ test("POST repetido con el mismo provider actualiza (no duplica filas)", async (
   const token = tokenFor({ id: DIRECTIVO, role: "DIRECTIVO", schoolId: ESCUELA });
   await jsonRequest(baseUrl, "POST", `/api/escuelas/${ESCUELA}/pasarelas`, {
     token,
-    body: { provider: "stripe", cuentaConectadaId: "acct_1" }
+    body: { provider: "cryptomus", cuentaConectadaId: "acct_1" }
   });
   const res2 = await jsonRequest(baseUrl, "POST", `/api/escuelas/${ESCUELA}/pasarelas`, {
     token,
-    body: { provider: "stripe", cuentaConectadaId: "acct_2" }
+    body: { provider: "cryptomus", cuentaConectadaId: "acct_2" }
   });
   assert.equal(res2.status, 200);
-  const filas = prisma.escuelaPasarela.rows.filter((r) => r.escuelaId === ESCUELA && r.provider === "stripe");
+  const filas = prisma.escuelaPasarela.rows.filter((r) => r.escuelaId === ESCUELA && r.provider === "cryptomus");
   assert.equal(filas.length, 1);
   assert.equal(filas[0].cuentaConectadaId, "acct_2");
 });
@@ -130,7 +130,7 @@ test("PATCH desactiva una pasarela conectada sin tocar credenciales", async () =
 
 test("PATCH sobre un provider no conectado devuelve 404", async () => {
   const token = tokenFor({ id: DIRECTIVO, role: "DIRECTIVO", schoolId: ESCUELA });
-  const res = await jsonRequest(baseUrl, "PATCH", `/api/escuelas/${ESCUELA}/pasarelas/stripe`, {
+  const res = await jsonRequest(baseUrl, "PATCH", `/api/escuelas/${ESCUELA}/pasarelas/cryptomus`, {
     token,
     body: { activa: false }
   });

@@ -6,7 +6,7 @@ import { apiGet, apiPatch, apiPost } from "../lib/api";
 
 export type EstadoCobro = "borrador" | "publicado" | "cerrado";
 export type EstadoCuota = "pendiente" | "en_proceso" | "pagada" | "vencida" | "anulada";
-export type ProviderPasarela = "mercadopago" | "stripe" | "cryptomus";
+export type ProviderPasarela = "mercadopago" | "cryptomus";
 
 export interface CobroEscuela {
   id: string;
@@ -88,3 +88,6 @@ export const conectarPasarela = (
 
 export const togglePasarela = (escuelaId: string, provider: ProviderPasarela, activa: boolean) =>
   apiPatch<EscuelaPasarelaResumen>(`/api/escuelas/${escuelaId}/pasarelas/${provider}`, { activa });
+
+export const iniciarAutorizacionMercadoPago = (escuelaId: string) =>
+  apiGet<{ url: string }>(`/api/escuelas/${escuelaId}/pasarelas/mercadopago/authorize`);

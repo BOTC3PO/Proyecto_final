@@ -6,6 +6,7 @@ import { hasRole } from "../lib/roles";
 import { whereExcluirEspejos } from "../lib/espejo-filtro";
 import { ENV } from "../lib/env";
 import { getProvider } from "../lib/pasarelas";
+import { accessTokenDesdeCredenciales } from "../lib/mercadopago-oauth";
 import { confirmarPago } from "../lib/cobros-confirmacion";
 import { CobroCreateSchema, CobroPublicarSchema } from "../schema/cobros";
 
@@ -238,7 +239,7 @@ cobros.get("/api/cuotas/mias", requireUser, async (req, res) => {
 
 // POST /api/cuotas/:id/checkout — crea (o reutiliza) el intento de pago
 // de una cuota. Si la escuela conectó una pasarela (`EscuelaPasarela`
-// activa), usa su `createCheckout` real (Fase 3: MP/Stripe/Cryptomus) y
+// activa), usa su `createCheckout` real (Fase 3: MP/Cryptomus) y
 // devuelve la `url` para redirigir a la familia. Si no, cae a
 // `provider: "manual"` (sin url — el flujo se confirma a mano, staff-only,
 // vía `POST .../confirmar-pago`) para no bloquear el cobro.
@@ -266,52 +267,74 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
     return res.status(409).json({ error: `la cuota ya está ${cuota.estado}` });
   }
 
-  // Idempotencia: si ya hay un Pago pendiente/en_proceso vigente para
-  // esta cuota, lo devolvemos en vez de crear otro.
-  if (cuota.pagoId) {
-    const existente = await prisma.pago.findFirst({ where: { id: cuota.pagoId } });
-    if (existente && (existente.estado === "pendiente" || existente.estado === "en_proceso")) {
-      return res.json({ pago: existente });
-    }
-  }
-
   const cobro = await prisma.cobroEscuela.findFirst({ where: { id: cuota.cobroId } });
   if (!cobro) return res.status(404).json({ error: "cobro no encontrado" });
-
-  let provider = "manual";
-  let providerRef = `manual-${randomUUID()}`;
-  let url: string | null = null;
 
   const preferido = typeof req.body?.provider === "string" ? req.body.provider : null;
   const pasarela = await prisma.escuelaPasarela.findFirst({
     where: { escuelaId: cobro.escuelaId, activa: true, ...(preferido ? { provider: preferido } : {}) }
   });
-  if (pasarela) {
-    const adapter = getProvider(pasarela.provider);
-    const escuela = adapter ? await prisma.escuela.findFirst({ where: { id: cobro.escuelaId } }) : null;
-    if (adapter && escuela) {
-      try {
-        const checkout = await adapter.createCheckout({
-          cuota: { id: cuota.id, montoFinal: cuota.montoFinal, moneda: cobro.moneda, concepto: cobro.concepto },
-          escuela: {
-            id: escuela.id,
-            nombre: escuela.name,
-            comisionPct: escuela.comisionPct ?? 0,
-            cuentaConectadaId: pasarela.cuentaConectadaId
-          },
-          backUrl: typeof req.body?.backUrl === "string" ? req.body.backUrl : ENV.APP_URL
-        });
-        provider = adapter.nombre;
-        providerRef = checkout.providerRef;
-        url = checkout.url;
-      } catch (err) {
-        // Un provider mal configurado (sin credenciales, escuela sin
-        // conectar) no debe bloquear el cobro — cae a manual.
-        console.warn(`[cobros] checkout con ${pasarela.provider} falló, cae a manual:`, err);
+
+  // Arma un checkout contra el provider real (o cae a "manual" si no hay
+  // pasarela / falla). MP no persiste la `url` de la preferencia — hay que
+  // volver a pedirla cada vez que el cliente la necesita.
+  const armarCheckout = async (): Promise<{ provider: string; providerRef: string; url: string | null }> => {
+    let provider = "manual";
+    let providerRef = `manual-${randomUUID()}`;
+    let url: string | null = null;
+    if (pasarela) {
+      const adapter = getProvider(pasarela.provider);
+      const escuela = adapter ? await prisma.escuela.findFirst({ where: { id: cobro.escuelaId } }) : null;
+      if (adapter && escuela) {
+        try {
+          const checkout = await adapter.createCheckout({
+            cuota: { id: cuota.id, montoFinal: cuota.montoFinal, moneda: cobro.moneda, concepto: cobro.concepto },
+            escuela: {
+              id: escuela.id,
+              nombre: escuela.name,
+              comisionPct: escuela.comisionPct ?? 0,
+              cuentaConectadaId: pasarela.cuentaConectadaId,
+              accessToken: accessTokenDesdeCredenciales(pasarela.credencialesCifradas)
+            },
+            backUrl: typeof req.body?.backUrl === "string" ? req.body.backUrl : ENV.APP_URL
+          });
+          provider = adapter.nombre;
+          providerRef = checkout.providerRef;
+          url = checkout.url;
+        } catch (err) {
+          // Un provider mal configurado (sin credenciales, escuela sin
+          // conectar) no debe bloquear el cobro — cae a manual.
+          console.warn(`[cobros] checkout con ${pasarela.provider} falló, cae a manual:`, err);
+        }
       }
+    }
+    return { provider, providerRef, url };
+  };
+
+  // Idempotencia: si ya hay un Pago pendiente/en_proceso vigente para esta
+  // cuota, no creamos otro — pero si es de un provider real (no "manual")
+  // hay que regenerar la `url` (no se persiste) y actualizar el
+  // `providerRef` en el mismo Pago para que el webhook/reconciliación
+  // sigan encontrándolo.
+  if (cuota.pagoId) {
+    const existente = await prisma.pago.findFirst({ where: { id: cuota.pagoId } });
+    if (existente && (existente.estado === "pendiente" || existente.estado === "en_proceso")) {
+      if (existente.provider === "manual") {
+        return res.json({ pago: existente, url: null });
+      }
+      const fresh = await armarCheckout();
+      if (!fresh.url) {
+        return res.json({ pago: existente, url: null });
+      }
+      const actualizado = await prisma.pago.update({
+        where: { id: existente.id },
+        data: { providerRef: fresh.providerRef, updatedAt: now() }
+      });
+      return res.json({ pago: actualizado, url: fresh.url });
     }
   }
 
+  const { provider, providerRef, url } = await armarCheckout();
   const nowIso = now();
   const pago = await prisma.pago.create({
     data: {

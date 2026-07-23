@@ -9,6 +9,9 @@ export const ENV = {
   PORT: Number(process.env.PORT ?? 5050),
   // URL pública del front; back_url de MercadoPago cae acá si no se pasa una explícita.
   APP_URL: process.env.APP_URL ?? "http://localhost:5173",
+  // URL pública de ESTE server — la necesita el OAuth de MP para el redirect_uri
+  // del callback (tiene que ser un endpoint del backend, no del front).
+  API_URL: process.env.API_URL ?? "http://localhost:5050",
   // Storage de media (uploads de /api/media) — "local" (disco, default,
   // válido para 1 sola instancia) o "s3" (cualquier endpoint
   // S3-compatible: AWS S3, Cloudflare R2, Backblaze B2, MinIO — necesario
@@ -96,11 +99,14 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // PASARELAS_ENCRYPTION_KEY). Vacías por default: sin credenciales, los
   // adaptadores de provider responden "no configurado" en vez de
   // intentar pegarle a la API real.
-  STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY ?? "",
-  STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET ?? "",
-  STRIPE_CONNECT_CLIENT_ID: process.env.STRIPE_CONNECT_CLIENT_ID ?? "",
   CRYPTOMUS_MERCHANT_ID: process.env.CRYPTOMUS_MERCHANT_ID ?? "",
   CRYPTOMUS_API_KEY: process.env.CRYPTOMUS_API_KEY ?? "",
+  // App de MP en developers.mercadopago.com (sección OAuth/Configuración
+  // avanzada) — Client ID/Secret, para que cada escuela autorice a VB como
+  // marketplace (requisito real de MP para que `collector_id` sea válido
+  // en `marketplace_fee`; ver lib/pasarelas/mercadopago-oauth.ts).
+  MP_CLIENT_ID: process.env.MP_CLIENT_ID ?? "",
+  MP_CLIENT_SECRET: process.env.MP_CLIENT_SECRET ?? "",
   // Clave simétrica (32 bytes, base64 o hex) para cifrar
   // EscuelaPasarela.credencialesCifradas. Sin ella en dev cae a una fija
   // NO apta para producción (arranca igual, pero avisa por consola).

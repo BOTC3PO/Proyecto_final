@@ -8,11 +8,16 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { after, before, beforeEach, test } from "node:test";
 import { ENV } from "../../src/lib/env";
+import { cifrarCredencial } from "../../src/lib/pasarelas-crypto";
 import { prisma, resetPrisma, seedUser, tokenFor, startServer, jsonRequest } from "./_helpers/setup";
 
 ENV.MP_ACCESS_TOKEN = "test-mp-token";
 ENV.CRYPTOMUS_MERCHANT_ID = "test-merchant-id";
 ENV.CRYPTOMUS_API_KEY = "test-cryptomus-api-key";
+
+// access_token propio del vendedor (OAuth) — MercadoPagoProvider ya no usa
+// collector_id + el token de plataforma, autentica como el vendedor.
+const CREDENCIALES_MP_TEST = cifrarCredencial(JSON.stringify({ accessToken: "vendor-access-token" }));
 
 let baseUrl: string;
 let close: () => Promise<void>;
@@ -40,8 +45,8 @@ beforeEach(() => {
     id: ESCUELA,
     name: "Escuela Pasarela Real",
     isDeleted: false,
-    modoGestion: "autogestionado",
-    comisionPct: 10,
+    comisionPct: 6,
+    comisionPctIntl: 1.5,
     createdAt: nowIso
   });
   seedUser({ id: DIRECTIVO, role: "DIRECTIVO", schoolId: ESCUELA });
@@ -76,7 +81,8 @@ test("checkout usa el provider real cuando la escuela tiene una EscuelaPasarela 
     id: "pasarela-1",
     escuelaId: ESCUELA,
     provider: "mercadopago",
-    cuentaConectadaId: "cuenta-mp-escuela",
+    cuentaConectadaId: "555111222",
+    credencialesCifradas: CREDENCIALES_MP_TEST,
     activa: true,
     createdAt: nowIso,
     updatedAt: nowIso
@@ -105,13 +111,54 @@ test("checkout usa el provider real cuando la escuela tiene una EscuelaPasarela 
   }
 });
 
+test("checkout repetido (Pago pendiente ya existe) regenera la url en vez de devolver null", async () => {
+  const nowIso = new Date().toISOString();
+  prisma.escuelaPasarela.rows.push({
+    id: "pasarela-retry",
+    escuelaId: ESCUELA,
+    provider: "mercadopago",
+    cuentaConectadaId: "555111222",
+    credencialesCifradas: CREDENCIALES_MP_TEST,
+    activa: true,
+    createdAt: nowIso,
+    updatedAt: nowIso
+  });
+
+  const { cuota } = await crearYPublicarCobro();
+  const tokenAlumno = tokenFor({ id: ALUMNO, role: "USER", schoolId: ESCUELA });
+
+  const originalFetch = globalThis.fetch;
+  let llamada = 0;
+  globalThis.fetch = (async (url: string | URL | Request, init?: RequestInit) => {
+    if (String(url).startsWith(baseUrl)) return originalFetch(url as string, init);
+    llamada++;
+    return { ok: true, json: async () => ({ init_point: `https://mp.test/checkout/intento-${llamada}` }) } as Response;
+  }) as typeof fetch;
+  try {
+    const primero = await jsonRequest(baseUrl, "POST", `/api/cuotas/${cuota.id}/checkout`, { token: tokenAlumno });
+    assert.equal(primero.status, 201);
+    const pago1 = (primero.body as { pago: { id: string; providerRef: string } }).pago;
+
+    const segundo = await jsonRequest(baseUrl, "POST", `/api/cuotas/${cuota.id}/checkout`, { token: tokenAlumno });
+    assert.equal(segundo.status, 200, JSON.stringify(segundo.body));
+    const body2 = segundo.body as { pago: { id: string; providerRef: string }; url: string | null };
+    assert.equal(body2.pago.id, pago1.id, "reusa el mismo Pago, no crea otro");
+    assert.notEqual(body2.pago.providerRef, pago1.providerRef, "actualiza el providerRef para que el webhook lo encuentre");
+    assert.ok(body2.url, "la segunda llamada también debe traer una url para redirigir");
+    assert.equal(prisma.pago.rows.filter((p) => (p.id as string) === pago1.id).length, 1);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
 test("checkout cae a manual si el provider conectado falla (no bloquea el cobro)", async () => {
   const nowIso = new Date().toISOString();
   prisma.escuelaPasarela.rows.push({
     id: "pasarela-2",
     escuelaId: ESCUELA,
     provider: "mercadopago",
-    cuentaConectadaId: "cuenta-mp-escuela",
+    cuentaConectadaId: "555111222",
+    credencialesCifradas: CREDENCIALES_MP_TEST,
     activa: true,
     createdAt: nowIso,
     updatedAt: nowIso
@@ -170,8 +217,8 @@ test("webhook de cryptomus confirma el pago end-to-end y asienta la comisión", 
   const cuotaActualizada = prisma.cuotaAlumno.rows.find((c) => c.id === cuota.id);
   assert.equal(cuotaActualizada?.estado, "pagada");
   const transaccion = prisma.transaccionEscuela.rows.find((t) => t.escuelaId === ESCUELA);
-  assert.ok(transaccion, "debe asentar TransaccionEscuela (escuela autogestionada)");
-  assert.equal(transaccion?.comisionVB, 100);
+  assert.ok(transaccion, "debe asentar TransaccionEscuela");
+  assert.equal(transaccion?.comisionVB, 15, "cryptomus paga la tarifa internacional (comisionPctIntl)");
 });
 
 test("webhook con firma inválida responde 401 y no toca nada", async () => {
