@@ -253,7 +253,13 @@ export const ModuleSchema = z.object({
   description: z.string().min(1),
   subject: z.string().min(1),
   category: z.string().min(1),
-  level: z.string().min(1),
+  // PLAN-W §2 — el input de Nivel se oculta en categoría "evaluacion"
+  // (ModuloEditor.tsx) y el front no lo exige ahí (useModuloPersistence.ts).
+  // Sin relajar acá, ese módulo llega con level:"" y este .min(1) lo
+  // rechazaba con 400 — el docente no tenía forma de completar un campo
+  // que no ve en pantalla. La exigencia por categoría se aplica en el
+  // handler (routes/modulos.ts), mismo criterio que el front.
+  level: z.string(),
   durationMinutes: z.number().int().positive(),
   recommendedCourse: z.string().min(1).optional(),
   visibility: ModuleVisibilitySchema,

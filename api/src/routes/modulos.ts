@@ -501,6 +501,13 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
       // vienen con `subject: null`. El editor trata `null` como
       // string vacío (ver `useModuloPersistence.ts:101`).
       subject: item.subject ?? null,
+      // FIX-MODULO-CATEGORY — el GET singular nunca devolvía `category`
+      // (a diferencia del listado plural, que sí la incluye). El editor
+      // recarga el módulo después de guardar y, al no venir `category`
+      // en el DTO, `useModuloPersistence.ts` caía siempre a
+      // "sin-categoria" — un módulo guardado como "evaluacion" se veía
+      // "sin categoría" apenas se refrescaba la página.
+      category: item.category ?? null,
       // FIX-MODULO-CRASH-LEVEL — devolver `level` (nivel educativo) en
       // el GET. Mismo patrón que `subject`: la columna se agregó con
       // la migración `20260617040000_modulo_level`. El editor lo lee
@@ -893,6 +900,13 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
     return res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
 
+  // PLAN-W §2 — mismo criterio que useModuloPersistence.ts: en categoría
+  // "evaluacion" el campo Nivel está oculto en el editor, así que no se
+  // exige acá tampoco (ver comentario en schema/modulo.ts sobre `level`).
+  if (parsed.category !== "evaluacion" && !parsed.level.trim()) {
+    return res.status(400).json({ error: "El nivel es obligatorio." });
+  }
+
   try {
     if (parsed.aulaId) {
       const classroom = await prisma.clase.findFirst({
@@ -920,6 +934,10 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
       // (modulo.ts:208,227). Antes del fix, el handler no los incluía
       // en moduloData, así que se perdían.
       subject: parsed.subject ?? null,
+      // FIX-MODULO-CATEGORY — faltaba acá (mismo bug que en
+      // applyModuleUpdate/PATCH-PUT): category nunca llegaba a la fila,
+      // así que un módulo creado como "evaluacion" quedaba sin categoría.
+      category: parsed.category ?? null,
       theoryItems: parsed.theoryItems?.length
         ? JSON.stringify(parsed.theoryItems)
         : null,
@@ -1074,6 +1092,11 @@ async function applyModuleUpdate(
     // campos: si vienen en el payload, se actualizan; si no, se dejan
     // intactos.
     if (parsed.subject !== undefined) updateData.subject = parsed.subject ?? null;
+    // FIX-MODULO-CATEGORY — `category` nunca se incluía acá (a diferencia
+    // de subject/level, que sí siguen este mismo patrón). El editor manda
+    // category en cada guardado pero se perdía silenciosamente: un módulo
+    // guardado como "evaluacion" volvía a cargar como "sin-categoria".
+    if (parsed.category !== undefined) updateData.category = parsed.category ?? null;
     if (parsed.theoryItems !== undefined) {
       updateData.theoryItems = parsed.theoryItems && parsed.theoryItems.length
         ? JSON.stringify(parsed.theoryItems)
@@ -1328,6 +1351,22 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
     const parsed = ModuleUpdateSchema.parse(req.body);
     const existing = await prisma.modulo.findFirst({ where: { id: req.params.id as string } });
     if (!existing) return res.status(404).json({ error: "not found" });
+
+    // PLAN-W §2 — mismo criterio que POST /api/modulos y que
+    // useModuloPersistence.ts: en categoría "evaluacion" el Nivel está
+    // oculto en el editor, no se exige. Sólo se valida cuando el payload
+    // TRAE `level` (el guardado completo del editor siempre lo manda,
+    // aunque sea ""): un PATCH parcial que no toca `level` (ej. togglear
+    // `descatalogado`) no debe empezar a exigirlo por un módulo viejo
+    // que nunca tuvo nivel.
+    if (parsed.level !== undefined) {
+      const effectiveCategory =
+        parsed.category !== undefined ? parsed.category : (existing as any).category ?? null;
+      if (effectiveCategory !== "evaluacion" && !parsed.level.trim()) {
+        return res.status(400).json({ error: "El nivel es obligatorio." });
+      }
+    }
+
     if ((existing as any).aulaId) {
       const classroom = await prisma.clase.findFirst({
         where: { id: (existing as any).aulaId },
@@ -1415,6 +1454,22 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
     const parsed = ModuleUpdateSchema.parse(req.body);
     const existing = await prisma.modulo.findFirst({ where: { id: req.params.id as string } });
     if (!existing) return res.status(404).json({ error: "not found" });
+
+    // PLAN-W §2 — mismo criterio que POST /api/modulos y que
+    // useModuloPersistence.ts: en categoría "evaluacion" el Nivel está
+    // oculto en el editor, no se exige. Sólo se valida cuando el payload
+    // TRAE `level` (el guardado completo del editor siempre lo manda,
+    // aunque sea ""): un PATCH parcial que no toca `level` (ej. togglear
+    // `descatalogado`) no debe empezar a exigirlo por un módulo viejo
+    // que nunca tuvo nivel.
+    if (parsed.level !== undefined) {
+      const effectiveCategory =
+        parsed.category !== undefined ? parsed.category : (existing as any).category ?? null;
+      if (effectiveCategory !== "evaluacion" && !parsed.level.trim()) {
+        return res.status(400).json({ error: "El nivel es obligatorio." });
+      }
+    }
+
     if ((existing as any).aulaId) {
       const classroom = await prisma.clase.findFirst({
         where: { id: (existing as any).aulaId },
