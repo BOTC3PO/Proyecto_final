@@ -14,7 +14,11 @@ export default function RoleLayout() {
       <div className="flex min-h-screen bg-[var(--c-bg)]">
         <StaffSidebar />
         <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
-          <main className="flex-grow overflow-y-auto">
+          {/* pt-16: StaffSidebar renderiza su propio botón hamburguesa
+              flotante (fixed) en mobile cuando no hay topbar propia
+              (ver StaffSidebar.tsx); sin este padding el contenido de
+              la página (títulos) queda tapado detrás del botón. */}
+          <main className="flex-grow overflow-y-auto pt-16 md:pt-0">
             <Outlet />
           </main>
           <OfflineIndicator />

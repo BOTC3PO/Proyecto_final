@@ -1515,8 +1515,11 @@ export default function QuizAttempt() {
                         }
                         data-testid="quiz-nav-prev"
                         aria-label={t("quizAttempt.preguntaAnterior")}
+                        style={{ flexShrink: 0 }}
                       >
-                        <ChevronLeft size={16} aria-hidden="true" />{t("quizAttempt.anterior")}</Button>
+                        <ChevronLeft size={16} aria-hidden="true" />
+                        {!isNarrowViewport && t("quizAttempt.anterior")}
+                      </Button>
                       {modoPresentacion === "una_por_pantalla" ? (
                         <div
                           data-testid="quiz-nav-dots"
@@ -1598,7 +1601,10 @@ export default function QuizAttempt() {
                         }
                         data-testid="quiz-nav-next"
                         aria-label={t("quizAttempt.siguientePregunta")}
-                      >{t("quizAttempt.siguiente")}<ChevronRight size={16} aria-hidden="true" />
+                        style={{ flexShrink: 0 }}
+                      >
+                        {!isNarrowViewport && t("quizAttempt.siguiente")}
+                        <ChevronRight size={16} aria-hidden="true" />
                       </Button>
                     </nav>
                   )}

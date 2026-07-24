@@ -54,11 +54,15 @@ export default defineConfig({
   },
 
   server: {
+    host: true, // expone en la red local (0.0.0.0), no sólo localhost
     https: httpsConfig,
     proxy: {
       "/api": {
-        target: "http://localhost:5050",
+        // La API sirve https localmente cuando hay certs (mismo par mkcert
+        // que arriba); secure:false porque es self-signed.
+        target: httpsConfig ? "https://localhost:5050" : "http://localhost:5050",
         changeOrigin: true,
+        secure: false,
       },
     },
   },

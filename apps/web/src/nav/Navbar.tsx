@@ -464,23 +464,50 @@ export default function Navbar() {
       }}
     >
       <div className="flex items-center justify-between max-w-6xl gap-4 px-4 py-3 mx-auto">
-        <Link
-          to="/"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "var(--space-2)",
-            fontWeight: "var(--fw-bold)",
-            fontSize: "var(--text-base)",
-            color: "var(--c-text)",
-            textDecoration: "none",
-          }}
-        >
-          <BrandMark size={22} />
-          {t("comun.virtualBook")}
-        </Link>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? t('aria.cerrarMenuNav') : t('aria.abrirMenuNav')}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="app-mobile-menu"
+            className="md:hidden"
+            style={{
+              display: "inline-flex",
+              padding: "var(--space-1)",
+              color: "var(--c-text)",
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            <svg width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {!isMobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              )}
+            </svg>
+          </button>
 
-        <ul className="flex flex-wrap items-center gap-1">
+          <Link
+            to="/"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "var(--space-2)",
+              fontWeight: "var(--fw-bold)",
+              fontSize: "var(--text-base)",
+              color: "var(--c-text)",
+              textDecoration: "none",
+            }}
+          >
+            <BrandMark size={22} />
+            <span className="hidden sm:inline">{t("comun.virtualBook")}</span>
+          </Link>
+        </div>
+
+        <ul className="items-center hidden gap-1 md:flex">
           {items?.map((it) => (
             <li key={it.to}>
               <NavItem to={it.to} end={it.exact ?? true} orientation="horizontal">
@@ -609,6 +636,29 @@ export default function Navbar() {
           ) : null}
         </div>
       </div>
+
+      {isMobileMenuOpen && (
+        <div
+          id="app-mobile-menu"
+          className="md:hidden"
+          style={{
+            borderTopWidth: "1px",
+            borderTopStyle: "solid",
+            borderTopColor: "var(--c-border)",
+            background: "var(--c-surface)",
+          }}
+        >
+          <ul className="flex flex-col px-2 py-2">
+            {items?.map((it) => (
+              <li key={it.to}>
+                <NavItem to={it.to} end={it.exact ?? true} orientation="sidebar">
+                  {t(`nav.${it.label}`)}
+                </NavItem>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

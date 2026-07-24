@@ -612,9 +612,9 @@ export default function ModuloDetail() {
             </svg>
             Volver
           </button>
-          <div className="flex items-start justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <h1 className="text-2xl font-bold text-white md:text-3xl">{module.title}</h1>
-            <div className="flex items-center gap-2 shrink-0 flex-wrap justify-end">
+            <div className="flex items-center gap-2 shrink-0 flex-wrap sm:justify-end">
               {!ttsActivo ? (
                 <button
                   type="button"

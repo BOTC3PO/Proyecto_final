@@ -528,28 +528,30 @@ export default function Aula() {
         {/* Banner */}
         <header className="bg-[var(--c-primary)] text-white rounded-xl h-28 relative">
           <h1 className="sr-only">{classroom?.name ?? "Aula"}</h1>
-          <div className="absolute left-5 bottom-3 text-sm">
-            {roleLabel} • {teacherName} | {t("aula.codigoDeClase")} {classCode}
-          </div>
           <span className="absolute left-5 top-3 rounded-full bg-white/20 px-3 py-1 text-xs uppercase tracking-wide">
             {t(getClassroomStatusLabelKey(classroom?.status))}
           </span>
-          {isTeacher ? (
-            classroomId ? (
-              <Link
-                className="absolute right-5 bottom-3 bg-[var(--c-surface)] text-[var(--c-primary)] px-4 py-1.5 rounded-lg border border-[var(--c-border)] text-sm font-medium"
-                to={`/profesor/aulas/${classroomId}`}
-              >{t("aula.gestionarAula")}</Link>
-            ) : (
-              <span className="absolute right-5 bottom-3 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
-                {t("aula.acceso")} {accessLabel}
-              </span>
-            )
-          ) : (
-            <div className="absolute right-5 bottom-3 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
-              {t("aula.acceso")} {accessLabel}
+          <div className="absolute left-5 right-5 bottom-3 flex items-center justify-between gap-3">
+            <div className="text-sm truncate min-w-0">
+              {roleLabel} • {teacherName} | {t("aula.codigoDeClase")} {classCode}
             </div>
-          )}
+            {isTeacher ? (
+              classroomId ? (
+                <Link
+                  className="flex-shrink-0 bg-[var(--c-surface)] text-[var(--c-primary)] px-4 py-1.5 rounded-lg border border-[var(--c-border)] text-sm font-medium"
+                  to={`/profesor/aulas/${classroomId}`}
+                >{t("aula.gestionarAula")}</Link>
+              ) : (
+                <span className="flex-shrink-0 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
+                  {t("aula.acceso")} {accessLabel}
+                </span>
+              )
+            ) : (
+              <div className="flex-shrink-0 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
+                {t("aula.acceso")} {accessLabel}
+              </div>
+            )}
+          </div>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">

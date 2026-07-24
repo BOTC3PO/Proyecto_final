@@ -525,7 +525,7 @@ export default function menuProfesor() {
                 abajo, en la fila compacta. */}
             <div
               data-testid="panel-modo-aula-prominente"
-              className={`rounded-xl border-2 p-4 flex flex-wrap items-center gap-4 ${
+              className={`rounded-xl border-2 p-4 flex flex-col sm:flex-row sm:items-center gap-4 ${
                 modoAulaActivo
                   ? 'border-[var(--c-success)] bg-[var(--c-success-soft)]'
                   : 'border-[var(--c-warning)] bg-[var(--c-warning-soft)]'
@@ -617,7 +617,7 @@ export default function menuProfesor() {
             <div className="grid gap-4 lg:grid-cols-2">
 
               {/* ── Mis aulas ──────────────────────────────────── */}
-              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+              <div className="min-w-0 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
                   <h3 className="text-sm font-semibold text-[var(--c-text)]">{t('menuProfesor.misAulas')}</h3>
                   <Link to="/profesor/aulas" className="text-xs text-[var(--c-primary)] hover:underline">
@@ -711,7 +711,7 @@ export default function menuProfesor() {
               </div>
 
               {/* ── Evaluaciones + Planificación (apiladas) ──────── */}
-              <div className="space-y-4">
+              <div className="min-w-0 space-y-4">
 
                 {/* Evaluaciones recientes — FIX-PANEL-EVALUACIONES */}
                 <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
