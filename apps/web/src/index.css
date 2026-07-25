@@ -97,6 +97,36 @@
   --c-accent-soft: color-mix(in srgb, var(--c-accent) 12%, var(--c-surface));
   --c-accent-fg:   var(--c-surface);
 
+  /* ── Tipos de módulo (aprendizaje/competencia/evaluación) ──
+   * Mezclados hacia --c-text (no fijos por tema): --c-text ya está
+   * garantizado a contrastar bien contra --c-surface en cada tema,
+   * así que mezclar el color semántico hacia el texto empuja el tono
+   * en la dirección de luminosidad correcta según el tema sea claro
+   * u oscuro (evita que un verde quede "verde oscuro" ilegible sobre
+   * fondos negros, p.ej. tema Nocturno). El -soft es el fondo opaco
+   * del badge/tarjeta, mezclado hacia --c-surface en vez de blanco.
+   *
+   * "aprendizaje" usa --c-info (no --c-primary): verificado con un
+   * script sobre los 39 temas (2026-07-25) que --c-primary coincide
+   * literalmente con --c-success o --c-warning en varios temas —
+   * Bosque (primary === success, distancia RGB 0) y Dorado (primary
+   * === warning, distancia 0) mostraban el mismo color para dos tipos
+   * de módulo distintos; Vibrante/Emerald/Carbon/Papel Digital
+   * quedaban igual de cerca (colores casi indistinguibles). --c-info
+   * no es el color de marca de ningún tema, así que no choca con los
+   * semánticos por diseño. Costo: --c-info no está tan afinado para
+   * fondos oscuros como --c-primary (que cada tema sí ajusta a mano),
+   * así que el contraste de "aprendizaje" baja un poco en temas muy
+   * oscuros (p.ej. Pizarra ~3.1:1) — sigue en el rango que ya acepta
+   * el resto de los badges "-soft" de la app en varios temas, y es
+   * preferible a un choque de color exacto. */
+  --c-tipo-evaluacion:       color-mix(in srgb, var(--c-warning) 65%, var(--c-text));
+  --c-tipo-evaluacion-soft:  color-mix(in srgb, var(--c-warning) 20%, var(--c-surface));
+  --c-tipo-competencia:      color-mix(in srgb, var(--c-success) 65%, var(--c-text));
+  --c-tipo-competencia-soft: color-mix(in srgb, var(--c-success) 20%, var(--c-surface));
+  --c-tipo-aprendizaje:      color-mix(in srgb, var(--c-info) 65%, var(--c-text));
+  --c-tipo-aprendizaje-soft: color-mix(in srgb, var(--c-info) 20%, var(--c-surface));
+
   /* ── Código y syntax (Tiza · WO-V1) ───────────────────────
    * Tokens para la vista de código (V3) y contextos monospace.
    * Por defecto apuntan a valores sensatos sobre cualquier
@@ -368,12 +398,15 @@
 /* ═══════════════════════════════════════════════════════════
    DATA-ACCENT — sistema de acentos conmutables (WO-V1)
    Sobre-escribe --c-primary/--c-accent/--c-accent-soft/--c-accent-fg.
-   Default = azul (en :root arriba). Cada tema puede o no usar
-   el acento; el acento vive afuera del tema, así que se puede
+   Sólo aplica si data-accent está seteado explícitamente (lo hace
+   PlantillaEditorShell para el editor Tiza). Cada tema puede o no
+   usar el acento; el acento vive afuera del tema, así que se puede
    combinar: <html data-theme="tiza" data-accent="teal">.
+   NO usar ":root" acá — pisaría el --c-primary/--c-accent propio
+   de todos los temas "normales" (bug encontrado 2026-07-25: Aurora,
+   Bosque, Vibrante, etc. mostraban azul en vez de su color de tema).
    ═══════════════════════════════════════════════════════════ */
 
-:root,
 [data-accent="azul"] {
   --c-primary:     #2f6df6;
   --c-accent:      #2f6df6;

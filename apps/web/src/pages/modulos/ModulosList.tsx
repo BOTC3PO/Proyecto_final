@@ -54,13 +54,16 @@ function statusBadgeVariant(s: string): BadgeVariant {
   }
 }
 
+// --c-tipo-* (index.css) mezclan warning/success/primary hacia --c-text
+// para que el acento se mantenga legible en cualquier tema (evita un
+// verde "oscuro" ilegible en temas negros como Nocturno).
 const CATEGORY_ACCENT: Record<string, string> = {
-  evaluacion: "var(--c-warning)",
-  competencia: "var(--c-success)",
+  evaluacion: "var(--c-tipo-evaluacion)",
+  competencia: "var(--c-tipo-competencia)",
 };
 
 function getCategoryAccent(category: string): string {
-  return CATEGORY_ACCENT[(category ?? "").toLowerCase()] ?? "var(--c-primary)";
+  return CATEGORY_ACCENT[(category ?? "").toLowerCase()] ?? "var(--c-tipo-aprendizaje)";
 }
 
 export default function ModulosList() {

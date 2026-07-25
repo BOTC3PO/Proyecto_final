@@ -30,11 +30,13 @@ const TIPO_LABEL_KEY: Record<QuizMetaTipo, string> = {
   competencia: "quizConfigPanel.competencia",
 };
 
+// evaluación/competencia usan --c-tipo-* (index.css): mezclan warning/
+// success hacia --c-text para seguir siendo legibles en temas oscuros.
 const TIPO_BADGE: Record<QuizMetaTipo, string> = {
   practica: "bg-[var(--c-info-soft,#dbeafe)] text-[var(--c-info,#2563eb)]",
-  formal: "bg-[var(--c-warning-soft,#fef3c7)] text-[var(--c-warning,#b45309)]",
-  evaluacion: "bg-[var(--c-warning-soft,#fef3c7)] text-[var(--c-warning,#b45309)]",
-  competencia: "bg-[var(--c-success-soft,#dcfce7)] text-[var(--c-success,#15803d)]",
+  formal: "bg-[var(--c-tipo-evaluacion-soft,#fef3c7)] text-[var(--c-tipo-evaluacion,#b45309)]",
+  evaluacion: "bg-[var(--c-tipo-evaluacion-soft,#fef3c7)] text-[var(--c-tipo-evaluacion,#b45309)]",
+  competencia: "bg-[var(--c-tipo-competencia-soft,#dcfce7)] text-[var(--c-tipo-competencia,#15803d)]",
 };
 
 function tizaHref(quizId: string): string {
