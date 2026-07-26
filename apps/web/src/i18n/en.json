@@ -4259,5 +4259,10 @@
   "revisionEscuela.bajar": "Take down",
   "revisionEscuela.motivo": "Why is it being taken down? (recorded)",
   "revisionEscuela.vacio": "No recent material.",
-  "revisionEscuela.sinTitulo": "Untitled"
+  "revisionEscuela.sinTitulo": "Untitled",
+  "adminEscuelas.cryptomusHabilitar": "Enable Cryptomus",
+  "adminEscuelas.cryptomusQuitar": "Disable Cryptomus",
+  "adminEscuelas.cryptomusConfirmar": "With Cryptomus, this school's money goes through your account and you pay them manually. You take custody of those funds. Enable anyway?",
+  "adminEscuelas.reasignarTitular": "Reassign owner",
+  "adminEscuelas.reasignarPrompt": "Id of the new principal director (must be an active director of that school)"
 }

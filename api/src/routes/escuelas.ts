@@ -207,6 +207,49 @@ escuelas.post("/api/escuelas/:id/verificar", requireAdmin, async (req, res) => {
 });
 
 
+// PATCH /api/escuelas/:id/directivo-principal — reasignar la titularidad.
+//
+// Sin esto, si la cuenta del directivo principal se va, la escuela queda sin
+// nadie que pueda tocar su pasarela de cobro: nadie más puede hacerlo y él ya
+// no está. Lo resuelve el ADMIN de plataforma a propósito — es soporte, no
+// una acción que la escuela pueda hacer sola (si no, cualquier directivo se
+// autoproclamaría titular y se quedaría con la cuenta de cobro).
+escuelas.patch("/api/escuelas/:id/directivo-principal", requireAdmin, async (req, res) => {
+  const escuelaId = req.params.id as string;
+  const nuevoId = typeof req.body?.usuarioId === "string" ? req.body.usuarioId : "";
+  if (!nuevoId) return res.status(400).json({ error: "usuarioId requerido" });
+
+  const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
+  if (!escuela) return res.status(404).json({ error: "escuela no encontrada" });
+
+  // El nuevo titular tiene que ser directivo ACTIVO de esa escuela: la
+  // titularidad habilita la pasarela, no puede caer en alguien de afuera.
+  const membresia = await prisma.membresia.findFirst({
+    where: { usuarioId: nuevoId, escuelaId, rol: "DIRECTIVO", estado: "activa" }
+  });
+  if (!membresia) {
+    return res.status(422).json({
+      error: "el usuario no es directivo activo de esa escuela",
+      code: "NO_ES_DIRECTIVO"
+    });
+  }
+
+  const anterior = escuela.directivoPrincipalId;
+  await prisma.escuela.update({
+    where: { id: escuelaId },
+    data: { directivoPrincipalId: nuevoId, updatedAt: new Date().toISOString() }
+  });
+  await recordAuditLog({
+    actorId: getRequesterId(req) ?? "admin",
+    action: "escuela.directivo_principal_reasignado",
+    targetType: "Escuela",
+    targetId: escuelaId,
+    metadata: { antes: anterior, despues: nuevoId }
+  });
+  return res.json({ ok: true, directivoPrincipalId: nuevoId });
+});
+
+
 escuelas.get("/api/escuelas", requireUser, async (req, res) => {
   const limit = clampLimit(getQueryString(req.query.limit));
   const offset = Number(getQueryString(req.query.offset) ?? 0);

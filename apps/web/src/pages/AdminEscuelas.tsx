@@ -9,7 +9,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { Card, CardHead, CardBody, Button } from "../components/ui";
 import { useI18n } from "../i18n/I18nContext";
-import { fetchSolicitudes, verificarEscuela, type EscuelaPendiente } from "../services/escuela-alta";
+import {
+  fetchSolicitudes,
+  verificarEscuela,
+  habilitarCryptomus,
+  reasignarDirectivoPrincipal,
+  type EscuelaPendiente,
+} from "../services/escuela-alta";
 
 const ESTADOS = ["pendiente", "verificada", "rechazada"] as const;
 
@@ -48,6 +54,36 @@ export default function AdminEscuelas() {
     setProcesando(id);
     try {
       await verificarEscuela(id, decision, motivo);
+      await cargar();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "error");
+    } finally {
+      setProcesando(null);
+    }
+  };
+
+  const alternarCryptomus = async (esc: EscuelaPendiente) => {
+    // Encenderlo significa asumir custodia de fondos de terceros para ESA
+    // escuela, así que se confirma en vez de ser un toggle silencioso.
+    const encender = !esc.cryptomusHabilitado;
+    if (encender && !window.confirm(t("adminEscuelas.cryptomusConfirmar"))) return;
+    setProcesando(esc.id);
+    try {
+      await habilitarCryptomus(esc.id, encender);
+      await cargar();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "error");
+    } finally {
+      setProcesando(null);
+    }
+  };
+
+  const reasignarTitular = async (esc: EscuelaPendiente) => {
+    const usuarioId = window.prompt(t("adminEscuelas.reasignarPrompt"));
+    if (!usuarioId?.trim()) return;
+    setProcesando(esc.id);
+    try {
+      await reasignarDirectivoPrincipal(esc.id, usuarioId.trim());
       await cargar();
     } catch (e) {
       setError(e instanceof Error ? e.message : "error");
@@ -102,6 +138,22 @@ export default function AdminEscuelas() {
                     </div>
                   ))}
                 </dl>
+              )}
+              {/* Acciones de plataforma sobre escuelas ya verificadas. */}
+              {estado === "verificada" && (
+                <div style={{ display: "flex", gap: "var(--space-2)", marginTop: "var(--space-3)", flexWrap: "wrap" }}>
+                  <Button
+                    onClick={() => void alternarCryptomus(esc)}
+                    disabled={procesando === esc.id}
+                  >
+                    {esc.cryptomusHabilitado
+                      ? t("adminEscuelas.cryptomusQuitar")
+                      : t("adminEscuelas.cryptomusHabilitar")}
+                  </Button>
+                  <Button onClick={() => void reasignarTitular(esc)} disabled={procesando === esc.id}>
+                    {t("adminEscuelas.reasignarTitular")}
+                  </Button>
+                </div>
               )}
               {estado === "pendiente" && (
                 <div style={{ display: "flex", gap: "var(--space-2)", marginTop: "var(--space-3)" }}>

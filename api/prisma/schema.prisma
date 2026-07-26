@@ -47,6 +47,16 @@ model Escuela {
   /// verificar; no se expone fuera del panel de admin ni del propio directivo.
   datosVerificacion  String?  @map("datos_verificacion")
   motivoRechazo      String?  @map("motivo_rechazo")
+  /// Cryptomus habilitado para ESTA escuela. Apagado por default y sólo lo
+  /// enciende el ADMIN de plataforma, escuela por escuela.
+  ///
+  /// Por qué no es como MercadoPago: Cryptomus liquida con comisión pero
+  /// TODO adentro de la cuenta de VB, y el pago a la escuela es manual. O
+  /// sea que en ese camino VB custodia fondos de terceros, que es
+  /// justamente lo que el modelo evita. No se puede quitar porque hoy no
+  /// hay otra opción para pagos del exterior, así que se acota: se elige
+  /// con qué escuelas se asume ese riesgo en vez de asumirlo con todas.
+  cryptomusHabilitado Boolean @default(false) @map("cryptomus_habilitado")
   usuarios           Usuario[]
   membresias         Membresia[]
   clases             Clase[]

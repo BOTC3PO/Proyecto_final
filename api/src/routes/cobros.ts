@@ -1,7 +1,8 @@
 import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
-import { bloquearSiNoVerificada, puedeEmitirCobros } from "../lib/escuela-verificacion";
+import { bloquearSiNoVerificada, puedeEmitirCobros, esDirectivoPrincipal } from "../lib/escuela-verificacion";
+import { recordAuditLog } from "../lib/audit-log";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
 import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
@@ -278,9 +279,18 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
   if (!cobro) return res.status(404).json({ error: "cobro no encontrado" });
 
   const preferido = typeof req.body?.provider === "string" ? req.body.provider : null;
-  const pasarela = await prisma.escuelaPasarela.findFirst({
+  const pasarelaCruda = await prisma.escuelaPasarela.findFirst({
     where: { escuelaId: cobro.escuelaId, activa: true, ...(preferido ? { provider: preferido } : {}) }
   });
+  // Cryptomus sólo si el admin de plataforma lo habilitó para ESTA escuela:
+  // es el único camino donde VB custodia fondos de terceros (liquida con
+  // comisión pero dentro de su propia cuenta, y paga a la escuela a mano).
+  // Si no está habilitado, el cobro cae a "manual" en vez de usarlo.
+  const escuelaDelCobro = await prisma.escuela.findFirst({ where: { id: cobro.escuelaId } });
+  const pasarela =
+    pasarelaCruda?.provider === "cryptomus" && !escuelaDelCobro?.cryptomusHabilitado
+      ? null
+      : pasarelaCruda;
 
   // Arma un checkout contra el provider real (o cae a "manual" si no hay
   // pasarela / falla). MP no persiste la `url` de la preferencia — hay que
@@ -433,4 +443,72 @@ cobros.post("/api/pasarelas/webhook/:provider", async (req, res) => {
   }
 
   res.json({ ok: true });
+});
+
+// PATCH /api/escuelas/:escuelaId/delegacion-cobros — el directivo PRINCIPAL
+// habilita o quita el permiso de cobrar a otro directivo de su escuela.
+//
+// Hasta acá `Membresia.puedeCobrar` sólo se podía cambiar por SQL. La
+// delegación habilita EMITIR y CONFIRMAR; conectar la pasarela sigue siendo
+// exclusivo del principal, así que un delegado nunca puede redirigir la plata.
+cobros.patch("/api/escuelas/:escuelaId/delegacion-cobros", requireUser, async (req, res) => {
+  const user = req.user as ReqUser | undefined;
+  const escuelaId = req.params.escuelaId as string;
+  const usuarioId = typeof req.body?.usuarioId === "string" ? req.body.usuarioId : "";
+  const puedeCobrar = req.body?.puedeCobrar === true;
+  if (!usuarioId) return res.status(400).json({ error: "usuarioId requerido" });
+
+  if (!(await esDirectivoPrincipal(user, escuelaId))) {
+    return res.status(403).json({
+      error: "sólo el directivo principal delega cobros",
+      code: "SOLO_DIRECTIVO_PRINCIPAL"
+    });
+  }
+
+  const { count } = await prisma.membresia.updateMany({
+    where: { usuarioId, escuelaId, rol: "DIRECTIVO", estado: "activa" },
+    data: { puedeCobrar, updatedAt: now() }
+  });
+  if (count === 0) {
+    return res.status(422).json({
+      error: "el usuario no es directivo activo de esa escuela",
+      code: "NO_ES_DIRECTIVO"
+    });
+  }
+
+  await recordAuditLog({
+    actorId: getRequesterId(user) ?? "desconocido",
+    action: puedeCobrar ? "cobros.delegacion_otorgada" : "cobros.delegacion_revocada",
+    targetType: "Membresia",
+    targetId: `${usuarioId}:${escuelaId}`,
+    metadata: { escuelaId, usuarioId }
+  });
+  return res.json({ ok: true, puedeCobrar });
+});
+
+// PATCH /api/escuelas/:escuelaId/cryptomus — el admin de plataforma elige con
+// qué escuelas asume la custodia de fondos que implica Cryptomus.
+cobros.patch("/api/escuelas/:escuelaId/cryptomus", requireUser, async (req, res) => {
+  const user = req.user as ReqUser | undefined;
+  if (!hasRole(user, "ADMIN")) {
+    return res.status(403).json({ error: "sólo el admin de plataforma", code: "SOLO_ADMIN" });
+  }
+  const escuelaId = req.params.escuelaId as string;
+  const habilitado = req.body?.habilitado === true;
+
+  const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
+  if (!escuela) return res.status(404).json({ error: "escuela no encontrada" });
+
+  await prisma.escuela.update({
+    where: { id: escuelaId },
+    data: { cryptomusHabilitado: habilitado, updatedAt: now() }
+  });
+  await recordAuditLog({
+    actorId: getRequesterId(user) ?? "admin",
+    action: habilitado ? "escuela.cryptomus_habilitado" : "escuela.cryptomus_deshabilitado",
+    targetType: "Escuela",
+    targetId: escuelaId,
+    metadata: { antes: escuela.cryptomusHabilitado }
+  });
+  return res.json({ ok: true, cryptomusHabilitado: habilitado });
 });

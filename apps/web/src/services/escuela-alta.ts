@@ -5,7 +5,7 @@
  * pero no cobrarle a las familias hasta que el admin la verifique. Ese gate
  * vive en el back (lib/escuela-verificacion.ts); acá sólo se lo refleja.
  */
-import { apiGet, apiPost } from "../lib/api";
+import { apiGet, apiPatch, apiPost } from "../lib/api";
 
 export type SolicitudEscuela = {
   name: string;
@@ -19,6 +19,8 @@ export type SolicitudEscuela = {
 };
 
 export type EscuelaPendiente = {
+  cryptomusHabilitado?: boolean;
+  directivoPrincipalId?: string | null;
   id: string;
   name: string;
   estadoVerificacion: string;
@@ -41,3 +43,20 @@ export const verificarEscuela = (escuelaId: string, estado: "verificada" | "rech
     estado,
     ...(motivo ? { motivo } : {})
   });
+
+/** Sólo el admin de plataforma: elige con qué escuelas asume la custodia de
+ *  fondos que implica Cryptomus (liquida con comisión pero dentro de la
+ *  cuenta de VB, y el pago a la escuela es manual). */
+export const habilitarCryptomus = (escuelaId: string, habilitado: boolean) =>
+  apiPatch<{ ok: boolean; cryptomusHabilitado: boolean }>(
+    `/api/escuelas/${escuelaId}/cryptomus`,
+    { habilitado }
+  );
+
+/** Sólo el admin: si el titular se va, la escuela queda sin nadie que pueda
+ *  tocar su pasarela. El nuevo tiene que ser directivo activo de esa escuela. */
+export const reasignarDirectivoPrincipal = (escuelaId: string, usuarioId: string) =>
+  apiPatch<{ ok: boolean; directivoPrincipalId: string }>(
+    `/api/escuelas/${escuelaId}/directivo-principal`,
+    { usuarioId }
+  );

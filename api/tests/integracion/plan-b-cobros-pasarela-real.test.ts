@@ -247,3 +247,62 @@ test("webhook con firma inválida responde 401 y no toca nada", async () => {
   const pagoSinCambios = prisma.pago.rows.find((p) => p.id === pago.id);
   assert.equal(pagoSinCambios?.estado, "pendiente");
 });
+
+// ── Cryptomus habilitado por escuela ─────────────────────────────
+// Es el único camino donde VB custodia fondos de terceros (liquida con
+// comisión pero dentro de su propia cuenta, y paga a la escuela a mano). No
+// se puede quitar —no hay otra opción para el exterior— así que se elige con
+// qué escuelas se asume ese riesgo.
+
+test("una escuela sin Cryptomus habilitado cae a manual en vez de usarlo", async () => {
+  const nowIso = new Date().toISOString();
+  prisma.escuelaPasarela.rows.push({
+    id: "pas-crypto-off",
+    escuelaId: ESCUELA,
+    provider: "cryptomus",
+    cuentaConectadaId: null,
+    credencialesCifradas: null,
+    activa: true,
+    createdAt: nowIso,
+    updatedAt: nowIso
+  });
+  const { cuota } = await crearYPublicarCobro();
+  const res = await jsonRequest(baseUrl, "POST", `/api/cuotas/${cuota.id}/checkout`, {
+    token: tokenFor({ id: ALUMNO, role: "USER", schoolId: ESCUELA })
+  });
+
+  assert.equal(res.status, 201, JSON.stringify(res.body));
+  const pago = (res.body as { pago: { provider: string } }).pago;
+  assert.equal(pago.provider, "manual", "no se usa Cryptomus sin habilitación explícita");
+});
+
+test("con Cryptomus habilitado por el admin, sí se usa", async () => {
+  const nowIso = new Date().toISOString();
+  const escuela = prisma.escuela.rows.find((e) => e.id === ESCUELA);
+  if (escuela) escuela.cryptomusHabilitado = true;
+  prisma.escuelaPasarela.rows.push({
+    id: "pas-crypto-on",
+    escuelaId: ESCUELA,
+    provider: "cryptomus",
+    cuentaConectadaId: null,
+    credencialesCifradas: null,
+    activa: true,
+    createdAt: nowIso,
+    updatedAt: nowIso
+  });
+  const { cuota } = await crearYPublicarCobro();
+
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = (async (url: string | URL | Request, init?: RequestInit) => {
+    if (String(url).startsWith(baseUrl)) return originalFetch(url as string, init);
+    return { ok: true, json: async () => ({ result: { url: "https://cryptomus.test/pay/ok" } }) } as Response;
+  }) as typeof fetch;
+  try {
+    const res = await jsonRequest(baseUrl, "POST", `/api/cuotas/${cuota.id}/checkout`, {
+      token: tokenFor({ id: ALUMNO, role: "USER", schoolId: ESCUELA })
+    });
+    assert.equal((res.body as { pago: { provider: string } }).pago.provider, "cryptomus");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});

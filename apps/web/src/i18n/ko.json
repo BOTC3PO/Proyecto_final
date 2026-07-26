@@ -4259,5 +4259,10 @@
   "revisionEscuela.bajar": "Bajar",
   "revisionEscuela.motivo": "¿Por qué se baja? (queda registrado)",
   "revisionEscuela.vacio": "No hay material reciente.",
-  "revisionEscuela.sinTitulo": "Sin título"
+  "revisionEscuela.sinTitulo": "Sin título",
+  "adminEscuelas.cryptomusHabilitar": "Habilitar Cryptomus",
+  "adminEscuelas.cryptomusQuitar": "Quitar Cryptomus",
+  "adminEscuelas.cryptomusConfirmar": "Con Cryptomus, el dinero de esta escuela pasa por tu cuenta y le pagás a mano. Asumís la custodia de esos fondos. ¿Habilitar igual?",
+  "adminEscuelas.reasignarTitular": "Reasignar titular",
+  "adminEscuelas.reasignarPrompt": "Id del nuevo directivo principal (tiene que ser directivo activo de esa escuela)"
 }

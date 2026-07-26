@@ -27,7 +27,8 @@ const DATOS = {
 before(async () => {
   const { escuelas } = await import("../../src/routes/escuelas");
   const { escuelaPasarelas } = await import("../../src/routes/escuela-pasarelas");
-  const srv = await startServer([escuelas, escuelaPasarelas]);
+  const { cobros } = await import("../../src/routes/cobros");
+  const srv = await startServer([escuelas, escuelaPasarelas, cobros]);
   baseUrl = srv.baseUrl;
   close = srv.close;
 });
@@ -165,4 +166,62 @@ test("el directivo principal sí puede", async () => {
     body: { provider: "mercadopago", cuentaConectadaId: "777", activa: true }
   });
   assert.equal(res.status, 201, JSON.stringify(res.body));
+});
+
+// ── Titularidad y delegación (D2/D3) ─────────────────────────────
+
+test("el admin reasigna el directivo principal, pero sólo a un directivo de esa escuela", async () => {
+  const { id } = (await solicitar()).body as { id: string };
+  seedUser({ id: "dir-2", role: "DIRECTIVO", schoolId: id });
+
+  // Todavía no es directivo activo de esa escuela.
+  const rechazado = await jsonRequest(baseUrl, "PATCH", `/api/escuelas/${id}/directivo-principal`, {
+    token: tokenAdmin(),
+    body: { usuarioId: "dir-2" }
+  });
+  assert.equal(rechazado.status, 422);
+  assert.equal((rechazado.body as { code?: string }).code, "NO_ES_DIRECTIVO");
+
+  prisma.membresia.rows.push({
+    usuarioId: "dir-2", escuelaId: id, rol: "DIRECTIVO", estado: "activa", fechaAlta: new Date().toISOString()
+  } as never);
+
+  const ok = await jsonRequest(baseUrl, "PATCH", `/api/escuelas/${id}/directivo-principal`, {
+    token: tokenAdmin(),
+    body: { usuarioId: "dir-2" }
+  });
+  assert.equal(ok.status, 200, JSON.stringify(ok.body));
+  assert.equal(prisma.escuela.rows.find((e) => e.id === id)?.directivoPrincipalId, "dir-2");
+});
+
+test("sólo el directivo principal delega cobros, y la delegación se puede revocar", async () => {
+  const { id } = (await solicitar()).body as { id: string };
+  seedUser({ id: "dir-2", role: "DIRECTIVO", schoolId: id });
+  prisma.membresia.rows.push({
+    usuarioId: "dir-2", escuelaId: id, rol: "DIRECTIVO", estado: "activa", puedeCobrar: false,
+    fechaAlta: new Date().toISOString()
+  } as never);
+
+  const intruso = await jsonRequest(baseUrl, "PATCH", `/api/escuelas/${id}/delegacion-cobros`, {
+    token: tokenFor({ id: "dir-2", role: "DIRECTIVO", schoolId: id }),
+    body: { usuarioId: "dir-2", puedeCobrar: true }
+  });
+  assert.equal(intruso.status, 403, "un directivo no se auto-delega");
+
+  const otorga = await jsonRequest(baseUrl, "PATCH", `/api/escuelas/${id}/delegacion-cobros`, {
+    token: tokenFor({ id: SOLICITANTE, role: "DIRECTIVO", schoolId: id }),
+    body: { usuarioId: "dir-2", puedeCobrar: true }
+  });
+  assert.equal(otorga.status, 200, JSON.stringify(otorga.body));
+  assert.equal(
+    prisma.membresia.rows.find((m) => m.usuarioId === "dir-2")?.puedeCobrar,
+    true
+  );
+
+  const revoca = await jsonRequest(baseUrl, "PATCH", `/api/escuelas/${id}/delegacion-cobros`, {
+    token: tokenFor({ id: SOLICITANTE, role: "DIRECTIVO", schoolId: id }),
+    body: { usuarioId: "dir-2", puedeCobrar: false }
+  });
+  assert.equal(revoca.status, 200);
+  assert.equal(prisma.membresia.rows.find((m) => m.usuarioId === "dir-2")?.puedeCobrar, false);
 });
