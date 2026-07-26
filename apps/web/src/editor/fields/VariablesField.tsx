@@ -1,25 +1,26 @@
-import { useState, useCallback, type CSSProperties } from "react";
+import { useState, useCallback, useEffect, type CSSProperties } from "react";
 import type { Expr, Plantilla, VariableDecl } from "@vb/vblang";
 import { Badge, Button, Card, Input, Select } from "../../ui";
 import FieldGroup from "../FieldGroup";
 import {
   addVariable,
   updateVariable,
+  renameVariable,
   removeVariable,
   classifyVariable,
   makeRandomIntExpr,
   makeRandomFloatExpr,
   makeListExpr,
-  makeRangeExpr,
   type VariableKind,
 } from "../../components/vblang/plantillaFields";
-import { DUMMY_LOC, exprToText } from "../../components/vblang/plantillaAst";
+import { DUMMY_LOC, exprToText, numLiteral } from "../../components/vblang/plantillaAst";
 import { parseExprText } from "../../components/vblang/exprParse";
 import {
   inferTipoVar,
   formatValor,
 } from "../../components/vblang/PlantillaEditorSchema";
 import { useFieldError } from "../LintContext";
+import { useI18n } from "../../i18n/I18nContext";
 
 export type VariablesFieldProps = {
   plantilla: Plantilla;
@@ -32,7 +33,6 @@ const KIND_LABELS: Record<VariableKind, string> = {
   "random-int": "Aleatorio entero",
   "random-float": "Aleatorio decimal",
   list: "Lista",
-  range: "Rango",
   expr: "Expresión",
 };
 
@@ -53,8 +53,6 @@ function makeDefaultExpr(kind: VariableKind): Expr {
       return makeRandomFloatExpr(0, 1);
     case "list":
       return makeListExpr(["opcion_a", "opcion_b"]);
-    case "range":
-      return makeRangeExpr(0, 10);
     case "expr":
     default:
       return { kind: "num", value: 0, loc: DUMMY_LOC };
@@ -71,25 +69,30 @@ interface RangeArgs { lo: number; hi: number }
 
 function extractRangeArgs(expr: Expr, kind: VariableKind): RangeArgs | null {
   if (expr.kind !== "fun_call") return null;
-  const expected = kind === "random-float" ? "random_float" : kind === "range" ? "rango" : "random";
-  if (expr.name !== expected && !(kind === "range" && expr.name === "range")) return null;
+  const expected = kind === "random-float" ? "random_float" : "random";
+  if (expr.name !== expected) return null;
   if (expr.args.length !== 2) return null;
-  const lo = expr.args[0].kind === "num" ? expr.args[0].value : null;
-  const hi = expr.args[1].kind === "num" ? expr.args[1].value : null;
+  // `numLiteral` y no `kind === "num"`: los negativos vuelven del parser como
+  // unario, así que el rango se leía vacío y se pisaba con ceros al editar.
+  const lo = numLiteral(expr.args[0]);
+  const hi = numLiteral(expr.args[1]);
   if (lo === null || hi === null) return null;
   return { lo, hi };
 }
 
+/** Texto de un ítem de lista; `null` si no es un literal editable como texto. */
+function itemToText(e: Expr): string {
+  if (e.kind === "str") return e.value;
+  const n = numLiteral(e);
+  return n === null ? "" : String(n);
+}
+
 function extractListItems(expr: Expr): string[] | null {
   if (expr.kind === "array") {
-    return expr.items.map((it) =>
-      it.kind === "str" ? it.value : it.kind === "num" ? String(it.value) : "",
-    );
+    return expr.items.map(itemToText);
   }
   if (expr.kind === "fun_call" && (expr.name === "uno_de" || expr.name === "choice")) {
-    return expr.args.map((a) =>
-      a.kind === "str" ? a.value : a.kind === "num" ? String(a.value) : "",
-    );
+    return expr.args.map(itemToText);
   }
   return null;
 }
@@ -174,9 +177,23 @@ function VariableCardV2({
   onRemove: (index: number) => void;
 }) {
   const [kind, setKindState] = useState<VariableKind>(classifyVariable(decl.expr));
+  // `t` acá abajo es `inferTipoVar` (shadowing preexistente), así que el de
+  // i18n entra aliasado. El resto del archivo sigue en español hardcodeado.
+  const { t: tt } = useI18n();
 
-  const setName = (nombre: string) => {
-    onChange(updateVariable(plantilla, index, { ...decl, nombre }));
+  /**
+   * PLAN casos-limite §11 — `updateVariable(..., { ...decl, nombre })` cambiaba
+   * la declaración y dejaba las referencias en el nombre viejo: la plantilla
+   * quedaba con "variable indefinida". `renameVariable` reescribe el enunciado
+   * y las expresiones. Se confirma al salir del campo (o con Enter) para poder
+   * llegar a nombres cuyo prefijo es inválido o choca con otra variable.
+   */
+  const [nombreDraft, setNombreDraft] = useState(decl.nombre);
+  useEffect(() => setNombreDraft(decl.nombre), [decl.nombre]);
+  const commitName = () => {
+    const next = renameVariable(plantilla, index, nombreDraft);
+    if (next) onChange(next);
+    else setNombreDraft(decl.nombre);
   };
 
   const setKind = (newKind: VariableKind) => {
@@ -194,11 +211,7 @@ function VariableCardV2({
 
   const setRandomRange = (lo: number, hi: number) => {
     const expr =
-      kind === "random-float"
-        ? makeRandomFloatExpr(lo, hi)
-        : kind === "range"
-          ? makeRangeExpr(lo, hi)
-          : makeRandomIntExpr(lo, hi);
+      kind === "random-float" ? makeRandomFloatExpr(lo, hi) : makeRandomIntExpr(lo, hi);
     onChange(updateVariable(plantilla, index, { ...decl, expr }));
   };
 
@@ -212,6 +225,18 @@ function VariableCardV2({
   const listItems = extractListItems(decl.expr);
   const t = inferTipoVar(decl.expr);
 
+  /** Escribe un extremo del rango. Un `<input type="number">` reporta `""`
+   *  mientras el texto es parcial (el `-` de un negativo, por ejemplo) y
+   *  `Number("")` es 0: sin este guard, empezar a escribir un negativo pisaba
+   *  el extremo con cero. */
+  const setRangeEnd = (cual: "lo" | "hi", raw: string) => {
+    if (raw.trim() === "") return;
+    const n = Number(raw);
+    if (!Number.isFinite(n)) return;
+    const otro = cual === "lo" ? (rangeArgs?.hi ?? n + 1) : (rangeArgs?.lo ?? n - 1);
+    setRandomRange(cual === "lo" ? n : otro, cual === "hi" ? n : otro);
+  };
+
   return (
     <li>
       <Card variant="flat" padding="sm" data-testid={`v2-var-card-${index}`}>
@@ -219,8 +244,12 @@ function VariableCardV2({
           <div style={rowStyle}>
             <Input
               size="sm"
-              value={decl.nombre}
-              onChange={(e) => setName(e.target.value)}
+              value={nombreDraft}
+              onChange={(e) => setNombreDraft(e.target.value)}
+              onBlur={commitName}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") commitName();
+              }}
               aria-label={`Nombre de variable ${index + 1}`}
               data-testid={`v2-var-name-${index}`}
               placeholder="nombre"
@@ -255,17 +284,15 @@ function VariableCardV2({
             </Button>
           </div>
 
-          {(kind === "random-int" || kind === "random-float" || kind === "range") && (
+          {(kind === "random-int" || kind === "random-float") && (
             <div style={rangeRowStyle}>
               <span style={labelSpanStyle}>rango</span>
               <Input
                 size="sm"
                 type="number"
                 value={rangeArgs?.lo ?? ""}
-                onChange={(e) =>
-                  setRandomRange(Number(e.target.value), rangeArgs?.hi ?? 0)
-                }
-                aria-label={kind === "range" ? `Inicio de ${decl.nombre}` : `Mínimo de ${decl.nombre}`}
+                onChange={(e) => setRangeEnd("lo", e.target.value)}
+                aria-label={`Mínimo de ${decl.nombre}`}
                 data-testid={`v2-var-lo-${index}`}
                 placeholder="min"
                 style={{ width: "5rem", fontFamily: "var(--font-mono)" }}
@@ -275,15 +302,24 @@ function VariableCardV2({
                 size="sm"
                 type="number"
                 value={rangeArgs?.hi ?? ""}
-                onChange={(e) =>
-                  setRandomRange(rangeArgs?.lo ?? 0, Number(e.target.value))
-                }
-                aria-label={kind === "range" ? `Fin de ${decl.nombre}` : `Máximo de ${decl.nombre}`}
+                onChange={(e) => setRangeEnd("hi", e.target.value)}
+                aria-label={`Máximo de ${decl.nombre}`}
                 data-testid={`v2-var-hi-${index}`}
                 placeholder="max"
                 style={{ width: "5rem", fontFamily: "var(--font-mono)" }}
               />
               <code style={codeStyle}>{exprToText(decl.expr)}</code>
+              {/* PLAN casos-limite §6 — mín > máx compila pero falla en CADA
+                  intento del alumno ("random: int: max (1) < min (10)"). Se
+                  avisa sin bloquear el tipeo, igual que en Tiza. */}
+              {rangeArgs && rangeArgs.lo > rangeArgs.hi ? (
+                <span
+                  style={{ fontSize: 11, color: "var(--c-danger)" }}
+                  data-testid={`v2-var-rango-invertido-${index}`}
+                >
+                  {tt("comun.rangoInvertido")}
+                </span>
+              ) : null}
             </div>
           )}
 

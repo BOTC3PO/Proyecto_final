@@ -253,10 +253,24 @@ describe("Tiza · quizMeta Fase 3 (dificultad/puntaje/pools)", () => {
    El motor DSL ya existía (@vb/vblang, VBLang.md §9); esto cubre el dropdown
    nuevo del property grid: setear/quitar `generador:` de verdad en el DSL. */
 describe("Tiza · generador asistido (Fase 4)", () => {
+  it("el picker sólo aparece con el tipo legacy 'Generador'", async () => {
+    const user = userEvent.setup();
+    render(<GridHarness initial={BASE} />);
+
+    expect(screen.queryByTestId("vblang-form-generador-picker")).toBeNull();
+    await user.selectOptions(screen.getByTestId("tiza-tipo-select"), "__generador");
+    expect(screen.getByTestId("vblang-form-generador-picker")).toBeTruthy();
+
+    // Volver a un tipo normal esconde el picker de nuevo.
+    await user.selectOptions(screen.getByTestId("tiza-tipo-select"), "input");
+    expect(screen.queryByTestId("vblang-form-generador-picker")).toBeNull();
+  });
+
   it("elegir un generador escribe `generador:` en el DSL; quitarlo vuelve a la base por tipo", async () => {
     const user = userEvent.setup();
     render(<GridHarness initial={BASE} />);
 
+    await user.selectOptions(screen.getByTestId("tiza-tipo-select"), "__generador");
     const picker = screen.getByTestId("vblang-form-generador-picker");
     const opciones = within(picker)
       .getAllByRole("option")

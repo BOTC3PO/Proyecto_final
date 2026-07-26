@@ -44,6 +44,8 @@ import {
   // El server delega en el paquete; si la importación falla (versión vieja),
   // el `gradeSymbolic` local cae a igualdad de string.
   sonEquivalentes as sonEquivalentesVblang,
+  // PLAN casos-limite §7 — criterio numérico único, compartido con el preview.
+  respuestaNumericaCorrecta as respuestaNumericaCorrectaVblang,
   type ModuleQuizQuestion,
   type ScoringConfig
 } from "@vb/vblang";
@@ -814,24 +816,30 @@ const resolvePreguntasGrading = async (
  *  - e = 0 + tol_abs > 0 → tol_abs es la única holgura.
  *  - tol_rel = 0 + tol_abs > 0 → tol_abs es la única holgura.
  */
+/**
+ * Corrección de una respuesta numérica. Delega en `@vb/vblang`
+ * (`respuestaNumericaCorrecta`), que es la única fuente del criterio y la
+ * comparte con el preview del docente — antes cada lado tenía el suyo.
+ *
+ * PLAN casos-limite §7: sin tolerancia declarada esto era `response === expected`
+ * (igualdad de string), así que una respuesta esperada no entera obligaba al
+ * alumno a tipear los 4 decimales exactos que produce `formatoDefault`
+ * (`1/3` → `"0.3333"`) y `0,3` con coma fallaba contra `0.3`. Ahora una
+ * respuesta no entera recibe tolerancia por defecto y la coma se normaliza; las
+ * respuestas enteras y las tolerancias declaradas corrigen igual que antes.
+ */
 const gradeNumeric = (
   response: string,
   expected: string,
-  toleranciaRelativa: number,
-  toleranciaAbsoluta: number = 0
-): boolean => {
-  const r = parseFloat(response.replace(/,/g, "."));
-  const e = parseFloat(expected.replace(/,/g, "."));
-  if (Number.isNaN(r) || Number.isNaN(e)) return false;
-  const diff = Math.abs(r - e);
-  if (e === 0) {
-    // Antes: `return r === 0` (exacto). Ahora: tol_abs es la holgura.
-    return diff <= toleranciaAbsoluta;
-  }
-  const tolRel = Math.abs(e) * toleranciaRelativa;
-  const tol = Math.max(tolRel, toleranciaAbsoluta);
-  return diff <= tol;
-};
+  toleranciaRelativa?: number,
+  toleranciaAbsoluta?: number
+): boolean =>
+  respuestaNumericaCorrectaVblang(
+    response,
+    expected,
+    toleranciaRelativa,
+    toleranciaAbsoluta
+  );
 
 /**
  * WO-11 — corrector simbólico. Compara dos strings-expresión por
@@ -938,16 +946,16 @@ const gradeAnswers = (
         if (gradeSymbolic(response, expected)) score += weight;
         continue;
       }
-      const tol = question.toleranciaRelativa;
-      // F2-04: si tol_abs está presente, el criterio combinado aplica
-      // aunque tol_rel sea 0 (ej. tol_abs 0.001, tol_rel undefined).
-      const tolAbs = question.toleranciaAbsoluta ?? 0;
-      const correct = tol !== undefined && tol > 0
-        ? gradeNumeric(response, expected, tol, tolAbs)
-        : tolAbs > 0
-          ? gradeNumeric(response, expected, 0, tolAbs)
-          : response === expected;
-      if (correct) score += weight;
+      if (
+        gradeNumeric(
+          response,
+          expected,
+          question.toleranciaRelativa,
+          question.toleranciaAbsoluta
+        )
+      ) {
+        score += weight;
+      }
     }
   }
   return { score, maxScore, manual };
@@ -990,14 +998,14 @@ const buildFeedback = (
       if (question.questionType === "expresion") {
         correct = gradeSymbolic(response, expected);
       } else {
-        const tol = question.toleranciaRelativa;
-        // F2-04: idem gradeAnswers — criterio combinado tol_rel/tol_abs.
-        const tolAbs = question.toleranciaAbsoluta ?? 0;
-        correct = tol !== undefined && tol > 0
-          ? gradeNumeric(response, expected, tol, tolAbs)
-          : tolAbs > 0
-            ? gradeNumeric(response, expected, 0, tolAbs)
-            : response === expected;
+        // Mismo criterio que `gradeAnswers` (misma función): si el feedback y
+        // la nota difirieran, el alumno vería "correcta" sin puntaje.
+        correct = gradeNumeric(
+          response,
+          expected,
+          question.toleranciaRelativa,
+          question.toleranciaAbsoluta
+        );
       }
     }
     feedback[question.id] = {

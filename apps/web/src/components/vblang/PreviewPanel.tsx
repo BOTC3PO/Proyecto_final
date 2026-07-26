@@ -12,7 +12,7 @@
  */
 
 import { memo, useState } from "react";
-import type { ModuleQuizQuestion } from "@vb/vblang";
+import { respuestaNumericaCorrecta, type ModuleQuizQuestion } from "@vb/vblang";
 import type { PreviewItem } from "../../hooks/usePlantillaPreview";
 
 import { useI18n } from "../../i18n/I18nContext";
@@ -32,7 +32,18 @@ function norm(s: string): string {
   return s.trim().toLowerCase();
 }
 
-/** ¿La respuesta `user` es correcta según la clave (con tolerancia numérica)? */
+/**
+ * ¿La respuesta `user` es correcta según la clave?
+ *
+ * La parte numérica delega en `respuestaNumericaCorrecta` de `@vb/vblang`, la
+ * MISMA función que corrige el server. Antes este preview tenía su propio
+ * criterio y era más permisivo que la corrección real (normalizaba la coma y
+ * tenía epsilon, cosas que el grader sin tolerancia no hacía): el docente
+ * probaba acá, lo veía en verde, y a sus alumnos les daba mal.
+ *
+ * El atajo de texto sigue siendo case-insensitive sólo acá (divergencia
+ * preexistente con el server, que es case-sensitive; no es de §7).
+ */
 function isCorrect(q: ModuleQuizQuestion, user: string): boolean {
   const keys = Array.isArray(q.answerKey)
     ? q.answerKey
@@ -41,28 +52,11 @@ function isCorrect(q: ModuleQuizQuestion, user: string): boolean {
       : [];
   const u = user.trim();
   if (u === "" || keys.length === 0) return false;
-  const uNum = Number(u.replace(",", "."));
-  for (const raw of keys) {
+  return keys.some((raw) => {
     const k = String(raw);
     if (norm(k) === norm(u)) return true;
-    const kNum = Number(k.replace(",", "."));
-    if (Number.isFinite(uNum) && Number.isFinite(kNum)) {
-      // F2-04: criterio combinado `max(|e|·tol_rel, tol_abs)`. Mantiene el
-      // comportamiento previo cuando tol_abs está ausente (= 0). El epsilon
-      // 1e-9 absorbe errores de punto flotante.
-      const tolRel = q.toleranciaRelativa ?? 0;
-      const tolAbs = q.toleranciaAbsoluta ?? 0;
-      const diff = Math.abs(uNum - kNum);
-      if (kNum === 0) {
-        // Antes: exigía `r === 0`. Ahora: tol_abs es la única holgura.
-        if (diff <= tolAbs + 1e-9) return true;
-        continue;
-      }
-      const allowed = Math.max(Math.abs(kNum) * tolRel, tolAbs);
-      if (diff <= allowed + 1e-9) return true;
-    }
-  }
-  return false;
+    return respuestaNumericaCorrecta(u, k, q.toleranciaRelativa, q.toleranciaAbsoluta);
+  });
 }
 
 /** Tipos que tienen autocorrección simple en el preview. */

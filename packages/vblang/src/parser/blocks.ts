@@ -427,7 +427,11 @@ export function parseToleranciaBloque(c: TokenCursor): ToleranciaBloque {
   const numTok = c.peek();
   if (numTok.kind !== TokenKind.NUMBER) {
     throw new ParseError(
-      `\`tolerancia:\` debe ser un número (opcionalmente con %)`,
+      // Un margen negativo no tiene sentido (ninguna respuesta lo cumple) y el
+      // mensaje genérico no daba ninguna pista de que el problema es el signo.
+      numTok.kind === TokenKind.MINUS
+        ? `\`tolerancia:\` no puede ser negativa`
+        : `\`tolerancia:\` debe ser un número (opcionalmente con %)`,
       numTok.line,
       numTok.col,
     );
@@ -473,7 +477,9 @@ export function parseToleranciaAbsBloque(c: TokenCursor): ToleranciaAbsBloque {
   const numTok = c.peek();
   if (numTok.kind !== TokenKind.NUMBER) {
     throw new ParseError(
-      `\`tolerancia_abs:\` debe ser un número (sin %)`,
+      numTok.kind === TokenKind.MINUS
+        ? `\`tolerancia_abs:\` no puede ser negativa`
+        : `\`tolerancia_abs:\` debe ser un número (sin %)`,
       numTok.line,
       numTok.col,
     );

@@ -11,6 +11,14 @@ export {
   resolveGrade,
   gradeFromConfig,
 } from "./scoring/index.js";
+// PLAN casos-limite §7 — corrección numérica compartida (api + web preview).
+export {
+  respuestaNumericaCorrecta,
+  toleranciaEfectiva,
+  usaToleranciaPorDefecto,
+  TOLERANCIA_ABS_POR_DEFECTO,
+  TOLERANCIA_REL_POR_DEFECTO,
+} from "./scoring/index.js";
 export type {
   ScoringKind,
   ScoringConfig,

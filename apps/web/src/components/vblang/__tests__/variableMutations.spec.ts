@@ -23,7 +23,6 @@ import {
   makeListExpr,
   makeRandomFloatExpr,
   makeRandomIntExpr,
-  makeRangeExpr,
   readVariable,
   removeVariable,
   updateVariable,
@@ -122,7 +121,6 @@ describe("VB-B6: helpers de variables", () => {
     expect(classifyVariable(makeRandomIntExpr(1, 10))).toBe("random-int");
     expect(classifyVariable(makeRandomFloatExpr(0, 1))).toBe("random-float");
     expect(classifyVariable(makeListExpr(["a", "b"]))).toBe("list");
-    expect(classifyVariable(makeRangeExpr(0, 10))).toBe("range");
     expect(classifyVariable(numLit(42))).toBe("expr");
   });
 

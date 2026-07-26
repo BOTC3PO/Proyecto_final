@@ -4,7 +4,7 @@
  * El editor de variables reemplaza al `VariablesCards`
  * presentacional. Cada variable es un card editable con:
  *  - nombre editable
- *  - selector de tipo (random int/float, lista, rango, expr)
+ *  - selector de tipo (random int/float, lista, expr)
  *  - inputs específicos del tipo
  *  - valor en vivo del preview
  *  - botón eliminar
@@ -76,7 +76,7 @@ describe("VB-B6: VariablesEditor", () => {
 
   it("(b6-2) sin variables → la lista está vacía pero los botones +Añadir siguen visibles", () => {
     render(<Harness initial={'enunciado: "x"\nrespuesta: 1\n'} />);
-    // Los 5 botones +Añadir siguen visibles (random-int, random-float, list, range, expr).
+    // Los 4 botones +Añadir siguen visibles (random-int, random-float, list, expr).
     expect(screen.getByTestId("vblang-var-add-random-int")).toBeInTheDocument();
     expect(screen.getByTestId("vblang-var-add-list")).toBeInTheDocument();
   });

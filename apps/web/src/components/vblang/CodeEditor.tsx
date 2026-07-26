@@ -92,7 +92,6 @@ const BUILTINS = new Set([
   "cos",
   "tan",
   "len",
-  "rango",
   "sum",
   "avg",
   "filtrar",

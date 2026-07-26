@@ -246,6 +246,11 @@ export function writeNumberField(
   if (text.trim() === "") return withoutBlock(p, "tolerancia");
   const n = Number(text);
   if (!Number.isFinite(n)) return null; // ej. "-" intermedio
+  // El schema ya declara `allowNegative: false` para tolerancia y nadie lo
+  // miraba: una tolerancia negativa se guardaba, generaba un DSL que el parser
+  // rechaza (`tolerancia: -2`) y el bloque terminaba perdiéndose sin aviso.
+  // `null` = "no se guarda" (el caller conserva lo tipeado).
+  if (field.kind === "number" && !field.allowNegative && n < 0) return null;
   return withBlock(p, {
     kind: "tolerancia",
     valor: n,
@@ -717,6 +722,79 @@ export function updateVariable(
 }
 
 /**
+ * PLAN casos-limite §11 — reescribe las REFERENCIAS a una variable.
+ *
+ * `updateVariable` con un `nombre` distinto sólo cambia la declaración: las
+ * interpolaciones del enunciado y las expresiones que la usaban seguían
+ * apuntando al nombre viejo, así que el editor clásico producía plantillas que
+ * morían con "variable indefinida: a" (Tiza lo evitaba dejando el campo
+ * `readOnly`, que era tapar el problema, no resolverlo).
+ *
+ * Recorre el árbol entero y renombra los nodos `var`. Con eso alcanza para los
+ * dos casos: las expresiones (`a * 2`) y las interpolaciones del texto (`{a}`
+ * parsea a un `interp` que contiene un `var`). No toca `fun_call.name` ni
+ * `field` (son funciones y propiedades, no variables).
+ */
+function renameRefs<T>(nodo: T, viejo: string, nuevo: string): T {
+  if (Array.isArray(nodo)) {
+    return nodo.map((x) => renameRefs(x, viejo, nuevo)) as unknown as T;
+  }
+  if (nodo === null || typeof nodo !== "object") return nodo;
+
+  const obj = nodo as Record<string, unknown>;
+  if (obj.kind === "var" && obj.name === viejo) {
+    return { ...obj, name: nuevo } as unknown as T;
+  }
+  // `para x en …`: dentro del cuerpo, `x` es la variable del bucle y tapa a la
+  // de la plantilla. Si se llaman igual, adentro no hay nada que renombrar.
+  if (obj.kind === "for_comp" && obj.variable === viejo) {
+    return {
+      ...obj,
+      iterable: renameRefs(obj.iterable, viejo, nuevo),
+    } as unknown as T;
+  }
+
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(obj)) out[k] = renameRefs(v, viejo, nuevo);
+  return out as unknown as T;
+}
+
+/** Un nombre de variable válido para el DSL (mismo criterio que el lexer). */
+const IDENT_RE = /^[A-Za-z_][A-Za-z0-9_]*$/;
+
+/**
+ * PLAN casos-limite §11 — renombra la variable en `index` Y todas sus
+ * referencias. Devuelve `null` si el nombre no sirve (vacío, no es un
+ * identificador válido, o ya lo usa otra variable), misma convención que
+ * `writeNumberField`: `null` = no se guarda.
+ */
+export function renameVariable(
+  p: Plantilla,
+  index: number,
+  nombre: string,
+): Plantilla | null {
+  const existing = getBlock(p, "variables");
+  if (!existing) return null;
+  const current = existing.declaraciones;
+  if (index < 0 || index >= current.length) return null;
+  const decl = current[index]!;
+  const nuevo = nombre.trim();
+  if (nuevo === decl.nombre) return p;
+  if (!IDENT_RE.test(nuevo)) return null;
+  if (current.some((d, i) => i !== index && d.nombre === nuevo)) return null;
+
+  const renombrada = renameRefs(p, decl.nombre, nuevo);
+  const bloque = getBlock(renombrada, "variables");
+  if (!bloque) return null;
+  return withBlock(renombrada, {
+    ...bloque,
+    declaraciones: bloque.declaraciones.map((d, i) =>
+      i === index ? { ...d, nombre: nuevo } : d,
+    ),
+  });
+}
+
+/**
  * VB-B6 — `removeVariable`: elimina la variable en `index`. Si el
  * bloque queda vacío, lo elimina también. Si el índice está fuera
  * de rango, devuelve la plantilla sin cambios.
@@ -765,20 +843,17 @@ export function makeListExpr(items: string[]): Expr {
   );
 }
 
-export function makeRangeExpr(lo: number, hi: number): Expr {
-  return {
-    kind: "fun_call",
-    name: "rango",
-    args: [numLit(lo), numLit(hi)],
-    loc: DUMMY_LOC,
-  };
-}
-
 /** VB-B6 — clasifica la `Expr` de una variable en uno de los tipos
  *  editables del form. Usado para inicializar los inputs cuando el
  *  usuario edita una variable existente (no asumimos un tipo
- *  hardcodeado). */
-export type VariableKind = "random-int" | "random-float" | "list" | "range" | "expr";
+ *  hardcodeado).
+ *
+ *  El subtipo "Rango" se retiró (2026-07-26): escribía `rango(lo, hi)`, una
+ *  función que VBLang nunca tuvo (no está en `BUILTIN_NAMES`), así que toda
+ *  variable creada así fallaba al generar con "función desconocida: rango".
+ *  Su intención —un valor entre Inicio y Fin— es exactamente `random(lo, hi)`.
+ *  No había ninguna plantilla que lo usara, ni en el repo ni en la base. */
+export type VariableKind = "random-int" | "random-float" | "list" | "expr";
 
 export function classifyVariable(expr: Expr): VariableKind {
   if (expr.kind === "fun_call") {
@@ -790,9 +865,6 @@ export function classifyVariable(expr: Expr): VariableKind {
       case "uno_de":
       case "choice":
         return "list";
-      case "rango":
-      case "range":
-        return "range";
       default:
         return "expr";
     }

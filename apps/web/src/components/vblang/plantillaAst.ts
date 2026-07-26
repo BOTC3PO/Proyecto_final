@@ -87,6 +87,26 @@ export const objLit = (
   loc: DUMMY_LOC,
 });
 
+/**
+ * Valor de una `Expr` que es un literal numérico, contemplando el signo.
+ *
+ * Los editores visuales ESCRIBEN los negativos como `numLit(-5)`, pero el
+ * round-trip `serialize → parse` los devuelve como unario (`-` aplicado a
+ * `num`): quien chequea sólo `kind === "num"` lee vacío para todo negativo y
+ * después lo pisa con basura (los límites de `random`, los ítems de lista).
+ * Único lector de literales numéricos para toda la UI.
+ */
+export function numLiteral(expr: Expr | undefined): number | null {
+  if (!expr) return null;
+  if (expr.kind === "num") return expr.value;
+  if (expr.kind === "unary" && (expr.op === "-" || expr.op === "+")) {
+    const inner = numLiteral(expr.arg);
+    if (inner === null) return null;
+    return expr.op === "-" ? -inner : inner;
+  }
+  return null;
+}
+
 /* ---------------- bridge literal JS ↔ Expr (WO-4: data pura) ---------------- */
 
 /**
@@ -133,7 +153,9 @@ export function exprToLiteral(expr: Expr): unknown {
       return out;
     }
     default:
-      return undefined;
+      // Un negativo llega acá como unario, no como `num`: sin esto, la data
+      // pura con números negativos se leía como `undefined`.
+      return numLiteral(expr) ?? undefined;
   }
 }
 

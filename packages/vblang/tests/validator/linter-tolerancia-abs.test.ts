@@ -58,13 +58,14 @@ tolerancia_abs: 0
     // El parser tokeniza `-1` como `MINUS NUMBER` (dos tokens). El bloque
     // exige un solo `NUMBER`, así que la sintaxis se rechaza ANTES de
     // validar. Documentamos acá para que un cambio futuro al parser no
-    // rompa silenciosamente la invariante.
+    // rompa silenciosamente la invariante. El mensaje nombra el signo desde
+    // el PLAN casos-limite §3 (antes decía sólo "debe ser un número").
     const src = `variables:
   a: random(1, 10)
 enunciado: "x {a}"
 respuesta: a
 tolerancia_abs: -1
 `;
-    expect(() => parse(src)).toThrow(/n[uú]mero/);
+    expect(() => parse(src)).toThrow(/no puede ser negativa/);
   });
 });

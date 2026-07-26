@@ -12,6 +12,7 @@
 import {
   useEffect,
   useId,
+  useRef,
   useState,
   useMemo,
   type CSSProperties,
@@ -28,6 +29,7 @@ import {
   type VariableDecl,
   ALL_QUESTION_TYPES,
   QUESTION_TYPE_SCHEMAS,
+  usaToleranciaPorDefecto,
 } from "@vb/vblang";
 import Menu from "../../ui/Menu";
 import CodeEditor from "../../editor/CodeEditor";
@@ -47,6 +49,7 @@ import {
   writeTextField,
   writeNumberField,
   updateVariable,
+  renameVariable,
   makeRandomIntExpr,
   makeListExpr,
 } from "./plantillaFields";
@@ -57,6 +60,7 @@ import {
   exprToStringValue,
   textToExpr,
   numLit,
+  numLiteral,
   DUMMY_LOC,
   readPistas,
   writePistas,
@@ -74,6 +78,11 @@ import {
 
 import { useI18n } from "../../i18n/I18nContext";
 /* ─── tipos ─────────────────────────────────────────────────────────── */
+
+// Valor sintético del <select> de tipo para la base generador (legacy): no es
+// un `TipoPregunta` del DSL, sólo la forma de elegir "esta pregunta la arma un
+// generador" desde el mismo control que el resto de los tipos.
+const GENERADOR_TIPO_VALUE = "__generador";
 
 // Etiqueta i18n por tipo de pregunta. Fuente de las labels: QUESTION_TYPE_SCHEMAS
 // (paquete @vb/vblang, en español); acá las traducimos por id en runtime.
@@ -370,7 +379,10 @@ function formatValue(v: unknown): string {
   return String(v);
 }
 
-function classifyVariable(expr: Expr): "random" | "list" | "expr" {
+/** Los tres subtipos que ofrece el <select> del property grid de variable. */
+type Subtipo = "random" | "list" | "expr";
+
+function classifyVariable(expr: Expr): Subtipo {
   if (expr.kind === "fun_call") {
     if (expr.name === "random" || expr.name === "random_float") return "random";
     if (expr.name === "uno_de" || expr.name === "choice") return "list";
@@ -383,21 +395,28 @@ function randomBounds(expr: Expr): { min: string; max: string } {
   if (
     expr.kind === "fun_call" &&
     (expr.name === "random" || expr.name === "random_float") &&
-    expr.args.length === 2 &&
-    expr.args[0]!.kind === "num" &&
-    expr.args[1]!.kind === "num"
+    expr.args.length === 2
   ) {
-    return { min: String(expr.args[0].value), max: String(expr.args[1].value) };
+    // `numLiteral` (no `kind === "num"`): los negativos vuelven del parser como
+    // unario y así los campos quedaban vacíos — ver PLAN casos-limite §1.
+    const min = numLiteral(expr.args[0]);
+    const max = numLiteral(expr.args[1]);
+    if (min !== null && max !== null) return { min: String(min), max: String(max) };
   }
   return { min: "", max: "" };
 }
 
+/**
+ * Ítems de la lista, UNO POR LÍNEA (§12). Con `", "` como separador un valor
+ * con coma interna ("Buenos Aires, Argentina") no se podía escribir, y los que
+ * ya existían se partían en dos al editar la lista.
+ */
 function listOptions(expr: Expr): string {
   if (expr.kind === "fun_call" && expr.args[0]?.kind === "array") {
-    return expr.args[0].items.map(exprToStringValue).join(", ");
+    return expr.args[0].items.map(exprToStringValue).join("\n");
   }
   if (expr.kind === "array") {
-    return expr.items.map(exprToStringValue).join(", ");
+    return expr.items.map(exprToStringValue).join("\n");
   }
   return "";
 }
@@ -1029,6 +1048,26 @@ function QuestionPropertyGrid({
   const enunciadosActive = getBlock(plantilla, "enunciados") !== undefined;
   const enunciadosItems = readEnunciados(plantilla);
 
+  // El generador es una BASE excluyente con el tipo (`applyTipo` borra
+  // `generador:`, `applyGenerador` borra variables/respuesta/restricciones), así
+  // que vive en el selector de tipo como opción legacy en vez de ser un campo
+  // suelto al pie. `pickingGenerador` cubre el paso intermedio: eligió la opción
+  // legacy pero todavía no eligió cuál generador (el AST no cambia hasta eso).
+  const generadorId = getBlock(plantilla, "generador")?.id ?? "";
+  const [pickingGenerador, setPickingGenerador] = useState(false);
+  const usaGenerador = generadorId !== "" || pickingGenerador;
+  const [tolNegativa, setTolNegativa] = useState(false);
+
+  // §7 — mismo predicado que usa el grader (`usaToleranciaPorDefecto`), así el
+  // aviso no puede desincronizarse del criterio real de corrección.
+  // `live.respuesta` es literalmente el `answerKey` que se corrige.
+  const respuestaViva = Number(String(live.respuesta ?? "").replace(",", "."));
+  const decimalesSinTolerancia =
+    tolerancia.trim() === "" &&
+    Number.isFinite(respuestaViva) &&
+    String(live.respuesta ?? "").trim() !== "" &&
+    usaToleranciaPorDefecto(respuestaViva, undefined, live.toleranciaAbs);
+
   return (
     <div
       style={{
@@ -1052,22 +1091,78 @@ function QuestionPropertyGrid({
         <div>
           <Eyebrow>{t("tizaEditor.tipoDePregunta")}</Eyebrow>
           <select
-            value={tipo}
-            onChange={(e) =>
-              onChange(applyTipo(plantilla, e.target.value as TipoPregunta))
-            }
+            value={usaGenerador ? GENERADOR_TIPO_VALUE : tipo}
+            onChange={(e) => {
+              if (e.target.value === GENERADOR_TIPO_VALUE) {
+                setPickingGenerador(true);
+                return;
+              }
+              setPickingGenerador(false);
+              onChange(applyTipo(plantilla, e.target.value as TipoPregunta));
+            }}
             style={{ ...inputStyle(), cursor: "pointer", fontWeight: 600 }}
+            data-testid="tiza-tipo-select"
           >
             {ALL_QUESTION_TYPES.map((qt) => (
               <option key={qt} value={qt}>
                 {TIPO_PREGUNTA_KEY[qt] ? t(TIPO_PREGUNTA_KEY[qt]) : QUESTION_TYPE_SCHEMAS[qt].label}
               </option>
             ))}
+            <optgroup label="Legacy">
+              <option value={GENERADOR_TIPO_VALUE}>{t("tizaEditor.generadorLegacy")}</option>
+            </optgroup>
           </select>
           <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-            {t("tizaEditor.cambiarElTipoRearmaLos")}
+            {usaGenerador
+              ? t("tizaEditor.elGeneradorProveeLosDatos")
+              : t("tizaEditor.cambiarElTipoRearmaLos")}
           </div>
         </div>
+
+        {/* WO-tiza-config (Fase 4) — base generador (`generador: <id>`), hoy
+            legacy: se mantiene por retrocompatibilidad y sólo se muestra si el
+            tipo elegido es la opción legacy. Reusa `GeneradorPicker` (mismo
+            componente del editor clásico) + `applyGenerador`/`applyTipo`. Las
+            variables del generador se insertan al enunciado como `{var}` desde
+            los chips del panel de docs (modo "formulario"). */}
+        {usaGenerador ? (
+          <div data-testid="tiza-generador-picker">
+            <GeneradorPicker
+              value={generadorId}
+              onChange={(id) => {
+                if (id) {
+                  onChange(applyGenerador(plantilla, id));
+                  setPickingGenerador(false);
+                } else {
+                  // "Elegir generador…" con uno ya aplicado = volver al tipo
+                  // normal; el AST vuelve al esqueleto del tipo inferido.
+                  if (generadorId) onChange(applyTipo(plantilla, tipo));
+                  setPickingGenerador(true);
+                }
+              }}
+              docsVariant="formulario"
+              onInsertVariable={
+                enunField
+                  ? (token) => {
+                      // C3 (PLAN-CORRECCIONES): `writeTextField` puede
+                      // devolver `null` para bloques que no maneja (acá
+                      // sólo se llama con `enunField`, que siempre cae en
+                      // el caso "enunciado" — no-op defensivo si algún día
+                      // deja de ser así).
+                      const next = writeTextField(
+                        plantilla,
+                        enunField,
+                        enunciado === "" || enunciado.endsWith(" ")
+                          ? `${enunciado}${token}`
+                          : `${enunciado} ${token}`,
+                      );
+                      if (next) onChange(next);
+                    }
+                  : undefined
+              }
+            />
+          </div>
+        ) : null}
 
         {/* ENUNCIADO */}
         {enunField ? (
@@ -1189,13 +1284,35 @@ function QuestionPropertyGrid({
                 <Eyebrow>{t("tizaEditor.toleranciaAbs")}</Eyebrow>
                 <BufferedInput
                   type="number"
+                  min={tolField.kind === "number" && tolField.allowNegative ? undefined : 0}
                   value={tolerancia}
                   onCommit={(v) => {
                     const next = writeNumberField(plantilla, tolField, v);
+                    // Una tolerancia negativa no se guarda (§3): sin este aviso
+                    // el campo mostraba el valor tipeado y el bloque se perdía.
+                    setTolNegativa(v.trim() !== "" && Number(v) < 0);
                     if (next) onChange(next);
                   }}
                   style={inputStyle(true)}
+                  data-testid="tiza-tolerancia-input"
                 />
+                {tolNegativa ? (
+                  <div style={{ fontSize: 11, color: "var(--c-danger)", marginTop: 4 }}>
+                    {t("tizaEditor.toleranciaNoNegativa")}
+                  </div>
+                ) : null}
+                {/* §7 — la respuesta en vivo da decimales y no hay tolerancia
+                    declarada: el alumno tendría que adivinar los 4 decimales
+                    que serializa `formatoDefault`. Se avisa con qué precisión
+                    se va a corregir mientras tanto. */}
+                {!tolNegativa && decimalesSinTolerancia ? (
+                  <div
+                    style={{ fontSize: 11, color: "var(--c-text-2)", marginTop: 4 }}
+                    data-testid="tiza-decimales-sin-tolerancia"
+                  >
+                    {t("tizaEditor.respuestaDecimalSinTolerancia")}
+                  </div>
+                ) : null}
               </div>
             ) : null}
             {unidadField ? (
@@ -1369,8 +1486,10 @@ function QuestionPropertyGrid({
           </button>
         </div>
 
-        {/* BLOQUES: RESTRICCIONES */}
-        <div>
+        {/* BLOQUES: RESTRICCIONES — el generador provee (y `applyGenerador`
+            borra) las variables, así que restringirlas desde acá no hace nada:
+            con base generador la sección no se muestra. */}
+        <div style={{ display: usaGenerador ? "none" : undefined }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 9 }}>
             <span style={{ fontSize: 13, fontWeight: 660 }}>{t("tizaEditor.restricciones")}</span>
             <span
@@ -1439,49 +1558,6 @@ function QuestionPropertyGrid({
             onCommit={(v) => onChange(writeExplicacion(plantilla, v))}
             style={inputStyle()}
           />
-        </div>
-
-        {/* WO-tiza-config (Fase 4) — generador asistido (`generador: <id>`).
-            El motor ya existía end-to-end en @vb/vblang (VBLang.md §9);
-            esto agrega el dropdown que la spec ya pedía para el editor
-            visual, reusando `GeneradorPicker` (mismo componente del editor
-            clásico) + `applyGenerador`/`applyTipo` (lógica pura). Las
-            variables del generador se insertan al enunciado como `{var}`
-            desde los chips del panel de docs (modo "formulario"). */}
-        <div>
-          <div style={{ height: 1, background: "var(--c-border)", margin: "6px 0 16px" }} />
-          <Eyebrow>{t("tizaEditor.generadorBaseOpcional")}</Eyebrow>
-          <div data-testid="tiza-generador-picker">
-            <GeneradorPicker
-              value={getBlock(plantilla, "generador")?.id ?? ""}
-              onChange={(id) =>
-                onChange(id ? applyGenerador(plantilla, id) : applyTipo(plantilla, tipo))
-              }
-              docsVariant="formulario"
-              onInsertVariable={
-                enunField
-                  ? (token) => {
-                      // C3 (PLAN-CORRECCIONES): `writeTextField` puede
-                      // devolver `null` para bloques que no maneja (acá
-                      // sólo se llama con `enunField`, que siempre cae en
-                      // el caso "enunciado" — no-op defensivo si algún día
-                      // deja de ser así).
-                      const next = writeTextField(
-                        plantilla,
-                        enunField,
-                        enunciado === "" || enunciado.endsWith(" ")
-                          ? `${enunciado}${token}`
-                          : `${enunciado} ${token}`,
-                      );
-                      if (next) onChange(next);
-                    }
-                  : undefined
-              }
-            />
-          </div>
-          <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-            {t("tizaEditor.elGeneradorProveeLosDatos")}
-          </div>
         </div>
 
         {/* Etapa 2 (Tiza — preguntas nativas) — rol dentro del cuestionario.
@@ -1671,6 +1747,14 @@ function VariablePropertyGrid({
   // real (mismo `navigator.clipboard` que `PromptIAPanel.tsx`). El hook
   // tiene que vivir antes del `return null` de abajo (Rules of Hooks).
   const [copied, setCopied] = useState(false);
+  // PLAN casos-limite §5 — el ida y vuelta del selector de subtipo destruía el
+  // valor (`a: -7` → random → volver daba `a: a + b`). Se guarda la última
+  // expresión de cada subtipo, por nombre de variable, para restaurarla al
+  // volver. Vive antes del `return null` de abajo (Rules of Hooks).
+  const previas = useRef<Record<string, Partial<Record<Subtipo, Expr>>>>({});
+  // §11 — el rename se rechaza si el nombre no es un identificador válido o ya
+  // está tomado; sin aviso, el campo volvía al valor viejo sin explicar nada.
+  const [nombreInvalido, setNombreInvalido] = useState(false);
   if (!v) return null;
 
   const kind = classifyVariable(v.expr);
@@ -1679,13 +1763,56 @@ function VariablePropertyGrid({
   const exprText = kind === "expr" ? exprToText(v.expr) : "";
   const liveValue = formatValue(live.variables?.[v.nombre]);
 
-  const setKind = (nextKind: "random" | "list" | "expr") => {
-    let expr: Expr;
-    if (nextKind === "random") expr = makeRandomIntExpr(1, 10);
-    else if (nextKind === "list") expr = makeChoiceExpr(["a", "b", "c"]);
-    else expr = textToExpr("a + b") ?? numLit(0);
+  /**
+   * Escribe uno de los dos límites del `random`. Un `<input type="number">`
+   * reporta `""` mientras el texto es parcial o inválido (incluido el `-` solo
+   * al empezar a escribir un negativo), y `Number("")` es 0: comitear eso
+   * pisaba el rango con ceros — ver PLAN casos-limite §2. El otro extremo sale
+   * del AST vigente, no del string de la UI.
+   */
+  const setBound = (cual: "min" | "max", val: string) => {
+    if (val.trim() === "") return;
+    const n = Number(val);
+    if (!Number.isFinite(n)) return;
+    const otro = Number(cual === "min" ? bounds.max : bounds.min);
+    const fallback = cual === "min" ? n + 1 : n - 1;
+    const min = cual === "min" ? n : Number.isFinite(otro) && bounds.min !== "" ? otro : fallback;
+    const max = cual === "max" ? n : Number.isFinite(otro) && bounds.max !== "" ? otro : fallback;
+    onChange(updateVariableExpr(plantilla, index, makeRandomIntExpr(min, max)));
+  };
+
+  /**
+   * Cambia el subtipo (§5). Dos arreglos: el valor anterior de ese subtipo se
+   * restaura si ya se estuvo ahí, y el placeholder de "Valor por expresión"
+   * dejó de ser `a + b` — referenciaba una variable `b` inexistente, así que
+   * tocar el selector rompía la plantilla en runtime ("variable indefinida").
+   */
+  const setKind = (nextKind: Subtipo) => {
+    if (nextKind === kind) return;
+    const stash = (previas.current[v.nombre] ??= {});
+    stash[kind] = v.expr;
+    const expr =
+      stash[nextKind] ??
+      (nextKind === "random"
+        ? makeRandomIntExpr(1, 10)
+        : nextKind === "list"
+          ? makeChoiceExpr(["a", "b", "c"])
+          : numLit(0));
     onChange(updateVariableExpr(plantilla, index, expr));
   };
+
+  // §6 — `random(10, 1)` compila pero falla en CADA intento del alumno
+  // ("random: int: max (1) < min (10)"). No se bloquea el tipeo, se avisa.
+  const rangoInvertido =
+    bounds.min !== "" && bounds.max !== "" && Number(bounds.min) > Number(bounds.max);
+
+  // §8 — el subtipo es ENTERO: con bordes decimales el runtime redondea el
+  // rango hacia adentro (`random(1.2, 4.8)` sortea entre 2 y 4), así que lo
+  // que el docente escribió no es lo que se sortea. Para decimales existe
+  // `random_float`, que se escribe en modo Código.
+  const bordesDecimales =
+    (bounds.min !== "" && !Number.isInteger(Number(bounds.min))) ||
+    (bounds.max !== "" && !Number.isInteger(Number(bounds.max)));
 
   const handleCopyVar = async () => {
     try {
@@ -1727,20 +1854,39 @@ function VariablePropertyGrid({
           {t("tizaEditor.volverALaPregunta")}
         </button>
 
-        {/* NOMBRE */}
+        {/* NOMBRE — §11: era readOnly (renombrar obligaba a ir a modo Código y
+            actualizar las interpolaciones a mano). Ahora `renameVariable`
+            reescribe también las referencias, así que se puede editar acá. */}
         <div style={{ marginBottom: 18 }}>
           <Eyebrow>{t("comun.nombre")}</Eyebrow>
-          <input
+          <BufferedInput
             type="text"
             value={v.nombre}
-            readOnly
+            onCommit={(val) => {
+              const next = renameVariable(plantilla, index, val);
+              setNombreInvalido(next === null && val.trim() !== v.nombre);
+              if (next) onChange(next);
+            }}
             style={{
               ...inputStyle(true),
               fontSize: 14,
               fontWeight: 700,
               color: "var(--c-accent)",
             }}
+            data-testid="tiza-variable-nombre-input"
           />
+          {nombreInvalido ? (
+            <div
+              style={{ fontSize: 11, color: "var(--c-danger)", marginTop: 4 }}
+              data-testid="tiza-nombre-invalido"
+            >
+              {t("tizaEditor.nombreDeVariableInvalido")}
+            </div>
+          ) : (
+            <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+              {t("tizaEditor.renombrarActualizaLasReferencias")}
+            </div>
+          )}
         </div>
 
         {/* SUBTIPO */}
@@ -1803,68 +1949,68 @@ function VariablePropertyGrid({
 
         {/* RANDOM */}
         {kind === "random" ? (
-          <div style={{ display: "flex", gap: 12, marginBottom: 18 }}>
-            <div style={{ flex: 1 }}>
-              <Eyebrow>{t("tizaEditor.minimo")}</Eyebrow>
-              <BufferedInput
-                type="number"
-                value={bounds.min}
-                onCommit={(val) => {
-                  const min = Number(val);
-                  const max = Number(bounds.max);
-                  if (!Number.isFinite(min)) return;
-                  onChange(
-                    updateVariableExpr(
-                      plantilla,
-                      index,
-                      makeRandomIntExpr(min, Number.isFinite(max) ? max : min + 1),
-                    ),
-                  );
-                }}
-                style={inputStyle(true)}
-              />
+          <div style={{ marginBottom: 18 }}>
+            <div style={{ display: "flex", gap: 12 }}>
+              <div style={{ flex: 1 }}>
+                <Eyebrow>{t("tizaEditor.minimo")}</Eyebrow>
+                <BufferedInput
+                  type="number"
+                  value={bounds.min}
+                  onCommit={(val) => setBound("min", val)}
+                  style={inputStyle(true)}
+                />
+              </div>
+              <div style={{ flex: 1 }}>
+                <Eyebrow>{t("tizaEditor.maximo")}</Eyebrow>
+                <BufferedInput
+                  type="number"
+                  value={bounds.max}
+                  onCommit={(val) => setBound("max", val)}
+                  style={inputStyle(true)}
+                />
+              </div>
             </div>
-            <div style={{ flex: 1 }}>
-              <Eyebrow>{t("tizaEditor.maximo")}</Eyebrow>
-              <BufferedInput
-                type="number"
-                value={bounds.max}
-                onCommit={(val) => {
-                  const max = Number(val);
-                  const min = Number(bounds.min);
-                  if (!Number.isFinite(max)) return;
-                  onChange(
-                    updateVariableExpr(
-                      plantilla,
-                      index,
-                      makeRandomIntExpr(Number.isFinite(min) ? min : max - 1, max),
-                    ),
-                  );
-                }}
-                style={inputStyle(true)}
-              />
-            </div>
+            {rangoInvertido ? (
+              <div
+                style={{ fontSize: 11, color: "var(--c-danger)", marginTop: 4 }}
+                data-testid="tiza-rango-invertido"
+              >
+                {t("comun.rangoInvertido")}
+              </div>
+            ) : null}
+            {bordesDecimales ? (
+              <div
+                style={{ fontSize: 11, color: "var(--c-text-2)", marginTop: 4 }}
+                data-testid="tiza-bordes-decimales"
+              >
+                {t("tizaEditor.subtipoEnteroBordesDecimales")}
+              </div>
+            ) : null}
           </div>
         ) : null}
 
-        {/* LISTA */}
+        {/* LISTA — §12: era un único input separado por comas, así que un ítem
+            con coma interna ("Buenos Aires, Argentina") era imposible de
+            escribir y los valores existentes con coma se partían al editar.
+            Un ítem por línea, mismo patrón que el editor clásico. */}
         {kind === "list" ? (
           <div style={{ marginBottom: 18 }}>
             <Eyebrow>{t("tizaEditor.opciones")}</Eyebrow>
-            <BufferedInput
-              type="text"
+            <BufferedTextarea
               value={options}
+              rows={Math.min(8, Math.max(3, options.split("\n").length + 1))}
               onCommit={(val) => {
                 const items = val
-                  .split(",")
+                  .split("\n")
                   .map((s) => s.trim())
                   .filter(Boolean);
                 onChange(updateVariableExpr(plantilla, index, makeChoiceExpr(items)));
               }}
-              style={inputStyle(true)}
+              style={{ ...inputStyle(true), resize: "vertical" }}
+              data-testid="tiza-lista-opciones"
             />
             <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-              {t("tizaEditor.separadasPorComaSeElige")}
+              {t("tizaEditor.unaOpcionPorLinea")}
             </div>
           </div>
         ) : null}

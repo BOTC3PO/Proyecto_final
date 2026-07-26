@@ -1968,9 +1968,6 @@ export function inferTipoVar(expr: Expr): { label: string; tone: VarTone } {
       case "uno_de":
       case "choice":
         return { label: "Lista", tone: "info" };
-      case "rango":
-      case "range":
-        return { label: "Rango", tone: "info" };
       default:
         return { label: "Función", tone: "accent" };
     }

@@ -37,7 +37,6 @@ const KIND_LABELS: Record<VariableKind, string> = {
   "random-int": "Aleatorio entero",
   "random-float": "Aleatorio decimal",
   list: "Lista",
-  range: "Rango",
   expr: "Expresión",
 };
 
@@ -73,16 +72,6 @@ function makeDecl(nombre: string, kind: VariableKind): VariableDecl {
           items: [
             { kind: "str" as const, value: "opcion_a", loc: DUMMY_LOC },
             { kind: "str" as const, value: "opcion_b", loc: DUMMY_LOC },
-          ],
-          loc: DUMMY_LOC,
-        };
-      case "range":
-        return {
-          kind: "fun_call" as const,
-          name: "rango",
-          args: [
-            { kind: "num" as const, value: 0, loc: DUMMY_LOC },
-            { kind: "num" as const, value: 10, loc: DUMMY_LOC },
           ],
           loc: DUMMY_LOC,
         };
