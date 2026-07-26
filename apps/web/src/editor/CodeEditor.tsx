@@ -17,7 +17,7 @@
  *   - comentarios `# …`                              → --c-text-3
  * El resto queda con el color base del código (--c-code-fg).
  */
-import { useId, type CSSProperties } from "react";
+import { useId, useRef, type CSSProperties } from "react";
 
 /** Tokens del highlighter (orden de match importa). */
 const BLOCK_KEYWORDS = new Set([
@@ -195,17 +195,30 @@ const overlayStyle: CSSProperties = {
   pointerEvents: "none",
   wordBreak: "normal",
   background: "transparent",
+  // El overlay NO scrollea solo: lo mueve el textarea vía `handleScroll` (si
+  // scrollea por su cuenta, las dos capas se desincronizan y se ve el texto
+  // duplicado/corrido).
+  overflow: "hidden",
 };
 
 const textareaStyle: CSSProperties = {
   ...layerBase,
+  // `position: relative` (para quedar por encima del <pre>) hace que `inset: 0`
+  // NO estire el textarea: sin `width` toma su ancho intrínseco (~20 columnas)
+  // y aparece como una franja angosta con scrollbar y agarradera propias sobre
+  // el overlay. De ahí `width: 100%` + border-box (hay padding de 18px).
   position: "relative",
+  width: "100%",
+  boxSizing: "border-box",
+  display: "block",
   background: "transparent",
   color: "transparent",
   caretColor: "var(--c-code-fg)",
   outline: "none",
   border: 0,
-  resize: "vertical",
+  // El overlay no puede seguir un resize manual (queda desalineado), igual que
+  // en components/vblang/CodeEditor.
+  resize: "none",
   minHeight: 220,
 };
 
@@ -233,7 +246,16 @@ export default function CodeEditor({
   readOnly = false,
 }: CodeEditorProps) {
   const id = useId();
+  const preRef = useRef<HTMLPreElement | null>(null);
   const highlighted = highlight(value);
+
+  /** El textarea es el único que scrollea; el overlay lo sigue. */
+  const handleScroll = (e: React.UIEvent<HTMLTextAreaElement>) => {
+    const pre = preRef.current;
+    if (!pre) return;
+    pre.scrollTop = e.currentTarget.scrollTop;
+    pre.scrollLeft = e.currentTarget.scrollLeft;
+  };
 
   // Tamaño mínimo del editor en líneas.
   const minHeight = Math.max(220, minRows * 21 + 28);
@@ -266,6 +288,7 @@ export default function CodeEditor({
 
       {/* Overlay con syntax highlighting (no interactivo). */}
       <pre
+        ref={preRef}
         aria-hidden="true"
         style={overlayStyle}
         // El `<pre>` necesita el MISMO contenido (incluyendo saltos) que el
@@ -283,6 +306,7 @@ export default function CodeEditor({
         value={value}
         readOnly={readOnly}
         onChange={(e) => onChange(e.target.value)}
+        onScroll={handleScroll}
         style={{ ...textareaStyle, minHeight }}
         data-testid="code-editor-textarea"
       />
