@@ -3,7 +3,7 @@ import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { sincronizarMembresia } from "../lib/memberships";
 import { requireUser } from "../lib/user-auth";
-import { isParentInRoles, resolveRoles } from "../lib/roles";
+import { isParentInRoles, resolveRoles, resolvePrimaryRole } from "../lib/roles";
 import { vincularHijoCore } from "../lib/vinculo-padre-hijo";
 
 export const padres = Router();
@@ -108,12 +108,12 @@ padres.post("/api/hijos", requireUser, ...bodyLimitMB(2), async (req, res) => {
     //     un PARENT/DIRECTIVO/ADMIN como hijo de otro padre.
     const requester = await prisma.usuario.findFirst({
       where: { id: parentId, isDeleted: { not: true } },
-      select: { role: true },
+      select: { roles: true },
     });
     if (!requester) {
       return res.status(401).json({ error: "parent no encontrado" });
     }
-    if (requester.role !== "PARENT" && requester.role !== "ADMIN") {
+    if (resolvePrimaryRole(requester) !== "PARENT" && resolvePrimaryRole(requester) !== "ADMIN") {
       return res.status(403).json({
         error: "Solo usuarios con rol padre/madre (o admin) pueden vincular hijos."
       });
@@ -160,7 +160,7 @@ padres.post("/api/padres/crear-cuenta-alumno", requireUser, ...bodyLimitMB(1), a
 
   const requester = await prisma.usuario.findFirst({
     where: { id: parentId, isDeleted: { not: true } },
-    select: { role: true, roles: true, escuelaId: true }
+    select: { roles: true, escuelaId: true }
   });
   if (!requester) return res.status(401).json({ error: "parent no encontrado" });
   if (!isParentInRoles(resolveRoles(requester))) {

@@ -25,7 +25,7 @@
 
 import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
-import { resolveRoles } from "./roles";
+import { resolveRoles, resolvePrimaryRole } from "./roles";
 
 export type DatosVinculo = {
   nombre: string;
@@ -90,7 +90,7 @@ export const vincularHijoCore = async (
 
   const childRoles = resolveRoles(child);
   if (childRoles.some((r) => ROLES_HIJO_INCOMPATIBLES.has(r))) {
-    const offending = childRoles.find((r) => ROLES_HIJO_INCOMPATIBLES.has(r)) ?? child.role;
+    const offending = childRoles.find((r) => ROLES_HIJO_INCOMPATIBLES.has(r)) ?? resolvePrimaryRole(child);
     return {
       ok: false,
       status: 400,

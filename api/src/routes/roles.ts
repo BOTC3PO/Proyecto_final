@@ -1,3 +1,4 @@
+import { resolvePrimaryRole } from "../lib/roles";
 import { Router } from "express";
 import { randomUUID } from "crypto";
 import { isMinor } from "../lib/age";
@@ -49,7 +50,7 @@ roles.post("/api/solicitar-rol", requireUser, async (req, res) => {
   // Leer el user para chequear birthdate y rol actual.
   const user = await prisma.usuario.findFirst({
     where: { id: userId },
-    select: { id: true, role: true, birthdate: true, isDeleted: true },
+    select: { id: true, roles: true, birthdate: true, isDeleted: true },
   });
   if (!user || user.isDeleted) {
     return res.status(404).json({ error: "usuario no encontrado" });
@@ -59,7 +60,7 @@ roles.post("/api/solicitar-rol", requireUser, async (req, res) => {
       error: "Necesitás ser mayor de 18 años para solicitar un cambio de rol."
     });
   }
-  if (user.role === target_role) {
+  if (resolvePrimaryRole(user) === target_role) {
     return res.status(409).json({
       error: `Ya tenés el rol ${target_role}.`
     });
@@ -85,7 +86,7 @@ roles.post("/api/solicitar-rol", requireUser, async (req, res) => {
 
   const id = randomUUID();
   const now = new Date().toISOString();
-  const title = `Cambio de rol: ${user.role} → ${target_role}`;
+  const title = `Cambio de rol: ${resolvePrimaryRole(user)} → ${target_role}`;
   const body = [
     `El usuario ${userId} solicita cambio de rol a ${target_role}.`,
     typeof motivo === "string" && motivo.trim()

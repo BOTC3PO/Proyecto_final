@@ -2,7 +2,7 @@ import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
-import { hasRole } from "../lib/roles";
+import { hasRole, resolvePrimaryRole } from "../lib/roles";
 
 export const mensajeria = Router();
 
@@ -101,7 +101,7 @@ mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
     const usuarios = otroIds.length
       ? await prisma.usuario.findMany({
           where: { id: { in: otroIds }, isDeleted: { not: true } },
-          select: { id: true, fullName: true, username: true, role: true },
+          select: { id: true, fullName: true, username: true, roles: true },
         })
       : [];
 
@@ -111,7 +111,7 @@ mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
         {
           nombre: String(u.fullName ?? u.username ?? "Usuario"),
           username: String(u.username ?? ""),
-          role: String(u.role ?? ""),
+          role: String(resolvePrimaryRole(u) ?? ""),
         },
       ])
     );
@@ -477,7 +477,7 @@ mensajeria.get("/api/mensajeria/usuarios", requireUser, async (req, res) => {
 
     const usuarios = await prisma.usuario.findMany({
       where: whereFilter as Prisma.UsuarioWhereInput,
-      select: { id: true, fullName: true, username: true, role: true },
+      select: { id: true, fullName: true, username: true, roles: true },
       take: 10,
     });
 
@@ -487,7 +487,7 @@ mensajeria.get("/api/mensajeria/usuarios", requireUser, async (req, res) => {
         id: u.id,
         nombre: String(u.fullName ?? u.username ?? ""),
         username: String(u.username ?? ""),
-        role: String(u.role ?? ""),
+        role: String(resolvePrimaryRole(u) ?? ""),
       }));
 
     return res.json({ items });

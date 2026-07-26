@@ -13,7 +13,7 @@ import { resolveUserNames } from "../lib/resolve-user-names";
 import { sincronizarMembresia } from "../lib/memberships";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
-import { hasRole } from "../lib/roles";
+import { hasRole, resolvePrimaryRole } from "../lib/roles";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
   parseModuleDependencies,
@@ -723,10 +723,10 @@ aulas.post(
 
     const teacherUser = await prisma.usuario.findFirst({
       where: { id: teacherObjectId, isDeleted: false },
-      select: { role: true, escuelaId: true }
+      select: { roles: true, escuelaId: true }
     });
     if (!teacherUser) return res.status(400).json({ error: "teacher not found" });
-    if (teacherUser.role !== "TEACHER") return res.status(400).json({ error: "teacher role invalid" });
+    if (resolvePrimaryRole(teacherUser) !== "TEACHER") return res.status(400).json({ error: "teacher role invalid" });
     const teacherSchoolId = normalizeSchoolId(teacherUser.escuelaId ?? "");
     if (teacherSchoolId !== schoolId) return res.status(403).json({ error: "teacher school mismatch" });
 
@@ -892,7 +892,7 @@ aulas.get(
     }
     const candidates = await prisma.usuario.findMany({
       where: { escuelaId: classroom.schoolId, isDeleted: { not: true } },
-      select: { id: true, fullName: true, username: true, role: true, roles: true }
+      select: { id: true, fullName: true, username: true, roles: true }
     });
     const items = candidates
       .filter((u) => !excluded.has(u.id) && (hasRole(u, "TEACHER") || hasRole(u, "DIRECTIVO")))
@@ -946,7 +946,7 @@ aulas.post(
     }
     const target = await prisma.usuario.findFirst({
       where: { id: userId, isDeleted: { not: true } },
-      select: { role: true, roles: true, escuelaId: true }
+      select: { roles: true, escuelaId: true }
     });
     if (!target) return res.status(400).json({ error: "user not found" });
     const isTeacher = hasRole(target, "TEACHER");

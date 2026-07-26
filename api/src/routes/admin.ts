@@ -4,6 +4,7 @@ import { prisma } from "../lib/prisma";
 import { requireAdmin } from "../lib/admin-auth";
 import { requireUser } from "../lib/user-auth";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
+import { resolvePrimaryRole } from "../lib/roles";
 import { desactivarMembresia, sincronizarMembresia } from "../lib/memberships";
 
 export const adminRouter = Router();
@@ -30,14 +31,14 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
       skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
       take: Number.isNaN(limit) || limit <= 0 ? 50 : limit,
       orderBy: { createdAt: "desc" },
-      select: { id: true, fullName: true, username: true, email: true, role: true, escuelaId: true, createdAt: true, isBanned: true, warningCount: true }
+      select: { id: true, fullName: true, username: true, email: true, roles: true, escuelaId: true, createdAt: true, isBanned: true, warningCount: true }
     });
     const usuarios = items.map((item) => ({
       id: item.id,
       nombre: item.fullName ?? item.username ?? "Sin nombre",
       username: item.username ?? "",
       email: item.email ?? "",
-      rol: item.role ?? "USER",
+      rol: resolvePrimaryRole(item) ?? "USER",
       escuelaId: item.escuelaId ?? null,
       estado: "Activo",
       isBanned: item.isBanned === true,
@@ -122,7 +123,6 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
     await prisma.usuario.updateMany({
       where: { id: targetId },
       data: {
-        role,
         roles: [role],
         ...(escuelaId ? { escuelaId } : {}),
         updatedAt: new Date().toISOString()
@@ -132,7 +132,7 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
     // Se da de baja el anterior (queda registrado con `fechaBaja`, que es
     // lo que permite saltearlo al elegir el rol principal) y se da de alta
     // el nuevo.
-    const rolViejo = getCanonicalMembershipRole(target.role);
+    const rolViejo = getCanonicalMembershipRole(resolvePrimaryRole(target));
     if (escuelaEfectiva && rolViejo && rolViejo !== getCanonicalMembershipRole(role)) {
       await desactivarMembresia({ usuarioId: targetId, escuelaId: escuelaEfectiva, rol: rolViejo });
     }
@@ -187,7 +187,7 @@ adminRouter.patch("/api/admin/usuarios/:id/escuela", requireAdmin, async (req, r
     // PLAN-multirol — reasignar la escuela dejaba la membresía apuntando a
     // la ANTERIOR, y `usuarios.ts` autoriza leyéndola: el usuario quedaba
     // autorizado contra una escuela a la que ya no pertenece.
-    const rolMembresia = getCanonicalMembershipRole(target.role);
+    const rolMembresia = getCanonicalMembershipRole(resolvePrimaryRole(target));
     if (target.escuelaId && rolMembresia && target.escuelaId !== escuelaId) {
       await desactivarMembresia({
         usuarioId: targetId,
@@ -195,7 +195,7 @@ adminRouter.patch("/api/admin/usuarios/:id/escuela", requireAdmin, async (req, r
         rol: rolMembresia
       });
     }
-    await sincronizarMembresia({ usuarioId: targetId, escuelaId, rolUsuario: target.role });
+    await sincronizarMembresia({ usuarioId: targetId, escuelaId, rolUsuario: resolvePrimaryRole(target) });
     await prisma.moderacionEvento.create({
       data: {
         id: `me-${Date.now()}-${Math.random().toString(16).slice(2)}`,
@@ -234,7 +234,7 @@ adminRouter.get("/api/admin/reportes-global", requireAdmin, async (req, res) => 
     const [usuariosRecientes, usuariosTotalesArr, eventosRecientes, topModulos] = await Promise.all([
       prisma.usuario.findMany({
         where: { isDeleted: false, createdAt: { gte: desde } },
-        select: { createdAt: true, role: true }
+        select: { createdAt: true, roles: true }
       }),
       prisma.usuario.findMany({
         where: { isDeleted: false },
@@ -282,7 +282,7 @@ adminRouter.get("/api/admin/reportes-global", requireAdmin, async (req, res) => 
         periodo: dias,
         total: usuariosRecientes.length,
         porRol: usuariosRecientes.reduce((acc: Record<string, number>, u) => {
-          const r = u.role ?? "USER";
+          const r = resolvePrimaryRole(u) ?? "USER";
           acc[r] = (acc[r] ?? 0) + 1;
           return acc;
         }, {})

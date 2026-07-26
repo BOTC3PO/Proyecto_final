@@ -31,7 +31,7 @@ export async function checkStaffLimit(
 
   try {
     const count = await prisma.usuario.count({
-      where: { escuelaId: schoolId, role: nuevoRol, isBanned: { not: true } }
+      where: { escuelaId: schoolId, roles: { has: nuevoRol }, isBanned: { not: true } }
     });
 
     if (!(await puedeAgregarStaff(schoolId, nuevoRol, count))) {

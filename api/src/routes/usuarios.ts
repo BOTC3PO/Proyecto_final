@@ -10,7 +10,7 @@ import { hashPassword } from "../lib/passwords";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { acreditarSaldoInicial } from "../lib/economia-alta";
 import { sincronizarMembresia } from "../lib/memberships";
-import { isParentInRoles, isStaffInRoles, resolveRoles } from "../lib/roles";
+import { isParentInRoles, isStaffInRoles, resolveRoles, resolvePrimaryRole } from "../lib/roles";
 import { vincularHijoCore } from "../lib/vinculo-padre-hijo";
 import { requireUser } from "../lib/user-auth";
 import { serializeUsuario } from "../lib/user-serializer";
@@ -85,7 +85,6 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
         username: parsed.username,
         email: parsed.email,
         fullName: parsed.fullName,
-        role: parsed.role,
         // MULTIROL — este camino nunca poblaba `roles` (el registro sí),
         // así que los usuarios dados de alta por admin nacían con el array
         // vacío y sólo funcionaban por el fallback a `role` de resolveRoles.
@@ -105,12 +104,12 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
     await sincronizarMembresia({
       usuarioId: result.id,
       escuelaId: result.escuelaId,
-      rolUsuario: result.role,
+      rolUsuario: resolvePrimaryRole(result),
       fechaAlta: now
     });
     // PLAN-B Fase 6 (ítem 34) — saldo de bienvenida (economía interna,
     // no dinero real) para el alumno recién dado de alta por admin/directivo.
-    if (result.role === "USER") {
+    if (resolvePrimaryRole(result) === "USER") {
       await acreditarSaldoInicial({ usuarioId: result.id, schoolId: result.escuelaId ?? null });
     }
     const passwordResetRequired =
@@ -121,7 +120,7 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
       targetType: "usuario",
       targetId: result.id.toString(),
       metadata: {
-        role: result.role ?? null,
+        role: resolvePrimaryRole(result) ?? null,
         escuelaId: result.escuelaId?.toString?.() ?? null,
         passwordResetRequired
       }
@@ -251,12 +250,12 @@ usuarios.get("/api/usuarios", requireUser, requirePolicy("usuarios/list"), async
   }
   const items = await prisma.usuario.findMany({
     where: where as any,
-    select: { id: true, username: true, role: true, escuelaId: true },
+    select: { id: true, username: true, roles: true, escuelaId: true },
     skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
     take: limit,
     orderBy: { createdAt: "desc" }
   });
-  res.json({ items: items.map((item) => ({ id: item.id, username: item.username, role: item.role, escuelaId: item.escuelaId })), limit, offset });
+  res.json({ items: items.map((item) => ({ id: item.id, username: item.username, role: resolvePrimaryRole(item), escuelaId: item.escuelaId })), limit, offset });
 });
 
 usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), async (req, res) => {
@@ -391,7 +390,7 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
       username: (userDoc.username ?? "") as string,
       email: (userDoc.email ?? "") as string,
       fullName: (userDoc.fullName ?? userDoc.username ?? "Sin nombre") as string,
-      role: (userDoc.role ?? "USER") as string,
+      role: (resolvePrimaryRole(userDoc) ?? "USER") as string,
       escuelaId: userDoc.escuelaId ? String(userDoc.escuelaId) : null,
       createdAt: userDoc.createdAt ? new Date(userDoc.createdAt as string).toISOString() : null,
       isBanned: userDoc.isBanned === true,

@@ -186,9 +186,8 @@ describe("useViewBoxZoom", () => {
     });
 
     it("pan por pointer no puede salir de `bounds`", () => {
-      const { getByTestId } = render(<Harness options={{ bounds: BOUNDS }} />);
+      render(<Harness options={{ bounds: BOUNDS }} />);
       act(() => { getApi().zoomIn(); getApi().zoomIn(); getApi().zoomIn(); });
-      const svg = getByTestId("svg");
       const api = getApi();
       act(() => {
         // Arrastre gigante hacia la esquina superior-izquierda: debe

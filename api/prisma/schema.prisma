@@ -207,13 +207,6 @@ model Usuario {
   username              String   @unique
   email                 String   @unique
   fullName              String   @map("full_name")
-  // MULTIROL-01 (Fase 1): `role` queda como columna espejo (deprecada
-  // pero viva) para mantener compatibilidad con código legacy durante
-  // la transición. `roles` es la nueva fuente de verdad. Backfill:
-  // cada fila existente recibe `roles = [role]` en la migración
-  // 20260617050000_multirol_usuario_roles. Fase 3 retira `role` cuando
-  // nada lo use.
-  role                  String
   /// Admin principal de la plataforma: el único que puede cambiar roles
   /// (y por lo tanto crear otros ADMIN). Antes esto se intentaba deducir de
   /// un campo `createdBy` que NUNCA existió en la tabla, con lo cual el

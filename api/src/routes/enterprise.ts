@@ -1,3 +1,4 @@
+import { resolvePrimaryRole } from "../lib/roles";
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { generateId } from "../lib/ids";
@@ -57,14 +58,14 @@ enterprise.get(
         ...escuelaFilter,
         isDeleted: { not: true }
       },
-      select: { id: true, fullName: true, role: true, escuelaId: true, username: true }
+      select: { id: true, fullName: true, roles: true, escuelaId: true, username: true }
     });
     // PLAN-multirol Fase 3 — ya no hay cuentas espejo que sacar del roster.
     const staff = items
       .map((item) => ({
       id: item.id ?? "",
       name: item.fullName ?? item.username ?? "Sin nombre",
-      role: item.role ?? "USER",
+      role: resolvePrimaryRole(item) ?? "USER",
       schoolId: normalizeSchoolId(item.escuelaId) ?? schoolId
     }));
     res.json({ staff });
@@ -83,7 +84,7 @@ enterprise.get(
     const staffCount = await prisma.usuario.count({
       where: {
         ...escuelaFilter,
-        role: { in: ["ADMIN", "TEACHER"] },
+        roles: { hasSome: ["ADMIN", "TEACHER"] },
         isDeleted: { not: true }
       }
     });
@@ -201,7 +202,7 @@ enterprise.post(
     const lookupIds = [adminId, ...uniqueTeacherIds];
     const users = await prisma.usuario.findMany({
       where: { id: { in: lookupIds }, isDeleted: { not: true } },
-      select: { id: true, role: true, escuelaId: true }
+      select: { id: true, roles: true, escuelaId: true }
     });
     const usersById = new Map(users.map((user) => [user.id ?? "", user]));
     const adminUser = usersById.get(adminId);
@@ -209,7 +210,7 @@ enterprise.post(
       res.status(400).json({ error: "admin not found" });
       return;
     }
-    const adminRole = adminUser.role;
+    const adminRole = resolvePrimaryRole(adminUser);
     if (adminRole !== "DIRECTIVO" && adminRole !== "TEACHER" && adminRole !== "ADMIN") {
       res.status(400).json({ error: "admin role invalid" });
       return;
@@ -225,7 +226,7 @@ enterprise.post(
         res.status(400).json({ error: "teacher not found" });
         return;
       }
-      if (teacherUser.role !== "TEACHER") {
+      if (resolvePrimaryRole(teacherUser) !== "TEACHER") {
         res.status(400).json({ error: "teacher role invalid" });
         return;
       }

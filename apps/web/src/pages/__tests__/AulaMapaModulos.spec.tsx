@@ -7,7 +7,7 @@
  *  (c) Error del back → Alert de error.
  *  (d) Click en un nodo disponible navega a /modulos/:id.
  */
-import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
+import { describe, expect, it, vi, afterEach } from "vitest";
 import { render, screen, cleanup, fireEvent, waitFor } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 

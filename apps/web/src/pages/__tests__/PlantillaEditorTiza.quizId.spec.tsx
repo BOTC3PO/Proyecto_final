@@ -25,6 +25,22 @@ const updatePlantillaMock = vi.fn();
 // PLAN-Y bis — `listPlantillas` lo usa `PlantillaSelectorModal` (importador de
 // plantillas del banco dentro del cuestionario).
 const listPlantillasMock = vi.fn();
+// E4 — el editor monta subcomponentes que consultan la API por su cuenta
+// (materias, etc.). Sin mockear `lib/api` esas llamadas salen a
+// 127.0.0.1:3000 y ensucian la corrida con ECONNREFUSED; bajo carga, además,
+// aportan latencia que empujaba este spec por encima de su timeout — pasaba
+// aislado y fallaba en la corrida completa.
+vi.mock("../../lib/api", async (importOriginal) => {
+  const real = await importOriginal<Record<string, unknown>>();
+  return {
+    ...real,
+    apiGet: vi.fn().mockResolvedValue({ items: [] }),
+    apiPost: vi.fn().mockResolvedValue({}),
+    apiPatch: vi.fn().mockResolvedValue({}),
+    apiDelete: vi.fn().mockResolvedValue({}),
+  };
+});
+
 vi.mock("../../domain/vblang/plantillaApi", () => ({
   getPlantilla: (...args: unknown[]) => getPlantillaMock(...args),
   createPlantilla: (...args: unknown[]) => createPlantillaMock(...args),
@@ -151,7 +167,11 @@ describe("PlantillaEditorTiza — Etapa 2 quizId", () => {
       expect(screen.getByText("Doble")).toBeInTheDocument();
       expect(screen.getByText("Pregunta 3")).toBeInTheDocument();
     });
-  }, 10000);
+    // Sin timeout propio: este spec corre con timers reales a propósito (ver
+    // el encabezado) y el editor debouncea la compilación, así que tarda. El
+    // override de 10s era MÁS BAJO que el global de 20s y era lo que lo hacía
+    // fallar sólo bajo carga, pasando aislado.
+  });
 
   it("aviso inline de validación aparece cuando los límites no alcanzan", async () => {
     getQuizPreguntasMock.mockResolvedValue({

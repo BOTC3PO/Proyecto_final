@@ -368,7 +368,7 @@ const buildReporteData = async (
   const totalUsuarios = await prisma.usuario.count({ where: userWhere as any });
   const usuarios = await prisma.usuario.findMany({
     where: userWhere as any,
-    select: { id: true, fullName: true, username: true, role: true },
+    select: { id: true, fullName: true, username: true, roles: true },
     skip: pagination.offset,
     take: pagination.limit
   });

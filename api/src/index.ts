@@ -88,7 +88,7 @@ const runStartupDataChecks = async () => {
       return;
     }
     const totalAdmins = await prisma.usuario.count({
-      where: { role: "ADMIN", isDeleted: false }
+      where: { roles: { has: "ADMIN" }, isDeleted: false }
     });
     if (totalAdmins === 0) {
       console.warn("[startup-check] La DB tiene usuarios pero ningún ADMIN activo.");

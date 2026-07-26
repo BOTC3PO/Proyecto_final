@@ -55,6 +55,7 @@ import { buscarLugares, type GeonameResultado } from "../../lib/maps/geonamesApi
 import { listPaisesConProvincias, fetchProvinciasTopo, type ProvinciaCatalogoItem } from "../../lib/maps/provinciasApi";
 import styles from "./MapaEditorFull.module.css";
 import { useI18n } from "../../i18n/I18nContext";
+import type { GeoJsonFeature } from "../../components/modulos/standalone/types";
 
 const MAP_WIDTH = 1000;
 const MAP_HEIGHT = 620;
@@ -865,7 +866,18 @@ export default function MapaEditorFull({ initialConfig, onSave, onCancel, materi
           nombre: pais.nombre,
           data: {
             type: "FeatureCollection",
-            features: features.map((f) => ({ type: "Feature", geometry: f.geometry, properties: f.properties })),
+            // `features` viene del fetch con tipos anchos (Polygon|MultiPolygon
+            // y number[][][]); `GeoJsonFeature` los quiere concretos. El shape
+            // en runtime ya es el correcto, así que se acota acá en vez de
+            // aflojar el tipo del modelo.
+            features: features.map(
+              (f) =>
+                ({
+                  type: "Feature",
+                  geometry: f.geometry,
+                  properties: f.properties ?? {},
+                }) as GeoJsonFeature,
+            ),
           },
         },
       };

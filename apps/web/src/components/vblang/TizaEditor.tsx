@@ -1075,18 +1075,20 @@ function QuestionPropertyGrid({
             <Eyebrow>{enunciadosActive ? t("tizaEditor.enunciadoVariantes") : t("plantillaEditorTiza.enunciado")}</Eyebrow>
             {enunciadosActive ? (
               <div>
-                {enunciadosItems.map((text, i) => (
+                {/* Las variantes son `{ text, tipo? }` desde PLAN-E §15, no
+                    strings: este bloque había quedado con la forma vieja. */}
+                {enunciadosItems.map((item, i) => (
                   <div
                     key={i}
                     style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 8 }}
                   >
                     <div style={{ ...numberBadgeStyle, marginTop: 10 }}>{i + 1}</div>
                     <BufferedTextarea
-                      value={text}
+                      value={item.text}
                       rows={2}
                       onCommit={(v) => {
                         const next = [...enunciadosItems];
-                        next[i] = v;
+                        next[i] = { ...next[i], text: v };
                         onChange(writeEnunciados(plantilla, next));
                       }}
                       style={{ ...inputStyle(), flex: 1, minWidth: 0 }}

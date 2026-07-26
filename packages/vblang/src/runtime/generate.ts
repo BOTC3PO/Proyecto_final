@@ -24,7 +24,7 @@ import {
   generateMarcarMapa,
   generateOrdenar,
 } from "./generate-special.js";
-import type { PasoItem, TextoOInterpolacion, TipoPregunta } from "../parser/ast.js";
+import type { PasoItem, TipoPregunta } from "../parser/ast.js";
 import { camposToVisualSpec } from "./visual.js";
 import type {
   CompiledPlantilla,

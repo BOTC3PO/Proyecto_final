@@ -83,7 +83,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
       return;
     }
     const parsed = BootstrapAdminRequestSchema.parse(req.body ?? {});
-    const existingAdmin = await prisma.usuario.findFirst({ where: { role: "ADMIN" } });
+    const existingAdmin = await prisma.usuario.findFirst({ where: { roles: { has: "ADMIN" } } });
     if (existingAdmin) {
       res.status(409).json({ error: "Admin already exists" });
       return;
@@ -95,9 +95,9 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
         username: parsed.username,
         email: parsed.email,
         fullName: parsed.fullName,
-        role: "ADMIN",
         // Este endpoint sólo corre cuando NO existe ningún admin (ver el
         // 409 de arriba): quien lo usa ES el admin principal.
+        roles: ["ADMIN"],
         esAdminPrincipal: true,
         passwordHash: hashPassword(parsed.password),
         isDeleted: false,
@@ -124,7 +124,7 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
         username: parsed.username,
         email: parsed.email,
         fullName: parsed.fullName,
-        role: "ADMIN",
+        roles: ["ADMIN"],
         passwordHash: hashPassword(parsed.password),
         isDeleted: false,
         createdAt: now,
@@ -213,7 +213,6 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         username: parsed.username,
         email: parsed.email,
         fullName: parsed.fullName,
-        role,
         // MULTIROL-01: poblar `roles` al registrar. Por ahora, el
         // registro es single-rol (mismo `role` que viene del
         // payload). El endpoint para agregar un segundo rol
@@ -282,7 +281,7 @@ auth.post("/api/auth/guest", authLimiter, async (req, res) => {
         username,
         email,
         fullName,
-        role: "GUEST",
+        roles: ["GUEST"],
         guestOnboardingStatus: "pendiente",
         passwordHash: null,
         isDeleted: false,
@@ -428,7 +427,7 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
       id: user.id.toString(),
       email: user.email,
       username: user.username,
-      role: sesion.rolPrincipal ?? user.role,
+      role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
       roles: sesion.roles.length > 0 ? sesion.roles : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
       schoolId: normalizeSchoolId(sesion.escuelaId),
@@ -477,7 +476,7 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
       }
     });
 
-    if (user?.id && user.role !== "GUEST") {
+    if (user?.id && resolvePrimaryRole(user) !== "GUEST") {
       // MULTIROL-01: con multi-rol, un usuario puede haber sido guest
       // y haber agregado otro rol (ej. TEACHER). El chequeo original
       // sobre `role` singular sigue siendo correcto para Fase 1 —
@@ -573,7 +572,7 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       id: user.id.toString(),
       email: user.email,
       username: user.username,
-      role: sesion.rolPrincipal ?? user.role,
+      role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
       roles: sesion.roles.length > 0 ? sesion.roles : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
       schoolId: normalizeSchoolId(sesion.escuelaId),
@@ -585,7 +584,7 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       username: user.username,
       email: user.email,
       fullName: user.fullName,
-      role: sesion.rolPrincipal ?? user.role,
+      role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
       roles: sesion.roles.length > 0 ? sesion.roles : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
       schoolId: normalizeSchoolId(sesion.escuelaId),

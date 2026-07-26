@@ -35,6 +35,7 @@ import { useModuloPersistence } from "../useModuloPersistence";
 import type { ModuleFormState } from "../useModuloEditor";
 
 const baseForm: ModuleFormState = {
+  descatalogado: false,
   title: "Módulo test",
   description: "desc",
   subject: "Matemáticas",

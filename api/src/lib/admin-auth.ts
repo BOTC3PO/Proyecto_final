@@ -45,10 +45,7 @@ export const requireAdmin = async (req: Request, res: Response, next: NextFuncti
         // presencia de "ADMIN" en el array `roles` (multi-rol).
         // Compat: las filas pre-migración que aún no tengan
         // `roles` poblado matchean por `role: "ADMIN"`.
-        OR: [
-          { role: "ADMIN" },
-          { roles: { has: "ADMIN" } }
-        ]
+        roles: { has: "ADMIN" }
       }
     });
     if (!adminUser) {
