@@ -26,18 +26,15 @@ import {
   startServer,
   jsonRequest,
 } from "./_helpers/setup";
-import { ESPEJO_TIPO_CUENTA } from "../../src/lib/provisionar-espejo";
+// PLAN-multirol Fase 3 — el marcador de cuenta espejo ya no existe en el
+// código; se conserva acá sólo para seedear filas históricas y comprobar
+// que el filtrado ahora depende de `ClaseMiembro.esPrueba`, no de la cuenta.
+const ESPEJO_TIPO_CUENTA = "ESPEJO_ALUMNO";
 
 // Routers e infraestructura bajo prueba (importados después de los stubs).
 import { aulas } from "../../src/routes/aulas";
 import { progreso } from "../../src/routes/progreso";
 import { profesor } from "../../src/routes/profesor";
-import {
-  getEspejoUserIds,
-  excluirEspejos,
-  excluirEspejosDeIds,
-  whereExcluirEspejos,
-} from "../../src/lib/espejo-filtro";
 import { fetchActiveStudentSummary } from "../../src/lib/enterprise-billing";
 
 const ESC = "esc-fase4";
@@ -100,7 +97,9 @@ function seedAulaConAlumnos(opts: {
       fullName: "Espejo de Profe",
       tipoCuenta: ESPEJO_TIPO_CUENTA,
     });
-    prisma.claseMiembro.rows.push({ claseId: opts.aulaId, usuarioId: opts.espejoId, rolEnClase: "STUDENT" });
+    // PLAN-multirol Fase 3 — lo que marca "esto no es un alumno real" pasó
+    // de la CUENTA (tipoCuenta) a la INSCRIPCIÓN (esPrueba).
+    prisma.claseMiembro.rows.push({ claseId: opts.aulaId, usuarioId: opts.espejoId, rolEnClase: "STUDENT", esPrueba: true });
   }
   // Módulos asignados.
   for (const mid of opts.moduloIds ?? []) {
@@ -119,102 +118,45 @@ function seedAulaConAlumnos(opts: {
 
 // ─── A. Helper central ──────────────────────────────────────────────────────
 
-test("FASE 4 (helper): getEspejoUserIds identifica solo a los espejos", async () => {
-  resetPrisma();
-  seedUser({ id: "real-1", role: "USER", schoolId: ESC });
-  seedUser({ id: "esp-1", role: "USER", schoolId: ESC, tipoCuenta: ESPEJO_TIPO_CUENTA });
-  seedUser({ id: "esp-2", role: "USER", schoolId: ESC, tipoCuenta: ESPEJO_TIPO_CUENTA });
 
-  const all = await getEspejoUserIds();
-  assert.ok(all.has("esp-1"));
-  assert.ok(all.has("esp-2"));
-  assert.ok(!all.has("real-1"));
 
-  // Acotado a candidatos.
-  const scoped = await getEspejoUserIds(["real-1", "esp-1"]);
-  assert.deepEqual([...scoped].sort(), ["esp-1"]);
 
-  // Candidatos vacíos → set vacío sin tocar DB.
-  const none = await getEspejoUserIds([]);
-  assert.equal(none.size, 0);
-});
-
-test("FASE 4 (helper): excluirEspejos / excluirEspejosDeIds descartan espejos", async () => {
-  resetPrisma();
-  seedUser({ id: "real-1", role: "USER", schoolId: ESC });
-  seedUser({ id: "esp-1", role: "USER", schoolId: ESC, tipoCuenta: ESPEJO_TIPO_CUENTA });
-
-  const rows = await excluirEspejos([
-    { usuarioId: "real-1", extra: 1 },
-    { usuarioId: "esp-1", extra: 2 },
-  ]);
-  assert.deepEqual(rows.map((r) => r.usuarioId), ["real-1"]);
-
-  const ids = await excluirEspejosDeIds(["real-1", "esp-1", "real-1"]);
-  assert.deepEqual(ids, ["real-1", "real-1"]);
-});
-
-test("FASE 4 (helper): whereExcluirEspejos devuelve {} si no hay espejos", async () => {
-  resetPrisma();
-  seedUser({ id: "real-1", role: "USER", schoolId: ESC });
-  const w = await whereExcluirEspejos();
-  assert.deepEqual(w, {});
-});
-
-test("FASE 4 (helper): whereExcluirEspejos arma notIn cuando hay espejos", async () => {
-  resetPrisma();
-  seedUser({ id: "esp-1", role: "USER", schoolId: ESC, tipoCuenta: ESPEJO_TIPO_CUENTA });
-  const w = await whereExcluirEspejos();
-  assert.deepEqual(w, { usuarioId: { notIn: ["esp-1"] } });
-});
 
 // ─── B. Endpoint de inscripción ─────────────────────────────────────────────
 
-test("FASE 4: POST /usar-como-alumno provisiona e inscribe el espejo (201)", async () => {
-  resetPrisma();
-  const teacherId = randomUUID();
-  const aulaId = "aula-insc";
-  seedAulaConAlumnos({ aulaId, teacherId, studentIds: [] });
-  const token = tokenFor({ id: teacherId, role: "TEACHER", roles: ["TEACHER"], schoolId: ESC });
+test("PLAN-multirol: POST /usar-como-alumno inscribe al PROPIO docente con esPrueba (201)", async () => {
+  const TEACHER = "doc-usar-como-alumno";
+  const AULA = "aula-usar-como-alumno";
+  seedAulaConAlumnos({ aulaId: AULA, teacherId: TEACHER, studentIds: [] });
+  const token = tokenFor({ id: TEACHER, role: "TEACHER", schoolId: ESC });
+  const r = await jsonRequest(baseUrl, "POST", `/api/aulas/${AULA}/usar-como-alumno`, { token });
+  assert.equal(r.status, 201, JSON.stringify(r.body));
 
-  const res = await jsonRequest(baseUrl, "POST", `/api/aulas/${aulaId}/usar-como-alumno`, { token, body: {} });
-  assert.equal(res.status, 201);
-  const body = res.body as Record<string, unknown>;
-  assert.equal(body.ok, true);
-  assert.equal(body.aulaId, aulaId);
-  const espejoId = body.espejoId as string;
-  assert.ok(espejoId, "devuelve espejoId");
-
-  // El espejo quedó inscripto como STUDENT.
-  const miembro = prisma.claseMiembro.rows.find(
-    (m) => m.claseId === aulaId && m.usuarioId === espejoId && m.rolEnClase === "STUDENT"
+  const fila = prisma.claseMiembro.rows.find(
+    (m) => m.claseId === AULA && m.usuarioId === TEACHER && m.rolEnClase === "STUDENT"
   );
-  assert.ok(miembro, "el espejo es ClaseMiembro STUDENT");
-
-  // Y el usuario espejo tiene el marcador tipoCuenta.
-  const espejoUser = prisma.usuario.rows.find((u) => u.id === espejoId);
-  assert.equal(espejoUser?.tipoCuenta, ESPEJO_TIPO_CUENTA);
+  assert.ok(fila, "se inscribe la MISMA cuenta, no una espejo");
+  assert.equal(fila?.esPrueba, true, "marcada como inscripción de prueba");
+  assert.equal(
+    prisma.usuario.rows.filter((u) => u.id === TEACHER).length,
+    1,
+    "no se crea ninguna cuenta nueva"
+  );
+  // Y le queda la membresía STUDENT que le permite elegir el rol alumno.
+  assert.ok(
+    prisma.membresia.rows.some((m) => m.usuarioId === TEACHER && m.rol === "STUDENT" && m.estado === "activa")
+  );
 });
 
-test("FASE 4: POST /usar-como-alumno es idempotente (200 alreadyEnrolled)", async () => {
-  resetPrisma();
-  const teacherId = randomUUID();
-  const aulaId = "aula-idem";
-  seedAulaConAlumnos({ aulaId, teacherId, studentIds: [] });
-  const token = tokenFor({ id: teacherId, role: "TEACHER", roles: ["TEACHER"], schoolId: ESC });
-
-  const r1 = await jsonRequest(baseUrl, "POST", `/api/aulas/${aulaId}/usar-como-alumno`, { token, body: {} });
-  assert.equal(r1.status, 201);
-  const r2 = await jsonRequest(baseUrl, "POST", `/api/aulas/${aulaId}/usar-como-alumno`, { token, body: {} });
+test("PLAN-multirol: POST /usar-como-alumno es idempotente (200 alreadyEnrolled)", async () => {
+  const TEACHER = "doc-idempotente";
+  const AULA = "aula-idempotente";
+  seedAulaConAlumnos({ aulaId: AULA, teacherId: TEACHER, studentIds: [] });
+  const token = tokenFor({ id: TEACHER, role: "TEACHER", schoolId: ESC });
+  await jsonRequest(baseUrl, "POST", `/api/aulas/${AULA}/usar-como-alumno`, { token });
+  const r2 = await jsonRequest(baseUrl, "POST", `/api/aulas/${AULA}/usar-como-alumno`, { token });
   assert.equal(r2.status, 200);
-  assert.equal((r2.body as Record<string, unknown>).alreadyEnrolled, true);
-
-  // Una sola fila de inscripción del espejo.
-  const espejoId = (r1.body as Record<string, unknown>).espejoId as string;
-  const filas = prisma.claseMiembro.rows.filter(
-    (m) => m.claseId === aulaId && m.usuarioId === espejoId
-  );
-  assert.equal(filas.length, 1);
+  assert.equal((r2.body as { alreadyEnrolled?: boolean }).alreadyEnrolled, true);
 });
 
 test("FASE 4: POST /usar-como-alumno en aula ajena → 403", async () => {

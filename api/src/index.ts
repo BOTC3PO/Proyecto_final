@@ -5,7 +5,7 @@ import compression from "compression";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
-import { ENV } from "./lib/env";
+import { ENV, assertSecretosDePago } from "./lib/env";
 import { health } from "./routes/health";
 import { pages } from "./routes/pages";
 import { usuarios } from "./routes/usuarios";
@@ -162,6 +162,19 @@ app.use(
   "/api/sync/push",
   createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 30 })
 );
+// Webhooks de pasarela: tráfico anónimo, así que `rateLimitKey` cae a la
+// IP (lo correcto acá). El limiter global no los cubría en la práctica —
+// cuenta por usuario autenticado y estos requests no traen JWT. 120/min
+// deja lugar de sobra a las ráfagas de reintentos de MP/Cryptomus y corta
+// la fuerza bruta de firmas o el sondeo de providerRef.
+app.use(
+  "/api/pasarelas/webhook",
+  createRateLimiter({ windowMs: 60 * 1000, limit: 120 })
+);
+app.use(
+  "/api/payments/webhook",
+  createRateLimiter({ windowMs: 60 * 1000, limit: 120 })
+);
 app.use(
   "/api/auth/forgot-password",
   createRateLimiter({ windowMs: 60 * 60 * 1000, limit: 5 })
@@ -288,6 +301,9 @@ const httpsCreds =
     : null;
 
 const bootstrap = async () => {
+  // Antes de aceptar un solo request: si hay pasarelas configuradas,
+  // los secretos que las hacen seguras no pueden faltar.
+  assertSecretosDePago();
   if (httpsCreds) {
     createHttpsServer(httpsCreds, app).listen(ENV.PORT, () => {
       console.log(`API on https://localhost:${ENV.PORT}`);

@@ -59,8 +59,23 @@ test("SEC-01: POST /api/quiz-attempts con PARENT puro → 403", async () => {
   assert.equal((r.body as { error?: string }).error, "role cannot start quiz attempts");
 });
 
-test("SEC-01: POST /api/quiz-attempts con PARENT+USER → pasa el guard (404 por quiz inexistente)", async () => {
+// PLAN-multirol — antes este test afirmaba que un PARENT+USER SIEMPRE pasaba
+// el guard, porque sólo se bloqueaba cuando todos los roles eran PARENT. Ese
+// era el hueco real (bug reportado: desde el navbar de padre se llegaba a un
+// módulo público y se podía rendir), y con padre y alumno en la misma cuenta
+// habría desactivado la guarda del todo. Ahora manda el ROL ACTIVO.
+test("SEC-01: PARENT+USER actuando como PADRE → 403 (no rinde por su hijo)", async () => {
   const token = tokenFor({ id: PARENT_USER_ID, role: "PARENT", roles: ["PARENT", "USER"] });
+  const r = await jsonRequest(baseUrl, "POST", "/api/quiz-attempts", {
+    token,
+    body: { quizId: "quiz-inexistente" },
+  });
+  assert.equal(r.status, 403);
+  assert.equal((r.body as { error?: string }).error, "role cannot start quiz attempts");
+});
+
+test("SEC-01: PARENT+USER actuando como ALUMNO → pasa el guard (rinde lo suyo)", async () => {
+  const token = tokenFor({ id: PARENT_USER_ID, role: "USER", roles: ["USER"] });
   const r = await jsonRequest(baseUrl, "POST", "/api/quiz-attempts", {
     token,
     body: { quizId: "quiz-inexistente" },

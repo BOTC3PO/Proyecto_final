@@ -17,7 +17,7 @@ import {
   type CSSProperties,
   type ReactNode,
 } from "react";
-import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { useCanActAsLearner, usePrimaryRole } from "../auth/use-roles";
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from "./navConfig";
@@ -287,30 +287,13 @@ const ROLE_LABEL_KEY: Record<string, string> = {
 };
 
 export default function Navbar() {
-  const { user, logout, switchCuenta } = useAuth();
+  const { user, logout } = useAuth();
   const { t } = useI18n();
-  const navigate = useNavigate();
   // FASE 5b — el switch real a la cuenta espejo (igual que StaffSidebar).
-  const tieneEspejo = user?.cuentaVinculada?.tipoDestino === 'ALUMNO';
-  const handleEntrarComoAlumno = async () => {
-    try {
-      const { landing } = await switchCuenta();
-      navigate(landing);
-    } catch (e) {
-      console.error('Error al entrar como alumno:', e);
-    }
-  };
+  const tieneEspejo = false;
   // PLAN-C §6 (ítem 31) — mismo mecanismo para la dirección alumno→padre
   // (FASE 6, autoservicio): "Ver como padre" en el dropdown de USER.
-  const tienePadre = user?.cuentaVinculada?.tipoDestino === 'PADRE';
-  const handleEntrarComoPadre = async () => {
-    try {
-      const { landing } = await switchCuenta();
-      navigate(landing);
-    } catch (e) {
-      console.error('Error al entrar como padre:', e);
-    }
-  };
+  const tienePadre = false;
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -581,7 +564,7 @@ export default function Navbar() {
                         // link muerto a /alumno con los datos propios.
                         if (tieneEspejo) {
                           return (
-                            <MenuRowButton key="ver-como-alumno" onClick={() => { close(); void handleEntrarComoAlumno(); }}>
+                            <MenuRowButton key="ver-como-alumno" onClick={close}>
                               <DropdownIcon name={item.icon} />
                               {t(`dropdown.${item.label}`)}
                             </MenuRowButton>
@@ -601,7 +584,7 @@ export default function Navbar() {
                       if (item.id === 'verComoPadre') {
                         if (tienePadre) {
                           return (
-                            <MenuRowButton key="ver-como-padre" onClick={() => { close(); void handleEntrarComoPadre(); }}>
+                            <MenuRowButton key="ver-como-padre" onClick={close}>
                               <DropdownIcon name={item.icon} />
                               {t(`dropdown.${item.label}`)}
                             </MenuRowButton>

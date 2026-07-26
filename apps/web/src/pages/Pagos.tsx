@@ -24,6 +24,14 @@ const PILL_ESTADO: Record<string, "neutral" | "info" | "ok" | "warn"> = {
   anulada: "neutral"
 };
 
+const ESTADO_LABEL_KEYS: Record<string, string> = {
+  pendiente: "pagos.estadoPendiente",
+  en_proceso: "pagos.estadoEnProceso",
+  pagada: "pagos.estadoPagada",
+  vencida: "pagos.estadoVencida",
+  anulada: "pagos.estadoAnulada"
+};
+
 export default function Pagos() {
   const { t } = useI18n();
   const [items, setItems] = useState<CuotaAlumno[]>([]);
@@ -39,11 +47,11 @@ export default function Pagos() {
       const resp = await fetchCuotasMias();
       setItems(resp.items);
     } catch {
-      setError("No pudimos cargar tus cuotas.");
+      setError(t("pagos.noPudimosCargarTusCuotas"));
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     void load();
@@ -61,7 +69,7 @@ export default function Pagos() {
       setMsg(t("pagos.tuEscuelaTodaviaNoConecto"));
       await load();
     } catch {
-      setMsg("No se pudo iniciar el pago.");
+      setMsg(t("pagos.noSePudoIniciarEl"));
     } finally {
       setPagando(null);
     }
@@ -110,16 +118,16 @@ export default function Pagos() {
                 >
                   <div>
                     <p className="text-sm font-semibold text-[var(--c-text)]">
-                      {c.cobro?.concepto ?? "Cuota"}
+                      {c.cobro?.concepto ?? t("pagos.cuota")}
                     </p>
                     <p className="text-xs text-[var(--c-text-3)]">
-                      {money(c.montoFinal, c.cobro?.moneda)} · vence {fecha(c.cobro?.vencimiento)}
+                      {money(c.montoFinal, c.cobro?.moneda)} · {t("pagos.vence")} {fecha(c.cobro?.vencimiento)}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Pill tone={PILL_ESTADO[c.estado] ?? "neutral"}>{c.estado}</Pill>
+                    <Pill tone={PILL_ESTADO[c.estado] ?? "neutral"}>{t(ESTADO_LABEL_KEYS[c.estado] ?? c.estado)}</Pill>
                     <Button size="sm" onClick={() => void pagar(c.id)} disabled={pagando === c.id}>
-                      {pagando === c.id ? "Iniciando…" : "Pagar"}
+                      {pagando === c.id ? t("pagos.iniciando") : t("pagos.pagar")}
                     </Button>
                   </div>
                 </li>
@@ -148,10 +156,10 @@ export default function Pagos() {
               <tbody>
                 {historial.map((c) => (
                   <tr key={c.id} className="border-t border-[var(--c-border)]">
-                    <td className="py-1">{c.cobro?.concepto ?? "Cuota"}</td>
+                    <td className="py-1">{c.cobro?.concepto ?? t("pagos.cuota")}</td>
                     <td className="py-1">{money(c.montoFinal, c.cobro?.moneda)}</td>
                     <td className="py-1">
-                      <Pill tone={PILL_ESTADO[c.estado] ?? "neutral"}>{c.estado}</Pill>
+                      <Pill tone={PILL_ESTADO[c.estado] ?? "neutral"}>{t(ESTADO_LABEL_KEYS[c.estado] ?? c.estado)}</Pill>
                     </td>
                   </tr>
                 ))}

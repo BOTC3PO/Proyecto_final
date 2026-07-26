@@ -3,7 +3,6 @@ import { requireUser } from "../lib/user-auth";
 import { checkModoAula } from "../lib/modo-aula-middleware";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
-import { resolveEspejoId } from "../lib/cuenta-vinculada";
 
 export const tienda = Router();
 
@@ -41,14 +40,9 @@ tienda.get("/api/tienda/mis-items", requireUser, async (req, res) => {
 
   // FIX-STAFF-TEMAS-BLOQUEADOS — TEACHER/DIRECTIVO/ADMIN no tienen ruta
   // propia a /tienda-temas (esa página vive bajo AlumnoLayout, sólo
-  // USER/PARENT — ver FIX-VISTA-PREVIA-STAFF); su única vía real de
-  // comprar es entrar como su cuenta espejo (switchCuenta) y comprar ahí.
-  // Sumamos lo que compró esa cuenta vinculada para que "lo que tengo" se
-  // vea igual sin importar con cuál de las dos cuentas del mismo usuario
-  // se mire (ver también el saldo de bienvenida del espejo de staff en
-  // provisionar-espejo.ts).
-  const espejoId = await resolveEspejoId(userId);
-  const usuarioIds = espejoId ? [userId, espejoId] : [userId];
+  // PLAN-multirol Fase 3 — antes acá se mergeaban las compras de la cuenta
+  // espejo. Ya no hace falta: la persona es una sola cuenta.
+  const usuarioIds = [userId];
 
   const items = await prisma.usuarioItem.findMany({
     where: { usuarioId: { in: usuarioIds } },

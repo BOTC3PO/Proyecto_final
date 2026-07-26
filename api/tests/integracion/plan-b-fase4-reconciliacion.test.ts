@@ -19,7 +19,7 @@ const RECIENTE = new Date().toISOString();
 
 beforeEach(() => {
   resetPrisma();
-  prisma.escuela.rows.push({
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada",
     id: ESCUELA_AUTOGESTIONADA,
     name: "Escuela Autogestionada",
     isDeleted: false,

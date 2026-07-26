@@ -48,9 +48,12 @@ import {
 } from "../components/vblang/plantillaFields";
 import { useEditorClasico } from "./useEditorClasico";
 import PlantillaEditorSchema from "../components/vblang/PlantillaEditorSchema";
+import { TIPO_PREGUNTA_KEY } from "../components/vblang/TizaEditor";
 import VistaAlumnoOverlay from "../components/modulos/VistaAlumnoOverlay";
 import Menu from "../ui/Menu";
 import type { ModuleQuiz } from "../domain/module/module.types";
+import { useI18n } from "../i18n/I18nContext";
+import { translateVblangMessage } from "../vblang/translateError";
 
 /* ─── tipos públicos ────────────────────────────────────────────────── */
 
@@ -783,6 +786,8 @@ function ParseErrorBanner({
 }: {
   error: { message: string; line: number; col: number; suggestion?: string };
 }) {
+  const { t, lang } = useI18n();
+  const translatedMessage = translateVblangMessage(error.message, lang);
   return (
     <div
       role="alert"
@@ -807,7 +812,7 @@ function ParseErrorBanner({
           ✕
         </span>
         <span style={{ fontWeight: 700 }}>
-          No se pudo parsear el código en línea {error.line}, columna {error.col}.
+          {t("editorShell.noSePudoParsearElCodigo")} {error.line}, {t("errorPanel.columna")} {error.col}.
         </span>
       </div>
       <div
@@ -816,22 +821,22 @@ function ParseErrorBanner({
           color: "var(--c-text-2, var(--c-text))",
         }}
       >
-        {error.message}
+        {translatedMessage}
       </div>
       {error.suggestion ? (
         <div style={{ color: "var(--c-text-3)", fontSize: 12 }}>
-          Sugerencia: <em>{error.suggestion}</em>
+          {t("errorPanel.sugerencia")} <em>{error.suggestion}</em>
         </div>
       ) : null}
       <div style={{ color: "var(--c-text-3)", fontSize: 11.5 }}>
-        El último estado válido se mantiene. Corregí el código para sincronizar
-        el formulario.
+        {t("editorShell.elUltimoEstadoValidoSe")}
       </div>
     </div>
   );
 }
 
 function LintIssueList({ issues }: { issues: LintIssue[] }) {
+  const { t, lang } = useI18n();
   // Mostrar hasta 5 issues, agrupados por severidad.
   const visible = issues.slice(0, 5);
   return (
@@ -858,7 +863,7 @@ function LintIssueList({ issues }: { issues: LintIssue[] }) {
           textTransform: "uppercase",
         }}
       >
-        Avisos del linter
+        {t("editorShell.avisosDelLinter")}
       </div>
       {visible.map((iss, i) => (
         <div
@@ -882,7 +887,7 @@ function LintIssueList({ issues }: { issues: LintIssue[] }) {
           >
             L{iss.line}:{iss.col}
           </span>
-          <span style={{ flex: 1 }}>{iss.message}</span>
+          <span style={{ flex: 1 }}>{translateVblangMessage(iss.message, lang)}</span>
           {iss.suggestion ? (
             <span style={{ color: "var(--c-text-3)", fontStyle: "italic" }}>
               {iss.suggestion}
@@ -892,7 +897,7 @@ function LintIssueList({ issues }: { issues: LintIssue[] }) {
       ))}
       {issues.length > visible.length ? (
         <div style={{ color: "var(--c-text-3)", fontSize: 11 }}>
-          + {issues.length - visible.length} más…
+          + {issues.length - visible.length} {t("editorShell.mas")}
         </div>
       ) : null}
     </div>
@@ -917,7 +922,7 @@ export default function PlantillaEditorShell({
   saving,
   savedHint,
   previewQuizzes = [],
-  previewTitle = "Vista previa del editor",
+  previewTitle,
   previewOpen: previewOpenProp,
   codeText,
   onCodeChange,
@@ -929,7 +934,7 @@ export default function PlantillaEditorShell({
   className,
   renderCenter,
   onBack,
-  backLabel = "Volver",
+  backLabel,
   topBarStatus,
   overflowMenu,
   codeModes,
@@ -939,6 +944,9 @@ export default function PlantillaEditorShell({
   renderAux,
   renderPreviewPanel,
 }: PlantillaEditorShellProps) {
+  const { t } = useI18n();
+  const resolvedPreviewTitle = previewTitle ?? t("quizPosicionesEditor.vistaPreviaDelEditor");
+  const resolvedBackLabel = backLabel ?? t("comun.volver");
   const editorClasico = useEditorClasico();
   const [internalPreview, setInternalPreview] = useState(false);
   const previewOpen = previewOpenProp ?? internalPreview;
@@ -1021,7 +1029,7 @@ export default function PlantillaEditorShell({
           <VistaAlumnoOverlay
             open
             onClose={handleTogglePreview}
-            title={previewTitle}
+            title={resolvedPreviewTitle}
             theoryItems={[]}
             quizzes={previewQuizzes}
           />,
@@ -1069,7 +1077,7 @@ export default function PlantillaEditorShell({
               }}
             >
               <span aria-hidden="true">‹</span>
-              {backLabel}
+              {resolvedBackLabel}
             </button>
             <span
               aria-hidden="true"
@@ -1178,7 +1186,7 @@ export default function PlantillaEditorShell({
         {codeText !== undefined || codeModeControlled !== undefined ? (
           <div
             role="group"
-            aria-label="Modo de edición"
+            aria-label={t("editorShell.modoDeEdicion")}
             className="plantilla-shell__topbar-item"
             style={{
               display: "inline-flex",
@@ -1195,7 +1203,7 @@ export default function PlantillaEditorShell({
             {(codeModes ?? (["form", "split", "code"] as const)).map((m) => {
               const active = codeMode === m;
               const label =
-                m === "form" ? "Form" : m === "code" ? "Código" : "Ambos";
+                m === "form" ? t("editorShell.form") : m === "code" ? t("editorShell.codigo") : t("editorShell.ambos");
               return (
                 <button
                   key={m}
@@ -1246,7 +1254,7 @@ export default function PlantillaEditorShell({
           }}
         >
           <span aria-hidden="true">▷</span>
-          <span>Vista del alumno</span>
+          <span>{t("editorShell.vistaDelAlumno")}</span>
         </button>
 
         {/* Menú overflow "⋯ Más" — acciones secundarias */}
@@ -1320,7 +1328,7 @@ export default function PlantillaEditorShell({
             whiteSpace: "nowrap",
           }}
         >
-          {saving ? "Guardando…" : "Guardar"}
+          {saving ? t("comun.guardando") : t("comun.guardar")}
         </button>
       </div>
 
@@ -1343,7 +1351,7 @@ export default function PlantillaEditorShell({
               padding: "4px 8px 8px",
             }}
           >
-            CUESTIONARIO
+            {t("tizaEditor.cuestionarioRail")}
           </div>
           {rail.length === 0 ? (
             <div
@@ -1450,7 +1458,7 @@ export default function PlantillaEditorShell({
 
         {/* AUX (property grid) */}
         <aside
-          aria-label="Propiedades"
+          aria-label={t("tizaEditor.propiedades")}
           style={auxStyle}
           data-testid="plantilla-editor-grid"
         >
@@ -1495,17 +1503,17 @@ export default function PlantillaEditorShell({
                       color: "var(--c-text-3)",
                     }}
                   >
-                    PROPIEDADES
+                    {t("tizaEditor.propiedades")}
                   </div>
                   <div style={{ fontSize: 15, fontWeight: 700 }}>
-                    {schema?.label ?? "Pregunta"}
+                    {TIPO_PREGUNTA_KEY[tipo] ? t(TIPO_PREGUNTA_KEY[tipo]) : (schema?.label ?? t("varianteEditor.pregunta"))}
                   </div>
                 </div>
               </div>
 
               <div style={{ overflowY: "auto", padding: 18, flex: 1 }}>
                 <div style={{ marginBottom: 18 }}>
-                  <Eyebrow>Tipo de pregunta</Eyebrow>
+                  <Eyebrow>{t("tizaEditor.tipoDePregunta")}</Eyebrow>
                   <div
                     style={{
                       display: "flex",
@@ -1529,7 +1537,7 @@ export default function PlantillaEditorShell({
                       }}
                     >
                       <span style={{ color: "var(--c-accent)" }}>№</span>{" "}
-                      {schema?.label ?? tipo}
+                      {TIPO_PREGUNTA_KEY[tipo] ? t(TIPO_PREGUNTA_KEY[tipo]) : (schema?.label ?? tipo)}
                     </div>
                   </div>
                   <div
@@ -1539,20 +1547,20 @@ export default function PlantillaEditorShell({
                       marginTop: 6,
                     }}
                   >
-                    Cambialo desde el panel central.
+                    {t("editorShell.cambialoDesdeElPanelCentral")}
                   </div>
                 </div>
 
                 {enunField ? (
                   <PropertyFieldText
-                    label="Enunciado"
+                    label={t("plantillaEditorTiza.enunciado")}
                     value={enunValue}
-                    placeholder="Texto de la consigna…"
+                    placeholder={t("editorShell.textoDeLaConsigna")}
                     multiline
                     onChange={updateEnun}
                     helpText={
                       <>
-                        Usá{" "}
+                        {t("tizaEditor.usa")}{" "}
                         <code
                           style={{
                             fontFamily: "var(--font-mono-css, ui-monospace, monospace)",
@@ -1561,7 +1569,7 @@ export default function PlantillaEditorShell({
                         >
                           {"{var}"}
                         </code>{" "}
-                        para insertar variables.
+                        {t("tizaEditor.paraInsertarVariables")}
                       </>
                     }
                   />
@@ -1569,18 +1577,18 @@ export default function PlantillaEditorShell({
 
                 {respField ? (
                   <PropertyFieldText
-                    label="Respuesta"
+                    label={t("tizaEditor.respuesta")}
                     value={respValue}
-                    placeholder="Expresión de la respuesta correcta…"
+                    placeholder={t("editorShell.expresionDeLaRespuestaCorrecta")}
                     onChange={updateResp}
                     mono
                     helpText={
                       respField.expression ? (
                         <>
-                          Expresión sobre variables · podés reusar las declaradas.
+                          {t("editorShell.expresionSobreVariablesPodesReusar")}
                         </>
                       ) : (
-                        <>Texto exacto de la respuesta esperada.</>
+                        <>{t("editorShell.textoExactoDeLaRespuesta")}</>
                       )
                     }
                   />
@@ -1591,7 +1599,7 @@ export default function PlantillaEditorShell({
                     {tolField ? (
                       <div style={{ flex: 1 }}>
                         <PropertyFieldNumber
-                          label="Tolerancia"
+                          label={t("tizaEditor.tolerancia")}
                           value={tolValue}
                           onChange={updateTol}
                         />
@@ -1600,7 +1608,7 @@ export default function PlantillaEditorShell({
                     {unidadField ? (
                       <div style={{ flex: 1 }}>
                         <PropertyFieldText
-                          label="Unidad"
+                          label={t("tizaEditor.unidad")}
                           value={unidadValue}
                           placeholder="—"
                           onChange={updateUnidad}
@@ -1633,7 +1641,7 @@ export default function PlantillaEditorShell({
         {/* PREVIEW lateral colapsable (estilo prototipo) */}
         {renderPreviewPanel && previewOpen ? (
           <section
-            aria-label="Vista del alumno"
+            aria-label={t("editorShell.vistaDelAlumno")}
             style={previewPanelStyle}
             data-testid="plantilla-editor-preview"
           >
@@ -1652,7 +1660,7 @@ export default function PlantillaEditorShell({
                 ▷
               </span>
               <span style={{ fontSize: 13.5, fontWeight: 700 }}>
-                Vista del alumno
+                {t("editorShell.vistaDelAlumno")}
               </span>
               <div style={{ flex: 1 }} />
               <button

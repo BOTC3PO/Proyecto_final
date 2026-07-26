@@ -92,6 +92,8 @@ const EnterprisePersonalizacion = lazyWithRetry(() => import("./pages/Enterprise
 const EnterpriseCobros          = lazyWithRetry(() => import("./pages/EnterpriseCobros"));
 const Pagos                     = lazyWithRetry(() => import("./pages/Pagos"));
 const AdminComisiones           = lazyWithRetry(() => import("./pages/AdminComisiones"));
+const AdminEscuelas             = lazyWithRetry(() => import("./pages/AdminEscuelas"));
+const RegistrarEscuela          = lazyWithRetry(() => import("./pages/RegistrarEscuela"));
 const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfesor"));
 const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
 const Terminos                  = lazyWithRetry(() => import("./pages/Terminos"));
@@ -411,6 +413,25 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['ADMIN']}>
                 {withSuspense(<AdminReportesGlobal />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'admin/escuelas',
+            element: (
+              <ProtectedRoute allow={['ADMIN']}>
+                {withSuspense(<AdminEscuelas />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            // Cualquier usuario autenticado puede pedir el alta de su
+            // escuela: no hay rol previo de "directivo", se obtiene al
+            // registrarla.
+            path: 'registrar-escuela',
+            element: (
+              <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
+                {withSuspense(<RegistrarEscuela />)}
               </ProtectedRoute>
             ),
           },

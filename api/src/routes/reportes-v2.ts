@@ -3,7 +3,7 @@ import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
-import { excluirEspejosDeIds } from "../lib/espejo-filtro";
+import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
 import { getResumenAsistenciaAula } from "./asistencia";
 
 export const reportesV2 = Router();
@@ -38,10 +38,9 @@ reportesV2.get(
       // PLAN-A §4 — `rolEnClase` real es "STUDENT" (nunca se escribe
       // "USER" en ClaseMiembro); con "USER" el boletín siempre venía vacío.
       const miembros = await prisma.claseMiembro.findMany({
-        where: { claseId: aulaId, rolEnClase: "STUDENT" }
+        where: { claseId: aulaId, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() }
       });
-      const alumnoIdsConEspejo = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
-      const alumnoIds = await excluirEspejosDeIds(alumnoIdsConEspejo);
+      const alumnoIds = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
 
       if (!alumnoIds.length) {
         return res.json({ aulaId, aulaNombre: aula.name, alumnos: [] });

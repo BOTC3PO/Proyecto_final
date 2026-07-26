@@ -4,7 +4,7 @@ import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { requireClassroomScope } from "../lib/classroom-scope";
 import { isClassroomActiveStatus, normalizeClassroomStatus } from "../schema/aula";
-import { whereExcluirEspejos } from "../lib/espejo-filtro";
+import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
 import { FechaAsistenciaSchema, PlanillaAsistenciaUpsertSchema } from "../schema/asistencia";
 
 export const asistencia = Router();
@@ -43,7 +43,7 @@ asistencia.get(
     const aulaId = req.params.id as string;
 
     const miembros = await prisma.claseMiembro.findMany({
-      where: { claseId: aulaId, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) },
+      where: { claseId: aulaId, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
       select: { usuarioId: true }
     });
     const alumnoIds = miembros.map((m) => m.usuarioId).filter(Boolean);
@@ -118,7 +118,7 @@ asistencia.put(
     // realmente son miembros STUDENT de esta aula (no cualquier id
     // que el cliente mande).
     const miembros = await prisma.claseMiembro.findMany({
-      where: { claseId: aulaId, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) },
+      where: { claseId: aulaId, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
       select: { usuarioId: true }
     });
     const alumnoIdsValidos = new Set(miembros.map((m) => m.usuarioId));

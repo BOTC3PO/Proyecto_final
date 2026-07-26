@@ -1274,12 +1274,12 @@ function PlantillaEditorTizaInner() {
       aria-atomic="true"
       title={
         saveStatus === "saving"
-          ? "Guardando…"
+          ? t("comun.guardando")
           : saveStatus === "error"
-            ? saveMessage ?? "Error"
+            ? saveMessage ?? t("comun.error")
             : hayCambios
-              ? "Cambios sin guardar"
-              : "Sin cambios"
+              ? t("plantillaEditorTiza.cambiosSinGuardar")
+              : t("plantillaEditorTiza.sinCambios")
       }
       className="plantilla-shell__topbar-item plantilla-shell__save-state"
       data-state={saveStatus}
@@ -1308,14 +1308,14 @@ function PlantillaEditorTizaInner() {
       />
       <span>
         {saveStatus === "saving"
-          ? "Guardando…"
+          ? t("comun.guardando")
           : saveStatus === "saved"
-            ? saveMessage ?? "Guardado"
+            ? saveMessage ?? t("comun.guardado")
             : saveStatus === "error"
-              ? saveMessage ?? "Error"
+              ? saveMessage ?? t("comun.error")
               : hayCambios
-                ? "Cambios sin guardar"
-                : "Sin cambios"}
+                ? t("plantillaEditorTiza.cambiosSinGuardar")
+                : t("plantillaEditorTiza.sinCambios")}
       </span>
     </span>
   );
@@ -1441,7 +1441,7 @@ function PlantillaEditorTizaInner() {
           padding: "4px 8px 8px",
         }}
       >
-        CUESTIONARIO
+        {t("tizaEditor.cuestionarioRail")}
       </div>
       {/* PLAN-Z fase 2 (§7) — plantilla-config pineada como ítem #1: siempre
           visible, no se borra ni se reordena. "Cantidad de preguntas" queda
@@ -2293,8 +2293,7 @@ function PlantillaEditorTizaInner() {
               ⌖
             </span>
             <span>
-              Esta plantilla usa un generador o un tipo avanzado. La tarjeta edita
-              el enunciado y las variables; el resto de los campos se editan en{" "}
+              {t("plantillaEditorTiza.estaPlantillaUsaUnGenerador")}{" "}
               <button
                 type="button"
                 onClick={() => setCodeMode("code")}
@@ -2391,8 +2390,8 @@ function PlantillaEditorTizaInner() {
                 // WO-tiza-config (Fase 5, bug 2) — con `quizId` el contexto es
                 // el CUESTIONARIO, no una plantilla nueva/suelta.
                 quizId
-                  ? ["Cuestionarios", quizTitle ? `Cuestionario: ${quizTitle}` : "Cuestionario"]
-                  : ["Plantillas", isNew ? "Nueva plantilla" : metadata.nombre || "Plantilla"]
+                  ? [t("nav.cuestionarios"), quizTitle ? `${t("varianteEditor.cuestionario")}: ${quizTitle}` : t("varianteEditor.cuestionario")]
+                  : [t("nav.plantillas"), isNew ? t("plantillaEditorTiza.nuevaPlantilla") : metadata.nombre || t("varianteEditor.plantilla")]
               }
               accent={accent}
               onAccentChange={setAccent}
@@ -2426,7 +2425,7 @@ function PlantillaEditorTizaInner() {
                         color: "var(--c-text-3)",
                       }}
                     >
-                      PROPIEDADES
+                      {t("tizaEditor.propiedades")}
                     </div>
                     <p
                       style={{
@@ -2483,7 +2482,7 @@ function PlantillaEditorTizaInner() {
                           color: "var(--c-text-3)",
                         }}
                       >
-                        DETALLES
+                        {t("plantillaEditorTiza.detalles")}
                       </span>
                       <span
                         data-testid="tiza-detalles-titulo"
@@ -2499,8 +2498,8 @@ function PlantillaEditorTizaInner() {
                         }}
                       >
                         {quizId
-                          ? `Cuestionario: ${quizTitle ?? "…"}`
-                          : metadata.nombre || "Sin nombre"}
+                          ? `${t("varianteEditor.cuestionario")}: ${quizTitle ?? "…"}`
+                          : metadata.nombre || t("plantillaEditorTiza.sinNombre")}
                       </span>
                     </button>
                     {metaOpen ? (
@@ -2519,8 +2518,7 @@ function PlantillaEditorTizaInner() {
                               lineHeight: 1.4,
                             }}
                           >
-                            Nombre de esta pregunta. Materia/tags/descripción
-                            se editan en Configuraciones y se heredan a todas.
+                            {t("plantillaEditorTiza.nombreDeEstaPregunta")}
                           </div>
                         ) : null}
                         <MetadataPanel

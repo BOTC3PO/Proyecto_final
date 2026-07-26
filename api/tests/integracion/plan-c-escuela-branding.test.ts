@@ -34,8 +34,8 @@ after(async () => {
 beforeEach(() => {
   resetPrisma();
   const nowIso = new Date().toISOString();
-  prisma.escuela.rows.push({ id: ESCUELA, name: "Escuela Branding", isDeleted: false, createdAt: nowIso, branding: null });
-  prisma.escuela.rows.push({ id: ESCUELA_OTRA, name: "Otra Escuela", isDeleted: false, createdAt: nowIso, branding: null });
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada", id: ESCUELA, name: "Escuela Branding", isDeleted: false, createdAt: nowIso, branding: null });
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada", id: ESCUELA_OTRA, name: "Otra Escuela", isDeleted: false, createdAt: nowIso, branding: null });
   seedUser({ id: DIRECTIVO, role: "DIRECTIVO", schoolId: ESCUELA });
   seedUser({ id: DIRECTIVO_OTRA, role: "DIRECTIVO", schoolId: ESCUELA_OTRA });
   seedUser({ id: TEACHER, role: "TEACHER", schoolId: ESCUELA });

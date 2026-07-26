@@ -8,14 +8,13 @@ import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { createAccessToken, createRefreshToken, verifyToken } from "../lib/auth-token";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
-import { assertMembershipInvariants, assertValidMembershipTransition } from "../lib/memberships";
+import { sincronizarMembresia } from "../lib/memberships";
+import { escuelasDisponiblesPara, resolverSesionEscuela } from "../lib/sesion-escuela";
 import { hashPassword, isPasswordHashUsable, verifyPassword } from "../lib/passwords";
 import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { recordAuditLog } from "../lib/audit-log";
 import { createRateLimiter } from "../lib/rate-limit";
 import { normalizeSchoolId } from "../lib/school-ids";
-import { tryProvisionarEspejoParaNuevoStaff, provisionarEspejoAlumno, vincularCuentaAlumnoExistente, EspejoNoProvisionableError, ESPEJO_TIPO_CUENTA } from "../lib/provisionar-espejo";
-import { resolveCuentaVinculada } from "../lib/cuenta-vinculada";
 import { resolveRoles, isStaffInRoles, resolvePrimaryRole } from "../lib/roles";
 import { acreditarSaldoInicial } from "../lib/economia-alta";
 import { requireUser } from "../lib/user-auth";
@@ -97,6 +96,9 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
         email: parsed.email,
         fullName: parsed.fullName,
         role: "ADMIN",
+        // Este endpoint sólo corre cuando NO existe ningún admin (ver el
+        // 409 de arriba): quien lo usa ES el admin principal.
+        esAdminPrincipal: true,
         passwordHash: hashPassword(parsed.password),
         isDeleted: false,
         createdAt: now,
@@ -106,7 +108,6 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
     // FASE 1 — provisionar espejo alumno para el staff recién creado.
     // Best-effort: un fallo no rompe el alta. ADMIN sin escuela puede
     // quedar con espejo sin membresia (consistente con el modelo).
-    await tryProvisionarEspejoParaNuevoStaff(result.id);
     res.status(201).json({ id: result.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -131,7 +132,6 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
       }
     });
     // FASE 1 — ver bloque equivalente en /api/auth/bootstrap-admin.
-    await tryProvisionarEspejoParaNuevoStaff(result.id);
     res.status(201).json({ id: result.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -233,9 +233,6 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
     // GUEST / PARENT no se espeja: el padre es opt-in (Fase 5); el
     // alumno y el guest ya son la identidad canónica. Best-effort:
     // un fallo no rompe el alta.
-    if (isStaffInRoles(resolveRoles(result))) {
-      await tryProvisionarEspejoParaNuevoStaff(result.id);
-    }
     // PLAN-B Fase 6 (ítem 34) — saldo de bienvenida para alumnos nuevos
     // (economía interna, no dinero real). Sólo USER: PARENT/TEACHER/
     // DIRECTIVO/ADMIN no son "alumno". Best-effort, no rompe el alta.
@@ -243,24 +240,18 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       await acreditarSaldoInicial({ usuarioId: result.id, schoolId: escuelaId ?? null });
     }
     if (escuelaId && membershipRole) {
-      assertValidMembershipTransition(null, "activa");
-      assertMembershipInvariants({
-        estado: "activa",
+      if (!escuelaExists) {
+        res.status(400).json({ error: "Invalid school id" });
+        return;
+      }
+      // PLAN-multirol — la escritura vive en `sincronizarMembresia` (único
+      // escritor). `fechaAlta: now` es el alta real de la cuenta y es lo
+      // que después decide cuál es el rol principal de esta persona.
+      await sincronizarMembresia({
+        usuarioId: result.id,
         escuelaId,
-        escuelaExists,
-        membershipRole,
-        userRole: role
-      });
-      await prisma.membresia.create({
-        data: {
-          usuarioId: result.id,
-          escuelaId,
-          rol: membershipRole,
-          estado: "activa",
-          fechaAlta: now,
-          createdAt: now,
-          updatedAt: now
-        }
+        rolUsuario: role,
+        fechaAlta: now
       });
     }
     res.status(201).json({ id: result.id });
@@ -339,6 +330,63 @@ auth.post("/api/auth/guest", authLimiter, async (req, res) => {
 
 
 
+// PLAN-multirol Fase 2 — selector de escuela. Cambia la escuela activa de
+// la sesión y emite un token nuevo con los roles DE ESA escuela.
+//
+// La escuela pedida se valida contra `Membresia` dentro de
+// `resolverSesionEscuela`: si el usuario no tiene una membresía activa
+// ahí, el resolver la ignora y devuelve la que corresponda. Nunca se
+// concede un rol porque el cliente lo haya pedido.
+auth.post("/api/auth/escuela-activa", requireUser, async (req, res) => {
+  const requester = (req as { user?: { id?: string } }).user;
+  const userId = requester?.id;
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const escuelaId = typeof req.body?.escuelaId === "string" ? req.body.escuelaId : null;
+  if (!escuelaId) return res.status(400).json({ error: "escuelaId requerido" });
+  // `rol` es opcional: sólo hace falta cuando la persona tiene más de uno
+  // en esa escuela y quiere actuar con el que no es el principal.
+  const rol = typeof req.body?.rol === "string" ? req.body.rol : null;
+
+  const user = await prisma.usuario.findFirst({ where: { id: userId, isDeleted: { not: true } } });
+  if (!user) return res.status(404).json({ error: "usuario no encontrado" });
+
+  const sesion = await resolverSesionEscuela(user as never, escuelaId, rol);
+  if (sesion.escuelaId !== escuelaId) {
+    return res.status(403).json({ error: "no tenés una membresía activa en esa escuela" });
+  }
+  if (rol && sesion.rolPrincipal !== rol) {
+    return res.status(403).json({ error: "no tenés ese rol activo en esa escuela" });
+  }
+
+  // `Usuario.escuelaId` pasa a ser "la escuela donde está parado" — así el
+  // próximo login/refresh vuelve a la misma sin tener que re-elegir.
+  await prisma.usuario.updateMany({
+    where: { id: userId },
+    data: { escuelaId, updatedAt: new Date().toISOString() }
+  });
+
+  const accessToken = createAccessToken({
+    id: userId,
+    email: user.email,
+    username: user.username,
+    role: sesion.rolPrincipal ?? undefined,
+    roles: sesion.roles.length > 0 ? sesion.roles : undefined,
+    guestOnboardingStatus: user.guestOnboardingStatus ?? null,
+    schoolId: sesion.escuelaId,
+    fullName: user.fullName ?? null
+  });
+
+  return res.json({
+    escuelaId: sesion.escuelaId,
+    role: sesion.rolPrincipal,
+    roles: sesion.roles,
+    accessToken: accessToken.token,
+    expiresAt: accessToken.expiresAt,
+    expiresIn: accessToken.expiresIn
+  });
+});
+
 auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
   try {
     const parsed = RefreshTokenSchema.parse(req.body ?? {});
@@ -372,21 +420,18 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
       return;
     }
 
+    // PLAN-multirol Fase 2 — el refresh reevalúa la sesión contra
+    // `Membresia`: si le revocaron un rol o lo sacaron de una escuela, el
+    // token nuevo ya no lo lleva.
+    const sesion = await resolverSesionEscuela(user as never, normalizeSchoolId(user.escuelaId));
     const accessToken = createAccessToken({
       id: user.id.toString(),
       email: user.email,
       username: user.username,
-      role: user.role,
-      // MULTIROL-01: leer `roles` desde la DB y caer a `role` para
-      // compat. Si la fila no tiene `roles` poblado (migración
-      // pendiente), `resolveRoles` lo promueve a `[role]`.
-      roles: Array.isArray((user as { roles?: string[] }).roles)
-        ? (user as { roles: string[] }).roles
-        : user.role
-          ? [user.role]
-          : undefined,
+      role: sesion.rolPrincipal ?? user.role,
+      roles: sesion.roles.length > 0 ? sesion.roles : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(user.escuelaId),
+      schoolId: normalizeSchoolId(sesion.escuelaId),
       fullName: user.fullName ?? null
     });
 
@@ -521,41 +566,30 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       res.status(401).json({ error: "Invalid credentials" });
       return;
     }
+    // PLAN-multirol Fase 2 — la sesión arranca en la escuela activa y con
+    // los roles DE ESA ESCUELA (no la unión de todas). Ver sesion-escuela.ts.
+    const sesion = await resolverSesionEscuela(user as never);
     const accessToken = createAccessToken({
       id: user.id.toString(),
       email: user.email,
       username: user.username,
-      role: user.role,
-      // MULTIROL-01: leer `roles` desde la DB y caer a `role` para
-      // compat (ver bloque equivalente en `/api/auth/refresh`).
-      roles: Array.isArray((user as { roles?: string[] }).roles)
-        ? (user as { roles: string[] }).roles
-        : user.role
-          ? [user.role]
-          : undefined,
+      role: sesion.rolPrincipal ?? user.role,
+      roles: sesion.roles.length > 0 ? sesion.roles : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(user.escuelaId),
+      schoolId: normalizeSchoolId(sesion.escuelaId),
       fullName: user.fullName ?? null
     });
     const refreshToken = createRefreshToken({ id: user.id.toString() });
-    const cuentaVinculada = await resolveCuentaVinculada(user.id.toString());
     res.status(200).json({
       id: user.id,
       username: user.username,
       email: user.email,
       fullName: user.fullName,
-      role: user.role,
-      // MULTIROL-01: exponer `roles` en la respuesta de login. El
-      // front lo consume en Fase 2. Por ahora es aditivo — el front
-      // que solo lee `role` lo sigue viendo.
-      roles: Array.isArray((user as { roles?: string[] }).roles)
-        ? (user as { roles: string[] }).roles
-        : user.role
-          ? [user.role]
-          : undefined,
+      role: sesion.rolPrincipal ?? user.role,
+      roles: sesion.roles.length > 0 ? sesion.roles : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(user.escuelaId),
-      cuentaVinculada,
+      schoolId: normalizeSchoolId(sesion.escuelaId),
+      escuelas: await escuelasDisponiblesPara(user.id.toString()),
       accessToken: accessToken.token,
       expiresAt: accessToken.expiresAt,
       expiresIn: accessToken.expiresIn,
@@ -603,7 +637,6 @@ const sendAuthenticatedUser = async (res: Response) => {
     fullName?: string;
   };
   const userId = user?.id ?? user?._id?.toString?.() ?? null;
-  const cuentaVinculada = userId ? await resolveCuentaVinculada(userId) : null;
   res.json({
     id: userId,
     role: user?.role ?? null,
@@ -613,7 +646,6 @@ const sendAuthenticatedUser = async (res: Response) => {
     username: user?.username ?? null,
     email: user?.email ?? null,
     fullName: user?.fullName ?? null,
-    cuentaVinculada
   });
 };
 
@@ -625,289 +657,44 @@ auth.get("/api/me", requireUser, async (_req, res) => {
   await sendAuthenticatedUser(res);
 });
 
-// ─── FASE 2 — Switch de cuenta ──────────────────────────────────────────
-auth.post("/api/auth/cambiar-cuenta", switchLimiter, requireUser, async (req, res) => {
-  try {
-    const reqUser = (req as { user?: Record<string, unknown> }).user;
-    const origenId = (reqUser?.id ?? reqUser?._id?.toString?.()) as string | undefined;
-    if (!origenId) {
-      res.status(401).json({ error: "Missing authentication" });
-      return;
-    }
-
-    const bodyDestinoId = typeof req.body?.destinoUsuarioId === "string"
-      ? req.body.destinoUsuarioId
-      : undefined;
-
-    let vinculo = await prisma.cuentaVinculada.findFirst({
-      where: { OR: [{ usuarioAId: origenId }, { usuarioBId: origenId }] }
-    });
-    if (!vinculo) {
-      // FASE 1 — provisión on-demand. Si el origen es staff y todavía no
-      // tiene espejo (staff legacy, o alta best-effort cuyo hook falló),
-      // lo creamos acá en lugar de devolver 403 — que en el front cae a
-      // /login porque no hay user destino. Idempotente. Para no-staff
-      // (USER/GUEST/PARENT sin vínculo) seguimos devolviendo 403.
-      const origenDoc = await prisma.usuario.findFirst({
-        where: { id: origenId, isDeleted: { not: true } }
-      });
-      if (origenDoc && isStaffInRoles(resolveRoles(origenDoc))) {
-        try {
-          await provisionarEspejoAlumno(origenId);
-        } catch (err) {
-          res.status(409).json({
-            error: "No se pudo crear la cuenta de alumno",
-            detail: err instanceof Error ? err.message : String(err)
-          });
-          return;
-        }
-        vinculo = await prisma.cuentaVinculada.findFirst({
-          where: { OR: [{ usuarioAId: origenId }, { usuarioBId: origenId }] }
-        });
-      }
-      if (!vinculo) {
-        res.status(403).json({ error: "No hay cuenta vinculada" });
-        return;
-      }
-    }
-
-    const destinoIdFromVinculo =
-      vinculo.usuarioAId === origenId ? vinculo.usuarioBId : vinculo.usuarioAId;
-
-    if (bodyDestinoId && bodyDestinoId !== destinoIdFromVinculo) {
-      res.status(403).json({ error: "La cuenta destino no está vinculada al usuario actual" });
-      return;
-    }
-
-    const destinoId = bodyDestinoId ?? destinoIdFromVinculo;
-
-    let destino = await prisma.usuario.findFirst({
-      where: { id: destinoId, isDeleted: { not: true } }
-    });
-
-    if (!destino) {
-      res.status(403).json({ error: "Cuenta destino no encontrada" });
-      return;
-    }
-
-    // Si vamos de principal→espejo y el espejo aún no existe (caso
-    // límite defensivo), provisionamos.
-    const origenDoc = await prisma.usuario.findFirst({
-      where: { id: origenId, isDeleted: { not: true } }
-    });
-    if (
-      origenDoc &&
-      isStaffInRoles(resolveRoles(origenDoc)) &&
-      destino.tipoCuenta !== ESPEJO_TIPO_CUENTA
-    ) {
-      // Destino no es espejo — quizás el caller apunta al principal
-      // desde el espejo. Esto es válido (espejo→principal).
-    }
-    if (
-      origenDoc &&
-      isStaffInRoles(resolveRoles(origenDoc)) &&
-      destino.tipoCuenta === ESPEJO_TIPO_CUENTA
-    ) {
-      // principal→espejo: OK
-    }
-    if (
-      origenDoc &&
-      origenDoc.tipoCuenta === ESPEJO_TIPO_CUENTA &&
-      isStaffInRoles(resolveRoles(destino))
-    ) {
-      // espejo→principal: OK
-    }
-
-    const destinoRoles = Array.isArray((destino as { roles?: string[] }).roles)
-      ? (destino as { roles: string[] }).roles
-      : destino.role ? [destino.role] : [];
-
-    const accessToken = createAccessToken({
-      id: destino.id.toString(),
-      email: destino.email,
-      username: destino.username,
-      role: destino.role,
-      roles: destinoRoles,
-      switchedFrom: origenId,
-      guestOnboardingStatus: (destino as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(destino.escuelaId),
-      fullName: destino.fullName ?? null
-    });
-
-    const refreshToken = createRefreshToken({ id: destino.id.toString() });
-
-    const landing = landingForRoles(destinoRoles);
-
-    await recordAuditLog({
-      actorId: origenId,
-      action: "CUENTA_SWITCH",
-      targetType: "Usuario",
-      targetId: destinoId,
-      metadata: {
-        origenId,
-        destinoId,
-        sentido: destino.tipoCuenta === ESPEJO_TIPO_CUENTA ? "principal→espejo" : "espejo→principal"
-      }
-    });
-
-    const cuentaVinculada = await resolveCuentaVinculada(destino.id);
-
-    res.status(200).json({
-      id: destino.id,
-      username: destino.username,
-      email: destino.email,
-      fullName: destino.fullName,
-      role: destino.role,
-      roles: destinoRoles,
-      schoolId: normalizeSchoolId(destino.escuelaId),
-      cuentaVinculada,
-      landing,
-      accessToken: accessToken.token,
-      expiresAt: accessToken.expiresAt,
-      expiresIn: accessToken.expiresIn,
-      ...(refreshToken
-        ? {
-            refreshToken: refreshToken.token,
-            refreshExpiresAt: refreshToken.expiresAt,
-            refreshExpiresIn: refreshToken.expiresIn
-          }
-        : {})
-    });
-  } catch (e: any) {
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-// ── POST /api/auth/crear-alumno (staff) ─────────────────────────────
-// Crea (o devuelve) la cuenta espejo-alumno del staff autenticado.
-// Idempotente. Alternativa "auto" a vincular una cuenta existente.
-auth.post("/api/auth/crear-alumno", switchLimiter, requireUser, async (req, res) => {
+// POST /api/auth/rol-alumno — el staff (o cualquiera) se agrega a SÍ MISMO
+// el rol de alumno en su escuela, para vivir la plataforma desde el otro
+// lado. Reemplaza a `/api/auth/crear-alumno`, que creaba una CUENTA espejo:
+// ahora es una membresía más en la misma cuenta, y se actúa como alumno
+// cambiando de rol (POST /api/auth/escuela-activa con `rol: "USER"`).
+auth.post("/api/auth/rol-alumno", requireUser, async (req, res) => {
   const reqUser = (req as { user?: { id?: string; _id?: { toString?: () => string } } }).user;
-  const staffId = reqUser?.id ?? reqUser?._id?.toString?.();
-  if (!staffId) {
-    res.status(401).json({ error: "Missing authentication" });
-    return;
+  const userId = reqUser?.id ?? reqUser?._id?.toString?.();
+  if (!userId) return res.status(401).json({ error: "Missing authentication" });
+
+  const usuario = await prisma.usuario.findFirst({
+    where: { id: userId, isDeleted: { not: true } }
+  });
+  if (!usuario) return res.status(404).json({ error: "usuario no encontrado" });
+  if (!usuario.escuelaId) {
+    return res.status(409).json({ error: "la cuenta no tiene escuela asignada" });
   }
-  try {
-    const prov = await provisionarEspejoAlumno(staffId);
-    const cuentaVinculada = await resolveCuentaVinculada(staffId);
-    res.status(prov.created ? 201 : 200).json({
-      ok: true,
-      created: prov.created,
-      espejo: { id: prov.espejo.id, username: prov.espejo.username, fullName: prov.espejo.fullName },
-      cuentaVinculada
-    });
-  } catch (err) {
-    if (err instanceof EspejoNoProvisionableError) {
-      res.status(403).json({ error: err.message, code: err.code });
-      return;
-    }
-    res.status(500).json({ error: "Internal server error" });
-  }
+
+  const yaEra = await prisma.membresia.findFirst({
+    where: { usuarioId: userId, escuelaId: usuario.escuelaId, rol: "STUDENT", estado: "activa" }
+  });
+  await sincronizarMembresia({
+    usuarioId: userId,
+    escuelaId: usuario.escuelaId,
+    rolUsuario: "USER"
+  });
+
+  return res.status(yaEra ? 200 : 201).json({
+    ok: true,
+    created: !yaEra,
+    escuelaId: usuario.escuelaId,
+    rol: "USER"
+  });
 });
 
-// ── POST /api/auth/vincular-alumno (staff) ──────────────────────────
-// Vincula una cuenta USER existente como cuenta alumno del staff. No crea
-// usuario nuevo. Body: { identificador: string } (username o email).
-auth.post("/api/auth/vincular-alumno", switchLimiter, requireUser, async (req, res) => {
-  const reqUser = (req as { user?: { id?: string; _id?: { toString?: () => string } } }).user;
-  const staffId = reqUser?.id ?? reqUser?._id?.toString?.();
-  if (!staffId) {
-    res.status(401).json({ error: "Missing authentication" });
-    return;
-  }
-  const identificador = typeof req.body?.identificador === "string" ? req.body.identificador : "";
-  if (!identificador.trim()) {
-    res.status(400).json({ error: "identificador requerido (username o email)" });
-    return;
-  }
-  try {
-    const { alumnoId } = await vincularCuentaAlumnoExistente(staffId, identificador);
-    const cuentaVinculada = await resolveCuentaVinculada(staffId);
-    res.status(201).json({ ok: true, alumnoId, cuentaVinculada });
-  } catch (err) {
-    if (err instanceof EspejoNoProvisionableError) {
-      // Errores de validación esperables → 4xx con código para el front.
-      const status = err.code === "ALUMNO_NOT_FOUND" ? 404 : 409;
-      res.status(status).json({ error: err.message, code: err.code });
-      return;
-    }
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-// GET /api/perfil/:username — público, sin auth
-auth.get("/api/perfil/:username", async (req, res) => {
-  const username = Array.isArray(req.params.username)
-    ? req.params.username[0]
-    : req.params.username;
-
-  if (!username || typeof username !== "string") {
-    return res.status(400).json({ error: "username requerido" });
-  }
-
-  try {
-    const usuario = await prisma.usuario.findFirst({
-      where: {
-        username: { contains: username, mode: "insensitive" },
-        isDeleted: { not: true },
-        isBanned: { not: true }
-      }
-    });
-
-    if (!usuario) {
-      return res.status(404).json({ error: "usuario no encontrado" });
-    }
-
-    const userId = String(usuario.id ?? "");
-
-    // Obtener tema activo
-    const temaUsuarioItem = await prisma.usuarioItem.findFirst({
-      where: { usuarioId: userId, item: { tipo: "tema" } },
-      include: { item: { select: { assetId: true } } },
-      orderBy: { compradoAt: "desc" },
-    });
-    const temaItem = temaUsuarioItem ? { asset_id: temaUsuarioItem.item.assetId } : undefined;
-
-    // Obtener módulos completados (solo públicos)
-    const progreso = await prisma.progresoModulo.findMany({
-      where: {
-        usuarioId: userId,
-        status: "completado"
-      },
-      take: 50
-    });
-
-    const moduloIds = progreso.map((p) => String(p.moduloId ?? "")).filter(Boolean);
-    const modulosPublicos = moduloIds.length
-      ? await prisma.modulo.findMany({
-          where: {
-            id: { in: moduloIds },
-            visibility: "publico",
-            isDeleted: { not: true }
-          },
-          take: 6
-        })
-      : [];
-
-    return res.json({
-      username: String(usuario.username ?? ""),
-      fullName: String(usuario.fullName ?? ""),
-      role: String(usuario.role ?? "USER"),
-      createdAt: usuario.createdAt ?? null,
-      avatarUrl: (usuario as any).avatarUrl ?? null,
-      bio: (usuario as any).bio ?? null,
-      tema: temaItem?.asset_id ?? "clasico",
-      modulosCompletados: modulosPublicos.map((m) => ({
-        id: String(m.id ?? ""),
-        titulo: String((m as any).titulo ?? ""),
-        materia: String((m as any).subject ?? (m as any).category ?? "General"),
-      })),
-      totalCompletados: progreso.length,
-    });
-  } catch (err) {
-    return res.status(500).json({
-      error: err instanceof Error ? err.message : "error"
-    });
-  }
-});
+// PLAN-multirol Fase 3 — acá vivían el switch de cuenta
+// (`/api/auth/cambiar-cuenta`) y los dos endpoints que creaban o vinculaban
+// la cuenta espejo-alumno del staff (`/crear-alumno`, `/vincular-alumno`).
+// Se retiraron enteros: la misma persona ya no necesita una segunda cuenta
+// para vivir la plataforma como alumno — tiene una membresía STUDENT y
+// cambia de ROL con `POST /api/auth/escuela-activa` (parámetro `rol`).

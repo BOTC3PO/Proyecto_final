@@ -1,21 +1,6 @@
 import { createContext } from 'react';
 import type { Role } from './roles';
 
-/** FASE 3 + FASE 6 — vínculo entre cuenta principal y cuenta espejo.
- *
- *  - `ALUMNO`     → el destino es la cuenta espejo alumno (este user
- *                   es el principal staff/padre). FASE 1/2/5.
- *  - `PRINCIPAL`  → el destino es la cuenta principal staff/padre
- *                   (este user es el espejo alumno). FASE 1/2/5.
- *  - `PADRE`      → FASE 6: el destino es la cuenta de padre
- *                   vinculada (este user es el alumno adulto).
- *  - `ALUMNO_HIJO`→ FASE 6: el destino es la cuenta de alumno del
- *                   par (este user es el padre). Simétrico a "PADRE".
- */
-export type CuentaVinculada = {
-  destinoUsuarioId: string;
-  tipoDestino: 'ALUMNO' | 'PRINCIPAL' | 'PADRE' | 'ALUMNO_HIJO';
-};
 
 export type User = {
   id: string;
@@ -34,9 +19,6 @@ export type User = {
   roles?: ReadonlyArray<Role>;
   guestOnboardingStatus?: 'pendiente' | 'aceptado' | 'rechazado' | null;
   schoolId?: string | null;
-  /** FASE 3 — expuesto por el back en /me y login. null = sin cuenta
-   *  vinculada. Ver CuentaVinculada para el significado de tipoDestino. */
-  cuentaVinculada?: CuentaVinculada | null;
 };
 
 export type AuthContextValue = {
@@ -44,12 +26,15 @@ export type AuthContextValue = {
   loginAs: (role: Role, options?: { remember?: boolean; schoolId?: string | null }) => void;
   login: (user: User, token: string, refreshToken: string | null, options?: { remember?: boolean }) => void;
   logout: () => void;
-  /** FASE 3 — cambia la sesión activa a la cuenta vinculada (espejo ↔
-   *  principal). El JWT del destino va SIEMPRE a sessionStorage (never
-   *  localStorage). Devuelve la ruta `landing` del destino para navegar.
-   *  Lanza Error si no hay vínculo o el back responde con error. */
-  switchCuenta: () => Promise<{ landing: string }>;
-  /** FASE 5a — true mientras `switchCuenta` está en vuelo. `ProtectedRoute`
+
+  /** PLAN-multirol Fase 2 — cambia la ESCUELA activa de la sesión. No es lo
+   *  mismo que `switchCuenta`: ahí se cambia de cuenta (espejo ↔ principal),
+   *  acá la cuenta es la misma y lo que cambia es en qué escuela está
+   *  parada — y con ella el rol efectivo, porque los roles del JWT son los
+   *  de la escuela activa. El back valida la membresía y emite el token
+   *  nuevo; el front sólo lo guarda. */
+  cambiarEscuela: (escuelaId: string, rol?: string) => Promise<void>;
+  /** true mientras un cambio de sesión está en vuelo. `ProtectedRoute`
    *  lo usa para NO redirigir a /login durante la transición de sesión
    *  (cuando el user viejo ya se limpió y el nuevo todavía no se flusheó).
    *  Opcional para compat con mocks de tests; el provider real lo setea. */

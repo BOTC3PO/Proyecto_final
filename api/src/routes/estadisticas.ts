@@ -5,7 +5,6 @@ import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlemen
 import { requirePolicy } from "../lib/authorization";
 import { buildSimplePdf } from "../lib/pdf";
 import { requireUser } from "../lib/user-auth";
-import { excluirEspejos, getEspejoUserIds } from "../lib/espejo-filtro";
 
 export const estadisticas = Router();
 
@@ -63,13 +62,12 @@ const buildProgresoWhere = (filters: StatsFilters) => {
 
 const buildProfesorStats = async (filters: StatsFilters) => {
   // Fetch all matching progreso records and aggregate in JavaScript.
-  // FASE 4 — el progreso del espejo-alumno NO entra en los promedios/
-  // scores de la analítica docente (`scorePromedio`, `completadas`, …).
-  const progresoRecords = await excluirEspejos(
-    await prisma.progresoModulo.findMany({
-      where: buildProgresoWhere(filters) as any
-    })
-  );
+  // PLAN-multirol Fase 3 — antes acá se descartaba el progreso de las
+  // cuentas espejo. Ya no existen: la persona es una sola cuenta y lo que
+  // marca "esto es de prueba" es su inscripción al aula.
+  const progresoRecords = await prisma.progresoModulo.findMany({
+    where: buildProgresoWhere(filters) as any
+  });
 
   // Group by moduloId
   const byModulo = new Map<string, {
@@ -186,19 +184,10 @@ const buildQuizMetrics = async (
   const dateWhere = buildDateWhere(filters, "startedAt");
 
   // Fetch all quiz_attempts within date range.
-  // FASE 4 — los intentos del espejo-alumno NO entran en los promedios
-  // de quiz (`promedioScore`, accuracy, per-quiz). `QuizAttempt` usa
-  // `userId` (no `usuarioId`), así que filtramos contra el set de
-  // espejos en JS en vez de reusar `excluirEspejos`.
   const allAttemptsRaw = await prisma.quizAttempt.findMany({
     where: dateWhere as any
   });
-  const espejoIds = await getEspejoUserIds(
-    allAttemptsRaw.map((a) => a.userId).filter((id): id is string => Boolean(id))
-  );
-  const allAttempts = espejoIds.size
-    ? allAttemptsRaw.filter((a) => !a.userId || !espejoIds.has(a.userId))
-    : allAttemptsRaw;
+  const allAttempts = allAttemptsRaw;
 
   // Fetch quizzes to get moduleId for scope filtering
   const quizIds = [...new Set(allAttempts.map((a) => a.quizId).filter(Boolean))] as string[];

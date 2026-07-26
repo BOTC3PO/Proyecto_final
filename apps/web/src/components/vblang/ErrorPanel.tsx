@@ -16,6 +16,7 @@ import type { LintReport } from "@vb/vblang";
 import { quickFixFor } from "./quickFixes";
 
 import { useI18n } from "../../i18n/I18nContext";
+import { translateVblangMessage } from "../../vblang/translateError";
 interface ErrorPanelProps {
   parseError?: { message: string; line?: number; col?: number; suggestion?: string };
   lintReport?: LintReport;
@@ -43,7 +44,7 @@ function ErrorPanel({
   currentCode,
   onApplyFix,
 }: ErrorPanelProps) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const issues: UIIssue[] = [];
   if (parseError) {
     issues.push({
@@ -113,9 +114,9 @@ function ErrorPanel({
       className="h-full overflow-auto p-3 text-xs space-y-2"
     >
       <header className="flex items-center gap-3 text-[var(--c-text)]">
-        <span className="text-[var(--c-danger)] font-medium">{errorCount} errores</span>
+        <span className="text-[var(--c-danger)] font-medium">{errorCount} {t("errorPanel.errores")}</span>
         <span className="text-[var(--c-hint)]" aria-hidden="true">·</span>
-        <span className="text-[var(--c-warning)] font-medium">{warningCount} warnings</span>
+        <span className="text-[var(--c-warning)] font-medium">{warningCount} {t("errorPanel.warnings")}</span>
       </header>
       <ul role="list" className="space-y-1.5">
         {issues.map((it, idx) => {
@@ -136,11 +137,11 @@ function ErrorPanel({
                 <div className="flex-1">
                   <div>
                     <span className="font-semibold mr-1">{it.code}</span>
-                    <span>{it.message}</span>
+                    <span>{translateVblangMessage(it.message, lang)}</span>
                   </div>
                   {it.suggestion && (
                     <div className="mt-1 text-[var(--c-hint)]">
-                      Sugerencia: {it.suggestion}
+                      {t("errorPanel.sugerencia")} {it.suggestion}
                     </div>
                   )}
                 </div>
@@ -151,10 +152,10 @@ function ErrorPanel({
                     onClick={() =>
                       onGoToLocation?.(it.line ?? 1, it.col ?? 1)
                     }
-                    aria-label={`Ir a línea ${it.line}, columna ${it.col ?? 1}`}
+                    aria-label={`${t("errorPanel.irALinea")} ${it.line}, ${t("errorPanel.columna")} ${it.col ?? 1}`}
                     data-testid={`vblang-error-goto-${it.code}-${idx}`}
                   >
-                    Ir a L{it.line}
+                    {t("errorPanel.irAL")}{it.line}
                   </button>
                 )}
               </div>

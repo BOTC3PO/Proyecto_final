@@ -10,7 +10,7 @@
  * A11y: landmark `<nav>` con nombre; `aria-current="page"` por NavItem; foco
  * visible global; menú de usuario accesible (Escape, teclado) vía Menu.
  */
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { useAuth } from '../auth/use-auth';
 import { usePrimaryRole } from '../auth/use-roles';
@@ -19,6 +19,8 @@ import { useSchoolBranding } from '../hooks/useSchoolBranding';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from '../nav/navConfig';
 import { Avatar, Menu, Modal, NavItem, type MenuTriggerProps } from '../ui';
 import BrandMark from '../components/Brand';
+import SelectorEscuela from '../components/SelectorEscuela';
+import { useMisEscuelas } from '../hooks/useMisEscuelas';
 import { useI18n } from '../i18n/I18nContext';
 
 // `label` (de sección) y los `items` (ids de NAV_BY_ROLE) son claves de
@@ -38,7 +40,7 @@ const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   ],
   ADMIN: [
     { label: 'sistema',  items: ['panel', 'usuarios', 'materias', 'modulos', 'cuestionarios', 'plantillas', 'datasets'] },
-    { label: 'control',  items: ['moderacion', 'moderarPlantillas', 'reportes', 'comisiones', 'mensajes'] },
+    { label: 'control',  items: ['moderacion', 'moderarPlantillas', 'reportes', 'escuelas', 'comisiones', 'mensajes'] },
   ],
 };
 
@@ -245,18 +247,22 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
   variant?: 'desktop' | 'drawer';
   onNavigate?: () => void;
 }) {
-  const { user, logout, switchCuenta } = useAuth();
+  const { user, logout, cambiarEscuela } = useAuth();
   const { theme, setTheme, availableThemes, isThemeOwned } = useTheme();
   const { t } = useI18n();
-  const navigate = useNavigate();
   const schoolBranding = useSchoolBranding();
+  const { escuelas } = useMisEscuelas();
+  const rolesEscuelaActiva = escuelas.find((e) => e.escuelaId === user?.schoolId)?.roles ?? [];
 
-  const tieneEspejo = user?.cuentaVinculada?.tipoDestino === 'ALUMNO';
-
+  // PLAN-multirol Fase 3 — antes esto saltaba a la CUENTA espejo. Ahora
+  // es un cambio de ROL dentro de la misma cuenta: si la persona tiene
+  // membresía de alumno en su escuela, la sesión pasa a actuar como tal.
+  const puedeEntrarComoAlumno = Boolean(user?.schoolId) && rolesEscuelaActiva.includes('USER');
   const handleEntrarComoAlumno = async () => {
+    if (!user?.schoolId) return;
     try {
-      const { landing } = await switchCuenta();
-      navigate(landing);
+      await cambiarEscuela(user.schoolId, 'USER');
+      window.location.assign('/alumno');
     } catch (e) {
       console.error('Error al entrar como alumno:', e);
     }
@@ -368,6 +374,11 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
           que ya usa el menú de usuario más abajo, con `placement="up"` para
           no quedar tapado por el footer), así el sidebar deja de gastar una
           franja fija en esto todo el tiempo. */}
+      {/* PLAN-multirol Fase 2 — selector de escuela. Se auto-oculta si la
+          persona pertenece a una sola (el caso normal), así que no gasta
+          franja para nadie salvo quien realmente tiene varias. */}
+      <SelectorEscuela />
+
       {availableThemes.length > 1 && (
         <div
           style={{
@@ -500,7 +511,7 @@ function Sidebar({ variant = 'desktop', onNavigate }: {
                     </MenuRow>
                   );
                 if (item.id === 'verComoAlumno') {
-                  if (!tieneEspejo) return null;
+                  if (!puedeEntrarComoAlumno) return null;
                   return (
                     <MenuRow
                       key="entrar-como-alumno"

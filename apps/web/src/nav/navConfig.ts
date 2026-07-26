@@ -39,6 +39,7 @@ export const NAV_BY_ROLE: NavMap = {
     { id: 'moderarPlantillas', label: 'moderarPlantillas', to: '/admin/plantillas-moderacion', exact: true },
     { id: 'reportes',         label: 'reportes',         to: '/admin/reportes',    exact: true },
     { id: 'comisiones',       label: 'comisiones',       to: '/admin/comisiones',  exact: true },
+    { id: 'escuelas',         label: 'escuelas',         to: '/admin/escuelas',    exact: true },
     { id: 'mensajes',         label: 'mensajes',         to: '/mensajes',          exact: true },
   ],
   USER: userBase,

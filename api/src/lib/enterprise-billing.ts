@@ -1,6 +1,6 @@
 import { prisma } from "./prisma";
 import { CLASSROOM_ACTIVE_STATUS_VALUES } from "../schema/aula";
-import { excluirEspejos } from "./espejo-filtro";
+import { whereSoloAlumnosReales } from "./inscripcion-prueba";
 
 export type ActiveStudentBreakdown = {
   userId: string;
@@ -33,15 +33,17 @@ export const fetchActiveStudentSummary = async (schoolId: string): Promise<Activ
   const membersRaw = await prisma.claseMiembro.findMany({
     where: {
       claseId: { in: classIds },
-      rolEnClase: "STUDENT"
+      rolEnClase: "STUDENT",
+      ...whereSoloAlumnosReales()
     },
     select: { usuarioId: true, claseId: true }
   });
 
-  // FASE 4 — los espejos-alumno NO se facturan: se excluyen del
-  // conteo de alumnos activos (este resultado alimenta
-  // `pricePerStudent * activeStudentCount` en enterprise.ts).
-  const members = await excluirEspejos(membersRaw);
+  // PLAN-multirol Fase 3 — las inscripciones de prueba NO se facturan
+  // (staff o padres viviendo el contenido como alumno). Se excluyen ya en
+  // la consulta de arriba; este resultado alimenta
+  // `pricePerStudent * activeStudentCount` en enterprise.ts.
+  const members = membersRaw;
 
   // Group by student to match the original aggregate output
   const studentMap = new Map<string, Set<string>>();

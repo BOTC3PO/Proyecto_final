@@ -22,17 +22,53 @@ export interface ExampleGroup {
   examples: VblangExample[];
 }
 
-const TIPO_LABELS: Record<string, string> = {
-  input: "Input numérico",
-  mc: "Multiple choice",
-  ordenar: "Ordenar",
-  marcar_mapa: "Marcar en el mapa",
-  analisis_sintactico: "Análisis sintáctico",
-  identificar_palabras: "Identificar palabras",
+const TIPO_LABEL_KEYS: Record<string, string> = {
+  input: "nuevaPlantillaWizard.inputNumerico",
+  mc: "nuevaPlantillaWizard.multipleChoice",
+  ordenar: "tipoPregunta.ordenar",
+  marcar_mapa: "tipoPregunta.marcarMapa",
+  analisis_sintactico: "tipoPregunta.analisisSintactico",
+  identificar_palabras: "tipoPregunta.identificarPalabras",
 };
 
-function labelFor(tipo: string): string {
-  return TIPO_LABELS[tipo] ?? tipo;
+function labelFor(tipo: string, t: (key: string) => string): string {
+  return TIPO_LABEL_KEYS[tipo] ? t(TIPO_LABEL_KEYS[tipo]) : tipo;
+}
+
+// Traducción por id de los VblangExample de SPRINT_9B_EXAMPLES (titulo/descripcion
+// del picker). El `codigoDsl` de cada ejemplo NO se traduce: es contenido VBLang
+// real que el usuario después edita, no chrome de la app.
+const EXAMPLE_TEXT_KEYS: Record<string, { tituloKey: string; descripcionKey: string }> = {
+  "ordenar-eventos-historicos": {
+    tituloKey: "vblangExamples.ordenarEventosHistoricosTitulo",
+    descripcionKey: "vblangExamples.ordenarEventosHistoricosDescripcion",
+  },
+  "marcar-mapa-capital": {
+    tituloKey: "vblangExamples.marcarMapaCapitalTitulo",
+    descripcionKey: "vblangExamples.marcarMapaCapitalDescripcion",
+  },
+  "analisis-sintactico-oracion-simple": {
+    tituloKey: "vblangExamples.analisisSintacticoOracionSimpleTitulo",
+    descripcionKey: "vblangExamples.analisisSintacticoOracionSimpleDescripcion",
+  },
+  "identificar-palabras-sustantivos": {
+    tituloKey: "vblangExamples.identificarPalabrasSustantivosTitulo",
+    descripcionKey: "vblangExamples.identificarPalabrasSustantivosDescripcion",
+  },
+  "enunciados-suma-variantes": {
+    tituloKey: "vblangExamples.enunciadosSumaVariantesTitulo",
+    descripcionKey: "vblangExamples.enunciadosSumaVariantesDescripcion",
+  },
+};
+
+export function tituloFor(ex: VblangExample, t: (key: string) => string): string {
+  const keys = EXAMPLE_TEXT_KEYS[ex.id];
+  return keys ? t(keys.tituloKey) : ex.titulo;
+}
+
+export function descripcionFor(ex: VblangExample, t: (key: string) => string): string {
+  const keys = EXAMPLE_TEXT_KEYS[ex.id];
+  return keys ? t(keys.descripcionKey) : ex.descripcion;
 }
 
 function extractTipo(codigoDsl: string): string | null {
@@ -46,7 +82,7 @@ function extractTipo(codigoDsl: string): string | null {
   }
 }
 
-function buildGroups(): ExampleGroup[] {
+function buildGroups(t: (key: string) => string): ExampleGroup[] {
   const buckets = new Map<string, VblangExample[]>();
   for (const ex of SPRINT_9B_EXAMPLES) {
     const tipo = extractTipo(ex.codigoDsl) ?? "general";
@@ -56,7 +92,7 @@ function buildGroups(): ExampleGroup[] {
   }
   const groups: ExampleGroup[] = [];
   for (const [tipo, examples] of buckets) {
-    groups.push({ tipo, label: labelFor(tipo), examples });
+    groups.push({ tipo, label: labelFor(tipo, t), examples });
   }
   groups.sort((a, b) => {
     if (a.tipo === "input") return -1;
@@ -106,7 +142,7 @@ export default function NuevaPlantillaWizard({
 }: NuevaPlantillaWizardProps) {
   const { t } = useI18n();
   const groups = useMemo(() => {
-    if (examples === SPRINT_9B_EXAMPLES) return buildGroups();
+    if (examples === SPRINT_9B_EXAMPLES) return buildGroups(t);
     const buckets = new Map<string, VblangExample[]>();
     for (const ex of examples) {
       const tipo = extractTipo(ex.codigoDsl) ?? "general";
@@ -116,11 +152,11 @@ export default function NuevaPlantillaWizard({
     }
     const out: ExampleGroup[] = [];
     for (const [tipo, list] of buckets) {
-      out.push({ tipo, label: labelFor(tipo), examples: list });
+      out.push({ tipo, label: labelFor(tipo, t), examples: list });
     }
     out.sort((a, b) => a.tipo.localeCompare(b.tipo));
     return out;
-  }, [examples]);
+  }, [examples, t]);
 
   return (
     <Modal
@@ -182,7 +218,7 @@ export default function NuevaPlantillaWizard({
                       fontWeight: "var(--fw-medium)",
                       color: "var(--c-text)",
                     }}>
-                      {ex.titulo}
+                      {tituloFor(ex, t)}
                     </span>
                     <span style={{
                       display: "block",
@@ -190,7 +226,7 @@ export default function NuevaPlantillaWizard({
                       fontSize: "var(--text-xs)",
                       color: "var(--c-muted)",
                     }}>
-                      {ex.descripcion}
+                      {descripcionFor(ex, t)}
                     </span>
                   </button>
                 </li>

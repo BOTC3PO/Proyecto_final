@@ -2,7 +2,7 @@ import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
-import { excluirEspejos, whereExcluirEspejos } from "../lib/espejo-filtro";
+import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
 
 type AuthUser = {
   id?: string;
@@ -258,11 +258,10 @@ profesor.get("/api/profesor/menu", async (req, res) => {
   // Count active students via clase_miembros.
   // FASE 4 — excluimos los espejos-alumno para no inflar el KPI de
   // "estudiantes activos" del panel docente.
-  const allStudentMembershipsRaw = await prisma.claseMiembro.findMany({
-    where: { claseId: { in: aulaIds }, rolEnClase: "STUDENT" },
+  const allStudentMemberships = await prisma.claseMiembro.findMany({
+    where: { claseId: { in: aulaIds }, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
     select: { usuarioId: true },
   });
-  const allStudentMemberships = await excluirEspejos(allStudentMembershipsRaw);
   const activeStudents = new Set(allStudentMemberships.map((m) => m.usuarioId));
 
   const sortedAulas = sortByUpdatedAt(aulas);
@@ -329,7 +328,7 @@ profesor.get("/api/profesor/menu", async (req, res) => {
       const memberCounts = top3Ids.length
         ? await prisma.claseMiembro.groupBy({
             by: ["claseId"],
-            where: { claseId: { in: top3Ids }, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) },
+            where: { claseId: { in: top3Ids }, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
             _count: { usuarioId: true },
           })
         : [];
@@ -395,7 +394,7 @@ profesor.get("/api/profesor/asistencia", async (req, res) => {
     aulas.map(async (aula) => {
       const [totalAlumnos, presentesHoy] = await Promise.all([
         prisma.claseMiembro.count({
-          where: { claseId: aula.id, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) }
+          where: { claseId: aula.id, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() }
         }),
         prisma.asistencia.count({
           where: { claseId: aula.id, fecha: hoy, estado: "presente" }

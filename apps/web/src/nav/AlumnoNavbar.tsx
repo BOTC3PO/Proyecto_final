@@ -7,7 +7,7 @@
  *
  * Paralela a Navbar (D6): mismo patrón de átomos, mismos tokens.
  */
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { useCanActAsLearner, useHasRole } from '../auth/use-roles';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
@@ -16,6 +16,7 @@ import { NavItem, Avatar, Menu, type MenuTriggerProps } from '../ui';
 import { apiGet } from '../lib/api';
 import { useI18n } from '../i18n/I18nContext';
 import BrandMark from '../components/Brand';
+import { useMisEscuelas } from '../hooks/useMisEscuelas';
 
 // ── Monedas + íconos del dropdown (idéntico a nav/Navbar.tsx — este navbar
 // nunca los tuvo, ver [[FIX-ALUMNO-NAVBAR-COINS-ICONS]]) ─────────────────────
@@ -262,9 +263,10 @@ const VOLVER_STYLE: CSSProperties = {
 };
 
 export default function AlumnoNavbar() {
-  const { user, logout, switchCuenta } = useAuth();
+  const { user, logout, cambiarEscuela } = useAuth();
   const { t } = useI18n();
-  const navigate = useNavigate();
+  const escuelasSel = useMisEscuelas();
+  const rolesEscuelaActiva = escuelasSel.escuelas.find((e) => e.escuelaId === user?.schoolId)?.roles ?? [];
   const location = useLocation();
   // PLAN-I §2 — mismo patrón que nav/Navbar.tsx (público): < md, hamburguesa
   // + panel colapsable; el menú de usuario/avatar queda fuera, siempre visible.
@@ -312,7 +314,8 @@ export default function AlumnoNavbar() {
     : [];
   // FASE 3 — si la sesión es una cuenta espejo (USER puro con vínculo),
   // el botón "Volver" dispara el switch en lugar de navegar por rol.
-  const esEspejo = user?.cuentaVinculada?.tipoDestino === 'PRINCIPAL';
+  // Está actuando como alumno pero su rol principal es otro: le ofrecemos volver.
+  const esEspejo = rolesEscuelaActiva.length > 1 && rolesEscuelaActiva[0] !== 'USER';
   const dropdownItems = [
     ...userOnlyDropdown.filter((i) => i.kind === 'link' && i.to !== '/perfil'),
     { kind: 'divider' as const },
@@ -323,23 +326,27 @@ export default function AlumnoNavbar() {
     ? user.name.split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase()
     : '?';
 
+  // Volver al panel: se re-resuelve la sesión en la misma escuela sin
+  // pedir rol, con lo que manda el rol principal de esa escuela.
   const handleVolver = async () => {
+    if (!user?.schoolId) return;
     try {
-      const { landing } = await switchCuenta();
-      navigate(landing);
+      await cambiarEscuela(user.schoolId);
+      window.location.assign('/');
     } catch (e) {
-      console.error('Error al volver a la cuenta principal:', e);
+      console.error('Error al volver al panel:', e);
     }
   };
 
-  // FASE 5b — si un staff llega a /alumno por el preview, el item
-  // "Ver como alumno" del dropdown debe disparar el switch real (no un
-  // link plano circular). Sin espejo, lleva a Perfil para crear/vincular.
-  const tieneEspejo = user?.cuentaVinculada?.tipoDestino === 'ALUMNO';
+  // PLAN-multirol Fase 3 — antes esto saltaba a la CUENTA espejo. Ahora
+  // es un cambio de ROL dentro de la misma cuenta: si la persona tiene
+  // membresía de alumno en su escuela, la sesión pasa a actuar como tal.
+  const puedeEntrarComoAlumno = Boolean(user?.schoolId) && rolesEscuelaActiva.includes('USER');
   const handleEntrarComoAlumno = async () => {
+    if (!user?.schoolId) return;
     try {
-      const { landing } = await switchCuenta();
-      navigate(landing);
+      await cambiarEscuela(user.schoolId, 'USER');
+      window.location.assign('/alumno');
     } catch (e) {
       console.error('Error al entrar como alumno:', e);
     }
@@ -520,6 +527,51 @@ export default function AlumnoNavbar() {
                     {user?.name ?? t('common.usuarioFallback')}
                   </p>
                 </div>
+                {/* Alta de escuela: sólo para quien todavía no pertenece a
+                    ninguna. Mostrárselo a un alumno de una escuela ya
+                    existente es ruido — no es una acción que le corresponda. */}
+                {!user?.schoolId && (
+                  <MenuRowLink to="/registrar-escuela" onClick={close}>
+                    <span aria-hidden="true">🏫</span>
+                    {t('dropdown.registrarEscuela')}
+                  </MenuRowLink>
+                )}
+                {/* PLAN-multirol Fase 2 — cambio de escuela. Va acá y no en
+                    un bloque aparte porque este navbar no tiene sidebar: sin
+                    esto, alguien que es profesor en una escuela y alumno en
+                    otra, parado en la segunda, no tendría forma de volver. */}
+                {escuelasSel.tieneVarias && (
+                  <>
+                    <div
+                      style={{
+                        borderTopWidth: '1px',
+                        borderTopStyle: 'solid',
+                        borderTopColor: 'var(--c-border)',
+                        marginBlock: 'var(--space-1)',
+                      }}
+                    />
+                    <p
+                      style={{
+                        padding: 'var(--space-1) var(--space-4)',
+                        margin: 0,
+                        fontSize: 'var(--fs-0)',
+                        color: 'var(--c-text-muted)',
+                      }}
+                    >
+                      {t('selectorEscuela.escuela')}
+                    </p>
+                    {escuelasSel.escuelas.map((e) => (
+                      <MenuRowButton
+                        key={e.escuelaId}
+                        onClick={() => void escuelasSel.seleccionar(e.escuelaId, close)}
+                      >
+                        <span aria-hidden="true">🏫</span>
+                        {e.nombre}
+                        {e.escuelaId === user?.schoolId && ' ✓'}
+                      </MenuRowButton>
+                    ))}
+                  </>
+                )}
                 <div style={{ paddingBlock: 'var(--space-1)' }}>
                   {dropdownItems.map((item, i) => {
                     if (item.kind === 'divider') {
@@ -544,7 +596,7 @@ export default function AlumnoNavbar() {
                       );
                     }
                     if (item.id === 'verComoAlumno') {
-                      if (tieneEspejo) {
+                      if (puedeEntrarComoAlumno) {
                         return (
                           <MenuRowButton key="ver-como-alumno" onClick={() => { close(); void handleEntrarComoAlumno(); }}>
                             <DropdownIcon name={item.icon} />

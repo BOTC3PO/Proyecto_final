@@ -77,7 +77,7 @@ import { useI18n } from "../../i18n/I18nContext";
 
 // Etiqueta i18n por tipo de pregunta. Fuente de las labels: QUESTION_TYPE_SCHEMAS
 // (paquete @vb/vblang, en español); acá las traducimos por id en runtime.
-const TIPO_PREGUNTA_KEY: Record<string, string> = {
+export const TIPO_PREGUNTA_KEY: Record<string, string> = {
   input: "tipoPregunta.input",
   mc: "tipoPregunta.mc",
   vf: "tipoPregunta.vf",
@@ -89,6 +89,23 @@ const TIPO_PREGUNTA_KEY: Record<string, string> = {
   identificar_palabras: "tipoPregunta.identificarPalabras",
   abierta: "tipoPregunta.abierta",
   expresion: "tipoPregunta.expresion",
+};
+
+// Etiqueta i18n por tipo de pregunta para la descripción corta (bajo el
+// selector de tipo). Misma fuente que TIPO_PREGUNTA_KEY: QUESTION_TYPE_SCHEMAS
+// (@vb/vblang) trae el texto en español, acá lo traducimos por id.
+export const TIPO_PREGUNTA_DESCRIPCION_KEY: Record<string, string> = {
+  input: "tipoPregunta.inputDescripcion",
+  mc: "tipoPregunta.mcDescripcion",
+  vf: "tipoPregunta.vfDescripcion",
+  completar: "tipoPregunta.completarDescripcion",
+  ordenar: "tipoPregunta.ordenarDescripcion",
+  marcar_mapa: "tipoPregunta.marcarMapaDescripcion",
+  analisis_sintactico: "tipoPregunta.analisisSintacticoDescripcion",
+  analisis_spans: "tipoPregunta.analisisSpansDescripcion",
+  identificar_palabras: "tipoPregunta.identificarPalabrasDescripcion",
+  abierta: "tipoPregunta.abiertaDescripcion",
+  expresion: "tipoPregunta.expresionDescripcion",
 };
 
 export type TizaSelection =
@@ -482,7 +499,7 @@ export function TizaQuestionCard({
           <span aria-hidden="true">№</span> {TIPO_PREGUNTA_KEY[tipo] ? t(TIPO_PREGUNTA_KEY[tipo]) : (schema?.label ?? tipo)}
         </span>
         <span style={{ fontSize: 12, color: "var(--c-text-3)" }}>
-          {schema?.descripcion ?? "Editá las propiedades a la derecha."}
+          {TIPO_PREGUNTA_DESCRIPCION_KEY[tipo] ? t(TIPO_PREGUNTA_DESCRIPCION_KEY[tipo]) : (schema?.descripcion ?? t("tizaEditor.editaLasPropiedadesALa"))}
         </span>
       </div>
 
@@ -503,7 +520,7 @@ export function TizaQuestionCard({
           if (e.key === "Enter" || e.key === " ") onSelectQuestion();
         }}
       >
-        <Eyebrow>{enunciadosActive ? "Enunciado (variantes)" : "Enunciado"}</Eyebrow>
+        <Eyebrow>{enunciadosActive ? t("tizaEditor.enunciadoVariantes") : t("plantillaEditorTiza.enunciado")}</Eyebrow>
         {enunciadosActive ? (
           <div onClick={(e) => e.stopPropagation()}>
             {enunciadosItems.map((item, i) => (
@@ -546,7 +563,7 @@ export function TizaQuestionCard({
                 </select>
                 <button
                   type="button"
-                  aria-label={`Quitar variante ${i + 1}`}
+                  aria-label={`${t("tizaEditor.quitarVariante")} ${i + 1}`}
                   title={t("tizaEditor.quitarVariante")}
                   disabled={enunciadosItems.length <= 1}
                   onClick={() =>
@@ -572,7 +589,7 @@ export function TizaQuestionCard({
                   onChange(
                     writeEnunciados(plantilla, [
                       ...enunciadosItems,
-                      { text: "Nueva variante…" },
+                      { text: t("tizaEditor.nuevaVariante") },
                     ]),
                   )
                 }
@@ -844,14 +861,15 @@ export function TizaQuestionCard({
 /* ─── "＋ Añadir bloque" ────────────────────────────────────────────── */
 
 const ADD_ITEMS = [
-  { id: "pista", label: "Pista", icon: "💡", tag: "escalonada" },
-  { id: "pasos", label: "Pasos de resolución", icon: "≡", tag: "" },
-  { id: "restric", label: "Restricción", icon: "≠", tag: "sobre variables" },
-  { id: "variante", label: "Variante de enunciado", icon: "¶", tag: "" },
-  { id: "dataset", label: "Dataset externo", icon: "⊟", tag: "pronto" },
+  { id: "pista", labelKey: "tizaEditor.pista", icon: "💡", tagKey: "tizaEditor.escalonada" },
+  { id: "pasos", labelKey: "tizaEditor.pasosDeResolucion", icon: "≡", tagKey: "" },
+  { id: "restric", labelKey: "tizaEditor.restriccion", icon: "≠", tagKey: "tizaEditor.sobreVariables" },
+  { id: "variante", labelKey: "tizaEditor.varianteDeEnunciado", icon: "¶", tagKey: "" },
+  { id: "dataset", labelKey: "tizaEditor.datasetExterno", icon: "⊟", tagKey: "tizaEditor.pronto" },
 ];
 
 function AddBlockButton({ onSelect }: { onSelect: (kind: string) => void }) {
+  const { t } = useI18n();
   return (
     <Menu
       align="start"
@@ -875,7 +893,7 @@ function AddBlockButton({ onSelect }: { onSelect: (kind: string) => void }) {
             whiteSpace: "nowrap",
           }}
         >
-          <span aria-hidden="true">＋</span> Añadir bloque
+          <span aria-hidden="true">＋</span> {t("tizaEditor.anadirBloque")}
         </button>
       )}
     >
@@ -924,8 +942,8 @@ function AddBlockButton({ onSelect }: { onSelect: (kind: string) => void }) {
               >
                 {it.icon}
               </span>
-              <span style={{ flex: 1 }}>{it.label}</span>
-              <span style={{ fontSize: 11, color: "var(--c-text-3)" }}>{it.tag}</span>
+              <span style={{ flex: 1 }}>{t(it.labelKey)}</span>
+              <span style={{ fontSize: 11, color: "var(--c-text-3)" }}>{it.tagKey ? t(it.tagKey) : ""}</span>
             </button>
           ))}
         </div>
@@ -1020,7 +1038,7 @@ function QuestionPropertyGrid({
         flexDirection: "column",
       }}
     >
-      <PropertyGridHeader icon="№" title={TIPO_PREGUNTA_KEY[tipo] ? t(TIPO_PREGUNTA_KEY[tipo]) : (schema?.label ?? "Pregunta")} />
+      <PropertyGridHeader icon="№" title={TIPO_PREGUNTA_KEY[tipo] ? t(TIPO_PREGUNTA_KEY[tipo]) : (schema?.label ?? t("varianteEditor.pregunta"))} />
       <div
         style={{
           padding: 18,
@@ -1032,7 +1050,7 @@ function QuestionPropertyGrid({
       >
         {/* TIPO */}
         <div>
-          <Eyebrow>Tipo de pregunta</Eyebrow>
+          <Eyebrow>{t("tizaEditor.tipoDePregunta")}</Eyebrow>
           <select
             value={tipo}
             onChange={(e) =>
@@ -1047,14 +1065,14 @@ function QuestionPropertyGrid({
             ))}
           </select>
           <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-            Cambiar el tipo rearma los campos de la respuesta.
+            {t("tizaEditor.cambiarElTipoRearmaLos")}
           </div>
         </div>
 
         {/* ENUNCIADO */}
         {enunField ? (
           <div>
-            <Eyebrow>{enunciadosActive ? "Enunciado (variantes)" : "Enunciado"}</Eyebrow>
+            <Eyebrow>{enunciadosActive ? t("tizaEditor.enunciadoVariantes") : t("plantillaEditorTiza.enunciado")}</Eyebrow>
             {enunciadosActive ? (
               <div>
                 {enunciadosItems.map((text, i) => (
@@ -1075,8 +1093,8 @@ function QuestionPropertyGrid({
                     />
                     <button
                       type="button"
-                      aria-label={`Quitar variante ${i + 1}`}
-                      title="Quitar variante"
+                      aria-label={`${t("tizaEditor.quitarVariante")} ${i + 1}`}
+                      title={t("tizaEditor.quitarVariante")}
                       disabled={enunciadosItems.length <= 1}
                       onClick={() =>
                         onChange(
@@ -1101,20 +1119,20 @@ function QuestionPropertyGrid({
                       onChange(
                     writeEnunciados(plantilla, [
                       ...enunciadosItems,
-                      { text: "Nueva variante…" },
+                      { text: t("tizaEditor.nuevaVariante") },
                     ]),
                   )
                     }
                     style={addLinkButtonStyle}
                   >
-                    ＋ Otra variante
+                    {t("tizaEditor.otraVariante")}
                   </button>
                   <button
                     type="button"
                     onClick={() => onChange(variantesToEnunciado(plantilla))}
                     style={addLinkButtonStyle}
                   >
-                    Volver a enunciado único
+                    {t("tizaEditor.volverAEnunciadoUnico")}
                   </button>
                 </div>
               </div>
@@ -1130,9 +1148,9 @@ function QuestionPropertyGrid({
                   style={inputStyle()}
                 />
                 <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-                  Usá{" "}
-                  <code style={{ ...mono, color: "var(--c-accent)" }}>{"{var}"}</code> para
-                  insertar variables.
+                  {t("tizaEditor.usa")}{" "}
+                  <code style={{ ...mono, color: "var(--c-accent)" }}>{"{var}"}</code>{" "}
+                  {t("tizaEditor.paraInsertarVariables")}
                 </div>
               </>
             )}
@@ -1142,7 +1160,7 @@ function QuestionPropertyGrid({
         {/* RESPUESTA */}
         {respField ? (
           <div>
-            <Eyebrow>Respuesta</Eyebrow>
+            <Eyebrow>{t("tizaEditor.respuesta")}</Eyebrow>
             <BufferedInput
               type="text"
               value={respuesta}
@@ -1153,7 +1171,7 @@ function QuestionPropertyGrid({
               style={inputStyle(true)}
             />
             <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-              Expresión sobre variables · ahora{" "}
+              {t("tizaEditor.expresionSobreVariablesAhora")}{" "}
               <span style={{ color: "var(--c-text-2)", fontWeight: 600 }}>
                 = {live.respuesta ?? "?"}
               </span>
@@ -1166,7 +1184,7 @@ function QuestionPropertyGrid({
           <div style={{ display: "flex", gap: 12 }}>
             {tolField ? (
               <div style={{ flex: 1 }}>
-                <Eyebrow>Tolerancia abs.</Eyebrow>
+                <Eyebrow>{t("tizaEditor.toleranciaAbs")}</Eyebrow>
                 <BufferedInput
                   type="number"
                   value={tolerancia}
@@ -1180,7 +1198,7 @@ function QuestionPropertyGrid({
             ) : null}
             {unidadField ? (
               <div style={{ flex: 1 }}>
-                <Eyebrow>Unidad</Eyebrow>
+                <Eyebrow>{t("tizaEditor.unidad")}</Eyebrow>
                 <BufferedInput
                   type="text"
                   value={unidad}
@@ -1198,7 +1216,7 @@ function QuestionPropertyGrid({
 
         {/* BLOQUES: PISTAS */}
         <div style={{ height: 1, background: "var(--c-border)", margin: "6px 0" }} />
-        <Eyebrow>Bloques</Eyebrow>
+        <Eyebrow>{t("tizaEditor.bloques")}</Eyebrow>
         <div>
           <div
             style={{
@@ -1208,7 +1226,7 @@ function QuestionPropertyGrid({
               marginBottom: 9,
             }}
           >
-            <span style={{ fontSize: 13, fontWeight: 660 }}>Pistas</span>
+            <span style={{ fontSize: 13, fontWeight: 660 }}>{t("tizaEditor.pistas")}</span>
             <span
               style={{
                 fontSize: 11,
@@ -1260,8 +1278,8 @@ function QuestionPropertyGrid({
               />
               <button
                 type="button"
-                aria-label={`Quitar pista ${i + 1}`}
-                title="Quitar pista"
+                aria-label={`${t("tizaEditor.quitarPista")} ${i + 1}`}
+                title={t("tizaEditor.quitarPista")}
                 onClick={() =>
                   onChange(writePistas(plantilla, pistas.filter((_, j) => j !== i)))
                 }
@@ -1284,7 +1302,7 @@ function QuestionPropertyGrid({
           ))}
           <button
             type="button"
-            onClick={() => onChange(writePistas(plantilla, [...pistas, "Nueva pista…"]))}
+            onClick={() => onChange(writePistas(plantilla, [...pistas, t("tizaEditor.nuevaPista")]))}
             style={{
               marginTop: 2,
               fontSize: 12.5,
@@ -1296,14 +1314,14 @@ function QuestionPropertyGrid({
               padding: "4px 0",
             }}
           >
-            ＋ Otra pista
+            {t("tizaEditor.otraPista")}
           </button>
         </div>
 
         {/* BLOQUES: PASOS DE RESOLUCIÓN */}
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 9 }}>
-            <span style={{ fontSize: 13, fontWeight: 660 }}>Pasos de resolución</span>
+            <span style={{ fontSize: 13, fontWeight: 660 }}>{t("tizaEditor.pasosDeResolucion")}</span>
             <span
               style={{
                 fontSize: 11,
@@ -1331,8 +1349,8 @@ function QuestionPropertyGrid({
               />
               <button
                 type="button"
-                aria-label={`Quitar paso ${i + 1}`}
-                title="Quitar paso"
+                aria-label={`${t("tizaEditor.quitarPaso")} ${i + 1}`}
+                title={t("tizaEditor.quitarPaso")}
                 onClick={() => onChange(writePasos(plantilla, pasos.filter((_, j) => j !== i)))}
                 style={removeItemButtonStyle}
               >
@@ -1342,17 +1360,17 @@ function QuestionPropertyGrid({
           ))}
           <button
             type="button"
-            onClick={() => onChange(writePasos(plantilla, [...pasos, "Nuevo paso…"]))}
+            onClick={() => onChange(writePasos(plantilla, [...pasos, t("tizaEditor.nuevoPaso")]))}
             style={addLinkButtonStyle}
           >
-            ＋ Otro paso
+            {t("tizaEditor.otroPaso")}
           </button>
         </div>
 
         {/* BLOQUES: RESTRICCIONES */}
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 9 }}>
-            <span style={{ fontSize: 13, fontWeight: 660 }}>Restricciones</span>
+            <span style={{ fontSize: 13, fontWeight: 660 }}>{t("tizaEditor.restricciones")}</span>
             <span
               style={{
                 fontSize: 11,
@@ -1372,7 +1390,7 @@ function QuestionPropertyGrid({
                 <BufferedInput
                   type="text"
                   value={text}
-                  placeholder="ej. a != 0"
+                  placeholder={t("tizaEditor.ejANoIgual0")}
                   onCommit={(v) => {
                     const next = [...restricciones];
                     next[i] = v;
@@ -1382,8 +1400,8 @@ function QuestionPropertyGrid({
                 />
                 <button
                   type="button"
-                  aria-label={`Quitar restricción ${i + 1}`}
-                  title="Quitar restricción"
+                  aria-label={`${t("tizaEditor.quitarRestriccion")} ${i + 1}`}
+                  title={t("tizaEditor.quitarRestriccion")}
                   onClick={() =>
                     onChange(writeRestricciones(plantilla, restricciones.filter((_, j) => j !== i)))
                   }
@@ -1394,7 +1412,7 @@ function QuestionPropertyGrid({
               </div>
               {text.trim() !== "" && textToExpr(text) === null ? (
                 <div style={{ fontSize: 11, color: "var(--c-danger)", marginTop: 4, marginLeft: 28 }}>
-                  Fórmula inválida: no se guarda hasta corregirla.
+                  {t("tizaEditor.formulaInvalidaNoSeGuarda")}
                 </div>
               ) : null}
             </div>
@@ -1404,14 +1422,14 @@ function QuestionPropertyGrid({
             onClick={() => onChange(writeRestricciones(plantilla, [...restricciones, "true"]))}
             style={addLinkButtonStyle}
           >
-            ＋ Otra restricción
+            {t("tizaEditor.otraRestriccion")}
           </button>
         </div>
 
         {/* EXPLICACIÓN */}
         <div>
           <div style={{ fontSize: 13, fontWeight: 660, marginBottom: 9 }}>
-            Explicación
+            {t("tizaEditor.explicacion")}
           </div>
           <BufferedTextarea
             value={explicacion}
@@ -1430,7 +1448,7 @@ function QuestionPropertyGrid({
             desde los chips del panel de docs (modo "formulario"). */}
         <div>
           <div style={{ height: 1, background: "var(--c-border)", margin: "6px 0 16px" }} />
-          <Eyebrow>Generador base (opcional)</Eyebrow>
+          <Eyebrow>{t("tizaEditor.generadorBaseOpcional")}</Eyebrow>
           <div data-testid="tiza-generador-picker">
             <GeneradorPicker
               value={getBlock(plantilla, "generador")?.id ?? ""}
@@ -1460,9 +1478,7 @@ function QuestionPropertyGrid({
             />
           </div>
           <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-            El generador provee los datos y la respuesta; tu enunciado puede
-            usar sus variables. Elegir "— Elegir generador —" lo quita y
-            vuelve a la base por tipo.
+            {t("tizaEditor.elGeneradorProveeLosDatos")}
           </div>
         </div>
 
@@ -1472,7 +1488,7 @@ function QuestionPropertyGrid({
         {quizMeta && onChangeQuizMeta ? (
           <div>
             <div style={{ height: 1, background: "var(--c-border)", margin: "6px 0 16px" }} />
-            <Eyebrow>Rol en el cuestionario</Eyebrow>
+            <Eyebrow>{t("tizaEditor.rolEnElCuestionario")}</Eyebrow>
             <select
               value={quizMeta.rol}
               onChange={(e) =>
@@ -1484,25 +1500,25 @@ function QuestionPropertyGrid({
               style={{ ...inputStyle(), cursor: "pointer", fontWeight: 600 }}
               data-testid="quiz-meta-rol-select"
             >
-              <option value="obligatoria">Obligatoria (entra siempre, una vez)</option>
-              <option value="relleno">Relleno (pool, puede repetirse)</option>
+              <option value="obligatoria">{t("tizaEditor.obligatoriaEntraSiempreUnaVez")}</option>
+              <option value="relleno">{t("tizaEditor.rellenoPoolPuedeRepetirse")}</option>
             </select>
             <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
               {quizMeta.rol === "obligatoria"
-                ? "Esta pregunta aparece en TODOS los intentos del cuestionario."
-                : "El cuestionario sortea cuántas veces (hasta el límite) entra esta pregunta para llenar los slots de su pool."}
+                ? t("tizaEditor.estaPreguntaApareceEnTodos")
+                : t("tizaEditor.elCuestionarioSorteaCuantasVeces")}
             </div>
 
             {quizMeta.rol === "relleno" ? (
               <div style={{ display: "flex", flexDirection: "column", gap: 14, marginTop: 14 }}>
                 <div>
-                  <Eyebrow>Límite de repetición</Eyebrow>
+                  <Eyebrow>{t("tizaEditor.limiteDeRepeticion")}</Eyebrow>
                   <input
                     type="number"
                     min={1}
                     step={1}
                     value={quizMeta.maxRepeticiones ?? ""}
-                    placeholder="Sin límite propio"
+                    placeholder={t("tizaEditor.sinLimitePropio")}
                     onChange={(e) => {
                       const raw = e.target.value;
                       if (raw === "") {
@@ -1518,12 +1534,11 @@ function QuestionPropertyGrid({
                     data-testid="quiz-meta-max-repeticiones-input"
                   />
                   <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-                    Cuántas veces puede ocupar un slot. Vacío = sin límite propio (el
-                    tope lo pone la cantidad global del cuestionario).
+                    {t("tizaEditor.cuantasVecesPuedeOcupar")}
                   </div>
                 </div>
                 <div>
-                  <Eyebrow>Pool</Eyebrow>
+                  <Eyebrow>{t("tizaEditor.pool")}</Eyebrow>
                   <BufferedInput
                     type="text"
                     value={quizMeta.poolId ?? ""}
@@ -1543,10 +1558,9 @@ function QuestionPropertyGrid({
                     ))}
                   </datalist>
                   <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-                    Agrupa preguntas intercambiables. Vacío = pool implícita
-                    compartida por todas las de relleno sin pool propia.
+                    {t("tizaEditor.agrupaPreguntasIntercambiables")}
                     {poolsDisponibles && poolsDisponibles.length > 0
-                      ? ` Pools existentes: ${poolsDisponibles.join(", ")}.`
+                      ? ` ${t("tizaEditor.poolsExistentes")} ${poolsDisponibles.join(", ")}.`
                       : ""}
                   </div>
                 </div>
@@ -1558,7 +1572,7 @@ function QuestionPropertyGrid({
                 esto sólo agrega la UI. Aplican a cualquier rol. */}
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginTop: 14 }}>
               <div>
-                <Eyebrow>Dificultad</Eyebrow>
+                <Eyebrow>{t("comun.dificultad")}</Eyebrow>
                 <select
                   value={quizMeta.dificultad ?? ""}
                   onChange={(e) =>
@@ -1572,18 +1586,17 @@ function QuestionPropertyGrid({
                   style={{ ...inputStyle(), cursor: "pointer" }}
                   data-testid="quiz-meta-dificultad-select"
                 >
-                  <option value="">Sin asignar</option>
-                  <option value="basico">Básico</option>
-                  <option value="intermedio">Intermedio</option>
-                  <option value="avanzado">Avanzado</option>
+                  <option value="">{t("tizaEditor.sinAsignar")}</option>
+                  <option value="basico">{t("comun.basico")}</option>
+                  <option value="intermedio">{t("comun.intermedio")}</option>
+                  <option value="avanzado">{t("comun.avanzado")}</option>
                 </select>
                 <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-                  La usa el ruteo por dificultad del cuestionario (si está
-                  activado). Sin asignar cuenta como Intermedio.
+                  {t("tizaEditor.laUsaElRuteoPor")}
                 </div>
               </div>
               <div>
-                <Eyebrow>Puntaje</Eyebrow>
+                <Eyebrow>{t("tizaEditor.puntaje")}</Eyebrow>
                 <input
                   type="number"
                   min={0}
@@ -1605,7 +1618,7 @@ function QuestionPropertyGrid({
                   data-testid="quiz-meta-puntaje-input"
                 />
                 <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-                  Peso de esta pregunta en el puntaje total. Vacío = 1.
+                  {t("tizaEditor.pesoDeEstaPreguntaEnEl")}
                 </div>
               </div>
             </div>
@@ -1642,6 +1655,7 @@ function VariablePropertyGrid({
   onSelectQuestion: () => void;
   live: LiveValues;
 }) {
+  const { t } = useI18n();
   const v = getVariable(plantilla, index);
   // El índice queda obsoleto si la plantilla activa cambia (rail) o si la
   // variable seleccionada se borra: sin este guard, el panel se queda en
@@ -1690,7 +1704,7 @@ function VariablePropertyGrid({
         flexDirection: "column",
       }}
     >
-      <PropertyGridHeader icon="𝑥" title={`Variable · ${v.nombre}`} />
+      <PropertyGridHeader icon="𝑥" title={`${t("generadorDocsPanel.variable")} · ${v.nombre}`} />
       <div style={{ padding: 18, flex: 1 }}>
         <button
           type="button"
@@ -1708,12 +1722,12 @@ function VariablePropertyGrid({
             padding: "0 0 14px",
           }}
         >
-          ‹ Volver a la pregunta
+          {t("tizaEditor.volverALaPregunta")}
         </button>
 
         {/* NOMBRE */}
         <div style={{ marginBottom: 18 }}>
-          <Eyebrow>Nombre</Eyebrow>
+          <Eyebrow>{t("comun.nombre")}</Eyebrow>
           <input
             type="text"
             value={v.nombre}
@@ -1729,7 +1743,7 @@ function VariablePropertyGrid({
 
         {/* SUBTIPO */}
         <div style={{ marginBottom: 18 }}>
-          <Eyebrow>Subtipo</Eyebrow>
+          <Eyebrow>{t("tizaEditor.subtipo")}</Eyebrow>
           <select
             value={kind}
             onChange={(e) =>
@@ -1737,9 +1751,9 @@ function VariablePropertyGrid({
             }
             style={inputStyle()}
           >
-            <option value="random">Aleatorio entero</option>
-            <option value="list">Lista de opciones</option>
-            <option value="expr">Valor por expresión</option>
+            <option value="random">{t("tizaEditor.aleatorioEntero")}</option>
+            <option value="list">{t("tizaEditor.listaDeOpciones")}</option>
+            <option value="expr">{t("tizaEditor.valorPorExpresion")}</option>
           </select>
         </div>
 
@@ -1766,7 +1780,7 @@ function VariablePropertyGrid({
                 marginBottom: 2,
               }}
             >
-              VALOR ACTUAL
+              {t("tizaEditor.valorActual")}
             </div>
             <div
               style={{
@@ -1780,7 +1794,7 @@ function VariablePropertyGrid({
               {liveValue}
             </div>
             <div style={{ fontSize: 11, color: "var(--c-text-2)", marginTop: 5 }}>
-              se regenera en cada intento del alumno
+              {t("tizaEditor.seRegeneraEnCadaIntento")}
             </div>
           </div>
         </div>
@@ -1789,7 +1803,7 @@ function VariablePropertyGrid({
         {kind === "random" ? (
           <div style={{ display: "flex", gap: 12, marginBottom: 18 }}>
             <div style={{ flex: 1 }}>
-              <Eyebrow>Mínimo</Eyebrow>
+              <Eyebrow>{t("tizaEditor.minimo")}</Eyebrow>
               <BufferedInput
                 type="number"
                 value={bounds.min}
@@ -1809,7 +1823,7 @@ function VariablePropertyGrid({
               />
             </div>
             <div style={{ flex: 1 }}>
-              <Eyebrow>Máximo</Eyebrow>
+              <Eyebrow>{t("tizaEditor.maximo")}</Eyebrow>
               <BufferedInput
                 type="number"
                 value={bounds.max}
@@ -1834,7 +1848,7 @@ function VariablePropertyGrid({
         {/* LISTA */}
         {kind === "list" ? (
           <div style={{ marginBottom: 18 }}>
-            <Eyebrow>Opciones</Eyebrow>
+            <Eyebrow>{t("tizaEditor.opciones")}</Eyebrow>
             <BufferedInput
               type="text"
               value={options}
@@ -1848,7 +1862,7 @@ function VariablePropertyGrid({
               style={inputStyle(true)}
             />
             <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-              separadas por coma · se elige una al azar
+              {t("tizaEditor.separadasPorComaSeElige")}
             </div>
           </div>
         ) : null}
@@ -1856,11 +1870,11 @@ function VariablePropertyGrid({
         {/* EXPR */}
         {kind === "expr" ? (
           <div style={{ marginBottom: 18 }}>
-            <Eyebrow>Expresión</Eyebrow>
+            <Eyebrow>{t("tizaEditor.expresion")}</Eyebrow>
             <BufferedInput
               type="text"
               value={exprText}
-              placeholder="ej. a + b"
+              placeholder={t("tizaEditor.ejAB")}
               onCommit={(val) => {
                 const expr = textToExpr(val);
                 if (expr) onChange(updateVariableExpr(plantilla, index, expr));
@@ -1868,18 +1882,18 @@ function VariablePropertyGrid({
               style={inputStyle(true)}
             />
             <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-              depende de otras variables
+              {t("tizaEditor.dependeDeOtrasVariables")}
             </div>
           </div>
         ) : null}
 
         {/* USAR EN ENUNCIADO */}
         <div style={{ height: 1, background: "var(--c-border)", margin: "6px 0 16px" }} />
-        <Eyebrow>Usar en enunciado</Eyebrow>
+        <Eyebrow>{t("tizaEditor.usarEnEnunciado")}</Eyebrow>
         <button
           type="button"
           onClick={handleCopyVar}
-          aria-label={`Copiar {${v.nombre}} para pegar en el enunciado`}
+          aria-label={`${t("tizaEditor.copiar")} {${v.nombre}} ${t("tizaEditor.paraPegarEnElEnunciado")}`}
           data-testid="variable-copy-chip"
           style={{
             display: "inline-flex",
@@ -1899,7 +1913,7 @@ function VariablePropertyGrid({
         >
           {"{" + v.nombre + "}"}{" "}
           <span style={{ fontSize: 11, color: "var(--c-text-3)", fontFamily: "var(--font-sans)" }}>
-            {copied ? "¡copiado!" : "copiar"}
+            {copied ? t("tizaEditor.copiado") : t("tizaEditor.copiar")}
           </span>
         </button>
       </div>
@@ -2006,6 +2020,7 @@ export function TizaCodeDrawer({ code, visible, onToggle }: TizaCodeDrawerProps)
 /* ─── Header del property grid ──────────────────────────────────────── */
 
 function PropertyGridHeader({ icon, title }: { icon: string; title: string }) {
+  const { t } = useI18n();
   return (
     <div
       style={{
@@ -2046,7 +2061,7 @@ function PropertyGridHeader({ icon, title }: { icon: string; title: string }) {
             color: "var(--c-text-3)",
           }}
         >
-          PROPIEDADES
+          {t("tizaEditor.propiedades")}
         </div>
         <div style={{ fontSize: 15, fontWeight: 700 }}>{title}</div>
       </div>

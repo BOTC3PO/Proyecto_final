@@ -32,6 +32,21 @@ model Escuela {
   // { logoUrl?, iconoUrl?, colorPrimario?, colorSecundario? }. Null =
   // sin personalizar, usa el branding default de la plataforma.
   branding           String?
+  /// PLAN-multirol / verificación — "pendiente" | "verificada" | "rechazada".
+  /// Gatea TODO lo que mueve plata: conectar pasarela, publicar cobros y
+  /// confirmar pagos. Una escuela sin verificar puede usar el resto de la
+  /// plataforma (aulas, módulos, evaluaciones, boletines) — lo que no puede
+  /// es cobrarle a las familias con la plataforma de por medio.
+  estadoVerificacion String   @default("pendiente") @map("estado_verificacion")
+  /// Quien registró la escuela. Es el DIRECTIVO PRINCIPAL: el único que
+  /// puede conectar la pasarela de cobro. Otros directivos gestionan el
+  /// resto. Null en las escuelas creadas por un admin antes de este flujo.
+  directivoPrincipalId String? @map("directivo_principal_id")
+  /// JSON con los datos declarados en el alta (razón social, CUIT,
+  /// domicilio, contacto, CUE si aplica). Es lo que el admin mira para
+  /// verificar; no se expone fuera del panel de admin ni del propio directivo.
+  datosVerificacion  String?  @map("datos_verificacion")
+  motivoRechazo      String?  @map("motivo_rechazo")
   usuarios           Usuario[]
   membresias         Membresia[]
   clases             Clase[]
@@ -189,6 +204,11 @@ model Usuario {
   // 20260617050000_multirol_usuario_roles. Fase 3 retira `role` cuando
   // nada lo use.
   role                  String
+  /// Admin principal de la plataforma: el único que puede cambiar roles
+  /// (y por lo tanto crear otros ADMIN). Antes esto se intentaba deducir de
+  /// un campo `createdBy` que NUNCA existió en la tabla, con lo cual el
+  /// chequeo daba true para todos: cualquier ADMIN podía promover a ADMIN.
+  esAdminPrincipal      Boolean  @default(false) @map("es_admin_principal")
   roles                 String[] @default([])
   escuelaId             String?  @map("escuela_id")
   passwordHash          String?  @map("password_hash")
@@ -201,75 +221,39 @@ model Usuario {
   passwordResetRequired Boolean  @default(false) @map("password_reset_required")
   isBanned              Boolean  @default(false) @map("is_banned")
   warningCount          Int      @default(0) @map("warning_count")
-  // FASE 1 — marcador de cuenta espejo. Solo se popula en espejos
-  // alumno (valor "ESPEJO_ALUMNO"). Nullable aditivo: cuentas reales
-  // quedan con `tipoCuenta = NULL`. La Fase 4 lo usa para excluir el
-  // espejo de rosters y analíticas de alumnos. No confundir con
-  // `roles` (lo que el usuario PUEDE hacer): `tipoCuenta` describe la
-  // NATURALEZA de la cuenta. Migración:
-  // 20260619000000_cuenta_espejo_vinculada.
-  tipoCuenta            String?  @map("tipo_cuenta")
   createdAt             String   @map("created_at")
   updatedAt             String   @map("updated_at")
   escuela               Escuela? @relation(fields: [escuelaId], references: [id])
   membresias            Membresia[]
-  // FASE 1 — dos puntas de la tabla puente `CuentaVinculada`. La
-  // relación es SIMÉTRICA: cualquiera de las dos puntas puede ser
-  // "la otra" cuenta. La unicidad la garantiza el par (a, b) ordenado
-  // (min, max) en el momento del insert — ver notas de la migración.
-  vinculacionesA        CuentaVinculada[] @relation("VinculadaA")
-  vinculacionesB        CuentaVinculada[] @relation("VinculadaB")
-  @@index([tipoCuenta])
   @@map("usuarios")
 }
 
+/// PLAN-multirol — fuente de verdad de "a qué escuelas pertenece esta
+/// persona y con qué rol". El rol está DENTRO de la PK: la misma persona
+/// puede ser profesor y padre en la misma escuela sin duplicar cuenta (era
+/// justamente lo que forzaba las cuentas espejo). `fechaAlta` + `estado`
+/// resuelven el rol principal: el más antiguo que siga `activa`.
 model Membresia {
   usuarioId  String   @map("usuario_id")
   escuelaId  String   @map("escuela_id")
   rol        String
   estado     String
+  /// Delegación de cobros. Sólo el directivo principal (el que registró la
+  /// escuela) la otorga. Conectar la pasarela sigue siendo exclusivo del
+  /// principal: esto habilita EMITIR y CONFIRMAR, no decidir a qué cuenta
+  /// va la plata.
+  puedeCobrar Boolean @default(false) @map("puede_cobrar")
   fechaAlta  String   @map("fecha_alta")
   fechaBaja  String?  @map("fecha_baja")
   createdAt  String?  @map("created_at")
   updatedAt  String?  @map("updated_at")
   usuario    Usuario  @relation(fields: [usuarioId], references: [id])
   escuela    Escuela  @relation(fields: [escuelaId], references: [id])
-  @@id([usuarioId, escuelaId])
+  @@id([usuarioId, escuelaId, rol])
+  @@index([usuarioId])
   @@map("membresias")
 }
 
-/// FASE 1 — puente SIMÉTRICO entre dos cuentas de la MISMA persona.
-/// Usado para que un staff (ADMIN/DIRECTIVO/TEACHER) tenga su cuenta
-/// espejo de alumno y pueda entrar a la app como estudiante sin perder
-/// su identidad de staff. La misma tabla se reutiliza en Fase 6 para
-/// que un alumno pueda generar su cuenta de padre.
-///
-/// Diseño:
-///   * `usuarioAId` y `usuarioBId` son equivalentes (no hay principal
-///     ni espejo codificados en columnas). La aplicación inserta
-///     siempre con `min(a, b), max(a, b)` para que la unicidad del
-///     par funcione sin importar el orden de las puntas.
-///   * El espejo se identifica por la columna `tipoCuenta =
-///     "ESPEJO_ALUMNO"` en `Usuario` (no por una columna acá). Eso
-///     deja la tabla libre para Fase 6 sin nueva migración.
-///   * CASCADE en ambas FKs: si se borra una cuenta, el vínculo se va
-///     con ella. La regeneración del espejo es responsabilidad del
-///     caller.
-///
-/// NO usar para padre↔hijo (esa relación es `ProgresoModuloVinculo`,
-/// personas distintas, sin switch). Migración:
-/// 20260619000000_cuenta_espejo_vinculada.
-model CuentaVinculada {
-  id         String   @id @default(uuid())
-  usuarioAId String   @map("usuario_a_id")
-  usuarioBId String   @map("usuario_b_id")
-  createdAt  String   @map("created_at")
-  usuarioA   Usuario  @relation("VinculadaA", fields: [usuarioAId], references: [id], onDelete: Cascade)
-  usuarioB   Usuario  @relation("VinculadaB", fields: [usuarioBId], references: [id], onDelete: Cascade)
-  @@unique([usuarioAId, usuarioBId])
-  @@index([usuarioBId])
-  @@map("cuentas_vinculadas")
-}
 
 model Clase {
   id              String   @id
@@ -305,6 +289,13 @@ model ClaseMiembro {
   claseId    String @map("clase_id")
   usuarioId  String @map("usuario_id")
   rolEnClase String @map("rol_en_clase")
+  /// PLAN-multirol Fase 3 — inscripción de alguien que NO es alumno real
+  /// del aula: staff (o un padre) entrando a vivir el contenido como
+  /// alumno. Reemplaza a la cuenta espejo: antes esto se distinguía por
+  /// `Usuario.tipoCuenta = "ESPEJO_ALUMNO"`, o sea por CUENTA; ahora se
+  /// distingue por INSCRIPCIÓN, que es donde realmente importa (rosters,
+  /// asistencia, estadísticas y conteo de cobros).
+  esPrueba   Boolean @default(false) @map("es_prueba")
   clase      Clase  @relation(fields: [claseId], references: [id])
   @@id([claseId, usuarioId, rolEnClase])
   @@map("clase_miembros")

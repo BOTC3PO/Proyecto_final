@@ -8,10 +8,12 @@
  */
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { bloquearSiNoVerificada, esDirectivoPrincipal } from "../lib/escuela-verificacion";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
 import { ENV } from "../lib/env";
 import { cifrarCredencial } from "../lib/pasarelas-crypto";
+import { recordAuditLog } from "../lib/audit-log";
 import { buildAuthorizationUrl, verifyState, intercambiarCode } from "../lib/mercadopago-oauth";
 import { EscuelaPasarelaConectarSchema, EscuelaPasarelaActualizarSchema } from "../schema/cobros";
 
@@ -31,6 +33,29 @@ const puedeGestionarEscuela = (user: ReqUser | undefined, escuelaId: string): bo
 
 const now = () => new Date().toISOString();
 const genId = () => `escpas-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+const getActorId = (user: ReqUser | undefined) => user?.id ?? "desconocido";
+
+/**
+ * Rastro de cambios de pasarela. `cuentaConectadaId` es literalmente a qué
+ * cuenta va a parar la plata de la escuela: cambiarlo es la forma más
+ * directa de desviar cobros, así que queda registrado con antes/después.
+ * Nunca se loguean credenciales, sólo si se tocaron.
+ */
+const auditarPasarela = (
+  actorId: string,
+  action: string,
+  escuelaId: string,
+  provider: string,
+  metadata: Record<string, unknown>
+) =>
+  recordAuditLog({
+    actorId,
+    action,
+    targetType: "EscuelaPasarela",
+    targetId: `${escuelaId}:${provider}`,
+    metadata: { escuelaId, provider, ...metadata }
+  });
 
 const aPublico = (row: {
   provider: string;
@@ -68,6 +93,14 @@ escuelaPasarelas.post("/api/escuelas/:escuelaId/pasarelas", requireUser, async (
   if (!puedeGestionarEscuela(user, escuelaId)) {
     return res.status(403).json({ error: "Sin permiso" });
   }
+  // Conectar la pasarela es decidir a qué cuenta va la plata: verificada o nada.
+  if (await bloquearSiNoVerificada(res, escuelaId)) return;
+  // Tocar la pasarela decide A QUÉ CUENTA va la plata de la escuela: queda
+  // reservado al directivo principal, el que la registró. Un directivo
+  // delegado puede emitir cobros, no redirigir el dinero.
+  if (!(await esDirectivoPrincipal(user, escuelaId))) {
+    return res.status(403).json({ error: "sólo el directivo principal puede tocar la pasarela", code: "SOLO_DIRECTIVO_PRINCIPAL" });
+  }
   const parsed = EscuelaPasarelaConectarSchema.safeParse(req.body);
   if (!parsed.success) {
     return res.status(400).json({ error: "datos inválidos", detalles: parsed.error.flatten() });
@@ -88,6 +121,12 @@ escuelaPasarelas.post("/api/escuelas/:escuelaId/pasarelas", requireUser, async (
         updatedAt: nowIso
       }
     });
+    await auditarPasarela(getActorId(user), "pasarela.actualizada", escuelaId, provider, {
+      cuentaConectadaIdAntes: existente.cuentaConectadaId,
+      cuentaConectadaIdDespues: actualizado.cuentaConectadaId,
+      credencialesReemplazadas: Boolean(credencialesCifradas),
+      activa: actualizado.activa
+    });
     return res.json(aPublico(actualizado));
   }
 
@@ -103,6 +142,11 @@ escuelaPasarelas.post("/api/escuelas/:escuelaId/pasarelas", requireUser, async (
       updatedAt: nowIso
     }
   });
+  await auditarPasarela(getActorId(user), "pasarela.conectada", escuelaId, provider, {
+    cuentaConectadaId: creado.cuentaConectadaId,
+    conCredenciales: Boolean(credencialesCifradas),
+    activa: creado.activa
+  });
   return res.status(201).json(aPublico(creado));
 });
 
@@ -115,6 +159,13 @@ escuelaPasarelas.patch("/api/escuelas/:escuelaId/pasarelas/:provider", requireUs
   if (!puedeGestionarEscuela(user, escuelaId)) {
     return res.status(403).json({ error: "Sin permiso" });
   }
+  if (await bloquearSiNoVerificada(res, escuelaId)) return;
+  // Tocar la pasarela decide A QUÉ CUENTA va la plata de la escuela: queda
+  // reservado al directivo principal, el que la registró. Un directivo
+  // delegado puede emitir cobros, no redirigir el dinero.
+  if (!(await esDirectivoPrincipal(user, escuelaId))) {
+    return res.status(403).json({ error: "sólo el directivo principal puede tocar la pasarela", code: "SOLO_DIRECTIVO_PRINCIPAL" });
+  }
   const parsed = EscuelaPasarelaActualizarSchema.safeParse(req.body);
   if (!parsed.success) {
     return res.status(400).json({ error: "datos inválidos" });
@@ -125,6 +176,10 @@ escuelaPasarelas.patch("/api/escuelas/:escuelaId/pasarelas/:provider", requireUs
   const actualizado = await prisma.escuelaPasarela.update({
     where: { id: existente.id },
     data: { activa: parsed.data.activa, updatedAt: now() }
+  });
+  await auditarPasarela(getActorId(user), "pasarela.activa_cambiada", escuelaId, provider, {
+    antes: existente.activa,
+    despues: actualizado.activa
   });
   return res.json(aPublico(actualizado));
 });
@@ -138,6 +193,13 @@ escuelaPasarelas.get("/api/escuelas/:escuelaId/pasarelas/mercadopago/authorize",
   const escuelaId = req.params.escuelaId as string;
   if (!puedeGestionarEscuela(user, escuelaId)) {
     return res.status(403).json({ error: "Sin permiso" });
+  }
+  if (await bloquearSiNoVerificada(res, escuelaId)) return;
+  // Tocar la pasarela decide A QUÉ CUENTA va la plata de la escuela: queda
+  // reservado al directivo principal, el que la registró. Un directivo
+  // delegado puede emitir cobros, no redirigir el dinero.
+  if (!(await esDirectivoPrincipal(user, escuelaId))) {
+    return res.status(403).json({ error: "sólo el directivo principal puede tocar la pasarela", code: "SOLO_DIRECTIVO_PRINCIPAL" });
   }
   if (!ENV.MP_CLIENT_ID) {
     return res.status(503).json({ error: "MP_CLIENT_ID no configurado en la plataforma" });
@@ -186,5 +248,12 @@ escuelaPasarelas.get("/api/escuelas/pasarelas/mercadopago/callback", async (req,
       }
     });
   }
+  // El callback es público (lo abre MP, no lleva JWT): el actor es el
+  // `state` firmado, no un usuario. Igual queda el rastro de cuándo esa
+  // escuela pasó a apuntar a esta cuenta de MP.
+  await auditarPasarela("system:oauth:mercadopago", "pasarela.oauth_autorizada", verified.escuelaId, "mercadopago", {
+    cuentaConectadaId: tokens.userId,
+    reemplazoExistente: Boolean(existente)
+  });
   return res.redirect(`${ENV.APP_URL}/enterprise/cobros?mp=conectado`);
 });

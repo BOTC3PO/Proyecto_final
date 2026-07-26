@@ -251,7 +251,7 @@ export default function AlumnoEncuestas() {
                         ? "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
                         : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
                     }`}>
-                      {isClosed ? "Cerrada" : "Activa"}
+                      {isClosed ? t("alumnoEncuestas.cerrada") : t("alumnoEncuestas.activa")}
                     </span>
                   </div>
                   <p className="text-xs text-[var(--c-muted)]">

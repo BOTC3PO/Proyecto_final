@@ -982,7 +982,7 @@ export default function Aula() {
                     <p className="text-[var(--c-muted)]">{t("alumnoEncuestas.noHayEncuestasActivasPara")}</p>
                   ) : (
                     <p className="text-[var(--c-muted)]">
-                      {activeSurveysCount} encuesta{activeSurveysCount === 1 ? "" : "s"} activa{activeSurveysCount === 1 ? "" : "s"}.
+                      {activeSurveysCount} {activeSurveysCount === 1 ? t("aula.encuestaActiva") : t("aula.encuestasActivas")}
                     </p>
                   )}
                   <Link

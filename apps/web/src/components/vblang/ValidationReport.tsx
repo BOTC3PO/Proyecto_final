@@ -42,7 +42,7 @@ function ValidationReport({
           disabled={disabled || status === "running"}
           className="rounded-md bg-[var(--c-primary,#3b82f6)] px-3 py-1 text-xs font-medium text-white disabled:opacity-50"
         >
-          {status === "running" ? "Validando…" : "Validar (100 simulaciones)"}
+          {status === "running" ? t("validationReport.validando") : t("validationReport.validar100Simulaciones")}
         </button>
       </div>
 

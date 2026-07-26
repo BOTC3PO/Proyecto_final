@@ -48,9 +48,9 @@ export default function MisClases() {
     setLoading(true);
     apiGet<AulasResponse>("/api/aulas")
       .then((data) => { setAulas(data.items ?? []); })
-      .catch(() => { setError("No se pudieron cargar tus aulas."); })
+      .catch(() => { setError(t("misClases.noSePudieronCargarTus")); })
       .finally(() => { setLoading(false); });
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     fetchAulas();
@@ -62,7 +62,7 @@ export default function MisClases() {
     setJoinMsg(null);
     try {
       await apiPost("/api/aulas/unirse", { codigo: codigo.trim() });
-      setJoinMsg("✓ Te uniste al aula correctamente.");
+      setJoinMsg(t("misClases.teUnisteAlAulaCorrectamente"));
       setCodigo("");
       fetchAulas();
     } catch (err) {
@@ -224,7 +224,7 @@ export default function MisClases() {
                     )}
                     {aula.members && (
                       <span className="text-[10px] text-[var(--c-muted)] ml-auto">
-                        {aula.members.filter((m) => m.roleInClass === "STUDENT").length} alumnos
+                        {aula.members.filter((m) => m.roleInClass === "STUDENT").length} {t("misClases.alumnos")}
                       </span>
                     )}
                   </div>

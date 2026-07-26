@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { solicitarCambioRol } from "../services/roles";
 import { crearCuentaAlumnoPadre, crearCuentaPadreAlumno } from "../services/padres";
-import { crearCuentaAlumnoStaff, vincularCuentaAlumnoStaff } from "../services/cuenta-alumno-staff";
+import { crearCuentaAlumnoStaff } from "../services/cuenta-alumno-staff";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
 import { useI18n } from "../i18n/I18nContext";
-import { resolveMateria } from "../domain/module/materia";
+import { resolveMateria, MATERIA_FALLBACK } from "../domain/module/materia";
 
 type TipoDestino = "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO";
 
@@ -374,7 +374,7 @@ export default function Perfil() {
                 {fortalezas.map((f) => (
                   <div key={f.materia} className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
                     <div className="flex items-center justify-between mb-2">
-                      <p className="text-sm font-medium text-[var(--c-text)]">{f.materia}</p>
+                      <p className="text-sm font-medium text-[var(--c-text)]">{f.materia === MATERIA_FALLBACK ? t("comun.sinMateria") : f.materia}</p>
                       <span className="text-xs font-semibold text-[var(--c-primary)]">{f.porcentaje}%</span>
                     </div>
                     <div className="h-1.5 w-full bg-[var(--c-border)] rounded-full">
@@ -524,7 +524,7 @@ export default function Perfil() {
 // mecanismo que el staff) y aterriza en el panel de alumno.
 function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
   const { t } = useI18n();
-  const { switchCuenta } = useAuth();
+  const { user, cambiarEscuela } = useAuth();
   const navigate = useNavigate();
   // Estado local: refleja si el espejo ya existe (al cargar o tras crearlo).
   const [existe, setExiste] = useState(tieneEspejo);
@@ -558,7 +558,8 @@ function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
     setEntrando(true);
     setMsg(null);
     try {
-      const { landing } = await switchCuenta();
+      await cambiarEscuela(user?.schoolId ?? '', 'USER');
+      const landing = '/alumno';
       navigate(landing);
     } catch (err) {
       setEntrando(false);
@@ -609,11 +610,10 @@ function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
 // "Entrar como alumno" dispara el switch (mismo mecanismo que el padre).
 function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
   const { t } = useI18n();
-  const { switchCuenta } = useAuth();
+  const { user, cambiarEscuela } = useAuth();
   const navigate = useNavigate();
   const [existe, setExiste] = useState(tieneEspejo);
   const [busy, setBusy] = useState<null | "crear" | "vincular" | "entrar">(null);
-  const [ident, setIdent] = useState("");
   const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
 
   const handleCrear = async () => {
@@ -635,26 +635,13 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
     }
   };
 
-  const handleVincular = async () => {
-    if (!ident.trim()) return;
-    setBusy("vincular");
-    setMsg(null);
-    try {
-      await vincularCuentaAlumnoStaff(ident.trim());
-      setExiste(true);
-      setMsg({ kind: "ok", text: t("perfil.cuentaDeAlumnoVinculadaYa") });
-    } catch (err) {
-      setMsg({ kind: "err", text: err instanceof Error ? err.message : t("perfil.noSePudoVincularLa") });
-    } finally {
-      setBusy(null);
-    }
-  };
 
   const handleEntrar = async () => {
     setBusy("entrar");
     setMsg(null);
     try {
-      const { landing } = await switchCuenta();
+      await cambiarEscuela(user?.schoolId ?? '', 'USER');
+      const landing = '/alumno';
       navigate(landing);
     } catch (err) {
       setBusy(null);
@@ -687,22 +674,6 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
           >
             {busy === "crear" ? t("comun.creando") : t("perfil.crearMiCuentaDeAlumno")}
           </button>
-          <div className="flex items-center gap-2">
-            <input
-              value={ident}
-              onChange={(e) => setIdent(e.target.value)}
-              placeholder={t("perfil.usuarioOEmailDelAlumno")}
-              className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-1.5 text-xs text-[var(--c-text)]"
-            />
-            <button
-              onClick={handleVincular}
-              disabled={busy === "vincular" || !ident.trim()}
-              data-testid="staff-vincular-cuenta-alumno"
-              className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:opacity-90 disabled:opacity-50 transition-opacity"
-            >
-              {busy === "vincular" ? t("perfil.vinculando") : t("perfil.vincularExistente")}
-            </button>
-          </div>
         </div>
       )}
       {msg && (
@@ -723,7 +694,7 @@ function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
 // (mismo mecanismo que Fases 2/3) y aterriza en /padre.
 function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
   const { t } = useI18n();
-  const { switchCuenta } = useAuth();
+  const { user, cambiarEscuela } = useAuth();
   const navigate = useNavigate();
   // Estado local: refleja si el padre ya existe (al cargar o tras crearlo).
   const [existe, setExiste] = useState(tienePadre);
@@ -757,7 +728,8 @@ function MiCuentaPadreCard({ tienePadre }: { tienePadre: boolean }) {
     setEntrando(true);
     setMsg(null);
     try {
-      const { landing } = await switchCuenta();
+      await cambiarEscuela(user?.schoolId ?? '', 'USER');
+      const landing = '/alumno';
       navigate(landing);
     } catch (err) {
       setEntrando(false);

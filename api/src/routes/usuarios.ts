@@ -8,13 +8,8 @@ import { toObjectId } from "../lib/ids";
 import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { hashPassword } from "../lib/passwords";
 import { normalizeSchoolId } from "../lib/school-ids";
-import { tryProvisionarEspejoParaNuevoStaff } from "../lib/provisionar-espejo";
 import { acreditarSaldoInicial } from "../lib/economia-alta";
-import {
-  provisionarEspejoPadreParaAlumno,
-  PadreNoProvisionableError
-} from "../lib/provisionar-padre";
-import { resolveCuentaVinculada } from "../lib/cuenta-vinculada";
+import { sincronizarMembresia } from "../lib/memberships";
 import { isParentInRoles, isStaffInRoles, resolveRoles } from "../lib/roles";
 import { vincularHijoCore } from "../lib/vinculo-padre-hijo";
 import { requireUser } from "../lib/user-auth";
@@ -91,6 +86,10 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
         email: parsed.email,
         fullName: parsed.fullName,
         role: parsed.role,
+        // MULTIROL — este camino nunca poblaba `roles` (el registro sí),
+        // así que los usuarios dados de alta por admin nacían con el array
+        // vacío y sólo funcionaban por el fallback a `role` de resolveRoles.
+        roles: [parsed.role],
         escuelaId: parsed.escuelaId ?? null,
         birthdate: parsed.birthdate ? new Date(parsed.birthdate).toISOString() : null,
         passwordHash: hashPassword(parsed.password),
@@ -100,12 +99,15 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
         ...consentsData
       }
     });
-    // FASE 1 — enganche de provisión. Mismo criterio que en
-    // /api/auth/register: solo si el rol resuelto es staff. Best-
-    // effort: un fallo se loguea y no rompe el alta.
-    if (isStaffInRoles(resolveRoles(result))) {
-      await tryProvisionarEspejoParaNuevoStaff(result.id);
-    }
+    // PLAN-multirol — este camino NUNCA escribía `Membresia`. Como
+    // `usuarios.ts` autoriza leyéndola (más abajo, GET /:id), todo usuario
+    // creado por acá quedaba dando 403 para siempre.
+    await sincronizarMembresia({
+      usuarioId: result.id,
+      escuelaId: result.escuelaId,
+      rolUsuario: result.role,
+      fechaAlta: now
+    });
     // PLAN-B Fase 6 (ítem 34) — saldo de bienvenida (economía interna,
     // no dinero real) para el alumno recién dado de alta por admin/directivo.
     if (result.role === "USER") {
@@ -288,7 +290,11 @@ usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), a
   const targetMemberships = await prisma.membresia.findMany({
     where: { usuarioId: rawId, estado: { not: "revocada" } }
   });
-  const targetEscuelaIds = targetMemberships.map((membership) => membership.escuelaId).filter(Boolean);
+  // PLAN-multirol — una persona puede tener VARIAS membresías en la misma
+  // escuela (profesor y padre, p.ej.), así que la lista trae repetidos.
+  const targetEscuelaIds = [
+    ...new Set(targetMemberships.map((membership) => membership.escuelaId).filter(Boolean))
+  ];
   if (!targetEscuelaIds.length) return res.status(403).json({ error: "forbidden" });
   const targetEscuelaIdSet = new Set(targetEscuelaIds.map((escuelaId) => String(escuelaId)));
   const escuelaIdParam = req.query.escuelaId;
@@ -379,10 +385,6 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
       }
     }
 
-    // FASE 5 — exponemos el vínculo de cuentas (si lo hay) para que el
-    // perfil del padre sepa si ya tiene su cuenta de alumno y ofrezca
-    // "Entrar como alumno" en vez de "Crear mi cuenta de alumno".
-    const cuentaVinculada = await resolveCuentaVinculada(userId);
 
     res.json({
       id: (userDoc as any).id?.toString?.() ?? userId,
@@ -396,57 +398,45 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
       warningCount: typeof userDoc.warningCount === "number" ? userDoc.warningCount : 0,
       modulosCompletados,
       hijos,
-      cuentaVinculada
     });
   } catch {
     res.status(500).json({ error: "internal server error" });
   }
 });
 
-// ─── FASE 6 — autoservicio alumno → cuenta de padre ─────────────────────
-// POST /api/alumnos/crear-cuenta-padre
-// Un alumno adulto (USER, 18+) puede crear su propia cuenta de padre
-// (PARENT) y conservarla junto a la de alumno. La cuenta nueva queda
-// apuntada por un `CuentaVinculada` simétrico y es switchable con el
-// mismo mecanismo que Fases 2/3 (el switch del back ya emite el
-// `landing` correcto desde los roles del destino: alumno→padre
-// aterriza en `/padre`).
-//
-// Esto es ADITIVO: NO se reemplaza el rol del alumno (que sigue
-// siendo USER), y NO se toca `POST /api/solicitar-rol` (que sigue
-// reemplazando el rol y se usa para TEACHER/DIRECTIVO/ADMIN).
-// El alumno conserva ambas cuentas y switcha entre ellas.
+// PLAN-multirol Fase 3 — antes esto creaba una CUENTA de padre para el
+// alumno adulto (segunda cuenta de la misma persona, `passwordHash: null`,
+// alcanzable sólo por el switch). Ahora le agrega el ROL de padre a su
+// propia cuenta: una membresía PARENT en su escuela. Para monitorear a un
+// hijo cambia de rol, no de cuenta — y el vínculo con el hijo sigue siendo
+// `ProgresoModuloVinculo`, que une personas DISTINTAS y no se toca.
 usuarios.post("/api/alumnos/crear-cuenta-padre", requireUser, async (req, res) => {
-  const userReq = (req as { user?: { _id?: unknown; id?: unknown; role?: string } }).user;
+  const userReq = (req as { user?: { _id?: unknown; id?: unknown } }).user;
   const rawId = userReq?._id ?? userReq?.id;
   const alumnoId = rawId ? (typeof rawId === "string" ? rawId : String(rawId)) : null;
   if (!alumnoId) return res.status(401).json({ error: "not authenticated" });
 
-  try {
-    const prov = await provisionarEspejoPadreParaAlumno(alumnoId);
-    const cuentaVinculada = await resolveCuentaVinculada(alumnoId);
-    return res.status(prov.created ? 201 : 200).json({
-      ok: true,
-      created: prov.created,
-      padre: {
-        id: prov.padre.id,
-        username: prov.padre.username,
-        fullName: prov.padre.fullName
-      },
-      cuentaVinculada
-    });
-  } catch (err) {
-    if (err instanceof PadreNoProvisionableError) {
-      // Códigos de elegibilidad → 403; el resto (id inválido, no
-      // encontrado) → 400. Mismo patrón que la Fase 5.
-      const status =
-        err.code === "ALUMNO_NOT_USER" ||
-        err.code === "ALUMNO_IS_ESPEJO" ||
-        err.code === "ALUMNO_IS_MINOR"
-          ? 403
-          : 400;
-      return res.status(status).json({ error: err.message, code: err.code });
-    }
-    return res.status(500).json({ error: err instanceof Error ? err.message : "error" });
+  const alumno = await prisma.usuario.findFirst({
+    where: { id: alumnoId, isDeleted: { not: true } }
+  });
+  if (!alumno) return res.status(404).json({ error: "usuario no encontrado" });
+  if (!alumno.escuelaId) {
+    return res.status(409).json({ error: "la cuenta no tiene escuela asignada" });
   }
+
+  const yaEra = await prisma.membresia.findFirst({
+    where: { usuarioId: alumnoId, escuelaId: alumno.escuelaId, rol: "PARENT", estado: "activa" }
+  });
+  await sincronizarMembresia({
+    usuarioId: alumnoId,
+    escuelaId: alumno.escuelaId,
+    rolUsuario: "PARENT"
+  });
+
+  return res.status(yaEra ? 200 : 201).json({
+    ok: true,
+    created: !yaEra,
+    escuelaId: alumno.escuelaId,
+    rol: "PARENT"
+  });
 });

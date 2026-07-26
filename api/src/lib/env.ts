@@ -108,8 +108,10 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   MP_CLIENT_ID: process.env.MP_CLIENT_ID ?? "",
   MP_CLIENT_SECRET: process.env.MP_CLIENT_SECRET ?? "",
   // Clave simétrica (32 bytes, base64 o hex) para cifrar
-  // EscuelaPasarela.credencialesCifradas. Sin ella en dev cae a una fija
-  // NO apta para producción (arranca igual, pero avisa por consola).
+  // EscuelaPasarela.credencialesCifradas. Sin ella se cae a una clave
+  // fija y pública (pasarelas-crypto.ts) — por eso `assertSecretosDePago`
+  // (abajo) impide arrancar si hay CUALQUIER pasarela configurada y esta
+  // clave falta, sin importar NODE_ENV.
   PASARELAS_ENCRYPTION_KEY: process.env.PASARELAS_ENCRYPTION_KEY ?? "",
   // PLAN-B Fase 4 — job de reconciliación: reintenta contra el provider
   // los `Pago` en `pendiente`/`en_proceso` más viejos que el umbral, por
@@ -118,4 +120,53 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   RECONCILIACION_JOB_ENABLED: parseBool(process.env.RECONCILIACION_JOB_ENABLED, false),
   RECONCILIACION_JOB_INTERVAL_MINUTES: Number(process.env.RECONCILIACION_JOB_INTERVAL_MINUTES ?? 15),
   RECONCILIACION_PAGO_MAX_AGE_MINUTES: Number(process.env.RECONCILIACION_PAGO_MAX_AGE_MINUTES ?? 30),
+  // Deja arrancar en local con pasarelas configuradas pero sin
+  // MP_WEBHOOK_SECRET / PASARELAS_ENCRYPTION_KEY. Ver assertSecretosDePago.
+  PAGOS_DEV_SIN_SECRETOS: parseBool(process.env.PAGOS_DEV_SIN_SECRETOS, false),
+};
+
+/**
+ * Chequeo de arranque de los secretos de pago (endurecimiento
+ * 2026-07-25). El disparador es "¿hay alguna pasarela configurada?", NO
+ * `NODE_ENV`: los fallbacks de dev (webhook sin firma, clave de cifrado
+ * fija) son inofensivos en una instalación sin pagos y catastróficos en
+ * una con pagos, y confiar en que `NODE_ENV` diga exactamente
+ * "production" es demasiado frágil para el único lugar donde eso separa
+ * "seguro" de "cualquiera puede acreditar un pago".
+ *
+ * Se llama en el arranque del server (index.ts) — que reviente al
+ * levantar es preferible a descubrirlo cuando entra un webhook falso.
+ */
+export const assertSecretosDePago = () => {
+  const mpConfigurado = Boolean(ENV.MP_ACCESS_TOKEN || ENV.MP_CLIENT_ID || ENV.MP_CLIENT_SECRET);
+  const cryptomusConfigurado = Boolean(ENV.CRYPTOMUS_MERCHANT_ID || ENV.CRYPTOMUS_API_KEY);
+  if (!mpConfigurado && !cryptomusConfigurado) return;
+
+  const faltantes: string[] = [];
+  if (mpConfigurado && !ENV.MP_WEBHOOK_SECRET) faltantes.push("MP_WEBHOOK_SECRET");
+  // Sin esta clave, los tokens OAuth de TODAS las escuelas quedan
+  // cifrados con una clave pública conocida (ver pasarelas-crypto.ts).
+  if (!ENV.PASARELAS_ENCRYPTION_KEY) faltantes.push("PASARELAS_ENCRYPTION_KEY");
+
+  if (faltantes.length === 0) return;
+
+  // Escape hatch explícito para desarrollo. Es a propósito una variable
+  // aparte y no un `NODE_ENV !== production`: dejar pasar esto tiene que
+  // ser un acto deliberado y visible en el `.env`, no algo que ocurra
+  // solo porque una env quedó mal seteada en un deploy. En producción no
+  // se puede desactivar de ninguna manera.
+  if (ENV.PAGOS_DEV_SIN_SECRETOS && ENV.NODE_ENV !== "production") {
+    console.warn(
+      `⚠️  PAGOS_DEV_SIN_SECRETOS activo: faltan ${faltantes.join(", ")}. ` +
+        "Los webhooks de pago NO se verifican y las credenciales de las escuelas " +
+        "se cifran con una clave pública. Sólo para desarrollo local."
+    );
+    return;
+  }
+
+  throw new Error(
+    `Hay pasarelas de pago configuradas pero faltan secretos obligatorios: ${faltantes.join(", ")}. ` +
+      "Cargalos en api/.env, quitá las credenciales de pasarela para levantar sin pagos, " +
+      "o poné PAGOS_DEV_SIN_SECRETOS=true si estás en local y no vas a cobrar de verdad."
+  );
 };

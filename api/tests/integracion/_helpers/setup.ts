@@ -164,6 +164,9 @@ export function seedUser(opts: {
     fullName: opts.fullName ?? opts.id,
     role: opts.role,
     roles,
+    // El candado de "sólo el admin principal cambia roles" ahora es una
+    // columna real; los seeds ADMIN de los tests representan al principal.
+    esAdminPrincipal: opts.role === "ADMIN",
     escuelaId: opts.schoolId ?? null,
     isDeleted: false,
     // FASE 1 — el helper por defecto crea cuentas reales (sin
@@ -187,6 +190,9 @@ export function tokenFor(opts: {
     id: opts.id,
     role: opts.role,
     roles,
+    // El candado de "sólo el admin principal cambia roles" ahora es una
+    // columna real; los seeds ADMIN de los tests representan al principal.
+    esAdminPrincipal: opts.role === "ADMIN",
     schoolId: opts.schoolId ?? null,
     ...(opts.switchedFrom ? { switchedFrom: opts.switchedFrom } : {}),
   }).token;

@@ -45,7 +45,7 @@ after(async () => {
 beforeEach(() => {
   resetPrisma();
   const nowIso = new Date().toISOString();
-  prisma.escuela.rows.push({
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada",
     id: ESC,
     name: "Escuela Default",
     code: "ESC-DEF",
@@ -54,7 +54,7 @@ beforeEach(() => {
     createdAt: nowIso,
     updatedAt: nowIso
   });
-  prisma.escuela.rows.push({
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada",
     id: ESC_CUSTOM,
     name: "Escuela Custom",
     code: "ESC-CUS",

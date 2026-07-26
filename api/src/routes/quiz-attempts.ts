@@ -14,7 +14,7 @@ import {
   type QuizAttemptSubmit
 } from "../schema/quiz-attempt";
 import { isStaffRole, canManageClassroom } from "../lib/authorization";
-import { resolveRoles } from "../lib/roles";
+import { resolvePrimaryRole, resolveRoles } from "../lib/roles";
 import {
   isCanaryAnswer,
   sanitizeQuestionsForStudent
@@ -53,7 +53,6 @@ import {
   questionHashPrefix
 } from "../lib/vblang-materialize";
 import { parseComposition, selectPoolIndices } from "../lib/quiz-composition";
-import { excluirEspejosDeIds } from "../lib/espejo-filtro";
 import { resolveUserNames } from "../lib/resolve-user-names";
 import { acreditarPorPrimerCuestionario } from "../lib/economia-alta";
 import { parseModuleDependencies, computeModuleLock } from "../lib/module-dependencies";
@@ -1056,6 +1055,30 @@ async function generateQuestionsFromConfig(
 
 export const quizAttempts = Router();
 
+/**
+ * PLAN-J §3c #6 + PLAN-multirol — el padre puede VER el módulo y los
+ * intentos de su hijo, pero no rendir en su nombre.
+ *
+ * La versión vieja bloqueaba sólo si TODOS los roles eran PARENT, para no
+ * castigar a un PARENT+TEACHER. Eso ya dejaba un hueco (bug reportado:
+ * desde el navbar de padre se llegaba a un módulo público y se podía
+ * rendir), y con padre y alumno en la MISMA cuenta —roles
+ * `["USER","PARENT"]`— la guarda se desactivaba del todo.
+ *
+ * Ahora mira el ROL ACTIVO de la sesión, que es lo que la persona eligió
+ * ser en este momento (ver lib/sesion-escuela.ts): actuando como padre no
+ * se rinde, tenga los roles que tenga. Para volver a rendir, cambia de rol
+ * — que es exactamente la decisión que el modelo multi-rol vuelve explícita.
+ */
+export const actuandoComoPadre = (user: unknown): boolean => {
+  const roles = resolveRoles(user as never);
+  if (roles.length === 0) return false;
+  // Sin sesión multi-rol (tokens viejos), `resolvePrimaryRole` devuelve el
+  // de mayor jerarquía; PARENT gana sobre USER, así que el caso ambiguo
+  // cae del lado seguro: no rinde.
+  return resolvePrimaryRole(user as never) === "PARENT";
+};
+
 // QA-FIX-06 — Operar intentos de quiz (iniciar/ver/responder/entregar) es
 // funcionalidad BASE de un módulo con quiz, no una feature enterprise. Crear y
 // editar módulos con quiz (`modulos.ts`) y armar quizzes (`quiz-banco.ts`) solo
@@ -1071,12 +1094,7 @@ quizAttempts.post(
   requireUser,
   async (req, res) => {
   try {
-    // PLAN-J §3c #6 — PARENT es solo-lectura en módulos/quizzes: puede ver
-    // el módulo de su hijo, pero no rendir la prueba en su nombre. Sólo se
-    // bloquea si TODOS los roles del usuario son PARENT (un PARENT+USER o
-    // PARENT+TEACHER retiene su otra capacidad).
-    const requesterRoles = resolveRoles(req.user);
-    if (requesterRoles.length > 0 && requesterRoles.every((r) => r === "PARENT")) {
+    if (actuandoComoPadre(req.user)) {
       return res.status(403).json({ error: "role cannot start quiz attempts" });
     }
     const payload = QuizAttemptCreateSchema.parse(req.body);
@@ -1314,10 +1332,11 @@ quizAttempts.get(
         // calificaciones del aula (analítica de alumnos). Si el staff
         // pide explícitamente un `userId`, se respeta (no se filtra ese
         // caso puntual; es una consulta dirigida, no un roster).
-        const alumnosAulaConEspejo = clase.miembros
-          .filter((m) => m.rolEnClase === "STUDENT" || m.rolEnClase === "USER")
+        // Las inscripciones de prueba (staff o padre viviendo el contenido
+        // como alumno) no son alumnos del aula a efectos de analítica.
+        const alumnosAula = clase.miembros
+          .filter((m) => (m.rolEnClase === "STUDENT" || m.rolEnClase === "USER") && m.esPrueba !== true)
           .map((m) => m.usuarioId);
-        const alumnosAula = await excluirEspejosDeIds(alumnosAulaConEspejo);
         if (alumnosAula.length === 0 && !query.userId) {
           return res.json({ items: [], total: 0 });
         }
@@ -1639,6 +1658,12 @@ quizAttempts.get(
   "/api/quiz-attempts/:id",
   requireUser,
   async (req, res) => {
+    // Mismo criterio que POST /api/quiz-attempts: actuando como padre no
+    // se rinde. Estaba SÓLO en la creación, así que un intento ya abierto
+    // se podía seguir respondiendo y entregando desde la sesión de padre.
+    if (actuandoComoPadre(req.user)) {
+      return res.status(403).json({ error: "role cannot modify quiz attempts" });
+    }
   const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
   if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
   const userId =
@@ -1850,6 +1875,12 @@ quizAttempts.post(
   requireUser,
   async (req, res) => {
     try {
+    // Mismo criterio que POST /api/quiz-attempts: actuando como padre no
+    // se rinde. Estaba SÓLO en la creación, así que un intento ya abierto
+    // se podía seguir respondiendo y entregando desde la sesión de padre.
+    if (actuandoComoPadre(req.user)) {
+      return res.status(403).json({ error: "role cannot modify quiz attempts" });
+    }
       const payload = QuizAttemptAnswerSchema.parse(req.body);
       const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
       if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
@@ -2419,6 +2450,12 @@ quizAttempts.post(
   requireUser,
   async (req, res) => {
     try {
+    // Mismo criterio que POST /api/quiz-attempts: actuando como padre no
+    // se rinde. Estaba SÓLO en la creación, así que un intento ya abierto
+    // se podía seguir respondiendo y entregando desde la sesión de padre.
+    if (actuandoComoPadre(req.user)) {
+      return res.status(403).json({ error: "role cannot modify quiz attempts" });
+    }
       const payload = QuizAttemptSubmitSchema.parse(req.body);
       const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
       if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
@@ -2708,6 +2745,12 @@ quizAttempts.post(
   "/api/quiz-attempts/:id/competencia",
   requireUser,
   async (req, res) => {
+    // Mismo criterio que POST /api/quiz-attempts: actuando como padre no
+    // se rinde. Estaba SÓLO en la creación, así que un intento ya abierto
+    // se podía seguir respondiendo y entregando desde la sesión de padre.
+    if (actuandoComoPadre(req.user)) {
+      return res.status(403).json({ error: "role cannot modify quiz attempts" });
+    }
     const userId =
       typeof req.user?._id?.toString === "function"
         ? req.user._id.toString()

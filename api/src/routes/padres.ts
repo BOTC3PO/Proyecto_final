@@ -1,12 +1,8 @@
 import express, { Router } from "express";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
+import { sincronizarMembresia } from "../lib/memberships";
 import { requireUser } from "../lib/user-auth";
-import {
-  provisionarEspejoAlumnoParaPadre,
-  EspejoNoProvisionableError
-} from "../lib/provisionar-espejo";
-import { resolveCuentaVinculada } from "../lib/cuenta-vinculada";
 import { isParentInRoles, resolveRoles } from "../lib/roles";
 import { vincularHijoCore } from "../lib/vinculo-padre-hijo";
 
@@ -153,17 +149,18 @@ padres.post("/api/hijos", requireUser, ...bodyLimitMB(2), async (req, res) => {
 // NO se auto-crea en el registro: es opt-in. Idempotente — si ya existe
 // devuelve el mismo espejo. Tras crearlo, el padre puede usar el switch
 // (`/api/auth/cambiar-cuenta`) para entrar como alumno.
+// PLAN-multirol Fase 3 — antes esto creaba una CUENTA ESPEJO de alumno para
+// el padre (segunda cuenta de la misma persona). Ahora le agrega el ROL de
+// alumno a su propia cuenta: una membresía STUDENT en su escuela. Para
+// estudiar cambia de rol (POST /api/auth/escuela-activa con `rol: "USER"`),
+// no de cuenta.
 padres.post("/api/padres/crear-cuenta-alumno", requireUser, ...bodyLimitMB(1), async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
 
-  // Solo un PARENT puede pedir su cuenta de alumno por esta vía. El
-  // staff ya la tiene auto-provisionada; un USER no la necesita (ya
-  // ES alumno). El servicio valida el rol de nuevo, pero cortamos
-  // acá con un 403 claro.
   const requester = await prisma.usuario.findFirst({
     where: { id: parentId, isDeleted: { not: true } },
-    select: { role: true, roles: true }
+    select: { role: true, roles: true, escuelaId: true }
   });
   if (!requester) return res.status(401).json({ error: "parent no encontrado" });
   if (!isParentInRoles(resolveRoles(requester))) {
@@ -171,32 +168,25 @@ padres.post("/api/padres/crear-cuenta-alumno", requireUser, ...bodyLimitMB(1), a
       error: "Solo una cuenta de padre/madre puede crear su cuenta de alumno."
     });
   }
-
-  try {
-    const prov = await provisionarEspejoAlumnoParaPadre(parentId);
-    const cuentaVinculada = await resolveCuentaVinculada(parentId);
-    return res.status(prov.created ? 201 : 200).json({
-      ok: true,
-      created: prov.created,
-      espejo: {
-        id: prov.espejo.id,
-        username: prov.espejo.username,
-        fullName: prov.espejo.fullName
-      },
-      cuentaVinculada
-    });
-  } catch (err) {
-    if (err instanceof EspejoNoProvisionableError) {
-      // PRINCIPAL_NOT_PARENT / PRINCIPAL_IS_ESPEJO → 403; el resto
-      // (id inválido, no encontrado) → 400.
-      const status =
-        err.code === "PRINCIPAL_NOT_PARENT" || err.code === "PRINCIPAL_IS_ESPEJO"
-          ? 403
-          : 400;
-      return res.status(status).json({ error: err.message, code: err.code });
-    }
-    return res.status(500).json({ error: err instanceof Error ? err.message : "error" });
+  if (!requester.escuelaId) {
+    return res.status(409).json({ error: "la cuenta no tiene escuela asignada" });
   }
+
+  const yaEra = await prisma.membresia.findFirst({
+    where: { usuarioId: parentId, escuelaId: requester.escuelaId, rol: "STUDENT", estado: "activa" }
+  });
+  await sincronizarMembresia({
+    usuarioId: parentId,
+    escuelaId: requester.escuelaId,
+    rolUsuario: "USER"
+  });
+
+  return res.status(yaEra ? 200 : 201).json({
+    ok: true,
+    created: !yaEra,
+    escuelaId: requester.escuelaId,
+    rol: "USER"
+  });
 });
 
 padres.get("/api/padres/hijos/:id/limites", requireUser, async (req, res) => {

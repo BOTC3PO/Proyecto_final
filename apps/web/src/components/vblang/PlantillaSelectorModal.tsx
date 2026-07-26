@@ -58,12 +58,12 @@ export default function PlantillaSelectorModal({
       .catch((err) => {
         if (cancelled) return;
         setStatus("error");
-        setErrorMessage(err instanceof Error ? err.message : "Error de carga");
+        setErrorMessage(err instanceof Error ? err.message : t("comun.errorDeCarga"));
       });
     return () => {
       cancelled = true;
     };
-  }, [q, materiaHint, tab]);
+  }, [q, materiaHint, tab, t]);
 
   const handleCreateNew = () => {
     const url = createReturnTo
@@ -92,7 +92,7 @@ export default function PlantillaSelectorModal({
     <Modal
       open={true}
       onClose={onClose}
-      ariaLabel="Seleccionar plantilla VBLang"
+      ariaLabel={t("plantillaSelectorModal.seleccionarPlantillaVblang")}
       size="lg"
       data-testid="plantilla-selector-modal"
       style={{
@@ -155,7 +155,7 @@ export default function PlantillaSelectorModal({
       <div style={{ flex: 1, overflowY: "auto", padding: "var(--space-3)" }}>
         {status === "loading" && (
           <div style={{ display: "flex", justifyContent: "center", padding: "var(--space-4)" }}>
-            <Spinner size="md" label="Cargando plantillas" />
+            <Spinner size="md" label={t("plantillaSelectorModal.cargandoPlantillas")} />
           </div>
         )}
         {status === "error" && (
@@ -169,8 +169,8 @@ export default function PlantillaSelectorModal({
             color: "var(--c-muted)",
           }}>
             {tab === "biblioteca"
-              ? "No hay plantillas en la biblioteca."
-              : "Todavía no creaste plantillas."}
+              ? t("plantillaSelectorModal.noHayPlantillasEnLa")
+              : t("plantillaSelectorModal.todaviaNoCreastePlantillas")}
           </p>
         )}
         {status === "ready" && items.length > 0 && (

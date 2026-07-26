@@ -32,8 +32,8 @@ after(async () => {
 beforeEach(() => {
   resetPrisma();
   const nowIso = new Date().toISOString();
-  prisma.escuela.rows.push({ id: ESCUELA, name: "Escuela CRUD Pasarelas", isDeleted: false, createdAt: nowIso });
-  prisma.escuela.rows.push({ id: ESCUELA_OTRA, name: "Otra Escuela", isDeleted: false, createdAt: nowIso });
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada", id: ESCUELA, name: "Escuela CRUD Pasarelas", isDeleted: false, createdAt: nowIso });
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada", id: ESCUELA_OTRA, name: "Otra Escuela", isDeleted: false, createdAt: nowIso });
   seedUser({ id: DIRECTIVO, role: "DIRECTIVO", schoolId: ESCUELA });
   seedUser({ id: DIRECTIVO_OTRA, role: "DIRECTIVO", schoolId: ESCUELA_OTRA });
   seedUser({ id: TEACHER, role: "TEACHER", schoolId: ESCUELA });
@@ -144,4 +144,34 @@ test("provider inválido es rechazado (400)", async () => {
     body: { provider: "paypal" }
   });
   assert.equal(res.status, 400);
+});
+
+// ── Verificación de escuela (gate de cobros) ─────────────────────
+// Una escuela sin verificar puede usar el resto de la plataforma, pero no
+// cobrarle a las familias: conectar pasarela y publicar cobros quedan
+// bloqueados hasta que el admin principal la verifique.
+
+test("escuela pendiente de verificación NO puede conectar una pasarela", async () => {
+  const escuelaPendiente = "esc-sin-verificar";
+  prisma.escuela.rows.push({
+    id: escuelaPendiente,
+    name: "Escuela Fantasma",
+    isDeleted: false,
+    estadoVerificacion: "pendiente",
+    createdAt: new Date().toISOString()
+  } as never);
+  seedUser({ id: "dir-fantasma", role: "DIRECTIVO", schoolId: escuelaPendiente });
+
+  const res = await jsonRequest(baseUrl, "POST", `/api/escuelas/${escuelaPendiente}/pasarelas`, {
+    token: tokenFor({ id: "dir-fantasma", role: "DIRECTIVO", schoolId: escuelaPendiente }),
+    body: { provider: "mercadopago", cuentaConectadaId: "123", activa: true }
+  });
+
+  assert.equal(res.status, 403);
+  assert.equal((res.body as { code?: string }).code, "ESCUELA_NO_VERIFICADA");
+  assert.equal(
+    prisma.escuelaPasarela.rows.filter((p) => p.escuelaId === escuelaPendiente).length,
+    0,
+    "no quedó nada conectado"
+  );
 });

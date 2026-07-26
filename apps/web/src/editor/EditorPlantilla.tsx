@@ -65,6 +65,8 @@ import { buildFieldErrors } from "../components/vblang/FieldErrorBadge";
 import { getBlock, hasBlock } from "../components/vblang/plantillaAst";
 import { listGeneradores } from "../vblang/listGeneradores";
 import { getGeneradorProvidedVars } from "../vblang/generadorVars";
+import { TIPO_PREGUNTA_DESCRIPCION_KEY } from "../components/vblang/TizaEditor";
+import { useI18n } from "../i18n/I18nContext";
 
 export interface EditorPlantillaProps {
   plantilla: Plantilla;
@@ -137,6 +139,7 @@ function preservedKinds(p: Plantilla): Bloque["kind"][] {
 }
 
 export default function EditorPlantilla({ plantilla, onChange }: EditorPlantillaProps) {
+  const { t } = useI18n();
   const baseGenerador = isGeneradorBase(plantilla);
   const tipo = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
@@ -215,23 +218,23 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
       <LintPanel report={report} />
 
       <Section
-        title="Base de la pregunta"
-        description="Definí la respuesta por tipo, o dejá que un generador provea datos y clave."
+        title={t("plantillaEditorSchema.baseDeLaPregunta")}
+        description={t("editorPlantilla.definiLaRespuestaPorTipo")}
       >
         <RadioGroup
-          aria-label="Base de la pregunta"
+          aria-label={t("plantillaEditorSchema.baseDeLaPregunta")}
           value={baseGenerador ? "generador" : "tipo"}
           onValueChange={cambiarBase}
         >
-          <Radio value="tipo" label="Tipo de pregunta" />
-          <Radio value="generador" label="Generador asistido" />
+          <Radio value="tipo" label={t("plantillaEditorSchema.tipoDePregunta")} />
+          <Radio value="generador" label={t("plantillaEditorSchema.generadorAsistido")} />
         </RadioGroup>
       </Section>
 
       {baseGenerador ? (
         <Section
-          title="Generador asistido"
-          description="El generador provee los datos y la respuesta; escribí la consigna en el enunciado."
+          title={t("plantillaEditorSchema.generadorAsistido")}
+          description={t("editorPlantilla.elGeneradorProveeLosDatos")}
         >
           <GeneradorField
             plantilla={plantilla}
@@ -240,19 +243,22 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
           />
         </Section>
       ) : (
-        <Section title="Tipo de pregunta" description={schema.descripcion}>
+        <Section
+          title={t("plantillaEditorSchema.tipoDePregunta")}
+          description={TIPO_PREGUNTA_DESCRIPCION_KEY[tipo] ? t(TIPO_PREGUNTA_DESCRIPCION_KEY[tipo]) : schema.descripcion}
+        >
           <TipoSelector plantilla={plantilla} onChange={onChange} />
         </Section>
       )}
 
-      <Section title="Enunciado" description="Texto de la consigna para el alumno.">
+      <Section title={t("plantillaEditorSchema.enunciado")} description={t("editorPlantilla.textoDeLaConsignaParaEl")}>
         <EnunciadoField ref={enunciadoRef} plantilla={plantilla} onChange={onChange} />
       </Section>
 
       {isMapa ? (
         <Section
-          title="Mapa"
-          description="Mapa a cargar, clave de respuesta (ISO o nombre) y encuadre."
+          title={t("marcarMapaRenderer.mapa")}
+          description={t("editorPlantilla.mapaACargarClaveDeRespuesta")}
         >
           <MapaField plantilla={plantilla} onChange={onChange} />
         </Section>
@@ -260,8 +266,8 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
 
       {!baseGenerador && scalarFieldsToRender.length > 0 ? (
         <Section
-          title="Respuesta"
-          description="Clave de respuesta y parámetros de corrección según el tipo."
+          title={t("tizaEditor.respuesta")}
+          description={t("editorPlantilla.claveDeRespuestaYParametros")}
         >
           {scalarFieldsToRender.map((field) => (
             <FieldControl
@@ -275,7 +281,7 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
       ) : null}
 
       {!baseGenerador && stringListFields.length > 0 ? (
-        <Section title="Opciones / ítems" description="Lista de opciones o ítems a presentar.">
+        <Section title={t("editorPlantilla.opcionesItems")} description={t("editorPlantilla.listaDeOpcionesOItems")}>
           {stringListFields.map((field) => (
             <OpcionesField
               key={field.key}
@@ -290,8 +296,8 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
       {/* D5: etiquetas (palabra → categoría) con diccionario. */}
       {!baseGenerador && etiquetaFields.length > 0 ? (
         <Section
-          title="Etiquetas"
-          description="Pares palabra → etiqueta (la respuesta correcta), con búsqueda en el diccionario."
+          title={t("editorPlantilla.etiquetas")}
+          description={t("editorPlantilla.paresPalabraEtiqueta")}
         >
           {etiquetaFields.map((field) => (
             <EtiquetasField
@@ -305,15 +311,14 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
       ) : null}
 
       {!baseGenerador && skippedRichFields.length > 0 ? (
-        <Alert variant="warning" title="Campos aún no editables en V2">
-          {skippedRichFields.map((f) => f.label).join(", ")} se preservan tal cual en
-          el DSL. Editálos desde el editor clásico o el modo código.
+        <Alert variant="warning" title={t("editorPlantilla.camposAunNoEditablesEn")}>
+          {skippedRichFields.map((f) => f.label).join(", ")} {t("editorPlantilla.sePreservanTalCualEn")}
         </Alert>
       ) : null}
 
       {/* D3: Variables */}
       {hasVariables || !baseGenerador ? (
-        <Section title="Variables" description="Variables aleatorias que se evalúan en cada instancia.">
+        <Section title={t("plantillaEditorSchema.variables")} description={t("editorPlantilla.variablesAleatoriasQueSeEvaluan")}>
           <VariablesField
             plantilla={plantilla}
             variables={variables}
@@ -323,44 +328,43 @@ export default function EditorPlantilla({ plantilla, onChange }: EditorPlantilla
       ) : null}
 
       {/* D3: Visual */}
-      <Section title="Visual" description="Imagen o diagrama asociado a la pregunta.">
+      <Section title={t("editorPlantilla.visual")} description={t("editorPlantilla.imagenODiagramaAsociadoA")}>
         <VisualField plantilla={plantilla} onChange={onChange} />
       </Section>
 
-      <Section title="Puntaje y pista" description="Metadata de la pregunta.">
+      <Section title={t("plantillaEditorSchema.puntajeYPista")} description={t("editorPlantilla.metadataDeLaPregunta")}>
         <PuntajePistaField plantilla={plantilla} onChange={onChange} />
       </Section>
 
       {/* D3: Texto rico */}
-      <Section title="Explicación" description="Retroalimentación que se muestra al alumno tras responder.">
+      <Section title={t("plantillaEditorSchema.explicacion")} description={t("editorPlantilla.retroalimentacionQueSeMuestra")}>
         <ExplicacionField plantilla={plantilla} onChange={onChange} />
       </Section>
 
       {hasRestricciones || hasVariables ? (
-        <Section title="Restricciones" description="Condiciones que las variables deben cumplir.">
+        <Section title={t("plantillaEditorSchema.restricciones")} description={t("editorPlantilla.condicionesQueLasVariables")}>
           <RestriccionesField plantilla={plantilla} onChange={onChange} />
         </Section>
       ) : null}
 
       {hasPistas ? (
-        <Section title="Pistas escalonadas" description="Pistas que el alumno pide de a una (además de la pista única de metadata).">
+        <Section title={t("plantillaEditorSchema.pistasEscalonadas")} description={t("editorPlantilla.pistasQueElAlumnoPide")}>
           <PistasField plantilla={plantilla} onChange={onChange} />
         </Section>
       ) : null}
 
       {/* D4: Dataset */}
       {showDataset ? (
-        <Section title="Dataset" description="Fuente de datos que alimenta la plantilla (opcional).">
+        <Section title={t("editorPlantilla.dataset")} description={t("editorPlantilla.fuenteDeDatosQueAlimenta")}>
           <DatasetField plantilla={plantilla} onChange={onChange} />
         </Section>
       ) : null}
 
       {preserved.length > 0 ? (
-        <Section title="Bloques preservados" description="No se editan en V2; se mantienen en el DSL.">
+        <Section title={t("editorPlantilla.bloquesPreservados")} description={t("editorPlantilla.noSeEditanEnV2")}>
           <p style={placeholderStyle}>
-            Estos bloques están presentes y se preservan intactos en el código:{" "}
-            <code>{preserved.join(", ")}</code>. Editalos desde el editor clásico
-            o el modo código.
+            {t("editorPlantilla.estosBloquesEstanPresentesY")}{" "}
+            <code>{preserved.join(", ")}</code>. {t("editorPlantilla.editalosDesdeElEditorClasico")}
           </p>
         </Section>
       ) : null}

@@ -6,7 +6,7 @@ import {
   puedeAgregarAlumno,
 } from "./suscripciones";
 import { hasRole, resolveRoles } from "./roles";
-import { whereExcluirEspejos } from "./espejo-filtro";
+import { whereSoloAlumnosReales } from "./inscripcion-prueba";
 
 const getUser = (req: Request) =>
   (req as unknown as { user?: { role?: string; roles?: string[] } }).user;
@@ -103,7 +103,7 @@ export async function checkAlumnoLimit(
     // cuenta "USER" nunca se escribe acá); con "USER" este conteo daba
     // siempre 0 y el límite de alumnos por aula nunca se aplicaba.
     const alumnosCount = await prisma.claseMiembro.count({
-      where: { claseId: aulaId, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) }
+      where: { claseId: aulaId, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() }
     });
 
     if (!(await puedeAgregarAlumno(schoolId, getRole(req), alumnosCount))) {

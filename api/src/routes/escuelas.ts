@@ -7,7 +7,9 @@ import { toObjectId } from "../lib/ids";
 import { getQueryString } from "../lib/query";
 import { hasRole } from "../lib/roles";
 import { requireUser } from "../lib/user-auth";
-import { EscuelaBrandingSchema, EscuelaPatchSchema, EscuelaSchema } from "../schema/escuela";
+import { EscuelaBrandingSchema, EscuelaPatchSchema, EscuelaSchema, EscuelaSolicitudSchema } from "../schema/escuela";
+import { sincronizarMembresia } from "../lib/memberships";
+import { recordAuditLog } from "../lib/audit-log";
 
 export const escuelas = Router();
 
@@ -80,6 +82,130 @@ escuelas.post("/api/escuelas", requireAdmin, escuelasMutationLimiter, async (req
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
 });
+
+// ─── Alta autogestionada con aprobación ──────────────────────────────
+// POST /api/escuelas/solicitar — cualquier usuario autenticado pide dar de
+// alta su escuela. Nace "pendiente": puede usar aulas, módulos y
+// evaluaciones, pero NO cobrar (lib/escuela-verificacion.ts) hasta que el
+// admin la verifique. Quien la registra queda como DIRECTIVO PRINCIPAL.
+//
+// El gate no es opcional: un DIRECTIVO puede conectar una pasarela y
+// emitirle cuotas a familias. Sin aprobación previa, cualquiera inventa una
+// escuela y cobra con la plataforma de por medio.
+escuelas.post("/api/escuelas/solicitar", requireUser, escuelasMutationLimiter, async (req, res) => {
+  const requesterId = getRequesterId(req);
+  if (!requesterId) return res.status(401).json({ error: "no autenticado" });
+
+  const parsed = EscuelaSolicitudSchema.safeParse(req.body);
+  if (!parsed.success) {
+    return res.status(400).json({ error: "datos inválidos", issues: parsed.error.issues });
+  }
+
+  const nowIso = new Date().toISOString();
+  const { name, ...datos } = parsed.data;
+  const created = await prisma.escuela.create({
+    data: {
+      id: randomUUID(),
+      name,
+      isDeleted: false,
+      estadoVerificacion: "pendiente",
+      directivoPrincipalId: requesterId,
+      datosVerificacion: JSON.stringify(datos),
+      createdAt: nowIso,
+      updatedAt: nowIso
+    }
+  });
+
+  // El solicitante pasa a ser DIRECTIVO de SU escuela. La membresía es la
+  // fuente de verdad (PLAN-multirol): el rol de la sesión sale de ahí.
+  await sincronizarMembresia({
+    usuarioId: requesterId,
+    escuelaId: created.id,
+    rolUsuario: "DIRECTIVO",
+    fechaAlta: nowIso
+  });
+  await prisma.usuario.updateMany({
+    where: { id: requesterId },
+    data: { escuelaId: created.id, updatedAt: nowIso }
+  });
+
+  await recordAuditLog({
+    actorId: requesterId,
+    action: "escuela.solicitada",
+    targetType: "Escuela",
+    targetId: created.id,
+    metadata: { name, datos }
+  });
+
+  return res.status(201).json({
+    id: created.id,
+    estadoVerificacion: created.estadoVerificacion,
+    puedeCobrar: false
+  });
+});
+
+// GET /api/escuelas/solicitudes — bandeja del admin.
+escuelas.get("/api/escuelas/solicitudes", requireAdmin, async (req, res) => {
+  const estado = typeof req.query.estado === "string" ? req.query.estado : "pendiente";
+  const rows = await prisma.escuela.findMany({
+    where: { estadoVerificacion: estado, isDeleted: { not: true } },
+    orderBy: { createdAt: "desc" }
+  });
+  const ids = rows.map((r) => r.directivoPrincipalId).filter(Boolean) as string[];
+  const principales = ids.length
+    ? await prisma.usuario.findMany({
+        where: { id: { in: ids } },
+        select: { id: true, fullName: true, username: true, email: true }
+      })
+    : [];
+  const porId = new Map(principales.map((u) => [u.id, u]));
+  return res.json({
+    items: rows.map((r) => ({
+      id: r.id,
+      name: r.name,
+      estadoVerificacion: r.estadoVerificacion,
+      createdAt: r.createdAt,
+      datos: parseBranding(r.datosVerificacion),
+      directivoPrincipal: r.directivoPrincipalId ? (porId.get(r.directivoPrincipalId) ?? null) : null
+    }))
+  });
+});
+
+// POST /api/escuelas/:id/verificar — el admin aprueba o rechaza. Es la
+// única vía para habilitar cobros, y queda auditada.
+escuelas.post("/api/escuelas/:id/verificar", requireAdmin, async (req, res) => {
+  const escuelaId = req.params.id as string;
+  const estado = typeof req.body?.estado === "string" ? req.body.estado : "";
+  if (estado !== "verificada" && estado !== "rechazada") {
+    return res.status(400).json({ error: "estado debe ser 'verificada' o 'rechazada'" });
+  }
+  const motivo = typeof req.body?.motivo === "string" && req.body.motivo.trim() ? req.body.motivo : null;
+  if (estado === "rechazada" && !motivo) {
+    return res.status(400).json({ error: "un rechazo requiere motivo" });
+  }
+
+  const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
+  if (!escuela) return res.status(404).json({ error: "escuela no encontrada" });
+
+  await prisma.escuela.update({
+    where: { id: escuelaId },
+    data: {
+      estadoVerificacion: estado,
+      motivoRechazo: estado === "rechazada" ? motivo : null,
+      updatedAt: new Date().toISOString()
+    }
+  });
+  await recordAuditLog({
+    actorId: getRequesterId(req) ?? "admin",
+    action: estado === "verificada" ? "escuela.verificada" : "escuela.rechazada",
+    targetType: "Escuela",
+    targetId: escuelaId,
+    metadata: { antes: escuela.estadoVerificacion, motivo }
+  });
+
+  return res.json({ ok: true, estadoVerificacion: estado });
+});
+
 
 escuelas.get("/api/escuelas", requireUser, async (req, res) => {
   const limit = clampLimit(getQueryString(req.query.limit));

@@ -427,7 +427,7 @@ export default function DatasetEditor() {
                 className="shrink-0 rounded-md border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-700 hover:bg-emerald-100 disabled:opacity-50"
                 data-testid="dataset-refresh-button"
               >
-                {refreshing ? "Refrescando…" : "Refrescar desde URL"}
+                {refreshing ? t("datasetEditor.refrescando") : t("datasetEditor.refrescarDesdeUrl")}
               </button>
             </div>
             {refreshMessage && (
@@ -442,7 +442,7 @@ export default function DatasetEditor() {
               className="rounded-md bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700 disabled:bg-slate-300"
               data-testid="dataset-save-meta"
             >
-              {metaSaving ? "Guardando…" : "Guardar metadata"}
+              {metaSaving ? t("comun.guardando") : t("datasetEditor.guardarMetadata")}
             </button>
             {metaMessage && (
               <span className="text-xs text-slate-500">{metaMessage}</span>

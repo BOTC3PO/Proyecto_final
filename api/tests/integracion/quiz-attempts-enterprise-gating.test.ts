@@ -114,8 +114,8 @@ beforeEach(() => {
   const now = new Date().toISOString();
 
   // Escuela NO enterprise (no incluye QUIZZES) y escuela enterprise PLUS.
-  prisma.escuela.rows.push({ id: ESC_BASIC, plan: "ENTERPRISE_BASIC", subscriptionStatus: "ACTIVE" });
-  prisma.escuela.rows.push({ id: ESC_PLUS, plan: "ENTERPRISE_PLUS", subscriptionStatus: "ACTIVE" });
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada", id: ESC_BASIC, plan: "ENTERPRISE_BASIC", subscriptionStatus: "ACTIVE" });
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada", id: ESC_PLUS, plan: "ENTERPRISE_PLUS", subscriptionStatus: "ACTIVE" });
 
   seedUser(TEACHER_BASIC, "TEACHER", ESC_BASIC);
   seedUser(TEACHER_PLUS, "TEACHER", ESC_PLUS);

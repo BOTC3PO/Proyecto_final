@@ -9,6 +9,8 @@ import type { ReactNode } from "react";
 import { ALL_QUESTION_TYPES, QUESTION_TYPE_SCHEMAS, type Plantilla, type TipoPregunta } from "@vb/vblang";
 import { Field, Select } from "../../ui";
 import { applyTipo } from "../../components/vblang/plantillaFields";
+import { TIPO_PREGUNTA_KEY, TIPO_PREGUNTA_DESCRIPCION_KEY } from "../../components/vblang/TizaEditor";
+import { useI18n } from "../../i18n/I18nContext";
 
 export type TipoSelectorProps = {
   plantilla: Plantilla;
@@ -16,19 +18,20 @@ export type TipoSelectorProps = {
 };
 
 export default function TipoSelector({ plantilla, onChange }: TipoSelectorProps) {
+  const { t } = useI18n();
   const tipo: TipoPregunta = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
-  const help: ReactNode = schema.descripcion;
+  const help: ReactNode = TIPO_PREGUNTA_DESCRIPCION_KEY[tipo] ? t(TIPO_PREGUNTA_DESCRIPCION_KEY[tipo]) : schema.descripcion;
 
   return (
-    <Field label="Tipo de pregunta" help={help}>
+    <Field label={t("plantillaEditorSchema.tipoDePregunta")} help={help}>
       <Select
         value={tipo}
         onChange={(e) => onChange(applyTipo(plantilla, e.target.value as TipoPregunta))}
       >
-        {ALL_QUESTION_TYPES.map((t) => (
-          <option key={t} value={t}>
-            {QUESTION_TYPE_SCHEMAS[t].label}
+        {ALL_QUESTION_TYPES.map((qt) => (
+          <option key={qt} value={qt}>
+            {TIPO_PREGUNTA_KEY[qt] ? t(TIPO_PREGUNTA_KEY[qt]) : QUESTION_TYPE_SCHEMAS[qt].label}
           </option>
         ))}
       </Select>

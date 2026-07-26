@@ -2,7 +2,7 @@ import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { hasRole } from "../lib/roles";
-import { excluirEspejosDeIds } from "../lib/espejo-filtro";
+import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
 import { isClassroomTeacher } from "../lib/classroom-scope";
 
 export const pedagogico = Router();
@@ -76,12 +76,11 @@ pedagogico.get("/api/pedagogico/riesgo/:aulaId", requireUser, async (req, res) =
     // nunca se escribe en ClaseMiembro); con "USER" esto siempre daba
     // panel de riesgo vacío.
     const miembros = await prisma.claseMiembro.findMany({
-      where: { claseId: aulaId, rolEnClase: "STUDENT" },
+      where: { claseId: aulaId, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
       select: { usuarioId: true },
     });
     // FASE 4 — el espejo-alumno no aparece en el panel de riesgo.
-    const alumnoIdsConEspejo = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
-    const alumnoIds = await excluirEspejosDeIds(alumnoIdsConEspejo);
+    const alumnoIds = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
 
     if (!alumnoIds.length) return res.json({ items: [] });
 

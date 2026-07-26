@@ -1,9 +1,10 @@
 import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { bloquearSiNoVerificada, puedeEmitirCobros } from "../lib/escuela-verificacion";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
-import { whereExcluirEspejos } from "../lib/espejo-filtro";
+import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
 import { ENV } from "../lib/env";
 import { getProvider } from "../lib/pasarelas";
 import { accessTokenDesdeCredenciales } from "../lib/mercadopago-oauth";
@@ -146,6 +147,12 @@ cobros.post("/api/cobros/:id/publicar", requireUser, async (req, res) => {
   if (cobro.estado !== "borrador") {
     return res.status(409).json({ error: `el cobro ya está en estado ${cobro.estado}` });
   }
+  // Publicar es emitir cuotas a familias: exige escuela verificada Y que
+  // quien publica sea el directivo principal o tenga la delegación.
+  if (await bloquearSiNoVerificada(res, cobro.escuelaId)) return;
+  if (!(await puedeEmitirCobros(user, cobro.escuelaId))) {
+    return res.status(403).json({ error: "sin permiso de cobro en esta escuela", code: "SIN_DELEGACION_COBROS" });
+  }
 
   const parsed = CobroPublicarSchema.safeParse(req.body);
   if (!parsed.success) {
@@ -155,7 +162,7 @@ cobros.post("/api/cobros/:id/publicar", requireUser, async (req, res) => {
   const alumnoIds = new Set<string>(parsed.data.alumnoIds ?? []);
   if (parsed.data.aulaId) {
     const miembros = await prisma.claseMiembro.findMany({
-      where: { claseId: parsed.data.aulaId, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) },
+      where: { claseId: parsed.data.aulaId, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
       select: { usuarioId: true }
     });
     miembros.forEach((m) => alumnoIds.add(m.usuarioId));
@@ -366,13 +373,23 @@ cobros.post("/api/cuotas/:id/confirmar-pago", requireUser, async (req, res) => {
   if (!puedeGestionarEscuela(user, cobro.escuelaId)) {
     return res.status(403).json({ error: "forbidden" });
   }
+  if (await bloquearSiNoVerificada(res, cobro.escuelaId)) return;
+  if (!(await puedeEmitirCobros(user, cobro.escuelaId))) {
+    return res.status(403).json({ error: "sin permiso de cobro en esta escuela", code: "SIN_DELEGACION_COBROS" });
+  }
   if (!cuota.pagoId) {
     return res.status(409).json({ error: "la cuota no tiene un pago iniciado (POST checkout primero)" });
   }
   const pago = await prisma.pago.findFirst({ where: { id: cuota.pagoId } });
   if (!pago) return res.status(404).json({ error: "pago no encontrado" });
 
-  const resultado = await confirmarPago(pago, cuota, cobro);
+  // Sin `montoReportado`: acá no hay pasarela que reporte nada, el staff
+  // afirma que la plata entró por afuera. Por eso queda auditado con el
+  // id real de quien lo afirma — es la ruta que más se presta a marcar
+  // como pagada una cuota que nadie pagó.
+  const resultado = await confirmarPago(pago, cuota, cobro, {
+    actorId: getRequesterId(user) ?? "staff:desconocido"
+  });
   res.json({ ok: true, ...resultado });
 });
 
@@ -403,7 +420,13 @@ cobros.post("/api/pasarelas/webhook/:provider", async (req, res) => {
     const cuota = await prisma.cuotaAlumno.findFirst({ where: { pagoId: pago.id } });
     const cobro = cuota ? await prisma.cobroEscuela.findFirst({ where: { id: cuota.cobroId } }) : null;
     if (cuota && cobro) {
-      await confirmarPago(pago, cuota, cobro);
+      // `montoBruto` es lo que la pasarela dice haber cobrado — si no
+      // llega a `cuota.montoFinal`, confirmarPago manda el pago a
+      // revisión en vez de saldar la cuota (pago parcial).
+      await confirmarPago(pago, cuota, cobro, {
+        montoReportado: evento.montoBruto,
+        actorId: `system:webhook:${adapter.nombre}`
+      });
     }
   } else if (evento.estado === "fallida") {
     await prisma.pago.update({ where: { id: pago.id }, data: { estado: "fallida", updatedAt: now() } });

@@ -11,44 +11,47 @@ interface ReferenciaRapidaProps {
   onClose: () => void;
 }
 
-const REGLAS: string[] = [
-  "Strings siempre entre comillas dobles, nunca simples.",
-  "Booleans: verdadero / falso (no true/false).",
-  "Lógicos: y / o / no (no and/or/not).",
-  "Variables se declaran con : (no con =).",
-  "Indentación: exactamente 2 espacios. Nunca tabs.",
-  "El bloque respuesta: contiene una fórmula, no un string.",
-  "tipo: mc requiere opciones: o opciones_explicitas:",
+// nombre/code quedan tal cual: son sintaxis literal de VBLang, no prosa —
+// traducirlos rompería el DSL que el usuario tiene que escribir. Sólo
+// desc/nota/paso (texto explicativo) pasan por t().
+const REGLAS_KEYS: string[] = [
+  "referenciaRapida.stringsSiempreEntreComillasDobles",
+  "referenciaRapida.booleansVerdaderoFalsoNoTrue",
+  "referenciaRapida.logicosYONoNo",
+  "referenciaRapida.variablesSeDeclaranCon",
+  "referenciaRapida.indentacionExactamente2EspaciosNunca",
+  "referenciaRapida.elBloqueRespuestaContieneUna",
+  "referenciaRapida.tipoMcRequiereOpciones",
 ];
 
-const BLOQUES: { nombre: string; desc: string; code?: string; nota?: string }[] = [
-  { nombre: "variables", desc: "Declara los valores paramétricos del ejercicio." },
-  { nombre: "restricciones", desc: "Condiciones que deben cumplir las variables (ej. a != 0)." },
-  { nombre: "enunciado", desc: "Texto de la pregunta; interpola {variable}." },
+const BLOQUES: { nombre: string; descKey: string; code?: string; notaKey?: string }[] = [
+  { nombre: "variables", descKey: "referenciaRapida.declaraLosValoresParametricosDel" },
+  { nombre: "restricciones", descKey: "referenciaRapida.condicionesQueDebenCumplir" },
+  { nombre: "enunciado", descKey: "referenciaRapida.textoDeLaPreguntaInterpola" },
   {
     nombre: "enunciados",
-    desc: "Lista de variantes de enunciado (alternativa a enunciado:, mutuamente excluyente).",
+    descKey: "referenciaRapida.listaDeVariantesDeEnunciado",
     code: `enunciados:
   - "Cuanto es {a} + {b}?"
   - "Calcula la suma de {a} y {b}."`,
-    nota: "Se elige una al azar por ejercicio (estable por seed).",
+    notaKey: "referenciaRapida.seEligeUnaAlAzar",
   },
-  { nombre: "respuesta", desc: "Fórmula con la respuesta correcta." },
-  { nombre: "respuestas_validas", desc: "Lista de respuestas aceptadas (varias correctas)." },
-  { nombre: "unidad", desc: "Unidad de la respuesta numérica (ej. \"m/s\")." },
-  { nombre: "tolerancia", desc: "Margen de error aceptado (absoluto o %)." },
-  { nombre: "opciones", desc: "Cantidad de opciones a generar (multiple choice)." },
-  { nombre: "opciones_explicitas", desc: "Lista explícita de opciones." },
-  { nombre: "tipo", desc: "Tipo de pregunta (ver lista abajo)." },
-  { nombre: "pasos", desc: "Pasos de la resolución, con interpolación." },
-  { nombre: "generador", desc: "Usa un generador del sistema." },
-  { nombre: "dataset", desc: "Carga filas de un dataset precargado." },
-  { nombre: "metadata", desc: "Datos extra de la plantilla (clave: valor)." },
-  { nombre: "visual", desc: "Especifica un visual (gráfico, diagrama, etc.)." },
-  { nombre: "mapa", desc: "Mapa a usar en marcar_mapa (entre comillas)." },
-  { nombre: "respuesta_iso / respuesta_nombre", desc: "Respuesta correcta de marcar_mapa." },
-  { nombre: "respuesta_orden", desc: "Orden correcto para tipo ordenar." },
-  { nombre: "texto_analizar / etiquetas_pedidas", desc: "Para análisis sintáctico / identificar palabras." },
+  { nombre: "respuesta", descKey: "referenciaRapida.formulaConLaRespuestaCorrecta" },
+  { nombre: "respuestas_validas", descKey: "referenciaRapida.listaDeRespuestasAceptadasVarias" },
+  { nombre: "unidad", descKey: "referenciaRapida.unidadDeLaRespuestaNumerica" },
+  { nombre: "tolerancia", descKey: "referenciaRapida.margenDeErrorAceptadoAbsoluto" },
+  { nombre: "opciones", descKey: "referenciaRapida.cantidadDeOpcionesAGenerar" },
+  { nombre: "opciones_explicitas", descKey: "referenciaRapida.listaExplicitaDeOpciones" },
+  { nombre: "tipo", descKey: "referenciaRapida.tipoDePreguntaVerLista" },
+  { nombre: "pasos", descKey: "referenciaRapida.pasosDeLaResolucionCon" },
+  { nombre: "generador", descKey: "referenciaRapida.usaUnGeneradorDelSistema" },
+  { nombre: "dataset", descKey: "referenciaRapida.cargaFilasDeUnDataset" },
+  { nombre: "metadata", descKey: "referenciaRapida.datosExtraDeLaPlantilla" },
+  { nombre: "visual", descKey: "referenciaRapida.especificaUnVisualGraficoDiagrama" },
+  { nombre: "mapa", descKey: "referenciaRapida.mapaAUsarEnMarcar" },
+  { nombre: "respuesta_iso / respuesta_nombre", descKey: "referenciaRapida.respuestaCorrectaDeMarcarMapa" },
+  { nombre: "respuesta_orden", descKey: "referenciaRapida.ordenCorrectoParaTipoOrdenar" },
+  { nombre: "texto_analizar / etiquetas_pedidas", descKey: "referenciaRapida.paraAnalisisSintacticoIdentificarPalabras" },
 ];
 
 const FUNCIONES: string[] = [
@@ -64,23 +67,23 @@ const CONSTANTES = ["pi", "e", "g", "c", "G", "h_planck", "k_B", "N_A", "R"];
 // Receta de cableado de generadores asistidos. El detalle de qué variables
 // expone cada generador aparece contextualmente al elegirlo en el formulario
 // visual (GeneradorDocsPanel); acá queda la receta general siempre a mano.
-const GENERADOR_RECETA: { paso: string; code?: string }[] = [
-  { paso: "Declarás el generador con su id:", code: "generador: fisica/cinematica/MRU" },
-  { paso: "Interpolás sus variables en el enunciado con llaves:", code: 'enunciado: "Si va a {v} m/s durante {t} s…"' },
-  { paso: "Con generador NO declarás variables ni respuesta: los provee el generador." },
-  { paso: "Dejá el id sin subtipo (generador: fisica/cinematica) para un subtipo al azar, o fijalo con /<subtipo>." },
-  { paso: "Ajustás la dificultad desde metadata:", code: 'dificultad: "intermedio"' },
+const GENERADOR_RECETA: { pasoKey: string; code?: string }[] = [
+  { pasoKey: "referenciaRapida.declarasElGeneradorConSu", code: "generador: fisica/cinematica/MRU" },
+  { pasoKey: "referenciaRapida.interpolasSusVariablesEnEl", code: 'enunciado: "Si va a {v} m/s durante {t} s…"' },
+  { pasoKey: "referenciaRapida.conGeneradorNoDeclarasVariables" },
+  { pasoKey: "referenciaRapida.dejaElIdSinSubtipo" },
+  { pasoKey: "referenciaRapida.ajustasLaDificultadDesdeMetadata", code: 'dificultad: "intermedio"' },
 ];
 
-const TIPOS: { nombre: string; desc: string }[] = [
-  { nombre: "input", desc: "Respuesta numérica o de texto libre." },
-  { nombre: "mc", desc: "Multiple choice (una correcta)." },
-  { nombre: "vf", desc: "Verdadero / Falso." },
-  { nombre: "completar", desc: "Completar un valor faltante." },
-  { nombre: "ordenar", desc: "Reordenar una lista de ítems." },
-  { nombre: "marcar_mapa", desc: "Hacer click en un país/región del mapa." },
-  { nombre: "analisis_sintactico", desc: "Etiquetar gramaticalmente cada palabra." },
-  { nombre: "identificar_palabras", desc: "Marcar palabras que cumplen un criterio." },
+const TIPOS: { nombre: string; descKey: string }[] = [
+  { nombre: "input", descKey: "referenciaRapida.respuestaNumericaODeTexto" },
+  { nombre: "mc", descKey: "referenciaRapida.multipleChoiceUnaCorrecta" },
+  { nombre: "vf", descKey: "referenciaRapida.verdaderoFalso" },
+  { nombre: "completar", descKey: "referenciaRapida.completarUnValorFaltante" },
+  { nombre: "ordenar", descKey: "referenciaRapida.reordenarUnaListaDeItems" },
+  { nombre: "marcar_mapa", descKey: "referenciaRapida.hacerClickEnUnPais" },
+  { nombre: "analisis_sintactico", descKey: "referenciaRapida.etiquetarGramaticalmenteCadaPalabra" },
+  { nombre: "identificar_palabras", descKey: "referenciaRapida.marcarPalabrasQueCumplenUn" },
 ];
 
 export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProps) {
@@ -116,8 +119,8 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
           <section>
             <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("referenciaRapida.reglasCriticas")}</h3>
             <ul className="list-disc space-y-1 pl-4 text-[var(--c-text)]">
-              {REGLAS.map((r) => (
-                <li key={r}>{r}</li>
+              {REGLAS_KEYS.map((key) => (
+                <li key={key}>{t(key)}</li>
               ))}
             </ul>
           </section>
@@ -130,15 +133,15 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
                   <dt className="font-mono font-semibold text-[var(--c-primary,#3b82f6)]">
                     {b.nombre}
                   </dt>
-                  <dd className="text-[var(--c-muted,#64748b)]">{b.desc}</dd>
+                  <dd className="text-[var(--c-muted,#64748b)]">{t(b.descKey)}</dd>
                   {b.code && (
                     <pre className="mt-0.5 overflow-x-auto rounded bg-[var(--c-bg,#f1f5f9)] px-1.5 py-1 font-mono text-[10px] text-[var(--c-primary,#3b82f6)]">
                       {b.code}
                     </pre>
                   )}
-                  {b.nota && (
+                  {b.notaKey && (
                     <p className="mt-0.5 text-[10px] italic text-[var(--c-muted,#64748b)]">
-                      {b.nota}
+                      {t(b.notaKey)}
                     </p>
                   )}
                 </div>
@@ -149,12 +152,12 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
           <section>
             <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">{t("referenciaRapida.tiposDePregunta")}</h3>
             <dl className="space-y-1.5">
-              {TIPOS.map((t) => (
-                <div key={t.nombre}>
+              {TIPOS.map((tipo) => (
+                <div key={tipo.nombre}>
                   <dt className="font-mono font-semibold text-[var(--c-primary,#3b82f6)]">
-                    {t.nombre}
+                    {tipo.nombre}
                   </dt>
-                  <dd className="text-[var(--c-muted,#64748b)]">{t.desc}</dd>
+                  <dd className="text-[var(--c-muted,#64748b)]">{t(tipo.descKey)}</dd>
                 </div>
               ))}
             </dl>
@@ -179,8 +182,8 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
             <p className="mb-1.5 text-[var(--c-muted,#64748b)]">{t("referenciaRapida.alElegirUnGeneradorEn")}</p>
             <ol className="list-decimal space-y-1 pl-4 text-[var(--c-text)]">
               {GENERADOR_RECETA.map((r) => (
-                <li key={r.paso}>
-                  {r.paso}
+                <li key={r.pasoKey}>
+                  {t(r.pasoKey)}
                   {r.code && (
                     <code className="mt-0.5 block rounded bg-[var(--c-bg,#f1f5f9)] px-1.5 py-0.5 font-mono text-[var(--c-primary,#3b82f6)]">
                       {r.code}

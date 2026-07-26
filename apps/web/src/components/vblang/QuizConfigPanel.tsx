@@ -108,6 +108,7 @@ function ContenidoFields({
   onPatch: (patch: QuizMetaPatch) => void;
   disabled?: boolean;
 }) {
+  const { t } = useI18n();
   const { materias: MATERIAS } = useMaterias();
   const materiaEnLista = MATERIAS.includes(meta.materia);
   const [materiaLibre, setMateriaLibre] = useState(meta.materia !== "" && !materiaEnLista);
@@ -118,12 +119,12 @@ function ContenidoFields({
   const [instruccionesDraft, setInstruccionesDraft] = useState<string | null>(null);
 
   const addTag = (raw: string) => {
-    const t = raw.trim();
+    const tag = raw.trim();
     setTagDraft("");
-    if (t === "" || meta.tags.includes(t)) return;
-    onPatch({ tags: [...meta.tags, t] });
+    if (tag === "" || meta.tags.includes(tag)) return;
+    onPatch({ tags: [...meta.tags, tag] });
   };
-  const removeTag = (t: string) => onPatch({ tags: meta.tags.filter((x) => x !== t) });
+  const removeTag = (tag: string) => onPatch({ tags: meta.tags.filter((x) => x !== tag) });
 
   const commitDescripcion = () => {
     if (descripcionDraft === null) return;
@@ -141,7 +142,7 @@ function ContenidoFields({
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-      <div style={eyebrowStyle}>Contenido</div>
+      <div style={eyebrowStyle}>{t("quizConfigPanel.contenido")}</div>
       <div
         style={{
           display: "grid",
@@ -150,7 +151,7 @@ function ContenidoFields({
           alignItems: "start",
         }}
       >
-        <Field label="Materia">
+        <Field label={t("comun.materia")}>
           <select
             value={materiaLibre ? OTRA_MATERIA : meta.materia}
             disabled={disabled}
@@ -166,13 +167,13 @@ function ContenidoFields({
             style={{ ...inputStyle, cursor: "pointer" }}
             data-testid="quiz-config-materia-select"
           >
-            <option value="">(sin materia)</option>
+            <option value="">{t("quizConfigPanel.sinMateriaParentesis")}</option>
             {MATERIAS.map((m) => (
               <option key={m} value={m}>
                 {m}
               </option>
             ))}
-            <option value={OTRA_MATERIA}>Otra…</option>
+            <option value={OTRA_MATERIA}>{t("quizConfigPanel.otra")}</option>
           </select>
           {materiaLibre && (
             <input
@@ -181,33 +182,33 @@ function ContenidoFields({
               disabled={disabled}
               onChange={(e) => onPatch({ materia: e.target.value })}
               maxLength={100}
-              placeholder="Escribí la materia"
+              placeholder={t("quizConfigPanel.escribiLaMateria")}
               style={{ ...inputStyle, marginTop: 6 }}
               data-testid="quiz-config-materia-input"
             />
           )}
         </Field>
 
-        <Field label="Nivel">
+        <Field label={t("quizConfigPanel.nivel")}>
           <input
             type="text"
             value={meta.nivel}
             disabled={disabled}
             onChange={(e) => onPatch({ nivel: e.target.value })}
             maxLength={100}
-            placeholder="Ej: 3° año"
+            placeholder={t("quizConfigPanel.ej3Ano")}
             style={inputStyle}
             data-testid="quiz-config-nivel-input"
           />
         </Field>
       </div>
 
-      <Field label="Tags">
+      <Field label={t("quizConfigPanel.tags")}>
         {meta.tags.length > 0 && (
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 6 }}>
-            {meta.tags.map((t) => (
+            {meta.tags.map((tag) => (
               <span
-                key={t}
+                key={tag}
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -219,12 +220,12 @@ function ContenidoFields({
                   color: "var(--c-text)",
                 }}
               >
-                {t}
+                {tag}
                 <button
                   type="button"
-                  onClick={() => removeTag(t)}
+                  onClick={() => removeTag(tag)}
                   disabled={disabled}
-                  aria-label={`Quitar tag ${t}`}
+                  aria-label={`${t("quizConfigPanel.quitarTag")} ${tag}`}
                   style={{ color: "var(--c-text-3)", cursor: "pointer" }}
                 >
                   ×
@@ -247,13 +248,13 @@ function ContenidoFields({
             }
           }}
           onBlur={() => addTag(tagDraft)}
-          placeholder="Escribí y Enter (ej. cinemática)"
+          placeholder={t("quizConfigPanel.escribiYEnterEjCinematica")}
           style={inputStyle}
           data-testid="quiz-config-tags-input"
         />
       </Field>
 
-      <Field label="Descripción">
+      <Field label={t("comun.descripcion")}>
         <textarea
           value={descripcionDraft ?? meta.descripcion}
           disabled={disabled}
@@ -269,7 +270,7 @@ function ContenidoFields({
       {/* PLAN-Y fase 3 — se muestran al alumno al iniciar el intento
           (QuizAttempt). Antes vivía como campo fantasma en ModuloEditor
           (nunca se persistía); Tiza es su único editor. */}
-      <Field label="Instrucciones para el alumno">
+      <Field label={t("quizConfigPanel.instruccionesParaElAlumno")}>
         <textarea
           value={instruccionesDraft ?? meta.instructions}
           disabled={disabled}
@@ -277,7 +278,7 @@ function ContenidoFields({
           onBlur={commitInstrucciones}
           rows={2}
           maxLength={2000}
-          placeholder="Ej: Leé cada pregunta con atención. Tenés 30 minutos."
+          placeholder={t("quizConfigPanel.ejLeeCadaPreguntaCon")}
           style={{ ...inputStyle, resize: "vertical" }}
           data-testid="quiz-config-instructions-input"
         />
@@ -337,16 +338,16 @@ export default function QuizConfigPanel({
           }}
         >
           {saveState === "saving"
-            ? "Guardando…"
+            ? t("comun.guardando")
             : saveState === "saved"
-              ? "Guardado ✓"
+              ? t("quizConfigPanel.guardado")
               : saveState === "error"
-                ? "Error al guardar — se reintenta con el próximo cambio"
+                ? t("quizConfigPanel.errorAlGuardarSeReintenta")
                 : ""}
         </span>
       </div>
 
-      <Field label="Título">
+      <Field label={t("comun.titulo")}>
         <input
           type="text"
           value={tituloDraft ?? meta.title}
@@ -370,7 +371,7 @@ export default function QuizConfigPanel({
           alignItems: "start",
         }}
       >
-        <Field label="Tipo">
+        <Field label={t("comun.tipo")}>
           <select
             value={tipo}
             disabled={disabled}
@@ -384,14 +385,14 @@ export default function QuizConfigPanel({
           </select>
           <div style={hintStyle}>
             {tipo === "formal"
-              ? "Este cuestionario contará para la nota final del alumno."
+              ? t("quizConfigPanel.esteCuestionarioContaraParaLa")
               : tipo === "practica"
-                ? "Este cuestionario es de práctica y no afecta la nota."
-                : "Ranking por tiempo entre alumnos."}
+                ? t("quizConfigPanel.esteCuestionarioEsDePractica")
+                : t("quizConfigPanel.rankingPorTiempoEntreAlumnos")}
           </div>
         </Field>
 
-        <Field label="Visibilidad">
+        <Field label={t("comun.visibilidad")}>
           <select
             value={meta.visibility}
             disabled={disabled}
@@ -460,7 +461,7 @@ export default function QuizConfigPanel({
               cursor: "pointer",
             }}
           >
-            {previewOpen ? "Ocultar vista previa del sorteo" : "Vista previa del sorteo ›"}
+            {previewOpen ? t("quizConfigPanel.ocultarVistaPreviaDelSorteo") : t("quizConfigPanel.vistaPreviaDelSorteo")}
           </button>
           {previewOpen ? (
             <div
@@ -482,7 +483,7 @@ export default function QuizConfigPanel({
               ) : (
                 <>
                   <div>{t("quizConfigPanel.cadaIntentoToma")}<strong>{resumen.cantidadGlobal}</strong>{" "}
-                    {resumen.cantidadGlobal === 1 ? "pregunta" : "preguntas"}.
+                    {resumen.cantidadGlobal === 1 ? t("comun.pregunta") : t("comun.preguntas")}.
                   </div>
                   <div>
                     {resumen.obligatorias} obligatoria{resumen.obligatorias === 1 ? "" : "s"} (entran
@@ -494,7 +495,7 @@ export default function QuizConfigPanel({
                   </div>
                   {resumen.pools.map((p) => (
                     <div key={p.id ?? "(implícita)"}>
-                      · Pool {p.id ? `"${p.id}"` : "implícita (sin nombre)"}:{" "}
+                      · Pool {p.id ? `"${p.id}"` : t("quizConfigPanel.implicitaSinNombre")}:{" "}
                       {p.cantidad !== undefined
                         ? `${p.cantidad} puesto${p.cantidad === 1 ? "" : "s"} fijo${p.cantidad === 1 ? "" : "s"} (de ${p.count} pregunta${p.count === 1 ? "" : "s"})`
                         : `${p.count} pregunta${p.count === 1 ? "" : "s"} de relleno`}

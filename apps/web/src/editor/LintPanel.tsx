@@ -10,6 +10,8 @@
 import type { CSSProperties } from "react";
 import type { LintReport } from "@vb/vblang";
 import { Alert } from "../ui";
+import { useI18n } from "../i18n/I18nContext";
+import { translateVblangMessage } from "../vblang/translateError";
 
 const listStyle: CSSProperties = {
   display: "flex",
@@ -31,13 +33,14 @@ const codeStyle: CSSProperties = {
 export type LintPanelProps = { report: LintReport };
 
 export default function LintPanel({ report }: LintPanelProps) {
+  const { t, lang } = useI18n();
   const { errors, warnings } = report;
   if (errors.length === 0 && warnings.length === 0) return null;
 
   const variant = errors.length > 0 ? "danger" : "warning";
   const title =
-    `${errors.length} ${errors.length === 1 ? "error" : "errores"}` +
-    ` · ${warnings.length} ${warnings.length === 1 ? "advertencia" : "advertencias"}`;
+    `${errors.length} ${errors.length === 1 ? t("comun.errorSingular") : t("errorPanel.errores")}` +
+    ` · ${warnings.length} ${warnings.length === 1 ? t("comun.advertencia") : t("comun.advertencias")}`;
 
   return (
     <Alert variant={variant} title={title}>
@@ -45,7 +48,7 @@ export default function LintPanel({ report }: LintPanelProps) {
         {[...errors, ...warnings].map((it, i) => (
           <li key={`${it.code}-${i}`}>
             <code style={codeStyle}>{it.code}</code>
-            {it.message}
+            {translateVblangMessage(it.message, lang)}
           </li>
         ))}
       </ul>

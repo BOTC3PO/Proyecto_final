@@ -29,3 +29,21 @@ export const EscuelaBrandingSchema = z.object({
 });
 
 export type EscuelaBrandingInput = z.infer<typeof EscuelaBrandingSchema>;
+
+/**
+ * Datos que la escuela declara al darse de alta. Son los que el admin mira
+ * para verificarla antes de habilitarle cobros. `cue` (Clave Única de
+ * Establecimiento) es opcional a propósito: existe el caso del espacio
+ * educativo virtual sin habilitación, que igual puede verificarse por la
+ * identidad de quien va a cobrar.
+ */
+export const EscuelaSolicitudSchema = z.object({
+  name: z.string().min(3).max(200),
+  razonSocial: z.string().min(3).max(200),
+  cuit: z.string().min(8).max(20),
+  domicilio: z.string().min(3).max(300),
+  contactoEmail: z.string().email(),
+  contactoTelefono: z.string().min(6).max(40),
+  cue: z.string().max(40).optional(),
+  notas: z.string().max(1000).optional()
+});

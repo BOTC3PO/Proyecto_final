@@ -34,7 +34,7 @@ after(async () => {
 beforeEach(() => {
   resetPrisma();
   const nowIso = new Date().toISOString();
-  prisma.escuela.rows.push({ id: OTRA_ESCUELA, name: "Otra escuela", isDeleted: false, createdAt: nowIso });
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada", id: OTRA_ESCUELA, name: "Otra escuela", isDeleted: false, createdAt: nowIso });
   seedUser({ id: ADMIN, role: "ADMIN", schoolId: null });
   seedUser({ id: USER, role: "USER", schoolId: OTRA_ESCUELA });
 });
@@ -54,7 +54,7 @@ test("POST /api/escuelas asocia al creador con la escuela creada", async () => {
 
 test("PATCH /api/admin/usuarios/:id/escuela mueve al usuario a otra escuela", async () => {
   const nowIso = new Date().toISOString();
-  prisma.escuela.rows.push({ id: ESCUELA, name: "Escuela Destino", isDeleted: false, createdAt: nowIso });
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada", id: ESCUELA, name: "Escuela Destino", isDeleted: false, createdAt: nowIso });
   const token = tokenFor({ id: ADMIN, role: "ADMIN", schoolId: null });
   const res = await jsonRequest(baseUrl, "PATCH", `/api/admin/usuarios/${USER}/escuela`, {
     token,

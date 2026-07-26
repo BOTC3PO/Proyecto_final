@@ -44,6 +44,9 @@ Desktop.ini
 .env
 .env.*.local
 
+# === Claude ===
+CLAUDE.md
+
 # === MongoDB (nativo) ===
 data/
 log/

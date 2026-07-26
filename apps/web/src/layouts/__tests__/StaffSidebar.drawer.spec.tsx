@@ -34,7 +34,6 @@ const USER: User = {
   name: "Profe Test",
   role: "TEACHER",
   roles: ["TEACHER"],
-  cuentaVinculada: null,
 };
 
 function renderSidebar(props?: React.ComponentProps<typeof StaffSidebar>) {
@@ -43,7 +42,7 @@ function renderSidebar(props?: React.ComponentProps<typeof StaffSidebar>) {
     login: vi.fn(),
     loginAs: vi.fn(),
     logout: vi.fn(),
-    switchCuenta: vi.fn(async () => ({ landing: "/alumno" })),
+    cambiarEscuela: vi.fn(),
   };
   return render(
     <MemoryRouter>

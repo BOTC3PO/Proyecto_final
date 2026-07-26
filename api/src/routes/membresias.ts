@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
-import { prisma } from "../lib/prisma";
+import { escuelasDisponiblesPara } from "../lib/sesion-escuela";
 
 export const membresias = Router();
 
@@ -11,25 +11,10 @@ membresias.get("/api/membresias/mis-escuelas", requireUser, async (req, res) => 
   const userId = getId(req as Parameters<typeof getId>[0]);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const rows = await prisma.membresia.findMany({
-    where: {
-      usuarioId: userId,
-      estado: "activa"
-    },
-    include: {
-      escuela: {
-        select: { name: true }
-      }
-    },
-    orderBy: {
-      escuela: { name: "asc" }
-    }
-  });
-
-  return res.json({
-    items: rows.map((r) => ({
-      escuelaId: r.escuelaId,
-      nombre: r.escuela?.name ?? r.escuelaId
-    }))
-  });
+  // PLAN-multirol Fase 2 — además de las escuelas, los roles que tiene en
+  // cada una: es lo que el selector necesita para mostrar "Escuela X
+  // (profesor · padre)". Una persona puede tener varias membresías en la
+  // misma escuela, así que agrupar es parte del contrato.
+  const items = await escuelasDisponiblesPara(userId);
+  return res.json({ items });
 });

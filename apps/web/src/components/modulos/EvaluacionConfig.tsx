@@ -78,43 +78,61 @@ interface Props {
   variant?: "panel" | "compact" | "card";
 }
 
+const QUIZ_TIPO_LABEL: Record<QuizTipo, string> = {
+  practica: "profesorEvaluaciones.practica",
+  formal: "profesorEvaluaciones.formal",
+  competencia: "profesorEvaluaciones.competencia"
+};
+
+const POLITICA_NOTA_LABEL: Record<PoliticaNota, string> = {
+  mejor: "evaluacionConfig.politicaMejor",
+  ultima: "evaluacionConfig.politicaUltima",
+  primera: "evaluacionConfig.politicaPrimera",
+  promedio: "evaluacionConfig.politicaPromedio"
+};
+
 const POLITICA_SORTEO_LABEL: Record<PoliticaSorteo, string> = {
-  fijo_por_alumno: "Fija por alumno (no cambia entre intentos)",
-  por_intento: "Re-sortear en cada intento"
+  fijo_por_alumno: "evaluacionConfig.fijaPorAlumnoNoCambia",
+  por_intento: "evaluacionConfig.reSortearEnCadaIntento"
+};
+
+const POLITICA_SORTEO_HINT: Record<PoliticaSorteo, string> = {
+  fijo_por_alumno: "evaluacionConfig.cadaAlumnoVeSiempreLa",
+  por_intento: "evaluacionConfig.cadaIntentoPuedeReSortear"
 };
 
 const MODO_PRESENTACION_LABEL: Record<ModoPresentacion, string> = {
-  lista: "Lista (todo en una pantalla)",
-  una_por_pantalla: "Una pregunta por pantalla (slide)",
-  paginado: "Paginado (N preguntas por página)"
+  lista: "evaluacionConfig.listaTodoEnUnaPantalla",
+  una_por_pantalla: "evaluacionConfig.unaPreguntaPorPantallaSlide",
+  paginado: "evaluacionConfig.paginadoNPreguntasPorPagina"
 };
 
 const MODO_PRESENTACION_HINT: Record<ModoPresentacion, string> = {
-  lista: "Igual al comportamiento histórico. Recomendado para pocas preguntas.",
-  una_por_pantalla: "Navegación tipo diapositiva. Cómodo en teléfono.",
-  paginado: "Dividido en páginas. Útil para cuestionarios largos."
+  lista: "evaluacionConfig.igualAlComportamientoHistoricoRecomendado",
+  una_por_pantalla: "evaluacionConfig.navegacionTipoDiapositivaComodoEn",
+  paginado: "evaluacionConfig.divididoEnPaginasUtilPara"
 };
 
 const POLITICA_DIFICULTAD_LABEL: Record<PoliticaDificultad, string> = {
-  fija: "Fija (dificultad inicial para todas las posiciones)",
-  manual: "Manual (por posición, próximamente)",
-  adaptativa_simple: "Adaptativa simple (sube/baja según desempeño)"
+  fija: "evaluacionConfig.fijaDificultadInicialParaTodas",
+  manual: "evaluacionConfig.manualPorPosicionProximamente",
+  adaptativa_simple: "evaluacionConfig.adaptativaSimpleSubeBajaSegun"
 };
 
 const POLITICA_DIFICULTAD_HINT: Record<PoliticaDificultad, string> = {
-  fija: "Todo el cuestionario usa la dificultad inicial elegida abajo.",
-  manual: "Por ahora se comporta igual que 'fija' (la elección por posición es una mejora futura).",
-  adaptativa_simple: "La dificultad sube o baja 1 nivel según las últimas respuestas del alumno."
+  fija: "evaluacionConfig.todoElCuestionarioUsaLa",
+  manual: "evaluacionConfig.porAhoraSeComportaIgual",
+  adaptativa_simple: "evaluacionConfig.laDificultadSubeOBaja"
 };
 
 const POLITICA_EXPIRACION_LABEL: Record<PoliticaExpiracion, string> = {
-  auto: "Enviar automáticamente al vencer el timer",
-  gracia60: "Dar 60s extra y enviar automáticamente"
+  auto: "evaluacionConfig.enviarAutomaticamenteAlVencerEl",
+  gracia60: "evaluacionConfig.dar60sExtraYEnviar"
 };
 
 const POLITICA_EXPIRACION_HINT: Record<PoliticaExpiracion, string> = {
-  auto: "Si el alumno no envía a tiempo, el server cierra el intento con lo respondido hasta el vencimiento.",
-  gracia60: "El alumno tiene 60s adicionales para terminar la pregunta actual antes del envío automático."
+  auto: "evaluacionConfig.siElAlumnoNoEnvia",
+  gracia60: "evaluacionConfig.elAlumnoTiene60sAdicionales"
 };
 
 function formatTimer(minutes: number): string {
@@ -186,18 +204,18 @@ export default function EvaluacionConfig({
 
   const legendNode = (
     <legend className={headingClass}>{t("evaluacionConfig.configuracionDeEvaluacion")}<span className="ml-2 text-xs font-normal text-[var(--c-hint)]">
-        ({tipo})
+        ({t(QUIZ_TIPO_LABEL[tipo])})
       </span>
     </legend>
   );
 
   const defaultsLine = (
     <p className="text-xs text-[var(--c-hint)]">
-      Defaults para este tipo: timer{" "}
-      <strong>{defaults.timerSegundos === null ? "sin timer" : formatTimer(Math.round(defaults.timerSegundos / 60))}</strong>,{" "}
-      política <strong>{defaults.politicaNota}</strong>,{" "}
-      intentos <strong>{defaults.maxIntentos === null ? "ilimitados" : defaults.maxIntentos}</strong>,{" "}
-      fullscreen <strong>{defaults.fullscreenOnStart ? "sí" : "no"}</strong>.
+      {t("evaluacionConfig.defaultsParaEsteTipo")}{" "}
+      <strong>{defaults.timerSegundos === null ? t("evaluacionConfig.sinTimer2") : formatTimer(Math.round(defaults.timerSegundos / 60))}</strong>,{" "}
+      {t("comun.politica")} <strong>{t(POLITICA_NOTA_LABEL[defaults.politicaNota])}</strong>,{" "}
+      {t("comun.intentos").toLowerCase()} <strong>{defaults.maxIntentos === null ? t("evaluacionConfig.ilimitados").toLowerCase() : defaults.maxIntentos}</strong>,{" "}
+      {t("comun.pantallaCompleta")} <strong>{defaults.fullscreenOnStart ? t("comun.si") : t("comun.no")}</strong>.
     </p>
   );
 
@@ -253,7 +271,7 @@ export default function EvaluacionConfig({
               className="w-20 rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-0.5 text-right text-sm tabular-nums"
             />
             <span id={timerUnitId} className="text-xs text-[var(--c-hint)]">
-              minutos
+              {t("comun.minutos")}
             </span>
           </div>
           {timerIlimitado && (
@@ -276,12 +294,12 @@ export default function EvaluacionConfig({
           >
             {POLITICAS_EXPIRACION_VALIDAS.map((p) => (
               <option key={p} value={p}>
-                {POLITICA_EXPIRACION_LABEL[p]}
+                {t(POLITICA_EXPIRACION_LABEL[p])}
               </option>
             ))}
           </select>
           <p className="text-xs text-[var(--c-hint)]">
-            {POLITICA_EXPIRACION_HINT[config.politicaExpiracion]}
+            {t(POLITICA_EXPIRACION_HINT[config.politicaExpiracion])}
           </p>
         </div>
       )}
@@ -318,7 +336,7 @@ export default function EvaluacionConfig({
               className="w-20 rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-0.5 text-right text-sm tabular-nums"
               data-testid="config-intentos-input"
             />
-            <span className="text-xs text-[var(--c-hint)]">intentos</span>
+            <span className="text-xs text-[var(--c-hint)]">{t("comun.intentos").toLowerCase()}</span>
           </div>
         </div>
       )}
@@ -336,15 +354,15 @@ export default function EvaluacionConfig({
           >
             {POLITICAS_VALIDAS.map((p) => (
               <option key={p} value={p}>
-                {p}
+                {t(POLITICA_NOTA_LABEL[p])}
               </option>
             ))}
           </select>
           <p className="text-xs text-[var(--c-hint)]">
-            {config.politicaNota === "mejor" && "Se cuenta la mejor nota de los intentos finalizados."}
-            {config.politicaNota === "ultima" && "Se cuenta la nota del último intento enviado."}
-            {config.politicaNota === "primera" && "Se cuenta la nota del primer intento enviado."}
-            {config.politicaNota === "promedio" && "Se promedian las notas de los intentos finalizados."}
+            {config.politicaNota === "mejor" && t("evaluacionConfig.seCuentaLaMejorNota")}
+            {config.politicaNota === "ultima" && t("evaluacionConfig.seCuentaLaNotaDel")}
+            {config.politicaNota === "primera" && t("evaluacionConfig.seCuentaLaNotaDel2")}
+            {config.politicaNota === "promedio" && t("evaluacionConfig.sePromedianLasNotasDe")}
           </p>
         </div>
       )}
@@ -362,15 +380,12 @@ export default function EvaluacionConfig({
           >
             {POLITICAS_SORTEO_VALIDAS.map((p) => (
               <option key={p} value={p}>
-                {POLITICA_SORTEO_LABEL[p]}
+                {t(POLITICA_SORTEO_LABEL[p])}
               </option>
             ))}
           </select>
           <p className="text-xs text-[var(--c-hint)]">
-            {config.politicaSorteo === "fijo_por_alumno" &&
-              "Cada alumno ve siempre la misma variante (estable entre intentos y dispositivos)."}
-            {config.politicaSorteo === "por_intento" &&
-              "Cada intento puede re-sortear la variante (sin repetir mientras quede material nuevo)."}
+            {t(POLITICA_SORTEO_HINT[config.politicaSorteo])}
           </p>
         </div>
       )}
@@ -430,12 +445,12 @@ export default function EvaluacionConfig({
             >
               {MODOS_PRESENTACION_VALIDOS.map((m) => (
                 <option key={m} value={m}>
-                  {MODO_PRESENTACION_LABEL[m]}
+                  {t(MODO_PRESENTACION_LABEL[m])}
                 </option>
               ))}
             </select>
             <p className="mt-1.5 text-xs leading-snug text-[var(--c-hint)]">
-              {MODO_PRESENTACION_HINT[config.modoPresentacion]}
+              {t(MODO_PRESENTACION_HINT[config.modoPresentacion])}
             </p>
             {config.modoPresentacion === "paginado" && (
               <div
@@ -463,7 +478,7 @@ export default function EvaluacionConfig({
                   data-testid="config-preguntas-por-pagina-input"
                 />
                 <span className="text-xs text-[var(--c-hint)]">
-                  (default: {PREGUNTAS_POR_PAGINA_DEFAULT})
+                  ({t("evaluacionConfig.defaultDosPuntos")} {PREGUNTAS_POR_PAGINA_DEFAULT})
                 </span>
               </div>
             )}
@@ -481,12 +496,12 @@ export default function EvaluacionConfig({
             >
               {POLITICAS_DIFICULTAD_VALIDAS.map((p) => (
                 <option key={p} value={p}>
-                  {POLITICA_DIFICULTAD_LABEL[p]}
+                  {t(POLITICA_DIFICULTAD_LABEL[p])}
                 </option>
               ))}
             </select>
             <p className="mt-1.5 text-xs leading-snug text-[var(--c-hint)]">
-              {POLITICA_DIFICULTAD_HINT[config.politicaDificultad]}
+              {t(POLITICA_DIFICULTAD_HINT[config.politicaDificultad])}
             </p>
             {config.politicaDificultad === "adaptativa_simple" && (
               <div
@@ -571,12 +586,12 @@ export default function EvaluacionConfig({
         >
           {MODOS_PRESENTACION_VALIDOS.map((m) => (
             <option key={m} value={m}>
-              {MODO_PRESENTACION_LABEL[m]}
+              {t(MODO_PRESENTACION_LABEL[m])}
             </option>
           ))}
         </select>
         <p className="text-xs text-[var(--c-hint)]">
-          {MODO_PRESENTACION_HINT[config.modoPresentacion]}
+          {t(MODO_PRESENTACION_HINT[config.modoPresentacion])}
         </p>
         {config.modoPresentacion === "paginado" && (
           <div
@@ -604,7 +619,7 @@ export default function EvaluacionConfig({
               data-testid="config-preguntas-por-pagina-input"
             />
             <span className="text-xs text-[var(--c-hint)]">
-              (default: {PREGUNTAS_POR_PAGINA_DEFAULT})
+              ({t("evaluacionConfig.defaultDosPuntos")} {PREGUNTAS_POR_PAGINA_DEFAULT})
             </span>
           </div>
         )}
@@ -627,12 +642,12 @@ export default function EvaluacionConfig({
         >
           {POLITICAS_DIFICULTAD_VALIDAS.map((p) => (
             <option key={p} value={p}>
-              {POLITICA_DIFICULTAD_LABEL[p]}
+              {t(POLITICA_DIFICULTAD_LABEL[p])}
             </option>
           ))}
         </select>
         <p className="text-xs text-[var(--c-hint)]">
-          {POLITICA_DIFICULTAD_HINT[config.politicaDificultad]}
+          {t(POLITICA_DIFICULTAD_HINT[config.politicaDificultad])}
         </p>
 
         <div className="flex flex-wrap items-end gap-3 pl-1 pt-1">

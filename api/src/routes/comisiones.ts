@@ -17,11 +17,16 @@ import {
   DEFAULT_COMISION_PCT_INTL,
 } from "../lib/comisiones";
 import { hasRole } from "../lib/roles";
+import { recordAuditLog } from "../lib/audit-log";
 
 export const comisiones = Router();
 
 const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
   req.user?.schoolId ?? null;
+
+// Quién ejecutó una acción sobre plata — para el rastro de auditoría.
+const getActorId = (req: { user?: { id?: string; _id?: { toString?: () => string } } }) =>
+  req.user?.id ?? req.user?._id?.toString?.() ?? "desconocido";
 
 const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
@@ -111,9 +116,21 @@ comisiones.post(
     }
 
     try {
+      const previo = await prisma.escuela.findFirst({ where: { id: escuelaId } });
       const updated = await prisma.escuela.update({
         where: { id: escuelaId },
         data,
+      });
+      // Cambiar el % es cambiar cuánto factura VB — queda con antes/después.
+      await recordAuditLog({
+        actorId: getActorId(req as never),
+        action: "escuela.comision_actualizada",
+        targetType: "Escuela",
+        targetId: escuelaId,
+        metadata: {
+          antes: { comisionPct: previo?.comisionPct ?? null, comisionPctIntl: previo?.comisionPctIntl ?? null },
+          despues: { comisionPct: updated.comisionPct, comisionPctIntl: updated.comisionPctIntl },
+        },
       });
       return res.json({
         ok: true,
@@ -193,6 +210,21 @@ comisiones.post("/api/comisiones/admin/liquidar", requireAdmin, async (req, res)
       data: { estado: "liquidada" },
     });
   }
+  // Una liquidación es plata saliendo hacia la escuela: quién la declaró
+  // pagada, por cuánto y contra qué transacciones.
+  await recordAuditLog({
+    actorId: getActorId(req as never),
+    action: "comision.liquidada",
+    targetType: "LiquidacionEscuela",
+    targetId: liquidacion.id,
+    metadata: {
+      escuelaId,
+      periodo,
+      metodo,
+      montoLiquidado,
+      transaccionIds: pendientes.map((t) => t.id as string),
+    },
+  });
   return res.json({ ok: true, liquidacion });
 });
 

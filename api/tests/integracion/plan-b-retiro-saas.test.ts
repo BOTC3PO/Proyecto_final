@@ -38,7 +38,7 @@ after(async () => {
 beforeEach(() => {
   resetPrisma();
   const nowIso = new Date().toISOString();
-  prisma.escuela.rows.push({
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada",
     id: ESCUELA,
     name: "Escuela Retiro SaaS",
     isDeleted: false,

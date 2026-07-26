@@ -49,11 +49,12 @@ type Status = "loading" | "unavailable" | "ready";
 export default function LangSelector({
   value,
   onChange,
-  label = "Idioma del diccionario",
+  label,
   className,
   fetchLanguagesFn = fetchLanguages,
 }: LangSelectorProps) {
   const { t } = useI18n();
+  const resolvedLabel = label ?? t("langSelector.idiomaDelDiccionario");
   const selectId = useId();
   const statusId = useId();
 
@@ -111,11 +112,11 @@ export default function LangSelector({
   return (
     <div className="flex items-center gap-1 text-xs">
       <label htmlFor={selectId} className="text-[var(--c-text-muted,#64748b)]">
-        {label}:
+        {resolvedLabel}:
       </label>
       <select
         id={selectId}
-        aria-label={label}
+        aria-label={resolvedLabel}
         value={value}
         onChange={(e) => {
           userChangedRef.current = true;

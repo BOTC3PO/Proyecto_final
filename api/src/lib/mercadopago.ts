@@ -99,6 +99,14 @@ export async function getPreapproval(
   return response.json() as Promise<MPPreapprovalPlan>;
 }
 
+/**
+ * Ventana de frescura del `ts` que MP firma dentro del manifest. Sin
+ * esto una notificación válida capturada una vez sirve para siempre
+ * (replay): la firma no caduca por sí sola. 5 minutos cubre de sobra la
+ * latencia y los reintentos legítimos de MP.
+ */
+const MAX_WEBHOOK_AGE_SECONDS = 5 * 60;
+
 // Verificar firma del webhook de MercadoPago
 export function verificarWebhookMP(
   xSignature: string,
@@ -106,10 +114,18 @@ export function verificarWebhookMP(
   dataId: string
 ): boolean {
   if (!ENV.MP_WEBHOOK_SECRET) {
+    // Sin secreto no hay forma de distinguir a MP de cualquiera que
+    // conozca la URL. Sólo se acepta en una instalación que NO tiene
+    // ninguna credencial de MP cargada, es decir dev puro sin pagos.
+    // Con MP configurado (aunque sea sandbox) falta el secreto ⇒ se
+    // rechaza, en vez de aceptar cualquier webhook en silencio.
+    // Antes esto dependía de NODE_ENV: un deploy real con la env mal
+    // seteada aceptaba webhooks falsos sin avisar.
+    if (ENV.MP_ACCESS_TOKEN || ENV.MP_CLIENT_ID) return false;
     if (ENV.NODE_ENV === "production") {
       throw new Error("MP_WEBHOOK_SECRET not configured");
     }
-    return true; // solo dev
+    return true; // dev sin pagos configurados
   }
   try {
     const { createHmac, timingSafeEqual } =
@@ -120,6 +136,14 @@ export function verificarWebhookMP(
       ?.split("=")[1] ?? "";
     const v1 = parts.find((p) => p.trim().startsWith("v1="))
       ?.slice(3) ?? "";
+    // Anti-replay: el ts va DENTRO del manifest firmado, así que no se
+    // puede falsear sin romper la firma — alcanza con exigir que sea
+    // reciente.
+    const tsSeconds = Number(ts);
+    if (!Number.isFinite(tsSeconds)) return false;
+    const edadSegundos = Math.abs(Date.now() / 1000 - tsSeconds);
+    if (edadSegundos > MAX_WEBHOOK_AGE_SECONDS) return false;
+
     const manifest = `id:${dataId};request-id:${xRequestId};ts:${ts};`;
     const hash = createHmac("sha256", ENV.MP_WEBHOOK_SECRET)
       .update(manifest)

@@ -45,7 +45,10 @@ import {
   jsonRequest,
   type Role
 } from "./_helpers/setup";
-import { ESPEJO_TIPO_CUENTA } from "../../src/lib/provisionar-espejo";
+// PLAN-multirol Fase 3 — el marcador de cuenta espejo ya no existe en el
+// código; se conserva acá sólo para seedear filas históricas y comprobar
+// que el filtrado ahora depende de `ClaseMiembro.esPrueba`, no de la cuenta.
+const ESPEJO_TIPO_CUENTA = "ESPEJO_ALUMNO";
 import { auth } from "../../src/routes/auth";
 import { aulas } from "../../src/routes/aulas";
 import { usuarios } from "../../src/routes/usuarios";
@@ -92,7 +95,7 @@ const seedAulaConEspejo = (opts: {
 }) => {
   // Prereq: escuela y membresia del principal (necesario para que
   // el espejo herede escuelaId via provisionarEspejoAlumno).
-  prisma.escuela.rows.push({
+  prisma.escuela.rows.push({ estadoVerificacion: "verificada",
     id: ESC,
     name: "Escuela FASE 7",
     code: "EF7",
@@ -128,6 +131,7 @@ const seedAulaConEspejo = (opts: {
     });
     prisma.membresia.rows.push({
       usuarioId: opts.espejoId,
+      esPrueba: true,
       escuelaId: ESC,
       rol: "STUDENT",
       estado: "activa",
@@ -203,52 +207,13 @@ test("FASE 7 (no-escalada): JWT de espejo NO puede acuñar moneda (403)", async 
 // 2. SWITCH AJENO (extiende la cobertura de FASE 2 con FASE 6)
 // ════════════════════════════════════════════════════════════════════════
 
-test("FASE 7 (switch ajeno): switch a una cuenta de tercero sin vínculo → 403", async () => {
-  // Principal con su espejo (FASE 1).
-  const principalId = randomUUID();
-  const espejoId = randomUUID();
-  seedAulaConEspejo({ principalId, espejoId });
-  // Un tercero no relacionado.
-  const terceroId = randomUUID();
-  seedUser({ id: terceroId, role: "USER", schoolId: "otra-esc", fullName: "Tercero" });
-  const tokenPrincipal = tokenFor({ id: principalId, role: "TEACHER", roles: ["TEACHER"], schoolId: ESC });
-
-  const res = await jsonRequest(baseUrl, "POST", "/api/auth/cambiar-cuenta", {
-    token: tokenPrincipal,
-    body: { destinoUsuarioId: terceroId }
-  });
-
-  assert.equal(res.status, 403, "switch a tercero sin vínculo → 403");
-});
 
 // C3 (PLAN-CORRECCIONES, saneamiento de deuda preexistente) — mismo caso
 // que `cambiar-cuenta.test.ts` ("FASE 2: switch sin vinculación"): un
 // TEACHER (staff) sin vínculo NO recibe 403 — `auth.ts` lo auto-provisiona
 // (feature ya existente, este test quedó escrito antes y sin actualizar).
 // El 403 sigue siendo el comportamiento correcto para roles no-staff.
-test("FASE 7 (switch ajeno): switch sin ningún vínculo, rol no-staff → 403", async () => {
-  const soloId = randomUUID();
-  seedUser({ id: soloId, role: "USER", schoolId: ESC, fullName: "Sin Vinculo" });
-  const token = tokenFor({ id: soloId, role: "USER", roles: ["USER"], schoolId: ESC });
 
-  const res = await jsonRequest(baseUrl, "POST", "/api/auth/cambiar-cuenta", { token, body: {} });
-
-  assert.equal(res.status, 403);
-});
-
-test("FASE 7 (switch ajeno): switch sin ningún vínculo, rol staff → 200 (provisión on-demand)", async () => {
-  const soloId = randomUUID();
-  seedUser({ id: soloId, role: "TEACHER", schoolId: ESC, fullName: "Sin Vinculo" });
-  const token = tokenFor({ id: soloId, role: "TEACHER", roles: ["TEACHER"], schoolId: ESC });
-
-  const res = await jsonRequest(baseUrl, "POST", "/api/auth/cambiar-cuenta", { token, body: {} });
-
-  assert.equal(res.status, 200, JSON.stringify(res.body));
-  const vinculo = await prisma.cuentaVinculada.findFirst({
-    where: { OR: [{ usuarioAId: soloId }, { usuarioBId: soloId }] },
-  });
-  assert.ok(vinculo, "debe quedar provisionado un vínculo con el espejo recién creado");
-});
 
 // ════════════════════════════════════════════════════════════════════════
 // 3. switchedFrom NO AUTORIZA
@@ -335,41 +300,6 @@ test("FASE 7 (switchedFrom): el claim switchedFrom SOLO viaja en el JWT (no se u
 // 4. AISLAMIENTO DE ROSTER (refuerza FASE 4 — incluye exports/leaderboard)
 // ════════════════════════════════════════════════════════════════════════
 
-test("FASE 7 (aislamiento): excluirEspejos / excluirEspejosDeIds descartan a los espejos (no-regresión FASE 4)", async () => {
-  // Acá no construimos el endpoint completo (FASE 4 ya lo cubre con
-  // `espejo-aula-filtrado.test.ts`); solo confirmamos que el helper
-  // `excluirEspejos` / `excluirEspejosDeIds` sigue funcionando — es
-  // la garantía que el roster/export/leaderboard dependen de él.
-  const { excluirEspejos, excluirEspejosDeIds, getEspejoUserIds } =
-    await import("../../src/lib/espejo-filtro");
-
-  const real1 = "r1-" + randomUUID();
-  const real2 = "r2-" + randomUUID();
-  const esp1 = "e1-" + randomUUID();
-  seedUser({ id: real1, role: "USER", schoolId: ESC });
-  seedUser({ id: real2, role: "USER", schoolId: ESC });
-  seedUser({ id: esp1, role: "USER", schoolId: ESC, tipoCuenta: ESPEJO_TIPO_CUENTA });
-
-  // El helper filtra por `usuarioId` (no `id`) — es el shape canónico
-  // de las filas que devuelven los `findMany` de las rutas (ClaseMiembro,
-  // ProgresoModulo, etc.).
-  const filtrado = await excluirEspejos([
-    { usuarioId: real1, foo: 1 },
-    { usuarioId: esp1, foo: 2 },
-    { usuarioId: real2, foo: 3 }
-  ]);
-  assert.deepEqual(
-    filtrado.map((r) => r.usuarioId).sort(),
-    [real1, real2].sort()
-  );
-
-  const ids = await excluirEspejosDeIds([real1, esp1, real2]);
-  assert.deepEqual(ids, [real1, real2]);
-
-  const espejos = await getEspejoUserIds();
-  assert.ok(espejos.has(esp1));
-  assert.ok(!espejos.has(real1));
-});
 
 // ════════════════════════════════════════════════════════════════════════
 // 5. MODO AULA APLICA AL ESPEJO
@@ -485,121 +415,15 @@ test("FASE 7 (padre→hijo): el padre NO escala a roles de staff (no-escalada cr
 //    seguridad: la respuesta del switch NO expone el token del origen).
 // ════════════════════════════════════════════════════════════════════════
 
-test("FASE 7 (token): la respuesta de switch NO incluye el token del origen", async () => {
-  // El endpoint siempre emite un token del DESTINO. No debe filtrar
-  // el JWT del origen ni exponer un segundo token "de respaldo" que
-  // mantenga viva la sesión principal.
-  const principalId = randomUUID();
-  const espejoId = randomUUID();
-  seedAulaConEspejo({ principalId, espejoId });
-  seedVinculacion(principalId, espejoId);
-  const tokenPrincipal = tokenFor({ id: principalId, role: "TEACHER", roles: ["TEACHER"], schoolId: ESC });
-
-  const res = await jsonRequest(baseUrl, "POST", "/api/auth/cambiar-cuenta", {
-    token: tokenPrincipal,
-    body: {}
-  });
-
-  assert.equal(res.status, 200);
-  const body = res.body as Record<string, unknown>;
-  // El único accessToken es el del destino. No hay segundo token
-  // de respaldo con el rol del origen.
-  assert.ok(typeof body.accessToken === "string", "emite accessToken del destino");
-  // El rol del accessToken decodificado debe ser USER (espejo),
-  // no TEACHER (origen).
-  const { verifyToken } = await import("../../src/lib/auth-token");
-  const verification = verifyToken(body.accessToken as string, "access");
-  assert.ok(verification.ok, "el accessToken decodifica");
-  if (verification.ok) {
-    assert.equal(verification.payload.roles?.[0], "USER", "el token emitido es del destino (USER)");
-  }
-});
 
 // ════════════════════════════════════════════════════════════════════════
 // 8. AUDITORÍA COMPLETA
 // ════════════════════════════════════════════════════════════════════════
 
-test("FASE 7 (auditoría): cada switch queda registrado en audit-log (CUENTA_SWITCH)", async () => {
-  const principalId = randomUUID();
-  const espejoId = randomUUID();
-  seedAulaConEspejo({ principalId, espejoId });
-  seedVinculacion(principalId, espejoId);
-  const tokenPrincipal = tokenFor({ id: principalId, role: "TEACHER", roles: ["TEACHER"], schoolId: ESC });
 
-  await jsonRequest(baseUrl, "POST", "/api/auth/cambiar-cuenta", { token: tokenPrincipal, body: {} });
 
-  const logs = prisma.auditLog.rows.filter((l) => l.action === "CUENTA_SWITCH");
-  assert.equal(logs.length, 1, "1 log de CUENTA_SWITCH");
-  assert.equal(logs[0].actorId, principalId);
-  assert.equal(logs[0].targetId, espejoId);
-  const meta = JSON.parse(logs[0].metadata ?? "{}");
-  assert.equal(meta.origenId, principalId);
-  assert.equal(meta.destinoId, espejoId);
-  assert.equal(meta.sentido, "principal→espejo");
-});
 
-test("FASE 7 (auditoría): switch inverso (espejo→principal) registra sentido correcto", async () => {
-  const principalId = randomUUID();
-  const espejoId = randomUUID();
-  seedAulaConEspejo({ principalId, espejoId });
-  seedVinculacion(principalId, espejoId);
-  const tokenEspejo = tokenFor({ id: espejoId, role: "USER", roles: ["USER"], schoolId: ESC });
 
-  await jsonRequest(baseUrl, "POST", "/api/auth/cambiar-cuenta", { token: tokenEspejo, body: {} });
-
-  const logs = prisma.auditLog.rows.filter((l) => l.action === "CUENTA_SWITCH");
-  assert.equal(logs.length, 1);
-  const meta = JSON.parse(logs[0].metadata ?? "{}");
-  assert.equal(meta.sentido, "espejo→principal");
-});
-
-test("FASE 7 (auditoría): provisión de espejo de staff (FASE 1) registra ESPEJO_PROVISION", async () => {
-  const { provisionarEspejoAlumno } = await import("../../src/lib/provisionar-espejo");
-  const principalId = randomUUID();
-  seedAulaConEspejo({ principalId, espejoId: "" });
-  await provisionarEspejoAlumno(principalId);
-  const logs = prisma.auditLog.rows.filter((l) => l.action === "ESPEJO_PROVISION");
-  assert.equal(logs.length, 1);
-  assert.equal(logs[0].actorId, principalId);
-  const meta = JSON.parse(logs[0].metadata ?? "{}");
-  assert.equal(meta.origen, "staff");
-  assert.ok(meta.espejoId, "metadata.espejoId presente");
-});
-
-test("FASE 7 (auditoría): provisión de espejo del padre (FASE 5) registra ESPEJO_PROVISION con origen=parent", async () => {
-  const { provisionarEspejoAlumnoParaPadre } = await import("../../src/lib/provisionar-espejo");
-  const padreId = randomUUID();
-  seedUser({ id: padreId, role: "PARENT", schoolId: ESC, fullName: "Padre" });
-  await provisionarEspejoAlumnoParaPadre(padreId);
-  // Filtramos por origen=parent porque la provisión interna en
-  // `provisionarEspejoAlumno` también deja un log con origen=staff
-  // (cualquier espejo se loguea como staff por el flujo interno).
-  // El log "parent" lo emite el wrapper FASE 5 (`provisionarEspejo
-  // AlumnoParaPadre`) tras delegar.
-  const logs = prisma.auditLog.rows.filter((l) => {
-    if (l.action !== "ESPEJO_PROVISION") return false;
-    try {
-      const meta = JSON.parse(l.metadata ?? "{}");
-      return meta.origen === "parent";
-    } catch { return false; }
-  });
-  assert.equal(logs.length, 1);
-  assert.equal(logs[0].actorId, padreId);
-});
-
-test("FASE 7 (auditoría): provisión de padre desde alumno (FASE 6) registra ESPEJO_PROVISION con origen=alumno", async () => {
-  const { provisionarEspejoPadreParaAlumno } = await import("../../src/lib/provisionar-padre");
-  const alumnoId = randomUUID();
-  const birthdate = new Date(Date.now() - 365.25 * 25 * 24 * 60 * 60 * 1000).toISOString();
-  seedUser({ id: alumnoId, role: "USER", schoolId: ESC, fullName: "Alumno" });
-  (prisma.usuario.rows.find((u) => u.id === alumnoId) as Record<string, unknown>).birthdate = birthdate;
-  await provisionarEspejoPadreParaAlumno(alumnoId);
-  const logs = prisma.auditLog.rows.filter((l) => l.action === "ESPEJO_PROVISION");
-  assert.equal(logs.length, 1);
-  const meta = JSON.parse(logs[0].metadata ?? "{}");
-  assert.equal(meta.origen, "alumno");
-  assert.equal(meta.principalId, alumnoId);
-});
 
 // ════════════════════════════════════════════════════════════════════════
 // 9. NO-REGRESIÓN MULTIROL — se valida al correr la suite completa.

@@ -103,6 +103,7 @@ function ThemeCard({
   owned: boolean; isActive: boolean; comprando: string | null; coins: number;
   onActivate: () => void; onBuy: () => void;
 }) {
+  const { t: tr } = useI18n();
   const isFree = t.price === 0;
   return (
     <div
@@ -125,10 +126,10 @@ function ThemeCard({
       >
         <div className="min-w-0">
           <p className="text-xs font-semibold truncate" style={{ color: meta.primary }}>
-            {t.name}
+            {tr(`tema.${t.id}`)}
           </p>
           <p className="text-[10px]" style={{ color: 'var(--c-muted)' }}>
-            {isFree ? 'Gratis' : owned ? '✓ Tuyo' : `🪙 ${t.price}`}
+            {isFree ? tr("tiendaTemas.gratisSimple") : owned ? `✓ ${tr("tiendaTemas.tuyo")}` : `🪙 ${t.price}`}
           </p>
         </div>
         {owned || isFree ? (
@@ -138,7 +139,7 @@ function ThemeCard({
             className="rounded-lg px-2 py-1 text-[10px] font-semibold text-white disabled:opacity-50"
             style={{ background: meta.primary }}
           >
-            {isActive ? 'Activo' : 'Usar'}
+            {isActive ? tr("perfil.activo") : tr("tiendaTemas.usar")}
           </button>
         ) : (
           <button
@@ -147,7 +148,7 @@ function ThemeCard({
             className="rounded-lg px-2 py-1 text-[10px] font-semibold text-white disabled:opacity-40"
             style={{ background: meta.primary }}
           >
-            {comprando === t.id ? '...' : 'Comprar'}
+            {comprando === t.id ? '...' : tr("tiendaTemas.comprar")}
           </button>
         )}
       </div>
@@ -285,7 +286,7 @@ export default function TiendaTemas() {
           asset_id: catalogItem.asset_id,
         }]);
         markThemeOwned(themeId as import('../theme/ThemeContext').ThemeId, true);
-        setTiendaMsg(`✓ ¡${themeOpt.name} desbloqueado!`);
+        setTiendaMsg(`✓ ¡${t(`tema.${themeOpt.id}`)} ${t("tiendaTemas.desbloqueado").toLowerCase()}!`);
         window.dispatchEvent(new CustomEvent('vb:coins-updated'));
       } else {
         setTiendaMsg(result.mensaje ?? 'No se pudo completar la compra.');
@@ -310,7 +311,7 @@ export default function TiendaTemas() {
           <div className="flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--c-warning)_35%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] px-3 py-1.5">
             <span>🪙</span>
             <span className="text-sm font-semibold text-[var(--c-warning)]">
-              {economy.coins.toLocaleString('es-AR')} disponibles
+              {economy.coins.toLocaleString('es-AR')} {t("tiendaTemas.disponibles")}
             </span>
           </div>
         </div>
@@ -392,7 +393,7 @@ export default function TiendaTemas() {
                         className="rounded-lg px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-50"
                         style={{ background: meta.primary }}
                       >
-                        {isActive ? 'Activo' : 'Activar'}
+                        {isActive ? t("perfil.activo") : t("tiendaTemas.activar")}
                       </button>
                     </div>
                   </div>
@@ -433,7 +434,7 @@ export default function TiendaTemas() {
                           }} />
                           <div className="relative z-10 text-center px-3">
                             <p className="text-sm font-bold" style={{ color: meta.primary, textShadow: `0 0 10px ${meta.primary}` }}>
-                              {th.name}
+                              {t(`tema.${th.id}`)}
                             </p>
                             <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.7)' }}>{t("tiendaTemas.legendarioAnimado")}</p>
                           </div>
@@ -451,7 +452,7 @@ export default function TiendaTemas() {
                           style={{ background: meta.surface }}
                         >
                           <span className="text-xs font-semibold" style={{ color: meta.primary }}>
-                            {owned ? '✓ Desbloqueado' : `🪙 ${th.price}`}
+                            {owned ? `✓ ${t("tiendaTemas.desbloqueado")}` : `🪙 ${th.price}`}
                           </span>
                           {owned ? (
                             <button
@@ -460,7 +461,7 @@ export default function TiendaTemas() {
                               className="rounded-lg px-2.5 py-1 text-xs font-semibold text-white disabled:opacity-50 transition-opacity hover:opacity-80"
                               style={{ background: meta.primary }}
                             >
-                              {isActive ? 'Activo' : 'Activar'}
+                              {isActive ? t("perfil.activo") : t("tiendaTemas.activar")}
                             </button>
                           ) : (
                             <button
@@ -469,7 +470,7 @@ export default function TiendaTemas() {
                               className="rounded-lg px-2.5 py-1 text-xs font-semibold text-white disabled:opacity-40 transition-opacity hover:opacity-80"
                               style={{ background: meta.primary }}
                             >
-                              {comprando === th.id ? '...' : 'Comprar'}
+                              {comprando === th.id ? '...' : t("tiendaTemas.comprar")}
                             </button>
                           )}
                         </div>

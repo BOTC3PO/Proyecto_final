@@ -4,6 +4,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { SPRINT_9B_EXAMPLES } from "../../vblang/examples";
+import { tituloFor, descripcionFor } from "./NuevaPlantillaWizard";
 
 import { useI18n } from "../../i18n/I18nContext";
 interface EjemplosMenuProps {
@@ -78,10 +79,10 @@ export default function EjemplosMenu({
               className="block w-full rounded px-2 py-1.5 text-left hover:bg-[var(--c-bg,#f1f5f9)]"
             >
               <span className="block text-xs font-semibold text-[var(--c-text)]">
-                {ej.titulo}
+                {tituloFor(ej, t)}
               </span>
               <span className="block text-[10px] text-[var(--c-muted,#64748b)]">
-                {ej.descripcion}
+                {descripcionFor(ej, t)}
               </span>
             </button>
           </li>

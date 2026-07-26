@@ -59,7 +59,10 @@ export const reconciliarPagosPendientes = async (maxAgeMinutes = ENV.RECONCILIAC
 
     if (estado === "pagada") {
       if (cuota && cobro) {
-        await confirmarPago(pago as never, cuota, cobro);
+        // `checkStatus` sólo devuelve estado, no monto — no hay nada que
+        // verificar acá. El control de monto vive en el webhook, que sí
+        // lo reporta.
+        await confirmarPago(pago as never, cuota, cobro, { actorId: "system:reconciliacion" });
         confirmados++;
       } else {
         sinCambios++;

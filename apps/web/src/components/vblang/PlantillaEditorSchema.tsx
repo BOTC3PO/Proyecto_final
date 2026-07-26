@@ -26,6 +26,7 @@ import {
   QUESTION_TYPE_SCHEMAS,
 } from "@vb/vblang";
 import type { Field, ListField, TextField } from "@vb/vblang";
+import { TIPO_PREGUNTA_KEY, TIPO_PREGUNTA_DESCRIPCION_KEY } from "./TizaEditor";
 import {
   exprToText,
   getBlock,
@@ -1486,14 +1487,14 @@ export default function PlantillaEditorSchema({
               onChange={(e) => onChange(applyTipo(plantilla, e.target.value as TipoPregunta))}
               className="rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
             >
-              {ALL_QUESTION_TYPES.map((t) => (
-                <option key={t} value={t}>
-                  {QUESTION_TYPE_SCHEMAS[t].label}
+              {ALL_QUESTION_TYPES.map((qt) => (
+                <option key={qt} value={qt}>
+                  {TIPO_PREGUNTA_KEY[qt] ? t(TIPO_PREGUNTA_KEY[qt]) : QUESTION_TYPE_SCHEMAS[qt].label}
                 </option>
               ))}
             </select>
             <span className="text-[10px] text-[var(--c-muted,#64748b)]">
-              {schema.descripcion}
+              {TIPO_PREGUNTA_DESCRIPCION_KEY[tipo] ? t(TIPO_PREGUNTA_DESCRIPCION_KEY[tipo]) : schema.descripcion}
             </span>
           </div>
 
@@ -2039,22 +2040,23 @@ function ResumenPanel({
   tipo: TipoPregunta;
   tieneErrores: boolean;
 }) {
+  const { t } = useI18n();
   const nVars = contarVariables(plantilla);
   const { total, continuo } = combinacionesPosibles(plantilla);
   const tipoLabel = baseGenerador
-    ? "Generador asistido"
-    : (QUESTION_TYPE_SCHEMAS[tipo]?.label ?? tipo);
+    ? t("plantillaEditorSchema.generadorAsistido")
+    : (TIPO_PREGUNTA_KEY[tipo] ? t(TIPO_PREGUNTA_KEY[tipo]) : (QUESTION_TYPE_SCHEMAS[tipo]?.label ?? tipo));
   const combinaciones = baseGenerador
-    ? "las define el generador"
+    ? t("plantillaEditorSchema.lasDefineElGenerador")
     : continuo
-      ? "muchas (incluye decimales)"
+      ? t("plantillaEditorSchema.muchasIncluyeDecimales")
       : total.toLocaleString("es-AR");
 
   return (
     <div className="flex flex-col gap-1.5 rounded border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-3 text-xs">
-      <ResumenRow label="Variables" value={String(baseGenerador ? 0 : nVars)} />
-      <ResumenRow label="Tipo" value={tipoLabel} />
-      <ResumenRow label="Combinaciones posibles" value={combinaciones} />
+      <ResumenRow label={t("plantillaEditorSchema.variables")} value={String(baseGenerador ? 0 : nVars)} />
+      <ResumenRow label={t("comun.tipo")} value={tipoLabel} />
+      <ResumenRow label={t("plantillaEditorSchema.combinacionesPosibles")} value={combinaciones} />
       <div className="pt-1">
         <span
           className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold ${
@@ -2063,7 +2065,7 @@ function ResumenPanel({
               : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
           }`}
         >
-          {tieneErrores ? "Con errores" : "Sin errores"}
+          {tieneErrores ? t("moduloEditor.conErrores") : t("plantillaEditorSchema.sinErrores")}
         </span>
       </div>
     </div>

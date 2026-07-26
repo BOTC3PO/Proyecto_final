@@ -126,6 +126,20 @@ const ECONOMIC_SIMULATIONS: SimulationScenario[] = [
 
 const FOREIGN_EXCHANGE_RATE = 100;
 
+const CICLO_TIPO_LABEL_KEYS: Record<string, string> = {
+  inflacion: "economia.cicloTipoInflacion",
+  hiperinflacion: "economia.cicloTipoHiperinflacion",
+  deflacion: "economia.cicloTipoDeflacion",
+  bonus: "economia.cicloTipoBonus",
+  penalizacion: "economia.cicloTipoPenalizacion",
+  otro: "economia.cicloTipoOtro",
+};
+
+const INSTRUMENTO_ESTADO_LABEL_KEYS: Record<string, string> = {
+  activo: "perfil.activo",
+  rescatado: "economia.estadoRescatado",
+};
+
 const defaultEconomyState: EconomyState = {
   coins: 120,
   foreignCoins: 0,
@@ -501,12 +515,12 @@ export default function Economia() {
           <div className="grid grid-cols-3 gap-3">
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
               <p className="text-xs text-[var(--c-muted)] mb-1">{t("economia.cicloEconomico")}</p>
-              <p className="text-base font-semibold text-[var(--c-text)] capitalize">{cicloActivo.tipo}</p>
+              <p className="text-base font-semibold text-[var(--c-text)] capitalize">{t(CICLO_TIPO_LABEL_KEYS[cicloActivo.tipo] ?? cicloActivo.tipo)}</p>
               <p className="text-xs text-[var(--c-muted)] mt-0.5">Intensidad {cicloActivo.intensidad}/10</p>
             </div>
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
               <p className="text-xs text-[var(--c-muted)] mb-1">{t("economia.tasaPlazoFijo")}</p>
-              <p className="text-base font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% anual</p>
+              <p className="text-base font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% {t("economia.anual")}</p>
               <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.tasaVariable")}</p>
             </div>
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
@@ -578,7 +592,7 @@ export default function Economia() {
                 <>
                   <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
                     <span className="text-xs text-[var(--c-muted)]">{t("economia.tasaPlazoFijo")}</span>
-                    <span className="text-sm font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% anual</span>
+                    <span className="text-sm font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% {t("economia.anual")}</span>
                   </div>
                   <div className="flex items-center justify-between py-2">
                     <span className="text-xs text-[var(--c-muted)]">{t("economia.vigenciaDelCiclo")}</span>
@@ -663,7 +677,7 @@ export default function Economia() {
                 disabled={pfInvirtiendo}
                 className="w-full rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
               >
-                {pfInvirtiendo ? 'Invirtiendo...' : 'Invertir en plazo fijo'}
+                {pfInvirtiendo ? t("economia.invirtiendo") : t("economia.invertirEnPlazoFijo")}
               </button>
               {plazos.length > 0 && (
                 <div className="space-y-2 pt-2 border-t border-[var(--c-border)]">
@@ -677,11 +691,11 @@ export default function Economia() {
                           disabled={rescatando === p.id}
                           className="text-[var(--c-primary)] hover:underline disabled:opacity-40"
                         >
-                          {rescatando === p.id ? '...' : 'Rescatar'}
+                          {rescatando === p.id ? '...' : t("economia.rescatar")}
                         </button>
                       )}
                       {p.estado !== 'activo' && (
-                        <span className="text-[var(--c-muted)]">{p.estado}</span>
+                        <span className="text-[var(--c-muted)]">{t(INSTRUMENTO_ESTADO_LABEL_KEYS[p.estado] ?? p.estado)}</span>
                       )}
                     </div>
                   ))}
@@ -731,7 +745,7 @@ export default function Economia() {
                 disabled={fciInvirtiendo}
                 className="w-full rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
               >
-                {fciInvirtiendo ? 'Invirtiendo...' : 'Invertir en FCI'}
+                {fciInvirtiendo ? t("economia.invirtiendo") : t("economia.invertirEnFci")}
               </button>
               {fcis.length > 0 && (
                 <div className="space-y-2 pt-2 border-t border-[var(--c-border)]">
@@ -745,11 +759,11 @@ export default function Economia() {
                           disabled={rescatando === f.id}
                           className="text-[var(--c-primary)] hover:underline disabled:opacity-40"
                         >
-                          {rescatando === f.id ? '...' : 'Rescatar'}
+                          {rescatando === f.id ? '...' : t("economia.rescatar")}
                         </button>
                       )}
                       {f.estado !== 'activo' && (
-                        <span className="text-[var(--c-muted)]">{f.estado}</span>
+                        <span className="text-[var(--c-muted)]">{t(INSTRUMENTO_ESTADO_LABEL_KEYS[f.estado] ?? f.estado)}</span>
                       )}
                     </div>
                   ))}
@@ -876,12 +890,12 @@ export default function Economia() {
               disabled={!transferTo.trim() || transferAmount <= 0 || economy.coins < transferAmount}
               className="w-full rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
             >
-              Enviar {transferAmount > 0 ? `${transferAmount} 🪙` : 'monedas'}
+              {t("economia.enviar")} {transferAmount > 0 ? `${transferAmount} 🪙` : t("menualumno.monedas")}
             </button>
 
             {/* Saldo disponible */}
             <p className="text-xs text-[var(--c-muted)] text-center">
-              Disponible: {economy.coins.toLocaleString('es-AR')} 🪙
+              {t("economia.disponible")}: {economy.coins.toLocaleString('es-AR')} 🪙
             </p>
           </div>
         )}

@@ -34,7 +34,6 @@
   "nav.contacto": "Contacto",
   "nav.terminos": "Términos",
   "nav.privacidad": "Privacidad",
-
   "dropdown.miPerfil": "Mi perfil",
   "dropdown.economia": "Economía",
   "dropdown.tiendaTemas": "Tienda de temas",
@@ -45,14 +44,12 @@
   "dropdown.crearCuentaAlumno": "Crear cuenta alumno",
   "dropdown.crearCuentaPadre": "Crear cuenta padre",
   "dropdown.entrarComoAlumno": "Entrar como alumno",
-
   "sidebar.academico": "Académico",
   "sidebar.gestion": "Gestión",
   "sidebar.escuela": "Escuela",
   "sidebar.administracion": "Administración",
   "sidebar.sistema": "Sistema",
   "sidebar.control": "Control",
-
   "aria.navPrincipal": "Navegación principal",
   "aria.navAlumno": "Navegación del alumno",
   "aria.navLateral": "Navegación lateral",
@@ -62,10 +59,8 @@
   "aria.cerrarMenuNav": "Cerrar menú de navegación",
   "aria.abrirNav": "Abrir navegación",
   "aria.navegacion": "Navegación",
-
   "common.tema": "Tema",
   "common.idioma": "Idioma",
-
   "tema.tiza": "Tiza",
   "tema.tiza-dark": "Tiza Oscuro",
   "tema.pizarra": "Pizarra",
@@ -109,12 +104,9 @@
   "common.logoEscuela": "Logo de la escuela",
   "common.modo": "Modo",
   "common.iniciarSesionBtn": "Iniciar Sesión",
-
   "alumnoNavbar.cuentaAlumno": "Cuenta de alumno",
   "alumnoNavbar.volverPanelPrincipal": "Volver al panel principal",
-
   "footer.copyright": "© 2024 Virtual Book. Todos los derechos reservados.",
-
   "login.labelUsuario": "Correo Electrónico o Usuario público",
   "login.recuerdame": "Recuérdame",
   "login.olvidasteContrasena": "¿Olvidaste tu contraseña?",
@@ -124,9 +116,7 @@
   "login.errorUsuario": "Ingresá tu correo o usuario.",
   "login.errorContrasena": "Ingresá tu contraseña.",
   "login.errorGenerico": "No pudimos iniciar sesión.",
-
   "auth.contrasena": "Contraseña",
-
   "register.titulo": "Registro",
   "register.labelNombreCompleto": "Nombre Completo",
   "register.labelUsuarioPublico": "Nombre de Usuario Público",
@@ -156,9 +146,7 @@
   "register.errorCamposObligatorios": "Completa los campos obligatorios antes de continuar.",
   "register.errorGenerico": "No pudimos completar el registro.",
   "register.errorOpciones": "No se pudieron cargar las opciones",
-
   "perfil.idiomaDescripcion": "Elegí el idioma de la interfaz.",
-
   "comun.cancelar": "Cancelar",
   "comun.eliminar": "Eliminar",
   "comun.titulo": "Título",
@@ -168,6 +156,7 @@
   "comun.descripcionOpcional": "Descripción (opcional)",
   "comun.estado": "Estado",
   "comun.materia": "Materia",
+  "comun.sinMateria": "Sin materia",
   "comun.tipo": "Tipo",
   "comun.aula": "Aula",
   "comun.nombre": "Nombre",
@@ -192,7 +181,6 @@
   "comun.virtualBook": "Virtual Book",
   "comun.vistaPrevia": "Vista previa",
   "comun.volver": "Volver",
-
   "admin.panelAdministrativo": "Panel administrativo",
   "admin.supervisionGlobalDeLaPlataforma": "Supervisión global de la plataforma.",
   "admin.secciones": "Secciones",
@@ -203,7 +191,6 @@
   "admin.tasaDeInflacion00": "Tasa de inflación (0–0.1, máx 10%)",
   "admin.deflacionActiva": "Deflación activa",
   "admin.tasaDeDeflacion00": "Tasa de deflación (0–0.1, máx 10%)",
-
   "adminComisiones.comisionesPorEscuela": "Comisiones por escuela",
   "adminComisiones.registroContableYLiquidaciones": "Registro contable y liquidaciones.",
   "adminComisiones.exportarCsv": "Exportar CSV",
@@ -213,7 +200,6 @@
   "adminComisiones.saldo": "Saldo",
   "adminComisiones.comisionVb": "Comisión Argentina / MercadoPago (%)",
   "adminComisiones.comisionVbIntl": "Comisión internacional (%)",
-
   "adminMaterias.gestionDeMaterias": "Gestión de materias",
   "adminMaterias.administraLasMateriasDisponiblesEn": "Administrá las materias disponibles en la plataforma.",
   "adminMaterias.materiasRegistradas": "Materias registradas",
@@ -224,7 +210,6 @@
   "adminMaterias.ejMatematicas": "Ej: Matemáticas",
   "adminMaterias.ejPrimaria": "Ej: Primaria",
   "adminMaterias.descripcionBreve": "Descripción breve",
-
   "adminModeracion.supervisaElContenidoPublicoDe": "Supervisa el contenido público de la plataforma y aplica acciones de moderación.",
   "adminModeracion.aulasPublicas": "Aulas públicas",
   "adminModeracion.ultimasAulasConAccesoPublico": "Últimas aulas con acceso público en la plataforma.",
@@ -250,7 +235,6 @@
   "adminModeracion.ejContenidoInapropiado": "Ej: Contenido inapropiado",
   "adminModeracion.ejLenguajeOfensivo": "Ej: Lenguaje ofensivo",
   "adminModeracion.usuarioPorId": "usuario por ID",
-
   "adminReportesGlobal.reportesGlobales": "Reportes globales",
   "adminReportesGlobal.estadisticasDeActividadDeLa": "Estadísticas de actividad de la plataforma.",
   "adminReportesGlobal.periodo": "Período:",
@@ -261,7 +245,6 @@
   "adminReportesGlobal.noHayEventosDeModeracion": "No hay eventos de moderación en este período.",
   "adminReportesGlobal.usuariosActivosTotal": "Usuarios activos (total)",
   "adminReportesGlobal.usuariosInactivos": "Usuarios inactivos",
-
   "adminUsuarios.gestionDeUsuarios": "Gestión de usuarios",
   "adminUsuarios.buscaModeraYGestionaLos": "Busca, modera y gestiona los usuarios de la plataforma.",
   "adminUsuarios.buscar": "Buscar",
@@ -286,7 +269,6 @@
   "adminUsuarios.buscarPorNombreUsuarioO": "Buscar por nombre, usuario o email…",
   "adminUsuarios.ejContenidoInapropiado": "Ej: Contenido inapropiado",
   "adminUsuarios.ejLenguajeOfensivo": "Ej: Lenguaje ofensivo",
-
   "alumnoEncuestas.votaEnLasEncuestasActivas": "Votá en las encuestas activas de tu aula.",
   "alumnoEncuestas.seleccionaUnAula": "Seleccioná un aula",
   "alumnoEncuestas.actualizar": "Actualizar",
@@ -296,9 +278,10 @@
   "alumnoEncuestas.ordenaTusPreferenciasConUn": "Ordená tus preferencias con un orden único para cada opción.",
   "alumnoEncuestas.sinPreferencia": "Sin preferencia",
   "alumnoEncuestas.votar": "Votar",
+  "alumnoEncuestas.cerrada": "Cerrada",
+  "alumnoEncuestas.activa": "Activa",
   "alumnoEncuestas.verResultados": "Ver resultados",
   "alumnoEncuestas.rondas": "Rondas",
-
   "contact.estamosParaAyudarte": "Estamos para ayudarte",
   "contact.nuestroEquipoRespondeConsultasSobre": "Nuestro equipo responde consultas sobre implementación, soporte técnico y acompañamiento pedagógico.",
   "contact.correoElectronicoOUsuarioPublico": "Correo electrónico o usuario público",
@@ -316,19 +299,16 @@
   "contact.tambienPodesEscribirnosDesdeEl": "También podés escribirnos desde el campus y recibir respuesta prioritaria si sos parte de un plan institucional.",
   "contact.soporteEducreaComOColegioandino": "soporte@educrea.com o @colegioandino",
   "contact.contanosComoPodemosAyudarteY": "Contanos cómo podemos ayudarte y el contexto de tu institución.",
-
   "cuestionariosIndex.sueltoSinModulo": "Suelto (sin módulo)",
   "cuestionariosIndex.abrirEnElEditor": "Abrir en el editor",
   "cuestionariosIndex.crearElPrimero": "Crear el primero →",
   "cuestionariosIndex.buscarPorTituloMateriaO": "Buscar por título, materia o módulo…",
-
   "datasetEditor.cargandoDataset": "Cargando dataset…",
   "datasetEditor.volverADatasets": "← Volver a datasets",
   "datasetEditor.urlDeOrigenHttpsCsv": "URL de origen (HTTPS, CSV o JSON — refresco manual)",
   "datasetEditor.sinFilasTodavia": "Sin filas todavía.",
   "datasetEditor.agregarFila": "+ Agregar fila",
   "datasetEditor.eliminarFila": "Eliminar fila",
-
   "economia.tuTableroFinancieroEducativo": "Tu tablero financiero educativo",
   "economia.cicloEconomico": "Ciclo económico",
   "economia.tasaPlazoFijo": "Tasa plazo fijo",
@@ -362,12 +342,10 @@
   "economia.movimientoDelTipoDeCambio": "Movimiento del tipo de cambio",
   "economia.confianzaEnLaEconomia": "Confianza en la economía",
   "economia.cambioDeMoneda": "Cambio de moneda",
-
   "enterpriseAulas.aulasActivasDeTuInstitucion": "Aulas activas de tu institución.",
   "enterpriseAulas.noHayAulasRegistradas": "No hay aulas registradas.",
   "enterpriseAulas.ver": "Ver →",
   "enterpriseAulas.sinDocenteAsignado": "Sin docente asignado",
-
   "enterpriseCobros.pasarelasDePago": "Pasarelas de pago",
   "enterpriseCobros.conectaLaCuentaDeLa": "Conectá la cuenta de la escuela en cada provider para que el checkout de las familias use el pago online real. Sin conexión, los cobros quedan en modo manual (confirmación por staff).",
   "enterpriseCobros.noConectada": "No conectada",
@@ -392,7 +370,6 @@
   "enterpriseCobros.vencimiento": "Vencimiento",
   "enterpriseCobros.mercadoPago": "Mercado Pago",
   "enterpriseCobros.cryptomus": "Cryptomus",
-
   "enterpriseComisiones.cargandoComisiones": "Cargando comisiones…",
   "enterpriseComisiones.comisionesDeLaEscuela": "Comisiones de la escuela",
   "enterpriseComisiones.comisionVb": "Comisión Argentina / MercadoPago (%)",
@@ -412,7 +389,6 @@
   "enterpriseComisiones.sinLiquidacionesAun": "Sin liquidaciones aún.",
   "enterpriseComisiones.periodo": "Período",
   "enterpriseComisiones.metodo": "Método",
-
   "enterpriseDashboard.panelDeLaEscuela": "Panel de la escuela",
   "enterpriseDashboard.supervisaElEstadoAcademicoDe": "Supervisá el estado académico de tu institución.",
   "enterpriseDashboard.crearAula": "+ Crear aula",
@@ -424,16 +400,13 @@
   "enterpriseDashboard.sinAsignar": "Sin asignar",
   "enterpriseDashboard.ej3BPrimaria": "Ej: 3° B — Primaria",
   "enterpriseDashboard.objetivosDelAula": "Objetivos del aula",
-
   "enterpriseMiembros.miembrosDelEquipo": "Miembros del equipo",
   "enterpriseMiembros.personalDeTuInstitucion": "Personal de tu institución.",
   "enterpriseMiembros.noHayMiembrosRegistrados": "No hay miembros registrados.",
-
   "enterpriseModulos.modulosEscolares": "Módulos escolares",
   "enterpriseModulos.modulosDisponiblesParaTuInstitucion": "Módulos disponibles para tu institución.",
   "enterpriseModulos.noHayModulosDisponibles": "No hay módulos disponibles.",
   "enterpriseModulos.verModulo": "Ver módulo →",
-
   "enterprisePersonalizacion.logoIconoYColoresDe": "Logo, ícono y colores de tu escuela.",
   "enterprisePersonalizacion.branding": "Branding",
   "enterprisePersonalizacion.vistaPrevia": "Vista previa:",
@@ -441,7 +414,6 @@
   "enterprisePersonalizacion.urlDelIcono": "URL del ícono",
   "enterprisePersonalizacion.colorPrimario": "Color primario",
   "enterprisePersonalizacion.colorSecundario": "Color secundario",
-
   "enterpriseReportes.metricasGlobalesEInformesPor": "Métricas globales e informes por aula.",
   "enterpriseReportes.verReporteDeAula": "Ver reporte de aula:",
   "enterpriseReportes.progresoPorModulo": "Progreso por módulo",
@@ -450,7 +422,6 @@
   "enterpriseReportes.aulasActivas": "Aulas activas",
   "enterpriseReportes.actividades": "Actividades",
   "enterpriseReportes.progresoTotal": "Progreso total",
-
   "explorar.descubreRutasDeAprendizajeDisenadas": "Descubre rutas de aprendizaje diseñadas para avanzar rápido.",
   "explorar.encuentraModulosRecomendadosProfesoresDestacados": "Encuentra módulos recomendados, profesores destacados y experiencias interactivas para reforzar tus habilidades desde un solo lugar.",
   "explorar.listoParaEmpezar": "¿Listo para empezar?",
@@ -463,7 +434,6 @@
   "explorar.sigueRutasConObjetivosClaros": "Sigue rutas con objetivos claros y micro-retos para mantener el avance constante.",
   "explorar.comunidadActiva": "Comunidad activa",
   "explorar.conectaConProfesoresYAlumnos": "Conecta con profesores y alumnos, comparte recursos y participa en retos.",
-
   "hijosAgregar.usuarioPublico": "Usuario Público",
   "hijosAgregar.gradoCurso": "Grado / Curso",
   "hijosAgregar.selecciona": "Seleccioná…",
@@ -475,7 +445,6 @@
   "hijosAgregar.permitirVerMensajesDelAula": "Permitir ver mensajes del aula",
   "hijosAgregar.usuario": "@usuario",
   "hijosAgregar.observacionesPreferenciasApoyosNecesarios": "Observaciones, preferencias, apoyos necesarios…",
-
   "hijosProgreso.hijos": "Hijos",
   "hijosProgreso.seguimientoDelProgresoPorAlumno": "Seguimiento del progreso por alumno/a.",
   "hijosProgreso.noHayHijosRegistrados": "No hay hijos registrados.",
@@ -494,7 +463,6 @@
   "hijosProgreso.proximasActividades": "Próximas actividades",
   "hijosProgreso.boletin": "Boletín",
   "hijosProgreso.configuracion": "Configuración",
-
   "home.revolucionaElAprendizaje": "Revoluciona el Aprendizaje",
   "home.aprendeATuRitmoCon": "Aprende a tu ritmo con módulos interactivos y juegos educativos personalizados.",
   "home.empiezaComoEstudiante": "Empieza como Estudiante",
@@ -506,7 +474,6 @@
   "home.creaContenidoYMonitoreaEl": "Crea contenido y monitorea el desempeño de tus alumnos.",
   "home.accesoSeguro": "Acceso Seguro",
   "home.protegemosTusDatosYGarantizamos": "Protegemos tus datos y garantizamos privacidad en todo momento.",
-
   "mensajeria.mensajesDirectosYAvisosDe": "Mensajes directos y avisos de tu escuela.",
   "mensajeria.conversaciones": "Conversaciones",
   "mensajeria.nuevo": "+ Nuevo",
@@ -529,7 +496,6 @@
   "mensajeria.escribiTuMensaje": "Escribí tu mensaje...",
   "mensajeria.escribiUnMensaje": "Escribí un mensaje...",
   "mensajeria.mensaje": "Mensaje...",
-
   "menuProfesor.modoAula": "Modo Aula",
   "menuProfesor.tiendaYEconomiaDeshabilitadasPara": "Tienda y economía deshabilitadas para los alumnos del aula activa.",
   "menuProfesor.sinAulasActivas": "Sin aulas activas",
@@ -559,22 +525,18 @@
   "menuProfesor.ver": "Ver →",
   "menuProfesor.accesosRapidos": "Accesos rápidos",
   "menuProfesor.aulaParaModoAula": "Aula para modo aula",
-
   "misClases.misClases": "Mis clases",
   "misClases.seleccionaUnAulaParaVer": "Seleccioná un aula para ver su contenido.",
   "misClases.todaviaNoEstasEnNinguna": "Todavía no estás en ninguna aula.",
   "misClases.pedileATuProfesorEl": "Pedile a tu profesor el código de acceso.",
   "misClases.codigoDeAula": "Código de aula",
-
   "notFound.paginaNoEncontrada": "Página no encontrada",
   "notFound.laPaginaQueBuscasNo": "La página que buscás no existe o fue movida.",
   "notFound.irAlInicio": "Ir al inicio",
   "notFound.volver": "← Volver",
-
   "onboardingTema.elegiComoQueresQueSe": "Elegí cómo querés que se vea Virtual Book. Podés cambiarlo después desde tu perfil.",
   "onboardingTema.seleccionado": "✓ Seleccionado",
   "onboardingTema.saltarPorAhora": "Saltar por ahora",
-
   "pagos.cargandoPagos": "Cargando pagos…",
   "pagos.cuotasPendientesEHistorialDe": "Cuotas pendientes e historial de pagos.",
   "pagos.pendientes": "Pendientes",
@@ -582,7 +544,6 @@
   "pagos.historial": "Historial",
   "pagos.sinPagosRegistradosTodavia": "Sin pagos registrados todavía.",
   "pagos.concepto": "Concepto",
-
   "perfil.suspendido": "Suspendido",
   "perfil.hijosVinculados": "Hijos vinculados",
   "perfil.agregarUnHijo": "Agregar un hijo",
@@ -618,12 +579,10 @@
   "perfil.apariencia": "Apariencia",
   "perfil.nombreCompleto": "Nombre completo",
   "perfil.miembroDesde": "Miembro desde",
-
   "perfilPublico.usuarioNoEncontrado": "Usuario no encontrado",
   "perfilPublico.volverAlInicio": "Volver al inicio",
   "perfilPublico.modulosCompletados": "módulos completados",
   "perfilPublico.completado": "✓ Completado",
-
   "plantillaEditor.cargandoPlantilla": "Cargando plantilla…",
   "plantillaEditor.noSePudoCargarLa": "No se pudo cargar la plantilla.",
   "plantillaEditor.vblangPlantilla": "VBLang · Plantilla",
@@ -651,7 +610,6 @@
   "plantillaEditor.dslGeneradoPorElFormulario": "DSL generado por el formulario (read-only)",
   "plantillaEditor.volverAlModulo": "Volver al módulo",
   "plantillaEditor.seguirEditando": "Seguir editando",
-
   "plantillaEditorTiza.cargandoPlantilla": "Cargando plantilla…",
   "plantillaEditorTiza.noSePudoCargarLa": "No se pudo cargar la plantilla.",
   "plantillaEditorTiza.configuraciones": "Configuraciones",
@@ -679,6 +637,7 @@
   "plantillaEditorTiza.elCodigoTieneErroresEstas": "El código tiene errores — estás viendo la última versión válida. Si editás desde el formulario, el código con errores se reemplaza.",
   "plantillaEditorTiza.verErrores": "Ver errores",
   "plantillaEditorTiza.modoCodigo": "modo Código",
+  "plantillaEditorTiza.estaPlantillaUsaUnGenerador": "Esta plantilla usa un generador o un tipo avanzado. La tarjeta edita el enunciado y las variables; el resto de los campos se editan en",
   "plantillaEditorTiza.saltarAlEditor": "Saltar al editor",
   "plantillaEditorTiza.configuracionesNoTienePropiedadesDe": "Configuraciones no tiene propiedades de pregunta. Seleccioná una pregunta del rail para ver sus propiedades.",
   "plantillaEditorTiza.cambiosSinGuardar": "Cambios sin guardar",
@@ -693,7 +652,6 @@
   "plantillaEditorTiza.datasetsDisponibles": "Datasets disponibles",
   "plantillaEditorTiza.volverAlModulo": "Volver al módulo",
   "plantillaEditorTiza.seguirEditando": "Seguir editando",
-
   "plantillasIndex.oficial": "★ Oficial",
   "plantillasIndex.usarComoBase": "Usar como base",
   "plantillasIndex.fork": "Fork",
@@ -705,13 +663,11 @@
   "plantillasIndex.publicas": "Públicas",
   "plantillasIndex.crearLaPrimeraPlantilla": "Crear la primera plantilla →",
   "plantillasIndex.buscar": "Buscar…",
-
   "privacidad.politicaDePrivacidad": "Política de privacidad",
   "privacidad.protegemosLaInformacionPersonalCon": "Protegemos la información personal con prácticas claras, almacenamiento seguro y controles para que cada usuario gestione sus datos.",
   "privacidad.recopilamosSoloLosDatosNecesarios": "Recopilamos solo los datos necesarios para brindar la experiencia educativa.",
   "privacidad.implementamosMedidasDeSeguridadPara": "Implementamos medidas de seguridad para evitar accesos no autorizados.",
   "privacidad.podesSolicitarActualizacionesOEliminacion": "Podés solicitar actualizaciones o eliminación de tus datos cuando lo necesites.",
-
   "profesorAsistencia.asistencia": "Asistencia",
   "profesorAsistencia.pasaListaDelAulaSeleccionada": "Pasá lista del aula seleccionada para la fecha elegida.",
   "profesorAsistencia.fecha": "Fecha",
@@ -724,7 +680,6 @@
   "profesorAsistencia.ausente": "Ausente",
   "profesorAsistencia.tarde": "Tarde",
   "profesorAsistencia.justificado": "Justificado",
-
   "profesorAulaConfiguracion.ajustaElNombreDescripcionY": "Ajusta el nombre, descripción y visibilidad del aula.",
   "profesorAulaConfiguracion.volverAlAula": "← Volver al aula",
   "profesorAulaConfiguracion.configuracionGeneral": "Configuración general",
@@ -767,7 +722,6 @@
   "profesorAulaConfiguracion.detalleAdicional": "Detalle adicional...",
   "profesorAulaConfiguracion.buscarModuloParaAsignar": "Buscar módulo para asignar...",
   "profesorAulaConfiguracion.ej1erBimestre": "Ej: 1er bimestre",
-
   "profesorAulas.aulasVirtuales": "Aulas virtuales",
   "profesorAulas.accesoYAdministracionDeAulas": "Acceso y administración de aulas para tus cursos.",
   "profesorAulas.soloDocentesPuedenCrearAulas": "Solo docentes pueden crear aulas",
@@ -798,7 +752,6 @@
   "profesorAulas.editarDatos": "Editar datos",
   "profesorAulas.reutilizarContenido": "Reutilizar contenido",
   "profesorAulas.masOpciones": "Más opciones",
-
   "profesorCalendario.vistaUnificadaDeTuEscuela": "Vista unificada de tu escuela y tus aulas.",
   "profesorCalendario.escuela": "🏫 Escuela",
   "profesorCalendario.aulas": "📚 Aulas",
@@ -819,7 +772,6 @@
   "profesorCalendario.sinClases": "Sin clases",
   "profesorCalendario.actoEscolar": "Acto escolar",
   "profesorCalendario.institucional": "Institucional",
-
   "profesorCalificaciones.calificaciones": "Calificaciones",
   "profesorCalificaciones.resultadosDeEvaluacionesFormalesPor": "Resultados de evaluaciones formales por aula.",
   "profesorCalificaciones.modulo": "Módulo",
@@ -828,7 +780,6 @@
   "profesorCalificaciones.noHayEvaluacionesFormalesCompletadas": "No hay evaluaciones formales completadas en esta aula.",
   "profesorCalificaciones.verDetalle": "Ver detalle",
   "profesorCalificaciones.alumnoDesconocido": "Alumno desconocido",
-
   "profesorEncuestas.creaYGestionaEncuestasPara": "Crea y gestiona encuestas para decidir opciones con tus alumnos.",
   "profesorEncuestas.crearEncuesta": "Crear encuesta",
   "profesorEncuestas.seleccionaUnAula": "Selecciona un aula",
@@ -854,12 +805,10 @@
   "profesorEncuestas.ejEleccionDeProyectoFinal": "Ej: Elección de proyecto final",
   "profesorEncuestas.explicaATusAlumnosComo": "Explica a tus alumnos cómo votar o qué decidir.",
   "profesorEncuestas.ej6": "Ej: 6",
-
   "profesorEstadisticas.estadisticas": "Estadísticas",
   "profesorEstadisticas.progresoDeAlumnosPorModulo": "Progreso de alumnos por módulo en tu aula.",
   "profesorEstadisticas.progresoPorModulo": "Progreso por módulo",
   "profesorEstadisticas.noHayModulosAsignadosA": "No hay módulos asignados a esta aula.",
-
   "profesorEvaluaciones.filtros": "Filtros",
   "profesorEvaluaciones.todos": "Todos",
   "profesorEvaluaciones.evaluacion": "Evaluación",
@@ -882,7 +831,6 @@
   "profesorEvaluaciones.generacion": "Generación",
   "profesorEvaluaciones.contenido": "Contenido",
   "profesorEvaluaciones.verDetalle": "Ver detalle →",
-
   "profesorMateriales.materialDidactico": "Material didáctico",
   "profesorMateriales.cuestionariosYMaterialesCompartidosEntre": "Cuestionarios y materiales compartidos entre docentes de tu institución.",
   "profesorMateriales.crearCuestionario": "+ Crear cuestionario",
@@ -890,7 +838,6 @@
   "profesorMateriales.abrir": "Abrir",
   "profesorMateriales.descargar": "↓ Descargar",
   "profesorMateriales.elegiConQuienQueresCompartir": "Elegí con quién querés compartir este material. Podés cambiar el alcance más tarde.",
-
   "profesorReportes.boletinAsistenciaYProgresoDe": "Boletín, asistencia y progreso de tu aula.",
   "profesorReportes.aula": "Aula:",
   "profesorReportes.exportarJson": "⬇ Exportar JSON",
@@ -909,32 +856,27 @@
   "profesorReportes.asistencia2": "📅 Asistencia",
   "profesorReportes.progreso": "📊 Progreso",
   "profesorReportes.enRiesgo2": "⚠ En riesgo",
-
   "progreso.miProgreso": "Mi progreso",
   "progreso.tuAvancePorModuloY": "Tu avance por módulo y áreas a reforzar.",
   "progreso.noHayAvancesRegistradosTodavia": "No hay avances registrados todavía.",
   "progreso.completados": "Completados",
   "progreso.enProgreso": "En progreso",
   "progreso.total": "Total",
-
   "recuperarContrasena.recuperarContrasena": "Recuperar contraseña",
   "recuperarContrasena.ingresaTuCorreoYTe": "Ingresá tu correo y te enviaremos instrucciones para restablecerla.",
   "recuperarContrasena.correoElectronico": "Correo electrónico",
   "recuperarContrasena.tuemailEjemploCom": "tuemail@ejemplo.com",
-
   "tareas.tareasPendientes": "Tareas pendientes",
   "tareas.actividadesAsignadasPorTusProfesores": "Actividades asignadas por tus profesores.",
   "tareas.noHayTareasPendientes": "No hay tareas pendientes.",
   "tareas.noHayTareasEnEste": "No hay tareas en este filtro.",
   "tareas.urgentes": "Urgentes",
   "tareas.estaSemana": "Esta semana",
-
   "terminos.terminosYCondiciones": "Términos y condiciones",
   "terminos.revisaLosLineamientosDeUso": "Revisá los lineamientos de uso de la plataforma, el alcance de los servicios y las buenas prácticas recomendadas para docentes, estudiantes y familias.",
   "terminos.usoResponsableDelContenidoEducativo": "Uso responsable del contenido educativo y de las herramientas interactivas.",
   "terminos.respetoPorLaPrivacidadY": "Respeto por la privacidad y la convivencia dentro de las aulas virtuales.",
   "terminos.compromisoConLaIntegridadAcademica": "Compromiso con la integridad académica y el cuidado de la comunidad.",
-
   "tiendaTemas.personalizaTuExperienciaConTus": "Personalizá tu experiencia con tus monedas.",
   "tiendaTemas.laTiendaTodaviaNoTiene": "La tienda todavía no tiene items para comprar.",
   "tiendaTemas.esProbableQueElSeed": "Es probable que el seed",
@@ -947,12 +889,18 @@
   "tiendaTemas.animadoGratisParaSiempre": "✨ Animado · Gratis para siempre",
   "tiendaTemas.activo": "Activo",
   "tiendaTemas.gratis": "🏆 Gratis",
+  "tiendaTemas.gratisSimple": "Gratis",
+  "tiendaTemas.tuyo": "✓ Tuyo",
+  "tiendaTemas.usar": "Usar",
+  "tiendaTemas.comprar": "Comprar",
+  "tiendaTemas.desbloqueado": "✓ Desbloqueado",
+  "tiendaTemas.activar": "Activar",
+  "tiendaTemas.disponibles": "disponibles",
   "tiendaTemas.legendarios": "Legendarios",
   "tiendaTemas.animacionDeFondoExclusiva": "— Animación de fondo exclusiva",
   "tiendaTemas.legendarioAnimado": "⚡ Legendario · Animado",
   "tiendaTemas.animados": "Animados",
   "tiendaTemas.estaticos": "Estáticos",
-
   "vblangDatasetsIndex.nuevoDataset": "Nuevo dataset",
   "vblangDatasetsIndex.columnas": "Columnas",
   "vblangDatasetsIndex.agregarColumna": "+ Agregar columna",
@@ -965,7 +913,6 @@
   "vblangDatasetsIndex.crearElPrimerDataset": "Crear el primer dataset →",
   "vblangDatasetsIndex.eliminarColumna": "Eliminar columna",
   "vblangDatasetsIndex.buscar": "Buscar…",
-
   "aula.gestionarAula": "Gestionar aula",
   "aula.restringeTiendaYEconomiaPara": "Restringe tienda y economía para los alumnos de esta clase.",
   "aula.progresoDelCurso": "Progreso del curso",
@@ -982,6 +929,8 @@
   "aula.encuestas": "🗳️ Encuestas",
   "aula.noHayEncuestasActivasPara": "No hay encuestas activas para esta aula.",
   "aula.verYVotar": "Ver y votar →",
+  "aula.encuestaActiva": "encuesta activa.",
+  "aula.encuestasActivas": "encuestas activas.",
   "aula.proximasActividades": "Próximas actividades",
   "aula.noHayActividadesProgramadas": "No hay actividades programadas.",
   "aula.subastasActivas": "🏷️ Subastas activas",
@@ -1004,7 +953,6 @@
   "aula.drive": "Drive",
   "aula.youtube": "YouTube",
   "aula.externo": "Externo",
-
   "menualumno.bienvenido": "Bienvenido,",
   "menualumno.proximaClase": "Próxima clase",
   "menualumno.misModulos": "Mis módulos",
@@ -1016,7 +964,6 @@
   "menualumno.volverATuPanel": "Volver a tu panel",
   "menualumno.progresoGeneral": "Progreso general",
   "menualumno.monedas": "Monedas",
-
   "metodologia.metodologiaDeEnsenanza": "Metodología de Enseñanza",
   "metodologia.unaAproximacionModernaYAdaptativa": "Una aproximación moderna y adaptativa al aprendizaje, inspirada en Montessori y potenciada por tecnología.",
   "metodologia.principiosFundamentales": "Principios Fundamentales",
@@ -1057,10 +1004,12 @@
   "metodologia.formulasYEcuaciones": "Fórmulas y ecuaciones",
   "metodologia.multiplesRespuestasCorrectas": "Múltiples respuestas correctas",
   "metodologia.dificultadCreciente": "Dificultad creciente",
-
   "moduloDetail.cargandoModulo": "Cargando módulo...",
   "moduloDetail.errorAlCargar": "Error al cargar",
   "moduloDetail.noSeEncontroInformacionDel": "No se encontró información del módulo.",
+  "moduloDetail.noSeEncontro": "No se encontró",
+  "moduloDetail.vistaPrevia": "Vista previa",
+  "moduloDetail.buscar": "Buscar",
   "moduloDetail.leerEnVozAlta": "🔊 Leer en voz alta",
   "moduloDetail.detener": "⏹ Detener",
   "moduloDetail.velocidadDeLectura": "Velocidad de lectura",
@@ -1112,7 +1061,6 @@
   "moduloDetail.sinPreguntasNiGeneradorConfigurado": "Sin preguntas ni generador configurado.",
   "moduloDetail.generadorNoDisponibleEnEl": "Generador no disponible en el cliente.",
   "moduloDetail.noSePudoGenerarLa": "No se pudo generar la vista previa.",
-
   "moduloEditor.noSePudieronCargarTus": "No se pudieron cargar tus cuestionarios sueltos.",
   "moduloEditor.noTenesCuestionariosSueltosTodavia": "No tenés cuestionarios sueltos todavía. Se crean automáticamente al armar 2 o más preguntas desde \"Crear pregunta\" sin abrir un módulo.",
   "moduloEditor.vistaAlumno": "👁 Vista alumno",
@@ -1227,7 +1175,6 @@
   "moduloEditor.general": "General",
   "moduloEditor.herramientas": "Herramientas",
   "moduloEditor.sinPreguntasConfiguradas": "Sin preguntas configuradas.",
-
   "modulosList.exploraElListadoDeModulos": "Explora el listado de módulos disponibles y gestiona su contenido.",
   "modulosList.crearModulo": "+ Crear módulo",
   "modulosList.cargandoModulos": "Cargando módulos...",
@@ -1247,7 +1194,6 @@
   "modulosList.buscarModulo": "Buscar módulo...",
   "modulosList.misModulos": "Mis módulos",
   "modulosList.publicos": "Públicos",
-
   "intentoDetalle.cargandoIntento": "Cargando intento...",
   "intentoDetalle.noSePudoCargarEl": "No se pudo cargar el intento.",
   "intentoDetalle.alumno": "Alumno:",
@@ -1256,12 +1202,10 @@
   "intentoDetalle.volverACalificaciones": "Volver a calificaciones",
   "intentoDetalle.score": "Score",
   "intentoDetalle.entrega": "Entrega",
-
   "lineaTiempoEditorPage.cargandoMaterial": "Cargando material…",
   "lineaTiempoEditorPage.noSeEncontroLaLinea": "No se encontró la línea de tiempo.",
   "lineaTiempoEditorPage.editorDeLineaDeTiempo": "Editor de línea de tiempo",
   "lineaTiempoEditorPage.volverAMateriales": "Volver a materiales",
-
   "mapaEditorFull.color": "Color",
   "mapaEditorFull.saltarAlLienzo": "Saltar al lienzo",
   "mapaEditorFull.estasProbandoElEditorTu": "Estás probando el editor — tu trabajo no se guarda.",
@@ -1361,19 +1305,15 @@
   "mapaEditorFull.area2": "Área",
   "mapaEditorFull.texto2": "Texto",
   "mapaEditorFull.medir2": "Medir",
-
   "mapaEditorPage.cargandoMaterial": "Cargando material…",
-
   "presentacionEditorPage.cargandoMaterial": "Cargando material…",
   "presentacionEditorPage.noSeEncontroLaPresentacion": "No se encontró la presentación.",
-
   "plantillasModeracion.moderacionDePlantillasVblang": "Moderación de plantillas VBLang",
   "plantillasModeracion.plantillasPublicasPendientesDeAprobacion": "Plantillas públicas pendientes de aprobación.",
   "plantillasModeracion.noHayPlantillasPendientesDe": "No hay plantillas pendientes de moderación.",
   "plantillasModeracion.ver": "Ver",
   "plantillasModeracion.aprobar": "Aprobar",
   "plantillasModeracion.rechazar": "Rechazar",
-
   "quizAttempt.array": "| Array",
   "quizAttempt.cargandoIntento": "Cargando intento...",
   "quizAttempt.herramientaInteractiva": "Herramienta interactiva",
@@ -1409,15 +1349,11 @@
   "quizAttempt.indicadorDePagina": "Indicador de página",
   "quizAttempt.siguientePregunta": "Siguiente pregunta",
   "quizAttempt.rankingDeCompetencia": "Ranking de competencia",
-
   "navbar.verEconomia": "Ver economía",
   "navbar.juegoseducativos": "juegosEducativos",
-
   "dateInput.abrirCalendario": "Abrir calendario",
-
   "routeErrorBoundary.reintentando": "Reintentando...",
   "routeErrorBoundary.volverAlInicio": "Volver al inicio",
-
   "bancoCuestionarios.noSePudoCargarEl": "No se pudo cargar el banco.",
   "bancoCuestionarios.noHayCuestionariosDisponiblesPara": "No hay cuestionarios disponibles para esta búsqueda.",
   "bancoCuestionarios.importarAlAzar": "+ Importar al azar",
@@ -1425,14 +1361,12 @@
   "bancoCuestionarios.todos": "Todos",
   "bancoCuestionarios.globalAdmin": "Global (admin)",
   "bancoCuestionarios.miEscuela": "Mi escuela",
-
   "bancoCuestionariosMulti.errorAlCargarElBanco": "Error al cargar el banco.",
   "bancoCuestionariosMulti.noHayCuestionariosAqui": "No hay cuestionarios aquí.",
   "bancoCuestionariosMulti.auto": "Auto",
   "bancoCuestionariosMulti.porCuestionario": "por cuestionario",
   "bancoCuestionariosMulti.importarAlCuestionario": "Importar al cuestionario",
   "bancoCuestionariosMulti.buscar": "Buscar...",
-
   "bancoPreguntasEditor.respuestaCorrecta": "Respuesta correcta",
   "bancoPreguntasEditor.exportarJson": "⬇ Exportar JSON",
   "bancoPreguntasEditor.opcionMultiple": "Opción múltiple",
@@ -1445,10 +1379,19 @@
   "bancoPreguntasEditor.enunciadoDeLaPregunta": "Enunciado de la pregunta",
   "bancoPreguntasEditor.verdadero": "Verdadero",
   "bancoPreguntasEditor.falso": "Falso",
-
   "editorSectionNav.seccionesDelEditor": "Secciones del editor",
-
   "evaluacionConfig.configuracionDeEvaluacion": "Configuración de evaluación",
+  "evaluacionConfig.defaultsParaEsteTipo": "Defaults para este tipo: timer",
+  "comun.politica": "política",
+  "evaluacionConfig.politicaMejor": "Mejor",
+  "evaluacionConfig.politicaUltima": "Última",
+  "evaluacionConfig.politicaPrimera": "Primera",
+  "evaluacionConfig.politicaPromedio": "Promedio",
+  "comun.minutos": "minutos",
+  "comun.pantallaCompleta": "pantalla completa",
+  "comun.si": "sí",
+  "comun.no": "no",
+  "evaluacionConfig.defaultDosPuntos": "default:",
   "evaluacionConfig.ocultarElPuntajeCrudoAl": "Ocultar el puntaje crudo al alumno (sólo se muestra la nota)",
   "evaluacionConfig.timer": "Timer",
   "evaluacionConfig.sinTimer": "Sin timer",
@@ -1464,7 +1407,6 @@
   "evaluacionConfig.ruteoPorDificultad": "Ruteo por dificultad",
   "evaluacionConfig.ventanaRespuestasParaSubirBajar": "Ventana (respuestas para subir/bajar 1 nivel)",
   "evaluacionConfig.dificultadInicial": "Dificultad inicial",
-
   "generadorSelector.paso1Materia": "Paso 1 — Materia",
   "generadorSelector.paso2Tema": "Paso 2 — Tema",
   "generadorSelector.limpiarSeleccion": "✕ Limpiar selección",
@@ -1473,7 +1415,6 @@
   "generadorSelector.cantidad": "Cantidad",
   "generadorSelector.semillaOpcional": "Semilla (opcional)",
   "generadorSelector.incluyeGrafico": "Incluye gráfico",
-
   "herramientaPicker.confirmarGrafico": "Confirmar gráfico",
   "herramientaPicker.confirmarDiagrama": "Confirmar diagrama",
   "herramientaPicker.modoBloqueDisplaymode": "Modo bloque (displayMode)",
@@ -1503,7 +1444,6 @@
   "herramientaPicker.lineaDeTiempo": "Línea de tiempo",
   "herramientaPicker.historiaBiologia": "Historia, biología",
   "herramientaPicker.evento1": "Evento 1",
-
   "posicionesCanvas.elCuestionarioNoTienePosiciones": "El cuestionario no tiene posiciones todavía.",
   "posicionesCanvas.anadirPosicion": "+ Añadir posición",
   "posicionesCanvas.fija": "Fija",
@@ -1515,7 +1455,6 @@
   "posicionesCanvas.posicionesDelCuestionario": "Posiciones del cuestionario",
   "posicionesCanvas.anadirUnaPosicionAlFinal": "Añadir una posición al final del cuestionario",
   "posicionesCanvas.cerrarMenu": "Cerrar menú",
-
   "quizComposicionEditor.composicionDelQuiz": "Composición del quiz",
   "quizComposicionEditor.cuantasPreguntasSePresentan": "¿Cuántas preguntas se presentan?",
   "quizComposicionEditor.unSubconjuntoDe": "Un subconjunto de",
@@ -1527,7 +1466,6 @@
   "quizComposicionEditor.ordenFijo": "Orden fijo",
   "quizComposicionEditor.alAzar": "Al azar",
   "quizComposicionEditor.eligeElAlumno": "Elige el alumno",
-
   "quizEditorGenerated.configuracionDelGenerador": "Configuración del generador",
   "quizEditorGenerated.cambiar": "Cambiar",
   "quizEditorGenerated.subtiposDelPool": "Subtipos del pool",
@@ -1538,7 +1476,6 @@
   "quizEditorGenerated.seleccionaUnGeneradorYLa": "Seleccioná un generador y la cantidad para ver ejemplos.",
   "quizEditorGenerated.filtrarPorMateriaOGenerador": "Filtrar por materia o generador…",
   "quizEditorGenerated.filtrarGeneradores": "Filtrar generadores",
-
   "quizEditorManual.aunNoAgregastePreguntasManuales": "Aún no agregaste preguntas manuales.",
   "quizEditorManual.herramientaInteractiva": "Herramienta interactiva",
   "quizEditorManual.quitarHerramienta": "Quitar herramienta",
@@ -1553,11 +1490,9 @@
   "quizEditorManual.ejDerivadasVocabulario": "Ej: derivadas, vocabulario",
   "quizEditorManual.respuesta": "Respuesta",
   "quizEditorManual.explicacionOpcional": "Explicación (opcional)",
-
   "quizGeneratedPreview.laVistaPreviaEnVivo": "La vista previa en vivo está disponible para plantillas VBLang. Este generador se previsualiza al rendir el examen.",
   "quizGeneratedPreview.generandoVistaPrevia": "Generando vista previa…",
   "quizGeneratedPreview.sinEjemplosParaMostrar": "Sin ejemplos para mostrar.",
-
   "quizPosicionesEditor.posicionesDelCuestionario": "Posiciones del cuestionario",
   "quizPosicionesEditor.cuestionarioMigradoDelModeloAnterior": "Cuestionario migrado del modelo anterior. Se guardará en el modelo de posiciones al editarlo.",
   "quizPosicionesEditor.cadaPosicionGeneraExactamenteUna": "Cada posición genera exactamente una pregunta por intento (el sorteo elige una variante). La cantidad total de preguntas que ve el alumno es igual al número de posiciones.",
@@ -1566,7 +1501,6 @@
   "quizPosicionesEditor.nombreDelNuevoTema": "Nombre del nuevo tema",
   "quizPosicionesEditor.nuevoTema": "Nuevo tema…",
   "quizPosicionesEditor.vistaPreviaDelEditor": "Vista previa del editor",
-
   "repartoPuntos.elCuestionarioNoTienePosiciones": "El cuestionario no tiene posiciones todavía.",
   "repartoPuntos.total": "Total:",
   "repartoPuntos.repartoPorSeccion": "Reparto por sección",
@@ -1577,15 +1511,12 @@
   "repartoPuntos.ratio": "Ratio",
   "repartoPuntos.resumenDelPuntajeDelCuestionario": "Resumen del puntaje del cuestionario",
   "repartoPuntos.repartoDelPuntajePorSeccion": "Reparto del puntaje por sección",
-
   "slidePresenter.paraNavegarEscParaSalir": "← → para navegar · Esc para salir",
   "slidePresenter.cerrarEsc": "Cerrar (Esc)",
   "slidePresenter.anterior": "Anterior (←)",
   "slidePresenter.siguienteOEspacio": "Siguiente (→ o Espacio)",
-
   "theoryItemCard.herramientaNoConfigurada": "Herramienta no configurada",
   "theoryItemCard.presentar": "Presentar",
-
   "theorySlideEditor.diapositiva": "Diapositiva",
   "theorySlideEditor.layout": "Layout:",
   "theorySlideEditor.cambiar": "cambiar ·",
@@ -1874,7 +1805,6 @@
   "theorySlideEditor.zoom": "Zoom",
   "theorySlideEditor.latitud": "Latitud",
   "theorySlideEditor.longitud": "Longitud",
-
   "varianteEditor.origen": "Origen",
   "varianteEditor.preguntaSeleccionada": "Pregunta seleccionada:",
   "varianteEditor.noHayPreguntasManualesEn": "No hay preguntas manuales en este cuestionario. Agregá preguntas en el editor manual para referenciarlas desde el banco.",
@@ -1901,7 +1831,6 @@
   "varianteEditor.preguntaDelBancoF6": "Pregunta del banco F6",
   "varianteEditor.bancoDeEscuelaAExplorar": "Banco de escuela a explorar",
   "varianteEditor.preguntaDelBancoDeEscuela": "Pregunta del banco de escuela",
-
   "vistaAlumnoOverlay.losIntentosNoSeGuardan": "— los intentos no se guardan.",
   "vistaAlumnoOverlay.cerrar": "Cerrar ✕",
   "vistaAlumnoOverlay.teoria": "Teoría",
@@ -1923,9 +1852,7 @@
   "vistaAlumnoOverlay.preguntaAnterior": "Pregunta anterior",
   "vistaAlumnoOverlay.indicadorDePregunta": "Indicador de pregunta",
   "vistaAlumnoOverlay.preguntaSiguiente": "Pregunta siguiente",
-
   "visualizerRenderer.circuitoVacio": "Circuito vacío",
-
   "escaladorRecetas.ingredientes": "Ingredientes",
   "escaladorRecetas.porcionesBase": "Porciones base",
   "escaladorRecetas.agregar": "+ Agregar",
@@ -1938,7 +1865,6 @@
   "escaladorRecetas.cant": "Cant.",
   "escaladorRecetas.unidad": "Unidad",
   "escaladorRecetas.descripcionDelPaso": "Descripción del paso",
-
   "lineaTiempo.estaLineaDeTiempoTodavia": "Esta línea de tiempo todavía no tiene eventos.",
   "lineaTiempo.tituloOpcional": "Título (opcional)",
   "lineaTiempo.agregar": "+ Agregar",
@@ -1949,7 +1875,6 @@
   "lineaTiempo.ejRevolucionFrancesa": "Ej: Revolución Francesa",
   "lineaTiempo.ej1789SigloXviii": "Ej: 1789, Siglo XVIII",
   "lineaTiempo.ejPoliticaGuerra": "Ej: política, guerra",
-
   "mapaStandalone.color": "Color",
   "mapaStandalone.politico": "Político",
   "mapaStandalone.fisico": "Físico",
@@ -1970,7 +1895,6 @@
   "mapaStandalone.alejarRuedaHaciaAbajo": "Alejar (rueda hacia abajo)",
   "mapaStandalone.restablecerZoom": "Restablecer zoom",
   "mapaStandalone.restablecerZoomInicio": "Restablecer zoom (Inicio)",
-
   "tablaPeriodica.masaAtomica": "Masa atómica",
   "tablaPeriodica.categoria": "Categoría",
   "tablaPeriodica.fase": "Fase",
@@ -1983,33 +1907,26 @@
   "tablaPeriodica.cerrarDetalleDelElemento": "Cerrar detalle del elemento",
   "tablaPeriodica.leyendaDeCategorias": "Leyenda de categorías",
   "tablaPeriodica.tablaPeriodicaDeLosElementos": "Tabla periódica de los elementos",
-
   "toolPreview.vistaPreviaNoDisponible": "Vista previa no disponible",
-
   "asignarModulosModal.asignarModulosAlAula": "Asignar módulos al aula",
   "asignarModulosModal.cerrarModal": "Cerrar modal",
   "asignarModulosModal.buscarModuloPorTitulo": "Buscar módulo por título…",
   "asignarModulosModal.buscarModulo": "Buscar módulo",
   "asignarModulosModal.cargandoModulos": "Cargando módulos",
-
   "attemptEventsPanel.eventosDelIntento": "Eventos del intento",
   "attemptEventsPanel.sinEventosRegistrados": "Sin eventos registrados",
   "attemptEventsPanel.canarioDisparadoRespuestasInvalidasDetectadas": "Canario disparado (respuestas inválidas detectadas)",
-
   "correccionesPendientes.sinRespuesta": "Sin respuesta",
   "correccionesPendientes.feedbackOpcional": "Feedback (opcional)",
   "correccionesPendientes.pendientesDeCorreccion": "Pendientes de corrección",
   "correccionesPendientes.noHayPreguntasAbiertasPendientes": "No hay preguntas abiertas pendientes de corrección.",
   "correccionesPendientes.comentarioParaElAlumno": "Comentario para el alumno",
-
   "matrizProgreso.alumno": "Alumno",
   "matrizProgreso.completado": "Completado",
   "matrizProgreso.cargandoMatrizDeProgreso": "Cargando matriz de progreso",
-
   "analisisSpansRenderer.agregar": "Agregar",
   "analisisSpansRenderer.faltaron": "Faltaron:",
   "analisisSpansRenderer.etiquetaDelRango": "Etiqueta del rango",
-
   "marcarMapaRenderer.mapa": "Mapa",
   "marcarMapaRenderer.cargandoMapa": "Cargando mapa…",
   "marcarMapaRenderer.noSePudoCargarEl": "No se pudo cargar el mapa.",
@@ -2020,32 +1937,35 @@
   "marcarMapaRenderer.alejarRuedaHaciaAbajo": "Alejar (rueda hacia abajo)",
   "marcarMapaRenderer.restablecerZoom": "Restablecer zoom",
   "marcarMapaRenderer.restablecerZoomInicio": "Restablecer zoom (Inicio)",
-
   "aulaActionsBar.accionesDelAula": "Acciones del aula",
   "aulaActionsBar.tomarAsistencia": "Tomar asistencia",
   "aulaActionsBar.publicarAnuncio": "Publicar anuncio",
   "aulaActionsBar.asignarModulo": "Asignar módulo",
   "aulaActionsBar.estadisticas": "Estadísticas",
-
   "continuarCard.continuarDondeDejaste": "Continuar donde dejaste",
   "continuarCard.continuar": "Continuar →",
-
   "codeEditor.tabIndentaDosEspaciosPara": "Tab indenta dos espacios. Para mover el foco fuera del editor, pulsá Escape y luego Tab.",
   "codeEditor.sugerenciasDeAutocompletado": "Sugerencias de autocompletado",
-
   "datasetExplorer.usalosCon": "Usalos con",
   "datasetExplorer.noHayDatasetsDisponiblesCrea": "No hay datasets disponibles. Creá uno en la sección Datasets.",
   "datasetExplorer.datasetsDisponibles": "Datasets disponibles",
-
   "ejemplosMenu.tenesCambiosSinGuardarReemplazar": "Tenés cambios sin guardar. ¿Reemplazar el código por el ejemplo?",
   "ejemplosMenu.reemplazar": "Reemplazar",
   "ejemplosMenu.ejemplos": "Ejemplos ▾",
   "ejemplosMenu.plantillasDeEjemplo": "Plantillas de ejemplo",
-
   "errorPanel.escribiCodigoParaValidar": "Escribí código para validar.",
   "errorPanel.sinErrores": "Sin errores ✓",
   "errorPanel.erroresYAdvertencias": "Errores y advertencias",
-
+  "errorPanel.errores": "errores",
+  "errorPanel.warnings": "warnings",
+  "errorPanel.sugerencia": "Sugerencia:",
+  "errorPanel.irALinea": "Ir a línea",
+  "errorPanel.columna": "columna",
+  "editorShell.noSePudoParsearElCodigo": "No se pudo parsear el código en línea",
+  "editorShell.elUltimoEstadoValidoSe": "El último estado válido se mantiene. Corregí el código para sincronizar el formulario.",
+  "editorShell.avisosDelLinter": "Avisos del linter",
+  "editorShell.mas": "más…",
+  "errorPanel.irAL": "Ir a L",
   "generadorDocsPanel.cargandoDocumentacion": "Cargando documentación…",
   "generadorDocsPanel.esteGeneradorNoTieneDocumentacion": "Este generador no tiene documentación de variables. Igual podés usarlo:",
   "generadorDocsPanel.variable": "Variable",
@@ -2064,16 +1984,13 @@
   "generadorDocsPanel.saleUnSubtipoAlAzar": "sale un subtipo al azar.",
   "generadorDocsPanel.dificultadIntermedio": "dificultad: \"intermedio\"",
   "generadorDocsPanel.documentacionDelGenerador": "Documentación del generador",
-
   "generadorPicker.generador": "Generador",
   "generadorPicker.elegirGenerador": "— Elegir generador —",
   "generadorPicker.filtrarPorMateriaOGenerador": "Filtrar por materia o generador...",
   "generadorPicker.filtrarGeneradores": "Filtrar generadores",
-
   "langSelector.cargandoIdiomas": "Cargando idiomas…",
   "langSelector.diccionarioNoDisponibleElAutocompletado": "Diccionario no disponible. El autocompletado y la validación de palabras quedan deshabilitados.",
   "langSelector.idiomaDelDiccionario": "Idioma del diccionario",
-
   "metadataPanel.metadatos": "Metadatos",
   "metadataPanel.nombre": "Nombre *",
   "metadataPanel.otra": "Otra…",
@@ -2082,21 +1999,18 @@
   "metadataPanel.ejMruConDatosAl": "Ej: MRU con datos al azar",
   "metadataPanel.escribiLaMateria": "Escribí la materia",
   "metadataPanel.escribiYEnterEjCinematica": "Escribí y Enter (ej. cinemática)",
-
   "nuevaPlantillaWizard.elegiUnEjemploParaArrancar": "Elegí un ejemplo para arrancar con la estructura ya armada, o empezá en blanco.",
   "nuevaPlantillaWizard.enBlanco": "En blanco",
   "nuevaPlantillaWizard.empezarEnBlanco": "Empezar en blanco",
   "nuevaPlantillaWizard.arrancaConUnTemplateMinimo": "Arranca con un template mínimo de variables + enunciado + respuesta (útil para input numérico).",
   "nuevaPlantillaWizard.empezaUnaNuevaPlantilla": "Empezá una nueva plantilla",
   "nuevaPlantillaWizard.cerrarWizard": "Cerrar wizard",
-
   "opcionesEditor.cantidad": "Cantidad",
   "opcionesEditor.opcionesExplicitas": "Opciones explícitas",
   "opcionesEditor.agregarOpcion": "+ Agregar opción",
   "opcionesEditor.cambiarAModoCantidadDescartara": "Cambiar a modo Cantidad descartará las opciones explícitas actuales. ¿Continuar?",
   "opcionesEditor.continuar": "Continuar",
   "opcionesEditor.quitarOpcion": "Quitar opción",
-
   "plantillaEditorSchema.valorInvalidoSeConservaEl": "Valor inválido: se conserva el último válido.",
   "plantillaEditorSchema.verdadero": "Verdadero",
   "plantillaEditorSchema.falso": "Falso",
@@ -2112,6 +2026,30 @@
   "plantillaEditorSchema.elAltEsObligatorioPara": "El alt es obligatorio para insertar la imagen.",
   "plantillaEditorSchema.quitarImagen": "Quitar imagen",
   "plantillaEditorSchema.tipoDePregunta": "Tipo de pregunta",
+  "editorPlantilla.definiLaRespuestaPorTipo": "Definí la respuesta por tipo, o dejá que un generador provea datos y clave.",
+  "editorPlantilla.elGeneradorProveeLosDatos": "El generador provee los datos y la respuesta; escribí la consigna en el enunciado.",
+  "editorPlantilla.textoDeLaConsignaParaEl": "Texto de la consigna para el alumno.",
+  "editorPlantilla.mapaACargarClaveDeRespuesta": "Mapa a cargar, clave de respuesta (ISO o nombre) y encuadre.",
+  "editorPlantilla.claveDeRespuestaYParametros": "Clave de respuesta y parámetros de corrección según el tipo.",
+  "editorPlantilla.opcionesItems": "Opciones / ítems",
+  "editorPlantilla.listaDeOpcionesOItems": "Lista de opciones o ítems a presentar.",
+  "editorPlantilla.etiquetas": "Etiquetas",
+  "editorPlantilla.paresPalabraEtiqueta": "Pares palabra → etiqueta (la respuesta correcta), con búsqueda en el diccionario.",
+  "editorPlantilla.camposAunNoEditablesEn": "Campos aún no editables en V2",
+  "editorPlantilla.sePreservanTalCualEn": "se preservan tal cual en el DSL. Editálos desde el editor clásico o el modo código.",
+  "editorPlantilla.variablesAleatoriasQueSeEvaluan": "Variables aleatorias que se evalúan en cada instancia.",
+  "editorPlantilla.visual": "Visual",
+  "editorPlantilla.imagenODiagramaAsociadoA": "Imagen o diagrama asociado a la pregunta.",
+  "editorPlantilla.metadataDeLaPregunta": "Metadata de la pregunta.",
+  "editorPlantilla.retroalimentacionQueSeMuestra": "Retroalimentación que se muestra al alumno tras responder.",
+  "editorPlantilla.condicionesQueLasVariables": "Condiciones que las variables deben cumplir.",
+  "editorPlantilla.pistasQueElAlumnoPide": "Pistas que el alumno pide de a una (además de la pista única de metadata).",
+  "editorPlantilla.dataset": "Dataset",
+  "editorPlantilla.fuenteDeDatosQueAlimenta": "Fuente de datos que alimenta la plantilla (opcional).",
+  "editorPlantilla.bloquesPreservados": "Bloques preservados",
+  "editorPlantilla.noSeEditanEnV2": "No se editan en V2; se mantienen en el DSL.",
+  "editorPlantilla.estosBloquesEstanPresentesY": "Estos bloques están presentes y se preservan intactos en el código:",
+  "editorPlantilla.editalosDesdeElEditorClasico": "Editalos desde el editor clásico o el modo código.",
   "plantillaEditorSchema.generadorAsistido": "Generador asistido",
   "plantillaEditorSchema.conUnGeneradorActivoLos": "Con un generador activo, los datos y la respuesta los provee el generador. Escribí la consigna acá e insertá las variables tocándolas en la lista de arriba.",
   "plantillaEditorSchema.estosBloquesNoSeEditan": "Estos bloques no se editan en el formulario y se preservan tal cual en el código:",
@@ -2184,21 +2122,18 @@
   "plantillaEditorSchema.texto": "Texto",
   "plantillaEditorSchema.expresion": "Expresión",
   "plantillaEditorSchema.argentina": "Argentina",
-
   "plantillaSelectorModal.seleccionarPlantillaVblang": "Seleccionar plantilla VBLang",
   "plantillaSelectorModal.misPlantillas": "Mis plantillas",
   "plantillaSelectorModal.biblioteca": "Biblioteca",
   "plantillaSelectorModal.crearNuevaPlantilla": "+ Crear nueva plantilla",
   "plantillaSelectorModal.buscarPorNombre": "Buscar por nombre…",
   "plantillaSelectorModal.cargandoPlantillas": "Cargando plantillas",
-
   "previewPanel.regenerar": "Regenerar",
   "previewPanel.sinPreviewTodavia": "Sin preview todavía.",
   "previewPanel.comprobar": "Comprobar",
   "previewPanel.vistaPreviaDeLaPlantilla": "Vista previa de la plantilla",
   "previewPanel.tuRespuesta": "Tu respuesta",
   "previewPanel.tuRespuesta2": "Tu respuesta…",
-
   "promptIAPanel.copiarPromptParaIa": "Copiar prompt para IA",
   "promptIAPanel.1DescribiElEjercicio": "1. Describí el ejercicio",
   "promptIAPanel.enLenguajeNaturalTemaTipo": "En lenguaje natural: tema, tipo de pregunta, qué variables debería tener, etc.",
@@ -2209,8 +2144,10 @@
   "promptIAPanel.descripcionDelEjercicio": "Descripción del ejercicio",
   "promptIAPanel.respuestaDeLaIa": "Respuesta de la IA",
   "promptIAPanel.pegaAcaLaRespuestaDe": "Pegá acá la respuesta de la IA…",
-
   "quizConfigPanel.contenido": "Contenido",
+  "quizConfigPanel.sinMateriaParentesis": "(sin materia)",
+  "quizConfigPanel.quitarTag": "Quitar tag",
+  "tizaEditor.cuestionarioRail": "CUESTIONARIO",
   "quizConfigPanel.otra": "Otra…",
   "quizConfigPanel.practicaNoCuentaParaLa": "Práctica — no cuenta para la nota",
   "quizConfigPanel.evaluacionFormalCuentaParaLa": "Evaluación formal — cuenta para la nota",
@@ -2228,7 +2165,6 @@
   "quizConfigPanel.escribiYEnterEjCinematica": "Escribí y Enter (ej. cinemática)",
   "quizConfigPanel.instruccionesParaElAlumno": "Instrucciones para el alumno",
   "quizConfigPanel.ejLeeCadaPreguntaCon": "Ej: Leé cada pregunta con atención. Tenés 30 minutos.",
-
   "referenciaRapida.referenciaVblang": "Referencia VBLang",
   "referenciaRapida.reglasCriticas": "Reglas críticas",
   "referenciaRapida.bloques": "Bloques",
@@ -2266,10 +2202,8 @@
   "referenciaRapida.hacerClickEnUnPais": "Hacer click en un país/región del mapa.",
   "referenciaRapida.etiquetarGramaticalmenteCadaPalabra": "Etiquetar gramaticalmente cada palabra.",
   "referenciaRapida.marcarPalabrasQueCumplenUn": "Marcar palabras que cumplen un criterio.",
-
   "snippetBar.snippets": "Snippets",
   "snippetBar.insertarBloqueDelDsl": "Insertar bloque del DSL",
-
   "tizaEditor.heredado": "Heredado",
   "tizaEditor.opcionMultiple": "Opción múltiple",
   "tizaEditor.numerica": "Numérica",
@@ -2283,6 +2217,9 @@
   "tizaEditor.pasosDeResolucion": "Pasos de resolución",
   "tizaEditor.restricciones": "Restricciones",
   "tizaEditor.pistas": "Pistas",
+  "tizaEditor.escalonada": "escalonada",
+  "tizaEditor.sobreVariables": "sobre variables",
+  "tizaEditor.pronto": "pronto",
   "tizaEditor.explicacion": "Explicación",
   "tizaEditor.anadirBloque": "Añadir bloque",
   "tizaEditor.tipoDePregunta": "Tipo de pregunta",
@@ -2335,35 +2272,38 @@
   "tizaEditor.restriccion": "Restricción",
   "tizaEditor.varianteDeEnunciado": "Variante de enunciado",
   "tizaEditor.datasetExterno": "Dataset externo",
-
+  "tizaEditor.propiedades": "PROPIEDADES",
+  "tizaEditor.usa": "Usá",
+  "tizaEditor.expresionSobreVariablesAhora": "Expresión sobre variables · ahora",
+  "tizaEditor.elGeneradorProveeLosDatos": "El generador provee los datos y la respuesta; tu enunciado puede usar sus variables. Elegir \"— Elegir generador —\" lo quita y vuelve a la base por tipo.",
+  "tizaEditor.ejANoIgual0": "ej. a != 0",
+  "tizaEditor.copiar": "copiar",
+  "tizaEditor.paraPegarEnElEnunciado": "para pegar en el enunciado",
+  "tizaEditor.cuantasVecesPuedeOcupar": "Cuántas veces puede ocupar un slot. Vacío = sin límite propio (el tope lo pone la cantidad global del cuestionario).",
+  "tizaEditor.agrupaPreguntasIntercambiables": "Agrupa preguntas intercambiables. Vacío = pool implícita compartida por todas las de relleno sin pool propia.",
+  "tizaEditor.poolsExistentes": "Pools existentes:",
+  "tizaEditor.pesoDeEstaPreguntaEnEl": "Peso de esta pregunta en el puntaje total. Vacío = 1.",
   "validationReport.validacion": "Validación",
   "validationReport.generando100Ejercicios": "Generando 100 ejercicios…",
   "validationReport.reporteDeValidacion": "Reporte de validación",
   "validationReport.progresoDeValidacion": "Progreso de validación",
-
   "variableCard.itemsUnoPorLinea": "ítems (uno por línea)",
   "variableCard.expresion": "expresión",
   "variableCard.anadir": "Añadir",
   "variableCard.a1": "a + 1",
   "variableCard.manzanaNbananaNnaranja": "manzana\\nbanana\\nnaranja",
-
   "variablesEditor.anadir": "+ Añadir",
   "variablesEditor.variablesDeLaPlantilla": "Variables de la plantilla",
-
   "cronometro.tiempoAgotadoEnviandoRespuestas": "Tiempo agotado — enviando respuestas...",
-
   "guardarComoMaterial.guardado": "✓ Guardado",
   "guardarComoMaterial.guardarComoMaterial": "Guardar como material",
   "guardarComoMaterial.elegiUnTituloParaPoder": "Elegí un título para poder reabrirlo o reusarlo más adelante.",
   "guardarComoMaterial.guardar": "Guardar",
   "guardarComoMaterial.nombreDelMaterial": "Nombre del material",
-
   "insertarMaterialGuardado.insertarMaterialGuardado": "Insertar material guardado",
   "insertarMaterialGuardado.todaviaNoGuardasteNingunMaterial": "Todavía no guardaste ningún material.",
-
   "radioGroup.baja": "Baja",
   "radioGroup.alta": "Alta",
-
   "comun.esAr": "es-AR",
   "comun.guardando": "Guardando…",
   "comun.enter": "Enter",
@@ -2388,7 +2328,6 @@
   "comun.moduloeditor": "ModuloEditor",
   "comun.presentacion": "Presentación",
   "comun.quizid": "quizId",
-
   "admin.buscaModeraYGestionaRoles": "Busca, modera y gestiona roles de los usuarios de la plataforma.",
   "admin.creaEditaYActivaDesactiva": "Crea, edita y activa/desactiva materias disponibles en la plataforma.",
   "admin.modulosPublicos": "Módulos públicos",
@@ -2403,7 +2342,6 @@
   "admin.recompensaMaximaPorAccion": "Recompensa máxima por acción",
   "admin.recompensaDiariaMaxPorUser": "Recompensa diaria máx. por user",
   "admin.guardarConfiguracion": "Guardar configuración",
-
   "adminComisiones.noPudimosCargarLasComisiones": "No pudimos cargar las comisiones.",
   "adminComisiones.liquidacionRegistrada": "Liquidación registrada.",
   "adminComisiones.noHaySaldoPendientePara": "No hay saldo pendiente para liquidar (o falló la operación).",
@@ -2411,23 +2349,19 @@
   "adminComisiones.noSePudoExportarEl": "No se pudo exportar el CSV.",
   "adminComisiones.liquidando": "Liquidando…",
   "adminComisiones.liquidar": "Liquidar",
-
   "adminMaterias.elNombreEsRequerido": "El nombre es requerido.",
   "adminMaterias.nuevaMateria2": "+ Nueva materia",
   "adminMaterias.crearMateria": "Crear materia",
   "adminMaterias.inactiva": "Inactiva",
-
   "adminModeracion.elMotivoEsRequerido": "El motivo es requerido.",
   "adminModeracion.usuarioBaneadoCorrectamente": "Usuario baneado correctamente.",
   "adminModeracion.advertenciaEnviadaCorrectamente": "Advertencia enviada correctamente.",
   "adminModeracion.aplicando": "Aplicando…",
   "adminModeracion.aplicarBan": "Aplicar ban",
   "adminModeracion.enviando": "Enviando…",
-
   "adminReportesGlobal.ban": "Ban",
   "adminReportesGlobal.advertencia": "Advertencia",
   "adminReportesGlobal.cambioDeRol": "Cambio de rol",
-
   "adminUsuarios.admin": "Admin",
   "adminUsuarios.padre": "Padre",
   "adminUsuarios.elMotivoEsRequerido": "El motivo es requerido.",
@@ -2440,7 +2374,6 @@
   "adminUsuarios.aplicando": "Aplicando…",
   "adminUsuarios.aplicarBan": "Aplicar ban",
   "adminUsuarios.enviando": "Enviando…",
-
   "alumnoEncuestas.noSePudieronCargarLas": "No se pudieron cargar las encuestas.",
   "alumnoEncuestas.noSePudieronCargarLas2": "No se pudieron cargar las aulas.",
   "alumnoEncuestas.seleccionaAlMenosDosPreferencias": "Selecciona al menos dos preferencias.",
@@ -2451,11 +2384,8 @@
   "alumnoEncuestas.votoRegistrado": "¡Voto registrado!",
   "alumnoEncuestas.noSePudoRegistrarEl": "No se pudo registrar el voto.",
   "alumnoEncuestas.noSePudieronCargarLos": "No se pudieron cargar los resultados.",
-  "alumnoEncuestas.cerrada": "Cerrada",
-
   "contact.contactoVirtualBook": "Contacto — Virtual Book",
   "contact.nuestroEquipoRespondeConsultasSobre2": "Nuestro equipo responde consultas sobre implementación, soporte técnico y acompañamiento pedagógico. Estamos para ayudarte.",
-
   "cuestionariosIndex.misCuestionarios": "Mis cuestionarios",
   "cuestionariosIndex.evaluacionFormal": "Evaluación formal",
   "cuestionariosIndex.sinPreguntas": "Sin preguntas",
@@ -2472,7 +2402,6 @@
   "cuestionariosIndex.noHayArchivados": "No hay cuestionarios archivados.",
   "cuestionariosIndex.noSePudoArchivar": "No se pudo archivar el cuestionario.",
   "cuestionariosIndex.noSePudoRestaurar": "No se pudo restaurar el cuestionario.",
-
   "datasetEditor.noEsUnNumeroValido": "no es un número válido",
   "datasetEditor.usaTrueFalse": "usá true / false",
   "datasetEditor.paraCrearUnDatasetUsa": "Para crear un dataset usá el botón «+ Nuevo dataset» en la lista.",
@@ -2489,7 +2418,6 @@
   "datasetEditor.refrescando": "Refrescando…",
   "datasetEditor.refrescarDesdeUrl": "Refrescar desde URL",
   "datasetEditor.guardarMetadata": "Guardar metadata",
-
   "economia.quePasariaSiSubeLa": "¿Qué pasaría si sube la demanda por un producto escolar clave?",
   "economia.cuandoLaDemandaSubeLos": "Cuando la demanda sube, los precios suben y conviene revisar el ahorro.",
   "economia.quePasariaSiElTipo": "¿Qué pasaría si el tipo de cambio se encarece en una semana?",
@@ -2516,12 +2444,20 @@
   "economia.rescatar": "Rescatar",
   "economia.tasaMensual": "Tasa % mensual",
   "economia.invertirEnFci": "Invertir en FCI",
+  "economia.cicloTipoInflacion": "Inflación",
+  "economia.cicloTipoHiperinflacion": "Hiperinflación",
+  "economia.cicloTipoDeflacion": "Deflación",
+  "economia.cicloTipoBonus": "Bono",
+  "economia.cicloTipoPenalizacion": "Penalización",
+  "economia.cicloTipoOtro": "Otro",
+  "economia.estadoRescatado": "Rescatado",
+  "economia.anual": "anual",
+  "economia.enviar": "Enviar",
+  "economia.disponible": "Disponible",
   "economia.quePasariaSi": "¿qué pasaría si...?",
   "economia.ocultar": "Ocultar",
   "economia.verResultado": "Ver resultado",
-
   "enterpriseAulas.accesstype": "accessType",
-
   "enterpriseCobros.cobroescuela": "CobroEscuela",
   "enterpriseCobros.cuotaalumno": "CuotaAlumno",
   "enterpriseCobros.escuelapasarela": "EscuelaPasarela",
@@ -2545,25 +2481,19 @@
   "enterpriseCobros.verCuotas": "Ver cuotas",
   "enterpriseCobros.publicando": "Publicando…",
   "enterpriseCobros.publicar": "Publicar",
-
   "enterpriseComisiones.noPudimosCargarLasComisiones": "No pudimos cargar las comisiones.",
   "enterpriseComisiones.noSePudoGuardarEl": "No se pudo guardar la comisión.",
-
   "enterpriseDashboard.aulaCreadaCorrectamente": "✓ Aula creada correctamente.",
   "enterpriseDashboard.noSePudoCrearEl": "No se pudo crear el aula.",
   "enterpriseDashboard.creando": "Creando...",
-
   "enterpriseMiembros.tuCuentaNoTieneUna": "Tu cuenta no tiene una escuela asignada.",
   "enterpriseMiembros.errorAlCargarMiembros": "Error al cargar miembros",
-
   "enterprisePersonalizacion.paginaPublicaDeLaEscuela": "página pública de la escuela",
   "enterprisePersonalizacion.noPudimosCargarLaPersonalizacion": "No pudimos cargar la personalización de la escuela.",
   "enterprisePersonalizacion.personalizacionGuardada": "Personalización guardada.",
   "enterprisePersonalizacion.noSePudoGuardarLa": "No se pudo guardar la personalización.",
-
   "explorar.explorarRutasDeAprendizajeVirtual": "Explorar Rutas de Aprendizaje — Virtual Book",
   "explorar.descubreModulosRecomendadosProfesoresDestacados": "Descubre módulos recomendados, profesores destacados y experiencias interactivas para reforzar tus habilidades desde un solo lugar.",
-
   "hijosAgregar.ingresaElNombreCompleto": "Ingresá el nombre completo.",
   "hijosAgregar.ingresaUnUsuarioPublico": "Ingresá un usuario público.",
   "hijosAgregar.seleccionaElCumpleanos": "Seleccioná el cumpleaños.",
@@ -2574,7 +2504,6 @@
   "hijosAgregar.validacionInvalida": "Validación inválida.",
   "hijosAgregar.permisostareas": "permisosTareas",
   "hijosAgregar.permisosmensajes": "permisosMensajes",
-
   "hijosProgreso.matematica": "Matemática",
   "hijosProgreso.lengua": "Lengua",
   "hijosProgreso.ciencias": "Ciencias",
@@ -2589,11 +2518,9 @@
   "hijosProgreso.sinNota": "Sin nota",
   "hijosProgreso.revocando": "Revocando…",
   "hijosProgreso.revocarVinculoConEsteHijo": "Revocar vínculo con este hijo",
-
   "home.rolPrincipal": "rol principal",
   "home.virtualBookPlataformaEducativaInteractiva": "Virtual Book — Plataforma Educativa Interactiva",
   "home.aprendeATuRitmoCon2": "Aprende a tu ritmo con módulos interactivos, juegos educativos y herramientas para profesores. La plataforma educativa que revoluciona el aprendizaje.",
-
   "mensajeria.tolocaledatestring": "toLocaleDateString",
   "mensajeria.admin": "Admin",
   "mensajeria.avisoPublicadoCorrectamente": "✓ Aviso publicado correctamente.",
@@ -2607,7 +2534,6 @@
   "mensajeria.publicando": "Publicando...",
   "mensajeria.publicar": "Publicar",
   "mensajeria.avisoedit": "avisoEdit",
-
   "menuProfesor.cargandoElMenuDelProfesor": "Cargando el menú del profesor...",
   "menuProfesor.visibilidadPublicado": "Visibilidad: Publicado",
   "menuProfesor.visibilidadPrivado": "Visibilidad: Privado",
@@ -2620,7 +2546,6 @@
   "menuProfesor.desactivar": "Desactivar",
   "menuProfesor.activarModoAula": "Activar modo aula",
   "menuProfesor.sinClasesAsignadas": "Sin clases asignadas",
-
   "misClases.noSePudieronCargarTus": "No se pudieron cargar tus aulas.",
   "misClases.teUnisteAlAulaCorrectamente": "✓ Te uniste al aula correctamente.",
   "misClases.codigoInvalidoOAulaNo": "Código inválido o aula no encontrada.",
@@ -2628,7 +2553,6 @@
   "misClases.unirseAOtraAulaCon": "Unirse a otra aula con código:",
   "misClases.uniendose": "Uniéndose...",
   "misClases.unirse": "Unirse",
-
   "onboardingTema.elTemaGanadorOscuroModerno": "El tema ganador. Oscuro, moderno y elegante.",
   "onboardingTema.nocturnoVb": "Nocturno VB",
   "onboardingTema.oscuroConAcentosVioletaIdeal": "Oscuro con acentos violeta. Ideal para estudiar de noche.",
@@ -2643,14 +2567,18 @@
   "onboardingTema.tonosArenaCalidosSinDistracciones": "Tonos arena cálidos sin distracciones.",
   "onboardingTema.dorado": "Dorado",
   "onboardingTema.metalicoYExclusivoElTema": "Metálico y exclusivo. El tema más premium.",
-
   "pagos.pagar": "Pagar",
   "pagos.noPudimosCargarTusCuotas": "No pudimos cargar tus cuotas.",
   "pagos.tuEscuelaTodaviaNoConecto": "Tu escuela todavía no conectó un medio de pago online. Coordiná el pago con la administración.",
   "pagos.noSePudoIniciarEl": "No se pudo iniciar el pago.",
   "pagos.cuota": "Cuota",
+  "pagos.vence": "vence",
+  "pagos.estadoPendiente": "Pendiente",
+  "pagos.estadoEnProceso": "En proceso",
+  "pagos.estadoPagada": "Pagada",
+  "pagos.estadoVencida": "Vencida",
+  "pagos.estadoAnulada": "Anulada",
   "pagos.iniciando": "Iniciando…",
-
   "perfil.completasteTuPrimerModulo": "Completaste tu primer módulo.",
   "perfil.completaste5Modulos": "Completaste 5 módulos.",
   "perfil.completaste10Modulos": "Completaste 10 módulos.",
@@ -2676,7 +2604,6 @@
   "perfil.solicitudEnviadaElAdminLa": "✓ Solicitud enviada. El admin la revisará pronto.",
   "perfil.noSePudoEnviarLa": "No se pudo enviar la solicitud.",
   "perfil.enviarSolicitud": "Enviar solicitud",
-
   "plantillaEditor.validar": "Validar",
   "plantillaEditor.lintreport": "lintReport",
   "plantillaEditor.isnew": "isNew",
@@ -2706,7 +2633,6 @@
   "plantillaEditor.dosEditoresDeTextoQue": "dos editores de texto que pisan el mismo state",
   "plantillaEditor.linea": "línea",
   "plantillaEditor.lineas": "líneas",
-
   "plantillaEditorTiza.tiza": "Tiza",
   "plantillaEditorTiza.plantillaeditorshell": "PlantillaEditorShell",
   "plantillaEditorTiza.mas": "⋯ Más",
@@ -2757,21 +2683,19 @@
   "plantillaEditorTiza.quizconfigpanel": "QuizConfigPanel",
   "plantillaEditorTiza.nuevaPlantilla": "Nueva plantilla",
   "plantillaEditorTiza.sinNombre": "Sin nombre",
+  "plantillaEditorTiza.nombreDeEstaPregunta": "Nombre de esta pregunta. Materia/tags/descripción se editan en Configuraciones y se heredan a todas.",
   "plantillaEditorTiza.applicationJsonJson": "application/json,.json",
-
   "plantillasIndex.noSePudoEliminarLa": "No se pudo eliminar la plantilla.",
   "plantillasIndex.noSePudoHacerFork": "No se pudo hacer fork.",
   "plantillasIndex.noSePudoClonarLa": "No se pudo clonar la plantilla.",
   "plantillasIndex.noHayPlantillasEnLa": "No hay plantillas en la biblioteca todavía.",
   "plantillasIndex.todaviaNoCreastePlantillas": "Todavía no creaste plantillas.",
-
   "profesorAsistencia.noSePudoCargarLa": "No se pudo cargar la planilla.",
   "profesorAsistencia.marcaElEstadoDeAl": "Marcá el estado de al menos un alumno antes de guardar.",
   "profesorAsistencia.asistenciaGuardada": "Asistencia guardada.",
   "profesorAsistencia.noSePudoGuardarLa": "No se pudo guardar la asistencia.",
   "profesorAsistencia.todosMarcados": "Todos marcados",
   "profesorAsistencia.guardarAsistencia": "Guardar asistencia",
-
   "profesorAulaConfiguracion.accesstype": "accessType",
   "profesorAulaConfiguracion.classcode": "classCode",
   "profesorAulaConfiguracion.faltaElIdentificadorDelAula": "Falta el identificador del aula en la URL.",
@@ -2785,7 +2709,6 @@
   "profesorAulaConfiguracion.institutionid": "institutionId",
   "profesorAulaConfiguracion.sinCodigoAsignado": "Sin código asignado",
   "profesorAulaConfiguracion.agregarActividad": "+ Agregar actividad",
-
   "profesorAulas.accesstype": "accessType",
   "profesorAulas.esStaff": "es staff",
   "profesorAulas.noSePudoCargarLas": "No se pudo cargar las aulas.",
@@ -2803,7 +2726,6 @@
   "profesorAulas.entrar2": "Entrar",
   "profesorAulas.reactivar": "Reactivar",
   "profesorAulas.archivar": "Archivar",
-
   "profesorCalendario.dom": "Dom",
   "profesorCalendario.lun": "Lun",
   "profesorCalendario.mar": "Mar",
@@ -2832,9 +2754,7 @@
   "profesorCalendario.guardarEvento": "Guardar evento",
   "profesorCalendario.deEscuela": "de escuela",
   "profesorCalendario.delAula": "del aula",
-
   "profesorCalificaciones.moduleid": "moduleId",
-
   "profesorEncuestas.noSePudieronCargarLas": "No se pudieron cargar las encuestas.",
   "profesorEncuestas.noSePudieronCargarLas2": "No se pudieron cargar las aulas.",
   "profesorEncuestas.completaLosCamposObligatoriosY": "Completa los campos obligatorios y agrega al menos 2 opciones.",
@@ -2842,10 +2762,8 @@
   "profesorEncuestas.seguroQueDeseasEliminarEsta": "¿Seguro que deseas eliminar esta encuesta?",
   "profesorEncuestas.noSePudoEliminarLa": "No se pudo eliminar la encuesta.",
   "profesorEncuestas.noSePudoCerrarLa": "No se pudo cerrar la encuesta.",
-
   "profesorEvaluaciones.noSePudieronCargarLos": "No se pudieron cargar los cuestionarios.",
   "profesorEvaluaciones.bancoAdmin": "Banco admin",
-
   "profesorMateriales.materialGuardado": "material guardado",
   "profesorMateriales.soloYo": "Solo yo",
   "profesorMateriales.nadieMasPuedeVerlo": "Nadie más puede verlo.",
@@ -2863,34 +2781,24 @@
   "profesorMateriales.cambiarAlcance": "Cambiar alcance",
   "profesorMateriales.compartiendo": "Compartiendo…",
   "profesorMateriales.confirmar": "Confirmar",
-
   "recuperarContrasena.ingresaTuCorreoElectronico": "Ingresá tu correo electrónico.",
   "recuperarContrasena.siExisteUnaCuentaCon": "Si existe una cuenta con ese correo, enviaremos instrucciones para restablecer tu contraseña.",
   "recuperarContrasena.noSePudoProcesarLa": "No se pudo procesar la solicitud. Intentalo nuevamente más tarde.",
   "recuperarContrasena.enviarInstrucciones": "Enviar instrucciones",
-
   "register.m72a1100": "M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1V3a1 1 0 1 1 2 0v1Zm13 6H4v11h16V8Z",
   "register.m1519l777": "M15 19l-7-7 7-7",
   "register.m95l7777": "M9 5l7 7-7 7",
-
   "tareas.urgente": "Urgente",
   "tareas.sinUrgencia": "Sin urgencia",
   "tareas.venceHoy": "vence hoy",
   "tareas.vencenHoy": "vencen hoy",
-
   "tiendaTemas.gratis2": "Gratis",
-  "tiendaTemas.tuyo": "✓ Tuyo",
-  "tiendaTemas.usar": "Usar",
-  "tiendaTemas.comprar": "Comprar",
   "tiendaTemas.catalogoVacio": "catálogo vacío",
   "tiendaTemas.seedNoCorrido": "seed no corrido",
   "tiendaTemas.esteTemaNoEstaDisponible": "Este tema no está disponible en el catálogo aún.",
   "tiendaTemas.noSePudoCompletarLa": "No se pudo completar la compra.",
   "tiendaTemas.errorAlComprar": "Error al comprar.",
   "tiendaTemas.availablethemes": "availableThemes",
-  "tiendaTemas.activar": "Activar",
-  "tiendaTemas.desbloqueado": "✓ Desbloqueado",
-
   "vblangDatasetsIndex.mis": "Mis",
   "vblangDatasetsIndex.elNombreEsRequerido": "El nombre es requerido.",
   "vblangDatasetsIndex.necesitasAlMenosUnaColumna": "Necesitás al menos una columna.",
@@ -2899,7 +2807,6 @@
   "vblangDatasetsIndex.noSePudoEliminarEl": "No se pudo eliminar el dataset.",
   "vblangDatasetsIndex.noHayDatasetsCompartidosTodavia": "No hay datasets compartidos todavía.",
   "vblangDatasetsIndex.todaviaNoCreasteDatasets": "Todavía no creaste datasets.",
-
   "aula.classroom": "Classroom",
   "aula.usememo": "useMemo",
   "aula.clasesAulaid": "clases/:aulaId",
@@ -2934,7 +2841,6 @@
   "aula.limiteAlcanzado": "Límite alcanzado",
   "aula.pujando": "Pujando...",
   "aula.pujar": "Pujar",
-
   "menualumno.urgente": "Urgente",
   "menualumno.sinUrgencia": "Sin urgencia",
   "menualumno.noSeEncontroUnAlumno": "No se encontró un alumno autenticado.",
@@ -2942,10 +2848,8 @@
   "menualumno.seguiAsi": "Seguí así",
   "menualumno.cicloEconomicoActivo": "Ciclo económico activo",
   "menualumno.staff": "Staff",
-
   "metodologia.metodologiaDeEnsenanzaVirtualBook": "Metodología de Enseñanza — Virtual Book",
   "metodologia.conoceNuestraMetodologiaInspiradaEn": "Conoce nuestra metodología inspirada en Montessori: aprendizaje personalizado, progresión por competencias y pensamiento crítico.",
-
   "moduloDetail.basicBankId": "basic/<bank_id>",
   "moduloDetail.evaluacionFormal": "Evaluación formal",
   "moduloDetail.leermodulo": "leerModulo",
@@ -2962,6 +2866,7 @@
   "moduloDetail.ocurrioUnErrorInesperado": "Ocurrió un error inesperado.",
   "moduloDetail.sinDefinir": "Sin definir",
   "moduloDetail.sinNivel": "Sin nivel",
+  "moduloDetail.sinDuracion": "Sin duración",
   "moduloDetail.m1051953": "M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18",
   "moduloDetail.pausarLectura": "Pausar lectura",
   "moduloDetail.reanudarLectura": "Reanudar lectura",
@@ -2980,7 +2885,6 @@
   "moduloDetail.m160239348h4992v": "M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182",
   "moduloDetail.ocultarVistaPrevia": "Ocultar vista previa",
   "moduloDetail.m129v375m975a99": "M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z",
-
   "moduloEditor.uiPill": "ui/Pill",
   "moduloEditor.laMateriaEsObligatoria": "La materia es obligatoria.",
   "moduloEditor.elNivelEsObligatorio": "El nivel es obligatorio.",
@@ -3040,7 +2944,6 @@
   "moduloEditor.noSePudoQuitarLa": "No se pudo quitar la invitación.",
   "moduloEditor.invitando": "Invitando...",
   "moduloEditor.invitar": "Invitar",
-
   "modulosList.publicado": "Publicado",
   "modulosList.archivado": "Archivado",
   "modulosList.sinEstado": "Sin estado",
@@ -3051,12 +2954,9 @@
   "modulosList.ocurrioUnErrorInesperado": "Ocurrió un error inesperado.",
   "modulosList.sinDefinir": "Sin definir",
   "modulosList.duplicando": "Duplicando...",
-
   "intentoDetalle.attempteventspanel": "AttemptEventsPanel",
-
   "lineaTiempoEditorPage.fueraDeUnModulo": "fuera de un módulo",
   "lineaTiempoEditorPage.materialid": "materialId",
-
   "mapaEditorFull.annotationlayer": "AnnotationLayer",
   "mapaEditorFull.mapastandalone": "MapaStandalone",
   "mapaEditorFull.initialconfig": "initialConfig",
@@ -3123,16 +3023,13 @@
   "mapaEditorFull.activada": "Activada",
   "mapaEditorFull.desactivada": "Desactivada",
   "mapaEditorFull.m1211v6m1275v5": "M12 11v6M12 7.5v.5",
-
   "mapaEditorPage.mapaeditorfull": "MapaEditorFull",
   "mapaEditorPage.materialid": "materialId",
   "mapaEditorPage.tuMapaEsMuyGrande": "Tu mapa es muy grande para guardar un borrador temporal: si te registrás ahora, no lo vamos a poder recuperar.",
-
   "presentacionEditorPage.ondone": "onDone",
   "presentacionEditorPage.onclose": "onClose",
   "presentacionEditorPage.fueraDeUnModulo": "fuera de un módulo",
   "presentacionEditorPage.materialid": "materialId",
-
   "quizAttempt.puntajeXY": "Puntaje: X / Y",
   "quizAttempt.startedatTimersegundos": "startedAt + timerSegundos",
   "quizAttempt.setinterval": "setInterval",
@@ -3160,10 +3057,8 @@
   "quizAttempt.tiempoAgotadoEnviar": "Tiempo agotado — enviar",
   "quizAttempt.respuestasEnviadas": "Respuestas enviadas",
   "quizAttempt.enviarRespuestas": "Enviar respuestas",
-
   "staffLayout.rolPrincipal": "rol principal",
   "staffLayout.alumnonavbar": "AlumnoNavbar",
-
   "staffSidebar.navconfig": "navConfig",
   "staffSidebar.useprimaryrole": "usePrimaryRole",
   "staffSidebar.cuentavinculada": "cuentaVinculada",
@@ -3176,11 +3071,9 @@
   "staffSidebar.rolPrincipal": "rol principal",
   "staffSidebar.vercomoalumno": "verComoAlumno",
   "staffSidebar.onclose": "onClose",
-
   "alumnoNavbar.m15759v525a225": "M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75",
   "alumnoNavbar.m199l777": "M19 9l-7 7-7-7",
   "alumnoNavbar.vercomoalumno": "verComoAlumno",
-
   "navbar.navconfig": "navConfig",
   "navbar.useprimaryrole": "usePrimaryRole",
   "navbar.usecanactaslearner": "useCanActAsLearner",
@@ -3190,7 +3083,6 @@
   "navbar.vercomoalumno": "verComoAlumno",
   "navbar.vercomopadre": "verComoPadre",
   "navbar.m199l777": "M19 9l-7 7-7-7",
-
   "dateInput.enero": "Enero",
   "dateInput.febrero": "Febrero",
   "dateInput.marzo": "Marzo",
@@ -3203,7 +3095,6 @@
   "dateInput.octubre": "Octubre",
   "dateInput.noviembre": "Noviembre",
   "dateInput.diciembre": "Diciembre",
-
   "routeErrorBoundary.failedToFetch": "Failed to fetch",
   "routeErrorBoundary.loadingChunk": "Loading chunk",
   "routeErrorBoundary.dynamicallyImportedModule": "dynamically imported module",
@@ -3211,19 +3102,15 @@
   "routeErrorBoundary.algoSalioMal": "Algo salió mal",
   "routeErrorBoundary.noSePudoCargarEsta": "No se pudo cargar esta página. Verificá tu conexión a internet.",
   "routeErrorBoundary.ocurrioUnErrorInesperadoEn": "Ocurrió un error inesperado en esta página.",
-
   "toast.ui": "@/ui",
-
   "bancoCuestionarios.questiontype": "questionType",
   "bancoCuestionarios.global": "Global",
-
   "bancoCuestionariosMulti.sinMateria": "Sin materia",
   "bancoCuestionariosMulti.resolvemateria": "resolveMateria",
   "bancoCuestionariosMulti.allmaterias": "allMaterias",
   "bancoCuestionariosMulti.filterBoolean": "filter(Boolean)",
   "bancoCuestionariosMulti.global": "Global",
   "bancoCuestionariosMulti.primerasN": "Primeras N",
-
   "bancoPreguntasEditor.accessiblelist": "AccessibleList",
   "bancoPreguntasEditor.buildquiztemplate": "buildQuizTemplate",
   "bancoPreguntasEditor.runbanco": "runBanco",
@@ -3231,14 +3118,12 @@
   "bancoPreguntasEditor.exportarJson2": "Exportar JSON",
   "bancoPreguntasEditor.opcion": "opción",
   "bancoPreguntasEditor.agregarPregunta": "Agregar pregunta",
-
   "editorSectionNav.intersectionobserver": "IntersectionObserver",
   "editorSectionNav.navAriaLabel": "<nav aria-label>",
   "editorSectionNav.incompleta": "Incompleta",
   "editorSectionNav.completa": "Completa",
   "editorSectionNav.rootmargin": "rootMargin",
   "editorSectionNav.h1H2H3H4H5": "h1, h2, h3, h4, h5, h6",
-
   "evaluacionConfig.ocultarpuntos": "ocultarPuntos",
   "evaluacionConfig.modoEvaluacion": "Modo evaluación",
   "evaluacionConfig.parseevaluacionconfig": "parseEvaluacionConfig",
@@ -3268,11 +3153,9 @@
   "evaluacionConfig.sePromedianLasNotasDe": "Se promedian las notas de los intentos finalizados.",
   "evaluacionConfig.cadaAlumnoVeSiempreLa": "Cada alumno ve siempre la misma variante (estable entre intentos y dispositivos).",
   "evaluacionConfig.cadaIntentoPuedeReSortear": "Cada intento puede re-sortear la variante (sin repetir mientras quede material nuevo).",
-
   "generadorSelector.restaurarPorDefecto": "Restaurar por defecto",
   "generadorSelector.personalizarEnunciado": "Personalizar enunciado",
   "generadorSelector.generando": "Generando...",
-
   "herramientaPicker.input": "Input",
   "herramientaPicker.textarea": "Textarea",
   "herramientaPicker.select": "Select",
@@ -3287,7 +3170,6 @@
   "herramientaPicker.describeLaImagenParaLectores": "Describe la imagen para lectores de pantalla",
   "herramientaPicker.herramienta": "Herramienta",
   "herramientaPicker.agregarHerramientaInteractiva": "Agregar herramienta interactiva",
-
   "posicionesCanvas.snippetbar": "SnippetBar",
   "posicionesCanvas.posicion": "+ Posición",
   "posicionesCanvas.despuesde": "despuesDe",
@@ -3303,20 +3185,15 @@
   "posicionesCanvas.onblur": "onBlur",
   "posicionesCanvas.posicionFijaDePoolDe": "Posición fija / de pool / de relleno",
   "posicionesCanvas.onremoveposicion": "onRemovePosicion",
-
   "quizComposicionEditor.siempreLasMismasEnOrden": "Siempre las mismas, en orden.",
   "quizComposicionEditor.subconjuntoAleatorioPorIntentoSeed": "Subconjunto aleatorio por intento (seed).",
-
   "quizEditorGenerated.key": "+ key +",
   "quizEditorGenerated.k": "+ k +",
-
   "quizEditorManual.questiontype": "questionType",
   "quizEditorManual.opcionesSeleccionaLaCorrecta": "Opciones — seleccioná la correcta",
   "quizEditorManual.ocultarResolucion": "Ocultar resolución",
   "quizEditorManual.verResolucion": "Ver resolución",
-
   "quizGeneratedPreview.plantillaId": "plantilla:<id>",
-
   "quizPosicionesEditor.quizcomposicioneditor": "QuizComposicionEditor",
   "quizPosicionesEditor.posicionescanvas": "PosicionesCanvas",
   "quizPosicionesEditor.posicionesmutations": "posicionesMutations",
@@ -3330,18 +3207,15 @@
   "quizPosicionesEditor.plantillaVblang": "Plantilla VBLang",
   "quizPosicionesEditor.vistaDelAlumno": "vista del alumno",
   "quizPosicionesEditor.previewtitle": "previewTitle",
-
   "repartoPuntos.posicionescanvas": "PosicionesCanvas",
   "repartoPuntos.cuestionarioposiciones": "CuestionarioPosiciones",
   "repartoPuntos.vistaDelDocente": "vista del docente",
   "repartoPuntos.armarElCuestionario": "armar el cuestionario",
   "repartoPuntos.seccion2": "sección",
   "repartoPuntos.posicion": "posición",
-
   "slidePresenter.easeoutquart": "easeOutQuart",
   "slidePresenter.arrowright": "ArrowRight",
   "slidePresenter.arrowleft": "ArrowLeft",
-
   "theoryItemCard.clonedfromid": "clonedFromId",
   "theoryItemCard.libro": "Libro",
   "theoryItemCard.enlace": "Enlace",
@@ -3355,7 +3229,6 @@
   "theoryItemCard.sinDiapositivas": "Sin diapositivas",
   "theoryItemCard.leerLibro": "Leer libro",
   "theoryItemCard.abrirEnlace": "Abrir enlace",
-
   "theorySlideEditor.charttype": "chartType",
   "theorySlideEditor.xmin": "xMin",
   "theorySlideEditor.xmax": "xMax",
@@ -3470,7 +3343,6 @@
   "theorySlideEditor.laDiapositivaTieneTextoEn": "La diapositiva tiene texto en el cuerpo. ¿Reemplazarlo por el bloque? Esta acción no se puede deshacer.",
   "theorySlideEditor.diseno": "Diseño",
   "theorySlideEditor.quitarElBloqueGraficoEsta": "¿Quitar el bloque gráfico? Esta acción no se puede deshacer.",
-
   "varianteEditor.posicionescanvas": "PosicionesCanvas",
   "varianteEditor.plantillaeditorschema": "PlantillaEditorSchema",
   "varianteEditor.generadorpicker": "GeneradorPicker",
@@ -3493,7 +3365,6 @@
   "varianteEditor.editorclasico": "editorClasico",
   "varianteEditor.guardarPlantilla": "Guardar plantilla",
   "varianteEditor.vblang": "VBLang",
-
   "vistaAlumnoOverlay.vistaPreviaLosIntentosNo": "Vista previa — los intentos no se guardan",
   "vistaAlumnoOverlay.answerkey": "answerKey",
   "vistaAlumnoOverlay.quizgeneratedpreview": "QuizGeneratedPreview",
@@ -3506,12 +3377,10 @@
   "vistaAlumnoOverlay.progress": "Progress",
   "vistaAlumnoOverlay.cronometro": "Cronometro",
   "vistaAlumnoOverlay.preguntaSinAnswerkey": "pregunta sin answerKey",
-
   "visualizerRenderer.roundedBorderBorderGray200": "rounded border border-gray-200",
   "visualizerRenderer.insidebottom": "insideBottom",
   "visualizerRenderer.insideleft": "insideLeft",
   "visualizerRenderer.circuitoSinElementos": "Circuito sin elementos.",
-
   "annotationLayer.mapastandalone": "MapaStandalone",
   "annotationLayer.mapaeditorfull": "MapaEditorFull",
   "annotationLayer.mapaanotacion": "MapaAnotacion",
@@ -3525,7 +3394,6 @@
   "annotationLayer.text": "<text>",
   "annotationLayer.escalaporzoom": "escalaPorZoom",
   "annotationLayer.m00L06L8": "M0,0 L0,6 L8,3 z",
-
   "mapaStandalone.zona": "Zona",
   "mapaStandalone.flecha": "Flecha",
   "mapaStandalone.eliminarTodasLasAnotaciones": "¿Eliminar todas las anotaciones?",
@@ -3541,7 +3409,6 @@
   "mapaStandalone.m312a9901": "M3 12a9 9 0 1 0 9-9 9 9 0 0 0-7 3.3M3 4v4h4",
   "mapaStandalone.clickEnElMapaPara": "Click en el mapa para colocar un marcador. Click sobre un marcador para editarlo.",
   "mapaStandalone.clicksSucesivosParaAgregarPuntos": "Clicks sucesivos para agregar puntos. Doble-click o botón «Cerrar zona» para terminar.",
-
   "tablaPeriodica.diatomicNonmetal": "diatomic nonmetal",
   "tablaPeriodica.nobleGas": "noble gas",
   "tablaPeriodica.alkaliMetal": "alkali metal",
@@ -3807,100 +3674,86 @@
   "tablaPeriodica.ununennium": "Ununennium",
   "tablaPeriodica.ununenio": "Ununenio",
   "tablaPeriodica.fetchError": "fetch error",
-
   "toolPreview.errorDesconocidoEnLaVista": "Error desconocido en la vista previa",
-
   "asignarModulosModal.asignado": "Asignado",
   "asignarModulosModal.noAsignado": "No asignado",
-
   "attemptEventsPanel.useflushcounter": "useFlushCounter",
   "attemptEventsPanel.canarytriggered": "canaryTriggered",
   "attemptEventsPanel.expandir": "Expandir",
   "attemptEventsPanel.colapsar": "Colapsar",
-
   "correccionesPendientes.pendientesDeCorreccion2": "pendientes de corrección",
   "correccionesPendientes.noSePudoGuardarLa": "No se pudo guardar la corrección.",
   "correccionesPendientes.guardarCorreccion": "Guardar corrección",
-
   "matrizProgreso.sinAlumnos": "Sin alumnos",
   "matrizProgreso.iniciado": "Iniciado",
   "matrizProgreso.estaAulaNoTieneModulos": "Esta aula no tiene módulos asignados todavía.",
   "matrizProgreso.estaAulaTodaviaNoTiene": "Esta aula todavía no tiene alumnos.",
   "matrizProgreso.sinProgreso": "Sin progreso",
-
   "analisisSintacticoRenderer.etiquetaspedidas": "etiquetasPedidas",
   "analisisSintacticoRenderer.etiquetasPosibles": "etiquetas posibles",
   "analisisSintacticoRenderer.elGatoYElPerro": "el gato y el perro",
   "analisisSintacticoRenderer.palabra": "<palabra>",
   "analisisSintacticoRenderer.etiqueta": "<etiqueta>",
-
   "analisisSpansRenderer.splitpalabras": "splitPalabras",
   "analisisSpansRenderer.desdeHastaEtiqueta": "\"desde-hasta:etiqueta\"",
   "analisisSpansRenderer.answerkey": "answerKey",
   "analisisSpansRenderer.tocaLaPrimeraYLa": "Tocá la primera y la última palabra del rango.",
   "analisisSpansRenderer.ahoraTocaLaUltimaPalabra": "Ahora tocá la última palabra (o la misma para una sola).",
   "analisisSpansRenderer.rangoElegido": "Rango elegido:",
-
   "marcarMapaRenderer.mapaid": "mapaId",
   "marcarMapaRenderer.isoA3": "ISO_A3",
   "marcarMapaRenderer.getbbox": "getBBox()",
   "marcarMapaRenderer.m126v12m612h12": "M12 6v12M6 12h12",
   "marcarMapaRenderer.m612h12": "M6 12h12",
   "marcarMapaRenderer.m312a9901": "M3 12a9 9 0 1 0 9-9 9 9 0 0 0-7 3.3M3 4v4h4",
-
   "ordenarRenderer.correctorder": "correctOrder",
-
   "editorShell.vbEditores": "VB editores",
   "editorShell.metawidth": "metaWidth",
   "editorShell.auxwidth": "auxWidth",
   "editorShell.panelAuxiliar": "Panel auxiliar",
-
+  "editorShell.cambialoDesdeElPanelCentral": "Cambialo desde el panel central.",
+  "editorShell.textoDeLaConsigna": "Texto de la consigna…",
+  "editorShell.expresionDeLaRespuestaCorrecta": "Expresión de la respuesta correcta…",
+  "editorShell.expresionSobreVariablesPodesReusar": "Expresión sobre variables · podés reusar las declaradas.",
+  "editorShell.textoExactoDeLaRespuesta": "Texto exacto de la respuesta esperada.",
+  "editorShell.modoDeEdicion": "Modo de edición",
+  "editorShell.form": "Form",
+  "editorShell.codigo": "Código",
+  "editorShell.ambos": "Ambos",
+  "editorShell.vistaDelAlumno": "Vista del alumno",
+  "plantillaEditorTiza.detalles": "DETALLES",
   "card.card": "<Card>",
   "card.cardhead": "<CardHead>",
   "card.cardbody": "<CardBody>",
   "card.cardfoot": "<CardFoot>",
-
   "chip.onremove": "onRemove",
-
   "chipInput.backspace": "Backspace",
-
   "field.input": "Input",
   "field.select": "Select",
   "field.textarea": "Textarea",
   "field.labelHtmlfor": "<Label htmlFor>",
-
   "pill.soft": "*-soft",
-
   "propertiesPanel.estilo": "Estilo",
-
   "select.select": "<select>",
-
   "tabs.arrowright": "ArrowRight",
   "tabs.arrowleft": "ArrowLeft",
   "tabs.home": "Home",
   "tabs.end": "End",
-
   "textarea.textarea": "<textarea>",
-
   "topBar.ontitlechange": "onTitleChange",
   "topBar.editorVblang": "Editor VBLang",
   "topBar.nombreDelDocumento": "Nombre del documento",
-
   "visuallyHidden.span": "<span>",
-
   "aulaActionsBar.isteacherofclass": "isTeacherOfClass",
   "aulaActionsBar.onpublicarclick": "onPublicarClick",
   "aulaActionsBar.asignarmodulosmodal": "AsignarModulosModal",
   "aulaActionsBar.onasignarmodulosclick": "onAsignarModulosClick",
-
   "continuarCard.classprogress": "classProgress",
   "continuarCard.sinIniciar": "Sin iniciar",
-
   "accessibleList.agregarItem": "Agregar ítem",
   "accessibleList.opcion": "opción",
   "accessibleList.item": "ítem",
   "accessibleList.rect0000": "rect(0,0,0,0)",
-
   "codeEditor.ident": "+ ident +",
   "codeEditor.editorDeCodigoVblang": "Editor de código VBLang",
   "codeEditor.useimperativehandle": "useImperativeHandle",
@@ -3913,12 +3766,10 @@
   "codeEditor.ceroColoresHardcodeados": "cero colores hardcodeados",
   "codeEditor.jetbrainsMono": "JetBrains Mono",
   "codeEditor.sinErroresDeValidacion": "Sin errores de validación.",
-
   "datasetExplorer.nombre": "<nombre>",
   "datasetExplorer.datasetNombre": "dataset: \"<nombre>\"",
   "datasetExplorer.queNombresExisten": "¿qué nombres existen?",
   "datasetExplorer.noSePudoCargar": "No se pudo cargar.",
-
   "errorPanel.irALineaN": "Ir a línea N",
   "errorPanel.ongotolocationLineCol": "onGoToLocation(line, col)",
   "errorPanel.onapplyfixNewcode": "onApplyFix(newCode)",
@@ -3926,27 +3777,21 @@
   "errorPanel.lintreport": "lintReport",
   "errorPanel.ongotolocation": "onGoToLocation",
   "errorPanel.onapplyfix": "onApplyFix",
-
   "fieldErrorBadge.fieldid": "fieldId",
   "fieldErrorBadge.lintissuetofieldid": "lintIssueToFieldId",
-
   "generadorDocsPanel.generadorId": "generador: <id>",
   "generadorDocsPanel.recetaDeCableado": "receta de cableado",
   "generadorDocsPanel.generadordocscache": "generadorDocsCache",
   "generadorDocsPanel.aborterror": "AbortError",
   "generadorDocsPanel.subtipoAleatorio": "subtipo aleatorio",
-
   "generadorPicker.idSubtipo": "<id>/<subtipo>",
-
   "langSelector.select": "<select>",
   "langSelector.pickdefaultlang": "pickDefaultLang",
   "langSelector.fetchlanguages": "fetchLanguages",
-
   "metadataPanel.quizconfigpanel": "QuizConfigPanel",
   "metadataPanel.privadaSoloYo": "Privada (solo yo)",
   "metadataPanel.publicaRequiereModeracion": "Pública (requiere moderación)",
   "metadataPanel.backspace": "Backspace",
-
   "nuevaPlantillaWizard.nuevaPlantilla": "Nueva plantilla",
   "nuevaPlantillaWizard.yaSeMostro": "ya se mostró",
   "nuevaPlantillaWizard.inputNumerico": "Input numérico",
@@ -3955,14 +3800,12 @@
   "nuevaPlantillaWizard.marcarEnElMapa": "Marcar en el mapa",
   "nuevaPlantillaWizard.analisisSintactico": "Análisis sintáctico",
   "nuevaPlantillaWizard.identificarPalabras": "Identificar palabras",
-
   "palabraCombobox.prefixpalabra": "prefixPalabra",
   "palabraCombobox.lookuppalabra": "lookupPalabra",
   "palabraCombobox.fetchprefix": "fetchPrefix",
   "palabraCombobox.fetchlookup": "fetchLookup",
   "palabraCombobox.langselector": "<LangSelector>",
   "palabraCombobox.noExiste": "no existe",
-
   "plantillaEditorSchema.fieldid": "fieldId",
   "plantillaEditorSchema.enunciadofield": "EnunciadoField",
   "plantillaEditorSchema.agregarEtiqueta": "Agregar etiqueta",
@@ -4005,20 +3848,16 @@
   "plantillaEditorSchema.muchasIncluyeDecimales": "muchas (incluye decimales)",
   "plantillaEditorSchema.sinErrores": "Sin errores",
   "plantillaEditorSchema.insert": "insert()",
-
   "plantillaSelectorModal.noHayPlantillasEnLa": "No hay plantillas en la biblioteca.",
   "plantillaSelectorModal.todaviaNoCreastePlantillas": "Todavía no creaste plantillas.",
-
   "previewPanel.maxETolRelTol": "max(|e|·tol_rel, tol_abs)",
   "previewPanel.ocultarRespuesta": "Ocultar respuesta",
   "previewPanel.verRespuesta": "Ver respuesta",
   "previewPanel.correcto": "✓ ¡Correcto!",
-
   "promptIAPanel.unEjercicioDeOpcionMultiple": "Un ejercicio de opción múltiple sobre la tabla periódica, que pregunte la electronegatividad de un elemento al azar.",
   "promptIAPanel.ejUnEjercicioDeOpcion": "Ej.: \"Un ejercicio de opción múltiple sobre la tabla periódica, que pregunte la electronegatividad de un elemento al azar.\"",
   "promptIAPanel.copiado": "✓ Copiado",
   "promptIAPanel.noSePudoCopiar": "No se pudo copiar",
-
   "quizConfigPanel.plantillaeditortiza": "PlantillaEditorTiza",
   "quizConfigPanel.evaluacionconfig": "EvaluacionConfig",
   "quizConfigPanel.onpatch": "onPatch",
@@ -4036,11 +3875,16 @@
   "quizConfigPanel.ocultarVistaPreviaDelSorteo": "Ocultar vista previa del sorteo",
   "quizConfigPanel.vistaPreviaDelSorteo": "Vista previa del sorteo ›",
   "quizConfigPanel.implicitaSinNombre": "implícita (sin nombre)",
-
   "referenciaRapida.stringsSiempreEntreComillasDobles": "Strings siempre entre comillas dobles, nunca simples.",
   "referenciaRapida.booleansVerdaderoFalsoNoTrue": "Booleans: verdadero / falso (no true/false).",
   "referenciaRapida.indentacionExactamente2EspaciosNunca": "Indentación: exactamente 2 espacios. Nunca tabs.",
   "referenciaRapida.elBloqueRespuestaContieneUna": "El bloque respuesta: contiene una fórmula, no un string.",
+  "referenciaRapida.logicosYONoNo": "Lógicos: y / o / no (no and/or/not).",
+  "referenciaRapida.variablesSeDeclaranCon": "Variables se declaran con : (no con =).",
+  "referenciaRapida.tipoMcRequiereOpciones": "tipo: mc requiere opciones: o opciones_explicitas:",
+  "referenciaRapida.condicionesQueDebenCumplir": "Condiciones que deben cumplir las variables (ej. a != 0).",
+  "referenciaRapida.textoDeLaPreguntaInterpola": "Texto de la pregunta; interpola {variable}.",
+  "referenciaRapida.unidadDeLaRespuestaNumerica": "Unidad de la respuesta numérica (ej. \"m/s\").",
   "referenciaRapida.seEligeUnaAlAzar": "Se elige una al azar por ejercicio (estable por seed).",
   "referenciaRapida.randomMinMax": "random(min, max)",
   "referenciaRapida.randomFloatMinMaxDec": "random_float(min, max, dec)",
@@ -4055,7 +3899,6 @@
   "referenciaRapida.conGeneradorNoDeclarasVariables": "Con generador NO declarás variables ni respuesta: los provee el generador.",
   "referenciaRapida.dejaElIdSinSubtipo": "Dejá el id sin subtipo (generador: fisica/cinematica) para un subtipo al azar, o fijalo con /<subtipo>.",
   "referenciaRapida.ajustasLaDificultadDesdeMetadata": "Ajustás la dificultad desde metadata:",
-
   "snippetBar.oninsertText": "onInsert(text)",
   "snippetBar.variablesNARandom1": "variables:\\n a: random(1, 10)\\n",
   "snippetBar.insertarBloqueVariables": "Insertar bloque variables",
@@ -4070,7 +3913,6 @@
   "snippetBar.insertarBloqueOpciones": "Insertar bloque opciones",
   "snippetBar.mapaWorldCountriesN": "mapa: world_countries\\n",
   "snippetBar.insertarBloqueMapa": "Insertar bloque mapa",
-
   "tizaEditor.tipopregunta": "TipoPregunta",
   "tizaEditor.vbVblang": "@vb/vblang",
   "tizaEditor.preguntaquiz": "PreguntaQuiz",
@@ -4100,12 +3942,10 @@
   "tizaEditor.aB": "a + b",
   "tizaEditor.vNombre": "+ v.nombre +",
   "tizaEditor.copiado": "¡copiado!",
-
   "validationReport.validar": "Validar",
   "validationReport.validando": "Validando…",
   "validationReport.validar100Simulaciones": "Validar (100 simulaciones)",
   "validationReport.roundedBorderP2": "rounded border p-2",
-
   "variableCard.addvariable": "addVariable",
   "variableCard.updatevariable": "updateVariable",
   "variableCard.removevariable": "removeVariable",
@@ -4115,7 +3955,6 @@
   "variableCard.anadir2": "+Añadir",
   "variableCard.parseexprtext": "parseExprText",
   "variableCard.parseexprresult": "ParseExprResult",
-
   "variablesEditor.variableseditor": "VariablesEditor",
   "variablesEditor.variablescards": "VariablesCards",
   "variablesEditor.activeIndex": "active index",
@@ -4123,12 +3962,10 @@
   "variablesEditor.anadirVariable": "+Añadir variable",
   "variablesEditor.randomInt": "random int",
   "variablesEditor.variablecard": "<VariableCard>",
-
   "cronometro.remaining60": "remaining > 60",
   "cronometro.mmSs": "MM:SS",
   "cronometro.usecountdown": "useCountdown",
   "cronometro.tiempoAgotado": "tiempo agotado",
-
   "postSubmitResult.puntajeXY": "Puntaje: X / Y",
   "postSubmitResult.ocultarpuntos": "ocultarPuntos",
   "postSubmitResult.notaDisplayCanonical1010": "Nota: <display> (<canonical10>/10)",
@@ -4138,60 +3975,43 @@
   "postSubmitResult.notaX": "Nota: X",
   "postSubmitResult.ocultarPuntosAlAlumno": "ocultar puntos al alumno",
   "postSubmitResult.nota": "Nota:",
-
   "guardarComoMaterial.noSePudoGuardarEl": "No se pudo guardar el material.",
-
   "insertarMaterialGuardado.noSePudieronCargarLos": "No se pudieron cargar los materiales guardados.",
   "insertarMaterialGuardado.noSePudoCargarEse": "No se pudo cargar ese material.",
-
   "alert.callout": "Callout",
-
   "avatar.forwardref": "forwardRef",
-
   "checkbox.label": "<label>",
   "checkbox.htmlfor": "htmlFor",
-
   "divider.hr": "<hr>",
-
   "label.label": "<label>",
   "label.htmlfor": "htmlFor",
-
   "menu.navconfig": "navConfig",
   "menu.button": "<button>",
   "menu.down": "\"down\"",
   "menu.up": "\"up\"",
   "menu.home": "Home",
   "menu.end": "End",
-
   "modal.createportal": "createPortal",
   "modal.dialog": "Dialog",
   "modal.tab": "Tab",
-
   "navItem.navlink": "NavLink",
-
   "radio.radiogroup": "RadioGroup",
   "radio.radiogroupcontext": "RadioGroupContext",
-
   "radioGroup.radio": "Radio",
   "radioGroup.useid": "useId",
   "radioGroup.radiogroupcontext": "RadioGroupContext",
-
   "spinner.animatetransform": "<animateTransform>",
-
   "switch.button": "<button>",
   "switch.oncheckedchange": "onCheckedChange",
-
   "authContex.usehasrole": "useHasRole",
   "authContex.useisstaff": "useIsStaff",
   "authContex.ensureroles": "ensureRoles",
   "authContex.switchcuenta": "switchCuenta",
   "authContex.protectedroute": "ProtectedRoute",
-
   "authprovider.user": "User",
   "authprovider.noHaySesionActiva": "No hay sesión activa",
   "authprovider.errorAlCambiarDeCuenta": "Error al cambiar de cuenta",
   "authprovider.isswitching": "isSwitching",
-
   "economia.simulaCambioFx": "Simulá el cambio de tus monedas a FX. Tipo de cambio: 100 monedas = 1 FX.",
   "economia.recibis": "Recibís:",
   "perfil.dominioDe": "Dominio de",
@@ -4209,11 +4029,31 @@
   "tipoPregunta.identificarPalabras": "Identificar palabras",
   "tipoPregunta.abierta": "Pregunta abierta",
   "tipoPregunta.expresion": "Respuesta simbólica (expresión algebraica)",
+  "tipoPregunta.expresionDescripcion": "El alumno escribe una expresión algebraica. Se acepta cualquier forma equivalente (ej. '2x+4' y '2(x+2)' cuentan igual); se rechaza si la forma es distinta como función (ej. '2x+4' vs '2x+5').",
+  "tipoPregunta.inputDescripcion": "El alumno escribe una respuesta. Se corrige por igualdad o por tolerancia.",
+  "tipoPregunta.mcDescripcion": "Varias opciones; una correcta.",
+  "tipoPregunta.vfDescripcion": "Afirmación a evaluar como verdadera o falsa.",
+  "tipoPregunta.completarDescripcion": "El alumno completa un hueco; se aceptan varias respuestas.",
+  "tipoPregunta.ordenarDescripcion": "El alumno ordena un conjunto de ítems.",
+  "tipoPregunta.marcarMapaDescripcion": "El alumno selecciona un país o provincia en un mapa.",
+  "tipoPregunta.analisisSintacticoDescripcion": "El alumno etiqueta palabras de una oración.",
+  "tipoPregunta.analisisSpansDescripcion": "El alumno etiqueta rangos de palabras contiguas (ej. 'El perro grande' → sujeto). Los rangos pueden solaparse (núcleo dentro del sujeto). Corrección exacta por conjunto.",
+  "tipoPregunta.identificarPalabrasDescripcion": "El alumno marca las palabras correctas dentro de un texto.",
+  "tipoPregunta.abiertaDescripcion": "El alumno escribe libremente. No lleva clave de respuesta: es informativa (no puntúa) o la corrige el profe a mano (crédito parcial).",
+  "vblangExamples.ordenarEventosHistoricosTitulo": "Ordenar — Eventos históricos",
+  "vblangExamples.ordenarEventosHistoricosDescripcion": "El alumno reordena cronológicamente eventos famosos del siglo XX.",
+  "vblangExamples.marcarMapaCapitalTitulo": "Marcar mapa — Capital de un país",
+  "vblangExamples.marcarMapaCapitalDescripcion": "El alumno hace click en el país cuya capital se menciona.",
+  "vblangExamples.analisisSintacticoOracionSimpleTitulo": "Análisis sintáctico — Oración simple",
+  "vblangExamples.analisisSintacticoOracionSimpleDescripcion": "El alumno asigna la etiqueta gramatical correcta a cada palabra clave.",
+  "vblangExamples.identificarPalabrasSustantivosTitulo": "Identificar palabras — Sustantivos",
+  "vblangExamples.identificarPalabrasSustantivosDescripcion": "El alumno marca todas las palabras del texto que sean sustantivos.",
+  "vblangExamples.enunciadosSumaVariantesTitulo": "Suma con variantes de enunciado",
+  "vblangExamples.enunciadosSumaVariantesDescripcion": "Elige una variante al azar del bloque enunciados: para cada ejercicio. Mismo seed produce la misma variante; la validación cubre todas las variantes en 100 simulaciones.",
   "comun.preguntas": "preguntas",
   "profesorMateriales.materialCompartido": "Material compartido:",
   "comun.mas": "más",
   "profesorCalendario.editarEvento": "Editar evento",
-
   "comun.sinEnunciado": "(sin enunciado)",
   "comun.sinTitulo": "(sin título)",
   "generadorSelector.paso3Subtipos": "Paso 3 — Subtipos",
@@ -4237,29 +4077,21 @@
   "onboardingTema.continuarCon": "Continuar con",
   "moduloEditor.duracionMin": "Duración (min)",
   "metodologia.nuestroSistemaEsModularY": "Nuestro sistema es modular y adaptativo; cada estudiante avanza a su ritmo manteniendo estándares.",
-
   "theorySlideEditor.impactoHumano01": "0 = sin impacto, 1 = impacto máximo",
-
   "menuProfesor.clasesEnLasQueEstas": "Clases en las que estás asignado",
   "menuProfesor.contenidoDisponibleParaTus": "Contenido disponible para tus cursos",
   "menuProfesor.alumnosUnicosEnTus": "Alumnos únicos en tus aulas",
   "menuProfesor.preparado": "preparado",
-
   "profesorAulas.creadaPor": "Creada por",
-
   "profesorEvaluaciones.cuestionariosFormalesDeEvaluacion": "Cuestionarios formales de evaluación. Las prácticas y competencias se gestionan desde el panel principal.",
-
   "profesorCalificaciones.entregaS": "entrega(s)",
-
   "menualumno.deLabel": "de",
   "menualumno.enTotal": "en total",
   "menualumno.vence": "Vence",
   "menualumno.viendoVistaPreviaAlumno": "👀 Estás viendo la vista previa de alumno. Los datos que ves son tuyos como",
   "menualumno.noSonDeUnAlumnoReal": ", no los de un alumno real.",
-
   "herramientaPicker.descripcionDelEvento": "Descripción del evento",
   "register.placeholderFecha": "DD/MM/AAAA",
-
   "progreso.empiezaTuCamino": "Empieza tu camino",
   "progreso.exploraLosModulosDisponibles": "Explora los módulos disponibles y comienza tu primer desafío.",
   "progreso.modulosCompletados": "¡Módulos completados!",
@@ -4267,23 +4099,19 @@
   "progreso.continuaAprendiendo": "Continúa aprendiendo",
   "progreso.tienesNModulos": "Tienes",
   "progreso.enProgresoSigueAdelante": "módulo(s) en progreso. ¡Sigue adelante!",
-
   "misClases.activas": "Activas",
   "misClases.archivadas": "Archivadas",
   "misClases.noHayAulas": "No hay aulas",
-
+  "misClases.alumnos": "alumnos",
   "aula.estudiante": "estudiante",
   "aula.familiar": "familiar",
   "aula.visitante": "visitante",
   "aula.privada": "privada",
   "continuarCard.completadoSufijo": "completado",
-
   "aula.codigoDeClase": "Código de clase:",
   "aula.acceso": "Acceso",
-
   "comun.rellenaEsteCampo": "Rellená este campo",
   "comun.formatoInvalido": "El formato no es válido",
-
   "profesorEncuestas.opcion": "Opción",
   "comun.detalleOpcional": "Detalle (opcional)",
   "comun.paso": "paso",
@@ -4345,6 +4173,7 @@
   "comun.actualizado": "Actualizado",
   "comun.advertencia": "advertencia",
   "comun.advertencias": "advertencias",
+  "comun.errorSingular": "error",
   "comun.columna": "columna",
   "comun.columnas": "columnas",
   "comun.dia": "día",
@@ -4373,5 +4202,41 @@
   "tema.papel-arroz": "Papel de Arroz",
   "tema.incunable": "Incunable",
   "tema.papel-periodico": "Papel Periódico",
-  "tema.papel-digital": "Papel Digital"
+  "tema.papel-digital": "Papel Digital",
+  "selectorEscuela.escuela": "Escuela",
+  "selectorEscuela.sinEscuela": "Sin escuela",
+  "selectorEscuela.error": "No se pudo cambiar de escuela",
+  "registrarEscuela.titulo": "Registrá tu escuela",
+  "registrarEscuela.subtitulo": "Pedí el alta para gestionar tus aulas y cobros.",
+  "registrarEscuela.aviso": "Vas a poder usar aulas, módulos y evaluaciones enseguida. Para cobrarle a las familias hace falta que verifiquemos la escuela — por eso te pedimos estos datos.",
+  "registrarEscuela.nombre": "Nombre de la escuela",
+  "registrarEscuela.razonSocial": "Razón social",
+  "registrarEscuela.cuit": "CUIT",
+  "registrarEscuela.domicilio": "Domicilio",
+  "registrarEscuela.email": "Email de contacto",
+  "registrarEscuela.contactoEmail": "Email de contacto",
+  "registrarEscuela.telefono": "Teléfono de contacto",
+  "registrarEscuela.contactoTelefono": "Teléfono de contacto",
+  "registrarEscuela.cue": "CUE (opcional)",
+  "registrarEscuela.cueAyuda": "Clave Única de Establecimiento. Dejalo vacío si es un espacio educativo virtual.",
+  "registrarEscuela.notas": "Notas para el administrador",
+  "registrarEscuela.enviar": "Enviar solicitud",
+  "registrarEscuela.enviando": "Enviando…",
+  "registrarEscuela.error": "No se pudo enviar la solicitud",
+  "registrarEscuela.enviadaTitulo": "Solicitud enviada",
+  "registrarEscuela.enviadaCuerpo": "Ya podés usar la plataforma. Te avisamos cuando verifiquemos la escuela para habilitar los cobros.",
+  "registrarEscuela.irAlPanel": "Ir al panel",
+  "adminEscuelas.titulo": "Escuelas por verificar",
+  "adminEscuelas.subtitulo": "Verificar una escuela es lo único que le habilita los cobros.",
+  "adminEscuelas.estado_pendiente": "Pendientes",
+  "adminEscuelas.estado_verificada": "Verificadas",
+  "adminEscuelas.estado_rechazada": "Rechazadas",
+  "adminEscuelas.cargando": "Cargando…",
+  "adminEscuelas.vacio": "No hay escuelas en este estado.",
+  "adminEscuelas.solicitadaPor": "Solicitada por",
+  "adminEscuelas.verificar": "Verificar",
+  "adminEscuelas.rechazar": "Rechazar",
+  "adminEscuelas.motivoRechazo": "¿Por qué se rechaza? (queda registrado)",
+  "nav.escuelas": "Escuelas",
+  "dropdown.registrarEscuela": "Registrar mi escuela"
 }

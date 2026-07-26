@@ -3,6 +3,8 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "../lib/prisma";
 import { requireAdmin } from "../lib/admin-auth";
 import { requireUser } from "../lib/user-auth";
+import { getCanonicalMembershipRole } from "../lib/membership-roles";
+import { desactivarMembresia, sincronizarMembresia } from "../lib/memberships";
 
 export const adminRouter = Router();
 
@@ -92,8 +94,10 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
     const actorDoc = actorId
       ? await prisma.usuario.findFirst({ where: { id: actorId } })
       : null;
-    const isBootstrap = actorDoc && (actorDoc as Record<string, unknown>).createdBy === undefined;
-    if (!isBootstrap) {
+    // Antes acá se miraba `actorDoc.createdBy`, una columna que no existe
+    // en `usuarios`: el chequeo daba true para TODOS y el candado no
+    // bloqueaba a nadie. Ahora es una marca explícita en la fila.
+    if (!actorDoc?.esAdminPrincipal) {
       return res.status(403).json({
         error: "Solo el administrador principal puede cambiar roles."
       });
@@ -114,13 +118,28 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
       });
     }
 
+    const escuelaEfectiva = escuelaId ?? target.escuelaId ?? null;
     await prisma.usuario.updateMany({
       where: { id: targetId },
       data: {
         role,
+        roles: [role],
         ...(escuelaId ? { escuelaId } : {}),
         updatedAt: new Date().toISOString()
       }
+    });
+    // PLAN-multirol — cambiar el rol dejaba la membresía con el rol VIEJO.
+    // Se da de baja el anterior (queda registrado con `fechaBaja`, que es
+    // lo que permite saltearlo al elegir el rol principal) y se da de alta
+    // el nuevo.
+    const rolViejo = getCanonicalMembershipRole(target.role);
+    if (escuelaEfectiva && rolViejo && rolViejo !== getCanonicalMembershipRole(role)) {
+      await desactivarMembresia({ usuarioId: targetId, escuelaId: escuelaEfectiva, rol: rolViejo });
+    }
+    await sincronizarMembresia({
+      usuarioId: targetId,
+      escuelaId: escuelaEfectiva,
+      rolUsuario: role
     });
     await prisma.moderacionEvento.create({
       data: {
@@ -165,6 +184,18 @@ adminRouter.patch("/api/admin/usuarios/:id/escuela", requireAdmin, async (req, r
       where: { id: targetId },
       data: { escuelaId, updatedAt: new Date().toISOString() }
     });
+    // PLAN-multirol — reasignar la escuela dejaba la membresía apuntando a
+    // la ANTERIOR, y `usuarios.ts` autoriza leyéndola: el usuario quedaba
+    // autorizado contra una escuela a la que ya no pertenece.
+    const rolMembresia = getCanonicalMembershipRole(target.role);
+    if (target.escuelaId && rolMembresia && target.escuelaId !== escuelaId) {
+      await desactivarMembresia({
+        usuarioId: targetId,
+        escuelaId: target.escuelaId,
+        rol: rolMembresia
+      });
+    }
+    await sincronizarMembresia({ usuarioId: targetId, escuelaId, rolUsuario: target.role });
     await prisma.moderacionEvento.create({
       data: {
         id: `me-${Date.now()}-${Math.random().toString(16).slice(2)}`,
