@@ -68,6 +68,9 @@ export const NAV_BY_ROLE: NavMap = {
     { id: 'aulas',            label: 'aulas',            to: '/enterprise/aulas',     exact: true },
     { id: 'miembros',         label: 'miembros',         to: '/enterprise/miembros',  exact: true },
     { id: 'moderacion',       label: 'moderacion',       to: '/admin/moderacion',     exact: true },
+    // Distinto de `moderacion`, que es sancionar USUARIOS. Acá se revisa el
+    // contenido publicado por la escuela.
+    { id: 'revisionContenido', label: 'revisionContenido', to: '/escuela/revision',    exact: true },
     { id: 'reportes',         label: 'reportes',         to: '/enterprise/reportes',  exact: true },
     { id: 'mensajes',         label: 'mensajes',         to: '/mensajes',             exact: true },
   ],

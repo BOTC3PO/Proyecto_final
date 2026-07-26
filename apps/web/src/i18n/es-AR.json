@@ -6,7 +6,7 @@
   "nav.plantillas": "Plantillas",
   "nav.cuestionarios": "Cuestionarios",
   "nav.datasets": "Conjuntos de datos",
-  "nav.moderacion": "Moderación",
+  "nav.moderacion": "Moderar usuarios",
   "nav.moderarPlantillas": "Moderar plantillas",
   "nav.reportes": "Informes",
   "nav.comisiones": "Comisiones",
@@ -4251,5 +4251,13 @@
   "invitaciones.pedirAyuda": "Pedir no es obtener: salvo el de padre, los roles los aprueba el directivo de tu escuela.",
   "invitaciones.pendiente": "Solicitud enviada. Queda pendiente de aprobación.",
   "invitaciones.concedido": "Rol concedido.",
-  "invitaciones.sinEscuela": "Necesitás pertenecer a una escuela para pedir un rol."
+  "invitaciones.sinEscuela": "Necesitás pertenecer a una escuela para pedir un rol.",
+  "nav.revisionContenido": "Revisar contenido",
+  "revisionEscuela.aviso": "Esto es revisión posterior: el material ya está publicado. Bajar algo lo saca de circulación sin borrarlo.",
+  "revisionEscuela.cuestionarios": "Cuestionarios",
+  "revisionEscuela.plantillas": "Plantillas",
+  "revisionEscuela.bajar": "Bajar",
+  "revisionEscuela.motivo": "¿Por qué se baja? (queda registrado)",
+  "revisionEscuela.vacio": "No hay material reciente.",
+  "revisionEscuela.sinTitulo": "Sin título"
 }

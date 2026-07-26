@@ -6,7 +6,7 @@
   "nav.plantillas": "Modelos",
   "nav.cuestionarios": "Questionários",
   "nav.datasets": "Conjuntos de dados",
-  "nav.moderacion": "Moderação",
+  "nav.moderacion": "Moderar usuários",
   "nav.moderarPlantillas": "Moderar modelos",
   "nav.reportes": "Relatórios",
   "nav.comisiones": "Comissões",
@@ -4251,5 +4251,13 @@
   "invitaciones.pedirAyuda": "Pedir no es obtener: salvo el de padre, los roles los aprueba el directivo de tu escuela.",
   "invitaciones.pendiente": "Solicitud enviada. Queda pendiente de aprobación.",
   "invitaciones.concedido": "Rol concedido.",
-  "invitaciones.sinEscuela": "Necesitás pertenecer a una escuela para pedir un rol."
+  "invitaciones.sinEscuela": "Necesitás pertenecer a una escuela para pedir un rol.",
+  "nav.revisionContenido": "Revisar conteúdo",
+  "revisionEscuela.aviso": "Esto es revisión posterior: el material ya está publicado. Bajar algo lo saca de circulación sin borrarlo.",
+  "revisionEscuela.cuestionarios": "Cuestionarios",
+  "revisionEscuela.plantillas": "Plantillas",
+  "revisionEscuela.bajar": "Bajar",
+  "revisionEscuela.motivo": "¿Por qué se baja? (queda registrado)",
+  "revisionEscuela.vacio": "No hay material reciente.",
+  "revisionEscuela.sinTitulo": "Sin título"
 }

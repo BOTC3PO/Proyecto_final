@@ -36,7 +36,7 @@ const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   ],
   ADMIN_ESCUELA: [
     { label: 'escuela', items: ['panelEscuela', 'aulas', 'miembros', 'mensajes'] },
-    { label: 'control', items: ['moderacion', 'reportes'] },
+    { label: 'control', items: ['moderacion', 'revisionContenido', 'reportes'] },
   ],
   DIRECTIVO: [
     { label: 'escuela',        items: ['panelEscuela', 'aulas', 'miembros', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'personalizacion'] },

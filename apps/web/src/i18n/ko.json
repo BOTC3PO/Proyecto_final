@@ -6,7 +6,7 @@
   "nav.plantillas": "템플릿",
   "nav.cuestionarios": "설문지",
   "nav.datasets": "데이터 세트",
-  "nav.moderacion": "관리",
+  "nav.moderacion": "사용자 관리",
   "nav.moderarPlantillas": "템플릿 관리",
   "nav.reportes": "보고서",
   "nav.comisiones": "수수료",
@@ -4251,5 +4251,13 @@
   "invitaciones.pedirAyuda": "Pedir no es obtener: salvo el de padre, los roles los aprueba el directivo de tu escuela.",
   "invitaciones.pendiente": "Solicitud enviada. Queda pendiente de aprobación.",
   "invitaciones.concedido": "Rol concedido.",
-  "invitaciones.sinEscuela": "Necesitás pertenecer a una escuela para pedir un rol."
+  "invitaciones.sinEscuela": "Necesitás pertenecer a una escuela para pedir un rol.",
+  "nav.revisionContenido": "콘텐츠 검토",
+  "revisionEscuela.aviso": "Esto es revisión posterior: el material ya está publicado. Bajar algo lo saca de circulación sin borrarlo.",
+  "revisionEscuela.cuestionarios": "Cuestionarios",
+  "revisionEscuela.plantillas": "Plantillas",
+  "revisionEscuela.bajar": "Bajar",
+  "revisionEscuela.motivo": "¿Por qué se baja? (queda registrado)",
+  "revisionEscuela.vacio": "No hay material reciente.",
+  "revisionEscuela.sinTitulo": "Sin título"
 }

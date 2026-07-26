@@ -6,7 +6,7 @@
   "nav.plantillas": "Templates",
   "nav.cuestionarios": "Quizzes",
   "nav.datasets": "Datasets",
-  "nav.moderacion": "Moderation",
+  "nav.moderacion": "Moderate users",
   "nav.moderarPlantillas": "Moderate templates",
   "nav.reportes": "Reports",
   "nav.comisiones": "Commissions",
@@ -4251,5 +4251,13 @@
   "invitaciones.pedirAyuda": "Requesting is not getting: except for parent, roles are approved by your school's director.",
   "invitaciones.pendiente": "Request sent. Awaiting approval.",
   "invitaciones.concedido": "Role granted.",
-  "invitaciones.sinEscuela": "You need to belong to a school to request a role."
+  "invitaciones.sinEscuela": "You need to belong to a school to request a role.",
+  "nav.revisionContenido": "Review content",
+  "revisionEscuela.aviso": "This is post-publication review: the material is already live. Taking something down removes it from circulation without deleting it.",
+  "revisionEscuela.cuestionarios": "Quizzes",
+  "revisionEscuela.plantillas": "Templates",
+  "revisionEscuela.bajar": "Take down",
+  "revisionEscuela.motivo": "Why is it being taken down? (recorded)",
+  "revisionEscuela.vacio": "No recent material.",
+  "revisionEscuela.sinTitulo": "Untitled"
 }
