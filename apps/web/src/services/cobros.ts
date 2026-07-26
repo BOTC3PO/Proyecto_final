@@ -91,3 +91,28 @@ export const togglePasarela = (escuelaId: string, provider: ProviderPasarela, ac
 
 export const iniciarAutorizacionMercadoPago = (escuelaId: string) =>
   apiGet<{ url: string }>(`/api/escuelas/${escuelaId}/pasarelas/mercadopago/authorize`);
+
+/**
+ * PLAN-roles-v3 D2 — delegación de cobros.
+ *
+ * Sólo el directivo PRINCIPAL (el que registró la escuela) otorga o revoca.
+ * La delegación habilita emitir cuotas y confirmar pagos; conectar la
+ * pasarela sigue siendo exclusivo del principal, así que un delegado nunca
+ * puede redirigir a dónde va la plata.
+ */
+export type DirectivoDelegacion = {
+  usuarioId: string;
+  nombre: string;
+  email: string | null;
+  puedeCobrar: boolean;
+  esPrincipal: boolean;
+};
+
+export const fetchDirectivos = (escuelaId: string) =>
+  apiGet<{ items: DirectivoDelegacion[] }>(`/api/escuelas/${escuelaId}/directivos`);
+
+export const setDelegacionCobros = (escuelaId: string, usuarioId: string, puedeCobrar: boolean) =>
+  apiPatch<{ ok: boolean; puedeCobrar: boolean }>(
+    `/api/escuelas/${escuelaId}/delegacion-cobros`,
+    { usuarioId, puedeCobrar }
+  );

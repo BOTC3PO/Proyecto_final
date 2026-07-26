@@ -93,6 +93,7 @@ const EnterpriseCobros          = lazyWithRetry(() => import("./pages/Enterprise
 const Pagos                     = lazyWithRetry(() => import("./pages/Pagos"));
 const AdminComisiones           = lazyWithRetry(() => import("./pages/AdminComisiones"));
 const AdminEscuelas             = lazyWithRetry(() => import("./pages/AdminEscuelas"));
+const AdminVerificaciones       = lazyWithRetry(() => import("./pages/AdminVerificaciones"));
 const Invitaciones              = lazyWithRetry(() => import("./pages/Invitaciones"));
 const RevisionEscuela           = lazyWithRetry(() => import("./pages/RevisionEscuela"));
 const RegistrarEscuela          = lazyWithRetry(() => import("./pages/RegistrarEscuela"));
@@ -417,6 +418,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['ADMIN']}>
                 {withSuspense(<AdminReportesGlobal />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'admin/verificaciones',
+            element: (
+              <ProtectedRoute allow={['ADMIN']}>
+                {withSuspense(<AdminVerificaciones />)}
               </ProtectedRoute>
             ),
           },

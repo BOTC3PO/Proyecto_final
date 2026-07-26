@@ -10,6 +10,7 @@ import { useAuth } from "../auth/use-auth";
 import { Card, CardHead, CardBody, Button, Pill, Input, Select, Textarea } from "../components/ui";
 import { fetchClassrooms } from "../services/aulas";
 import { useI18n } from "../i18n/I18nContext";
+import DelegacionCobros from "../components/DelegacionCobros";
 import {
   fetchCobros,
   crearCobro,
@@ -373,6 +374,9 @@ export default function EnterpriseCobros() {
           {error}
         </p>
       )}
+
+      {/* Se auto-oculta salvo para el directivo principal. */}
+      <DelegacionCobros escuelaId={escuelaId} />
 
       <Card>
         <CardHead>

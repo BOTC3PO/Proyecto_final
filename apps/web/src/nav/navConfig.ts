@@ -40,6 +40,7 @@ export const NAV_BY_ROLE: NavMap = {
     { id: 'reportes',         label: 'reportes',         to: '/admin/reportes',    exact: true },
     { id: 'comisiones',       label: 'comisiones',       to: '/admin/comisiones',  exact: true },
     { id: 'escuelas',         label: 'escuelas',         to: '/admin/escuelas',    exact: true },
+    { id: 'verificaciones',   label: 'verificaciones',   to: '/admin/verificaciones', exact: true },
     { id: 'mensajes',         label: 'mensajes',         to: '/mensajes',          exact: true },
   ],
   USER: userBase,

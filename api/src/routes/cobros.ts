@@ -512,3 +512,45 @@ cobros.patch("/api/escuelas/:escuelaId/cryptomus", requireUser, async (req, res)
   });
   return res.json({ ok: true, cryptomusHabilitado: habilitado });
 });
+
+// GET /api/escuelas/:escuelaId/directivos — directivos de la escuela con su
+// estado de delegación. Lo consume el panel del directivo principal para
+// saber a quién le está dando (o sacando) el permiso de cobrar.
+cobros.get("/api/escuelas/:escuelaId/directivos", requireUser, async (req, res) => {
+  const user = req.user as ReqUser | undefined;
+  const escuelaId = req.params.escuelaId as string;
+  if (!(await esDirectivoPrincipal(user, escuelaId))) {
+    return res.status(403).json({
+      error: "sólo el directivo principal ve la delegación",
+      code: "SOLO_DIRECTIVO_PRINCIPAL"
+    });
+  }
+
+  const membresias = await prisma.membresia.findMany({
+    where: { escuelaId, rol: "DIRECTIVO", estado: "activa" }
+  });
+  const ids = membresias.map((m) => m.usuarioId);
+  const usuarios = ids.length
+    ? await prisma.usuario.findMany({
+        where: { id: { in: ids }, isDeleted: { not: true } },
+        select: { id: true, fullName: true, username: true, email: true }
+      })
+    : [];
+  const porId = new Map(usuarios.map((u) => [u.id, u]));
+  const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
+
+  return res.json({
+    items: membresias.map((m) => {
+      const u = porId.get(m.usuarioId);
+      return {
+        usuarioId: m.usuarioId,
+        nombre: u?.fullName || u?.username || m.usuarioId,
+        email: u?.email ?? null,
+        puedeCobrar: m.puedeCobrar === true,
+        // El principal siempre puede: no se muestra como delegación
+        // revocable porque no lo es.
+        esPrincipal: escuela?.directivoPrincipalId === m.usuarioId
+      };
+    })
+  });
+});

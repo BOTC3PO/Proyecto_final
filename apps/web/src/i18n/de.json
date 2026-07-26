@@ -4264,5 +4264,22 @@
   "adminEscuelas.cryptomusQuitar": "Quitar Cryptomus",
   "adminEscuelas.cryptomusConfirmar": "Con Cryptomus, el dinero de esta escuela pasa por tu cuenta y le pagás a mano. Asumís la custodia de esos fondos. ¿Habilitar igual?",
   "adminEscuelas.reasignarTitular": "Reasignar titular",
-  "adminEscuelas.reasignarPrompt": "Id del nuevo directivo principal (tiene que ser directivo activo de esa escuela)"
+  "adminEscuelas.reasignarPrompt": "Id del nuevo directivo principal (tiene que ser directivo activo de esa escuela)",
+  "delegacion.titulo": "Quién puede cobrar",
+  "delegacion.ayuda": "Como titular, elegís qué directivos pueden emitir cuotas y confirmar pagos. Conectar la pasarela sigue siendo sólo tuyo.",
+  "delegacion.otorgar": "Habilitar cobros",
+  "delegacion.quitar": "Quitar cobros",
+  "delegacion.esPrincipal": "Titular de la escuela",
+  "delegacion.vacio": "No hay otros directivos en esta escuela.",
+  "nav.verificaciones": "Verifizierungen",
+  "adminVerificaciones.titulo": "Perfiles por verificar",
+  "adminVerificaciones.subtitulo": "Personas que declaran ser docentes o directivas sin una escuela que las avale. Verificar habilita que su perfil público lo afirme.",
+  "adminVerificaciones.vacio": "No hay perfiles en este estado.",
+  "adminVerificaciones.motivo": "¿Por qué se rechaza? (el usuario lo va a leer)",
+  "verificacionPublica.rolDeclarado": "Rol declarado",
+  "verificacionPublica.nombreCompleto": "Nombre completo",
+  "verificacionPublica.documento": "Documento",
+  "verificacionPublica.institucion": "Institución",
+  "verificacionPublica.enlace": "Enlace",
+  "verificacionPublica.notas": "Notas"
 }

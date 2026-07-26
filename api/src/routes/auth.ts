@@ -527,7 +527,7 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
         isDeleted: { not: true }
       }
     });
-    if (user?.role === "GUEST") {
+    if (user && resolveRoles(user).includes("GUEST")) {
       if (ENV.NODE_ENV !== "production") {
         console.warn("[auth/login] Guest account attempted password login", {
           identifier,

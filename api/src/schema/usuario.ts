@@ -73,3 +73,18 @@ export const UsuarioSchema = UsuarioReadSchema;
 
 export type UsuarioWriteInput = z.infer<typeof UsuarioWriteSchema>;
 export type UsuarioInput = z.infer<typeof UsuarioReadSchema>;
+
+/**
+ * PLAN-roles-v3 B2 — lo que declara alguien que pide verificar su perfil
+ * público como docente o directivo sin escuela que lo avale. Es más liviano
+ * que el alta de escuela a propósito: acá se valida a una persona, no una
+ * institución.
+ */
+export const VerificacionPublicaSchema = z.object({
+  rolDeclarado: z.enum(["TEACHER", "DIRECTIVO"]),
+  nombreCompleto: z.string().min(3).max(200),
+  documento: z.string().min(5).max(40),
+  institucion: z.string().max(200).optional(),
+  enlace: z.string().url().optional(),
+  notas: z.string().max(1000).optional()
+});

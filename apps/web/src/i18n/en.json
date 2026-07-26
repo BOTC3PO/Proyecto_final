@@ -4264,5 +4264,22 @@
   "adminEscuelas.cryptomusQuitar": "Disable Cryptomus",
   "adminEscuelas.cryptomusConfirmar": "With Cryptomus, this school's money goes through your account and you pay them manually. You take custody of those funds. Enable anyway?",
   "adminEscuelas.reasignarTitular": "Reassign owner",
-  "adminEscuelas.reasignarPrompt": "Id of the new principal director (must be an active director of that school)"
+  "adminEscuelas.reasignarPrompt": "Id of the new principal director (must be an active director of that school)",
+  "delegacion.titulo": "Who can charge",
+  "delegacion.ayuda": "As owner, you choose which directors can issue fees and confirm payments. Connecting the gateway remains yours alone.",
+  "delegacion.otorgar": "Enable charging",
+  "delegacion.quitar": "Disable charging",
+  "delegacion.esPrincipal": "School owner",
+  "delegacion.vacio": "No other directors in this school.",
+  "nav.verificaciones": "Verifications",
+  "adminVerificaciones.titulo": "Profiles awaiting verification",
+  "adminVerificaciones.subtitulo": "People claiming to be teachers or directors without a school vouching for them. Verifying lets their public profile state it.",
+  "adminVerificaciones.vacio": "No profiles in this state.",
+  "adminVerificaciones.motivo": "Why is it rejected? (the user will read it)",
+  "verificacionPublica.rolDeclarado": "Claimed role",
+  "verificacionPublica.nombreCompleto": "Full name",
+  "verificacionPublica.documento": "ID document",
+  "verificacionPublica.institucion": "Institution",
+  "verificacionPublica.enlace": "Link",
+  "verificacionPublica.notas": "Notes"
 }

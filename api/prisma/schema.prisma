@@ -219,6 +219,16 @@ model Usuario {
   /// un campo `createdBy` que NUNCA existió en la tabla, con lo cual el
   /// chequeo daba true para todos: cualquier ADMIN podía promover a ADMIN.
   esAdminPrincipal      Boolean  @default(false) @map("es_admin_principal")
+  /// PLAN-roles-v3 B2 — verificación del PERFIL PÚBLICO.
+  ///
+  /// Distinta de la verificación de escuela: acá no se valida una
+  /// institución sino a una persona que dice ser profesora o directiva
+  /// "fuera del registro" — sin una escuela que responda por ella. Sin
+  /// verificar, ese rol no se muestra en su perfil público.
+  /// "no_solicitada" | "pendiente" | "verificada" | "rechazada"
+  verificacionPublica   String   @default("no_solicitada") @map("verificacion_publica")
+  datosVerificacion     String?  @map("datos_verificacion")
+  motivoRechazoPublico  String?  @map("motivo_rechazo_publico")
   roles                 String[] @default([])
   escuelaId             String?  @map("escuela_id")
   passwordHash          String?  @map("password_hash")

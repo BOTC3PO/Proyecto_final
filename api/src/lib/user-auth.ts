@@ -4,6 +4,7 @@ import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from
 import { enforceSubscriptionAccess } from "./entitlements";
 import { toObjectId } from "./ids";
 import { prisma } from "./prisma";
+import { resolveRoles } from "./roles";
 import { normalizeSchoolId } from "./school-ids";
 
 type AuthenticatedUser = Record<string, unknown> & {
@@ -69,7 +70,7 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
     };
     const allowGuestPaths = new Set(["/api/auth/me", "/api/me"]);
     if (
-      userContext.role === "GUEST" &&
+      resolveRoles(userContext).includes("GUEST") &&
       userContext.guestOnboardingStatus !== "aceptado" &&
       !allowGuestPaths.has(req.path)
     ) {

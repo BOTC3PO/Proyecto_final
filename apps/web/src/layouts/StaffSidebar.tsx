@@ -44,7 +44,7 @@ const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   ],
   ADMIN: [
     { label: 'sistema',  items: ['panel', 'usuarios', 'materias', 'modulos', 'cuestionarios', 'plantillas', 'datasets'] },
-    { label: 'control',  items: ['moderacion', 'moderarPlantillas', 'reportes', 'escuelas', 'comisiones', 'mensajes'] },
+    { label: 'control',  items: ['moderacion', 'moderarPlantillas', 'reportes', 'escuelas', 'verificaciones', 'comisiones', 'mensajes'] },
   ],
 };
 

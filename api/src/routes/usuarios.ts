@@ -366,7 +366,7 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
     }
 
     let hijos: Array<{ id: string; nombre: string; usuario: string }> = [];
-    if (userDoc.role === "PARENT") {
+    if (isParentInRoles(resolveRoles(userDoc))) {
       const vinculos = await prisma.progresoModuloVinculo.findMany({
         where: { parentId: userId, estado: "aprobado" },
         select: { childId: true }

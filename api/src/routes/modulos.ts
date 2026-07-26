@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { randomUUID } from "crypto";
 import { prisma } from "../lib/prisma";
+import { hasRole } from "../lib/roles";
 import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { assertClassroomWritable } from "../lib/classroom";
@@ -163,7 +164,7 @@ export function canEditModuloDirect(
   modulo: { ownerUserId: string | null; visibility: string; schoolId: string | null },
   user: { _id?: string; role?: string | null; schoolId?: string | null },
 ): boolean {
-  if (user?.role === "ADMIN") return true;
+  if (hasRole(user, "ADMIN")) return true;
   const userId = user?._id ?? null;
   if (modulo.ownerUserId && userId && modulo.ownerUserId === userId) return true;
   if (
@@ -1765,7 +1766,7 @@ function canAccessQuiz(
   // de este fix cualquier staff (isStaffRole) podía editar el draft de
   // OTRO docente, porque el fallback no chequeaba dueño. Ahora sólo el
   // dueño o un ADMIN.
-  return loaded.quiz.ownerUserId === requesterId || requesterRaw?.role === "ADMIN";
+  return loaded.quiz.ownerUserId === requesterId || hasRole(requesterRaw, "ADMIN");
 }
 
 // WO-tiza-config — claves de `QuizVersion.settings` que forman la
