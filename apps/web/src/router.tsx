@@ -93,6 +93,7 @@ const EnterpriseCobros          = lazyWithRetry(() => import("./pages/Enterprise
 const Pagos                     = lazyWithRetry(() => import("./pages/Pagos"));
 const AdminComisiones           = lazyWithRetry(() => import("./pages/AdminComisiones"));
 const AdminEscuelas             = lazyWithRetry(() => import("./pages/AdminEscuelas"));
+const Invitaciones              = lazyWithRetry(() => import("./pages/Invitaciones"));
 const RegistrarEscuela          = lazyWithRetry(() => import("./pages/RegistrarEscuela"));
 const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfesor"));
 const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
@@ -395,7 +396,9 @@ export const router = createBrowserRouter([
           {
             path: 'admin/moderacion',
             element: (
-              <ProtectedRoute allow={['ADMIN']}>
+              // El admin de escuela también modera, pero el back le acota
+              // el alcance a la suya (ver lib alcanceModeracion).
+              <ProtectedRoute allow={['ADMIN', 'ADMIN_ESCUELA']}>
                 {withSuspense(<AdminModeracion />)}
               </ProtectedRoute>
             ),
@@ -421,6 +424,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['ADMIN']}>
                 {withSuspense(<AdminEscuelas />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'invitaciones',
+            element: (
+              <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'ADMIN_ESCUELA', 'PARENT']}>
+                {withSuspense(<Invitaciones />)}
               </ProtectedRoute>
             ),
           },

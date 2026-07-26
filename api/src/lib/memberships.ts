@@ -11,7 +11,7 @@
  * patrón que `confirmarPago` para los pagos.
  */
 import type { MembershipRole } from "./membership-roles";
-import { getCanonicalMembershipRole } from "./membership-roles";
+import { getCanonicalMembershipRole, MEMBERSHIP_ROLES } from "./membership-roles";
 import { prisma } from "./prisma";
 
 export const MEMBERSHIP_STATUSES = ["activa", "suspendida", "revocada"] as const;
@@ -75,7 +75,9 @@ export const assertMembershipInvariants = ({
   void userRole;
 };
 
-const MEMBERSHIP_ROLE_SET = new Set<string>(["DIRECTIVO", "TEACHER", "STUDENT", "PARENT"]);
+// Derivado de MEMBERSHIP_ROLES y no una lista aparte: duplicarla hizo que
+// `ADMIN_ESCUELA` fuera rechazado como "rol desconocido" al agregarlo.
+const MEMBERSHIP_ROLE_SET = new Set<string>(MEMBERSHIP_ROLES);
 
 const now = () => new Date().toISOString();
 

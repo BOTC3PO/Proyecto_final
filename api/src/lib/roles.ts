@@ -42,7 +42,7 @@ export const resolveRoles = (input?: {
  * mantener la compat con código que lee `user.role` singular. Si el
  * array está vacío, devuelve `null` (nunca inventa un rol).
  */
-const ROLE_HIERARCHY: string[] = ["ADMIN", "DIRECTIVO", "TEACHER", "PARENT", "USER", "GUEST"];
+const ROLE_HIERARCHY: string[] = ["ADMIN", "DIRECTIVO", "ADMIN_ESCUELA", "TEACHER", "PARENT", "USER", "GUEST"];
 
 export const resolvePrimaryRole = (input?: {
   role?: string | null;
@@ -75,7 +75,10 @@ export const hasRole = (
  * roles? Esta función reemplaza inline checks `STAFF_ROLES.has(role)`
  * cuando se necesita el array.
  */
-export const STAFF_ROLES: ReadonlySet<string> = new Set(["ADMIN", "DIRECTIVO", "TEACHER"]);
+// PLAN-roles-v3 A1 — ADMIN_ESCUELA es staff (profesor con rasgos de
+// directivo dentro de SU escuela). No entra en las guardas de "ADMIN":
+// ése es el de plataforma, que no pertenece a ninguna escuela.
+export const STAFF_ROLES: ReadonlySet<string> = new Set(["ADMIN", "DIRECTIVO", "ADMIN_ESCUELA", "TEACHER"]);
 
 export const isStaffInRoles = (roles: readonly string[]): boolean =>
   roles.some((r) => STAFF_ROLES.has(r));

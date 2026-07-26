@@ -4238,5 +4238,18 @@
   "adminEscuelas.rechazar": "Rechazar",
   "adminEscuelas.motivoRechazo": "¿Por qué se rechaza? (queda registrado)",
   "nav.escuelas": "Lernejoj",
-  "dropdown.registrarEscuela": "Registri mian lernejon"
+  "dropdown.registrarEscuela": "Registri mian lernejon",
+  "roles.adminEscuela": "Lerneja administranto",
+  "invitaciones.recibidas": "Invitaciones recibidas",
+  "invitaciones.sinRecibidas": "No tenés invitaciones pendientes.",
+  "invitaciones.porResolver": "Solicitudes de tu escuela",
+  "invitaciones.aceptar": "Aceptar",
+  "invitaciones.rechazar": "Rechazar",
+  "invitaciones.aprobar": "Aprobar",
+  "invitaciones.denegar": "Denegar",
+  "invitaciones.pedirTitulo": "Pedir un rol",
+  "invitaciones.pedirAyuda": "Pedir no es obtener: salvo el de padre, los roles los aprueba el directivo de tu escuela.",
+  "invitaciones.pendiente": "Solicitud enviada. Queda pendiente de aprobación.",
+  "invitaciones.concedido": "Rol concedido.",
+  "invitaciones.sinEscuela": "Necesitás pertenecer a una escuela para pedir un rol."
 }

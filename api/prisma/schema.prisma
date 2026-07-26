@@ -255,6 +255,30 @@ model Membresia {
 }
 
 
+/// PLAN-roles-v3 A3 — pedir e invitar son la MISMA fila mirada desde los
+/// dos lados: cambia quién la inicia y, por lo tanto, quién la aprueba.
+/// Un alumno que pide ser profesor la inicia él y la aprueba el directivo;
+/// un directivo que invita a alguien la inicia él y la acepta el invitado.
+model InvitacionRol {
+  id           String  @id
+  escuelaId    String  @map("escuela_id")
+  /// A quién le toca el rol.
+  destinatario String
+  /// Rol de escuela pedido/ofrecido (MEMBERSHIP_ROLES).
+  rol          String
+  /// Quién inició. Si coincide con `destinatario` es un PEDIDO; si no, una INVITACIÓN.
+  iniciadoPor  String  @map("iniciado_por")
+  /// pendiente | aceptada | rechazada
+  estado       String  @default("pendiente")
+  resueltoPor  String? @map("resuelto_por")
+  motivo       String?
+  createdAt    String  @map("created_at")
+  updatedAt    String  @map("updated_at")
+  @@index([destinatario, estado])
+  @@index([escuelaId, estado])
+  @@map("invitaciones_rol")
+}
+
 model Clase {
   id              String   @id
   escuelaId       String   @map("escuela_id")

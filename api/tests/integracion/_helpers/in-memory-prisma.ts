@@ -806,6 +806,7 @@ export class InMemoryPrisma {
   //     consultar membresias STUDENT del espejo.
   //   - `cuentaVinculada` es la tabla puente simétrica nueva.
   membresia = new Table<MembresiaRow>("membresia");
+  invitacionRol = new Table<Row>("invitacionRol");
   cuentaVinculada = new Table<CuentaVinculadaRow>("cuentaVinculada");
   // FASE 5 — vínculo padre↔hijo. El handler crea filas SIN `id`
   // (la columna es `@default(uuid())` en el schema), así que el

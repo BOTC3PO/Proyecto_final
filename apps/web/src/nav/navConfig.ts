@@ -60,6 +60,17 @@ export const NAV_BY_ROLE: NavMap = {
     { id: 'calendario',   label: 'calendario',   to: '/profesor/calendario',   exact: true },
     { id: 'mensajes',     label: 'mensajes',     to: '/mensajes',              exact: true },
   ],
+  // PLAN-roles-v3 A1 — admin de ESCUELA: profesor con rasgos de directivo,
+  // acotado a la suya. Sólo moderación, reportes, escuela y mensajes: no
+  // toca plata (ni cobros ni comisiones ni pasarelas).
+  ADMIN_ESCUELA: [
+    { id: 'panelEscuela',     label: 'panelEscuela',     to: '/enterprise',           exact: true },
+    { id: 'aulas',            label: 'aulas',            to: '/enterprise/aulas',     exact: true },
+    { id: 'miembros',         label: 'miembros',         to: '/enterprise/miembros',  exact: true },
+    { id: 'moderacion',       label: 'moderacion',       to: '/admin/moderacion',     exact: true },
+    { id: 'reportes',         label: 'reportes',         to: '/enterprise/reportes',  exact: true },
+    { id: 'mensajes',         label: 'mensajes',         to: '/mensajes',             exact: true },
+  ],
   DIRECTIVO: [
     { id: 'panelEscuela',     label: 'panelEscuela',     to: '/enterprise',           exact: true },
     { id: 'aulas',            label: 'aulas',            to: '/enterprise/aulas',     exact: true },
@@ -99,6 +110,11 @@ export const DROPDOWN_BY_ROLE: Record<Role, DropdownItem[]> = {
   TEACHER: [
     { kind: 'link', id: 'miPerfil',       label: 'miPerfil',       to: '/perfil',  icon: 'user'    },
     { kind: 'link', id: 'verComoAlumno', label: 'verComoAlumno', to: '/alumno',  icon: 'student' },
+    { kind: 'divider' },
+    { kind: 'logout' },
+  ],
+  ADMIN_ESCUELA: [
+    { kind: 'link', id: 'miPerfil', label: 'miPerfil', to: '/perfil', icon: 'user' },
     { kind: 'divider' },
     { kind: 'logout' },
   ],

@@ -4238,5 +4238,18 @@
   "adminEscuelas.rechazar": "Reject",
   "adminEscuelas.motivoRechazo": "Why is it rejected? (recorded)",
   "nav.escuelas": "Schools",
-  "dropdown.registrarEscuela": "Register my school"
+  "dropdown.registrarEscuela": "Register my school",
+  "roles.adminEscuela": "School administrator",
+  "invitaciones.recibidas": "Invitations received",
+  "invitaciones.sinRecibidas": "No pending invitations.",
+  "invitaciones.porResolver": "Requests from your school",
+  "invitaciones.aceptar": "Accept",
+  "invitaciones.rechazar": "Decline",
+  "invitaciones.aprobar": "Approve",
+  "invitaciones.denegar": "Deny",
+  "invitaciones.pedirTitulo": "Request a role",
+  "invitaciones.pedirAyuda": "Requesting is not getting: except for parent, roles are approved by your school's director.",
+  "invitaciones.pendiente": "Request sent. Awaiting approval.",
+  "invitaciones.concedido": "Role granted.",
+  "invitaciones.sinEscuela": "You need to belong to a school to request a role."
 }

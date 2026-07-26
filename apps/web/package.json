@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "//typecheck": "tsc --noEmit contra el tsconfig RAIZ no chequea nada: es un solution file con files:[] y references. Hay que apuntar al de la app.",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "save": "tsc -b > errores_web.txt 2",
     "lint": "eslint .",
     "preview": "vite preview",

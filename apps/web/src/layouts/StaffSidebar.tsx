@@ -34,6 +34,10 @@ const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
     { label: 'gestion',   items: ['asistencia', 'calificaciones', 'reportes', 'encuestas'] },
     { label: 'escuela',   items: ['calendario', 'mensajes'] },
   ],
+  ADMIN_ESCUELA: [
+    { label: 'escuela', items: ['panelEscuela', 'aulas', 'miembros', 'mensajes'] },
+    { label: 'control', items: ['moderacion', 'reportes'] },
+  ],
   DIRECTIVO: [
     { label: 'escuela',        items: ['panelEscuela', 'aulas', 'miembros', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'personalizacion'] },
     { label: 'administracion', items: ['cobros', 'comisiones', 'reportes', 'calendario', 'mensajes'] },
@@ -47,6 +51,7 @@ const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
 const ROLE_LABEL_KEY: Record<string, string> = {
   TEACHER: 'perfil.docente',
   DIRECTIVO: 'comun.directivo',
+  ADMIN_ESCUELA: 'roles.adminEscuela',
   ADMIN: 'perfil.administrador',
 };
 
