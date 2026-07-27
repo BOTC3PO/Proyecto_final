@@ -36,7 +36,6 @@ import {
 const MAPA_OPCIONES: { value: MapaBloque["nombre"]; label: string }[] = [
   { value: "world_countries", label: "Países del mundo" },
   { value: "world_states_provinces", label: "Provincias / estados (por país)" },
-  { value: "world_cities", label: "Ciudades" },
 ];
 
 /** Descriptor del campo `respuesta_iso` (reusa `read/writeTextField`). */

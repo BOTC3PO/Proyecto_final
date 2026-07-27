@@ -343,7 +343,8 @@ export type MapaEncuadre = [number, number, number, number];
 
 export interface MapaBloque {
   kind: "mapa";
-  nombre: "world_countries" | "world_states_provinces" | "world_cities";
+  // §6.a — `world_cities` retirado (no tenía renderer ni datos).
+  nombre: "world_countries" | "world_states_provinces";
   encuadre?: MapaEncuadre;
   loc: Loc;
 }

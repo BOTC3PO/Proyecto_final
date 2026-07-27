@@ -1273,7 +1273,11 @@ enunciado: |
 |---|---|---|
 | `world_countries` | Países del mundo | `respuesta_iso`: código ISO 3166-1 alfa-3 (ej. `"ARG"`). |
 | `world_states_provinces` | Estados/provincias del mundo | `respuesta_nombre`: nombre exacto según Natural Earth (ej. `"Buenos Aires"`). |
-| `world_cities` | Ciudades pobladas marcadas en Natural Earth | `respuesta_nombre`: nombre de la ciudad. |
+
+> `world_cities` se retiró (2026-07-26). El schema y el editor la ofrecían, pero
+> el renderer no la reconocía y no hay datos de ciudades: elegirla producía
+> "mapa no reconocido" en la pantalla del alumno. No había ninguna plantilla que
+> la usara, ni en el repo ni en la base.
 
 **Validación**:
 

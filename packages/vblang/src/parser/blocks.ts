@@ -89,11 +89,13 @@ const VALID_TIPOS: TipoPregunta[] = [
 
 const VALID_CORRECCION = new Set(["ninguna", "manual"]);
 
-const VALID_MAPAS = new Set([
-  "world_countries",
-  "world_states_provinces",
-  "world_cities",
-]);
+// PLAN tiza-autoria-avanzada §6.a — `world_cities` se retiró: el schema y
+// MapaField la ofrecían, pero `MarcarMapaRenderer` no la reconoce (sólo
+// politico_mundo / world / world_countries / politico_mundo_detallado /
+// world_states_provinces) y no hay datos de ciudades, así que elegirla daba
+// "mapa no reconocido" al alumno. 0 usos en el repo y 0 en la base
+// (21 plantillas, 20 versiones, 31 quiz_versions, 8 material_versions).
+const VALID_MAPAS = new Set(["world_countries", "world_states_provinces"]);
 
 /* ---------- Helpers para bloques key/value ---------- */
 

@@ -1498,7 +1498,13 @@ export default function PlantillaEditorSchema({
             </span>
           </div>
 
-          {schema.fields.map((field) =>
+          {/* `respuesta_nombre` se sumó al schema en PLAN tiza-autoria-avanzada
+              §6.b (para que Tiza lo ofreciera). Acá ya lo edita
+              `RespuestaNombreField` más abajo, junto al resto de la config de
+              mapa, así que se excluye del render genérico para no duplicarlo. */}
+          {schema.fields
+            .filter((f) => f.block !== "respuesta_nombre")
+            .map((field) =>
             field.block === "enunciado" ? (
               <EnunciadoField
                 key={field.key}

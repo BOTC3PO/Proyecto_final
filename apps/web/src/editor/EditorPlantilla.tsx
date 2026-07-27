@@ -95,7 +95,15 @@ const langBarStyle: CSSProperties = {
 };
 
 /** Bloques del subsistema mapa que `MapaField` reemplaza en el render genérico. */
-const MAPA_FIELD_BLOCKS = new Set<string>(["mapa", "respuesta_iso"]);
+// `respuesta_nombre` se sumó al schema en PLAN tiza-autoria-avanzada §6.b (para
+// que Tiza lo pueda ofrecer). Acá `MapaField` ya lo editaba por su cuenta con un
+// toggle iso↔nombre, así que hay que excluirlo del render genérico o el campo
+// "Nombre correcto" aparece dos veces.
+const MAPA_FIELD_BLOCKS = new Set<string>([
+  "mapa",
+  "respuesta_iso",
+  "respuesta_nombre",
+]);
 
 /** Bloques que este slice edita (el resto se lista como preservado). */
 const V2_EDITS = new Set<Bloque["kind"]>([

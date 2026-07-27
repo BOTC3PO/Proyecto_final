@@ -292,7 +292,6 @@ const marcarMapaSchema: QuestionTypeSchema = {
       options: [
         { value: "world_countries", label: "Países del mundo" },
         { value: "world_states_provinces", label: "Provincias / estados (por país)" },
-        { value: "world_cities", label: "Ciudades" },
       ],
     },
     {
@@ -302,6 +301,21 @@ const marcarMapaSchema: QuestionTypeSchema = {
       help: "Para países: ISO A3 (ej. ARG). Para provincias: ISO 3166-2 (ej. AR-C para CABA).",
       required: true,
       block: "respuesta_iso",
+    },
+    /**
+     * PLAN tiza-autoria-avanzada §6.b — el modo "nombre" existía en el runtime
+     * (`generate-special.ts`: `modoRespuesta = respuestaIso ? "iso" : "nombre"`)
+     * y en el adapter, y la plantilla de ejemplo oficial del wizard lo usa, pero
+     * ningún campo del schema lo declaraba: sólo se llegaba por modo Código.
+     * Opcional — si hay `respuesta_iso`, ese gana y este queda como extra.
+     */
+    {
+      kind: "text",
+      key: "respuesta_nombre",
+      label: "Nombre correcto",
+      help: "Alternativa al ISO: compara por el nombre (name_es). Si declarás ISO, manda el ISO.",
+      required: false,
+      block: "respuesta_nombre",
     },
   ],
   sampleDsl: `enunciado: "Marcá Argentina en el mapa."
