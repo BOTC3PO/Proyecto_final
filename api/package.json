@@ -26,7 +26,8 @@
     "maps:index": "ts-node --transpile-only scripts/index_maps_to_sqlite.ts",
     "db:inventory": "ts-node --transpile-only scripts/analyze-db-usage.ts",
     "seed:demo": "ts-node --transpile-only scripts/seed_demo.ts",
-    "sync:generadores": "ts-node --transpile-only scripts/sync-generator-subtipos.ts"
+    "sync:generadores": "ts-node --transpile-only scripts/sync-generator-subtipos.ts",
+    "seed:oficiales": "tsx scripts/seed_plantillas_oficiales.ts"
   },
   "prisma": {
     "seed": "ts-node --transpile-only prisma/seed.ts"
