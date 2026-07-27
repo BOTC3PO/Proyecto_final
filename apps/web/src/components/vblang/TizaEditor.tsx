@@ -92,8 +92,12 @@ import {
   variantesToEnunciado,
   readExplicacion,
   writeExplicacion,
+  withBlock,
+  withoutBlock,
 } from "./plantillaAst";
 
+import { listDatasets } from "../../domain/vblang/datasetApi";
+import type { DatasetListItem } from "../../domain/vblang/dataset.types";
 import { useI18n } from "../../i18n/I18nContext";
 /* ─── tipos ─────────────────────────────────────────────────────────── */
 
@@ -491,6 +495,10 @@ export function TizaQuestionCard({
   live,
 }: TizaQuestionCardProps) {
   const { t } = useI18n();
+  // §4 — el bloque `dataset:` es ortogonal al tipo. Se revela si ya existe o si
+  // se lo eligió del menú (el bloque se escribe al elegir un dataset concreto).
+  const datasetNombre = getBlock(plantilla, "dataset")?.nombre ?? "";
+  const [pickingDataset, setPickingDataset] = useState(false);
   const tipo = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
   const enunField = fieldByKey(plantilla, "enunciado");
@@ -889,10 +897,23 @@ export function TizaQuestionCard({
         </>
       ) : null}
 
+      {/* DATASET (§4) — se muestra si la plantilla ya lo declara o si se acaba
+          de elegir del menú. El bloque se escribe al elegir el dataset. */}
+      {datasetNombre !== "" || pickingDataset ? (
+        <>
+          <div style={{ height: 1, background: "var(--c-border)" }} />
+          <div id="tiza-sec-dataset">
+            <CampoDataset plantilla={plantilla} onChange={onChange} />
+          </div>
+        </>
+      ) : null}
+
       {/* AÑADIR BLOQUE */}
       <AddBlockButton
         onSelect={(kind) => {
-          if (kind === "variable") {
+          if (kind === "dataset") {
+            setPickingDataset(true);
+          } else if (kind === "variable") {
             // §3 — nombre libre (`v`, `v_2`…): `addVariable` desambigua solo si
             // choca. Arranca como aleatorio entero, el subtipo más común, y se
             // selecciona para que el property grid quede listo para editarla.
@@ -923,7 +944,6 @@ export function TizaQuestionCard({
             const items = readEnunciados(base);
             onChange(writeEnunciados(base, [...items, { text: "Nueva variante…" }]));
           }
-          // dataset queda para futuras iteraciones (pronto, disabled)
         }}
       />
     </div>
@@ -941,7 +961,7 @@ const ADD_ITEMS = [
   { id: "pasos", labelKey: "tizaEditor.pasosDeResolucion", icon: "≡", tagKey: "" },
   { id: "restric", labelKey: "tizaEditor.restriccion", icon: "≠", tagKey: "tizaEditor.sobreVariables" },
   { id: "variante", labelKey: "tizaEditor.varianteDeEnunciado", icon: "¶", tagKey: "" },
-  { id: "dataset", labelKey: "tizaEditor.datasetExterno", icon: "⊟", tagKey: "tizaEditor.pronto" },
+  { id: "dataset", labelKey: "tizaEditor.datasetExterno", icon: "⊟", tagKey: "" },
 ];
 
 function AddBlockButton({ onSelect }: { onSelect: (kind: string) => void }) {
@@ -981,7 +1001,6 @@ function AddBlockButton({ onSelect }: { onSelect: (kind: string) => void }) {
               type="button"
               role="menuitem"
               data-testid={`tiza-add-${it.id}`}
-              disabled={it.id === "dataset"}
               onClick={() => {
                 onSelect(it.id);
                 close();
@@ -2195,6 +2214,105 @@ function CampoSpans({
           ? `${t("tizaEditor.indicesDePalabra")} 0–${palabras - 1}`
           : t("tizaEditor.indicesDePalabra")}
       </div>
+    </div>
+  );
+}
+
+/**
+ * PLAN tiza-autoria-avanzada §4 — bloque `dataset:`.
+ *
+ * Todo el camino ya existía (parser → `compile` → `generate` pidiéndole las
+ * filas al provider → CRUD en la API → páginas de datasets → `DatasetField` en
+ * el editor clásico); lo único apagado era el botón de Tiza, con un
+ * `disabled` a mano y el tag "pronto".
+ *
+ * Además del picker, muestra las COLUMNAS del dataset elegido: el runtime deja
+ * las filas en scope bajo el nombre del dataset, y hasta ahora nada en la
+ * interfaz decía qué campos tiene, así que había que adivinarlos.
+ */
+function CampoDataset({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (p: Plantilla) => void;
+}) {
+  const { t } = useI18n();
+  const nombre = getBlock(plantilla, "dataset")?.nombre ?? "";
+  const [items, setItems] = useState<DatasetListItem[] | null>(null);
+  const [fallo, setFallo] = useState(false);
+
+  useEffect(() => {
+    let vivo = true;
+    listDatasets({ limit: 100 })
+      .then((r) => {
+        if (vivo) setItems(r.items);
+      })
+      .catch(() => {
+        if (vivo) setFallo(true);
+      });
+    return () => {
+      vivo = false;
+    };
+  }, []);
+
+  const escribir = (n: string) =>
+    onChange(
+      n.trim() === ""
+        ? withoutBlock(plantilla, "dataset")
+        : withBlock(plantilla, { kind: "dataset", nombre: n.trim(), loc: DUMMY_LOC }),
+    );
+
+  const elegido = items?.find((d) => d.nombre === nombre);
+  const columnas = elegido ? Object.keys(elegido.columnas ?? {}) : [];
+
+  return (
+    <div style={{ marginBottom: 18 }} data-testid="tiza-dataset">
+      <Eyebrow>{t("tizaEditor.datasetExterno")}</Eyebrow>
+      {fallo ? (
+        // Si la lista no carga (sin sesión, API caída), no se bloquea la
+        // autoría: se puede tipear el nombre, igual que el editor clásico.
+        <BufferedInput
+          type="text"
+          value={nombre}
+          placeholder="ej.: paises_del_mundo"
+          onCommit={escribir}
+          style={inputStyle(true)}
+          data-testid="tiza-dataset-input"
+        />
+      ) : (
+        <select
+          value={nombre}
+          onChange={(e) => escribir(e.target.value)}
+          style={{ ...inputStyle(), cursor: "pointer" }}
+          data-testid="tiza-dataset-select"
+        >
+          <option value="">{t("tizaEditor.sinDataset")}</option>
+          {/* El nombre guardado puede no estar en la lista (dataset borrado o de
+              otra escuela): se ofrece igual para no perderlo en silencio. */}
+          {nombre !== "" && !items?.some((d) => d.nombre === nombre) ? (
+            <option value={nombre}>{nombre}</option>
+          ) : null}
+          {(items ?? []).map((d) => (
+            <option key={d.id} value={d.nombre}>
+              {d.nombre} ({d.filasCount})
+            </option>
+          ))}
+        </select>
+      )}
+      {columnas.length > 0 ? (
+        <div
+          style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}
+          data-testid="tiza-dataset-columnas"
+        >
+          {t("tizaEditor.columnasDisponibles")}{" "}
+          <span style={{ ...mono, color: "var(--c-text-2)" }}>{columnas.join(", ")}</span>
+        </div>
+      ) : (
+        <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+          {t("tizaEditor.lasFilasQuedanEnScope")}
+        </div>
+      )}
     </div>
   );
 }

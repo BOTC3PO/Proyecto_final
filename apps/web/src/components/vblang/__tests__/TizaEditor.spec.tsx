@@ -67,18 +67,21 @@ async function openAddBlockMenu(user: ReturnType<typeof userEvent.setup>) {
 }
 
 describe("Tiza · menú ＋ Añadir bloque", () => {
-  it("lista las 5 opciones y sólo Dataset externo está deshabilitado", async () => {
+  // PLAN tiza-autoria-avanzada §3/§4 — el menú tenía 5 ítems con "Dataset
+  // externo" deshabilitado ("pronto") y sin forma de agregar una variable.
+  // Ahora son 6 y están todos habilitados.
+  it("lista las 6 opciones, todas habilitadas", async () => {
     const user = userEvent.setup();
     render(<CardHarness initial={BASE} />);
     await openAddBlockMenu(user);
 
     const menu = screen.getByRole("menu");
-    for (const label of ["Pista", "Pasos de resolución", "Restricción", "Variante de enunciado"]) {
-      expect(within(menu).getByRole("menuitem", { name: new RegExp(label, "i") })).toBeEnabled();
+    // Por testid y no por nombre accesible: el de "Restricción" incluye el tag
+    // "sobre variables", que colisiona con /Variable/i.
+    for (const id of ["variable", "pista", "pasos", "restric", "variante", "dataset"]) {
+      expect(within(menu).getByTestId(`tiza-add-${id}`)).toBeEnabled();
     }
-    expect(
-      within(menu).getByRole("menuitem", { name: /dataset externo/i }),
-    ).toBeDisabled();
+    expect(within(menu).getAllByRole("menuitem")).toHaveLength(6);
   });
 
   it("Pista agrega una pista real al DSL", async () => {
