@@ -1,5 +1,65 @@
 # Auditoría de generadoresV2 — clasificación de subtipos
 
+> ## ⚠️ DOCUMENTO HISTÓRICO — su "Recomendación" ya NO es el plan vigente
+>
+> **Decisión vigente (2026-07-26): los generadores son LEGACY, sólo
+> retrocompatibilidad.** No se migran a bancos, no se upgradean los
+> PARAMETRIZABLE, no se agregan subtipos nuevos. La consigna es **esconder antes
+> que mejorar**.
+>
+> Esta auditoría es de la época de VBLang v2 (G3/H4) y su sección
+> "Recomendación" propone lo contrario (migrar los ~48 BANCO al modelo de slots y
+> upgradear los ~22 PARAMETRIZABLE). Se conserva porque el **diagnóstico** sigue
+> siendo válido y útil —30 % de los subtipos son pools disfrazados— pero **no
+> tomarla como hoja de ruta**.
+>
+> ### Por qué cambió
+>
+> Los generadores son ~60 archivos TypeScript que producen objetos `Ejercicio*`
+> ya terminados (`EjercicioQuiz`, `EjercicioNumerico`, …), **no plantillas
+> VBLang**. Lo "avanzado" es el eje `dificultad: basico | intermedio | avanzado`
+> (`generadoresV2/core/types.ts`), que sólo escala rangos numéricos vía
+> `dificultadFactor()`. Se eligen por id y **no son editables desde ninguna
+> interfaz gráfica por diseño**: para cambiar un generador hay que tocar
+> TypeScript y desplegar. Eso los vuelve inviables como ruta de autoría para un
+> docente.
+>
+> ### Qué los reemplaza
+>
+> **Autorear el ejercicio en Tiza.** Desde 2026-07-26 el property grid de Tiza
+> recorre `QUESTION_TYPE_SCHEMAS` y edita **los 11 tipos de pregunta** con todos
+> sus campos (opciones de mc, ítems de ordenar, mapa + ISO, texto a analizar,
+> etiquetas, spans, corrección de abierta, respuesta simbólica), más variables
+> (agregar/borrar/renombrar, aleatorio entero y decimal, listas) y datasets
+> externos con picker y columnas. Antes de eso **sólo `input` era editable en la
+> interfaz** y los otros 10 tipos mandaban a modo Código, que es la razón
+> histórica por la que un generador programado a mano parecía la única salida
+> para un ejercicio no trivial.
+>
+> Hay un guard test que sostiene la propiedad:
+> `apps/web/src/components/vblang/__tests__/tiza-cubre-todos-los-tipos.spec.tsx`
+> falla si algún campo de algún tipo deja de ser alcanzable desde la interfaz.
+>
+> ### Estado actual de los generadores en la UI
+>
+> - En Tiza: opción **"Generador (legacy)"** dentro del `<optgroup>` "Legacy" del
+>   selector de Tipo de pregunta. Elegirla revela el `GeneradorPicker`.
+> - `generador:` sigue siendo una base válida del DSL y las plantillas que ya lo
+>   usan siguen funcionando: es retrocompatibilidad, no deprecación con fecha.
+> - Cuando hay base generador, el property grid de Tiza no renderiza los campos
+>   del tipo (el generador los provee) y se edita en modo Código.
+>
+> ### Lo único de este documento que sigue abierto
+>
+> El punto 3 de "Recomendación" (bug de distractores deterministas) **ya se
+> arregló** en `configuracion_electronica` (`AtomosEnlaces.ts:266` tiene
+> `shuffle` antes del `slice`). Pero el mismo patrón sigue vivo en
+> `quimica/Seguridad.ts:195,211,227`: `PICTOGRAMAS.filter(...).slice(0, 3)` sin
+> barajar, así que los 3 distractores son siempre los primeros de la tabla y el
+> alumno los reconoce por descarte. No se tocó por la consigna de no modificar
+> generadores; queda anotado por si se decide hacer una excepción por ser un
+> defecto que ve el alumno.
+
 Auditoría solicitada en VBLang v2 (sección G3/H4). Zip auditado: última versión anclada por Javier. Método: análisis estático de los 232 subtipos mapeados en los `case` de cada generador, con clasificador por señales de código + revisión manual de ambiguos y muestreo de calibración por módulo.
 
 ## Criterio

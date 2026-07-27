@@ -20,7 +20,7 @@ PLAN-P (`tareas_pendientes/PLAN-P-documentacion.md`), origen: `ALCANCE_VBLang_2.
 | [`backend/migraciones.md`](./backend/migraciones.md) | Flujo `prisma migrate` + seed. | Devs. |
 | [`backend/diagramas-comportamiento.md`](./backend/diagramas-comportamiento.md) | Diagramas de flujo de negocio. | Devs. |
 | [`frontend/overview.md`](./frontend/overview.md) | App shell, routing, `services`, `domain`, auth. | Devs. |
-| [`frontend/generadores.md`](./frontend/generadores.md) | Arquitectura `generadoresV2` + adapters VBLang web. | Devs. |
+| [`frontend/generadores.md`](./frontend/generadores.md) | Arquitectura `generadoresV2` + adapters VBLang web. **LEGACY** (2026-07-26): describe lo que existe, no se agregan generadores nuevos; la ruta de autoría es Tiza. | Devs. |
 | [`frontend/calculador.md`](./frontend/calculador.md) | Subsistema calculador + calculadora de física. | Devs. |
 | [`editor-shell.md`](./editor-shell.md) | Patrón de layout de 3 columnas reusable entre editores. | Devs. |
 | [`glosario.md`](./glosario.md) | Términos ambiguos (ENTERPRISE suscripción vs rol, etc.). | Todos. |

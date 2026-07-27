@@ -2,10 +2,32 @@
 
 | | |
 |---|---|
-| **Estado** | Vigente |
-| **Audiencia** | Frontend, contenido, autores de generadores |
-| **Última actualización** | 2026-07-18 — fusión con `documentacion V2/docs/`: verificado el catálogo de materias/generadores contra el código actual (sin cambios respecto a 2026-05-30) y agregada la conexión con el editor Tiza (PLAN-Y). |
+| **Estado** | **LEGACY — sólo retrocompatibilidad** (decisión 2026-07-26). Vigente como descripción de lo que existe; **no** como invitación a escribir generadores nuevos. |
+| **Audiencia** | Frontend, contenido |
+| **Última actualización** | 2026-07-26 — marcado como legacy: la ruta de autoría es Tiza, que desde esta fecha edita los 11 tipos de pregunta. Antes: 2026-07-18, fusión con `documentacion V2/docs/` (catálogo verificado contra el código, conexión con Tiza de PLAN-Y). |
 | **Fuente de verdad** | `apps/web/src/generadoresV2/`, `apps/web/src/vblang/` |
+
+> ### ⚠️ No agregar generadores nuevos
+>
+> Un generador es TypeScript: para crear o cambiar uno hay que editar código y
+> desplegar, así que **un docente no puede autorear con esto**. Lo "avanzado" es
+> sólo el eje `dificultad: basico | intermedio | avanzado` (`core/types.ts`), que
+> escala rangos numéricos con `dificultadFactor()`.
+>
+> **La ruta de autoría es Tiza.** Desde 2026-07-26 su property grid recorre
+> `QUESTION_TYPE_SCHEMAS` y edita los **11 tipos** con todos sus campos, más
+> variables (agregar/borrar/renombrar, entero y decimal, listas) y datasets
+> externos. Antes sólo `input` era editable en la interfaz, que es la razón
+> histórica por la que programar un generador parecía la única salida para un
+> ejercicio no trivial.
+>
+> Lo que existe sigue funcionando —`generador:` es una base válida del DSL y las
+> plantillas que lo usan no se rompen— y en Tiza vive como opción "Generador
+> (legacy)" del selector de Tipo. Es retrocompatibilidad, no deprecación con
+> fecha. Ver también el encabezado de
+> [`../AUDITORIA_GENERADORES.md`](../AUDITORIA_GENERADORES.md), cuyo diagnóstico
+> (30 % de los subtipos son pools disfrazados) sigue valiendo aunque su
+> recomendación de migrar/upgradear ya no sea el plan.
 
 > Documentación de arquitectura derivada del código. El **catálogo de prompts por generador**
 > (488 entradas) ya está generado y **no se rederiva aquí**: vive en
