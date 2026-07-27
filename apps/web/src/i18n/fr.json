@@ -2295,6 +2295,8 @@
   "tizaEditor.restriccion": "Restriction",
   "tizaEditor.varianteDeEnunciado": "Variante de l'énoncé",
   "tizaEditor.datasetExterno": "Ensemble de données externe",
+  "tizaEditor.visual": "Visuel",
+  "tizaEditor.imagenGraficoFormula": "image, graphique ou formule",
   "tizaEditor.sinDataset": "Aucun jeu de données",
   "tizaEditor.columnasDisponibles": "Colonnes disponibles :",
   "tizaEditor.lasFilasQuedanEnScope": "Les lignes sont disponibles sous le nom du jeu de données (utilisez-les dans les variables).",

@@ -2295,6 +2295,8 @@
   "tizaEditor.restriccion": "제약 조건",
   "tizaEditor.varianteDeEnunciado": "문제 변형",
   "tizaEditor.datasetExterno": "외부 데이터 세트",
+  "tizaEditor.visual": "비주얼",
+  "tizaEditor.imagenGraficoFormula": "이미지, 차트 또는 수식",
   "tizaEditor.sinDataset": "데이터셋 없음",
   "tizaEditor.columnasDisponibles": "사용 가능한 열:",
   "tizaEditor.lasFilasQuedanEnScope": "행은 데이터셋 이름으로 사용할 수 있습니다 (변수에서 쓰세요).",

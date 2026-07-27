@@ -2295,6 +2295,8 @@
   "tizaEditor.restriccion": "Restrizione",
   "tizaEditor.varianteDeEnunciado": "Variante dell'enunciato",
   "tizaEditor.datasetExterno": "Dataset esterno",
+  "tizaEditor.visual": "Visivo",
+  "tizaEditor.imagenGraficoFormula": "immagine, grafico o formula",
   "tizaEditor.sinDataset": "Nessun dataset",
   "tizaEditor.columnasDisponibles": "Colonne disponibili:",
   "tizaEditor.lasFilasQuedanEnScope": "Le righe sono disponibili col nome del dataset (usale nelle variabili).",

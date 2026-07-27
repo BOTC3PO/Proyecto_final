@@ -80,13 +80,14 @@ describe("Tiza · menú ＋ Añadir bloque", () => {
     const menu = screen.getByRole("menu");
     // Por testid y no por nombre accesible: el de "Restricción" incluye el tag
     // "sobre variables", que colisiona con /Variable/i.
-    for (const id of ["variable", "pista", "pasos", "restric", "variante", "dataset"]) {
+    for (const id of ["variable", "pista", "pasos", "restric", "variante", "dataset", "visual"]) {
       expect(within(menu).getByTestId(`tiza-add-${id}`)).toBeEnabled();
     }
     expect(within(menu).getByTestId("tiza-add-tolerancia_abs")).toBeEnabled();
     // `opciones: N` es sólo de mc: no aparece en un `input`.
     expect(within(menu).queryByTestId("tiza-add-opciones_cantidad")).toBeNull();
-    expect(within(menu).getAllByRole("menuitem")).toHaveLength(7);
+    // 7 agnósticos + tolerancia_abs (que `input` admite).
+    expect(within(menu).getAllByRole("menuitem")).toHaveLength(8);
   });
 
   it("Pista agrega una pista real al DSL", async () => {

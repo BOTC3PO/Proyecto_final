@@ -72,6 +72,7 @@ import {
   withListItems,
 } from "./plantillaFields";
 import GeneradorPicker from "./GeneradorPicker";
+import VisualField from "../../editor/fields/VisualField";
 import {
   getBlock,
   exprToText,
@@ -99,6 +100,7 @@ import {
   writeToleranciaAbs,
   readOpcionesCantidad,
   writeOpcionesCantidad,
+  writeVisualRaw,
 } from "./plantillaAst";
 
 import { listDatasets } from "../../domain/vblang/datasetApi";
@@ -912,6 +914,27 @@ export function TizaQuestionCard({
         </>
       ) : null}
 
+      {/* VISUAL — se reusa el editor del clásico (6 tipos: imagen, gráfico de
+          líneas, línea de tiempo, LaTeX…), que no depende de ningún contexto
+          suyo: sólo `plantilla` + `onChange`. */}
+      {hasBlock(plantilla, "visual") ? (
+        <>
+          <div style={{ height: 1, background: "var(--c-border)" }} />
+          <div id="tiza-sec-visual" data-testid="tiza-visual">
+            <Eyebrow>{t("tizaEditor.visual")}</Eyebrow>
+            <VisualField plantilla={plantilla} onChange={onChange} />
+            <button
+              type="button"
+              onClick={() => onChange(withoutBlock(plantilla, "visual"))}
+              data-testid="tiza-visual-quitar"
+              style={{ ...addLinkButtonStyle, color: "var(--c-danger)" }}
+            >
+              {t("comun.eliminar")}
+            </button>
+          </div>
+        </>
+      ) : null}
+
       {/* DATASET (§4) — se muestra si la plantilla ya lo declara o si se acaba
           de elegir del menú. El bloque se escribe al elegir el dataset. */}
       {datasetNombre !== "" || pickingDataset ? (
@@ -964,6 +987,10 @@ export function TizaQuestionCard({
             // distractores). El control queda en el property grid.
             const next = writeOpcionesCantidad(plantilla, "4");
             if (next) onChange(next);
+          } else if (kind === "visual") {
+            // El bloque nace con `kind: static-image`; `VisualField` deja
+            // cambiarlo por gráfico/línea de tiempo/LaTeX desde su propio select.
+            onChange(writeVisualRaw(plantilla, { kind: "static-image" }));
           } else if (kind === "tolerancia_abs") {
             const next = writeToleranciaAbs(plantilla, "0.01");
             if (next) onChange(next);
@@ -1030,6 +1057,17 @@ const ADD_ITEMS: AddItem[] = [
     tagKey: "tizaEditor.distractoresNumericos",
     compatible: (tipo) => tipo === "mc",
     yaEsta: (p) => hasBlock(p, "opciones"),
+  },
+  {
+    // `visual:` es agnóstico del tipo (una imagen, un gráfico o una fórmula
+    // acompañando cualquier pregunta). Era el último bloque de la Referencia
+    // VBLang que no se podía tocar desde la interfaz: sólo existía en el editor
+    // clásico. Se reusa ese mismo `VisualField` en vez de escribir otro.
+    id: "visual",
+    labelKey: "tizaEditor.visual",
+    icon: "◧",
+    tagKey: "tizaEditor.imagenGraficoFormula",
+    yaEsta: (p) => hasBlock(p, "visual"),
   },
   {
     id: "tolerancia_abs",
@@ -1106,12 +1144,15 @@ function AddBlockButton({
                 borderRadius: 8,
                 border: 0,
                 background: "transparent",
-                color: it.id === "dataset" ? "var(--c-text-3)" : "var(--c-text)",
+                // Estos tres eran `it.id === "dataset" ? …` de cuando el ítem
+                // estaba deshabilitado ("pronto"): al habilitarlo quedó el
+                // estilo de gris + 55 % de opacidad + cursor de flecha, así que
+                // parecía inactivo aunque funcionara.
+                color: "var(--c-text)",
                 fontSize: 13,
                 fontWeight: 560,
-                cursor: it.id === "dataset" ? "default" : "pointer",
+                cursor: "pointer",
                 textAlign: "left",
-                opacity: it.id === "dataset" ? 0.55 : 1,
               }}
             >
               <span

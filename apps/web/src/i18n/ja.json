@@ -2295,6 +2295,8 @@
   "tizaEditor.restriccion": "制約",
   "tizaEditor.varianteDeEnunciado": "問題文のバリエーション",
   "tizaEditor.datasetExterno": "外部データセット",
+  "tizaEditor.visual": "ビジュアル",
+  "tizaEditor.imagenGraficoFormula": "画像・グラフ・数式",
   "tizaEditor.sinDataset": "データセットなし",
   "tizaEditor.columnasDisponibles": "利用できる列:",
   "tizaEditor.lasFilasQuedanEnScope": "行はデータセット名で利用できます（変数の中で使ってください）。",

@@ -2295,6 +2295,8 @@
   "tizaEditor.restriccion": "限制",
   "tizaEditor.varianteDeEnunciado": "题目变体",
   "tizaEditor.datasetExterno": "外部数据集",
+  "tizaEditor.visual": "视觉元素",
+  "tizaEditor.imagenGraficoFormula": "图片、图表或公式",
   "tizaEditor.sinDataset": "无数据集",
   "tizaEditor.columnasDisponibles": "可用列：",
   "tizaEditor.lasFilasQuedanEnScope": "这些行以数据集名称提供（在变量中使用）。",

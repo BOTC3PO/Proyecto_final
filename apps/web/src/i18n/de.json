@@ -2295,6 +2295,8 @@
   "tizaEditor.restriccion": "Einschränkung",
   "tizaEditor.varianteDeEnunciado": "Aufgabenstellungs-Variante",
   "tizaEditor.datasetExterno": "Externer Datensatz",
+  "tizaEditor.visual": "Visual",
+  "tizaEditor.imagenGraficoFormula": "Bild, Diagramm oder Formel",
   "tizaEditor.sinDataset": "Kein Dataset",
   "tizaEditor.columnasDisponibles": "Verfügbare Spalten:",
   "tizaEditor.lasFilasQuedanEnScope": "Die Zeilen stehen unter dem Namen des Datasets bereit (nutze sie in den Variablen).",

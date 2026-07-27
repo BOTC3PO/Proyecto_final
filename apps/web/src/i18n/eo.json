@@ -2295,6 +2295,8 @@
   "tizaEditor.restriccion": "Restrikto",
   "tizaEditor.varianteDeEnunciado": "Varanto de ensciigo",
   "tizaEditor.datasetExterno": "Ekstera dataro",
+  "tizaEditor.visual": "Vidaĵo",
+  "tizaEditor.imagenGraficoFormula": "bildo, diagramo aŭ formulo",
   "tizaEditor.sinDataset": "Sen datumaro",
   "tizaEditor.columnasDisponibles": "Disponeblaj kolumnoj:",
   "tizaEditor.lasFilasQuedanEnScope": "La vicoj disponeblas sub la nomo de la datumaro (uzu ilin en la variabloj).",
