@@ -23,6 +23,7 @@ import {
 import {
   type Expr,
   type Field,
+  type ListField,
   type Plantilla,
   type TextField,
   type TipoPregunta,
@@ -46,8 +47,20 @@ import {
   applyGenerador,
   readTextField,
   readNumberField,
+  readBoolField,
+  readEnumField,
+  readListStrings,
+  readEtiquetas,
+  readSpans,
   writeTextField,
   writeNumberField,
+  writeBoolField,
+  writeEnumField,
+  writeListStrings,
+  writeEtiquetas,
+  writeSpans,
+  type EtiquetaRow,
+  type SpanRow,
   updateVariable,
   renameVariable,
   makeRandomIntExpr,
@@ -1344,6 +1357,14 @@ function QuestionPropertyGrid({
           </div>
         ) : null}
 
+        {/* CAMPOS DEL TIPO (§1) — todo lo que el schema declara y Tiza no tenía
+            cableado a mano: opciones de mc, ítems de ordenar, mapa +
+            respuesta_iso, texto_analizar, etiquetas, spans, corrección de
+            abierta, respuesta_expr… Antes vivían sólo en modo Código. */}
+        {!usaGenerador ? (
+          <CamposDelSchema plantilla={plantilla} onChange={onChange} tipo={tipo} />
+        ) : null}
+
         {/* BLOQUES: PISTAS */}
         <div style={{ height: 1, background: "var(--c-border)", margin: "6px 0" }} />
         <Eyebrow>{t("tizaEditor.bloques")}</Eyebrow>
@@ -1726,6 +1747,484 @@ function QuestionPropertyGrid({
         ) : null}
       </div>
     </div>
+  );
+}
+
+/* ─── Campos del schema, genéricos ──────────────────────────────────── */
+
+/**
+ * PLAN tiza-autoria-avanzada §1 — Tiza leía 4 claves hardcodeadas
+ * (`enunciado`, `respuesta`, `unidad`, `tolerancia`) y nunca recorría
+ * `schema.fields`, así que 10 de los 11 tipos de pregunta tenían campos
+ * OBLIGATORIOS invisibles en la interfaz y había que irse a modo Código. El más
+ * caro: `mc` sembraba `opciones_explicitas: ["Opción 1", "Opción 2"]` y no había
+ * forma de editarlas — se publicaban tal cual.
+ *
+ * Estos controles cubren los `kind` del schema con los MISMOS `read*`/`write*`
+ * de `plantillaFields` que ya usaba el editor clásico (incluido el respeto de
+ * `allowNegative`, que se arregló en casos-límite §3). Los que Tiza ya tenía a
+ * mano con UI propia (enunciado, respuesta, unidad, tolerancia) se siguen
+ * renderizando aparte: acá van "los demás".
+ */
+const CLAVES_CON_UI_PROPIA = new Set(["enunciado", "respuesta", "unidad", "tolerancia"]);
+
+function CampoEscalar({
+  field,
+  plantilla,
+  onChange,
+}: {
+  field: Field;
+  plantilla: Plantilla;
+  onChange: (p: Plantilla) => void;
+}) {
+  const { t } = useI18n();
+  const [invalido, setInvalido] = useState(false);
+  const ayuda = field.help ? (
+    <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>{field.help}</div>
+  ) : null;
+
+  if (field.kind === "bool") {
+    const value = readBoolField(plantilla, field);
+    return (
+      <div style={{ marginBottom: 18 }}>
+        <Eyebrow>{field.label}</Eyebrow>
+        <label style={{ display: "inline-flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
+          <input
+            type="checkbox"
+            checked={value}
+            onChange={(e) => onChange(writeBoolField(plantilla, field, e.target.checked))}
+            data-testid={`tiza-campo-${field.key}`}
+          />
+          <span style={{ fontSize: 13, color: "var(--c-text-2)" }}>
+            {value ? t("comun.si") : t("comun.no")}
+          </span>
+        </label>
+        {ayuda}
+      </div>
+    );
+  }
+
+  if (field.kind === "enum") {
+    const value = readEnumField(plantilla, field) || field.options[0]?.value || "";
+    return (
+      <div style={{ marginBottom: 18 }}>
+        <Eyebrow>{field.label}</Eyebrow>
+        <select
+          value={value}
+          onChange={(e) => onChange(writeEnumField(plantilla, field, e.target.value))}
+          style={{ ...inputStyle(), cursor: "pointer" }}
+          data-testid={`tiza-campo-${field.key}`}
+        >
+          {field.options.map((o) => (
+            <option key={o.value} value={o.value}>
+              {o.label}
+            </option>
+          ))}
+        </select>
+        {ayuda}
+      </div>
+    );
+  }
+
+  if (field.kind === "number") {
+    return (
+      <div style={{ marginBottom: 18 }}>
+        <Eyebrow>{field.label}</Eyebrow>
+        <BufferedInput
+          type="number"
+          step="any"
+          min={field.allowNegative ? undefined : 0}
+          value={readNumberField(plantilla, field)}
+          onCommit={(v) => {
+            const next = writeNumberField(plantilla, field, v);
+            // `null` = no se guarda (ej. negativo donde el schema no lo permite).
+            setInvalido(next === null && v.trim() !== "");
+            if (next) onChange(next);
+          }}
+          style={inputStyle(true)}
+          data-testid={`tiza-campo-${field.key}`}
+        />
+        {invalido ? (
+          <div style={{ fontSize: 11, color: "var(--c-danger)", marginTop: 4 }}>
+            {t("tizaEditor.valorInvalidoNoSeGuarda")}
+          </div>
+        ) : (
+          ayuda
+        )}
+      </div>
+    );
+  }
+
+  // text
+  const textField = field as TextField;
+  const value = readTextField(plantilla, textField);
+  const commit = (v: string) => {
+    const next = writeTextField(plantilla, textField, v);
+    setInvalido(next === null && v.trim() !== "");
+    if (next) onChange(next);
+  };
+  return (
+    <div style={{ marginBottom: 18 }}>
+      <Eyebrow>{field.label}</Eyebrow>
+      {textField.multiline ? (
+        <BufferedTextarea
+          value={value}
+          rows={3}
+          onCommit={commit}
+          style={{ ...inputStyle(true), resize: "vertical" }}
+          data-testid={`tiza-campo-${field.key}`}
+        />
+      ) : (
+        <BufferedInput
+          type="text"
+          value={value}
+          placeholder={textField.expression ? t("tizaEditor.ejAB") : undefined}
+          onCommit={commit}
+          style={inputStyle(true)}
+          data-testid={`tiza-campo-${field.key}`}
+        />
+      )}
+      {invalido ? (
+        <div style={{ fontSize: 11, color: "var(--c-danger)", marginTop: 4 }}>
+          {t("tizaEditor.valorInvalidoNoSeGuarda")}
+        </div>
+      ) : (
+        ayuda
+      )}
+    </div>
+  );
+}
+
+/** Lista de strings (opciones de mc, ítems a ordenar, respuestas válidas…). */
+function CampoListaStrings({
+  field,
+  plantilla,
+  onChange,
+}: {
+  field: ListField;
+  plantilla: Plantilla;
+  onChange: (p: Plantilla) => void;
+}) {
+  const { t } = useI18n();
+  const items = readListStrings(plantilla, field);
+  const minItems = field.minItems ?? 0;
+  const update = (next: string[]) => onChange(writeListStrings(plantilla, field, next));
+
+  return (
+    <div style={{ marginBottom: 18 }}>
+      <Eyebrow>{field.label}</Eyebrow>
+      <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+        {items.map((item, idx) => (
+          <div key={idx} style={{ display: "flex", gap: 7, alignItems: "center" }}>
+            <BufferedInput
+              type="text"
+              value={item}
+              aria-label={`${field.label} ${idx + 1}`}
+              onCommit={(v) => {
+                const next = items.slice();
+                next[idx] = v;
+                update(next);
+              }}
+              style={{ ...inputStyle(true), flex: 1 }}
+              data-testid={`tiza-campo-${field.key}-${idx}`}
+            />
+            <button
+              type="button"
+              aria-label={`${t("comun.eliminar")} ${idx + 1}`}
+              disabled={items.length <= minItems}
+              onClick={() => update(items.filter((_, i) => i !== idx))}
+              style={{
+                border: 0,
+                background: "transparent",
+                color: items.length <= minItems ? "var(--c-text-3)" : "var(--c-danger)",
+                cursor: items.length <= minItems ? "not-allowed" : "pointer",
+                fontSize: 15,
+                padding: "0 4px",
+              }}
+            >
+              ×
+            </button>
+          </div>
+        ))}
+      </div>
+      <button
+        type="button"
+        onClick={() => update([...items, ""])}
+        style={addLinkButtonStyle}
+        data-testid={`tiza-campo-${field.key}-add`}
+      >
+        ＋ {field.label}
+      </button>
+      {field.help ? (
+        <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>{field.help}</div>
+      ) : null}
+    </div>
+  );
+}
+
+/** Pares palabra/etiqueta de `analisis_sintactico`. */
+function CampoEtiquetas({
+  plantilla,
+  onChange,
+  label,
+}: {
+  plantilla: Plantilla;
+  onChange: (p: Plantilla) => void;
+  label: string;
+}) {
+  const { t } = useI18n();
+  const rows = readEtiquetas(plantilla);
+  const update = (next: EtiquetaRow[]) => onChange(writeEtiquetas(plantilla, next));
+
+  return (
+    <div style={{ marginBottom: 18 }}>
+      <Eyebrow>{label}</Eyebrow>
+      <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+        {rows.map((row, idx) => (
+          <div key={idx} style={{ display: "flex", gap: 7, alignItems: "center" }}>
+            <BufferedInput
+              type="text"
+              value={row.palabra}
+              aria-label={`${t("tizaEditor.palabra")} ${idx + 1}`}
+              placeholder={t("tizaEditor.palabra")}
+              onCommit={(v) => {
+                const next = rows.slice();
+                next[idx] = { ...row, palabra: v };
+                update(next);
+              }}
+              style={{ ...inputStyle(true), flex: 1 }}
+              data-testid={`tiza-etiqueta-palabra-${idx}`}
+            />
+            <BufferedInput
+              type="text"
+              value={row.etiqueta}
+              aria-label={`${t("tizaEditor.etiqueta")} ${idx + 1}`}
+              placeholder={t("tizaEditor.etiqueta")}
+              onCommit={(v) => {
+                const next = rows.slice();
+                next[idx] = { ...row, etiqueta: v };
+                update(next);
+              }}
+              style={{ ...inputStyle(true), flex: 1 }}
+              data-testid={`tiza-etiqueta-tag-${idx}`}
+            />
+            <button
+              type="button"
+              aria-label={`${t("comun.eliminar")} ${idx + 1}`}
+              onClick={() => update(rows.filter((_, i) => i !== idx))}
+              style={{
+                border: 0,
+                background: "transparent",
+                color: "var(--c-danger)",
+                cursor: "pointer",
+                fontSize: 15,
+                padding: "0 4px",
+              }}
+            >
+              ×
+            </button>
+          </div>
+        ))}
+      </div>
+      <button
+        type="button"
+        onClick={() => update([...rows, { palabra: "", etiqueta: "" }])}
+        style={addLinkButtonStyle}
+        data-testid="tiza-etiqueta-add"
+      >
+        ＋ {label}
+      </button>
+    </div>
+  );
+}
+
+/**
+ * PLAN tiza-autoria-avanzada §7 — spans de `analisis_spans` (índices de
+ * palabra). Era el único campo que NINGUNA interfaz editaba: el editor clásico
+ * lo saltea con un cartel ("campos aún no editables… se preservan tal cual").
+ * La capa de datos ya existía (`readSpans`/`writeSpans`), sólo faltaba la UI.
+ */
+function CampoSpans({
+  plantilla,
+  onChange,
+  label,
+}: {
+  plantilla: Plantilla;
+  onChange: (p: Plantilla) => void;
+  label: string;
+}) {
+  const { t } = useI18n();
+  const rows = readSpans(plantilla);
+  const update = (next: SpanRow[]) => onChange(writeSpans(plantilla, next));
+  const texto = readTextField(plantilla, {
+    kind: "text",
+    key: "texto_analizar",
+    label: "",
+    block: "texto_analizar",
+  } as TextField);
+  const palabras = texto.trim() === "" ? 0 : texto.trim().split(/\s+/).length;
+
+  return (
+    <div style={{ marginBottom: 18 }}>
+      <Eyebrow>{label}</Eyebrow>
+      <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+        {rows.map((row, idx) => {
+          // El compilador exige `desde ≤ hasta` y ambos dentro del texto.
+          const fueraDeRango =
+            palabras > 0 && (row.hasta >= palabras || row.desde < 0 || row.desde > row.hasta);
+          return (
+            <div key={idx}>
+              <div style={{ display: "flex", gap: 7, alignItems: "center" }}>
+                <BufferedInput
+                  type="number"
+                  min={0}
+                  value={String(row.desde)}
+                  aria-label={`${t("tizaEditor.desde")} ${idx + 1}`}
+                  onCommit={(v) => {
+                    if (v.trim() === "") return;
+                    const n = Number(v);
+                    if (!Number.isInteger(n)) return;
+                    const next = rows.slice();
+                    next[idx] = { ...row, desde: n };
+                    update(next);
+                  }}
+                  style={{ ...inputStyle(true), width: 66 }}
+                  data-testid={`tiza-span-desde-${idx}`}
+                />
+                <BufferedInput
+                  type="number"
+                  min={0}
+                  value={String(row.hasta)}
+                  aria-label={`${t("tizaEditor.hasta")} ${idx + 1}`}
+                  onCommit={(v) => {
+                    if (v.trim() === "") return;
+                    const n = Number(v);
+                    if (!Number.isInteger(n)) return;
+                    const next = rows.slice();
+                    next[idx] = { ...row, hasta: n };
+                    update(next);
+                  }}
+                  style={{ ...inputStyle(true), width: 66 }}
+                  data-testid={`tiza-span-hasta-${idx}`}
+                />
+                <BufferedInput
+                  type="text"
+                  value={row.etiqueta}
+                  aria-label={`${t("tizaEditor.etiqueta")} ${idx + 1}`}
+                  placeholder={t("tizaEditor.etiqueta")}
+                  onCommit={(v) => {
+                    const next = rows.slice();
+                    next[idx] = { ...row, etiqueta: v };
+                    update(next);
+                  }}
+                  style={{ ...inputStyle(true), flex: 1 }}
+                  data-testid={`tiza-span-etiqueta-${idx}`}
+                />
+                <button
+                  type="button"
+                  aria-label={`${t("comun.eliminar")} ${idx + 1}`}
+                  onClick={() => update(rows.filter((_, i) => i !== idx))}
+                  style={{
+                    border: 0,
+                    background: "transparent",
+                    color: "var(--c-danger)",
+                    cursor: "pointer",
+                    fontSize: 15,
+                    padding: "0 4px",
+                  }}
+                >
+                  ×
+                </button>
+              </div>
+              {fueraDeRango ? (
+                <div
+                  style={{ fontSize: 11, color: "var(--c-danger)", marginTop: 3 }}
+                  data-testid={`tiza-span-fuera-de-rango-${idx}`}
+                >
+                  {t("tizaEditor.spanFueraDelTexto")}
+                </div>
+              ) : null}
+            </div>
+          );
+        })}
+      </div>
+      <button
+        type="button"
+        onClick={() => update([...rows, { desde: 0, hasta: 0, etiqueta: "" }])}
+        style={addLinkButtonStyle}
+        data-testid="tiza-span-add"
+      >
+        ＋ {label}
+      </button>
+      <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+        {palabras > 0
+          ? `${t("tizaEditor.indicesDePalabra")} 0–${palabras - 1}`
+          : t("tizaEditor.indicesDePalabra")}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Renderiza los campos del schema que Tiza no tiene cableados a mano.
+ * `null` si el tipo no tiene ninguno (hoy: `input`).
+ */
+function CamposDelSchema({
+  plantilla,
+  onChange,
+  tipo,
+}: {
+  plantilla: Plantilla;
+  onChange: (p: Plantilla) => void;
+  tipo: TipoPregunta;
+}) {
+  const schema = QUESTION_TYPE_SCHEMAS[tipo];
+  const restantes = (schema?.fields ?? []).filter((f) => !CLAVES_CON_UI_PROPIA.has(f.key));
+  if (restantes.length === 0) return null;
+  return (
+    <>
+      {restantes.map((field) => {
+        if (field.kind === "list") {
+          const lf = field as ListField;
+          if (lf.itemShape === "etiqueta") {
+            return (
+              <CampoEtiquetas
+                key={field.key}
+                plantilla={plantilla}
+                onChange={onChange}
+                label={field.label}
+              />
+            );
+          }
+          if (lf.itemShape === "span") {
+            return (
+              <CampoSpans
+                key={field.key}
+                plantilla={plantilla}
+                onChange={onChange}
+                label={field.label}
+              />
+            );
+          }
+          return (
+            <CampoListaStrings
+              key={field.key}
+              field={lf}
+              plantilla={plantilla}
+              onChange={onChange}
+            />
+          );
+        }
+        return (
+          <CampoEscalar
+            key={field.key}
+            field={field}
+            plantilla={plantilla}
+            onChange={onChange}
+          />
+        );
+      })}
+    </>
   );
 }
 

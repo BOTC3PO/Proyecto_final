@@ -460,6 +460,14 @@ function seedBlocks(tipo: TipoPregunta): Bloque[] {
       // WO07 — abierta no lleva clave de respuesta; sólo el modo de corrección.
       blocks.push({ kind: "correccion", modo: "ninguna", loc: DUMMY_LOC });
       break;
+    case "expresion":
+      // PLAN tiza-autoria-avanzada §1 — faltaba el caso: elegir "Respuesta
+      // simbólica" dejaba la plantilla SIN ningún bloque de respuesta, y el
+      // parser exige al menos uno ("Si no hay `generador:`, debe haber al menos
+      // un campo de respuesta"). O sea el tipo era inelegible desde cualquier
+      // interfaz: al cambiar a él, el DSL resultante no parseaba.
+      blocks.push({ kind: "respuesta_expr", expr: strLit(""), loc: DUMMY_LOC });
+      break;
   }
   return blocks;
 }

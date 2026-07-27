@@ -816,19 +816,19 @@ function PlantillaEditorTizaInner() {
   const astParaRenderizar =
     astSync ?? lastValidPlantillaRef.current ?? fallbackAst;
 
-  // WO-V3a — ¿la tarjeta del prototipo cubre esta plantilla? Cubre numéricas
-  // con respuesta textual y sin listas; los generadores y los tipos con
-  // opciones/ítems se editan en modo Código (que es de fidelidad total).
+  // WO-V3a — ¿la tarjeta cubre esta plantilla? La regla original era
+  // `respuestaTextual && !listas`, con lo cual **sólo `input` pasaba**: los otros
+  // 10 tipos mandaban a modo Código porque el property grid leía 4 claves
+  // hardcodeadas y no recorría el schema.
+  //
+  // PLAN tiza-autoria-avanzada §1 — ahora `CamposDelSchema` renderiza todos los
+  // `kind` del schema (text/number/bool/enum, listas de strings, etiquetas y
+  // spans), así que la tarjeta cubre cualquier tipo. Lo único que sigue
+  // degradando es la base generador, que es legacy y se edita en Código.
   const tarjetaCubre = (() => {
     const p = astParaRenderizar;
     if (!p || isGeneradorBase(p)) return false;
-    const schema = QUESTION_TYPE_SCHEMAS[p.tipoInferido];
-    if (!schema) return false;
-    const tieneRespuestaTextual = schema.fields.some(
-      (f) => f.key === "respuesta" && f.kind === "text",
-    );
-    const tieneListas = schema.fields.some((f) => f.kind === "list");
-    return tieneRespuestaTextual && !tieneListas;
+    return QUESTION_TYPE_SCHEMAS[p.tipoInferido] !== undefined;
   })();
 
   const handleGoToLocation = (line: number, col: number) => {
