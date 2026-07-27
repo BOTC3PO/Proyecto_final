@@ -16,10 +16,15 @@
  * como plantilla oficial" — reemplazos que en una base recién creada no existen.
  *
  * Idempotente: usa `upsert` por id, así que se puede correr sobre una base con
- * datos sin duplicar ni pisar plantillas de docentes (ids propios, prefijo del
- * archivo de origen).
+ * datos sin duplicar ni pisar plantillas de docentes. Verificado contra la base
+ * local: dos corridas seguidas dejan 153 filas totales y 132 del sistema.
  *
  *   pnpm --filter api seed:oficiales
+ *
+ * Va encadenado en `db:seed`/`seed:demo` para que un entorno nuevo arranque con
+ * la biblioteca cargada. Se encadena en vez de importarse desde `seed_demo.ts`
+ * porque ese script corre con `ts-node` (CJS) y este necesita `tsx`: `@vb/vblang`
+ * es ESM y `require()`-earlo falla con ERR_REQUIRE_ESM.
  */
 import "dotenv/config";
 import { prisma } from "../src/lib/prisma";

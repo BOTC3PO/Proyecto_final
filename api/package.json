@@ -13,7 +13,7 @@
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "db:init": "ts-node --transpile-only scripts/init_db.ts",
-    "db:seed": "ts-node --transpile-only scripts/seed_demo.ts",
+    "db:seed": "ts-node --transpile-only scripts/seed_demo.ts && tsx scripts/seed_plantillas_oficiales.ts",
     "seed:tienda": "ts-node --transpile-only scripts/seed_tienda.ts",
     "backfill:espejos": "ts-node --transpile-only scripts/backfill_espejos.ts",
     "backfill:saldo-espejos": "ts-node --transpile-only scripts/backfill_saldo_espejos.ts",
@@ -25,7 +25,7 @@
     "auth:health": "ts-node --transpile-only scripts/auth_health_check.ts",
     "maps:index": "ts-node --transpile-only scripts/index_maps_to_sqlite.ts",
     "db:inventory": "ts-node --transpile-only scripts/analyze-db-usage.ts",
-    "seed:demo": "ts-node --transpile-only scripts/seed_demo.ts",
+    "seed:demo": "ts-node --transpile-only scripts/seed_demo.ts && tsx scripts/seed_plantillas_oficiales.ts",
     "sync:generadores": "ts-node --transpile-only scripts/sync-generator-subtipos.ts",
     "seed:oficiales": "tsx scripts/seed_plantillas_oficiales.ts"
   },
