@@ -2033,7 +2033,7 @@
   "editorPlantilla.etiquetas": "태그",
   "editorPlantilla.paresPalabraEtiqueta": "단어 → 태그 쌍(정답), 사전 검색 포함.",
   "editorPlantilla.camposAunNoEditablesEn": "V2에서 아직 편집할 수 없는 필드",
-  "editorPlantilla.sePreservanTalCualEn": "은(는) DSL에 그대로 유지됩니다. 클래식 편집기나 코드 모드에서 편집하세요.",
+  "editorPlantilla.sePreservanTalCualEn": "DSL에 그대로 보존됩니다. 기본 편집기(Tiza) 또는 코드 모드에서 편집하세요.",
   "editorPlantilla.variablesAleatoriasQueSeEvaluan": "각 인스턴스마다 계산되는 랜덤 변수.",
   "editorPlantilla.visual": "비주얼",
   "editorPlantilla.imagenODiagramaAsociadoA": "문제와 관련된 이미지 또는 다이어그램.",

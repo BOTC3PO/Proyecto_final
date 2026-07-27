@@ -2033,7 +2033,7 @@
   "editorPlantilla.etiquetas": "标签",
   "editorPlantilla.paresPalabraEtiqueta": "单词 → 标签对（正确答案），支持词典查询。",
   "editorPlantilla.camposAunNoEditablesEn": "V2 中尚不可编辑的字段",
-  "editorPlantilla.sePreservanTalCualEn": "在 DSL 中原样保留。请从经典编辑器或代码模式中编辑。",
+  "editorPlantilla.sePreservanTalCualEn": "会在 DSL 中原样保留。请在默认编辑器（Tiza）或代码模式中编辑。",
   "editorPlantilla.variablesAleatoriasQueSeEvaluan": "每个实例都会计算的随机变量。",
   "editorPlantilla.visual": "视觉元素",
   "editorPlantilla.imagenODiagramaAsociadoA": "与该题相关的图片或图表。",

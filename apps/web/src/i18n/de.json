@@ -2033,7 +2033,7 @@
   "editorPlantilla.etiquetas": "Etiketten",
   "editorPlantilla.paresPalabraEtiqueta": "Wort-→-Etikett-Paare (die richtige Antwort), mit Wörterbuchsuche.",
   "editorPlantilla.camposAunNoEditablesEn": "Felder noch nicht bearbeitbar in V2",
-  "editorPlantilla.sePreservanTalCualEn": "werden unverändert im DSL beibehalten. Bearbeite sie über den klassischen Editor oder den Code-Modus.",
+  "editorPlantilla.sePreservanTalCualEn": "bleiben im DSL unverändert. Bearbeite sie im Standard-Editor (Tiza) oder im Code-Modus.",
   "editorPlantilla.variablesAleatoriasQueSeEvaluan": "Zufallsvariablen, die bei jeder Instanz ausgewertet werden.",
   "editorPlantilla.visual": "Visual",
   "editorPlantilla.imagenODiagramaAsociadoA": "Bild oder Diagramm zur Frage.",

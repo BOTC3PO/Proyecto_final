@@ -2033,7 +2033,7 @@
   "editorPlantilla.etiquetas": "Etichette",
   "editorPlantilla.paresPalabraEtiqueta": "Coppie parola → etichetta (la risposta corretta), con ricerca nel dizionario.",
   "editorPlantilla.camposAunNoEditablesEn": "Campi non ancora modificabili in V2",
-  "editorPlantilla.sePreservanTalCualEn": "vengono preservati così come sono nel DSL. Modificali dall'editor classico o dalla modalità codice.",
+  "editorPlantilla.sePreservanTalCualEn": "si conservano così come sono nel DSL. Modificali nell’editor predefinito (Tiza) o in modalità Codice.",
   "editorPlantilla.variablesAleatoriasQueSeEvaluan": "Variabili casuali valutate a ogni istanza.",
   "editorPlantilla.visual": "Visuale",
   "editorPlantilla.imagenODiagramaAsociadoA": "Immagine o diagramma associato alla domanda.",

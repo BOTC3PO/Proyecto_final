@@ -2033,7 +2033,7 @@
   "editorPlantilla.etiquetas": "Etikedoj",
   "editorPlantilla.paresPalabraEtiqueta": "Paroj vorto → etikedo (la ĝusta respondo), kun vortara serĉo.",
   "editorPlantilla.camposAunNoEditablesEn": "Kampoj ankoraŭ ne redakteblaj en V2",
-  "editorPlantilla.sePreservanTalCualEn": "estas konservataj senŝanĝe en la DSL. Redaktu ilin per la klasika redaktilo aŭ la koda reĝimo.",
+  "editorPlantilla.sePreservanTalCualEn": "konserviĝas senŝanĝe en la DSL. Redaktu ilin en la defaŭlta redaktilo (Tiza) aŭ en Koda reĝimo.",
   "editorPlantilla.variablesAleatoriasQueSeEvaluan": "Hazardaj variabloj, kiuj estas taksataj en ĉiu okazo.",
   "editorPlantilla.visual": "Bildo",
   "editorPlantilla.imagenODiagramaAsociadoA": "Bildo aŭ diagramo asociita kun la demando.",

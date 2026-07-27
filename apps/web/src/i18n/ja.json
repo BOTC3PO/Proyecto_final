@@ -2033,7 +2033,7 @@
   "editorPlantilla.etiquetas": "タグ",
   "editorPlantilla.paresPalabraEtiqueta": "単語→タグのペア（正解）。辞書検索付き。",
   "editorPlantilla.camposAunNoEditablesEn": "V2ではまだ編集できないフィールド",
-  "editorPlantilla.sePreservanTalCualEn": "はDSL内でそのまま保持されます。クラシックエディタまたはコードモードから編集してください。",
+  "editorPlantilla.sePreservanTalCualEn": "DSL 内にそのまま保持されます。既定のエディタ（Tiza）またはコードモードで編集してください。",
   "editorPlantilla.variablesAleatoriasQueSeEvaluan": "各インスタンスで評価されるランダム変数。",
   "editorPlantilla.visual": "ビジュアル",
   "editorPlantilla.imagenODiagramaAsociadoA": "問題に関連する画像または図。",

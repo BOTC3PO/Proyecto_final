@@ -2033,7 +2033,7 @@
   "editorPlantilla.etiquetas": "Tags",
   "editorPlantilla.paresPalabraEtiqueta": "Word → tag pairs (the correct answer), with dictionary lookup.",
   "editorPlantilla.camposAunNoEditablesEn": "Fields not yet editable in V2",
-  "editorPlantilla.sePreservanTalCualEn": "are preserved as-is in the DSL. Edit them from the classic editor or code mode.",
+  "editorPlantilla.sePreservanTalCualEn": "are preserved as-is in the DSL. Edit them in the default editor (Tiza) or in Code mode.",
   "editorPlantilla.variablesAleatoriasQueSeEvaluan": "Random variables evaluated on each instance.",
   "editorPlantilla.visual": "Visual",
   "editorPlantilla.imagenODiagramaAsociadoA": "Image or diagram associated with the question.",

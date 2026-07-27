@@ -2036,7 +2036,7 @@
   "editorPlantilla.etiquetas": "Etiquetas",
   "editorPlantilla.paresPalabraEtiqueta": "Pares palabra → etiqueta (la respuesta correcta), con búsqueda en el diccionario.",
   "editorPlantilla.camposAunNoEditablesEn": "Campos aún no editables en V2",
-  "editorPlantilla.sePreservanTalCualEn": "se preservan tal cual en el DSL. Editálos desde el editor clásico o el modo código.",
+  "editorPlantilla.sePreservanTalCualEn": "se preservan tal cual en el DSL. Editálos en el editor por defecto (Tiza) o en modo Código.",
   "editorPlantilla.variablesAleatoriasQueSeEvaluan": "Variables aleatorias que se evalúan en cada instancia.",
   "editorPlantilla.visual": "Visual",
   "editorPlantilla.imagenODiagramaAsociadoA": "Imagen o diagrama asociado a la pregunta.",

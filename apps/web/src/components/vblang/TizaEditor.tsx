@@ -2019,15 +2019,19 @@ function CampoListaStrings({
 function CampoEtiquetas({
   plantilla,
   onChange,
-  label,
+  field,
 }: {
   plantilla: Plantilla;
   onChange: (p: Plantilla) => void;
-  label: string;
+  field: ListField;
 }) {
   const { t } = useI18n();
+  const label = field.label;
   const rows = readEtiquetas(plantilla);
   const update = (next: EtiquetaRow[]) => onChange(writeEtiquetas(plantilla, next));
+  // Un bloque vacío no parsea si el campo es obligatorio, así que el último no
+  // se puede borrar (misma política que `minItems` en las listas de strings).
+  const minItems = field.minItems ?? (field.required ? 1 : 0);
 
   return (
     <div style={{ marginBottom: 18 }}>
@@ -2064,12 +2068,14 @@ function CampoEtiquetas({
             <button
               type="button"
               aria-label={`${t("comun.eliminar")} ${idx + 1}`}
+              disabled={rows.length <= minItems}
               onClick={() => update(rows.filter((_, i) => i !== idx))}
+              data-testid={`tiza-etiqueta-eliminar-${idx}`}
               style={{
                 border: 0,
                 background: "transparent",
-                color: "var(--c-danger)",
-                cursor: "pointer",
+                color: rows.length <= minItems ? "var(--c-text-3)" : "var(--c-danger)",
+                cursor: rows.length <= minItems ? "not-allowed" : "pointer",
                 fontSize: 15,
                 padding: "0 4px",
               }}
@@ -2100,15 +2106,19 @@ function CampoEtiquetas({
 function CampoSpans({
   plantilla,
   onChange,
-  label,
+  field,
 }: {
   plantilla: Plantilla;
   onChange: (p: Plantilla) => void;
-  label: string;
+  field: ListField;
 }) {
   const { t } = useI18n();
+  const label = field.label;
   const rows = readSpans(plantilla);
   const update = (next: SpanRow[]) => onChange(writeSpans(plantilla, next));
+  // `spans_pedidos` es obligatorio: un bloque vacío no parsea, así que el
+  // último span no se puede borrar.
+  const minItems = field.minItems ?? (field.required ? 1 : 0);
   const texto = readTextField(plantilla, {
     kind: "text",
     key: "texto_analizar",
@@ -2176,12 +2186,14 @@ function CampoSpans({
                 <button
                   type="button"
                   aria-label={`${t("comun.eliminar")} ${idx + 1}`}
+                  disabled={rows.length <= minItems}
                   onClick={() => update(rows.filter((_, i) => i !== idx))}
+                  data-testid={`tiza-span-eliminar-${idx}`}
                   style={{
                     border: 0,
                     background: "transparent",
-                    color: "var(--c-danger)",
-                    cursor: "pointer",
+                    color: rows.length <= minItems ? "var(--c-text-3)" : "var(--c-danger)",
+                    cursor: rows.length <= minItems ? "not-allowed" : "pointer",
                     fontSize: 15,
                     padding: "0 4px",
                   }}
@@ -2344,7 +2356,7 @@ function CamposDelSchema({
                 key={field.key}
                 plantilla={plantilla}
                 onChange={onChange}
-                label={field.label}
+                field={lf}
               />
             );
           }
@@ -2354,7 +2366,7 @@ function CamposDelSchema({
                 key={field.key}
                 plantilla={plantilla}
                 onChange={onChange}
-                label={field.label}
+                field={lf}
               />
             );
           }
