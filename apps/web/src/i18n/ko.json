@@ -2228,6 +2228,7 @@
   "tizaEditor.nombreDeVariableInvalido": "이름이 잘못되었거나 이미 사용 중입니다: 이름을 바꾸지 않았습니다.",
   "tizaEditor.renombrarActualizaLasReferencias": "이름을 바꾸면 문제와 수식도 함께 갱신됩니다.",
   "tizaEditor.unaOpcionPorLinea": "한 줄에 하나씩 · 무작위로 하나를 고릅니다",
+  "tizaEditor.listaNoEditableEnFormulario": "이 목록에는 텍스트나 숫자가 아닌 값(객체 또는 다른 변수 참조)이 있습니다. 값을 잃지 않도록 코드 모드에서 편집하세요.",
   "tizaEditor.respuestaDecimalSinTolerancia": "정답이 소수입니다: 소수점 둘째 자리까지로 채점됩니다. 다른 정밀도가 필요하면 허용 오차를 지정하세요.",
   "tizaEditor.unidad": "단위",
   "tizaEditor.bloques": "블록",

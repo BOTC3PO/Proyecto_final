@@ -2228,6 +2228,7 @@
   "tizaEditor.nombreDeVariableInvalido": "Invalid or already used name: not renamed.",
   "tizaEditor.renombrarActualizaLasReferencias": "Renaming also updates the prompt and the expressions.",
   "tizaEditor.unaOpcionPorLinea": "one option per line · one is picked at random",
+  "tizaEditor.listaNoEditableEnFormulario": "This list holds values that are not text or numbers (objects, or a reference to another variable). Edit it in Code mode so they are not lost.",
   "tizaEditor.respuestaDecimalSinTolerancia": "The answer is a decimal: it is graded to ±2 decimal places. Declare a tolerance if you need a different precision.",
   "tizaEditor.unidad": "Unit.",
   "tizaEditor.bloques": "Blocks.",

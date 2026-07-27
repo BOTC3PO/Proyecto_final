@@ -2228,6 +2228,7 @@
   "tizaEditor.nombreDeVariableInvalido": "Nome inválido ou já usado: não foi renomeada.",
   "tizaEditor.renombrarActualizaLasReferencias": "Ao renomear, o enunciado e as expressões são atualizados.",
   "tizaEditor.unaOpcionPorLinea": "uma opção por linha · uma é escolhida ao acaso",
+  "tizaEditor.listaNoEditableEnFormulario": "Esta lista tem valores que não são texto nem números (objetos, ou uma referência a outra variável). Edite-a no modo Código para não os perder.",
   "tizaEditor.respuestaDecimalSinTolerancia": "A resposta é decimal: é corrigida com ±2 casas decimais. Declare uma tolerância se precisar de outra precisão.",
   "tizaEditor.unidad": "Unidade",
   "tizaEditor.bloques": "Blocos",

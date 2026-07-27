@@ -28,6 +28,7 @@ import {
   getBlock,
   hasBlock,
   numLit,
+  numLiteral,
   partesToText,
   strLit,
   textToExpr,
@@ -873,6 +874,59 @@ export function classifyVariable(expr: Expr): VariableKind {
     return "list";
   }
   return "expr";
+}
+
+/**
+ * PLAN tiza-autoria-avanzada §0 — ítems de una lista, o `null` si la expresión
+ * no es una lista. Cubre las tres formas que acepta el DSL: array desnudo
+ * (`[1, 2]`), `uno_de([...])`/`choice([...])` y los argumentos sueltos
+ * (`uno_de(1, 2)`).
+ */
+export function listItemExprs(expr: Expr): Expr[] | null {
+  if (expr.kind === "array") return expr.items;
+  if (expr.kind === "fun_call" && (expr.name === "uno_de" || expr.name === "choice")) {
+    const primero = expr.args[0];
+    if (primero?.kind === "array") return primero.items;
+    return expr.args;
+  }
+  return null;
+}
+
+/**
+ * PLAN tiza-autoria-avanzada §0 — ¿esta lista se puede editar como texto sin
+ * perder nada?
+ *
+ * Sólo si cada ítem es un literal de string o de número. Un array de OBJETOS
+ * (`[{ nombre: "Argentina", iso: "ARG" }]`, que es lo que usa la plantilla de
+ * ejemplo del mapa) o una lista por referencia (`uno_de(paises)`) se veía como
+ * texto plano en los editores y el round-trip la destruía: los objetos volvían
+ * como strings escapados —matando `{pais.capital}`— y la referencia volvía como
+ * lista vacía. El linter lo cantaba después, con la plantilla ya arruinada.
+ *
+ * Los editores usan esto para NO ofrecer el editor de lista en esos casos y
+ * mandar a modo Código, que es de fidelidad total.
+ */
+export function listaEditableComoTexto(expr: Expr): boolean {
+  const items = listItemExprs(expr);
+  if (items === null) return false;
+  // Una lista vacía sí es editable (es el punto de partida para llenarla).
+  return items.every((it) => it.kind === "str" || numLiteral(it) !== null);
+}
+
+/**
+ * PLAN tiza-autoria-avanzada §0 — reescribe los ítems de una lista
+ * **conservando su forma**. Antes los editores escribían siempre
+ * `uno_de([...])`, así que a un array desnudo le aparecía un wrapper que no
+ * tenía y `uno_de(paises)` pasaba a recibir un string en vez de un array.
+ */
+export function withListItems(expr: Expr, items: string[]): Expr {
+  const lista = makeListExpr(items);
+  if (expr.kind === "array") return lista;
+  if (expr.kind === "fun_call" && (expr.name === "uno_de" || expr.name === "choice")) {
+    return { ...expr, args: [lista] };
+  }
+  // No era una lista todavía (subtipo recién cambiado): forma canónica.
+  return { kind: "fun_call", name: "uno_de", args: [lista], loc: DUMMY_LOC };
 }
 
 /**

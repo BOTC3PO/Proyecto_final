@@ -2228,6 +2228,7 @@
   "tizaEditor.nombreDeVariableInvalido": "Nevalida aŭ jam uzata nomo: ne renomita.",
   "tizaEditor.renombrarActualizaLasReferencias": "Renomado ankaŭ ĝisdatigas la enoncon kaj la esprimojn.",
   "tizaEditor.unaOpcionPorLinea": "unu opcio po linio · unu estas elektata hazarde",
+  "tizaEditor.listaNoEditableEnFormulario": "Ĉi tiu listo havas valorojn kiuj ne estas teksto nek nombroj (objektoj, aŭ referenco al alia variablo). Redaktu ĝin en Koda reĝimo por ne perdi ilin.",
   "tizaEditor.respuestaDecimalSinTolerancia": "La respondo estas dekuma: ĝi estas korektata je ±2 dekumaj lokoj. Deklaru toleremon se vi bezonas alian precizecon.",
   "tizaEditor.unidad": "Unuo.",
   "tizaEditor.bloques": "Blokoj.",

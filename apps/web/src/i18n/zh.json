@@ -2228,6 +2228,7 @@
   "tizaEditor.nombreDeVariableInvalido": "名称无效或已被占用：未重命名。",
   "tizaEditor.renombrarActualizaLasReferencias": "重命名时会同步更新题干和表达式。",
   "tizaEditor.unaOpcionPorLinea": "每行一个选项 · 随机抽取其中一个",
+  "tizaEditor.listaNoEditableEnFormulario": "该列表包含非文本、非数字的值（对象，或对其他变量的引用）。请在代码模式中编辑，以免丢失。",
   "tizaEditor.respuestaDecimalSinTolerancia": "答案为小数：按小数点后 2 位判分。若需要其他精度，请声明容差。",
   "tizaEditor.unidad": "单位。",
   "tizaEditor.bloques": "块。",

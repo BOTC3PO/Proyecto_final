@@ -2228,6 +2228,7 @@
   "tizaEditor.nombreDeVariableInvalido": "Ungültiger oder bereits verwendeter Name: nicht umbenannt.",
   "tizaEditor.renombrarActualizaLasReferencias": "Beim Umbenennen werden Aufgabentext und Ausdrücke mitgeändert.",
   "tizaEditor.unaOpcionPorLinea": "eine Option pro Zeile · eine wird zufällig gewählt",
+  "tizaEditor.listaNoEditableEnFormulario": "Diese Liste enthält Werte, die kein Text und keine Zahlen sind (Objekte oder eine Referenz auf eine andere Variable). Bearbeite sie im Code-Modus, damit sie nicht verloren gehen.",
   "tizaEditor.respuestaDecimalSinTolerancia": "Die Antwort ist eine Dezimalzahl: bewertet wird auf ±2 Dezimalstellen. Gib eine Toleranz an, wenn du eine andere Genauigkeit brauchst.",
   "tizaEditor.unidad": "Einheit",
   "tizaEditor.bloques": "Blöcke",

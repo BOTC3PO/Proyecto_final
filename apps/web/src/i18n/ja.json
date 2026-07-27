@@ -2228,6 +2228,7 @@
   "tizaEditor.nombreDeVariableInvalido": "名前が不正か既に使用されています（名前は変更されませんでした）。",
   "tizaEditor.renombrarActualizaLasReferencias": "名前を変更すると、問題文と式も更新されます。",
   "tizaEditor.unaOpcionPorLinea": "1 行に 1 つの選択肢 · ランダムに 1 つ選ばれます",
+  "tizaEditor.listaNoEditableEnFormulario": "このリストにはテキストでも数値でもない値（オブジェクト、または他の変数への参照）が含まれています。失わないようにコードモードで編集してください。",
   "tizaEditor.respuestaDecimalSinTolerancia": "答えが小数です。小数第2位まででの採点になります。別の精度が必要なら許容誤差を指定してください。",
   "tizaEditor.unidad": "ブロック",
   "tizaEditor.bloques": "＋その他のヒント",

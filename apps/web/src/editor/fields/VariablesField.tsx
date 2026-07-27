@@ -8,6 +8,8 @@ import {
   renameVariable,
   removeVariable,
   classifyVariable,
+  listaEditableComoTexto,
+  withListItems,
   makeRandomIntExpr,
   makeRandomFloatExpr,
   makeListExpr,
@@ -215,8 +217,11 @@ function VariableCardV2({
     onChange(updateVariable(plantilla, index, { ...decl, expr }));
   };
 
+  /** §0 — `withListItems` y no `makeListExpr`: editar los ítems de un
+   *  `uno_de([...])` le sacaba el wrapper y la variable pasaba de "uno al azar"
+   *  a "la lista entera". */
   const setListItems = (items: string[]) => {
-    onChange(updateVariable(plantilla, index, { ...decl, expr: makeListExpr(items) }));
+    onChange(updateVariable(plantilla, index, { ...decl, expr: withListItems(decl.expr, items) }));
   };
 
   const handleRemove = useCallback(() => onRemove(index), [index, onRemove]);
@@ -323,7 +328,18 @@ function VariableCardV2({
             </div>
           )}
 
-          {kind === "list" && (
+          {kind === "list" && !listaEditableComoTexto(decl.expr) && (
+            /* §0 — objetos o referencia (`uno_de(paises)`): editar como texto
+               vaciaba la lista. Se muestra el valor y se manda a modo Código. */
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+              <span style={labelSpanStyle} data-testid={`v2-var-items-no-editable-${index}`}>
+                {tt("tizaEditor.listaNoEditableEnFormulario")}
+              </span>
+              <code style={codeStyle}>{exprToText(decl.expr)}</code>
+            </div>
+          )}
+
+          {kind === "list" && listaEditableComoTexto(decl.expr) && (
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
               <span style={labelSpanStyle}>ítems (uno por línea)</span>
               <textarea

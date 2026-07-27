@@ -26,6 +26,8 @@ import {
   updateVariable,
   renameVariable,
   classifyVariable,
+  listaEditableComoTexto,
+  withListItems,
   makeRandomIntExpr,
   makeRandomFloatExpr,
   makeListExpr,
@@ -129,11 +131,17 @@ export default function VariableCard({
     }
   };
 
+  /**
+   * §0 — antes escribía `makeListExpr` (array desnudo) siempre, así que editar
+   * los ítems de un `uno_de([...])` le sacaba el wrapper y CAMBIABA la
+   * semántica: la variable pasaba de "uno al azar de la lista" a "la lista
+   * entera". `withListItems` conserva la forma original.
+   */
   const setListItems = (items: string[]) => {
     onChange(
       updateVariable(plantilla, index, {
         ...decl,
-        expr: makeListExpr(items),
+        expr: withListItems(decl.expr, items),
       }),
     );
   };
@@ -264,23 +272,37 @@ export default function VariableCard({
           </div>
         ) : kind === "list" ? (
           <div className="mt-1 flex flex-col gap-1 text-xs">
-            <span className="text-[var(--c-muted,#64748b)]">{t("variableCard.itemsUnoPorLinea")}</span>
-            <textarea
-              value={listItems?.join("\n") ?? ""}
-              onChange={(e) =>
-                setListItems(
-                  e.target.value
-                    .split("\n")
-                    .map((s) => s.trim())
-                    .filter((s) => s !== ""),
-                )
-              }
-              aria-label={`Ítems de ${decl.nombre}`}
-              data-testid={`vblang-var-items-${index}`}
-              rows={Math.max(2, Math.min(6, (listItems?.length ?? 0) + 1))}
-              className="w-full rounded border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-2 py-1 font-mono text-xs"
-              placeholder={"manzana\nbanana\nnaranja"}
-            />
+            {/* §0 — con objetos (`[{ nombre: "…", iso: "…" }]`) o una referencia
+                (`uno_de(paises)`), `itemToText` devolvía "" por ítem y el commit
+                los filtraba: la lista quedaba VACÍA. No se ofrece el editor. */}
+            {listaEditableComoTexto(decl.expr) ? (
+              <>
+                <span className="text-[var(--c-muted,#64748b)]">{t("variableCard.itemsUnoPorLinea")}</span>
+                <textarea
+                  value={listItems?.join("\n") ?? ""}
+                  onChange={(e) =>
+                    setListItems(
+                      e.target.value
+                        .split("\n")
+                        .map((s) => s.trim())
+                        .filter((s) => s !== ""),
+                    )
+                  }
+                  aria-label={`Ítems de ${decl.nombre}`}
+                  data-testid={`vblang-var-items-${index}`}
+                  rows={Math.max(2, Math.min(6, (listItems?.length ?? 0) + 1))}
+                  className="w-full rounded border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-2 py-1 font-mono text-xs"
+                  placeholder={"manzana\nbanana\nnaranja"}
+                />
+              </>
+            ) : (
+              <span
+                className="text-[var(--c-muted,#64748b)]"
+                data-testid={`vblang-var-items-no-editable-${index}`}
+              >
+                {t("tizaEditor.listaNoEditableEnFormulario")}
+              </span>
+            )}
             <code className="text-[10px] text-[var(--c-muted,#64748b)]">
               {exprToText(decl.expr)}
             </code>

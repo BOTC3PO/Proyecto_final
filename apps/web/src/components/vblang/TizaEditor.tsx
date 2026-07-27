@@ -52,6 +52,8 @@ import {
   renameVariable,
   makeRandomIntExpr,
   makeListExpr,
+  listaEditableComoTexto,
+  withListItems,
 } from "./plantillaFields";
 import GeneradorPicker from "./GeneradorPicker";
 import {
@@ -428,6 +430,15 @@ function makeChoiceExpr(items: string[]): Expr {
     args: [makeListExpr(items)],
     loc: DUMMY_LOC,
   };
+}
+
+/**
+ * PLAN tiza-autoria-avanzada §0 — texto de la lista para el textarea, o `null`
+ * si editarla como texto perdería datos (objetos, o `uno_de(otraVariable)`).
+ * `null` = no ofrecer el editor y mandar a modo Código.
+ */
+function listOptionsEditables(expr: Expr): string | null {
+  return listaEditableComoTexto(expr) ? listOptions(expr) : null;
 }
 
 function updateVariableExpr(
@@ -1759,7 +1770,8 @@ function VariablePropertyGrid({
 
   const kind = classifyVariable(v.expr);
   const bounds = kind === "random" ? randomBounds(v.expr) : { min: "", max: "" };
-  const options = kind === "list" ? listOptions(v.expr) : "";
+  // `null` = es una lista pero editarla como texto perdería datos (§0).
+  const options = kind === "list" ? listOptionsEditables(v.expr) : null;
   const exprText = kind === "expr" ? exprToText(v.expr) : "";
   const liveValue = formatValue(live.variables?.[v.nombre]);
 
@@ -1996,22 +2008,57 @@ function VariablePropertyGrid({
         {kind === "list" ? (
           <div style={{ marginBottom: 18 }}>
             <Eyebrow>{t("tizaEditor.opciones")}</Eyebrow>
-            <BufferedTextarea
-              value={options}
-              rows={Math.min(8, Math.max(3, options.split("\n").length + 1))}
-              onCommit={(val) => {
-                const items = val
-                  .split("\n")
-                  .map((s) => s.trim())
-                  .filter(Boolean);
-                onChange(updateVariableExpr(plantilla, index, makeChoiceExpr(items)));
-              }}
-              style={{ ...inputStyle(true), resize: "vertical" }}
-              data-testid="tiza-lista-opciones"
-            />
-            <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
-              {t("tizaEditor.unaOpcionPorLinea")}
-            </div>
+            {options === null ? (
+              /* §0 — la lista tiene objetos o es una referencia a otra variable:
+                 editarla como texto la destruía (los objetos volvían como
+                 strings escapados). Se muestra el valor y se manda a Código. */
+              <>
+                <div
+                  style={{
+                    ...inputStyle(true),
+                    ...mono,
+                    fontSize: 12,
+                    whiteSpace: "pre-wrap",
+                    wordBreak: "break-word",
+                    maxHeight: 160,
+                    overflowY: "auto",
+                    color: "var(--c-text-2)",
+                  }}
+                  data-testid="tiza-lista-no-editable-valor"
+                >
+                  {exprToText(v.expr)}
+                </div>
+                <div
+                  style={{ fontSize: 11.5, color: "var(--c-text-2)", marginTop: 6 }}
+                  data-testid="tiza-lista-no-editable"
+                >
+                  {t("tizaEditor.listaNoEditableEnFormulario")}
+                </div>
+              </>
+            ) : (
+              <>
+                <BufferedTextarea
+                  value={options}
+                  rows={Math.min(8, Math.max(3, options.split("\n").length + 1))}
+                  onCommit={(val) => {
+                    const items = val
+                      .split("\n")
+                      .map((s) => s.trim())
+                      .filter(Boolean);
+                    // `withListItems` conserva la forma original (array desnudo
+                    // vs `uno_de(...)`): antes se envolvía siempre en `uno_de`.
+                    onChange(
+                      updateVariableExpr(plantilla, index, withListItems(v.expr, items)),
+                    );
+                  }}
+                  style={{ ...inputStyle(true), resize: "vertical" }}
+                  data-testid="tiza-lista-opciones"
+                />
+                <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+                  {t("tizaEditor.unaOpcionPorLinea")}
+                </div>
+              </>
+            )}
           </div>
         ) : null}
 
