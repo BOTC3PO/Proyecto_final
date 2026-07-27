@@ -63,7 +63,10 @@ import {
   type SpanRow,
   updateVariable,
   renameVariable,
+  addVariable,
+  removeVariable,
   makeRandomIntExpr,
+  makeRandomFloatExpr,
   makeListExpr,
   listaEditableComoTexto,
   withListItems,
@@ -394,12 +397,25 @@ function formatValue(v: unknown): string {
   return String(v);
 }
 
-/** Los tres subtipos que ofrece el <select> del property grid de variable. */
-type Subtipo = "random" | "list" | "expr";
+/**
+ * Subtipos que ofrece el <select> del property grid de variable.
+ *
+ * §3 — `random_float` se separó de `random`: los dos se mostraban como
+ * "Aleatorio (entero)", así que para un decimal había que ir a modo Código. Y
+ * eso importaba porque el subtipo entero con bordes decimales redondea el rango
+ * (casos-límite §8), o sea el docente no tenía salida en la interfaz.
+ */
+type Subtipo = "random" | "random_float" | "list" | "expr";
+
+/** ¿Este subtipo usa el par Mínimo/Máximo? */
+function esRango(k: Subtipo): boolean {
+  return k === "random" || k === "random_float";
+}
 
 function classifyVariable(expr: Expr): Subtipo {
   if (expr.kind === "fun_call") {
-    if (expr.name === "random" || expr.name === "random_float") return "random";
+    if (expr.name === "random") return "random";
+    if (expr.name === "random_float") return "random_float";
     if (expr.name === "uno_de" || expr.name === "choice") return "list";
   }
   if (expr.kind === "array") return "list";
@@ -876,7 +892,20 @@ export function TizaQuestionCard({
       {/* AÑADIR BLOQUE */}
       <AddBlockButton
         onSelect={(kind) => {
-          if (kind === "pista") {
+          if (kind === "variable") {
+            // §3 — nombre libre (`v`, `v_2`…): `addVariable` desambigua solo si
+            // choca. Arranca como aleatorio entero, el subtipo más común, y se
+            // selecciona para que el property grid quede listo para editarla.
+            const decls = getBlock(plantilla, "variables")?.declaraciones ?? [];
+            onChange(
+              addVariable(plantilla, {
+                nombre: "v",
+                expr: makeRandomIntExpr(1, 10),
+                loc: DUMMY_LOC,
+              }),
+            );
+            onSelectVariable(decls.length);
+          } else if (kind === "pista") {
             onChange(writePistas(plantilla, [...pistas, "Nueva pista…"]));
           } else if (kind === "pasos") {
             onChange(writePasos(plantilla, [...pasos, "Nuevo paso…"]));
@@ -904,6 +933,10 @@ export function TizaQuestionCard({
 /* ─── "＋ Añadir bloque" ────────────────────────────────────────────── */
 
 const ADD_ITEMS = [
+  // §3 — "Variable" no estaba: no había forma de agregar una variable desde
+  // Tiza (ni un "+" en el rail ni una sola llamada a `addVariable`), así que
+  // había que ir a modo Código para declarar la primera.
+  { id: "variable", labelKey: "tizaEditor.variable", icon: "𝑥", tagKey: "tizaEditor.aleatoriaOLista" },
   { id: "pista", labelKey: "tizaEditor.pista", icon: "💡", tagKey: "tizaEditor.escalonada" },
   { id: "pasos", labelKey: "tizaEditor.pasosDeResolucion", icon: "≡", tagKey: "" },
   { id: "restric", labelKey: "tizaEditor.restriccion", icon: "≠", tagKey: "tizaEditor.sobreVariables" },
@@ -947,6 +980,7 @@ function AddBlockButton({ onSelect }: { onSelect: (kind: string) => void }) {
               key={it.id}
               type="button"
               role="menuitem"
+              data-testid={`tiza-add-${it.id}`}
               disabled={it.id === "dataset"}
               onClick={() => {
                 onSelect(it.id);
@@ -2268,7 +2302,7 @@ function VariablePropertyGrid({
   if (!v) return null;
 
   const kind = classifyVariable(v.expr);
-  const bounds = kind === "random" ? randomBounds(v.expr) : { min: "", max: "" };
+  const bounds = esRango(kind) ? randomBounds(v.expr) : { min: "", max: "" };
   // `null` = es una lista pero editarla como texto perdería datos (§0).
   const options = kind === "list" ? listOptionsEditables(v.expr) : null;
   const exprText = kind === "expr" ? exprToText(v.expr) : "";
@@ -2289,7 +2323,8 @@ function VariablePropertyGrid({
     const fallback = cual === "min" ? n + 1 : n - 1;
     const min = cual === "min" ? n : Number.isFinite(otro) && bounds.min !== "" ? otro : fallback;
     const max = cual === "max" ? n : Number.isFinite(otro) && bounds.max !== "" ? otro : fallback;
-    onChange(updateVariableExpr(plantilla, index, makeRandomIntExpr(min, max)));
+    const make = kind === "random_float" ? makeRandomFloatExpr : makeRandomIntExpr;
+    onChange(updateVariableExpr(plantilla, index, make(min, max)));
   };
 
   /**
@@ -2306,9 +2341,11 @@ function VariablePropertyGrid({
       stash[nextKind] ??
       (nextKind === "random"
         ? makeRandomIntExpr(1, 10)
-        : nextKind === "list"
-          ? makeChoiceExpr(["a", "b", "c"])
-          : numLit(0));
+        : nextKind === "random_float"
+          ? makeRandomFloatExpr(0, 1)
+          : nextKind === "list"
+            ? makeChoiceExpr(["a", "b", "c"])
+            : numLit(0));
     onChange(updateVariableExpr(plantilla, index, expr));
   };
 
@@ -2322,8 +2359,9 @@ function VariablePropertyGrid({
   // que el docente escribió no es lo que se sortea. Para decimales existe
   // `random_float`, que se escribe en modo Código.
   const bordesDecimales =
-    (bounds.min !== "" && !Number.isInteger(Number(bounds.min))) ||
-    (bounds.max !== "" && !Number.isInteger(Number(bounds.max)));
+    kind === "random" &&
+    ((bounds.min !== "" && !Number.isInteger(Number(bounds.min))) ||
+      (bounds.max !== "" && !Number.isInteger(Number(bounds.max))));
 
   const handleCopyVar = async () => {
     try {
@@ -2363,6 +2401,30 @@ function VariablePropertyGrid({
           }}
         >
           {t("tizaEditor.volverALaPregunta")}
+        </button>
+
+        {/* §3 — borrar la variable. No había forma de quitar una desde Tiza.
+            Al borrar se vuelve a la pregunta: el índice seleccionado quedaría
+            apuntando a otra variable (o a ninguna). */}
+        <button
+          type="button"
+          onClick={() => {
+            onChange(removeVariable(plantilla, index));
+            onSelectQuestion();
+          }}
+          data-testid="tiza-variable-eliminar"
+          style={{
+            float: "right",
+            fontSize: 12,
+            fontWeight: 600,
+            color: "var(--c-danger)",
+            background: "transparent",
+            border: 0,
+            cursor: "pointer",
+            padding: "0 0 14px",
+          }}
+        >
+          {t("comun.eliminar")}
         </button>
 
         {/* NOMBRE — §11: era readOnly (renombrar obligaba a ir a modo Código y
@@ -2411,6 +2473,7 @@ function VariablePropertyGrid({
             style={inputStyle()}
           >
             <option value="random">{t("tizaEditor.aleatorioEntero")}</option>
+            <option value="random_float">{t("tizaEditor.aleatorioDecimal")}</option>
             <option value="list">{t("tizaEditor.listaDeOpciones")}</option>
             <option value="expr">{t("tizaEditor.valorPorExpresion")}</option>
           </select>
@@ -2459,7 +2522,7 @@ function VariablePropertyGrid({
         </div>
 
         {/* RANDOM */}
-        {kind === "random" ? (
+        {esRango(kind) ? (
           <div style={{ marginBottom: 18 }}>
             <div style={{ display: "flex", gap: 12 }}>
               <div style={{ flex: 1 }}>
