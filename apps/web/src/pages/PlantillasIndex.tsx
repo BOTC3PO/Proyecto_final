@@ -25,10 +25,15 @@ interface PlantillasIndexProps {
   mode?: PlantillasIndexMode;
 }
 
+/**
+ * Mismo arreglo que los tags (FIX-TEST4-X-03): eran paletas Tailwind fijas
+ * (`bg-slate-100 text-slate-700`…), que en un tema oscuro quedan como un chip
+ * claro sobre fondo oscuro. Los tokens `*-soft` ya están pensados para eso.
+ */
 const VISIBILITY_BADGE: Record<string, string> = {
-  privada: "bg-slate-100 text-slate-700",
-  escuela: "bg-blue-100 text-blue-700",
-  publica: "bg-emerald-100 text-emerald-700",
+  privada: "bg-[var(--c-surface-2)] text-[var(--c-text-2)]",
+  escuela: "bg-[var(--c-info-soft)] text-[var(--c-info)]",
+  publica: "bg-[var(--c-success-soft)] text-[var(--c-success)]",
 };
 
 const VISIBILITY_LABEL_KEY: Record<string, string> = {
@@ -70,7 +75,9 @@ function PlantillaCard({
         <div className="flex shrink-0 flex-col items-end gap-1">
           {item.esOficial && (
             <span
-              className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-700"
+              // `bg-amber-100/text-amber-700` fijos: en tema oscuro quedaba un
+              // chip claro pegado sobre las tarjetas oscuras.
+              className="rounded-full bg-[var(--c-warning-soft)] px-2 py-0.5 text-[10px] font-semibold text-[var(--c-warning)]"
               data-testid="plantilla-oficial-badge"
             >
               {t("plantillasIndex.oficial")}
@@ -78,7 +85,8 @@ function PlantillaCard({
           )}
           <span
             className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
-              VISIBILITY_BADGE[item.visibility] ?? "bg-slate-100 text-slate-700"
+              VISIBILITY_BADGE[item.visibility] ??
+              "bg-[var(--c-surface-2)] text-[var(--c-text-2)]"
             }`}
           >
             {VISIBILITY_LABEL_KEY[item.visibility] ? t(VISIBILITY_LABEL_KEY[item.visibility]) : item.visibility}
@@ -219,7 +227,12 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
   };
 
   return (
-    <main className="min-h-screen bg-[var(--c-bg,#f8fafc)] p-6" data-testid="plantillas-index">
+    // `text-[var(--c-text)]`: sin esto el <h1> —que no declara color— heredaba
+    // el del ancestro (oscuro) y en los temas oscuros quedaba negro sobre negro.
+    <main
+      className="min-h-screen bg-[var(--c-bg,#f8fafc)] p-6 text-[var(--c-text)]"
+      data-testid="plantillas-index"
+    >
       <div className="mx-auto max-w-6xl space-y-4">
         <header className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-2xl font-bold">{t("plantillasIndex.plantillasVblang")}</h1>
@@ -259,14 +272,14 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
             placeholder={t("plantillasIndex.buscar")}
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            className="flex-1 min-w-[12rem] rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
+            className="flex-1 min-w-[12rem] rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm text-[var(--c-text)]"
           />
           <input
             type="text"
             placeholder={t("comun.materia")}
             value={materia}
             onChange={(e) => setMateria(e.target.value)}
-            className="w-40 rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
+            className="w-40 rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm text-[var(--c-text)]"
           />
           <select
             value={visibilityFilter}
@@ -275,7 +288,7 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
                 e.target.value as PlantillaListParams["visibility"],
               )
             }
-            className="rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
+            className="rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm text-[var(--c-text)]"
           >
             <option value="todas">{t("comun.todas")}</option>
             <option value="privadas">{t("plantillasIndex.privadas")}</option>
