@@ -13,6 +13,7 @@
 
 import { memo, useState } from "react";
 import { respuestaNumericaCorrecta, type ModuleQuizQuestion } from "@vb/vblang";
+import MarcarMapaRenderer from "../quiz-renderers/MarcarMapaRenderer";
 import type { PreviewItem } from "../../hooks/usePlantillaPreview";
 
 import { useI18n } from "../../i18n/I18nContext";
@@ -135,7 +136,42 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
     !!question.options &&
     question.options.length > 0;
 
-  // Tipos sin autocorrección en el preview (ordenar, mapa, etc.): sólo revelar.
+  // PLAN tiza-autoria-avanzada §8 — `marcar_mapa` mostraba SÓLO el texto del
+  // enunciado y un "Ver respuesta". Ahora que el mapa se puede autorear desde
+  // Tiza (§1), el docente tiene que poder verlo y clickearlo acá: se monta el
+  // MISMO renderer que ve el alumno, con la respuesta correcta revelable.
+  if (tipo === "marcar_mapa" && question.mapaId) {
+    return (
+      <div className="mt-2 space-y-1.5" data-testid="preview-mapa">
+        <MarcarMapaRenderer
+          mapaId={question.mapaId}
+          paisIso={question.paisIso}
+          modoRespuesta={question.modoRespuestaMapa}
+          encuadre={question.encuadre}
+          selectedKey={selected ?? undefined}
+          correctKey={revealed ? answerKeyString(question.answerKey) : undefined}
+          onSelect={(key) => setSelected(key)}
+        />
+        <div className="text-xs">
+          <button
+            type="button"
+            onClick={() => setRevealed((v) => !v)}
+            className="rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-[var(--c-text)]"
+          >
+            {revealed ? t("previewPanel.ocultarRespuesta") : t("previewPanel.verRespuesta")}
+          </button>
+          {revealed && (
+            <span className="ml-2 text-[var(--c-hint)]">
+              {answerKeyString(question.answerKey)}
+            </span>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Tipos sin autocorrección en el preview (ordenar, etc.): sólo revelar, pero
+  // diciendo POR QUÉ no se puede responder acá en vez de dejarlo implícito.
   if (!interactive) {
     return (
       <div className="mt-2 text-xs">
@@ -144,11 +180,11 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
           onClick={() => setRevealed((v) => !v)}
           className="rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-[var(--c-text)]"
         >
-          {revealed ? "Ocultar respuesta" : "Ver respuesta"}
+          {revealed ? t("previewPanel.ocultarRespuesta") : t("previewPanel.verRespuesta")}
         </button>
         {revealed && (
           <p className="mt-1 text-[var(--c-hint)]">
-            Respuesta: {answerKeyString(question.answerKey)}
+            {t("previewPanel.respuesta")} {answerKeyString(question.answerKey)}
           </p>
         )}
       </div>

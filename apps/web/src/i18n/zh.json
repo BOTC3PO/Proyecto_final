@@ -2126,6 +2126,8 @@
   "plantillaSelectorModal.buscarPorNombre": "按名称搜索…",
   "plantillaSelectorModal.cargandoPlantillas": "正在加载模板",
   "previewPanel.regenerar": "重新生成",
+  "previewPanel.respuesta": "答案：",
+  "quizPreguntasNativasPreview.noSePudoGenerar": "无法生成 —",
   "previewPanel.sinPreviewTodavia": "尚未预览。",
   "previewPanel.comprobar": "检查",
   "previewPanel.vistaPreviaDeLaPlantilla": "模板预览",

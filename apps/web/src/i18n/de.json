@@ -2126,6 +2126,8 @@
   "plantillaSelectorModal.buscarPorNombre": "+ Neue Vorlage erstellen",
   "plantillaSelectorModal.cargandoPlantillas": "Nach Name suchen…",
   "previewPanel.regenerar": "Vorlagen werden geladen",
+  "previewPanel.respuesta": "Antwort:",
+  "quizPreguntasNativasPreview.noSePudoGenerar": "konnte nicht erzeugt werden —",
   "previewPanel.sinPreviewTodavia": "Regenerieren",
   "previewPanel.comprobar": "Noch keine Vorschau.",
   "previewPanel.vistaPreviaDeLaPlantilla": "Überprüfen",

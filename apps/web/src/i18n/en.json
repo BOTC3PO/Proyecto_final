@@ -2126,6 +2126,8 @@
   "plantillaSelectorModal.buscarPorNombre": "Search by name…",
   "plantillaSelectorModal.cargandoPlantillas": "Loading templates",
   "previewPanel.regenerar": "Regenerate",
+  "previewPanel.respuesta": "Answer:",
+  "quizPreguntasNativasPreview.noSePudoGenerar": "could not be generated —",
   "previewPanel.sinPreviewTodavia": "No preview yet.",
   "previewPanel.comprobar": "Check",
   "previewPanel.vistaPreviaDeLaPlantilla": "Template preview",

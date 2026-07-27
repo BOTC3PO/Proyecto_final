@@ -2126,6 +2126,8 @@
   "plantillaSelectorModal.buscarPorNombre": "Serĉi laŭ nomo…",
   "plantillaSelectorModal.cargandoPlantillas": "Ŝargante ŝablonojn",
   "previewPanel.regenerar": "Refortigi",
+  "previewPanel.respuesta": "Respondo:",
+  "quizPreguntasNativasPreview.noSePudoGenerar": "ne povis esti generita —",
   "previewPanel.sinPreviewTodavia": "Ankoraŭ sen antaŭvidado.",
   "previewPanel.comprobar": "Kontroli",
   "previewPanel.vistaPreviaDeLaPlantilla": "Antaŭvidado de la ŝablono",

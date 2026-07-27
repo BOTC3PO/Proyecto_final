@@ -77,7 +77,11 @@ describe("QuizPreguntasNativasPreview", () => {
     expect(await screen.findByText(/sin ejemplos/i)).toBeInTheDocument();
   });
 
-  it("(c) una plantilla rota se omite; las demás igual se muestran", async () => {
+  // PLAN tiza-autoria-avanzada §8 — antes la plantilla rota se descartaba con
+  // `null` y desaparecía de la lista: el docente veía menos preguntas de las que
+  // tiene el cuestionario y sin ninguna pista de por qué. Ahora aparece como
+  // ítem con el motivo, y las demás se siguen mostrando.
+  it("(c) una plantilla rota informa el motivo; las demás igual se muestran", async () => {
     mockGetQuizPreguntas.mockResolvedValue({
       version: 1,
       cantidadGlobal: 2,
@@ -97,7 +101,9 @@ describe("QuizPreguntasNativasPreview", () => {
     await waitFor(() => {
       expect(screen.getByText(/¿De qué color es el cielo\?/)).toBeInTheDocument();
     });
-    // Sólo un ítem: el de "rota" se omitió sin tirar abajo el resto.
-    expect(screen.getAllByRole("listitem")).toHaveLength(1);
+    // Los DOS ítems: la buena y la rota con su motivo (antes se perdía).
+    expect(screen.getAllByRole("listitem")).toHaveLength(2);
+    const fallida = screen.getByTestId("preview-item-error");
+    expect(fallida.textContent).toContain("404");
   });
 });

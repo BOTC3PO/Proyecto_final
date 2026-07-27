@@ -24,7 +24,13 @@ import { extractDatasetName } from "../../vblang/utils";
 
 import { useI18n } from "../../i18n/I18nContext";
 
-type PreviewItem = { id: string; prompt: string };
+/**
+ * PLAN tiza-autoria-avanzada §8 — antes era `{ id, prompt }` y una plantilla que
+ * fallaba se descartaba con `null`, en silencio: el docente veía una lista con
+ * menos preguntas de las que tiene el cuestionario y sin ninguna pista de por
+ * qué. Ahora el fallo es un ítem más, con el motivo.
+ */
+type PreviewItem = { id: string; prompt: string; error?: string };
 
 type State =
   | { status: "loading" }
@@ -37,7 +43,7 @@ interface QuizPreguntasNativasPreviewProps {
   max?: number;
 }
 
-async function previewOne(plantillaId: string): Promise<PreviewItem | null> {
+async function previewOne(plantillaId: string): Promise<PreviewItem> {
   try {
     const p = await getPlantilla(plantillaId);
     const plantilla = parse(p.codigoDsl);
@@ -49,10 +55,16 @@ async function previewOne(plantillaId: string): Promise<PreviewItem | null> {
       provider: generadorAsistidoProvider,
     });
     return { id: plantillaId, prompt: toModuleQuizQuestion(gen, { focus: null }).prompt };
-  } catch {
-    // Una plantilla rota o de un tipo especial (marcar_mapa, etc.) no
-    // debe tirar abajo el preview de las demás — se omite en silencio.
-    return null;
+  } catch (e) {
+    // Una plantilla rota no debe tirar abajo el preview de las demás, pero
+    // tampoco desaparecer: se informa el motivo en su lugar. Los tipos que el
+    // adapter rechaza (`AdapterError`) y los errores de generación traen un
+    // mensaje útil ("mapa no reconocido", "variable indefinida: a"…).
+    return {
+      id: plantillaId,
+      prompt: "",
+      error: e instanceof Error ? e.message : String(e),
+    };
   }
 }
 
@@ -75,7 +87,7 @@ export default function QuizPreguntasNativasPreview({
           .slice(0, max);
         const results = await Promise.all(plantillaIds.map(previewOne));
         if (cancelled) return;
-        setState({ status: "ok", items: results.filter((item): item is PreviewItem => item !== null) });
+        setState({ status: "ok", items: results });
       } catch (err) {
         if (cancelled) return;
         setState({
@@ -108,9 +120,16 @@ export default function QuizPreguntasNativasPreview({
   }
   return (
     <ul className="list-disc space-y-1 pl-4 text-xs text-[var(--c-muted)]">
-      {state.items.map((item, i) => (
-        <li key={item.id}>{`P${i + 1}: ${item.prompt}`}</li>
-      ))}
+      {state.items.map((item, i) =>
+        item.error ? (
+          <li key={item.id} style={{ color: "var(--c-danger)" }} data-testid="preview-item-error">
+            {`P${i + 1}: `}
+            {t("quizPreguntasNativasPreview.noSePudoGenerar")} {item.error}
+          </li>
+        ) : (
+          <li key={item.id}>{`P${i + 1}: ${item.prompt}`}</li>
+        ),
+      )}
     </ul>
   );
 }

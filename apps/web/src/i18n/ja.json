@@ -2126,6 +2126,8 @@
   "plantillaSelectorModal.buscarPorNombre": "名前で検索…",
   "plantillaSelectorModal.cargandoPlantillas": "テンプレートの読み込み中",
   "previewPanel.regenerar": "再生成",
+  "previewPanel.respuesta": "答え:",
+  "quizPreguntasNativasPreview.noSePudoGenerar": "生成できませんでした —",
   "previewPanel.sinPreviewTodavia": "まだプレビューはありません。",
   "previewPanel.comprobar": "確認",
   "previewPanel.vistaPreviaDeLaPlantilla": "テンプレートのプレビュー",

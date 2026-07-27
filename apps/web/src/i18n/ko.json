@@ -2126,6 +2126,8 @@
   "plantillaSelectorModal.buscarPorNombre": "이름으로 검색…",
   "plantillaSelectorModal.cargandoPlantillas": "템플릿 로딩 중",
   "previewPanel.regenerar": "재생성",
+  "previewPanel.respuesta": "정답:",
+  "quizPreguntasNativasPreview.noSePudoGenerar": "생성할 수 없습니다 —",
   "previewPanel.sinPreviewTodavia": "아직 미리보기 없음.",
   "previewPanel.comprobar": "확인",
   "previewPanel.vistaPreviaDeLaPlantilla": "템플릿 미리보기",

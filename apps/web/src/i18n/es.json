@@ -2129,6 +2129,8 @@
   "plantillaSelectorModal.buscarPorNombre": "Buscar por nombre…",
   "plantillaSelectorModal.cargandoPlantillas": "Cargando plantillas",
   "previewPanel.regenerar": "Regenerar",
+  "previewPanel.respuesta": "Respuesta:",
+  "quizPreguntasNativasPreview.noSePudoGenerar": "no se pudo generar —",
   "previewPanel.sinPreviewTodavia": "Sin preview todavía.",
   "previewPanel.comprobar": "Comprobar",
   "previewPanel.vistaPreviaDeLaPlantilla": "Vista previa de la plantilla",

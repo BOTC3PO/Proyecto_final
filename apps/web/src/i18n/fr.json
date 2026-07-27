@@ -2126,6 +2126,8 @@
   "plantillaSelectorModal.buscarPorNombre": "+ Créer un nouveau modèle",
   "plantillaSelectorModal.cargandoPlantillas": "Rechercher par nom…",
   "previewPanel.regenerar": "Chargement des modèles",
+  "previewPanel.respuesta": "Réponse :",
+  "quizPreguntasNativasPreview.noSePudoGenerar": "n’a pas pu être générée —",
   "previewPanel.sinPreviewTodavia": "Régénérer",
   "previewPanel.comprobar": "Pas de prévisualisation pour le moment.",
   "previewPanel.vistaPreviaDeLaPlantilla": "Vérifier",

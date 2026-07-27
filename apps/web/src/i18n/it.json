@@ -2126,6 +2126,8 @@
   "plantillaSelectorModal.buscarPorNombre": "Cerca per nome…",
   "plantillaSelectorModal.cargandoPlantillas": "Caricamento modelli",
   "previewPanel.regenerar": "Rigenera",
+  "previewPanel.respuesta": "Risposta:",
+  "quizPreguntasNativasPreview.noSePudoGenerar": "non è stato possibile generarla —",
   "previewPanel.sinPreviewTodavia": "Nessuna anteprima ancora.",
   "previewPanel.comprobar": "Verifica",
   "previewPanel.vistaPreviaDeLaPlantilla": "Anteprima del modello",
