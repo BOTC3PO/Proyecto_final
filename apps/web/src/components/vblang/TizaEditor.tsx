@@ -94,6 +94,11 @@ import {
   writeExplicacion,
   withBlock,
   withoutBlock,
+  hasBlock,
+  readToleranciaAbs,
+  writeToleranciaAbs,
+  readOpcionesCantidad,
+  writeOpcionesCantidad,
 } from "./plantillaAst";
 
 import { listDatasets } from "../../domain/vblang/datasetApi";
@@ -236,6 +241,16 @@ const removeItemButtonStyle: CSSProperties = {
   cursor: "pointer",
   fontSize: 14,
   lineHeight: 1,
+};
+
+/** "×" para quitar un bloque opcional que se agregó desde el menú. */
+const quitarBloqueStyle: CSSProperties = {
+  border: 0,
+  background: "transparent",
+  color: "var(--c-danger)",
+  cursor: "pointer",
+  fontSize: 15,
+  padding: "0 4px",
 };
 
 /** Botón de texto "＋ Otro ítem" / "Convertir…", reusado por los bloques tipo lista. */
@@ -910,6 +925,7 @@ export function TizaQuestionCard({
 
       {/* AÑADIR BLOQUE */}
       <AddBlockButton
+        items={addItemsDisponibles(plantilla, tipo)}
         onSelect={(kind) => {
           if (kind === "dataset") {
             setPickingDataset(true);
@@ -943,6 +959,14 @@ export function TizaQuestionCard({
             const base = enunciadosActive ? plantilla : enunciadoToVariantes(plantilla);
             const items = readEnunciados(base);
             onChange(writeEnunciados(base, [...items, { text: "Nueva variante…" }]));
+          } else if (kind === "opciones_cantidad") {
+            // 4 es lo habitual en un multiple choice (1 correcta + 3
+            // distractores). El control queda en el property grid.
+            const next = writeOpcionesCantidad(plantilla, "4");
+            if (next) onChange(next);
+          } else if (kind === "tolerancia_abs") {
+            const next = writeToleranciaAbs(plantilla, "0.01");
+            if (next) onChange(next);
           }
         }}
       />
@@ -952,7 +976,42 @@ export function TizaQuestionCard({
 
 /* ─── "＋ Añadir bloque" ────────────────────────────────────────────── */
 
-const ADD_ITEMS = [
+/**
+ * Qué se puede agregar a una pregunta, y con qué tipos es compatible.
+ *
+ * Antes esta lista era fija: ofrecía siempre lo mismo sin importar el tipo, y
+ * dejaba afuera dos bloques que el runtime sí soporta y ninguna interfaz
+ * mostraba:
+ *
+ *  - **`opciones: N`** — para `mc` con respuesta NUMÉRICA, genera `N-1`
+ *    distractores numéricos con el PRNG (`generate.ts`). Es la alternativa a
+ *    listar `opciones_explicitas` a mano, y la que sirve en matemática/física.
+ *    Excluyente con las explícitas: el runtime mira las explícitas primero.
+ *  - **`tolerancia_abs`** — sólo tiene sentido donde hay `tolerancia`, o sea en
+ *    los tipos de respuesta numérica. El editor clásico lo tenía; Tiza no.
+ *
+ * `compatible` decide si el ítem aparece para el tipo actual; `yaEsta` lo
+ * esconde cuando el bloque ya existe (no se agrega dos veces).
+ */
+type AddItem = {
+  id: string;
+  labelKey: string;
+  icon: string;
+  tagKey: string;
+  /** `undefined` = compatible con todos los tipos. */
+  compatible?: (tipo: TipoPregunta) => boolean;
+  /** `true` = ya existe en la plantilla, no se ofrece. */
+  yaEsta?: (p: Plantilla) => boolean;
+};
+
+/** ¿El tipo declara `tolerancia`? (los de respuesta numérica). */
+function admiteTolerancia(tipo: TipoPregunta): boolean {
+  return (QUESTION_TYPE_SCHEMAS[tipo]?.fields ?? []).some(
+    (f) => f.block === "tolerancia",
+  );
+}
+
+const ADD_ITEMS: AddItem[] = [
   // §3 — "Variable" no estaba: no había forma de agregar una variable desde
   // Tiza (ni un "+" en el rail ni una sola llamada a `addVariable`), así que
   // había que ir a modo Código para declarar la primera.
@@ -962,9 +1021,42 @@ const ADD_ITEMS = [
   { id: "restric", labelKey: "tizaEditor.restriccion", icon: "≠", tagKey: "tizaEditor.sobreVariables" },
   { id: "variante", labelKey: "tizaEditor.varianteDeEnunciado", icon: "¶", tagKey: "" },
   { id: "dataset", labelKey: "tizaEditor.datasetExterno", icon: "⊟", tagKey: "" },
+  {
+    // Sólo `mc`, y sólo tiene efecto con respuesta numérica (el runtime lanza
+    // "para tipo mc con respuesta no numérica use opciones_explicitas").
+    id: "opciones_cantidad",
+    labelKey: "tizaEditor.opcionesAutomaticas",
+    icon: "#",
+    tagKey: "tizaEditor.distractoresNumericos",
+    compatible: (tipo) => tipo === "mc",
+    yaEsta: (p) => hasBlock(p, "opciones"),
+  },
+  {
+    id: "tolerancia_abs",
+    labelKey: "tizaEditor.toleranciaAbsoluta",
+    icon: "±",
+    tagKey: "tizaEditor.paraRespuestasChicas",
+    compatible: admiteTolerancia,
+    yaEsta: (p) => hasBlock(p, "tolerancia_abs"),
+  },
 ];
 
-function AddBlockButton({ onSelect }: { onSelect: (kind: string) => void }) {
+/** Los ítems que aplican al tipo actual y todavía no están en la plantilla. */
+function addItemsDisponibles(plantilla: Plantilla, tipo: TipoPregunta): AddItem[] {
+  return ADD_ITEMS.filter(
+    (it) =>
+      (it.compatible === undefined || it.compatible(tipo)) &&
+      (it.yaEsta === undefined || !it.yaEsta(plantilla)),
+  );
+}
+
+function AddBlockButton({
+  onSelect,
+  items,
+}: {
+  onSelect: (kind: string) => void;
+  items: AddItem[];
+}) {
   const { t } = useI18n();
   return (
     <Menu
@@ -995,7 +1087,7 @@ function AddBlockButton({ onSelect }: { onSelect: (kind: string) => void }) {
     >
       {({ close }) => (
         <div style={{ display: "flex", flexDirection: "column", padding: 6 }}>
-          {ADD_ITEMS.map((it) => (
+          {items.map((it) => (
             <button
               key={it.id}
               type="button"
@@ -1407,6 +1499,86 @@ function QuestionPropertyGrid({
                 />
               </div>
             ) : null}
+          </div>
+        ) : null}
+
+        {/* TOLERANCIA ABSOLUTA — bloque que el editor clásico tenía y Tiza no.
+            Sólo se ofrece en tipos con `tolerancia` (respuesta numérica); acá se
+            renderiza si la plantilla lo declara. Resuelve el caso `e = 0`, donde
+            la tolerancia relativa exige exactitud, y las respuestas muy chicas. */}
+        {hasBlock(plantilla, "tolerancia_abs") ? (
+          <div style={{ marginBottom: 18 }}>
+            <Eyebrow>{t("tizaEditor.toleranciaAbsoluta")}</Eyebrow>
+            <div style={{ display: "flex", gap: 7, alignItems: "center" }}>
+              <BufferedInput
+                type="number"
+                min={0}
+                step="any"
+                value={readToleranciaAbs(plantilla)}
+                onCommit={(v) => {
+                  // Vacío NO borra el bloque: el control commitea en cada tecla,
+                  // así que al limpiar el campo para reescribirlo se
+                  // autodestruía y el resto del tipeo caía en la nada. Se quita
+                  // con el botón de al lado, que además lo devuelve al menú.
+                  if (v.trim() === "") return;
+                  const next = writeToleranciaAbs(plantilla, v);
+                  if (next) onChange(next);
+                }}
+                style={{ ...inputStyle(true), flex: 1 }}
+                data-testid="tiza-tolerancia-abs-input"
+              />
+              <button
+                type="button"
+                aria-label={t("comun.eliminar")}
+                onClick={() => onChange(withoutBlock(plantilla, "tolerancia_abs"))}
+                data-testid="tiza-tolerancia-abs-quitar"
+                style={quitarBloqueStyle}
+              >
+                ×
+              </button>
+            </div>
+            <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+              {t("tizaEditor.criterioCombinado")}
+            </div>
+          </div>
+        ) : null}
+
+        {/* OPCIONES AUTOMÁTICAS (`opciones: N`) — la otra forma de tener opciones
+            en un mc: el runtime genera N-1 distractores NUMÉRICOS con el PRNG.
+            Ningún schema lo declara, así que no estaba en ninguna interfaz. */}
+        {hasBlock(plantilla, "opciones") ? (
+          <div style={{ marginBottom: 18 }}>
+            <Eyebrow>{t("tizaEditor.opcionesAutomaticas")}</Eyebrow>
+            <div style={{ display: "flex", gap: 7, alignItems: "center" }}>
+              <BufferedInput
+                type="number"
+                min={2}
+                step={1}
+                value={readOpcionesCantidad(plantilla)}
+                onCommit={(v) => {
+                  // Idem tolerancia_abs: vacío no borra el bloque.
+                  if (v.trim() === "") return;
+                  const next = writeOpcionesCantidad(plantilla, v);
+                  if (next) onChange(next);
+                }}
+                style={{ ...inputStyle(true), flex: 1 }}
+                data-testid="tiza-opciones-cantidad-input"
+              />
+              <button
+                type="button"
+                aria-label={t("comun.eliminar")}
+                onClick={() => onChange(withoutBlock(plantilla, "opciones"))}
+                data-testid="tiza-opciones-cantidad-quitar"
+                style={quitarBloqueStyle}
+              >
+                ×
+              </button>
+            </div>
+            <div style={{ fontSize: 11.5, color: "var(--c-text-3)", marginTop: 6 }}>
+              {hasBlock(plantilla, "opciones_explicitas")
+                ? t("tizaEditor.opcionesExplicitasGanan")
+                : t("tizaEditor.requiereRespuestaNumerica")}
+            </div>
           </div>
         ) : null}
 

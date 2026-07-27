@@ -371,6 +371,31 @@ export function writeToleranciaAbs(p: Plantilla, text: string): Plantilla | null
   return withBlock(p, { kind: "tolerancia_abs", valor: n, loc: DUMMY_LOC });
 }
 
+/**
+ * `opciones: N` — la OTRA forma de tener opciones en un `mc`.
+ *
+ * Ningún schema declara este bloque, así que no aparecía en ninguna interfaz,
+ * pero el runtime lo usa (`generate.ts`): si la respuesta es NUMÉRICA, genera
+ * `N - 1` distractores numéricos alrededor de ella con el PRNG. Es la
+ * alternativa a listar `opciones_explicitas` a mano, y la que sirve para
+ * matemática/física donde los distractores son números.
+ *
+ * Excluyente con `opciones_explicitas`: el runtime mira las explícitas primero,
+ * así que si están las dos, la cantidad se ignora.
+ */
+export function readOpcionesCantidad(p: Plantilla): string {
+  const b = getBlock(p, "opciones");
+  return b ? String(b.cantidad) : "";
+}
+
+/** `""` quita el bloque; un valor no entero ≥ 2 devuelve `null` (no se guarda). */
+export function writeOpcionesCantidad(p: Plantilla, text: string): Plantilla | null {
+  if (text.trim() === "") return withoutBlock(p, "opciones");
+  const n = Number(text);
+  if (!Number.isInteger(n) || n < 2) return null;
+  return withBlock(p, { kind: "opciones", cantidad: n, loc: DUMMY_LOC });
+}
+
 /* ---------------- WO-10: encuadre (vista bloqueada del mapa) ---------------- */
 
 /**

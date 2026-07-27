@@ -69,8 +69,10 @@ async function openAddBlockMenu(user: ReturnType<typeof userEvent.setup>) {
 describe("Tiza · menú ＋ Añadir bloque", () => {
   // PLAN tiza-autoria-avanzada §3/§4 — el menú tenía 5 ítems con "Dataset
   // externo" deshabilitado ("pronto") y sin forma de agregar una variable.
-  // Ahora son 6 y están todos habilitados.
-  it("lista las 6 opciones, todas habilitadas", async () => {
+  // Después pasó a derivarse del TIPO: los 6 agnósticos + los compatibles con
+  // el tipo actual. `BASE` es `input`, que admite `tolerancia_abs` → 7.
+  // La compatibilidad por tipo se cubre en `tiza-agregar-compatibles.spec.tsx`.
+  it("lista los ítems agnósticos más los compatibles con el tipo, habilitados", async () => {
     const user = userEvent.setup();
     render(<CardHarness initial={BASE} />);
     await openAddBlockMenu(user);
@@ -81,7 +83,10 @@ describe("Tiza · menú ＋ Añadir bloque", () => {
     for (const id of ["variable", "pista", "pasos", "restric", "variante", "dataset"]) {
       expect(within(menu).getByTestId(`tiza-add-${id}`)).toBeEnabled();
     }
-    expect(within(menu).getAllByRole("menuitem")).toHaveLength(6);
+    expect(within(menu).getByTestId("tiza-add-tolerancia_abs")).toBeEnabled();
+    // `opciones: N` es sólo de mc: no aparece en un `input`.
+    expect(within(menu).queryByTestId("tiza-add-opciones_cantidad")).toBeNull();
+    expect(within(menu).getAllByRole("menuitem")).toHaveLength(7);
   });
 
   it("Pista agrega una pista real al DSL", async () => {
