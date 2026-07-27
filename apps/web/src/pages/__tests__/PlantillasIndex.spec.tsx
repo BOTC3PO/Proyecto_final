@@ -83,6 +83,22 @@ describe("PlantillasIndex — plantillas oficiales (F6-01)", () => {
     expect(navigateMock).toHaveBeenCalledWith("/plantillas/clon-9");
   });
 
+  // Las 132 plantillas oficiales entran por la biblioteca, y el server corta en
+  // 50 por defecto: como matemáticas son 76, el docente veía SÓLO matemáticas y
+  // el resto de las materias no aparecía sin filtrar a mano.
+  it("la biblioteca pide el tope alto: si no, sólo se ve matemáticas", async () => {
+    listPlantillas.mockResolvedValue({ items: [makeItem()], total: 1 });
+
+    await act(async () => {
+      await renderBiblioteca();
+    });
+
+    await screen.findByText("Oficial MRU");
+    expect(listPlantillas).toHaveBeenCalledWith(
+      expect.objectContaining({ owner: "otros", limit: 200 }),
+    );
+  });
+
   it("una no-oficial muestra 'Fork' y no el badge", async () => {
     listPlantillas.mockResolvedValue({
       items: [makeItem({ id: "p-2", esOficial: false, ownerUserId: "teacher-9", nombre: "Comunitaria" })],

@@ -48,6 +48,8 @@ export default function PlantillaSelectorModal({
       q: q || undefined,
       materia: materiaHint || undefined,
       owner: tab === "biblioteca" ? "otros" : "mias",
+      // Idem PlantillasIndex: sin esto el selector mostraba sólo matemáticas.
+      limit: tab === "biblioteca" ? 200 : undefined,
     };
     listPlantillas(params)
       .then((res) => {

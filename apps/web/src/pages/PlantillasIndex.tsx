@@ -164,6 +164,10 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
       materia: materia || undefined,
       visibility: visibilityFilter,
       owner: mode === "biblioteca" ? "otros" : "mias",
+      // La biblioteca trae las 132 plantillas oficiales; con el default de 50
+      // del server sólo se veían las de matemáticas (son 76). 200 es el tope
+      // que acepta la API.
+      limit: mode === "biblioteca" ? 200 : undefined,
     })
       .then((res) => {
         setItems(res.items);

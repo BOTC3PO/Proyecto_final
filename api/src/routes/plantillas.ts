@@ -225,10 +225,21 @@ plantillas.get("/api/plantillas", requireUser, async (req, res) => {
       ];
     }
 
+    // "Lo último que toqué" ordena bien MIS plantillas, pero no la biblioteca:
+    // las 132 oficiales se siembran de una y comparten `updatedAt`, así que el
+    // desempate queda en orden de inserción y las 76 de matemáticas se comen las
+    // primeras 50 — el resto de las materias no aparecía sin filtrar a mano.
+    // Para la biblioteca se ordena por materia y nombre, que además es como se
+    // busca contenido ajeno.
+    const orderBy =
+      owner === "otros"
+        ? [{ materia: "asc" as const }, { nombre: "asc" as const }]
+        : [{ updatedAt: "desc" as const }];
+
     const [rows, total] = await Promise.all([
       prisma.plantillaEjercicio.findMany({
         where,
-        orderBy: { updatedAt: "desc" },
+        orderBy,
         take: limitNum,
         skip: offsetNum,
       }),
