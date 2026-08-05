@@ -164,6 +164,15 @@ export const MATHJS_SIGNATURES: Record<string, BuiltinSignature> = {
   pow: { params: [T.number, T.number], returns: T.number },
   floor: { params: [T.number], returns: T.number },
   ceil: { params: [T.number], returns: T.number },
+  // Combinatoria (bug: el evaluador ya las resolvía vía fallback a
+  // math.js — `create(all)` en math-setup.ts no las deshabilita — pero
+  // faltaban acá, así que el linter estático las marcaba "función
+  // desconocida" pese a funcionar en runtime. Ver
+  // tests/evaluator/builtins.test.ts y tests/validator/infer.test.ts.
+  factorial: { params: [T.number], returns: T.number },
+  combinations: { params: [T.number, T.number], returns: T.number },
+  permutations: { params: [T.number, T.number], returns: T.number },
+  gamma: { params: [T.number], returns: T.number },
 };
 
 export function lookupSignature(name: string): BuiltinSignature | undefined {

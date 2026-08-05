@@ -181,6 +181,28 @@ describe("evaluator / math.js fallback", () => {
     expect(evalSrc("min(3, 1, 2)")).toBe(1);
     expect(evalSrc("max(3, 1, 2)")).toBe(3);
   });
+
+  // Combinatoria: ya funcionaban en runtime antes de agregarlas a
+  // MATHJS_SIGNATURES (validator/builtin-signatures.ts) — ese fue el
+  // bug (el linter las rechazaba, el evaluador no). Este describe
+  // cubre que la ejecución sigue intacta; infer.test.ts cubre que
+  // ahora también pasan el linter.
+  it("factorial", () => {
+    expect(evalSrc("factorial(5)")).toBe(120);
+    expect(evalSrc("factorial(0)")).toBe(1);
+  });
+
+  it("combinations", () => {
+    expect(evalSrc("combinations(5, 2)")).toBe(10);
+  });
+
+  it("permutations", () => {
+    expect(evalSrc("permutations(5, 2)")).toBe(20);
+  });
+
+  it("gamma", () => {
+    expect(evalSrc("gamma(5)")).toBe(24);
+  });
 });
 
 describe("evaluator / abs (builtin de primera clase, WO-8)", () => {
