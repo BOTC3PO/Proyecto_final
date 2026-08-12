@@ -50,6 +50,17 @@ export const TOLERANCIA_REL_POR_DEFECTO = 0.02;
 /** Absorbe el ruido de punto flotante (`0.1 + 0.2 !== 0.3`). */
 const EPSILON = 1e-9;
 
+/**
+ * Símbolos que un teclado normal y un editor/LLM producen de forma distinta
+ * para el mismo carácter — un alumno siempre tipea `'`/`"` rectas, pero el
+ * contenido (autoría manual o generada) a veces trae la tipográfica ('/").
+ * Se normalizan a la recta antes de comparar texto.
+ */
+const EQUIVALENCIAS_PUNTUACION: [RegExp, string][] = [
+  [/[‘’]/g, "'"], // ' ' -> '
+  [/[“”]/g, '"'], // " " -> "
+];
+
 /** `"0,3"` → `0.3`. `NaN` si no es un número. */
 function aNumero(s: string): number {
   const limpio = s.trim().replace(/,/g, ".");
@@ -98,8 +109,9 @@ export function usaToleranciaPorDefecto(
  * ¿La respuesta del alumno es correcta contra la esperada?
  *
  * Si alguno de los dos lados no es un número, cae a igualdad de string
- * normalizada (trim + colapso de espacios) — el caller ya decidió que esta
- * pregunta se corrige por valor y no por equivalencia simbólica.
+ * normalizada (trim + colapso de espacios + comillas tipográficas -> rectas)
+ * — el caller ya decidió que esta pregunta se corrige por valor y no por
+ * equivalencia simbólica.
  */
 export function respuestaNumericaCorrecta(
   respuesta: string,
@@ -107,7 +119,11 @@ export function respuestaNumericaCorrecta(
   toleranciaRelativa?: number,
   toleranciaAbsoluta?: number,
 ): boolean {
-  const norm = (s: string) => s.replace(/\s+/g, " ").trim();
+  const norm = (s: string) => {
+    let out = s.replace(/\s+/g, " ").trim();
+    for (const [patron, reemplazo] of EQUIVALENCIAS_PUNTUACION) out = out.replace(patron, reemplazo);
+    return out;
+  };
   if (norm(respuesta) === norm(esperada)) return true;
 
   const r = aNumero(respuesta);

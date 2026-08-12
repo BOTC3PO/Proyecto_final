@@ -106,4 +106,10 @@ describe("respuestaNumericaCorrecta / no numéricos", () => {
     expect(ok("", "0.3333")).toBe(false);
     expect(ok("3abc", "3")).toBe(false); // no se acepta basura al final
   });
+
+  it("comillas tipográficas y rectas son equivalentes (teclado real vs contenido autorado)", () => {
+    expect(ok("hasn't", "hasn’t")).toBe(true); // recta vs '
+    expect(ok("hasn’t", "hasn't")).toBe(true); // ' vs recta
+    expect(ok('the "book"', "the “book”")).toBe(true); // "" vs ""
+  });
 });
