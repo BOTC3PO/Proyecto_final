@@ -100,6 +100,7 @@ const RegistrarEscuela          = lazyWithRetry(() => import("./pages/RegistrarE
 const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfesor"));
 const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
 const Terminos                  = lazyWithRetry(() => import("./pages/Terminos"));
+const Creditos                  = lazyWithRetry(() => import("./pages/Creditos")); // huevo de pascua, sin link en ningún nav
 const Privacidad                = lazyWithRetry(() => import("./pages/Privacidad"));
 const Mensajeria                = lazyWithRetry(() => import("./pages/Mensajeria"));
 const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPublico"));
@@ -151,6 +152,7 @@ export const router = createBrowserRouter([
 
           { path: "contact",          element: withSuspense(<Contact />) },
           { path: "terminos",         element: withSuspense(<Terminos />) },
+          { path: "creditos",        element: withSuspense(<Creditos />) }, // huevo de pascua, no linkear en nav/footer
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },

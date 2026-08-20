@@ -93,6 +93,16 @@
   --c-danger-soft:  color-mix(in srgb, var(--c-danger) 16%, var(--c-surface));
   --c-info-soft:    color-mix(in srgb, var(--c-info) 16%, var(--c-surface));
 
+  /* Tiers de logro por nota (Perfil > Logros): derivados de los tokens de
+     estado existentes, no colores nuevos hardcodeados — se adaptan solos
+     si un tema cambia --c-warning/--c-info. */
+  --c-tier-comun:      color-mix(in srgb, var(--c-warning) 45%, var(--c-muted));
+  --c-tier-comun-soft: color-mix(in srgb, var(--c-tier-comun) 16%, var(--c-surface));
+  --c-tier-dorado:      var(--c-warning);
+  --c-tier-dorado-soft: var(--c-warning-soft);
+  --c-tier-platino:      color-mix(in srgb, var(--c-info) 35%, var(--c-text));
+  --c-tier-platino-soft: color-mix(in srgb, var(--c-tier-platino) 14%, var(--c-surface));
+
   /* Acento suave + texto sobre acento */
   --c-accent-soft: color-mix(in srgb, var(--c-accent) 12%, var(--c-surface));
   --c-accent-fg:   var(--c-surface);

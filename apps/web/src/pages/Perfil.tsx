@@ -8,6 +8,7 @@ import { apiGet } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
 import { useI18n } from "../i18n/I18nContext";
 import { resolveMateria, MATERIA_FALLBACK } from "../domain/module/materia";
+import LogroCard, { getTier } from "../ui/LogroCard";
 
 type TipoDestino = "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO";
 
@@ -50,13 +51,18 @@ type FortalezaMateria = {
   porcentaje: number;
 };
 
-type Logro = {
-  id: string;
-  label: string;
-  descripcion: string;
-  icono: string;
-  obtenido: boolean;
-};
+type Logro =
+  | { id: string; kind: "binario"; label: string; descripcion: string; icono: string; obtenido: boolean }
+  | { id: string; kind: "tier"; label: string; descripcion: string; icono: string; porcentaje: number };
+
+/** "Dorado · 88%" / "¡Perfecto! Platino · 100%" / "No obtenido" (bloqueado). */
+function tierLabelFor(porcentaje: number, t: (key: string) => string): string {
+  const { tier, esPerfecto } = getTier(porcentaje);
+  if (tier === "bloqueado") return t("perfil.noObtenido");
+  const nombre = t(`perfil.logros.tier${tier.charAt(0).toUpperCase()}${tier.slice(1)}`);
+  const base = `${nombre} · ${Math.round(porcentaje)}%`;
+  return esPerfecto ? `${t("perfil.logros.perfecto")} ${base}` : base;
+}
 
 const ROLE_LABEL_KEY: Record<string, string> = {
   ADMIN: "perfil.administrador",
@@ -146,6 +152,7 @@ export default function Perfil() {
         const logrosCalc: Logro[] = [
           {
             id: "primer-modulo",
+            kind: "binario",
             label: t("perfil.primerPaso"),
             descripcion: t("perfil.completasteTuPrimerModulo"),
             icono: "🎯",
@@ -153,6 +160,7 @@ export default function Perfil() {
           },
           {
             id: "cinco-modulos",
+            kind: "binario",
             label: t("perfil.enCamino"),
             descripcion: t("perfil.completaste5Modulos"),
             icono: "📚",
@@ -160,6 +168,7 @@ export default function Perfil() {
           },
           {
             id: "diez-modulos",
+            kind: "binario",
             label: t("perfil.estudioso"),
             descripcion: t("perfil.completaste10Modulos"),
             icono: "🏆",
@@ -167,30 +176,24 @@ export default function Perfil() {
           },
           {
             id: "veinticinco-modulos",
+            kind: "binario",
             label: t("perfil.experto"),
             descripcion: t("perfil.completaste25Modulos"),
             icono: "⭐",
             obtenido: totalCompletados >= 25,
           },
-          // Logros por materia — uno por cada materia con 100%
+          // Un logro tiereado por materia (reemplaza los pares dominio-/avanzado-
+          // de antes: mismo dato `porcentaje`, una sola tarjeta con color/nivel
+          // según la nota real en vez de 2 tarjetas binarias fijas en 75/100).
           ...fortalezasCalc
-            .filter((f) => f.porcentaje === 100 && f.total >= 3)
-            .map((f) => ({
-              id: `dominio-${f.materia.toLowerCase()}`,
+            .filter((f) => f.total >= 2 && f.porcentaje >= 60)
+            .map((f): Logro => ({
+              id: `materia-${f.materia.toLowerCase()}`,
+              kind: "tier",
               label: `${t("perfil.dominioDe")} ${f.materia}`,
               descripcion: `${t("perfil.completasteTodosLosModulosDe")} ${f.materia}.`,
               icono: "🎓",
-              obtenido: true,
-            })),
-          // Logro por materia con más del 75%
-          ...fortalezasCalc
-            .filter((f) => f.porcentaje >= 75 && f.total >= 2)
-            .map((f) => ({
-              id: `avanzado-${f.materia.toLowerCase()}`,
-              label: `${t("perfil.avanzadoEn")} ${f.materia}`,
-              descripcion: `${t("perfil.superasteEl75DeLosModulosDe")} ${f.materia}.`,
-              icono: "💡",
-              obtenido: true,
+              porcentaje: f.porcentaje,
             })),
         ];
 
@@ -402,25 +405,29 @@ export default function Perfil() {
                     <p className="text-sm text-[var(--c-muted)]">{t("perfil.sinLogrosDisponiblesTodavia")}</p>
                   </div>
                 )}
-                {logros.map((logro) => (
-                  <div
-                    key={logro.id}
-                    className={`rounded-xl border p-4 flex items-start gap-3 ${
-                      logro.obtenido
-                        ? "border-[var(--c-border)] bg-[var(--c-surface)]"
-                        : "border-[var(--c-border)] bg-[var(--c-surface)] opacity-40"
-                    }`}
-                  >
-                    <span className="text-2xl flex-shrink-0">{logro.icono}</span>
-                    <div>
-                      <p className="text-sm font-semibold text-[var(--c-text)]">{logro.label}</p>
-                      <p className="text-xs text-[var(--c-muted)] mt-0.5">{logro.descripcion}</p>
-                      {!logro.obtenido && (
-                        <p className="text-[10px] text-[var(--c-muted)] mt-1">{t("perfil.noObtenido")}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                {logros.map((logro) =>
+                  logro.kind === "binario" ? (
+                    <LogroCard
+                      key={logro.id}
+                      kind="binario"
+                      icono={logro.icono}
+                      label={logro.label}
+                      descripcion={logro.descripcion}
+                      obtenido={logro.obtenido}
+                      estadoLabel={logro.obtenido ? t("perfil.logros.completado") : t("perfil.noObtenido")}
+                    />
+                  ) : (
+                    <LogroCard
+                      key={logro.id}
+                      kind="tier"
+                      icono={logro.icono}
+                      label={logro.label}
+                      descripcion={logro.descripcion}
+                      porcentaje={logro.porcentaje}
+                      tierLabel={tierLabelFor(logro.porcentaje, t)}
+                    />
+                  )
+                )}
               </div>
             )}
 
