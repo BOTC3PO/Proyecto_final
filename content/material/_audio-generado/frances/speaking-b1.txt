@@ -1,0 +1,5 @@
+Lucas: Tu as déjà visité Paris ?
+Marie: Non, c’est la première fois que je vais à Paris. J’ai réservé un hôtel près de la Tour Eiffel.
+Lucas: C’est génial ! Tu vas visiter les musées ?
+Marie: Oui, mais je préfère le Louvre. Et toi, tu as des préférences ?
+Lucas: Je suis fan de la cathédrale Notre-Dame. On devrait y aller ensemble !

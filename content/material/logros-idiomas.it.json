@@ -1,0 +1,91 @@
+[
+  {
+    "id": 41,
+    "idioma": "Inglés",
+    "objetivo": "C1",
+    "nombre": "Certificazione C1 di Inglese",
+    "descripcion": "Hai superato l'esame di certificazione di Inglese, livello C1.",
+    "icono": "🇬🇧"
+  },
+  {
+    "id": 42,
+    "idioma": "Alemán",
+    "objetivo": "C1",
+    "nombre": "Certificazione C1 di Tedesco",
+    "descripcion": "Hai superato l'esame di certificazione di Tedesco, livello C1.",
+    "icono": "🇩🇪"
+  },
+  {
+    "id": 43,
+    "idioma": "Japonés",
+    "objetivo": "JLPT N1",
+    "nombre": "Certificazione JLPT N1 di Giapponese",
+    "descripcion": "Hai superato l'esame di certificazione di Giapponese, livello JLPT N1.",
+    "icono": "🇯🇵"
+  },
+  {
+    "id": 44,
+    "idioma": "Francés",
+    "objetivo": "C1",
+    "nombre": "Certificazione C1 di Francese",
+    "descripcion": "Hai superato l'esame di certificazione di Francese, livello C1.",
+    "icono": "🇫🇷"
+  },
+  {
+    "id": 45,
+    "idioma": "Chino",
+    "objetivo": "HSK 5-6",
+    "nombre": "Certificazione HSK 5-6 di Cinese",
+    "descripcion": "Hai superato l'esame di certificazione di Cinese, livello HSK 5-6.",
+    "icono": "🇨🇳"
+  },
+  {
+    "id": 46,
+    "idioma": "Italiano",
+    "objetivo": "C1",
+    "nombre": "Certificazione C1 di Italiano",
+    "descripcion": "Hai superato l'esame di certificazione di Italiano, livello C1.",
+    "icono": "🇮🇹"
+  },
+  {
+    "id": 47,
+    "idioma": "Coreano",
+    "objetivo": "TOPIK II",
+    "nombre": "Certificazione TOPIK II di Coreano",
+    "descripcion": "Hai superato l'esame di certificazione di Coreano, livello TOPIK II.",
+    "icono": "🇰🇷"
+  },
+  {
+    "id": 48,
+    "idioma": "Portugués BR",
+    "objetivo": "C1",
+    "nombre": "Certificazione C1 di Portoghese (Brasile)",
+    "descripcion": "Hai superato l'esame di certificazione di Portoghese del Brasile, livello C1.",
+    "icono": "🇧🇷"
+  },
+  {
+    "id": 49,
+    "idioma": "Portugués PT",
+    "objetivo": "C1",
+    "nombre": "Certificazione C1 di Portoghese (Portogallo)",
+    "descripcion": "Hai superato l'esame di certificazione di Portoghese del Portogallo, livello C1.",
+    "icono": "🇵🇹"
+  },
+  {
+    "id": 50,
+    "idioma": "Esperanto",
+    "objetivo": "C1",
+    "nombre": "Certificazione C1 di Esperanto",
+    "descripcion": "Hai superato l'esame di certificazione di Esperanto, livello C1.",
+    "icono": "🟢"
+  },
+  {
+    "id": 51,
+    "idioma": null,
+    "objetivo": null,
+    "nombre": "Poliglotta",
+    "descripcion": "Hai completato la certificazione dei 10 lingue della mappa.",
+    "icono": "🌐",
+    "meta": true
+  }
+]

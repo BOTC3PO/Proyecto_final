@@ -1,0 +1,4 @@
+Turista: Scusi, dove posso trovare la stazione ferroviaria?
+Vendedor: La stazione è in via Roma, vicino al municipio.
+Turista: Grazie mille! Quanto tempo ci vuole per arrivare lì?
+Vendedor: Con il bus numero 5, circa venti minuti.

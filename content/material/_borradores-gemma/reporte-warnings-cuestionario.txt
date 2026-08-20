@@ -1,0 +1,1821 @@
+
+## aprendizaje/metacognicion-saber-que-se-y-que-no-se
+  [b5_out.md] El dilema del examen: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] El dilema del examen: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Estrategia de estudio eficiente: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## aprendizaje/tecnicas-de-estudio-repaso-espaciado-recuperacion
+  [b5_out.md] El dilema del examen final: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] ¿Releer o Evocar?: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+  [b5_out.md] ¿Releer o Evocar?: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El efecto de la dificultad deseable: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Comparativa de métodos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## arte/acustica-instrumento-musical
+  [b2_out.md] Frecuencia de una cuerda vibrante: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El fenómeno de la resonancia: tipo:vf con respuesta no booleana ('es_resonancia_correcta') -> completar
+  [b4_out.md] Resonancia y longitud: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] La vibración de la cuerda: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] La vibración de la cuerda: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Resonancia en instrumentos de viento: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Intensidad y amplitud: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El cuerpo de un instrumento: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## arte/armonia-basica-acordes-tonalidad
+  [b2_out.md] Identificación de la tonalidad: tipo:vf con respuesta no booleana ('es_do_mayor') -> completar
+  [b3_out.md] Confusión entre escala y tonalidad: tipo:vf con respuesta no booleana ('es_escala') -> completar
+  [b4_out.md] Tonalidad vs Escala: tipo:vf con respuesta no booleana ('es_tonal') -> completar
+  [b4_out.md] Consonancia y Disonancia: tipo:vf con respuesta no booleana ('es_consonante') -> completar
+  [b5_out.md] El acorde fundamental: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de tonalidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El centro tonal: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## arte/danza-ritmo-tiempo-expresion-corporal
+  [b2_out.md] El pulso y el tempo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El Tiempo en la Danza: tipo:vf con respuesta no booleana ('es_ritmo_constante') -> completar
+  [b5_out.md] El compás del bailarín: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La intención del movimiento: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Percepción del tempo: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] Percepción del tempo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Elementos del lenguaje corporal: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## arte/lenguaje-musical-pentagrama-escalas-intervalos
+  [mega_out.md] El pentagrama: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Ciclo de quintas: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Cálculo de distancia (Semitonos): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Quinta Justa: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Error: El semitono en piano: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Contraste: Tono vs Semitono: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Identificación de intervalo por semitonos: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Escenario: Armadura de clave: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Escenario: Identificación de error: tipo:vf con respuesta no booleana ('"Falso"') -> completar
+
+## arte/origen-del-arte
+  [b1_out.md] El valor del símbolo: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b2_out.md] El arte como herramienta mágica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Materiales en la escultura primitiva: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Arte Rupestre: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Venus Paleolítico: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Materiales de Grabado: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Concepto de Arte: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## arte/ritmo-compas-pulso-figuras-musicales
+  [b1_out.md] Relación de valores: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Duración de la negra: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] La duración de la blanca: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Relación de duración: Negra vs Corchea: tipo:vf con respuesta no booleana ('relacion') -> completar
+  [b4_out.md] Compás y pulsos: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El metrónomo del baterista: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El compás de la marcha: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] ¿Es una figura mayor?: tipo:vf con respuesta no booleana ('datos[idx][2') -> completar
+  [b5_out.md] ¿Es una figura mayor?: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El reto del compás de 4/4: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## automatizacion/control-pid-proporcional-integral-derivativo
+  [b3_out.md] El efecto del término Integral: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b4_out.md] Diferencia entre Integral y Proporcional: tipo:vf con respuesta no booleana ('es_integral_mejor') -> completar
+  [b5_out.md] El efecto del término Derivativo: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+
+## automatizacion/lazo-abierto-vs-lazo-cerrado
+  [b2_out.md] Identificación de sistemas: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b3_out.md] Estabilidad y perturbaciones: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b5_out.md] El rol de la variable de error: tipo:vf con respuesta no booleana ('casos[idx][1') -> completar
+
+## automatizacion/plc-logica-de-control-industrial
+  [b5_out.md] Estado de una bomba en un sistema de llenado: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Lógica de seguridad: Parada de Emergencia: tipo:vf con respuesta no booleana ('estado_seguridad') -> completar
+  [b5_out.md] Cálculo de tiempo de llenado: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## automatizacion/realimentacion-feedback
+  [b2_out.md] Cálculo del Error de Control: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Característica de la Realimentación Negativa: tipo:vf con respuesta no booleana ('es_negativa') -> completar
+  [b5_out.md] Control de temperatura en un horno: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Estabilidad en sistemas con exceso de ganancia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## automatizacion/servomecanismos
+  [b4_out.md] Clasificación de sistemas: tipo:vf con respuesta no booleana ('es_lazo_cerrado') -> completar
+  [b5_out.md] Error de seguimiento en servomotor: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Estabilidad del sistema: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## biologia/presion-arterial
+  [mega_out.md] El papel del corazón: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Factores que afectan la lectura: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Presión de pulso: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Relación con la edad: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Diferencia de presión: tipo:vf con respuesta no booleana ('"mayor"') -> completar
+  [mega_out.md] Escenario: El efecto de la cafeína: tipo:vf con respuesta no booleana ('"aumenta"') -> completar
+
+## ciudadania-digital/confiabilidad-y-verificacion-de-una-fuente
+  [b4_out.md] Veracidad vs. Credibilidad: tipo:vf con respuesta no booleana ('escenario[1') -> completar
+  [b5_out.md] Verificación de autoría: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] Verificación de autoría: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El método de triangulación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de sesgos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El dominio de la URL: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## ciudadania-digital/desinformacion-en-red
+  [b4_out.md] Análisis de sesgo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El sesgo de confirmación: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## ciudadania-digital/detectar-desinformacion-sesgo-deepfakes
+  [b2_out.md] Verdad o Falso: IA Generativa: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b3_out.md] Identificación de Deepfakes: tipo:vf con respuesta no booleana ('es_falso') -> completar
+  [b5_out.md] Identificación de Sesgo en Noticias: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de Manipulación Visual: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## civica/estado-de-derecho-por-que-importa
+  [b1_out.md] El rol de la ley: tipo:vf con respuesta no booleana ('true') -> completar
+  [b4_out.md] La alternancia en el poder: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El funcionario y la norma: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La jerarquía normativa: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El debido proceso: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El principio de legalidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## civica/origen-estado-derecho
+  [b1_out.md] El concepto de Poder Político: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El contrato social y la seguridad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de Función Estatal: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Rol de la Ley: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Concepto de Soberanía: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La Función Ejecutiva: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] La Función Ejecutiva: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## civica/sufragio-restringido-universal
+  [b3_out.md] Identificación de premisas: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b4_out.md] Consecuencia de la exclusión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El sufragio en la Constitución de 1853: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Carácter del voto en 1853: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El hito de 1947: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## comunicacion/corrientes-de-la-comunicacion
+  [b5_out.md] El modelo de transmisión: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La influencia de los medios: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La audiencia activa: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## comunicacion/etica-y-responsabilidad-de-los-medios
+  [b1_out.md] Responsabilidad social: tipo:vf con respuesta no booleana ('es_falso') -> completar
+  [b1_out.md] El derecho a la información: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] El dilema de la primicia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El derecho a la réplica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Intereses comerciales vs. Interés público: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## comunicacion/generos-periodisticos
+  [b3_out.md] La subjetividad en la crónica: tipo:vf con respuesta no booleana ('es_cronica_subjetiva') -> completar
+  [b4_out.md] Crónica vs. Noticia: tipo:vf con respuesta no booleana ('"Verdadero"') -> completar
+  [b5_out.md] Identificación de género: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Completar: El elemento clave de la entrevista: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de género (Escenario complejo): posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## comunicacion/publicidad-y-persuasion
+  [b4_out.md] Persuasión vs. Manipulación: tipo:vf con respuesta no booleana ('es_etica') -> completar
+
+## comunicacion/teoria-de-la-comunicacion-emisor-receptor-canal-ruido
+  [b3_out.md] Elementos en una carta: tipo:vf con respuesta no booleana ('"Verdadero"') -> completar
+  [b5_out.md] El mensaje en la radio: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Interferencia en la llamada: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El medio físico: tipo:vf con respuesta no booleana ('"aire"') -> completar
+  [b5_out.md] El receptor pasivo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/apelacion-e-instancias
+  [b2_out.md] El recurso de apelación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b3_out.md] El efecto de la apelación: tipo:vf con respuesta no booleana ('escenario[1') -> completar
+  [b3_out.md] La doble instancia: tipo:vf con respuesta no booleana ('es_garantia') -> completar
+  [b5_out.md] El recurso de apelación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Efectos de la apelación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] ¿Es posible la revisión?: tipo:vf con respuesta no booleana ('caso_valido[idx][0') -> completar
+  [b5_out.md] ¿Es posible la revisión?: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Tribunal de Alzada: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/argumentacion-juridica
+  [b2_out.md] Validez de la interpretación analógica: tipo:vf con respuesta no booleana ('escenarios[escenario_idx][1') -> completar
+  [b2_out.md] El peso de la prueba en la argumentación: tipo:vf con respuesta no booleana ('casos[caso_idx][1') -> completar
+  [b5_out.md] Estructura del Silogismo Jurídico: tipo:vf con respuesta no booleana ('"premisa_menor"') -> completar
+
+## derecho/corrientes-interpretacion-juridica
+  [b5_out.md] El origen de la norma: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La validez de la norma: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+  [b5_out.md] La validez de la norma: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El rol del juez: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El dilema de la justicia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/denuncia-y-etapa-de-instruccion
+  [b2_out.md] El rol del Fiscal en la instrucción: tipo:vf con respuesta no booleana ('escenario[escenario_idx][1') -> completar
+  [b5_out.md] Inicio del proceso penal: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El objeto de la instrucción: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+  [b5_out.md] El objeto de la instrucción: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La formalización de la investigación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/derecho-civil
+  [b4_out.md] Relación con el Derecho Administrativo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Capacidad de ejercicio: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Elementos del contrato: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Propiedad y posesión: tipo:vf con respuesta no booleana ('situacion[idx][0') -> completar
+  [b5_out.md] Propiedad y posesión: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Responsabilidad Civil: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/derecho-comercial
+  [b3_out.md] El concepto de quiebra: tipo:vf con respuesta no booleana ('es_insolvente') -> completar
+  [b5_out.md] Naturaleza de la sociedad comercial: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Clasificación de contratos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El proceso de quiebra: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/derecho-constitucional
+  [b2_out.md] División de poderes: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b3_out.md] Diferencia con el Derecho Administrativo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El control de constitucionalidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Derechos Fundamentales: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Órgano de Control: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/derecho-internacional
+  [b1_out.md] Concepto de Soberanía: tipo:vf con respuesta no booleana ('true') -> completar
+  [b3_out.md] Ámbito de aplicación: tipo:vf con respuesta no booleana ('es_privado') -> completar
+  [b5_out.md] Sujetos del Derecho Internacional: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Fuentes del Derecho Internacional: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Resolución de Conflictos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/derecho-laboral
+  [b5_out.md] El contrato de trabajo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Jornada laboral y horas extra: tipo:vf con respuesta no booleana ('2') -> completar
+  [b5_out.md] Jornada laboral y horas extra: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/derecho-penal
+  [b4_out.md] Naturaleza de la sanción: tipo:vf con respuesta no booleana ('es_penal') -> completar
+  [b5_out.md] El principio de legalidad: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] El principio de legalidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Tipicidad y elementos del delito: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Clasificación de penas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Imputabilidad y responsabilidad: tipo:vf con respuesta no booleana ('sujeto[idx][1') -> completar
+  [b5_out.md] Imputabilidad y responsabilidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/ejecucion-de-la-sentencia
+  [b2_out.md] La sentencia firme: tipo:vf con respuesta no booleana ('escenario[1') -> completar
+  [b5_out.md] La vía de ejecución: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Requisitos de la ejecución: tipo:vf con respuesta no booleana ('estado[idx][1') -> completar
+  [b5_out.md] Requisitos de la ejecución: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El embargo como medida: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El rol del Juez en la ejecución: tipo:vf con respuesta no booleana ('accion[idx][1') -> completar
+  [b5_out.md] El rol del Juez en la ejecución: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/hecho-juridicamente-relevante
+  [b4_out.md] El elemento de la relevancia jurídica: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b4_out.md] Contraste con el acto jurídico: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] El accidente de tránsito: tipo:vf con respuesta no booleana ('casos[caso_idx][1') -> completar
+
+## derecho/interpretacion-normativa
+  [b2_out.md] Interpretación Teleológica: tipo:vf con respuesta no booleana ('escenarios[caso_idx][0][1') -> completar
+
+## derecho/investigacion-prueba-y-fiscalia
+  [b1_out.md] Naturaleza de la prueba: tipo:vf con respuesta no booleana ('es_falso') -> completar
+  [b5_out.md] El rol del Fiscal en la investigación: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] El rol del Fiscal en la investigación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Clasificación de la prueba: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El elemento probatorio faltante: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La importancia de la cadena de custodia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/juicio-oral
+  [b5_out.md] El rol del fiscal en el juicio: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El principio de inmediación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/norma-jerarquia-y-vigencia
+  [b1_out.md] Vigencia de la norma: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b4_out.md] Distinción entre Ley y Decreto: tipo:vf con respuesta no booleana ('es_ley_que_prevalece') -> completar
+  [b4_out.md] Diferencia entre Ley y Reglamento: tipo:vf con respuesta no booleana ('es_reglamento_que_crea_derechos') -> completar
+
+## derecho/ramas-del-derecho
+  [b2_out.md] El despido injustificado: tipo:vf con respuesta no booleana ('datos[escenario_idx][1') -> completar
+  [b5_out.md] El contrato de alquiler: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El robo en el supermercado: tipo:vf con respuesta no booleana ('caso[tipo_caso') -> completar
+  [b5_out.md] Despido injustificado: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La disputa entre socios: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## derecho/resolucion-de-conflictos-y-sentencia
+  [b2_out.md] La motivación de la sentencia: tipo:vf con respuesta no booleana ('"Verdadero"') -> completar
+  [b2_out.md] El fallo en un caso de daños: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Cosa Juzgada vs. Cosa Decidida: tipo:vf con respuesta no booleana ('es_cosa_juzgada') -> completar
+  [b5_out.md] El rol de la sentencia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El principio de congruencia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El carácter de la sentencia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## dibujo-tecnico/acotacion-normalizada
+  [b1_out.md] Elementos de la acotación: tipo:vf con respuesta no booleana ('es_correcta') -> completar
+  [b4_out.md] El concepto de cota de referencia: tipo:vf con respuesta no booleana ('es_referencia') -> completar
+  [b4_out.md] Acotación en serie vs. Acotación en paralelo: tipo:vf con respuesta no booleana ('es_paralelo') -> completar
+  [b5_out.md] Sentido de la lectura de cotas: tipo:vf con respuesta no booleana ('caso[idx') -> completar
+  [b5_out.md] Verificación de concordancia: tipo:vf con respuesta no booleana ('error[idx') -> completar
+
+## dibujo-tecnico/escalas-numericas-y-graficas
+  [b2_out.md] Veracidad de escala gráfica: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b3_out.md] Relación entre escala y medida real: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Escala de Reducción: tipo:vf con respuesta no booleana ('es_reduccion') -> completar
+  [b5_out.md] Escala de reducción: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Conversión de unidades: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## dibujo-tecnico/perspectivas-isometrica-y-caballera
+  [b3_out.md] Distorsión en la perspectiva caballera: tipo:vf con respuesta no booleana ('true') -> completar
+  [b3_out.md] El error de la escala en Isométrica: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b5_out.md] Identificación de ejes isométricos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Profundidad en perspectiva caballera: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Diferencia de representación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Comparación de ejes: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Comparación de ejes: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## dibujo-tecnico/sistemas-de-proyeccion
+  [b3_out.md] La escala en la proyección oblicua: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b3_out.md] El error de la escala en axonometría: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Identificación de sistema de proyección: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Diferencias métricas (Cálculo de escala): posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## dibujo-tecnico/vistas-frontal-superior-lateral
+  [b2_out.md] Cálculo de dimensiones en vistas: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Relación entre vista frontal y alzada: tipo:vf con respuesta no booleana ('es_sinonimo') -> completar
+  [b5_out.md] Identificación de la vista frontal: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## diseño/accesibilidad-wcag-contraste-lectores-de-pantalla
+  [b2_out.md] Contraste de color WCAG AA: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b2_out.md] Contraste para texto grande: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] Contraste de color WCAG AA: tipo:vf con respuesta no booleana ('escenario[idx][1] == "4.5" || escenario[idx][1] == "7.0"') -> completar
+  [b5_out.md] Contraste de color WCAG AA: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Significado del color: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Contraste para texto grande: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## diseño/jerarquia-visual-e-informacion
+  [b3_out.md] El error del exceso de énfasis: tipo:vf con respuesta no booleana ('es_efectivo') -> completar
+  [b3_out.md] El contraste como herramienta: tipo:vf con respuesta no booleana ('es_legible') -> completar
+  [b5_out.md] Prioridad en un Checkout: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Contraste y Legibilidad: tipo:vf con respuesta no booleana ('resultado') -> completar
+  [b5_out.md] Contraste y Legibilidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Completar el flujo de atención: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Escala y Peso Visual: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## diseño/prototipado-wireframe-mockup-prototipo-interactivo
+  [b4_out.md] La esencia del prototipo interactivo: tipo:vf con respuesta no booleana ('es_interactivo') -> completar
+
+## diseño/pruebas-de-usuario
+  [b2_out.md] Cálculo de tasa de éxito: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Sesgo del observador: tipo:vf con respuesta no booleana ('es_sesgado') -> completar
+
+## diseño/usabilidad-heuristicas-de-nielsen
+  [b1_out.md] Visibilidad del estado del sistema: tipo:vf con respuesta no booleana ('escenarios[caso_idx][1') -> completar
+  [b3_out.md] Visibilidad del estado del sistema: tipo:vf con respuesta no booleana ('escenarios[escenario_idx][1') -> completar
+  [b5_out.md] Control y libertad del usuario: tipo:vf con respuesta no booleana ('acciones[accion_idx][0') -> completar
+
+## economia/business-model-canvas
+  [b5_out.md] Identificación de Segmentos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Propuesta de Valor: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] Propuesta de Valor: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Canales de Distribución: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Estructura de Costos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Flujos de Ingresos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## economia/capitalismo-industrial-trabajo-asalariado
+  [b1_out.md] Cálculo de plusvalía básica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de la tasa de explotación (Concepto): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Identificación de la relación de trabajo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El concepto de fuerza de trabajo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## economia/control-de-gestion-e-indicadores
+  [b2_out.md] Eficiencia en la producción: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Análisis de Rentabilidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## economia/cooperativismo-y-mutualismo
+  [b1_out.md] Principio de la Cooperación: tipo:vf con respuesta no booleana ('es_democratica') -> completar
+  [b2_out.md] Principio de gestión democrática: tipo:vf con respuesta no booleana ('es_cooperativa') -> completar
+  [b2_out.md] El proceso de excedentes: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El principio de la gestión democrática: tipo:vf con respuesta no booleana ('es_democratica') -> completar
+  [b5_out.md] Identificación de la naturaleza jurídica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## economia/coordinar-personas-y-recursos
+  [b3_out.md] El rol de la información en la coordinación: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Optimización de recursos en producción: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## economia/detectar-una-oportunidad-de-negocio
+  [b4_out.md] Oportunidad vs. Idea: tipo:vf con respuesta no booleana ('es_oportunidad') -> completar
+  [b5_out.md] Validación de la demanda: tipo:vf con respuesta no booleana ('casos[caso_idx][1') -> completar
+
+## economia/estado-de-resultados
+  [b1_out.md] Composición del Resultado: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b1_out.md] Clasificación de Resultados: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b2_out.md] Cálculo del Resultado Bruto: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Determinación de la Utilidad Neta: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El concepto de Resultado Neto: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Cálculo de la utilidad bruta: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Resultado del ejercicio (Verdadero/Falso): tipo:vf con respuesta no booleana ('ingresos > gastos') -> completar
+
+## economia/estructura-productiva-dependencia
+  [b2_out.md] Impacto de los capitales: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## economia/margenes-bruto-y-neto
+  [b1_out.md] Cálculo de Margen Bruto: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Escenario de Margen Neto: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## economia/mejora-continua
+  [b1_out.md] Filosofía Kaizen: tipo:vf con respuesta no booleana ('true') -> completar
+  [b4_out.md] El enfoque de la mejora continua: tipo:vf con respuesta no booleana ('escenarios[escenario_idx][1') -> completar
+  [b5_out.md] La esencia de la mejora continua: tipo:vf con respuesta no booleana ('datos[escenario_idx][1') -> completar
+  [b5_out.md] Visión estratégica: tipo:vf con respuesta no booleana ('escenarios[escenario_idx][1') -> completar
+
+## economia/mvp-producto-minimo-viable
+  [b5_out.md] El MVP de una App de Delivery: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La métrica del MVP: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Decisión tras el MVP: Pivotar o Perseverar: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## economia/origen-excedente-moneda-mercado
+  [b2_out.md] El valor de la moneda: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Metales preciosos y valor: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] La limitación del trueque: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El problema de la divisibilidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El costo de la búsqueda: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El valor de la unidad de cuenta: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## economia/pitch-a-inversores
+  [b2_out.md] Validación de mercado (TAM, SAM, SOM): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El Elevator Pitch: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Gancho (The Hook): posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## economia/planificacion-administrativa
+  [b2_out.md] Cálculo de presupuesto planificado: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El proceso de planificación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Elementos de la planificación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## economia/presupuesto-administrativo
+  [b2_out.md] Cálculo de déficit operativo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Presupuesto vs. Flujo de caja: tipo:vf con respuesta no booleana ('caso[idx][0') -> completar
+  [b5_out.md] El balance del trimestre: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Cálculo de desvío presupuestario: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## economia/productividad-produccion-insumos
+  [b1_out.md] Relación Insumo-Producto: tipo:vf con respuesta no booleana ('datos[escenario][1') -> completar
+  [b2_out.md] Cálculo de Productividad Simple: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Rendimientos Decrecientes: tipo:vf con respuesta no booleana ('estado[0') -> completar
+  [b5_out.md] Cálculo de productividad simple: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Cálculo de productividad simple: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## economia/punto-de-equilibrio
+  [b2_out.md] Cálculo de ingresos de equilibrio (input): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Cálculo del punto de equilibrio: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Determinación de la utilidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## economia/validar-con-clientes-construir-medir-aprender
+  [b2_out.md] El MVP y el aprendizaje: tipo:vf con respuesta no booleana ('escenarios[escenario_idx][1') -> completar
+  [b3_out.md] Error en la fase de Medición: tipo:vf con respuesta no booleana ('es_metrica_accionable') -> completar
+  [b3_out.md] El error de la inversión prematura: tipo:vf con respuesta no booleana ('es_error_comun') -> completar
+
+## electronica/circuitos-y-leyes-de-kirchhoff
+  [b2_out.md] Ley de Tensiones en una Malla: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b4_out.md] Naturaleza de las leyes de Kirchhoff: tipo:vf con respuesta no booleana ('es_conservacion') -> completar
+  [b5_out.md] Ley de Corrientes en un Nodo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Ley de Corrientes en un Nodo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Ley de Tensiones en una Malla: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Ley de Tensiones en una Malla: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de Corrientes: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## electronica/componentes-resistencia-capacitor-diodo-transistor
+  [b2_out.md] Cálculo de corriente en una resistencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El comportamiento del diodo: tipo:vf con respuesta no booleana ('es_polarizado_directo') -> completar
+
+## electronica/logica-digital-puertas-and-or-not
+  [b2_out.md] Análisis de circuito combinacional: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El valor de la salida en AND: tipo:vf con respuesta no booleana ('0') -> completar
+  [b5_out.md] Comportamiento de la puerta NOT: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Análisis de puerta AND: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Lógica de la puerta OR: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## electronica/microcontroladores-y-microprocesadores
+  [b5_out.md] El cerebro de la automatización: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## electronica/sensores-y-actuadores
+  [b2_out.md] Cálculo de señal de sensor: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El rol de la información: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] Cálculo de respuesta de sensor (Input): tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/calor-q-m-c-deltat
+  [b2_out.md] Cálculo de Calor Sensible: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Relación entre Masa y Calor: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Calor necesario para calentar agua: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Calor necesario para calentar agua: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Comparación de capacidad térmica: tipo:vf con respuesta no booleana ('ce > 500') -> completar
+
+## fisica/cambios-de-estado-calor-latente
+  [mega_out.md] Cálculo de calor de fusión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Escenario de evaporación: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Escenario de enfriamiento: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Cálculo de masa desconocida: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/campo-electrico
+  [b2_out.md] Cálculo de la magnitud del campo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Dirección del campo y signo de la carga: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] El sensor de proximidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Fuerza en un dispositivo de filtrado: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/campo-magnetico-imanes-corrientes
+  [b2_out.md] Fuerza de Lorentz en un conductor: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El electroimán de la grúa: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Brújula y cables eléctricos: tipo:vf con respuesta no booleana ('resultado') -> completar
+  [b5_out.md] Brújula y cables eléctricos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Polaridad de un electroimán: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Intensidad del campo magnético: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Intensidad del campo magnético: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## fisica/caudal-q-a-v
+  [b2_out.md] Cálculo de Caudal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Despeje de Velocidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Error de unidades en el caudal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Relación entre área y velocidad (Efecto Venturi): tipo:vf con respuesta no booleana ('datos[idx][2') -> completar
+
+## fisica/choques-elasticos-inelasticos
+  [b2_out.md] Conservación en choques: tipo:vf con respuesta no booleana ('true') -> completar
+  [b2_out.md] Cálculo de momento lineal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Energía cinética en choque elástico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Diferencia energética: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b4_out.md] Comparación de propiedades: tipo:vf con respuesta no booleana ('tipo_choque == 0') -> completar
+
+## fisica/circuitos-en-paralelo
+  [b1_out.md] Resistencia equivalente: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Resistencia equivalente en paralelo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de corriente total: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Resistencia equivalente en paralelo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Resistencia equivalente en paralelo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Resistencia equivalente en paralelo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## fisica/circuitos-en-serie
+  [b2_out.md] Resistencia equivalente en serie: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de corriente total: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Resistencia equivalente en serie: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de corriente en serie: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Resistencia total en serie: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Tensión en serie vs paralelo: tipo:vf con respuesta no booleana ('datos[idx][0') -> completar
+  [b5_out.md] Resistencia total en serie: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Resistencia total en serie: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## fisica/circuitos-mixtos
+  [b1_out.md] Suma de resistencias en serie: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Resistencia equivalente en paralelo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Análisis de circuito mixto: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] ¿Resistencia equivalente en paralelo?: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Resistencia equivalente en una linterna: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Comportamiento de la corriente: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b5_out.md] Cálculo de voltaje en un nodo: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/conservacion-energia-mecanica
+  [mega_out.md] Cálculo de energía cinética: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Cálculo de energía potencial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Energía mecánica total inicial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Montaña rusa: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/corriente-electrica
+  [b1_out.md] Relación carga y tiempo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de la intensidad de corriente: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Intensidad y carga eléctrica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Intensidad en un circuito doméstico: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Flujo de carga eléctrica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Concepto de corriente continua vs alterna: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b5_out.md] Cálculo de intensidad con multímetro: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## fisica/decaimiento-radiactivo-alfa-beta-gamma
+  [b2_out.md] Vida media y decaimiento: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Efecto del decaimiento beta en el número atómico: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## fisica/dilatacion-termica-lineal
+  [b1_out.md] Coeficiente de dilatación lineal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de la variación de longitud: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Longitud final de una varilla: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Dilatación de una viga de acero: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/energia-cinetica
+  [b2_out.md] Cálculo de energía cinética: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Análisis de cambios de velocidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de la velocidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Comparación de energías en un objeto: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El impacto de un vehículo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El impacto de un vehículo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Relación masa y energía: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El peligro de la velocidad: tipo:vf con respuesta no booleana ('true') -> completar
+  [b5_out.md] El peligro de la velocidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Cálculo de velocidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## fisica/energia-potencial-gravitatoria
+  [b1_out.md] Cálculo de energía básica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de altura desconocida: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Dependencia de la altura: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El salto del escalador: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El almacén de suministros: tipo:vf con respuesta no booleana ('ep == (m * 9.8 * 10)') -> completar
+
+## fisica/entropia-segunda-ley-termodinamica
+  [b2_out.md] Cambio de entropía en proceso reversible: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Entropía vs Energía: tipo:vf con respuesta no booleana ('es_sistema_aislado') -> completar
+  [b5_out.md] El café que se enfría: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] El café que se enfría: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El desorden de las moléculas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## fisica/escalas-de-temperatura-c-f-k
+  [b1_out.md] Comparación de escalas: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b2_out.md] Conversión de Celsius a Kelvin: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El error de la escala Kelvin: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El límite del frío: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/estructura-del-nucleo-atomico
+  [b1_out.md] Composición nuclear: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b1_out.md] Estabilidad y carga: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b3_out.md] La fuerza nuclear fuerte y su alcance: tipo:vf con respuesta no booleana ('es_larga_distancia') -> completar
+  [b4_out.md] Alcance de la fuerza nuclear fuerte: tipo:vf con respuesta no booleana ('es_corta') -> completar
+  [b5_out.md] Composición del núcleo de un isótopo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Composición del núcleo de un isótopo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Carga eléctrica neta: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de partículas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## fisica/fision-y-fusion-nuclear
+  [b1_out.md] Fusión Nuclear y Masa: tipo:vf con respuesta no booleana ('es_fusion') -> completar
+  [b2_out.md] La equivalencia masa-energía: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] ¿Fisión o Fusión?: tipo:vf con respuesta no booleana ('es_fusion') -> completar
+  [b5_out.md] El secreto de la energía nuclear: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La ecuación de Einstein: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/frecuencia
+  [b1_out.md] Cálculo de frecuencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de la frecuencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de oscilaciones totales: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El péndulo del reloj: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/generador-motor-transformador
+  [b2_out.md] Fuerza electromotriz inducida: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Generador y Ley de Faraday: tipo:vf con respuesta no booleana ('principio[tipo_gen][1') -> completar
+
+## fisica/iman-polos-atraccion-repulsion
+  [b1_out.md] Ley de atracción y repulsión: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b2_out.md] Cálculo de fuerza magnética: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Diferencia entre imán y carga eléctrica: tipo:vf con respuesta no booleana ('es_magnetico') -> completar
+  [b5_out.md] El juego de imanes: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El experimento de la brújula: tipo:vf con respuesta no booleana ('situacion[idx][1') -> completar
+
+## fisica/impulso-cambio-momento
+  [b2_out.md] Cálculo de Impulso: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El error de la fuerza instantánea: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El choque de un balón: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/induccion-electromagnetica-faraday-lenz
+  [b2_out.md] Cálculo de la FEM inducida: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El freno electromagnético: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Generador de corriente: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/lentes-convergentes-divergentes
+  [b1_out.md] Comportamiento de la luz: tipo:vf con respuesta no booleana ('caso == 0') -> completar
+  [b4_out.md] Comportamiento de los rayos: tipo:vf con respuesta no booleana ('tipo_lente == "convergente"') -> completar
+  [b5_out.md] Lentes en la visión: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## fisica/ley-de-ohm
+  [b2_out.md] Cálculo de la Corriente: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El error de la relación inversa: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de la resistencia desconocida: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Cálculo de Resistencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/longitud-onda-velocidad-propagacion
+  [b1_out.md] Cálculo de velocidad de onda: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Despeje de longitud de onda: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] La confusión de las unidades: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Relación inversa: Frecuencia vs Longitud: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b3_out.md] El error de la velocidad de fase: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Onda de sonido en un instrumento: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/luz-onda-espectro-electromagnetico
+  [b2_out.md] Relación entre frecuencia y longitud de onda: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de energía de un fotón: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El error de la velocidad de la luz: posible array literal de 1 elemento indexado por variable -- revisar manualmente
+  [b3_out.md] El color de la luz visible: posible array literal de 1 elemento indexado por variable -- revisar manualmente
+  [b3_out.md] Relación frecuencia y energía: posible array literal de 1 elemento indexado por variable -- revisar manualmente
+
+## fisica/maquina-termica-termodinamica-nivel2
+  [b1_out.md] Ciclo de Carnot y Eficiencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b1_out.md] Conversión de Energía: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Eficiencia de la máquina térmica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Conservación de la energía: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El límite de la eficiencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El ciclo de Carnot: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Relación Trabajo-Calor: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Cálculo de eficiencia térmica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Relación calor y trabajo: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/momento-lineal
+  [b2_out.md] Cálculo de Momento Lineal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Relación Masa y Velocidad: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b2_out.md] Comparación de Objetos: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b2_out.md] Comparación de Objetos (Corregida): posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b4_out.md] Relación entre Masa y Momento: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El impacto de un proyectil: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/ojo-humano-instrumento-optico
+  [mega_out.md] Función del cristalino: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Cálculo de distancia focal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Potencia de la lente: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Lente del ojo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Magnificación: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Verdad o Falso: Luz: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Verdad o Falso: Retina: tipo:vf con respuesta no booleana ('"falso"') -> completar
+
+## fisica/oscilacion-periodo
+  [b2_out.md] Periodo de un Péndulo Simple: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El concepto de ciclo completo: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b5_out.md] El péndulo del reloj: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El péndulo del reloj: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El ritmo del corazón: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/potencia-electrica
+  [b2_out.md] Cálculo de potencia básica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Relación Voltaje y Resistencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de potencia con caída de tensión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Relación entre Potencia y Resistencia: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] Consumo de una bombilla: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Resistencia y potencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] ¿Es una carga de alta potencia?: tipo:vf con respuesta no booleana ('p > limite') -> completar
+
+## fisica/potencia-mecanica
+  [b2_out.md] Relación Trabajo y Potencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Análisis de la fórmula de potencia: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b4_out.md] Comparación de Escenarios: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Potencia de un motor de elevación: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Comparación de potencias: tipo:vf con respuesta no booleana ('p1 > p2') -> completar
+
+## fisica/presion-f-sobre-a
+  [b1_out.md] Cálculo de Presión Simple: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de Presión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El error de la unidad de área: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] ¿Presión o Fuerza?: tipo:vf con respuesta no booleana ('"Verdadero"') -> completar
+  [b5_out.md] Presión de un zapato: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/presion-hidrostatica
+  [b3_out.md] La confusión de la densidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Presión en un buzo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Comparación de presiones: tipo:vf con respuesta no booleana ('rho1 < rho2') -> completar
+
+## fisica/principio-de-arquimedes-empuje-flotacion
+  [b2_out.md] Cálculo del Empuje: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El empuje y el peso: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Empuje vs Peso: tipo:vf con respuesta no booleana ('densidad_obj < densidad_liq') -> completar
+  [b4_out.md] Diferencia entre masa y empuje: tipo:vf con respuesta no booleana ('false') -> completar
+  [b5_out.md] Cálculo del empuje hidrostático: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/principio-de-pascal-prensa-hidraulica
+  [b1_out.md] Aplicación en Prensa Hidráulica: tipo:vf con respuesta no booleana ('es_hidraulica') -> completar
+
+## fisica/reflexion-espejos-planos-curvos
+  [b1_out.md] Ley de la reflexión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Relación de la distancia focal y el objeto: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Distancia de la imagen en espejo cóncavo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Distancia de la imagen en espejo cóncavo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Comparación de divergencia: Convexo vs Cóncavo: tipo:vf con respuesta no booleana ('es_convexo == verdadero') -> completar
+  [b5_out.md] Espejo de seguridad en supermercado: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Espejos de seguridad en curvas: tipo:vf con respuesta no booleana ('es_convexo') -> completar
+
+## fisica/refraccion-indice-ley-snell
+  [b2_out.md] Cálculo de ángulo de refracción: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de la velocidad de la luz en un medio: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El lápiz en el vaso de agua: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Cálculo del ángulo de incidencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] ¿Luz del aire al diamante?: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] ¿Luz del aire al diamante?: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] Verdad o Falso: Índice de refracción: tipo:vf con respuesta no booleana ('true') -> completar
+
+## fisica/resistencia-electrica
+  [mega_out.md] Relación con la corriente: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Cálculo de resistencia simple: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Resistencia y temperatura: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Error de concepto: Área vs Radio: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Error de unidad: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Escenario de cableado: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Identificación de componentes: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Resistencia y espesor: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Resumen de variables: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Cálculo con resistividad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Resistencia y densidad de corriente: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Escenario final: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+
+## fisica/resonancia-frecuencia-natural
+  [mega_out.md] Cálculo de frecuencia simple: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Error: Amplitud infinita: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Error: Masa y periodo: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Error: Resonancia y sonido: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Error: Frecuencia vs Periodo: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Error: Rigidez y masa: tipo:vf con respuesta no booleana ('"falso"') -> completar
+
+## fisica/semivida-desintegracion-exponencial
+  [b1_out.md] Relación con la constante de desintegración: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de masa remanente: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] La relación entre semivida y constante de desintegración: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de la masa restante: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Cálculo de Masa Remanente: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/sonido-timbre-altura-intensidad
+  [b1_out.md] Intensidad sonora: tipo:vf con respuesta no booleana ('es_grande') -> completar
+  [b2_out.md] Intensidad y amplitud: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b2_out.md] Cálculo de periodo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Relación entre frecuencia y periodo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El tono de una nota musical: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## fisica/temperatura-equilibrio-termico
+  [mega_out.md] Equilibrio térmico: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [mega_out.md] Escala Kelvin: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Escala Celsius a Kelvin: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] El cero absoluto: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Sensación térmica: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Escenario de mezcla (Cálculo): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Calor específico del agua: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [mega_out.md] Calor latente (Concepto): tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [mega_out.md] Escenario de enfriamiento: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+
+## fisica/tension-diferencia-potencial
+  [b1_out.md] Relación Carga y Trabajo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Relación Carga y Potencial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de Diferencia de Potencial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Confusión entre Corriente y Voltaje: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b3_out.md] Relación Trabajo y Carga: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Diferencia de potencial vs. Trabajo eléctrico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El proceso de carga de una batería: tipo:vf con respuesta no booleana ('es_mayor') -> completar
+
+## fisica/transmision-calor-conduccion-conveccion-radiacion
+  [b2_out.md] Ley de Fourier: Conducción térmica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Ley de Stefan-Boltzmann: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] ¿Depende la radiación de la temperatura?: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## geografia/urbanizacion-migracion-ciudad
+  [b1_out.md] Conceptos de densidad poblacional: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] El proceso de urbanización: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b2_out.md] Consecuencias socioeconómicas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b4_out.md] El gran cambio demográfico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Causas de la migración rural: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Consecuencias de la urbanización rápida: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Impacto ambiental urbano: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/agujeros-negros
+  [b4_out.md] Evolución de la masa: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Masa y densidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/ampliacion-democratica-ley-saenz-pena
+  [b1_out.md] El impacto en el poder: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El voto antes de 1912: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La gran transformación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Comparativa de sistemas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El rol del ciudadano: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El impacto de la ley: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/atmosfera-primitiva
+  [b1_out.md] Cálculo de gases (Simulación): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] El papel del oxígeno: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b3_out.md] Porcentajes de oxígeno: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Comparación de estados químicos: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b4_out.md] El papel del vapor de agua: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b4_out.md] Cálculo de temperatura crítica (Simulación): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El rol del Oxígeno: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/cambio-climatico-linea-base-historica
+  [b1_out.md] El valor de la anomalía: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Escala temporal del cambio: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b2_out.md] Análisis de la magnitud temporal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Velocidad del calentamiento actual: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/ciclo-de-las-rocas
+  [b2_out.md] El destino del magma: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El destino del magma: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Transformación de Magma: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Sedimentación y Litificación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Metamorfismo por Presión y Temperatura: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Ciclo de la Erosión: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Fusión de Rocas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/cinco-extinciones-masivas
+  [b1_out.md] El Gran Evento de la Muerte: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b1_out.md] El impacto de Chicxulub: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Causas de la extinción: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El efecto invernadero post-impacto: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/civilizaciones-antiguas
+  [b5_out.md] El origen de Mesopotamia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/conquista-colonizacion-america
+  [b1_out.md] Impacto demográfico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Inmunidad y patógenos: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+
+## historia-profunda/conquista-tierra-firme
+  [b1_out.md] El ascenso de los tetrápodos: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El primer contacto en Tierra Firme: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/conquista-y-colonia-argentina
+  [b1_out.md] El rol de Córdoba: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Impacto demográfico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Economía colonial y monopolio: tipo:vf con respuesta no booleana ('modelo[idx][1') -> completar
+
+## historia-profunda/corrimiento-al-rojo-expansion-universo
+  [b1_out.md] Cálculo de la longitud de onda: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Relación distancia-velocidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] La métrica del espacio: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Relación de Hubble: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El efecto Doppler de la luz: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Interpretación de espectros: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de movimiento: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/datacion-radiometrica
+  [b1_out.md] Determinación de la edad (Cálculo): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Vida media del Carbono-14: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Determinación de tiempo transcurrido: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Masa remanente de Potasio-40: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/distribucion-biomas
+  [b2_out.md] Factores determinantes: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El bioma de bosque templado: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Bioma de selva tropical: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Clima de la Tundra: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Bioma de latitudes medias: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/division-del-trabajo
+  [b2_out.md] La lógica de la especialización: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b3_out.md] Relación entre especialización y productividad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Relación de poder: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El rol del artesano: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La jerarquía de la producción: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El excedente y el nuevo rol: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/eclipses-sol-luna
+  [b1_out.md] Fases lunares y eclipses: posible array literal de 1 elemento indexado por variable -- revisar manualmente
+  [b2_out.md] La inclinación orbital: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de la sombra: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Identificación de eclipse solar: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Clasificación de eclipses: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] ¿Qué eclipse es?: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación por sombra: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/edad-media-feudalismo
+  [b1_out.md] La caída de Roma: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b1_out.md] El fin de una era: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] El concepto de feudo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El contrato de vasallaje: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El estamento guerrero: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La labor espiritual: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El vínculo de vasallaje: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La base de la producción: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/electrificacion-fabrica-hogar
+  [b5_out.md] El motor eléctrico en la industria: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Iluminación y vida doméstica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Impacto en la producción masiva: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de tecnologías: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Identificación de tecnologías: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/escritura-primeras-ciudades
+  [b1_out.md] Cronología de la escritura: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] El cambio de paradigma: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b4_out.md] El rol de la escritura en el Estado: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b4_out.md] La memoria histórica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Escritura Cuneiforme: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Jeroglíficos Egipcios: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Origen de la Escritura: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Evolución de Sistemas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Alfabeto Fenicio: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/estados-nacionales
+  [b1_out.md] Diferencia entre Estado y Nación: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/eucariotas
+  [b4_out.md] Estimación de la brecha temporal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Clasificación celular básica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Organelos membranosos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Complejidad estructural: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Tamaño y escala: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/explosion-cambrica
+  [b1_out.md] El origen de la diversidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b1_out.md] Duración del fenómeno: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El inicio de la vida compleja: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El gran salto evolutivo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/fotosintesis-cambio-atmosfera-nivel2
+  [b1_out.md] El papel del metano: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El valor del oxígeno: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Origen del oxígeno: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El cambio redox: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Impacto en la vida aeróbica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Relación causa-efecto: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/galaxias-tipos-escala
+  [b1_out.md] La fuerza de unión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de distancia lumínica: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/globalizacion-era-digital
+  [b3_out.md] El concepto de "Aldea Global": tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Flujos económicos y desigualdad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Fenómeno de integración económica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El impacto de las redes sociales: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de flujos culturales: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/golpes-de-estado-interrupciones
+  [b2_out.md] Análisis de frecuencia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Duración del proceso: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El golpe de 1930: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/gran-oxidacion
+  [b1_out.md] El estado de la atmósfera: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Cálculo de saturación (Simulación): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El origen del oxígeno: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/guerra-de-malvinas
+  [b4_out.md] El impacto en la legitimidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/guerra-fria-descolonizacion
+  [b1_out.md] La crisis de los misiles: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El nuevo orden mundial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Identificación de Bloque: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Movimiento de los No Alineados: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Crisis de los Misiles: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Procesos de Descolonización: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Doctrina de Contención: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/guerras-civiles-unitarios-federales
+  [b1_out.md] El peso de la economía: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/guerras-de-independencia-argentina
+  [b2_out.md] Logística del Cruce: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] El impacto de la victoria: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b3_out.md] El encuentro de los Libertadores: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El rol de San Martín: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Batallas Decisivas: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/guerras-mundiales
+  [b3_out.md] El concepto de 'Diktat': tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El estallido del conflicto: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Tecnología de guerra: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El orden mundial: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Alianzas militares: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/herramientas-arte-rupestre
+  [b5_out.md] Identificación de técnica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Materiales de grabado: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Clasificación de pigmentos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Determinación de soporte: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/historia-reciente-argentina
+  [b1_out.md] Sujetos de la historia: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El rol del historiador: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El retorno a la democracia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Crisis económica y social: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El cambio de siglo: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/hominizacion
+  [b1_out.md] Capacidad craneal y cerebro: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] El cambio anatómico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] La revolución de las herramientas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b3_out.md] El humano moderno: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El origen del bipedismo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La revolución tecnológica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Migraciones y fuego: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Pensamiento simbólico: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/huella-humana-en-el-clima-inicio
+  [b2_out.md] El gran cambio de la Revolución Industrial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El registro de los núcleos de hielo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Impacto de la Revolución Industrial: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Emisiones de CO2 y Carbón: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El Gran Aceleramiento: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/imperios-expansion
+  [b1_out.md] El concepto de soberanía imperial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El Imperio de la Ruta de la Seda: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Legado de los Incas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La Expansión de los Califatos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La Era de los Samuráis: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/internet-redes-globalizacion-digital
+  [b1_out.md] Impacto de la digitalización: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El efecto de la reducción de costos de información: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El origen de la red: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Evolución de la Web: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El impacto de la banda ancha: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/ley-de-hubble
+  [b1_out.md] Cálculo de la velocidad de recesión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] La ilusión del centro: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b5_out.md] Velocidad de alejamiento (Hubble): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Cálculo de distancia inversa: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/materia-energia-oscura
+  [b3_out.md] Cálculo de densidad total: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Efectos gravitatorios: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Evidencia de la Materia Oscura: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El destino del Universo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Densidad y Estructura: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Efecto Lente: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Componentes del Modelo Lambda-CDM: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/metalurgia-cobre-hierro
+  [b1_out.md] El proceso de fundición: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Identificación de la Edad del Cobre: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Propiedades de los metales: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El impacto del Hierro: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El impacto del Hierro: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/minerales-estructura-cristalina
+  [b5_out.md] Densidad relativa: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/modelo-agroexportador-inmigracion
+  [b2_out.md] El motor de la inmigración: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El fenómeno del conventillo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El motor de la economía: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/modernidad-imprenta-navegacion-ciencia
+  [b1_out.md] La revolución de la información: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b1_out.md] El costo de la información: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] La imprenta y la Reforma: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/movimiento-aparente-constelaciones
+  [b5_out.md] Estrellas de la Primavera: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El Sol y la Constelación: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/multicelularidad
+  [b3_out.md] El costo de la especialización: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El rol de las proteínas: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Clasificación celular básica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El salto a la complejidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de organismos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Análisis de muestras: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/organizacion-nacional-constitucion-1853
+  [b3_out.md] División de Poderes: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b4_out.md] Reforma de 1994: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+
+## historia-profunda/paleoclima-glaciaciones
+  [b2_out.md] La Oblicuidad y las latitudes: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] La última glaciación: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/paleolitico
+  [b4_out.md] El impacto del filo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Identificación de tecnología: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Modo de vida: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Arte Rupestre: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Evolución de herramientas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El control del fuego: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/peronismo-derechos-sociales
+  [b5_out.md] El derecho a las vacaciones: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El rol de la mujer en la política: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La justicia social y la distribución: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El concepto de la dignidad laboral: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El concepto de la dignidad laboral: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/poblamiento-planeta-america
+  [b2_out.md] Cronología del poblamiento: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El caso de la Antártida: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Teorías de poblamiento: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El paso por el estrecho: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de rutas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/procariotas
+  [b1_out.md] Origen de la vida: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b1_out.md] Clasificación celular: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b2_out.md] Extremófilos: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Composición de un estromatolito: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Clasificación Celular: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Estructura del Material Genético: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Organelos Celulares: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Tamaño y Complejidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/pueblos-originarios-territorio-argentino
+  [b1_out.md] El entorno de los Mapuches: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El territorio Patagónico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Identificación de territorio: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/radiacion-mamiferos
+  [b2_out.md] El impacto de la extinción: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de tasa de especiación (Simulación): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El vacío ecológico: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El cambio de tamaño corporal: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Causas de la radiación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El factor de competencia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/recuperacion-democratica-memoria
+  [b3_out.md] Sitios de Memoria: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El rol de las Madres: tipo:vf con respuesta no booleana ('sujeto[idx][1') -> completar
+
+## historia-profunda/relieve-sismos-volcanes
+  [b2_out.md] Relación tectónica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Cálculo de distancia sísmica: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Bordes Divergentes: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Zonas de Subducción: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Fallas Transformantes: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Relieve de Colisión: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Expansión del Fondo Marino: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/revolucion-de-mayo
+  [b2_out.md] El impacto de la crisis: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/revolucion-industrial
+  [b2_out.md] El cambio de paradigma energético: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b3_out.md] Condiciones de trabajo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Impacto en la producción: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El motor de vapor y la locomotora: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Impacto en la producción: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El cambio en la energía: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/revolucion-neolitica
+  [b1_out.md] El impacto demográfico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Identificación de regiones: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Origen de la agricultura: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Domesticación del maíz: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El proceso de sedentarización: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Centros de domesticación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/revoluciones-burguesas-liberalismo
+  [b3_out.md] Naturaleza de la igualdad: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/rocas-igneas-sedimentarias-metamorficas
+  [b2_out.md] Cálculo de capas (Simulación): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Transformación de la caliza: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Origen de la roca: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de proceso: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Clasificación por textura: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Secuencia de formación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El origen térmico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El origen térmico: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/sedentarizacion-excedente
+  [b2_out.md] Cálculo de excedente (Simulación): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El excedente y la especialización: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b5_out.md] Causa y efecto de la agricultura: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Consecuencias de la vida sedentaria: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Relación de causalidad económica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/seleccion-natural-evidencias-nivel2
+  [b4_out.md] Divergencia evolutiva: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Evidencias de la evolución: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Comparación de estructuras: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Clasificación de evidencias: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de analogía: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/tabla-periodica-nivel2-cosmologico
+  [b1_out.md] El límite del hierro: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Nucleosíntesis estelar: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b2_out.md] Carga eléctrica y protones: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Carga eléctrica y protones: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b3_out.md] Cálculo de masa atómica (Simulado): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Identificación de origen: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+
+## historia-profunda/tectonica-placas-deriva-continental
+  [b5_out.md] Tipos de bordes: Dorsales: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Tipos de bordes: Cordilleras: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Tipos de bordes: Fallas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Tipos de bordes: Fosas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Tipos de bordes: Resumen: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/terrorismo-de-estado-argentina
+  [b1_out.md] El rol de la propiedad privada y la familia: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b5_out.md] Identificación de la práctica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El destino de los niños: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Organismos de control: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El concepto de "Desaparecido": posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/tiempo-geologico-eones-eras-periodos
+  [b5_out.md] La explosión de la vida: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El reinado de los dinosaurios: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El origen de la vida: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El auge de los mamíferos: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] El auge de los mamíferos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## historia-profunda/tierra-primitiva-diferenciacion
+  [b1_out.md] El estado térmico inicial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de densidad relativa: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Consecuencias térmicas: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Densidad del núcleo: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## historia-profunda/virreinato-y-comercio
+  [b3_out.md] El factor económico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El monopolio comercial: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La carga fiscal: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El contrabando: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La importancia de la Aduana: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] La importancia de la Aduana: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/algoritmo-secuencia-de-pasos
+  [b5_out.md] El proceso de la receta: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] Atributos de un algoritmo: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+
+## informatica/algoritmos-busqueda-ordenamiento
+  [b2_out.md] Eficiencia de la Búsqueda Binaria: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Complejidad de Burbuja: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## informatica/almacenamiento-volatil-vs-no-volatil
+  [b1_out.md] Identificación de componentes: tipo:vf con respuesta no booleana ('"true"') -> completar
+
+## informatica/archivos-y-persistencia
+  [b2_out.md] Estructura de un archivo CSV: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Persistencia de datos estructurados: tipo:vf con respuesta no booleana ('es_xml') -> completar
+  [b5_out.md] Formatos binarios vs Texto: tipo:vf con respuesta no booleana ('es_binario') -> completar
+
+## informatica/buses-y-entrada-salida
+  [b3_out.md] El rol del Bus de Control: tipo:vf con respuesta no booleana ('es_control') -> completar
+  [b4_out.md] El rol del Bus de Control: tipo:vf con respuesta no booleana ('es_control') -> completar
+  [b5_out.md] El rol del Bus de Datos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El ciclo de lectura de un periférico: tipo:vf con respuesta no booleana ('true') -> completar
+
+## informatica/ciclo-de-instruccion-fetch-decode-execute
+  [b5_out.md] Identificación de la fase de Fetch: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Análisis de un escenario de error: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/control-de-versiones
+  [b5_out.md] El propósito de Git: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El propósito de Git: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] El concepto de Commit: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El concepto de Commit: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] ¿Es Git un sistema distribuido?: tipo:vf con respuesta no booleana ('es_distribuido') -> completar
+  [b5_out.md] Resolución de conflictos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Resolución de conflictos: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+
+## informatica/cpu-unidad-de-control-y-alu
+  [b4_out.md] Diferencia en la gestión de instrucciones: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El ciclo de instrucción: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Operaciones lógicas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El rol de la Unidad de Control: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/criptografia-clave-simetrica-asimetrica-hash
+  [b1_out.md] Criptografía Asimétrica: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b4_out.md] Criptografía Simétrica vs Asimétrica: tipo:vf con respuesta no booleana ('escenario == "simetrica"') -> completar
+  [b5_out.md] Cifrado de archivos masivos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Comparativa de llaves: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+  [b5_out.md] Comparativa de llaves: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/direccionamiento-ip-dns
+  [b2_out.md] Cálculo de subredes simple: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El rol del DNS: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Escenario de conectividad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/diseno-y-arquitectura-de-software
+  [b5_out.md] Principio de responsabilidad única: tipo:vf con respuesta no booleana ('clase_problematica[idx][1') -> completar
+  [b5_out.md] Identificación de deuda técnica: tipo:vf con respuesta no booleana ('escenario_deuda[idx][1') -> completar
+
+## informatica/estructuras-de-control-bucles
+  [b1_out.md] Diferencia entre for y while: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b1_out.md] El bucle infinito: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b2_out.md] El bucle for y la suma de rangos: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Análisis de iteraciones: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El contador de iteraciones: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Condición de parada en while: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Lógica de bucles anidados: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Lógica de bucles anidados: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/estructuras-de-control-condicionales
+  [b5_out.md] El semáforo inteligente: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Validación de acceso: tipo:vf con respuesta no booleana ('es_mayor') -> completar
+  [b5_out.md] Lógica de temperatura: tipo:vf con respuesta no booleana ('es_calor') -> completar
+
+## informatica/estructuras-de-datos-listas-pilas-colas
+  [b5_out.md] Escenario de deshacer en un editor: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Gestión de impresión: tipo:vf con respuesta no booleana ('"imprimir"') -> completar
+  [b5_out.md] Gestión de impresión: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Flujo de una pila de llamadas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El concepto de FIFO: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/etica-de-la-ia-sesgo-privacidad
+  [b3_out.md] Privacidad y memorización de datos: tipo:vf con respuesta no booleana ('caso[1') -> completar
+
+## informatica/funciones-y-modularidad
+  [b3_out.md] El problema de los efectos secundarios: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b5_out.md] Alcance de variables (Scope): tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## informatica/inteligencia-artificial-reglas-a-aprendizaje
+  [b5_out.md] Capacidad de generalización: tipo:vf con respuesta no booleana ('escenarios[escenario_idx][1] == "Un sistema de aprendizaje que puede generalizar ante datos nuevos."') -> completar
+
+## informatica/mantenimiento-y-deuda-tecnica
+  [b2_out.md] El costo de la deuda técnica: tipo:vf con respuesta no booleana ('es_mantenimiento_preventivo') -> completar
+  [b5_out.md] Calidad del Código: tipo:vf con respuesta no booleana ('"falso"') -> completar
+
+## informatica/memoria-asignacion-memoria-virtual
+  [b1_out.md] Memoria Física vs. Virtual: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Capacidad de direccionamiento: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El proceso de segmentación: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El proceso de segmentación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Gestión de Paginación: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Gestión de Paginación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/memoria-ram-cache-jerarquia
+  [b2_out.md] Jerarquía de memoria y velocidad: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b2_out.md] El concepto de Localidad: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b2_out.md] Verdad o Falso: Costo y Capacidad: tipo:vf con respuesta no booleana ('es_cierto[afirmacion][0') -> completar
+  [b3_out.md] El mito de la velocidad de la RAM: tipo:vf con respuesta no booleana ('es_falso') -> completar
+
+## informatica/modelo-relacional-tabla-registro-clave-primaria
+  [b3_out.md] Identificación de la Clave Primaria: tipo:vf con respuesta no booleana ('es_valido') -> completar
+  [b5_out.md] Concepto de Registro: tipo:vf con respuesta no booleana ('datos[idx][1') -> completar
+  [b5_out.md] Integridad de la Clave Primaria: tipo:vf con respuesta no booleana ('propiedad[idx][1') -> completar
+
+## informatica/ofimatica-planilla-de-calculo
+  [b2_out.md] Operación básica de suma: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Diferencia entre Referencias Relativas y Absolutas: tipo:vf con respuesta no booleana ('tipo_ref == "absoluta"') -> completar
+  [b5_out.md] Referencias relativas vs absolutas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Operaciones aritméticas básicas: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## informatica/patrones-y-buenas-practicas
+  [b4_out.md] Interface vs. Clase Abstracta: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+
+## informatica/permisos-y-usuarios
+  [b5_out.md] Permisos de lectura en Linux: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de permisos (Octal): posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El concepto de Umask: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/planificacion-de-procesos
+  [b2_out.md] Algoritmo FCFS (First-Come, First-Served): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Planificación por Prioridades: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b2_out.md] Round Robin (RR): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Algoritmo Round Robin: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Algoritmo Round Robin: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/poo-clases-y-objetos
+  [b5_out.md] Atributos de una clase: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/proceso-programa-en-ejecucion
+  [b1_out.md] Relación de cardinalidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b1_out.md] Relación de cardinalidad: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Identificación de procesos: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El estado de un proceso: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+  [b5_out.md] El estado de un proceso: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Recursos de un proceso: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de instancias: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/protocolo-http-peticion-respuesta
+  [b2_out.md] El código de error 500: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] HTTP vs FTP (Transferencia de archivos): tipo:vf con respuesta no booleana ('es_statica') -> completar
+  [b5_out.md] El ciclo de una petición web: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Componentes de una respuesta HTTP: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de métodos HTTP: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/pruebas-unitarias-integracion
+  [b5_out.md] Verdadero o Falso: Alcance: tipo:vf con respuesta no booleana ('afirmacion[idx][0') -> completar
+
+## informatica/recursividad
+  [b2_out.md] Análisis de ejecución (Factorial): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El riesgo del bucle infinito: tipo:vf con respuesta no booleana ('es_infinito') -> completar
+  [b3_out.md] El retorno de valores: tipo:vf con respuesta no booleana ('error_retorno') -> completar
+
+## informatica/relaciones-y-claves-foraneas
+  [b2_out.md] Identificación de Clave Foránea: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/requisitos-funcionales-no-funcionales
+  [b4_out.md] El impacto de los requisitos no funcionales: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] ¿Es un requisito funcional?: tipo:vf con respuesta no booleana ('item[idx][1') -> completar
+
+## informatica/revolucion-informatica
+  [b3_out.md] Cálculo de progresión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] La velocidad de la información: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## informatica/seguridad-de-red-firewall-vpn-cifrado
+  [b2_out.md] El proceso de cifrado en una VPN: tipo:vf con respuesta no booleana ('es_seguro') -> completar
+  [b5_out.md] El rol del Firewall: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Cifrado en tránsito: tipo:vf con respuesta no booleana ('protocolo[idx][1') -> completar
+  [b5_out.md] Cifrado en tránsito: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El impacto del cifrado simétrico: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/seguridad-informatica
+  [b5_out.md] El correo sospechoso: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificando Malware: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/sistema-de-archivos
+  [b2_out.md] Capacidad de un sistema de archivos: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Estructura de directorios: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Atributos de archivo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Fragmentación de disco: tipo:vf con respuesta no booleana ('estado[idx][0') -> completar
+  [b5_out.md] Fragmentación de disco: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Capacidad de almacenamiento: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/sql-consultas-joins-agregaciones
+  [b2_out.md] El conteo de registros: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Cálculo de promedio con datos: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## informatica/tcp-ip-capas-enrutamiento
+  [b2_out.md] Cálculo de máscara de subred: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Análisis de Direccionamiento: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## informatica/transacciones-acid
+  [b2_out.md] Persistencia tras el fallo: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b3_out.md] El dilema de la atomicidad: tipo:vf con respuesta no booleana ('estado_final == "completada"') -> completar
+  [b3_out.md] La persistencia tras el crash: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b5_out.md] El problema del saldo incompleto: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] La integridad de las reglas: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+  [b5_out.md] La integridad de las reglas: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El efecto de la concurrencia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El registro permanente: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/variables-y-tipos-de-dato
+  [b5_out.md] El tipo de dato correcto: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de tipos en un sistema: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## informatica/virtualizacion-maquina-virtual-contenedor
+  [b5_out.md] Orden de arranque: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+
+## ingenieria/comunicar-la-solucion
+  [b4_out.md] El propósito de un plano técnico: tipo:vf con respuesta no booleana ('es_informativo') -> completar
+  [b5_out.md] Veracidad de documentación técnica: tipo:vf con respuesta no booleana ('caso[1') -> completar
+  [b5_out.md] Integridad de la documentación: tipo:vf con respuesta no booleana ('revision[1') -> completar
+
+## ingenieria/disciplinas-de-la-ingenieria
+  [b4_out.md] Diferencia entre ingeniería química y civil: tipo:vf con respuesta no booleana ('es_quimica') -> completar
+  [b5_out.md] El diseño de un nuevo motor: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Infraestructura urbana: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Optimización de procesos: tipo:vf con respuesta no booleana ('escenario[idx][0') -> completar
+  [b5_out.md] Optimización de procesos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El futuro de la medicina: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## ingenieria/diseno-conceptual
+  [b3_out.md] Alcance del diseño conceptual: tipo:vf con respuesta no booleana ('es_tecnico') -> completar
+
+## ingenieria/ensayo-y-medicion
+  [b2_out.md] Error de medición y precisión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Incertidumbre en mediciones: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Calibración vs Ajuste: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b4_out.md] Sensibilidad vs Resolución: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] Calibración de sensor de presión: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Desviación estándar en pruebas de fatiga: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## ingenieria/investigar-soluciones-existentes
+  [b2_out.md] El costo de reinventar la rueda: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## ingenieria/modelado-y-calculo
+  [b2_out.md] Diseño de una viga de soporte: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de resistencia de materiales: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Modelado vs. Realidad: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b5_out.md] Resistencia de un pilar de soporte: tipo:vf con respuesta no booleana ('carga < resistencia_critica') -> completar
+  [b5_out.md] Dimensionamiento de un tanque de almacenamiento: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Análisis de fatiga de materiales: tipo:vf con respuesta no booleana ('factor_seguridad > 1.0') -> completar
+
+## ingenieria/modelizacion-matematica
+  [b2_out.md] Caída libre y tiempo de impacto: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Modelo determinista vs estocástico: tipo:vf con respuesta no booleana ('es_estocastico') -> completar
+  [b5_out.md] Crecimiento de población bacteriana: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## ingenieria/optimizacion-e-iteracion
+  [b3_out.md] El criterio de parada en iteraciones: tipo:vf con respuesta no booleana ('error_actual < error_previo') -> completar
+  [b3_out.md] ¿Mejora o cambio de dirección?: tipo:vf con respuesta no booleana ('valor_f < valor_f_prev') -> completar
+  [b5_out.md] Optimización de mezcla de materiales: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## ingenieria/problema-y-restricciones
+  [b2_out.md] Restricción de presupuesto en proyecto: tipo:vf con respuesta no booleana ('escenario[idx][1] >= escenario[idx][2]') -> completar
+  [b2_out.md] Análisis de viabilidad de materiales: tipo:vf con respuesta no booleana ('material_data[idx][1] <= material_data[idx][2]') -> completar
+  [b5_out.md] Optimización de materiales: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## ingenieria/prototipo
+  [b2_out.md] Análisis de costos de error: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] El objetivo del prototipo: tipo:vf con respuesta no booleana ('es_final') -> completar
+  [b4_out.md] Fidelidad del prototipo: tipo:vf con respuesta no booleana ('es_alta_fidelidad') -> completar
+
+## ingenieria/resistencia-de-materiales
+  [b1_out.md] Relación Tensión-Área: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Tensión normal en un perno: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo de Esfuerzo Normal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Tensión vs Esfuerzo: tipo:vf con respuesta no booleana ('es_distinguido') -> completar
+  [b5_out.md] Tensión en un cable de soporte: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## investigacion/analisis-estadistico-de-resultados
+  [b2_out.md] Análisis de Errores en Medición: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Interpretación de la Mediana: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Interpretación de la Mediana: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de Outliers: tipo:vf con respuesta no booleana ('es_outlier') -> completar
+  [b5_out.md] Identificación de Outliers: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de Outliers: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] Interpretación de la Desviación Estándar: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Completar Concepto de Correlación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## investigacion/argumentar-desde-evidencia
+  [b3_out.md] La importancia del contraejemplo: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## investigacion/conclusion-y-comunicacion-de-resultados
+  [b1_out.md] El rol de la discusión: tipo:vf con respuesta no booleana ('es_correcta') -> completar
+  [b1_out.md] Limitaciones del estudio: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b4_out.md] Diferencia entre Resumen y Conclusión: tipo:vf con respuesta no booleana ('es_resumen_en_conclusio') -> completar
+  [b5_out.md] El cierre del informe: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Elementos de la discusión: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El canal de comunicación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## investigacion/construir-y-usar-un-modelo-cientifico
+  [b3_out.md] Error de interpretación: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El modelo de la caída libre: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Utilidad de los modelos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Limitaciones del modelo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## investigacion/hipotesis-buena-o-mala
+  [b4_out.md] Falsabilidad de una hipótesis: tipo:vf con respuesta no booleana ('es_falsable') -> completar
+  [b4_out.md] Especificidad vs. Vaguedad: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b4_out.md] Hipótesis Nula vs. Alternativa: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] Falsabilidad: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+
+## investigacion/observacion-y-pregunta-investigable
+  [b1_out.md] Características de una pregunta investigable: tipo:vf con respuesta no booleana ('es_investigable') -> completar
+  [b2_out.md] ¿Es investigable?: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b5_out.md] ¿Es investigable?: tipo:vf con respuesta no booleana ('preguntas[pregunta_idx][1') -> completar
+
+## investigacion/recoleccion-de-datos
+  [b1_out.md] Métodos de Recolección: tipo:vf con respuesta no booleana ('es_cualitativo') -> completar
+  [b4_out.md] Sesgo de Selección: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b5_out.md] Sesgo en la muestra: tipo:vf con respuesta no booleana ('casos[caso_idx][1') -> completar
+
+## lengua/escritura-como-tecnologia
+  [b4_out.md] La escritura como extensión de la mente: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Clasificación de sistemas pictográficos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El sistema silábico: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Componentes del alfabeto: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Diferencia de unidades: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## materiales/corrosion
+  [b3_out.md] Factores de la corrosión: tipo:vf con respuesta no booleana ('false') -> completar
+  [b3_out.md] La paradoja de la capa protectora: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b3_out.md] El papel de la humedad: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] Corrosión Galvánica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Factores de Corrosión: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Protección Catódica: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Corrosión por Picadura: tipo:vf con respuesta no booleana ('true') -> completar
+  [b5_out.md] Corrosión por Picadura: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## materiales/elasticidad-ley-de-hooke-modulo-de-young
+  [b1_out.md] Concepto de Módulo de Young: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b2_out.md] Ley de Hooke: Fuerza y Deformación: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de Esfuerzo (Tensión): tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Cálculo del Módulo de Young: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Ley de Hooke vs. Límite Elástico: tipo:vf con respuesta no booleana ('es_elastico') -> completar
+  [b4_out.md] Relación entre Módulo de Young y Rigidez: tipo:vf con respuesta no booleana ('es_mayor') -> completar
+  [b4_out.md] Diferencia entre Esfuerzo y Deformación: tipo:vf con respuesta no booleana ('es_relacion_directa') -> completar
+  [b5_out.md] Cálculo del módulo de Young: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## materiales/familias-de-materiales-metales-ceramicos-polimeros-compuestos
+  [b3_out.md] Conductividad en polímeros: tipo:vf con respuesta no booleana ('es_conductor') -> completar
+  [b4_out.md] Propiedades de los cerámicos: tipo:vf con respuesta no booleana ('es_ceramico_fragil') -> completar
+  [b5_out.md] Selección de material para recubrimiento térmico: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Conductividad en aplicaciones eléctricas: tipo:vf con respuesta no booleana ('es_metal') -> completar
+  [b5_out.md] Identificación de polímeros: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Componentes de un material compuesto: tipo:vf con respuesta no booleana ('true') -> completar
+
+## materiales/fatiga-y-fractura
+  [b2_out.md] Cálculo de esfuerzos de tensión: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Criterio de falla por fatiga: tipo:vf con respuesta no booleana ('es_ciclo_critico') -> completar
+  [b4_out.md] Influencia del acabado superficial: tipo:vf con respuesta no booleana ('es_superficie_lisa') -> completar
+  [b5_out.md] Relación entre esfuerzos y vida útil: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+  [b5_out.md] Relación entre esfuerzos y vida útil: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+
+## materiales/plasticidad-y-punto-de-fluencia
+  [b2_out.md] El límite elástico: tipo:vf con respuesta no booleana ('es_elastico') -> completar
+  [b2_out.md] Identificación de la deformación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b2_out.md] El punto de fluencia: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El límite de deformación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identificación de la fase: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+  [b5_out.md] Identificación de la fase: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## materiales/propiedades-mecanicas-dureza-tenacidad-ductilidad
+  [b3_out.md] Relación Dureza vs Tenacidad: tipo:vf con respuesta no booleana ('"Falso"') -> completar
+  [b4_out.md] Ductilidad vs Fragilidad: tipo:vf con respuesta no booleana ('escenario[1] == "fragil"') -> completar
+  [b5_out.md] Análisis de falla estructural: tipo:vf con respuesta no booleana ('casos[caso_idx][1') -> completar
+
+## psicologia/autoconocimiento-como-busqueda-humana
+  [b5_out.md] El mito de la esencia fija: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b5_out.md] La naturaleza del autoconocimiento: tipo:vf con respuesta no booleana ('"Falso"') -> completar
+
+## psicologia/corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo
+  [b3_out.md] Conductismo vs. Cognitivismo: tipo:vf con respuesta no booleana ('es_conductista == falso') -> completar
+  [b4_out.md] El enfoque del Conductismo: tipo:vf con respuesta no booleana ('es_conductismo') -> completar
+  [b5_out.md] El enfoque del comportamiento: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Procesamiento de la información: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## psicologia/dependencia-del-otro-cultura-como-herencia
+  [b5_out.md] Identidad y herencia cultural: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El proceso de subjetivación: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+  [b5_out.md] El proceso de subjetivación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El papel del lenguaje en la formación del Yo: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Dependencia vs. Autonomía: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## psicologia/edades-del-ser-humano-ninez-pubertad-identidad
+  [b3_out.md] El impacto de la pubertad en la percepción de sí mismo: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+  [b4_out.md] Cambios en la identidad durante la adolescencia: tipo:vf con respuesta no booleana ('es_identidad_estable') -> completar
+  [b4_out.md] Características de la identidad en la pubertad: tipo:vf con respuesta no booleana ('es_centrado_en_el_otro') -> completar
+  [b5_out.md] El despertar de la pubertad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Identidad en construcción: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El cambio en la percepción social: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## psicologia/lenguaje-pensamiento-y-creatividad
+  [b4_out.md] Diferencia entre lenguaje y comunicación: tipo:vf con respuesta no booleana ('es_comunicacion_solo') -> completar
+
+## psicologia/psicologia-cognitiva-percepcion-memoria-atencion
+  [b3_out.md] Memoria y la distorsión de recuerdos: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b5_out.md] El fenómeno de la atención selectiva: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Memoria de trabajo y carga cognitiva: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Procesamiento Bottom-up vs Top-down: tipo:vf con respuesta no booleana ('caso[idx][0') -> completar
+  [b5_out.md] Procesamiento Bottom-up vs Top-down: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Reconocimiento de patrones y percepción: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## psicologia/psicologia-modernidad-y-el-yo
+  [b2_out.md] El origen del sujeto moderno: tipo:vf con respuesta no booleana ('periodo_transicion == "Renacimiento" && concepto_yo == "individual"') -> completar
+
+## psicologia/salud-mental-ansiedad-depresion-pedir-ayuda
+  [b1_out.md] Identificación de síntomas: tipo:vf con respuesta no booleana ('uno_de(["verdadero", "falso"])') -> completar
+
+## psicologia/sesgos-cognitivos-heuristicas-error-sistematico
+  [b5_out.md] El sesgo de disponibilidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Heurística de representatividad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## resolucion-problemas/analizar-causas-y-restricciones
+  [b2_out.md] Restricciones de presupuesto: tipo:vf con respuesta no booleana ('caso[0] <= caso[1]') -> completar
+  [b5_out.md] Identificación de la causa raíz: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Verificación de viabilidad técnica: tipo:vf con respuesta no booleana ('caso[idx][0') -> completar
+
+## resolucion-problemas/asignacion-de-recursos
+  [b1_out.md] Clasificación de Recursos: tipo:vf con respuesta no booleana ('es_recurso_humano') -> completar
+  [b1_out.md] Sobreasignación de Recursos: tipo:vf con respuesta no booleana ('es_sobreasignado') -> completar
+  [b2_out.md] Optimización de presupuesto de marketing: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Disponibilidad de personal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Análisis de viabilidad de materiales: tipo:vf con respuesta no booleana ('material_en_stock >= material_necesario') -> completar
+  [b5_out.md] Optimización de presupuesto: tipo:vf con respuesta no booleana ('escenario[idx][1') -> completar
+
+## resolucion-problemas/cierre-y-lecciones-aprendidas
+  [b4_out.md] Retrospectiva vs. Auditoría: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b5_out.md] Veracidad de la documentación: tipo:vf con respuesta no booleana ('evaluacion[idx][0') -> completar
+
+## resolucion-problemas/costo-beneficio
+  [b1_out.md] Resultado del Análisis: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b2_out.md] Análisis de inversión inicial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Evaluación de rentabilidad: tipo:vf con respuesta no booleana ('datos[escenario_idx][1] / datos[escenario_idx][0] > 1') -> completar
+  [b3_out.md] Beneficio vs. Flujo de caja: tipo:vf con respuesta no booleana ('"falso"') -> completar
+  [b4_out.md] Punto de Equilibrio: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Análisis de inversión inicial: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Evaluación de rentabilidad: tipo:vf con respuesta no booleana ('ratio > 1.2') -> completar
+  [b5_out.md] Decisión de expansión: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+
+## resolucion-problemas/definir-alcance-y-objetivos
+  [b1_out.md] Objetivos SMART: tipo:vf con respuesta no booleana ('es_smart') -> completar
+  [b5_out.md] Objetivos SMART: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+
+## resolucion-problemas/detectar-el-problema
+  [b5_out.md] ¿Es un problema real?: tipo:vf con respuesta no booleana ('situacion[idx][1') -> completar
+
+## resolucion-problemas/disenar-posibles-soluciones
+  [b5_out.md] Evaluación de impacto: tipo:vf con respuesta no booleana ('es_viable[caso_idx') -> completar
+
+## resolucion-problemas/evaluar-el-resultado
+  [b5_out.md] Verificación de Algoritmo de Promedio: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Verificación de Algoritmo de Promedio: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Validación de Lógica de Paridad: tipo:vf con respuesta no booleana ('test_case[idx][1') -> completar
+  [b5_out.md] Validación de Lógica de Paridad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Comprobación de Ordenamiento: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Evaluación de Implementación de Factorial: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Verificación de Filtro de Números Primos: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## resolucion-problemas/implementar-la-solucion
+  [b1_out.md] El rol de la planificación: tipo:vf con respuesta no booleana ('es_correcta') -> completar
+  [b2_out.md] Recursos para la implementación: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Implementación de un algoritmo de búsqueda: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Validación de tipos de datos en la implementación: tipo:vf con respuesta no booleana ('caso[caso[1]] == "numero"') -> completar
+
+## resolucion-problemas/planificacion-tareas-e-hitos
+  [b2_out.md] Cálculo de Duración y Hitos: tipo:input -> completar (revisar si respuesta necesita comillas)
+
+## resolucion-problemas/riesgo-e-incertidumbre
+  [b2_out.md] El cálculo del riesgo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] El cálculo del riesgo: posible operador ternario ?: en el bloque -- invalido en VBLang, revisar
+  [b4_out.md] Contraste de conceptos: tipo:vf con respuesta no booleana ('es_riesgo') -> completar
+  [b5_out.md] Aplicación en finanzas: tipo:vf con respuesta no booleana ('casos[caso_idx][1') -> completar
+
+## resolucion-problemas/seguimiento-y-control
+  [b1_out.md] Diferencia entre seguimiento y control: tipo:vf con respuesta no booleana ('es_control') -> completar
+  [b2_out.md] Desviación en el cronograma: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] Control vs. Seguimiento: tipo:vf con respuesta no booleana ('es_control') -> completar
+  [b3_out.md] El error de la "Falsa Sensación de Progreso": posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b3_out.md] El concepto de Línea Base: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b3_out.md] La Trampa de la Corrección Tardía: tipo:vf con respuesta no booleana ('es_tarde') -> completar
+  [b4_out.md] El rol de la línea base: tipo:vf con respuesta no booleana ('es_indispensable') -> completar
+  [b5_out.md] Desviación de cronograma: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## resolucion-problemas/trade-offs-y-priorizacion
+  [b3_out.md] La falacia de la optimización local: tipo:vf con respuesta no booleana ('es_falso') -> completar
+  [b5_out.md] El impacto del cambio: tipo:vf con respuesta no booleana ('escenarios[escenario_idx][1') -> completar
+
+## turismo/circuitos-e-itinerarios-turisticos
+  [b1_out.md] Diferencia entre circuito y tour: tipo:vf con respuesta no booleana ('es_circuito') -> completar
+  [b1_out.md] Capacidad de carga en itinerarios: tipo:vf con respuesta no booleana ('es_sostenible') -> completar
+  [b2_out.md] Análisis de viabilidad temporal: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El desafío de la logística: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Elementos de un itinerario: tipo:vf con respuesta no booleana ('"fijo"') -> completar
+  [b5_out.md] El factor de la modularidad: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## turismo/estrategias-de-comunicacion-para-la-promocion-turistica
+  [b2_out.md] Presupuesto de Pauta Digital: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] El canal de difusión ideal: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El concepto de Branding Destino: tipo:vf con respuesta no booleana ('caso[idx][1') -> completar
+  [b5_out.md] El concepto de Branding Destino: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El impacto de la comunicación digital: tipo:vf con respuesta no booleana ('dato[idx][1') -> completar
+  [b5_out.md] El impacto de la comunicación digital: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] El mensaje de marca: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+
+## turismo/planificacion-de-destino
+  [b1_out.md] Sostenibilidad en el Turismo: tipo:vf con respuesta no booleana ('es_sostenible') -> completar
+  [b1_out.md] Capacidad de Carga: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El mito del crecimiento infinito: tipo:vf con respuesta no booleana ('escenario == "un_lugar_saturado"') -> completar
+  [b3_out.md] Confusión entre Turismo y Desarrollo: tipo:vf con respuesta no booleana ('error_comun') -> completar
+  [b3_out.md] El concepto de Carrying Capacity: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Gestión de capacidad de carga: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Gestión de capacidad de carga: posible doble sorteo (variable de listas + idx separado) -- revisar indexado
+  [b5_out.md] Veracidad de la gestión participativa: tipo:vf con respuesta no booleana ('"verdadero"') -> completar
+
+## vida-cotidiana/consumo-electrico-lectura-factura
+  [b1_out.md] Cálculo de consumo de un aparato: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b2_out.md] Cálculo de consumo de un artefacto: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b3_out.md] El cálculo del consumo mensual: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b4_out.md] Relación Potencia-Tiempo: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Cálculo de consumo de un electrodoméstico: tipo:input -> completar (revisar si respuesta necesita comillas)
+  [b5_out.md] Lectura de medidor: ¿Aumentó el consumo?: tipo:vf con respuesta no booleana ('actual > anterior') -> completar

@@ -1,0 +1,5 @@
+Turista: 你好，我想买一个苹果。
+Vendedor: 好的，请等一下。
+Turista: 谢谢你！
+Vendedor: 不客气，这是10元。
+Turista: 好的，我给你钱。

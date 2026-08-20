@@ -1,0 +1,2488 @@
+[
+  {
+    "id": 52,
+    "materia": "Matemática",
+    "cluster": 1,
+    "temas": [
+      "algoritmos-de-recorrido-bfs-dfs",
+      "analisis-dimensional",
+      "angulos",
+      "arboles-grafo-sin-ciclos",
+      "area-poligonos-regulares-y-compuestas"
+    ],
+    "nombre": "Mestre do Grafismo e Geometria",
+    "descripcion": "Você explorou grafos com BFS e DFS, analisou dimensões e calculou áreas de polígonos sem errar.",
+    "icono": "🌳"
+  },
+  {
+    "id": 53,
+    "materia": "Matemática",
+    "cluster": 2,
+    "temas": [
+      "asintotas",
+      "caminos-y-ciclos",
+      "cifras-significativas-y-error",
+      "circunferencia-y-circulo",
+      "combinaciones"
+    ],
+    "nombre": "Domina assíntotas e combinações",
+    "descripcion": "Prova parcial concluída com sucesso, integrando análise de funções geométricas e contagem combinatória.",
+    "icono": "📐"
+  },
+  {
+    "id": 54,
+    "materia": "Matemática",
+    "cluster": 3,
+    "temas": [
+      "concavidad-y-puntos-de-inflexion",
+      "congruencia-de-triangulos",
+      "conjuntos-pertenencia-e-inclusion",
+      "construir-un-grafico",
+      "conteo"
+    ],
+    "nombre": "Mestre de Conjuntos e Gráficos",
+    "descripcion": "Analisou concavidade, congruência e contagem com precisão.",
+    "icono": "📐"
+  },
+  {
+    "id": 55,
+    "materia": "Matemática",
+    "cluster": 4,
+    "temas": [
+      "continuidad",
+      "coordenadas-de-un-punto",
+      "correlacion-no-es-causalidad",
+      "cual-miente-y-cuando",
+      "cuerpos-redondos-y-poliedros/cilindros"
+    ],
+    "nombre": "Mestre da Continuidade",
+    "descripcion": "Dominou a continuidade, as coordenadas e os corpos redondos para resolver com precisão.",
+    "icono": "📐"
+  },
+  {
+    "id": 56,
+    "materia": "Matemática",
+    "cluster": 5,
+    "temas": [
+      "cuerpos-redondos-y-poliedros/conos",
+      "cuerpos-redondos-y-poliedros/desarrollo-plano",
+      "cuerpos-redondos-y-poliedros/esferas",
+      "cuerpos-redondos-y-poliedros/piramides",
+      "cuerpos-redondos-y-poliedros/prismas"
+    ],
+    "nombre": "Mestre de Poliedros e Corpos",
+    "descripcion": "Concluiu a prova parcial dominando cones, esferas, pirâmides, prismas e seus desenvolvimentos planos.",
+    "icono": "📐"
+  },
+  {
+    "id": 57,
+    "materia": "Matemática",
+    "cluster": 6,
+    "temas": [
+      "decimales",
+      "demostracion-contraejemplo",
+      "demostracion-deduccion",
+      "demostracion-induccion",
+      "demostracion-reduccion-al-absurdo"
+    ],
+    "nombre": "Mestre de Demonstrações",
+    "descripcion": "Demonstrou domínio sobre decimais e os diferentes tipos de provas lógicas principais.",
+    "icono": "🧠"
+  },
+  {
+    "id": 58,
+    "materia": "Matemática",
+    "cluster": 7,
+    "temas": [
+      "derivada",
+      "despejar-formula",
+      "determinante",
+      "diagramas-de-venn",
+      "dinero"
+    ],
+    "nombre": "Mestre do Despejo e Derivadas",
+    "descripcion": "Resolveu a prova parcial dominando derivadas, determinantes, diagramas de Venn e despejo de fórmulas.",
+    "icono": "🧮"
+  },
+  {
+    "id": 59,
+    "materia": "Matemática",
+    "cluster": 8,
+    "temas": [
+      "dispersion-rango-y-desvio",
+      "distancia-entre-dos-puntos",
+      "distribucion-binomial",
+      "distribucion-de-poisson",
+      "distribucion-exponencial"
+    ],
+    "nombre": "Domina as distribuições e distâncias",
+    "descripcion": "Concluiu a prova principal sobre dispersão, intervalos, desvios, distâncias e distribuições binomial, Poisson e exponencial.",
+    "icono": "📊"
+  },
+  {
+    "id": 60,
+    "materia": "Matemática",
+    "cluster": 9,
+    "temas": [
+      "distribucion-normal",
+      "divisibilidad/divisores",
+      "divisibilidad/multiplos",
+      "divisibilidad/regla-del-10",
+      "divisibilidad/regla-del-2"
+    ],
+    "nombre": "Mestre da Divisibilidade",
+    "descripcion": "Concluiu a prova parcial dominando regras de divisibilidade e a distribuição normal.",
+    "icono": "🔢"
+  },
+  {
+    "id": 61,
+    "materia": "Matemática",
+    "cluster": 10,
+    "temas": [
+      "divisibilidad/regla-del-3",
+      "divisibilidad/regla-del-4",
+      "divisibilidad/regla-del-5",
+      "divisibilidad/regla-del-6",
+      "divisibilidad/regla-del-7-opcional"
+    ],
+    "nombre": "Mestre das Regras de Divisibilidade",
+    "descripcion": "Dominou as regras do 3, 4, 5 e 6 para decompor números como um expert.",
+    "icono": "🔢"
+  },
+  {
+    "id": 62,
+    "materia": "Matemática",
+    "cluster": 11,
+    "temas": [
+      "divisibilidad/regla-del-8",
+      "divisibilidad/regla-del-9",
+      "division",
+      "division-polinomios-ruffini",
+      "ecuacion-cuadratica"
+    ],
+    "nombre": "Domínio da Regra do 8",
+    "descripcion": "Concluiu a prova parcial dominando divisibilidade, Ruffini e equações quadráticas principais.",
+    "icono": "🧮"
+  },
+  {
+    "id": 63,
+    "materia": "Matemática",
+    "cluster": 12,
+    "temas": [
+      "ecuacion-de-la-recta",
+      "ecuacion-primer-grado",
+      "ecuaciones-diferenciales",
+      "ecuaciones-exponenciales-logaritmicas",
+      "error-sistematico-vs-aleatorio"
+    ],
+    "nombre": "Domina a reta e erros",
+    "descripcion": "Concluiu a prova parcial resolvendo equações de primeiro grau, diferenciais, exponenciais e logarítmicas, distinguindo bem o erro sistemático do aleatório.",
+    "icono": "📐"
+  },
+  {
+    "id": 64,
+    "materia": "Matemática",
+    "cluster": 13,
+    "temas": [
+      "esperanza-matematica-valor-esperado",
+      "expresiones-equivalentes",
+      "familias-exponencial-logaritmica",
+      "forma-polar-complejos",
+      "fracciones"
+    ],
+    "nombre": "Mestre dos Complexos e Logaritmos",
+    "descripcion": "Dominou frações, números complexos na forma polar e funções exponenciais e logarítmicas para resolver a prova parcial.",
+    "icono": "📐"
+  },
+  {
+    "id": 65,
+    "materia": "Matemática",
+    "cluster": 14,
+    "temas": [
+      "funcion-cuadratica-parabola",
+      "funcion-dominio",
+      "funcion-imagen",
+      "funcion-inversa-composicion",
+      "funcion-lineal-pendiente"
+    ],
+    "nombre": "Mestre de Funções",
+    "descripcion": "Dominou as funções lineares, quadráticas e suas propriedades-chave.",
+    "icono": "📐"
+  },
+  {
+    "id": 66,
+    "materia": "Matemática",
+    "cluster": 15,
+    "temas": [
+      "funciones-trigonometricas-seno-coseno",
+      "grafico-eje-truncado",
+      "grafos-dirigidos-no-dirigidos-y-ponderados",
+      "grafos-vertices-y-aristas",
+      "hora-y-reloj"
+    ],
+    "nombre": "Domina trigonometria e grafos",
+    "descripcion": "Concluiu a prova parcial dominando funções trigonométricas, grafos e problemas de tempo.",
+    "icono": "📐"
+  },
+  {
+    "id": 67,
+    "materia": "Matemática",
+    "cluster": 16,
+    "temas": [
+      "identidades-y-ecuaciones-trigonometricas",
+      "independencia-de-eventos-y-diagrama-de-arbol",
+      "inecuaciones",
+      "integral",
+      "integral-definida-y-area-bajo-la-curva"
+    ],
+    "nombre": "Mestre do Cálculo e Probabilidade",
+    "descripcion": "Resolveu com sucesso a prova parcial integrando trigonometria, probabilidades e a área sob a curva.",
+    "icono": "📐"
+  },
+  {
+    "id": 68,
+    "materia": "Matemática",
+    "cluster": 17,
+    "temas": [
+      "intervalo-de-confianza",
+      "irracionales-y-reales",
+      "jerarquia-operaciones",
+      "leer-grafico/barras",
+      "leer-grafico/lineas"
+    ],
+    "nombre": "Mestre de Intervalos e Gráficos",
+    "descripcion": "Concluiu a prova parcial dominando intervalos de confiança, números irracionais, hierarquia de operações e leitura de gráficos.",
+    "icono": "📊"
+  },
+  {
+    "id": 69,
+    "materia": "Matemática",
+    "cluster": 18,
+    "temas": [
+      "leer-grafico/torta",
+      "leer-una-tabla",
+      "lenguaje-algebraico",
+      "limite",
+      "logaritmos"
+    ],
+    "nombre": "Mestre da Análise de Dados",
+    "descripcion": "Leu gráficos, tabelas e expressões algébricas até dominar limites e logaritmos.",
+    "icono": "📊"
+  },
+  {
+    "id": 70,
+    "materia": "Matemática",
+    "cluster": 19,
+    "temas": [
+      "magnitud-unidad-instrumento",
+      "matrices/operaciones",
+      "matrices/sistemas-nxn",
+      "matriz-inversa",
+      "mcd"
+    ],
+    "nombre": "Mestre de Matrizes e MDC",
+    "descripcion": "Dominou as operações com matrizes, sistemas nxn, inversas e o cálculo do MDC.",
+    "icono": "📐"
+  },
+  {
+    "id": 71,
+    "materia": "Matemática",
+    "cluster": 20,
+    "temas": [
+      "mcm",
+      "media-mediana-y-moda",
+      "muestreo-y-sesgo",
+      "multiplicacion",
+      "notacion-cientifica"
+    ],
+    "nombre": "Mestre do MMC e estatística",
+    "descripcion": "Calculou o MMC, analisou dados com média, mediana e moda, e dominou a amostragem sem viés!",
+    "icono": "📊"
+  },
+  {
+    "id": 72,
+    "materia": "Matemática",
+    "cluster": 21,
+    "temas": [
+      "numeros-complejos",
+      "numeros-enteros",
+      "numeros-primos",
+      "operaciones-enteros",
+      "operaciones-fracciones"
+    ],
+    "nombre": "Mestre dos Inteiros e Frações",
+    "descripcion": "Você passou na prova dominando números inteiros, primos, frações e complexos!",
+    "icono": "🧮"
+  },
+  {
+    "id": 73,
+    "materia": "Matemática",
+    "cluster": 22,
+    "temas": [
+      "optimizacion",
+      "perimetro-y-area",
+      "permutaciones",
+      "plano-cartesiano",
+      "poligonos"
+    ],
+    "nombre": "Domínio de Formas e Espaços",
+    "descripcion": "Você concluiu a prova de geometria e combinatória com excelência.",
+    "icono": "📐"
+  },
+  {
+    "id": 74,
+    "materia": "Matemática",
+    "cluster": 23,
+    "temas": [
+      "polinomios-factoreo",
+      "porcentaje",
+      "potencias",
+      "principio-multiplicativo-de-conteo",
+      "probabilidad-compuesta"
+    ],
+    "nombre": "Especialista em Polinômios e Probabilidade",
+    "descripcion": "Você concluiu a prova dominando fatoração, potências, contagem e probabilidade composta.",
+    "icono": "🧮"
+  },
+  {
+    "id": 75,
+    "materia": "Matemática",
+    "cluster": 24,
+    "temas": [
+      "probabilidad-condicional",
+      "probabilidad-simple",
+      "producto-escalar",
+      "proporcion",
+      "proporcionalidad-funcion"
+    ],
+    "nombre": "Mestre de Probabilidades e Proporções",
+    "descripcion": "Você concluiu a prova dominando probabilidade condicional, simples, produto escalar e funções de proporcionalidade.",
+    "icono": "📐"
+  },
+  {
+    "id": 76,
+    "materia": "Matemática",
+    "cluster": 25,
+    "temas": [
+      "punto-medio-de-un-segmento",
+      "raices",
+      "razon",
+      "razones-trigonometricas",
+      "rectas-paralelas-y-perpendiculares"
+    ],
+    "nombre": "Domínio da Geometria Analítica",
+    "descripcion": "Você concluiu a prova integrando ponto médio, retas e razões trigonométricas.",
+    "icono": "📐"
+  },
+  {
+    "id": 77,
+    "materia": "Matemática",
+    "cluster": 26,
+    "temas": [
+      "redondeo",
+      "regla-de-lhopital",
+      "regla-de-tres-directa",
+      "regla-de-tres-inversa",
+      "regresion-lineal"
+    ],
+    "nombre": "Mestre de Regras e Regressão",
+    "descripcion": "Você passou na prova dominando arredondamento, L'Hôpital, regra de três e regressão linear.",
+    "icono": "📐"
+  },
+  {
+    "id": 78,
+    "materia": "Matemática",
+    "cluster": 27,
+    "temas": [
+      "resta",
+      "riesgo-relativo-vs-absoluto",
+      "secciones-conicas-circunferencia",
+      "semejanza-y-teorema-de-thales",
+      "series-geometricas"
+    ],
+    "nombre": "Mestre de séries e cônicas",
+    "descripcion": "Você resolveu a prova dominando subtração, riscos, circunferências, Tales e séries geométricas.",
+    "icono": "📐"
+  },
+  {
+    "id": 79,
+    "materia": "Matemática",
+    "cluster": 28,
+    "temas": [
+      "sistema-metrico-y-conversiones",
+      "sistemas-dos-ecuaciones",
+      "sucesiones-aritmeticas",
+      "sucesiones-y-series",
+      "suma"
+    ],
+    "nombre": "Mestre das conversões e séries",
+    "descripcion": "Você resolveu a prova integrando sistemas de equações, sucessões e conversões métricas.",
+    "icono": "📐"
+  },
+  {
+    "id": 80,
+    "materia": "Matemática",
+    "cluster": 29,
+    "temas": [
+      "suma-de-vectores-y-descomposicion",
+      "tablas-de-frecuencia-cuartiles-percentiles-y-varianza",
+      "tecnicas-de-integracion",
+      "teorema-central-del-limite",
+      "teorema-de-bayes"
+    ],
+    "nombre": "Domínio de Vetores e Estatística",
+    "descripcion": "Você resolveu a prova integrando vetores, distribuições e teoremas probabilísticos.",
+    "icono": "📊"
+  },
+  {
+    "id": 81,
+    "materia": "Matemática",
+    "cluster": 30,
+    "temas": [
+      "teorema-de-bolzano",
+      "teorema-de-pitagoras",
+      "teorema-del-binomio",
+      "teorema-del-seno-y-del-coseno",
+      "test-de-hipotesis"
+    ],
+    "nombre": "Mestre dos Teoremas",
+    "descripcion": "Você concluiu a prova final dominando Bolzano, Pitágoras, o binômio, trigonometria e estatística.",
+    "icono": "📐"
+  },
+  {
+    "id": 82,
+    "materia": "Matemática",
+    "cluster": 31,
+    "temas": [
+      "transformaciones-geometricas/homotecia",
+      "transformaciones-geometricas/reflexion",
+      "transformaciones-geometricas/rotacion",
+      "transformaciones-geometricas/traslacion",
+      "triangulos"
+    ],
+    "nombre": "Mestre das Transformações",
+    "descripcion": "Você concluiu a prova de transformações geométricas e triângulos, chefe.",
+    "icono": "🔺"
+  },
+  {
+    "id": 83,
+    "materia": "Matemática",
+    "cluster": 32,
+    "temas": [
+      "union-interseccion-y-diferencia",
+      "valor-posicional",
+      "variable-aleatoria-discreta-continua",
+      "variaciones",
+      "vectores-modulo-y-direccion",
+      "volumen-y-capacidad"
+    ],
+    "nombre": "Mestre de conjuntos e vetores",
+    "descripcion": "Você concluiu a prova dominando uniões, interseções, vetores e variáveis aleatórias.",
+    "icono": "📐"
+  },
+  {
+    "id": 84,
+    "materia": "Lengua",
+    "cluster": 1,
+    "temas": [
+      "argumentos",
+      "boom-latinoamericano",
+      "circuito-de-la-comunicacion",
+      "clases-de-palabras",
+      "comprension-idea-principal"
+    ],
+    "nombre": "Mestre do Boom e da Gramática",
+    "descripcion": "Você concluiu a prova dominando o circuito da comunicação, as classes de palavras e a essência do Boom latino-americano.",
+    "icono": "📚"
+  },
+  {
+    "id": 85,
+    "materia": "Lengua",
+    "cluster": 2,
+    "temas": [
+      "conciencia-fonologica",
+      "concordancia-nominal-y-verbal",
+      "conectores-textuales",
+      "conjugacion-verbal-indicativo",
+      "conjugacion-verbal-subjuntivo"
+    ],
+    "nombre": "Mestre da Sintaxe",
+    "descripcion": "Você concluiu a prova demonstrando domínio total da fonologia, da concordância e de todos os modos verbais.",
+    "icono": "📝"
+  },
+  {
+    "id": 86,
+    "materia": "Lengua",
+    "cluster": 3,
+    "temas": [
+      "contraargumentos",
+      "coordinadas-adversativas",
+      "coordinadas-copulativas",
+      "coordinadas-distributivas",
+      "coordinadas-disyuntivas"
+    ],
+    "nombre": "Mestre das Coordenadas",
+    "descripcion": "Você dominou os contra-argumentos e os diferentes tipos de orações coordenadas para argumentar com precisão.",
+    "icono": "🧠"
+  },
+  {
+    "id": 87,
+    "materia": "Lengua",
+    "cluster": 4,
+    "temas": [
+      "correo-formal",
+      "cv",
+      "debate-refutar-en-vivo",
+      "decodificacion-y-fluidez",
+      "detectar-falacias"
+    ],
+    "nombre": "Mestre do Debate e da Escrita",
+    "descripcion": "Você concluiu a prova final de e-mails formais, currículos, debate e detecção de falácias.",
+    "icono": "🎤"
+  },
+  {
+    "id": 88,
+    "materia": "Lengua",
+    "cluster": 5,
+    "temas": [
+      "discurso-referido",
+      "escritura-como-tecnologia",
+      "estructura-narrativa",
+      "exposicion-oral",
+      "generacion-del-98"
+    ],
+    "nombre": "Mestre do Discurso e da Narrativa",
+    "descripcion": "Você concluiu a prova sobre a estrutura narrativa, o discurso relatado e a escrita como tecnologia, dominando os temas da Geração do '98.",
+    "icono": "📜"
+  },
+  {
+    "id": 89,
+    "materia": "Lengua",
+    "cluster": 6,
+    "temas": [
+      "genero-dramatico",
+      "genero-lirico",
+      "genero-narrativo",
+      "generos-discursivos",
+      "generos-periodisticos"
+    ],
+    "nombre": "Domínio dos gêneros discursivos",
+    "descripcion": "Você concluiu a prova identificando e diferenciando os gêneros dramático, lírico, narrativo e jornalístico.",
+    "icono": "📚"
+  },
+  {
+    "id": 90,
+    "materia": "Lengua",
+    "cluster": 7,
+    "temas": [
+      "informe-tecnico",
+      "modernismo",
+      "narrador",
+      "negociacion",
+      "nucleos-y-modificadores"
+    ],
+    "nombre": "Mestre do Relatório e Modernismo",
+    "descripcion": "Você concluiu a prova com domínio do relatório técnico, do modernismo e da estrutura do texto.",
+    "icono": "📚"
+  },
+  {
+    "id": 91,
+    "materia": "Lengua",
+    "cluster": 8,
+    "temas": [
+      "objetos-y-circunstanciales",
+      "oracion-compuesta-coordinacion-y-subordinacion",
+      "oraciones-negativas-e-interrogativas",
+      "ortografia-y-tildacion",
+      "paratextos"
+    ],
+    "nombre": "Mestre da Gramática",
+    "descripcion": "Você passou na prova dominando sintaxe, ortografia e paratextos.",
+    "icono": "📚"
+  },
+  {
+    "id": 92,
+    "materia": "Lengua",
+    "cluster": 9,
+    "temas": [
+      "persuasion-etica-vs-manipulacion",
+      "presentacion-con-apoyo-visual",
+      "produccion-escrita-compleja",
+      "progresion-tematica",
+      "punto-de-vista"
+    ],
+    "nombre": "Domínio Persuasivo Ético",
+    "descripcion": "Você aprovou a prova parcial demonstrando capacidade de distinguir entre persuasão ética e manipulação em produções escritas complexas com progressão temática clara.",
+    "icono": "🎓"
+  },
+  {
+    "id": 93,
+    "materia": "Lengua",
+    "cluster": 10,
+    "temas": [
+      "realismo",
+      "recursos-literarios",
+      "referencia-anafora-y-catafora",
+      "romanticismo",
+      "signos-de-puntuacion"
+    ],
+    "nombre": "Domina o Realismo e o Romantismo",
+    "descripcion": "Você completou a prova parcial analisando recursos literários, anáfora, catafora e sinais de pontuação com maestria.",
+    "icono": "🖋️"
+  },
+  {
+    "id": 94,
+    "materia": "Lengua",
+    "cluster": 11,
+    "temas": [
+      "sintagmas-nominal-adjetivo-preposicional-adverbial-verbal",
+      "subjetivemas-y-modalizadores",
+      "subordinada-adjetiva-o-de-relativo",
+      "subordinada-adverbial-de-lugar",
+      "subordinada-adverbial-de-modo"
+    ],
+    "nombre": "Mestre de Sintaxe e Orações Subordinadas",
+    "descripcion": "Você dominou os sintagmas, a subjetivação e as orações subordinadas adjetivas e adverbiais.",
+    "icono": "🏆"
+  },
+  {
+    "id": 95,
+    "materia": "Lengua",
+    "cluster": 12,
+    "temas": [
+      "subordinada-adverbial-de-tiempo",
+      "subordinada-causal",
+      "subordinada-concesiva-y-final",
+      "subordinada-condicional",
+      "subordinada-consecutiva"
+    ],
+    "nombre": "Mestre de Orações Subordinadas",
+    "descripcion": "Você completou a prova parcial dominando as subordinadas adverbiais de tempo, causal, concessiva, final, condicional e consecutiva.",
+    "icono": "📝"
+  },
+  {
+    "id": 96,
+    "materia": "Lengua",
+    "cluster": 13,
+    "temas": [
+      "subordinada-sustantiva-de-complemento-circunstancial",
+      "subordinada-sustantiva-de-complemento-de-regimen",
+      "subordinada-sustantiva-de-complemento-de-un-adjetivo",
+      "subordinada-sustantiva-de-complemento-del-nombre",
+      "subordinada-sustantiva-de-complemento-directo"
+    ],
+    "nombre": "Domínio das Subordinadas Substantivas",
+    "descripcion": "Você completou a prova parcial de subordinadas substantivas e demonstrou domínio total de seus complementos.",
+    "icono": "📚"
+  },
+  {
+    "id": 97,
+    "materia": "Lengua",
+    "cluster": 14,
+    "temas": [
+      "subordinada-sustantiva-de-sujeto",
+      "sujeto-y-predicado",
+      "tecnicas-de-estudio-resumen-y-organizadores-graficos",
+      "tesis",
+      "texto-teatral"
+    ],
+    "nombre": "Mestre de Sintaxe e Dramaturgia",
+    "descripcion": "Você dominou as subordinadas substantivas de sujeito, a estrutura do sujeito e predicado, técnicas de estudo e o texto teatral.",
+    "icono": "🎭"
+  },
+  {
+    "id": 98,
+    "materia": "Lengua",
+    "cluster": 15,
+    "temas": [
+      "tipos-de-sujeto",
+      "tipos-textuales",
+      "variedades-de-la-lengua",
+      "vocabulario-y-familia-de-palabras",
+      "voz-activa-y-pasiva"
+    ],
+    "nombre": "Domínio da Gramática",
+    "descripcion": "Você completou a prova parcial integrando sujeito, voz e tipologia textual com estilo.",
+    "icono": "📚"
+  },
+  {
+    "id": 99,
+    "materia": "Historia profunda",
+    "cluster": 1,
+    "temas": [
+      "absolutismo-europeo",
+      "agujeros-negros",
+      "ampliacion-democratica-ley-saenz-pena",
+      "antigua-grecia",
+      "antigua-roma"
+    ],
+    "nombre": "Da Grécia ao Absolutismo",
+    "descripcion": "Você completou a prova parcial de História profunda com nota 10.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 100,
+    "materia": "Historia profunda",
+    "cluster": 2,
+    "temas": [
+      "antiguo-egipto",
+      "atmosfera-primitiva",
+      "baja-edad-media-y-crisis",
+      "caida-de-roma-y-alta-edad-media",
+      "cambio-climatico-linea-base-historica"
+    ],
+    "nombre": "Viagem temporal histórica",
+    "descripcion": "Você completou o exame chefe sobre a história profunda.",
+    "icono": "🏺"
+  },
+  {
+    "id": 101,
+    "materia": "Historia profunda",
+    "cluster": 3,
+    "temas": [
+      "china-antigua",
+      "ciclo-de-las-rocas",
+      "ciencia-revolucion-cientifica",
+      "cinco-extinciones-masivas",
+      "civilizaciones-antiguas"
+    ],
+    "nombre": "Viagem pela história profunda",
+    "descripcion": "Você completou o exame sobre a evolução da Terra, as extinções em massa e as civilizações antigas.",
+    "icono": "🌍"
+  },
+  {
+    "id": 102,
+    "materia": "Historia profunda",
+    "cluster": 4,
+    "temas": [
+      "civilizaciones-de-america-precolombinas",
+      "conquista-colonizacion-america",
+      "conquista-tierra-firme",
+      "conquista-y-colonia-argentina",
+      "corrimiento-al-rojo-expansion-universo"
+    ],
+    "nombre": "Da Mesoamérica ao Cosmo",
+    "descripcion": "Você completou o exame que abrange desde as civilizações pré-colombianas até a expansão do universo.",
+    "icono": "🌎"
+  },
+  {
+    "id": 103,
+    "materia": "Historia profunda",
+    "cluster": 5,
+    "temas": [
+      "datacion-radiometrica",
+      "descolonizacion-de-africa-y-asia",
+      "distribucion-biomas",
+      "division-del-trabajo",
+      "eclipses-sol-luna"
+    ],
+    "nombre": "Mestre da Cronologia Terrestre",
+    "descripcion": "Você desbloqueou o conhecimento sobre datação radiométrica, descolonização, biomas, divisão do trabalho e eclipses.",
+    "icono": "🌍"
+  },
+  {
+    "id": 104,
+    "materia": "Historia profunda",
+    "cluster": 6,
+    "temas": [
+      "edad-media-feudalismo",
+      "edad-media-plena",
+      "electrificacion-fabrica-hogar",
+      "entreguerras-y-crisis-de-1929",
+      "escalas-de-tiempo-profundo"
+    ],
+    "nombre": "Mestre das escalas temporais",
+    "descripcion": "Você atravessou do feudalismo até a crise de '29 dominando as grandes transformações.",
+    "icono": "🌍"
+  },
+  {
+    "id": 105,
+    "materia": "Historia profunda",
+    "cluster": 7,
+    "temas": [
+      "escritura-primeras-ciudades",
+      "estaciones-del-ano",
+      "estados-nacionales",
+      "eucariotas",
+      "expansion-del-imperio-romano"
+    ],
+    "nombre": "De Eucariotos a Roma",
+    "descripcion": "Você completou o exame chefe sobre a evolução desde os primeiros organismos até a expansão do império.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 106,
+    "materia": "Historia profunda",
+    "cluster": 8,
+    "temas": [
+      "explosion-cambrica",
+      "fases-lunares",
+      "formacion-de-estrellas",
+      "formacion-del-sistema-solar",
+      "fotosintesis-cambio-atmosfera-nivel2"
+    ],
+    "nombre": "Crônica do Cosmo e da Vida",
+    "descripcion": "Você dominou os eventos que forjaram o universo e a origem da atmosfera.",
+    "icono": "🌌"
+  },
+  {
+    "id": 107,
+    "materia": "Historia profunda",
+    "cluster": 9,
+    "temas": [
+      "galaxias-tipos-escala",
+      "globalizacion-era-digital",
+      "golpes-de-estado-interrupciones",
+      "gran-oxidacion",
+      "guerra-de-malvinas"
+    ],
+    "nombre": "Cosmo, Crise e Memórias",
+    "descripcion": "Você dominou a escala do universo, as rupturas políticas e a era digital.",
+    "icono": "🌌"
+  },
+  {
+    "id": 108,
+    "materia": "Historia profunda",
+    "cluster": 10,
+    "temas": [
+      "guerra-fria-descolonizacion",
+      "guerras-civiles-unitarios-federales",
+      "guerras-de-independencia-argentina",
+      "guerras-mundiales",
+      "herramientas-arte-rupestre"
+    ],
+    "nombre": "Mestre de Conflitos Históricos",
+    "descripcion": "Você completou o exame sobre guerras, descolonização e arte rupestre com sucesso chefe.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 109,
+    "materia": "Historia profunda",
+    "cluster": 11,
+    "temas": [
+      "historia-contemporanea-de-africa",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "historia-reciente-argentina",
+      "hominizacion"
+    ],
+    "nombre": "Domínio Global e Humano",
+    "descripcion": "Você aprovou a prova parcial integrando a hominização, a história contemporânea da África, Ásia, Oriente Médio e a Argentina recente.",
+    "icono": "🌍"
+  },
+  {
+    "id": 110,
+    "materia": "Historia profunda",
+    "cluster": 12,
+    "temas": [
+      "huella-humana-en-el-clima-inicio",
+      "ilustracion",
+      "imperialismo",
+      "imperio-bizantino",
+      "imperio-de-alejandro-magno-helenistico"
+    ],
+    "nombre": "Pegada Imperial e Helenística",
+    "descripcion": "Você completou o exame sobre as marcas do império bizantino, Alexandre, o Grande e a Ilustração no clima.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 111,
+    "materia": "Historia profunda",
+    "cluster": 13,
+    "temas": [
+      "imperio-han-china",
+      "imperio-persa",
+      "imperios-expansion",
+      "imprenta",
+      "india-antigua"
+    ],
+    "nombre": "Domínio dos Impérios Antigos",
+    "descripcion": "Você completou o exame sobre os grandes impérios e a revolução da imprensa.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 112,
+    "materia": "Historia profunda",
+    "cluster": 14,
+    "temas": [
+      "internet-redes-globalizacion-digital",
+      "islam-y-expansion-arabe",
+      "ley-de-hubble",
+      "materia-energia-oscura",
+      "mesopotamia"
+    ],
+    "nombre": "Da Mesopotâmia ao Cosmos",
+    "descripcion": "Você completou o resumo que abrange desde as primeiras civilizações até a expansão do universo e a era digital.",
+    "icono": "🌌"
+  },
+  {
+    "id": 113,
+    "materia": "Historia profunda",
+    "cluster": 15,
+    "temas": [
+      "metalurgia-cobre-hierro",
+      "minerales-estructura-cristalina",
+      "modelo-agroexportador-inmigracion",
+      "modernidad-imprenta-navegacion-ciencia",
+      "movimiento-aparente-constelaciones"
+    ],
+    "nombre": "Mestre dos Metais e Constelações",
+    "descripcion": "Você completou a prova final sobre metalurgia, estrutura mineral, modelo agroexportador, modernidade e o movimento aparente das estrelas.",
+    "icono": "🌌"
+  },
+  {
+    "id": 114,
+    "materia": "Historia profunda",
+    "cluster": 16,
+    "temas": [
+      "movimiento-rotacion-traslacion",
+      "multicelularidad",
+      "navegacion",
+      "nucleosintesis",
+      "organizacion-nacional-constitucion-1853"
+    ],
+    "nombre": "Cosmos, Células e Constituição",
+    "descripcion": "Você demonstrou domínio desde a nucleossíntese até a organização nacional de 1853.",
+    "icono": "🌌🧬📜"
+  },
+  {
+    "id": 115,
+    "materia": "Historia profunda",
+    "cluster": 17,
+    "temas": [
+      "origen-de-la-vida",
+      "origen-del-universo",
+      "paleoclima-glaciaciones",
+      "paleolitico",
+      "peronismo-derechos-sociales"
+    ],
+    "nombre": "Do Big Bang a Perón",
+    "descripcion": "Você completou esta prova final abrangendo desde a origem do universo até a história social argentina.",
+    "icono": "🌌"
+  },
+  {
+    "id": 116,
+    "materia": "Historia profunda",
+    "cluster": 18,
+    "temas": [
+      "poblamiento-planeta-america",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "procariotas",
+      "propiedad-jerarquia-estado",
+      "pueblos-originarios-territorio-argentino"
+    ],
+    "nombre": "De procariotos a guerras mundiais",
+    "descripcion": "Você completou a prova sobre a evolução biológica, o povoamento da América e os conflitos globais que marcaram a história.",
+    "icono": "🌍"
+  },
+  {
+    "id": 117,
+    "materia": "Historia profunda",
+    "cluster": 19,
+    "temas": [
+      "radiacion-mamiferos",
+      "recuperacion-democratica-memoria",
+      "relieve-sismos-volcanes",
+      "renacimiento-y-reforma",
+      "revolucion-de-mayo"
+    ],
+    "nombre": "Explorador da História Profunda",
+    "descripcion": "Você dominou os temas-chave da prova final com maestria.",
+    "icono": "🌍"
+  },
+  {
+    "id": 118,
+    "materia": "Historia profunda",
+    "cluster": 20,
+    "temas": [
+      "revolucion-industrial",
+      "revolucion-neolitica",
+      "revoluciones-burguesas-liberalismo",
+      "rocas-igneas-sedimentarias-metamorficas",
+      "sedentarizacion-excedente"
+    ],
+    "nombre": "Evolução da Humanidade e da Terra",
+    "descripcion": "Você completou o parcial dominando as grandes revoluções e a geologia do planeta, chefe.",
+    "icono": "🌍"
+  },
+  {
+    "id": 119,
+    "materia": "Historia profunda",
+    "cluster": 21,
+    "temas": [
+      "segunda-guerra-mundial",
+      "seleccion-natural-evidencias-nivel2",
+      "sociedad-de-masas-y-democracia-liberal",
+      "tabla-periodica-nivel2-cosmologico",
+      "tectonica-placas-deriva-continental"
+    ],
+    "nombre": "Mestre da História Profunda",
+    "descripcion": "Você completou a prova integradora sobre os grandes processos históricos e científicos.",
+    "icono": "🌍"
+  },
+  {
+    "id": 120,
+    "materia": "Historia profunda",
+    "cluster": 22,
+    "temas": [
+      "terrorismo-de-estado-argentina",
+      "tiempo-geologico-eones-eras-periodos",
+      "tierra-primitiva-diferenciacion",
+      "virreinato-y-comercio"
+    ],
+    "nombre": "Mestre da História Profunda",
+    "descripcion": "Você passou o parcial dominando desde o terrorismo de Estado até a formação da Terra.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 121,
+    "materia": "Historia",
+    "cluster": 1,
+    "temas": [
+      "antes-y-despues-de-cristo",
+      "cambio-y-continuidad",
+      "causa-y-consecuencia",
+      "conquista-del-desierto-y-campana-al-chaco",
+      "crisis-de-2001"
+    ],
+    "nombre": "Crise de 2001 e Conquista do Deserto",
+    "descripcion": "Você completou o parcial analisando a Conquista do Deserto, a crise de 2001 e as mudanças históricas.",
+    "icono": "📜"
+  },
+  {
+    "id": 122,
+    "materia": "Historia",
+    "cluster": 2,
+    "temas": [
+      "decada-siglo-milenio",
+      "dimension-etica",
+      "economias-regionales-tempranas",
+      "escuela-de-los-annales",
+      "evidencia"
+    ],
+    "nombre": "Mestre do Tempo e da Ética",
+    "descripcion": "Você completou o parcial dominando as escalas temporais, as economias iniciais e a metodologia dos Annales.",
+    "icono": "⏳"
+  },
+  {
+    "id": 123,
+    "materia": "Historia",
+    "cluster": 3,
+    "temas": [
+      "guerra-civil-espanola-1936-1939",
+      "guerra-del-paraguay-y-triple-alianza",
+      "guerras",
+      "historia-cultural",
+      "independencias"
+    ],
+    "nombre": "Mestre das Guerras e Independências",
+    "descripcion": "Você completou a prova sobre as guerras, independências e a história cultural da Argentina e do mundo.",
+    "icono": "📜"
+  },
+  {
+    "id": 124,
+    "materia": "Historia",
+    "cluster": 4,
+    "temas": [
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "interpretar-una-fuente-historica",
+      "linea-de-tiempo-y-antes-despues",
+      "materialismo-historico",
+      "multicausalidad"
+    ],
+    "nombre": "Especialista em ISI e Análise Histórica",
+    "descripcion": "Você completou a prova dominando a industrialização por substituição de importações, o materialismo histórico e a interpretação de fontes com multicausalidade.",
+    "icono": "🏭"
+  },
+  {
+    "id": 125,
+    "materia": "Historia",
+    "cluster": 5,
+    "temas": [
+      "periodizacion-historica",
+      "positivismo",
+      "reforma-universitaria-1918",
+      "revolucion-mexicana-1910-1920",
+      "revoluciones"
+    ],
+    "nombre": "Revoluções e Positivismo",
+    "descripcion": "Você completou o parcial sobre as revoluções e o positivismo, chefe.",
+    "icono": "📜"
+  },
+  {
+    "id": 126,
+    "materia": "Historia",
+    "cluster": 6,
+    "temas": [
+      "rosas-y-la-confederacion",
+      "semana-tragica-1919",
+      "significancia-historica"
+    ],
+    "nombre": "Rosas, Semana Trágica e Legado",
+    "descripcion": "Você completou o parcial analisando a Confederação Argentina, a Semana Trágica de 1919 e sua significância histórica.",
+    "icono": "📜"
+  },
+  {
+    "id": 127,
+    "materia": "Geografía",
+    "cluster": 1,
+    "temas": [
+      "ambientalismo-liberal",
+      "ambiente-y-recursos",
+      "america-anglosajona",
+      "america-latina-formacion-poblacion",
+      "america-latina-industria-y-energia"
+    ],
+    "nombre": "Mestre do Meio Ambiente e Recursos",
+    "descripcion": "Você completou a prova sobre ambientalismo, recursos e a dinâmica da América Latina e dos países anglo-saxões.",
+    "icono": "🌍"
+  },
+  {
+    "id": 128,
+    "materia": "Geografía",
+    "cluster": 2,
+    "temas": [
+      "conservacionismo",
+      "coordenadas-geograficas",
+      "coordenadas-y-husos-horarios",
+      "decrecimiento",
+      "densidad-poblacion"
+    ],
+    "nombre": "Mestre de Coordenadas e Densidade",
+    "descripcion": "Você completou o parcial integrando conservacionismo, coordenadas geográficas, fusos horários, decrecimento e densidade populacional.",
+    "icono": "🌍"
+  },
+  {
+    "id": 129,
+    "materia": "Geografía",
+    "cluster": 3,
+    "temas": [
+      "division-politica",
+      "ecologismo-politico",
+      "escala-de-mapa",
+      "estados-y-globalizacion",
+      "geografia-economica-agricola-argentina"
+    ],
+    "nombre": "Mapa Político e Econômico Argentino",
+    "descripcion": "Você completou o parcial integrando a divisão política, a escala cartográfica e a geografia econômica agrícola da Argentina.",
+    "icono": "🗺️"
+  },
+  {
+    "id": 130,
+    "materia": "Geografía",
+    "cluster": 4,
+    "temas": [
+      "geografia-industrial-mundial",
+      "huella-de-carbono-agua-virtual",
+      "indicadores-sociales-de-argentina",
+      "indice-de-desarrollo-humano",
+      "mapa-plano-escala"
+    ],
+    "nombre": "Mestre da Pegada Global",
+    "descripcion": "Você completou o parcial dominando a geografia industrial, os indicadores sociais e a pegada ecológica.",
+    "icono": "🌍"
+  },
+  {
+    "id": 131,
+    "materia": "Geografía",
+    "cluster": 5,
+    "temas": [
+      "migraciones-internacionales",
+      "migraciones-internas-en-argentina",
+      "mineria-e-hidrocarburos-en-argentina",
+      "orientacion-puntos-cardinales",
+      "paises-de-america-latina"
+    ],
+    "nombre": "Explorador de Fluxos e Recursos",
+    "descripcion": "Você completou a prova sobre migrações, mineração e países da América Latina, chefe.",
+    "icono": "🌎"
+  },
+  {
+    "id": 132,
+    "materia": "Geografía",
+    "cluster": 6,
+    "temas": [
+      "poblacion-piramides-migraciones",
+      "produccion-agraria-mundial-y-biotecnologia",
+      "recursos-actividades-economicas",
+      "recursos-hidricos-y-gestion",
+      "region"
+    ],
+    "nombre": "Analista de Dinâmicas Territoriais",
+    "descripcion": "Você dominou a interação entre população, economia e gestão de recursos na região.",
+    "icono": "🌍"
+  },
+  {
+    "id": 133,
+    "materia": "Geografía",
+    "cluster": 7,
+    "temas": [
+      "regiones-naturales-de-argentina",
+      "relieve-clima-biomas",
+      "riesgos-ambientales-mundiales",
+      "riesgos-naturales-argentinos",
+      "sig-gps"
+    ],
+    "nombre": "Domina o Território Argentino",
+    "descripcion": "Você concluiu a prova-chefe sobre as regiões naturais, riscos e ferramentas geográficas.",
+    "icono": "🌎"
+  },
+  {
+    "id": 134,
+    "materia": "Geografía",
+    "cluster": 8,
+    "temas": [
+      "sig-imagenes-satelitales",
+      "sig-mapas-digitales",
+      "trabajo-y-desempleo-mundial",
+      "turismo-mundial",
+      "urbanizacion-migracion-ciudad"
+    ],
+    "nombre": "Mestre de SIG e Dinâmicas Globais",
+    "descripcion": "Você concluiu a prova integrando SIG, urbanização e turismo mundial.",
+    "icono": "🌍"
+  },
+  {
+    "id": 135,
+    "materia": "Cívica",
+    "cluster": 1,
+    "temas": [
+      "alcoholemia-y-conduccion",
+      "como-se-hace-una-ley",
+      "constitucion-nacional-jerarquia-normativa",
+      "constitucion-preambulo",
+      "derechos-genero"
+    ],
+    "nombre": "Mestre da Normativa e da Lei",
+    "descripcion": "Você concluiu a prova parcial dominando a hierarquia constitucional, o processo legislativo, a alcoolemia e os direitos de gênero.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 136,
+    "materia": "Cívica",
+    "cluster": 2,
+    "temas": [
+      "derechos-indigenas",
+      "derechos-nino",
+      "derechos-y-garantias",
+      "discriminacion-y-organismos-de-proteccion",
+      "division-de-poderes"
+    ],
+    "nombre": "Defensor de Direitos e Garantias",
+    "descripcion": "Você foi aprovado na prova parcial sobre direitos indígenas, da infância, discriminação e a divisão de poderes.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 137,
+    "materia": "Cívica",
+    "cluster": 3,
+    "temas": [
+      "documentos-y-tramites",
+      "encuesta-electoral",
+      "estado-de-derecho-por-que-importa",
+      "impuestos",
+      "marchas-patrioticas"
+    ],
+    "nombre": "Mestre do Estado de Direito",
+    "descripcion": "Você concluiu a prova sobre documentos, impostos e a importância do Estado de Direito.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 138,
+    "materia": "Cívica",
+    "cluster": 4,
+    "temas": [
+      "organismos-internacionales",
+      "organizacion-del-estado",
+      "origen-estado-derecho",
+      "partidos-politicos",
+      "prioridades-de-paso"
+    ],
+    "nombre": "Arquiteto do Estado e da Lei",
+    "descripcion": "Você concluiu a prova parcial sobre a organização do Estado, os direitos e os organismos internacionais, chefe.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 139,
+    "materia": "Cívica",
+    "cluster": 5,
+    "temas": [
+      "proyecto-ciudadano-participativo",
+      "senalizacion-vial",
+      "simbolos-patrios",
+      "sistema-de-salud",
+      "sistema-electoral-dhondt"
+    ],
+    "nombre": "Especialista em Cidadania e Normas",
+    "descripcion": "Você fez a prova de Cívica e se saiu muito bem, chefe.",
+    "icono": "🇦🇷"
+  },
+  {
+    "id": 140,
+    "materia": "Cívica",
+    "cluster": 6,
+    "temas": [
+      "sistemas-politicos-comparados",
+      "sueldo-promedio-pais",
+      "sufragio-restringido-universal",
+      "teoria-del-poder",
+      "tipos-de-estado",
+      "tratados-internacionales"
+    ],
+    "nombre": "Especialista em Sistemas Políticos",
+    "descripcion": "Você concluiu a prova de Cívica dominando os sistemas políticos e o poder estatal, chefe.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 141,
+    "materia": "Química",
+    "cluster": 1,
+    "temas": [
+      "atomo-particulas-subatomicas",
+      "balanceo-ecuaciones",
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "carbono-tetravalencia-cadenas",
+      "cinetica-reaccion"
+    ],
+    "nombre": "Mestre do Átomo e das Biomoléculas",
+    "descripcion": "Demonstra domínio de partículas subatômicas, balanceamento de equações, biomoléculas, tetravalência do carbono e cinética de reações.",
+    "icono": "⚗️"
+  },
+  {
+    "id": 142,
+    "materia": "Química",
+    "cluster": 2,
+    "temas": [
+      "concentracion-de-una-solucion",
+      "configuracion-electronica",
+      "densidad",
+      "dilucion-soluciones",
+      "electrolisis"
+    ],
+    "nombre": "Domínio de Soluções e Elétrons",
+    "descripcion": "Você resolveu a prova parcial integrando concentrações, configurações e eletrólise.",
+    "icono": "⚗️"
+  },
+  {
+    "id": 143,
+    "materia": "Química",
+    "cluster": 3,
+    "temas": [
+      "energia-libre-gibbs",
+      "enlace-quimico-polaridad",
+      "equilibrio-quimico-kc",
+      "equilibrio-solubilidad-ksp",
+      "estados-y-cambios"
+    ],
+    "nombre": "Mestre do Equilíbrio e Gibbs",
+    "descripcion": "Demonstra domínio total sobre a energia livre, polaridade das ligações e os diferentes tipos de equilíbrio químico.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 144,
+    "materia": "Química",
+    "cluster": 4,
+    "temas": [
+      "estequiometria",
+      "gases-ideales",
+      "geometria-molecular-vsepr",
+      "grupos-funcionales",
+      "hidrocarburos-alcanos-alquenos-alquinos"
+    ],
+    "nombre": "Mestre da Estequiometria e dos Gases",
+    "descripcion": "Você concluiu a prova parcial dominando cálculos estequiométricos, gases ideais e a geometria molecular.",
+    "icono": "⚗️"
+  },
+  {
+    "id": 145,
+    "materia": "Química",
+    "cluster": 5,
+    "temas": [
+      "medicion-de-laboratorio",
+      "mezclas-metodos-separacion",
+      "modelos-atomicos",
+      "mol-masa-molar",
+      "nanotecnologia"
+    ],
+    "nombre": "Mestre da Medição e da Matéria",
+    "descripcion": "Você concluiu a prova-chefe dominando medições, misturas, modelos atômicos e nanotecnologia.",
+    "icono": "🧪"
+  },
+  {
+    "id": 146,
+    "materia": "Química",
+    "cluster": 6,
+    "temas": [
+      "nomenclatura-compuestos",
+      "numero-atomico-masico",
+      "oxidacion-reduccion",
+      "petroleo-como-recurso-energetico",
+      "ph-poh"
+    ],
+    "nombre": "Domina a Nomenclatura e o pH",
+    "descripcion": "Você concluiu a prova parcial integrando conceitos de nomenclatura, redox, petróleo e equilíbrio ácido-base.",
+    "icono": "⚗️"
+  },
+  {
+    "id": 147,
+    "materia": "Química",
+    "cluster": 7,
+    "temas": [
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
+      "propiedades-coligativas",
+      "quimica-analitica"
+    ],
+    "nombre": "Mestre das Células e dos Polímeros",
+    "descripcion": "Você concluiu a prova integrando pilhas galvânicas, polímeros e propriedades coligativas.",
+    "icono": "⚗️"
+  },
+  {
+    "id": 148,
+    "materia": "Química",
+    "cluster": 8,
+    "temas": [
+      "quimica-de-la-atmosfera",
+      "reactivo-limitante-rendimiento",
+      "seguridad-laboratorio",
+      "superconductividad",
+      "tabla-periodica-tendencias",
+      "termoquimica",
+      "tipos-reacciones-quimicas"
+    ],
+    "nombre": "Mestre da Química",
+    "descripcion": "Você concluiu a prova integrando conceitos atmosféricos, termodinâmicos e de laboratório.",
+    "icono": "🧪"
+  },
+  {
+    "id": 149,
+    "materia": "Biología",
+    "cluster": 1,
+    "temas": [
+      "adn-gen-proteina",
+      "biodiversidad-indices",
+      "biotecnologia-pcr-crispr",
+      "cadenas-redes-troficas",
+      "celula-organelas"
+    ],
+    "nombre": "Mestre do ADN e da Vida",
+    "descripcion": "Você concluiu a prova-chefe sobre ADN, biodiversidade, biotecnologia e cadeia trófica.",
+    "icono": "🧬"
+  },
+  {
+    "id": 150,
+    "materia": "Biología",
+    "cluster": 2,
+    "temas": [
+      "ciclos-biogeoquimicos",
+      "ciclos-vida-metamorfosis",
+      "clasificacion-evolucion",
+      "conservacion-areas-protegidas",
+      "crecimiento-poblacional"
+    ],
+    "nombre": "Mestre dos Ciclos de Vida",
+    "descripcion": "Você concluiu esta prova-chefe dominando os ciclos biogeoquímicos, a metamorfose, a evolução e a conservação populacional.",
+    "icono": "🌿"
+  },
+  {
+    "id": 151,
+    "materia": "Biología",
+    "cluster": 3,
+    "temas": [
+      "cruce-dihibrido",
+      "deriva-genetica-flujo-genico",
+      "dinamica-poblacional-capacidad-carga",
+      "enzimas-proteina-sustrato-ph",
+      "especiacion"
+    ],
+    "nombre": "Mestre da Dinâmica Evolutiva",
+    "descripcion": "Você concluiu a prova-chefe dominando os mecanismos de mudança populacional e molecular.",
+    "icono": "🧬"
+  },
+  {
+    "id": 152,
+    "materia": "Biología",
+    "cluster": 4,
+    "temas": [
+      "filogenia-arboles-evolutivos",
+      "flujo-materia-energia",
+      "fotosintesis-respiracion-celular",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos"
+    ],
+    "nombre": "Especialista em Dinâmica Evolutiva e Genética",
+    "descripcion": "Você completou o parcial dominando filogenia, metabolismo e herança mendeliana, chefe.",
+    "icono": "🧬"
+  },
+  {
+    "id": 153,
+    "materia": "Biología",
+    "cluster": 5,
+    "temas": [
+      "habitats-adaptacion",
+      "herencia-ligada-al-sexo",
+      "mal-de-chagas",
+      "microbiologia-virus-inmunitario",
+      "mitosis-meiosis"
+    ],
+    "nombre": "Mestre da Biologia",
+    "descripcion": "Você completou a prova chefe cobrindo desde as adaptações nos habitats até os processos celulares e doenças como a doença de Chagas.",
+    "icono": "🧬"
+  },
+  {
+    "id": 154,
+    "materia": "Biología",
+    "cluster": 6,
+    "temas": [
+      "necesidades-basicas-seres-vivos",
+      "nicho-ecologico",
+      "partes-planta-germinacion",
+      "piramide-biomasas",
+      "presion-arterial"
+    ],
+    "nombre": "Domínio da Vida e do Corpo",
+    "descripcion": "Você completou a prova integrando ecologia e fisiologia, chefe.",
+    "icono": "🌿❤️"
+  },
+  {
+    "id": 155,
+    "materia": "Biología",
+    "cluster": 7,
+    "temas": [
+      "quimiosintesis",
+      "seleccion-natural",
+      "ser-vivo-caracteristicas",
+      "sistema-endocrino-hormonas-glandulas",
+      "sistema-nervioso-neurona-sinapsis",
+      "sistemas-cuerpo-humano",
+      "transgenicos-bioetica"
+    ],
+    "nombre": "Mestre da Vida Humana",
+    "descripcion": "Você completou a prova integradora sobre os sistemas do corpo, a evolução e a bioética, chefe.",
+    "icono": "🧬"
+  },
+  {
+    "id": 156,
+    "materia": "Física",
+    "cluster": 1,
+    "temas": [
+      "calor-q-m-c-deltat",
+      "cambios-de-estado-calor-latente",
+      "campo-electrico",
+      "campo-magnetico-imanes-corrientes",
+      "cargas-electricas"
+    ],
+    "nombre": "Domine o calor e a eletricidade",
+    "descripcion": "Você completou o parcial de termodinâmica e eletromagnetismo, chefe.",
+    "icono": "⚡🔥"
+  },
+  {
+    "id": 157,
+    "materia": "Física",
+    "cluster": 2,
+    "temas": [
+      "caudal-q-a-v",
+      "choques-elasticos-inelasticos",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "circuitos-mixtos"
+    ],
+    "nombre": "Mestre dos Circuitos e Choques",
+    "descripcion": "Você dominou os circuitos mistos, choques e vazão, completando essa prova chefe.",
+    "icono": "⚡"
+  },
+  {
+    "id": 158,
+    "materia": "Física",
+    "cluster": 3,
+    "temas": [
+      "conservacion-energia-mecanica",
+      "corriente-electrica",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "decibeles-richter",
+      "dilatacion-termica-lineal"
+    ],
+    "nombre": "Mestre das Conservações",
+    "descripcion": "Você dominou a energia, a corrente e as radiações para fechar este parcial com sucesso.",
+    "icono": "⚡"
+  },
+  {
+    "id": 159,
+    "materia": "Física",
+    "cluster": 4,
+    "temas": [
+      "dinamica-fuerzas-concurrentes",
+      "dualidad-onda-particula",
+      "energia-cinetica",
+      "energia-potencial-gravitatoria",
+      "entropia-segunda-ley-termodinamica"
+    ],
+    "nombre": "Mestre da Dinâmica e Termodinâmica",
+    "descripcion": "Você completou a prova dominando forças, energias e a entropia.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 160,
+    "materia": "Física",
+    "cluster": 5,
+    "temas": [
+      "escalas-de-temperatura-c-f-k",
+      "estatica/centro-de-gravedad",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "estatica/momento-de-una-fuerza",
+      "estructura-del-nucleo-atomico"
+    ],
+    "nombre": "Mestre do Equilíbrio e Temperatura",
+    "descripcion": "Você completou o parcial dominando escalas térmicas, momentos de força e estrutura nuclear.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 161,
+    "materia": "Física",
+    "cluster": 6,
+    "temas": [
+      "fisica-medica",
+      "fision-y-fusion-nuclear",
+      "formacion-de-imagenes-optica",
+      "formacion-de-nubes",
+      "formulas-con-literales"
+    ],
+    "nombre": "Especialista em Física Médica e Nuclear",
+    "descripcion": "Você completou o parcial dominando a interseção entre a física nuclear, a imagem médica e as fórmulas literais.",
+    "icono": "☢️"
+  },
+  {
+    "id": 162,
+    "materia": "Física",
+    "cluster": 7,
+    "temas": [
+      "frecuencia",
+      "generador-motor-transformador",
+      "gravitacion-universal",
+      "iman-polos-atraccion-repulsion",
+      "impulso-cambio-momento"
+    ],
+    "nombre": "Mestre dos Campos e Movimentos",
+    "descripcion": "Você dominou os conceitos de frequências, máquinas elétricas, gravitação, magnetismo e impulso na prova chefe.",
+    "icono": "🧲"
+  },
+  {
+    "id": 163,
+    "materia": "Física",
+    "cluster": 8,
+    "temas": [
+      "induccion-electromagnetica-faraday-lenz",
+      "lentes-convergentes-divergentes",
+      "ley-de-coulomb",
+      "ley-de-ohm",
+      "leyes-de-newton/primera-inercia"
+    ],
+    "nombre": "Domine as leis da física",
+    "descripcion": "Você completou o parcial de indução, óptica e eletrostática, chefe.",
+    "icono": "⚛️"
+  },
+  {
+    "id": 164,
+    "materia": "Física",
+    "cluster": 9,
+    "temas": [
+      "leyes-de-newton/segunda-fma",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "longitud-onda-velocidad-propagacion",
+      "luz-onda-espectro-electromagnetico",
+      "maquina-termica-termodinamica-nivel2"
+    ],
+    "nombre": "Mestre das Leis e Ondas",
+    "descripcion": "Você completou a prova chefe dominando Newton, a luz e a termodinâmica.",
+    "icono": "🌌"
+  },
+  {
+    "id": 165,
+    "materia": "Física",
+    "cluster": 10,
+    "temas": [
+      "maquinas-simples",
+      "masas-de-aire-y-frentes",
+      "momento-lineal",
+      "movimiento-circular-y-fuerza-centripeta",
+      "mru"
+    ],
+    "nombre": "Máquinas e Movimentos",
+    "descripcion": "Você completou o parcial de máquinas simples, movimento circular e momento linear.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 166,
+    "materia": "Física",
+    "cluster": 11,
+    "temas": [
+      "mruv",
+      "ojo-humano-instrumento-optico",
+      "oscilacion-periodo",
+      "plano-inclinado-y-rozamiento",
+      "potencia-electrica"
+    ],
+    "nombre": "Mestre dos Movimentos e Óptica",
+    "descripcion": "Você completou a prova integrando MRUV, óptica, oscilações e potência.",
+    "icono": "🔭"
+  },
+  {
+    "id": 167,
+    "materia": "Física",
+    "cluster": 12,
+    "temas": [
+      "potencia-mecanica",
+      "precipitacion",
+      "presion-atmosferica",
+      "presion-f-sobre-a",
+      "presion-hidrostatica"
+    ],
+    "nombre": "Mestre da Pressão e Potência",
+    "descripcion": "Você completou o parcial dominando a mecânica, a pressão hidrostática e atmosférica, e a potência.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 168,
+    "materia": "Física",
+    "cluster": 13,
+    "temas": [
+      "principio-de-arquimedes-empuje-flotacion",
+      "principio-de-pascal-prensa-hidraulica",
+      "reflexion-espejos-planos-curvos",
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual"
+    ],
+    "nombre": "Mestre dos Fluidos e Luz",
+    "descripcion": "Você completou o parcial dominando empuxo, pressão, óptica e relatividade.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 169,
+    "materia": "Física",
+    "cluster": 14,
+    "temas": [
+      "resistencia-electrica",
+      "resonancia-frecuencia-natural",
+      "semivida-desintegracion-exponencial",
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico"
+    ],
+    "nombre": "Mestre dos Fenômenos Físicos",
+    "descripcion": "Você completou a prova integrando conceitos de eletricidade, ondas e termodinâmica.",
+    "icono": "⚛️"
+  },
+  {
+    "id": 170,
+    "materia": "Física",
+    "cluster": 15,
+    "temas": [
+      "tension-diferencia-potencial",
+      "tiro-oblicuo",
+      "tiro-vertical",
+      "tormentas-y-fenomenos-severos",
+      "trabajo-de-una-fuerza",
+      "transmision-calor-conduccion-conveccion-radiacion",
+      "velocidad-aceleracion-instantaneas"
+    ],
+    "nombre": "Mestre do movimento e calor",
+    "descripcion": "Você analisou com precisão o tiro oblíquo, a transferência térmica e os fenômenos severos para aprovar este parcial.",
+    "icono": "🌩️"
+  },
+  {
+    "id": 171,
+    "materia": "Informática",
+    "cluster": 1,
+    "temas": [
+      "algebra-booleana",
+      "algoritmo-secuencia-de-pasos",
+      "algoritmos-busqueda-ordenamiento",
+      "almacenamiento-volatil-vs-no-volatil",
+      "archivos-y-persistencia"
+    ],
+    "nombre": "Mestre do Algoritmo",
+    "descripcion": "Você completou o parcial dominando lógica booleana, estruturas de dados e persistência de informação.",
+    "icono": "🧠"
+  },
+  {
+    "id": 172,
+    "materia": "Informática",
+    "cluster": 2,
+    "temas": [
+      "arranque-de-la-computadora-boot",
+      "buses-y-entrada-salida",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "complejidad-asintotica",
+      "comunicacion-entre-procesos"
+    ],
+    "nombre": "Mestre do Boot e Processos",
+    "descripcion": "Você completou o parcial dominando o boot, os barramentos, o ciclo de instrução e a complexidade.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 173,
+    "materia": "Informática",
+    "cluster": 3,
+    "temas": [
+      "control-de-versiones",
+      "cpu-unidad-de-control-y-alu",
+      "criptografia-clave-simetrica-asimetrica-hash",
+      "direccionamiento-ip-dns",
+      "diseno-y-arquitectura-de-software"
+    ],
+    "nombre": "Domínio de Sistemas e Redes",
+    "descripcion": "Você completou o exame-chefe que abrange desde a arquitetura da CPU até a criptografia e o endereçamento IP.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 174,
+    "materia": "Informática",
+    "cluster": 4,
+    "temas": [
+      "estructuras-de-control-bucles",
+      "estructuras-de-control-condicionales",
+      "estructuras-de-datos-listas-pilas-colas",
+      "etica-de-la-ia-sesgo-privacidad",
+      "funciones-y-modularidad"
+    ],
+    "nombre": "Mestre de Loops e Lógica",
+    "descripcion": "Você completou o parcial dominando estruturas de controle, dados e ética da IA.",
+    "icono": "🧠"
+  },
+  {
+    "id": 175,
+    "materia": "Informática",
+    "cluster": 5,
+    "temas": [
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "interrupciones",
+      "mantenimiento-y-deuda-tecnica",
+      "medios-tecnicos-extension-capacidades-humanas"
+    ],
+    "nombre": "Mestre de Sistemas Operacionais e IA",
+    "descripcion": "Você completou o parcial dominando a evolução dos sistemas, a inteligência artificial e a gestão técnica.",
+    "icono": "🤖"
+  },
+  {
+    "id": 176,
+    "materia": "Informática",
+    "cluster": 6,
+    "temas": [
+      "memoria-asignacion-memoria-virtual",
+      "memoria-ram-cache-jerarquia",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "normalizacion-bases-datos",
+      "ofimatica-planilla-de-calculo"
+    ],
+    "nombre": "Mestre de Memórias e Bancos",
+    "descripcion": "Você aprovou o parcial dominando hierarquias de memória, bancos relacionais e planilhas de cálculo.",
+    "icono": "💾"
+  },
+  {
+    "id": 177,
+    "materia": "Informática",
+    "cluster": 7,
+    "temas": [
+      "paginacion",
+      "patrones-y-buenas-practicas",
+      "permisos-y-usuarios",
+      "planificacion-de-procesos",
+      "poo-clases-y-objetos"
+    ],
+    "nombre": "Mestre da POO e Padrões",
+    "descripcion": "Você completou o exame sobre POO, padrões, paginação, permissões e planejamento de processos.",
+    "icono": "💻"
+  },
+  {
+    "id": 178,
+    "materia": "Informática",
+    "cluster": 8,
+    "temas": [
+      "proceso-programa-en-ejecucion",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "protocolo-http-peticion-respuesta",
+      "pruebas-unitarias-integracion",
+      "que-es-la-tecnica-y-la-tecnologia"
+    ],
+    "nombre": "Domínio de Processos e Protocolos",
+    "descripcion": "Você completou o parcial integrando conceitos de execução, técnicas e protocolos HTTP.",
+    "icono": "🔧"
+  },
+  {
+    "id": 179,
+    "materia": "Informática",
+    "cluster": 9,
+    "temas": [
+      "recursividad",
+      "relaciones-y-claves-foraneas",
+      "requisitos-funcionales-no-funcionales",
+      "revolucion-informatica",
+      "segmentacion"
+    ],
+    "nombre": "Domina recursão e SQL",
+    "descripcion": "Você aprovou o parcial integrando lógica recursiva, bancos de dados relacionais e requisitos do sistema.",
+    "icono": "🧠"
+  },
+  {
+    "id": 180,
+    "materia": "Informática",
+    "cluster": 10,
+    "temas": [
+      "seguridad-de-red-firewall-vpn-cifrado",
+      "seguridad-informatica",
+      "sistema-de-archivos",
+      "sistema-de-archivos-por-bitacora",
+      "sistemas-numeracion"
+    ],
+    "nombre": "Guardião dos Dados",
+    "descripcion": "Você protegeu a informação por meio de firewalls, criptografia e sistemas de arquivos seguros.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 181,
+    "materia": "Informática",
+    "cluster": 11,
+    "temas": [
+      "sql-consultas-joins-agregaciones",
+      "subsistema-de-entrada-y-salida",
+      "tcp-ip-capas-enrutamiento",
+      "tipos-de-licencias-de-software",
+      "tipos-de-so-por-dispositivo"
+    ],
+    "nombre": "Mestre de SQL e Redes",
+    "descripcion": "Você demonstrou ser um craque manipulando consultas complexas, protocolos de rede e licenças de software.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 182,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "transacciones-acid",
+      "unidades-almacenamiento",
+      "variables-y-tipos-de-dato",
+      "virtualizacion-maquina-virtual-contenedor"
+    ],
+    "nombre": "Mestre de Dados e Virtualização",
+    "descripcion": "Você completou o exame-chefe dominando ACID, armazenamento, tipos de dados e virtualização.",
+    "icono": "💾"
+  },
+  {
+    "id": 183,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "comunicar-la-solucion",
+      "disciplinas-de-la-ingenieria",
+      "diseno-conceptual",
+      "ensayo-y-medicion",
+      "investigar-soluciones-existentes"
+    ],
+    "nombre": "Mestre do Design e da Comunicação",
+    "descripcion": "Você completou o parcial integrando design conceitual, pesquisa e comunicação de soluções.",
+    "icono": "📐"
+  },
+  {
+    "id": 184,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "modelizacion-matematica",
+      "optimizacion-e-iteracion",
+      "problema-y-restricciones",
+      "prototipo",
+      "resistencia-de-materiales"
+    ],
+    "nombre": "Modelagem e Otimização",
+    "descripcion": "Você resolveu o parcial integrando modelagem matemática, otimização e resistência dos materiais com critério de engenharia.",
+    "icono": "📐"
+  },
+  {
+    "id": 185,
+    "materia": "Investigación",
+    "cluster": 1,
+    "temas": [
+      "analisis-estadistico-de-resultados",
+      "argumentar-desde-evidencia",
+      "conclusion-y-comunicacion-de-resultados",
+      "construir-y-usar-un-modelo-cientifico",
+      "corrientes-filosofia-de-la-ciencia"
+    ],
+    "nombre": "Domínio do Método Científico",
+    "descripcion": "Você completou o exame integrando filosofia, modelagem e análise estatística com critério crítico.",
+    "icono": "🔬"
+  },
+  {
+    "id": 186,
+    "materia": "Investigación",
+    "cluster": 2,
+    "temas": [
+      "diseno-experimental-variables-y-control",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
+      "observacion-y-pregunta-investigable",
+      "recoleccion-de-datos",
+      "tecnicas-de-investigacion-social",
+      "trabajo-de-campo-enfoque-socioantropologico"
+    ],
+    "nombre": "Mestre do Design e Método",
+    "descripcion": "Você completou o parcial integrando design experimental, metodologias e técnicas de campo com rigor científico.",
+    "icono": "🔬"
+  },
+  {
+    "id": 187,
+    "materia": "Economía",
+    "cluster": 1,
+    "temas": [
+      "ambiente-interno-y-externo-organizacion",
+      "balanza-comercial",
+      "blockchain-claves-wallet",
+      "business-model-canvas",
+      "capitalismo-industrial-trabajo-asalariado"
+    ],
+    "nombre": "Domina o ambiente e blockchain",
+    "descripcion": "Você completou o parcial integrando economia, modelos de negócio e cripto.",
+    "icono": "📊"
+  },
+  {
+    "id": 188,
+    "materia": "Economía",
+    "cluster": 2,
+    "temas": [
+      "cft-vs-tasa-nominal",
+      "comercio-internacional-ventaja-comparativa",
+      "contabilidad-ambiental",
+      "contabilidad-como-sistema-de-informacion",
+      "contratos-inteligentes"
+    ],
+    "nombre": "Mestre de Contratos e Comércio",
+    "descripcion": "Você completou o exame-chefe integrando contabilidade, contratos inteligentes e vantagem comparativa.",
+    "icono": "🌍"
+  },
+  {
+    "id": 189,
+    "materia": "Economía",
+    "cluster": 3,
+    "temas": [
+      "control-de-gestion-e-indicadores",
+      "cooperativismo-y-mutualismo",
+      "coordinar-personas-y-recursos",
+      "corrientes-pensamiento-economico",
+      "costo-de-oportunidad"
+    ],
+    "nombre": "Mestre de Custos e Cooperativas",
+    "descripcion": "Você dominou as correntes econômicas, o custo de oportunidade e o funcionamento das cooperativas.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 190,
+    "materia": "Economía",
+    "cluster": 4,
+    "temas": [
+      "costo-marginal",
+      "cultura-organizacional",
+      "cuota-credito-frances",
+      "debe-haber-balance",
+      "default-deuda"
+    ],
+    "nombre": "Domina custos e balanços",
+    "descripcion": "Você aprovou o parcial integrando conceitos de custo marginal, cultura organizacional e análise de dívida.",
+    "icono": "📊"
+  },
+  {
+    "id": 191,
+    "materia": "Economía",
+    "cluster": 5,
+    "temas": [
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "detectar-una-oportunidad-de-negocio",
+      "deuda-publica-externa",
+      "deuda-publica-interna"
+    ],
+    "nombre": "Domínio de Obrigações Fiscais e Oportunidades",
+    "descripcion": "Você completou o parcial sobre descontos obrigatórios, dívida pública e detecção de oportunidades de negócio.",
+    "icono": "📊"
+  },
+  {
+    "id": 192,
+    "materia": "Economía",
+    "cluster": 6,
+    "temas": [
+      "devaluacion",
+      "dex-swap",
+      "division-formal-microeconomia-macroeconomia",
+      "economia-positiva-y-normativa",
+      "ecuacion-contable-fundamental"
+    ],
+    "nombre": "Domina os Fundamentos Econômicos",
+    "descripcion": "Você completou a prova sobre desvalorização, contas nacionais e a divisão entre micro e macroeconomia, chefe.",
+    "icono": "📊"
+  },
+  {
+    "id": 193,
+    "materia": "Economía",
+    "cluster": 7,
+    "temas": [
+      "elasticidad",
+      "elementos-de-las-organizaciones",
+      "estado-de-resultados",
+      "estados-contables",
+      "estructura-del-patrimonio"
+    ],
+    "nombre": "Dono da Elasticidade e Balanços",
+    "descripcion": "Você desmontou a estrutura do patrimônio e dominou os balanços contábeis para fechar o parcial com tudo.",
+    "icono": "📊"
+  },
+  {
+    "id": 194,
+    "materia": "Economía",
+    "cluster": 8,
+    "temas": [
+      "estructura-organizacional",
+      "estructura-productiva-dependencia",
+      "estudio-de-contexto-para-un-proyecto",
+      "fondo-emergencia-diversificacion",
+      "indices-financieros"
+    ],
+    "nombre": "Mestre da Estrutura Econômica",
+    "descripcion": "Você completou a prova analisando a estrutura organizacional, a dependência produtiva e os índices financeiros com total maestria.",
+    "icono": "📊"
+  },
+  {
+    "id": 195,
+    "materia": "Economía",
+    "cluster": 9,
+    "temas": [
+      "interes-compuesto",
+      "interes-compuesto-funcion",
+      "interes-simple",
+      "iva",
+      "jubilacion-sistema-previsional"
+    ],
+    "nombre": "Mestre dos Juros e Previdência",
+    "descripcion": "Você calculou juros, IVA e aposentadorias como um craque.",
+    "icono": "🧮"
+  },
+  {
+    "id": 196,
+    "materia": "Economía",
+    "cluster": 10,
+    "temas": [
+      "libro-diario-mayor",
+      "margenes-bruto-y-neto",
+      "mejora-continua",
+      "monotributo",
+      "mvp-producto-minimo-viable"
+    ],
+    "nombre": "Domínio de Contas e Monotributo",
+    "descripcion": "Você completou o parcial integrando livro diário, margens, melhoria contínua e o regime do monotributo.",
+    "icono": "📊"
+  },
+  {
+    "id": 197,
+    "materia": "Economía",
+    "cluster": 11,
+    "temas": [
+      "objetivos-y-metas",
+      "oferta-y-demanda",
+      "origen-excedente-moneda-mercado",
+      "partida-doble",
+      "pbi-e-inflacion"
+    ],
+    "nombre": "Mestre da Partida Dobrada",
+    "descripcion": "Você completou a prova chefe dominando oferta, demanda e a origem da moeda.",
+    "icono": "📊"
+  },
+  {
+    "id": 198,
+    "materia": "Economía",
+    "cluster": 12,
+    "temas": [
+      "pitch-a-inversores",
+      "planificacion-administrativa",
+      "plazo-fijo-vs-inflacion",
+      "pools-liquidez-amm",
+      "precio-final"
+    ],
+    "nombre": "Mestre do Pitch Financeiro",
+    "descripcion": "Você completou a prova chefe dominando investimentos e planejamento.",
+    "icono": "📈"
+  },
+  {
+    "id": 199,
+    "materia": "Economía",
+    "cluster": 13,
+    "temas": [
+      "presupuesto-administrativo",
+      "productividad-produccion-insumos",
+      "punto-de-equilibrio",
+      "recibo-de-sueldo/argentina",
+      "recibo-de-sueldo/general"
+    ],
+    "nombre": "Domina o Orçamento e Salários",
+    "descripcion": "Você completou o parcial sobre orçamentos, produtividade e liquidação de salários argentino.",
+    "icono": "🧾"
+  },
+  {
+    "id": 200,
+    "materia": "Economía",
+    "cluster": 14,
+    "temas": [
+      "reservas-banco-central",
+      "sectores-economicos",
+      "seguros",
+      "sueldo-promedio-pais",
+      "tipo-cambio-fijo"
+    ],
+    "nombre": "Domínio do Sistema Monetário",
+    "descripcion": "Você completou o parcial sobre reservas, tipos de câmbio e setores econômicos, chefe.",
+    "icono": "💰"
+  },
+  {
+    "id": 201,
+    "materia": "Economía",
+    "cluster": 15,
+    "temas": [
+      "tipo-cambio-flotante",
+      "tipos-de-organizaciones",
+      "tipos-de-proyecto",
+      "tipos-de-sociedades",
+      "validar-con-clientes-construir-medir-aprender",
+      "valor-esperado-riesgo",
+      "vision-y-mision-organizacional"
+    ],
+    "nombre": "Mestre do Ambiente Econômico",
+    "descripcion": "Você validou sua visão organizacional medindo o valor esperado em um mercado de câmbio flutuante.",
+    "icono": "📊"
+  },
+  {
+    "id": 202,
+    "materia": "Derecho",
+    "cluster": 1,
+    "temas": [
+      "apelacion-e-instancias",
+      "argumentacion-juridica",
+      "corrientes-interpretacion-juridica",
+      "denuncia-y-etapa-de-instruccion",
+      "derecho-administrativo"
+    ],
+    "nombre": "Mestre da Apelação e Argumentação",
+    "descripcion": "Você aprovou o parcial dominando as instâncias processuais, a interpretação jurídica e o direito administrativo.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 203,
+    "materia": "Derecho",
+    "cluster": 2,
+    "temas": [
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional",
+      "derecho-internacional",
+      "derecho-laboral"
+    ],
+    "nombre": "Jurista Multidisciplinar",
+    "descripcion": "Você completou o exame integrador das principais ramas do direito.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 204,
+    "materia": "Derecho",
+    "cluster": 3,
+    "temas": [
+      "derecho-penal",
+      "ejecucion-de-la-sentencia",
+      "fuentes-del-derecho",
+      "hecho-juridicamente-relevante",
+      "interpretacion-normativa"
+    ],
+    "nombre": "Mestre do Direito Penal",
+    "descripcion": "Você completou a prova sobre fontes, fatos e execução da sentença, chefe.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 205,
+    "materia": "Derecho",
+    "cluster": 4,
+    "temas": [
+      "investigacion-prueba-y-fiscalia",
+      "juicio-oral",
+      "norma-jerarquia-y-vigencia",
+      "politica-criminal-garantismo-mano-dura",
+      "ramas-del-derecho",
+      "resolucion-de-conflictos-y-sentencia"
+    ],
+    "nombre": "Domínio do Sistema Penal",
+    "descripcion": "Você completou a prova chefe sobre a estrutura, normas e processos do direito penal argentino.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 206,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "acotacion-normalizada",
+      "escalas-numericas-y-graficas",
+      "perspectivas-isometrica-y-caballera",
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral"
+    ],
+    "nombre": "Domínio de Vistas e Cotagem",
+    "descripcion": "Você completou a prova sobre sistemas de projeção, escalas e perspectivas.",
+    "icono": "📐"
+  },
+  {
+    "id": 207,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "autoconocimiento-como-busqueda-humana",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "dependencia-del-otro-cultura-como-herencia",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "lenguaje-pensamiento-y-creatividad"
+    ],
+    "nombre": "Explorador da Mente",
+    "descripcion": "Você completou a prova sobre as correntes psicológicas, o desenvolvimento humano e a construção do autoconhecimento.",
+    "icono": "🧠"
+  },
+  {
+    "id": 208,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion",
+      "psicologia-modernidad-y-el-yo",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "Mestre da Mente",
+    "descripcion": "Você completou o exame integrador sobre memória, vieses e saúde mental, chefe.",
+    "icono": "🧠"
+  },
+  {
+    "id": 209,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "corrientes-de-la-comunicacion",
+      "etica-y-responsabilidad-de-los-medios",
+      "generos-periodisticos",
+      "publicidad-y-persuasion",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido"
+    ],
+    "nombre": "Domínio das Correntes e Gêneros",
+    "descripcion": "Você completou a prova sobre correntes, ética, publicidade e teoria da comunicação.",
+    "icono": "📰"
+  },
+  {
+    "id": 210,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "circuitos-y-leyes-de-kirchhoff",
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "Mestre do Circuito e Lógica",
+    "descripcion": "Você completou a prova dominando desde as leis de Kirchhoff até a programação de microcontroladores.",
+    "icono": "🔧"
+  },
+  {
+    "id": 211,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura",
+      "plasticidad-y-punto-de-fluencia",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad"
+    ],
+    "nombre": "Mestre das Propriedades Mecânicas",
+    "descripcion": "Você completou o parcial sobre corrosão, elasticidade, fadiga e propriedades dos materiais, chefe.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 212,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "control-pid-proporcional-integral-derivativo",
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "servomecanismos"
+    ],
+    "nombre": "Mestre do Controle PID e PLC",
+    "descripcion": "Você dominou os fundamentos dos servomecanismos, da lógica industrial e dos laços de controle mestre.",
+    "icono": "🤖"
+  },
+  {
+    "id": 213,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario",
+      "usabilidad-heuristicas-de-nielsen"
+    ],
+    "nombre": "Mestre da Usabilidade e Acessibilidade",
+    "descripcion": "Você concluiu o exame mestre dominando WCAG, heurísticas de Nielsen e prototipagem.",
+    "icono": "👁️"
+  },
+  {
+    "id": 214,
+    "materia": "Arte",
+    "cluster": 1,
+    "temas": [
+      "acustica-instrumento-musical",
+      "armonia-basica-acordes-tonalidad",
+      "composicion-y-proporcion",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "elementos-del-arte"
+    ],
+    "nombre": "Mestre dos Elementos Artísticos",
+    "descripcion": "Você concluiu o exame que integra acústica, harmonia, composição, dança e os elementos fundamentais da arte.",
+    "icono": "🎨"
+  },
+  {
+    "id": 215,
+    "materia": "Arte",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre",
+      "narrativa-audiovisual/montaje",
+      "narrativa-audiovisual/plano",
+      "origen-del-arte"
+    ],
+    "nombre": "Mestre da Linguagem Artística",
+    "descripcion": "Você concluiu o exame mestre dominando desde a pauta musical até a montagem audiovisual.",
+    "icono": "🎨"
+  },
+  {
+    "id": 216,
+    "materia": "Arte",
+    "cluster": 3,
+    "temas": [
+      "principios-de-diseno",
+      "produccion-multimedial",
+      "ritmo-compas-pulso-figuras-musicales",
+      "rosetones-y-simetria",
+      "teatro-dramaturgia-y-actuacion"
+    ],
+    "nombre": "Mestre das Artes e Cenas",
+    "descripcion": "Você concluiu o exame mestre abrangendo design, música, arquitetura e teatro.",
+    "icono": "🎭"
+  }
+]

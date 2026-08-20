@@ -1,0 +1,4 @@
+Turista: 你好，我要买一些水果。
+Vendedor: 好的，请问您要什么水果？
+Turista: 我想要苹果和香蕉。
+Vendedor: 好的，这是您要的。

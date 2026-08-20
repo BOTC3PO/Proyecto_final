@@ -1,0 +1,5 @@
+Touriste: «Excusez-moi, comment je peux aller au musée d’Orsay ?»
+Locataire: «Ah, le musée d’Orsay est à deux rues de ici. Vous devez prendre la rue Saint-Merri et tourner à gauche. Il y a un café avec un panneau qui indique “musée d’Orsay”.»
+Dirección: à deux rues de ici
+Acción: prendre la rue Saint-Merri et tourner à gauche
+Señal: un café avec un panneau

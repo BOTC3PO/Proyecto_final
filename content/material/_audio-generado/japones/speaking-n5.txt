@@ -1,0 +1,3 @@
+Turista: 「すみません。受付はどこですか？」(Sumimasen, uketsuki wa doko desu ka?) → "Disculpe, ¿dónde está la recepción?
+Empleado del hotel: 「こちらへどうぞ」(Kochira e dōzo) → "Por aquí, por favor.
+Turista: 「ありがとうございます」(Arigatō gozaimasu) → "Gracias.

@@ -1,0 +1,910 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-civica",
+    "title": "Cívica — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "De la norma suprema a la vida cotidiana: cómo construimos nuestro orden jurídico",
+        "pageStart": 1,
+        "anchor": "cap-1"
+      },
+      {
+        "id": "cap-2",
+        "title": "La arquitectura de la convivencia: derechos, garantías y el equilibrio del poder",
+        "pageStart": 2,
+        "anchor": "cap-2"
+      },
+      {
+        "id": "cap-3",
+        "title": "La vida en la trama cívica: de la identidad al poder y a la memoria",
+        "pageStart": 3,
+        "anchor": "cap-3"
+      },
+      {
+        "id": "cap-4",
+        "title": "El tejido del poder: del origen del Estado a la cooperación global",
+        "pageStart": 4,
+        "anchor": "cap-4"
+      },
+      {
+        "id": "cap-5",
+        "title": "La arquitectura de la convivencia: símbolos, normas y participación en la democracia argentina",
+        "pageStart": 5,
+        "anchor": "cap-5"
+      },
+      {
+        "id": "cap-6",
+        "title": "El poder, la ley y la voz de los ciudadanos: tejiendo la convivencia",
+        "pageStart": 6,
+        "anchor": "cap-6"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "De la norma suprema a la vida cotidiana: cómo construimos nuestro orden jurídico",
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "De la norma suprema a la vida cotidiana: cómo construimos nuestro orden jurídico"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "Para entender cómo funciona la sociedad argentina, no alcanza con mirar las reglas que vemos todos los días, como las señales de tránsito o los horarios escolares. Es necesario ir más atrás, hasta los cimientos mismos de cómo nos organizamos como nación. En este capítulo vamos a tejer tres hilos que parecen distintos a primera vista, pero que en realidad son parte del mismo tejido: la manera en que creamos las leyes, la estructura de valores que las sostiene y la aplicación concreta de esas normas en situaciones específicas, como la conducción de vehículos o la garantía de derechos para todos los sectores de la población. Al final de esta lectura, vas a poder ver cómo un proyecto de ley puede transformarse en una regla que te protege, o cómo los principios del Preámbulo de la Constitución se actualizan hoy para incluir a quienes antes quedaban afuera."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "El punto de partida: el Preámbulo y la búsqueda de la unión"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "Todo comienza con la intención. Cuando en 1853 se dictó la Constitución Nacional, y luego se reformó en 1994, los constituyentes no empezaron enumerando artículos técnicos o definiendo penas. Empezaron hablando de *para qué* existía ese documento. El Preámbulo es la puerta de entrada a la Constitución, y aunque no impone una obligación legal directa como lo haría un artículo específico, funciona como la brújula moral y política de todo el sistema."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "Los representantes del pueblo argentino invocaron a \"Dios, fuente de toda razón y justicia\" para buscar cuatro objetivos fundamentales: constituir la unión nacional, afianzar la justicia, consolidar la paz interior y promover el bienestar general. Pero hay una frase que suele pasar desapercibida y que es clave para entender la identidad argentina: la voluntad de asegurar los beneficios de la libertad \"para todos los hombres del mundo que quieran habitar en el suelo argentino\". Esto no es solo un detalle histórico; es una declaración de principios que define al Estado como un espacio abierto, inclusivo y universal."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "Este espíritu de inclusión y justicia es lo que luego se traduce en derechos concretos. No podemos hablar de derechos modernos, como los derechos de género, sin recordar que la Constitución es un documento vivo que se interpreta a la luz de esos objetivos iniciales. La \"justicia\" y el \"bienestar general\" mencionados en el Preámbulo son los mismos valores que hoy nos obligan a garantizar la igualdad real entre mujeres y hombres, o a proteger la vida en las calles mediante normas estrictas de alcoholemia. El Preámbulo nos dice hacia dónde vamos; las leyes y la estructura jerárquica nos dicen cómo llegamos ahí."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h7",
+          "level": 3,
+          "text": "La arquitectura del poder: cómo se hace una ley"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Si el Preámbulo es la intención, la ley es la acción. Pero esa acción no cae del cielo; se construye paso a paso a través de un proceso riguroso diseñado para evitar la arbitrariedad. Este es el corazón de la democracia representativa: que las normas que nos rigen no sean caprichos de un gobernante, sino el resultado de un debate público."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p9",
+          "text": "Todo comienza con un **proyecto de ley**. ¿Quién puede presentarlo? Básicamente, tres actores. El más común es un legislador, ya sea un diputado o un senador, que propone una norma basándose en los problemas que ve en su distrito o en el país. El Poder Ejecutivo también puede iniciar proyectos, especialmente aquellos relacionados con la administración del Estado o la economía. Pero hay una tercera vía, democratizadora por excelencia: la **iniciativa popular**. Gracias a la reforma de 1994, un porcentaje no menor del tres por ciento del padrón electoral puede presentar directamente un proyecto ante la Cámara de Diputados. Esto significa que, en teoría, cualquier grupo organizado de ciudadanos puede poner un tema en la agenda nacional, aunque en la práctica requiere una logística enorme de firmas y validaciones."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p10",
+          "text": "Una vez presentado el proyecto, entra en un circuito que divide el poder legislativo en dos cámaras: la de Diputados y la de Senadores. Se llama **cámara de origen** a la que recibe el proyecto primero, y **cámara revisora** a la que lo recibe después. Por ejemplo, los proyectos que crean impuestos deben empezar siempre en Diputados, porque se considera que esa cámara, al estar basada en la población, es la más adecuada para decidir sobre el dinero de los ciudadanos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "El proceso es como un filtro. La cámara de origen debate el proyecto en comisiones especializadas, lo modifica, lo aprueba o lo desecha. Si lo aprueba, lo envía a la otra cámara. Aquí viene la tensión democrática: la cámara revisora puede aprobarlo tal cual, lo que permite que pase al Poder Ejecutivo. Pero si la revisora le hace cambios, el proyecto vuelve a la cámara de origen. Allí, los legisladores deben decidir si aceptan los cambios (con mayoría simple) o insisten con su versión original. Insistir es más difícil, porque requiere una mayoría absoluta o, en algunos casos, dos tercios de los presentes. Este mecanismo de \"vaivén\" obliga a los políticos a negociar y llegar a consensos, evitando que una sola cámara imponga su voluntad absoluta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p12",
+          "text": "Finalmente, el proyecto aprobado llega al Presidente de la Nación. El Ejecutivo tiene dos caminos: promulgar la ley, convirtiéndola en vigente, o vetarla total o parcialmente. Si el Presidente no se pronuncia en diez días hábiles, la ley se considera promulgada tácitamente. Y aquí hay un detalle crucial: una ley no es válida hasta que se publica en el **Boletín Oficial**. Hasta ese momento, aunque esté aprobada, no es exigible. Esto se basa en el principio jurídico de que \"la ley se presume conocida por todos\", pero para que esa presunción sea justa, primero debe estar accesible públicamente."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h13",
+          "level": 3,
+          "text": "La pirámide de la validez: jerarquía normativa"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p14",
+          "text": "Pero, ¿qué pasa si una ley aprobada por el Congreso contradice lo que dice la Constitución? ¿O si una ley provincial va en contra de una nacional? Aquí entramos en el concepto de jerarquía normativa, que es fundamental para entender por qué algunas normas ganan y otras pierden."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p15",
+          "text": "La Constitución Nacional es la norma suprema del país, según el artículo 31. Esto significa que está arriba de todo. Ningún decreto, ninguna ley provincial y ninguna ordenanza municipal puede contradecirla. Si una norma de menor rango choca con la Constitución, pierde validez. Este control lo ejercen los jueces a través del **control de constitucionalidad**, que permite declarar inaplicables las normas que violen el texto fundamental."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p16",
+          "text": "Sin embargo, desde la reforma de 1994, la pirámide no es tan simple como \"Constitución arriba, ley abajo\". Los **tratados internacionales** ocupan un lugar especial. Según el artículo 75 inciso 22, los tratados sobre derechos humanos tienen jerarquía constitucional. Esto es un cambio gigante: significa que la Convención sobre la Eliminación de Todas las Formas de Discriminación contra la Mujer (CEDAW), por ejemplo, no es solo un acuerdo diplomático, sino una norma de igual rango que la Constitución. Si una ley argentina va en contra de la CEDAW, está violando indirectamente la Constitución."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p17",
+          "text": "Por debajo de la Constitución y los tratados de derechos humanos, están las leyes nacionales. Estas tienen fuerza sobre las leyes provinciales en materias de competencia nacional. Las provincias tienen autonomía para dictar sus propias leyes, pero solo dentro de su territorio y siempre respetando la Constitución nacional y las leyes federales. Por último, están los decretos y reglamentos, que son normas administrativas emitidas por el Poder Ejecutivo o autoridades locales para aplicar las leyes superiores. Un decreto no puede crear un derecho nuevo que la ley no prevea; solo puede regular cómo se ejecuta lo que ya está escrito."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p18",
+          "text": "Esta jerarquía es lo que da seguridad jurídica. Sabemos que si una ley es aprobada correctamente, pero viola la Constitución, puede ser impugnada. Y sabemos que los derechos reconocidos en tratados internacionales están blindados por la norma más alta del país."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h19",
+          "level": 3,
+          "text": "Del papel a la calle: alcoholemia y derechos de género"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p20",
+          "text": "Ahora que entendimos cómo se hacen las leyes y cuál es su estructura, veamos cómo esto se aplica en dos ejemplos concretos que tocan la vida diaria de todos los argentinos: la seguridad vial y la igualdad de género."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p21",
+          "text": "Empecemos con la **alcoholemia y la conducción**. ¿De dónde sale la regla que prohíbe manejar con alcohol? No es un capricho de la policía. Es una ley nacional (Ley 24.449) que establece un límite objetivo de 0,5 gramos de alcohol por litro de sangre para conductores particulares. Pero, ¿por qué ese número? Porque el alcohol reduce los reflejos y el campo visual incluso antes de que el conductor se sienta \"borracho\". La ley no espera a que alguien esté inconsciente para sancionar; actúa sobre el riesgo objetivo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p22",
+          "text": "Sin embargo, aquí vemos cómo la jerarquía normativa y la autonomía provincial interactúan. Aunque la ley nacional fija un límite, las provincias pueden ser más estrictas. En la Ciudad de Buenos Aires, Santa Fe, Mendoza y otras jurisdicciones, se adoptó la política de **alcohol cero** (0,0 g/l) para todos los conductores. Esto significa que, si manejás en CABA, no podés haber tomado ni una gota. Pero si manejás en una provincia que mantiene el límite de 0,5, ahí sí se permite una pequeña cantidad, siempre que no se supere."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p23",
+          "text": "Y hay un nivel más: las **rutas nacionales**. Independientemente de si la provincia donde está la ruta permite alcohol cero o no, en todas las rutas nacionales del país rige el alcohol cero obligatorio. Esto se debe a que el Estado Nacional tiene competencia sobre las rutas federales, y decidió que el riesgo en esas vías es tan alto que no admite margen de error. Por lo tanto, si estás en una ruta nacional, la jerarquía normativa te obliga a cumplir con la norma más estricta disponible en ese espacio geográfico. Esto demuestra que las leyes no son estáticas; se adaptan al territorio y al tipo de riesgo, y la convivencia requiere saber qué norma aplica en cada kilómetro."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p24",
+          "text": "Por otro lado, pensemos en los **derechos de género**. Durante décadas, la ley fue \"ciega\" al género, asumiendo que trataba a todos por igual. Pero entendimos que la igualdad formal (decir \"todos son iguales\") no basta si hay desigualdades estructurales. Aquí es donde entra la CEDAW, el tratado con jerarquía constitucional que vimos antes. La CEDAW obliga al Estado no solo a prohibir la discriminación, sino a modificar los patrones socioculturales que sostienen la inferioridad de la mujer."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p25",
+          "text": "Esto se tradujo en leyes específicas, como la Ley 26.485 de violencia de género, la Ley de matrimonio igualitario (26.618) y la Ley de identidad de género (26.743). Estas leyes no son solo \"buenas intenciones\"; son normas jurídicas que crean derechos nuevos y obligaciones para el Estado. Por ejemplo, la Ley de identidad de género permite que una persona cambie su nombre y sexo registral sin necesidad de cirugía o diagnóstico médico, algo que antes era imposible. Esta transformación fue posible porque la Constitución, a través de su artículo 75 inciso 22, elevó los tratados de derechos humanos a la cúspide, permitiendo que la interpretación de la ley evolucione hacia una mayor inclusión."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h26",
+          "level": 3,
+          "text": "Conclusión: la ciudadanía como práctica activa"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p27",
+          "text": "Al final de este recorrido, lo que queda claro es que el derecho no es un conjunto de reglas frías que nos imponen desde arriba. Es un sistema dinámico que se construye desde abajo (con la iniciativa popular y el debate legislativo), se estructura en el medio (con la jerarquía de normas que protege los derechos fundamentales) y se aplica en la vida cotidiana (con normas de tráfico o leyes de igualdad)."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p28",
+          "text": "Como ciudadanos, entender este proceso es una herramienta de poder. Cuando manejás y respetás el límite de alcoholemia, no solo evitás una multa; estás cumpliendo con una norma que protege la vida, derivada de la Constitución. Cuando defendés los derechos de las mujeres o de la diversidad, estás exigiendo que el Estado cumpla con los tratados que tienen jerarquía constitucional. Y cuando participás en la política, ya sea firmando para una iniciativa popular o debatiendo en tu escuela, estás operando en el circuito de \"cómo se hace una ley\"."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p29",
+          "text": "La Constitución no es solo un libro de historia; es el manual de instrucciones de nuestra convivencia. Y ese manual se reescribe constantemente, gracias a la participación de todos. La próxima vez que veas una ley nueva o una norma de tránsito, preguntate: ¿de dónde viene? ¿Qué valor de la justicia o la libertad intenta proteger? Esa pregunta es el primer paso para dejar de ser un sujeto pasivo de las normas y convertirte en un constructor activo de tu sociedad."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "La arquitectura de la convivencia: derechos, garantías y el equilibrio del poder",
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "La arquitectura de la convivencia: derechos, garantías y el equilibrio del poder"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Vivir en sociedad no es simplemente compartir un territorio; es aceptar un pacto complejo donde cedemos parte de nuestra libertad absoluta a cambio de seguridad, justicia y bienestar colectivo. En este entramado, el Estado no es un ente abstracto y distante, sino la herramienta que construimos para organizar esa convivencia. Pero, ¿cómo nos aseguramos de que esa herramienta no se vuelva contra nosotros? ¿Cómo garantizamos que las mayorías no aplasten a las minorías y que los más vulnerables no queden atrás? La respuesta a estas preguntas no está en un solo lugar, sino en la intersección de cuatro pilares fundamentales de nuestra democracia: la división de poderes, el catálogo de derechos y garantías, la protección específica de los grupos históricamente excluidos —como los pueblos originarios y la niñez—, y la lucha activa contra la discriminación. Para entender cómo funciona realmente la democracia argentina, tenemos que dejar de ver estos temas como capítulos separados de un libro y empezar a verlos como engranajes que giran al mismo tiempo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p3",
+          "text": "Para comenzar, es necesario entender el mecanismo que impide la tiranía. La historia política nos enseña una lección dolorosa: el poder concentrado tiende, inevitablemente, a abusar. Por eso, la Constitución Nacional, siguiendo la propuesta del filósofo Montesquieu, decidió fragmentar la soberanía en tres poderes independientes pero coordinados: el Legislativo, el Ejecutivo y el Judicial. Esta no es una mera cuestión de organización burocrática; es una estrategia de supervivencia democrática. El Congreso, compuesto por la Cámara de Diputados y el Senado, tiene la función de crear las reglas del juego (las leyes). El Presidente y su equipo tienen la tarea de hacer que esas reglas funcionen en la vida diaria (ejecutar y administrar). Y el Poder Judicial, encabezado por la Corte Suprema, actúa como el árbitro final, resolviendo los conflictos y asegurando que nadie, ni siquiera el gobierno de turno, esté por encima de la Constitución."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "Sin embargo, la división de poderes por sí sola no basta. Un sistema perfecto de frenos y contrapesos es inútil si los derechos de las personas no están claramente definidos y protegidos. Aquí entra en juego lo que llamamos la \"parte dogmática\" de la Constitución, que es el corazón moral de nuestra Carta Magna. Los artículos 14 a 20 enumeran los derechos civiles clásicos: la libertad de trabajar, de expresarse, de profesar un culto, de peticionar a las autoridades. Pero la Constitución es viva, y con la reforma de 1994 comprendimos que la lista de derechos no es cerrada. El artículo 33 establece que existen \"derechos implícitos\" en la soberanía del pueblo y en la forma republicana de gobierno. Esto significa que, aunque un derecho no esté escrito literalmente en 1853 o en 1949, si es inherente a la dignidad humana y a la democracia, está protegido. A esto se suman las garantías constitucionales, como el hábeas corpus o la acción de inconstitucionalidad, que son las herramientas prácticas que nos permiten decir: \"Mi derecho fue violado y exijo que se restablezca el orden\"."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "Pero, ¿qué pasa cuando la mayoría democrática, a través de sus representantes, decide ignorar a quienes están al margen? Ahí es donde la teoría constitucional se encuentra con la realidad social. La democracia no es solo \"gobierno de la mayoría\"; es también \"protección de las minorías\". Y dentro de esas minorías, hay grupos que han sido sistemáticamente excluidos durante siglos, requiriendo un reconocimiento especial y diferenciado."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p6",
+          "text": "Uno de esos grupos son los pueblos indígenas. Durante mucho tiempo, la narrativa oficial presentaba a las comunidades originarias como parte del pasado, o como un obstáculo para el \"progreso\". La reforma de 1994 cambió radicalmente este enfoque al incorporar al artículo 75, inciso 17 de la Constitución. Este artículo tiene una frase clave que define todo el marco legal indígena: reconoce la \"preexistencia étnica y cultural\" de los pueblos indígenas. Esto es fundamental, porque significa que el Estado no les \"concede\" derechos como un favor o una dádiva; los reconoce. Ellos ya existían, con su propia organización y leyes, antes de que existiera la Argentina moderna."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p7",
+          "text": "¿Qué implica esto en la práctica? Implica que las comunidades indígenas tienen personería jurídica, lo que les permite actuar como sujetos de derecho en los tribunales. Implica la propiedad comunitaria de sus tierras tradicionales, que no pueden ser vendidas, hipotecadas ni embargadas por terceros. Implica su participación en la gestión de los recursos naturales que están en esos territorios. Y, quizás lo más relevante para nuestra vida cotidiana, implica el derecho a una educación bilingüe e intercultural. No se trata solo de que los niños indígenas aprendan castellano, sino de que el sistema educativo respete y enseñe sus propias lenguas y saberes. Esto no es un privilegio especial; es un reconocimiento de que la diversidad cultural es un valor constitutivo de la nación, no un accesorio decorativo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "Mientras los pueblos originarios luchan por el reconocimiento de su identidad colectiva, existe otro grupo cuya vulnerabilidad depende de su condición de desarrollo físico y mental: la niñez y la adolescencia. Históricamente, los niños eran vistos como objetos de protección paterna o estatal, sin voz propia. El viejo Patronato de Menores trataba al niño en conflicto con la ley o en situación de abandono como un problema a \"corregir\". Hoy, gracias a la Convención sobre los Derechos del Niño de 1989 y a la Ley 26.061 en Argentina, operamos bajo un paradigma completamente distinto: el de la protección integral."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p9",
+          "text": "Bajo este nuevo enfoque, el niño es un sujeto de derechos. Esto tiene consecuencias profundas. Primero, el principio del \"interés superior del niño\": cualquier decisión que tome un juez, un director de escuela o un funcionario de salud debe priorizar el bienestar del niño por encima de cualquier otra consideración. Segundo, el derecho a ser escuchado. No se trata de que el niño tenga el mismo poder que un adulto, pero sí de que su opinión sea tenida en cuenta según su edad y madurez. Tercero, la no discriminación. Estos derechos se aplican sin distinción de raza, sexo, religión o condición socioeconómica. La creación del Defensor de los Derechos de Niñas, Niños y Adolescentes y del Sistema de Protección Integral en cada jurisdicción refleja que el Estado no puede ser un espectador pasivo; debe actuar activamente para garantizar que estos derechos se hagan realidad, no solo en el papel, sino en la vida diaria de los chicos y chicas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "Sin embargo, para que los derechos de los pueblos originarios y de la niñez sean respetados, debemos enfrentar una barrera transversal que afecta a todos: la discriminación. La discriminación no es solo un insulto o un gesto grosero; es una estructura social que niega la igualdad real de oportunidades. Se manifiesta cuando negamos trabajo a alguien por su origen, cuando menospreciamos a alguien por su orientación sexual, o cuando excluimos a alguien por su discapacidad. En el contexto argentino, la Ley 26.370 de Identidad de Género fue un hito crucial, ya que reconoció el derecho de las personas a ser identificadas con el género que viven, sin necesidad de diagnósticos médicos invasivos ni permisos judiciales largos. Esto validó la autodeterminación como un derecho humano básico."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p11",
+          "text": "Para combatir estas prácticas, no basta con la buena voluntad individual. Necesitamos organismos de protección. El Instituto Nacional contra la Discriminación (INADI) no es solo una institución más; es el brazo operativo del Estado para monitorear, prevenir y sancionar la discriminación. Pero su labor va más allá de la sanción; su trabajo es educativo y de visibilización. Porque la discriminación a menudo es invisible para quien la ejerce, manifestándose en estereotipos cotidianos. Combatirla requiere que cada uno de nosotros examine cómo interactuamos con el otro, entendiendo que la dignidad humana es inalienable y universal."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p12",
+          "text": "Ahora bien, ¿qué ocurre cuando todos estos derechos chocan con la acción del Estado? Aquí volvemos a la división de poderes, pero con una lente nueva. Imaginá que una ley del Congreso viola los derechos de un pueblo indígena, o que un decreto del Ejecutivo discrimina a un grupo minoritario. ¿Quién detiene ese abuso? El sistema de pesos y contrapesos entra en acción nuevamente. El Poder Judicial, a través del control de constitucionalidad, puede declarar inconstitucional esa ley o ese acto. El Congreso, mediante el juicio político, puede remover a funcionarios que abusen de su poder. Y la sociedad civil, organizada en organismos de protección y defensorías, presiona y fiscaliza."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p13",
+          "text": "Es importante notar que esta estructura no es estática. La Ley de Educación Nacional (26.206) nos obliga, como ciudadanos y estudiantes, a conocer estos derechos. Los artículos 54 y 92 de esa ley no son burocracia; son la herramienta para formar ciudadanos críticos. Al estudiar los derechos indígenas, los derechos del niño o la discriminación, no estás memorizando datos para un examen; estás aprendiendo a leer la realidad política de tu país. Estás comprendiendo por qué la educación bilingüe es justa, por qué el interés superior del niño debe primar sobre la comodidad de los adultos, y por qué combatir la discriminación es un deber constitucional, no solo una cuestión de etiqueta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p14",
+          "text": "La democracia, en definitiva, es un proyecto inacabado. La división de poderes nos da la estructura, los derechos y las garantías nos dan el contenido moral, y los organismos de protección nos dan los mecanismos de defensa. Pero el sistema solo funciona si entendemos que los derechos de los pueblos originarios, los de los niños y la lucha contra la discriminación no son \"temas aparte\". Son el termómetro de la salud democrática. Si un pueblo originario no puede gestionar sus tierras, si un niño no es escuchado, o si una persona es discriminada por su identidad, entonces la democracia está fallando, independientemente de cuántas elecciones se realicen o cuántos poderes existan en papel."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p15",
+          "text": "Por eso, al cerrar este recorrido, te invitamos a ver la Constitución no como un libro de reglas rígidas, sino como un mapa de posibilidades. Un mapa que nos dice que, aunque el poder se divide para evitar abusos, los derechos se unen para construir justicia. La división de poderes es el esqueleto de nuestro Estado, pero los derechos humanos, la protección de los vulnerables y la igualdad real son su sangre. Sin ellos, el cuerpo político está muerto. Con ellos, tenemos la posibilidad de construir una sociedad donde la diversidad no sea un riesgo, sino la riqueza que nos define. Y esa construcción no depende solo de los jueces o de los políticos; depende de que cada uno de nosotros, al ejercer sus derechos y exigir los ajenos, haga girar ese engranaje con más fuerza y más convicción."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    },
+    {
+      "id": "cap-3",
+      "number": 3,
+      "title": "La vida en la trama cívica: de la identidad al poder y a la memoria",
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-3-h1",
+          "level": 2,
+          "text": "La vida en la trama cívica: de la identidad al poder y a la memoria"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p2",
+          "text": "Vivir en sociedad no es solo compartir espacio físico; es participar de un entramado complejo de reglas, derechos, obligaciones y símbolos que dan forma a nuestra cotidianeidad. A menudo, pensamos que la política y la civismo son asuntos que ocurren exclusivamente en el Congreso o en las plazas durante las manifestaciones. Sin embargo, la realidad es que la ciudadanía se ejerce y se construye desde el primer momento en que interactuamos con el Estado y con nuestros vecinos. Este capítulo no busca que memorices definiciones aisladas, sino que comprendas cómo los documentos que portamos, los impuestos que pagamos, las instituciones que nos vigilan y los símbolos que honramos están tejidos en una misma red: la del Estado de Derecho y la democracia argentina. Para entender cómo funciona nuestra convivencia, debemos mirar hacia atrás, hacia lo que somos legalmente, hacia lo que contribuimos materialmente y hacia lo que recordamos colectivamente."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h3",
+          "level": 3,
+          "text": "Tu huella en el sistema: identidad y participación"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p4",
+          "text": "Todo comienza con la pregunta fundamental: ¿quién sos ante la ley? En Argentina, la respuesta a esa pregunta está contenida en un plástico laminado: el Documento Nacional de Identidad (DNI). Este documento no es un simple accesorio; es la llave maestra que te habilita para ser un sujeto de derechos y deberes dentro del territorio nacional. Emitido por el Registro Nacional de las Personas (RENAPER), el DNI acredita tu identidad de manera única y obligatoria. Sin él, quedás fuera del circuito formal de la sociedad moderna. No podés votar, ni abrir una cuenta bancaria, ni trabajar en blanco, ni siquiera inscribirte en una escuela o universidad de manera regular. La renovación periódica del DNI, con su foto y huella actualizadas, no es un trámite burocrático vacío; es la forma en que el Estado verifica que la persona que presenta el documento sigue siendo la misma que figura en sus registros, garantizando la seguridad jurídica de las transacciones."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p5",
+          "text": "Pero la identidad no termina en el documento físico. Cuando ingresamos al mundo laboral, necesitamos otro número clave: el Código Único de Identificación Laboral (CUIL). Es importante no confundirlo con el CUIT, que se utiliza para quienes facturan como monotributistas o empresas. El CUIL es tu pasaporte dentro del sistema de seguridad social. A través de este código, ANSES y AFIP registran tus aportes jubilatorios, tu cobertura de obra social y tus asignaciones familiares. Es la prueba tangible de que, mientras trabajás, estás construyendo tu futuro y accediendo a la red de protección que el Estado ofrece a los trabajadores en relación de dependencia. Sin este registro, sos invisible para el sistema de protección social."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p6",
+          "text": "Esta identidad documentada cobra su máxima expresión política en el acto de votar. En Argentina, el voto es obligatorio para los ciudadanos entre los 18 y los 70 años, aunque es opcional para los jóvenes de 16 y 17 años y para los mayores de 70. A diferencia de otros países donde hay que inscribirse manualmente para poder votar, aquí el padrón electoral se arma automáticamente a partir del DNI. Esto significa que tu derecho a elegir a tus gobernantes está ligado directamente a tu existencia legal. El día de la elección, presentás tu DNI (o su versión digital habilitada) en la mesa de tu barrio, y esa simple acción de marcar una cruz es el mecanismo mediante el cual transferís la soberanía popular a los representantes que elijís. Sin embargo, para saber si tu voto será efectivo o si las instituciones responderán a tu interés, necesitás entender cómo se mide la voluntad popular y cómo se financia el Estado que gobernará."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h7",
+          "level": 3,
+          "text": "La incertidumbre de las cifras: encuestas y opinión pública"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p8",
+          "text": "En el camino hacia las elecciones, la información es tan poderosa como el voto mismo. Vivimos en una era de datos, donde cada día escuchamos pronósticos sobre quién ganará las próximas elecciones. Pero, ¿cómo se lee una encuesta electoral sin caer en trampas mediáticas? Una encuesta no es una bola de cristal; es una aplicación práctica de la estadística. Dado que es imposible y demasiado costoso preguntar a todo el padrón electoral (lo que sería un censo), se selecciona una **muestra** representativa de votantes y se generaliza el resultado al total del electorado."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p9",
+          "text": "Al leer estos números, debés prestar atención al **margen de error**. Si una encuesta dice que el candidato A tiene el 42% ± 3 puntos, eso significa que el resultado real probablemente esté entre el 39% y el 45%. Si la diferencia entre el primer y el segundo puesto es menor que el margen de error combinado de ambas encuestas, estamos ante un **empate técnico**: no se puede afirmar con confianza quién va primero. Además, fíjate bien en cómo se calculan los porcentajes. Algunos medios incluyen a los \"indecisos\" (los que no saben o no quieren decir su voto) en el total, haciendo que los porcentajes de los candidatos sumen menos del 100%. Otros los excluyen, normalizando los resultados al 100% solo entre los decididos. Ambas formas son válidas, pero no son comparables directamente. Confundirlas distorsiona la percepción de la realidad."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p10",
+          "text": "Tampoco confundas una encuesta de intención de voto con un *exit poll* (boca de urna). La primera se hace antes de la elección y mide lo que la gente *dice* que hará; la segunda se hace en la salida de las mesas y mide lo que la gente *realmente* hizo. La intención de voto puede cambiar hasta el último momento, por lo que la encuesta es una foto del presente, mientras que el *exit poll* es un retrato en movimiento."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h11",
+          "level": 3,
+          "text": "El contrato invisible: impuestos y Estado de Derecho"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p12",
+          "text": "Si el voto es la voz, los impuestos son el cuerpo que sostiene la acción del Estado. Es común escuchar reclamos contra la carga impositiva, pero para entender la civismo, debemos comprender qué financia cada nivel de gobierno y por qué es necesario. Argentina organiza su sistema tributario en tres niveles: nacional, provincial y municipal."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p13",
+          "text": "A nivel nacional, los impuestos más importantes son el **IVA (Impuesto al Valor Agregado)** y el **Impuesto a las Ganancias**. El IVA grava el valor agregado en la cadena de producción y venta, pagándolo en la práctica el consumidor final. Es uno de los mayores recaudadores del país. El impuesto a las Ganancias, en cambio, es progresivo: cuanto más se gana, mayor es la alícuota. Juntos, financian el gasto público nacional: educación, salud, seguridad social y obras de alcance federal. Una parte de esta recaudación se distribuye entre Nación y provincias mediante la coparticipación federal."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p14",
+          "text": "A nivel provincial, el impuesto rey es el de **Ingresos Brutos**. Se cobra un porcentaje sobre las actividades económicas realizadas dentro de la provincia. Este dinero financia, típicamente, la salud pública provincial, la educación (incluyendo sueldos docentes) y el mantenimiento de infraestructura local. Entender esto nos lleva a un concepto más profundo: el **Estado de Derecho**."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p15",
+          "text": "¿Por qué importa tanto el Estado de Derecho? No se trata solo de tener muchas leyes, sino de que estas sean superiores a cualquier autoridad. En un Estado de Derecho, nadie está por encima de la ley, ni siquiera el presidente o los funcionarios más poderosos. Esto se garantiza mediante la **división de poderes**: el Poder Legislativo crea las leyes, el Ejecutivo las aplica y el Judicial las interpreta y juzga su cumplimiento. Esta separación evita que el poder se concentre en una sola persona o grupo, previniendo abusos. Si un funcionario comete un delito, debe responder ante la justicia igual que cualquier ciudadano. Sin este principio, los impuestos que pagamos no garantizarían derechos, sino que servirían para mantener privilegios. El Estado de Derecho es el pilar que asegura que la democracia no sea solo una elección, sino una forma de vida justa y predecible."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h16",
+          "level": 3,
+          "text": "La memoria colectiva: marchas y símbolos patrios"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p17",
+          "text": "Finalmente, una nación no se sostiene solo con leyes y dinero; se sostiene con memoria. En las escuelas argentinas, las **marchas patrióticas** son un ritual cotidiano, pero su función va mucho más allá del canto. Una marcha patriótica es una narración en verso de un hecho histórico concreto, compuesta para conmemorar una efeméride específica. El objetivo no es memorizar la letra de memoria, sino conectar el verso con la realidad histórica."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p18",
+          "text": "Por ejemplo, la **Marcha de San Lorenzo** no es solo una canción heroica; conmemora el Combate de San Lorenzo del 3 de febrero de 1813. La letra alude al granadero Cabral, quien murió salvando a San Martín cuando su caballo cayó herido. Es el bautismo de fuego de San Martín en Sudamérica, antes de su campaña libertadora. Cantar esta marcha es recordar el sacrificio individual por un ideal colectivo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p19",
+          "text": "La marcha **Aurora**, por su parte, está asociada al izamiento de la bandera y al saludo diario. No narra un combate puntual, sino que alude al \"sol de la libertad\", conectando con los símbolos patrios y la identidad nacional. Por otro lado, la **Marcha de las Malvinas** recuerda la soberanía argentina sobre las Islas, ocupadas por Gran Bretaña desde 1833, y se canta tradicionalmente el 2 de abril, vinculando el presente con el conflicto bélico de 1982."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p20",
+          "text": "Estas marchas, junto con el Himno Nacional, tejen un hilo conductor entre el pasado y el presente. Nos recuerdan que la democracia actual, con sus documentos, sus impuestos y sus instituciones, se construyó sobre bases históricas específicas. Al entender la conexión entre la marcha, la efeméride y el hecho histórico, dejamos de ser meros espectadores de un acto escolar para convertirnos en sujetos conscientes de nuestra herencia."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h21",
+          "level": 3,
+          "text": "Conclusión: Ciudadanía activa"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p22",
+          "text": "La civismo no es un conjunto de temas separados. El DNI te da identidad para votar; la encuesta te ayuda a interpretar el clima político; los impuestos financian el Estado que protege tus derechos; el Estado de Derecho asegura que ese poder no sea arbitrario; y las marchas patrióticas te anclan a una historia común. Como ciudadano, tu rol es navegar todos estos niveles con criterio. No te conformes con los números de las encuestas sin ver su margen de error; exige transparencia en el uso de los impuestos; defiende la independencia judicial; y honra tu historia comprendiendo sus hechos, no solo sus versos. Solo así, integrando la identidad, la participación, la fiscalidad y la memoria, podés ejercer plenamente tu ciudadanía en la Argentina democrática."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-3"
+      }
+    },
+    {
+      "id": "cap-4",
+      "number": 4,
+      "title": "El tejido del poder: del origen del Estado a la cooperación global",
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-4-h1",
+          "level": 2,
+          "text": "El tejido del poder: del origen del Estado a la cooperación global"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p2",
+          "text": "Para comprender cómo funciona la sociedad en la que vivís, no basta con mirar la superficie de los hechos diarios. Hacés falta bajar un escalón más y observar la estructura invisible que sostiene la convivencia: el Estado, sus normas, los actores que compiten por dirigirlo y, cada vez más, el espacio donde esas decisiones nacionales chocan o se complementan con las reglas del mundo. En este capítulo, vamos a tejer una narrativa que conecta el origen histórico de las instituciones con la organización actual del poder, pasando por los partidos que nos representan y terminando en los organismos que intentan coordinar la acción de los países. Es un recorrido desde la base hasta la cumbre del sistema político."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h3",
+          "level": 3,
+          "text": "De la tribu al Estado: la necesidad de orden"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p4",
+          "text": "Todo comienza con una pregunta fundamental: ¿por qué necesitamos un Estado? En los orígenes de la humanidad, las decisiones se tomaban de manera colectiva o por figuras carismáticas dentro de grupos pequeños. No había leyes escritas ni policías, sino costumbres y la fuerza bruta. El cambio radical ocurrió con la revolución agrícola. Cuando la gente empezó a cultivar alimentos en exceso, apareció algo nuevo: el excedente. Y con el excedente vino la necesidad de protegerlo, almacenarlo y administrarlo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p5",
+          "text": "Aquí surge la primera división social. Parte de la población dejó de dedicarse exclusivamente a producir comida para especializarse en otras tareas: la defensa, la administración de los recursos, el comercio o la organización religiosa. Este desplazamiento creó la necesidad de autoridades centrales que pudieran resolver conflictos entre grupos con intereses distintos y mantener el orden. Así fue naciendo, lentamente, el **Estado**."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p6",
+          "text": "Pero, ¿qué es exactamente el Estado? No es lo mismo que el gobierno, ni que la nación, ni que el territorio. El Estado es una institución política compleja que centraliza el poder para gobernar. Para que exista, deben coexistir tres elementos esenciales, como las patas de una mesa:"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p7",
+          "text": "1.  **El Territorio:** El espacio geográfico delimitado por fronteras reconocidas. Dentro de ese espacio, el Estado ejerce su autoridad. 2.  **La Población:** El conjunto de personas que habitan ese territorio y están sujetas a sus leyes. Sin gente, no hay sociedad que gobernar. 3.  **El Gobierno o Poder Soberano:** La autoridad organizada que dicta y hace cumplir normas. La soberanía significa que ese poder es exclusivo y no depende de otro poder externo dentro de sus fronteras."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p8",
+          "text": "Si falta uno de estos tres elementos, no hay Estado en sentido pleno. Un territorio sin gobierno reconocido, o un gobierno sin un territorio fijo, no constituyen un Estado clásico. La historia nos muestra que el Estado moderno no apareció de la noche a la mañana, sino que se consolidó con el tiempo, pasando de líderes temporales a estructuras permanentes que garantizan su funcionamiento, incluso cuando cambian las personas que lo dirigen."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h9",
+          "level": 3,
+          "text": "Cómo se organiza el poder: formas de Estado y gobierno"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p10",
+          "text": "Una vez que el Estado existe, hay que decidir cómo se distribuye el poder dentro de él. Aquí entramos en la clasificación de las **formas de Estado**. La más común en la historia reciente es el **Estado unitario**, donde un solo centro de poder gobierna todo el territorio (como Francia o Chile). Sin embargo, en América Latina y especialmente en Argentina, prevalece el **Estado federal**."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p11",
+          "text": "En un Estado federal, el poder no es único; se reparte entre un gobierno central (nacional) y gobiernos locales (provincias o estados) que tienen autonomía propia. Argentina es una república federal compuesta por 23 provincias más la Ciudad Autónoma de Buenos Aires. Cada provincia tiene su propia constitución y puede legislar en temas locales, pero todas deben respetar la Constitución Nacional. Esta división busca evitar la concentración excesiva de poder en la capital y permitir que las realidades regionales sean atendidas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p12",
+          "text": "Paralelamente, debemos distinguir la **forma de gobierno**. Argentina es una **República**, lo que significa que el poder se ejerce por representantes elegidos por el pueblo, por un tiempo limitado y con rendición de cuentas. El poder no es hereditario ni vitalicio. Esto contrasta con las monarquías, donde la jefatura del Estado se transmite por linaje, aunque en muchas monarquías modernas (como España o el Reino Unido) el monarca tiene un rol simbólico y el poder político real lo ejerce un parlamento elegido."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h13",
+          "level": 3,
+          "text": "Los intermediarios democráticos: los partidos políticos"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p14",
+          "text": "Si el Estado es la casa y la Constitución es los planos, los **partidos políticos** son los inquilinos que compiten para decidir cómo decorarla y qué reglas de convivencia aplicar. Un partido político es una organización estable que agrupa a personas con ideas afines para competir por el poder político a través de las elecciones."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p15",
+          "text": "Es crucial diferenciar un partido de un grupo de presión o una ONG. Mientras que una ONG puede intentar influir en las políticas públicas (por ejemplo, pidiendo más presupuesto para la salud), su objetivo no es gobernar. El partido político, en cambio, busca **ocupar cargos de gobierno**. Sus funciones son vitales para la democracia:"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p16",
+          "text": "*   **Agregación de intereses:** La sociedad tiene miles de demandas dispersas (por transporte, educación, seguridad). El partido toma esas demandas, las filtra y las convierte en una propuesta de gobierno coherente. *   **Selección de candidatos:** Define quién representará al partido en las elecciones, a través de internas o listas cerradas. *   **Formación de gobierno u oposición:** Si gana, gobierna. Si pierde, tiene la tarea democrática de fiscalizar y criticar al gobierno de turno. *   **Socialización política:** Educa a sus afiliados y simpatizantes, formando cuadros dirigentes y difundiendo sus ideales."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p17",
+          "text": "En la teoría política, se clasifican los sistemas de partidos en tres grandes tipos. En el **bipartidismo** (como EE. UU.), dos grandes partidos concentran casi todo el voto y se alternan en el poder. En el **multipartidismo** (común en Europa), hay varios partidos con representación relevante, lo que obliga a formar coaliciones de gobierno."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p18",
+          "text": "Argentina es un caso interesante: tenemos un **multipartidismo fragmentado**, pero con una dinámica particular. Históricamente, hemos tendido a agruparnos en dos grandes coaliciones o bloques políticos principales que se alternan en la presidencia, pero dentro de esos bloques hay una gran diversidad de partidos y corrientes de pensamiento. Esto hace que la política argentina sea dinámica, pero también compleja, ya que los acuerdos requieren negociar con múltiples actores."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h19",
+          "level": 3,
+          "text": "De lo nacional a lo global: los organismos internacionales"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p20",
+          "text": "Hasta aquí hemos hablado del Estado como una entidad soberana y cerrada en sus fronteras. Pero, ¿qué pasa cuando los problemas no respetan esas fronteras? La globalización ha demostrado que ningún país puede resolver solo desafíos como el cambio climático, las pandemias, el terrorismo internacional o las crisis económicas globales. Es aquí donde entran en juego los **organismos internacionales**."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p21",
+          "text": "Estos organismos existen para que los Estados cooperen, negocien o resuelvan conflictos entre sí. No tienen poder para obligar a los países a hacer algo (salvo en casos muy específicos de sanciones), pero sí crean el marco de diálogo y la presión diplomática necesaria."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p22",
+          "text": "La **Organización de las Naciones Unidas (ONU)**, creada en 1945 tras la Segunda Guerra Mundial, es el ejemplo principal. Su objetivo fundacional fue mantener la paz y la seguridad internacionales. Su órgano más poderoso es el **Consejo de Seguridad**, integrado por 15 miembros, de los cuales 5 son permanentes (Estados Unidos, Rusia, China, Reino Unido y Francia). Estos cinco tienen un poder especial: el **veto**. Pueden bloquear cualquier resolución con un solo voto en contra, aunque el resto del Consejo esté de acuerdo. Esto refleja la realidad de poder de la posguerra, aunque hoy se debate su eficacia en un mundo multipolar. La ONU también tiene organismos especializados como la **OMS** (salud) y la **UNESCO** (educación y cultura), que trabajan en temas técnicos globales."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p23",
+          "text": "En nuestra región, la **Organización de los Estados Americanos (OEA)**, creada en 1948, busca promover la democracia, los derechos humanos y el desarrollo en América. Históricamente excluyó a Cuba, aunque fue reincorporada formalmente en 2009, aunque su participación ha sido intermitente y conflictiva dependiendo de los gobiernos de turno."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p24",
+          "text": "A nivel económico y regional, tenemos el **Mercosur** (Mercado Común del Sur). Creado en 1991 con el Tratado de Asunción por Argentina, Brasil, Paraguay y Uruguay, su objetivo es promover el libre comercio mediante la eliminación de aranceles internos. Es un bloque económico que busca fortalecer la integración regional. Venezuela fue suspendida y Bolivia está en proceso de adhesión, lo que muestra que estos organismos también son dinámicos y políticos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p25",
+          "text": "Finalmente, no podemos ignorar al **Fondo Monetario Internacional (FMI)**. Aunque no es un organismo político en sentido estricto, su influencia es enorme. Creado en 1944, otorga préstamos a países con dificultades de balanza de pagos (es decir, que no pueden pagar sus deudas externas). A cambio, exige condiciones de política económica (austeridad, reformas estructurales) que suelen ser muy debatidas en la sociedad argentina, ya que afectan directamente el bienestar de la población."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h26",
+          "level": 3,
+          "text": "La cotidianidad de las normas: prioridades de paso"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p27",
+          "text": "Hemos visto el Estado, los partidos y la cooperación global. Pero el derecho y el orden no solo existen en los libros de historia o en las cumbres internacionales; existen en la calle, en cada decisión que tomamos al día. Un ejemplo claro de cómo el Estado regula la convivencia cotidiana son las **prioridades de paso** en el tránsito."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p28",
+          "text": "La Ley de Tránsito 24.436 establece reglas claras para evitar el caos y los accidentes. La regla general, aplicable en bocacalles sin semáforo ni señalización, es la **prioridad de la derecha**. Si dos vehículos llegan a un cruce al mismo tiempo, tiene el paso el que viene por la mano derecha del otro. Es una regla simple que permite predecir el comportamiento del otro conductor."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p29",
+          "text": "Sin embargo, hay excepciones vitales que rompen esta regla:"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p30",
+          "text": "1.  **Semáforos:** Tienen prioridad absoluta sobre la regla de la derecha. Un semáforo en rojo obliga a detenerse, aunque el vehículo que viene por la derecha tenga el \"paso\" teórico. 2.  **Señales de Pare o Ceda el Paso:** Quien tiene estas señales en su sentido de circulación debe respetarlas, independientemente de por qué mano venga el otro vehículo. 3.  **Vehículos de emergencia:** Ambulancias, bomberos y policía con sirena y balizas encendidas tienen prioridad absoluta sobre cualquier otro vehículo. La vida humana está por encima de la norma de tránsito. 4.  **Transporte público:** En muchas jurisdicciones, los colectivos tienen prioridad al reincorporarse al tránsito desde una parada, siempre que señalicen con las luces de giro. 5.  **Rotondas:** Aquí la regla es inversa a la de \"derecha\" en muchos países: quien ya está circulando *dentro* de la rotonda tiene prioridad sobre quien va a ingresar. El que ingresa debe ceder el paso. 6.  **Peatones:** En una senda peatonal señalizada, el peatón que ya inició el cruce tiene prioridad absoluta. El vehículo debe esperar a que el peatón complete el cruce, no solo \"ceder\" el paso momentáneamente."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p31",
+          "text": "Estas normas no son arbitrarias. Son el resultado de un largo proceso de aprendizaje social y legal para proteger la vida. Al igual que los organismos internacionales buscan un orden global, las normas de tránsito buscan un orden local. Ambas son expresiones del mismo principio: la convivencia requiere reglas claras, conocidas por todos y respetadas por todos, para que la libertad de uno no termine atropellando la de los demás."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h32",
+          "level": 3,
+          "text": "Conclusión"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p33",
+          "text": "En resumen, hemos visto que el Estado no es algo dado, sino una construcción histórica que surgió de la necesidad de orden y administración de recursos. Hoy, ese Estado se organiza de manera federal en Argentina, delegando poderes para ser más eficiente. Los partidos políticos actúan como el puente entre la sociedad y el Estado, canalizando las demandas ciudadanas en propuestas de gobierno. Pero en un mundo interconectado, el poder nacional se ve complementado y limitado por organismos internacionales como la ONU, la OEA o el FMI, que gestionan problemas que trascienden las fronteras. Y, finalmente, todo este edificio macro-político se sostiene sobre una base micro-normativa: el respeto a las reglas del día a día, como las prioridades de paso, que garantizan que la convivencia sea posible en la calle, en la escuela y en la vida cotidiana. Entender esta cadena de conexiones es fundamental para ser un ciudadano activo y crítico."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-4"
+      }
+    },
+    {
+      "id": "cap-5",
+      "number": 5,
+      "title": "La arquitectura de la convivencia: símbolos, normas y participación en la democracia argentina",
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-5-h1",
+          "level": 2,
+          "text": "La arquitectura de la convivencia: símbolos, normas y participación en la democracia argentina"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p2",
+          "text": "Vivir en sociedad no es un estado natural, sino un logro constante que requiere reglas, símbolos compartidos y mecanismos para resolver conflictos. Cuando pensás en la vida cotidiana en Argentina, es fácil dar por sentado que las cosas funcionan porque siempre fueron así. Sin embargo, la estabilidad de una democracia moderna depende de la intersección entre lo que sentimos como parte de nuestra identidad (los símbolos patrios), cómo nos movemos y convivimos en el espacio común (la señalización y las normas viales), cómo organizamos nuestro bienestar colectivo (el sistema de salud) y, fundamentalmente, cómo elegimos a quienes nos representan para tomar esas decisiones (el sistema electoral). Todos estos elementos no son compartimentos estancos; forman un tejido donde la participación ciudadana es el hilo conductor que le da sentido y vida al conjunto."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h3",
+          "level": 3,
+          "text": "Los cimientos de la identidad: más que colores y notas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p4",
+          "text": "Antes de poder dialogar o votar, es necesario reconocer que pertenecemos a una misma comunidad política. Aquí entran los símbolos patrios, que a menudo se estudian como datos históricos aislados, pero que en realidad funcionan como el lenguaje visual y sonoro de nuestra nación. La bandera, creada por Manuel Belgrano en 1812, no fue solo un estandarte militar; se convirtió en el referente material de la soberanía. El hecho de que Belgrano la enarbolara en Rosario, lejos del centro de poder de Buenos Aires, subraya que la identidad nacional se construye desde los territorios y la resistencia, no solo desde las instituciones. El Sol de Mayo, añadido años después, conecta esa bandera con la Revolución de Mayo, transformándola en un símbolo de independencia y luz."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p5",
+          "text": "El himno nacional, con su letra de Vicente López y Planes y música de Blas Parera, cumple una función similar pero temporal: convoca a la memoria histórica. No es un canto de guerra actual, sino un recordatorio ritual de los sacrificios fundacionales. Del mismo modo, el escudo nacional, con sus manos unidas y la pica de la libertad, sintetiza la idea de unión y soberanía que el Estado debe proteger. La escarapela, por su parte, democratiza este simbolismo, permitiendo que cualquier ciudadano la porte como acto de pertenencia. Entender estos símbolos no es un ejercicio de nostalgia, sino una herramienta para comprender qué valores (libertad, unión, soberanía) se consideran centrales en el contrato social argentino. Sin este sentido de pertenencia, la participación política se vuelve fragmentada y difícil de sostener."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h6",
+          "level": 3,
+          "text": "El espacio común: orden y seguridad en la vía pública"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p7",
+          "text": "Una vez que compartimos una identidad, necesitamos reglas para habitar el espacio común de manera segura. La educación vial, y específicamente la señalización, es quizás el ejemplo más claro de cómo la ley se traduce en un código visual universal que permite la convivencia entre actores muy diferentes: peatones, ciclistas y conductores. No se trata solo de evitar accidentes, sino de garantizar la fluidez y la equidad en el uso de la calle, que es un bien público."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p8",
+          "text": "Las señales viales están diseñadas para comunicarse con el cerebro de manera instantánea, antes de que el tiempo permita leer un texto. Las señales de reglamentación, con su forma circular y el rojo prohibiendo o el blanco obligando, establecen los límites inquebrantables de la convivencia: la velocidad máxima, el sentido único, la prohibición de estacionar. El \"PARE\", con su octógono único, es la excepción que confirma la regla: su forma distintiva asegura que se reconozca incluso de reojo o de noche, imponiendo la prioridad absoluta del peatón o del cruce transversal. Por otro lado, las señales de prevención, en amarillo y forma de rombo, no ordenan, advierten. Te dicen: \"hay una curva peligrosa adelante\" o \"atención, zona escolar\". Su función es preparar la conducta, invitando a la prudencia. Finalmente, las informativas, en verde o azul, son el mapa que nos da autonomía: nos dicen dónde estamos y hacia dónde ir, facilitando la movilidad independientemente de que la conozcamos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p9",
+          "text": "Esta estructura de normas no es arbitraria. Refleja un acuerdo social donde el derecho a la movilidad de unos se limita por el derecho a la seguridad de otros. Cuando un estudiante aprende a interpretar estas señales, está aprendiendo ciudadanía práctica: entiende que la libertad individual termina donde comienza el riesgo para el otro. Este principio es el mismo que rige la convivencia en la política y en la salud."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h10",
+          "level": 3,
+          "text": "El bienestar colectivo: la salud como derecho y desafío"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p11",
+          "text": "Si la calle es el espacio de la movilidad, el cuerpo es el espacio de la existencia. El sistema de salud es, por tanto, uno de los indicadores más claros de cómo una sociedad valora a sus miembros. En Argentina, el sistema es mixto, lo que significa que combina tres lógicas diferentes que coexisten, a veces en tensión: la salud pública, la obra social (prepagas) y la medicina privada."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p12",
+          "text": "El modelo de salud pública, financiado con impuestos, se basa en la idea de que la salud es un derecho humano y no un privilegio de mercado. El Estado garantiza la atención a todos, sin importar su capacidad de pago. Este modelo responde a la lógica de la equidad y la solidaridad nacional. Sin embargo, enfrenta desafíos estructurales de financiamiento y eficiencia, similares a los de otros países con sistemas universales."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p13",
+          "text": "Por otro lado, el sistema de obras sociales y prepagas representa la lógica de la protección social vinculada al empleo o de la seguridad privada. Los trabajadores cotizan un porcentaje de su sueldo (el 6% en total, dividido entre obra social y jubilación) para acceder a una cobertura complementaria o principal. Este modelo ofrece mayor rapidez y variedad de opciones, pero introduce una desigualdad: quienes no tienen empleo formal o no pueden pagar una prepaga quedan expuestos exclusivamente al sistema público."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p14",
+          "text": "Esta dualidad o trinidad del sistema de salud argentino plantea una pregunta constante para la ciudadanía: ¿cómo equilibrar la eficiencia del mercado con la justicia social? No hay una respuesta única, pero entender esta estructura es vital para participar en el debate. Cuando discutimos sobre presupuesto en salud o sobre la calidad de los hospitales públicos, no estamos hablando solo de política económica, sino de qué tipo de sociedad queremos ser: una donde la salud depende del bolsillo, o una donde el Estado actúa como garante universal."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h15",
+          "level": 3,
+          "text": "La toma de decisiones: el voto y el método D'Hondt"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p16",
+          "text": "Para decidir hacia dónde caminar como sociedad, necesitamos elegir a nuestros representantes. Aquí es donde la teoría política se encuentra con la matemática electoral. En Argentina, para las elecciones de Diputados Nacionales y otras legislaturas provinciales, se utiliza el sistema D'Hondt para repartir las bancas. Este método no es perfecto ni neutro; está diseñado para resolver un problema práctico: ¿cómo convertimos un porcentaje de votos, que puede ser decimal, en un número entero de bancas, sin generar caos político?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p17",
+          "text": "Imaginemos una elección con 5 bancas en juego. Si un partido A obtiene el 50% de los votos y el partido B el 50%, la proporción sería perfecta. Pero si el partido A tiene el 52% y el B el 48%, ¿quién gana las bancas? El método D'Hondt funciona dividiendo los votos de cada partido por 1, por 2, por 3, y así sucesivamente, hasta el número de bancas. Luego, se ordenan todos esos cocientes de mayor a menor y se asignan las bancas a los cinco números más altos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p18",
+          "text": "La consecuencia política de esto es crucial: el método D'Hondt tiende a favorecer ligeramente a los partidos más grandes. Un partido que saca el 52% de los votos puede terminar con el 60% de las bancas. ¿Es esto malo? Depende de la perspectiva. Sus críticos dicen que distorsiona la voluntad popular y favorece la concentración de poder. Sus defensores argumentan que evita la fragmentación extrema del parlamento, promoviendo la gobernabilidad y la estabilidad. Al entender cómo funciona D'Hondt, el estudiante deja de ver el resultado electoral como algo mágico o inevitable, y lo entiende como el producto de una regla técnica que tiene consecuencias políticas reales. Esto invita a reflexionar: ¿queremos un sistema que premie la mayoría clara, o uno que dé voz a todas las minorías, por pequeñas que sean? La elección del sistema electoral define el tipo de democracia que tenemos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h19",
+          "level": 3,
+          "text": "De la teoría a la acción: el proyecto ciudadano participativo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p20",
+          "text": "Todos los temas anteriores —símbolos, normas viales, salud y elecciones— son estructuras que operan desde arriba hacia abajo. Pero la democracia no es un mecanismo automático; requiere ciudadanos que la impulsen desde abajo. Ahí entra el proyecto ciudadano participativo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p21",
+          "text": "Un proyecto ciudadano no es una queja en las redes sociales ni una protesta espontánea. Es una iniciativa organizada que identifica un problema concreto de la comunidad, lo analiza y propone una solución viable. Puede ser desde la instalación de un paso peatonal seguro (vinculando la señalización vial con la seguridad) hasta la creación de un comedor comunitario o la gestión de un centro de salud local (vinculando el sistema de salud con la participación)."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p22",
+          "text": "El proceso de diseñar un proyecto ciudadano enseña habilidades fundamentales: 1.  **Diagnóstico:** No basta con decir \"el barrio está sucio\" o \"la calle es peligrosa\". Hay que investigar las causas, los afectados y la normativa aplicable. 2.  **Diseño:** Proponer soluciones realistas, considerando recursos, plazos y actores involucrados. 3.  **Negociación:** Dialogar con vecinos, autoridades locales y otros grupos para construir consensos. 4.  **Ejecución y seguimiento:** Llevar adelante la acción y medir los resultados."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p23",
+          "text": "Este tipo de participación transforma la relación del individuo con el Estado. Ya no se es un sujeto pasivo que espera que el gobierno resuelva todo, ni un adversario que solo critica. Se es un corresponsable de la solución. Cuando un joven organiza una campaña para mejorar la señalización en una esquina peligrosa, está utilizando su conocimiento cívico (sobre normas viales), su sentido de pertenencia (símbolos y comunidad) y su capacidad de organización (proyecto participativo) para incidir en la realidad."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h24",
+          "level": 3,
+          "text": "Conclusión: tejer la ciudadanía"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p25",
+          "text": "La educación cívica no se trata de memorizar definiciones, sino de comprender las herramientas que tenemos para vivir juntos. Los símbolos patrios nos dan el sentido de \"nosotros\". Las normas viales nos enseñan a respetar el espacio común y la vida. El sistema de salud nos recuerda que el bienestar es un derecho que debemos defender y financiar colectivamente. El sistema electoral nos muestra cómo, a través de reglas matemáticas y políticas, convertimos nuestra diversidad de opiniones en decisiones colectivas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p26",
+          "text": "Pero todas estas estructuras están inertes sin la participación activa. Un proyecto ciudadano es la prueba de fuego de la democracia: demuestra que los problemas se pueden resolver cuando la sociedad se organiza, dialoga y actúa. Al integrar estos temas, comprendemos que la ciudadanía no es un título que se obtiene al votar, sino una práctica diaria que se construye en la calle, en el hospital, en la escuela y en la asamblea. Vos, como estudiante, tenés las herramientas para pasar de la teoría a la acción. La pregunta no es si el sistema funciona, sino qué papel querés jugar en su funcionamiento."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-5"
+      }
+    },
+    {
+      "id": "cap-6",
+      "number": 6,
+      "title": "El poder, la ley y la voz de los ciudadanos: tejiendo la convivencia",
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-6-h1",
+          "level": 2,
+          "text": "El poder, la ley y la voz de los ciudadanos: tejiendo la convivencia"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p2",
+          "text": "Para comprender la vida en sociedad, a menudo tendemos a ver la política como un conjunto de instituciones estáticas o de peleas partidistas que ocurren en el Congreso. Sin embargo, la realidad es mucho más compleja y fascinante. La política es, en esencia, la forma en que decidimos organizar nuestro poder colectivo, distribuir recursos y decidir quién tiene derecho a participar en esas decisiones. Para entender cómo funciona realmente la democracia, no basta con saber qué dice la ley; hay que mirar cómo se relacionan la teoría del poder, las estructuras del Estado, los sistemas de gobierno y, sobre todo, quiénes son los sujetos de esa democracia: los ciudadanos. En este capítulo, vamos a recorrer ese entramado, desde las bases filosóficas de la autoridad hasta la herramienta más concreta que tenemos para ejercerla: el voto, pasando por cómo los Estados interactúan entre sí y cómo los números económicos pueden ser usados para contar historias muy distintas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-6-h3",
+          "level": 3,
+          "text": "De la fuerza al contrato: ¿de dónde sale el poder?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p4",
+          "text": "Todo sistema político comienza con una pregunta fundamental: ¿por qué obedecemos? La respuesta ha cambiado drásticamente a lo largo de la historia. En la antigüedad, pensadores como Aristóteles veían al ser humano como un \"animal político\". Para él, el poder no era algo impuesto desde afuera, sino algo natural que surgía de la necesidad de vivir en comunidad. La *polis* era el espacio donde la razón y la virtud debían guiar las decisiones del bien común. El poder legítimo era aquel que buscaba la justicia entre iguales."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p5",
+          "text": "Con el paso de los siglos, esta visión mutó radicalmente. La Ilustración trajo consigo una nueva manera de pensar la autoridad, liderada por figuras como John Locke. Aquí, el poder ya no es un don natural o divino, sino un constructo humano. Según la teoría del contrato social, los individuos nacen libres e iguales, poseyendo derechos inalienables como la vida, la libertad y la propiedad. Ante la inseguridad de vivir sin reglas claras, deciden voluntariamente ceder parte de su libertad individual para crear un Estado. Este Estado no tiene poder absoluto; su legitimidad depende exclusivamente de proteger esos derechos naturales. Si el gobierno traiciona esa confianza, el contrato se rompe. Esta idea es la base de nuestras democracias modernas: el poder reside en el pueblo, y los gobernantes son solo prestamistas temporales de esa autoridad."
+        },
+        {
+          "type": "heading",
+          "id": "cap-6-h6",
+          "level": 3,
+          "text": "La arquitectura del Estado: de liberal a de bienestar"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p7",
+          "text": "Una vez establecido que el poder emana del pueblo, surge la siguiente pregunta: ¿cómo debe organizarse ese Estado? Aquí es donde entran en juego los distintos tipos de Estado, que reflejan la prioridad que una sociedad le da a la libertad frente a la igualdad."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p8",
+          "text": "El **Estado Liberal**, que surge con fuerza tras las revoluciones burguesas, se basa en la idea de que el individuo es libre por naturaleza y el Estado debe intervenir lo mínimo posible. Su rol se limita a garantizar la seguridad, la justicia y la propiedad privada, confiando en que el mercado regulará la distribución de la riqueza de manera eficiente. Es un Estado \"guardián nocturno\", que vigila que nadie viole los derechos de los demás, pero no se mete en la economía."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p9",
+          "text": "Sin embargo, a finales del siglo XIX y principios del XX, las desigualdades generadas por el capitalismo industrial empezaron a mostrar grietas peligrosas. Como respuesta, surgió el **Estado de Bienestar**. Este modelo acepta que la libertad formal no es suficiente si no hay condiciones materiales para ejercerla. Por lo tanto, el Estado asume un rol activo en la economía y la sociedad: provee educación, salud, pensiones y regula el trabajo. El objetivo ya no es solo la libertad negativa (no ser impedido), sino la igualdad de oportunidades y la protección social. Hoy en día, la mayoría de las democracias occidentales, incluida la Argentina, operan bajo un modelo mixto, intentando equilibrar la eficiencia del mercado con la protección social del Estado de Bienestar."
+        },
+        {
+          "type": "heading",
+          "id": "cap-6-h10",
+          "level": 3,
+          "text": "¿Quién manda y cómo se organiza el poder ejecutivo?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p11",
+          "text": "Dentro de ese Estado, el poder ejecutivo se organiza de diferentes maneras según el **sistema político** que elija cada país. No existe un modelo único perfecto; cada uno tiene sus ventajas y sus puntos débiles."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p12",
+          "text": "En el **presidencialismo**, que es el sistema que tenemos en Argentina, el Jefe de Estado y el Jefe de Gobierno son la misma persona: el Presidente. Es elegido directamente por el voto popular (o a través de un colegio electoral, como en EE.UU.) y tiene un mandato de duración fija. Lo crucial aquí es que el Presidente no depende de la confianza del Congreso para seguir gobernando. El Poder Legislativo no puede sacarlo del cargo simplemente porque no le guste su gestión (una \"moción de censura\"); solo puede hacerlo en casos extremos de delitos comunes o errores graves en el ejercicio del cargo (el llamado *juicio político*). Esto busca estabilidad, pero también puede generar bloqueos si el Congreso y el Presidente son de partidos opuestos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p13",
+          "text": "En cambio, en el **parlamentarismo**, típico de países como Reino Unido o España, la figura del Jefe de Estado (un rey o una reina) es mayormente ceremonial. El verdadero poder lo ejerce el Primer Ministro, quien es elegido por el Parlamento, no por el pueblo directamente. La clave aquí es la dependencia: el gobierno debe mantener la confianza de la mayoría parlamentaria. Si pierde esa confianza, el gobierno cae y hay que llamar a nuevas elecciones o formar uno nuevo. Esto hace que el sistema sea muy flexible y reactivo, pero también puede generar inestabilidad si hay muchas fragmentación política."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p14",
+          "text": "Existe también una mezcla, el **semipresidencialismo**, como el de Francia. Allí conviven un Presidente con poderes reales y un Primer Ministro que responde al Parlamento. Es un sistema híbrido que busca combinar la estabilidad del presidencialismo con la responsabilidad parlamentaria. Al comparar estos sistemas, no se trata de decir cuál es \"mejor\" en abstracto, sino de entender cómo cada uno moldea la relación entre el gobernante y el gobernado."
+        },
+        {
+          "type": "heading",
+          "id": "cap-6-h15",
+          "level": 3,
+          "text": "La evolución del voto: de privilegio a derecho"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p16",
+          "text": "Si el poder reside en el pueblo, la pregunta siguiente es: ¿quiénes son ese \"pueblo\"? Durante gran parte de la historia argentina, la respuesta fue muy restrictiva. En el siglo XIX y principios del XX, el **sufragio** no era universal. Existía el **sufragio censitario**, que exigía a los votantes tener una propiedad o un ingreso mínimo. La lógica de la época era que solo quienes tenían \"bienes\" tenían un interés real en la estabilidad del país y la capacidad intelectual para decidir. A esto se sumaba la exclusión total de las mujeres y la discriminación contra los sectores populares más pobres."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p17",
+          "text": "Pero la democracia no se da por decreto; se conquista. Antes de la ley, había un contexto de **fraude electoral** sistemático. Los gobiernos de la época, conocidos como las generaciones del '80 y siguientes, manipulaban los padrones, coaccionaban a los votantes analfabetos y compraban votos con promesas de trabajo o ayuda económica. Los caudillos locales funcionaban como intermediarios que garantizaban los resultados favorables al poder establecido. El voto no era una expresión de voluntad, sino un ritual de sumisión."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p18",
+          "text": "El punto de inflexión llegó con la **Ley Sáenz Peña** de 1912. Esta legislación marcó un cambio histórico al establecer el sufragio universal masculino, eliminando los requisitos económicos y, crucialmente, introduciendo el voto secreto. Por primera vez, la intimidad del elector estaba protegida, dificultando la coacción. Aunque las mujeres seguían excluidas (lo cual se corregiría recién en 1947 con la ley de voto femenino), la ley sentó las bases de una participación electoral más amplia y equitativa, transformando la política de un juego de élites cerradas a una competencia de ideas y programas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-6-h19",
+          "level": 3,
+          "text": "El peso de los números: sueldo promedio y verdad estadística"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p20",
+          "text": "Una vez que el pueblo vota, los gobernados eligen a quienes administrarán los recursos públicos. Aquí es donde la economía y la política se cruzan de manera tensa. Un indicador clave es el **sueldo promedio** de un país. Sin embargo, como estudiantes de Cívica, deben aprender a leer estos datos con espíritu crítico. La misma base de datos puede usarse para contar dos historias opuestas, ambas técnicamente verdaderas, pero con implicaciones muy distintas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p21",
+          "text": "Imaginen un gobierno que anuncia: \"El salario promedio subió un 8% este año\". Es un logro. Al mismo tiempo, un sector crítico responde: \"El salario del trabajador típico casi no se movió\". ¿Quién miente? Ninguno. La diferencia está en qué medida estadística utilizan. La **media** (promedio) se distorsiona fácilmente si hay pocos ingresos muy altos (como los de los ejecutivos), inflando la cifra. La **mediana** (el valor que está en el medio, donde la mitad gana más y la mitad menos) suele reflejar mejor la realidad de la mayoría."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p22",
+          "text": "Además, hay que distinguir entre términos **nominales** y **reales**. Un aumento nominal del 30% en el sueldo suena espectacular. Pero si la inflación del mismo período fue del 40%, el **poder adquisitivo real** bajó. Es decir, con ese sueldo se pueden comprar menos cosas que antes. La fórmula aproximada es: *aumento real ≈ aumento nominal - inflación*. Entender esta distinción es vital para no dejarse llevar por titulares sensacionalistas. La política económica siempre involucra selecciones de datos que favorecen cierta narrativa, y el ciudadano informado debe saber discernir entre el crecimiento de los números y el bienestar real de la gente."
+        },
+        {
+          "type": "heading",
+          "id": "cap-6-h23",
+          "level": 3,
+          "text": "El Estado en el mundo: tratados y jerarquía normativa"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p24",
+          "text": "Finalmente, ningún Estado opera en el vacío. En un mundo globalizado, las decisiones nacionales están cada vez más vinculadas a acuerdos internacionales. Aquí entra en juego el concepto de **tratado internacional**: un acuerdo formal entre dos o más Estados que genera obligaciones legales. Pero, ¿qué pasa si una ley argentina contradice un tratado?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p25",
+          "text": "Para responder, debemos mirar la **pirámide de Kelsen**, un modelo que ordena las normas jurídicas. En teoría general, la Constitución está en la cima, seguida por los tratados internacionales, luego las leyes nacionales, y así sucesivamente. Esto significa que un tratado tiene jerarquía superior a una ley común. Si una ley nacional va en contra de un tratado ratificado, la ley pierde."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p26",
+          "text": "Sin embargo, la Constitución Argentina de 1994 dio un paso aún más audaz con el **artículo 75, inciso 22**. Este artículo otorga **jerarquía constitucional** a un grupo específico de tratados de derechos humanos. Esto significa que instrumentos como la Declaración Universal de los Derechos Humanos, la Convención Americana sobre Derechos Humanos (Pacto de San José) y otros convenios clave no están solo por encima de las leyes, sino en **pie de igualdad con la Constitución**. Son parte del bloque de constitucionalidad. Esto refuerza enormemente la protección de los derechos ciudadanos: el Estado argentino no puede invocar una ley interna para violar estos derechos, ni siquiera modificando la Constitución de forma contraria a ellos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-6-h27",
+          "level": 3,
+          "text": "Conclusión"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-6-p28",
+          "text": "A lo largo de este recorrido, hemos visto que la política no es un conjunto de reglas fijas, sino un tejido dinámico. Desde la teoría del poder que legitima la autoridad, pasando por los tipos de Estado que organizan la sociedad, hasta los sistemas políticos que determinan quién manda y cómo. Hemos analizado cómo el sufragio evolucionó de un privileicio censitario a un derecho universal, y cómo los datos económicos, como el sueldo promedio, requieren una lectura crítica para no ser manipulados. Finalmente, comprendimos que el Estado argentino está inserto en un marco internacional que, gracias a los tratados con jerarquía constitucional, protege los derechos de los ciudadanos por encima de las leyes ordinarias. Entender estas conexiones no es solo tarea de examen; es la herramienta fundamental para ser un ciudadano activo, capaz de participar en la democracia con conocimiento de causa y espíritu crítico. La democracia no se sostiene solo con votos, sino con la comprensión constante de cómo funciona el poder que nos gobierna."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-6"
+      }
+    }
+  ]
+}

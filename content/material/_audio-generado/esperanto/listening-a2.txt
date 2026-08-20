@@ -1,0 +1,4 @@
+Persono 1: Bonaj tagoj! Ĉu vi serĉas libron?
+Persono 2: Ĵes, mi serĉas libron pri kulturo.
+Persono 1: Ĉu vi volas helpi al mi?
+Persono 2: Ĵes, mi povas montri vin al la sekcio pri lingvoj.

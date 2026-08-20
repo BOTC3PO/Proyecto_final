@@ -1,0 +1,5 @@
+A: こんにちは、山田さん。週末に何をしますか？（Konnichiwa, Yamada-san. Shūmatsu ni nan wo shimasu ka?
+B: 私は映画を見に行く予定です。（Watashi wa eiga o miru ni iku yotei desu.
+A: どこで見ますか？（Doko de mimasu ka?
+B: 私は渋谷の映画館に行きます。（Watashi wa Shibuya no eiga-kan ni ikimasu.
+A: それ、いいですね。私も行きたいです。（Sore, ii desu ne. Watashi mo ikitai desu.

@@ -1,0 +1,1322 @@
+[
+  {
+    "id": 52,
+    "materia": "Matemática",
+    "cluster": 1,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 53,
+    "materia": "Matemática",
+    "cluster": 2,
+    "preguntas": 119,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 54,
+    "materia": "Matemática",
+    "cluster": 3,
+    "preguntas": 143,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 55,
+    "materia": "Matemática",
+    "cluster": 4,
+    "preguntas": 120,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 56,
+    "materia": "Matemática",
+    "cluster": 5,
+    "preguntas": 128,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 57,
+    "materia": "Matemática",
+    "cluster": 6,
+    "preguntas": 116,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 58,
+    "materia": "Matemática",
+    "cluster": 7,
+    "preguntas": 135,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 59,
+    "materia": "Matemática",
+    "cluster": 8,
+    "preguntas": 105,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 60,
+    "materia": "Matemática",
+    "cluster": 9,
+    "preguntas": 104,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 61,
+    "materia": "Matemática",
+    "cluster": 10,
+    "preguntas": 110,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 62,
+    "materia": "Matemática",
+    "cluster": 11,
+    "preguntas": 138,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 63,
+    "materia": "Matemática",
+    "cluster": 12,
+    "preguntas": 138,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 64,
+    "materia": "Matemática",
+    "cluster": 13,
+    "preguntas": 138,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 65,
+    "materia": "Matemática",
+    "cluster": 14,
+    "preguntas": 130,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 66,
+    "materia": "Matemática",
+    "cluster": 15,
+    "preguntas": 112,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 67,
+    "materia": "Matemática",
+    "cluster": 16,
+    "preguntas": 130,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 68,
+    "materia": "Matemática",
+    "cluster": 17,
+    "preguntas": 128,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 69,
+    "materia": "Matemática",
+    "cluster": 18,
+    "preguntas": 140,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 70,
+    "materia": "Matemática",
+    "cluster": 19,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 71,
+    "materia": "Matemática",
+    "cluster": 20,
+    "preguntas": 135,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 72,
+    "materia": "Matemática",
+    "cluster": 21,
+    "preguntas": 136,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 73,
+    "materia": "Matemática",
+    "cluster": 22,
+    "preguntas": 142,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 74,
+    "materia": "Matemática",
+    "cluster": 23,
+    "preguntas": 137,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 75,
+    "materia": "Matemática",
+    "cluster": 24,
+    "preguntas": 121,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 76,
+    "materia": "Matemática",
+    "cluster": 25,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 77,
+    "materia": "Matemática",
+    "cluster": 26,
+    "preguntas": 121,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 78,
+    "materia": "Matemática",
+    "cluster": 27,
+    "preguntas": 140,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 79,
+    "materia": "Matemática",
+    "cluster": 28,
+    "preguntas": 152,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 80,
+    "materia": "Matemática",
+    "cluster": 29,
+    "preguntas": 118,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 81,
+    "materia": "Matemática",
+    "cluster": 30,
+    "preguntas": 111,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 82,
+    "materia": "Matemática",
+    "cluster": 31,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 83,
+    "materia": "Matemática",
+    "cluster": 32,
+    "preguntas": 166,
+    "secciones_completas": 6,
+    "secciones_totales": 6
+  },
+  {
+    "id": 84,
+    "materia": "Lengua",
+    "cluster": 1,
+    "preguntas": 104,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 85,
+    "materia": "Lengua",
+    "cluster": 2,
+    "preguntas": 100,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 86,
+    "materia": "Lengua",
+    "cluster": 3,
+    "preguntas": 130,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 87,
+    "materia": "Lengua",
+    "cluster": 4,
+    "preguntas": 100,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 88,
+    "materia": "Lengua",
+    "cluster": 5,
+    "preguntas": 109,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 89,
+    "materia": "Lengua",
+    "cluster": 6,
+    "preguntas": 129,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 90,
+    "materia": "Lengua",
+    "cluster": 7,
+    "preguntas": 100,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 91,
+    "materia": "Lengua",
+    "cluster": 8,
+    "preguntas": 102,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 92,
+    "materia": "Lengua",
+    "cluster": 9,
+    "preguntas": 100,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 93,
+    "materia": "Lengua",
+    "cluster": 10,
+    "preguntas": 120,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 94,
+    "materia": "Lengua",
+    "cluster": 11,
+    "preguntas": 119,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 95,
+    "materia": "Lengua",
+    "cluster": 12,
+    "preguntas": 148,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 96,
+    "materia": "Lengua",
+    "cluster": 13,
+    "preguntas": 130,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 97,
+    "materia": "Lengua",
+    "cluster": 14,
+    "preguntas": 108,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 98,
+    "materia": "Lengua",
+    "cluster": 15,
+    "preguntas": 108,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 99,
+    "materia": "Historia profunda",
+    "cluster": 1,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 100,
+    "materia": "Historia profunda",
+    "cluster": 2,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 101,
+    "materia": "Historia profunda",
+    "cluster": 3,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 102,
+    "materia": "Historia profunda",
+    "cluster": 4,
+    "preguntas": 124,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 103,
+    "materia": "Historia profunda",
+    "cluster": 5,
+    "preguntas": 124,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 104,
+    "materia": "Historia profunda",
+    "cluster": 6,
+    "preguntas": 121,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 105,
+    "materia": "Historia profunda",
+    "cluster": 7,
+    "preguntas": 124,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 106,
+    "materia": "Historia profunda",
+    "cluster": 8,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 107,
+    "materia": "Historia profunda",
+    "cluster": 9,
+    "preguntas": 126,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 108,
+    "materia": "Historia profunda",
+    "cluster": 10,
+    "preguntas": 126,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 109,
+    "materia": "Historia profunda",
+    "cluster": 11,
+    "preguntas": 122,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 110,
+    "materia": "Historia profunda",
+    "cluster": 12,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 111,
+    "materia": "Historia profunda",
+    "cluster": 13,
+    "preguntas": 121,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 112,
+    "materia": "Historia profunda",
+    "cluster": 14,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 113,
+    "materia": "Historia profunda",
+    "cluster": 15,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 114,
+    "materia": "Historia profunda",
+    "cluster": 16,
+    "preguntas": 124,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 115,
+    "materia": "Historia profunda",
+    "cluster": 17,
+    "preguntas": 124,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 116,
+    "materia": "Historia profunda",
+    "cluster": 18,
+    "preguntas": 124,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 117,
+    "materia": "Historia profunda",
+    "cluster": 19,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 118,
+    "materia": "Historia profunda",
+    "cluster": 20,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 119,
+    "materia": "Historia profunda",
+    "cluster": 21,
+    "preguntas": 124,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 120,
+    "materia": "Historia profunda",
+    "cluster": 22,
+    "preguntas": 98,
+    "secciones_completas": 4,
+    "secciones_totales": 4
+  },
+  {
+    "id": 121,
+    "materia": "Historia",
+    "cluster": 1,
+    "preguntas": 105,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 122,
+    "materia": "Historia",
+    "cluster": 2,
+    "preguntas": 104,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 123,
+    "materia": "Historia",
+    "cluster": 3,
+    "preguntas": 119,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 124,
+    "materia": "Historia",
+    "cluster": 4,
+    "preguntas": 102,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 125,
+    "materia": "Historia",
+    "cluster": 5,
+    "preguntas": 109,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 126,
+    "materia": "Historia",
+    "cluster": 6,
+    "preguntas": 71,
+    "secciones_completas": 3,
+    "secciones_totales": 3
+  },
+  {
+    "id": 127,
+    "materia": "Geografía",
+    "cluster": 1,
+    "preguntas": 127,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 128,
+    "materia": "Geografía",
+    "cluster": 2,
+    "preguntas": 107,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 129,
+    "materia": "Geografía",
+    "cluster": 3,
+    "preguntas": 128,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 130,
+    "materia": "Geografía",
+    "cluster": 4,
+    "preguntas": 117,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 131,
+    "materia": "Geografía",
+    "cluster": 5,
+    "preguntas": 127,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 132,
+    "materia": "Geografía",
+    "cluster": 6,
+    "preguntas": 111,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 133,
+    "materia": "Geografía",
+    "cluster": 7,
+    "preguntas": 116,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 134,
+    "materia": "Geografía",
+    "cluster": 8,
+    "preguntas": 122,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 135,
+    "materia": "Cívica",
+    "cluster": 1,
+    "preguntas": 115,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 136,
+    "materia": "Cívica",
+    "cluster": 2,
+    "preguntas": 110,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 137,
+    "materia": "Cívica",
+    "cluster": 3,
+    "preguntas": 109,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 138,
+    "materia": "Cívica",
+    "cluster": 4,
+    "preguntas": 105,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 139,
+    "materia": "Cívica",
+    "cluster": 5,
+    "preguntas": 109,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 140,
+    "materia": "Cívica",
+    "cluster": 6,
+    "preguntas": 152,
+    "secciones_completas": 6,
+    "secciones_totales": 6
+  },
+  {
+    "id": 141,
+    "materia": "Química",
+    "cluster": 1,
+    "preguntas": 110,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 142,
+    "materia": "Química",
+    "cluster": 2,
+    "preguntas": 112,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 143,
+    "materia": "Química",
+    "cluster": 3,
+    "preguntas": 104,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 144,
+    "materia": "Química",
+    "cluster": 4,
+    "preguntas": 106,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 145,
+    "materia": "Química",
+    "cluster": 5,
+    "preguntas": 107,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 146,
+    "materia": "Química",
+    "cluster": 6,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 147,
+    "materia": "Química",
+    "cluster": 7,
+    "preguntas": 105,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 148,
+    "materia": "Química",
+    "cluster": 8,
+    "preguntas": 149,
+    "secciones_completas": 7,
+    "secciones_totales": 7
+  },
+  {
+    "id": 149,
+    "materia": "Biología",
+    "cluster": 1,
+    "preguntas": 113,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 150,
+    "materia": "Biología",
+    "cluster": 2,
+    "preguntas": 115,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 151,
+    "materia": "Biología",
+    "cluster": 3,
+    "preguntas": 131,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 152,
+    "materia": "Biología",
+    "cluster": 4,
+    "preguntas": 111,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 153,
+    "materia": "Biología",
+    "cluster": 5,
+    "preguntas": 105,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 154,
+    "materia": "Biología",
+    "cluster": 6,
+    "preguntas": 110,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 155,
+    "materia": "Biología",
+    "cluster": 7,
+    "preguntas": 172,
+    "secciones_completas": 7,
+    "secciones_totales": 7
+  },
+  {
+    "id": 156,
+    "materia": "Física",
+    "cluster": 1,
+    "preguntas": 122,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 157,
+    "materia": "Física",
+    "cluster": 2,
+    "preguntas": 126,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 158,
+    "materia": "Física",
+    "cluster": 3,
+    "preguntas": 122,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 159,
+    "materia": "Física",
+    "cluster": 4,
+    "preguntas": 130,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 160,
+    "materia": "Física",
+    "cluster": 5,
+    "preguntas": 118,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 161,
+    "materia": "Física",
+    "cluster": 6,
+    "preguntas": 139,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 162,
+    "materia": "Física",
+    "cluster": 7,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 163,
+    "materia": "Física",
+    "cluster": 8,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 164,
+    "materia": "Física",
+    "cluster": 9,
+    "preguntas": 127,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 165,
+    "materia": "Física",
+    "cluster": 10,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 166,
+    "materia": "Física",
+    "cluster": 11,
+    "preguntas": 132,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 167,
+    "materia": "Física",
+    "cluster": 12,
+    "preguntas": 119,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 168,
+    "materia": "Física",
+    "cluster": 13,
+    "preguntas": 129,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 169,
+    "materia": "Física",
+    "cluster": 14,
+    "preguntas": 126,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 170,
+    "materia": "Física",
+    "cluster": 15,
+    "preguntas": 180,
+    "secciones_completas": 7,
+    "secciones_totales": 7
+  },
+  {
+    "id": 171,
+    "materia": "Informática",
+    "cluster": 1,
+    "preguntas": 120,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 172,
+    "materia": "Informática",
+    "cluster": 2,
+    "preguntas": 122,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 173,
+    "materia": "Informática",
+    "cluster": 3,
+    "preguntas": 126,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 174,
+    "materia": "Informática",
+    "cluster": 4,
+    "preguntas": 126,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 175,
+    "materia": "Informática",
+    "cluster": 5,
+    "preguntas": 124,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 176,
+    "materia": "Informática",
+    "cluster": 6,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 177,
+    "materia": "Informática",
+    "cluster": 7,
+    "preguntas": 121,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 178,
+    "materia": "Informática",
+    "cluster": 8,
+    "preguntas": 118,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 179,
+    "materia": "Informática",
+    "cluster": 9,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 180,
+    "materia": "Informática",
+    "cluster": 10,
+    "preguntas": 120,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 181,
+    "materia": "Informática",
+    "cluster": 11,
+    "preguntas": 116,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 182,
+    "materia": "Informática",
+    "cluster": 12,
+    "preguntas": 97,
+    "secciones_completas": 4,
+    "secciones_totales": 4
+  },
+  {
+    "id": 183,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 184,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "preguntas": 150,
+    "secciones_completas": 6,
+    "secciones_totales": 6
+  },
+  {
+    "id": 185,
+    "materia": "Investigación",
+    "cluster": 1,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 186,
+    "materia": "Investigación",
+    "cluster": 2,
+    "preguntas": 168,
+    "secciones_completas": 7,
+    "secciones_totales": 7
+  },
+  {
+    "id": 187,
+    "materia": "Economía",
+    "cluster": 1,
+    "preguntas": 121,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 188,
+    "materia": "Economía",
+    "cluster": 2,
+    "preguntas": 116,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 189,
+    "materia": "Economía",
+    "cluster": 3,
+    "preguntas": 129,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 190,
+    "materia": "Economía",
+    "cluster": 4,
+    "preguntas": 114,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 191,
+    "materia": "Economía",
+    "cluster": 5,
+    "preguntas": 105,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 192,
+    "materia": "Economía",
+    "cluster": 6,
+    "preguntas": 110,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 193,
+    "materia": "Economía",
+    "cluster": 7,
+    "preguntas": 119,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 194,
+    "materia": "Economía",
+    "cluster": 8,
+    "preguntas": 123,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 195,
+    "materia": "Economía",
+    "cluster": 9,
+    "preguntas": 118,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 196,
+    "materia": "Economía",
+    "cluster": 10,
+    "preguntas": 119,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 197,
+    "materia": "Economía",
+    "cluster": 11,
+    "preguntas": 115,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 198,
+    "materia": "Economía",
+    "cluster": 12,
+    "preguntas": 118,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 199,
+    "materia": "Economía",
+    "cluster": 13,
+    "preguntas": 121,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 200,
+    "materia": "Economía",
+    "cluster": 14,
+    "preguntas": 103,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 201,
+    "materia": "Economía",
+    "cluster": 15,
+    "preguntas": 182,
+    "secciones_completas": 7,
+    "secciones_totales": 7
+  },
+  {
+    "id": 202,
+    "materia": "Derecho",
+    "cluster": 1,
+    "preguntas": 126,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 203,
+    "materia": "Derecho",
+    "cluster": 2,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 204,
+    "materia": "Derecho",
+    "cluster": 3,
+    "preguntas": 128,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 205,
+    "materia": "Derecho",
+    "cluster": 4,
+    "preguntas": 149,
+    "secciones_completas": 6,
+    "secciones_totales": 6
+  },
+  {
+    "id": 206,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 207,
+    "materia": "Psicología",
+    "cluster": 1,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 208,
+    "materia": "Psicología",
+    "cluster": 2,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 209,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "preguntas": 126,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 210,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "preguntas": 126,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 211,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "preguntas": 151,
+    "secciones_completas": 6,
+    "secciones_totales": 6
+  },
+  {
+    "id": 212,
+    "materia": "Automatización",
+    "cluster": 1,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 213,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 214,
+    "materia": "Arte",
+    "cluster": 1,
+    "preguntas": 127,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 215,
+    "materia": "Arte",
+    "cluster": 2,
+    "preguntas": 124,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 216,
+    "materia": "Arte",
+    "cluster": 3,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  }
+]

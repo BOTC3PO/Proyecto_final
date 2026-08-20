@@ -1,0 +1,5 @@
+Alessio: Hai sentito che il treno per Verona è in ritardo? Il biglietto lo abbiamo prenotato ieri, ma non sappiamo se partiremo in tempo.
+Lidia: Sì, ho letto l’annuncio. Purtroppo ci sono problemi con le linee ferroviarie. Però possiamo provare a prenotare un autobus invece. Che ne dici?
+Alessio: Forse è meglio. Non vogliamo arrivare troppo tardi al museo, no? Dobbiamo anche trovare un hotel.
+Estructura lógica: El uso de *però* indica una alternativa, mientras que *dobbiamo* expresa obligación.
+Contexto cultural: La mención del tren y el museo refleja situaciones típicas en Italia.

@@ -1,0 +1,3 @@
+Profesor: Este nuevo método de tratamiento puede reducir el tiempo de recuperación del paciente en un 30% frente a los métodos tradicionales.
+A: ¿Cuáles son los efectos específicos que tiene?
+B: En primer lugar, es posible reducir el riesgo quirúrgico.

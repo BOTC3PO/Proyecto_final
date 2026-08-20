@@ -1,0 +1,91 @@
+[
+  {
+    "id": 41,
+    "idioma": "Inglés",
+    "objetivo": "C1",
+    "nombre": "C1 English Certification",
+    "descripcion": "You passed the C1 level English certification exam.",
+    "icono": "🇬🇧"
+  },
+  {
+    "id": 42,
+    "idioma": "Alemán",
+    "objetivo": "C1",
+    "nombre": "C1 German Certification",
+    "descripcion": "You passed the C1 level German certification exam.",
+    "icono": "🇩🇪"
+  },
+  {
+    "id": 43,
+    "idioma": "Japonés",
+    "objetivo": "JLPT N1",
+    "nombre": "JLPT N1 Japanese Certification",
+    "descripcion": "You passed the JLPT N1 level Japanese certification exam.",
+    "icono": "🇯🇵"
+  },
+  {
+    "id": 44,
+    "idioma": "Francés",
+    "objetivo": "C1",
+    "nombre": "C1 French Certification",
+    "descripcion": "You passed the C1 level French certification exam.",
+    "icono": "🇫🇷"
+  },
+  {
+    "id": 45,
+    "idioma": "Chino",
+    "objetivo": "HSK 5-6",
+    "nombre": "HSK 5-6 Chinese Certification",
+    "descripcion": "You passed the HSK 5-6 level Chinese certification exam.",
+    "icono": "🇨🇳"
+  },
+  {
+    "id": 46,
+    "idioma": "Italiano",
+    "objetivo": "C1",
+    "nombre": "C1 Italian Certification",
+    "descripcion": "You passed the C1 level Italian certification exam.",
+    "icono": "🇮🇹"
+  },
+  {
+    "id": 47,
+    "idioma": "Coreano",
+    "objetivo": "TOPIK II",
+    "nombre": "TOPIK II Korean Certification",
+    "descripcion": "You passed the TOPIK II level Korean certification exam.",
+    "icono": "🇰🇷"
+  },
+  {
+    "id": 48,
+    "idioma": "Portugués BR",
+    "objetivo": "C1",
+    "nombre": "C1 Brazilian Portuguese Certification",
+    "descripcion": "You passed the C1 level Brazilian Portuguese certification exam.",
+    "icono": "🇧🇷"
+  },
+  {
+    "id": 49,
+    "idioma": "Portugués PT",
+    "objetivo": "C1",
+    "nombre": "C1 European Portuguese Certification",
+    "descripcion": "You passed the C1 level European Portuguese certification exam.",
+    "icono": "🇵🇹"
+  },
+  {
+    "id": 50,
+    "idioma": "Esperanto",
+    "objetivo": "C1",
+    "nombre": "C1 Esperanto Certification",
+    "descripcion": "You passed the C1 level Esperanto certification exam.",
+    "icono": "🟢"
+  },
+  {
+    "id": 51,
+    "idioma": null,
+    "objetivo": null,
+    "nombre": "Polyglot",
+    "descripcion": "You completed the certifications for all 10 languages on the map.",
+    "icono": "🌐",
+    "meta": true
+  }
+]

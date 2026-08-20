@@ -1,0 +1,5 @@
+Viajero: Bonvorton, ĉu vi povas helpi min?
+Local: Sedon, kion vi serĉas?
+Viajero: Mi serĉas la stacionaron.
+Local: La stacionaro estas proksime. Vi devas iri rekte kaj turni maldekstre ĉe la unua kruciro.
+Viajero: Danke, ĝis tiam.

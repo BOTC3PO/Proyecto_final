@@ -1,0 +1,3 @@
+A: La lastaj testoj montras ke la novaj materialoj povas toleri temperaturon de 1000°C, sed nur se ili estas protektitaj per specifaj kovroj.
+B: Tamen, kiuj kovroj estis uzitaj en la plej proksima testo?
+A: Estis uzitaj kovroj el nikel-kobalto, kiuj ne nur protektas, sed ankaŭ plifortigas la konduktecon de la materialoj.

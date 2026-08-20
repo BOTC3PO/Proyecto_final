@@ -1,0 +1,91 @@
+[
+  {
+    "id": 41,
+    "idioma": "Inglés",
+    "objetivo": "C1",
+    "nombre": "C1英会話認定",
+    "descripcion": "C1レベルの英会話認定試験に合格しました。",
+    "icono": "🇬🇧"
+  },
+  {
+    "id": 42,
+    "idioma": "Alemán",
+    "objetivo": "C1",
+    "nombre": "C1ドイツ語認定",
+    "descripcion": "C1レベルのドイツ語認定試験に合格しました。",
+    "icono": "🇩🇪"
+  },
+  {
+    "id": 43,
+    "idioma": "Japonés",
+    "objetivo": "JLPT N1",
+    "nombre": "JLPT N1日本語認定",
+    "descripcion": "JLPT N1レベルの日本語認定試験に合格しました。",
+    "icono": "🇯🇵"
+  },
+  {
+    "id": 44,
+    "idioma": "Francés",
+    "objetivo": "C1",
+    "nombre": "C1フランス語認定",
+    "descripcion": "C1レベルのフランス語認定試験に合格しました。",
+    "icono": "🇫🇷"
+  },
+  {
+    "id": 45,
+    "idioma": "Chino",
+    "objetivo": "HSK 5-6",
+    "nombre": "HSK 5-6中国語認定",
+    "descripcion": "HSK 5-6レベルの中国語認定試験に合格しました。",
+    "icono": "🇨🇳"
+  },
+  {
+    "id": 46,
+    "idioma": "Italiano",
+    "objetivo": "C1",
+    "nombre": "C1イタリア語認定",
+    "descripcion": "C1レベルのイタリア語認定試験に合格しました。",
+    "icono": "🇮🇹"
+  },
+  {
+    "id": 47,
+    "idioma": "Coreano",
+    "objetivo": "TOPIK II",
+    "nombre": "TOPIK II韓国語認定",
+    "descripcion": "TOPIK IIレベルの韓国語認定試験に合格しました。",
+    "icono": "🇰🇷"
+  },
+  {
+    "id": 48,
+    "idioma": "Portugués BR",
+    "objetivo": "C1",
+    "nombre": "C1ブラジルポルトガル語認定",
+    "descripcion": "C1レベルのブラジルポルトガル語認定試験に合格しました。",
+    "icono": "🇧🇷"
+  },
+  {
+    "id": 49,
+    "idioma": "Portugués PT",
+    "objetivo": "C1",
+    "nombre": "C1ポルトガル語（ポルトガル）認定",
+    "descripcion": "C1レベルのポルトガル語（ポルトガル）認定試験に合格しました。",
+    "icono": "🇵🇹"
+  },
+  {
+    "id": 50,
+    "idioma": "Esperanto",
+    "objetivo": "C1",
+    "nombre": "C1エスペラント認定",
+    "descripcion": "C1レベルのエスペラント認定試験に合格しました。",
+    "icono": "🟢"
+  },
+  {
+    "id": 51,
+    "idioma": null,
+    "objetivo": null,
+    "nombre": "ポリグロット",
+    "descripcion": "地図上の10言語の認定をすべて完了しました。",
+    "icono": "🌐",
+    "meta": true
+  }
+]

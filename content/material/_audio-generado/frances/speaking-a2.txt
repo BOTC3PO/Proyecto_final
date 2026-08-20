@@ -1,0 +1,6 @@
+Clara: Bonjour! Je m’appelle Clara. Et vous? *(Hola! Me llamo Clara. ¿Y usted?)
+Cliente: Bonjour, Clara. Je m’appelle Luc. *(Hola, Clara. Me llamo Luc.)
+Clara: Vous avez faim? *(¿Tiene hambre?)
+Cliente: Oui, un peu. Je veux un croissant et un café, s’il vous plaît. *(Sí, un poco. Quiero un cruasán y un café, por favor.)
+Clara: D’accord. Et où est la salle de bain? *(De acuerdo. ¿Dónde está el baño?)
+Cliente: C’est à droite, près du comptoir. *(Está a la derecha, cerca del mostrador.)

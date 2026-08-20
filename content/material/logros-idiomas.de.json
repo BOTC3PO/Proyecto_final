@@ -1,0 +1,91 @@
+[
+  {
+    "id": 41,
+    "idioma": "Inglés",
+    "objetivo": "C1",
+    "nombre": "C1-Englischzertifikat",
+    "descripcion": "Du hast die C1-Englischzertifizierung bestanden.",
+    "icono": "🇬🇧"
+  },
+  {
+    "id": 42,
+    "idioma": "Alemán",
+    "objetivo": "C1",
+    "nombre": "C1-Deutschzertifikat",
+    "descripcion": "Du hast die C1-Deutschzertifizierung bestanden.",
+    "icono": "🇩🇪"
+  },
+  {
+    "id": 43,
+    "idioma": "Japonés",
+    "objetivo": "JLPT N1",
+    "nombre": "JLPT N1-Japanischzertifikat",
+    "descripcion": "Du hast die JLPT N1-Japanischzertifizierung bestanden.",
+    "icono": "🇯🇵"
+  },
+  {
+    "id": 44,
+    "idioma": "Francés",
+    "objetivo": "C1",
+    "nombre": "C1-Französischzertifikat",
+    "descripcion": "Du hast die C1-Französischzertifizierung bestanden.",
+    "icono": "🇫🇷"
+  },
+  {
+    "id": 45,
+    "idioma": "Chino",
+    "objetivo": "HSK 5-6",
+    "nombre": "HSK 5-6-Chinesischzertifikat",
+    "descripcion": "Du hast die HSK 5-6-Chinesischzertifizierung bestanden.",
+    "icono": "🇨🇳"
+  },
+  {
+    "id": 46,
+    "idioma": "Italiano",
+    "objetivo": "C1",
+    "nombre": "C1-Italienischzertifikat",
+    "descripcion": "Du hast die C1-Italienischzertifizierung bestanden.",
+    "icono": "🇮🇹"
+  },
+  {
+    "id": 47,
+    "idioma": "Coreano",
+    "objetivo": "TOPIK II",
+    "nombre": "TOPIK II-Koreanischzertifikat",
+    "descripcion": "Du hast die TOPIK II-Koreanischzertifizierung bestanden.",
+    "icono": "🇰🇷"
+  },
+  {
+    "id": 48,
+    "idioma": "Portugués BR",
+    "objetivo": "C1",
+    "nombre": "C1-Portugiesisch (Brasil) Zertifikat",
+    "descripcion": "Du hast die C1-Portugiesisch (Brasilien) Zertifizierung bestanden.",
+    "icono": "🇧🇷"
+  },
+  {
+    "id": 49,
+    "idioma": "Portugués PT",
+    "objetivo": "C1",
+    "nombre": "C1-Portugiesisch (Portugal) Zertifikat",
+    "descripcion": "Du hast die C1-Portugiesisch (Portugal) Zertifizierung bestanden.",
+    "icono": "🇵🇹"
+  },
+  {
+    "id": 50,
+    "idioma": "Esperanto",
+    "objetivo": "C1",
+    "nombre": "C1-Esperanto-Zertifikat",
+    "descripcion": "Du hast die C1-Esperanto-Zertifizierung bestanden.",
+    "icono": "🟢"
+  },
+  {
+    "id": 51,
+    "idioma": null,
+    "objetivo": null,
+    "nombre": "Polyglott",
+    "descripcion": "Du hast die Zertifizierung für alle 10 Sprachen auf der Karte abgeschlossen.",
+    "icono": "🌐",
+    "meta": true
+  }
+]

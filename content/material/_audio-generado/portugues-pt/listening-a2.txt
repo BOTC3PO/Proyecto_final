@@ -1,0 +1,4 @@
+Cliente: Bom dia! Posso pedir um pão de queijo?
+Vendedor: Claro! Quer com leite ou sem leite?
+Cliente: Com leite, por favor.
+Vendedor: Certo. Vai custar dois reais.

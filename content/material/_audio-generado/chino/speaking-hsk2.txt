@@ -1,0 +1,3 @@
+Turista: 请问，你们店几点开门？
+Vendedor: 我们店早上九点开门。
+Turista: 谢谢！

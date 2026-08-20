@@ -1,0 +1,91 @@
+[
+  {
+    "id": 41,
+    "idioma": "Inglés",
+    "objetivo": "C1",
+    "nombre": "C1 英语认证",
+    "descripcion": "已通过 C1 级别英语认证考试。",
+    "icono": "🇬🇧"
+  },
+  {
+    "id": 42,
+    "idioma": "Alemán",
+    "objetivo": "C1",
+    "nombre": "C1 德语认证",
+    "descripcion": "已通过 C1 级别德语认证考试。",
+    "icono": "🇩🇪"
+  },
+  {
+    "id": 43,
+    "idioma": "Japonés",
+    "objetivo": "JLPT N1",
+    "nombre": "JLPT N1 日语认证",
+    "descripcion": "已通过 JLPT N1 级别日语认证考试。",
+    "icono": "🇯🇵"
+  },
+  {
+    "id": 44,
+    "idioma": "Francés",
+    "objetivo": "C1",
+    "nombre": "C1 法语认证",
+    "descripcion": "已通过 C1 级别法语认证考试。",
+    "icono": "🇫🇷"
+  },
+  {
+    "id": 45,
+    "idioma": "Chino",
+    "objetivo": "HSK 5-6",
+    "nombre": "HSK 5-6 汉语认证",
+    "descripcion": "已通过 HSK 5-6 级别汉语认证考试。",
+    "icono": "🇨🇳"
+  },
+  {
+    "id": 46,
+    "idioma": "Italiano",
+    "objetivo": "C1",
+    "nombre": "C1 意大利语认证",
+    "descripcion": "已通过 C1 级别意大利语认证考试。",
+    "icono": "🇮🇹"
+  },
+  {
+    "id": 47,
+    "idioma": "Coreano",
+    "objetivo": "TOPIK II",
+    "nombre": "TOPIK II 韩语认证",
+    "descripcion": "已通过 TOPIK II 级别韩语认证考试。",
+    "icono": "🇰🇷"
+  },
+  {
+    "id": 48,
+    "idioma": "Portugués BR",
+    "objetivo": "C1",
+    "nombre": "C1 巴西葡萄牙语认证",
+    "descripcion": "已通过 C1 级别巴西葡萄牙语认证考试。",
+    "icono": "🇧🇷"
+  },
+  {
+    "id": 49,
+    "idioma": "Portugués PT",
+    "objetivo": "C1",
+    "nombre": "C1 欧洲葡萄牙语认证",
+    "descripcion": "已通过 C1 级别欧洲葡萄牙语认证考试。",
+    "icono": "🇵🇹"
+  },
+  {
+    "id": 50,
+    "idioma": "Esperanto",
+    "objetivo": "C1",
+    "nombre": "C1 世界语认证",
+    "descripcion": "已通过 C1 级别世界语认证考试。",
+    "icono": "🟢"
+  },
+  {
+    "id": 51,
+    "idioma": null,
+    "objetivo": null,
+    "nombre": "多语言达人",
+    "descripcion": "完成了地图中全部 10 种语言的认证。",
+    "icono": "🌐",
+    "meta": true
+  }
+]

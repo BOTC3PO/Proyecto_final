@@ -1,0 +1,91 @@
+[
+  {
+    "id": 41,
+    "idioma": "Inglés",
+    "objetivo": "C1",
+    "nombre": "Certification C1 en anglais",
+    "descripcion": "Vous avez réussi l'examen de certification d'anglais, niveau C1.",
+    "icono": "🇬🇧"
+  },
+  {
+    "id": 42,
+    "idioma": "Alemán",
+    "objetivo": "C1",
+    "nombre": "Certification C1 en allemand",
+    "descripcion": "Vous avez réussi l'examen de certification d'allemand, niveau C1.",
+    "icono": "🇩🇪"
+  },
+  {
+    "id": 43,
+    "idioma": "Japonés",
+    "objetivo": "JLPT N1",
+    "nombre": "Certification JLPT N1 en japonais",
+    "descripcion": "Vous avez réussi l'examen de certification de japonais, niveau JLPT N1.",
+    "icono": "🇯🇵"
+  },
+  {
+    "id": 44,
+    "idioma": "Francés",
+    "objetivo": "C1",
+    "nombre": "Certification C1 en français",
+    "descripcion": "Vous avez réussi l'examen de certification de français, niveau C1.",
+    "icono": "🇫🇷"
+  },
+  {
+    "id": 45,
+    "idioma": "Chino",
+    "objetivo": "HSK 5-6",
+    "nombre": "Certification HSK 5-6 en chinois",
+    "descripcion": "Vous avez réussi l'examen de certification de chinois, niveau HSK 5-6.",
+    "icono": "🇨🇳"
+  },
+  {
+    "id": 46,
+    "idioma": "Italiano",
+    "objetivo": "C1",
+    "nombre": "Certification C1 en italien",
+    "descripcion": "Vous avez réussi l'examen de certification d'italien, niveau C1.",
+    "icono": "🇮🇹"
+  },
+  {
+    "id": 47,
+    "idioma": "Coreano",
+    "objetivo": "TOPIK II",
+    "nombre": "Certification TOPIK II en coréen",
+    "descripcion": "Vous avez réussi l'examen de certification de coréen, niveau TOPIK II.",
+    "icono": "🇰🇷"
+  },
+  {
+    "id": 48,
+    "idioma": "Portugués BR",
+    "objetivo": "C1",
+    "nombre": "Certification C1 en portugais (Brésil)",
+    "descripcion": "Vous avez réussi l'examen de certification de portugais du Brésil, niveau C1.",
+    "icono": "🇧🇷"
+  },
+  {
+    "id": 49,
+    "idioma": "Portugués PT",
+    "objetivo": "C1",
+    "nombre": "Certification C1 en portugais (Portugal)",
+    "descripcion": "Vous avez réussi l'examen de certification de portugais du Portugal, niveau C1.",
+    "icono": "🇵🇹"
+  },
+  {
+    "id": 50,
+    "idioma": "Esperanto",
+    "objetivo": "C1",
+    "nombre": "Certification C1 en espéranto",
+    "descripcion": "Vous avez réussi l'examen de certification d'espéranto, niveau C1.",
+    "icono": "🟢"
+  },
+  {
+    "id": 51,
+    "idioma": null,
+    "objetivo": null,
+    "nombre": "Polyglotte",
+    "descripcion": "Vous avez obtenu la certification pour les 10 langues de la carte.",
+    "icono": "🌐",
+    "meta": true
+  }
+]

@@ -1,0 +1,4 @@
+Student: „Herr Professor, ich habe eine Frage zu der Arbeit. Darf ich sie stellen?“ *(Profesor, tengo una pregunta sobre el trabajo. ¿Puedo hacerla?)
+Professor: „Natürlich! Was ist es?“ *(¡Claro! ¿De qué se trata?)
+Student: „Ich verstehe nicht, wie ich die Quellen zitieren soll. Soll ich sie in der Arbeit erwähnen oder nur am Ende aufschreiben?“ *(No entiendo cómo citar las fuentes. ¿Las menciono en el trabajo o solo las escribo al final?)
+Professor: „Du musst sie im Text erwähnen und dann am Ende in einer Liste aufschreiben. Das ist die gängige Regel.“ *(Debes mencionarlas en el texto y luego anotarlas en una lista al final. Es la regla común.)

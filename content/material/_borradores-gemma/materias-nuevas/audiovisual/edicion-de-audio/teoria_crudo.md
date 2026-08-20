@@ -1,0 +1,11 @@
+# Edición de Audio Intermedia
+
+La edición de audio intermedia va más allá del recorte básico; se trata de limpiar, equilibrar y potenciar la señal para que la experiencia final sea profesional. En el ámbito audiovisual, un audio mal cuidado arruina la calidad visual, por eso es clave entender cómo procesar el sonido en programas como Audacity o Adobe Audition. No se trata solo de que se entienda qué se dice, sino de que el espectador no sienta fatiga auditiva por volúmenes erráticos o ruido de fondo molesto.
+
+El flujo central suele involucrar dos pasos técnicos: reducción de ruido y normalización. Para reducir ruido, seleccionás una zona corta con solo el fondo (sin voz), le dale a "Efectos" > "Reducir Ruido" y aplicas la configuración por defecto o ajustada según el perfil. Esto crea un filtro que elimina el zumbido constante. Luego, para que el volumen sea consistente entre pasajes de voz altos y bajos, usás el comando `Efecto` > `Normalizar`. Establecés un pico objetivo de -1 dB para evitar distorsión. Esto asegura que los pasajes bajos no se pierdan en la mezcla y los altos no saturen el canal.
+
+El error más común es abusar de la reducción de ruido, dejando el audio con ese efecto "robótico" o metálico que arruina la naturalidad. También ocurre normalizar hasta 0 dB, lo que provoca clippeo (onda roja) y distorsión audible en las frecuencias altas. Otros principiantes tienden a cortar mal los silencios, dejando chasquidos al unir segmentos de audio.
+
+Usalo siempre en podcasts, locuciones y videos narrativos donde la claridad es prioridad absoluta. No lo usés agresivamente en música o sonidos ambientales naturales si querés preservar la imperfección orgánica del entorno. Si el material ya es limpio, la edición excesiva solo resta carácter al proyecto final.
+
+Imaginá una entrevista grabada en un parque con viento. Importás el archivo WAV al editor. Seleccionás una pausa donde solo hay ruido de fondo, aplicás "Reducir Ruido" con 4 dB de atenuación para no afectar la voz humana

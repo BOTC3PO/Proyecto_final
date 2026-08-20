@@ -1,0 +1,4 @@
+Studente 1: Ciao! Che fai sabato?
+Studente 2: Sabato vado al cinema con gli amici, invece domenica resto a casa per studiare.
+Studente 1: Ah, ma non ti piace andare in montagna?
+Studente 2: A volte sì, però questa settimana ho tanti compiti. Dopo che finisco, vado di sicuro in montagna!

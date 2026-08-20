@@ -1,0 +1,4 @@
+A: 안녕하세요, 예약하셨나요?
+B: 네, 두 명으로 예약했습니다.
+A: 잠시 기다리세요. 자리가 준비되고 있어요.
+Contexto adicional: - El empleado menciona el **nombre del cliente** al confirmar la mesa
