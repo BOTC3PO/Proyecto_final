@@ -11,10 +11,13 @@ import {
 import {
   readStaticImage,
   writeStaticImage,
+  readAudio,
+  writeAudio,
   removeVisual,
 } from "../../components/vblang/plantillaFields";
 import { uploadPng } from "../../components/vblang/mediaApi";
 import { apiGet } from "../../lib/api";
+import { AudioBlockEditor } from "../../blocks/editors/AudioBlockEditor";
 
 export type VisualFieldProps = {
   plantilla: Plantilla;
@@ -25,6 +28,7 @@ export type VisualFieldProps = {
 const VISUAL_KIND_OPTS: { value: string; label: string }[] = [
   { value: "", label: "Ninguno" },
   { value: "static-image", label: "Imagen (PNG)" },
+  { value: "audio", label: "Audio (MP3)" },
   { value: "line-chart", label: "Gráfico de líneas" },
   { value: "timeline", label: "Línea de tiempo" },
   { value: "latex", label: "Fórmula (LaTeX)" },
@@ -172,6 +176,36 @@ function VisualPngEditor({
           </Button>
         )}
       </div>
+    </div>
+  );
+}
+
+/** Reusa `AudioBlockEditor` (apps/web/src/blocks/editors/) tal cual — mismo
+ * shape de datos que `AudioSpec`, sólo adaptamos la lectura/escritura al AST
+ * de la plantilla en vez de a un `BlockDocument`. */
+function VisualAudioEditor({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const current = readAudio(plantilla) ?? { url: "", alt: "", caption: undefined, mimeType: undefined };
+  const audioCargado = current.url.trim() !== "";
+
+  return (
+    <div style={colStyle}>
+      <AudioBlockEditor
+        block={{ id: "vs-audio", type: "audio", ...current }}
+        onUpdate={(patch) =>
+          onChange(writeAudio(plantilla, { ...current, ...(patch as Partial<typeof current>) }))
+        }
+      />
+      {audioCargado && (
+        <Button variant="danger" size="sm" onClick={() => onChange(removeVisual(plantilla))}>
+          Quitar audio
+        </Button>
+      )}
     </div>
   );
 }
@@ -780,6 +814,10 @@ export default function VisualField({
       onChange(writeStaticImage(plantilla, { src: "", alt: "" }));
       return;
     }
+    if (next === "audio") {
+      onChange(writeAudio(plantilla, { url: "", alt: "" }));
+      return;
+    }
     onChange(writeVisualRaw(plantilla, seedVisual(next)));
   };
 
@@ -809,6 +847,9 @@ export default function VisualField({
           onChange={onChange}
           uploadImage={uploadImage}
         />
+      )}
+      {kind === "audio" && (
+        <VisualAudioEditor plantilla={plantilla} onChange={onChange} />
       )}
       {kind === "line-chart" && (
         <LineChartEditor plantilla={plantilla} onChange={onChange} />

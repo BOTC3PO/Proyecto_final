@@ -11,7 +11,7 @@
  * `ModuleQuizQuestion.visualSpec` y el `VisualizerRenderer` lo dibuja.
  *
  * Defensivo: devuelve `undefined` si no hay visual, si el `kind` no es uno de
- * los 6 soportados, o si falta el campo requerido del kind (no emite un spec
+ * los 7 soportados, o si falta el campo requerido del kind (no emite un spec
  * roto que reventaría el renderer).
  */
 import type { CampoKV } from "../parser/ast.js";
@@ -45,6 +45,10 @@ export function camposToVisualSpec(
       return Array.isArray(raw.vectors) ? (raw as unknown as VisualSpec) : undefined;
     case "circuit":
       return Array.isArray(raw.elements) ? (raw as unknown as VisualSpec) : undefined;
+    case "audio":
+      return typeof raw.url === "string" && typeof raw.alt === "string"
+        ? (raw as unknown as VisualSpec)
+        : undefined;
     default:
       return undefined;
   }

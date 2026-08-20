@@ -78,6 +78,7 @@ import {
   readPista,
   readPuntaje,
   readStaticImage,
+  readAudio,
   readSpans,
   readTextField,
   removeVisual,
@@ -93,10 +94,12 @@ import {
   writePuntaje,
   writeSpans,
   writeStaticImage,
+  writeAudio,
   writeTextField,
   type EtiquetaRow,
   type SpanRow,
 } from "./plantillaFields";
+import { AudioBlockEditor } from "../../blocks/editors/AudioBlockEditor";
 import { getGeneradorProvidedVars } from "../../vblang/generadorVars";
 // VB-B5 — errores de lint a nivel campo. El panel general sigue
 // mostrándose; este módulo solo agrega el badge inline en el campo
@@ -588,6 +591,7 @@ function SpanRowEditor({
 const VISUAL_KIND_OPTS: { value: string; label: string }[] = [
   { value: "", label: "Ninguno" },
   { value: "static-image", label: "Imagen (PNG)" },
+  { value: "audio", label: "Audio (MP3)" },
   { value: "line-chart", label: "Gráfico de líneas" },
   { value: "timeline", label: "Línea de tiempo" },
   { value: "latex", label: "Fórmula (LaTeX)" },
@@ -677,6 +681,10 @@ function VisualField({
       onChange(writeStaticImage(plantilla, { src: "", alt: "" }));
       return;
     }
+    if (next === "audio") {
+      onChange(writeAudio(plantilla, { url: "", alt: "" }));
+      return;
+    }
     onChange(writeVisualRaw(plantilla, seedVisual(next)));
   };
 
@@ -713,6 +721,9 @@ function VisualField({
           onChange={onChange}
           uploadImage={uploadImage}
         />
+      )}
+      {kind === "audio" && (
+        <VisualAudioField plantilla={plantilla} onChange={onChange} />
       )}
       {kind === "line-chart" && (
         <LineChartField plantilla={plantilla} onChange={onChange} />
@@ -1315,6 +1326,41 @@ function VisualPngField({
           </button>
         )}
       </div>
+    </div>
+  );
+}
+
+/* ---------------- add-on Audio ---------------- */
+// Reusa `AudioBlockEditor` (apps/web/src/blocks/editors/) tal cual — mismo
+// shape de datos que `AudioSpec`, sólo adaptamos AST↔block.
+
+function VisualAudioField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const current = readAudio(plantilla) ?? { url: "", alt: "", caption: undefined, mimeType: undefined };
+  const audioCargado = current.url.trim() !== "";
+
+  return (
+    <div className="flex flex-col gap-2">
+      <AudioBlockEditor
+        block={{ id: "vs-audio", type: "audio", ...current }}
+        onUpdate={(patch) =>
+          onChange(writeAudio(plantilla, { ...current, ...(patch as Partial<typeof current>) }))
+        }
+      />
+      {audioCargado && (
+        <button
+          type="button"
+          onClick={() => onChange(removeVisual(plantilla))}
+          className="rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs text-red-600"
+        >
+          Quitar audio
+        </button>
+      )}
     </div>
   );
 }

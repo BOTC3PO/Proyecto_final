@@ -1075,3 +1075,46 @@ export function hasNonImageVisual(p: Plantilla): boolean {
   const kind = b.campos.find((c) => c.key === "kind")?.value;
   return !(kind?.kind === "str" && kind.value === "static-image");
 }
+
+/* ---------------- add-on visual: Audio ---------------- */
+// Mismo shape que `AudioSpec`/`AudioBlock` a propósito — permite reusar
+// `AudioBlockEditor`/`AudioBlockRenderer` (apps/web/src/blocks/) tal cual.
+
+export interface AudioValue {
+  url: string;
+  alt: string;
+  caption?: string;
+  mimeType?: string;
+}
+
+/** Lee el visual como audio, o `null` si no hay o no es audio. */
+export function readAudio(p: Plantilla): AudioValue | null {
+  const kind = visualCampo(p, "kind");
+  if (!(kind?.kind === "str" && kind.value === "audio")) return null;
+  const url = visualCampo(p, "url");
+  const alt = visualCampo(p, "alt");
+  const caption = visualCampo(p, "caption");
+  const mimeType = visualCampo(p, "mimeType");
+  return {
+    url: url?.kind === "str" ? url.value : "",
+    alt: alt?.kind === "str" ? alt.value : "",
+    caption: caption?.kind === "str" ? caption.value : undefined,
+    mimeType: mimeType?.kind === "str" ? mimeType.value : undefined,
+  };
+}
+
+/** Escribe (o reemplaza) el visual como audio. */
+export function writeAudio(p: Plantilla, v: AudioValue): Plantilla {
+  const campos = [
+    { key: "kind", value: strLit("audio"), loc: DUMMY_LOC },
+    { key: "url", value: strLit(v.url), loc: DUMMY_LOC },
+    { key: "alt", value: strLit(v.alt), loc: DUMMY_LOC },
+    ...(v.caption != null
+      ? [{ key: "caption", value: strLit(v.caption), loc: DUMMY_LOC }]
+      : []),
+    ...(v.mimeType != null
+      ? [{ key: "mimeType", value: strLit(v.mimeType), loc: DUMMY_LOC }]
+      : []),
+  ];
+  return withBlock(p, { kind: "visual", campos, loc: DUMMY_LOC });
+}

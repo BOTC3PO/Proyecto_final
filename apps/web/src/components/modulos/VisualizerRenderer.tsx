@@ -11,6 +11,7 @@ import {
 } from "recharts";
 
 import { useI18n } from "../../i18n/I18nContext";
+import { AudioBlockRenderer } from "../../blocks/renderers/AudioBlockRenderer";
 interface VisualizerRendererProps {
   spec: VisualSpec | undefined;
 }
@@ -219,6 +220,21 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
 
   if (spec.kind === "circuit") {
     return <CircuitDiagram elements={spec.elements} />;
+  }
+
+  if (spec.kind === "audio") {
+    return (
+      <AudioBlockRenderer
+        block={{
+          id: "vs-audio",
+          type: "audio",
+          url: spec.url,
+          alt: spec.alt,
+          caption: spec.caption,
+          mimeType: spec.mimeType,
+        }}
+      />
+    );
   }
 
   return null;

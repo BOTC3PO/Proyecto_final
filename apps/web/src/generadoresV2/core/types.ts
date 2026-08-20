@@ -22,6 +22,7 @@ export function ajustarRango(min: number, max: number, d: Dificultad, minFloor =
 // VisualSpec y variantes viven ahora en @vb/vblang (Sprint 10B · B5) para que
 // el adapter del paquete pueda tiparlas sin importar desde apps/web.
 import type {
+  AudioSpec,
   CircuitSpec,
   LatexSpec,
   LineChartSpec,
@@ -31,6 +32,7 @@ import type {
   VisualSpec,
 } from "@vb/vblang";
 export type {
+  AudioSpec,
   CircuitSpec,
   LatexSpec,
   LineChartSpec,

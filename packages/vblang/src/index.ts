@@ -173,6 +173,7 @@ export type {
 } from "./schema/index.js";
 
 export type {
+  AudioSpec,
   CircuitSpec,
   LatexSpec,
   LineChartSpec,

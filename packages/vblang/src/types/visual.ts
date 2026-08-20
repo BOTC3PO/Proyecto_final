@@ -73,10 +73,24 @@ export interface LatexSpec {
   displayMode?: boolean;
 }
 
+/**
+ * Mismo shape que `AudioBlock` (apps/web/src/blocks/types.ts) a propósito —
+ * permite reusar `AudioBlockRenderer`/`AudioBlockEditor` tal cual en vez de
+ * duplicar lógica de audio para el sistema VisualSpec.
+ */
+export interface AudioSpec {
+  kind: "audio";
+  url: string;
+  alt: string;
+  caption?: string;
+  mimeType?: string;
+}
+
 export type VisualSpec =
   | LineChartSpec
   | VectorDiagramSpec
   | CircuitSpec
   | StaticImageSpec
   | TimelineSpec
-  | LatexSpec;
+  | LatexSpec
+  | AudioSpec;

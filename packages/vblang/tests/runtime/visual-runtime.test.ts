@@ -14,7 +14,7 @@ import { describe, expect, it } from "vitest";
 import { parse } from "../../src/parser/parser.js";
 import { compile } from "../../src/runtime/compile.js";
 import { generate } from "../../src/runtime/generate.js";
-import type { LineChartSpec } from "../../src/types/visual.js";
+import type { AudioSpec, LineChartSpec } from "../../src/types/visual.js";
 
 function gen(src: string) {
   return generate(compile(parse(src)), { seed: "wo4-seed" });
@@ -100,5 +100,40 @@ visual:
   title: "sin series"
 `);
     expect(sinSeries.visual).toBeUndefined();
+  });
+
+  it("emite audio nativo (mismo shape que AudioBlock, para reusar sus componentes)", () => {
+    const res = gen(`enunciado: "Escuchá el audio"
+respuesta: 1
+visual:
+  kind: "audio"
+  url: "/api/media/xyz.mp3"
+  alt: "Pronunciación de ejemplo"
+  caption: "Escuchá con atención"
+`);
+    expect(res.visual).toBeDefined();
+    const v = res.visual as AudioSpec;
+    expect(v.kind).toBe("audio");
+    expect(v.url).toBe("/api/media/xyz.mp3");
+    expect(v.alt).toBe("Pronunciación de ejemplo");
+    expect(v.caption).toBe("Escuchá con atención");
+  });
+
+  it("audio sin `url` o sin `alt` → undefined (no rompe el render)", () => {
+    const sinUrl = gen(`enunciado: "x"
+respuesta: 1
+visual:
+  kind: "audio"
+  alt: "sin url"
+`);
+    expect(sinUrl.visual).toBeUndefined();
+
+    const sinAlt = gen(`enunciado: "x"
+respuesta: 1
+visual:
+  kind: "audio"
+  url: "/api/media/xyz.mp3"
+`);
+    expect(sinAlt.visual).toBeUndefined();
   });
 });
