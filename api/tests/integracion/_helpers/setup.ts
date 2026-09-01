@@ -115,6 +115,8 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.publicacion.rows = [];
   prisma.comentario.rows = [];
   prisma.moderacionEvento.rows = [];
+  // F8 — refresh token rotation store.
+  prisma.refreshToken.rows = [];
   // PLAN-A §3 — asistencia.
   prisma.asistencia.rows = [];
   // PLAN-A §3.4 — log de eventos para reportes del padre.

@@ -9,7 +9,11 @@ export const RegisterSchema = z
     email: z.string().email(),
     fullName: z.string().min(3).max(120),
     password: z.string().min(6).max(256),
-    role: z.enum(["USER", "PARENT", "TEACHER", "DIRECTIVO", "GUEST"]).optional(),
+      // El registro público solo admite USER/PARENT/GUEST. Los roles de
+      // staff (TEACHER, DIRECTIVO, ADMIN_ESCUELA, ADMIN) deben asignarse
+      // únicamente vía invitación por un ADMIN/DIRECTIVO de la escuela
+      // (ver `POST /api/invitaciones`); nunca por auto-registro.
+      role: z.enum(["USER", "PARENT", "GUEST"]).optional(),
     teacherType: z.string().min(1).optional(),
     // Canonical field name.
     schoolId: objectIdString.nullish(),

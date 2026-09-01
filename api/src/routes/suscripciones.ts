@@ -239,7 +239,16 @@ suscripciones.post("/api/suscripciones/webhook", async (req, res) => {
   const xRequestId = String(req.headers["x-request-id"] ?? "");
   const dataId = String((req.query as Record<string, string>)["data.id"] ?? "");
 
-  if (!verificarWebhookMP(xSignature, xRequestId, dataId)) {
+  // verificarWebhookMP puede tirar (no MP_WEBHOOK_SECRET y
+  // MP_DEV_SKIP_SIGNATURE=false): eso también es firma inválida para
+  // el caller, no un 500.
+  let firmaOk = false;
+  try {
+    firmaOk = verificarWebhookMP(xSignature, xRequestId, dataId);
+  } catch {
+    firmaOk = false;
+  }
+  if (!firmaOk) {
     return res.status(401).json({ error: "firma inválida" });
   }
 

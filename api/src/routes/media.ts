@@ -63,7 +63,12 @@ const EXTENSION_BY_KIND: Record<MediaKind, string> = {
  * en magic bytes y tamaño.
  */
 const ACCEPTED_MIME: Record<MediaKind, RegExp> = {
-  image: /^image\/(png|jpe?g|webp|gif|svg\+xml)$/i,
+  // SVG queda explícitamente excluido: SVG es XML activo y permite
+  // <script>/onload. Sin un sanitizer server-side (DOMPurify/Worker)
+  // no podemos garantizar que un SVG subido no sea un payload XSS,
+  // y servirlo con `image/*` desde /api/media sin CSP/nosniff hace
+  // trivial el stored-XSS. Ver F-02.
+  image: /^image\/(png|jpe?g|webp|gif)$/i,
   audio: /^audio\/(mpeg|mp3|ogg|wav|x-wav|webm|aac|x-m4a|mp4)$/i,
   video: /^video\/(mp4|webm|ogg|quicktime)$/i,
   pdf: /^application\/pdf$/i,
@@ -202,10 +207,9 @@ export function inspectMediaUpload(
       error: `Content-Type "${declaredMime}" no válido para ${kind}`,
     };
   }
-  // Verificamos magic bytes para todos los kinds. SVG es texto — no se
-  // puede validar por firma, pero no aceptamos SVG en audio/video/pdf
-  // (es un riesgo de XSS). Para "image" sí permitimos SVG, confiando
-  // en la cabecera Content-Type.
+  // Verificamos magic bytes para todos los kinds. SVG ya está excluido
+  // por ACCEPTED_MIME arriba, así que no necesitamos un caso especial
+  // acá.
   if (kind !== "image" || declaredMime !== "image/svg+xml") {
     const sig = SIGNATURES.find((s) => s.kind === kind);
     if (!sig || !sig.match(buf)) {
@@ -252,6 +256,16 @@ mediaRouter.get("/:archivo", async (req, res) => {
   }
   const mime = mimeForFile(archivo) ?? "application/octet-stream";
   res.setHeader("Content-Type", mime);
+  // Defensa contra MIME-sniffing: bloquea que el browser "adivine" un
+  // content-type distinto al servido (riesgo XSS vía polyglot). Ver F-02.
+  // NO forzamos `Content-Disposition: attachment` acá — SVG ya está
+  // excluido de ACCEPTED_MIME arriba (la única vía real de XSS por
+  // este endpoint), y el resto de los kinds (image/audio/video/pdf) se
+  // renderizan inline en el front real: AudioBlockRenderer usa
+  // `/api/media/:archivo` directo como `src` de un <audio>, lo mismo
+  // para <img>/<video>/PDFs embebidos. Forzar descarga rompería eso sin
+  // sumar defensa real ya que el vector estaba cerrado en el upload.
+  res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("Cache-Control", "public, max-age=86400");
   res.setHeader("Content-Length", String(content.length));
   res.send(content);

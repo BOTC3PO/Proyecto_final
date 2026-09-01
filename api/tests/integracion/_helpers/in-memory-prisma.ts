@@ -828,6 +828,10 @@ export class InMemoryPrisma {
   publicacion = new Table<Row>("publicacion");
   comentario = new Table<Row>("comentario");
   moderacionEvento = new Table<Row>("moderacionEvento");
+  // F8 — refresh token rotation store. El handler /api/auth/refresh
+  // hace `prisma.refreshToken.findUnique`, `.create`, `.update`,
+  // `.updateMany`. Mismas tablas genéricas que `suscripcion`.
+  refreshToken = new Table<Row>("refreshToken");
   // PLAN-A §3 — persistencia de asistencia (routes/asistencia.ts).
   asistencia = new Table<Row>("asistencia");
   // PLAN-A §3.4 — log de eventos para reportes del padre (routes/asistencia.ts).

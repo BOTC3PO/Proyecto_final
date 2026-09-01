@@ -83,32 +83,73 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
       return;
     }
     const parsed = BootstrapAdminRequestSchema.parse(req.body ?? {});
-    const existingAdmin = await prisma.usuario.findFirst({ where: { roles: { has: "ADMIN" } } });
-    if (existingAdmin) {
-      res.status(409).json({ error: "Admin already exists" });
+    // TOCTOU guard: dos POSTs concurrentes pueden pasar el findFirst antes
+    // de que el otro commitee. Envolvemos findFirst+create en una
+    // transacción serializable de Prisma (SSI en Postgres), re-checamos
+    // adentro, y atrapamos la violación de unicidad como red de seguridad
+    // (a complementarse con un índice único parcial sobre esAdminPrincipal
+    // = true vía migración).
+    const now = new Date().toISOString();
+    const MAX_BOOTSTRAP_RETRIES = 3;
+    let result: { id: string } | null = null;
+    for (let attempt = 0; attempt < MAX_BOOTSTRAP_RETRIES; attempt++) {
+      try {
+        result = await prisma.$transaction(
+          async (tx) => {
+            const existingAdmin = await tx.usuario.findFirst({
+              where: { roles: { has: "ADMIN" } }
+            });
+            if (existingAdmin) {
+              const err: any = new Error("Admin already exists");
+              (err as any).__bootstrap_status = 409;
+              throw err;
+            }
+            return tx.usuario.create({
+              data: {
+                id: crypto.randomUUID(),
+                username: parsed.username,
+                email: parsed.email,
+                fullName: parsed.fullName,
+                // Este endpoint sólo corre cuando NO existe ningún admin
+                // (ver el 409 de arriba): quien lo usa ES el admin principal.
+                roles: ["ADMIN"],
+                esAdminPrincipal: true,
+                passwordHash: hashPassword(parsed.password),
+                isDeleted: false,
+                createdAt: now,
+                updatedAt: now
+              }
+            });
+          },
+          { isolationLevel: "Serializable" }
+        );
+        break;
+      } catch (e: any) {
+        // Único constraint (P2002) en esAdminPrincipal — el otro POST ganó.
+        if (e?.code === "P2002") {
+          res.status(409).json({ error: "Admin already exists" });
+          return;
+        }
+        // Error de serialización SSI (40001) — reintentar.
+        if (e?.code === "P2034" || e?.message?.includes("could not serialize")) {
+          continue;
+        }
+        // 409 lógico (existingAdmin dentro de la tx).
+        if (e?.__bootstrap_status === 409) {
+          res.status(409).json({ error: "Admin already exists" });
+          return;
+        }
+        throw e;
+      }
+    }
+    if (!result) {
+      res.status(503).json({ error: "Bootstrap contention, retry later" });
       return;
     }
-    const now = new Date().toISOString();
-    const result = await prisma.usuario.create({
-      data: {
-        id: crypto.randomUUID(),
-        username: parsed.username,
-        email: parsed.email,
-        fullName: parsed.fullName,
-        // Este endpoint sólo corre cuando NO existe ningún admin (ver el
-        // 409 de arriba): quien lo usa ES el admin principal.
-        roles: ["ADMIN"],
-        esAdminPrincipal: true,
-        passwordHash: hashPassword(parsed.password),
-        isDeleted: false,
-        createdAt: now,
-        updatedAt: now
-      }
-    });
     // FASE 1 — provisionar espejo alumno para el staff recién creado.
     // Best-effort: un fallo no rompe el alta. ADMIN sin escuela puede
     // quedar con espejo sin membresia (consistente con el modelo).
-    res.status(201).json({ id: result.id });
+    res.status(201).json({ id: result!.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -303,6 +344,17 @@ auth.post("/api/auth/guest", authLimiter, async (req, res) => {
       fullName
     });
     const refreshToken = createRefreshToken({ id: result.id.toString() });
+    if (refreshToken?.jti) {
+      await prisma.refreshToken.create({
+        data: {
+          jti: refreshToken.jti,
+          userId: result.id.toString(),
+          familyId: refreshToken.familyId,
+          revoked: false,
+          expiresAt: new Date(refreshToken.expiresAt)
+        }
+      });
+    }
     res.status(201).json({
       id: result.id,
       username,
@@ -419,6 +471,33 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
       return;
     }
 
+    // F8 — refresh token rotation. El JWT debe traer `jti` y
+    // `familyId`; sin ellos el token es de la era pre-rotación y se
+    // rechaza (rotar JWT_REFRESH_SECRET cierra esa puerta).
+    const presentedJti = verification.payload.jti;
+    const presentedFamilyId = verification.payload.familyId;
+    if (!presentedJti || !presentedFamilyId) {
+      res.status(401).json({ error: "Refresh token predates rotation tracking; please log in again" });
+      return;
+    }
+
+    const presented = await prisma.refreshToken.findUnique({ where: { jti: presentedJti } });
+    if (!presented) {
+      res.status(401).json({ error: "Refresh token not recognized" });
+      return;
+    }
+
+    // Reuse detection: este `jti` ya estaba marcado `revoked`. Asumimos
+    // compromiso y revocamos TODA la familia.
+    if (presented.revoked) {
+      await prisma.refreshToken.updateMany({
+        where: { familyId: presentedFamilyId, revoked: false },
+        data: { revoked: true }
+      });
+      res.status(401).json({ error: "Refresh token reuse detected; session revoked" });
+      return;
+    }
+
     // PLAN-multirol Fase 2 — el refresh reevalúa la sesión contra
     // `Membresia`: si le revocaron un rol o lo sacaron de una escuela, el
     // token nuevo ya no lo lleva.
@@ -434,7 +513,34 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
       fullName: user.fullName ?? null
     });
 
-    const nextRefreshToken = createRefreshToken({ id: user.id.toString() });
+    // Rotación: emitimos el refresh NUEVO con nuevo `jti` y misma
+    // `familyId`. Si el INSERT del nuevo falla NO marcamos el viejo
+    // como usado → el cliente puede reintentar.
+    const nextRefreshToken = createRefreshToken({
+      id: user.id.toString(),
+      familyId: presentedFamilyId
+    });
+
+    try {
+      if (nextRefreshToken?.jti) {
+        await prisma.refreshToken.create({
+          data: {
+            jti: nextRefreshToken.jti,
+            userId: user.id.toString(),
+            familyId: presentedFamilyId,
+            revoked: false,
+            expiresAt: new Date(nextRefreshToken.expiresAt)
+          }
+        });
+        await prisma.refreshToken.update({
+          where: { jti: presentedJti },
+          data: { revoked: true, replacedBy: nextRefreshToken.jti }
+        });
+      }
+    } catch (e) {
+      res.status(500).json({ error: "Could not rotate refresh token" });
+      return;
+    }
 
     res.status(200).json({
       accessToken: accessToken.token,
@@ -579,6 +685,17 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       fullName: user.fullName ?? null
     });
     const refreshToken = createRefreshToken({ id: user.id.toString() });
+    if (refreshToken?.jti) {
+      await prisma.refreshToken.create({
+        data: {
+          jti: refreshToken.jti,
+          userId: user.id.toString(),
+          familyId: refreshToken.familyId,
+          revoked: false,
+          expiresAt: new Date(refreshToken.expiresAt)
+        }
+      });
+    }
     res.status(200).json({
       id: user.id,
       username: user.username,

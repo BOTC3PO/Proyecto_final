@@ -91,7 +91,12 @@ test("registro con role=USER acredita 50 (default) con movimiento de ledger", as
   assert.equal(saldo?.saldo, 50);
 });
 
-test("registro con role=TEACHER no acredita saldo inicial (no es alumno)", async () => {
+test("registro con role=TEACHER se rechaza (self-registro de staff, fix vuln-0002)", async () => {
+  // El auto-registro público sólo admite USER/PARENT/GUEST desde el
+  // hardening de Strix (ver RegisterSchema en api/src/schema/auth.ts):
+  // TEACHER/DIRECTIVO sólo se asignan vía invitación de un ADMIN/DIRECTIVO
+  // (POST /api/invitaciones), nunca por auto-registro. Este test antes
+  // esperaba 201 (el propio bug que se corrigió); ahora valida el fix.
   const r = await register({
     email: "nuevoprofe@test.local",
     username: "nuevoprofe",
@@ -100,12 +105,7 @@ test("registro con role=TEACHER no acredita saldo inicial (no es alumno)", async
     role: "TEACHER",
     schoolId: ESC
   });
-  assert.equal(r.status, 201, JSON.stringify(r.body));
-  const userId = (r.body as { id: string }).id;
-  const movimiento = prisma.economiaTransaccion.rows.find((t) => t.usuarioId === userId);
-  assert.equal(movimiento, undefined);
-  const saldo = prisma.economiaSaldo.rows.find((s) => s.usuarioId === userId);
-  assert.equal(saldo, undefined);
+  assert.equal(r.status, 400, JSON.stringify(r.body));
 });
 
 test("el guest también recibe el saldo de bienvenida", async () => {

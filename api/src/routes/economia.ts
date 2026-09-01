@@ -1379,6 +1379,9 @@ economia.get("/api/economia/examenes/:id/pujas", async (req, res) => {
 economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = PujaExamenCreateSchema.parse({ ...req.body, examenId: req.params.id });
+    const callerId = req.user?._id ? req.user._id.toString() : "";
+    if (!callerId) return res.status(401).json({ error: "unauthenticated" });
+    parsed.usuarioId = callerId;
     const examenRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id as string } });
     if (!examenRow) return res.status(404).json({ error: "examen not found" });
     const examen: ExamenDoc = JSON.parse(examenRow.json);

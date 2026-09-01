@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { randomUUID } from "crypto";
 import { prisma } from "../lib/prisma";
+import { Prisma } from "@prisma/client";
 import { requireUser } from "../lib/user-auth";
 import {
   QuizAttemptAnswerSchema,
@@ -1212,39 +1213,74 @@ quizAttempts.post(
     const intentoPolicy: IntentoPolicy = parseIntentoPolicy(version.settings, quizTipoLectura);
     // WO-3b — leer timerSegundos para devolver deadline al front.
     const evalConfig = parseEvaluacionConfig(version.settings, quizTipoLectura);
-    const intentosPrevios = await prisma.quizAttempt.findMany({
-      where: { quizId: payload.quizId, userId }
-    });
-    const limite = validarLimiteIntentos(
-      contarIntentosPrevios(intentosPrevios, userId, payload.quizId),
-      intentoPolicy.maxIntentos
-    );
-    if (!limite.allowed) {
+    // Capturamos `version.id` ya narrow-eado por el guard anterior; el closure
+    // de `$transaction` no preserva el type-narrowing por sí solo.
+    const quizVersionId = version.id;
+    // CWE-362 (race condition) fix: el findMany + validarLimiteIntentos + create
+    // es un read-modify-write no atómico. Bajo concurrencia (POST paralelos con
+    // el mismo userId/quizId) ambos requests ven 0 intentos previos y crean filas
+    // duplicadas, saltándose `maxIntentos`. Envolvemos la lectura y la escritura
+    // en `prisma.$transaction` con aislamiento `Serializable`: Postgres detecta
+    // el conflicto de inserción concurrente y aborta una de las dos con P2034,
+    // que mapeamos a 409 para que el cliente reintente. Adicionalmente derivamos
+    // `attemptNo` = `intentosPrevios + 1` para que el campo refleje el orden real.
+    type _IntentoCreateOutcome =
+      | { ok: true; result: Awaited<ReturnType<typeof prisma.quizAttempt.create>>; intentosPrevios: Awaited<ReturnType<typeof prisma.quizAttempt.findMany>> }
+      | { ok: false; rejected: { reason: string; code: string; maxIntentos: number | null; intentosPrevios: number } };
+    let createOutcome: _IntentoCreateOutcome;
+    try {
+      createOutcome = await prisma.$transaction(async (tx) => {
+        const prev = await tx.quizAttempt.findMany({
+          where: { quizId: payload.quizId, userId }
+        });
+        const lim = validarLimiteIntentos(
+          contarIntentosPrevios(prev, userId, payload.quizId),
+          intentoPolicy.maxIntentos
+        );
+        if (!lim.allowed) {
+          return { ok: false as const, rejected: lim };
+        }
+        const created = await tx.quizAttempt.create({
+          data: {
+            id: randomUUID(),
+            quizId: payload.quizId,
+            quizVersionId,
+            userId,
+            seed: seed !== null ? String(seed) : null,
+            answers: JSON.stringify({}),
+            feedback: JSON.stringify({}),
+            score: 0,
+            maxScore,
+            status: "in_progress",
+            startedAt: now.toISOString(),
+            submittedAt: null,
+            attemptNo: contarIntentosPrevios(prev, userId, payload.quizId) + 1,
+            seedPolicy: quiz.seedPolicy !== undefined ? Number(quiz.seedPolicy) : undefined,
+          }
+        });
+        return { ok: true as const, result: created, intentosPrevios: prev };
+      }, { isolationLevel: Prisma.TransactionIsolationLevel.Serializable, timeout: 15000 });
+    } catch (e: unknown) {
+      const code = (e as { code?: string } | null)?.code;
+      if (code === "P2034") {
+        return res.status(409).json({
+          error: "Conflicto al crear el intento. Reintentá la operación.",
+          code: "quiz_attempt_concurrent_create"
+        });
+      }
+      throw e;
+    }
+    if (!createOutcome.ok) {
+      const rej = createOutcome.rejected;
       return res.status(403).json({
-        error: limite.reason,
-        code: limite.code,
-        maxIntentos: limite.maxIntentos,
-        intentosPrevios: limite.intentosPrevios
+        error: rej.reason,
+        code: rej.code,
+        maxIntentos: rej.maxIntentos,
+        intentosPrevios: rej.intentosPrevios
       });
     }
-    const result = await prisma.quizAttempt.create({
-      data: {
-        id: randomUUID(),
-        quizId: payload.quizId,
-        quizVersionId: version.id,
-        userId,
-        seed: seed !== null ? String(seed) : null,
-        answers: JSON.stringify({}),
-        feedback: JSON.stringify({}),
-        score: 0,
-        maxScore,
-        status: "in_progress",
-        startedAt: now.toISOString(),
-        submittedAt: null,
-        attemptNo: 1,
-        seedPolicy: quiz.seedPolicy !== undefined ? Number(quiz.seedPolicy) : undefined,
-      }
-    });
+    const result = createOutcome.result;
+    const intentosPrevios = createOutcome.intentosPrevios;
     // WO-3b — deadline del intento (null si no hay timer).
     const deadline = calcularDeadline(now, evalConfig.timerSegundos);
 

@@ -96,14 +96,14 @@ test("POST create con sourceUrl http:// → 400 (sólo HTTPS)", async () => {
       nombre: "malo",
       visibility: "privada",
       columnas: COLUMNAS,
-      sourceUrl: "http://ejemplo.com/x.csv",
+      sourceUrl: "http://example.com/x.csv",
     },
   });
   assert.equal(r.status, 400);
 });
 
 test("refresh CSV: reemplaza filas y coerciona tipos", async () => {
-  const id = await crearDataset("https://ejemplo.com/paises.csv");
+  const id = await crearDataset("https://example.com/paises.csv");
   stubFetch("pais,poblacion\nArgentina,47\nChile,19\n", "text/csv");
   const r = await jsonRequest(baseUrl, "POST", `/api/vblang/datasets/${id}/refresh`, {
     token: t1(),
@@ -121,12 +121,12 @@ test("refresh CSV: reemplaza filas y coerciona tipos", async () => {
   assert.deepEqual(filas[0].datos, { pais: "Argentina", poblacion: 47 });
   assert.equal(
     (detail.body as { sourceUrl?: string }).sourceUrl,
-    "https://ejemplo.com/paises.csv",
+    "https://example.com/paises.csv",
   );
 });
 
 test("refresh JSON: acepta array de objetos", async () => {
-  const id = await crearDataset("https://ejemplo.com/paises.json");
+  const id = await crearDataset("https://example.com/paises.json");
   stubFetch(
     JSON.stringify([{ pais: "Peru", poblacion: 33 }]),
     "application/json",
@@ -149,7 +149,7 @@ test("refresh sin sourceUrl → 400", async () => {
 });
 
 test("refresh por no-owner → 403", async () => {
-  const id = await crearDataset("https://ejemplo.com/paises.csv");
+  const id = await crearDataset("https://example.com/paises.csv");
   const r = await jsonRequest(baseUrl, "POST", `/api/vblang/datasets/${id}/refresh`, {
     token: t2(),
     body: {},
@@ -158,7 +158,7 @@ test("refresh por no-owner → 403", async () => {
 });
 
 test("refresh con columnas que no matchean → 422 y conserva filas viejas", async () => {
-  const id = await crearDataset("https://ejemplo.com/paises.csv");
+  const id = await crearDataset("https://example.com/paises.csv");
   stubFetch("otra,cosa\nx,y\n", "text/csv");
   const r = await jsonRequest(baseUrl, "POST", `/api/vblang/datasets/${id}/refresh`, {
     token: t1(),
@@ -188,7 +188,7 @@ test("refresh contra host interno → 422 sin fetch", async () => {
 });
 
 test("PUT sourceUrl null borra la URL", async () => {
-  const id = await crearDataset("https://ejemplo.com/paises.csv");
+  const id = await crearDataset("https://example.com/paises.csv");
   const r = await jsonRequest(baseUrl, "PUT", `/api/vblang/datasets/${id}`, {
     token: t1(),
     body: { sourceUrl: null },

@@ -115,7 +115,12 @@ app.use((req, res, next) => {
   res.setHeader("Cache-Control", "no-cache");
   next();
 });
-app.use(helmet({ contentSecurityPolicy: false }));
+// Helmet con defaults: X-Content-Type-Options: nosniff,
+// X-Frame-Options: SAMEORIGIN, Strict-Transport-Security, y un CSP
+// estricto (`default-src 'self'`) que blinda contra XSS inline
+// incluso si un asset servido por /api/media filtrase contenido
+// activo. CSP estaba apagado explícitamente — lo activamos (F-02).
+app.use(helmet());
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
 app.use(morgan("tiny"));
 app.use("/api/payments/webhook", express.raw({ type: "application/json" }));

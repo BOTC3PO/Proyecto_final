@@ -1579,3 +1579,29 @@ model PushToken {
   @@map("push_tokens")
   @@index([userId])
 }
+
+// F8 — refresh token rotation. Cada refresh JWT firmado lleva un
+// `jti` único; el servidor persiste una fila por `jti` vivo. En
+// /api/auth/refresh se busca por `jti`, se marca `revoked=true` y
+// se emite un refresh NUEVO con `jti` nuevo y `replacedBy` apuntando
+// al viejo. Si el mismo `jti` se presenta DOS veces → reuse detection:
+// se asume compromiso y se revocan TODAS las filas de la misma
+// `familyId` (signals theft, fuerza logout del usuario real). El
+// `familyId` agrupa todos los refresh tokens emitidos desde una misma
+// sesión de login para que un solo evento de reuse los invalide a
+// todos en lugar de sólo al presentado.
+model RefreshToken {
+  id          String   @id @default(cuid())
+  jti         String   @unique
+  userId      String   @map("user_id")
+  familyId    String   @map("family_id")
+  revoked     Boolean  @default(false)
+  replacedBy  String?  @map("replaced_by")
+  expiresAt   DateTime @map("expires_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("refresh_tokens")
+  @@index([userId])
+  @@index([familyId])
+  @@index([expiresAt])
+}

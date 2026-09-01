@@ -1,5 +1,7 @@
 import { randomUUID } from "crypto";
 import { Router } from "express";
+import { BlockList, isIP } from "node:net";
+import { lookup as dnsLookup } from "node:dns/promises";
 import { isStaffRole } from "../lib/authorization";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
@@ -69,13 +71,65 @@ const EXTERNO_MAX_BYTES = 2 * 1024 * 1024; // 2MB
 const EXTERNO_MAX_FILAS = 5000;
 const EXTERNO_TIMEOUT_MS = 10_000;
 
-// ponytail: bloqueo SSRF por hostname literal; DNS rebinding fuera de alcance v1
-function esHostProhibido(hostname: string): boolean {
+// Bloqueo SSRF: el chequeo de hostname literal no alcanza cuando un atacante
+// controla un dominio público (p.ej. localtest.me, lvh.me, attacker.com → 127.0.0.1)
+// que resuelve a una IP privada. Por eso también resolvemos el hostname y
+// rechazamos si alguna IP cae en un rango privado / loopback / link-local.
+// DNS rebinding (cambio de IP entre check y fetch) sigue fuera de alcance v1.
+const PRIVATE_IP_BLOCKLIST = new BlockList();
+PRIVATE_IP_BLOCKLIST.addSubnet("0.0.0.0", 8);
+PRIVATE_IP_BLOCKLIST.addSubnet("10.0.0.0", 8);
+PRIVATE_IP_BLOCKLIST.addSubnet("100.64.0.0", 10); // CGNAT (RFC 6598)
+PRIVATE_IP_BLOCKLIST.addSubnet("127.0.0.0", 8);
+PRIVATE_IP_BLOCKLIST.addSubnet("169.254.0.0", 16);
+PRIVATE_IP_BLOCKLIST.addSubnet("172.16.0.0", 12);
+PRIVATE_IP_BLOCKLIST.addSubnet("192.0.0.0", 24);
+PRIVATE_IP_BLOCKLIST.addSubnet("192.0.2.0", 24); // TEST-NET-1
+PRIVATE_IP_BLOCKLIST.addSubnet("192.88.99.0", 24); // 6to4 anycast
+PRIVATE_IP_BLOCKLIST.addSubnet("192.168.0.0", 16);
+PRIVATE_IP_BLOCKLIST.addSubnet("198.18.0.0", 15); // benchmarking
+PRIVATE_IP_BLOCKLIST.addSubnet("198.51.100.0", 24); // TEST-NET-2
+PRIVATE_IP_BLOCKLIST.addSubnet("203.0.113.0", 24); // TEST-NET-3
+PRIVATE_IP_BLOCKLIST.addSubnet("224.0.0.0", 4); // multicast
+PRIVATE_IP_BLOCKLIST.addSubnet("240.0.0.0", 4); // reservados
+PRIVATE_IP_BLOCKLIST.addSubnet("255.255.255.255", 32);
+// Nota: NO incluimos ::ffff:0:0/96 (IPv4-mapped IPv6): añadir esa subred a un
+// BlockList de Node 24 rompe los chequeos IPv4 (bloquea TODO IPv4). En su lugar,
+// `ipEsPrivadaOLocal` detecta esa forma manualmente y la trata como IPv4.
+PRIVATE_IP_BLOCKLIST.addSubnet("::1", 128, "ipv6"); // loopback IPv6
+PRIVATE_IP_BLOCKLIST.addSubnet("::", 128, "ipv6");
+PRIVATE_IP_BLOCKLIST.addSubnet("64:ff9b::", 96, "ipv6"); // NAT64
+PRIVATE_IP_BLOCKLIST.addSubnet("100::", 64, "ipv6"); // discard-only (RFC 6666)
+PRIVATE_IP_BLOCKLIST.addSubnet("2001::", 32, "ipv6"); // Teredo
+PRIVATE_IP_BLOCKLIST.addSubnet("2001:db8::", 32, "ipv6"); // documentation
+PRIVATE_IP_BLOCKLIST.addSubnet("fc00::", 7, "ipv6"); // Unique Local Address
+PRIVATE_IP_BLOCKLIST.addSubnet("fe80::", 10, "ipv6"); // link-local IPv6
+PRIVATE_IP_BLOCKLIST.addSubnet("ff00::", 8, "ipv6"); // multicast IPv6
+
+function ipEsPrivadaOLocal(ip: string): boolean {
+  let family = isIP(ip);
+  if (family === 0) return true; // IP no parseable → tratarla como prohibida
+  // IPv4-mapped IPv6 (::ffff:a.b.c.d) → chequear contra el rango IPv4 privado.
+  let toCheck = ip;
+  if (family === 6 && ip.toLowerCase().startsWith("::ffff:")) {
+    const v4 = ip.slice("::ffff:".length);
+    if (isIP(v4) === 4) {
+      family = 4;
+      toCheck = v4;
+    }
+  }
+  return PRIVATE_IP_BLOCKLIST.check(toCheck, family === 4 ? "ipv4" : "ipv6");
+}
+
+function esHostProhibido(hostname: string, resolvedIps: string[] = []): boolean {
   const h = hostname.toLowerCase();
   if (h === "localhost" || h.endsWith(".local") || h.endsWith(".internal")) return true;
   if (/^(127\.|10\.|192\.168\.|169\.254\.|0\.)/.test(h)) return true;
   if (/^172\.(1[6-9]|2\d|3[01])\./.test(h)) return true;
   if (h.includes(":")) return true; // IPv6 literal
+  for (const ip of resolvedIps) {
+    if (ipEsPrivadaOLocal(ip)) return true;
+  }
   return false;
 }
 
@@ -164,7 +218,15 @@ async function fetchFilasExternas(
 ): Promise<Array<Record<string, unknown>>> {
   const url = new URL(sourceUrl);
   if (url.protocol !== "https:") throw new Error("La URL debe ser HTTPS");
-  if (esHostProhibido(url.hostname)) throw new Error("Host no permitido");
+  let resolvedIps: string[] = [];
+  try {
+    const resolved = await dnsLookup(url.hostname, { all: true });
+    resolvedIps = resolved.map((r) => r.address);
+  } catch {
+    // Resolución DNS fallida: tratar como host no permitido (fail-closed).
+    throw new Error("Host no permitido");
+  }
+  if (esHostProhibido(url.hostname, resolvedIps)) throw new Error("Host no permitido");
 
   const res = await fetch(sourceUrl, {
     signal: AbortSignal.timeout(EXTERNO_TIMEOUT_MS),

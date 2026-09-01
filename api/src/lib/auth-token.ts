@@ -10,6 +10,13 @@ export type TokenClaims = {
   sub: string;
   email?: string;
   username?: string;
+  // F8 — refresh-token rotation. Cada refresh JWT lleva un `jti`
+  // único persistido en la tabla `refresh_tokens`; permite al
+  // servidor detectar reuso y revocar familias enteras.
+  jti?: string;
+  // Agrupa todos los refresh tokens emitidos desde un mismo login.
+  // Un evento de reuse revoca TODA la familia.
+  familyId?: string;
   // MULTIROL-01 (Fase 1): el JWT lleva `roles[]` (fuente de verdad nueva)
   // y `role` singular (compat con código viejo que aún no consume
   // `roles[]`). `role` = el rol de mayor jerarquía del array para que
@@ -36,6 +43,8 @@ export type TokenUser = {
   id: string;
   email?: string;
   username?: string;
+  // F8 — refresh-token rotation. Ver TokenClaims.jti / .familyId.
+  familyId?: string;
   role?: string;
   // MULTIROL-01 (Fase 1): array de roles del usuario. Se prefiere
   // sobre `role` cuando está presente. Si solo llega `role` (código
@@ -175,8 +184,15 @@ export const createRefreshToken = (user: TokenUser) => {
   if (REFRESH_TTL_SECONDS <= 0) return null;
   const now = Math.floor(Date.now() / 1000);
   const exp = now + REFRESH_TTL_SECONDS;
+  // F8 — jti y familyId. El caller (route handler) persiste la fila
+  // en `refresh_tokens`; si viene `familyId` es una rotación (mismo
+  // login), si NO viene es un login nuevo y se genera una familia.
+  const familyId = user.familyId ?? crypto.randomUUID();
+  const jti = crypto.randomUUID();
   const payload: TokenClaims = {
     sub: user.id,
+    jti,
+    familyId,
     iat: now,
     exp,
     typ: "refresh",
@@ -186,6 +202,8 @@ export const createRefreshToken = (user: TokenUser) => {
   const token = buildToken(payload, ENV.JWT_REFRESH_SECRET || ENV.JWT_SECRET);
   return {
     token,
+    jti,
+    familyId,
     expiresAt: new Date(exp * 1000).toISOString(),
     expiresIn: REFRESH_TTL_SECONDS
   };

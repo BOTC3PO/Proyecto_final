@@ -117,7 +117,16 @@ export class MercadoPagoProvider implements PaymentProvider {
     if (!xSignature || !xRequestId || !dataId) return null;
     // Reusa el verificador real del webhook de MP (mismo esquema
     // ts/v1 que usa el SaaS retirado — no es un HMAC genérico).
-    if (!verificarWebhookMP(xSignature, xRequestId, dataId)) return null;
+    // verificarWebhookMP puede tirar (p.ej. si MP_WEBHOOK_SECRET no
+    // está configurado y MP_DEV_SKIP_SIGNATURE=false): eso también es
+    // firma inválida para el caller, no un 500.
+    let firmaOk = false;
+    try {
+      firmaOk = verificarWebhookMP(xSignature, xRequestId, dataId);
+    } catch {
+      firmaOk = false;
+    }
+    if (!firmaOk) return null;
     if (!parsed.external_reference) return null;
 
     const estado = parsed.status === "approved" ? "pagada" : parsed.status === "rejected" ? "fallida" : "pendiente";

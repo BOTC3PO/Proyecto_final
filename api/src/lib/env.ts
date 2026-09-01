@@ -48,14 +48,25 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   MONGO_REQUIRE_AUTH: parseBool(process.env.MONGO_REQUIRE_AUTH, true),
   PAYMENTS_WEBHOOK_SECRET: process.env.PAYMENTS_WEBHOOK_SECRET ?? "",
   BOOTSTRAP_ADMIN_KEY: process.env.BOOTSTRAP_ADMIN_KEY ?? "",
-  JWT_SECRET:
-    process.env.JWT_SECRET ??
-    (() => {
-      if ((process.env.NODE_ENV ?? "development") === "production") {
-        throw new Error("JWT_SECRET must be defined when NODE_ENV is production");
-      }
-      return "dev-secret";
-    })(),
+  // SECURITY: refuse to start if JWT_SECRET is missing or still set to the
+  // well-known placeholder "dev-secret" (CWE-798). The previous fallback
+  // silently enabled a publicly-known signing key in any non-production
+  // NODE_ENV, letting anyone who has read this repository mint valid
+  // access tokens. Refusing at boot is the only safe behavior: by the time
+  // any auth middleware runs, ENV.JWT_SECRET is already in memory.
+  JWT_SECRET: (() => {
+    const secret = process.env.JWT_SECRET;
+    if (!secret || secret === "dev-secret") {
+      throw new Error(
+        "JWT_SECRET must be set to a strong, unique value via the JWT_SECRET " +
+          "environment variable. The placeholder value \"dev-secret\" is not " +
+          "accepted in any environment. Generate one with `node -e \"console.log(" +
+          "require('crypto').randomBytes(64).toString('hex'))\"` or " +
+          "`openssl rand -hex 64`."
+      );
+    }
+    return secret;
+  })(),
   JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET ?? "",
   JWT_ISSUER: process.env.JWT_ISSUER ?? "",
   JWT_AUDIENCE: process.env.JWT_AUDIENCE ?? "",
@@ -83,6 +94,13 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   MP_ACCESS_TOKEN: process.env.MP_ACCESS_TOKEN ?? "",
   MP_PUBLIC_KEY: process.env.MP_PUBLIC_KEY ?? "",
   MP_WEBHOOK_SECRET: process.env.MP_WEBHOOK_SECRET ?? "",
+  // Opt-in EXPLÍCITO para saltear la verificación de firma de webhooks de
+  // MP en dev/staging. Defaults a false: cualquier webhook que llegue sin
+  // MP_WEBHOOK_SECRET configurado se RECHAZA, salvo que esta variable
+  // esté en true a propósito en el .env. No usar en producción (también
+  // lo bloquea verificarWebhookMP, pero el doble check es defensa en
+  // profundidad).
+  MP_DEV_SKIP_SIGNATURE: parseBool(process.env.MP_DEV_SKIP_SIGNATURE, false),
   // Pagos habilitados (false para sistemas autogestionados)
   PAYMENTS_ENABLED: parseBool(process.env.PAYMENTS_ENABLED, true),
   // Pagos enterprise (invoices/receipts). Deshabilitado por default: el modelo

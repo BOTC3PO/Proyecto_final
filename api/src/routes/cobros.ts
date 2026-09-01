@@ -313,7 +313,7 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
               cuentaConectadaId: pasarela.cuentaConectadaId,
               accessToken: accessTokenDesdeCredenciales(pasarela.credencialesCifradas)
             },
-            backUrl: typeof req.body?.backUrl === "string" ? req.body.backUrl : ENV.APP_URL
+            backUrl: ENV.APP_URL
           });
           provider = adapter.nombre;
           providerRef = checkout.providerRef;

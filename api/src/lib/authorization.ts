@@ -39,6 +39,22 @@ export const canMintCurrency = (input?: string | null | RoleUser) => staffFromIn
 
 export const canManageParents = (input?: string | null | RoleUser) => staffFromInput(input);
 
+// `canManageSchoolUsers` — un subconjunto estricto de staff: sólo los roles
+// con potestad de gestión de SU escuela (DIRECTIVO / ADMIN_ESCUELA). Excluye
+// explícitamente a TEACHER, que sólo opera sobre sus aulas y no debería dar
+// de alta usuarios ni siquiera dentro de su propia escuela.
+const SCHOOL_MANAGER_ROLES = new Set(["DIRECTIVO", "ADMIN_ESCUELA"]);
+const schoolManagerFromInput = (input?: string | null | RoleUser): boolean => {
+  if (input == null) return false;
+  if (typeof input === "string") return SCHOOL_MANAGER_ROLES.has(input);
+  const roles = resolveRoles(input);
+  if (roles.length === 0) return false;
+  return roles.some((r) => SCHOOL_MANAGER_ROLES.has(r));
+};
+
+export const canManageSchoolUsers = (input?: string | null | RoleUser) =>
+  schoolManagerFromInput(input);
+
 export const canPostAsStudent = (input?: string | null | RoleUser) => {
   const ru = toRoleUser(input);
   // Cualquiera de los roles del usuario que mapee a STUDENT habilita
@@ -239,7 +255,7 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
     "resource-links/write": (user) => ({ allowed: isStaffRole(user) }),
     "usuarios/create": (user) => {
       if (canViewAllUsers(user)) return { allowed: true, data: { accessLevel: "admin" } };
-      if (canManageParents(user)) return { allowed: true, data: { accessLevel: "school" } };
+      if (canManageSchoolUsers(user)) return { allowed: true, data: { accessLevel: "school" } };
       return { allowed: false };
     },
     "usuarios/list": (user) => {

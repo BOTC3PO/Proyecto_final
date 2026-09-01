@@ -115,17 +115,24 @@ export function verificarWebhookMP(
 ): boolean {
   if (!ENV.MP_WEBHOOK_SECRET) {
     // Sin secreto no hay forma de distinguir a MP de cualquiera que
-    // conozca la URL. Sólo se acepta en una instalación que NO tiene
-    // ninguna credencial de MP cargada, es decir dev puro sin pagos.
-    // Con MP configurado (aunque sea sandbox) falta el secreto ⇒ se
-    // rechaza, en vez de aceptar cualquier webhook en silencio.
-    // Antes esto dependía de NODE_ENV: un deploy real con la env mal
-    // seteada aceptaba webhooks falsos sin avisar.
+    // conozca la URL. La regla ahora es: si no hay secreto, se RECHAZA
+    // salvo que el operador haya puesto MP_DEV_SKIP_SIGNATURE=true a
+    // propósito en el .env. Antes esto dependía implícitamente de
+    // NODE_ENV (cualquier staging con NODE_ENV != production aceptaba
+    // webhooks falsificados sin avisar). MP_DEV_SKIP_SIGNATURE es la
+    // única escapatoria válida y nunca se honra en producción.
     if (ENV.MP_ACCESS_TOKEN || ENV.MP_CLIENT_ID) return false;
     if (ENV.NODE_ENV === "production") {
       throw new Error("MP_WEBHOOK_SECRET not configured");
     }
-    return true; // dev sin pagos configurados
+    if (!ENV.MP_DEV_SKIP_SIGNATURE) {
+      throw new Error(
+        "MP_WEBHOOK_SECRET not configured y MP_DEV_SKIP_SIGNATURE=false; " +
+        "rechazando webhook. En dev/local poné MP_DEV_SKIP_SIGNATURE=true " +
+        "en api/.env para aceptar webhooks sin firma."
+      );
+    }
+    return true; // dev con opt-in explícito (MP_DEV_SKIP_SIGNATURE=true)
   }
   try {
     const { createHmac, timingSafeEqual } =

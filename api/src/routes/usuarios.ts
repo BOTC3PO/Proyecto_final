@@ -66,6 +66,10 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
         res.status(403).json({ error: "forbidden" });
         return;
       }
+      if (parsed.role === "ADMIN") {
+        res.status(403).json({ error: "forbidden: ADMIN role requires admin requester" });
+        return;
+      }
     }
     const now = new Date().toISOString();
 
