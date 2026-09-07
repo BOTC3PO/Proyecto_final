@@ -1,6 +1,6 @@
 # Lengua — subordinada adjetiva o de relativo (cuestionario, 24 preguntas VBLang)
 
-> Tema: `lengua/subordinada-adjetiva-o-de-relativo`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-adjetiva-o-de-relativo`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -506,8 +506,8 @@ metadata:
 
 variables:
   poseedor: uno_de(["el hombre", "la mujer", "el niño", "la niña", "el padre"])
-  poseido: uno_de(["hija", "hijo", "madre", "padre", "hermano"])
-  forma_incorrecta: uno_de(["cuyas", "cuyos", "cuya", "cuyo"])
+  poseido: uno_de(["hija", "madre"])
+  forma_incorrecta: uno_de(["cuyas", "cuyos", "cuyo"])
 
 respuesta: verdadero
 tipo: vf

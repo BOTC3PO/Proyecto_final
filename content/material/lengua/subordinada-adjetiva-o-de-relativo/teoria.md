@@ -1,6 +1,6 @@
 # Lengua — Subordinada adjetiva o de relativo (teoria)
 
-> Tema del MAPA: `SX11` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SX11` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
