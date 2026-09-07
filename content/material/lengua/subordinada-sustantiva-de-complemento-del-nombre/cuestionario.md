@@ -1,6 +1,6 @@
 # Lengua — subordinada sustantiva de complemento del nombre (cuestionario, 27 preguntas VBLang)
 
-> Tema: `lengua/subordinada-sustantiva-de-complemento-del-nombre`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-sustantiva-de-complemento-del-nombre`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -196,10 +196,10 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En 'Existe la posibilidad de que lueva mañana', la parte 'de que lueva mañana' es el complemento del nombre 'posibilidad'."
+enunciado: "En 'Existe la posibilidad de que llueva mañana', la parte 'de que llueva mañana' es el complemento del nombre 'posibilidad'."
 
 explicacion: |
-  Sí. El sustantivo 'posibilidad' requiere un complemento para especificar en qué consiste esa posibilidad. La subordinada 'de que lueva mañana' cumple esa función sintáctica.
+  Sí. El sustantivo 'posibilidad' requiere un complemento para especificar en qué consiste esa posibilidad. La subordinada 'de que llueva mañana' cumple esa función sintáctica.
 ```
 
 ### 12 — pregunta 12
@@ -430,10 +430,10 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En 'Existe la posibilidad de que lueva mañana', la parte 'de que lueva mañana' es el complemento del nombre 'posibilidad'."
+enunciado: "En 'Existe la posibilidad de que llueva mañana', la parte 'de que llueva mañana' es el complemento del nombre 'posibilidad'."
 
 explicacion: |
-  Sí. El sustantivo 'posibilidad' requiere un complemento para especificar en qué consiste esa posibilidad. La subordinada 'de que lueva mañana' cumple esa función sintáctica.
+  Sí. El sustantivo 'posibilidad' requiere un complemento para especificar en qué consiste esa posibilidad. La subordinada 'de que llueva mañana' cumple esa función sintáctica.
 ```
 
 ### 25 — pregunta 25

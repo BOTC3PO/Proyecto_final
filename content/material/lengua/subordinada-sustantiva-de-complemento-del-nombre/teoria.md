@@ -1,6 +1,6 @@
 # Lengua — Subordinada sustantiva de complemento del nombre (teoria)
 
-> Tema del MAPA: `SX9` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SX9` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -24,8 +24,8 @@ Otro ejemplo clásico es "Tengo la esperanza **de que vengas**". Si decimos "Ten
 
 ## Ejemplos prácticos en el lenguaje cotidiano
 
-Para afianzar este concepto, observemos cómo se usan en situaciones reales, especialmente en el contexto académico y social argentino. En la escuela, es frecuente escuchar: "El profesor explicó **que la tarea era obligatoria**". Aquí, la oración "que la tarea era obligatoria" es el complemento del nombre "explicación" (implícito en el verbo explicar, pero analizable como sustantivo abstracto en contextos como "La explicación de que...").
+Para afianzar este concepto, observemos cómo se usan en situaciones reales, especialmente en el contexto académico y social argentino. Ojo con un error común: en "El profesor explicó **que la tarea era obligatoria**", la subordinada "que la tarea era obligatoria" NO es complemento del nombre — no hay ningún sustantivo explícito al que se una. Es complemento directo del verbo "explicó" (se puede sustituir por "lo": "El profesor lo explicó"). Para que sea complemento del NOMBRE, necesitamos un sustantivo real como núcleo: "La explicación **de que la tarea era obligatoria** nos tranquilizó". Aquí sí, "de que la tarea era obligatoria" completa al sustantivo "explicación".
 
 En el ámbito informativo, los titulares o noticias suelen usar esta estructura: "La noticia **de que ganó el campeonato** alegró a todos". El núcleo es "noticia" y la subordinada "de que ganó el campeonato" especifica de qué trata esa noticia. Sin ella, "La noticia alegró a todos" sería vago; con ella, sabemos exactamente cuál fue la causa de la alegría.
 
-También es útil en expresiones de opinión o creencia: "Mi convicción **es que debemos estudiar más**". Aunque aquí la subordinada parece predicativa, si la reescribimos como "Mi convicción **sobre ese punto**", vemos la relación sustantiva. Un ejemplo más claro sería: "El deseo **de que todos pasen** es legítimo". La subordinada completa al sustantivo "deseo". Reconocer estas estructuras mejora la comprensión lectora y la capacidad de escribir textos más precisos y elaborados, evitando repeticiones y permitiendo mayor densidad informativa en cada oración.
+También es útil en expresiones de opinión o creencia. Ojo con otro caso parecido: en "Mi convicción **es que debemos estudiar más**", la subordinada no es complemento del nombre sino **atributo** del verbo copulativo "es" (responde a "¿cómo es mi convicción?"). Para que sea complemento del nombre, el sustantivo y la subordinada deben ir juntos, sin el verbo "ser" en el medio: "El deseo **de que todos pasen** es legítimo". Acá sí, "de que todos pasen" completa directamente al sustantivo "deseo". Reconocer estas estructuras mejora la comprensión lectora y la capacidad de escribir textos más precisos y elaborados, evitando repeticiones y permitiendo mayor densidad informativa en cada oración.
