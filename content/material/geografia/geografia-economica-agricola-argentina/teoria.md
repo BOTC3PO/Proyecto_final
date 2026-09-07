@@ -1,6 +1,6 @@
 # Geografía — Geografía económica agrícola argentina (teoria)
 
-> Tema del MAPA: `GEOA5` (`troncos.md`). Depende de del nodo `G7` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `GEOA5` (`troncos.md`). Depende de del nodo `G7` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -28,6 +28,6 @@ Sin embargo, esta actividad enfrenta desafíos crecientes. El cambio climático 
 
 ## Ejemplo práctico: El circuito de la soja
 
-Para visualizar cómo funciona esta geografía, pensemos en el circuito de la soja en la provincia de Santa Fe. En otoño, los agricultores siembran la semilla en campos que antes dedicaban al trigo. En primavera, la cosecha se realiza con cosechadoras que transportan la granola a elevadores de grano, instalaciones cercanas a las rutas nacionales. Desde allí, el producto viaja por camiones o ferrocarril hasta los puertos de Rosario.
+Para visualizar cómo funciona esta geografía, pensemos en el circuito de la soja en la provincia de Santa Fe. En primavera, los agricultores siembran la semilla en campos que antes dedicaban al trigo. En otoño, la cosecha se realiza con cosechadoras que transportan el grano a elevadores de grano, instalaciones cercanas a las rutas nacionales. Desde allí, el producto viaja por camiones o ferrocarril hasta los puertos de Rosario.
 
 Una vez en el puerto, la soja se carga en buques que la llevan a mercados internacionales, principalmente China y la Unión Europea. Este ejemplo muestra cómo un cultivo local se conecta con la economía global. Además, ilustra la importancia de la infraestructura: sin buenos caminos y puertos eficientes, los costos de transporte subirían y la producción argentina perdería competitividad. Analizar este circuito ayuda a entender que la agricultura no es un acto aislado, sino una cadena compleja que vincula el campo con el mundo.
