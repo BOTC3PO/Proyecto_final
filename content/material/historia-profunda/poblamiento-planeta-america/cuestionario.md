@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -142,14 +142,11 @@ metadata:
   nivel: "basico"
   tags: ["geografia", "migracion"]
 
-variables:
-  escenario: uno_de([["puente terrestre", "Beringia"], ["paso marítimo", "Estrecho de Magallanes"], ["ruta costera", "Pacífico"]])
-
-respuesta: escenario[0]
+respuesta: "puente terrestre"
 tipo: mc
 opciones_explicitas: ["puente terrestre", "paso marítimo", "ruta costera"]
 
-enunciado: "El corredor que permitió el paso de humanos y megafauna desde Asia hacia América se conoce como {escenario[1]}."
+enunciado: "El corredor que permitió el paso de humanos y megafauna desde Asia hacia América se conoce como Beringia. ¿Qué tipo de corredor era?"
 
 explicacion: |
   El puente de Beringia era una masa de tierra que conectaba los dos continentes durante los periodos de máximo glaciar.
@@ -206,14 +203,11 @@ metadata:
   nivel: "avanzado"
   tags: ["clima", "fauna"]
 
-variables:
-  caso: uno_de([["glaciación", "descenso del nivel del mar"], ["desierto", "aumento de temperatura"], ["inundación", "descenso del nivel del mar"]])
-
-respuesta: caso[1]
+respuesta: "descenso del nivel del mar"
 tipo: mc
 opciones_explicitas: ["descenso del nivel del mar", "aumento de temperatura", "cambio en la vegetación"]
 
-enunciado: "La formación del puente de Beringia fue posible gracias a la {caso[0]}, lo que provocó un {caso[1]}."
+enunciado: "La formación del puente de Beringia fue posible gracias a la glaciación, lo que provocó un ___."
 
 explicacion: |
   Durante las glaciaciones, el agua se acumulaba en los glaciares, haciendo que el nivel del mar bajara y expusiera el suelo marino.
@@ -337,8 +331,6 @@ respuesta: "puntas de lanza"
 tipo: completar
 respuestas_validas:
   - "puntas de lanza"
-  - "hachas de piedra"
-  - "cerámica"
 
 enunciado: "La cultura Clovis se caracteriza por la fabricación de ___ de piedra con una hendidura característica en la base."
 
@@ -355,10 +347,7 @@ metadata:
   nivel: "intermedio"
   tags: ["teoria", "geografia", "bering"]
 
-variables:
-  escenario: uno_de([["Beringia", "puente terrestre"], ["Pacífico", "ruta marítima"], ["Atlántico", "ruta marítima"]])
-
-respuesta: escenario[0]
+respuesta: "Beringia"
 tipo: mc
 opciones_explicitas: ["Beringia", "Pacífico", "Atlántico"]
 
@@ -434,11 +423,7 @@ metadata:
   nivel: "basico"
   tags: ["teorias", "migracion"]
 
-variables:
-  datos: [["Teoría de Beringia", "Teoría de la Ruta Costera"], ["Teoría de la Ruta Costera", "Teoría de Beringia"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "Teoría de la Ruta Costera"
 tipo: mc
 opciones_explicitas: ["Teoría de Beringia", "Teoría de la Ruta Costera"]
 
@@ -476,15 +461,10 @@ metadata:
   nivel: "basico"
   tags: ["geografia", "migracion"]
 
-variables:
-  datos: [["el estrecho de Bering", "el estrecho de Magallanes"], ["el estrecho de Magallanes", "el estrecho de Bering"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][0]
+respuesta: "el estrecho de Bering"
 tipo: completar
 respuestas_validas:
   - "el estrecho de Bering"
-  - "el estrecho de Magallanes"
 
 enunciado: "Para entrar al continente americano desde Asia durante la última glaciación, los grupos humanos debieron cruzar ___."
 
@@ -501,11 +481,7 @@ metadata:
   nivel: "intermedio"
   tags: ["teorias", "rutas"]
 
-variables:
-  datos: [["La ruta terrestre", "La ruta marítima"], ["La ruta marítima", "La ruta terrestre"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "La ruta marítima"
 tipo: mc
 opciones_explicitas: ["La ruta terrestre", "La ruta marítima"]
 

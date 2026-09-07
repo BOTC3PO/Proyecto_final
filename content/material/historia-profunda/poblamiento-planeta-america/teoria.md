@@ -18,7 +18,7 @@ La teoría más aceptada por la ciencia sostiene que los primeros *Homo sapiens*
 
 ## 2. Rutas de expansión hacia fuera de África
 
-Una vez establecida la población humana en África, comenzaron las primeras migraciones hacia otras regiones del planeta. La teoría "Out of Africa" indica que los humanos modernos cruzaron el estrecho de Babel (hoy conocido como estrecho de Bab-el-Mandeb) hacia el Medio Oriente y luego se extendieron por Asia, llegando a Europa y al este de África. Estas migraciones no fueron un proceso único: sucedieron en etapas, con pausas intermedias según los cambios climáticos.
+Una vez establecida la población humana en África, comenzaron las primeras migraciones hacia otras regiones del planeta. La teoría "Out of Africa" indica que los humanos modernos cruzaron el estrecho de Bab-el-Mandeb (entre el Cuerno de África y la península arábiga) hacia el Medio Oriente y luego se extendieron por Asia, llegando hasta Europa. Estas migraciones no fueron un proceso único: sucedieron en etapas, con pausas intermedias según los cambios climáticos.
 
 ---
 
