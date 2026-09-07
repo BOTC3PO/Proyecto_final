@@ -1,6 +1,6 @@
 # Lengua — Técnicas de estudio (teoria)
 
-> Tema del MAPA: `ESTU1` (`troncos.md`). Depende de del nodo `P9` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `ESTU1` (`troncos.md`). Depende de del nodo `P9` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -28,6 +28,6 @@ Los cuadros sinópticos, en cambio, son excelentes para clasificaciones. Si est�
 
 ## Aplicación práctica: Ejemplos en lengua
 
-Imagina que debes estudiar el cuento "El Aleph" de Jorge Luis Borges. Para hacer un resumen, identifica los elementos clave: el narrador, la pérdida de Beatriz, la casa de Alvaro Delmonte y el descubrimiento del Aleph. Escribe un párrafo breve conectando estos puntos sin entrar en descripciones poéticas detalladas. Luego, crea un mapa conceptual para analizar los temas del cuento. En el centro coloca "El Aleph", y saca ramas hacia "El tiempo", "El espacio infinito", "La muerte" y "El amor". De cada una, conecta con citas breves o ideas clave del texto.
+Imagina que debes estudiar el cuento "El Aleph" de Jorge Luis Borges. Para hacer un resumen, identifica los elementos clave: el narrador, la pérdida de Beatriz Viterbo, la casa de Carlos Argentino Daneri (su primo) y el descubrimiento del Aleph. Escribe un párrafo breve conectando estos puntos sin entrar en descripciones poéticas detalladas. Luego, crea un mapa conceptual para analizar los temas del cuento. En el centro coloca "El Aleph", y saca ramas hacia "El tiempo", "El espacio infinito", "La muerte" y "El amor". De cada una, conecta con citas breves o ideas clave del texto.
 
 Otro ejemplo común es el estudio de la gramática. Si revisas los tipos de oraciones según su estructura, usa un cuadro sinóptico. En la parte superior escribe "Oraciones Simples" y "Oraciones Compuestas". Debajo de "Compuestas", crea subramas para "Coordiandas", "Subordinadas" y "Yuxtapuestas". Esto te permitirá comparar rápidamente las diferencias y recordar las reglas de puntuación y uso de conectores. Estas técnicas te preparan no solo para los exámenes, sino para escribir textos argumentativos más sólidos y coherentes en el futuro.
