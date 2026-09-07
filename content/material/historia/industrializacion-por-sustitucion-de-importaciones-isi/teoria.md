@@ -1,6 +1,6 @@
 # Historia — Industrialización por sustitución de importaciones (ISI) (teoria)
 
-> Tema del MAPA: `ISI1` (`troncos.md`). Depende de del nodo `AH10` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `ISI1` (`troncos.md`). Depende de del nodo `AH10` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -24,4 +24,4 @@ Sin embargo, el modelo también presentaba debilidades estructurales importantes
 
 La ISI no fue un fenómeno aislado; se extendió por gran parte de América Latina en el siglo XX, aunque Argentina fue uno de sus ejemplos más tempranos y significativos. Su declive comenzó en las décadas de 1970 y 1980, cuando la ineficiencia industrial, la deuda externa y la hiperinflación hicieron insostenible el modelo. No obstante, su legado es fundamental para entender la Argentina contemporánea. La estructura urbana, la distribución de la riqueza y la identidad nacional están profundamente marcadas por ese período de industrialización.
 
-Para comprender mejor este tema, podemos observar ejemplos concretos de la época. La creación de la industria automotriz, con la llegada de marcas como Ford y Volkswagen, o el desarrollo de la industria siderúrgica con Siderar, son hitos que muestran el esfuerzo por generar producción interna. También es útil analizar cómo la propaganda de la época promovía el consumo de productos nacionales como un acto patriótico. Al estudiar la historia económica reciente, notarás que muchas de las discusiones actuales sobre protección industrial, comercio exterior y desarrollo tecnológico tienen sus raíces en los debates y experiencias vividas durante la era de la ISI.
+Para comprender mejor este tema, podemos observar ejemplos concretos de la época. La creación de la industria automotriz, con la llegada de marcas como Ford y Volkswagen, o el desarrollo de la industria siderúrgica estatal con SOMISA (Sociedad Mixta Siderúrgica Argentina, fundada en 1947), son hitos que muestran el esfuerzo por generar producción interna. También es útil analizar cómo la propaganda de la época promovía el consumo de productos nacionales como un acto patriótico. Al estudiar la historia económica reciente, notarás que muchas de las discusiones actuales sobre protección industrial, comercio exterior y desarrollo tecnológico tienen sus raíces en los debates y experiencias vividas durante la era de la ISI.

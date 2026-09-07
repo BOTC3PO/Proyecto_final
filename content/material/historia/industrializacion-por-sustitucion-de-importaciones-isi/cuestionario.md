@@ -1,6 +1,6 @@
 # Historia — Industrialización por sustitución de importaciones (ISI) (cuestionario, 22 preguntas VBLang)
 
-> Tema: `historia/industrializacion-por-sustitucion-de-importaciones-isi`. Ver `teoria.md` en esta misma carpeta. Escrito a mano (Claude), cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `historia/industrializacion-por-sustitucion-de-importaciones-isi`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -336,17 +336,19 @@ metadata:
 variables:
   n: uno_de([1, 1])
 
-respuesta: "Siderar"
+respuesta: "SOMISA"
 tipo: completar
 
-enunciado: "La empresa que ejemplifica el desarrollo de la industria siderúrgica argentina durante este período es ___."
+enunciado: "La empresa estatal que ejemplifica el desarrollo de la industria siderúrgica argentina durante este período es ___."
 
 respuestas_validas:
-  - "Siderar"
+  - "SOMISA"
 
 explicacion: |
-  Siderar es el hito mencionado como ejemplo del desarrollo de la
-  industria del acero nacional en esa etapa.
+  SOMISA (Sociedad Mixta Siderúrgica Argentina, fundada en 1947) es el
+  hito mencionado como ejemplo del desarrollo de la industria del acero
+  nacional en esa etapa (Siderar, en cambio, nace recién en 1993 de la
+  privatización de SOMISA — es posterior a la era ISI, no un ejemplo de ella).
 ```
 
 ### 16 — pregunta 16
