@@ -721,8 +721,8 @@ graph TD
   M10 --> F7["Trabajo de una fuerza<br/>(Física)"]
   M7 --> G1["Coordenadas y husos horarios<br/>(Geografía)"]
 
-  F2P["MRU<br/>(Álgebra)"] --> F10["Tiro oblicuo:<br/>proyectiles (Física)"]
-  F3P["MRUV<br/>(Álgebra)"] --> F10
+  F2P["MRU<br/>(Física)"] --> F10["Tiro oblicuo:<br/>proyectiles (Física)"]
+  F3P["MRUV<br/>(Física)"] --> F10
   M9 --> F10
   F5 --> F11["Gravitación universal:<br/>Newton y Kepler"]
   GA3 --> F11
