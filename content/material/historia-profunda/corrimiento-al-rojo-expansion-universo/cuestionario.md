@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -144,15 +144,11 @@ metadata:
   nivel: "intermedio"
   tags: ["evidencia", "galaxias", "observacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["galaxias lejanas", "se alejan"], ["galaxias cercanas", "se acercan"]]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "se alejan"
 tipo: mc
 opciones_explicitas: ["se acercan", "se alejan", "están estables", "colapsan"]
 
-enunciado: "La observación de que las {datos[escenario_idx][0]} muestran un corrimiento al rojo indica que estas {datos[escenario_idx][1]} de nosotros."
+enunciado: "La observación de que las galaxias lejanas muestran un corrimiento al rojo indica que estas ___ de nosotros."
 
 explicacion: |
   El hecho de que la mayoría de las galaxias distantes presenten corrimiento al rojo es la evidencia fundamental de que el universo se está expandiendo.
@@ -171,8 +167,6 @@ respuesta: "alejamiento"
 tipo: completar
 respuestas_validas:
   - "alejamiento"
-  - "acercamiento"
-  - "estacionar"
 
 enunciado: "En el contexto de la cosmología, un corrimiento al rojo (redshift) es una medida que indica el ___ de una galaxia respecto al observador."
 
@@ -197,10 +191,10 @@ respuesta: velocidad_m[distancia_m/10 - 1]
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Si la expansión del universo es uniforme, a mayor distancia, mayor es la velocidad de recesión. Si una galaxia está a una distancia de {distancia_m} Mpc y su velocidad es de {velocidad_m[distancia_m/10 - 1]} km/s, ¿cuál es su velocidad?"
+enunciado: "Si la constante de Hubble es de 10 km/s/Mpc y una galaxia está a una distancia de {distancia_m} Mpc, ¿cuál es su velocidad de recesión en km/s (v = H₀ × d)?"
 
 pasos:
-  - "Identificar la velocidad correspondiente a la distancia dada según la relación lineal."
+  - "Multiplicar la constante de Hubble (10 km/s/Mpc) por la distancia dada."
 
 explicacion: |
   En un universo en expansión, la velocidad de alejamiento es proporcional a la distancia (Ley de Hubble).
@@ -253,15 +247,11 @@ metadata:
   nivel: "basico"
   tags: ["analogia", "expansion"]
 
-variables:
-  idx: uno_de([0,1])
-  escenario: [["puntos en un globo desinflado", "puntos en un globo inflado"], ["distancia constante", "distancia creciente"]]
-
 tipo: completar
 respuestas_validas:
   - "distancia creciente"
 
-enunciado: "Si imaginamos que las galaxias son puntos dibujados sobre la superficie de un globo que se infla, al aumentar el volumen del globo, la {escenario[idx][0]} entre los puntos se vuelve una {escenario[idx][1]}."
+enunciado: "Si imaginamos que las galaxias son puntos dibujados sobre la superficie de un globo que se infla, al aumentar el volumen del globo, la distancia constante entre los puntos se vuelve una ___."
 
 explicacion: |
   La analogía del globo ilustra que no es el objeto el que se mueve por la superficie, sino que la superficie misma crece, separando los puntos.
@@ -298,9 +288,12 @@ metadata:
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si la expansión del universo es constante, la velocidad de recesión de una galaxia es proporcional a su distancia actual. ¿Cuál es el término técnico para este factor de escala que describe cómo cambia el tamaño del universo con el tiempo? (Escribe la respuesta en inglés, comienza con 'a' y termina con 'e')"
+enunciado: "Si la expansión del universo es constante, la velocidad de recesión de una galaxia es proporcional a su distancia actual. ¿Cómo se denomina técnicamente la función a(t) que describe cómo cambia el tamaño del universo con el tiempo en la métrica de Friedmann-Lemaître-Robertson-Walker?"
 
-respuesta: "a_e"
+respuestas_validas:
+  - "factor de escala"
+
+respuesta: "factor de escala"
 
 explicacion: |
   El factor de escala 'a(t)' es una función que describe la evolución del tamaño del universo con el tiempo en la métrica de Friedmann-Lemaître-Robertson-Walker.
@@ -516,7 +509,6 @@ respuesta: "alejándose"
 tipo: completar
 respuestas_validas:
   - "alejándose"
-  - "acercándose"
 
 enunciado: "Cuando la longitud de onda de la luz de una estrella aumenta debido a su movimiento relativo, decimos que tiene un corrimiento al rojo, lo que significa que la estrella se está ___."
 
