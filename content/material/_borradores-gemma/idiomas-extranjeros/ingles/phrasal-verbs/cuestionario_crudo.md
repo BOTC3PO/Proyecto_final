@@ -10,7 +10,6 @@ pasos:
 explicacion: "El verbo frasal 'take off' es separable. Se puede dividir en 'take' y 'off' cuando el objeto directo está entre ellos, como en 'She took her coat off'."  
 tipo: completar  
 enunciado: "The plane will ___ in 15 minutes."  
-respuesta: "take off"  
 respuestas_validas:  
   - "take off"  
   - "Take off"  
@@ -28,7 +27,10 @@ pasos:
 explicacion: "'Break down' es inseparable. No se puede dividir entre el verbo y la preposición, como en 'The car broke down on the highway.'"  
 tipo: mc  
 enunciado: "Choose the correct form of 'break down':\nA) break down\nB) breakd down\nC) break down"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```
 
@@ -44,7 +46,6 @@ pasos:
 explicacion: "'Look up' es inseparable y se usa para buscar información, mientras que 'look for' implica búsqueda física. En este caso, 'look up' es correcto."  
 tipo: completar  
 enunciado: "I need to ___ the definition of this word in the dictionary."  
-respuesta: "look up"  
 respuestas_validas:  
   - "look up"  
   - "Look up"  
@@ -62,7 +63,6 @@ pasos:
 explicacion: "'Give up' es inseparable. No se puede dividir entre el verbo y la preposición, como en 'He gave up smoking last year.'"  
 tipo: completar  
 enunciado: "She decided to ___ her old habits."  
-respuesta: "give up"  
 respuestas_validas:  
   - "give up"  
   - "Give up"  
@@ -80,7 +80,10 @@ pasos:
 explicacion: "'Take off' es separable y se usa para describir el despegue de un avión o quitar algo. En este contexto, 'take off' es adecuado."  
 tipo: mc  
 enunciado: "Choose the correct phrasal verb:\nA) take of\nB) take off\nC) tak of"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "B"  
 ```
 
@@ -96,7 +99,6 @@ pasos:
 explicacion: "'Pick up' es separable. En voz pasiva, se mantiene el orden como 'The paper was picked up by the cleaner.'"  
 tipo: completar  
 enunciado: "The paper was ___ by the cleaner."  
-respuesta: "picked up"  
 respuestas_validas:  
   - "picked up"  
   - "Picked up"  
@@ -114,7 +116,6 @@ pasos:
 explicacion: "'Get rid of' es inseparable y se usa para desechar algo. En este caso, la forma correcta es 'get rid of'."  
 tipo: completar  
 enunciado: "We need to ___ this old furniture."  
-respuesta: "get rid of"  
 respuestas_validas:  
   - "get rid of"  
   - "Get rid of"  
@@ -132,7 +133,10 @@ pasos:
 explicacion: "'Turn down' es inseparable. En el contexto de una solicitud, se usa como 'Can you turn down the music?'"  
 tipo: mc  
 enunciado: "Choose the correct form of 'turn down':\nA) turn down\nB) turnd down\nC) turn doun"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```
 
@@ -148,7 +152,6 @@ pasos:
 explicacion: "'Put on' es separable y se usa para describir la acción de vestir algo. En este caso, 'put on' es correcto."  
 tipo: completar  
 enunciado: "She ___ her coat before going outside."  
-respuesta: "put on"  
 respuestas_validas:  
   - "put on"  
   - "Put on"  
@@ -166,7 +169,6 @@ pasos:
 explicacion: "'Call off' es inseparable. No se puede dividir entre el verbo y la preposición, como en 'They called off the meeting.'"  
 tipo: completar  
 enunciado: "The event was ___ due to bad weather."  
-respuesta: "called off"  
 respuestas_validas:  
   - "called off"  
   - "Called off"  
@@ -184,7 +186,10 @@ pasos:
 explicacion: "'Break down' es inseparable y se usa para describir fallos mecánicos. En este contexto, 'broke down' es adecuado."  
 tipo: mc  
 enunciado: "Choose the correct form of 'break down':\nA) broke down\nB) breakd down\nC) broke doun"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```
 
@@ -200,7 +205,6 @@ pasos:
 explicacion: "'Hand out' es separable y se usa para repartir algo. En este caso, 'hand out' es correcto."  
 tipo: completar  
 enunciado: "The teacher ___ the exam papers to the students."  
-respuesta: "handed out"  
 respuestas_validas:  
   - "handed out"  
   - "Handed out"  
@@ -218,7 +222,10 @@ pasos:
 explicacion: "'Take apart' es separable y se usa para describir desmontar algo. En este caso, 'took apart' es adecuado."  
 tipo: mc  
 enunciado: "Choose the correct form of 'take apart':\nA) took apart\nB) take a part\nC) tak apert"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```
 
@@ -234,7 +241,6 @@ pasos:
 explicacion: "'Cut back on' es inseparable y se usa para reducir gastos. En este caso, 'cut back on' es correcto."  
 tipo: completar  
 enunciado: "We need to ___ our expenses this month."  
-respuesta: "cut back on"  
 respuestas_validas:  
   - "cut back on"  
   - "Cut back on"  
@@ -252,7 +258,10 @@ pasos:
 explicacion: "'Run out of' es inseparable y se usa para describir agotamiento. En este caso, 'ran out of' es adecuado."  
 tipo: mc  
 enunciado: "Choose the correct form of 'run out of':\nA) ran out of\nB) run out off\nC) ron out of"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```
 
@@ -268,7 +277,6 @@ pasos:
 explicacion: "'Get up' es inseparable y se usa para describir levantarse. En este caso, 'got up' es correcto."  
 tipo: completar  
 enunciado: "He ___ at 6 AM every day."  
-respuesta: "got up"  
 respuestas_validas:  
   - "got up"  
   - "Got up"  
@@ -286,7 +294,10 @@ pasos:
 explicacion: "'Check in' es inseparable y se usa para registrarse. En este caso, 'checked in' es adecuado."  
 tipo: mc  
 enunciado: "Choose the correct form of 'check in':\nA) checked in\nB) check ined\nC) chek in"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```
 
@@ -302,7 +313,6 @@ pasos:
 explicacion: "'Give up' es inseparable y se usa para describir rendirse. En este caso, 'gave up' es correcto."  
 tipo: completar  
 enunciado: "After years of failure, he ___ and started a new career."  
-respuesta: "gave up"  
 respuestas_validas:  
   - "gave up"  
   - "Gave up"  
@@ -320,7 +330,10 @@ pasos:
 explicacion: "'Set up' es inseparable y se usa para configurar algo. En este caso, 'set up' es adecuado."  
 tipo: mc  
 enunciado: "Choose the correct form of 'set up':\nA) set up\nB) set uo\nC) set upp"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```
 
@@ -336,7 +349,6 @@ pasos:
 explicacion: "'Drop out' es inseparable y se usa para abandonar algo. En este caso, 'dropped out' es correcto."  
 tipo: completar  
 enunciado: "He ___ of university last year to pursue music."  
-respuesta: "dropped out"  
 respuestas_validas:  
   - "dropped out"  
   - "Dropped out"  
@@ -354,7 +366,10 @@ pasos:
 explicacion: "'Put down' es separable y se usa para describir colocar algo. En este caso, 'put down' es adecuado."  
 tipo: mc  
 enunciado: "Choose the correct form of 'put down':\nA) put down\nB) putd own\nC) put dowm"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```
 
@@ -370,7 +385,6 @@ pasos:
 explicacion: "'Drop out' es inseparable y se usa para abandonar algo. En este caso, 'dropped out' es correcto."  
 tipo: completar  
 enunciado: "The defendant ___ of the trial due to health issues."  
-respuesta: "dropped out"  
 respuestas_validas:  
   - "dropped out"  
   - "Dropped out"  
@@ -388,7 +402,10 @@ pasos:
 explicacion: "'Get along with' es inseparable y se usa para describir relación con alguien. En este caso, 'got along with' es adecuado."  
 tipo: mc  
 enunciado: "Choose the correct form of 'get along with':\nA) got along with\nB) get a long with\nC) gat along with"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```
 
@@ -404,7 +421,6 @@ pasos:
 explicacion: "'Pick up' es separable y se usa para describir aprender algo rápidamente. En este caso, 'picked up' es correcto."  
 tipo: completar  
 enunciado: "She ___ the language quickly during her trip to Spain."  
-respuesta: "picked up"  
 respuestas_validas:  
   - "picked up"  
   - "Picked up"  
@@ -422,6 +438,9 @@ pasos:
 explicacion: "'Call off' es inseparable y se usa para cancelar algo. En este caso, 'called off' es adecuado."  
 tipo: mc  
 enunciado: "Choose the correct form of 'call off':\nA) called off\nB) calld of\nC) calld of"  
-opciones_explicitas: ["A", "B", "C"]  
+opciones_explicitas:
+  - "A"
+  - "B"
+  - "C"
 respuesta: "A"  
 ```

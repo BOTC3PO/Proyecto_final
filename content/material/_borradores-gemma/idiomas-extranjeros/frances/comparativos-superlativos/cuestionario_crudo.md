@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que describe la característica comparada."
   - "Aplicar la estructura 'plus + adjetivo + que' con concordancia de género y número."
-respuesta: "plus grand"
 tipo: completar
 respuestas_validas:
   - "Plus grand"
@@ -26,7 +25,6 @@ metadata:
 pasos:
   - "Identificar el elemento más destacado en la lista."
   - "Usar 'le plus + adjetivo' seguido de 'de + artículo definido'."
-respuesta: "le plus rapide"
 tipo: completar
 respuestas_validas:
   - "Le plus rapide"
@@ -44,7 +42,6 @@ metadata:
 pasos:
   - "Identificar el verbo que expresa comparación de cantidad."
   - "Usar 'moins + sustantivo' o 'plus + sustantivo' según el contexto."
-respuesta: "moins de livres"
 tipo: completar
 respuestas_validas:
   - "Moins de livres"
@@ -62,7 +59,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que debe ser superlativo."
   - "Usar 'le + adjetivo' seguido de 'de + artículo definido'."
-respuesta: "la moins chère"
 tipo: completar
 respuestas_validas:
   - "La moins chère"
@@ -80,7 +76,6 @@ metadata:
 pasos:
   - "Identificar la estructura de igualdad en francés."
   - "Usar 'autant que' para comparar cantidad o grado."
-respuesta: "autant que"
 tipo: completar
 respuestas_validas:
   - "Autant que"
@@ -98,7 +93,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que describe el precio."
   - "Usar 'plus + adjetivo' con concordancia de género y número."
-respuesta: "plus cher"
 tipo: completar
 respuestas_validas:
   - "Plus cher"
@@ -116,7 +110,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que describe una cualidad destacada."
   - "Usar 'le plus + adjetivo' seguido de 'de + artículo definido'."
-respuesta: "le meilleur film"
 tipo: completar
 respuestas_validas:
   - "Le meilleur film"
@@ -134,7 +127,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que describe la característica comparada."
   - "Aplicar la estructura 'plus + adjetivo + que' con concordancia de género y número."
-respuesta: "plus grande"
 tipo: completar
 respuestas_validas:
   - "Plus grande"
@@ -152,7 +144,6 @@ metadata:
 pasos:
   - "Identificar el elemento más destacado en un grupo."
   - "Usar 'le plus + adjetivo' seguido de 'de + artículo definido'."
-respuesta: "le plus long de la liste"
 tipo: completar
 respuestas_validas:
   - "Le plus long de la liste"
@@ -170,7 +161,6 @@ metadata:
 pasos:
   - "Identificar el verbo que expresa comparación de cantidad."
   - "Usar 'moins + sustantivo' o 'plus + sustantivo' según el contexto."
-respuesta: "moins de personnes"
 tipo: completar
 respuestas_validas:
   - "Moins de personnes"
@@ -188,7 +178,6 @@ metadata:
 pasos:
   - "Identificar el adverbio que debe ser superlativo."
   - "Usar 'le plus + adverbio' o 'la moins + adverbio'."
-respuesta: "le plus vite"
 tipo: completar
 respuestas_validas:
   - "Le plus vite"
@@ -206,7 +195,6 @@ metadata:
 pasos:
   - "Identificar el verbo que expresa comparación de duración."
   - "Usar 'plus + adjetivo' o 'moins + adjetivo' según el contexto."
-respuesta: "plus longtemps"
 tipo: completar
 respuestas_validas:
   - "Plus longtemps"
@@ -224,7 +212,6 @@ metadata:
 pasos:
   - "Identificar el elemento más destacado en la oración."
   - "Usar 'le plus + adjetivo' seguido de 'de + preposición'."
-respuesta: "la moins probablement"
 tipo: completar
 respuestas_validas:
   - "La moins probablement"
@@ -242,7 +229,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que describe una habilidad."
   - "Usar 'plus + adjetivo' con concordancia de género y número."
-respuesta: "plus doué"
 tipo: completar
 respuestas_validas:
   - "Plus doué"
@@ -260,7 +246,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que describe una distancia."
   - "Usar 'le plus + adjetivo' seguido de 'de + artículo definido'."
-respuesta: "le plus loin"
 tipo: completar
 respuestas_validas:
   - "Le plus loin"
@@ -278,7 +263,6 @@ metadata:
 pasos:
   - "Identificar el adverbio que describe la frecuencia."
   - "Usar 'plus + adverbio' o 'moins + adverbio' según el contexto."
-respuesta: "plus souvent"
 tipo: completar
 respuestas_validas:
   - "Plus souvent"
@@ -296,7 +280,6 @@ metadata:
 pasos:
   - "Identificar el elemento más destacado en la oración."
   - "Usar 'le plus + adjetivo' seguido de 'de + artículo indefinido'."
-respuesta: "la moins belle"
 tipo: completar
 respuestas_validas:
   - "La moins belle"
@@ -314,7 +297,6 @@ metadata:
 pasos:
   - "Identificar el verbo que expresa comparación de cantidad."
   - "Usar 'moins + sustantivo' o 'plus + sustantivo' según el contexto."
-respuesta: "plus d'étudiants"
 tipo: completar
 respuestas_validas:
   - "Plus d'étudiants"
@@ -332,7 +314,6 @@ metadata:
 pasos:
   - "Identificar el verbo que debe ser superlativo."
   - "Usar 'le plus + adjetivo' seguido de 'de + artículo definido'."
-respuesta: "le plus important"
 tipo: completar
 respuestas_validas:
   - "Le plus important"
@@ -350,7 +331,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que describe una cualidad."
   - "Usar 'plus + adjetivo' con concordancia de género y número."
-respuesta: "plus intelligent"
 tipo: completar
 respuestas_validas:
   - "Plus intelligent"
@@ -368,7 +348,6 @@ metadata:
 pasos:
   - "Identificar el elemento más destacado en la oración."
   - "Usar 'le plus + adjetivo' seguido de 'de + preposición'."
-respuesta: "la moins possible"
 tipo: completar
 respuestas_validas:
   - "La moins possible"
@@ -386,7 +365,6 @@ metadata:
 pasos:
   - "Identificar el verbo que expresa comparación de duración."
   - "Usar 'plus + adjetivo' o 'moins + adjetivo' según el contexto."
-respuesta: "moins longtemps"
 tipo: completar
 respuestas_validas:
   - "Moins longtemps"
@@ -404,7 +382,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que describe una importancia destacada."
   - "Usar 'le plus + adjetivo' seguido de 'de + artículo definido'."
-respuesta: "le plus important"
 tipo: completar
 respuestas_validas:
   - "Le plus important"
@@ -422,7 +399,6 @@ metadata:
 pasos:
   - "Identificar el verbo que expresa comparación de cantidad."
   - "Usar 'moins + sustantivo' o 'plus + sustantivo' según el contexto."
-respuesta: "plus d'eau"
 tipo: completar
 respuestas_validas:
   - "Plus d'eau"
@@ -440,7 +416,6 @@ metadata:
 pasos:
   - "Identificar el verbo que debe ser superlativo."
   - "Usar 'le plus + adjetivo' seguido de 'de + artículo definido'."
-respuesta: "la moins utile"
 tipo: completar
 respuestas_validas:
   - "La moins utile"

@@ -10,7 +10,6 @@ pasos:
 explicacion: "El pasado continuo describe una acción en progreso que fue interrumpida por otra acción en pasado simple. En este caso, 'was eating' es correcto porque la acción de comer estaba ocurriendo cuando se le pidió algo."  
 tipo: completar  
 enunciado: "She ___ (eat) dinner when her phone rang."  
-respuesta: "was eating"  
 respuestas_validas:  
   - "was eating"  
   - "Was eating"  
@@ -50,7 +49,6 @@ pasos:
 explicacion: "'Were watching' es correcto porque 'we' requiere 'were' en el pasado continuo. La acción de ver fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "We ___ (watch) TV when the power went out."  
-respuesta: "were watching"  
 respuestas_validas:  
   - "were watching"  
   - "Were watching"  
@@ -90,7 +88,6 @@ pasos:
 explicacion: "'Was cooking' es correcto porque 'she' requiere 'was' en el pasado continuo. La acción de cocinar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "She ___ (cook) breakfast when the fire alarm went off."  
-respuesta: "was cooking"  
 respuestas_validas:  
   - "was cooking"  
   - "Was cooking"  
@@ -130,7 +127,6 @@ pasos:
 explicacion: "'Were talking' es correcto porque 'we' requiere 'were' en el pasado continuo. La acción de hablar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "We ___ (talk) on the phone when the line went dead."  
-respuesta: "were talking"  
 respuestas_validas:  
   - "were talking"  
   - "Were talking"  
@@ -170,7 +166,6 @@ pasos:
 explicacion: "'Was walking' es correcto porque 'she' requiere 'was' en el pasado continuo. La acción de caminar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "She ___ (walk) to the store when it started raining."  
-respuesta: "was walking"  
 respuestas_validas:  
   - "was walking"  
   - "Was walking"  
@@ -210,7 +205,6 @@ pasos:
 explicacion: "'Were swimming' es correcto porque 'we' requiere 'were' en el pasado continuo. La acción de nadar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "We ___ (swim) in the pool when the lifeguard called us over."  
-respuesta: "were swimming"  
 respuestas_validas:  
   - "were swimming"  
   - "Were swimming"  
@@ -250,7 +244,6 @@ pasos:
 explicacion: "'Was studying' es correcto porque 'she' requiere 'was' en el past continuous. La acción de estudiar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "She ___ (study) for her exam when the lights went out."  
-respuesta: "was studying"  
 respuestas_validas:  
   - "was studying"  
   - "Was studying"  
@@ -290,7 +283,6 @@ pasos:
 explicacion: "'Were running' es correcto porque 'we' requiere 'were' en el past continuous. La acción de correr fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "We ___ (run) in the park when it started to snow."  
-respuesta: "were running"  
 respuestas_validas:  
   - "were running"  
   - "Were running"  
@@ -330,7 +322,6 @@ pasos:
 explicacion: "'Was cooking' es correcto porque 'she' requiere 'was' en el past continuous. La acción de cocinar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "She ___ (cook) dinner when the power went out."  
-respuesta: "was cooking"  
 respuestas_validas:  
   - "was cooking"  
   - "Was cooking"  
@@ -370,7 +361,6 @@ pasos:
 explicacion: "'Were talking' es correcto porque 'we' requiere 'were' en el past continuous. La acción de hablar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "We ___ (talk) on the phone when it rang off."  
-respuesta: "were talking"  
 respuestas_validas:  
   - "were talking"  
   - "Were talking"  
@@ -410,7 +400,6 @@ pasos:
 explicacion: "'Was walking' es correcto porque 'she' requiere 'was' en el past continuous. La acción de caminar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "She ___ (walk) to the market when it started raining."  
-respuesta: "was walking"  
 respuestas_validas:  
   - "was walking"  
   - "Was walking"  
@@ -450,7 +439,6 @@ pasos:
 explicacion: "'Were swimming' es correcto porque 'we' requiere 'were' en el past continuous. La acción de nadar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "We ___ (swim) in the lake when a boat passed by."  
-respuesta: "were swimming"  
 respuestas_validas:  
   - "were swimming"  
   - "Were swimming"  
@@ -490,7 +478,6 @@ pasos:
 explicacion: "'Was studying' es correcto porque 'she' requiere 'was' en el past continuous. La acción de estudiar fue interrumpida por otra acción en pasado simple."  
 tipo: completar  
 enunciado: "She ___ (study) for her test when the lights went out."  
-respuesta: "was studying"  
 respuestas_validas:  
   - "was studying"  
   - "Was studying"

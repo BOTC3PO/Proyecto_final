@@ -8,7 +8,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar la terminación correspondiente al presente de indicativo (-e, -es, -e, -ons, -ez, -ent).
-respuesta: "parle"
 tipo: completar
 respuestas_validas:
   - "parle"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - Localizar la raíz del verbo y el sujeto.
   - Aplicar las terminaciones de los verbos -ir (-is, -it, -issons, -issez, -issent).
-respuesta: "finis"
 tipo: completar
 respuestas_validas:
   - "finis"
@@ -50,7 +48,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-s, -s, -t, -ons, -ez, -ent).
-respuesta: "vends"
 tipo: completar
 respuestas_validas:
   - "vends"
@@ -71,7 +68,6 @@ metadata:
 pasos:
   - Determinar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -er (-e, -es, -e, -ons, -ez, -ent).
-respuesta: "mange"
 tipo: completar
 respuestas_validas:
   - "mange"
@@ -92,7 +88,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-s, -s, -t, -ons, -ez, -ent).
-respuesta: "prends"
 tipo: completar
 respuestas_validas:
   - "prends"
@@ -113,7 +108,6 @@ metadata:
 pasos:
   - Localizar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-s, -s, -t, -ons, -ez, -ent).
-respuesta: "envoie"
 tipo: completar
 respuestas_validas:
   - "envoie"
@@ -134,7 +128,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-s, -s, -t, -ons, -ez, -ent).
-respuesta: "attends"
 tipo: completar
 respuestas_validas:
   - "attends"
@@ -155,7 +148,6 @@ metadata:
 pasos:
   - Determinar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -ir (-issons, -issez, -issent).
-respuesta: "finissons"
 tipo: completar
 respuestas_validas:
   - "finissons"
@@ -176,7 +168,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ons, -ez, -ent).
-respuesta: "vendons"
 tipo: completar
 respuestas_validas:
   - "vendons"
@@ -197,7 +188,6 @@ metadata:
 pasos:
   - Determinar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -er (-ons, -ez, -ent).
-respuesta: "mangeons"
 tipo: completar
 respuestas_validas:
   - "mangeons"
@@ -218,7 +208,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ons, -ez, -ent).
-respuesta: "prenons"
 tipo: completar
 respuestas_validas:
   - "prenons"
@@ -239,7 +228,6 @@ metadata:
 pasos:
   - Localizar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ons, -ez, -ent).
-respuesta: "envoyons"
 tipo: completar
 respuestas_validas:
   - "envoyons"
@@ -260,7 +248,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ons, -ez, -ent).
-respuesta: "attendons"
 tipo: completar
 respuestas_validas:
   - "attendons"
@@ -281,7 +268,6 @@ metadata:
 pasos:
   - Determinar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -ir (-issez).
-respuesta: "finissez"
 tipo: completar
 respuestas_validas:
   - "finissez"
@@ -302,7 +288,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ez).
-respuesta: "vendez"
 tipo: completar
 respuestas_validas:
   - "vendez"
@@ -323,7 +308,6 @@ metadata:
 pasos:
   - Determinar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -er (-ez).
-respuesta: "mangez"
 tipo: completar
 respuestas_validas:
   - "mangez"
@@ -344,7 +328,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ez).
-respuesta: "prenez"
 tipo: completar
 respuestas_validas:
   - "prenez"
@@ -365,7 +348,6 @@ metadata:
 pasos:
   - Localizar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ez).
-respuesta: "envoyez"
 tipo: completar
 respuestas_validas:
   - "envoyez"
@@ -386,7 +368,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ez).
-respuesta: "attendez"
 tipo: completar
 respuestas_validas:
   - "attendez"
@@ -407,7 +388,6 @@ metadata:
 pasos:
   - Determinar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -ir (-issent).
-respuesta: "finissent"
 tipo: completar
 respuestas_validas:
   - "finissent"
@@ -428,7 +408,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ent).
-respuesta: "vendent"
 tipo: completar
 respuestas_validas:
   - "vendent"
@@ -449,7 +428,6 @@ metadata:
 pasos:
   - Determinar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -er (-ent).
-respuesta: "mangent"
 tipo: completar
 respuestas_validas:
   - "mangent"
@@ -470,7 +448,6 @@ metadata:
 pasos:
   - Identificar el sujeto y la raíz del verbo.
   - Aplicar las terminaciones de los verbos -re (-ent).
-respuesta: "prennent"
 tipo: completar
 respuestas_validas:
   - "prennent"

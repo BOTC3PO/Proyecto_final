@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el contexto de la oración."
   - "Elegir el chengyu que expresa la idea de 'esperar una oportunidad sin esfuerzo'."
-respuesta: "守株待兔"
 respuestas_validas:
   - "守株待兔"
 explicacion: "El chengyu 守株待兔 describe a alguien que espera una oportunidad sin hacer esfuerzos activos, como el agricultor que se quedó esperando un conejo en la zanja."
@@ -41,7 +40,6 @@ metadata:
 pasos:
   - "Reconocer la situación de 'agregar algo innecesario'."
   - "Completar el hueco con el chengyu correspondiente."
-respuesta: "画蛇添足"
 respuestas_validas:
   - "画蛇添足"
 explicacion: "El chengyu 画蛇添足 se refiere a hacer algo que no es necesario, como agregar patas a una serpiente ya dibujada."
@@ -74,7 +72,6 @@ metadata:
 pasos:
   - "Identificar el contexto de 'usar la fuerza de otro para imponerse'."
   - "Seleccionar el chengyu adecuado."
-respuesta: "狐假虎威"
 respuestas_validas:
   - "狐假虎威"
 explicacion: "El chengyu 狐假虎威 describe a alguien que usa la autoridad de otro para intimidar, como el zorro que se hace pasar por un tigre."
@@ -107,7 +104,6 @@ metadata:
 pasos:
   - "Reconocer la acción de 'buscar algo en un lugar incorrecto'."
   - "Escribir el chengyu que describe esta situación."
-respuesta: "刻舟求剑"
 respuestas_validas:
   - "刻舟求剑"
 explicacion: "El chengyu 刻舟求剑 se usa para describir intentar recuperar algo en un lugar donde ya no está, como buscar una espada en el río donde fue perdida."
@@ -140,7 +136,6 @@ metadata:
 pasos:
   - "Identificar la relación entre dos partes en conflicto."
   - "Completar el hueco con el chengyu adecuado."
-respuesta: "鹬蚌相争"
 respuestas_validas:
   - "鹬蚌相争"
 explicacion: "El chengyu 鹬蚌相争 se usa para describir una disputa entre dos partes que beneficia a un tercero, como en la historia del ganso y el caracol."
@@ -173,7 +168,6 @@ metadata:
 pasos:
   - "Reconocer la situación de 'intentar ocultar un error'."
   - "Escribir el chengyu que describe esta acción."
-respuesta: "掩耳盗铃"
 respuestas_validas:
   - "掩耳盗铃"
 explicacion: "El chengyu 掩耳盗铃 se refiere a alguien que intenta ocultar un error o ignorar la realidad, como el ladrón que tapa sus oídos al robar una campana."
@@ -206,7 +200,6 @@ metadata:
 pasos:
   - "Identificar el contexto de 'intentar recuperar algo en un lugar incorrecto'."
   - "Completar el hueco con el chengyu adecuado."
-respuesta: "刻舟求剑"
 respuestas_validas:
   - "刻舟求剑"
 explicacion: "El chengyu 刻舟求剑 se refiere a intentar recuperar algo en un lugar donde ya no está, como buscar una espada en el río donde fue perdida."
@@ -239,7 +232,6 @@ metadata:
 pasos:
   - "Reconocer la situación de 'usar la fuerza de otro para imponerse'."
   - "Completar el hueco con el chengyu adecuado."
-respuesta: "狐假虎威"
 respuestas_validas:
   - "狐假虎威"
 explicacion: "El chengyu 狐假虎威 describe a alguien que usa la autoridad de otro para intimidar, como el zorro que se hace pasar por un tigre."
@@ -272,7 +264,6 @@ metadata:
 pasos:
   - "Identificar la situación de 'intentar ocultar un error'."
   - "Escribir el chengyu que describe esta acción."
-respuesta: "掩耳盗铃"
 respuestas_validas:
   - "掩耳盗铃"
 explicacion: "El chengyu 掩耳盗铃 se refiere a alguien que intenta ocultar un error o ignorar la realidad, como el ladrón que tapa sus oídos al robar una campana."
@@ -305,7 +296,6 @@ metadata:
 pasos:
   - "Reconocer la relación entre dos partes en conflicto."
   - "Completar el hueco con el chengyu adecuado."
-respuesta: "鹬蚌相争"
 respuestas_validas:
   - "鹬蚌相争"
 explicacion: "El chengyu 鹬蚌相争 describe una disputa entre dos partes que beneficia a un tercero, como en la historia del ganso y el caracol."
@@ -338,7 +328,6 @@ metadata:
 pasos:
   - "Identificar el contexto de 'usar la fuerza de otro para imponerse'."
   - "Completar el hueco con el chengyu adecuado."
-respuesta: "狐假虎威"
 respuestas_validas:
   - "狐假虎威"
 explicacion: "El chengyu 狐假虎威 describe a alguien que usa la autoridad de otro para intimidar, como el zorro que se hace pasar por un tigre."
@@ -371,7 +360,6 @@ metadata:
 pasos:
   - "Reconocer la situación de 'intentar ocultar un error'."
   - "Escribir el chengyu que describe esta acción."
-respuesta: "掩耳盗铃"
 respuestas_validas:
   - "掩耳盗铃"
 explicacion: "El chengyu 掩耳盗铃 se refiere a alguien que intenta ocultar un error o ignorar la realidad, como el ladrón que tapa sus oídos al robar una campana."
@@ -404,7 +392,6 @@ metadata:
 pasos:
   - "Identificar la relación entre dos partes en conflicto."
   - "Completar el hueco con el chengyu adecuado."
-respuesta: "鹬蚌相争"
 respuestas_validas:
   - "鹬蚌相争"
 explicacion: "El chengyu 鹬蚌相争 describe una disputa entre dos partes que beneficia a un tercero, como en la historia del ganso y el caracol."

@@ -10,7 +10,6 @@ pasos:
 explicacion: "A preposição 'para' indica finalidade no contexto da frase, enquanto 'com' se refere à companhia."  
 enunciado: "Ela viajou ___ Europa com amigos."  
 tipo: completar  
-respuesta: "para"  
 respuestas_validas:  
   - "para"  
   - "Para"  
@@ -54,7 +53,6 @@ pasos:
 explicacion: "O verbo 'ter' no pretérito perfeito é conjugado como 'tive', enquanto 'teve' se refere ao terceiro pessoa do singular."  
 enunciado: "Ontem, eu ___ que iria ao cinema."  
 tipo: completar  
-respuesta: "tive"  
 respuestas_validas:  
   - "tive"  
   - "Tive"  
@@ -98,7 +96,6 @@ pasos:
 explicacion: "O gerúndio de 'comprar' é 'comprando', enquanto 'comprando' mantém o mesmo radical."  
 enunciado: "Enquanto ___ no mercado, vi um amigo."  
 tipo: completar  
-respuesta: "comprava"  
 respuestas_validas:  
   - "comprava"  
   - "Comprava"  
@@ -142,7 +139,6 @@ pasos:
 explicacion: "O advérbio 'aqui' indica localização, enquanto 'ali' se refere a outro lugar."  
 enunciado: "Ela está ___ no escritório."  
 tipo: completar  
-respuesta: "aqui"  
 respuestas_validas:  
   - "aqui"  
   - "Aqui"  
@@ -186,7 +182,6 @@ pasos:
 explicacion: "O infinitivo pessoal de 'ler' é 'ler', enquanto 'lerem' se refere ao plural."  
 enunciado: "Preciso ___ o livro antes da prova."  
 tipo: completar  
-respuesta: "ler"  
 respuestas_validas:  
   - "ler"  
   - "Ler"  
@@ -230,7 +225,6 @@ pasos:
 explicacion: "A crase ocorre antes de palavras femininas que começam com 'a', como 'às'."  
 enunciado: "Ela foi ___ academia ontem."  
 tipo: completar  
-respuesta: "à"  
 respuestas_validas:  
   - "à"  
   - "À"  
@@ -274,7 +268,6 @@ pasos:
 explicacion: "O verbo 'ler' no futuro do presente é 'lerá', enquanto 'leria' é condicional."  
 enunciado: "Ela ___ o livro amanhã."  
 tipo: completar  
-respuesta: "lerá"  
 respuestas_validas:  
   - "lerá"  
   - "Lerá"  
@@ -318,7 +311,6 @@ pasos:
 explicacion: "A vírgula separa orações coordenadas, como em 'Ela estudou, mas não passou.'"  
 enunciado: "Ele chegou cedo ___ não conseguiu entrar."  
 tipo: completar  
-respuesta: ","  
 respuestas_validas:  
   - ","  
 
@@ -361,7 +353,6 @@ pasos:
 explicacion: "O pronome 'esta' se refere a algo próximo, enquanto 'aquela' indica distância."  
 enunciado: "___ é minha mochila."  
 tipo: completar  
-respuesta: "Esta"  
 respuestas_validas:  
   - "Esta"  
   - "esta"  
@@ -425,7 +416,6 @@ pasos:
 explicacion: "O advérbio 'ontem' indica tempo passado, enquanto 'amanhã' se refere ao futuro."  
 enunciado: "Ela ___ no mercado ontem."  
 tipo: completar  
-respuesta: "foi"  
 respuestas_validas:  
   - "foi"  
   - "Foi"  
@@ -469,7 +459,6 @@ pasos:
 explicacion: "O verbo 'ler' no pretérito mais-que-perfeito é 'tinha lido', enquanto 'lia' é imperfeito."  
 enunciado: "Ela ___ o livro antes de eu chegar."  
 tipo: completar  
-respuesta: "tinha lido"  
 respuestas_validas:  
   - "tinha lido"  
   - "Tinha lido"  
@@ -513,7 +502,6 @@ pasos:
 explicacion: "O gerúndio de 'escrever' é 'escrevendo', enquanto 'escreveu' é pretérito perfeito."  
 enunciado: "Ela ___ a carta enquanto eu lia o jornal."  
 tipo: completar  
-respuesta: "escrevia"  
 respuestas_validas:  
   - "escrevia"  
   - "Escrevia"  

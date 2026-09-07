@@ -7,7 +7,6 @@ metadata:
   tags: ["verbs", "-고 싶다"]
 pasos:
   - "빈칸을 채우세요."
-respuesta: "가르치고"
 respuestas_validas:
   - "가르치고"
   - "가르치고"
@@ -51,7 +50,6 @@ metadata:
   tags: ["honorifics", "존댓말"]
 pasos:
   - "빈칸을 채우세요."
-respuesta: "예요"
 respuestas_validas:
   - "예요"
   - "입니다"
@@ -115,7 +113,7 @@ metadata:
 pasos:
   - "Determinar el tono de la oración (formal o informal)."
   - "Elegir la forma correcta del verbo según el contexto."
-respuesta_validas:
+respuestas_validas:
   - "합니다"
   - "하시죠"
 opciones_explicitas:
@@ -155,7 +153,7 @@ metadata:
 pasos:
   - "Determinar si el sujeto es respetuoso o informal."
   - "Elegir la forma del verbo que corresponda al contexto."
-respuesta_validas:
+respuestas_validas:
   - "시"
   - "하세요"
 opciones_explicitas:
@@ -195,7 +193,7 @@ metadata:
 pasos:
   - "Reconocer el patrón de uso del verbo '-되다'."
   - "Completar con la forma correcta que describe un estado."
-respuesta_validas:
+respuestas_validas:
   - "되어요"
   - "되죠"
 opciones_explicitas:
@@ -235,7 +233,7 @@ metadata:
 pasos:
   - "Reconocer la estructura '-고 있는' para describir un estado actual."
   - "Completar con el verbo correcto en forma de participle."
-respuesta_validas:
+respuestas_validas:
   - "가져"
   - "가지고"
 opciones_explicitas:
@@ -256,7 +254,7 @@ metadata:
 pasos:
   - "Identificar el grado de formalidad en la oración."
   - "Elegir la forma correcta del verbo según el contexto."
-respuesta_validas:
+respuestas_validas:
   - "하세요"
   - "하십시오"
 opciones_explicitas:
@@ -277,7 +275,7 @@ metadata:
 pasos:
   - "Identificar la necesidad de negar una acción."
   - "Seleccionar la forma correcta de '-지 않다'."
-respuesta_validas:
+respuestas_validas:
   - "가지 않아요"
   - "가지 않습니다"
 opciones_explicitas:
@@ -317,7 +315,7 @@ metadata:
 pasos:
   - "Reconocer la estructura '-는 것' para describir una acción específica."
   - "Completar con el verbo correcto en forma de participle."
-respuesta_validas:
+respuestas_validas:
   - "하는"
   - "하는 것"
 opciones_explicitas:
@@ -357,7 +355,7 @@ metadata:
 pasos:
   - "Identificar el uso de '-겠-' para expresar intención o promesa."
   - "Completar con la forma correcta del verbo."
-respuesta_validas:
+respuestas_validas:
   - "가지 않겠습니다"
   - "가지 않겠어요"
 opciones_explicitas:
@@ -397,7 +395,7 @@ metadata:
 pasos:
   - "Reconocer la estructura '-던' para describir acciones pasadas o hábitos."
   - "Completar con el verbo correcto en forma de participle."
-respuesta_validas:
+respuestas_validas:
   - "했던"
   - "해서"
 opciones_explicitas:
@@ -418,7 +416,7 @@ metadata:
 pasos:
   - "Identificar el uso de '-니까' para expresar razón o causa."
   - "Completar con la forma correcta del verbo."
-respuesta_validas:
+respuestas_validas:
   - "이니까"
   - "이야"
 opciones_explicitas:
@@ -458,7 +456,7 @@ metadata:
 pasos:
   - "Reconocer la estructura '-는 것' para describir una acción específica."
   - "Completar con el verbo correcto en forma de participle."
-respuesta_validas:
+respuestas_validas:
   - "하는"
   - "하는 것"
 opciones_explicitas:
@@ -498,7 +496,7 @@ metadata:
 pasos:
   - "Identificar el uso de '-겠-' para expresar intención o promesa."
   - "Completar con la forma correcta del verbo."
-respuesta_validas:
+respuestas_validas:
   - "가지 않겠습니다"
   - "가지 않겠어요"
 opciones_explicitas:

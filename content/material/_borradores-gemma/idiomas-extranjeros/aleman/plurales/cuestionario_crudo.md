@@ -10,9 +10,6 @@ pasos:
 explicacion: "El plural de 'der Vogel' (el pájaro) es 'die Vögel'. En aleman, los sustantivos masculinos que terminan en vocal suelen añadir '-e' en plural."  
 tipo: completar  
 enunciado: "Ich sehe ___ auf dem Baum."  
-variables:  
-  - "Vogel"  
-respuesta: "Vögel"  
 respuestas_validas:  
   - "Vögel"  
   - "vögel"  
@@ -34,9 +31,6 @@ pasos:
 explicacion: "El plural de 'das Buch' (el libro) es 'die Bücher'. Los sustantivos neutros que terminan en consonante suelen añadir '-er' en plural."  
 tipo: completar  
 enunciado: "Ich lese ___ in der Bibliothek."  
-variables:  
-  - "Buch"  
-respuesta: "Bücher"  
 respuestas_validas:  
   - "Bücher"  
   - "bücher"  
@@ -58,9 +52,6 @@ pasos:
 explicacion: "El plural de 'der Mann' (el hombre) es 'die Männer'. Algunos sustantivos cambian radical en plural, como 'Mann → Männer'."  
 tipo: completar  
 enunciado: "Der ___ arbeitet in der Fabrik."  
-variables:  
-  - "Mann"  
-respuesta: "Männer"  
 respuestas_validas:  
   - "Männer"  
   - "männer"  
@@ -82,9 +73,6 @@ pasos:
 explicacion: "El plural de 'die Banane' (la banana) es 'die Bananen'. Los sustantivos femeninos suelen añadir '-n' en plural."  
 tipo: completar  
 enunciado: "Ich esse ___ zum Frühstück."  
-variables:  
-  - "Banane"  
-respuesta: "Bananen"  
 respuestas_validas:  
   - "Bananen"  
   - "bananen"  
@@ -106,9 +94,6 @@ pasos:
 explicacion: "El plural de 'die Zahl' (el número) es 'die Zahlen'. Los sustantivos abstractos suelen añadir '-en' en plural."  
 tipo: completar  
 enunciado: "Ich kenne ___ von eins bis zehn."  
-variables:  
-  - "Zahl"  
-respuesta: "Zahlen"  
 respuestas_validas:  
   - "Zahlen"  
   - "zahlen"  
@@ -130,9 +115,6 @@ pasos:
 explicacion: "El plural de 'der Stuhl' (la silla) es 'die Stühle'. El artículo cambia a femenino en plural."  
 tipo: completar  
 enunciado: "Ich setze mich auf ___."  
-variables:  
-  - "Stuhl"  
-respuesta: "Stühle"  
 respuestas_validas:  
   - "Stühle"  
   - "stühle"  
@@ -154,9 +136,6 @@ pasos:
 explicacion: "El plural de 'der Tag' (el día) es 'die Tage'. Algunos sustantivos masculinos añaden '-e' y pueden requerir acento en plural."  
 tipo: completar  
 enunciado: "Wir haben ___ in der Woche."  
-variables:  
-  - "Tag"  
-respuesta: "Tage"  
 respuestas_validas:  
   - "Tage"  
   - "tage"  
@@ -178,9 +157,6 @@ pasos:
 explicacion: "El plural de 'die Frau' (la mujer) es 'die Frauen'. Algunos sustantivos femeninos cambian radical en plural."  
 tipo: completar  
 enunciado: "Die ___ tragen Kleidung."  
-variables:  
-  - "Frau"  
-respuesta: "Frauen"  
 respuestas_validas:  
   - "Frauen"  
   - "frauen"  
@@ -202,9 +178,6 @@ pasos:
 explicacion: "El plural de 'der Lehrer' (el profesor) es 'die Lehrer'. Los sustantivos masculinos que terminan en consonante suelen añadir '-er' en plural."  
 tipo: completar  
 enunciado: "Die ___ unterrichten die Schüler."  
-variables:  
-  - "Lehrer"  
-respuesta: "Lehrer"  
 respuestas_validas:  
   - "Lehrer"  
   - "lehrer"  
@@ -226,9 +199,6 @@ pasos:
 explicacion: "El plural de 'der Schauspieler' (el actor) es 'die Schauspieler'. El artículo cambia a femenino y se añade '-er' en plural."  
 tipo: completar  
 enunciado: "Die ___ spielen in dem Film."  
-variables:  
-  - "Schauspieler"  
-respuesta: "Schauspieler"  
 respuestas_validas:  
   - "Schauspieler"  
   - "schauspieler"  
@@ -250,9 +220,6 @@ pasos:
 explicacion: "El plural de 'der Name' (el nombre) es 'die Namen'. Algunos sustantivos masculinos añaden '-e' y pueden requerir acento en plural."  
 tipo: completar  
 enunciado: "Er hat ___ gegeben."  
-variables:  
-  - "Name"  
-respuesta: "Namen"  
 respuestas_validas:  
   - "Namen"  
   - "namen"  
@@ -274,9 +241,6 @@ pasos:
 explicacion: "El plural de 'der Bruder' (el hermano) es 'die Brüder'. El artículo cambia a femenino y se añade '-er' en plural."  
 tipo: completar  
 enunciado: "Die ___ spielen im Park."  
-variables:  
-  - "Bruder"  
-respuesta: "Brüder"  
 respuestas_validas:  
   - "Brüder"  
   - "brüder"  
@@ -295,13 +259,11 @@ metadata:
   tags: ["sustantivos", "artículos"]  
 pasos:  
   - "Identificar el sustantivo singular y su forma plural en el contexto."  
-respuesta: "Bücher"  
 tipo: completar  
 respuestas_validas:  
   - "Bücher"  
   - "bücher"  
 enunciado: "Er hat ___ in die Tasche gesteckt."  
-variables: {}  
 explicacion: "El sustantivo 'Buch' (singular) cambia a 'Bücher' en plural. El artículo 'die' se usa con sustantivos femeninos o plurales, por lo que el hueco debe completarse con la forma plural del sustantivo."  
 ```  
 
@@ -319,9 +281,6 @@ pasos:
 explicacion: "El plural de 'der Mann' (el hombre) es 'die Männer'. El artículo cambia a femenino y se añade '-er' en plural."  
 tipo: completar  
 enunciado: "Die ___ arbeiten in der Fabrik."  
-variables:  
-  - "Mann"  
-respuesta: "Männer"  
 respuestas_validas:  
   - "Männer"  
   - "männer"  
@@ -343,9 +302,6 @@ pasos:
 explicacion: "El plural de 'das Kind' (el niño) es 'die Kinder'. Los sustantivos neutros que terminan en consonante suelen añadir '-er' en plural."  
 tipo: completar  
 enunciado: "Das ___ spielt im Park."  
-variables:  
-  - "Kind"  
-respuesta: "Kinder"  
 respuestas_validas:  
   - "Kinder"  
   - "kinder"  
@@ -371,7 +327,6 @@ opciones_explicitas:
   - "arbeiten"  
   - "arbeitest"  
 enunciado: "Die Studenten ___ viele Bücher."  
-variables: {}  
 explicacion: "El sujeto 'die Studenten' es plural, por lo que el verbo debe estar en tercera persona plural. La forma correcta es 'arbeiten', mientras que 'arbeitet' se usa con singular y 'arbeitest' con segunda persona."  
 ```  
 
@@ -386,13 +341,11 @@ metadata:
   tags: ["acentuación", "sustantivos"]  
 pasos:  
   - "Identificar el sustantivo singular y aplicar las reglas de pluralización en acento."  
-respuesta: "Söhne"  
 tipo: completar  
 respuestas_validas:  
   - "Söhne"  
   - "söhne"  
 enunciado: "Die ___ des Nachbarn spielen im Park."  
-variables: {}  
 explicacion: "El sustantivo 'Sohn' (singular) cambia a 'Söhne' en plural, con un acento agudo en la 'ö'. Esto ocurre en palabras que terminan en 'n' y tienen una vocal abierta antes."  
 ```  
 
@@ -414,7 +367,6 @@ opciones_explicitas:
   - "die"  
   - "das"  
 enunciado: "___ Männer tragen Uniformen."  
-variables: {}  
 explicacion: "El artículo 'die' se usa con sustantivos plurales masculinos. 'Der' es para singular masculino, y 'das' para neutro o singular femenino."  
 ```  
 
@@ -429,13 +381,11 @@ metadata:
   tags: ["sufijos", "sustantivos"]  
 pasos:  
   - "Aplicar la regla de pluralización con el sufijo '-e' al sustantivo singular."  
-respuesta: "Tiere"  
 tipo: completar  
 respuestas_validas:  
   - "Tiere"  
   - "tier-e"  
 enunciado: "Die ___ im Zoo sind sehr laut."  
-variables: {}  
 explicacion: "El sustantivo 'Tier' (singular) se pluraliza añadiendo '-e', formando 'Tiere'. Esta regla aplica a muchos sustantivos que terminan en vocal."  
 ```  
 
@@ -450,13 +400,11 @@ metadata:
   tags: ["adjetivos", "acuerdo"]  
 pasos:  
   - "Identificar la forma del adjetivo que concuerde con el sustantivo plural masculino."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "___ Blumen blühen im Garten."  
-variables: {}  
 explicacion: "El adjetivo 'schön' (singular) se transforma en 'schöne' para concordar con el sustantivo plural masculino 'Blumen'. El acento se coloca en la forma flexible del adjetivo."  
 ```  
 
@@ -478,7 +426,6 @@ opciones_explicitas:
   - "mit den"  
   - "mit der"  
 enunciado: "Er spielt ___ Kindern im Park."  
-variables: {}  
 explicacion: "La preposición 'mit' requiere el artículo determinado plural 'den' cuando se usa con sustantivos masculinos o neutros. 'Dem' es singular y 'der' no concuerda con el plural."  
 ```  
 
@@ -493,13 +440,11 @@ metadata:
   tags: ["invariables", "sustantivos"]  
 pasos:  
   - "Identificar el sustantivo que no cambia en plural y usarlo correctamente."  
-respuesta: "Pferde"  
 tipo: completar  
 respuestas_validas:  
   - "Pferde"  
   - "pferde"  
 enunciado: "Die ___ galoppieren durch den Wald."  
-variables: {}  
 explicacion: "El sustantivo 'Pferd' (singular) no cambia en plural, por lo que se repite como 'Pferde'. Esto ocurre con palabras que terminan en 'e' o son invariables."  
 ```  
 
@@ -521,7 +466,6 @@ opciones_explicitas:
   - "tanzen"  
   - "tanzest"  
 enunciado: "Die Tänzerinnen ___ im Theater."  
-variables: {}  
 explicacion: "El sujeto 'die Tänzerinnen' es plural femenino, por lo que el verbo debe estar en tercera persona plural. La forma correcta es 'tanzen', mientras que 'tanzt' se usa con singular y 'tanzest' con segunda persona."  
 ```  
 
@@ -536,13 +480,11 @@ metadata:
   tags: ["sustantivos", "terminación"]  
 pasos:  
   - "Aplicar la regla de pluralización a sustantivos terminados en '-en'."  
-respuesta: "Häuser"  
 tipo: completar  
 respuestas_validas:  
   - "Häuser"  
   - "häuser"  
 enunciado: "Die ___ in der Stadt sind sehr alt."  
-variables: {}  
 explicacion: "El sustantivo 'Haus' (singular) se pluraliza como 'Häuser', conservando la terminación '-er'. Esta regla aplica a palabras que terminan en vocal o consonante suave."  
 ```  
 
@@ -564,6 +506,5 @@ opciones_explicitas:
   - "mit den"  
   - "mit der"  
 enunciado: "Sie sprechen ___ Kindern über die Schule."  
-variables: {}  
 explicacion: "La preposición 'mit' requiere el artículo determinado plural 'den' con sustantivos neutros o masculinos. 'Dem' es singular y 'der' no concuerda con el plural."  
 ```

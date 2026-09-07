@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identifica el caso del pronombre relativo."
   - "Completa la oración con el pronombre correcto."
-respuesta: "den"
 tipo: completar
 respuestas_validas:
   - "den"
   - "Den"
 enunciado: "Das ist der Mann, ___ ich gestern gesehen habe."
-variables:
-  - "gestern gesehen habe"
 ```
 
 ---
@@ -51,14 +48,11 @@ metadata:
 pasos:
   - "Identifica la preposición y el caso resultante."
   - "Completa con el pronombre relativo adecuado."
-respuesta: "mit der"
 tipo: completar
 respuestas_validas:
   - "mit der"
   - "Mit der"
 enunciado: "Das ist die Frau, ___ ich meine Mutter spreche."
-variables:
-  - "meine Mutter spreche"
 ```
 
 ---
@@ -94,14 +88,11 @@ metadata:
 pasos:
   - "Identifica el género del sustantivo."
   - "Completa con el pronombre relativo neutro."
-respuesta: "das"
 tipo: completar
 respuestas_validas:
   - "das"
   - "Das"
 enunciado: "Das ist das Buch, ___ ich letzte Woche gekauft habe."
-variables:
-  - "letzte Woche gekauft habe"
 ```
 
 ---
@@ -137,14 +128,11 @@ metadata:
 pasos:
   - "Identifica el posesivo en la oración."
   - "Completa con el pronombre relativo adecuado."
-respuesta: "wessen"
 tipo: completar
 respuestas_validas:
   - "wessen"
   - "Wessen"
 enunciado: "Das ist das Auto, ___ Motor defekt ist."
-variables:
-  - "Motor defekt ist"
 ```
 
 ---
@@ -180,14 +168,11 @@ metadata:
 pasos:
   - "Determina el caso tras la preposición 'an'."
   - "Completa con el pronombre relativo adecuado."
-respuesta: "an dem"
 tipo: completar
 respuestas_validas:
   - "an dem"
   - "An dem"
 enunciado: "Das ist das Haus, ___ ich wohne."
-variables:
-  - "ich wohne"
 ```
 
 ---
@@ -223,14 +208,11 @@ metadata:
 pasos:
   - "Reconoce el sujeto en la oración relativa."
   - "Completa con el pronombre correcto."
-respuesta: "der"
 tipo: completar
 respuestas_validas:
   - "der"
   - "Der"
 enunciado: "Das ist der Student, ___ ich gestern getroffen habe."
-variables:
-  - "gestern getroffen habe"
 ```
 
 ---
@@ -266,14 +248,11 @@ metadata:
 pasos:
   - "Reconoce el sustantivo neutro en la oración."
   - "Completa con el pronombre relativo adecuado."
-respuesta: "das"
 tipo: completar
 respuestas_validas:
   - "das"
   - "Das"
 enunciado: "Das ist das Bild, ___ ich gemalt habe."
-variables:
-  - "ich gemalt habe"
 ```
 
 ---
@@ -309,14 +288,11 @@ metadata:
 pasos:
   - "Determina el caso tras la preposición 'in'."
   - "Completa con el pronombre relativo adecuado."
-respuesta: "in dem"
 tipo: completar
 respuestas_validas:
   - "in dem"
   - "In dem"
 enunciado: "Das ist das Land, ___ ich Urlaub mache."
-variables:
-  - "ich Urlaub mache"
 ```
 
 ---
@@ -352,14 +328,11 @@ metadata:
 pasos:
   - "Reconoce el sujeto en la oración relativa."
   - "Completa con el pronombre correcto."
-respuesta: "der"
 tipo: completar
 respuestas_validas:
   - "der"
   - "Der"
 enunciado: "Das ist der Lehrer, ___ ich sehr mag."
-variables:
-  - "ich sehr mag"
 ```
 
 ---
@@ -395,14 +368,11 @@ metadata:
 pasos:
   - "Reconoce el sustantivo neutro en la oración."
   - "Completa con el pronombre relativo adecuado."
-respuesta: "das"
 tipo: completar
 respuestas_validas:
   - "das"
   - "Das"
 enunciado: "Das ist das Tier, ___ ich im Zoo gesehen habe."
-variables:
-  - "im Zoo gesehen habe"
 ```
 
 ---
@@ -438,14 +408,11 @@ metadata:
 pasos:
   - "Determina el caso tras la preposición 'in'."
   - "Completa con el pronombre relativo adecuado."
-respuesta: "in dem"
 tipo: completar
 respuestas_validas:
   - "in dem"
   - "In dem"
 enunciado: "Das ist das Zimmer, ___ ich wohne."
-variables:
-  - "ich wohne"
 ```
 
 ---
@@ -481,14 +448,11 @@ metadata:
 pasos:
   - "Reconoce el sujeto en la oración relativa."
   - "Completa con el pronombre correcto."
-respuesta: "der"
 tipo: completar
 respuestas_validas:
   - "der"
   - "Der"
 enunciado: "Das ist der Film, ___ ich sehr mag."
-variables:
-  - "ich sehr mag"
 ```
 
 ---
@@ -524,12 +488,9 @@ metadata:
 pasos:
   - "Reconoce el sustantivo neutro en la oración."
   - "Completa con el pronombre relativo adecuado."
-respuesta: "das"
 tipo: completar
 respuestas_validas:
   - "das"
   - "Das"
 enunciado: "Das ist das Tier, ___ ich im Zoo gesehen habe."
-variables:
-  - "im Zoo gesehen habe"
 ```

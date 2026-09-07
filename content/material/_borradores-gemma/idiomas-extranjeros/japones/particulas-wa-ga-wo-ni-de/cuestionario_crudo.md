@@ -13,8 +13,6 @@ respuestas_validas:
 explicacion: "El sujeto de la oración '彼はりんごを食べました' es '彼', que se marca con 'が'. 'は' indica el tema, no el sujeto."
 tipo: completar
 enunciado: "彼___りんごを食べました。"
-variables:
-  - "ga"
 ```
 
 
@@ -56,8 +54,6 @@ respuestas_validas:
 explicacion: "'を' marca los objetos directos, como '本' en '彼は本を読みました'."
 tipo: completar
 enunciado: "彼は___本を読みました。"
-variables:
-  - "wo"
 ```
 
 
@@ -99,8 +95,6 @@ respuestas_validas:
 explicacion: "'で' indica el lugar donde se realiza una acción, como en '彼は部屋でパーティーをしました'."
 tipo: completar
 enunciado: "彼は___部屋でパーティーをしました。"
-variables:
-  - "de"
 ```
 
 
@@ -120,8 +114,6 @@ respuestas_validas:
 explicacion: "'を' se usa con objetos directos, como '音楽' en '彼は音楽を聞きました'."
 tipo: completar
 enunciado: "彼は___音楽を聞きました。"
-variables:
-  - "wo"
 ```
 
 
@@ -163,8 +155,6 @@ respuestas_validas:
 explicacion: "'を' se usa con objetos directos, como 'コーヒー' en '彼はコーヒーを飲みます'."
 tipo: completar
 enunciado: "彼は___コーヒーを飲みます。"
-variables:
-  - "wo"
 ```
 
 
@@ -206,8 +196,6 @@ respuestas_validas:
 explicacion: "'で' indica el lugar donde se realiza una acción, como en '彼はステージで演奏します'."
 tipo: completar
 enunciado: "彼は___ステージで演奏します。"
-variables:
-  - "de"
 ```
 
 
@@ -227,8 +215,6 @@ respuestas_validas:
 explicacion: "'を' se usa con objetos directos, como '話' en '彼は話をしてくださいました'."
 tipo: completar
 enunciado: "彼は___話をしてくださいました。"
-variables:
-  - "wo"
 ```
 
 
@@ -270,8 +256,6 @@ respuestas_validas:
 explicacion: "'で' indica el lugar donde se realiza una acción, como en '彼はレストランでご飯を食べました'."
 tipo: completar
 enunciado: "彼は___レストランでご飯を食べました。"
-variables:
-  - "de"
 ```
 
 
@@ -291,8 +275,6 @@ respuestas_validas:
 explicacion: "'を' se usa con objetos directos, como '質問' en '彼は質問をしました'."
 tipo: completar
 enunciado: "彼は___質問をしました。"
-variables:
-  - "wo"
 ```
 
 
@@ -334,8 +316,6 @@ respuestas_validas:
 explicacion: "'に' marca la dirección hacia un lugar, como en '彼は映画館に映画を見に行きます'."
 tipo: completar
 enunciado: "彼は___映画館に映画を見に行きます。"
-variables:
-  - "ni"
 ```
 
 
@@ -377,8 +357,6 @@ respuestas_validas:
 explicacion: "'に' marca la dirección hacia un lugar, como en '彼は東京に旅行に行きます'."
 tipo: completar
 enunciado: "彼は___東京に旅行に行きます。"
-variables:
-  - "ni"
 ```
 
 
@@ -415,7 +393,6 @@ metadata:
 pasos:  
   - "Identificar la partícula que indica el lugar o motivo de la invitación."  
   - "Analizar la relación entre el sujeto y el complemento en la oración."  
-respuesta: "に"  
 tipo: completar  
 respuestas_validas:  
   - "に"  
@@ -461,8 +438,6 @@ respuestas_validas:
 explicacion: "'で' indica el lugar donde se realiza una acción, como en '彼はカフェでコーヒーを飲みます'."
 tipo: completar
 enunciado: "彼は___カフェでコーヒーを飲みます。"
-variables:
-  - "de"
 ```
 
 
@@ -503,8 +478,6 @@ respuestas_validas:
 explicacion: "'で' marca el lugar donde se realiza una acción, como en '彼は画室で絵を描きます'."
 tipo: completar
 enunciado: "彼は___画室で絵を描きます。"
-variables:
-  - "de"
 ```
 
 

@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Aplicar la terminación correspondiente a '-as'."
-respuesta: "kapto"
 respuestas_validas:
   - "kapto"
   - "Kapto"
 tipo: completar
 enunciado: "Mi ___ kapti la malvitan frukton."  
-variables:
-  - "verbo": "kapti"
 ```
 
 
@@ -30,14 +27,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Aplicar la terminación correspondiente a '-u'."
-respuesta: "lernu"
 respuestas_validas:
   - "lernu"
   - "Lernu"
 tipo: completar
 enunciado: "Vi ___ kapti la malvitan frukton."  
-variables:
-  - "verbo": "kapti"
 ```
 
 
@@ -59,8 +53,6 @@ opciones_explicitas:
 respuesta: "-as"
 tipo: mc
 enunciado: "Li ___ parol."  
-variables:
-  - "verbo": "paroli"
 ```
 
 
@@ -75,14 +67,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Aplicar la terminación correspondiente a '-as'."
-respuesta: "lernas"
 respuestas_validas:
   - "lernas"
   - "Lernas"
 tipo: completar
 enunciado: "Ni ___ lerni novajn vortojn."  
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -104,8 +93,6 @@ opciones_explicitas:
 respuesta: "-u"
 tipo: mc
 enunciado: "Ili ___ parol."  
-variables:
-  - "verbo": "paroli"
 ```
 
 
@@ -120,14 +107,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Aplicar la terminación correspondiente a '-as'."
-respuesta: "kapto"
 respuestas_validas:
   - "kapto"
   - "Kapto"
 tipo: completar
 enunciado: "Oni ___ kapti la malvitan frukton."  
-variables:
-  - "verbo": "kapti"
 ```
 
 
@@ -149,8 +133,6 @@ opciones_explicitas:
 respuesta: "-as"
 tipo: mc
 enunciado: "Mi ___ lerni novajn vortojn."  
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -165,14 +147,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Aplicar la terminación correspondiente a '-as'."
-respuesta: "parolas"
 respuestas_validas:
   - "parolas"
   - "Parolas"
 tipo: completar
 enunciado: "Vi ___ parol."  
-variables:
-  - "verbo": "paroli"
 ```
 
 
@@ -194,8 +173,6 @@ opciones_explicitas:
 respuesta: "-u"
 tipo: mc
 enunciado: "Ni ___ kapti la malvitan frukton."  
-variables:
-  - "verbo": "kapti"
 ```
 
 
@@ -210,14 +187,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Aplicar la terminación correspondiente a '-as'."
-respuesta: "lernas"
 respuestas_validas:
   - "lernas"
   - "Lernas"
 tipo: completar
 enunciado: "Li ___ lerni novajn vortojn."  
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -233,7 +207,11 @@ pasos:
   - "Identifiku la subjekton kaj elektu la ĝustan verban formon."  
 explicacion: "La subjekto 'Ŝi' postulas la verbon en -as. La radiko de 'skribi' estas 'skrib', do la formo estas 'skribas'."  
 tipo: mc  
-opciones_explicitas: ["ŝi skrib", "ŝi skribas", "ŝi skribos", "ŝi skribis"]  
+opciones_explicitas:
+  - "ŝi skrib"
+  - "ŝi skribas"
+  - "ŝi skribos"
+  - "ŝi skribis"
 respuesta: "ŝi skribas"  
 ```  
 
@@ -249,14 +227,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Aplicar la terminación correspondiente a '-as'."
-respuesta: "kapto"
 respuestas_validas:
   - "kapto"
   - "Kapto"
 tipo: completar
 enunciado: "Ili ___ kapti la malvitan frukton."  
-variables:
-  - "verbo": "kapti"
 ```
 
 
@@ -278,8 +253,6 @@ opciones_explicitas:
 respuesta: "-u"
 tipo: mc
 enunciado: "Oni ___ lerni novajn vortojn."  
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -294,14 +267,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Aplicar la terminación correspondiente a '-as'."
-respuesta: "parolas"
 respuestas_validas:
   - "parolas"
   - "Parolas"
 tipo: completar
 enunciado: "Oni ___ parol."  
-variables:
-  - "verbo": "paroli"
 ```
 
 
@@ -317,7 +287,11 @@ pasos:
   - "Elektu la formon de 'iri' kiu konformas al la subjekto kaj tempo."  
 explicacion: "La subjekto 'Ni' kun la indikativo prezentanto postulas verbon en -as. La radiko de 'iri' estas 'ir', do la formo estas 'iras'."  
 tipo: mc  
-opciones_explicitas: ["ni ir", "ni iras", "ni iris", "ni iros"]  
+opciones_explicitas:
+  - "ni ir"
+  - "ni iras"
+  - "ni iris"
+  - "ni iros"
 respuesta: "ni iras"  
 ```  
 
@@ -333,14 +307,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Aplicar la terminación correspondiente a '-as'."
-respuesta: "lernas"
 respuestas_validas:
   - "lernas"
   - "Lernas"
 tipo: completar
 enunciado: "Vi ___ lerni novajn vortojn."  
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -356,7 +327,11 @@ pasos:
   - "Elektu la formon de 'vidi' kiu konformas al la subjekto."  
 explicacion: "La subjekto 'Oni' postulas verbon en -as. La radiko de 'vidi' estas 'vid', do la formo estas 'vidas'."  
 tipo: mc  
-opciones_explicitas: ["oni vid", "oni vidas", "oni vidis", "oni vide"]  
+opciones_explicitas:
+  - "oni vid"
+  - "oni vidas"
+  - "oni vidis"
+  - "oni vide"
 respuesta: "oni vidas"  
 ```  
 
@@ -373,9 +348,9 @@ pasos:
   - "Kompletigu la frasojn kun la ĝusta formo de 'mangxi'."  
 explicacion: "La subjekto 'La infano' postulas verbon en -as. La radiko de 'mangxi' estas 'mangx', do la formo estas 'mangxas'."  
 tipo: completar  
-respuesta: "mangxas"  
-respuestas_validas: ["mangxas", "Mangxas"]  
-```  
+respuestas_validas:
+  - "mangxas"
+  - "Mangxas"```  
 
 ---
 
@@ -396,8 +371,6 @@ opciones_explicitas:
 respuesta: "-as"
 tipo: mc
 enunciado: "Ili ___ lerni novajn vortojn."  
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -413,7 +386,11 @@ pasos:
   - "Elektu la formon de 'fari' kiu konformas al la subjekto."  
 explicacion: "La subjekto 'Li' postulas verbon en -as. La radiko de 'fari' estas 'far', do la formo estas 'faras'."  
 tipo: mc  
-opciones_explicitas: ["li far", "li faras", "li faris", "li farris"]  
+opciones_explicitas:
+  - "li far"
+  - "li faras"
+  - "li faris"
+  - "li farris"
 respuesta: "li faras"  
 ```  
 
@@ -430,9 +407,9 @@ pasos:
   - "Kompletigu la frasojn kun la ĝusta formo de 'skribi'."  
 explicacion: "La subjekto 'Ŝi' postulas verbon en -as. La radiko de 'skribi' estas 'skrib', do la formo estas 'skribas'."  
 tipo: completar  
-respuesta: "skribas"  
-respuestas_validas: ["skribas", "Skribas"]  
-```  
+respuestas_validas:
+  - "skribas"
+  - "Skribas"```  
 
 ---
 
@@ -447,7 +424,11 @@ pasos:
   - "Elektu la formon de 'paroli' kiu konformas al la subjekto."  
 explicacion: "La subjekto 'Ni' postulas verbon en -as. La radiko de 'paroli' estas 'parol', do la formo estas 'parolas'."  
 tipo: mc  
-opciones_explicitas: ["ni parol", "ni parolas", "ni parolis", "ni parolus"]  
+opciones_explicitas:
+  - "ni parol"
+  - "ni parolas"
+  - "ni parolis"
+  - "ni parolus"
 respuesta: "ni parolas"  
 ```  
 
@@ -470,8 +451,6 @@ opciones_explicitas:
 respuesta: "-as"
 tipo: mc
 enunciado: "Mi ___ parol."  
-variables:
-  - "verbo": "paroli"
 ```
 
 
@@ -487,9 +466,9 @@ pasos:
   - "Kompletigu la frasojn kun la ĝusta formo de 'lerni'."  
 explicacion: "La subjekto 'Ŝi' postulas verbon en -as. La radiko de 'lerni' estas 'ler', do la formo estas 'lernas'."  
 tipo: completar  
-respuesta: "lernas"  
-respuestas_validas: ["lernas", "Lernas"]  
-```  
+respuestas_validas:
+  - "lernas"
+  - "Lernas"```  
 
 ---
 
@@ -504,6 +483,10 @@ pasos:
   - "Elektu la formon de 'iri' kiu konformas al la subjekto."  
 explicacion: "La subjekto 'La kato' postulas verbon en -as. La radiko de 'iri' estas 'ir', do la formo estas 'iras'."  
 tipo: mc  
-opciones_explicitas: ["la kato ir", "la kato iras", "la kato iris", "la kato iros"]  
+opciones_explicitas:
+  - "la kato ir"
+  - "la kato iras"
+  - "la kato iris"
+  - "la kato iros"
 respuesta: "la kato iras"  
 ```

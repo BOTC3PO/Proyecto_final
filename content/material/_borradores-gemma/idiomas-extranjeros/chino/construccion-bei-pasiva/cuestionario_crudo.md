@@ -29,7 +29,6 @@ metadata:
   tags: ["bei", "pasivo"]
 tipo: completar
 enunciado: "这个秘密______。"
-respuesta: "被泄露"
 respuestas_validas:
   - "被泄露"
   - "被泄露了"
@@ -72,7 +71,6 @@ metadata:
   tags: ["bei", "pasivo"]
 tipo: completar
 enunciado: "这个消息______。"
-respuesta: "被公布了"
 respuestas_validas:
   - "被公布"
   - "被公布了"
@@ -137,7 +135,6 @@ metadata:
   tags: ["bei", "pasivo"]
 tipo: completar
 enunciado: "这个文件______。"
-respuesta: "被丢失了"
 respuestas_validas:
   - "被丢失"
   - "被丢失了"
@@ -180,7 +177,6 @@ metadata:
   tags: ["bei", "pasivo"]
 tipo: completar
 enunciado: "这个项目______。"
-respuesta: "被取消了"
 respuestas_validas:
   - "被取消"
   - "被取消了"
@@ -223,7 +219,6 @@ metadata:
   tags: ["bei", "pasivo"]
 tipo: completar
 enunciado: "这个箱子______。"
-respuesta: "被搬走了"
 respuestas_validas:
   - "被搬走"
   - "被搬走了"
@@ -266,7 +261,6 @@ metadata:
   tags: ["bei", "pasivo"]
 tipo: completar
 enunciado: "这些书______。"
-respuesta: "被借走了"
 respuestas_validas:
   - "被借走"
   - "被借走了"
@@ -309,7 +303,6 @@ metadata:
   tags: ["bei", "pasivo"]
 tipo: completar
 enunciado: "这个错误______。"
-respuesta: "被重复了"
 respuestas_validas:
   - "被重复"
   - "被重复了"
@@ -331,7 +324,6 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en la oración."  
   - "Aplicar la estructura '被 + verbo' para formar la voz pasiva."  
-respuesta: "被删除了"  
 respuestas_validas:  
   - "被删除了"  
   - "被删了"  
@@ -371,7 +363,6 @@ metadata:
 pasos:  
   - "Determinar el verbo que completa la acción pasiva del sujeto."  
   - "Verificar que '被' esté en la posición correcta y que el aspecto temporal sea coherente."  
-respuesta: "被解决了"  
 respuestas_validas:  
   - "被解决了"  
   - "解决被了"  
@@ -389,7 +380,6 @@ metadata:
   tags: ["bei", "pasivo"]
 tipo: completar
 enunciado: "这些照片______。"
-respuesta: "被删除了"
 respuestas_validas:
   - "被删除"
   - "被删除了"
@@ -431,7 +421,6 @@ metadata:
   tags: ["bei", "pasivo"]
 tipo: completar
 enunciado: "这个方案______。"
-respuesta: "被否决了因为反对"
 respuestas_validas:
   - "因为反对，被否决了"
   - "被否决了因为反对"
@@ -453,7 +442,6 @@ metadata:
 pasos:  
   - "Reconocer que el sujeto fue adoptado como resultado de una acción externa."  
   - "Construir la frase con '被' seguido del verbo en tiempo adecuado."  
-respuesta: "被采纳了"  
 respuestas_validas:  
   - "被采纳了"  
   - "采纳被了"  
@@ -493,7 +481,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe la acción de escuchar el sujeto."  
   - "Usar '被' para indicar que la acción fue realizada por alguien más."  
-respuesta: "被听到了"  
 respuestas_validas:  
   - "被听到了"  
   - "听到被了"  

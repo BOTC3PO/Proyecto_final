@@ -7,13 +7,11 @@ metadata:
   tags: ["indirekter Rede", "Präteritum", "sagen"]  
 pasos:  
   - "Reemplaza el verbo en la oración indirecta con su forma de Konjunktiv I."  
-respuesta: "wisse"  
 tipo: completar  
 respuestas_validas:  
   - "wisste"  
   - "wisse"  
 enunciado: "Er sagte, dass er ___ das Geheimnis nicht."  
-variables: []  
 explicacion: "En el discurso indirecto tras 'sagen', los verbos en Präteritum se conjugan en Konjunktiv I. 'Wissen' en Konjunktiv I es 'wisse' (3ª persona singular)."  
 ```
 
@@ -35,7 +33,6 @@ opciones_explicitas:
 respuesta: "habe erkannt"  
 tipo: mc  
 enunciado: "Sie berichtete, dass sie ___ den Fehler."  
-variables: []  
 explicacion: "Tras 'erzählen', el Perfekt en indirect speech se mantiene como 'habe + Partizip II'. El Konjunktiv I no cambia la estructura del Perfekt."  
 ```
 
@@ -50,13 +47,11 @@ metadata:
   tags: ["indirekter Rede", "Präsens", "denken"]  
 pasos:  
   - "Completa la oración indirecta con el verbo en Konjunktiv I."  
-respuesta: "mache"  
 tipo: completar  
 respuestas_validas:  
   - "mache"  
   - "Mache"  
 enunciado: "Er dachte, dass sie ___ eine Pause machen würde."  
-variables: []  
 explicacion: "'Denken' requiere Konjunktiv I en indirect speech. 'Machen' en Konjunktiv I (3ª persona singular) es 'mache'."  
 ```
 
@@ -78,7 +73,6 @@ opciones_explicitas:
 respuesta: "sei nicht"  
 tipo: mc  
 enunciado: "Er meinte, dass sie ___ krank sei."  
-variables: []  
 explicacion: "'Meinen' requiere Konjunktiv I en indirect speech. 'Sein' en Konjunktiv I (3ª persona singular) es 'sei'."  
 ```
 
@@ -93,13 +87,11 @@ metadata:
   tags: ["indirekter Rede", "Präteritum", "sagen"]  
 pasos:  
   - "Reemplaza el verbo en la oración indirecta con su forma de Konjunktiv I."  
-respuesta: "habe"  
 tipo: completar  
 respuestas_validas:  
   - "habe"  
   - "Habe"  
 enunciado: "Er sagte, dass er ___ den Fehler nicht bemerkt habe."  
-variables: []  
 explicacion: "El Perfekt en indirect speech conserva 'haben' como auxiliar. El Konjunktiv I de 'haben' es 'habe' (3ª persona singular)."  
 ```
 
@@ -114,13 +106,11 @@ metadata:
   tags: ["indirekter Rede", "Präsens", "zweifeln"]  
 pasos:  
   - "Completa la oración indirecta con el verbo en Konjunktiv I."  
-respuesta: "sei"  
 tipo: completar  
 respuestas_validas:  
   - "sei"  
   - "Sei"  
 enunciado: "Er zweifelte, dass sie ___ die Wahrheit sagen würde."  
-variables: []  
 explicacion: "'Zweifeln' requiere Konjunktiv I en indirect speech. 'Sein' en Konjunktiv I (3ª persona singular) es 'sei'."  
 ```
 
@@ -142,7 +132,6 @@ opciones_explicitas:
 respuesta: "habe gesehen"  
 tipo: mc  
 enunciado: "Er erzählte, dass er ___ den Film."  
-variables: []  
 explicacion: "El Perfekt en indirect speech mantiene 'haben' como auxiliar. El Konjunktiv I no altera esta estructura."  
 ```
 
@@ -157,13 +146,11 @@ metadata:
   tags: ["indirekter Rede", "Präteritum", "erinnern"]  
 pasos:  
   - "Completa la oración indirecta con el verbo en Konjunktiv I."  
-respuesta: "wisse"  
 tipo: completar  
 respuestas_validas:  
   - "wisse"  
   - "Wisste"  
 enunciado: "Sie erinnerte sich, dass sie ___ den Namen nicht."  
-variables: []  
 explicacion: "'Erinnern' requiere Konjunktiv I en indirect speech. 'Wissen' en Konjunktiv I (3ª persona singular) es 'wisse'."  
 ```
 
@@ -178,13 +165,11 @@ metadata:
   tags: ["indirekter Rede", "Präsens", "glauben"]  
 pasos:  
   - "Reemplaza el verbo en la oración indirecta con su forma de Konjunktiv I."  
-respuesta: "sei"  
 tipo: completar  
 respuestas_validas:  
   - "sei"  
   - "Sei"  
 enunciado: "Er glaubte, dass sie ___ krank sei."  
-variables: []  
 explicacion: "'Glauben' requiere Konjunktiv I en indirect speech. 'Sein' en Konjunktiv I (3ª persona singular) es 'sei'."  
 ```
 
@@ -206,7 +191,6 @@ opciones_explicitas:
 respuesta: "habe gesehen"  
 tipo: mc  
 enunciado: "Sie sagte, dass sie ___ den Film gesehen habe."  
-variables: []  
 explicacion: "El Perfekt en indirect speech conserva 'haben' como auxiliar. El Konjunktiv I no altera esta estructura."  
 ```
 
@@ -221,13 +205,11 @@ metadata:
   tags: ["indirekter Rede", "Präteritum", "zweifeln"]  
 pasos:  
   - "Completa la oración indirecta con el verbo en Konjunktiv I."  
-respuesta: "habe"  
 tipo: completar  
 respuestas_validas:  
   - "habe"  
   - "Habe"  
 enunciado: "Er zweifelte, dass er ___ den Fehler nicht bemerkt habe."  
-variables: []  
 explicacion: "'Zweifeln' requiere Konjunktiv I en indirect speech. 'Haben' en Konjunktiv I (3ª persona singular) es 'habe'."  
 ```
 
@@ -244,7 +226,6 @@ pasos:
   - "Identificar el verbo principal que requiere Konjunktiv I."  
   - "Aplicar la forma correcta del verbo en el cláusula de indirecto."  
 enunciado: "Er zweifelte, dass sie ___ den Auftrag erledigt hätte."  
-respuesta: "hätte"  
 tipo: completar  
 respuestas_validas:  
   - "hätte"  
@@ -263,7 +244,11 @@ pasos:
   - "Identificar el verbo principal (sagen) que requiere Konjunktiv I."  
   - "Seleccionar la forma correcta del verbo en el cláusula indirecta."  
 enunciado: "Sie erzählte, dass sie ___ den Koffer nicht gesehen hätte."  
-opciones_explicitas: ["hätte", "hatte", "wäre", "gehabt"]  
+opciones_explicitas:
+  - "hätte"
+  - "hatte"
+  - "wäre"
+  - "gehabt"
 respuesta: "hätte"  
 tipo: mc  
 explicacion: "El verbo 'sagen' requiere Konjunktiv I en el cláusula indirecta. La forma correcta de 'sehen' en pluscuamperfecto es 'hätte gesehen', por lo que la opción válida es 'hätte'."  
@@ -280,7 +265,6 @@ pasos:
   - "Reconocer el verbo irregular 'scheinen' en Konjunktiv I."  
   - "Aplicar la forma correcta en el cláusula indirecta."  
 enunciado: "Er glaubte, dass es ___ noch nicht regnete."  
-respuesta: "schien"  
 tipo: completar  
 respuestas_validas:  
   - "schien"  
@@ -299,7 +283,6 @@ pasos:
   - "Identificar que 'erinnern' requiere Konjunktiv I en cláusula indirecta."  
   - "Seleccionar la forma correcta del verbo 'sehen'."  
 enunciado: "Sie erinnerte sich, dass sie ___ den Schlüssel nicht gesehen hätte."  
-respuesta: "hätte"  
 tipo: completar  
 respuestas_validas:  
   - "hätte"  
@@ -318,7 +301,6 @@ pasos:
   - "Reconocer que 'sagen' requiere Konjunktiv I."  
   - "Usar la forma correcta de 'gehen' en subjuntivo."  
 enunciado: "Er sagte, dass sie ___ um elf Uhr nach Hause gegangen wäre."  
-respuesta: "wäre"  
 tipo: completar  
 respuestas_validas:  
   - "wäre"  
@@ -337,7 +319,11 @@ pasos:
   - "Identificar que 'zweifeln' requiere Konjunktiv I."  
   - "Seleccionar la forma correcta de 'haben' en subjuntivo."  
 enunciado: "Er zweifelte, dass sie ___ den Fehler nicht bemerkt hätte."  
-opciones_explicitas: ["hätte", "hatte", "wäre", "gäbe"]  
+opciones_explicitas:
+  - "hätte"
+  - "hatte"
+  - "wäre"
+  - "gäbe"
 respuesta: "hätte"  
 tipo: mc  
 explicacion: "Después de 'zweifeln' (dudar), se usa Konjunktiv I. La forma correcta de 'haben' en pluscuamperfecto es 'hätte'. Las otras opciones son incorrectas por tensión o conjugación."  
@@ -354,7 +340,6 @@ pasos:
   - "Reconocer que 'glauben' requiere Konjunktiv I."  
   - "Usar la forma correcta de 'sein' en subjuntivo."  
 enunciado: "Sie glaubte, dass er ___ noch nicht krank wäre."  
-respuesta: "wäre"  
 tipo: completar  
 respuestas_validas:  
   - "wäre"  
@@ -373,7 +358,6 @@ pasos:
   - "Identificar que 'erklären' requiere Konjunktiv I en cláusula indirecta."  
   - "Seleccionar la forma correcta del verbo 'machen'."  
 enunciado: "Er erklärte, dass sie ___ die Aufgabe nicht geschafft hätte."  
-respuesta: "hätte"  
 tipo: completar  
 respuestas_validas:  
   - "hätte"  
@@ -392,7 +376,6 @@ pasos:
   - "Reconocer que 'sagen' requiere Konjunktiv I."  
   - "Usar la forma correcta de 'fühlen' en subjuntivo."  
 enunciado: "Er sagte, dass sie ___ sich sehr müde fühlte."  
-respuesta: "fühle"  
 tipo: completar  
 respuestas_validas:  
   - "fühle"  
@@ -411,7 +394,11 @@ pasos:
   - "Identificar que 'berichten' requiere Konjunktiv I."  
   - "Seleccionar la forma correcta de 'haben' en subjuntivo."  
 enunciado: "Sie berichtete, dass er ___ den Fehler nicht bemerkt hätte."  
-opciones_explicitas: ["hätte", "hatte", "wäre", "gäbe"]  
+opciones_explicitas:
+  - "hätte"
+  - "hatte"
+  - "wäre"
+  - "gäbe"
 respuesta: "hätte"  
 tipo: mc  
 explicacion: "Después de 'berichten' (informar), se usa Konjunktiv I. La forma correcta de 'haben' en pluscuamperfecto es 'hätte'. Las otras opciones son incorrectas por tensión o conjugación."  
@@ -428,7 +415,6 @@ pasos:
   - "Reconocer que 'sagen' requiere Konjunktiv I."  
   - "Usar la forma correcta de 'erklären' en subjuntivo."  
 enunciado: "Er sagte, dass er ___ die Situation nicht erklärt hätte."  
-respuesta: "hätte"  
 tipo: completar  
 respuestas_validas:  
   - "hätte"  
@@ -447,7 +433,6 @@ pasos:
   - "Identificar que 'vermuten' requiere Konjunktiv I."  
   - "Seleccionar la forma correcta de 'sein' en subjuntivo."  
 enunciado: "Er vermutete, dass sie ___ noch nicht da wäre."  
-respuesta: "wäre"  
 tipo: completar  
 respuestas_validas:  
   - "wäre"  
@@ -466,7 +451,6 @@ pasos:
   - "Reconocer que 'sagen' requiere Konjunktiv I."  
   - "Usar la forma correcta de 'machen' en subjuntivo."  
 enunciado: "Er sagte, dass sie ___ die Arbeit noch nicht gemacht hätte."  
-respuesta: "hätte"  
 tipo: completar  
 respuestas_validas:  
   - "hätte"  
@@ -485,7 +469,11 @@ pasos:
   - "Identificar que 'zweifeln' requiere Konjunktiv I."  
   - "Seleccionar la forma correcta de 'haben' en subjuntivo."  
 enunciado: "Er zweifelte, dass sie ___ den Fehler nicht bemerkt hätte."  
-opciones_explicitas: ["hätte", "hatte", "wäre", "gäbe"]  
+opciones_explicitas:
+  - "hätte"
+  - "hatte"
+  - "wäre"
+  - "gäbe"
 respuesta: "hätte"  
 tipo: mc  
 explicacion: "Después de 'zweifeln' (dudar), se usa Konjunktiv I. La forma correcta de 'haben' en pluscuamperfecto es 'hätte'. Las otras opciones son incorrectas por tensión o conjugación."  

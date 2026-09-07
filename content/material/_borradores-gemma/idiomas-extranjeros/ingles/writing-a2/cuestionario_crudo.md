@@ -7,13 +7,11 @@ metadata:
   tags: ["saludo", "correo"]
 pasos:
   - "Escribe el saludo correcto para un mensaje informal a un amigo."
-respuesta: "Hi Lisa,"
 tipo: completar
 respuestas_validas:
   - "Hi Lisa,"
   - "hi Lisa,"
-enunciado: 'Complete the greeting with the correct phrase: "________, how are you?"'
-```
+enunciado: "Complete the greeting with the correct phrase: \"________, how are you?\""```
 
 ### 2 — Closing  
 ```yaml
@@ -24,13 +22,11 @@ metadata:
   tags: ["despedida", "correo"]
 pasos:
   - "Escribe la despedida más común en un mensaje informal."
-respuesta: "See you soon!"
 tipo: completar
 respuestas_validas:
   - "See you soon!"
   - "see you soon!"
-enunciado: 'Complete the closing with the correct phrase: "________!"'
-```
+enunciado: "Complete the closing with the correct phrase: \"________!\""```
 
 ### 3 — Request  
 ```yaml
@@ -41,13 +37,11 @@ metadata:
   tags: ["solicitud", "correo"]
 pasos:
   - "Escribe la forma más natural de pedir algo en un mensaje informal."
-respuesta: "Can you help me?"
 tipo: completar
 respuestas_validas:
   - "Can you help me?"
   - "can you help me?"
-enunciado: 'Complete the request with the correct phrase: "________?"'
-```
+enunciado: "Complete the request with the correct phrase: \"________?\""```
 
 ### 4 — Apology  
 ```yaml
@@ -58,13 +52,11 @@ metadata:
   tags: ["disculpa", "correo"]
 pasos:
   - "Escribe la frase para disculparte en un mensaje informal."
-respuesta: "I'm sorry for the mistake."
 tipo: completar
 respuestas_validas:
   - "I'm sorry for the mistake."
   - "i'm sorry for the mistake."
-enunciado: 'Complete the apology with the correct phrase: "________."'
-```
+enunciado: "Complete the apology with the correct phrase: \"________.\""```
 
 ### 5 — Invitation  
 ```yaml
@@ -75,13 +67,11 @@ metadata:
   tags: ["invitación", "correo"]
 pasos:
   - "Escribe la forma más común de invitar a alguien en un mensaje informal."
-respuesta: "Would you like to come over?"
 tipo: completar
 respuestas_validas:
   - "Would you like to come over?"
   - "would you like to come over?"
-enunciado: 'Complete the invitation with the correct phrase: "________?"'
-```
+enunciado: "Complete the invitation with the correct phrase: \"________?\""```
 
 ### 6 — Gratitude  
 ```yaml
@@ -92,13 +82,11 @@ metadata:
   tags: ["agradecimiento", "correo"]
 pasos:
   - "Escribe la frase para agradecer en un mensaje informal."
-respuesta: "Thanks for your help!"
 tipo: completar
 respuestas_validas:
   - "Thanks for your help!"
   - "thanks for your help!"
-enunciado: 'Complete the gratitude with the correct phrase: "________!"'
-```
+enunciado: "Complete the gratitude with the correct phrase: \"________!\""```
 
 ### 7 — Question  
 ```yaml
@@ -109,13 +97,11 @@ metadata:
   tags: ["pregunta", "correo"]
 pasos:
   - "Escribe la pregunta más natural para un mensaje informal."
-respuesta: "What are you doing this weekend?"
 tipo: completar
 respuestas_validas:
   - "What are you doing this weekend?"
   - "what are you doing this weekend?"
-enunciado: 'Complete the question with the correct phrase: "________?"'
-```
+enunciado: "Complete the question with the correct phrase: \"________?\""```
 
 ### 8 — News Sharing  
 ```yaml
@@ -126,13 +112,11 @@ metadata:
   tags: ["noticias", "correo"]
 pasos:
   - "Escribe la frase para compartir noticias en un mensaje informal."
-respuesta: "I just got a new job!"
 tipo: completar
 respuestas_validas:
   - "I just got a new job!"
   - "i just got a new job!"
-enunciado: 'Complete the news sharing with the correct phrase: "________!"'
-```
+enunciado: "Complete the news sharing with the correct phrase: \"________!\""```
 
 ### 9 — Opinion  
 ```yaml
@@ -143,13 +127,11 @@ metadata:
   tags: ["opinión", "correo"]
 pasos:
   - "Escribe la forma más natural de expresar una opinión en un mensaje informal."
-respuesta: "I think the movie was great."
 tipo: completar
 respuestas_validas:
   - "I think the movie was great."
   - "i think the movie was great."
-enunciado: 'Complete the opinion with the correct phrase: "________."'
-```
+enunciado: "Complete the opinion with the correct phrase: \"________.\""```
 
 ### 10 — Plan Sharing  
 ```yaml
@@ -160,13 +142,11 @@ metadata:
   tags: ["planes", "correo"]
 pasos:
   - "Escribe la frase para compartir planes en un mensaje informal."
-respuesta: "We’re going to the park tomorrow."
 tipo: completar
 respuestas_validas:
   - "We’re going to the park tomorrow."
   - "we’re going to the park tomorrow."
-enunciado: 'Complete the plan sharing with the correct phrase: "________."'
-```
+enunciado: "Complete the plan sharing with the correct phrase: \"________.\""```
 
 ### 11 — Recommendation  
 ```yaml
@@ -177,13 +157,11 @@ metadata:
   tags: ["recomendación", "correo"]
 pasos:
   - "Escribe la forma más natural de recomendar algo en un mensaje informal."
-respuesta: "You should try this restaurant!"
 tipo: completar
 respuestas_validas:
   - "You should try this restaurant!"
   - "you should try this restaurant!"
-enunciado: 'Complete the recommendation with the correct phrase: "________!"'
-```
+enunciado: "Complete the recommendation with the correct phrase: \"________!\""```
 
 ### 12 — Complaint  
 ```yaml
@@ -194,13 +172,11 @@ metadata:
   tags: ["queja", "correo"]
 pasos:
   - "Escribe la frase para expresar una queja en un mensaje informal."
-respuesta: "The delivery was late."
 tipo: completar
 respuestas_validas:
   - "The delivery was late."
   - "the delivery was late."
-enunciado: 'Complete the complaint with the correct phrase: "________."'
-```
+enunciado: "Complete the complaint with the correct phrase: \"________.\""```
 
 ### 13 — Invitation (Alternative)  
 ```yaml
@@ -415,10 +391,8 @@ metadata:
   tags: ["consejo", "correo"]
 pasos:
   - "Escribe la frase para dar un consejo en un mensaje informal."
-respuesta: "You should eat more vegetables!"
 tipo: completar
 respuestas_validas:
   - "You should eat more vegetables!"
   - "you should eat more vegetables!"
-enunciado: 'Complete the advice with the correct phrase: "________!"'
-```
+enunciado: "Complete the advice with the correct phrase: \"________!\""```

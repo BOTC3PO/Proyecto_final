@@ -10,10 +10,9 @@ pasos:
 explicacion: "La kondiĉa modo uzas 'se' kun la subjunktiĝanta formo. Ekzemple, 'Se mi **estus** via amiko...' (kondiĉa). La verbo 'esti' en subjunktiĝanta formo estas 'estus'."  
 tipo: completar  
 enunciado: "Se li ___ al ni kiam eblas, ni povas konfidigi pri lia helpo."  
-variables: {}  
-respuesta: "venus"  
-respuestas_validas: ["venus", "Venus"]  
-```
+respuestas_validas:
+  - "venus"
+  - "Venus"```
 
 
 
@@ -29,7 +28,11 @@ pasos:
 explicacion: "La voliva modo uzas 'voli' kun la infinitivo. Ekzemple, 'Mi **volas** iri kaj **kapti** la birdon.' La verbo 'iri' en infinitivo estas 'iri', kaj 'kapti' ankaŭ."  
 tipo: mc  
 enunciado: "Li ___ al la lernejo ĉar li ___ pri la ekzameno."  
-opciones_explicitas: ["iras", "volas iri", "venos", "volis iri"]  
+opciones_explicitas:
+  - "iras"
+  - "volas iri"
+  - "venos"
+  - "volis iri"
 respuesta: "volas iri"  
 ```
 
@@ -47,10 +50,9 @@ pasos:
 explicacion: "La negacio en kondiĉa frazo estas formata kiel 'Se li **ne estus** via amiko, ni **ne povus** konfidigi.' La verbo 'esti' en subjunktiĝanta formo kun 'ne' estas 'ne estus'."  
 tipo: completar  
 enunciado: "Se vi ___ ĉi tiun taskon, ni ___ plenumi ĝin por vi."  
-variables: {}  
-respuesta: "farus"  
-respuestas_validas: ["farus", "Farus"]  
-```
+respuestas_validas:
+  - "farus"
+  - "Farus"```
 
 
 
@@ -66,7 +68,11 @@ pasos:
 explicacion: "Por la dua persono en voliva modo, uzas 'vi **volas**' aŭ 'vi **devas**'. Ekzemple, 'Vi **volas** kapti la birdon.' La verbo 'voli' en duaj persono estas 'volas'."  
 tipo: mc  
 enunciado: "Ĉu vi ___ helpi min aŭ ___ aliajn?"  
-opciones_explicitas: ["volas", "devas", "kaptis", "venos"]  
+opciones_explicitas:
+  - "volas"
+  - "devas"
+  - "kaptis"
+  - "venos"
 respuesta: "volas"  
 ```
 
@@ -84,7 +90,6 @@ pasos:
 explicacion: "La kondicionalo uzas la infinitivon sen '-s' por hipotezaj situacioj, dum la volivo uzas la infinitivon kun 'voli' aŭ aliaj verboj por esprimi deziron."  
 enunciado: "Se vi ______ ĉi tiun problemaron, ni ______ ĝin solvi por vi."  
 tipo: completar  
-respuesta: "helpas"  
 respuestas_validas:  
   - "helpas"  
   - "Helpas"  
@@ -102,7 +107,11 @@ pasos:
 explicacion: "Por pluraj personoj en voliva modo, uzas 'ili **volas**' aŭ 'ili **devas**'. Ekzemple, 'Ili **volas** kapti la birdon.' La verbo 'voli' en plurale estas 'volas'."  
 tipo: mc  
 enunciado: "Ĉu ili ___ helpi min aŭ ___ aliajn?"  
-opciones_explicitas: ["volas", "devas", "kaptis", "venos"]  
+opciones_explicitas:
+  - "volas"
+  - "devas"
+  - "kaptis"
+  - "venos"
 respuesta: "volas"  
 ```
 
@@ -140,7 +149,6 @@ pasos:
 explicacion: "La kondicionalo post 'se' uzas la infinitivon sen '-s', dum la volivo uzu la infinitivon kun 'voli' aŭ aliaj verboj en konstruoj kiel 'ĉu li ______ helpi?'"  
 enunciado: "Se ŝi ______ ĉi tiun problemaron, ni ______ ĝin solvi por ŝi."  
 tipo: completar  
-respuesta: "helpas"  
 respuestas_validas:  
   - "helpas"  
   - "Helpas"  
@@ -178,7 +186,6 @@ pasos:
 explicacion: "La kondicionalo post 'se' uzas la infinitivon sen '-s', dum la volivo en demandoj uzu la infinitivon kun 'voli' aŭ aliaj verboj."  
 enunciado: "Se li ______ al ni, ni ______ ĝin plenumi?"  
 tipo: completar  
-respuesta: "venus"  
 respuestas_validas:  
   - "venus"  
   - "Venus"  
@@ -216,7 +223,6 @@ pasos:
 explicacion: "La kondicionalo post 'se' uzas la infinitivon sen '-s', dum la volivo en demandoj uzu la infinitivon kun 'voli' aŭ aliaj verboj."  
 enunciado: "Se ŝi ______ al ni, ni ______ ĝin plenumi?"  
 tipo: completar  
-respuesta: "venus"  
 respuestas_validas:  
   - "venus"  
   - "Venus"  
@@ -254,7 +260,6 @@ pasos:
 explicacion: "La kondicionalo post 'se' uzas la infinitivon sen '-s', dum la volivo en demandoj uzu la infinitivon kun 'voli' aŭ aliaj verboj."  
 enunciado: "Se li ______ ĉi tiun taskon, ni ______ plenumi ĝin por li."  
 tipo: completar  
-respuesta: "helpas"  
 respuestas_validas:  
   - "helpas"  
   - "Helpas"  
@@ -292,7 +297,6 @@ pasos:
 explicacion: "La kondicionalo post 'se' uzas la infinitivon sen '-s', dum la volivo en demandoj uzu la infinitivon kun 'voli' aŭ aliaj verboj."  
 enunciado: "Se ŝi ______ al ni, ni ______ ĝin plenumi?"  
 tipo: completar  
-respuesta: "venus"  
 respuestas_validas:  
   - "venus"  
   - "Venus"  
@@ -330,7 +334,6 @@ pasos:
 explicacion: "La kondicionalo post 'se' uzas la infinitivon sen '-s', dum la volivo en demandoj uzu la infinitivon kun 'voli' aŭ aliaj verboj."  
 enunciado: "Se li ______ ĉi tiun taskon, ni ______ plenumi ĝin por li."  
 tipo: completar  
-respuesta: "helpas"  
 respuestas_validas:  
   - "helpas"  
   - "Helpas"  
@@ -368,7 +371,6 @@ pasos:
 explicacion: "La kondicionalo post 'se' uzas la infinitivon sen '-s', dum la volivo en demandoj uzu la infinitivon kun 'voli' aŭ aliaj verboj."  
 enunciado: "Se ŝi ______ al ni, ni ______ ĝin plenumi?"  
 tipo: completar  
-respuesta: "venus"  
 respuestas_validas:  
   - "venus"  
   - "Venus"  
@@ -406,7 +408,6 @@ pasos:
 explicacion: "La kondicionalo post 'se' uzas la infinitivon sen '-s', dum la volivo en demandoj uzu la infinitivon kun 'voli' aŭ aliaj verboj."  
 enunciado: "Se li ______ ĉi tiun taskon, ni ______ plenumi ĝin por li."  
 tipo: completar  
-respuesta: "helpas"  
 respuestas_validas:  
   - "helpas"  
   - "Helpas"  
@@ -444,7 +445,6 @@ pasos:
 explicacion: "La kondicionalo post 'se' uzas la infinitivon sen '-s', dum la volivo en demandoj uzu la infinitivon kun 'voli' aŭ aliaj verboj."  
 enunciado: "Se ŝi ______ al ni, ni ______ ĝin plenumi?"  
 tipo: completar  
-respuesta: "venus"  
 respuestas_validas:  
   - "venus"  
   - "Venus"  

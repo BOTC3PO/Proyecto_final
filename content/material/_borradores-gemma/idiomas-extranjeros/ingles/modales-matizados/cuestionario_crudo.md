@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y el contexto de preferencia formal."
   - "Seleccionar la forma correcta del modal 'would rather' en tercera persona."
-respuesta: "preferred"
 respuestas_validas:
   - "preferred"
   - "Preferred"
@@ -48,7 +47,6 @@ metadata:
 pasos:
   - "Analizar el contexto de una preferencia en un escenario hipotético."
   - "Elegir la forma del verbo que completa el significado formal."
-respuesta: "left"
 respuestas_validas:
   - "left"
   - "Left"
@@ -88,7 +86,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'would rather' en un contexto profesional."
   - "Seleccionar la forma correcta del verbo para expresar preferencia formal."
-respuesta: "reviewed"
 respuestas_validas:
   - "reviewed"
   - "Reviewed"
@@ -128,7 +125,6 @@ metadata:
 pasos:
   - "Analizar el contexto de una preferencia en un entorno formal."
   - "Seleccionar la forma correcta del verbo para expresar preferencia."
-respuesta: "held"
 respuestas_validas:
   - "held"
   - "Held"
@@ -168,7 +164,6 @@ metadata:
 pasos:
   - "Identificar el uso de 'would rather' en una recomendación formal."
   - "Seleccionar la forma correcta del verbo para expresar preferencia."
-respuesta: "consulted"
 respuestas_validas:
   - "consulted"
   - "Consulted"
@@ -208,7 +203,6 @@ metadata:
 pasos:
   - "Analizar el contexto de una preferencia en un proceso formal."
   - "Seleccionar la forma correcta del verbo para expresar preferencia."
-respuesta: "followed"
 respuestas_validas:
   - "followed"
   - "Followed"
@@ -248,7 +242,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'would rather' en una preferencia sobre formato."
   - "Seleccionar la forma correcta del verbo para expresar preferencia formal."
-respuesta: "conducted"
 respuestas_validas:
   - "conducted"
   - "Conducted"
@@ -288,7 +281,6 @@ metadata:
 pasos:
   - "Analizar el contexto de una preferencia sobre un cronograma formal."
   - "Seleccionar la forma correcta del verbo para expresar preferencia."
-respuesta: "adjusted"
 respuestas_validas:
   - "adjusted"
   - "Adjusted"
@@ -328,7 +320,6 @@ metadata:
 pasos:
   - "Identificar el uso de 'would rather' en una preferencia sobre estrategia."
   - "Seleccionar la forma correcta del verbo para expresar preferencia formal."
-respuesta: "implemented"
 respuestas_validas:
   - "implemented"
   - "Implemented"
@@ -368,7 +359,6 @@ metadata:
 pasos:
   - "Analizar el contexto de una preferencia sobre método de comunicación."
   - "Seleccionar la forma correcta del verbo para expresar preferencia formal."
-respuesta: "used"
 respuestas_validas:
   - "used"
   - "Used"
@@ -408,7 +398,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'would rather' en un proceso de toma de decisiones."
   - "Seleccionar la forma correcta del verbo para expresar preferencia formal."
-respuesta: "consulted"
 respuestas_validas:
   - "consulted"
   - "Consulted"
@@ -448,7 +437,6 @@ metadata:
 pasos:
   - "Analizar el contexto de una preferencia sobre método de retroalimentación."
   - "Seleccionar la forma correcta del verbo para expresar preferencia formal."
-respuesta: "provided"
 respuestas_validas:
   - "provided"
   - "Provided"
@@ -488,7 +476,6 @@ metadata:
 pasos:
   - "Identificar el uso de 'would rather' en una preferencia sobre estilo de comunicación."
   - "Seleccionar la forma correcta del verbo para expresar preferencia formal."
-respuesta: "adopted"
 respuestas_validas:
   - "adopted"
   - "Adopted"

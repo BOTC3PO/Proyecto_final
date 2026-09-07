@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar la preposición y el caso necesarios para completar la oración."  
 explicacion: "La preposición 'nach' requiere el caso acusativo cuando indica dirección. Por ejemplo, 'Ich gehe nach Berlin' (acusativo). En este contexto, se usa el artículo definido en acusativo 'den' con 'nach' para formar 'nach dem'.  
-respuesta: "nach dem"  
 tipo: completar  
 respuestas_validas:  
   - "nach dem"  
@@ -25,7 +24,11 @@ metadata:
 pasos:  
   - "Seleccionar la preposición correcta que requiere el caso dativo."  
 explicacion: "La preposición 'mit' siempre requiere el caso dativo. Por ejemplo, 'Er spielt mit seinem Bruder' (dativo). Las opciones incorrectas usan preposiciones que no requieren dativo.  
-opciones_explicitas: ["mit", "nach", "von", "zu"]  
+opciones_explicitas:
+  - "mit"
+  - "nach"
+  - "von"
+  - "zu"
 respuesta: "mit"  
 tipo: mc  
 ```
@@ -40,7 +43,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso genitivo."  
 explicacion: "La preposición 'von' siempre requiere el caso genitivo. Por ejemplo, 'Das Buch ist von dem Mann' (genitivo). En esta pregunta, se usa el artículo definido en genitivo 'des' con 'von'.  
-respuesta: "von dem"  
 tipo: completar  
 respuestas_validas:  
   - "von dem"  
@@ -57,7 +59,11 @@ metadata:
 pasos:  
   - "Identificar la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'zu' requiere el caso acusativo cuando indica dirección. Por ejemplo, 'Ich gehe zur Schule' (acusativo). Las opciones incorrectas usan preposiciones que no necesitan acusativo.  
-opciones_explicitas: ["zu", "auf", "mit", "unter"]  
+opciones_explicitas:
+  - "zu"
+  - "auf"
+  - "mit"
+  - "unter"
 respuesta: "zu"  
 tipo: mc  
 ```
@@ -72,7 +78,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso dativo."  
 explicacion: "La preposición 'unter' siempre requiere el caso dativo. Por ejemplo, 'Er sitzt unter dem Baum' (dativo). En esta pregunta, se usa el artículo definido en dativo 'dem' con 'unter'.  
-respuesta: "unter dem"  
 tipo: completar  
 respuestas_validas:  
   - "unter dem"  
@@ -89,7 +94,11 @@ metadata:
 pasos:  
   - "Seleccionar la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'gegen' siempre requiere el caso acusativo. Por ejemplo, 'Er spielt gegen das Team' (acusativo). Las opciones incorrectas usan preposiciones que no necesitan acusativo.  
-opciones_explicitas: ["gegen", "über", "von", "zu"]  
+opciones_explicitas:
+  - "gegen"
+  - "über"
+  - "von"
+  - "zu"
 respuesta: "gegen"  
 tipo: mc  
 ```
@@ -104,7 +113,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso genitivo."  
 explicacion: "La preposición 'wegen' siempre requiere el caso genitivo. Por ejemplo, 'Er ist wegen des Regens verärgert' (genitivo). En esta pregunta, se usa el artículo definido en genitivo 'des' con 'wegen'.  
-respuesta: "wegen des"  
 tipo: completar  
 respuestas_validas:  
   - "wegen des"  
@@ -121,7 +129,11 @@ metadata:
 pasos:  
   - "Identificar la preposición que requiere el caso dativo."  
 explicacion: "La preposición 'an' siempre requiere el caso dativo. Por ejemplo, 'Er hängt an der Wand' (dativo). Las opciones incorrectas usan preposiciones que no necesitan dativo.  
-opciones_explicitas: ["an", "in", "mit", "von"]  
+opciones_explicitas:
+  - "an"
+  - "in"
+  - "mit"
+  - "von"
 respuesta: "an"  
 tipo: mc  
 ```
@@ -136,7 +148,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'aus' siempre requiere el caso acusativo. Por ejemplo, 'Er kommt aus dem Land' (acusativo). En esta pregunta, se usa el artículo definido en acusativo 'den' con 'aus'.  
-respuesta: "aus dem"  
 tipo: completar  
 respuestas_validas:  
   - "aus dem"  
@@ -153,7 +164,11 @@ metadata:
 pasos:  
   - "Seleccionar la preposición que requiere el caso dativo."  
 explicacion: "La preposición 'in' requiere el caso dativo cuando indica lugar. Por ejemplo, 'Er sitzt in dem Zimmer' (dativo). Las opciones incorrectas usan preposiciones que no necesitan dativo.  
-opciones_explicitas: ["in", "nach", "von", "zu"]  
+opciones_explicitas:
+  - "in"
+  - "nach"
+  - "von"
+  - "zu"
 respuesta: "in"  
 tipo: mc  
 ```
@@ -168,7 +183,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso genitivo."  
 explicacion: "La preposición 'trotz' siempre requiere el caso genitivo. Por ejemplo, 'Er geht trotz des Wetters raus' (genitivo). En esta pregunta, se usa el artículo definido en genitivo 'des' con 'trotz'.  
-respuesta: "trotz des"  
 tipo: completar  
 respuestas_validas:  
   - "trotz des"  
@@ -185,7 +199,11 @@ metadata:
 pasos:  
   - "Identificar la preposición que requiere el caso dativo."  
 explicacion: "La preposición 'über' siempre requiere el caso dativo. Por ejemplo, 'Er spricht über dem Thema' (dativo). Las opciones incorrectas usan preposiciones que no necesitan dativo.  
-opciones_explicitas: ["über", "in", "mit", "zu"]  
+opciones_explicitas:
+  - "über"
+  - "in"
+  - "mit"
+  - "zu"
 respuesta: "über"  
 tipo: mc  
 ```
@@ -200,7 +218,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'gegenüber' siempre requiere el caso acusativo. Por ejemplo, 'Er sitzt gegenüber dem Tisch' (acusativo). En esta pregunta, se usa el artículo definido en acusativo 'den' con 'gegenüber'.  
-respuesta: "gegenüber dem"  
 tipo: completar  
 respuestas_validas:  
   - "gegenüber dem"  
@@ -217,7 +234,11 @@ metadata:
 pasos:  
   - "Seleccionar la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'nach' requiere el caso acusativo cuando indica dirección. Por ejemplo, 'Ich gehe nach Berlin' (acusativo). Las opciones incorrectas usan preposiciones que no necesitan acusativo.  
-opciones_explicitas: ["nach", "in", "von", "zu"]  
+opciones_explicitas:
+  - "nach"
+  - "in"
+  - "von"
+  - "zu"
 respuesta: "nach"  
 tipo: mc  
 ```
@@ -232,7 +253,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso dativo."  
 explicacion: "La preposición 'seit' siempre requiere el caso dativo. Por ejemplo, 'Er lebt seit dem Jahr 2015 hier' (dativo). En esta pregunta, se usa el artículo definido en dativo 'dem' con 'seit'.  
-respuesta: "seit dem"  
 tipo: completar  
 respuestas_validas:  
   - "seit dem"  
@@ -249,7 +269,11 @@ metadata:
 pasos:  
   - "Identificar la preposición que requiere el caso genitivo."  
 explicacion: "La preposición 'von' siempre requiere el caso genitivo. Por ejemplo, 'Das Buch ist von dem Mann' (genitivo). Las opciones incorrectas usan preposiciones que no necesitan genitivo.  
-opciones_explicitas: ["von", "in", "mit", "zu"]  
+opciones_explicitas:
+  - "von"
+  - "in"
+  - "mit"
+  - "zu"
 respuesta: "von"  
 tipo: mc  
 ```
@@ -264,7 +288,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'aus' siempre requiere el caso acusativo. Por ejemplo, 'Er kommt aus dem Land' (acusativo). En esta pregunta, se usa el artículo definido en acusativo 'den' con 'aus'.  
-respuesta: "aus dem"  
 tipo: completar  
 respuestas_validas:  
   - "aus dem"  
@@ -281,7 +304,11 @@ metadata:
 pasos:  
   - "Seleccionar la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'gegen' siempre requiere el caso acusativo. Por ejemplo, 'Er spielt gegen das Team' (acusativo). Las opciones incorrectas usan preposiciones que no necesitan acusativo.  
-opciones_explicitas: ["gegen", "in", "mit", "unter"]  
+opciones_explicitas:
+  - "gegen"
+  - "in"
+  - "mit"
+  - "unter"
 respuesta: "gegen"  
 tipo: mc  
 ```
@@ -296,7 +323,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso genitivo."  
 explicacion: "La preposición 'wegen' siempre requiere el caso genitivo. Por ejemplo, 'Er ist wegen des Regens verärgert' (genitivo). En esta pregunta, se usa el artículo definido en genitivo 'des' con 'wegen'.  
-respuesta: "wegen des"  
 tipo: completar  
 respuestas_validas:  
   - "wegen des"  
@@ -313,7 +339,11 @@ metadata:
 pasos:  
   - "Identificar la preposición que requiere el caso dativo."  
 explicacion: "La preposición 'an' siempre requiere el caso dativo. Por ejemplo, 'Er hängt an der Wand' (dativo). Las opciones incorrectas usan preposiciones que no necesitan dativo.  
-opciones_explicitas: ["an", "in", "mit", "nach"]  
+opciones_explicitas:
+  - "an"
+  - "in"
+  - "mit"
+  - "nach"
 respuesta: "an"  
 tipo: mc  
 ```
@@ -328,7 +358,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'gegenüber' siempre requiere el caso acusativo. Por ejemplo, 'Er sitzt gegenüber dem Tisch' (acusativo). En esta pregunta, se usa el artículo definido en acusativo 'den' con 'gegenüber'.  
-respuesta: "gegenüber dem"  
 tipo: completar  
 respuestas_validas:  
   - "gegenüber dem"  
@@ -345,7 +374,11 @@ metadata:
 pasos:  
   - "Seleccionar la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'nach' requiere el caso acusativo cuando indica dirección. Por ejemplo, 'Ich gehe nach Berlin' (acusativo). Las opciones incorrectas usan preposiciones que no necesitan acusativo.  
-opciones_explicitas: ["nach", "in", "von", "zu"]  
+opciones_explicitas:
+  - "nach"
+  - "in"
+  - "von"
+  - "zu"
 respuesta: "nach"  
 tipo: mc  
 ```
@@ -360,7 +393,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso dativo."  
 explicacion: "La preposición 'seit' siempre requiere el caso dativo. Por ejemplo, 'Er lebt seit dem Jahr 2015 hier' (dativo). En esta pregunta, se usa el artículo definido en dativo 'dem' con 'seit'.  
-respuesta: "seit dem"  
 tipo: completar  
 respuestas_validas:  
   - "seit dem"  
@@ -377,7 +409,11 @@ metadata:
 pasos:  
   - "Identificar la preposición que requiere el caso genitivo."  
 explicacion: "La preposición 'von' siempre requiere el caso genitivo. Por ejemplo, 'Das Buch ist von dem Mann' (genitivo). Las opciones incorrectas usan preposiciones que no necesitan genitivo.  
-opciones_explicitas: ["von", "in", "mit", "zu"]  
+opciones_explicitas:
+  - "von"
+  - "in"
+  - "mit"
+  - "zu"
 respuesta: "von"  
 tipo: mc  
 ```
@@ -392,7 +428,6 @@ metadata:
 pasos:  
   - "Completar la oración con la preposición que requiere el caso acusativo."  
 explicacion: "La preposición 'aus' siempre requiere el caso acusativo. Por ejemplo, 'Er kommt aus dem Land' (acusativo). En esta pregunta, se usa el artículo definido en acusativo 'den' con 'aus'.  
-respuesta: "aus dem"  
 tipo: completar  
 respuestas_validas:  
   - "aus dem"  

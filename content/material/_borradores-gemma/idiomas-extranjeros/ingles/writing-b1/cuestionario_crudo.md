@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Revisar la estructura de un correo electrónico formal."  
   - "Identificar el saludo más adecuado para una situación profesional."  
-respuesta: "Dear Mr. Smith,"  
 respuestas_validas:  
   - "Dear Mr. Smith,"  
   - "Dear Mrs. Johnson,"  
@@ -47,7 +46,6 @@ metadata:
 pasos:  
   - "Revisar el formato adecuado para el asunto de un correo formal."  
   - "Elegir una frase concisa y profesional que refleje el contenido del mensaje."  
-respuesta: "Request for Meeting on Project X"  
 respuestas_validas:  
   - "Request for Meeting on Project X"  
   - "Meeting Request: Project X Details"  
@@ -126,7 +124,6 @@ metadata:
 pasos:  
   - "Revisar la organización lógica de un párrafo en un correo formal."  
   - "Completar el hueco con una frase que conecte las ideas de manera coherente."  
-respuesta: "I would like to discuss the next steps in our project."  
 respuestas_validas:  
   - "I would like to discuss the next steps in our project."  
   - "Could we talk about the project's future direction?"  
@@ -205,7 +202,6 @@ metadata:
 pasos:  
   - "Revisar cómo indicar urgencia en el asunto de un correo formal."  
   - "Completar el hueco con una palabra que refuerce la importancia del mensaje."  
-respuesta: "Urgent: Meeting Rescheduled to Tomorrow"  
 respuestas_validas:  
   - "Urgent: Meeting Rescheduled to Tomorrow"  
   - "Important: Please Attend Tomorrow's Meeting"  
@@ -324,7 +320,6 @@ metadata:
 pasos:  
   - "Revisar cómo resumir ideas clave en un correo formal."  
   - "Completar el hueco con una frase que organice la información de manera clara."  
-respuesta: "To summarize, the main points are as follows:"  
 respuestas_validas:  
   - "To summarize, the main points are as follows:"  
   - "In conclusion, here are the key takeaways:"  
@@ -423,7 +418,6 @@ metadata:
 pasos:  
   - "Revisar cómo confirmar la recepción de información en un correo formal."  
   - "Completar el hueco con una frase que afirme haber recibido los datos correctamente."  
-respuesta: "I have received the documents you sent earlier today."  
 respuestas_validas:  
   - "I have received the documents you sent earlier today."  
   - "The information was delivered to me successfully."  

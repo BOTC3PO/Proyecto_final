@@ -89,7 +89,6 @@ metadata:
 pasos:
   - "Lerni la regulojn por uzado de 'ke'."
   - "Fari la frazon korekte."
-respuesta: "ke"
 respuestas_validas:
   - "ke"
   - "K"
@@ -193,7 +192,6 @@ metadata:
 pasos:
   - "Lerni la regulojn por uzado de 'kiam'."
   - "Fari la frazon korekte."
-respuesta: "kiam"
 respuestas_validas:
   - "kiam"
   - "K"
@@ -297,7 +295,6 @@ metadata:
 pasos:
   - "Lerni la regulojn por uzado de 'kiu'."
   - "Fari la frazon korekte."
-respuesta: "kiu"
 respuestas_validas:
   - "kiu"
   - "K"
@@ -405,7 +402,6 @@ respuestas_validas:
   - "Kiam"
 tipo: completar
 enunciado: "La homo, ___ foriris, ne revenos hodiaŭ."
-respuesta: "kiam"
 explicacion: "La subordinata klavo 'kiam' indikas la tempo de la ago (foriri), kiu estas esence parto de la frazo. Ĝi ligas la dua frazon al la unua, montrante kiam okazis la evento."
 ```
 
@@ -609,7 +605,6 @@ respuestas_validas:
   - "Ke"
 tipo: completar
 enunciado: "La amiko ___ mi konis en Londono estas nun en Parizo."
-respuesta: "ke"
 explicacion: "La subordinata klavo 'ke' rilatas al la ago de koni, kiu okazis en Londono. Ĝi ligas la frazon al la antaŭa informo pri la amiko."
 ```
 

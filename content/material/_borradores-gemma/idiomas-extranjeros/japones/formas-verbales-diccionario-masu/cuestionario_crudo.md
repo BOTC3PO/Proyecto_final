@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo en la oración."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "やすい"
 respuestas_validas:
   - "やすい"
   - "易い"
@@ -28,7 +27,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma past (た)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "食べた"
 respuestas_validas:
   - "食べた"
   - "食べました"
@@ -48,7 +46,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma base (辞書形)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "食べる"
 respuestas_validas:
   - "食べる"
   - "食べます"
@@ -85,7 +82,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma past (た)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "飲んだ"
 respuestas_validas:
   - "飲んだ"
   - "飲みました"
@@ -122,7 +118,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma base (辞書形)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "行く"
 respuestas_validas:
   - "行く"
   - "いきます"
@@ -159,7 +154,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma past (た)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "食べた"
 respuestas_validas:
   - "食べた"
   - "食べました"
@@ -196,7 +190,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma base (辞書形)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "読む"
 respuestas_validas:
   - "読む"
   - "読みます"
@@ -233,7 +226,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma past (た)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "飲んだ"
 respuestas_validas:
   - "飲んだ"
   - "飲みました"
@@ -270,7 +262,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma base (辞書形)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "行く"
 respuestas_validas:
   - "行く"
   - "いきます"
@@ -307,7 +298,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma past (た)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "食べた"
 respuestas_validas:
   - "食べた"
   - "食べました"
@@ -344,7 +334,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma base (辞書形)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "読む"
 respuestas_validas:
   - "読む"
   - "読みます"
@@ -381,7 +370,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma past (た)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "飲んだ"
 respuestas_validas:
   - "飲んだ"
   - "飲みました"
@@ -418,7 +406,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma base (辞書形)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "行く"
 respuestas_validas:
   - "行く"
   - "いきます"
@@ -455,7 +442,6 @@ metadata:
 pasos:
   - "Identificar el verbo en su forma past (た)."
   - "Convertirlo al formato de diccionario con masu."
-respuesta: "食べた"
 respuestas_validas:
   - "食べた"
   - "食べました"

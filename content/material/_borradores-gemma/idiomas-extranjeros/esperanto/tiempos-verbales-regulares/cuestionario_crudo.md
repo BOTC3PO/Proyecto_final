@@ -11,12 +11,9 @@ pasos:
 explicacion: "El presente se forma con el infinitivo + '-as' cuando el sujeto es 'mi'. La raíz del verbo 'lerni' es 'lern-'."
 tipo: completar
 enunciado: "Mi ___ la lingvon esperanton."
-respuesta: "lernas"
 respuestas_validas:
   - "lernas"
   - "Lernas"
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -34,12 +31,9 @@ pasos:
 explicacion: "El futuro se forma con el infinitivo + '-os' cuando el sujeto es 'vi'. La raíz del verbo 'voki' es 'vok-'."
 tipo: completar
 enunciado: "Vi ___ la katon ĉi-momente."
-respuesta: "vokos"
 respuestas_validas:
   - "vokos"
   - "Vokos"
-variables:
-  - "verbo": "voki"
 ```
 
 
@@ -57,12 +51,9 @@ pasos:
 explicacion: "El pasivo simple se forma con el infinitivo + '-is' cuando el sujeto es 'li'. La raíz del verbo 'kapti' es 'kapt-'."
 tipo: completar
 enunciado: "La kato ___ de la infano."
-respuesta: "kapis"
 respuestas_validas:
   - "kapis"
   - "Kapis"
-variables:
-  - "verbo": "kapti"
 ```
 
 
@@ -80,12 +71,9 @@ pasos:
 explicacion: "El presente se forma con el infinitivo + '-as' cuando el sujeto es 'ili'. La raíz del verbo 'lerni' es 'lern-'."
 tipo: completar
 enunciado: "Ili ___ esperanton en la lernejo."
-respuesta: "lernas"
 respuestas_validas:
   - "lernas"
   - "Lernas"
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -103,12 +91,9 @@ pasos:
 explicacion: "El futuro se forma con el infinitivo + '-os' cuando el sujeto es 'ili'. La raíz del verbo 'voki' es 'vok-'."
 tipo: completar
 enunciado: "Ili ___ la katon ĉi-momente."
-respuesta: "vokos"
 respuestas_validas:
   - "vokos"
   - "Vokos"
-variables:
-  - "verbo": "voki"
 ```
 
 
@@ -126,12 +111,9 @@ pasos:
 explicacion: "El pasivo simple se forma con el infinitivo + '-is' cuando el sujeto es 'ili'. La raíz del verbo 'kapti' es 'kapt-'."
 tipo: completar
 enunciado: "La katoj ___ de la infanoj."
-respuesta: "kapitis"
 respuestas_validas:
   - "kapitis"
   - "Kapitis"
-variables:
-  - "verbo": "kapti"
 ```
 
 
@@ -149,12 +131,9 @@ pasos:
 explicacion: "El presente se forma con el infinitivo + '-as' cuando el sujeto es 'vi'. La raíz del verbo 'lerni' es 'lern-'."
 tipo: completar
 enunciado: "Vi ___ esperanton en la lernejo."
-respuesta: "lernas"
 respuestas_validas:
   - "lernas"
   - "Lernas"
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -172,12 +151,9 @@ pasos:
 explicacion: "El futuro se forma con el infinitivo + '-os' cuando el sujeto es 'li'. La raíz del verbo 'voki' es 'vok-'."
 tipo: completar
 enunciado: "Li ___ la katon ĉi-momente."
-respuesta: "vokos"
 respuestas_validas:
   - "vokos"
   - "Vokos"
-variables:
-  - "verbo": "voki"
 ```
 
 
@@ -193,9 +169,8 @@ pasos:
   - Identificar el sujeto en la oración.  
   - Aplicar la conjugación del verbo "kapti" para el sujeto singular de tercera persona.  
 explicacion: El verbo "kapti" (capturar) se conjuga como "kaptas" para un sujeto singular (e.g., "la hundo"). La forma "kaptas" sigue la regla de añadir -s al infinitivo para el presente de tercera persona singular.  
-enunciado: 'La hundo ___ la katon.'  
+enunciado: "La hundo ___ la katon."
 tipo: completar  
-respuesta: "kaptas"  
 respuestas_validas:  
   - "kaptas"  
   - "Kaptas"  
@@ -216,12 +191,9 @@ pasos:
 explicacion: "El presente se forma con el infinitivo + '-as' cuando el sujeto es 'ella'. La raíz del verbo 'lerni' es 'lern-'."
 tipo: completar
 enunciado: "Ella ___ esperanton en la lernejo."
-respuesta: "lernas"
 respuestas_validas:
   - "lernas"
   - "Lernas"
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -239,12 +211,9 @@ pasos:
 explicacion: "El futuro se forma con el infinitivo + '-os' cuando el sujeto es 'ella'. La raíz del verbo 'voki' es 'vok-'."
 tipo: completar
 enunciado: "Ella ___ la katon ĉi-momente."
-respuesta: "vokos"
 respuestas_validas:
   - "vokos"
   - "Vokos"
-variables:
-  - "verbo": "voki"
 ```
 
 
@@ -260,9 +229,8 @@ pasos:
   - Determinar si el verbo es transitivo o intransitivo.  
   - Aplicar la conjugación del verbo "esti" para el sujeto plural de tercera persona.  
 explicacion: El verbo "esti" (estar) se conjuga como "estas" en presente para el sujeto plural ("ili"). La forma no cambia según el sujeto, solo se usa la raíz.  
-enunciado: 'Ili ___ en la lernejo.'  
+enunciado: "Ili ___ en la lernejo."
 tipo: completar  
-respuesta: "estas"  
 respuestas_validas:  
   - "estas"  
   - "Estas"  
@@ -283,12 +251,9 @@ pasos:
 explicacion: "El presente se forma con el infinitivo + '-as' cuando el sujeto es 'mi'. La raíz del verbo 'lerni' es 'lern-'."
 tipo: completar
 enunciado: "Mi ___ esperanton en la lernejo."
-respuesta: "lernas"
 respuestas_validas:
   - "lernas"
   - "Lernas"
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -306,12 +271,9 @@ pasos:
 explicacion: "El futuro se forma con el infinitivo + '-os' cuando el sujeto es 'mi'. La raíz del verbo 'voki' es 'vok-'."
 tipo: completar
 enunciado: "Mi ___ la katon ĉi-momente."
-respuesta: "vokos"
 respuestas_validas:
   - "vokos"
   - "Vokos"
-variables:
-  - "verbo": "voki"
 ```
 
 
@@ -327,9 +289,8 @@ pasos:
   - Identificar el sujeto y el verbo en la oración.  
   - Aplicar la conjugación del verbo "lerni" para tercera persona singular.  
 explicacion: El verbo "lerni" (aprender) se conjuga como "lernas" en presente para un sujeto singular ("la infano"). La forma sigue la regla de añadir -s al infinitivo.  
-enunciado: 'La infano ___ la lingvon.'  
+enunciado: "La infano ___ la lingvon."
 tipo: completar  
-respuesta: "lernas"  
 respuestas_validas:  
   - "lernas"  
   - "Lernas"  
@@ -348,9 +309,8 @@ pasos:
   - Determinar si el verbo requiere un complemento.  
   - Aplicar la conjugación del verbo "vidi" para tercera persona singular.  
 explicacion: El verbo "vidi" (ver) se conjuga como "vidas" en presente para sujeto singular ("la hundo"). La forma no cambia por el complemento.  
-enunciado: 'La hundo ___ luman.'  
+enunciado: "La hundo ___ luman."
 tipo: completar  
-respuesta: "vidas"  
 respuestas_validas:  
   - "vidas"  
   - "Vidas"  
@@ -369,9 +329,8 @@ pasos:
   - Reconocer el sujeto plural y su conjugación.  
   - Usar la raíz del verbo "aperi" (aparecer) para plural.  
 explicacion: El verbo "aperi" (aparecer) no cambia en presente según el número; se usa "apers" tanto para singular como plural.  
-enunciado: 'Ili ___ en la domo.'  
+enunciado: "Ili ___ en la domo."
 tipo: completar  
-respuesta: "apers"  
 respuestas_validas:  
   - "apers"  
   - "Aperas"  
@@ -390,9 +349,8 @@ pasos:
   - Identificar el sujeto plural y aplicar la conjugación.  
   - Usar la raíz del verbo "kapti" para plural.  
 explicacion: El verbo "kapti" (capturar) no cambia en presente según el número; se usa "kaptas" tanto para singular como plural.  
-enunciado: 'La hundoj ___ la katon.'  
+enunciado: "La hundoj ___ la katon."
 tipo: completar  
-respuesta: "kaptas"  
 respuestas_validas:  
   - "kaptas"  
   - "Kaptas"  
@@ -411,9 +369,8 @@ pasos:
   - Determinar si el verbo es transitivo o intransitivo.  
   - Aplicar la conjugación del verbo "iri" para plural.  
 explicacion: El verbo "iri" (ir) no cambia en presente según el número; se usa "iras" tanto para singular como plural.  
-enunciado: 'Ili ___ al la parko.'  
+enunciado: "Ili ___ al la parko."
 tipo: completar  
-respuesta: "iras"  
 respuestas_validas:  
   - "iras"  
   - "Iras"  
@@ -432,9 +389,8 @@ pasos:
   - Reconocer que el verbo "esti" no cambia según el sujeto.  
   - Usar la raíz del verbo "esti".  
 explicacion: El verbo "esti" (estar) se mantiene como "estas" para cualquier sujeto en presente, independientemente de número o persona.  
-enunciado: 'La infano ___ en la domo.'  
+enunciado: "La infano ___ en la domo."
 tipo: completar  
-respuesta: "estas"  
 respuestas_validas:  
   - "estas"  
   - "Estas"  
@@ -453,9 +409,8 @@ pasos:
   - Identificar el sujeto plural y aplicar la conjugación.  
   - Usar la raíz del verbo "lerni" para plural.  
 explicacion: El verbo "lerni" (aprender) no cambia en presente según el número; se usa "lernas" tanto para singular como plural.  
-enunciado: 'La infanoj ___ la lingvon.'  
+enunciado: "La infanoj ___ la lingvon."
 tipo: completar  
-respuesta: "lernas"  
 respuestas_validas:  
   - "lernas"  
   - "Lernas"  
@@ -476,12 +431,9 @@ pasos:
 explicacion: "El presente se forma con el infinitivo + '-as' cuando el sujeto es 'li'. La raíz del verbo 'lerni' es 'lern-'."
 tipo: completar
 enunciado: "Li ___ esperanton en la lernejo."
-respuesta: "lernas"
 respuestas_validas:
   - "lernas"
   - "Lernas"
-variables:
-  - "verbo": "lerni"
 ```
 
 
@@ -497,9 +449,8 @@ pasos:
   - Determinar si el verbo requiere un complemento.  
   - Aplicar la conjugación del verbo "vidi" para plural.  
 explicacion: El verbo "vidi" (ver) no cambia en presente según el número; se usa "vidas" tanto para singular como plural.  
-enunciado: 'La hundoj ___ luman.'  
+enunciado: "La hundoj ___ luman."
 tipo: completar  
-respuesta: "vidas"  
 respuestas_validas:  
   - "vidas"  
   - "Vidas"  
@@ -518,9 +469,8 @@ pasos:
   - Reconocer que el verbo "aperi" no cambia según el sujeto.  
   - Usar la raíz del verbo "aperi".  
 explicacion: El verbo "aperi" (aparecer) se mantiene como "apers" para cualquier sujeto en presente, independientemente de número o persona.  
-enunciado: 'La hundo ___ en la domo.'  
+enunciado: "La hundo ___ en la domo."
 tipo: completar  
-respuesta: "apers"  
 respuestas_validas:  
   - "apers"  
   - "Aperas"  
@@ -539,9 +489,8 @@ pasos:
   - Identificar el sujeto singular y aplicar la conjugación.  
   - Usar la raíz del verbo "kapti".  
 explicacion: El verbo "kapti" (capturar) no cambia en presente según el número; se usa "kaptas" tanto para singular como plural.  
-enunciado: 'La hundo ___ la katon.'  
+enunciado: "La hundo ___ la katon."
 tipo: completar  
-respuesta: "kaptas"  
 respuestas_validas:  
   - "kaptas"  
   - "Kaptas"

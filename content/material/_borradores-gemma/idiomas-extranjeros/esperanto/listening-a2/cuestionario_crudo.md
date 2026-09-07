@@ -29,7 +29,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La verbo 'ludi' en la prezentanto estas 'ludas'."
 tipo: completar
-respuesta: "ludas"
 respuestas_validas:
   - "ludas"
   - "Ludas"
@@ -68,7 +67,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La prepozicio 'en' estas uzata por indiki lokon en interno de io."
 tipo: completar
-respuesta: "en"
 respuestas_validas:
   - "En"
   - "en"
@@ -107,7 +105,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La verbo 'iri' en pasinta tempo estas 'iris'."
 tipo: completar
-respuesta: "iris"
 respuestas_validas:
   - "Iris"
   - "iris"
@@ -146,7 +143,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La possesiva pronomo 'mia' estas uzata por indiki posedon."
 tipo: completar
-respuesta: "mia"
 respuestas_validas:
   - "Mia"
   - "mia"
@@ -185,7 +181,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La adjektivo 'bona' devas koncordi kun la substantivo en nombro kaj genro."
 tipo: completar
-respuesta: "bona"
 respuestas_validas:
   - "Bona"
   - "bona"
@@ -224,7 +219,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La prepozicio 'sur' estas uzata por indiki lokon super io."
 tipo: completar
-respuesta: "sur"
 respuestas_validas:
   - "Sur"
   - "sur"
@@ -263,7 +257,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La verbo 'iri' en pasinta tempo estas 'iris'."
 tipo: completar
-respuesta: "iris"
 respuestas_validas:
   - "Iris"
   - "iris"
@@ -302,7 +295,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La possesiva pronomo 'via' estas uzata por indiki posedon."
 tipo: completar
-respuesta: "via"
 respuestas_validas:
   - "Via"
   - "via"
@@ -341,7 +333,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La adjektivo 'bona' devas koncordi kun la substantivo en nombro kaj genro."
 tipo: completar
-respuesta: "bona"
 respuestas_validas:
   - "Bona"
   - "bona"
@@ -380,7 +371,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La prepozicio 'sub' estas uzata por indiki lokon sub io."
 tipo: completar
-respuesta: "sub"
 respuestas_validas:
   - "Sub"
   - "sub"
@@ -419,7 +409,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La verbo 'iri' en pasinta tempo estas 'iris'."
 tipo: completar
-respuesta: "iris"
 respuestas_validas:
   - "Iris"
   - "iris"
@@ -458,7 +447,6 @@ pasos:
   - "Aŭskultu la frazon kaj kompletigu la blankon."
 explicacion: "La possesiva pronomo 'mia' estas uzata por indiki posedon."
 tipo: completar
-respuesta: "mia"
 respuestas_validas:
   - "Mia"
   - "mia"

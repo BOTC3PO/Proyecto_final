@@ -13,7 +13,6 @@ respuestas_validas:
   - "Doveva"
 tipo: completar
 enunciado: "Maria disse: 'Devo andare a casa.' → Maria disse che ___ andare a casa."
-respuesta: "doveva"
 explicacion: "Il verbo modale 'devo' (presente) nel discorso indiretto si trasforma in 'doveva' (imperfetto), poiché il tempo del verbo principale ('andare') rimane invariato."
 ```
 
@@ -61,7 +60,6 @@ respuestas_validas:
   - "Sapeva"
 tipo: completar
 enunciado: "Paolo disse: 'Sono stanco.' → Paolo disse che ___ stanco."
-respuesta: "sapeva"
 explicacion: "Il verbo 'essere' nel discorso indiretto si trasforma in 'sapeva' (imperfetto) per mantenere il significato del presente originale."
 ```
 
@@ -109,7 +107,6 @@ respuestas_validas:
   - "Aveva fatto"
 tipo: completar
 enunciado: "Giulia disse: 'Ho finito il lavoro.' → Giulia disse che ___ finito il lavoro."
-respuesta: "aveva fatto"
 explicacion: "Il passato prossimo nel discorso indiretto diventa 'aveva fatto', mantenendo l'ausiliare e la partecipa del verbo."
 ```
 
@@ -157,7 +154,6 @@ respuestas_validas:
   - "Avrebbe potuto"
 tipo: completar
 enunciado: "Luisa disse: 'Potrò andare.' → Luisa disse che ___ andare."
-respuesta: "avrebbe potuto"
 explicacion: "Il futuro nel discorso indiretto si trasforma in 'avrebbe potuto', mantenendo l'ausiliare e la partecipa del verbo."
 ```
 

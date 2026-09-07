@@ -7,14 +7,11 @@ metadata:
   tags: ["días-de-la-semana", "completar"]
 pasos:
   - "Identificar el día de la semana faltante en la oración."
-respuesta: "일요일"
 respuestas_validas:
   - "일요일"
   - "일요일"
 tipo: completar
 enunciado: "오늘은 ___ 날입니다. (Hoy es __ día.)"
-variables:
-  - "dia_semana": ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
 ```
 
 
@@ -49,14 +46,11 @@ metadata:
   tags: ["조사", "completar"]
 pasos:
   - "Seleccionar el marcador de objeto correcto para completar la oración."
-respuesta: "을"
 respuestas_validas:
   - "을"
   - "를"
 tipo: completar
 enunciado: "그 책 ___ 읽었어요. (Leí esa libro ___.)"
-variables:
-  - "objeto": ["책", "사과", "도시"]
 ```
 
 
@@ -91,14 +85,11 @@ metadata:
   tags: ["조사", "completar"]
 pasos:
   - "Seleccionar el marcador de sujeto correcto para completar la oración."
-respuesta: "가"
 respuestas_validas:
   - "가"
   - "이"
 tipo: completar
 enunciado: "___ 친구예요. (___ es mi amigo.)"
-variables:
-  - "sujeto": ["그", "이", "저"]
 ```
 
 
@@ -133,14 +124,11 @@ metadata:
   tags: ["수량", "completar"]
 pasos:
   - "Completar la oración con el número correcto."
-respuesta: "두"
 respuestas_validas:
   - "두"
   - "둘"
 tipo: completar
 enunciado: "___ 개의 사과가 있어요. (Hay ___ manzanas.)"
-variables:
-  - "cantidad": ["한", "두", "세"]
 ```
 
 
@@ -175,14 +163,11 @@ metadata:
   tags: ["예절", "completar"]
 pasos:
   - "Completar la oración con el verbo en forma de cortesía."
-respuesta: "뵙겠습니다"
 respuestas_validas:
   - "뵙겠습니다"
   - "뵙겠어요"
 tipo: completar
 enunciado: "오늘 ___ (Hoy me reuniré con usted)."
-variables:
-  - "verbo": ["만나다", "뵙다", "말하다"]
 ```
 
 
@@ -217,14 +202,11 @@ metadata:
   tags: ["조건", "completar"]
 pasos:
   - "Completar la oración con el conectivo correcto."
-respuesta: "만약"
 respuestas_validas:
   - "만약"
   - "만"
 tipo: completar
 enunciado: "___ 내일 오면, 함께 가요. (___ vienes mañana, iremos juntos.)"
-variables:
-  - "conectivo": ["만약", "그렇다면", "그래도"]
 ```
 
 
@@ -259,14 +241,11 @@ metadata:
   tags: ["목적", "completar"]
 pasos:
   - "Completar la oración con el marcador de propósito correcto."
-respuesta: "해서"
 respuestas_validas:
   - "해서"
   - "으로"
 tipo: completar
 enunciado: "이 책은 ___ 공부했어요. (Leí este libro ___.)"
-variables:
-  - "propósito": ["공부", "여행", "일"]
 ```
 
 
@@ -301,14 +280,11 @@ metadata:
   tags: ["인물", "completar"]
 pasos:
   - "Completar la oración con el pronombre correcto."
-respuesta: "그녀"
 respuestas_validas:
   - "그녀"
   - "그"
 tipo: completar
 enunciado: "___는 학생입니다. (___ es estudiante.)"
-variables:
-  - "pronombre": ["그", "그녀", "저"]
 ```
 
 
@@ -344,13 +320,11 @@ metadata:
 pasos:  
   - "Identificar el uso de '-는' para indicar el tema de la oración."  
   - "Completar el hueco con el pronombre adecuado que funcione como sujeto y portador del tema."  
-respuesta: "이 책"  
 respuestas_validas:  
   - "이 책"  
   - "이 책은"  
 tipo: completar  
 enunciado: "___는 읽고 싶어요. (Quiero leer ___.)"  
-variables: []  
 explicacion: "El uso de '-는' indica el tema de la oración, que en este caso es 'este libro'. La forma correcta es '이 책는' pero se simplifica a '이 책' antes del verbo."  
 ```  
 
@@ -373,7 +347,6 @@ opciones_explicitas:
   - "그녀로"  
 tipo: mc  
 enunciado: "저는 ___ 선물을 주고 싶어요. (Quiero darle un regalo a ella.)"  
-variables: []  
 explicacion: "El marcador '-을/를' se usa para objetos directos. '그녀' termina en vocal, por lo que se usa '-에게' como preposición de dirección."  
 ```  
 
@@ -389,13 +362,11 @@ metadata:
 pasos:  
   - "Identificar la expresión temporal necesaria para completar la oración."  
   - "Usar '-에' para indicar el momento exacto de una acción."  
-respuesta: "오늘"  
 respuestas_validas:  
   - "오늘"  
   - "오늘에"  
 tipo: completar  
 enunciado: "___ ___ 놀러 가요. (Vamos a divertirnos ___.)"  
-variables: []  
 explicacion: "'-에' se usa para indicar el momento específico de una acción, como 'hoy', que corresponde a '오늘에'."  
 ```  
 
@@ -418,7 +389,6 @@ opciones_explicitas:
   - "야"  
 tipo: mc  
 enunciado: "이 영화는 ___ 재미있어요. (Esta película es interesante.)"  
-variables: []  
 explicacion: "'-어요' se usa en forma cortés para adjetivos o verbos, como '예요' que completa la oración de manera correcta."  
 ```  
 
@@ -434,13 +404,11 @@ metadata:
 pasos:  
   - "Identificar la estructura comparativa que introduce '-보다'."  
   - "Completar el hueco con '더' para indicar un grado superior en la comparación."  
-respuesta: "더"  
 respuestas_validas:  
   - "더"  
   - "더나"  
 tipo: completar  
 enunciado: "이 책은 저 책 ___ 흥미롭습니다. (Este libro es ___ interesante que ese libro.)"  
-variables: []  
 explicacion: "La estructura '-보다' se usa para comparaciones, y '더' indica un grado superior ('más'). La frase completa es '이 책은 저 책보다 더 흥미롭습니다'."  
 ```  
 
@@ -463,7 +431,6 @@ opciones_explicitas:
   - "학교로"  
 tipo: mc  
 enunciado: "저는 ___ 공부해요. (Estudio en la escuela.)"  
-variables: []  
 explicacion: "'-에서' indica el lugar donde se realiza una acción, como 'en la escuela', que corresponde a '학교에서'."  
 ```  
 
@@ -479,13 +446,11 @@ metadata:
 pasos:  
   - "Identificar la forma correcta del adjetivo que completa la oración."  
   - "Usar '-어요' para convertir '예쁘다' en su forma cortés o descriptiva."  
-respuesta: "예뻐요"  
 respuestas_validas:  
   - "예뻐요"  
   - "예쁘네요"  
 tipo: completar  
 enunciado: "그녀는 ___입니다. (Ella es bonita.)"  
-variables: []  
 explicacion: "'예쁘다' se transforma en '-어요' para indicar una descripción general, como 'ella es bonita', que corresponde a '예뻐요'."  
 ```  
 
@@ -508,7 +473,6 @@ opciones_explicitas:
   - "아니요"  
 tipo: mc  
 enunciado: "이 책은 ___ 읽었어요? (¿Leíste este libro?)"  
-variables: []  
 explicacion: "'-인가요' se usa para formular preguntas, pero en este caso, la oración ya está estructurada como pregunta. La respuesta correcta es '예' (sí) si el contexto lo indica."  
 ```  
 

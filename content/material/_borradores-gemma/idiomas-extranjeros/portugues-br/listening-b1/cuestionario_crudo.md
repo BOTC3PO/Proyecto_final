@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Escucha la oración y completa el espacio con la preposición correcta."
   - "Verifica que la preposición corresponda al lugar mencionado."
-respuesta: "na"
 respuestas_validas:
   - "na"
   - "Na"
 tipo: completar
 enunciado: "O evento será ___ praia de Copacabana."
-variables:
-  - "lugar": "praia"
 ```
 
 
@@ -37,8 +34,6 @@ opciones_explicitas:
   - "e dez"
 tipo: mc
 enunciado: "O trem sai às 18h ___."
-variables:
-  - "hora": "18h"
 ```
 
 
@@ -53,14 +48,11 @@ metadata:
 pasos:
   - "Escucha la oración y completa el espacio con el número cardinal correcto."
   - "Verifica que el número coincida con la cantidad mencionada."
-respuesta: "trinta e cinco"
 respuestas_validas:
   - "trinta e cinco"
   - "Trinta e cinco"
 tipo: completar
 enunciado: "Ela tem ___ anos de idade."
-variables:
-  - "cantidad": "35"
 ```
 
 
@@ -82,8 +74,6 @@ opciones_explicitas:
   - "comprou"
 tipo: mc
 enunciado: "O que você ___ ontem no mercado?"
-variables:
-  - "verbo": "comprar"
 ```
 
 
@@ -98,14 +88,11 @@ metadata:
 pasos:
   - "Escucha la oración y completa el espacio con la preposición correcta."
   - "Verifica que la preposición corresponda al lugar mencionado."
-respuesta: "no"
 respuestas_validas:
   - "no"
   - "No"
 tipo: completar
 enunciado: "Ela está ___ casa de seu tio."
-variables:
-  - "lugar": "casa"
 ```
 
 
@@ -127,8 +114,6 @@ opciones_explicitas:
   - "vai"
 tipo: mc
 enunciado: "Onde você ___ no próximo mês?"
-variables:
-  - "verbo": "ir"
 ```
 
 
@@ -143,14 +128,11 @@ metadata:
 pasos:
   - "Escucha la oración y completa el espacio con el número ordinal correcto."
   - "Verifica que el ordinal coincida con la posición mencionada."
-respuesta: "oitavo"
 respuestas_validas:
   - "oitavo"
   - "Oitavo"
 tipo: completar
 enunciado: "Ele chegou em ___ lugar na corrida."
-variables:
-  - "posición": "8º"
 ```
 
 
@@ -165,14 +147,11 @@ metadata:
 pasos:
   - "Escucha la oración y completa el espacio con la preposición correcta."
   - "Verifica que la preposición corresponda al verbo mencionado."
-respuesta: "com"
 respuestas_validas:
   - "com"
   - "Com"
 tipo: completar
 enunciado: "Ela saiu ___ amigo de ontem."
-variables:
-  - "verbo": "sair"
 ```
 
 
@@ -194,8 +173,6 @@ opciones_explicitas:
   - "estará"
 tipo: mc
 enunciado: "Ele ___ esperando por você há uma hora."
-variables:
-  - "verbo": "estar"
 ```
 
 
@@ -210,14 +187,11 @@ metadata:
 pasos:
   - "Escucha la oración y completa el espacio con la preposición correcta."
   - "Verifica que la preposición corresponda al tiempo mencionado."
-respuesta: "em"
 respuestas_validas:
   - "em"
   - "Em"
 tipo: completar
 enunciado: "O encontro será ___ quinta-feira."
-variables:
-  - "tiempo": "quinta-feira"
 ```
 
 
@@ -239,8 +213,6 @@ opciones_explicitas:
   - "em"
 tipo: mc
 enunciado: "Onde você ___ quando era criança?"
-variables:
-  - "verbo": "crescer"
 ```
 
 
@@ -262,8 +234,6 @@ opciones_explicitas:
   - "vou comprar"
 tipo: mc
 enunciado: "O que você ___ no mercado ontem?"
-variables:
-  - "verbo": "comprar"
 ```
 
 
@@ -278,14 +248,11 @@ metadata:
 pasos:
   - "Escucha la oración y completa el espacio con la preposición correcta."
   - "Verifica que la preposición corresponda a la posesión mencionada."
-respuesta: "do"
 respuestas_validas:
   - "do"
   - "Do"
 tipo: completar
 enunciado: "Este livro é ___ meu irmão."
-variables:
-  - "posesión": "meu"
 ```
 
 
@@ -319,14 +286,11 @@ metadata:
 pasos:
   - "Escucha la oración y completa el espacio con la preposición correcta."
   - "Verifica que la preposición corresponda al verbo de movimiento mencionado."
-respuesta: "para"
 respuestas_validas:
   - "para"
   - "Para"
 tipo: completar
 enunciado: "Ela foi ___ escola hoje cedo."
-variables:
-  - "verbo": "ir"
 ```
 
 

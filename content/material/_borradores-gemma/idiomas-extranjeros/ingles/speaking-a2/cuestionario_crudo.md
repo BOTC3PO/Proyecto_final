@@ -7,14 +7,11 @@ metadata:
   tags: ["rutina", "present simple"]
 pasos:
   - "Completa la oración con el verbo adecuado."
-respuesta: "get"
 respuestas_validas:
   - "get"
   - "Get"
 tipo: completar
 enunciado: "I ___ up at 7 o'clock every morning."
-variables:
-  - "___"
 ```  
 explicacion: "El verbo 'get' se usa en presente simple para describir una rutina diaria con el sujeto 'I'."
 
@@ -36,7 +33,6 @@ opciones_explicitas:
   - "has kind"
 tipo: mc
 enunciado: "My friend ___ and always helps others."
-variables:
 ```  
 explicacion: "'Is' se usa con sujeto singular (my friend) y adjetivo 'kind' para describir una característica."
 
@@ -51,14 +47,11 @@ metadata:
   tags: ["preposiciones", "lugares"]
 pasos:
   - "Completa la oración con la preposición correcta."
-respuesta: "in"
 respuestas_validas:
   - "in"
   - "In"
 tipo: completar
 enunciado: "The park is ___ the center of the city."
-variables:
-  - "___"
 ```  
 explicacion: "'In' se usa para indicar ubicación dentro de un área general como 'the center'."
 
@@ -80,7 +73,6 @@ opciones_explicitas:
   - "is swimming"
 tipo: mc
 enunciado: "My sister ___ every Saturday."
-variables:
 ```  
 explicacion: "'Goes' se usa con sujeto singular (she) para actividades recurrentes."
 
@@ -95,14 +87,11 @@ metadata:
   tags: ["familia", "adjetivos"]
 pasos:
   - "Completa la oración con el adjetivo correcto."
-respuesta: "hardworking"
 respuestas_validas:
   - "hardworking"
   - "Hardworking"
 tipo: completar
 enunciado: "My father is ___ and works long hours."
-variables:
-  - "___"
 ```  
 explicacion: "El adjetivo 'hardworking' describe una cualidad de trabajo constante en el sujeto."
 
@@ -124,7 +113,6 @@ opciones_explicitas:
   - "on"
 tipo: mc
 enunciado: "I usually have breakfast ___ seven o'clock."
-variables:
 ```  
 explicacion: "'At' se usa para indicar una hora específica como 'seven o'clock'."
 
@@ -139,14 +127,11 @@ metadata:
   tags: ["hábitos", "present simple"]
 pasos:
   - "Completa la oración con el verbo en presente simple."
-respuesta: "plays"
 respuestas_validas:
   - "plays"
   - "Play"
 tipo: completar
 enunciado: "My brother ___ football with his friends every weekend."
-variables:
-  - "___"
 ```  
 explicacion: "'Plays' se usa con sujeto singular (he) para describir un hábito recurrente."
 
@@ -168,7 +153,6 @@ opciones_explicitas:
   - "interestinger"
 tipo: mc
 enunciado: "This book is ___ than the one I read last week."
-variables:
 ```  
 explicacion: "'More interesting' es la forma correcta para comparar adjetivos de grado superior."
 
@@ -183,14 +167,11 @@ metadata:
   tags: ["rutina", "tiempo"]
 pasos:
   - "Completa la oración con el horario correcto."
-respuesta: "at"
 respuestas_validas:
   - "at"
   - "At"
 tipo: completar
 enunciado: "I wake up ___ seven thirty in the morning."
-variables:
-  - "___"
 ```  
 explicacion: "'At' se usa para indicar una hora específica como 'seven thirty'."
 
@@ -212,7 +193,6 @@ opciones_explicitas:
   - "be friendly"
 tipo: mc
 enunciado: "She is ___ and always smiles at people."
-variables:
 ```  
 explicacion: "'Friendly' es el adjetivo correcto para describir una cualidad de alguien."
 
@@ -227,14 +207,11 @@ metadata:
   tags: ["lugares", "actividades"]
 pasos:
   - "Completa la oración con el verbo adecuado."
-respuesta: "have"
 respuestas_validas:
   - "have"
   - "Have"
 tipo: completar
 enunciado: "We ___ a big garden in our house."
-variables:
-  - "___"
 ```  
 explicacion: "'Have' se usa para describir posesión o características de un lugar."
 
@@ -256,7 +233,6 @@ opciones_explicitas:
   - "useful"
 tipo: mc
 enunciado: "I ___ go to the gym after work."
-variables:
 ```  
 explicacion: "'Usually' es el adverbio correcto para indicar una acción habitual."
 
@@ -271,14 +247,11 @@ metadata:
   tags: ["tiempo", "preposiciones"]
 pasos:
   - "Completa la oración con el tiempo correcto."
-respuesta: "in"
 respuestas_validas:
   - "in"
   - "In"
 tipo: completar
 enunciado: "We have lunch ___ the afternoon."
-variables:
-  - "___"
 ```  
 explicacion: "'In' se usa para indicar un período de tiempo general como 'the afternoon'."
 
@@ -300,7 +273,6 @@ opciones_explicitas:
   - "is getting up"
 tipo: mc
 enunciado: "She ___ early every morning."
-variables:
 ```  
 explicacion: "'Gets up' es la forma correcta en presente simple para el sujeto 'she'."
 
@@ -315,14 +287,11 @@ metadata:
   tags: ["lugares", "adjetivos"]
 pasos:
   - "Completa la oración con el adjetivo correcto."
-respuesta: "quiet"
 respuestas_validas:
   - "quiet"
   - "Quiet"
 tipo: completar
 enunciado: "The library is ___ and has many books."
-variables:
-  - "___"
 ```  
 explicacion: "'Quiet' describe un lugar tranquilo, adecuado para la biblioteca."
 
@@ -344,7 +313,6 @@ opciones_explicitas:
   - "in"
 tipo: mc
 enunciado: "I go to school ___ Monday mornings."
-variables:
 ```  
 explicacion: "'On' se usa para indicar un día específico como 'Monday'."
 
@@ -359,14 +327,11 @@ metadata:
   tags: ["adjetivos", "descripción"]
 pasos:
   - "Completa la oración con el adjetivo correcto."
-respuesta: "creative"
 respuestas_validas:
   - "creative"
   - "Creative"
 tipo: completar
 enunciado: "My sister is ___ and loves drawing."
-variables:
-  - "___"
 ```  
 explicacion: "'Creative' describe una cualidad de innovación en el sujeto."
 
@@ -388,7 +353,6 @@ opciones_explicitas:
   - "most often"
 tipo: mc
 enunciado: "I go to the park ___ than my friend."
-variables:
 ```  
 explicacion: "'More often' es la forma correcta para comparar frecuencias."
 
@@ -403,14 +367,11 @@ metadata:
   tags: ["tiempo", "preposiciones"]
 pasos:
   - "Completa la oración con el tiempo correcto."
-respuesta: "at"
 respuestas_validas:
   - "at"
   - "At"
 tipo: completar
 enunciado: "The meeting is ___ three o'clock in the afternoon."
-variables:
-  - "___"
 ```  
 explicacion: "'At' se usa para indicar una hora específica como 'three o'clock'."
 
@@ -432,7 +393,6 @@ opciones_explicitas:
   - "is studying"
 tipo: mc
 enunciado: "He ___ at the university every day."
-variables:
 ```  
 explicacion: "'Studies' es la forma correcta en presente simple para el sujeto 'he'."
 
@@ -447,14 +407,11 @@ metadata:
   tags: ["lugares", "actividades"]
 pasos:
   - "Completa la oración con el verbo adecuado."
-respuesta: "have"
 respuestas_validas:
   - "have"
   - "Have"
 tipo: completar
 enunciado: "They ___ a café near the park."
-variables:
-  - "___"
 ```  
 explicacion: "'Have' se usa para describir posesión o características de un lugar."
 
@@ -476,7 +433,6 @@ opciones_explicitas:
   - "sometime"
 tipo: mc
 enunciado: "I ___ eat out with my friends."
-variables:
 ```  
 explicacion: "'Sometimes' es el adverbio correcto para indicar una acción ocasional."
 
@@ -491,14 +447,11 @@ metadata:
   tags: ["tiempo", "preposiciones"]
 pasos:
   - "Completa la oración con el tiempo correcto."
-respuesta: "in"
 respuestas_validas:
   - "in"
   - "In"
 tipo: completar
 enunciado: "We have dinner ___ the evening."
-variables:
-  - "___"
 ```  
 explicacion: "'In' se usa para indicar un período de tiempo general como 'the evening'."
 
@@ -520,7 +473,6 @@ opciones_explicitas:
   - "be patient"
 tipo: mc
 enunciado: "He is ___ and helps others even when he's busy."
-variables:
 ```  
 explicacion: "'Patient' es el adjetivo correcto para describir una cualidad de alguien."
 
@@ -535,13 +487,10 @@ metadata:
   tags: ["lugares", "adjetivos"]
 pasos:
   - "Completa la oración con el adjetivo correcto."
-respuesta: "noisy"
 respuestas_validas:
   - "noisy"
   - "Noisy"
 tipo: completar
 enunciado: "The city center is ___ with traffic and people."
-variables:
-  - "___"
 ```  
 explicacion: "'Noisy' describe un lugar ruidoso, adecuado para la ciudad.

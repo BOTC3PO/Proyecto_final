@@ -9,7 +9,6 @@ pasos:
   - "Identificar el verbo en el oración y aplicar la forma pasiva."  
 explicacion: "El verbo '書く' (escribir) se convierte en '書かれる' en forma pasiva. La oración indica que algo fue escrito por alguien, pero no especifica quién lo hizo."  
 tipo: completar  
-respuesta: "書かれた"  
 respuestas_validas:  
   - "書かれた"  
   - "書かれました"  
@@ -37,7 +36,6 @@ pasos:
   - "Convertir el verbo '閉まる' (cerrar) a su forma pasiva en pasado."  
 explicacion: "El verbo '閉まる' se convierte en '閉められた' para indicar que algo fue cerrado por alguien. El uso del pasado es crucial aquí."  
 tipo: completar  
-respuesta: "閉められた"  
 respuestas_validas:  
   - "閉められた"  
   - "閉まりました"  
@@ -65,7 +63,6 @@ pasos:
   - "Identificar la forma correcta del verbo '見られる' en contexto policial."  
 explicacion: "La forma '見られている' indica que algo está siendo observado actualmente. Es común en situaciones de vigilancia o seguimiento."  
 tipo: completar  
-respuesta: "見られている"  
 respuestas_validas:  
   - "見られている"  
   - "見られます"  
@@ -93,7 +90,6 @@ pasos:
   - "Convertir el verbo '開ける' (abrir) a su forma pasiva en contexto de un accidente."  
 explicacion: "El verbo '開ける' se convierte en '開けられた' para indicar que algo fue abierto por alguien, como en el caso de una puerta rota."  
 tipo: completar  
-respuesta: "開けられた"  
 respuestas_validas:  
   - "開けられた"  
   - "開かれました"  
@@ -121,7 +117,6 @@ pasos:
   - "Identificar la forma correcta del verbo '持つ' (tener) en contexto de posesión."  
 explicacion: "El verbo '持つ' se convierte en '持ち込まれた' para indicar que algo fue llevado por alguien, como en el caso de una carta recibida."  
 tipo: completar  
-respuesta: "持ち込まれた"  
 respuestas_validas:  
   - "持ち込まれた"  
   - "持ち込まれました"  
@@ -149,7 +144,6 @@ pasos:
   - "Convertir el verbo '壊れる' (romper) a su forma pasiva en contexto de un accidente."  
 explicacion: "El verbo '壊れる' se convierte en '壊れた' para indicar que algo fue roto por alguien, como en el caso de una vajilla rotas."  
 tipo: completar  
-respuesta: "壊れた"  
 respuestas_validas:  
   - "壊れた"  
   - "壊れました"  
@@ -177,7 +171,6 @@ pasos:
   - "Identificar la forma correcta del verbo '関与する' (participar) en contexto de una discusión."  
 explicacion: "El verbo '関与する' se convierte en '関与された' para indicar que algo fue participado por alguien, como en el caso de un debate."  
 tipo: completar  
-respuesta: "関与された"  
 respuestas_validas:  
   - "関与された"  
   - "関与されました"  
@@ -205,7 +198,6 @@ pasos:
   - "Convertir el verbo '感じる' (sentir) a su forma pasiva en contexto de una emoción."  
 explicacion: "El verbo '感じる' se convierte en '感じられた' para indicar que algo fue sentido por alguien, como en el caso de un sentimiento compartido."  
 tipo: completar  
-respuesta: "感じられた"  
 respuestas_validas:  
   - "感じられた"  
   - "感じられました"  
@@ -233,7 +225,6 @@ pasos:
   - "Identificar la forma correcta del verbo '知る' (saber) en contexto de información."  
 explicacion: "El verbo '知る' se convierte en '知られた' para indicar que algo fue sabido por alguien, como en el caso de un secreto revelado."  
 tipo: completar  
-respuesta: "知られた"  
 respuestas_validas:  
   - "知られた"  
   - "知られました"  
@@ -261,7 +252,6 @@ pasos:
   - "Convertir el verbo '信じる' (creer) a su forma pasiva en contexto de un mito."  
 explicacion: "El verbo '信じる' se convierte en '信じられた' para indicar que algo fue creído por alguien, como en el caso de una leyenda urbana."  
 tipo: completar  
-respuesta: "信じられた"  
 respuestas_validas:  
   - "信じられた"  
   - "信じられました"  
@@ -289,7 +279,6 @@ pasos:
   - "Identificar la forma correcta del verbo '関与する' (participar) en contexto de un grupo."  
 explicacion: "El verbo '関与する' se convierte en '関与された' para indicar que algo fue participado por alguien, como en el caso de una campaña colectiva."  
 tipo: completar  
-respuesta: "関与された"  
 respuestas_validas:  
   - "関与された"  
   - "関与されました"  
@@ -317,7 +306,6 @@ pasos:
   - "Convertir el verbo '感じる' (sentir) a su forma pasiva en contexto de un grupo."  
 explicacion: "El verbo '感じる' se convierte en '感じられた' para indicar que algo fue sentido por alguien, como en el caso de una emoción compartida entre varias personas."  
 tipo: completar  
-respuesta: "感じられた"  
 respuestas_validas:  
   - "感じられた"  
   - "感じられました"  
@@ -381,7 +369,6 @@ pasos:
   - "Identificar la forma correcta del verbo '持つ' (tener) en contexto de posesión colectiva."  
 explicacion: "El verbo '持つ' se convierte en '持ち込まれた' para indicar que algo fue llevado por alguien, como en el caso de una carta recibida por varias personas."  
 tipo: completar  
-respuesta: "持ち込まれた"  
 respuestas_validas:  
   - "持ち込まれた"  
   - "持ち込まれました"  
@@ -409,7 +396,6 @@ pasos:
   - "Convertir el verbo '開ける' (abrir) a su forma pasiva en contexto de un accidente colectivo."  
 explicacion: "El verbo '開ける' se convierte en '開けられた' para indicar que algo fue abierto por alguien, como en el caso de una puerta rota por varias personas."  
 tipo: completar  
-respuesta: "開けられた"  
 respuestas_validas:  
   - "開けられた"  
   - "開かれました"  
@@ -437,7 +423,6 @@ pasos:
   - "Identificar la forma correcta del verbo '壊れる' (romper) en contexto de un accidente colectivo."  
 explicacion: "El verbo '壊れる' se convierte en '壊れた' para indicar que algo fue roto por alguien, como en el caso de una vajilla rotas por varias personas."  
 tipo: completar  
-respuesta: "壊れた"  
 respuestas_validas:  
   - "壊れた"  
   - "壊れました"  

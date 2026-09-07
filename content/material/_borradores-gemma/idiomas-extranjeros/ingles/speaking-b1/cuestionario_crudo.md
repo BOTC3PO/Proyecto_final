@@ -7,7 +7,6 @@ metadata:
   tags: ["opinion", "phrases"]  
 pasos:  
   - "Completa la oración con la frase que expresa una opinión."  
-respuesta: "In my opinion,"  
 tipo: completar  
 respuestas_validas:  
   - "In my opinion,"  
@@ -45,7 +44,6 @@ metadata:
   tags: ["contrast", "phrases"]  
 pasos:  
   - "Completa la oración con una frase que expresa un contraste de opinión."  
-respuesta: "However,"  
 tipo: completar  
 respuestas_validas:  
   - "However,"  
@@ -83,7 +81,6 @@ metadata:
   tags: ["heard", "phrases"]  
 pasos:  
   - "Completa la oración con una frase que introduce una opinión basada en información recibida."  
-respuesta: "From what I’ve heard,"  
 tipo: completar  
 respuestas_validas:  
   - "From what I’ve heard,"  
@@ -121,7 +118,6 @@ metadata:
   tags: ["phrases", "mind"]  
 pasos:  
   - "Completa la oración con una frase que expresa una opinión personal."  
-respuesta: "To my mind,"  
 tipo: completar  
 respuestas_validas:  
   - "To my mind,"  
@@ -159,7 +155,6 @@ metadata:
   tags: ["phrases", "seems"]  
 pasos:  
   - "Completa la oración con una frase que expresa una percepción personal."  
-respuesta: "It seems to me that,"  
 tipo: completar  
 respuestas_validas:  
   - "It seems to me that,"  
@@ -197,7 +192,6 @@ metadata:
   tags: ["contrast", "phrases"]  
 pasos:  
   - "Completa la oración con una frase que introduce un contraste de opinión."  
-respuesta: "On the other hand,"  
 tipo: completar  
 respuestas_validas:  
   - "On the other hand,"  
@@ -235,7 +229,6 @@ metadata:
   tags: ["phrases", "view"]  
 pasos:  
   - "Completa la oración con una frase que expresa una opinión personal."  
-respuesta: "In my view,"  
 tipo: completar  
 respuestas_validas:  
   - "In my view,"  
@@ -273,7 +266,6 @@ metadata:
   tags: ["phrases", "convinced"]  
 pasos:  
   - "Completa la oración con una frase que expresa un convencimiento personal."  
-respuesta: "I’m convinced that,"  
 tipo: completar  
 respuestas_validas:  
   - "I’m convinced that,"  
@@ -311,7 +303,6 @@ metadata:
   tags: ["phrases", "perspective"]  
 pasos:  
   - "Completa la oración con una frase que expresa una opinión desde un punto de vista personal."  
-respuesta: "From my perspective,"  
 tipo: completar  
 respuestas_validas:  
   - "From my perspective,"  
@@ -349,7 +340,6 @@ metadata:
   tags: ["phrases", "believe"]  
 pasos:  
   - "Completa la oración con una frase que expresa una creencia personal."  
-respuesta: "I believe,"  
 tipo: completar  
 respuestas_validas:  
   - "I believe,"  
@@ -387,7 +377,6 @@ metadata:
   tags: ["phrases", "opinion"]  
 pasos:  
   - "Completa la oración con una frase que expresa una opinión personal."  
-respuesta: "I’m of the opinion that,"  
 tipo: completar  
 respuestas_validas:  
   - "I’m of the opinion that,"  
@@ -425,7 +414,6 @@ metadata:
   tags: ["phrases", "say"]  
 pasos:  
   - "Completa la oración con una frase que expresa una opinión casual."  
-respuesta: "I’d say,"  
 tipo: completar  
 respuestas_validas:  
   - "I’d say,"  
@@ -463,7 +451,6 @@ metadata:
   tags: ["phrases", "uncertainty"]  
 pasos:  
   - "Completa la oración con una frase que expresa duda sobre una opinión."  
-respuesta: "I’m not sure about,"  
 tipo: completar  
 respuestas_validas:  
   - "I’m not sure about,"  

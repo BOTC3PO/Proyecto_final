@@ -33,7 +33,6 @@ pasos:
 explicacion: "El verbo 'envoyer' no requiere concordancia porque está conjugado con 'avoir'. La forma correcta es 'a envoyé'."  
 enunciado: "Elle ___ les lettres hier."  
 tipo: completar  
-respuesta: "a envoyé"  
 respuestas_validas:  
   - "a envoyé"  
   - "A envoyé"  
@@ -55,7 +54,6 @@ pasos:
 explicacion: "El imperativo para 'tu' se forma con la raíz del verbo. La forma correcta de 'regarder' es 'regarde'."  
 enunciado: "___ ce tableau, s'il te plaît !"  
 tipo: completar  
-respuesta: "Regarde"  
 respuestas_validas:  
   - "Regarde"  
   - "regarde"  
@@ -77,7 +75,6 @@ pasos:
 explicacion: "El futuro simple de 'aller' para 'ils' es 'iront'. La oración habla de una acción futura confirmada."  
 enunciado: "Ils ___ à Paris l'an prochaine."  
 tipo: completar  
-respuesta: "iront"  
 respuestas_validas:  
   - "iront"  
   - "Irunt"  
@@ -99,7 +96,6 @@ pasos:
 explicacion: "El verbo 'aller' se conjuga con 'être', por lo que el participio 'allé' debe concordar en número y género. La forma correcta es 'sont allés'."  
 enunciado: "Les élèves ___ à la sortie de l'école."  
 tipo: completar  
-respuesta: "sont allés"  
 respuestas_validas:  
   - "sont allés"  
   - "Sont allés"  
@@ -121,7 +117,6 @@ pasos:
 explicacion: "El conditionnel presente de 'parler' se forma con la raíz + 'ais'. La forma correcta es 'parlerais'."  
 enunciado: "Si j'avais plus de temps, je ___ avec toi."  
 tipo: completar  
-respuesta: "parlerais"  
 respuestas_validas:  
   - "parlerais"  
   - "Parlerais"  
@@ -143,7 +138,6 @@ pasos:
 explicacion: "El imperativo para 'nous' se conjuga con la raíz + 'ons'. La forma correcta de 'manger' es ' mangeons'."  
 enunciado: "___ ce dessert, c'est délicieux !"  
 tipo: completar  
-respuesta: "Mangeons"  
 respuestas_validas:  
   - "Mangeons"  
   - "mangeons"  
@@ -165,7 +159,6 @@ pasos:
 explicacion: "El futuro próximo de 'aller' para 'ils' es 'iront'. La oración describe una acción próxima."  
 enunciado: "Ils ___ à la plage ce week-end."  
 tipo: completar  
-respuesta: "iront"  
 respuestas_validas:  
   - "iront"  
   - "Irunt"  
@@ -187,7 +180,6 @@ pasos:
 explicacion: "El verbo 'venir' se conjuga con 'être', por lo que el participio 'venu' debe concordar en número y género. La forma correcta es 'sont venus'."  
 enunciado: "Les invités ___ à la fête hier soir."  
 tipo: completar  
-respuesta: "sont venus"  
 respuestas_validas:  
   - "sont venus"  
   - "Sont venus"  
@@ -209,7 +201,6 @@ pasos:
 explicacion: "El conditionnel presente de 'finir' se forma con la raíz + 'ais'. La forma correcta es 'finirais'."  
 enunciado: "Si tu avais plus d'énergie, tu ___ ce projet."  
 tipo: completar  
-respuesta: "finirais"  
 respuestas_validas:  
   - "finirais"  
   - "Finirais"  
@@ -231,7 +222,6 @@ pasos:
 explicacion: "El imperativo para 'il' se conjuga con la raíz + 'e'. La forma correcta de 'regarder' es 'regarde'."  
 enunciado: "___ ce message, c'est important !"  
 tipo: completar  
-respuesta: "Regarde"  
 respuestas_validas:  
   - "Regarde"  
   - "regarde"  
@@ -253,7 +243,6 @@ pasos:
 explicacion: "El futuro simple de 'aller' para 'tu' es 'iras'. La oración describe una acción futura confirmada."  
 enunciado: "Tu ___ à Lyon demain, n'est-ce pas ?"  
 tipo: completar  
-respuesta: "iras"  
 respuestas_validas:  
   - "iras"  
   - "Iras"  
@@ -275,7 +264,6 @@ pasos:
 explicacion: "El verbo 'parler' se conjuga con 'avoir', por lo que no requiere concordancia. La forma correcta es 'a parlé'."  
 enunciado: "Il ___ avec ses amis hier soir."  
 tipo: completar  
-respuesta: "a parlé"  
 respuestas_validas:  
   - "a parlé"  
   - "A parlé"  
@@ -297,7 +285,6 @@ pasos:
 explicacion: "El conditionnel presente de 'aller' se forma con la raíz + 'ions'. La forma correcta es 'irions'."  
 enunciado: "Si nous avions plus d'argent, nous ___ voyager en Asie."  
 tipo: completar  
-respuesta: "irions"  
 respuestas_validas:  
   - "irions"  
   - "Irions"  
@@ -319,7 +306,6 @@ pasos:
 explicacion: "El imperativo para 'vous' se conjuga con la raíz + 'ez'. La forma correcta de 'manger' es ' mangez'."  
 enunciado: "___ ce repas, c'est prêt !"  
 tipo: completar  
-respuesta: "Mangez"  
 respuestas_validas:  
   - "Mangez"  
   - "mangez"  
@@ -341,7 +327,6 @@ pasos:
 explicacion: "El futuro próximo de 'aller' para 'elle' es 'ira'. La oración describe una acción próxima."  
 enunciado: "Elle ___ au cinéma ce soir, n'est-ce pas ?"  
 tipo: completar  
-respuesta: "ira"  
 respuestas_validas:  
   - "ira"  
   - "Ira"  
@@ -363,7 +348,6 @@ pasos:
 explicacion: "El verbo 'naître' se conjuga con 'être', por lo que el participio 'né' debe concordar en género. La forma correcta es 'est né'."  
 enunciado: "Mon frère ___ le 15 mars."  
 tipo: completar  
-respuesta: "est né"  
 respuestas_validas:  
   - "est né"  
   - "Est né"  
@@ -385,7 +369,6 @@ pasos:
 explicacion: "El conditionnel presente de 'finir' se forma con la raíz + 'aient'. La forma correcta es 'finiraient'."  
 enunciado: "Si nous avions plus de temps, ils ___ ce travail."  
 tipo: completar  
-respuesta: "finiraient"  
 respuestas_validas:  
   - "finiraient"  
   - "Finiraient"  
@@ -407,7 +390,6 @@ pasos:
 explicacion: "El imperativo para 'je' se conjuga con la raíz + 'e'. La forma correcta de 'manger' es 'mange'."  
 enunciado: "___ ce fruit, c'est bon pour la santé !"  
 tipo: completar  
-respuesta: "Mange"  
 respuestas_validas:  
   - "Mange"  
   - "mange"  
@@ -429,7 +411,6 @@ pasos:
 explicacion: "El futuro simple de 'aller' para 'elle' es 'ira'. La oración describe una acción futura confirmada."  
 enunciado: "Elle ___ à l'école demain, n'est-ce pas ?"  
 tipo: completar  
-respuesta: "ira"  
 respuestas_validas:  
   - "ira"  
   - "Ira"  
@@ -451,7 +432,6 @@ pasos:
 explicacion: "El verbo 'parler' se conjuga con 'avoir', por lo que no requiere concordancia. La forma correcta es 'a parlé'."  
 enunciado: "Nous ___ avec nos parents hier soir."  
 tipo: completar  
-respuesta: "avons parlé"  
 respuestas_validas:  
   - "avons parlé"  
   - "Avons parlé"  
@@ -473,7 +453,6 @@ pasos:
 explicacion: "El conditionnel presente de 'aller' se forma con la raíz + 'iez'. La forma correcta es 'iriez'."  
 enunciado: "Si vous aviez plus d'énergie, vous ___ ce voyage."  
 tipo: completar  
-respuesta: "iriez"  
 respuestas_validas:  
   - "iriez"  
   - "Iriez"  
@@ -494,7 +473,6 @@ pasos:
   - Identificar el sujeto ("nous") y el tiempo verbal (futuro próximo).  
   - Recordar la estructura del futuro próximo: "aller + infinitivo".  
   - Seleccionar la forma conjugada de "aller" para "nous".  
-respuesta: "allons"  
 respuestas_validas:  
   - "allons"  
   - "Allons"  
@@ -515,7 +493,6 @@ pasos:
 explicacion: "El futuro próximo de 'aller' para 'nous' es 'allons'. La oración describe una acción próxima."  
 enunciado: "Nous ___ au restaurant ce soir, n'est-ce pas ?"  
 tipo: completar  
-respuesta: "allons"  
 respuestas_validas:  
   - "allons"  
   - "Allons"  
@@ -537,7 +514,6 @@ pasos:
 explicacion: "El verbo 'mourir' se conjuga con 'être', por lo que el participio 'mort' debe concordar en género. La forma correcta es 'est morte'."  
 enunciado: "Ma sœur ___ hier dans un accident."  
 tipo: completar  
-respuesta: "est morte"  
 respuestas_validas:  
   - "est morte"  
   - "Est morte"

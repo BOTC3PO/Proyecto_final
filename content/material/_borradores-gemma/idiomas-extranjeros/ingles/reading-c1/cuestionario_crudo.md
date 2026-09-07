@@ -11,7 +11,6 @@ pasos:
 explicacion: "El autor sugiere que la 'ética moderna' es una crítica a tradiciones antiguas, lo cual implica una postura de rechazo o revisión. La palabra clave 'rechazada' refuerza esta interpretación implícita."
 tipo: completar
 enunciado: "The author suggests that the term 'modern ethics' is ___ to traditional moral frameworks."
-respuesta: "rechazada"
 respuestas_validas:
   - "rechazada"
   - "Rechazada"
@@ -72,7 +71,6 @@ pasos:
 explicacion: "'Power' aquí se refiere a una fuerza sistémica, no individual. La opción que abarca este concepto amplio es la correcta."
 tipo: completar
 enunciado: "The essay defines 'power' as the ability to ___ through institutional structures."
-respuesta: "dominar"
 respuestas_validas:
   - "dominar"
   - "Dominator"
@@ -112,7 +110,6 @@ pasos:
 explicacion: "El texto vincula 'AI autonomy' con 'ethical dilemmas', lo que implica una necesidad de regulación. La opción que refleja esta conexión es la correcta."
 tipo: completar
 enunciado: "The author implies that increased AI autonomy will lead to ___ in ethical decision-making."
-respuesta: "dilemas"
 respuestas_validas:
   - "dilemas"
   - "Dilemas"
@@ -152,7 +149,6 @@ pasos:
 explicacion: "'Time is a river' simboliza la fugacidad de los momentos. La opción que refleja esta interpretación es la correcta."
 tipo: completar
 enunciado: "The author uses the metaphor of 'time as a river' to illustrate the ___ of human experience."
-respuesta: "fugacidad"
 respuestas_validas:
   - "fugacidad"
   - "Fugacidad"
@@ -192,7 +188,6 @@ pasos:
 explicacion: "La repetición de 'superficial' y 'commodification' indica una crítica al enfoque comercial. La opción que refleja esta visión es la correcta."
 tipo: completar
 enunciado: "The author critiques the ___ of cultural practices in modern media."
-respuesta: "commodificación"
 respuestas_validas:
   - "commodificación"
   - "Commodificación"
@@ -232,7 +227,6 @@ pasos:
 explicacion: "La frase 'progress through stagnation' es una paradoja que refleja crítica. La opción que identifica esta ironía es la correcta."
 tipo: completar
 enunciado: "The author uses the phrase 'progress through stagnation' to highlight the ___ of modern systems."
-respuesta: "paradoja"
 respuestas_validas:
   - "paradoja"
   - "Paradoja"
@@ -272,7 +266,6 @@ pasos:
 explicacion: "La ausencia de menciones a 'governments' y el enfoque en 'individual responsibility' implica una crítica al sistema. La opción que refleja esta insinuación es la correcta."
 tipo: completar
 enunciado: "The report implies that environmental responsibility should be shifted from ___ to individuals."
-respuesta: "gobiernos"
 respuestas_validas:
   - "gobiernos"
   - "Gobiernos"
@@ -312,7 +305,6 @@ pasos:
 explicacion: "El uso de 'brave' y 'just cause' refuerza la visión positiva del personaje. La opción que identifica este sesgo es la correcta."
 tipo: completar
 enunciado: "The author's language suggests a ___ toward the historical figure described."
-respuesta: "apoyo"
 respuestas_validas:
   - "apoyo"
   - "Apoyo"
@@ -352,7 +344,6 @@ pasos:
 explicacion: "'Lyrical prose' y 'haunting imagery' indican un tono elevado y positivo. La opción que refleja esto es la correcta."
 tipo: completar
 enunciado: "The reviewer describes the novel's style as ___ and emotionally resonant."
-respuesta: "lyrical"
 respuestas_validas:
   - "lyrical"
   - "Lyrical"
@@ -392,7 +383,6 @@ pasos:
 explicacion: "'Linear models' se presentan como 'limiting', lo que implica un apoyo a enfoques no lineales. La opción que refleja esto es la correcta."
 tipo: completar
 enunciado: "The author implies that linear models of development are ___ in explaining complex systems."
-respuesta: "limitantes"
 respuestas_validas:
   - "limitantes"
   - "Limitantes"
@@ -432,7 +422,6 @@ pasos:
 explicacion: "'Mind as a labyrinth' simboliza la complejidad de los pensamientos. La opción que refleja esta interpretación es la correcta."
 tipo: completar
 enunciado: "The author uses the metaphor of 'the mind as a labyrinth' to illustrate the ___ of human thought processes."
-respuesta: "complejidad"
 respuestas_validas:
   - "complejidad"
   - "Complejidad"
@@ -472,7 +461,6 @@ pasos:
 explicacion: "'Commercialization of art' se presenta como 'a threat to authenticity', lo que implica un rechazo. La opción que refleja esto es la correcta."
 tipo: completar
 enunciado: "The author implies that the commercialization of art is a ___ to cultural authenticity."
-respuesta: "amenaza"
 respuestas_validas:
   - "amenaza"
   - "Amenaza"

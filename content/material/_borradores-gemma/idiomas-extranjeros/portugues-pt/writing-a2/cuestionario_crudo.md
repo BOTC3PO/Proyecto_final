@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar a forma correta do verbo 'ser' no presente."
   - "Aplicar à terceira pessoa do singular."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
@@ -53,7 +52,6 @@ metadata:
 pasos:
   - "Identificar o substantivo singular e formar o plural."
   - "Aplicar a regra de adição de 's' no masculino."
-respuesta: "livros"
 respuestas_validas:
   - "livros"
   - "Livros"
@@ -98,7 +96,6 @@ metadata:
 pasos:
   - "Identificar o verbo e inverter a ordem da frase."
   - "Manter os pronomes corretamente posicionados."
-respuesta: "Vocês estudam português?"
 respuestas_validas:
   - "Vocês estudam português?"
   - "Estudam vocês português?" # invalida, pero incluida por regla
@@ -143,7 +140,6 @@ metadata:
 pasos:
   - "Identificar o possuidor e aplicar o pronome correspondente."
   - "Verificar se há concordância de gênero e número."
-respuesta: "meu"
 respuestas_validas:
   - "meu"
   - "Meu"
@@ -188,7 +184,6 @@ metadata:
 pasos:
   - "Identificar a relação lógica entre as orações."
   - "Escolher a conjunção que expressa contraste."
-respuesta: "mas"
 respuestas_validas:
   - "mas"
   - "Mas"
@@ -210,15 +205,12 @@ metadata:
 pasos:
   - "Identificar a preposição correta para o verbo 'ir'."
   - "Completar o espaço com a forma correta da preposição."
-respuesta: "à"
 respuestas_validas:
   - "a"
   - "á"
   - "à"
 tipo: completar
 enunciado: "Ela vai ___ praia amanhã."
-variables:
-  - "praia"
 ```
 
 ---
@@ -233,7 +225,6 @@ metadata:
 pasos:
   - "Identificar o verbo e a preposição que o acompanha."
   - "Verificar se há uma expressão fixa."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "De"
@@ -263,8 +254,6 @@ opciones_explicitas:
 respuesta: "São"
 tipo: mc
 enunciado: "As flores ___ muito bonitas hoje."
-variables:
-  - "flores"
 ```
 
 ---
@@ -279,7 +268,6 @@ metadata:
 pasos:
   - "Identificar a ação que afeta diretamente o sujeito."
   - "Adicionar o pronome reflexivo ao verbo."
-respuesta: "lavarei"
 respuestas_validas:
   - "lavarei"
   - "Lavarei"
@@ -301,14 +289,11 @@ metadata:
 pasos:
   - "Identificar o adjetivo que descreve a cor do objeto mencionado."
   - "Completar o espaço com a forma correta do adjetivo."
-respuesta: "vermelho"
 respuestas_validas:
   - "vermelho"
   - "Vermelho"
 tipo: completar
 enunciado: "O carro está ___ na garagem."
-variables:
-  - "carro"
 ```
 
 ---
@@ -323,7 +308,6 @@ metadata:
 pasos:
   - "Identificar o elemento que está sendo questionado."
   - "Escolher o pronome interrogativo correto."
-respuesta: "quem"
 respuestas_validas:
   - "quem"
   - "Quem"
@@ -353,8 +337,6 @@ opciones_explicitas:
 respuesta: "Fui"
 tipo: mc
 enunciado: "Ontem, ___ ao mercado com minha mãe."
-variables:
-  - "mercado"
 ```
 
 ---
@@ -369,7 +351,6 @@ metadata:
 pasos:
   - "Identificar se o substantivo é específico ou genérico."
   - "Escolher o artigo indefinido correto."
-respuesta: "um"
 respuestas_validas:
   - "um"
   - "Um"
@@ -391,14 +372,11 @@ metadata:
 pasos:
   - "Identificar se o substantivo exige um artigo."
   - "Completar o espaço com a forma correta do artigo definido."
-respuesta: "o"
 respuestas_validas:
   - "o"
   - "O"
 tipo: completar
 enunciado: "___ livro que li ontem era muito interessante."
-variables:
-  - "livro"
 ```
 
 ---
@@ -413,7 +391,6 @@ metadata:
 pasos:
   - "Identificar o sujeito e a forma do imperativo."
   - "Verificar se há concordância com o você (tu)."
-respuesta: "Estude"
 respuestas_validas:
   - "estude"
   - "Estude"
@@ -443,8 +420,6 @@ opciones_explicitas:
 respuesta: "Não, não gosto."
 tipo: mc
 enunciado: "Você gosta de legumes? — ___"
-variables:
-  - "legumes"
 ```
 
 ---
@@ -459,7 +434,6 @@ metadata:
 pasos:
   - "Identificar o sujeito e aplicar o pronome correspondente."
   - "Verificar se há concordância de número."
-respuesta: "você"
 respuestas_validas:
   - "você"
   - "Você"
@@ -481,14 +455,11 @@ metadata:
 pasos:
   - "Identificar a preposição correta que acompanha o verbo 'pensar'."
   - "Completar o espaço com a forma adequada."
-respuesta: "em"
 respuestas_validas:
   - "em"
   - "Em"
 tipo: completar
 enunciado: "Eu penso ___ você sempre."
-variables:
-  - "você"
 ```
 
 ---
@@ -503,7 +474,6 @@ metadata:
 pasos:
   - "Identificar o verbo que liga o sujeito ao predicado."
   - "Verificar se há concordância com o sujeito."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
@@ -533,8 +503,6 @@ opciones_explicitas:
 respuesta: "Por quê?"
 tipo: mc
 enunciado: "___ você não veio ontem?"
-variables:
-  - "você"
 ```
 
 ### 25 — Uso de expressões com números  

@@ -11,8 +11,6 @@ pasos:
 explicacion: El verbo "trabalhar" se conjuga como "trabalha" para "ela". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Ela ___ no trabalho."  
-variables: []  
-respuesta: "trabalha"  
 respuestas_validas:  
   - "Trabalha"  
   - "trabAlha"  
@@ -31,8 +29,6 @@ pasos:
 explicacion: Para "nós", el verbo "ler" se conjuga como "leemos". Las otras opciones son formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Nós ___ um livro todos os dias."  
-variables: []  
-respuesta: "leemos"  
 respuestas_validas:  
   - "Leemos"  
   - "leE mos"  
@@ -51,8 +47,6 @@ pasos:
 explicacion: Para "eles", el verbo "comer" se conjuga como "comem". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Eles ___ frutas todas as manhãs."  
-variables: []  
-respuesta: "comem"  
 respuestas_validas:  
   - "Comem"  
   - "cOmem"  
@@ -71,8 +65,6 @@ pasos:
 explicacion: El verbo "ir" en segunda persona singular es "vás". Las otras opciones son formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Tu ___ ao mercado comigo hoje?"  
-variables: []  
-respuesta: "vas"  
 respuestas_validas:  
   - "Vas"  
   - "vÁs"  
@@ -91,8 +83,6 @@ pasos:
 explicacion: Para "eu", el verbo "estudar" se conjuga como "estudo". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Eu ___ português há cinco anos."  
-variables: []  
-respuesta: "estudo"  
 respuestas_validas:  
   - "Estudo"  
   - "estUdo"  
@@ -111,8 +101,6 @@ pasos:
 explicacion: El verbo "falar" en segunda persona plural es "falais". Las otras opciones son formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Vós ___ muito bem o português, não?"  
-variables: []  
-respuesta: "falais"  
 respuestas_validas:  
   - "Falais"  
   - "fALais"  
@@ -131,8 +119,6 @@ pasos:
 explicacion: El verbo "ser" en primera persona singular es "sou". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Eu ___ professor de matemática."  
-variables: []  
-respuesta: "sou"  
 respuestas_validas:  
   - "Sou"  
   - "sÓu"  
@@ -151,8 +137,6 @@ pasos:
 explicacion: El verbo "ter" en tercera persona singular es "tem". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Ele ___ um carro azul."  
-variables: []  
-respuesta: "tem"  
 respuestas_validas:  
   - "Tem"  
   - "tEm"  
@@ -171,8 +155,6 @@ pasos:
 explicacion: Para "nós", el verbo "habitar" se conjuga como "habitamos". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Nós ___ em uma casa pequena."  
-variables: []  
-respuesta: "habitamos"  
 respuestas_validas:  
   - "Habitamos"  
   - "hABitamos"  
@@ -191,8 +173,6 @@ pasos:
 explicacion: El verbo "beber" en tercera persona singular es "bebe". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Ela ___ água com frequência."  
-variables: []  
-respuesta: "bebe"  
 respuestas_validas:  
   - "Bebe"  
   - "bEBE"  
@@ -211,8 +191,6 @@ pasos:
 explicacion: Para "eles", el verbo "dormir" se conjuga como "dormem". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Eles ___ muito bem durante a noite."  
-variables: []  
-respuesta: "dormem"  
 respuestas_validas:  
   - "Dormem"  
   - "dORMem"  
@@ -231,8 +209,6 @@ pasos:
 explicacion: El verbo "fazer" en segunda persona singular es "fazes". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Tu ___ exercícios físicos todos os dias?"  
-variables: []  
-respuesta: "fazes"  
 respuestas_validas:  
   - "Fazes"  
   - "fAZes"  
@@ -251,8 +227,6 @@ pasos:
 explicacion: El verbo "escrever" en primera persona singular es "escrevo". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Eu ___ uma carta para meu amigo."  
-variables: []  
-respuesta: "escrevo"  
 respuestas_validas:  
   - "Escrevo"  
   - "eSCRevo"  
@@ -271,8 +245,6 @@ pasos:
 explicacion: El verbo "ler" en segunda persona plural es "leis". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Vós ___ um livro interessante, não?"  
-variables: []  
-respuesta: "leis"  
 respuestas_validas:  
   - "Leis"  
   - "lEis"  
@@ -291,8 +263,6 @@ pasos:
 explicacion: El verbo "visitar" en tercera persona singular es "visa". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Ela ___ a sua prima todos os fins de semana."  
-variables: []  
-respuesta: "visa"  
 respuestas_validas:  
   - "Visa"  
   - "vISA"  
@@ -311,8 +281,6 @@ pasos:
 explicacion: El verbo "viajar" en primera persona plural es "viajamos". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Nós ___ para a praia sempre que podemos."  
-variables: []  
-respuesta: "viajamos"  
 respuestas_validas:  
   - "Viajamos"  
   - "vIAjamos"  
@@ -331,8 +299,6 @@ pasos:
 explicacion: El verbo "assistir" en tercera persona plural es "assistem". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Eles ___ ao cinema com frequência."  
-variables: []  
-respuesta: "assistem"  
 respuestas_validas:  
   - "Assistem"  
   - "aSSistem"  
@@ -351,8 +317,6 @@ pasos:
 explicacion: El verbo "cantar" en primera persona singular es "canto". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Eu ___ uma canção para me relaxar."  
-variables: []  
-respuesta: "canto"  
 respuestas_validas:  
   - "Canto"  
   - "cANTO"  
@@ -371,8 +335,6 @@ pasos:
 explicacion: El verbo "trabalhar" en segunda persona singular es "trabalhas". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Tu ___ no hospital, não?"  
-variables: []  
-respuesta: "trabalhas"  
 respuestas_validas:  
   - "Trabalhas"  
   - "tRABALHAS"  
@@ -391,8 +353,6 @@ pasos:
 explicacion: El verbo "ler" en segunda persona plural es "leis". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Vós ___ um livro muito interessante, não?"  
-variables: []  
-respuesta: "leis"  
 respuestas_validas:  
   - "Leis"  
   - "lEIS"  
@@ -411,8 +371,6 @@ pasos:
 explicacion: El verbo "visitar" en tercera persona singular es "visa". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Ela ___ a sua tia todos os fins de semana."  
-variables: []  
-respuesta: "visa"  
 respuestas_validas:  
   - "Visa"  
   - "vISA"  
@@ -431,8 +389,6 @@ pasos:
 explicacion: El verbo "viajar" en primera persona plural es "viajamos". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Nós ___ para a montanha sempre que podemos."  
-variables: []  
-respuesta: "viajamos"  
 respuestas_validas:  
   - "Viajamos"  
   - "vIAjamos"  
@@ -451,8 +407,6 @@ pasos:
 explicacion: El verbo "assistir" en tercera persona plural es "assistem". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Eles ___ ao teatro com frequência."  
-variables: []  
-respuesta: "assistem"  
 respuestas_validas:  
   - "Assistem"  
   - "aSSistem"  
@@ -471,8 +425,6 @@ pasos:
 explicacion: El verbo "cantar" en primera persona singular es "canto". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Eu ___ uma canção para me acalmar."  
-variables: []  
-respuesta: "canto"  
 respuestas_validas:  
   - "Canto"  
   - "cANTO"  
@@ -491,8 +443,6 @@ pasos:
 explicacion: El verbo "trabalhar" en segunda persona singular es "trabalhas". Las opciones incorrectas usan formas de otros tiempos o personas.  
 tipo: completar  
 enunciado: "Tu ___ no restaurante, não?"  
-variables: []  
-respuesta: "trabalhas"  
 respuestas_validas:  
   - "Trabalhas"  
   - "tRABALHAS"  

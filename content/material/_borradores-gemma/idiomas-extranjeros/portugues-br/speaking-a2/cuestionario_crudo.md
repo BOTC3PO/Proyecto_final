@@ -10,8 +10,6 @@ pasos:
 explicacion: "El verbo 'ser' en primera persona singular es 'sou', que se usa para describir características permanentes o identidad."  
 tipo: completar  
 enunciado: "Eu ___ estudante de português."  
-variables: []  
-respuesta: "sou"  
 respuestas_validas:  
   - "sou"  
   - "Sou"  
@@ -48,8 +46,6 @@ pasos:
 explicacion: "La preposición 'em' se usa con países o ciudades, mientras que 'na' (en + a) se usa con nombres de lugares que empiezan por vocal."  
 tipo: completar  
 enunciado: "Ela mora ___ São Paulo."  
-variables: []  
-respuesta: "em"  
 respuestas_validas:  
   - "EM"  
   - "Em"  
@@ -86,8 +82,6 @@ pasos:
 explicacion: "El artículo 'a' se usa antes de sustantivos femeninos que empiezan por vocal, como 'a amiga' o 'a cidade'."  
 tipo: completar  
 enunciado: "Ela é ___ amiga do João."  
-variables: []  
-respuesta: "a"  
 respuestas_validas:  
   - "A"  
   - "a"  
@@ -105,8 +99,6 @@ pasos:
 explicacion: "El verbo 'ir' + infinitivo se usa para indicar acciones futuras, como 'Vou estudar mañana'."  
 tipo: completar  
 enunciado: "Eu ___ almoçar às 13h."  
-variables: []  
-respuesta: "vou"  
 respuestas_validas:  
   - "VOU"  
   - "vou"  
@@ -143,8 +135,6 @@ pasos:
 explicacion: "El verbo 'ter' en primera persona singular es 'tenho', que se usa para expresar posesión o estados emocionales."  
 tipo: completar  
 enunciado: "Eu ___ um carro novo."  
-variables: []  
-respuesta: "tenho"  
 respuestas_validas:  
   - "TENHO"  
   - "tenho"  
@@ -162,8 +152,6 @@ pasos:
 explicacion: "El pronombre 'me' se usa cuando la acción afecta al sujeto, como en 'Lavo as mãos' o 'Lavo meus pés'."  
 tipo: completar  
 enunciado: "Eu ___ lavo as mãos antes de comer."  
-variables: []  
-respuesta: "me"  
 respuestas_validas:  
   - "ME"  
   - "me"  
@@ -200,8 +188,6 @@ pasos:
 explicacion: "La preposición 'de' se usa para expresar posesión o procedencia, como 'O livro de Maria' o 'A cidade de São Paulo'."  
 tipo: completar  
 enunciado: "Este é ___ João."  
-variables: []  
-respuesta: "o"  
 respuestas_validas:  
   - "O"  
   - "o"  
@@ -219,8 +205,6 @@ pasos:
 explicacion: "El verbo 'fazer' en segunda persona singular es 'fazes', que se usa para acciones habituales o repetitivas."  
 tipo: completar  
 enunciado: "Você ___ exercícios diariamente?"  
-variables: []  
-respuesta: "faz"  
 respuestas_validas:  
   - "FAZ"  
   - "faz"  
@@ -257,8 +241,6 @@ pasos:
 explicacion: "El verbo 'poder' en tercera persona singular es 'pode', que se usa para expresar capacidad o posibilidad."  
 tipo: completar  
 enunciado: "Ela ___ falar português perfeitamente."  
-variables: []  
-respuesta: "pode"  
 respuestas_validas:  
   - "PODE"  
   - "pode"  
@@ -276,8 +258,6 @@ pasos:
 explicacion: "El artículo 'um' se usa antes de sustantivos masculinos que empiezan por consonante, como 'um livro' o 'uma cidade' (femenino)."  
 tipo: completar  
 enunciado: "Eu quero comprar ___ carro novo."  
-variables: []  
-respuesta: "um"  
 respuestas_validas:  
   - "UM"  
   - "um"  
@@ -314,8 +294,6 @@ pasos:
 explicacion: "La preposición 'por' se usa para expresar motivación, como 'Estou cansado por trabalhar muito' o 'Vim por acaso'."  
 tipo: completar  
 enunciado: "Ela ficou triste ___ não ser escolhida."  
-variables: []  
-respuesta: "por"  
 respuestas_validas:  
   - "POR"  
   - "por"  
@@ -333,8 +311,6 @@ pasos:
 explicacion: "El verbo 'querer' en primera persona singular es 'quero', que se usa para expresar deseos o intenciones."  
 tipo: completar  
 enunciado: "Eu ___ viajar para a Europa este ano."  
-variables: []  
-respuesta: "quero"  
 respuestas_validas:  
   - "QUERO"  
   - "quero"  
@@ -371,8 +347,6 @@ pasos:
 explicacion: "El verbo 'saber' en tercera persona singular es 'sabe', que se usa para expresar conocimiento o habilidades."  
 tipo: completar  
 enunciado: "Ela ___ cozinhar muito bem."  
-variables: []  
-respuesta: "sabe"  
 respuestas_validas:  
   - "SABE"  
   - "sabe"  
@@ -390,8 +364,6 @@ pasos:
 explicacion: "La preposición 'sem' se usa para expresar que algo no está presente, como 'Vou ao cinema sem minha irmã' o 'Estou feliz sem problemas'."  
 tipo: completar  
 enunciado: "Ela foi à festa ___ seu marido."  
-variables: []  
-respuesta: "sem"  
 respuestas_validas:  
   - "SEM"  
   - "sem"  
@@ -428,8 +400,6 @@ pasos:
 explicacion: "El artículo 'uma' se usa antes de sustantivos femeninos que empiezan por vocal, como 'uma cidade' o 'um livro' (masculino)."  
 tipo: completar  
 enunciado: "Ela comprou ___ casa nova."  
-variables: []  
-respuesta: "uma"  
 respuestas_validas:  
   - "UMA"  
   - "uma"  
@@ -447,8 +417,6 @@ pasos:
 explicacion: "El verbo 'vir' en tercera persona singular es 'vem', que se usa para expresar movimiento hacia el sujeto o lugar."  
 tipo: completar  
 enunciado: "Ela ___ amanhã para visitar."  
-variables: []  
-respuesta: "vem"  
 respuestas_validas:  
   - "VEM"  
   - "vem"  

@@ -7,7 +7,6 @@ metadata:
   tags: ["formal", "honorifics"]  
 pasos:  
   - "Identificar el contexto formal y elegir el verbo adecuado."  
-respuesta: "应当"  
 tipo: completar  
 respuestas_validas:  
   - "应当"  
@@ -46,7 +45,6 @@ metadata:
   tags: ["formal", "honorifics"]  
 pasos:  
   - "Seleccionar el término que refleje respeto hacia un tercero."  
-respuesta: "请问"  
 tipo: completar  
 respuestas_validas:  
   - "请问"  
@@ -85,7 +83,6 @@ metadata:
   tags: ["formal", "salutations"]  
 pasos:  
   - "Escribir la fórmula estándar para una comunicación oficial."  
-respuesta: "尊敬的客户："  
 tipo: completar  
 respuestas_validas:  
   - "尊敬的客户："  
@@ -124,7 +121,6 @@ metadata:
   tags: ["formal", "verbs"]  
 pasos:  
   - "Elegir el verbo que expresa obligación en contextos oficiales."  
-respuesta: "应当"  
 tipo: completar  
 respuestas_validas:  
   - "应当"  
@@ -163,7 +159,6 @@ metadata:
   tags: ["formal", "legal"]  
 pasos:  
   - "Seleccionar el término que expresa obligación legal."  
-respuesta: "须"  
 tipo: completar  
 respuestas_validas:  
   - "须"  
@@ -205,7 +200,6 @@ pasos:
 explicacion: "En registros formales, '不得' se usa para indicar restricciones claras y obligatorias."  
 enunciado: "根据贵公司政策，员工_____在工作期间使用个人电子设备。"  
 tipo: completar  
-respuesta: 不得  
 respuestas_validas:  
   - "不得"  
   - "不得"  
@@ -245,7 +239,6 @@ pasos:
 explicacion: "'均' se usa para enfatizar que todos los elementos cumplen con una norma específica, común en documentos legales."  
 enunciado: "双方应确保所有合同条款_____符合相关法律法规的要求。"  
 tipo: completar  
-respuesta: 均  
 respuestas_validas:  
   - "均"  
   - "均"  
@@ -265,7 +258,11 @@ pasos:
 explicacion: "'必须' se usa para indicar responsabilidades irrenunciables, típico de cláusulas contractuales."  
 enunciado: "如果客户未能按时付款，我们将_____采取进一步措施。"  
 tipo: mc  
-opciones_explicitas: ["必须", "可以", "应该", "不得"]  
+opciones_explicitas:
+  - "必须"
+  - "可以"
+  - "应该"
+  - "不得"
 respuesta: 必须  
 
 ---
@@ -303,7 +300,6 @@ pasos:
 explicacion: "'予以' se usa para estructurar acciones pasivas de manera formal, como en procedimientos administrativos."  
 enunciado: "所有文件应在签署后七个工作日内_____提交至总部。"  
 tipo: completar  
-respuesta: 予以  
 respuestas_validas:  
   - "予以"  
   - "予以"  
@@ -343,7 +339,6 @@ pasos:
 explicacion: "'不得' se usa para restringir comportamientos específicos de forma inequívoca, como en reglamentos laborales."  
 enunciado: "在会议期间，与会者_____使用手机进行非公务交流。"  
 tipo: completar  
-respuesta: 不得  
 respuestas_validas:  
   - "不得"  
   - "不得"  
@@ -383,7 +378,11 @@ pasos:
 explicacion: "'予以' se usa para estructurar acciones oficiales de manera impersonal, como en notificaciones administrativas."  
 enunciado: "所有申请材料必须在截止日期前_____提交至指定邮箱。"  
 tipo: mc  
-opciones_explicitas: ["予以", "可以", "应该", "必须"]  
+opciones_explicitas:
+  - "予以"
+  - "可以"
+  - "应该"
+  - "必须"
 respuesta: 予以  
 
 ---
@@ -401,7 +400,6 @@ pasos:
 explicacion: "'必须' se usa para expresar responsabilidades no negociables, como en cláusulas contractuales."  
 enunciado: "根据本协议，双方同意_____遵守所有附加条款。"  
 tipo: completar  
-respuesta: 必须  
 respuestas_validas:  
   - "必须"  
   - "必须"  
@@ -441,7 +439,11 @@ pasos:
 explicacion: "'必须' se usa para indicar acciones obligatorias, como en reglamentos de seguridad laboral."  
 enunciado: "项目负责人应确保所有员工_____参加安全培训课程。"  
 tipo: mc  
-opciones_explicitas: ["可以", "应该", "必须", "不得"]  
+opciones_explicitas:
+  - "可以"
+  - "应该"
+  - "必须"
+  - "不得"
 respuesta: 必须  
 
 ---
@@ -479,7 +481,6 @@ pasos:
 explicacion: "'中断' se usa para notificar pausas temporales de servicios o procesos, común en comunicados oficiales."  
 enunciado: "由于系统升级，服务将从下周一至周三暂时_____。"  
 tipo: completar  
-respuesta: 中断  
 respuestas_validas:  
   - "中断"  
   - "中断"

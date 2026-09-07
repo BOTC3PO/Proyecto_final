@@ -10,8 +10,6 @@ pasos:
 explicacion: "El condizionale de los verbos regulares se forma con el auxiliar 'avrei' + participio passato o con 'sarei' + infinitivo. En este caso, 'mangierei' es la forma correcta."  
 tipo: completar  
 enunciado: "Se avessi fame, ___________ una pizza."  
-variables: []  
-respuesta: "mangierei"  
 respuestas_validas:  
   - "mangierei"  
   - "Mangierei"  
@@ -31,8 +29,6 @@ pasos:
 explicacion: "El condizionale de 'avere' es 'avrei', que se usa para hipótesis o deseos no realizados. En este contexto, 'avrei bisogno' expresa una necesidad hipotética."  
 tipo: completar  
 enunciado: "Se non ___________ tempo, non potrò aiutarti."  
-variables: []  
-respuesta: "avessi"  
 respuestas_validas:  
   - "avessi"  
   - "Avessi"  
@@ -52,7 +48,10 @@ pasos:
 explicacion: "'Dovrei' es la forma condizionale de 'dovere', usada para expresar obligaciones hipotéticas o deseos suaves. En este contexto, se usa para una sugerencia."  
 tipo: mc  
 enunciado: "___________ andare con me?"  
-opciones_explicitas: ["Dovrei", "Doverei", "Dovevo"]  
+opciones_explicitas:
+  - "Dovrei"
+  - "Doverei"
+  - "Dovevo"
 respuesta: "Dovrei"  
 ```  
 
@@ -70,8 +69,6 @@ pasos:
 explicacion: "'Potrei' es la forma correcta del condizionale de 'potere', usada para expresar posibilidades hipotéticas o deseos no realizados."  
 tipo: completar  
 enunciado: "Se avessi più soldi, ___________ viaggiare di più."  
-variables: []  
-respuesta: "potrei"  
 respuestas_validas:  
   - "potrei"  
   - "Potrei"  
@@ -91,7 +88,10 @@ pasos:
 explicacion: "'Saprei' es la forma condizionale de 'sapere', usada para expresar conocimientos hipotéticos o deseos no realizados. En este contexto, se refiere a una habilidad futura."  
 tipo: mc  
 enunciado: "___________ aiutarti se avessi tempo."  
-opciones_explicitas: ["Saprei", "Sarei", "Sapevo"]  
+opciones_explicitas:
+  - "Saprei"
+  - "Sarei"
+  - "Sapevo"
 respuesta: "Saprei"  
 ```  
 
@@ -109,8 +109,6 @@ pasos:
 explicacion: "'Vorrei' es la forma correcta del condizionale de 'volere', usada para expresar deseos no realizados o preferencias suaves. En este contexto, expresa un deseo."  
 tipo: completar  
 enunciado: "___________ mangiare una torta adesso?"  
-variables: []  
-respuesta: "vorrei"  
 respuestas_validas:  
   - "vorrei"  
   - "Vorrei"  
@@ -130,7 +128,10 @@ pasos:
 explicacion: "'Darei' es la forma condizionale de 'dare', usada para expresar acciones hipotéticas. En este contexto, se refiere a una acción futura no segura."  
 tipo: mc  
 enunciado: "___________ un regalo per il tuo compleanno?"  
-opciones_explicitas: ["Darei", "Darrei", "Davo"]  
+opciones_explicitas:
+  - "Darei"
+  - "Darrei"
+  - "Davo"
 respuesta: "Darei"  
 ```  
 
@@ -148,8 +149,6 @@ pasos:
 explicacion: "'Farei' es la forma correcta del condizionale de 'fare', usada para expresar acciones hipotéticas. En este contexto, expresa una acción futura no segura."  
 tipo: completar  
 enunciado: "Se avessi tempo libero, ___________ un viaggio in Giappone."  
-variables: []  
-respuesta: "farei"  
 respuestas_validas:  
   - "farei"  
   - "Farei"  
@@ -169,7 +168,10 @@ pasos:
 explicacion: "'Andrei' es la forma condizionale de 'andare', usada para expresar movimientos hipotéticos. En este contexto, se refiere a un viaje futura no seguro."  
 tipo: mc  
 enunciado: "___________ in vacanza quest'estate?"  
-opciones_explicitas: ["Andrei", "Andassi", "Andai"]  
+opciones_explicitas:
+  - "Andrei"
+  - "Andassi"
+  - "Andai"
 respuesta: "Andrei"  
 ```  
 
@@ -187,8 +189,6 @@ pasos:
 explicacion: "'Prenderei' es la forma correcta del condizionale de 'prendere', usada para expresar acciones hipotéticas. En este contexto, expresa una acción futura no segura."  
 tipo: completar  
 enunciado: "Se avessi fame, ___________ un panino."  
-variables: []  
-respuesta: "prenderei"  
 respuestas_validas:  
   - "prenderei"  
   - "Prenderei"  
@@ -208,7 +208,10 @@ pasos:
 explicacion: "'Vederei' es la forma condizionale de 'vedere', usada para expresar acciones hipotéticas. En este contexto, se refiere a una acción futura no segura."  
 tipo: mc  
 enunciado: "___________ il film se avessi tempo?"  
-opciones_explicitas: ["Vederei", "Vedrei", "Vedevo"]  
+opciones_explicitas:
+  - "Vederei"
+  - "Vedrei"
+  - "Vedevo"
 respuesta: "Vederei"  
 ```  
 
@@ -226,8 +229,6 @@ pasos:
 explicacion: "'Crederò' no es correcto en condizionale. La forma correcta es 'crederesti', que se usa para hipótesis o deseos no realizados. En este contexto, expresa una creencia hipotética."  
 tipo: completar  
 enunciado: "Se fossi tu, ___________ che fosse giusto."  
-variables: []  
-respuesta: "crederesti"  
 respuestas_validas:  
   - "crederesti"  
   - "Crederesti"  
@@ -247,7 +248,10 @@ pasos:
 explicacion: "'Direi' es la forma condizionale de 'dire', usada para expresar acciones hipotéticas. En este contexto, se refiere a una acción futura no segura."  
 tipo: mc  
 enunciado: "___________ ciò che penso?"  
-opciones_explicitas: ["Direi", "Dissi", "Dirò"]  
+opciones_explicitas:
+  - "Direi"
+  - "Dissi"
+  - "Dirò"
 respuesta: "Direi"  
 ```  
 
@@ -265,8 +269,6 @@ pasos:
 explicacion: "'Berei' es la forma correcta del condizionale de 'bere', usada para expresar acciones hipotéticas. En este contexto, expresa una acción futura no segura."  
 tipo: completar  
 enunciado: "Se avessi sete, ___________ un bicchiere d'acqua."  
-variables: []  
-respuesta: "berei"  
 respuestas_validas:  
   - "berei"  
   - "Berei"  
@@ -286,7 +288,10 @@ pasos:
 explicacion: "'Uscirei' es la forma condizionale de 'uscire', usada para expresar acciones hipotéticas. En este contexto, se refiere a un viaje futura no seguro."  
 tipo: mc  
 enunciado: "___________ fuori per una passeggiata?"  
-opciones_explicitas: ["Uscirei", "Uscii", "Uscirò"]  
+opciones_explicitas:
+  - "Uscirei"
+  - "Uscii"
+  - "Uscirò"
 respuesta: "Uscirei"  
 ```  
 
@@ -304,8 +309,6 @@ pasos:
 explicacion: "'Venni' no es correcto en condizionale. La forma correcta es 'verresti', que se usa para hipótesis o deseos no realizados. En este contexto, expresa una acción futura no segura."  
 tipo: completar  
 enunciado: "Se fossi in città, ___________ a trovarmi."  
-variables: []  
-respuesta: "verresti"  
 respuestas_validas:  
   - "verresti"  
   - "Verresti"  
@@ -325,7 +328,10 @@ pasos:
 explicacion: "'Starei' es la forma condizionale de 'stare', usada para expresar estados hipotéticos. En este contexto, se refiere a un estado futuro no seguro."  
 tipo: mc  
 enunciado: "___________ qui domani?"  
-opciones_explicitas: ["Starei", "Stai", "Stavo"]  
+opciones_explicitas:
+  - "Starei"
+  - "Stai"
+  - "Stavo"
 respuesta: "Starei"  
 ```  
 
@@ -343,8 +349,6 @@ pasos:
 explicacion: "'Parlerò' no es correcto en condizionale. La forma correcta es 'parleresti', que se usa para hipótesis o deseos no realizados. En este contexto, expresa una acción futura no segura."  
 tipo: completar  
 enunciado: "Se fossi in grado, ___________ con lui."  
-variables: []  
-respuesta: "parleresti"  
 respuestas_validas:  
   - "parleresti"  
   - "Parleresti"  
@@ -364,7 +368,10 @@ pasos:
 explicacion: "'Mangerei' es la forma condizionale de 'mangiare', usada para expresar acciones hipotéticas. En este contexto, se refiere a una acción futura no segura."  
 tipo: mc  
 enunciado: "___________ una pizza?"  
-opciones_explicitas: ["Mangerei", "Mangerò", "Mangi"]  
+opciones_explicitas:
+  - "Mangerei"
+  - "Mangerò"
+  - "Mangi"
 respuesta: "Mangerei"  
 ```  
 
@@ -382,8 +389,6 @@ pasos:
 explicacion: "'Dormirei' es la forma correcta del condizionale de 'dormire', usada para expresar acciones hipotéticas. En este contexto, expresa una acción futura no segura."  
 tipo: completar  
 enunciado: "Se avessi tempo libero, ___________ un sonnellino."  
-variables: []  
-respuesta: "dormirei"  
 respuestas_validas:  
   - "dormirei"  
   - "Dormirei"  
@@ -403,7 +408,10 @@ pasos:
 explicacion: "'Uscirò' no es correcto en condizionale. La forma correcta es 'usciresti', que se usa para hipótesis o deseos no realizados. En este contexto, expresa una acción futura no segura."  
 tipo: mc  
 enunciado: "___________ con me?"  
-opciones_explicitas: ["Usciresti", "Uscii", "Uscirò"]  
+opciones_explicitas:
+  - "Usciresti"
+  - "Uscii"
+  - "Uscirò"
 respuesta: "Usciresti"  
 ```  
 
@@ -421,8 +429,6 @@ pasos:
 explicacion: "'Rimarrei' es la forma correcta del condizionale de 'rimanere', usada para expresar estados hipotéticos. En este contexto, se refiere a un estado futuro no seguro."  
 tipo: completar  
 enunciado: "Se non avessi lavoro, ___________ a casa tutto il giorno."  
-variables: []  
-respuesta: "rimarrei"  
 respuestas_validas:  
   - "rimarrei"  
   - "Rimarrei"  
@@ -442,7 +448,10 @@ pasos:
 explicacion: "'Finirei' es la forma condizionale de 'finire', usada para expresar acciones hipotéticas. En este contexto, se refiere a una acción futura no segura."  
 tipo: mc  
 enunciado: "___________ il lavoro?"  
-opciones_explicitas: ["Finirei", "Finito", "Finirò"]  
+opciones_explicitas:
+  - "Finirei"
+  - "Finito"
+  - "Finirò"
 respuesta: "Finirei"  
 ```  
 
@@ -460,8 +469,6 @@ pasos:
 explicacion: "'Andrei' es la forma correcta del condizionale de 'andare', usada para expresar movimientos hipotéticos. En este contexto, se refiere a un viaje futuro no seguro."  
 tipo: completar  
 enunciado: "Se avessi una macchina, ___________ in vacanza domani."  
-variables: []  
-respuesta: "andrei"  
 respuestas_validas:  
   - "andrei"  
   - "Andrei"  
@@ -481,6 +488,9 @@ pasos:
 explicacion: "'Crederò' no es correcto en condizionale. La forma correcta es 'crederesti', que se usa para hipótesis o deseos no realizados. En este contexto, expresa una creencia hipotética."  
 tipo: mc  
 enunciado: "___________ che fosse giusto?"  
-opciones_explicitas: ["Crederesti", "Credetti", "Credo"]  
+opciones_explicitas:
+  - "Crederesti"
+  - "Credetti"
+  - "Credo"
 respuesta: "Crederesti"  
 ```

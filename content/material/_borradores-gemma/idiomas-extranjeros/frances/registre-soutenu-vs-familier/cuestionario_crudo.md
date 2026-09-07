@@ -11,7 +11,6 @@ pasos:
 explicacion: "En correspondencia formal, se usa 'penser que' con el subjuntivo. En contextos informales, se prefieren formas más coloquiales."
 tipo: completar
 enunciado: "Je pense que ___ est nécessaire de réviser ce projet avant la présentation."
-respuesta: "il"
 respuestas_validas:
   - "il"
   - "IL"
@@ -55,7 +54,6 @@ pasos:
 explicacion: "Ante instituciones, se usan estructuras impersonales como 'il convient' con el infinitivo."
 tipo: completar
 enunciado: "Il convient ___ prendre en compte les remarques du client."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -99,7 +97,6 @@ pasos:
 explicacion: "En cartas formales, se evitan formas personales y se usan estructuras como 'il serait utile'."
 tipo: completar
 enunciado: "Il serait utile ___ établir un plan de travail clair."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -120,7 +117,6 @@ pasos:
 explicacion: "En contextos formales, se usan expresiones como 'il faut' seguidas del infinitivo."
 tipo: completar
 enunciado: "Il faut ___ réduire les coûts de production."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -164,7 +160,6 @@ pasos:
 explicacion: "Ante clientes, se usan estructuras impersonales como 'il convient' con el infinitivo."
 tipo: completar
 enunciado: "Il convient ___ respecter les délais de livraison."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -185,7 +180,6 @@ pasos:
 explicacion: "En conferencias formales, se usan estructuras como 'il serait nécessaire' seguidas del infinitivo."
 tipo: completar
 enunciado: "Il serait nécessaire ___ revoir les termes du contrat."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -229,7 +223,6 @@ pasos:
 explicacion: "Ante organizaciones, se usan estructuras como 'il convient' con el infinitivo."
 tipo: completar
 enunciado: "Il convient ___ soumettre un rapport détaillé."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -273,7 +266,6 @@ pasos:
 explicacion: "En cartas formales, se usan estructuras como 'il serait utile' seguidas del infinitivo."
 tipo: completar
 enunciado: "Il serait utile ___ remercier les participants."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -294,7 +286,6 @@ pasos:
 explicacion: "En reuniones formales, se usan estructuras como 'il faut' seguidas del infinitivo."
 tipo: completar
 enunciado: "Il faut ___ améliorer la communication interne."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -338,7 +329,6 @@ pasos:
 explicacion: "Ante empresas, se usan estructuras como 'il convient' con el infinitivo."
 tipo: completar
 enunciado: "Il convient ___ respecter les conditions du contrat."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -359,7 +349,6 @@ pasos:
 explicacion: "En conferencias formales, se usan estructuras como 'il serait nécessaire' seguidas del infinitivo."
 tipo: completar
 enunciado: "Il serait nécessaire ___ revoir les objectifs du projet."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -403,7 +392,6 @@ pasos:
 explicacion: "Ante organizaciones benéficas, se usan estructuras como 'il convient' con el infinitivo."
 tipo: completar
 enunciado: "Il convient ___ soutenir les projets locaux."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -444,7 +432,6 @@ pasos:
 explicacion: "En cartas formales, se usan estructuras como 'il serait utile' seguidas del infinitivo."
 tipo: completar
 enunciado: "Il serait utile ___ présenter votre CV à l’entreprise."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -465,7 +452,6 @@ pasos:
 explicacion: "En reuniones formales, se usan estructuras como 'il faut' seguidas del infinitivo."
 tipo: completar
 enunciado: "Il faut ___ optimiser les processus de production."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -504,7 +490,6 @@ pasos:
 explicacion: "Ante instituciones educativas, se usan estructuras como 'il convient' con el infinitivo."
 tipo: completar
 enunciado: "Il convient ___ respecter les normes académiques."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"
@@ -525,7 +510,6 @@ pasos:
 explicacion: "En conferencias formales, se usan estructuras como 'il serait nécessaire' seguidas del infinitivo."
 tipo: completar
 enunciado: "Il serait nécessaire ___ revoir les méthodes de recherche."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "DE"

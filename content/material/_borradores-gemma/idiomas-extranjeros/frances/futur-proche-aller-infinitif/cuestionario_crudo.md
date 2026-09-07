@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo en infinitivo."
   - "Completar la oración con la forma correcta del infinitivo."
-respuesta: "partir"
 respuestas_validas:
   - "partir"
   - "Partir"
 tipo: completar
 enunciado: "Demain, nous ___ à Paris. (aller)"
-variables:
-  - "personaje": ["nous"]
 ```
 
 ### 2 — Futur proche con contexto temporal  
@@ -47,14 +44,11 @@ metadata:
 pasos:
   - "Determinar el sujeto y aplicar la forma correcta de 'aller'."
   - "Completar con el infinitivo del verbo."
-respuesta: "venir"
 respuestas_validas:
   - "venir"
   - "Venir"
 tipo: completar
 enunciado: "Ils ___ chez nous ce soir. (aller)"
-variables:
-  - "personaje": ["ils"]
 ```
 
 ### 4 — Futur proche con verbo irregular  
@@ -86,14 +80,11 @@ metadata:
 pasos:
   - "Reconocer la negación y mantener el infinitivo."
   - "Completar con el verbo en infinitivo."
-respuesta: "manger"
 respuestas_validas:
   - "manger"
   - "Manger"
 tipo: completar
 enunciado: "Je ne ___ pas de café ce matin. (aller)"
-variables:
-  - "negación": ["ne", "pas"]
 ```
 
 ### 6 — Futur proche con verbo "dire"  
@@ -125,14 +116,11 @@ metadata:
 pasos:
   - "Reconocer que el sujeto expresa un plan futuro."
   - "Completar con el infinitivo del verbo."
-respuesta: "aller"
 respuestas_validas:
   - "aller"
   - "Aller"
 tipo: completar
 enunciado: "Nous ___ au cinéma samedi. (aller)"
-variables:
-  - "horario": ["samedi"]
 ```
 
 ### 8 — Futur proche con verbo "voir"  
@@ -164,14 +152,11 @@ metadata:
 pasos:
   - "Reconocer el sujeto impersonal 'on'."
   - "Completar con el infinitivo del verbo."
-respuesta: "dormir"
 respuestas_validas:
   - "dormir"
   - "Dormir"
 tipo: completar
 enunciado: "On ___ toute la nuit. (aller)"
-variables:
-  - "sujeto": ["on"]
 ```
 
 ### 10 — Futur proche con verbo "prendre"  
@@ -203,14 +188,11 @@ metadata:
 pasos:
   - "Reconocer el verbo 'finir' en infinitivo."
   - "Completar con la forma correcta del infinitivo."
-respuesta: "finir"
 respuestas_validas:
   - "finir"
   - "Finir"
 tipo: completar
 enunciado: "Elle ___ son travail demain. (aller)"
-variables:
-  - "verbo": ["finir"]
 ```
 
 ### 12 — Futur proche con verbo "parler"  
@@ -242,14 +224,11 @@ metadata:
 pasos:
   - "Reconocer que 'aller' es el verbo en infinitivo."
   - "Completar con la forma correcta del infinitivo."
-respuesta: "aller"
 respuestas_validas:
   - "aller"
   - "Aller"
 tipo: completar
 enunciado: "Ils ___ au restaurant. (aller)"
-variables:
-  - "verbo": ["aller"]
 ```
 
 ### 14 — Futur proche con verbo "manger"  
@@ -281,14 +260,11 @@ metadata:
 pasos:
   - "Reconocer el verbo 'regarder' en infinitivo."
   - "Completar con la forma correcta del infinitivo."
-respuesta: "regarder"
 respuestas_validas:
   - "regarder"
   - "Regarder"
 tipo: completar
 enunciado: "Nous ___ le film ce soir. (aller)"
-variables:
-  - "verbo": ["regarder"]
 ```
 
 ### 16 — Futur proche con verbo "écouter"  
@@ -320,14 +296,11 @@ metadata:
 pasos:
   - "Reconocer el verbo 'sortir' en infinitivo."
   - "Completar con la forma correcta del infinitivo."
-respuesta: "sortir"
 respuestas_validas:
   - "sortir"
   - "Sortir"
 tipo: completar
 enunciado: "Il ___ avec ses amis. (aller)"
-variables:
-  - "verbo": ["sortir"]
 ```
 
 ### 18 — Futur proche con verbo "jouer"  
@@ -359,14 +332,11 @@ metadata:
 pasos:
   - "Reconocer el verbo 'dormir' en infinitivo."
   - "Completar con la forma correcta del infinitivo."
-respuesta: "dormir"
 respuestas_validas:
   - "dormir"
   - "Dormir"
 tipo: completar
 enunciado: "Elle ___ toute la nuit. (aller)"
-variables:
-  - "verbo": ["dormir"]
 ```
 
 ### 20 — Futur proche con verbo "marcher"  
@@ -398,14 +368,11 @@ metadata:
 pasos:
   - "Reconocer el verbo 'parler' en infinitivo."
   - "Completar con la forma correcta del infinitivo."
-respuesta: "parler"
 respuestas_validas:
   - "parler"
   - "Parler"
 tipo: completar
 enunciado: "Nous ___ de nos vacances. (aller)"
-variables:
-  - "verbo": ["parler"]
 ```
 
 ### 22 — Futur proche con verbo "finir"  
@@ -437,14 +404,11 @@ metadata:
 pasos:
   - "Reconocer el verbo 'prendre' en infinitivo."
   - "Completar con la forma correcta del infinitivo."
-respuesta: "prendre"
 respuestas_validas:
   - "prendre"
   - "Prendre"
 tipo: completar
 enunciado: "Tu ___ un café. (aller)"
-variables:
-  - "verbo": ["prendre"]
 ```
 
 ### 24 — Futur proche con verbo "voir"  
@@ -476,12 +440,9 @@ metadata:
 pasos:
   - "Reconocer el verbo 'dire' en infinitivo."
   - "Completar con la forma correcta del infinitivo."
-respuesta: "dire"
 respuestas_validas:
   - "dire"
   - "Dire"
 tipo: completar
 enunciado: "Elle ___ ce que je lui ai dit. (aller)"
-variables:
-  - "verbo": ["dire"]
 ```

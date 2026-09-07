@@ -9,7 +9,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "en"
 respuestas_validas:
   - "en"
   - "En"
@@ -30,7 +29,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "antaŭ"
 respuestas_validas:
   - "antaŭ"
   - "Antaŭ"
@@ -51,7 +49,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "sub"
 respuestas_validas:
   - "sub"
   - "Sub"
@@ -72,7 +69,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "sur"
 respuestas_validas:
   - "sur"
   - "Sur"
@@ -93,7 +89,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "kun"
 respuestas_validas:
   - "kun"
   - "Kun"
@@ -114,7 +109,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "De"
@@ -135,7 +129,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "ĉe"
 respuestas_validas:
   - "ĉe"
   - "Ĉe"
@@ -156,7 +149,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "por"
 respuestas_validas:
   - "por"
   - "Por"
@@ -177,7 +169,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "tra"
 respuestas_validas:
   - "tra"
   - "Tra"
@@ -198,7 +189,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "inter"
 respuestas_validas:
   - "inter"
   - "Inter"
@@ -219,7 +209,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "al"
 respuestas_validas:
   - "al"
   - "Al"
@@ -240,7 +229,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "en"
 respuestas_validas:
   - "en"
   - "En"
@@ -261,7 +249,6 @@ metadata:
 pasos:
   - "Elektu la ĝustan prepozicion por kompletigi la frazojn."
 tipo: completar
-respuesta: "antaŭ"
 respuestas_validas:
   - "antaŭ"
   - "Antaŭ"
@@ -283,7 +270,6 @@ pasos:
 explicacion: "La prepozicio **en** se usa para indicar que algo está dentro de un espacio cerrado, como una habitación o edificio."  
 tipo: completar  
 enunciado: "La infano ludis _______ la ĉambro."  
-respuesta: "en"  
 respuestas_validas:  
   - "en"  
   - "En"  
@@ -325,7 +311,6 @@ pasos:
 explicacion: "La prepozicio **de** se usa para mostrar que algo pertenece a otra cosa o persona."  
 tipo: completar  
 enunciado: "La libro estas _______ mi."  
-respuesta: "de"  
 respuestas_validas:  
   - "de"  
   - "De"  
@@ -345,7 +330,6 @@ pasos:
 explicacion: "La prepozicio **en** se usa para indicar tiempo dentro de un período, como 'en la semajno' o 'en la tago'."  
 tipo: completar  
 enunciado: "Ŝi laboris _______ la mateno."  
-respuesta: "en"  
 respuestas_validas:  
   - "en"  
   - "En"  
@@ -387,7 +371,6 @@ pasos:
 explicacion: "La prepozicio **per** se usa para mencionar el instrumento utilizado en una acción."  
 tipo: completar  
 enunciado: "Ŝi skribis la lecionon _______ penkilo."  
-respuesta: "per"  
 respuestas_validas:  
   - "per"  
   - "Per"  
@@ -407,7 +390,6 @@ pasos:
 explicacion: "La prepozicio **sen** se usa para indicar que algo no está presente, como 'sen paĝo' (sin página)."  
 tipo: completar  
 enunciado: "La karto restis _______ la paĝo."  
-respuesta: "sen"  
 respuestas_validas:  
   - "sen"  
   - "Sen"  
@@ -449,7 +431,6 @@ pasos:
 explicacion: "La prepozicio **al** se usa para señalar un lugar hacia donde algo va o está dirigido."  
 tipo: completar  
 enunciado: "La buklo estas _______ viajn amikojn."  
-respuesta: "al"  
 respuestas_validas:  
   - "al"  
   - "Al"  
@@ -469,7 +450,6 @@ pasos:
 explicacion: "La prepozicio **de** se repite en frases como 'la libro de mi kaj ŝi' (el libro mío y suyo)."  
 tipo: completar  
 enunciado: "La domo estas _______ la patro kaj filino."  
-respuesta: "de"  
 respuestas_validas:  
   - "de"  
   - "De"  
@@ -511,7 +491,6 @@ pasos:
 explicacion: "La prepozicio **sen** también puede usarse en contextos temporales, como 'sen evento' (sin evento)."  
 tipo: completar  
 enunciado: "La semajno estis _______ evento."  
-respuesta: "sen"  
 respuestas_validas:  
   - "sen"  
   - "Sen"

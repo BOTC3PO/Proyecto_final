@@ -10,7 +10,6 @@ pasos:
 explicacion: "La conjunción coordinativa 'ma' se usa para expresar contraste entre ideas en una misma oración."  
 enunciado: "Voglio andare al parco, ___ non ho tempo."  
 tipo: completar  
-respuesta: "ma"  
 respuestas_validas:  
   - "Ma"  
   - "ma"  
@@ -32,7 +31,6 @@ pasos:
 explicacion: "El participio pasado de 'dormire' es 'dormito', que se usa en tiempos compuestos como el passato prossimo."  
 enunciado: "Ieri ___ molto."  
 tipo: completar  
-respuesta: "ho dormito"  
 respuestas_validas:  
   - "Ho dormito"  
   - "ho Dormito"  
@@ -77,7 +75,6 @@ pasos:
 explicacion: "'Andare a' se usa para indicar dirección, mientras que 'in' se usa para lugares generales."  
 enunciado: "Voglio ___ Firenze domani."  
 tipo: completar  
-respuesta: "andare a"  
 respuestas_validas:  
   - "Andare a"  
   - "andare A"  
@@ -145,7 +142,6 @@ pasos:
 explicacion: "'Dovere' en condizionale se conjuga como 'dovrei' para yo y 'dovresti' para tú."  
 enunciado: "Se ___ tempo, andremmo al cinema."  
 tipo: completar  
-respuesta: "dovessimo"  
 respuestas_validas:  
   - "Dovessimo"  
   - "dovESSIMO"  
@@ -190,7 +186,6 @@ pasos:
 explicacion: "'Mangiare' tiene un participio passato irregular: 'mangiato', que se usa en tiempos compuestos como el passato prossimo."  
 enunciado: "Io ___ una pizza ieri."  
 tipo: completar  
-respuesta: "ho mangiato"  
 respuestas_validas:  
   - "Ho mangiato"  
   - "ho Mangiato"  
@@ -281,7 +276,6 @@ pasos:
 explicacion: "'Bere' tiene un participio passato irregular: 'bevuto', que se usa en tiempos compuestos como el passato prossimo."  
 enunciado: "Io ___ dell’acqua ieri."  
 tipo: completar  
-respuesta: "ho bevuto"  
 respuestas_validas:  
   - "Ho bevuto"  
   - "ho Bevuto"  
@@ -303,7 +297,6 @@ pasos:
 explicacion: "'Andare a' se usa para indicar dirección, mientras que 'in' se usa para lugares generales."  
 enunciado: "Voglio ___ Roma domani."  
 tipo: completar  
-respuesta: "andare a"  
 respuestas_validas:  
   - "Andare a"  
   - "andare A"  
@@ -348,7 +341,6 @@ pasos:
 explicacion: "'Dovere' en imperativo se conjuga como 'dovrai' para tú y 'dovrà' para él/ella."  
 enunciado: "___ andare subito!"  
 tipo: completar  
-respuesta: "Dovrai"  
 respuestas_validas:  
   - "Dovrai"  
   - "DOVRAI"  
@@ -368,15 +360,12 @@ metadata:
 pasos:
   - "Identifica el sujeto de la oración."
   - "Aplica el presente del verbo 'mangiare' al sujeto."
-respuesta: "mangio"
 respuestas_validas:
   - "mangio"
   - "Mangio"
 explicacion: "El verbo 'mangiare' en primera persona singular (io) se conjuga como 'mangio'."
 tipo: completar
 enunciado: "Oggi ___ una pizza."
-variables:
-  sujeto: "Io"
 ```
 
 ### 18 — Pronome riflessivo en infinito  
@@ -389,15 +378,12 @@ metadata:
 pasos:
   - "Reconoce el uso de 'essere arrabbiato' con un complemento."
   - "Aplica la preposición correcta después del verbo."
-respuesta: "con"
 respuestas_validas:
   - "con"
   - "Con"
 explicacion: "'Essere arrabbiato con qualcuno' es la construcción correcta para expresar ira hacia una persona."
 tipo: completar
 enunciado: "Sono arrabbiato ___ te."
-variables:
-  complemento: "te"
 ```
 
 ### 19 — Forma del participio passato con 'prendere'  
@@ -412,7 +398,6 @@ pasos:
 explicacion: "'Prendere' tiene un participio passato irregular: 'preso', que se usa en tiempos compuestos como el passato prossimo."  
 enunciado: "Io ___ il caffè ogni mattina."  
 tipo: completar  
-respuesta: "prendo"  
 respuestas_validas:  
   - "Prendo"  
   - "PRENDO"  
@@ -463,8 +448,6 @@ respuesta: "Devo andare"
 explicacion: "'Dovere' en presente se conjuga como 'devo' para el sujeto 'io'."
 tipo: mc
 enunciado: "___ finire il lavoro oggi."
-variables:
-  sujeto: "Io"
 ```
 
 ### 22 — Uso del verbo 'potere' en presente  
@@ -477,15 +460,12 @@ metadata:
 pasos:
   - "Reconoce el uso de preposiciones con objetos inmóviles."
   - "Aplica la preposición correcta a la relación espacial."
-respuesta: "sulla"
 respuestas_validas:
   - "sulla"
   - "Sulla"
 explicacion: "'Sulla' es la forma contracta de 'su + la', usada para indicar ubicación sobre algo."
 tipo: completar
 enunciado: "La chiave è ___ la scrivania."
-variables:
-  objeto: "scrivania"
 ```
 
 ### 23 — Forma del participio passato con 'bere'  
@@ -506,8 +486,6 @@ respuesta: "Andai"
 explicacion: "El passato remoto de 'andare' es 'andai', usado para acciones concluidas en el pasado."
 tipo: mc
 enunciado: "Ieri ___ al parco con gli amici."
-variables:
-  verbo: "andare"
 ```
 
 ### 24 — Preposizione con 'andare' a  
@@ -520,15 +498,12 @@ metadata:
 pasos:
   - "Reconoce el uso de 'dovere' con un infinitivo."
   - "Completa la oración con el verbo en forma base."
-respuesta: "finire"
 respuestas_validas:
   - "finire"
   - "Finire"
 explicacion: "'Dovere' se usa seguido de un infinitivo para expresar obligación o necesidad."
 tipo: completar
 enunciado: "Devo ___ il lavoro oggi."
-variables:
-  verbo_infinito: "finito"
 ```
 
 ### 25 — Sintagma preposizionale con 'sul'  
@@ -549,6 +524,4 @@ respuesta: "Parlo di politica"
 explicacion: "'Parlare di' se usa para hablar sobre un tema, mientras que 'parlare a' es para dirigirse a alguien."
 tipo: mc
 enunciado: "Stiamo ___ qualcosa di interessante."
-variables:
-  complemento: "politica"
 ```

@@ -25,7 +25,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "are playing"
 respuestas_validas:
   - "Are playing"
   - "are Playing"
@@ -78,7 +77,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "is working"
 respuestas_validas:
   - "Is working"
   - "is Working"
@@ -113,7 +111,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "are running"
 respuestas_validas:
   - "Are running"
   - "are Running"
@@ -148,7 +145,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "are waiting"
 respuestas_validas:
   - "Are waiting"
   - "are Waiting"
@@ -183,7 +179,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "is explaining"
 respuestas_validas:
   - "Is explaining"
   - "is Explaining"
@@ -218,7 +213,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "are talking"
 respuestas_validas:
   - "Are talking"
   - "are Talking"
@@ -253,7 +247,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "are listening"
 respuestas_validas:
   - "Are listening"
   - "are Listening"
@@ -288,7 +281,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "is singing"
 respuestas_validas:
   - "Is singing"
   - "is Singing"
@@ -323,7 +315,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "is working"
 respuestas_validas:
   - "Is working"
   - "is Working"
@@ -358,7 +349,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "are eating"
 respuestas_validas:
   - "Are eating"
   - "are Eating"
@@ -393,7 +383,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "am waiting"
 respuestas_validas:
   - "Am waiting"
   - "am Waiting"
@@ -428,7 +417,6 @@ metadata:
   tags: ["formación", "now"]
 pasos:
   - "Completa la oración con el verbo en forma continua."
-respuesta: "is reading"
 respuestas_validas:
   - "Is reading"
   - "is Reading"

@@ -8,15 +8,12 @@ metadata:
 pasos:
   - "Escuchar la conversación entre dos personas preguntando y respondiendo sobre direcciones."
   - "Identificar la palabra que completa la oración del interlocutor."
-respuesta: "왼쪽"
 tipo: completar
 respuestas_validas:
   - "왼쪽"
   - "왼쪽에"
 explicacion: "La respuesta correcta es '왼쪽' (izquierda) porque el contexto indica una dirección específica en un diálogo."
 enunciado: "A: 쇼핑몰이 어디 있어요? B: 여기서 ___로 가세요."
-variables:
-  - "direccion": ["왼쪽", "오른쪽"]
 ```
 
 
@@ -53,7 +50,6 @@ metadata:
 pasos:
   - "Escuchar la conversación sobre el horario de una clase."
   - "Completar el hueco con la hora correcta en formato 24 horas."
-respuesta: "10시"
 tipo: completar
 respuestas_validas:
   - "10시"
@@ -96,7 +92,6 @@ metadata:
 pasos:
   - "Escuchar la conversación sobre una fecha específica."
   - "Completar el hueco con el día correcto en formato numérico."
-respuesta: "12일"
 tipo: completar
 respuestas_validas:
   - "12일"
@@ -139,7 +134,6 @@ metadata:
 pasos:
   - "Escuchar la conversación sobre el horario de un evento."
   - "Completar el hueco con la hora correcta en formato 12 horas."
-respuesta: "오후 3시"
 tipo: completar
 respuestas_validas:
   - "오후 3시"
@@ -182,7 +176,6 @@ metadata:
 pasos:
   - "Escuchar la conversación sobre una fecha específica."
   - "Completar el hueco con el mes correcto en formato numérico."
-respuesta: "10월"
 tipo: completar
 respuestas_validas:
   - "10월"
@@ -225,7 +218,6 @@ metadata:
 pasos:
   - "Escuchar la conversación sobre el horario de un evento."
   - "Completar el hueco con la hora correcta en formato 24 horas."
-respuesta: "14시"
 tipo: completar
 respuestas_validas:
   - "14시"
@@ -246,7 +238,6 @@ metadata:
 pasos:  
   - "Reconocer el contexto de un horario de transporte público."  
   - "Identificar la forma correcta del verbo '시작하다' en tercera persona singular."  
-respuesta: "10시"  
 tipo: completar  
 respuestas_validas:  
   - "10시"  
@@ -283,7 +274,6 @@ metadata:
 pasos:  
   - "Reconocer la preposición '에서' para indicar lugar de inicio."  
   - "Identificar el verbo correcto en contexto de reprogramación."  
-respuesta: "오늘"  
 tipo: completar  
 respuestas_validas:  
   - "오늘"  
@@ -320,7 +310,6 @@ metadata:
 pasos:  
   - "Reconocer la estructura '여기서 ___로 가세요' para indicar un lugar."  
   - "Identificar el nombre de una instalación física."  
-respuesta: "체육관"  
 tipo: completar  
 respuestas_validas:  
   - "체육관"  
@@ -357,7 +346,6 @@ metadata:
 pasos:  
   - "Comprender la estructura '여기서 ___로 가세요' para indicaciones."  
   - "Identificar el nombre de un lugar natural en coreano."  
-respuesta: "공원"  
 tipo: completar  
 respuestas_validas:  
   - "공원"  
@@ -394,7 +382,6 @@ metadata:
 pasos:  
   - "Comprender la estructura '여기서 ___로 가세요' para indicar un lugar."  
   - "Identificar el nombre de una tienda común en coreano."  
-respuesta: "편의점"  
 tipo: completar  
 respuestas_validas:  
   - "편의점"  
@@ -431,7 +418,6 @@ metadata:
 pasos:  
   - "Comprender la estructura '여기서 ___로 가세요' para indicaciones."  
   - "Identificar el nombre de un lugar rural en coreano."  
-respuesta: "농장"  
 tipo: completar  
 respuestas_validas:  
   - "농장"  
@@ -468,7 +454,6 @@ metadata:
 pasos:  
   - "Comprender la estructura '여기서 ___로 가세요' para indicar un lugar."  
   - "Identificar el nombre de un lugar con animales en coreano."  
-respuesta: "동물원"  
 tipo: completar  
 respuestas_validas:  
   - "동물원"  

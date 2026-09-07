@@ -9,7 +9,6 @@ pasos:
   - "Identificar el uso correcto de la forma sonkeigo del verbo."
 explicacion: "La forma sonkeigo se usa para hablar de uno mismo o de otra persona con humildad. El verbo '頼まれる' en sonkeigo es '頼まれます'."
 tipo: completar
-respuesta: "頼まれます"
 respuestas_validas:
   - "頼まれます"
   - "頼まれます。"
@@ -50,7 +49,6 @@ pasos:
   - "Identificar la forma sonkeigo del verbo."
 explicacion: "La forma sonkeigo se usa para hablar de uno mismo o de otra persona con humildad. El verbo '言う' en sonkeigo es 'おっしゃいます'."
 tipo: completar
-respuesta: "おっしゃいます"
 respuestas_validas:
   - "おっしゃいます"
   - "おっしゃいます。"
@@ -91,7 +89,6 @@ pasos:
   - "Identificar la forma sonkeigo del verbo."
 explicacion: "La forma sonkeigo se usa para hablar de uno mismo o de otra persona con humildad. El verbo '記録する' en sonkeigo es '記録いたします'."
 tipo: completar
-respuesta: "記録いたします"
 respuestas_validas:
   - "記録いたします"
   - "記録いたします。"
@@ -132,7 +129,6 @@ pasos:
   - "Identificar la forma sonkeigo del verbo."
 explicacion: "La forma sonkeigo se usa para hablar de uno mismo o de otra persona con humildad. El verbo '知る' en sonkeigo es 'ご存じです'."
 tipo: completar
-respuesta: "ご存じです"
 respuestas_validas:
   - "ご存じです"
   - "ご存じです。"
@@ -172,7 +168,6 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la relación entre él y el destinatario."  
   - "Aplicar el honorífico (sonkeigo) al verbo según la situación."  
-respuesta: "ご招待されました"  
 tipo: completar  
 respuestas_validas:  
   - "ご招待されました"  
@@ -214,7 +209,6 @@ pasos:
   - "Identificar la forma sonkeigo del verbo."
 explicacion: "La forma sonkeigo se usa para hablar de uno mismo o de otra persona con humildad. El verbo '見る' en sonkeigo es 'ご覧になります'."
 tipo: completar
-respuesta: "ご覧になります"
 respuestas_validas:
   - "ご覧になります"
   - "ご覧になります。"
@@ -255,7 +249,6 @@ pasos:
   - "Identificar la forma sonkeigo del verbo."
 explicacion: "La forma sonkeigo se usa para hablar de uno mismo o de otra persona con humildad. El verbo '行く' en sonkeigo es 'ご出かけになります'."
 tipo: completar
-respuesta: "ご出かけになります"
 respuestas_validas:
   - "ご出かけになります"
   - "ご出かけになります。"
@@ -274,7 +267,6 @@ metadata:
 pasos:  
   - "Reconocer que el sujeto es un superior."  
   - "Usar la forma honorífica (sonkeigo) para referirse a sus acciones."  
-respuesta: "ご指示されました"  
 tipo: completar  
 respuestas_validas:  
   - "ご指示されました"  
@@ -294,7 +286,6 @@ metadata:
 pasos:  
   - "Identificar que la acción es propia del hablante."  
   - "Usar la forma humilde (kenjougo) para el verbo."  
-respuesta: "お送りしました"  
 tipo: completar  
 respuestas_validas:  
   - "お送りしました"  
@@ -314,7 +305,6 @@ metadata:
 pasos:  
   - "Determinar que se refiere a una acción de un tercero."  
   - "Usar el honorífico (sonkeigo) para el verbo."  
-respuesta: "ご報告されました"  
 tipo: completar  
 respuestas_validas:  
   - "ご報告されました"  
@@ -334,7 +324,6 @@ metadata:
 pasos:  
   - "Reconocer que la acción es propia del hablante."  
   - "Aplicar el humilde (kenjougo) al verbo."  
-respuesta: "ご出席しました"  
 tipo: completar  
 respuestas_validas:  
   - "ご出席しました"  
@@ -354,7 +343,6 @@ metadata:
 pasos:  
   - "Identificar que la acción es propia del hablante."  
   - "Usar el humilde (kenjougo) para transmitir respeto."  
-respuesta: "ご共有しました"  
 tipo: completar  
 respuestas_validas:  
   - "ご共有しました"  
@@ -374,7 +362,6 @@ metadata:
 pasos:  
   - "Determinar que el sujeto es un colega."  
   - "Aplicar la forma honorífica (sonkeigo) al verbo."  
-respuesta: "ご提案されました"  
 tipo: completar  
 respuestas_validas:  
   - "ご提案されました"  
@@ -394,7 +381,6 @@ metadata:
 pasos:  
   - "Reconocer que el sujeto es una figura de autoridad."  
   - "Usar el honorífico (sonkeigo) para el verbo."  
-respuesta: "ご推薦されました"  
 tipo: completar  
 respuestas_validas:  
   - "ご推薦されました"  
@@ -414,7 +400,6 @@ metadata:
 pasos:  
   - "Identificar que la acción es propia del hablante."  
   - "Aplicar el humilde (kenjougo) al verbo."  
-respuesta: "ご提出しました"  
 tipo: completar  
 respuestas_validas:  
   - "ご提出しました"  
@@ -434,7 +419,6 @@ metadata:
 pasos:  
   - "Reconocer que el sujeto es un superior."  
   - "Usar la forma honorífica (sonkeigo) para referirse a sus acciones."  
-respuesta: "ご発表されました"  
 tipo: completar  
 respuestas_validas:  
   - "ご発表されました"  
@@ -454,7 +438,6 @@ metadata:
 pasos:  
   - "Identificar que la acción es propia del hablante."  
   - "Usar el humilde (kenjougo) para expresar respeto al cliente."  
-respuesta: "ご説明しました"  
 tipo: completar  
 respuestas_validas:  
   - "ご説明しました"  
@@ -474,7 +457,6 @@ metadata:
 pasos:  
   - "Determinar que el sujeto es un superior."  
   - "Aplicar la forma honorífica (sonkeigo) al verbo."  
-respuesta: "ご説明されました"  
 tipo: completar  
 respuestas_validas:  
   - "ご説明されました"  
@@ -494,7 +476,6 @@ metadata:
 pasos:  
   - "Reconocer que el sujeto es un colega."  
   - "Usar la forma honorífica (sonkeigo) para referirse a sus acciones."  
-respuesta: "ご協力されました"  
 tipo: completar  
 respuestas_validas:  
   - "ご協力されました"  

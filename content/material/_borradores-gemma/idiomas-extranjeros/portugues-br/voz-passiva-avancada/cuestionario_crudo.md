@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar o sujeito da ação e o verbo correspondente."
   - "Aplicar a estrutura 'ser + particípio passado'."
-respuesta: "foi feito"
 tipo: completar
 respuestas_validas:
   - "Foi feito"
@@ -31,7 +30,6 @@ metadata:
 pasos:
   - "Reconhecer a necessidade de uma preposição na voz passiva."
   - "Associar o verbo ao particípio adequado e à preposição correta."
-respuesta: "foi decidido por"
 tipo: completar
 respuestas_validas:
   - "Foi decidido por"
@@ -54,7 +52,6 @@ metadata:
 pasos:
   - "Identificar o tempo verbal da oração."
   - "Usar a estrutura 'ser + particípio passado' com o auxiliar adequado."
-respuesta: "será construído"
 tipo: completar
 respuestas_validas:
   - "Será construído"
@@ -77,7 +74,6 @@ metadata:
 pasos:
   - "Determinar o sujeito coletivo e seu gênero."
   - "Aplicar a concordância correta ao particípio passado."
-respuesta: "foram organizadas"
 tipo: completar
 respuestas_validas:
   - "Foram organizadas"
@@ -100,7 +96,6 @@ metadata:
 pasos:
   - "Identificar o verbo irregular e seu particípio passado."
   - "Usar a estrutura correta com o sujeito dado."
-respuesta: "foi feita"
 tipo: completar
 respuestas_validas:
   - "Foi feita"
@@ -123,7 +118,6 @@ metadata:
 pasos:
   - "Reconhecer a oração subordinada e sua relação com o sujeito principal."
   - "Aplicar a estrutura 'ser + particípio passado' de forma coerente."
-respuesta: "foi proposto"
 tipo: completar
 respuestas_validas:
   - "Foi proposto"
@@ -146,7 +140,6 @@ metadata:
 pasos:
   - "Identificar o verbo transitivo direto e seu objeto."
   - "Transformar a oração para voz passiva com o particípio adequado."
-respuesta: "foi entregue"
 tipo: completar
 respuestas_validas:
   - "Foi entregue"
@@ -169,7 +162,6 @@ metadata:
 pasos:
   - "Reconhecer a ausência de sujeito ativo."
   - "Usar a estrutura 'ser + particípio passado' sem preposição."
-respuesta: "foi descoberto"
 tipo: completar
 respuestas_validas:
   - "Foi descoberto"
@@ -192,7 +184,6 @@ metadata:
 pasos:
   - "Identificar o verbo de ligação e seu complemento."
   - "Transformar a oração para voz passiva com o particípio adequado."
-respuesta: "foi considerada"
 tipo: completar
 respuestas_validas:
   - "Foi considerada"
@@ -215,7 +206,6 @@ metadata:
 pasos:
   - "Reconhecer a oração com gerúndio e sua relação com o sujeito principal."
   - "Aplicar a estrutura 'ser + particípio passado' de forma coerente."
-respuesta: "foi feita"
 tipo: completar
 respuestas_validas:
   - "Foi feita"
@@ -238,7 +228,6 @@ metadata:
 pasos:
   - "Identificar o verbo com duplo particípio passado."
   - "Escolher a forma correta de acordo com o contexto."
-respuesta: "foram feitas"
 tipo: completar
 respuestas_validas:
   - "Foram feitas"
@@ -261,7 +250,6 @@ metadata:
 pasos:
   - "Reconhecer o tempo verbal composto na oração."
   - "Usar a estrutura 'ter + particípio passado' para voz passiva."
-respuesta: "tinham sido revisadas"
 tipo: completar
 respuestas_validas:
   - "Tinham sido revisadas"
@@ -284,7 +272,6 @@ metadata:
 pasos:
   - "Identificar o verbo de origem e sua relação com o sujeito."
   - "Transformar a oração para voz passiva com o particípio adequado."
-respuesta: "foi criada"
 tipo: completar
 respuestas_validas:
   - "Foi criada"
@@ -307,7 +294,6 @@ metadata:
 pasos:
   - "Reconhecer a oração com infinitivo e sua relação com o sujeito principal."
   - "Aplicar a estrutura 'ser + particípio passado' de forma coerente."
-respuesta: "foi feita"
 tipo: completar
 respuestas_validas:
   - "Foi feita"
@@ -330,7 +316,6 @@ metadata:
 pasos:
   - "Identificar a preposição correta para o verbo na voz passiva."
   - "Usar a estrutura 'ser + particípio passado' com a preposição adequada."
-respuesta: "foi feito por"
 tipo: completar
 respuestas_validas:
   - "Foi feito por"
@@ -353,7 +338,6 @@ metadata:
 pasos:
   - "Reconhecer o infinitivo pessoal e sua relação com o sujeito."
   - "Transformar a oração para voz passiva com o particípio adequado."
-respuesta: "foi feita"
 tipo: completar
 respuestas_validas:
   - "Foi feita"
@@ -376,7 +360,6 @@ metadata:
 pasos:
   - "Identificar o verbo de mudança e seu complemento."
   - "Transformar a oração para voz passiva com o particípio adequado."
-respuesta: "foi mudada"
 tipo: completar
 respuestas_validas:
   - "Foi mudada"
@@ -399,7 +382,6 @@ metadata:
 pasos:
   - "Reconhecer a oração com gerúndio e sua relação com o sujeito principal."
   - "Aplicar a estrutura 'ser + particípio passado' de forma coerente."
-respuesta: "foi feita"
 tipo: completar
 respuestas_validas:
   - "Foi feita"
@@ -422,7 +404,6 @@ metadata:
 pasos:
   - "Identificar o verbo com duplo particípio passado."
   - "Escolher a forma correta de acordo com o contexto."
-respuesta: "foram feitas"
 tipo: completar
 respuestas_validas:
   - "Foram feitas"
@@ -445,7 +426,6 @@ metadata:
 pasos:
   - "Reconhecer o tempo verbal composto na oração."
   - "Usar a estrutura 'ter + particípio passado' para voz passiva."
-respuesta: "tinham sido analisadas"
 tipo: completar
 respuestas_validas:
   - "Tinham sido analisadas"
@@ -468,7 +448,6 @@ metadata:
 pasos:
   - "Identificar o verbo de origem e sua relação com o sujeito."
   - "Transformar a oração para voz passiva com o particípio adequado."
-respuesta: "foi criada"
 tipo: completar
 respuestas_validas:
   - "Foi criada"
@@ -491,7 +470,6 @@ metadata:
 pasos:
   - "Reconhecer a oração com infinitivo e sua relação com o sujeito principal."
   - "Aplicar a estrutura 'ser + particípio passado' de forma coerente."
-respuesta: "foi feita"
 tipo: completar
 respuestas_validas:
   - "Foi feita"
@@ -514,7 +492,6 @@ metadata:
 pasos:
   - "Identificar a preposição correta para o verbo na voz passiva."
   - "Usar a estrutura 'ser + particípio passado' com a preposição adequada."
-respuesta: "foi feito por"
 tipo: completar
 respuestas_validas:
   - "Foi feito por"

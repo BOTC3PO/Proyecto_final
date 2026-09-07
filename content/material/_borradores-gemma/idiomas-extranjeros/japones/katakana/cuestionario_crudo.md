@@ -7,7 +7,6 @@ metadata:
   tags: ["escritura", "nombre"]
 pasos:
   - "Escribe el nombre de la fruta que se representa con カタカナ."
-respuesta: "カキ"
 respuestas_validas:
   - "カキ"
   - "カキ"
@@ -42,7 +41,6 @@ metadata:
   tags: ["escritura", "marca"]
 pasos:
   - "Completa el nombre de la empresa usando katakana."
-respuesta: "トヨタ"
 respuestas_validas:
   - "トヨタ"
   - "トヨタ"
@@ -77,7 +75,6 @@ metadata:
   tags: ["escritura", "nombre"]
 pasos:
   - "Completa el nombre del país usando katakana."
-respuesta: "アメリカ"
 respuestas_validas:
   - "アメリカ"
   - "アメリカ"
@@ -112,7 +109,6 @@ metadata:
   tags: ["escritura", "marca"]
 pasos:
   - "Completa el nombre del dispositivo usando katakana."
-respuesta: "スマートフォン"
 respuestas_validas:
   - "スマートフォン"
   - "スマートフォン"
@@ -147,7 +143,6 @@ metadata:
   tags: ["escritura", "nombre"]
 pasos:
   - "Completa el nombre del actor usando katakana."
-respuesta: "タモリ"
 respuestas_validas:
   - "タモリ"
   - "タモリ"
@@ -182,7 +177,6 @@ metadata:
   tags: ["escritura", "marca"]
 pasos:
   - "Completa el nombre del producto usando katakana."
-respuesta: "コカコーラ"
 respuestas_validas:
   - "コカコーラ"
   - "コカコーラ"
@@ -217,7 +211,6 @@ metadata:
   tags: ["escritura", "nombre"]
 pasos:
   - "Completa el nombre del país usando katakana."
-respuesta: "イタリア"
 respuestas_validas:
   - "イタリア"
   - "イタリア"
@@ -252,7 +245,6 @@ metadata:
   tags: ["escritura", "marca"]
 pasos:
   - "Completa el nombre del dispositivo usando katakana."
-respuesta: "パソコン"
 respuestas_validas:
   - "パソコン"
   - "パソコン"
@@ -287,7 +279,6 @@ metadata:
   tags: ["escritura", "nombre"]
 pasos:
   - "Completa el nombre del actor usando katakana."
-respuesta: "タクミ"
 respuestas_validas:
   - "タクミ"
   - "タクミ"
@@ -322,7 +313,6 @@ metadata:
   tags: ["escritura", "marca"]
 pasos:
   - "Completa el nombre del producto usando katakana."
-respuesta: "スニーカー"
 respuestas_validas:
   - "スニーカー"
   - "スニーカー"
@@ -357,7 +347,6 @@ metadata:
   tags: ["escritura", "nombre"]
 pasos:
   - "Completa el nombre del país usando katakana."
-respuesta: "ブラジル"
 respuestas_validas:
   - "ブラジル"
   - "ブラジル"
@@ -392,7 +381,6 @@ metadata:
   tags: ["escritura", "marca"]
 pasos:
   - "Completa el nombre del dispositivo usando katakana."
-respuesta: "スマートウォッチ"
 respuestas_validas:
   - "スマートウォッチ"
   - "スマートウォッチ"
@@ -427,7 +415,6 @@ metadata:
   tags: ["escritura", "nombre"]
 pasos:
   - "Completa el nombre del actor usando katakana."
-respuesta: "タクヤ"
 respuestas_validas:
   - "タクヤ"
   - "タクヤ"

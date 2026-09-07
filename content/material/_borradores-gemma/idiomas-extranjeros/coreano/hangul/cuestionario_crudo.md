@@ -7,7 +7,6 @@ metadata:
   tags: ["consonante", "final"]
 pasos:
   - "Identificar la forma correcta de 'g' cuando aparece al final de un sílaba."
-respuesta: "ㄱ"
 tipo: completar
 respuestas_validas:
   - "ㄱ"
@@ -27,7 +26,6 @@ metadata:
   tags: ["vocal", "medial"]
 pasos:
   - "Escribir el símbolo correcto de 'e' en posición medial."
-respuesta: "ㅓ"
 tipo: completar
 respuestas_validas:
   - "ㅓ"
@@ -67,7 +65,6 @@ metadata:
   tags: ["consonante", "final"]
 pasos:
   - "Identificar la forma correcta de 'l' en posición final."
-respuesta: "ㄹ"
 tipo: completar
 respuestas_validas:
   - "ㄹ"
@@ -87,7 +84,6 @@ metadata:
   tags: ["vocal", "medial"]
 pasos:
   - "Escribir el símbolo correcto de 'i' en posición medial."
-respuesta: "ㅣ"
 tipo: completar
 respuestas_validas:
   - "ㅣ"
@@ -128,7 +124,6 @@ metadata:
 pasos:  
   - "한글에서 '하'의 초성 형태는 무엇인가요?"  
   - "초성 형태는 발음이 시작될 때 사용하는 글자의 모양입니다."  
-respuesta: "ᄒ"  
 tipo: completar  
 respuestas_validas:  
   - "ᄒ"  
@@ -145,7 +140,6 @@ metadata:
   tags: ["vocal", "medial"]
 pasos:
   - "Escribir el símbolo correcto de 'a' en posición medial."
-respuesta: "ㅏ"
 tipo: completar
 respuestas_validas:
   - "ㅏ"
@@ -186,7 +180,6 @@ metadata:
 pasos:  
   - "한글에서 '는'의 종성 형태는 무엇인가요?"  
   - "종성 형태는 발음이 끝날 때 사용하는 글자의 모양입니다."  
-respuesta: "ᆫ"  
 tipo: completar  
 respuestas_validas:  
   - "ᆫ"  
@@ -203,7 +196,6 @@ metadata:
   tags: ["vocal", "medial"]
 pasos:
   - "Escribir el símbolo correcto de 'o' en posición medial."
-respuesta: "ㅗ"
 tipo: completar
 respuestas_validas:
   - "ㅗ"
@@ -244,7 +236,11 @@ metadata:
 pasos:  
   - "한글에서 '가'의 초성 형태는 대문자로 어떻게 쓰이나요?"  
   - "초성은 자음의 시작 부분을 나타내며, 대문자는 일반적으로 사용하지 않습니다."  
-opciones_explicitas: ["ᄀ", "가", "하", "ᄇ"]  
+opciones_explicitas:
+  - "ᄀ"
+  - "가"
+  - "하"
+  - "ᄇ"
 respuesta: "가"  
 tipo: mc  
 explicacion: "'가'는 한글 초성 형태로, 일반적인 표현에서는 소문자 '가'를 사용합니다. 대문자는 특수한 경우에만 사용됩니다."  
@@ -260,7 +256,6 @@ metadata:
 pasos:  
   - "한글에서 '아'의 중성 형태는 무엇인가요?"  
   - "중성 형태는 자음과 모음이 결합될 때 중앙에 위치하는 글자의 모양입니다."  
-respuesta: "ᅡ"  
 tipo: completar  
 respuestas_validas:  
   - "ᅡ"  
@@ -298,7 +293,6 @@ metadata:
 pasos:  
   - "한글에서 '은'의 종성 형태는 무엇인가요?"  
   - "종성 형태는 자음이 끝날 때 사용하는 글자의 모양입니다."  
-respuesta: "ᆫ"  
 tipo: completar  
 respuestas_validas:  
   - "ᆫ"  
@@ -316,7 +310,11 @@ metadata:
 pasos:  
   - "한글에서 '바'의 초성 형태는 대문자로 어떻게 쓰이나요?"  
   - "초성은 자음의 시작 부분을 나타내며, 일반적으로 소문자만 사용합니다."  
-opciones_explicitas: ["ᄇ", "바", "하", "ᄇ"]  
+opciones_explicitas:
+  - "ᄇ"
+  - "바"
+  - "하"
+  - "ᄇ"
 respuesta: "바"  
 tipo: mc  
 explicacion: "'바'는 초성 형태로, 대문자는 특수한 경우에만 사용되며, 일반적으로 소문자 '바'를 사용합니다."  
@@ -352,7 +350,6 @@ metadata:
 pasos:  
   - "한글에서 '오'의 중성 형태는 무엇인가요?"  
   - "중성 형태는 자음과 모음이 결합될 때 중앙에 위치하는 글자의 모양입니다."  
-respuesta: "ᅩ"  
 tipo: completar  
 respuestas_validas:  
   - "ᅩ"  
@@ -370,7 +367,6 @@ metadata:
 pasos:  
   - "한글에서 '을'의 종성 형태는 무엇인가요?"  
   - "종성 형태는 자음이 끝날 때 사용하는 글자의 모양입니다."  
-respuesta: "ᆯ"  
 tipo: completar  
 respuestas_validas:  
   - "ᆯ"  
@@ -408,7 +404,11 @@ metadata:
 pasos:  
   - "한글에서 '사'의 초성 형태는 대문자로 어떻게 쓰이나요?"  
   - "초성은 자음의 시작 부분을 나타내며, 일반적으로 소문자만 사용합니다."  
-opciones_explicitas: ["ᄉ", "사", "하", "ᄇ"]  
+opciones_explicitas:
+  - "ᄉ"
+  - "사"
+  - "하"
+  - "ᄇ"
 respuesta: "사"  
 tipo: mc  
 explicacion: "'사'는 초성 형태로, 대문자는 특수한 경우에만 사용되며, 일반적으로 소문자 '사'를 사용합니다."  
@@ -424,7 +424,6 @@ metadata:
 pasos:  
   - "한글에서 '우'의 중성 형태는 무엇인가요?"  
   - "중성 형태는 자음과 모음이 결합될 때 중앙에 위치하는 글자의 모양입니다."  
-respuesta: "ᅮ"  
 tipo: completar  
 respuestas_validas:  
   - "ᅮ"  
@@ -462,7 +461,6 @@ metadata:
 pasos:  
   - "한글에서 '로'의 종성 형태는 무엇인가요?"  
   - "종성 형태는 자음이 끝날 때 사용하는 글자의 모양입니다."  
-respuesta: "ᄅ"  
 tipo: completar  
 respuestas_validas:  
   - "ᄅ"  

@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identificar la forma informal de 'dar'"
   - "Completar el hueco con la conjugación correcta"
-respuesta: "줘요"
 respuestas_validas:
   - "줘요"
   - " 줘요"
 tipo: completar
 enunciado: "이거 좀 ___ 주세요."
-variables:
-  - "주다"
 explicacion: "La forma informal de 'dar' es '줄다', que se conjuga como '줘요' en contexto de petición. La opción formal ('줍니다') no se usa aquí."
 ```
 
@@ -31,14 +28,11 @@ metadata:
 pasos:
   - "Identificar el verbo 'ser' en forma formal"
   - "Completar la oración con la conjugación correcta"
-respuesta: "입니다"
 respuestas_validas:
   - "입니다"
   - " 이습니다"
 tipo: completar
 enunciado: "이 곳은 조용___."
-variables:
-  - "이다"
 explicacion: "La forma formal de 'ser' es '이다', que se conjuga como '입니다' para oraciones afirmativas. La opción informal ('예요') no se usa aquí."
 ```
 
@@ -61,8 +55,6 @@ opciones_explicitas:
   - "할 수 해요"
 tipo: mc
 enunciado: "이 책은 ___."
-variables:
-  - "할 수 있다"
 explicacion: "La forma informal de 'poder' es '할 수 있다', que se conjuga como '할 수 있어요'. La opción formal ('할 수 있습니다') no se usa aquí."
 ```
 
@@ -78,14 +70,11 @@ metadata:
 pasos:
   - "Identificar el verbo 'ayudar' en forma formal"
   - "Completar la oración con la conjugación correcta"
-respuesta: "도와 주시겠어요"
 respuestas_validas:
   - "도와 주시겠어요"
   - " 도와 주시겠어요"
 tipo: completar
 enunciado: "___ 도와 주시겠어요?"
-variables:
-  - "도와주다"
 explicacion: "La forma formal de 'ayudar' es '도와주다', que se conjuga como '도와 주시겠어요' en contexto de petición educada. La opción informal ('도와 줘요') no se usa aquí."
 ```
 
@@ -108,8 +97,6 @@ opciones_explicitas:
   - "하고 해요"
 tipo: mc
 enunciado: "그는 지금 ___."
-variables:
-  - "하다"
 explicacion: "La forma informal de 'hacer' es '하다', que se conjuga como '하고 있어요' para acciones en progreso. La opción formal ('하고 있습니다') no se usa aquí."
 ```
 
@@ -125,14 +112,11 @@ metadata:
 pasos:
   - "Identificar el verbo 'ir' en forma informal"
   - "Completar la oración con la conjugación correcta"
-respuesta: "가요"
 respuestas_validas:
   - "가요"
   - " 가요"
 tipo: completar
 enunciado: "내일 친구와 ___."
-variables:
-  - "가다"
 explicacion: "La forma informal de 'ir' es '가다', que se conjuga como '가요' para planes futuros. La opción formal ('갑니다') no se usa aquí."
 ```
 
@@ -148,14 +132,11 @@ metadata:
 pasos:
   - "Identificar el verbo 'ver' en forma formal"
   - "Completar la oración con la conjugación correcta"
-respuesta: "봅니다"
 respuestas_validas:
   - "봅니다"
   - " 보습니다"
 tipo: completar
 enunciado: "그 영화는 ___."
-variables:
-  - "보다"
 explicacion: "La forma formal de 'ver' es '보다', que se conjuga como '봅니다'. La opción informal ('보아요') no se usa aquí."
 ```
 
@@ -178,8 +159,6 @@ opciones_explicitas:
   - "예스"
 tipo: mc
 enunciado: "오늘 날씨는 ___."
-variables:
-  - "이다"
 explicacion: "La forma informal de 'ser' en contexto de clima es '예요'. La opción formal ('입니다') no se usa aquí."
 ```
 
@@ -195,14 +174,11 @@ metadata:
 pasos:
   - "Identificar el verbo 'comer' en forma informal"
   - "Completar la oración con la conjugación correcta"
-respuesta: "먹어요"
 respuestas_validas:
   - "먹어요"
   - " 먹어요"
 tipo: completar
 enunciado: "저는 아침에 ___."
-variables:
-  - "먹다"
 explicacion: "La forma informal de 'comer' es '먹다', que se conjuga como '먹어요'. La opción formal ('먹습니다') no se usa aquí."
 ```
 
@@ -218,14 +194,11 @@ metadata:
 pasos:
   - "Identificar el verbo 'pensar' en forma formal"
   - "Completar la oración con la conjugación correcta"
-respuesta: "생각합니다"
 respuestas_validas:
   - "생각합니다"
   - " 생각합니다"
 tipo: completar
 enunciado: "저는 ___."
-variables:
-  - "생각하다"
 explicacion: "La forma formal de 'pensar' es '생각하다', que se conjuga como '생각합니다'. La opción informal ('생각해요') no se usa aquí."
 ```
 
@@ -280,8 +253,6 @@ opciones_explicitas:
   - "가해요"
 tipo: mc
 enunciado: "내일 ___."
-variables:
-  - "가다"
 explicacion: "La forma informal de 'ir' es '가다', que se conjuga como '가요'. La opción formal ('갑니다') no se usa aquí."
 ```
 
@@ -297,14 +268,11 @@ metadata:
 pasos:
   - "Identificar el verbo 'poder' en forma formal para condicionales"
   - "Completar la oración con la conjugación correcta"
-respuesta: "할 수 있습니다"
 respuestas_validas:
   - "할 수 있습니다"
   - " 할 수 있습니다"
 tipo: completar
 enunciado: "___."
-variables:
-  - "할 수 있다"
 explicacion: "La forma formal de 'poder' para condicionales es '할 수 있습니다'. La opción informal ('할 수 있어요') no se usa aquí."
 ```
 
@@ -359,8 +327,6 @@ opciones_explicitas:
   - "예스"
 tipo: mc
 enunciado: "그는 ___."
-variables:
-  - "이다"
 explicacion: "La forma informal de 'ser' en contexto familiar es '예요'. La opción formal ('입니다') no se usa aquí."
 ```
 
@@ -399,8 +365,6 @@ opciones_explicitas:
   - "먹아요"
 tipo: mc
 enunciado: "그분은 ___."
-variables:
-  - "먹다"
 explicacion: "La forma informal de 'comer' en honoríficos es '먹어요'. La opción formal ('먹습니다') no se usa aquí."
 ```
 

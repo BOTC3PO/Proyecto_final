@@ -8,10 +8,8 @@ metadata:
 pasos:  
   - Identificar el registro adecuado para la situación descrita.  
   - Completar con la forma verbal correspondiente.  
-respuesta: "Guten Tag, Frau Müller!"  
 tipo: completar  
 enunciado: "Wenn Sie in einer Geschäftsstelle ankommen und die Mitarbeiterin fragen, wie man zur Bank kommt, sagt sie: `_____, Frau Müller!`"  
-variables: []  
 respuestas_validas:  
   - "Guten Tag, Frau Müller!"  
   - "guten tag, frau muller!"
@@ -71,10 +69,8 @@ metadata:
 pasos:  
   - Reconocer el uso de "Sie" en contextos profesionales.  
   - Completar con la forma adecuada del verbo.  
-respuesta: "Haben Sie Zeit, mir zu helfen?"  
 tipo: completar  
 enunciado: "Wenn Sie einem Kollegen in der Arbeit fragen, ob er Zeit hat, sagt man: `______`."  
-variables: []  
 respuestas_validas:  
   - "Haben Sie Zeit, mir zu helfen?"  
   - "haben sie zeit, mir zu helfen?"
@@ -113,10 +109,8 @@ metadata:
 pasos:  
   - Distinguir entre formas formales e informales en un servicio.  
   - Completar con la forma correcta del verbo.  
-respuesta: "Möchten Sie noch etwas trinken?"  
 tipo: completar  
 enunciado: "Ein Kellner fragt einen Gast: `______`."  
-variables: []  
 respuestas_validas:  
   - "Möchten Sie noch etwas trinken?"  
   - "möchten sie noch etwas trinken?"
@@ -155,10 +149,8 @@ metadata:
 pasos:  
   - Identificar el contexto profesional al planificar una viaje.  
   - Completar con la forma correcta del verbo.  
-respuesta: "Können Sie mir bei der Planung helfen?"  
 tipo: completar  
 enunciado: "Wenn Sie einen Reiseveranstalter um Hilfe bitten, sagt man: `______`."  
-variables: []  
 respuestas_validas:  
   - "Können Sie mir bei der Planung helfen?"  
   - "können sie mir bei der planung helfen?"
@@ -197,10 +189,8 @@ metadata:
 pasos:  
   - Usar la forma formal al pedir una recomendación.  
   - Completar con la estructura adecuada.  
-respuesta: "Können Sie mir eine Empfehlung geben?"  
 tipo: completar  
 enunciado: "Wenn Sie einem Kunden um eine Empfehlung bitten, sagt man: `______`."  
-variables: []  
 respuestas_validas:  
   - "Können Sie mir eine Empfehlung geben?"  
   - "können sie mir eine empfehlung geben?"
@@ -239,15 +229,11 @@ metadata:
 pasos:
   - "Identifica el contexto y el interlocutor."
   - "Elige la forma de tratamiento adecuada según el registro."
-respuesta: "Können Sie mir bitte erklären, warum das Problem besteht?"
 tipo: completar
 respuestas_validas:
   - "Können Sie mir bitte erklären, warum das Problem besteht?"
   - "Können sie mir bitte erklären, warum das Problem besteht?"
-enunciado: 'Ein Gast fragt in einem Geschäft um eine Erklärung zu einem Produktproblem. Das Gespräch ist formal. Completa el hueco con la frase adecuada: `__________`.'
-variables:
-  - "contexto: diálogo en un establecimiento comercial"
-```
+enunciado: "Ein Gast fragt in einem Geschäft um eine Erklärung zu einem Produktproblem. Das Gespräch ist formal. Completa el hueco con la frase adecuada: `__________`."```
 
 ---
 
@@ -282,10 +268,8 @@ metadata:
 pasos:  
   - Usar el formal al consultar sobre un producto.  
   - Completar con la forma correcta del verbo.  
-respuesta: "Haben Sie Fragen zu diesem Produkt?"  
 tipo: completar  
 enunciado: "Ein Verkäufer fragt einen Kunden: `______`."  
-variables: []  
 respuestas_validas:  
   - "Haben Sie Fragen zu diesem Produkt?"  
   - "haben sie fragen zu diesem produkt?"
@@ -324,10 +308,8 @@ metadata:
 pasos:  
   - Usar el formal al recomendar una experiencia.  
   - Completar con la forma correcta del verbo.  
-respuesta: "Ich empfehle Ihnen, die Stadt zu besuchen!"  
 tipo: completar  
 enunciado: "Wenn Sie einem Kunden eine Reiseempfehlung geben, sagt man: `______`."  
-variables: []  
 respuestas_validas:  
   - "Ich empfehle Ihnen, die Stadt zu besuchen!"  
   - "ich empfehle ihnen, die stadt zu besuchen!"
@@ -351,10 +333,7 @@ opciones_explicitas:
   - "Hallo, haben Sie einen Moment?"
   - "Hey, hast du einen Moment?"
   - "Können Sie mir helfen?"
-enunciado: 'Ein Kollege fragt einen Nachbarn in der Kantine informell um einen kurzen Gesprächszeitpunkt. ¿Cuál es la frase correcta?'
-variables:
-  - "contexto: conversación en un ambiente cotidiano"
-```
+enunciado: "Ein Kollege fragt einen Nachbarn in der Kantine informell um einen kurzen Gesprächszeitpunkt. ¿Cuál es la frase correcta?"```
 
 ---
 
@@ -368,10 +347,8 @@ metadata:
 pasos:  
   - Usar el formal al preguntar sobre un evento.  
   - Completar con la forma correcta del verbo.  
-respuesta: "Haben Sie Interesse an der Veranstaltung?"  
 tipo: completar  
 enunciado: "Ein Organisator fragt einen Gast: `______`."  
-variables: []  
 respuestas_validas:  
   - "Haben Sie Interesse an der Veranstaltung?"  
   - "haben sie interesse an der veranstaltung?"
@@ -410,10 +387,8 @@ metadata:
 pasos:  
   - Usar el formal al pedir una explicación.  
   - Completar con la forma correcta del verbo.  
-respuesta: "Können Sie mir das erklären?"  
 tipo: completar  
 enunciado: "Wenn Sie einem Kunden um eine Erklärung bitten, sagt man: `______`."  
-variables: []  
 respuestas_validas:  
   - "Können Sie mir das erklären?"  
   - "können sie mir das erklären?"
@@ -452,10 +427,8 @@ metadata:
 pasos:  
   - Usar el formal al consultar un servicio.  
   - Completar con la forma correcta del verbo.  
-respuesta: "Haben Sie den Service noch?"  
 tipo: completar  
 enunciado: "Ein Kunde fragt einen Mitarbeiter: `______`."  
-variables: []  
 respuestas_validas:  
   - "Haben Sie den Service noch?"  
   - "haben sie den service noch?"
@@ -515,12 +488,8 @@ metadata:
 pasos:
   - "Determina el tipo de interacción y el grado de formalidad."
   - "Usa la forma de tratamiento adecuada en el hueco."
-respuesta: "Möchten Sie vielleicht eine Alternative vorschlagen?"
 tipo: completar
 respuestas_validas:
   - "Möchten Sie vielleicht eine Alternative vorschlagen?"
   - "möchten sie vielleicht eine alternative vorschlagen?"
-enunciado: 'Ein Chef fragt einen Mitarbeiter in einem Meeting formell um una sugerencia. Completa el hueco con la frase adecuada: `__________`.'
-variables:
-  - "contexto: reunión laboral"
-```
+enunciado: "Ein Chef fragt einen Mitarbeiter in einem Meeting formell um una sugerencia. Completa el hueco con la frase adecuada: `__________`."```

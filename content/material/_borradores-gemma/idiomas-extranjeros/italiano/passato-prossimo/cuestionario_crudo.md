@@ -10,7 +10,6 @@ pasos:
   - "Completa la oración con la forma correcta del passato prossimo."  
 enunciado: "Io ___ mangiato una mela ieri."  
 tipo: completar  
-respuesta: "ho"  
 respuestas_validas:  
   - "Ho"  
   - "HO"  
@@ -29,7 +28,6 @@ pasos:
   - "Escribe la forma correcta del passato prossimo."  
 enunciado: "Lui ___ andato al lavoro stamattina."  
 tipo: completar  
-respuesta: "è"  
 respuestas_validas:  
   - "È"  
   - "E'"  
@@ -81,7 +79,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "Noi ___ finito il pranzo."  
 tipo: completar  
-respuesta: "abbiamo"  
 respuestas_validas:  
   - "Abbiamo"  
   - "ABBIAMO"  
@@ -99,7 +96,6 @@ pasos:
   - "Identifica el verbo y completa con 'essere' o 'avere'."  
 enunciado: "Loro ___ partiti per la vacanza."  
 tipo: completar  
-respuesta: "sono"  
 respuestas_validas:  
   - "Sono"  
   - "SONO"  
@@ -134,7 +130,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "La mia amica ___ venuta a trovarmi ieri."  
 tipo: completar  
-respuesta: "è"  
 respuestas_validas:  
   - "È"  
   - "E'"  
@@ -169,7 +164,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "I miei amici ___ andati al parco."  
 tipo: completar  
-respuesta: "sono"  
 respuestas_validas:  
   - "Sono"  
   - "SONO"  
@@ -204,7 +198,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "Lui ___ uscito di casa presto."  
 tipo: completar  
-respuesta: "è"  
 respuestas_validas:  
   - "È"  
   - "E'"  
@@ -239,7 +232,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "La ragazza ___ partita per Roma ieri."  
 tipo: completar  
-respuesta: "è"  
 respuestas_validas:  
   - "È"  
   - "E'"  
@@ -274,7 +266,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "Noi ___ andati al parco ieri."  
 tipo: completar  
-respuesta: "siamo"  
 respuestas_validas:  
   - "Siamo"  
   - "SIAMO"  
@@ -309,7 +300,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "Lui ___ venuto a casa mia ieri."  
 tipo: completar  
-respuesta: "è"  
 respuestas_validas:  
   - "È"  
   - "E'"  
@@ -344,7 +334,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "Le ragazze ___ uscite di casa presto."  
 tipo: completar  
-respuesta: "sono"  
 respuestas_validas:  
   - "Sono"  
   - "SONO"  
@@ -379,7 +368,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "Loro ___ andati al cinema ieri."  
 tipo: completar  
-respuesta: "sono"  
 respuestas_validas:  
   - "Sono"  
   - "SONO"  
@@ -414,7 +402,6 @@ pasos:
   - "Completa la oración con el auxiliar y participio correctos."  
 enunciado: "Tu ___ venuto a casa mia ieri?"  
 tipo: completar  
-respuesta: "sei"  
 respuestas_validas:  
   - "Sei"  
   - "SEI"  

@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el sonido inicial de 'hour'"
   - "Elegir entre 'a' o 'an'"
-respuesta: an
 tipo: completar
 respuestas_validas:
   - "an"
@@ -31,7 +30,6 @@ metadata:
 pasos:
   - "Identificar que el libro fue mencionado antes"
   - "Usar 'the' para referirse a él"
-respuesta: the
 tipo: completar
 respuestas_validas:
   - "the"
@@ -54,7 +52,6 @@ metadata:
 pasos:
   - "Identificar que 'books' es plural contable"
   - "No usar artículo por regla de plural"
-respuesta: 
 tipo: completar
 respuestas_validas:
   - ""
@@ -76,7 +73,6 @@ metadata:
 pasos:
   - "Reconocer que 'el coche' en español usa artículo"
   - "Elegir la forma correcta en inglés sin artículo"
-respuesta: car
 tipo: completar
 respuestas_validas:
   - "car"
@@ -98,7 +94,6 @@ metadata:
 pasos:
   - "Identificar el sonido inicial de 'umbrella'"
   - "Elegir entre 'a' o 'an'"
-respuesta: an
 tipo: completar
 respuestas_validas:
   - "an"
@@ -121,7 +116,6 @@ metadata:
 pasos:
   - "Identificar que 'water' es incontable"
   - "Usar 'the' cuando se refiere a un tipo específico"
-respuesta: the
 tipo: completar
 respuestas_validas:
   - "the"
@@ -144,7 +138,6 @@ metadata:
 pasos:
   - "Identificar que 'information' es incontable"
   - "No usar artículo en contextos generales"
-respuesta: 
 tipo: completar
 respuestas_validas:
   - ""
@@ -166,7 +159,6 @@ metadata:
 pasos:
   - "Reconocer que 'la comida' en español usa artículo"
   - "Elegir la forma correcta en inglés sin artículo"
-respuesta: food
 tipo: completar
 respuestas_validas:
   - "food"
@@ -188,7 +180,6 @@ metadata:
 pasos:
   - "Identificar el sonido inicial de 'university'"
   - "Elegir entre 'a' o 'an'"
-respuesta: a
 tipo: completar
 respuestas_validas:
   - "a"
@@ -211,7 +202,6 @@ metadata:
 pasos:
   - "Identificar que 'books' es plural y específico"
   - "Usar 'the' para referirse a ellos"
-respuesta: the
 tipo: completar
 respuestas_validas:
   - "the"
@@ -234,7 +224,6 @@ metadata:
 pasos:
   - "Identificar que 'sun' es incontable y general"
   - "No usar artículo en contextos generales"
-respuesta: 
 tipo: completar
 respuestas_validas:
   - ""
@@ -256,7 +245,6 @@ metadata:
 pasos:
   - "Reconocer que 'el río' en español usa artículo"
   - "Elegir la forma correcta en inglés sin artículo"
-respuesta: river
 tipo: completar
 respuestas_validas:
   - "river"
@@ -278,7 +266,6 @@ metadata:
 pasos:
   - "Identificar el sonido inicial de 'apple'"
   - "Elegir entre 'a' o 'an'"
-respuesta: an
 tipo: completar
 respuestas_validas:
   - "an"
@@ -301,7 +288,6 @@ metadata:
 pasos:
   - "Identificar que 'coffee' es incontable"
   - "Usar 'the' cuando se refiere a un tipo específico"
-respuesta: the
 tipo: completar
 respuestas_validas:
   - "the"
@@ -324,7 +310,6 @@ metadata:
 pasos:
   - "Identificar que 'rain' es incontable y general"
   - "No usar artículo en contextos generales"
-respuesta: 
 tipo: completar
 respuestas_validas:
   - ""
@@ -346,7 +331,6 @@ metadata:
 pasos:
   - "Reconocer que 'la casa' en español usa artículo"
   - "Elegir la forma correcta en inglés sin artículo"
-respuesta: house
 tipo: completar
 respuestas_validas:
   - "house"
@@ -368,7 +352,6 @@ metadata:
 pasos:
   - "Identificar si el nombre requiere artículo indefinido."
   - "Elegir entre 'a' o 'an' según el sonido inicial de la palabra."
-respuesta: "a"
 tipo: completar
 respuestas_validas:
   - "a"
@@ -389,7 +372,6 @@ metadata:
 pasos:
   - "Determinar si se refiere a algo único o específico."
   - "Usar 'the' cuando el objeto es conocido por ambos interlocutores."
-respuesta: "The"
 tipo: completar
 respuestas_validas:
   - "The"
@@ -410,7 +392,6 @@ metadata:
 pasos:
   - "Reconocer que los superlativos requieren el artículo definido."
   - "Verificar si la construcción 'the + adjetivo + sustantivo' es correcta."
-respuesta: "the"
 tipo: completar
 respuestas_validas:
   - "the"
@@ -431,7 +412,6 @@ metadata:
 pasos:
   - "Identificar si el tiempo se refiere a un momento específico."
   - "Usar 'the' antes de horas exactas en expresiones con 'at'."
-respuesta: "The"
 tipo: completar
 respuestas_validas:
   - "The"
@@ -452,7 +432,6 @@ metadata:
 pasos:
   - "Reconocer que los sustantivos plurales no requieren artículo cuando son generales."
   - "Verificar si el contexto es general o específico."
-respuesta: ""
 tipo: completar
 respuestas_validas:
   - ""
@@ -472,7 +451,6 @@ metadata:
 pasos:
   - "Identificar si el contexto es negativo y requiere artículo."
   - "Usar 'a' antes de sustantivos contables en oraciones negativas."
-respuesta: "a"
 tipo: completar
 respuestas_validas:
   - "a"
@@ -493,7 +471,6 @@ metadata:
 pasos:
   - "Reconocer que los nombres propios no llevan artículo."
   - "Verificar si el sustantivo es un nombre de lugar, persona o marca."
-respuesta: ""
 tipo: completar
 respuestas_validas:
   - ""
@@ -513,7 +490,6 @@ metadata:
 pasos:
   - "Identificar si el sustantivo se refiere a una categoría general."
   - "No usar artículo cuando se habla de grupos o categorías no específicas."
-respuesta: ""
 tipo: completar
 respuestas_validas:
   - ""

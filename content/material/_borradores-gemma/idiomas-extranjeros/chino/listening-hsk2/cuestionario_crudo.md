@@ -10,7 +10,6 @@ pasos:
   - "Escuchar la frase y completar el hueco con el número correcto."
 explicacion: "La oración requiere el uso del número '3' para indicar la cantidad de personas en la sala."
 tipo: completar
-respuesta: "三"
 respuestas_validas:
   - "三"
   - "叁"
@@ -53,7 +52,6 @@ pasos:
   - "Escuchar la frase y completar el hueco con la hora correcta."
 explicacion: "La expresión '两点钟' se usa para indicar las 2:00 en contexto de horarios formales."
 tipo: completar
-respuesta: "两点钟"
 respuestas_validas:
   - "两点钟"
   - "二点整"
@@ -96,7 +94,6 @@ pasos:
   - "Escuchar la frase y completar el hueco con el verbo correcto."
 explicacion: "El verbo '买' se usa para acciones de adquisición, mientras que '卖' indica venta."
 tipo: completar
-respuesta: "买"
 respuestas_validas:
   - "买"
   - "购买"
@@ -139,7 +136,6 @@ pasos:
   - "Escuchar la frase y completar el hueco con el lugar correcto."
 explicacion: "El término '图书馆' se usa para referirse a un lugar de estudio, no a una tienda o restaurante."
 tipo: completar
-respuesta: "图书馆"
 respuestas_validas:
   - "图书馆"
   - "图书室"
@@ -182,7 +178,6 @@ pasos:
   - "Escuchar la frase y completar el hueco con el medio de transporte correcto."
 explicacion: "La palabra '飞机' se usa para indicar un avión, mientras que '火车' es tren y '汽车' es coche."
 tipo: completar
-respuesta: "飞机"
 respuestas_validas:
   - "飞机"
   - "飞行器"
@@ -201,7 +196,6 @@ metadata:
 pasos:
   - "Identificar el verbo que requiere la partícula de medida."
   - "Elegir la forma correcta del verbo con partícula."
-respuesta: "买"
 respuestas_validas:
   - "买"
   - "买了"
@@ -240,7 +234,6 @@ metadata:
 pasos:
   - "Identificar el cuantificador que se usa con '水'."
   - "Seleccionar la forma adecuada para expresar cantidad."
-respuesta: 一点
 respuestas_validas:
   - 一点
   - 一些
@@ -262,7 +255,6 @@ pasos:
   - "Escuchar la frase y completar el hueco con la opción correcta sobre el pedido."
 explicacion: "La palabra '要' se usa para expresar deseos o pedidos, mientras que otros verbos tienen significados diferentes."
 tipo: completar
-respuesta: "要"
 respuestas_validas:
   - "要"
   - "想要"
@@ -322,7 +314,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo que describe un sabor."
   - "Elegir la forma correcta del modificador."
-respuesta: 辣的
 respuestas_validas:
   - 辣的
   - 辛辣的
@@ -344,7 +335,6 @@ pasos:
   - "Escuchar la frase y completar el hueco con el ingrediente correcto."
 explicacion: "La palabra '洋葱' se refiere a un tipo de vegetal, mientras que '大蒜' es ajo y '胡萝卜' es zanahoria."
 tipo: completar
-respuesta: "洋葱"
 respuestas_validas:
   - "洋葱"
   - "葱头"
@@ -382,7 +372,6 @@ metadata:
 pasos:
   - "Identificar el lugar que se menciona en el contexto de viaje."
   - "Elegir la forma correcta del nombre del lugar."
-respuesta: 上海
 respuestas_validas:
   - 北京
   - 南京
@@ -423,7 +412,6 @@ pasos:
   - "Escuchar la frase y completar el hueco con el verbo correcto."
 explicacion: "La palabra '不要' indica negación, por lo que se excluye el ingrediente mencionado."
 tipo: completar
-respuesta: "不要"
 respuestas_validas:
   - "不要"
   - "不想要"
@@ -442,7 +430,6 @@ metadata:
 pasos:
   - "Identificar la preposición que indica ubicación."
   - "Seleccionar el sufijo correcto para '桌子'."
-respuesta: 上
 respuestas_validas:
   - 上面
   - 上边
@@ -481,7 +468,6 @@ metadata:
 pasos:
   - "Identificar el verbo que describe un proceso de pensamiento."
   - "Elegir la forma correcta del verbo con partícula."
-respuesta: 想
 respuestas_validas:
   - 考虑
   - 思考

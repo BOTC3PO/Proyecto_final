@@ -8,15 +8,12 @@ metadata:
 pasos:
   - "Identificar el uso de la particula は para marcar el sujeto en una pregunta."
   - "Completar el hueco con el interrogativo adecuado."
-respuesta: "どこ"
 tipo: completar
 respuestas_validas:
   - "どこ"
   - "Dónde"
 explicacion: "En preguntas como '¿Dónde está el libro?', se usa 'どこ' para indicar la ubicación. La particula は marca el sujeto de la oración."
 enunciado: "本は___にあります。"
-variables:
-  - "libro"
 ```
 
 
@@ -39,8 +36,6 @@ opciones_explicitas:
   - "会議は明日です。"
 explicacion: "La pregunta sobre tiempo se forma con 'いつ' seguido del sujeto y el verbo en afirmativo. La opción correcta es la que indica el día actual."
 enunciado: "___？"
-variables:
-  - "reunión"
 ```
 
 
@@ -55,15 +50,12 @@ metadata:
 pasos:
   - "Identificar el uso de '何' para preguntar sobre un objeto."
   - "Completar el hueco con la palabra correcta."
-respuesta: "何"
 tipo: completar
 respuestas_validas:
   - "何"
   - "¿Qué"
 explicacion: "El interrogativo '何' se usa para preguntar sobre objetos o cosas. La particula は marca el sujeto de la oración."
 enunciado: "___が好きですか？"
-variables:
-  - "comida"
 ```
 
 
@@ -78,15 +70,12 @@ metadata:
 pasos:
   - "Reconocer el uso de 'どこ' para preguntar sobre ubicación."
   - "Completar el hueco con la palabra correcta."
-respuesta: "どこ"
 tipo: completar
 respuestas_validas:
   - "どこ"
   - "Dónde"
 explicacion: "El interrogativo 'どこ' se usa en preguntas de lugar. La particula は marca el sujeto de la oración."
 enunciado: "公園は___にあります。"
-variables:
-  - "parque"
 ```
 
 
@@ -101,15 +90,12 @@ metadata:
 pasos:
   - "Identificar el uso de 'いつ' para preguntar sobre tiempo."
   - "Completar el hueco con la palabra correcta."
-respuesta: "いつ"
 tipo: completar
 respuestas_validas:
   - "いつ"
   - "¿Cuándo"
 explicacion: "El interrogativo 'いつ' se usa en preguntas de tiempo. La particula は marca el sujeto de la oración."
 enunciado: "___に遊びに行きますか？"
-variables:
-  - "fiesta"
 ```
 
 
@@ -124,15 +110,12 @@ metadata:
 pasos:
   - "Reconocer el uso de '何' para preguntar sobre un objeto."
   - "Completar el hueco con la palabra correcta."
-respuesta: "何"
 tipo: completar
 respuestas_validas:
   - "何"
   - "¿Qué"
 explicacion: "El interrogativo '何' se usa en preguntas de objetos. La particula は marca el sujeto de la oración."
 enunciado: "___を食べますか？"
-variables:
-  - "comida"
 ```
 
 
@@ -147,15 +130,12 @@ metadata:
 pasos:
   - "Identificar el uso de 'どこ' para preguntar sobre ubicación."
   - "Completar el hueco con la palabra correcta."
-respuesta: "どこ"
 tipo: completar
 respuestas_validas:
   - "どこ"
   - "Dónde"
 explicacion: "El interrogativo 'どこ' se usa en preguntas de lugar. La particula は marca el sujeto de la oración."
 enunciado: "駅は___にあります。"
-variables:
-  - "estación"
 ```
 
 
@@ -169,7 +149,7 @@ metadata:
   tags: ["sujeto", "partícula-が"]  
 pasos:  
   - "Identificar la partícula necesaria para formar una pregunta sobre sujeto."  
-respuesta_validas:  
+respuestas_validas:  
   - "だれ"  
 opciones_explicitas:  
   - "だれ"  
@@ -189,15 +169,12 @@ metadata:
 pasos:
   - "Identificar el uso de '何' para preguntar sobre un objeto."
   - "Completar el hueco con la palabra correcta."
-respuesta: "何"
 tipo: completar
 respuestas_validas:
   - "何"
   - "¿Qué"
 explicacion: "El interrogativo '何' se usa en preguntas de objetos. La particula は marca el sujeto de la oración."
 enunciado: "___を飲みますか？"
-variables:
-  - "bebida"
 ```
 
 
@@ -212,15 +189,12 @@ metadata:
 pasos:
   - "Reconocer el uso de 'どこ' para preguntar sobre ubicación."
   - "Completar el hueco con la palabra correcta."
-respuesta: "どこ"
 tipo: completar
 respuestas_validas:
   - "どこ"
   - "Dónde"
 explicacion: "El interrogativo 'どこ' se usa en preguntas de lugar. La particula は marca el sujeto de la oración."
 enunciado: "学校は___にあります。"
-variables:
-  - "escuela"
 ```
 
 

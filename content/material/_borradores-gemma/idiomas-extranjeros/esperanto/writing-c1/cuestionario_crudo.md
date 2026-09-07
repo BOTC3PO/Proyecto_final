@@ -16,7 +16,6 @@ pasos:
 explicacion: "La kondiĉa frazo en esperanto uzas 'se' kaj la verbo estas en la pasiva vojo. La korreta formo estas 'estus akceptita'."
 tipo: completar
 enunciado: "Se mi ______ al tiu ĉi lernolibro, ĝi estus akceptita."
-respuesta: "laboris"
 respuestas_validas:
   - "laboris"
   - "Laboris"
@@ -65,7 +64,6 @@ pasos:
 explicacion: "En formala kunteksto, 'kun' estas sekvata de artikolo. La prava formo estas 'kun la lernanto'."
 tipo: completar
 enunciado: "La instruisto devas konsili kun ______ lernanto."
-respuesta: "la"
 respuestas_validas:
   - "la"
   - "La"
@@ -114,7 +112,6 @@ pasos:
 explicacion: "La subjekto 'la studentoj' estas plurala, do la verbo devas esti en pluralo. La prava formo estas 'lernis'."
 tipo: completar
 enunciado: "La studentoj ______ pri la nova lernmetodo."
-respuesta: "lernis"
 respuestas_validas:
   - "lernis"
   - "Lernis"

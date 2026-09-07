@@ -8,13 +8,11 @@ metadata:
 pasos:  
   - "Identifica el sujeto de la oración."  
   - "Aplica la forma correcta del verbo 'to be' en presente para el sujeto dado."  
-respuesta: "am"  
 respuestas_validas:  
   - "am"  
   - "Am"  
 tipo: completar  
 enunciado: "I ___ a student. (Fill in the blank with the correct form of 'to be')".  
-variables: []  
 explicacion: "El sujeto 'I' requiere la forma 'am' del verbo 'to be' en presente."  
 ```
 
@@ -28,13 +26,11 @@ metadata:
 pasos:  
   - "Reconoce la forma negativa del verbo 'to be'."  
   - "Aplica el sujeto 'he' a la estructura correcta."  
-respuesta: "is not"  
 respuestas_validas:  
   - "is not"  
   - "Isn't"  
 tipo: completar  
 enunciado: "He ___ tired. (Complete the negative form of 'to be')".  
-variables: []  
 explicacion: "La forma negativa de 'he is' es 'is not' o su contracción 'isn't'."  
 ```
 
@@ -48,13 +44,11 @@ metadata:
 pasos:  
   - "Reconoce la estructura de pregunta con el sujeto 'you'."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "Are you"  
 respuestas_validas:  
   - "Are you"  
   - "are you"  
 tipo: completar  
 enunciado: "___ hungry? (Complete the question with the correct form of 'to be')".  
-variables: []  
 explicacion: "Para preguntar sobre el estado de 'you', se usa 'Are you'."  
 ```
 
@@ -68,13 +62,11 @@ metadata:
 pasos:  
   - "Identifica la contracción de 'is not'."  
   - "Aplica al sujeto 'she' correctamente."  
-respuesta: "'s"  
 respuestas_validas:  
   - "'s"  
   - "Is not"  
 tipo: completar  
 enunciado: "She ___ a teacher. (Complete with the contraction of 'is not')".  
-variables: []  
 explicacion: "La contracción de 'is not' es 'isn't', que se escribe como "'s' en este contexto."  
 ```
 
@@ -88,13 +80,11 @@ metadata:
 pasos:  
   - "Reconoce un sujeto plural."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "are"  
 respuestas_validas:  
   - "are"  
   - "Are"  
 tipo: completar  
 enunciado: "They ___ my friends. (Complete with the correct form of 'to be')".  
-variables: []  
 explicacion: "Los sujetos plurales como 'they' requieren la forma 'are' del verbo 'to be'."  
 ```
 
@@ -108,13 +98,11 @@ metadata:
 pasos:  
   - "Reconoce la estructura de pregunta con el sujeto 'it'."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "Is it"  
 respuestas_validas:  
   - "Is it"  
   - "is it"  
 tipo: completar  
 enunciado: "___ a good idea? (Complete the question with the correct form of 'to be')".  
-variables: []  
 explicacion: "Para preguntar sobre el estado de 'it', se usa 'Is it'."  
 ```
 
@@ -128,13 +116,11 @@ metadata:
 pasos:  
   - "Reconoce la forma negativa del verbo 'to be' para sujeto plural."  
   - "Aplica al sujeto 'we' correctamente."  
-respuesta: "are not"  
 respuestas_validas:  
   - "are not"  
   - "Aren't"  
 tipo: completar  
 enunciado: "We ___ ready. (Complete the negative form of 'to be')".  
-variables: []  
 explicacion: "La forma negativa de 'we are' es 'are not' o su contracción 'aren't'."  
 ```
 
@@ -148,13 +134,11 @@ metadata:
 pasos:  
   - "Identifica la contracción de 'am'."  
   - "Aplica al sujeto 'I' correctamente."  
-respuesta: "'m"  
 respuestas_validas:  
   - "'m"  
   - "Am"  
 tipo: completar  
 enunciado: "I ___ happy today. (Complete with the contraction of 'am')".  
-variables: []  
 explicacion: "La contracción de 'am' es 'm', que se escribe como "'m' en este contexto."  
 ```
 
@@ -168,13 +152,11 @@ metadata:
 pasos:  
   - "Reconoce la estructura de pregunta con el sujeto 'he'."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "Is he"  
 respuestas_validas:  
   - "Is he"  
   - "is he"  
 tipo: completar  
 enunciado: "___ your brother? (Complete the question with the correct form of 'to be')".  
-variables: []  
 explicacion: "Para preguntar sobre el estado de 'he', se usa 'Is he'."  
 ```
 
@@ -188,13 +170,11 @@ metadata:
 pasos:  
   - "Reconoce la forma negativa del verbo 'to be' para sujeto plural."  
   - "Aplica al sujeto 'they' correctamente."  
-respuesta: "are not"  
 respuestas_validas:  
   - "are not"  
   - "Aren't"  
 tipo: completar  
 enunciado: "They ___ late. (Complete the negative form of 'to be')".  
-variables: []  
 explicacion: "La forma negativa de 'they are' es 'are not' o su contracción 'aren't'."  
 ```
 
@@ -208,13 +188,11 @@ metadata:
 pasos:  
   - "Reconoce un sujeto singular."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "is"  
 respuestas_validas:  
   - "is"  
   - "Is"  
 tipo: completar  
 enunciado: "She ___ my sister. (Complete with the correct form of 'to be')".  
-variables: []  
 explicacion: "Los sujetos singulares como 'she' requieren la forma 'is' del verbo 'to be'."  
 ```
 
@@ -228,13 +206,11 @@ metadata:
 pasos:  
   - "Identifica la contracción de 'are you'."  
   - "Aplica al sujeto 'you' correctamente."  
-respuesta: "'re"  
 respuestas_validas:  
   - "'re"  
   - "Are you"  
 tipo: completar  
 enunciado: "You ___ going to the party? (Complete with the contraction of 'are')".  
-variables: []  
 explicacion: "La contracción de 'are you' es 'you're', que se escribe como "'re' en este contexto."  
 ```
 
@@ -248,13 +224,11 @@ metadata:
 pasos:  
   - "Reconoce la estructura de pregunta con el sujeto 'we'."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "Are we"  
 respuestas_validas:  
   - "Are we"  
   - "are we"  
 tipo: completar  
 enunciado: "___ ready for the test? (Complete the question with the correct form of 'to be')".  
-variables: []  
 explicacion: "Para preguntar sobre el estado de 'we', se usa 'Are we'."  
 ```
 
@@ -268,13 +242,11 @@ metadata:
 pasos:  
   - "Reconoce la forma negativa del verbo 'to be' para sujeto singular."  
   - "Aplica al sujeto 'it' correctamente."  
-respuesta: "is not"  
 respuestas_validas:  
   - "is not"  
   - "Isn't"  
 tipo: completar  
 enunciado: "It ___ raining. (Complete the negative form of 'to be')".  
-variables: []  
 explicacion: "La forma negativa de 'it is' es 'is not' o su contracción 'isn't'."  
 ```
 
@@ -288,13 +260,11 @@ metadata:
 pasos:  
   - "Identifica la contracción de 'he is'."  
   - "Aplica al sujeto 'he' correctamente."  
-respuesta: "'s"  
 respuestas_validas:  
   - "'s"  
   - "Is"  
 tipo: completar  
 enunciado: "He ___ a doctor. (Complete with the contraction of 'is')".  
-variables: []  
 explicacion: "La contracción de 'he is' es 'he's', que se escribe como "'s' en este contexto."  
 ```
 
@@ -308,13 +278,11 @@ metadata:
 pasos:  
   - "Reconoce la estructura de pregunta con el sujeto 'she'."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "Is she"  
 respuestas_validas:  
   - "Is she"  
   - "is she"  
 tipo: completar  
 enunciado: "___ your teacher? (Complete the question with the correct form of 'to be')".  
-variables: []  
 explicacion: "Para preguntar sobre el estado de 'she', se usa 'Is she'."  
 ```
 
@@ -328,13 +296,11 @@ metadata:
 pasos:  
   - "Reconoce la forma negativa del verbo 'to be' para sujeto singular o plural."  
   - "Aplica al sujeto 'you' correctamente."  
-respuesta: "are not"  
 respuestas_validas:  
   - "are not"  
   - "Aren't"  
 tipo: completar  
 enunciado: "You ___ wrong. (Complete the negative form of 'to be')".  
-variables: []  
 explicacion: "La forma negativa de 'you are' es 'are not' o su contracción 'aren't'."  
 ```
 
@@ -348,13 +314,11 @@ metadata:
 pasos:  
   - "Identifica la contracción de 'is it'."  
   - "Aplica al sujeto 'it' correctamente."  
-respuesta: "'s"  
 respuestas_validas:  
   - "'s"  
   - "Is it"  
 tipo: completar  
 enunciado: "It ___ important. (Complete with the contraction of 'is')".  
-variables: []  
 explicacion: "La contracción de 'is it' es 'it's', que se escribe como "'s' en este contexto."  
 ```
 
@@ -368,13 +332,11 @@ metadata:
 pasos:  
   - "Reconoce la estructura de pregunta con el sujeto 'they'."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "Are they"  
 respuestas_validas:  
   - "Are they"  
   - "are they"  
 tipo: completar  
 enunciado: "___ going to the store? (Complete the question with the correct form of 'to be')".  
-variables: []  
 explicacion: "Para preguntar sobre el estado de 'they', se usa 'Are they'."  
 ```
 
@@ -388,13 +350,11 @@ metadata:
 pasos:  
   - "Reconoce la forma negativa del verbo 'to be' para sujeto singular."  
   - "Aplica al sujeto 'I' correctamente."  
-respuesta: "am not"  
 respuestas_validas:  
   - "am not"  
   - "Ain't"  
 tipo: completar  
 enunciado: "I ___ happy. (Complete the negative form of 'to be')".  
-variables: []  
 explicacion: "La forma negativa de 'I am' es 'am not' o su contracción 'ain't', aunque esta última es informal."  
 ```
 
@@ -408,13 +368,11 @@ metadata:
 pasos:  
   - "Identifica la contracción de 'are not'."  
   - "Aplica al sujeto 'we' correctamente."  
-respuesta: "'re"  
 respuestas_validas:  
   - "'re"  
   - "Are not"  
 tipo: completar  
 enunciado: "We ___ going to meet. (Complete with the contraction of 'are not')".  
-variables: []  
 explicacion: "La contracción de 'are not' es 'aren't', que se escribe como "'re' en este contexto."  
 ```
 
@@ -428,13 +386,11 @@ metadata:
 pasos:  
   - "Reconoce la estructura de pregunta con el sujeto 'I'."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "Am I"  
 respuestas_validas:  
   - "Am I"  
   - "am I"  
 tipo: completar  
 enunciado: "___ your friend? (Complete the question with the correct form of 'to be')".  
-variables: []  
 explicacion: "Para preguntar sobre el estado de 'I', se usa 'Am I'."  
 ```
 
@@ -448,13 +404,11 @@ metadata:
 pasos:  
   - "Reconoce la forma negativa del verbo 'to be' para sujeto singular."  
   - "Aplica al sujeto 'she' correctamente."  
-respuesta: "is not"  
 respuestas_validas:  
   - "is not"  
   - "Isn't"  
 tipo: completar  
 enunciado: "She ___ here. (Complete the negative form of 'to be')".  
-variables: []  
 explicacion: "La forma negativa de 'she is' es 'is not' o su contracción 'isn't'."  
 ```
 
@@ -468,13 +422,11 @@ metadata:
 pasos:  
   - "Identifica la contracción de 'it is'."  
   - "Aplica al sujeto 'it' correctamente."  
-respuesta: "'s"  
 respuestas_validas:  
   - "'s"  
   - "Is"  
 tipo: completar  
 enunciado: "It ___ a car. (Complete with the contraction of 'is')".  
-variables: []  
 explicacion: "La contracción de 'it is' es 'it's', que se escribe como "'s' en este contexto."  
 ```
 
@@ -488,12 +440,10 @@ metadata:
 pasos:  
   - "Reconoce la estructura de pregunta con el sujeto 'we'."  
   - "Aplica la forma correcta del verbo 'to be' en presente."  
-respuesta: "Are we"  
 respuestas_validas:  
   - "Are we"  
   - "are we"  
 tipo: completar  
 enunciado: "___ in the same class? (Complete the question with the correct form of 'to be')".  
-variables: []  
 explicacion: "Para preguntar sobre el estado de 'we', se usa 'Are we'."  
 ```

@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Escucha el diálogo entre dos personas discutiendo un viaje."  
   - "Identifica la palabra que contrasta con 'schöner' en el contexto de la oración."  
-respuesta: "billiger"  
 respuestas_validas:  
   - "billiger"  
   - "Billiger"  
@@ -27,7 +26,6 @@ metadata:
 pasos:  
   - "Escucha el fragmento de una conferencia sobre energías renovables."  
   - "Completa la oración condicional con el verbo en forma correcta."  
-respuesta: "würde"  
 respuestas_validas:  
   - "würde"  
   - "Würde"  
@@ -86,7 +84,6 @@ metadata:
 pasos:  
   - "Escucha el anuncio de un restaurante."  
   - "Completa la frase con el imperativo formal correcto."  
-respuesta: "Probieren Sie"  
 respuestas_validas:  
   - "Probieren Sie"  
   - "probieren sie"  
@@ -125,7 +122,6 @@ metadata:
 pasos:  
   - "Escucha el reportaje sobre un accidente."  
   - "Completa la oración con el participio presente del verbo en contexto."  
-respuesta: "gefallen"  
 respuestas_validas:  
   - "gefallen"  
   - "Gefallen"  
@@ -184,7 +180,6 @@ metadata:
 pasos:  
   - "Escucha la conversación entre padres e hijos."  
   - "Completa la oración con el pronombre objetivo correcto."  
-respuesta: "sie"  
 respuestas_validas:  
   - "sie"  
   - "Sie"  
@@ -223,7 +218,6 @@ metadata:
 pasos:  
   - "Escucha la conversación en una tienda."  
   - "Completa la oración con el participio perfecto del verbo en contexto."  
-respuesta: "gekauft"  
 respuestas_validas:  
   - "gekauft"  
   - "Gekauft"  
@@ -262,7 +256,6 @@ metadata:
 pasos:  
   - "Escucha la narración de un evento histórico."  
   - "Completa la oración con el pretérito perfecto del verbo en contexto."  
-respuesta: "hatte begonnen"  
 respuestas_validas:  
   - "hatte begonnen"  
   - "Hatte begonnen"  
@@ -301,7 +294,6 @@ metadata:
 pasos:  
   - "Escucha la conversación entre un médico y un paciente."  
   - "Completa la oración con el imperativo informal correcto del verbo."  
-respuesta: "nehmen Sie"  
 respuestas_validas:  
   - "nehmen Sie"  
   - "Nehmen sie"  
@@ -340,7 +332,6 @@ metadata:
 pasos:  
   - "Escucha la historia de un viaje a España."  
   - "Completa la oración con el participio presente del verbo en contexto."  
-respuesta: "gefallen"  
 respuestas_validas:  
   - "gefallen"  
   - "Gefallen"  
@@ -379,7 +370,6 @@ metadata:
 pasos:  
   - "Escucha la entrevista con un ceramista."  
   - "Completa la oración con el pronombre reflexivo correcto."  
-respuesta: "sich"  
 respuestas_validas:  
   - "sich"  
   - "Sich"  
@@ -418,7 +408,6 @@ metadata:
 pasos:  
   - "Escucha la conversación entre una pareja."  
   - "Completa la oración con la forma del subjuntivo que expresa un deseo hipotético."  
-respuesta: "würde"  
 respuestas_validas:  
   - "würde"  
   - "Würde"  
@@ -457,7 +446,6 @@ metadata:
 pasos:  
   - "Escucha la narración de una historia ficticia."  
   - "Completa la oración con el pluscuamperfecto del verbo en contexto."  
-respuesta: "hatte beschlossen"  
 respuestas_validas:  
   - "hatte beschlossen"  
   - "Hatte beschlossen"  

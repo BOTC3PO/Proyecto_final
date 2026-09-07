@@ -8,16 +8,12 @@ metadata:
 pasos:
   - "Identificar el verbo faltante en la oración."
   - "Completar con el verbo que describe la acción del sujeto."
-respuesta: "是"
 respuestas_validas:
   - "是"
   - "是"
 tipo: completar
 explicacion: "La oración describe una identidad. El verbo '是' (ser/estar) se usa para afirmar una característica o estado."
 enunciado: "她___学生。"
-variables:
-  - nombre: "she"
-    valor: "她"
 ```
 
 ---
@@ -42,9 +38,6 @@ opciones_explicitas:
 tipo: mc
 explicacion: "La preposición '在' se usa para indicar ubicación presente, mientras que '到' y '从' indican dirección o salida."
 enunciado: "他___学校。"
-variables:
-  - nombre: "he"
-    valor: "他"
 ```
 
 ---
@@ -61,16 +54,12 @@ metadata:
 pasos:
   - "Determinar el tiempo de la acción en la oración."
   - "Completar con el verbo que indica pasado."
-respuesta: "去"
 respuestas_validas:
   - "去"
   - "去了"
 tipo: completar
 explicacion: "El verbo '去' (ir) se usa para acciones futuras o presentes, mientras que '去了' indica un evento concluido en el pasado."
 enunciado: "我昨天___学校。"
-variables:
-  - nombre: "I"
-    valor: "我"
 ```
 
 ---
@@ -95,9 +84,6 @@ opciones_explicitas:
 tipo: mc
 explicacion: "El pronombre '我的' indica posesión por parte del hablante, mientras que '你的' y '他的' se refieren a otros sujetos."
 enunciado: "___书在桌子上。"
-variables:
-  - nombre: "book"
-    valor: "书"
 ```
 
 ---
@@ -114,16 +100,12 @@ metadata:
 pasos:
   - "Identificar la negación en la oración."
   - "Completar con el verbo que expresa ausencia de acción."
-respuesta: "不是"
 respuestas_validas:
   - "不是"
   - "不"
 tipo: completar
 explicacion: "'不是' se usa para negar una identidad o afirmación, mientras que '不' es más general para negar acciones."
 enunciado: "他___老师。"
-variables:
-  - nombre: "he"
-    valor: "他"
 ```
 
 ---
@@ -148,9 +130,6 @@ opciones_explicitas:
 tipo: mc
 explicacion: "La secuencia numérica requiere el numeral '三' para continuar de manera lógica."
 enunciado: "一, 二, ___。"
-variables:
-  - nombre: "sequence"
-    valor: "一, 二, ___"
 ```
 
 ---
@@ -167,16 +146,12 @@ metadata:
 pasos:
   - "Identificar la intención del sujeto en la oración."
   - "Completar con el verbo que expresa deseo o plan."
-respuesta: "想"
 respuestas_validas:
   - "想"
   - "想要"
 tipo: completar
 explicacion: "'想' se usa para expresar deseos, mientras que '想要' es una forma más formal o específica."
 enunciado: "我___吃苹果。"
-variables:
-  - nombre: "I"
-    valor: "我"
 ```
 
 ---
@@ -201,9 +176,6 @@ opciones_explicitas:
 tipo: mc
 explicacion: "'在' se usa para indicar un período de tiempo presente, mientras que '从' y '到' marcan rangos temporales."
 enunciado: "他___早上上学。"
-variables:
-  - nombre: "he"
-    valor: "他"
 ```
 
 ---
@@ -220,16 +192,12 @@ metadata:
 pasos:
   - "Identificar la acción que se realiza con ayuda."
   - "Completar con el verbo que indica asistencia o apoyo."
-respuesta: "帮助"
 respuestas_validas:
   - "帮助"
   - "帮忙"
 tipo: completar
 explicacion: "'帮助' es un verbo directo para indicar asistencia, mientras que '帮忙' es más coloquial."
 enunciado: "她___我学习中文。"
-variables:
-  - nombre: "she"
-    valor: "她"
 ```
 
 ---
@@ -254,9 +222,6 @@ opciones_explicitas:
 tipo: mc
 explicacion: "'有人' indica presencia de alguien sin especificarlo, mientras que '没有人' y '大家' tienen significados opuestos o colectivos."
 enunciado: "___在教室里。"
-variables:
-  - nombre: "someone"
-    valor: "有人"
 ```
 
 ---
@@ -273,16 +238,12 @@ metadata:
 pasos:
   - "Identificar la negación de una acción."
   - "Completar con el verbo que expresa ausencia de hacer algo."
-respuesta: "不"
 respuestas_validas:
   - "不"
   - "不是"
 tipo: completar
 explicacion: "'不' se usa para negar acciones, mientras que '不是' niega identidades o afirmaciones."
 enunciado: "我___喜欢咖啡。"
-variables:
-  - nombre: "I"
-    valor: "我"
 ```
 
 ---
@@ -307,9 +268,6 @@ opciones_explicitas:
 tipo: mc
 explicacion: "'到' se usa para indicar un lugar de llegada, mientras que '在' y '从' marcan ubicación o salida."
 enunciado: "他___北京。"
-variables:
-  - nombre: "he"
-    valor: "他"
 ```
 
 ---
@@ -326,16 +284,12 @@ metadata:
 pasos:
   - "Identificar la intención de hacer algo."
   - "Completar con el verbo que expresa plan o deseo."
-respuesta: "要"
 respuestas_validas:
   - "要"
   - "想要"
 tipo: completar
 explicacion: "'要' se usa para expresar planes futuros, mientras que '想要' es más informal."
 enunciado: "我___去公园。"
-variables:
-  - nombre: "I"
-    valor: "我"
 ```
 
 ---
@@ -360,9 +314,6 @@ opciones_explicitas:
 tipo: mc
 explicacion: "La secuencia numérica requiere el numeral '五' para continuar de manera lógica."
 enunciado: "三, 四, ___。"
-variables:
-  - nombre: "sequence"
-    valor: "三, 四, ___"
 ```
 
 ---
@@ -379,16 +330,12 @@ metadata:
 pasos:
   - "Identificar la negación de una acción."
   - "Completar con el verbo que expresa ausencia de hacer algo."
-respuesta: "不"
 respuestas_validas:
   - "不"
   - "不是"
 tipo: completar
 explicacion: "'不' se usa para negar acciones, mientras que '不是' niega identidades o afirmaciones."
 enunciado: "他___说话。"
-variables:
-  - nombre: "he"
-    valor: "他"
 ```
 
 ---
@@ -413,9 +360,6 @@ opciones_explicitas:
 tipo: mc
 explicacion: "'在' se usa para indicar un período de tiempo presente, mientras que '从' y '到' marcan rangos temporales."
 enunciado: "我___晚上睡觉。"
-variables:
-  - nombre: "I"
-    valor: "我"
 ```
 
 ---
@@ -432,16 +376,12 @@ metadata:
 pasos:
   - "Identificar la acción que se realiza con ayuda."
   - "Completar con el verbo que expresa asistencia o apoyo."
-respuesta: "帮助"
 respuestas_validas:
   - "帮助"
   - "帮忙"
 tipo: completar
 explicacion: "'帮助' es un verbo directo para indicar asistencia, mientras que '帮忙' es más coloquial."
 enunciado: "他___我学习中文。"
-variables:
-  - nombre: "he"
-    valor: "他"
 ```
 
 ---
@@ -458,15 +398,12 @@ metadata:
 pasos:
   - "Identificar la acción que completa la oración en contexto."
 explicacion: "La preposición '喜欢' (xǐhuān) se usa para expresar gustos o preferencias. En este caso, el sujeto '我' (wǒ, yo) está indicando una actividad que le gusta realizar."
-respuesta: "喜欢"
 respuestas_validas:
   - "喜欢"
   - "Xihuan"
   - "xǐhuān"
 tipo: completar
 enunciado: "我___看电视。"
-variables:
-  - "verbo_gustar"
 ```
 
 ---
@@ -510,9 +447,6 @@ opciones_explicitas:
 tipo: mc
 explicacion: "'到' se usa para indicar un lugar de llegada, mientras que '在' y '从' marcan ubicación o salida."
 enunciado: "她___北京。"
-variables:
-  - nombre: "she"
-    valor: "她"
 ```
 
 ---
@@ -529,15 +463,12 @@ metadata:
 pasos:
   - "Identificar el verbo que describe la acción realizada."
 explicacion: "El verbo '做' (zuò) se usa para acciones concretas como preparar o realizar algo. Aquí, el sujeto '他' (tā, él) está describiendo una tarea específica."
-respuesta: "做"
 respuestas_validas:
   - "做"
   - "Zuo"
   - "zuò"
 tipo: completar
 enunciado: "他今天___饭。"
-variables:
-  - "verbo_accion"
 ```
 
 ---
@@ -594,15 +525,12 @@ metadata:
 pasos:
   - "Identificar el verbo que indica finalización de una acción."
 explicacion: "El verbo '完成' (wánchéng) se usa para acciones terminadas. En este contexto, el sujeto '他' (tā, él) describe una tarea concluida."
-respuesta: "完成"
 respuestas_validas:
   - "完成"
   - "Wancheng"
   - "wánchéng"
 tipo: completar
 enunciado: "他___作业。"
-variables:
-  - "verbo_termino"
 ```
 
 ---

@@ -11,7 +11,6 @@ pasos:
 explicacion: "El sujeto 'il' es singular, así que el verbe debe estar en subjonctif présent (3ª persona singular). El verbo 'être' se conjuga como 'sois' aquí."  
 enunciado: "Il faut que tu ___ de ton côté."  
 tipo: completar  
-respuesta: "sois"  
 respuestas_validas:  
   - "sois"  
   - "Sois"  
@@ -34,7 +33,6 @@ pasos:
 explicacion: "La negación en imperativo con 'tu' se forma con 'n'' + verbo infinitivo. 'Ajouter' se convierte en 'ajoutes', pero con negación se escribe 'n'ajoutes pas'."  
 enunciado: "Ne ___ pas trop de sel dans le café."  
 tipo: completar  
-respuesta: "ajoutes"  
 respuestas_validas:  
   - "ajoutes"  
   - "Ajoutes"  
@@ -57,7 +55,6 @@ pasos:
 explicacion: "El plus-que-parfait se usa para describir una acción que ocurrió antes de otra en el pasado. Aquí, 'avait mangé' precede a 's'est levé'."  
 enunciado: "Quand il ___ le déjeuner, il s'est levé pour sortir."  
 tipo: completar  
-respuesta: "avait mangé"  
 respuestas_validas:  
   - "avait mangé"  
   - "Avait mangé"  
@@ -80,7 +77,6 @@ pasos:
 explicacion: "El antecedente 'le livre' es masculino singular, así que el verbo debe estar en 3ª persona singular. 'Est-ce que tu as lu le livre que j'ai acheté?' → 'que' se usa porque el antecedente es un objeto."  
 enunciado: "C’est le magasin ___ je suis allé hier."  
 tipo: completar  
-respuesta: "où"  
 respuestas_validas:  
   - "où"  
   - "Où"  
@@ -103,7 +99,6 @@ pasos:
 explicacion: "El conditionnel presente se forma con el verbo en infinitivo + 'ais'. Aquí, 'aimerais' expresa un deseo no cumplido."  
 enunciado: "Si je ___ plus de temps, je voyageais davantage."  
 tipo: completar  
-respuesta: "avais"  
 respuestas_validas:  
   - "avais"  
   - "Avais"  
@@ -126,7 +121,6 @@ pasos:
 explicacion: "Después de 'Il faut que', se usa el subjonctif. El verbo 'être' en este contexto es 'sois' (3ª persona singular)."  
 enunciado: "Il est nécessaire que tu ___ plus attention aux détails."  
 tipo: completar  
-respuesta: "donnes"  
 respuestas_validas:  
   - "donnes"  
   - "Donnes"  
@@ -149,7 +143,6 @@ pasos:
 explicacion: "La negación en infinitivo se forma con 'ne...pas'. Aquí, 'ne pas être' es la forma correcta para una prohibición o recomendación."  
 enunciado: "Il ne faut ___ à l’heure de la réunion."  
 tipo: completar  
-respuesta: "être"  
 respuestas_validas:  
   - "être"  
   - "Être"  
@@ -172,7 +165,6 @@ pasos:
 explicacion: "El verbo 's'habiller' es pronominal, así que el participio se conjuga con 'être' y el pronombre se coloca antes. 'Se sont habillés' es correcto."  
 enunciado: "Ils ___ très élégants pour le dîner."  
 tipo: completar  
-respuesta: "se sont habillés"  
 respuestas_validas:  
   - "se sont habillés"  
   - "Se sont habillés"  
@@ -195,7 +187,6 @@ pasos:
 explicacion: "En oraciones condicionales, se usa 'si' + conditionnel présent (je finirais) y futur simple en la parte principal (je partirai)."  
 enunciado: "Si tu ___ ton travail à temps, je ___ avec toi demain."  
 tipo: completar  
-respuesta: "finis"  
 respuestas_validas:  
   - "finis"  
   - "Finis"  
@@ -218,7 +209,6 @@ pasos:
 explicacion: "Después de 'Je doute que', se usa el subjonctif. El verbo 'soit' (3ª persona singular) es correcto aquí."  
 enunciado: "Je doute qu'il ___ à l'heure."  
 tipo: completar  
-respuesta: "soit"  
 respuestas_validas:  
   - "soit"  
   - "Soit"  
@@ -241,7 +231,6 @@ pasos:
 explicacion: "El verbo 'partir' es de movimiento, así que se conjuga con 'être'. El participio 'parti' debe concordar con 'nous', que es plural. 'Nous sommes partis' es correcto."  
 enunciado: "Ils ___ à Paris la semaine dernière."  
 tipo: completar  
-respuesta: "sont partis"  
 respuestas_validas:  
   - "sont partis"  
   - "Sont partis"  
@@ -264,7 +253,6 @@ pasos:
 explicacion: "Después de 'Il vaut mieux que', se usa el subjonctif. El verbo 'sois' (3ª persona singular) es correcto aquí."  
 enunciado: "Il vaut mieux que tu ___ plus calme."  
 tipo: completar  
-respuesta: "sois"  
 respuestas_validas:  
   - "sois"  
   - "Sois"  
@@ -287,7 +275,6 @@ pasos:
 explicacion: "El conditionnel passé se forma con el verbo en infinitivo + 'rais' (je). Aquí, 'aurais aimé' expresa un deseo del pasado que no ocurrió."  
 enunciado: "Si j’___ aimé ce film, je l’aurais vu à la séance précédente."  
 tipo: completar  
-respuesta: "avais"  
 respuestas_validas:  
   - "avais"  
   - "Avais"  
@@ -310,7 +297,6 @@ pasos:
 explicacion: "Después de 'Je veux que', se usa el subjonctif. El verbo 'sois' (3ª persona singular) es correcto aquí."  
 enunciado: "Je veux que tu ___ plus sérieux dans ton travail."  
 tipo: completar  
-respuesta: "sois"  
 respuestas_validas:  
   - "sois"  
   - "Sois"  
@@ -333,7 +319,6 @@ pasos:
 explicacion: "La negación en infinitivo se forma con 'ne...pas'. Aquí, 'ne pas être' es la forma correcta para una prohibición o recomendación."  
 enunciado: "Il faut ___ à l’heure de la réunion."  
 tipo: completar  
-respuesta: "être"  
 respuestas_validas:  
   - "être"  
   - "Être"  
@@ -355,14 +340,11 @@ pasos:
   - "Elegir la conjugación correcta del verbo en subjuntivo presente."
 explicacion: "Después de 'il faut que', se usa el subjuntivo presente para expresar obligaciones o necesidades. En este caso, 'finisses' es la forma correcta del subjuntivo de 'finir'."
 tipo: completar
-respuesta: "finisses"
 respuestas_validas:
   - "finissez"  # Forma con tilde en subjuntivo presente (no aplicable aquí)
   - "finis"    # Infinitivo, incorrecto
   - "finiss"   # Forma errónea
 enunciado: "Il faut que tu ___ ton rapport aujourd'hui."
-variables:
-  - "verbo: finir"
 ```
 
 ### 17 — Uso del futur simple en oraciones condicionales (2)  
@@ -377,13 +359,10 @@ pasos:
   - "Elegir el verbo en imparfait que corresponda al contexto."
 explicacion: "En hipótesis irreales (situaciones contrarias a la realidad), se usa el condicional con 'si + imparfait'. Aquí, 'avions' es correcto para 'Si nous avions plus de temps...'"
 tipo: completar
-respuesta: "avions"
 respuestas_validas:
   - "avons"   # Presente, incorrecto
   - "aurions" # Condicional, incorrecto
 enunciado: "Si nous ___ plus de temps, nous irions au cinéma."
-variables:
-  - "verbo: avoir"
 ```
 
 ### 18 — Uso del subjonctif en oraciones de duda o deseo (2)  
@@ -398,12 +377,9 @@ pasos:
   - "Verificar la concordancia en número y género con 'elle'."
 explicacion: "'Ranger' tiene como participe pasado 'rangé', que se ajusta a 'elle' (femenino singular). La forma correcta es 'a rangé'."
 tipo: completar
-respuesta: "a rangé"
 respuestas_validas:
   - "a rangée" # Feminino, pero el sujeto es 'elle' (femenino), pero 'rangé' no cambia
 enunciado: "Elle ___ sa valise avant de partir."
-variables:
-  - "verbo: ranger"
 ```
 
 ### 19 — Uso del participe passé con verbo de movimiento (2)  
@@ -418,12 +394,9 @@ pasos:
   - "Elegir la conjugación correcta en imperativo."
 explicacion: "El imperativo de 'être' para el tú es 'sois'. La frase 'Sois plus attentif...' es una sugerencia directa."
 tipo: completar
-respuesta: "Sois"
 respuestas_validas:
   - "Soyez" # Formal, incorrecto en este contexto
 enunciado: "___ plus attentif à ce que dit le professeur!"
-variables:
-  - "verbo: être"
 ```
 
 ### 20 — Uso del subjonctif en oraciones impersonales (2)  
@@ -438,12 +411,9 @@ pasos:
   - "Elegir el verbo en futuro que complete correctamente."
 explicacion: "'Auras' es el futuro de 'avoir', correcto para la frase 'Quand tu auras fini...'"
 tipo: completar
-respuesta: "auras"
 respuestas_validas:
   - "aurai" # Primera persona, incorrecto
 enunciado: "Quand tu ___ fini ton travail, nous pourrons partir."
-variables:
-  - "verbo: avoir"
 ```
 
 ### 21 — Uso del conditionnel passé en hipótesis irreal (2)  
@@ -458,12 +428,9 @@ pasos:
   - "Elegir la conjugación correcta del verbo en subjuntivo presente."
 explicacion: "'Vienne' es el subjuntivo presente de 'venir', adecuado para expresar duda o incertidumbre."
 tipo: completar
-respuesta: "vienne"
 respuestas_validas:
   - "viens" # Infinitivo, incorrecto
 enunciado: "Je doute qu’il ___ à l’heure de la réunion."
-variables:
-  - "verbo: venir"
 ```
 
 ### 22 — Uso del subjonctif en oraciones con 'que' (2)  
@@ -478,12 +445,9 @@ pasos:
   - "Elegir la conjugación correcta del verbo en imperativo negativo."
 explicacion: "'Oublie' es el imperativo negativo de 'oublier'. La frase completa es 'Ne oublie pas...' para una advertencia directa."
 tipo: completar
-respuesta: "oublie"
 respuestas_validas:
   - "oubliez" # Formal, incorrecto en este contexto
 enunciado: "Ne ___ pas oublier ton parapluie, il pleut demain!"
-variables:
-  - "verbo: oublier"
 ```
 
 ### 23 — Uso del infinitif en oraciones de consejo (2)  
@@ -498,12 +462,9 @@ pasos:
   - "Verificar la concordancia en número con 'ils'."
 explicacion: "'Manger' tiene como participe pasado 'mangé', que se ajusta a 'ils' (plural). La forma correcta es 'ont mangé'."
 tipo: completar
-respuesta: "ont mangé"
 respuestas_validas:
   - "a mangé" # Singular, incorrecto
 enunciado: "Ils ___ un gâteau à la fête d’anniversaire."
-variables:
-  - "verbo: manger"
 ```
 
 ### 24 — Uso del passé composé con verbo pronominal (3)  
@@ -518,12 +479,9 @@ pasos:
   - "Elegir el verbo en imparfait que complete correctamente."
 explicacion: "'Avais' es el imparfait de 'avoir', correcto para 'Si j’avais su...' seguido del condicional perfecto 'j’aurais vu'."
 tipo: completar
-respuesta: "avais"
 respuestas_validas:
   - "ai" # Presente, incorrecto
 enunciado: "Si j’___ su que c’était ton anniversaire, je t’aurais fait une surprise!"
-variables:
-  - "verbo: avoir"
 ```
 
 ### 25 — Uso del futur simple en oraciones condicionales (3)  
@@ -538,10 +496,7 @@ pasos:
   - "Elegir el verbo en futuro que complete correctamente."
 explicacion: "'Oublieras' es el futuro de 'oublier', correcto para la negación 'n’oublieras pas...' en una advertencia."
 tipo: completar
-respuesta: "n’oublieras"
 respuestas_validas:
   - "ne oublieras" # Forma sin acento, incorrecta
 enunciado: "Tu ___ pas oublier de m’appeler quand tu arrives."
-variables:
-  - "verbo: oublier"
 ```

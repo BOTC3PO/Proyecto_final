@@ -46,7 +46,6 @@ metadata:
 pasos:
   - "Identificar el propósito de la acción mencionada."
   - "Seleccionar el conectivo que exprese ese fin."
-respuesta: "～ために"
 respuestas_validas:
   - "～ために"
   - "～ためには"
@@ -83,7 +82,6 @@ metadata:
 pasos:
   - "Identificar la contradicción entre las ideas."
   - "Elegir el conectivo que indique una excepción o contraste."
-respuesta: "～にもかかわらず"
 respuestas_validas:
   - "～にもかかわらず"
   - "～ながらも"
@@ -120,7 +118,6 @@ metadata:
 pasos:
   - "Identificar la relación causa-efecto."
   - "Seleccionar el conectivo que exprese esa relación."
-respuesta: "～ので"
 respuestas_validas:
   - "～ので"
   - "～ために"
@@ -157,7 +154,6 @@ metadata:
 pasos:
   - "Identificar la contradicción entre las ideas."
   - "Elegir el conectivo que indique una excepción o contraste."
-respuesta: "～にもかかわらず"
 respuestas_validas:
   - "～にもかかわらず"
   - "～ながらも"
@@ -194,7 +190,6 @@ metadata:
 pasos:
   - "Identificar la relación causa-efecto."
   - "Seleccionar el conectivo que exprese esa relación."
-respuesta: "～ので"
 respuestas_validas:
   - "～ので"
   - "～ために"
@@ -231,7 +226,6 @@ metadata:
 pasos:
   - "Identificar la contradicción entre las ideas."
   - "Elegir el conectivo que indique una excepción o contraste."
-respuesta: "～にもかかわらず"
 respuestas_validas:
   - "～にもかかわらず"
   - "～ながらも"
@@ -268,7 +262,6 @@ metadata:
 pasos:
   - "Identificar la relación causa-efecto."
   - "Seleccionar el conectivo que exprese esa relación."
-respuesta: "～ので"
 respuestas_validas:
   - "～ので"
   - "～ために"
@@ -305,7 +298,6 @@ metadata:
 pasos:
   - "Identificar la contradicción entre las ideas."
   - "Elegir el conectivo que indique una excepción o contraste."
-respuesta: "～にもかかわらず"
 respuestas_validas:
   - "～にもかかわらず"
   - "～ながらも"
@@ -342,7 +334,6 @@ metadata:
 pasos:
   - "Identificar la relación causa-efecto."
   - "Seleccionar el conectivo que exprese esa relación."
-respuesta: "～ので"
 respuestas_validas:
   - "～ので"
   - "～ために"
@@ -379,7 +370,6 @@ metadata:
 pasos:
   - "Identificar la contradicción entre las ideas."
   - "Elegir el conectivo que indique una excepción o contraste."
-respuesta: "～にもかかわらず"
 respuestas_validas:
   - "～にもかかわらず"
   - "～ながらも"
@@ -416,7 +406,6 @@ metadata:
 pasos:
   - "Identificar la relación causa-efecto."
   - "Seleccionar el conectivo que exprese esa relación."
-respuesta: "～ので"
 respuestas_validas:
   - "～ので"
   - "～ために"
@@ -453,7 +442,6 @@ metadata:
 pasos:
   - "Identificar la contradicción entre las ideas."
   - "Elegir el conectivo que indique una excepción o contraste."
-respuesta: "～にもかかわらず"
 respuestas_validas:
   - "～にもかかわらず"
   - "～ながらも"

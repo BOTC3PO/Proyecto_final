@@ -11,7 +11,6 @@ metadata:
 pasos:
   - "Identificar el verbo que sigue a 'spero che' y usar la forma del congiuntivo."
   - "Verificar el sujeto de la cláusula subordinada para elegir la conjugación correcta."
-respuesta: "sia"
 tipo: completar
 respuestas_validas:
   - "SIA"
@@ -34,7 +33,6 @@ metadata:
 pasos:
   - "Reconocer que la oración principal es impersonal ('è necessario') y usar el congiuntivo."
   - "Aplicar la conjugación del verbo 'vivere' en tercera persona singular."
-respuesta: "viva"
 tipo: completar
 respuestas_validas:
   - "VIVA"
@@ -57,7 +55,6 @@ metadata:
 pasos:
   - "Identificar que 'credo che' exige el congiuntivo."
   - "Seleccionar la conjugación del verbo 'mangiare' para el sujeto 'tu'."
-respuesta: "mangia"
 tipo: completar
 respuestas_validas:
   - "MANGIA"
@@ -80,7 +77,6 @@ metadata:
 pasos:
   - "Reconocer que 'vorrei che' exige el congiuntivo."
   - "Usar la conjugación del verbo 'andare' para el sujeto 'voi'."
-respuesta: "andiate"
 tipo: completar
 respuestas_validas:
   - "ANDIATE"
@@ -103,7 +99,6 @@ metadata:
 pasos:
   - "Identificar que 'è importante che' exige el congiuntivo."
   - "Aplicar la conjugación del verbo 'studiare' para el sujeto 'noi'."
-respuesta: "studiamo"
 tipo: completar
 respuestas_validas:
   - "STUDIAMO"
@@ -126,7 +121,6 @@ metadata:
 pasos:
   - "Reconocer que 'spero che' exige el congiuntivo."
   - "Seleccionar la conjugación del verbo 'parlare' para el sujeto 'loro'."
-respuesta: "parlino"
 tipo: completar
 respuestas_validas:
   - "PARLINO"
@@ -149,7 +143,6 @@ metadata:
 pasos:
   - "Identificar que 'non credo che' exige el congiuntivo."
   - "Usar la conjugación del verbo 'vivere' para el sujeto 'tu'."
-respuesta: "viva"
 tipo: completar
 respuestas_validas:
   - "VIVA"
@@ -172,7 +165,6 @@ metadata:
 pasos:
   - "Reconocer que 'è necessario che' exige el congiuntivo."
   - "Aplicar la conjugación del verbo 'mangiare' para el sujeto 'noi'."
-respuesta: "mangiamo"
 tipo: completar
 respuestas_validas:
   - "MANGIAMO"
@@ -195,7 +187,6 @@ metadata:
 pasos:
   - "Identificar que 'dubitiamo che' exige el congiuntivo."
   - "Seleccionar la conjugación del verbo 'andare' para el sujeto 'lui'."
-respuesta: "vada"
 tipo: completar
 respuestas_validas:
   - "VADA"
@@ -218,7 +209,6 @@ metadata:
 pasos:
   - "Reconocer que 'non è permesso che' exige el congiuntivo."
   - "Usar la conjugación del verbo 'parlare' para el sujeto 'loro'."
-respuesta: "parlino"
 tipo: completar
 respuestas_validas:
   - "PARLINO"
@@ -241,7 +231,6 @@ metadata:
 pasos:
   - "Identificar que 'vorrei che' exige el congiuntivo."
   - "Aplicar la conjugación del verbo 'vivere' para el sujeto 'io'."
-respuesta: "viva"
 tipo: completar
 respuestas_validas:
   - "VIVA"
@@ -264,7 +253,6 @@ metadata:
 pasos:
   - "Reconocer que 'è meglio che' exige el congiuntivo."
   - "Seleccionar la conjugación del verbo 'studiare' para el sujeto 'lui'."
-respuesta: "studia"
 tipo: completar
 respuestas_validas:
   - "STUDIA"
@@ -287,7 +275,6 @@ metadata:
 pasos:
   - "Identificar que 'non so che' exige el congiuntivo."
   - "Usar la conjugación del verbo 'mangiare' para el sujeto 'noi'."
-respuesta: "mangiamo"
 tipo: completar
 respuestas_validas:
   - "MANGIAMO"
@@ -310,7 +297,6 @@ metadata:
 pasos:
   - "Reconocer que 'speriamo che' exige el congiuntivo."
   - "Aplicar la conjugación del verbo 'andare' para el sujeto 'voi'."
-respuesta: "andiate"
 tipo: completar
 respuestas_validas:
   - "ANDIATE"
@@ -333,7 +319,6 @@ metadata:
 pasos:
   - "Identificar que 'non è possibile che' exige el congiuntivo."
   - "Seleccionar la conjugación del verbo 'parlare' para el sujeto 'tu'."
-respuesta: "parli"
 tipo: completar
 respuestas_validas:
   - "PARLI"
@@ -356,7 +341,6 @@ metadata:
 pasos:
   - "Reconocer que 'non credo che' exige el congiuntivo."
   - "Usar la conjugación del verbo 'vivere' para el sujeto 'loro'."
-respuesta: "vivano"
 tipo: completar
 respuestas_validas:
   - "VIVANO"
@@ -379,7 +363,6 @@ metadata:
 pasos:
   - "Identificar que 'vorrei che' exige el congiuntivo."
   - "Aplicar la conjugación del verbo 'studiare' para el sujeto 'noi'."
-respuesta: "studiamo"
 tipo: completar
 respuestas_validas:
   - "STUDIAMO"
@@ -402,7 +385,6 @@ metadata:
 pasos:
   - "Reconocer que 'è importante che' exige el congiuntivo."
   - "Seleccionar la conjugación del verbo 'mangiare' para el sujeto 'loro'."
-respuesta: "mangino"
 tipo: completar
 respuestas_validas:
   - "MANGINO"
@@ -425,7 +407,6 @@ metadata:
 pasos:
   - "Identificar que 'non so che' exige el congiuntivo."
   - "Usar la conjugación del verbo 'andare' para el sujeto 'io'."
-respuesta: "vada"
 tipo: completar
 respuestas_validas:
   - "VADA"
@@ -448,7 +429,6 @@ metadata:
 pasos:
   - "Reconocer que 'non è permesso che' exige el congiuntivo."
   - "Aplicar la conjugación del verbo 'parlare' para el sujeto 'noi'."
-respuesta: "parliamo"
 tipo: completar
 respuestas_validas:
   - "PARLIAMO"
@@ -471,7 +451,6 @@ metadata:
 pasos:
   - "Identificar que 'spero che' exige el congiuntivo."
   - "Seleccionar la conjugación del verbo 'vivere' para el sujeto 'tu'."
-respuesta: "viva"
 tipo: completar
 respuestas_validas:
   - "VIVA"
@@ -494,7 +473,6 @@ metadata:
 pasos:
   - "Reconocer que 'è necessario che' exige el congiuntivo."
   - "Usar la conjugación del verbo 'studiare' para el sujeto 'voi'."
-respuesta: "studiate"
 tipo: completar
 respuestas_validas:
   - "STUDIATE"
@@ -517,7 +495,6 @@ metadata:
 pasos:
   - "Identificar que 'non credo che' exige el congiuntivo."
   - "Aplicar la conjugación del verbo 'mangiare' para el sujeto 'lui'."
-respuesta: "manga"
 tipo: completar
 respuestas_validas:
   - "MANGA"
@@ -540,7 +517,6 @@ metadata:
 pasos:
   - "Reconocer que 'non è possibile che' exige el congiuntivo."
   - "Seleccionar la conjugación del verbo 'andare' para el sujeto 'loro'."
-respuesta: "vadano"
 tipo: completar
 respuestas_validas:
   - "VADANO"
@@ -563,7 +539,6 @@ metadata:
 pasos:
   - "Identificar que 'vorrei che' exige el congiuntivo."
   - "Usar la conjugación del verbo 'parlare' para el sujeto 'io'."
-respuesta: "parli"
 tipo: completar
 respuestas_validas:
   - "PARLI"

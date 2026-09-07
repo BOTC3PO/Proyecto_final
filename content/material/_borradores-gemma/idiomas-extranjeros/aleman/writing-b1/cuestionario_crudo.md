@@ -480,13 +480,11 @@ metadata:
 pasos:  
   - "Identificar la preposición que requiere el dativo."  
   - "Aplicar la regla del caso correspondiente al sustantivo femenino."  
-respuesta: "zu"  
 tipo: completar  
 respuestas_validas:  
   - "zu"  
   - "Zu"  
 enunciado: "Ich gehe ___ meiner Schwester. (Präposition mit Dativ)"  
-variables: []  
 explicacion: "La preposición 'zu' requiere el dativo cuando indica a una persona o lugar al que se va. Como 'Schwester' es femenino y singular, se usa 'meiner' para el dativo."  
 ```
 
@@ -500,13 +498,11 @@ metadata:
 pasos:  
   - "Reconocer que el sujeto requiere el nominativo."  
   - "Aplicar la forma correcta del artículo para sustantivo femenino plural."  
-respuesta: "Die"  
 tipo: completar  
 respuestas_validas:  
   - "Die"  
   - "die"  
 enunciado: "__ Frauen sind sehr fleißig. (Nominativo plural)"  
-variables: []  
 explicacion: "El sustantivo 'Frauen' es femenino y plural, por lo que el artículo definido en nominativo es 'die'."  
 ```
 
@@ -550,6 +546,5 @@ opciones_explicitas:
 respuesta: "in"  
 tipo: mc  
 enunciado: "Ich lese ___ das Buch. (Präposition mit Akkusativ)"  
-variables: []  
 explicacion: "La preposición 'in' requiere el acusativo cuando indica movimiento hacia un lugar interior, como leer dentro de un libro ('in dem Buch'). 'Das Buch' es neutro, por lo que se usa 'das' en acusativo."  
 ```

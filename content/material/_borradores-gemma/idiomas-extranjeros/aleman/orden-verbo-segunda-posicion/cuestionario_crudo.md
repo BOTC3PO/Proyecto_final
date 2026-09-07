@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identifica la posición del verbo en una oración afirmativa."
 explicacion: "En oraciones afirmativas, el verbo debe estar en segunda posición. Ejemplo: Ich gehe ins Kino (correcto) vs. Ich ins Kino gehe (incorrecto)."
-respuesta: "gehe"
 tipo: completar
 respuestas_validas:
   - "Gehe"
   - "gEHe"
 enunciado: "Ich ___ ins Kino."
-variables:
-  - "go"
 ```
 
 
@@ -37,8 +34,6 @@ opciones_explicitas:
   - "liebt"
 respuesta: "liest"
 enunciado: "Er ___ ein Buch."
-variables:
-  - "read"
 ```
 
 
@@ -57,10 +52,7 @@ tipo: completar
 respuestas_validas:
   - "essen"
   - "Essen"
-respuesta: "essen"
 enunciado: "Wir ___ um 12 Uhr."
-variables:
-  - "eat"
 ```
 
 
@@ -82,8 +74,6 @@ opciones_explicitas:
   - "has"
 respuesta: "hat"
 enunciado: "Er ___ ein Auto."
-variables:
-  - "has"
 ```
 
 
@@ -102,10 +92,7 @@ tipo: completar
 respuestas_validas:
   - "wäscht"
   - "Wäscht"
-respuesta: "wäscht"
 enunciado: "Sie ___ sich die Hände."
-variables:
-  - "wash"
 ```
 
 
@@ -127,8 +114,6 @@ opciones_explicitas:
   - "essest"
 respuesta: "esse"
 enunciado: "Ich ___ nicht."
-variables:
-  - "eat"
 ```
 
 
@@ -147,10 +132,7 @@ tipo: completar
 respuestas_validas:
   - "schreibst"
   - "Schreibst"
-respuesta: "schreibst"
 enunciado: "Du ___ einen Brief."
-variables:
-  - "write"
 ```
 
 
@@ -172,8 +154,6 @@ opciones_explicitas:
   - "leben"
 respuesta: "lebt"
 enunciado: "Er ___ in Berlin."
-variables:
-  - "live"
 ```
 
 
@@ -192,10 +172,7 @@ tipo: completar
 respuestas_validas:
   - "kannst"
   - "Kannst"
-respuesta: "kannst"
 enunciado: "Du ___ singen."
-variables:
-  - "can"
 ```
 
 
@@ -217,8 +194,6 @@ opciones_explicitas:
   - "wollen"
 respuesta: "will"
 enunciado: "Sie ___ schwimmen."
-variables:
-  - "want"
 ```
 
 
@@ -237,10 +212,7 @@ tipo: completar
 respuestas_validas:
   - "sehe"
   - "Sehe"
-respuesta: "sehe"
 enunciado: "Ich ___ dich."
-variables:
-  - "see"
 ```
 
 
@@ -262,8 +234,6 @@ opciones_explicitas:
   - "trinken"
 respuesta: "trinkst"
 enunciado: "___ du Kaffee?"
-variables:
-  - "drink"
 ```
 
 
@@ -282,10 +252,7 @@ tipo: completar
 respuestas_validas:
   - "essen"
   - "Essen"
-respuesta: "essen"
 enunciado: "Wir ___ nicht."
-variables:
-  - "eat"
 ```
 
 
@@ -307,8 +274,6 @@ opciones_explicitas:
   - "gehst"
 respuesta: "gehe"
 enunciado: "Ich ___ morgen ins Kino."
-variables:
-  - "go"
 ```
 
 
@@ -327,10 +292,7 @@ tipo: completar
 respuestas_validas:
   - "sagst"
   - "Sagst"
-respuesta: "sagst"
 enunciado: "Du ___ mir die Wahrheit."
-variables:
-  - "say"
 ```
 
 
@@ -352,8 +314,6 @@ opciones_explicitas:
   - "geben"
 respuesta: "gibt"
 enunciado: "Er ___ mir das Buch."
-variables:
-  - "give"
 ```
 
 
@@ -372,10 +332,7 @@ tipo: completar
 respuestas_validas:
   - "fährt"
   - "Fährt"
-respuesta: "fährt"
 enunciado: "Sie ___ mit dem Auto."
-variables:
-  - "drive"
 ```
 
 
@@ -397,8 +354,6 @@ opciones_explicitas:
   - "has"
 respuesta: "hat"
 enunciado: "Er ___ einen Fehler gemacht."
-variables:
-  - "make"
 ```
 
 
@@ -417,10 +372,7 @@ tipo: completar
 respuestas_validas:
   - "denkst"
   - "Denkst"
-respuesta: "denkst"
 enunciado: "Du ___ an ihn."
-variables:
-  - "think"
 ```
 
 
@@ -442,8 +394,6 @@ opciones_explicitas:
   - "essest"
 respuesta: "essen"
 enunciado: "Wir ___ heute in Berlin."
-variables:
-  - "eat"
 ```
 
 
@@ -460,12 +410,9 @@ pasos:
 explicacion: "En oraciones afirmativas, el verbo conjugado ocupa la segunda posición. En este caso, 'ich' es el sujeto, por lo que el verbo debe ir después."  
 tipo: completar  
 enunciado: "Ich ___ dir helfen."  
-respuesta: "helfe"  
 respuestas_validas:  
   - "helfe"  
   - "Helfe"  
-variables:  
-  - "sujeto": ["ich", "du", "er", "sie"]  
 ```  
 
 ---
@@ -487,8 +434,6 @@ opciones_explicitas:
   - "wohnen"
 respuesta: "wohnst"
 enunciado: "___ wohnst du?"
-variables:
-  - "live"
 ```
 
 
@@ -507,10 +452,7 @@ tipo: completar
 respuestas_validas:
   - "spricht"
   - "Spricht"
-respuesta: "spricht"
 enunciado: "Er ___ laut."
-variables:
-  - "speak"
 ```
 
 
@@ -532,8 +474,6 @@ opciones_explicitas:
   - "ganz"  
   - "ins Kino"  
 respuesta: "gehen"  
-variables:  
-  - "tiempo": ["morgen", "gestern"]  
 ```  
 
 ---
@@ -550,10 +490,7 @@ pasos:
 explicacion: "En oraciones negativas, 'nicht' se coloca después del verbo. Aquí, 'sie' es el sujeto y 'schwimmen' es el verbo, que debe ir segundo antes de la negación."  
 tipo: completar  
 enunciado: "Sie ___ nicht schwimmen."  
-respuesta: "kann"  
 respuestas_validas:  
   - "kann"  
   - "Kann"  
-variables:  
-  - "negación": ["nicht", "kein"]  
 ```

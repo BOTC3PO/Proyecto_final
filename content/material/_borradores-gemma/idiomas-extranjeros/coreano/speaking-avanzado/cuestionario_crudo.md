@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
 explicacion: "El uso de '어서' o '아서' se emplea para conectar acciones secuenciales. La forma depende del final del verbo anterior."
-respuesta: "가서"
 respuestas_validas:
   - "가서"
   - "가서"
 tipo: completar
 enunciado: "어제 친구를 만났다 ___ 놀았다."
-variables:
-  - "verbo": ["만났다", "놀았다"]
 ```
 
 
@@ -51,7 +48,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del pronombre."
 explicacion: "El uso de '를' o '을' depende del final del sustantivo. Después de un verbo, se usa el complemento objetivo."
-respuesta: "그것"
 respuestas_validas:
   - "그것"
   - "그건"
@@ -92,7 +88,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
 explicacion: "El uso de '-되다' en forma pasiva requiere que el sujeto esté omitido y el complemento objetivo sea explícito."
-respuesta: "받아"
 respuestas_validas:
   - "받아"
   - "받았다"
@@ -133,7 +128,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
 explicacion: "El uso de '-고' indica simultaneidad. La raíz del verbo debe ser la base antes del sufijo."
-respuesta: "가고"
 respuestas_validas:
   - "가고"
   - "갔고"

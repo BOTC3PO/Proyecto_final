@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Escuchar la frase y identificar el verbe."
   - "Reconocer que se trata de un pedido en un café."
-respuesta: "prendre"
 respuestas_validas:
   - "prendre"
   - "Prendre"
@@ -46,7 +45,6 @@ metadata:
 pasos:
   - "Escuchar el número y completar la oración."
   - "Verificar que el horario esté en formato de hora francesa."
-respuesta: "huit"
 respuestas_validas:
   - "huit"
   - "Huit"
@@ -84,7 +82,6 @@ metadata:
 pasos:
   - "Escuchar el adjetivo y completar la oración."
   - "Verificar que el adjetivo concuerde en género con 'amie'."
-respuesta: "gentille"
 respuestas_validas:
   - "gentille"
   - "Gentille"
@@ -122,7 +119,6 @@ metadata:
 pasos:
   - "Escuchar el verbo y completar la oración."
   - "Verificar que el participio passé concuerde con 'je'."
-respuesta: "mange"
 respuestas_validas:
   - "mange"
   - "Mange"
@@ -160,7 +156,6 @@ metadata:
 pasos:
   - "Escuchar la expresión para anunciar un problema."
   - "Reconocer que se usa 'désolé' en este contexto."
-respuesta: "désolé"
 respuestas_validas:
   - "désolé"
   - "Désolé"
@@ -198,7 +193,6 @@ metadata:
 pasos:
   - "Escuchar el adjetivo y completar la oración."
   - "Verificar que concuerde con 'chat' (masculino)."
-respuesta: "noir"
 respuestas_validas:
   - "noir"
   - "Noir"
@@ -255,7 +249,6 @@ metadata:
 pasos:
   - "Escuchar el adjetivo y completar la oración."
   - "Verificar que concuerde con 'voyage' (masculino)."
-respuesta: "long"
 respuestas_validas:
   - "long"
   - "Long"
@@ -293,7 +286,6 @@ metadata:
 pasos:
   - "Escuchar el adjetivo y completar la oración."
   - "Verificar que concuerde con 'soupe' (femenino)."
-respuesta: "bouillie"
 respuestas_validas:
   - "bouillie"
   - "Bouillie"
@@ -331,7 +323,6 @@ metadata:
 pasos:
   - "Escuchar el adjetivo y completar la oración."
   - "Verificar que concuerde con 'jour' (masculino)."
-respuesta: "ensoleillé"
 respuestas_validas:
   - "ensoleillé"
   - "Ensoleillé"
@@ -388,7 +379,6 @@ metadata:
 pasos:
   - "Escuchar el adjetivo y completar la oración."
   - "Verificar que concuerde con 'voiture' (femenino)."
-respuesta: "rouge"
 respuestas_validas:
   - "rouge"
   - "Rouge"
@@ -426,7 +416,6 @@ metadata:
 pasos:
   - "Escuchar el adjetivo y completar la oración."
   - "Verificar que concuerde con 'livre' (masculino)."
-respuesta: "intéressant"
 respuestas_validas:
   - "intéressant"
   - "Intéressant"
@@ -464,7 +453,6 @@ metadata:
 pasos:
   - "Escuchar el adjetivo y completar la oración."
   - "Verificar que concuerde con 'concert' (masculino)."
-respuesta: "amusant"
 respuestas_validas:
   - "amusant"
   - "Amusant"

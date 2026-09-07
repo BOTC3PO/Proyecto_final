@@ -7,13 +7,11 @@ metadata:
   tags: ["tiempo", "expresiones"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "왔어요"
 tipo: completar
 respuestas_validas:
   - "왔어요"
   - "와요"
 enunciado: "어제 저녁 ___ 학교에 갔어요."
-variables: []
 explicacion: "El verbo '가다' en pasado (았/었) + honorífico '-요' se usa para expresar una acción pasada con cortesía. La forma correcta es '왔어요'."
 ```
 
@@ -37,7 +35,6 @@ opciones_explicitas:
   - "를"
   - "에"
 enunciado: "저는 ___ 책을 읽고 있어요."
-variables: []
 explicacion: "El objeto directo se marca con '을/를'. La forma correcta es '를' cuando el objeto comienza con una vocal (예: 를)."
 ```
 
@@ -54,13 +51,11 @@ metadata:
   tags: ["현재", "진행"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "하고 있어요"
 tipo: completar
 respuestas_validas:
   - "하고 있어요"
   - "하고 있습니다"
 enunciado: "지금 저는 ___ 음악을 듣고 있어요."
-variables: []
 explicacion: "La forma '-고 있다' se usa para acciones en progreso. La conjugación correcta es '하고 있어요'."
 ```
 
@@ -84,7 +79,6 @@ opciones_explicitas:
   - "에서"
   - "로"
 enunciado: "저는 ___ 카페에서 커피를 마시고 있어요."
-variables: []
 explicacion: "'에서' se usa para indicar el lugar donde ocurre una acción. La opción correcta es '에서'."
 ```
 
@@ -101,13 +95,11 @@ metadata:
   tags: ["요청", "예절"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "주실 수 있나요"
 tipo: completar
 respuestas_validas:
   - "주실 수 있나요"
   - "줄 수 있나요"
 enunciado: "이 책을 ___?"
-variables: []
 explicacion: "La forma '-시-요' se usa para pedir algo con cortesía. La respuesta correcta es '주실 수 있나요'."
 ```
 
@@ -131,7 +123,6 @@ opciones_explicitas:
   - "가요"
   - "간다"
 enunciado: "지금 ___ 학교에 가요?"
-variables: []
 explicacion: "'가다' en presente (아/어요) se usa para acciones actuales. La opción correcta es '가요'."
 ```
 
@@ -148,13 +139,11 @@ metadata:
   tags: ["조건", "접속사"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "면"
 tipo: completar
 respuestas_validas:
   - "면"
   - "으면"
 enunciado: "___, 당신은 행복할 거예요."
-variables: []
 explicacion: "'-면' se usa para conectar condiciones. La forma correcta es '면'."
 ```
 
@@ -178,7 +167,6 @@ opciones_explicitas:
   - "합니다"
   - "했어요"
 enunciado: "저는 매일 ___ 운동을 해요."
-variables: []
 explicacion: "'하다' en presente (아/어요) se usa para acciones repetitivas. La opción correcta es '합니다'."
 ```
 
@@ -195,13 +183,11 @@ metadata:
   tags: ["감정", "예절"]
 pasos:
   - "Completa el hue코 con la forma correcta del verbo."
-respuesta: "좋아요"
 tipo: completar
 respuestas_validas:
   - "좋아요"
   - "좋습니다"
 enunciado: "이 음악은 ___."
-variables: []
 explicacion: "'좋다' en presente (아/어요) se usa para expresar preferencias. La forma correcta es '좋아요'."
 ```
 
@@ -225,7 +211,6 @@ opciones_explicitas:
   - "갈 거예요"
   - "갈게요"
 enunciado: "내일 ___ 친구와 만나요."
-variables: []
 explicacion: "'-게요' se usa para hablar de planes futuros. La opción correcta es '갈 거예요'."
 ```
 
@@ -242,13 +227,11 @@ metadata:
   tags: ["이동", "조사"]
 pasos:
   - "Completa el hue코 con la forma correcta del verbo."
-respuesta: "갑니다"
 tipo: completar
 respuestas_validas:
   - "갑니다"
   - "가요"
 enunciado: "지금 ___ 학교에 가요."
-variables: []
 explicacion: "'가다' en presente (아/어요) se usa para acciones actuales. La forma correcta es '갑니다'."
 ```
 
@@ -266,7 +249,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
   - "Recuerda que se usa '-러' o '-어서' para expresar propósito o causa."
-respuesta: "운동을 하러"
 respuestas_validas:
   - "운동을 하러"
   - "운동하러"
@@ -311,7 +293,6 @@ opciones_explicitas:
   - "에서"
   - "로"
 enunciado: "저는 ___ 호텔에서 머무르고 있어요."
-variables: []
 explicacion: "'에서' se usa para indicar el lugar donde ocurre una acción. La opción correcta es '에서'."
 ```
 
@@ -329,7 +310,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
   - "El verbo '-되다' se usa para expresar permiso o posibilidad."
-respuesta: "가능하다"
 respuestas_validas:
   - "가능하다"
   - "가능해요"
@@ -348,7 +328,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del posesivo."
   - "El sufijo '-의' se usa para indicar posesión."
-respuesta: "제가"
 respuestas_validas:
   - "제가"
   - "저의"
@@ -387,7 +366,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del adverbio."
   - "'수시로' indica una acción que ocurre con frecuencia o cuando se necesita."
-respuesta: "수시로"
 respuestas_validas:
   - "수시로"
   - "수시에"
@@ -426,7 +404,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
   - "'-에 있다' indica la presencia de algo en un lugar."
-respuesta: "이곳에"
 respuestas_validas:
   - "이곳에"
   - "여기에"
@@ -445,7 +422,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
   - "'-고 싶다' expresa un deseo de hacer algo."
-respuesta: "여행하고"
 respuestas_validas:
   - "여행하고"
   - "여행하려고"
@@ -464,7 +440,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del adverbio de tiempo."
   - "'이번 주말에' se usa para indicar un tiempo futuro específico."
-respuesta: "이번 주말에"
 respuestas_validas:
   - "이번 주말에"
   - "주말에"
@@ -503,7 +478,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del posesivo."
   - "'-에게' indica a quién se le da algo."
-respuesta: "제게"
 respuestas_validas:
   - "제게"
   - "나에게"

@@ -7,14 +7,11 @@ metadata:
   tags: ["tiempo", "hoy"]  
 pasos:  
   - "Identificar el uso correcto del tiempo en la oración."  
-respuesta: "今天"  
 tipo: completar  
 respuestas_validas:  
   - "今天"  
   - "Today"  
 enunciado: "我__去学校。"  
-variables:  
-  - "blank1": "今天"  
 explicacion: "La expresión '今天' se usa para indicar que la acción ocurre hoy. Es el tiempo correcto en este contexto."  
 
 ---
@@ -49,14 +46,11 @@ metadata:
   tags: ["completado", "了"]  
 pasos:  
   - "Completar la oración con el uso correcto de '了'."  
-respuesta: "买了"  
 tipo: completar  
 respuestas_validas:  
   - "买了"  
   - "买"  
 enunciado: "我__一本小说。"  
-variables:  
-  - "blank1": "买了"  
 explicacion: "'了' indica que la acción de comprar ya se realizó. Es necesario para mostrar completitud."  
 
 ---
@@ -71,14 +65,11 @@ metadata:
   tags: ["posesión", "的"]  
 pasos:  
   - "Identificar el uso correcto de '的' en la oración."  
-respuesta: "的"  
 tipo: completar  
 respuestas_validas:  
   - "的"  
   - "地"  
 enunciado: "这是我的书__。"  
-variables:  
-  - "blank1": "的"  
 explicacion: "'的' se usa para conectar un posesivo con su objeto. '地' es para adverbios, que no aplica aquí."  
 
 ---
@@ -113,14 +104,11 @@ metadata:
   tags: ["pregunta", "哪里"]  
 pasos:  
   - "Completar el hueco con la palabra correcta para formular una pregunta."  
-respuesta: "哪里"  
 tipo: completar  
 respuestas_validas:  
   - "哪里"  
   - "哪里"  
 enunciado: "__你住？"  
-variables:  
-  - "blank1": "哪里"  
 explicacion: "'哪里' se usa para preguntar sobre un lugar. Es la forma correcta en este contexto."  
 
 ---
@@ -155,14 +143,11 @@ metadata:
   tags: ["tiempo", "昨天"]  
 pasos:  
   - "Colocar correctamente el tiempo en la oración."  
-respuesta: "昨天"  
 tipo: completar  
 respuestas_validas:  
   - "昨天"  
   - "Yesterday"  
 enunciado: "__我去看电影。"  
-variables:  
-  - "blank1": "昨天"  
 explicacion: "'昨天' debe ubicarse al inicio de la oración para indicar cuándo ocurrió la acción."  
 
 ---
@@ -197,14 +182,11 @@ metadata:
   tags: ["completado", "了"]  
 pasos:  
   - "Completar la oración con el uso correcto de '了'."  
-respuesta: "看了"  
 tipo: completar  
 respuestas_validas:  
   - "看了"  
   - "看"  
 enunciado: "我__这本书。"  
-variables:  
-  - "blank1": "看了"  
 explicacion: "'了' indica que la acción de leer ya se realizó. Es necesario para mostrar completitud."  
 
 ---
@@ -239,14 +221,11 @@ metadata:
   tags: ["pregunta", "谁"]  
 pasos:  
   - "Completar el hueco con la palabra correcta para formular una pregunta."  
-respuesta: "谁"  
 tipo: completar  
 respuestas_validas:  
   - "谁"  
   - "哪位"  
 enunciado: "__是你的老师？"  
-variables:  
-  - "blank1": "谁"  
 explicacion: "'谁' se usa para preguntar sobre una persona. Es la forma correcta en este contexto."  
 
 ---
@@ -281,14 +260,11 @@ metadata:
   tags: ["tiempo", "明天"]  
 pasos:  
   - "Colocar correctamente el tiempo en la oración."  
-respuesta: "明天"  
 tipo: completar  
 respuestas_validas:  
   - "明天"  
   - "Tomorrow"  
 enunciado: "__我会有空。"  
-variables:  
-  - "blank1": "明天"  
 explicacion: "'明天' debe ubicarse al inicio de la oración para indicar cuándo ocurrirá la acción."  
 
 ---
@@ -323,14 +299,11 @@ metadata:
   tags: ["completado", "了"]  
 pasos:  
   - "Completar la oración con el uso correcto de '了'."  
-respuesta: "吃了"  
 tipo: completar  
 respuestas_validas:  
   - "吃了"  
   - "吃"  
 enunciado: "我__这顿饭。"  
-variables:  
-  - "blank1": "吃了"  
 explicacion: "'了' indica que la acción de comer ya se realizó. Es necesario para mostrar completitud."  
 
 ---
@@ -365,14 +338,11 @@ metadata:
   tags: ["pregunta", "什么"]  
 pasos:  
   - "Completar el hueco con la palabra correcta para formular una pregunta."  
-respuesta: "什么"  
 tipo: completar  
 respuestas_validas:  
   - "什么"  
   - "哪样"  
 enunciado: "__你想要？"  
-variables:  
-  - "blank1": "什么"  
 explicacion: "'什么' se usa para preguntar sobre un objeto o concepto. Es la forma correcta en este contexto."  
 
 ---
@@ -407,14 +377,11 @@ metadata:
   tags: ["tiempo", "现在"]  
 pasos:  
   - "Colocar correctamente el tiempo en la oración."  
-respuesta: "现在"  
 tipo: completar  
 respuestas_validas:  
   - "现在"  
   - "Now"  
 enunciado: "__我正在学习。"  
-variables:  
-  - "blank1": "现在"  
 explicacion: "'现在' debe ubicarse al inicio de la oración para indicar cuándo ocurre la acción."  
 
 ---
@@ -449,14 +416,11 @@ metadata:
   tags: ["completado", "了"]  
 pasos:  
   - "Completar la oración con el uso correcto de '了'."  
-respuesta: "看了"  
 tipo: completar  
 respuestas_validas:  
   - "看了"  
   - "看"  
 enunciado: "我__这部电影。"  
-variables:  
-  - "blank1": "看了"  
 explicacion: "'了' indica que la acción de ver ya se realizó. Es necesario para mostrar completitud."  
 
 ---
@@ -491,14 +455,11 @@ metadata:
   tags: ["pregunta", "多少"]  
 pasos:  
   - "Completar el hueco con la palabra correcta para formular una pregunta."  
-respuesta: "多少"  
 tipo: completar  
 respuestas_validas:  
   - "多少"  
   - "几多"  
 enunciado: "__钱你有？"  
-variables:  
-  - "blank1": "多少"  
 explicacion: "'多少' se usa para preguntar sobre una cantidad. Es la forma correcta en este contexto."  
 
 ---

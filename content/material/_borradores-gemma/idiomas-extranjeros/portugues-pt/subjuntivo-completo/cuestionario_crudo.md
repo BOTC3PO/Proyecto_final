@@ -10,10 +10,10 @@ pasos:
   - "Conjugar o verbo no subjuntivo presente."  
 explicacion: "O subjuntivo é usado após expressões de necessidade como 'é preciso que', seguido do infinitivo ou da forma conjuntiva. Neste caso, o sujeito da oração subordinada (ele) exige a terceira pessoa do singular no subjuntivo."  
 enunciado: "É preciso que ele ___ mais atencioso com os colegas."  
-respuesta: "seja"  
-respuestas_validas: ["Seja", "seJA"]  
+respuestas_validas:
+  - "Seja"
+  - "seJA"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -30,10 +30,10 @@ pasos:
   - "Usar a forma correta do subjuntivo presente."  
 explicacion: "Expressões como 'desejo que' exigem o uso do subjuntivo em orações subordinadas. O verbo principal (desejo) não afeta a conjugação, apenas o contexto semântico de desejo implica a forma subjuntiva."  
 enunciado: "Eu desejo que ela ___ mais responsáveis nas tarefas escolares."  
-respuesta: "seja"  
-respuestas_validas: ["Seja", "SEJA"]  
+respuestas_validas:
+  - "Seja"
+  - "SEJA"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -50,10 +50,10 @@ pasos:
   - "Aplicar o subjuntivo presente à oração subordinada."  
 explicacion: "Expressões de dúvida, como 'duvido que', exigem o uso do subjuntivo. A forma correta depende do sujeito da oração subordinada (eles) e do tempo verbal da frase principal."  
 enunciado: "Duvido que eles ___ aprovados no exame final."  
-respuesta: "sejam"  
-respuestas_validas: ["Sejam", "SEJAM"]  
+respuestas_validas:
+  - "Sejam"
+  - "SEJAM"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -70,10 +70,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito indeterminado."  
 explicacion: "Verbos que expressam recomendação, como 'recomendo', exigem o subjuntivo em orações subordinadas. Quando o sujeito é indeterminado (seja quem for), usa-se a terceira pessoa do singular."  
 enunciado: "Recomendo que ___ mais atento às regras da gramática."  
-respuesta: "seja"  
-respuestas_validas: ["Seja", "SEJA"]  
+respuestas_validas:
+  - "Seja"
+  - "SEJA"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -90,10 +90,10 @@ pasos:
   - "Aplicar o subjuntivo pretérito perfeito quando necessário."  
 explicacion: "Orações com 'quando' exigem o subjuntivo se houver incerteza sobre a realização do fato. Neste caso, o uso do pretérito perfeito indica uma hipótese não confirmada no passado."  
 enunciado: "Vou lhe ligar quando ___ possível."  
-respuesta: "for"  
-respuestas_validas: ["For", "FOR"]  
+respuestas_validas:
+  - "For"
+  - "FOR"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -110,10 +110,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito singular."  
 explicacion: "Expressões como 'não é possível que' exigem o uso do subjuntivo. A forma correta depende do sujeito da oração subordinada (ele) e do tempo verbal da frase principal."  
 enunciado: "Não é possível que ele ___ aprovado no exame final."  
-respuesta: "seja"  
-respuestas_validas: ["Seja", "SEJA"]  
+respuestas_validas:
+  - "Seja"
+  - "SEJA"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -130,10 +130,10 @@ pasos:
   - "Aplicar o subjuntivo presente à oração subordinada."  
 explicacion: "Expressões como 'espero que' exigem o uso do subjuntivo. A forma correta depende do sujeito da oração subordinada (vocês) e do tempo verbal da frase principal."  
 enunciado: "Espero que vocês ___ mais responsáveis nas tarefas escolares."  
-respuesta: "sejam"  
-respuestas_validas: ["Sejam", "SEJAM"]  
+respuestas_validas:
+  - "Sejam"
+  - "SEJAM"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -150,10 +150,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito indeterminado."  
 explicacion: "Verbos que expressam necessidade, como 'necessito', exigem o uso do subjuntivo em orações subordinadas. Quando o sujeito é indeterminado (seja quem for), usa-se a terceira pessoa do singular."  
 enunciado: "Necessito que ___ mais atento às regras da gramática."  
-respuesta: "seja"  
-respuestas_validas: ["Seja", "SEJA"]  
+respuestas_validas:
+  - "Seja"
+  - "SEJA"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -170,10 +170,10 @@ pasos:
   - "Aplicar o subjuntivo pretérito perfeito."  
 explicacion: "Orações condicionais com 'se' exigem o subjuntivo se houver incerteza sobre a realização do fato. Neste caso, o uso do pretérito perfeito indica uma hipótese não confirmada no passado."  
 enunciado: "Se eu ___ mais estudioso, teria aprovado o exame."  
-respuesta: "fosse"  
-respuestas_validas: ["Fosse", "FOsse"]  
+respuestas_validas:
+  - "Fosse"
+  - "FOsse"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -190,10 +190,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito plural."  
 explicacion: "Expressões como 'não importa que' exigem o uso do subjuntivo. A forma correta depende do sujeito da oração subordinada (vocês) e do tempo verbal da frase principal."  
 enunciado: "Não importa que vocês ___ mais responsáveis nas tarefas escolares."  
-respuesta: "sejam"  
-respuestas_validas: ["Sejam", "SEJAM"]  
+respuestas_validas:
+  - "Sejam"
+  - "SEJAM"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -210,10 +210,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito indeterminado."  
 explicacion: "Expressões como 'como se' exigem o uso do subjuntivo. Quando o sujeito é indeterminado (seja quem for), usa-se a terceira pessoa do singular."  
 enunciado: "Como se ___ mais inteligente, ele sempre responde com confiança."  
-respuesta: "fosse"  
-respuestas_validas: ["Fosse", "FOsse"]  
+respuestas_validas:
+  - "Fosse"
+  - "FOsse"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -230,10 +230,10 @@ pasos:
   - "Aplicar o subjuntivo presente à oração subordinada."  
 explicacion: "Expressões de emoção, como 'fico feliz que', exigem o uso do subjuntivo. A forma correta depende do sujeito da oração subordinada (vocês) e do tempo verbal da frase principal."  
 enunciado: "Fico feliz que vocês ___ mais responsáveis nas tarefas escolares."  
-respuesta: "sejam"  
-respuestas_validas: ["Sejam", "SEJAM"]  
+respuestas_validas:
+  - "Sejam"
+  - "SEJAM"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -250,10 +250,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito plural."  
 explicacion: "Expressões como 'não é possível que' exigem o uso do subjuntivo. A forma correta depende do sujeito da oração subordinada (eles) e do tempo verbal da frase principal."  
 enunciado: "Não é possível que eles ___ aprovados no exame final."  
-respuesta: "sejam"  
-respuestas_validas: ["Sejam", "SEJAM"]  
+respuestas_validas:
+  - "Sejam"
+  - "SEJAM"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -270,10 +270,10 @@ pasos:
   - "Aplicar o subjuntivo pretérito perfeito quando necessário."  
 explicacion: "Orações com 'antes que' exigem o subjuntivo se houver incerteza sobre a realização do fato. Neste caso, o uso do pretérito perfeito indica uma hipótese não confirmada no passado."  
 enunciado: "Vou lhe ligar antes que ___ possível."  
-respuesta: "for"  
-respuestas_validas: ["For", "FOR"]  
+respuestas_validas:
+  - "For"
+  - "FOR"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -290,10 +290,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito indeterminado."  
 explicacion: "Verbos que expressam ordem, como 'pedi', exigem o uso do subjuntivo em orações subordinadas. Quando o sujeito é indeterminado (seja quem for), usa-se a terceira pessoa do singular."  
 enunciado: "Pedi que ___ mais atento às regras da gramática."  
-respuesta: "seja"  
-respuestas_validas: ["Seja", "SEJA"]  
+respuestas_validas:
+  - "Seja"
+  - "SEJA"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -310,10 +310,10 @@ pasos:
   - "Aplicar o subjuntivo presente."  
 explicacion: "Orações condicionais com 'se' exigem o subjuntivo se houver incerteza sobre a realização do fato. Neste caso, o uso do presente indica uma hipótese não confirmada no presente."  
 enunciado: "Se eu ___ mais estudioso, passaria no exame."  
-respuesta: "fosse"  
-respuestas_validas: ["Fosse", "FOsse"]  
+respuestas_validas:
+  - "Fosse"
+  - "FOsse"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -330,10 +330,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito singular."  
 explicacion: "Expressões como 'não importa que' exigem o uso do subjuntivo. A forma correta depende do sujeito da oração subordinada (ele) e do tempo verbal da frase principal."  
 enunciado: "Não importa que ele ___ mais atencioso com os colegas."  
-respuesta: "seja"  
-respuestas_validas: ["Seja", "SEJA"]  
+respuestas_validas:
+  - "Seja"
+  - "SEJA"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -350,12 +350,10 @@ pasos:
   - "Reconocer que 'se' introduce una condición hipotética, por lo tanto requiere subjuntivo."  
 explicacion: "En oraciones condicionales con 'se', se utiliza el subjuntivo porque expresan una situación irreal o hipotética. La forma correcta es 'fosse' (subjuntivo pretérito)."  
 tipo: completar  
-respuesta: "fosse"  
 respuestas_validas:  
   - "fosse"  
   - "Fosse"  
 enunciado: "Se eu ___ mais corajoso, teria ido ao evento."  
-variables: {}  
 ```  
 
 ---
@@ -372,10 +370,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito plural."  
 explicacion: "Expressões como 'desejo que' exigem o uso do subjuntivo. A forma correta depende do sujeito da oração subordinada (vocês) e do tempo verbal da frase principal."  
 enunciado: "Desejo que vocês ___ mais responsáveis nas tarefas escolares."  
-respuesta: "sejam"  
-respuestas_validas: ["Sejam", "SEJAM"]  
+respuestas_validas:
+  - "Sejam"
+  - "SEJAM"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -392,12 +390,10 @@ pasos:
   - "Verificar la concordancia entre el sujeto y el verbo en la oración."  
 explicacion: "'Recomendar que' siempre requiere el subjuntivo. La forma correcta es 'seja' (subjuntivo presente)."  
 tipo: completar  
-respuesta: "seja"  
 respuestas_validas:  
   - "seja"  
   - "Seja"  
 enunciado: "Recomendo que ele ___ mais atento às regras da gramática."  
-variables: {}  
 ```  
 
 ---
@@ -414,10 +410,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito plural."  
 explicacion: "Verbos que expressam ordem, como 'pedi', exigem o uso do subjuntivo em orações subordinadas. A forma correta depende do sujeito da oração subordinada (vocês) e do tempo verbal da frase principal."  
 enunciado: "Pedi que vocês ___ mais atentos às regras da gramática."  
-respuesta: "sejam"  
-respuestas_validas: ["Sejam", "SEJAM"]  
+respuestas_validas:
+  - "Sejam"
+  - "SEJAM"
 tipo: completar  
-variables: []  
 ```
 
 
@@ -441,7 +437,6 @@ opciones_explicitas:
   - "fosse"  
 respuesta: "seja"  
 enunciado: "Não é possível que ele ___ mais atencioso com os colegas."  
-variables: {}  
 ```
 
 ### 23 — Subjuntivo após "não é possível que" com sujeito indeterminado  
@@ -456,10 +451,10 @@ pasos:
   - "Usar o subjuntivo presente para sujeito indeterminado."  
 explicacion: "Expressões como 'não é possível que' exigem o uso do subjuntivo. Quando o sujeito é indeterminado (seja quem for), usa-se a terceira pessoa do singular."  
 enunciado: "Não é possível que ___ mais atento às regras da gramática."  
-respuesta: "seja"  
-respuestas_validas: ["Seja", "SEJA"]  
+respuestas_validas:
+  - "Seja"
+  - "SEJA"
 tipo: completar  
-variables: []  
 ```
 
 

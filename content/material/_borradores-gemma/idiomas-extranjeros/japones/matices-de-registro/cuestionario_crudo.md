@@ -7,14 +7,11 @@ metadata:
   tags: ["formal", "correo-electrónico"]  
 pasos:  
   - "Complete el hueco con la forma más formal de 'です' en un contexto profesional."  
-respuesta: "です"  
 respuestas_validas:  
   - "です"  
   - "で"  
 tipo: completar  
 enunciado: "件名：新規プロジェクトの提案について。本文：弊社は、貴社と協力することを非常に期待しています。__、ご検討いただけますようお願いいたします。"  
-variables:  
-  - "formalidad"  
 explicacion: "En contextos formales como correos electrónicos, se usa 'です' para mantener el tono respetuoso. La forma 'で' no es adecuada aquí porque no corresponde a la conjugación del verbo en este contexto."  
 
 ---
@@ -38,8 +35,6 @@ opciones_explicitas:
   - "ちょっとだけ手間をかけて"  
 tipo: mc  
 enunciado: "「__、ご案内いただけますか？」"  
-variables:  
-  - "contexto"  
 explicacion: "En situaciones formales, se usan frases como 'お手数をおかけしますが' para expresar cortesía. Las otras opciones son más informales o incorrectas en este contexto."  
 
 ---
@@ -56,14 +51,11 @@ metadata:
   tags: ["académico", "formal"]  
 pasos:  
   - "Complete el hueco con la forma más adecuada para un texto académico."  
-respuesta: "である"  
 respuestas_validas:  
   - "である"  
   - "です"  
 tipo: completar  
 enunciado: "この研究では、__、仮説を検証した。"  
-variables:  
-  - "registro"  
 explicacion: "En textos académicos, se prefiere 'である' para mantener un tono impersonal y formal. 'です' es más común en contextos cotidianos."  
 
 ---
@@ -87,8 +79,6 @@ opciones_explicitas:
   - "ご静聴ください"  
 tipo: mc  
 enunciado: "「__、その件について話したいことがある。」"  
-variables:  
-  - "situación"  
 explicacion: "En conversaciones informales, 'ちょっと待って' es más natural que las formas formales como 'お待ちください' o 'ご静聴ください', que son inapropiadas en este contexto."  
 
 ---
@@ -105,14 +95,11 @@ metadata:
   tags: ["formal", "notificación"]  
 pasos:  
   - "Complete el hueco con la forma más respetuosa para una notificación oficial."  
-respuesta: "ご連絡いたします"  
 respuestas_validas:  
   - "ご連絡いたします"  
   - "連絡します"  
 tipo: completar  
 enunciado: "貴社の皆様に__、大変申し訳ございません。"  
-variables:  
-  - "contexto"  
 explicacion: "En notificaciones oficiales, se usa 'ご連絡いたします' para expresar respeto y formaldad. La forma '連絡します' es más directa y menos adecuada en este contexto."  
 
 ---
@@ -136,8 +123,6 @@ opciones_explicitas:
   - "この魚は、ぜひ食べてください。"  
 tipo: mc  
 enunciado: "「__、お願いします。」"  
-variables:  
-  - "situación"  
 explicacion: "En restaurantes informales, se usan preguntas directas como 'この魚、おすすめですか？' para mantener un tono casual. Las otras opciones son más formales o impertinentes."  
 
 ---
@@ -154,14 +139,11 @@ metadata:
   tags: ["formal", "educación"]  
 pasos:  
   - "Complete el hueco con la forma más adecuada para una presentación académica."  
-respuesta: "ご存知のように"  
 respuestas_validas:  
   - "ご存知のように"  
   - "あなたは知ってますよね"  
 tipo: completar  
 enunciado: "「__、このテーマは非常に重要です。」"  
-variables:  
-  - "contexto"  
 explicacion: "En presentaciones académicas, 'ご存知のように' es más formal y respetuoso. La forma 'あなたは知ってますよね' es demasiado informal para este contexto."  
 
 ---
@@ -185,8 +167,6 @@ opciones_explicitas:
   - "そして、__、問題が発生しました。"  
 tipo: mc  
 enunciado: "「__、ご確認ください。」"  
-variables:  
-  - "estructura"  
 explicacion: "En informes formales, '結果として' es más preciso y profesional que otras opciones. Las formas alternativas son menos adecuadas para este contexto."  
 
 ---
@@ -203,14 +183,11 @@ metadata:
   tags: ["formal", "correo-electrónico"]  
 pasos:  
   - "Complete el hueco con la forma más respetuosa para rechazar una solicitud."  
-respuesta: "ご希望に添えず、大変申し訳ございません。"  
 respuestas_validas:  
   - "ご希望に添えず、大変申し訳ございません。"  
   - "ご希望通りにはできませんが"  
 tipo: completar  
 enunciado: "「__、誠にありがとうございます。」"  
-variables:  
-  - "contexto"  
 explicacion: "En correos formales, se usa 'ご希望に添えず、大変申し訳ございません' para expresar cortesía en un rechazo. La forma alternativa es menos formal."  
 
 ---
@@ -234,8 +211,6 @@ opciones_explicitas:
   - "おはようございます"  
 tipo: mc  
 enunciado: "「__、よろしくお願いします！」"  
-variables:  
-  - "situación"  
 explicacion: "En transmisiones en vivo, '皆さん、こんにちは！' es más natural y casual. Las otras opciones son demasiado formales o inapropiadas para este contexto."  
 
 ---
@@ -252,14 +227,11 @@ metadata:
   tags: ["formal", "negocios"]  
 pasos:  
   - "Complete el hueco con la forma más adecuada para una propuesta en un meeting empresarial."  
-respuesta: "ご検討いただけますようお願いいたします"  
 respuestas_validas:  
   - "ご検討いただけますようお願いいたします"  
   - "検討してください"  
 tipo: completar  
 enunciado: "「弊社の提案を__、誠にありがとうございます。」"  
-variables:  
-  - "contexto"  
 explicacion: "En reuniones empresariales, se usa 'ご検討いただけますようお願いいたします' para mantener un tono respetuoso. La forma alternativa es menos formal."  
 
 ---
@@ -293,14 +265,11 @@ metadata:
   tags: ["formal", "educación"]  
 pasos:  
   - "Complete el hueco con la forma más adecuada para una presentación en clase."  
-respuesta: "ご静聴ありがとうございます"  
 respuestas_validas:  
   - "ご静聴ありがとうございます"  
   - "聞いてください"  
 tipo: completar  
 enunciado: "「__、本日の発表を始めさせていただきます。」"  
-variables:  
-  - "contexto"  
 explicacion: "En presentaciones formales, 'ご静聴ありがとうございます' es más respetuoso. La forma alternativa es demasiado informal para este contexto."  
 
 ---
@@ -324,8 +293,6 @@ opciones_explicitas:
   - "今後とも、__、協力してください。"  
 tipo: mc  
 enunciado: "「__、よろしくお願いいたします。」"  
-variables:  
-  - "estructura"  
 explicacion: "En documentos formales, 'ご支援いただけますようお願い申し上げます' es más respetuoso. Las otras opciones son menos formales o inapropiadas para este contexto."  
 
 ---
@@ -342,14 +309,11 @@ metadata:
   tags: ["formal", "correo-electrónico"]  
 pasos:  
   - "Complete el hueco con la forma más adecuada para expresar gratitud en un correo electrónico."  
-respuesta: "大変お世話になっております"  
 respuestas_validas:  
   - "大変お世話になっております"  
   - "ありがとうございます"  
 tipo: completar  
 enunciado: "「__、いつも感謝しています。」"  
-variables:  
-  - "contexto"  
 explicacion: "En correos formales, '大変お世話になっております' es más respetuoso. La forma alternativa es demasiado informal para este contexto."  
 
 ---
@@ -373,8 +337,6 @@ opciones_explicitas:
   - "質問はできますか？"  
 tipo: mc  
 enunciado: "「__、ありがとうございます！」"  
-variables:  
-  - "situación"  
 explicacion: "En transmisiones en vivo, 'その質問、とても良いですね！' es más natural y casual. Las otras opciones son demasiado formales o impertinentes."  
 
 ---
@@ -391,14 +353,11 @@ metadata:
   tags: ["formal", "negocios"]  
 pasos:  
   - "Complete el hueco con la forma más adecuada para un informe en una reunión empresarial."  
-respuesta: "ご報告いたします"  
 respuestas_validas:  
   - "ご報告いたします"  
   - "報告します"  
 tipo: completar  
 enunciado: "「__、本日の進捗についてお知らせいたします。」"  
-variables:  
-  - "contexto"  
 explicacion: "En reuniones empresariales, 'ご報告いたします' es más respetuoso. La forma alternativa es demasiado informal para este contexto."  
 
 ---
@@ -455,8 +414,6 @@ opciones_explicitas:
   - "お手紙を送ります"  
 tipo: mc  
 enunciado: "「__、大変申し訳ございません。」"  
-variables:  
-  - "contexto"  
 explicacion: "En correos formales, 'ご連絡いたします' es más respetuoso. Las otras opciones son menos formales o inapropiadas para este contexto."  
 
 ---

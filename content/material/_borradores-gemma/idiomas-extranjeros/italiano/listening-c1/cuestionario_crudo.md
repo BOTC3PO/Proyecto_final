@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Escuchar la frase en contexto."
   - "Identificar la preposición correcta según el verbo 'parlare'."
-respuesta: "di"
 respuestas_validas:
   - "di"
   - "Di"
@@ -81,7 +80,6 @@ metadata:
 pasos:
   - "Escuchar la frase en contexto."
   - "Completar el hueco con la forma correcta de la pregunta indirecta."
-respuesta: "che"
 respuestas_validas:
   - "che"
   - "Che"
@@ -129,7 +127,6 @@ metadata:
 pasos:
   - "Escuchar la frase en contexto."
   - "Identificar el pronombre indirecto correcto según el verbo 'chiedere'."
-respuesta: "me"
 respuestas_validas:
   - "me"
   - "Me"
@@ -177,7 +174,6 @@ metadata:
 pasos:
   - "Escuchar la frase en contexto."
   - "Completar el hueco con la forma correcta de la voz pasiva."
-respuesta: "è stato"
 respuestas_validas:
   - "è stato"
   - "E' stato"
@@ -225,7 +221,6 @@ metadata:
 pasos:
   - "Escuchar la frase en contexto."
   - "Identificar la preposición correcta según el sustantivo 'problema'."
-respuesta: "del"
 respuestas_validas:
   - "del"
   - "Del"
@@ -273,7 +268,6 @@ metadata:
 pasos:
   - "Escuchar la frase en contexto."
   - "Identificar el pronombre correcto según el verbo 'andare'."
-respuesta: "ci"
 respuestas_validas:
   - "ci"
   - "Ci"
@@ -321,7 +315,6 @@ metadata:
 pasos:
   - "Escuchar la frase en contexto."
   - "Identificar el pronombre correcto según el verbo 'parlare'."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
@@ -344,13 +337,11 @@ metadata:
 pasos:
   - "Identificar el uso correcto del participio passato después de un gerundio."
   - "Completar el hueco con la forma adecuada en base a la regla gramatical."
-respuesta: "aver fatto"
 respuestas_validas:
   - "aver fatto"
   - "aver fatto"
 tipo: completar
 enunciado: "Dopo ___ il lavoro ieri sera, ma non riuscivo a dormire."
-variables: []
 explicacion: "Después de 'dopo che', se usa el gerundio (formado con 'avere' + participio passato). Aquí 'fare' requiere 'fatto' como participio passato."
 ```
 
@@ -372,7 +363,6 @@ opciones_explicitas:
   - "come"
 tipo: mc
 enunciado: "Non so ___ abbia deciso di andare all'estero."
-variables: []
 explicacion: "Después de 'non so', se usa el subjuntivo en oraciones indirectas que introducen un verbo de conocimiento. La preposición 'che' introduce la cláusula subordinada."
 ```
 
@@ -411,13 +401,11 @@ metadata:
 pasos:
   - "Identificar la preposición correcta que sigue al verbo 'andare'."
   - "Completar el hueco con la variante ortográfica válida."
-respuesta: "da"
 respuestas_validas:
   - "da"
   - "Da"
 tipo: completar
 enunciado: "Il ragazzo ___ parlare con sua madre da ore, ma non ha risposto."
-variables: []
 explicacion: "'Andare da' se usa para indicar dirección. La preposición 'da' es la correcta en este contexto."
 ```
 
@@ -439,7 +427,6 @@ opciones_explicitas:
   - "parla"
 tipo: mc
 enunciado: "Mentre ___ il telefono, ho ricevuto una chiamata importante."
-variables: []
 explicacion: "El gerundio 'parlare' se usa después de 'mentre' para indicar simultaneidad. 'Parlando' también es válido pero el contexto requiere infinitivo."
 ```
 
@@ -478,7 +465,6 @@ metadata:
 pasos:
   - "Escuchar la frase en contexto."
   - "Identificar el pronombre correcto según el verbo 'parlare'."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
@@ -526,13 +512,11 @@ metadata:
 pasos:
   - "Identificar el verbo auxiliar y el participio correcto para la oración."
   - "Completar el hueco con la forma adecuada en base a la regla gramatical."
-respuesta: "avere"
 respuestas_validas:
   - "avere"
   - "Avere"
 tipo: completar
 enunciado: "La città ___ sono andato è molto più bella di quanto pensassi."
-variables: []
 explicacion: "El verbo 'andare' requiere el auxiliar 'avere' y su participio passato 'andato' para formar el trapassato prossimo en este contexto."
 ```
 
@@ -554,7 +538,6 @@ opciones_explicitas:
   - "dei"
 tipo: mc
 enunciado: "Mi ha ___ aiuto, ma non l'ho accettato."
-variables: []
 explicacion: "'Aiutare di' es la construcción correcta para indicar el acto de ayudar. 'Di' introduce el objeto indirecto."
 ```
 
@@ -568,12 +551,10 @@ metadata:
 pasos:
   - "Identificar el uso correcto del condizionale perfetto en una oración hipotética."
   - "Completar el hueco con la forma adecuada en base a la regla gramatical."
-respuesta: "avrei risolto"
 respuestas_validas:
   - "avrei risolto"
   - "Avrei risolto"
 tipo: completar
 enunciado: "Se fossi stato più attento, ___ il problema."
-variables: []
 explicacion: "El condizionale perfetto 'avrei risolto' se usa en oraciones hipotéticas para expresar una acción que no ocurrió en el pasado."
 ```

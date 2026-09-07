@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el uso del subjuntivo en oraciones hipotéticas."
   - "Completar el hueco con la forma correcta."
-respuesta: "würde"
 respuestas_validas:
   - "würde"
   - "Würde"
@@ -55,7 +54,6 @@ metadata:
 pasos:
   - "Identificar el uso del subjuntivo para expresar duda."
   - "Completar el hueco con la forma correcta."
-respuesta: "habe"
 respuestas_validas:
   - "habe"
   - "Habe"
@@ -102,7 +100,6 @@ metadata:
 pasos:
   - "Identificar el uso del subjuntivo en oraciones condicionales."
   - "Completar el hueco con la forma correcta."
-respuesta: "käme"
 respuestas_validas:
   - "käme"
   - "Käme"
@@ -149,7 +146,6 @@ metadata:
 pasos:
   - "Identificar el uso del subjuntivo en oraciones de deseo."
   - "Completar el hueco con la forma correcta."
-respuesta: "käme"
 respuestas_validas:
   - "käme"
   - "Käme"
@@ -196,7 +192,6 @@ metadata:
 pasos:
   - "Identificar el uso del subjuntivo en oraciones que expresan duda."
   - "Completar el hueco con la forma correcta."
-respuesta: "wäre"
 respuestas_validas:
   - "wäre"
   - "Wäre"
@@ -243,7 +238,7 @@ metadata:
 pasos:  
   - "Identificar la estructura hipotética en el enunciado."  
   - "Aplicar la forma correcta del Konjunktiv II para el verbo 'haben'."  
-respuesta_validas:  
+respuestas_validas:  
   - "hätte"  
   - "Hätte"  
 tipo: completar  
@@ -261,7 +256,7 @@ metadata:
 pasos:  
   - "Reconocer el verbo 'wünschen' como indicador de deseo."  
   - "Aplicar la forma correcta del Konjunktiv II para el verbo 'kommen'."  
-respuesta_validas:  
+respuestas_validas:  
   - "käme"  
   - "Käme"  
 tipo: completar  
@@ -279,7 +274,6 @@ metadata:
 pasos:
   - "Identificar el uso del subjuntivo en oraciones hipotéticas."
   - "Completar el hueco con la forma correcta."
-respuesta: "käme"
 respuestas_validas:
   - "käme"
   - "Käme"
@@ -347,7 +341,7 @@ metadata:
 pasos:  
   - "Reconocer el verbo 'wissen' como indicador de duda."  
   - "Usar el Konjunktiv II para el verbo 'machen'."  
-respuesta_validas:  
+respuestas_validas:  
   - "machte"  
   - "Machte"  
 tipo: completar  
@@ -386,7 +380,7 @@ metadata:
 pasos:  
   - "Identificar la suposición en el presente que no se cumple."  
   - "Usar el Konjunktiv II para el verbo 'kommen'."  
-respuesta_validas:  
+respuestas_validas:  
   - "käme"  
   - "Käme"  
 tipo: completar  
@@ -425,7 +419,7 @@ metadata:
 pasos:  
   - "Identificar la condición en el pasado que no se cumplió."  
   - "Usar el Konjunktiv II para el verbo 'haben'."  
-respuesta_validas:  
+respuestas_validas:  
   - "hätte"  
   - "Hätte"  
 tipo: completar  
@@ -464,7 +458,7 @@ metadata:
 pasos:  
   - "Identificar el uso de 'obwohl' para expresar contraste."  
   - "Aplicar el Konjunktiv II para el verbo 'kommen'."  
-respuesta_validas:  
+respuestas_validas:  
   - "käme"  
   - "Käme"  
 tipo: completar  
@@ -503,7 +497,7 @@ metadata:
 pasos:  
   - "Reconocer el verbo 'sagen' como indicador de duda."  
   - "Usar el Konjunktiv II para el verbo 'machen'."  
-respuesta_validas:  
+respuestas_validas:  
   - "machte"  
   - "Machte"  
 tipo: completar  

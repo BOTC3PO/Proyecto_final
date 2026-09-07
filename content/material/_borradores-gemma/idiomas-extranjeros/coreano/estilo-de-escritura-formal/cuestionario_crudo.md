@@ -10,7 +10,6 @@ pasos:
   - "Seleccionar la forma correcta del verbo en base al estilo requerido."  
 tipo: completar  
 enunciado: "이 회사의 ___가 최신 기술을 도입했다는 소식은 투자자들에게 큰 영향을 줄 것입니다."  
-respuesta: "발전"  
 respuestas_validas:  
   - "발전"  
   - "발전" (mayúscula no aplicable)  
@@ -53,7 +52,6 @@ pasos:
   - "Seleccionar la forma correcta del adjetivo numérico."  
 tipo: completar  
 enunciado: "이 보고서는 ___ 가지 주요 데이터를 분석하여 제시되었습니다."  
-respuesta: "다섯"  
 respuestas_validas:  
   - "다섯"  
   - "5" (no aplicable, contexto requiere kanji)  
@@ -96,7 +94,6 @@ pasos:
   - "Seleccionar la forma correcta del verbo en base a las normas formales."  
 tipo: completar  
 enunciado: "이 제안서는 ___ 전문가들의 의견을 종합하여 작성되었습니다."  
-respuesta: "다수의"  
 respuestas_validas:  
   - "다수의"  
   - "많은" (no aplicable, contexto requiere precisión)  
@@ -139,7 +136,6 @@ pasos:
   - "Seleccionar el término formal apropiado."  
 tipo: completar  
 enunciado: "이 프로젝트는 ___ 협력과 지원을 바탕으로 성공적으로 진행되었습니다."  
-respuesta: "다양한"  
 respuestas_validas:  
   - "다양한"  
   - "다양한" (mayúscula no aplicable)  
@@ -182,7 +178,6 @@ pasos:
   - "Seleccionar el conectivo que mejor relacione las ideas."  
 tipo: completar  
 enunciado: "이 프로그램은 성공적으로 진행되었으며, ___ 향후 계획도 확정되었습니다."  
-respuesta: "따라서"  
 respuestas_validas:  
   - "따라서"  
   - "그러므로" (no aplicable, contexto requiere precisión)  

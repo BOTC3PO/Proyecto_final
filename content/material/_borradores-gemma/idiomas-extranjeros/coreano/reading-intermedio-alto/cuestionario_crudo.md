@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y el complemento en la oración."
   - "Completar el hueco con el complemento correcto."
-respuesta: "친구에게"
 respuestas_validas:
   - "친구에게"
   - "친구"
@@ -51,7 +50,6 @@ metadata:
 pasos:
   - "문장 간의 관계를 파악하기."
   - "적절한 접속사를 선택하여 연결하기."
-respuesta: "그러나"
 respuestas_validas:
   - "그러나"
   - "하지만"
@@ -94,7 +92,6 @@ metadata:
 pasos:
   - "현재, 과거, 미래의 시제를 구분하기."
   - "문맥에 맞는 시제로 채우기."
-respuesta: "했어요"
 respuestas_validas:
   - "했어요"
   - "했습니다"
@@ -137,7 +134,6 @@ metadata:
 pasos:
   - "명사와 형용사의 관계를 분석하기."
   - "적절한 형용사를 채우기."
-respuesta: "작은"
 respuestas_validas:
   - "작은"
   - "작다"
@@ -180,7 +176,6 @@ metadata:
 pasos:
   - "문장 간의 관계를 분석하기."
   - "적절한 접속사를 선택하여 연결하기."
-respuesta: "그래서"
 respuestas_validas:
   - "그래서"
   - "그러므로"
@@ -200,7 +195,7 @@ metadata:
   tags: ["주제어", "은/는"]
 pasos:
   - "Identificar el uso correcto del marcador de tema."
-respuesta_validas:
+respuestas_validas:
   - "그녀는"
   - "그녀"
   - "그녀가"
@@ -262,7 +257,7 @@ metadata:
   tags: ["의지", "-고 싶어하다"]
 pasos:
   - "Identificar el verbo que completa la intención."
-respuesta_validas:
+respuestas_validas:
   - "할 수 있다"
   - "할 수 있어요"
 tipo: completar
@@ -301,7 +296,7 @@ metadata:
   tags: ["접속사", "그"]
 pasos:
   - "Identificar la contracción que completa el significado."
-respuesta_validas:
+respuestas_validas:
   - "그걸"
   - "그것을"
 tipo: completar
@@ -321,7 +316,6 @@ metadata:
 pasos:
   - "현재의 상태를 나타내는 시제를 분석하기."
   - "적절한 시제로 채우기."
-respuesta: "해요"
 respuestas_validas:
   - "해요"
   - "합니다"
@@ -361,7 +355,7 @@ metadata:
   tags: ["대비", "-는"]
 pasos:
   - "Seleccionar el marcador que indica contraste."
-respuesta_validas:
+respuestas_validas:
   - "그는"
   - "그가"
 tipo: completar
@@ -400,7 +394,7 @@ metadata:
   tags: ["형용사", "-이"]
 pasos:
   - "Seleccionar la forma correcta del adjetivo."
-respuesta_validas:
+respuestas_validas:
   - "그것은"
   - "그게"
 tipo: completar
@@ -439,7 +433,7 @@ metadata:
   tags: ["존댓말", "-세요"]
 pasos:
   - "Identificar la forma correcta de respeto."
-respuesta_validas:
+respuestas_validas:
   - "예쁘세요"
   - "예쁩니다"
 tipo: completar
@@ -478,7 +472,7 @@ metadata:
   tags: ["장소", "-에서"]
 pasos:
   - "Identificar la partícula que indica ubicación."
-respuesta_validas:
+respuestas_validas:
   - "그리고"
   - "그곳에서"
 tipo: completar

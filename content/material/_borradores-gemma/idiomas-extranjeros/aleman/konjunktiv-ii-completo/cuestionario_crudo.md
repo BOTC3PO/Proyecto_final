@@ -8,12 +8,10 @@ metadata:
 pasos:
   - "Identifica la forma correcta de 'haber' en Konjunktiv II."
   - "Completa el hueco con la conjugación adecuada del verbo."
-respuesta: "hätte"
 respuestas_validas:
   - "Hätte"
 tipo: completar
 enunciado: "Wenn ich ___ mehr Zeit hätte, würde ich reisen."
-variables: []
 explicacion: "El Konjunktiv II de 'haben' en este contexto es 'hätte', que se usa para expresar deseos hipotéticos. La forma präteritum del verbo 'haben' (haben → hatte) se emplea aquí."
 ```
 
@@ -38,7 +36,6 @@ opciones_explicitas:
   - "ginge"
 tipo: mc
 enunciado: "Welche Form ist korrekt? 'Ich ___ mitkommen.'"
-variables: []
 explicacion: "La forma correcta es 'würde gehen', ya que el Konjunktiv II con 'würde' se usa para expresar acciones hipotéticas en el presente."
 ```
 
@@ -56,12 +53,10 @@ metadata:
 pasos:
   - "Identifica la conjugación de 'werden' en Konjunktiv II."
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "würde werden"
 respuestas_validas:
   - "Würde werden"
 tipo: completar
 enunciado: "Wenn ich ___ reich wäre, würde ich alles kaufen."
-variables: []
 explicacion: "'Werden' en Konjunktiv II es 'würde werden', que se usa para expresar deseos hipotéticos. La forma präteritum no se aplica aquí porque el verbo principal ya está en Konjunktiv II (señalado por 'würde')."
 ```
 
@@ -86,7 +81,6 @@ opciones_explicitas:
   - "schwämme"
 tipo: mc
 enunciado: "Welche Form ist korrekt? 'Er ___ im See.'"  
-variables: []
 explicacion: "'Würde schwimmen' es la forma correcta, ya que el Konjunktiv II con 'würde' se usa para expresar acciones hipotéticas en el presente."
 ```
 
@@ -104,12 +98,10 @@ metadata:
 pasos:
   - "Identifica la forma correcta de 'essen' en Konjunktiv II."
   - "Completa el hueco con la conjugación adecuada del verbo."
-respuesta: "würde essen"
 respuestas_validas:
   - "Würde essen"
 tipo: completar
 enunciado: "Du könntest ___ zu Hause bleiben, wenn es regnet."  
-variables: []
 explicacion: "'Essen' en Konjunktiv II es 'würde essen', que se usa para sugerir acciones hipotéticas. La forma präteritum no se aplica aquí porque el verbo principal ya está en Konjunktiv II (señalado por 'könntest')."
 ```
 
@@ -134,7 +126,6 @@ opciones_explicitas:
   - "fuhr"
 tipo: mc
 enunciado: "Welche Form ist korrekt? 'Ich ___ mit dem Auto.'"  
-variables: []
 explicacion: "'Würde fahren' es la forma correcta, ya que el Konjunktiv II con 'würde' se usa para expresar acciones hipotéticas en el presente."
 ```
 
@@ -152,12 +143,10 @@ metadata:
 pasos:
   - "Identifica la conjugación de 'sein' en Konjunktiv II."
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "wäre"
 respuestas_validas:
   - "Wäre"
 tipo: completar
 enunciado: "Wenn ich ___ glücklich wäre, würde ich lachen."  
-variables: []
 explicacion: "'Sein' en Konjunktiv II es 'wäre', que se usa para expresar deseos hipotéticos. La forma präteritum no se aplica aquí porque el verbo principal ya está en Konjunktiv II (señalado por 'würde')."
 ```
 
@@ -182,7 +171,6 @@ opciones_explicitas:
   - "trank"
 tipo: mc
 enunciado: "Welche Form ist korrekt? 'Er ___ Wasser.'"  
-variables: []
 explicacion: "'Würde trinken' es la forma correcta, ya que el Konjunktiv II con 'würde' se usa para expresar acciones hipotéticas en el presente."
 ```
 
@@ -200,12 +188,10 @@ metadata:
 pasos:
   - "Identifica la forma correcta de 'schlafen' en Konjunktiv II."
   - "Completa el hueco con la conjugación adecuada del verbo."
-respuesta: "würde schlafen"
 respuestas_validas:
   - "Würde schlafen"
 tipo: completar
 enunciado: "Du könntest ___ in der Bibliothek, wenn es ruhig ist."  
-variables: []
 explicacion: "'Schlafen' en Konjunktiv II es 'würde schlafen', que se usa para sugerir acciones hipotéticas. La forma präteritum no se aplica aquí porque el verbo principal ya está en Konjunktiv II (señalado por 'könntest')."
 ```
 
@@ -230,7 +216,6 @@ opciones_explicitas:
   - "rannte"
 tipo: mc
 enunciado: "Welche Form ist korrekt? 'Ich ___ um die Ecke.'"  
-variables: []
 explicacion: "'Würde rennen' es la forma correcta, ya que el Konjunktiv II con 'würde' se usa para expresar acciones hipotéticas en el presente."
 ```
 
@@ -248,12 +233,10 @@ metadata:
 pasos:
   - "Identifica la conjugación de 'haben' en Konjunktiv II."
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "hätte"
 respuestas_validas:
   - "Hätte"
 tipo: completar
 enunciado: "Wenn ich ___ mehr Geld hätte, würde ich reisen."  
-variables: []
 explicacion: "'Haben' en Konjunktiv II es 'hätte', que se usa para expresar deseos hipotéticos. La forma präteritum no se aplica aquí porque el verbo principal ya está en Konjunktiv II (señalado por 'würde')."
 ```
 
@@ -278,7 +261,6 @@ opciones_explicitas:
   - "schrieb"
 tipo: mc
 enunciado: "Welche Form ist korrekt? 'Er ___ einen Brief.'"  
-variables: []
 explicacion: "'Würde schreiben' es la forma correcta, ya que el Konjunktiv II con 'würde' se usa para expresar acciones hipotéticas en el presente."
 ```
 
@@ -296,12 +278,10 @@ metadata:
 pasos:
   - "Identifica la forma correcta de 'machen' en Konjunktiv II."
   - "Completa el hueco con la conjugación adecuada del verbo."
-respuesta: "würde machen"
 respuestas_validas:
   - "Würde machen"
 tipo: completar
 enunciado: "Du könntest ___ eine Pause, wenn du müde bist."  
-variables: []
 explicacion: "'Machen' en Konjunktiv II es 'würde machen', que se usa para sugerir acciones hipotéticas. La forma präteritum no se aplica aquí porque el verbo principal ya está en Konjunktiv II (señalado por 'könntest')."
 ```
 
@@ -326,7 +306,6 @@ opciones_explicitas:
   - "flog"
 tipo: mc
 enunciado: "Welche Form ist korrekt? 'Ich ___ mit dem Flugzeug.'"  
-variables: []
 explicacion: "'Würde fliegen' es la forma correcta, ya que el Konjunktiv II con 'würde' se usa para expresar acciones hipotéticas en el presente."
 ```
 
@@ -344,12 +323,10 @@ metadata:
 pasos:
   - "Identifica la conjugación de 'werden' en Konjunktiv II."
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "würde werden"
 respuestas_validas:
   - "Würde werden"
 tipo: completar
 enunciado: "Wenn ich ___ alt wäre, würde ich nicht mehr arbeiten."  
-variables: []
 explicacion: "'Werden' en Konjunktiv II es 'würde werden', que se usa para expresar deseos hipotéticos. La forma präteritum no se aplica aquí porque el verbo principal ya está en Konjunktiv II (señalado por 'würde')."
 ```
 
@@ -374,7 +351,6 @@ opciones_explicitas:
   - "sang"
 tipo: mc
 enunciado: "Welche Form ist korrekt? 'Er ___ ein Lied.'"  
-variables: []
 explicacion: "'Würde singen' es la forma correcta, ya que el Konjunktiv II con 'würde' se usa para expresar acciones hipotéticas en el presente."
 ```
 
@@ -392,12 +368,10 @@ metadata:
 pasos:
   - "Identifica la forma correcta de 'gehen' en Konjunktiv II."
   - "Completa el hueco con la conjugación adecuada del verbo."
-respuesta: "würde gehen"
 respuestas_validas:
   - "Würde gehen"
 tipo: completar
 enunciado: "Du könntest ___ zum Park, wenn du Zeit hast."  
-variables: []
 explicacion: "'Gehen' en Konjunktiv II es 'würde gehen', que se usa para sugerir acciones hipotéticas. La forma präteritum no se aplica aquí porque el verbo principal ya está en Konjunktiv II (señalado por 'könntest')."
 ```
 
@@ -422,7 +396,6 @@ opciones_explicitas:
   - "schlief"
 tipo: mc
 enunciado: "Welche Form ist korrekt? 'Ich ___ in der Bibliothek.'"  
-variables: []
 explicacion: "'Würde schlafen' es la forma correcta, ya que el Konjunktiv II con 'würde' se usa para expresar acciones hipotéticas en el presente."
 ```
 
@@ -440,12 +413,10 @@ metadata:
 pasos:
   - "Identifica la conjugación de 'haben' en Konjunktiv II."
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "hätte"
 respuestas_validas:
   - "Hätte"
 tipo: completar
 enunciado: "Wenn ich ___ mehr Freizeit hätte, würde ich reisen."  
-variables: []
 explicacion: "'Haben' en Konjunktiv II es 'hätte', que se usa para expresar deseos hipotéticos. La forma präteritum no se aplica aquí porque el verbo principal ya está en Konjunktiv II (señalado por 'würde')."
 ```
 
@@ -485,7 +456,6 @@ pasos:
   - "Completa el hueco con la forma correcta del Konjunktiv II para el verbo 'geben'."  
 explicacion: "El verbo 'geben' en Konjunktiv II es 'gäbe'. Aquí, se requiere la forma conjugada en primera persona singular (ich) o tercera persona singular (er/sie/es), dependiendo del contexto. La oración implica una situación hipotética."  
 tipo: completar  
-respuesta: "gäbe"  
 respuestas_validas:  
   - "gäbe"  
   - "Gäbe"  
@@ -525,7 +495,6 @@ pasos:
   - "Completa el hueco con la forma correcta del Konjunktiv II para el verbo 'kennen'."  
 explicacion: "El verbo 'kennen' en Konjunktiv II es 'käme', pero cuando se usa en oraciones hipotéticas con un objeto indirecto, se requiere su conjugación correcta. La forma adecuada depende del sujeto de la oración."  
 tipo: completar  
-respuesta: "käme"  
 respuestas_validas:  
   - "käme"  
   - "Käme"

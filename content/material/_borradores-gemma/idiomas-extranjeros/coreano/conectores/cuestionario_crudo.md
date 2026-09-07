@@ -10,7 +10,6 @@ pasos:
 explicacion: "El conectivo -지만 se usa para mostrar una contradicción entre dos ideas. En este caso, '힘들었지만' contrasta la dificultad con la perseverancia."  
 tipo: completar  
 enunciado: "학생은 시험에 실패했지만 ___ 계속 공부했어요."  
-respuesta: "그럼에도"  
 respuestas_validas:  
   - "그럼에도"  
   - "그래도"  
@@ -32,7 +31,6 @@ pasos:
 explicacion: "El conectivo -어서 indica una causa o razón. Aquí, '피곤해서' explica por qué no pudo asistir a clase."  
 tipo: completar  
 enunciado: "이유는 피곤해서 ___ 수업에 참석하지 못했어요."  
-respuesta: "그렇게"  
 respuestas_validas:  
   - "그렇게"  
   - "그래서"  
@@ -54,7 +52,6 @@ pasos:
 explicacion: "El conectivo -면 introduce una condición. '날씨가 좋으면' establece que el viaje solo ocurre si hace buen tiempo."  
 tipo: completar  
 enunciado: "___ 날씨가 좋아요, 산에 올라갈 거예요."  
-respuesta: "만약"  
 respuestas_validas:  
   - "만약"  
   - "아니면"  
@@ -76,7 +73,6 @@ pasos:
 explicacion: "El conectivo -니까 explica una causa directa. '늦었으니까' indica por qué no se puede llegar a tiempo."  
 tipo: completar  
 enunciado: "지하철이 지연되었으니까 ___ 늦어질 거예요."  
-respuesta: "그렇게"  
 respuestas_validas:  
   - "그렇게"  
   - "그래서"  
@@ -98,7 +94,6 @@ pasos:
 explicacion: "El conectivo -아/어서 se usa para causas. '예약했으니까' explica por qué el cliente está esperando."  
 tipo: completar  
 enunciado: "고객은 ___ 예약했으니까 기다리고 있어요."  
-respuesta: "이미"  
 respuestas_validas:  
   - "이미"  
   - "이미해서"  
@@ -120,7 +115,6 @@ pasos:
 explicacion: "El conectivo -는지 se usa para preguntar o expresar duda. '이유가 무엇인지' pregunta por una razón desconocida."  
 tipo: completar  
 enunciado: "그가 그 일을 했던 ___ 궁금해요."  
-respuesta: "이유"  
 respuestas_validas:  
   - "이유"  
   - "원인"  
@@ -142,7 +136,6 @@ pasos:
 explicacion: "El conectivo -되다 introduce una condición. '시간이 되면' indica que algo ocurre cuando llega un momento específico."  
 tipo: completar  
 enunciado: "___ 시간이 되면 회의를 시작할 거예요."  
-respuesta: "정해진"  
 respuestas_validas:  
   - "정해진"  
   - "지정된"  
@@ -164,7 +157,6 @@ pasos:
 explicacion: "El conectivo -지만 contrasta dos acciones. '좋았지만' muestra que algo es positivo pero tiene un problema."  
 tipo: completar  
 enunciado: "이 영화는 ___ 너무 길어서 지루했어요."  
-respuesta: "재미있었지만"  
 respuestas_validas:  
   - "재미있었지만"  
   - "흥미롭지만"  
@@ -186,7 +178,6 @@ pasos:
 explicacion: "El conectivo -면 introduce una condición. '시간이 되면' indica que algo ocurre cuando llega un momento específico."  
 tipo: completar  
 enunciado: "___ 시간이 되면 곧 출발할 거예요."  
-respuesta: "정해진"  
 respuestas_validas:  
   - "정해진"  
   - "지정된"  
@@ -206,7 +197,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo."
   - "Verifica que el sujeto y contexto sean distintos de los ejemplos anteriores."
-respuesta: "하고"
 respuestas_validas:
   - "하고"
   - "하면서"
@@ -249,7 +239,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que indica causa."
   - "Evita repetir estructuras como '지하철이 지연되었으니까 ___ 늦어질 거예요.'"
-respuesta: "그래서"
 respuestas_validas:
   - "그래서"
   - "그러니까"
@@ -270,7 +259,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que expresa 'aunque'."
   - "No repitas estructuras como '지하철이 지연되었으니까 ___ 늦어질 거예요.'"
-respuesta: "고도"
 respuestas_validas:
   - "고도"
   - "면서도"
@@ -291,7 +279,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que indica secuencia."
   - "Evita usar estructuras como '산에 올라갈 거예요.'"
-respuesta: "하면서"
 respuestas_validas:
   - "하면서"
   - "하고"
@@ -334,7 +321,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que indica secuencia."
   - "Evita repetir estructuras como '지하철이 지연되었으니까 ___ 늦어질 거예요.'"
-respuesta: "하고"
 respuestas_validas:
   - "하고"
   - "하면서"
@@ -377,7 +363,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que indica causa."
   - "Evita repetir estructuras como '지하철이 지연되었으니까 ___ 늦어질 거예요.'"
-respuesta: "그래서"
 respuestas_validas:
   - "그래서"
   - "그러니까"
@@ -398,7 +383,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que expresa 'aunque'."
   - "No repitas estructuras como '지하철이 지연되었으니까 ___ 늦어질 거예요.'"
-respuesta: "고도"
 respuestas_validas:
   - "고도"
   - "면서도"
@@ -419,7 +403,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que indica secuencia."
   - "Evita usar estructuras como '산에 올라갈 거예요.'"
-respuesta: "하면서"
 respuestas_validas:
   - "하면서"
   - "하고"
@@ -462,7 +445,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que indica secuencia."
   - "Evita repetir estructuras como '지하철이 지연되었으니까 ___ 늦어질 거예요.'"
-respuesta: "하고"
 respuestas_validas:
   - "하고"
   - "하면서"
@@ -505,7 +487,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que indica causa."
   - "Evita repetir estructuras como '지하철이 지연되었으니까 ___ 늦어질 거예요.'"
-respuesta: "그래서"
 respuestas_validas:
   - "그래서"
   - "그러니까"
@@ -526,7 +507,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del conectivo que expresa 'aunque'."
   - "No repitas estructuras como '지하철이 지연되었으니까 ___ 늦어질 거예요.'"
-respuesta: "고도"
 respuestas_validas:
   - "고도"
   - "면서도"

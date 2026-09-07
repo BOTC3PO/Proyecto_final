@@ -11,7 +11,6 @@ pasos:
 explicacion: "El conector 'however' se usa para introducir una idea opuesta a la anterior, manteniendo cohesión en el ensayo."
 tipo: completar
 enunciado: "The government has invested in renewable energy. ______, many citizens still rely on fossil fuels."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "nevertheless"
@@ -32,7 +31,6 @@ pasos:
 explicacion: "'Furthermore' agrega información relevante a la anterior, fortaleciendo el argumento."
 tipo: completar
 enunciado: "The policy reduced pollution. ______, it also improved public health outcomes."
-respuesta: "Furthermore"
 respuestas_validas:
   - "Furthermore"
   - "In addition"
@@ -53,7 +51,6 @@ pasos:
 explicacion: "'Therefore' conecta una idea previa con su resultado, mostrando lógica en el razonamiento."
 tipo: completar
 enunciado: "The company cut costs. ______, it had to lay off 20% of its workforce."
-respuesta: "Therefore"
 respuestas_validas:
   - "Therefore"
   - "Consequently"
@@ -74,7 +71,6 @@ pasos:
 explicacion: "'Although' permite presentar una idea que contrasta con la anterior, manteniendo fluidez en el texto."
 tipo: completar
 enunciado: "________ the project faced delays, it was completed on time."
-respuesta: "Although"
 respuestas_validas:
   - "Although"
   - "Even though"
@@ -95,7 +91,6 @@ pasos:
 explicacion: "'For instance' introduce un ejemplo específico, reforzando la idea general del párrafo."
 tipo: completar
 enunciado: "Remote work offers flexibility. ______, employees can choose their working hours."
-respuesta: "For instance"
 respuestas_validas:
   - "For instance"
   - "For example"
@@ -116,7 +111,6 @@ pasos:
 explicacion: "'In conclusion' marca el final del ensayo, sintetizando los puntos clave presentados."
 tipo: completar
 enunciado: "The study showed benefits for both sides. ______, the agreement is a positive step forward."
-respuesta: "In conclusion"
 respuestas_validas:
   - "In conclusion"
   - "To sum up"
@@ -137,7 +131,6 @@ pasos:
 explicacion: "'On the other hand' contrasta dos puntos de vista, facilitando un análisis equilibrado en el ensayo."
 tipo: completar
 enunciado: "The policy benefits businesses. ______, it might negatively affect small shops."
-respuesta: "On the other hand"
 respuestas_validas:
   - "On the other hand"
   - "Conversely"
@@ -158,7 +151,6 @@ pasos:
 explicacion: "'Firstly' organiza ideas en secuencia, mejorando la claridad del desarrollo del argumento."
 tipo: completar
 enunciado: "________, the company launched a marketing campaign. Next, it expanded to new markets."
-respuesta: "Firstly"
 respuestas_validas:
   - "Firstly"
   - "Initially"
@@ -179,7 +171,6 @@ pasos:
 explicacion: "'As a result' conecta una causa con su efecto, mostrando relación causal en el texto."
 tipo: completar
 enunciado: "The team failed to meet the deadline. ______, they lost the contract."
-respuesta: "As a result"
 respuestas_validas:
   - "As a result"
   - "Consequently"
@@ -200,7 +191,6 @@ pasos:
 explicacion: "'Similarly' conecta dos ideas similares, reforzando un argumento o ejemplo."
 tipo: completar
 enunciado: "The new app has a user-friendly interface. ______, it includes advanced security features."
-respuesta: "Similarly"
 respuestas_validas:
   - "Similarly"
   - "Likewise"
@@ -221,7 +211,6 @@ pasos:
 explicacion: "'Most importantly' destaca la relevancia de una idea, priorizando aspectos críticos en el argumento."
 tipo: completar
 enunciado: "The project requires teamwork. ______, communication is essential for success."
-respuesta: "Most importantly"
 respuestas_validas:
   - "Most importantly"
   - "Above all"
@@ -242,7 +231,6 @@ pasos:
 explicacion: "'Nevertheless' introduce una idea que contrasta con la anterior, manteniendo coherencia en el texto."
 tipo: completar
 enunciado: "The product has high quality. ______, it is not affordable for most consumers."
-respuesta: "Nevertheless"
 respuestas_validas:
   - "Nevertheless"
   - "Nonetheless"
@@ -263,7 +251,6 @@ pasos:
 explicacion: "'That is to say' clarifica o redefine una idea previa, mejorando la comprensión del lector."
 tipo: completar
 enunciado: "The policy aims to reduce emissions. ______, it targets industrial pollution sources."
-respuesta: "That is to say"
 respuestas_validas:
   - "That is to say"
   - "In other words"
@@ -284,7 +271,6 @@ pasos:
 explicacion: "'Moreover' agrega información adicional, fortaleciendo el desarrollo del argumento."
 tipo: completar
 enunciado: "The initiative reduced waste. ______, it encouraged recycling among residents."
-respuesta: "Moreover"
 respuestas_validas:
   - "Moreover"
   - "Additionally"
@@ -305,7 +291,6 @@ pasos:
 explicacion: "'In the future' anticipa eventos, permitiendo planificación o análisis prospectivo en el texto."
 tipo: completar
 enunciado: "The company is investing in innovation. ______, it expects to dominate the market."
-respuesta: "In the future"
 respuestas_validas:
   - "In the future"
   - "Eventually"
@@ -326,7 +311,6 @@ pasos:
 explicacion: "'For example' introduce un caso específico, apoyando la idea general del párrafo."
 tipo: completar
 enunciado: "Remote work improves productivity. ______, an employee can complete tasks faster at home."
-respuesta: "For example"
 respuestas_validas:
   - "For example"
   - "As an example"
@@ -531,7 +515,6 @@ pasos:
 explicacion: "La oración contrasta dos ideas: la popularidad de las plataformas y un obstáculo asociado. La palabra clave debe conectar ambas partes con una relación de oposición."  
 tipo: completar  
 enunciado: "E-learning platforms provide access to quality education. ______, they require reliable internet connectivity."  
-respuesta: "However"  
 respuestas_validas:  
   - "however"  
   - "However,"  

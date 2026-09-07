@@ -8,11 +8,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'ir' en su forma pretérito perfeito."  
   - "Verificar la concordancia con el sujeto 'eu'."  
-respuesta: "fui"  
-respuestas_validas: ["fui", "Fui"]  
+respuestas_validas:
+  - "fui"
+  - "Fui"
 tipo: completar  
 enunciado: "Ontem, eu ___ (ir) ao cinema."  
-variables: {}  
 explicacion: "El verbo 'ir' en pretérito perfeito para el sujeto 'eu' es 'fui'. Es una conjugación irregular del verbo."  
 ```
 
@@ -26,11 +26,11 @@ metadata:
 pasos:  
   - "Reconocer la estructura 'ter + participio' para acciones completadas."  
   - "Aplicar el sujeto 'eles' y el verbo 'comprar'."  
-respuesta: "compraram"  
-respuestas_validas: ["compraram", "Compraram"]  
+respuestas_validas:
+  - "compraram"
+  - "Compraram"
 tipo: completar  
 enunciado: "Eles ___ (comprar) um carro ontem."  
-variables: {}  
 explicacion: "'Ter' se conjuga como 'tiveram' con el sujeto 'eles', y el participio de 'comprar' es 'comprado'. La estructura completa es 'tiveram comprado'."  
 ```
 
@@ -44,11 +44,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'cantar' en pretérito imperfeito."  
   - "Ajustar la conjugación al sujeto 'ela'."  
-respuesta: "cantava"  
-respuestas_validas: ["cantava", "Cantava"]  
+respuestas_validas:
+  - "cantava"
+  - "Cantava"
 tipo: completar  
 enunciado: "Ela ___ (cantar) uma canção enquanto estudava."  
-variables: {}  
 explicacion: "El verbo regular de -ar en pretérito imperfeito para 'ela' se forma con la raíz + 'ava', por lo tanto, 'cantava'."  
 ```
 
@@ -70,7 +70,6 @@ opciones_explicitas:
 respuesta: "se vivesse"  
 tipo: mc  
 enunciado: "Se eu ___ (viver) em outro país, seria mais fácil aprender português."  
-variables: {}  
 explicacion: "En oraciones condicionales hipotéticas, se usa el subjuntivo imperfecto: 'se vivesse' para indicar una situación irreal en el presente."  
 ```
 
@@ -84,11 +83,11 @@ metadata:
 pasos:  
   - "Identificar la preposición fija después de 'lutar'."  
   - "Verificar el complemento 'a violência'."  
-respuesta: "contra"  
-respuestas_validas: ["contra", "Contra"]  
+respuestas_validas:
+  - "contra"
+  - "Contra"
 tipo: completar  
 enunciado: "Ela luta ___ (preposição) a violência no bairro."  
-variables: {}  
 explicacion: "'Lutar contra algo' es una expresión fija que indica oposición. La preposición correcta es 'contra'."  
 ```
 
@@ -110,7 +109,6 @@ opciones_explicitas:
 respuesta: "uma mulher poderosa"  
 tipo: mc  
 enunciado: "Ela é ___ (concordância) e muito respeitada."  
-variables: {}  
 explicacion: "El adjetivo 'poderoso' debe concordar en género y número con el sustantivo. Para 'mulher', se usa la forma femenina singular: 'poderosa'."  
 ```
 
@@ -124,11 +122,11 @@ metadata:
 pasos:  
   - "Identificar el uso impersonal de 'haver' para indicar existencia."  
   - "Verificar la concordancia con el sujeto 'há'."  
-respuesta: "há"  
-respuestas_validas: ["há", "Há"]  
+respuestas_validas:
+  - "há"
+  - "Há"
 tipo: completar  
 enunciado: "___ (verbo) muitos problemas no trânsito hoje."  
-variables: {}  
 explicacion: "'Haver' en forma impersonal se usa como 'há' para indicar existencia. No requiere concordancia con el complemento."  
 ```
 
@@ -150,7 +148,6 @@ opciones_explicitas:
 respuesta: "esse filme é mais interessante"  
 tipo: mc  
 enunciado: "Comparado com o anterior, ___ (comparação)."  
-variables: {}  
 explicacion: "La estructura correcta es 'ser + más/menos + adjetivo'. Para el sujeto plural, se usa 'são', pero en este caso el sujeto es singular."  
 ```
 
@@ -164,11 +161,11 @@ metadata:
 pasos:  
   - "Identificar el uso de 'ter que' para obligación futura."  
   - "Verificar la conjugación del verbo 'fazer' en infinitivo."  
-respuesta: "tenho que fazer"  
-respuestas_validas: ["tenho que fazer", "Tenho que fazer"]  
+respuestas_validas:
+  - "tenho que fazer"
+  - "Tenho que fazer"
 tipo: completar  
 enunciado: "Eu ___ (obrigação) as tarefas antes de sair hoje."  
-variables: {}  
 explicacion: "'Ter que' se usa para obligación futura, seguido del infinitivo del verbo. Para el sujeto 'eu', es 'tenho que fazer'."  
 ```
 
@@ -182,11 +179,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'fazer' en pretérito perfeito."  
   - "Verificar la concordancia con el sujeto 'nós'."  
-respuesta: "fizemos"  
-respuestas_validas: ["fizemos", "Fizemos"]  
+respuestas_validas:
+  - "fizemos"
+  - "Fizemos"
 tipo: completar  
 enunciado: "Nós ___ (fazer) um projeto juntos ontem."  
-variables: {}  
 explicacion: "El verbo regular de -er en pretérito perfeito para 'nós' se forma con la raíz + 'emos', por lo tanto, 'fizemos'."  
 ```
 
@@ -200,11 +197,11 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'a' para indicar movimiento hacia un lugar."  
   - "Verificar el complemento 'Brasília'."  
-respuesta: "a"  
-respuestas_validas: ["a", "A"]  
+respuestas_validas:
+  - "a"
+  - "A"
 tipo: completar  
 enunciado: "Eles vão ___ (preposição) Brasília para uma reunião."  
-variables: {}  
 explicacion: "'Ir a + lugar' es una expresión fija que indica movimiento hacia un destino. La preposición correcta es 'a'."  
 ```
 
@@ -226,7 +223,6 @@ opciones_explicitas:
 respuesta: "Eles são os estudantes"  
 tipo: mc  
 enunciado: "___ (concordância) que chegaram ontem."  
-variables: {}  
 explicacion: "El pronombre 'eles' concuerda con el sustantivo plural masculino. La forma correcta es 'Eles são os estudantes'."  
 ```
 
@@ -240,11 +236,11 @@ metadata:
 pasos:  
   - "Identificar el uso de 'poder' para indicar posibilidad en presente."  
   - "Verificar la concordancia con el sujeto 'você'."  
-respuesta: "pode"  
-respuestas_validas: ["pode", "Pode"]  
+respuestas_validas:
+  - "pode"
+  - "Pode"
 tipo: completar  
 enunciado: "Você ___ (posibilidade) vir comigo ao cinema hoje?"  
-variables: {}  
 explicacion: "'Poder' en presente para el sujeto 'você' es 'pode', indicando posibilidad o permiso."  
 ```
 
@@ -258,11 +254,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'ler' en pretérito imperfeito."  
   - "Verificar la concordancia con el sujeto 'ele'."  
-respuesta: "lia"  
-respuestas_validas: ["lia", "Lia"]  
+respuestas_validas:
+  - "lia"
+  - "Lia"
 tipo: completar  
 enunciado: "Ele ___ (ler) um livro todos os dias."  
-variables: {}  
 explicacion: "'Ler' es un verbo irregular en pretérito imperfeito. Para el sujeto 'ele', la conjugación es 'lia'."  
 ```
 
@@ -284,7 +280,6 @@ opciones_explicitas:
 respuesta: "esse filme é interessante"  
 tipo: mc  
 enunciado: "Eu acho que ___ (opinião)."  
-variables: {}  
 explicacion: "'Ser + adjetivo' se usa para expresar opinión. Para el sujeto singular, se usa 'é', no 'são'. El adjetivo debe concordar en género y número."  
 ```
 
@@ -298,11 +293,11 @@ metadata:
 pasos:  
   - "Identificar el uso de 'ter' para indicar posesión."  
   - "Verificar la concordancia con el sujeto 'nós'."  
-respuesta: "temos"  
-respuestas_validas: ["temos", "Temos"]  
+respuestas_validas:
+  - "temos"
+  - "Temos"
 tipo: completar  
 enunciado: "Nós ___ (posesão) dois gatos em casa."  
-variables: {}  
 explicacion: "'Ter' en presente para el sujeto 'nós' es 'temos', indicando posesión o posesión de algo."  
 ```
 
@@ -316,11 +311,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'ler' en pretérito perfeito."  
   - "Verificar la concordancia con el sujeto 'ela'."  
-respuesta: "leu"  
-respuestas_validas: ["leu", "Leu"]  
+respuestas_validas:
+  - "leu"
+  - "Leu"
 tipo: completar  
 enunciado: "Ela ___ (ler) um livro antes de dormir ontem."  
-variables: {}  
 explicacion: "'Ler' es un verbo irregular en pretérito perfeito. Para el sujeto 'ela', la conjugación es 'leu'."  
 ```
 
@@ -342,7 +337,6 @@ opciones_explicitas:
 respuesta: "esse homem é alto"  
 tipo: mc  
 enunciado: "___ (descrição) e muito simpático."  
-variables: {}  
 explicacion: "'Ser + adjetivo' se usa para describir características. Para el sujeto singular, se usa 'é', no 'são'. El adjetivo debe concordar en género y número con el sustantivo."  
 ```
 
@@ -356,11 +350,11 @@ metadata:
 pasos:  
   - "Identificar el uso impersonal de 'haver' para indicar ausencia."  
   - "Verificar la concordancia con el sujeto 'não há'."  
-respuesta: "não há"  
-respuestas_validas: ["não há", "Não há"]  
+respuestas_validas:
+  - "não há"
+  - "Não há"
 tipo: completar  
 enunciado: "___ (verbo) ninguém em casa hoje."  
-variables: {}  
 explicacion: "'Haver' en forma impersonal negativa se usa como 'não há', indicando ausencia. No requiere concordancia con el complemento."  
 ```
 
@@ -382,7 +376,6 @@ opciones_explicitas:
 respuesta: "ela é feliz"  
 tipo: mc  
 enunciado: "___ (descrição) com a notícia."  
-variables: {}  
 explicacion: "'Ser + adjetivo' se usa para describir emociones. Para el sujeto singular, se usa 'é', no 'são'. El adjetivo debe concordar en género y número con el sustantivo."  
 ```
 
@@ -396,11 +389,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'dizer' en pretérito perfeito."  
   - "Verificar la concordancia con el sujeto 'você'."  
-respuesta: "disse"  
-respuestas_validas: ["disse", "Disse"]  
+respuestas_validas:
+  - "disse"
+  - "Disse"
 tipo: completar  
 enunciado: "Você ___ (dizer) algo importante ontem."  
-variables: {}  
 explicacion: "'Dizer' es un verbo irregular en pretérito perfeito. Para el sujeto 'você', la conjugación es 'disse'."  
 ```
 
@@ -414,11 +407,11 @@ metadata:
 pasos:  
   - "Identificar el uso de 'ter que' para obligación presente."  
   - "Verificar la conjugación del verbo 'fazer' en infinitivo."  
-respuesta: "tenho que fazer"  
-respuestas_validas: ["tenho que fazer", "Tenho que fazer"]  
+respuestas_validas:
+  - "tenho que fazer"
+  - "Tenho que fazer"
 tipo: completar  
 enunciado: "Eu ___ (obrigação) as tarefas antes de sair agora."  
-variables: {}  
 explicacion: "'Ter que' se usa para obligación presente, seguido del infinitivo del verbo. Para el sujeto 'eu', es 'tenho que fazer'."  
 ```
 
@@ -440,7 +433,6 @@ opciones_explicitas:
 respuesta: "essa pessoa é bondosa"  
 tipo: mc  
 enunciado: "___ (identidade) e muito generosa."  
-variables: {}  
 explicacion: "'Ser + adjetivo' se usa para identificar características. Para el sujeto singular, se usa 'é', no 'são'. El adjetivo debe concordar en género y número con el sustantivo."  
 ```
 
@@ -454,11 +446,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'trazer' en pretérito perfeito."  
   - "Verificar la concordancia con el sujeto 'eles'."  
-respuesta: "trouxeram"  
-respuestas_validas: ["trouxeram", "Trouxeram"]  
+respuestas_validas:
+  - "trouxeram"
+  - "Trouxeram"
 tipo: completar  
 enunciado: "Eles ___ (trazer) um presente para a festa hoje."  
-variables: {}  
 explicacion: "'Trazer' es un verbo irregular en pretérito perfeito. Para el sujeto 'eles', la conjugación es 'trouxeram'."  
 ```
 

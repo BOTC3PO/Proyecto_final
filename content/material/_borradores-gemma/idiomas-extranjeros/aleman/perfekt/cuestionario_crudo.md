@@ -15,7 +15,6 @@ pasos:
 explicacion: "El Perfekt se construye con el auxiliar 'haben' o 'sein' + participio pasado. El verbo 'gehen' usa 'sein', por lo que la forma correcta es 'bin gegangen'."  
 tipo: completar  
 enunciado: "Ich ___ gegangen."  
-respuesta: "bin"  
 respuestas_validas: ["bin", "Bin"]  
 variables: []  
 ```  
@@ -59,7 +58,6 @@ pasos:
 explicacion: "El verbo 'kommen' requiere el auxiliar 'sein', por lo que la forma correcta es 'bin gekommen'."  
 tipo: completar  
 enunciado: "Sie ___ gestern gekommen."  
-respuesta: "sind"  
 respuestas_validas: ["sind", "Sind"]  
 variables: []  
 ```  
@@ -103,7 +101,6 @@ pasos:
 explicacion: "'Fahren' requiere 'sein', por lo que la forma es 'bin gefahren'."  
 tipo: completar  
 enunciado: "Ich ___ gestern gefahren."  
-respuesta: "bin"  
 respuestas_validas: ["bin", "Bin"]  
 variables: []  
 ```  
@@ -147,7 +144,6 @@ pasos:
 explicacion: "'Gehen' requiere 'sein', por lo que la forma es 'bin gegangen'."  
 tipo: completar  
 enunciado: "Du ___ ins Kino gegangen."  
-respuesta: "bist"  
 respuestas_validas: ["bist", "Bist"]  
 variables: []  
 ```  
@@ -191,7 +187,6 @@ pasos:
 explicacion: "'Kommen' requiere 'sein', por lo que la forma es 'sind gekommen'."  
 tipo: completar  
 enunciado: "Wir ___ gestern gekommen."  
-respuesta: "sind"  
 respuestas_validas: ["sind", "Sind"]  
 variables: []  
 ```  
@@ -232,7 +227,6 @@ pasos:
 explicacion: "'Fahren' requiere 'sein', por lo que la forma es 'sind gefahren'."  
 tipo: completar  
 enunciado: "Sie ___ ins Restaurant gefahren."  
-respuesta: "sind"  
 respuestas_validas: ["sind", "Sind"]  
 variables: []  
 ```  
@@ -273,7 +267,6 @@ pasos:
 explicacion: "'Gehen' requiere 'sein', por lo que la forma es 'ist gegangen'."  
 tipo: completar  
 enunciado: "Er ___ ins Kino gegangen."  
-respuesta: "ist"  
 respuestas_validas: ["ist", "Ist"]  
 variables: []  
 ```  
@@ -293,7 +286,6 @@ metadata:
 pasos:
   - "Identificar el verbo principal y su partícipe pasado."
   - "Elegir la forma correcta del auxiliar 'haben' según el tiempo 'gestern'."
-respuesta: "habe"
 respuestas_validas:
   - "habe"
   - "Habe"
@@ -330,7 +322,6 @@ metadata:
 pasos:
   - "Identificar el verbo principal y su partícipe pasado."
   - "Elegir la forma correcta del auxiliar 'haben'."
-respuesta: "hat"
 respuestas_validas:
   - "hat"
   - "Hat"
@@ -367,7 +358,6 @@ metadata:
 pasos:
   - "Identificar si el verbo requiere 'haben' o 'sein'."
   - "Elegir la forma correcta del auxiliar según el sujeto."
-respuesta: "ist"
 respuestas_validas:
   - "ist"
   - "Ist"
@@ -404,7 +394,6 @@ metadata:
 pasos:
   - "Identificar el verbo principal y su partícipe pasado."
   - "Elegir la forma correcta del auxiliar 'haben' según el tiempo."
-respuesta: "habe"
 respuestas_validas:
   - "habe"
   - "Habe"
@@ -441,7 +430,6 @@ metadata:
 pasos:
   - "Identificar el verbo principal y su partícipe pasado."
   - "Elegir la forma correcta del auxiliar 'haben' según el tiempo."
-respuesta: "hat"
 respuestas_validas:
   - "hat"
   - "Hat"
@@ -478,7 +466,6 @@ metadata:
 pasos:
   - "Identificar si el verbo requiere 'haben' o 'sein'."
   - "Elegir la forma correcta del auxiliar según el sujeto."
-respuesta: "ist"
 respuestas_validas:
   - "ist"
   - "Ist"

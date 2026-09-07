@@ -29,7 +29,6 @@ pasos:
   - "Escribir la forma correcta del participio pasado en el hueco."  
 explicacion: "El participio pasado de *schreiben* es *geschrieben*, y se usa con *haben* en el presente perfecto."  
 tipo: completar  
-respuesta: "geschrieben"  
 respuestas_validas:  
   - "geschrieben"  
   - "Geschrieben"  
@@ -88,7 +87,6 @@ pasos:
   - "Completar la oración con el tiempo verbal adecuado."  
 explicacion: "En condiciones hipotéticas, se usa el subjuntivo II (*würde* + infinitivo) en la cláusula principal."  
 tipo: completar  
-respuesta: "würde arbeiten"  
 respuestas_validas:  
   - "würde arbeiten"  
   - "Würde arbeiten"  
@@ -147,7 +145,6 @@ pasos:
   - "Escribir la forma correcta del presente perfecto en negativo."  
 explicacion: "*Nicht* siempre precede al verbo auxiliar (*haben*) en oraciones negativas."  
 tipo: completar  
-respuesta: "hat nicht gegessen"  
 respuestas_validas:  
   - "hat nicht gegessen"  
   - "Hat nicht gegessen"  
@@ -186,7 +183,6 @@ pasos:
   - "Completar la oración con el tiempo verbal adecuado."  
 explicacion: "En comparaciones de eventos pasados, se usa el pluscuamperfecto (*hatte + participio*)."  
 tipo: completar  
-respuesta: "hatte gearbeitet"  
 respuestas_validas:  
   - "hatte gearbeitet"  
   - "Hatte gearbeitet"  
@@ -225,7 +221,6 @@ pasos:
   - "Completar la oración con el tiempo verbal adecuado."  
 explicacion: "El futuro en condicionales se forma con *werden* + infinitivo, sin usar el subjuntivo."  
 tipo: completar  
-respuesta: "wird helfen"  
 respuestas_validas:  
   - "wird helfen"  
   - "Wird helfen"  
@@ -304,7 +299,6 @@ pasos:
   - "Escribir la forma correcta del pluscuamperfecto en negativo."  
 explicacion: "*Nicht* siempre precede al verbo auxiliar (*hatte*) en oraciones negativas."  
 tipo: completar  
-respuesta: "hatte nicht gearbeitet"  
 respuestas_validas:  
   - "hatte nicht gearbeitet"  
   - "Hatte nicht gearbeitet"  
@@ -343,7 +337,6 @@ pasos:
   - "Completar la oración con el tiempo verbal adecuado."  
 explicacion: "En cláusulas concessivas, se usa el subjuntivo I (*käme*) en lugar del indicativo."  
 tipo: completar  
-respuesta: "käme"  
 respuestas_validas:  
   - "käme"  
   - "Käme"  
@@ -402,7 +395,6 @@ pasos:
   - "Escribir la forma correcta del presente perfecto en interrogativa."  
 explicacion: "*Haben* siempre precede a *Sie* en oraciones interrogativas con el presente perfecto."  
 tipo: completar  
-respuesta: "haben Sie gegessen"  
 respuestas_validas:  
   - "haben Sie gegessen"  
   - "Haben Sie gegessen"  
@@ -441,7 +433,6 @@ pasos:
   - "Completar la oración con el tiempo verbal adecuado."  
 explicacion: "En condicionales futuros, se usa *werden* + infinitivo en la cláusula principal."  
 tipo: completar  
-respuesta: "wird arbeiten"  
 respuestas_validas:  
   - "wird arbeiten"  
   - "Wird arbeiten"  
@@ -480,7 +471,6 @@ pasos:
   - "Escribir la forma correcta del pluscuamperfecto en impersonal."  
 explicacion: "*Hatte* siempre precede a *es* en oraciones impersonales con el pluscuamperfecto."  
 tipo: completar  
-respuesta: "hatte es geschneit"  
 respuestas_validas:  
   - "hatte es geschneit"  
   - "Hatte es geschneit"  

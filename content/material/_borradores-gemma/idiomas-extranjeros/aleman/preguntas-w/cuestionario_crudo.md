@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - Identificar la palabra interrogativa necesaria.  
   - Colocar el verbo conjugado después de la pregunta.  
-respuesta: "Wo"  
 tipo: completar  
 respuestas_validas:  
   - "Wo"  
@@ -27,7 +26,6 @@ metadata:
 pasos:  
   - Seleccionar la palabra interrogativa correcta.  
   - Verificar el orden de la oración en tiempo.  
-respuesta: "Wann"  
 tipo: completar  
 respuestas_validas:  
   - "Wann"  
@@ -46,7 +44,6 @@ metadata:
 pasos:  
   - Identificar la palabra interrogativa para personas.  
   - Colocar el verbo en forma conjugada.  
-respuesta: "Wer"  
 tipo: completar  
 respuestas_validas:  
   - "Wer"  
@@ -65,7 +62,6 @@ metadata:
 pasos:  
   - Reconocer la palabra interrogativa para objetos.  
   - Asegurar el uso correcto del verbo ser (ist).  
-respuesta: "Was"  
 tipo: completar  
 respuestas_validas:  
   - "Was"  
@@ -84,7 +80,6 @@ metadata:
 pasos:  
   - Seleccionar la palabra interrogativa para preguntar nombres.  
   - Verificar el verbo conjugado (heißt).  
-respuesta: "Wie"  
 tipo: completar  
 respuestas_validas:  
   - "Wie"  
@@ -103,7 +98,6 @@ metadata:
 pasos:  
   - Identificar la palabra interrogativa para razones.  
   - Colocar el verbo conjugado (bist).  
-respuesta: "Warum"  
 tipo: completar  
 respuestas_validas:  
   - "Warum"  
@@ -122,7 +116,6 @@ metadata:
 pasos:  
   - Reconocer la palabra interrogativa para lugar de origen.  
   - Asegurar el verbo conjugado (kommst).  
-respuesta: "Woher"  
 tipo: completar  
 respuestas_validas:  
   - "Woher"  
@@ -141,7 +134,6 @@ metadata:
 pasos:  
   - Seleccionar la palabra interrogativa para lugar de destino.  
   - Verificar el verbo conjugado (gehst).  
-respuesta: "Wohin"  
 tipo: completar  
 respuestas_validas:  
   - "Wohin"  
@@ -160,7 +152,6 @@ metadata:
 pasos:  
   - Identificar la estructura de pregunta sobre hora.  
   - Colocar el verbo en posición correcta (beginnt).  
-respuesta: "Um wie viel Uhr"  
 tipo: completar  
 respuestas_validas:  
   - "Um wie viel Uhr"  
@@ -179,7 +170,6 @@ metadata:
 pasos:  
   - Seleccionar la palabra interrogativa para frecuencia.  
   - Verificar el verbo conjugado (fährst).  
-respuesta: "Wie oft"  
 tipo: completar  
 respuestas_validas:  
   - "Wie oft"  
@@ -198,7 +188,6 @@ metadata:
 pasos:  
   - Identificar la palabra interrogativa para actividades.  
   - Colocar el verbo conjugado (machst).  
-respuesta: "Was"  
 tipo: completar  
 respuestas_validas:  
   - "Was"  
@@ -217,7 +206,6 @@ metadata:
 pasos:  
   - Seleccionar la palabra interrogativa para personas.  
   - Asegurar el verbo conjugado (liest).  
-respuesta: "Wer"  
 tipo: completar  
 respuestas_validas:  
   - "Wer"  
@@ -236,7 +224,6 @@ metadata:
 pasos:  
   - Reconocer la palabra interrogativa para lugar.  
   - Verificar el verbo conjugado (ist).  
-respuesta: "Wo"  
 tipo: completar  
 respuestas_validas:  
   - "Wo"  
@@ -255,7 +242,6 @@ metadata:
 pasos:  
   - Identificar la palabra interrogativa para tiempo.  
   - Colocar el verbo conjugado (hast).  
-respuesta: "Wann"  
 tipo: completar  
 respuestas_validas:  
   - "Wann"  
@@ -274,7 +260,6 @@ metadata:
 pasos:  
   - Seleccionar la palabra interrogativa para nombres.  
   - Asegurar el verbo conjugado (heißt).  
-respuesta: "Wie"  
 tipo: completar  
 respuestas_validas:  
   - "Wie"  
@@ -293,7 +278,6 @@ metadata:
 pasos:  
   - Reconocer la palabra interrogativa para razones.  
   - Verificar el verbo conjugado (ist).  
-respuesta: "Warum"  
 tipo: completar  
 respuestas_validas:  
   - "Warum"  
@@ -312,7 +296,6 @@ metadata:
 pasos:  
   - Identificar la palabra interrogativa para origen.  
   - Colocar el verbo conjugado (kommt).  
-respuesta: "Woher"  
 tipo: completar  
 respuestas_validas:  
   - "Woher"  
@@ -331,7 +314,6 @@ metadata:
 pasos:  
   - Seleccionar la palabra interrogativa para destino.  
   - Asegurar el verbo conjugado (fliegst).  
-respuesta: "Wohin"  
 tipo: completar  
 respuestas_validas:  
   - "Wohin"  
@@ -350,7 +332,6 @@ metadata:
 pasos:  
   - Reconocer la estructura de pregunta sobre hora.  
   - Verificar el verbo conjugado (endet).  
-respuesta: "Um wie viel Uhr"  
 tipo: completar  
 respuestas_validas:  
   - "Um wie viel Uhr"  
@@ -369,7 +350,6 @@ metadata:
 pasos:  
   - Identificar la palabra interrogativa para frecuencia.  
   - Colocar el verbo conjugado (gehst).  
-respuesta: "Wie oft"  
 tipo: completar  
 respuestas_validas:  
   - "Wie oft"  
@@ -388,7 +368,6 @@ metadata:
 pasos:  
   - Seleccionar la palabra interrogativa para actividades.  
   - Asegurar el verbo conjugado (schreibst).  
-respuesta: "Was"  
 tipo: completar  
 respuestas_validas:  
   - "Was"  
@@ -407,7 +386,6 @@ metadata:
 pasos:  
   - Identificar la palabra interrogativa para personas.  
   - Verificar el verbo conjugado (hat).  
-respuesta: "Wer"  
 tipo: completar  
 respuestas_validas:  
   - "Wer"  
@@ -426,7 +404,6 @@ metadata:
 pasos:  
   - Reconocer la palabra interrogativa para lugar.  
   - Asegurar el verbo conjugado (ist).  
-respuesta: "Wo"  
 tipo: completar  
 respuestas_validas:  
   - "Wo"  
@@ -445,7 +422,6 @@ metadata:
 pasos:  
   - Seleccionar la palabra interrogativa para tiempo.  
   - Colocar el verbo conjugado (fährt).  
-respuesta: "Wann"  
 tipo: completar  
 respuestas_validas:  
   - "Wann"  
@@ -464,7 +440,6 @@ metadata:
 pasos:  
   - Identificar la palabra interrogativa para nombres.  
   - Verificar el verbo conjugado (heißt).  
-respuesta: "Wie"  
 tipo: completar  
 respuestas_validas:  
   - "Wie"  

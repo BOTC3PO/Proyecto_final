@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
 explicacion: "La expresión 〜てください se usa para pedir algo cortésmente. El verbo debe estar en forma te-forma seguido de ください."
-respuesta: "見せて"
 respuestas_validas:
   - "見せて"
   - "見せてくれて"
@@ -42,7 +41,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma negativa del verbo."
 explicacion: "La forma 〜ません se usa para negar un verbo en contexto formal. El verbo debe estar en su base y seguir la regla de conjugación."
-respuesta: "食べません"
 respuestas_validas:
   - "食べません"
   - "食べない"
@@ -76,7 +74,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma pasada del verbo."
 explicacion: "La terminación 〜た se usa para indicar un acción completada en el pasado. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "読んだ"
 respuestas_validas:
   - "読んだ"
   - "読みました"
@@ -110,7 +107,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
 explicacion: "La negación de un posible acción se forma con 〜られない. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "書けません"
 respuestas_validas:
   - "書けません"
   - "書けない"
@@ -144,7 +140,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
 explicacion: "La conjunción 〜て se usa para conectar acciones secuenciales. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "起きて、朝食を食べた"
 respuestas_validas:
   - "起きて、朝食を食べた"
   - "起き、朝食を食べた"
@@ -178,7 +173,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
 explicacion: "La terminación 〜ていた se usa para indicar una acción que duraba en el pasado. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "読んでいた"
 respuestas_validas:
   - "読んでいた"
   - "読み続けていた"
@@ -212,7 +206,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma negativa del verbo."
 explicacion: "La forma 〜ません se usa para negar un verbo en contexto formal. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "見てません"
 respuestas_validas:
   - "見てません"
   - "見ない"
@@ -246,7 +239,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
 explicacion: "La forma 〜れる se usa para expresar posibilidad. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "書ける"
 respuestas_validas:
   - "書ける"
   - "書けます"
@@ -280,7 +272,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
 explicacion: "La conjunción 〜て se usa para conectar acciones secuenciales. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "起きて、朝食を食べた"
 respuestas_validas:
   - "起きて、朝食を食べた"
   - "起き、朝食を食べた"
@@ -314,7 +305,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
 explicacion: "La terminación 〜ていた se usa para indicar una acción que duraba en el pasado. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "読んでいた"
 respuestas_validas:
   - "読んでいた"
   - "読み続けていた"
@@ -348,7 +338,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma negativa del verbo."
 explicacion: "La forma 〜ません se usa para negar un verbo en contexto formal. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "見てません"
 respuestas_validas:
   - "見てません"
   - "見ない"
@@ -382,7 +371,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
 explicacion: "La forma 〜れる se usa para expresar posibilidad. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "書ける"
 respuestas_validas:
   - "書ける"
   - "書けます"
@@ -416,7 +404,6 @@ metadata:
 pasos:
   - "Completa el espacio en blanco con la forma correcta del verbo."
 explicacion: "La conjunción 〜て se usa para conectar acciones secuenciales. El verbo debe estar en su base y seguir las reglas de conjugación."
-respuesta: "起きて、朝食を食べた"
 respuestas_validas:
   - "起きて、朝食を食べた"
   - "起き、朝食を食べた"

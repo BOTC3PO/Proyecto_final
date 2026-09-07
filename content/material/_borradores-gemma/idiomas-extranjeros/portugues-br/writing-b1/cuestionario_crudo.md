@@ -10,8 +10,6 @@ pasos:
 explicacion: "O verbo 'ir' no futuro do presente é conjugado como 'vou', 'vais', 'vai', etc. Neste contexto, a forma correta é 'vou'."  
 tipo: completar  
 enunciado: "Amanhã ______ ao cinema com meus amigos."  
-variables: []  
-respuesta: "vou"  
 respuestas_validas:  
   - "vou"  
   - "Vou"  
@@ -33,8 +31,6 @@ pasos:
 explicacion: "O verbo 'lutar' exige a preposição 'contra' para indicar o objeto da luta. Portanto, a resposta é 'contra'."  
 tipo: completar  
 enunciado: "Ela está lutando ______ o preconceito desde jovem."  
-variables: []  
-respuesta: "contra"  
 respuestas_validas:  
   - "contra"  
   - "Contra"  
@@ -56,8 +52,6 @@ pasos:
 explicacion: "Adjetivos que terminam com vogal tônica e têm sílaba final aberta (como 'pequeno') recebem acento agudo. A forma correta é 'pequeno'."  
 tipo: completar  
 enunciado: "O texto foi escrito de maneira ______, mas claro."  
-variables: []  
-respuesta: "pequeno"  
 respuestas_validas:  
   - "pequeno"  
   - "Pequeno"  
@@ -79,7 +73,10 @@ pasos:
 explicacion: "A conjunção 'mas' é usada para expressar oposição entre duas ideias. Neste contexto, ela conecta as orações corretamente."  
 tipo: mc  
 enunciado: "Ele estudou muito ______ não passou na prova."  
-opciones_explicitas: ["porque", "mas", "embora"]  
+opciones_explicitas:
+  - "porque"
+  - "mas"
+  - "embora"
 respuesta: "mas"  
 
 ---
@@ -99,8 +96,6 @@ pasos:
 explicacion: "O prefixo 'des-' é separado por hífen quando precede palavras que começam com 's' ou 'z'. Aqui, 'satisfazer' começa com 's', então a forma correta é 'des-satisfazer'."  
 tipo: completar  
 enunciado: "O cliente ______ satisfazer com o atendimento."  
-variables: []  
-respuesta: "des-satisfazer"  
 respuestas_validas:  
   - "des-satisfazer"  
   - "Des-satisfazer"  
@@ -122,8 +117,6 @@ pasos:
 explicacion: "O verbo 'ler' no pretérito perfeito de terceira pessoa do singular é conjugado como 'leu'. A forma correta é 'leu'."  
 tipo: completar  
 enunciado: "Ela ______ o livro antes da aula."  
-variables: []  
-respuesta: "leu"  
 respuestas_validas:  
   - "leu"  
   - "Leu"  
@@ -145,8 +138,6 @@ pasos:
 explicacion: "Em listas com mais de dois elementos, as vírgulas separam os itens. A forma correta é 'maçãs, laranjas e bananas'."  
 tipo: completar  
 enunciado: "Comprei ______ no mercado."  
-variables: []  
-respuesta: "maçãs, laranjas e bananas"  
 respuestas_validas:  
   - "maçãs, laranjas e bananas"  
 
@@ -167,8 +158,6 @@ pasos:
 explicacion: "O pronome oblíquo 'me' deve vir antes do verbo quando há oposição ou ênfase. A forma correta é 'não me lembro'."  
 tipo: completar  
 enunciado: "______ lembro de seu nome."  
-variables: []  
-respuesta: "Não me"  
 respuestas_validas:  
   - "Não me"  
   - "não me"  
@@ -190,8 +179,6 @@ pasos:
 explicacion: "O verbo 'ter' no presente de terceira pessoa do singular é conjugado como 'tem'. A forma correta é 'tem'."  
 tipo: completar  
 enunciado: "Ela ______ um carro novo."  
-variables: []  
-respuesta: "tem"  
 respuestas_validas:  
   - "tem"  
   - "Tem"  
@@ -213,8 +200,6 @@ pasos:
 explicacion: "A crase ocorre quando o artigo definido 'a' é seguido por uma palavra que começa com a vogal. A forma correta é 'à'."  
 tipo: completar  
 enunciado: "Vou ______ feira de domingo."  
-variables: []  
-respuesta: "à"  
 respuestas_validas:  
   - "à"  
   - "À"  
@@ -236,7 +221,10 @@ pasos:
 explicacion: "A conjunção 'porque' é usada para expressar razão. Neste contexto, ela conecta as orações corretamente."  
 tipo: mc  
 enunciado: "Ela não foi à festa ______ estava doente."  
-opciones_explicitas: ["mas", "embora", "porque"]  
+opciones_explicitas:
+  - "mas"
+  - "embora"
+  - "porque"
 respuesta: "porque"  
 
 ---

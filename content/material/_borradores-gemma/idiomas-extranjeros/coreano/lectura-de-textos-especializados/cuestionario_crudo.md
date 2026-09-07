@@ -10,12 +10,10 @@ pasos:
   - "Reconocer el término técnico faltante que describe una propiedad geométrica."  
 explicacion: "El término 'isosceles' se refiere a un triángulo con dos lados iguales, lo cual es clave para completar correctamente el texto técnico."  
 tipo: completar  
-respuesta: "isosceles"  
 respuestas_validas:  
   - "isosceles"  
   - "Isosceles"  
 enunciado: "이 삼각형은 두 변의 길이가 같기 때문에 ___ 삼각형입니다."  
-variables: {}  
 ```
 
 
@@ -32,9 +30,12 @@ pasos:
   - "Identificar la estructura gramatical incorrecta en un contexto formal."  
 explicacion: "La opción '법원에 의해' es incorrecta porque el sujeto pasivo debe estar marcado con '-되다', no '-되어' en este contexto."  
 tipo: mc  
-opciones_explicitas: ["법원에 의해", "법원에서", "법원과 함께", "법원을 통해"]  
+opciones_explicitas:
+  - "법원에 의해"
+  - "법원에서"
+  - "법원과 함께"
+  - "법원을 통해"
 respuesta: "법원에서"  
-variables: {}  
 ```
 
 
@@ -51,12 +52,10 @@ pasos:
   - "Seleccionar el término que completa correctamente el proceso descrito."  
 explicacion: "El término '산화' (oxidación) es el único que describe adecuadamente el cambio químico mencionado en el texto especializado."  
 tipo: completar  
-respuesta: "산화"  
 respuestas_validas:  
   - "산화"  
   - "산화되다"  
 enunciado: "이 화학 반응은 물질이 ___하여 에너지를 방출하는 과정입니다."  
-variables: {}  
 ```
 
 
@@ -73,9 +72,12 @@ pasos:
   - "Reconocer el uso incorrecto de un verbo en contexto financiero."  
 explicacion: "La opción '증가하다' es incorrecta porque el texto requiere un verbo que indique estabilidad, no crecimiento."  
 tipo: mc  
-opciones_explicitas: ["정체하다", "증가하다", "감소하다", "변동하다"]  
+opciones_explicitas:
+  - "정체하다"
+  - "증가하다"
+  - "감소하다"
+  - "변동하다"
 respuesta: "정체하다"  
-variables: {}  
 ```
 
 
@@ -92,12 +94,10 @@ pasos:
   - "Seleccionar la palabra que completa correctamente la descripción."  
 explicacion: "'열전달' es el único término que se refiere al proceso descrito en el contexto de ingeniería térmica."  
 tipo: completar  
-respuesta: "열전달"  
 respuestas_validas:  
   - "열전달"  
   - "열전도"  
 enunciado: "이 장치는 고온 부위에서 저온 부위로 ___을 통해 에너지를 이동시킵니다."  
-variables: {}  
 ```
 
 
@@ -114,9 +114,12 @@ pasos:
   - "Reconocer el uso incorrecto de un verbo en contexto quirúrgico."  
 explicacion: "'절단하다' es incorrecto porque el texto requiere un verbo que indique una operación no invasiva, como '수술하다'."  
 tipo: mc  
-opciones_explicitas: ["절단하다", "수술하다", "관찰하다", "복용하다"]  
+opciones_explicitas:
+  - "절단하다"
+  - "수술하다"
+  - "관찰하다"
+  - "복용하다"
 respuesta: "수술하다"  
-variables: {}  
 ```
 
 
@@ -133,12 +136,10 @@ pasos:
   - "Reconocer el término que describe una teoría específica."  
 explicacion: "'실존주의' es el único término que encaja con la descripción de la filosofía mencionada en el texto."  
 tipo: completar  
-respuesta: "실존주의"  
 respuestas_validas:  
   - "실존주의"  
   - "실존론"  
 enunciado: "이 철학자는 ___ 이론을 통해 인간 존재의 의미를 탐구했습니다."  
-variables: {}  
 ```
 
 
@@ -155,9 +156,12 @@ pasos:
   - "Reconocer la estructura gramatical incorrecta en un contexto formal."  
 explicacion: "'전쟁에 의해' es incorrecto porque el sujeto pasivo debe estar marcado con '-되다', no '-되어' en este contexto."  
 tipo: mc  
-opciones_explicitas: ["전쟁에 의해", "전쟁에서", "전쟁과 함께", "전쟁을 통해"]  
+opciones_explicitas:
+  - "전쟁에 의해"
+  - "전쟁에서"
+  - "전쟁과 함께"
+  - "전쟁을 통해"
 respuesta: "전쟁에서"  
-variables: {}  
 ```
 
 
@@ -174,12 +178,10 @@ pasos:
   - "Seleccionar el término que completa correctamente el proceso mencionado."  
 explicacion: "'정신분석' es el único término que describe adecuadamente el método terapéutico mencionado en el texto especializado."  
 tipo: completar  
-respuesta: "정신분석"  
 respuestas_validas:  
   - "정신분석"  
   - "심리치료"  
 enunciado: "이 치료법은 환자의 무의식적 생각을 탐구하는 ___ 방식입니다."  
-variables: {}  
 ```
 
 
@@ -196,9 +198,12 @@ pasos:
   - "Reconocer el uso incorrecto de un verbo en contexto informático."  
 explicacion: "'복제하다' es incorrecto porque el texto requiere un verbo que indique transferencia, no duplicación."  
 tipo: mc  
-opciones_explicitas: ["복제하다", "전송하다", "저장하다", "삭제하다"]  
+opciones_explicitas:
+  - "복제하다"
+  - "전송하다"
+  - "저장하다"
+  - "삭제하다"
 respuesta: "전송하다"  
-variables: {}  
 ```
 
 
@@ -215,12 +220,10 @@ pasos:
   - "Seleccionar la palabra que completa correctamente la descripción."  
 explicacion: "'온실가스' es el único término que se refiere al tipo de gases mencionados en el contexto ambiental."  
 tipo: completar  
-respuesta: "온실가스"  
 respuestas_validas:  
   - "온실가스"  
   - "이산화탄소"  
 enunciado: "이 현상은 ___의 증가로 인해 지구 온도가 상승하는 과정입니다."  
-variables: {}  
 ```
 
 
@@ -237,9 +240,12 @@ pasos:
   - "Reconocer el uso incorrecto de un verbo en contexto financiero."  
 explicacion: "'증가하다' es incorrecto porque el texto requiere un verbo que indique estabilidad, no crecimiento."  
 tipo: mc  
-opciones_explicitas: ["정체하다", "증가하다", "감소하다", "변동하다"]  
+opciones_explicitas:
+  - "정체하다"
+  - "증가하다"
+  - "감소하다"
+  - "변동하다"
 respuesta: "정체하다"  
-variables: {}  
 ```
 
 
@@ -255,7 +261,6 @@ pasos:
   - "Identificar el contexto técnico de la oración."
   - "Reconocer el término que describe una propiedad física específica de los materiales."
 explicacion: "La palabra clave es '열전도성', que se refiere a la capacidad de un material para conducir calor, un concepto común en textos de ingeniería o ciencia de materiales."
-respuesta: "열전도성"
 respuestas_validas:
   - "열전도성"
   - "열전도성"
@@ -277,9 +282,12 @@ pasos:
   - "Reconocer la estructura gramatical incorrecta en un contexto formal."  
 explicacion: "'전쟁에 의해' es incorrecto porque el sujeto pasivo debe estar marcado con '-되다', no '-되어' en este contexto."  
 tipo: mc  
-opciones_explicitas: ["전쟁에 의해", "전쟁에서", "전쟁과 함께", "전쟁을 통해"]  
+opciones_explicitas:
+  - "전쟁에 의해"
+  - "전쟁에서"
+  - "전쟁과 함께"
+  - "전쟁을 통해"
 respuesta: "전쟁에서"  
-variables: {}  
 ```
 
 
@@ -319,9 +327,12 @@ pasos:
   - "Reconocer el uso incorrecto de un verbo en contexto informático."  
 explicacion: "'복제하다' es incorrecto porque el texto requiere un verbo que indique transferencia, no duplicación."  
 tipo: mc  
-opciones_explicitas: ["복제하다", "전송하다", "저장하다", "삭제하다"]  
+opciones_explicitas:
+  - "복제하다"
+  - "전송하다"
+  - "저장하다"
+  - "삭제하다"
 respuesta: "전송하다"  
-variables: {}  
 ```
 
 
@@ -337,7 +348,6 @@ pasos:
   - "Identificar el fenómeno ambiental mencionado en la oración."
   - "Seleccionar el término que describe el proceso de acumulación de gases en la atmósfera."
 explicacion: "'온실가스' es el término correcto, ya que se refiere a los gases que atrapan calor en la atmósfera, un concepto clave en estudios climáticos."
-respuesta: "온실가스"
 respuestas_validas:
   - "온실가스"
   - "온실가스"
@@ -382,9 +392,12 @@ pasos:
   - "Identificar la estructura gramatical incorrecta en un contexto formal."  
 explicacion: "La opción '법원에 의해' es incorrecta porque el sujeto pasivo debe estar marcado con '-되다', no '-되어' en este contexto."  
 tipo: mc  
-opciones_explicitas: ["법원에 의해", "법원에서", "법원과 함께", "법원을 통해"]  
+opciones_explicitas:
+  - "법원에 의해"
+  - "법원에서"
+  - "법원과 함께"
+  - "법원을 통해"
 respuesta: "법원에서"  
-variables: {}  
 ```
 
 
@@ -400,7 +413,6 @@ pasos:
   - "Identificar el procedimiento descrito en la oración."
   - "Seleccionar el término que describe una acción terapéutica directa en un tejido."
 explicacion: "'수술' es el término correcto, ya que se refiere a una intervención física para tratar condiciones médicas, como en textos de cirugía o medicina clínica."
-respuesta: "수술"
 respuestas_validas:
   - "수술"
   - "수술"
@@ -422,9 +434,12 @@ pasos:
   - "Reconocer el uso incorrecto de un verbo en contexto financiero."  
 explicacion: "'증가하다' es incorrecto porque el texto requiere un verbo que indique estabilidad, no crecimiento."  
 tipo: mc  
-opciones_explicitas: ["정체하다", "증가하다", "감소하다", "변동하다"]  
+opciones_explicitas:
+  - "정체하다"
+  - "증가하다"
+  - "감소하다"
+  - "변동하다"
 respuesta: "정체하다"  
-variables: {}  
 ```
 
 
@@ -464,9 +479,12 @@ pasos:
   - "Reconocer el uso incorrecto de un verbo en contexto quirúrgico."  
 explicacion: "'절단하다' es incorrecto porque el texto requiere un verbo que indique una operación no invasiva, como '수술하다'."  
 tipo: mc  
-opciones_explicitas: ["절단하다", "수술하다", "관찰하다", "복용하다"]  
+opciones_explicitas:
+  - "절단하다"
+  - "수술하다"
+  - "관찰하다"
+  - "복용하다"
 respuesta: "수술하다"  
-variables: {}  
 ```
 
 
@@ -482,7 +500,6 @@ pasos:
   - "Reconocer el tipo de reacción descrito."
   - "Seleccionar el término que describe una transformación química con liberación de energía."
 explicacion: "'분해' es el proceso correcto, ya que se refiere a la ruptura de enlaces moleculares que libera energía, un concepto central en estudios químicos."
-respuesta: "분해"
 respuestas_validas:
   - "분해"
   - "분해"
@@ -502,7 +519,10 @@ pasos:
   - "Reconocer la estructura gramatical incorrecta en un contexto formal."  
 explicacion: "'전쟁에 의해' es incorrecto porque el sujeto pasivo debe estar marcado con '-되다', no '-되어' en este contexto."  
 tipo: mc  
-opciones_explicitas: ["전쟁에 의해", "전쟁에서", "전쟁과 함께", "전쟁을 통해"]  
+opciones_explicitas:
+  - "전쟁에 의해"
+  - "전쟁에서"
+  - "전쟁과 함께"
+  - "전쟁을 통해"
 respuesta: "전쟁에서"  
-variables: {}  
 ```

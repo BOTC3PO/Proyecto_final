@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar a preposição que exige o gerúndio."
   - "Verificar a concordância do verbo com o sujeito."
-respuesta: "estudando"
 tipo: completar
 respuestas_validas:
   - "estudando"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - "Reconhecer a estrutura 'ao + gerúndio'."
   - "Verificar se o verbo está no tempo correto."
-respuesta: "correndo"
 tipo: completar
 respuestas_validas:
   - "correndo"
@@ -50,7 +48,6 @@ metadata:
 pasos:
   - "Identificar o uso de 'durante' com gerúndio."
   - "Confirmar a concordância do verbo."
-respuesta: "cantando"
 tipo: completar
 respuestas_validas:
   - "cantando"
@@ -71,7 +68,6 @@ metadata:
 pasos:
   - "Reconhecer a conjunção 'enquanto'."
   - "Verificar o uso do gerúndio para ação simultânea."
-respuesta: "lendo"
 tipo: completar
 respuestas_validas:
   - "lendo"
@@ -92,7 +88,6 @@ metadata:
 pasos:
   - "Identificar a preposição 'após'."
   - "Confirmar o uso do gerúndio para ação subsequente."
-respuesta: "chegando"
 tipo: completar
 respuestas_validas:
   - "chegando"
@@ -113,7 +108,6 @@ metadata:
 pasos:
   - "Reconhecer a preposição 'sem'."
   - "Verificar o uso do gerúndio para expressar ausência de ação."
-respuesta: "esperando"
 tipo: completar
 respuestas_validas:
   - "esperando"
@@ -134,7 +128,6 @@ metadata:
 pasos:
   - "Identificar a preposição 'com'."
   - "Confirmar o uso do gerúndio para ação simultânea."
-respuesta: "correndo"
 tipo: completar
 respuestas_validas:
   - "correndo"
@@ -155,7 +148,6 @@ metadata:
 pasos:
   - "Reconhecer a preposição 'durante'."
   - "Verificar o uso do gerúndio para ação contínua."
-respuesta: "escrevendo"
 tipo: completar
 respuestas_validas:
   - "escrevendo"
@@ -176,7 +168,6 @@ metadata:
 pasos:
   - "Identificar a conjunção 'enquanto'."
   - "Confirmar o uso do gerúndio para ação simultânea."
-respuesta: "assistindo"
 tipo: completar
 respuestas_validas:
   - "assistindo"
@@ -197,7 +188,6 @@ metadata:
 pasos:
   - "Reconhecer a preposição 'após'."
   - "Verificar o uso do gerúndio para ação subsequente."
-respuesta: "saindo"
 tipo: completar
 respuestas_validas:
   - "saindo"
@@ -218,7 +208,6 @@ metadata:
 pasos:
   - "Identificar a preposição 'sem'."
   - "Confirmar o uso do gerúndio para expressar ausência de ação."
-respuesta: "respondendo"
 tipo: completar
 respuestas_validas:
   - "respondendo"
@@ -239,7 +228,6 @@ metadata:
 pasos:
   - "Reconhecer a preposição 'com'."
   - "Verificar o uso do gerúndio para ação simultânea."
-respuesta: "dormindo"
 tipo: completar
 respuestas_validas:
   - "dormindo"
@@ -260,7 +248,6 @@ metadata:
 pasos:
   - "Identificar a preposição 'durante'."
   - "Confirmar o uso do gerúndio para ação contínua."
-respuesta: "cozinhand"
 tipo: completar
 respuestas_validas:
   - "cozinhand"
@@ -281,7 +268,6 @@ metadata:
 pasos:
   - "Reconhecer a conjunção 'enquanto'."
   - "Verificar o uso do gerúndio para ação simultânea."
-respuesta: "correndo"
 tipo: completar
 respuestas_validas:
   - "correndo"
@@ -302,7 +288,6 @@ metadata:
 pasos:
   - "Identificar el contexto de la oración."
   - "Determinar la preposición que requiere el gerundio."
-respuesta: "ao"
 tipo: completar
 respuestas_validas:
   - "ao"
@@ -345,7 +330,6 @@ metadata:
 pasos:
   - "Determinar si el verbo necesita preposición."
   - "Elegir la forma correcta del gerundio con esa preposición."
-respuesta: "na"
 tipo: completar
 respuestas_validas:
   - "na"
@@ -388,7 +372,6 @@ metadata:
 pasos:
   - "Identificar la preposición que modifica al gerundio."
   - "Escribir el verbo en forma correcta con dicha preposición."
-respuesta: "durante"
 tipo: completar
 respuestas_validas:
   - "durante"
@@ -431,7 +414,6 @@ metadata:
 pasos:
   - "Identificar el momento de la acción (continua o simultánea)."
   - "Escribir el gerundio con la preposición adecuada."
-respuesta: "enquanto"
 tipo: completar
 respuestas_validas:
   - "enquanto"
@@ -474,7 +456,6 @@ metadata:
 pasos:
   - "Determinar si el verbo requiere preposición para su complemento."
   - "Formular el gerundio con la preposición correcta."
-respuesta: "ao"
 tipo: completar
 respuestas_validas:
   - "ao"

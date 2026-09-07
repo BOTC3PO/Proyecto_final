@@ -10,7 +10,6 @@ pasos:
 explicacion: "La pregunta evalúa la capacidad de captar detalles específicos en un contexto conversacional."  
 tipo: completar  
 enunciado: "「昨日、彼は___で会議に参加しました。」"  
-respuesta: "東京"  
 respuestas_validas:  
   - "東京"  
   - "東京" (con tilde)
@@ -30,7 +29,6 @@ pasos:
 explicacion: "La pregunta evalúa la capacidad de captar detalles específicos en un contexto conversacional."  
 tipo: completar  
 enunciado: "「彼女は___に住んでいます。」"  
-respuesta: "京都"  
 respuestas_validas:  
   - "京都"  
   - "京都" (con tilde)
@@ -50,7 +48,6 @@ pasos:
 explicacion: "La pregunta evalúa la capacidad de captar detalles específicos en un contexto conversacional."  
 tipo: completar  
 enunciado: "「彼は___で働いています。」"  
-respuesta: "大阪"  
 respuestas_validas:  
   - "大阪"  
   - "大阪" (con tilde)
@@ -70,7 +67,6 @@ pasos:
 explicacion: "La pregunta evalúa la capacidad de captar detalles específicos en un contexto conversacional."  
 tipo: completar  
 enunciado: "「彼女は___にいます。」"  
-respuesta: "東京"  
 respuestas_validas:  
   - "東京"  
   - "東京" (con tilde)
@@ -90,7 +86,6 @@ pasos:
 explicacion: "La pregunta evalúa la capacidad de captar detalles específicos en un contexto conversacional."  
 tipo: completar  
 enunciado: "「彼は___で勉強しています。」"  
-respuesta: "京都"  
 respuestas_validas:  
   - "京都"  
   - "京都" (con tilde)
@@ -110,7 +105,6 @@ pasos:
 explicacion: "La pregunta evalúa la capacidad de captar detalles específicos en un contexto conversacional."  
 tipo: completar  
 enunciado: "「彼女は___で働いています。」"  
-respuesta: "大阪"  
 respuestas_validas:  
   - "大阪"  
   - "大阪" (con tilde)
@@ -130,7 +124,6 @@ pasos:
 explicacion: "La pregunta evalúa la capacidad de captar detalles específicos en un contexto conversacional."  
 tipo: completar  
 enunciado: "「彼は___に住んでいます。」"  
-respuesta: "東京"  
 respuestas_validas:  
   - "東京"  
   - "東京" (con tilde)
@@ -170,7 +163,6 @@ pasos:
 explicacion: "La pregunta evalúa la capacidad de captar detalles específicos en un contexto conversacional."  
 tipo: completar  
 enunciado: "「彼は___で会議に参加しました。」"  
-respuesta: "大阪"  
 respuestas_validas:  
   - "大阪"  
   - "大阪" (con tilde)

@@ -27,7 +27,6 @@ metadata:
 pasos:
   - "Escuchar una conversación en un restaurante."
   - "Completar el hueco con la palabra correcta."
-respuesta: "推荐菜"
 respuestas_validas:
   - "推荐菜"
   - "推荐菜"
@@ -64,7 +63,6 @@ metadata:
 pasos:
   - "Escuchar una conversación sobre compras de boletos."
   - "Completar el hueco con la palabra correcta."
-respuesta: "硬卧"
 respuestas_validas:
   - "硬卧"
   - "硬卧"
@@ -101,7 +99,6 @@ metadata:
 pasos:
   - "Escuchar una conversación sobre reservas aéreas."
   - "Completar el hueco con la palabra correcta."
-respuesta: "经济舱"
 respuestas_validas:
   - "经济舱"
   - "经济舱"
@@ -138,7 +135,6 @@ metadata:
 pasos:
   - "Escuchar una conversación sobre cómo llegar a un lugar."
   - "Completar el hueco con la palabra correcta."
-respuesta: "左转"
 respuestas_validas:
   - "左转"
   - "左转"
@@ -175,7 +171,6 @@ metadata:
 pasos:
   - "Escuchar un anuncio sobre películas."
   - "Completar el hueco con la palabra correcta."
-respuesta: "恐怖片"
 respuestas_validas:
   - "恐怖片"
   - "恐怖片"
@@ -212,7 +207,6 @@ metadata:
 pasos:
   - "Escuchar una conversación sobre planear un encuentro."
   - "Completar el hueco con la palabra correcta."
-respuesta: "咖啡厅"
 respuestas_validas:
   - "咖啡厅"
   - "咖啡厅"
@@ -249,7 +243,6 @@ metadata:
 pasos:
   - "Escuchar una conversación en un restaurante."
   - "Completar el hueco con la palabra correcta."
-respuesta: "招牌菜"
 respuestas_validas:
   - "招牌菜"
   - "招牌菜"
@@ -286,7 +279,6 @@ metadata:
 pasos:
   - "Escuchar una conversación sobre reservar un hotel."
   - "Completar el hueco con la palabra correcta."
-respuesta: "家庭套房"
 respuestas_validas:
   - "家庭套房"
   - "家庭套房"
@@ -323,7 +315,6 @@ metadata:
 pasos:
   - "Escuchar una conversación sobre planear un encuentro."
   - "Completar el hueco con la palabra correcta."
-respuesta: "公园"
 respuestas_validas:
   - "公园"
   - "公园"
@@ -360,7 +351,6 @@ metadata:
 pasos:
   - "Escuchar una conversación en un restaurante."
   - "Completar el hueco con la palabra correcta."
-respuesta: "经理"
 respuestas_validas:
   - "经理"
   - "经理"
@@ -397,7 +387,6 @@ metadata:
 pasos:
   - "Escuchar una conversación en una tienda."
   - "Completar el hueco con la palabra correcta."
-respuesta: "裤子"
 respuestas_validas:
   - "裤子"
   - "裤子"
@@ -434,7 +423,6 @@ metadata:
 pasos:
   - "Escuchar una conversación sobre compras de boletos."
   - "Completar el hueco con la palabra correcta."
-respuesta: "儿童票"
 respuestas_validas:
   - "儿童票"
   - "儿童票"

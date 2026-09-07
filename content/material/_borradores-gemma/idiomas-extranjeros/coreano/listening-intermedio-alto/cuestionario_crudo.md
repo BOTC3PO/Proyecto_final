@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Escuchar una conversación donde un personaje pregunta por el lugar de algo."
   - "Identificar la ubicación mencionada en la oración."
-respuesta: "도서관"  
 tipo: completar  
 respuestas_validas:
   - "도서관"
@@ -45,7 +44,6 @@ metadata:
 pasos:
   - "Escuchar una conversación donde se comparan dos objetos."
   - "Completar el hueco con la forma correcta del adjetivo para indicar la comparación."
-respuesta: "더 크다"  
 tipo: completar  
 respuestas_validas:
   - "더 크다"
@@ -82,7 +80,6 @@ metadata:
 pasos:
   - "Escuchar una conversación donde se mencionan cantidades."
   - "Completar el hueco con la forma correcta del numeral para indicar la cantidad."
-respuesta: "십 개"  
 tipo: completar  
 respuestas_validas:
   - "십 개"
@@ -119,7 +116,6 @@ metadata:
 pasos:
   - "Escuchar una descripción de un evento que ocurrirá en el futuro."
   - "Completar el hueco con la forma correcta del verbo para indicar el tiempo futuro."
-respuesta: "갈 거예요"  
 tipo: completar  
 respuestas_validas:
   - "갈 거예요"
@@ -156,7 +152,6 @@ metadata:
 pasos:
   - "Escuchar una conversación donde se expresa una opinión."
   - "Completar el hueco con la forma correcta del verbo para indicar la opinión mencionada."
-respuesta: "좋아요"  
 tipo: completar  
 respuestas_validas:
   - "좋아요"
@@ -193,7 +188,6 @@ metadata:
 pasos:
   - "Escuchar una conversación donde se mencionan fracciones."
   - "Completar el hueco con la forma correcta del numeral para indicar la fracción."
-respuesta: "반"  
 tipo: completar  
 respuestas_validas:
   - "반"
@@ -230,7 +224,6 @@ metadata:
 pasos:
   - "Escuchar una descripción de un evento que ocurrió en el pasado."
   - "Completar el hueco con la forma correcta del verbo para indicar el tiempo pasado."
-respuesta: "갔어요"  
 tipo: completar  
 respuestas_validas:
   - "갔어요"
@@ -267,7 +260,6 @@ metadata:
 pasos:
   - "Escuchar una oración que expresa una causa y un efecto."
   - "Completar el hueco con la forma correcta del verbo para indicar la relación causal mencionada."
-respuesta: "그래서"  
 tipo: completar  
 respuestas_validas:
   - "그래서"
@@ -304,7 +296,6 @@ metadata:
 pasos:
   - "Escuchar una conversación donde se expresa una probabilidad."
   - "Completar el hueco con la forma correcta del verbo para indicar la probabilidad mencionada."
-respuesta: "될 거예요"  
 tipo: completar  
 respuestas_validas:
   - "될 거예요"
@@ -341,7 +332,6 @@ metadata:
 pasos:
   - "Escuchar una conversación donde se menciona una repetición de acción."
   - "Completar el hueco con la forma correcta del verbo para indicar la repetición mencionada."
-respuesta: "자주"  
 tipo: completar  
 respuestas_validas:
   - "자주"
@@ -378,7 +368,6 @@ metadata:
 pasos:
   - "Escuchar una oración que expresa permiso o prohibición."
   - "Completar el hueco con la forma correcta del verbo para indicar el permiso/prohibición mencionado."
-respuesta: "되지 않아요"  
 tipo: completar  
 respuestas_validas:
   - "되지 않아요"
@@ -415,7 +404,6 @@ metadata:
 pasos:
   - "Escuchar una conversación donde se menciona un evento futuro."
   - "Completar el hueco con la forma correcta del verbo para indicar el tiempo futuro."
-respuesta: "갈 거예요"  
 tipo: completar  
 respuestas_validas:
   - "갈 거예요"
@@ -452,7 +440,6 @@ metadata:
 pasos:
   - "Escuchar una conversación donde se mencionan fracciones."
   - "Completar el hueco con la forma correcta del numeral para indicar la fracción."
-respuesta: "셋째"  
 tipo: completar  
 respuestas_validas:
   - "셋째"

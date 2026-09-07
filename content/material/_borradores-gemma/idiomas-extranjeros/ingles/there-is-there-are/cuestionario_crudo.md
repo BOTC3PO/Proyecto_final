@@ -7,7 +7,6 @@ metadata:
   tags: ["afirmativo", "singular"]
 pasos:
   - "Completa la oración con 'is' o 'are'."
-respuesta: "is"
 tipo: completar
 respuestas_validas:
   - "is"
@@ -24,7 +23,6 @@ metadata:
   tags: ["negativo", "plural"]
 pasos:
   - "Completa la oración con 'isn't' o 'aren't'."
-respuesta: "aren't"
 tipo: completar
 respuestas_validas:
   - "aren't"
@@ -58,7 +56,6 @@ metadata:
   tags: ["some", "afirmativo"]
 pasos:
   - "Completa la oración con 'some' o 'any'."
-respuesta: "some"
 tipo: completar
 respuestas_validas:
   - "some"
@@ -75,7 +72,6 @@ metadata:
   tags: ["plural", "afirmativo"]
 pasos:
   - "Completa la oración con 'is' o 'are'."
-respuesta: "are"
 tipo: completar
 respuestas_validas:
   - "are"
@@ -92,7 +88,6 @@ metadata:
   tags: ["negativo", "incontable"]
 pasos:
   - "Completa la oración con 'isn't' o 'aren't'."
-respuesta: "isn't"
 tipo: completar
 respuestas_validas:
   - "isn't"
@@ -126,7 +121,6 @@ metadata:
   tags: ["some", "incontable"]
 pasos:
   - "Completa la oración con 'some' o 'any'."
-respuesta: "some"
 tipo: completar
 respuestas_validas:
   - "some"
@@ -143,7 +137,6 @@ metadata:
   tags: ["negativo", "singular"]
 pasos:
   - "Completa la oración con 'isn't' o 'aren't'."
-respuesta: "isn't"
 tipo: completar
 respuestas_validas:
   - "isn't"
@@ -177,7 +170,6 @@ metadata:
   tags: ["plural", "incontable"]
 pasos:
   - "Completa la oración con 'is' o 'are'."
-respuesta: "is"
 tipo: completar
 respuestas_validas:
   - "is"
@@ -194,7 +186,6 @@ metadata:
   tags: ["some", "plural"]
 pasos:
   - "Completa la oración con 'some' o 'any'."
-respuesta: "some"
 tipo: completar
 respuestas_validas:
   - "some"
@@ -211,7 +202,6 @@ metadata:
   tags: ["negativo", "incontable"]
 pasos:
   - "Completa la oración con 'isn't' o 'aren't'."
-respuesta: "isn't"
 tipo: completar
 respuestas_validas:
   - "isn't"
@@ -245,7 +235,6 @@ metadata:
   tags: ["some", "negativo"]
 pasos:
   - "Completa la oración con 'some' o 'any'."
-respuesta: "any"
 tipo: completar
 respuestas_validas:
   - "any"
@@ -262,7 +251,6 @@ metadata:
   tags: ["some", "plural"]
 pasos:
   - "Completa la oración con 'is' o 'are'."
-respuesta: "are"
 tipo: completar
 respuestas_validas:
   - "are"
@@ -279,7 +267,6 @@ metadata:
   tags: ["negativo", "incontable"]
 pasos:
   - "Completa la oración con 'isn't' o 'aren't'."
-respuesta: "isn't"
 tipo: completar
 respuestas_validas:
   - "isn't"
@@ -313,7 +300,6 @@ metadata:
   tags: ["some", "negativo"]
 pasos:
   - "Completa la oración con 'some' o 'any'."
-respuesta: "any"
 tipo: completar
 respuestas_validas:
   - "any"
@@ -330,7 +316,6 @@ metadata:
   tags: ["some", "plural"]
 pasos:
   - "Completa la oración con 'is' o 'are'."
-respuesta: "are"
 tipo: completar
 respuestas_validas:
   - "are"
@@ -347,7 +332,6 @@ metadata:
   tags: ["negativo", "incontable"]
 pasos:
   - "Completa la oración con 'isn't' o 'aren't'."
-respuesta: "isn't"
 tipo: completar
 respuestas_validas:
   - "isn't"
@@ -381,7 +365,6 @@ metadata:
   tags: ["some", "negativo"]
 pasos:
   - "Completa la oración con 'some' o 'any'."
-respuesta: "any"
 tipo: completar
 respuestas_validas:
   - "any"
@@ -398,7 +381,6 @@ metadata:
   tags: ["some", "plural"]
 pasos:
   - "Completa la oración con 'is' o 'are'."
-respuesta: "are"
 tipo: completar
 respuestas_validas:
   - "are"
@@ -415,7 +397,6 @@ metadata:
   tags: ["negativo", "incontable"]
 pasos:
   - "Completa la oración con 'isn't' o 'aren't'."
-respuesta: "isn't"
 tipo: completar
 respuestas_validas:
   - "isn't"

@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el adjetivo en la oración."
   - "Elegir el complemento de grado que intensifica su significado."
-respuesta: "非常"
 tipo: completar
 respuestas_validas:
   - "非常"
@@ -56,7 +55,6 @@ metadata:
 pasos:
   - "Localizar el verbo o adjetivo en la oración."
   - "Insertar '很' para intensificar su significado."
-respuesta: "很"
 tipo: completar
 respuestas_validas:
   - "很"
@@ -104,7 +102,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Usar '非常' para intensificar la negación."
-respuesta: "非常"
 tipo: completar
 respuestas_validas:
   - "非常"
@@ -152,7 +149,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Insertar '很' para intensificar la habilidad."
-respuesta: "很"
 tipo: completar
 respuestas_validas:
   - "很"
@@ -200,7 +196,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Usar '非常' para enfatizar una opinión fuerte."
-respuesta: "非常"
 tipo: completar
 respuestas_validas:
   - "非常"
@@ -248,7 +243,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Insertar '很' para intensificar una emoción."
-respuesta: "很"
 tipo: completar
 respuestas_validas:
   - "很"
@@ -296,7 +290,6 @@ metadata:
 pasos:
   - "Reconocer el adjetivo en la oración."
   - "Insertar '非常' para enfatizar un tamaño extremo."
-respuesta: "非常"
 tipo: completar
 respuestas_validas:
   - "非常"
@@ -344,14 +337,11 @@ metadata:
 pasos:
   - "Identificar el adjetivo que requiere un complemento de grado."
   - "Elegir la forma correcta del complemento en función del contexto."
-respuesta: "非常"
 respuestas_validas:
   - "非常"
   - "很"
 tipo: completar
 enunciado: "这个音乐__好听。"
-variables:
-  - "音乐": "music"
 ```
 
 ### 16 — Elegir '很' en contexto de habilidad  
@@ -389,7 +379,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Insertar '非常' para enfatizar una opinión fuerte."
-respuesta: "非常"
 tipo: completar
 respuestas_validas:
   - "非常"
@@ -444,8 +433,6 @@ opciones_explicitas:
 respuesta: "不太"
 tipo: mc
 enunciado: "这个决定__错误。"
-variables:
-  - "决定": "decision"
 ```
 
 ### 20 — Elegir '不太' en contexto de duda  
@@ -458,14 +445,11 @@ metadata:
 pasos:
   - "Identificar el verbo que requiere un complemento de grado."
   - "Escribir la forma correcta del complemento para intensificar el significado."
-respuesta: "很"
 respuestas_validas:
   - "很"
   - "非常"
 tipo: completar
 enunciado: "他__讨厌这个味道。"
-variables:
-  - "味道": "smell"
 ```
 
 ### 21 — Completar con '很' en contexto de emoción  
@@ -478,7 +462,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Insertar '很' para intensificar una emoción."
-respuesta: "很"
 tipo: completar
 respuestas_validas:
   - "很"
@@ -526,7 +509,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Insertar '有点儿' para una cantidad leve."
-respuesta: "有点儿"
 tipo: completar
 respuestas_validas:
   - "有点儿"
@@ -556,8 +538,6 @@ opciones_explicitas:
 respuesta: "非常"
 tipo: mc
 enunciado: "我们__需要更多时间。"
-variables:
-  - "时间": "time"
 ```
 
 ### 25 — Completar con '不太' en contexto de duda  
@@ -570,12 +550,9 @@ metadata:
 pasos:
   - "Identificar el adjetivo '安静' que requiere un complemento de grado."
   - "Escribir la forma correcta del complemento para describir el lugar."
-respuesta: "很"
 respuestas_validas:
   - "很"
   - "非常"
 tipo: completar
 enunciado: "这个地方__安静。"
-variables:
-  - "地方": "place"
 ```

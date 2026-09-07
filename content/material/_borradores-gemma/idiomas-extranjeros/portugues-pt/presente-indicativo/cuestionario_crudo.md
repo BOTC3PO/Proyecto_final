@@ -13,7 +13,6 @@ respuestas_validas:
   - "Sou"
 tipo: completar
 enunciado: "Eu ___ estudante."
-respuesta: "sou"
 explicacion: "O verbo 'ser' em primeira pessoa do singular no presente é 'sou'."
 ```
 
@@ -57,7 +56,6 @@ respuestas_validas:
   - "Temos"
 tipo: completar
 enunciado: "Nós ___ um livro."
-respuesta: "temos"
 explicacion: "O verbo 'ter' em primeira pessoa do plural no presente é 'temos'."
 ```
 
@@ -101,7 +99,6 @@ respuestas_validas:
   - "Faz"
 tipo: completar
 enunciado: "Ela ___ um bolo de chocolate."
-respuesta: "faz"
 explicacion: "O verbo 'fazer' em terceira pessoa do singular no presente é 'faz'."
 ```
 
@@ -145,7 +142,6 @@ respuestas_validas:
   - "Leemos"
 tipo: completar
 enunciado: "Nós ___ um livro de ficção científica."
-respuesta: "leemos"
 explicacion: "O verbo 'ler' em primeira pessoa do plural no presente é 'leemos'."
 ```
 
@@ -189,7 +185,6 @@ respuestas_validas:
   - "Come"
 tipo: completar
 enunciado: "Você ___ um sanduíche de queijo."
-respuesta: "come"
 explicacion: "O verbo 'comer' em segunda pessoa do singular no presente é 'come'."
 ```
 
@@ -233,7 +228,6 @@ respuestas_validas:
   - "Dorme"
 tipo: completar
 enunciado: "Ela ___ muito durante o dia."
-respuesta: "dorme"
 explicacion: "O verbo 'dormir' em terceira pessoa do singular no presente é 'dorme'."
 ```
 
@@ -277,7 +271,6 @@ respuestas_validas:
   - "Estudamos"
 tipo: completar
 enunciado: "Nós ___ em uma universidade."
-respuesta: "estudamos"
 explicacion: "O verbo 'estudar' em primeira pessoa do plural no presente é 'estudamos'."
 ```
 
@@ -321,7 +314,6 @@ respuestas_validas:
   - "Caminha"
 tipo: completar
 enunciado: "Você ___ ao trabalho todos os dias."
-respuesta: "caminha"
 explicacion: "O verbo 'caminhar' em segunda pessoa do singular no presente é 'caminha'."
 ```
 
@@ -365,7 +357,6 @@ respuestas_validas:
   - "Escrevemos"
 tipo: completar
 enunciado: "Nós ___ uma carta de amor."
-respuesta: "escrevemos"
 explicacion: "O verbo 'escrever' em primeira pessoa do plural no presente é 'escrevemos'."
 ```
 
@@ -409,7 +400,6 @@ respuestas_validas:
   - "Compram"
 tipo: completar
 enunciado: "Vocês ___ frutas no mercado."
-respuesta: "compram"
 explicacion: "O verbo 'comprar' em segunda pessoa do plural no presente é 'compram'."
 ```
 
@@ -453,7 +443,6 @@ respuestas_validas:
   - "Canta"
 tipo: completar
 enunciado: "Ele ___ uma canção de amor."
-respuesta: "canta"
 explicacion: "O verbo 'cantar' em terceira pessoa do singular no presente é 'canta'."
 ```
 
@@ -497,7 +486,6 @@ respuestas_validas:
   - "Escreve"
 tipo: completar
 enunciado: "Ela ___ um diário de viagem."
-respuesta: "escreve"
 explicacion: "O verbo 'escrever' em terceira pessoa do singular no presente é 'escreve'."
 ```
 
@@ -541,6 +529,5 @@ respuestas_validas:
   - "Visitam"
 tipo: completar
 enunciado: "Vocês ___ uma cidade nova este mês."
-respuesta: "visitam"
 explicacion: "O verbo 'visitar' em segunda pessoa do plural no presente é 'visitam'."
 ```

@@ -9,7 +9,11 @@ pasos:
   - "Identificar el sujeto y el contexto."  
   - "Recordar que 'avoir' se usa para posesión o posesivo."  
 respuesta: "a"  
-opciones_explicitas: ["est", "ai", "a", "sont"]  
+opciones_explicitas:
+  - "est"
+  - "ai"
+  - "a"
+  - "sont"
 explicacion: "'Avoir' se utiliza para indicar posesión. El sujeto es 'elle', por lo tanto, la conjugación correcta es 'a'."  
 ```
 
@@ -24,7 +28,9 @@ pasos:
   - "Identificar si se describe un estado físico o emocional."  
   - "Recordar que 'être' se usa para estados, no posesión."  
 respuesta: "suis"  
-respuestas_validas: ["suis", "SUIS"]  
+respuestas_validas:
+  - "suis"
+  - "SUIS"
 explicacion: "'Être' se utiliza para describir estados. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
 ```
 
@@ -39,7 +45,11 @@ pasos:
   - "Determinar si se refiere a una ubicación o posesión."  
   - "Recordar que 'être' indica lugar, no posesión."  
 respuesta: "sommes"  
-opciones_explicitas: ["sont", "ai", "sommes", "est"]  
+opciones_explicitas:
+  - "sont"
+  - "ai"
+  - "sommes"
+  - "est"
 explicacion: "'Être' se usa para indicar ubicación. El sujeto es 'nous', por lo tanto, la conjugación correcta es 'sommes'."  
 ```
 
@@ -54,7 +64,9 @@ pasos:
   - "Identificar si se menciona una edad o un estado."  
   - "Recordar que 'avoir' se usa para edades, no estados."  
 respuesta: "ai"  
-respuestas_validas: ["ai", "Ai"]  
+respuestas_validas:
+  - "ai"
+  - "Ai"
 explicacion: "'Avoir' se utiliza para expresar edades. El sujeto es 'je', por lo tanto, la conjugación correcta es 'ai'."  
 ```
 
@@ -69,7 +81,11 @@ pasos:
   - "Determinar si se refiere a posesión o estado."  
   - "Recordar que 'avoir' indica posesión, no estados."  
 respuesta: "a"  
-opciones_explicitas: ["est", "ai", "a", "sont"]  
+opciones_explicitas:
+  - "est"
+  - "ai"
+  - "a"
+  - "sont"
 explicacion: "'Avoir' se usa para posesión. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
 ```
 
@@ -84,7 +100,9 @@ pasos:
   - "Identificar si se describe una emoción o posesión."  
   - "Recordar que 'être' expresa emociones, no posesión."  
 respuesta: "suis"  
-respuestas_validas: ["suis", "SUIS"]  
+respuestas_validas:
+  - "suis"
+  - "SUIS"
 explicacion: "'Être' se utiliza para emociones. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
 ```
 
@@ -99,7 +117,11 @@ pasos:
   - "Determinar si se menciona un lugar o una posesión."  
   - "Recordar que 'être' indica ubicación, no posesión."  
 respuesta: "est"  
-opciones_explicitas: ["sont", "ai", "est", "a"]  
+opciones_explicitas:
+  - "sont"
+  - "ai"
+  - "est"
+  - "a"
 explicacion: "'Être' se usa para indicar lugar. El sujeto es 'il', por lo tanto, la conjugación correcta es 'est'."  
 ```
 
@@ -114,7 +136,9 @@ pasos:
   - "Identificar si se refiere a posesión o estado."  
   - "Recordar que 'avoir' indica posesión, no estados."  
 respuesta: "a"  
-respuestas_validas: ["a", "A"]  
+respuestas_validas:
+  - "a"
+  - "A"
 explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'elle', por lo tanto, la conjugación correcta es 'a'."  
 ```
 
@@ -129,7 +153,11 @@ pasos:
   - "Determinar si se menciona una edad o un estado."  
   - "Recordar que 'avoir' expresa edades, no estados."  
 respuesta: "a"  
-opciones_explicitas: ["est", "ai", "a", "sont"]  
+opciones_explicitas:
+  - "est"
+  - "ai"
+  - "a"
+  - "sont"
 explicacion: "'Avoir' se usa para edades. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
 ```
 
@@ -144,7 +172,9 @@ pasos:
   - "Identificar si se describe una emoción o posesión."  
   - "Recordar que 'être' expresa emociones, no posesión."  
 respuesta: "sont"  
-respuestas_validas: ["sont", "SONT"]  
+respuestas_validas:
+  - "sont"
+  - "SONT"
 explicacion: "'Être' se utiliza para emociones. El sujeto es 'ils', por lo tanto, la conjugación correcta es 'sont'."  
 ```
 
@@ -159,7 +189,11 @@ pasos:
   - "Determinar si se menciona un lugar o una posesión."  
   - "Recordar que 'être' indica ubicación, no posesión."  
 respuesta: "suis"  
-opciones_explicitas: ["sont", "ai", "suis", "a"]  
+opciones_explicitas:
+  - "sont"
+  - "ai"
+  - "suis"
+  - "a"
 explicacion: "'Être' se usa para indicar lugar. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
 ```
 
@@ -174,7 +208,9 @@ pasos:
   - "Identificar si se refiere a posesión o estado."  
   - "Recordar que 'avoir' indica posesión, no estados."  
 respuesta: "ai"  
-respuestas_validas: ["ai", "AI"]  
+respuestas_validas:
+  - "ai"
+  - "AI"
 explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'je', por lo tanto, la conjugación correcta es 'ai'."  
 ```
 
@@ -189,7 +225,11 @@ pasos:
   - "Determinar si se menciona una edad o un estado."  
   - "Recordar que 'avoir' expresa edades, no estados."  
 respuesta: "a"  
-opciones_explicitas: ["est", "ai", "a", "sont"]  
+opciones_explicitas:
+  - "est"
+  - "ai"
+  - "a"
+  - "sont"
 explicacion: "'Avoir' se usa para edades. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
 ```
 
@@ -204,7 +244,9 @@ pasos:
   - "Identificar si se describe una emoción o posesión."  
   - "Recordar que 'être' expresa emociones, no posesión."  
 respuesta: "est"  
-respuestas_validas: ["est", "EST"]  
+respuestas_validas:
+  - "est"
+  - "EST"
 explicacion: "'Être' se utiliza para emociones. El sujeto es 'il', por lo tanto, la conjugación correcta es 'est'."  
 ```
 
@@ -219,7 +261,11 @@ pasos:
   - "Determinar si se menciona un lugar o una posesión."  
   - "Recordar que 'être' indica ubicación, no posesión."  
 respuesta: "sont"  
-opciones_explicitas: ["suis", "ai", "sont", "a"]  
+opciones_explicitas:
+  - "suis"
+  - "ai"
+  - "sont"
+  - "a"
 explicacion: "'Être' se usa para indicar lugar. El sujeto es 'ils', por lo tanto, la conjugación correcta es 'sont'."  
 ```
 
@@ -234,7 +280,9 @@ pasos:
   - "Identificar si se refiere a posesión o estado."  
   - "Recordar que 'avoir' indica posesión, no estados."  
 respuesta: "a"  
-respuestas_validas: ["a", "A"]  
+respuestas_validas:
+  - "a"
+  - "A"
 explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'elle', por lo tanto, la conjugación correcta es 'a'."  
 ```
 
@@ -249,7 +297,11 @@ pasos:
   - "Determinar si se menciona una edad o un estado."  
   - "Recordar que 'avoir' expresa edades, no estados."  
 respuesta: "ai"  
-opciones_explicitas: ["est", "ai", "a", "sont"]  
+opciones_explicitas:
+  - "est"
+  - "ai"
+  - "a"
+  - "sont"
 explicacion: "'Avoir' se usa para edades. El sujeto es 'je', por lo tanto, la conjugación correcta es 'ai'."  
 ```
 
@@ -264,7 +316,9 @@ pasos:
   - "Identificar si se describe una emoción o posesión."  
   - "Recordar que 'être' expresa emociones, no posesión."  
 respuesta: "suis"  
-respuestas_validas: ["suis", "SUIS"]  
+respuestas_validas:
+  - "suis"
+  - "SUIS"
 explicacion: "'Être' se utiliza para emociones. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
 ```
 
@@ -279,7 +333,11 @@ pasos:
   - "Determinar si se menciona un lugar o una posesión."  
   - "Recordar que 'être' indica ubicación, no posesión."  
 respuesta: "est"  
-opciones_explicitas: ["sont", "ai", "est", "a"]  
+opciones_explicitas:
+  - "sont"
+  - "ai"
+  - "est"
+  - "a"
 explicacion: "'Être' se usa para indicar lugar. El sujeto es 'il', por lo tanto, la conjugación correcta es 'est'."  
 ```
 
@@ -294,7 +352,9 @@ pasos:
   - "Identificar si se refiere a posesión o estado."  
   - "Recordar que 'avoir' indica posesión, no estados."  
 respuesta: "a"  
-respuestas_validas: ["a", "A"]  
+respuestas_validas:
+  - "a"
+  - "A"
 explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
 ```
 
@@ -309,7 +369,11 @@ pasos:
   - "Determinar si se menciona una edad o un estado."  
   - "Recordar que 'avoir' expresa edades, no estados."  
 respuesta: "a"  
-opciones_explicitas: ["est", "ai", "a", "sont"]  
+opciones_explicitas:
+  - "est"
+  - "ai"
+  - "a"
+  - "sont"
 explicacion: "'Avoir' se usa para edades. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
 ```
 
@@ -324,7 +388,9 @@ pasos:
   - "Identificar si se describe una emoción o posesión."  
   - "Recordar que 'être' expresa emociones, no posesión."  
 respuesta: "sont"  
-respuestas_validas: ["sont", "SONT"]  
+respuestas_validas:
+  - "sont"
+  - "SONT"
 explicacion: "'Être' se utiliza para emociones. El sujeto es 'ils', por lo tanto, la conjugación correcta es 'sont'."  
 ```
 
@@ -339,7 +405,11 @@ pasos:
   - "Determinar si se menciona un lugar o una posesión."  
   - "Recordar que 'être' indica ubicación, no posesión."  
 respuesta: "suis"  
-opciones_explicitas: ["sont", "ai", "suis", "a"]  
+opciones_explicitas:
+  - "sont"
+  - "ai"
+  - "suis"
+  - "a"
 explicacion: "'Être' se usa para indicar lugar. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
 ```
 
@@ -354,7 +424,9 @@ pasos:
   - "Identificar si se refiere a posesión o estado."  
   - "Recordar que 'avoir' indica posesión, no estados."  
 respuesta: "ai"  
-respuestas_validas: ["ai", "AI"]  
+respuestas_validas:
+  - "ai"
+  - "AI"
 explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'je', por lo tanto, la conjugación correcta es 'ai'."  
 ```
 
@@ -369,6 +441,10 @@ pasos:
   - "Determinar si se menciona una edad o un estado."  
   - "Recordar que 'avoir' expresa edades, no estados."  
 respuesta: "a"  
-opciones_explicitas: ["est", "ai", "a", "sont"]  
+opciones_explicitas:
+  - "est"
+  - "ai"
+  - "a"
+  - "sont"
 explicacion: "'Avoir' se usa para edades. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
 ```

@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identificar el género y número del sustantivo."
   - "Ajustar la forma del adjetivo según corresponda."
-respuesta: "jolie"
 respuestas_validas:
   - "jolie"
   - "Jolie"
 tipo: completar
 enunciado: "La robe est ___."  
-variables:
-  - "adj": ["mignon", "jolie", "vieux"]
 ```
 
 
@@ -37,8 +34,6 @@ opciones_explicitas:
   - "mangées"
 tipo: mc
 enunciado: "Elles ___ des pommes."  
-variables:
-  - "verbe": ["manger", "parler", "aller"]
 ```
 
 
@@ -53,14 +48,11 @@ metadata:
 pasos:
   - "Ubicar el adjetivo después del sustantivo."
   - "Verificar que no haya errores de posición."
-respuesta: "chaise bleue"  
 respuestas_validas:
   - "chaise bleue"
   - "chaise bleu"
 tipo: completar
 enunciado: "Il a acheté ___."  
-variables:
-  - "nom": ["chaise", "livre", "voiture"]
 ```
 
 
@@ -82,8 +74,6 @@ opciones_explicitas:
   - "parlent"
 tipo: mc
 enunciado: "Ils ___ de politique."  
-variables:
-  - "verbe": ["parler", "manger", "aller"]
 ```
 
 
@@ -105,8 +95,6 @@ opciones_explicitas:
   - "les"
 tipo: mc
 enunciado: "Je ___ ai donné un cadeau."  
-variables:
-  - "pronom": ["lui", "leur", "nous"]
 ```
 
 
@@ -128,8 +116,6 @@ opciones_explicitas:
   - "mangées"
 tipo: mc
 enunciado: "Elles ___ des fruits."  
-variables:
-  - "verbe": ["manger", "parler", "aller"]
 ```
 
 
@@ -151,8 +137,6 @@ opciones_explicitas:
   - "sont allée"
 tipo: mc
 enunciado: "Ils ___ à Paris."  
-variables:
-  - "verbe": ["aller", "manger", "parler"]
 ```
 
 
@@ -167,14 +151,11 @@ metadata:
 pasos:
   - "Identificar el género del sustantivo."
   - "Adaptar el adjetivo para el femenino."
-respuesta: "sérieuse"  
 respuestas_validas:
   - "sérieuse"
   - "Sérieuse"
 tipo: completar
 enunciado: "La prof est ___."  
-variables:
-  - "adj": ["sérieux", "sérieuse", "vieux"]
 ```
 
 
@@ -196,8 +177,6 @@ opciones_explicitas:
   - "grandes"
 tipo: mc
 enunciado: "Les enfants sont ___."  
-variables:
-  - "adj": ["grand", "gros", "petit"]
 ```
 
 
@@ -219,8 +198,6 @@ opciones_explicitas:
   - "aucun"
 tipo: mc
 enunciado: "Je ___ n'ai pas mangé."  
-variables:
-  - "pronom": ["rien", "personne", "aucune"]
 ```
 
 
@@ -242,8 +219,6 @@ opciones_explicitas:
   - "mangées"
 tipo: mc
 enunciado: "Je ___ le livre."  
-variables:
-  - "verbe": ["manger", "parler", "aller"]
 ```
 
 
@@ -265,8 +240,6 @@ opciones_explicitas:
   - "finissent"
 tipo: mc
 enunciado: "Ils ___ le repas."  
-variables:
-  - "verbe": ["finir", "manger", "aller"]
 ```
 
 
@@ -288,8 +261,6 @@ opciones_explicitas:
   - "rien ne"
 tipo: mc
 enunciado: "Je ___ veux sortir."  
-variables:
-  - "structure": ["ne...pas", "pas", "rien"]
 ```
 
 
@@ -304,14 +275,11 @@ metadata:
 pasos:
   - "Identificar el género y número del sustantivo."
   - "Ajustar el adjetivo para el masculino singular."
-respuesta: "mignon"  
 respuestas_validas:
   - "mignon"
   - "Mignon"
 tipo: completar
 enunciado: "Le chat est ___."  
-variables:
-  - "adj": ["mignon", "jolie", "vieux"]
 ```
 
 
@@ -333,8 +301,6 @@ opciones_explicitas:
   - "mangées"
 tipo: mc
 enunciado: "Je ___ mangé."  
-variables:
-  - "verbe": ["manger", "parler", "aller"]
 ```
 
 
@@ -356,8 +322,6 @@ opciones_explicitas:
   - "aux"
 tipo: mc
 enunciado: "Je vais ___ Canada."  
-variables:
-  - "pays": ["Canada", "France", "Espagne"]
 ```
 
 
@@ -375,12 +339,9 @@ pasos:
 explicacion: "El adjetivo 'intelligent' debe concordar en género (masculino) y número (plural) con 'les professeurs'. La forma correcta es 'intelligents'."
 enunciado: "Les professeurs sont ___."
 tipo: completar
-respuesta: "intelligents"
 respuestas_validas:
   - "intelligents"
   - "Intelligents"
-variables:
-  - "adjetivo": "intelligent"
 ```
 
 ### 18 — Utilisation de la négation avec "jamais"  
@@ -400,8 +361,6 @@ opciones_explicitas:
   - "rien ne"
 tipo: mc
 enunciado: "Je ___ vais au cinéma."  
-variables:
-  - "structure": ["ne...jamais", "pas", "rien"]
 ```
 
 
@@ -423,8 +382,6 @@ opciones_explicitas:
   - "grandes"
 tipo: mc
 enunciado: "Les garçons sont ___."  
-variables:
-  - "adj": ["grand", "gros", "petit"]
 ```
 
 
@@ -446,8 +403,6 @@ opciones_explicitas:
   - "pour"
 tipo: mc
 enunciado: "Je pense ___ toi."  
-variables:
-  - "verbe": ["penser", "aller", "parler"]
 ```
 
 
@@ -469,8 +424,6 @@ opciones_explicitas:
   - "parlerons"
 tipo: mc
 enunciado: "Nous ___ demain."  
-variables:
-  - "verbe": ["parler", "manger", "aller"]
 ```
 
 
@@ -492,8 +445,6 @@ opciones_explicitas:
   - "aucun"
 tipo: mc
 enunciado: "Je ___ n'ai pas vu."  
-variables:
-  - "pronom": ["personne", "rien", "aucune"]
 ```
 
 
@@ -515,8 +466,6 @@ opciones_explicitas:
   - "mangées"
 tipo: mc
 enunciado: "Ils ___ des pommes."  
-variables:
-  - "verbe": ["manger", "parler", "aller"]
 ```
 
 
@@ -554,10 +503,7 @@ pasos:
 explicacion: "La preposición correcta después de 'aller' para indicar un destino es 'à', que se contrae a 'au' antes de un sustantivo masculino singular como 'Canada'."
 enunciado: "Je vais ___ Canada cet été."
 tipo: completar
-respuesta: "au"
 respuestas_validas:
   - "au"
   - "Au"
-variables:
-  - "preposición": "à"
 ```

@@ -8,7 +8,7 @@ metadata:
 pasos:  
   - "Identificar el contexto de la oración."  
   - "Elegir la expresión que expresa posibilidad."  
-respuesta_validas:  
+respuestas_validas:  
   - "かもしれない"  
   - "かもしれません"  
 tipo: completar  
@@ -47,7 +47,7 @@ metadata:
 pasos:  
   - "Analizar la intención del hablante."  
   - "Seleccionar el verbo que expresa una opinión subjetiva."  
-respuesta_validas:  
+respuestas_validas:  
   - "と思う"  
   - "と思っています"  
 tipo: completar  
@@ -67,7 +67,6 @@ metadata:
 pasos:
     - "Identificar el sujeto y el contexto de la oración."
     - "Seleccionar la expresión de deducción que mejor se ajuste al significado implícito."
-respuesta: "もの"
 tipo: completar
 respuestas_validas:
     - "もの"
@@ -85,7 +84,6 @@ metadata:
 pasos:
     - "Determinar si la oración presenta un hecho conocido o una suposición."
     - "Elegir la expresión que exprese certeza basada en información previa."
-respuesta: "らしい"
 tipo: completar
 respuestas_validas:
     - "らしい"
@@ -122,7 +120,7 @@ metadata:
 pasos:  
   - "Determinar la intención del hablante."  
   - "Seleccionar el verbo que expresa una opinión subjetiva."  
-respuesta_validas:  
+respuestas_validas:  
   - "と思う"  
   - "と思っています"  
 tipo: completar  
@@ -142,7 +140,6 @@ metadata:
 pasos:
     - "Analizar el contexto de la oración para identificar si es una suposición o un hecho."
     - "Seleccionar la expresión que indique incertidumbre razonable."
-respuesta: "だろう"
 tipo: completar
 respuestas_validas:
     - "だろう"
@@ -160,7 +157,6 @@ metadata:
 pasos:
     - "Reconocer la expectativa implícita en el suceso mencionado."
     - "Elegir la expresión que refleje una deducción basada en expectativas normales."
-respuesta: "はず"
 tipo: completar
 respuestas_validas:
     - "はず"
@@ -178,7 +174,6 @@ metadata:
 pasos:
     - "Identificar la relación causal entre el suceso y la deducción."
     - "Seleccionar la expresión que exprese una consecuencia lógica de un hecho."
-respuesta: "もの"
 tipo: completar
 respuestas_validas:
     - "もの"
@@ -196,7 +191,6 @@ metadata:
 pasos:
     - "Evaluar si la oración implica una conclusión directa o una suposición."
     - "Elegir la expresión que indique certeza basada en el resultado mencionado."
-respuesta: "はず"
 tipo: completar
 respuestas_validas:
     - "はず"
@@ -214,7 +208,6 @@ metadata:
 pasos:
     - "Determinar si la deducción se basa en una causa evidente o en suposiciones."
     - "Seleccionar la expresión que exprese certeza sobre la causa del suceso."
-respuesta: "もの"
 tipo: completar
 respuestas_validas:
     - "もの"
@@ -232,7 +225,6 @@ metadata:
 pasos:
     - "Identificar la relación entre el suceso y la deducción."
     - "Elegir la expresión que exprese una consecuencia directa de una circunstancia."
-respuesta: "はず"
 tipo: completar
 respuestas_validas:
     - "はず"
@@ -250,7 +242,6 @@ metadata:
 pasos:
     - "Analizar si la deducción se basa en una observación directa o indirecta."
     - "Seleccionar la expresión que refleje certeza por evidencia visible."
-respuesta: "もの"
 tipo: completar
 respuestas_validas:
     - "もの"
@@ -268,7 +259,6 @@ metadata:
 pasos:
     - "Evaluar si la oración presenta una expectativa frustrada o una suposición."
     - "Elegir la expresión que indique una deducción basada en lo esperado."
-respuesta: "はず"
 tipo: completar
 respuestas_validas:
     - "はず"
@@ -286,7 +276,6 @@ metadata:
 pasos:
     - "Identificar la relación entre el evento y su consecuencia."
     - "Seleccionar la expresión que exprese una deducción inevitable del hecho mencionado."
-respuesta: "もの"
 tipo: completar
 respuestas_validas:
     - "もの"
@@ -304,7 +293,6 @@ metadata:
 pasos:
     - "Determinar si la oración implica una suposición basada en circunstancias."
     - "Elegir la expresión que indique una deducción razonable pero no segura."
-respuesta: "だろう"
 tipo: completar
 respuestas_validas:
     - "だろう"
@@ -322,7 +310,6 @@ metadata:
 pasos:
     - "Reconocer si la deducción se basa en información de terceros o en observaciones directas."
     - "Seleccionar la expresión que refleje una conclusión derivada de fuentes ajenas."
-respuesta: "らしい"
 tipo: completar
 respuestas_validas:
     - "らしい"
@@ -340,7 +327,6 @@ metadata:
 pasos:
     - "Evaluar si la oración implica un hecho confirmado o una suposición."
     - "Elegir la expresión que indique certeza basada en evidencia clara."
-respuesta: "もの"
 tipo: completar
 respuestas_validas:
     - "もの"
@@ -358,7 +344,6 @@ metadata:
 pasos:
     - "Identificar si la deducción se basa en una expectativa razonable o en una suposición."
     - "Seleccionar la expresión que exprese certeza por lo esperado."
-respuesta: "はず"
 tipo: completar
 respuestas_validas:
     - "はず"
@@ -376,7 +361,6 @@ metadata:
 pasos:
     - "Determinar si la deducción se basa en una causa evidente o en suposiciones."
     - "Elegir la expresión que indique certeza sobre la causa del suceso."
-respuesta: "もの"
 tipo: completar
 respuestas_validas:
     - "もの"
@@ -394,7 +378,6 @@ metadata:
 pasos:
     - "Identificar la relación entre el suceso y su consecuencia."
     - "Seleccionar la expresión que exprese una deducción directa de un hecho."
-respuesta: "はず"
 tipo: completar
 respuestas_validas:
     - "はず"
@@ -412,7 +395,6 @@ metadata:
 pasos:
     - "Analizar si la deducción se basa en una observación directa o indirecta."
     - "Elegir la expresión que refleje certeza por evidencia visible."
-respuesta: "もの"
 tipo: completar
 respuestas_validas:
     - "もの"
@@ -430,7 +412,6 @@ metadata:
 pasos:
     - "Evaluar si la oración implica una suposición basada en observaciones o actitudes."
     - "Elegir la expresión que indique una deducción razonable pero no segura."
-respuesta: "だろう"
 tipo: completar
 respuestas_validas:
     - "だろう"

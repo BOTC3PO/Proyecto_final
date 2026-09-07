@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que expresa movimiento hacia un lugar."  
   - "Verificar la forma correcta del verbo en contexto."  
-respuesta: "去"  
 respuestas_validas:  
   - "去"  
   - "去的"  
@@ -52,7 +51,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que afirma una identidad o característica."  
   - "Verificar la forma correcta del verbo en contexto."  
-respuesta: "是"  
 respuestas_validas:  
   - "是"  
   - "是的"  
@@ -96,7 +94,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe la acción de consumir comida."  
   - "Verificar la forma correcta del verbo en contexto."  
-respuesta: "吃"  
 respuestas_validas:  
   - "吃"  
   - "吃的"  
@@ -140,7 +137,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe la acción de adquirir algo."  
   - "Verificar la forma correcta del verbo en contexto."  
-respuesta: "买"  
 respuestas_validas:  
   - "买"  
   - "买的"  
@@ -184,7 +180,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe un cambio de estado contrario a '开'."  
   - "Verificar la forma correcta del verbo en contexto."  
-respuesta: "关"  
 respuestas_validas:  
   - "关"  
   - "关的"  
@@ -228,7 +223,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe la acción de lanzar algo."  
   - "Verificar la forma correcta del verbo en contexto."  
-respuesta: "扔"  
 respuestas_validas:  
   - "扔"  
   - "扔的"  
@@ -272,7 +266,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y el contexto de la oración."
   - "Determinar el verbo que completa correctamente la oración según el tiempo verbal."
-respuesta: "画"
 tipo: completar
 respuestas_validas:
   - "画"
@@ -290,7 +283,6 @@ metadata:
 pasos:
   - "Reconocer que se trata de una descripción con un adjetivo."
   - "Seleccionar el adjetivo que describe al sustantivo '苹果' (manzana)."
-respuesta: "红色"
 tipo: completar
 respuestas_validas:
   - "红色"
@@ -308,7 +300,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe la acción de saltar."  
   - "Verificar la forma correcta del verbo en contexto."  
-respuesta: "跳"  
 respuestas_validas:  
   - "跳"  
   - "跳的"  
@@ -352,7 +343,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe la acción de moverse en el agua."  
   - "Verificar la forma correcta del verbo en contexto."  
-respuesta: "游"  
 respuestas_validas:  
   - "游"  
   - "游的"  
@@ -396,7 +386,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe la acción de estar de pie."  
   - "Verificar la forma correcta del verbo en contexto."  
-respuesta: "站"  
 respuestas_validas:  
   - "站"  
   - "站的"  
@@ -460,7 +449,6 @@ metadata:
 pasos:
   - "Determinar el objeto que se puede '擦' (limpiar)."
   - "Descartar opciones incompatibles con la acción del verbo."
-respuesta: "桌子"
 tipo: completar
 respuestas_validas:
   - "桌子"
@@ -498,7 +486,6 @@ metadata:
 pasos:
   - "Identificar el lugar donde un pájaro puede volar."
   - "Seleccionar la preposición adecuada para '在___飞'."
-respuesta: "天空"
 tipo: completar
 respuestas_validas:
   - "天空"

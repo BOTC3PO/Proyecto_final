@@ -9,7 +9,6 @@ metadata:
 pasos:
   - "Identificar la prepoziciono 'al' que requiere el acusativo."
   - "Convertir el sustantivo 'hundo' al acusativo."
-respuesta: "hundon"
 tipo: completar
 respuestas_validas:
   - "hundon"
@@ -30,7 +29,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'kapti' que requiere un objeto directo en acusativo."
   - "Convertir el sustantivo 'birdon' al acusativo."
-respuesta: "birdon"
 tipo: completar
 respuestas_validas:
   - "birdon"
@@ -51,7 +49,6 @@ metadata:
 pasos:
   - "Identificar la prepoziciono 'en' que requiere el acusativo."
   - "Convertir el sustantivo 'kamero' al acusativo."
-respuesta: "kameron"
 tipo: completar
 respuestas_validas:
   - "kameron"
@@ -72,7 +69,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'vidi' que requiere un objeto directo en acusativo."
   - "Convertir el sustantivo 'kato' al acusativo."
-respuesta: "katon"
 tipo: completar
 respuestas_validas:
   - "katon"
@@ -93,7 +89,6 @@ metadata:
 pasos:
   - "Identificar la prepoziciono 'de' que requiere el acusativo."
   - "Convertir el sustantivo 'lumo' al acusativo."
-respuesta: "lumon"
 tipo: completar
 respuestas_validas:
   - "lumon"
@@ -114,7 +109,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'komenci' que requiere un objeto directo en acusativo."
   - "Convertir el sustantivo 'lernado' al acusativo."
-respuesta: "lernadon"
 tipo: completar
 respuestas_validas:
   - "lernadon"
@@ -135,7 +129,6 @@ metadata:
 pasos:
   - "Identificar la prepoziciono 'pro' que requiere el acusativo."
   - "Convertir el sustantivo 'malbona' al acusativo."
-respuesta: "malbonon"
 tipo: completar
 respuestas_validas:
   - "malbonon"
@@ -156,7 +149,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'doni' que requiere un objeto directo en acusativo."
   - "Convertir el sustantivo 'frukto' al acusativo."
-respuesta: "fruktodon"
 tipo: completar
 respuestas_validas:
   - "fruktodon"
@@ -177,7 +169,6 @@ metadata:
 pasos:
   - "Identificar la prepoziciono 'ĝis' que requiere el acusativo."
   - "Convertir el sustantivo 'limo' al acusativo."
-respuesta: "limon"
 tipo: completar
 respuestas_validas:
   - "limon"
@@ -198,7 +189,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'lerni' que requiere un objeto directo en acusativo."
   - "Convertir el sustantivo 'lingvo' al acusativo."
-respuesta: "lingvon"
 tipo: completar
 respuestas_validas:
   - "lingvon"
@@ -219,7 +209,6 @@ metadata:
 pasos:
   - "Identificar la prepoziciono 'tra' que requiere el acusativo."
   - "Convertir el sustantivo 'tunelo' al acusativo."
-respuesta: "tuneleon"
 tipo: completar
 respuestas_validas:
   - "tuneleon"
@@ -240,7 +229,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'kapti' que requiere un objeto directo en acusativo."
   - "Convertir el sustantivo 'birdo' al acusativo."
-respuesta: "birdon"
 tipo: completar
 respuestas_validas:
   - "birdon"
@@ -261,7 +249,6 @@ pasos:
   - Identificar el verbo y su relación con el complemento.  
   - Reconocer que "lerni" requiere la forma acusativa del sustantivo.  
   - Completar con la forma correcta de "katedro".  
-respuesta: "la katedro"  
 tipo: completar  
 respuestas_validas:  
   - "la katedro"  
@@ -300,7 +287,6 @@ pasos:
   - Identificar el verbo y su complemento directo.  
   - Reconocer que "ludi" requiere la forma acusativa del sustantivo.  
   - Completar con la forma correcta de "hundo".  
-respuesta: "la hundon"  
 tipo: completar  
 respuestas_validas:  
   - "la hundon"  
@@ -339,7 +325,6 @@ pasos:
   - Identificar el verbo y su complemento directo.  
   - Reconocer que "skribi" requiere la forma acusativa del sustantivo.  
   - Completar con la forma correcta de "libro".  
-respuesta: "la libron"  
 tipo: completar  
 respuestas_validas:  
   - "la libron"  
@@ -378,7 +363,6 @@ pasos:
   - Identificar el verbo y su complemento directo.  
   - Reconocer que "montri" requiere la forma acusativa del sustantivo.  
   - Completar con la forma correcta de "bildo".  
-respuesta: "la bildon"  
 tipo: completar  
 respuestas_validas:  
   - "la bildon"  
@@ -417,7 +401,6 @@ pasos:
   - Identificar el verbo y su complemento directo.  
   - Reconocer que "diri" requiere la forma acusativa del sustantivo.  
   - Completar con la forma correcta de "veron".  
-respuesta: "la veron"  
 tipo: completar  
 respuestas_validas:  
   - "la veron"  
@@ -456,7 +439,6 @@ pasos:
   - Identificar el verbo y su complemento directo.  
   - Reconocer que "kapti" requiere la forma acusativa del sustantivo.  
   - Completar con la forma correcta de "sagon".  
-respuesta: "la sagon"  
 tipo: completar  
 respuestas_validas:  
   - "la sagon"  
@@ -495,7 +477,6 @@ pasos:
   - Identificar el verbo y su complemento directo.  
   - Reconocer que "lasu" requiere la forma acusativa del sustantivo.  
   - Completar con la forma correcta de "taskon".  
-respuesta: "la taskon"  
 tipo: completar  
 respuestas_validas:  
   - "la taskon"  

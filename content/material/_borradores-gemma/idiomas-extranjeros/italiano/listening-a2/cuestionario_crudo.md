@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Escuchar la pregunta: 'Qual è il giorno dopo il martedì?'"  
   - "Identificar el día que sigue al martes."  
-respuesta: "mercoledì"  
 tipo: completar  
 respuestas_validas:  
   - "mercoledì"  
@@ -46,7 +45,6 @@ metadata:
 pasos:  
   - "Escuchar la pregunta: 'Quanti libri hai?' y la respuesta: 'Ne ho ___.'"  
   - "Escribir el número que completa la oración."  
-respuesta: "tre"  
 tipo: completar  
 respuestas_validas:  
   - "tre"  
@@ -84,7 +82,6 @@ metadata:
 pasos:  
   - "Escuchar la pregunta: 'Chi è tuo nonno?'"  
   - "Identificar el miembro de la familia que se menciona."  
-respuesta: "mio nonno"  
 tipo: completar  
 respuestas_validas:  
   - "mio nonno"  
@@ -103,7 +100,6 @@ metadata:
 pasos:  
   - "Escuchar la frase: 'La macchina è ___.'"  
   - "Escribir el color que describe el objeto."  
-respuesta: "rossa"  
 tipo: completar  
 respuestas_validas:  
   - "rossa"  
@@ -122,7 +118,6 @@ metadata:
 pasos:  
   - "Escuchar la pregunta: 'Che ore sono?' y la respuesta: 'Sono le ___.'"  
   - "Escribir la hora que se menciona."  
-respuesta: "due"  
 tipo: completar  
 respuestas_validas:  
   - "due"  
@@ -160,7 +155,6 @@ metadata:
 pasos:  
   - "Escuchar la oración: 'Io ___ il caffè.'"  
   - "Escribir la forma correcta del verbo."  
-respuesta: "bevo"  
 tipo: completar  
 respuestas_validas:  
   - "bevo"  
@@ -198,7 +192,6 @@ metadata:
 pasos:  
   - "Escuchar la pregunta: 'Qual è il quarto giorno della settimana?'"  
   - "Escribir el nombre del día."  
-respuesta: "giovedì"  
 tipo: completar  
 respuestas_validas:  
   - "giovedì"  
@@ -236,7 +229,6 @@ metadata:
 pasos:  
   - "Escuchar la pregunta: 'Qual è la stagione con il sole?'"  
   - "Escribir el nombre de la estación."  
-respuesta: "primavera"  
 tipo: completar  
 respuestas_validas:  
   - "primavera"  
@@ -274,7 +266,6 @@ metadata:
 pasos:  
   - "Escuchar la pregunta: 'Qual è il primo mese dell’anno?'"  
   - "Escribir el nombre del mes."  
-respuesta: "gennaio"  
 tipo: completar  
 respuestas_validas:  
   - "gennaio"  
@@ -293,7 +284,6 @@ metadata:
 pasos:  
   - "Escuchar la oración: 'Io ___ il lavoro.'"  
   - "Escribir la forma correcta del verbo."  
-respuesta: "faccio"  
 tipo: completar  
 respuestas_validas:  
   - "faccio"  
@@ -331,7 +321,6 @@ metadata:
 pasos:  
   - "Escuchar la oración: 'Io ___ il problema.'"  
   - "Escribir la forma correcta del verbo."  
-respuesta: "risolvo"  
 tipo: completar  
 respuestas_validas:  
   - "risolvo"  
@@ -369,7 +358,6 @@ metadata:
 pasos:  
   - "Escuchar la oración: 'Io ___ il vestito.'"  
   - "Escribir el verbo correcto en forma reflexiva."  
-respuesta: "mordo"  
 tipo: completar  
 respuestas_validas:  
   - "mordo"  
@@ -407,7 +395,6 @@ metadata:
 pasos:  
   - "Escuchar la oración: 'Noi ___ il caffè.'"  
   - "Escribir la forma correcta del verbo."  
-respuesta: "beviamo"  
 tipo: completar  
 respuestas_validas:  
   - "beviamo"  
@@ -445,7 +432,6 @@ metadata:
 pasos:  
   - "Escuchar la oración: 'Noi ___ il lavoro.'"  
   - "Escribir la forma correcta del verbo."  
-respuesta: "facciamo"  
 tipo: completar  
 respuestas_validas:  
   - "facciamo"  

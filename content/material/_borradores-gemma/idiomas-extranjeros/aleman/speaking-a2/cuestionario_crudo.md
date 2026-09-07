@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y el tiempo verbal."
   - "Escribir la forma correcta del verbo *sein* en presente."
-respuesta: "bin"
 tipo: completar
 respuestas_validas:
   - "bin"
@@ -31,7 +30,6 @@ metadata:
 pasos:
   - "Determinar el género del sustantivo."
   - "Escribir el artículo definido correspondiente."
-respuesta: "die"
 tipo: completar
 respuestas_validas:
   - "die"
@@ -54,7 +52,6 @@ metadata:
 pasos:
   - "Identificar la preposición y el complemento."
   - "Escribir la forma correcta con el caso acusativo."
-respuesta: "zum"
 tipo: completar
 respuestas_validas:
   - "zum"
@@ -77,7 +74,6 @@ metadata:
 pasos:
   - "Identificar la preposición que completa el sentido."
   - "Escribir la respuesta correcta con *woher*."
-respuesta: "aus"
 tipo: completar
 respuestas_validas:
   - "aus"
@@ -100,7 +96,6 @@ metadata:
 pasos:
   - "Identificar el verbo modal y su complemento."
   - "Escribir la forma correcta del infinitivo."
-respuesta: "machen"
 tipo: completar
 respuestas_validas:
   - "machen"
@@ -123,7 +118,6 @@ metadata:
 pasos:
   - "Reorganizar la oración en orden interrogativo."
   - "Escribir la pregunta correcta."
-respuesta: "Bist du"
 tipo: completar
 respuestas_validas:
   - "Bist du"
@@ -146,7 +140,6 @@ metadata:
 pasos:
   - "Identificar el día de la semana."
   - "Escribir la expresión correcta."
-respuesta: "heute"
 tipo: completar
 respuestas_validas:
   - "heute"
@@ -169,7 +162,6 @@ metadata:
 pasos:
   - "Identificar el posesivo que corresponde al sujeto."
   - "Escribir la forma correcta del pronombre."
-respuesta: "mein"
 tipo: completar
 respuestas_validas:
   - "mein"
@@ -192,7 +184,6 @@ metadata:
 pasos:
   - "Identificar el género del sustantivo."
   - "Escribir la forma correcta con acento fuerte."
-respuesta: "großes"
 tipo: completar
 respuestas_validas:
   - "großes"
@@ -215,7 +206,6 @@ metadata:
 pasos:
   - "Identificar la regla del plural."
   - "Escribir el plural correcto."
-respuesta: "Bücher"
 tipo: completar
 respuestas_validas:
   - "Bücher"
@@ -238,7 +228,6 @@ metadata:
 pasos:
   - "Identificar el verbo principal."
   - "Escribir la forma correcta con *zu* y el infinitivo."
-respuesta: "gehen"
 tipo: completar
 respuestas_validas:
   - "gehen"
@@ -261,7 +250,6 @@ metadata:
 pasos:
   - "Identificar la relación espacial."
   - "Escribir la preposición correcta."
-respuesta: "gegenüber"
 tipo: completar
 respuestas_validas:
   - "gegenüber"
@@ -284,7 +272,6 @@ metadata:
 pasos:
   - "Identificar el número ordinal."
   - "Escribir la forma correcta en aleman."
-respuesta: "acht"
 tipo: completar
 respuestas_validas:
   - "acht"
@@ -307,7 +294,6 @@ metadata:
 pasos:
   - "Identificar el día en orden."
   - "Escribir el nombre correcto del día."
-respuesta: "Donnerstag"
 tipo: completar
 respuestas_validas:
   - "Donnerstag"
@@ -330,7 +316,6 @@ metadata:
 pasos:
   - "Identificar el mes según la descripción."
   - "Escribir el nombre correcto del mes."
-respuesta: "Oktober"
 tipo: completar
 respuestas_validas:
   - "Oktober"
@@ -353,7 +338,6 @@ metadata:
 pasos:
   - "Identificar la estación según el contexto."
   - "Escribir el nombre correcto de la estación."
-respuesta: "Frühling"
 tipo: completar
 respuestas_validas:
   - "Frühling"
@@ -376,7 +360,6 @@ metadata:
 pasos:
   - "Identificar el color según la descripción."
   - "Escribir el nombre correcto del color."
-respuesta: "grün"
 tipo: completar
 respuestas_validas:
   - "grün"
@@ -399,7 +382,6 @@ metadata:
 pasos:
   - "Identificar el miembro de la familia."
   - "Escribir el nombre correcto en aleman."
-respuesta: "Vater"
 tipo: completar
 respuestas_validas:
   - "Vater"
@@ -422,7 +404,6 @@ metadata:
 pasos:
   - "Identificar el país según la descripción."
   - "Escribir el nombre correcto del país."
-respuesta: "Frankreich"
 tipo: completar
 respuestas_validas:
   - "Frankreich"
@@ -445,7 +426,6 @@ metadata:
 pasos:
   - "Identificar la actividad según el contexto."
   - "Escribir el nombre correcto en aleman."
-respuesta: "Tanzen"
 tipo: completar
 respuestas_validas:
   - "Tanzen"
@@ -468,7 +448,6 @@ metadata:
 pasos:
   - "Identificar el fenómeno climático."
   - "Escribir la expresión correcta en aleman."
-respuesta: "Regnen"
 tipo: completar
 respuestas_validas:
   - "Regnen"
@@ -491,7 +470,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y el tiempo verbal."
   - "Escribir la forma correcta del verbo *haben* en presente."
-respuesta: "habe"
 tipo: completar
 respuestas_validas:
   - "habe"
@@ -514,13 +492,11 @@ metadata:
 pasos:  
   - "Identificar la relación espacial entre el sujeto y el complemento."  
   - "Elegir la preposición que indica 'detrás de' en aleman."  
-respuesta: "hinter"  
 tipo: completar  
 respuestas_validas:  
   - "hinter"  
   - "Hinter"  
 enunciado: "Das Auto steht ___ dem Haus."  
-variables: []  
 explicacion: "La preposición 'hinter' se usa para indicar que algo está detrás de otro objeto. En este caso, el auto está detrás del casa."  
 ```
 
@@ -534,7 +510,6 @@ metadata:
 pasos:
   - "Identificar la preposición y el complemento."
   - "Escribir la forma correcta con el caso dativo."
-respuesta: "mit"
 tipo: completar
 respuestas_validas:
   - "mit"

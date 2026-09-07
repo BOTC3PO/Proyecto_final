@@ -9,7 +9,6 @@ pasos:
   - "Completa el verbo en la tercera persona del singular."
 explicacion: "El verbo 'haben' se conjuga como 'hat' en la tercera persona del singular (er/sie/es)."
 tipo: completar
-respuesta: "hat"
 respuestas_validas:
   - "hat"
   - "Hat"
@@ -26,7 +25,6 @@ pasos:
   - "Completa el verbo en la segunda persona del singular."
 explicacion: "El verbo 'geben' se conjuga como 'gibst' en la segunda persona del singular (du)."
 tipo: completar
-respuesta: "gibst"
 respuestas_validas:
   - "gibst"
   - "Gibst"
@@ -43,7 +41,6 @@ pasos:
   - "Completa el verbo en la primera persona del plural."
 explicacion: "El verbo 'machen' se conjuga como 'machen' en la primera persona del plural (wir)."
 tipo: completar
-respuesta: "machen"
 respuestas_validas:
   - "machen"
   - "Machen"
@@ -60,7 +57,6 @@ pasos:
   - "Completa el verbo en la segunda persona del plural."
 explicacion: "El verbo 'sein' se conjuga como 'seid' en la segunda persona del plural (ihr)."
 tipo: completar
-respuesta: "seid"
 respuestas_validas:
   - "seid"
   - "Seid"
@@ -77,7 +73,6 @@ pasos:
   - "Completa el verbo en la tercera persona del plural."
 explicacion: "El verbo 'gehen' se conjuga como 'gehen' en la tercera persona del plural (sie/Sie)."
 tipo: completar
-respuesta: "gehen"
 respuestas_validas:
   - "gehen"
   - "Gehen"
@@ -94,7 +89,6 @@ pasos:
   - "Completa el verbo en la tercera persona del singular."
 explicacion: "El verbo 'kommen' se conjuga como 'kommt' en la tercera persona del singular (er/sie/es)."
 tipo: completar
-respuesta: "kommt"
 respuestas_validas:
   - "kommt"
   - "Kommst"  # Error intencional para distractor
@@ -111,7 +105,6 @@ pasos:
   - "Completa el verbo en la segunda persona del singular."
 explicacion: "El verbo 'lernen' se conjuga como 'lernst' en la segunda persona del singular (du)."
 tipo: completar
-respuesta: "lernst"
 respuestas_validas:
   - "lernst"
   - "Lernst"
@@ -128,7 +121,6 @@ pasos:
   - "Completa el verbo en la primera persona del singular."
 explicacion: "El verbo 'warten' se conjuga como 'warte' en la primera persona del singular (ich)."
 tipo: completar
-respuesta: "warte"
 respuestas_validas:
   - "warte"
   - "Warte"
@@ -145,7 +137,6 @@ pasos:
   - "Completa el verbo en la tercera persona del plural."
 explicacion: "El verbo 'sprechen' se conjuga como 'sprechen' en la tercera persona del plural (sie/Sie)."
 tipo: completar
-respuesta: "sprechen"
 respuestas_validas:
   - "sprechen"
   - "Sprechen"
@@ -162,7 +153,6 @@ pasos:
   - "Completa el verbo en la primera persona del plural."
 explicacion: "El verbo 'essen' se conjuga como 'essen' en la primera persona del plural (wir)."
 tipo: completar
-respuesta: "essen"
 respuestas_validas:
   - "essen"
   - "Essen"
@@ -179,7 +169,6 @@ pasos:
   - "Completa el verbo en la segunda persona del plural."
 explicacion: "El verbo 'trinken' se conjuga como 'trinkt' en la segunda persona del plural (ihr)."
 tipo: completar
-respuesta: "trinkt"
 respuestas_validas:
   - "trinkt"
   - "Trinkst"  # Error intencional para distractor
@@ -196,7 +185,6 @@ pasos:
   - "Completa el verbo en la segunda persona del singular."
 explicacion: "El verbo 'wissen' se conjuga como 'weißt' en la segunda persona del singular (du)."
 tipo: completar
-respuesta: "weißt"
 respuestas_validas:
   - "weißt"
   - "Weißt"
@@ -213,7 +201,6 @@ pasos:
   - "Completa el verbo en la tercera persona del singular."
 explicacion: "El verbo 'schreiben' se conjuga como 'schreibt' en la tercera persona del singular (er/sie/es)."
 tipo: completar
-respuesta: "schreibt"
 respuestas_validas:
   - "schreibt"
   - "Schreibt"
@@ -230,7 +217,6 @@ pasos:
   - "Completa el verbo en la tercera persona del plural."
 explicacion: "El verbo 'fahren' se conjuga como 'fahren' en la tercera persona del plural (sie/Sie)."
 tipo: completar
-respuesta: "fahren"
 respuestas_validas:
   - "fahren"
   - "Fahren"
@@ -247,7 +233,6 @@ pasos:
   - "Completa el verbo en la segunda persona del singular."
 explicacion: "El verbo 'machen' se conjuga como 'machst' en la segunda persona del singular (du)."
 tipo: completar
-respuesta: "machst"
 respuestas_validas:
   - "machst"
   - "Machst"
@@ -264,7 +249,6 @@ pasos:
   - "Completa el verbo en la tercera persona del singular."
 explicacion: "El verbo 'haben' se conjuga como 'hat' en la tercera persona del singular (er/sie/es)."
 tipo: completar
-respuesta: "hat"
 respuestas_validas:
   - "hat"
   - "Hat"
@@ -281,7 +265,6 @@ pasos:
   - "Completa el verbo en la primera persona del plural."
 explicacion: "El verbo 'geben' se conjuga como 'geben' en la primera persona del plural (wir)."
 tipo: completar
-respuesta: "geben"
 respuestas_validas:
   - "geben"
   - "Geben"
@@ -298,7 +281,6 @@ pasos:
   - "Completa el verbo en la segunda persona del singular."
 explicacion: "El verbo 'sein' se conjuga como 'bist' en la segunda persona del singular (du)."
 tipo: completar
-respuesta: "bist"
 respuestas_validas:
   - "bist"
   - "Bist"
@@ -315,7 +297,6 @@ pasos:
   - "Completa el verbo en la segunda persona del plural."
 explicacion: "El verbo 'gehen' se conjuga como 'geht' en la segunda persona del plural (ihr)."
 tipo: completar
-respuesta: "geht"
 respuestas_validas:
   - "geht"
   - "Geht"
@@ -332,7 +313,6 @@ pasos:
   - "Completa el verbo en la tercera persona del plural."
 explicacion: "El verbo 'kommen' se conjuga como 'kommen' en la tercera persona del plural (sie/Sie)."
 tipo: completar
-respuesta: "kommen"
 respuestas_validas:
   - "kommen"
   - "Kommen"
@@ -349,7 +329,6 @@ pasos:
   - "Completa el verbo en la tercera persona del singular."
 explicacion: "El verbo 'warten' se conjuga como 'wartet' en la tercera persona del singular (er/sie/es)."
 tipo: completar
-respuesta: "wartet"
 respuestas_validas:
   - "wartet"
   - "Wartet"
@@ -366,7 +345,6 @@ pasos:
   - "Completa el verbo en la primera persona del singular."
 explicacion: "El verbo 'sprechen' se conjuga como 'spreche' en la primera persona del singular (ich)."
 tipo: completar
-respuesta: "spreche"
 respuestas_validas:
   - "spreche"
   - "Spreche"
@@ -383,7 +361,6 @@ pasos:
   - "Completa el verbo en la segunda persona del singular."
 explicacion: "El verbo 'essen' se conjuga como 'isst' en la segunda persona del singular (du)."
 tipo: completar
-respuesta: "isst"
 respuestas_validas:
   - "isst"
   - "Isst"
@@ -400,7 +377,6 @@ pasos:
   - "Completa el verbo en la primera persona del plural."
 explicacion: "El verbo 'trinken' se conjuga como 'trinken' en la primera persona del plural (wir)."
 tipo: completar
-respuesta: "trinken"
 respuestas_validas:
   - "trinken"
   - "Trinken"
@@ -417,7 +393,6 @@ pasos:
   - "Completa el verbo en la segunda persona del plural."
 explicacion: "El verbo 'wissen' se conjuga como 'weißt' en la segunda persona del plural (ihr)."
 tipo: completar
-respuesta: "weißt"
 respuestas_validas:
   - "weißt"
   - "Weißt"

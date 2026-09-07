@@ -8,13 +8,11 @@ metadata:
 pasos:  
   - "Identificar el verbo principal y la estructura 'il faut que'."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "ailles"  
 respuestas_validas:  
   - "ailles"  
   - "Allès"  
 tipo: completar  
 enunciado: "Il faut que tu ___ à l'école demain."  
-variables: []  
 explicacion: "Después de 'il faut que', se usa el subjuntivo presente. El verbo 'aller' en subjuntivo presente para tú es 'ailles'."  
 ```
 
@@ -36,7 +34,6 @@ opciones_explicitas:
 respuesta: "aies fait"  
 tipo: mc  
 enunciado: "Je veux que tu ___ tes devoirs avant le dîner."  
-variables: []  
 explicacion: "Después de 'je veux que', se usa el subjuntivo presente. El verbo 'faire' en subjuntivo presente para tú es 'fasses'. Aquí, con passé composé, la forma es 'aies fait'."  
 ```
 
@@ -50,13 +47,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'il est nécessaire que'."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "sois"  
 respuestas_validas:  
   - "sois"  
   - "Sois"  
 tipo: completar  
 enunciado: "Il est nécessaire que vous ___ en retard aujourd'hui."  
-variables: []  
 explicacion: "Después de 'il est nécessaire que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para ustedes es 'soyez', pero aquí con la forma impersonal, es 'sois'."  
 ```
 
@@ -78,7 +73,6 @@ opciones_explicitas:
 respuesta: "ait perdu"  
 tipo: mc  
 enunciado: "Elle a peur que tu ___ ton portefeuille hier."  
-variables: []  
 explicacion: "Después de 'elle a peur que', se usa el subjuntivo presente. El verbo 'perdre' en subjuntivo presente para tú es 'perdes', pero con passé composé, la forma es 'aies perdu' o 'ait perdu' según el sujeto."  
 ```
 
@@ -92,13 +86,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'je doute que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "ailles"  
 respuestas_validas:  
   - "ailles"  
   - "Allès"  
 tipo: completar  
 enunciado: "Je doute que tu ___ à la réunion demain."  
-variables: []  
 explicacion: "Después de 'je doute que', se usa el subjuntivo presente. El verbo 'aller' en subjuntivo presente para tú es 'ailles'."  
 ```
 
@@ -120,7 +112,6 @@ opciones_explicitas:
 respuesta: "aies acheté"  
 tipo: mc  
 enunciado: "Il est important que tu ___ ce livre hier."  
-variables: []  
 explicacion: "Después de 'il est important que', se usa el subjuntivo presente. El verbo 'acheter' en subjuntivo presente para tú es 'achètes', pero con passé composé, la forma es 'aies acheté'."  
 ```
 
@@ -134,13 +125,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'nous espérons que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "soyez"  
 respuestas_validas:  
   - "soyez"  
   - "Soyez"  
 tipo: completar  
 enunciado: "Nous espérons que vous ___ tous en bonne santé."  
-variables: []  
 explicacion: "Después de 'nous espérons que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para ustedes es 'soyez'."  
 ```
 
@@ -162,7 +151,6 @@ opciones_explicitas:
 respuesta: "ailles fini"  
 tipo: mc  
 enunciado: "Elle insiste pour que tu ___ ton travail avant le dîner."  
-variables: []  
 explicacion: "Después de 'elle insiste pour que', se usa el subjuntivo presente. El verbo 'finir' en subjuntivo presente para tú es 'fines', pero con passé composé, la forma es 'aies fini' o 'ailles fini' según el sujeto."  
 ```
 
@@ -176,13 +164,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'il faut que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "aies choisi"  
 respuestas_validas:  
   - "aies choisi"  
   - "Aies choisi"  
 tipo: completar  
 enunciado: "Il faut que tu ___ ce cadeau avant la fin de semaine."  
-variables: []  
 explicacion: "Después de 'il faut que', se usa el subjuntivo presente. El verbo 'choisir' en subjuntivo presente para tú es 'choisis', pero con passé composé, la forma es 'aies choisi'."  
 ```
 
@@ -204,7 +190,6 @@ opciones_explicitas:
 respuesta: "sois"  
 tipo: mc  
 enunciado: "Je préfère que tu ___ plus prudent dans cette situation."  
-variables: []  
 explicacion: "Después de 'je préfère que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para tú es 'sois'."  
 ```
 
@@ -218,13 +203,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'il est possible que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "aies trouvé"  
 respuestas_validas:  
   - "aies trouvé"  
   - "Aies trouvé"  
 tipo: completar  
 enunciado: "Il est possible que tu ___ ce livre dans la bibliothèque hier."  
-variables: []  
 explicacion: "Después de 'il est possible que', se usa el subjuntivo presente. El verbo 'trouver' en subjuntivo presente para tú es 'trouves', pero con passé composé, la forma es 'aies trouvé'."  
 ```
 
@@ -246,7 +229,6 @@ opciones_explicitas:
 respuesta: "soyez"  
 tipo: mc  
 enunciado: "Elle suggère que vous ___ plus attentifs lors de la conférence."  
-variables: []  
 explicacion: "Después de 'elle suggère que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para ustedes es 'soyez'."  
 ```
 
@@ -260,13 +242,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'je crains que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "ailles perdu"  
 respuestas_validas:  
   - "ailles perdu"  
   - "Allès perdu"  
 tipo: completar  
 enunciado: "Je crains que tu ___ ton sac dans le bus hier."  
-variables: []  
 explicacion: "Después de 'je crains que', se usa el subjuntivo presente. El verbo 'perdre' en subjuntivo presente para tú es 'perdes', pero con passé composé, la forma es 'aies perdu' o 'ailles perdu' según el sujeto."  
 ```
 
@@ -288,7 +268,6 @@ opciones_explicitas:
 respuesta: "soyez"  
 tipo: mc  
 enunciado: "Il est indispensable que vous ___ à l'heure demain."  
-variables: []  
 explicacion: "Después de 'il est indispensable que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para ustedes es 'soyez'."  
 ```
 
@@ -302,13 +281,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'je regrette que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "aies dit"  
 respuestas_validas:  
   - "aies dit"  
   - "Aies dit"  
 tipo: completar  
 enunciado: "Je regrette que tu ___ cela hier."  
-variables: []  
 explicacion: "Después de 'je regrette que', se usa el subjuntivo presente. El verbo 'dire' en subjuntivo presente para tú es 'dis', pero con passé composé, la forma es 'aies dit'."  
 ```
 
@@ -330,7 +307,6 @@ opciones_explicitas:
 respuesta: "soyez"  
 tipo: mc  
 enunciado: "Elle aimerait que vous ___ plus calmes aujourd'hui."  
-variables: []  
 explicacion: "Después de 'elle aimerait que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para ustedes es 'soyez'."  
 ```
 
@@ -344,13 +320,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'il est probable que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "aies fait"  
 respuestas_validas:  
   - "aies fait"  
   - "Aies fait"  
 tipo: completar  
 enunciado: "Il est probable que tu ___ tes devoirs hier soir."  
-variables: []  
 explicacion: "Después de 'il est probable que', se usa el subjuntivo presente. El verbo 'faire' en subjuntivo presente para tú es 'fais', pero con passé composé, la forma es 'aies fait'."  
 ```
 
@@ -372,7 +346,6 @@ opciones_explicitas:
 respuesta: "soyiez"  
 tipo: mc  
 enunciado: "Je voudrais que vous ___ plus sages ce soir."  
-variables: []  
 explicacion: "Después de 'je voudrais que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para ustedes es 'soyez' (aunque con la forma 'soyiez' también puede usarse)."  
 ```
 
@@ -386,13 +359,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'elle doute que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "aies répondu"  
 respuestas_validas:  
   - "aies répondu"  
   - "Aies répondu"  
 tipo: completar  
 enunciado: "Elle doute que tu ___ à cette question hier."  
-variables: []  
 explicacion: "Después de 'elle doute que', se usa el subjuntivo presente. El verbo 'répondre' en subjuntivo presente para tú es 'réponds', pero con passé composé, la forma es 'aies répondu'."  
 ```
 
@@ -414,7 +385,6 @@ opciones_explicitas:
 respuesta: "soyez"  
 tipo: mc  
 enunciado: "Il convient que vous ___ plus ponctuels demain."  
-variables: []  
 explicacion: "Después de 'il convient que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para ustedes es 'soyez'."  
 ```
 
@@ -428,13 +398,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'je suggère que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "aies compris"  
 respuestas_validas:  
   - "aies compris"  
   - "Aies compris"  
 tipo: completar  
 enunciado: "Je suggère que tu ___ cette leçon avant la semaine prochaine."  
-variables: []  
 explicacion: "Después de 'je suggère que', se usa el subjuntivo presente. El verbo 'comprendre' en subjuntivo presente para tú es 'comprends', pero con passé composé, la forma es 'aies compris'."  
 ```
 
@@ -456,7 +424,6 @@ opciones_explicitas:
 respuesta: "soyez"  
 tipo: mc  
 enunciado: "Elle espère que vous ___ plus satisfaits de ce projet."  
-variables: []  
 explicacion: "Después de 'elle espère que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para ustedes es 'soyez'."  
 ```
 
@@ -470,13 +437,11 @@ metadata:
 pasos:  
   - "Identificar la estructura 'il est possible que' seguida de un verbo."  
   - "Aplicar el subjuntivo presente al verbo siguiente."  
-respuesta: "aies vu"  
 respuestas_validas:  
   - "aies vu"  
   - "Aies vu"  
 tipo: completar  
 enunciado: "Il est possible que tu ___ ce film hier soir."  
-variables: []  
 explicacion: "Después de 'il est possible que', se usa el subjuntivo presente. El verbo 'voir' en subjuntivo presente para tú es 'vois', pero con passé composé, la forma es 'aies vu'."  
 ```
 
@@ -498,7 +463,6 @@ opciones_explicitas:
 respuesta: "soyez"  
 tipo: mc  
 enunciado: "Je dois que vous ___ plus sérieux dans cette tâche."  
-variables: []  
 explicacion: "Después de 'je dois que', se usa el subjuntivo presente. El verbo 'être' en subjuntivo presente para ustedes es 'soyez'."  
 ```  
 

@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el sujeto en la oración."
   - "Elegir la partícula que introduce un tema de contraste."
-respuesta: "는"
 tipo: completar
 respuestas_validas:
   - "는"
@@ -28,7 +27,6 @@ metadata:
 pasos:
   - "Determinar si el sujeto está enfocado o contrastado."
   - "Elegir la partícula que resalta la acción del sujeto."
-respuesta: "는"
 tipo: completar
 respuestas_validas:
   - "는"
@@ -48,7 +46,6 @@ metadata:
 pasos:
   - "Identificar el verbo y su complemento."
   - "Seleccionar la partícula que marca el objeto directo."
-respuesta: "를"
 tipo: completar
 respuestas_validas:
   - "를"
@@ -68,7 +65,6 @@ metadata:
 pasos:
   - "Analizar la relación entre el sujeto y el complemento."
   - "Elegir la partícula que resalta la diferencia."
-respuesta: "는"
 tipo: completar
 respuestas_validas:
   - "는"
@@ -88,7 +84,6 @@ metadata:
 pasos:
   - "Identificar el verbo de movimiento y su objeto."
   - "Seleccionar la partícula que marca el desplazamiento del objeto."
-respuesta: "를"
 tipo: completar
 respuestas_validas:
   - "를"
@@ -108,7 +103,6 @@ metadata:
 pasos:
   - "Determinar si el sujeto está enfocado o contrastado."
   - "Elegir la partícula que resalta al sujeto."
-respuesta: "는"
 tipo: completar
 respuestas_validas:
   - "는"
@@ -128,7 +122,6 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto del verbo."
   - "Seleccionar la partícula que marca su relación con el verbo."
-respuesta: "에게"
 tipo: completar
 respuestas_validas:
   - "에게"
@@ -148,7 +141,6 @@ metadata:
 pasos:
   - "Analizar el contexto temporal de la oración."
   - "Elegir la partícula que introduce el tema principal."
-respuesta: "은"
 tipo: completar
 respuestas_validas:
   - "은"
@@ -168,7 +160,6 @@ metadata:
 pasos:
   - "Identificar el verbo que indica un cambio."
   - "Seleccionar la partícula que marca el objeto afectado por el cambio."
-respuesta: "로"
 tipo: completar
 respuestas_validas:
   - "로"
@@ -188,7 +179,6 @@ metadata:
 pasos:
   - "Identificar la comparación entre elementos."
   - "Elegir la partícula que introduce el sujeto principal de la comparación."
-respuesta: "은"
 tipo: completar
 respuestas_validas:
   - "은"
@@ -208,7 +198,6 @@ metadata:
 pasos:
   - "Identificar el verbo que indica posesión."
   - "Seleccionar la partícula que marca el objeto poseído."
-respuesta: "를"
 tipo: completar
 respuestas_validas:
   - "를"
@@ -228,7 +217,6 @@ metadata:
 pasos:
   - "Analizar la hipótesis en la oración."
   - "Elegir la partícula que introduce el sujeto de la hipótesis."
-respuesta: "이"
 tipo: completar
 respuestas_validas:
   - "이"
@@ -248,7 +236,6 @@ metadata:
 pasos:
   - "Identificar el verbo que indica recepción."
   - "Seleccionar la partícula que marca el objeto recibido."
-respuesta: "를"
 tipo: completar
 respuestas_validas:
   - "를"
@@ -268,7 +255,6 @@ metadata:
 pasos:
   - "Analizar la causa-efecto en la oración."
   - "Elegir la partícula que introduce el sujeto causal."
-respuesta: "는"
 tipo: completar
 respuestas_validas:
   - "는"
@@ -288,7 +274,6 @@ metadata:
 pasos:
   - "Identificar el verbo que indica transición."
   - "Seleccionar la partícula que marca el objeto en transición."
-respuesta: "로"
 tipo: completar
 respuestas_validas:
   - "로"
@@ -308,7 +293,6 @@ metadata:
 pasos:
   - "Analizar la condición en la oración."
   - "Elegir la partícula que introduce el sujeto de la condición."
-respuesta: "이"
 tipo: completar
 respuestas_validas:
   - "이"
@@ -328,7 +312,6 @@ metadata:
 pasos:
   - "Identificar el verbo que indica transformación."
   - "Seleccionar la partícula que marca el objeto transformado."
-respuesta: "로"
 tipo: completar
 respuestas_validas:
   - "로"
@@ -348,7 +331,6 @@ metadata:
 pasos:
   - "Analizar la negación en la oración."
   - "Elegir la partícula que introduce el sujeto de la negación."
-respuesta: "는"
 tipo: completar
 respuestas_validas:
   - "는"
@@ -368,7 +350,6 @@ metadata:
 pasos:
   - "Identificar el verbo que indica repetición."
   - "Seleccionar la partícula que marca el objeto repetido."
-respuesta: "를"
 tipo: completar
 respuestas_validas:
   - "를"
@@ -388,7 +369,6 @@ metadata:
 pasos:
   - "Analizar el tiempo específico en la oración."
   - "Elegir la partícula que introduce el sujeto de ese momento."
-respuesta: "은"
 tipo: completar
 respuestas_validas:
   - "은"
@@ -408,7 +388,6 @@ metadata:
 pasos:
   - "Identificar el verbo que indica destino."
   - "Seleccionar la partícula que marca el objeto destinado."
-respuesta: "로"
 tipo: completar
 respuestas_validas:
   - "로"
@@ -428,7 +407,6 @@ metadata:
 pasos:
   - "Analizar el lugar en la oración."
   - "Elegir la partícula que introduce el sujeto relacionado con el lugar."
-respuesta: "이"
 tipo: completar
 respuestas_validas:
   - "이"
@@ -448,7 +426,6 @@ metadata:
 pasos:
   - "Identificar el verbo que indica separación."
   - "Seleccionar la partícula que marca el objeto separado."
-respuesta: "로"
 tipo: completar
 respuestas_validas:
   - "로"
@@ -468,7 +445,6 @@ metadata:
 pasos:
   - "Analizar el propósito en la oración."
   - "Elegir la partícula que introduce el sujeto con un fin específico."
-respuesta: "이"
 tipo: completar
 respuestas_validas:
   - "이"
@@ -488,7 +464,6 @@ metadata:
 pasos:
   - "Identificar el verbo que indica eliminación."
   - "Seleccionar la partícula que marca el objeto eliminado."
-respuesta: "로"
 tipo: completar
 respuestas_validas:
   - "로"

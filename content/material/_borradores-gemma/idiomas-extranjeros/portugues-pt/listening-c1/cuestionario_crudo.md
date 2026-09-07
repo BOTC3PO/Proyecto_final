@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar el verbo principal y la estructura de oración."  
   - "Aplicar la regla del subjuntivo en contexto."  
-respuesta: "termine"  
 respuestas_validas:  
   - "termine"  
   - "Termine"  
@@ -30,7 +29,11 @@ metadata:
 pasos:  
   - "Reconhecer a estrutura da oração subordinada."  
   - "Escolher o pronome relativo adequado ao sujeito."  
-opciones_explicitas: ["que", "quem", "onde", "como"]  
+opciones_explicitas:
+  - "que"
+  - "quem"
+  - "onde"
+  - "como"
 respuesta: "que"  
 tipo: mc  
 
@@ -51,7 +54,6 @@ metadata:
 pasos:  
   - "Identificar a estrutura da pergunta indireta."  
   - "Completar com o verbo adequado em forma de infinitivo."  
-respuesta: "se"  
 respuestas_validas:  
   - "se"  
   - "Se"  
@@ -73,7 +75,6 @@ metadata:
 pasos:  
   - "Reconhecer o verbo que exige o gerúndio."  
   - "Aplicar a forma correta do gerúndio."  
-respuesta: "caminhando"  
 respuestas_validas:  
   - "caminhando"  
   - "Caminhando"  
@@ -95,7 +96,11 @@ metadata:
 pasos:  
   - "Identificar o verbo e sua preposição associada."  
   - "Escolher a preposição correta entre as opções."  
-opciones_explicitas: ["a", "em", "de", "para"]  
+opciones_explicitas:
+  - "a"
+  - "em"
+  - "de"
+  - "para"
 respuesta: "a"  
 tipo: mc  
 
@@ -116,7 +121,6 @@ metadata:
 pasos:  
   - "Reconhecer a necessidade do passado perfeito."  
   - "Formular o verbo no passado perfeito."  
-respuesta: "tinha saído"  
 respuestas_validas:  
   - "tinha saído"  
   - "Tinha saído"  
@@ -138,7 +142,11 @@ metadata:
 pasos:  
   - "Identificar a estrutura da oração condicional."  
   - "Escolher o tempo verbal adequado após 'se'."  
-opciones_explicitas: ["se eu for", "se eu fosse", "se eu vou", "se eu fui"]  
+opciones_explicitas:
+  - "se eu for"
+  - "se eu fosse"
+  - "se eu vou"
+  - "se eu fui"
 respuesta: "se eu fosse"  
 tipo: mc  
 
@@ -159,7 +167,11 @@ metadata:
 pasos:  
   - "Reconhecer o uso de 'para' e 'por' em contextos."  
   - "Selecionar a preposição correta com base no significado."  
-opciones_explicitas: ["para", "por", "a", "em"]  
+opciones_explicitas:
+  - "para"
+  - "por"
+  - "a"
+  - "em"
 respuesta: "para"  
 tipo: mc  
 
@@ -180,7 +192,6 @@ metadata:
 pasos:  
   - "Identificar o verbo reflexivo e seu pronome."  
   - "Completar a frase com o pronome adequado."  
-respuesta: "se lavou"  
 respuestas_validas:  
   - "se lavou"  
   - "Se lavou"  
@@ -202,7 +213,11 @@ metadata:
 pasos:  
   - "Identificar o objeto indireto da oração."  
   - "Escolher o pronome adequado."  
-opciones_explicitas: ["me", "te", "lhe", "nos"]  
+opciones_explicitas:
+  - "me"
+  - "te"
+  - "lhe"
+  - "nos"
 respuesta: "lhe"  
 tipo: mc  
 
@@ -223,7 +238,6 @@ metadata:
 pasos:  
   - "Reconhecer o uso de 'vai' para indicar futuro."  
   - "Verificar se a estrutura é correta."  
-respuesta: "vai chegar"  
 respuestas_validas:  
   - "vai chegar"  
   - "Vai chegar"  
@@ -245,7 +259,6 @@ metadata:
 pasos:  
   - "Identificar o verbo que exige subjuntivo."  
   - "Aplicar a forma correta do presente do subjuntivo."  
-respuesta: "vamos"  
 respuestas_validas:  
   - "vamos"  
   - "Vamos"  
@@ -267,7 +280,11 @@ metadata:
 pasos:  
   - "Reconhecer a posição do advérbio na oração."  
   - "Escolher o advérbio adequado ao contexto."  
-opciones_explicitas: ["aqui", "ali", "lá", "aí"]  
+opciones_explicitas:
+  - "aqui"
+  - "ali"
+  - "lá"
+  - "aí"
 respuesta: "aqui"  
 tipo: mc  
 
@@ -288,7 +305,11 @@ metadata:
 pasos:  
   - "Identificar o verbo de comparação."  
   - "Escolher a forma correta de 'mais' ou 'menos'."  
-opciones_explicitas: ["mais alto", "menos alto", "alto como", "tão alto"]  
+opciones_explicitas:
+  - "mais alto"
+  - "menos alto"
+  - "alto como"
+  - "tão alto"
 respuesta: "mais alto"  
 tipo: mc  
 
@@ -309,7 +330,11 @@ metadata:
 pasos:  
   - "Reconhecer a diferença entre 'onde' e 'aonde'."  
   - "Escolher o advérbio adequado ao contexto."  
-opciones_explicitas: ["onde", "aonde", "como", "por que"]  
+opciones_explicitas:
+  - "onde"
+  - "aonde"
+  - "como"
+  - "por que"
 respuesta: "aonde"  
 tipo: mc  
 
@@ -330,7 +355,6 @@ metadata:
 pasos:  
   - "Identificar a mudança de tempo verbal na fala indireta."  
   - "Completar com o verbo no pretérito perfeito."  
-respuesta: "disse"  
 respuestas_validas:  
   - "disse"  
   - "Disse"  
@@ -352,7 +376,6 @@ metadata:
 pasos:  
   - "Reconhecer o uso do particípio com sujeito."  
   - "Formular a concordância correta."  
-respuesta: "escrito"  
 respuestas_validas:  
   - "escrito"  
   - "Escrito"  
@@ -374,7 +397,11 @@ metadata:
 pasos:  
   - "Identificar o verbo que exige pronome reflexivo."  
   - "Escolher a forma correta do pronome."  
-opciones_explicitas: ["se cortou", "ele se corta", "ele cortou-se", "se corta"]  
+opciones_explicitas:
+  - "se cortou"
+  - "ele se corta"
+  - "ele cortou-se"
+  - "se corta"
 respuesta: "se cortou"  
 tipo: mc  
 
@@ -395,7 +422,6 @@ metadata:
 pasos:  
   - "Reconhecer a estrutura 'estar + gerúndio'."  
   - "Formular o verbo no gerúndio."  
-respuesta: "estava pensando"  
 respuestas_validas:  
   - "estava pensando"  
   - "Estava pensando"  
@@ -417,7 +443,11 @@ metadata:
 pasos:  
   - "Identificar o objeto indireto da oração."  
   - "Escolher o pronome adequado para a terceira pessoa do singular."  
-opciones_explicitas: ["me", "te", "lhe", "nos"]  
+opciones_explicitas:
+  - "me"
+  - "te"
+  - "lhe"
+  - "nos"
 respuesta: "lhe"  
 tipo: mc  
 
@@ -438,7 +468,6 @@ metadata:
 pasos:  
   - "Identificar a expressão que exige subjuntivo."  
   - "Aplicar o presente do subjuntivo."  
-respuesta: "seja"  
 respuestas_validas:  
   - "seja"  
   - "Seja"  
@@ -460,7 +489,11 @@ metadata:
 pasos:  
   - "Reconhecer a estrutura da cláusula relativa."  
   - "Escolher o pronome relativo adequado ao sujeito."  
-opciones_explicitas: ["que", "quem", "onde", "como"]  
+opciones_explicitas:
+  - "que"
+  - "quem"
+  - "onde"
+  - "como"
 respuesta: "que"  
 tipo: mc  
 
@@ -481,7 +514,11 @@ metadata:
 pasos:  
   - "Reconhecer a diferença entre 'como' e 'tal como'."  
   - "Escolher o advérbio adequado ao contexto."  
-opciones_explicitas: ["como", "tal como", "tão como", "assim como"]  
+opciones_explicitas:
+  - "como"
+  - "tal como"
+  - "tão como"
+  - "assim como"
 respuesta: "tal como"  
 tipo: mc  
 
@@ -502,7 +539,11 @@ metadata:
 pasos:  
   - "Reconhecer a estrutura da oração subordinada."  
   - "Escolher a ordem correta dos verbos."  
-opciones_explicitas: ["que ele vai", "que vai ele", "ele que vai", "vai ele que"]  
+opciones_explicitas:
+  - "que ele vai"
+  - "que vai ele"
+  - "ele que vai"
+  - "vai ele que"
 respuesta: "que ele vai"  
 tipo: mc  
 
@@ -523,7 +564,11 @@ metadata:
 pasos:  
   - "Identificar a preposição correta para o substantivo."  
   - "Escolher entre as opções fornecidas."  
-opciones_explicitas: ["com", "sem", "para", "de"]  
+opciones_explicitas:
+  - "com"
+  - "sem"
+  - "para"
+  - "de"
 respuesta: "com"  
 tipo: mc  
 

@@ -11,7 +11,6 @@ pasos:
 explicacion: "La frase 'I agree, but...' permite mostrar acuerdo parcial. El uso de 'but' introduce una excepción o limitación al acuerdo inicial."
 tipo: completar
 enunciado: "I think renewable energy is important for the environment. ___ I believe it should also be affordable for everyone."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -32,7 +31,6 @@ pasos:
 explicacion: "'I disagree because...' conecta claramente una postura opuesta con su razón. El uso de 'because' introduce la causa del desacuerdo."
 tipo: completar
 enunciado: "You suggest reducing car use to lower pollution. ___ it might help, I think public transport needs better infrastructure first."
-respuesta: "While"
 respuestas_validas:
   - "While"
   - "Although"
@@ -53,7 +51,6 @@ pasos:
 explicacion: "'On the other hand' se usa para presentar una perspectiva alternativa en un debate, reconociendo ambas partes del argumento."
 tipo: completar
 enunciado: "Remote work improves flexibility. ___ it can reduce team cohesion if not managed properly."
-respuesta: "On the other hand"
 respuestas_validas:
   - "On the other hand"
   - "However"
@@ -74,7 +71,6 @@ pasos:
 explicacion: "'That’s true, for example...' conecta un acuerdo general con una ilustración específica, fortaleciendo el argumento."
 tipo: completar
 enunciado: "Social media helps people stay connected. ___ many studies show it increases loneliness among teenagers."
-respuesta: "For instance"
 respuestas_validas:
   - "For instance"
   - "Such as"
@@ -95,7 +91,6 @@ pasos:
 explicacion: "'I see your point, but...' reconoce una idea válida mientras se presenta una objeción clara. Es útil para debates constructivos."
 tipo: completar
 enunciado: "You argue that online learning is efficient. ___ I think it lacks the personal interaction of face-to-face classes."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -116,7 +111,6 @@ pasos:
 explicacion: "'That’s a good idea, although...' reconoce un valor en la sugerencia mientras se señala una limitación."
 tipo: completar
 enunciado: "Let’s promote bike-sharing in cities. ___ it could reduce traffic, safety measures must be improved first."
-respuesta: "Although"
 respuestas_validas:
   - "Although"
   - "Even though"
@@ -137,7 +131,6 @@ pasos:
 explicacion: "'I don’t think so, since...' presenta un desacuerdo directo seguido de una razón lógica. 'Since' indica causalidad."
 tipo: completar
 enunciado: "We should increase taxes on luxury goods. ___ it might reduce consumption, the revenue could harm small businesses."
-respuesta: "While"
 respuestas_validas:
   - "While"
   - "Although"
@@ -158,7 +151,6 @@ pasos:
 explicacion: "'Perhaps we could find a middle ground...' sugiere un enfoque equilibrado, reconociendo ambas perspectivas."
 tipo: completar
 enunciado: "You want stricter regulations. ___ maybe we can implement them gradually to avoid economic disruption."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -179,7 +171,6 @@ pasos:
 explicacion: "'That’s correct, as statistics show...' vincula un hecho con su respaldo empírico. 'As' introduce evidencia."
 tipo: completar
 enunciado: "More people are using smartphones now. ___ recent studies indicate a 30% increase in mobile internet usage last year."
-respuesta: "As"
 respuestas_validas:
   - "As"
   - "Since"
@@ -200,7 +191,6 @@ pasos:
 explicacion: "'I’m not sure about that, because...' introduce duda seguida de un argumento sólido. 'Because' indica causalidad."
 tipo: completar
 enunciado: "Social media improves communication. ___ it often leads to misinformation and privacy issues."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -221,7 +211,6 @@ pasos:
 explicacion: "'I see your point, but...' reconoce una perspectiva diferente mientras se mantiene la postura original. 'But' introduce una objeción."
 tipo: completar
 enunciado: "You argue that remote work reduces productivity. ___ many companies report higher efficiency with flexible hours."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -242,7 +231,6 @@ pasos:
 explicacion: "'I agree to some extent, but...' reconoce un aspecto válido de la idea mientras se señala una excepción."
 tipo: completar
 enunciado: "Increasing university fees can fund better education. ___ it might discourage low-income students from studying."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -263,7 +251,6 @@ pasos:
 explicacion: "'That’s not entirely true, because...' cuestiona una generalización con un argumento específico. 'Because' introduce causalidad."
 tipo: completar
 enunciado: "All social media platforms are harmful to mental health. ___ many users report increased connectivity and support through these platforms."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -284,7 +271,6 @@ pasos:
 explicacion: "'I agree, but...' reconoce un valor en la propuesta mientras se sugiere una condición adicional. 'But' introduce una limitación."
 tipo: completar
 enunciado: "We should ban plastic bags to protect the environment. ___ it might help, alternatives must be affordable for all consumers."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -305,7 +291,6 @@ pasos:
 explicacion: "'That’s an assumption, because...' cuestiona un supuesto con un argumento empírico. 'Because' introduce causalidad."
 tipo: completar
 enunciado: "Young people are too distracted by technology to focus on studies. ___ many students use apps to organize their tasks efficiently."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -326,7 +311,6 @@ pasos:
 explicacion: "'That’s a valid conclusion, although...' reconoce un resultado lógico mientras se señala una excepción. 'Although' introduce una limitación."
 tipo: completar
 enunciado: "The rise of AI will replace many jobs. ___ it might create new opportunities in technology sectors."
-respuesta: "However"
 respuestas_validas:
   - "However"
   - "But"
@@ -344,7 +328,6 @@ metadata:
 
 enunciado: "Smart cities are reducing traffic congestion. ___ the cost of infrastructure upgrades remains high."  
 tipo: completar  
-respuesta: "However"  
 respuestas_validas:  
   - "however"  
   - "Nevertheless"  
@@ -367,7 +350,6 @@ metadata:
 
 enunciado: "The museum ___ I visited last year has a new exhibit on ancient civilizations."  
 tipo: completar  
-respuesta: "where"  
 respuestas_validas:  
   - "where"  
   - "which" (no se acepta, ya que *which* no se usa para lugares)  
@@ -389,7 +371,6 @@ metadata:
 
 enunciado: "She said, 'I will support the new policy if it benefits the community.'" → She said ___ she would support the new policy if it benefited the community.  
 tipo: completar  
-respuesta: "that"  
 respuestas_validas:  
   - "that"  
   - "which" (no se acepta, ya que *that* es obligatorio en reported speech)  
@@ -411,7 +392,6 @@ metadata:
 
 enunciado: "The team ___ have won the match if they had played better."  
 tipo: completar  
-respuesta: "could"  
 respuestas_validas:  
   - "could"  
   - "might have" (no se acepta, ya que *could* es el único modal válido en este contexto)  
@@ -433,7 +413,6 @@ metadata:
 
 enunciado: "The new software is ___ faster than the old version."  
 tipo: completar  
-respuesta: "much"  
 respuestas_validas:  
   - "much"  
   - "more" (no se acepta, ya que *faster* es un adverbio y requiere *much*)  
@@ -455,7 +434,6 @@ metadata:
 
 enunciado: "The report ___ by the committee next week."  
 tipo: completar  
-respuesta: "is being discussed"  
 respuestas_validas:  
   - "is being discussed"  
   - "will be discussed" (no se acepta, ya que el contexto indica un proceso en curso)  
@@ -477,7 +455,6 @@ metadata:
 
 enunciado: "It is important ___ the project on time."  
 tipo: completar  
-respuesta: "to complete"  
 respuestas_validas:  
   - "to complete"  
   - "completing" (no se acepta, ya que *it is important* requiere infinitivo)  
@@ -499,7 +476,6 @@ metadata:
 
 enunciado: "She is ___ working late hours."  
 tipo: completar  
-respuesta: "accustomed to"  
 respuestas_validas:  
   - "accustomed to"  
   - "used to" (no se acepta, ya que *accustomed to* es más formal y correcto en este contexto)  
@@ -521,7 +497,6 @@ metadata:
 
 enunciado: "If the government approves the budget, ___ new hospitals will be built next year."  
 tipo: completar  
-respuesta: "they"  
 respuestas_validas:  
   - "they"  
   - "it" (no se acepta, ya que *new hospitals* es plural)  

@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - Identificar la espressione que requiere el congiuntivo.  
   - Determinar el sujeto del subordinado y conjugarlo en subjuntivo.  
-respuesta: "parli"  
 respuestas_validas:  
   - "parli"  
   - "Parli"  
@@ -53,7 +52,6 @@ metadata:
 pasos:  
   - Verificar si el verbo principal es impersonal (es. "è importante").  
   - Conjugar el verbo en subjuntivo según el sujeto del subordinado.  
-respuesta: "stia"  
 respuestas_validas:  
   - "stia"  
   - "Stia"  
@@ -98,7 +96,6 @@ metadata:
 pasos:  
   - Verificar que el verbo principal sea impersonal.  
   - Usar la tercera persona del subjuntivo (es. *si*).  
-respuesta: "si"  
 respuestas_validas:  
   - "si"  
   - "Si"  
@@ -143,7 +140,6 @@ metadata:
 pasos:  
   - Reconocer la estructura condicional que requiere subjuntivo.  
   - Usar el subjuntivo en tercera persona según el sujeto del subordinado.  
-respuesta: "fosse"  
 respuestas_validas:  
   - "fosse"  
   - "Fosse"  
@@ -188,7 +184,6 @@ metadata:
 pasos:  
   - Verificar que el verbo principal es *spero* (requiere subjuntivo).  
   - Usar la forma impersonal del subjuntivo (*si*).  
-respuesta: "si"  
 respuestas_validas:  
   - "si"  
   - "Si"  
@@ -233,7 +228,6 @@ metadata:
 pasos:  
   - Verificar que el verbo principal es *è necessario*.  
   - Usar la forma impersonal del subjuntivo (*si*).  
-respuesta: "si"  
 respuestas_validas:  
   - "si"  
   - "Si"  
@@ -278,7 +272,6 @@ metadata:
 pasos:  
   - Verificar que el verbo principal es *è probabile*.  
   - Usar el subjuntivo del verbo irregular *studiare* según el sujeto.  
-respuesta: "studii"  
 respuestas_validas:  
   - "studii"  
   - "Studii"  
@@ -300,7 +293,6 @@ metadata:
 pasos:  
   - Identificar la expresión que requiere subjuntivo.  
   - Usar la forma impersonal del subjuntivo (*si*).  
-respuesta: "si"  
 respuestas_validas:  
   - "si"  
   - "Si"  
@@ -345,7 +337,6 @@ metadata:
 pasos:  
   - Identificar la expresión de duda.  
   - Usar el subjuntivo en tercera persona (*si*).  
-respuesta: "si"  
 respuestas_validas:  
   - "si"  
   - "Si"  
@@ -390,7 +381,6 @@ metadata:
 pasos:  
   - Identificar la expresión de duda.  
   - Usar el subjuntivo del verbo irregular *andare* según el sujeto.  
-respuesta: "vada"  
 respuestas_validas:  
   - "vada"  
   - "Vada"  
@@ -412,14 +402,11 @@ metadata:
 pasos:
   - "Identifica la forma del congiuntivo necessaria dopo 'Credo che'."
   - "Verifica il soggetto della subordinata e applica la concordanza."
-respuesta: "arrivi"
 respuestas_validas:
   - "arrivi"
   - "Arrivi"
 tipo: completar
 enunciado: "Credo che lui ___ in tempo per l'appuntamento."
-variables:
-  - "soggetto: 'lui'"
 explicacion: "Dopo verbi come 'credere', si usa il congiuntivo. Il soggetto della subordinata è 'lui' (terza persona singolare), quindi la forma corretta è 'arrivi'."
 ```
 
@@ -456,7 +443,6 @@ metadata:
 pasos:  
   - Verificar que el verbo principal es *è meglio*.  
   - Usar la forma impersonal del subjuntivo (*si*).  
-respuesta: "si"  
 respuestas_validas:  
   - "si"  
   - "Si"  
@@ -501,7 +487,6 @@ metadata:
 pasos:  
   - Verificar que el verbo principal es *temo*.  
   - Usar la forma impersonal del subjuntivo (*si*).  
-respuesta: "si"  
 respuestas_validas:  
   - "si"  
   - "Si"  
@@ -553,7 +538,5 @@ opciones_explicitas:
 respuesta: "non debba"
 tipo: mc
 enunciado: "Penso che lui ___ fare domande in classe."
-variables:
-  - "soggetto: 'lui'"
 explicacion: "Dopo verbi espressivi di opinione o desiderio (come 'pensare') e in frasi negative, si usa il congiuntivo. Il soggetto della subordinata è 'lui' (terza persona singolare), quindi la forma corretta è 'non debba'."
 ```

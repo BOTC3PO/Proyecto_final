@@ -34,7 +34,6 @@ metadata:
 pasos:
   - "Reconoce el artículo indefinido y la posición del adjetivo."
   - "Aplica la regla de declinación sin artículo definido en acusativo femenino."
-respuesta: "schöne"
 respuestas_validas:
   - "schöne"
   - "Schöne"
@@ -134,7 +133,6 @@ metadata:
 pasos:
   - "Reconoce el artículo definido y el caso del sustantivo."
   - "Aplica la regla de declinación para adjetivos en acusativo femenino."
-respuesta: "schöne"
 respuestas_validas:
   - "schöne"
   - "Schöne"
@@ -470,7 +468,6 @@ pasos:
 explicacion: "El adjetivo 'meines' va seguido de un sustantivo neutro en nominativo singular, por lo que no lleva acento diacrítico ni cambio ortográfico. La forma correcta es 'meines kleinen Kindes' (nominativo). En casos como esto, los adjetivos tras posesivos siguen reglas específicas según el género y número del sustantivo."  
 enunciado: "Meines ___ Kindes ist krank."  
 tipo: completar  
-respuesta: "kleinen"  
 respuestas_validas:  
   - "kleinen"  
   - "Kleinen"  
@@ -543,7 +540,6 @@ pasos:
 explicacion: "El artículo definido 'die' va seguido de un sustantivo femenino en nominativo singular. El adjetivo 'junge' se transforma en 'junge' (sin acento) porque el artículo ya indica el género y caso, no requiriendo cambio adicional. Ejemplo: 'die junge Studentin' (nominativo)."  
 enunciado: "Die ___ Studentin hat eine Prüfung."  
 tipo: completar  
-respuesta: "junge"  
 respuestas_validas:  
   - "junge"  
   - "Junge"  
@@ -564,7 +560,6 @@ pasos:
 explicacion: "El artículo indefinido 'ein' va seguido de un sustantivo neutro en nominativo singular. El adjetivo 'schönes' se transforma en 'schönes' (sin acento) porque el artículo ya indica el género y caso, no requiriendo cambio adicional. Ejemplo: 'ein schönes Tier' (nominativo)."  
 enunciado: "Ich habe ein ___ Tier gesehen."  
 tipo: completar  
-respuesta: "schönes"  
 respuestas_validas:  
   - "schönes"  
   - "Schönes"  
@@ -585,7 +580,6 @@ pasos:
 explicacion: "La preposición 'mit' requiere el caso acusativo, pero cuando va seguida de un sustantivo femenino (como 'Mädchen'), se usa el dativo. El adjetivo 'jungen' se transforma en 'jungen' (sin acento) porque el caso ya está indicado por la preposición y el género del sustantivo. Ejemplo: 'mit einer jungen Mädchen' (dativo)."  
 enunciado: "Ich spiele mit einer ___ Mädchen."  
 tipo: completar  
-respuesta: "jungen"  
 respuestas_validas:  
   - "jungen"  
   - "Jungen"

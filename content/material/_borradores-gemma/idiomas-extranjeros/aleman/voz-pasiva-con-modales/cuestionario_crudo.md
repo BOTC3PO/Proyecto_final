@@ -5,7 +5,6 @@ metadata:
   tema: "voz-pasiva-con-modales"
   nivel: "B2"
   tags: ["pasiva", "modales", "müssen"]
-respuesta: "muss"
 tipo: completar
 respuestas_validas:
   - "muss"
@@ -26,7 +25,6 @@ metadata:
   tema: "voz-pasiva-con-modales"
   nivel: "B2"
   tags: ["pasiva", "modales", "können"]
-respuesta: "kann"
 tipo: completar
 respuestas_validas:
   - "kann"
@@ -47,7 +45,6 @@ metadata:
   tema: "voz-pasiva-con-modales"
   nivel: "B2"
   tags: ["pasiva", "modales", "sollen"]
-respuesta: "soll"
 tipo: completar
 respuestas_validas:
   - "soll"
@@ -68,7 +65,6 @@ metadata:
   tema: "voz-pasiva-con-modales"
   nivel: "B2"
   tags: ["pasiva", "modales", "dürfen"]
-respuesta: "darf"
 tipo: completar
 respuestas_validas:
   - "darf"
@@ -177,7 +173,6 @@ metadata:
   tema: "voz-pasiva-con-modales"
   nivel: "B2"
   tags: ["pasiva", "modales", "müssen"]
-respuesta: "mussten"
 tipo: completar
 respuestas_validas:
   - "mussten"
@@ -198,7 +193,6 @@ metadata:
   tema: "voz-pasiva-con-modales"
   nivel: "B2"
   tags: ["pasiva", "modales", "können"]
-respuesta: "konnten"
 tipo: completar
 respuestas_validas:
   - "konnten"
@@ -219,7 +213,6 @@ metadata:
   tema: "voz-pasiva-con-modales"
   nivel: "B2"
   tags: ["pasiva", "modales", "sollen"]
-respuesta: "sollten"
 tipo: completar
 respuestas_validas:
   - "sollten"
@@ -240,7 +233,6 @@ metadata:
   tema: "voz-pasiva-con-modales"
   nivel: "B2"
   tags: ["pasiva", "modales", "dürfen"]
-respuesta: "durften"
 tipo: completar
 respuestas_validas:
   - "durften"
@@ -290,7 +282,6 @@ pasos:
   - "Verificar si el verbo está en forma correcta para la voz pasiva y el uso del modal."  
 
 enunciado: "Die Idee ___ von uns nicht erläutert werden."  
-respuesta: "muss"  
 tipo: completar  
 respuestas_validas:  
   - "muss"  
@@ -337,7 +328,6 @@ pasos:
   - "Verificar la concordancia entre el modal y el verbo en forma pasiva."  
 
 enunciado: "Die Frage ___ von den Studierenden nicht beantwortet werden."  
-respuesta: "kann"  
 tipo: completar  
 respuestas_validas:  
   - "kann"  
@@ -362,7 +352,6 @@ pasos:
   - "Verificar que el verbo esté en forma correcta para la estructura pasiva."  
 
 enunciado: "Der Vorschlag ___ von dem Chef nicht berücksichtigt werden."  
-respuesta: "soll"  
 tipo: completar  
 respuestas_validas:  
   - "soll"  
@@ -387,7 +376,6 @@ pasos:
   - "Verificar la concordancia entre el modal y el verbo en forma pasiva."  
 
 enunciado: "Die Anfrage ___ von uns nicht bearbeitet werden."  
-respuesta: "darf"  
 tipo: completar  
 respuestas_validas:  
   - "darf"  
@@ -515,7 +503,6 @@ pasos:
   - "Verificar la concordancia entre el sujeto y el verbo en forma pasiva."  
 
 enunciado: "Das Angebot ___ von uns nicht angenommen werden."  
-respuesta: "muss"  
 tipo: completar  
 respuestas_validas:  
   - "muss"  
@@ -539,7 +526,6 @@ pasos:
   - "Verificar que el verbo esté en forma correcta para la voz pasiva con un modal."  
 
 enunciado: "Die Antwort ___ von uns nicht gegeben werden."  
-respuesta: "kann"  
 tipo: completar  
 respuestas_validas:  
   - "kann"  
@@ -563,7 +549,6 @@ pasos:
   - "Verificar que la construcción pasiva con el modal sea correcta."  
 
 enunciado: "Der Bericht ___ von dem Team noch nicht verabschiedet werden."  
-respuesta: "soll"  
 tipo: completar  
 respuestas_validas:  
   - "soll"  

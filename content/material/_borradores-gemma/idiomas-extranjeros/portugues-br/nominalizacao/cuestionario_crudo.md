@@ -8,13 +8,11 @@ metadata:
 pasos:  
   - Identificar o verbo na oração e aplicar a forma nominal.  
   - Verificar se há uma alternativa com sufixo correto.  
-respuesta: "produção"  
 respuestas_validas:  
   - "produção"  
   - "Produção"  
 tipo: completar  
 enunciado: "O aumento da _______ industrial no país tem gerado debates políticos."  
-variables: []  
 
 ---
 ```
@@ -29,7 +27,6 @@ metadata:
 pasos:  
   - Localizar o adjetivo e transformá-lo em substantivo.  
   - Confirmar a concordância do sufixo com o gênero do adjetivo.  
-respuesta: "precocidade"  
 respuestas_validas:  
   - "precocidade"  
   - "Precocidade"  
@@ -69,7 +66,6 @@ metadata:
 pasos:  
   - Identificar o verbo e formar a nominalização com –ção.  
   - Verificar se há outras opções com sufixos válidos.  
-respuesta: "simplificação"  
 respuestas_validas:  
   - "simplificação"  
   - "Simplificação"  
@@ -109,7 +105,6 @@ metadata:
 pasos:  
   - Aplicar o sufixo –ura ao verbo adequado.  
   - Confirmar se há outras formas válidas de nominalização.  
-respuesta: "cuidado"  
 respuestas_validas:  
   - "cuidado"  
   - "Cuidado"  
@@ -149,7 +144,6 @@ metadata:
 pasos:  
   - Identificar o verbo e aplicar a forma nominal com –agem.  
   - Verificar se há outras opções com sufixos válidos.  
-respuesta: "produção"  
 respuestas_validas:  
   - "produção"  
   - "Produção"  
@@ -189,7 +183,6 @@ metadata:
 pasos:  
   - Escolher entre os dois sufixos com base no contexto.  
   - Confirmar a forma correta de nominalização.  
-respuesta: "movimento"  
 respuestas_validas:  
   - "movimento"  
   - "Movimento"  
@@ -229,7 +222,6 @@ metadata:
 pasos:  
   - Escolher o sufixo que melhor se encaixa no contexto.  
   - Verificar a forma correta de nominalização.  
-respuesta: "cuidado"  
 respuestas_validas:  
   - "cuidado"  
   - "Cuidado"  
@@ -269,7 +261,6 @@ metadata:
 pasos:  
   - Aplicar o sufixo correto ao verbo.  
   - Confirmar a forma nominal adequada.  
-respuesta: "produção"  
 respuestas_validas:  
   - "produção"  
   - "Produção"  
@@ -309,7 +300,6 @@ metadata:
 pasos:  
   - Aplicar o sufixo adequado ao adjetivo.  
   - Excluir opções com formas incorretas.  
-respuesta: "coragem"  
 respuestas_validas:  
   - "coragem"  
   - "Coragem"  
@@ -349,7 +339,6 @@ metadata:
 pasos:  
   - Aplicar o sufixo adequado ao adjetivo.  
   - Excluir alternativas com formas incorretas.  
-respuesta: "maturidade"  
 respuestas_validas:  
   - "maturidade"  
   - "Maturidade"  
@@ -389,7 +378,6 @@ metadata:
 pasos:  
   - Aplicar o sufixo adequado ao verbo.  
   - Excluir opções com formas incorretas.  
-respuesta: "consciência"  
 respuestas_validas:  
   - "consciência"  
   - "Consciência"  
@@ -429,7 +417,6 @@ metadata:
 pasos:  
   - Aplicar o sufixo adequado ao adjetivo.  
   - Excluir alternativas com formas incorretas.  
-respuesta: "coragem"  
 respuestas_validas:  
   - "coragem"  
   - "Coragem"  
@@ -469,7 +456,6 @@ metadata:
 pasos:  
   - Aplicar o sufixo adequado ao verbo.  
   - Excluir opções com formas incorretas.  
-respuesta: "cuidado"  
 respuestas_validas:  
   - "cuidado"  
   - "Cuidado"  

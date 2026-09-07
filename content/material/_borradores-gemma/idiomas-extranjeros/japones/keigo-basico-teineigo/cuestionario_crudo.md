@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Aplicar la forma polite de -masu al verbo."
-respuesta: 飲みます
 tipo: completar
 respuestas_validas:
   - "飲みます"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Aplicar la forma polite de -masu al verbo."
-respuesta: 行きます
 tipo: completar
 respuestas_validas:
   - "行きます"
@@ -50,7 +48,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Convertirlo a forma polite con -masu."
-respuesta: 話します
 tipo: completar
 respuestas_validas:
   - "話します"
@@ -71,7 +68,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Aplicar la forma polite de -masu."
-respuesta: 書きます
 tipo: completar
 respuestas_validas:
   - "書きます"
@@ -92,7 +88,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Convertirlo a forma polite con -masu."
-respuesta: 勉強します
 tipo: completar
 respuestas_validas:
   - "勉強します"
@@ -113,7 +108,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Aplicar la forma polite de -masu."
-respuesta: 食べます
 tipo: completar
 respuestas_validas:
   - "食べます"
@@ -134,7 +128,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Convertirlo a forma polite con -masu."
-respuesta: 取ります
 tipo: completar
 respuestas_validas:
   - "取ります"
@@ -155,7 +148,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Aplicar la forma polite de -masu."
-respuesta: 使います
 tipo: completar
 respuestas_validas:
   - "使います"
@@ -176,7 +168,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Convertirlo a forma polite con -masu."
-respuesta: します
 tipo: completar
 respuestas_validas:
   - "します"
@@ -197,7 +188,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Aplicar la forma polite de -masu."
-respuesta: 電話します
 tipo: completar
 respuestas_validas:
   - "電話します"
@@ -218,7 +208,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Convertirlo a forma polite con -masu."
-respuesta: 勉強します
 tipo: completar
 respuestas_validas:
   - "勉強します"
@@ -239,7 +228,6 @@ metadata:
 pasos:  
   - Identificar el contexto de ofrecimiento de ayuda a un cliente.  
   - Seleccionar la forma teineigo adecuada para expresar acciones en beneficio del otro.  
-respuesta: "聞いてあげます"  
 tipo: completar  
 respuestas_validas:  
   - "聞いてあげます"  
@@ -260,7 +248,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Convertirlo a forma polite con -masu."
-respuesta: 知ります
 tipo: completar
 respuestas_validas:
   - "知ります"
@@ -281,7 +268,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Aplicar la forma polite de -masu."
-respuesta: 選びます
 tipo: completar
 respuestas_validas:
   - "選びます"
@@ -302,7 +288,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Convertirlo a forma polite con -masu."
-respuesta: 見ます
 tipo: completar
 respuestas_validas:
   - "見ます"
@@ -323,7 +308,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Aplicar la forma polite de -masu."
-respuesta: 飲みます
 tipo: completar
 respuestas_validas:
   - "飲みます"
@@ -344,7 +328,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Convertirlo a forma polite con -masu."
-respuesta: 行きます
 tipo: completar
 respuestas_validas:
   - "行きます"
@@ -365,7 +348,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Aplicar la forma polite de -masu."
-respuesta: 話します
 tipo: completar
 respuestas_validas:
   - "話します"
@@ -408,7 +390,6 @@ pasos:
   - Analizar si la acción (escribir un email) se hace en beneficio del receptor.  
   - Aplicar ～てあげます a acciones que beneficien al otro.  
 tipo: completar  
-respuesta: "書いてあげます"  
 respuestas_validas:  
   - "書いてあげます"  
   - "書いて上げます"  
@@ -428,7 +409,6 @@ metadata:
 pasos:
   - "Reconocer el verbo en la oración."
   - "Convertirlo a forma polite con -masu."
-respuesta: 食べます
 tipo: completar
 respuestas_validas:
   - "食べます"
@@ -471,7 +451,6 @@ pasos:
   - Determinar si la acción (organizar algo) es realizada para beneficiar a alguien.  
   - Usar ～てあげます cuando se actúa en favor del otro.  
 tipo: completar  
-respuesta: "片付けてあげます"  
 respuestas_validas:  
   - "片付けてあげます"  
   - "片付け上げます"  
@@ -513,7 +492,6 @@ pasos:
   - Analizar si la acción (ofrecer consejo) se hace en un contexto de jerarquía o colaboración.  
   - Usar ～てあげます para acciones que benefician a un compañero.  
 tipo: completar  
-respuesta: "アドバイスをしてあげます"  
 respuestas_validas:  
   - "アドバイスをしてあげます"  
   - "アドバイスして上げます"  

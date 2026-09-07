@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Escucha el diálogo y completa la oración."  
 explicacion: "El imperativo formal en alemán usa la forma del verbo sin sujeto, con 'Sie' implícito. En este contexto, se requiere la forma correcta de 'helfen' (ayudar)."  
-respuesta: "Helfen Sie"  
 tipo: completar  
 respuestas_validas:  
   - "Helfen Sie"  
@@ -26,7 +25,10 @@ pasos:
   - "Escucha la descripción y elige la preposición correcta."  
 explicacion: "La preposición 'an' se usa con el dativo para indicar adhesión o conexión física. En este contexto, describe una relación espacial clara."  
 tipo: mc  
-opciones_explicitas: ["auf", "an", "über"]  
+opciones_explicitas:
+  - "auf"
+  - "an"
+  - "über"
 respuesta: "an"  
 ```
 
@@ -40,7 +42,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el verbo."  
 explicacion: "'Haben' en presente para el sujeto 'wir' se conjuga como 'haben', sin cambios de raíz."  
-respuesta: "haben"  
 tipo: completar  
 respuestas_validas:  
   - "haben"  
@@ -58,7 +59,10 @@ pasos:
   - "Escucha la comparación y elige la forma correcta del adjetivo."  
 explicacion: "El comparativo de 'gut' (bueno) es 'besser', que se usa con 'als' para contrastar dos elementos."  
 tipo: mc  
-opciones_explicitas: ["guter", "besser", "am besten"]  
+opciones_explicitas:
+  - "guter"
+  - "besser"
+  - "am besten"
 respuesta: "besser"  
 ```
 
@@ -72,7 +76,6 @@ metadata:
 pasos:  
   - "Escucha la frase y completa el tiempo verbal."  
 explicacion: "El presente de 'machen' (hacer) para el sujeto 'er' es 'macht', sin cambios ortográficos."  
-respuesta: "macht"  
 tipo: completar  
 respuestas_validas:  
   - "macht"  
@@ -90,7 +93,10 @@ pasos:
   - "Escucha la oración y elige el pronombre reflexivo correcto."  
 explicacion: "El pronombre reflexivo 'sich' se usa con verbos que indican acciones dirigidas al sujeto, como 'waschen' (lavarse)."  
 tipo: mc  
-opciones_explicitas: ["mich", "sich", "dich"]  
+opciones_explicitas:
+  - "mich"
+  - "sich"
+  - "dich"
 respuesta: "sich"  
 ```
 
@@ -104,7 +110,6 @@ metadata:
 pasos:  
   - "Escucha la descripción y completa la preposición."  
 explicacion: "'Nach' se usa con el acusativo para indicar dirección. En este contexto, describe un movimiento físico."  
-respuesta: "nach"  
 tipo: completar  
 respuestas_validas:  
   - "nach"  
@@ -122,7 +127,10 @@ pasos:
   - "Escucha la oración y elige el verbo modal correcto."  
 explicacion: "'Müssen' se usa para expresar obligación. En este contexto, indica una necesidad clara de acción."  
 tipo: mc  
-opciones_explicitas: ["machen", "müssen", "können"]  
+opciones_explicitas:
+  - "machen"
+  - "müssen"
+  - "können"
 respuesta: "müssen"  
 ```
 
@@ -136,7 +144,6 @@ metadata:
 pasos:  
   - "Escucha la frase y completa el adverbio temporal."  
 explicacion: "'Heute' (hoy) se usa para referirse a un momento específico en el tiempo. En este contexto, describe una acción reciente."  
-respuesta: "heute"  
 tipo: completar  
 respuestas_validas:  
   - "heute"  
@@ -154,7 +161,10 @@ pasos:
   - "Escucha la oración y elige el pronombre objetivo correcto."  
 explicacion: "'Sie' se usa como objeto directo para el sujeto 'er/sie/es'. En este contexto, describe una acción dirigida a alguien."  
 tipo: mc  
-opciones_explicitas: ["ihn", "sie", "dich"]  
+opciones_explicitas:
+  - "ihn"
+  - "sie"
+  - "dich"
 respuesta: "sie"  
 ```
 
@@ -168,7 +178,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el verbo de movimiento."  
 explicacion: "'Gehen' (ir) en presente para el sujeto 'wir' es 'gehen', sin cambios en la raíz del verbo."  
-respuesta: "gehen"  
 tipo: completar  
 respuestas_validas:  
   - "gehen"  
@@ -185,7 +194,6 @@ metadata:
 pasos:  
   - "Escucha la descripción y completa la preposición."  
 explicacion: "'Bei' se usa con el dativo para indicar compañía. En este contexto, describe una relación social clara."  
-respuesta: "bei"  
 tipo: completar  
 respuestas_validas:  
   - "bei"  
@@ -203,7 +211,10 @@ pasos:
   - "Escucha la oración y elige la forma correcta del adjetivo."  
 explicacion: "El adjetivo 'schön' (bonito) en dativo singular masculino es 'schönen', que se usa para describir un objeto con una relación de posesión o pertenencia."  
 tipo: mc  
-opciones_explicitas: ["schöne", "schönen", "schön"]  
+opciones_explicitas:
+  - "schöne"
+  - "schönen"
+  - "schön"
 respuesta: "schönen"  
 ```
 
@@ -217,7 +228,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el verbo reflexivo."  
 explicacion: "'Sich waschen' (lavarse) es un verbo reflexivo que requiere el pronombre 'sich'. En este contexto, describe una acción personal."  
-respuesta: "sich"  
 tipo: completar  
 respuestas_validas:  
   - "sich"  
@@ -234,7 +244,6 @@ metadata:
 pasos:  
   - "Escucha la frase y completa el adverbio de lugar."  
 explicacion: "'Hier' (aquí) se usa para referirse a un lugar específico en el contexto del habla. En este caso, describe una ubicación clara."  
-respuesta: "hier"  
 tipo: completar  
 respuestas_validas:  
   - "hier"  
@@ -252,7 +261,10 @@ pasos:
   - "Escucha la oración y elige el verbo en infinitivo."  
 explicacion: "'Machen' (hacer) se usa en infinitivo para describir una acción general o futura. En este contexto, indica una intención clara de hacer algo."  
 tipo: mc  
-opciones_explicitas: ["machen", "gemacht", "machst"]  
+opciones_explicitas:
+  - "machen"
+  - "gemacht"
+  - "machst"
 respuesta: "machen"  
 ```
 
@@ -266,7 +278,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el adjetivo en acusativo."  
 explicacion: "'Schöne' (bonita) se usa en acusativo femenino para describir un objeto con una relación de posesión o pertenencia. En este contexto, describe una acción específica."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
@@ -283,7 +294,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el verbo con preposición."  
 explicacion: "'Nachdenken' (pensar) se usa con la preposición 'über' para indicar sobre qué se está pensando. En este contexto, describe una acción mental clara."  
-respuesta: "über"  
 tipo: completar  
 respuestas_validas:  
   - "über"  
@@ -301,7 +311,10 @@ pasos:
   - "Escucha la oración y elige el pronombre posesivo correcto."  
 explicacion: "'Ihr' (su) se usa para referirse a un objeto que pertenece a alguien. En este contexto, describe una relación de posesión clara."  
 tipo: mc  
-opciones_explicitas: ["mein", "ihr", "seine"]  
+opciones_explicitas:
+  - "mein"
+  - "ihr"
+  - "seine"
 respuesta: "ihr"  
 ```
 
@@ -315,7 +328,6 @@ metadata:
 pasos:  
   - "Escucha la frase y completa el adverbio de tiempo."  
 explicacion: "'Jetzt' (ahora) se usa para referirse a un momento específico en el tiempo. En este contexto, describe una acción reciente o inmediata."  
-respuesta: "jetzt"  
 tipo: completar  
 respuestas_validas:  
   - "jetzt"  
@@ -332,7 +344,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el verbo en participio pasado."  
 explicacion: "'Gemacht' (hecho) se usa como participio pasado de 'machen' para describir una acción completada. En este contexto, indica un resultado claro."  
-respuesta: "gemacht"  
 tipo: completar  
 respuestas_validas:  
   - "gemacht"  
@@ -349,7 +360,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el adjetivo en ablativo."  
 explicacion: "'Schönen' (bonito) se usa en ablativo para describir un objeto que se separa de algo. En este contexto, describe una relación de posesión o pertenencia."  
-respuesta: "schönen"  
 tipo: completar  
 respuestas_validas:  
   - "schönen"  
@@ -366,7 +376,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el verbo en infinitivo."  
 explicacion: "'Machen' (hacer) se usa en infinitivo para describir una acción futura o general. En este contexto, indica una intención clara de hacer algo."  
-respuesta: "machen"  
 tipo: completar  
 respuestas_validas:  
   - "machen"  
@@ -383,7 +392,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el pronombre reflexivo."  
 explicacion: "'Sich' se usa como pronombre reflexivo para indicar que la acción afecta al sujeto. En este contexto, describe una acción personal clara."  
-respuesta: "sich"  
 tipo: completar  
 respuestas_validas:  
   - "sich"  
@@ -400,7 +408,6 @@ metadata:
 pasos:  
   - "Escucha la oración y completa el adverbio de lugar."  
 explicacion: "'Dort' (allí) se usa para referirse a un lugar específico en el contexto del habla. En este caso, describe una ubicación clara y precisa."  
-respuesta: "dort"  
 tipo: completar  
 respuestas_validas:  
   - "dort"  

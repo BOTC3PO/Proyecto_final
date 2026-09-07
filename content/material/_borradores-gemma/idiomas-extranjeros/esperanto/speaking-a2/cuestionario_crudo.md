@@ -27,7 +27,6 @@ pasos:
   - "Aliformigu la vorton al plurale."
 explicacion: "En esperanto, pluralo de nomoj estas formigata per adicio de '-j' kaj 'a' antaŭ la fino. Ekzemple, 'libro → libroj', 'kato → katoj'."  
 tipo: completar
-respuesta: "katoj"
 respuestas_validas:
   - "katoj"
   - "Katoj"

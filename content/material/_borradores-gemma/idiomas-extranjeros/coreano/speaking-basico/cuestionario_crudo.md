@@ -7,7 +7,6 @@ metadata:
   tags: ["greetings", "formal"]  
 pasos:  
   - "Completa la frase con el saludo formal adecuado."  
-respuesta: "안녕하세요"  
 respuestas_validas:  
   - "안녕하세요"  
   - "안녕하십니까"  
@@ -23,7 +22,6 @@ metadata:
   tags: ["questions", "basic"]  
 pasos:  
   - "Completa la oración para formar una pregunta sobre el nombre."  
-respuesta: "어떻게"  
 respuestas_validas:  
   - "어떻게"  
   - "어디에서"  
@@ -39,7 +37,6 @@ metadata:
   tags: ["time", "numbers"]  
 pasos:  
   - "Completa la frase con el número correcto para expresar las 3:15."  
-respuesta: "세시"  
 respuestas_validas:  
   - "세시"  
   - "삼시"  
@@ -55,7 +52,6 @@ metadata:
   tags: ["verbs", "conjugation"]  
 pasos:  
   - "Completa el verbo con la forma correcta para indicar 'voy a casa'."  
-respuesta: "가요"  
 respuestas_validas:  
   - "가요"  
   - "갑니다"  
@@ -71,7 +67,6 @@ metadata:
   tags: ["subjects", "particles"]  
 pasos:  
   - "Completa la oración con el partícula correcto para enfatizar el sujeto."  
-respuesta: "는"  
 respuestas_validas:  
   - "는"  
   - "은"  
@@ -87,7 +82,6 @@ metadata:
   tags: ["passive", "grammar"]  
 pasos:  
   - "Completa la oración para formar una frase en voz pasiva."  
-respuesta: "받다"  
 respuestas_validas:  
   - "받다"  
   - "받는다"  
@@ -103,7 +97,6 @@ metadata:
   tags: ["conjunctions", "verbs"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para conectar dos acciones."  
-respuesta: "고"  
 respuestas_validas:  
   - "고"  
   - "하고"  
@@ -119,7 +112,6 @@ metadata:
   tags: ["subjects", "particles"]  
 pasos:  
   - "Completa la oración con el partícula correcto para introducir un nuevo sujeto."  
-respuesta: "가"  
 respuestas_validas:  
   - "가"  
   - "이"  
@@ -135,7 +127,6 @@ metadata:
   tags: ["tense", "verbs"]  
 pasos:  
   - "Completa el verbo con la forma correcta para indicar 'comí'."  
-respuesta: "먹었어요"  
 respuestas_validas:  
   - "먹었어요"  
   - "먹었다"  
@@ -151,7 +142,6 @@ metadata:
   tags: ["locations", "particles"]  
 pasos:  
   - "Completa la oración con el partícula correcto para expresar lugar."  
-respuesta: "에서"  
 respuestas_validas:  
   - "에서"  
   - "에"  
@@ -167,7 +157,6 @@ metadata:
   tags: ["introductions", "formal"]  
 pasos:  
   - "Completa la oración para presentar a alguien formalmente."  
-respuesta: "입니다"  
 respuestas_validas:  
   - "입니다"  
   - "이에요"  
@@ -183,7 +172,6 @@ metadata:
   tags: ["quantifiers", "numbers"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para contar objetos."  
-respuesta: "개"  
 respuestas_validas:  
   - "개"  
   - "조각"  
@@ -199,7 +187,6 @@ metadata:
   tags: ["comparisons", "particles"]  
 pasos:  
   - "Completa la oración con el partícula correcto para comparar dos cosas."  
-respuesta: "보다"  
 respuestas_validas:  
   - "보다"  
   - "랑"  
@@ -215,7 +202,6 @@ metadata:
   tags: ["conditions", "conjunctions"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para expresar una condición."  
-respuesta: "면"  
 respuestas_validas:  
   - "면"  
   - "이면"  
@@ -231,7 +217,6 @@ metadata:
   tags: ["purpose", "particles"]  
 pasos:  
   - "Completa la oración con el partícula correcto para indicar propósito."  
-respuesta: "로"  
 respuestas_validas:  
   - "로"  
   - "위해"  
@@ -247,7 +232,6 @@ metadata:
   tags: ["options", "conjunctions"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para expresar una opción."  
-respuesta: "거나"  
 respuestas_validas:  
   - "거나"  
   - "건가"  
@@ -263,7 +247,6 @@ metadata:
   tags: ["emotions", "verbs"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para expresar un sentimiento."  
-respuesta: "고"  
 respuestas_validas:  
   - "고"  
   - "하고"  
@@ -279,7 +262,6 @@ metadata:
   tags: ["time", "numbers"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para indicar 'el quinto día'."  
-respuesta: "째"  
 respuestas_validas:  
   - "째"  
   - "일"  
@@ -295,7 +277,6 @@ metadata:
   tags: ["passive", "verbs"]  
 pasos:  
   - "Completa el verbo con la forma correcta para indicar 'recibí una carta'."  
-respuesta: "받았어요"  
 respuestas_validas:  
   - "받았어요"  
   - "받았다"  
@@ -311,7 +292,6 @@ metadata:
   tags: ["repetition", "conjunctions"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para conectar dos acciones."  
-respuesta: "고"  
 respuestas_validas:  
   - "고"  
   - "하고"  
@@ -327,7 +307,6 @@ metadata:
   tags: ["purpose", "particles"]  
 pasos:  
   - "Completa la oración con el partícula correcto para indicar propósito."  
-respuesta: "로"  
 respuestas_validas:  
   - "로"  
   - "위해"  
@@ -343,7 +322,6 @@ metadata:
   tags: ["quantifiers", "numbers"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para contar objetos."  
-respuesta: "개"  
 respuestas_validas:  
   - "개"  
   - "조각"  
@@ -359,7 +337,6 @@ metadata:
   tags: ["conditions", "conjunctions"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para expresar una condición."  
-respuesta: "면"  
 respuestas_validas:  
   - "면"  
   - "이면"  
@@ -375,7 +352,6 @@ metadata:
   tags: ["passive", "verbs"]  
 pasos:  
   - "Completa el verbo con la forma correcta para indicar 'recibí una carta'."  
-respuesta: "받았어요"  
 respuestas_validas:  
   - "받았어요"  
   - "받았다"  
@@ -391,7 +367,6 @@ metadata:
   tags: ["repetition", "conjunctions"]  
 pasos:  
   - "Completa la oración con el sufijo correcto para conectar dos acciones."  
-respuesta: "고"  
 respuestas_validas:  
   - "고"  
   - "하고"  

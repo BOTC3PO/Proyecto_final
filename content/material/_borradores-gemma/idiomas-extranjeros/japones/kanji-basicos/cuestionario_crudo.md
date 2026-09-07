@@ -7,7 +7,6 @@ metadata:
   tags: ["stroke-order", "radical"]
 pasos:
   - "Escribe el kanji '木' (mokku) en orden de trazado correcto."
-respuesta: "木"
 tipo: completar
 respuestas_validas:
   - "木"
@@ -43,7 +42,6 @@ metadata:
   tags: ["compound-words", "meaning"]
 pasos:
   - "Completa la palabra '水[ ]' que significa 'agua dulce'."
-respuesta: "質"
 tipo: completar
 respuestas_validas:
   - "質"
@@ -60,7 +58,6 @@ metadata:
   tags: ["verbs", "context"]
 pasos:
   - "Completa la oración: '彼は毎日[ ]をします。'"
-respuesta: "食事"
 tipo: completar
 respuestas_validas:
   - "食事"
@@ -77,7 +74,6 @@ metadata:
   tags: ["nouns", "context"]
 pasos:
   - "Completa la oración: 'この[ ]は美味しいです。'"
-respuesta: "料理"
 tipo: completar
 respuestas_validas:
   - "料理"
@@ -94,7 +90,6 @@ metadata:
   tags: ["kana", "context"]
 pasos:
   - "Completa el nombre: '田中[ ]'."
-respuesta: "太郎"
 tipo: completar
 respuestas_validas:
   - "太郎"
@@ -111,7 +106,6 @@ metadata:
   tags: ["connectors", "context"]
 pasos:
   - "Completa la oración: '彼は[ ]で、日本語を話します。'"
-respuesta: "アメリカ人"
 tipo: completar
 respuestas_validas:
   - "アメリカ人"
@@ -128,7 +122,6 @@ metadata:
   tags: ["verb-conjugation", "context"]
 pasos:
   - "Completa el verbo en la oración: '彼は毎日[ ]します。'"
-respuesta: "勉強"
 tipo: completar
 respuestas_validas:
   - "勉強"
@@ -145,7 +138,6 @@ metadata:
   tags: ["adjectives", "context"]
 pasos:
   - "Completa la oración: 'この[ ]はとても美味しいです。'"
-respuesta: "料理"
 tipo: completar
 respuestas_validas:
   - "料理"
@@ -162,7 +154,6 @@ metadata:
   tags: ["numbers", "context"]
 pasos:
   - "Completa la oración: '彼は[ ]歳です。'"
-respuesta: "20"
 tipo: completar
 respuestas_validas:
   - "20"
@@ -179,7 +170,6 @@ metadata:
   tags: ["connectors", "context"]
 pasos:
   - "Completa la oración: '彼は[ ]、日本語を話します。'"
-respuesta: "アメリカ人"
 tipo: completar
 respuestas_validas:
   - "アメリカ人"
@@ -196,7 +186,6 @@ metadata:
   tags: ["nouns", "context"]
 pasos:
   - "Completa la oración: '彼は[ ]をします。'"
-respuesta: "仕事"
 tipo: completar
 respuestas_validas:
   - "仕事"
@@ -213,7 +202,6 @@ metadata:
   tags: ["kana", "context"]
 pasos:
   - "Completa el nombre: '田中[ ]'."
-respuesta: "太郎"
 tipo: completar
 respuestas_validas:
   - "太郎"
@@ -230,7 +218,6 @@ metadata:
   tags: ["verbs", "context"]
 pasos:
   - "Completa la oración: '彼は毎日[ ]をします。'"
-respuesta: "食事"
 tipo: completar
 respuestas_validas:
   - "食事"
@@ -247,7 +234,6 @@ metadata:
   tags: ["nouns", "context"]
 pasos:
   - "Completa la oración: 'この[ ]は美味しいです。'"
-respuesta: "料理"
 tipo: completar
 respuestas_validas:
   - "料理"
@@ -264,7 +250,6 @@ metadata:
   tags: ["kana", "context"]
 pasos:
   - "Completa el nombre: '田中[ ]'."
-respuesta: "太郎"
 tipo: completar
 respuestas_validas:
   - "太郎"
@@ -281,7 +266,6 @@ metadata:
   tags: ["connectors", "context"]
 pasos:
   - "Completa la oración: '彼は[ ]、日本語を話します。'"
-respuesta: "アメリカ人"
 tipo: completar
 respuestas_validas:
   - "アメリカ人"
@@ -298,7 +282,6 @@ metadata:
   tags: ["numbers", "context"]
 pasos:
   - "Completa la oración: '彼は[ ]歳です。'"
-respuesta: "20"
 tipo: completar
 respuestas_validas:
   - "20"
@@ -315,7 +298,6 @@ metadata:
   tags: ["adjectives", "context"]
 pasos:
   - "Completa la oración: 'この[ ]はとても美味しいです。'"
-respuesta: "料理"
 tipo: completar
 respuestas_validas:
   - "料理"
@@ -332,7 +314,6 @@ metadata:
   tags: ["verb-conjugation", "context"]
 pasos:
   - "Completa el verbo en la oración: '彼は毎日[ ]します。'"
-respuesta: "勉強"
 tipo: completar
 respuestas_validas:
   - "勉強"
@@ -349,7 +330,6 @@ metadata:
   tags: ["connectors", "context"]
 pasos:
   - "Completa la oración: '彼は[ ]、日本語を話します。'"
-respuesta: "アメリカ人"
 tipo: completar
 respuestas_validas:
   - "アメリカ人"
@@ -366,7 +346,6 @@ metadata:
   tags: ["nouns", "context"]
 pasos:
   - "Completa la oración: '彼は[ ]をします。'"
-respuesta: "仕事"
 tipo: completar
 respuestas_validas:
   - "仕事"
@@ -383,7 +362,6 @@ metadata:
   tags: ["kana", "context"]
 pasos:
   - "Completa el nombre: '田中[ ]'."
-respuesta: "太郎"
 tipo: completar
 respuestas_validas:
   - "太郎"
@@ -400,7 +378,6 @@ metadata:
   tags: ["verbs", "context"]
 pasos:
   - "Completa la oración: '彼は毎日[ ]をします。'"
-respuesta: "食事"
 tipo: completar
 respuestas_validas:
   - "食事"
@@ -417,7 +394,6 @@ metadata:
   tags: ["nouns", "context"]
 pasos:
   - "Completa la oración: 'この[ ]は美味しいです。'"
-respuesta: "料理"
 tipo: completar
 respuestas_validas:
   - "料理"

@@ -10,7 +10,6 @@ pasos:
 explicacion: "La vorto 'kiam' estas uzata por indiki tempo en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la pasinta tempa formo."
 tipo: completar
 enunciado: "Li ne sciis _ kiam li devis alveni."
-respuesta: "kiam"
 respuestas_validas:
   - "kiam"
   - "Kiam"
@@ -30,7 +29,6 @@ pasos:
 explicacion: "La konjunkcio 'ĉar' estas uzata por indiki kaŭzon en kondiĉa fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la konsekvenca parto de la fraso."
 tipo: completar
 enunciado: "Li ne povis alveni _ li estis malsana."
-respuesta: "ĉar"
 respuestas_validas:
   - "ĉar"
   - "Ĉar"
@@ -50,7 +48,6 @@ pasos:
 explicacion: "La negacio 'ne' estas uzata por indiki malsimilan en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la prava formo."
 tipo: completar
 enunciado: "Li _ povis alveni pro la malbona vetero."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
@@ -70,7 +67,6 @@ pasos:
 explicacion: "La vorto 'kiam' estas uzata por indiki tempo en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la pasinta tempa formo."
 tipo: completar
 enunciado: "Ŝi ne sciis _ kiam ŝi devis alveni."
-respuesta: "kiam"
 respuestas_validas:
   - "kiam"
   - "Kiam"
@@ -90,7 +86,6 @@ pasos:
 explicacion: "La konjunkcio 'ĉar' estas uzata por indiki kaŭzon en kondiĉa fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la konsekvenca parto de la fraso."
 tipo: completar
 enunciado: "Ŝi ne povis alveni _ ŝi estis malsana."
-respuesta: "ĉar"
 respuestas_validas:
   - "ĉar"
   - "Ĉar"
@@ -110,7 +105,6 @@ pasos:
 explicacion: "La negacio 'ne' estas uzata por indiki malsimilan en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la prava formo."
 tipo: completar
 enunciado: "Ŝi _ povis alveni pro la malbona vetero."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
@@ -130,7 +124,6 @@ pasos:
 explicacion: "La vorto 'kiam' estas uzata por indiki tempo en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la pasinta tempa formo."
 tipo: completar
 enunciado: "Ili ne sciis _ kiam ili devis alveni."
-respuesta: "kiam"
 respuestas_validas:
   - "kiam"
   - "Kiam"
@@ -150,7 +143,6 @@ pasos:
 explicacion: "La konjunkcio 'ĉar' estas uzata por indiki kaŭzon en kondiĉa fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la konsekvenca parto de la fraso."
 tipo: completar
 enunciado: "Ili ne povis alveni _ ili estis malsanaj."
-respuesta: "ĉar"
 respuestas_validas:
   - "ĉar"
   - "Ĉar"
@@ -170,7 +162,6 @@ pasos:
 explicacion: "La negacio 'ne' estas uzata por indiki malsimilan en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la prava formo."
 tipo: completar
 enunciado: "Ili _ povis alveni pro la malbona vetero."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
@@ -190,7 +181,6 @@ pasos:
 explicacion: "La vorto 'kiam' estas uzata por indiki tempo en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la pasinta tempa formo."
 tipo: completar
 enunciado: "Ni ne sciis _ kiam ni devis alveni."
-respuesta: "kiam"
 respuestas_validas:
   - "kiam"
   - "Kiam"
@@ -210,7 +200,6 @@ pasos:
 explicacion: "La konjunkcio 'ĉar' estas uzata por indiki kaŭzon en kondiĉa fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la konsekvenca parto de la fraso."
 tipo: completar
 enunciado: "Ni ne povis alveni _ ni estis malsanaj."
-respuesta: "ĉar"
 respuestas_validas:
   - "ĉar"
   - "Ĉar"
@@ -230,7 +219,6 @@ pasos:
 explicacion: "La negacio 'ne' estas uzata por indiki malsimilan en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la prava formo."
 tipo: completar
 enunciado: "Ni _ povis alveni pro la malbona vetero."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
@@ -250,7 +238,6 @@ pasos:
 explicacion: "La vorto 'kiam' estas uzata por indiki tempo en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la pasinta tempa formo."
 tipo: completar
 enunciado: "Vi ne sciis _ kiam vi devis alveni."
-respuesta: "kiam"
 respuestas_validas:
   - "kiam"
   - "Kiam"
@@ -270,7 +257,6 @@ pasos:
 explicacion: "La konjunkcio 'ĉar' estas uzata por indiki kaŭzon en kondiĉa fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la konsekvenca parto de la fraso."
 tipo: completar
 enunciado: "Vi ne povis alveni _ vi estis malsana."
-respuesta: "ĉar"
 respuestas_validas:
   - "ĉar"
   - "Ĉar"
@@ -290,7 +276,6 @@ pasos:
 explicacion: "La negacio 'ne' estas uzata por indiki malsimilan en fraso. En tiu kazo, ĝi devas esti akordigita kun la verbo en la prava formo."
 tipo: completar
 enunciado: "Vi _ povis alveni pro la malbona vetero."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"

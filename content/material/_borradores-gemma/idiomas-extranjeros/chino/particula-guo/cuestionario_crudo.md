@@ -331,7 +331,6 @@ metadata:
 pasos:  
   - "Identificar el verbo que completa la acción con 'guo'."  
   - "Verificar que el sujeto y objeto son compatibles con el uso de 'guo'."  
-respuesta: "去过"  
 respuestas_validas:  
   - "去过"  
   - "去过" (sin cambios ortográficos)  
@@ -390,7 +389,6 @@ metadata:
 pasos:  
   - "Completar el hueco con la forma correcta de 'guo' para una pregunta."  
   - "Asegurar que la respuesta sea un verbo + 'guo' en forma interrogativa."  
-respuesta: "去过"  
 respuestas_validas:  
   - "去过"  
   - "去过" (sin cambios ortográficos)  
@@ -468,7 +466,6 @@ metadata:
 pasos:  
   - "Completar la oración con el verbo adecuado seguido de 'guo'."  
   - "Verificar que el sujeto y objeto concuerden en contexto."  
-respuesta: "去过"  
 respuestas_validas:  
   - "去过"  
   - "去过" (sin cambios ortográficos)  

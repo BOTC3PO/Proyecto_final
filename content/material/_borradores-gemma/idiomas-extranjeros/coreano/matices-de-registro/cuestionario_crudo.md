@@ -48,7 +48,6 @@ metadata:
 pasos:
   - "Identificar la diferencia entre formas respetuosas y no respetuosas."
   - "Completar el hueco con la forma correcta para un tono formal."
-respuesta: "말씀하시면"
 tipo: completar
 respuestas_validas:
   - "말씀하시면"
@@ -86,7 +85,6 @@ metadata:
 pasos:
   - "Identificar la forma respetuosa de '받다'."
   - "Completar el hueco con la opción correcta."
-respuesta: "받아주셨습니다"
 tipo: completar
 respuestas_validas:
   - "받아주셨습니다"
@@ -124,7 +122,6 @@ metadata:
 pasos:
   - "Identificar la forma respetuosa de '말하다'."
   - "Completar el hueco con la opción correcta."
-respuesta: "말씀하시면"
 tipo: completar
 respuestas_validas:
   - "말씀하시면"
@@ -202,7 +199,6 @@ metadata:
 pasos:
   - "Identificar la diferencia entre formas respetuosas y no respetuosas."
   - "Completar el hueco con la forma correcta para un tono formal."
-respuesta: "말씀하시면"
 tipo: completar
 respuestas_validas:
   - "말씀하시면"
@@ -240,7 +236,6 @@ metadata:
 pasos:
   - "Identificar la forma respetuosa de '받다'."
   - "Completar el hueco con la opción correcta."
-respuesta: "받아주셨습니다"
 tipo: completar
 respuestas_validas:
   - "받아주셨습니다"
@@ -278,7 +273,6 @@ metadata:
 pasos:
   - "Identificar la forma respetuosa de '말하다'."
   - "Completar el hueco con la opción correcta."
-respuesta: "말씀하시면"
 tipo: completar
 respuestas_validas:
   - "말씀하시면"
@@ -356,7 +350,6 @@ metadata:
 pasos:
   - "Identificar la diferencia entre formas respetuosas y no respetuosas."
   - "Completar el hueco con la forma correcta para un tono formal."
-respuesta: "말씀하시면"
 tipo: completar
 respuestas_validas:
   - "말씀하시면"
@@ -394,7 +387,6 @@ metadata:
 pasos:
   - "Identificar la forma respetuosa de '받다'."
   - "Completar el hueco con la opción correcta."
-respuesta: "받아주셨습니다"
 tipo: completar
 respuestas_validas:
   - "받아주셨습니다"
@@ -432,7 +424,6 @@ metadata:
 pasos:
   - "Identificar la forma respetuosa de '말하다'."
   - "Completar el hueco con la opción correcta."
-respuesta: "말씀하시면"
 tipo: completar
 respuestas_validas:
   - "말씀하시면"

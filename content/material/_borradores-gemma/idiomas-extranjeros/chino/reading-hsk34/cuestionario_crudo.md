@@ -34,7 +34,6 @@ metadata:
 pasos:
   - "Reconoce el verbo en la oración."
   - "Coloca el tiempo '昨天' antes del verbo."
-respuesta: "昨天"
 respuestas_validas:
   - "昨天"
   - "昨天"
@@ -78,7 +77,6 @@ metadata:
 pasos:
   - "Reconoce la forma afirmativa del verbo."
   - "Agrega el elemento de negación antes del verbo."
-respuesta: "不"
 respuestas_validas:
   - "不"
   - "不"
@@ -122,7 +120,6 @@ metadata:
 pasos:
   - "Identifica la palabra interrogativa."
   - "Coloca '什么' después del verbo y antes del objeto."
-respuesta: "什么"
 respuestas_validas:
   - "什么"
   - "什么"
@@ -166,7 +163,6 @@ metadata:
 pasos:
   - "Identifica la relación entre las dos oraciones."
   - "Elige el conectivo que indica causa o razón."
-respuesta: "因为"
 respuestas_validas:
   - "因为"
   - "因为"
@@ -210,7 +206,6 @@ metadata:
 pasos:
   - "Identifica el momento de la acción."
   - "Completa con la expresión que indica una fecha futura."
-respuesta: "下周"
 respuestas_validas:
   - "下周"
   - "下周"
@@ -254,7 +249,6 @@ metadata:
 pasos:
   - "Identifica el lugar mencionado."
   - "Completa con la preposición que indica ubicación sobre algo."
-respuesta: "在...上"
 respuestas_validas:
   - "在...上"
   - "在...上"
@@ -298,7 +292,6 @@ metadata:
 pasos:
   - "Identifica la relación entre las oraciones."
   - "Completa con el conectivo que indica consecuencia o resultado."
-respuesta: "所以"
 respuestas_validas:
   - "所以"
   - "所以"
@@ -342,7 +335,6 @@ metadata:
 pasos:
   - "Reconoce la forma afirmativa del verbo."
   - "Agrega el elemento de negación antes del verbo."
-respuesta: "没"
 respuestas_validas:
   - "没"
   - "没有"
@@ -386,7 +378,6 @@ metadata:
 pasos:
   - "Reconoce el verbo en la oración."
   - "Coloca el tiempo '明天' antes del verbo."
-respuesta: "明天"
 respuestas_validas:
   - "明天"
   - "明天"
@@ -430,7 +421,6 @@ metadata:
 pasos:
   - "Identifica la palabra interrogativa."
   - "Coloca '哪里' después del verbo y antes del objeto."
-respuesta: "哪里"
 respuestas_validas:
   - "哪里"
   - "哪里"
@@ -474,7 +464,6 @@ metadata:
 pasos:
   - "Identifica la relación entre las dos oraciones."
   - "Elige el conectivo que indica oposición o contraste."
-respuesta: "但是"
 respuestas_validas:
   - "但是"
   - "但是"
@@ -518,7 +507,6 @@ metadata:
 pasos:
   - "Identifica el momento de la acción."
   - "Completa con la expresión que indica un evento repetitivo."
-respuesta: "每天"
 respuestas_validas:
   - "每天"
   - "每天"

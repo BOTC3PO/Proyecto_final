@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identifica la preposición 'pendant que' y el contexto de acción simultánea."
   - "Reemplaza el hueco con 'en' seguido del participio presente del verbo."
-respuesta: "en parlant"
 tipo: completar
 respuestas_validas:
   - "en parlant"
@@ -28,7 +27,6 @@ metadata:
 pasos:
   - "Reconoce la preposición 'sans' que introduce una acción omitida."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en ouvrant"
 tipo: completar
 respuestas_validas:
   - "en ouvrant"
@@ -48,7 +46,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'alors que' que introduce una acción simultánea."
   - "Usa el gerundif para completar el hueco ('en' + participio presente)."
-respuesta: "en cuisinant"
 tipo: completar
 respuestas_validas:
   - "en cuisinant"
@@ -68,7 +65,6 @@ metadata:
 pasos:
   - "Reconoce la estructura 'il faut en faire' que exige el gerundif."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en rire"
 tipo: completar
 respuestas_validas:
   - "en rire"
@@ -88,7 +84,6 @@ metadata:
 pasos:
   - "Identifica la preposición 'à côté de' que introduce una acción omitida."
   - "Usa el gerundif para completar el hueco ('en' + participio presente)."
-respuesta: "en marchant"
 tipo: completar
 respuestas_validas:
   - "en marchant"
@@ -108,7 +103,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'depuis que' que introduce un tiempo pasado."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en travaillant"
 tipo: completar
 respuestas_validas:
   - "en travaillant"
@@ -128,7 +122,6 @@ metadata:
 pasos:
   - "Reconoce la preposición 'avant de' que introduce una acción previa."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en allant"
 tipo: completar
 respuestas_validas:
   - "en allant"
@@ -148,7 +141,6 @@ metadata:
 pasos:
   - "Identifica la preposición 'pendant' que introduce una duración."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en lisant"
 tipo: completar
 respuestas_validas:
   - "en lisant"
@@ -168,7 +160,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'dès que' que introduce una acción inmediata."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en courant"
 tipo: completar
 respuestas_validas:
   - "en courant"
@@ -188,7 +179,6 @@ metadata:
 pasos:
   - "Identifica la preposición 'sous' que introduce una acción omitida."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en criant"
 tipo: completar
 respuestas_validas:
   - "en criant"
@@ -208,7 +198,6 @@ metadata:
 pasos:
   - "Reconoce la preposición 'sans' que introduce una acción omitida."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en souriant"
 tipo: completar
 respuestas_validas:
   - "en souriant"
@@ -228,7 +217,6 @@ metadata:
 pasos:
   - "Reconoce la preposición 'au lieu de' que introduce una acción alternativa."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en regardant"
 tipo: completar
 respuestas_validas:
   - "en regardant"
@@ -248,7 +236,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'alors que' que introduce una acción simultánea."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en dormant"
 tipo: completar
 respuestas_validas:
   - "en dormant"
@@ -268,7 +255,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'pendant qu'' que introduce una duración."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en chantant"
 tipo: completar
 respuestas_validas:
   - "en chantant"
@@ -288,7 +274,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'au moment où' que introduce un tiempo específico."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en marchant"
 tipo: completar
 respuestas_validas:
   - "en marchant"
@@ -308,7 +293,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'alors que' que introduce una acción simultánea."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en parlant"
 tipo: completar
 respuestas_validas:
   - "en parlant"
@@ -328,7 +312,6 @@ metadata:
 pasos:
   - "Identifica la preposición 'pendant' que introduce una duración."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en lisant"
 tipo: completar
 respuestas_validas:
   - "en lisant"
@@ -348,7 +331,6 @@ metadata:
 pasos:
   - "Reconoce la preposición 'sans' que introduce una acción omitida."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en souriant"
 tipo: completar
 respuestas_validas:
   - "en souriant"
@@ -368,7 +350,6 @@ metadata:
 pasos:
   - "Reconoce la preposición 'au lieu de' que introduce una acción alternativa."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en regardant"
 tipo: completar
 respuestas_validas:
   - "en regardant"
@@ -388,7 +369,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'pendant qu'' que introduce una duración."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en chantant"
 tipo: completar
 respuestas_validas:
   - "en chantant"
@@ -408,7 +388,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'alors que' que introduce una acción simultánea."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en parlant"
 tipo: completar
 respuestas_validas:
   - "en parlant"
@@ -428,7 +407,6 @@ metadata:
 pasos:
   - "Identifica la preposición 'pendant' que introduce una duración."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en lisant"
 tipo: completar
 respuestas_validas:
   - "en lisant"
@@ -448,7 +426,6 @@ metadata:
 pasos:
   - "Reconoce la preposición 'sans' que introduce una acción omitida."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en souriant"
 tipo: completar
 respuestas_validas:
   - "en souriant"
@@ -468,7 +445,6 @@ metadata:
 pasos:
   - "Reconoce la preposición 'au lieu de' que introduce una acción alternativa."
   - "Completa el hueco con 'en' + participio presente del verbo."
-respuesta: "en regardant"
 tipo: completar
 respuestas_validas:
   - "en regardant"
@@ -488,7 +464,6 @@ metadata:
 pasos:
   - "Reconoce la conjunción 'pendant qu'' que introduce una duración."
   - "Completa el hueco con el gerundif ('en' + participio presente)."
-respuesta: "en chantant"
 tipo: completar
 respuestas_validas:
   - "en chantant"

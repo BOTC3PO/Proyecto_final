@@ -268,7 +268,6 @@ metadata:
 pasos:
   - "Identificar el tipo de oración y el uso del pronombre relativo."
   - "Reemplazar el espacio con la forma correcta del pronombre relativo."
-respuesta: "che"
 respuestas_validas:
   - "che"
   - "Che"
@@ -471,7 +470,6 @@ metadata:
 pasos:
   - "Identificar el uso del modo condicional en una oración hipotética."
   - "Completar el hueco con la forma correcta del verbo en condicional."
-respuesta: "avrei"
 respuestas_validas:
   - "avrei"
   - "Avrei"

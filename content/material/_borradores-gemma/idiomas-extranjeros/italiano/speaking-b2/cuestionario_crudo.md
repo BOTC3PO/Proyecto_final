@@ -10,11 +10,9 @@ pasos:
 explicacion: "La preposición 'a' se usa con 'andare' cuando indica movimiento hacia un lugar. En este caso, 'al mare' es una contracción de 'a + il', que significa 'hacia el mar'."  
 tipo: completar  
 enunciado: "Voglio andare ___ mare."  
-respuesta: "al"  
 respuestas_validas:  
   - "al"  
   - "Al"  
-variables: []  
 ```
 
 
@@ -31,11 +29,9 @@ pasos:
 explicacion: "El verbo 'dovere' en el futuro simple se conjuga como 'doverò', y se usa para expresar obligación futura. La oración indica que mañana serás obligado a estudiar."  
 tipo: completar  
 enunciado: "Domani ___ studiare per l'esame."  
-respuesta: "doverai"  
 respuestas_validas:  
   - "doverai"  
   - "Doverai"  
-variables: []  
 ```
 
 
@@ -52,11 +48,9 @@ pasos:
 explicacion: "El gerundio se usa después de conjunciones como 'mentre' para indicar una acción simultánea. Aquí, 'mangiando' describe la acción de comer mientras se estudia."  
 tipo: completar  
 enunciado: "Mentre ___ studio, lui mangia."  
-respuesta: "mangio"  
 respuestas_validas:  
   - "mangio"  
   - "Mangio"  
-variables: []  
 ```
 
 
@@ -77,7 +71,6 @@ opciones_explicitas:
   - "Se avrò tempo, andrò al cinema."  
   - "Se avrai tempo, andrai al cinema."  
 respuesta: "Se avessi tempo, andrei al cinema."  
-variables: []  
 ```
 
 
@@ -94,11 +87,9 @@ pasos:
 explicacion: "La preposición 'per' se usa con el infinitivo para indicar propósito. En este caso, 'parlare' es la acción que se hará por el motivo mencionado."  
 tipo: completar  
 enunciado: "Voglio ___ parlare."  
-respuesta: "per"  
 respuestas_validas:  
   - "per"  
   - "Per"  
-variables: []  
 ```
 
 
@@ -119,7 +110,6 @@ opciones_explicitas:
   - "Hai dovuto studiare."  
   - "Abbiamo dovuti studiare."  
 respuesta: "Ho dovuto studiare."  
-variables: []  
 ```
 
 
@@ -136,11 +126,9 @@ pasos:
 explicacion: "El participio presente de los verbos en -iare se forma añadiendo '-nte' a la raíz. En este caso, 'mangiate' es la tercera persona del plural del presente de indicativo."  
 tipo: completar  
 enunciado: "Mentre ___ il cibo, lui legge un libro."  
-respuesta: "mangiate"  
 respuestas_validas:  
   - "mangiate"  
   - "Mangiate"  
-variables: []  
 ```
 
 
@@ -157,11 +145,9 @@ pasos:
 explicacion: "La preposición 'di' se usa con 'parlare' cuando se menciona el tema de conversación. En este caso, 'di politica' indica que se habla sobre política."  
 tipo: completar  
 enunciado: "Non voglio parlare ___ politica."  
-respuesta: "di"  
 respuestas_validas:  
   - "di"  
   - "Di"  
-variables: []  
 ```
 
 
@@ -182,7 +168,6 @@ opciones_explicitas:
   - "Che viene con me."  
   - "Che è venuto con me."  
 respuesta: "Che venga con me."  
-variables: []  
 ```
 
 
@@ -199,11 +184,9 @@ pasos:
 explicacion: "El gerundio se usa después de conjunciones como 'mentre' para indicar una acción simultánea. Aquí, 'ascoltando' describe la acción de escuchar mientras se estudia."  
 tipo: completar  
 enunciado: "Mentre ___ studio, lui ascolta musica."  
-respuesta: "mangio"  
 respuestas_validas:  
   - "mangio"  
   - "Mangio"  
-variables: []  
 ```
 
 
@@ -220,11 +203,9 @@ pasos:
 explicacion: "El futuro perfecto se construye con el auxiliar 'avere' + participio del verbo. En este caso, 'avrò dovuto' indica una obligación cumplida en el futuro."  
 tipo: completar  
 enunciado: "Domani a questa ora ___ studiato."  
-respuesta: "avrò dovuto"  
 respuestas_validas:  
   - "avrò dovuto"  
   - "Avrò dovuto"  
-variables: []  
 ```
 
 
@@ -241,11 +222,9 @@ pasos:
 explicacion: "La preposición 'a' se usa con 'andare' cuando indica movimiento hacia un lugar. En este caso, 'alla stazione' es una contracción de 'a + la', que significa 'hacia la estación'."  
 tipo: completar  
 enunciado: "Voglio andare ___ stazione."  
-respuesta: "alla"  
 respuestas_validas:  
   - "alla"  
   - "Alla"  
-variables: []  
 ```
 
 
@@ -266,7 +245,6 @@ opciones_explicitas:
   - "Non credo che viene con me."  
   - "Non credo che è venuto con me."  
 respuesta: "Non credo che venga con me."  
-variables: []  
 ```
 
 
@@ -283,11 +261,9 @@ pasos:
 explicacion: "El participio presente de los verbos en -are se forma añadiendo '-nte' a la raíz. En este caso, 'parlate' es la tercera persona del plural del presente de indicativo."  
 tipo: completar  
 enunciado: "Mentre ___ il telefono, lui legge un libro."  
-respuesta: "parlo"  
 respuestas_validas:  
   - "parlo"  
   - "Parlo"  
-variables: []  
 ```
 
 
@@ -304,11 +280,9 @@ pasos:
 explicacion: "La preposición 'per' se usa con el infinitivo para indicar propósito, incluso en oraciones negativas. Aquí, 'parlare' es la acción que se evita por el motivo mencionado."  
 tipo: completar  
 enunciado: "Non voglio ___ parlare."  
-respuesta: "per"  
 respuestas_validas:  
   - "per"  
   - "Per"  
-variables: []  
 ```
 
 
@@ -329,7 +303,6 @@ opciones_explicitas:
   - "Dovrebbe studiare."  
   - "Debbano studiare."  
 respuesta: "Debbano studiare."  
-variables: []  
 ```
 
 
@@ -367,11 +340,9 @@ pasos:
 explicacion: "El participio presente de los verbos en -ere se forma añadiendo '-nte' a la raíz. En este caso, 'credete' es la tercera persona del plural del presente de indicativo."  
 tipo: completar  
 enunciado: "Mentre ___ in ufficio, lui lavora."  
-respuesta: "credete"  
 respuestas_validas:  
   - "credete"  
   - "Credete"  
-variables: []  
 ```
 
 
@@ -413,7 +384,6 @@ opciones_explicitas:
   - "È necessario che viene con me."  
   - "È necessario che è venuto con me."  
 respuesta: "È necessario che venga con me."  
-variables: []  
 ```
 
 
@@ -453,7 +423,6 @@ opciones_explicitas:
   - "Se avrai dovuto studiare, lo avresti fatto."  
   - "Se avrò dovuto studiare, lo farò."  
 respuesta: "Se avessi dovuto studiare, lo avrei fatto."  
-variables: []  
 ```
 
 
@@ -470,11 +439,9 @@ pasos:
 explicacion: "El participio presente de los verbos en -ire se forma añadiendo '-nte' a la raíz. En este caso, 'dormite' es la tercera persona del plural del presente de indicativo."  
 tipo: completar  
 enunciado: "Mentre ___ il letto, lui legge un libro."  
-respuesta: "dormite"  
 respuestas_validas:  
   - "dormite"  
   - "Dormite"  
-variables: []  
 ```
 
 
@@ -491,11 +458,9 @@ pasos:
 explicacion: "La preposición 'a' se usa con 'andare' cuando indica movimiento hacia un lugar, incluso en oraciones negativas. En este caso, 'alla stazione' es una contracción de 'a + la', que significa 'hacia la estación'."  
 tipo: completar  
 enunciado: "Non voglio andare ___ stazione."  
-respuesta: "alla"  
 respuestas_validas:  
   - "alla"  
   - "Alla"  
-variables: []  
 ```
 
 
@@ -516,5 +481,4 @@ opciones_explicitas:
   - "È meglio che viene con me."  
   - "È meglio che è venuto con me."  
 respuesta: "È meglio che venga con me."  
-variables: []  
 ```

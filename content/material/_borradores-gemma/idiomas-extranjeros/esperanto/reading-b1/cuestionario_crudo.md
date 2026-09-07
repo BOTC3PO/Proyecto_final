@@ -9,13 +9,10 @@ pasos:
   - "Legu la frazojn kaj komprenu la senco."
 explicacion: "La prepozicio 'en' estas uzata por indiki lokon en urbo aŭ lando."
 tipo: completar
-respuesta: "en"
 respuestas_validas:
   - "En"
   - "en"
 enunciado: "Li vivas ___ Parizo."
-variables:
-  - "Parizo"
 ```
 
 
@@ -51,13 +48,10 @@ pasos:
   - "Legu la frazon kaj elektu la ĝustan formon de verbo."
 explicacion: "La pasiva vojo 'estis legita' estas uzata por montri, ke iu alia faris la ago."
 tipo: completar
-respuesta: "estis legita"
 respuestas_validas:
   - "Estis legita"
   - "estis legita"
 enunciado: "La libro ___ de la infano."
-variables:
-  - "la infano"
 ```
 
 
@@ -93,13 +87,10 @@ pasos:
   - "Legu la frazon kaj elektu la ĝustan subjunkcion."
 explicacion: "La subjunkcio 'ke' estas uzata por unigi du frazojn en konsekvenca rilato."
 tipo: completar
-respuesta: "ke"
 respuestas_validas:
   - "Ke"
   - "ke"
 enunciado: "Mi scias ___ li venos morgaŭ."
-variables:
-  - "li venos morgaŭ"
 ```
 
 
@@ -135,13 +126,10 @@ pasos:
   - "Legu la frazon kaj elektu la ĝustan formon de adjektivo."
 explicacion: "La adjektivo 'granda' konordas kun la substantivo 'domo' en nuna tempo."
 tipo: completar
-respuesta: "granda"
 respuestas_validas:
   - "Granda"
   - "grand"
 enunciado: "La domo estas ___."
-variables:
-  - "la domo"
 ```
 
 
@@ -178,7 +166,6 @@ pasos:
   - "Seleccionar la forma correcta del verbo 'iri' en futuro."
 explicacion: "El verbo 'iri' en futuro se conjuga con sufijo '-os', por lo tanto 'iros' es la forma correcta."
 tipo: completar
-respuesta: "iros"
 respuestas_validas:
   - "iros"
   - "Iros"
@@ -217,13 +204,10 @@ pasos:
   - "Legu la frazon kaj elektu la ĝustan formon de verbo."
 explicacion: "La formo 'rigardis' estas uzata en pasto, kio konvenas al la senco de la frazo."
 tipo: completar
-respuesta: "rigardis"
 respuestas_validas:
   - "Rigardis"
   - "rigardis"
 enunciado: "La infano ___ al ĉielo."
-variables:
-  - "al ĉielo"
 ```
 
 
@@ -302,7 +286,6 @@ pasos:
   - "Elegir el adjetivo que concuerde en género y número."
 explicacion: "'Domo' es masculino singular, por lo tanto el adjetivo debe ser masculino singular ('granda')."
 tipo: completar
-respuesta: "granda"
 respuestas_validas:
   - "granda"
   - "Granda"
@@ -384,7 +367,6 @@ pasos:
   - "Verificar si el sujeto es una persona o lugar."
 explicacion: "'De' se usa para indicar proveniencia, por ejemplo 'de la instruisto' (del profesor)."
 tipo: completar
-respuesta: "la instruisto"
 respuestas_validas:
   - "la instruisto"
   - "La instruisto"
@@ -424,7 +406,6 @@ pasos:
   - "Seleccionar la forma correcta del verbo 'esti' en pasado."
 explicacion: "'Esti' en pretérito perfecto simple es 'estis', no cambia según sujeto."
 tipo: completar
-respuesta: "estis"
 respuestas_validas:
   - "estis"
   - "Estis"
@@ -464,7 +445,6 @@ pasos:
   - "Asegurar que concuerde con el sujeto del relativo ('domo')."
 explicacion: "'Kiu' se usa para sustantivos masculinos o neutros, y el verbo debe ser en tercera persona singular ('konstruas')."
 tipo: completar
-respuesta: "konstruas"
 respuestas_validas:
   - "konstruas"
   - "Konstruas"
@@ -504,7 +484,6 @@ pasos:
   - "Verificar si el complemento es un sustantivo o pronombre."
 explicacion: "'Kun' se usa para expresar compañía, seguido de un sustantivo en caso acusativo ('sia frato')."
 tipo: completar
-respuesta: "kun"
 respuestas_validas:
   - "kun"
   - "Kun"

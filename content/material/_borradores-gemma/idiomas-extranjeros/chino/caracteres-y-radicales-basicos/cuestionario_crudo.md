@@ -7,13 +7,11 @@ metadata:
   tags: ["numeral", "radical"]  
 pasos:  
   - "Escribir el número de trazos del carácter ‘日’."  
-respuesta: "4"  
 respuestas_validas:  
   - "4"  
   - "四"  
 tipo: completar  
 enunciado: "请写出‘日’字的笔画数。"  
-variables: []  
 explicacion: "El carácter ‘日’ se compone de 4 trazos, que corresponden a la forma básica del sol en el kanji."  
 ```
 
@@ -36,7 +34,6 @@ opciones_explicitas:
 respuesta: "日"  
 tipo: mc  
 enunciado: "‘明’字的部首是哪一个？"  
-variables: []  
 explicacion: "El radical ‘日’ representa el sol y está presente en el carácter ‘明’, que significa 'claro'."  
 ```
 
@@ -51,13 +48,11 @@ metadata:
   tags: ["trazo", "secuencia"]  
 pasos:  
   - "Escribir el orden de los trazos del carácter ‘山’."  
-respuesta: "一、丨、丶"  
 respuestas_validas:  
   - "一、丨、丶"  
   - "1, 2, 3"  
 tipo: completar  
 enunciado: "请写出‘山’字的笔画顺序。"  
-variables: []  
 explicacion: "El carácter ‘山’ se escribe primero con un trazo horizontal (一), luego vertical (丨) y finalmente una diagonal hacia abajo (丶)."  
 ```
 
@@ -80,7 +75,6 @@ opciones_explicitas:
 respuesta: "氵"  
 tipo: mc  
 enunciado: "‘河’字的偏旁是哪一个？"  
-variables: []  
 explicacion: "El radical ‘氵’ (agua) es fundamental en caracteres relacionados con ríos o líquidos, como ‘河’."  
 ```
 
@@ -95,13 +89,11 @@ metadata:
   tags: ["componente", "estructura"]  
 pasos:  
   - "Contar el número de componentes en ‘好’."  
-respuesta: "2"  
 respuestas_validas:  
   - "2"  
   - "二"  
 tipo: completar  
 enunciado: "请写出‘好’字的组成部分数量。"  
-variables: []  
 explicacion: "El carácter ‘好’ está compuesto por dos partes: ‘女’ (mujer) y ‘子’ (hijo), formando la palabra 'bueno'."  
 ```
 
@@ -124,7 +116,6 @@ opciones_explicitas:
 respuesta: "木"  
 tipo: mc  
 enunciado: "‘尖’字的顶部部首是哪一个？"  
-variables: []  
 explicacion: "El radical ‘木’ (árbol) está en la parte superior de ‘尖’, que significa 'agudo' o 'punta'."  
 ```
 
@@ -139,13 +130,11 @@ metadata:
   tags: ["trazo", "secuencia"]  
 pasos:  
   - "Escribir el orden de los trazos del carácter ‘水’."  
-respuesta: "一、丨、丶、㇏"  
 respuestas_validas:  
   - "一、丨、丶、㇏"  
   - "1, 2, 3, 4"  
 tipo: completar  
 enunciado: "请写出‘水’字的笔画顺序。"  
-variables: []  
 explicacion: "El carácter ‘水’ se escribe con trazos horizontales, verticales y diagonales, siguiendo el orden específico de los trazos."  
 ```
 
@@ -168,7 +157,6 @@ opciones_explicitas:
 respuesta: "火"  
 tipo: mc  
 enunciado: "‘热’字的偏旁是哪一个？"  
-variables: []  
 explicacion: "El radical ‘火’ (fuego) es clave en caracteres relacionados con calor, como ‘热’."  
 ```
 
@@ -183,13 +171,11 @@ metadata:
   tags: ["numeral", "radical"]  
 pasos:  
   - "Escribir el número de trazos del carácter ‘月’."  
-respuesta: "4"  
 respuestas_validas:  
   - "4"  
   - "四"  
 tipo: completar  
 enunciado: "请写出‘月’字的笔画数。"  
-variables: []  
 explicacion: "El carácter ‘月’ se compone de 4 trazos, representando la luna en el kanji."  
 ```
 
@@ -212,7 +198,6 @@ opciones_explicitas:
 respuesta: "日"  
 tipo: mc  
 enunciado: "‘明’字缺少哪个部分？"  
-variables: []  
 explicacion: "El carácter ‘明’ está formado por ‘日’ (sol) y ‘月’ (luna), combinados para expresar 'claro'."  
 ```
 
@@ -235,7 +220,6 @@ opciones_explicitas:
 respuesta: "小"  
 tipo: mc  
 enunciado: "‘尖’字的底部部首是哪一个？"  
-variables: []  
 explicacion: "El radical ‘小’ (pequeño) está en la parte inferior de ‘尖’, que significa 'agudo' o 'punta'."  
 ```
 
@@ -250,13 +234,11 @@ metadata:
   tags: ["trazo", "secuencia"]  
 pasos:  
   - "Escribir el orden de los trazos del carácter ‘火’."  
-respuesta: "丶、一、㇏、𠃌"  
 respuestas_validas:  
   - "丶、一、㇏、𠃌"  
   - "1, 2, 3, 4"  
 tipo: completar  
 enunciado: "请写出‘火’字的笔画顺序。"  
-variables: []  
 explicacion: "El carácter ‘火’ se escribe con trazos diagonales y horizontales en un orden específico."  
 ```
 
@@ -279,7 +261,6 @@ opciones_explicitas:
 respuesta: "心"  
 tipo: mc  
 enunciado: "‘思’字的偏旁是哪一个？"  
-variables: []  
 explicacion: "El radical ‘心’ (corazón) es fundamental en caracteres relacionados con pensamientos, como ‘思’."  
 ```
 
@@ -294,13 +275,11 @@ metadata:
   tags: ["componente", "estructura"]  
 pasos:  
   - "Contar el número de componentes en ‘休’."  
-respuesta: "2"  
 respuestas_validas:  
   - "2"  
   - "二"  
 tipo: completar  
 enunciado: "请写出‘休’字的组成部分数量。"  
-variables: []  
 explicacion: "El carácter ‘休’ está compuesto por dos partes: ‘人’ (persona) y ‘木’ (árbol), formando la palabra 'descanso'."  
 ```
 
@@ -323,7 +302,6 @@ opciones_explicitas:
 respuesta: "人"  
 tipo: mc  
 enunciado: "‘休’字的左侧部首是哪一个？"  
-variables: []  
 explicacion: "El radical ‘人’ (persona) está en la parte izquierda de ‘休’, que significa 'descansar'."  
 ```
 
@@ -338,13 +316,11 @@ metadata:
   tags: ["trazo", "secuencia"]  
 pasos:  
   - "Escribir el orden de los trazos del carácter ‘心’."  
-respuesta: "丶、一、㇏、𠃌"  
 respuestas_validas:  
   - "丶、一、㇏、𠃌"  
   - "1, 2, 3, 4"  
 tipo: completar  
 enunciado: "请写出‘心’字的笔画顺序。"  
-variables: []  
 explicacion: "El carácter ‘心’ se escribe con trazos diagonales y horizontales en un orden específico."  
 ```
 
@@ -367,7 +343,6 @@ opciones_explicitas:
 respuesta: "木"  
 tipo: mc  
 enunciado: "‘林’字的偏旁是哪一个？"  
-variables: []  
 explicacion: "El radical ‘木’ (árbol) es clave en caracteres relacionados con bosques, como ‘林’."  
 ```
 
@@ -382,13 +357,11 @@ metadata:
   tags: ["numeral", "radical"]  
 pasos:  
   - "Escribir el número de trazos del carácter ‘心’."  
-respuesta: "4"  
 respuestas_validas:  
   - "4"  
   - "四"  
 tipo: completar  
 enunciado: "请写出‘心’字的笔画数。"  
-variables: []  
 explicacion: "El carácter ‘心’ se compone de 4 trazos, representando el corazón en el kanji."  
 ```
 
@@ -411,7 +384,6 @@ opciones_explicitas:
 respuesta: "木"  
 tipo: mc  
 enunciado: "‘休’字缺少哪个部分？"  
-variables: []  
 explicacion: "El carácter ‘休’ está formado por ‘人’ (persona) y ‘木’ (árbol), combinados para expresar 'descanso'."  
 ```
 
@@ -434,7 +406,6 @@ opciones_explicitas:
 respuesta: "灬"  
 tipo: mc  
 enunciado: "‘火’字的顶部部首是哪一个？"  
-variables: []  
 explicacion: "El radical ‘灬’ (fuego) está en la parte superior de ‘火’, que representa el fuego."  
 ```
 
@@ -449,13 +420,11 @@ metadata:
   tags: ["trazo", "secuencia"]  
 pasos:  
   - "Escribir el orden de los trazos del carácter ‘林’."  
-respuesta: "木、木"  
 respuestas_validas:  
   - "木、木"  
   - "1, 2"  
 tipo: completar  
 enunciado: "请写出‘林’字的笔画顺序。"  
-variables: []  
 explicacion: "El carácter ‘林’ se escribe duplicando el radical ‘木’ (árbol) para formar un bosque."  
 ```
 
@@ -512,7 +481,6 @@ opciones_explicitas:
 respuesta: "忄"  
 tipo: mc  
 enunciado: "‘心’字的左侧部首是哪一个？"  
-variables: []  
 explicacion: "El radical ‘忄’ (corazón) está en la parte izquierda de ‘心’, que representa el corazón."  
 ```
 
@@ -527,12 +495,10 @@ metadata:
   tags: ["trazo", "secuencia"]  
 pasos:  
   - "Escribir el orden de los trazos del carácter ‘木’."  
-respuesta: "一、丨、丶、㇏"  
 respuestas_validas:  
   - "一、丨、丶、㇏"  
   - "1, 2, 3, 4"  
 tipo: completar  
 enunciado: "请写出‘木’字的笔画顺序。"  
-variables: []  
 explicacion: "El carácter ‘木’ se escribe con trazos horizontales, verticales y diagonales en un orden específico."  
 ```

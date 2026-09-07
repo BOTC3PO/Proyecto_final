@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identifica el sujeto de la oración."
   - "Aplica la forma correcta del verbo 'essere' en presente."
-respuesta: "è"
 tipo: completar
 respuestas_validas:
   - "è"
@@ -26,7 +25,6 @@ metadata:
 pasos:
   - "Determina el género del sustantivo 'libro'."
   - "Elige el artículo definido correspondiente."
-respuesta: "il"
 tipo: completar
 respuestas_validas:
   - "il"
@@ -62,7 +60,6 @@ metadata:
 pasos:
   - "Identifica el género del sustantivo 'casa'."
   - "Aplica la concordancia de género al adjetivo."
-respuesta: "bella"
 tipo: completar
 respuestas_validas:
   - "bella"
@@ -80,7 +77,6 @@ metadata:
 pasos:
   - "Inserta 'non' en la posición correcta."
   - "Verifica que el verbo siga la regla de negación."
-respuesta: "non"
 tipo: completar
 respuestas_validas:
   - "non"
@@ -98,7 +94,6 @@ metadata:
 pasos:
   - "Identifica el tipo de pregunta (lugar)."
   - "Usa la estructura correcta con 'dove'."
-respuesta: "Dove"
 tipo: completar
 respuestas_validas:
   - "Dove"
@@ -116,7 +111,6 @@ metadata:
 pasos:
   - "Reconoce el uso del verbo 'potere' en presente."
   - "Aplica la conjugación correcta al sujeto."
-respuesta: "posso"
 tipo: completar
 respuestas_validas:
   - "posso"
@@ -134,7 +128,6 @@ metadata:
 pasos:
   - "Transforma el sustantivo singular en plural."
   - "Verifica la concordancia con el artículo definido."
-respuesta: "le"
 tipo: completar
 respuestas_validas:
   - "le"
@@ -170,7 +163,6 @@ metadata:
 pasos:
   - "Reconoce el uso del pronombre reflexivo."
   - "Aplica la forma correcta en presente."
-respuesta: "mi lavo"
 tipo: completar
 respuestas_validas:
   - "mi lavo"
@@ -188,7 +180,6 @@ metadata:
 pasos:
   - "Reconoce el uso de 'ieri' en oraciones pasadas."
   - "Elige la opción correcta para completar la oración."
-respuesta: "ieri"
 tipo: completar
 respuestas_validas:
   - "ieri"
@@ -206,7 +197,6 @@ metadata:
 pasos:
   - "Identifica el posesivo que corresponde al sujeto 'io'."
   - "Aplica la forma correcta en singular."
-respuesta: "mio"
 tipo: completar
 respuestas_validas:
   - "mio"
@@ -242,7 +232,6 @@ metadata:
 pasos:
   - "Identifica el uso del pronombre 'ci' en oraciones de lugar."
   - "Elige la opción correcta."
-respuesta: "ci"
 tipo: completar
 respuestas_validas:
   - "ci"
@@ -260,7 +249,6 @@ metadata:
 pasos:
   - "Reconoce el uso del adverbio para modificar un verbo."
   - "Elige la opción correcta."
-respuesta: "bene"
 tipo: completar
 respuestas_validas:
   - "bene"
@@ -278,7 +266,6 @@ metadata:
 pasos:
   - "Transforma el verbo en imperativo para 'tu'."
   - "Verifica la forma correcta."
-respuesta: "Parla"
 tipo: completar
 respuestas_validas:
   - "Parla"
@@ -296,7 +283,6 @@ metadata:
 pasos:
   - "Identifica el pronombre que reemplaza a 'a me'."
   - "Aplica la forma correcta en presente."
-respuesta: "mi"
 tipo: completar
 respuestas_validas:
   - "mi"
@@ -314,7 +300,6 @@ metadata:
 pasos:
   - "Reconoce el demostrativo que se usa para objetos cercanos."
   - "Elige la opción correcta."
-respuesta: "questo"
 tipo: completar
 respuestas_validas:
   - "questo"
@@ -332,7 +317,6 @@ metadata:
 pasos:
   - "Identifica el tipo de pregunta (objeto)."
   - "Usa la estructura correcta con 'quale'."
-respuesta: "Quale"
 tipo: completar
 respuestas_validas:
   - "Quale"
@@ -368,7 +352,6 @@ metadata:
 pasos:
   - "Identifica si el adjetivo va antes o después del sustantivo."
   - "Elige la opción correcta."
-respuesta: "vecchio"
 tipo: completar
 respuestas_validas:
   - "vecchio"
@@ -386,7 +369,6 @@ metadata:
 pasos:
   - "Reconoce el uso de 'che' para introducir una oración relativa."
   - "Elige la opción correcta."
-respuesta: "che"
 tipo: completar
 respuestas_validas:
   - "che"
@@ -404,7 +386,6 @@ metadata:
 pasos:
   - "Reconoce la forma correcta del passato prossimo."
   - "Aplica el auxiliar 'avere' al verbo."
-respuesta: "ho mangiato"
 tipo: completar
 respuestas_validas:
   - "ho mangiato"

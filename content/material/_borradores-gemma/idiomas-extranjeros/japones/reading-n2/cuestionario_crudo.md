@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar el orden lógico de las palabras en la oración."  
   - "Verificar que el sujeto y verbo coincidan con el contexto."  
-respuesta: "昨日、図書館で本を読みました。"  
 tipo: completar  
 respuestas_validas:  
   - "昨日、図書館で本を読みました。"  
@@ -25,7 +24,6 @@ metadata:
 pasos:  
   - "Analizar la relación entre las partes de la oración."  
   - "Seleccionar el verbo que completa la idea con coherencia."  
-respuesta: "彼はこの本をとても好きです。"  
 tipo: completar  
 respuestas_validas:  
   - "彼はこの本をとても好きです。"  
@@ -60,7 +58,6 @@ metadata:
 pasos:  
   - "Determinar la función del elemento que falta en la oración."  
   - "Seleccionar el marcador de caso adecuado para el verbo."  
-respuesta: "彼は学校に通っています。"  
 tipo: completar  
 respuestas_validas:  
   - "彼は学校に通っています。"  
@@ -77,7 +74,6 @@ metadata:
 pasos:  
   - "Identificar el momento en que ocurre la acción."  
   - "Elegir la forma verbal que corresponde al tiempo indicado."  
-respuesta: "彼らは先週、旅行に行きました。"  
 tipo: completar  
 respuestas_validas:  
   - "彼らは先週、旅行に行きました。"  
@@ -94,7 +90,6 @@ metadata:
 pasos:  
   - "Reconocer la presencia de una negación en el contexto."  
   - "Seleccionar la partícula que completa la estructura de negación."  
-respuesta: "彼はその本を読みませんでした。"  
 tipo: completar  
 respuestas_validas:  
   - "彼はその本を読みませんでした。"  
@@ -129,7 +124,6 @@ metadata:
 pasos:  
   - "Reconocer la necesidad de una conjugación en cadena."  
   - "Seleccionar el verbo que sigue a la estructura de ～て form."  
-respuesta: "彼は毎日、運動をしています。"  
 tipo: completar  
 respuestas_validas:  
   - "彼は毎日、運動をしています。"  
@@ -146,7 +140,6 @@ metadata:
 pasos:  
   - "Determinar el objeto que se menciona en el contexto."  
   - "Seleccionar la palabra que reemplaza al sustantivo anterior."  
-respuesta: "これは彼の本です。"  
 tipo: completar  
 respuestas_validas:  
   - "これは彼の本です。"  
@@ -181,7 +174,6 @@ metadata:
 pasos:  
   - "Reconocer el sujeto que realiza la acción en el contexto."  
   - "Seleccionar el pronombre o sustantivo que completa la oración."  
-respuesta: "彼はその映画を楽しみました。"  
 tipo: completar  
 respuestas_validas:  
   - "彼はその映画を楽しみました。"  
@@ -198,7 +190,6 @@ metadata:
 pasos:  
   - "Identificar el lugar mencionado en la oración."  
   - "Elegir el marcador de ubicación que completa el sentido."  
-respuesta: "彼はそのレストランで夕食を食べました。"  
 tipo: completar  
 respuestas_validas:  
   - "彼はそのレストランで夕食を食べました。"  
@@ -215,7 +206,6 @@ metadata:
 pasos:  
   - "Determinar el propósito de la acción mencionada."  
   - "Seleccionar el verbo que expresa el objetivo del sujeto."  
-respuesta: "彼はその本を読むために図書館に行きました。"  
 tipo: completar  
 respuestas_validas:  
   - "彼はその本を読むために図書館に行きました。"  
@@ -232,7 +222,6 @@ metadata:
 pasos:  
   - "Reconocer el momento pasado en que ocurrió la acción."  
   - "Elegir la forma verbal que indica un evento concluido."  
-respuesta: "彼らは去年、日本へ旅行しました。"  
 tipo: completar  
 respuestas_validas:  
   - "彼らは去年、日本へ旅行しました。"  
@@ -249,7 +238,6 @@ metadata:
 pasos:  
   - "Identificar la frecuencia con que se repite la acción."  
   - "Seleccionar el adverbio que expresa la regularidad del verbo."  
-respuesta: "彼は毎日、英語を学んでいます。"  
 tipo: completar  
 respuestas_validas:  
   - "彼は毎日、英語を学んでいます。"  
@@ -284,7 +272,6 @@ metadata:
 pasos:  
   - "Identificar la condición necesaria para que ocurra la acción."  
   - "Seleccionar el marcador que introduce una premisa lógica."  
-respuesta: "もし彼が来れば、会議を始めます。"  
 tipo: completar  
 respuestas_validas:  
   - "もし彼が来れば、会議を始めます。"  
@@ -319,7 +306,6 @@ metadata:
 pasos:  
   - "Identificar el objetivo de la acción mencionada."  
   - "Seleccionar el verbo que expresa el propósito del sujeto."  
-respuesta: "彼はその本を読むために図書館に行きました。"  
 tipo: completar  
 respuestas_validas:  
   - "彼はその本を読むために図書館に行きました。"  
@@ -336,7 +322,6 @@ metadata:
 pasos:  
   - "Reconocer la frecuencia con que se repite la acción."  
   - "Elegir el adverbio que expresa la regularidad del verbo."  
-respuesta: "彼は毎日、英語を学んでいます。"  
 tipo: completar  
 respuestas_validas:  
   - "彼は毎日、英語を学んでいます。"  
@@ -371,7 +356,6 @@ metadata:
 pasos:  
   - "Identificar la condición necesaria para que ocurra la acción."  
   - "Seleccionar el marcador que introduce una premisa lógica."  
-respuesta: "もし彼が来れば、会議を始めます。"  
 tipo: completar  
 respuestas_validas:  
   - "もし彼が来れば、会議を始めます。"  
@@ -406,7 +390,6 @@ metadata:
 pasos:  
   - "Identificar el objetivo de la acción mencionada."  
   - "Seleccionar el verbo que expresa el propósito del sujeto."  
-respuesta: "彼はその本を読むために図書館に行きました。"  
 tipo: completar  
 respuestas_validas:  
   - "彼はその本を読むために図書館に行きました。"  
@@ -423,7 +406,6 @@ metadata:
 pasos:  
   - "Reconocer la frecuencia con que se repite la acción."  
   - "Elegir el adverbio que expresa la regularidad del verbo."  
-respuesta: "彼は毎日、英語を学んでいます。"  
 tipo: completar  
 respuestas_validas:  
   - "彼は毎日、英語を学んでいます。"  

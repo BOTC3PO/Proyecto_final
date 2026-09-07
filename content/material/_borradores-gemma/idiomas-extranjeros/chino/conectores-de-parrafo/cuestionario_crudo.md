@@ -365,10 +365,7 @@ opciones_explicitas:
   - "因为"
   - "但是"
   - "而且"
-enunciado: '她虽然很忙，________ 去参加聚会。'
-variables:
-  - "she": "她"
-```
+enunciado: "她虽然很忙，________ 去参加聚会。"```
 
 ---
 
@@ -449,10 +446,7 @@ opciones_explicitas:
   - "但是"
   - "也"
   - "因为"
-enunciado: '即使天气不好，________ 去旅行。'
-variables:
-  - "they": "他们"
-```
+enunciado: "即使天气不好，________ 去旅行。"```
 
 ---
 

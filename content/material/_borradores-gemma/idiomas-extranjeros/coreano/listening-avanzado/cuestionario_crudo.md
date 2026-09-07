@@ -10,7 +10,6 @@ pasos:
   - "Identificar la fecha y hora de una clase mencionada."
 explicacion: "La respuesta correcta debe coincidir con la información explícita sobre la fecha y hora en el audio, sin inferencias adicionales."
 tipo: completar
-respuesta: "2023년 11월 5일 오후 3시"
 respuestas_validas:
   - "2023년 11월 5일 오후 3시"
   - "2023년 11월 5일 15:00"
@@ -47,7 +46,6 @@ pasos:
   - "Completar el espacio en blanco con la palabra clave mencionada."
 explicacion: "La respuesta debe ser el término exacto que describe el suceso principal (ej. '지진', '화재') según el audio."
 tipo: completar
-respuesta: "화재"
 respuestas_validas:
   - "화재"
   - "불이나"
@@ -84,7 +82,6 @@ pasos:
   - "Completar el espacio en blanco con la cantidad de personas mencionada."
 explicacion: "La respuesta debe ser el número exacto de comensales que se escucha, sin errores numéricos."
 tipo: completar
-respuesta: "6명"
 respuestas_validas:
   - "6명"
   - "육명"
@@ -121,7 +118,6 @@ pasos:
   - "Completar el espacio en blanco con la ubicación mencionada."
 explicacion: "La respuesta debe ser el lugar exacto (ej. '대구', '부산') que se escucha en el audio."
 tipo: completar
-respuesta: "울산"
 respuestas_validas:
   - "울산"
   - "울산시"
@@ -158,7 +154,6 @@ pasos:
   - "Completar el espacio en blanco con el precio mencionado."
 explicacion: "La respuesta debe ser el valor numérico exacto (ej. '50만 원') que se escucha en el audio."
 tipo: completar
-respuesta: "80만 원"
 respuestas_validas:
   - "80만 원"
   - "팔십만 원"
@@ -195,7 +190,6 @@ pasos:
   - "Completar el espacio en blanco con el diagnóstico mencionado."
 explicacion: "La respuesta debe ser la condición médica exacta (ej. '기침', '발열') que se escucha en el audio."
 tipo: completar
-respuesta: "설사"
 respuestas_validas:
   - "설사"
   - "설사 증상"
@@ -232,7 +226,6 @@ pasos:
   - "Completar el espacio en blanco con la emoción descrita."
 explicacion: "La respuesta debe ser el sentimiento exacto (ej. '흥분', '불만') que se escucha en el audio."
 tipo: completar
-respuesta: "행복"
 respuestas_validas:
   - "행복"
   - "행복감"
@@ -269,7 +262,6 @@ pasos:
   - "Completar el espacio en blanco con la ubicación mencionada."
 explicacion: "La respuesta debe ser el lugar exacto (ej. '서울', '인천') que se escucha en el audio."
 tipo: completar
-respuesta: "대전"
 respuestas_validas:
   - "대전"
   - "대전시"
@@ -306,7 +298,6 @@ pasos:
   - "Completar el espacio en blanco con la hora mencionada."
 explicacion: "La respuesta debe ser el horario exacto (ej. '오후 6시') que se escucha en el audio."
 tipo: completar
-respuesta: "저녁 7시"
 respuestas_validas:
   - "저녁 7시"
   - "19:00"
@@ -343,7 +334,6 @@ pasos:
   - "Completar el espacio en blanco con el precio mencionado."
 explicacion: "La respuesta debe ser el valor numérico exacto (ej. '50만 원') que se escucha en el audio."
 tipo: completar
-respuesta: "100만 원"
 respuestas_validas:
   - "100만 원"
   - "백만 원"
@@ -380,7 +370,6 @@ pasos:
   - "Completar el espacio en blanco con el diagnóstico mencionado."
 explicacion: "La respuesta debe ser la condición médica exacta (ej. '기침', '발열') que se escucha en el audio."
 tipo: completar
-respuesta: "두통"
 respuestas_validas:
   - "두통"
   - "두통 증상"
@@ -417,7 +406,6 @@ pasos:
   - "Completar el espacio en blanco con la emoción descrita."
 explicacion: "La respuesta debe ser el sentimiento exacto (ej. '흥분', '불만') que se escucha en el audio."
 tipo: completar
-respuesta: "기대"
 respuestas_validas:
   - "기대"
   - "기대감"

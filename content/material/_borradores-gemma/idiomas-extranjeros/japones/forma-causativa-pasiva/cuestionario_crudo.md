@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar el verbo base y su forma causativa-pasiva."  
   - "Aplicar la sufijo される al stem causativo del verbo '食べる'."  
-respuesta: "食べさせられる"  
 tipo: completar  
 explicacion: "La forma causativa-pasiva se construye con el stem causativo (食べさせる) + される, indicando que alguien es obligado a hacer algo por otro."  
 respuestas_validas:  
@@ -48,7 +47,6 @@ metadata:
 pasos:  
   - "Convertir el verbo '開ける' a su forma causativa."  
   - "Agregar la sufijo される para formar la causa-pasiva."  
-respuesta: "開けられる"  
 tipo: completar  
 explicacion: "'開けられる' indica que algo es abierto por otra persona, combinando el causativo y el pasivo."  
 respuestas_validas:  
@@ -88,7 +86,6 @@ metadata:
 pasos:  
   - "Formar el stem causativo de '勉強する'."  
   - "Aplicar la sufijo される para crear la causa-pasiva."  
-respuesta: "勉強させられる"  
 tipo: completar  
 explicacion: "'勉強させられる' indica que alguien es obligado a estudiar por otra persona, combinando causativo y pasivo."  
 respuestas_validas:  
@@ -128,7 +125,6 @@ metadata:
 pasos:  
   - "Convertir '飲む' a su forma causativa."  
   - "Agregar la sufijo される para formar la causa-pasiva."  
-respuesta: "飲まれる"  
 tipo: completar  
 explicacion: "'飲まれる' indica que alguien está siendo obligado a beber por otro, usando el pasivo y causativo."  
 respuestas_validas:  
@@ -168,7 +164,6 @@ metadata:
 pasos:  
   - "Identificar el stem causativo de '見る'."  
   - "Aplicar la sufijo される para formar la causa-pasiva."  
-respuesta: "見られる"  
 tipo: completar  
 explicacion: "'見られる' expresa que alguien está siendo obligado a ver algo por otro, usando el causativo y pasivo."  
 respuestas_validas:  
@@ -208,7 +203,6 @@ metadata:
 pasos:  
   - "Formar el stem causativo de '開ける'."  
   - "Aplicar la sufijo される para crear la causa-pasiva."  
-respuesta: "開けられる"  
 tipo: completar  
 explicacion: "'開けられる' indica que algo es abierto por otra persona, usando el pasivo y causativo."  
 respuestas_validas:  
@@ -248,7 +242,6 @@ metadata:
 pasos:  
   - "Determinar el stem causativo de '教える'."  
   - "Agregar la sufijo される para formar la causa-pasiva."  
-respuesta: "教えられる"  
 tipo: completar  
 explicacion: "'教えられる' indica que alguien está siendo enseñado algo por otro, combinando causativo y pasivo."  
 respuestas_validas:  
@@ -288,7 +281,6 @@ metadata:
 pasos:  
   - "Identificar el stem causativo de '見せる'."  
   - "Añadir la sufijo される para formar la causa-pasiva."  
-respuesta: "見せられる"  
 tipo: completar  
 explicacion: "'見せられる' indica que algo es mostrado por otra persona, combinando causativo y pasivo."  
 respuestas_validas:  
@@ -328,7 +320,6 @@ metadata:
 pasos:  
   - "Formar el stem causativo de '死ぬ'."  
   - "Añadir la sufijo される para crear la causa-pasiva."  
-respuesta: "死なせる"  
 tipo: completar  
 explicacion: "'死なせる' indica que alguien permite o fuerza a otra persona a morir, combinando causativo y pasivo."  
 respuestas_validas:  
@@ -368,7 +359,6 @@ metadata:
 pasos:  
   - "Identificar el stem causativo de '開ける'."  
   - "Añadir la sufijo される para formar la causa-pasiva."  
-respuesta: "開けられる"  
 tipo: completar  
 explicacion: "'開けられる' indica que algo es abierto por otra persona, combinando causativo y pasivo."  
 respuestas_validas:  
@@ -408,7 +398,6 @@ metadata:
 pasos:  
   - "Formar el stem causativo de '死ぬ'."  
   - "Añadir la sufijo される para crear la causa-pasiva."  
-respuesta: "死なせる"  
 tipo: completar  
 explicacion: "'死なせる' indica que alguien permite o fuerza a otra persona a morir, combinando causativo y pasivo."  
 respuestas_validas:  
@@ -448,7 +437,6 @@ metadata:
 pasos:  
   - "Identificar el stem causativo de '開ける'."  
   - "Añadir la sufijo される para formar la causa-pasiva."  
-respuesta: "開けられる"  
 tipo: completar  
 explicacion: "'開けられる' indica que algo es abierto por otra persona, combinando causativo y pasivo."  
 respuestas_validas:  
@@ -488,7 +476,6 @@ metadata:
 pasos:  
   - "Formar el stem causativo de '死ぬ'."  
   - "Añadir la sufijo される para crear la causa-pasiva."  
-respuesta: "死なせる"  
 tipo: completar  
 explicacion: "'死なせる' indica que alguien permite o fuerza a otra persona a morir, combinando causativo y pasivo."  
 respuestas_validas:  

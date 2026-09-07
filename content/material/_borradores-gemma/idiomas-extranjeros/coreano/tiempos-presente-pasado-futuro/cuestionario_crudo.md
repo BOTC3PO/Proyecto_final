@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (presente) y el verbo (먹다)"
   - "Aplicar la conjugación del presente para el sujeto '그녀'"
-respuesta: "먹어요"
 tipo: completar
 respuestas_validas:
   - "먹어요"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (futuro) y el verbo (가다)"
   - "Aplicar la conjugación del futuro para el sujeto '우리'"
-respuesta: "갈 거예요"
 tipo: completar
 respuestas_validas:
   - "갈 거예요"
@@ -50,7 +48,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (pasado) y el verbo (하다)"
   - "Aplicar la conjugación del pasado para el sujeto '그들'"
-respuesta: "했어요"
 tipo: completar
 respuestas_validas:
   - "했어요"
@@ -115,7 +112,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (futuro) y el verbo (자다)"
   - "Aplicar la conjugación del futuro para el sujeto '그'"
-respuesta: "잘 거예요"
 tipo: completar
 respuestas_validas:
   - "잘 거예요"
@@ -136,7 +132,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (presente) y el verbo (보다)"
   - "Aplicar la conjugación del presente para el sujeto '우리'"
-respuesta: "보아요"
 tipo: completar
 respuestas_validas:
   - "보아요"
@@ -157,7 +152,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (futuro) y el verbo (먹다)"
   - "Aplicar la conjugación del futuro para el sujeto '그들'"
-respuesta: "먹을 거예요"
 tipo: completar
 respuestas_validas:
   - "먹을 거예요"
@@ -178,7 +172,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (pasado) y el verbo (보다)"
   - "Aplicar la conjugación del pasado para el sujeto '그'"
-respuesta: "보았어요"
 tipo: completar
 respuestas_validas:
   - "보았어요"
@@ -221,7 +214,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (pasado) y el verbo (가다)"
   - "Aplicar la conjugación del pasado para el sujeto '그'"
-respuesta: "갔어요"
 tipo: completar
 respuestas_validas:
   - "갔어요"
@@ -242,7 +234,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (futuro) y el verbo compuesto (먹고 있다)"
   - "Aplicar la conjugación del futuro para el sujeto '우리'"
-respuesta: "먹을 거예요"
 tipo: completar
 respuestas_validas:
   - "먹을 거예요"
@@ -263,7 +254,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (presente) y el verbo (보다)"
   - "Aplicar la conjugación del presente para el sujeto '그'"
-respuesta: "보아요"
 tipo: completar
 respuestas_validas:
   - "보아요"
@@ -284,7 +274,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (futuro) y el verbo (먹다)"
   - "Aplicar la conjugación del futuro para el sujeto '우리'"
-respuesta: "먹을 거예요"
 tipo: completar
 respuestas_validas:
   - "먹을 거예요"
@@ -305,7 +294,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (pasado) y el verbo (보다)"
   - "Aplicar la conjugación del pasado para el sujeto '우리'"
-respuesta: "보았어요"
 tipo: completar
 respuestas_validas:
   - "보았어요"
@@ -326,16 +314,11 @@ metadata:
 pasos:
   - "Identificar el tiempo verbal (ayer) y la forma correcta del verbo."
   - "Asegurarse de que el sujeto '우리' concuerde con la conjugación."
-respuesta: "샀어요"
 respuestas_validas:
   - "사셨어요"
   - "샀어요"
 tipo: completar
 enunciado: "우리는 어제 ___ (사다)."
-variables:
-  - "sujeto": "우리"
-  - "verbo": "사다"
-  - "tiempo": "ayer"
 explicacion: "El verbo '사다' en pasado es '샀어요'. El sujeto '우리' requiere la forma honorífica o informa según el contexto, pero aquí se usa la forma neutra '샀어요'."
 ```
 
@@ -351,7 +334,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (pasado) y el verbo (가다)"
   - "Aplicar la conjugación del pasado para el sujeto '우리'"
-respuesta: "갔어요"
 tipo: completar
 respuestas_validas:
   - "갔어요"
@@ -372,7 +354,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (futuro) y el verbo compuesto (먹고 있다)"
   - "Aplicar la conjugación del futuro para el sujeto '그'"
-respuesta: "먹을 거예요"
 tipo: completar
 respuestas_validas:
   - "먹을 거예요"
@@ -393,7 +374,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (presente) y el verbo (보다)"
   - "Aplicar la conjugación del presente para el sujeto '그들'"
-respuesta: "보아요"
 tipo: completar
 respuestas_validas:
   - "보아요"
@@ -414,7 +394,6 @@ metadata:
 pasos:
   - "Identificar el tiempo (futuro) y el verbo (먹다)"
   - "Aplicar la conjugación del futuro para el sujeto '그'"
-respuesta: "먹을 거예요"
 tipo: completar
 respuestas_validas:
   - "먹을 거예요"
@@ -443,10 +422,6 @@ opciones_explicitas:
 respuesta: "걸 거예요"
 tipo: mc
 enunciado: "우리가 내일 ___ (걷다)."
-variables:
-  - "sujeto": "우리"
-  - "verbo": "걷다"
-  - "tiempo": "futuro"
 explicacion: "El verbo '걷다' en futuro se conjuga como '걸 거예요' cuando el sujeto es plural (우리). La opción '걸어요' es presente y no corresponde al tiempo señalado."
 ```
 
@@ -462,16 +437,11 @@ metadata:
 pasos:
   - "Reconocer que '지금' indica presente continuo."
   - "Formar el verbo con '-고 있다' para acciones en progreso."
-respuesta: "들으면서 있어요"
 respuestas_validas:
   - "들으면서 있어요"
   - "들으며 있어요"
 tipo: completar
 enunciado: "그는 지금 ___ (듣다)."
-variables:
-  - "sujeto": "그"
-  - "verbo": "듣다"
-  - "tiempo": "presente continuo"
 explicacion: "El presente continuo se forma con '-고 있다', pero en este caso, el verbo '듣다' requiere la forma '-으면서 있어요' para acciones simultáneas."
 ```
 
@@ -495,10 +465,6 @@ opciones_explicitas:
 respuesta: "잘 거예요"
 tipo: mc
 enunciado: "그녀는 내일 ___ (자다)."
-variables:
-  - "sujeto": "그녀"
-  - "verbo": "자다"
-  - "tiempo": "futuro"
 explicacion: "El verbo reflexivo '자다' en futuro se conjuga como '잘 거예요', con el sufijo '-겠어요' para acciones planeadas."
 ```
 
@@ -514,16 +480,11 @@ metadata:
 pasos:
   - "Reconocer que '내일' indica futuro."
   - "Usar la forma '-겠어요' para el verbo intransitivo '가다'."
-respuesta: "갈 거예요"
 respuestas_validas:
   - "갈 거예요"
   - "가요"
 tipo: completar
 enunciado: "우리는 내일 ___ (가다)."
-variables:
-  - "sujeto": "우리"
-  - "verbo": "가다"
-  - "tiempo": "futuro"
 explicacion: "El verbo '가다' en futuro se conjuga como '갈 거예요', usando '-겠어요' para expresar intención."
 ```
 
@@ -547,9 +508,5 @@ opciones_explicitas:
 respuesta: "샀어요"
 tipo: mc
 enunciado: "그들은 어제 ___ (사다)."
-variables:
-  - "sujeto": "그들"
-  - "verbo": "사다"
-  - "tiempo": "pasado"
 explicacion: "El verbo '사다' en pasado se conjuga como '샀어요', usando '-았어요' para el sujeto plural (그들). La opción '사요' es presente y no corresponde al tiempo señalado."
 ```

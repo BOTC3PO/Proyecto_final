@@ -11,7 +11,6 @@ pasos:
 explicacion: "La vorto 'kerno' estas uzebla en Esperanto por esprimi konceptojn kiel la centra parto aŭ ĝenerala esenco. En tiu frazo, ĝi priskribas la ĉefa ideo de la libro."
 tipo: completar
 enunciado: "La ___ de la libro estas la historio pri la granda mistero."
-respuesta: "kerno"
 respuestas_validas:
   - "kerno"
   - "Kerno"
@@ -55,7 +54,6 @@ pasos:
 explicacion: "En longaj tekstoj, la ĉeftemo estas ofte klarigita en la unua paragrafo, kun subtemoj diskutitaj en poste. Tio helpas al legantoj kompreni la strukturon de la argumento."
 tipo: completar
 enunciado: "La ___ de la artikolo temas pri la efiko de klimatoŝanĝoj sur marbestojn."
-respuesta: "temo"
 respuestas_validas:
   - "temo"
   - "Temo"
@@ -99,7 +97,6 @@ pasos:
 explicacion: "La vorto 'ekzemple' estas uzata por doni konkretan ekzemplon al ĝenerala aserto. Ĝi povas ankaŭ esti anstataŭigita per 'kiel ekzemplo', depende de la situacio."
 tipo: completar
 enunciado: "La lernantoj ofte legas, ___ en la libroj kaj artikoloj."
-respuesta: "ekzemple"
 respuestas_validas:
   - "ekzemple"
   - "Ekzemple"
@@ -143,7 +140,6 @@ pasos:
 explicacion: "La vorto 'tamen' estas uzata por esprimi kontraston inter antaŭaj kaj poste donitaj informoj. Ĝi povas ankaŭ esti anstataŭigita per 'tamen, tamen' aŭ 'kvankam'."
 tipo: completar
 enunciado: "La plej multaj homoj aprezis la prelegon; ___ kelkaj ne konsentis kun ĝi."
-respuesta: "tamen"
 respuestas_validas:
   - "tamen"
   - "Tamen"
@@ -187,7 +183,6 @@ pasos:
 explicacion: "La prepozicio 'kun' estas uzata por indiki konjunkton, kunlaboradon aŭ koincideon. Ĝi povas ankaŭ esti uzata en frazoj kiel 'kun la helpo de', 'kun la celo de'."
 tipo: completar
 enunciado: "La ekspedicio estis farita ___ la lernantoj el la unuversitato."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "De"
@@ -225,7 +220,6 @@ pasos:
 explicacion: "En longaj tekstoj, ĉiu frazo devas esti konsekventa kun la antaŭaj frazoj por krei sensencon. Kontrasto aŭ kontraŭigo povas ankaŭ esti uzataj por esprimi malkonsenton."
 tipo: completar
 enunciado: "La unua paragrafo priskribis la problemo; la dua ofertis ___ solvojn."
-respuesta: "du"
 respuestas_validas:
   - "du"
   - "Du"

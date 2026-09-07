@@ -7,13 +7,11 @@ metadata:
   tags: ["forma impersonale", "espresso"]  
 pasos:  
   - "Identifica la forma impersonale correcta para el contexto."  
-respuesta: "Si esprime"  
 tipo: completar  
 respuestas_validas:  
   - "Si esprime"  
   - "si esprime"  
 enunciado: "La frase '______ chi ha vinto il concorso' usa la forma impersonale corretamente."  
-variables: []  
 explicacion: "La forma impersonale 'si + verbo' se usa para acciones generales o anónimas. Aquí, el verbo 'esprimere' se conjuga en terza persona del singolare (esprime) para mantener la impersonalidad."  
 ```  
 
@@ -35,7 +33,6 @@ opciones_explicitas:
   - "sia"  
   - "fosse"  
 enunciado: "La frase 'Spero che lui ___ in tempo' requiere la forma correcta del congiuntivo presente."  
-variables: []  
 explicacion: "El congiuntivo presente se usa después de expresiones como 'sperare che', 'temere che', etc. La tercera persona del singular es 'sia' para el verbo 'essere'."  
 ```  
 
@@ -50,13 +47,11 @@ metadata:
   tags: ["passato remoto", "tempo verbale"]  
 pasos:  
   - "Completa la frase con el tiempo verbal correcto para un contexto histórico."  
-respuesta: "dissi"  
 tipo: completar  
 respuestas_validas:  
   - "dissi"  
   - "disse"  
 enunciado: "La frase '______ che non avrei mai potuto fare' usa el passato remoto correctamente."  
-variables: []  
 explicacion: "El passato remoto se usa para acciones pasadas en contextos históricos o literarios. Aquí, 'dissi' (yo dije) es correcto para un contexto narrativo."  
 ```  
 
@@ -78,7 +73,6 @@ opciones_explicitas:
   - "dove"  
   - "che"  
 enunciado: "La frase 'L’uomo ___ ho visto ieri è un amico' requiere el pronombre relativo correcto."  
-variables: []  
 explicacion: "'Che' se usa para sustantivos que no son lugares. Aquí, 'l’uomo' es un sustantivo común, por lo que 'che' es la opción correcta."  
 ```  
 
@@ -93,13 +87,11 @@ metadata:
   tags: ["finito", "infinito"]  
 pasos:  
   - "Completa la frase con el infinitivo correcto para un contexto impersonal."  
-respuesta: "studiare"  
 tipo: completar  
 respuestas_validas:  
   - "studiare"  
   - "studia"  
 enunciado: "La frase '______ è importante per migliorarsi' usa el infinitivo correctamente."  
-variables: []  
 explicacion: "El infinito se usa en frases impersonales como 'è importante', 'è necessario', etc. Aquí, 'studiare' es la forma infinitiva correcta del verbo."  
 ```  
 
@@ -121,7 +113,6 @@ opciones_explicitas:
   - "sia"  
   - "fosse"  
 enunciado: "La frase 'Se tu ___ ricco, compreresti una macchina' requiere el congiuntivo imperfetto correcto."  
-variables: []  
 explicacion: "El congiuntivo imperfetto se usa en oraciones condicionales hipotéticas. Para 'tu', la forma es 'fosse' (esser)."  
 ```  
 
@@ -136,13 +127,11 @@ metadata:
   tags: ["preposizione", "verbo"]  
 pasos:  
   - "Completa la frase con la preposición correcta para el verbo."  
-respuesta: "di"  
 tipo: completar  
 respuestas_validas:  
   - "di"  
   - "d'"  
 enunciado: "La frase 'Ricordo ___ averlo detto' usa la preposición correcta para el verbo 'ricordare'."  
-variables: []  
 explicacion: "'Ricordare' se combina con la preposición 'di' cuando sigue al infinitivo o a un participio passato. Aquí, 'di' es correcto."  
 ```  
 
@@ -157,13 +146,11 @@ metadata:
   tags: ["gerundio", "tempo verbale"]  
 pasos:  
   - "Completa la frase con el gerundio correcto para el contexto."  
-respuesta: "parlando"  
 tipo: completar  
 respuestas_validas:  
   - "parlando"  
   - "parla"  
 enunciado: "La frase 'Mentre ___ con i miei amici, ho ricevuto la notizia' usa el gerundio correctamente."  
-variables: []  
 explicacion: "El gerundio se usa para acciones simultáneas. 'Parlando' (hablando) es correcto aquí para describir una acción paralela."  
 ```  
 
@@ -178,13 +165,11 @@ metadata:
   tags: ["falso soggetto", "espresso"]  
 pasos:  
   - "Identifica el falso soggetto en la oración."  
-respuesta: "Mai"  
 tipo: completar  
 respuestas_validas:  
   - "Mai"  
   - "mai"  
 enunciado: "La frase '______ si è mai visto un caso simile' usa el falso soggetto correctamente."  
-variables: []  
 explicacion: "El falso soggetto se usa para dar énfasis a una acción general. Aquí, 'Mai' es el falso soggetto que introduce la oración impersonal."  
 ```  
 
@@ -206,7 +191,6 @@ opciones_explicitas:
   - "andrei"  
   - "sarei andato"  
 enunciado: "La frase 'Se avessi tempo, ___ in vacanza' requiere el condizionale presente correcto."  
-variables: []  
 explicacion: "El condizionale presente se usa en oraciones hipotéticas. Para 'io', la forma es 'andrei' (andare)."  
 ```  
 
@@ -221,13 +205,11 @@ metadata:
   tags: ["soggetto", "sottinteso"]  
 pasos:  
   - "Completa la frase con el sujeto sottinteso correcto."  
-respuesta: "Non c'è"  
 tipo: completar  
 respuestas_validas:  
   - "Non c'è"  
   - "non c'è"  
 enunciado: "La frase '______ nessuna possibilità di ritardare la decisione' usa el sujeto sottinteso correctamente."  
-variables: []  
 explicacion: "'Non c'è' es una construcción impersonale que se usa para expresar ausencia o negación. Aquí, introduce la oración sin un sujeto explícito."  
 ```  
 
@@ -249,7 +231,6 @@ opciones_explicitas:
   - "avesse"  
   - "abbia"  
 enunciado: "La frase 'Se lui ___ avuto tempo, sarebbe venuto' requiere el congiuntivo passato correcto."  
-variables: []  
 explicacion: "El congiuntivo passato se usa en oraciones hipotéticas con verbo principal al condizionale. Para 'lui', la forma es 'avesse' (avere)."  
 ```  
 
@@ -264,13 +245,11 @@ metadata:
   tags: ["finito", "infinito"]  
 pasos:  
   - "Completa la frase con el infinitivo o finito correcto según el contexto."  
-respuesta: "è necessario"  
 tipo: completar  
 respuestas_validas:  
   - "è necessario"  
   - "è necessaria"  
 enunciado: "La frase '______ studiare per l’esame' usa la forma verbale correcta en una oración impersonal."  
-variables: []  
 explicacion: "'È necessario' es el finito correcto para oraciones impersonales que expresan obligaciones o necesidades. Aquí, se usa con 'studia' como verbo base."  
 ```  
 
@@ -292,7 +271,6 @@ opciones_explicitas:
   - "dove"  
   - "cui"  
 enunciado: "La frase 'L’idea ___ abbiamo parlato è interessante' requiere el pronombre relativo correcto."  
-variables: []  
 explicacion: "'Cui' se usa para sustantivos que son complementos directos o indirectos. Aquí, 'l’idea' es un sustantivo que introduce una acción (parlare di), por lo que 'cui' es correcto."  
 ```  
 
@@ -314,7 +292,6 @@ opciones_explicitas:
   - "sia"  
   - "fosse"  
 enunciado: "La frase 'È importante che tu ___ preparato' requiere el congiuntivo presente correcto."  
-variables: []  
 explicacion: "El congiuntivo presente se usa después de expresiones impersonales como 'è importante', 'è necessario', etc. Para 'tu', la forma es 'sia' (essere)."  
 ```  
 
@@ -329,13 +306,11 @@ metadata:
   tags: ["gerundio", "participio"]  
 pasos:  
   - "Completa la frase con el gerundio y participio passato correcto."  
-respuesta: "avendo parlato"  
 tipo: completar  
 respuestas_validas:  
   - "avendo parlato"  
   - "parlato"  
 enunciado: "La frase '______ con lui, ho capito la situazione' usa el gerundio y participio passato correctamente."  
-variables: []  
 explicacion: "'Avere + participio passato' es el gerundio correcto para acciones completadas. Aquí, 'avendo parlato' (habiendo hablado) describe una acción previa que lleva al resultado actual."  
 ```  
 
@@ -357,7 +332,6 @@ opciones_explicitas:
   - "sia"  
   - "fosse"  
 enunciado: "La frase 'Se ___ ricco, non avrei mai comprato questa macchina' requiere el congiuntivo imperfetto correcto."  
-variables: []  
 explicacion: "El congiuntivo imperfetto se usa en oraciones condicionales hipotéticas. Para 'io', la forma es 'fosse' (essere)."  
 ```  
 
@@ -372,13 +346,11 @@ metadata:
   tags: ["preposizione", "verbo"]  
 pasos:  
   - "Completa la frase con la preposición correcta para el verbo."  
-respuesta: "di"  
 tipo: completar  
 respuestas_validas:  
   - "di"  
   - "d'"  
 enunciado: "La frase 'Penso ___ aver fatto la scelta giusta' usa la preposición correcta para el verbo 'pensare'."  
-variables: []  
 explicacion: "'Pensare' se combina con la preposición 'di' cuando sigue al infinitivo o a un participio passato. Aquí, 'di' es correcto."  
 ```  
 
@@ -393,13 +365,11 @@ metadata:
   tags: ["falso soggetto", "impersonale"]  
 pasos:  
   - "Identifica el falso soggetto y la forma impersonale correcta."  
-respuesta: "Mai"  
 tipo: completar  
 respuestas_validas:  
   - "Mai"  
   - "mai"  
 enunciado: "La frase '______ si è mai sentito un rumore simile' usa el falso soggetto y forma impersonale correctamente."  
-variables: []  
 explicacion: "'Mai' es el falso soggetto que introduce la oración impersonal. La forma impersonale 'si + verbo' se usa para acciones generales o anónimas."  
 ```  
 
@@ -421,7 +391,6 @@ opciones_explicitas:
   - "avrei potuto"  
   - "sarei andato"  
 enunciado: "La frase 'Se avessi tempo, ___ andare in vacanza' requiere el condizionale passato correcto."  
-variables: []  
 explicacion: "El condizionale passato se usa en oraciones hipotéticas con verbo principal al condizionale. Para 'io', la forma es 'avrei potuto' (avere + potere)."  
 ```  
 
@@ -443,7 +412,6 @@ opciones_explicitas:
   - "sia"  
   - "fosse"  
 enunciado: "La frase 'È necessario che tu ___ pronto' requiere el congiuntivo presente correcto."  
-variables: []  
 explicacion: "El congiuntivo presente se usa después de expresiones impersonales como 'è necessario', 'è meglio'. Para 'tu', la forma es 'sia' (essere)."  
 ```  
 
@@ -458,13 +426,11 @@ metadata:
   tags: ["gerundio", "participio"]  
 pasos:  
   - "Completa la frase con el gerundio y participio passato correcto."  
-respuesta: "avendo letto"  
 tipo: completar  
 respuestas_validas:  
   - "avendo letto"  
   - "letto"  
 enunciado: "La frase '______ il libro, ho capito l’argomento' usa el gerundio y participio passato correctamente."  
-variables: []  
 explicacion: "'Avere + participio passato' es el gerundio correcto para acciones completadas. Aquí, 'avendo letto' (habiendo leído) describe una acción previa que lleva al resultado actual."  
 ```  
 
@@ -486,7 +452,6 @@ opciones_explicitas:
   - "sia"  
   - "fosse"  
 enunciado: "La frase 'Se ___ ricco, non avrei mai comprato questa macchina' requiere el congiuntivo imperfetto correcto."  
-variables: []  
 explicacion: "El congiuntivo imperfetto se usa en oraciones condicionales hipotéticas. Para 'io', la forma es 'fosse' (essere)."  
 ```  
 
@@ -501,13 +466,11 @@ metadata:
   tags: ["preposizione", "verbo"]  
 pasos:  
   - "Completa la frase con la preposición correcta para el verbo 'pensare'."  
-respuesta: "di"  
 tipo: completar  
 respuestas_validas:  
   - "di"  
   - "d'"  
 enunciado: "La frase 'Pensavo ___ aver fatto una scelta sbagliata' usa la preposición correcta para el verbo 'pensare'."  
-variables: []  
 explicacion: "'Pensare' se combina con la preposición 'di' cuando sigue al infinitivo o a un participio passato. Aquí, 'di' es correcto."  
 ```  
 

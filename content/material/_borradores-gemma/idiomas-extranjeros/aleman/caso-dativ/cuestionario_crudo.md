@@ -7,7 +7,6 @@ metadata:
   tags: ["indirekter-objekt", "geben"]
 pasos:
   - "Identifica el caso correcto para el complemento indirecto."
-respuesta: "dem"
 tipo: completar
 respuestas_validas:
   - "dem"
@@ -71,7 +70,6 @@ metadata:
   tags: ["präposition", "mit"]
 pasos:
   - "Completa el espacio con el caso correcto para 'mit'."
-respuesta: "ihrem"
 tipo: completar
 respuestas_validas:
   - "ihrem"
@@ -113,7 +111,6 @@ metadata:
   tags: ["verbo", "gehen"]
 pasos:
   - "Completa el espacio con el caso correcto para 'gehen'."
-respuesta: "zum"
 tipo: completar
 respuestas_validas:
   - "zum"
@@ -155,7 +152,6 @@ metadata:
   tags: ["präposition", "wegen"]
 pasos:
   - "Completa el espacio con el caso correcto para 'wegen'."
-respuesta: "des"
 tipo: completar
 respuestas_validas:
   - "des"
@@ -197,7 +193,6 @@ metadata:
   tags: ["präposition", "nach"]
 pasos:
   - "Completa el espacio con el caso correcto para 'nach'."
-respuesta: "der"
 tipo: completar
 respuestas_validas:
   - "der"
@@ -239,7 +234,6 @@ metadata:
   tags: ["präposition", "von"]
 pasos:
   - "Completa el espacio con el caso correcto para 'von'."
-respuesta: "dem"
 tipo: completar
 respuestas_validas:
   - "dem"
@@ -281,7 +275,6 @@ metadata:
   tags: ["präposition", "zu"]
 pasos:
   - "Completa el espacio con el caso correcto para 'zu'."
-respuesta: "der"
 tipo: completar
 respuestas_validas:
   - "der"
@@ -323,7 +316,6 @@ metadata:
   tags: ["verbo", "geben"]
 pasos:
   - "Completa el espacio con el caso correcto para 'geben'."
-respuesta: "ihrem"
 tipo: completar
 respuestas_validas:
   - "ihrem"
@@ -365,7 +357,6 @@ metadata:
   tags: ["verbo", "danken"]
 pasos:
   - "Completa el espacio con el caso correcto para 'danken'."
-respuesta: "ihm"
 tipo: completar
 respuestas_validas:
   - "ihm"
@@ -407,7 +398,6 @@ metadata:
   tags: ["verbo", "geben"]
 pasos:
   - "Completa el espacio con el caso correcto para 'geben'."
-respuesta: "ihm"
 tipo: completar
 respuestas_validas:
   - "ihm"
@@ -449,7 +439,6 @@ metadata:
   tags: ["verbo", "geben"]
 pasos:
   - "Completa el espacio con el caso correcto para 'geben'."
-respuesta: "ihrem"
 tipo: completar
 respuestas_validas:
   - "ihrem"
@@ -470,7 +459,6 @@ metadata:
 
 enunciado: Der Mann ist ___ seiner Schwester ärgerlich.  
 tipo: completar  
-respuesta: "wegen"  
 respuestas_validas:  
   - "wegen"  
   - "Wegen"  
@@ -491,7 +479,6 @@ metadata:
   tags: ["verbo", "geben"]
 pasos:
   - "Completa el espacio con el caso correcto para 'geben'."
-respuesta: "ihrem"
 tipo: completar
 respuestas_validas:
   - "ihrem"

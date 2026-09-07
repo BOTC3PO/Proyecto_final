@@ -10,7 +10,6 @@ pasos:
 explicacion: "Em contextos formais como cartas comerciais, o tratamento 'Sr. Silva' é mais apropriado do que 'João', que é informal."  
 tipo: completar  
 enunciado: "Caro ___ Silva,"  
-respuesta: "Sr."  
 respuestas_validas:  
   - "Sr."  
   - "senhor"
@@ -51,7 +50,6 @@ pasos:
 explicacion: "Em contextos formais, a expressão 'Seria possível que Vossa Senhoria...' é mais respeitosa do que formas informais como 'você'."  
 tipo: completar  
 enunciado: "Seria possível que ___ me fornecesse as informações?"  
-respuesta: "Vossa Senhoria"  
 respuestas_validas:  
   - "Vossa Senhoria"  
   - "Vocês"
@@ -92,7 +90,6 @@ pasos:
 explicacion: "Em contextos informais, 'Desculpa' é mais direto e adequado do que 'Desculpe-me', que é formal."  
 tipo: completar  
 enunciado: "___, não consegui terminar o relatório ontem."  
-respuesta: "Desculpa"  
 respuestas_validas:  
   - "Desculpa"  
   - "Desculpe"
@@ -133,7 +130,6 @@ pasos:
 explicacion: "Palavras como 'favor' são mais formais do que 'por favor', que é comum em contextos informais."  
 tipo: completar  
 enunciado: "Peço ___ que confirme o recebimento da carta."  
-respuesta: "favor"  
 respuestas_validas:  
   - "favor"  
   - "a favor de"
@@ -174,7 +170,6 @@ pasos:
 explicacion: "O uso de 'respeitável' é mais formal do que 'legal', comum em contextos informais."  
 tipo: completar  
 enunciado: "A empresa ___ oferece serviços de alta qualidade."  
-respuesta: "respeitável"  
 respuestas_validas:  
   - "respeitável"  
   - "reputada"
@@ -215,7 +210,6 @@ pasos:
 explicacion: "Frase como 'Você sabe?' é mais direta e informal do que 'Seria possível saber?'"  
 tipo: completar  
 enunciado: "___, o prazo para entrega?"  
-respuesta: "Você sabe"  
 respuestas_validas:  
   - "Você sabe"  
   - "Sabe?"
@@ -256,7 +250,6 @@ pasos:
 explicacion: "Frase como 'Acho que...' é mais direta e informal do que 'Creio firmemente que...'"  
 tipo: completar  
 enunciado: "___, o relatório precisa de revisão."  
-respuesta: "Acho que"  
 respuestas_validas:  
   - "Acho que"  
   - "Pensei que"
@@ -297,7 +290,6 @@ pasos:
 explicacion: "Frase como 'Isso é insuportável!' é mais direta e informal do que 'Isso é profundamente irritante!'"  
 tipo: completar  
 enunciado: "___, não consigo resolver isso sozinho!"  
-respuesta: "Isso é insuportável"  
 respuestas_validas:  
   - "Isso é insuportável"  
   - "Isso é chato"
@@ -338,7 +330,6 @@ pasos:
 explicacion: "Frase como 'Espero que...' é mais direta e informal do que 'Tenho a esperança de que...'"  
 tipo: completar  
 enunciado: "___, o problema será resolvido logo."  
-respuesta: "Espero que"  
 respuestas_validas:  
   - "Espero que"  
   - "Quero que"
@@ -379,7 +370,6 @@ pasos:
 explicacion: "Frase como 'Claro, posso ajudar!' é mais direta e informal do que 'Certamente, estou à disposição.'"  
 tipo: completar  
 enunciado: "___, posso ajudar!"  
-respuesta: "Claro"  
 respuestas_validas:  
   - "Claro"  
   - "Sim"
@@ -420,7 +410,6 @@ pasos:
 explicacion: "Frase como 'Então, tudo bem?' é mais direta e informal do que 'Confirmando, tudo está em ordem?'"  
 tipo: completar  
 enunciado: "___, tudo bem?"  
-respuesta: "Então"  
 respuestas_validas:  
   - "Então"  
   - "Agora"

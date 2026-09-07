@@ -7,7 +7,6 @@ metadata:
   tags: ["tiempo", "at"]
 pasos:
   - "Identifica la preposición correcta para indicar una hora específica."
-respuesta: "at"
 tipo: completar
 respuestas_validas:
   - "at"
@@ -44,7 +43,6 @@ metadata:
   tags: ["tiempo", "in"]
 pasos:
   - "Completa la oración con la preposición correcta para un mes."
-respuesta: "in"
 tipo: completar
 respuestas_validas:
   - "in"
@@ -81,7 +79,6 @@ metadata:
   tags: ["lugar", "in"]
 pasos:
   - "Completa la oración con la preposición que describe un lugar cerrado."
-respuesta: "in"
 tipo: completar
 respuestas_validas:
   - "in"
@@ -118,7 +115,6 @@ metadata:
   tags: ["tiempo", "at"]
 pasos:
   - "Completa la oración con la preposición correcta para un momento en el tiempo."
-respuesta: "at"
 tipo: completar
 respuestas_validas:
   - "at"
@@ -155,7 +151,6 @@ metadata:
   tags: ["tiempo", "in"]
 pasos:
   - "Completa la oración con la preposición correcta para un año."
-respuesta: "in"
 tipo: completar
 respuestas_validas:
   - "in"
@@ -192,7 +187,6 @@ metadata:
   tags: ["lugar", "on"]
 pasos:
   - "Completa la oración con la preposición que describe una posición sobre algo."
-respuesta: "on"
 tipo: completar
 respuestas_validas:
   - "on"
@@ -229,7 +223,6 @@ metadata:
   tags: ["tiempo", "in"]
 pasos:
   - "Completa la oración con la preposición correcta para un período de tiempo."
-respuesta: "in"
 tipo: completar
 respuestas_validas:
   - "in"
@@ -266,7 +259,6 @@ metadata:
   tags: ["lugar", "in"]
 pasos:
   - "Completa la oración con la preposición correcta para un lugar cerrado."
-respuesta: "in"
 tipo: completar
 respuestas_validas:
   - "in"
@@ -303,7 +295,6 @@ metadata:
   tags: ["tiempo", "in"]
 pasos:
   - "Completa la oración con la preposición correcta para un año y mes."
-respuesta: "in"
 tipo: completar
 respuestas_validas:
   - "in"
@@ -340,7 +331,6 @@ metadata:
   tags: ["tiempo", "at"]
 pasos:
   - "Completa la oración con la preposición correcta para un momento en el tiempo."
-respuesta: "at"
 tipo: completar
 respuestas_validas:
   - "at"
@@ -377,7 +367,6 @@ metadata:
   tags: ["lugar", "on"]
 pasos:
   - "Completa la oración con la preposición que describe una posición sobre algo."
-respuesta: "on"
 tipo: completar
 respuestas_validas:
   - "on"
@@ -414,7 +403,6 @@ metadata:
   tags: ["tiempo", "in"]
 pasos:
   - "Completa la oración con la preposición correcta para un período de tiempo."
-respuesta: "in"
 tipo: completar
 respuestas_validas:
   - "in"
@@ -451,7 +439,6 @@ metadata:
   tags: ["lugar", "on"]
 pasos:
   - "Completa la oración con la preposición correcta para una ubicación en una superficie."
-respuesta: "on"
 tipo: completar
 respuestas_validas:
   - "on"

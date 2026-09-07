@@ -10,12 +10,9 @@ pasos:
 explicacion: "El verbo 'manger' se conjuga como 'mange' en presente para el sujeto 'il/elle' (él/ella)."  
 enunciado: "Il ___ une pomme avec son café."  
 tipo: completar  
-respuesta: "mange"  
 respuestas_validas:  
   - "mange"  
   - "Mange"  
-variables:  
-  - "verbe": ["manger", "parler", "aller"]  
 ```  
 
 ---
@@ -34,12 +31,9 @@ pasos:
 explicacion: "El participio pasado 'mangé' debe concordar en género y número con el sujeto. Aquí, 'les pommes' es plural femenino, así que se añade un 'e'."  
 enunciado: "Nous ___ des pommes au marché hier."  
 tipo: completar  
-respuesta: "avons mangé"  
 respuestas_validas:  
   - "avons mangé"  
   - "Avons mangé"  
-variables:  
-  - "sujet": ["nous", "elles", "il"]  
 ```  
 
 ---
@@ -63,8 +57,6 @@ opciones_explicitas:
   - "es"  
   - "sont"  
 respuesta: "êtes"  
-variables:  
-  - "verbe": ["être", "avoir"]  
 ```  
 
 ---
@@ -83,12 +75,9 @@ pasos:
 explicacion: "El verbo 'aller' usa el auxiliar 'être', mientras que 'manger' usa 'avoir'."  
 enunciado: "Nous ___ à la plage hier."  
 tipo: completar  
-respuesta: "sommes allés"  
 respuestas_validas:  
   - "sommes allés"  
   - "Sommes allés"  
-variables:  
-  - "verbe": ["aller", "manger"]  
 ```  
 
 ---
@@ -107,12 +96,9 @@ pasos:
 explicacion: "'À' se usa para ciudades, mientras que 'en' se usa para países o régiones."  
 enunciado: "Je voyage ___ Paris ce mois-ci."  
 tipo: completar  
-respuesta: "à"  
 respuestas_validas:  
   - "à"  
   - "À"  
-variables:  
-  - "lieu": ["Paris", "France"]  
 ```  
 
 ---
@@ -131,12 +117,9 @@ pasos:
 explicacion: "El futuro simple de 'parler' para 'nous' es 'parlerons'."  
 enunciado: "Nous ___ français demain."  
 tipo: completar  
-respuesta: "parlerons"  
 respuestas_validas:  
   - "parlerons"  
   - "Parlerons"  
-variables:  
-  - "verbe": ["parler", "manger"]  
 ```  
 
 ---
@@ -155,12 +138,9 @@ pasos:
 explicacion: "'Venu' debe concordar con 'un ami' (masculino singular), así que no se añade 'e'."  
 enunciado: "Le voyageur ___ de Londres."  
 tipo: completar  
-respuesta: "vient"  
 respuestas_validas:  
   - "vient"  
   - "Vient"  
-variables:  
-  - "sujet": ["un ami", "les amis"]  
 ```  
 
 ---
@@ -184,8 +164,6 @@ opciones_explicitas:
   - "parle"  
   - "parlons"  
 respuesta: "parlez"  
-variables:  
-  - "verbe": ["parler", "manger"]  
 ```  
 
 ---
@@ -204,12 +182,9 @@ pasos:
 explicacion: "'Mon' se usa para masculino singular. 'Mes livres' es plural."  
 enunciado: "C’est ___ livre préféré."  
 tipo: completar  
-respuesta: "mon"  
 respuestas_validas:  
   - "mon"  
   - "Mon"  
-variables:  
-  - "sujet": ["ton", "mes"]  
 ```  
 
 ---
@@ -228,12 +203,9 @@ pasos:
 explicacion: "El imparfait describe una acción continua en el pasado, mientras que el passé composé se usa para acciones terminadas."  
 enunciado: "Il ___ beaucoup de temps pour finir le projet."  
 tipo: completar  
-respuesta: "a mis"  
 respuestas_validas:  
   - "a mis"  
   - "A mis"  
-variables:  
-  - "verbe": ["mettre", "finir"]  
 ```  
 
 ---
@@ -252,12 +224,9 @@ pasos:
 explicacion: "'De' se usa para expresiones como 'avoir besoin de', mientras que 'à' indica lugar."  
 enunciado: "J’ai besoin ___ un stylo."  
 tipo: completar  
-respuesta: "de"  
 respuestas_validas:  
   - "de"  
   - "De"  
-variables:  
-  - "expression": ["avoir besoin de", "aller à"]  
 ```  
 
 ---
@@ -276,12 +245,9 @@ pasos:
 explicacion: "'Je vais manger' es la forma del futuro proche para 'manger'."  
 enunciado: "___ tu diner ce soir?"  
 tipo: completar  
-respuesta: "vas-tu manger"  
 respuestas_validas:  
   - "vas-tu manger"  
   - "Vas-tu manger"  
-variables:  
-  - "verbe": ["manger", "aller"]  
 ```  
 
 ---
@@ -305,8 +271,6 @@ opciones_explicitas:
   - "parles"  
   - "parlons"  
 respuesta: "parle"  
-variables:  
-  - "verbe": ["parler", "manger"]  
 ```  
 
 ---
@@ -325,12 +289,9 @@ pasos:
 explicacion: "'Beau' se usa para masculino singular. 'Belles robes' es plural femenino."  
 enunciado: "C’est ___ chien adorable."  
 tipo: completar  
-respuesta: "beau"  
 respuestas_validas:  
   - "beau"  
   - "Beau"  
-variables:  
-  - "sujet": ["une robe", "un chat"]  
 ```  
 
 ---
@@ -349,12 +310,9 @@ pasos:
 explicacion: "'Être' se usa con verbes de movimiento como 'aller', mientras que 'avoir' se usa con otros verbos."  
 enunciado: "Elle ___ à l’aéroport hier."  
 tipo: completar  
-respuesta: "est partie"  
 respuestas_validas:  
   - "est partie"  
   - "Est partie"  
-variables:  
-  - "verbe": ["aller", "manger"]  
 ```  
 
 ---
@@ -373,12 +331,9 @@ pasos:
 explicacion: "'Finissent' es la forma del presente de 'finir' para 'elles' (ellas)."  
 enunciado: "Elles ___ le souper à dix-huit heures."  
 tipo: completar  
-respuesta: "finissent"  
 respuestas_validas:  
   - "finissent"  
   - "Finissent"  
-variables:  
-  - "verbe": ["finir", "parler"]  
 ```  
 
 ---
@@ -397,12 +352,9 @@ pasos:
 explicacion: "'En' se usa para países, mientras que 'à' se usa para ciudades o lugares específicos."  
 enunciado: "Je voyage ___ Allemagne ce mois-ci."  
 tipo: completar  
-respuesta: "en"  
 respuestas_validas:  
   - "en"  
   - "En"  
-variables:  
-  - "lieu": ["Allemagne", "Paris"]  
 ```  
 
 ---
@@ -421,12 +373,9 @@ pasos:
 explicacion: "'Parlera' es la forma del futuro simple de 'parler' para 'il' (él)."  
 enunciado: "Il ___ français demain."  
 tipo: completar  
-respuesta: "parlera"  
 respuestas_validas:  
   - "parlera"  
   - "Parlera"  
-variables:  
-  - "verbe": ["parler", "manger"]  
 ```  
 
 ---
@@ -443,7 +392,6 @@ metadata:
 pasos:
   - "Reconocer la préposition correcta para el país mencionado."
 explicacion: "La préposition 'en' se usa con países, mientras que 'à' se usa con ciudades. Aquí, 'France' es un país, por lo tanto se requiere 'en'."
-respuesta: "en"
 respuestas_validas:
   - "en"
   - "En"
@@ -464,12 +412,9 @@ pasos:
 explicacion: "'Ton' se usa para singular, mientras que 'vos' es plural."  
 enunciado: "C’est ___ voiture préférée."  
 tipo: completar  
-respuesta: "ton"  
 respuestas_validas:  
   - "ton"  
   - "Ton"  
-variables:  
-  - "sujet": ["votre", "mes"]  
 ```  
 
 ---
@@ -486,7 +431,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y ajustar el participio pasado según el género y número."
 explicacion: "El sujeto 'le voyageur' es masculino singular, por lo que el participio 'venu' debe estar en masculino singular sin acento. No se añade 'e' ni 's'."
-respuesta: "venu"
 respuestas_validas:
   - "venu"
   - "Venu"
@@ -505,7 +449,6 @@ metadata:
 pasos:
   - "Aplicar la conjugaison del verbo 'parler' en presente para el sujeto 'nous'."
 explicacion: "El verbo 'parler' en presente con 'nous' se conjuga como 'parlons'. No se usa 'parle' ni 'parlent'."
-respuesta: "parlons"
 respuestas_validas:
   - "parlons"
   - "Parlons"
@@ -524,7 +467,6 @@ metadata:
 pasos:
   - "Seleccionar la forma correcta de 'beaucoup' según el sujeto."
 explicacion: "'Beaucoup de' se usa antes de un sustantivo plural. Aquí, 'étudiants' es plural, por lo que se mantiene 'de' sin cambios."
-respuesta: "de"
 respuestas_validas:
   - "de"
   - "De"
@@ -543,7 +485,6 @@ metadata:
 pasos:
   - "Conjugar el verbo 'prendre' en presente para el sujeto 'elles'."
 explicacion: "El verbo 'prendre' en presente con 'elles' se conjuga como 'prennent'. No se usa 'prend' ni 'prent'."
-respuesta: "prennent"
 respuestas_validas:
   - "prennent"
   - "Prennent"
@@ -562,7 +503,6 @@ metadata:
 pasos:
   - "Ajustar el adjetivo 'belle' según el género y número del sustantivo 'ville'."
 explicacion: "'Ville' es femenino singular, por lo que el adjetivo 'belle' debe adaptarse a esa forma. No se usa 'beau' ni 'belles'."
-respuesta: "belle"
 respuestas_validas:
   - "belle"
   - "Belle"

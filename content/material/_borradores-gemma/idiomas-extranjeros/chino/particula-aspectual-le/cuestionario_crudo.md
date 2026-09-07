@@ -8,15 +8,12 @@ metadata:
 pasos:
   - "Identificar el uso de la partícula '了' para indicar completitud."
   - "Completar el hueco en la oración con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "La partícula '了' se usa para marcar que una acción ha terminado. En este caso, '他吃了饭' indica que la acción de comer (吃) ha sido completada."
 tipo: completar
 enunciado: "他______饭。"
-variables:
-  - "饭": "comida"
 ```
 
 ---
@@ -57,15 +54,12 @@ metadata:
 pasos:
   - "Reconocer que la partícula '了' indica completitud."
   - "Llenar el hueco con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "'我去了学校' usa '了' para mostrar que la acción de ir (去) ha terminado. Sin '了', la oración sería incompleta."
 tipo: completar
 enunciado: "我______学校。"
-variables:
-  - "学校": "escuela"
 ```
 
 ---
@@ -106,15 +100,12 @@ metadata:
 pasos:
   - "Identificar el uso de '了' para marcar completitud."
   - "Llenar el hueco con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "'昨天我吃了饭' usa '了' para mostrar que la acción de comer (吃) se completó ayer. Sin '了', no se indica terminación."
 tipo: completar
 enunciado: "昨天我______饭。"
-variables:
-  - "昨天": "ayer"
 ```
 
 ---
@@ -155,15 +146,12 @@ metadata:
 pasos:
   - "Reconocer que '了' indica completitud."
   - "Llenar el hueco con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "'我去了商店' usa '了' para mostrar que la acción de ir (去) ha terminado. Sin '了', la oración sería incompleta."
 tipo: completar
 enunciado: "我______商店。"
-variables:
-  - "商店": "tienda"
 ```
 
 ---
@@ -204,15 +192,12 @@ metadata:
 pasos:
   - "Identificar el uso de '了' para marcar completitud."
   - "Llenar el hueco con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "'她昨天看了电影' usa '了' para mostrar que la acción de ver (看) se completó ayer. Sin '了', no se indica terminación."
 tipo: completar
 enunciado: "她昨天______电影。"
-variables:
-  - "昨天": "ayer"
 ```
 
 ---
@@ -253,15 +238,12 @@ metadata:
 pasos:
   - "Reconocer que '了' indica completitud."
   - "Llenar el hueco con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "'我吃了饭' usa '了' para mostrar que la acción de comer (吃) ha terminado. Sin '了', la oración sería incompleta."
 tipo: completar
 enunciado: "我______饭。"
-variables:
-  - "饭": "comida"
 ```
 
 ---
@@ -302,15 +284,12 @@ metadata:
 pasos:
   - "Identificar el uso de '了' para marcar completitud."
   - "Llenar el hueco con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "'我昨天去了商店' usa '了' para mostrar que la acción de ir (去) se completó ayer. Sin '了', no se indica terminación."
 tipo: completar
 enunciado: "我昨天______商店。"
-variables:
-  - "昨天": "ayer"
 ```
 
 ---
@@ -351,15 +330,12 @@ metadata:
 pasos:
   - "Reconocer que '了' indica completitud."
   - "Llenar el hueco con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "'他去了学校' usa '了' para mostrar que la acción de ir (去) ha terminado. Sin '了', la oración sería incompleta."
 tipo: completar
 enunciado: "他______学校。"
-variables:
-  - "学校": "escuela"
 ```
 
 ---
@@ -396,15 +372,12 @@ metadata:
 pasos:
   - "Identificar el uso de '了' para marcar completitud."
   - "Llenar el hueco con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "'我昨天看了电影' usa '了' para mostrar que la acción de ver (看) se completó ayer. Sin '了', no se indica terminación."
 tipo: completar
 enunciado: "我昨天______电影。"
-variables:
-  - "昨天": "ayer"
 ```
 
 ---
@@ -533,15 +506,12 @@ metadata:
 pasos:
   - "Reconocer que '了' indica completitud."
   - "Llenar el hueco con el carácter correcto."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "Le"
 explicacion: "'我昨天去了学校' usa '了' para mostrar que la acción de ir (去) se completó ayer. Sin '了', no se indica terminación."
 tipo: completar
 enunciado: "我昨天______学校。"
-variables:
-  - "昨天": "ayer"
 ```
 
 ---

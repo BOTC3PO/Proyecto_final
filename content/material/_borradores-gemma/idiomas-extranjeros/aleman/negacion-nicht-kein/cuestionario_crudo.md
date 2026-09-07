@@ -10,11 +10,9 @@ pasos:
 explicacion: "„Kein“ se usa antes de sustantivos para negar su presencia. En esta oración, el sujeto es 'Er', y el objeto es 'Auto', que requiere un artículo definido. La forma correcta es 'kein Auto'."  
 tipo: completar  
 enunciado: "Er hat ______ Auto."  
-respuesta: "kein"  
 respuestas_validas:  
   - "kein"  
   - "Kein"  
-variables: []  
 ```  
 
 ---
@@ -33,11 +31,9 @@ pasos:
 explicacion: "„Nicht“ se coloca después del verbo y antes del adjetivo. En esta oración, el sujeto es 'Sie', el verbo es 'ist', y el adjetivo es 'schön'. La forma correcta es 'nicht schön'."  
 tipo: completar  
 enunciado: "Sie ist ______ schöner als ich."  
-respuesta: "nicht"  
 respuestas_validas:  
   - "nicht"  
   - "Nicht"  
-variables: []  
 ```  
 
 ---
@@ -56,11 +52,9 @@ pasos:
 explicacion: "„Kein“ se usa antes de sustantivos que requieren un artículo. Aquí, 'Buch' es neutro y necesita 'ein', por lo tanto, la forma correcta es 'kein Buch'."  
 tipo: completar  
 enunciado: "Ich lese ______ Buch."  
-respuesta: "kein"  
 respuestas_validas:  
   - "kein"  
   - "Kein"  
-variables: []  
 ```  
 
 ---
@@ -79,11 +73,9 @@ pasos:
 explicacion: "„Nicht“ siempre se coloca después del verbo. En esta oración, el sujeto es 'Wir', el verbo es 'haben', y el objeto es 'Kaffee'. La forma correcta es 'nicht haben'."  
 tipo: completar  
 enunciado: "Wir ______ Kaffee trinken."  
-respuesta: "haben nicht"  
 respuestas_validas:  
   - "haben nicht"  
   - "Haben nicht"  
-variables: []  
 ```  
 
 ---
@@ -102,11 +94,9 @@ pasos:
 explicacion: "„Nicht“ se coloca antes del adjetivo en comparativos. El sujeto es 'Er', el verbo es 'ist', y el adjetivo es 'klug'. La forma correcta es 'nicht klug'."  
 tipo: completar  
 enunciado: "Er ist ______ kluger als sie."  
-respuesta: "nicht"  
 respuestas_validas:  
   - "nicht"  
   - "Nicht"  
-variables: []  
 ```  
 
 ---
@@ -125,11 +115,9 @@ pasos:
 explicacion: "„Kein“ se usa antes de sustantivos que requieren un artículo. Aquí, 'Hund' es masculino y necesita 'ein', por lo tanto, la forma correcta es 'kein Hund'."  
 tipo: completar  
 enunciado: "Er hat ______ Hund."  
-respuesta: "kein"  
 respuestas_validas:  
   - "kein"  
   - "Kein"  
-variables: []  
 ```  
 
 ---
@@ -148,11 +136,9 @@ pasos:
 explicacion: "„Nicht“ se coloca después del verbo modal. En esta oración, el sujeto es 'Sie', el verbo modal es 'können', y el infinitivo es 'schwimmen'. La forma correcta es 'nicht können'."  
 tipo: completar  
 enunciado: "Sie ______ schwimmen."  
-respuesta: "können nicht"  
 respuestas_validas:  
   - "können nicht"  
   - "Können nicht"  
-variables: []  
 ```  
 
 ---
@@ -171,11 +157,9 @@ pasos:
 explicacion: "„Kein“ se usa antes de sustantivos que requieren un artículo. Aquí, 'Tasse' es femenino y necesita 'eine', por lo tanto, la forma correcta es 'keine Tasse'."  
 tipo: completar  
 enunciado: "Sie hat ______ Tasse."  
-respuesta: "keine"  
 respuestas_validas:  
   - "keine"  
   - "Keine"  
-variables: []  
 ```  
 
 ---
@@ -194,11 +178,9 @@ pasos:
 explicacion: "„Nicht“ se coloca después del verbo. En esta oración, el sujeto es 'Er', el verbo es 'liest', y el objeto es 'Buch'. La forma correcta es 'nicht lesen'."  
 tipo: completar  
 enunciado: "Er ______ Buch lesen."  
-respuesta: "liest nicht"  
 respuestas_validas:  
   - "liest nicht"  
   - "Liest nicht"  
-variables: []  
 ```  
 
 ---
@@ -217,11 +199,9 @@ pasos:
 explicacion: "„Kein“ se usa antes de sustantivos que requieren un artículo. Aquí, 'Bücher' es plural y necesita 'eine', por lo tanto, la forma correcta es 'keine Bücher'."  
 tipo: completar  
 enunciado: "Ich lese ______ Bücher."  
-respuesta: "keine"  
 respuestas_validas:  
   - "keine"  
   - "Keine"  
-variables: []  
 ```  
 
 ---
@@ -240,11 +220,9 @@ pasos:
 explicacion: "„Nicht“ se coloca después del verbo. En esta oración, el sujeto es 'Er', el verbo es 'hatte', y el objeto es 'Auto'. La forma correcta es 'nicht haben'."  
 tipo: completar  
 enunciado: "Er ______ Auto hatte."  
-respuesta: "hatte nicht"  
 respuestas_validas:  
   - "hatte nicht"  
   - "Hatte nicht"  
-variables: []  
 ```  
 
 ---
@@ -263,11 +241,9 @@ pasos:
 explicacion: "„Kein“ se usa antes de sustantivos que requieren un artículo. Aquí, 'Fenster' es neutro y necesita 'ein', por lo tanto, la forma correcta es 'kein Fenster'."  
 tipo: completar  
 enunciado: "Sie hat ______ Fenster geöffnet."  
-respuesta: "kein"  
 respuestas_validas:  
   - "kein"  
   - "Kein"  
-variables: []  
 ```  
 
 ---
@@ -286,11 +262,9 @@ pasos:
 explicacion: "„Nicht“ se coloca después del verbo. En esta oración, el sujeto es 'Wir', el verbo es 'werden', y el infinitivo es 'machen'. La forma correcta es 'nicht machen'."  
 tipo: completar  
 enunciado: "Wir ______ etwas machen."  
-respuesta: "werden nicht"  
 respuestas_validas:  
   - "werden nicht"  
   - "Werden nicht"  
-variables: []  
 ```  
 
 ---
@@ -309,11 +283,9 @@ pasos:
 explicacion: "„Kein“ se usa antes de sustantivos que requieren un artículo. Aquí, 'Schlüssel' es masculino y necesita 'ein', por lo tanto, la forma correcta es 'kein Schlüssel'."  
 tipo: completar  
 enunciado: "Er hat ______ Schlüssel."  
-respuesta: "kein"  
 respuestas_validas:  
   - "kein"  
   - "Kein"  
-variables: []  
 ```  
 
 ---
@@ -332,11 +304,9 @@ pasos:
 explicacion: "„Nicht“ se coloca después del verbo. En esta oración, el sujeto es 'Du', el verbo es 'machst', y el objeto es 'Lärm'. La forma correcta es 'nicht machen'."  
 tipo: completar  
 enunciado: "Du ______ Lärm machst."  
-respuesta: "machst nicht"  
 respuestas_validas:  
   - "machst nicht"  
   - "Machst nicht"  
-variables: []  
 ```  
 
 ---
@@ -355,11 +325,9 @@ pasos:
 explicacion: "„Kein“ se usa antes de sustantivos que requieren un artículo. Aquí, 'Brief' es masculino y necesita 'ein', por lo tanto, la forma correcta es 'kein Brief'."  
 tipo: completar  
 enunciado: "Ich schreibe ______ Brief."  
-respuesta: "kein"  
 respuestas_validas:  
   - "kein"  
   - "Kein"  
-variables: []  
 ```  
 
 ---
@@ -378,11 +346,9 @@ pasos:
 explicacion: "„Nicht“ se coloca después del verbo auxiliar. En esta oración, el sujeto es 'Er', el verbo auxiliar es 'hat', y el participio es 'gegangen'. La forma correcta es 'nicht gegangen'."  
 tipo: completar  
 enunciado: "Er ______ gegangen ist."  
-respuesta: "ist nicht"  
 respuestas_validas:  
   - "ist nicht"  
   - "Ist nicht"  
-variables: []  
 ```  
 
 ---
@@ -401,11 +367,9 @@ pasos:
 explicacion: "„Kein“ se usa antes de sustantivos que requieren un artículo. Aquí, 'Stift' es masculino y necesita 'ein', por lo tanto, la forma correcta es 'kein Stift'."  
 tipo: completar  
 enunciado: "Sie hat ______ Stift."  
-respuesta: "kein"  
 respuestas_validas:  
   - "kein"  
   - "Kein"  
-variables: []  
 ```  
 
 ---
@@ -424,11 +388,9 @@ pasos:
 explicacion: "„Nicht“ se coloca después del verbo. En esta oración, el sujeto es 'Er', el verbo es 'hatte', y el objeto es 'Buch'. La forma correcta es 'nicht haben'."  
 tipo: completar  
 enunciado: "Er ______ Buch hatte."  
-respuesta: "hatte nicht"  
 respuestas_validas:  
   - "hatte nicht"  
   - "Hatte nicht"  
-variables: []  
 ```  
 
 ---
@@ -445,14 +407,11 @@ metadata:
 pasos:
   - "Identificar el sustantivo en la oración."
   - "Determinar si se necesita *nicht* o *kein* según el contexto de negación."
-respuesta: "keine"
 respuestas_validas:
   - "keine"
   - "Keine"
 tipo: completar
 enunciado: "Ich habe ______ Zeit. (No tengo tiempo)"
-variables:
-  - "Zeit"
 explicacion: "El artículo *kein* se usa antes de sustantivos con artículos definidos o indefinidos y negación. Aquí, 'keine' combina 'kein' + 'die Zeit'."
 ```
 
@@ -470,11 +429,9 @@ pasos:
 explicacion: "„Nicht“ se coloca después del verbo auxiliar. En esta oración, el sujeto es 'Wir', el verbo auxiliar es 'werden', y el participio es 'gegangen'. La forma correcta es 'nicht gegangen'."  
 tipo: completar  
 enunciado: "Wir ______ gegangen sein werden."  
-respuesta: "werden nicht"  
 respuestas_validas:  
   - "werden nicht"  
   - "Werden nicht"  
-variables: []  
 ```  
 
 ---
@@ -499,8 +456,6 @@ opciones_explicitas:
   - "kein hat"
 tipo: mc
 enunciado: "Er ______ das Buch gelesen. (No ha leído el libro)"
-variables:
-  - "gelesen"
 explicacion: "En oraciones con verbo auxiliar (*haben*), *nicht* se coloca después del verbo, no antes."
 ```
 
@@ -516,14 +471,11 @@ metadata:
 pasos:
   - "Reconocer el género del sustantivo (en este caso, *Stift* es masculino)."
   - "Aplicar la forma correcta de *kein* según el género y número."
-respuesta: "keinen"
 respuestas_validas:
   - "keinen"
   - "Keinen"
 tipo: completar
 enunciado: "Ich habe ______ Stift. (No tengo lápiz)"
-variables:
-  - "Stift"
 explicacion: "Para sustantivos masculinos, *kein* se transforma en *keinen*. Aquí, 'keinen' + 'den Stift'."
 ```
 
@@ -547,8 +499,6 @@ opciones_explicitas:
   - "wird nicht"
 tipo: mc
 enunciado: "Er ______ schwimmen. (No puede nadar)"
-variables:
-  - "schwimmen"
 explicacion: "Los verbos modales (*können, müssen, wollen*) requieren que *nicht* vaya después del verbo."
 ```
 
@@ -564,13 +514,10 @@ metadata:
 pasos:
   - "Determinar si el sustantivo es singular o plural."
   - "Usar *keine* para sustantivos plurales con artículos definidos."
-respuesta: "keine"
 respuestas_validas:
   - "keine"
   - "Keine"
 tipo: completar
 enunciado: "Sie hat ______ Bücher. (No tiene libros)"
-variables:
-  - "Bücher"
 explicacion: "Para sustantivos plurales con artículos definidos (*die Bücher*), se usa *keine*, no *kein*."
 ```

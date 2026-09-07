@@ -10,12 +10,9 @@ pasos:
 explicacion: "En francés, la negación se forma con *ne* antes del verbo y *pas* después. Ejemplo: 'Je ne vais pas au cinéma.'"
 tipo: completar
 enunciado: "Il ___ mange une pomme."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["mange", "dort", "va"]
 ```
 
 
@@ -32,12 +29,9 @@ pasos:
 explicacion: "El verbo *avoir* en negativo se conjuga como *ai*, con *ne* antes y *pas* después. Ejemplo: 'Je n'ai pas de livre.'"
 tipo: completar
 enunciado: "Nous ___ avons de la patience."
-respuesta: "n'"
 respuestas_validas:
   - "n'"
   - "N'"
-variables:
-  - "verbo": ["avons", "a", "ont"]
 ```
 
 
@@ -54,12 +48,9 @@ pasos:
 explicacion: "En el futuro, se usa *ne* antes del verbo y *pas* después. Ejemplo: 'Je ne partirai pas demain.'"
 tipo: completar
 enunciado: "Elle ___ viendra avec nous."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["viendra", "saura", "partira"]
 ```
 
 
@@ -97,12 +88,9 @@ pasos:
 explicacion: "El verbo *aller* en negativo se conjuga como *vais*, con *ne* antes y *pas* después. Ejemplo: 'Je ne vais pas.'"
 tipo: completar
 enunciado: "Tu ___ vas au travail aujourd'hui."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["vas", "va", "vont"]
 ```
 
 
@@ -119,12 +107,9 @@ pasos:
 explicacion: "Cuando el verbo empieza con una vocal, *ne* se contrae en *n'*. Ejemplo: 'Je n'ai pas de temps.'"
 tipo: completar
 enunciado: "Il ___ a rien à dire."
-respuesta: "n'"
 respuestas_validas:
   - "n'"
   - "N'"
-variables:
-  - "verbo": ["a", "est", "va"]
 ```
 
 
@@ -141,12 +126,9 @@ pasos:
 explicacion: "En preguntas negativas, se coloca *ne* antes del verbo y *pas* después. Ejemplo: 'Tu ne veux pas manger?'"
 tipo: completar
 enunciado: "Vous ___ allez à la plage?"
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["allez", "dormez", "mangez"]
 ```
 
 
@@ -163,12 +145,9 @@ pasos:
 explicacion: "Los verbos pronominales como *se lever* se negan con *ne* antes del pronombre. Ejemplo: 'Je ne me lève pas.'"
 tipo: completar
 enunciado: "Elle ___ se réveille tôt."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["se réveille", "s'habille", "s'assoit"]
 ```
 
 
@@ -185,12 +164,9 @@ pasos:
 explicacion: "La negación se forma con *ne* + verbo conjugado + *pas*. Ejemplo: 'Je ne parle pas français.'"
 tipo: completar
 enunciado: "Ils ___ parlent que de politique."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["parlent", "mangent", "dansent"]
 ```
 
 
@@ -207,12 +183,9 @@ pasos:
 explicacion: "Cuando el verbo es un infinitivo y empieza con una vocal, se usa *n'*. Ejemplo: 'Je n'aime pas le fromage.'"
 tipo: completar
 enunciado: "Il ___ aime pas les légumes."
-respuesta: "n'"
 respuestas_validas:
   - "n'"
   - "N'"
-variables:
-  - "verbo": ["aime", "va", "est"]
 ```
 
 
@@ -229,12 +202,9 @@ pasos:
 explicacion: "En el condicional, se usa *ne* antes del verbo y *pas* después. Ejemplo: 'Je ne partirais pas.'"
 tipo: completar
 enunciado: "Tu ___ irais à l'école demain?"
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["irais", "voudrais", "serais"]
 ```
 
 
@@ -251,12 +221,9 @@ pasos:
 explicacion: "El verbo *être* se conjuga como *suis*, con *ne* antes y *pas* después. Ejemplo: 'Je ne suis pas fatigué.'"
 tipo: completar
 enunciado: "Nous ___ sommes contents aujourd'hui."
-respuesta: "n'"
 respuestas_validas:
   - "n'"
   - "N'"
-variables:
-  - "verbo": ["sommes", "êtes", "est"]
 ```
 
 
@@ -273,12 +240,9 @@ pasos:
 explicacion: "Cuando hay un adverbio entre el verbo y *pas*, se mantiene la estructura *ne...pas*. Ejemplo: 'Je ne veux pas vraiment.'"
 tipo: completar
 enunciado: "Elle ___ veut pas vraiment sortir."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["veut", "va", "dort"]
 ```
 
 
@@ -295,12 +259,9 @@ pasos:
 explicacion: "Cuando el verbo empieza con consonante, se usa *ne* sin contracción. Ejemplo: 'Je ne mange pas.'"
 tipo: completar
 enunciado: "Il ___ mange pas de fruits."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["mange", "dort", "va"]
 ```
 
 
@@ -317,12 +278,9 @@ pasos:
 explicacion: "Los verbos como *dormir* se conjugan con *ne* antes y *pas* después. Ejemplo: 'Je ne dors pas.'"
 tipo: completar
 enunciado: "Tu ___ dors pas aujourd'hui."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["dors", "manges", "parles"]
 ```
 
 
@@ -339,12 +297,9 @@ pasos:
 explicacion: "Cuando el verbo está en participio pasado, se usa *ne* antes y *pas* después. Ejemplo: 'Il n'a pas mangé.'"
 tipo: completar
 enunciado: "Nous ___ avons pas fini le travail."
-respuesta: "n'"
 respuestas_validas:
   - "n'"
   - "N'"
-variables:
-  - "verbo": ["avons", "avez", "ont"]
 ```
 
 
@@ -361,12 +316,9 @@ pasos:
 explicacion: "Los verbos como *prendre* se conjugan con *ne* antes y *pas* después. Ejemplo: 'Je ne prends pas.'"
 tipo: completar
 enunciado: "Elle ___ prend pas de café."
-respuesta: "ne"
 respuestas_validas:
   - "ne"
   - "Ne"
-variables:
-  - "verbo": ["prend", "fait", "voit"]
 ```
 
 
@@ -383,12 +335,9 @@ pasos:
 explicacion: "Cuando el verbo empieza con una vocal, se usa *n'*. Ejemplo: 'Je n'ai pas de temps.'"
 tipo: completar
 enunciado: "Il ___ a pas de livre."
-respuesta: "n'"
 respuestas_validas:
   - "n'"
   - "N'"
-variables:
-  - "verbo": ["a", "est", "va"]
 ```
 
 
@@ -403,13 +352,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'aimer' en la oración."  
   - "Colocar 'ne' antes del verbo y 'pas' después de su conjugación."  
-respuesta: "n’aime pas"  
 tipo: completar  
 respuestas_validas:  
   - "n'aime pas"  
   - "N’aime pas"  
 enunciado: "Il ___ aime les légumes."  
-variables: []  
 explicacion: "La negación en francés requiere 'ne' antes del verbo y 'pas' después. El verbo 'aimer' se conjuga como 'aime', así que la forma correcta es 'n’aime pas'."  
 ```  
 
@@ -425,13 +372,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'aller' en la oración."  
   - "Colocar 'ne' antes del verbo y 'pas' después de su conjugación."  
-respuesta: "n’allez pas"  
 tipo: completar  
 respuestas_validas:  
   - "n'allez pas"  
   - "N’allez pas"  
 enunciado: "Vous ___ allez à la réunion?"  
-variables: []  
 explicacion: "En preguntas, 'ne...pas' se coloca antes del verbo. El verbo 'aller' en segunda persona del plural es 'allez', así que la forma correcta es 'n’allez pas'."  
 ```  
 
@@ -453,7 +398,6 @@ opciones_explicitas:
   - "écoute pas"  
   - "n’écoute pas"  
   - "écoute ne pas"  
-variables: []  
 explicacion: "La negación 'ne...pas' debe rodear al verbo. El verbo 'écouter' en tercera persona del singular es 'écoute', así que la forma correcta es 'n’écoute pas'."  
 ```  
 
@@ -475,7 +419,6 @@ opciones_explicitas:
   - "a pas"  
   - "n’a pas"  
   - "pas a"  
-variables: []  
 explicacion: "El verbo 'avoir' en tercera persona del singular es 'a'. La negación correcta es 'n’a pas', con 'ne' antes y 'pas' después."  
 ```  
 
@@ -497,7 +440,6 @@ opciones_explicitas:
   - "est pas"  
   - "n’est pas"  
   - "pas est"  
-variables: []  
 explicacion: "El verbo 'être' en tercera persona del singular es 'est'. La negación correcta es 'n’est pas', con 'ne' antes y 'pas' después."  
 ```  
 
@@ -513,13 +455,11 @@ metadata:
 pasos:  
   - "Identificar el verbo 'envoyer' en la oración."  
   - "Colocar 'ne' antes del verbo y 'pas' después de su conjugación."  
-respuesta: "n’envoie pas"  
 tipo: completar  
 respuestas_validas:  
   - "n'envoie pas"  
   - "N’envoie pas"  
 enunciado: "Elle ___ envoie le message."  
-variables: []  
 explicacion: "El verbo 'envoyer' en tercera persona del singular es 'envoie'. La negación correcta es 'n’envoie pas', con 'ne' antes y 'pas' después."  
 ```  
 
@@ -541,6 +481,5 @@ opciones_explicitas:
   - "apprend pas"  
   - "n’apprend pas"  
   - "pas apprend"  
-variables: []  
 explicacion: "El verbo 'apprendre' en tercera persona del singular es 'apprend'. La negación correcta es 'n’apprend pas', con 'ne' antes y 'pas' después."  
 ```

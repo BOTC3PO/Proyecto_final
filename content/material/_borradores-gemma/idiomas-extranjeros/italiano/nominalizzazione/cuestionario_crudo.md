@@ -10,7 +10,6 @@ pasos:
 explicacion: "El verbo 'parlare' se nominaliza con el sufijo '-zione', formando 'discussione' (feminino). Este proceso es común para verbos terminados en -are."  
 enunciado: "La ______ della politica è spesso controversa."  
 tipo: completar  
-respuesta: "discussione"  
 respuestas_validas:  
   - "discussione"  
   - "DISCUSSIONE"  
@@ -32,7 +31,6 @@ pasos:
 explicacion: "El verbo 'sentire' (sentir) se convierte en 'sensazione' con el sufijo '-zione', no '-tura'. El sufijo '-tura' se usa para verbos terminados en -ere/-ire, como 'vedere' → 'visione'."  
 enunciado: "La ______ del paesaggio era intensa."  
 tipo: completar  
-respuesta: "visione"  
 respuestas_validas:  
   - "visione"  
   - "VISIONE"  
@@ -77,7 +75,6 @@ pasos:
 explicacion: "El verbo 'giocare' (jugar) se transforma en 'gioco' (masculino singular), que es un sustantivo común usado en contextos como juegos o competencias."  
 enunciado: "Il ______ preferito da bambini è il calcio."  
 tipo: completar  
-respuesta: "gioco"  
 respuestas_validas:  
   - "gioco"  
   - "GIUOCO"  
@@ -99,7 +96,6 @@ pasos:
 explicacion: "Los verbos en -ire como 'aprire' se nominalizan con '-tura', formando 'apertura'. Otros ejemplos son 'chiudere' → 'chiusura'."  
 enunciado: "La ______ del documento è necessaria per il deposito."  
 tipo: completar  
-respuesta: "apertura"  
 respuestas_validas:  
   - "apertura"  
   - "APERTURA"  
@@ -121,7 +117,6 @@ pasos:
 explicacion: "El verbo 'conoscere' (conocer) se convierte en 'conoscenza' con el sufijo '-enza', que se usa para verbos terminados en -cere, -scere, etc."  
 enunciado: "La ______ del nuovo sistema richiede tempo."  
 tipo: completar  
-respuesta: "conoscenza"  
 respuestas_validas:  
   - "conoscenza"  
   - "CONOSCENZA"  
@@ -166,7 +161,6 @@ pasos:
 explicacion: "El verbo 'rispondere' (responder) se convierte en 'risposta' con '-sione', que es la forma correcta para verbos terminados en -dare o -dere."  
 enunciado: "La ______ al questionario era chiara e precisa."  
 tipo: completar  
-respuesta: "risposta"  
 respuestas_validas:  
   - "risposta"  
   - "RISPOSTA"  
@@ -188,7 +182,6 @@ pasos:
 explicacion: "El verbo 'dormire' (dormir) se nominaliza como 'sonno' con '-sione', no '-tura'. El sufijo '-tura' se usa para verbos en -ire, pero 'dormire' es una excepción que toma '-sione'."  
 enunciado: "Il ______ di un bambino è profondo e rilassante."  
 tipo: completar  
-respuesta: "sonno"  
 respuestas_validas:  
   - "sonno"  
   - "SOMNO"  
@@ -210,7 +203,6 @@ pasos:
 explicacion: "El verbo 'creare' (crear) se convierte en 'creazione' con '-zione', no '-enza'. El sufijo '-enza' se usa para verbos terminados en -cere, como 'conoscere' → 'conoscenza'."  
 enunciado: "La ______ dell’opera d’arte è unica e originale."  
 tipo: completar  
-respuesta: "creazione"  
 respuestas_validas:  
   - "creazione"  
   - "CREAZIONE"  
@@ -255,7 +247,6 @@ pasos:
 explicacion: "El verbo 'parlare' (hablar) se convierte en 'discussione' con '-zione', que es la forma correcta para verbos terminados en -are."  
 enunciado: "La ______ tra i due amici era sempre intensa."  
 tipo: completar  
-respuesta: "discussione"  
 respuestas_validas:  
   - "discussione"  
   - "DISCUSSIONE"  
@@ -277,7 +268,6 @@ pasos:
 explicacion: "El verbo 'chiudere' (cerrar) se nominaliza como 'chiusura' con '-tura', que es la forma correcta para verbos terminados en -ire."  
 enunciado: "La ______ del portone era un problema urgente."  
 tipo: completar  
-respuesta: "chiusura"  
 respuestas_validas:  
   - "chiusura"  
   - "CHIUSURA"  
@@ -299,7 +289,6 @@ pasos:
 explicacion: "El verbo 'dormire' (dormir) se convierte en 'sonno' con '-sione', que es la forma correcta para verbos terminados en -mire, -mirare, etc."  
 enunciado: "Il ______ di una notte tranquilla è raro in città."  
 tipo: completar  
-respuesta: "sonno"  
 respuestas_validas:  
   - "sonno"  
   - "SOMNO"  
@@ -344,7 +333,6 @@ pasos:
 explicacion: "El verbo 'giocare' (jugar) se convierte en 'gioco' con '-co', que es una excepción a las reglas generales de nominalización, pero se usa comúnmente para este verbo."  
 enunciado: "Il ______ preferito dai bambini è il calcio."  
 tipo: completar  
-respuesta: "gioco"  
 respuestas_validas:  
   - "gioco"  
   - "GIUOCO"  
@@ -366,7 +354,6 @@ pasos:
 explicacion: "El verbo 'vedere' (ver) se nominaliza como 'visione' con '-sione', no '-tura'. El sufijo '-tura' es para verbos en -ire, pero 'vedere' toma '-zione'."  
 enunciado: "La ______ del film era eccezionale."  
 tipo: completar  
-respuesta: "visione"  
 respuestas_validas:  
   - "visione"  
   - "VISIONE"  
@@ -388,7 +375,6 @@ pasos:
 explicacion: "El verbo 'parlare' (hablar) se convierte en 'discussione' con '-zione', que es la forma correcta para verbos terminados en -are."  
 enunciado: "La ______ tra i due gruppi era intensa e polemica."  
 tipo: completar  
-respuesta: "discussione"  
 respuestas_validas:  
   - "discussione"  
   - "DISCUSSIONE"  
@@ -408,13 +394,11 @@ metadata:
 pasos:  
   - "Identificar el verbo en la oración y transformarlo en forma nominal."  
   - "Verificar que el sustantivo coincida con el contexto del proceso descrito."  
-respuesta: "implementazione"  
 tipo: completar  
 respuestas_validas:  
   - "Implementazione"  
   - "IMPLEMENTAZIONE"  
 enunciado: "La ______ del nuovo sistema informatico richiede tempo e risorse."  
-variables: []  
 explicacion: "El verbo 'implementare' se convierte en el sustantivo 'implementazione', que refiere al proceso de poner en práctica un sistema. Otros términos como 'esecuzione' o 'attuazione' no son válidos aquí por contexto."  
 ```
 
@@ -428,13 +412,11 @@ metadata:
 pasos:  
   - "Identificar el verbo en la oración y encontrar su forma nominal."  
   - "Asegurar que el sustantivo refleje una acción colectiva o social."  
-respuesta: "solidarietà"  
 tipo: completar  
 respuestas_validas:  
   - "Solidarietà"  
   - "SOLIDARIETÀ"  
 enunciado: "La ______ tra i volontari era un valore fondamentale per l’associazione."  
-variables: []  
 explicacion: "'Essere solidali' se transforma en 'solidarietà', que denota un valor colectivo. Opciones como 'collaborazione' o 'aiuto' son incorrectas por contexto semántico."  
 ```
 
@@ -448,13 +430,11 @@ metadata:
 pasos:  
   - "Reconocer el verbo que describe una emoción y convertirlo en sustantivo."  
   - "Verificar que el término coincida con la descripción de la emoción en la oración."  
-respuesta: "felicità"  
 tipo: completar  
 respuestas_validas:  
   - "Felicità"  
   - "FELICITÀ"  
 enunciado: "La ______ del bambino fu visibile nel suo sorriso."  
-variables: []  
 explicacion: "'Sentire felicità' se convierte en 'felicità', que denota un estado emocional. Términos como 'gioia' o 'allegria' son sinónimos pero no coinciden con la forma nominal requerida."  
 ```
 
@@ -468,13 +448,11 @@ metadata:
 pasos:  
   - "Identificar el verbo relacionado con la toma de decisiones y encontrar su forma nominal."  
   - "Asegurar que el sustantivo refleje un acto colectivo o institucional."  
-respuesta: "decisione"  
 tipo: completar  
 respuestas_validas:  
   - "Decisione"  
   - "DECISIONE"  
 enunciado: "La ______ del governo fu contestata da molti cittadini."  
-variables: []  
 explicacion: "'Prendere una decisione' se convierte en 'decisione', que denota un acto institucional. Opciones como 'parlamento' o 'voto' son incorrectas por contexto gramatical y semántico."  
 ```
 
@@ -488,13 +466,11 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe una relación y convertirlo en sustantivo."  
   - "Verificar que el término se alinee con la descripción de la relación en la oración."  
-respuesta: "comprensione"  
 tipo: completar  
 respuestas_validas:  
   - "Comprensione"  
   - "COMPRENSIONE"  
 enunciado: "La ______ tra i due protagonisti fu chiave per risolvere il conflitto."  
-variables: []  
 explicacion: "'Comprendere' se convierte en 'comprensione', que denota una relación de entendimiento. Términos como 'dialogo' o 'accordo' son incorrectos por contexto gramatical y semántico."  
 ```
 
@@ -508,13 +484,11 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe un fenómeno natural y convertirlo en sustantivo."  
   - "Asegurar que el término coincida con la descripción del fenómeno en la oración."  
-respuesta: "tempesta"  
 tipo: completar  
 respuestas_validas:  
   - "Tempesta"  
   - "TEMPESTA"  
 enunciado: "La ______ del mare fu causata da un forte vento meridionale."  
-variables: []  
 explicacion: "'Scatenare una tempesta' se convierte en 'tempesta', que denota un fenómeno natural. Opciones como 'uragano' o 'onda' son incorrectas por contexto semántico y gramatical."  
 ```
 
@@ -528,12 +502,10 @@ metadata:
 pasos:  
   - "Identificar el verbo que describe un cambio y convertirlo en sustantivo."  
   - "Verificar que el término refleje una transformación social o cultural."  
-respuesta: "trasformazione"  
 tipo: completar  
 respuestas_validas:  
   - "Trasformazione"  
   - "TRASFORMAZIONE"  
 enunciado: "La ______ delle abitudini alimentari fu un risultato del nuovo programma dietetico."  
-variables: []  
 explicacion: "'Trasformare' se convierte en 'trasformazione', que denota un cambio en hábitos. Términos como 'cambiamento' o 'modifica' son incorrectos por contexto gramatical y semántico."  
 ```

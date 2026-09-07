@@ -8,15 +8,12 @@ metadata:
 pasos:
   - "Identificar el tipo de palabra faltante en la oración."
   - "Aplicar las reglas de formación de neologismos en esperanto."
-respuesta: "kompililo"
 respuestas_validas:
   - "kompililo"
   - "Kompililo"
 tipo: completar
 enunciado: "La ___ estas plej utila por krei programojn."
 explicacion: "En esperanto, los neologismos en tecnología suelen formarse con el sufijo '-ilo' para sustantivos. 'kompililo' es la forma correcta adaptada de 'compiler' (inglés)."
-variables:
-  - "kompililo"
 ```
 
 ---
@@ -33,15 +30,12 @@ metadata:
 pasos:
   - "Determinar el tipo de palabra necesaria según el contexto."
   - "Aplicar la regla de adaptación para adjetivos."
-respuesta: "akademia"
 respuestas_validas:
   - "akademia"
   - "Akademia"
 tipo: completar
 enunciado: "La universitato estas ___ kaj moderna."
 explicacion: "Los adjetivos derivados de términos extranjeros en esperanto usan '-ia' (ej. 'akademia' de 'académique'). La forma canónica es 'akademia'."
-variables:
-  - "akademia"
 ```
 
 ---
@@ -64,8 +58,6 @@ opciones_explicitas:
   - "teatrilo"
 respuesta: "teatro"
 explicacion: "El término 'teatro' se adapta directamente en esperanto sin cambios, ya que es un sustantivo común. Las otras opciones añaden sufijos innecesarios."
-variables:
-  - "teatro"
 ```
 
 ---
@@ -82,15 +74,12 @@ metadata:
 pasos:
   - "Analizar el contexto del sustantivo faltante."
   - "Aplicar la regla de formación con '-o'."
-respuesta: "klimato"
 respuestas_validas:
   - "klimato"
   - "Klimato"
 tipo: completar
 enunciado: "La ___ estas malvarma en tiuj regionoj."
 explicacion: "'klimato' es el sustantivo adaptado de 'climate', formado con '-o' según las reglas esperantistas para sustantivos."
-variables:
-  - "klimato"
 ```
 
 ---
@@ -113,8 +102,6 @@ opciones_explicitas:
   - "pilkejo"
 respuesta: "pilko"
 explicacion: "'pilko' es el sustantivo directamente adaptado de 'ball', sin necesidad de añadir sufijos adicionales. Las otras opciones son incorrectas."
-variables:
-  - "pilko"
 ```
 
 ---
@@ -133,7 +120,6 @@ pasos:
 explicacion: "La vorto 'kompililo' estas prestamo el la angla 'compiler', ofte uzata en programado. Ĝi havas specifan signifon kaj ne povas esti anstataŭigita per aliaj vortoj."  
 tipo: completar  
 enunciado: "La funkcio de la ___ estas traduki kodon en instruktojn por la komputilo."  
-respuesta: "kompililo"  
 respuestas_validas:  
   - "Kompililo"  
   - "kompililo"
@@ -155,8 +141,6 @@ opciones_explicitas:
   - "artistilo"
 respuesta: "artistika"
 explicacion: "'artistika' es el adjetivo adaptado de 'artistic', formado con '-ika'. Las otras opciones no siguen las reglas esperantistas."
-variables:
-  - "artistika"
 ```
 
 ---
@@ -173,15 +157,12 @@ metadata:
 pasos:
   - "Determinar el tipo de palabra necesaria según el contexto."
   - "Aplicar la regla para adjetivos derivados."
-respuesta: "institucia"
 respuestas_validas:
   - "institucia"
   - "Institucia"
 tipo: completar
 enunciado: "La ___ de lernantoj estas granda."
 explicacion: "'institucia' es el adjetivo adaptado de 'institutional', formado con '-ia'. La forma canónica es 'institucia'."
-variables:
-  - "institucia"
 ```
 
 ---
@@ -204,8 +185,6 @@ opciones_explicitas:
   - "klimatilo"
 respuesta: "klimato"
 explicacion: "'klimato' es el sustantivo directamente adaptado de 'climate', sin necesidad de añadir sufijos. Las otras opciones son incorrectas."
-variables:
-  - "klimato"
 ```
 
 ---
@@ -222,15 +201,12 @@ metadata:
 pasos:
   - "Analizar el contexto del sustantivo faltante."
   - "Aplicar la regla de formación con '-o'."
-respuesta: "pilko"
 respuestas_validas:
   - "pilko"
   - "Pilko"
 tipo: completar
 enunciado: "La ___ estas en la kampo."
 explicacion: "'pilko' es el sustantivo adaptado de 'ball', formado con '-o' según las reglas esperantistas para sustantivos."
-variables:
-  - "pilko"
 ```
 
 ---
@@ -253,8 +229,6 @@ opciones_explicitas:
   - "historiilo"
 respuesta: "historika"
 explicacion: "'historika' es el adjetivo adaptado de 'historic', formado con '-ika'. Las otras opciones no siguen las reglas esperantistas."
-variables:
-  - "historika"
 ```
 
 ---
@@ -297,8 +271,6 @@ opciones_explicitas:
   - "klimatilo"
 respuesta: "klimato"
 explicacion: "'klimato' es el sustantivo directamente adaptado de 'climate', sin necesidad de añadir sufijos. Las otras opciones son incorrectas."
-variables:
-  - "klimato"
 ```
 
 ---
@@ -317,7 +289,6 @@ pasos:
 explicacion: "'Daŭra' estas originaj vorto en Esperanto, sed kiam ĝi rilatas al ekologia sosteneco, eblas ankaŭ uzi la neologisman 'sustenanta', kiu estas pli specifa."  
 tipo: completar  
 enunciado: "La modelo de ___ vivon celas minimuman efikon sur la medio."  
-respuesta: "sustenantaj"  
 respuestas_validas:  
   - "sustenantaj"  
   - "Sustenantaj"
@@ -339,8 +310,6 @@ opciones_explicitas:
   - "pilkejo"
 respuesta: "pilko"
 explicacion: "'pilko' es el sustantivo directamente adaptado de 'ball', sin necesidad de añadir sufijos. Las otras opciones son incorrectas."
-variables:
-  - "pilko"
 ```
 
 ---
@@ -383,8 +352,6 @@ opciones_explicitas:
   - "artistilo"
 respuesta: "artistika"
 explicacion: "'artistika' es el adjetivo adaptado de 'artistic', formado con '-ika'. Las otras opciones no siguen las reglas esperantistas."
-variables:
-  - "artistika"
 ```
 
 ---
@@ -403,7 +370,6 @@ pasos:
 explicacion: "'Viralo' estas angla vorto, kiu ĉeestas en Esperanto pro sia konata signifo. Tamen, eblas ankaŭ uzi 'rapidaj informoj', sed la prestamo estos pli komprenema."  
 tipo: completar  
 enunciado: "La ___ de la artikolo estis kaptita per miloj da personoj en unu tago."  
-respuesta: "viralo"  
 respuestas_validas:  
   - "Viralo"  
   - "viralo"
@@ -425,8 +391,6 @@ opciones_explicitas:
   - "klimatilo"
 respuesta: "klimato"
 explicacion: "'klimato' es el sustantivo directamente adaptado de 'climate', sin necesidad de añadir sufijos. Las otras opciones son incorrectas."
-variables:
-  - "klimato"
 ```
 
 ---
@@ -469,8 +433,6 @@ opciones_explicitas:
   - "historiilo"
 respuesta: "historika"
 explicacion: "'historika' es el adjetivo adaptado de 'historic', formado con '-ika'. Las otras opciones no siguen las reglas esperantistas."
-variables:
-  - "historika"
 ```
 
 ---
@@ -489,7 +451,6 @@ pasos:
 explicacion: "'Tradicia' estas originaj vorto en Esperanto, sed kiam ĝi rilatas al moderna kultura movado, eblas ankaŭ uzi 'kultura heredaĵo', kiu estas pli konvertebla."  
 tipo: completar  
 enunciado: "La ___ de la lando estis priskribita en la libro pri ĝia historio."  
-respuesta: "kulturaj heredaĵoj"  
 respuestas_validas:  
   - "kulturaj heredaĵoj"  
   - "Kulturaj heredaĵoj"
@@ -511,8 +472,6 @@ opciones_explicitas:
   - "klimatilo"
 respuesta: "klimato"
 explicacion: "'klimato' es el sustantivo directamente adaptado de 'climate', sin necesidad de añadir sufijos. Las otras opciones son incorrectas."
-variables:
-  - "klimato"
 ```
 
 ---
@@ -555,6 +514,4 @@ opciones_explicitas:
   - "pilkejo"
 respuesta: "pilko"
 explicacion: "'pilko' es el sustantivo directamente adaptado de 'ball', sin necesidad de añadir sufijos. Las otras opciones son incorrectas."
-variables:
-  - "pilko"
 ```

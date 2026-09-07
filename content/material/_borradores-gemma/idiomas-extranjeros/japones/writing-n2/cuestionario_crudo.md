@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "動詞の可能形を正しく選ぶ。"  
   - "文脈に応じた活用形で空欄を埋める。"  
-respuesta: "食べられる"  
 respuestas_validas:  
   - "食べられる"  
   - "食べられます"  
@@ -29,7 +28,10 @@ metadata:
 pasos:  
   - "文の意味に合った原因表現を選びなさい。"  
   - "「～ために」や「～から」の使い分けを確認する。"  
-opciones_explicitas: ["彼が遅れたために", "彼が遅れたから", "彼が遅れたので"]  
+opciones_explicitas:
+  - "彼が遅れたために"
+  - "彼が遅れたから"
+  - "彼が遅れたので"
 respuesta: "彼が遅れたため"  
 explicacion: "「～ために」は原因・理由を強調し、文脈に最も適切な表現である。他の選択肢も可能だが、「ため」が正式で文法的に最適。"
 ```
@@ -46,7 +48,6 @@ metadata:
 pasos:  
   - "目的を表す粒子を選択する。"  
   - "文脈に合った「ために」や「して」の使い分けを確認する。"  
-respuesta: "ために"  
 respuestas_validas:  
   - "ために"  
   - "ため"  
@@ -67,7 +68,10 @@ metadata:
 pasos:  
   - "文の意味に合った接続詞を選びなさい。"  
   - "「おそらく」や「きっと」の使い分けを確認する。"  
-opciones_explicitas: ["彼は今、学校____いる。", "彼は今、学校でいる。", "彼は今、学校へ行く。"]  
+opciones_explicitas:
+  - "彼は今、学校____いる。"
+  - "彼は今、学校でいる。"
+  - "彼は今、学校へ行く。"
 respuesta: "彼は今、学校にいる。"  
 explicacion: "「～に」は場所の存在を示す。「で」は動作場所、「へ」は方向なので不適切。"
 ```
@@ -84,7 +88,6 @@ metadata:
 pasos:  
   - "仮定の表現を正しく選ぶ。"  
   - "「～なら」や「～であれば」の使い分けを確認する。"  
-respuesta: "なら"  
 respuestas_validas:  
   - "なら"  
   - "であれば"  
@@ -105,7 +108,10 @@ metadata:
 pasos:  
   - "文の否定形を正しく選ぶ。"  
   - "「～ない」や「～ぬ」の使い分けを確認する。"  
-opciones_explicitas: ["彼は来ます。", "彼は来ません。", "彼は来ぬ。"]  
+opciones_explicitas:
+  - "彼は来ます。"
+  - "彼は来ません。"
+  - "彼は来ぬ。"
 respuesta: "彼は来ません。"  
 explicacion: "「～ません」は丁寧な否定形で、文脈に最も適切。「～ぬ」は古語で不自然。"
 ```
@@ -122,7 +128,6 @@ metadata:
 pasos:  
   - "受動態を正しく選ぶ。"  
   - "「～られる」や「～れる」の使い分けを確認する。"  
-respuesta: "される"  
 respuestas_validas:  
   - "される"  
   - "される"（強調形）  
@@ -143,7 +148,10 @@ metadata:
 pasos:  
   - "文の意味に合った比較表現を選びなさい。"  
   - "「より」や「よりも」の使い分けを確認する。"  
-opciones_explicitas: ["この車はそれ____速い。", "この車はそれより速い。", "この車はそれほど速い。"]  
+opciones_explicitas:
+  - "この車はそれ____速い。"
+  - "この車はそれより速い。"
+  - "この車はそれほど速い。"
 respuesta: "この車はそれより速い。"  
 explicacion: "「より」は比較の対象を示し、文脈に最も適切。「よりも」は語尾に続くので不自然。"
 ```
@@ -160,7 +168,6 @@ metadata:
 pasos:  
   - "完了形を正しく選ぶ。"  
   - "「～た」や「～った」の使い分けを確認する。"  
-respuesta: "した"  
 respuestas_validas:  
   - "した"  
   - "しました"  
@@ -181,7 +188,10 @@ metadata:
 pasos:  
   - "文の意味に合った推量表現を選びなさい。"  
   - "「きっと」や「おそらく」の使い分けを確認する。"  
-opciones_explicitas: ["彼は今、学校____いる。", "彼は今、学校でいる。", "彼は今、学校へ行く。"]  
+opciones_explicitas:
+  - "彼は今、学校____いる。"
+  - "彼は今、学校でいる。"
+  - "彼は今、学校へ行く。"
 respuesta: "彼は今、学校にいる。"  
 explicacion: "「～に」は場所の存在を示す。「で」は動作場所、「へ」は方向なので不適切。"
 ```
@@ -200,7 +210,6 @@ pasos:
 explicacion: "La partícula 'して' se usa para unir dos acciones en secuencia. En este contexto, '予約をして' significa 'hacer una reserva'."
 enunciado: "レストランで予約を____、来週の水曜日にします。"
 tipo: completar
-respuesta: "して"
 respuestas_validas:
   - "して"
   - "して"
@@ -218,7 +227,10 @@ metadata:
 pasos:  
   - "文の意味に合った原因表現を選びなさい。"  
   - "「～ために」や「～から」の使い分けを確認する。"  
-opciones_explicitas: ["彼が遅れたために", "彼が遅れたから", "彼が遅れたので"]  
+opciones_explicitas:
+  - "彼が遅れたために"
+  - "彼が遅れたから"
+  - "彼が遅れたので"
 respuesta: "彼が遅れたため"  
 explicacion: "「～ために」は原因・理由を強調し、文脈に最も適切な表現である。他の選択肢も可能だが、「ため」が正式で文法的に最適。"
 ```
@@ -237,7 +249,6 @@ pasos:
 explicacion: "La forma '～た' indica una acción pasada. En este caso, '飲んだ' describe que la persona terminó de beber antes del momento actual."
 enunciado: "彼は昨日、コーヒーを____飲みました。"
 tipo: completar
-respuesta: "飲んだ"
 respuestas_validas:
   - "飲んだ"
   - "飲んだけど"
@@ -255,7 +266,10 @@ metadata:
 pasos:  
   - "文の意味に合った接続詞を選びなさい。"  
   - "「おそらく」や「きっと」の使い分けを確認する。"  
-opciones_explicitas: ["彼は今、学校____いる。", "彼は今、学校でいる。", "彼は今、学校へ行く。"]  
+opciones_explicitas:
+  - "彼は今、学校____いる。"
+  - "彼は今、学校でいる。"
+  - "彼は今、学校へ行く。"
 respuesta: "彼は今、学校にいる。"  
 explicacion: "「～に」は場所の存在を示す。「で」は動作場所、「へ」は方向なので不適切。"
 ```
@@ -274,7 +288,6 @@ pasos:
 explicacion: "'～なければなりません' indica una obligación que depende de una condición. Aquí, el sujeto debe tomar medicina diariamente."
 enunciado: "この薬は____飲まなければなりません。"
 tipo: completar
-respuesta: "毎日"
 respuestas_validas:
   - "毎日"
   - "every day" (no aplicable)
@@ -292,7 +305,10 @@ metadata:
 pasos:  
   - "文の否定形を正しく選ぶ。"  
   - "「～ない」や「～ぬ」の使い分けを確認する。"  
-opciones_explicitas: ["彼は来ます。", "彼は来ません。", "彼は来ぬ。"]  
+opciones_explicitas:
+  - "彼は来ます。"
+  - "彼は来ません。"
+  - "彼は来ぬ。"
 respuesta: "彼は来ません。"  
 explicacion: "「～ません」は丁寧な否定形で、文脈に最も適切。「～ぬ」は古語で不自然。"
 ```
@@ -311,7 +327,6 @@ pasos:
 explicacion: "'～て' se usa para enlazar dos acciones o estados. Aquí, '忙しい' describe el estado actual después del verbo '取り組んでいます'."
 enunciado: "彼は今、新しいプロジェクト____取り組んでいます。"
 tipo: completar
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "で" (incorrecto, no aplicable)
@@ -329,7 +344,10 @@ metadata:
 pasos:  
   - "文の意味に合った比較表現を選びなさい。"  
   - "「より」や「よりも」の使い分けを確認する。"  
-opciones_explicitas: ["この車はそれ____速い。", "この車はそれより速い。", "この車はそれほど速い。"]  
+opciones_explicitas:
+  - "この車はそれ____速い。"
+  - "この車はそれより速い。"
+  - "この車はそれほど速い。"
 respuesta: "この車はそれより速い。"  
 explicacion: "「より」は比較の対象を示し、文脈に最も適切。「よりも」は語尾に続くので不自然。"
 ```
@@ -367,7 +385,10 @@ metadata:
 pasos:  
   - "文の意味に合った推量表現を選びなさい。"  
   - "「きっと」や「おそらく」の使い分けを確認する。"  
-opciones_explicitas: ["彼は今、学校____いる。", "彼は今、学校でいる。", "彼は今、学校へ行く。"]  
+opciones_explicitas:
+  - "彼は今、学校____いる。"
+  - "彼は今、学校でいる。"
+  - "彼は今、学校へ行く。"
 respuesta: "彼は今、学校にいる。"  
 explicacion: "「～に」は場所の存在を示す。「で」は動作場所、「へ」は方向なので不適切。"
 ```
@@ -386,7 +407,6 @@ pasos:
 explicacion: "'～でしょう' se usa cuando hay indicios que respaldan una suposición. Aquí, la acción de cerrar los ojos sugiere cansancio."
 enunciado: "彼は今、目を____閉じています。"
 tipo: completar
-respuesta: "閉じて"
 respuestas_validas:
   - "閉じて"
   - "閉じてる" (no aplicable)
@@ -402,7 +422,10 @@ metadata:
 pasos:  
   - "文の意味に合った原因表現を選びなさい。"  
   - "「～ために」や「～から」の使い分けを確認する。"  
-opciones_explicitas: ["彼が遅れたために", "彼が遅れたから", "彼が遅れたので"]  
+opciones_explicitas:
+  - "彼が遅れたために"
+  - "彼が遅れたから"
+  - "彼が遅れたので"
 respuesta: "彼が遅れたため"  
 explicacion: "「～ために」は原因・理由を強調し、文脈に最も適切な表現である。他の選択肢も可能だが、「ため」が正式で文法的に最適。"
 ```

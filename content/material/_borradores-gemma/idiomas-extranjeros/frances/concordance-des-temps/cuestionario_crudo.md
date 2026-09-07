@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el tiempo del verbo en la oración principal."
   - "Asegurar que el verbo de la subordinada concuerde con él."
-respuesta: "serait"
 tipo: completar
 respuestas_validas:
   - "serait"
@@ -31,7 +30,6 @@ metadata:
 pasos:
   - "Determinar si la oración principal está en pasado o presente."
   - "Ajustar el tiempo de la subordinada según la coherencia temporal."
-respuesta: "mangeais"
 tipo: completar
 respuestas_validas:
   - "mangeais"
@@ -54,7 +52,6 @@ metadata:
 pasos:
   - "Reconocer si la oración principal es hipotética o real."
   - "Aplicar el condicional en subordinadas hipotéticas."
-respuesta: "aurait"
 tipo: completar
 respuestas_validas:
   - "aurait"
@@ -77,7 +74,6 @@ metadata:
 pasos:
   - "Identificar el tiempo de la oración principal."
   - "Elegir el imparfait o pasado compuesto según la simultaneidad."
-respuesta: "partait"
 tipo: completar
 respuestas_validas:
   - "partait"
@@ -100,7 +96,6 @@ metadata:
 pasos:
   - "Verificar si la oración principal se refiere a un hecho real o hipotético."
   - "Usar el imparfait en subordinadas reales y condicional en hipotéticas."
-respuesta: "étais"
 tipo: completar
 respuestas_validas:
   - "étais"
@@ -123,7 +118,6 @@ metadata:
 pasos:
   - "Determinar si la acción en la subordinada es simultánea o anterior."
   - "Usar el imparfait para acciones simultáneas y passé composé para anteriores."
-respuesta: "mangeait"
 tipo: completar
 respuestas_validas:
   - "mangeait"
@@ -146,7 +140,6 @@ metadata:
 pasos:
   - "Reconocer si la oración principal es una hipótesis del pasado."
   - "Usar el plus-que-parfait en subordinadas hipotéticas del pasado."
-respuesta: "avais"
 tipo: completar
 respuestas_validas:
   - "avais"
@@ -169,7 +162,6 @@ metadata:
 pasos:
   - "Identificar si la acción en la subordinada es simultánea o anterior."
   - "Usar el imparfait para acciones simultáneas y passé composé para anteriores."
-respuesta: "étudiait"
 tipo: completar
 respuestas_validas:
   - "étudiait"
@@ -192,7 +184,6 @@ metadata:
 pasos:
   - "Determinar si la oración principal es una hipótesis del futuro."
   - "Usar el conditionnel en subordinadas hipotéticas del futuro."
-respuesta: "serai"
 tipo: completar
 respuestas_validas:
   - "serai"
@@ -215,7 +206,6 @@ metadata:
 pasos:
   - "Verificar si la oración principal está en pasado o presente."
   - "Usar el imparfait para acciones simultáneas al pasado."
-respuesta: "mangeais"
 tipo: completar
 respuestas_validas:
   - "mangeais"

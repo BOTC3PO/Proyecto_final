@@ -9,7 +9,6 @@ pasos:
   - "Identifica la forma plural del sustantivo."
 explicacion: "Los sustantivos regulares añaden -s o -es en plural. En este caso, 'box' se convierte en 'boxes'."
 tipo: completar
-respuesta: "boxes"
 respuestas_validas:
   - "boxes"
   - "Boxes"
@@ -28,7 +27,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "Los sustantivos irregulares como 'child' cambian su raíz en plural. La forma correcta es 'children'."
 tipo: completar
-respuesta: "children"
 respuestas_validas:
   - "children"
   - "Children"
@@ -47,7 +45,6 @@ pasos:
   - "Completa la oración con el sustantivo correcto."
 explicacion: "Sustantivos incontables como 'advice' no tienen forma plural y se usan en singular."
 tipo: completar
-respuesta: "advice"
 respuestas_validas:
   - "advice"
   - "Advice"
@@ -66,7 +63,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "Sustantivos que terminan en -s, -sh, -ch, -x o -z añaden -es. 'Bus' se convierte en 'buses'."
 tipo: completar
-respuesta: "buses"
 respuestas_validas:
   - "buses"
   - "Buses"
@@ -85,7 +81,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "Algunas palabras cambian su raíz en plural, como 'mouse' → 'mice'."
 tipo: completar
-respuesta: "mice"
 respuestas_validas:
   - "mice"
   - "Mice"
@@ -104,7 +99,6 @@ pasos:
   - "Completa la oración con el sustantivo correcto."
 explicacion: "'Flour' es un sustantivo incontable y no tiene forma plural. Se usa en singular."
 tipo: completar
-respuesta: "flour"
 respuestas_validas:
   - "flour"
   - "Flour"
@@ -123,7 +117,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "La mayoría de los sustantivos regulares añaden -s. 'Book' → 'books'."
 tipo: completar
-respuesta: "books"
 respuestas_validas:
   - "books"
   - "Books"
@@ -142,7 +135,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "Sustantivos como 'foot' cambian su raíz en plural: 'foot' → 'feet'."
 tipo: completar
-respuesta: "feet"
 respuestas_validas:
   - "feet"
   - "Feet"
@@ -161,7 +153,6 @@ pasos:
   - "Completa la oración con el sustantivo correcto."
 explicacion: "'Information' es un sustantivo incontable. No tiene forma plural y se usa en singular."
 tipo: completar
-respuesta: "information"
 respuestas_validas:
   - "information"
   - "Information"
@@ -180,7 +171,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "La mayoría de los animales usan -s en plural, como 'cat' → 'cats'."
 tipo: completar
-respuesta: "cats"
 respuestas_validas:
   - "cats"
   - "Cats"
@@ -199,7 +189,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "Algunas palabras tienen la misma forma en singular y plural, como 'sheep'."
 tipo: completar
-respuesta: "sheep"
 respuestas_validas:
   - "sheep"
   - "Sheep"
@@ -218,7 +207,6 @@ pasos:
   - "Completa la oración con el sustantivo correcto."
 explicacion: "'Knowledge' es un sustantivo incontable. No se pluraliza y se usa en singular."
 tipo: completar
-respuesta: "knowledge"
 respuestas_validas:
   - "knowledge"
   - "Knowledge"
@@ -237,7 +225,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "'Church' termina en -ch, por lo que su plural es 'churches'."
 tipo: completar
-respuesta: "churches"
 respuestas_validas:
   - "churches"
   - "Churches"
@@ -256,7 +243,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "'Deer' tiene la misma forma en singular y plural. No cambia."
 tipo: completar
-respuesta: "deer"
 respuestas_validas:
   - "deer"
   - "Deer"
@@ -275,7 +261,6 @@ pasos:
   - "Completa la oración con el sustantivo correcto."
 explicacion: "'Water' es un sustantivo incontable. No se pluraliza y se usa en singular."
 tipo: completar
-respuesta: "water"
 respuestas_validas:
   - "water"
   - "Water"
@@ -294,7 +279,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "'Teacher' se convierte en 'teachers' al agregar -s."
 tipo: completar
-respuesta: "teachers"
 respuestas_validas:
   - "teachers"
   - "Teachers"
@@ -313,7 +297,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "'Fish' puede tener la misma forma en singular y plural, pero también se usa 'fishes' en contextos específicos."
 tipo: completar
-respuesta: "fish"
 respuestas_validas:
   - "fish"
   - "Fishes"
@@ -332,7 +315,6 @@ pasos:
   - "Completa la oración con el sustantivo correcto."
 explicacion: "'Sugar' es un sustantivo incontable. No se pluraliza y se usa en singular."
 tipo: completar
-respuesta: "sugar"
 respuestas_validas:
   - "sugar"
   - "Sugar"
@@ -351,7 +333,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "'Box' termina en -x, por lo que su plural es 'boxes'."
 tipo: completar
-respuesta: "boxes"
 respuestas_validas:
   - "boxes"
   - "Boxes"
@@ -370,7 +351,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "'Tooth' cambia su raíz en plural: 'tooth' → 'teeth'."
 tipo: completar
-respuesta: "teeth"
 respuestas_validas:
   - "teeth"
   - "Teeth"
@@ -389,7 +369,6 @@ pasos:
   - "Completa la oración con el sustantivo correcto."
 explicacion: "'Software' es un sustantivo incontable. No se pluraliza y se usa en singular."
 tipo: completar
-respuesta: "software"
 respuestas_validas:
   - "software"
   - "Software"
@@ -408,7 +387,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "'Chair' se convierte en 'chairs' al agregar -s."
 tipo: completar
-respuesta: "chairs"
 respuestas_validas:
   - "chairs"
   - "Chairs"
@@ -427,7 +405,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "'Person' cambia su raíz en plural: 'person' → 'people'."
 tipo: completar
-respuesta: "people"
 respuestas_validas:
   - "people"
   - "People"
@@ -446,7 +423,6 @@ pasos:
   - "Completa la oración con el sustantivo correcto."
 explicacion: "'Health' es un sustantivo incontable. No se pluraliza y se usa en singular."
 tipo: completar
-respuesta: "health"
 respuestas_validas:
   - "health"
   - "Health"
@@ -465,7 +441,6 @@ pasos:
   - "Escribe la forma plural del sustantivo."
 explicacion: "'Table' se convierte en 'tables' al agregar -s."
 tipo: completar
-respuesta: "tables"
 respuestas_validas:
   - "tables"
   - "Tables"

@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar la estructura gramatical necesaria."
   - "Verificar el uso del subjonctif después de 'douter'."
-respuesta: "que"
 tipo: completar
 respuestas_validas:
   - "que"
@@ -31,7 +30,6 @@ metadata:
 pasos:
   - "Determinar el tipo de relación en la oración."
   - "Elegir entre 'qui' o 'que' según el papel del pronombre relativo."
-respuesta: "que"
 tipo: completar
 respuestas_validas:
   - "que"
@@ -54,7 +52,6 @@ metadata:
 pasos:
   - "Reconocer la necesidad de un tiempo hipotético."
   - "Aplicar la estructura del conditionnel passé con el verbo correcto."
-respuesta: "aurais"
 tipo: completar
 respuestas_validas:
   - "aurais"
@@ -102,7 +99,6 @@ metadata:
 pasos:
   - "Identificar el verbo y su auxiliar."
   - "Verificar si hay concordancia con un complemento directo plural."
-respuesta: "ont"
 tipo: completar
 respuestas_validas:
   - "ont"
@@ -125,7 +121,6 @@ metadata:
 pasos:
   - "Determinar la posición del adjetivo en relación con el sustantivo."
   - "Verificar si se usa antes o después según la regla."
-respuesta: "avancé"
 tipo: completar
 respuestas_validas:
   - "avancé"
@@ -148,7 +143,6 @@ metadata:
 pasos:
   - "Reconocer la necesidad de un superlativo."
   - "Construir la frase con 'le plus' y el adjetivo."
-respuesta: "intéressant"
 tipo: completar
 respuestas_validas:
   - "intéressant"
@@ -171,7 +165,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo."
   - "Verificar la concordancia del participio con un sujeto plural."
-respuesta: "sont"
 tipo: completar
 respuestas_validas:
   - "sont"
@@ -194,7 +187,6 @@ metadata:
 pasos:
   - "Reconocer la necesidad de negación en el tiempo verbal."
   - "Aplicar correctamente 'ne...pas' al verbo."
-respuesta: "n’a pas"
 tipo: completar
 respuestas_validas:
   - "n’a pas"
@@ -217,7 +209,6 @@ metadata:
 pasos:
   - "Determinar la preposición que sigue al verbo."
   - "Verificar si se usa 'à' o 'de' según el contexto."
-respuesta: "à"
 tipo: completar
 respuestas_validas:
   - "à"
@@ -240,7 +231,6 @@ metadata:
 pasos:
   - "Identificar la expresión que requiere el subjuntivo."
   - "Verificar la forma del subjuntivo en contexto."
-respuesta: "que"
 tipo: completar
 respuestas_validas:
   - "que"
@@ -263,7 +253,6 @@ metadata:
 pasos:
   - "Identificar el contexto de la comunicación."
   - "Seleccionar la fórmula adecuada para un correo formal."
-respuesta: "Madame, Monsieur"
 tipo: completar
 respuestas_validas:
   - "Madame, Monsieur"
@@ -286,7 +275,6 @@ metadata:
 pasos:
   - "Reconocer la estructura de una condición hipotética."
   - "Aplicar el tiempo correcto en cada parte de la oración."
-respuesta: "aurais"
 tipo: completar
 respuestas_validas:
   - "aurais"
@@ -309,7 +297,6 @@ metadata:
 pasos:
   - "Determinar el tiempo verbal correcto para 'il y a'."
   - "Verificar la concordancia con el sujeto."
-respuesta: "a"
 tipo: completar
 respuestas_validas:
   - "a"
@@ -332,7 +319,6 @@ metadata:
 pasos:
   - "Identificar el género del sustantivo."
   - "Verificar si el adjetivo concuerda en género y número."
-respuesta: "intelligentes"
 tipo: completar
 respuestas_validas:
   - "intelligentes"
@@ -355,7 +341,6 @@ metadata:
 pasos:
   - "Determinar el contexto de la orden."
   - "Seleccionar la forma correcta del imperativo formal (vous)."
-respuesta: "Veuillez"
 tipo: completar
 respuestas_validas:
   - "Veuillez"
@@ -378,7 +363,6 @@ metadata:
 pasos:
   - "Determinar la preposición que sigue al verbo."
   - "Verificar si se usa 'à' o 'de' según el contexto."
-respuesta: "à"
 tipo: completar
 respuestas_validas:
   - "à"
@@ -401,7 +385,6 @@ metadata:
 pasos:
   - "Determinar el tipo de relación en la oración."
   - "Elegir entre 'qui' o 'que' según el papel del pronombre relativo."
-respuesta: "que"
 tipo: completar
 respuestas_validas:
   - "que"
@@ -424,7 +407,6 @@ metadata:
 pasos:
   - "Identificar el verbo y su auxiliar."
   - "Verificar si se usa 'avoir' o 'être' según la regla."
-respuesta: "être"
 tipo: completar
 respuestas_validas:
   - "être"
@@ -447,7 +429,6 @@ metadata:
 pasos:
   - "Reconocer el uso del verbo 'doit' en contextos formales."
   - "Verificar la forma correcta de 'devoir' o 'doit'."
-respuesta: "doit"
 tipo: completar
 respuestas_validas:
   - "doit"
@@ -470,14 +451,11 @@ metadata:
 pasos:
   - "Identificar la estructura gramatical requerida."
   - "Aplicar el subjonctivo en el verbo principal."
-respuesta: "je finisse"
 tipo: completar
 respuestas_validas:
   - "je finisse"
   - "Je finisse"
 enunciado: "Il faut que ___ ce travail avant vendredi."
-variables:
-  - "verbo": "finir"
 ```
 
 ### 22 — Pouvoir vs savoir  
@@ -490,7 +468,6 @@ metadata:
 pasos:
   - "Determinar si se trata de capacidad o conocimiento."
   - "Seleccionar el verbo correcto entre 'pouvoir' y 'savoir'."
-respuesta: "sait"
 tipo: completar
 respuestas_validas:
   - "sait"
@@ -513,7 +490,6 @@ metadata:
 pasos:
   - "Identificar el contexto de la orden."
   - "Seleccionar la forma correcta del imperativo (tu/vous)."
-respuesta: "Fermez"
 tipo: completar
 respuestas_validas:
   - "Fermez"
@@ -536,7 +512,6 @@ metadata:
 pasos:
   - "Identificar la expresión que requiere el subjuntivo."
   - "Verificar la forma del subjuntivo en contexto."
-respuesta: "que"
 tipo: completar
 respuestas_validas:
   - "que"

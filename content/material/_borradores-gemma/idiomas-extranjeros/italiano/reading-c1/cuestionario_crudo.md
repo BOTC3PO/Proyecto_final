@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar el tipo de oración relativa."  
   - "Determinar si se usa 'che' o 'cui' según la preposición implícita."  
-respuesta: "che"  
 tipo: completar  
 respuestas_validas:  
   - "che"  
@@ -51,7 +50,6 @@ metadata:
 pasos:  
   - "Reconocer la necesidad de un modo subjuntivo."  
   - "Verificar el sujeto y el verbo en forma correcta."  
-respuesta: "sia"  
 tipo: completar  
 respuestas_validas:  
   - "sia"  
@@ -94,7 +92,6 @@ metadata:
 pasos:  
   - "Identificar el uso del congiuntivo en pasado."  
   - "Verificar el verbo y la concordancia temporal."  
-respuesta: "avesse"  
 tipo: completar  
 respuestas_validas:  
   - "avesse"  
@@ -137,7 +134,6 @@ metadata:
 pasos:  
   - "Identificar el verbo irregular en participio."  
   - "Verificar la concordancia con 'avere'."  
-respuesta: "messo"  
 tipo: completar  
 respuestas_validas:  
   - "messo"  
@@ -180,7 +176,6 @@ metadata:
 pasos:  
   - "Identificar el uso del passivo."  
   - "Verificar la concordancia con 'essere'."  
-respuesta: "è stato"  
 tipo: completar  
 respuestas_validas:  
   - "è stato"  
@@ -223,7 +218,6 @@ metadata:
 pasos:  
   - "Identificar el uso del congiuntivo después de 'che'."  
   - "Verificar la persona y el número."  
-respuesta: "siano"  
 tipo: completar  
 respuestas_validas:  
   - "siano"  
@@ -244,14 +238,11 @@ metadata:
 pasos:  
   - "Identificar la estructura impersonal en el enunciado."  
   - "Determinar la forma correcta del verbo 'essere' según el contexto."  
-respuesta: "È"  
 respuestas_validas:  
   - "è"  
   - "É"  
 tipo: completar  
 enunciado: "______ necessario studiare per l'esame."  
-variables:  
-  - "necessario": "sostantivo"  
 ```  
 
 ---
@@ -266,7 +257,6 @@ metadata:
 pasos:  
   - "Reconocer el uso del condizionale."  
   - "Verificar la forma correcta según el verbo."  
-respuesta: "sarebbe"  
 tipo: completar  
 respuestas_validas:  
   - "sarebbe"  
@@ -352,7 +342,6 @@ metadata:
 pasos:  
   - "Identificar el uso del passato remoto."  
   - "Verificar la forma correcta del verbo."  
-respuesta: "scese"  
 tipo: completar  
 respuestas_validas:  
   - "scese"  
@@ -373,14 +362,11 @@ metadata:
 pasos:  
   - "Identificar el uso del passivo en un contexto de acción realizada por alguien."  
   - "Verificar la concordancia entre verbo y sujeto (sesso, numero)."  
-respuesta: "è stata pulita"  
 respuestas_validas:  
   - "è stata pulita"  
   - "È stata pulita"  
 tipo: completar  
 enunciado: "La stanza ______ da un tecnico."  
-variables:  
-  - "pulita": "participio passato"  
 ```  
 
 ---
@@ -416,14 +402,11 @@ metadata:
 pasos:  
   - "Identificar el pronombre relativo correcto según el verbo y sujeto."  
   - "Verificar que el verbo esté en la forma adecuada (conjugación, modo)."  
-respuesta: "dove"  
 respuestas_validas:  
   - "dove"  
   - "Dove"  
 tipo: completar  
 enunciado: "L'hotel ______ ho soggiornato è molto confortevole."  
-variables:  
-  - "soggiornato": "participio passato"  
 ```  
 
 ---
@@ -459,14 +442,11 @@ metadata:
 pasos:  
   - "Identificar el uso del passivo en un contexto de acción que no requiere reflexividad."  
   - "Verificar la concordancia entre sujeto y verbo (sesso, numero)."  
-respuesta: "è stato risolto"  
 respuestas_validas:  
   - "è stato risolto"  
   - "È stato risolto"  
 tipo: completar  
 enunciado: "Il problema ______ ieri."  
-variables:  
-  - "risolto": "participio passato"  
 ```  
 
 ---
@@ -502,14 +482,11 @@ metadata:
 pasos:  
   - "Identificar el uso del subjuntivo después de un verbo que lo requiere."  
   - "Verificar la conjugación correcta en el modo subjuntivo presente."  
-respuesta: "finisca"  
 respuestas_validas:  
   - "finisca"  
   - "Finisca"  
 tipo: completar  
 enunciado: "Spero che tu ______ il lavoro in tempo."  
-variables:  
-  - "lavoro": "sostantivo"  
 ```  
 
 ---

@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar la preposición correcta para el complemento."  
   - "Verificar si el caso requerido es Dativ o Akkusativ."  
-respuesta: "mit"  
 tipo: completar  
 respuestas_validas:  
   - "mit"  
@@ -30,7 +29,6 @@ metadata:
 pasos:  
   - "Identificar el verbo en la oración."  
   - "Aplicar la conjugación correcta del Präteritum para el sujeto."  
-respuesta: "kam"  
 tipo: completar  
 respuestas_validas:  
   - "kam"  
@@ -52,7 +50,6 @@ metadata:
 pasos:  
   - "Localizar la oración principal y subordinada."  
   - "Verificar si se requiere 'dass' o otra conjunción."  
-respuesta: "dass"  
 tipo: completar  
 respuestas_validas:  
   - "dass"  
@@ -74,7 +71,6 @@ metadata:
 pasos:  
   - "Identificar el verbo principal y su complemento."  
   - "Seleccionar la forma correcta del verbo modal en presente."  
-respuesta: "müssen"  
 tipo: completar  
 respuestas_validas:  
   - "müssen"  
@@ -96,7 +92,6 @@ metadata:
 pasos:  
   - "Determinar el caso requerido según la preposición."  
   - "Seleccionar la preposición correcta para 'hinein'."  
-respuesta: "in"  
 tipo: completar  
 respuestas_validas:  
   - "in"  
@@ -118,7 +113,6 @@ metadata:
 pasos:  
   - "Identificar el verbo y su auxiliar."  
   - "Formar la conjugación correcta del Perfekt."  
-respuesta: "hat gegessen"  
 tipo: completar  
 respuestas_validas:  
   - "hat gegessen"  
@@ -140,7 +134,6 @@ metadata:
 pasos:  
   - "Identificar el propósito de la acción."  
   - "Verificar si se requiere 'um...zu' o otra estructura."  
-respuesta: "um zu helfen"  
 tipo: completar  
 respuestas_validas:  
   - "um zu helfen"  
@@ -162,7 +155,6 @@ metadata:
 pasos:  
   - "Identificar el caso del sustantivo."  
   - "Aplicar la forma correcta del adjetivo en Dativ."  
-respuesta: "dem"  
 tipo: completar  
 respuestas_validas:  
   - "dem"  
@@ -184,7 +176,6 @@ metadata:
 pasos:  
   - "Determinar si el objeto es persona o cosa."  
   - "Seleccionar el pronombre correcto en Akkusativ."  
-respuesta: "jemanden"  
 tipo: completar  
 respuestas_validas:  
   - "jemanden"  
@@ -206,7 +197,6 @@ metadata:
 pasos:  
   - "Identificar el contexto hipotético o deseado."  
   - "Aplicar la conjugación correcta del Konjunktiv II."  
-respuesta: "würde helfen"  
 tipo: completar  
 respuestas_validas:  
   - "würde helfen"  
@@ -228,7 +218,6 @@ metadata:
 pasos:  
   - "Identificar el tiempo de la acción comparada."  
   - "Seleccionar la preposición correcta para el pasado."  
-respuesta: "als"  
 tipo: completar  
 respuestas_validas:  
   - "als"  
@@ -250,7 +239,6 @@ metadata:
 pasos:  
   - "Identificar el verbo principal y su participio."  
   - "Formar la oración compuesta correctamente."  
-respuesta: "gegangen"  
 tipo: completar  
 respuestas_validas:  
   - "gegangen"  
@@ -272,7 +260,6 @@ metadata:
 pasos:  
   - "Determinar el caso requerido para la preposición."  
   - "Seleccionar la preposición correcta con 'vor'."  
-respuesta: "vor"  
 tipo: completar  
 respuestas_validas:  
   - "vor"  
@@ -294,7 +281,6 @@ metadata:
 pasos:  
   - "Identificar el lugar de la acción."  
   - "Seleccionar el adverbio correcto en Dativ."  
-respuesta: "dort"  
 tipo: completar  
 respuestas_validas:  
   - "dort"  
@@ -316,7 +302,6 @@ metadata:
 pasos:  
   - "Identificar el caso requerido para la preposición."  
   - "Seleccionar la preposición correcta con 'wegen'."  
-respuesta: "wegen"  
 tipo: completar  
 respuestas_validas:  
   - "wegen"  
@@ -338,7 +323,6 @@ metadata:
 pasos:  
   - "Identificar el tiempo de la acción."  
   - "Aplicar la conjugación correcta del Futur I."  
-respuesta: "werden helfen"  
 tipo: completar  
 respuestas_validas:  
   - "werden helfen"  
@@ -360,7 +344,6 @@ metadata:
 pasos:  
   - "Determinar el caso requerido para la preposición."  
   - "Seleccionar la preposición correcta con 'ohne'."  
-respuesta: "ohne"  
 tipo: completar  
 respuestas_validas:  
   - "ohne"  
@@ -382,7 +365,6 @@ metadata:
 pasos:  
   - Identificar el verbo principal y su complemento.  
   - Determinar la preposición que sigue a *sorgen* en este contexto.  
-respuesta: "für"  
 tipo: completar  
 respuestas_validas:  
   - "für"  
@@ -400,7 +382,6 @@ metadata:
 pasos:  
   - "Localizar la oración principal y subordinada."  
   - "Verificar si se requiere 'damit' o otra conjunción."  
-respuesta: "damit"  
 tipo: completar  
 respuestas_validas:  
   - "damit"  
@@ -422,7 +403,6 @@ metadata:
 pasos:  
   - "Identificar el contexto hipotético o condicional."  
   - "Seleccionar la conjunción correcta para 'wenn'."  
-respuesta: "wenn"  
 tipo: completar  
 respuestas_validas:  
   - "wenn"  
@@ -444,7 +424,6 @@ metadata:
 pasos:  
   - "Identificar el contexto de reporte indirecto."  
   - "Aplicar la conjugación correcta del Konjunktiv I."  
-respuesta: "helfen würde"  
 tipo: completar  
 respuestas_validas:  
   - "helfen würde"  
@@ -466,7 +445,6 @@ metadata:
 pasos:  
   - "Determinar el caso requerido para la preposición."  
   - "Seleccionar la preposición correcta con 'seit'."  
-respuesta: "seit"  
 tipo: completar  
 respuestas_validas:  
   - "seit"  
@@ -508,7 +486,6 @@ metadata:
 pasos:  
   - Identificar el género y número del sustantivo referido.  
   - Seleccionar el pronombre relativo correcto para un objeto masculino.  
-respuesta: "den"  
 tipo: completar  
 respuestas_validas:  
   - "den"  
@@ -526,7 +503,6 @@ metadata:
 pasos:  
   - Reconocer la necesidad de una conjunción que exprese ausencia.  
   - Verificar el uso correcto de *ohne dass* para conectar cláusulas.  
-respuesta: "ohne dass"  
 tipo: completar  
 respuestas_validas:  
   - "ohne dass"  

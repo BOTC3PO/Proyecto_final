@@ -8,13 +8,11 @@ metadata:
 pasos:  
   - "Identificar el caso y género del sustantivo."  
   - "Elegir la forma correcta del adjetivo."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Der ___ Junge spielt Fußball."  
-variables: {}  
 explicacion: "El sustantivo 'Junge' es masculino y lleva el artículo definido 'der', que indica caso nominativo. El adjetivo 'schön' se adapta a este contexto como 'schöne' (nominativo masculino)."  
 ```
 
@@ -30,13 +28,11 @@ metadata:
 pasos:  
   - "Reconocer la negación 'kein' y su influencia en el adjetivo."  
   - "Aplicar las reglas de caso y género."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Ich sehe ___ Frau, die hier steht."  
-variables: {}  
 explicacion: "'kein' requiere que el adjetivo esté en forma neutra (sin acento), ya que 'kein' no lleva acento. El sustantivo 'Frau' es femenino y el adjetivo se adapta como 'schöne'."  
 ```
 
@@ -52,13 +48,11 @@ metadata:
 pasos:  
   - "Determinar el caso del sustantivo."  
   - "Ajustar la forma del adjetivo según el artículo y el caso."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Ich kaufe ___ Bluse für meine Schwester."  
-variables: {}  
 explicacion: "'eine' indica acusativo femenino. El adjetivo 'schön' se adapta como 'schöne' (acusativo femenino)."  
 ```
 
@@ -74,13 +68,11 @@ metadata:
 pasos:  
   - "Identificar el caso y género del sustantivo."  
   - "Aplicar las reglas de 'jeder' en dativo."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Jeder ___ Schüler hat seine Bücher dabei."  
-variables: {}  
 explicacion: "'jeder' requiere que el adjetivo esté en dativo. El sustantivo 'Schüler' es masculino, por lo que el adjetivo se adapta como 'schöne' (dativo masculino)."  
 ```
 
@@ -96,13 +88,11 @@ metadata:
 pasos:  
   - "Reconocer el uso de preposición 'daran' y su influencia en el adjetivo."  
   - "Ajustar la forma del adjetivo según caso y género."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Ich denke an ___ Idee, die wir gestern hatten."  
-variables: {}  
 explicacion: "'daran' indica dativo. El sustantivo 'Idee' es femenino y el adjetivo se adapta como 'schöne' (dativo femenino)."  
 ```
 
@@ -118,13 +108,11 @@ metadata:
 pasos:  
   - "Identificar el artículo 'keine' y su efecto en el adjetivo."  
   - "Determinar el caso y género del sustantivo."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Ich esse ___ Torte, weil sie zu süß ist."  
-variables: {}  
 explicacion: "'keine' indica acusativo femenino. El adjetivo 'schön' se adapta como 'schöne' (acusativo femenino)."  
 ```
 
@@ -140,13 +128,11 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'aus dem' y su caso."  
   - "Ajustar el adjetivo según el sustantivo y el artículo."  
-respuesta: "einen"  
 tipo: completar  
 respuestas_validas:  
   - "einen"  
   - "Einen"  
 enunciado: "Er kommt aus ___ Stadt, die ich nicht kenne."  
-variables: {}  
 explicacion: "'aus dem' indica acusativo masculino. El adjetivo 'eine' se adapta como 'einen' (acusativo masculino)."  
 ```
 
@@ -162,13 +148,11 @@ metadata:
 pasos:  
   - "Identificar el caso de 'während' y su influencia en el adjetivo."  
   - "Ajustar la forma del adjetivo según género y caso."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Er arbeitet während ___ Pause, die er nicht hat."  
-variables: {}  
 explicacion: "'während' indica genitivo. El sustantivo 'Pause' es femenino y el adjetivo se adapta como 'schöne' (genitivo femenino)."  
 ```
 
@@ -184,13 +168,11 @@ metadata:
 pasos:  
   - "Reconocer el artículo 'jede' y su caso."  
   - "Ajustar la forma del adjetivo según género y caso."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Jede ___ Antwort ist falsch, die du gegeben hast."  
-variables: {}  
 explicacion: "'jede' indica dativo. El sustantivo 'Antwort' es femenino y el adjetivo se adapta como 'schöne' (dativo femenino)."  
 ```
 
@@ -206,13 +188,11 @@ metadata:
 pasos:  
   - "Identificar la preposición 'ohne' y su caso."  
   - "Ajustar el adjetivo según género y artículo."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Er hat ___ Idee, die er nicht versteht."  
-variables: {}  
 explicacion: "'ohne' indica acusativo. El sustantivo 'Idee' es femenino y el adjetivo se adapta como 'schöne' (acusativo femenino)."  
 ```
 
@@ -228,13 +208,11 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'durch' y su caso."  
   - "Ajustar el adjetivo según género y artículo."  
-respuesta: "einen"  
 tipo: completar  
 respuestas_validas:  
   - "einen"  
   - "Einen"  
 enunciado: "Er geht durch ___ Tunnel, der unsicher ist."  
-variables: {}  
 explicacion: "'durch' indica acusativo masculino. El adjetivo 'ein' se adapta como 'einen' (acusativo masculino)."  
 ```
 
@@ -250,13 +228,11 @@ metadata:
 pasos:  
   - "Identificar la preposición 'mit' y su caso."  
   - "Ajustar el adjetivo según género y artículo."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Ich gehe mit ___ Frau, die ich kenne."  
-variables: {}  
 explicacion: "'mit' indica dativo. El sustantivo 'Frau' es femenino y el adjetivo se adapta como 'schöne' (dativo femenino)."  
 ```
 
@@ -272,13 +248,11 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'wegen' y su caso."  
   - "Ajustar el adjetivo según género y artículo."  
-respuesta: "schöne"  
 tipo: completar  
 respuestas_validas:  
   - "schöne"  
   - "Schöne"  
 enunciado: "Er ist traurig wegen ___ Nachricht, die er gehört hat."  
-variables: {}  
 explicacion: "'wegen' indica genitivo. El sustantivo 'Nachricht' es femenino y el adjetivo se adapta como 'schöne' (genitivo femenino)."  
 ```
 
@@ -294,13 +268,11 @@ metadata:
 pasos:  
   - "Identificar la preposición 'gegen' y su caso."  
   - "Ajustar el adjetivo según género y artículo."  
-respuesta: "einen"  
 tipo: completar  
 respuestas_validas:  
   - "einen"  
   - "Einen"  
 enunciado: "Er kämpft gegen ___ Feind, der unschuldig ist."  
-variables: {}  
 explicacion: "'gegen' indica acusativo masculino. El adjetivo 'ein' se adapta como 'einen' (acusativo masculino)."  
 ```
 

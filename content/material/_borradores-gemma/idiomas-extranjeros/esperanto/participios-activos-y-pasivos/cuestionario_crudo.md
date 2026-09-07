@@ -8,7 +8,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La knabo _______ la leteron."
 tipo: completar
-respuesta: skribanta
 respuestas_validas:
   - skribanta
   - Skribanta
@@ -54,7 +53,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La libro _______ de la infano."
 tipo: completar
-respuesta: legata
 respuestas_validas:
   - legata
   - Legata
@@ -100,7 +98,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La domo _______ de la konstruisto."
 tipo: completar
-respuesta: konstruata
 respuestas_validas:
   - konstruata
   - Konstruata
@@ -146,7 +143,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La kantado _______ de la musikisto."
 tipo: completar
-respuesta: kantata
 respuestas_validas:
   - kantata
   - Kantata
@@ -192,7 +188,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La virino _______ la proponon."
 tipo: completar
-respuesta: estiganta
 respuestas_validas:
   - estiganta
   - Estiganta
@@ -238,7 +233,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La ĉevalo _______ de la kuracisto."
 tipo: completar
-respuesta: kuracata
 respuestas_validas:
   - kuracata
   - Kuracata
@@ -284,7 +278,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La letero _______ de la oficebro."
 tipo: completar
-respuesta: sendata
 respuestas_validas:
   - sendata
   - Sendata
@@ -330,7 +323,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La ĉapo _______ de la kuracisto."
 tipo: completar
-respuesta: traktata
 respuestas_validas:
   - traktata
   - Traktata
@@ -376,7 +368,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La infano _______ la manĝon."
 tipo: completar
-respuesta: manĝanta
 respuestas_validas:
   - manĝanta
   - Manĝanta
@@ -422,7 +413,6 @@ metadata:
   tags: ["participioj", "aktiva", "pasiva"]
 enunciado: "La libro _______ de la bibliotekisto."
 tipo: completar
-respuesta: ordenata
 respuestas_validas:
   - ordenata
   - Ordenata
@@ -468,15 +458,10 @@ metadata:
 pasos:  
   - "Identificar el participio correcto en la oración."  
   - "Verificar que concuerde con el sujeto y el contexto."  
-respuesta: "skribita"  
 respuestas_validas:  
   - "skribita"  
   - "Skribita"  
 tipo: completar  
 enunciado: "La retpoŝto ______ de la klerikino."  
-variables:  
-  - sujeto: "la retpoŝto"  
-  - verbo: "skribi"  
-  - agente: "la klerikino"  
 explicacion: "Se usa el participio pasivo 'skribita' porque el sujeto (la retpoŝto) es el receptor de la acción, realizada por el agente (la klerikino). Los participios en esperanto no cambian según género o número, solo indican la relación entre sujeto y verbo."  
 ```

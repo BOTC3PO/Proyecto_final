@@ -10,7 +10,6 @@ pasos:
 explicacion: "La preposición 'à' se usa con horas específicas, como 'à 8h' o 'à midi'."  
 tipo: completar  
 enunciado: "Je dois arriver ______ 9 heures."  
-respuesta: "à"  
 respuestas_validas:  
   - "à"  
   - "À"  
@@ -47,7 +46,6 @@ pasos:
 explicacion: "'De' se usa para mostrar pertenencia, como en 'le livre de Marie' (el libro de María)."  
 tipo: completar  
 enunciado: "C'est le stylo ______ mon frère."  
-respuesta: "de"  
 respuestas_validas:  
   - "de"  
   - "De"  
@@ -84,7 +82,6 @@ pasos:
 explicacion: "'Vers' se usa para indicar movimiento hacia un lugar, como 'aller vers la gare' (ir a la estación)."  
 tipo: completar  
 enunciado: "Elle court ______ la plage."  
-respuesta: "vers"  
 respuestas_validas:  
   - "vers"  
   - "Vers"  
@@ -121,7 +118,6 @@ pasos:
 explicacion: "'Sur' se usa para indicar que algo está en contacto con una superficie, como 'des livres sur la table' (libros sobre la mesa)."  
 tipo: completar  
 enunciado: "Le chat est ______ la chaise."  
-respuesta: "sur"  
 respuestas_validas:  
   - "sur"  
   - "Sur"  
@@ -158,7 +154,6 @@ pasos:
 explicacion: "'Contre' se usa para indicar posición en contacto lateral, como 'une photo contre le mur' (una foto pegada a la pared)."  
 tipo: completar  
 enunciado: "La chaise est ______ le mur."  
-respuesta: "contre"  
 respuestas_validas:  
   - "contre"  
   - "Contre"  
@@ -195,7 +190,6 @@ pasos:
 explicacion: "'De' se usa para indicar lugar de procedencia, como 'venir de Paris' (venir de París)."  
 tipo: completar  
 enunciado: "Il est ______ Marseille."  
-respuesta: "de"  
 respuestas_validas:  
   - "de"  
   - "De"  
@@ -232,7 +226,6 @@ pasos:
 explicacion: "'Avec' se usa para indicar que algo o alguien está junto a otra persona o cosa, como 'je parle avec mon ami' (hablo con mi amigo)."  
 tipo: completar  
 enunciado: "Elle voyage ______ sa sœur."  
-respuesta: "avec"  
 respuestas_validas:  
   - "avec"  
   - "Avec"  
@@ -269,7 +262,6 @@ pasos:
 explicacion: "'Derrière' se usa para indicar que algo está detrás de otra persona o cosa, como 'elle est derrière moi' (ella está detrás de mí)."  
 tipo: completar  
 enunciado: "Le livre est ______ la chaise."  
-respuesta: "derrière"  
 respuestas_validas:  
   - "derrière"  
   - "Derrière"  
@@ -306,7 +298,6 @@ pasos:
 explicacion: "'Autour de' se usa para indicar que algo está rodeando otro objeto, como 'des oiseaux autour de l’arbre' (aves alrededor del árbol)."  
 tipo: completar  
 enunciado: "Les enfants jouent ______ l’arbre."  
-respuesta: "autour de"  
 respuestas_validas:  
   - "autour de"  
   - "Autour de"  
@@ -343,7 +334,6 @@ pasos:
 explicacion: "'En' se usa para indicar un estado, como 'en bonne santé' (en buen estado de salud)."  
 tipo: completar  
 enunciado: "Il est ______ bonne santé."  
-respuesta: "en"  
 respuestas_validas:  
   - "en"  
   - "En"  
@@ -380,7 +370,6 @@ pasos:
 explicacion: "'Sur' se usa para indicar sobre un tema, como 'un livre sur l’histoire' (un libro sobre la historia)."  
 tipo: completar  
 enunciado: "Il parle ______ son travail."  
-respuesta: "sur"  
 respuestas_validas:  
   - "sur"  
   - "Sur"  
@@ -417,7 +406,6 @@ pasos:
 explicacion: "'En' se usa para indicar idioma, como 'en français' (en francés)."  
 tipo: completar  
 enunciado: "Elle parle ______ anglais."  
-respuesta: "en"  
 respuestas_validas:  
   - "en"  
   - "En"  
@@ -454,7 +442,6 @@ pasos:
 explicacion: "'Sur' se usa para indicar que algo está sobre una superficie, como 'le chat sur le sol' (el gato sobre el suelo)."  
 tipo: completar  
 enunciado: "Le livre est ______ le sol."  
-respuesta: "sur"  
 respuestas_validas:  
   - "sur"  
   - "Sur"  

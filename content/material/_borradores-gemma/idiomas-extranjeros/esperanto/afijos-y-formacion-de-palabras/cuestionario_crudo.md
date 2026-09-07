@@ -10,9 +10,6 @@ pasos:
 explicacion: "La sufiks '-o' transformas verboj en substantivoj. Ekzemple, 'lerni' (verbo) → 'lerno' (substantivo)."
 tipo: completar
 enunciado: "La formo de substantivo de la verbo 'lerni' estas ______."
-variables:
-  - "lerni"
-respuesta: "lerno"
 respuestas_validas:
   - "lerno"
   - "Lerno"
@@ -32,9 +29,6 @@ pasos:
 explicacion: "La sufiks '-e' transformas adjektivojn en adverbojn. Ekzemple, 'rapida' → 'rapid-e'."
 tipo: completar
 enunciado: "La adverbo formo de 'rapida' estas ______."
-variables:
-  - "rapida"
-respuesta: "rapid-e"
 respuestas_validas:
   - "rapid-e"
   - "Rapid-e"
@@ -54,9 +48,6 @@ pasos:
 explicacion: "La sufiks '-o' transformas verboj en substantivoj. Ekzemple, 'komponi' → 'kompon-o'."
 tipo: completar
 enunciado: "La formo de substantivo de 'komponi' estas ______."
-variables:
-  - "komponi"
-respuesta: "kompon-o"
 respuestas_validas:
   - "kompon-o"
   - "Kompon-o"
@@ -76,9 +67,6 @@ pasos:
 explicacion: "La sufiks '-e' transformas adjektivojn en adverbojn. Ekzemple, 'klara' → 'klar-e'."
 tipo: completar
 enunciado: "La adverbo formo de 'klara' estas ______."
-variables:
-  - "klara"
-respuesta: "klar-e"
 respuestas_validas:
   - "klar-e"
   - "Klar-e"
@@ -98,9 +86,6 @@ pasos:
 explicacion: "La sufiks '-o' transformas verboj en substantivoj. Ekzemple, 'skribi' → 'skrib-o'."
 tipo: completar
 enunciado: "La formo de substantivo de 'skribi' estas ______."
-variables:
-  - "skribi"
-respuesta: "skrib-o"
 respuestas_validas:
   - "skrib-o"
   - "Skrib-o"
@@ -120,9 +105,6 @@ pasos:
 explicacion: "La sufiks '-e' transformas adjektivojn en adverbojn. Ekzemple, 'bona' → 'bon-e'."
 tipo: completar
 enunciado: "La adverbo formo de 'bona' estas ______."
-variables:
-  - "bona"
-respuesta: "bon-e"
 respuestas_validas:
   - "bon-e"
   - "Bon-e"
@@ -142,9 +124,6 @@ pasos:
 explicacion: "La sufiks '-o' transformas verboj en substantivoj. Ekzemple, 'legi' → 'leg-o'."
 tipo: completar
 enunciado: "La formo de substantivo de 'legi' estas ______."
-variables:
-  - "legi"
-respuesta: "leg-o"
 respuestas_validas:
   - "leg-o"
   - "Leg-o"
@@ -164,9 +143,6 @@ pasos:
 explicacion: "La sufiks '-e' transformas adjektivojn en adverbojn. Ekzemple, 'granda' → 'grand-e'."
 tipo: completar
 enunciado: "La adverbo formo de 'granda' estas ______."
-variables:
-  - "granda"
-respuesta: "grand-e"
 respuestas_validas:
   - "grand-e"
   - "Grand-e"
@@ -186,9 +162,6 @@ pasos:
 explicacion: "La sufiks '-o' transformas verboj en substantivoj. Ekzemple, 'videti' → 'videt-o'."
 tipo: completar
 enunciado: "La formo de substantivo de 'videti' estas ______."
-variables:
-  - "videti"
-respuesta: "videt-o"
 respuestas_validas:
   - "videt-o"
   - "Videt-o"
@@ -208,9 +181,6 @@ pasos:
 explicacion: "La sufiks '-e' transformas adjektivojn en adverbojn. Ekzemple, 'malgranda' → 'malgrand-e'."
 tipo: completar
 enunciado: "La adverbo formo de 'malgranda' estas ______."
-variables:
-  - "malgranda"
-respuesta: "malgrand-e"
 respuestas_validas:
   - "malgrand-e"
   - "Malgrand-e"
@@ -230,9 +200,6 @@ pasos:
 explicacion: "La sufiks '-o' transformas verboj en substantivoj. Ekzemple, 'amodi' → 'amod-o'."
 tipo: completar
 enunciado: "La formo de substantivo de 'amodi' estas ______."
-variables:
-  - "amodi"
-respuesta: "amod-o"
 respuestas_validas:
   - "amod-o"
   - "Amod-o"
@@ -252,9 +219,6 @@ pasos:
 explicacion: "La sufiks '-e' transformas adjektivojn en adverbojn. Ekzemple, 'malrapida' → 'malrapid-e'."
 tipo: completar
 enunciado: "La adverbo formo de 'malrapida' estas ______."
-variables:
-  - "malrapida"
-respuesta: "malrapid-e"
 respuestas_validas:
   - "malrapid-e"
   - "Malrapid-e"
@@ -274,9 +238,6 @@ pasos:
 explicacion: "La sufiks '-o' transformas verboj en substantivoj. Ekzemple, 'kapti' → 'kapt-o'."
 tipo: completar
 enunciado: "La formo de substantivo de 'kapti' estas ______."
-variables:
-  - "kapti"
-respuesta: "kapt-o"
 respuestas_validas:
   - "kapt-o"
   - "Kapt-o"
@@ -296,9 +257,6 @@ pasos:
 explicacion: "La sufiks '-e' transformas adjektivojn en adverbojn. Ekzemple, 'malbona' → 'malbon-e'."
 tipo: completar
 enunciado: "La adverbo formo de 'malbona' estas ______."
-variables:
-  - "malbona"
-respuesta: "malbon-e"
 respuestas_validas:
   - "malbon-e"
   - "Malbon-e"
@@ -318,9 +276,6 @@ pasos:
 explicacion: "La sufiks '-o' transformas verboj en substantivoj. Ekzemple, 'kompreni' → 'kompren-o'."
 tipo: completar
 enunciado: "La formo de substantivo de 'kompreni' estas ______."
-variables:
-  - "kompreni"
-respuesta: "kompren-o"
 respuestas_validas:
   - "kompren-o"
   - "Kompren-o"
@@ -338,7 +293,6 @@ metadata:
 pasos:  
   - "Identifiki la radiko de 'matura'."  
   - "Aplicar el afikso '-eco' para formar un sustantivo abstracto."  
-respuesta: "matureco"  
 respuestas_validas:  
   - "matureco"  
   - "MATURECO"  
@@ -359,9 +313,6 @@ pasos:
 explicacion: "La sufiks '-o' transformas verboj en substantivoj. Ekzemple, 'malkontentigi' → 'malkontentig-o'."
 tipo: completar
 enunciado: "La formo de substantivo de 'malkontentigi' estas ______."
-variables:
-  - "malkontentigi"
-respuesta: "malkontentig-o"
 respuestas_validas:
   - "malkontentig-o"
   - "Malkontentig-o"
@@ -381,9 +332,6 @@ pasos:
 explicacion: "La sufiks '-e' transformas adjektivojn en adverbojn. Ekzemple, 'kontentiga' → 'kontentig-e'."
 tipo: completar
 enunciado: "La adverbo formo de 'kontentiga' estas ______."
-variables:
-  - "kontentiga"
-respuesta: "kontentig-e"
 respuestas_validas:
   - "kontentig-e"
   - "Kontentig-e"
@@ -401,7 +349,6 @@ metadata:
 pasos:  
   - "Eliminar el sufijo '-i' del verbo 'kanti'."  
   - "Añadir el afikso '-o' para formar un sustantivo."  
-respuesta: "kanto"  
 respuestas_validas:  
   - "kanto"  
   - "KANTO"  
@@ -420,7 +367,6 @@ metadata:
 pasos:  
   - "Identificar la forma adjetiva de 'tuta'."  
   - "Añadir el sufijo '-e' para formar un adverbio."  
-respuesta: "tute"  
 respuestas_validas:  
   - "tute"  
   - "TUTE"  
@@ -459,7 +405,6 @@ metadata:
 pasos:  
   - "Determinar la forma adjetiva de 'serena'."  
   - "Añadir el sufijo '-e' para formar un adverbio."  
-respuesta: "serene"  
 respuestas_validas:  
   - "serene"  
   - "SERENE"  
@@ -498,7 +443,6 @@ metadata:
 pasos:  
   - "Identificar la forma adjetiva de 'luma'."  
   - "Añadir el sufijo '-e' para formar un adverbio."  
-respuesta: "lume"  
 respuestas_validas:  
   - "lume"  
   - "LUME"  

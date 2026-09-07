@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Leia o texto e identifique el artículo definido que completa la oración."
   - "Verifique si el artículo concuerda con el sustantivo y el contexto."
-respuesta: "a"
 tipo: completar
 respuestas_validas:
   - "a"
@@ -48,7 +47,6 @@ metadata:
 pasos:
   - "Identifique el verbo en tiempo correcto según la acción descrita."
   - "Verifique si la acción es futura, pasada o presente."
-respuesta: "vou"
 tipo: completar
 respuestas_validas:
   - "vou"
@@ -88,7 +86,6 @@ metadata:
 pasos:
   - "Complete el espacio con un adjetivo que concuerde en género y número con el sustantivo."
   - "Verifique si el adjetivo se usa antes o después del sustantivo."
-respuesta: "velha"
 tipo: completar
 respuestas_validas:
   - "velha"
@@ -128,7 +125,6 @@ metadata:
 pasos:
   - "Complete el espacio con un conectivo que indique relación de causa o consecuencia."
   - "Verifique si el conectivo es 'porque', 'então' u otro."
-respuesta: "então"
 tipo: completar
 respuestas_validas:
   - "então"
@@ -168,7 +164,6 @@ metadata:
 pasos:
   - "Complete el espacio con el verbo en tiempo correcto según la acción descrita."
   - "Verifique si es pasado, presente o futuro."
-respuesta: "comprei"
 tipo: completar
 respuestas_validas:
   - "comprei"
@@ -208,7 +203,6 @@ metadata:
 pasos:
   - "Complete el espacio con la preposición que indique una relación de lugar."
   - "Verifique si es 'em', 'na', 'no' u otra."
-respuesta: "no"
 tipo: completar
 respuestas_validas:
   - "no"
@@ -248,7 +242,6 @@ metadata:
 pasos:
   - "Complete el espacio con un adjetivo que concuerde en género y número con el sustantivo."
   - "Verifique si el adjetivo se usa antes o después del sustantivo."
-respuesta: "velhos"
 tipo: completar
 respuestas_validas:
   - "velhos"
@@ -288,7 +281,6 @@ metadata:
 pasos:
   - "Complete el espacio con el verbo en infinitivo que complete correctamente la oración."
   - "Verifique si se usa después de un verbo auxiliar o preposición."
-respuesta: "viajar"
 tipo: completar
 respuestas_validas:
   - "viajar"
@@ -328,7 +320,6 @@ metadata:
 pasos:
   - "Complete el espacio con un adverbio que indique lugar o modo."
   - "Verifique si es 'aqui', 'lá' u otro."
-respuesta: "lá"
 tipo: completar
 respuestas_validas:
   - "lá"
@@ -368,7 +359,6 @@ metadata:
 pasos:
   - "Complete el espacio con el verbo en gerundio que complete correctamente la oración."
   - "Verifique si se usa después de 'enquanto' o 'ao'"
-respuesta: "estudando"
 tipo: completar
 respuestas_validas:
   - "estudando"
@@ -408,7 +398,6 @@ metadata:
 pasos:
   - "Complete el espacio con un adjetivo que concuerde en género y número con el sustantivo."
   - "Verifique si se usa antes o después del sustantivo."
-respuesta: "nova"
 tipo: completar
 respuestas_validas:
   - "nova"
@@ -448,7 +437,6 @@ metadata:
 pasos:
   - "Complete el espacio con el verbo en pretérito perfecto que concuerda con el sujeto."
   - "Verifique si es singular o plural."
-respuesta: "fomos"
 tipo: completar
 respuestas_validas:
   - "fomos"
@@ -488,7 +476,6 @@ metadata:
 pasos:
   - "Complete el espacio con un pronombre que indique posesión o referencia."
   - "Verifique si es 'meu', 'seu' u otro."
-respuesta: "seus"
 tipo: completar
 respuestas_validas:
   - "seus"

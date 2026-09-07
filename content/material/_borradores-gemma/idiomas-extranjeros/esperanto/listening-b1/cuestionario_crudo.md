@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Klausolo: 'La kato ___ sur la tablo.'"
   - "Aŭskultu la vorton mankantan."
-respuesta: "sit"
 tipo: completar
 respuestas_validas:
   - "sit"
@@ -51,7 +50,6 @@ metadata:
 pasos:
   - "Aŭskultu la frazon: 'La infano ___ al la ludo.'"
   - "Kompletigu la spacon."
-respuesta: "iras"
 tipo: completar
 respuestas_validas:
   - "iras"
@@ -94,7 +92,6 @@ metadata:
 pasos:
   - "Aŭskultu la frazon: 'La ___ libro estas sur la tablo.'"
   - "Kompletigu la spacon."
-respuesta: "verda"
 tipo: completar
 respuestas_validas:
   - "verda"
@@ -159,7 +156,6 @@ metadata:
 pasos:
   - "Aŭskultu la frazon: 'La infano ___ la pilkon.'"
   - "Kompletigu la spacon."
-respuesta: "havas"
 tipo: completar
 respuestas_validas:
   - "havas"
@@ -202,14 +198,12 @@ metadata:
 pasos:  
   - "Legu la enuncion kaj komprenu kie troviĝas la kato."  
   - "Elektu la pravajn vortojn por plenigi la spacon."  
-respuesta: "sub"  
 tipo: completar  
 respuestas_validas:  
   - "sub"  
   - "Sub"  
 explicacion: "La prepozicio 'sub' indikas lokon sube de iu aĵo. En tiu kazo, la kato troviĝas sube de la lito."  
 enunciado: "La kato estas ___ la lito."  
-variables: []  
 ```  
 
 ---
@@ -268,14 +262,12 @@ metadata:
 pasos:  
   - "Legu la enuncion kaj komprenu kien volas la birdo."  
   - "Elektu la pravajn vortojn por plenigi la spacon."  
-respuesta: "al"  
 tipo: completar  
 respuestas_validas:  
   - "al"  
   - "Al"  
 explicacion: "La prepozicio 'al' uzata kun direkto indikas movon al iu punkto. La birdo volas al la arbo."  
 enunciado: "La birdo volas ___ la arbo."  
-variables: []  
 ```  
 
 ---
@@ -312,14 +304,12 @@ metadata:
 pasos:  
   - "Legu la enuncion kaj komprenu, kiun verbon uzi."  
   - "Elektu la pravajn vortojn por plenigi la spacon."  
-respuesta: "kaptis"  
 tipo: completar  
 respuestas_validas:  
   - "kaptis"  
   - "Kaptis"  
 explicacion: "La verbo 'kapti' en la pasinta tempo estas 'kaptis'. La infano jam kaptis la flugilon."  
 enunciado: "La infano ___ la flugilon."  
-variables: []  
 ```  
 
 ---
@@ -378,14 +368,12 @@ metadata:
 pasos:  
   - "Legu la enuncion kaj komprenu, kiun prepozicion uzi."  
   - "Elektu la pravajn vortojn por plenigi la spacon."  
-respuesta: "en"  
 tipo: completar  
 respuestas_validas:  
   - "en"  
   - "En"  
 explicacion: "La prepozicio 'en' uzata kun lando aŭ urbo indikas lokon. Mia amiko vivas en Meksiko."  
 enunciado: "Mia amiko vivas ___ Meksiko."  
-variables: []  
 ```  
 
 ---
@@ -422,14 +410,12 @@ metadata:
 pasos:  
   - "Legu la enuncion kaj komprenu, kiun verbon uzi."  
   - "Elektu la pravajn vortojn por plenigi la spacon."  
-respuesta: "manĝis"  
 tipo: completar  
 respuestas_validas:  
   - "manĝis"  
   - "Manĝis"  
 explicacion: "La verbo 'manĝi' en la pasinta tempo estas 'manĝis'. La kato jam manĝis la pilkon."  
 enunciado: "La kato ___ la pilkon."  
-variables: []  
 ```  
 
 ---
@@ -488,14 +474,12 @@ metadata:
 pasos:  
   - "Legu la enuncion kaj komprenu, kiun prepozicion uzi."  
   - "Elektu la pravajn vortojn por plenigi la spacon."  
-respuesta: "al"  
 tipo: completar  
 respuestas_validas:  
   - "al"  
   - "Al"  
 explicacion: "La prepozicio 'al' uzata kun atendo indikas direkton al iu aĵo. Li atendas al la taksion."  
 enunciado: "Li atendas ___ la taksion."  
-variables: []  
 ```  
 
 ---
@@ -532,12 +516,10 @@ metadata:
 pasos:  
   - "Legu la enuncion kaj komprenu, kiun prepozicion uzi."  
   - "Elektu la pravajn vortojn por plenigi la spacon."  
-respuesta: "sur"  
 tipo: completar  
 respuestas_validas:  
   - "sur"  
   - "Sur"  
 explicacion: "La prepozicio 'sur' indikas lokon super iu aĵo. La libro estas sur la ekrano."  
 enunciado: "La libro estas ___ la ekrano."  
-variables: []  
 ```

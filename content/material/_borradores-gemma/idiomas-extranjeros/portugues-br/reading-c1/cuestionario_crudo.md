@@ -30,7 +30,6 @@ pasos:
   - "Analizar las frases cercanas para deducir su significado"  
 enunciado: "En el texto, se menciona que 'a crise hídrica afeta a mais de 30% da população brasileira, especialmente em regiões semiáridas.' ¿Qué significa la palabra 'crise' en este contexto?"  
 tipo: completar  
-respuesta: "falta"  
 respuestas_validas:  
   - "falta"  
   - "escasez"  
@@ -70,7 +69,6 @@ pasos:
   - "Relacionar la información con conocimientos previos"  
 enunciado: "El texto comenta que 'a pandemia revelou falhas em sistemas de saúde, mas também fortaleceu la solidariedade entre os cidadãos.' ¿Qué se puede inferir sobre el impacto social de la pandemia?"  
 tipo: completar  
-respuesta: "Aumento de la solidariedad"  
 respuestas_validas:  
   - "Aumento de la solidariedad"  
   - "Fortalecimiento de vínculos comunitarios"  
@@ -109,7 +107,6 @@ pasos:
   - "Determinar el efecto del recurso en el mensaje"  
 enunciado: "El texto afirma que 'a corrupção é um cancro que devora a confiança do povo.' ¿Qué figura retórica se utiliza aquí?"  
 tipo: completar  
-respuesta: "Metáfora"  
 respuestas_validas:  
   - "metáfora"  
   - "comparación implícita"  
@@ -148,7 +145,6 @@ pasos:
   - "Relacionar la cita con su posible origen según el contexto"  
 enunciado: "El texto cita 'a educação é a chave para transformar a sociedade.' ¿A quién se atribuye esta frase en el párrafo anterior?"  
 tipo: completar  
-respuesta: "O Presidente da República"  
 respuestas_validas:  
   - "o presidente da república"  
   - "O presidente da República"  
@@ -167,7 +163,6 @@ pasos:
   - "Comparar las ideas presentadas en distintas partes del texto"  
 enunciado: "El texto afirma que 'anteriormente se considerava a tecnologia como uma ameaça, mas hoje ela é vista como um aliado.' ¿Cuál es el cambio de perspectiva descrito?"  
 tipo: completar  
-respuesta: "De rechazo a aceptación"  
 respuestas_validas:  
   - "de rechazo a aceptação"  
   - "de hostilidad a colaboración"  
@@ -206,7 +201,6 @@ pasos:
   - "Determinar si se usan para apoyar un argumento o describir una situación"  
 enunciado: "El texto señala que 'cerca de 40% da população brasileira não possui acesso a internet.' ¿Para qué propósito se incluyen estos datos?"  
 tipo: completar  
-respuesta: "Apoyar el argumento sobre la brecha digital"  
 respuestas_validas:  
   - "apoyar o argumento sobre a brecha digital"  
   - "mostrar la magnitud del problema"  
@@ -245,7 +239,6 @@ pasos:
   - "Determinar si los ejemplos respaldan una tesis o describen situaciones"  
 enunciado: "El texto explica que 'a educação inclusiva pode ser vista no projeto de uma escola em São Paulo, onde todos os alunos têm acesso a recursos adaptados.' ¿Qué función cumplen estos detalles?"  
 tipo: completar  
-respuesta: "Ilustrar un caso práctico"  
 respuestas_validas:  
   - "ilustrar um caso prático"  
   - "mostrar una aplicación real"  
@@ -284,7 +277,6 @@ pasos:
   - "Comparar con posibles alternativas"  
 enunciado: "El texto define 'a desigualdade social como a diferença no acesso a recursos básicos.' ¿Cuál es el significado del término según esta descripción?"  
 tipo: completar  
-respuesta: "Diferencia en acceso a recursos básicos"  
 respuestas_validas:  
   - "diferença em acesso a recursos básicos"  
   - "desigualdad en la distribución de servicios"  
@@ -323,7 +315,6 @@ pasos:
   - "Determinar si se usan para ilustrar posibilidades o argumentos"  
 enunciado: "El texto menciona que 'se um país investisse mais em educação, poderia reduzir a desigualdade.' ¿Qué tipo de ejemplo se presenta aquí?"  
 tipo: completar  
-respuesta: "Ejemplo hipotético"  
 respuestas_validas:  
   - "exemplo hipotético"  
   - "situación supuesta"  
@@ -342,7 +333,6 @@ pasos:
   - "Determinar el efecto de la metáfora en el mensaje"  
 enunciado: "El texto afirma que 'a corrupção é um vírus que contamina a sociedade.' ¿Qué función cumple esta metáfora?"  
 tipo: completar  
-respuesta: "Comparar la corrupción con una enfermedad"  
 respuestas_validas:  
   - "comparar a corrupção com uma doença"  
   - "ilustrar el daño social de la corrupción"  
@@ -381,7 +371,6 @@ pasos:
   - "Determinar si el ejemplo respalda una afirmación actual"  
 enunciado: "El texto explica que 'a revolução industrial é um exemplo de cómo tecnologia puede transformar la sociedad.' ¿Cuál es el propósito de esta referencia histórica?"  
 tipo: completar  
-respuesta: "Ilustrar un impacto histórico de la tecnología"  
 respuestas_validas:  
   - "ilustrar o impacto histórico da tecnologia"  
   - "mostrar um caso passado relevante"  

@@ -8,15 +8,12 @@ metadata:
 pasos:
   - "Identificar el adjetivo en la oración."
   - "Aplicar la regla para formar el potencial."
-respuesta: "たべられる"
 respuestas_validas:
   - "たべられる"
   - "食べられる"
 tipo: completar
 explicacion: "El adjetivo '美味しい' (delicioso) se conjuga al potencial con '〜ことができる', pero en este caso, el verbo '食べる' (comer) requiere la forma '〜られる'."
 enunciado: "この料理は____。"  
-variables:
-  - "たべられる"
 ```
 
 
@@ -39,8 +36,6 @@ respuesta: "泳げる"
 tipo: mc
 explicacion: "El verbo '泳ぐ' (nadar) es irregular. Su forma potencial se forma añadiendo '〜げる', no siguiendo el patrón regular."
 enunciado: "彼は____？"  
-variables:
-  - "泳げる"
 ```
 
 
@@ -55,15 +50,12 @@ metadata:
 pasos:
   - "Identificar el verbo en la pregunta."
   - "Formar el potencial para responder correctamente."
-respuesta: "読める"
 respuestas_validas:
   - "読める"
   - "読めます"
 tipo: completar
 explicacion: "El verbo '読む' (leer) se conjuga al potencial con '〜める', y se usa en preguntas como 'Can you read this?' que requiere '読める'."
 enunciado: "この本を____？"  
-variables:
-  - "読める"
 ```
 
 
@@ -86,8 +78,6 @@ respuesta: "話せる"
 tipo: mc
 explicacion: "El verbo '話す' (hablar) es regular. Su forma potencial se forma eliminando 'る' y añadiendo 'せる', como en '話せる'."
 enunciado: "彼女は中国語を____？"  
-variables:
-  - "話せる"
 ```
 
 
@@ -102,7 +92,7 @@ metadata:
 pasos:  
   - "Identificar el verbo base en la oración."  
   - "Aplicar la regla de formación del potencial para el verbo correspondiente."  
-respuesta_validas:  
+respuestas_validas:  
   - "話せますか"  
   - "話せる？"  
 explicacion: "El verbo base es 「話す」. La forma potencial para 「話す」es 「話せる」, que se usa en preguntas como '¿Puedes hablar?'."  
@@ -138,8 +128,6 @@ respuesta: "見れる"
 tipo: mc
 explicacion: "El verbo '見る' (ver) es regular. Su forma potencial se forma eliminando 'る' y añadiendo 'れる', como en '見れる'."
 enunciado: "この映画を____？"  
-variables:
-  - "見れる"
 ```
 
 
@@ -185,7 +173,7 @@ metadata:
 pasos:  
   - "Identificar el verbo irregular base (「出る」)."  
   - "Aplicar la regla específica para formar su potencial."  
-respuesta_validas:  
+respuestas_validas:  
   - "出られますか"  
   - "出られる？"  
 explicacion: "El verbo 「出る」tiene forma potencial irregular: 「出られる」. En preguntas, se usa como '¿Puedes salir?'"  
@@ -213,15 +201,12 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Formar el potencial para expresar una hipótesis."
-respuesta: "書ける"
 respuestas_validas:
   - "書ける"
   - "書く"
 tipo: completar
 explicacion: "El verbo '書く' (escribir) se conjuga al potencial con '〜ける', y se usa en hipótesis como 'If you can write this.' que requiere '書ける'."
 enunciado: "この文章を____？"  
-variables:
-  - "書ける"
 ```
 
 
@@ -267,15 +252,12 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Formar el potencial para completar la oración con objeto."
-respuesta: "飲める"
 respuestas_validas:
   - "飲める"
   - "飲む"
 tipo: completar
 explicacion: "El verbo '飲む' (beber) se conjuga al potencial con '〜める', y se usa en oraciones como 'You can drink this.' que requiere '飲める'."
 enunciado: "このジュースは____。"  
-variables:
-  - "飲める"
 ```
 
 
@@ -290,7 +272,7 @@ metadata:
 pasos:  
   - "Identificar el verbo base (「する」)."  
   - "Usar su forma potencial irregular (「できる」)."  
-respuesta_validas:  
+respuestas_validas:  
   - "できますか"  
   - "できる？"  
 explicacion: "El verbo 「する」tiene forma potencial irregular: 「できる」. En preguntas, se usa como '¿Puedes hacerlo?'"  
@@ -318,15 +300,12 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Formar el potencial para completar la negación."
-respuesta: "できない"
 respuestas_validas:
   - "できない"
   - "できない"
 tipo: completar
 explicacion: "El verbo 'できる' (poder) se conjuga al potencial con '〜ない', y se usa en negaciones como 'No puedes hacer esto.' que requiere 'できない'."
 enunciado: "彼は____。"  
-variables:
-  - "できない"
 ```
 
 
@@ -372,7 +351,7 @@ metadata:
 pasos:  
   - "Identificar el verbo base (「来る」)."  
   - "Usar su forma potencial irregular (「こられる」)."  
-respuesta_validas:  
+respuestas_validas:  
   - "来られますか"  
   - "こられる？"  
 explicacion: "El verbo 「来る」tiene forma potencial irregular: 「こられる」. En preguntas formales, se usa como '¿Puedes venir?'"  
@@ -431,15 +410,12 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Formar el potencial para completar la afirmación con objeto."
-respuesta: "書ける"
 respuestas_validas:
   - "書ける"
   - "書く"
 tipo: completar
 explicacion: "El verbo '書く' (escribir) se conjuga al potencial con '〜ける', y se usa en afirmaciones como 'You can write this.' que requiere '書ける'."
 enunciado: "この文章を____。"  
-variables:
-  - "書ける"
 ```
 
 
@@ -454,7 +430,7 @@ metadata:
 pasos:  
   - "Identificar el verbo base (「備える」)."  
   - "Usar su forma potencial regular (「備えられる」)."  
-respuesta_validas:  
+respuestas_validas:  
   - "備えられますか"  
   - "備えられる？"  
 explicacion: "El verbo 「備える」es regular, por lo que su forma potencial es 「備えられる」. En preguntas, se usa como '¿Puedes prepararte?'"  
@@ -513,7 +489,7 @@ metadata:
 pasos:  
   - "Identificar el verbo base (「する」)."  
   - "Usar su forma potencial irregular (「できる」)."  
-respuesta_validas:  
+respuestas_validas:  
   - "できますか"  
   - "できる？"  
 explicacion: "El verbo 「する」tiene forma potencial irregular: 「できる」. En preguntas, se usa como '¿Puedes hacerlo?'"  
@@ -572,7 +548,7 @@ metadata:
 pasos:  
   - "Identificar el verbo base (「来る」)."  
   - "Usar su forma potencial irregular (「こられる」)."  
-respuesta_validas:  
+respuestas_validas:  
   - "来られますか"  
   - "こられる？"  
 explicacion: "El verbo 「来る」tiene forma potencial irregular: 「こられる」. En preguntas formales, se usa como '¿Puedes venir?'"  
@@ -631,7 +607,7 @@ metadata:
 pasos:  
   - "Identificar el verbo base (「備える」)."  
   - "Usar su forma potencial regular (「備えられる」)."  
-respuesta_validas:  
+respuestas_validas:  
   - "備えられますか"  
   - "備えられる？"  
 explicacion: "El verbo 「備える」es regular, por lo que su forma potencial es 「備えられる」. En preguntas, se usa como '¿Puedes prepararte?'"  

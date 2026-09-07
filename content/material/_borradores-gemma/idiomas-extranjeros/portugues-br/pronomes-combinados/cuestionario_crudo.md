@@ -7,7 +7,6 @@ metadata:
   tags: ["com", "me"]  
 pasos:  
   - "Reemplaza el espacio en blanco con el pronombre combinado correcto."  
-respuesta: "comigo"  
 tipo: completar  
 respuestas_validas:  
   - "comigo"  
@@ -29,7 +28,6 @@ metadata:
   tags: ["para", "me"]  
 pasos:  
   - "Completa la oración con el pronombre combinado correcto."  
-respuesta: "para mim"  
 tipo: completar  
 respuestas_validas:  
   - "para mim"  
@@ -74,7 +72,6 @@ metadata:
   tags: ["sem", "me"]  
 pasos:  
   - "Completa la oración con el pronombre combinado correcto."  
-respuesta: "sem mim"  
 tipo: completar  
 respuestas_validas:  
   - "sem mim"  
@@ -119,7 +116,6 @@ metadata:
   tags: ["para", "vós"]  
 pasos:  
   - "Completa la oración con el pronombre combinado correcto."  
-respuesta: "para vocês"  
 tipo: completar  
 respuestas_validas:  
   - "para vocês"  
@@ -164,7 +160,6 @@ metadata:
   tags: ["com", "vós"]  
 pasos:  
   - "Completa la oración con el pronombre combinado correcto."  
-respuesta: "com vocês"  
 tipo: completar  
 respuestas_validas:  
   - "com vocês"  
@@ -209,7 +204,6 @@ metadata:
   tags: ["sem", "nós"]  
 pasos:  
   - "Completa la oración con el pronombre combinado correcto."  
-respuesta: "sem nós"  
 tipo: completar  
 respuestas_validas:  
   - "sem nós"  
@@ -254,7 +248,6 @@ metadata:
   tags: ["para", "me"]  
 pasos:  
   - "Completa la oración con el pronombre combinado correcto."  
-respuesta: "para mim"  
 tipo: completar  
 respuestas_validas:  
   - "para mim"  
@@ -299,7 +292,6 @@ metadata:
   tags: ["sem", "você"]  
 pasos:  
   - "Completa la oración con el pronombre combinado correcto."  
-respuesta: "sem você"  
 tipo: completar  
 respuestas_validas:  
   - "sem você"  
@@ -344,7 +336,6 @@ metadata:
   tags: ["com", "me"]  
 pasos:  
   - "Completa la oración con el pronombre combinado correcto."  
-respuesta: "comigo"  
 tipo: completar  
 respuestas_validas:  
   - "comigo"  
@@ -389,7 +380,6 @@ metadata:
   tags: ["para", "você"]  
 pasos:  
   - "Completa la oración con el pronombre combinado correcto."  
-respuesta: "para você"  
 tipo: completar  
 respuestas_validas:  
   - "para você"  
@@ -438,11 +428,9 @@ pasos:
 explicacion: "O pronome combinado 'comigo' refere-se ao sujeito 'eu', enquanto 'com ele' se refere a terceira pessoa do singular. Aqui, o sujeito é 'nós', então o correto é 'conosco' (preposição + nós)."  
 tipo: completar  
 enunciado: "Eles não virão ______, mas podem nos ajudar depois."  
-respuesta: "conosco"  
 respuestas_validas:  
   - "conosco"  
   - "Conosco"  
-variables: []  
 ```  
 
 ---
@@ -489,7 +477,6 @@ opciones_explicitas:
   - "para vocês"  
   - "para eu"  
 respuesta: "para eles"  
-variables: []  
 ```  
 
 ---
@@ -530,11 +517,9 @@ pasos:
 explicacion: "O sujeito 'alguém' é indeterminado, mas a preposição 'sem' exige um complemento. O correto é 'sem eles', pois se refere a terceira pessoa do plural."  
 tipo: completar  
 enunciado: "Não conseguimos terminar o projeto ______, mas talvez possam ajudar outro dia."  
-respuesta: "sem eles"  
 respuestas_validas:  
   - "sem eles"  
   - "Sem eles"  
-variables: []  
 ```
 
 ### 25 — Pronome "conosco" con verbo plural  

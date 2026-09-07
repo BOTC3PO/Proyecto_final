@@ -8,14 +8,12 @@ metadata:
 pasos:  
   - "Identificar la preposición 'com' en el contexto."  
   - "Colocar el pronombre antes del verbo según la regla de proclisis."  
-respuesta: "te"  
 respuestas_validas:  
   - "te"  
   - "Te"  
 tipo: completar  
 
 enunciado: "Vou ___ visitar com você."  
-variables: {}  
 explicacion: "Después de preposiciones como 'com', los pronombres se colocan antes del verbo. La forma correcta es 'te' (proclisis)."
 
 ---
@@ -33,12 +31,14 @@ metadata:
 pasos:  
   - "Reconocer el verbo 'precisar' en la oración."  
   - "Aplicar la regla de proclisis con este verbo."  
-opciones_explicitas: ["Preciso te ajudar.", "Preciso ayudar-te.", "Preciso a ti ajudar."]  
+opciones_explicitas:
+  - "Preciso te ajudar."
+  - "Preciso ayudar-te."
+  - "Preciso a ti ajudar."
 respuesta: "Preciso te ajudar."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'precisar' con pronombre?"  
-variables: {}  
 explicacion: "Con el verbo 'precisar', los pronombres se colocan antes del verbo en infinitivo. La opción correcta es 'Preciso te ajudar.'"
 
 ---
@@ -56,14 +56,12 @@ metadata:
 pasos:  
   - "Identificar la negación 'não' en el contexto."  
   - "Colocar el pronombre antes del verbo."  
-respuesta: "me"  
 respuestas_validas:  
   - "me"  
   - "Me"  
 tipo: completar  
 
 enunciado: "Não ___ esqueço de ti."  
-variables: {}  
 explicacion: "En oraciones negativas, los pronombres se colocan antes del verbo. La forma correcta es 'me' (proclisis)."
 
 ---
@@ -81,12 +79,14 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'sem' en el contexto."  
   - "Aplicar la regla de proclisis con esta preposición."  
-opciones_explicitas: ["Estou sem te ver.", "Estou ver-te.", "Estou a ti ver."]  
+opciones_explicitas:
+  - "Estou sem te ver."
+  - "Estou ver-te."
+  - "Estou a ti ver."
 respuesta: "Estou sem te ver."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'sem' con pronombre?"  
-variables: {}  
 explicacion: "Después de preposiciones como 'sem', los pronombres se colocan antes del verbo. La opción correcta es 'Estou sem te ver.'"
 
 ---
@@ -104,14 +104,12 @@ metadata:
 pasos:  
   - "Identificar el verbo 'dever' en infinitivo."  
   - "Colocar el pronombre antes del verbo."  
-respuesta: "te"  
 respuestas_validas:  
   - "te"  
   - "Te"  
 tipo: completar  
 
 enunciado: "Devo ___ ajudar."  
-variables: {}  
 explicacion: "En infinitivos después de verbos como 'dever', los pronombres se colocan antes del verbo. La forma correcta es 'te' (proclisis)."
 
 ---
@@ -129,12 +127,14 @@ metadata:
 pasos:  
   - "Identificar la negación 'não' y el verbo 'dizer'."  
   - "Aplicar la regla de proclisis en este contexto."  
-opciones_explicitas: ["Não te digo isso.", "Não digo-te isso.", "Não a ti digo isso."]  
+opciones_explicitas:
+  - "Não te digo isso."
+  - "Não digo-te isso."
+  - "Não a ti digo isso."
 respuesta: "Não te digo isso."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'dizer' con pronombre en oración negativa?"  
-variables: {}  
 explicacion: "En oraciones negativas con el verbo 'dizer', los pronombres se colocan antes del verbo. La opción correcta es 'Não te digo isso.'"
 
 ---
@@ -152,14 +152,12 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'de' en el contexto."  
   - "Colocar el pronombre antes del verbo."  
-respuesta: "me"  
 respuestas_validas:  
   - "me"  
   - "Me"  
 tipo: completar  
 
 enunciado: "Não ___ lembrarei de ti."  
-variables: {}  
 explicacion: "Después de preposiciones como 'de', los pronombres se colocan antes del verbo. La forma correcta es 'me' (proclisis)."
 
 ---
@@ -177,12 +175,14 @@ metadata:
 pasos:  
   - "Identificar el verbo 'poder' en infinitivo."  
   - "Colocar el pronombre antes del verbo."  
-opciones_explicitas: ["Pode te ajudar.", "Pode ajudar-te.", "Pode a ti ajudar."]  
+opciones_explicitas:
+  - "Pode te ajudar."
+  - "Pode ajudar-te."
+  - "Pode a ti ajudar."
 respuesta: "Pode te ajudar."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'poder' con pronombre en infinitivo?"  
-variables: {}  
 explicacion: "En infinitivos después de verbos como 'poder', los pronombres se colocan antes del verbo. La opción correcta es 'Pode te ajudar.'"
 
 ---
@@ -200,14 +200,12 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'com' en el contexto."  
   - "Aplicar la regla de proclisis con esta preposición."  
-respuesta: "te"  
 respuestas_validas:  
   - "te"  
   - "Te"  
 tipo: completar  
 
 enunciado: "Vou ___ fazer com você."  
-variables: {}  
 explicacion: "Después de preposiciones como 'com', los pronombres se colocan antes del verbo. La forma correcta es 'te' (proclisis)."
 
 ---
@@ -225,12 +223,14 @@ metadata:
 pasos:  
   - "Identificar la negación 'não' y el verbo 'desejar'."  
   - "Aplicar la regla de proclisis en este contexto."  
-opciones_explicitas: ["Não te desejo isso.", "Não desejo-te isso.", "Não a ti desejo isso."]  
+opciones_explicitas:
+  - "Não te desejo isso."
+  - "Não desejo-te isso."
+  - "Não a ti desejo isso."
 respuesta: "Não te desejo isso."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'desejar' con pronombre en oración negativa?"  
-variables: {}  
 explicacion: "En oraciones negativas con el verbo 'desejar', los pronombres se colocan antes del verbo. La opción correcta es 'Não te desejo isso.'"
 
 ---
@@ -248,14 +248,12 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'para' en el contexto."  
   - "Colocar el pronombre antes del verbo."  
-respuesta: "me"  
 respuestas_validas:  
   - "me"  
   - "Me"  
 tipo: completar  
 
 enunciado: "Vou ___ trazer para ti."  
-variables: {}  
 explicacion: "Después de preposiciones como 'para', los pronombres se colocan antes del verbo. La forma correcta es 'me' (proclisis)."
 
 ---
@@ -273,12 +271,14 @@ metadata:
 pasos:  
   - "Identificar el verbo 'perguntar' en infinitivo."  
   - "Colocar el pronombre antes del verbo."  
-opciones_explicitas: ["Pode te perguntar.", "Pode perguntar-te.", "Pode a ti perguntar."]  
+opciones_explicitas:
+  - "Pode te perguntar."
+  - "Pode perguntar-te."
+  - "Pode a ti perguntar."
 respuesta: "Pode te perguntar."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'perguntar' con pronombre en infinitivo?"  
-variables: {}  
 explicacion: "En infinitivos después de verbos como 'poder', los pronombres se colocan antes del verbo. La opción correcta es 'Pode te perguntar.'"
 
 ---
@@ -296,14 +296,12 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'para' en el contexto."  
   - "Aplicar la regla de proclisis con esta preposición."  
-respuesta: "te"  
 respuestas_validas:  
   - "te"  
   - "Te"  
 tipo: completar  
 
 enunciado: "Vou ___ enviar para você."  
-variables: {}  
 explicacion: "Después de preposiciones como 'para', los pronombres se colocan antes del verbo. La forma correcta es 'te' (proclisis)."
 
 ---
@@ -321,12 +319,14 @@ metadata:
 pasos:  
   - "Identificar la negación 'não' y el verbo 'esquecer'."  
   - "Aplicar la regla de proclisis en este contexto."  
-opciones_explicitas: ["Não te esqueço.", "Não esqueço-te.", "Não a ti esqueço."]  
+opciones_explicitas:
+  - "Não te esqueço."
+  - "Não esqueço-te."
+  - "Não a ti esqueço."
 respuesta: "Não te esqueço."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'esquecer' con pronombre en oración negativa?"  
-variables: {}  
 explicacion: "En oraciones negativas con el verbo 'esquecer', los pronombres se colocan antes del verbo. La opción correcta es 'Não te esqueço.'"
 
 ---
@@ -344,13 +344,11 @@ metadata:
 pasos:  
   - "Identificar a estrutura da oração negativa no futuro."  
   - "Aplicar a regra de proclise com o pronome oblíquo."  
-respuesta: "me"  
 tipo: completar  
 respuestas_validas:  
   - "me"  
   - "Me"  
 enunciado: "Ela não ___ vai ajudar."  
-variables: []  
 explicacion: "Em orações negativas no futuro, o pronome oblíquo (como 'me') precede o verbo. Exemplo: 'Ela não me vai ajudar.'"  
 ```
 
@@ -364,12 +362,14 @@ metadata:
 pasos:  
   - "Identificar el verbo 'querer' en infinitivo."  
   - "Colocar el pronombre antes del verbo."  
-opciones_explicitas: ["Quero te ajudar.", "Quero ajudar-te.", "Quero a ti ajudar."]  
+opciones_explicitas:
+  - "Quero te ajudar."
+  - "Quero ajudar-te."
+  - "Quero a ti ajudar."
 respuesta: "Quero te ajudar."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'querer' con pronombre en infinitivo?"  
-variables: {}  
 explicacion: "En infinitivos después de verbos como 'querer', los pronombres se colocan antes del verbo. La opción correcta es 'Quero te ajudar.'"
 
 ---
@@ -387,14 +387,12 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'para' en el contexto."  
   - "Aplicar la regla de proclisis con esta preposición."  
-respuesta: "te"  
 respuestas_validas:  
   - "te"  
   - "Te"  
 tipo: completar  
 
 enunciado: "Vou ___ dizer para você."  
-variables: {}  
 explicacion: "Después de preposiciones como 'para', los pronombres se colocan antes del verbo. La forma correcta es 'te' (proclisis)."
 
 ---
@@ -412,12 +410,14 @@ metadata:
 pasos:  
   - "Identificar la negación 'não' y el verbo 'fazer'."  
   - "Aplicar la regla de proclisis en este contexto."  
-opciones_explicitas: ["Não te faço isso.", "Não faço-te isso.", "Não a ti faço isso."]  
+opciones_explicitas:
+  - "Não te faço isso."
+  - "Não faço-te isso."
+  - "Não a ti faço isso."
 respuesta: "Não te faço isso."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'fazer' con pronombre en oración negativa?"  
-variables: {}  
 explicacion: "En oraciones negativas con el verbo 'fazer', los pronombres se colocan antes del verbo. La opción correcta es 'Não te faço isso.'"
 
 ---
@@ -435,14 +435,12 @@ metadata:
 pasos:  
   - "Reconocer la preposición 'com' en el contexto."  
   - "Colocar el pronombre antes del verbo."  
-respuesta: "me"  
 respuestas_validas:  
   - "me"  
   - "Me"  
 tipo: completar  
 
 enunciado: "Vou ___ trabalhar com você."  
-variables: {}  
 explicacion: "Después de preposiciones como 'com', los pronombres se colocan antes del verbo. La forma correcta es 'me' (proclisis)."
 
 ---
@@ -460,12 +458,14 @@ metadata:
 pasos:  
   - "Identificar el verbo 'escrever' en infinitivo."  
   - "Colocar el pronombre antes del verbo."  
-opciones_explicitas: ["Pode te escrever.", "Pode escrever-te.", "Pode a ti escrever."]  
+opciones_explicitas:
+  - "Pode te escrever."
+  - "Pode escrever-te."
+  - "Pode a ti escrever."
 respuesta: "Pode te escrever."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'escrever' con pronombre en infinitivo?"  
-variables: {}  
 explicacion: "En infinitivos después de verbos como 'poder', los pronombres se colocan antes del verbo. La opción correcta es 'Pode te escrever.'"
 
 ---
@@ -491,7 +491,6 @@ opciones_explicitas:
 respuesta: "lhe"  
 tipo: mc  
 enunciado: "Preciso de ___ pedir ajuda."  
-variables: []  
 explicacion: "No infinitivo, quando o pronome é objeto direto, usa-se a proclise ('lhe'). Exemplo: 'Preciso de lhe pedir ajuda.'"  
 ```
 
@@ -505,12 +504,14 @@ metadata:
 pasos:  
   - "Identificar la negación 'não' y el verbo 'perguntar'."  
   - "Aplicar la regla de proclisis en este contexto."  
-opciones_explicitas: ["Não te pergunto isso.", "Não pergonto-te isso.", "Não a ti pergunto isso."]  
+opciones_explicitas:
+  - "Não te pergunto isso."
+  - "Não pergonto-te isso."
+  - "Não a ti pergunto isso."
 respuesta: "Não te pergunto isso."  
 tipo: mc  
 
 enunciado: "¿Cuál es la forma correcta de 'perguntar' con pronombre en oración negativa?"  
-variables: {}  
 explicacion: "En oraciones negativas con el verbo 'perguntar', los pronombres se colocan antes del verbo. La opción correcta es 'Não te pergunto isso.'"
 
 ---
@@ -528,13 +529,11 @@ metadata:
 pasos:  
   - "Verificar se o verbo exige proclise em orações afirmativas."  
   - "Aplicar a regra para verbos como 'dizer' ou 'fazer'."  
-respuesta: "lhe"  
 tipo: completar  
 respuestas_validas:  
   - "lhe"  
   - "Lhe"  
 enunciado: "Vou ___ dizer algo importante."  
-variables: []  
 explicacion: "Em orações afirmativas com verbos como 'dizer', o pronome oblíquo (como 'lhe') precede o verbo. Exemplo: 'Vou lhe dizer algo importante.'"  
 ```
 

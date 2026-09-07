@@ -9,7 +9,6 @@ pasos:
   - "Identifica la forma correcta del verbo en el si-cláusula."  
 explicacion: "El segundo condicional usa el pasado simple en el 'if' y 'would + base verb' en la cláusula principal. Ejemplo: *If I had time, I would go.*"  
 enunciado: "If he __________ more money, he could buy a car."  
-respuesta: "had"  
 tipo: completar  
 respuestas_validas:  
   - "had"  
@@ -50,7 +49,6 @@ pasos:
   - "Completa la cláusula principal con 'would + base verb'."  
 explicacion: "El verbo 'would' se usa en la cláusula principal del segundo condicional. Ejemplo: *If I were rich, I would travel.*"  
 enunciado: "If they __________ here earlier, they could have met the client."  
-respuesta: "had come"  
 tipo: completar  
 respuestas_validas:  
   - "had come"  
@@ -91,7 +89,6 @@ pasos:
   - "Completa la cláusula con el verbo en pasado simple."  
 explicacion: "El uso de 'were' es común en el segundo condicional para sujeto singular. Ejemplo: *If I were you, I would apologize.*"  
 enunciado: "If she __________ more careful, she wouldn’t have made a mistake."  
-respuesta: "had been"  
 tipo: completar  
 respuestas_validas:  
   - "had been"  
@@ -132,7 +129,6 @@ pasos:
   - "Completa con el verbo en pasado simple y 'could'."  
 explicacion: "'Could' se usa para expresar posibilidad hipotética. Ejemplo: *If you had more time, you could finish it.*"  
 enunciado: "If they __________ the budget, they could expand the team."  
-respuesta: "had"  
 tipo: completar  
 respuestas_validas:  
   - "had"  
@@ -173,7 +169,6 @@ pasos:
   - "Completa la cláusula principal con 'wouldn’t + base verb'."  
 explicacion: "'Wouldn’t' se usa para negar una acción hipotética. Ejemplo: *If he were here, he wouldn’t agree.*"  
 enunciado: "If we __________ the weather forecast, we wouldn’t have gone hiking."  
-respuesta: "had checked"  
 tipo: completar  
 respuestas_validas:  
   - "had checked"  
@@ -214,7 +209,6 @@ pasos:
   - "Completa con el verbo en pasado simple y 'would'."  
 explicacion: "El segundo condicional describe situaciones futuras hipotéticas. Ejemplo: *If it rained tomorrow, we would stay home.*"  
 enunciado: "If the flight __________ delayed, we would miss our connection."  
-respuesta: "were"  
 tipo: completar  
 respuestas_validas:  
   - "were"  
@@ -255,7 +249,6 @@ pasos:
   - "Completa con el verbo en pasado simple y 'would + base verb'."  
 explicacion: "El uso de 'would' en la cláusula principal es obligatorio. Ejemplo: *If I had a car, I would drive to work.*"  
 enunciado: "If she __________ more confident, she could present her ideas better."  
-respuesta: "were"  
 tipo: completar  
 respuestas_validas:  
   - "were"  
@@ -296,7 +289,6 @@ pasos:
   - "Completa con el verbo en pasado simple y 'would + base verb'."  
 explicacion: "'Would' expresa una posibilidad hipotética. Ejemplo: *If I had enough time, I would learn Spanish.*"  
 enunciado: "If the company __________ better, it would attract more clients."  
-respuesta: "were managed"  
 tipo: completar  
 respuestas_validas:  
   - "were managed"  
@@ -337,7 +329,6 @@ pasos:
   - "Completa con el verbo en pasado simple y 'wouldn’t + base verb'."  
 explicacion: "'Wouldn’t' expresa una negación hipotética. Ejemplo: *If he were here, he wouldn’t help.*"  
 enunciado: "If the system __________ updated, it wouldn’t crash so often."  
-respuesta: "were"  
 tipo: completar  
 respuestas_validas:  
   - "were"  
@@ -378,7 +369,6 @@ pasos:
   - "Completa con el verbo en pasado simple y 'would + base verb'."  
 explicacion: "'Would' describe una acción futura hipotética. Ejemplo: *If I had a million dollars, I would travel the world.*"  
 enunciado: "If the team __________ more training, they would win the tournament."  
-respuesta: "had"  
 tipo: completar  
 respuestas_validas:  
   - "had"  
@@ -419,7 +409,6 @@ pasos:
   - "Completa con el verbo en pasado simple y 'would + base verb'."  
 explicacion: "'Would' se usa para acciones futuras hipotéticas. Ejemplo: *If I had more time, I would study harder.*"  
 enunciado: "If the software __________ faster, it would reduce processing errors."  
-respuesta: "worked"  
 tipo: completar  
 respuestas_validas:  
   - "worked"  
@@ -460,7 +449,6 @@ pasos:
   - "Completa con el verbo en pasado simple y 'would + base verb'."  
 explicacion: "'Would' expresa una posibilidad hipotética. Ejemplo: *If I had a car, I would drive to the city.*"  
 enunciado: "If the project __________ more resources, it would be completed faster."  
-respuesta: "had"  
 tipo: completar  
 respuestas_validas:  
   - "had"  
@@ -501,7 +489,6 @@ pasos:
   - "Completa con el verbo en pasado simple y 'would + base verb'."  
 explicacion: "'Would' describe una acción futura hipotética. Ejemplo: *If I had a vacation, I would visit my family.*"  
 enunciado: "If the company __________ more transparent, it would gain customer trust."  
-respuesta: "were"  
 tipo: completar  
 respuestas_validas:  
   - "were"  

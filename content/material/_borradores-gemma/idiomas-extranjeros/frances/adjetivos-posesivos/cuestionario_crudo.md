@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y el objeto en la oración."
   - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-respuesta: "mon"
 tipo: completar
 respuestas_validas:
   - "mon"
@@ -26,7 +25,6 @@ metadata:
 pasos:
   - "Determinar el número y género del objeto."
   - "Aplicar la regla de los adjetivos posesivos en plural femenino."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -44,7 +42,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (tu) y el objeto (amigo)."
   - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-respuesta: "ton"
 tipo: completar
 respuestas_validas:
   - "ton"
@@ -62,7 +59,6 @@ metadata:
 pasos:
   - "Determinar el género del objeto (hermana)."
   - "Aplicar la regla de los adjetivos posesivos en singular femenino."
-respuesta: "ta"
 tipo: completar
 respuestas_validas:
   - "ta"
@@ -80,7 +76,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mi) y el objeto (coche)."
   - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-respuesta: "mon"
 tipo: completar
 respuestas_validas:
   - "mon"
@@ -98,7 +93,6 @@ metadata:
 pasos:
   - "Determinar el género del objeto (casa)."
   - "Aplicar la regla de los adjetivos posesivos en singular femenino."
-respuesta: "ma"
 tipo: completar
 respuestas_validas:
   - "ma"
@@ -116,7 +110,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mi) y el objeto (perro)."
   - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-respuesta: "mon"
 tipo: completar
 respuestas_validas:
   - "mon"
@@ -134,7 +127,6 @@ metadata:
 pasos:
   - "Determinar el género del objeto (hermano)."
   - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-respuesta: "mon"
 tipo: completar
 respuestas_validas:
   - "mon"
@@ -152,7 +144,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mi) y el objeto (madre)."
   - "Aplicar la regla de los adjetivos posesivos en singular femenino."
-respuesta: "ma"
 tipo: completar
 respuestas_validas:
   - "ma"
@@ -170,7 +161,6 @@ metadata:
 pasos:
   - "Determinar el número y género del objeto (gatos)."
   - "Aplicar la regla de los adjetivos posesivos en plural masculino."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -188,7 +178,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mis) y el objeto (hermano/hermana)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -206,7 +195,6 @@ metadata:
 pasos:
   - "Determinar el género del objeto (amiga)."
   - "Aplicar la regla de los adjetivos posesivos en singular femenino."
-respuesta: "ta"
 tipo: completar
 respuestas_validas:
   - "ta"
@@ -224,7 +212,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (su) y el objeto (profesor)."
   - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-respuesta: "son"
 tipo: completar
 respuestas_validas:
   - "son"
@@ -242,7 +229,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mis) y los objetos (casa/coche)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -260,7 +246,6 @@ metadata:
 pasos:
   - "Determinar el número y género de los objetos (amiga/amigo)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -278,7 +263,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mis) y los objetos (coche/casa)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -296,7 +280,6 @@ metadata:
 pasos:
   - "Determinar el número y género de los objetos (hermano/hermana)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -314,7 +297,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mis) y los objetos (perro/gato)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -332,7 +314,6 @@ metadata:
 pasos:
   - "Determinar el número y género de los objetos (hermano/amiga)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -350,7 +331,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mis) y los objetos (profesor/profesora)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -368,7 +348,6 @@ metadata:
 pasos:
   - "Determinar el número y género de los objetos (casa/perro)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -386,7 +365,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mis) y los objetos (coche/amiga)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -404,7 +382,6 @@ metadata:
 pasos:
   - "Determinar el número y género de los objetos (hermano/profesora)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"
@@ -422,7 +399,6 @@ metadata:
 pasos:
   - "Identificar el sujeto (mis) y los objetos (perro/casa)."
   - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-respuesta: "mes"
 tipo: completar
 respuestas_validas:
   - "mes"

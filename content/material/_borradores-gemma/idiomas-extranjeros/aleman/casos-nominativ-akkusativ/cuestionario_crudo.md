@@ -11,7 +11,11 @@ pasos:
 respuestas_validas:
   - "den"
   - "Den"
-opciones_explicitas: ["dem", "den", "die", "das"]
+opciones_explicitas:
+  - "dem"
+  - "den"
+  - "die"
+  - "das"
 respuesta: "den"
 explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido masculino en acusativo es 'den'."
 ```
@@ -29,7 +33,11 @@ pasos:
 respuestas_validas:
   - "ihn"
   - "Ihn"
-opciones_explicitas: ["ihn", "ihm", "sie", "es"]
+opciones_explicitas:
+  - "ihn"
+  - "ihm"
+  - "sie"
+  - "es"
 respuesta: "ihn"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre masculino es 'ihn'."
 ```
@@ -47,7 +55,11 @@ pasos:
 respuestas_validas:
   - "die Frau"
   - "Die Frau"
-opciones_explicitas: ["die Frau", "die Frauen", "der Frau", "den Frau"]
+opciones_explicitas:
+  - "die Frau"
+  - "die Frauen"
+  - "der Frau"
+  - "den Frau"
 respuesta: "die Frau"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo femenino es 'die Frau'."
 ```
@@ -65,7 +77,11 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
-opciones_explicitas: ["die", "durch", "der", "das"]
+opciones_explicitas:
+  - "die"
+  - "durch"
+  - "der"
+  - "das"
 respuesta: "die"
 explicacion: "La preposición 'durch' requiere el acusativo. El artículo definido femenino es 'die'."
 ```
@@ -83,7 +99,11 @@ pasos:
 respuestas_validas:
   - "sie"
   - "Sie"
-opciones_explicitas: ["sie", "ihm", "ihn", "es"]
+opciones_explicitas:
+  - "sie"
+  - "ihm"
+  - "ihn"
+  - "es"
 respuesta: "sie"
 explicacion: "El verbo 'helfen' requiere el objeto directo en acusativo. El pronombre femenino es 'sie'."
 ```
@@ -101,7 +121,11 @@ pasos:
 respuestas_validas:
   - "den Mann"
   - "Den Mann"
-opciones_explicitas: ["den Mann", "der Mann", "die Mann", "das Mann"]
+opciones_explicitas:
+  - "den Mann"
+  - "der Mann"
+  - "die Mann"
+  - "das Mann"
 respuesta: "den Mann"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo masculino es 'den Mann'."
 ```
@@ -119,7 +143,11 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
-opciones_explicitas: ["die", "das", "der", "den"]
+opciones_explicitas:
+  - "die"
+  - "das"
+  - "der"
+  - "den"
 respuesta: "die"
 explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido femenino es 'die'."
 ```
@@ -137,7 +165,11 @@ pasos:
 respuestas_validas:
   - "es"
   - "Es"
-opciones_explicitas: ["es", "ihn", "sie", "den"]
+opciones_explicitas:
+  - "es"
+  - "ihn"
+  - "sie"
+  - "den"
 respuesta: "es"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre neutro es 'es'."
 ```
@@ -155,7 +187,11 @@ pasos:
 respuestas_validas:
   - "die Frau"
   - "Die Frau"
-opciones_explicitas: ["die Frau", "der Frau", "das Frauen", "den Frau"]
+opciones_explicitas:
+  - "die Frau"
+  - "der Frau"
+  - "das Frauen"
+  - "den Frau"
 respuesta: "die Frau"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo femenino es 'die Frau'."
 ```
@@ -173,7 +209,11 @@ pasos:
 respuestas_validas:
   - "den"
   - "Den"
-opciones_explicitas: ["den", "dem", "die", "das"]
+opciones_explicitas:
+  - "den"
+  - "dem"
+  - "die"
+  - "das"
 respuesta: "den"
 explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido masculino es 'den'."
 ```
@@ -191,7 +231,11 @@ pasos:
 respuestas_validas:
   - "ihn"
   - "Ihn"
-opciones_explicitas: ["ihn", "ihm", "sie", "es"]
+opciones_explicitas:
+  - "ihn"
+  - "ihm"
+  - "sie"
+  - "es"
 respuesta: "ihn"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre masculino es 'ihn'."
 ```
@@ -209,7 +253,11 @@ pasos:
 respuestas_validas:
   - "den Mann"
   - "Den Mann"
-opciones_explicitas: ["den Mann", "der Mann", "die Mann", "das Mann"]
+opciones_explicitas:
+  - "den Mann"
+  - "der Mann"
+  - "die Mann"
+  - "das Mann"
 respuesta: "den Mann"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo masculino es 'den Mann'."
 ```
@@ -227,7 +275,11 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
-opciones_explicitas: ["die", "das", "der", "den"]
+opciones_explicitas:
+  - "die"
+  - "das"
+  - "der"
+  - "den"
 respuesta: "die"
 explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido femenino es 'die'."
 ```
@@ -245,7 +297,11 @@ pasos:
 respuestas_validas:
   - "es"
   - "Es"
-opciones_explicitas: ["es", "ihn", "sie", "den"]
+opciones_explicitas:
+  - "es"
+  - "ihn"
+  - "sie"
+  - "den"
 respuesta: "es"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre neutro es 'es'."
 ```
@@ -263,7 +319,11 @@ pasos:
 respuestas_validas:
   - "die Frau"
   - "Die Frau"
-opciones_explicitas: ["die Frau", "der Frau", "das Frauen", "den Frau"]
+opciones_explicitas:
+  - "die Frau"
+  - "der Frau"
+  - "das Frauen"
+  - "den Frau"
 respuesta: "die Frau"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo femenino es 'die Frau'."
 ```
@@ -281,7 +341,11 @@ pasos:
 respuestas_validas:
   - "den"
   - "Den"
-opciones_explicitas: ["den", "dem", "die", "das"]
+opciones_explicitas:
+  - "den"
+  - "dem"
+  - "die"
+  - "das"
 respuesta: "den"
 explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido masculino es 'den'."
 ```
@@ -299,7 +363,11 @@ pasos:
 respuestas_validas:
   - "ihn"
   - "Ihn"
-opciones_explicitas: ["ihn", "ihm", "sie", "es"]
+opciones_explicitas:
+  - "ihn"
+  - "ihm"
+  - "sie"
+  - "es"
 respuesta: "ihn"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre masculino es 'ihn'."
 ```
@@ -317,7 +385,11 @@ pasos:
 respuestas_validas:
   - "den Mann"
   - "Den Mann"
-opciones_explicitas: ["den Mann", "der Mann", "die Mann", "das Mann"]
+opciones_explicitas:
+  - "den Mann"
+  - "der Mann"
+  - "die Mann"
+  - "das Mann"
 respuesta: "den Mann"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo masculino es 'den Mann'."
 ```
@@ -335,7 +407,11 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
-opciones_explicitas: ["die", "das", "der", "den"]
+opciones_explicitas:
+  - "die"
+  - "das"
+  - "der"
+  - "den"
 respuesta: "die"
 explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido femenino es 'die'."
 ```
@@ -353,7 +429,11 @@ pasos:
 respuestas_validas:
   - "es"
   - "Es"
-opciones_explicitas: ["es", "ihn", "sie", "den"]
+opciones_explicitas:
+  - "es"
+  - "ihn"
+  - "sie"
+  - "den"
 respuesta: "es"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre neutro es 'es'."
 ```
@@ -371,7 +451,11 @@ pasos:
 respuestas_validas:
   - "die Frau"
   - "Die Frau"
-opciones_explicitas: ["die Frau", "der Frau", "das Frauen", "den Frau"]
+opciones_explicitas:
+  - "die Frau"
+  - "der Frau"
+  - "das Frauen"
+  - "den Frau"
 respuesta: "die Frau"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo femenino es 'die Frau'."
 ```
@@ -389,7 +473,11 @@ pasos:
 respuestas_validas:
   - "den"
   - "Den"
-opciones_explicitas: ["den", "dem", "die", "das"]
+opciones_explicitas:
+  - "den"
+  - "dem"
+  - "die"
+  - "das"
 respuesta: "den"
 explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido masculino es 'den'."
 ```
@@ -407,7 +495,11 @@ pasos:
 respuestas_validas:
   - "ihn"
   - "Ihn"
-opciones_explicitas: ["ihn", "ihm", "sie", "es"]
+opciones_explicitas:
+  - "ihn"
+  - "ihm"
+  - "sie"
+  - "es"
 respuesta: "ihn"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre masculino es 'ihn'."
 ```
@@ -425,7 +517,11 @@ pasos:
 respuestas_validas:
   - "den Mann"
   - "Den Mann"
-opciones_explicitas: ["den Mann", "der Mann", "die Mann", "das Mann"]
+opciones_explicitas:
+  - "den Mann"
+  - "der Mann"
+  - "die Mann"
+  - "das Mann"
 respuesta: "den Mann"
 explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo masculino es 'den Mann'."
 ```
@@ -443,7 +539,11 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
-opciones_explicitas: ["die", "das", "der", "den"]
+opciones_explicitas:
+  - "die"
+  - "das"
+  - "der"
+  - "den"
 respuesta: "die"
 explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido femenino es 'die'."
 ```

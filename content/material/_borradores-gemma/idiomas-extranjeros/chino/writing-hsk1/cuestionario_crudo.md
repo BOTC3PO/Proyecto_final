@@ -10,7 +10,6 @@ pasos:
 explicacion: "La estructura básica es 'Sujeto + Verbo', donde el sujeto y el verbo deben coincidir en número y persona. En este caso, '我' (yo) requiere el verbo base sin partículas."  
 enunciado: "我______一个苹果。"  
 tipo: completar  
-respuesta: "吃"  
 respuestas_validas:  
   - "吃"  
   - "Eat"  
@@ -32,7 +31,10 @@ pasos:
 explicacion: "La partícula 的 se usa para mostrar posesión o modificación. Aquí, '李的书' (el libro de Li) indica que el libro pertenece a Li."  
 enunciado: "这是______书。"  
 tipo: mc  
-opciones_explicitas: ["李", "李的", "李是"]  
+opciones_explicitas:
+  - "李"
+  - "李的"
+  - "李是"
 respuesta: "李的"  
 
 ---
@@ -52,7 +54,6 @@ pasos:
 explicacion: "La partícula 的 se coloca entre el poseedor y el objeto. Aquí, '妈妈的' (de la madre) modifica '手机' (teléfono móvil)."  
 enunciado: "这是______手机。"  
 tipo: completar  
-respuesta: "妈妈的"  
 respuestas_validas:  
   - "妈妈的"  
   - "Mamá de"  
@@ -95,7 +96,6 @@ pasos:
 explicacion: "La partícula 了 se coloca después del verbo para marcar que la acción ya fue realizada. Aquí, '喝' (beber) + 了 = '喝了' (bebí)."  
 enunciado: "我______一杯水。"  
 tipo: completar  
-respuesta: "喝了"  
 respuestas_validas:  
   - "喝了"  
   - "Hui le"  
@@ -117,7 +117,10 @@ pasos:
 explicacion: "El verbo 有 se usa para expresar posesión o existencia. Aquí, '我有' (tengo) indica que el sujeto posee algo."  
 enunciado: "他______一个书包。"  
 tipo: mc  
-opciones_explicitas: ["是", "有", "没有"]  
+opciones_explicitas:
+  - "是"
+  - "有"
+  - "没有"
 respuesta: "有"  
 
 ---
@@ -137,7 +140,6 @@ pasos:
 explicacion: "El verbo 有 se coloca antes del objeto poseído. Aquí, '我' (yo) + 有 = '我有' (tengo)."  
 enunciado: "她______一个猫。"  
 tipo: completar  
-respuesta: "有"  
 respuestas_validas:  
   - "有"  
   - "You"  
@@ -159,7 +161,10 @@ pasos:
 explicacion: "La partícula 的 se coloca entre el poseedor y el objeto. Aquí, '爸爸的' (del padre) modifica '车' (coche)."  
 enunciado: "这是______车。"  
 tipo: mc  
-opciones_explicitas: ["爸爸", "爸爸的", "爸爸是"]  
+opciones_explicitas:
+  - "爸爸"
+  - "爸爸的"
+  - "爸爸是"
 respuesta: "爸爸的"  
 
 ---
@@ -200,7 +205,10 @@ pasos:
 explicacion: "La partícula 的 se usa para conectar un adjetivo con su sustantivo. Aquí, '红色的' (rojo) + 球 (pelota) = '红色的球' (pelota roja)."  
 enunciado: "这是______球。"  
 tipo: mc  
-opciones_explicitas: ["红", "红色的", "红色"]  
+opciones_explicitas:
+  - "红"
+  - "红色的"
+  - "红色"
 respuesta: "红色的"  
 
 ---
@@ -220,7 +228,6 @@ pasos:
 explicacion: "La partícula 的 se coloca después del adjetivo para modificar al sustantivo. Aquí, '蓝色的' (azul) + 被子 (almohada) = '蓝色的被子' (almohada azul)."  
 enunciado: "这是______被子。"  
 tipo: completar  
-respuesta: "蓝色的"  
 respuestas_validas:  
   - "蓝色的"  
   - "Lan se de"  
@@ -242,7 +249,10 @@ pasos:
 explicacion: "La partícula 了 se usa para señalar acciones terminadas. Aquí, '看了' (vi) indica que la acción de ver ya ocurrió."  
 enunciado: "我______这本书。"  
 tipo: mc  
-opciones_explicitas: ["看", "看了", "正在看"]  
+opciones_explicitas:
+  - "看"
+  - "看了"
+  - "正在看"
 respuesta: "看了"  
 
 ---
@@ -262,7 +272,6 @@ pasos:
 explicacion: "La partícula 了 se coloca después del verbo para marcar que la acción ya fue realizada. Aquí, '买' (comprar) + 了 = '买了' (compré)."  
 enunciado: "我______一个包。"  
 tipo: completar  
-respuesta: "买了"  
 respuestas_validas:  
   - "买了"  
   - "Mai le"  
@@ -305,7 +314,6 @@ pasos:
 explicacion: "La partícula 的 se coloca entre el poseedor y el objeto. Aquí, '弟弟的' (del hermano) modifica '书包' (mochila)."  
 enunciado: "这是______书包。"  
 tipo: completar  
-respuesta: "弟弟的"  
 respuestas_validas:  
   - "弟弟的"  
   - "Xiong di de"  
@@ -327,7 +335,10 @@ pasos:
 explicacion: "La partícula 的 se usa para conectar un adjetivo con su sustantivo. Aquí, '绿色的' (verde) + 玻璃杯 (vaso de vidrio) = '绿色的玻璃杯' (vaso verde)."  
 enunciado: "这是______玻璃杯。"  
 tipo: mc  
-opciones_explicitas: ["绿", "绿色的", "绿色"]  
+opciones_explicitas:
+  - "绿"
+  - "绿色的"
+  - "绿色"
 respuesta: "绿色的"  
 
 ---
@@ -347,7 +358,6 @@ pasos:
 explicacion: "La partícula 的 se coloca después del adjetivo para modificar al sustantivo. Aquí, '白色的' (blanco) + 衣服 (ropa) = '白色的衣服' (ropa blanca)."  
 enunciado: "这是______衣服。"  
 tipo: completar  
-respuesta: "白色的"  
 respuestas_validas:  
   - "白色的"  
   - "Bai se de"  
@@ -369,7 +379,10 @@ pasos:
 explicacion: "La partícula 的 se coloca entre el poseedor y el objeto. Aquí, '老师的' (del profesor) modifica '笔' (lápiz)."  
 enunciado: "这是______笔。"  
 tipo: mc  
-opciones_explicitas: ["老师", "老师的", "老师是"]  
+opciones_explicitas:
+  - "老师"
+  - "老师的"
+  - "老师是"
 respuesta: "老师的"  
 
 ---
@@ -389,7 +402,6 @@ pasos:
 explicacion: "La partícula 的 se coloca entre el poseedor y el objeto. Aquí, '爷爷的' (del abuelo) modifica '帽子' (sombrero)."  
 enunciado: "这是______帽子。"  
 tipo: completar  
-respuesta: "爷爷的"  
 respuestas_validas:  
   - "爷爷的"  
   - "Ya ya de"  
@@ -453,7 +465,10 @@ pasos:
 explicacion: "La partícula 的 se coloca entre el poseedor y el objeto. Aquí, '奶奶的' (de la abuela) modifica '杯子' (taza)."  
 enunciado: "这是______杯子。"  
 tipo: mc  
-opciones_explicitas: ["奶奶", "奶奶的", "奶奶是"]  
+opciones_explicitas:
+  - "奶奶"
+  - "奶奶的"
+  - "奶奶是"
 respuesta: "奶奶的"  
 
 ---

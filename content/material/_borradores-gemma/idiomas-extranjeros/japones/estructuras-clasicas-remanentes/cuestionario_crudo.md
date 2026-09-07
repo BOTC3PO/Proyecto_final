@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar la partícula que completa correctamente el contexto histórico."
 explicacion: "En el japonés clásico, la partícula 'に' se usaba para indicar el lugar donde ocurre un evento en contextos históricos. La opción moderna 'へ' no es válida aquí."
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "に"
@@ -59,7 +58,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica de la voz pasiva."
 explicacion: "En textos históricos, se usaba '〜され' para expresar acciones sufridas por un sujeto en el estilo clásico. La opción moderna '〜される' no es válida aquí."
-respuesta: "され"
 respuestas_validas:
   - "され"
   - "され"
@@ -93,7 +91,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica de negación."
 explicacion: "En textos filosóficos del periodo Heian, se usaba 'ず' para negar acciones en estilo clásico. La opción moderna 'ない' no es válida aquí."
-respuesta: "ず"
 respuestas_validas:
   - "ず"
   - "ズ"
@@ -127,7 +124,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica de expresión temporal."
 explicacion: "En textos históricos del periodo Kamakura, se usaba '〜しに' para indicar un momento específico en el estilo clásico. La opción moderna '〜とき' no es válida aquí."
-respuesta: "しに"
 respuestas_validas:
   - "しに"
   - "しに"
@@ -161,7 +157,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica del adjetivo."
 explicacion: "En textos literarios del periodo Nara, se usaba '〜き' para describir características en estilo clásico. La opción moderna '〜い' no es válida aquí."
-respuesta: "き"
 respuestas_validas:
   - "き"
   - "キ"
@@ -195,7 +190,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica de causalidad."
 explicacion: "En textos históricos del periodo Heian, se usaba '〜ゆえに' para indicar causas en estilo clásico. La opción moderna '〜ために' no es válida aquí."
-respuesta: "ゆえに"
 respuestas_validas:
   - "ゆえに"
   - "ゆえに"
@@ -229,7 +223,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica de resultados."
 explicacion: "En textos filosóficos del periodo Muromachi, se usaba '〜ては' para indicar consecuencias en estilo clásico. La opción moderna '〜た結果' no es válida aquí."
-respuesta: "ては"
 respuestas_validas:
   - "ては"
   - "テハ"
@@ -263,7 +256,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica de probabilidad."
 explicacion: "En textos literarios del periodo Edo, se usaba '〜もする' para expresar suposiciones en estilo clásico. La opción moderna '〜かもしれない' no es válida aquí."
-respuesta: "もする"
 respuestas_validas:
   - "もする"
   - "モスル"
@@ -297,7 +289,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica del verbo en modo de conexión."
 explicacion: "En textos filosóficos del periodo Heian, se usaba '〜し' para conectar acciones en estilo clásico. La opción moderna '〜て' no es válida aquí."
-respuesta: "し"
 respuestas_validas:
   - "し"
   - "シ"
@@ -331,7 +322,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica que enfatiza una condición."
 explicacion: "En textos filosóficos del periodo Muromachi, se usaba '〜しに' para indicar condiciones en estilo clásico. La opción moderna '〜なら' no es válida aquí."
-respuesta: "しに"
 respuestas_validas:
   - "しに"
   - "シニ"
@@ -365,7 +355,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica que enfatiza una causa."
 explicacion: "En textos históricos del periodo Kamakura, se usaba '〜ゆえに' para indicar causas en estilo clásico. La opción moderna '〜ために' no es válida aquí."
-respuesta: "ゆえに"
 respuestas_validas:
   - "ゆえに"
   - "ユエニ"
@@ -399,7 +388,6 @@ metadata:
 pasos:
   - "Completar el vacío con la forma clásica que enfatiza una consecuencia."
 explicacion: "En textos históricos del periodo Heian, se usaba '〜ては' para indicar resultados en estilo clásico. La opción moderna '〜た結果' no es válida aquí."
-respuesta: "ては"
 respuestas_validas:
   - "ては"
   - "テハ"

@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con el verbo en passé composé."
   - "Verifica que el sujeto y el verbo coincidan en número y persona."
-respuesta: "a fait"
 respuestas_validas:
   - "a fait"
   - "A fait"
@@ -49,7 +48,6 @@ metadata:
 pasos:
   - "Escucha la cantidad mencionada y completa el hueco con su forma escrita."
   - "Recuerda que los números del 1 al 16 tienen formas únicas en francés."
-respuesta: "dix-huit"
 respuestas_validas:
   - "dix-huit"
   - "Dix-huit"
@@ -90,7 +88,6 @@ metadata:
 pasos:
   - "Escucha la frase y completa el hueco con una expresión idiomática."
   - "Recuerda que 'être sur un nuage' significa estar feliz o eufórico."
-respuesta: "sur un nuage"
 respuestas_validas:
   - "sur un nuage"
   - "Sur un nuage"
@@ -131,7 +128,6 @@ metadata:
 pasos:
   - "Escucha la duración mencionada y completa el hueco con su forma escrita."
   - "Recuerda que 'une heure' se usa para 1 hora, mientras que 'deux heures' es plural."
-respuesta: "trois heures"
 respuestas_validas:
   - "trois heures"
   - "Trois heures"
@@ -172,7 +168,6 @@ metadata:
 pasos:
   - "Escucha la solución propuesta y completa el hueco con un verbo en infinitif."
   - "Recuerda que los verbos después de 'penser à' o 'vouloir' van al infinitivo."
-respuesta: "appeler"
 respuestas_validas:
   - "appeler"
   - "Appeler"
@@ -213,7 +208,6 @@ metadata:
 pasos:
   - "Escucha el síntoma mencionado y completa el hueco con la palabra correcta."
   - "Recuerda que 'avoir mal à' se usa para dolores específicos (la tête, le ventre)."
-respuesta: "à la gorge"
 respuestas_validas:
   - "à la gorge"
   - "À la gorge"
@@ -254,7 +248,6 @@ metadata:
 pasos:
   - "Escucha la acción mencionada y completa el hueco con un verbo en infinitif."
   - "Revisa los verbos que van después de 'avoir envie de' o 'se sentir'."
-respuesta: "recycler"
 respuestas_validas:
   - "recycler"
   - "Recycler"
@@ -295,7 +288,6 @@ metadata:
 pasos:
   - "Escucha la reacción emocional y completa el hueco con una expresion idiomatique."
   - "Recuerda que 'être dans les nuages' significa estar distraído o soñador."
-respuesta: "dans les nuages"
 respuestas_validas:
   - "dans les nuages"
   - "Dans les nuages"
@@ -315,7 +307,6 @@ metadata:
 pasos:
   - "Escucha el medio de transporte mencionado y completa el hueco con la palabra correcta."
   - "Revisa los términos como 'le métro', 'la gare' o 'l’autobus'."
-respuesta: "l’ascenseur"
 respuestas_validas:
   - "l’ascenseur"
   - "L’ascenseur"
@@ -356,7 +347,6 @@ metadata:
 pasos:
   - "Escucha la solución propuesta y completa el hueco con un verbo en infinitif."
   - "Recuerda que los verbos después de 'penser à' o 'vouloir' van al infinitivo."
-respuesta: "réparer"
 respuestas_validas:
   - "réparer"
   - "Réparer"
@@ -376,7 +366,6 @@ metadata:
 pasos:
   - "Escucha el consejo dado y completa el hueco con una expresión idiomatique."
   - "Revisa frases como 'prendre le temps' o 'faire une pause'."
-respuesta: "prendre le temps"
 respuestas_validas:
   - "prendre le temps"
   - "Prendre le temps"
@@ -417,13 +406,11 @@ metadata:
 pasos:  
   - "Escuchar la oración y completar el hueco con el verbe adecuado."  
 explicacion: "El presente se usa para acciones actuales o habituales. El verbo 'attendre' (esperar) en presente es 'attends', que concuerda con el sujeto 'il'."
-respuesta: "attend"  
 respuestas_validas:  
   - "attend"  
   - "Attend"  
 tipo: completar  
 enunciado: "Il ___ à la gare depuis hier. Il cherche un billet de train."  
-variables: []  
 ```  
 
 ---
@@ -445,7 +432,6 @@ opciones_explicitas:
   - "passera"  
 tipo: mc  
 enunciado: "Elles ___ un examen demain. C’est très important pour leur carrière."  
-variables: []  
 ```  
 
 ---
@@ -460,13 +446,11 @@ metadata:
 pasos:  
   - "Escuchar la oración y completar el hueco con la preposición correcta."  
 explicacion: "La preposición 'sur' se usa para objetos colocados encima de otra superficie. El libro está encima de la mesa."
-respuesta: "sur"  
 respuestas_validas:  
   - "sur"  
   - "Sur"  
 tipo: completar  
 enunciado: "Le livre est ___ la table. Je ne dois pas le déplacer."  
-variables: []  
 ```  
 
 ---
@@ -481,7 +465,6 @@ metadata:
 pasos:
   - "Escucha la formación mencionada y completa el hueco con un verbo en infinitif."
   - "Revisa los verbos que van después de 'avoir envie de' o 'se sentir'."
-respuesta: "faire"
 respuestas_validas:
   - "faire"
   - "Faire"
@@ -508,5 +491,4 @@ opciones_explicitas:
   - "allons"  
 tipo: mc  
 enunciado: "Nous ___ au musée demain. C’est une exposition très intéressante."  
-variables: []  
 ```

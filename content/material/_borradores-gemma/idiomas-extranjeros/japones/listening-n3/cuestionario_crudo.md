@@ -7,14 +7,11 @@ metadata:
   tags: ["方向", "問いかける"]
 pasos:
   - "聞き取った文の空欄に適切な語を入力する"
-respuesta: "ください"
 respuestas_validas:
   - "ください"
   - "お願いします"
 tipo: completar
 enunciado: "駅までどうやって行けますか？　—— すみません、_____。"
-variables:
-  - "方向"
 ```
 
 
@@ -68,7 +65,6 @@ metadata:
   tags: ["注文", "おすすめ"]
 pasos:
   - "空欄に適切な語を入力する"
-respuesta: "おすすめ"
 respuestas_validas:
   - "おすすめ"
   - "お勧め"
@@ -107,7 +103,6 @@ metadata:
   tags: ["質問", "いつ"]
 pasos:
   - "適切な疑問文を完成させる"
-respuesta: "いつ"
 respuestas_validas:
   - "いつ"
   - "何時"
@@ -146,7 +141,6 @@ metadata:
   tags: ["感謝", "ありがとう"]
 pasos:
   - "適切な感謝表現を入力する"
-respuesta: "ありがとうございます"
 respuestas_validas:
   - "ありがとうございます"
   - "ごめんください"
@@ -185,7 +179,6 @@ metadata:
   tags: ["決める", "決めます"]
 pasos:
   - "適切な動詞形を入力する"
-respuesta: "決めます"
 respuestas_validas:
   - "決めます"
   - "決めた"
@@ -224,7 +217,6 @@ metadata:
   tags: ["評価", "良い"]
 pasos:
   - "適切な評価表現を入力する"
-respuesta: "いいです"
 respuestas_validas:
   - "いいです"
   - "良いですよ"
@@ -246,7 +238,6 @@ pasos:
   - "Identificar la forma correcta del verbo para pedir permiso."  
 tipo: completar  
 enunciado: "—— すみません、この洗濯機、使っても_____？"  
-respuesta: "よろしいです"  
 respuestas_validas:  
   - "よろしいです"  
   - "よろしくお願いします"  
@@ -265,7 +256,6 @@ metadata:
   tags: ["経過", "5分"]
 pasos:
   - "適切な時間を入力する"
-respuesta: "5分"
 respuestas_validas:
   - "5分"
   - "5分間"
@@ -304,7 +294,6 @@ metadata:
   tags: ["状況", "準備"]
 pasos:
   - "適切な語を入力する"
-respuesta: "準備しました"
 respuestas_validas:
   - "準備しました"
   - "準備しています"
@@ -326,7 +315,10 @@ pasos:
   - "Elegir la opción que expresa la acción correcta en emergencia."  
 tipo: mc  
 enunciado: "—— 避難してください！—— はい、_____。"  
-opciones_explicitas: ["すぐに出ます", "すぐに行きます", "すぐには出ません"]  
+opciones_explicitas:
+  - "すぐに出ます"
+  - "すぐに行きます"
+  - "すぐには出ません"
 respuesta: "すぐに出ます"  
 explicacion: "'すぐに出ます' es la única opción que expresa movilización inmediata hacia un lugar seguro, como una salida de emergencia. Las otras opciones no reflejan la urgencia requerida."  
 ```  
@@ -345,7 +337,6 @@ pasos:
   - "Completar la frase con el verbo adecuado para negar."  
 tipo: completar  
 enunciado: "—— 予約してありますか？—— いいえ、_____。"  
-respuesta: "していません"  
 respuestas_validas:  
   - "していません"  
   - "してません"  
@@ -367,7 +358,10 @@ pasos:
   - "Seleccionar la opción que expresa el rechazo a un servicio."  
 tipo: mc  
 enunciado: "—— 郵便の受け取りはできますか？—— いいえ、_____。"  
-opciones_explicitas: ["できません", "できません", "できないです"]  
+opciones_explicitas:
+  - "できません"
+  - "できません"
+  - "できないです"
 respuesta: "できません"  
 explicacion: "'できません' es la forma correcta para negar una posibilidad en contexto formal. 'できないです' es incorrecto gramaticalmente."  
 ```  
@@ -386,7 +380,6 @@ pasos:
   - "Completar la frase con el verbo condicional correcto."  
 tipo: completar  
 enunciado: "—— 明日は雨が降りますね。—— そうです、_____。"  
-respuesta: "予定を変更するかもしれません"  
 respuestas_validas:  
   - "予定を変更するかもしれません"  
   - "予定の変更が必要かもしれません"  
@@ -407,7 +400,10 @@ pasos:
   - "Elegir la opción que rechaza la propuesta con cortesía."  
 tipo: mc  
 enunciado: "—— 明日、会議に出席できますか？—— いいえ、_____。"  
-opciones_explicitas: ["時間がありません", "時間がないです", "時間がありません"]  
+opciones_explicitas:
+  - "時間がありません"
+  - "時間がないです"
+  - "時間がありません"
 respuesta: "時間がありません"  
 explicacion: "'時間がありません' es la forma correcta para negar en contexto formal. '時間がないです' es incorrecto gramaticalmente."  
 ```  
@@ -426,7 +422,6 @@ pasos:
   - "Completar la frase con el verbo adecuado para confirmar."  
 tipo: completar  
 enunciado: "—— チェックインはすでに完了していますか？—— いいえ、_____。"  
-respuesta: "まだです"  
 respuestas_validas:  
   - "まだです"  
   - "まだではありません"  
@@ -447,7 +442,10 @@ pasos:
   - "Seleccionar la opción que expresa el rechazo a una solicitud."  
 tipo: mc  
 enunciado: "—— キャンセルできますか？—— いいえ、_____。"  
-opciones_explicitas: ["できません", "できないです", "できません"]  
+opciones_explicitas:
+  - "できません"
+  - "できないです"
+  - "できません"
 respuesta: "できません"  
 explicacion: "'できません' es la forma correcta para negar una posibilidad en contexto formal. 'できないです' es incorrecto gramaticalmente."  
 ```  
@@ -466,7 +464,6 @@ pasos:
   - "Completar la frase con el verbo condicional correcto."  
 tipo: completar  
 enunciado: "—— この商品、在庫がありますか？—— いいえ、_____。"  
-respuesta: "ありませんが、他のサイズはあります"  
 respuestas_validas:  
   - "ありませんが、他のサイズはあります"  
   - "ありませんが、他にサイズがあるかもしれません"  

@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el uso de より en un contexto de comparación."
   - "Completar la oración con la forma correcta del verbo."
-respuesta: "より"
 respuestas_validas:
   - "より"
   - "よりは"
@@ -51,7 +50,6 @@ metadata:
 pasos:
   - "Identificar el uso de 無駄にする en un contexto de desperdicio."
   - "Completar la oración con la forma correcta del verbo."
-respuesta: "無駄にする"
 respuestas_validas:
   - "無駄にする"
   - "無駄に過ごす"
@@ -94,7 +92,6 @@ metadata:
 pasos:
   - "Identificar el uso de 不運 in un contexto de desafortunados eventos."
   - "Completar la oración con la forma correcta del adjetivo."
-respuesta: "不運"
 respuestas_validas:
   - "不運"
   - "不幸"
@@ -137,7 +134,6 @@ metadata:
 pasos:
   - "Identificar el uso de 悪い in un contexto de dificultad."
   - "Completar la oración con la forma correcta del adjetivo."
-respuesta: "悪い"
 respuestas_validas:
   - "悪い"
   - "悪く"
@@ -180,7 +176,6 @@ metadata:
 pasos:
   - "Identificar el uso de 誰の in un contexto de responsabilidad."
   - "Completar la oración con la forma correcta del pronombre."
-respuesta: "誰の"
 respuestas_validas:
   - "誰の"
   - "どちらの"
@@ -223,7 +218,6 @@ metadata:
 pasos:
   - "Identificar el uso de 不確実 in un contexto de duda."
   - "Completar la oración con la forma correcta del adjetivo."
-respuesta: "不確実"
 respuestas_validas:
   - "不確実"
   - "不確か"
@@ -266,7 +260,6 @@ metadata:
 pasos:
   - "Identificar el uso de 経験 in un contexto de valoración."
   - "Completar la oración con la forma correcta del sustantivo."
-respuesta: "経験"
 respuestas_validas:
   - "経験"
   - "体験"
@@ -309,7 +302,6 @@ metadata:
 pasos:
   - "Identificar el significado contextual de la expresión."
   - "Verificar que el idioma completo la oración naturalmente."
-respuesta: "飛び出した"
 tipo: completar
 respuestas_validas:
   - "飛び出した"
@@ -348,7 +340,6 @@ metadata:
 pasos:
   - "Identificar la relación entre el error y el resultado."
   - "Completar con la forma correcta del idioma."
-respuesta: "過ちが"
 tipo: completar
 respuestas_validas:
   - "過ちが"
@@ -387,7 +378,6 @@ metadata:
 pasos:
   - "Reconocer el significado de 'realizar algo con destreza'."
   - "Completar el hueco con la forma correcta del idioma."
-respuesta: "見事に"
 tipo: completar
 respuestas_validas:
   - "見事に"
@@ -426,7 +416,6 @@ metadata:
 pasos:
   - "Identificar el momento en que se 'daba cuenta'."
   - "Completar con la forma adecuada del idioma."
-respuesta: "気が付いた"
 tipo: completar
 respuestas_validas:
   - "気が付いた"
@@ -465,7 +454,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'realizar algo con destreza'."
   - "Completar con la forma correcta del idioma."
-respuesta: "見事に"
 tipo: completar
 respuestas_validas:
   - "見事に"

@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar a preposição correta para o verbo 'ir'."  
   - "Verificar a contração da preposição com o artigo definido."  
-respuesta: "ao"  
 tipo: completar  
 respuestas_validas:  
   - "ao"  
@@ -48,7 +47,6 @@ metadata:
 pasos:  
   - "Reconhecer a estrutura do presente contínuo em português."  
   - "Ajustar o verbo auxiliar 'estar' ao sujeito."  
-respuesta: "estou"  
 tipo: completar  
 respuestas_validas:  
   - "estou"  
@@ -88,7 +86,6 @@ metadata:
 pasos:  
   - "Identificar o pronome objeto direto do verbo 'dar'."  
   - "Verificar a ordem correta na frase."  
-respuesta: "me"  
 tipo: completar  
 respuestas_validas:  
   - "me"  
@@ -128,7 +125,6 @@ metadata:
 pasos:  
   - "Identificar a preposição correta após o verbo 'ir'."  
   - "Verificar a contração com artigo definido."  
-respuesta: "ao"  
 tipo: completar  
 respuestas_validas:  
   - "ao"  
@@ -168,7 +164,6 @@ metadata:
 pasos:  
   - "Identificar a estrutura correta do futuro do presente."  
   - "Ajustar o verbo auxiliar 'ir' ao sujeito."  
-respuesta: "vou"  
 tipo: completar  
 respuestas_validas:  
   - "vou"  
@@ -208,7 +203,6 @@ metadata:
 pasos:  
   - "Identificar a preposição correta após o verbo 'ir'."  
   - "Verificar a contração com artigo definido."  
-respuesta: "aos"  
 tipo: completar  
 respuestas_validas:  
   - "aos"  
@@ -248,7 +242,6 @@ metadata:
 pasos:  
   - "Identificar a forma correta do verbo 'ser' para o sujeito."  
   - "Verificar a contração com preposição."  
-respuesta: "fui"  
 tipo: completar  
 respuestas_validas:  
   - "fui"  
@@ -288,7 +281,6 @@ metadata:
 pasos:  
   - "Reconhecer a estrutura do presente contínuo em português."  
   - "Ajustar o verbo auxiliar 'estar' ao sujeito."  
-respuesta: "estou"  
 tipo: completar  
 respuestas_validas:  
   - "estou"  
@@ -328,7 +320,6 @@ metadata:
 pasos:  
   - "Identificar o pronome objeto direto do verbo 'ter'."  
   - "Verificar a ordem correta na frase."  
-respuesta: "que"  
 tipo: completar  
 respuestas_validas:  
   - "que"  
@@ -368,7 +359,6 @@ metadata:
 pasos:  
   - "Identificar a estrutura correta do futuro do presente."  
   - "Ajustar o verbo auxiliar 'ir' ao sujeito."  
-respuesta: "vou"  
 tipo: completar  
 respuestas_validas:  
   - "vou"  
@@ -408,7 +398,6 @@ metadata:
 pasos:  
   - "Identificar a preposição correta após o verbo 'ir'."  
   - "Verificar a contração com artigo definido."  
-respuesta: "à"  
 tipo: completar  
 respuestas_validas:  
   - "à"  
@@ -448,7 +437,6 @@ metadata:
 pasos:  
   - "Identificar a forma correta do verbo 'ser' para o sujeito."  
   - "Verificar a contração com preposição."  
-respuesta: "fui"  
 tipo: completar  
 respuestas_validas:  
   - "fui"  
@@ -488,7 +476,6 @@ metadata:
 pasos:  
   - "Reconhecer a estrutura do presente contínuo em português."  
   - "Ajustar o verbo auxiliar 'estar' ao sujeito."  
-respuesta: "estou"  
 tipo: completar  
 respuestas_validas:  
   - "estou"  

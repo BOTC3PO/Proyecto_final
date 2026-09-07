@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identificar o sujeito da oração."
   - "Determinar se a característica é permanente (usar 'ser')."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
 tipo: completar
 enunciado: "Maria ______ estudante."
-variables:
-  - "estudante"
 ```
 explicacion: El verbo *ser* se usa para describir características permanentes o identidad. En este caso, "estudiante" es una profesión fija, por lo que la forma correcta es "é".
 
@@ -33,14 +30,11 @@ metadata:
 pasos:
   - "Reconocer el estado temporal de la oración."
   - "Usar 'estar' para condiciones momentáneas."
-respuesta: "está"
 respuestas_validas:
   - "está"
   - "Está"
 tipo: completar
 enunciado: "O professor ______ muito cansado hoje."
-variables:
-  - "cansado"
 ```
 explicacion: El verbo *estar* describe estados temporales. Aquí, el profesor está cansado hoy (condición pasajera), por lo que se usa "está".
 
@@ -64,8 +58,6 @@ opciones_explicitas:
 respuesta: "Ela é uma médica."
 tipo: mc
 enunciado: "Qual a frase correta para descrever o trabalho de alguém?"
-variables:
-  - "médica"
 ```
 explicacion: *Ser* se usa para profesiones, mientras que *estar* describe estados temporales. La opción correcta es la que usa "é" (ser) para una característica fija.
 
@@ -83,14 +75,11 @@ metadata:
 pasos:
   - "Identificar si la oración habla de una ubicación temporal."
   - "Usar 'estar' para lugares actuales."
-respuesta: "estão"
 respuestas_validas:
   - "estão"
   - "Estão"
 tipo: completar
 enunciado: "Nós ______ no parque agora."
-variables:
-  - "parque"
 ```
 explicacion: *Estar* se usa para indicar ubicaciones actuales. Aquí, la acción ocurre ahora ("agora"), por lo que se aplica "estão".
 
@@ -114,8 +103,6 @@ opciones_explicitas:
 respuesta: "Eles estão felizes hoje."
 tipo: mc
 enunciado: "Qual a frase correta para descrever um sentimento atual?"
-variables:
-  - "felizes"
 ```
 explicacion: *Estão* se usa para emociones temporales ("hoje"), mientras que *são* describe características permanentes. La opción correcta es la que usa "estão".
 
@@ -133,14 +120,11 @@ metadata:
 pasos:
   - "Reconocer que la nacionalidad es una característica fija."
   - "Usar 'ser' para identidades permanentes."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
 tipo: completar
 enunciado: "Ela ______ brasileira."
-variables:
-  - "brasileira"
 ```
 explicacion: *Ser* describe nacionalidad, un atributo fijo. La forma correcta es "é" (ser) para indicar que alguien pertenece a un país.
 
@@ -164,8 +148,6 @@ opciones_explicitas:
 respuesta: "Eles estão no cinema agora."
 tipo: mc
 enunciado: "Qual a frase correta para indicar um local atual?"
-variables:
-  - "cinema"
 ```
 explicacion: *Estão* se usa para lugares actuales ("agora"), mientras que *são* describe identidades. La opción correcta es la que usa "estão".
 
@@ -183,14 +165,11 @@ metadata:
 pasos:
   - "Identificar que la profesión es un atributo permanente."
   - "Usar 'ser' para ocupaciones fijas."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
 tipo: completar
 enunciado: "Ele ______ professor de matemática."
-variables:
-  - "professor"
 ```
 explicacion: *Ser* describe profesiones, que son características fijas. La forma correcta es "é" (ser) para indicar una ocupación estable.
 
@@ -207,13 +186,11 @@ metadata:
   tags: ["profissão", "ser"]  
 pasos:  
   - "Identificar el verbo que describe una profesión permanente."  
-respuesta: "é"  
 tipo: completar  
 respuestas_validas:  
   - "é"  
   - "É"  
 enunciado: "Ele ______ cozinheiro de renome."  
-variables: []  
 explicacion: "El verbo 'ser' (é) se usa para profesiones o características permanentes, como 'cozinheiro'."  
 ```
 
@@ -227,14 +204,11 @@ metadata:
 pasos:
   - "Reconocer que la identidad es un atributo fijo."
   - "Usar 'ser' para describir quién alguien es."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
 tipo: completar
 enunciado: "O gato ______ preto e branco."
-variables:
-  - "preto e branco"
 ```
 explicacion: *Ser* describe características físicas fijas. Aquí, el color del gato es permanente, por lo que se usa "é".
 
@@ -251,13 +225,11 @@ metadata:
   tags: ["emoção", "estar"]  
 pasos:  
   - "Seleccionar el verbo que expresa un estado emocional temporal."  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
   - "Está"  
 enunciado: "Ela ______ muito surpresa com a notícia."  
-variables: []  
 explicacion: "'Estar' (está) se usa para estados emocionales temporales, como 'surpresa'."  
 ```
 
@@ -271,14 +243,11 @@ metadata:
 pasos:
   - "Identificar que la nacionalidad es una característica fija."
   - "Usar 'ser' para identidades permanentes."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
 tipo: completar
 enunciado: "Eles ______ franceses."
-variables:
-  - "franceses"
 ```
 explicacion: *Ser* describe nacionalidad, un atributo fijo. La forma correcta es "é" (ser) para indicar que alguien pertenece a un país.
 
@@ -302,8 +271,6 @@ opciones_explicitas:
 respuesta: "Ela está cansada agora."
 tipo: mc
 enunciado: "Qual a frase correta para descrever um estado atual?"
-variables:
-  - "cansada"
 ```
 explicacion: *Está* se usa para estados temporales ("agora"), mientras que *é* describe identidades. La opción correcta es la que usa "está".
 
@@ -321,14 +288,11 @@ metadata:
 pasos:
   - "Reconocer que la identidad es un atributo fijo."
   - "Usar 'ser' para describir quién alguien es."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
 tipo: completar
 enunciado: "O livro ______ muito interessante."
-variables:
-  - "interessante"
 ```
 explicacion: *Ser* describe características físicas o intelectuales fijas. Aquí, el libro es interesante de forma permanente, por lo que se usa "é".
 
@@ -345,13 +309,11 @@ metadata:
   tags: ["local", "estar"]  
 pasos:  
   - "Identificar el verbo que indica una ubicación actual."  
-respuesta: "estão"  
 tipo: completar  
 respuestas_validas:  
   - "estão"  
   - "Estão"  
 enunciado: "Nós ______ no supermercado comprando frutas."  
-variables: []  
 explicacion: "'Estar' (estão) se usa para describir ubicaciones temporales, como 'no supermercado'."  
 ```
 
@@ -365,14 +327,11 @@ metadata:
 pasos:
   - "Identificar que la profesión es un atributo permanente."
   - "Usar 'ser' para ocupaciones fijas."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
 tipo: completar
 enunciado: "Ela ______ médica de emergência."
-variables:
-  - "médica"
 ```
 explicacion: *Ser* describe profesiones, que son características fijas. La forma correcta es "é" (ser) para indicar una ocupación estable.
 
@@ -389,13 +348,11 @@ metadata:
   tags: ["caractéristica", "ser"]  
 pasos:  
   - "Determinar el verbo que describe una característica permanente."  
-respuesta: "é"  
 tipo: completar  
 respuestas_validas:  
   - "é"  
   - "É"  
 enunciado: "O cachorro ______ um cão de raça puro."  
-variables: []  
 explicacion: "'Ser' (é) se usa para atributos permanentes, como 'raça puro' em animais."  
 ```
 
@@ -409,14 +366,11 @@ metadata:
 pasos:
   - "Reconocer que la nacionalidad es una característica fija."
   - "Usar 'ser' para identidades permanentes."
-respuesta: "é"
 respuestas_validas:
   - "é"
   - "É"
 tipo: completar
 enunciado: "O carro ______ azul e branco."
-variables:
-  - "azul e branco"
 ```
 explicacion: *Ser* describe características físicas fijas. Aquí, el color del coche es permanente, por lo que se usa "é".
 
@@ -433,13 +387,11 @@ metadata:
   tags: ["actividad", "estar"]  
 pasos:  
   - "Seleccionar el verbo que expresa un estado temporal durante una acción."  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
   - "Está"  
 enunciado: "O professor ______ trabalhando no laboratório hoje."  
-variables: []  
 explicacion: "'Estar' (está) se usa para estados temporales relacionados a atividades, como 'trabalhando'."  
 ```
 
@@ -460,7 +412,6 @@ opciones_explicitas:
   - "são"  
   - "fica"  
 enunciado: "Hoje, o céu ______ nublado e chove."  
-variables: []  
 explicacion: "'Estar' (está) se usa para condições climáticas temporais, como 'nublado'."  
 ```
 
@@ -481,7 +432,6 @@ opciones_explicitas:
   - "são"  
   - "fica"  
 enunciado: "Eles ______ argentinos, mas vivem no Brasil."  
-variables: []  
 explicacion: "'Ser' (é) se usa para nacionalidades permanentes, como 'argentinos'."  
 ```
 
@@ -502,7 +452,6 @@ opciones_explicitas:
   - "são"  
   - "fica"  
 enunciado: "A casa ______ feita de madeira antiga."  
-variables: []  
 explicacion: "'Ser' (é) se usa para atributos permanentes de objetos, como 'feita de madeira'."  
 ```
 
@@ -515,13 +464,11 @@ metadata:
   tags: ["grupo", "estar"]  
 pasos:  
   - "Determinar el verbo que expresa una emoción temporal compartida."  
-respuesta: "estão"  
 tipo: completar  
 respuestas_validas:  
   - "estão"  
   - "Estão"  
 enunciado: "Eles ______ muito nervosos antes da apresentação."  
-variables: []  
 explicacion: "'Estar' (estão) se usa para emociones temporales de grupos, como 'nervosos'."  
 ```
 
@@ -534,13 +481,11 @@ metadata:
   tags: ["animal", "estar"]  
 pasos:  
   - "Identificar el verbo que indica a ubicación atual de un animal."  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
   - "Está"  
 enunciado: "O gato ______ na janela olhando para o jardim."  
-variables: []  
 explicacion: "'Estar' (está) se usa para ubicaciones temporales de animais, como 'na janela'."  
 ```
 
@@ -561,6 +506,5 @@ opciones_explicitas:
   - "será"  
   - "vai ser"  
 enunciado: "O casamento ______ uma data especial para todos."  
-variables: []  
 explicacion: "'Ser' (é) se usa para describir características permanentes, incluso en eventos futuros como 'data especial'."  
 ```

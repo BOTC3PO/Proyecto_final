@@ -8,14 +8,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'stylo'"  
   - "Elegir el artículo indefinido correspondiente al género y número"  
-respuesta: "un"  
 tipo: completar  
 respuestas_validas:  
   - "un"  
   - "Un"  
 enunciado: "Je veux ___ stylo."  
-variables:  
-  - "stylo" (masculino, singular)  
 explicacion: "El sustantivo 'stylo' es masculino y singular. El artículo indefinido 'un' se usa con sustantivos masculinos singulares."
 ```
 
@@ -31,14 +28,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'table'"  
   - "Elegir el artículo definido correspondiente al género y número"  
-respuesta: "la"  
 tipo: completar  
 respuestas_validas:  
   - "la"  
   - "La"  
 enunciado: "___ table est grande."  
-variables:  
-  - "table" (femenino, singular)  
 explicacion: "El sustantivo 'table' es femenino y singular. El artículo definido 'la' se usa con sustantivos femeninos singulares."
 ```
 
@@ -54,14 +48,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'chaise'"  
   - "Elegir el artículo indefinido correspondiente al género y número"  
-respuesta: "une"  
 tipo: completar  
 respuestas_validas:  
   - "une"  
   - "Une"  
 enunciado: "Il y a ___ chaise vide."  
-variables:  
-  - "chaise" (femenino, singular)  
 explicacion: "El sustantivo 'chaise' es femenino y singular. El artículo indefinido 'une' se usa con sustantivos femeninos singulares."
 ```
 
@@ -77,14 +68,11 @@ metadata:
 pasos:  
   - "Identificar el número del sustantivo 'étudiants'"  
   - "Elegir el artículo definido correspondiente al género y número"  
-respuesta: "les"  
 tipo: completar  
 respuestas_validas:  
   - "les"  
   - "Les"  
 enunciado: "___ étudiants travaillent."  
-variables:  
-  - "étudiants" (masculino, plural)  
 explicacion: "El sustantivo 'étudiants' es masculino y plural. El artículo definido 'les' se usa con sustantivos plurales, independientemente del género."
 ```
 
@@ -100,14 +88,11 @@ metadata:
 pasos:  
   - "Identificar el número del sustantivo 'livres'"  
   - "Elegir el artículo indefinido correspondiente al género y número"  
-respuesta: "des"  
 tipo: completar  
 respuestas_validas:  
   - "des"  
   - "Des"  
 enunciado: "Il y a ___ livres sur la table."  
-variables:  
-  - "livres" (masculino, plural)  
 explicacion: "El sustantivo 'livres' es masculino y plural. El artículo indefinido 'des' se usa con sustantivos plurales, independientemente del género."
 ```
 
@@ -123,14 +108,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'ordinateur'"  
   - "Elegir el artículo definido correspondiente al género y número"  
-respuesta: "le"  
 tipo: completar  
 respuestas_validas:  
   - "le"  
   - "Le"  
 enunciado: "___ ordinateur est en panne."  
-variables:  
-  - "ordinateur" (masculino, singular)  
 explicacion: "El sustantivo 'ordinateur' es masculino y singular. El artículo definido 'le' se usa con sustantivos masculinos singulares."
 ```
 
@@ -146,14 +128,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'professeur'"  
   - "Elegir el artículo indefinido correspondiente al género y número"  
-respuesta: "un"  
 tipo: completar  
 respuestas_validas:  
   - "un"  
   - "Un"  
 enunciado: "Voici ___ professeur."  
-variables:  
-  - "professeur" (masculino, singular)  
 explicacion: "El sustantivo 'professeur' es masculino y singular. El artículo indefinido 'un' se usa con sustantivos masculinos singulares en contextos de introducción."
 ```
 
@@ -169,14 +148,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'lampe'"  
   - "Elegir el artículo definido correspondiente al género y número"  
-respuesta: "la"  
 tipo: completar  
 respuestas_validas:  
   - "la"  
   - "La"  
 enunciado: "___ lampe est allumée."  
-variables:  
-  - "lampe" (femenino, singular)  
 explicacion: "El sustantivo 'lampe' es femenino y singular. El artículo definido 'la' se usa con sustantivos femeninos singulares para describir objetos."
 ```
 
@@ -192,14 +168,11 @@ metadata:
 pasos:  
   - "Identificar el número del sustantivo 'chaises'"  
   - "Elegir el artículo indefinido correspondiente al género y número"  
-respuesta: "des"  
 tipo: completar  
 respuestas_validas:  
   - "des"  
   - "Des"  
 enunciado: "Il y a ___ chaises dans la salle."  
-variables:  
-  - "chaises" (femenino, plural)  
 explicacion: "El sustantivo 'chaises' es femenino y plural. El artículo indefinido 'des' se usa con sustantivos plurales para indicar existencia."
 ```
 
@@ -215,14 +188,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'voiture'"  
   - "Elegir el artículo definido correspondiente al género y número"  
-respuesta: "la"  
 tipo: completar  
 respuestas_validas:  
   - "la"  
   - "La"  
 enunciado: "___ voiture est rouge."  
-variables:  
-  - "voiture" (femenino, singular)  
 explicacion: "El sustantivo 'voiture' es femenino y singular. El artículo definido 'la' se usa con sustantivos femeninos singulares en contextos de posesión o descripción."
 ```
 
@@ -238,14 +208,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'mère'"  
   - "Elegir el artículo indefinido correspondiente al género y número"  
-respuesta: "une"  
 tipo: completar  
 respuestas_validas:  
   - "une"  
   - "Une"  
 enunciado: "C’est ___ mère."  
-variables:  
-  - "mère" (femenino, singular)  
 explicacion: "El sustantivo 'mère' es femenino y singular. El artículo indefinido 'une' se usa con sustantivos femeninos singulares para aludir a una persona."
 ```
 
@@ -261,14 +228,11 @@ metadata:
 pasos:  
   - "Identificar el número del sustantivo 'enfants'"  
   - "Elegir el artículo definido correspondiente al género y número"  
-respuesta: "les"  
 tipo: completar  
 respuestas_validas:  
   - "les"  
   - "Les"  
 enunciado: "___ enfants jouent dans le parc."  
-variables:  
-  - "enfants" (masculino, plural)  
 explicacion: "El sustantivo 'enfants' es masculino y plural. El artículo definido 'les' se usa con sustantivos plurales para referirse a grupos de personas o cosas."
 ```
 
@@ -284,14 +248,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'livre'"  
   - "Elegir el artículo indefinido correspondiente al género y número"  
-respuesta: "un"  
 tipo: completar  
 respuestas_validas:  
   - "un"  
   - "Un"  
 enunciado: "Je veux ___ livre."  
-variables:  
-  - "livre" (masculino, singular)  
 explicacion: "El sustantivo 'livre' es masculino y singular. El artículo indefinido 'un' se usa con sustantivos masculinos singulares para expresar una elección o deseo."
 ```
 
@@ -307,14 +268,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'chaise'"  
   - "Elegir el artículo definido correspondiente al género y número"  
-respuesta: "la"  
 tipo: completar  
 respuestas_validas:  
   - "la"  
   - "La"  
 enunciado: "___ chaise est rouge."  
-variables:  
-  - "chaise" (femenino, singular)  
 explicacion: "El sustantivo 'chaise' es femenino y singular. El artículo definido 'la' se usa con sustantivos femeninos singulares para describir algo específico."
 ```
 
@@ -330,14 +288,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el contexto del posesivo."
   - "Elegir el artículo indéfinido correcto basado en el número y género del sustantivo."
-respuesta: "mon"
 respuestas_validas:
   - "mon"
   - "Mon"
 tipo: completar
 enunciado: "La maison ___ ami est très jolie."
-variables:
-  - "ami": masculino singular
 ```
 
 ### 16 — Artículo definido con "le" en contexto de posesión  
@@ -369,14 +324,11 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'lampe'"  
   - "Elegir el artículo indefinido correspondiente al género y número"  
-respuesta: "une"  
 tipo: completar  
 respuestas_validas:  
   - "une"  
   - "Une"  
 enunciado: "C’est ___ lampe."  
-variables:  
-  - "lampe" (femenino, singular)  
 explicacion: "El sustantivo 'lampe' es femenino y singular. El artículo indefinido 'une' se usa con sustantivos femeninos singulares para describir algo no especificado."
 ```
 
@@ -392,14 +344,11 @@ metadata:
 pasos:  
   - "Identificar el número del sustantivo 'étudiants'"  
   - "Elegir el artículo definido correspondiente al género y número"  
-respuesta: "les"  
 tipo: completar  
 respuestas_validas:  
   - "les"  
   - "Les"  
 enunciado: "___ étudiants sont fatigués."  
-variables:  
-  - "étudiants" (masculino, plural)  
 explicacion: "El sustantivo 'étudiants' es masculino y plural. El artículo definido 'les' se usa con sustantivos plurales para referirse a un grupo de personas o cosas."
 ```
 
@@ -415,7 +364,6 @@ metadata:
 pasos:
   - "Determinar si el sustantivo es singular y masculino."
   - "Usar 'le' para referirse a algo específico en contexto."
-respuesta: "Le"
 respuestas_validas:
   - "Le"
   - "le"
@@ -452,7 +400,6 @@ metadata:
 pasos:
   - "Reconocer que el posesivo se refiere a un grupo plural."
   - "Usar 'nos' para expresar posesión de primera persona plural."
-respuesta: "nos"
 respuestas_validas:
   - "nos"
   - "Nos"
@@ -489,7 +436,6 @@ metadata:
 pasos:
   - "Determinar que el sustantivo es singular y masculino."
   - "Usar 'un' para referirse a algo no específico en contexto."
-respuesta: "un"
 respuestas_validas:
   - "un"
   - "Un"

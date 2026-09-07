@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el término correcto para 'persona' en Portugal."
   - "Completar el hueco con la forma adecuada."
-respuesta: "pessoa"
 respuestas_validas:
   - "pessoa"
   - "Pessoa"
@@ -45,7 +44,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar las opciones para elegir la forma adecuada."
-respuesta: "em"
 respuestas_validas:
   - "Em"
   - "EM"
@@ -82,7 +80,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar que la opción sea válida en el contexto."
-respuesta: "de"
 respuestas_validas:
   - "DE"
   - "De"
@@ -119,7 +116,6 @@ metadata:
 pasos:
   - "Completar el hueco con el adjetivo correcto según el uso en Portugal."
   - "Verificar que la palabra se ajuste al contexto."
-respuesta: "velho"
 respuestas_validas:
   - "VELHO"
   - "Velho"
@@ -156,7 +152,6 @@ metadata:
 pasos:
   - "Completar el hueco con la profesión correcta según el uso en Portugal."
   - "Verificar que la palabra sea válida en ambos países."
-respuesta: "mecânico"
 respuestas_validas:
   - "MECÂNICO"
   - "Mecânico"
@@ -174,7 +169,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar que la opción sea válida en el contexto."
-respuesta: "com"
 respuestas_validas:
   - "COM"
   - "Com"
@@ -211,7 +205,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar que la opción sea válida en el contexto."
-respuesta: "sobre"
 respuestas_validas:
   - "SOBRE"
   - "Sobre"
@@ -248,7 +241,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar que la opción sea válida en el contexto."
-respuesta: "de"
 respuestas_validas:
   - "DE"
   - "De"
@@ -285,7 +277,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar que la opción sea válida en el contexto."
-respuesta: "na"
 respuestas_validas:
   - "NA"
   - "Na"
@@ -322,7 +313,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar que la opción sea válida en el contexto."
-respuesta: "com"
 respuestas_validas:
   - "COM"
   - "Com"
@@ -359,7 +349,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar que la opción sea válida en el contexto."
-respuesta: "sobre"
 respuestas_validas:
   - "SOBRE"
   - "Sobre"
@@ -396,7 +385,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar que la opción sea válida en el contexto."
-respuesta: "de"
 respuestas_validas:
   - "DE"
   - "De"
@@ -433,7 +421,6 @@ metadata:
 pasos:
   - "Completar el hueco con la preposición correcta según el uso en Portugal."
   - "Verificar que la opción sea válida en el contexto."
-respuesta: "em"
 respuestas_validas:
   - "EM"
   - "Em"

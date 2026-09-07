@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identificar el sustantivo que sigue al espacio en blanco."
   - "Elegir el artigo definido correcto según el género y número del sustantivo."
-respuesta: "a"
 respuestas_validas:
   - "a"
   - "A"
 tipo: completar
 enunciado: "O ___ livro está sobre la mesa."
-variables:
-  - "livro"
 ```
 
 ### 2 — Preposición de lugar  
@@ -47,14 +44,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo en la oración."
   - "Aplicar la conjugación del verbo en tiempo presente según el sujeto."
-respuesta: "vivo"
 respuestas_validas:
   - "vivo"
   - "Vivo"
 tipo: completar
 enunciado: "Eu ___ na cidade de Lisboa."
-variables:
-  - "viver"
 ```
 
 ### 4 — Forma de pregunta en portugués  
@@ -86,14 +80,11 @@ metadata:
 pasos:
   - "Identificar el sustantivo que se refiere al posesivo."
   - "Elegir la forma correcta del pronombre posesivo según el género y número."
-respuesta: "seu"
 respuestas_validas:
   - "seu"
   - "Seu"
 tipo: completar
 enunciado: "___ carro é azul."
-variables:
-  - "ele"
 ```
 
 ### 6 — Conector de causa  
@@ -125,14 +116,11 @@ metadata:
 pasos:
   - "Identificar si el sustantivo es singular o plural."
   - "Elegir el artículo indefinido correcto según el género y número."
-respuesta: "um"
 respuestas_validas:
   - "um"
   - "Um"
 tipo: completar
 enunciado: "Quero ___ café, por favor."
-variables:
-  - "café"
 ```
 
 ### 8 — Preposición de tiempo  
@@ -164,14 +152,11 @@ metadata:
 pasos:
   - "Identificar el verbo y su conjugación en presente."
   - "Elegir la forma correcta según el sujeto."
-respuesta: "tenho"
 respuestas_validas:
   - "tenho"
   - "Tenho"
 tipo: completar
 enunciado: "Eu ___ um irmão mais velho."
-variables:
-  - "ter"
 ```
 
 ### 10 — Uso de "haver" en oraciones  
@@ -203,14 +188,11 @@ metadata:
 pasos:
   - "Identificar el sustantivo y su género/número."
   - "Elegir el adjetivo que concuerde en género y número."
-respuesta: "bonita"
 respuestas_validas:
   - "bonita"
   - "Bonita"
 tipo: completar
 enunciado: "A menina é ___."
-variables:
-  - "bonito"
 ```
 
 ### 12 — Uso de "ser" en oraciones  
@@ -242,14 +224,11 @@ metadata:
 pasos:
   - "Identificar el verbo y su relación con la preposición."
   - "Seleccionar la preposición correcta según el verbo de movimiento."
-respuesta: "para"
 respuestas_validas:
   - "para"
   - "Para"
 tipo: completar
 enunciado: "Vou ___ minha casa agora."
-variables:
-  - "ir"
 ```
 
 ### 14 — Uso del imperativo  
@@ -281,14 +260,11 @@ metadata:
 pasos:
   - "Identificar el verbo y su relación con el adverbio."
   - "Elegir el adverbio que indica lugar correcto."
-respuesta: "aqui"
 respuestas_validas:
   - "aqui"
   - "Aqui"
 tipo: completar
 enunciado: "O livro está ___."
-variables:
-  - "cá"
 ```
 
 ### 16 — Uso de "poder" en oraciones  
@@ -320,14 +296,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y el complemento en la oración."
   - "Elegir la forma correcta de 'ter' según el sujeto."
-respuesta: "tem"
 respuestas_validas:
   - "tem"
   - "Tem"
 tipo: completar
 enunciado: "Ele ___ um carro novo."
-variables:
-  - "ter"
 ```
 
 ### 18 — Uso de "fazer" en oraciones  
@@ -359,14 +332,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y la acción en la oración."
   - "Elegir la forma correcta de 'ir' según el sujeto."
-respuesta: "vou"
 respuestas_validas:
   - "vou"
   - "Vou"
 tipo: completar
 enunciado: "Eu ___ ao mercado amanhã."
-variables:
-  - "ir"
 ```
 
 ### 20 — Uso de "vir" en oraciones  
@@ -398,14 +368,11 @@ metadata:
 pasos:
   - "Identificar el sujeto y la acción en la oración."
   - "Elegir la forma correcta de 'estar' según el sujeto."
-respuesta: "estou"
 respuestas_validas:
   - "estou"
   - "Estou"
 tipo: completar
 enunciado: "Eu ___ cansado hoje."
-variables:
-  - "estar"
 ```
 
 ### 22 — Uso de "ser" en oraciones  
@@ -437,14 +404,11 @@ metadata:
 pasos:
   - "Identificar si la oración expresa existencia o cantidad."
   - "Elegir la forma correcta de 'haver' según el contexto."
-respuesta: "Há"
 respuestas_validas:
   - "Há"
   - "Ha"
 tipo: completar
 enunciado: "___ muitos alunos na sala de aula."
-variables:
-  - "haver"
 ```
 
 ### 24 — Uso de "poder" en oraciones  

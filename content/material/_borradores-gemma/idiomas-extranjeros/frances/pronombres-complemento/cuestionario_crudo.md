@@ -8,15 +8,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "la"
 respuestas_validas:
   - "la"
   - "La"
 tipo: completar
-enunciado: 'El profesor ___ a la alumna una nota de aprobación.'
-variables: {}
-explicacion: 'El complemento directo "a la alumna" se reemplaza por el pronombre femenino singular "la", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "El profesor ___ a la alumna una nota de aprobación."
+explicacion: "El complemento directo \"a la alumna\" se reemplaza por el pronombre femenino singular \"la\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -30,15 +27,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "leur"
 respuestas_validas:
   - "leur"
   - "Leur"
 tipo: completar
-enunciado: 'Les amis ___ ont offert un cadeau pour leur anniversaire.'
-variables: {}
-explicacion: 'El complemento indirecto "à leurs amis" se reemplaza por el pronombre plural "leur", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Les amis ___ ont offert un cadeau pour leur anniversaire."
+explicacion: "El complemento indirecto \"à leurs amis\" se reemplaza por el pronombre plural \"leur\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -52,15 +46,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado, incluyendo contracciones si aplica."
-respuesta: "l'"
 respuestas_validas:
   - "l'"
   - "L'"
 tipo: completar
-enunciado: 'Il ___ a l’élève une explication claire.'
-variables: {}
-explicacion: 'El complemento directo "à l’élève" se reemplaza por la contracción "l'", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Il ___ a l’élève une explication claire."
+explicacion: "El complemento directo \"à l’élève\" se reemplaza por la contracción \"l'\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -74,15 +65,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "me"
 respuestas_validas:
   - "me"
   - "Me"
 tipo: completar
-enunciado: 'Elle ___ a dit un secret.'
-variables: {}
-explicacion: 'El complemento indirecto "à moi" se reemplaza por el pronombre "me", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Elle ___ a dit un secret."
+explicacion: "El complemento indirecto \"à moi\" se reemplaza por el pronombre \"me\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -96,15 +84,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "les"
 respuestas_validas:
   - "les"
   - "Les"
 tipo: completar
-enunciado: 'Nous ___ avons offert des fleurs pour le mariage.'
-variables: {}
-explicacion: 'El complemento directo "aux invités" se reemplaza por el pronombre plural "les", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Nous ___ avons offert des fleurs pour le mariage."
+explicacion: "El complemento directo \"aux invités\" se reemplaza por el pronombre plural \"les\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -118,15 +103,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "leur"
 respuestas_validas:
   - "leur"
   - "Leur"
 tipo: completar
-enunciado: 'Les parents ___ ont parlé de l’école.'
-variables: {}
-explicacion: 'El complemento indirecto "à leurs enfants" se reemplaza por el pronombre plural "leur", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Les parents ___ ont parlé de l’école."
+explicacion: "El complemento indirecto \"à leurs enfants\" se reemplaza por el pronombre plural \"leur\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -140,15 +122,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado, incluyendo contracciones si aplica."
-respuesta: "l'"
 respuestas_validas:
   - "l'"
   - "L'"
 tipo: completar
-enunciado: 'Il ___ a montré la photo.'
-variables: {}
-explicacion: 'El complemento directo "à la photo" se reemplaza por la contracción "l'", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Il ___ a montré la photo."
+explicacion: "El complemento directo \"à la photo\" se reemplaza por la contracción \"l'\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -162,15 +141,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "te"
 respuestas_validas:
   - "te"
   - "Te"
 tipo: completar
-enunciado: 'Il ___ a donné un cadeau pour ton anniversaire.'
-variables: {}
-explicacion: 'El complemento indirecto "à toi" se reemplaza por el pronombre "te", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Il ___ a donné un cadeau pour ton anniversaire."
+explicacion: "El complemento indirecto \"à toi\" se reemplaza por el pronombre \"te\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -184,15 +160,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "le"
 respuestas_validas:
   - "le"
   - "Le"
 tipo: completar
-enunciado: 'El ___ a vu dans le miroir.'
-variables: {}
-explicacion: 'El complemento directo "le chat" se reemplaza por el pronombre masculino singular "le", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "El ___ a vu dans le miroir."
+explicacion: "El complemento directo \"le chat\" se reemplaza por el pronombre masculino singular \"le\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -206,15 +179,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "nous"
 respuestas_validas:
   - "nous"
   - "Nous"
 tipo: completar
-enunciado: 'Ils ___ ont fait confiance pour le projet.'
-variables: {}
-explicacion: 'El complemento indirecto "à nous" se reemplaza por el pronombre plural "nous", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Ils ___ ont fait confiance pour le projet."
+explicacion: "El complemento indirecto \"à nous\" se reemplaza por el pronombre plural \"nous\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -228,15 +198,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "la"
 respuestas_validas:
   - "la"
   - "La"
 tipo: completar
-enunciado: 'El ___ a entendu dans le silence.'
-variables: {}
-explicacion: 'El complemento directo "la musique" se reemplaza por el pronombre femenino singular "la", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "El ___ a entendu dans le silence."
+explicacion: "El complemento directo \"la musique\" se reemplaza por el pronombre femenino singular \"la\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -250,15 +217,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "vous"
 respuestas_validas:
   - "vous"
   - "Vous"
 tipo: completar
-enunciado: 'Ils ___ ont dit un grand merci pour l’aide.'
-variables: {}
-explicacion: 'El complemento indirecto "à vous" se reemplaza por el pronombre plural formal "vous", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Ils ___ ont dit un grand merci pour l’aide."
+explicacion: "El complemento indirecto \"à vous\" se reemplaza por el pronombre plural formal \"vous\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -272,15 +236,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado, incluyendo contracciones si aplica."
-respuesta: "l'"
 respuestas_validas:
   - "l'"
   - "L'"
 tipo: completar
-enunciado: 'El ___ a offert l’idée à son équipe.'
-variables: {}
-explicacion: 'El complemento directo "l’idée" se reemplaza por la contracción "l'", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "El ___ a offert l’idée à son équipe."
+explicacion: "El complemento directo \"l’idée\" se reemplaza por la contracción \"l'\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -294,15 +255,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "moi"
 respuestas_validas:
   - "moi"
   - "Moi"
 tipo: completar
-enunciado: 'Elle ___ a donné un cadeau pour la fête.'
-variables: {}
-explicacion: 'El complemento indirecto "à moi" se reemplaza por el pronombre "moi", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Elle ___ a donné un cadeau pour la fête."
+explicacion: "El complemento indirecto \"à moi\" se reemplaza por el pronombre \"moi\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -316,15 +274,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "les"
 respuestas_validas:
   - "les"
   - "Les"
 tipo: completar
-enunciado: 'Nous ___ avons vu dans le magasin.'
-variables: {}
-explicacion: 'El complemento directo "les livres" se reemplaza por el pronombre plural "les", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Nous ___ avons vu dans le magasin."
+explicacion: "El complemento directo \"les livres\" se reemplaza por el pronombre plural \"les\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -338,15 +293,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "leur"
 respuestas_validas:
   - "leur"
   - "Leur"
 tipo: completar
-enunciado: 'Les amis ___ ont parlé de leurs vacances.'
-variables: {}
-explicacion: 'El complemento indirecto "à leurs parents" se reemplaza por el pronombre plural "leur", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Les amis ___ ont parlé de leurs vacances."
+explicacion: "El complemento indirecto \"à leurs parents\" se reemplaza por el pronombre plural \"leur\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -360,15 +312,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado, incluyendo contracciones si aplica."
-respuesta: "l'"
 respuestas_validas:
   - "l'"
   - "L'"
 tipo: completar
-enunciado: 'Il ___ a montré l’exemple.'
-variables: {}
-explicacion: 'El complemento directo "l’exemple" se reemplaza por la contracción "l'", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Il ___ a montré l’exemple."
+explicacion: "El complemento directo \"l’exemple\" se reemplaza por la contracción \"l'\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -382,15 +331,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "nous"
 respuestas_validas:
   - "nous"
   - "Nous"
 tipo: completar
-enunciado: 'Ils ___ ont fait confiance pour le projet.'
-variables: {}
-explicacion: 'El complemento indirecto "à nous" se reemplaza por el pronombre plural "nous", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Ils ___ ont fait confiance pour le projet."
+explicacion: "El complemento indirecto \"à nous\" se reemplaza por el pronombre plural \"nous\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -404,15 +350,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "la"
 respuestas_validas:
   - "la"
   - "La"
 tipo: completar
-enunciado: 'El ___ a entendu dans le silence.'
-variables: {}
-explicacion: 'El complemento directo "la musique" se reemplaza por el pronombre femenino singular "la", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "El ___ a entendu dans le silence."
+explicacion: "El complemento directo \"la musique\" se reemplaza por el pronombre femenino singular \"la\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -426,15 +369,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "vous"
 respuestas_validas:
   - "vous"
   - "Vous"
 tipo: completar
-enunciado: 'Ils ___ ont dit un grand merci pour l’aide.'
-variables: {}
-explicacion: 'El complemento indirecto "à vous" se reemplaza por el pronombre plural formal "vous", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Ils ___ ont dit un grand merci pour l’aide."
+explicacion: "El complemento indirecto \"à vous\" se reemplaza por el pronombre plural formal \"vous\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -448,15 +388,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado, incluyendo contracciones si aplica."
-respuesta: "l'"
 respuestas_validas:
   - "l'"
   - "L'"
 tipo: completar
-enunciado: 'El ___ a offert l’idée à son équipe.'
-variables: {}
-explicacion: 'El complemento directo "l’idée" se reemplaza por la contracción "l'", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "El ___ a offert l’idée à son équipe."
+explicacion: "El complemento directo \"l’idée\" se reemplaza por la contracción \"l'\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -470,15 +407,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "moi"
 respuestas_validas:
   - "moi"
   - "Moi"
 tipo: completar
-enunciado: 'Elle ___ a donné un cadeau pour la fête.'
-variables: {}
-explicacion: 'El complemento indirecto "à moi" se reemplaza por el pronombre "moi", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Elle ___ a donné un cadeau pour la fête."
+explicacion: "El complemento indirecto \"à moi\" se reemplaza por el pronombre \"moi\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -492,15 +426,12 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "les"
 respuestas_validas:
   - "les"
   - "Les"
 tipo: completar
-enunciado: 'Nous ___ avons vu dans le magasin.'
-variables: {}
-explicacion: 'El complemento directo "les livres" se reemplaza por el pronombre plural "les", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Nous ___ avons vu dans le magasin."
+explicacion: "El complemento directo \"les livres\" se reemplaza por el pronombre plural \"les\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -514,15 +445,12 @@ metadata:
 pasos:
   - "Identificar el complemento indirecto en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado."
-respuesta: "leur"
 respuestas_validas:
   - "leur"
   - "Leur"
 tipo: completar
-enunciado: 'Les amis ___ ont parlé de leurs vacances.'
-variables: {}
-explicacion: 'El complemento indirecto "à leurs parents" se reemplaza por el pronombre plural "leur", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Les amis ___ ont parlé de leurs vacances."
+explicacion: "El complemento indirecto \"à leurs parents\" se reemplaza por el pronombre plural \"leur\", que va antes del verbo en oraciones afirmativas."```
 
 ---
 
@@ -536,12 +464,9 @@ metadata:
 pasos:
   - "Identificar el complemento directo en la oración."
   - "Escribir el pronombre que reemplaza al sustantivo mencionado, incluyendo contracciones si aplica."
-respuesta: "l'"
 respuestas_validas:
   - "l'"
   - "L'"
 tipo: completar
-enunciado: 'Il ___ a montré l’exemple.'
-variables: {}
-explicacion: 'El complemento directo "l’exemple" se reemplaza por la contracción "l'", que va antes del verbo en oraciones afirmativas.'
-```
+enunciado: "Il ___ a montré l’exemple."
+explicacion: "El complemento directo \"l’exemple\" se reemplaza por la contracción \"l'\", que va antes del verbo en oraciones afirmativas."```

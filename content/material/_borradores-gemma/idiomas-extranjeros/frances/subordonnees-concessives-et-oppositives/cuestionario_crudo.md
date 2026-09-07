@@ -52,7 +52,6 @@ metadata:
 pasos:
   - "Identificar el uso de 'malgré que' para concesión."
   - "Completar el hueco con la forma correcta de la conjunción."
-respuesta: "malgré que"
 respuestas_validas:
   - "malgré que"
   - "Malgré que"
@@ -94,7 +93,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de un apóstrofe después del 'que'."
   - "Completar el hueco con la forma correcta de la conjunción."
-respuesta: "bien qu'"
 respuestas_validas:
   - "bien qu'"
   - "Bien qu'"
@@ -136,7 +134,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de un verbo en subjuntivo."
   - "Completar el hueco con la conjunción correcta."
-respuesta: "bien que"
 respuestas_validas:
   - "bien que"
   - "Bien que"
@@ -178,7 +175,6 @@ metadata:
 pasos:
   - "Identificar el uso de 'malgré' como preposición."
   - "Completar el hueco con la forma correcta."
-respuesta: "malgré"
 respuestas_validas:
   - "malgré"
   - "Malgré"
@@ -220,7 +216,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de un apóstrofe después del 'que'."
   - "Completar el hueco con la forma correcta."
-respuesta: "bien qu'"
 respuestas_validas:
   - "bien qu'"
   - "Bien qu'"
@@ -262,7 +257,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de un verbo en subjuntivo."
   - "Completar el hueco con la conjunción correcta."
-respuesta: "bien que"
 respuestas_validas:
   - "bien que"
   - "Bien que"
@@ -304,7 +298,6 @@ metadata:
 pasos:
   - "Identificar el uso de 'malgré' como preposición."
   - "Completar el hueco con la forma correcta."
-respuesta: "malgré"
 respuestas_validas:
   - "malgré"
   - "Malgré"
@@ -346,7 +339,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de un apóstrofe después del 'que'."
   - "Completar el hueco con la forma correcta."
-respuesta: "bien qu'"
 respuestas_validas:
   - "bien qu'"
   - "Bien qu'"
@@ -388,7 +380,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de un verbo en subjuntivo."
   - "Completar el hueco con la conjunción correcta."
-respuesta: "bien que"
 respuestas_validas:
   - "bien que"
   - "Bien que"
@@ -430,7 +421,6 @@ metadata:
 pasos:
   - "Identificar el uso de 'malgré' como preposición."
   - "Completar el hueco con la forma correcta."
-respuesta: "malgré"
 respuestas_validas:
   - "malgré"
   - "Malgré"
@@ -472,7 +462,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de un apóstrofe después del 'que'."
   - "Completar el hueco con la forma correcta."
-respuesta: "bien qu'"
 respuestas_validas:
   - "bien qu'"
   - "Bien qu'"
@@ -514,7 +503,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de un verbo en subjuntivo."
   - "Completar el hueco con la conjunción correcta."
-respuesta: "bien que"
 respuestas_validas:
   - "bien que"
   - "Bien que"

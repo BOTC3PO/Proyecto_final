@@ -8,14 +8,11 @@ metadata:
 pasos:  
   - Identificar el verbo principal y su conjugación en condizionale passato.  
   - Verificar la concordancia de tiempo y modo con la subordinada.  
-respuesta: "sarei stato"  
 tipo: completar  
 respuestas_validas:  
   - "sarei stato"  
   - "Sarei stato"  
-enunciado: 'Se non ___ (essere) più attento, avrei commesso un errore importante.'  
-variables: []  
-
+enunciado: "Se non ___ (essere) più attento, avrei commesso un errore importante."
 ---
 ```
 
@@ -29,13 +26,11 @@ metadata:
 pasos:  
   - Formar el condizionale passato con "avere" + participio.  
   - Asegurar que el participio concuerde en género y número con el sujeto.  
-respuesta: "avrei avuto"  
 tipo: completar  
 respuestas_validas:  
   - "avrei avuto"  
   - "Avrei avuto"  
-enunciado: 'Se ___ (avere) più soldi, sarei andato in vacanza.'  
-
+enunciado: "Se ___ (avere) più soldi, sarei andato in vacanza."
 ---
 ```
 
@@ -49,13 +44,11 @@ metadata:
 pasos:  
   - Identificar la oración principal y subordinada.  
   - Aplicar el condizionale passato a la subordinada hipotética.  
-respuesta: "saremmo andati"  
 tipo: completar  
 respuestas_validas:  
   - "saremmo andati"  
   - "Saremmo andati"  
-enunciado: 'Se non ___ (andare) in ufficio, avremmo perso l’opportunità.'  
-
+enunciado: "Se non ___ (andare) in ufficio, avremmo perso l’opportunità."
 ---
 ```
 
@@ -74,8 +67,7 @@ opciones_explicitas:
   - "saremmo stati"  
   - "siamo stati"  
   - "sarei stato"  
-enunciado: 'Se ___ (essere) presenti, avremmo risolto il problema.'  
-
+enunciado: "Se ___ (essere) presenti, avremmo risolto il problema."
 ---
 ```
 
@@ -89,13 +81,11 @@ metadata:
 pasos:  
   - Formar el condizionale passato con participio compuesto.  
   - Verificar el sujeto y el verbo auxiliar.  
-respuesta: "avrei preparato"  
 tipo: completar  
 respuestas_validas:  
   - "avrei preparato"  
   - "Avrei preparato"  
-enunciado: 'Se ___ (preparare) i documenti, non avremmo avuto problemi.'  
-
+enunciado: "Se ___ (preparare) i documenti, non avremmo avuto problemi."
 ---
 ```
 
@@ -109,13 +99,11 @@ metadata:
 pasos:  
   - Identificar la relación causal entre las oraciones.  
   - Aplicar el condizionale passato en la subordinada.  
-respuesta: "avrei ascoltato"  
 tipo: completar  
 respuestas_validas:  
   - "avrei ascoltato"  
   - "Avrei ascoltato"  
-enunciado: 'Se ___ (ascoltare) le istruzioni, non avremmo sbagliato.'  
-
+enunciado: "Se ___ (ascoltare) le istruzioni, non avremmo sbagliato."
 ---
 ```
 
@@ -129,13 +117,11 @@ metadata:
 pasos:  
   - Usar el condizionale passato con un verbo irregolare.  
   - Verificar la forma del participio.  
-respuesta: "avrei potuto"  
 tipo: completar  
 respuestas_validas:  
   - "avrei potuto"  
   - "Avrei potuto"  
-enunciado: 'Se ___ (potere) aiutarti, lo avrei fatto.'  
-
+enunciado: "Se ___ (potere) aiutarti, lo avrei fatto."
 ---
 ```
 
@@ -149,13 +135,11 @@ metadata:
 pasos:  
   - Identificar el tipo de oración subordinada.  
   - Aplicar el condizionale passato correctamente.  
-respuesta: "sarebbe rimasto"  
 tipo: completar  
 respuestas_validas:  
   - "sarebbe rimasto"  
   - "Sarebbe rimasto"  
-enunciado: 'Se ___ (rimanere) a casa, non avremmo avuto problemi.'  
-
+enunciado: "Se ___ (rimanere) a casa, non avremmo avuto problemi."
 ---
 ```
 
@@ -169,13 +153,11 @@ metadata:
 pasos:  
   - Formar el condizionale passato con verbo reflexivo.  
   - Verificar el sujeto y el participio.  
-respuesta: "mi sarei lavato"  
 tipo: completar  
 respuestas_validas:  
   - "mi sarei lavato"  
   - "Mi sarei lavato"  
-enunciado: 'Se ___ (lavarsi), non avrei preso freddo.'  
-
+enunciado: "Se ___ (lavarsi), non avrei preso freddo."
 ---
 ```
 
@@ -189,13 +171,11 @@ metadata:
 pasos:  
   - Usar el condizionale passato con verbo auxiliar "essere".  
   - Asegurar concordancia de género y número.  
-respuesta: "sarei stato"  
 tipo: completar  
 respuestas_validas:  
   - "sarei stato"  
   - "Sarei stato"  
-enunciado: 'Se ___ (essere) più coraggioso, avrei agito diversamente.'  
-
+enunciado: "Se ___ (essere) più coraggioso, avrei agito diversamente."
 ---
 ```
 
@@ -209,13 +189,11 @@ metadata:
 pasos:  
   - Identificar la oración de condición.  
   - Aplicar el condizionale passato a la subordinada.  
-respuesta: "avrei visto"  
 tipo: completar  
 respuestas_validas:  
   - "avrei visto"  
   - "Avrei visto"  
-enunciado: 'Se ___ (vedere) il film, non l’avrei mai criticato.'  
-
+enunciado: "Se ___ (vedere) il film, non l’avrei mai criticato."
 ---
 ```
 
@@ -229,13 +207,11 @@ metadata:
 pasos:  
   - Formar el condizionale passato con verbo compuesto.  
   - Verificar la forma del participio y el auxiliar.  
-respuesta: "sarei andato"  
 tipo: completar  
 respuestas_validas:  
   - "sarei andato"  
   - "Sarei andato"  
-enunciado: 'Se ___ (andare) in tempo, non avremmo perso il treno.'  
-
+enunciado: "Se ___ (andare) in tempo, non avremmo perso il treno."
 ---
 ```
 
@@ -249,13 +225,11 @@ metadata:
 pasos:  
   - Analizar la estructura de negación en oraciones hipotéticas.  
   - Aplicar el condizionale passato correctamente.  
-respuesta: "non sarei andato"  
 tipo: completar  
 respuestas_validas:  
   - "non sarei andato"  
   - "Non sarei andato"  
-enunciado: 'Se ___ (andare) al ristorante, non avrei mangiato.'  
-
+enunciado: "Se ___ (andare) al ristorante, non avrei mangiato."
 ---
 ```
 
@@ -269,13 +243,11 @@ metadata:
 pasos:  
   - Usar el condizionale passato en oraciones impersonales.  
   - Verificar la forma del verbo auxiliar y participio.  
-respuesta: "si sarebbe dovuto"  
 tipo: completar  
 respuestas_validas:  
   - "si sarebbe dovuto"  
   - "Si sarebbe dovuto"  
-enunciado: 'Se ___ (dovere) aspettare, non saremmo partiti.'  
-
+enunciado: "Se ___ (dovere) aspettare, non saremmo partiti."
 ---
 ```
 
@@ -289,13 +261,11 @@ metadata:
 pasos:  
   - Formar el condizionale passato con verbo modal.  
   - Verificar la concordancia del participio.  
-respuesta: "avrei potuto"  
 tipo: completar  
 respuestas_validas:  
   - "avrei potuto"  
   - "Avrei potuto"  
-enunciado: 'Se ___ (potere) aiutarti, lo avrei fatto.'  
-
+enunciado: "Se ___ (potere) aiutarti, lo avrei fatto."
 ---
 ```
 
@@ -309,13 +279,11 @@ metadata:
 pasos:  
   - Usar el condizionale passato con participios irregulares.  
   - Verificar la forma correcta del participio.  
-respuesta: "avrei voluto"  
 tipo: completar  
 respuestas_validas:  
   - "avrei voluto"  
   - "Avrei voluto"  
-enunciado: 'Se ___ (volere) parlare, non l’avrei mai fatto.'  
-
+enunciado: "Se ___ (volere) parlare, non l’avrei mai fatto."
 ---
 ```
 
@@ -329,13 +297,11 @@ metadata:
 pasos:  
   - Identificar la oración de duda.  
   - Aplicar el condizionale passato a la subordinada.  
-respuesta: "non sarei andato"  
 tipo: completar  
 respuestas_validas:  
   - "non sarei andato"  
   - "Non sarei andato"  
-enunciado: 'Se ___ (andare) al lavoro, non avrei perso il treno.'  
-
+enunciado: "Se ___ (andare) al lavoro, non avrei perso il treno."
 ---
 ```
 
@@ -349,13 +315,11 @@ metadata:
 pasos:  
   - Formar el condizionale passato con verbo reflexivo y auxiliar "essere".  
   - Verificar concordancia de género y número.  
-respuesta: "mi sarei svegliato"  
 tipo: completar  
 respuestas_validas:  
   - "mi sarei svegliato"  
   - "Mi sarei svegliato"  
-enunciado: 'Se ___ (svegliarsi) presto, non avrei perso l’appuntamento.'  
-
+enunciado: "Se ___ (svegliarsi) presto, non avrei perso l’appuntamento."
 ---
 ```
 
@@ -369,13 +333,11 @@ metadata:
 pasos:  
   - Usar el condizionale passato en oraciones impersonales con negación.  
   - Verificar la forma del verbo auxiliar y participio.  
-respuesta: "non si sarebbe dovuto"  
 tipo: completar  
 respuestas_validas:  
   - "non si sarebbe dovuto"  
   - "Non si sarebbe dovuto"  
-enunciado: 'Se ___ (dovere) attendere, non saremmo andati.'  
-
+enunciado: "Se ___ (dovere) attendere, non saremmo andati."
 ---
 ```
 
@@ -389,13 +351,11 @@ metadata:
 pasos:  
   - Formar el condizionale passato con verbo irregolare y participio.  
   - Verificar la forma del participio.  
-respuesta: "avrei dovuto"  
 tipo: completar  
 respuestas_validas:  
   - "avrei dovuto"  
   - "Avrei dovuto"  
-enunciado: 'Se ___ (dovere) studiare, non avrei fallito.'  
-
+enunciado: "Se ___ (dovere) studiare, non avrei fallito."
 ---
 ```
 
@@ -409,13 +369,11 @@ metadata:
 pasos:  
   - Identificar la relación causal y aplicar el condizionale passato.  
   - Verificar el verbo auxiliar y participio.  
-respuesta: "sarei andato"  
 tipo: completar  
 respuestas_validas:  
   - "sarei andato"  
   - "Sarei andato"  
-enunciado: 'Se ___ (andare) in tempo, non avremmo perso l’autobus.'  
-
+enunciado: "Se ___ (andare) in tempo, non avremmo perso l’autobus."
 ---
 ```
 
@@ -429,13 +387,11 @@ metadata:
 pasos:  
   - Usar el condizionale passato en oraciones impersonales.  
   - Verificar la forma del participio y auxiliar.  
-respuesta: "si sarebbe dovuto"  
 tipo: completar  
 respuestas_validas:  
   - "si sarebbe dovuto"  
   - "Si sarebbe dovuto"  
-enunciado: 'Se ___ (dovere) aspettare, non saremmo partiti.'  
-
+enunciado: "Se ___ (dovere) aspettare, non saremmo partiti."
 ---
 ```
 
@@ -449,13 +405,11 @@ metadata:
 pasos:  
   - Formar el condizionale passato con verbo reflexivo y participio irregolare.  
   - Verificar concordancia de género y número.  
-respuesta: "mi sarei lavato"  
 tipo: completar  
 respuestas_validas:  
   - "mi sarei lavato"  
   - "Mi sarei lavato"  
-enunciado: 'Se ___ (lavarsi), non avrei preso freddo.'  
-
+enunciado: "Se ___ (lavarsi), non avrei preso freddo."
 ---
 ```
 
@@ -469,13 +423,11 @@ metadata:
 pasos:  
   - Analizar la oración de negación con verbo irregolare.  
   - Aplicar el condizionale passato correctamente.  
-respuesta: "non avrei voluto"  
 tipo: completar  
 respuestas_validas:  
   - "non avrei voluto"  
   - "Non avrei voluto"  
-enunciado: 'Se ___ (volere) parlare, non l’avrei mai fatto.'  
-
+enunciado: "Se ___ (volere) parlare, non l’avrei mai fatto."
 ---
 ```
 
@@ -489,10 +441,8 @@ metadata:
 pasos:  
   - Identificar la oración de duda con verbo compuesto.  
   - Aplicar el condizionale passato a la subordinada.  
-respuesta: "non sarei andato"  
 tipo: completar  
 respuestas_validas:  
   - "non sarei andato"  
   - "Non sarei andato"  
-enunciado: 'Se ___ (andare) al lavoro, non avrei perso il treno.'
-```
+enunciado: "Se ___ (andare) al lavoro, non avrei perso il treno."```

@@ -10,12 +10,10 @@ pasos:
   - "Completar el hueco con la forma invertida correcta."  
 explicacion: "Cuando un adverbio negativo como 'never' aparece al inicio de una oración en registro formal, se requiere inversión del sujeto y verbo auxiliar. La estructura es [adverbio] + [verbo auxiliar] + [sujeto]."  
 enunciado: "Never _______ I expected such a dramatic change in the company's strategy."  
-respuesta: "have"  
 respuestas_validas:  
   - "have"  
   - "Have"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -34,10 +32,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta."  
 explicacion: "El adverbio 'rarely' implica una estructura invertida cuando ocupa la primera posición. La forma auxiliar (have/does) se coloca antes del sujeto en oraciones formales."  
 enunciado: "Rarely _______ the board consider such radical proposals without debate."  
-opciones_explicitas: ["has", "do", "did", "have"]  
+opciones_explicitas:
+  - "has"
+  - "do"
+  - "did"
+  - "have"
 respuesta: "has"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -56,12 +57,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar adecuado."  
 explicacion: "Cuando 'not only' introduce una oración, se invierte el orden sujeto-verbo en la primera cláusula. Esto aplica tanto a tiempos simples como compuestos."  
 enunciado: "Not only _______ the director refuse to resign, but he also demanded more funding."  
-respuesta: "did"  
 respuestas_validas:  
   - "did"  
   - "Did"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -80,10 +79,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "La construcción 'scarcely...when' requiere inversión en ambas cláusulas. El verbo auxiliar (had) se coloca antes del sujeto en tiempos pasados."  
 enunciado: "Scarcely _______ the alarm go off when the fire department arrived at the scene."  
-opciones_explicitas: ["had", "did", "has", "was"]  
+opciones_explicitas:
+  - "had"
+  - "did"
+  - "has"
+  - "was"
 respuesta: "had"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -102,12 +104,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'Hardly' requiere inversión del sujeto y verbo auxiliar cuando aparece al inicio de una oración. Esto se aplica a tiempos simples y compuestos."  
 enunciado: "Hardly _______ the report be published when critics began to attack its methodology."  
-respuesta: "had"  
 respuestas_validas:  
   - "had"  
   - "Had"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -126,10 +126,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "La construcción 'no sooner...than' requiere inversión del sujeto y verbo auxiliar (had) en la primera cláusula. Esto aplica a tiempos pasados."  
 enunciado: "No sooner _______ the student submit her essay than she received an email requesting revisions."  
-opciones_explicitas: ["had", "has", "did", "was"]  
+opciones_explicitas:
+  - "had"
+  - "has"
+  - "did"
+  - "was"
 respuesta: "had"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -148,12 +151,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar adecuado."  
 explicacion: "'Not until' requiere inversión del sujeto y verbo auxiliar cuando aparece al inicio de una oración. Esto se aplica a tiempos simples y compuestos."  
 enunciado: "Not until _______ the mayor announce the new policy did the public react with outrage."  
-respuesta: "had"  
 respuestas_validas:  
   - "had"  
   - "Had"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -172,10 +173,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "'Neither...nor' requiere inversión del sujeto y verbo auxiliar (did/had) cuando aparece al inicio de una oración. Esto se aplica a tiempos simples y compuestos."  
 enunciado: "Neither _______ the committee approve the budget, nor did they discuss its implications thoroughly."  
-opciones_explicitas: ["did", "had", "has", "was"]  
+opciones_explicitas:
+  - "did"
+  - "had"
+  - "has"
+  - "was"
 respuesta: "did"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -194,12 +198,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'Not once' requiere inversión del sujeto y verbo auxiliar (had) cuando aparece al inicio de una oración. Esto se aplica a tiempos pasados."  
 enunciado: "Not once _______ the organization fail to meet its quarterly targets in 2023."  
-respuesta: "had"  
 respuestas_validas:  
   - "had"  
   - "Had"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -218,10 +220,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "'Not for the first time' requiere inversión del sujeto y verbo auxiliar (have) cuando aparece al inicio de una oración. Esto se aplica a tiempos presentes."  
 enunciado: "Not for the first time _______ the administration face criticism over its environmental policies."  
-opciones_explicitas: ["have", "has", "do", "did"]  
+opciones_explicitas:
+  - "have"
+  - "has"
+  - "do"
+  - "did"
 respuesta: "have"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -240,12 +245,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'Only once' requiere inversión del sujeto y verbo auxiliar (had) cuando aparece al inicio de una oración. Esto se aplica a tiempos pasados."  
 enunciado: "Only once _______ the scientist publish such groundbreaking research in her career."  
-respuesta: "had"  
 respuestas_validas:  
   - "had"  
   - "Had"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -264,10 +267,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "'Not until' requiere inversión del sujeto y verbo auxiliar (did/had) cuando aparece al inicio de una oración. Esto se aplica a tiempos simples y compuestos."  
 enunciado: "Not until _______ the team complete their analysis did they present the findings to the board."  
-opciones_explicitas: ["had", "has", "did", "was"]  
+opciones_explicitas:
+  - "had"
+  - "has"
+  - "did"
+  - "was"
 respuesta: "had"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -286,12 +292,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'No more...than' requiere inversión del sujeto y verbo auxiliar (did) cuando aparece al inicio de una oración. Esto se aplica a tiempos simples."  
 enunciado: "No more _______ the company prioritize profit than it did employee well-being in 2022."  
-respuesta: "did"  
 respuestas_validas:  
   - "did"  
   - "Did"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -310,10 +314,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "'Not since' requiere inversión del sujeto y verbo auxiliar (have) cuando aparece al inicio de una oración. Esto se aplica a tiempos presentes."  
 enunciado: "Not since _______ the government introduce new regulations have we seen such rapid changes in the market."  
-opciones_explicitas: ["have", "has", "do", "did"]  
+opciones_explicitas:
+  - "have"
+  - "has"
+  - "do"
+  - "did"
 respuesta: "have"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -332,12 +339,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'Not for long' requiere inversión del sujeto y verbo auxiliar (had) cuando aparece al inicio de una oración. Esto se aplica a tiempos pasados."  
 enunciado: "Not for long _______ the company remain in business after the scandal broke."  
-respuesta: "had"  
 respuestas_validas:  
   - "had"  
   - "Had"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -356,10 +361,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "'Not without' requiere inversión del sujeto y verbo auxiliar (did) cuando aparece al inicio de una oración. Esto se aplica a tiempos simples."  
 enunciado: "Not without _______ the team prepare for weeks did they manage to win the championship."  
-opciones_explicitas: ["had", "has", "did", "was"]  
+opciones_explicitas:
+  - "had"
+  - "has"
+  - "did"
+  - "was"
 respuesta: "had"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -378,12 +386,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'Only after' requiere inversión del sujeto y verbo auxiliar (had) cuando aparece al inicio de una oración. Esto se aplica a tiempos pasados."  
 enunciado: "Only after _______ the president apologize did the protesters agree to disperse."  
-respuesta: "had"  
 respuestas_validas:  
   - "had"  
   - "Had"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -402,10 +408,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "'Not unless' requiere inversión del sujeto y verbo auxiliar (will) cuando aparece al inicio de una oración. Esto se aplica a tiempos futuros."  
 enunciado: "Not unless _______ the candidates meet all criteria will they be considered for the position."  
-opciones_explicitas: ["have", "has", "do", "will"]  
+opciones_explicitas:
+  - "have"
+  - "has"
+  - "do"
+  - "will"
 respuesta: "will"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -424,12 +433,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'No earlier...than' requiere inversión del sujeto y verbo auxiliar (had) cuando aparece al inicio de una oración. Esto se aplica a tiempos pasados."  
 enunciado: "No earlier _______ the committee finalize their report than they were asked to revise it entirely."  
-respuesta: "had"  
 respuestas_validas:  
   - "had"  
   - "Had"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -448,10 +455,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "'Not for' requiere inversión del sujeto y verbo auxiliar (have) cuando aparece al inicio de una oración. Esto se aplica a tiempos presentes."  
 enunciado: "Not for the last time _______ the council fail to address the community's concerns adequately."  
-opciones_explicitas: ["have", "has", "do", "did"]  
+opciones_explicitas:
+  - "have"
+  - "has"
+  - "do"
+  - "did"
 respuesta: "have"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -470,12 +480,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'Only in' requiere inversión del sujeto y verbo auxiliar (have) cuando aparece al inicio de una oración. Esto se aplica a tiempos presentes."  
 enunciado: "Only in recent years _______ the public become aware of the environmental impact of fast fashion."  
-respuesta: "have"  
 respuestas_validas:  
   - "have"  
   - "Have"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -494,10 +502,13 @@ pasos:
   - "Elegir la opción que muestra inversión correcta en ambas cláusulas."  
 explicacion: "'Not until' requiere inversión del sujeto y verbo auxiliar (had) cuando aparece al inicio de una oración. Esto se aplica a tiempos pasados."  
 enunciado: "Not until _______ the researchers publish their findings did the media begin to report on the study."  
-opciones_explicitas: ["had", "has", "did", "was"]  
+opciones_explicitas:
+  - "had"
+  - "has"
+  - "did"
+  - "was"
 respuesta: "had"  
 tipo: mc  
-variables: {}  
 ```  
 
 ---
@@ -516,12 +527,10 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'No more...than' requiere inversión del sujeto y verbo auxiliar (did) cuando aparece al inicio de una oración. Esto se aplica a tiempos simples."  
 enunciado: "No more _______ the company prioritize shareholder profits than it did employee welfare in 2023."  
-respuesta: "did"  
 respuestas_validas:  
   - "did"  
   - "Did"  
 tipo: completar  
-variables: {}  
 ```  
 
 ---
@@ -543,7 +552,6 @@ pasos:
 enunciado:  
 Under no circumstances _______ the manager allow such behavior in the office.  
 
-respuesta: will  
 respuestas_validas:  
   - "will"  
   - "Will"  
@@ -566,10 +574,8 @@ pasos:
   - "Completar el hueco con el verbo auxiliar correcto."  
 explicacion: "'Only when' requiere inversión del sujeto y verbo auxiliar (had) cuando aparece al inicio de una oración. Esto se aplica a tiempos pasados."  
 enunciado: "Only when _______ the team complete their analysis did they present the findings to the board."  
-respuesta: "had"  
 respuestas_validas:  
   - "had"  
   - "Had"  
 tipo: completar  
-variables: {}  
 ```

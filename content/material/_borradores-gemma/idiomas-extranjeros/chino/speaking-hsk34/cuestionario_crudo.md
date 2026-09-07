@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '的'."
 explicacion: "La partícula 的 se usa para indicar posesión o descripción. En este caso, se refiere a la propiedad del objeto mencionado."
-respuesta: "的"
 respuestas_validas:
   - "的"
   - "de" # variante ortográfica aceptada
 tipo: completar
 enunciado: "这是我的书。这本书是____的。"
-variables:
-  - "书"
 ```
 
 
@@ -50,7 +47,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '过'."
 explicacion: "'过' se usa para indicar que alguien ha realizado una acción en el pasado, pero no necesariamente recientemente."
-respuesta: "去过"
 respuestas_validas:
   - "去过"
   - "go" # variante ortográfica aceptada
@@ -90,7 +86,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '谁'."
 explicacion: "'谁' se usa para preguntar sobre una persona."
-respuesta: "谁"
 respuestas_validas:
   - "谁"
   - "quién" # variante ortográfica aceptada
@@ -130,7 +125,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '这个'."
 explicacion: "'这个' se usa para referirse a algo cercano."
-respuesta: "这个"
 respuestas_validas:
   - "这个"
   - "esta" # variante ortográfica aceptada
@@ -170,7 +164,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '在'."
 explicacion: "'在...上' se usa para indicar que algo está encima de otra cosa."
-respuesta: "在桌子上"
 respuestas_validas:
   - "在桌子上"
   - "en la mesa" # variante ortográfica aceptada
@@ -210,7 +203,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '为了'."
 explicacion: "'为了' se usa para expresar propósito."
-respuesta: "为了学习"
 respuestas_validas:
   - "为了学习"
   - "para estudiar" # variante ortográfica aceptada
@@ -230,7 +222,6 @@ metadata:
 pasos:  
   - "Identificar el tiempo verbal adecuado para la acción 'mirar una película' en el pasado."  
   - "Verificar si el verbo está conjugado correctamente con el marcador de tiempo '昨天'."  
-respuesta: "看了"  
 tipo: completar  
 respuestas_validas:  
   - "看了"  
@@ -247,7 +238,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '经常'."
 explicacion: "'经常' se usa para indicar que algo ocurre con frecuencia."
-respuesta: "经常"
 respuestas_validas:
   - "经常"
   - "frecuentemente" # variante ortográfica aceptada
@@ -267,7 +257,6 @@ metadata:
 pasos:  
   - "Determinar el posesivo que completa la oración de manera lógica."  
   - "Asegurar que el uso de '的' sea correcto para indicar pertenencia."  
-respuesta: "我的"  
 tipo: completar  
 respuestas_validas:  
   - "我的"  
@@ -284,7 +273,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '三本书'."
 explicacion: "'三' se usa para indicar cantidad, y '本' es un cuantificador para libros."
-respuesta: "三本书"
 respuestas_validas:
   - "三本书"
   - "tres libros" # variante ortográfica aceptada
@@ -304,7 +292,6 @@ metadata:
 pasos:  
   - "Identificar la palabra interrogativa que completa el sentido de la oración."  
   - "Verificar si el uso de '从' es necesario en este contexto."  
-respuesta: "从哪里"  
 tipo: completar  
 respuestas_validas:  
   - "从哪里"  
@@ -321,7 +308,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '我的'."
 explicacion: "'我的' se usa para indicar posesión."
-respuesta: "我的"
 respuestas_validas:
   - "我的"
   - "mi" # variante ortográfica aceptada
@@ -341,7 +327,10 @@ metadata:
 pasos:  
   - "Seleccionar la medida correcta para contar 'manzanas'."  
   - "Revisar si el número y la medida coinciden según las reglas de uso."  
-opciones_explicitas: ["三个", "三颗", "三条"]  
+opciones_explicitas:
+  - "三个"
+  - "三颗"
+  - "三条"
 respuesta: "三个"  
 tipo: mc
 ```
@@ -356,7 +345,10 @@ metadata:
 pasos:  
   - "Identificar el posesivo que se usa con '的' para indicar pertenencia."  
   - "Asegurar que la construcción '是...的' sea gramaticalmente correcta."  
-opciones_explicitas: ["我的", "你", "他的"]  
+opciones_explicitas:
+  - "我的"
+  - "你"
+  - "他的"
 respuesta: "我的"  
 tipo: mc
 ```
@@ -371,7 +363,10 @@ metadata:
 pasos:  
   - "Elegir el marcador temporal adecuado para indicar una acción futura."  
   - "Verificar si la estructura '将去' es correcta en este contexto."  
-opciones_explicitas: ["将要", "正在", "已经"]  
+opciones_explicitas:
+  - "将要"
+  - "正在"
+  - "已经"
 respuesta: "将要"  
 tipo: mc
 ```
@@ -386,7 +381,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '去'."
 explicacion: "'去' se usa para indicar movimiento hacia un lugar."
-respuesta: "去学校"
 respuestas_validas:
   - "去学校"
   - "ir a la escuela" # variante ortográfica aceptada
@@ -406,7 +400,10 @@ metadata:
 pasos:  
   - "Seleccionar el verbo que se usa con '苹果' como objeto directo."  
   - "Asegurar que la conjugación del verbo sea correcta en presente."  
-opciones_explicitas: ["吃", "买", "卖"]  
+opciones_explicitas:
+  - "吃"
+  - "买"
+  - "卖"
 respuesta: "吃"  
 tipo: mc
 ```
@@ -421,7 +418,6 @@ metadata:
 pasos:  
   - "Identificar el verbo en pasado que se usa para 'mirar una película'."  
   - "Verificar si la conjugación con '昨天' es correcta."  
-respuesta: "看了"  
 tipo: completar  
 respuestas_validas:  
   - "看了"  
@@ -438,7 +434,6 @@ metadata:
 pasos:  
   - "Determinar la palabra interrogativa que completa el sentido de la oración."  
   - "Asegurar que '的' se use correctamente para indicar pertenencia."  
-respuesta: "谁的"  
 tipo: completar  
 respuestas_validas:  
   - "谁的"  
@@ -455,7 +450,6 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta de '可以'."
 explicacion: "'可以' se usa para indicar permiso o posibilidad."
-respuesta: "可以"
 respuestas_validas:
   - "可以"
   - "puede" # variante ortográfica aceptada

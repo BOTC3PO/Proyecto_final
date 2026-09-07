@@ -8,15 +8,11 @@ metadata:
 pasos:  
   - "Identificar el antecedente y el preposicion en la oración."  
   - "Elegir el pronombre relativo compuesto adecuado según género, número y preposición."  
-respuesta: "duquel"  
 tipo: completar  
 respuestas_validas:  
   - "duquel"  
   - "Duquel"  
 enunciado: "Le livre ___ je t'ai parlé est très utile pour le projet."  
-variables:  
-  - antecedente: "livre"  
-  - preposicion: "de"  
 explicacion: "El antecedente 'livre' es masculino singular y la preposición es 'de', por lo que se usa 'duquel' (de + lequel)."  
 ```
 
@@ -32,15 +28,11 @@ metadata:
 pasos:  
   - "Determinar la preposición y el género del antecedente."  
   - "Seleccionar el pronombre relativo compuesto correcto."  
-respuesta: "auquel"  
 tipo: completar  
 respuestas_validas:  
   - "auquel"  
   - "Auquel"  
 enunciado: "La ville ___ je suis allé est connue pour ses musées historiques."  
-variables:  
-  - antecedente: "ville"  
-  - preposicion: "à"  
 explicacion: "El antecedente 'ville' es femenino singular y la preposición es 'à', por lo que se usa 'auquel' (à + lequel)."  
 ```
 
@@ -56,15 +48,11 @@ metadata:
 pasos:  
   - "Analizar la relación entre el antecedente y la preposición."  
   - "Aplicar la regla de los pronombres relativo compuesto con 'de'."  
-respuesta: "dont"  
 tipo: completar  
 respuestas_validas:  
   - "dont"  
   - "Dont"  
 enunciado: "La chanson ___ j'ai parlé est une ballade traditionnelle des Alpes."  
-variables:  
-  - antecedente: "chanson"  
-  - preposicion: "de"  
 explicacion: "'Chanson' es femenino singular y la preposición es 'de', por lo que el pronombre correcto es 'dont' (de + lequel)."  
 ```
 
@@ -80,15 +68,11 @@ metadata:
 pasos:  
   - "Identificar el antecedente y la preposición en contexto."  
   - "Escoger el pronombre relativo compuesto con 'à'."  
-respuesta: "avec laquelle"  
 tipo: completar  
 respuestas_validas:  
   - "avec laquelle"  
   - "Avec laquelle"  
 enunciado: "L'amie ___ j'ai partagé mes secrets est très discrète."  
-variables:  
-  - antecedente: "amie"  
-  - preposicion: "avec"  
 explicacion: "'Amie' es femenino singular y la preposición es 'avec', por lo que el pronombre correcto es 'avec laquelle' (avec + laquelle)."  
 ```
 
@@ -104,15 +88,11 @@ metadata:
 pasos:  
   - "Determinar la preposición y el género del antecedente."  
   - "Aplicar la regla para 'de' + masculino singular."  
-respuesta: "duquel"  
 tipo: completar  
 respuestas_validas:  
   - "duquel"  
   - "Duquel"  
 enunciado: "Le projet ___ je me suis occupé a beaucoup de défis."  
-variables:  
-  - antecedente: "projet"  
-  - preposicion: "de"  
 explicacion: "'Projet' es masculino singular y la preposición es 'de', por lo que el pronombre correcto es 'duquel' (de + lequel)."  
 ```
 
@@ -128,15 +108,11 @@ metadata:
 pasos:  
   - "Reconocer la preposición y el género del antecedente."  
   - "Seleccionar el pronombre relativo compuesto adecuado."  
-respuesta: "dans lequel"  
 tipo: completar  
 respuestas_validas:  
   - "dans lequel"  
   - "Dans lequel"  
 enunciado: "L'hôtel ___ j'ai passé mes vacances est très calme."  
-variables:  
-  - antecedente: "hôtel"  
-  - preposicion: "dans"  
 explicacion: "'Hôtel' es masculino singular y la preposición es 'dans', por lo que el pronombre correcto es 'dans lequel' (dans + lequel)."  
 ```
 
@@ -152,15 +128,11 @@ metadata:
 pasos:  
   - "Identificar el antecedente y la preposición."  
   - "Aplicar la regla de 'de' + femenino singular."  
-respuesta: "d'où"  
 tipo: completar  
 respuestas_validas:  
   - "d'où"  
   - "D'où"  
 enunciado: "La famille ___ je viens est originaire du sud-ouest de la France."  
-variables:  
-  - antecedente: "famille"  
-  - preposicion: "de"  
 explicacion: "'Famille' es femenino singular y la preposición es 'de', por lo que el pronombre correcto es 'd'où' (de + où)."  
 ```
 
@@ -176,15 +148,11 @@ metadata:
 pasos:  
   - "Determinar el antecedente y la preposición."  
   - "Elegir el pronombre relativo compuesto con 'à' y plural."  
-respuesta: "auxquels"  
 tipo: completar  
 respuestas_validas:  
   - "auxquels"  
   - "Auxquels"  
 enunciado: "Les amis ___ je pense souvent sont mes collègues d'université."  
-variables:  
-  - antecedente: "amis"  
-  - preposicion: "à"  
 explicacion: "'Amis' es masculino plural y la preposición es 'à', por lo que el pronombre correcto es 'auxquels' (à + lesquels)."  
 ```
 
@@ -200,15 +168,11 @@ metadata:
 pasos:  
   - "Reconocer la preposición y el género del antecedente."  
   - "Aplicar la regla para 'de' + masculino singular."  
-respuesta: "dont"  
 tipo: completar  
 respuestas_validas:  
   - "dont"  
   - "Dont"  
 enunciado: "Le livre ___ je t'ai recommandé est très intéressant."  
-variables:  
-  - antecedente: "livre"  
-  - preposicion: "de"  
 explicacion: "'Livre' es masculino singular y la preposición es 'de', por lo que el pronombre correcto es 'dont' (de + lequel)."  
 ```
 
@@ -224,15 +188,11 @@ metadata:
 pasos:  
   - "Identificar el antecedente y la preposición."  
   - "Seleccionar el pronombre relativo compuesto adecuado."  
-respuesta: "dans laquelle"  
 tipo: completar  
 respuestas_validas:  
   - "dans laquelle"  
   - "Dans laquelle"  
 enunciado: "La ville ___ j'ai visité est célèbre pour ses parcs."  
-variables:  
-  - antecedente: "ville"  
-  - preposicion: "dans"  
 explicacion: "'Ville' es femenino singular y la preposición es 'dans', por lo que el pronombre correcto es 'dans laquelle' (dans + laquelle)."  
 ```
 
@@ -248,15 +208,11 @@ metadata:
 pasos:  
   - "Determinar la preposición y el género del antecedente."  
   - "Elegir el pronombre relativo compuesto con 'de'."  
-respuesta: "dont"  
 tipo: completar  
 respuestas_validas:  
   - "dont"  
   - "Dont"  
 enunciado: "La chanson ___ je t'ai envoyé est une mélodie traditionnelle bretonne."  
-variables:  
-  - antecedente: "chanson"  
-  - preposicion: "de"  
 explicacion: "'Chanson' es femenino singular y la preposición es 'de', por lo que el pronombre correcto es 'dont' (de + lequel)."  
 ```
 
@@ -272,15 +228,11 @@ metadata:
 pasos:  
   - "Reconocer el antecedente y la preposición."  
   - "Aplicar la regla para 'à' + femenino singular."  
-respuesta: "avec laquelle"  
 tipo: completar  
 respuestas_validas:  
   - "avec laquelle"  
   - "Avec laquelle"  
 enunciado: "L'amie ___ j'ai partagé mes secrets est très loyale."  
-variables:  
-  - antecedente: "amie"  
-  - preposicion: "avec"  
 explicacion: "'Amie' es femenino singular y la preposición es 'avec', por lo que el pronombre correcto es 'avec laquelle' (avec + laquelle)."  
 ```
 
@@ -296,7 +248,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y la relación entre las oraciones."
   - "Seleccionar el pronombre relativo que combine con la preposición necesaria."
-respuesta: "dans lequel"
 tipo: completar
 respuestas_validas:
   - "dans lequel"
@@ -340,7 +291,6 @@ metadata:
 pasos:
   - "Analisar la estructura de la oración y su negación."
   - "Incluir la preposición necesaria junto al pronombre relativo."
-respuesta: "à laquelle"
 tipo: completar
 respuestas_validas:
   - "à laquelle"
@@ -384,7 +334,6 @@ metadata:
 pasos:
   - "Identificar la función del pronombre relativo (complemento de propósito)."
   - "Combinar el pronombre con la preposición adecuada."
-respuesta: "pour lequel"
 tipo: completar
 respuestas_validas:
   - "pour lequel"
@@ -428,7 +377,6 @@ metadata:
 pasos:
   - "Reconocer la necesidad de una preposición para indicar lugar."
   - "Combinar el pronombre con la preposición adecuada."
-respuesta: "où"
 tipo: completar
 respuestas_validas:
   - "où"
@@ -472,7 +420,6 @@ metadata:
 pasos:
   - "Identificar la relación causal entre las oraciones."
   - "Combinar el pronombre con la preposición adecuada."
-respuesta: "pour lequel"
 tipo: completar
 respuestas_validas:
   - "pour lequel"
@@ -516,7 +463,6 @@ metadata:
 pasos:
   - "Reconocer la necesidad de una preposición para indicar posesión."
   - "Combinar el pronombre con la preposición adecuada."
-respuesta: "dont"
 tipo: completar
 respuestas_validas:
   - "dont"

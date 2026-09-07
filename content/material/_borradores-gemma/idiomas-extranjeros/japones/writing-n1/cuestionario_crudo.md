@@ -10,8 +10,11 @@ pasos:
 respuesta: "していただけますか"  
 tipo: mc  
 enunciado: "彼にこの本を読んでもらいたいんですが、\_\_\_？"  
-opciones_explicitas: ["読んでいただけますか", "読んでくださいませんか", "していただけますか", "してくださいますか"]  
-
+opciones_explicitas:
+  - "読んでいただけますか"
+  - "読んでくださいませんか"
+  - "していただけますか"
+  - "してくださいますか"
 explicacion: "丁寧な依頼の際、「～ていただけますか」が適切。他の選択肢は敬語の使い方が不自然または文法的に誤っている。"  
 
 ---
@@ -31,8 +34,11 @@ pasos:
 respuesta: "見ました"  
 tipo: mc  
 enunciado: "昨日、彼が\_\_\_ことがありました。"  
-opciones_explicitas: ["見ます", "見ていた", "見ました", "見ていました"]  
-
+opciones_explicitas:
+  - "見ます"
+  - "見ていた"
+  - "見ました"
+  - "見ていました"
 explicacion: "「見ました」は過去の完了形で、一度だけ起こった動作を表す。他の選択肢は進行形や現在形で文脈に合わない。"  
 
 ---
@@ -52,8 +58,11 @@ pasos:
 respuesta: "もしも雨が降ったら"  
 tipo: mc  
 enunciado: "\_\_\_、キャンプを中止するかもしれません。"  
-opciones_explicitas: ["もしも雨が降ったら", "雨が降るとしたら", "雨が降っても", "雨が降ったなら"]  
-
+opciones_explicitas:
+  - "もしも雨が降ったら"
+  - "雨が降るとしたら"
+  - "雨が降っても"
+  - "雨が降ったなら"
 explicacion: "「もしも～たら」は仮定の条件を表す標準的な表現。他の選択肢は文法的に不自然または意味が異なる。"  
 
 ---
@@ -73,8 +82,11 @@ pasos:
 respuesta: "よく行く"  
 tipo: mc  
 enunciado: "この店は\_\_\_、いつも混んでいます。"  
-opciones_explicitas: ["よく行く", "行く", "行ったことがある", "行っている"]  
-
+opciones_explicitas:
+  - "よく行く"
+  - "行く"
+  - "行ったことがある"
+  - "行っている"
 explicacion: "「よく行く」は頻度を表す。他の選択肢は動作の時制や頻度を示していない。"  
 
 ---
@@ -94,8 +106,11 @@ pasos:
 respuesta: "なぜなら"  
 tipo: mc  
 enunciado: "\_\_\_、彼はその提案に賛成しませんでした。"  
-opciones_explicitas: ["なぜなら", "しかし", "そのため", "それゆえ"]  
-
+opciones_explicitas:
+  - "なぜなら"
+  - "しかし"
+  - "そのため"
+  - "それゆえ"
 explicacion: "「なぜなら」は理由を導入する際の標準的表現。他の選択肢は接続詞として不適切。"  
 
 ---
@@ -115,8 +130,11 @@ pasos:
 respuesta: "より大きい"  
 tipo: mc  
 enunciado: "この箱は\_\_\_、あの箱よりも。\_"  
-opciones_explicitas: ["より大きい", "大きい", "大きくても", "大きくした"]  
-
+opciones_explicitas:
+  - "より大きい"
+  - "大きい"
+  - "大きくても"
+  - "大きくした"
 explicacion: "「より～」は比較を表す。他の選択肢は比較の形が不完全または誤っている。"  
 
 ---
@@ -136,8 +154,11 @@ pasos:
 respuesta: "していただけますか"  
 tipo: mc  
 enunciado: "この資料を\_\_\_？"  
-opciones_explicitas: ["見せてください", "見てください", "していただけますか", "してください"]  
-
+opciones_explicitas:
+  - "見せてください"
+  - "見てください"
+  - "していただけますか"
+  - "してください"
 explicacion: "「～ていただけますか」は丁寧な依頼の標準的表現。他の選択肢は敬語として不自然。"  
 
 ---
@@ -157,8 +178,11 @@ pasos:
 respuesta: "終わった後"  
 tipo: mc  
 enunciado: "\_\_\_、彼はすぐに休みました。"  
-opciones_explicitas: ["終わった後", "終わる前", "終わっている時", "終わったら"]  
-
+opciones_explicitas:
+  - "終わった後"
+  - "終わる前"
+  - "終わっている時"
+  - "終わったら"
 explicacion: "「～の後」は動作が終了した後の状況を表す。他の選択肢は経過のタイミングに誤りがある。"  
 
 ---
@@ -178,8 +202,11 @@ pasos:
 respuesta: "なっている"  
 tipo: mc  
 enunciado: "彼は\_\_\_、とても疲れている。"  
-opciones_explicitas: ["なっている", "なった", "なる", "なりました"]  
-
+opciones_explicitas:
+  - "なっている"
+  - "なった"
+  - "なる"
+  - "なりました"
 explicacion: "「なっている」は現在の状態を表す。他の選択肢は時制が不適切。"  
 
 ---
@@ -199,8 +226,11 @@ pasos:
 respuesta: "例えば"  
 tipo: mc  
 enunciado: "\_\_\_、彼は大学で研究員をしていた。"  
-opciones_explicitas: ["例えば", "たとえば", "それより", "しかし"]  
-
+opciones_explicitas:
+  - "例えば"
+  - "たとえば"
+  - "それより"
+  - "しかし"
 explicacion: "「例えば」は例示の際の標準的表現。他の選択肢は接続詞として不適切。"  
 
 ---
@@ -220,8 +250,11 @@ pasos:
 respuesta: "だから"  
 tipo: mc  
 enunciado: "\_\_\_、彼はその提案に賛成した。"  
-opciones_explicitas: ["だから", "しかし", "そのため", "それゆえ"]  
-
+opciones_explicitas:
+  - "だから"
+  - "しかし"
+  - "そのため"
+  - "それゆえ"
 explicacion: "「だから」は原因と結果を結びつける接続詞として適切。他の選択肢は関係性が不自然。"  
 
 ---
@@ -241,8 +274,11 @@ pasos:
 respuesta: "しなければならない"  
 tipo: mc  
 enunciado: "この書類は\_\_\_。"  
-opciones_explicitas: ["しなければならない", "する", "している", "した"]  
-
+opciones_explicitas:
+  - "しなければならない"
+  - "する"
+  - "している"
+  - "した"
 explicacion: "「～なければなりません」は義務を表す標準的表現。他の選択肢は時制や文法に誤りがある。"  
 
 ---

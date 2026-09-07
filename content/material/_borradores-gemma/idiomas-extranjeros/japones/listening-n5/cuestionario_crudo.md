@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: '時刻は？' (¿Qué hora es?)"  
   - "Identifica la respuesta en el contexto de una conversación."  
-respuesta: "10時です。"  
 tipo: completar  
 respuestas_validas:  
   - "10時です。"  
@@ -54,7 +53,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: '駅はどこですか？' (¿Dónde está la estación?)"  
   - "Identifica la respuesta en el contexto de una conversación sobre ubicaciones."  
-respuesta: "左に曲がってください。"  
 tipo: completar  
 respuestas_validas:  
   - "左に曲がってください。"  
@@ -100,7 +98,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: '何人ですか？' (¿Cuántas personas hay?)"  
   - "Identifica la respuesta en el contexto de una conversación."  
-respuesta: "5人です。"  
 tipo: completar  
 respuestas_validas:  
   - "5人です。"  
@@ -146,7 +143,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: 'コーヒーが好きですか？' (¿Te gusta el café?)"  
   - "Identifica la respuesta en el contexto de una conversación sobre gustos."  
-respuesta: "はい、好きです。"  
 tipo: completar  
 respuestas_validas:  
   - "はい、好きです。"  
@@ -192,7 +188,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: '彼は誰ですか？' (¿Quién es él?)"  
   - "Identifica la respuesta en el contexto de una conversación familiar."  
-respuesta: "父です。"  
 tipo: completar  
 respuestas_validas:  
   - "父です。"  
@@ -238,7 +233,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: '何を食べますか？' (¿Qué come?)"  
   - "Identifica la respuesta en el contexto de una conversación sobre comida."  
-respuesta: "寿司です。"  
 tipo: completar  
 respuestas_validas:  
   - "寿司です。"  
@@ -284,7 +278,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: 'ありがとうございます。' (Gracias)."  
   - "Identifica la respuesta en el contexto de una conversación de cortesía."  
-respuesta: "どういたしまして。"  
 tipo: completar  
 respuestas_validas:  
   - "どういたしまして。"  
@@ -330,7 +323,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: '何を買いますか？' (¿Qué va a comprar?)"  
   - "Identifica la respuesta en el contexto de una conversación sobre compras."  
-respuesta: "リンゴです。"  
 tipo: completar  
 respuestas_validas:  
   - "リンゴです。"  
@@ -376,7 +368,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: '元気ですか？' (¿Estás bien?)"  
   - "Identifica la respuesta en el contexto de una conversación sobre estado."  
-respuesta: "はい、元気です。"  
 tipo: completar  
 respuestas_validas:  
   - "はい、元気です。"  
@@ -422,7 +413,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: '何冊ですか？' (¿Cuántos libros hay?)"  
   - "Identifica la respuesta en el contexto de una conversación."  
-respuesta: "3冊です。"  
 tipo: completar  
 respuestas_validas:  
   - "3冊です。"  
@@ -468,7 +458,6 @@ metadata:
 pasos:  
   - "Escucha la pregunta: '何を飲みますか？' (¿Qué bebe?)"  
   - "Identifica la respuesta en el contexto de una conversación sobre bebidas."  
-respuesta: "水です。"  
 tipo: completar  
 respuestas_validas:  
   - "水です。"  
@@ -541,8 +530,6 @@ opciones_explicitas:
 respuesta: "12時です"  
 tipo: mc  
 explicacion: "La pregunta 'どちらの時刻ですか？' se usa para preguntar sobre una opción específica de horario. La respuesta más común y natural en este contexto es '12時です' (a las 12)."  
-variables:  
-  - "hora_comida"  
 ```
 
 ### 25 — 数を尋ねる（3）  
@@ -555,12 +542,9 @@ metadata:
 pasos:  
   - "Escuchar el diálogo: 'A: 何個ありますか？ B: ___。'"  
   - "Escribir la cantidad correcta de objetos mencionados."  
-respuesta: "3個です"  
 tipo: completar  
 respuestas_validas:  
   - "3個です"  
   - "三つです"  
 explicacion: "La pregunta '何個ありますか？' se usa para preguntar sobre la cantidad de objetos contables. La respuesta debe incluir el número (3) y la unidad (個), como en '3個です' o su forma numérica escrita '三つです'."  
-variables:  
-  - "cantidad_objetos"  
 ```

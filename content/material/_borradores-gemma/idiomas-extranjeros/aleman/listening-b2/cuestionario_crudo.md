@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Escucha la frase completa y completa el hueco con el sustantivo masculino correcto."
 explicacion: "La expresión 'um ... zu' requiere un sustantivo masculino en nominativo. En este contexto, se refiere a una actividad específica."
-respuesta: "Morgen"
 respuestas_validas:
   - "Morgen"
   - "morgen"
 tipo: completar
 enunciado: "Ich habe einen Termin um ___ zu treffen."
-variables:
-  - "Morgen"
 ```
 
 ### 2 — Modalverb  
@@ -46,7 +43,6 @@ metadata:
 pasos:
   - "Escucha la frase y completa el hueco con la preposición correcta."
 explicacion: "La preposición 'in' se usa para indicar un lugar cerrado, como una ciudad o edificio."
-respuesta: "in"
 respuestas_validas:
   - "in"
   - "In"
@@ -82,7 +78,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con el verbo en forma pasiva."
 explicacion: "El tiempo pasado de 'schreiben' es 'geschrieben', y se usa 'wird' para el presente del pasivo."
-respuesta: "wird geschrieben"
 respuestas_validas:
   - "wird geschrieben"
   - "Wird geschrieben"
@@ -118,7 +113,6 @@ metadata:
 pasos:
   - "Escucha la oración directa y completa el hueco con la forma correcta de la indirecta."
 explicacion: "En la indirecta, los verbos de hablar (sagen, erzählen) se conjugan en presente o pretérito, y las comillas se eliminan."
-respuesta: "sagte"
 respuestas_validas:
   - "sagte"
   - "Sagte"
@@ -136,7 +130,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con el comparativo correcto."
 explicacion: "El comparativo de 'gut' es 'besser', y se usa 'als' para comparar dos elementos."
-respuesta: "besser"
 respuestas_validas:
   - "besser"
   - "Besser"
@@ -172,7 +165,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con el conectivo correcto."
 explicacion: "'Doch' se usa para contrastar ideas, mientras que 'sondern' introduce una corrección."
-respuesta: "doch"
 respuestas_validas:
   - "doch"
   - "Doch"
@@ -208,7 +200,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con el infinitivo correcto."
 explicacion: "El infinitivo se usa después de verbos como 'müssen' o 'sollen'."
-respuesta: "gehen"
 respuestas_validas:
   - "gehen"
   - "Gehen"
@@ -226,7 +217,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con la preposición correcta que requiere Dativ."
 explicacion: "'Mit' se usa para indicar compañía, y requiere el caso dativo."
-respuesta: "mit"
 respuestas_validas:
   - "mit"
   - "Mit"
@@ -262,7 +252,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con el Partizip II correcto."
 explicacion: "El Partizip II de 'schreiben' es 'geschrieben', y se usa en construcciones pasivas o participiales."
-respuesta: "geschrieben"
 respuestas_validas:
   - "geschrieben"
   - "Geschrieben"
@@ -298,7 +287,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con la forma correcta del Konjunktiv I."
 explicacion: "'Würde' se usa en el Konjunktiv I para expresar deseos o hipótesis."
-respuesta: "würde"
 respuestas_validas:
   - "würde"
   - "Würde"
@@ -334,7 +322,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con la preposición correcta."
 explicacion: "'In' se usa para indicar un período de tiempo futuro, como 'in einer Woche'."
-respuesta: "in"
 respuestas_validas:
   - "in"
   - "In"
@@ -370,7 +357,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con la preposición correcta que requiere Akkusativ."
 explicacion: "'Zu' se usa para indicar dirección, como 'zu einem Laden'."
-respuesta: "zu"
 respuestas_validas:
   - "zu"
   - "Zu"
@@ -388,7 +374,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con la forma correcta del Konjunktiv II."
 explicacion: "'Würde' se usa en hipótesis no realizadas, como 'Wenn ich reich wäre...'."
-respuesta: "wäre"
 respuestas_validas:
   - "wäre"
   - "Wäre"
@@ -406,7 +391,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con el adverbio correcto."
 explicacion: "'Noch nicht' se usa para negar una acción realizada, como 'Ich habe noch nicht gegessen'."
-respuesta: "noch nicht"
 respuestas_validas:
   - "noch nicht"
   - "Noch nicht"
@@ -424,7 +408,6 @@ metadata:
 pasos:
   - "Escucha la oración y completa el hueco con el verbo en forma pasiva."
 explicacion: "El pasivo con 'haben' se usa para acciones que no están claramente atribuidas a un sujeto."
-respuesta: "hat geschrieben"
 respuestas_validas:
   - "hat geschrieben"
   - "Hat geschrieben"

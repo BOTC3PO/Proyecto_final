@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre la rutina diaria de Laura."
   - "Identificar la actividad que ocurre después de desayunar."
-respuesta: "goes to work"
 tipo: completar
 respuestas_validas:
   - "goes to work"
@@ -46,7 +45,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre las prácticas ecológicas de Elena."
   - "Identificar la acción que no hace parte de su rutina."
-respuesta: "uses plastic bags"
 tipo: completar
 respuestas_validas:
   - "uses plastic bags"
@@ -84,7 +82,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre las actividades familiares de Clara."
   - "Identificar la actividad que ocurre en la mañana."
-respuesta: "reads the newspaper"
 tipo: completar
 respuestas_validas:
   - "reads the newspaper"
@@ -122,7 +119,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre los objetivos académicos de Ana."
   - "Identificar la carrera que no menciona como opción futura."
-respuesta: "engineer"
 tipo: completar
 respuestas_validas:
   - "engineer"
@@ -160,7 +156,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre los hobbies de Laura."
   - "Identificar la actividad que no menciona en su lista."
-respuesta: "painting"
 tipo: completar
 respuestas_validas:
   - "painting"
@@ -198,7 +193,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre la programación laboral de Carlos."
   - "Identificar la tarea que no menciona como parte de su rutina."
-respuesta: "organize meetings"
 tipo: completar
 respuestas_validas:
   - "organize meetings"
@@ -236,7 +230,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre las compras de Ana."
   - "Identificar el artículo que no menciona como comprar."
-respuesta: "perfume"
 tipo: completar
 respuestas_validas:
   - "perfume"
@@ -274,7 +267,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre las preferencias musicales de Clara."
   - "Identificar el estilo que no menciona como favorito."
-respuesta: "jazz"
 tipo: completar
 respuestas_validas:
   - "jazz"
@@ -312,7 +304,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre los deportes de Laura."
   - "Identificar el deporte que no menciona como practicar."
-respuesta: "tennis"
 tipo: completar
 respuestas_validas:
   - "tennis"
@@ -350,7 +341,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre cómo Elena usa la tecnología."
   - "Identificar el dispositivo que no menciona en su rutina."
-respuesta: "smartwatch"
 tipo: completar
 respuestas_validas:
   - "smartwatch"
@@ -388,7 +378,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre los estudios de Ana."
   - "Identificar la materia que no menciona como estudiar."
-respuesta: "art history"
 tipo: completar
 respuestas_validas:
   - "art history"
@@ -426,7 +415,6 @@ metadata:
 pasos:
   - "Leer el párrafo sobre los hábitos de salud de Clara."
   - "Identificar la actividad que no menciona como parte de su rutina."
-respuesta: "smoking cigarettes"
 tipo: completar
 respuestas_validas:
   - "smoking cigarettes"

@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar la regla del conditionnel con 'si' + imparfait."
   - "Verificar el sujeto y el verbo en el hueco."
-respuesta: "aimerais"
 respuestas_validas:
   - "aimerais"
   - "Aimerais"
@@ -55,7 +54,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'pouvoir' en conditionnel para 'nous'."
   - "Verificar la conjugación."
-respuesta: "pourrions"
 respuestas_validas:
   - "pourrions"
   - "Pourrions"
@@ -126,7 +124,6 @@ metadata:
 pasos:
   - "Reconocer que 'si + imparfait' se usa para situaciones posibles."
   - "Completar el hueco con la forma correcta del conditionnel."
-respuesta: "ferais"
 respuestas_validas:
   - "ferais"
   - "Ferais"
@@ -149,7 +146,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'savoir' en conditionnel para 'ils'."
   - "Verificar la conjugación."
-respuesta: "sauraient"
 respuestas_validas:
   - "sauraient"
   - "Sauraient"
@@ -171,7 +167,6 @@ metadata:
   tags: ["hypothèse", "si on"]
 pasos:
   - "Identifica el verbo que completa correctamente la oración."
-respuesta: "pourrais"
 respuestas_validas:
   - "pourrais"
   - "Pourrais"
@@ -190,7 +185,6 @@ metadata:
 pasos:
   - "Identificar que 'si + imparfait' se usa para situaciones posibles."
   - "Completar el hueco con la forma correcta del conditionnel."
-respuesta: "pourrais"
 respuestas_validas:
   - "pourrais"
   - "Pourrais"
@@ -213,7 +207,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'aller' en conditionnel para 'on'."
   - "Verificar la conjugación."
-respuesta: "irait"
 respuestas_validas:
   - "irait"
   - "Irait"
@@ -260,7 +253,6 @@ metadata:
 pasos:
   - "Identificar que 'si + imparfait' se usa para situaciones posibles."
   - "Completar el hueco con la forma correcta del conditionnel."
-respuesta: "deviendrais"
 respuestas_validas:
   - "deviendrais"
   - "Deviendrais"
@@ -283,7 +275,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'vouloir' en conditionnel para 'elle'."
   - "Verificar la conjugación."
-respuesta: "voudrait"
 respuestas_validas:
   - "voudrait"
   - "Voudrait"
@@ -324,7 +315,6 @@ metadata:
   tags: ["si on pouvait", "posibilidad"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "pourrions"
 respuestas_validas:
   - "pourrions"
   - "Pourrions"
@@ -361,7 +351,6 @@ metadata:
   tags: ["si je devais", "obligación"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "devrais"
 respuestas_validas:
   - "devrais"
   - "Devrais"
@@ -398,7 +387,6 @@ metadata:
   tags: ["si on avait", "regreso al pasado"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "aurions"
 respuestas_validas:
   - "aurions"
   - "Aurions"
@@ -435,7 +423,6 @@ metadata:
   tags: ["si je voulais", "deseo"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "voudrais"
 respuestas_validas:
   - "voudrais"
   - "Voudrais"
@@ -472,7 +459,6 @@ metadata:
   tags: ["si on était", "hipótesis pasada"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "serions"
 respuestas_validas:
   - "serions"
   - "Serions"
@@ -509,7 +495,6 @@ metadata:
   tags: ["si on avait", "regreso al pasado"]
 pasos:
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "aurions"
 respuestas_validas:
   - "aurions"
   - "Aurions"

@@ -61,7 +61,11 @@ metadata:
   tags: ["접속사", "연결"]  
 pasos:  
   - "Elija la opción que completa correctamente el enunciado."  
-opciones_explicitas: ["그러면", "그래서", "하지만", "그렇게"]  
+opciones_explicitas:
+  - "그러면"
+  - "그래서"
+  - "하지만"
+  - "그렇게"
 respuesta: "그래서"  
 explicacion: "'그래서' se usa para conectar dos oraciones con una relación de causa y efecto. En este contexto, es la opción correcta."  
 
@@ -140,7 +144,11 @@ metadata:
   tags: ["의문문", "질문"]  
 pasos:  
   - "Elija la opción que forma una pregunta válida."  
-opciones_explicitas: ["어디서 오셨나요?", "어디서 오셨어요?", "어디서 오셨습니까?", "어디서 오셨어요?"]  
+opciones_explicitas:
+  - "어디서 오셨나요?"
+  - "어디서 오셨어요?"
+  - "어디서 오셨습니까?"
+  - "어디서 오셨어요?"
 respuesta: "어디서 오셨나요?"  
 explicacion: "'-나요?' es la forma estándar para preguntas en contexto formal. Las otras opciones tienen errores de partícula o nivel."  
 
@@ -193,7 +201,7 @@ metadata:
 pasos:  
   - "Identificar el sujeto y el verbo principal en la oración."  
   - "Aplicar la forma -고 있는지 para expresar una acción continua en el presente."  
-respuesta_validas:  
+respuestas_validas:  
   - "듣고"  
   - "듣고 있어요"  
 enunciado: "그 사람은 지금 ___ 해요?"  
@@ -284,7 +292,7 @@ metadata:
 pasos:  
   - "Identificar la estructura de pregunta indirecta."  
   - "Usar -는지 para transformar una oración declarativa en interrogativa."  
-respuesta_validas:  
+respuestas_validas:  
   - "갈"  
   - "갈 거예요"  
 enunciado: "내일 ___?"  
@@ -402,7 +410,7 @@ metadata:
 pasos:  
   - "Reconocer la necesidad de confirmar un estado."  
   - "Aplicar -는지 al verbo en forma de copulativo (-어요)."  
-respuesta_validas:  
+respuestas_validas:  
   - "앉아"  
   - "앉아 있어요"  
 enunciado: "___ 주세요?"  
@@ -438,7 +446,11 @@ metadata:
   tags: ["접속사", "결과"]  
 pasos:  
   - "Elija la opción que completa correctamente el enunciado."  
-opciones_explicitas: ["그렇게 되었어요", "그래서", "하지만", "그렇게"]  
+opciones_explicitas:
+  - "그렇게 되었어요"
+  - "그래서"
+  - "하지만"
+  - "그렇게"
 respuesta: "그래서"  
 explicacion: "'그래서' se usa para conectar dos oraciones con una relación de causa y efecto. Es la opción correcta aquí."  
 
@@ -464,7 +476,7 @@ metadata:
 pasos:  
   - "Identificar el contexto de una acción futura."  
   - "Usar -는지 para transformar la oración en pregunta."  
-respuesta_validas:  
+respuestas_validas:  
   - "갈"  
   - "갈 거예요"  
 enunciado: "내일 ___?"  
@@ -501,7 +513,7 @@ metadata:
 pasos:  
   - "Reconocer la necesidad de preguntar sobre un estado temporal."  
   - "Aplicar -는지 al verbo en forma de copulativo (-어요)."  
-respuesta_validas:  
+respuestas_validas:  
   - "앉아"  
   - "앉아 있어요"  
 enunciado: "___ 주세요?"  
@@ -538,7 +550,7 @@ metadata:
 pasos:  
   - "Identificar el contexto de una acción futura."  
   - "Usar -는지 para transformar la oración en pregunta."  
-respuesta_validas:  
+respuestas_validas:  
   - "갈"  
   - "갈 거예요"  
 enunciado: "내일 ___?"  

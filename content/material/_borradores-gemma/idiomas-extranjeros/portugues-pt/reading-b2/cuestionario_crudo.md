@@ -7,7 +7,6 @@ metadata:
   tags: ["artigos", "definidos"]  
 pasos:  
   - "Identificar el uso correcto del artículo definido en la oración."  
-respuesta: "a"  
 respuestas_validas:  
   - "a"  
   - "A"  
@@ -45,7 +44,6 @@ metadata:
   tags: ["pretérito", "imperfeito"]  
 pasos:  
   - "Identificar la forma verbal que describe una acción habitual en el pasado."  
-respuesta: "estudava"  
 respuestas_validas:  
   - "estudava"  
   - "Estudava"  
@@ -64,7 +62,6 @@ metadata:
   tags: ["gerúndio", "concordância"]  
 pasos:  
   - "Escribir el gerundio que concuerda con el sujeto de la oración."  
-respuesta: "fazendo"  
 respuestas_validas:  
   - "fazendo"  
   - "Fazendo"  
@@ -102,7 +99,6 @@ metadata:
   tags: ["subjuntivo", "presente"]  
 pasos:  
   - "Identificar la forma del subjuntivo que expresa una necesidad."  
-respuesta: "que"  
 respuestas_validas:  
   - "que"  
   - "Que"  
@@ -140,7 +136,6 @@ metadata:
   tags: ["adjetivos", "concordância"]  
 pasos:  
   - "Identificar el adjetivo que concuerda en género y número con su sustantivo."  
-respuesta: "curiosas"  
 respuestas_validas:  
   - "curiosas"  
   - "Curiosas"  
@@ -159,7 +154,6 @@ metadata:
   tags: ["pronombres", "pessoais"]  
 pasos:  
   - "Identificar el pronombre personal que se usa en la oración objetiva."  
-respuesta: "o"  
 respuestas_validas:  
   - "o"  
   - "O"  
@@ -178,7 +172,6 @@ metadata:
   tags: ["pretérito", "composto"]  
 pasos:  
   - "Escribir la forma compuesta del verbo que describe una acción terminada."  
-respuesta: "tinha feito"  
 respuestas_validas:  
   - "tinha feito"  
   - "Tinha feito"  
@@ -216,7 +209,6 @@ metadata:
   tags: ["futuro", "presente"]  
 pasos:  
   - "Identificar la forma del verbo futuro que se usa en contexto de planeación."  
-respuesta: "vou"  
 respuestas_validas:  
   - "vou"  
   - "Vou"  
@@ -254,7 +246,6 @@ metadata:
   tags: ["conjunções", "temporais"]  
 pasos:  
   - "Identificar la conjunción temporal que conecta dos acciones en secuencia."  
-respuesta: "quando"  
 respuestas_validas:  
   - "quando"  
   - "Quando"  
@@ -273,7 +264,6 @@ metadata:
   tags: ["concordância", "sujeito-verbo"]  
 pasos:  
   - "Identificar la forma del verbo que concuerda con el sujeto compuesto."  
-respuesta: "estão"  
 respuestas_validas:  
   - "estão"  
   - "Estão"  
@@ -292,7 +282,6 @@ metadata:
   tags: ["imperativo", "afirmativo"]  
 pasos:  
   - "Escribir la forma del verbo imperativo que se usa para dar una instrucción."  
-respuesta: "vai"  
 respuestas_validas:  
   - "vai"  
   - "Vai"  
@@ -330,7 +319,6 @@ metadata:
   tags: ["pretérito", "irregular"]  
 pasos:  
   - "Identificar la forma del verbo irregular en el pretérito imperfeito."  
-respuesta: "tinha"  
 respuestas_validas:  
   - "tinha"  
   - "Tinha"  
@@ -368,7 +356,6 @@ metadata:
   tags: ["concordância", "terceira pessoa"]  
 pasos:  
   - "Identificar la forma del verbo que concuerda con el pronombre de tercera persona."  
-respuesta: "fala"  
 respuestas_validas:  
   - "fala"  
   - "Fala"  
@@ -406,7 +393,6 @@ metadata:
   tags: ["infinitivo", "pessoal"]  
 pasos:  
   - "Identificar la forma del infinitivo personal que se usa en oraciones subordinadas."  
-respuesta: "ter"  
 respuestas_validas:  
   - "ter"  
   - "Ter"  
@@ -444,7 +430,6 @@ metadata:
   tags: ["concordância", "sujeito-verbo"]  
 pasos:  
   - "Identificar la forma del verbo que concuerda con el sujeto compuesto."  
-respuesta: "estão"  
 respuestas_validas:  
   - "estão"  
   - "Estão"  
@@ -463,7 +448,6 @@ metadata:
   tags: ["subjuntivo", "presente"]  
 pasos:  
   - "Escribir la forma del subjuntivo que se usa cuando el sujeto es indeterminado."  
-respuesta: "que"  
 respuestas_validas:  
   - "que"  
   - "Que"  

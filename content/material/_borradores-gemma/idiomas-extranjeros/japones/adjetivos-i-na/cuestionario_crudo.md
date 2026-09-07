@@ -7,14 +7,11 @@ metadata:
   tags: ["i-adjetivo", "です"]
 pasos:
   - "Complete el hueco con la forma adecuada del adjetivo"
-respuesta: "おいしい"
 respuestas_validas:
   - "おいしい"
   - "おいしく"
 tipo: completar
 enunciado: "この料理は______です。"
-variables:
-  - "料理"
 explicacion: "Los i-adjetivos se conjugan en la forma い cuando van seguidos de です. 'Oishi' (delicioso) cambia a 'oishii' antes del verbo copulativo."
 ```
 
@@ -36,8 +33,6 @@ opciones_explicitas:
 respuesta: "赤い"
 tipo: mc
 enunciado: "このりんごは______です。"
-variables:
-  - "りんご"
 explicacion: "Los na-adjetivos (como 'akai', rojo) se usan con で para describir un estado. En este caso, la forma directa 'akai' es correcta antes de です."
 ```
 
@@ -52,14 +47,11 @@ metadata:
   tags: ["i-adjetivo", "た"]
 pasos:
   - "Complete el hueco con la forma adecuada del adjetivo"
-respuesta: "暑い"
 respuestas_validas:
   - "暑い"
   - "暑くて"
 tipo: completar
 enunciado: "昨日は______でした。"
-variables:
-  - "昨日"
 explicacion: "Los i-adjetivos en pasado se conjugan en かった. 'Atsui' (caliente) se transforma a 'atsukatta' antes de でした."
 ```
 
@@ -81,8 +73,6 @@ opciones_explicitas:
 respuesta: "静か"
 tipo: mc
 enunciado: "彼は______です。"
-variables:
-  - "彼"
 explicacion: "Los na-adjetivos (como 'shizuka', tranquilo) se usan en su forma base antes de です. 'Shizuka' es correcto aquí."
 ```
 
@@ -98,7 +88,6 @@ metadata:
 pasos:  
   - "Identificar el tipo de adjetivo que modifica a '彼女'."  
   - "Completar con la forma correcta del adjetivo."  
-respuesta: "かわいい"  
 tipo: completar  
 respuestas_validas:  
   - "かわいい"  
@@ -125,8 +114,6 @@ opciones_explicitas:
 respuesta: "新しい"
 tipo: mc
 enunciado: "この携帯は______です。"
-variables:
-  - "携帯"
 explicacion: "Los na-adjetivos (como 'atarashii', nuevo) se usan en su forma base antes de です. 'Atarashii' es correcto aquí."
 ```
 
@@ -142,7 +129,6 @@ metadata:
 pasos:  
   - "Distinguir si el adjetivo describe un objeto inanimado."  
   - "Aplicar la forma correcta del adjetivo."  
-respuesta: "はやい"  
 tipo: completar  
 respuestas_validas:  
   - "はやい"  
@@ -163,7 +149,6 @@ metadata:
 pasos:  
   - "Reconocer que '映画' es un objeto inanimado."  
   - "Seleccionar el adjetivo i adecuado para describirlo."  
-respuesta: "おもしろい"  
 tipo: completar  
 respuestas_validas:  
   - "おもしろい"  
@@ -183,14 +168,11 @@ metadata:
   tags: ["i-adjetivo", "です"]
 pasos:
   - "Complete el hueco con la forma adecuada del adjetivo"
-respuesta: "甘い"
 respuestas_validas:
   - "甘い"
   - "甘くて"
 tipo: completar
 enunciado: "このケーキは______です。"
-variables:
-  - "ケーキ"
 explicacion: "Los i-adjetivos se conjugan en la forma い cuando van seguidos de です. 'Amai' (dulce) cambia a 'amakii' antes del verbo copulativo."
 ```
 
@@ -212,8 +194,6 @@ opciones_explicitas:
 respuesta: "古い"
 tipo: mc
 enunciado: "この本は______です。"
-variables:
-  - "本"
 explicacion: "Los na-adjetivos (como 'furui', viejo) se usan en su forma base antes de です. 'Furui' es correcto aquí."
 ```
 
@@ -229,7 +209,6 @@ metadata:
 pasos:  
   - "Identificar que el sujeto es una persona."  
   - "Elegir el adjetivo i correcto para describirlo."  
-respuesta: "せっかち"  
 tipo: completar  
 respuestas_validas:  
   - "せっかち"  
@@ -250,7 +229,6 @@ metadata:
 pasos:  
   - "Determinar que 'カフェ' es un lugar inanimado."  
   - "Completar con el adjetivo i adecuado."  
-respuesta: "にぎやか"  
 tipo: completar  
 respuestas_validas:  
   - "にぎやか"  
@@ -271,7 +249,6 @@ metadata:
 pasos:  
   - "Reconocer que '本' (libro) es un objeto inanimado."  
   - "Usar el adjetivo i correcto."  
-respuesta: "おもしろい"  
 tipo: completar  
 respuestas_validas:  
   - "おもしろい"  

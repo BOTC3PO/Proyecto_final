@@ -11,7 +11,6 @@ pasos:
 explicacion: "El condicional mixto combina un pasado hipotético con un resultado en el presente. 'Had studied' (past perfect) requiere 'would be' (present result)."
 tipo: completar
 enunciado: "If I had studied harder, I ______ now."
-respuesta: "would be passing"
 respuestas_validas:
   - "would be passing"
   - "Would be passing"
@@ -34,7 +33,6 @@ pasos:
 explicacion: "Un supuesto en el presente (If I were) requiere un resultado futuro (would be)."
 tipo: completar
 enunciado: "If I ______ more confident, I would take that job offer next week."
-respuesta: "were"
 respuestas_validas:
   - "were"
   - "Were"
@@ -57,7 +55,6 @@ pasos:
 explicacion: "El pasado perfecto en la cláusula condicional (had known) se combina con el presente en el resultado (would be)."
 tipo: completar
 enunciado: "If she ______ my advice, she would be in a better position today."
-respuesta: "had followed"
 respuestas_validas:
   - "had followed"
   - "Had followed"
@@ -80,7 +77,6 @@ pasos:
 explicacion: "'Could have' (past hypothetical) requiere 'would be' (present result)."
 tipo: completar
 enunciado: "If I ______ more time, I would be able to help you now."
-respuesta: "had had"
 respuestas_validas:
   - "had had"
   - "Had had"
@@ -103,7 +99,6 @@ pasos:
 explicacion: "El uso de 'would have' (past hypothetical) se combina con un resultado en el presente (is)."
 tipo: completar
 enunciado: "If you ______ me earlier, I wouldn’t be waiting for you now."
-respuesta: "had called"
 respuestas_validas:
   - "had called"
   - "Had called"
@@ -126,7 +121,6 @@ pasos:
 explicacion: "'Had saved' (past perfect) requiere 'would have' (future hypothetical)."
 tipo: completar
 enunciado: "If I ______ more money, I would have bought that house by now."
-respuesta: "had saved"
 respuestas_validas:
   - "had saved"
   - "Had saved"
@@ -149,7 +143,6 @@ pasos:
 explicacion: "'Had taken' (past perfect) se combina con 'would be' (present result)."
 tipo: completar
 enunciado: "If he ______ the train, he would be here by now."
-respuesta: "had caught"
 respuestas_validas:
   - "had caught"
   - "Had caught"
@@ -172,7 +165,6 @@ pasos:
 explicacion: "'Had discovered' (past perfect) requiere 'would have changed' (present result)."
 tipo: completar
 enunciado: "If scientists ______ penicillin earlier, it would have changed modern medicine."
-respuesta: "had discovered"
 respuestas_validas:
   - "had discovered"
   - "Had discovered"
@@ -195,7 +187,6 @@ pasos:
 explicacion: "'Would have' (future hypothetical) se usa con 'had been' (past perfect)."
 tipo: completar
 enunciado: "If they ______ more prepared, they would have passed the exam."
-respuesta: "had been"
 respuestas_validas:
   - "had been"
   - "Had been"
@@ -218,7 +209,6 @@ pasos:
 explicacion: "'Had studied' (past perfect) requiere 'would be' (present result)."
 tipo: completar
 enunciado: "If I ______ for the test, I would be passing it now."
-respuesta: "had studied"
 respuestas_validas:
   - "had studied"
   - "Had studied"
@@ -241,7 +231,6 @@ pasos:
 explicacion: "'Had known' (past perfect) se combina con 'would be' (present result)."
 tipo: completar
 enunciado: "If you ______ my fears, you would be more supportive now."
-respuesta: "had known"
 respuestas_validas:
   - "had known"
   - "Had known"
@@ -264,7 +253,6 @@ pasos:
 explicacion: "'Had been' (past perfect) requiere 'would have' (future hypothetical)."
 tipo: completar
 enunciado: "If I ______ more careful, I would have avoided this mistake."
-respuesta: "had been"
 respuestas_validas:
   - "had been"
   - "Had been"
@@ -287,7 +275,6 @@ pasos:
 explicacion: "'Had followed' (past perfect) se combina con 'would be' (present result)."
 tipo: completar
 enunciado: "If we ______ his advice, we would be in a better position today."
-respuesta: "had followed"
 respuestas_validas:
   - "had followed"
   - "Had followed"
@@ -310,7 +297,6 @@ pasos:
 explicacion: "'Had been' (past perfect) requiere 'would have' (future hypothetical)."
 tipo: completar
 enunciado: "If she ______ more confident, she would have applied for that job."
-respuesta: "had been"
 respuestas_validas:
   - "had been"
   - "Had been"
@@ -333,7 +319,6 @@ pasos:
 explicacion: "'Had been prepared' (past perfect) se combina con 'would be' (present result)."
 tipo: completar
 enunciado: "If he ______ better prepared, he would be passing the test now."
-respuesta: "had been"
 respuestas_validas:
   - "had been"
   - "Had been"
@@ -356,7 +341,6 @@ pasos:
 explicacion: "'Had left' (past perfect) requiere 'would be' (present result)."
 tipo: completar
 enunciado: "If she ______ earlier, she would be here by now."
-respuesta: "had left"
 respuestas_validas:
   - "had left"
   - "Had left"
@@ -379,7 +363,6 @@ pasos:
 explicacion: "'Had wanted' (past perfect) se combina con 'would be' (present result)."
 tipo: completar
 enunciado: "If I ______ to study more, I would be passing this course now."
-respuesta: "had wanted"
 respuestas_validas:
   - "had wanted"
   - "Had wanted"
@@ -402,7 +385,6 @@ pasos:
 explicacion: "'Had followed' (past perfect) requiere 'would be' (present result)."
 tipo: completar
 enunciado: "If I ______ his advice, I would be in a better situation now."
-respuesta: "had followed"
 respuestas_validas:
   - "had followed"
   - "Had followed"
@@ -422,16 +404,11 @@ metadata:
 pasos:
   - "Identificar el tiempo de la acción hipotética (pasado) y su consecuencia en el presente."
   - "Aplicar la estructura condicional mixta: si-cláusula con past perfect, resultado en would + base verb."
-respuesta: "had been"
 respuestas_validas:
   - "Had been"
   - "HAD BEEN"
 tipo: completar
 enunciado: "If they ______ aware of the risks, they would be making better decisions now."
-variables:
-  - subject: "they"
-  - action: "aware of the risks"
-  - result: "making better decisions now"
 explicacion: "En los condicionales mixtos, el pasado en la si-cláusula (past perfect) indica una acción hipotética no realizada, mientras que el resultado actual se expresa con 'would + base verb'. Aquí, 'had been' refleja la ausencia de conciencia pasada y su efecto presente."
 ```
 
@@ -448,7 +425,6 @@ pasos:
 explicacion: "'Had studied' (past perfect) requiere 'would be' (present result)."
 tipo: completar
 enunciado: "If they ______ more, they would be passing the test now."
-respuesta: "had studied"
 respuestas_validas:
   - "had studied"
   - "Had studied"
@@ -471,7 +447,6 @@ pasos:
 explicacion: "'Had been' (past perfect) se combina con 'would be' (present result)."
 tipo: completar
 enunciado: "If she ______ more responsible, she would be a better leader now."
-respuesta: "had been"
 respuestas_validas:
   - "had been"
   - "Had been"
@@ -494,7 +469,6 @@ pasos:
 explicacion: "'Had waited' (past perfect) requiere 'would be' (present result)."
 tipo: completar
 enunciado: "If you ______ longer, you would be here by now."
-respuesta: "had waited"
 respuestas_validas:
   - "had waited"
   - "Had waited"
@@ -517,7 +491,6 @@ pasos:
 explicacion: "'Would have' (future hypothetical) se usa con 'had been' (past perfect)."
 tipo: completar
 enunciado: "If he ______ more focused, he would have passed the exam."
-respuesta: "had been"
 respuestas_validas:
   - "had been"
   - "Had been"
@@ -540,7 +513,6 @@ pasos:
 explicacion: "'Had been' (past perfect) se combina con 'would be' (present result)."
 tipo: completar
 enunciado: "If I ______ more patient, I would be a better teacher now."
-respuesta: "had been"
 respuestas_validas:
   - "had been"
   - "Had been"
@@ -563,7 +535,6 @@ pasos:
 explicacion: "'Had prepared' (past perfect) requiere 'would have' (future hypothetical)."
 tipo: completar
 enunciado: "If I ______ more, I would have passed this test."
-respuesta: "had prepared"
 respuestas_validas:
   - "had prepared"
   - "Had prepared"

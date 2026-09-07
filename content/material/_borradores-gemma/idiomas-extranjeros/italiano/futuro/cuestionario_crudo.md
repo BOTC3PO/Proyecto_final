@@ -8,12 +8,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "io".  
   - Aplicar la conjugación del futuro simple a "parlare".  
-respuesta: "parlerò"  
 respuestas_validas:  
   - "Parlerò"  
 tipo: completar  
 enunciado: "Domani io ___ con il professore."  
-variables: {}  
 explicacion: El futuro de "io parlare" es "parlerò". La forma se forma añadiendo "-ò" al infinitivo.  
 ```
 
@@ -36,7 +34,6 @@ opciones_explicitas:
 respuesta: "vedrete"  
 tipo: mc  
 enunciado: "Voi ___ il film domani sera."  
-variables: {}  
 explicacion: El futuro de "voi vedere" es "vedrete". Se añade "-ete" al infinitivo.  
 ```
 
@@ -52,12 +49,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "noi".  
   - Aplicar la conjugación del futuro a "andare".  
-respuesta: "andremo"  
 respuestas_validas:  
   - "Andremo"  
 tipo: completar  
 enunciado: "Dopo pranzo, noi ___ in montagna."  
-variables: {}  
 explicacion: El futuro de "noi andare" es "andremo". Se añade "-emo" al infinitivo.  
 ```
 
@@ -80,7 +75,6 @@ opciones_explicitas:
 respuesta: "finirà"  
 tipo: mc  
 enunciado: "Lui ___ il lavoro entro domani."  
-variables: {}  
 explicacion: El futuro de "lui finire" es "finirà". Se añade "-à" al infinitivo.  
 ```
 
@@ -96,12 +90,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "lei".  
   - Aplicar la conjugación del futuro a "mangiare".  
-respuesta: "mangerà"  
 respuestas_validas:  
   - "Mangerà"  
 tipo: completar  
 enunciado: "Lei ___ una torta al cioccolato."  
-variables: {}  
 explicacion: El futuro de "lei mangiare" es "mangerà". Se añade "-à" al infinitivo.  
 ```
 
@@ -124,7 +116,6 @@ opciones_explicitas:
 respuesta: "dirai"  
 tipo: mc  
 enunciado: "Tu ___ la verità domani."  
-variables: {}  
 explicacion: El futuro de "tu dire" es "dirai". Se añade "-ai" al infinitivo.  
 ```
 
@@ -140,12 +131,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "loro".  
   - Aplicar la conjugación del futuro a "dormire".  
-respuesta: "dormiranno"  
 respuestas_validas:  
   - "Dormiranno"  
 tipo: completar  
 enunciado: "Loro ___ tutta la notte."  
-variables: {}  
 explicacion: El futuro de "loro dormire" es "dormiranno". Se añade "-anno" al infinitivo.  
 ```
 
@@ -168,7 +157,6 @@ opciones_explicitas:
 respuesta: "saprò"  
 tipo: mc  
 enunciado: "Io ___ la risposta domani."  
-variables: {}  
 explicacion: El futuro de "io sapere" es "saprò". Se añade "-ò" al infinitivo.  
 ```
 
@@ -184,12 +172,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "voi".  
   - Aplicar la conjugación del futuro a "bere".  
-respuesta: "berete"  
 respuestas_validas:  
   - "Berete"  
 tipo: completar  
 enunciado: "Voi ___ il caffè alla mattina."  
-variables: {}  
 explicacion: El futuro de "voi bere" es "berete". Se añade "-ete" al infinitivo.  
 ```
 
@@ -212,7 +198,6 @@ opciones_explicitas:
 respuesta: "correremo"  
 tipo: mc  
 enunciado: "Noi ___ al parco domani."  
-variables: {}  
 explicacion: El futuro de "noi correre" es "correremo". Se añade "-emo" al infinitivo.  
 ```
 
@@ -228,12 +213,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "lui".  
   - Aplicar la conjugación del futuro a "cucinare".  
-respuesta: "cucinerà"  
 respuestas_validas:  
   - "Cucinerà"  
 tipo: completar  
 enunciado: "Lui ___ una cena speciale."  
-variables: {}  
 explicacion: El futuro de "lui cucinare" es "cucinerà". Se añade "-à" al infinitivo.  
 ```
 
@@ -256,7 +239,6 @@ opciones_explicitas:
 respuesta: "comprerà"  
 tipo: mc  
 enunciado: "Lei ___ un regalo per il compleanno."  
-variables: {}  
 explicacion: El futuro de "lei comprare" es "comprerà". Se añade "-à" al infinitivo.  
 ```
 
@@ -272,12 +254,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "tu".  
   - Aplicar la conjugación del futuro a "leggere".  
-respuesta: "leggerai"  
 respuestas_validas:  
   - "Leggerai"  
 tipo: completar  
 enunciado: "Tu ___ il libro domani."  
-variables: {}  
 explicacion: El futuro de "tu leggere" es "leggerai". Se añade "-ai" al infinitivo.  
 ```
 
@@ -314,12 +294,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "io".  
   - Aplicar la conjugación del futuro a "andare".  
-respuesta: "andré"  
 respuestas_validas:  
   - "André"  
 tipo: completar  
 enunciado: "Io ___ in vacanza a luglio."  
-variables: {}  
 explicacion: El futuro de "io andare" es "andré". Se añade "-é" al infinitivo.  
 ```
 
@@ -342,7 +320,6 @@ opciones_explicitas:
 respuesta: "farete"  
 tipo: mc  
 enunciado: "Voi ___ una passeggiata domani."  
-variables: {}  
 explicacion: El futuro de "voi fare" es "farete". Se añade "-ete" al infinitivo.  
 ```
 
@@ -358,12 +335,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "noi".  
   - Aplicar la conjugación del futuro a "prendere".  
-respuesta: "prenderemo"  
 respuestas_validas:  
   - "Prenderemo"  
 tipo: completar  
 enunciado: "Noi ___ il treno alle 8."  
-variables: {}  
 explicacion: El futuro de "noi prendere" es "prenderemo". Se añade "-emo" al infinitivo.  
 ```
 
@@ -386,7 +361,6 @@ opciones_explicitas:
 respuesta: "aspetterà"  
 tipo: mc  
 enunciado: "Lui ___ il tuo messaggio."  
-variables: {}  
 explicacion: El futuro de "lui aspettare" es "aspetterà". Se añade "-à" al infinitivo.  
 ```
 
@@ -402,12 +376,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "lei".  
   - Aplicar la conjugación del futuro a "vedere".  
-respuesta: "vedrà"  
 respuestas_validas:  
   - "Vedrà"  
 tipo: completar  
 enunciado: "Lei ___ il film in televisione."  
-variables: {}  
 explicacion: El futuro de "lei vedere" es "vedrà". Se añade "-à" al infinitivo.  
 ```
 
@@ -430,7 +402,6 @@ opciones_explicitas:
 respuesta: "correrai"  
 tipo: mc  
 enunciado: "Tu ___ in giro per la città."  
-variables: {}  
 explicacion: El futuro de "tu correre" es "correrai". Se añade "-ai" al infinitivo.  
 ```
 
@@ -446,12 +417,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "loro".  
   - Aplicar la conjugación del futuro a "mangiare".  
-respuesta: "mangeranno"  
 respuestas_validas:  
   - "Mangeranno"  
 tipo: completar  
 enunciado: "Loro ___ una pizza al forno."  
-variables: {}  
 explicacion: El futuro de "loro mangiare" es "mangeranno". Se añade "-anno" al infinitivo.  
 ```
 
@@ -474,7 +443,6 @@ opciones_explicitas:
 respuesta: "saprò"  
 tipo: mc  
 enunciado: "Io ___ la verità presto."  
-variables: {}  
 explicacion: El futuro de "io sapere" es "saprò". Se añade "-ò" al infinitivo.  
 ```
 
@@ -490,12 +458,10 @@ metadata:
 pasos:  
   - Identificar el sujeto "voi".  
   - Aplicar la conjugación del futuro a "dormire".  
-respuesta: "dormirete"  
 respuestas_validas:  
   - "Dormirete"  
 tipo: completar  
 enunciado: "Voi ___ tutta la notte."  
-variables: {}  
 explicacion: El futuro de "voi dormire" es "dormirete". Se añade "-ete" al infinitivo.  
 ```
 
@@ -518,7 +484,6 @@ opciones_explicitas:
 respuesta: "andremo"  
 tipo: mc  
 enunciado: "Noi ___ in vacanza a luglio."  
-variables: {}  
 explicacion: El futuro de "noi andare" es "andremo". Se añade "-emo" al infinitivo.  
 ```
 

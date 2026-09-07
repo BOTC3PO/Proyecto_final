@@ -10,9 +10,6 @@ pasos:
 explicacion: "El verbo 'agir' se transforma en 'l’action', que es un sustantivo abstracto. En este contexto, la acción es el objeto del trabajo."  
 tipo: completar  
 enunciado: "Son travail consiste à ___ dans une entreprise."  
-variables:  
-  - "verbe": "agir"  
-respuesta: "l’action"  
 respuestas_validas:  
   - "L’action"  
   - "l'action"  
@@ -54,9 +51,6 @@ pasos:
 explicacion: "'Décrire' se transforma en 'la description', que es un sustantivo abstracto. En este contexto, la descripción es el objeto del trabajo."  
 tipo: completar  
 enunciado: "Le ___ de ce livre est très détaillé."  
-variables:  
-  - "verbe": "décrire"  
-respuesta: "description"  
 respuestas_validas:  
   - "Description"  
   - "la description"  
@@ -98,9 +92,6 @@ pasos:
 explicacion: "'Parler' se transforma en 'le discours', que es un sustantivo abstracto. En este contexto, el discurso es el objeto del debate."  
 tipo: completar  
 enunciado: "Le ___ entre les deux partis est très tendu."  
-variables:  
-  - "verbe": "parler"  
-respuesta: "discours"  
 respuestas_validas:  
   - "Discours"  
   - "le discours"  
@@ -142,9 +133,6 @@ pasos:
 explicacion: "'Attendre' se transforma en 'l’attente', que es un sustantivo abstracto. En este contexto, la espera es el objeto del evento."  
 tipo: completar  
 enunciado: "La ___ des voyageurs à l’aéroport est longue."  
-variables:  
-  - "verbe": "attendre"  
-respuesta: "attente"  
 respuestas_validas:  
   - "Attente"  
   - "l’attente"  
@@ -186,9 +174,6 @@ pasos:
 explicacion: "'Comprendre' se transforma en 'la compréhension', que es un sustantivo abstracto. En este contexto, la comprensión es el objeto del proceso."  
 tipo: completar  
 enunciado: "La ___ du texte est essentielle pour l’analyse."  
-variables:  
-  - "verbe": "comprendre"  
-respuesta: "compréhension"  
 respuestas_validas:  
   - "Compréhension"  
   - "la compréhension"  
@@ -230,9 +215,6 @@ pasos:
 explicacion: "'Travailler' se transforma en 'le travail', que es un sustantivo concreto. En este contexto, el trabajo es el objeto del proceso."  
 tipo: completar  
 enunciado: "Son ___ dans l’industrie est reconnu."  
-variables:  
-  - "verbe": "travailler"  
-respuesta: "travail"  
 respuestas_validas:  
   - "Travail"  
   - "le travail"  
@@ -274,9 +256,6 @@ pasos:
 explicacion: "'Décider' se transforma en 'la décision', que es un sustantivo abstracto. En este contexto, la decisión es el objeto del proceso."  
 tipo: completar  
 enunciado: "La ___ de l’entreprise a été prise hier."  
-variables:  
-  - "verbe": "décider"  
-respuesta: "décision"  
 respuestas_validas:  
   - "Décision"  
   - "la décision"  
@@ -318,9 +297,6 @@ pasos:
 explicacion: "'Préparer' se transforma en 'la préparation', que es un sustantivo abstracto. En este contexto, la preparación es el objeto del proceso."  
 tipo: completar  
 enunciado: "La ___ du projet a pris plusieurs mois."  
-variables:  
-  - "verbe": "préparer"  
-respuesta: "préparation"  
 respuestas_validas:  
   - "Préparation"  
   - "la préparation"  
@@ -362,9 +338,6 @@ pasos:
 explicacion: "'Protéger' se transforma en 'la protection', que es un sustantivo abstracto. En este contexto, la protección es el objeto del proceso."  
 tipo: completar  
 enunciado: "La ___ des droits de l’homme est une priorité."  
-variables:  
-  - "verbe": "protéger"  
-respuesta: "protection"  
 respuestas_validas:  
   - "Protection"  
   - "la protection"  
@@ -406,9 +379,6 @@ pasos:
 explicacion: "'Attacher' se transforma en 'l’attachement', que es un sustantivo abstracto. En este contexto, el attachement es el objeto del proceso."  
 tipo: completar  
 enunciado: "Le ___ de l’enfant à ses parents est très fort."  
-variables:  
-  - "verbe": "attacher"  
-respuesta: "attachement"  
 respuestas_validas:  
   - "Attachement"  
   - "l’attachement"  
@@ -450,9 +420,6 @@ pasos:
 explicacion: "'Agir' se transforma en 'l’action', que es un sustantivo abstracto. En este contexto, la acción es el objeto del proceso."  
 tipo: completar  
 enunciado: "La ___ du gouvernement a été critiquée par les opposants."  
-variables:  
-  - "verbe": "agir"  
-respuesta: "action"  
 respuestas_validas:  
   - "Action"  
   - "l’action"  
@@ -494,9 +461,6 @@ pasos:
 explicacion: "'Décrire' se transforma en 'la description', que es un sustantivo abstracto. En este contexto, la descripción es el objeto del proceso."  
 tipo: completar  
 enunciado: "La ___ du phénomène est très détaillée."  
-variables:  
-  - "verbe": "décrire"  
-respuesta: "description"  
 respuestas_validas:  
   - "Description"  
   - "la description"  
@@ -514,13 +478,11 @@ metadata:
 pasos:  
   - "Identificar el verbo en la oración y su forma nominal correspondiente."  
   - "Verificar si el sufijo '-tion' o '-sion' se aplica según las reglas de formación."  
-respuesta: "analyse"  
 respuestas_validas:  
   - "analyse"  
   - "Analyse"  
 tipo: completar  
 enunciado: "Il s'agit d'une ___ qui nécessite des compétences spécifiques."  
-variables: []  
 explicacion: "El verbo 'analyser' se transforma en el sustantivo 'l’analyse', que requiere el artículo femenino 'une'. La forma nominalizada sigue la regla de los sufijos '-tion' o '-sion' según el verbo original."  
 ```
 
@@ -536,9 +498,6 @@ pasos:
 explicacion: "'Parler' se transforma en 'le discours', que es un sustantivo abstracto. En este contexto, el discurso es el objeto del proceso."  
 tipo: completar  
 enunciado: "Le ___ des politiciens sur l’immigration est ambigu."  
-variables:  
-  - "verbe": "parler"  
-respuesta: "discours"  
 respuestas_validas:  
   - "Discours"  
   - "le discours"  

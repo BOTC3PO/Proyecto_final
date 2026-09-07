@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo en infinitivo."
   - "Aplicar la estructura 'vai + infinitivo'."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -27,7 +26,6 @@ metadata:
 pasos:
   - "Identificar el contexto de predicción."
   - "Usar la forma 'será + sustantivo' para futuro distante."
-respuesta: "será"
 tipo: completar
 respuestas_validas:
   - "será"
@@ -46,7 +44,6 @@ metadata:
 pasos:
   - "Reconocer el horario mencionado en el enunciado."
   - "Aplicar 'vou + infinitivo' para futuro próximo con tiempo fijo."
-respuesta: "vou"
 tipo: completar
 respuestas_validas:
   - "vou"
@@ -65,7 +62,6 @@ metadata:
 pasos:
   - "Identificar la condición en la oración."
   - "Usar 'vai' con el infinitivo para futuro próximo en contexto hipotético."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -84,7 +80,6 @@ metadata:
 pasos:
   - "Reconocer la negación en el sujeto."
   - "Usar 'não vai + infinitivo' para futuro próximo con negativa."
-respuesta: "não vai"
 tipo: completar
 respuestas_validas:
   - "não vai"
@@ -103,7 +98,6 @@ metadata:
 pasos:
   - "Identificar el verbo irregular en la oración."
   - "Aplicar 'vou + infinitivo' para futuro próximo con verbo irregular (ir)."
-respuesta: "vou"
 tipo: completar
 respuestas_validas:
   - "vou"
@@ -122,7 +116,6 @@ metadata:
 pasos:
   - "Identificar el sujeto impersonal en la oración."
   - "Usar 'vai' con el infinitivo para futuro próximo en contexto impersonal."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -141,7 +134,6 @@ metadata:
 pasos:
   - "Reconocer el verbo de estado en la oración."
   - "Usar 'será' para futuro distante con estados o condiciones."
-respuesta: "será"
 tipo: completar
 respuestas_validas:
   - "será"
@@ -160,7 +152,6 @@ metadata:
 pasos:
   - "Identificar el horario indefinido en la oración."
   - "Usar 'vai + infinitivo' para futuro próximo sin especificar tiempo."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -179,7 +170,6 @@ metadata:
 pasos:
   - "Identificar el contexto de probabilidad."
   - "Usar 'vai' con el infinitivo para futuro próximo en oraciones hipotéticas."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -198,7 +188,6 @@ metadata:
 pasos:
   - "Reconocer el verbo de movimiento en la oración."
   - "Aplicar 'vou + infinitivo' para futuro próximo con verbo de movimiento (ir)."
-respuesta: "vou"
 tipo: completar
 respuestas_validas:
   - "vou"
@@ -217,7 +206,6 @@ metadata:
 pasos:
   - "Identificar el verbo de ocurrir en la oración."
   - "Usar 'vai' con el infinitivo para futuro próximo con eventos futuros."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -236,7 +224,6 @@ metadata:
 pasos:
   - "Reconocer la acción planificada en la oración."
   - "Usar 'vou + infinitivo' para futuro próximo con planificaciones personales."
-respuesta: "vou"
 tipo: completar
 respuestas_validas:
   - "vou"
@@ -255,7 +242,6 @@ metadata:
 pasos:
   - "Identificar el tiempo indefinido en la oración."
   - "Usar 'vai' con el infinitivo para futuro próximo sin horario fijo."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -274,7 +260,6 @@ metadata:
 pasos:
   - "Reconocer el verbo de cambio en la oración."
   - "Usar 'será' para futuro distante con transformaciones o cambios."
-respuesta: "será"
 tipo: completar
 respuestas_validas:
   - "será"
@@ -293,7 +278,6 @@ metadata:
 pasos:
   - "Identificar el verbo de deseo en la oración."
   - "Usar 'vou + infinitivo' para futuro próximo con deseos personales."
-respuesta: "vou"
 tipo: completar
 respuestas_validas:
   - "vou"
@@ -312,7 +296,6 @@ metadata:
 pasos:
   - "Reconocer la consecuencia en la oración."
   - "Usar 'vai' con el infinitivo para futuro próximo en contextos de causa-efecto."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -331,7 +314,6 @@ metadata:
 pasos:
   - "Identificar el verbo de repetición en la oración."
   - "Usar 'vou + infinitivo' para futuro próximo con acciones recurrentes."
-respuesta: "vou"
 tipo: completar
 respuestas_validas:
   - "vou"
@@ -350,7 +332,6 @@ metadata:
 pasos:
   - "Reconocer el verbo de ocurrencia en la oración."
   - "Usar 'vai' con el infinitivo para futuro próximo con eventos futuros."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -369,7 +350,6 @@ metadata:
 pasos:
   - "Identificar el verbo de viaje en la oración."
   - "Usar 'vou + infinitivo' para futuro próximo con acciones de desplazamiento."
-respuesta: "vou"
 tipo: completar
 respuestas_validas:
   - "vou"
@@ -388,7 +368,6 @@ metadata:
 pasos:
   - "Identificar el contexto de probabilidad baja."
   - "Usar 'vai' con el infinitivo para futuro próximo en oraciones dudosas."
-respuesta: "vai"
 tipo: completar
 respuestas_validas:
   - "vai"
@@ -407,7 +386,6 @@ metadata:
 pasos:
   - "Reconocer el verbo de cambio de estado en la oración."
   - "Usar 'será' para futuro distante con transformaciones personales."
-respuesta: "será"
 tipo: completar
 respuestas_validas:
   - "será"
@@ -426,7 +404,6 @@ metadata:
 pasos:
   - "Identificar el sujeto colectivo en la oración."
   - "Usar 'vamos + infinitivo' para futuro próximo con grupos."
-respuesta: "vamos"
 tipo: completar
 respuestas_validas:
   - "vamos"
@@ -445,7 +422,6 @@ metadata:
 pasos:
   - "Reconocer el horario específico en la oración."
   - "Usar 'vou + infinitivo' para futuro próximo con tiempo fijo (14h)."
-respuesta: "vou"
 tipo: completar
 respuestas_validas:
   - "vou"
@@ -464,7 +440,6 @@ metadata:
 pasos:
   - "Identificar la negación y el tiempo indefinido en la oración."
   - "Usar 'não vou + infinitivo' para futuro próximo con negativa y horario no fijo."
-respuesta: "não vou"
 tipo: completar
 respuestas_validas:
   - "não vou"

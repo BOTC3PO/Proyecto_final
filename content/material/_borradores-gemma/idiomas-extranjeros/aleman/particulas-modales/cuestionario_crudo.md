@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identifica el contexto de la oración y el rol de la partícula."
   - "Reemplaza el espacio con una partícula que exprese duda o contradicción."
-respuesta: "doch"
 tipo: completar
 respuestas_validas:
   - "Doch"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - "Reconoce el tono de la oración y el propósito de la partícula."
   - "Elige la partícula que refuerce una afirmación en un contexto informal."
-respuesta: "ja"
 tipo: completar
 respuestas_validas:
   - "JA"
@@ -50,7 +48,6 @@ metadata:
 pasos:
   - "Analiza si la oración expresa incertidumbre o posibilidad."
   - "Elige la partícula que indique una suposición no confirmada."
-respuesta: "vielleicht"
 tipo: completar
 respuestas_validas:
   - "Vielleicht"
@@ -71,7 +68,6 @@ metadata:
 pasos:
   - "Identifica si la partícula enfatiza una acción ya realizada."
   - "Elige 'schon' para marcar un tiempo anterior al esperado."
-respuesta: "schon"
 tipo: completar
 respuestas_validas:
   - "Schon"
@@ -92,7 +88,6 @@ metadata:
 pasos:
   - "Reconoce si la partícula intensifica una negación."
   - "Elige 'gar nicht' para enfatizar que algo no ocurre en absoluto."
-respuesta: "gar nicht"
 tipo: completar
 respuestas_validas:
   - "Gar nicht"
@@ -113,7 +108,6 @@ metadata:
 pasos:
   - "Analiza si la partícula corrige una suposición incorrecta."
   - "Elige 'doch' para contradecir una afirmación previa."
-respuesta: "doch"
 tipo: completar
 respuestas_validas:
   - "Doch"
@@ -134,7 +128,6 @@ metadata:
 pasos:
   - "Reconoce si la partícula sugiere una alternativa preferida."
   - "Elige 'lieber' para expresar una opción más deseada."
-respuesta: "lieber"
 tipo: completar
 respuestas_validas:
   - "Lieber"
@@ -155,7 +148,6 @@ metadata:
 pasos:
   - "Identifica si la partícula confirma una afirmación."
   - "Elige 'tatsächlich' para reforzar un hecho real."
-respuesta: "tatsächlich"
 tipo: completar
 respuestas_validas:
   - "Tatsächlich"
@@ -176,7 +168,6 @@ metadata:
 pasos:
   - "Analiza si la partícula expresa sorpresa o expectativa."
   - "Elige 'wohl' para sugerir una probabilidad no confirmada."
-respuesta: "wohl"
 tipo: completar
 respuestas_validas:
   - "Wohl"
@@ -197,7 +188,6 @@ metadata:
 pasos:
   - "Reconoce si la partícula indica que algo ya ha ocurrido."
   - "Elige 'schon' para marcar un tiempo anterior al esperado."
-respuesta: "schon"
 tipo: completar
 respuestas_validas:
   - "Schon"
@@ -218,7 +208,6 @@ metadata:
 pasos:
   - "Identifica si la partícula intensifica una negación."
   - "Elige 'gar nicht' para enfatizar que algo no ocurre en absoluto."
-respuesta: "gar nicht"
 tipo: completar
 respuestas_validas:
   - "Gar nicht"
@@ -240,10 +229,10 @@ pasos:
   - "Identificar la partícula que completa correctamente el sentido de negación en el subordinado."  
 explicacion: "La partícula 'schon' se usa en oraciones negativas para enfatizar la sorpresa o la novedad. En este contexto, 'schon' resalta que la acción ya ocurrió aunque no se esperaba."  
 enunciado: "Er hat es ______ verstanden. Warum hast du nicht nachgefragt?"  
-respuesta: "schon"  
 tipo: completar  
-respuestas_validas: ["Schon", "SCHON"]  
-
+respuestas_validas:
+  - "Schon"
+  - "SCHON"
 ---
 ```
 
@@ -258,10 +247,10 @@ pasos:
   - "Elegir el modo verbal correcto para expresar una necesidad hipotética."  
 explicacion: "El konjunktiv II de 'müssen' se forma con 'müsse' cuando se habla de obligaciones imaginarias o deseos. Aquí, expresa una posibilidad no realizada."  
 enunciado: "Wenn ich mehr Zeit ______, würde ich es sofort tun."  
-respuesta: "hätte"  
 tipo: completar  
-respuestas_validas: ["Hätte", "HATTE"]  
-
+respuestas_validas:
+  - "Hätte"
+  - "HATTE"
 ---
 ```
 
@@ -276,10 +265,10 @@ pasos:
   - "Seleccionar la partícula que completa el sentido de limitación en el diálogo."  
 explicacion: "'Nur' se usa para restringir una acción o estado, enfatizando exclusividad. En este contexto, expresa que no hay otras opciones posibles."  
 enunciado: "Ich glaube nicht, dass er ______ in der Lage ist, das zu bewältigen."  
-respuesta: "nur"  
 tipo: completar  
-respuestas_validas: ["Nur", "NUR"]  
-
+respuestas_validas:
+  - "Nur"
+  - "NUR"
 ---
 ```
 
@@ -294,10 +283,10 @@ pasos:
   - "Identificar el modal correcto para expresar permiso en una condición."  
 explicacion: "'Dürfen' se usa en condiciones hipotéticas con 'wenn... dann...' para indicar autorización. Aquí, el tono es especulativo y no realista."  
 enunciado: "Wenn du nicht so müde ______, könnten wir noch später gehen."  
-respuesta: "wärst"  
 tipo: completar  
-respuestas_validas: ["Wärst", "WARST"]  
-
+respuestas_validas:
+  - "Wärst"
+  - "WARST"
 ---
 ```
 
@@ -312,10 +301,10 @@ pasos:
   - "Escoger la partícula que intensifica la sorpresa en una oración interrogativa."  
 explicacion: "'Schon' en preguntas subraya lo inesperado. En este caso, enfatiza que el sujeto ya lo sabía antes de la pregunta."  
 enunciado: "Hast du das wirklich ______ gewusst? Ich dachte, du hättest es erst heute erfahren!"  
-respuesta: "schon"  
 tipo: completar  
-respuestas_validas: ["Schon", "SCHON"]  
-
+respuestas_validas:
+  - "Schon"
+  - "SCHON"
 ---
 ```
 
@@ -330,10 +319,10 @@ pasos:
   - "Determinar el modal que expresa una prohibición no cumplida."  
 explicacion: "'Sollen' en konjunktiv II indica una obligación no respetada. Aquí, se usa para criticar una acción omitida."  
 enunciado: "Du ______ das nicht tun! Warum hast du es dennoch gemacht?"  
-respuesta: "solltest"  
 tipo: completar  
-respuestas_validas: ["Solltest", "SOULTEST"]  
-
+respuestas_validas:
+  - "Solltest"
+  - "SOULTEST"
 ---
 ```
 
@@ -348,10 +337,10 @@ pasos:
   - "Elegir la partícula que reforza el sentido de causalidad en una oración."  
 explicacion: "'Denn' se usa para conectar causas y efectos, especialmente cuando se explica una razón posterior. Aquí, justifica la acción pasada."  
 enunciado: "Er hat es nicht getan. ______, er war einfach nicht bereit dazu."  
-respuesta: "denn"  
 tipo: completar  
-respuestas_validas: ["Denn", "DENN"]  
-
+respuestas_validas:
+  - "Denn"
+  - "DENN"
 ---
 ```
 
@@ -366,10 +355,10 @@ pasos:
   - "Identificar el modal que expresa una obligación real."  
 explicacion: "'Müssen' en presente indica una responsabilidad actual. En este contexto, se refiere a un deber inmediato y necesario."  
 enunciado: "Ich ______ das Projekt noch heute abschließen. Der Chef hat es verlangt!"  
-respuesta: "muss"  
 tipo: completar  
-respuestas_validas: ["Muss", "MUSS"]  
-
+respuestas_validas:
+  - "Muss"
+  - "MUSS"
 ---
 ```
 
@@ -384,10 +373,10 @@ pasos:
   - "Seleccionar la partícula que intensifica una negativa en un contexto emocional."  
 explicacion: "'Gar' se usa para enfatizar negativas, especialmente cuando hay sorpresa o frustración. Aquí, subraya que el sujeto negó algo incluso aunque era evidente."  
 enunciado: "Er hat es ______ verstanden! Warum erzählt er es dann niemandem?"  
-respuesta: "gar"  
 tipo: completar  
-respuestas_validas: ["Gar", "GAR"]  
-
+respuestas_validas:
+  - "Gar"
+  - "GAR"
 ---
 ```
 
@@ -402,10 +391,10 @@ pasos:
   - "Elegir el modal que expresa permiso no concedido en una situación hipotética."  
 explicacion: "'Dürfen' en konjunktiv II indica un permiso que no se dio. Aquí, se habla de algo que podría haber ocurrido si hubiera tenido autorización."  
 enunciado: "Wenn du ______, hättest du es schon längst getan!"  
-respuesta: "dürftest"  
 tipo: completar  
-respuestas_validas: ["Dürftest", "DÜRFTEST"]  
-
+respuestas_validas:
+  - "Dürftest"
+  - "DÜRFTEST"
 ---
 ```
 
@@ -420,10 +409,10 @@ pasos:
   - "Identificar la partícula que resalta una repetición no necesaria."  
 explicacion: "'Noch' se usa para enfatizar que algo ya ocurrió y no se necesita hacer de nuevo. En este contexto, indica frustración por un acto innecesario."  
 enunciado: "Du bist ______ aufgestanden! Du hast doch schon genug getan!"  
-respuesta: "noch"  
 tipo: completar  
-respuestas_validas: ["Noch", "NOCH"]  
-
+respuestas_validas:
+  - "Noch"
+  - "NOCH"
 ---
 ```
 
@@ -438,10 +427,10 @@ pasos:
   - "Seleccionar el modal que expresa una expectativa no cumplida."  
 explicacion: "'Sollen' en konjunktiv II se usa para criticar una acción omitida, especialmente cuando hay una responsabilidad clara. Aquí, indica decepción por la falta de cumplimiento."  
 enunciado: "Er ______ es nicht tun! Warum hat er es dann nicht gemacht?"  
-respuesta: "sollte"  
 tipo: completar  
-respuestas_validas: ["Sollte", "SOULTE"]  
-
+respuestas_validas:
+  - "Sollte"
+  - "SOULTE"
 ---
 ```
 
@@ -456,10 +445,10 @@ pasos:
   - "Elegir la partícula que subraya una afirmación en un contexto emocional."  
 explicacion: "'Ja' como partícula se usa para enfatizar confirmaciones, especialmente cuando hay sorpresa o alivio. Aquí, confirma algo que ya era evidente pero no esperado."  
 enunciado: "Er hat es ______ verstanden! Warum hat er dann so lange gezögert?"  
-respuesta: "ja"  
 tipo: completar  
-respuestas_validas: ["Ja", "JA"]  
-
+respuestas_validas:
+  - "Ja"
+  - "JA"
 ---
 ```
 
@@ -474,7 +463,7 @@ pasos:
   - "Identificar el modal que expresa una posibilidad no realizada en el pasado."  
 explicacion: "'Können' en konjunktiv II indica algo que era posible pero no ocurrió. Aquí, se habla de un evento hipotético que podría haber tenido lugar si hubiera habido condiciones adecuadas."  
 enunciado: "Wenn du ______, hättest du es sicher geschafft!"  
-respuesta: "konntest"  
 tipo: completar  
-respuestas_validas: ["Konntest", "KONNTEST"]
-```
+respuestas_validas:
+  - "Konntest"
+  - "KONNTEST"```

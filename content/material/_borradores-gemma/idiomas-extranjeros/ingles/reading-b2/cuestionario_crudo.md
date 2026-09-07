@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar el enfoque del autor sobre políticas ambientales."  
   - "Analizar la palabra clave que completa la idea principal."  
-respuesta: "renewable energy"  
 respuestas_validas:  
   - "renewable energy"  
   - "Renewable energy"  
@@ -68,7 +67,6 @@ metadata:
 pasos:  
   - "Reconstruir la intención del autor sobre reformas educativas."  
   - "Seleccionar el término que mejor describe su perspectiva."  
-respuesta: "necessary but complex"  
 respuestas_validas:  
   - "necessary but complex"  
   - "Necessary but complex"  
@@ -108,7 +106,6 @@ metadata:
 pasos:  
   - "Deducir la postura del autor sobre el acceso a servicios médicos."  
   - "Identificar la frase que resuma su crítica constructiva."  
-respuesta: "inequitable distribution"  
 respuestas_validas:  
   - "inequitable distribution"  
   - "Inequitable distribution"  
@@ -148,7 +145,6 @@ metadata:
 pasos:  
   - "Analizar la postura del autor sobre desigualdad económica."  
   - "Seleccionar el término que mejor describe su crítica."  
-respuesta: "systemic and pervasive"  
 respuestas_validas:  
   - "systemic and pervasive"  
   - "Systemic and pervasive"  
@@ -188,7 +184,6 @@ metadata:
 pasos:  
   - "Identificar el tono del autor hacia la corrupción política."  
   - "Seleccionar la frase que exprese una actitud de desaprobación clara."  
-respuesta: "deep-rooted and persistent"  
 respuestas_validas:  
   - "deep-rooted and persistent"  
   - "Deep-rooted and persistent"  
@@ -228,7 +223,6 @@ metadata:
 pasos:  
   - "Reconocer el enfoque del autor hacia políticas migratorias."  
   - "Seleccionar la frase que exprese una postura humanitaria."  
-respuesta: "complex and morally charged"  
 respuestas_validas:  
   - "complex and morally charged"  
   - "Complex and morally charged"  
@@ -268,7 +262,6 @@ metadata:
 pasos:  
   - "Deducir la postura del autor sobre logros de igualdad de género."  
   - "Seleccionar el término que refleje una visión optimista pero realista."  
-respuesta: "significant but uneven"  
 respuestas_validas:  
   - "significant but uneven"  
   - "Significant but uneven"  
@@ -308,7 +301,6 @@ metadata:
 pasos:  
   - "Identificar el tono del autor hacia la memoria histórica."  
   - "Seleccionar la frase que exprese una actitud de urgencia y responsabilidad."  
-respuesta: "vital for understanding present conflicts"  
 respuestas_validas:  
   - "vital for understanding present conflicts"  
   - "Vital for understanding present conflicts"  
@@ -348,7 +340,6 @@ metadata:
 pasos:  
   - "Reconstruir la postura del autor sobre desarrollo ético de IA."  
   - "Seleccionar el término que resuma su preocupación principal."  
-respuesta: "urgent and multifaceted challenge"  
 respuestas_validas:  
   - "urgent and multifaceted challenge"  
   - "Urgent and multifaceted challenge"  
@@ -388,7 +379,6 @@ metadata:
 pasos:  
   - "Identificar el tono del autor hacia la brecha digital."  
   - "Seleccionar la frase que exprese una actitud de urgencia y desigualdad."  
-respuesta: "persistent and socially divisive"  
 respuestas_validas:  
   - "persistent and socially divisive"  
   - "Persistent and socially divisive"  
@@ -428,7 +418,6 @@ metadata:
 pasos:  
   - "Reconocer el enfoque del autor hacia apropiación cultural."  
   - "Seleccionar la frase que exprese una actitud de desaprobación clara."  
-respuesta: "exploitative and disrespectful"  
 respuestas_validas:  
   - "exploitative and disrespectful"  
   - "Exploitative and disrespectful"  
@@ -468,7 +457,6 @@ metadata:
 pasos:  
   - "Deducir el enfoque del autor hacia polarización política."  
   - "Seleccionar la frase que exprese una actitud de alarma y crítica."  
-respuesta: "deepening and dangerously divisive"  
 respuestas_validas:  
   - "deepening and dangerously divisive"  
   - "Deepening and dangerously divisive"  

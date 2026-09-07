@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el contexto del pedido."
   - "Completar el hueco con la forma correcta de 「～てください」."
-respuesta: "見て"
 respuestas_validas:
   - "見て"
   - "見ても"
@@ -49,7 +48,6 @@ metadata:
 pasos:
   - "Identificar la relación de intensidad entre los elementos."
   - "Completar el hueco con 「ほど」 para expresar comparación extrema."
-respuesta: "高く"
 respuestas_validas:
   - "高く"
   - "高くて"
@@ -110,7 +108,6 @@ metadata:
 pasos:
   - "Reconocer el uso de ～た para describir experiencias pasadas."
   - "Completar el hueco con la forma correcta del verbo。"
-respuesta: "行った"
 respuestas_validas:
   - "行った"
   - "行こう"
@@ -151,7 +148,6 @@ metadata:
 pasos:
   - "Reconocer la partícula que indica un momento preciso."
   - "Completar el hueco con 「に」 para expresar horario."
-respuesta: "5時"
 respuestas_validas:
   - "5時"
   - "5時頃"
@@ -192,7 +188,6 @@ metadata:
 pasos:
   - "Reconocer la partícula que introduce una causa contraria a la expectativa."
   - "Completar el hueco con 「が」 para expresar sorpresa."
-respuesta: "寒い"
 respuestas_validas:
   - "寒い"
   - "寒くて"
@@ -233,7 +228,6 @@ metadata:
 pasos:
   - "Reconocer la estructura de comparación."
   - "Completar el hueco con 「より」 para expresar superioridad."
-respuesta: "高い"
 respuestas_validas:
   - "高い"
   - "高くて"
@@ -274,7 +268,6 @@ metadata:
 pasos:
   - "Reconocer el uso de ～た para describir un resultado."
   - "Completar el hueco con la forma correcta del verbo。"
-respuesta: "行った"
 respuestas_validas:
   - "行った"
   - "行こう"
@@ -353,7 +346,7 @@ metadata:
 pasos:
   - "Analizar el rol de la palabra faltante como complemento del sustantivo."
   - "Elegir la opción que describe correctamente al sujeto."
-respuesta_validas:
+respuestas_validas:
   - "考えられる"
   - "考えられると"
 respuestas_validas:

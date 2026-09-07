@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identifica la estructura de la oración."
   - "Reemplaza el hueco con una forma verbal formal que complete la idea."
-respuesta: "must be addressed"
 respuestas_validas:
   - "must be addressed"
   - "Must be addressed"
@@ -45,7 +44,6 @@ metadata:
 pasos:
   - "Reconoce el uso de un sustantivo compuesto."
   - "Completa el hueco con el término que describe la idea central."
-respuesta: "implementation of sustainable policies"
 respuestas_validas:
   - "implementation of sustainable policies"
   - "Implementation of sustainable policies"
@@ -82,7 +80,6 @@ metadata:
 pasos:
   - "Reconoce el tipo de condicional utilizado."
   - "Completa el hueco con la forma verbal adecuada."
-respuesta: "would be resolved"
 respuestas_validas:
   - "would be resolved"
   - "Would be resolved"
@@ -119,7 +116,6 @@ metadata:
 pasos:
   - "Reconoce la estructura de una oración subordinada."
   - "Completa el hueco con un sujeto que conecte las ideas."
-respuesta: "that the policy is flawed"
 respuestas_validas:
   - "that the policy is flawed"
   - "That the policy is flawed"
@@ -156,7 +152,6 @@ metadata:
 pasos:
   - "Identifica el término técnico que describe la idea."
   - "Completa el hueco con el concepto clave."
-respuesta: "methodological rigor"
 respuestas_validas:
   - "methodological rigor"
   - "Methodological rigor"
@@ -193,7 +188,6 @@ metadata:
 pasos:
   - "Identifica el uso del modal en un contexto hipotético."
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "could be implemented"
 respuestas_validas:
   - "could be implemented"
   - "Could be implemented"
@@ -230,7 +224,6 @@ metadata:
 pasos:
   - "Identifica el tipo de cláusula adverbial."
   - "Completa el hueco con una conjunción que conecte las ideas."
-respuesta: "as long as"
 respuestas_validas:
   - "as long as"
   - "As long as"
@@ -267,7 +260,6 @@ metadata:
 pasos:
   - "Identifica el término técnico que describe la idea."
   - "Completa el hueco con el sustantivo compuesto adecuado."
-respuesta: "interdisciplinary collaboration"
 respuestas_validas:
   - "interdisciplinary collaboration"
   - "Interdisciplinary collaboration"
@@ -304,7 +296,6 @@ metadata:
 pasos:
   - "Identifica la relación causal en la oración."
   - "Completa el hueco con una conjunción que conecte las ideas."
-respuesta: "due to"
 respuestas_validas:
   - "due to"
   - "Due to"
@@ -341,7 +332,6 @@ metadata:
 pasos:
   - "Identifica el propósito del ejemplo en la oración."
   - "Completa el hueco con un término que ilustre el argumento."
-respuesta: "the lack of transparency in decision-making"
 respuestas_validas:
   - "the lack of transparency in decision-making"
   - "The lack of transparency in decision-making"
@@ -378,7 +368,6 @@ metadata:
 pasos:
   - "Identifica el uso del modal en un contexto persuasivo."
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "should be addressed immediately"
 respuestas_validas:
   - "should be addressed immediately"
   - "Should be addressed immediately"
@@ -415,7 +404,6 @@ metadata:
 pasos:
   - "Identifica la relación causal y el uso del modal."
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "must have been caused by"
 respuestas_validas:
   - "must have been caused by"
   - "Must have been caused by"

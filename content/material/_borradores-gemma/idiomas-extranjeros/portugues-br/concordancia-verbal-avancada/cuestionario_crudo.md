@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - Identificar o sujeito da oração.  
   - Verificar se há uma expressão que indica singularidade (como "cada").  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
@@ -29,7 +28,6 @@ metadata:
 pasos:  
   - Analisar a estrutura da frase.  
   - Determinar se o sujeito é plural ou singular.  
-respuesta: "vamos"  
 tipo: completar  
 respuestas_validas:  
   - "vamos"  
@@ -50,7 +48,6 @@ metadata:
 pasos:  
   - Identificar o sujeito principal.  
   - Verificar se há uma expressão que modifica a concordância.  
-respuesta: "estão"  
 tipo: completar  
 respuestas_validas:  
   - "estão"  
@@ -71,7 +68,6 @@ metadata:
 pasos:  
   - Reconhecer o sujeito da oração.  
   - Determinar se a expressão indica singularidade.  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
@@ -92,7 +88,6 @@ metadata:
 pasos:  
   - Identificar o núcleo do sujeito.  
   - Verificar se a expressão indica pluralidade.  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
@@ -113,7 +108,6 @@ metadata:
 pasos:  
   - Analisar a estrutura da frase.  
   - Determinar se o sujeito é plural ou singular.  
-respuesta: "estão"  
 tipo: completar  
 respuestas_validas:  
   - "estão"  
@@ -134,7 +128,6 @@ metadata:
 pasos:  
   - Identificar o sujeito principal.  
   - Verificar se há uma expressão que modifica a concordância.  
-respuesta: "é"  
 tipo: completar  
 respuestas_validas:  
   - "é"  
@@ -155,7 +148,6 @@ metadata:
 pasos:  
   - Identificar o sujeito da oração.  
   - Verificar se há uma expressão que modifica a concordância.  
-respuesta: "é"  
 tipo: completar  
 respuestas_validas:  
   - "é"  
@@ -176,7 +168,6 @@ metadata:
 pasos:  
   - Reconhecer o sujeito da oração.  
   - Determinar se a expressão indica pluralidade.  
-respuesta: "estão"  
 tipo: completar  
 respuestas_validas:  
   - "estão"  
@@ -197,7 +188,6 @@ metadata:
 pasos:  
   - Identificar o núcleo do sujeito.  
   - Verificar se a expressão indica singularidade.  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
@@ -218,7 +208,6 @@ metadata:
 pasos:  
   - Analisar a estrutura da frase.  
   - Determinar se o sujeito é plural ou singular.  
-respuesta: "estão"  
 tipo: completar  
 respuestas_validas:  
   - "estão"  
@@ -239,7 +228,6 @@ metadata:
 pasos:  
   - Reconhecer o sujeito da oração.  
   - Determinar se a expressão indica singularidade.  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
@@ -260,7 +248,6 @@ metadata:
 pasos:  
   - Identificar o sujeito principal.  
   - Verificar se há uma expressão que modifica a concordância.  
-respuesta: "é"  
 tipo: completar  
 respuestas_validas:  
   - "é"  
@@ -281,7 +268,6 @@ metadata:
 pasos:  
   - Reconhecer o sujeito da oração.  
   - Determinar se a expressão indica pluralidade.  
-respuesta: "foram"  
 tipo: completar  
 respuestas_validas:  
   - "foram"  
@@ -302,7 +288,6 @@ metadata:
 pasos:  
   - Identificar o sujeito principal.  
   - Verificar se há uma expressão que modifica a concordância.  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
@@ -323,7 +308,6 @@ metadata:
 pasos:  
   - Analisar a estrutura da frase.  
   - Determinar se o sujeito é plural ou singular.  
-respuesta: "estão"  
 tipo: completar  
 respuestas_validas:  
   - "estão"  
@@ -344,7 +328,6 @@ metadata:
 pasos:  
   - Identificar o sujeito da oração.  
   - Verificar se há uma expressão que modifica a concordância.  
-respuesta: "são"  
 tipo: completar  
 respuestas_validas:  
   - "são"  
@@ -365,7 +348,6 @@ metadata:
 pasos:  
   - Reconhecer o sujeito da oração.  
   - Determinar se a expressão indica singularidade.  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
@@ -386,7 +368,6 @@ metadata:
 pasos:  
   - Identificar o sujeito principal.  
   - Verificar se há uma expressão que modifica a concordância.  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
@@ -407,7 +388,6 @@ metadata:
 pasos:  
   - Analisar a estrutura da frase.  
   - Determinar se o sujeito é plural ou singular.  
-respuesta: "está"  
 tipo: completar  
 respuestas_validas:  
   - "está"  
@@ -429,7 +409,6 @@ pasos:
   - "Identifique o sujeito da oração."
   - "Verifique se o sujeito é coletivo e plural."
   - "Escolha a forma verbal que concorde com ele."
-respuesta: "estão"
 tipo: completar
 respuestas_validas:
   - "estão"
@@ -451,7 +430,6 @@ pasos:
   - "Reconheça o sujeito 'uma das' seguido de plural."
   - "Determine se o núcleo do sujeito é singular ou plural."
   - "Ajuste a forma verbal conforme a regra da concordância."
-respuesta: "é"
 tipo: completar
 respuestas_validas:
   - "é"
@@ -472,7 +450,6 @@ metadata:
 pasos:  
   - Analisar a estrutura da frase.  
   - Determinar se o sujeito é plural ou singular.  
-respuesta: "é"  
 tipo: completar  
 respuestas_validas:  
   - "é"  
@@ -518,7 +495,6 @@ pasos:
   - "Reconheça o uso de 'cada uma das' seguido de plural."
   - "Determine se a expressão exige verbo singular ou plural."
   - "Ajuste a forma verbal conforme a regra da concordância."
-respuesta: "é"
 tipo: completar
 respuestas_validas:
   - "é"

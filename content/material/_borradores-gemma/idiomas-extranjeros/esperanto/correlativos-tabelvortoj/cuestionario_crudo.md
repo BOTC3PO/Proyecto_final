@@ -10,7 +10,11 @@ pasos:
   - "Elegir el correlativo correcto para 'homo' en nominativo singular."  
 respuesta: "tiu"  
 tipo: mc  
-opciones_explicitas: ["tiu", "tion", "tie", "tia"]  
+opciones_explicitas:
+  - "tiu"
+  - "tion"
+  - "tie"
+  - "tia"
 explicacion: "En la oración, se pregunta por un hombre específico, lo que requiere el correlativo 'tiu' en nominativo singular. Las otras opciones corresponden a otros casos o categorías gramaticales."  
 ```
 
@@ -26,7 +30,11 @@ pasos:
   - "Seleccionar la forma del correlativo en acuzativo singular."  
 respuesta: "tion"  
 tipo: mc  
-opciones_explicitas: ["tion", "tia", "tie", "tiu"]  
+opciones_explicitas:
+  - "tion"
+  - "tia"
+  - "tie"
+  - "tiu"
 explicacion: "El verbo 'faris' exige un complemento directo en acuzativo. La forma correcta es 'tion', que corresponde al acuzativo singular de 'kio'."  
 ```
 
@@ -42,7 +50,11 @@ pasos:
   - "Elegir la forma del correlativo en lokativo singular."  
 respuesta: "tie"  
 tipo: mc  
-opciones_explicitas: ["tie", "tia", "tion", "tiu"]  
+opciones_explicitas:
+  - "tie"
+  - "tia"
+  - "tion"
+  - "tiu"
 explicacion: "El verbo 'estas' con un complemento locativo exige el correlativo 'tie', que corresponde al lokativo singular de 'kie'."  
 ```
 
@@ -58,7 +70,11 @@ pasos:
   - "Seleccionar el correlativo correcto para 'infano' en nominativo singular."  
 respuesta: "tiu"  
 tipo: mc  
-opciones_explicitas: ["tiu", "tion", "tie", "tia"]  
+opciones_explicitas:
+  - "tiu"
+  - "tion"
+  - "tie"
+  - "tia"
 explicacion: "La oración pregunta por un infante específico, lo que requiere el correlativo 'tiu' en nominativo singular. Las otras opciones no corresponden a este caso."  
 ```
 
@@ -74,7 +90,11 @@ pasos:
   - "Seleccionar la forma del correlativo en acuzativo singular."  
 respuesta: "tion"  
 tipo: mc  
-opciones_explicitas: ["tion", "tia", "tie", "tiu"]  
+opciones_explicitas:
+  - "tion"
+  - "tia"
+  - "tie"
+  - "tiu"
 explicacion: "El verbo 'legas' exige un complemento directo en acuzativo. La forma correcta es 'tion', que corresponde al acuzativo singular de 'kio'."  
 ```
 
@@ -90,7 +110,11 @@ pasos:
   - "Elegir la forma del correlativo en lokativo singular."  
 respuesta: "tie"  
 tipo: mc  
-opciones_explicitas: ["tie", "tia", "tion", "tiu"]  
+opciones_explicitas:
+  - "tie"
+  - "tia"
+  - "tion"
+  - "tiu"
 explicacion: "El verbo 'estas' con un complemento locativo exige el correlativo 'tie', que corresponde al lokativo singular de 'kie'."  
 ```
 
@@ -106,7 +130,11 @@ pasos:
   - "Seleccionar el correlativo correcto para 'birdo' en nominativo singular."  
 respuesta: "tiu"  
 tipo: mc  
-opciones_explicitas: ["tiu", "tion", "tie", "tia"]  
+opciones_explicitas:
+  - "tiu"
+  - "tion"
+  - "tie"
+  - "tia"
 explicacion: "La oración pregunta por un pájaro específico, lo que requiere el correlativo 'tiu' en nominativo singular. Las otras opciones no corresponden a este caso."  
 ```
 
@@ -122,7 +150,11 @@ pasos:
   - "Seleccionar la forma del correlativo en acuzativo singular."  
 respuesta: "tion"  
 tipo: mc  
-opciones_explicitas: ["tion", "tia", "tie", "tiu"]  
+opciones_explicitas:
+  - "tion"
+  - "tia"
+  - "tie"
+  - "tiu"
 explicacion: "El verbo 'faris' exige un complemento directo en acuzativo. La forma correcta es 'tion', que corresponde al acuzativo singular de 'kio'."  
 ```
 
@@ -138,7 +170,11 @@ pasos:
   - "Elegir la forma del correlativo en lokativo singular."  
 respuesta: "tie"  
 tipo: mc  
-opciones_explicitas: ["tie", "tia", "tion", "tiu"]  
+opciones_explicitas:
+  - "tie"
+  - "tia"
+  - "tion"
+  - "tiu"
 explicacion: "El verbo 'estas' con un complemento locativo exige el correlativo 'tie', que corresponde al lokativo singular de 'kie'."  
 ```
 
@@ -154,7 +190,11 @@ pasos:
   - "Seleccionar el correlativo correcto para 'kato' en nominativo singular."  
 respuesta: "tiu"  
 tipo: mc  
-opciones_explicitas: ["tiu", "tion", "tie", "tia"]  
+opciones_explicitas:
+  - "tiu"
+  - "tion"
+  - "tie"
+  - "tia"
 explicacion: "La oración pregunta por un gato específico, lo que requiere el correlativo 'tiu' en nominativo singular. Las otras opciones no corresponden a este caso."  
 ```
 
@@ -170,7 +210,11 @@ pasos:
   - "Seleccionar la forma del correlativo en acuzativo singular."  
 respuesta: "tion"  
 tipo: mc  
-opciones_explicitas: ["tion", "tia", "tie", "tiu"]  
+opciones_explicitas:
+  - "tion"
+  - "tia"
+  - "tie"
+  - "tiu"
 explicacion: "El verbo 'legas' exige un complemento directo en acuzativo. La forma correcta es 'tion', que corresponde al acuzativo singular de 'kio'."  
 ```
 
@@ -186,7 +230,11 @@ pasos:
   - "Elegir la forma del correlativo en lokativo singular."  
 respuesta: "tie"  
 tipo: mc  
-opciones_explicitas: ["tie", "tia", "tion", "tiu"]  
+opciones_explicitas:
+  - "tie"
+  - "tia"
+  - "tion"
+  - "tiu"
 explicacion: "El verbo 'estas' con un complemento locativo exige el correlativo 'tie', que corresponde al lokativo singular de 'kie'."  
 ```
 
@@ -202,7 +250,11 @@ pasos:
   - "Seleccionar el correlativo correcto para 'ĉevalo' en nominativo singular."  
 respuesta: "tiu"  
 tipo: mc  
-opciones_explicitas: ["tiu", "tion", "tie", "tia"]  
+opciones_explicitas:
+  - "tiu"
+  - "tion"
+  - "tie"
+  - "tia"
 explicacion: "La oración pregunta por un caballo específico, lo que requiere el correlativo 'tiu' en nominativo singular. Las otras opciones no corresponden a este caso."  
 ```
 
@@ -218,7 +270,11 @@ pasos:
   - "Seleccionar la forma del correlativo en acuzativo singular."  
 respuesta: "tion"  
 tipo: mc  
-opciones_explicitas: ["tion", "tia", "tie", "tiu"]  
+opciones_explicitas:
+  - "tion"
+  - "tia"
+  - "tie"
+  - "tiu"
 explicacion: "El verbo 'faris' exige un complemento directo en acuzativo. La forma correcta es 'tion', que corresponde al acuzativo singular de 'kio'."  
 ```
 
@@ -234,7 +290,11 @@ pasos:
   - "Elegir la forma del correlativo en lokativo singular."  
 respuesta: "tie"  
 tipo: mc  
-opciones_explicitas: ["tie", "tia", "tion", "tiu"]  
+opciones_explicitas:
+  - "tie"
+  - "tia"
+  - "tion"
+  - "tiu"
 explicacion: "El verbo 'estas' con un complemento locativo exige el correlativo 'tie', que corresponde al lokativo singular de 'kie'."  
 ```
 
@@ -250,7 +310,11 @@ pasos:
   - "Seleccionar el correlativo correcto para 'lundo' en nominativo singular."  
 respuesta: "tiu"  
 tipo: mc  
-opciones_explicitas: ["tiu", "tion", "tie", "tia"]  
+opciones_explicitas:
+  - "tiu"
+  - "tion"
+  - "tie"
+  - "tia"
 explicacion: "La oración pregunta por un lunes específico, lo que requiere el correlativo 'tiu' en nominativo singular. Las otras opciones no corresponden a este caso."  
 ```
 
@@ -266,7 +330,11 @@ pasos:
   - "Seleccionar la forma del correlativo en acuzativo singular."  
 respuesta: "tion"  
 tipo: mc  
-opciones_explicitas: ["tion", "tia", "tie", "tiu"]  
+opciones_explicitas:
+  - "tion"
+  - "tia"
+  - "tie"
+  - "tiu"
 explicacion: "El verbo 'legas' exige un complemento directo en acuzativo. La forma correcta es 'tion', que corresponde al acuzativo singular de 'kio'."  
 ```
 
@@ -282,7 +350,11 @@ pasos:
   - "Elegir la forma del correlativo en lokativo singular."  
 respuesta: "tie"  
 tipo: mc  
-opciones_explicitas: ["tie", "tia", "tion", "tiu"]  
+opciones_explicitas:
+  - "tie"
+  - "tia"
+  - "tion"
+  - "tiu"
 explicacion: "El verbo 'estas' con un complemento locativo exige el correlativo 'tie', que corresponde al lokativo singular de 'kie'."  
 ```
 
@@ -298,7 +370,11 @@ pasos:
   - "Seleccionar el correlativo correcto para 'koloro' en nominativo singular."  
 respuesta: "tiu"  
 tipo: mc  
-opciones_explicitas: ["tiu", "tion", "tie", "tia"]  
+opciones_explicitas:
+  - "tiu"
+  - "tion"
+  - "tie"
+  - "tia"
 explicacion: "La oración pregunta por un color específico, lo que requiere el correlativo 'tiu' en nominativo singular. Las otras opciones no corresponden a este caso."  
 ```
 
@@ -314,7 +390,11 @@ pasos:
   - "Seleccionar la forma del correlativo en acuzativo singular."  
 respuesta: "tion"  
 tipo: mc  
-opciones_explicitas: ["tion", "tia", "tie", "tiu"]  
+opciones_explicitas:
+  - "tion"
+  - "tia"
+  - "tie"
+  - "tiu"
 explicacion: "El verbo 'faris' exige un complemento directo en acuzativo. La forma correcta es 'tion', que corresponde al acuzativo singular de 'kio'."  
 ```
 
@@ -330,7 +410,11 @@ pasos:
   - "Elegir la forma del correlativo en lokativo singular."  
 respuesta: "tie"  
 tipo: mc  
-opciones_explicitas: ["tie", "tia", "tion", "tiu"]  
+opciones_explicitas:
+  - "tie"
+  - "tia"
+  - "tion"
+  - "tiu"
 explicacion: "El verbo 'estas' con un complemento locativo exige el correlativo 'tie', que corresponde al lokativo singular de 'kie'."  
 ```
 
@@ -346,7 +430,11 @@ pasos:
   - "Seleccionar el correlativo correcto para 'koro' en nominativo singular."  
 respuesta: "tiu"  
 tipo: mc  
-opciones_explicitas: ["tiu", "tion", "tie", "tia"]  
+opciones_explicitas:
+  - "tiu"
+  - "tion"
+  - "tie"
+  - "tia"
 explicacion: "La oración pregunta por un corazón específico, lo que requiere el correlativo 'tiu' en nominativo singular. Las otras opciones no corresponden a este caso."  
 ```
 
@@ -362,7 +450,11 @@ pasos:
   - "Seleccionar la forma del correlativo en acuzativo singular."  
 respuesta: "tion"  
 tipo: mc  
-opciones_explicitas: ["tion", "tia", "tie", "tiu"]  
+opciones_explicitas:
+  - "tion"
+  - "tia"
+  - "tie"
+  - "tiu"
 explicacion: "El verbo 'legas' exige un complemento directo en acuzativo. La forma correcta es 'tion', que corresponde al acuzativo singular de 'kio'."  
 ```
 
@@ -378,7 +470,11 @@ pasos:
   - "Elegir la forma del correlativo en lokativo singular."  
 respuesta: "tie"  
 tipo: mc  
-opciones_explicitas: ["tie", "tia", "tion", "tiu"]  
+opciones_explicitas:
+  - "tie"
+  - "tia"
+  - "tion"
+  - "tiu"
 explicacion: "El verbo 'estas' con un complemento locativo exige el correlativo 'tie', que corresponde al lokativo singular de 'kie'."  
 ```
 
@@ -394,6 +490,10 @@ pasos:
   - "Seleccionar el correlativo correcto para 'kulturo' en nominativo singular."  
 respuesta: "tiu"  
 tipo: mc  
-opciones_explicitas: ["tiu", "tion", "tie", "tia"]  
+opciones_explicitas:
+  - "tiu"
+  - "tion"
+  - "tie"
+  - "tia"
 explicacion: "La oración pregunta por una cultura específica, lo que requiere el correlativo 'tiu' en nominativo singular. Las otras opciones no corresponden a este caso."  
 ```

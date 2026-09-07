@@ -8,13 +8,11 @@ metadata:
 pasos:  
   - "場所を示す粒子を確認する"  
   - "文脈に合った選択肢を選ぶ"  
-respuesta: "で"  
 respuestas_validas:  
   - "で"  
   - "で"（大文字）  
 tipo: completar  
 enunciado: "彼は東京___旅行しました。"  
-variables: []  
 explicacion: "「で」は動作が行われた場所を示す粒子です。旅行の場所を強調するため、この文では適切です。"  
 
 ---
@@ -32,11 +30,14 @@ metadata:
 pasos:  
   - "文の時制を確認する"  
   - "適切な過去形を選ぶ"  
-opciones_explicitas: ["食べた", "食べる", "食べます", "食べていた"]  
+opciones_explicitas:
+  - "食べた"
+  - "食べる"
+  - "食べます"
+  - "食べていた"
 respuesta: "食べた"  
 tipo: mc  
 enunciado: "昨日、彼は___。"  
-variables: []  
 explicacion: "「食べた」は完了した動作を示し、過去の文脈に合います。他の選択肢は現在形や進行形です。"  
 
 ---
@@ -54,13 +55,11 @@ metadata:
 pasos:  
   - "目的を示す粒子を確認する"  
   - "文脈に合った選択肢を選ぶ"  
-respuesta: "ために"  
 respuestas_validas:  
   - "ために"  
   - "ため"（誤用）  
 tipo: completar  
 enunciado: "彼は試験___勉強しました。"  
-variables: []  
 explicacion: "「ために」は目的を示す粒子です。「ため」だけでは文脈が不完全になります。"  
 
 ---
@@ -78,11 +77,14 @@ metadata:
 pasos:  
   - "相手の立場を確認する"  
   - "適切な尊敬語を選ぶ"  
-opciones_explicitas: ["来ます", "来た", "いらっしゃいます", "来た"]  
+opciones_explicitas:
+  - "来ます"
+  - "来た"
+  - "いらっしゃいます"
+  - "来た"
 respuesta: "いらっしゃいます"  
 tipo: mc  
 enunciado: "社長___。"  
-variables: []  
 explicacion: "「いらっしゃいます」は尊他語で、相手を敬う際に使われます。他の選択肢は丁寧ではないです。"  
 
 ---
@@ -100,13 +102,11 @@ metadata:
 pasos:  
   - "原因を示す接続詞を確認する"  
   - "文脈に合った選択肢を選ぶ"  
-respuesta: "ので"  
 respuestas_validas:  
   - "ので"  
   - "から"（誤用）  
 tipo: completar  
 enunciado: "雨が降った___、試験は中止になりました。"  
-variables: []  
 explicacion: "「ので」は原因を示す接続詞です。「から」は文の終わりにしか使われません。"  
 
 ---
@@ -124,11 +124,14 @@ metadata:
 pasos:  
   - "修飾語としての形を確認する"  
   - "適切な連体形を選ぶ"  
-opciones_explicitas: ["面白い", "面白かった", "面白ければ", "面白くて"]  
+opciones_explicitas:
+  - "面白い"
+  - "面白かった"
+  - "面白ければ"
+  - "面白くて"
 respuesta: "面白い"  
 tipo: mc  
 enunciado: "___映画を見ました。"  
-variables: []  
 explicacion: "「面白い」は形容詞の連体形で、名詞を修飾します。「面白かった」は過去形です。"  
 
 ---
@@ -146,13 +149,11 @@ metadata:
 pasos:  
   - "手段を示す粒子を確認する"  
   - "文脈に合った選択肢を選ぶ"  
-respuesta: "で"  
 respuestas_validas:  
   - "で"  
   - "で"（大文字）  
 tipo: completar  
 enunciado: "彼は電車___東京へ行きました。"  
-variables: []  
 explicacion: "「で」は手段を示す粒子です。交通手段の文脈に合います。"  
 
 ---
@@ -170,11 +171,14 @@ metadata:
 pasos:  
   - "条件を示す形を確認する"  
   - "適切な条件形を選ぶ"  
-opciones_explicitas: ["もし", "もしも", "もし", "もしも"]  
+opciones_explicitas:
+  - "もし"
+  - "もしも"
+  - "もし"
+  - "もしも"
 respuesta: "もし"  
 tipo: mc  
 enunciado: "___、彼は来ません。"  
-variables: []  
 explicacion: "「もし」は条件を示す接続詞です。「もしも」はより強調された表現ですが、ここでは必要ではありません。"  
 
 ---
@@ -192,13 +196,11 @@ metadata:
 pasos:  
   - "対象を示す粒子を確認する"  
   - "文脈に合った選択肢を選ぶ"  
-respuesta: "が"  
 respuestas_validas:  
   - "が"  
   - "は"（誤用）  
 tipo: completar  
 enunciado: "彼___、彼女より背が高いです。"  
-variables: []  
 explicacion: "「が」は対象を示す粒子で、比較の文脈に適しています。「は」は主語の強調に使われます。"  
 
 ---
@@ -216,11 +218,14 @@ metadata:
 pasos:  
   - "仮定を示す形を確認する"  
   - "適切な仮定形を選ぶ"  
-opciones_explicitas: ["いた", "いたら", "すれば", "した"]  
+opciones_explicitas:
+  - "いた"
+  - "いたら"
+  - "すれば"
+  - "した"
 respuesta: "したら"  
 tipo: mc  
 enunciado: "___、彼は喜ぶだろう。"  
-variables: []  
 explicacion: "「したら」は仮定を示す形です。「すれば」は結果の仮定に使われます。"  
 
 ---
@@ -238,13 +243,11 @@ metadata:
 pasos:  
   - "目的を示す粒子を確認する"  
   - "文脈に合った選択肢を選ぶ"  
-respuesta: "ために"  
 respuestas_validas:  
   - "ために"  
   - "ため"（誤用）  
 tipo: completar  
 enunciado: "彼は試験___準備しました。"  
-variables: []  
 explicacion: "「ために」は目的を示す粒子です。「ため」だけでは文脈が不完全になります。"  
 
 ---
@@ -262,11 +265,14 @@ metadata:
 pasos:  
   - "文の時制を確認する"  
   - "適切な現在形を選ぶ"  
-opciones_explicitas: ["食べる", "食べます", "食べた", "食べていた"]  
+opciones_explicitas:
+  - "食べる"
+  - "食べます"
+  - "食べた"
+  - "食べていた"
 respuesta: "食べる"  
 tipo: mc  
 enunciado: "彼は___。"  
-variables: []  
 explicacion: "「食べる」は肯定の現在形です。「食べます」は丁寧な現在形ですが、語尾が異なります。"  
 
 ---
@@ -284,13 +290,11 @@ metadata:
 pasos:  
   - "原因を示す接続詞を確認する"  
   - "文脈に合った選択肢を選ぶ"  
-respuesta: "ので"  
 respuestas_validas:  
   - "ので"  
   - "から"（誤用）  
 tipo: completar  
 enunciado: "彼が病気___、会議は延期になりました。"  
-variables: []  
 explicacion: "「ので」は原因を示す接続詞です。「から」は文の終わりにしか使われません。"  
 
 ---
@@ -308,11 +312,14 @@ metadata:
 pasos:  
   - "相手の立場を確認する"  
   - "適切な尊敬語を選ぶ"  
-opciones_explicitas: ["来ます", "来た", "いらっしゃいます", "来た"]  
+opciones_explicitas:
+  - "来ます"
+  - "来た"
+  - "いらっしゃいます"
+  - "来た"
 respuesta: "いらっしゃいます"  
 tipo: mc  
 enunciado: "先生___。"  
-variables: []  
 explicacion: "「いらっしゃいます」は尊他語で、相手を敬う際に使われます。他の選択肢は丁寧ではないです。"  
 
 ---
@@ -330,13 +337,11 @@ metadata:
 pasos:  
   - "手段を示す粒子を確認する"  
   - "文脈に合った選択肢を選ぶ"  
-respuesta: "で"  
 respuestas_validas:  
   - "で"  
   - "で"（大文字）  
 tipo: completar  
 enunciado: "彼は飛行機___東京へ行きました。"  
-variables: []  
 explicacion: "「で」は手段を示す粒子です。交通手段の文脈に合います。"  
 
 ---
@@ -375,7 +380,6 @@ pasos:
   - "Determinar la forma correcta del verbo en relación con el tiempo expresado."  
   - "Completar el hueco con el sufijo que indica un evento previo a otro."  
 tipo: completar  
-respuesta: "前"  
 respuestas_validas:  
   - "前"  
   - "前に"  
@@ -433,7 +437,6 @@ pasos:
   - "Identificar la forma del verbo que expresa una condición en un diálogo."  
   - "Completar el hueco con la partícula adecuada para formar la estructura 'もし～なら'."  
 tipo: completar  
-respuesta: "なら"  
 respuestas_validas:  
   - "なら"  
   - "ならば"  
@@ -451,7 +454,6 @@ pasos:
   - "Determinar el sufijo del verbo que indica un evento completado."  
   - "Completar el hueco con la forma correcta en relación al tiempo mencionado."  
 tipo: completar  
-respuesta: "した"  
 respuestas_validas:  
   - "した"  
   - "しました"  
@@ -489,7 +491,6 @@ pasos:
   - "Identificar la partícula que indica el lugar de destino en una oración."  
   - "Completar el hueco con el sufijo adecuado para formar '～へ行く'."  
 tipo: completar  
-respuesta: "へ"  
 respuestas_validas:  
   - "へ"  
   - "に向かって"  
@@ -527,7 +528,6 @@ pasos:
   - "Identificar la partícula que expresa una causa en oraciones formales."  
   - "Completar el hueco con el sufijo adecuado para formar '～ため'."  
 tipo: completar  
-respuesta: "ため"  
 respuestas_validas:  
   - "ため"  
   - "ために"  

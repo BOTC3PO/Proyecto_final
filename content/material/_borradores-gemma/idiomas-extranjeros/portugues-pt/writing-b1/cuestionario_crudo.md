@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identificar o verbo que exige a preposição correta."
   - "Completar o espaço com 'em' ou 'por'."
-respuesta: "em"
 respuestas_validas:
   - "em"
   - "Em"
 tipo: completar
 enunciado: "Estou muito _______ em aprender português."
-variables:
-  - "interessado"
 ```
 
 
@@ -37,8 +34,6 @@ opciones_explicitas:
   - "um"
 tipo: mc
 enunciado: "________ livro está sobre a mesa."
-variables:
-  - "livro"
 ```
 
 
@@ -53,14 +48,11 @@ metadata:
 pasos:
   - "Identificar o sujeito da oração."
   - "Conjugar 'ler' para terceira pessoa do singular."
-respuesta: "lê"
 respuestas_validas:
   - "lê"
   - "Lê"
 tipo: completar
 enunciado: "Ela _______ um romance todos os dias."
-variables:
-  - "ler"
 ```
 
 
@@ -82,8 +74,6 @@ opciones_explicitas:
   - "tem"
 tipo: mc
 enunciado: "________ uma sala para reuniões no prédio."
-variables:
-  - "sala"
 ```
 
 
@@ -98,14 +88,11 @@ metadata:
 pasos:
   - "Identificar o sujeito da oração."
   - "Conjugar 'comprar' para terceira pessoa do singular."
-respuesta: "comprou"
 respuestas_validas:
   - "comprou"
   - "Comprou"
 tipo: completar
 enunciado: "Ela _______ um novo computador ontem."
-variables:
-  - "comprar"
 ```
 
 
@@ -127,8 +114,6 @@ opciones_explicitas:
   - "interessante"
 tipo: mc
 enunciado: "Os filmes _______ são muito populares."
-variables:
-  - "filme"
 ```
 
 
@@ -143,14 +128,11 @@ metadata:
 pasos:
   - "Identificar o sujeito da oração relativa."
   - "Escolher 'que' ou 'qual'."
-respuesta: "que"
 respuestas_validas:
   - "que"
   - "Que"
 tipo: completar
 enunciado: "O livro _______ li é muito interessante."
-variables:
-  - "ler"
 ```
 
 
@@ -172,8 +154,6 @@ opciones_explicitas:
   - "fica"
 tipo: mc
 enunciado: "Ela _______ uma médica muito dedicada."
-variables:
-  - "médico"
 ```
 
 
@@ -188,14 +168,11 @@ metadata:
 pasos:
   - "Identificar a preposição que exige o infinitivo."
   - "Escrever o verbo na forma infinitiva."
-respuesta: "ler"
 respuestas_validas:
   - "ler"
   - "Ler"
 tipo: completar
 enunciado: "Tenho vontade de _______ um livro novo."
-variables:
-  - "ler"
 ```
 
 
@@ -217,8 +194,6 @@ opciones_explicitas:
   - "poucas"
 tipo: mc
 enunciado: "________ livros estão em falta na biblioteca."
-variables:
-  - "livro"
 ```
 
 
@@ -233,14 +208,11 @@ metadata:
 pasos:
   - "Identificar o núcleo do sujeito."
   - "Conjugar o verbo para plural."
-respuesta: "vêm"
 respuestas_validas:
   - "vêm"
   - "Vêm"
 tipo: completar
 enunciado: "Os alunos _______ da sala de aula."
-variables:
-  - "vir"
 ```
 
 
@@ -262,8 +234,6 @@ opciones_explicitas:
   - "com"
 tipo: mc
 enunciado: "O avião parte _______ Lisboa amanhã."
-variables:
-  - "partir"
 ```
 
 
@@ -278,14 +248,11 @@ metadata:
 pasos:
   - "Identificar o sujeito da oração."
   - "Conjugar 'chegar' para primeira pessoa do singular."
-respuesta: "chegarei"
 respuestas_validas:
   - "chegarei"
   - "Chegarei"
 tipo: completar
 enunciado: "Eu _______ ao trabalho amanhã às 8h."
-variables:
-  - "chegar"
 ```
 
 
@@ -307,8 +274,6 @@ opciones_explicitas:
   - "para"
 tipo: mc
 enunciado: "Vou _______ Paris fazer um intercâmbio."
-variables:
-  - "ir"
 ```
 
 
@@ -330,8 +295,6 @@ opciones_explicitas:
   - "interessante"
 tipo: mc
 enunciado: "A música _______ me encanta muito."
-variables:
-  - "música"
 ```
 
 
@@ -353,8 +316,6 @@ opciones_explicitas:
   - "existe"
 tipo: mc
 enunciado: "A loja _______ muitos livros disponíveis."
-variables:
-  - "livro"
 ```
 
 
@@ -369,14 +330,11 @@ metadata:
 pasos:
   - "Identificar se a frase compara algo de forma literal ou exemplificativa."
   - "Escolher 'como' para exemplos e 'tal como' para comparação direta."
-respuesta: "como"
 respuestas_validas:
   - "como"
   - "Como"
 tipo: completar
 enunciado: "Ela estudou _______ eu estudei na universidade."
-variables:
-  - "estudar"
 ```
 
 
@@ -398,8 +356,6 @@ opciones_explicitas:
   - "com"
 tipo: mc
 enunciado: "O projeto falhou _______ falta de recursos."
-variables:
-  - "faltar"
 ```
 
 
@@ -414,14 +370,11 @@ metadata:
 pasos:
   - "Identificar o sujeito da oração."
   - "Conjugar 'ler' para terceira pessoa do singular no imperfeito."
-respuesta: "lêia"
 respuestas_validas:
   - "lêia"
   - "Lêia"
 tipo: completar
 enunciado: "Ela _______ um romance todos os dias na infância."
-variables:
-  - "ler"
 ```
 
 
@@ -443,8 +396,6 @@ opciones_explicitas:
   - "entre"
 tipo: mc
 enunciado: "Escolha _______ as duas opções disponíveis."
-variables:
-  - "escolher"
 ```
 
 
@@ -459,14 +410,12 @@ metadata:
 pasos:  
   - Identificar a preposição correta que acompanha o verbo.  
   - Verificar se a estrutura da frase está coerente com a norma culta.  
-respuesta: "com"  
 respuestas_validas:  
   - "com"  
   - "com" (mayúscula)  
 tipo: completar  
 
 enunciado: "Ela decidiu _______ um novo estilo de vida após o casamento."  
-variables: []  
 explicacion: "A preposição 'com' é usada com verbos que indicam companhia ou ação conjunta. Neste caso, 'decidir com' não se aplica, mas o verbo correto seria 'adotar', e a preposição correta para expressar mudança é 'um novo estilo de vida'. No entanto, como a pergunta pede a preposição que completa o sentido do verbo (não o verbo em si), a resposta correta é 'com' apenas por estrutura da frase. Esta construção, porém, não é comum no português formal; a forma mais natural seria 'Ela decidiu adotar um novo estilo de vida', sem preposição. A pergunta foi formulada para testar o uso de preposições em contextos específicos, mesmo que a frase final pareça redundante."  
 
 ---
@@ -491,7 +440,6 @@ respuesta: "falam"
 tipo: mc  
 
 enunciado: "Os voluntários _______ com os moradores da comunidade há dois anos."  
-variables: []  
 explicacion: "O sujeito 'os voluntários' é plural e masculino. O verbo 'falarem' no presente do indicativo concorda em número, mas não em gênero, pois o verbo não varia com o gênero do sujeito. Portanto, a forma correta é 'falam', que respeita a concordância numérica."  
 
 ---
@@ -507,14 +455,12 @@ metadata:
 pasos:  
   - Identificar se o artigo definido é necessário para complementar a frase.  
   - Verificar se há uma referência clara ao substantivo.  
-respuesta: "a"  
 respuestas_validas:  
   - "a"  
   - "A" (mayúscula)  
 tipo: completar  
 
 enunciado: "Ela é _______ médica mais dedicada do hospital."  
-variables: []  
 explicacion: "O artigo definido 'a' é necessário para especificar que a médica mencionada é a única ou uma específica no contexto. A ausência do artigo tornaria a frase ambígua, indicando apenas o ofício em geral (médica) e não uma pessoa concreta."  
 
 ---
@@ -539,7 +485,6 @@ respuesta: "mas"
 tipo: mc  
 
 enunciado: "Ele estudou muito, _______ não obteve a nota desejada."  
-variables: []  
 explicacion: "A conjunção 'mas' é usada para expressar contraste entre duas ideias. Neste caso, o sujeito estudou muito (ação positiva) e, apesar disso, não obteve a nota (resultado negativo), exigindo uma conjunção adversativa."  
 
 ---
@@ -564,6 +509,5 @@ respuesta: "que"
 tipo: mc  
 
 enunciado: "O livro _______ li ontem é muito interessante."  
-variables: []  
 explicacion: "O pronome relativo 'que' é usado para substituir o substantivo 'livro', que está no singular e não exige um pronome específico. O uso de 'quem' ou 'cujo' seria incorreto, pois referem-se a pessoas ou posses."
 ```

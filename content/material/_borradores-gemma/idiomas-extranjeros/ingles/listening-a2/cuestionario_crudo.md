@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre dos personas."
   - "Completa la frase con la ubicación correcta de la oficina de correos."
-respuesta: "next to the bank"
 respuestas_validas:
   - "next to the bank"
   - "beside the bank"
@@ -47,7 +46,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre dos amigos."
   - "Completa la frase con la hora en que se reunirán."
-respuesta: "at seven o'clock"
 respuestas_validas:
   - "at seven o'clock"
   - "at 7 o'clock"
@@ -86,7 +84,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre un turista y un conductor."
   - "Completa la frase con la hora de salida del autobús."
-respuesta: "at eight o'clock"
 respuestas_validas:
   - "at eight o'clock"
   - "at 8:00 AM"
@@ -125,7 +122,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre una madre y su hijo."
   - "Completa la frase con el día de la semana en que se celebrará el cumpleaños."
-respuesta: "on Saturday"
 respuestas_validas:
   - "on Saturday"
   - "on saturday"
@@ -164,7 +160,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre dos amigos."
   - "Completa la frase con el plan futuro de uno de ellos."
-respuesta: "I will visit my grandparents"
 respuestas_validas:
   - "I will visit my grandparents"
   - "I'm going to visit my grandparents"
@@ -203,7 +198,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre dos amigos."
   - "Completa la frase con el adjetivo que describe a una persona."
-respuesta: "tall and friendly"
 respuestas_validas:
   - "tall and friendly"
   - "Tall and friendly"
@@ -242,7 +236,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre dos turistas."
   - "Completa la frase con la ubicación del monumento histórico."
-respuesta: "in front of the museum"
 respuestas_validas:
   - "in front of the museum"
   - "before the museum"
@@ -281,7 +274,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre un estudiante y su profesor."
   - "Completa la frase con la asignatura que menciona el estudiante."
-respuesta: "mathematics"
 respuestas_validas:
   - "mathematics"
   - "Math"
@@ -320,7 +312,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre una madre y su hija."
   - "Completa la frase con el artículo de vestir que menciona la madre."
-respuesta: "a red dress"
 respuestas_validas:
   - "a red dress"
   - "A red dress"
@@ -359,7 +350,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre dos personas."
   - "Completa la frase con la profesión que menciona uno de los participantes."
-respuesta: "a teacher"
 respuestas_validas:
   - "a teacher"
   - "A teacher"
@@ -398,7 +388,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre dos amigos."
   - "Completa la frase con la actividad que planean hacer los fines de semana."
-respuesta: "go to the cinema"
 respuestas_validas:
   - "go to the cinema"
   - "Go to the cinema"
@@ -437,7 +426,6 @@ metadata:
 pasos:
   - "Escucha el diálogo entre dos personas."
   - "Completa la frase con la instrucción para llegar al lugar indicado."
-respuesta: "walk past the park"
 respuestas_validas:
   - "walk past the park"
   - "Walk past the park"

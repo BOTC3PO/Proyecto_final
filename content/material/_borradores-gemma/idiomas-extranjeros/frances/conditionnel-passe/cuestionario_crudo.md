@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el sujeto y el verbo en la oración."
   - "Aplicar la forma del conditionnel passé con 'aurais' + participio pasado de 'avoir'."
-respuesta: "aurais eu"
 tipo: completar
 respuestas_validas:
   - "aurais eu"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - "Reconocer la estructura 'si + imperfecto' que introduce una situación hipotética."
   - "Aplicar el conditionnel passé con 'serais' + participio de 'aller'."
-respuesta: "serais allé"
 tipo: completar
 respuestas_validas:
   - "serais allé"
@@ -50,7 +48,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'être' en la oración."
   - "Formar el conditionnel passé con 'serais' + participio de 'être' que concuerda con el sujeto."
-respuesta: "serais été"
 tipo: completar
 respuestas_validas:
   - "serais été"
@@ -93,7 +90,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'finir' en la oración."
   - "Formar el conditionnel passé con 'finirais' + participio de 'finir', que es 'fini'."
-respuesta: "finirais fini"
 tipo: completar
 respuestas_validas:
   - "finirais fini"
@@ -136,7 +132,6 @@ metadata:
 pasos:
   - "Identificar el sujeto femenino 'elle' en la oración."
   - "Formar el conditionnel passé con 'serait' + participio de 'être', que concuerde con 'elle'."
-respuesta: "serait été"
 tipo: completar
 respuestas_validas:
   - "serait été"
@@ -179,7 +174,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'prendre' en la oración."
   - "Formar el conditionnel passé con 'prendrais' + participio de 'prendre', que es 'pris'."
-respuesta: "prendrais pris"
 tipo: completar
 respuestas_validas:
   - "prendrais pris"
@@ -219,7 +213,6 @@ metadata:
 pasos:
   - "Identificar el sujeto plural 'ils' en la oración."
   - "Formar el conditionnel passé con 'seraient' + participio de 'être', que concuerde con 'ils'."
-respuesta: "seraient été"
 tipo: completar
 respuestas_validas:
   - "seraient été"
@@ -262,7 +255,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'finir' en la oración."
   - "Formar el conditionnel passé con 'finirais' + participio de 'finir', que es 'fini'."
-respuesta: "finirais fini"
 tipo: completar
 respuestas_validas:
   - "finirais fini"
@@ -304,7 +296,6 @@ metadata:
 pasos:
   - "Identificar el sujeto femenino plural 'elles' en la oración."
   - "Formar el conditionnel passé con 'seraient' + participio de 'être', que concuerde con 'elles'."
-respuesta: "seraient été"
 tipo: completar
 respuestas_validas:
   - "seraient été"
@@ -387,7 +378,6 @@ metadata:
 pasos:
   - "Identificar el sujeto singular 'il' en la oración."
   - "Formar el conditionnel passé con 'serait' + participio de 'être', que concuerde con 'il'."
-respuesta: "serait été"
 tipo: completar
 respuestas_validas:
   - "serait été"

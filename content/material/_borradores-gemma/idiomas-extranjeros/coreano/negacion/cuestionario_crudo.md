@@ -11,12 +11,9 @@ pasos:
 explicacion: "La particula '안' se usa para negar verbos en oraciones afirmativas simples. Ejemplo: '그는 학생이 아니다.' (El no es estudiante)."
 tipo: completar
 enunciado: "그는 학생이 ___."  
-respuesta: "아니야"  
 respuestas_validas:
   - "아니야"
   - "아니"
-variables:
-  - "sujeto": ["그", "그녀"]
 ```
 
 
@@ -34,7 +31,6 @@ pasos:
 explicacion: "'못' se usa para negar la capacidad de realizar una acción. Ejemplo: '그는 춤을 추지 못한다.' (El no puede bailar)."
 tipo: completar
 enunciado: "그는 춤을 ___."  
-respuesta: "추지 못한다"  
 respuestas_validas:
   - "추지 못한다"
   - "추지 못해"
@@ -55,7 +51,6 @@ pasos:
 explicacion: "'아니' se usa para negar sustantivos. Ejemplo: '그는 선생님이 아니다.' (El no es profesor)."
 tipo: completar
 enunciado: "그는 선생님이 ___."  
-respuesta: "아니다"  
 respuestas_validas:
   - "아니다"
   - "아니야"
@@ -76,7 +71,6 @@ pasos:
 explicacion: "'안' se usa para negar verbos en oraciones sobre tiempo. Ejemplo: '그는 오늘 안 간다.' (El no va hoy)."
 tipo: completar
 enunciado: "그는 내일 ___."  
-respuesta: "안 간다"  
 respuestas_validas:
   - "안 간다"
   - "안 가"
@@ -119,7 +113,6 @@ pasos:
 explicacion: "'할 수 없다' se usa para negar la capacidad. Ejemplo: '그는 한국어를 할 수 없다.' (El no puede hablar coreano)."
 tipo: completar
 enunciado: "그는 한국어를 ___."  
-respuesta: "할 수 없다"  
 respuestas_validas:
   - "할 수 없다"
   - "할 수 없어"

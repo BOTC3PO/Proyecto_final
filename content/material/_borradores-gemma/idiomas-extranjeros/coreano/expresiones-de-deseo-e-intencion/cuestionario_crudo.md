@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el verbo base en la oración."
   - "Aplicar el sufijo '-고 싶다' al verbo base."
-respuesta: "가고 싶다"
 tipo: completar
 respuestas_validas:
   - "가고 싶다"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración."
   - "Usar '-고 싶어하다' para expresar intención futura."
-respuesta: "먹고 싶어하다"
 tipo: completar
 respuestas_validas:
   - "먹고 싶어하다"
@@ -50,7 +48,6 @@ metadata:
 pasos:
   - "Identificar el verbo base."
   - "Añadir '-고 싶다' al verbo base."
-respuesta: "살고 싶다"
 tipo: completar
 respuestas_validas:
   - "살고 싶다"
@@ -71,7 +68,6 @@ metadata:
 pasos:
   - "Identificar el verbo base."
   - "Aplicar '-고 싶다' al verbo base."
-respuesta: "읽고 싶다"
 tipo: completar
 respuestas_validas:
   - "읽고 싶다"
@@ -92,7 +88,6 @@ metadata:
 pasos:
   - "Identificar el verbo base."
   - "Añadir '-고 싶다' al verbo base."
-respuesta: "말하고 싶다"
 tipo: completar
 respuestas_validas:
   - "말하고 싶다"
@@ -113,7 +108,6 @@ metadata:
 pasos:
   - "Identificar el verbo base."
   - "Aplicar '-고 싶다' al verbo base."
-respuesta: "사는 것 같다"
 tipo: completar
 respuestas_validas:
   - "사는 것 같다"
@@ -132,7 +126,6 @@ metadata:
   tags: ["-고 싶다", "contexto social"]
 pasos:
   - "Identificar el verbo que completa la oración con el deseo de comer."
-respuesta: "먹고 싶어요"
 tipo: completar
 respuestas_validas:
   - "먹고 싶어요"
@@ -170,7 +163,6 @@ metadata:
   tags: ["-자", "sugerencias"]
 pasos:
   - "Completar la oración con el verbo que sugiere una acción conjunta."
-respuesta: "공원에 가자"
 tipo: completar
 respuestas_validas:
   - "공원에 가자"
@@ -207,7 +199,6 @@ metadata:
   tags: ["-고 싶다", "compras"]
 pasos:
   - "Completar la oración con el deseo de comprar algo."
-respuesta: "사고 싶어요"
 tipo: completar
 respuestas_validas:
   - "사고 싶어요"
@@ -244,7 +235,6 @@ metadata:
   tags: ["-고 싶다", "educación"]
 pasos:
   - "Completar la oración con el deseo de aprender algo."
-respuesta: "배우고 싶어요"
 tipo: completar
 respuestas_validas:
   - "배우고 싶어요"
@@ -300,7 +290,6 @@ metadata:
   tags: ["-아/어서", "trabajo"]
 pasos:
   - "Completar la oración con el propósito de descansar."
-respuesta: "쉬고 싶어서"
 tipo: completar
 respuestas_validas:
   - "쉬고 싶어서"
@@ -337,7 +326,6 @@ metadata:
   tags: ["-자", "actividades"]
 pasos:
   - "Completar la oración con el verbo que sugiere una acción conjunta."
-respuesta: "산책해 봐요"
 tipo: completar
 respuestas_validas:
   - "산책해 봐요"
@@ -374,7 +362,6 @@ metadata:
   tags: ["-자", "comida"]
 pasos:
   - "Completar la oración con el verbo que sugiere una acción conjunta."
-respuesta: "새로운 레스토랑에 가자"
 tipo: completar
 respuestas_validas:
   - "새로운 레스토랑에 가자"
@@ -411,7 +398,6 @@ metadata:
   tags: ["-고 싶다", "leer"]
 pasos:
   - "Completar la oración con el deseo de leer algo."
-respuesta: "읽고 싶어요"
 tipo: completar
 respuestas_validas:
   - "읽고 싶어요"
@@ -448,7 +434,6 @@ metadata:
   tags: ["-자", "viajes"]
 pasos:
   - "Completar la oración con el verbo que sugiere una acción conjunta."
-respuesta: "여행을 가자"
 tipo: completar
 respuestas_validas:
   - "여행을 가자"

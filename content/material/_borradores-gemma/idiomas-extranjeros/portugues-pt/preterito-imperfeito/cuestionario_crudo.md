@@ -10,7 +10,6 @@ pasos:
 explicacion: "El pretérito imperfecto de 'brincar' es 'brincava'. Se usa para acciones habituales en el pasado, como rutinas o descripciones. Ejemplo: 'Ela brincava no parque.'"  
 tipo: completar  
 enunciado: "Quando eu era criança, ___ muito no parque."  
-respuesta: "brincava"  
 respuestas_validas:  
   - "Brincava"  
   - "BRINCAVA"  
@@ -32,7 +31,6 @@ pasos:
 explicacion: "'Ler' en pretérito imperfecto es 'lia'. Se usa para acciones repetitivas o descripciones. Ejemplo: 'Ela lia livros todos os dias.'"  
 tipo: completar  
 enunciado: "Minha avó ___ livros de ficção por horas."  
-respuesta: "lia"  
 respuestas_validas:  
   - "Lia"  
   - "LIA"  
@@ -54,7 +52,6 @@ pasos:
 explicacion: "El pretérito imperfecto se usa para describir situaciones o estados prolongados. 'Ela vivia em Lisboa' describe un estado continuo."  
 tipo: completar  
 enunciado: "O menino ___ com um cachorro no jardim."  
-respuesta: "brincava"  
 respuestas_validas:  
   - "Brincava"  
   - "BRINCAVA"  
@@ -76,7 +73,6 @@ pasos:
 explicacion: "'Cantar' en pretérito imperfecto es 'cantava'. Ejemplo: 'Elas cantavam no coro.'"  
 tipo: completar  
 enunciado: "Ela ___ melodias bonitas em casa."  
-respuesta: "cantava"  
 respuestas_validas:  
   - "Cantava"  
   - "CANTAVA"  
@@ -98,7 +94,11 @@ pasos:
 explicacion: "El pretérito imperfecto describe acciones continuas o repetitivas, mientras que el pretérito perfeito indica completud. 'Ela estudava' (continuo) vs. 'Ela estudou' (completo)."  
 tipo: mc  
 enunciado: "Quando eu era criança, ___ no parque todos os dias."  
-opciones_explicitas: ["brincava", "brinquei", "brincarei", "estudava"]  
+opciones_explicitas:
+  - "brincava"
+  - "brinquei"
+  - "brincarei"
+  - "estudava"
 respuesta: "brincava"  
 
 ---
@@ -118,7 +118,6 @@ pasos:
 explicacion: "'Viver' en pretérito imperfecto es 'vivia'. Ejemplo: 'Eles viviam em Paris.'"  
 tipo: completar  
 enunciado: "Meu avô ___ uma vida tranquila no campo."  
-respuesta: "vivia"  
 respuestas_validas:  
   - "Vivia"  
   - "VIVIA"  
@@ -140,7 +139,6 @@ pasos:
 explicacion: "'Dormir' en pretérito imperfecto es 'dormia'. Ejemplo: 'Ela dormia até tarde.'"  
 tipo: completar  
 enunciado: "O menino ___ até as dez horas de manhã."  
-respuesta: "dormia"  
 respuestas_validas:  
   - "Dormia"  
   - "DORMIA"  
@@ -162,7 +160,6 @@ pasos:
 explicacion: "El pretérito imperfecto se usa para rutinas pasadas. 'Ela tomava café' describe una costumbre."  
 tipo: completar  
 enunciado: "Ela ___ café todas as manhãs antes do trabalho."  
-respuesta: "tomava"  
 respuestas_validas:  
   - "Tomava"  
   - "TOMAVA"  
@@ -184,7 +181,6 @@ pasos:
 explicacion: "'Correr' en pretérito imperfecto es 'corria'. Ejemplo: 'Eles corriam no parque.'"  
 tipo: completar  
 enunciado: "Os atletas ___ todos os dias antes do treino."  
-respuesta: "corriam"  
 respuestas_validas:  
   - "Corriam"  
   - "CORRIAM"  
@@ -206,7 +202,6 @@ pasos:
 explicacion: "'Escrever' en pretérito imperfecto es 'escrevia'. Ejemplo: 'Ela escrevia cartas para a família.'"  
 tipo: completar  
 enunciado: "O escritor ___ em seu diário durante horas."  
-respuesta: "escrevia"  
 respuestas_validas:  
   - "Escrevia"  
   - "ESCREVIA"  
@@ -228,7 +223,6 @@ pasos:
 explicacion: "El pretérito imperfecto se usa para describir situaciones prolongadas. 'Ela vivia em Lisboa' describe un lugar de residencia pasada."  
 tipo: completar  
 enunciado: "O casal ___ juntos em um apartamento pequeno."  
-respuesta: "vivia"  
 respuestas_validas:  
   - "Vivia"  
   - "VIVIA"  
@@ -250,7 +244,6 @@ pasos:
 explicacion: "'Comer' en pretérito imperfecto es 'comia'. Ejemplo: 'Ela comia sanduíches no almoço.'"  
 tipo: completar  
 enunciado: "O garoto ___ frutas todas as tardes depois da escola."  
-respuesta: "comia"  
 respuestas_validas:  
   - "Comia"  
   - "COMIA"  
@@ -270,7 +263,6 @@ metadata:
 pasos:
   - "Identificar el verbo en la oración y su función."
   - "Aplicar la forma del preterito-imperfeito para acciones habituales en el pasado."
-respuesta: "tinha"
 respuestas_validas:
   - "Tinha"
   - "tinhas"
@@ -292,7 +284,6 @@ pasos:
 explicacion: "'Trabalhar' en pretérito imperfecto es 'trabalhava'. Ejemplo: 'Ela trabalhava em uma empresa.'"  
 tipo: completar  
 enunciado: "O professor ___ por vinte anos antes de se aposentar."  
-respuesta: "trabalhava"  
 respuestas_validas:  
   - "Trabalhava"  
   - "TRABALHAVA"  
@@ -314,7 +305,6 @@ pasos:
 explicacion: "'Ler' en pretérito imperfecto es 'lia'. Ejemplo: 'Ela lia livros todas as noites.'"  
 tipo: completar  
 enunciado: "Minha mãe ___ histórias para os meus irmãos antes de dormir."  
-respuesta: "lia"  
 respuestas_validas:  
   - "Lia"  
   - "LIA"  
@@ -357,7 +347,6 @@ pasos:
 explicacion: "'Beber' en pretérito imperfecto es 'bebia'. Ejemplo: 'Ela bebia café todos os dias.'"  
 tipo: completar  
 enunciado: "O homem ___ chá frio durante a reunião."  
-respuesta: "bebia"  
 respuestas_validas:  
   - "Bebia"  
   - "BEBIA"  
@@ -379,7 +368,6 @@ pasos:
 explicacion: "'Falar' en pretérito imperfecto es 'falava'. Ejemplo: 'Ela falava em público.'"  
 tipo: completar  
 enunciado: "O orador ___ com clareza durante a palestra."  
-respuesta: "falava"  
 respuestas_validas:  
   - "Falava"  
   - "FALAVA"  
@@ -401,7 +389,6 @@ pasos:
 explicacion: "El pretérito imperfecto se usa para describir características pasadas. 'Ela tinha cabelos curtos' es una descripción."  
 tipo: completar  
 enunciado: "Ele ___ olhos azuis e um sorriso gentil."  
-respuesta: "tinha"  
 respuestas_validas:  
   - "Tinha"  
   - "TINHA"  
@@ -423,7 +410,6 @@ pasos:
 explicacion: "'Andar' en pretérito imperfecto es 'andava'. Ejemplo: 'Ela andava no parque todos os dias.'"  
 tipo: completar  
 enunciado: "O atleta ___ pelo parque antes do treino."  
-respuesta: "andava"  
 respuestas_validas:  
   - "Andava"  
   - "ANDAVA"  
@@ -445,7 +431,6 @@ pasos:
 explicacion: "'Ver' en pretérito imperfecto es 'via'. Ejemplo: 'Ela via o mar todos os dias.'"  
 tipo: completar  
 enunciado: "O turista ___ o pôr do sol no horizonte."  
-respuesta: "via"  
 respuestas_validas:  
   - "Via"  
   - "VIA"  
@@ -467,7 +452,6 @@ pasos:
 explicacion: "'Ir' en pretérito imperfecto es 'ia'. Ejemplo: 'Ela ia à escola de bicicleta.'"  
 tipo: completar  
 enunciado: "O menino ___ à escola com seu irmão todos os dias."  
-respuesta: "ia"  
 respuestas_validas:  
   - "Ia"  
   - "IA"  
@@ -489,7 +473,6 @@ pasos:
 explicacion: "El pretérito imperfecto se usa para describir estados emocionales pasados. 'Ela sentia alegria' es una descripción."  
 tipo: completar  
 enunciado: "O garoto ___ alegria ao ganhar o prêmio."  
-respuesta: "sentia"  
 respuestas_validas:  
   - "Sentia"  
   - "SENTIA"  
@@ -511,7 +494,6 @@ pasos:
 explicacion: "'Dormir' en pretérito imperfecto es 'dormia'. Ejemplo: 'Ela dormia até as dez.'"  
 tipo: completar  
 enunciado: "O professor ___ até tarde no inverno."  
-respuesta: "dormia"  
 respuestas_validas:  
   - "Dormia"  
   - "DORMIA"  
@@ -531,7 +513,6 @@ metadata:
 pasos:
   - "Identificar la relación entre el verbo principal y su complemento."
   - "Usar la forma imperfecta para acciones simultáneas en el pasado."
-respuesta: "escutava"
 respuestas_validas:
   - "Escutava"
   - "escutavas"

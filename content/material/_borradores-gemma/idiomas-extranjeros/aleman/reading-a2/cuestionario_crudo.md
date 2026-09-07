@@ -7,7 +7,6 @@ metadata:
   tags: ["berufe", "preposiciones"]
 pasos:
   - "Identificar la preposición que indica lugar de trabajo."
-respuesta: "in"
 tipo: completar
 respuestas_validas:
   - "in"
@@ -29,7 +28,6 @@ metadata:
   tags: ["zeit", "konjugation"]
 pasos:
   - "Identificar el verbo en presente y completar la oración con el tiempo correcto."
-respuesta: "um"
 tipo: completar
 respuestas_validas:
   - "um"
@@ -75,7 +73,6 @@ metadata:
   tags: ["tagesplan", "verben"]
 pasos:
   - "Completar el hueco con la forma correcta del verbo en presente."
-respuesta: "gehe"
 tipo: completar
 respuestas_validas:
   - "gehe"
@@ -121,7 +118,6 @@ metadata:
   tags: ["schule", "artikel"]
 pasos:
   - "Identificar el artículo definido correcto para 'Buch'."
-respuesta: "das"
 tipo: completar
 respuestas_validas:
   - "das"
@@ -143,7 +139,6 @@ metadata:
   tags: ["hobbys", "infinitiv"]
 pasos:
   - "Completar la oración con el infinitivo correcto."
-respuesta: "tanzen"
 tipo: completar
 respuestas_validas:
   - "tanzen"
@@ -189,7 +184,6 @@ metadata:
   tags: ["speisekarte", "artikel"]
 pasos:
   - "Identificar el artículo correcto para 'Brot'."
-respuesta: "das"
 tipo: completar
 respuestas_validas:
   - "das"
@@ -211,7 +205,6 @@ metadata:
   tags: ["reise", "verben"]
 pasos:
   - "Completar la oración con el verbo correcto en presente."
-respuesta: "fliege"
 tipo: completar
 respuestas_validas:
   - "fliege"
@@ -257,7 +250,6 @@ metadata:
   tags: ["mode", "farben"]
 pasos:
   - "Identificar el color correcto para la descripción."
-respuesta: "grau"
 tipo: completar
 respuestas_validas:
   - "grau"
@@ -279,7 +271,6 @@ metadata:
   tags: ["wochentag", "verben"]
 pasos:
   - "Completar la oración con el verbo correcto en presente."
-respuesta: "gehe"
 tipo: completar
 respuestas_validas:
   - "gehe"
@@ -325,7 +316,6 @@ metadata:
   tags: ["technik", "artikel"]
 pasos:
   - "Identificar el artículo correcto para 'Computer'."
-respuesta: "der"
 tipo: completar
 respuestas_validas:
   - "der"
@@ -347,7 +337,6 @@ metadata:
   tags: ["natur", "verben"]
 pasos:
   - "Completar la oración con el verbo correcto en presente."
-respuesta: "schwimme"
 tipo: completar
 respuestas_validas:
   - "schwimme"
@@ -412,7 +401,6 @@ metadata:
   tags: ["kochen", "artikel"]
 pasos:
   - "Identificar el artículo correcto para 'Eier'."
-respuesta: "die"
 tipo: completar
 respuestas_validas:
   - "die"
@@ -434,7 +422,6 @@ metadata:
   tags: ["musik", "verben"]
 pasos:
   - "Completar la oración con el verbo correcto en presente."
-respuesta: "höre"
 tipo: completar
 respuestas_validas:
   - "höre"
@@ -480,7 +467,6 @@ metadata:
   tags: ["schule", "infinitiv"]
 pasos:
   - "Completar la oración con el infinitivo correcto."
-respuesta: "lernen"
 tipo: completar
 respuestas_validas:
   - "lernen"
@@ -502,7 +488,6 @@ metadata:
   tags: ["urlaub", "verben"]
 pasos:
   - "Completar la oración con el verbo correcto en presente."
-respuesta: "reise"
 tipo: completar
 respuestas_validas:
   - "reise"

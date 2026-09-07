@@ -10,7 +10,6 @@ pasos:
 explicacion: "La colocación más común es 'make a mistake', ya que 'make' se usa con sustantivos abstractos como errores, decisiones o planes."  
 tipo: completar  
 enunciado: "She ___ a mistake while driving."  
-respuesta: "made"  
 respuestas_validas:  
   - "made"  
   - "Made"  
@@ -30,7 +29,10 @@ pasos:
 explicacion: "'Give advice' es la colocación correcta, ya que 'advice' es un sustantivo incontable y requiere 'give', no 'do' ni 'make'."  
 tipo: mc  
 enunciado: "The teacher ___ his students some good advice."  
-opciones_explicitas: ["gave", "made", "took"]  
+opciones_explicitas:
+  - "gave"
+  - "made"
+  - "took"
 respuesta: "gave"  
 ```
 
@@ -48,7 +50,6 @@ pasos:
 explicacion: "'Take a break' es una colocación fija, mientras que 'make a break' no existe en este uso."  
 tipo: completar  
 enunciado: "Let's ___ a break after this meeting."  
-respuesta: "take"  
 respuestas_validas:  
   - "take"  
   - "Take"  
@@ -68,7 +69,10 @@ pasos:
 explicacion: "'Do homework' es la colocación correcta, ya que 'homework' es un sustantivo incontable y requiere 'do', no 'make' ni 'take'."  
 tipo: mc  
 enunciado: "I need to ___ my homework before the exam."  
-opciones_explicitas: ["do", "make", "give"]  
+opciones_explicitas:
+  - "do"
+  - "make"
+  - "give"
 respuesta: "do"  
 ```
 
@@ -86,7 +90,6 @@ pasos:
 explicacion: "'Make a decision' es la colocación estándar, mientras que 'do a decision' o 'take a decision' no son correctas en este contexto."  
 tipo: completar  
 enunciado: "They ___ to leave the company last week."  
-respuesta: "made"  
 respuestas_validas:  
   - "made"  
   - "Made"  
@@ -106,7 +109,10 @@ pasos:
 explicacion: "'Give an example' es la colocación correcta, ya que 'example' es un sustantivo contable y requiere 'give' para transmitir algo."  
 tipo: mc  
 enunciado: "The professor ___ a clear example of the concept."  
-opciones_explicitas: ["gave", "made", "took"]  
+opciones_explicitas:
+  - "gave"
+  - "made"
+  - "took"
 respuesta: "gave"  
 ```
 
@@ -124,7 +130,6 @@ pasos:
 explicacion: "'Do exercise' es la colocación correcta, ya que 'exercise' en este contexto es un sustantivo incontable y requiere 'do'."  
 tipo: completar  
 enunciado: "I need to ___ more physical exercise this month."  
-respuesta: "do"  
 respuestas_validas:  
   - "do"  
   - "Do"  
@@ -144,7 +149,10 @@ pasos:
 explicacion: "'Take a note' es la colocación correcta, mientras que 'make a note' no se usa en este sentido. El verbo 'take' implica capturar algo temporalmente."  
 tipo: mc  
 enunciado: "The teacher asked us to ___ a note about the lesson."  
-opciones_explicitas: ["take", "make", "give"]  
+opciones_explicitas:
+  - "take"
+  - "make"
+  - "give"
 respuesta: "take"  
 ```
 
@@ -162,7 +170,6 @@ pasos:
 explicacion: "'Make a plan' es la colocación estándar, mientras que 'do a plan' o 'take a plan' no son correctas en este contexto."  
 tipo: completar  
 enunciado: "We ___ to visit Spain next summer."  
-respuesta: "made"  
 respuestas_validas:  
   - "made"  
   - "Made"  
@@ -182,7 +189,10 @@ pasos:
 explicacion: "'Do research' es la colocación correcta, ya que 'research' es un sustantivo incontable y requiere 'do', no 'make' ni 'take'."  
 tipo: mc  
 enunciado: "The students ___ a lot of research before writing the report."  
-opciones_explicitas: ["did", "made", "gave"]  
+opciones_explicitas:
+  - "did"
+  - "made"
+  - "gave"
 respuesta: "did"  
 ```
 
@@ -200,7 +210,6 @@ pasos:
 explicacion: "'Make a choice' es la colocación estándar, mientras que 'do a choice' o 'take a choice' no son correctas en este contexto."  
 tipo: completar  
 enunciado: "She ___ a difficult choice about her career."  
-respuesta: "made"  
 respuestas_validas:  
   - "made"  
   - "Made"  
@@ -220,7 +229,10 @@ pasos:
 explicacion: "'Give an opinion' es la colocación correcta, ya que 'opinion' es un sustantivo contable y requiere 'give' para transmitir algo."  
 tipo: mc  
 enunciado: "The expert ___ his opinion on the new policy."  
-opciones_explicitas: ["gave", "made", "took"]  
+opciones_explicitas:
+  - "gave"
+  - "made"
+  - "took"
 respuesta: "gave"  
 ```
 
@@ -238,7 +250,6 @@ pasos:
 explicacion: "'Do shopping' es la colocación correcta, ya que 'shopping' en este contexto es un sustantivo incontable y requiere 'do'."  
 tipo: completar  
 enunciado: "I need to ___ some grocery shopping this afternoon."  
-respuesta: "do"  
 respuestas_validas:  
   - "do"  
   - "Do"  
@@ -258,7 +269,10 @@ pasos:
 explicacion: "'Take a photo' es la colocación correcta, mientras que 'make a photo' no se usa en este sentido. El verbo 'take' implica capturar algo temporalmente."  
 tipo: mc  
 enunciado: "The tourist ___ a beautiful photo of the monument."  
-opciones_explicitas: ["took", "made", "gave"]  
+opciones_explicitas:
+  - "took"
+  - "made"
+  - "gave"
 respuesta: "took"  
 ```
 
@@ -276,7 +290,6 @@ pasos:
 explicacion: "'Make an appointment' es la colocación estándar, mientras que 'do an appointment' o 'take an appointment' no son correctas en este contexto."  
 tipo: completar  
 enunciado: "We ___ a meeting with the manager next week."  
-respuesta: "made"  
 respuestas_validas:  
   - "made"  
   - "Made"  
@@ -296,7 +309,10 @@ pasos:
 explicacion: "'Do volunteering' es la colocación correcta, ya que 'volunteering' es un sustantivo incontable y requiere 'do', no 'make' ni 'take'."  
 tipo: mc  
 enunciado: "She ___ a lot of community volunteering last year."  
-opciones_explicitas: ["did", "made", "gave"]  
+opciones_explicitas:
+  - "did"
+  - "made"
+  - "gave"
 respuesta: "did"  
 ```
 
@@ -314,7 +330,6 @@ pasos:
 explicacion: "'Take a test' es la colocación correcta, mientras que 'make a test' no se usa en este sentido. El verbo 'take' implica someterse a algo temporalmente."  
 tipo: completar  
 enunciado: "The students ___ an important language test today."  
-respuesta: "took"  
 respuestas_validas:  
   - "took"  
   - "Took"  
@@ -334,7 +349,10 @@ pasos:
 explicacion: "'Give feedback' es la colocación correcta, ya que 'feedback' es un sustantivo contable y requiere 'give' para transmitir algo."  
 tipo: mc  
 enunciado: "The teacher ___ constructive feedback on the essay."  
-opciones_explicitas: ["gave", "made", "took"]  
+opciones_explicitas:
+  - "gave"
+  - "made"
+  - "took"
 respuesta: "gave"  
 ```
 
@@ -352,7 +370,6 @@ pasos:
 explicacion: "'Do exercise' es la colocación correcta, ya que 'exercise' en este contexto es un sustantivo incontable y requiere 'do'."  
 tipo: completar  
 enunciado: "He needs to ___ more physical exercise for his health."  
-respuesta: "do"  
 respuestas_validas:  
   - "do"  
   - "Do"  
@@ -371,7 +388,6 @@ pasos:
   - "Identificar el verbo que combina con 'approach' en este contexto."
 explicacion: "El collocation correcto es 'propose a new approach', ya que 'propose' se usa para presentar una idea o solución específica."
 enunciado: "The researcher ___ a new approach to solve the problem."  
-respuesta: "proposed"  
 tipo: completar  
 respuestas_validas:
   - "proposed"
@@ -391,7 +407,6 @@ pasos:
   - "Seleccionar la opción que completa el sentido de 'abandonar un hábito'."
 explicacion: "'Give up' es un collocation común para expresar dejar de hacer algo, como un hábito o una práctica."
 enunciado: "She ___ smoking after her doctor's advice."  
-respuesta: "gave up"  
 tipo: completar  
 respuestas_validas:
   - "gave up"
@@ -411,7 +426,6 @@ pasos:
   - "Elegir la opción que completa el sentido de 'enfrentar problemas'."
 explicacion: "'Face challenges' es un collocation frecuente para referirse a superar dificultades o obstáculos."
 enunciado: "The students ___ many difficulties during their internship."  
-respuesta: "faced"  
 tipo: completar  
 respuestas_validas:
   - "faced"
@@ -431,7 +445,6 @@ pasos:
   - "Seleccionar la opción que completa el sentido de 'esperar algo con entusiasmo'."
 explicacion: "'Look forward to' se usa para expresar anticipación positiva sobre un evento futuro."
 enunciado: "We ___ our trip to Spain next month."  
-respuesta: "look forward to"  
 tipo: completar  
 respuestas_validas:
   - "look forward to"
@@ -451,7 +464,6 @@ pasos:
   - "Identificar el verbo que combina con 'something' en este contexto."
 explicacion: "'Come across' es un collocation para describir encontrar algo accidentalmente durante una búsqueda."
 enunciado: "He ___ an old letter while cleaning the attic."  
-respuesta: "came across"  
 tipo: completar  
 respuestas_validas:
   - "came across"
@@ -471,7 +483,6 @@ pasos:
   - "Elegir la opción que completa el sentido de 'reflexionar sobre una elección'."
 explicacion: "'Think about' se usa para expresar meditar o considerar una decisión importante."
 enunciado: "She ___ her career path before accepting the job."  
-respuesta: "thought about"  
 tipo: completar  
 respuestas_validas:
   - "thought about"

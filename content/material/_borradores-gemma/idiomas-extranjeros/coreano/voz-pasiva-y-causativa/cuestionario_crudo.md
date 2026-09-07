@@ -13,7 +13,6 @@ metadata:
 pasos:  
   - "Identificar la forma activa del verbo."  
   - "Aplicar la estructura causativa '-게 하다' al sujeto y objeto."  
-respuesta: "학생이 선생님에게 문제를 풀게 했습니다"  
 tipo: completar  
 respuestas_validas:  
   - "학생이 선생님에게 문제를 풀게 했습니다"  
@@ -41,7 +40,6 @@ metadata:
 pasos:  
   - "Reconocer el uso de '-되다' en la oración."  
   - "Verificar si se omite al agente (sujeto)."  
-respuesta: "사건이 해결되었어요"  
 tipo: completar  
 respuestas_validas:  
   - "사건이 해결되었어요"  
@@ -97,7 +95,6 @@ metadata:
 pasos:  
   - "Convertir la oración activa a pasiva."  
   - "Asegurar que el objeto se convierta en sujeto y se use '-되다'."  
-respuesta: "책이 작가에게 쓰여졌어요"  
 tipo: completar  
 respuestas_validas:  
   - "책이 작가에게 쓰여졌어요"  
@@ -125,7 +122,6 @@ metadata:
 pasos:  
   - "Reconocer la estructura '-되다' en el verbo."  
   - "Verificar que no se mencione al agente (sujeto)."  
-respuesta: "문제가 해결되었습니다"  
 tipo: completar  
 respuestas_validas:  
   - "문제가 해결되었습니다"  
@@ -181,7 +177,6 @@ metadata:
 pasos:  
   - "Convertir la oración activa a pasiva."  
   - "Asegurar que el objeto se convierta en sujeto y se use '-되다'."  
-respuesta: "문이 열렸어요"  
 tipo: completar  
 respuestas_validas:  
   - "문이 열렸어요"  
@@ -209,7 +204,6 @@ metadata:
 pasos:  
   - "Reconocer la estructura '-되다' en el verbo."  
   - "Verificar que no se mencione al agente (sujeto)."  
-respuesta: "도서관이 건설되었습니다"  
 tipo: completar  
 respuestas_validas:  
   - "도서관이 건설되었습니다"  
@@ -265,7 +259,6 @@ metadata:
 pasos:  
   - "Convertir la oración activa a pasiva."  
   - "Asegurar que el objeto se convierta en sujeto y se use '-되다'."  
-respuesta: "사건이 조사되었습니다"  
 tipo: completar  
 respuestas_validas:  
   - "사건이 조사되었습니다"  
@@ -293,7 +286,7 @@ metadata:
 pasos:
   - "Identificar el sujeto y la acción en la oración."
   - "Convertir la oración activa a pasiva usando -에/에게 + verbo en forma pasiva."
-respuesta_validas:
+respuestas_validas:
   - "문이 로봇에 의해 열렸어요"
 tipo: completar
 enunciado: '로봇이 문을 열었습니다. → ___'
@@ -362,7 +355,7 @@ metadata:
 pasos:
   - "Reemplazar el sujeto activo con el receptor de la acción."
   - "Usar la forma pasiva -되다 + -았/었어요."
-respuesta_validas:
+respuestas_validas:
   - "건물이 공학자들에 의해 지어졌습니다"
 tipo: completar
 enunciado: '공학자들이 건물을 짓게 했습니다. → ___'
@@ -431,7 +424,7 @@ metadata:
 pasos:
   - "Reemplazar el sujeto activo con el receptor de la acción."
   - "Usar la forma pasiva -에/에게 + verbo en pasado."
-respuesta_validas:
+respuestas_validas:
   - "소프트웨어가 개발자에 의해 만들어졌습니다"
 tipo: completar
 enunciado: '개발자가 소프트웨어를 만들었습니다. → ___'
@@ -500,7 +493,7 @@ metadata:
 pasos:
   - "Reemplazar el sujeto activo con el receptor de la acción."
   - "Usar la forma pasiva -되다 + -았/었어요."
-respuesta_validas:
+respuestas_validas:
   - "과제가 학생들에 의해 제출되었습니다"
 tipo: completar
 enunciado: '교수가 학생들에게 과제를 제출하게 했습니다. → ___'

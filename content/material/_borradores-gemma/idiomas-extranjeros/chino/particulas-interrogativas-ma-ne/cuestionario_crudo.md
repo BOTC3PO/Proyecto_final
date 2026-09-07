@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el uso de la partícula interrogativa en una oración afirmativa."
   - "Verificar si se requiere 'ma' para formar una pregunta cerrada."
-respuesta: "ma"
 tipo: completar
 respuestas_validas:
   - "ma"
@@ -28,7 +27,6 @@ metadata:
 pasos:
   - "Determinar la ubicación correcta de 'ma' en una oración."
   - "Verificar si el sujeto y verbo están correctamente colocados antes de 'ma'."
-respuesta: "ma"
 tipo: completar
 respuestas_validas:
   - "ma"
@@ -48,7 +46,6 @@ metadata:
 pasos:
   - "Identificar la partícula adecuada para expresar énfasis en una afirmación."
   - "Verificar si 'ne' se usa correctamente para resaltar una idea."
-respuesta: "ne"
 tipo: completar
 respuestas_validas:
   - "ne"
@@ -68,7 +65,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'ma' para formar preguntas cerradas."
   - "Verificar si la oración requiere una respuesta binaria (sí/no)."
-respuesta: "ma"
 tipo: completar
 respuestas_validas:
   - "ma"
@@ -88,7 +84,6 @@ metadata:
 pasos:
   - "Identificar la partícula que sigue a un verbo negativo en una pregunta."
   - "Verificar si 'ma' se usa correctamente con '不'."
-respuesta: "ma"
 tipo: completar
 respuestas_validas:
   - "ma"
@@ -107,7 +102,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Identificar la partícula que convierte la oración en una pregunta."  
-respuesta: "吗"  
 tipo: completar  
 respuestas_validas:  
   - "吗"  
@@ -124,7 +118,6 @@ metadata:
 pasos:
   - "Identificar la partícula que sigue a un interrogativo."
   - "Verificar si 'ma' se usa correctamente con palabras como '什么'."
-respuesta: "ma"
 tipo: completar
 respuestas_validas:
   - "ma"
@@ -143,7 +136,11 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Seleccionar la partícula que transforma la oración en una pregunta."  
-opciones_explicitas: ["吗", "呢", "啊", "哦"]  
+opciones_explicitas:
+  - "吗"
+  - "呢"
+  - "啊"
+  - "哦"
 respuesta: "吗"
 ```
 
@@ -156,7 +153,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Completar el hueco con la partícula que convierte la oración en una pregunta."  
-respuesta: "是...吗"  
 tipo: completar  
 respuestas_validas:  
   - "是...吗"  
@@ -172,7 +168,11 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Elegir la partícula correcta para formar una pregunta."  
-opciones_explicitas: ["吗", "呢", "啊", "吧"]  
+opciones_explicitas:
+  - "吗"
+  - "呢"
+  - "啊"
+  - "吧"
 respuesta: "吗"
 ```
 
@@ -185,7 +185,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Completar el hueco con la partícula que transforma la oración en una pregunta."  
-respuesta: "要...吗"  
 tipo: completar  
 respuestas_validas:  
   - "要...吗"  
@@ -201,7 +200,11 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Seleccionar la partícula que convierte la oración en una pregunta."  
-opciones_explicitas: ["吗", "呢", "啊", "哦"]  
+opciones_explicitas:
+  - "吗"
+  - "呢"
+  - "啊"
+  - "哦"
 respuesta: "是...吗"
 ```
 
@@ -214,7 +217,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Completar el hueco con la partícula que transforma la oración en una pregunta."  
-respuesta: "还...吗"  
 tipo: completar  
 respuestas_validas:  
   - "还...吗"  
@@ -230,7 +232,11 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Elegir la partícula correcta para formar una pregunta."  
-opciones_explicitas: ["吗", "呢", "啊", "哦"]  
+opciones_explicitas:
+  - "吗"
+  - "呢"
+  - "啊"
+  - "哦"
 respuesta: "是...吗"
 ```
 
@@ -243,7 +249,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Completar el hueco con la partícula que transforma la oración en una pregunta."  
-respuesta: "是...吗"  
 tipo: completar  
 respuestas_validas:  
   - "是...吗"  
@@ -259,7 +264,11 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Seleccionar la partícula que convierte la oración en una pregunta."  
-opciones_explicitas: ["吗", "呢", "啊", "哦"]  
+opciones_explicitas:
+  - "吗"
+  - "呢"
+  - "啊"
+  - "哦"
 respuesta: "是...吗"
 ```
 
@@ -272,7 +281,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Completar el hueco con la partícula que transforma la oración en una pregunta."  
-respuesta: "要...吗"  
 tipo: completar  
 respuestas_validas:  
   - "要...吗"  
@@ -288,7 +296,11 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Elegir la partícula correcta para formar una pregunta."  
-opciones_explicitas: ["吗", "呢", "啊", "哦"]  
+opciones_explicitas:
+  - "吗"
+  - "呢"
+  - "啊"
+  - "哦"
 respuesta: "是...吗"
 ```
 
@@ -301,7 +313,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Completar el hueco con la partícula que transforma la oración en una pregunta."  
-respuesta: "是...吗"  
 tipo: completar  
 respuestas_validas:  
   - "是...吗"  
@@ -317,7 +328,11 @@ metadata:
   tags: ["interrogativa", "ne"]  
 pasos:  
   - "Seleccionar la partícula que convierte la oración en una pregunta."  
-opciones_explicitas: ["呢", "吗", "啊", "哦"]  
+opciones_explicitas:
+  - "呢"
+  - "吗"
+  - "啊"
+  - "哦"
 respuesta: "呢"
 ```
 
@@ -330,7 +345,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Completar el hueco con la partícula que transforma la oración en una pregunta."  
-respuesta: "要...吗"  
 tipo: completar  
 respuestas_validas:  
   - "要...吗"  
@@ -346,7 +360,11 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Elegir la partícula correcta para formar una pregunta."  
-opciones_explicitas: ["吗", "呢", "啊", "哦"]  
+opciones_explicitas:
+  - "吗"
+  - "呢"
+  - "啊"
+  - "哦"
 respuesta: "是...吗"
 ```
 
@@ -359,7 +377,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Completar el hueco con la partícula que transforma la oración en una pregunta."  
-respuesta: "是...吗"  
 tipo: completar  
 respuestas_validas:  
   - "是...吗"  
@@ -375,7 +392,11 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Seleccionar la partícula que convierte la oración en una pregunta."  
-opciones_explicitas: ["吗", "呢", "啊", "哦"]  
+opciones_explicitas:
+  - "吗"
+  - "呢"
+  - "啊"
+  - "哦"
 respuesta: "要...吗"
 ```
 
@@ -388,7 +409,6 @@ metadata:
   tags: ["interrogativa", "ma"]  
 pasos:  
   - "Completar el hueco con la partícula que transforma la oración en una pregunta."  
-respuesta: "是...吗"  
 tipo: completar  
 respuestas_validas:  
   - "是...吗"  

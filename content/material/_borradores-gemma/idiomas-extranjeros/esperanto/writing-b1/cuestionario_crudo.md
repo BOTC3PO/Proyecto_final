@@ -7,7 +7,6 @@ metadata:
   tags: ["konjunkcio", "kaj"]  
 pasos:  
   - "Elektu la konjunkcion, kiu kompletigas la liston."  
-respuesta: "kaj"  
 tipo: completar  
 respuestas_validas:  
   - "kaj"  
@@ -27,7 +26,11 @@ metadata:
   tags: ["prepozicio", "loko"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas lokon."  
-opciones_explicitas: ["en", "sur", "sub", "antaŭ"]  
+opciones_explicitas:
+  - "en"
+  - "sur"
+  - "sub"
+  - "antaŭ"
 respuesta: "en"  
 tipo: mc  
 explicacion: "La prepozicio 'en' uzatas por indiki, ke iu estas inter la limoj de alia objekto."  
@@ -44,7 +47,11 @@ metadata:
   tags: ["verbo", "perfektivo"]  
 pasos:  
   - "Elektu la verbon, kiu priskribas akiritan kondiĉon."  
-opciones_explicitas: ["mi lernis", "mi lernas", "mi lernos", "mi lernis ĝin"]  
+opciones_explicitas:
+  - "mi lernis"
+  - "mi lernas"
+  - "mi lernos"
+  - "mi lernis ĝin"
 respuesta: "mi lernis"  
 tipo: mc  
 explicacion: "La tempo perfektiva uzatas por priskribi agojn, kiuj okazis antaŭ la momento de parolado."  
@@ -61,7 +68,11 @@ metadata:
   tags: ["artikolo", "la"]  
 pasos:  
   - "Elektu la artikolon, kiu priskribas unikan objekton."  
-opciones_explicitas: ["la", "unu", "tiu", "ĉi tiu"]  
+opciones_explicitas:
+  - "la"
+  - "unu"
+  - "tiu"
+  - "ĉi tiu"
 respuesta: "la"  
 tipo: mc  
 explicacion: "La artikolo 'la' uzatas por indiki, ke la objekto estas konata al ambaŭ parolantoj."  
@@ -78,7 +89,11 @@ metadata:
   tags: ["tempo", "prepozicio"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas la ordo de evento."  
-opciones_explicitas: ["antaŭ", "post", "inter", "kontraŭ"]  
+opciones_explicitas:
+  - "antaŭ"
+  - "post"
+  - "inter"
+  - "kontraŭ"
 respuesta: "posta"  
 tipo: mc  
 explicacion: "La prepozicio 'post' uzatas por indiki, ke unu ago okazis post alia."  
@@ -95,7 +110,11 @@ metadata:
   tags: ["propozicio", "por"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas la celon."  
-opciones_explicitas: ["por", "al", "de", "en"]  
+opciones_explicitas:
+  - "por"
+  - "al"
+  - "de"
+  - "en"
 respuesta: "por"  
 tipo: mc  
 explicacion: "La prepozicio 'por' uzatas por indiki, ke ago estas farita kun ĉielo aŭ celo."  
@@ -112,7 +131,11 @@ metadata:
   tags: ["pronomo", "ĝi"]  
 pasos:  
   - "Elektu la pronomon, kiu priskribas unikan objekton."  
-opciones_explicitas: ["ĝi", "ĉi tiu", "tiu", "tiu ĉi"]  
+opciones_explicitas:
+  - "ĝi"
+  - "ĉi tiu"
+  - "tiu"
+  - "tiu ĉi"
 respuesta: "ĝi"  
 tipo: mc  
 explicacion: "La pronomo 'ĝi' uzatas por referenci al objekto, kiam la idento de la objekto estas konata."  
@@ -129,7 +152,11 @@ metadata:
   tags: ["verbo", "futuro"]  
 pasos:  
   - "Elektu la verbon, kiu priskribas ago, kiun oni faros."  
-opciones_explicitas: ["mi lernos", "mi lernis", "mi lernas", "mi lernus"]  
+opciones_explicitas:
+  - "mi lernos"
+  - "mi lernis"
+  - "mi lernas"
+  - "mi lernus"
 respuesta: "mi lernos"  
 tipo: mc  
 explicacion: "La tempo futura uzatas por priskribi agojn, kiuj okazos en la futuro."  
@@ -146,7 +173,11 @@ metadata:
   tags: ["prepozicio", "kun"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas asocio."  
-opciones_explicitas: ["kun", "en", "al", "de"]  
+opciones_explicitas:
+  - "kun"
+  - "en"
+  - "al"
+  - "de"
 respuesta: "kun"  
 tipo: mc  
 explicacion: "La prepozicio 'kun' uzatas por indiki, ke iu estas kun alia."  
@@ -163,7 +194,11 @@ metadata:
   tags: ["pronomo", "ĉi tiu"]  
 pasos:  
   - "Elektu la pronomon, kiu priskribas proksiman objekton."  
-opciones_explicitas: ["ĉi tiu", "tiu ĉi", "ĝi", "lia"]  
+opciones_explicitas:
+  - "ĉi tiu"
+  - "tiu ĉi"
+  - "ĝi"
+  - "lia"
 respuesta: "ĉi tiu"  
 tipo: mc  
 explicacion: "La pronomo 'ĉi tiu' uzatas por referenci al objekto, kiam la idento de la objekto estas konata kaj proksima."  
@@ -180,7 +215,11 @@ metadata:
   tags: ["prepozicio", "loko"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas lokon."  
-opciones_explicitas: ["en", "sur", "sub", "antaŭ"]  
+opciones_explicitas:
+  - "en"
+  - "sur"
+  - "sub"
+  - "antaŭ"
 respuesta: "sur"  
 tipo: mc  
 explicacion: "La prepozicio 'sur' uzatas por indiki, ke iu estas super alia objekto."  
@@ -197,7 +236,11 @@ metadata:
   tags: ["propozicio", "por"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas la celon."  
-opciones_explicitas: ["por", "al", "de", "en"]  
+opciones_explicitas:
+  - "por"
+  - "al"
+  - "de"
+  - "en"
 respuesta: "por"  
 tipo: mc  
 explicacion: "La prepozicio 'por' uzatas por indiki, ke ago estas farita kun ĉielo aŭ celo."  
@@ -214,7 +257,11 @@ metadata:
   tags: ["pronomo", "ĝi"]  
 pasos:  
   - "Elektu la pronomon, kiu priskribas unikan objekton."  
-opciones_explicitas: ["ĝi", "ĉi tiu", "tiu", "tiu ĉi"]  
+opciones_explicitas:
+  - "ĝi"
+  - "ĉi tiu"
+  - "tiu"
+  - "tiu ĉi"
 respuesta: "ĝi"  
 tipo: mc  
 explicacion: "La pronomo 'ĝi' uzatas por referenci al objekto, kiam la idento de la objekto estas konata."  
@@ -231,7 +278,11 @@ metadata:
   tags: ["verbo", "imperfektivo"]  
 pasos:  
   - "Elektu la verbon, kiu priskribas agojn en la pasinteco."  
-opciones_explicitas: ["mi lernis", "mi lernas", "mi lernos", "mi lernis ĝin"]  
+opciones_explicitas:
+  - "mi lernis"
+  - "mi lernas"
+  - "mi lernos"
+  - "mi lernis ĝin"
 respuesta: "mi lernis"  
 tipo: mc  
 explicacion: "La tempo imperfektiva uzatas por priskribi agojn, kiuj okazis antaŭ la momento de parolado."  
@@ -248,7 +299,11 @@ metadata:
   tags: ["konjunkcio", "kaj"]  
 pasos:  
   - "Elektu la konjunkcion, kiu kompletigas la liston."  
-opciones_explicitas: ["kaj", "sed", "do", "tamen"]  
+opciones_explicitas:
+  - "kaj"
+  - "sed"
+  - "do"
+  - "tamen"
 respuesta: "kaj"  
 tipo: mc  
 explicacion: "En listoj kun pluraj elementoj, 'kaj' konsideriĝas ĝenerale kiel lasta konjunkcio."  
@@ -265,7 +320,11 @@ metadata:
   tags: ["prepozicio", "loko"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas lokon."  
-opciones_explicitas: ["en", "sur", "sub", "antaŭ"]  
+opciones_explicitas:
+  - "en"
+  - "sur"
+  - "sub"
+  - "antaŭ"
 respuesta: "en"  
 tipo: mc  
 explicacion: "La prepozicio 'en' uzatas por indiki, ke iu estas inter la limoj de alia objekto."  
@@ -282,7 +341,11 @@ metadata:
   tags: ["verbo", "futuro"]  
 pasos:  
   - "Elektu la verbon, kiu priskribas ago, kiun oni faros."  
-opciones_explicitas: ["mi lernos", "mi lernis", "mi lernas", "mi lernus"]  
+opciones_explicitas:
+  - "mi lernos"
+  - "mi lernis"
+  - "mi lernas"
+  - "mi lernus"
 respuesta: "mi lernos"  
 tipo: mc  
 explicacion: "La tempo futura uzatas por priskribi agojn, kiuj okazos en la futuro."  
@@ -299,7 +362,11 @@ metadata:
   tags: ["propozicio", "por"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas la celon."  
-opciones_explicitas: ["por", "al", "de", "en"]  
+opciones_explicitas:
+  - "por"
+  - "al"
+  - "de"
+  - "en"
 respuesta: "por"  
 tipo: mc  
 explicacion: "La prepozicio 'por' uzatas por indiki, ke ago estas farita kun ĉielo aŭ celo."  
@@ -316,7 +383,11 @@ metadata:
   tags: ["pronomo", "ĝi"]  
 pasos:  
   - "Elektu la pronomon, kiu priskribas unikan objekton."  
-opciones_explicitas: ["ĝi", "ĉi tiu", "tiu", "tiu ĉi"]  
+opciones_explicitas:
+  - "ĝi"
+  - "ĉi tiu"
+  - "tiu"
+  - "tiu ĉi"
 respuesta: "ĝi"  
 tipo: mc  
 explicacion: "La pronomo 'ĝi' uzatas por referenci al objekto, kiam la idento de la objekto estas konata."  
@@ -333,7 +404,11 @@ metadata:
   tags: ["konjunkcio", "kaj"]  
 pasos:  
   - "Elektu la konjunkcion, kiu kompletigas la liston."  
-opciones_explicitas: ["kaj", "sed", "do", "tamen"]  
+opciones_explicitas:
+  - "kaj"
+  - "sed"
+  - "do"
+  - "tamen"
 respuesta: "kaj"  
 tipo: mc  
 explicacion: "En listoj kun pluraj elementoj, 'kaj' konsideriĝas ĝenerale kiel lasta konjunkcio."  
@@ -350,7 +425,11 @@ metadata:
   tags: ["verbo", "perfektivo"]  
 pasos:  
   - "Elektu la verbon, kiu priskribas akiritan kondiĉon."  
-opciones_explicitas: ["mi lernis", "mi lernas", "mi lernos", "mi lernis ĝin"]  
+opciones_explicitas:
+  - "mi lernis"
+  - "mi lernas"
+  - "mi lernos"
+  - "mi lernis ĝin"
 respuesta: "mi lernis"  
 tipo: mc  
 explicacion: "La tempo perfektiva uzatas por priskribi agojn, kiuj okazis antaŭ la momento de parolado."  
@@ -367,7 +446,11 @@ metadata:
   tags: ["prepozicio", "loko"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas lokon."  
-opciones_explicitas: ["en", "sur", "sub", "antaŭ"]  
+opciones_explicitas:
+  - "en"
+  - "sur"
+  - "sub"
+  - "antaŭ"
 respuesta: "en"  
 tipo: mc  
 explicacion: "La prepozicio 'en' uzatas por indiki, ke iu estas inter la limoj de alia objekto."  
@@ -384,7 +467,11 @@ metadata:
   tags: ["verbo", "futuro"]  
 pasos:  
   - "Elektu la verbon, kiu priskribas ago, kiun oni faros."  
-opciones_explicitas: ["mi lernos", "mi lernis", "mi lernas", "mi lernus"]  
+opciones_explicitas:
+  - "mi lernos"
+  - "mi lernis"
+  - "mi lernas"
+  - "mi lernus"
 respuesta: "mi lernos"  
 tipo: mc  
 explicacion: "La tempo futura uzatas por priskribi agojn, kiuj okazos en la futuro."  
@@ -401,7 +488,11 @@ metadata:
   tags: ["propozicio", "por"]  
 pasos:  
   - "Elektu la prepozicion, kiu priskribas la celon."  
-opciones_explicitas: ["por", "al", "de", "en"]  
+opciones_explicitas:
+  - "por"
+  - "al"
+  - "de"
+  - "en"
 respuesta: "por"  
 tipo: mc  
 explicacion: "La prepozicio 'por' uzatas por indiki, ke ago estas farita kun ĉielo aŭ celo."  
@@ -418,7 +509,11 @@ metadata:
   tags: ["pronomo", "ĝi"]  
 pasos:  
   - "Elektu la pronomon, kiu priskribas unikan objekton."  
-opciones_explicitas: ["ĝi", "ĉi tiu", "tiu", "tiu ĉi"]  
+opciones_explicitas:
+  - "ĝi"
+  - "ĉi tiu"
+  - "tiu"
+  - "tiu ĉi"
 respuesta: "ĝi"  
 tipo: mc  
 explicacion: "La pronomo 'ĝi' uzatas por referenci al objekto, kiam la idento de la objekto estas konata."

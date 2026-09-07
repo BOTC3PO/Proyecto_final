@@ -9,10 +9,8 @@ pasos:
   - "Identificar el verbo en la oración y su forma correcta."  
 respuestas_validas:  
   - "li"  
-respuesta: li  
 tipo: completar  
 enunciado: "Ontem eu ___ um livro muito interessante."  
-variables: []
 ```
 
 
@@ -49,7 +47,6 @@ pasos:
   - "Identificar el posesivo que concuerda con el sustantivo."  
 respuestas_validas:  
   - "meu"  
-respuesta: meu  
 tipo: completar  
 enunciado: "___ computador é muito rápido, mas o dele é mais moderno."
 ```
@@ -88,7 +85,6 @@ pasos:
   - "Ubicar el tiempo en la oración y verificar su uso."  
 respuestas_validas:  
   - "ontem"  
-respuesta: ontem  
 tipo: completar  
 enunciado: "___, fui ao mercado comprar frutas."
 ```
@@ -127,7 +123,6 @@ pasos:
   - "Formar el tiempo presente perfecto con 'ter' y particípio."  
 respuestas_validas:  
   - "tenho comido"  
-respuesta: tenho comido  
 tipo: completar  
 enunciado: "Eu ___ almoçado às 13h."
 ```
@@ -166,7 +161,6 @@ pasos:
   - "Identificar el uso correcto de 'para' o 'por' según el contexto."  
 respuestas_validas:  
   - "por"  
-respuesta: por  
 tipo: completar  
 enunciado: "Vou estudar ___ duas horas seguidas."
 ```
@@ -205,7 +199,6 @@ pasos:
   - "Identificar si el verbo 'haver' se usa en tercera persona singular."  
 respuestas_validas:  
   - "Há"  
-respuesta: Há  
 tipo: completar  
 enunciado: "___ muita gente no centro da cidade hoje."
 ```
@@ -244,7 +237,6 @@ pasos:
   - "Identificar el pronombre que reemplaza al objeto directo."  
 respuestas_validas:  
   - "os"  
-respuesta: os  
 tipo: completar  
 enunciado: "Eu vi ___ no parque ontem."
 ```
@@ -283,7 +275,6 @@ pasos:
   - "Conjugar el verbo 'ir' en futuro simple."  
 respuestas_validas:  
   - "vou"  
-respuesta: vou  
 tipo: completar  
 enunciado: "Amanhã eu ___ ao cinema com meus amigos."
 ```
@@ -322,7 +313,6 @@ pasos:
   - "Formar la oración condicional usando 'se' y el subjuntivo."  
 respuestas_validas:  
   - "iria"  
-respuesta: iria  
 tipo: completar  
 enunciado: "Se eu ___ rico, compraria uma casa grande."
 ```
@@ -361,7 +351,6 @@ pasos:
   - "Identificar el uso del pronombre reflexivo 'se' en la oración."  
 respuestas_validas:  
   - "me lavei"  
-respuesta: me lavei  
 tipo: completar  
 enunciado: "Ontem eu ___ no banheiro antes de sair."
 ```
@@ -400,7 +389,6 @@ pasos:
   - "Ubicar el adverbio en la oración y verificar su uso."  
 respuestas_validas:  
   - "sempre"  
-respuesta: sempre  
 tipo: completar  
 enunciado: "Ela ___ chega atrasada ao trabalho."
 ```
@@ -436,7 +424,6 @@ pasos:
   - "Formar la oración comparativa usando 'mais...que'."  
 respuestas_validas:  
   - "mais rápido que"  
-respuesta: mais rápido que  
 tipo: completar  
 enunciado: "O carro dele é ___ o meu."
 ```
@@ -475,7 +462,6 @@ pasos:
   - "Verificar la concordancia de 'cada' con el sustantivo."  
 respuestas_validas:  
   - "cada casa"  
-respuesta: cada casa  
 tipo: completar  
 enunciado: "___ precisa ter uma chave reserva."
 ```

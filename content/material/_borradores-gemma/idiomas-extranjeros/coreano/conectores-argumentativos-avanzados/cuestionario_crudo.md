@@ -12,7 +12,6 @@ pasos:
 explicacion: "El conector '그러나' se usa para expresar contraste entre ideas. En este caso, la oración contrasta una acción (escribir un informe) con su resultado (no terminarlo)."
 tipo: completar
 enunciado: "학생은 2시간 동안 보고서를 썼지만, ___ 완료하지 못했다."
-respuesta: "그러나"
 respuestas_validas:
   - "그러나"
   - "그렇지만"
@@ -57,7 +56,6 @@ pasos:
 explicacion: "'그렇지만' se usa para expresar un contraste en condiciones hipotéticas. Aquí, aunque hay dificultades, se menciona una posible solución."
 tipo: completar
 enunciado: "문제가 많___, 해결책을 찾는 것이 중요하다."
-respuesta: "그렇지만"
 respuestas_validas:
   - "그렇지만"
   - "그러나"
@@ -102,7 +100,6 @@ pasos:
 explicacion: "'만약' se usa para introducir una situación hipotética. Aquí, la frase describe un escenario posible de no estudiar y sus consecuencias."
 tipo: completar
 enunciado: "___ 공부하지 않으면 시험에 떨어질 수 있다."
-respuesta: "만약"
 respuestas_validas:
   - "만약"
   - "만"
@@ -147,7 +144,6 @@ pasos:
 explicacion: "'그래서' se usa para mostrar una consecuencia lógica de una acción. Aquí, el accidente es el resultado del exceso de velocidad."
 tipo: completar
 enunciado: "자동차가 너무 빨리 달려서, ___ 사고가 발생했다."
-respuesta: "그래서"
 respuestas_validas:
   - "그래서"
   - "따라서"
@@ -192,7 +188,6 @@ pasos:
 explicacion: "'따라서' se usa para conectar un hecho con su resultado. Aquí, la decisión de viajar es el efecto del deseo de conocer otro país."
 tipo: completar
 enunciado: "다른 나라를 알고 싶어서, ___ 여행을 결심했다."
-respuesta: "따라서"
 respuestas_validas:
   - "따라서"
   - "그래서"
@@ -237,7 +232,6 @@ pasos:
 explicacion: "'하지만' se usa para mostrar una contradicción en propósitos. Aquí, aunque se quería ayudar, no hubo resultado positivo."
 tipo: completar
 enunciado: "도움을 주려고 했지만, ___ 아무런 효과도 없었다."
-respuesta: "하지만"
 respuestas_validas:
   - "하지만"
   - "그러나"
@@ -282,7 +276,6 @@ pasos:
 explicacion: "'그렇지만' se usa para expresar una contradicción en situaciones hipotéticas. Aquí, aunque no hubiera problemas, se menciona un plan alternativo."
 tipo: completar
 enunciado: "문제가 없___, 다른 방법을 고려해야 한다."
-respuesta: "그렇지만"
 respuestas_validas:
   - "그렇지만"
   - "그러나"
@@ -323,7 +316,6 @@ metadata:
 pasos:
   - "Identifica el conector que expresa una relación causal en la oración."
   - "Revisa si el uso de '기 때문에' es correcto según el contexto."
-respuesta: "기 때문에"
 respuestas_validas:
   - "기 때문에"
   - "때문에"
@@ -366,7 +358,6 @@ metadata:
 pasos:
   - "Reconoce el conector que introduce una consecuencia inesperada."
   - "Confirma que '그러나' es el único conectivo válido para esta relación."
-respuesta: "그러나"
 respuestas_validas:
   - "그러나"
   - "하지만"
@@ -409,7 +400,6 @@ metadata:
 pasos:
   - "Identifica el conector que conecta causa y efecto."
   - "Verifica que '때문에' sea la opción más precisa para esta relación."
-respuesta: "때문에"
 respuestas_validas:
   - "때문에"
   - "이유로"
@@ -452,7 +442,6 @@ metadata:
 pasos:
   - "Determina el conector que indica una consecuencia directa."
   - "Asegúrate de que '인' sea la opción más adecuada para este contexto."
-respuesta: "인"
 respuestas_validas:
   - "인"
   - "의 이유로"
@@ -495,7 +484,6 @@ metadata:
 pasos:
   - "Identifica el conector que introduce un escenario condicional."
   - "Confirma que '의 경우' sea la opción más adecuada para este contexto."
-respuesta: "의 경우"
 respuestas_validas:
   - "의 경우"
   - "에 따라"

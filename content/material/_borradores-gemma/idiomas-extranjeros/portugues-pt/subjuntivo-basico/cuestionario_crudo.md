@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el verbo que requiere subjuntivo."
   - "Elegir la forma correcta del subjuntivo según el sujeto."
-respuesta: "estude"
 tipo: completar
 respuestas_validas:
   - "estude"
@@ -28,7 +27,6 @@ metadata:
 pasos:
   - "Reconocer la estructura 'como se' que requiere subjuntivo."
   - "Ajustar el verbo al sujeto en subjuntivo presente."
-respuesta: "fosse"
 tipo: completar
 respuestas_validas:
   - "fosse"
@@ -48,7 +46,6 @@ metadata:
 pasos:
   - "Localizar el verbo desencadenante ('sugerir')."
   - "Usar subjuntivo presente con 'você'."
-respuesta: "trabalhe"
 tipo: completar
 respuestas_validas:
   - "trabalhe"
@@ -68,7 +65,6 @@ metadata:
 pasos:
   - "Identificar la expresión 'é necessário que'."
   - "Aplicar subjuntivo presente al sujeto."
-respuesta: "faça"
 tipo: completar
 respuestas_validas:
   - "faça"
@@ -88,7 +84,6 @@ metadata:
 pasos:
   - "Reconocer la cláusula condicional con 'se'."
   - "Usar subjuntivo presente para el sujeto."
-respuesta: "você venha"
 tipo: completar
 respuestas_validas:
   - "você venha"
@@ -108,7 +103,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'pedir' seguido de 'que'."
   - "Elegir la forma correcta del subjuntivo."
-respuesta: "você responda"
 tipo: completar
 respuestas_validas:
   - "você responda"
@@ -128,7 +122,6 @@ metadata:
 pasos:
   - "Reconocer la estructura 'como se' que expresa duda."
   - "Usar subjuntivo presente para el sujeto."
-respuesta: "fosse"
 tipo: completar
 respuestas_validas:
   - "fosse"
@@ -148,7 +141,6 @@ metadata:
 pasos:
   - "Localizar la expresión 'é importante que'."
   - "Aplicar subjuntivo presente al sujeto."
-respuesta: "estude"
 tipo: completar
 respuestas_validas:
   - "estude"
@@ -168,7 +160,6 @@ metadata:
 pasos:
   - "Identificar la cláusula condicional con 'se'."
   - "Usar subjuntivo presente para el sujeto."
-respuesta: "você consiga"
 tipo: completar
 respuestas_validas:
   - "você consiga"
@@ -188,7 +179,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'recomendar' seguido de 'que'."
   - "Elegir la forma correcta del subjuntivo."
-respuesta: "você leia"
 tipo: completar
 respuestas_validas:
   - "você leia"
@@ -208,7 +198,6 @@ metadata:
 pasos:
   - "Reconocer la estructura 'como se' que describe apariencia."
   - "Usar subjuntivo presente para el sujeto."
-respuesta: "fosse"
 tipo: completar
 respuestas_validas:
   - "fosse"
@@ -228,7 +217,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'sugerir' seguido de 'que'."
   - "Elegir la forma correcta del subjuntivo para sujeto plural."
-respuesta: "estudem"
 tipo: completar
 respuestas_validas:
   - "estudem"
@@ -248,7 +236,6 @@ metadata:
 pasos:
   - "Localizar la expresión 'é preciso que'."
   - "Aplicar subjuntivo presente al sujeto."
-respuesta: "faça"
 tipo: completar
 respuestas_validas:
   - "faça"
@@ -268,7 +255,6 @@ metadata:
 pasos:
   - "Reconocer la cláusula condicional con 'se'."
   - "Usar subjuntivo presente para el sujeto."
-respuesta: "você venha"
 tipo: completar
 respuestas_validas:
   - "você venha"
@@ -288,7 +274,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'pedir' seguido de 'que'."
   - "Elegir la forma correcta del subjuntivo para sujeto plural."
-respuesta: "vocês respondam"
 tipo: completar
 respuestas_validas:
   - "vocês respondam"
@@ -308,14 +293,11 @@ metadata:
 pasos:
   - "Identifica la estructura gramatical que requiere el subjuntivo."
   - "Completa el hueco con la forma correcta del verbo en subjuntivo presente."
-respuesta: "participem"
 respuestas_validas:
   - "participem"
   - "Participem"
 tipo: completar
 enunciado: "O coordenador sugere que os alunos _______ na discussão."
-variables:
-  - "alunos"
 explicacion: "Después de 'sugere que', se usa el subjuntivo presente porque expresa una recomendación o deseo. El verbo 'participar' en tercera persona plural es 'participem'."
 ```
 
@@ -331,7 +313,6 @@ metadata:
 pasos:
   - "Localizar la expresión 'é necessário que'."
   - "Aplicar subjuntivo presente al sujeto plural."
-respuesta: "façam"
 tipo: completar
 respuestas_validas:
   - "façam"
@@ -359,8 +340,6 @@ opciones_explicitas:
   - "cumprem"
 tipo: mc
 enunciado: "É bom que você _______ com o professor sobre o projeto."
-variables:
-  - "você"
 explicacion: "'É bom que' requiere el subjuntivo presente. El verbo 'cumprir' en segunda persona del singular es 'cumpra'."
 ```
 
@@ -376,7 +355,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'recomendar' seguido de 'que'."
   - "Elegir la forma correcta del subjuntivo para sujeto plural."
-respuesta: "estudem"
 tipo: completar
 respuestas_validas:
   - "estudem"
@@ -396,14 +374,11 @@ metadata:
 pasos:
   - "Identifica la estructura de condición que requiere el subjuntivo."
   - "Completa el hueco con la forma correcta del verbo en subjuntivo presente."
-respuesta: "aceite"
 respuestas_validas:
   - "aceite"
   - "Aceite"
 tipo: completar
 enunciado: "Se você _______ a proposta, podemos avançar com o plano."
-variables:
-  - "você"
 explicacion: "Después de 'se' en condiciones hipotéticas, se usa el subjuntivo presente. El verbo 'aceitar' en segunda persona del singular es 'aceite'."
 ```
 
@@ -419,7 +394,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'sugerir' seguido de 'que'."
   - "Elegir la forma correcta del subjuntivo para sujeto singular."
-respuesta: "estude"
 tipo: completar
 respuestas_validas:
   - "estude"
@@ -447,8 +421,6 @@ opciones_explicitas:
   - "enviemos"
 tipo: mc
 enunciado: "O chefe pede que os colaboradores _______ o relatório antes do prazo."
-variables:
-  - "colaboradores"
 explicacion: "'Pede que' requiere el subjuntivo presente. El verbo 'enviar' en tercera persona plural es 'enviem'."
 ```
 
@@ -464,14 +436,11 @@ metadata:
 pasos:
   - "Reconoce el uso del subjuntivo después de 'desejo que'."
   - "Completa el hueco con la forma correcta del verbo en subjuntivo presente."
-respuesta: "estude"
 respuestas_validas:
   - "estude"
   - "Estude"
 tipo: completar
 enunciado: "Eu desejo que ele _______ mais sobre o tema antes da apresentação."
-variables:
-  - "ele"
 explicacion: "'Desejo que' requiere el subjuntivo presente. El verbo 'estudar' en tercera persona singular es 'estude'."
 ```
 
@@ -495,8 +464,6 @@ opciones_explicitas:
   - "estudem"
 tipo: mc
 enunciado: "É necessário que ele _______ com mais atenção para entender o conteúdo."
-variables:
-  - "ele"
 explicacion: "'É necessário que' requiere el subjuntivo presente. El verbo 'estudar' en tercera persona singular es 'estude'."
 ```
 
@@ -512,13 +479,10 @@ metadata:
 pasos:
   - "Reconoce que 'se' introduce una condición hipotética."
   - "Completa el hueco con la forma correcta del verbo en subjuntivo presente."
-respuesta: "aceite"
 respuestas_validas:
   - "aceite"
   - "Aceite"
 tipo: completar
 enunciado: "Se ele _______ a oferta, terá um bom benefício."
-variables:
-  - "ele"
 explicacion: "'Se' en condiciones hipotéticas requiere el subjuntivo presente. El verbo 'aceitar' en tercera persona singular es 'aceite'."
 ```

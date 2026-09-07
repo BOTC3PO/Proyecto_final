@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el contexto del texto."
   - "Determinar el significado de la palabra desconocida basado en el entorno."
-respuesta: "지치다"
 tipo: completar
 respuestas_validas:
   - "지치다"
@@ -51,7 +50,6 @@ metadata:
 pasos:
   - "Analizar el contexto del verbo en el texto."
   - "Determinar el significado más preciso basado en la acción descrita."
-respuesta: "지나가다"
 tipo: completar
 respuestas_validas:
   - "지나가다"
@@ -94,7 +92,6 @@ metadata:
 pasos:
   - "Identificar el contexto del verbo en la oración."
   - "Determinar el significado más preciso que se alinea con el escenario."
-respuesta: "부드럽다"
 tipo: completar
 respuestas_validas:
   - "부드럽다"
@@ -137,7 +134,6 @@ metadata:
 pasos:
   - "Analizar el contexto del verbo en la oración."
   - "Determinar el significado más preciso que se alinea con la acción descrita."
-respuesta: "놓다"
 tipo: completar
 respuestas_validas:
   - "놓다"
@@ -180,7 +176,6 @@ metadata:
 pasos:
   - "Identificar el contexto del verbo en la oración."
   - "Determinar el significado más preciso que se alinea con el escenario descrito."
-respuesta: "깨닫다"
 tipo: completar
 respuestas_validas:
   - "깨닫다"
@@ -223,7 +218,6 @@ metadata:
 pasos:
   - "Analizar el contexto del verbo en la oración."
   - "Determinar el significado más preciso que se alinea con la acción descrita."
-respuesta: "내리다"
 tipo: completar
 respuestas_validas:
   - "내리다"

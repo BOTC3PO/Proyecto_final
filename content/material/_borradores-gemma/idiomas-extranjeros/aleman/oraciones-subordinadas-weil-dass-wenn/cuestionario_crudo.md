@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que expresa causa."
   - "Completa el hueco con la opción correcta."
-respuesta: "weil"
 tipo: completar
 respuestas_validas:
   - "weil"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una afirmación."
   - "Completa el hueco con la opción correcta."
-respuesta: "dass"
 tipo: completar
 respuestas_validas:
   - "dass"
@@ -50,7 +48,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una condición."
   - "Completa el hueco con la opción correcta."
-respuesta: "wenn"
 tipo: completar
 respuestas_validas:
   - "wenn"
@@ -71,7 +68,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que expresa causa."
   - "Completa el hueco con la opción correcta."
-respuesta: "weil"
 tipo: completar
 respuestas_validas:
   - "weil"
@@ -92,7 +88,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una afirmación."
   - "Completa el hueco con la opción correcta."
-respuesta: "dass"
 tipo: completar
 respuestas_validas:
   - "dass"
@@ -113,7 +108,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una condición."
   - "Completa el hueco con la opción correcta."
-respuesta: "wenn"
 tipo: completar
 respuestas_validas:
   - "wenn"
@@ -134,7 +128,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que expresa causa."
   - "Completa el hueco con la opción correcta."
-respuesta: "weil"
 tipo: completar
 respuestas_validas:
   - "weil"
@@ -155,7 +148,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una afirmación."
   - "Completa el hueco con la opción correcta."
-respuesta: "dass"
 tipo: completar
 respuestas_validas:
   - "dass"
@@ -176,7 +168,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una condición."
   - "Completa el hueco con la opción correcta."
-respuesta: "wenn"
 tipo: completar
 respuestas_validas:
   - "wenn"
@@ -197,7 +188,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que expresa causa."
   - "Completa el hueco con la opción correcta."
-respuesta: "weil"
 tipo: completar
 respuestas_validas:
   - "weil"
@@ -218,7 +208,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una afirmación."
   - "Completa el hueco con la opción correcta."
-respuesta: "dass"
 tipo: completar
 respuestas_validas:
   - "dass"
@@ -239,7 +228,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una condición."
   - "Completa el hueco con la opción correcta."
-respuesta: "wenn"
 tipo: completar
 respuestas_validas:
   - "wenn"
@@ -260,7 +248,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que expresa causa."
   - "Completa el hueco con la opción correcta."
-respuesta: "weil"
 tipo: completar
 respuestas_validas:
   - "weil"
@@ -281,7 +268,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una afirmación."
   - "Completa el hueco con la opción correcta."
-respuesta: "dass"
 tipo: completar
 respuestas_validas:
   - "dass"
@@ -302,7 +288,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una condición."
   - "Completa el hueco con la opción correcta."
-respuesta: "wenn"
 tipo: completar
 respuestas_validas:
   - "wenn"
@@ -323,7 +308,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que expresa causa."
   - "Completa el hueco con la opción correcta."
-respuesta: "weil"
 tipo: completar
 respuestas_validas:
   - "weil"
@@ -344,7 +328,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una afirmación."
   - "Completa el hueco con la opción correcta."
-respuesta: "dass"
 tipo: completar
 respuestas_validas:
   - "dass"
@@ -365,7 +348,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una condición."
   - "Completa el hueco con la opción correcta."
-respuesta: "wenn"
 tipo: completar
 respuestas_validas:
   - "wenn"
@@ -386,7 +368,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que expresa causa."
   - "Completa el hueco con la opción correcta."
-respuesta: "weil"
 tipo: completar
 respuestas_validas:
   - "weil"
@@ -407,7 +388,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una afirmación."
   - "Completa el hueco con la opción correcta."
-respuesta: "dass"
 tipo: completar
 respuestas_validas:
   - "dass"
@@ -428,7 +408,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una condición."
   - "Completa el hueco con la opción correcta."
-respuesta: "wenn"
 tipo: completar
 respuestas_validas:
   - "wenn"
@@ -449,7 +428,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que expresa causa."
   - "Completa el hueco con la opción correcta."
-respuesta: "weil"
 tipo: completar
 respuestas_validas:
   - "weil"
@@ -470,7 +448,6 @@ metadata:
 pasos:
   - "Identifica la conjunción que introduce una afirmación."
   - "Completa el hueco con la opción correcta."
-respuesta: "dass"
 tipo: completar
 respuestas_validas:
   - "dass"
@@ -495,7 +472,6 @@ pasos:
 
 enunciado: "Sie sagte, ___ sie sich nicht gut fühle."  
 
-respuesta: "weil"  
 tipo: completar  
 respuestas_validas:  
   - "weil"  

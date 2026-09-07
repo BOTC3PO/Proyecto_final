@@ -9,7 +9,6 @@ pasos:
   - "Identificar el conector que completa la oración correctamente."
 explicacion: "Obwohl introduce una concesión y requiere inversión del sujeto-verbo en la cláusula subordinada. La estructura correcta es 'obwohl [sujeto + verbo invertido], [cláusula principal]'."
 enunciado: "__________ er krank war, nahm er am Meeting teil."
-respuesta: "Obwohl"
 tipo: completar
 respuestas_validas:
   - "Obwohl"
@@ -54,7 +53,6 @@ pasos:
   - "Escribir el conector que expresa la manera en que se realizó una acción."
 explicacion: "'Indem' introduce una cláusula subordinada que indica el medio o forma de realizar algo. Sigue siempre al verbo principal y no requiere inversión."
 enunciado: "Er verbesserte seine Deutschkenntnisse, ________ er jeden Tag übte."
-respuesta: "indem"
 tipo: completar
 respuestas_validas:
   - "indem"
@@ -76,7 +74,6 @@ pasos:
   - "Revisar la inversión del sujeto y verbo en la cláusula subordinada."
 explicacion: "Cuando 'obwohl' introduce una oración subordinada, el verbo debe ir antes del sujeto. Ejemplo: Obwohl es regnete, gingen wir spazieren."
 enunciado: "__________ die Maschine nicht funktionierte, setzten sie sich auf den Balkon."
-respuesta: "Obwohl"
 tipo: completar
 respuestas_validas:
   - "Obwohl"
@@ -121,7 +118,6 @@ pasos:
   - "Verificar que el verbo en la cláusula subordinada esté en infinitivo."
 explicacion: "'Indem' siempre va seguido del infinitivo sin 'zu'. Ejemplo: Sie lernte Deutsch, indem sie jeden Tag übte."
 enunciado: "Er wurde zum Chef ernannt, ________ er die wichtigsten Projekte übernommen hatte."
-respuesta: "indem"
 tipo: completar
 respuestas_validas:
   - "indem"
@@ -143,7 +139,6 @@ pasos:
   - "Completar la oración con 'trotzdem' para expresar contraste."
 explicacion: "'Trotzdem' se usa para contrastar una negación o afirmación en la cláusula principal. Ejemplo: Es war kalt, trotzdem gingen wir spazieren."
 enunciado: "Ich habe keine Zeit, ________ ich sehr beschäftigt bin."
-respuesta: "trotzdem"
 tipo: completar
 respuestas_validas:
   - "trotzdem"
@@ -165,7 +160,6 @@ pasos:
   - "Revisar la inversión del verbo y pronombre en la cláusula subordinada."
 explicacion: "Cuando el sujeto es un pronombre, se coloca después del verbo invertido. Ejemplo: Obwohl er krank war, ging er ins Kino."
 enunciado: "__________ sie müde war, fuhr sie zur Arbeit."
-respuesta: "Obwohl"
 tipo: completar
 respuestas_validas:
   - "Obwohl"
@@ -210,7 +204,6 @@ pasos:
   - "Escribir el conector que indica el método utilizado."
 explicacion: "'Indem' se usa para explicar cómo se logró algo. Ejemplo: Sie erreichte ihre Ziele, indem sie sich diszipliniert zeigte."
 enunciado: "Er verlor das Gewicht, ________ er eine Diät befolgte und viel Sport trieb."
-respuesta: "indem"
 tipo: completar
 respuestas_validas:
   - "indem"
@@ -232,7 +225,6 @@ pasos:
   - "Verificar que el verbo esté antes del sujeto en la cláusula subordinada."
 explicacion: "La regla de inversión se aplica incluso cuando el sujeto es un sustantivo. Ejemplo: Obwohl der Tag schön war, blieben wir zu Hause."
 enunciado: "__________ das Wetter schlecht war, fuhren sie zur Küste."
-respuesta: "Obwohl"
 tipo: completar
 respuestas_validas:
   - "Obwohl"
@@ -254,7 +246,6 @@ pasos:
   - "Seleccionar la opción que completa el texto con 'trotzdem'."
 explicacion: "'Trotzdem' se usa para contrastar una afirmación. Ejemplo: Es war kalt, trotzdem gingen wir spazieren."
 enunciado: "Die Prüfung war schwierig, ________ bestand er sie."
-respuesta: "trotzdem"
 tipo: completar
 respuestas_validas:
   - "trotzdem"
@@ -276,7 +267,6 @@ pasos:
   - "Verificar que el infinitivo esté correctamente seguido de su objeto."
 explicacion: "'Indem' siempre va con el infinitivo sin 'zu', seguido del objeto directo. Ejemplo: Sie lernte Deutsch, indem sie jeden Tag übte."
 enunciado: "Er verbesserte seine Englischkenntnisse, ________ er viele Bücher las und Filme anschaute."
-respuesta: "indem"
 tipo: completar
 respuestas_validas:
   - "indem"
@@ -298,7 +288,6 @@ pasos:
   - "Revisar la inversión del verbo y sujeto en la cláusula subordinada."
 explicacion: "La inversión se mantiene incluso con sustantivos como sujetos. Ejemplo: Obwohl das Wetter gut war, blieben wir zu Hause."
 enunciado: "__________ die Party langweilig war, ging sie trotzdem hin."
-respuesta: "Obwohl"
 tipo: completar
 respuestas_validas:
   - "Obwohl"
@@ -320,7 +309,6 @@ pasos:
   - "Completar la oración con 'trotzdem' en posición correcta."
 explicacion: "'Trotzdem' siempre se coloca al inicio, incluso si el sujeto es un pronombre. Ejemplo: Er war müde, trotzdem ging er ins Kino."
 enunciado: "Ich hatte keine Zeit, ________ ich sehr beschäftigt war."
-respuesta: "trotzdem"
 tipo: completar
 respuestas_validas:
   - "trotzdem"

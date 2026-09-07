@@ -8,13 +8,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'comer' en pretérito perfecto."
   - "Verifica la conjugación para 'eu'."
-respuesta: "comi"
 respuestas_validas:
   - "comi"
   - "Comi"
 tipo: completar
 enunciado: "Eu ___ um sanduíche ontem."
-variables: {}
 explicacion: "El pretérito perfecto de 'comer' para 'eu' es 'comi'. Se usa para acciones terminadas en el pasado."
 ```
 
@@ -36,7 +34,6 @@ opciones_explicitas:
   - "estudamos"
 tipo: mc
 enunciado: "Tu ___ muito na escola ontem."
-variables: {}
 explicacion: "El pretérito perfecto de 'estudar' para 'tu' es 'estudei'. Para '-ar', la forma de 'tu' es -ei."
 ```
 
@@ -50,13 +47,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'ir' en pretérito perfecto para 'ele'."
   - "Confirma que el sujeto es singular y masculino."
-respuesta: "foi"
 respuestas_validas:
   - "foi"
   - "Foi"
 tipo: completar
 enunciado: "Ele ___ ao cinema ontem à noite."
-variables: {}
 explicacion: "El pretérito perfecto de 'ir' para 'ele' es 'foi'. Los verbos terminados en '-ir' usan 'foi' para él/ella/você."
 ```
 
@@ -78,7 +73,6 @@ opciones_explicitas:
   - "visse"
 tipo: mc
 enunciado: "Nós ___ um filme interessante ontem."
-variables: {}
 explicacion: "El pretérito perfecto de 'ver' para 'nós' es 'vimos'. Para '-er', la forma de 'nós' es -imos."
 ```
 
@@ -92,13 +86,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'ler' en pretérito perfecto para 'você'."
   - "Verifica que 'você' se conjuga como 'ele/ela'."
-respuesta: "leu"
 respuestas_validas:
   - "leu"
   - "Leu"
 tipo: completar
 enunciado: "Você ___ um livro maravilhoso na semana passada."
-variables: {}
 explicacion: "El pretérito perfecto de 'ler' para 'você' es 'leu'. Los verbos terminados en '-er' usan 'leu' para él/ela/você."
 ```
 
@@ -120,7 +112,6 @@ opciones_explicitas:
   - "cantasse"
 tipo: mc
 enunciado: "Eles ___ uma música linda durante a festa."
-variables: {}
 explicacion: "El pretérito perfecto de 'cantar' para 'eles' es 'cantaram'. Para '-ar', la forma de 'eles/elas/vocês' es -aram/-eram."
 ```
 
@@ -134,13 +125,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'ser' en pretérito perfecto para 'eu'."
   - "Recuerda que 'ser' es un verbo irregular."
-respuesta: "fui"
 respuestas_validas:
   - "fui"
   - "Fui"
 tipo: completar
 enunciado: "Eu ___ feliz quando ganhei o prêmio."
-variables: {}
 explicacion: "El pretérito perfecto de 'ser' para 'eu' es 'fui'. Es un verbo irregular que no sigue patrones regulares."
 ```
 
@@ -162,7 +151,6 @@ opciones_explicitas:
   - "ira"
 tipo: mc
 enunciado: "Tu ___ ao parque com os teus amigos ontem."
-variables: {}
 explicacion: "El pretérito perfecto de 'ir' para 'tu' es 'fui'. Aunque es irregular, 'fui' se usa para 'eu', 'tu' y 'você'."
 ```
 
@@ -176,13 +164,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'haver' en pretérito perfecto para 'ele'."
   - "Recuerda que 'haver' es irregular y se conjuga como 'ter'."
-respuesta: "teve"
 respuestas_validas:
   - "teve"
   - "Teve"
 tipo: completar
 enunciado: "Ele ___ um problema com o computador."
-variables: {}
 explicacion: "El pretérito perfecto de 'haver' para 'ele' es 'teve'. Se conjuga como el verbo 'ter' en esta forma."
 ```
 
@@ -204,7 +190,6 @@ opciones_explicitas:
   - "serei"
 tipo: mc
 enunciado: "Nós ___ muito bem no exame ontem."
-variables: {}
 explicacion: "El pretérito perfecto de 'ser' para 'nós' es 'fomos'. Es irregular y no sigue patrones regulares."
 ```
 
@@ -218,13 +203,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'ir' en pretérito perfecto para 'você'."
   - "Recuerda que 'ir' es irregular y se conjuga como 'fui'."
-respuesta: "foi"
 respuestas_validas:
   - "foi"
   - "Foi"
 tipo: completar
 enunciado: "Você ___ à reunião ontem, não foi?"
-variables: {}
 explicacion: "El pretérito perfecto de 'ir' para 'você' es 'foi'. Aunque es irregular, se usa la misma forma que para 'eu' y 'tu'."
 ```
 
@@ -246,7 +229,6 @@ opciones_explicitas:
   - "tinha"
 tipo: mc
 enunciado: "Eles ___ um debate interessante na aula de hoje."
-variables: {}
 explicacion: "El pretérito perfecto de 'haver' para 'eles' es 'tiveram'. Se conjuga como el verbo 'ter' en esta forma."
 ```
 
@@ -260,13 +242,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'chegar' en pretérito perfecto."
   - "Incluye el tiempo y lugar dados en el enunciado."
-respuesta: "cheguei"
 respuestas_validas:
   - "cheguei"
   - "Cheguei"
 tipo: completar
 enunciado: "Eu ___ ao aeroporto às 8h30 ontem."
-variables: {}
 explicacion: "El pretérito perfecto de 'chegar' para 'eu' es 'cheguei'. Se usa para acciones terminadas en un momento específico del pasado."
 ```
 
@@ -288,7 +268,6 @@ opciones_explicitas:
   - "ira"
 tipo: mc
 enunciado: "Ela ___ comprar um novo carro na loja de carros."
-variables: {}
 explicacion: "El pretérito perfecto de 'ir' para 'ela' es 'foi'. La estructura 'ir + a infinitivo' se usa para acciones futuras o planeadas en el pasado."
 ```
 
@@ -302,13 +281,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'ir' en pretérito perfecto."
   - "Incluye el lugar mencionado en el enunciado."
-respuesta: "fui"
 respuestas_validas:
   - "fui"
   - "Fui"
 tipo: completar
 enunciado: "Eu ___ ao parque com meus amigos ontem à noite."
-variables: {}
 explicacion: "El pretérito perfecto de 'ir' para 'eu' es 'fui'. Se usa cuando se menciona un lugar específico en el pasado."
 ```
 
@@ -330,7 +307,6 @@ opciones_explicitas:
   - "será"
 tipo: mc
 enunciado: "Ela ___ muito feliz quando ganhou o presente."
-variables: {}
 explicacion: "El pretérito perfecto de 'ser' para 'ela' es 'foi'. El adjetivo 'feliz' debe concordar con el sujeto en género y número."
 ```
 
@@ -344,13 +320,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'ter' en pretérito perfecto."
   - "Agrega el participio del verbo dado en el enunciado."
-respuesta: "tive"
 respuestas_validas:
   - "tive"
   - "Tive"
 tipo: completar
 enunciado: "Eu ___ que estudar muito para a prova de amanhã."
-variables: {}
 explicacion: "El pretérito perfecto de 'ter' para 'eu' es 'tive'. Se usa con un participio para formar el pretérito perfecto compuesto."
 ```
 
@@ -372,7 +346,6 @@ opciones_explicitas:
   - "teria"
 tipo: mc
 enunciado: "___ uma reunião importante no escritório ontem."
-variables: {}
 explicacion: "El pretérito perfecto de 'haver' para el sujeto impersonal es 'houve'. Se usa para acciones generales en el pasado."
 ```
 
@@ -386,13 +359,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'ir' en pretérito perfecto."
   - "Incluye el infinitivo y el sujeto plural dado."
-respuesta: "foram"
 respuestas_validas:
   - "foram"
   - "Foram"
 tipo: completar
 enunciado: "Eles ___ viajar para a Espanha na próxima semana."
-variables: {}
 explicacion: "El pretérito perfecto de 'ir' para 'eles' es 'foram'. La estructura 'ir + a infinitivo' se usa con sujeto plural en el pasado."
 ```
 
@@ -414,7 +385,6 @@ opciones_explicitas:
   - "será"
 tipo: mc
 enunciado: "Eu ___ ao Rio de Janeiro no verão passado."
-variables: {}
 explicacion: "El pretérito perfecto de 'ser' para 'eu' es 'fui'. Se usa cuando se menciona un lugar específico en el pasado."
 ```
 
@@ -428,13 +398,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'ter' en pretérito perfecto para 'eles'."
   - "Agrega el participio del verbo dado."
-respuesta: "tiveram"
 respuestas_validas:
   - "tiveram"
   - "Tiveram"
 tipo: completar
 enunciado: "Eles ___ que resolver o problema antes do prazo."
-variables: {}
 explicacion: "El pretérito perfecto de 'ter' para 'eles' es 'tiveram'. Se usa con un participio para formar el pretérito perfecto compuesto."
 ```
 
@@ -456,7 +424,6 @@ opciones_explicitas:
   - "teria"
 tipo: mc
 enunciado: "___ muitos problemas durante a reunião de ontem."
-variables: {}
 explicacion: "El pretérito perfecto de 'haver' para el sujeto plural es 'houve'. Se usa para acciones generales en el pasado con sustantivos plurales."
 ```
 
@@ -470,13 +437,11 @@ metadata:
 pasos:
   - "Completa la oración con el verbo 'ir' en pretérito perfecto."
   - "Incluye el infinitivo y el sujeto femenino dado."
-respuesta: "foi"
 respuestas_validas:
   - "foi"
   - "Foi"
 tipo: completar
 enunciado: "Ela ___ comprar um novo vestido na loja de roupas."
-variables: {}
 explicacion: "El pretérito perfecto de 'ir' para 'ela' es 'foi'. La estructura 'ir + a infinitivo' se usa con sujeto femenino en el pasado."
 ```
 
@@ -498,7 +463,6 @@ opciones_explicitas:
   - "serão"
 tipo: mc
 enunciado: "Eles ___ muito cansados após o longo dia de trabalho."
-variables: {}
 explicacion: "El pretérito perfecto de 'ser' para 'eles' es 'foram'. El adjetivo debe concordar con el sujeto plural en género y número."
 ```
 

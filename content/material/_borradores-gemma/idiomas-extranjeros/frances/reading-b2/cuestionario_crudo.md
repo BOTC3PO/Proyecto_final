@@ -8,13 +8,11 @@ metadata:
 pasos:  
   - "Identificar el género y número del sustantivo 'ville'."  
   - "Aplicar el acuerdo al adjetivo 'moderne'."  
-respuesta: "moderne"  
 respuestas_validas:  
   - "moderne"  
   - "Moderne"  
 tipo: completar  
 enunciado: "La ville est une ___ et dynamique."  
-variables: []  
 explicacion: "El adjetivo 'moderne' debe concordar en género y número con el sustantivo 'ville' (femenino singular), por lo tanto no se pluraliza ni cambia su forma."  
 ```  
 
@@ -33,10 +31,13 @@ pasos:
   - "Determinar el contexto de la oración para elegir la preposición correcta."  
   - "Revisar si 'en' se usa con días, meses o países."  
 respuesta: "en"  
-opciones_explicitas: ["dans", "sur", "à", "en"]  
+opciones_explicitas:
+  - "dans"
+  - "sur"
+  - "à"
+  - "en"
 tipo: mc  
 enunciado: "Il travaille ___ entreprise depuis trois ans."  
-variables: []  
 explicacion: "'En' se usa con 'entreprise' porque es un lugar de trabajo, no un país ni una ciudad. 'Dans' se usaría con lugares más generales como 'ville' o 'pays'."  
 ```  
 
@@ -54,13 +55,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto 'elle' y aplicar la conjugación del verbo."  
   - "Verificar si se usa la forma 'est' o 'sont' en tercera persona singular."  
-respuesta: "est"  
 respuestas_validas:  
   - "est"  
   - "Est"  
 tipo: completar  
 enunciado: "Elle ___ professeure de philosophie."  
-variables: []  
 explicacion: "El verbo 'être' en tercera persona singular (elle) se conjuga como 'est', no 'sont' o 'es'."  
 ```  
 
@@ -79,10 +78,13 @@ pasos:
   - "Identificar el verbo principal y su auxiliar."  
   - "Asegurar que el participio pasado concuerde con el sujeto si hay un objeto directo."  
 respuesta: "vus"  
-opciones_explicitas: ["vu", "vus", "vue", "vu"]  
+opciones_explicitas:
+  - "vu"
+  - "vus"
+  - "vue"
+  - "vu"
 tipo: mc  
 enunciado: "Les étudiants ___ le document avant la réunion."  
-variables: []  
 explicacion: "El participio 'vu' debe concordar en número con el sujeto 'les étudiants' (plural), por lo tanto se escribe 'vus'."  
 ```  
 
@@ -100,13 +102,11 @@ metadata:
 pasos:  
   - "Determinar si el posesivo se forma con 'de' o con un adjetivo posesivo."  
   - "Verificar la frase 'le livre de Jean' versus 'le livre de Jeanne'."  
-respuesta: "de"  
 respuestas_validas:  
   - "de"  
   - "De"  
 tipo: completar  
 enunciado: "C’est ___ livre préféré."  
-variables: []  
 explicacion: "La posesión con un nombre propio se expresa con 'de' (le livre de Jean), no con adjetivos posesivos como 'mon' o 'ton'."  
 ```  
 
@@ -125,10 +125,13 @@ pasos:
   - "Identificar el uso de 'aller' para formar el futur proche."  
   - "Verificar la conjugación en primera persona singular (je)."  
 respuesta: "vais"  
-opciones_explicitas: ["va", "vas", "vont", "vais"]  
+opciones_explicitas:
+  - "va"
+  - "vas"
+  - "vont"
+  - "vais"
 tipo: mc  
 enunciado: "Je ___ au cinéma ce soir."  
-variables: []  
 explicacion: "'Aller' en futur proche se conjuga como 'vais' para primera persona singular (je vais), no 'va' o 'vont'."  
 ```  
 
@@ -146,13 +149,11 @@ metadata:
 pasos:  
   - "Identificar el sustantivo 'chaise' y su género/número."  
   - "Asegurar que el adjetivo concuerde en ambos aspectos."  
-respuesta: "grande"  
 respuestas_validas:  
   - "grande"  
   - "Grande"  
 tipo: completar  
 enunciado: "La ___ chaise est très confortable."  
-variables: []  
 explicacion: "'Grande' concuerda con 'chaise' (femenino singular), por lo tanto no se pluraliza ni cambia su forma."  
 ```  
 
@@ -171,10 +172,13 @@ pasos:
   - "Identificar el verbo en presente y su conjugación."  
   - "Añadir 'ne...pas' antes del verbo para negar la acción."  
 respuesta: "n’a pas"  
-opciones_explicitas: ["n’a pas", "a pas", "n’as pas", "n’a pas"]  
+opciones_explicitas:
+  - "n’a pas"
+  - "a pas"
+  - "n’as pas"
+  - "n’a pas"
 tipo: mc  
 enunciado: "Elle ___ de temps pour terminer le projet."  
-variables: []  
 explicacion: "'Ne...pas' se coloca antes del verbo en presente (elle n’a pas), no después ni sin la partícula 'ne'."  
 ```  
 
@@ -192,13 +196,11 @@ metadata:
 pasos:  
   - "Determinar si el sustantivo 'l’idée' requiere preposición."  
   - "Verificar la regla de uso de 'de' con ideas, opiniones o conceptos abstractos."  
-respuesta: "de"  
 respuestas_validas:  
   - "de"  
   - "De"  
 tipo: completar  
 enunciado: "Il parle ___ l’idée d’un voyage en Europe."  
-variables: []  
 explicacion: "'De' se usa con sustantivos abstractos como 'l’idée', 'l’opinion' o 'le concept' para indicar posesión o pertenencia."  
 ```  
 
@@ -217,10 +219,13 @@ pasos:
   - "Identificar el uso del imparfait para describir acciones habituales."  
   - "Verificar la conjugación en tercera persona singular (il/elle)."  
 respuesta: "devait"  
-opciones_explicitas: ["devoit", "devait", "doit", "devait"]  
+opciones_explicitas:
+  - "devoit"
+  - "devait"
+  - "doit"
+  - "devait"
 tipo: mc  
 enunciado: "Il ___ toujours réviser avant les examens."  
-variables: []  
 explicacion: "'Devoir' en imparfait se conjuga como 'devait' para tercera persona singular (il/elle devait), no 'doit' (presente) ni 'devoit' (error ortográfico)."  
 ```  
 
@@ -239,10 +244,13 @@ pasos:
   - "Identificar el sujeto y el verbo en passif."  
   - "Verificar que el participio concuerde con el sujeto (femenino plural)."  
 respuesta: "sont"  
-opciones_explicitas: ["est", "sont", "suis", "son"]  
+opciones_explicitas:
+  - "est"
+  - "sont"
+  - "suis"
+  - "son"
 tipo: mc  
 enunciado: "Les lettres ___ écrites par le directeur."  
-variables: []  
 explicacion: "'Être' en passif con sujeto plural (les lettres) se conjuga como 'sont', no 'est' ni 'son'."  
 ```  
 
@@ -260,13 +268,11 @@ metadata:
 pasos:  
   - "Determinar si se usa 'de' para indicar país de procedencia."  
   - "Verificar la frase 'Elle est ___ Espagne.'"  
-respuesta: "d’"  
 respuestas_validas:  
   - "d’"  
   - "De"  
 tipo: completar  
 enunciado: "Il vient ___ France."  
-variables: []  
 explicacion: "'D’' se usa antes de países que comienzan con vocal (France), no 'de' o 'des'."  
 ```  
 
@@ -285,10 +291,13 @@ pasos:
   - "Identificar el verbo principal y su objeto directo (les étudiants)."  
   - "Verificar que el participio concuerde en número con el sujeto."  
 respuesta: "vus"  
-opciones_explicitas: ["vu", "vus", "vue", "vus"]  
+opciones_explicitas:
+  - "vu"
+  - "vus"
+  - "vue"
+  - "vus"
 tipo: mc  
 enunciado: "Les étudiants ___ le livre avant la classe."  
-variables: []  
 explicacion: "El participio 'vu' debe concordar en número con el sujeto 'les étudiants' (plural), por lo tanto se escribe 'vus'."  
 ```  
 
@@ -307,10 +316,13 @@ pasos:
   - "Determinar si 'avant' se usa con horarios o eventos."  
   - "Verificar la frase 'Il arrive ___ dix heures.'"  
 respuesta: "à"  
-opciones_explicitas: ["en", "à", "sur", "dans"]  
+opciones_explicitas:
+  - "en"
+  - "à"
+  - "sur"
+  - "dans"
 tipo: mc  
 enunciado: "Elle déjeune ___ midi."  
-variables: []  
 explicacion: "'À' se usa con horarios específicos como 'midi', 'minuit' o 'dix heures', no 'en' ni 'dans'."  
 ```  
 
@@ -329,10 +341,13 @@ pasos:
   - "Identificar el uso de 'faire' en passif para acciones impersonales."  
   - "Verificar la conjugación en tercera persona singular (on)."  
 respuesta: "fait"  
-opciones_explicitas: ["fait", "fais", "font", "fait"]  
+opciones_explicitas:
+  - "fait"
+  - "fais"
+  - "font"
+  - "fait"
 tipo: mc  
 enunciado: "On ___ des erreurs quand on est pressé."  
-variables: []  
 explicacion: "'Faire' en passif con sujeto impersonal (on) se conjuga como 'fait', no 'fais' ni 'font'."  
 ```  
 
@@ -350,13 +365,11 @@ metadata:
 pasos:  
   - "Determinar si 'à' se usa con ciudades o países."  
   - "Verificar la frase 'Je voyage ___ Paris.'"  
-respuesta: "à"  
 respuestas_validas:  
   - "à"  
   - "A"  
 tipo: completar  
 enunciado: "Nous allons ___ Lyon ce week-end."  
-variables: []  
 explicacion: "'À' se usa con ciudades como 'Lyon', no 'en' ni 'dans' (que se usan con países o regiones)."  
 ```  
 
@@ -374,13 +387,11 @@ metadata:
 pasos:  
   - "Identificar el sustantivo 'livres' y su género/número."  
   - "Asegurar que el adjetivo concuerde en ambos aspectos."  
-respuesta: "anciens"  
 respuestas_validas:  
   - "anciens"  
   - "Anciens"  
 tipo: completar  
 enunciado: "Les ___ livres sont rares à trouver."  
-variables: []  
 explicacion: "'Anciens' concuerde con 'livres' (masculino plural), por lo tanto se pluraliza y cambia la forma del adjetivo."  
 ```  
 
@@ -399,10 +410,13 @@ pasos:
   - "Identificar el infinitivo y su uso en una oración."  
   - "Añadir 'ne...pas' antes del infinitivo para negar la acción."  
 respuesta: "n’arrivera pas"  
-opciones_explicitas: ["n’arrive pas", "n’arrivera pas", "n’arrives pas", "n’arrivera pas"]  
+opciones_explicitas:
+  - "n’arrive pas"
+  - "n’arrivera pas"
+  - "n’arrives pas"
+  - "n’arrivera pas"
 tipo: mc  
 enunciado: "Il ___ à temps pour le rendez-vous."  
-variables: []  
 explicacion: "'Ne...pas' se coloca antes del infinitivo en futuro (il n’arrivera pas), no después ni sin la partícula 'ne'."  
 ```  
 
@@ -420,7 +434,6 @@ metadata:
 pasos:
   - "Identificar el sujeto de la oración."
   - "Determinar si hay concordancia en género y número con el verbo principal."
-respuesta: "écrit"
 tipo: completar
 respuestas_validas:
   - "écrit"
@@ -442,10 +455,13 @@ pasos:
   - "Identificar el uso del imparfait para describir habilidades pasadas."  
   - "Verificar la conjugación en primera persona singular (je)."  
 respuesta: "pouvais"  
-opciones_explicitas: ["pouvez", "pouvais", "pouvait", "pouvais"]  
+opciones_explicitas:
+  - "pouvez"
+  - "pouvais"
+  - "pouvait"
+  - "pouvais"
 tipo: mc  
 enunciado: "Je ___ faire du vélo quand j’étais enfant."  
-variables: []  
 explicacion: "'Pouvoir' en imparfait se conjuga como 'pouvais' para primera persona singular (je pouvais), no 'pouvez' ni 'pouvait'."  
 ```  
 
@@ -464,10 +480,13 @@ pasos:
   - "Identificar el sujeto y el verbo en passif."  
   - "Verificar que el participio concuerde con el sujeto (masculino singular)."  
 respuesta: "est"  
-opciones_explicitas: ["est", "sont", "suis", "son"]  
+opciones_explicitas:
+  - "est"
+  - "sont"
+  - "suis"
+  - "son"
 tipo: mc  
 enunciado: "Le document ___ rédigé par un expert."  
-variables: []  
 explicacion: "'Être' en passif con sujeto singular (le document) se conjuga como 'est', no 'sont' ni 'son'."  
 ```  
 
@@ -485,7 +504,6 @@ metadata:
 pasos:
   - "Reconocer el contexto de una acción prolongada en el pasado."
   - "Elegir la forma del verbo que exprese una repetición o duración."
-respuesta: "étudiait"
 tipo: completar
 respuestas_validas:
   - "étudiait"
@@ -507,10 +525,13 @@ pasos:
   - "Identificar el uso del imparfait para describir habilidades pasadas."  
   - "Verificar la conjugación en primera persona singular (je)."  
 respuesta: "savais"  
-opciones_explicitas: ["sais", "savais", "savait", "savais"]  
+opciones_explicitas:
+  - "sais"
+  - "savais"
+  - "savait"
+  - "savais"
 tipo: mc  
 enunciado: "Je ___ cuisiner quand j’étais jeune."  
-variables: []  
 explicacion: "'Savoir' en imparfait se conjuga como 'savais' para primera persona singular (je savais), no 'sais' ni 'savait'."  
 ```  
 
@@ -528,7 +549,6 @@ metadata:
 pasos:
   - "Identificar la estructura 'il y a' seguida de un sustantivo plural."
   - "Determinar el número correcto para completar la frase."
-respuesta: "vingt"
 tipo: completar
 respuestas_validas:
   - "vingt"
@@ -549,7 +569,6 @@ metadata:
 pasos:
   - "Identificar el verbo en passé composé que requiere un pronombre relativo."
   - "Elegir la forma correcta del pronombre que se use con el verbo."
-respuesta: "que"
 tipo: completar
 respuestas_validas:
   - "que"

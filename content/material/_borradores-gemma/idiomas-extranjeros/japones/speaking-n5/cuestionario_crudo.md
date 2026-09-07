@@ -10,7 +10,6 @@ pasos:
   - "Verificar que el uso del verbo 'です' es correcto."
 explicacion: "La frase 'おはようございます' es una forma formal y común para saludar por la mañana. El verbo 'です' se usa correctamente al final de la oración para indicar cortesía."
 tipo: completar
-respuesta: "おはようございます"
 respuestas_validas:
   - "おはようございます"
   - "おはよござる"
@@ -28,7 +27,6 @@ pasos:
   - "Verificar que '教えてください' es la forma correcta para pedir algo."
 explicacion: "'名前を教えてください' es una manera educada de preguntar el nombre. La partícula 'を' indica el objeto directo, y '教えてください' es un verbo en forma cortés."
 tipo: completar
-respuesta: "教えて"
 respuestas_validas:
   - "教えて"
   - "教えてください"
@@ -46,7 +44,6 @@ pasos:
   - "Verificar que la pregunta está formulada correctamente."
 explicacion: "'どこに住んでいますか' es una pregunta común sobre residencia. La partícula 'に' se usa para especificar el lugar donde vive alguien."
 tipo: completar
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "で"
@@ -64,7 +61,6 @@ pasos:
   - "Verificar que la estructura es correcta."
 explicacion: "'これは何ですか' se usa para identificar algo. La palabra '何' significa 'qué', y la frase es típica en situaciones de introducción o explicación."
 tipo: completar
-respuesta: "何"
 respuestas_validas:
   - "何"
   - "どちら"
@@ -82,7 +78,6 @@ pasos:
   - "Verificar que la oración es gramaticalmente correcta."
 explicacion: "'私は学生です' es una forma cortés de declarar su estado. El verbo 'です' se usa para finalizar frases en formas formales y estándar."
 tipo: completar
-respuesta: "です"
 respuestas_validas:
   - "です"
   - "ござる"
@@ -100,7 +95,6 @@ pasos:
   - "Verificar que la pregunta está formulada correctamente."
 explicacion: "'どこへ行きますか' se usa para preguntar a dónde alguien va. La partícula 'へ' indica la dirección del movimiento."
 tipo: completar
-respuesta: "へ"
 respuestas_validas:
   - "へ"
   - "に"
@@ -118,7 +112,6 @@ pasos:
   - "Verificar que la oración es gramaticalmente correcta."
 explicacion: "'これは日本語ですか' se usa para preguntar si algo está en japonés. La partícula 'か' transforma una afirmación en una pregunta."
 tipo: completar
-respuesta: "か"
 respuestas_validas:
   - "か"
   - "の"
@@ -136,7 +129,6 @@ pasos:
   - "Verificar que la oración es gramaticalmente correcta."
 explicacion: "'私はアメリカ人です' se usa para declarar su nacionalidad. El verbo 'です' finaliza la frase en forma cortés y estándar."
 tipo: completar
-respuesta: "です"
 respuestas_validas:
   - "です"
   - "ござる"
@@ -154,7 +146,6 @@ pasos:
   - "Verificar que la pregunta está formulada correctamente."
 explicacion: "'何歳ですか' es una manera común de preguntar la edad. La palabra '歳' se usa para expresar años."
 tipo: completar
-respuesta: "何歳"
 respuestas_validas:
   - "何歳"
   - "どのくらい"
@@ -172,7 +163,6 @@ pasos:
   - "Verificar que la oración es gramaticalmente correcta."
 explicacion: "'私は大学生です' se usa para declarar su estado académico. El verbo 'です' finaliza la frase en forma cortés y estándar."
 tipo: completar
-respuesta: "です"
 respuestas_validas:
   - "です"
   - "ござる"
@@ -190,7 +180,6 @@ pasos:
   - "Verificar que la oración está formulada correctamente."
 explicacion: "'これは誰ですか' se usa para identificar a alguien. La palabra '誰' significa 'quién', y la frase es típica en situaciones de presentación."
 tipo: completar
-respuesta: "誰"
 respuestas_validas:
   - "誰"
   - "どちら"
@@ -208,7 +197,6 @@ pasos:
   - "Verificar que la pregunta está formulada correctamente."
 explicacion: "'どこに住んでいますか' es una pregunta común sobre residencia. La partícula 'に' se usa para especificar el lugar donde vive alguien."
 tipo: completar
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "で"
@@ -226,7 +214,6 @@ pasos:
   - "Verificar que la oración es gramaticalmente correcta."
 explicacion: "'私は先生です' se usa para declarar su profesión. El verbo 'です' finaliza la frase en forma cortés y estándar."
 tipo: completar
-respuesta: "です"
 respuestas_validas:
   - "です"
   - "ござる"
@@ -244,7 +231,6 @@ pasos:
   - "Verificar que la pregunta está formulada correctamente."
 explicacion: "'何をしていますか' se usa para preguntar sobre una actividad. La partícula 'を' indica el objeto directo de la acción."
 tipo: completar
-respuesta: "を"
 respuestas_validas:
   - "を"
   - "に"
@@ -262,7 +248,6 @@ pasos:
   - "Verificar que la oración está formulada correctamente."
 explicacion: "'これは何ですか' se usa para identificar algo. La palabra '何' significa 'qué', y la frase es típica en situaciones de introducción o explicación."
 tipo: completar
-respuesta: "何"
 respuestas_validas:
   - "何"
   - "どちら"
@@ -280,7 +265,6 @@ pasos:
   - "Verificar que la oración es gramaticalmente correcta."
 explicacion: "'私は中国人です' se usa para declarar su nacionalidad. El verbo 'です' finaliza la frase en forma cortés y estándar."
 tipo: completar
-respuesta: "です"
 respuestas_validas:
   - "です"
   - "ござる"
@@ -298,7 +282,6 @@ pasos:
   - "Verificar que la pregunta está formulada correctamente."
 explicacion: "'どこにいますか' es una pregunta común sobre ubicación. La partícula 'に' se usa para especificar el lugar donde alguien se encuentra."
 tipo: completar
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "で"
@@ -316,7 +299,6 @@ pasos:
   - "Verificar que la oración está formulada correctamente."
 explicacion: "'これは日本の国旗ですか' se usa para preguntar si algo es la bandera japonesa. La partícula 'か' transforma una afirmación en una pregunta."
 tipo: completar
-respuesta: "か"
 respuestas_validas:
   - "か"
   - "の"
@@ -334,7 +316,6 @@ pasos:
   - "Verificar que la oración es gramaticalmente correcta."
 explicacion: "'私は大学生です' se usa para declarar su estado académico. El verbo 'です' finaliza la frase en forma cortés y estándar."
 tipo: completar
-respuesta: "です"
 respuestas_validas:
   - "です"
   - "ござる"
@@ -352,7 +333,6 @@ pasos:
   - "Verificar que la pregunta está formulada correctamente."
 explicacion: "'何をしていますか' se usa para preguntar sobre una actividad. La partícula 'を' indica el objeto directo de la acción."
 tipo: completar
-respuesta: "を"
 respuestas_validas:
   - "を"
   - "に"
@@ -370,7 +350,6 @@ pasos:
   - "Verificar que la oración es gramaticalmente correcta."
 explicacion: "'私はフランス人です' se usa para declarar su nacionalidad. El verbo 'です' finaliza la frase en forma cortés y estándar."
 tipo: completar
-respuesta: "です"
 respuestas_validas:
   - "です"
   - "ござる"
@@ -388,7 +367,6 @@ pasos:
   - "Verificar que la pregunta está formulada correctamente."
 explicacion: "'どこに住んでいますか' es una pregunta común sobre residencia. La partícula 'に' se usa para especificar el lugar donde vive alguien."
 tipo: completar
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "で"
@@ -406,7 +384,6 @@ pasos:
   - "Verificar que la oración está formulada correctamente."
 explicacion: "'これは何ですか' se usa para identificar algo. La palabra '何' significa 'qué', y la frase es típica en situaciones de introducción o explicación."
 tipo: completar
-respuesta: "何"
 respuestas_validas:
   - "何"
   - "どちら"
@@ -424,7 +401,6 @@ pasos:
   - "Verificar que la oración es gramaticalmente correcta."
 explicacion: "'私は大学生です' se usa para declarar su estado académico. El verbo 'です' finaliza la frase en forma cortés y estándar."
 tipo: completar
-respuesta: "です"
 respuestas_validas:
   - "です"
   - "ござる"
@@ -442,7 +418,6 @@ pasos:
   - "Verificar que la pregunta está formulada correctamente."
 explicacion: "'どこにいますか' es una pregunta común sobre ubicación. La partícula 'に' se usa para especificar el lugar donde alguien se encuentra."
 tipo: completar
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "で"

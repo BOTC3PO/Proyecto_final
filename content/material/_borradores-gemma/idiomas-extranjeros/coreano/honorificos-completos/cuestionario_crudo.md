@@ -10,11 +10,8 @@ pasos:
 explicacion: "La partícula -님 se usa para llamar a alguien con respeto. En este caso, se refiere al sujeto directamente."  
 tipo: completar  
 enunciado: "그분___ 잘 아시는 분이에요."  
-variables:  
-  - uno_de(["님", "께", "에게"])  
-respuesta: "님"  
-respuestas_validas: ["님"]  
-```
+respuestas_validas:
+  - "님"```
 
 
 
@@ -30,11 +27,8 @@ pasos:
 explicacion: "El verbo '가다' en contexto formal se conjuga como -갑니다. Esto muestra respeto hacia el destinatario."  
 tipo: completar  
 enunciado: "그분은 ___ 가시겠어요?"  
-variables:  
-  - uno_de(["가십니다", "갑니다", "가세요"])  
-respuesta: "갑니다"  
-respuestas_validas: ["갑니다"]  
-```
+respuestas_validas:
+  - "갑니다"```
 
 
 
@@ -50,11 +44,8 @@ pasos:
 explicacion: "El sufijo -세요 se usa en contextos formales para pedir algo con cortesía. Es más suave que -주세요."  
 tipo: completar  
 enunciado: "이 책을 ___ 주시겠어요?"  
-variables:  
-  - uno_de(["주세요", "하세요", "하세요"])  
-respuesta: "주세요"  
-respuestas_validas: ["주세요"]  
-```
+respuestas_validas:
+  - "주세요"```
 
 
 
@@ -69,7 +60,10 @@ pasos:
   - "Identificar la partícula que indica el destinatario indirecto."  
 explicacion: "La partícula -께 se usa cuando el destinatario no es el sujeto directo de la oración. Aquí, se dirige a un tercero."  
 tipo: mc  
-opciones_explicitas: ["-에게", "-께", "-에"]  
+opciones_explicitas:
+  - "-에게"
+  - "-께"
+  - "-에"
 respuesta: "-께"  
 ```
 
@@ -87,11 +81,8 @@ pasos:
 explicacion: "El adverbio '잘' en contexto formal se transforma en - 잘 하십니다. Esto refleja respeto hacia el sujeto."  
 tipo: completar  
 enunciado: "그분은 ___ 하십니까?"  
-variables:  
-  - uno_de(["잘", "좋게", "성공적으로"])  
-respuesta: "잘"  
-respuestas_validas: ["잘"]  
-```
+respuestas_validas:
+  - "잘"```
 
 
 
@@ -106,7 +97,10 @@ pasos:
   - "Agregar la partícula de honor al sustantivo."  
 explicacion: "El sustantivo '선생님' ya incluye el sufijo -님, que indica respeto. No se necesita añadir otra partícula."  
 tipo: mc  
-opciones_explicitas: ["선생님", "선생께", "선생에게"]  
+opciones_explicitas:
+  - "선생님"
+  - "선생께"
+  - "선생에게"
 respuesta: "선생님"  
 ```
 
@@ -124,11 +118,8 @@ pasos:
 explicacion: "La partícula -께서 se usa para referirse al sujeto de una acción en contexto formal. Aquí, se menciona a un tercero."  
 tipo: completar  
 enunciado: "그분___ 오셨어요?"  
-variables:  
-  - uno_de(["께서", "에게", "께"])  
-respuesta: "께서"  
-respuestas_validas: ["께서"]  
-```
+respuestas_validas:
+  - "께서"```
 
 
 
@@ -142,7 +133,7 @@ metadata:
 pasos:
   - "Identificar el tiempo verbal y el sujeto en la oración."
   - "Aplicar la forma honorífica correspondiente al verbo '예약하다'."
-respuesta_validas:
+respuestas_validas:
   - "예약하시겠어요"
   - "예약하시겠습니까"
 tipo: completar
@@ -164,11 +155,8 @@ pasos:
 explicacion: "El verbo '먹다' en contexto formal se conjuga como - 드십니다. Esto muestra respeto hacia el destinatario."  
 tipo: completar  
 enunciado: "그분은 ___ 드시겠어요?"  
-variables:  
-  - uno_de(["먹습니다", "드십니다", "먹세요"])  
-respuesta: "드십니다"  
-respuestas_validas: ["드십니다"]  
-```
+respuestas_validas:
+  - "드십니다"```
 
 
 
@@ -183,7 +171,10 @@ pasos:
   - "Seleccionar el sufijo adecuado para una solicitud formal."  
 explicacion: "El sufijo -주세요 se usa en contextos formales para pedir algo con firmeza. Es más directo que -세요."  
 tipo: mc  
-opciones_explicitas: ["-하세요", "-주세요", "-해요"]  
+opciones_explicitas:
+  - "-하세요"
+  - "-주세요"
+  - "-해요"
 respuesta: "-주세요"  
 ```
 
@@ -222,7 +213,10 @@ pasos:
   - "Identificar la partícula que indica el destinatario directo."  
 explicacion: "La partícula -에게 se usa cuando el destinatario es el sujeto directo de la oración. Aquí, se dirige a alguien específico."  
 tipo: mc  
-opciones_explicitas: ["-께", "-에게", "-에"]  
+opciones_explicitas:
+  - "-께"
+  - "-에게"
+  - "-에"
 respuesta: "-에게"  
 ```
 
@@ -239,7 +233,10 @@ pasos:
   - "Agregar la partícula de honor al sustantivo."  
 explicacion: "El sustantivo '교수님' ya incluye el sufijo -님, que indica respeto. No se necesita añadir otra partícula."  
 tipo: mc  
-opciones_explicitas: ["교수님", "교수께", "교수에게"]  
+opciones_explicitas:
+  - "교수님"
+  - "교수께"
+  - "교수에게"
 respuesta: "교수님"  
 ```
 
@@ -255,7 +252,7 @@ metadata:
 pasos:
   - "Identificar el verbo base y su forma honorífica."
   - "Ajustar la conjugación para el tiempo futuro."
-respuesta_validas:
+respuestas_validas:
   - "쓰시겠어요"
   - "쓰시겠습니까"
 tipo: completar
@@ -277,11 +274,8 @@ pasos:
 explicacion: "La forma '어디서' se conjuga como - 어디서 오십니까? para preguntar algo a alguien con respeto."  
 tipo: completar  
 enunciado: "그분은 ___ 오십니까?"  
-variables:  
-  - uno_de(["어디서", "언제", "어떻게"])  
-respuesta: "어디서"  
-respuestas_validas: ["어디서"]  
-```
+respuestas_validas:
+  - "어디서"```
 
 
 
@@ -297,11 +291,8 @@ pasos:
 explicacion: "El verbo '읽다' en contexto formal se conjuga como - 읽십니다. Esto muestra respeto hacia el destinatario."  
 tipo: completar  
 enunciado: "그분은 ___ 읽시겠어요?"  
-variables:  
-  - uno_de(["읽습니다", "읽십니다", "읽세요"])  
-respuesta: "읽십니다"  
-respuestas_validas: ["읽십니다"]  
-```
+respuestas_validas:
+  - "읽십니다"```
 
 
 
@@ -316,7 +307,10 @@ pasos:
   - "Seleccionar el sufijo adecuado para una solicitud formal."  
 explicacion: "El sufijo -하세요 se usa en contextos formales para pedir algo con cortesía. Es menos directo que -주세요."  
 tipo: mc  
-opciones_explicitas: ["-주세요", "-하세요", "-해요"]  
+opciones_explicitas:
+  - "-주세요"
+  - "-하세요"
+  - "-해요"
 respuesta: "-하세요"  
 ```
 
@@ -355,7 +349,10 @@ pasos:
   - "Identificar la partícula que indica el destinatario directo."  
 explicacion: "La partícula -에 se usa cuando el destinatario es el sujeto directo de la oración. Aquí, se dirige a alguien específico."  
 tipo: mc  
-opciones_explicitas: ["-께", "-에게", "-에"]  
+opciones_explicitas:
+  - "-께"
+  - "-에게"
+  - "-에"
 respuesta: "-에"  
 ```
 
@@ -372,7 +369,10 @@ pasos:
   - "Agregar la partícula de honor al sustantivo."  
 explicacion: "El sustantivo '의사님' ya incluye el sufijo -님, que indica respeto. No se necesita añadir otra partícula."  
 tipo: mc  
-opciones_explicitas: ["의사님", "의사께", "의사에게"]  
+opciones_explicitas:
+  - "의사님"
+  - "의사께"
+  - "의사에게"
 respuesta: "의사님"  
 ```
 
@@ -388,7 +388,7 @@ metadata:
 pasos:
   - "Identificar el tiempo verbal y aplicar el sufijo honorífico."
   - "Verificar que el verbo '마시다' esté en forma pasada con -셨어요."
-respuesta_validas:
+respuestas_validas:
   - "마셨어요"
   - "마셨습니다"
 tipo: completar
@@ -432,11 +432,8 @@ pasos:
 explicacion: "El verbo '쓰다' en contexto formal se conjuga como - 쓰십니다. Esto muestra respeto hacia el destinatario."  
 tipo: completar  
 enunciado: "그분은 ___ 쓰시겠어요?"  
-variables:  
-  - uno_de(["쓰습니다", "쓰십니다", "쓰세요"])  
-respuesta: "쓰십니다"  
-respuestas_validas: ["쓰십니다"]  
-```
+respuestas_validas:
+  - "쓰십니다"```
 
 
 
@@ -451,7 +448,10 @@ pasos:
   - "Seleccionar el sufijo adecuado para una solicitud formal."  
 explicacion: "El sufijo -해요 se usa en contextos formales para pedir algo con cortesía. Es menos directo que -주세요 o -하세요."  
 tipo: mc  
-opciones_explicitas: ["-주세요", "-하세요", "-해요"]  
+opciones_explicitas:
+  - "-주세요"
+  - "-하세요"
+  - "-해요"
 respuesta: "-해요"  
 ```
 
@@ -467,7 +467,7 @@ metadata:
 pasos:
   - "Identificar el verbo base y su conjugación honorífica."
   - "Ajustar al tiempo futuro con -시겠어요."
-respuesta_validas:
+respuestas_validas:
   - "사시겠어요"
   - "사시겠습니까"
 tipo: completar

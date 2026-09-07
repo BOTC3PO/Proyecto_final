@@ -10,7 +10,6 @@ pasos:
   - "Comprobar si el verbo principal es 'être' o 'avoir'."  
   - "Verificar el concordancia del participio con el sujeto."  
 enunciado: "Les enfants ___ dans le jardin hier."  
-respuesta: "ont joué"  
 tipo: completar  
 respuestas_validas:  
   - "ont joué"  
@@ -29,7 +28,6 @@ pasos:
   - "Elegir el auxiliar correcto ('avoir' o 'être')."  
   - "Conjugar el verbo en pasado."  
 enunciado: "Nous ___ un film hier soir."  
-respuesta: "avons vu"  
 tipo: completar  
 respuestas_validas:  
   - "avons vu"  
@@ -48,7 +46,6 @@ pasos:
   - "Identificar la expresión que requiere el subjonctivo."  
   - "Conjugar el verbo en subjonctif presente."  
 enunciado: "Il est nécessaire qu'elle ___ plus de sport."  
-respuesta: "fasse"  
 tipo: completar  
 respuestas_validas:  
   - "fasse"  
@@ -67,7 +64,6 @@ pasos:
   - "Determinar si el sustantivo es masculino o femenino."  
   - "Elegir el artículo partitivo correcto."  
 enunciado: "Je veux ___ fromage, s’il vous plaît."  
-respuesta: "du"  
 tipo: completar  
 respuestas_validas:  
   - "du"  
@@ -86,7 +82,6 @@ pasos:
   - "Identificar el verbo pronominal y su pronombre réfléchi."  
   - "Conjugar correctamente con el sujeto."  
 enunciado: "Elle ___ ses cheveux chaque matin."  
-respuesta: "se lave"  
 tipo: completar  
 respuestas_validas:  
   - "se lave"  
@@ -105,7 +100,6 @@ pasos:
   - "Identificar el verbo y su terminación en futur."  
   - "Conjugar con el sujeto dado."  
 enunciado: "Demain, je ___ à l’aéroport à 7h."  
-respuesta: "serai"  
 tipo: completar  
 respuestas_validas:  
   - "serai"  
@@ -124,7 +118,6 @@ pasos:
   - "Determinar si la acción es continua o habitual en el pasado."  
   - "Elegir entre imparfait y passé composé."  
 enunciado: "Quand j’étais jeune, je ___ beaucoup de livres."  
-respuesta: "lisais"  
 tipo: completar  
 respuestas_validas:  
   - "lisais"  
@@ -143,7 +136,6 @@ pasos:
   - "Identificar el género y número del sustantivo."  
   - "Ajustar el adjetivo en consecuencia."  
 enunciado: "C’est un ___ film."  
-respuesta: "bon"  
 tipo: completar  
 respuestas_validas:  
   - "bon"  
@@ -162,7 +154,6 @@ pasos:
   - "Identificar la subordinada que requiere el subjonctivo."  
   - "Conjugar el verbo en subjonctif presente."  
 enunciado: "Je veux qu’il ___ à l’heure."  
-respuesta: "vienne"  
 tipo: completar  
 respuestas_validas:  
   - "vienne"  
@@ -181,7 +172,6 @@ pasos:
   - "Identificar la condición hipotética."  
   - "Conjugar el verbo en conditionnel présent."  
 enunciado: "Si je ___ de l’argent, je voyageais."  
-respuesta: "avais"  
 tipo: completar  
 respuestas_validas:  
   - "avais"  
@@ -200,7 +190,6 @@ pasos:
   - "Identificar el verbo irregular y su conjugación."  
   - "Ajustar según el sujeto."  
 enunciado: "Il ___ très sérieux aujourd’hui."  
-respuesta: "paraît"  
 tipo: completar  
 respuestas_validas:  
   - "paraît"  
@@ -219,7 +208,6 @@ pasos:
   - "Identificar el verbo y su participe passé."  
   - "Conjugar con 'avoir' y concordar si es necesario."  
 enunciado: "Nous ___ fini nos devoirs."  
-respuesta: "avons"  
 tipo: completar  
 respuestas_validas:  
   - "avons"  
@@ -238,7 +226,6 @@ pasos:
   - "Identificar el pronombre réfléchi."  
   - "Conjugar correctamente con el sujeto."  
 enunciado: "Ils ___ leurs affaires pour le voyage."  
-respuesta: "préparent"  
 tipo: completar  
 respuestas_validas:  
   - "préparent"  
@@ -257,7 +244,6 @@ pasos:
   - "Identificar el verbo irregular y su terminación en futur."  
   - "Conjugar con el sujeto dado."  
 enunciado: "Demain, nous ___ nos vacances à la montagne."  
-respuesta: "passerons"  
 tipo: completar  
 respuestas_validas:  
   - "passerons"  
@@ -276,7 +262,6 @@ pasos:
   - "Identificar el poseedor y su género/número."  
   - "Elegir el adjetivo possessivo correcto."  
 enunciado: "C’est ___ livre."  
-respuesta: "mon"  
 tipo: completar  
 respuestas_validas:  
   - "mon"  
@@ -295,7 +280,6 @@ pasos:
   - "Identificar el verbo regular y su terminación."  
   - "Conjugar con el sujeto dado."  
 enunciado: "Elles ___ à l’école en septembre."  
-respuesta: "rentrent"  
 tipo: completar  
 respuestas_validas:  
   - "rentrent"  
@@ -314,7 +298,6 @@ pasos:
   - "Identificar el pronombre réfléchi y la conjugación."  
   - "Ajustar según el sujeto."  
 enunciado: "Il ___ son manteau sur le fauteuil."  
-respuesta: "met"  
 tipo: completar  
 respuestas_validas:  
   - "met"  
@@ -333,7 +316,6 @@ pasos:
   - "Identificar el verbo irregular y su conjugación."  
   - "Ajustar según el sujeto."  
 enunciado: "Elle ___ très fatiguée aujourd’hui."  
-respuesta: "paraît"  
 tipo: completar  
 respuestas_validas:  
   - "paraît"  
@@ -352,7 +334,6 @@ pasos:
   - "Identificar el orden y la forma del adjetivo ordinal."  
   - "Ajustar según el sustantivo."  
 enunciado: "C’est ___ étage du bâtiment."  
-respuesta: "le troisième"  
 tipo: completar  
 respuestas_validas:  
   - "le troisième"  
@@ -371,7 +352,6 @@ pasos:
   - "Identificar el pronombre réfléchi y la conjugación."  
   - "Ajustar según el sujeto."  
 enunciado: "Nous ___ à la plage cet été."  
-respuesta: "irons"  
 tipo: completar  
 respuestas_validas:  
   - "irons"  
@@ -390,7 +370,6 @@ pasos:
   - "Identificar el sustantivo y su género/número."  
   - "Elegir el adjetivo demonstrativo correcto."  
 enunciado: "C’est ___ femme que j’ai vue hier."  
-respuesta: "cette"  
 tipo: completar  
 respuestas_validas:  
   - "cette"  
@@ -409,7 +388,6 @@ pasos:
   - "Identificar el verbo regular en -ir y su conjugación."  
   - "Ajustar según el sujeto."  
 enunciado: "Ils ___ un café à la terrasse."  
-respuesta: "prennent"  
 tipo: completar  
 respuestas_validas:  
   - "prennent"  
@@ -428,7 +406,6 @@ pasos:
   - "Identificar el número y la forma del adjetivo."  
   - "Ajustar según el sustantivo."  
 enunciado: "Il a ___ enfants."  
-respuesta: "trois"  
 tipo: completar  
 respuestas_validas:  
   - "trois"  
@@ -447,7 +424,6 @@ pasos:
   - "Identificar el verbo irregular y su conjugación."  
   - "Ajustar según el sujeto."  
 enunciado: "Il ___ très occupé aujourd’hui."  
-respuesta: "est"  
 tipo: completar  
 respuestas_validas:  
   - "est"  
@@ -466,7 +442,6 @@ pasos:
   - "Identificar el poseedor y su género/número."  
   - "Elegir el adjetivo possessivo correcto."  
 enunciado: "C’est ___ chaise."  
-respuesta: "ma"  
 tipo: completar  
 respuestas_validas:  
   - "ma"  

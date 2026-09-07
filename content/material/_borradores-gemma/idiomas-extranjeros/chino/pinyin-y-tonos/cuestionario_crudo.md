@@ -7,7 +7,6 @@ metadata:
   tags: ["tono-1", "nombre"]  
 pasos:  
   - "Escribe el pinyin completo de '妈' con su tono correcto."  
-respuesta: "mā"  
 tipo: completar  
 respuestas_validas:  
   - "mā"  
@@ -25,7 +24,6 @@ metadata:
   tags: ["tono-4", "verbo"]  
 pasos:  
   - "Escribe el tono correcto del verbo '去' en la oración '我____去学校。' (Voy a la escuela)."  
-respuesta: "qù"  
 tipo: completar  
 respuestas_validas:  
   - "qù"  
@@ -62,7 +60,6 @@ metadata:
   tags: ["tono-3", "animal"]  
 pasos:  
   - "Completa el pinyin de '猫' (gato) en la oración '那只____很可爱。' (Ese gato es muy lindo)."  
-respuesta: "māo"  
 tipo: completar  
 respuestas_validas:  
   - "māo"  
@@ -80,7 +77,6 @@ metadata:
   tags: ["tono-3", "adjetivo"]  
 pasos:  
   - "Escribe el tono correcto del adjetivo '好' en la oración '这个苹果____。' (Este manzana es buena)."  
-respuesta: "hǎo"  
 tipo: completar  
 respuestas_validas:  
   - "hǎo"  
@@ -117,7 +113,6 @@ metadata:
   tags: ["tono-2", "sustantivo"]  
 pasos:  
   - "Completa el pinyin de '人' (persona) en la oración '这是____。' (Esta es una persona)."  
-respuesta: "rén"  
 tipo: completar  
 respuestas_validas:  
   - "rén"  
@@ -154,7 +149,6 @@ metadata:
   tags: ["tono-1", "sustantivo"]  
 pasos:  
   - "Completa el pinyin de '花' (flor) en la oración '那朵____很美。' (Esa flor es muy bonita)."  
-respuesta: "huā"  
 tipo: completar  
 respuestas_validas:  
   - "huā"  
@@ -191,7 +185,6 @@ metadata:
   tags: ["tono-1", "sustantivo"]  
 pasos:  
   - "Completa el pinyin de '家' (casa) en la oración '这是我的____。' (Esta es mi casa)."  
-respuesta: "jiā"  
 tipo: completar  
 respuestas_validas:  
   - "jiā"  
@@ -228,7 +221,6 @@ metadata:
   tags: ["tono-2", "sustantivo"]  
 pasos:  
   - "Completa el pinyin de '车' (coche) en la oración '那辆____很新。' (Ese coche es nuevo)."  
-respuesta: "chē"  
 tipo: completar  
 respuestas_validas:  
   - "chē"  
@@ -265,7 +257,6 @@ metadata:
   tags: ["tono-2", "adjetivo"]  
 pasos:  
   - "Completa el pinyin de '明' (claro) en la oración '这个____很亮。' (Este claro es muy brillante)."  
-respuesta: "míng"  
 tipo: completar  
 respuestas_validas:  
   - "míng"  
@@ -302,7 +293,6 @@ metadata:
   tags: ["tono-1", "sustantivo"]  
 pasos:  
   - "Completa el pinyin de '书' (libro) en la oración '我正在读____。' (Estoy leyendo un libro)."  
-respuesta: "shū"  
 tipo: completar  
 respuestas_validas:  
   - "shū"  
@@ -339,7 +329,6 @@ metadata:
   tags: ["tono-3", "sustantivo"]  
 pasos:  
   - "Completa el pinyin de '水' (agua) en la oración '这瓶____是矿泉水。' (Esta botella es agua mineral)."  
-respuesta: "shuǐ"  
 tipo: completar  
 respuestas_validas:  
   - "shuǐ"  
@@ -376,7 +365,6 @@ metadata:
   tags: ["tono-2", "adjetivo"]  
 pasos:  
   - "Completa el pinyin de '明' (claro) en la oración '这个____很亮。' (Este claro es muy brillante)."  
-respuesta: "míng"  
 tipo: completar  
 respuestas_validas:  
   - "míng"  
@@ -413,7 +401,6 @@ metadata:
   tags: ["tono-2", "sustantivo"]  
 pasos:  
   - "Completa el pinyin de '车' (coche) en la oración '那辆____很新。' (Ese coche es nuevo)."  
-respuesta: "chē"  
 tipo: completar  
 respuestas_validas:  
   - "chē"  
@@ -450,7 +437,6 @@ metadata:
   tags: ["tono-4", "verbo"]  
 pasos:  
   - "Completa el pinyin de '爱' (amar) en la oración '我____你。' (Te amo)."  
-respuesta: "ài"  
 tipo: completar  
 respuestas_validas:  
   - "ài"  

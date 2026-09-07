@@ -11,13 +11,9 @@ pasos:
 explicacion: "En alemán, la voz pasiva se forma con 'werden' seguido del participio pasado. El sujeto de la acción cambia al objeto en la oración activa."  
 tipo: completar  
 enunciado: "Der Kuchen ___ von meiner Mutter gebacken."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Kuchen"  
-  - verbo: "backen"  
 ```
 
 ### 2 — Uso del participio pasado en oraciones pasivas  
@@ -33,13 +29,9 @@ pasos:
 explicacion: "El participio pasado se forma añadiendo '-t' al infinitivo (excepto verbos irregulares como 'backen' → 'gebacken')."  
 tipo: completar  
 enunciado: "Das Bild ___ von einem Künstler gemalt."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Bild"  
-  - verbo: "malen"  
 ```
 
 ### 3 — Voz pasiva con oraciones en pasado (Präteritum)  
@@ -55,13 +47,9 @@ pasos:
 explicacion: "En oraciones del pasado, se usa 'wurde' en lugar de 'werden' para formar la voz pasiva."  
 tipo: completar  
 enunciado: "Das Auto ___ gestern von einem Mechaniker repariert."  
-respuesta: "wurde"  
 respuestas_validas:  
   - "wurde"  
   - "Wurde"  
-variables:  
-  - sujeto: "Auto"  
-  - verbo: "reparieren"  
 ```
 
 ### 4 — Voz pasiva en oraciones con objetos directos  
@@ -77,13 +65,9 @@ pasos:
 explicacion: "El objeto directo de la oración activa se convierte en el sujeto de la voz pasiva, seguido de 'werden' + participio pasado."  
 tipo: completar  
 enunciado: "Die Tasse ___ von der Frau zerbrochen."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Tasse"  
-  - verbo: "brechen"  
 ```
 
 ### 5 — Voz pasiva con verbos irregulares (haben)  
@@ -99,13 +83,9 @@ pasos:
 explicacion: "Verbos como 'haben' (haben → gehabt) requieren memorizar su participio pasado, que no sigue reglas regulares."  
 tipo: completar  
 enunciado: "Das Problem ___ von dem Team gelöst."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Problem"  
-  - verbo: "lösen"  
 ```
 
 ### 6 — Voz pasiva en contextos de tecnología  
@@ -121,13 +101,9 @@ pasos:
 explicacion: "En contextos técnicos, la voz pasiva describe procesos realizados por herramientas o sistemas sin mencionar al agente directo."  
 tipo: completar  
 enunciado: "Das Programm ___ von der Firma entwickelt."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Programm"  
-  - verbo: "entwickeln"  
 ```
 
 ### 7 — Voz pasiva con oraciones en pasado (Präteritum) y objetos indirectos  
@@ -143,13 +119,9 @@ pasos:
 explicacion: "Los objetos indirectos (por ejemplo, 'von dem Kunden') no cambian de posición al convertir a voz pasiva."  
 tipo: completar  
 enunciado: "Die Nachricht ___ von dem Kunden gelesen."  
-respuesta: "wurde"  
 respuestas_validas:  
   - "wurde"  
   - "Wurde"  
-variables:  
-  - sujeto: "Nachricht"  
-  - verbo: "lesen"  
 ```
 
 ### 8 — Voz pasiva en oraciones con verbos de sensación (sehen)  
@@ -165,13 +137,9 @@ pasos:
 explicacion: "Verbos como 'sehen' (sehen → gesehen) requieren que su participio se use con 'werden' en voz pasiva, incluso si son de sensación."  
 tipo: completar  
 enunciado: "Das Bild ___ von dem Mann gesehen."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Bild"  
-  - verbo: "sehen"  
 ```
 
 ### 9 — Voz pasiva con oraciones en presente y objetos múltiples  
@@ -187,13 +155,9 @@ pasos:
 explicacion: "Cuando hay múltiples objetos, solo el directo cambia de posición. Los indirectos (por ejemplo, 'von der Frau') permanecen igual."  
 tipo: completar  
 enunciado: "Das Geschenk ___ von der Frau an den Mann gegeben."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Geschenk"  
-  - verbo: "geben"  
 ```
 
 ### 10 — Voz pasiva con verbos de movimiento (gehen)  
@@ -209,13 +173,9 @@ pasos:
 explicacion: "Verbos como 'gehen' (gehen → gegangen) se usan en voz pasiva igual que otros verbos regulares, aunque denoten movimiento."  
 tipo: completar  
 enunciado: "Das Kind ___ von der Mutter ins Bett gebracht."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Kind"  
-  - verbo: "bringen"  
 ```
 
 ### 11 — Voz pasiva en oraciones con múltiples agentes (von)  
@@ -231,13 +191,9 @@ pasos:
 explicacion: "Cuando hay múltiples agentes, se usan preposiciones como 'von' para indicar quien realizó la acción."  
 tipo: completar  
 enunciado: "Das Projekt ___ von den Ingenieuren und der Firma durchgeführt."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Projekt"  
-  - verbo: "durchführen"  
 ```
 
 ### 12 — Voz pasiva con oraciones en presente y participios compuestos  
@@ -253,13 +209,9 @@ pasos:
 explicacion: "Participios como 'gekauft' (kaufen) se usan directamente con 'werden' en voz pasiva, incluso si son compuestos."  
 tipo: completar  
 enunciado: "Das Buch ___ von der Bibliothek ausgeliehen."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Buch"  
-  - verbo: "ausleihen"  
 ```
 
 ### 13 — Voz pasiva en oraciones con verbos de cambio (werden)  
@@ -275,13 +227,9 @@ pasos:
 explicacion: "Verbos como 'werden' (werden → geworden) requieren especial atención en la formación del participio pasado para la voz pasiva."  
 tipo: completar  
 enunciado: "Die Frau ___ von dem Arzt geheilt."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Frau"  
-  - verbo: "heilen"  
 ```
 
 ### 14 — Voz pasiva con oraciones en presente y verbos reflexivos (sich waschen)  
@@ -297,13 +245,9 @@ pasos:
 explicacion: "Verbos reflexivos como 'sich waschen' (wäschen → gewaschen) se usan en voz pasiva sin el pronombre reflexivo."  
 tipo: completar  
 enunciado: "Das Kleid ___ von der Schneiderin gewaschen."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Kleid"  
-  - verbo: "waschen"  
 ```
 
 ### 15 — Voz pasiva en oraciones con agentes omitidos  
@@ -319,13 +263,9 @@ pasos:
 explicacion: "Cuando el agente no se menciona, se omite 'von' y solo se usa 'werden' + participio pasado en la voz pasiva."  
 tipo: completar  
 enunciado: "Das Essen ___ gut gekocht."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Essen"  
-  - verbo: "kochen"  
 ```
 
 ### 16 — Voz pasiva en oraciones con múltiples participios (durch)  
@@ -341,13 +281,9 @@ pasos:
 explicacion: "Cuando hay múltiples participios (como 'durchgeführt'), se usan directamente con 'werden' en la voz pasiva."  
 tipo: completar  
 enunciado: "Das Experiment ___ von dem Forscher durchgeführt."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Experiment"  
-  - verbo: "durchführen"  
 ```
 
 ### 17 — Voz pasiva en oraciones con verbos de creación (machen)  
@@ -363,13 +299,9 @@ pasos:
 explicacion: "Verbos como 'machen' (machen → gemacht) se usan en voz pasiva igual que otros verbos regulares, aunque denoten creación."  
 tipo: completar  
 enunciado: "Das Bild ___ von dem Künstler gemalt."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Bild"  
-  - verbo: "malen"  
 ```
 
 ### 18 — Voz pasiva en oraciones con agentes múltiples (von + durch)  
@@ -385,13 +317,9 @@ pasos:
 explicacion: "Cuando hay múltiples agentes, se usan preposiciones como 'von' y 'durch' para indicar quien realizó la acción."  
 tipo: completar  
 enunciado: "Das Projekt ___ von den Ingenieuren und durch die Firma durchgeführt."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Projekt"  
-  - verbo: "durchführen"  
 ```
 
 ### 19 — Voz pasiva en oraciones con participios irregulares (schreiben)  
@@ -407,13 +335,9 @@ pasos:
 explicacion: "Verbos como 'schreiben' (schreiben → geschrieben) requieren memorizar su participio irregular, que no sigue reglas regulares."  
 tipo: completar  
 enunciado: "Das Buch ___ von dem Autor geschrieben."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Buch"  
-  - verbo: "schreiben"  
 ```
 
 ### 20 — Voz pasiva en oraciones con objetos de lugar (nach)  
@@ -429,13 +353,9 @@ pasos:
 explicacion: "Objetos de lugar (por ejemplo, 'nach Berlin') no cambian de posición al convertir a voz pasiva y se mantienen con su preposición original."  
 tipo: completar  
 enunciado: "Das Paket ___ von dem Boten nach Berlin geschickt."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Paket"  
-  - verbo: "schicken"  
 ```
 
 ### 21 — Voz pasiva en oraciones con verbos de preparación (bereiten)  
@@ -451,13 +371,9 @@ pasos:
 explicacion: "Verbos como 'bereiten' (bereiten → gebereitet) se usan en voz pasiva igual que otros verbos regulares, aunque denoten preparación."  
 tipo: completar  
 enunciado: "Das Essen ___ von der Köchin bereitet."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Essen"  
-  - verbo: "bereiten"  
 ```
 
 ### 22 — Voz pasiva en oraciones con agentes múltiples (von + durch) y objetos indirectos  
@@ -473,13 +389,9 @@ pasos:
 explicacion: "Cuando hay múltiples agentes, se usan preposiciones como 'von' y 'durch', mientras que los objetos indirectos (por ejemplo, 'für den Kunden') permanecen igual."  
 tipo: completar  
 enunciado: "Das Projekt ___ von den Ingenieuren und durch die Firma für den Kunden durchgeführt."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Projekt"  
-  - verbo: "durchführen"  
 ```
 
 ### 23 — Voz pasiva en oraciones con participios compuestos y objetos múltiples  
@@ -495,13 +407,9 @@ pasos:
 explicacion: "Participios como 'ausgeliehen' (ausleihen) se usan directamente con 'werden' en voz pasiva, incluso si hay múltiples objetos en la oración activa."  
 tipo: completar  
 enunciado: "Das Buch ___ von der Bibliothek für den Studenten ausgeliehen."  
-respuesta: "wird"  
 respuestas_validas:  
   - "wird"  
   - "Wird"  
-variables:  
-  - sujeto: "Buch"  
-  - verbo: "ausleihen"  
 ```
 
 ### 24 — Voz pasiva en oraciones con verbos de transporte (bringen)  

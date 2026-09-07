@@ -10,8 +10,6 @@ pasos:
   - "Verificar si el participio concuerda en género y número con el sujeto."  
 tipo: completar  
 enunciado: "Les lettres ___ par le directeur aujourd’hui."  
-variables: []  
-respuesta: "ont été"  
 respuestas_validas:  
   - "ont été"  
   - "Ont été"  
@@ -34,7 +32,11 @@ pasos:
   - "Elegir la forma correcta del verbo en subjuntivo."  
 tipo: mc  
 enunciado: "Il est nécessaire que ___ la réunion à l'heure prévue."  
-opciones_explicitas: ["on assiste", "on assiste", "assistions", "assister"]  
+opciones_explicitas:
+  - "on assiste"
+  - "on assiste"
+  - "assistions"
+  - "assister"
 respuesta: "on assiste"  
 explicacion: "Después de expresiones impersonales como 'il est nécessaire', se usa el subjuntivo. La forma correcta es 'que on assiste'."  
 ```  
@@ -55,8 +57,6 @@ pasos:
   - "Elegir el gerundio que exprese la simultaneidad."  
 tipo: completar  
 enunciado: "En sortant de l'école, ___ le journal."  
-variables: []  
-respuesta: "je lisais"  
 respuestas_validas:  
   - "je lisais"  
   - "Je lisais"  
@@ -79,7 +79,11 @@ pasos:
   - "Ajustar el verbo en la oración subordinada según el sujeto."  
 tipo: mc  
 enunciado: "Je ne sais pas ___ il est venu."  
-opciones_explicitas: ["pourquoi", "que", "si", "où"]  
+opciones_explicitas:
+  - "pourquoi"
+  - "que"
+  - "si"
+  - "où"
 respuesta: "pourquoi"  
 explicacion: "La oración subordinada 'pourquoi' introduce una razón, y su concordancia no depende del sujeto de la principal. La opción correcta es 'pourquoi'."  
 ```  
@@ -100,8 +104,6 @@ pasos:
   - "Verificar el orden correcto de los elementos."  
 tipo: completar  
 enunciado: "Il ___ a jamais parlé de ce sujet."  
-variables: []  
-respuesta: "n’a"  
 respuestas_validas:  
   - "n’a"  
   - "N’a"  
@@ -124,7 +126,11 @@ pasos:
   - "Seleccionar la forma correcta del verbo en función del contexto."  
 tipo: mc  
 enunciado: "Si je ___ à l'école, j'aurais réussi."  
-opciones_explicitas: ["étais", "était", "serais", "suis"]  
+opciones_explicitas:
+  - "étais"
+  - "était"
+  - "serais"
+  - "suis"
 respuesta: "étais"  
 explicacion: "En oraciones condicionales hipotéticas del pasado, se usa el pluscuamperfecto. La forma correcta es 'si je étais allé'."  
 ```  
@@ -145,8 +151,6 @@ pasos:
   - "Elegir el modo correcto de 'devoir' según el contexto."  
 tipo: completar  
 enunciado: "Les élèves ___ rendre leurs devoirs avant demain."  
-variables: []  
-respuesta: "doivent"  
 respuestas_validas:  
   - "doivent"  
   - "Doivent"  
@@ -169,7 +173,11 @@ pasos:
   - "Ajustar el adjetivo según el sujeto."  
 tipo: mc  
 enunciado: "Les ___ fleurs sont très belles."  
-opciones_explicitas: ["roses", "rose", "rouges", "rouge"]  
+opciones_explicitas:
+  - "roses"
+  - "rose"
+  - "rouges"
+  - "rouge"
 respuesta: "roses"  
 explicacion: "El sustantivo 'fleurs' es femenino plural, por lo que el adjetivo debe concordar en género y número. La forma correcta es 'roses'."  
 ```  
@@ -190,8 +198,6 @@ pasos:
   - "Elegir el verbo en forma de infinitivo."  
 tipo: completar  
 enunciado: "Je pense ___ cette décision."  
-variables: []  
-respuesta: "à"  
 respuestas_validas:  
   - "à"  
   - "À"  
@@ -214,7 +220,11 @@ pasos:
   - "Elegir entre 'savoir' y 'connaître' según el contexto."  
 tipo: mc  
 enunciado: "Je ___ le nom de cette ville."  
-opciones_explicitas: ["sais", "connais", "savons", "connaissez"]  
+opciones_explicitas:
+  - "sais"
+  - "connais"
+  - "savons"
+  - "connaissez"
 respuesta: "connais"  
 explicacion: "'Connaître' se usa para referirse al conocimiento de algo específico (como un nombre). La forma correcta es 'je connais'."  
 ```  
@@ -235,8 +245,6 @@ pasos:
   - "Ajustar el verbo según el sujeto más cercano o el contexto."  
 tipo: completar  
 enunciado: "Les enfants et leur mère ___ au cinéma hier soir."  
-variables: []  
-respuesta: "sont allés"  
 respuestas_validas:  
   - "sont allés"  
   - "Sont allés"  
@@ -295,8 +303,6 @@ pasos:
   - "Elegir la forma correcta de 'devoir' según el tiempo verbal."  
 tipo: completar  
 enunciado: "Si j’___ le temps, je t’aiderais."  
-variables: []  
-respuesta: "avais"  
 respuestas_validas:  
   - "avais"  
   - "Avais"  
@@ -319,7 +325,11 @@ pasos:
   - "Elegir el pronombre que concuerde en género y número."  
 tipo: mc  
 enunciado: "Le livre ___ j’ai lu hier était très passionnant."  
-opciones_explicitas: ["que", "qui", "où", "dont"]  
+opciones_explicitas:
+  - "que"
+  - "qui"
+  - "où"
+  - "dont"
 respuesta: "que"  
 explicacion: "'Que' se usa cuando el antecedente es un objeto directo. La oración correcta es 'le livre que j’ai lu hier'."  
 ```  
@@ -340,8 +350,6 @@ pasos:
   - "Elegir entre 'savoir' y 'pouvoir' según el contexto."  
 tipo: completar  
 enunciado: "Je ___ nager quand j’étais enfant."  
-variables: []  
-respuesta: "sais"  
 respuestas_validas:  
   - "sais"  
   - "Sais"  
@@ -364,8 +372,6 @@ pasos:
   - "Verificar el orden de los elementos y la forma del verbo."  
 tipo: completar  
 enunciado: "Je ___ pas finir ce travail aujourd’hui."  
-variables: []  
-respuesta: "ne dois"  
 respuestas_validas:  
   - "ne dois"  
   - "Ne dois"  
@@ -388,7 +394,11 @@ pasos:
   - "Elegir el pronombre que concuerde en género y número con el antecedente."  
 tipo: mc  
 enunciado: "La femme ___ j’ai rencontré hier est médecin."  
-opciones_explicitas: ["que", "qui", "où", "dont"]  
+opciones_explicitas:
+  - "que"
+  - "qui"
+  - "où"
+  - "dont"
 respuesta: "que"  
 explicacion: "'Que' se usa cuando el antecedente es un objeto directo. La oración correcta es 'la femme que j’ai rencontré hier'."  
 ```  
@@ -409,8 +419,6 @@ pasos:
   - "Elegir la forma correcta de 'pouvoir' según el sujeto."  
 tipo: completar  
 enunciado: "Le directeur ___ rendre visite à ses collègues demain."  
-variables: []  
-respuesta: "pourra"  
 respuestas_validas:  
   - "pourra"  
   - "Pourra"  
@@ -433,7 +441,11 @@ pasos:
   - "Ajustar el adjetivo según el sustantivo más cercano o el contexto."  
 tipo: mc  
 enunciado: "Les ___ enfants et les ___ parents sont contents."  
-opciones_explicitas: ["jeunes", "jeune", "beaux", "bel"]  
+opciones_explicitas:
+  - "jeunes"
+  - "jeune"
+  - "beaux"
+  - "bel"
 respuesta: "jeunes"  
 explicacion: "El sustantivo 'enfants' es masculino plural, por lo que el adjetivo debe concordar en género y número. La forma correcta es 'les jeunes enfants'."  
 ```  
@@ -454,8 +466,6 @@ pasos:
   - "Elegir la forma correcta de 'devoir' según el tiempo verbal."  
 tipo: completar  
 enunciado: "Les élèves ___ rendre leurs devoirs demain matin."  
-variables: []  
-respuesta: "devront"  
 respuestas_validas:  
   - "devront"  
   - "Devront"  
@@ -478,7 +488,11 @@ pasos:
   - "Elegir entre 'savoir' y 'pouvoir' según el contexto."  
 tipo: mc  
 enunciado: "J’___ lu ce livre quand j’étais jeune."  
-opciones_explicitas: ["ai", "avais", "sais", "saurai"]  
+opciones_explicitas:
+  - "ai"
+  - "avais"
+  - "sais"
+  - "saurai"
 respuesta: "avais"  
 explicacion: "'Avoir' es el auxiliar del pluscuamperfecto. La oración correcta es 'j’avais lu ce livre quand j’étais jeune'."  
 ```  
@@ -499,8 +513,6 @@ pasos:
   - "Verificar si se requiere concordancia del participio."  
 tipo: completar  
 enunciado: "L’idée ___ par le professeur hier était intéressante."  
-variables: []  
-respuesta: "émise"  
 respuestas_validas:  
   - "émise"  
   - "Émise"  
@@ -523,8 +535,6 @@ pasos:
   - "Elegir la forma correcta del verbo según el contexto."  
 tipo: completar  
 enunciado: "Je ___ parler français parfaitement."  
-variables: []  
-respuesta: "peux"  
 respuestas_validas:  
   - "peux"  
   - "Peux"  
@@ -547,7 +557,11 @@ pasos:
   - "Elegir el pronombre que concuerde en género y número con el sustantivo neutro."  
 tipo: mc  
 enunciado: "La chose ___ j’ai perdue est très précieuse."  
-opciones_explicitas: ["que", "qui", "où", "dont"]  
+opciones_explicitas:
+  - "que"
+  - "qui"
+  - "où"
+  - "dont"
 respuesta: "que"  
 explicacion: "'Que' se usa cuando el antecedente es un objeto directo. La oración correcta es 'la chose que j’ai perdue est très précieuse'."  
 ```

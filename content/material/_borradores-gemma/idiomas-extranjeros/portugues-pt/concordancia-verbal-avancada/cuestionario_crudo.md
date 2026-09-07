@@ -10,7 +10,6 @@ pasos:
   - "Aplicar o subjuntivo presente conforme regra de concordância."  
 enunciado: "Se eu ___ mais atento, não teria cometido esse erro."  
 tipo: completar  
-respuesta: "fosse"  
 respuestas_validas:  
   - "fosse"  
   - "Fosse"  
@@ -31,7 +30,6 @@ pasos:
   - "Aplicar o subjuntivo presente para concordância."  
 enunciado: "Ela age ___ um animal assustado, sem entender a situação."  
 tipo: completar  
-respuesta: "fosse"  
 respuestas_validas:  
   - "fosse"  
   - "Fosse"  
@@ -52,7 +50,6 @@ pasos:
   - "Aplicar o subjuntivo presente para concordância."  
 enunciado: "___ tenha estudado muito, não conseguiu aprovação no exame."  
 tipo: completar  
-respuesta: "Embora"  
 respuestas_validas:  
   - "embora"  
   - "EMBORA"  
@@ -73,7 +70,6 @@ pasos:
   - "Aplicar o subjuntivo presente conforme regra de concordância."  
 enunciado: "Se ele ___ mais rápido, teria chegado antes do início da reunião."  
 tipo: completar  
-respuesta: "fosse"  
 respuestas_validas:  
   - "fosse"  
   - "Fosse"  
@@ -94,7 +90,6 @@ pasos:
   - "Aplicar o subjuntivo presente para concordância com sujeito indeterminado."  
 enunciado: "Ele fala ___ um profissional, mas não tem formação acadêmica."  
 tipo: completar  
-respuesta: "fosse"  
 respuestas_validas:  
   - "fosse"  
   - "Fosse"  
@@ -115,7 +110,6 @@ pasos:
   - "Aplicar o subjuntivo presente conforme regra da concordância."  
 enunciado: "___ tenha feito todos os exercícios, ele ainda não entendeu o conceito."  
 tipo: completar  
-respuesta: "Embora"  
 respuestas_validas:  
   - "embora"  
   - "EMBORA"  
@@ -136,7 +130,6 @@ pasos:
   - "Aplicar o subjuntivo presente conforme regra de concordância."  
 enunciado: "Se eu ___ rico, viajaria para o Japão todo ano."  
 tipo: completar  
-respuesta: "fosse"  
 respuestas_validas:  
   - "fosse"  
   - "Fosse"  
@@ -157,7 +150,6 @@ pasos:
   - "Aplicar o subjuntivo presente conforme regra da concordância."  
 enunciado: "Ela agiu ___ uma criança assustada, sem saber o que fazer."  
 tipo: completar  
-respuesta: "fosse"  
 respuestas_validas:  
   - "fosse"  
   - "Fosse"  
@@ -178,7 +170,6 @@ pasos:
   - "Aplicar o subjuntivo presente conforme regra da concordância."  
 enunciado: "___ ele soubesse a verdade, não teria dito isso."  
 tipo: completar  
-respuesta: "Embora"  
 respuestas_validas:  
   - "embora"  
   - "EMBORA"  
@@ -198,7 +189,6 @@ pasos:
   - "Identificar a estrutura 'como se' seguida de oração subordinada."
   - "Verificar o sujeto da oração subordinada para determinar a concordância verbal."
   - "Aplicar o subjuntivo imperfeito, pois o sujeito é omitido e a oração expressa uma hipótese."
-respuesta: "fosse"
 tipo: completar
 respuestas_validas:
   - "fosse"
@@ -220,7 +210,6 @@ pasos:
   - "Aplicar o subjuntivo presente conforme regra da concordância com sujeito principal."  
 enunciado: "Ela fala ___ um profissional, mas não tem formação acadêmica."  
 tipo: completar  
-respuesta: "fosse"  
 respuestas_validas:  
   - "fosse"  
   - "Fosse"  
@@ -240,7 +229,6 @@ pasos:
   - "Reconhecer a construção impersonal com 'haver' seguida de verbo no infinitivo."
   - "Verificar se o sujeito da oração principal é singular ou plural para aplicar a concordância."
   - "Confirmar que, em construções impersonais, o verbo permanece invariável."
-respuesta: "haver"
 tipo: completar
 respuestas_validas:
   - "haver"
@@ -261,7 +249,6 @@ pasos:
   - "Identificar a cláusula nominal introduzida por 'que' e o sujeito da oração subordinada."
   - "Aplicar o subjuntivo presente, pois o sujeito é omitido e a cláusula expressa uma exigência ou desejo."
   - "Verificar se o sujeto da oração principal (singular) exige concordância com o verbo da subordinada."
-respuesta: "seja"
 tipo: completar
 respuestas_validas:
   - "seja"
@@ -282,7 +269,6 @@ pasos:
   - "Reconhecer a estrutura 'valer a pena' seguida de infinitivo."
   - "Verificar se o sujeito da oração é singular ou plural para aplicar a concordância verbal."
   - "Confirmar que, em estruturas com 'valer', o verbo permanece no infinitivo e não concorda."
-respuesta: "valeria"
 tipo: completar
 respuestas_validas:
   - "valeria"
@@ -303,7 +289,6 @@ pasos:
   - "Identificar o verbo que exprime desejo (como 'querer', 'esperar') seguido de oração subordinada."
   - "Aplicar o subjuntivo presente, pois o sujeito da oração subordinada ('eles') é omitido."
   - "Verificar se o sujeto da oração principal (plural) exige concordância com o verbo da subordinada."
-respuesta: "sejam"
 tipo: completar
 respuestas_validas:
   - "sejam"
@@ -324,7 +309,6 @@ pasos:
   - "Identificar a cláusula hipotética iniciada por 'se' com o sujeito omitido."
   - "Aplicar o subjuntivo imperfeito, pois a oração expressa uma situação hipotética no passado."
   - "Verificar se o sujeto da oração principal (singular) exige concordância com o verbo da subordinada."
-respuesta: "tivesse"
 tipo: completar
 respuestas_validas:
   - "tivesse"
@@ -345,7 +329,6 @@ pasos:
   - "Reconhecer a estrutura 'precisar que' seguida de oração subordinada."
   - "Aplicar o subjuntivo presente, pois o sujeito da oração subordinada ('eles') é omitido."
   - "Verificar se o sujeto da oração principal (plural) exige concordância com o verbo da subordinada."
-respuesta: "sejam"
 tipo: completar
 respuestas_validas:
   - "sejam"
@@ -366,7 +349,6 @@ pasos:
   - "Identificar o verbo que exprime opinião (como 'achar', 'acreditar') seguido de oração subordinada."
   - "Aplicar o subjuntivo presente, pois o sujeito da oração subordinada ('você') é omitido."
   - "Verificar se o sujeto da oração principal (singular) exige concordância com o verbo da subordinada."
-respuesta: "seja"
 tipo: completar
 respuestas_validas:
   - "seja"
@@ -387,7 +369,6 @@ pasos:
   - "Identificar a cláusula relativa introduzida por 'que' e o sujeito da oração subordinada."
   - "Aplicar o subjuntivo presente, pois o sujeto é omitido e a cláusula expressa uma condição ou expectativa."
   - "Verificar se o sujeto da oração principal (singular) exige concordância com o verbo da subordinada."
-respuesta: "seja"
 tipo: completar
 respuestas_validas:
   - "seja"
@@ -408,7 +389,6 @@ pasos:
   - "Identificar a cláusula condicional iniciada por 'se' com o sujeito omitido."
   - "Aplicar o subjuntivo imperfeito, pois a oração expressa uma hipótese no passado."
   - "Verificar se o sujeto da oração principal (singular) exige concordância com o verbo da subordinada."
-respuesta: "tivesse"
 tipo: completar
 respuestas_validas:
   - "tivesse"
@@ -429,7 +409,6 @@ pasos:
   - "Reconhecer a construção impersonal com 'dizer-se' seguida de verbo no infinitivo."
   - "Verificar se o sujeito da oração principal é singular ou plural para aplicar a concordância."
   - "Confirmar que, em construções impersonais, o verbo permanece invariável."
-respuesta: "dizem"
 tipo: completar
 respuestas_validas:
   - "dizem"
@@ -450,7 +429,6 @@ pasos:
   - "Identificar o verbo que exprime necessidade (como 'ser necessário') seguido de oração subordinada."
   - "Aplicar o subjuntivo presente, pois o sujeito da oração subordinada ('eles') é omitido."
   - "Verificar se o sujeto da oração principal (plural) exige concordância com o verbo da subordinada."
-respuesta: "sejam"
 tipo: completar
 respuestas_validas:
   - "sejam"
@@ -471,7 +449,6 @@ pasos:
   - "Identificar o verbo que exprime suposição (como 'parecer') seguido de oração subordinada."
   - "Aplicar o subjuntivo presente, pois o sujeito da oração subordinada ('eles') é omitido."
   - "Verificar se o sujeto da oração principal (plural) exige concordância com o verbo da subordinada."
-respuesta: "sejam"
 tipo: completar
 respuestas_validas:
   - "sejam"
@@ -492,7 +469,6 @@ pasos:
   - "Identificar a cláusula de tempo iniciada por 'quando' com o sujeito omitido."
   - "Aplicar o subjuntivo presente, pois a oração expressa uma condição ou expectativa."
   - "Verificar se o sujeto da oração principal (singular) exige concordância com o verbo da subordinada."
-respuesta: "seja"
 tipo: completar
 respuestas_validas:
   - "seja"
@@ -513,7 +489,6 @@ pasos:
   - "Identificar a cláusula hipotética no passado iniciada por 'se' com o sujeito omitido."
   - "Aplicar o subjuntivo imperfeito, pois a oração expressa uma situação hipotética no passado."
   - "Verificar se o sujeto da oração principal (singular) exige concordância com o verbo da subordinada."
-respuesta: "tivesse"
 tipo: completar
 respuestas_validas:
   - "tivesse"

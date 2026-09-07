@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identificar el registro adecuado para la oración."
   - "Completar el hueco con la forma correcta del verbo."
-respuesta: "acknowledge"
 respuestas_validas:
   - "acknowledge"
   - "Acknowledge"
 tipo: completar
 enunciado: "I would like to ___ your assistance in this matter. (formal)"
-variables:
-  - uno_de(["acknowledge", "thank", "appreciate"])
 explicacion: "En registro formal, 'acknowledge' es más preciso que 'thank' o 'appreciate', que son más comunes en contextos informales."
 ```
 
@@ -38,8 +35,6 @@ opciones_explicitas:
   - "You must close it immediately."
 tipo: mc
 enunciado: "Which sentence is the most appropriate for a formal request to close a door?"
-variables:
-  - uno_de(["formal", "informal", "neutral"])
 explicacion: "'Could you please...' es una estructura estándar en registros formales, mientras que los otros ejemplos son más directos o impasibles."
 ```
 
@@ -62,8 +57,6 @@ opciones_explicitas:
   - "Hey, there's a problem here!"
 tipo: mc
 enunciado: "Which phrase is suitable for formally reporting an issue in a professional setting?"
-variables:
-  - uno_de(["correo", "reunión", "llamada"])
 explicacion: "'Bring to your attention' es una fórmula neutral y respetuosa, mientras que las otras opciones son informales o coloquiales."
 ```
 
@@ -79,14 +72,11 @@ metadata:
 pasos:
   - "Identificar si la oración contiene contracciones típicas del registro informal."
   - "Completar el hueco con la forma correcta en ambos registros."
-respuesta: "don't need to"
 respuestas_validas:
   - "don't need to"
   - "Do not need to"
 tipo: completar
 enunciado: "In formal writing, it would be better to say 'You ___ worry about the details.' (formal) vs. 'You __ worry about the details.' (informal)"
-variables:
-  - uno_de(["don't", "do not", "needn't"])
 explicacion: "Las contracciones como 'don't' son comunes en registros informales, mientras que 'do not' se usa en contextos formales o escritos."
 ```
 
@@ -109,8 +99,6 @@ opciones_explicitas:
   - "You're so helpful, really!"
 tipo: mc
 enunciado: "Which expression is most appropriate in a formal business letter?"
-variables:
-  - uno_de(["correo", "llamada", "mensaje"])
 explicacion: "'I appreciate your support' es una fórmula respetuosa y profesional, mientras que las otras opciones son coloquiales."
 ```
 
@@ -126,14 +114,11 @@ metadata:
 pasos:
   - "Identificar la estructura correcta para un registro formal."
   - "Completar el hueco con la forma pasiva adecuada."
-respuesta: "was addressed"
 respuestas_validas:
   - "was addressed"
   - "were addressed"
 tipo: completar
 enunciado: "The issue ___ during the meeting. (formal)"
-variables:
-  - uno_de(["was addressed", "got solved", "has been fixed"])
 explicacion: "La voz pasiva 'was addressed' es típica en textos formales, mientras que las otras opciones son más informales o coloquiales."
 ```
 
@@ -156,8 +141,6 @@ opciones_explicitas:
   - "You must confirm by tomorrow."
 tipo: mc
 enunciado: "Which phrase is the most appropriate for a formal request in a business email?"
-variables:
-  - uno_de(["correo", "reunión", "llamada"])
 explicacion: "'Could you please...' es una estructura estándar en registros formales, mientras que las otras opciones son más directas o impasibles."
 ```
 
@@ -180,8 +163,6 @@ opciones_explicitas:
   - "Why don't we fix it?"
 tipo: mc
 enunciado: "Which phrase is suitable for formally suggesting a revision in a professional setting?"
-variables:
-  - uno_de(["correo", "reunión", "llamada"])
 explicacion: "'I would suggest' es una fórmula neutral y respetuosa, mientras que las otras opciones son informales o coloquiales."
 ```
 
@@ -197,14 +178,11 @@ metadata:
 pasos:
   - "Identificar el uso correcto de títulos en un contexto formal."
   - "Completar el hueco con la forma adecuada del título."
-respuesta: "Mr. Smith"
 respuestas_validas:
   - "Mr. Smith"
   - "Mr. smith"
 tipo: completar
 enunciado: "Please address the letter to ___ (formal)"
-variables:
-  - uno_de(["Mr. Smith", "John Smith", "Smith"])
 explicacion: "En contextos formales, se usa el título 'Mr.' seguido del apellido, mientras que usar solo el nombre o apellido es informal."
 ```
 
@@ -222,7 +200,6 @@ pasos:
 explicacion: "En contextos formales, se prefiere 'request' sobre 'ask' para mantener un tono profesional y respetuoso en escrituras oficiales."  
 enunciado: "In a formal business letter, the phrase 'Could you ___ me the latest report?' is more appropriate than 'Can you send me the latest report?'"  
 tipo: completar  
-respuesta: "request"  
 respuestas_validas:  
   - "request"  
   - "Request"  
@@ -240,14 +217,11 @@ metadata:
 pasos:
   - "Identificar la presencia de 'please' en una solicitud formal."
   - "Completar el hueco con la forma correcta del verbo."
-respuesta: "Could you please provide"
 respuestas_validas:
   - "Could you please provide"
   - "could you please provide"
 tipo: completar
 enunciado: "___ the necessary documents by Friday. (formal)"
-variables:
-  - uno_de(["please provide", "provide", "must provide"])
 explicacion: "'Please' es esencial en solicitudes formales, mientras que omitirlo hace la frase más directa o informal."
 ```
 
@@ -270,8 +244,6 @@ opciones_explicitas:
   - "about three o'clock"
 tipo: mc
 enunciado: "Which phrase is suitable for a formal schedule?"
-variables:
-  - uno_de(["correo", "reunión", "llamada"])
 explicacion: "'At 3 PM' es una fórmula precisa y respetuosa, mientras que las otras opciones son más informales o coloquiales."
 ```
 
@@ -287,14 +259,11 @@ metadata:
 pasos:
   - "Identificar la estructura de una oración formal con subordinadas."
   - "Completar el hueco con la conjunción adecuada."
-respuesta: "which was discussed"
 respuestas_validas:
   - "which was discussed"
   - "that was discussed"
 tipo: completar
 enunciado: "The proposal ___ during the meeting. (formal)"
-variables:
-  - uno_de(["which was discussed", "that was discussed", "discussed"])
 explicacion: "El uso de 'which' en oraciones subordinadas es común en textos formales, mientras que 'that' puede ser más informal o directo."
 ```
 
@@ -317,8 +286,6 @@ opciones_explicitas:
   - "I think this might work"
 tipo: mc
 enunciado: "Which phrase is most appropriate in a formal business meeting?"
-variables:
-  - uno_de(["reunión", "correo", "llamada"])
 explicacion: "'I believe' es una fórmula respetuosa y profesional, mientras que las otras opciones son informales o coloquiales."
 ```
 
@@ -334,14 +301,11 @@ metadata:
 pasos:
   - "Identificar la preposición correcta en un contexto formal."
   - "Completar el hueco con la forma adecuada."
-respuesta: "in reference to"
 respuestas_validas:
   - "in reference to"
   - "regarding"
 tipo: completar
 enunciado: "The email is ___ the recent changes. (formal)"
-variables:
-  - uno_de(["in reference to", "about", "concerning"])
 explicacion: "'In reference to' es una fórmula formal y precisa, mientras que 'about' es más informal."
 ```
 
@@ -364,8 +328,6 @@ opciones_explicitas:
   - "Why don't you think about it?"
 tipo: mc
 enunciado: "Which phrase is suitable for formally advising in a professional setting?"
-variables:
-  - uno_de(["correo", "reunión", "llamada"])
 explicacion: "'I would recommend' es una fórmula neutral y respetuosa, mientras que las otras opciones son informales o coloquiales."
 ```
 
@@ -381,14 +343,11 @@ metadata:
 pasos:
   - "Identificar el uso correcto de 'may' o 'can' en un contexto formal."
   - "Completar el hueco con la forma adecuada."
-respuesta: "may I have"
 respuestas_validas:
   - "may I have"
   - "May I have"
 tipo: completar
 enunciado: "___ the minutes of the meeting. (formal)"
-variables:
-  - uno_de(["can I have", "may I have", "I need to get"])
 explicacion: "'May' es más formal que 'can', y se usa en solicitudes respetuosas, mientras que 'need to get' es informal."
 ```
 
@@ -411,8 +370,6 @@ opciones_explicitas:
   - "You better hurry up!"
 tipo: mc
 enunciado: "Which phrase is most appropriate in a formal business letter requesting action?"
-variables:
-  - uno_de(["correo", "llamada", "mensaje"])
 explicacion: "'I would appreciate' es una fórmula respetuosa y profesional, mientras que las otras opciones son informales o coloquiales."
 ```
 
@@ -428,14 +385,11 @@ metadata:
 pasos:
   - "Identificar la estructura correcta para un registro formal."
   - "Completar el hueco con la forma pasiva adecuada."
-respuesta: "was submitted"
 respuestas_validas:
   - "was submitted"
   - "were submitted"
 tipo: completar
 enunciado: "The report ___ by the team. (formal)"
-variables:
-  - uno_de(["was submitted", "got sent", "has been sent"])
 explicacion: "La voz pasiva 'was submitted' es típica en textos formales, mientras que las otras opciones son más informales o coloquiales."
 ```
 
@@ -474,7 +428,6 @@ pasos:
 explicacion: "El uso de la voz pasiva ('was discussed') evita señalar a una persona específica y es común en textos oficiales, mientras que la activa ('we discussed') es más informal."  
 enunciado: "In the context of an official report, which sentence is more appropriate? 'The issue ___ during the meeting.' (formal)"  
 tipo: completar  
-respuesta: "was discussed"  
 respuestas_validas:  
   - "was discussed"  
   - "Was discussed"  
@@ -536,7 +489,6 @@ pasos:
 explicacion: "'Regarding' es la forma estándar en escritura formal, mientras que 'about' se usa comúnmente en contextos informales o coloquiales."  
 enunciado: "In a formal email, the phrase 'I am writing to you ___ the recent project update.' (formal)"  
 tipo: completar  
-respuesta: "regarding"  
 respuestas_validas:  
   - "regarding"  
   - "Regarding"  

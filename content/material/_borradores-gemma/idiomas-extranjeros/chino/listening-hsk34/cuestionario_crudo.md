@@ -8,15 +8,12 @@ metadata:
 pasos:
   - "Identificar el contexto temporal en la oración."
   - "Completar con el verbo correcto en forma adecuada."
-respuesta: "是"
 respuestas_validas:
   - "是"
   - "是的"
 explicacion: "La oración requiere confirmar una acción futura. '是' es la forma más común y directa para afirmar algo en este contexto."
 tipo: completar
 enunciado: "明天你___来学校吗？"  
-variables:
-  - "¿..."
 ```
 
 ---
@@ -41,8 +38,6 @@ opciones_explicitas:
 explicacion: "'图书馆' es el único lugar de estudio mencionado en las opciones, coherente con el contexto de búsqueda de libros."
 tipo: mc
 enunciado: "我需要借书，应该去___。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -59,15 +54,12 @@ metadata:
 pasos:
   - "Determinar la acción faltante en la oración."
   - "Elegir el verbo que se usa comúnmente para 'comer'."
-respuesta: "吃"
 respuestas_validas:
   - "吃"
   - "吃饭"
 explicacion: "'吃' es el verbo base, mientras que '吃饭' incluye un sufijo que no es necesario en este contexto."
 tipo: completar
 enunciado: "每天早上我___早餐。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -92,8 +84,6 @@ opciones_explicitas:
 explicacion: "'比' se usa para comparaciones directas, y la estructura 'A 比 B + adjetivo' es correcta."
 tipo: mc
 enunciado: "请选出正确的比较句。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -110,15 +100,12 @@ metadata:
 pasos:
   - "Reconocer la estructura de una invitación."
   - "Completar con la forma más común para 'ir'."
-respuesta: "去"
 respuestas_validas:
   - "去"
   - "要去"
 explicacion: "'去' es el verbo base, mientras que '要去' incluye un aspecto temporal innecesario aquí."
 tipo: completar
 enunciado: "周末你___看电影吗？"  
-variables:
-  - "..."
 ```
 
 ---
@@ -143,8 +130,6 @@ opciones_explicitas:
 explicacion: "'了' indica una acción completada en el pasado, coherente con 'yesterday'."
 tipo: mc
 enunciado: "请选出描述过去事件的句子。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -161,15 +146,12 @@ metadata:
 pasos:
   - "Identificar el contexto emocional."
   - "Completar con la partícula que expresa asombro."
-respuesta: "多么"
 respuestas_validas:
   - "多么"
   - "多"
 explicacion: "'多么' es la forma más completa para enfatizar una cualidad en un exclamación."
 tipo: completar
 enunciado: "这幅画___美丽啊！"  
-variables:
-  - "..."
 ```
 
 ---
@@ -194,8 +176,6 @@ opciones_explicitas:
 explicacion: "'如果' introduce una condición hipotética, y '就' indica la consecuencia directa."
 tipo: mc
 enunciado: "请选出正确的条件句。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -212,15 +192,12 @@ metadata:
 pasos:
   - "Identificar la intención del hablante."
   - "Completar con el verbo que expresa deseos."
-respuesta: "想"
 respuestas_validas:
   - "想"
   - "想要"
 explicacion: "'想' es el verbo base para expresar deseos, mientras que '想要' incluye un sufijo redundante aquí."
 tipo: completar
 enunciado: "我___去旅行。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -245,8 +222,6 @@ opciones_explicitas:
 explicacion: "'正在' indica una acción en progreso, coherente con el contexto de 'now'."
 tipo: mc
 enunciado: "请选出描述正在进行的动作的句子。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -263,15 +238,12 @@ metadata:
 pasos:
   - "Identificar la reacción adecuada a una acción."
   - "Completar con el verbo más común para 'ayudar'."
-respuesta: "帮助"
 respuestas_validas:
   - "帮助"
   - "帮忙"
 explicacion: "'帮助' es el verbo base, mientras que '帮忙' incluye un significado ligeramente diferente (colaboración)."
 tipo: completar
 enunciado: "谢谢你的___！"  
-variables:
-  - "..."
 ```
 
 ---
@@ -296,8 +268,6 @@ opciones_explicitas:
 explicacion: "'将' se usa para acciones futuras planificadas, coherente con 'tomorrow'."
 tipo: mc
 enunciado: "请选出描述未来计划的句子。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -314,15 +284,12 @@ metadata:
 pasos:
   - "Identificar el tipo de pregunta."
   - "Completar con la partícula que introduce una interrogación."
-respuesta: "什么"
 respuestas_validas:
   - "什么"
   - "哪"
 explicacion: "'什么' se usa para preguntas generales, mientras que '哪' es más específica (como en opciones)."
 tipo: completar
 enunciado: "___是你的名字？"  
-variables:
-  - "..."
 ```
 
 ---
@@ -347,8 +314,6 @@ opciones_explicitas:
 explicacion: "'多么' se usa para enfatizar una cualidad, mientras que '很' es menos intensivo."
 tipo: mc
 enunciado: "请选出正确的感叹句结构。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -365,15 +330,12 @@ metadata:
 pasos:
   - "Identificar el aspecto verbal en la oración."
   - "Completar con '了' para indicar una acción completada."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "过"
 explicacion: "'了' indica una acción completada, mientras que '过' se usa para experiencias pasadas (no acciones)."
 tipo: completar
 enunciado: "我___看过这部电影。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -398,8 +360,6 @@ opciones_explicitas:
 explicacion: "'最' se usa para indicar el máximo absoluto, mientras que '比' es una comparación relativa."
 tipo: mc
 enunciado: "请选出正确的最高级表达。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -416,15 +376,12 @@ metadata:
 pasos:
   - "Identificar la emoción del hablante."
   - "Completar con el verbo que expresa 'enojo'."
-respuesta: "生气"
 respuestas_validas:
   - "生气"
   - "愤怒"
 explicacion: "'生气' es más común en contextos cotidianos, mientras que '愤怒' es más formal y intensivo."
 tipo: completar
 enunciado: "他因为迟到___了。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -449,8 +406,6 @@ opciones_explicitas:
 explicacion: "'如果...就...' introduce una condición hipotética y su consecuencia directa."
 tipo: mc
 enunciado: "请选出正确的条件句结构。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -467,15 +422,12 @@ metadata:
 pasos:
   - "Identificar el uso de '多么' para enfatizar."
   - "Completar con la palabra que describe una cualidad intensa."
-respuesta: "漂亮"
 respuestas_validas:
   - "漂亮"
   - "美丽"
 explicacion: "'漂亮' es más común en contextos cotidianos, mientras que '美丽' es más formal y literario."
 tipo: completar
 enunciado: "这幅画___啊！"  
-variables:
-  - "..."
 ```
 
 ---
@@ -500,8 +452,6 @@ opciones_explicitas:
 explicacion: "'经常' indica una acción habitual, mientras que '去过' es un aspecto completado en el pasado."
 tipo: mc
 enunciado: "请选出描述频率的句子。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -518,15 +468,12 @@ metadata:
 pasos:
   - "Identificar la intención del hablante."
   - "Completar con el verbo que expresa deseos hipotéticos."
-respuesta: "希望"
 respuestas_validas:
   - "希望"
   - "想要"
 explicacion: "'希望' se usa para expresar deseos o esperanzas, mientras que '想要' es más directo (deseo inmediato)."
 tipo: completar
 enunciado: "我___你明天能来。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -551,8 +498,6 @@ opciones_explicitas:
 explicacion: "'已经' enfatiza que la acción fue completada antes de un momento específico (yesterday)."
 tipo: mc
 enunciado: "请选出描述过去完成时的句子。"  
-variables:
-  - "..."
 ```
 
 ---
@@ -569,15 +514,12 @@ metadata:
 pasos:
   - "Identificar el uso de '多么' para enfatizar una cualidad."
   - "Completar con la palabra que describe una cualidad intensa."
-respuesta: "好吃"
 respuestas_validas:
   - "好吃"
   - "美味"
 explicacion: "'好吃' es más común en contextos cotidianos, mientras que '美味' es más formal y literario."
 tipo: completar
 enunciado: "这顿饭___啊！"  
-variables:
-  - "..."
 ```
 
 ---
@@ -612,13 +554,10 @@ metadata:
 pasos:
   - "Identificar el uso de '多么' para enfatizar una cualidad."
   - "Completar con la palabra que describe una cualidad intensa."
-respuesta: "大"
 respuestas_validas:
   - "大"
   - "巨大"
 explicacion: "'大' es más común en contextos cotidianos, mientras que '巨大' es más formal y literario."
 tipo: completar
 enunciado: "这栋楼___啊！"  
-variables:
-  - "..."
 ```

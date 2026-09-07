@@ -9,12 +9,10 @@ pasos:
   - "Escucha el mensaje de voz y completa la oración."
 explicacion: "El mensaje menciona que la persona no puede atender la llamada porque está en una reunión. La palabra 'reunión' es clave para completar correctamente el hueco."
 tipo: completar
-respuesta: "会議"
 respuestas_validas:
   - "会議"
   - "会議"
 enunciado: "「今、_に参加しているので、後で戻ります。」"
-variables: []
 ```
 
 
@@ -50,12 +48,10 @@ pasos:
   - "Escucha el anuncio y completa la oración."
 explicacion: "El anuncio menciona que las reservas deben hacerse con al menos dos días de antelación. La palabra '前' es necesaria para completar el tiempo correctamente."
 tipo: completar
-respuesta: "前"
 respuestas_validas:
   - "前"
   - "日前"
 enunciado: "「予約は、来店の_にご連絡ください。」"
-variables: []
 ```
 
 
@@ -91,12 +87,10 @@ pasos:
   - "Escucha el mensaje de voz y completa la oración."
 explicacion: "El mensaje dice que el check-in es a las 3 p.m. La palabra '午後' indica correctamente la hora en japonés."
 tipo: completar
-respuesta: "午後"
 respuestas_validas:
   - "午後"
   - "午後"
 enunciado: "「チェックインは_3時です。」"
-variables: []
 ```
 
 
@@ -132,12 +126,10 @@ pasos:
   - "Escucha el mensaje de voz y completa la oración."
 explicacion: "El mensaje dice que hay un error en el correo electrónico. La palabra 'ミス' describe correctamente la situación."
 tipo: completar
-respuesta: "ミス"
 respuestas_validas:
   - "ミス"
   - "間違い"
 enunciado: "「メールに_があります。確認してください。」"
-variables: []
 ```
 
 

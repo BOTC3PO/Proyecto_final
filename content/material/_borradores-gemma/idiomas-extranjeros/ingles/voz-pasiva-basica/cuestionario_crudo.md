@@ -10,7 +10,6 @@ pasos:
   - "Aplicar la estructura del presente de la voz pasiva."
 explicacion: "La voz pasiva en presente se forma con *is/am/are* + participio pasado. El sujeto es 'the cake', que requiere *is*."
 enunciado: "The cake ___ by the baker every morning."
-respuesta: "is made"
 tipo: completar
 respuestas_validas:
   - "is made"
@@ -31,7 +30,6 @@ pasos:
   - "Seleccionar la forma correcta de *was/were* según el sujeto."
 explicacion: "El sujeto 'the letter' es singular, por lo que se usa *was*. El participio pasado de 'write' es 'written'."
 enunciado: "The letter ___ by my grandmother last year."
-respuesta: "was written"
 tipo: completar
 respuestas_validas:
   - "was written"
@@ -98,7 +96,6 @@ pasos:
   - "Usar *is* + participio pasado de 'write'."
 explicacion: "El verbo principal es 'write', cuyo participio es 'written'. El sujeto requiere *is*."
 enunciado: "The song ___ by the singer every night."
-respuesta: "is written"
 tipo: completar
 respuestas_validas:
   - "is written"
@@ -119,7 +116,6 @@ pasos:
   - "Usar *was* + participio pasado de 'break'."
 explicacion: "El sujeto 'the vase' es singular, por lo que se usa *was*. El participio de 'break' es 'broken'."
 enunciado: "The vase ___ last week."
-respuesta: "was broken"
 tipo: completar
 respuestas_validas:
   - "was broken"
@@ -163,7 +159,6 @@ pasos:
   - "Usar *was* + participio pasado de 'write'."
 explicacion: "El verbo principal es 'write', cuyo participio es 'written'. El sujeto requiere *was*."
 enunciado: "The report ___ by the assistant yesterday."
-respuesta: "was written"
 tipo: completar
 respuestas_validas:
   - "was written"
@@ -207,7 +202,6 @@ pasos:
   - "Usar *was* + participio pasado de 'paint'."
 explicacion: "El verbo principal es 'paint', cuyo participio es 'painted'. El sujeto requiere *was*."
 enunciado: "The house ___ by the painter two weeks ago."
-respuesta: "was painted"
 tipo: completar
 respuestas_validas:
   - "was painted"
@@ -251,7 +245,6 @@ pasos:
   - "Usar *was* + participio pasado de 'direct'."
 explicacion: "El verbo principal es 'direct', cuyo participio es 'directed'. El sujeto requiere *was*."
 enunciado: "The movie ___ by the director in 2015."
-respuesta: "was directed"
 tipo: completar
 respuestas_validas:
   - "was directed"
@@ -295,7 +288,6 @@ pasos:
   - "Usar *was* + participio pasado de 'create'."
 explicacion: "El verbo principal es 'create', cuyo participio es 'created'. El sujeto requiere *was*."
 enunciado: "The painting ___ by the artist in 1980."
-respuesta: "was created"
 tipo: completar
 respuestas_validas:
   - "was created"
@@ -339,7 +331,6 @@ pasos:
   - "Usar *was* + participio pasado de 'repair'."
 explicacion: "El verbo principal es 'repair', cuyo participio es 'repaired'. El sujeto requiere *was*."
 enunciado: "The car ___ by the mechanic last week."
-respuesta: "was repaired"
 tipo: completar
 respuestas_validas:
   - "was repaired"
@@ -383,7 +374,6 @@ pasos:
   - "Usar *was* + participio pasado de 'type'."
 explicacion: "El verbo principal es 'type', cuyo participio es 'typed'. El sujeto requiere *was*."
 enunciado: "The letter ___ by the secretary yesterday."
-respuesta: "was typed"
 tipo: completar
 respuestas_validas:
   - "was typed"
@@ -427,7 +417,6 @@ pasos:
   - "Usar *was* + participio pasado de 'bake'."
 explicacion: "El verbo principal es 'bake', cuyo participio es 'baked'. El sujeto requiere *was*."
 enunciado: "The cake ___ by the baker this morning."
-respuesta: "was baked"
 tipo: completar
 respuestas_validas:
   - "was baked"
@@ -471,7 +460,6 @@ pasos:
   - "Usar *was* + participio pasado de 'build'."
 explicacion: "El verbo principal es 'build', cuyo participio es 'built'. El sujeto requiere *was*."
 enunciado: "The house ___ by the construction team in 2018."
-respuesta: "was built"
 tipo: completar
 respuestas_validas:
   - "was built"
@@ -515,7 +503,6 @@ pasos:
   - "Usar *was* + participio pasado de 'publish'."
 explicacion: "El verbo principal es 'publish', cuyo participio es 'published'. El sujeto requiere *was*."
 enunciado: "The book ___ by the publisher in 2020."
-respuesta: "was published"
 tipo: completar
 respuestas_validas:
   - "was published"

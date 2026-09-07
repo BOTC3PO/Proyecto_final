@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'livro'."  
   - "Escribir el artículo definido masculino en portugués."  
-respuesta: "o"  
 tipo: completar  
 respuestas_validas:  
   - "O"  
@@ -26,7 +25,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'casa'."  
   - "Escribir el posesivo femenino en portugués."  
-respuesta: "minha"  
 tipo: completar  
 respuestas_validas:  
   - "Minha"  
@@ -44,7 +42,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'mesa'."  
   - "Escribir el artículo definido femenino en portugués."  
-respuesta: "a"  
 tipo: completar  
 respuestas_validas:  
   - "A"  
@@ -62,7 +59,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'tempo'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "o"  
 tipo: completar  
 respuestas_validas:  
   - "O"  
@@ -99,7 +95,6 @@ metadata:
 pasos:  
   - "Identificar el género del nombre propio 'Maria'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "a"  
 tipo: completar  
 respuestas_validas:  
   - "A"  
@@ -117,7 +112,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'amor'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "o"  
 tipo: completar  
 respuestas_validas:  
   - "O"  
@@ -154,7 +148,6 @@ metadata:
 pasos:  
   - "Identificar el género del nombre propio 'João'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "o"  
 tipo: completar  
 respuestas_validas:  
   - "O"  
@@ -172,7 +165,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'pessoal'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "o"  
 tipo: completar  
 respuestas_validas:  
   - "O"  
@@ -209,7 +201,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'caminhão'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "o"  
 tipo: completar  
 respuestas_validas:  
   - "O"  
@@ -227,7 +218,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'espera'."  
   - "Escribir el posesivo en portugués."  
-respuesta: "meu"  
 tipo: completar  
 respuestas_validas:  
   - "Meu"  
@@ -245,7 +235,6 @@ metadata:
 pasos:  
   - "Identificar el género del nombre propio 'Cláudia'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "a"  
 tipo: completar  
 respuestas_validas:  
   - "A"  
@@ -263,7 +252,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'equipe'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "a"  
 tipo: completar  
 respuestas_validas:  
   - "A"  
@@ -281,7 +269,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'chuva'."  
   - "Escribir el posesivo en portugués."  
-respuesta: "minha"  
 tipo: completar  
 respuestas_validas:  
   - "Minha"  
@@ -299,7 +286,6 @@ metadata:
 pasos:  
   - "Identificar el género del nombre propio 'Pedro'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "o"  
 tipo: completar  
 respuestas_validas:  
   - "O"  
@@ -317,7 +303,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'liberdade'."  
   - "Escribir el posesivo en portugués."  
-respuesta: "minha"  
 tipo: completar  
 respuestas_validas:  
   - "Minha"  
@@ -335,7 +320,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'cachorro'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "o"  
 tipo: completar  
 respuestas_validas:  
   - "O"  
@@ -353,7 +337,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'pessoal'."  
   - "Escribir el posesivo en portugués."  
-respuesta: "meu"  
 tipo: completar  
 respuestas_validas:  
   - "Meu"  
@@ -371,7 +354,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'felicidade'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "a"  
 tipo: completar  
 respuestas_validas:  
   - "A"  
@@ -389,7 +371,6 @@ metadata:
 pasos:  
   - "Identificar el género del nombre propio 'Cristo'."  
   - "Escribir el posesivo en portugués."  
-respuesta: "meu"  
 tipo: completar  
 respuestas_validas:  
   - "Meu"  
@@ -407,7 +388,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'equipe'."  
   - "Escribir el artículo definido en portugués."  
-respuesta: "a"  
 tipo: completar  
 respuestas_validas:  
   - "A"  
@@ -425,7 +405,6 @@ metadata:
 pasos:  
   - "Identificar el género del sustantivo 'amor'."  
   - "Escribir el posesivo en portugués."  
-respuesta: "meu"  
 tipo: completar  
 respuestas_validas:  
   - "Meu"  

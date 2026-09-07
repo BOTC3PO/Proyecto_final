@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el verbo '去' y su forma participial en contexto."
   - "Completar el hueco con la partícula que indica acción completada."
-respuesta: "了"
 respuestas_validas:
   - "了"
   - "LE"
@@ -49,7 +48,6 @@ metadata:
 pasos:
   - "Identificar el uso de '几' para preguntar cantidad."
   - "Completar el hueco con la partícula que sigue a '几'."
-respuesta: "本"
 respuestas_validas:
   - "本"
   - "BEN"
@@ -90,7 +88,6 @@ metadata:
 pasos:
   - "Identificar el posesivo que indica pertenencia."
   - "Completar el hueco con la partícula correcta."
-respuesta: "的"
 respuestas_validas:
   - "的"
   - "DE"
@@ -131,7 +128,6 @@ metadata:
 pasos:
   - "Identificar la unidad de medida para '衣服' (ropa)."
   - "Completar el hueco con la partícula correcta."
-respuesta: "件"
 respuestas_validas:
   - "件"
   - "JIAN"
@@ -235,7 +231,6 @@ metadata:
 pasos:
   - "Identificar la unidad de medida para '字典' (diccionario)."
   - "Completar el hueco con la partícula correcta."
-respuesta: "本"
 respuestas_validas:
   - "本"
   - "BEN"
@@ -339,7 +334,6 @@ metadata:
 pasos:
   - "Identificar la unidad de medida para '衣服' (ropa)."
   - "Completar el hueco con la partícula correcta."
-respuesta: "件"
 respuestas_validas:
   - "件"
   - "JIAN"
@@ -443,7 +437,6 @@ metadata:
 pasos:
   - "Identificar la unidad de medida para '字典' (diccionario)."
   - "Completar el hueco con la partícula correcta."
-respuesta: "本"
 respuestas_validas:
   - "本"
   - "BEN"

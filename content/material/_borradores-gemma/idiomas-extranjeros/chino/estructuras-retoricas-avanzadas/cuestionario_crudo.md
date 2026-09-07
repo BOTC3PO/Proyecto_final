@@ -28,7 +28,6 @@ metadata:
 pasos:
   - "Reconocer la relación entre las dos cláusulas."
   - "Completar el hueco con el conectivo que expresa una concesión seguida de un resultado."
-respuesta: "尽管...还是..."
 respuestas_validas:
   - "尽管...还是..."
   - "尽管...还..."
@@ -66,7 +65,6 @@ metadata:
 pasos:
   - "Identificar dos acciones que ocurren al mismo tiempo."
   - "Completar el hueco con la estructura adecuada para simultaneidad."
-respuesta: "一边...一边..."
 respuestas_validas:
   - "一边...一边..."
   - "同时...同时..."
@@ -104,7 +102,6 @@ metadata:
 pasos:
   - "Identificar la relación entre las dos cláusulas."
   - "Completar el hueco con la estructura adecuada para consecuencia directa."
-respuesta: "因为...所以..."
 respuestas_validas:
   - "因为...所以..."
   - "由于...因此..."
@@ -142,7 +139,6 @@ metadata:
 pasos:
   - "Identificar la relación entre las dos cláusulas."
   - "Completar el hueco con la estructura adecuada para una concesión seguida de un resultado."
-respuesta: "尽管...还是..."
 respuestas_validas:
   - "尽管...还是..."
   - "虽然...但是..."
@@ -180,7 +176,6 @@ metadata:
 pasos:
   - "Identificar dos acciones que ocurren al mismo tiempo."
   - "Completar el hueco con la estructura adecuada para simultaneidad."
-respuesta: "一边...一边..."
 respuestas_validas:
   - "一边...一边..."
   - "同时...同时..."
@@ -218,7 +213,6 @@ metadata:
 pasos:
   - "Identificar la relación entre las dos cláusulas."
   - "Completar el hueco con la estructura adecuada para una concesión seguida de un resultado."
-respuesta: "尽管...还是..."
 respuestas_validas:
   - "尽管...还是..."
   - "虽然...但是..."
@@ -256,7 +250,6 @@ metadata:
 pasos:
   - "Identificar dos acciones que ocurren al mismo tiempo."
   - "Completar el hueco con la estructura adecuada para simultaneidad."
-respuesta: "一边...一边..."
 respuestas_validas:
   - "一边...一边..."
   - "同时...同时..."
@@ -294,7 +287,6 @@ metadata:
 pasos:
   - "Identificar la relación entre las dos cláusulas."
   - "Completar el hueco con la estructura adecuada para una concesión seguida de un resultado."
-respuesta: "尽管...还是..."
 respuestas_validas:
   - "尽管...还是..."
   - "虽然...但是..."
@@ -332,7 +324,6 @@ metadata:
 pasos:
   - "Identificar dos acciones que ocurren al mismo tiempo."
   - "Completar el hueco con la estructura adecuada para simultaneidad."
-respuesta: "一边...一边..."
 respuestas_validas:
   - "一边...一边..."
   - "同时...同时..."
@@ -370,7 +361,6 @@ metadata:
 pasos:
   - "Identificar la relación entre las dos cláusulas."
   - "Completar el hueco con la estructura adecuada para una concesión seguida de un resultado."
-respuesta: "尽管...还是..."
 respuestas_validas:
   - "尽管...还是..."
   - "虽然...但是..."
@@ -408,7 +398,6 @@ metadata:
 pasos:
   - "Identificar dos acciones que ocurren al mismo tiempo."
   - "Completar el hueco con la estructura adecuada para simultaneidad."
-respuesta: "一边...一边..."
 respuestas_validas:
   - "一边...一边..."
   - "同时...同时..."
@@ -446,7 +435,6 @@ metadata:
 pasos:
   - "Identificar la relación entre las dos cláusulas."
   - "Completar el hueco con la estructura adecuada para una concesión seguida de un resultado."
-respuesta: "尽管...还是..."
 respuestas_validas:
   - "尽管...还是..."
   - "虽然...但是..."

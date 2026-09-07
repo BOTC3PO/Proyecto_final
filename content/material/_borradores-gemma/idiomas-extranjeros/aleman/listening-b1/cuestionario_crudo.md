@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Ich ___ ein Buch.'"
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "habe"
 respuestas_validas:
   - "Habe"
   - "haben"
@@ -50,7 +49,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Er ___ einen Apfel.'"
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "isst"
 respuestas_validas:
   - "iβt"
   - "Ißt"
@@ -92,7 +90,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Das Buch ist ___ interessant.'"
   - "Completa el hueco con el adverbio correcto."
-respuesta: "sehr"
 respuestas_validas:
   - "Sehr"
   - "SEHR"
@@ -134,7 +131,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Wir ___ einen Spaziergang.'"
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "machen"
 respuestas_validas:
   - "Machen"
   - "MACHEN"
@@ -176,7 +172,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Er ___ gegessen.'"
   - "Completa el hueco con el adverbio correcto."
-respuesta: "schon"
 respuestas_validas:
   - "Schon"
   - "SCHON"
@@ -240,7 +235,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Sie ___ mir ein Geschenk.'"
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "gibt"
 respuestas_validas:
   - "Gibt"
   - "GIBT"
@@ -282,7 +276,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Ich sehe ___.'"
   - "Completa el hueco con el objeto correcto."
-respuesta: "jemanden"
 respuestas_validas:
   - "Jemanden"
   - "JEDMANDEN"
@@ -324,7 +317,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Das Buch ist ___ langweilig.'"
   - "Completa el hueco con el adverbio correcto."
-respuesta: "nicht"
 respuestas_validas:
   - "Nicht"
   - "NICHT"
@@ -366,7 +358,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Wir ___ morgen an.'"
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "kommen"
 respuestas_validas:
   - "Kommen"
   - "KOMMEN"
@@ -408,7 +399,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Er ___ gegessen.'"
   - "Completa el hueco con el adverbio correcto."
-respuesta: "schon"
 respuestas_validas:
   - "Schon"
   - "SCHON"
@@ -472,7 +462,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Sie ___ mir ein Geschenk.'"
   - "Completa el hueco con la forma correcta del verbo."
-respuesta: "gibt"
 respuestas_validas:
   - "Gibt"
   - "GIBT"
@@ -514,7 +503,6 @@ metadata:
 pasos:
   - "Escucha la oración: 'Ich sehe ___.'"
   - "Completa el hueco con el objeto correcto."
-respuesta: "jemanden"
 respuestas_validas:
   - "Jemanden"
   - "JEDMANDEN"

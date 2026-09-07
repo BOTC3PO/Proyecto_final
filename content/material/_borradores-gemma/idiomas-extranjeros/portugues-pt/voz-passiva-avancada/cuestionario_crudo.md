@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el verbo en forma pasiva."
   - "Verificar la concordancia del participio con el sujeto."
-respuesta: "foi construído"
 tipo: completar
 respuestas_validas:
   - "foi construído"
@@ -27,7 +26,6 @@ metadata:
 pasos:
   - "Reconocer la necesidad de una estructura pasiva."
   - "Elegir el participio correcto según el sujeto."
-respuesta: "foi escrita"
 tipo: completar
 respuestas_validas:
   - "foi escrita"
@@ -46,7 +44,6 @@ metadata:
 pasos:
   - "Identificar el uso de la voz pasiva impersonal."
   - "Verificar el verbo y su concordancia."
-respuesta: "são tomadas"
 tipo: completar
 respuestas_validas:
   - "são tomadas"
@@ -65,7 +62,6 @@ metadata:
 pasos:
   - "Reconocer el uso de la voz pasiva con sujeto tácito."
   - "Seleccionar el participio correcto según el contexto."
-respuesta: "foram organizados"
 tipo: completar
 respuestas_validas:
   - "foram organizados"
@@ -84,7 +80,6 @@ metadata:
 pasos:
   - "Analizar la necesidad de una estructura pasiva."
   - "Verificar el participio y su concordancia."
-respuesta: "foram publicados"
 tipo: completar
 respuestas_validas:
   - "foram publicados"
@@ -103,7 +98,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto artístico."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram pintados"
 tipo: completar
 respuestas_validas:
   - "foram pintados"
@@ -122,7 +116,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de una estructura pasiva."
   - "Verificar el participio y su concordancia con el sujeto."
-respuesta: "foram traduzidos"
 tipo: completar
 respuestas_validas:
   - "foram traduzidos"
@@ -141,7 +134,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto culinario."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram cozinhas"
 tipo: completar
 respuestas_validas:
   - "foram cozinhas"
@@ -160,7 +152,6 @@ metadata:
 pasos:
   - "Identificar la voz pasiva en un contexto musical."
   - "Verificar el participio y su concordancia con el sujeto."
-respuesta: "foram compostas"
 tipo: completar
 respuestas_validas:
   - "foram compostas"
@@ -179,7 +170,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto cinematográfico."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram produzidas"
 tipo: completar
 respuestas_validas:
   - "foram produzidas"
@@ -198,7 +188,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de una estructura pasiva en contexto legal."
   - "Verificar el participio y su concordancia con el sujeto."
-respuesta: "foi processado"
 tipo: completar
 respuestas_validas:
   - "foi processado"
@@ -217,7 +206,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto festivo."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram celebradas"
 tipo: completar
 respuestas_validas:
   - "foram celebradas"
@@ -236,7 +224,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de una estructura pasiva en contexto social."
   - "Verificar el participio y su concordancia con el sujeto."
-respuesta: "foram convidados"
 tipo: completar
 respuestas_validas:
   - "foram convidados"
@@ -255,7 +242,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto técnico."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram reparados"
 tipo: completar
 respuestas_validas:
   - "foram reparados"
@@ -274,7 +260,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de una estructura pasiva en contexto filantrópico."
   - "Verificar el participio y su concordancia con el sujeto."
-respuesta: "foram doados"
 tipo: completar
 respuestas_validas:
   - "foram doados"
@@ -293,7 +278,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto científico."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram descobertas"
 tipo: completar
 respuestas_validas:
   - "foram descobertas"
@@ -312,7 +296,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de una estructura pasiva en contexto político."
   - "Verificar el participio y su concordancia con el sujeto."
-respuesta: "foram eleitos"
 tipo: completar
 respuestas_validas:
   - "foram eleitos"
@@ -331,7 +314,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto informativo."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram anunciadas"
 tipo: completar
 respuestas_validas:
   - "foram anunciadas"
@@ -350,7 +332,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de una estructura pasiva en contexto laboral."
   - "Verificar el participio y su concordancia con el sujeto."
-respuesta: "foram selecionados"
 tipo: completar
 respuestas_validas:
   - "foram selecionados"
@@ -369,7 +350,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto editorial."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram modificados"
 tipo: completar
 respuestas_validas:
   - "foram modificados"
@@ -388,7 +368,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de una estructura pasiva en contexto innovador."
   - "Verificar el participio y su concordancia con el sujeto."
-respuesta: "foram criados"
 tipo: completar
 respuestas_validas:
   - "foram criados"
@@ -407,7 +386,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto académico."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram convidados para falar"
 tipo: completar
 respuestas_validas:
   - "foram convidados para falar"
@@ -426,7 +404,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de una estructura pasiva en contexto administrativo."
   - "Verificar el participio y su concordancia con el sujeto."
-respuesta: "foram nomeados"
 tipo: completar
 respuestas_validas:
   - "foram nomeados"
@@ -445,7 +422,6 @@ metadata:
 pasos:
   - "Reconocer la voz pasiva en un contexto de celebración."
   - "Seleccionar el participio correcto según el sujeto."
-respuesta: "foram comemoradas"
 tipo: completar
 respuestas_validas:
   - "foram comemoradas"

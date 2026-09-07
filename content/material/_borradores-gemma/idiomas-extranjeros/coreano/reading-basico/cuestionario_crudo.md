@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "identificar el patrón de conjugación del verbo '가다'"  
   - "completar la oración con la forma correcta en contexto"  
-respuesta: "갑니다"  
 tipo: completar  
 respuestas_validas:  
   - "갑니다"  
@@ -50,7 +49,6 @@ metadata:
 pasos:  
   - "identificar el orden sujeto-objeto-verbo"  
   - "completar la oración con el verbo correcto"  
-respuesta: "먹습니다"  
 tipo: completar  
 respuestas_validas:  
   - "먹습니다"  
@@ -71,7 +69,6 @@ metadata:
 pasos:  
   - "identificar el uso del 수사 '두'"  
   - "completar la oración con la forma correcta"  
-respuesta: "두 개"  
 tipo: completar  
 respuestas_validas:  
   - "두 개"  
@@ -113,7 +110,6 @@ metadata:
 pasos:  
   - "identificar el uso del 조동사 '할 수 있다'"  
   - "completar la oración con la forma correcta"  
-respuesta: "할 수 있어요"  
 tipo: completar  
 respuestas_validas:  
   - "할 수 있어요"  
@@ -155,7 +151,6 @@ metadata:
 pasos:  
   - "identificar el uso del 보조동사 '보다'"  
   - "completar la oración con la forma correcta"  
-respuesta: "보다"  
 tipo: completar  
 respuestas_validas:  
   - "보다"  
@@ -197,7 +192,6 @@ metadata:
 pasos:  
   - "identificar el uso del 수식어 '그'"  
   - "completar la oración con la forma correcta"  
-respuesta: "그 책"  
 tipo: completar  
 respuestas_validas:  
   - "그 책"  
@@ -218,7 +212,6 @@ metadata:
 pasos:  
   - "identificar el uso del 동사 '하다'"  
   - "completar la oración con la forma correcta"  
-respuesta: "합니다"  
 tipo: completar  
 respuestas_validas:  
   - "합니다"  
@@ -260,7 +253,6 @@ metadata:
 pasos:  
   - "identificar el uso del 부사 '잘'"  
   - "completar la oración con la forma correcta"  
-respuesta: "잘 합니다"  
 tipo: completar  
 respuestas_validas:  
   - "잘 합니다"  
@@ -302,7 +294,6 @@ metadata:
 pasos:  
   - "identificar el uso del 연결어미 '-고'"  
   - "completar la oración con la forma correcta"  
-respuesta: "가지고"  
 tipo: completar  
 respuestas_validas:  
   - "가지고"  
@@ -344,7 +335,6 @@ metadata:
 pasos:  
   - "identificar el uso del 형용사 '춥다'"  
   - "completar la oración con la forma correcta"  
-respuesta: "차갑습니다"  
 tipo: completar  
 respuestas_validas:  
   - "차갑습니다"  
@@ -386,7 +376,6 @@ metadata:
 pasos:
   - "Identificar el lugar donde ocurre la acción."
   - "Completar el hueco con un nombre de lugar que usa -에서."
-respuesta: "카페"
 respuestas_validas:
   - "카페"
   - "서점"
@@ -408,7 +397,6 @@ metadata:
 pasos:  
   - "identificar el orden sujeto-objeto-verbo"  
   - "completar la oración con el verbo correcto"  
-respuesta: "가요"  
 tipo: completar  
 respuestas_validas:  
   - "가요"  
@@ -493,7 +481,6 @@ metadata:
 pasos:
   - "Reconocer la estructura '-고 싶어요' que expresa un deseo futuro."
   - "Completar el hueco con un lugar o actividad compatible con el contexto."
-respuesta: "파리"
 respuestas_validas:
   - "파리"
   - "런던"

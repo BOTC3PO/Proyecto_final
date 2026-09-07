@@ -155,14 +155,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en contexto."  
   - "Aplicar el honorífico correspondiente al verbo."  
-respuesta: "산책하십니다"  
 tipo: completar  
 respuestas_validas:  
   - "산책하십니다"  
   - "산책하시다"  
 enunciado: "그분은 ___ 공원을 ___."  
-variables:  
-  - uno_de([ "산책합니다", "걷습니다" ])  
 explicacion: "El honorífico ~시- se usa para mostrar respeto hacia el sujeto (그분). La forma correcta es '산책하십니다' o '산책하시다', dependiendo del contexto."  
 ```
 
@@ -196,14 +193,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en contexto."  
   - "Aplicar el honorífico correspondiente al verbo."  
-respuesta: "쇼핑하시고"  
 tipo: completar  
 respuestas_validas:  
   - "쇼핑하시고"  
   - "쇼핑할 거예요"  
 enunciado: "우리가 ___ 쇼핑할 거예요."  
-variables:  
-  - uno_de([ "쇼핑합니다", "구매합니다" ])  
 explicacion: "El honorífico ~시- se aplica al verbo '쇼핑하다' para mostrar respeto. La forma correcta es '쇼핑하시고' en este contexto."  
 ```
 
@@ -237,14 +231,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en contexto."  
   - "Aplicar el honorífico correspondiente al verbo."  
-respuesta: "읽으시"  
 tipo: completar  
 respuestas_validas:  
   - "읽으시"  
   - "읽으세요"  
 enunciado: "학생들은 ___ 책을 읽으세요."  
-variables:  
-  - uno_de([ "읽습니다", "보입니다" ])  
 explicacion: "El honorífico ~시- se usa con '읽다' para respetar al sujeto (학생들). La forma correcta es '읽으시' en este contexto."  
 ```
 
@@ -278,14 +269,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en contexto."  
   - "Aplicar el honorífico correspondiente al verbo."  
-respuesta: "사시"  
 tipo: completar  
 respuestas_validas:  
   - "사시"  
   - "사세요"  
 enunciado: "그분은 ___ 물건을 사십니다."  
-variables:  
-  - uno_de([ "사는", "구매합니다" ])  
 explicacion: "El honorífico ~시- se usa con '사다' para mostrar respeto al sujeto (그분). La forma correcta es '사시' en este contexto."  
 ```
 
@@ -319,14 +307,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en contexto."  
   - "Aplicar el honorífico correspondiente al verbo."  
-respuesta: "쇼핑하시고"  
 tipo: completar  
 respuestas_validas:  
   - "쇼핑하시고"  
   - "쇼핑할 거예요"  
 enunciado: "우리가 ___ 쇼핑할 거예요."  
-variables:  
-  - uno_de([ "쇼핑합니다", "구매합니다" ])  
 explicacion: "El honorífico ~시- se aplica al verbo '쇼핑하다' para mostrar respeto. La forma correcta es '쇼핑하시고' en este contexto."  
 ```
 
@@ -360,14 +345,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en contexto."  
   - "Aplicar el honorífico correspondiente al verbo."  
-respuesta: "주실"  
 tipo: completar  
 respuestas_validas:  
   - "주실"  
   - "줄 거예요"  
 enunciado: "그분은 ___ 선물을 주실 거예요."  
-variables:  
-  - uno_de([ "줍니다", "준다" ])  
 explicacion: "El honorífico ~시- se usa con '주다' para mostrar respeto al sujeto (그분). La forma correcta es '주실' en este contexto."  
 ```
 
@@ -401,14 +383,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en contexto."  
   - "Aplicar el honorífico correspondiente al verbo."  
-respuesta: "사시"  
 tipo: completar  
 respuestas_validas:  
   - "사시"  
   - "사세요"  
 enunciado: "우리가 ___ 음식을 사시겠어요?"  
-variables:  
-  - uno_de([ "사는", "구매합니다" ])  
 explicacion: "El honorífico ~시- se usa con '사다' para mostrar respeto al sujeto (우리). La forma correcta es '사시' en este contexto."  
 ```
 
@@ -442,14 +421,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en contexto."  
   - "Aplicar el honorífico correspondiente al verbo."  
-respuesta: "쇼핑하시고"  
 tipo: completar  
 respuestas_validas:  
   - "쇼핑하시고"  
   - "쇼핑할 거예요"  
 enunciado: "우리가 ___ 쇼핑할 거예요."  
-variables:  
-  - uno_de([ "쇼핑합니다", "구매합니다" ])  
 explicacion: "El honorífico ~시- se aplica al verbo '쇼핑하다' para mostrar respeto. La forma correcta es '쇼핑하시고' en este contexto."  
 ```
 
@@ -483,14 +459,11 @@ metadata:
 pasos:  
   - "Identificar el sujeto y la acción en contexto."  
   - "Aplicar el honorífico correspondiente al verbo."  
-respuesta: "사시"  
 tipo: completar  
 respuestas_validas:  
   - "사시"  
   - "사세요"  
 enunciado: "우리가 ___ 선물을 사시겠어요?"  
-variables:  
-  - uno_de([ "사는", "구매합니다" ])  
 explicacion: "El honorífico ~시- se usa con '사다' para mostrar respeto al sujeto (우리). La forma correcta es '사시' en este contexto."  
 ```
 

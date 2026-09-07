@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Reconocer el verbo en infinitivo y su forma conjugada."  
   - "Identificar la persona y número del sujeto (ella)."  
-respuesta: "lia"  
 respuestas_validas:  
   - "lia"  
   - "Lia"  
@@ -53,7 +52,6 @@ metadata:
 pasos:  
   - "Determinar el sujeto (eles) y la conjugación del verbo."  
   - "Asegurar que se refiera a una acción continua en el pasado."  
-respuesta: "estudavam"  
 respuestas_validas:  
   - "estudavam"  
   - "Estudavam"  
@@ -98,7 +96,6 @@ metadata:
 pasos:  
   - "Identificar el sujeto (nós) y la conjugación del verbo."  
   - "Asegurar que se refiera a un estado o característica pasada."  
-respuesta: "éramos"  
 respuestas_validas:  
   - "éramos"  
   - "Eramos"  
@@ -143,7 +140,6 @@ metadata:
 pasos:  
   - "Reconocer el verbo en infinitivo y su forma conjugada."  
   - "Identificar que se refiere a una acción repetitiva en el pasado."  
-respuesta: "via"  
 respuestas_validas:  
   - "via"  
   - "Via"  
@@ -188,7 +184,6 @@ metadata:
 pasos:  
   - "Determinar el sujeto (nós) y la conjugación del verbo."  
   - "Verificar que se usa para describir una acción habitual en el pasado."  
-respuesta: "lêramos"  
 respuestas_validas:  
   - "lêramos"  
   - "Lêramos"  
@@ -233,7 +228,6 @@ metadata:
 pasos:  
   - "Identificar el sujeto (você) y la conjugación del verbo."  
   - "Asegurar que se refiera a una situación pasada habitual."  
-respuesta: "vivia"  
 respuestas_validas:  
   - "vivia"  
   - "Vivia"  
@@ -278,7 +272,6 @@ metadata:
 pasos:  
   - "Reconocer el verbo en infinitivo y su forma conjugada."  
   - "Identificar que se refiere a una acción repetitiva en el pasado."  
-respuesta: "trabalhava"  
 respuestas_validas:  
   - "trabalhava"  
   - "Trabalhava"  
@@ -323,7 +316,6 @@ metadata:
 pasos:  
   - "Determinar el sujeto (você) y la conjugación del verbo."  
   - "Verificar que se usa para describir una acción habitual en el pasado."  
-respuesta: "falava"  
 respuestas_validas:  
   - "falava"  
   - "Falava"  
@@ -368,7 +360,6 @@ metadata:
 pasos:  
   - "Identificar el sujeto (eles) y la conjugación del verbo."  
   - "Asegurar que se refiera a una situación pasada habitual."  
-respuesta: "viviam"  
 respuestas_validas:  
   - "viviam"  
   - "Viviam"  
@@ -413,7 +404,6 @@ metadata:
 pasos:  
   - "Reconocer el verbo en infinitivo y su forma conjugada."  
   - "Identificar que se refiere a una acción repetitiva en el pasado."  
-respuesta: "trabalhávamos"  
 respuestas_validas:  
   - "trabalhávamos"  
   - "Trabalhávamos"  
@@ -458,7 +448,6 @@ metadata:
 pasos:  
   - "Determinar el sujeto (eles) y la conjugación del verbo."  
   - "Verificar que se usa para describir una acción habitual en el pasado."  
-respuesta: "falavam"  
 respuestas_validas:  
   - "falavam"  
   - "Falavam"  
@@ -503,7 +492,6 @@ metadata:
 pasos:  
   - "Identificar el sujeto (nós) y la conjugación del verbo."  
   - "Asegurar que se refiera a una situación pasada habitual."  
-respuesta: "vivíamos"  
 respuestas_validas:  
   - "vivíamos"  
   - "Vivíamos"  
@@ -549,12 +537,10 @@ pasos:
   - Identificar el sujeto "Ela" y el contexto de acción recurrente.  
   - Reconocer que "quando era jovem" indica un hábito en el pasado.  
   - Aplicar la conjugación del verbo "frequentar" en preterito imperfeito para tercera persona singular.  
-respuesta: "freqüentava"  
 respuestas_validas:  
   - "freqüentava"  
   - "freqüentava" (mayúscula inicial)  
 tipo: completar  
 enunciado: "Ela ___ aulas de música todos os fins de semana quando era jovem."  
-variables: []  
 explicacion: El preterito imperfeito se usa para describir acciones habituales o repetitivas en el pasado. En este caso, "freqüentava" (formada con tilde aguda en 'u' según la ortografía brasileña) es la conjugación correcta del verbo "frequentar" para "Ela".  
 ```

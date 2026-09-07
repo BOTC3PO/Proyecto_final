@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Escuchar el fragmento y localizar la información clave."
   - "Identificar el nombre mencionado en la conversación."
-respuesta: "Mireille"
 tipo: completar
 respuestas_validas:
   - "Mireille"
   - "mireille"
 enunciado: "Dans une conversation téléphonique, l'interlocuteur mentionne un nom de personne. Complétez le blanc : « C’est ___ qui m’a informé du changement d’horaire. »"
-variables:
-  - "nom_personne": "Mireille"
 ```
 
 ---
@@ -52,7 +49,6 @@ metadata:
 pasos:
   - "Identifier les mots qui indiquent une émotion implicite."
   - "Relier le ton de la phrase à l’attitude du locuteur."
-respuesta: "déçue"
 tipo: completar
 respuestas_validas:
   - "déçue"
@@ -72,7 +68,6 @@ metadata:
 pasos:
   - "Repérer la répétition de mots ou phrases."
   - "Identifier la figure stylistique utilisée."
-respuesta: "anaphore"
 tipo: completar
 respuestas_validas:
   - "anaphore"
@@ -114,7 +109,6 @@ metadata:
 pasos:
   - "Analyser les formulations modales et les marqueurs d’intention."
   - "Déduire le but de la communication."
-respuesta: "proposer"
 tipo: completar
 respuestas_validas:
   - "proposer"
@@ -156,7 +150,6 @@ metadata:
 pasos:
   - "Reconnaître les indices de lieu, d’heure ou d’événement."
   - "Relier ces indices au contenu de l’enregistrement."
-respuesta: "aujourd’hui"
 tipo: completar
 respuestas_validas:
   - "aujourd’hui"
@@ -176,7 +169,6 @@ metadata:
 pasos:
   - "Identifier les arguments avancés par le locuteur."
   - "Reconnaître la structure de l’argumentation."
-respuesta: "contre-argument"
 tipo: completar
 respuestas_validas:
   - "contre-argument"
@@ -218,7 +210,6 @@ metadata:
 pasos:
   - "Reconnaître les éléments introductifs, developpés et conclusifs."
   - "Identifier le rôle grammatical des phrases."
-respuesta: "introductif"
 tipo: completar
 respuestas_validas:
   - "introductif"
@@ -238,7 +229,6 @@ metadata:
 pasos:
   - "Repérer les dates et événements mentionnés."
   - "Relier ces informations à un contexte historique."
-respuesta: "1945"
 tipo: completar
 respuestas_validas:
   - "1945"
@@ -258,7 +248,6 @@ metadata:
 pasos:
   - "Identifier les formes du conditionnel et des subjonctifs."
   - "Déduire la situation supposée par le locuteur."
-respuesta: "aurions"
 tipo: completar
 respuestas_validas:
   - "aurions"
@@ -300,7 +289,6 @@ metadata:
 pasos:
   - "Identifier les mots qui indiquent un ordre chronologique."
   - "Reconnaître les expressions de simultanéité ou de succession."
-respuesta: "alors que"
 tipo: completar
 respuestas_validas:
   - "alors que"
@@ -320,7 +308,6 @@ metadata:
 pasos:
   - "Repérer les mots de jargon ou de langage courant."
   - "Analyser le contexte pour déterminer le registre utilisé."
-respuesta: "jargon"
 tipo: completar
 respuestas_validas:
   - "jargon"
@@ -340,7 +327,6 @@ metadata:
 pasos:
   - "Identifier les références culturelles ou traditionnelles."
   - "Relier ces éléments à un contexte spécifique."
-respuesta: "pâques"
 tipo: completar
 respuestas_validas:
   - "pâques"
@@ -360,7 +346,6 @@ metadata:
 pasos:
   - "Reconnaître les transitions qui marquent un changement de point de vue."
   - "Identifier la formulation du locuteur."
-respuesta: "au contraire"
 tipo: completar
 respuestas_validas:
   - "au contraire"
@@ -380,7 +365,6 @@ metadata:
 pasos:
   - "Analyser les formulations indirectes ou évasives."
   - "Déduire le message sous-jacent."
-respuesta: "dépensé"
 tipo: completar
 respuestas_validas:
   - "dépensé"
@@ -400,7 +384,6 @@ metadata:
 pasos:
   - "Repérer les répétitions, ellipses ou tournures spécifiques."
   - "Identifier le phénomène linguistique en jeu."
-respuesta: "ellipse"
 tipo: completar
 respuestas_validas:
   - "ellipse"
@@ -420,7 +403,6 @@ metadata:
 pasos:
   - "Identifier les termes propres à un domaine professionnel."
   - "Relier ces termes au contexte de la situation."
-respuesta: "projet"
 tipo: completar
 respuestas_validas:
   - "projet"
@@ -440,7 +422,6 @@ metadata:
 pasos:
   - "Reconnaître les formulations du discours rapporté."
   - "Identifier la structure grammaticale utilisée."
-respuesta: "avait dit"
 tipo: completar
 respuestas_validas:
   - "avait dit"
@@ -460,7 +441,6 @@ metadata:
 pasos:
   - "Identifier les mots qui indiquent une relation de cause à effet."
   - "Analyser la structure logique du discours."
-respuesta: "en raison de"
 tipo: completar
 respuestas_validas:
   - "en raison de"
@@ -480,7 +460,6 @@ metadata:
 pasos:
   - "Repérer les variations régionales ou sociales du langage."
   - "Identifier le phénomène en jeu (argot, dialecte, etc.)."
-respuesta: "argot"
 tipo: completar
 respuestas_validas:
   - "argot"
@@ -500,7 +479,6 @@ metadata:
 pasos:
   - "Analyser les formulations indirectes ou évasives."
   - "Déduire le message sous-jacent."
-respuesta: "suggéré"
 tipo: completar
 respuestas_validas:
   - "suggéré"

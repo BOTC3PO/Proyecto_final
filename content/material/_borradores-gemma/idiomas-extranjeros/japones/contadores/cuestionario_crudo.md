@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el objeto y su contador."
   - "Elegir la forma correcta del contador para el número."
-respuesta: "3冊"
 tipo: completar
 respuestas_validas:
   - "3冊"
@@ -28,7 +27,6 @@ metadata:
   tags: ["números", "contar"]
 pasos:
   - "Completar el hueco con la forma correcta del contador."
-respuesta: "2本"
 tipo: completar
 respuestas_validas:
   - "2本"
@@ -68,7 +66,6 @@ metadata:
   tags: ["números", "contar"]
 pasos:
   - "Completar el hueco con la forma correcta del contador."
-respuesta: "4個"
 tipo: completar
 respuestas_validas:
   - "4個"
@@ -109,7 +106,6 @@ metadata:
 pasos:
   - "Identificar el tipo de objeto (toaster)"
   - "Aplicar el contador correcto para objetos alargados"
-respuesta: "本"
 tipo: completar
 respuestas_validas:
   - "本"
@@ -148,7 +144,6 @@ metadata:
 pasos:
   - "Identificar el tipo de objeto (pegatina)"
   - "Aplicar el contador para objetos planos y delgados"
-respuesta: "枚"
 tipo: completar
 respuestas_validas:
   - "枚"
@@ -187,7 +182,6 @@ metadata:
 pasos:
   - "Identificar el contexto (tipos de flores)"
   - "Usar el contador para categorías o variedades"
-respuesta: "種類"
 tipo: completar
 respuestas_validas:
   - "種類"
@@ -226,7 +220,6 @@ metadata:
 pasos:
   - "Identificar el tipo de objeto (teléfono)"
   - "Aplicar el contador general para objetos no específicos"
-respuesta: "個"
 tipo: completar
 respuestas_validas:
   - "個"
@@ -265,7 +258,6 @@ metadata:
 pasos:
   - "Identificar el tipo de objeto (ventilador)"
   - "Aplicar el contador para objetos con forma alargada"
-respuesta: "台"
 tipo: completar
 respuestas_validas:
   - "台"
@@ -304,7 +296,6 @@ metadata:
 pasos:
   - "Identificar el tipo de objeto (tarta cortada)"
   - "Aplicar el contador para objetos planos o porciones"
-respuesta: "切れ"
 tipo: completar
 respuestas_validas:
   - "切れ"

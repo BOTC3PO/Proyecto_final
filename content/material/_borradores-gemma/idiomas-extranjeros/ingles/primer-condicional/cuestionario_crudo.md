@@ -8,13 +8,11 @@ metadata:
 pasos:  
   - Identificar la estructura del primer condicional.  
   - Completar el hueco con la forma correcta del verbo.  
-respuesta: "rains"  
 respuestas_validas:  
   - "rains"  
   - "Rains"  
 tipo: completar  
 enunciado: "If it ___ tomorrow, we will stay home."  
-variables: {}  
 explicacion: "El primer condicional usa 'if + presente' seguido de 'will + infinitivo'. Aquí, 'it rains' es la condición futura plausible."  
 ```
 
@@ -37,7 +35,6 @@ opciones_explicitas:
   - "will help"  
 tipo: mc  
 enunciado: "If my friend ___ me, I will finish this project quickly."  
-variables: {}  
 explicacion: "El sujeto 'my friend' (singular) requiere el verbo en tercera persona del singular. La forma correcta es 'will help'."  
 ```
 
@@ -53,13 +50,11 @@ metadata:
 pasos:  
   - Identificar la consecuencia futura en la oración.  
   - Completar el hueco con la forma correcta del verbo.  
-respuesta: "will win"  
 respuestas_validas:  
   - "will win"  
   - "Will win"  
 tipo: completar  
 enunciado: "If you practice every day, you ___ the competition."  
-variables: {}  
 explicacion: "La consecuencia futura 'you will win' sigue a la condición presente 'if you practice'."  
 ```
 
@@ -82,7 +77,6 @@ opciones_explicitas:
   - "don’t can"  
 tipo: mc  
 enunciado: "If we don't save money, we ___ afford the trip."  
-variables: {}  
 explicacion: "La negación 'don't save' requiere la forma 'won't be able to' para la consecuencia futura."  
 ```
 
@@ -98,13 +92,11 @@ metadata:
 pasos:  
   - Identificar el tiempo futuro en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will start"  
 respuestas_validas:  
   - "will start"  
   - "Will start"  
 tipo: completar  
 enunciado: "If the meeting ___ at 10 AM, we will have to leave early."  
-variables: {}  
 explicacion: "La condición presente 'if the meeting starts' conduce a la consecuencia futura 'we will have to leave'."  
 ```
 
@@ -127,7 +119,6 @@ opciones_explicitas:
   - "are being late"  
 tipo: mc  
 enunciado: "If he ___ for the flight, we will miss our connection."  
-variables: {}  
 explicacion: "El sujeto 'he' requiere el verbo en tercera persona singular. La forma correcta es 'will be'."  
 ```
 
@@ -143,13 +134,11 @@ metadata:
 pasos:  
   - Identificar el evento futuro en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will need"  
 respuestas_validas:  
   - "will need"  
   - "Will need"  
 tipo: completar  
 enunciado: "If we ___ more supplies, the project will fail."  
-variables: {}  
 explicacion: "La condición presente 'if we need' conduce a la consecuencia futura 'the project will fail'."  
 ```
 
@@ -172,7 +161,6 @@ opciones_explicitas:
   - "are being cancelled"  
 tipo: mc  
 enunciado: "Unless we ___ the event, it will not happen."  
-variables: {}  
 explicacion: "'Unless' equivale a 'if not', por lo que requiere la forma futura 'will be cancelled'."  
 ```
 
@@ -195,7 +183,6 @@ opciones_explicitas:
   - "gets"  
 tipo: mc  
 enunciado: "If I ___ more time, I will get the job done."  
-variables: {}  
 explicacion: "El contexto indica una posibilidad realista, por lo que se usa el primer condicional 'will get'."  
 ```
 
@@ -211,13 +198,11 @@ metadata:
 pasos:  
   - Identificar el uso del modal en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will be allowed"  
 respuestas_validas:  
   - "will be allowed"  
   - "Will be allowed"  
 tipo: completar  
 enunciado: "If the teacher ___ us to leave early, we will go."  
-variables: {}  
 explicacion: "El modal 'be allowed' requiere la forma futura 'will be allowed' en el primer condicional."  
 ```
 
@@ -240,7 +225,6 @@ opciones_explicitas:
   - "will finish"  
 tipo: mc  
 enunciado: "If we ___ our work by Friday, the client will be satisfied."  
-variables: {}  
 explicacion: "La expresión 'by Friday' sugiere un futuro completo, por lo que se usa el futuro perfecto en la consecuencia."  
 ```
 
@@ -256,13 +240,11 @@ metadata:
 pasos:  
   - Identificar el plan futuro en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will travel"  
 respuestas_validas:  
   - "will travel"  
   - "Will travel"  
 tipo: completar  
 enunciado: "If we ___ to Europe next month, we will visit Paris."  
-variables: {}  
 explicacion: "El plan futuro 'we will travel' sigue a la condición presente 'if we go'."  
 ```
 
@@ -285,7 +267,6 @@ opciones_explicitas:
   - "don’t can"  
 tipo: mc  
 enunciado: "If the train ___ on time, we will miss our flight."  
-variables: {}  
 explicacion: "La negación 'won't be able to' sigue a la condición presente 'if the train is late'."  
 ```
 
@@ -301,13 +282,11 @@ metadata:
 pasos:  
   - Identificar la posibilidad en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will be ready"  
 respuestas_validas:  
   - "will be ready"  
   - "Will be ready"  
 tipo: completar  
 enunciado: "If the project ___ by next week, we can submit it on time."  
-variables: {}  
 explicacion: "La posibilidad de que el proyecto esté listo se expresa con 'will be ready' en la consecuencia futura."  
 ```
 
@@ -330,7 +309,6 @@ opciones_explicitas:
   - "are waiting"  
 tipo: mc  
 enunciado: "If I ___ you at the station, we can go to lunch together."  
-variables: {}  
 explicacion: "La acción futura 'will be waiting' sigue a la condición presente 'if I arrive'."  
 ```
 
@@ -346,13 +324,11 @@ metadata:
 pasos:  
   - Identificar el resultado futuro en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will have passed"  
 respuestas_validas:  
   - "will have passed"  
   - "Will have passed"  
 tipo: completar  
 enunciado: "If we ___ the exam, we will go on vacation."  
-variables: {}  
 explicacion: "El resultado futuro perfecto 'will have passed' sigue a la condición presente 'if we study'."  
 ```
 
@@ -375,7 +351,6 @@ opciones_explicitas:
   - "are being delayed"  
 tipo: mc  
 enunciado: "If the flight ___ due to weather, we will have to stay overnight."  
-variables: {}  
 explicacion: "El evento futuro 'will be delayed' sigue a la condición presente 'if the flight is delayed'."  
 ```
 
@@ -391,13 +366,11 @@ metadata:
 pasos:  
   - Identificar la intención futura en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will take"  
 respuestas_validas:  
   - "will take"  
   - "Will take"  
 tipo: completar  
 enunciado: "If the doctor ___ this treatment, my symptoms will improve."  
-variables: {}  
 explicacion: "La intención futura 'will take' sigue a la condición presente 'if the doctor prescribes'."  
 ```
 
@@ -420,7 +393,6 @@ opciones_explicitas:
   - "are working"  
 tipo: mc  
 enunciado: "If I ___ from 9 AM to 5 PM, I will not have time for lunch."  
-variables: {}  
 explicacion: "El plan futuro 'will be working' sigue a la condición presente 'if I work'."  
 ```
 
@@ -436,13 +408,11 @@ metadata:
 pasos:  
   - Identificar la posibilidad futura en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will be available"  
 respuestas_validas:  
   - "will be available"  
   - "Will be available"  
 tipo: completar  
 enunciado: "If the hotel ___ extra beds, we can accommodate more guests."  
-variables: {}  
 explicacion: "La posibilidad futura 'will be available' sigue a la condición presente 'if the hotel has'."  
 ```
 
@@ -465,7 +435,6 @@ opciones_explicitas:
   - "are being successful"  
 tipo: mc  
 enunciado: "If we ___ our strategy, the campaign will attract more customers."  
-variables: {}  
 explicacion: "El resultado futuro 'will be successful' sigue a la condición presente 'if we follow'."  
 ```
 
@@ -481,13 +450,11 @@ metadata:
 pasos:  
   - Identificar la acción futura en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will be waiting"  
 respuestas_validas:  
   - "will be waiting"  
   - "Will be waiting"  
 tipo: completar  
 enunciado: "If my friend ___ me at the airport, we can have dinner together."  
-variables: {}  
 explicacion: "La acción futura 'will be waiting' sigue a la condición presente 'if my friend arrives'."  
 ```
 
@@ -510,7 +477,6 @@ opciones_explicitas:
   - "are being able to"  
 tipo: mc  
 enunciado: "If the weather ___ good, we will go hiking tomorrow."  
-variables: {}  
 explicacion: "La posibilidad futura 'will be able to' sigue a la condición presente 'if the weather is'."  
 ```
 
@@ -526,13 +492,11 @@ metadata:
 pasos:  
   - Identificar el evento futuro en la oración.  
   - Completar el hueco con el verbo adecuado.  
-respuesta: "will be closed"  
 respuestas_validas:  
   - "will be closed"  
   - "Will be closed"  
 tipo: completar  
 enunciado: "If the museum ___ for renovation, we will need to reschedule our visit."  
-variables: {}  
 explicacion: "El evento futuro 'will be closed' sigue a la condición presente 'if the museum is closed'."  
 ```
 

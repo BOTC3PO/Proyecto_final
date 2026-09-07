@@ -12,7 +12,6 @@ respuestas_validas:
   - "A"  
 tipo: completar  
 enunciado: "Ela comprou ___ camisa."  
-respuesta: "a"  
 explicacion: El artículo definido "a" se usa antes de sustantivos femeninos singulares. La palabra "camisa" es femenina y singular, por lo que el artículo correcto es "a".  
 ```
 
@@ -54,7 +53,6 @@ respuestas_validas:
   - "Fui"  
 tipo: completar  
 enunciado: "Eu ___ ao cinema ontem."  
-respuesta: "fui"  
 explicacion: El verbo "ir" en pasado simple es "fui". La oración indica una acción concluida, por lo que se usa el pretérito perfecto.  
 ```
 
@@ -96,7 +94,6 @@ respuestas_validas:
   - "Bonita"  
 tipo: completar  
 enunciado: "Ela é ___."  
-respuesta: "bonita"  
 explicacion: El adjetivo "bonito" se adapta al género del sustantivo. Como el sujeto es "ela" (femenino), la forma correcta es "bonita".  
 ```
 
@@ -134,13 +131,11 @@ metadata:
 pasos:
   - "Identificar la preposición correcta para completar el espacio."
   - "Verificar que la oración tenga sentido gramatical y lógico."
-respuesta: "no"
 respuestas_validas:
   - "no"
   - "No"
 tipo: completar
 enunciado: "Ela está ___ de estudiar."  
-variables: {}
 explicacion: "La preposición 'no' se usa con el verbo estar para indicar que alguien no está realizando una acción. Ejemplo: *Estou no trabalho* (estoy en el trabajo)."
 ```
 
@@ -180,7 +175,6 @@ respuestas_validas:
   - "Para"  
 tipo: completar  
 enunciado: "Estou estudando ___ prova."  
-respuesta: "para"  
 explicacion: La preposición "para" se usa para indicar el propósito de una acción. "Estudar para la prueba" expresa que el objetivo es prepararse para ella.  
 ```
 
@@ -222,7 +216,6 @@ respuestas_validas:
   - "Aqui"  
 tipo: completar  
 enunciado: "Ela está ___."  
-respuesta: "aqui"  
 explicacion: El adverbio de lugar "aqui" se usa para indicar que algo ocurre en el mismo lugar. La oración no menciona un lugar específico, por lo que es la opción más general.  
 ```
 
@@ -264,7 +257,6 @@ respuestas_validas:
   - "Primeiro"  
 tipo: completar  
 enunciado: "Ela é a ___ aluna da turma."  
-respuesta: "primeira"  
 explicacion: El adjetivo ordinal "primeiro" se adapta al género del sustantivo. Como el sujeto es "aluna" (femenino), la forma correcta es "primeira".  
 ```
 
@@ -306,7 +298,6 @@ respuestas_validas:
   - "com ela"  
 tipo: completar  
 enunciado: "Ela falou ___."  
-respuesta: "com ela"  
 explicacion: La preposición "com" se usa para indicar acompañamiento, y el pronombre "ela" debe ser usado cuando el sujeto es femenino. La contracción correcta es "com ela".  
 ```
 
@@ -348,7 +339,6 @@ respuestas_validas:
   - "Não"  
 tipo: completar  
 enunciado: "Ela ___ está cansada."  
-respuesta: "não"  
 explicacion: El adverbio de negación "não" se coloca antes del verbo. La oración indica que ella no está cansada, por lo que la opción correcta es "não".  
 ```
 
@@ -390,7 +380,6 @@ respuestas_validas:
   - "Muito"  
 tipo: completar  
 enunciado: "Ela gosta ___ do que antes."  
-respuesta: "muito"  
 explicacion: El adjetivo de cantidad "muito" se usa para indicar un aumento en intensidad. La oración sugiere que ahora gusta más, por lo que la opción correcta es "muito".  
 ```
 
@@ -414,7 +403,6 @@ opciones_explicitas:
   - "numa"
 tipo: mc
 enunciado: "Ele vive ___ cidade."  
-variables: {}
 explicacion: "'Viver em' se usa con ciudades, pero cuando el sustantivo es singular y masculino o femenino, se usa 'na' (contracción de 'em + a'). Ejemplo: *Vive na cidade* (vive en la ciudad)."
 ```
 
@@ -432,7 +420,6 @@ respuestas_validas:
   - "No"  
 tipo: completar  
 enunciado: "O livro está ___ mesa."  
-respuesta: "na"  
 explicacion: La contracción "na" se forma con "em + a", y se usa antes de sustantivos femeninos singulares. "Mesa" es femenina, por lo que la opción correcta es "na".  
 ```
 
@@ -474,7 +461,6 @@ respuestas_validas:
   - "Ontem"  
 tipo: completar  
 enunciado: "Ela foi ao cinema ___."  
-respuesta: "ontem"  
 explicacion: El adverbio de tiempo "ontem" se usa para indicar que algo ocurrió ayer. La oración menciona una acción pasada, por lo que la opción correcta es "ontem".  
 ```
 
@@ -512,12 +498,10 @@ metadata:
 pasos:
   - "Determinar el uso del verbo 'fazer' para expresar duración."
   - "Verificar que la preposición 'há' sea la correcta con el tiempo especificado."
-respuesta: "há"
 respuestas_validas:
   - "há"
   - "Há"
 tipo: completar
 enunciado: "Ela faz ___ 5 anos que mora aqui."  
-variables: {}
 explicacion: "'Fazer + tiempo' se usa con 'há' para indicar cuánto tiempo ha pasado. Ejemplo: *Faz há dois anos* (hace dos años)."
 ```

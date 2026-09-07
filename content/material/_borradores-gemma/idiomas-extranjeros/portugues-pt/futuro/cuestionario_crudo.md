@@ -7,13 +7,11 @@ metadata:
   tags: ["futuro", "regular"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'comprar' en futuro."  
-respuesta: "comprarei"  
 tipo: completar  
 respuestas_validas:  
   - "comprarei"  
   - "Comprarei"  
 enunciado: "Amanhã, _____ um novo livro para o meu amigo."  
-variables: []  
 explicacion: "El verbo 'comprar' es regular en el futuro. Se añade '-ei' al infinitivo para la primera persona del singular (eu). La forma correcta es 'comprarei'."  
 ```
 
@@ -33,7 +31,6 @@ opciones_explicitas:
   - "Vou visitar"  
   - "Visitarei"  
 enunciado: "_____ a Lisboa no próximo mês."  
-variables: []  
 explicacion: "La estructura 'vou + infinitivo' se usa para planes futuros. La forma correcta es 'Vou visitar'."  
 ```
 
@@ -46,13 +43,11 @@ metadata:
   tags: ["futuro", "irregular"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'ir' en futuro."  
-respuesta: "iremos"  
 tipo: completar  
 respuestas_validas:  
   - "iremos"  
   - "Iremos"  
 enunciado: "Na próxima semana, os meus pais _____ de férias para o Brasil."  
-variables: []  
 explicacion: "El verbo 'ir' es irregular en el futuro. La forma correcta para la tercera persona del plural (eles) es 'iremos'."  
 ```
 
@@ -72,7 +67,6 @@ opciones_explicitas:
   - "Vou estudiar"  
   - "Estudiaré"  
 enunciado: "Se tiver tempo livre, _____ para o exame de inglês."  
-variables: []  
 explicacion: "La estructura 'vou + infinitivo' se usa en condiciones futuras. La forma correcta es 'Vou estudiar'."  
 ```
 
@@ -85,13 +79,11 @@ metadata:
   tags: ["reflexivo", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'cuidar' en futuro reflexivo."  
-respuesta: "me cuidarei"  
 tipo: completar  
 respuestas_validas:  
   - "me cuidarei"  
   - "Me cuidarei"  
 enunciado: "No ano que vem, _____ de mim com mais atenção."  
-variables: []  
 explicacion: "El verbo 'cuidar' en futuro reflexivo (eu) se forma como 'me cuidarei', usando el pronombre reflexivo después del sujeto."  
 ```
 
@@ -111,7 +103,6 @@ opciones_explicitas:
   - "Vou viajar"  
   - "Viajaré"  
 enunciado: "_____ ao Japão no próximo ano, se puder."  
-variables: []  
 explicacion: "La estructura 'vou + infinitivo' se usa con expresiones temporales como 'no próximo ano'. La forma correcta es 'Vou viajar'."  
 ```
 
@@ -124,13 +115,11 @@ metadata:
   tags: ["regular", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'trabalhar' en futuro."  
-respuesta: "trabalharei"  
 tipo: completar  
 respuestas_validas:  
   - "trabalharei"  
   - "Trabalharei"  
 enunciado: "Quando for adulto, _____ em uma empresa de tecnologia."  
-variables: []  
 explicacion: "El verbo 'trabalhar' (terminación -ar) se conjuga en futuro como 'trabalharei' para la primera persona del singular (eu)."  
 ```
 
@@ -143,13 +132,11 @@ metadata:
   tags: ["estructura", "duda"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'chover' en futuro dentro de la estructura 'será que'."  
-respuesta: "choverá"  
 tipo: completar  
 respuestas_validas:  
   - "choverá"  
   - "Choverá"  
 enunciado: "Será que _____ amanhã? Precisamos levar guarda-chuva."  
-variables: []  
 explicacion: "La estructura 'será que' se usa para expresar dudas futuras. El verbo 'chover' (regular) en futuro es 'choverá'."  
 ```
 
@@ -162,13 +149,11 @@ metadata:
   tags: ["regular", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'escrever' en futuro."  
-respuesta: "escreverei"  
 tipo: completar  
 respuestas_validas:  
   - "escreverei"  
   - "Escreverei"  
 enunciado: "O próximo mês, _____ uma carta ao meu tio em São Paulo."  
-variables: []  
 explicacion: "El verbo 'escrever' (terminación -er) se conjuga en futuro como 'escreverei' para la primera persona del singular (eu)."  
 ```
 
@@ -188,7 +173,6 @@ opciones_explicitas:
   - "Vou aprender"  
   - "Aprenderá"  
 enunciado: "Se tiver tempo, _____ a cozinhar novos pratos."  
-variables: []  
 explicacion: "La estructura 'vou + infinitivo' se usa en hipótesis futuras. La forma correcta es 'Vou aprender'."  
 ```
 
@@ -201,13 +185,11 @@ metadata:
   tags: ["obligación", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'estudar' en futuro dentro de un contexto de obligación."  
-respuesta: "deverei estudar"  
 tipo: completar  
 respuestas_validas:  
   - "deverei estudar"  
   - "Deverei estudar"  
 enunciado: "Amanhã, _____ para a prova de matemática."  
-variables: []  
 explicacion: "La estructura 'dever + infinitivo' se usa para expresar obligación futura. La forma correcta es 'deverei estudar'."  
 ```
 
@@ -220,13 +202,11 @@ metadata:
   tags: ["pronombre", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'ver' en futuro junto con un pronombre."  
-respuesta: "vou te ver"  
 tipo: completar  
 respuestas_validas:  
   - "vou te ver"  
   - "Vou te ver"  
 enunciado: "No próximo mês, _____ na festa de aniversário da minha irmã."  
-variables: []  
 explicacion: "El verbo 'ver' en futuro con pronombre directo (te) se conjuga como 'vou te ver', usando el infinitivo después del pronombre."  
 ```
 
@@ -246,7 +226,6 @@ opciones_explicitas:
   - "Vou me preparar"  
   - "Preparar-me-ei"  
 enunciado: "_____ com antecedência para o exame de português."  
-variables: []  
 explicacion: "La estructura 'vou + infinitivo' se usa en oraciones de propósito. La forma correcta es 'Vou me preparar'."  
 ```
 
@@ -259,13 +238,11 @@ metadata:
   tags: ["necesidad", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'ligar' en futuro dentro de un contexto de necesidad."  
-respuesta: "terei que ligar"  
 tipo: completar  
 respuestas_validas:  
   - "terei que ligar"  
   - "Terei que ligar"  
 enunciado: "Amanhã, _____ ao meu amigo para confirmar o encontro."  
-variables: []  
 explicacion: "La estructura 'ter que + infinitivo' se usa para expresar necesidad futura. La forma correcta es 'terei que ligar'."  
 ```
 
@@ -278,13 +255,11 @@ metadata:
   tags: ["compuesto", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'ter' en futuro dentro de un verbo compuesto."  
-respuesta: "tenderei"  
 tipo: completar  
 respuestas_validas:  
   - "tenderei"  
   - "Tenderei"  
 enunciado: "No próximo mês, _____ feito um novo plano para o projeto."  
-variables: []  
 explicacion: "El verbo 'ter' en futuro se conjuga como 'tenderei', y se usa con el participio del verbo principal ('feito') para formar el pretérito perfecto compuesto."  
 ```
 
@@ -304,7 +279,6 @@ opciones_explicitas:
   - "Vou te ajudar"  
   - "Ajudar-te-ei"  
 enunciado: "_____ com a apresentação do trabalho se precisares."  
-variables: []  
 explicacion: "La estructura 'vou + infinitivo' se usa en consejos futuros. La forma correcta es 'Vou te ajudar'."  
 ```
 
@@ -317,13 +291,11 @@ metadata:
   tags: ["probabilidade", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'chegar' en futuro dentro de una expresión de probabilidad."  
-respuesta: "chegará"  
 tipo: completar  
 respuestas_validas:  
   - "chegará"  
   - "Chegará"  
 enunciado: "Provavelmente, o avião _____ atrasado por causa da tempestade."  
-variables: []  
 explicacion: "La expresión 'provavelmente' se usa con el futuro del verbo. La forma correcta es 'chegará' para la tercera persona del singular (ele)."  
 ```
 
@@ -343,7 +315,6 @@ opciones_explicitas:
   - "Vou pagar"  
   - "Pagaré"  
 enunciado: "_____ o que prometi ao meu amigo antes do fim do mês."  
-variables: []  
 explicacion: "La estructura 'vou + infinitivo' se usa en oraciones de promesa. La forma correcta es 'Vou pagar'."  
 ```
 
@@ -356,13 +327,11 @@ metadata:
   tags: ["impersonal", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'precisar' en futuro dentro de un contexto impersonal."  
-respuesta: "precisará"  
 tipo: completar  
 respuestas_validas:  
   - "precisará"  
   - "Precisará"  
 enunciado: "_____ mais tempo para terminar o projeto, segundo o chefe."  
-variables: []  
 explicacion: "En contextos impersonales, el verbo se conjuga en tercera persona del singular (ele/ela). La forma correcta es 'precisará'."  
 ```
 
@@ -375,13 +344,11 @@ metadata:
   tags: ["tiempo", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'fazer' en futuro dentro de una expresión temporal."  
-respuesta: "farei"  
 tipo: completar  
 respuestas_validas:  
   - "farei"  
   - "Farei"  
 enunciado: "Daqui a dois meses, _____ uma viagem à Itália com os meus pais."  
-variables: []  
 explicacion: "La expresión 'daqui a + tiempo' se usa con el futuro del verbo. La forma correcta es 'farei' para la primera persona del singular (eu)."  
 ```
 
@@ -401,7 +368,6 @@ opciones_explicitas:
   - "Vou achar"  
   - "Achará"  
 enunciado: "_____ que o novo filme será muito bom, segundo as críticas."  
-variables: []  
 explicacion: "La estructura 'vou + infinitivo' se usa en opiniones futuras. La forma correcta es 'Vou achar'."  
 ```
 
@@ -414,13 +380,11 @@ metadata:
   tags: ["reflexivo", "compuesto"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'cuidar' en futuro reflexivo compuesto."  
-respuesta: "me cuidarei"  
 tipo: completar  
 respuestas_validas:  
   - "me cuidarei"  
   - "Me cuidarei"  
 enunciado: "No próximo ano, _____ de mim com mais responsabilidade."  
-variables: []  
 explicacion: "El verbo 'cuidar' en futuro reflexivo compuesto (eu) se forma como 'me cuidarei', usando el pronombre reflexivo después del sujeto."  
 ```
 
@@ -433,13 +397,11 @@ metadata:
   tags: ["duda", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'chegar' en futuro dentro de una expresión de duda."  
-respuesta: "chegará"  
 tipo: completar  
 respuestas_validas:  
   - "chegará"  
   - "Chegará"  
 enunciado: "Será que _____ em tempo para a reunião? O trânsito está ruim."  
-variables: []  
 explicacion: "La estructura 'será que' se usa para expresar dudas futuras. El verbo 'chegar' en futuro es 'chegará' (tercera persona del singular)."  
 ```
 
@@ -452,13 +414,11 @@ metadata:
   tags: ["cambio", "futuro"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo 'ficar' en futuro."  
-respuesta: "ficarei"  
 tipo: completar  
 respuestas_validas:  
   - "ficarei"  
   - "Ficarei"  
 enunciado: "Se não houver mais chuva, _____ feliz com o dia ensolarado."  
-variables: []  
 explicacion: "El verbo 'ficar' (regular) en futuro se conjuga como 'ficarei' para la primera persona del singular (eu)."  
 ```
 

@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identificar el uso correcto de -고 para conectar acciones."
   - "Completar la oración con la opción adecuada."
-respuesta: "그리고"
 respuestas_validas:
   - "그리고"
   - "그렇고"
 tipo: completar
 enunciado: "학생들은 책을 읽고 ___ 수업에 참석했습니다."
-variables:
-  - "X: acciones consecutivas"
 explicacion: "El uso de -고 se emplea para conectar dos acciones realizadas en secuencia. La opción correcta es '그리고', que indica una conexión lógica entre las acciones."
 ```
 
@@ -53,14 +50,11 @@ metadata:
 pasos:
   - "Identificar el uso de -겠- para expresar intención futura."
   - "Completar la oración con la forma correcta del verbo."
-respuesta: "가다"
 respuestas_validas:
   - "가다"
   - "갈 거예요"
 tipo: completar
 enunciado: "내일 ___ 자세히 설명해 드릴게요."
-variables:
-  - "X: acción futura"
 explicacion: "-겠- se utiliza para indicar una intención o promesa. La forma correcta es '가다', que se conjuga con -겠- para formar '갈 거예요'."
 ```
 
@@ -98,14 +92,11 @@ metadata:
 pasos:
   - "Identificar el uso de '그리고' para conectar ideas."
   - "Completar la oración con la opción adecuada."
-respuesta: "그리고"
 respuestas_validas:
   - "그리고"
   - "또한"
 tipo: completar
 enunciado: "학생들은 수업을 들으면 ___ 자료를 복습했습니다."
-variables:
-  - "X: acción adicional"
 explicacion: "'그리고' se usa para conectar dos acciones o ideas relacionadas. Es la opción correcta aquí."
 ```
 
@@ -143,14 +134,11 @@ metadata:
 pasos:
   - "Identificar el uso de -(의) para indicar posesión."
   - "Completar la oración con la opción adecuada."
-respuesta: "친구(의)"
 respuestas_validas:
   - "친구(의)"
   - "친구의"
 tipo: completar
 enunciado: "___ 편지가 도착했습니다."
-variables:
-  - "X: posesión"
 explicacion: "-(의) se usa para indicar posesión. '친구(의)' es la forma correcta que combina el sustantivo con -(의)."
 ```
 
@@ -188,14 +176,11 @@ metadata:
 pasos:
   - "Identificar el uso de -겠- para expresar una promesa."
   - "Completar la oración con la forma correcta del verbo."
-respuesta: "도와줄 거예요"
 respuestas_validas:
   - "도와줄 거예요"
   - "도와줘요"
 tipo: completar
 enunciado: "내일 ___ 도움을 줄게요."
-variables:
-  - "X: acción futura"
 explicacion: "-겠- se usa aquí para indicar una promesa. '도와줄 거예요' es la forma correcta que combina el verbo con -겠-."
 ```
 
@@ -235,7 +220,6 @@ pasos:
 respuestas_validas:  
   - "받을 거예요"  
   - "받겠어요"  
-respuesta: "받을 거예요"  
 tipo: completar  
 enunciado: "내일 ___ 편지를 받을 거예요."  
 explicacion: "El verbo '받다' se conjugará en futuro con '-ㄹ 거예요', que es apropiado para expresar una acción futura planeada."  
@@ -274,7 +258,6 @@ pasos:
 respuestas_validas:  
   - "받을 거예요"  
   - "받겠어요"  
-respuesta: "받을 거예요"  
 tipo: completar  
 enunciado: "___ 도움을 주셔서 감사합니다."  
 explicacion: "'받다' se usa con el objeto directo '도움' y se completa con '-ㄹ 거예요' para expresar gratitud por una acción futura o planeada."  
@@ -313,7 +296,6 @@ pasos:
 respuestas_validas:  
   - "들리고 있어요"  
   - "들리는 중이에요"  
-respuesta: "들리고 있어요"  
 tipo: completar  
 enunciado: "___ 날씨가 좋아요."  
 explicacion: "'들리다' se usa en la forma '-고 있어요' para describir una percepción continua, como el sonido del viento o la lluvia."  
@@ -352,7 +334,6 @@ pasos:
 respuestas_validas:  
   - "계획하고 있어요"  
   - "플랜할 거예요"  
-respuesta: "계획하고 있어요"  
 tipo: completar  
 enunciado: "___ 여행을 계획하고 있어요."  
 explicacion: "'계획하다' se usa en la forma '-고 있어요' para indicar una acción que está sucediendo actualmente, como organizar un viaje."  
@@ -391,7 +372,6 @@ pasos:
 respuestas_validas:  
   - "서지 않아요"  
   - "서지 않을 거예요"  
-respuesta: "서지 않아요"  
 tipo: completar  
 enunciado: "___ 그 사람의 의견에 동의하지 않아요."  
 explicacion: "'서다' se usa en la forma '-지 않아요' para negar una acción, como no estar de acuerdo con alguien."  
@@ -430,7 +410,6 @@ pasos:
 respuestas_validas:  
   - "보고 싶어요"  
   - "볼 수 있어요"  
-respuesta: "보고 싶어요"  
 tipo: completar  
 enunciado: "___ 그 영화가 좋아요."  
 explicacion: "'보다' se usa con el objeto directo '영화' y la forma '-고 싶어요' expresa deseo de ver algo."  
@@ -469,7 +448,6 @@ pasos:
 respuestas_validas:  
   - "읽을 거예요"  
   - "읽겠어요"  
-respuesta: "읽을 거예요"  
 tipo: completar  
 enunciado: "___ 이 책을 읽고 싶어요."  
 explicacion: "'읽다' se usa en la forma '-ㄹ 거예요' para expresar un deseo futuro de hacer algo, como leer un libro."  
@@ -508,7 +486,6 @@ pasos:
 respuestas_validas:  
   - "계획하고 있어요"  
   - "플랜 중이에요"  
-respuesta: "계획하고 있어요"  
 tipo: completar  
 enunciado: "___ 여행을 계획하고 있어요."  
 explicacion: "'계획하다' se usa en la forma '-고 있어요' para describir una acción que está en progreso, como organizar un viaje actualmente."

@@ -9,14 +9,11 @@ pasos:
   - "Identificar el sujeto y el verbo en la oración."
   - "Verificar si el sustantivo colectivo se refiere a un grupo individual o múltiples entidades."
 explicacion: "Cuando un sustantivo colectivo (como 'team' o 'committee') se considera como una unidad, el verbo debe ser singular. Si el enfoque es en los miembros individuales, el verbo es plural."
-respuesta: "is"
 respuestas_validas:
   - "Is"
   - "IS"
 tipo: completar
 enunciado: "The committee ___ meeting in the conference room at this time tomorrow."
-variables:
-  - "committee"
 ```
 
 ---
@@ -39,8 +36,6 @@ opciones_explicitas:
   - "would have gone"
 tipo: mc
 enunciado: "If I ___ to the party last night, I would have met her there."
-variables:
-  - "went"
 ```
 
 ---
@@ -56,14 +51,11 @@ pasos:
   - "Identificar el propósito de la oración en el contexto."
   - "Seleccionar el conectivo que mejor refuerce la lógica del párrafo."
 explicacion: "'However' se usa para contrastar ideas. 'Furthermore' añade información adicional, mientras que 'Therefore' indica consecuencia directa."
-respuesta: "however"
 respuestas_validas:
   - "However"
   - "HOWEVER"
 tipo: completar
 enunciado: "The project was ambitious ___ it faced several unexpected challenges."
-variables:
-  - "but"
 ```
 
 ---
@@ -86,8 +78,6 @@ opciones_explicitas:
   - "Yours sincerely"
 tipo: mc
 enunciado: "The appropriate closing for a formal letter addressed to an unknown recipient is ___."
-variables:
-  - "Unknown"
 ```
 
 ---
@@ -103,14 +93,11 @@ pasos:
   - "Determinar el tipo de hipótesis (real, posible, irreal)."
   - "Seleccionar el modal que corresponda al contexto."
 explicacion: "Para situaciones futuras posibles, 'might' es más suave que 'will'. En hipótesis irreales, se usan estructuras con 'would' o 'could'."
-respuesta: "might"
 respuestas_validas:
   - "Might"
   - "MIGHT"
 tipo: completar
 enunciado: "If the weather improves tomorrow, we ___ be able to go hiking."
-variables:
-  - "may"
 ```
 
 ---
@@ -133,8 +120,6 @@ opciones_explicitas:
   - "ambiguous"
 tipo: mc
 enunciado: "The instructions were ___ and led to confusion among the participants."
-variables:
-  - "unclear"
 ```
 
 ---
@@ -150,14 +135,11 @@ pasos:
   - "Identificar el verbo principal y su función en la oración."
   - "Verificar que el participio esté en la forma correcta (pasaivo o activo)."
 explicacion: "Cuando el sujeto de la cláusula relativa es el mismo que el antecedente, se usa el participio presente. Si no, se usa el pasado."
-respuesta: "written"
 respuestas_validas:
   - "Written"
   - "WRITTEN"
 tipo: completar
 enunciado: "The letter ___ by the secretary was sent to the client yesterday."
-variables:
-  - "write"
 ```
 
 ---
@@ -180,8 +162,6 @@ opciones_explicitas:
   - "In conclusion"
 tipo: mc
 enunciado: "The most appropriate phrase to end an academic essay is ___."
-variables:
-  - "End"
 ```
 
 ---
@@ -197,14 +177,11 @@ pasos:
   - "Identificar el significado del phrasal verb en el contexto."
   - "Seleccionar la variante que complete el sentido correctamente."
 explicacion: "'Break down' significa descomponer algo. 'Break in' se refiere a interrumpir, mientras que 'break up' es romper una relación o un grupo."
-respuesta: "break down"
 respuestas_validas:
   - "break down"
   - "BREAK DOWN"
 tipo: completar
 enunciado: "The complex issue was ___ into simpler components for better understanding."
-variables:
-  - "broken in"
 ```
 
 ---
@@ -227,8 +204,6 @@ opciones_explicitas:
   - "in charge of"
 tipo: mc
 enunciado: "She is ___ the marketing department and makes all strategic decisions."
-variables:
-  - "charge"
 ```
 
 ---
@@ -244,14 +219,11 @@ pasos:
   - "Identificar si el sujeto es la persona que realiza la acción o el receptor."
   - "Verificar que la voz pasiva esté construida correctamente (be + participio)."
 explicacion: "En informes formales, la voz pasiva se usa para enfocar en la acción más que en quien la realizó. 'Was conducted' es correcto aquí."
-respuesta: "was conducted"
 respuestas_validas:
   - "was conducted"
   - "WAS CONDUCTED"
 tipo: completar
 enunciado: "The experiment ___ by the research team last week yielded significant results."
-variables:
-  - "conduct"
 ```
 
 ---
@@ -267,14 +239,11 @@ pasos:
   - "Identificar la función del adverbio en la oración."
   - "Asegurar que el adverbio esté ubicado correctamente para no alterar el significado."
 explicacion: "'Frequently' indica frecuencia y se coloca después del verbo. 'Frequent' es adjetivo, lo cual no encaja aquí."
-respuesta: "frequently"
 respuestas_validas:
   - "frequently"
   - "FREQUENTLY"
 tipo: completar
 enunciado: "The professor ___ assigns challenging reading materials to the students."
-variables:
-  - "frequent"
 ```
 
 ---
@@ -297,8 +266,6 @@ opciones_explicitas:
   - "would have passed"
 tipo: mc
 enunciado: "If I ___ the exam last month, I wouldn't be retaking it now."
-variables:
-  - "passed"
 ```
 
 ---
@@ -314,14 +281,11 @@ pasos:
   - "Identificar el tipo de comparación (mayor, menor, igual)."
   - "Verificar que los adverbios y preposiciones estén correctamente usados."
 explicacion: "'More effective' es correcto para comparar dos elementos. 'Effective than' es incorrecto porque 'than' se usa con adjetivos de un solo sílaba o en formas irregulares."
-respuesta: "more effective"
 respuestas_validas:
   - "more effective"
   - "MORE EFFECTIVE"
 tipo: completar
 enunciado: "This method is ___ than the previous one in terms of results."
-variables:
-  - "effective"
 ```
 
 ---
@@ -344,8 +308,6 @@ opciones_explicitas:
   - "nevertheless"
 tipo: mc
 enunciado: "The project was delayed due to unforeseen circumstances; ___ it is expected to be completed on time."
-variables:
-  - "but"
 ```
 
 ---
@@ -361,14 +323,11 @@ pasos:
   - "Identificar el verbo en forma gerundio (ing) y su función."
   - "Verificar que el gerundio esté correctamente usado como sujeto, objeto o complemento."
 explicacion: "'Writing' es un gerundio y actúa como sujeto de la oración. 'To write' es infinitivo, mientras que 'writing' es la forma correcta aquí."
-respuesta: "writing"
 respuestas_validas:
   - "writing"
   - "WRITING"
 tipo: completar
 enunciado: "___ is a skill that requires practice and dedication to master."
-variables:
-  - "write"
 ```
 
 ---
@@ -391,8 +350,6 @@ opciones_explicitas:
   - "it is recommended that"
 tipo: mc
 enunciado: "The committee ___ the proposal be reviewed by an external auditor before implementation."
-variables:
-  - "suggests"
 ```
 
 ---
@@ -408,14 +365,11 @@ pasos:
   - "Identificar el verbo y su preposición habitual."
   - "Verificar que la combinación sea correcta según las reglas gramaticales."
 explicacion: "'Decide on' es la forma correcta para indicar una elección. 'Decide for' se usa cuando algo se elige en nombre de alguien, mientras que 'decide to' no es válido aquí."
-respuesta: "on"
 respuestas_validas:
   - "on"
   - "ON"
 tipo: completar
 enunciado: "The committee ___ the new strategy after thorough discussion."
-variables:
-  - "for"
 ```
 
 ---
@@ -431,14 +385,11 @@ pasos:
   - "Identificar la función del adverbio en el contexto narrativo."
   - "Asegurar que el adverbio esté ubicado correctamente para mejorar la fluidez."
 explicacion: "'Unexpectedly' describe cómo ocurrió un evento inesperado. Se coloca antes de la oración principal para resaltar la sorpresa."
-respuesta: "unexpectedly"
 respuestas_validas:
   - "unexpectedly"
   - "UNEXPECTEDLY"
 tipo: completar
 enunciado: "___, the witness changed their testimony during the trial."
-variables:
-  - "Unexpected"
 ```
 
 ---
@@ -454,14 +405,11 @@ pasos:
   - "Identificar el tipo de obligación (necesaria, recomendada, prohibida)."
   - "Verificar que el modal verb se use correctamente según la intención."
 explicacion: "'Must' expresa una obligación fuerte. 'Should' indica recomendación y 'ought to' es más formal pero menos común en escritura moderna."
-respuesta: "must"
 respuestas_validas:
   - "must"
   - "MUST"
 tipo: completar
 enunciado: "The safety procedures ___ be followed strictly during the experiment."
-variables:
-  - "should"
 ```
 
 ---
@@ -484,8 +432,6 @@ opciones_explicitas:
   - "Dear Sir/Madam"
 tipo: mc
 enunciado: "The appropriate salutation for a formal letter to an unknown recipient is ___."
-variables:
-  - "Unknown"
 ```
 
 ---
@@ -501,14 +447,11 @@ pasos:
   - "Identificar el tipo de adjetivo que describe mejor la cualidad."
   - "Verificar que esté correctamente posicionado en la oración."
 explicacion: "'Dramatic' se usa para describir algo impactante. 'Drastic' implica una acción drástica, mientras que 'dramatic' es más apropiado aquí."
-respuesta: "dramatic"
 respuestas_validas:
   - "dramatic"
   - "DRAMATIC"
 tipo: completar
 enunciado: "The change in the policy was ___ and affected many stakeholders."
-variables:
-  - "drastic"
 ```
 
 ---
@@ -531,8 +474,6 @@ opciones_explicitas:
   - "would be"
 tipo: mc
 enunciado: "If the budget is approved, the project ___ completed by next year."
-variables:
-  - "is"
 ```
 
 ---
@@ -555,8 +496,6 @@ opciones_explicitas:
   - "it is noted that"
 tipo: mc
 enunciado: "___ the data shows a significant increase in sales over the past quarter."
-variables:
-  - "Noted"
 ```
 
 ---

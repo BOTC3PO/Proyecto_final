@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el nombre de la comida en el contexto."
   - "Escribir la palabra faltante."
-respuesta: "りんご"
 respuestas_validas:
   - "りんご"
   - "リンゴ"
@@ -51,7 +50,6 @@ metadata:
 pasos:
   - "Identificar el color mencionado en la descripción."
   - "Completar el hueco con el término adecuado."
-respuesta: "青い"
 respuestas_validas:
   - "青い"
   - "あおい"
@@ -94,7 +92,6 @@ metadata:
 pasos:
   - "Leer la descripción del clima."
   - "Completar el hueco con el término adecuado."
-respuesta: "雨が降ります"
 respuestas_validas:
   - "雨が降ります"
   - "あめがふります"
@@ -137,7 +134,6 @@ metadata:
 pasos:
   - "Identificar la actividad mencionada."
   - "Completar el hueco con el verbo adecuado."
-respuesta: "走ります"
 respuestas_validas:
   - "走ります"
   - "はしります"
@@ -180,7 +176,6 @@ metadata:
 pasos:
   - "Identificar la bebida mencionada."
   - "Completar el hueco con el término adecuado."
-respuesta: "コーヒー"
 respuestas_validas:
   - "コーヒー"
   - "コヒー"
@@ -223,7 +218,6 @@ metadata:
 pasos:
   - "Leer la descripción del clima."
   - "Completar el hueco con el término adecuado."
-respuesta: "晴れています"
 respuestas_validas:
   - "晴れています"
   - "はれています"
@@ -268,7 +262,6 @@ pasos:
 explicacion: "El nombre del día debe coincidir con el uso común en japonés, como 水曜日 (miércoles)."  
 enunciado: "明日は______。"  
 tipo: completar  
-respuesta: "木曜日"  
 respuestas_validas:  
   - "木曜日"  
   - "きようび"  
@@ -331,7 +324,6 @@ pasos:
 explicacion: "El contador 「冊」 se usa para libros, como 3冊 (tres libros)."  
 enunciado: "その本は______です。"  
 tipo: completar  
-respuesta: "5冊"  
 respuestas_validas:  
   - "5冊"  
   - "ごしゅう"  
@@ -372,7 +364,6 @@ pasos:
 explicacion: "El te-form se usa para conectar acciones sucesivas, como 食べて、寝ます (como, duermo)."  
 enunciado: "彼は______食べて、寝ます。"  
 tipo: completar  
-respuesta: "ご飯を"  
 respuestas_validas:  
   - "ご飯を"  
   - "ごはんを"  
@@ -435,7 +426,6 @@ pasos:
 explicacion: "El sustantivo debe ser un líquido consumible, como ミルク (leche) o コーヒー (café)."  
 enunciado: "彼は朝ご飯に______を飲みます。"  
 tipo: completar  
-respuesta: "ミルク"  
 respuestas_validas:  
   - "ミルク"  
   - "みるく"  
@@ -476,7 +466,6 @@ pasos:
 explicacion: "El adjetivo debe describir algo físico, como 閉まっている (cerrado) o 開いている (abierto)."  
 enunciado: "その窓は______です。"  
 tipo: completar  
-respuesta: "閉まっています"  
 respuestas_validas:  
   - "閉まっています"  
   - "しめています"  
@@ -517,7 +506,6 @@ pasos:
 explicacion: "El sustantivo debe ser un alimento y usar la partícula 「を」 para indicar objeto directo, como パン (pan)."  
 enunciado: "彼は朝ご飯に______を食べます。"  
 tipo: completar  
-respuesta: "パン"  
 respuestas_validas:  
   - "パン"  
   - "ぱん"

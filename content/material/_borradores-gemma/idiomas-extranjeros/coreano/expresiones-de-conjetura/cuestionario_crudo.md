@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar la expresión que expresa duda en una oración."
   - "Completar el hueco con la forma correcta de '아마도' o '그럴지도 모르겠어요'."
-respuesta: "아마도"
 respuestas_validas:
   - "아마도"
   - "Amado"  
@@ -51,7 +50,6 @@ metadata:
 pasos:
   - "Identificar la estructura que expresa duda de manera indirecta."
   - "Completar el hueco con '그럴지도 모르겠어요' o una variante equivalente."
-respuesta: "그럴지도 모르겠어요"
 respuestas_validas:
   - "그럴지도 모르겠어요"
   - "그럴 수도 있을 거예요"
@@ -94,7 +92,6 @@ metadata:
 pasos:
   - "Completar el hueco con la forma correcta de '아마도' en una oración sobre un evento pasado."
   - "Verificar que la expresión se usa correctamente en tiempo pretérito."
-respuesta: "아마도"
 respuestas_validas:
   - "아마도"
   - "Amado"  
@@ -137,7 +134,6 @@ metadata:
 pasos:
   - "Completar el hueco con la forma correcta de '그럴지도 모르겠어요' en una oración futura."
   - "Verificar que la expresión se usa correctamente para incertidumbre."
-respuesta: "그럴지도 모르겠어요"
 respuestas_validas:
   - "그럴지도 모르겠어요"
   - "그럴 수도 있을 거예요"
@@ -179,14 +175,12 @@ metadata:
   tags: ["posibilidad", "pasado"]
 pasos:
   - "Identifica la expresión de conjetura que complete el sentido de la oración."
-respuesta: "했을지도 몰라요"
 tipo: completar
 respuestas_validas:
   - "했을지도 몰라요"
   - "했을 수도 있을 거예요"
-enunciado: '그는 ___ 그 일을 오늘 해냈을지도 몰라요, 아직까지 소식이 없으니까.'
-explicacion: 'La expresión "했을지도 몰라요" indica una posibilidad en el pasado, adecuada para un contexto de incertidumbre sobre si algo ya ocurrió.'
-```
+enunciado: "그는 ___ 그 일을 오늘 해냈을지도 몰라요, 아직까지 소식이 없으니까."
+explicacion: "La expresión \"했을지도 몰라요\" indica una posibilidad en el pasado, adecuada para un contexto de incertidumbre sobre si algo ya ocurrió."```
 
 ---
 
@@ -205,8 +199,7 @@ opciones_explicitas:
   - "했을 거예요"
 respuesta: "할 거예요"
 tipo: mc
-explicacion: '"할 거예요" expresa una conjetura firme en el futuro, coherente con "그의 말투가 확신에 차 있어요", que indica certeza.'
-```
+explicacion: "\"할 거예요\" expresa una conjetura firme en el futuro, coherente con \"그의 말투가 확신에 차 있어요\", que indica certeza."```
 
 ---
 
@@ -219,14 +212,12 @@ metadata:
   tags: ["posibilidad", "presente"]
 pasos:
   - "Completa el hueco con la forma de conjetura que indique una acción posible en el presente."
-respuesta: "할 수도 있어요"
 tipo: completar
 respuestas_validas:
   - "할 수도 있어요"
   - "할 수 있을지도 몰라요"
-enunciado: '그녀는 ___ 그 일을 도와줄 수도 있어요, 아직 결정하지 않았으니까.'
-explicacion: '"할 수도 있어요" expresa una posibilidad en el presente, adecuada para una situación no confirmada.'
-```
+enunciado: "그녀는 ___ 그 일을 도와줄 수도 있어요, 아직 결정하지 않았으니까."
+explicacion: "\"할 수도 있어요\" expresa una posibilidad en el presente, adecuada para una situación no confirmada."```
 
 ---
 
@@ -245,8 +236,7 @@ opciones_explicitas:
   - "했을 수도 있을 거예요"
 respuesta: "했을지도 몰라요"
 tipo: mc
-explicacion: '"했을지도 몰라요" es la forma correcta para expresar duda sobre un suceso pasado, como en el contexto de alguien que no se sabe si actuó.'
-```
+explicacion: "\"했을지도 몰라요\" es la forma correcta para expresar duda sobre un suceso pasado, como en el contexto de alguien que no se sabe si actuó."```
 
 ---
 
@@ -259,14 +249,12 @@ metadata:
   tags: ["futuro", "hipótesis"]
 pasos:
   - "Completa el hueco con la forma de conjetura que indique una hipótesis sobre un evento futuro."
-respuesta: "올 거예요"
 tipo: completar
 respuestas_validas:
   - "올 거예요"
   - "올 수도 있을 거예요"
-enunciado: '만약 그가 ___ 여기에 온다면, 우리를 만나고 싶어 할 거예요.'
-explicacion: '"올 거예요" expresa una hipótesis en el futuro que conduce a un resultado posible, coherente con la estructura condicional "만약...면".'
-```
+enunciado: "만약 그가 ___ 여기에 온다면, 우리를 만나고 싶어 할 거예요."
+explicacion: "\"올 거예요\" expresa una hipótesis en el futuro que conduce a un resultado posible, coherente con la estructura condicional \"만약...면\"."```
 
 ---
 
@@ -285,8 +273,7 @@ opciones_explicitas:
   - "일 수 있을 거예요"
 respuesta: "일지도 몰라요"
 tipo: mc
-explicacion: '"일지도 몰라요" es la forma correcta para expresar duda sobre un suceso en el presente, como en una situación incierta.'
-```
+explicacion: "\"일지도 몰라요\" es la forma correcta para expresar duda sobre un suceso en el presente, como en una situación incierta."```
 
 ---
 
@@ -299,14 +286,12 @@ metadata:
   tags: ["pasado", "razón"]
 pasos:
   - "Completa el hueco con la forma de conjetura que indique una razón probable para un suceso."
-respuesta: "했을 거예요"
 tipo: completar
 respuestas_validas:
   - "했을 거예요"
   - "했을 수도 있을 거예요"
-enunciado: '그는 ___ 그 일을 한 것 같아요, 그의 행동이 말해줘요.'
-explicacion: '"했을 거예요" expresa una conjetura sobre un suceso pasado basada en evidencia actual, como la acción del sujeto.'
-```
+enunciado: "그는 ___ 그 일을 한 것 같아요, 그의 행동이 말해줘요."
+explicacion: "\"했을 거예요\" expresa una conjetura sobre un suceso pasado basada en evidencia actual, como la acción del sujeto."```
 
 ---
 
@@ -325,8 +310,7 @@ opciones_explicitas:
   - "했을 거예요"
 respuesta: "할 거예요"
 tipo: mc
-explicacion: '"할 거예요" expresa una intención firme en el futuro, coherente con un contexto de certeza.'
-```
+explicacion: "\"할 거예요\" expresa una intención firme en el futuro, coherente con un contexto de certeza."```
 
 ---
 
@@ -339,14 +323,12 @@ metadata:
   tags: ["presente", "duda"]
 pasos:
   - "Completa el hueco con la forma de conjetura que indique una duda sobre algo actual."
-respuesta: "일 수도 있어요"
 tipo: completar
 respuestas_validas:
   - "일 수도 있어요"
   - "일지도 몰라요"
-enunciado: '이 날씨가 ___ 계속될지, 그건 말할 수 없어요.'
-explicacion: '"일 수도 있어요" expresa una duda sobre un suceso presente, como el clima que podría cambiar sin saberlo.'
-```
+enunciado: "이 날씨가 ___ 계속될지, 그건 말할 수 없어요."
+explicacion: "\"일 수도 있어요\" expresa una duda sobre un suceso presente, como el clima que podría cambiar sin saberlo."```
 
 ---
 
@@ -365,8 +347,7 @@ opciones_explicitas:
   - "할 거예요"
 respuesta: "했을 거예요"
 tipo: mc
-explicacion: '"했을 거예요" expresa una conjetura sobre un suceso pasado basada en evidencia actual, como la reacción del sujeto.'
-```
+explicacion: "\"했을 거예요\" expresa una conjetura sobre un suceso pasado basada en evidencia actual, como la reacción del sujeto."```
 
 ---
 
@@ -379,14 +360,12 @@ metadata:
   tags: ["futuro", "hipótesis"]
 pasos:
   - "Completa el hueco con la forma de conjetura que indique una hipótesis sobre un evento futuro."
-respuesta: "할 거예요"
 tipo: completar
 respuestas_validas:
   - "할 거예요"
   - "할 수도 있을 거예요"
-enunciado: '그는 ___ 그 일을 해볼 수도 있어요, 아직 결정하지 않았으니까.'
-explicacion: '"할 거예요" expresa una hipótesis en el futuro, adecuada para un contexto de incertidumbre sobre si algo será hecho.'
-```
+enunciado: "그는 ___ 그 일을 해볼 수도 있어요, 아직 결정하지 않았으니까."
+explicacion: "\"할 거예요\" expresa una hipótesis en el futuro, adecuada para un contexto de incertidumbre sobre si algo será hecho."```
 
 ---
 
@@ -405,8 +384,7 @@ opciones_explicitas:
   - "일 수 있을 거예요"
 respuesta: "일지도 몰라요"
 tipo: mc
-explicacion: '"일지도 몰라요" es la forma correcta para expresar duda sobre un suceso en el presente, como en una situación incierta.'
-```
+explicacion: "\"일지도 몰라요\" es la forma correcta para expresar duda sobre un suceso en el presente, como en una situación incierta."```
 
 ---
 
@@ -419,14 +397,12 @@ metadata:
   tags: ["pasado", "razón"]
 pasos:
   - "Completa el hueco con la forma de conjetura que indique una razón probable para un suceso."
-respuesta: "했을 거예요"
 tipo: completar
 respuestas_validas:
   - "했을 거예요"
   - "할 수도 있을 거예요"
-enunciado: '그는 ___ 그 일을 한 것 같아요, 그의 행동이 말해줘요.'
-explicacion: '"했을 거예요" expresa una conjetura sobre un suceso pasado basada en evidencia actual, como la acción del sujeto.'
-```
+enunciado: "그는 ___ 그 일을 한 것 같아요, 그의 행동이 말해줘요."
+explicacion: "\"했을 거예요\" expresa una conjetura sobre un suceso pasado basada en evidencia actual, como la acción del sujeto."```
 
 ---
 
@@ -445,8 +421,7 @@ opciones_explicitas:
   - "했을 거예요"
 respuesta: "할 거예요"
 tipo: mc
-explicacion: '"할 거예요" expresa una intención firme en el futuro, coherente con un contexto de certeza.'
-```
+explicacion: "\"할 거예요\" expresa una intención firme en el futuro, coherente con un contexto de certeza."```
 
 ---
 
@@ -459,14 +434,12 @@ metadata:
   tags: ["presente", "duda"]
 pasos:
   - "Completa el hueco con la forma de conjetura que indique una duda sobre algo actual."
-respuesta: "일 수도 있어요"
 tipo: completar
 respuestas_validas:
   - "일 수도 있어요"
   - "일지도 몰라요"
-enunciado: '이 날씨가 ___ 계속될지, 그건 말할 수 없어요.'
-explicacion: '"일 수도 있어요" expresa una duda sobre un suceso presente, como el clima que podría cambiar sin saberlo.'
-```
+enunciado: "이 날씨가 ___ 계속될지, 그건 말할 수 없어요."
+explicacion: "\"일 수도 있어요\" expresa una duda sobre un suceso presente, como el clima que podría cambiar sin saberlo."```
 
 ---
 
@@ -485,8 +458,7 @@ opciones_explicitas:
   - "할 거예요"
 respuesta: "했을 거예요"
 tipo: mc
-explicacion: '"했을 거예요" expresa una conjetura sobre un suceso pasado basada en evidencia actual, como la reacción del sujeto.'
-```
+explicacion: "\"했을 거예요\" expresa una conjetura sobre un suceso pasado basada en evidencia actual, como la reacción del sujeto."```
 
 ---
 
@@ -499,11 +471,9 @@ metadata:
   tags: ["futuro", "hipótesis"]
 pasos:
   - "Completa el hueco con la forma de conjetura que indique una hipótesis sobre un evento futuro."
-respuesta: "할 거예요"
 tipo: completar
 respuestas_validas:
   - "할 거예요"
   - "할 수도 있을 거예요"
-enunciado: '그는 ___ 그 일을 해볼 수도 있어요, 아직 결정하지 않았으니까.'
-explicacion: '"할 거예요" expresa una hipótesis en el futuro, adecuada para un contexto de incertidumbre sobre si algo será hecho.'
-```
+enunciado: "그는 ___ 그 일을 해볼 수도 있어요, 아직 결정하지 않았으니까."
+explicacion: "\"할 거예요\" expresa una hipótesis en el futuro, adecuada para un contexto de incertidumbre sobre si algo será hecho."```

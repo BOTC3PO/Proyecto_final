@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identifica il pronome indiretto e il pronome diretto."
   - "Componi i due pronomi in ordine corretto."
-respuesta: "glielo"
 tipo: completar
 respuestas_validas:
   - "Glielo"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - "Verifica se il verbo richiede un complemento oggetto."
   - "Scegli il pronome combinato corretto."
-respuesta: "non glielo"
 tipo: completar
 respuestas_validas:
   - "Non glielo"
@@ -50,7 +48,6 @@ metadata:
 pasos:
   - "Identifica il verbo modale e il verbo principale."
   - "Componi i pronomi in ordine corretto."
-respuesta: "me lo"
 tipo: completar
 respuestas_validas:
   - "Me lo"
@@ -71,7 +68,6 @@ metadata:
 pasos:
   - "Riconosci il verbo riflessivo e il complemento."
   - "Scegli la forma corretta del pronome combinato."
-respuesta: "se lo"
 tipo: completar
 respuestas_validas:
   - "Se lo"
@@ -92,7 +88,6 @@ metadata:
 pasos:
   - "Individua il complemento di termine e il verbo."
   - "Componi i due pronomi in ordine corretto."
-respuesta: "glielo"
 tipo: completar
 respuestas_validas:
   - "Glielo"
@@ -113,7 +108,6 @@ metadata:
 pasos:
   - "Riconosci il verbo impersonale e la negazione."
   - "Scegli il pronome combinato corretto."
-respuesta: "non te lo"
 tipo: completar
 respuestas_validas:
   - "Non te lo"
@@ -134,7 +128,6 @@ metadata:
 pasos:
   - "Analizza la struttura della frase."
   - "Componi i pronomi in ordine corretto."
-respuesta: "me lo"
 tipo: completar
 respuestas_validas:
   - "Me lo"
@@ -155,7 +148,6 @@ metadata:
 pasos:
   - "Identifica il verbo e il complemento oggetto."
   - "Componi i pronomi in ordine corretto."
-respuesta: "glielo"
 tipo: completar
 respuestas_validas:
   - "Glielo"
@@ -176,7 +168,6 @@ metadata:
 pasos:
   - "Riconosci il verbo di stato e la negazione."
   - "Scegli il pronome combinato corretto."
-respuesta: "non te lo"
 tipo: completar
 respuestas_validas:
   - "Non te lo"
@@ -197,7 +188,6 @@ metadata:
 pasos:
   - "Analizza la struttura della frase interrogativa."
   - "Componi i pronomi in ordine corretto."
-respuesta: "me lo"
 tipo: completar
 respuestas_validas:
   - "Me lo"
@@ -218,7 +208,6 @@ metadata:
 pasos:
   - "Identifica il verbo e il complemento oggetto."
   - "Componi i pronomi in ordine corretto."
-respuesta: "glielo"
 tipo: completar
 respuestas_validas:
   - "Glielo"
@@ -239,7 +228,6 @@ metadata:
 pasos:
   - "Analizza la struttura della frase condizionale."
   - "Componi i pronomi in ordine corretto."
-respuesta: "me lo"
 tipo: completar
 respuestas_validas:
   - "Me lo"
@@ -260,7 +248,6 @@ metadata:
 pasos:
   - "Riconosci il verbo reciproco e il complemento."
   - "Scegli il pronome combinato corretto."
-respuesta: "sielo"
 tipo: completar
 respuestas_validas:
   - "Sielo"
@@ -281,7 +268,6 @@ metadata:
 pasos:
   - "Identifica il verbo e la negazione."
   - "Componi i pronomi in ordine corretto."
-respuesta: "non te lo"
 tipo: completar
 respuestas_validas:
   - "Non te lo"
@@ -302,7 +288,6 @@ metadata:
 pasos:
   - "Analizza la struttura della frase esclamativa."
   - "Componi i pronomi in ordine corretto."
-respuesta: "me lo"
 tipo: completar
 respuestas_validas:
   - "Me lo"
@@ -323,7 +308,6 @@ metadata:
 pasos:
   - "Identifica il verbo e il complemento."
   - "Componi i pronomi in ordine corretto."
-respuesta: "glielo"
 tipo: completar
 respuestas_validas:
   - "Glielo"
@@ -344,13 +328,11 @@ metadata:
 pasos:
   - "Identificar el verbo que requiere un pronombre combinado."
   - "Seleccionar la forma correcta del pronombre después de 'dove'."
-respuesta: "si"
 tipo: completar
 respuestas_validas:
   - "si"
   - "Si"
 enunciado: "Non so dove ___ sia andato."
-variables: {}
 explicacion: "El verbo 'sia andato' (esser + participio) requiere el pronombre combinado 'si' después de 'dove', ya que se combina con la preposición implícita 'di'."
 ```
 
@@ -364,7 +346,6 @@ metadata:
 pasos:
   - "Riconosci il verbo reciproco e il complemento."
   - "Scegli il pronome combinato corretto."
-respuesta: "sielo"
 tipo: completar
 respuestas_validas:
   - "Sielo"
@@ -392,7 +373,6 @@ opciones_explicitas:
   - "li"
   - "lo"
 enunciado: "Hanno dato ___ il premio."
-variables: {}
 explicacion: "La preposición 'a' (implícita en 'dato') se combina con el pronombre 'loro', resultando en 'li'."
 ```
 
@@ -406,13 +386,11 @@ metadata:
 pasos:
   - "Identificar el sujeto gramatical en la oración."
   - "Seleccionar el pronombre combinado correcto después de 'che'."
-respuesta: "chi"
 tipo: completar
 respuestas_validas:
   - "chi"
   - "Chi"
 enunciado: "Non riesco a capire ___ intende dire."
-variables: {}
 explicacion: "El verbo impersonal 'capire' requiere el pronombre combinado 'chi' después de la preposición implícita 'che'."
 ```
 
@@ -426,13 +404,11 @@ metadata:
 pasos:
   - "Identificar la preposición 'con' en el enunciado."
   - "Elegir el pronombre combinado correcto después de 'con'."
-respuesta: "con lui"
 tipo: completar
 respuestas_validas:
   - "con lui"
   - "Con lui"
 enunciado: "Gli ho detto di non andare ___."
-variables: {}
 explicacion: "La preposición 'con' se combina con el pronombre 'lui', formando 'con lui'."
 ```
 
@@ -446,13 +422,11 @@ metadata:
 pasos:
   - "Reconocer la preposición 'senza' en el contexto."
   - "Seleccionar el pronombre combinado correcto después de 'senza'."
-respuesta: "senza di loro"
 tipo: completar
 respuestas_validas:
   - "senza di loro"
   - "Senza di loro"
 enunciado: "Non so come fare ___."
-variables: {}
 explicacion: "La preposición 'senza' requiere el pronombre 'loro', combinándose como 'senza di loro'."
 ```
 
@@ -466,13 +440,11 @@ metadata:
 pasos:
   - "Identificar la preposición 'per' en el enunciado."
   - "Elegir el pronombre combinado correcto después de 'per'."
-respuesta: "per loro"
 tipo: completar
 respuestas_validas:
   - "per loro"
   - "Per loro"
 enunciado: "Hanno cercato ___ aiutare."
-variables: {}
 explicacion: "La preposición 'per' se combina con el pronombre 'loro', formando 'per loro'."
 ```
 
@@ -486,13 +458,11 @@ metadata:
 pasos:
   - "Reconocer la preposición 'a' en el contexto."
   - "Seleccionar el pronombre combinado correcto después de 'a'."
-respuesta: "a me"
 tipo: completar
 respuestas_validas:
   - "a me"
   - "A me"
 enunciado: "Non hai spiegato ___ il problema."
-variables: {}
 explicacion: "La preposición 'a' (implícita en 'spiegare') se combina con el pronombre 'me', formando 'a me'."
 ```
 
@@ -506,12 +476,10 @@ metadata:
 pasos:
   - "Identificar la preposición 'fra' en el enunciado."
   - "Elegir el pronombre combinado correcto después de 'fra'."
-respuesta: "fra loro"
 tipo: completar
 respuestas_validas:
   - "fra loro"
   - "Fra loro"
 enunciado: "Non c'è mai accordo ___."
-variables: {}
 explicacion: "La preposición 'fra' se combina con el pronombre 'loro', formando 'fra loro'."
 ```

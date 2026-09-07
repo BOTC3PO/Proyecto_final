@@ -7,15 +7,11 @@ metadata:
   tags: ["preposições", "interrogativas"]
 pasos:
   - "Escucha la descripción de un lugar y completa el hueco."
-respuesta: "perto"
 respuestas_validas:
   - "perto"
   - "Perto"
 tipo: completar
 enunciado: "O hotel fica ___ da estação de trem, segundo o guia."
-variables:
-  - "hotel"
-  - "estação de trem"
 ```
 
 ---
@@ -31,15 +27,11 @@ metadata:
   tags: ["adjetivos", "comparativos"]
 pasos:
   - "Escucha la descripción física de una persona y completa el hueco."
-respuesta: "mais alto"
 respuestas_validas:
   - "mais alto"
   - "Mais alto"
 tipo: completar
 enunciado: "O João é ___ que o Pedro, segundo a colega."
-variables:
-  - "João"
-  - "Pedro"
 ```
 
 ---
@@ -62,8 +54,6 @@ opciones_explicitas:
 respuesta: "O senhor pode trazer-me um prato principal?"
 tipo: mc
 enunciado: "¿Cómo se solicita correctamente un plato principal en portugués?"
-variables:
-  - "prato principal"
 ```
 
 ---
@@ -79,15 +69,11 @@ metadata:
   tags: ["futuro", "interrogativas"]
 pasos:
   - "Escucha una conversación sobre planes y completa el hueco."
-respuesta: "vou visitar"
 respuestas_validas:
   - "vou visitar"
   - "Vou visitar"
 tipo: completar
 enunciado: "No fim de semana, ___ a minha tia, segundo o amigo."
-variables:
-  - "fim de semana"
-  - "minha tia"
 ```
 
 ---
@@ -110,8 +96,6 @@ opciones_explicitas:
 respuesta: "Alguém está ligando-me, mas o número não é reconhecido."
 tipo: mc
 enunciado: "¿Cómo se expresa correctamente una llamada no reconocida?"
-variables:
-  - "número não é reconhecido"
 ```
 
 ---
@@ -127,15 +111,11 @@ metadata:
   tags: ["tempo", "eventos"]
 pasos:
   - "Escucha la descripción de un evento y completa el hueco."
-respuesta: "ontem"
 respuestas_validas:
   - "ontem"
   - "Ontem"
 tipo: completar
 enunciado: "O concerto aconteceu ___ no centro da cidade, segundo o relato."
-variables:
-  - "concerto"
-  - "centro da cidade"
 ```
 
 ---
@@ -151,14 +131,11 @@ metadata:
   tags: ["verbo comprar", "transporte"]
 pasos:
   - "Escucha la petición de un bilhete y completa el hueco."
-respuesta: "quero comprar"
 respuestas_validas:
   - "quero comprar"
   - "Quero comprar"
 tipo: completar
 enunciado: "___ um bilhete para Lisboa, segundo o passageiro."
-variables:
-  - "bilhete para Lisboa"
 ```
 
 ---
@@ -181,8 +158,6 @@ opciones_explicitas:
 respuesta: "Você achou o filme interessante?"
 tipo: mc
 enunciado: "¿Cómo se pregunta correctamente sobre la opinión del cine?"
-variables:
-  - "filme"
 ```
 
 ---
@@ -198,14 +173,11 @@ metadata:
   tags: ["horários", "lojas"]
 pasos:
   - "Escucha la información sobre horarios y completa el hueco."
-respuesta: "abre às dez horas"
 respuestas_validas:
   - "abre às dez horas"
   - "Abre às dez horas"
 tipo: completar
 enunciado: "A loja ___ todos os dias, segundo o vendedor."
-variables:
-  - "loja"
 ```
 
 ---
@@ -228,8 +200,6 @@ opciones_explicitas:
 respuesta: "A praia é muito bonita e tem águas cristalinas."
 tipo: mc
 enunciado: "¿Cómo se describe correctamente una playa en portugués?"
-variables:
-  - "praia"
 ```
 
 ---
@@ -245,14 +215,11 @@ metadata:
   tags: ["pedidos", "serviços"]
 pasos:
   - "Escucha la petición de un servicio y completa el hueco."
-respuesta: "pode ajudar"
 respuestas_validas:
   - "pode ajudar"
   - "Pode ajudar"
 tipo: completar
 enunciado: "___ com o meu problema técnico, segundo a cliente."
-variables:
-  - "problema técnico"
 ```
 
 ---
@@ -275,8 +242,6 @@ opciones_explicitas:
 respuesta: "Você está certo, a frase correta é 'vou ao cinema'."
 tipo: mc
 enunciado: "¿Cuál es la corrección correcta del error de preposición?"
-variables:
-  - "cinema"
 ```
 
 ---
@@ -292,14 +257,11 @@ metadata:
   tags: ["eventos", "interrogativas"]
 pasos:
   - "Escucha la descripción de un evento y completa el hueco."
-respuesta: "foi muito divertido"
 respuestas_validas:
   - "foi muito divertido"
   - "Foi muito divertido"
 tipo: completar
 enunciado: "O encontro ___, segundo o anfitrião."
-variables:
-  - "encontro"
 ```
 
 ---
@@ -322,8 +284,6 @@ opciones_explicitas:
 respuesta: "A frase correta é 'ele está estudando'."
 tipo: mc
 enunciado: "¿Cuál es la corrección correcta del error de conjugación?"
-variables:
-  - "estudando"
 ```
 
 ---
@@ -339,14 +299,11 @@ metadata:
   tags: ["viajes", "tempos"]
 pasos:
   - "Escucha la descripción de un viaje y completa el hueco."
-respuesta: "vou visitar"
 respuestas_validas:
   - "vou visitar"
   - "Vou visitar"
 tipo: completar
 enunciado: "No mês que vem, ___ a minha família em Paris, segundo o turista."
-variables:
-  - "minha família"
 ```
 
 ---
@@ -362,14 +319,11 @@ metadata:
   tags: ["compras", "presentes"]
 pasos:
   - "Escucha la petición de un regalo y completa el hueco."
-respuesta: "quero comprar"
 respuestas_validas:
   - "quero comprar"
   - "Quero comprar"
 tipo: completar
 enunciado: "___ um presente para a minha irmã, segundo o cliente."
-variables:
-  - "presente para a minha irmã"
 ```
 
 ---
@@ -392,8 +346,6 @@ opciones_explicitas:
 respuesta: "O senhor trabalha em qual área?"
 tipo: mc
 enunciado: "¿Cómo se pregunta correctamente sobre el área de trabajo en portugués?"
-variables:
-  - "área"
 ```
 
 ---
@@ -410,7 +362,6 @@ metadata:
 pasos:
   - "Identificar a preposição correta para completar o verbo 'viajar'."
   - "Relacionar a ação com o contexto de movimento."
-respuesta: "para"
 tipo: completar
 respuestas_validas:
   - "para"
@@ -430,14 +381,11 @@ metadata:
   tags: ["eventos", "interrogativas"]
 pasos:
   - "Escucha la descripción de un evento y completa el hueco."
-respuesta: "foi muito bom"
 respuestas_validas:
   - "foi muito bom"
   - "Foi muito bom"
 tipo: completar
 enunciado: "A festa ___, segundo o anfitrião."
-variables:
-  - "festa"
 ```
 
 ---
@@ -475,7 +423,6 @@ metadata:
 pasos:
   - "Identificar a ação habitual descrita."
   - "Relacionar o verbo com a estrutura 'costumar + infinitivo'."
-respuesta: "caminhar"
 tipo: completar
 respuestas_validas:
   - "caminhar"
@@ -517,7 +464,6 @@ metadata:
 pasos:
   - "Identificar o uso da preposição 'com' com objetos concretos."
   - "Confirmar que o objeto direto (smartphone) exige a preposição correta."
-respuesta: "com"
 tipo: completar
 respuestas_validas:
   - "com"
@@ -559,7 +505,6 @@ metadata:
 pasos:
   - "Identificar se o substantivo é contável ou incontável."
   - "Escolher o artigo indefinido singular correspondente."
-respuesta: "uma"
 tipo: completar
 respuestas_validas:
   - "uma"

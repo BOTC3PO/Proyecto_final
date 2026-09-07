@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar el verbo 'andare' y su complemento."
   - "Determinar la preposición que indica dirección a un lugar."
-respuesta: "a"
 tipo: completar
 respuestas_validas:
   - "a"
@@ -28,7 +27,6 @@ metadata:
 pasos:
   - "Reconocer la expresión de tiempo con horas."
   - "Seleccionar la preposición que acompaña a 'ore' en este contexto."
-respuesta: "alle"
 tipo: completar
 respuestas_validas:
   - "alle"
@@ -48,7 +46,6 @@ metadata:
 pasos:
   - "Identificar el sustantivo 'libro' y su relación con el posesor."
   - "Elegir la preposición que indica pertenencia en italiano."
-respuesta: "di"
 tipo: completar
 respuestas_validas:
   - "di"
@@ -68,7 +65,6 @@ metadata:
 pasos:
   - "Reconocer el uso de preposiciones en contextos espaciales."
   - "Determinar la forma correcta para 'primo piano' con artículo definido."
-respuesta: "al"
 tipo: completar
 respuestas_validas:
   - "al"
@@ -88,7 +84,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'da' para indicar origen o procedencia."
   - "Seleccionar la preposición que completa el sentido de la oración."
-respuesta: "da"
 tipo: completar
 respuestas_validas:
   - "da"
@@ -108,7 +103,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'con' para indicar compañía o medio."
   - "Verificar que la preposición se usa con un sustantivo singular femenino."
-respuesta: "con"
 tipo: completar
 respuestas_validas:
   - "con"
@@ -128,7 +122,6 @@ metadata:
 pasos:
   - "Identificar el uso de 'su' para indicar ubicación superficial."
   - "Verificar que la preposición se usa con un sustantivo singular masculino."
-respuesta: "su"
 tipo: completar
 respuestas_validas:
   - "su"
@@ -148,7 +141,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'per' para indicar razón o propósito."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "per"
 tipo: completar
 respuestas_validas:
   - "per"
@@ -168,7 +160,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'tra' para indicar entre dos elementos."
   - "Elegir la preposición que se usa con un sustantivo plural masculino."
-respuesta: "fra"
 tipo: completar
 respuestas_validas:
   - "fra"
@@ -188,7 +179,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'dopo' para indicar tiempo posterior."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "dopo"
 tipo: completar
 respuestas_validas:
   - "dopo"
@@ -208,7 +198,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'senza' para indicar ausencia o falta."
   - "Elegir la preposición que se usa con un sustantivo singular masculino."
-respuesta: "senza"
 tipo: completar
 respuestas_validas:
   - "senza"
@@ -228,7 +217,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'a causa di' para indicar razón o causa."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "a causa di"
 tipo: completar
 respuestas_validas:
   - "a causa di"
@@ -248,7 +236,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'in base a' para indicar criterio o referencia."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "in base a"
 tipo: completar
 respuestas_validas:
   - "in base a"
@@ -268,7 +255,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'nei confronti di' para indicar relación o actitud."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "nei confronti di"
 tipo: completar
 respuestas_validas:
   - "nei confronti di"
@@ -288,7 +274,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'a proposito di' para indicar tema o asunto."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "a proposito di"
 tipo: completar
 respuestas_validas:
   - "a proposito di"
@@ -308,7 +293,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'verso' para indicar dirección o tendencia."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "verso"
 tipo: completar
 respuestas_validas:
   - "verso"
@@ -328,7 +312,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'a sinistra/destra di' para indicar posición relativa."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "a sinistra di"
 tipo: completar
 respuestas_validas:
   - "a sinistra di"
@@ -348,7 +331,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'in mezzo a' para indicar entre dos elementos."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "in mezzo a"
 tipo: completar
 respuestas_validas:
   - "in mezzo a"
@@ -368,7 +350,6 @@ metadata:
 pasos:
   - "Reconocer el uso de 'grazie a' para indicar agradecimiento o causa."
   - "Seleccionar la preposición que completa correctamente el sentido de la oración."
-respuesta: "grazie a"
 tipo: completar
 respuestas_validas:
   - "grazie a"
@@ -390,7 +371,6 @@ pasos:
   - "Determinar la preposición que completa correctamente el sentido de la frase."  
 enunciado: "Vivo ___ una città molto grande."  
 tipo: completar  
-respuesta: "in"  
 respuestas_validas:  
   - "in"  
   - "In"  
@@ -409,7 +389,6 @@ pasos:
   - "Elegir la forma contracta correcta de 'nel' + artículo definido."  
 enunciado: "La ragazza sta ___ il giardino."  
 tipo: completar  
-respuesta: "nello"  
 respuestas_validas:  
   - "nello"  
   - "Nello"  
@@ -449,7 +428,6 @@ pasos:
   - "Escribir la forma reducida correcta en el espacio vacío."  
 enunciado: "Andiamo ___ il parco domani."  
 tipo: completar  
-respuesta: "al"  
 respuestas_validas:  
   - "al"  
   - "AL"  
@@ -489,7 +467,6 @@ pasos:
   - "Formar la contracción correcta entre 'a' y 'le'."  
 enunciado: "La lettera è arrivata ___ mezzanotte."  
 tipo: completar  
-respuesta: "alle"  
 respuestas_validas:  
   - "alle"  
   - "ALLE"  

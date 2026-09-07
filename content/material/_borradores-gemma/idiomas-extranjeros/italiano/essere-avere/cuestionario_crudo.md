@@ -10,7 +10,6 @@ pasos:
 explicacion: "El verbo 'essere' se usa para indicar estado o ubicación. En presente, 'è' es la tercera persona singular."  
 tipo: completar  
 enunciado: "Maria ___ a Firenze."  
-respuesta: "è"  
 respuestas_validas:  
   - "è"  
   - "È"  
@@ -51,7 +50,6 @@ pasos:
 explicacion: "'Essere' describe estados. 'Sono' es la primera persona plural del presente de 'essere'."  
 tipo: completar  
 enunciado: "Noi ___ stanchi."  
-respuesta: "siamo"  
 respuestas_validas:  
   - "siamo"  
   - "Siamo"  
@@ -92,7 +90,6 @@ pasos:
 explicacion: "'Essere' se usa para indicar ubicaciones. 'Sono' es la primera persona plural del presente."  
 tipo: completar  
 enunciado: "Noi ___ in classe."  
-respuesta: "siamo"  
 respuestas_validas:  
   - "siamo"  
   - "Siamo"  
@@ -133,7 +130,6 @@ pasos:
 explicacion: "'Essere' describe estados. 'È' es tercera persona singular del presente."  
 tipo: completar  
 enunciado: "Il gatto ___ nero."  
-respuesta: "è"  
 respuestas_validas:  
   - "è"  
   - "È"  
@@ -174,7 +170,6 @@ pasos:
 explicacion: "'Essere' se usa para ubicaciones. 'È' es tercera persona singular del presente."  
 tipo: completar  
 enunciado: "Lei ___ in ufficio."  
-respuesta: "è"  
 respuestas_validas:  
   - "è"  
   - "È"  
@@ -215,7 +210,6 @@ pasos:
 explicacion: "'Sono' es primera persona plural del presente de 'essere'."  
 tipo: completar  
 enunciado: "Noi ___ una famiglia grande."  
-respuesta: "siamo"  
 respuestas_validas:  
   - "siamo"  
   - "Siamo"  
@@ -256,7 +250,6 @@ pasos:
 explicacion: "'Essere' se usa para describir estados. 'È' es tercera persona singular del presente."  
 tipo: completar  
 enunciado: "Oggi ___ domenica."  
-respuesta: "è"  
 respuestas_validas:  
   - "è"  
   - "È"  
@@ -297,7 +290,6 @@ pasos:
 explicacion: "'Essere' describe estados. 'Sono' es primera persona plural del presente."  
 tipo: completar  
 enunciado: "Noi ___ felici."  
-respuesta: "siamo"  
 respuestas_validas:  
   - "siamo"  
   - "Siamo"  
@@ -315,13 +307,11 @@ metadata:
 pasos:  
   - "Identificar el verbo que expresa un estado de ser."  
   - "Aplicar la conjugación correcta del verbo 'essere' según el sujeto y el contexto."  
-respuesta: "è"  
 respuestas_validas:  
   - "è"  
   - "È"  
 tipo: completar  
 enunciado: "Mio fratello ___ un ingegnere."  
-variables: []  
 explicacion: "El verbo 'essere' se usa para indicar profesiones u oficios. La tercera persona del singular en presente es 'è' (ej.: Mio fratello è un ingegnere)."  
 ```  
 
@@ -339,7 +329,6 @@ pasos:
 explicacion: "'Essere' se usa para ubicaciones. 'Sono' es primera persona plural del presente."  
 tipo: completar  
 enunciado: "Noi ___ in vacanza."  
-respuesta: "siamo"  
 respuestas_validas:  
   - "siamo"  
   - "Siamo"  
@@ -380,7 +369,6 @@ pasos:
 explicacion: "'Essere' se usa para describir estados. 'Sono' es primera persona plural del presente."  
 tipo: completar  
 enunciado: "Io ___ vent’anni."  
-respuesta: "ho"  
 respuestas_validas:  
   - "ho"  
   - "Ho"  
@@ -421,7 +409,6 @@ pasos:
 explicacion: "'Essere' se usa para ubicaciones. 'È' es tercera persona singular del presente."  
 tipo: completar  
 enunciado: "Lui ___ in ufficio."  
-respuesta: "è"  
 respuestas_validas:  
   - "è"  
   - "È"  
@@ -468,7 +455,6 @@ opciones_explicitas:
 respuesta: "ha"  
 tipo: mc  
 enunciado: "Loro ___ una macchina?"  
-variables: []  
 explicacion: "'Avere' se usa para indicar posesión. La tercera persona del plural en presente es 'hanno', pero en esta pregunta se pide la conjugación que concuerda con el sujeto 'loro' y el verbo 'avere'. En este contexto, la forma correcta es 'ha' (ej.: Loro hanno una macchina?)."  
 ```  
 
@@ -484,13 +470,11 @@ metadata:
 pasos:  
   - "Reconocer que el verbo debe expresar una ubicación."  
   - "Aplicar la conjugación correcta de 'essere' según el sujeto y la preposición."  
-respuesta: "è"  
 respuestas_validas:  
   - "è"  
   - "È"  
 tipo: completar  
 enunciado: "Il mio cane ___ in giardino."  
-variables: []  
 explicacion: "'Essere' se usa para indicar ubicación. La tercera persona del singular en presente es 'è' (ej.: Il mio cane è in giardino)."  
 ```  
 
@@ -514,6 +498,5 @@ opciones_explicitas:
 respuesta: "hai"  
 tipo: mc  
 enunciado: "Tu ___ un problema?"  
-variables: []  
 explicacion: "'Avere' se usa para indicar problemas. La segunda persona del singular en presente es 'hai' (ej.: Tu hai un problema?)."  
 ```

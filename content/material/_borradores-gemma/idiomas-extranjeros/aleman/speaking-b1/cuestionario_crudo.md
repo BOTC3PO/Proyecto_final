@@ -8,14 +8,11 @@ metadata:
 pasos:
   - "Identifica el verbo modal correcto en la oración."
   - "Completa el hueco con la forma adecuada del imperativo."
-respuesta: "komm"
 respuestas_validas:
   - "komm"
   - "Komm"
 tipo: completar
 enunciado: "Du _______ jetzt ins Zimmer, bitte!"
-variables:
-  - "komm"
 explicacion: "El imperativo de 'kommen' en segunda persona singular es 'komm'."
 ```
 
@@ -38,8 +35,6 @@ opciones_explicitas:
   - "zu"
 tipo: mc
 enunciado: "Er spricht _______ seiner Schwester über das Wetter."
-variables:
-  - "mit"
 explicacion: "'Sprechen mit' indica conversación directa con alguien."
 ```
 
@@ -55,14 +50,11 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del präteritum."
   - "Verifica el verbo 'haben' en tercera persona singular."
-respuesta: "hatte"
 respuestas_validas:
   - "hatte"
   - "Hatte"
 tipo: completar
 enunciado: "Sie _______ gestern einen Fehler gemacht, nicht wahr?"
-variables:
-  - "hatte"
 explicacion: "'Haben' en tercera persona singular en präteritum es 'hatte'."
 ```
 
@@ -85,8 +77,6 @@ opciones_explicitas:
   - "seien"
 tipo: mc
 enunciado: "Er ist traurig, _______ die Party abgesagt wurde."
-variables:
-  - "war"
 explicacion: "'Weil' requiere el verbo en indikativ con el sujeto ausente."
 ```
 
@@ -102,14 +92,11 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del comparativo."
   - "Verifica el uso de 'als' en frases de comparación."
-respuesta: "schöner"
 respuestas_validas:
   - "schöner"
   - "Schöner"
 tipo: completar
 enunciado: "Dieses Bild ist _______ als das letzte."
-variables:
-  - "schöner"
 explicacion: "El comparativo de 'schön' es 'schöner', seguido de 'als'."
 ```
 
@@ -132,8 +119,6 @@ opciones_explicitas:
   - "kam"
 tipo: mc
 enunciado: "Wenn ich mehr Geld _______, würde ich reisen."
-variables:
-  - "käme"
 explicacion: "'Kommen' en konjunktiv II es 'käme', usado en oraciones condicionales."
 ```
 
@@ -149,14 +134,11 @@ metadata:
 pasos:
   - "Completa el hueco con la preposición correcta."
   - "Verifica el uso de 'gehen' con direcciones."
-respuesta: "zu"
 respuestas_validas:
   - "zu"
   - "Zu"
 tipo: completar
 enunciado: "Ich gehe _______ der Bibliothek, um ein Buch zu holen."
-variables:
-  - "zu"
 explicacion: "'Gehen zu + lugar' indica movimiento hacia un destino específico."
 ```
 
@@ -179,8 +161,6 @@ opciones_explicitas:
   - "hat"
 tipo: mc
 enunciado: "Ich _______ heute keine Zeit, um zu helfen."
-variables:
-  - "habe"
 explicacion: "'Haben' en primera persona singular en presente es 'habe'."
 ```
 
@@ -196,14 +176,11 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del tiempo."
   - "Verifica el uso de 'seit' con el präteritum."
-respuesta: "lebe"
 respuestas_validas:
   - "lebe"
   - "Lebe"
 tipo: completar
 enunciado: "Ich _______ seit drei Jahren in Berlin."
-variables:
-  - "lebe"
 explicacion: "'Seit' requiere el verbo en präsens, no en präteritum."
 ```
 
@@ -226,8 +203,6 @@ opciones_explicitas:
   - "worden"
 tipo: mc
 enunciado: "Das Buch _______ von einem Studenten gelesen."
-variables:
-  - "wird"
 explicacion: "'Werden' + participio es la estructura del passivo en presente."
 ```
 
@@ -243,14 +218,11 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del adjetivo."
   - "Verifica el uso de 'jemandem' en oraciones reflexivas."
-respuesta: "gegeben"
 respuestas_validas:
   - "gegeben"
   - "Gegeben"
 tipo: completar
 enunciado: "Er hat dem Kind ein Geschenk _______."
-variables:
-  - "gegeben"
 explicacion: "'Jemandem etwas geben' es la estructura correcta para dar algo a alguien."
 ```
 
@@ -273,8 +245,6 @@ opciones_explicitas:
   - "kommt"
 tipo: mc
 enunciado: "Ich _______ gerne ins Kino, wenn ich Zeit hätte."
-variables:
-  - "würde"
 explicacion: "'Würden' + infinitivo es la forma del konjunktiv II en oraciones principales."
 ```
 
@@ -290,14 +260,11 @@ metadata:
 pasos:
   - "Completa el hueco con la preposición correcta."
   - "Verifica el uso de 'sagen' con direcciones."
-respuesta: "zu"
 respuestas_validas:
   - "zu"
   - "Zu"
 tipo: completar
 enunciado: "Er hat mir _______ der Schule einen Brief geschrieben."
-variables:
-  - "zu"
 explicacion: "'Sagen zu + lugar' indica un mensaje enviado a un lugar específico."
 ```
 
@@ -320,8 +287,6 @@ opciones_explicitas:
   - "gehend"
 tipo: mc
 enunciado: "Er war bereits _______, als wir ankamen."
-variables:
-  - "gegangen"
 explicacion: "'Haben' + participio es la estructura del plusquamperfekt en tercera persona singular."
 ```
 
@@ -337,14 +302,11 @@ metadata:
 pasos:
   - "Completa el hueco con la forma correcta del comparativo."
   - "Verifica el uso de 'als' en frases de comparación."
-respuesta: "schwerer"
 respuestas_validas:
   - "schwerer"
   - "Schwerer"
 tipo: completar
 enunciado: "Dieses Buch ist _______ als das letzte."
-variables:
-  - "schwerer"
 explicacion: "'Schwer' en comparativo es 'schwerer', seguido de 'als'."
 ```
 
@@ -363,7 +325,11 @@ pasos:
 explicacion: "La conjunción 'weil' se usa para explicar una razón. En esta oración, el segundo cláusula debe mostrarse como consecuencia del primer cláusula."  
 enunciado: "Er hat das Buch nicht gelesen, _______ es zu schwer war."  
 tipo: mc  
-opciones_explicitas: ["weil", "und", "aber", "denn"]  
+opciones_explicitas:
+  - "weil"
+  - "und"
+  - "aber"
+  - "denn"
 respuesta: "weil"  
 
 ---
@@ -379,14 +345,11 @@ metadata:
 pasos:
   - "Completa el hueco con la preposición correcta."
   - "Verifica el uso de 'warten' con direcciones."
-respuesta: "auf"
 respuestas_validas:
   - "auf"
   - "Auf"
 tipo: completar
 enunciado: "Ich warte _______ meinen Freund am Bahnhof."
-variables:
-  - "auf"
 explicacion: "'Warten auf + persona' indica espera de alguien en un lugar específico."
 ```
 
@@ -405,9 +368,9 @@ pasos:
 explicacion: "El verbo 'schreiben' usa 'haben' como auxiliar en el Perfekt. La conjugación debe coincidir con el sujeto."  
 enunciado: "Er _______ mir gestern einen Brief geschrieben."  
 tipo: completar  
-respuesta: "hat"  
-respuestas_validas: ["hat", "Hat"]  
-
+respuestas_validas:
+  - "hat"
+  - "Hat"
 ---
 ```
 
@@ -424,9 +387,9 @@ pasos:
 explicacion: "El adverbio 'schnell' se coloca al final de una oración imperativa para enfatizar la urgencia o modo de la acción."  
 enunciado: "Du _______ schnell ins Zimmer, bitte!"  
 tipo: completar  
-respuesta: "geh"  
-respuestas_validas: ["geh", "Geh"]  
-
+respuestas_validas:
+  - "geh"
+  - "Geh"
 ---
 ```
 
@@ -443,7 +406,11 @@ pasos:
 explicacion: "La conjunción 'damit' introduce una oración final que explica el objetivo de la acción principal. La conjugación del verbo debe ser correcta en el subjuntivo."  
 enunciado: "Er hat die Tür geschlossen, _______ niemand rein kommen konnte."  
 tipo: mc  
-opciones_explicitas: ["damit", "weil", "obwohl", "dass"]  
+opciones_explicitas:
+  - "damit"
+  - "weil"
+  - "obwohl"
+  - "dass"
 respuesta: "damit"  
 
 ---
@@ -462,9 +429,9 @@ pasos:
 explicacion: "El comparativo 'besser' se usa con 'als' cuando se compara una cosa con otra. La estructura es [adjetivo + als + sustantivo]."  
 enunciado: "Dieser Kuchen ist _______ als der letzte."  
 tipo: completar  
-respuesta: "besser"  
-respuestas_validas: ["besser", "Besser"]  
-
+respuestas_validas:
+  - "besser"
+  - "Besser"
 ---
 ```
 
@@ -481,9 +448,9 @@ pasos:
 explicacion: "'Seit' indica un período de tiempo que comenzó en el pasado y continúa en el presente. El verbo debe estar en presente."  
 enunciado: "Ich wohne _______ drei Jahren in Berlin."  
 tipo: completar  
-respuesta: "seit"  
-respuestas_validas: ["seit", "Seit"]  
-
+respuestas_validas:
+  - "seit"
+  - "Seit"
 ---
 ```
 
@@ -500,9 +467,9 @@ pasos:
 explicacion: "'Sich freuen' es un verbo reflexivo que requiere 'sich' en tercera persona singular. La preposición 'über' se usa para indicar el motivo de la alegría."  
 enunciado: "Er freut _______ sich _______ seiner Prüfung."  
 tipo: completar  
-respuesta: "sich über"  
-respuestas_validas: ["sich über", "Sich über"]  
-
+respuestas_validas:
+  - "sich über"
+  - "Sich über"
 ---
 ```
 
@@ -519,9 +486,9 @@ pasos:
 explicacion: "En oraciones hipotéticas con 'wenn', el verbo principal se conjuga en subjuntivo (z. B. 'hätte') y el verbo de la cláusula principal en konditional (z. B. 'würde')."  
 enunciado: "Wenn ich _______ könnte, würde ich reisen."  
 tipo: completar  
-respuesta: "mehr Geld hätte"  
-respuestas_validas: ["mehr Geld hätte", "Mehr Geld hätte"]  
-
+respuestas_validas:
+  - "mehr Geld hätte"
+  - "Mehr Geld hätte"
 ---
 ```
 
@@ -538,6 +505,6 @@ pasos:
 explicacion: "'Vorbeigehen' requiere la preposición 'an' cuando se refiere a un lugar específico. La estructura es [verbo + an + lugar]."  
 enunciado: "Ich gehe _______ der Bibliothek, um ein Buch zu holen."  
 tipo: completar  
-respuesta: "an"  
-respuestas_validas: ["an", "An"]
-```
+respuestas_validas:
+  - "an"
+  - "An"```

@@ -8,15 +8,12 @@ metadata:
 pasos:
   - "Completa la oración con el verbo adecuado."
 explicacion: "El verbo 'ser' (です・ます) se usa para describir características permanentes, mientras que 'hacer' (する) expresa acciones temporales."
-respuesta: "です"
 respuestas_validas:
   - "です"
   - "は"
   - "に"
 tipo: completar
 enunciado: "私は______学生です。"
-variables:
-  - "空欄"
 ```
 
 
@@ -51,15 +48,12 @@ metadata:
 pasos:
   - "Completa la oración con el verbo en forma de past."
 explicacion: "El uso de 「ました」 indica acciones completadas en el pasado."
-respuesta: "行きました"
 respuestas_validas:
   - "行きました"
   - "行った"
   - "行きましょう"
 tipo: completar
 enunciado: "先週、友達と______。"
-variables:
-  - "空欄"
 ```
 
 
@@ -94,15 +88,12 @@ metadata:
 pasos:
   - "Completa la oración con el verbo en forma de presente."
 explicacion: "「います」 indica presencia o estado actual, mientras que 「いる」 es más informal."
-respuesta: "います"
 respuestas_validas:
   - "います"
   - "いる"
   - "いた"
 tipo: completar
 enunciado: "教室には______。"
-variables:
-  - "空欄"
 ```
 
 
@@ -137,15 +128,12 @@ metadata:
 pasos:
   - "Completa la oración con el verbo adecuado."
 explicacion: "「しています」 indica una acción continua en el presente."
-respuesta: "しています"
 respuestas_validas:
   - "しています"
   - "する"
   - "しました"
 tipo: completar
 enunciado: "私は______。"
-variables:
-  - "空欄"
 ```
 
 
@@ -180,15 +168,12 @@ metadata:
 pasos:
   - "Completa la oración con el verbo en forma de past."
 explicacion: "「ました」 indica una acción completada, mientras que 「た」 es más informal."
-respuesta: "熱がありました"
 respuestas_validas:
   - "熱がありました"
   - "熱がした"
   - "熱がある"
 tipo: completar
 enunciado: "昨日、______。"
-variables:
-  - "空欄"
 ```
 
 
@@ -223,15 +208,12 @@ metadata:
 pasos:
   - "Completa la oración con el verbo adecuado."
 explicacion: "「ています」 indica un estado continuo en el presente."
-respuesta: "しています"
 respuestas_validas:
   - "しています"
   - "する"
   - "しました"
 tipo: completar
 enunciado: "今日の天気は______。"
-variables:
-  - "空欄"
 ```
 
 
@@ -266,15 +248,12 @@ metadata:
 pasos:
   - "Completa la oración con el verbo adecuado."
 explicacion: "「しています」 indica una acción continua en el presente."
-respuesta: "しています"
 respuestas_validas:
   - "しています"
   - "する"
   - "しました"
 tipo: completar
 enunciado: "私は今______。"
-variables:
-  - "空欄"
 ```
 
 
@@ -309,15 +288,12 @@ metadata:
 pasos:
   - "Completa la oración con el verbo en forma de past."
 explicacion: "「ました」 indica una acción completada, mientras que 「た」 es más informal."
-respuesta: "やりました"
 respuestas_validas:
   - "やりました"
   - "やった"
   - "やります"
 tipo: completar
 enunciado: "昨日、誕生日を______。"
-variables:
-  - "空欄"
 ```
 
 
@@ -352,12 +328,11 @@ metadata:
 pasos:  
   - "Identificar la estructura de 'te-form' para hacer una reserva."  
   - "Verificar el uso correcto del verbo en el contexto."  
-respuesta_validas:  
+respuestas_validas:  
   - "予約して"  
   - "予約して"  
 tipo: completar  
 enunciado: "レストランで夕食を______。"  
-variables: []  
 explicacion: "El te-form de '予約する' (reservar) es '予約して', que se usa para conectar acciones en secuencia. La oración indica una acción futura con propósito."
 ```
 
@@ -398,7 +373,6 @@ opciones_explicitas:
 respuesta: "音楽会に行きます"  
 tipo: mc  
 enunciado: "来週、友達と______。"  
-variables: []  
 explicacion: "La forma polite '行きます' es correcta para expresar una intención futura. La opción 2 tiene kana incorrecto y la tercera es un estilo más formal."
 ```
 
@@ -432,12 +406,11 @@ metadata:
 pasos:  
   - "Identificar el uso del 'te-form' para describir acciones en progreso."  
   - "Verificar la concordancia con el verbo principal."  
-respuesta_validas:  
+respuestas_validas:  
   - "話しています"  
   - "話してます"  
 tipo: completar  
 enunciado: "今、友達と______。"  
-variables: []  
 explicacion: "El 'te-form' de '話す' (hablar) es '話して', que se combina con 'います' para indicar una acción continua. Ambas formas son aceptables."
 ```
 
@@ -458,7 +431,6 @@ opciones_explicitas:
 respuesta: "すみません、教えてください。"  
 tipo: mc  
 enunciado: "昨日、______。"  
-variables: []  
 explicacion: "La opción 2 es la más general y natural para pedir información. Las otras opciones son específicas de contextos distintos (llegar, ir)."
 ```
 
@@ -472,12 +444,11 @@ metadata:
 pasos:  
   - "Identificar el uso del verbo en forma base para expresar planes futuros."  
   - "Verificar la concordancia con el sujeto y el tiempo."  
-respuesta_validas:  
+respuestas_validas:  
   - "家族と旅行します"  
   - "家族と旅行する"  
 tipo: completar  
 enunciado: "週末、______。"  
-variables: []  
 explicacion: "La forma base 'する' se usa para expresar planes futuros. Ambas formas son válidas, pero la primera es más común en conversaciones."
 ```
 
@@ -518,6 +489,5 @@ opciones_explicitas:
 respuesta: "この着物、素敵です"  
 tipo: mc  
 enunciado: "彼女の______。"  
-variables: []  
 explicacion: "La opción 1 es la única que usa un adjetivo positivo ('素敵') correctamente. Las otras opciones no expresan admiración."
 ```

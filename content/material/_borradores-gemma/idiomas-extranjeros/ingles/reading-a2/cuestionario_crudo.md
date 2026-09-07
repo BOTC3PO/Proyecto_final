@@ -10,7 +10,6 @@ pasos:
 explicacion: "El texto menciona claramente que las clases comienzan a las 9 de la mañana, por lo que 'nine' es la respuesta correcta."  
 enunciado: "The class starts at ___ o'clock in the morning."  
 tipo: completar  
-respuesta: "nine"  
 respuestas_validas:  
   - "Nine"  
   - "nine"  
@@ -32,7 +31,6 @@ pasos:
 explicacion: "El texto indica que el estudiante prefiere matemáticas, por lo que 'maths' es la respuesta correcta."  
 enunciado: "The student’s favorite subject is ___."  
 tipo: completar  
-respuesta: "maths"  
 respuestas_validas:  
   - "Maths"  
   - "maths"  
@@ -54,7 +52,6 @@ pasos:
 explicacion: "El texto dice que el estudiante jugará fútbol el viernes, por lo que 'play football' es la respuesta correcta."  
 enunciado: "On Friday, the student will ___."  
 tipo: completar  
-respuesta: "play football"  
 respuestas_validas:  
   - "Play football"  
   - "play football"  
@@ -100,7 +97,6 @@ pasos:
 explicacion: "El texto dice que el estudiante lleva un cuaderno, por lo que 'notebook' es la respuesta correcta."  
 enunciado: "The student has a ___ in their bag."  
 tipo: completar  
-respuesta: "notebook"  
 respuestas_validas:  
   - "Notebook"  
   - "notebook"  
@@ -146,7 +142,6 @@ pasos:
 explicacion: "El texto indica que el estudiante prefiere pizza, por lo que 'pizza' es la respuesta correcta."  
 enunciado: "The student likes to eat ___ for lunch."  
 tipo: completar  
-respuesta: "pizza"  
 respuestas_validas:  
   - "Pizza"  
   - "pizza"  
@@ -168,7 +163,6 @@ pasos:
 explicacion: "El texto dice que el gato es negro, por lo que 'black' es la respuesta correcta."  
 enunciado: "The cat is ___."  
 tipo: completar  
-respuesta: "black"  
 respuestas_validas:  
   - "Black"  
   - "black"  
@@ -190,7 +184,6 @@ pasos:
 explicacion: "El texto menciona que el estudiante duerme ocho horas, por lo que 'sleeps' es la respuesta correcta."  
 enunciado: "The student ___ eight hours every night."  
 tipo: completar  
-respuesta: "sleeps"  
 respuestas_validas:  
   - "Sleeps"  
   - "sleeps"  
@@ -212,7 +205,6 @@ pasos:
 explicacion: "El texto indica que el libro se llama 'The Magic Forest', por lo que es la respuesta correcta."  
 enunciado: "The title of the book is ___."  
 tipo: completar  
-respuesta: "The Magic Forest"  
 respuestas_validas:  
   - "The magic forest"  
   - "the magic forest"  
@@ -258,7 +250,6 @@ pasos:
 explicacion: "El texto dice que el estudiante le gusta cocinar, por lo que 'cooking' es la respuesta correcta."  
 enunciado: "The student’s favorite hobby is ___."  
 tipo: completar  
-respuesta: "cooking"  
 respuestas_validas:  
   - "Cooking"  
   - "cooking"  
@@ -304,7 +295,6 @@ pasos:
 explicacion: "El texto dice que la actividad ocurre por la mañana, por lo que 'morning' es la respuesta correcta."  
 enunciado: "The activity happens in the ___."  
 tipo: completar  
-respuesta: "morning"  
 respuestas_validas:  
   - "Morning"  
   - "morning"  
@@ -326,7 +316,6 @@ pasos:
 explicacion: "El texto menciona que tiene dos hermanos, por lo que 'two' es la respuesta correcta."  
 enunciado: "The student has ___ siblings."  
 tipo: completar  
-respuesta: "two"  
 respuestas_validas:  
   - "Two"  
   - "two"  
@@ -372,7 +361,6 @@ pasos:
 explicacion: "El texto dice que la escuela está cerca del parque, por lo que 'near the park' es la respuesta correcta."  
 enunciado: "The school is ___."  
 tipo: completar  
-respuesta: "near the park"  
 respuestas_validas:  
   - "Near the park"  
   - "near the park"  
@@ -394,7 +382,6 @@ pasos:
 explicacion: "El texto menciona que el perro es grande, por lo que 'big' es la respuesta correcta."  
 enunciado: "The dog is ___."  
 tipo: completar  
-respuesta: "big"  
 respuestas_validas:  
   - "Big"  
   - "big"  
@@ -416,7 +403,6 @@ pasos:
 explicacion: "El texto indica que el estudiante va al cine, por lo que 'go to the cinema' es la respuesta correcta."  
 enunciado: "On weekends, the student ___."  
 tipo: completar  
-respuesta: "goes to the cinema"  
 respuestas_validas:  
   - "Goes to the cinema"  
   - "goes to the cinema"  
@@ -462,7 +448,6 @@ pasos:
 explicacion: "El texto indica que la clase dura una hora, por lo que 'an hour' es la respuesta correcta."  
 enunciado: "The class lasts ___."  
 tipo: completar  
-respuesta: "an hour"  
 respuestas_validas:  
   - "An hour"  
   - "an hour"  
@@ -484,7 +469,6 @@ pasos:
 explicacion: "El texto menciona que el estudiante es alérgico a las nueces, por lo que 'nuts' es la respuesta correcta."  
 enunciado: "The student is allergic to ___."  
 tipo: completar  
-respuesta: "nuts"  
 respuestas_validas:  
   - "Nuts"  
   - "nuts"  
@@ -506,7 +490,6 @@ pasos:
 explicacion: "El texto dice que el estudiante visitará París, por lo que 'visit Paris' es la respuesta correcta."  
 enunciado: "During the holidays, the student will ___."  
 tipo: completar  
-respuesta: "visit Paris"  
 respuestas_validas:  
   - "Visit Paris"  
   - "visit Paris"  
@@ -528,7 +511,6 @@ pasos:
 explicacion: "El texto indica que el libro fue escrito por J.K. Rowling, por lo que es la respuesta correcta."  
 enunciado: "The author of the book is ___."  
 tipo: completar  
-respuesta: "J.K. Rowling"  
 respuestas_validas:  
   - "J.K. rowling"  
   - "j.k. rowling"  
@@ -547,8 +529,7 @@ metadata:
   tags: ["gerunds", "verbs"]  
 
 tipo: completar  
-enunciado: 'The student spends time ___ their room every evening.'  
-respuesta: "cleaning"  
+enunciado: "The student spends time ___ their room every evening."
 respuestas_validas:  
   - "cleaning"  
   - "Cleaning"  

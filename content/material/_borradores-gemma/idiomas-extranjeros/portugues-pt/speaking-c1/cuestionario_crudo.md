@@ -8,7 +8,6 @@ metadata:
 pasos:  
   - "Reconocer el uso del subjuntivo después de expresiones de deseo."  
   - "Identificar la forma correcta del verbo en el subjuntivo."  
-respuesta: "venha"  
 tipo: completar  
 respuestas_validas:  
   - "vem"  
@@ -48,7 +47,6 @@ metadata:
 pasos:  
   - "Reconocer el uso del gerundio en oraciones que expresan acciones simultáneas."  
   - "Completar el hueco con la forma correcta del gerundio."  
-respuesta: "comprando"  
 tipo: completar  
 respuestas_validas:  
   - "comprando"  
@@ -88,7 +86,6 @@ metadata:
 pasos:  
   - "Distinguir entre el uso de 'que' y 'se' en oraciones relativas."  
   - "Completar el hueco con la palabra correcta."  
-respuesta: "que"  
 tipo: completar  
 respuestas_validas:  
   - "que"  
@@ -128,7 +125,6 @@ metadata:
 pasos:  
   - "Distinguir entre 'pelo menos' y 'no mínimo' según el contexto."  
   - "Completar el hueco con la expresión adecuada."  
-respuesta: "pelo menos"  
 tipo: completar  
 respuestas_validas:  
   - "pelo menos"  
@@ -147,7 +143,6 @@ metadata:
 pasos:  
   - "Reconocer el uso del subjuntivo después de expresiones negativas."  
   - "Identificar la forma correcta del verbo en el subjuntivo."  
-respuesta: "vá"  
 tipo: completar  
 respuestas_validas:  
   - "vá"  
@@ -187,7 +182,6 @@ metadata:
 pasos:  
   - "Reconocer el acuerdo de adjetivos con sustantivos masculinos/femeninos."  
   - "Completar el hueco con la forma correcta del adjetivo."  
-respuesta: "interessante"  
 tipo: completar  
 respuestas_validas:  
   - "interessante"  
@@ -226,7 +220,6 @@ metadata:
 pasos:  
   - "Reconocer el uso del subjuntivo después de expresiones negativas."  
   - "Identificar la forma correcta del verbo en el subjuntivo."  
-respuesta: "vá"  
 tipo: completar  
 respuestas_validas:  
   - "vá"  
@@ -266,7 +259,6 @@ metadata:
 pasos:  
   - "Reconocer el uso del gerundio con 'enquanto' para acciones simultáneas."  
   - "Completar el hueco con la forma correcta del gerundio."  
-respuesta: "chovendo"  
 tipo: completar  
 respuestas_validas:  
   - "chovendo"  
@@ -306,7 +298,6 @@ metadata:
 pasos:  
   - "Distinguir entre 'pela primeira vez' y 'na primeira vez' según el contexto."  
   - "Completar el hueco con la expresión adecuada."  
-respuesta: "pela primeira vez"  
 tipo: completar  
 respuestas_validas:  
   - "pela primeira vez"  
@@ -325,7 +316,6 @@ metadata:
 pasos:  
   - "Reconocer el acuerdo de adjetivos con sustantivos compuestos."  
   - "Completar el hueco con la forma correcta del adjetivo."  
-respuesta: "interessantes"  
 tipo: completar  
 respuestas_validas:  
   - "interessantes"  
@@ -364,7 +354,6 @@ metadata:
 pasos:  
   - "Distinguir entre 'por que' y 'porquê' según el contexto."  
   - "Completar el hueco con la forma correcta."  
-respuesta: "por que"  
 tipo: completar  
 respuestas_validas:  
   - "por que"  
@@ -423,7 +412,6 @@ metadata:
 pasos:  
   - "Reconocer el acuerdo de adjetivos con sustantivos múltiples."  
   - "Completar el hueco con la forma correcta del adjetivo."  
-respuesta: "interessantes"  
 tipo: completar  
 respuestas_validas:  
   - "interessantes"  
@@ -442,7 +430,6 @@ metadata:
 pasos:  
   - "Distinguir entre 'pelo menos' y 'no mínimo' según el contexto."  
   - "Completar el hueco con la expresión adecuada."  
-respuesta: "no mínimo"  
 tipo: completar  
 respuestas_validas:  
   - "no mínimo"  

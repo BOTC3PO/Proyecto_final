@@ -14,7 +14,11 @@ respuestas_validas:
   - "Saudáveis"  
 
 enunciado: "Os funcionários do hospital são todos ______."  
-opciones_explicitas: ["saudável", "saudáveis", "saudavel", "saudaveis"]  
+opciones_explicitas:
+  - "saudável"
+  - "saudáveis"
+  - "saudavel"
+  - "saudaveis"
 tipo: mc  
 
 explicacion: "O substantivo 'funcionários' é plural e masculino. O adjetivo 'saudável' deve concordar em gênero (masculino) e número (plural), resultando em 'saudáveis'."  
@@ -40,7 +44,11 @@ respuestas_validas:
   - "Vivêssemos"  
 
 enunciado: "Se ______ em outro país, talvez tivessemos mais oportunidades."  
-opciones_explicitas: ["vivéssemos", "viveríamos", "vívemos", "vivendo"]  
+opciones_explicitas:
+  - "vivéssemos"
+  - "viveríamos"
+  - "vívemos"
+  - "vivendo"
 tipo: mc  
 
 explicacion: "A oração hipotética no pretérito imperfeito do subjuntivo exige a forma 'vivêssemos' para concordar com o sujeito tácito (nós)."  
@@ -66,7 +74,11 @@ respuestas_validas:
   - "A"  
 
 enunciado: "Ela está acostumada ______ rotina diária."  
-opciones_explicitas: ["a", "com", "em", "para"]  
+opciones_explicitas:
+  - "a"
+  - "com"
+  - "em"
+  - "para"
 tipo: mc  
 
 explicacion: "O verbo 'acostumar-se' exige a preposição 'a' quando seguido de um substantivo, como em 'acostumada à rotina'."  
@@ -92,7 +104,11 @@ respuestas_validas:
   - "Enquanto"  
 
 enunciado: "______ trabalhava no escritório, ela estudava em casa."  
-opciones_explicitas: ["Enquanto", "Quando", "Depois que", "Assim que"]  
+opciones_explicitas:
+  - "Enquanto"
+  - "Quando"
+  - "Depois que"
+  - "Assim que"
 tipo: mc  
 
 explicacion: "A conjunção 'enquanto' introduz uma oração subordinada adverbial de tempo, com o gerúndio 'trabalhava' indicando ações simultâneas."  
@@ -118,7 +134,11 @@ respuestas_validas:
   - "São"  
 
 enunciado: "O diretor ______ responsável pela mudança de horário."  
-opciones_explicitas: ["é", "são", "está", "estão"]  
+opciones_explicitas:
+  - "é"
+  - "são"
+  - "está"
+  - "estão"
 tipo: mc  
 
 explicacion: "O sujeito 'o diretor' é singular, mas o verbo 'ser' permanece no singular ('é') independentemente do complemento. Neste caso, a forma correta é 'é responsável'."  
@@ -144,7 +164,11 @@ respuestas_validas:
   - "Pelo"  
 
 enunciado: "Ela decidiu ______ amor por ele de forma definitiva."  
-opciones_explicitas: ["pelo", "pelos", "com o", "no"]  
+opciones_explicitas:
+  - "pelo"
+  - "pelos"
+  - "com o"
+  - "no"
 tipo: mc  
 
 explicacion: "A expressão 'pelo amor' é uma locução fixa que exige a preposição 'pelo' (por + o) para indicar motivo."  
@@ -170,7 +194,11 @@ respuestas_validas:
   - "Escrito"  
 
 enunciado: "O texto ______ por uma equipe de especialistas em linguística."  
-opciones_explicitas: ["escrito", "escrivei", "escreveu", "escrevendo"]  
+opciones_explicitas:
+  - "escrito"
+  - "escrivei"
+  - "escreveu"
+  - "escrevendo"
 tipo: mc  
 
 explicacion: "O particípio passado do verbo 'escrever' é 'escrito', que concorda com o sujeito (o texto) em número e gênero."  
@@ -196,7 +224,11 @@ respuestas_validas:
   - "Para"  
 
 enunciado: "O projeto foi concluído ______ o prazo estabelecido."  
-opciones_explicitas: ["no", "em", "até", "para"]  
+opciones_explicitas:
+  - "no"
+  - "em"
+  - "até"
+  - "para"
 tipo: mc  
 
 explicacion: "A preposição 'para' indica um objetivo ou finalidade, como em 'concluído para o prazo', expressando que a tarefa foi feita no tempo determinado."  
@@ -222,7 +254,11 @@ respuestas_validas:
   - "Fazer"  
 
 enunciado: "É importante ______ exercícios físicos regularmente."  
-opciones_explicitas: ["fazer", "fazendo", "feito", "faça"]  
+opciones_explicitas:
+  - "fazer"
+  - "fazendo"
+  - "feito"
+  - "faça"
 tipo: mc  
 
 explicacion: "O infinitivo pessoal 'fazer' é usado após verbos como 'importa', 'precisa', 'é importante', indicando ação necessária."  
@@ -248,7 +284,11 @@ respuestas_validas:
   - "Inteligente"  
 
 enunciado: "Ela é ______ quanto seu irmão em termos de criatividade."  
-opciones_explicitas: ["tão inteligente", "mais inteligente", "menos inteligente", "inteiramente inteligente"]  
+opciones_explicitas:
+  - "tão inteligente"
+  - "mais inteligente"
+  - "menos inteligente"
+  - "inteiramente inteligente"
 tipo: mc  
 
 explicacion: "A estrutura 'tão...quanto' é usada para igualdade em comparações, como em 'tão inteligente quanto seu irmão'."  
@@ -274,7 +314,11 @@ respuestas_validas:
   - "Caminhando"  
 
 enunciado: "Ele foi visto ______ pela rua principal no momento do acidente."  
-opciones_explicitas: ["caminhando", "caminhou", "caminhe", "caminhar"]  
+opciones_explicitas:
+  - "caminhando"
+  - "caminhou"
+  - "caminhe"
+  - "caminhar"
 tipo: mc  
 
 explicacion: "O gerúndio 'caminhando' é usado com verbos de movimento (como 'ser visto') para indicar ação em progresso."  
@@ -300,7 +344,11 @@ respuestas_validas:
   - "Coberto"  
 
 enunciado: "A superfície do lago estava ______ por uma camada de gelo."  
-opciones_explicitas: ["coberto", "coberta", "cobre", "cobrindo"]  
+opciones_explicitas:
+  - "coberto"
+  - "coberta"
+  - "cobre"
+  - "cobrindo"
 tipo: mc  
 
 explicacion: "O verbo 'estar' (verbo de ligação) requer o particípio passado do verbo 'cobrir', que concorda com o sujeito neutro ('superfície') em gênero e número."  
@@ -326,7 +374,11 @@ respuestas_validas:
   - "Em"  
 
 enunciado: "Ela chegou ______ Paris na manhã do dia 10 de setembro."  
-opciones_explicitas: ["a", "em", "para", "no"]  
+opciones_explicitas:
+  - "a"
+  - "em"
+  - "para"
+  - "no"
 tipo: mc  
 
 explicacion: "A preposição 'em' é usada para indicar localização no tempo (como em 'em Paris') ou em datas específicas ('em 10 de setembro')."  
@@ -352,7 +404,11 @@ respuestas_validas:
   - "Visitar"  
 
 enunciado: "Ela quer ______ as cidades da Europa antes dos 30 anos."  
-opciones_explicitas: ["visitar", "visitando", "visitou", "visite"]  
+opciones_explicitas:
+  - "visitar"
+  - "visitando"
+  - "visitou"
+  - "visite"
 tipo: mc  
 
 explicacion: "O infinitivo pessoal 'visitar' é usado após verbos como 'querer', 'pretender', indicando ação futura ou desejada."  
@@ -378,7 +434,11 @@ respuestas_validas:
   - "Se"  
 
 enunciado: "______ ele tivesse dinheiro, compraria uma casa nova."  
-opciones_explicitas: ["Se", "Quando", "Porque", "Como"]  
+opciones_explicitas:
+  - "Se"
+  - "Quando"
+  - "Porque"
+  - "Como"
 tipo: mc  
 
 explicacion: "A oração causal com 'se' indica hipótese (condicional), como em 'Se ele tivesse dinheiro', que é a estrutura correta para expressar uma condição não realizada."  
@@ -404,7 +464,11 @@ respuestas_validas:
   - "Felizes"  
 
 enunciado: "Os membros da equipe estão todos ______ com os resultados alcançados."  
-opciones_explicitas: ["feliz", "felizes", "felicidade", "feliçes"]  
+opciones_explicitas:
+  - "feliz"
+  - "felizes"
+  - "felicidade"
+  - "feliçes"
 tipo: mc  
 
 explicacion: "O substantivo coletivo 'equipe' é singular, mas o adjetivo concorda em número com o sujeito (membros), resultando em 'felizes'."  
@@ -430,7 +494,11 @@ respuestas_validas:
   - "Caminhando"  
 
 enunciado: "Enquanto ele ______ pela praia, ouviu um barulho estranho no mar."  
-opciones_explicitas: ["caminha", "caminhou", "caminhando", "caminhar"]  
+opciones_explicitas:
+  - "caminha"
+  - "caminhou"
+  - "caminhando"
+  - "caminhar"
 tipo: mc  
 
 explicacion: "O gerúndio 'caminhando' indica ação simultânea com a outra (ouvir o barulho), conforme exigido pela estrutura 'enquanto + gerúndio'."  
@@ -456,7 +524,11 @@ respuestas_validas:
   - "Ler"  
 
 enunciado: "O livro que ______ mais de cem páginas é muito difícil para iniciantes."  
-opciones_explicitas: ["tem", "têm", "ter", "ler"]  
+opciones_explicitas:
+  - "tem"
+  - "têm"
+  - "ter"
+  - "ler"
 tipo: mc  
 
 explicacion: "A oração subordinada adjetiva 'que ler mais de cem páginas' usa o infinitivo pessoal do verbo 'ter', indicando ação futura ou condicional."  
@@ -482,7 +554,11 @@ respuestas_validas:
   - "Pela"  
 
 enunciado: "Ela foi ______ cidade de Lisboa para visitar o Museu do Futebol."  
-opciones_explicitas: ["a", "para a", "pela", "no"]  
+opciones_explicitas:
+  - "a"
+  - "para a"
+  - "pela"
+  - "no"
 tipo: mc  
 
 explicacion: "A expressão 'pela cidade' é uma locução fixa que exige a preposição 'pela' (por + a) para indicar movimento através de um lugar."  
@@ -508,7 +584,11 @@ respuestas_validas:
   - "Coberta"  
 
 enunciado: "A janela estava ______ por uma camada de tinta branca."  
-opciones_explicitas: ["coberto", "coberta", "cobre", "cobrindo"]  
+opciones_explicitas:
+  - "coberto"
+  - "coberta"
+  - "cobre"
+  - "cobrindo"
 tipo: mc  
 
 explicacion: "O verbo 'estar' (verbo de ligação) exige o particípio passado do verbo 'cobrir', que concorda com o sujeito feminino ('janela') em gênero e número."  
@@ -534,7 +614,11 @@ respuestas_validas:
   - "No"  
 
 enunciado: "O festival foi realizado ______ dia 5 de outubro em Lisboa."  
-opciones_explicitas: ["a", "em", "para", "no"]  
+opciones_explicitas:
+  - "a"
+  - "em"
+  - "para"
+  - "no"
 tipo: mc  
 
 explicacion: "A preposição 'no' é usada para indicar datas específicas no tempo, como em 'no dia 5 de outubro', combinando 'em' + 'o'."  
@@ -560,7 +644,11 @@ respuestas_validas:
   - "Estudar"  
 
 enunciado: "É essencial ______ novos idiomas para se comunicar internacionalmente."  
-opciones_explicitas: ["estudar", "estudando", "estude", "estudou"]  
+opciones_explicitas:
+  - "estudar"
+  - "estudando"
+  - "estude"
+  - "estudou"
 tipo: mc  
 
 explicacion: "O infinitivo pessoal 'estudar' é usado após verbos como 'ser essencial', indicando ação necessária ou recomendada."  
@@ -586,7 +674,11 @@ respuestas_validas:
   - "Se"  
 
 enunciado: "______ você tivesse mais tempo, poderia viajar para a França."  
-opciones_explicitas: ["Se", "Quando", "Porque", "Como"]  
+opciones_explicitas:
+  - "Se"
+  - "Quando"
+  - "Porque"
+  - "Como"
 tipo: mc  
 
 explicacion: "A oração condicional com 'se' indica hipótese (condicional), como em 'Se você tivesse mais tempo', que é a estrutura correta para expressar uma condição não realizada."  

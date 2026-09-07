@@ -11,7 +11,6 @@ pasos:
 explicacion: El verbo "desejar" requiere subjuntivo cuando introduce una oración subordinada con "que". La forma del subjuntivo depende del sujeto de la oración principal y del contexto temporal.  
 tipo: completar  
 enunciado: "Ela deseja que ele _______ mais rápido."  
-respuesta: "corra"  
 respuestas_validas:  
   - "corra"  
   - "Corra"  
@@ -58,7 +57,6 @@ pasos:
 explicacion: Verbos como "pedir" exigen subjuntivo en oraciones subordinadas con "que", incluso si la oración principal está en pretérito.  
 tipo: completar  
 enunciado: "Eles pediram que eu _______ o relatório antes do prazo."  
-respuesta: "entregue"  
 respuestas_validas:  
   - "entregue"  
   - "Entregue"  
@@ -105,7 +103,6 @@ pasos:
 explicacion: Expresiones como "importa que" exigen subjuntivo para transmitir una idea de relevancia o valor.  
 tipo: completar  
 enunciado: "Importa que ela _______ a verdade."  
-respuesta: "diga"  
 respuestas_validas:  
   - "diga"  
   - "Diga"  
@@ -152,7 +149,6 @@ pasos:
 explicacion: Expresiones como "recomendar que" exigen subjuntivo para transmitir una sugerencia o consejo.  
 tipo: completar  
 enunciado: "O médico recomendou que ela _______ mais frutas."  
-respuesta: "coma"  
 respuestas_validas:  
   - "coma"  
   - "Coma"  
@@ -199,7 +195,6 @@ pasos:
 explicacion: Expresiones como "ser necessário que" exigen subjuntivo para transmitir una exigencia o condición.  
 tipo: completar  
 enunciado: "É necessário que ele _______ mais atenção."  
-respuesta: "dê"  
 respuestas_validas:  
   - "dê"  
   - "Dê"  
@@ -246,7 +241,6 @@ pasos:
 explicacion: Expresiones como "acreditar que" exigen subjuntivo cuando la oración principal expresa una opinión o duda.  
 tipo: completar  
 enunciado: "Ela acredita que eu _______ o plano."  
-respuesta: "saiba"  
 respuestas_validas:  
   - "saiba"  
   - "Saiba"  
@@ -293,7 +287,6 @@ pasos:
 explicacion: Frases que expresan negación o falta de creencia requieren subjuntivo para transmitir incertidumbre.  
 tipo: completar  
 enunciado: "Ninguém acredita que ela _______ a culpa."  
-respuesta: "soube"  
 respuestas_validas:  
   - "soube"  
   - "Soube"  
@@ -340,7 +333,6 @@ pasos:
 explicacion: Expresiones como "importar que" exigen subjuntivo para transmitir una idea de relevancia o valor.  
 tipo: completar  
 enunciado: "Importa que você _______ a regra."  
-respuesta: "siga"  
 respuestas_validas:  
   - "siga"  
   - "Siga"  
@@ -387,7 +379,6 @@ pasos:
 explicacion: Frases que expresan duda, negación o imposibilidad requieren subjuntivo para transmitir incertidumbre.  
 tipo: completar  
 enunciado: "Ninguém duvida que ele _______ o trabalho."  
-respuesta: "faça"  
 respuestas_validas:  
   - "faça"  
   - "Faça"  
@@ -434,7 +425,6 @@ pasos:
 explicacion: Frases que expresan negación o falta de creencia requieren subjuntivo para transmitir incertidumbre.  
 tipo: completar  
 enunciado: "Ninguém acredita que ele _______ a verdade."  
-respuesta: "saiba"  
 respuestas_validas:  
   - "saiba"  
   - "Saiba"  
@@ -481,7 +471,6 @@ pasos:
 explicacion: Frases que expresan duda, negación o imposibilidad requieren subjuntivo para transmitir incertidumbre.  
 tipo: completar  
 enunciado: "Ninguém sabe que ela _______ a verdade."  
-respuesta: "diga"  
 respuestas_validas:  
   - "diga"  
   - "Diga"  
@@ -504,8 +493,6 @@ pasos:
 explicacion: "La oración implica una recomendación general, por lo tanto se usa el subjuntivo. La forma correcta de 'ler' (leer) en subjuntivo es 'lea' o 'Leia', según la mayúscula requerida por el contexto."  
 tipo: completar  
 enunciado: "É fundamental que você _______ as regras antes de começar."  
-variables: []  
-respuesta: "leia"  
 respuestas_validas:  
   - "leia"  
   - "Leia"  
@@ -524,7 +511,6 @@ pasos:
 explicacion: Frases que expresan duda, negación o imposibilidad requieren subjuntivo para transmitir incertidumbre.  
 tipo: completar  
 enunciado: "Ninguém duvida que ele _______ a solução."  
-respuesta: "sabe"  
 respuestas_validas:  
   - "sabe"  
   - "Sabe"  
@@ -571,7 +557,6 @@ pasos:
 explicacion: Frases que expresan duda, negación o imposibilidad requieren subjuntivo para transmitir incertidumbre.  
 tipo: completar  
 enunciado: "Ninguém duvida que ela _______ a verdade."  
-respuesta: "saiba"  
 respuestas_validas:  
   - "saiba"  
   - "Saiba"

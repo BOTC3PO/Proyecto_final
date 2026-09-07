@@ -10,7 +10,6 @@ pasos:
 explicacion: "El verbo 'いる' en forma polite se escribe como 'います' cuando describe el estado de una persona o animal. En este contexto, se usa para describir a alguien que está presente."  
 enunciado: "田中さんは______。"  
 tipo: completar  
-respuesta: "います"  
 respuestas_validas:  
   - "います"  
   - "イマス"  
@@ -32,7 +31,6 @@ pasos:
 explicacion: "La partícula 'の' se usa para indicar posesión o pertenencia. En este caso, se refiere a algo que pertenece al sujeto mencionado."  
 enunciado: "これは______の本です。"  
 tipo: completar  
-respuesta: "わたし"  
 respuestas_validas:  
   - "わたし"  
   - "私"  
@@ -54,7 +52,10 @@ pasos:
 explicacion: "'あります' se usa para objetos inanimados, mientras que 'います' se usa para seres vivientes. En este contexto, el sujeto es un objeto."  
 enunciado: "部屋に______。"  
 tipo: mc  
-opciones_explicitas: ["ある", "いる", "あります"]  
+opciones_explicitas:
+  - "ある"
+  - "いる"
+  - "あります"
 respuesta: "あります"  
 
 ---
@@ -74,7 +75,6 @@ pasos:
 explicacion: "El verbo '行く' en forma pasada se escribe como '行った'. Se usa para describir una acción que ya ocurrió en el pasado."  
 enunciado: "昨日、______。"  
 tipo: completar  
-respuesta: "行った"  
 respuestas_validas:  
   - "行った"  
   - "イタ"  
@@ -96,7 +96,6 @@ pasos:
 explicacion: "'に' se usa para indicar dirección o destino. En este caso, se refiere a un lugar específico donde algo está ubicado."  
 enunciado: "学校は______。"  
 tipo: completar  
-respuesta: "ここです"  
 respuestas_validas:  
   - "ここです"  
   - "ここの"  
@@ -118,7 +117,6 @@ pasos:
 explicacion: "'人' es el contador usado para contar personas. En este contexto, se refiere a un grupo de individuos."  
 enunciado: "会議には______が参加しました。"  
 tipo: completar  
-respuesta: "三人"  
 respuestas_validas:  
   - "三人"  
   - "3人"  
@@ -140,7 +138,6 @@ pasos:
 explicacion: "'どこ' se usa para preguntar sobre un lugar. En este caso, se refiere a un destino o ubicación específica."  
 enunciado: "______に住んでいますか？"  
 tipo: completar  
-respuesta: "どこ"  
 respuestas_validas:  
   - "どこ"  
   - "ドコ"  
@@ -162,7 +159,6 @@ pasos:
 explicacion: "El verbo '食べる' en forma presente se escribe como '食べます'. Se usa para describir una acción que ocurre actualmente."  
 enunciado: "彼は______。"  
 tipo: completar  
-respuesta: "食べます"  
 respuestas_validas:  
   - "食べます"  
   - "タベマス"  
@@ -184,7 +180,6 @@ pasos:
 explicacion: "'今' se usa para referirse al momento actual. En este contexto, se refiere a una acción que ocurre en este instante."  
 enunciado: "______、彼は働いています。"  
 tipo: completar  
-respuesta: "今"  
 respuestas_validas:  
   - "今"  
   - "イマ"  
@@ -206,7 +201,6 @@ pasos:
 explicacion: "El verbo '行く' en forma te se escribe como '行って'. Se usa para conectar acciones o formar frases compuestas."  
 enunciado: "______、彼は学校に行きました。"  
 tipo: completar  
-respuesta: "行って"  
 respuestas_validas:  
   - "行って"  
   - "イテ"  
@@ -228,7 +222,6 @@ pasos:
 explicacion: "'に' se usa para indicar ubicación. En este caso, se refiere a un lugar específico donde algo está situado."  
 enunciado: "本は______。"  
 tipo: completar  
-respuesta: "ここです"  
 respuestas_validas:  
   - "ここです"  
   - "ここの"  
@@ -250,7 +243,6 @@ pasos:
 explicacion: "'の' se usa para indicar posesión o pertenencia. En este contexto, se refiere a algo que pertenece al sujeto mencionado."  
 enunciado: "これは______のペンです。"  
 tipo: completar  
-respuesta: "わたし"  
 respuestas_validas:  
   - "わたし"  
   - "私"  
@@ -291,7 +283,6 @@ pasos:
 explicacion: "'いつ' se usa para preguntar sobre un momento en el tiempo. En este caso, se refiere a una fecha específica."  
 enunciado: "______に会いましたか？"  
 tipo: completar  
-respuesta: "いつ"  
 respuestas_validas:  
   - "いつ"  
   - "イツ"  
@@ -347,7 +338,6 @@ pasos:
 explicacion: "El verbo '話す' en forma te se escribe como '話して'. Se usa para conectar acciones o formar frases compuestas."  
 enunciado: "______、彼は友達と会いました。"  
 tipo: completar  
-respuesta: "話して"  
 respuestas_validas:  
   - "話して"  
   - "ハナシテ"  
@@ -436,7 +426,6 @@ pasos:
 explicacion: "'何' se usa para preguntar sobre cantidad. En este caso, se refiere a un número específico de objetos."  
 enunciado: "______ですか？"  
 tipo: completar  
-respuesta: "何"  
 respuestas_validas:  
   - "何"  
   - "ナニ"  

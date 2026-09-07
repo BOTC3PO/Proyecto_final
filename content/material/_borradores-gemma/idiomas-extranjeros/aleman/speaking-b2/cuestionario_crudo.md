@@ -7,13 +7,11 @@ metadata:
   tags: ["zeit", "präpositionen"]  
 pasos:  
   - "Completa el hueco con la preposición correcta."  
-respuesta: "in"  
 respuestas_validas:  
   - "in"  
   - "In"  
 tipo: completar  
 enunciado: "Ich fahre ___ drei Tagen nach Berlin."  
-variables: []  
 explicacion: "La preposición 'in' se usa con tiempos de duración (drei Tage, eine Woche) para indicar un período futuro o planeado."  
 ```
 
@@ -35,7 +33,6 @@ opciones_explicitas:
 respuesta: "würde ich arbeiten"  
 tipo: mc  
 enunciado: "Wenn ich mehr Geld hätte, ___."  
-variables: []  
 explicacion: "El Konjunktiv II (würde + infinitivo) se usa en hipótesis irreal o contrarias a la realidad."  
 ```
 
@@ -50,13 +47,11 @@ metadata:
   tags: ["satzgefüge", "obwohl"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo."  
-respuesta: "kann"  
 respuestas_validas:  
   - "kann"  
   - "Kann"  
 tipo: completar  
 enunciado: "___ es regnet, gehe ich spazieren."  
-variables: []  
 explicacion: "'Obwohl' requiere el uso del Konjunktiv II (könnte) en oraciones subordinadas, pero aquí se usa 'kann' porque la oración principal es afirmativa y la subordinada no cambia el sentido."  
 ```
 
@@ -78,7 +73,6 @@ opciones_explicitas:
 respuesta: "als wir in Paris waren"  
 tipo: mc  
 enunciado: "Ich erinnere mich ___."  
-variables: []  
 explicacion: "'Als' se usa para referirse a un tiempo pasado concreto, mientras que 'wenn' implica una condición hipotética y 'ob' introduce duda."  
 ```
 
@@ -93,13 +87,11 @@ metadata:
   tags: ["imperativ", "du/ihr"]  
 pasos:  
   - "Completa el hueco con la forma correcta del imperativo."  
-respuesta: "schreib"  
 respuestas_validas:  
   - "schreib"  
   - "Schreib"  
 tipo: completar  
 enunciado: "___ bitte deine Hausaufgaben!"  
-variables: []  
 explicacion: "El imperativo para 'du' se forma con la raíz del verbo en infinitivo (schreiben → schreib)."  
 ```
 
@@ -114,13 +106,11 @@ metadata:
   tags: ["präposition", "beschweren"]  
 pasos:  
   - "Completa el hueco con la preposición correcta."  
-respuesta: "über"  
 respuestas_validas:  
   - "über"  
   - "Über"  
 tipo: completar  
 enunciado: "Ich beschwere mich ___ die Lautstärke."  
-variables: []  
 explicacion: "'Sich beschweren über' es una construcción fija que requiere la preposición 'über' para indicar el motivo de la queja."  
 ```
 
@@ -142,7 +132,6 @@ opciones_explicitas:
 respuesta: "wo der Kuchen ist"  
 tipo: mc  
 enunciado: "Kannst du mir sagen ___?"  
-variables: []  
 explicacion: "'Wo' introduce una oración subordinada que indica lugar, mientras que 'der Kuchen ist' es una oración independiente."  
 ```
 
@@ -157,13 +146,11 @@ metadata:
   tags: ["modalverb", "hypothese"]  
 pasos:  
   - "Completa el hueco con la forma correcta del modalverbe."  
-respuesta: "könnte"  
 respuestas_validas:  
   - "könnte"  
   - "Könnte"  
 tipo: completar  
 enunciado: "Wenn ich mehr Zeit ___,"  
-variables: []  
 explicacion: "En hipótesis irreal, los modalverben se conjugan en Konjunktiv II (könnte)."  
 ```
 
@@ -178,13 +165,11 @@ metadata:
   tags: ["satzgefüge", "damit"]  
 pasos:  
   - "Completa el hueco con la forma correcta del verbo."  
-respuesta: "schlafen"  
 respuestas_validas:  
   - "schlafen"  
   - "Schlafen"  
 tipo: completar  
 enunciado: "Ich gehe ins Bett, ___ ich gut ___."  
-variables: []  
 explicacion: "'Damit' introduce una oración subordinada que explica el propósito de la acción principal (gehen ins Bett)."  
 ```
 
@@ -206,7 +191,6 @@ opciones_explicitas:
 respuesta: "seit drei Wochen"  
 tipo: mc  
 enunciado: "Ich lebe in Berlin ___."  
-variables: []  
 explicacion: "'Seit' indica un período de tiempo desde el pasado hasta el presente, mientras que 'vor' se usa para eventos pasados y 'in' para futuros."  
 ```
 
@@ -221,13 +205,11 @@ metadata:
   tags: ["konjunktiv", "wenn"]  
 pasos:  
   - "Completa el hueco con la forma correcta del Konjunktiv II."  
-respuesta: "könnte"  
 respuestas_validas:  
   - "könnte"  
   - "Könnte"  
 tipo: completar  
 enunciado: "Wenn ich reich ___,"  
-variables: []  
 explicacion: "El Konjunktiv II (würde + infinitivo) se usa en hipótesis irreal, pero aquí 'könnte' es correcto porque el verbo principal no cambia."  
 ```
 
@@ -242,13 +224,11 @@ metadata:
   tags: ["präposition", "freuen"]  
 pasos:  
   - "Completa el hueco con la preposición correcta."  
-respuesta: "auf"  
 respuestas_validas:  
   - "auf"  
   - "Auf"  
 tipo: completar  
 enunciado: "Ich freue mich ___ den Urlaub."  
-variables: []  
 explicacion: "'Sich freuen auf' es una construcción fija que requiere la preposición 'auf' para indicar el objeto de la alegría."  
 ```
 
@@ -266,7 +246,6 @@ pasos:
 explicacion: "La preposición 'um' se usa con verbos reflexivos como sich kümmern cuando se refiere a preocuparse por alguien o algo. Ejemplo: 'Ich kümmere mich um mein Kind.'"  
 tipo: completar  
 enunciado: "Ich kümmere mich ___ meiner Mutter."  
-respuesta: "um"  
 respuestas_validas:  
   - "um"  
 ```
@@ -306,7 +285,6 @@ opciones_explicitas:
 respuesta: "seit zwei Jahren"  
 tipo: mc  
 enunciado: "Ich arbeite hier ___."  
-variables: []  
 explicacion: "'Seit' indica un período desde el pasado hasta ahora, mientras que 'vor' es para eventos pasados y 'in' para futuros."  
 ```
 
@@ -321,13 +299,11 @@ metadata:
   tags: ["imperativ", "ihr"]  
 pasos:  
   - "Completa el hueco con la forma correcta del imperativo."  
-respuesta: "macht"  
 respuestas_validas:  
   - "macht"  
   - "Macht"  
 tipo: completar  
 enunciado: "___ bitte die Hausaufgaben!"  
-variables: []  
 explicacion: "El imperativo para 'ihr' se forma con la raíz del verbo en infinitivo (machen → macht)."  
 ```
 
@@ -342,13 +318,11 @@ metadata:
   tags: ["präposition", "ärgern"]  
 pasos:  
   - "Completa el hueco con la preposición correcta."  
-respuesta: "über"  
 respuestas_validas:  
   - "über"  
   - "Über"  
 tipo: completar  
 enunciado: "Ich ärgere mich ___ die Verspätung."  
-variables: []  
 explicacion: "'Sich ärgern über' es una construcción fija que requiere la preposición 'über' para indicar el motivo del enfado."  
 ```
 
@@ -366,7 +340,6 @@ pasos:
 explicacion: "'Sich freuen auf' se usa para expresar entusiasmo por algo futuro. Ejemplo: 'Ich freue mich auf den Urlaub.'"  
 tipo: completar  
 enunciado: "Ich freue mich ___ die Prüfung."  
-respuesta: "auf"  
 respuestas_validas:  
   - "auf"  
 ```
@@ -402,7 +375,6 @@ pasos:
 explicacion: "'Sich wehren gegen' se usa para expresar resistencia o defensa contra algo. Ejemplo: 'Er wehrt sich gegen die Kritik.'"  
 tipo: completar  
 enunciado: "Ich wehre mich ___ der Ungerechtigkeit."  
-respuesta: "gegen"  
 respuestas_validas:  
   - "gegen"  
 ```
@@ -419,7 +391,6 @@ pasos:
 explicacion: "En oraciones subordinadas introducidas por 'wenn', se usa el participio presente para conectar ideas. Ejemplo: 'Wenn ich mehr Geld hätte, würde ich reisen.'"  
 tipo: completar  
 enunciado: "Wenn ich ___ Zeit hätte, würde ich lernen."  
-respuesta: "mehr"  
 respuestas_validas:  
   - "mehr"  
 ```
@@ -436,7 +407,6 @@ pasos:
 explicacion: "'Sich an etwas erinnern' se usa para recordar algo específico. Ejemplo: 'Ich erinnere mich an den Tag.'"  
 tipo: completar  
 enunciado: "Er erinnert sich ___ die Geburtstagsparty."  
-respuesta: "an"  
 respuestas_validas:  
   - "an"  
 ```
@@ -472,7 +442,6 @@ pasos:
 explicacion: "'Sich mit etwas beschäftigen' se usa para indicar ocupación con algo. Ejemplo: 'Ich beschäftige mich mit dem Projekt.'"  
 tipo: completar  
 enunciado: "Sie beschäftigt sich ___ ihrer Arbeit."  
-respuesta: "mit"  
 respuestas_validas:  
   - "mit"  
 ```

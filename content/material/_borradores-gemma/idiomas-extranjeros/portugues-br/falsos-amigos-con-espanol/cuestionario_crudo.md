@@ -14,8 +14,6 @@ respuestas_validas:
   - "esta cuestión no importa"
 tipo: completar
 enunciado: "A frase 'Essa questão não importa' em português significa o mesmo que ________ em espanhol."
-variables:
-  - "importar"
 ```
 
 

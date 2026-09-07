@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identifica la forma verbale corretta per il connettivo 'per quanto'."
   - "Completa la frase con l'ausiliare e il participio passato."
-respuesta: "fosse"
 respuestas_validas:
   - "fosse"
   - "Fosse"
@@ -29,7 +28,6 @@ metadata:
 pasos:
   - "Scegli la forma corretta del verbo per il subgiuntivo in 'in modo che'."
   - "Verifica se il verbo concorda con il soggetto."
-respuesta: "venga"
 respuestas_validas:
   - "venga"
   - "Venga"
@@ -72,7 +70,6 @@ metadata:
 pasos:
   - "Completa la frase con l'indicativo presente."
   - "Verifica che il verbo concorda con il soggetto."
-respuesta: "è"
 respuestas_validas:
   - "è"
   - "E'"
@@ -115,7 +112,6 @@ metadata:
 pasos:
   - "Completa la frase con l'indicativo presente."
   - "Verifica se il verbo è concorde con il soggetto."
-respuesta: "è"
 respuestas_validas:
   - "è"
   - "E'"
@@ -158,7 +154,6 @@ metadata:
 pasos:
   - "Completa la frase con l'indicativo passato prossimo."
   - "Verifica che il verbo concorda con il soggetto."
-respuesta: "avesse"
 respuestas_validas:
   - "avesse"
   - "Avesse"
@@ -201,7 +196,6 @@ metadata:
 pasos:
   - "Completa la frase con l'indicativo condizionale."
   - "Verifica che il verbo concorda con il soggetto."
-respuesta: "sarebbe"
 respuestas_validas:
   - "sarebbe"
   - "Sarebbe"
@@ -244,7 +238,6 @@ metadata:
 pasos:
   - "Completa la frase con il subgiuntivo presente."
   - "Verifica che il verbo concorda con il soggetto."
-respuesta: "non venga"
 respuestas_validas:
   - "non venga"
   - "Non venga"
@@ -265,7 +258,6 @@ metadata:
 pasos:
   - "Completa la frase con l'indicativo presente."
   - "Verifica che il verbo concorda con il soggetto."
-respuesta: "è"
 respuestas_validas:
   - "è"
   - "E'"
@@ -308,7 +300,6 @@ metadata:
 pasos:
   - "Completa la frase con il subgiuntivo presente."
   - "Verifica che il verbo concorda con il soggetto."
-respuesta: "venga"
 respuestas_validas:
   - "venga"
   - "Venga"
@@ -329,7 +320,6 @@ metadata:
 pasos:
   - "Identifica el conectivo que introduce una condizione ipotetica."
   - "Verifica la concordanza temporale y modale."
-respuesta: "fosse"
 tipo: completar
 respuestas_validas:
   - "fosse"
@@ -369,7 +359,6 @@ metadata:
 pasos:
   - "Completa el hueco con un conectivo que añada una cualidad a la oración."
   - "Verifica que el complemento sea coherente con el sujeto."
-respuesta: "è"
 tipo: completar
 respuestas_validas:
   - "è"
@@ -388,7 +377,6 @@ metadata:
 pasos:
   - "Identifica el conectivo que expresa una causa directa."
   - "Asegúrate de que la oración refleje una relación causal clara."
-respuesta: "essendo"
 tipo: completar
 respuestas_validas:
   - "essendo"
@@ -428,7 +416,6 @@ metadata:
 pasos:
   - "Completa el hueco con un conectivo que compare una situación real con una esperada."
   - "Verifica la concordancia del verbo en el contexto."
-respuesta: "fosse"
 tipo: completar
 respuestas_validas:
   - "fosse"
@@ -468,7 +455,6 @@ metadata:
 pasos:
   - "Identifica el conectivo que exprese un contraste entre dos ideas."
   - "Asegúrate de que la oración sea coherente con el contexto."
-respuesta: "non"
 tipo: completar
 respuestas_validas:
   - "non"
@@ -487,7 +473,6 @@ metadata:
 pasos:
   - "Completa el hueco con un conectivo que indique una causa externa."
   - "Verifica la concordancia del verbo con el contexto temporal."
-respuesta: "vista"
 tipo: completar
 respuestas_validas:
   - "vista"

@@ -10,8 +10,6 @@ pasos:
 explicacion: "El sufijo '-ung' se usa para formar sustantivos abstractos de verbos. 'Arbeiten' → 'die Arbeit' (el trabajo)."  
 tipo: completar  
 enunciado: "Der Chef hat die _______ der Mitarbeiter geplant."  
-variables: {}  
-respuesta: "Planung"  
 respuestas_validas:  
   - "Planung"  
   - "planung"  
@@ -29,8 +27,6 @@ pasos:
 explicacion: "'Fähig' (capaz) → 'die Fähigkeit' (la capacidad). El sufijo '-heit' se usa para crear sustantivos de adjetivos o participios."  
 tipo: completar  
 enunciado: "Die _______ des Kindes ist beeindruckend."  
-variables: {}  
-respuesta: "Fähigkeit"  
 respuestas_validas:  
   - "Fähigkeit"  
   - "fähigkeit"  
@@ -48,8 +44,6 @@ pasos:
 explicacion: "'Gesellen' (aprendiz) → 'die Gesellschafterin' (la acompañante). '-Schaft' se usa para crear sustantivos de verbos o adjetivos que implican una relación social."  
 tipo: completar  
 enunciado: "Die _______ des Kunden ist wichtig für den Service."  
-variables: {}  
-respuesta: "Gesellschafterin"  
 respuestas_validas:  
   - "Gesellschafterin"  
   - "gesellschafterin"  
@@ -67,8 +61,6 @@ pasos:
 explicacion: "'Reparieren' (reparar) → 'die Reparatur' (la reparación). '-Ung' se usa para acciones o procesos generales."  
 tipo: completar  
 enunciado: "Die _______ des Maschinen war notwendig, um den Betrieb zu starten."  
-variables: {}  
-respuesta: "Reparatur"  
 respuestas_validas:  
   - "Reparatur"  
   - "reparatur"  
@@ -86,8 +78,6 @@ pasos:
 explicacion: "'Schön' (hermoso) → 'die Schönheit' (la belleza). '-Keit' se usa para crear sustantivos abstractos de adjetivos."  
 tipo: completar  
 enunciado: "Die _______ der Landschaft beeindruckte alle Besucher."  
-variables: {}  
-respuesta: "Schönheit"  
 respuestas_validas:  
   - "Schönheit"  
   - "schönheit"  
@@ -105,8 +95,6 @@ pasos:
 explicacion: "'Verhandeln' (negociar) → 'die Verhandlung' (la negociación). '-Ung' se usa para acciones formales o procesos."  
 tipo: completar  
 enunciado: "Die _______ zwischen den Parteien dauerte mehrere Stunden."  
-variables: {}  
-respuesta: "Verhandlung"  
 respuestas_validas:  
   - "Verhandlung"  
   - "verhandlung"  
@@ -124,8 +112,6 @@ pasos:
 explicacion: "'Erfahren' (experiencia) → 'die Erfahrung' (la experiencia). '-Schaft' puede derivarse de adjetivos o verbos según el contexto."  
 tipo: completar  
 enunciado: "Ihre _______ im Bereich IT ist ein Vorteil für uns."  
-variables: {}  
-respuesta: "Erfahrung"  
 respuestas_validas:  
   - "Erfahrung"  
   - "erfahrung"  
@@ -143,8 +129,6 @@ pasos:
 explicacion: "'Lernen' (aprender) → 'das Lernen' (el aprendizaje). '-Ung' se usa para procesos generales, incluso en contextos educativos."  
 tipo: completar  
 enunciado: "Das _______ von Fremdsprachen fördert die kognitive Entwicklung."  
-variables: {}  
-respuesta: "Lernen"  
 respuestas_validas:  
   - "Lernen"  
   - "lernen"  
@@ -162,8 +146,6 @@ pasos:
 explicacion: "'Natur' (naturaleza) → 'die Natürlichkeit' (la naturalidad). '-Heit' se usa para crear sustantivos de adjetivos abstractos."  
 tipo: completar  
 enunciado: "Die _______ des Waldes war atemberaubend."  
-variables: {}  
-respuesta: "Natürlichkeit"  
 respuestas_validas:  
   - "Natürlichkeit"  
   - "natürlichkeit"  
@@ -181,8 +163,6 @@ pasos:
 explicacion: "'Behandeln' (tratar) → 'die Behandlung' (el tratamiento). '-Ung' se usa para procesos profesionales, incluyendo médicos."  
 tipo: completar  
 enunciado: "Die _______ des Patienten erfolgte unter strengen Sicherheitsbedingungen."  
-variables: {}  
-respuesta: "Behandlung"  
 respuestas_validas:  
   - "Behandlung"  
   - "behandlung"  
@@ -200,8 +180,6 @@ pasos:
 explicacion: "'Verwalten' (gestionar) → 'die Verwaltung' (la administración). '-Schaft' se usa para crear términos oficiales o institucionales."  
 tipo: completar  
 enunciado: "Die _______ des Unternehmens ist für die Steuererklärung verantwortlich."  
-variables: {}  
-respuesta: "Verwaltung"  
 respuestas_validas:  
   - "Verwaltung"  
   - "verwaltung"  
@@ -219,8 +197,6 @@ pasos:
 explicacion: "'Programmieren' (programar) → 'die Programmierung' (la programación). '-Ung' se usa para procesos técnicos o digitales."  
 tipo: completar  
 enunciado: "Die _______ des Systems erfordert spezifische Kenntnisse in Java."  
-variables: {}  
-respuesta: "Programmierung"  
 respuestas_validas:  
   - "Programmierung"  
   - "programmierung"  
@@ -238,8 +214,6 @@ pasos:
 explicacion: "'Freudig' (feliz) → 'die Freudigkeit' (la alegría). '-Keit' se usa para crear sustantivos abstractos de adjetivos emocionales."  
 tipo: completar  
 enunciado: "Die _______ der Kinder während des Festes war unvergesslich."  
-variables: {}  
-respuesta: "Freudigkeit"  
 respuestas_validas:  
   - "Freudigkeit"  
   - "freudigkeit"  
@@ -257,8 +231,6 @@ pasos:
 explicacion: "'Tanzen' (bailar) → 'das Tanzen' (el baile). '-Ung' se usa para acciones o procesos culturales."  
 tipo: completar  
 enunciado: "Das _______ traditioneller Tänze ist ein Highlight des Festivals."  
-variables: {}  
-respuesta: "Tanzen"  
 respuestas_validas:  
   - "Tanzen"  
   - "tanzen"  
@@ -276,8 +248,6 @@ pasos:
 explicacion: "'Regieren' (governar) → 'die Regierung' (el gobierno). '-Schaft' se usa para crear términos institucionales o políticos."  
 tipo: completar  
 enunciado: "Die _______ des Landes ist verantwortlich für die Gesetzgebung."  
-variables: {}  
-respuesta: "Regierung"  
 respuestas_validas:  
   - "Regierung"  
   - "regierung"  
@@ -295,8 +265,6 @@ pasos:
 explicacion: "'Wandern' (caminar) → 'die Wandertour' (la excursión). '-Ung' puede formar sustantivos de verbos en contextos específicos como el turismo."  
 tipo: completar  
 enunciado: "Die _______ durch den Nationalpark war sehr angenehm."  
-variables: {}  
-respuesta: "Wandertour"  
 respuestas_validas:  
   - "Wandertour"  
   - "wandertour"  
@@ -314,8 +282,6 @@ pasos:
 explicacion: "'Künstlerisch' (artístico) → 'die Künstlichkeit' (la artificialidad). '-Heit' se usa para crear sustantivos abstractos de adjetivos, incluso en contextos artísticos."  
 tipo: completar  
 enunciado: "Die _______ der Bilder war erstaunlich für einen Anfänger."  
-variables: {}  
-respuesta: "Künstlichkeit"  
 respuestas_validas:  
   - "Künstlichkeit"  
   - "künstlichkeit"  
@@ -333,8 +299,6 @@ pasos:
 explicacion: "'Spielen' (jugar) → 'das Spiel' (el juego). '-Ung' puede formar sustantivos de verbos en contextos dinámicos como el deporte."  
 tipo: completar  
 enunciado: "Das _______ im Fußballturnier war spannend bis zum Ende."  
-variables: {}  
-respuesta: "Spiel"  
 respuestas_validas:  
   - "Spiel"  
   - "spiel"  
@@ -352,8 +316,6 @@ pasos:
 explicacion: "'Investieren' (invertir) → 'die Investition' (la inversión). '-Schaft' se usa para crear términos económicos o financieros."  
 tipo: completar  
 enunciado: "Die _______ in die neue Fabrik war riesig für das Unternehmen."  
-variables: {}  
-respuesta: "Investition"  
 respuestas_validas:  
   - "Investition"  
   - "investition"  
@@ -371,8 +333,6 @@ pasos:
 explicacion: "'Schutz' (protección) → 'der Schutz' (la protección). '-Ung' se usa para acciones o procesos, incluso en contextos ambientales."  
 tipo: completar  
 enunciado: "Der _______ der Tiere ist eine Pflicht für alle Naturschützer."  
-variables: {}  
-respuesta: "Schutz"  
 respuestas_validas:  
   - "Schutz"  
   - "schutz"  
@@ -390,8 +350,6 @@ pasos:
 explicacion: "'Gerecht' (justo) → 'die Gerechtigkeit' (la justicia). '-Keit' se usa para crear sustantivos abstractos de adjetivos, incluso en contextos sociales."  
 tipo: completar  
 enunciado: "Die _______ im Gerichtsprozess war für alle Beteiligten entscheidend."  
-variables: {}  
-respuesta: "Gerechtigkeit"  
 respuestas_validas:  
   - "Gerechtigkeit"  
   - "gerechtigkeit"  
@@ -409,8 +367,6 @@ pasos:
 explicacion: "'Singen' (cantar) → 'das Singen' (el canto). '-Ung' se usa para acciones o procesos, incluso en contextos artísticos como la música."  
 tipo: completar  
 enunciado: "Das _______ der Sängerin war eine Meisterleistung."  
-variables: {}  
-respuesta: "Singen"  
 respuestas_validas:  
   - "Singen"  
   - "singen"  
@@ -428,8 +384,6 @@ pasos:
 explicacion: "'Gebet' (oración) → 'die Gebetschaft' (la oración). '-Schaft' se usa para crear términos específicos de prácticas religiosas o espirituales."  
 tipo: completar  
 enunciado: "Die _______ im Gottesdienst war tief und bewegend."  
-variables: {}  
-respuesta: "Gebetschaft"  
 respuestas_validas:  
   - "Gebetschaft"  
   - "gebetschaft"  
@@ -447,8 +401,6 @@ pasos:
 explicacion: "'Kochen' (cocinar) → 'das Kochen' (la cocina). '-Ung' se usa para acciones o procesos, incluso en contextos culinarios."  
 tipo: completar  
 enunciado: "Das _______ der Speisen war von hoher Qualität und Kreativität."  
-variables: {}  
-respuesta: "Kochen"  
 respuestas_validas:  
   - "Kochen"  
   - "kochen"  
@@ -466,8 +418,6 @@ pasos:
 explicacion: "'Frei' (libre) → 'die Freiheit' (la libertad). '-Heit' se usa para crear sustantivos abstractos de adjetivos, incluso en contextos filosóficos o éticos."  
 tipo: completar  
 enunciado: "Die _______ des Menschen ist ein zentrales Thema in der Philosophie."  
-variables: {}  
-respuesta: "Freiheit"  
 respuestas_validas:  
   - "Freiheit"  
   - "freiheit"  

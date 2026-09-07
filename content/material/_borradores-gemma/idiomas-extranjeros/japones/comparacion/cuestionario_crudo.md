@@ -10,11 +10,9 @@ pasos:
 explicacion: "Para comparar dos elementos usando 'más que', se usa la estructura [A]は[B]より[C]です。"  
 tipo: completar  
 enunciado: "この本はあの本___高いです。"  
-respuesta: "より"  
 respuestas_validas:  
   - "より"  
   - "ยงริ" (no válido, incluido para prueba)  
-variables: []  
 ```
 
 
@@ -36,7 +34,6 @@ opciones_explicitas:
   - "ほど"  
   - "と"  
 respuesta: "ほど"  
-variables: []  
 ```
 
 
@@ -53,11 +50,9 @@ pasos:
 explicacion: "Para expresar 'no tan...como', se usa [A]は[B]より[C]ではありません。"  
 tipo: completar  
 enunciado: "このレストランはあの店___安いではありません。"  
-respuesta: "より"  
 respuestas_validas:  
   - "より"  
   - "ยงริ" (no válido, incluido para prueba)  
-variables: []  
 ```
 
 
@@ -79,7 +74,6 @@ opciones_explicitas:
   - "ほど"  
   - "と"  
 respuesta: "より"  
-variables: []  
 ```
 
 
@@ -96,11 +90,9 @@ pasos:
 explicacion: "Para 'tan...como', se usa [A]は[B]ほど[C]です。"  
 tipo: completar  
 enunciado: "彼の車は私の車___速いです。"  
-respuesta: "ほど"  
 respuestas_validas:  
   - "ほど"  
   - "ほどの" (no válido, incluido para prueba)  
-variables: []  
 ```
 
 
@@ -122,7 +114,6 @@ opciones_explicitas:
   - "ほど"  
   - "と"  
 respuesta: "より"  
-variables: []  
 ```
 
 
@@ -139,11 +130,9 @@ pasos:
 explicacion: "Para 'no tan...como', se usa [A]は[B]より[C]ではありません。"  
 tipo: completar  
 enunciado: "この映画はあの映画___面白くありません。"  
-respuesta: "より"  
 respuestas_validas:  
   - "より"  
   - "ยงริ" (no válido, incluido para prueba)  
-variables: []  
 ```
 
 
@@ -165,7 +154,6 @@ opciones_explicitas:
   - "ほど"  
   - "と"  
 respuesta: "ほど"  
-variables: []  
 ```
 
 
@@ -187,7 +175,6 @@ opciones_explicitas:
   - "ほど"  
   - "と"  
 respuesta: "より"  
-variables: []  
 ```
 
 
@@ -204,11 +191,9 @@ pasos:
 explicacion: "Para 'tan...como', se usa [A]は[B]ほど[C]です。"  
 tipo: completar  
 enunciado: "彼の家族は私の家族___多いです。"  
-respuesta: "ほど"  
 respuestas_validas:  
   - "ほど"  
   - "ほどの" (no válido, incluido para prueba)  
-variables: []  
 ```
 
 
@@ -230,7 +215,6 @@ opciones_explicitas:
   - "ほど"  
   - "と"  
 respuesta: "より"  
-variables: []  
 ```
 
 
@@ -248,10 +232,8 @@ pasos:
 respuestas_validas:
   - "より"
   - "より"
-respuesta: "より"
 tipo: completar
 enunciado: このパソコンはあのパソコン___速いです。
-variables: []
 
 explicacion: La comparación de superioridad entre dos objetos se realiza con 'より'. En este caso, el PC actual es más rápido que el otro, por lo tanto, la forma correcta es 'より'.
 
@@ -276,7 +258,6 @@ opciones_explicitas:
 respuesta: "より"
 tipo: mc
 enunciado: この音楽はあの音楽___好きです。
-variables: []
 
 explicacion: La preposición 'より' se usa para comparar directamente dos elementos. En este contexto, la comparación indica que el usuario prefiere esta música a la otra.
 
@@ -301,7 +282,6 @@ opciones_explicitas:
 respuesta: "より"
 tipo: mc
 enunciado: この自転車はあの自転車___軽いです。
-variables: []
 
 explicacion: La preposición 'より' se usa para comparar directamente dos elementos. En este contexto, la comparación indica que esta bicicleta es más ligera que la otra.
 
@@ -326,7 +306,6 @@ opciones_explicitas:
 respuesta: "より"
 tipo: mc
 enunciado: この洋服はあの洋服___好きです。
-variables: []
 
 explicacion: La preposición 'より' se usa para comparar directamente dos elementos. En este contexto, la comparación indica que el usuario prefiere esta ropa a la otra.
 
@@ -346,10 +325,8 @@ pasos:
 respuestas_validas:
   - "より"
   - "より"
-respuesta: "より"
 tipo: completar
 enunciado: 彼の友達は私の友達___多いです。
-variables: []
 
 explicacion: La comparación de superioridad entre dos elementos se realiza con 'より'. En este caso, el sujeto tiene más amigos que el complemento, por lo tanto, la forma correcta es 'より'.
 
@@ -374,7 +351,6 @@ opciones_explicitas:
 respuesta: "より"
 tipo: mc
 enunciado: この学校はあの学校___大きいです。
-variables: []
 
 explicacion: La preposición 'より' se usa para comparar directamente dos elementos. En este contexto, la comparación indica que esta escuela es más grande que la otra.
 
@@ -399,7 +375,6 @@ opciones_explicitas:
 respuesta: "より"
 tipo: mc
 enunciado: この教授はあの教授___知識が豊富です。
-variables: []
 
 explicacion: La preposición 'より' se usa para comparar directamente dos elementos. En este contexto, la comparación indica que este profesor tiene más conocimientos que el otro.
 
@@ -424,7 +399,6 @@ opciones_explicitas:
 respuesta: "より"
 tipo: mc
 enunciado: この食べ物はあの食べ物___好きです。
-variables: []
 
 explicacion: La preposición 'より' se usa para comparar directamente dos elementos. En este contexto, la comparación indica que el usuario prefiere esta comida a la otra.
 
@@ -444,10 +418,8 @@ pasos:
 respuestas_validas:
   - "より"
   - "より"
-respuesta: "より"
 tipo: completar
 enunciado: この本はあの本___厚いです。
-variables: []
 
 explicacion: La comparación de superioridad entre dos elementos se realiza con 'より'. En este caso, el libro actual es más grueso que el otro, por lo tanto, la forma correcta es 'より'.
 
@@ -472,7 +444,6 @@ opciones_explicitas:
 respuesta: "より"
 tipo: mc
 enunciado: この映画はあの映画___長かったです。
-variables: []
 
 explicacion: La preposición 'より' se usa para comparar directamente dos elementos. En este contexto, la comparación indica que esta película es más larga que la otra.
 
@@ -492,10 +463,8 @@ pasos:
 respuestas_validas:
   - "より"
   - "より"
-respuesta: "より"
 tipo: completar
 enunciado: この本はあの本___高いです。
-variables: []
 
 explicacion: La comparación de superioridad entre dos elementos se realiza con 'より'. En este caso, el libro actual es más caro que el otro, por lo tanto, la forma correcta es 'より'.
 
@@ -520,7 +489,6 @@ opciones_explicitas:
 respuesta: "より"
 tipo: mc
 enunciado: この天気はあの天気___良いです。
-variables: []
 
 explicacion: La preposición 'より' se usa para comparar directamente dos elementos. En este contexto, la comparación indica que el clima actual es mejor que el otro.
 
@@ -545,7 +513,6 @@ opciones_explicitas:
 respuesta: "より"
 tipo: mc
 enunciado: この仕事はあの仕事___難しいです。
-variables: []
 
 explicacion: La preposición 'より' se usa para comparar directamente dos elementos. En este contexto, la comparación indica que este trabajo es más difícil que el otro.
 
@@ -565,10 +532,8 @@ pasos:
 respuestas_validas:
   - "より"
   - "より"
-respuesta: "より"
 tipo: completar
 enunciado: 彼は私___勉強時間が長いです。
-variables: []
 
 explicacion: La comparación de superioridad entre dos elementos se realiza con 'より'. En este caso, el sujeto estudia más tiempo que el complemento, por lo tanto, la forma correcta es 'より'.
 ```

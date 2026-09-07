@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identificar la estructura de condición en coreano."
   - "Completar el hueco con la forma correcta del verbo."
-respuesta: "가면"
 respuestas_validas:
   - "가면"
   - "가면"
@@ -55,7 +54,6 @@ metadata:
 pasos:
   - "Identificar la necesidad de cambiar el verbo a forma pasiva."
   - "Completar con la conjugación correcta del verbo."
-respuesta: "받아야 합니다."
 respuestas_validas:
   - "받아야 합니다."
   - "받을 수 있습니다."
@@ -102,7 +100,6 @@ metadata:
 pasos:
   - "Reconocer el uso de '-지만' para expresar una contradicción."
   - "Completar con la forma correcta del verbo en contexto."
-respuesta: "행복하지만"
 respuestas_validas:
   - "행복하지만"
   - "행복하더라도"
@@ -149,7 +146,6 @@ metadata:
 pasos:
   - "Reconocer la necesidad de usar '-되다' en una oración pasiva."
   - "Completar con la conjugación correcta del verbo."
-respuesta: "받아야 합니다."
 respuestas_validas:
   - "받아야 합니다."
   - "받을 수 있습니다."

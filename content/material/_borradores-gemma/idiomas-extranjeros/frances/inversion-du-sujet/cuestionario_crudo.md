@@ -8,7 +8,6 @@ metadata:
 pasos:
   - "Identifica la necesidad de inversión del sujeto en la oración subordinada."
   - "Completa el espacio con la forma invertida correcta."
-respuesta: "parte"
 respuestas_validas:
   - "parte"
   - "Parte"
@@ -55,7 +54,6 @@ metadata:
 pasos:
   - "Analiza la estructura de oración condicional."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "aimes-tu"
 respuestas_validas:
   - "aimes-tu"
   - "Aimes-tu"
@@ -102,7 +100,6 @@ metadata:
 pasos:
   - "Reconoce la subordinada introducida por 'lorsque'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "arriverons-nous"
 respuestas_validas:
   - "arriverons-nous"
   - "Arriverons-nous"
@@ -149,7 +146,6 @@ metadata:
 pasos:
   - "Identifica la estructura con 'avant que'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "partes-tu"
 respuestas_validas:
   - "partes-tu"
   - "Partes-tu"
@@ -196,7 +192,6 @@ metadata:
 pasos:
   - "Identifica la oración subordinada introducida por 'pour que'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "saches-tu"
 respuestas_validas:
   - "saches-tu"
   - "Saches-tu"
@@ -243,7 +238,6 @@ metadata:
 pasos:
   - "Analiza la oración subordinada introducida por 'quand bien que'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "sais-tu"
 respuestas_validas:
   - "sais-tu"
   - "Sais-tu"
@@ -290,7 +284,6 @@ metadata:
 pasos:
   - "Identifica la oración subordinada introducida por 'malgré le fait que'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "sais-tu"
 respuestas_validas:
   - "sais-tu"
   - "Sais-tu"
@@ -337,7 +330,6 @@ metadata:
 pasos:
   - "Identifica la oración subordinada introducida por 'alors que'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "sais-tu"
 respuestas_validas:
   - "sais-tu"
   - "Sais-tu"
@@ -384,7 +376,6 @@ metadata:
 pasos:
   - "Identifica la oración subordinada introducida por 'en dépit de'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "sais-tu"
 respuestas_validas:
   - "sais-tu"
   - "Sais-tu"
@@ -431,7 +422,6 @@ metadata:
 pasos:
   - "Identifica la oración subordinada introducida por 'bien que'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "iras-tu"
 respuestas_validas:
   - "iras-tu"
   - "Iras-tu"
@@ -456,13 +446,10 @@ pasos:
   - "Elegir la forma correcta del verbo en subjuntivo."
 explicacion: "Después de expresiones como 'Avant que', el sujeto y el verbo se invierten, y el verbo debe estar en subjuntivo. La estructura correcta es 'Avant qu’[sujeto] [verbo en subjuntivo]'."
 enunciado: "Il est important qu’on ___ la situation avant qu’il ne parte."
-respuesta: "analyse"
 respuestas_validas:
   - "analyse"
   - "Analyse"
 tipo: completar
-variables:
-  - sujeto: "on"
 ```
 
 ### 21 — Inversion avec "alors que" (futuro)  
@@ -475,7 +462,6 @@ metadata:
 pasos:
   - "Identifica la oración subordinada introducida por 'alors que'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "iras-tu"
 respuestas_validas:
   - "iras-tu"
   - "Iras-tu"
@@ -522,7 +508,6 @@ metadata:
 pasos:
   - "Identifica la oración subordinada introducida por 'en dépit de'."
   - "Aplica la inversión del sujeto si es necesario."
-respuesta: "iras-tu"
 respuestas_validas:
   - "iras-tu"
   - "Iras-tu"
@@ -554,8 +539,6 @@ opciones_explicitas:
   - "si jamais"
 respuesta: "lorsque"
 tipo: mc
-variables:
-  - sujeto: "la réunion"
 ```
 
 ### 25 — Inversion avec "bien que" (condicional)  

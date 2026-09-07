@@ -9,7 +9,6 @@ pasos:
   - "Identificar o substantivo e seu gênero/número."  
   - "Ajustar o adjetivo para concordar com ele."  
 enunciado: "O relatório foi escrito por uma equipe ______, composta por especialistas em diversas áreas."  
-respuesta: "homogênea"  
 respuestas_validas:  
   - "homogênea"  
   - "Homogênea"  
@@ -31,7 +30,11 @@ pasos:
   - "Verificar o uso correto do gerúndio na subordinada."  
 enunciado: "Enquanto _______ o documento, percebi um erro de digitação."  
 respuesta: "revisava"  
-opciones_explicitas: ["revisando", "revisa", "revisava", "revisão"]  
+opciones_explicitas:
+  - "revisando"
+  - "revisa"
+  - "revisava"
+  - "revisão"
 tipo: mc  
 explicacion: "O gerúndio 'revisava' indica ações simultâneas no passado. 'Revisando' é infinitivo, e 'revisa' está no presente."  
 ```
@@ -50,7 +53,11 @@ pasos:
   - "Escolher a preposição correta para completar a estrutura."  
 enunciado: "A empresa está _______ de modernizar seus processos produtivos."  
 respuesta: "a"  
-opciones_explicitas: ["em", "a", "de", "com"]  
+opciones_explicitas:
+  - "em"
+  - "a"
+  - "de"
+  - "com"
 tipo: mc  
 explicacion: "O verbo 'estar a' indica um processo em andamento. 'Em' e 'de' não se combinam com esse contexto."  
 ```
@@ -68,7 +75,6 @@ pasos:
   - "Localizar o antecedente do pronome relativo."  
   - "Ajustar o pronome para concordar com o antecedente em gênero/número."  
 enunciado: "O livro, _______ foi publicado há dez anos, ainda é muito popular."  
-respuesta: "que"  
 respuestas_validas:  
   - "que"  
   - "QUE"  
@@ -90,7 +96,11 @@ pasos:
   - "Escolher a forma correta do infinitivo com sujeito."  
 enunciado: "Ela quer _______ ao evento na próxima semana."  
 respuesta: "ir"  
-opciones_explicitas: ["ir", "vai", "ida", "ir para"]  
+opciones_explicitas:
+  - "ir"
+  - "vai"
+  - "ida"
+  - "ir para"
 tipo: mc  
 explicacion: "O verbo 'querer' exige o infinitivo pessoal. 'Vai' é uma forma do presente do indicativo."  
 ```
@@ -109,7 +119,11 @@ pasos:
   - "Determinar a necessidade de uso da crase (à)."  
 enunciado: "O relatório foi entregue _______ assembleia geral."  
 respuesta: "à"  
-opciones_explicitas: ["a", "à", "em", "na"]  
+opciones_explicitas:
+  - "a"
+  - "à"
+  - "em"
+  - "na"
 tipo: mc  
 explicacion: "A palavra 'assembleia' começa com 'a', exigindo a crase (à) após o artigo indefinido 'a'."  
 ```
@@ -128,7 +142,11 @@ pasos:
   - "Escolher o tempo verbal correto para ação anterior."  
 enunciado: "Quando cheguei ao escritório, já _______."  
 respuesta: "havia saído"  
-opciones_explicitas: ["sai", "saíra", "havia saído", "tinha saído"]  
+opciones_explicitas:
+  - "sai"
+  - "saíra"
+  - "havia saído"
+  - "tinha saído"
 tipo: mc  
 explicacion: "O pretérito mais-que-perfeito (havia saído) indica ação concluída antes de outra no passado."  
 ```
@@ -147,7 +165,11 @@ pasos:
   - "Escolher a conjunção adversativa correta."  
 enunciado: "O projeto foi bem-sucedido, _______ enfrentamos muitas dificuldades durante o processo."  
 respuesta: "embora"  
-opciones_explicitas: ["mas", "embora", "porque", "apesar de"]  
+opciones_explicitas:
+  - "mas"
+  - "embora"
+  - "porque"
+  - "apesar de"
 tipo: mc  
 explicacion: "A conjunção 'embora' introduz uma oração subordinada adversativa, contrastando com o resultado positivo."  
 ```
@@ -166,7 +188,11 @@ pasos:
   - "Ajustar a concordância com o sujeito ou objeto direto."  
 enunciado: "O documento _______ por todos os membros da equipe antes de ser submetido à revisão final."  
 respuesta: "foi revisado"  
-opciones_explicitas: ["foi revisado", "revisou", "revisão", "revisa"]  
+opciones_explicitas:
+  - "foi revisado"
+  - "revisou"
+  - "revisão"
+  - "revisa"
 tipo: mc  
 explicacion: "O particípio passado 'revisado' concorda com o sujeito 'o documento', que é singular."  
 ```
@@ -185,7 +211,11 @@ pasos:
   - "Ajustar o adjetivo para concordar com o sujeito."  
 enunciado: "O cliente _______ insatisfeito com a demora na entrega do pacote."  
 respuesta: "está"  
-opciones_explicitas: ["é", "está", "foi", "sente-se"]  
+opciones_explicitas:
+  - "é"
+  - "está"
+  - "foi"
+  - "sente-se"
 tipo: mc  
 explicacion: "O verbo 'estar' indica um estado temporário. O adjetivo 'insatisfeito' concorda com o sujeito masculino singular."  
 ```
@@ -204,7 +234,11 @@ pasos:
   - "Escolher o gerúndio correto para expressar a ação."  
 enunciado: "Enquanto _______ no computador, recebi uma ligação importante."  
 respuesta: "trabalhava"  
-opciones_explicitas: ["trabalho", "trabalhava", "trabalhei", "trabalhando"]  
+opciones_explicitas:
+  - "trabalho"
+  - "trabalhava"
+  - "trabalhei"
+  - "trabalhando"
 tipo: mc  
 explicacion: "O gerúndio 'trabalhava' indica ação simultânea no passado. 'Trabalhando' é o infinitivo."  
 ```
@@ -223,7 +257,11 @@ pasos:
   - "Ajustar o pronome para concordar com o sujeito."  
 enunciado: "Ela _______ as roupas antes de sair de casa."  
 respuesta: "vestiu"  
-opciones_explicitas: ["vou", "vestiu-se", "veste-se", "vestiu"]  
+opciones_explicitas:
+  - "vou"
+  - "vestiu-se"
+  - "veste-se"
+  - "vestiu"
 tipo: mc  
 explicacion: "O verbo 'vestir' exige o pronome reflexivo 'se' em ações de vestimento próprio. 'Vestiu' está no passado, mas não inclui o reflexivo."  
 ```
@@ -242,7 +280,11 @@ pasos:
   - "Escolher a forma correta do infinitivo com sujeito."  
 enunciado: "O professor pediu _______ mais atenção durante a aula."  
 respuesta: "daremos"  
-opciones_explicitas: ["daremos", "dar", "dá", "dávamos"]  
+opciones_explicitas:
+  - "daremos"
+  - "dar"
+  - "dá"
+  - "dávamos"
 tipo: mc  
 explicacion: "O verbo 'pedir' exige o infinitivo pessoal. 'Daremos' indica ação futura."  
 ```
@@ -261,7 +303,11 @@ pasos:
   - "Ajustar a concordância do particípio passado com o sujeito."  
 enunciado: "O relatório _______ por um grupo de colaboradores antes da apresentação final."  
 respuesta: "foi revisado"  
-opciones_explicitas: ["revisou", "foi revisado", "revisão", "revisa"]  
+opciones_explicitas:
+  - "revisou"
+  - "foi revisado"
+  - "revisão"
+  - "revisa"
 tipo: mc  
 explicacion: "O particípio passado 'revisado' concorda com o sujeito indeterminado (o relatório), que é singular."  
 ```
@@ -280,7 +326,11 @@ pasos:
   - "Ajustar o substantivo para concordar com o sujeito."  
 enunciado: "O projeto _______ uma iniciativa inovadora e promissora."  
 respuesta: "é"  
-opciones_explicitas: ["está", "foi", "é", "se tornou"]  
+opciones_explicitas:
+  - "está"
+  - "foi"
+  - "é"
+  - "se tornou"
 tipo: mc  
 explicacion: "O verbo 'ser' indica identidade ou característica. O substantivo 'iniciativa' concorda com o sujeito masculino singular."  
 ```
@@ -299,7 +349,11 @@ pasos:
   - "Escolher a conjunção causal correta."  
 enunciado: "Ela decidiu viajar, _______ queria escapar da rotina diária."  
 respuesta: "porque"  
-opciones_explicitas: ["mas", "embora", "pois", "porque"]  
+opciones_explicitas:
+  - "mas"
+  - "embora"
+  - "pois"
+  - "porque"
 tipo: mc  
 explicacion: "A conjunção 'porque' indica causa. 'Pois' também é possível, mas o contexto pede a relação direta de causa."  
 ```
@@ -317,7 +371,6 @@ pasos:
   - "Identificar a oração subordinada adjetiva."  
   - "Verificar o uso correto do gerúndio na subordinada."  
 enunciado: "O candidato, _______ não havia enviado os documentos exigidos, foi eliminado da seleção."  
-respuesta: "que"  
 respuestas_validas:  
   - "que"  
   - "QUE"  
@@ -339,7 +392,11 @@ pasos:
   - "Ajustar o predicativo para concordar com o sujeito."  
 enunciado: "O novo diretor _______ uma pessoa muito competente e ética."  
 respuesta: "é"  
-opciones_explicitas: ["está", "foi", "é", "se tornou"]  
+opciones_explicitas:
+  - "está"
+  - "foi"
+  - "é"
+  - "se tornou"
 tipo: mc  
 explicacion: "O verbo 'ser' indica identidade. O predicativo 'pessoa' concorda com o sujeito masculino singular."  
 ```
@@ -358,7 +415,11 @@ pasos:
   - "Escolher a forma correta do infinitivo com sujeito."  
 enunciado: "O médico recomendou _______ uma caminhada diária para melhorar a saúde."  
 respuesta: "fazer"  
-opciones_explicitas: ["faça", "faz", "fazer", "façamos"]  
+opciones_explicitas:
+  - "faça"
+  - "faz"
+  - "fazer"
+  - "façamos"
 tipo: mc  
 explicacion: "O verbo 'recomendar' exige o infinitivo pessoal. 'Fazer' está na forma correta."  
 ```
@@ -377,7 +438,11 @@ pasos:
   - "Ajustar a concordância do particípio passado com o sujeito."  
 enunciado: "Os relatórios _______ por uma equipe de analistas antes da apresentação final."  
 respuesta: "foram revisados"  
-opciones_explicitas: ["revisaram", "foram revisados", "revisão", "revisa"]  
+opciones_explicitas:
+  - "revisaram"
+  - "foram revisados"
+  - "revisão"
+  - "revisa"
 tipo: mc  
 explicacion: "O particípio passado 'revisados' concorda com o sujeito plural (os relatórios)."  
 ```
@@ -396,7 +461,6 @@ pasos:
   - "Reconocer que 'como se' exige o subjuntivo."
 explicacion: "Após expressões de dúvida, suposição ou hipótese como 'como se', o verbo na oração subordinada deve estar no modo subjuntivo. Neste caso, o sujeito da oração principal ('Ela') está descrevendo uma situação hipotética."
 enunciado: "Ela agia _______ tivesse experiência em negociação internacional."
-respuesta: "como se"
 tipo: completar
 respuestas_validas:
   - "como se"
@@ -417,7 +481,6 @@ pasos:
   - "Verificar a concordância do verbo com o sujeito composto."
 explicacion: "As conjunções 'não só...mas também' exigem que os termos coordenados sejam paralelos e o verbo concorde com o sujeito mais próximo. Aqui, o sujeito 'as equipes' exige o plural do verbo."
 enunciado: "As equipes _______ preparadas para a reunião, _______ eram experientes em seu campo."
-respuesta: "não só estavam mas também"
 tipo: completar
 respuestas_validas:
   - "não só estavam mas também"
@@ -438,7 +501,6 @@ pasos:
   - "Aplicar o tempo presente após 'se' para expressar uma afirmação."
 explicacion: "Quando a condição descrita é verdadeira ou provável no presente, o verbo após 'se' também fica no presente. Neste caso, 'o projeto tem recursos' é uma afirmação real."
 enunciado: "Se _______ recursos adequados, o projeto será implementado com sucesso."
-respuesta: "tiver"
 tipo: completar
 respuestas_validas:
   - "tiver"
@@ -459,7 +521,6 @@ pasos:
   - "Verificar se a preposição está corretamente usada."
 explicacion: "O verbo 'depender' exige, de forma invariável, a preposição 'de'. Neste contexto, a frase refere-se à dependência do orçamento para concluir o projeto."
 enunciado: "A conclusão do projeto _______ da aprovação do orçamento."
-respuesta: "depende"
 tipo: completar
 respuestas_validas:
   - "depende"
@@ -480,7 +541,6 @@ pasos:
   - "Verificar se 'que' refere-se corretamente ao antecedente."
 explicacion: "A palavra 'que' introduz uma oração subordinada adjetiva, explicando melhor o substantivo anterior ('a ideia'). O uso de 'que' é obrigatório quando o antecedente for um substantivo que exige clarificação ou definição."
 enunciado: "A ideia _______ foi apresentada na reunião recebeu a aprovação da diretoria."
-respuesta: "que"
 tipo: completar
 respuestas_validas:
   - "que"

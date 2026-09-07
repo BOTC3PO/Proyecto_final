@@ -10,10 +10,9 @@ pasos:
 explicacion: "El plural de 'libro' se forma añadiendo '-i', resultando en 'libri'. Esta es una palabra regular que sigue la norma del plural para masculinos terminados en vocal."  
 tipo: completar  
 enunciado: "Il ___ è sul tavolo."  
-respuesta: "libro"  
-respuestas_validas: ["libro", "Libro"]  
-
-```
+respuestas_validas:
+  - "libro"
+  - "Libro"```
 ```
 
 
@@ -49,10 +48,9 @@ pasos:
 explicacion: "'Uomo' tiene un plural irregular 'uomini', ya que se cambia la vocal central y se añade '-i' para formar el plural masculino."  
 tipo: completar  
 enunciado: "Gli ___ sono al lavoro."  
-respuesta: "uomini"  
-respuestas_validas: ["uomini", "Uomini"]  
-
-```
+respuestas_validas:
+  - "uomini"
+  - "Uomini"```
 ```
 
 
@@ -88,10 +86,9 @@ pasos:
 explicacion: "'Città' tiene un plural irregular 'città', ya que no cambia la forma. Es una excepción a las reglas de pluralización comunes."  
 tipo: completar  
 enunciado: "Le ___ sono bellissime."  
-respuesta: "città"  
-respuestas_validas: ["città", "Città"]  
-
-```
+respuestas_validas:
+  - "città"
+  - "Città"```
 ```
 
 
@@ -127,10 +124,9 @@ pasos:
 explicacion: "'Amica' se convierte en 'amiche' al plural, siguiendo la norma de cambiar '-a' por '-e' y añadir '-i'."  
 tipo: completar  
 enunciado: "Le ___ sono brave."  
-respuesta: "amiche"  
-respuestas_validas: ["amiche", "Amiche"]  
-
-```
+respuestas_validas:
+  - "amiche"
+  - "Amiche"```
 ```
 
 
@@ -166,10 +162,9 @@ pasos:
 explicacion: "'Cane' se convierte en 'cani' al plural, siguiendo la norma de añadir '-i' a los sustantivos masculinos terminados en vocal."  
 tipo: completar  
 enunciado: "I ___ abbaiano forte."  
-respuesta: "cani"  
-respuestas_validas: ["cani", "Cani"]  
-
-```
+respuestas_validas:
+  - "cani"
+  - "Cani"```
 ```
 
 
@@ -225,9 +220,9 @@ pasos:
 explicacion: "'Uovo' se convierte en 'uova' al plural, siguiendo la norma de cambiar '-o' por '-a' y añadir '-i'."  
 tipo: completar  
 enunciado: "Le ___ sono fresche."  
-respuesta: "uova"  
-respuestas_validas: ["uova", "Uova"]  
-```
+respuestas_validas:
+  - "uova"
+  - "Uova"```
 ```
 
 
@@ -264,9 +259,9 @@ pasos:
 explicacion: "'Persona' se convierte en 'persone' al plural, siguiendo la norma de cambiar '-a' por '-e' y añadir '-i'."  
 tipo: completar  
 enunciado: "Le ___ sono curiose."  
-respuesta: "persone"  
-respuestas_validas: ["persone", "Persone"]  
-```
+respuestas_validas:
+  - "persone"
+  - "Persone"```
 ```
 
 
@@ -303,9 +298,9 @@ pasos:
 explicacion: "'Amico' se convierte en 'amici' al plural, siguiendo la norma de cambiar '-o' por '-i' para los masculinos terminados en vocal."  
 tipo: completar  
 enunciado: "I ___ sono simpatici."  
-respuesta: "amici"  
-respuestas_validas: ["amici", "Amici"]  
-```
+respuestas_validas:
+  - "amici"
+  - "Amici"```
 ```
 
 
@@ -342,9 +337,9 @@ pasos:
 explicacion: "'Stella' se convierte en 'stelle' al plural, siguiendo la norma de cambiar '-a' por '-e' y añadir '-i'."  
 tipo: completar  
 enunciado: "Le ___ brillano nel cielo."  
-respuesta: "stelle"  
-respuestas_validas: ["stelle", "Stelle"]  
-```
+respuestas_validas:
+  - "stelle"
+  - "Stelle"```
 ```
 
 
@@ -381,9 +376,9 @@ pasos:
 explicacion: "'Lavoro' se convierte en 'lavori' al plural, siguiendo la norma de cambiar '-o' por '-i'."  
 tipo: completar  
 enunciado: "I ___ sono difficili."  
-respuesta: "lavori"  
-respuestas_validas: ["lavori", "Lavori"]  
-```
+respuestas_validas:
+  - "lavori"
+  - "Lavori"```
 ```
 
 
@@ -438,7 +433,6 @@ metadata:
 pasos:  
   - "Identificar el sustantivo 'fiori' y su adjetivo."  
   - "Verificar que el adjetivo esté en forma plural y concordante con el sustantivo."  
-respuesta: "rossi"  
 tipo: completar  
 respuestas_validas:  
   - "rossi"  
@@ -477,7 +471,6 @@ metadata:
 pasos:  
   - "Identificar el sustantivo 'libri' y su artículo demostrativo."  
   - "Verificar que el artículo esté en forma plural para concordar con el sustantivo."  
-respuesta: "quei"  
 tipo: completar  
 respuestas_validas:  
   - "quei"  

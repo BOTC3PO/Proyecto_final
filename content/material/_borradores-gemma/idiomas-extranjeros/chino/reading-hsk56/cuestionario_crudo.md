@@ -130,7 +130,6 @@ pasos:
   - "填写空白处最合适的词语。"
 tipo: completar
 enunciado: "政府正在积极_（ ）_垃圾分类政策，以改善环境。\n\nA. 推广\nB. 禁止\nC. 忽视"
-respuesta: "推广"
 respuestas_validas:
   - "推广"
   - "Promover" (no, no usar)
@@ -268,7 +267,6 @@ pasos:
   - "填写正确的数字或表达方式。"
 tipo: completar
 enunciado: "2019年，垃圾分类覆盖了_（ ）_个城市。\n\nA. 50\nB. 80\nC. 100"
-respuesta: "80"
 respuestas_validas:
   - "80"
 ```
@@ -305,7 +303,6 @@ pasos:
   - "填写合适的程度表达。"
 tipo: completar
 enunciado: "垃圾分类的_（ ）_改善了环境。\n\nA. 明显\nB. 稍微\nC. 完全"
-respuesta: "明显"
 respuestas_validas:
   - "明显"
 ```
@@ -342,7 +339,6 @@ pasos:
   - "填写适当的时间表达方式。"
 tipo: completar
 enunciado: "垃圾分类政策从_（ ）_年开始实施。\n\nA. 2015\nB. 2020\nC. 2025"
-respuesta: "2020"
 respuestas_validas:
   - "2020"
 ```
@@ -399,7 +395,6 @@ pasos:
   - "填写适当的频率表达方式。"
 tipo: completar
 enunciado: "市民_（ ）_进行垃圾分类。\n\nA. 偶尔\nB. 经常\nC. 从不"
-respuesta: "经常"
 respuestas_validas:
   - "经常"
 ```

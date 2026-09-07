@@ -7,7 +7,6 @@ metadata:
   tags: ["tercera persona", "-s"]
 pasos:
   - "Identifica el verbo en tercera persona singular."
-respuesta: "plays"
 respuestas_validas:
   - "plays"
   - "Plays"
@@ -48,7 +47,6 @@ metadata:
   tags: ["interrogativa", "do"]
 pasos:
   - "Invierte el sujeto y el verbo."
-respuesta: "Do they live here?"
 respuestas_validas:
   - "Do they live here?"
   - "do they live here?"
@@ -68,7 +66,6 @@ metadata:
   tags: ["tercera persona", "-s"]
 pasos:
   - "Añade '-s' al verbo en tercera persona singular."
-respuesta: "goes"
 respuestas_validas:
   - "goes"
   - "Goes"
@@ -107,7 +104,6 @@ metadata:
   tags: ["interrogativa", "do"]
 pasos:
   - "Usa 'do' antes del sujeto en preguntas."
-respuesta: "Do you work here?"
 respuestas_validas:
   - "Do you work here?"
   - "do you work here?"
@@ -127,7 +123,6 @@ metadata:
   tags: ["tercera persona", "-s"]
 pasos:
   - "Añade '-es' al verbo 'have'."
-respuesta: "has"
 respuestas_validas:
   - "has"
   - "Has"
@@ -166,7 +161,6 @@ metadata:
   tags: ["interrogativa", "do"]
 pasos:
   - "Invierte 'do' con el sujeto."
-respuesta: "Does he like coffee?"
 respuestas_validas:
   - "Does he like coffee?"
   - "does he like coffee?"
@@ -186,7 +180,6 @@ metadata:
   tags: ["tercera persona", "-s"]
 pasos:
   - "Añade '-es' al verbo 'do'."
-respuesta: "does"
 respuestas_validas:
   - "does"
   - "Does"
@@ -225,7 +218,6 @@ metadata:
   tags: ["interrogativa", "do"]
 pasos:
   - "Usa 'do' antes de 'we' en preguntas."
-respuesta: "Do we need help?"
 respuestas_validas:
   - "Do we need help?"
   - "do we need help?"
@@ -245,7 +237,6 @@ metadata:
   tags: ["tercera persona", "-s"]
 pasos:
   - "Añade '-es' al verbo 'is'."
-respuesta: "is"
 respuestas_validas:
   - "is"
   - "Is"
@@ -284,7 +275,6 @@ metadata:
   tags: ["interrogativa", "does"]
 pasos:
   - "Invierte 'does' con el sujeto."
-respuesta: "Does she work here?"
 respuestas_validas:
   - "Does she work here?"
   - "does she work here?"
@@ -304,7 +294,6 @@ metadata:
   tags: ["tercera persona", "-s"]
 pasos:
   - "Añade '-es' al verbo 'have'."
-respuesta: "has"
 respuestas_validas:
   - "has"
   - "Has"
@@ -326,7 +315,6 @@ pasos:
   - "Identificar el sujeto de la oración."  
   - "Verificar si el verbo requiere la forma con 's' en tercera persona singular."  
   - "Completar el hueco con la forma correcta del verbo."  
-respuesta: "wants"  
 respuestas_validas:  
   - "wants"  
   - "Wants"  
@@ -343,7 +331,6 @@ metadata:
   tags: ["interrogativa", "do"]
 pasos:
   - "Usa 'do' antes de 'they' en preguntas."
-respuesta: "Do they know the answer?"
 respuestas_validas:
   - "Do they know the answer?"
   - "do they know the answer?"
@@ -363,7 +350,6 @@ metadata:
   tags: ["tercera persona", "-s"]
 pasos:
   - "Añade '-es' al verbo 'do'."
-respuesta: "does"
 respuestas_validas:
   - "does"
   - "Does"
@@ -404,7 +390,6 @@ metadata:
   tags: ["interrogativa", "do"]
 pasos:
   - "Invierte 'do' con el sujeto."
-respuesta: "Do you live here?"
 respuestas_validas:
   - "Do you live here?"
   - "do you live here?"
@@ -424,7 +409,6 @@ metadata:
   tags: ["tercera persona", "-s"]
 pasos:
   - "Añade '-es' al verbo 'be'."
-respuesta: "is"
 respuestas_validas:
   - "is"
   - "Is"
@@ -463,7 +447,6 @@ metadata:
   tags: ["interrogativa", "does"]
 pasos:
   - "Invierte 'does' con el sujeto."
-respuesta: "Does he speak English?"
 respuestas_validas:
   - "Does he speak English?"
   - "does he speak English?"
@@ -483,7 +466,6 @@ metadata:
   tags: ["tercera persona", "-s"]
 pasos:
   - "Añade '-es' al verbo 'have'."
-respuesta: "has"
 respuestas_validas:
   - "has"
   - "Has"

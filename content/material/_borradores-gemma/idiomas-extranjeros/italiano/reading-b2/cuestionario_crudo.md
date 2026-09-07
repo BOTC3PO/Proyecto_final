@@ -10,9 +10,6 @@ pasos:
 explicacion: "El verbo 'parlare' requiere la preposición 'di' cuando se refiere a temas o sobre algo. Ejemplo: parlare di politica (hablar de política)."  
 tipo: completar  
 enunciado: "Maria ___ del suo lavoro con entusiasmo."  
-variables:  
-  - uno_de(["parla", "ha parlato"])  
-respuesta: "parla"  
 respuestas_validas:  
   - "parla"  
   - "Parla"  
@@ -74,9 +71,6 @@ pasos:
 explicacion: "El gerundio se usa para acciones simultáneas. Ejemplo: 'Mentre leggevo, ho sentito un rumore.'"  
 tipo: completar  
 enunciado: "Mentre ___ il libro, ha suonato il telefono."  
-variables:  
-  - uno_de(["leggevo", "ho letto"])  
-respuesta: "leggevo"  
 respuestas_validas:  
   - "leggevo"  
   - "Leggevo"  
@@ -96,9 +90,6 @@ pasos:
 explicacion: "El verbo 'pensare' requiere la preposición 'a' cuando se refiere a ideas o planes. Ejemplo: pensare a un viaggio (pensar en un viaje)."  
 tipo: completar  
 enunciado: "Non ___ mai alle conseguenze del suo comportamento."  
-variables:  
-  - uno_de(["penso", "ho pensato"])  
-respuesta: "penso"  
 respuestas_validas:  
   - "penso"  
   - "Penso"  
@@ -160,9 +151,6 @@ pasos:
 explicacion: "El imperativo en segunda persona singular (tu) se forma con la raíz del verbo. Ejemplo: 'Fai attenzione' (¡Presta atención!)."  
 tipo: completar  
 enunciado: "___ più attento alle istruzioni, per favore!"  
-variables:  
-  - uno_de(["fai", "fate"])  
-respuesta: "fai"  
 respuestas_validas:  
   - "fai"  
   - "Fai"  
@@ -182,9 +170,6 @@ pasos:
 explicacion: "'Ne' se usa para sustituir una expresión de cantidad + preposición. Ejemplo: 'Non ne ho bisogno' (No lo necesito)."  
 tipo: completar  
 enunciado: "Non ___ faccio uso da anni, ma lo ricordo bene."  
-variables:  
-  - uno_de(["ne", "lo"])  
-respuesta: "ne"  
 respuestas_validas:  
   - "ne"  
 ```  
@@ -224,9 +209,6 @@ pasos:
 explicacion: "'Cui' se usa cuando la oración relativa se refiere a un lugar y se introduce con 'a'. Ejemplo: 'La città ___ vivo è molto bella.' (La ciudad donde vivo es muy bonita)."  
 tipo: completar  
 enunciado: "Il libro ___ ho parlato è molto interessante."  
-variables:  
-  - uno_de(["che", "cui"])  
-respuesta: "che"  
 respuestas_validas:  
   - "che"  
 ```  
@@ -245,9 +227,6 @@ pasos:
 explicacion: "'Avere bisogno di' se usa para expresar necesidad. Ejemplo: 'Ho bisogno di aiuto.' (Necesito ayuda)."  
 tipo: completar  
 enunciado: "Gli studenti ___ aiuto per comprendere l’argomento."  
-variables:  
-  - uno_de(["hanno", "avevano"])  
-respuesta: "hanno"  
 respuestas_validas:  
   - "hanno"  
 ```  
@@ -308,9 +287,6 @@ pasos:
 explicacion: "'Da' se usa para indicar el lugar de donde algo proviene. Ejemplo: 'Sono venuto da Roma.' (Vine de Roma)."  
 tipo: completar  
 enunciado: "La lettera ___ Milano è arrivata ieri."  
-variables:  
-  - uno_de(["di", "da"])  
-respuesta: "da"  
 respuestas_validas:  
   - "da"  
 ```  
@@ -329,9 +305,6 @@ pasos:
 explicacion: "'Avere fame di' se usa para expresar hambre. Ejemplo: 'Ho fame di pizza.' (Tengo hambre de pizza)."  
 tipo: completar  
 enunciado: "Non ho ___ mangiare, ma non so cosa preparare."  
-variables:  
-  - uno_de(["voglia", "fame"])  
-respuesta: "voglia"  
 respuestas_validas:  
   - "voglia"  
 ```  
@@ -413,9 +386,6 @@ pasos:
 explicacion: "'A proposito di' se usa para preguntar o referirse a algo específico. Ejemplo: 'Parliamo a proposito di politica?' (¿Hablamos de política?)."  
 tipo: completar  
 enunciado: "___ hai letto quel libro?"  
-variables:  
-  - uno_de(["A proposito di", "Di"])  
-respuesta: "A proposito di"  
 respuestas_validas:  
   - "A proposito di"  
 ```  
@@ -434,9 +404,6 @@ pasos:
 explicacion: "'Avere paura di' se usa para expresar miedo. Ejemplo: 'Ho paura di volare.' (Tengo miedo de volar)."  
 tipo: completar  
 enunciado: "Non ___ di andare a letto presto, ma non riesco."  
-variables:  
-  - uno_de(["ho voglia", "ho paura"])  
-respuesta: "ho paura"  
 respuestas_validas:  
   - "ho paura"  
 ```  
@@ -455,9 +422,6 @@ pasos:
 explicacion: "'Prima di' se usa con el infinitivo para indicar una acción previa. Ejemplo: 'Devo finire il lavoro prima di andare a casa.'"  
 tipo: completar  
 enunciado: "Sono uscito ___ mangiare qualcosa."  
-variables:  
-  - uno_de(["prima di", "dopo che"])  
-respuesta: "prima di"  
 respuestas_validas:  
   - "prima di"  
 ```  
@@ -497,9 +461,6 @@ pasos:
 explicacion: "'Invece di' se usa para contrastar acciones o decisiones. Ejemplo: 'Ho scelto invece di andare in spiaggia.' (He elegido en lugar de ir a la playa)."  
 tipo: completar  
 enunciado: "Non ho preso il treno, ___ ho preso l’autobus."  
-variables:  
-  - uno_de(["invece di", "anziché"])  
-respuesta: "invece di"  
 respuestas_validas:  
   - "invece di"  
 ```  
@@ -518,9 +479,6 @@ pasos:
 explicacion: "'A causa di' se usa para indicar una causa o motivo. Ejemplo: 'Il ritardo è stato a causa del maltempo.' (El retraso fue debido al mal tiempo)."  
 tipo: completar  
 enunciado: "L’incidente ___ la nebbia ha causato un incidente stradale."  
-variables:  
-  - uno_de(["della", "a causa di"])  
-respuesta: "a causa di"  
 respuestas_validas:  
   - "a causa di"  
 ```

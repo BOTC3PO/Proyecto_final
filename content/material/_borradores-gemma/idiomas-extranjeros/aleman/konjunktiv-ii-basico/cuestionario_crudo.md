@@ -8,13 +8,11 @@ metadata:
 pasos:  
   - Identificar el uso de Konjunktiv II para expresar deseos.  
   - Reemplazar la forma indicativa por la correcta en subjuntivo.  
-respuesta: "würde"  
 respuestas_validas:  
   - "würde"  
   - "Würde"  
 tipo: completar  
 enunciado: "Ich wünschte, ich ___ mehr Zeit hätte."  
-variables: []  
 
 ---
 ```
@@ -54,7 +52,6 @@ metadata:
 pasos:  
   - Identificar el uso de Konjunktiv II en sugerencias.  
   - Reemplazar la forma indicativa por la correcta.  
-respuesta: "könnte"  
 respuestas_validas:  
   - "könnte"  
   - "Könnte"  
@@ -99,7 +96,6 @@ metadata:
 pasos:  
   - Identificar la necesidad de Konjunktiv II en condiciones hipotéticas.  
   - Reemplazar la forma incorrecta por la correcta.  
-respuesta: "würde"  
 respuestas_validas:  
   - "würde"  
   - "Würde"  
@@ -144,7 +140,6 @@ metadata:
 pasos:  
   - Identificar la necesidad de Konjunktiv II en sugerencias.  
   - Reemplazar la forma incorrecta por la correcta.  
-respuesta: "müsste"  
 respuestas_validas:  
   - "müsste"  
   - "Müsste"  
@@ -189,7 +184,6 @@ metadata:
 pasos:  
   - Identificar la necesidad de Konjunktiv II en condiciones hipotéticas.  
   - Reemplazar la forma incorrecta por la correcta.  
-respuesta: "würde"  
 respuestas_validas:  
   - "würde"  
   - "Würde"  
@@ -234,7 +228,6 @@ metadata:
 pasos:  
   - Identificar la necesidad de Konjunktiv II en sugerencias.  
   - Reemplazar la forma incorrecta por la correcta.  
-respuesta: "müsste"  
 respuestas_validas:  
   - "müsste"  
   - "Müsste"  
@@ -279,7 +272,6 @@ metadata:
 pasos:  
   - Identificar la necesidad de Konjunktiv II en condiciones hipotéticas.  
   - Reemplazar la forma incorrecta por la correcta.  
-respuesta: "würde"  
 respuestas_validas:  
   - "würde"  
   - "Würde"  
@@ -326,12 +318,10 @@ pasos:
   - "Elegir el verbo en forma correcta dentro del contexto de un deseo irreal."
 explicacion: "El Konjunktiv II se usa para expresar deseos irreales. En este caso, se requiere la forma präteritum de 'haben', que es 'hätte'."
 tipo: completar
-respuesta: "hättest"
 respuestas_validas:
   - "hättest"
   - "Hättest"
 enunciado: "Ich wünschte, du ___ mehr Zeit haben könntest."
-variables: []
 ```
 
 ---
@@ -371,12 +361,10 @@ pasos:
   - "Seleccionar el verbo en su forma präteritum correcta dentro de una oración hipotética."
 explicacion: "Para situaciones hipotéticas, se usa el Konjunktiv II. El verbo 'kommen' en esta forma es 'käme'."
 tipo: completar
-respuesta: "käme"
 respuestas_validas:
   - "käme"
   - "Käme"
 enunciado: "Er ___ nicht zu uns kommen, wenn er nicht krank wäre."
-variables: []
 ```
 
 ---
@@ -421,7 +409,6 @@ opciones_explicitas:
   - "würde ich einen Urlaub machte"
   - "würde ich einen Urlaub hätten"
 respuesta: "würde ich einen Urlaub machen"
-variables: []
 enunciado: "Wenn ich ___ genug Zeit hätte, würde ich einen Urlaub machen."
 ```
 
@@ -462,12 +449,10 @@ pasos:
   - "Elegir la forma präteritum correcta del verbo 'schwimmen' en este contexto."
 explicacion: "El Konjunktiv II de 'schwimmen' es 'schwämme', que debe usarse aquí para mantener la coherencia con el deseo irreal."
 tipo: completar
-respuesta: "schwämme"
 respuestas_validas:
   - "schwämme"
   - "Schwämme"
 enunciado: "Ich wünschte, ich ___ besser schwimmen könnte."
-variables: []
 ```
 
 ---
@@ -512,7 +497,6 @@ opciones_explicitas:
   - "er lernte Deutsch"
   - "er lernte Deutsch"
 respuesta: "er lernte Deutsch"
-variables: []
 enunciado: "Er sagte, dass er ___ Deutsch."
 ```
 
@@ -553,10 +537,8 @@ pasos:
   - "Verificar que el sujeto y el verbo coincidan en número y persona."
 explicacion: "El Konjunktiv II de 'schenken' es 'schickte', pero aquí se requiere la forma präteritum del verbo 'haben', que es 'hätte'."
 tipo: completar
-respuesta: "hätte"
 respuestas_validas:
   - "hätte"
   - "Hätte"
 enunciado: "Wenn ich ___ mehr Geld hätte, würde ich dir etwas schenken."
-variables: []
 ```

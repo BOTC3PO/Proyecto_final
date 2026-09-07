@@ -10,7 +10,6 @@ pasos:
   - "Verificar si hay un complemento directo (CD) precedido por 'le/la/l' o no."
 explicacion: "El participio pasado debe concordar en género y número con el CD cuando este esté antes del verbo. Si el CD está después, no se hace el accord."
 enunciado: "Nous avons mangé ______ (des pommes)."
-respuesta: "des pommes"
 respuestas_validas:
   - "des pommes"
   - "Des pommes"
@@ -51,7 +50,6 @@ pasos:
   - "Usar *qui* para personas y *que* para cosas o animales."
 explicacion: "El pronombre relativo *qui* se usa cuando el antecedente es una persona, mientras que *que* lo hace para objetos o animales."
 enunciado: "La femme ______ (parler) anglais est mon amie."
-respuesta: "qui parle"
 respuestas_validas:
   - "qui parle"
   - "Qui parle"
@@ -92,7 +90,6 @@ pasos:
   - "Ajustar el participio en género y número según el CD."
 explicacion: "Cuando el CD está antes del verbo, el participio debe concordar. Ejemplo: 'Elle a fini *ses devoirs*' (no se concuerda)."
 enunciado: "Tu as perdu ______ (tes clés)."
-respuesta: "tes clés"
 respuestas_validas:
   - "tes clés"
   - "Tes clés"
@@ -133,7 +130,6 @@ pasos:
   - "Colocar el pronombre reflexivo antes del verbo."
 explicacion: "Para los verbos pronominales, el pronombre precede al verbo en el futuro. Ejemplo: 'Je me lèverai.'"
 enunciado: "Elle ______ (se lever) demain."
-respuesta: "se lèvera"
 respuestas_validas:
   - "se lèvera"
   - "Se lèvera"
@@ -174,7 +170,6 @@ pasos:
   - "Usar el imparfait para descripciones y passé composé para acciones terminadas."
 explicacion: "Cuando se combina un verbo de estado (como *être*) con otro, ambos deben estar en el mismo tiempo. Ejemplo: 'Il était fatigué et avait mal au dos.'"
 enunciado: "Hier, je ______ (manger) et ______ (avoir) faim."
-respuesta: "ai mangé avais"
 respuestas_validas:
   - "ai mangé avais"
   - "Ai mangé avais"
@@ -215,7 +210,6 @@ pasos:
   - "Verificar que el tiempo concuerde con la hipótesis."
 explicacion: "Cuando se expresa una posibilidad futura o hipotética, se usa *si + imparfait* seguido de *conditionnel présent*. Ejemplo: 'Si j'avais du temps, je viendrais.'"
 enunciado: "Si tu ______ (avoir) raison, nous ______ (aller) au restaurant."
-respuesta: "avais irions"
 respuestas_validas:
   - "avais irions"
   - "Avais irions"
@@ -256,7 +250,6 @@ pasos:
   - "Evitar errores de posición en oraciones compuestas."
 explicacion: "La estructura *ne...jamais* se usa para enfatizar la negación. Ejemplo: 'Je ne veux jamais faire cela.'"
 enunciado: "Nous ______ (manger) de la viande."
-respuesta: "ne mangeons jamais"
 respuestas_validas:
   - "ne mangeons jamais"
   - "Ne mangeons jamais"
@@ -297,7 +290,6 @@ pasos:
   - "Usar después de preposiciones o conjunciones."
 explicacion: "El gerundio se usa para conectar acciones simultáneas. Ejemplo: 'En marchant, j'ai vu un chat.'"
 enunciado: "Alors que nous ______ (parler), le téléphone a sonné."
-respuesta: "parlions"
 respuestas_validas:
   - "parlions"
   - "Parlions"
@@ -338,7 +330,6 @@ pasos:
   - "Usar el imparfait para razones y passé composé para consecuencias."
 explicacion: "Cuando se expresa una causa y efecto, ambos verbos deben estar en el mismo tiempo. Ejemplo: 'Il pleuvait et nous sommes restés à l'intérieur.'"
 enunciado: "Comme il ______ (pleuvoir), nous ______ (rester) à l'intérieur."
-respuesta: "pleuvait restons"
 respuestas_validas:
   - "pleuvait restons"
   - "Pleuvait restons"
@@ -379,7 +370,6 @@ pasos:
   - "Evitar errores de posición en oraciones compuestas."
 explicacion: "La estructura *ne...ni...ni* se usa para negar múltiples opciones. Ejemplo: 'Je ne veux ni café ni thé.'"
 enunciado: "Il ne mange ______ (pain) ______ (lait)."
-respuesta: "ni pain ni lait"
 respuestas_validas:
   - "ni pain ni lait"
   - "Ni pain ni lait"
@@ -441,11 +431,9 @@ pasos:
 explicacion: "El futuro próximo se construye con 'aller + infinitivo'. Aquí, 'je vais partir' indica una acción futura inmediata."  
 tipo: completar  
 enunciado: "Demain, je ______ (partir) en vacances."  
-respuesta: "vais"  
 respuestas_validas:  
   - "vais"  
   - "Vais"  
-variables: {}  
 ```
 
 ### 23 — Uso de *avant* en oraciones temporales  
@@ -486,7 +474,6 @@ opciones_explicitas:
   - "est"  
   - "était"  
 respuesta: "seras"  
-variables: {}  
 ```
 
 ### 25 — Uso de *que* en oraciones subordinadas  

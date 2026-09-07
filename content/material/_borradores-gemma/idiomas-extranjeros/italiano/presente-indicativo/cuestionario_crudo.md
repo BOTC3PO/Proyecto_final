@@ -7,7 +7,6 @@ metadata:
   tags: ["conjugacion", "io"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'mangiare'."  
-respuesta: "mangio"  
 respuestas_validas:  
   - "mangio"  
   - "Mangio"  
@@ -25,7 +24,6 @@ metadata:
   tags: ["conjugacion", "tu"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'andare'."  
-respuesta: "vai"  
 respuestas_validas:  
   - "vai"  
   - "Vai"  
@@ -43,7 +41,6 @@ metadata:
   tags: ["conjugacion", "lui"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'dire'."  
-respuesta: "dice"  
 respuestas_validas:  
   - "dice"  
   - "Dice"  
@@ -61,7 +58,6 @@ metadata:
   tags: ["conjugacion", "noi"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'fare'."  
-respuesta: "facciamo"  
 respuestas_validas:  
   - "facciamo"  
   - "Facciamo"  
@@ -79,7 +75,6 @@ metadata:
   tags: ["conjugacion", "voi"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'stare'."  
-respuesta: "state"  
 respuestas_validas:  
   - "state"  
   - "State"  
@@ -97,7 +92,6 @@ metadata:
   tags: ["conjugacion", "loro"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'vedere'."  
-respuesta: "vedono"  
 respuestas_validas:  
   - "vedono"  
   - "Vedono"  
@@ -115,7 +109,6 @@ metadata:
   tags: ["conjugacion", "io"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'dormire'."  
-respuesta: "dormo"  
 respuestas_validas:  
   - "dormo"  
   - "Dormo"  
@@ -133,7 +126,6 @@ metadata:
   tags: ["conjugacion", "tu"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'bere'."  
-respuesta: "bevi"  
 respuestas_validas:  
   - "bevi"  
   - "Bevi"  
@@ -151,7 +143,6 @@ metadata:
   tags: ["conjugacion", "lui"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'leggere'."  
-respuesta: "legge"  
 respuestas_validas:  
   - "legge"  
   - "Legge"  
@@ -169,7 +160,6 @@ metadata:
   tags: ["conjugacion", "noi"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'andare'."  
-respuesta: "andiamo"  
 respuestas_validas:  
   - "andiamo"  
   - "Andiamo"  
@@ -187,7 +177,6 @@ metadata:
   tags: ["conjugacion", "loro"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'mangiare'."  
-respuesta: "mangiano"  
 respuestas_validas:  
   - "mangiano"  
   - "Mangiano"  
@@ -205,7 +194,6 @@ metadata:
   tags: ["conjugacion", "voi"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'fare'."  
-respuesta: "fate"  
 respuestas_validas:  
   - "fate"  
   - "Fate"  
@@ -223,7 +211,6 @@ metadata:
   tags: ["conjugacion", "io"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'dire'."  
-respuesta: "dico"  
 respuestas_validas:  
   - "dico"  
   - "Dico"  
@@ -241,7 +228,6 @@ metadata:
   tags: ["conjugacion", "tu"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'stare'."  
-respuesta: "stai"  
 respuestas_validas:  
   - "stai"  
   - "Stai"  
@@ -259,7 +245,6 @@ metadata:
   tags: ["conjugacion", "lui"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'vedere'."  
-respuesta: "vede"  
 respuestas_validas:  
   - "vede"  
   - "Vede"  
@@ -277,7 +262,6 @@ metadata:
   tags: ["conjugacion", "noi"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'dormire'."  
-respuesta: "dormiamo"  
 respuestas_validas:  
   - "dormiamo"  
   - "Dormiamo"  
@@ -295,7 +279,6 @@ metadata:
   tags: ["conjugacion", "loro"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'bere'."  
-respuesta: "bevono"  
 respuestas_validas:  
   - "bevono"  
   - "Bevono"  
@@ -313,7 +296,6 @@ metadata:
   tags: ["conjugacion", "voi"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'leggere'."  
-respuesta: "leggete"  
 respuestas_validas:  
   - "leggete"  
   - "Leggete"  
@@ -331,7 +313,6 @@ metadata:
   tags: ["conjugacion", "io"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'andare'."  
-respuesta: "vado"  
 respuestas_validas:  
   - "vado"  
   - "Vado"  
@@ -349,7 +330,6 @@ metadata:
   tags: ["conjugacion", "tu"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'mangiare'."  
-respuesta: "mangi"  
 respuestas_validas:  
   - "mangi"  
   - "Mangi"  
@@ -367,7 +347,6 @@ metadata:
   tags: ["conjugacion", "lui"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'dire'."  
-respuesta: "dice"  
 respuestas_validas:  
   - "dice"  
   - "Dice"  
@@ -385,7 +364,6 @@ metadata:
   tags: ["conjugacion", "noi"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'fare'."  
-respuesta: "facciamo"  
 respuestas_validas:  
   - "facciamo"  
   - "Facciamo"  
@@ -403,7 +381,6 @@ metadata:
   tags: ["conjugacion", "voi"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'stare'."  
-respuesta: "state"  
 respuestas_validas:  
   - "state"  
   - "State"  
@@ -421,7 +398,6 @@ metadata:
   tags: ["conjugacion", "loro"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'vedere'."  
-respuesta: "vedono"  
 respuestas_validas:  
   - "vedono"  
   - "Vedono"  
@@ -439,7 +415,6 @@ metadata:
   tags: ["conjugacion", "io"]  
 pasos:  
   - "Completa la frase con la forma correcta del verbo 'dormire'."  
-respuesta: "dormo"  
 respuestas_validas:  
   - "dormo"  
   - "Dormo"  

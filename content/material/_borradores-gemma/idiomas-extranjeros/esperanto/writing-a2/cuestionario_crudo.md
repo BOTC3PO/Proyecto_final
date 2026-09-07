@@ -10,10 +10,9 @@ pasos:
 explicacion: "La verbo 'esti' en la tera persona singular estas 'estas'."  
 enunciado: "Li ___ studento."  
 tipo: completar  
-respuesta: "estas"  
-respuestas_validas: ["estas", "Estas"]  
-
-```
+respuestas_validas:
+  - "estas"
+  - "Estas"```
 ```
 
 
@@ -50,10 +49,9 @@ pasos:
 explicacion: "La artikolo 'la' estas uzata antaŭ nomoj por indiki specifan objekton."  
 enunciado: "___ hundo estas sur la ĝardeno."  
 tipo: completar  
-respuesta: "La"  
-respuestas_validas: ["La", "la"]  
-
-```
+respuestas_validas:
+  - "La"
+  - "la"```
 ```
 
 
@@ -90,10 +88,9 @@ pasos:
 explicacion: "La pluralo de 'hundo' estas 'hundoj', kun adicio de '-j'."  
 enunciado: "La ___ ludas en la ĝardeno."  
 tipo: completar  
-respuesta: "hundoj"  
-respuestas_validas: ["hundoj", "Hundoj"]  
-
-```
+respuestas_validas:
+  - "hundoj"
+  - "Hundoj"```
 ```
 
 
@@ -130,10 +127,9 @@ pasos:
 explicacion: "La artikolo 'la' estas uzata antaŭ nomoj por indiki specifan objekton."  
 enunciado: "Mi legas ___ libro."  
 tipo: completar  
-respuesta: "la"  
-respuestas_validas: ["la", "La"]  
-
-```
+respuestas_validas:
+  - "la"
+  - "La"```
 ```
 
 
@@ -170,10 +166,9 @@ pasos:
 explicacion: "La pluralo de 'kato' estas 'katoj', kun adicio de '-j'."  
 enunciado: "La ___ dormas sur la saviĝejo."  
 tipo: completar  
-respuesta: "katoj"  
-respuestas_validas: ["katoj", "Katoj"]  
-
-```
+respuestas_validas:
+  - "katoj"
+  - "Katoj"```
 ```
 
 
@@ -210,10 +205,9 @@ pasos:
 explicacion: "La artikolo 'la' estas uzata antaŭ nomoj por indiki specifan objekton."  
 enunciado: "Mi vidas ___ kato."  
 tipo: completar  
-respuesta: "la"  
-respuestas_validas: ["la", "La"]  
-
-```
+respuestas_validas:
+  - "la"
+  - "La"```
 ```
 
 
@@ -250,10 +244,9 @@ pasos:
 explicacion: "La pluralo de 'birdo' estas 'birdoj', kun adicio de '-j'."  
 enunciado: "La ___ kantas en la arbo."  
 tipo: completar  
-respuesta: "birdoj"  
-respuestas_validas: ["birdoj", "Birdoj"]  
-
-```
+respuestas_validas:
+  - "birdoj"
+  - "Birdoj"```
 ```
 
 
@@ -290,10 +283,9 @@ pasos:
 explicacion: "La artikolo 'la' estas uzata antaŭ nomoj por indiki specifan objekton."  
 enunciado: "Mi vidis ___ birdon."  
 tipo: completar  
-respuesta: "la"  
-respuestas_validas: ["la", "La"]  
-
-```
+respuestas_validas:
+  - "la"
+  - "La"```
 ```
 
 
@@ -330,10 +322,9 @@ pasos:
 explicacion: "La pluralo de 'domo' estas 'domoj', kun adicio de '-j'."  
 enunciado: "La ___ estas blankaj."  
 tipo: completar  
-respuesta: "domoj"  
-respuestas_validas: ["domoj", "Domoj"]  
-
-```
+respuestas_validas:
+  - "domoj"
+  - "Domoj"```
 ```
 
 
@@ -387,7 +378,6 @@ pasos:
   - "Elektu la prepozicion kiu konvenas al la verbo 'vidi'."  
 explicacion: "La verbo 'vidi' postulas la prepozicion 'en' por indiki lokon. Ekzemple: Mi vidas hundon en la ĝardeno."  
 tipo: completar  
-respuesta: "en"  
 respuestas_validas:  
   - "en"  
   - "En"  
@@ -405,10 +395,9 @@ pasos:
 explicacion: "La pluralo de 'kino' estas 'kinoj', kun adicio de '-j'."  
 enunciado: "La ___ estos malfermitaj morgaŭ."  
 tipo: completar  
-respuesta: "kinoj"  
-respuestas_validas: ["kinoj", "Kinoj"]  
-
-```
+respuestas_validas:
+  - "kinoj"
+  - "Kinoj"```
 ```
 
 
@@ -425,7 +414,6 @@ pasos:
 explicacion: "La verbo 'esti' en la unua persona singular estas 'estas'."  
 enunciado: "Mi ___ studento."  
 tipo: completar  
-respuesta: "estas"  
 respuestas_validas: ["estas", "Estas"]  
 
 ```
@@ -445,10 +433,9 @@ pasos:
 explicacion: "La artikolo 'la' estas uzata antaŭ nomoj por indiki specifan objekton."  
 enunciado: "Mi vidas ___ hundon."  
 tipo: completar  
-respuesta: "la"  
-respuestas_validas: ["la", "La"]  
-
-```
+respuestas_validas:
+  - "la"
+  - "La"```
 ```
 
 

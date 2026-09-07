@@ -11,7 +11,6 @@ pasos:
 explicacion: "직접어 '말하다'는 간접어로 사용될 때 '-고'가 붙고, '라고'가 문장 끝에 추가됩니다. 예: 그는 '나는 학생이다.'라고 말했다."
 tipo: completar
 enunciado: "그는 '내일은 휴일입니다.'___말했다."
-respuesta: "라고"
 respuestas_validas:
   - "라고"
   - "라 고"  
@@ -34,7 +33,6 @@ pasos:
 explicacion: "동사 '하다'는 간접어로 사용될 때 '-고'가 붙습니다. 예: 그녀는 '나는 지금 바쁘다.'라고 말했다."
 tipo: completar
 enunciado: "그는 '이 책은 재미있습니다.'___말했다."
-respuesta: "라고"
 respuestas_validas:
   - "라고"
   - "라 고"  
@@ -57,7 +55,6 @@ pasos:
 explicacion: "'보다'는 간접어로 사용될 때 '-고'가 붙습니다. 예: 그는 '그 책을 보았다.'라고 말했다."
 tipo: completar
 enunciado: "그녀는 '그 영화를 ___ 보았다.'라고 말했다."
-respuesta: "봤다"
 respuestas_validas:
   - "봤다"
   - "보았다"  
@@ -80,7 +77,6 @@ pasos:
 explicacion: "'가다'는 간접어로 '-고'가 붙습니다. 예: 그는 '나는 학교에 갔다.'라고 말했다."
 tipo: completar
 enunciado: "그녀는 '내일 ___ 가야 한다.'라고 말했다."
-respuesta: "가야"
 respuestas_validas:
   - "가야"
   - "가야 한다"  
@@ -103,7 +99,6 @@ pasos:
 explicacion: "'오다'는 간접어로 '-고'가 붙습니다. 예: 그는 '나는 지금 오고 있다.'라고 말했다."
 tipo: completar
 enunciado: "그는 '내일 ___ 올 거예요.'라고 말했다."
-respuesta: "올"
 respuestas_validas:
   - "올"
   - "오다"  
@@ -126,7 +121,6 @@ pasos:
 explicacion: "'하다'는 간접어로 '-고'가 붙습니다. 예: 그녀는 '나는 지금 일하고 있어.'라고 말했다."
 tipo: completar
 enunciado: "그는 '이 음식은 ___ 맛있어요.'라고 말했다."
-respuesta: "정말"
 respuestas_validas:
   - "정말"
   - "진짜"  
@@ -149,7 +143,6 @@ pasos:
 explicacion: "'아니다'는 간접어로 '-고'가 붙습니다. 예: 그녀는 '나는 학생이 아니다.'라고 말했다."
 tipo: completar
 enunciado: "그는 '이 과목은 ___ 어렵다.'라고 말했다."
-respuesta: "아니"
 respuestas_validas:
   - "아니"
   - "아니다"  
@@ -172,7 +165,6 @@ pasos:
 explicacion: "'아니다'는 간접어로 '-고'가 붙습니다. 예: 그는 '이 책은 싫다.'라고 말했다."
 tipo: completar
 enunciado: "그녀는 '나는 ___ 학생이다.'라고 말했다."
-respuesta: "아니"
 respuestas_validas:
   - "아니"
   - "아니다"  
@@ -195,7 +187,6 @@ pasos:
 explicacion: "'아니다'는 간접어로 '-고'가 붙습니다. 예: 그녀는 '나는 지금 바쁘지 않다.'라고 말했다."
 tipo: completar
 enunciado: "그는 '이 영화는 ___ 재미없어요.'라고 말했다."
-respuesta: "아니"
 respuestas_validas:
   - "아니"
   - "아니다"  
@@ -218,7 +209,6 @@ pasos:
 explicacion: "'아니다'는 간접어로 '-고'가 붙습니다. 예: 그녀는 '나는 지금 휴식 중이 아니다.'라고 말했다."
 tipo: completar
 enunciado: "그는 '이 음식은 ___ 맛없어요.'라고 말했다."
-respuesta: "아니"
 respuestas_validas:
   - "아니"
   - "아니다"  
@@ -241,7 +231,6 @@ pasos:
 explicacion: "'아니다'는 간접어로 '-고'가 붙습니다. 예: 그는 '나는 지금 휴식 중이다.'라고 말했다."
 tipo: completar
 enunciado: "그녀는 '이 시간은 ___ 좋다.'라고 말했다."
-respuesta: "아니"
 respuestas_validas:
   - "아니"
   - "아니다"  
@@ -260,7 +249,6 @@ metadata:
   tags: ["indirecto", "pronombres"]  
 pasos:  
   - "변화된 대화를 분석하고, 직접 언급된 단어를 간접 말로 바꾸세요."  
-respuesta: "그녀는 친구와 함께 영화를 보았다라고 말했다."  
 tipo: completar  
 respuestas_validas:  
   - "그녀는 친구와 함께 영화를 보았다라고 말했다"  
@@ -277,7 +265,6 @@ metadata:
   tags: ["시간 표현", "동사 변화"]  
 pasos:  
   - "문장을 간접 언어로 바꾸고, 적절한 시간 표현과 동사를 채우세요."  
-respuesta: "그는 ‘지금 ___ 가야 한다’고 말했다."  
 tipo: completar  
 respuestas_validas:  
   - "지금 나가야 한다"  
@@ -298,7 +285,6 @@ pasos:
 explicacion: "'아니다'는 간접어로 '-고'가 붙습니다. 예: 그녀는 '나는 지금 휴식 중이 아니다.'라고 말했다."
 tipo: completar
 enunciado: "그는 '이 시간은 ___ 좋다.'라고 말했다."
-respuesta: "아니"
 respuestas_validas:
   - "아니"
   - "아니다"  
@@ -335,7 +321,6 @@ metadata:
   tags: ["명사 수식", "시간 표현"]  
 pasos:  
   - "문장을 간접 언어로 바꾸고, 적절한 명사와 시간 표현을 채우세요."  
-respuesta: "그는 ‘이 책은 ___ 재미없다’고 말했다."  
 tipo: completar  
 respuestas_validas:  
   - "이 책은 너무 재미없다"  
@@ -370,7 +355,6 @@ metadata:
   tags: ["접속사", "명사 수식"]  
 pasos:  
   - "문장을 간접 언어로 바꾸고, 적절한 접속사를 채우세요."  
-respuesta: "그녀는 ‘이 음식은 ___ 맛있었다’고 말했다."  
 tipo: completar  
 respuestas_validas:  
   - "이 음식은 매우 맛있었다"  
@@ -405,7 +389,6 @@ metadata:
   tags: ["동사 변화", "명사 수식"]  
 pasos:  
   - "문장을 간접 언어로 바꾸고, 적절한 동사를 채우세요."  
-respuesta: "그녀는 ‘이 과목은 ___ 어렵다’고 말했다."  
 tipo: completar  
 respuestas_validas:  
   - "이 과목은 매우 어렵다"  
@@ -440,7 +423,6 @@ metadata:
   tags: ["접속사", "명사 수식"]  
 pasos:  
   - "문장을 간접 언어로 바꾸고, 적절한 접속사를 채우세요."  
-respuesta: "그녀는 ‘이 음식은 ___ 맛없었다’고 말했다."  
 tipo: completar  
 respuestas_validas:  
   - "이 음식은 매우 맛없었다"  
@@ -475,7 +457,6 @@ metadata:
   tags: ["시간 표현", "명사 수식"]  
 pasos:  
   - "문장을 간접 언어로 바꾸고, 적절한 시간 표현을 채우세요."  
-respuesta: "그녀는 ‘이 책은 ___ 재미없었다’고 말했다."  
 tipo: completar  
 respuestas_validas:  
   - "이 책은 매우 재미없었다"  

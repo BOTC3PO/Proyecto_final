@@ -10,7 +10,6 @@ pasos:
 explicacion: "El verbo 'être' (ser) en presente tiene la forma 'suis' para 'je'."
 tipo: completar
 enunciado: "Je ___ étudiant."
-respuesta: "suis"
 respuestas_validas:
   - "SUIS"
 ```
@@ -50,7 +49,6 @@ pasos:
 explicacion: "El artículo definido 'la' se usa antes de sustantivos femeninos."
 tipo: completar
 enunciado: "Je conduis ___ voiture."
-respuesta: "la"
 respuestas_validas:
   - "La"
 ```
@@ -90,7 +88,6 @@ pasos:
 explicacion: "El artículo indefinido 'un' se usa antes de sustantivos masculinos."
 tipo: completar
 enunciado: "J’ai ___ chien."
-respuesta: "un"
 respuestas_validas:
   - "Un"
 ```
@@ -109,7 +106,6 @@ pasos:
 explicacion: "El presente se usa para acciones cotidianas, como 'je dors' (duermo)."
 tipo: completar
 enunciado: "Je ___ à la maison le week-end."
-respuesta: "dors"
 respuestas_validas:
   - "DORS"
 ```
@@ -128,7 +124,6 @@ pasos:
 explicacion: "'Aller' en presente tiene la forma 'allons' para 'nous'."
 tipo: completar
 enunciado: "Nous ___ au cinéma ce soir."
-respuesta: "allons"
 respuestas_validas:
   - "ALLONS"
 ```
@@ -168,7 +163,6 @@ pasos:
 explicacion: "La negación 'ne...pas' se coloca alrededor del verbo."
 tipo: completar
 enunciado: "Je ___ vais au parc aujourd’hui."
-respuesta: "ne"
 respuestas_validas:
   - "Ne"
 ```
@@ -208,7 +202,6 @@ pasos:
 explicacion: "'Mon' se usa antes de sustantivos masculinos, pero 'ma' antes de femeninos."
 tipo: completar
 enunciado: "C’est ___ sœur."
-respuesta: "ma"
 respuestas_validas:
   - "Ma"
 ```
@@ -227,7 +220,6 @@ pasos:
 explicacion: "'J’étudie' (estudio) se usa para acciones regulares."
 tipo: completar
 enunciado: "Je ___ beaucoup les maths."
-respuesta: "étudie"
 respuestas_validas:
   - "ÉTUDIE"
 ```
@@ -246,7 +238,6 @@ pasos:
 explicacion: "'Se lever' se usa con el pronombre 'me' en primera persona."
 tipo: completar
 enunciado: "Je ___ levé(e) à 7h."
-respuesta: "me"
 respuestas_validas:
   - "Me"
 ```
@@ -286,7 +277,6 @@ pasos:
 explicacion: "'Cette' se usa antes de sustantivos femeninos."
 tipo: completar
 enunciado: "___ robe est jolie."
-respuesta: "cette"
 respuestas_validas:
   - "CETTE"
 ```
@@ -326,7 +316,6 @@ pasos:
 explicacion: "'Une' se usa antes de sustantivos femeninos."
 tipo: completar
 enunciado: "J’ai ___ pomme."
-respuesta: "une"
 respuestas_validas:
   - "UNE"
 ```
@@ -345,7 +334,6 @@ pasos:
 explicacion: "La negación 'ne...pas' se coloca alrededor del verbo."
 tipo: completar
 enunciado: "Je ___ mange jamais de pain."
-respuesta: "ne"
 respuestas_validas:
   - "Ne"
 ```
@@ -385,7 +373,6 @@ pasos:
 explicacion: "'Aimer' se conjuga como 'aiment' en tercera persona plural."
 tipo: completar
 enunciado: "Ils ___ les chats."
-respuesta: "aiment"
 respuestas_validas:
   - "AIMENT"
 ```
@@ -425,7 +412,6 @@ pasos:
 explicacion: "'Mon' se usa antes de sustantivos masculinos."
 tipo: completar
 enunciado: "C’est ___ frère."
-respuesta: "mon"
 respuestas_validas:
   - "MON"
 ```
@@ -465,7 +451,6 @@ pasos:
 explicacion: "'Je travaille' (trabajo) se usa para acciones regulares."
 tipo: completar
 enunciado: "Je ___ à l’université."
-respuesta: "travaille"
 respuestas_validas:
   - "TRAVAILLE"
 ```
@@ -484,7 +469,6 @@ pasos:
 explicacion: "'Se coucher' se usa con el pronombre 'me' en primera persona."
 tipo: completar
 enunciado: "Je ___ couché à 23h."
-respuesta: "me"
 respuestas_validas:
   - "ME"
 ```

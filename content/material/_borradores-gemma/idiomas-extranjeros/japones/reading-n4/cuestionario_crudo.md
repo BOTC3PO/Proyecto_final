@@ -8,7 +8,6 @@ metadata:
   tags: ["kanji", "comprension"]
 pasos:
   - "Identificar el kanji que representa un animal común."
-respuesta: "猫"
 respuestas_validas:
   - "猫"
   - "ねこ"
@@ -46,7 +45,6 @@ metadata:
   tags: ["verbo", "conjugacion"]
 pasos:
   - "Completar el verbo en la forma adecuada para el contexto."
-respuesta: "食べる"
 respuestas_validas:
   - "食べる"
   - "たべる"
@@ -104,7 +102,6 @@ metadata:
   tags: ["particulas", "direccion"]
 pasos:
   - "Identificar la partícula que indica dirección en el contexto."
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "へ"
@@ -142,7 +139,6 @@ metadata:
   tags: ["kanji", "accion"]
 pasos:
   - "Identificar el kanji que representa una acción común."
-respuesta: "走る"
 respuestas_validas:
   - "走る"
   - "はしる"
@@ -180,7 +176,6 @@ metadata:
   tags: ["verbo", "pasado"]
 pasos:
   - "Completar el verbo en la forma pasada."
-respuesta: "食べた"
 respuestas_validas:
   - "食べた"
   - "たべた"
@@ -218,7 +213,6 @@ metadata:
   tags: ["sintaxis", "negacion"]
 pasos:
   - "Completar la oración con la negación adecuada."
-respuesta: "ない"
 respuestas_validas:
   - "ない"
   - "ありません"
@@ -256,7 +250,6 @@ metadata:
   tags: ["verbo", "hablar"]
 pasos:
   - "Completar el verbo en la forma adecuada para 'hablar'."
-respuesta: "話す"
 respuestas_validas:
   - "話す"
   - "はなす"
@@ -294,7 +287,6 @@ metadata:
   tags: ["particulas", "posicion"]
 pasos:
   - "Identificar la partícula que indica posición en el contexto."
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "へ"
@@ -332,7 +324,6 @@ metadata:
   tags: ["kanji", "accion"]
 pasos:
   - "Identificar el kanji que representa una acción común."
-respuesta: "走る"
 respuestas_validas:
   - "走る"
   - "はしる"
@@ -390,7 +381,6 @@ metadata:
   tags: ["kanji", "direccion"]
 pasos:
   - "Identificar el kanji que representa una dirección común."
-respuesta: "上"
 respuestas_validas:
   - "上"
   - "うえ"
@@ -428,7 +418,6 @@ metadata:
   tags: ["particulas", "tiempo"]
 pasos:
   - "Elegir la partícula que indica tiempo."
-respuesta: "に"
 respuestas_validas:
   - "に"
   - "で"
@@ -466,7 +455,6 @@ metadata:
   tags: ["kanji", "numero"]
 pasos:
   - "Identificar el kanji que representa un número común."
-respuesta: "五"
 respuestas_validas:
   - "五"
   - "ご"
