@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -183,15 +183,11 @@ metadata:
   nivel: "intermedio"
   tags: ["economia", "intercambio"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["lealtad y servicio militar", "protección y tierras"], ["trabajo agrícola", "alimento y refugio"]]
-
 tipo: mc
 opciones_explicitas: ["Servicio militar y lealtad", "Pago de oro y plata", "Intercambio de productos artesanales", "Voto de pobreza"]
 respuesta: "Servicio militar y lealtad"
 
-enunciado: "Si un vasallo fallaba en cumplir su parte del contrato hacia su señor, el señor perdía la oportunidad de recibir {datos[escenario_idx][0]}."
+enunciado: "Si un vasallo fallaba en cumplir su parte del contrato hacia su señor, el señor perdía la oportunidad de recibir lealtad y servicio militar."
 
 explicacion: |
   El sistema se basaba en la reciprocidad. Si el vasallo no prestaba el servicio militar o el consejo, el vínculo de vasallaje se rompía.
@@ -284,16 +280,12 @@ metadata:
   nivel: "basico"
   tags: ["campesinado", "siervos"]
 
-variables:
-  escenario: uno_de([["Siervos", "estaban ligados a la tierra"], ["Campesinos libres", "tenían mayor movilidad"]])
-
-respuesta: escenario[0]
+respuesta: "Siervos"
 tipo: completar
 respuestas_validas:
   - "Siervos"
-  - "Campesinos libres"
 
-enunciado: "En el sistema feudal, los ___ eran aquellos que no tenían libertad de movimiento y estaban ___."
+enunciado: "En el sistema feudal, los ___ eran aquellos que no tenían libertad de movimiento y estaban ligados a la tierra que trabajaban."
 
 explicacion: |
   A diferencia de los campesinos libres, los siervos estaban legalmente vinculados a la tierra que trabajaban.
@@ -308,15 +300,13 @@ metadata:
   nivel: "avanzado"
   tags: ["vasallaje", "nobleza"]
 
-variables:
-  caso: uno_de([[0, "Señor Feudal"], [1, "Rey"]])
-
-respuesta: caso[0]
+respuesta: "Vasallo"
 
 tipo: completar
-tolerancia_abs: 0
+respuestas_validas:
+  - "Vasallo"
 
-enunciado: "Si un noble recibe tierras a cambio de lealtad y apoyo militar, su posición es la de un ___."
+enunciado: "Si un noble recibe tierras a cambio de lealtad y apoyo militar hacia otro noble de mayor rango, su posición en ese vínculo es la de un ___."
 
 explicacion: |
   El intercambio de tierras (feudo) por servicios militares y lealtad definía la relación entre el señor y su vasallo.
@@ -461,8 +451,6 @@ enunciado: "El individuo cuya tarea es {datos[idx][0]} es un: ___"
 
 respuestas_validas:
   - "Clérigo"
-  - "Noble"
-  - "Siervo"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -529,8 +517,6 @@ enunciado: "Aquella persona que {datos[idx][0]} es un: ___"
 
 respuestas_validas:
   - "Siervo"
-  - "Caballero"
-  - "Obispo"
 respuesta: datos[idx][1]
 tipo: completar
 
