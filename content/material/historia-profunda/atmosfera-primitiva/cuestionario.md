@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -255,16 +255,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fotosintesis", "oxigeno", "biologia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario_datos: [["la atmósfera primitiva", "la aparición de la fotosíntesis"], ["la atmósfera actual", "la acumulación de gases volcánicos"]]
-
-enunciado: "En el escenario {escenario_datos[escenario_idx][0]}, el factor principal que transformó la atmósfera fue {escenario_datos[escenario_idx][1]}."
+enunciado: "El factor principal que transformó la atmósfera primitiva hacia una atmósfera con oxígeno fue ___."
 
 tipo: completar
 respuestas_validas:
   - "la aparición de la fotosíntesis"
-  - "la acumulación de gases volcánicos"
 
 explicacion: |
   La fotosíntesis realizada por organismos antiguos (cianobacterias) liberó oxígeno como subproducto, cambiando la química global del planeta.
@@ -323,16 +318,12 @@ metadata:
   nivel: "intermedio"
   tags: ["quimica", "oxigeno"]
 
-variables:
-  datos: [["oxidante", "reductora"], ["reductora", "oxidante"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si la atmósfera es la actual, su estado es {datos[idx][0]}. Si es la primitiva, su estado es {datos[idx][1]}."
+enunciado: "Si la atmósfera es la actual, su estado es ___. Si es la primitiva, su estado es reductora."
 
 tipo: mc
 opciones_explicitas: ["oxidante", "reductora"]
 
-respuesta: datos[idx][0]
+respuesta: "oxidante"
 
 explicacion: |
   La atmósfera actual es oxidante debido a la presencia masiva de O2, mientras que la primitiva era reductora por la falta de este gas.
@@ -455,12 +446,9 @@ metadata:
   nivel: "basico"
   tags: ["geologia", "atmosfera"]
 
-variables:
-  escenario: uno_de([["Metano (CH4)", "Dióxido de carbono (CO2)"], ["Nitrógeno (N2)", "Dióxido de carbono (CO2)"], ["Vapor de agua (H2O)", "Metano (CH4)"], ["Nitrógeno (N2)", "Oxígeno (O2)"]])
+enunciado: "En la atmósfera primitiva, un componente dominante era el dióxido de carbono (CO2), mientras que en la atmósfera actual el componente predominante es el ___."
 
-enunciado: "En la atmósfera primitiva, un componente dominante era el {escenario[0]}, mientras que en la atmósfera actual el componente predominante es el {escenario[1]}."
-
-respuesta: escenario[1]
+respuesta: "Nitrógeno (N2)"
 tipo: mc
 opciones_explicitas: ["Dióxido de carbono (CO2)", "Metano (CH4)", "Oxígeno (O2)", "Nitrógeno (N2)"]
 
@@ -478,8 +466,8 @@ metadata:
   tags: ["evolucion", "oxigeno"]
 
 variables:
-  evento: [["Oxígeno (O2)", "Dióxido de carbono (CO2)"], ["Oxígeno (O2)", "Metano (CH4)"], ["Nitrógeno (N2)", "Dióxido de carbono (CO2)"]]
-  idx: uno_de([0,1,2])
+  evento: [["Oxígeno (O2)", "Dióxido de carbono (CO2)"], ["Oxígeno (O2)", "Metano (CH4)"]]
+  idx: uno_de([0,1])
   gas_liberado: evento[idx][0]
   gas_abundante: evento[idx][1]
 
@@ -552,13 +540,9 @@ metadata:
   nivel: "basico"
   tags: ["biologia", "oxigeno"]
 
-variables:
-  caso: [[0.21, "21%"], [0.0004, "0.04%"], [0.0001, "0.0001%"]]
-  idx: uno_de([0,1,2])
+enunciado: "En la atmósfera actual, el porcentaje de oxígeno es aproximadamente del 0.21 (valor decimal), lo que equivale al ___ de la mezcla total."
 
-enunciado: "En la atmósfera actual, el porcentaje de oxígeno es aproximadamente del {caso[idx][0]} (valor decimal), lo que equivale al {caso[idx][1]} de la mezcla total."
-
-respuesta: caso[idx][1]
+respuesta: "21%"
 tipo: completar
 tolerancia_abs: 0.01
 
