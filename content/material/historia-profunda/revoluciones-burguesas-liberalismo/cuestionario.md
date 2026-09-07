@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -142,14 +142,11 @@ metadata:
   nivel: "intermedio"
   tags: ["poderes", "montesquieu"]
 
-variables:
-  escenario: uno_de([["Ejecutivo", "Legislativo", "Judicial"], ["Poder Real", "Parlamento", "Tribunales"]])
-
 respuesta: "separación de poderes"
 tipo: mc
 opciones_explicitas: ["centralización absoluta", "separación de poderes", "supremacía monárquica", "gobierno de facciones"]
 
-enunciado: "Para evitar la tiranía, el liberalismo clásico propone la {escenario[0]} como mecanismo de control mutuo."
+enunciado: "Para evitar la tiranía, el liberalismo clásico propone dividir el poder del Estado en órganos independientes (Ejecutivo, Legislativo y Judicial). Este mecanismo se conoce como:"
 
 explicacion: |
   La separación de poderes (Ejecutivo, Legislativo y Judicial) busca que ninguna entidad concentre todo el control del Estado.
@@ -404,14 +401,11 @@ metadata:
   nivel: "intermedio"
   tags: ["parlamento", "representacion"]
 
-variables:
-  tipo_sufragio: uno_de(["universal", "censitario"])
-
-respuesta: tipo_sufragio
+respuesta: "censitario"
 tipo: mc
 opciones_explicitas: ["universal", "censitario"]
 
-enunciado: "Aunque las revoluciones burguesas promovieron la representación, en la práctica inicial, la mayoría de los regímenes liberales aplicaron un sufragio {tipo_sufragio} (basado en la renta o propiedad)."
+enunciado: "Aunque las revoluciones burguesas promovieron la representación, en la práctica inicial, la mayoría de los regímenes liberales aplicaron un sufragio ___ (basado en la renta o propiedad)."
 
 explicacion: |
   Si bien el ideal era la igualdad, el liberalismo clásico fue inicialmente 'censitario', limitando el derecho al voto a aquellos con propiedades o ingresos suficientes, excluyendo a las masas trabajadoras.
@@ -481,7 +475,7 @@ tipo: completar
 respuestas_validas:
   - "Libertad"
 
-enunciado: "Cuando el Estado interviene de forma arbitraria, como cuando ___ , se está vulnerando el principio de ___."
+enunciado: "Cuando el Estado interviene de forma arbitraria, como cuando {situaciones[situacion_idx][0]}, se está vulnerando el principio de ___."
 
 explicacion: |
   El liberalismo defiende un ámbito de acción individual (libertad de culto, expresión, comercio) donde el Estado no debe interferir.
