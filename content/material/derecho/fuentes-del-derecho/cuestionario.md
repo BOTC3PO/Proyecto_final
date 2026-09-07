@@ -1,6 +1,6 @@
 # Derecho — fuentes del derecho (cuestionario, 28 preguntas VBLang)
 
-> Tema: `derecho/fuentes-del-derecho`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `derecho/fuentes-del-derecho`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 

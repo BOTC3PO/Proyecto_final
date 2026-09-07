@@ -1,6 +1,6 @@
 # Derecho — Fuentes del derecho (teoria)
 
-> Tema del MAPA: `DER1B` (`troncos.md`). Depende de del nodo `DER1` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `DER1B` (`troncos.md`). Depende de del nodo `DER1` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
