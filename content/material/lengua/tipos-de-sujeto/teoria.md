@@ -14,11 +14,13 @@ En la oración, el sujeto es el elemento que concuerda en persona y número con 
 
 El estudio de los tipos de sujeto se basa en dos criterios principales: su presencia explícita en la oración y su composición. Comprender estas diferencias es clave para la sintaxis, ya que afecta cómo conjugamos los verbos y cómo organizamos la información en la comunicación cotidiana, desde un mensaje de WhatsApp hasta un ensayo académico.
 
-## Sujeto bimembre y unimembre
+## Sujeto simple y compuesto
 
-Esta clasificación depende de la cantidad de elementos que componen al sujeto. El **sujeto bimembre** está formado por dos partes: el núcleo (que suele ser un sustantivo o pronombre) y un modificador (que puede ser un adjetivo, un determinante u otra palabra que lo acompañe). Por ejemplo, en la oración "Los estudiantes de la escuela pública llegaron tarde", el sujeto es "Los estudiantes de la escuela pública". Aquí, "estudiantes" es el núcleo y "los", "de la escuela pública" son modificadores. Es el tipo de sujeto más completo y común en la escritura formal.
+**Nota importante**: "bimembre" y "unimembre" NO son términos que clasifiquen al sujeto — son una clasificación de la *oración completa* (una oración bimembre tiene sujeto y predicado diferenciados, como "Juan corre"; una oración unimembre no se puede dividir así, como "¡Fuego!" o "Llueve"). La clasificación real y complementaria a tácito/expreso para el sujeto es **simple vs. compuesto**, según cuántos núcleos tiene.
 
-Por otro lado, el **sujeto unimembre** está compuesto por un solo elemento, generalmente un sustantivo o un pronombre, sin modificadores. En la frase "Juan come manzanas", el sujeto es simplemente "Juan". No hay adjetivos ni complementos que lo acompañen directamente dentro del grupo nominal que funciona como sujeto. Esta distinción es útil para el análisis sintáctico detallado, aunque en la comunicación diaria la diferencia no suele alterar el significado fundamental de la frase.
+El **sujeto simple** tiene un solo núcleo (un sustantivo o pronombre), acompañado o no de modificadores. Por ejemplo, en "Los estudiantes de la escuela pública llegaron tarde", el sujeto es "Los estudiantes de la escuela pública": tiene un único núcleo, "estudiantes", aunque esté acompañado de modificadores ("los", "de la escuela pública"). En "Juan come manzanas", el sujeto "Juan" también es simple, sin modificadores. Es el tipo de sujeto más frecuente, tenga o no palabras que lo acompañen.
+
+Por otro lado, el **sujeto compuesto** tiene dos o más núcleos coordinados entre sí, generalmente unidos por "y", "o" u otra conjunción. Por ejemplo, en "Juan y María llegaron tarde", el sujeto tiene dos núcleos ("Juan", "María") coordinados por "y". Esta distinción es clave porque un sujeto compuesto obliga a conjugar el verbo en plural, incluso si cada núcleo por separado es singular.
 
 ## Sujeto tácito y expreso
 

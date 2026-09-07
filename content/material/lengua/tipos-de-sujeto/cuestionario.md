@@ -1,6 +1,6 @@
-# Lengua — tipos de sujeto (cuestionario, 25 preguntas VBLang)
+# Lengua — tipos de sujeto (cuestionario, 22 preguntas VBLang)
 
-> Tema: `lengua/tipos-de-sujeto`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/tipos-de-sujeto`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -33,7 +33,7 @@ metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["sujeto_unimembre", "composicion"]
+  tags: ["sujeto_simple", "nucleo"]
 
 variables:
   nombre_propio: uno_de(["Pedro", "Laura", "Martín", "Sofía", "Tomás"])
@@ -41,10 +41,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración '{nombre_propio} juega al fútbol', el sujeto es unimembre porque está compuesto por un solo núcleo sin modificadores."
+enunciado: "En la oración '{nombre_propio} juega al fútbol', el sujeto es simple porque tiene un solo núcleo."
 
 explicacion: |
-  Verdadero. El sujeto '{nombre_propio}' es un sustantivo propio que funciona como núcleo único. No tiene determinantes ni adjetivos que lo acompañen dentro del grupo nominal sujeto.
+  Verdadero. El sujeto '{nombre_propio}' tiene un único núcleo (el nombre propio) — eso lo hace simple, tenga o no modificadores acompañándolo.
 ```
 
 ### 3 — pregunta 3
@@ -54,7 +54,7 @@ metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["sujeto_bimembre", "composicion"]
+  tags: ["sujeto_simple", "modificadores"]
 
 variables:
   adjetivo: uno_de(["grandes", "inteligentes", "divertidos", "serios", "alegres"])
@@ -63,10 +63,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración 'Los {sustantivo} {adjetivo} llegaron tarde', el sujeto es bimembre."
+enunciado: "En la oración 'Los {sustantivo} {adjetivo} llegaron tarde', el sujeto sigue siendo simple, aunque tenga modificadores."
 
 explicacion: |
-  Verdadero. El sujeto 'Los {sustantivo} {adjetivo}' está compuesto por un núcleo ('{sustantivo}') y modificadores ('Los', '{adjetivo}'). Esta estructura de dos o más elementos lo clasifica como bimembre.
+  Verdadero. 'Los {sustantivo} {adjetivo}' tiene un único núcleo ('{sustantivo}'), acompañado de modificadores ('Los', '{adjetivo}'). Tener modificadores no lo convierte en compuesto — sigue siendo simple porque hay un solo núcleo.
 ```
 
 ### 4 — pregunta 4
@@ -76,7 +76,7 @@ metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["sujeto_compuesto", "bimembre"]
+  tags: ["sujeto_compuesto", "coordinacion"]
 
 variables:
   nombre1: uno_de(["María", "Juan", "Ana", "Luis", "Pedro"])
@@ -86,10 +86,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración '{nombre1} y {nombre2} {accion} tarde', el sujeto es bimembre."
+enunciado: "En la oración '{nombre1} y {nombre2} {accion} tarde', el sujeto es compuesto."
 
 explicacion: |
-  Verdadero. El sujeto está compuesto por dos núcleos ('{nombre1}' y '{nombre2}') unidos por la conjunción 'y'. Al tener más de un núcleo, es un sujeto bimembre (específicamente, un sujeto compuesto).
+  Verdadero. El sujeto tiene dos núcleos ('{nombre1}' y '{nombre2}') coordinados por 'y'. Al tener más de un núcleo, es un sujeto compuesto — y por eso el verbo va en plural.
 ```
 
 ### 5 — pregunta 5
@@ -99,7 +99,7 @@ metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
   nivel: "basico"
-  tags: ["sujeto_unimembre", "pronombre"]
+  tags: ["sujeto_simple", "pronombre"]
 
 variables:
   pronombre: uno_de(["Yo", "Tú", "Él", "Nosotros", "Ellos"])
@@ -108,10 +108,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración '{pronombre} {accion} mañana', el sujeto es unimembre."
+enunciado: "En la oración '{pronombre} {accion} mañana', el sujeto es simple."
 
 explicacion: |
-  Verdadero. El sujeto '{pronombre}' es un pronombre personal que funciona como núcleo único. No tiene modificadores adjetivos o determinantes adicionales que lo acompañen en el grupo nominal.
+  Verdadero. El sujeto '{pronombre}' es un pronombre personal que funciona como único núcleo — eso lo hace simple.
 ```
 
 ### 6 — pregunta 6
@@ -121,19 +121,19 @@ metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["sujeto_bimembre", "modificador"]
+  tags: ["sujeto_simple", "modificador"]
 
 variables:
-  sustantivo: uno_de(["amigos", "compañeros", "vecinos", "colegas", "amantes"])
-  complemento: uno_de(["de la escuela", "del trabajo", "del barrio", "de la clase", "de la oficina"])
+  sustantivo: uno_de(["amigos", "compañeros", "vecinos", "colegas"])
+  complemento: uno_de(["de la escuela", "del trabajo", "del barrio", "de la clase"])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración 'Los {sustantivo} {complemento} llegaron', el sujeto es bimembre."
+enunciado: "En la oración 'Los {sustantivo} {complemento} llegaron', el sujeto es simple."
 
 explicacion: |
-  Verdadero. El sujeto 'Los {sustantivo} {complemento}' tiene un núcleo ('{sustantivo}') y un modificador preposicional ('{complemento}'). Al tener núcleo y modificador, es bimembre.
+  Verdadero. 'Los {sustantivo} {complemento}' tiene un único núcleo ('{sustantivo}') con un modificador preposicional ('{complemento}') — sigue siendo simple, porque hay un solo núcleo.
 ```
 
 ### 7 — pregunta 7
@@ -143,19 +143,15 @@ metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
   nivel: "basico"
-  tags: ["sujeto_unimembre", "sustantivo_propio"]
+  tags: ["oracion_bimembre_unimembre", "distincion"]
 
-variables:
-  nombre: uno_de(["Buenos Aires", "España", "Argentina", "México", "Colombia"])
-  accion: uno_de(["es", "tiene", "tiene", "tiene", "tiene"])
-
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "En la oración '{nombre} {accion} mucha historia', el sujeto es unimembre."
+enunciado: "'Bimembre' y 'unimembre' son términos que clasifican al sujeto según tenga o no modificadores."
 
 explicacion: |
-  Verdadero. El sujeto '{nombre}' es un sustantivo propio que funciona como núcleo único. No tiene modificadores adjetivos o determinantes adicionales.
+  Falso. 'Bimembre' y 'unimembre' clasifican a la ORACIÓN completa (si se puede dividir en sujeto y predicado, o no) — no al sujeto. El sujeto se clasifica, entre otros criterios, en simple o compuesto según su número de núcleos.
 ```
 
 ### 8 — pregunta 8
@@ -164,20 +160,16 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sujeto_unimembre", "pronombre_demostrativo"]
-
-variables:
-  pronombre: uno_de(["Este", "Ese", "Ese", "Esto", "Eso"])
-  accion: uno_de(["es", "es", "es", "es", "es"])
+  nivel: "avanzado"
+  tags: ["oracion_unimembre", "impersonal"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración '{pronombre} {accion} importante', el sujeto es unimembre."
+enunciado: "'¡Fuego!' o 'Llueve mucho' son ejemplos de oraciones unimembres, porque no se pueden dividir en sujeto y predicado."
 
 explicacion: |
-  Verdadero. El sujeto '{pronombre}' es un pronombre demostrativo que funciona como núcleo único. No tiene modificadores adjetivos o determinantes adicionales.
+  Verdadero. Son oraciones unimembres: no tienen la estructura de dos miembros (sujeto + predicado) que sí tiene una oración bimembre como 'Juan corre'.
 ```
 
 ### 9 — pregunta 9
@@ -187,19 +179,18 @@ metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
   nivel: "basico"
-  tags: ["sujeto_unimembre", "sustantivo_comun"]
+  tags: ["sujeto_simple", "sustantivo_propio"]
 
 variables:
-  sustantivo: uno_de(["El agua", "La luz", "El aire", "El fuego", "La tierra"])
-  accion: uno_de(["es", "es", "es", "es", "es"])
+  nombre: uno_de(["Buenos Aires", "España", "Argentina", "México", "Colombia"])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración '{sustantivo} {accion} vital', el sujeto es unimembre."
+enunciado: "En la oración '{nombre} tiene mucha historia', el sujeto es simple."
 
 explicacion: |
-  Verdadero. El sujeto '{sustantivo}' es un sustantivo común que funciona como núcleo único. No tiene modificadores adjetivos o determinantes adicionales.
+  Verdadero. El sujeto '{nombre}' es un sustantivo propio que funciona como único núcleo — eso lo hace simple.
 ```
 
 ### 10 — pregunta 10
@@ -245,16 +236,20 @@ metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["sujeto_bimembre", "definicion"]
+  tags: ["sujeto_compuesto", "definicion"]
 
-respuesta: 2
-tipo: mc
-opciones: 4
+respuesta: "dos o mas nucleos coordinados"
+tipo: completar
+respuestas_validas:
+  - "dos o mas nucleos coordinados"
+  - "dos o más núcleos coordinados"
+  - "dos o mas nucleos"
+  - "dos núcleos coordinados"
 
-enunciado: "¿Cuál de las siguientes opciones define correctamente a un sujeto bimembre?"
+enunciado: "Un sujeto compuesto se define por tener ___."
 
 explicacion: |
-  Un sujeto bimembre está formado por dos partes: el núcleo (sustantivo o pronombre) y al menos un modificador (adjetivo, determinante, etc.).
+  Un sujeto compuesto tiene dos o más núcleos coordinados entre sí (por ejemplo, unidos por 'y'), a diferencia del sujeto simple, que tiene un único núcleo.
 ```
 
 ### 13 — pregunta 13
@@ -264,16 +259,20 @@ metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["sujeto_unimembre", "definicion"]
+  tags: ["sujeto_simple", "definicion"]
 
-respuesta: 1
-tipo: mc
-opciones: 4
+respuesta: "un solo nucleo"
+tipo: completar
+respuestas_validas:
+  - "un solo nucleo"
+  - "un solo núcleo"
+  - "un unico nucleo"
+  - "un único núcleo"
 
-enunciado: "Un sujeto unimembre se caracteriza por:"
+enunciado: "Un sujeto simple se define por tener ___, tenga o no modificadores."
 
 explicacion: |
-  Un sujeto unimembre está compuesto por un solo elemento, generalmente un sustantivo o pronombre, sin modificadores.
+  Un sujeto simple tiene un único núcleo (sustantivo o pronombre) — puede o no llevar modificadores, eso no cambia su clasificación como simple.
 ```
 
 ### 14 — pregunta 14
@@ -331,10 +330,10 @@ respuesta: 2
 tipo: mc
 opciones: 4
 
-enunciado: "En un sujeto bimembre, el núcleo es:"
+enunciado: "En un sujeto simple con modificadores, el núcleo es:"
 
 explicacion: |
-  El núcleo es la palabra principal del sujeto, generalmente un sustantivo o pronombre.
+  El núcleo es la palabra principal del sujeto, generalmente un sustantivo o pronombre — el resto son modificadores que lo acompañan.
 ```
 
 ### 17 — pregunta 17
@@ -350,10 +349,10 @@ respuesta: 1
 tipo: mc
 opciones: 4
 
-enunciado: "La principal diferencia entre sujeto bimembre y unimembre es:"
+enunciado: "La principal diferencia entre sujeto simple y sujeto compuesto es:"
 
 explicacion: |
-  La diferencia radica en la cantidad de elementos que componen al sujeto (núcleo + modificadores vs. solo núcleo).
+  La diferencia radica en el número de núcleos: uno solo (simple) o dos o más coordinados (compuesto) — no la presencia o ausencia de modificadores.
 ```
 
 ### 18 — pregunta 18
@@ -399,25 +398,6 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "tipos_de_sujeto"
-  nivel: "intermedio"
-  tags: ["modificadores", "sujeto_bimembre"]
-
-respuesta: 2
-tipo: mc
-opciones: 4
-
-enunciado: "En un sujeto bimembre, ¿cuál de las siguientes palabras NO suele ser un modificador del núcleo?"
-
-explicacion: |
-  El núcleo es la palabra principal. Los modificadores acompañan al núcleo.
-```
-
-### 21 — pregunta 21
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
   nivel: "avanzado"
   tags: ["comparacion", "sujeto_tacito"]
 
@@ -430,7 +410,7 @@ explicacion: |
   Correcto. El español permite la omisión del sujeto (tácito) con mayor frecuencia que el inglés.
 ```
 
-### 22 — pregunta 22
+### 21 — pregunta 21
 
 ```
 metadata:
@@ -453,50 +433,7 @@ explicacion: |
   El sujeto es el pronombre '{pronombre}'.
 ```
 
-### 23 — pregunta 23
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "intermedio"
-  tags: ["uso", "sujeto"]
-
-respuesta: 1
-tipo: mc
-opciones: 4
-
-enunciado: "¿En qué tipo de texto es más común el uso de sujetos bimembres detallados?"
-
-explicacion: |
-  La escritura formal suele utilizar sujetos bimembres para mayor precisión y claridad.
-```
-
-### 24 — pregunta 24
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["sujeto_bimembre", "adjetivo"]
-
-variables:
-  det: uno_de(["El", "La", "Los", "Las"])
-  sust: uno_de(["perro", "gato", "niño", "mujer"])
-  adj: uno_de(["grande", "pequeño", "alegre", "triste"])
-  sujeto: "{det} {sust} {adj}"
-
-respuesta: "{sujeto}"
-tipo: input
-
-enunciado: "Identificá el sujeto en la oración: '{sujeto} corre rápido.'"
-
-explicacion: |
-  El sujeto es '{sujeto}'.
-```
-
-### 25 — pregunta 25
+### 22 — pregunta 22
 
 ```
 metadata:
