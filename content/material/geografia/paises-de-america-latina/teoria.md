@@ -1,6 +1,6 @@
 # Geografía — Países de América Latina (teoria)
 
-> Tema del MAPA: `GAM3` (`troncos.md`). Depende de `../america-latina/` (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `GAM3` (`troncos.md`). Depende de `../america-latina/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
