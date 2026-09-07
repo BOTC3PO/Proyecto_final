@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -164,15 +164,11 @@ metadata:
   nivel: "intermedio"
   tags: ["politica", "sucesion"]
 
-variables:
-  idx: uno_de([0, 1, 2])
-  escenarios: [["Adolfo Rodríguez Saá", "estuvo solo 7 días en el cargo"], ["Eduardo Duhalde", "asumió tras la renuncia de De la Rúa"], ["Eduardo Duhalde", "fue elegido por la Asamblea Legislativa"]]
-
-respuesta: escenarios[idx][0]
+respuesta: "Adolfo Rodríguez Saá"
 tipo: mc
 opciones_explicitas: ["Adolfo Rodríguez Saá", "Eduardo Duhalde", "Eduardo Crescimbeni", "Ramón Puerta"]
 
-enunciado: "Tras la renuncia de De la Rúa, el sucesor que asumió la presidencia de la Nación por apenas una semana fue {escenarios[idx][0]} ({escenarios[idx][1]})."
+enunciado: "Tras la renuncia de De la Rúa, el presidente que asumió el cargo por apenas una semana (23 al 30 de diciembre de 2001) fue ___."
 
 explicacion: |
   La crisis política fue tan aguda que Argentina tuvo tres presidentes en una semana: De la Rúa, Rodríguez Saá y finalmente Duhalde.
@@ -187,9 +183,9 @@ metadata:
   nivel: "avanzado"
   tags: ["economia", "convertibilidad"]
 
-respuesta: "1"
+respuesta: "11"
 tipo: mc
-opciones_explicitas: ["1", "2", "3", "4"]
+opciones_explicitas: ["3", "7", "11", "20"]
 
 enunciado: "¿Cuántos años duró aproximadamente el Plan de Convertibilidad (1 peso = 1 dólar) que colapsó durante la crisis de 2001?"
 
@@ -440,15 +436,11 @@ metadata:
   nivel: "basico"
   tags: ["democracia", "politica"]
 
-variables:
-  datos: [["1983", "Raúl Alfonsín"], ["1989", "Carlos Menem"], ["1995", "Carlos Menem"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "Raúl Alfonsín"
 tipo: mc
 opciones_explicitas: ["Raúl Alfonsín", "Carlos Menem", "Fernando de la Rúa", "Néstor Kirchner"]
 
-enunciado: "En el año {datos[idx][0]}, la presidencia de la Nación fue asumida por {datos[idx][1]} tras el fin de la dictadura."
+enunciado: "En el año 1983, la presidencia de la Nación fue asumida por ___ tras el fin de la dictadura."
 
 explicacion: |
   El proceso de democratización se consolidó con la asunción de Raúl Alfonsín en 1983.
