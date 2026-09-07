@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -145,7 +145,7 @@ tipo: completar
 respuestas_validas:
   - escenario[0]
 
-enunciado: "Si una célula eucariota primitiva engloba a una ___, el resultado evolutivo es la formación de un(a) ___."
+enunciado: "Si una célula eucariota primitiva engloba a una ___, el resultado evolutivo es la formación de un(a) {escenario[1]}."
 
 explicacion: |
   El proceso de endosimbiosis implica que un organismo complejo absorbe a uno más pequeño que, en lugar de ser digerido, se convierte en un orgánulo especializado.
@@ -212,14 +212,11 @@ metadata:
   nivel: "basico"
   tags: ["mitocondria", "evolucion"]
 
-variables:
-  escenario: uno_de([["ADN circular", "ADN lineal"], ["fisión binaria", "mitosis"]])
-
-respuesta: escenario[1]
+respuesta: "fisión binaria"
 tipo: mc
 opciones_explicitas: ["ADN circular", "ADN lineal", "fisión binaria", "mitosis"]
 
-enunciado: "La evidencia de que las mitocondrias fueron bacterias es que poseen un tipo de ADN ___ y se reproducen mediante ___."
+enunciado: "La evidencia de que las mitocondrias fueron bacterias es que poseen un tipo de ADN circular y se reproducen mediante ___."
 
 explicacion: |
   Las mitocondrias poseen ADN circular y se dividen por fisión binaria, características típicas de las procariotas.
@@ -234,14 +231,10 @@ metadata:
   nivel: "intermedio"
   tags: ["adn", "cloroplastos"]
 
-variables:
-  tipo_adn: uno_de(["circular", "lineal"])
-
-respuesta: tipo_adn
+respuesta: "circular"
 tipo: completar
 respuestas_validas:
   - "circular"
-  - "lineal"
 
 enunciado: "A diferencia del ADN del núcleo celular, el ADN de los cloroplastos es de forma ___."
 
@@ -262,8 +255,6 @@ respuesta: "fisión binaria"
 tipo: completar
 respuestas_validas:
   - "fisión binaria"
-  - "mitosis"
-  - "meiosis"
 
 enunciado: "El mecanismo de reproducción de las mitocondrias es la ___."
 
@@ -280,10 +271,7 @@ metadata:
   nivel: "intermedio"
   tags: ["membrana", "evolucion"]
 
-variables:
-  membrana_tipo: uno_de(["doble", "simple"])
-
-respuesta: membrana_tipo
+respuesta: "doble"
 tipo: mc
 opciones_explicitas: ["doble", "simple"]
 
