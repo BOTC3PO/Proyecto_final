@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,10 +40,7 @@ metadata:
   nivel: "basico"
   tags: ["iluminacion", "hogar"]
 
-variables:
-  escenario: uno_de([["luz de gas", "luz de gas"], ["luz eléctrica", "luz eléctrica"], ["luz de vela", "luz de vela"]])
-
-respuesta: escenario[1]
+respuesta: "luz de gas"
 tipo: mc
 opciones_explicitas: ["luz de gas", "luz eléctrica", "luz de vela"]
 
@@ -81,12 +78,9 @@ metadata:
   nivel: "avanzado"
   tags: ["corrientes", "tesla", "edison"]
 
-variables:
-  respuesta_correcta: "Corriente Continua (DC"
-
 tipo: mc
-opciones_explicitas: ["Corriente Continua (DC", "Corriente Alterna (AC"]
-respuesta: "Corriente Continua (DC"
+opciones_explicitas: ["Corriente Continua (DC)", "Corriente Alterna (AC)"]
+respuesta: "Corriente Continua (DC)"
 
 enunciado: "En la 'Guerra de las Corrientes', ¿qué tipo de corriente defendía Thomas Edison para su sistema de distribución?"
 
@@ -127,7 +121,6 @@ respuesta: "centralizada"
 tipo: completar
 respuestas_validas:
   - "centralizada"
-  - "distribuida"
 
 enunciado: "A diferencia de los motores eléctricos que permiten una distribución flexible, el sistema de máquinas de vapor dependía de una fuente de energía ___."
 
@@ -144,14 +137,11 @@ metadata:
   nivel: "intermedio"
   tags: ["eficiencia", "motores"]
 
-variables:
-  escenario: uno_de([["El motor eléctrico permite mover máquinas individuales", "mayor flexibilidad"], ["El motor eléctrico consume menos energía en reposo", "mayor eficiencia"]])
-
-respuesta: escenario[1]
+respuesta: "mayor flexibilidad"
 tipo: mc
 opciones_explicitas: ["mayor flexibilidad", "mayor eficiencia", "menor costo de instalación"]
 
-enunciado: "Al reemplazar la transmisión por correas de cuero de una máquina de vapor por motores eléctricos individuales en cada máquina, se logra principalmente: {escenario[1]}."
+enunciado: "Al reemplazar la transmisión por correas de cuero de una máquina de vapor por motores eléctricos individuales en cada máquina, se logra principalmente:"
 
 explicacion: |
   La electrificación permitió que cada máquina tuviera su propio motor, eliminando la necesidad de mantener todo el sistema funcionando si solo una máquina se necesitaba.
@@ -170,7 +160,6 @@ respuesta: "eléctrica"
 tipo: completar
 respuestas_validas:
   - "eléctrica"
-  - "térmica"
 
 enunciado: "La transición de la energía mecánica a la energía ___ permitió que las fábricas dejaran de depender de la proximidad de fuentes de agua o carbón masivo para sus ejes de transmisión."
 
@@ -206,14 +195,11 @@ metadata:
   nivel: "intermedio"
   tags: ["arquitectura", "espacio"]
 
-variables:
-  caso: uno_de([["una fábrica con motores eléctricos", "espacios más abiertos y seguros"], ["una fábrica con máquinas de vapor", "espacios saturados de ejes y correas"]])
-
-respuesta: caso[1]
+respuesta: "espacios más abiertos y seguros"
 tipo: mc
 opciones_explicitas: ["espacios más abiertos y seguros", "espacios saturados de ejes y correas", "espacios con mayor ruido mecánico"]
 
-enunciado: "Comparado con el sistema de vapor, el uso de {caso[0]} resultó en: {caso[1]}."
+enunciado: "Comparado con el sistema de vapor, el uso de motores eléctricos individuales en cada máquina resultó en:"
 
 explicacion: |
   Al eliminar los enormes ejes de transmisión que atravesaban los techos y suelos de las fábricas, el espacio se volvió más seguro, limpio y versátil.
@@ -315,15 +301,11 @@ metadata:
   nivel: "intermedio"
   tags: ["tesla", "westinghouse", "corriente_alterna"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[0, "Tesla y Westinghouse"], [1, "Edison y General Electric"]]
-
-respuesta: escenario[idx][1]
+respuesta: "Tesla y Westinghouse"
 tipo: mc
 opciones_explicitas: ["Tesla y Westinghouse", "Edison y General Electric"]
 
-enunciado: "El sistema de corriente alterna, que finalmente se impuso para la distribución a larga distancia, fue promovido principalmente por {escenario[idx][0]}."
+enunciado: "El sistema de corriente alterna, que finalmente se impuso para la distribución a larga distancia, fue promovido principalmente por ___."
 
 explicacion: |
   Nikola Tesla y George Westinghouse desarrollaron el sistema de corriente alterna (AC), permitiendo elevar la tensión con transformadores para el transporte eficiente.
@@ -381,7 +363,7 @@ metadata:
 variables:
   datos: [[0, "Alterna", "Larga distancia"], [1, "Continua", "Corta distancia"]]
   idx: uno_de([0, 1])
-  tipo_corriente: datos[idx][0]
+  tipo_corriente: datos[idx][1]
   distancia: datos[idx][2]
 
 respuesta: distancia
@@ -404,7 +386,7 @@ metadata:
   tags: ["industria", "motor"]
 
 variables:
-  datos: [["motor_de_induccion", "fábrica"], ["bombilla_incandescente", "hogar"], ["telar_electrico", "fábrica"]]
+  datos: [["motor de inducción", "fábrica"], ["bombilla incandescente", "hogar"], ["telar eléctrico", "fábrica"]]
   idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
@@ -426,21 +408,15 @@ metadata:
   nivel: "basico"
   tags: ["hogar", "iluminacion"]
 
-variables:
-  datos: [["luz_eléctrica", "hogar"], ["máquina_de_vapor", "fábrica"], ["telégrafo", "comunicación"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "hogar"
 tipo: completar
 respuestas_validas:
-  - "fábrica"
   - "hogar"
-  - "comunicación"
 
-enunciado: "La llegada de la {datos[idx][0]} permitió extender las actividades nocturnas en el ___."
+enunciado: "La llegada de la luz eléctrica permitió extender las actividades nocturnas en el ___."
 
 explicacion: |
-  La {datos[idx][0]} permitió que el ___ cambiara sus hábitos de descanso y ocio.
+  La luz eléctrica permitió que el hogar cambiara sus hábitos de descanso y ocio.
 ```
 
 ### 21 — Impacto en la producción masiva
@@ -452,18 +428,14 @@ metadata:
   nivel: "intermedio"
   tags: ["produccion", "transicion"]
 
-variables:
-  datos: [["línea_de_montaje", "fábrica"], ["radio_transmisor", "hogar"], ["lavadora", "hogar"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "fábrica"
 tipo: mc
 opciones_explicitas: ["fábrica", "hogar"]
 
-enunciado: "La electrificación de la {datos[idx][0]} fue clave para la producción en serie en la: ___"
+enunciado: "La electrificación de la línea de montaje fue clave para la producción en serie en la: ___"
 
 explicacion: |
-  La {datos[idx][0]} es un ejemplo clásico de la mecanización en la {datos[idx][1]}.
+  La línea de montaje es un ejemplo clásico de la mecanización en la fábrica.
 ```
 
 ### 22 — Secuencia de la electrificación urbana
@@ -475,18 +447,14 @@ metadata:
   nivel: "avanzado"
   tags: ["orden", "progreso"]
 
-variables:
-  secuencia: ["generación_central", "distribución_red", "consumo_final"]
-  idx: 0
-
-respuesta_orden: ["generación_central", "distribución_red", "consumo_final"]
+respuesta_orden: ["generación central", "distribución en la red", "consumo final"]
 tipo: ordenar
-opciones_explicitas: ["generación_central", "distribución_red", "consumo_final"]
+opciones_explicitas: ["generación central", "distribución en la red", "consumo final"]
 
 enunciado: "Ordena el proceso técnico necesario para que la electricidad llegue desde la central hasta un electrodoméstico:"
 
 explicacion: |
-  El flujo eléctrico sigue la secuencia: {secuencia[0]} -> {secuencia[1]} -> {secuencia[2]}.
+  El flujo eléctrico sigue la secuencia: generación central -> distribución en la red -> consumo final.
 ```
 
 ### 23 — Identificación de tecnologías
@@ -499,7 +467,7 @@ metadata:
   tags: ["tecnologia", "clasificacion"]
 
 variables:
-  datos: [["electrodoméstico", "hogar"], ["transformador_industrial", "fábrica"], ["enchufe_doméstico", "hogar"]]
+  datos: [["electrodoméstico", "hogar"], ["transformador industrial", "fábrica"], ["enchufe doméstico", "hogar"]]
   idx: uno_de([0,1,2])
 
 respuestas_validas:
