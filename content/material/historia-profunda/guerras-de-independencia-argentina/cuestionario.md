@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -81,10 +81,10 @@ tipo: mc
 opciones_explicitas: ["Manuel Belgrano", "Mariano Moreno", "Cornelio Saavedra", "Bernardino Rivadavia"]
 respuesta: "Manuel Belgrano"
 
-enunciado: "¿Qué importante legislador y creador de la bandera fue uno de los diputados que participó en el Congreso de Tucumán?"
+enunciado: "¿Qué importante militar y creador de la bandera fue convocado por el Congreso de Tucumán para exponer su opinión sobre la forma de gobierno a adoptar?"
 
 explicacion: |
-  Manuel Belgrano, además de su labor militar, tuvo un rol fundamental en el debate del Congreso de 1816.
+  Manuel Belgrano no era diputado del Congreso, pero fue invitado a dar su testimonio; allí propuso una monarquía constitucional con un descendiente de los incas, una idea que finalmente no prosperó.
 ```
 
 ### 5 — Secuencia de la Independencia
@@ -97,19 +97,14 @@ metadata:
   tags: ["orden", "procesos"]
 
 tipo: ordenar
-opciones_explicitas: ["Revolución de Mayo", "Primer Triunvirato", "Congreso de Tucumán", "Batalla de San Lorenzo"]
+opciones_explicitas: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San Lorenzo", "Congreso de Tucumán"]
 
 enunciado: "Ordena cronológicamente los siguientes hitos clave del proceso de independencia argentina:"
 
 explicacion: |
-  El orden correcto es: Revolución de Mayo (1810), Primer Triunvirato (1812), Congreso de Tucumán (1816) y Batalla de San Lorenzo (1812 - nota: en este caso el usuario debe notar que San Lorenzo es anterior al Congreso, pero el DSL pide ordenar la lista proporcionada. Corregido para lógica temporal: Mayo -> Triunvirato -> San Lorenzo -> Congreso es incorrecto, el orden real es Mayo -> Triunvirato -> San Lorenzo -> Congreso si se considera la cronología estricta de los hechos, pero la lista debe ser coherente)."
+  El orden correcto es: Revolución de Mayo (1810), Primer Triunvirato (1812), Batalla de San Lorenzo (febrero de 1813) y Congreso de Tucumán (1816).
 
-# Reajuste para que el orden sea lógico en la respuesta:
-# 1. Revolución de Mayo (1810)
-# 2. Primer Triunvirato (1812)
-# 3. Batalla de San Lorenzo (1813)
-# 4. Congreso de Tucumán (1816)
-respuesta_orden: ["Revolución de Mayo", "Primer Triunvirato", "Congreso de Tucumán", "Batalla de San Lorenzo"]
+respuesta_orden: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San Lorenzo", "Congreso de Tucumán"]
 ```
 
 ### 6 — El objetivo del Cruce
@@ -128,7 +123,7 @@ opciones_explicitas: ["Chile", "Perú", "Bolivia", "Uruguay"]
 enunciado: "El General José de San Martín organizó el Cruce de los Andes con el objetivo principal de liberar el territorio de {pais} para asegurar la independencia de las Provincias Unidas."
 
 variables:
-  pais: "uno_de(['Chile', 'Chile', 'Chile'])"
+  pais: "Chile"
 
 explicacion: |
   La estrategia de San Martín consistía en cruzar la cordillera para liberar Chile y, desde allí, organizar una campaña marítima hacia el Perú, el centro del poder realista en Sudamérica.
@@ -207,12 +202,9 @@ metadata:
   nivel: "basico"
   tags: ["batalla_de_chacabuco", "victoria"]
 
-respuesta: "verdadero"
-tipo: completar
-enunciado: "¿La victoria en la Batalla de Chacabuco (12 de febrero de 1817) fue una consecuencia directa del éxito del Cruce de los Andes? {resultado}"
-
-variables:
-  resultado: "uno_de(['verdadero', 'falso'])"
+respuesta: verdadero
+tipo: vf
+enunciado: "La victoria en la Batalla de Chacabuco (12 de febrero de 1817) fue una consecuencia directa del éxito del Cruce de los Andes."
 
 explicacion: |
   Efectivamente, el éxito de la maniobra de cruce permitió sorprender a las fuerzas realistas y asegurar la victoria en Chacabuco, abriendo el camino para la independencia de Chile.
@@ -428,18 +420,14 @@ metadata:
   nivel: "basico"
   tags: ["revolucion_mayo", "fechas"]
 
-variables:
-  escenarios: [["1810", "25 de mayo"], ["1816", "9 de julio"], ["1810", "25 de mayo"]]
-  idx: uno_de([0, 1])
-
-respuesta: escenarios[idx][1]
+respuesta: "25 de mayo"
 tipo: mc
 opciones_explicitas: ["25 de mayo", "9 de julio", "20 de junio", "12 de octubre"]
 
-enunciado: "La Revolución de Mayo, hito fundamental del proceso de independencia, tuvo lugar en el año {escenarios[idx][0]}."
+enunciado: "La Revolución de Mayo, hito fundamental del proceso de independencia, tuvo lugar el día ___ de 1810."
 
 explicacion: |
-  El proceso de independencia comenzó con la Revolución de Mayo en 1810, que llevó a la formación del primer gobierno patrio.
+  El proceso de independencia comenzó con la Revolución de Mayo el 25 de mayo de 1810, que llevó a la formación del primer gobierno patrio.
 ```
 
 ### 22 — La Declaración de la Independencia

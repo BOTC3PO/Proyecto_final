@@ -10,7 +10,7 @@
 
 ## 1. El Congreso de Tucumán: un gobierno centralizado
 
-El Congreso de Tucumán se reunió en mayo de 1816 como el primer intento de crear un gobierno federal unido, integrando a las Provincias Unidas del Río de la Plata. En este marco, se eligió a **Juan Martín de Pueyrredón** como Director Supremo, una figura militar y político que representaba la continuidad con los movimientos revolucionarios previos. Su elección no fue un consenso total: sectores radicales querían más autonomía provincial, mientras otros defendían un poder central fuerte para garantizar la independencia. La decisión de Pueyrredón marcó una transición de la etapa de asambleas locales a un gobierno con pretensiones nacionales.
+El Congreso de Tucumán se reunió en marzo de 1816 como el primer intento de crear un gobierno federal unido, integrando a las Provincias Unidas del Río de la Plata. En este marco, se eligió a **Juan Martín de Pueyrredón** como Director Supremo, una figura militar y político que representaba la continuidad con los movimientos revolucionarios previos. Su elección no fue un consenso total: sectores radicales querían más autonomía provincial, mientras otros defendían un poder central fuerte para garantizar la independencia. La decisión de Pueyrredón marcó una transición de la etapa de asambleas locales a un gobierno con pretensiones nacionales.
 
 ## 2. La Declaración de la Independencia: un acto simbólico
 
@@ -22,7 +22,7 @@ La independencia argentina no se dio en un vacío histórico. El Imperio Españo
 
 ## 4. Las tensiones internas: entre centralismo y autonomía
 
-La independencia no resolvió conflictos internos dentro del nuevo Estado. Mientras el Congreso de Tucumán intentaba imponer un gobierno centralizado, muchas provincias preferían gobernarse por sí mismas. Esta tensión se manifestó en la **guerra civil de 1817**, cuando facciones radicales como las lideradas por Manuel Belgrano rechazaron el autoritarismo de Pueyrredón. Aunque Belgrano murió en batalla, su legado influyó en la posterior constitución federal argentina. Estas luchas mostraron que la independencia no era solo un acto contra España, sino también una disputa sobre qué tipo de Estado quería construirse.
+La independencia no resolvió conflictos internos dentro del nuevo Estado. Mientras el Directorio (con sede en Buenos Aires) intentaba imponer un gobierno centralizado, muchas provincias preferían gobernarse por sí mismas. Esta tensión se manifestó en el enfrentamiento entre el poder central y los caudillos federales del Litoral, como **José Gervasio de Artigas**, **Estanislao López** (Santa Fe) y **Francisco Ramírez** (Entre Ríos), que rechazaban el autoritarismo porteño. Este conflicto se resolvió militarmente recién en 1820, con la derrota del Directorio en la **batalla de Cepeda**, que marcó el fin de esa etapa centralista y el inicio de la llamada "anarquía del año XX". (Ojo con un error común: Manuel Belgrano no lideró ninguna facción rebelde contra Pueyrredón — al contrario, fue un militar leal al gobierno central y hasta propuso en el propio Congreso de Tucumán una monarquía constitucional; murió de hidropesía en Buenos Aires en 1820, enfermo y empobrecido, no en batalla.) Estas luchas mostraron que la independencia no era solo un acto contra España, sino también una disputa sobre qué tipo de Estado quería construirse.
 
 ## N. Conexión con lo que sigue
 
