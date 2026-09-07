@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -230,7 +230,7 @@ respuestas_validas:
 enunciado: "La Ley de Sufragio Femenino en Argentina, que garantizó el derecho político de las mujeres, fue sancionada en el año ___."
 
 explicacion: |
-  La Ley 13.510 fue sancionada el 9 de septiembre de 1947, marcando un hito en la democracia argentina.
+  La Ley 13.010 fue sancionada el 9 de septiembre de 1947, marcando un hito en la democracia argentina.
 ```
 
 ### 12 — El rol de Eva Perón
@@ -283,9 +283,9 @@ metadata:
   nivel: "intermedio"
   tags: ["derechos_civiles", "ciudadania"]
 
-respuesta_orden: ["Ley 13.510", "Sufragio Femenino", "Ciudadanía Plena"]
+respuesta_orden: ["Ley 13.010", "Sufragio Femenino", "Ciudadanía Plena"]
 tipo: "ordenar"
-opciones_explicitas: ["Ley 13.510", "Sufragio Femenino", "Ciudadanía Plena"]
+opciones_explicitas: ["Ley 13.010", "Sufragio Femenino", "Ciudadanía Plena"]
 
 enunciado: "Ordena cronológicamente los procesos que permitieron la integración política de la mujer en Argentina:"
 
@@ -348,8 +348,7 @@ respuesta: "clase_obrera"
 tipo: completar
 respuestas_validas:
   - "clase_obrera"
-  - "clases_medias"
-  - "élite_terrateniente"
+  - "clase trabajadora"
 
 enunciado: "El principal sector social que brindó el apoyo masivo y sostenido al movimiento peronista fue la ___."
 
@@ -394,8 +393,7 @@ respuesta: "identidad_politica"
 tipo: completar
 respuestas_validas:
   - "identidad_politica"
-  - "estabilidad_institucional"
-  - "sistema_partidario_unicos"
+  - "identidad política"
 
 enunciado: "El peronismo no solo fue un gobierno, sino que configuró una nueva ___ que sigue siendo un eje central en la política argentina contemporánea."
 
@@ -454,18 +452,12 @@ metadata:
   nivel: "intermedio"
   tags: ["voto_femenino", "derechos_civiles"]
 
-variables:
-  datos: [["Ley_1420", "educacion_comun"], ["Ley_13.001", "voto_femenino"], ["Ley_Estatuto", "derechos_sociales"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "voto_femenino"
 tipo: completar
 respuestas_validas:
-  - "descanso_pago"
   - "voto_femenino"
-  - "estabilidad_laboral"
 
-enunciado: "La promulgación de la Ley 14.240 en 1947 permitió que las mujeres ejercieran su derecho al ___ en Argentina."
+enunciado: "La promulgación de la Ley 13.010 en 1947 permitió que las mujeres ejercieran su derecho al ___ en Argentina."
 
 explicacion: |
   La Ley de Sufragio Femenino fue fundamental para la integración de la mujer a la vida política y ciudadana del país.
