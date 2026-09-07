@@ -1,6 +1,6 @@
 # Economía — Economía positiva y normativa (teoria)
 
-> Tema del MAPA: `ECF4` (`troncos.md`). Depende de `../division-formal/` (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `ECF4` (`troncos.md`). Depende de `../division-formal/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
