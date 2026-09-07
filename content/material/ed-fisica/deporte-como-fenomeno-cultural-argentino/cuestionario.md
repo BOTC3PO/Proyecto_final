@@ -1,6 +1,6 @@
 # Ed Fisica — deporte como fenomeno cultural argentino (cuestionario, 24 preguntas VBLang)
 
-> Tema: `ed-fisica/deporte-como-fenomeno-cultural-argentino`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `ed-fisica/deporte-como-fenomeno-cultural-argentino`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
