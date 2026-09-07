@@ -10,9 +10,9 @@
 
 ## 1. Las primeras fundaciones: un pilar territorial
 
-La expansión española en la región sur de América fue gradual, pero decisiva para definir su estructura política y económica. Aunque los primeros contactos con las poblaciones indígenas datan del siglo XVI, la consolidación territorial se logró a través de la fundación de ciudades que actuaron como centros administrativos y comerciales. Entre estas, Santiago del Estero, en 1553, fue una de las primeras en establecerse como punto clave para el control de los ríos Paraná y Uruguay. Su ubicación estratégica permitió a los colonizadores asegurar rutas de transporte y comunicación con la metrópoli.
+La expansión española en la región sur de América fue gradual, pero decisiva para definir su estructura política y económica. Aunque los primeros contactos con las poblaciones indígenas datan del siglo XVI, la consolidación territorial se logró a través de la fundación de ciudades que actuaron como centros administrativos y comerciales. Entre estas, Santiago del Estero, fundada en 1553 por Francisco de Aguirre (la ciudad más antigua que subsiste en el actual territorio argentino), fue una de las primeras en establecerse como punto clave para asegurar la ruta entre el Alto Perú (fuente de la plata potosina) y el resto de las gobernaciones del sur. Su ubicación estratégica, sobre el río Dulce, permitió a los colonizadores asegurar rutas de transporte y comunicación con la metrópoli.
 
-Años después, en 1580, se dio una segunda fundación de Buenos Aires, liderada por **Juan de Garay**, tras el abandono de la primera ciudad en 1542. Esta vez, la colonia contó con un diseño más sólido y estuvo orientada a conectar las zonas del interior con el Atlántico. La elección de Buenos Aires no fue casual: su puerto ofrecía acceso directo al mar, lo que facilitaba el comercio con Europa y la distribución de recursos hacia el interior del continente.
+Buenos Aires había sido fundada por primera vez en 1536 por Pedro de Mendoza, pero fue abandonada hacia 1541 debido al hambre y al asedio de los pueblos originarios de la región. Años después, en 1580, se dio una segunda fundación de Buenos Aires, liderada por **Juan de Garay**. Esta vez, la colonia contó con un diseño más sólido y estuvo orientada a conectar las zonas del interior con el Atlántico. La elección de Buenos Aires no fue casual: su puerto ofrecía acceso directo al mar, lo que facilitaba el comercio con Europa y la distribución de recursos hacia el interior del continente.
 
 ## 2. El orden cronológico: una historia de expansiones
 
@@ -24,7 +24,7 @@ Esta última fue fundamental para reorganizar el control territorial: mientras S
 
 La segunda fundación de Buenos Aires en 1580 fue un hito crucial para la historia argentina. A diferencia de su primera versión, esta colonia se desarrolló con una planificación más clara y contó con el apoyo directo del virrey Francisco de Toledo. La ciudad no solo funcionó como puerto, sino también como puerta de entrada hacia las zonas rurales del interior, donde se establecieron enclaves mineros y ganaderos.
 
-Aunque inicialmente fue una colonia modesta, su importancia creció con el tiempo. Su ubicación geográfica permitió que se convirtiera en un centro de intercambio entre los productos del interior (como la pimienta, el cuero o el trigo) y las mercancías europeas. Además, fue desde allí que se impulsaron expediciones hacia el sudoeste, como las que condujeron a la conquista del Río de la Plata y la expansión hacia el sur.
+Aunque inicialmente fue una colonia modesta, su importancia creció con el tiempo. Su ubicación geográfica permitió que se convirtiera en un centro de intercambio entre los productos del interior (como el cuero, el sebo, la lana o el trigo) y las mercancías europeas. Además, fue desde allí que se impulsaron expediciones hacia el sudoeste, como las que condujeron a la conquista del Río de la Plata y la expansión hacia el sur.
 
 ## 4. El rol de los enclaves: entre resistencia y adaptación
 

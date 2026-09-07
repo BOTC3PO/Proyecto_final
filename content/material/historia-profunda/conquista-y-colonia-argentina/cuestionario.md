@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -187,15 +187,12 @@ metadata:
   nivel: "basico"
   tags: ["capitales", "geografia_colonial"]
 
-variables:
-  escenario: uno_de([["1776", "Río de la Plata"], ["1542", "Perú"]])
-
 respuesta: "Río de la Plata"
 tipo: completar
 respuestas_validas:
   - "Río de la Plata"
 
-enunciado: "En el año {escenario[0]}, se fundó el Virreinato del {escenario[1]}."
+enunciado: "En el año 1776, se fundó el Virreinato del ___."
 
 explicacion: |
   La reforma administrativa de 1776 fue fundamental para el desarrollo de la región del Plata.
@@ -252,8 +249,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "fracasó"
-  - "prosperó"
-  - "fue destruida"
 
 enunciado: "A diferencia de la segunda fundación, la expedición de Pedro de Mendoza en 1536 ___ y la ciudad fue posteriormente abandonada."
 
@@ -454,7 +449,7 @@ metadata:
   tags: ["conquista", "expediciones"]
 
 variables:
-  escenario: uno_de([["La expedición de Pedro de Mendoza (1536) se estableció en un asentamiento que luego fue abandonado debido a las condiciones climáticas y los ataques de los nativos.", "Asentamiento de Buenos Aires"], ["La expedición de Juan de Garay (1554) fue fundamental para la consolidación de la presencia española en la región.", "Fundación de la segunda Buenos Aires"]])
+  escenario: uno_de([["La expedición de Pedro de Mendoza (1536) se estableció en un asentamiento que luego fue abandonado debido a las condiciones climáticas y los ataques de los nativos.", "Asentamiento de Buenos Aires"], ["La expedición de Juan de Garay (1580) fue fundamental para la consolidación de la presencia española en la región.", "Fundación de la segunda Buenos Aires"]])
 
 respuesta: escenario[1]
 tipo: mc
@@ -545,7 +540,7 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El sistema de {modelo[0]} fue el eje de la economía virreinal, limitando el crecimiento de puertos como Buenos Aires hasta la creación de la Capitanía General de Buenos Aires."
+enunciado: "El sistema de {modelo[0]} fue el eje de la economía virreinal, limitando el crecimiento de puertos como Buenos Aires hasta la creación del Virreinato del Río de la Plata en 1776."
 
 explicacion: |
   El monopolio comercial obligaba a que todo el comercio pasara por puertos autorizados (como Sevilla o Cádiz), lo que fomentó el contrabando en el Río de la Plata.
