@@ -1,6 +1,6 @@
 # Informática — Arranque de la computadora (boot) (teoria)
 
-> Tema del MAPA: `SO1B` (`troncos.md`). Depende de `../historia-y-evolucion-de-los-sistemas-operativos/` (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SO1B` (`troncos.md`). Depende de `../historia-y-evolucion-de-los-sistemas-operativos/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

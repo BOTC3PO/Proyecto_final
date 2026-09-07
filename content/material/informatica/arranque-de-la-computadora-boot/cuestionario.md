@@ -1,6 +1,6 @@
 # Informatica — arranque de la computadora boot (cuestionario, 26 preguntas VBLang)
 
-> Tema: `informatica/arranque-de-la-computadora-boot`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `informatica/arranque-de-la-computadora-boot`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
