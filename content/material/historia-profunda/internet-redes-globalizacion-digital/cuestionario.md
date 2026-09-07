@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,14 +39,9 @@ metadata:
   nivel: "intermedio"
   tags: ["protocolo", "tcp_ip", "estandar"]
 
-variables:
-  escenario: uno_de([[ "TCP/IP", "HTTP", "FTP" ]])
-
 tipo: completar
 respuestas_validas:
   - "TCP/IP"
-  - "HTTP"
-  - "FTP"
 
 enunciado: "Para que la red pasara de ser un conjunto de redes aisladas a una red global interconectada, se estandarizó el uso del protocolo ___."
 
@@ -143,18 +138,13 @@ metadata:
   nivel: "intermedio"
   tags: ["protocolos", "html"]
 
-variables:
-  tecnologia_base: uno_de(["HTML", "HTTP", "URL"])
-
 tipo: completar
 respuestas_validas:
   - "HTML"
-  - "HTTP"
-  - "URL"
 
-enunciado: "Para que la Web funcione, se requiere de un lenguaje de marcado para estructurar el contenido llamado {tecnologia_base}, un protocolo de transferencia llamado HTTP y un sistema de localización llamado URL."
+enunciado: "Para que la Web funcione, se requiere de un lenguaje de marcado para estructurar el contenido llamado ___, un protocolo de transferencia llamado HTTP y un sistema de localización llamado URL."
 
-respuesta: tecnologia_base
+respuesta: "HTML"
 
 explicacion: |
   La arquitectura de la Web se basa en tres pilares: HTML (lenguaje), HTTP (protocolo) y URL (identificador).
@@ -191,7 +181,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Mosaic", "WorldWideWeb"], ["Mosaic", "Netscape"]]
+  nombres: ["Mosaic", "WorldWideWeb"]
   descripcion: ["el primer navegador gráfico popular que impulsó la Web masiva", "el primer navegador desarrollado por Tim Berners-Lee"]
 
 tipo: completar
@@ -199,9 +189,9 @@ respuestas_validas:
   - "Mosaic"
   - "WorldWideWeb"
 
-enunciado: "En la historia de la navegación, {escenarios[escenario_idx][0]} fue {escenarios[escenario_idx][1]}."
+enunciado: "En la historia de la navegación, {nombres[escenario_idx]} fue {descripcion[escenario_idx]}."
 
-respuesta: escenarios[escenario_idx][0]
+respuesta: nombres[escenario_idx]
 
 explicacion: |
   Mosaic fue crucial para la democratización de la Web al introducir imágenes integradas, mientras que WorldWideWeb fue el primer navegador/editor de Berners-Lee.
@@ -356,14 +346,11 @@ metadata:
   nivel: "intermedio"
   tags: ["dimensiones", "tecnologia"]
 
-variables:
-  escenario: uno_de([["Acceso", "Brecha de acceso"], ["Uso", "Brecha de uso"], ["Competencia", "Brecha de competencias"]])
-
-respuesta: escenario[1]
+respuesta: "Brecha de uso"
 tipo: mc
 opciones_explicitas: ["Brecha de acceso", "Brecha de uso", "Brecha de competencias"]
 
-enunciado: "Cuando una persona tiene un dispositivo y conexión, pero no posee las habilidades cognitivas para navegar de forma crítica o productiva en la red, estamos ante una: {escenario[0]}."
+enunciado: "Cuando una persona tiene un dispositivo y conexión, pero no posee las habilidades cognitivas para navegar de forma crítica o productiva en la red, estamos ante una: ___"
 
 explicacion: |
   La brecha de uso o de competencias se refiere a la capacidad real de transformar la información digital en conocimiento útil, independientemente de tener o no el dispositivo.
@@ -379,13 +366,13 @@ metadata:
   tags: ["globalizacion", "desarrollo"]
 
 variables:
-  caso: uno_de([["País en desarrollo", "aumenta la desigualdad"], ["País desarrollado", "se consolida su ventaja"]])
+  caso: uno_de([["países en desarrollo", "aumenta la desigualdad"], ["países desarrollados", "se consolida su ventaja"]])
 
 respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["aumenta la desigualdad", "se consolida su ventaja"]
 
-enunciado: "En el contexto de la globalización digital, la asimetría tecnológica suele provocar que, mientras en un {caso[0]} la brecha puede profundizar las desigualdades socioeconómicas, en un {caso[1]} la ventaja competitiva se consolide."
+enunciado: "En el contexto de la globalización digital, la asimetría tecnológica suele provocar que, en los {caso[0]}, el efecto de la brecha tecnológica sea que:"
 
 explicacion: |
   La globalización digital puede actuar como un motor de desarrollo o como un mecanismo de exclusión, dependiendo de la capacidad de integración tecnológica de cada nación.
