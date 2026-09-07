@@ -1,6 +1,6 @@
 # Lengua — subordinada concesiva y final (cuestionario, 20 preguntas VBLang)
 
-> Tema: `lengua/subordinada-concesiva-y-final`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-concesiva-y-final`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -87,13 +87,13 @@ variables:
   accion: uno_de(["terminó", "siguió", "completó"])
   tarea: uno_de(["el informe", "la carrera", "la tarea"])
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "En la frase '{obstaculo} {accion} {tarea}', la primera parte funciona como una concesiva."
 
 explicacion: |
-  Para que sea concesiva, debe haber una conjunción como "A pesar de" o "Aunque". La frase tal cual está dada es ambigua o incompleta sintácticamente si no tiene la conjunción, pero en el contexto de análisis, asumimos que falta la conjunción explícita en el enunciado corto. Sin embargo, para ser estricto: La frase "{obstaculo}, {accion} {tarea}" NO es concesiva sin la conjunción. Cambiamos la respuesta a falso para ser precisos.
+  Falso. Para que sea concesiva, la primera parte necesita una conjunción explícita como "aunque", "a pesar de que" o "si bien". Sin esa conjunción, '{obstaculo} {accion} {tarea}' es simplemente una oración simple con sujeto y predicado, no una subordinada concesiva.
 ```
 
 ### 5 — pregunta 5
@@ -200,13 +200,13 @@ variables:
   accion: uno_de(["Voy", "Estudio", "Corro"])
   lugar: uno_de(["al cine", "a la biblioteca", "al parque"])
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "En la oración '{accion} {lugar}', podemos preguntar '¿Para qué vas?' para identificar una idea final."
 
 explicacion: |
-  Aunque la frase simple no tiene una subordinada explícita con "para que", la preposición "a" aquí indica dirección. Sin embargo, si interpretamos "Voy al cine" como "Voy para ver una película", sí hay fin. Pero estrictamente sintáctico, no hay subordinada. Cambiamos a falso para ser rigurosos con la existencia de la subordinada.
+  Falso. '{accion} {lugar}' no contiene ninguna subordinada final explícita: la preposición "a" indica dirección (destino), no propósito. Aunque podamos imaginar un fin implícito ("voy para ver una película"), ese fin no está presente sintácticamente en la oración, así que no hay subordinada final que identificar.
 ```
 
 ### 10 — pregunta 10

@@ -1,6 +1,6 @@
 # Lengua — Subordinada concesiva y final (teoria)
 
-> Tema del MAPA: `SX18` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SX18` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ Gramaticalmente, suelen ir al principio o al final de la oración principal. Cua
 
 Las oraciones finales se subordinan a la principal para indicar el fin que se persigue. Se introducen principalmente por la conjunción *para que* o la locución conjuntiva *a fin de que*. También pueden aparecer con *que* cuando el verbo de la principal expresa voluntad, deseo o mandato (ejemplo: "Te pido que vengas temprano", donde el "que" introduce el fin). La clave para identificarlas es buscar el objetivo. Si puedes responder a la pregunta "¿para qué?", estás ante una final.
 
-Un detalle importante es el uso del modo verbal. Mientras que la principal suele estar en indicativo, la subordinada final casi siempre requiere el **subjuntivo**, ya que se refiere a algo que aún no ha ocurrido o que es incierto. Por ejemplo: "Estudio mucho para que apruebe el examen". La acción de estudiar tiene como objetivo futuro la aprobación. Confundir estas oraciones con las consecutivas (que expresan consecuencia, usando *tan... que, tanto... que*) es un error común. En la final hay intención; en la consecutiva hay resultado inevitable.
+Un detalle importante es el uso del modo verbal. Mientras que la principal suele estar en indicativo, la subordinada final casi siempre requiere el **subjuntivo**, ya que se refiere a algo que aún no ha ocurrido o que es incierto. Pero ojo: "para que + subjuntivo" se usa cuando el sujeto de la principal y el de la subordinada son *distintos*; si el sujeto es el mismo, se usa "para + infinitivo" en su lugar. Por ejemplo: "Estudio mucho para que mis padres estén orgullosos" (sujetos distintos: yo estudio, mis padres se enorgullecen), pero "Estudio mucho para aprobar el examen" (mismo sujeto: yo estudio, yo apruebo — no "para que apruebe"). Confundir estas oraciones con las consecutivas (que expresan consecuencia, usando *tan... que, tanto... que*) es un error común. En la final hay intención; en la consecutiva hay resultado inevitable.
 
 ## Aplicación práctica en textos argentinos
 
