@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,10 +40,7 @@ metadata:
   nivel: "basico"
   tags: ["economia", "nomadismo"]
 
-variables:
-  escenario: uno_de([["caza y recolección", "nómadas"], ["agricultura y ganadería", "sedentarios"], ["comercio de metales", "urbanos"]])
-
-respuesta: escenario[1]
+respuesta: "nómadas"
 tipo: mc
 opciones_explicitas: ["nómadas", "sedentarios", "urbanos"]
 
@@ -267,10 +264,7 @@ metadata:
   nivel: "intermedio"
   tags: ["recoleccion", "caza"]
 
-variables:
-  tipo_recurso: uno_de([["caza de animales", "la caza"], ["recolección de plantas", "la recolección"]])
-
-enunciado: "La economía del Paleolítico se basaba principalmente en {tipo_recurso[0]} y {tipo_recurso[1]}."
+enunciado: "La economía del Paleolítico se basaba principalmente en la caza de animales y la recolección de plantas. Ordena estas actividades:"
 
 respuesta_orden: ["la caza", "la recolección"]
 tipo: ordenar
@@ -289,10 +283,7 @@ metadata:
   nivel: "intermedio"
   tags: ["estacionalidad", "clima"]
 
-variables:
-  clima: uno_de([["el invierno", "el frío"], ["el verano", "el calor"]])
-
-enunciado: "Los cambios en {clima[0]} afectaban la disponibilidad de alimento, obligando a los grupos a migrar hacia zonas más favorables."
+enunciado: "Los cambios estacionales asociados al invierno afectaban la disponibilidad de alimento, obligando a los grupos a migrar hacia zonas más favorables debido al ___."
 
 respuesta: "el frío"
 tipo: mc
@@ -374,10 +365,7 @@ metadata:
   nivel: "intermedio"
   tags: ["evolucion", "tecnologia"]
 
-variables:
-  escenario: uno_de([["Olduvayense", "Choppers"], ["Acheulense", "Bifaces"], ["Musteriense", "Láminas"]])
-
-respuesta: escenario[1]
+respuesta: "Bifaces"
 tipo: mc
 opciones_explicitas: ["Choppers", "Bifaces", "Láminas"]
 
@@ -415,7 +403,7 @@ metadata:
   nivel: "intermedio"
   tags: ["impacto", "alimentacion"]
 
-respuesta: 10
+respuesta: 55
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -426,7 +414,7 @@ pasos:
   - "Sumar el material base y el excedente de filo"
 
 explicacion: |
-  El cálculo es: 50 + (50 * 0.10) = 55. Sin embargo, la pregunta pide el material efectivo de corte basado en la eficiencia añadida (50 * 1.1 = 55). Nota: El usuario debe calcular el valor total resultante.
+  El cálculo es: 50 kg + (50 kg * 0.10) = 55 kg de material efectivo de corte.
 ```
 
 ### 21 — Identificación de tecnología
@@ -440,14 +428,14 @@ metadata:
 
 variables:
   idx: uno_de([0,1,2])
-  datos: [["hacha de mano de piedra tallada", "bifaz"], ["lanzas de piedra", "punta de proyectil"], ["hachas de piedra pulida", "hacha de piedra"]]
+  datos: [["hacha de mano de piedra tallada", "bifaz"], ["lanzas de piedra", "punta de proyectil"], ["raspadores de piedra tallada", "raspador"]]
 
 enunciado: "Durante el Paleolítico, los homínidos utilizaban diversas herramientas de piedra. Si encontramos un objeto con la forma de un {datos[idx][0]}, estamos ante un/a ___."
 
 respuestas_validas:
   - "bifaz"
   - "punta de proyectil"
-  - "hacha de piedra"
+  - "raspador"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -464,14 +452,10 @@ metadata:
   nivel: "basico"
   tags: ["subsistencia", "nómada"]
 
-variables:
-  idx: uno_de([0,1,2])
-  datos: [["recolección de frutos y caza", "nómada"], ["agricultura de cereales", "sedentario"], ["pastoreo de ganado", "sedentario"]]
-
-enunciado: "La principal actividad económica en el Paleolítico era la {datos[idx][0]}, lo que obligaba a los grupos humanos a tener un estilo de vida ___."
+enunciado: "La principal actividad económica en el Paleolítico era la recolección de frutos y la caza, lo que obligaba a los grupos humanos a tener un estilo de vida ___."
 
 opciones_explicitas: ["nómada", "sedentario"]
-respuesta: datos[idx][1]
+respuesta: "nómada"
 tipo: mc
 
 explicacion: |
@@ -487,18 +471,14 @@ metadata:
   nivel: "intermedio"
   tags: ["arte", "rupestre"]
 
-variables:
-  idx: uno_de([0,1,2])
-  datos: [["pinturas en el interior de cuevas", "arte rupestre"], ["esculturas de mármol", "arte clásico"], ["mosaicos de piedra", "arte romano"]]
-
-enunciado: "El estilo artístico característico del Paleolítico, que consistía en {datos[idx][0]}, se denomina ___."
+enunciado: "El estilo artístico característico del Paleolítico, que consistía en pinturas en el interior de cuevas, se denomina ___."
 
 opciones_explicitas: ["arte rupestre", "arte clásico", "arte romano"]
-respuesta: datos[idx][1]
+respuesta: "arte rupestre"
 tipo: mc
 
 explicacion: |
-  El {datos[idx][0]} es la expresión máxima del arte rupestre, utilizada para representar animales y escenas de caza.
+  Las pinturas en el interior de cuevas son la expresión máxima del arte rupestre, utilizada para representar animales y escenas de caza.
 ```
 
 ### 24 — Evolución de herramientas
@@ -533,19 +513,13 @@ metadata:
   nivel: "basico"
   tags: ["fuego", "supervivencia"]
 
-variables:
-  idx: uno_de([0,1,2])
-  datos: [["dominio del fuego", "protección y calor"], ["domesticación de plantas", "agricultura"], ["uso de la rueda", "transporte"]]
-
-enunciado: "El {datos[idx][0]} fue un hito fundamental en el Paleolítico que proporcionó ___."
+enunciado: "El dominio del fuego fue un hito fundamental en el Paleolítico que proporcionó ___."
 
 respuestas_validas:
   - "protección y calor"
-  - "agricultura"
-  - "transporte"
-respuesta: datos[idx][1]
+respuesta: "protección y calor"
 tipo: completar
 
 explicacion: |
-  El {datos[idx][0]} permitió a los homínidos cocinar alimentos, calentarse y ahuyentar depredadores.
+  El dominio del fuego permitió a los homínidos cocinar alimentos, calentarse y ahuyentar depredadores.
 ```

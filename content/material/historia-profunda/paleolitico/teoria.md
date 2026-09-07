@@ -26,7 +26,7 @@ La principal innovación técnica del Paleolítico fue la **talla de la piedra**
 
 ## 4. Sociedad y organización
 
-Las sociedades paleolíticas eran **pequeñas comunidades** de cientos de personas, organizadas en grupos familiares o tribus. La vida colectiva se basaba en la cooperación para la supervivencia: cazar grandes animales requería estrategias coordinadas, y la recolección implicaba el conocimiento compartido de recursos naturales. No existían jerarquías fijas ni acumulación de riqueza; los bienes se distribuían según las necesidades del grupo.
+Las sociedades paleolíticas eran **pequeñas comunidades** de apenas decenas de personas (típicamente entre 20 y 50 individuos), organizadas en grupos familiares o bandas. La vida colectiva se basaba en la cooperación para la supervivencia: cazar grandes animales requería estrategias coordinadas, y la recolección implicaba el conocimiento compartido de recursos naturales. No existían jerarquías fijas ni acumulación de riqueza; los bienes se distribuían según las necesidades del grupo.
 
 ## 5. Arte y expresión cultural
 
