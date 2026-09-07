@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -20,10 +20,7 @@ metadata:
   nivel: "basico"
   tags: ["paleolitico", "tecnologia"]
 
-variables:
-  escenario: uno_de([["lasca", "fragmento desprendido de un núcleo"], ["bifaz", "herramienta tallada por ambas caras"], ["punta", "herramienta especializada para perforar"]])
-
-enunciado: "En la industria lítica, un/a {escenario[0]} se define como un/a ___."
+enunciado: "En la industria lítica, una lasca se define como un/a ___."
 
 respuestas_validas:
   - "fragmento desprendido de un núcleo"
@@ -81,15 +78,10 @@ metadata:
   nivel: "avanzado"
   tags: ["especializacion", "paleolitico"]
 
-variables:
-  tipo_herramienta: uno_de([["raspador", "usado para tratar pieles"], ["buril", "usado para grabar hueso o madera"], ["punzón", "usado para perforar cuero"]])
-
-enunciado: "Un/a {tipo_herramienta[0]} es una herramienta especializada cuya función principal es ___."
+enunciado: "Un raspador es una herramienta especializada cuya función principal es ___."
 
 respuestas_validas:
   - "usado para tratar pieles"
-  - "usado para grabar hueso o madera"
-  - "usado para perforar cuero"
 tipo: completar
 
 explicacion: |
@@ -105,10 +97,7 @@ metadata:
   nivel: "avanzado"
   tags: ["tecnologia", "calculo"]
 
-variables:
-  caso: uno_de([[12, "percusión"], [45, "presión"], [88, "percusión"]])
-
-enunciado: "Si un arqueólogo encuentra un conjunto de {caso[0]} herramientas que fueron producidas mediante la técnica de {caso[1]}, ¿cuál es la técnica utilizada?"
+enunciado: "Si un arqueólogo encuentra un conjunto de 12 herramientas líticas con bulbos de percusión pronunciados y plataformas anchas, ¿qué técnica de talla se utilizó probablemente?"
 
 tipo: mc
 opciones_explicitas: ["percusión", "presión"]
@@ -146,15 +135,9 @@ metadata:
   nivel: "intermedio"
   tags: ["grabado", "tecnicas"]
 
-variables:
-  tecnica_idx: uno_de([0, 1])
-  tecnica_nombre: uno_de(["grabado", "pintura"])
-  tecnica_desc: uno_de(["incisión en la piedra", "aplicación de pigmentos"])
-
 tipo: completar
 respuestas_validas:
   - "grabado"
-  - "pintura"
 
 enunciado: "Si un artista prehistórico utiliza una piedra afilada para realizar una incisión profunda en la roca, está realizando un ___."
 
@@ -176,17 +159,14 @@ metadata:
   tags: ["pigmentos", "quimica_prehistorica"]
 
 variables:
-  color_idx: uno_de([0, 1])
-  color_nombre: uno_de(["ocre", "negro"])
-  color_origen: uno_de(["óxido de hierro", "carbón vegetal"])
-  respuesta_correcta: uno_de(["óxido de hierro", "carbón vegetal"])
+  par: uno_de([["ocre", "óxido de hierro"], ["negro", "carbón vegetal"]])
 
 tipo: mc
 opciones_explicitas: ["óxido de hierro", "carbón vegetal", "arcilla blanca", "sangre de animal"]
 
-enunciado: "Para obtener el color {color_nombre} muy común en las pinturas de la Cueva de las Manos, los humanos utilizaban {color_origen}."
+enunciado: "Para obtener el color {par[0]} muy común en las pinturas de la Cueva de las Manos, los humanos utilizaban:"
 
-respuesta: respuesta_correcta
+respuesta: par[1]
 
 explicacion: |
   Los pigmentos se obtenían de minerales (como el óxido de hierro para rojos/ocres) o de materia orgánica quemada (carbón para el negro).
@@ -324,7 +304,7 @@ enunciado: "Un arqueólogo sigue un proceso lógico para estudiar una pintura ru
 
 explicacion: |
   El método científico en arqueología comienza con la observación directa y el análisis material antes de pasar a la interpretación teórica.
-respuesta_orden: ["Identificar el pigmento", "Observar la figura", "Analizar el contexto de la cueva", "Interpretar el significado"]
+respuesta_orden: ["Observar la figura", "Identificar el pigmento", "Analizar el contexto de la cueva", "Interpretar el significado"]
 ```
 
 ### 16 — El salto cognitivo del arte
@@ -440,12 +420,12 @@ metadata:
   tags: ["arte_rupestre", "tecnicas"]
 
 variables:
-  datos: [["pigmentos mezclados con grasa animal aplicados con los dedos", "Pintura digital"], ["grabados realizados con piedras duras sobre la roca", "Petroglifos"], ["dibujos realizados con carbón vegetal sobre superficies claras", "Dibujo al carbón"]]
+  datos: [["pigmentos mezclados con grasa animal aplicados con los dedos", "Pintura con los dedos"], ["grabados realizados con piedras duras sobre la roca", "Petroglifos"], ["dibujos realizados con carbón vegetal sobre superficies claras", "Dibujo al carbón"]]
   idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["Pintura digital", "Petroglifos", "Dibujo al carbón"]
+opciones_explicitas: ["Pintura con los dedos", "Petroglifos", "Dibujo al carbón"]
 
 enunciado: "Se ha descubierto una cueva con las siguientes características: {datos[idx][0]}. ¿A qué técnica pertenece?"
 
@@ -473,7 +453,7 @@ respuestas_validas:
   - "estilete"
   - "incisores"
 
-enunciado: "Para realizar la técnica de grabado descrita, el artista utilizó un/a ___."
+enunciado: "Para grabar la roca a partir de {datos[idx][0]}, el artista necesitó un/a ___."
 
 explicacion: |
   El instrumento utilizado para la acción descrita es un/a {datos[idx][1]}.
