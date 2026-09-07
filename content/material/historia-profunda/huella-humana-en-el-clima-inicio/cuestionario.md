@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,17 +40,14 @@ metadata:
   nivel: "basico"
   tags: ["combustibles_fosiles", "carbón"]
 
-variables:
-  escenario: uno_de([["carbón", "el motor de la primera fase"], ["petróleo", "el motor de la segunda fase"]])
-
-respuesta: escenario[0]
+respuesta: "carbón"
 tipo: mc
 opciones_explicitas: ["carbón", "petróleo", "gas natural", "biomasa"]
 
 enunciado: "Durante la primera etapa de la Revolución Industrial, ¿cuál fue el principal combustible fósil que impulsó el aumento de la huella de carbono?"
 
 explicacion: |
-  {escenario[1]} fue el combustible que permitió la expansión del transporte y la industria química en etapas posteriores.
+  El carbón fue el combustible que impulsó la primera fase de la industrialización; el petróleo se convirtió en el motor de la segunda fase, con la expansión del automovilismo y la química sintética.
 ```
 
 ### 3 — Impacto en la atmósfera
@@ -208,9 +205,6 @@ metadata:
   nivel: "intermedio"
   tags: ["tiempo", "ciclo_carbono"]
 
-variables:
-  tipo_impacto: uno_de(["ciclo_corto", "ciclo_largo"])
-
 respuesta: "ciclo_largo"
 tipo: mc
 
@@ -250,17 +244,12 @@ metadata:
   nivel: "intermedio"
   tags: ["evidencias", "sedimentos", "huella_geologica"]
 
-variables:
-  escenario: uno_de([["plásticos y hormigón", "sedimentos artificiales"], ["glaciares", "ciclos de hielo"], ["volcanes", "cenizas volcánicas"]])
-
 tipo: completar
 respuestas_validas:
   - "sedimentos artificiales"
-  - "ciclos de hielo"
-  - "cenizas volcánicas"
-respuesta: escenario[1]
+respuesta: "sedimentos artificiales"
 
-enunciado: "En el registro geológico del Antropoceno, se busca identificar marcadores como los {escenario[0]} que se consolidan como ___."
+enunciado: "En el registro geológico del Antropoceno, se busca identificar marcadores como los plásticos y el hormigón que se consolidan como ___."
 
 explicacion: |
   Los materiales sintéticos como los plásticos, el hormigón y los isótopos radiactivos actúan como 'tecnofósiles' que permiten identificar nuestra era en el futuro.
@@ -332,13 +321,9 @@ metadata:
   nivel: "intermedio"
   tags: ["paleoclimatologia", "co2", "glaciares"]
 
-variables:
-  datos_clima: [[800, "bajo"], [420, "alto"]]
-  idx: uno_de([0,1])
+enunciado: "Al analizar los núcleos de hielo, se observa que durante los periodos preindustriales los niveles de CO2 se mantenían en torno a los 280 ppm, pero tras la Revolución Industrial, los valores saltaron a aproximadamente 420 ppm."
 
-enunciado: "Al analizar los núcleos de hielo, se observa que durante los periodos preindustriales los niveles de CO2 se mantenían en torno a los {datos_clima[idx][0]} ppm, pero tras la Revolución Industrial, los valores saltaron a aproximadamente {datos_clima[1][0]} ppm."
-
-respuesta: datos_clima[1][0]
+respuesta: 420
 tipo: completar
 tolerancia_abs: 5
 
