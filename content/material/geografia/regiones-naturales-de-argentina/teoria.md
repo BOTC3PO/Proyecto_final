@@ -1,6 +1,8 @@
 # Geografía — Regiones naturales de Argentina (teoria)
 
-> Tema del MAPA: `GEOA1` (`troncos.md`). Depende de del nodo `G6` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `GEOA1` (`troncos.md`). Depende de del nodo `G6` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
+>
+> Nota 2026-09-07: revisado, sin fechas/eventos inventados. Punto discutible sin resolver: el NEA se define acá como Misiones/Corrientes/Entre Ríos/Chaco (sin Formosa) — otras fuentes argentinas ponen a Formosa en el NEA y a Entre Ríos aparte (Mesopotamia/Pampeana); no está claro cuál convención sigue el resto del proyecto.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
