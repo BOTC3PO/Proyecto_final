@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -187,10 +187,10 @@ respuesta: escenario[idx][0]
 tipo: mc
 opciones_explicitas: ["espiral", "elíptica", "irregular"]
 
-enunciado: "Considerando que la Vía Láctea tiene una estructura de {escenario[idx][1]}, ¿qué tipo de galaxia es?"
+enunciado: "Se observa una galaxia con una estructura de {escenario[idx][1]}, ¿qué tipo de galaxia es?"
 
 explicacion: |
-  La Vía Láctea es una galaxia de tipo {escenario[idx][0]}.
+  Una galaxia con esa característica es de tipo {escenario[idx][0]}. La propia Vía Láctea, en particular, es de tipo espiral.
 ```
 
 ### 10 — Completar clasificación
@@ -293,15 +293,12 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion"]
 
-variables:
-  escenario: uno_de([["La Luna", "distancia corta"], ["Andrómeda", "distancia larga"]])
-
 tipo: mc
 opciones_explicitas: ["distancia corta", "distancia larga"]
 
-enunciado: "Dependiendo de la escala, la distancia a {escenario[0]} se mide en kilómetros, mientras que la distancia a {escenario[1]} se mide en ________."
+enunciado: "Dependiendo de la escala, la distancia a la Luna se mide en kilómetros, mientras que la distancia a Andrómeda se mide en ________."
 
-respuesta: escenario[1]
+respuesta: "distancia larga"
 
 explicacion: |
   La Luna está a unos 384,400 km (escala local), mientras que la Galaxia de Andrómeda está a millones de años luz (escala galáctica).
@@ -355,14 +352,11 @@ metadata:
   nivel: "basico"
   tags: ["universo", "galaxias"]
 
-variables:
-  escala_galaxias: uno_de(["cientos de miles de millones", "pocos miles", "un millón"])
-
-respuesta: escala_galaxias
+respuesta: "cientos de miles de millones"
 tipo: mc
 opciones_explicitas: ["cientos de miles de millones", "pocos miles", "un millón"]
 
-enunciado: "En el universo observable se estima que existen {escala_galaxias} de galaxias."
+enunciado: "En el universo observable se estima que existen ___ de galaxias."
 
 explicacion: |
   La escala del universo es inmensa; la cantidad de galaxias es comparable en orden de magnitud a la cantidad de estrellas en nuestra propia galaxia.
@@ -377,15 +371,11 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion", "magnitud"]
 
-variables:
-  caso: uno_de([0, 1])
-  tabla: [["mayor", "mayor"], ["menor", "menor"]]
-
-respuesta: tabla[caso][0]
+respuesta: "mayor"
 tipo: mc
 opciones_explicitas: ["mayor", "menor", "igual"]
 
-enunciado: "Si comparamos la cantidad de estrellas en la Vía Láctea con la cantidad de galaxias en el universo observable, la cantidad de estrellas es {tabla[caso][0]} que la de galaxias."
+enunciado: "Si comparamos la cantidad de estrellas en la Vía Láctea con la cantidad de galaxias en el universo observable, la cantidad de estrellas es ___ que la de galaxias."
 
 explicacion: |
   Aunque ambas cifras son de "cientos de miles de millones", la escala de estrellas en una sola galaxia es comparable a la escala de galaxias en el universo, pero matemáticamente la cantidad de estrellas es órdenes de magnitud superior a la de galaxias.
@@ -466,18 +456,14 @@ metadata:
   nivel: "basico"
   tags: ["astronomia", "galaxias"]
 
-variables:
-  escenario: [[ "Un sistema estelar masivo con forma de ovoide y poco gas.", "Elíptica" ], [ "Un sistema con un disco central y brazos de formación estelar.", "Espiral" ]]
-  idx: uno_de([0, 1])
-
-respuesta: escenario[idx][1]
+respuesta: "Elíptica"
 tipo: mc
 opciones_explicitas: ["Espiral", "Elíptica"]
 
-enunciado: "Si una galaxia presenta una forma ovoide, carece de brazos espirales y tiene una cantidad mínima de gas interestelar, su tipo es: {escenario[idx][1]}"
+enunciado: "Si una galaxia presenta una forma ovoide, carece de brazos espirales y tiene una cantidad mínima de gas interestelar, ¿qué tipo de galaxia es?"
 
 explicacion: |
-  Las galaxias {escenario[idx][1]} se caracterizan por su falta de estructura de brazos y su forma redondeada o elíptica.
+  Las galaxias elípticas se caracterizan por su falta de estructura de brazos y su forma redondeada u ovoide.
 ```
 
 ### 23 — Galaxias Lenticulares
@@ -518,9 +504,7 @@ variables:
 respuesta: escenario[idx][1]
 tipo: completar
 respuestas_validas:
-  - "brazos curvos"
-  - "forma esférica"
-  - "disco sin brazos"
+  - escenario[idx][1]
 
 enunciado: "Una galaxia de tipo {escenario[idx][0]} se caracteriza principalmente por tener ___."
 
