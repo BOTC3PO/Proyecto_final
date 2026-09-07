@@ -2,7 +2,7 @@
 
 > Tema: `AS3`. Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
+>
 > Corregido a mano. Bugs de esta tanda: `respuesta:`/`opciones_explicitas`
 > con literales de texto tipo `"escenario[1]"` en vez de la expresión
 > real `escenario[1]` (comillas de más rompían la referencia) —
