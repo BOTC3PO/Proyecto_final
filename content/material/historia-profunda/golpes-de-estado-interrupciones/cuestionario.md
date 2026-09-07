@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -162,7 +162,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["1955", "la Revolución Sojera"], ["1966", "la Revolución Argentina"]]
+  escenarios: [["1955", "la Revolución Libertadora"], ["1966", "la Revolución Argentina"]]
 
 tipo: mc
 opciones_explicitas: ["1955", "1962", "1966", "1976"]

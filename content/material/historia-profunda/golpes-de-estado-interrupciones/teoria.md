@@ -55,7 +55,7 @@ Aunque algunos gobiernos post-golpe prometen "mejoras", rara vez se cumplen los 
 En Argentina, los golpes de Estado han marcado momentos clave de la historia moderna. Por ejemplo:
 
 - **1930**: El primer golpe en el siglo XX, liderado por el general José Félix Uriburu, que derrocó al gobierno de Hipólito Yrigoyen.
-- **1962 y 1966**: Golpes "suaves" que llevaron a la presidencia de Arturo Frondizi y luego a Juan Carlos Onganía, sentando las bases para el proceso militar del 70.
+- **1962 y 1966**: Golpes que interrumpieron gobiernos constitucionales sin instaurar dictaduras militares directas de inmediato. En 1962, las Fuerzas Armadas derrocaron al presidente Arturo Frondizi (electo en 1958), y por sucesión constitucional asumió José María Guido. En 1966, la autodenominada "Revolución Argentina" derrocó al presidente Arturo Illia e instaló a Juan Carlos Onganía, sentando las bases para un modelo autoritario que anticipó el proceso militar de 1976.
 - **1976**: El golpe más grave de la historia argentina, que instauró una dictadura represiva y generó la desaparición de miles de personas.
 
 Estos eventos muestran cómo los golpes pueden ser instrumentos para imponer regímenes autoritarios o detener procesos democráticos en desarrollo.
