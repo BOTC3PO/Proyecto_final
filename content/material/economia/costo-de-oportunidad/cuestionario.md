@@ -1,6 +1,6 @@
 # Economia — costo de oportunidad (cuestionario, 30 preguntas VBLang)
 
-> Tema: `economia/costo-de-oportunidad`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `economia/costo-de-oportunidad`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
