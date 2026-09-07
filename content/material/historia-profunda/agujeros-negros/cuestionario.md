@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,12 +40,9 @@ metadata:
   nivel: "intermedio"
   tags: ["gravedad", "fuerza", "colapso"]
 
-variables:
-  fuerza_dominante: uno_de(["gravedad", "electromagnetismo", "fuerza_nuclear_fuerte"])
-
-respuesta: fuerza_dominante
+respuesta: "gravedad"
 tipo: mc
-opciones_explicitas: ["gravedad", "electromagnetismo", "fuerza_nuclear_fuerte"]
+opciones_explicitas: ["gravedad", "electromagnetismo", "fuerza nuclear fuerte"]
 
 enunciado: "Durante el colapso de una estrella masiva que da origen a un agujero negro, ¿qué fuerza es la responsable de vencer la presión de la fusión nuclear y comprimir la materia?"
 
@@ -252,15 +249,11 @@ metadata:
   nivel: "intermedio"
   tags: ["masa", "colapso"]
 
-variables:
-  tipo_colapso: uno_de([["estrella de neutrones", "estrella de neutrones"], ["agujero negro", "agujero negro"]])
+enunciado: "Si el núcleo remanente de una supernova supera el límite de Tolman-Oppenheimer-Volkoff, el colapso gravitatorio no se detiene y se forma un/a ___."
 
-enunciado: "Si el núcleo remanente de una supernova supera el límite de Tolman-Oppenheimer-Volkoff, el colapso gravitatorio no se detiene y se forma un/a {tipo_colapso[0]}."
-
-respuesta: tipo_colapso[1]
+respuesta: "agujero negro"
 tipo: completar
 respuestas_validas:
-  - "estrella de neutrones"
   - "agujero negro"
 
 explicacion: |
@@ -307,8 +300,6 @@ respuesta: "enana blanca"
 tipo: completar
 respuestas_validas:
   - "enana blanca"
-  - "estrella de neutrones"
-  - "agujero negro"
 
 explicacion: |
   Las estrellas de masa baja o media expulsan sus capas externas y dejan un núcleo denso llamado enana blanca.
@@ -323,14 +314,11 @@ metadata:
   nivel: "avanzado"
   tags: ["clasificacion", "densidad"]
 
-variables:
-  objeto: uno_de([["enana blanca", "enana blanca"], ["estrella de neutrones", "estrella de neutrones"], ["agujero negro", "agujero negro"]])
-
-enunciado: "El objeto con la mayor densidad teórica, donde la gravedad impide incluso la salida de la luz, es el/la {objeto[0]}."
-
-respuesta: objeto[1]
+respuesta: "agujero negro"
 tipo: mc
 opciones_explicitas: ["enana blanca", "estrella de neutrones", "agujero negro"]
+
+enunciado: "El objeto con la mayor densidad teórica, donde la gravedad impide incluso la salida de la luz, es el/la ___."
 
 explicacion: |
   El agujero negro representa el límite extremo de la densidad, donde la curvatura del espacio-tiempo es infinita en la singularidad.
@@ -406,14 +394,11 @@ metadata:
   nivel: "avanzado"
   tags: ["evolucion", "masa"]
 
-variables:
-  caso: uno_de([["estelar", "10"], ["supermasivo", "1000000"]])
-
-respuesta: caso[1]
+respuesta: 1000000
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si un agujero negro estelar típico tiene una masa de aproximadamente {caso[0]} veces la masa solar, un agujero negro supermasivo promedio en una galaxia espiral puede tener aproximadamente {caso[1]} de masas solares. Escribe el valor numérico de la segunda escala (sin unidades)."
+enunciado: "Si un agujero negro estelar típico tiene una masa de aproximadamente 10 veces la masa solar, un agujero negro supermasivo promedio en una galaxia espiral puede tener aproximadamente ___ masas solares. Escribe el valor numérico (sin unidades)."
 
 explicacion: |
   Los agujeros negros supermasivos superan con creces las escalas estelares, alcanzando millones de masas solares.
@@ -478,9 +463,7 @@ variables:
 
 tipo: completar
 respuestas_validas:
-  - "enana blanca"
-  - "estrella de neutrones"
-  - "agujero negro"
+  - destino
 
 enunciado: "Si el núcleo remanente de una estrella tiene una masa de {valor} masas solares, el objeto resultante será una ___."
 
@@ -542,22 +525,16 @@ metadata:
   nivel: "avanzado"
   tags: ["densidad", "gravedad"]
 
-variables:
-  par: uno_de([["estrella de neutrones", "1.5"], ["agujero negro", "10.0"]])
-  tipo_obj: par[0]
-  masa_critica: par[1]
-
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Si un objeto tiene una masa de {masa_critica} masas solares y no puede ser sostenido por la presión de degeneración de neutrones, ¿cuántas masas solares (aproximadamente) superan el límite de formación de un agujero negro en este escenario?"
+enunciado: "El límite de Tolman-Oppenheimer-Volkoff, la masa máxima que puede sostener la presión de degeneración de neutrones antes de colapsar en un agujero negro, es de aproximadamente ___ masas solares."
 
 pasos:
-  - "Identificar la masa del objeto: {masa_critica} M☉"
-  - "Comparar con el límite de Tolman-Oppenheimer-Volkoff (aprox 2-3 M☉)"
+  - "Recordar el rango aceptado para el límite de Tolman-Oppenheimer-Volkoff (aprox 2-3 M☉)"
 
 respuesta: 3
 
 explicacion: |
-  Al superar el límite crítico de ~3 M☉, la gravedad vence a todas las fuerzas conocidas, resultando en un {tipo_obj}.
+  Al superar el límite crítico de ~3 M☉, la presión de degeneración de neutrones ya no puede contrarrestar la gravedad, y el objeto colapsa en un agujero negro.
 ```
