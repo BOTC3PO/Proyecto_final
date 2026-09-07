@@ -1,6 +1,6 @@
 # Lengua — subordinada condicional (cuestionario, 22 preguntas VBLang)
 
-> Tema: `lengua/subordinada-condicional`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-condicional`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -111,7 +111,7 @@ tipo: vf
 enunciado: "La oración '{frase}' es correcta."
 
 explicacion: |
-  Es incorrecta. La subordinada condicional no puede ir en futuro ("Si iré"). Debe ser "Si irá" (imposible) o mejor "Si hará" (incorrecto por sujeto) -> "Si hace sol, iré a la playa". "Si" no se followed by futuro en la subordinada.
+  Es incorrecta. La subordinada introducida por "si" nunca va en futuro de indicativo; debe ir en presente: "Si hace sol, iré a la playa" (no "Si iré a la playa, hará sol").
 ```
 
 ### 6 — pregunta 6
@@ -239,13 +239,13 @@ variables:
   b: random(6, 10)
   condicion: "real"
 
-respuesta: "Si llueve, no saldremos"
+respuesta: "llueve"
 tipo: input
 
-enunciado: "Completa la oración con la forma verbal correcta para expresar una condición probable: 'Si ______ (lluvia), no saldremos al parque'."
+enunciado: "Completa la oración con la forma verbal correcta para expresar una condición probable: 'Si ______ (llover), no saldremos al parque'."
 
 explicacion: |
-  Para situaciones reales o probables, se usa el presente de indicativo en la subordinada ("llueva") y el futuro en la principal.
+  Para situaciones reales o probables, se usa el presente de indicativo en la subordinada ("llueve") y el futuro en la principal.
 ```
 
 ### 12 — pregunta 12
