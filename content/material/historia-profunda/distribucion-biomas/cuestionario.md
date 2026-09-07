@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -84,8 +84,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "Tundra"
-  - "Taiga"
-  - "Sabana"
 
 enunciado: "El bioma de clima frío, con suelos congelados (permafrost) y vegetación de musgos y líquenes, se denomina ___."
 
@@ -140,17 +138,12 @@ metadata:
   nivel: "intermedio"
   tags: ["altitud", "gradiente_termico"]
 
-variables:
-  escenario: uno_de([["un ascenso constante en la montaña", "disminución de temperatura"], ["un descenso desde la cima", "aumento de temperatura"], ["un desplazamiento hacia el ecuador", "aumento de temperatura"]])
-
-respuesta: escenario[1]
+respuesta: "disminución de temperatura"
 tipo: completar
 respuestas_validas:
   - "disminución de temperatura"
-  - "aumento de temperatura"
-  - "cambio de humedad"
 
-enunciado: "Al aumentar la altitud en una montaña, se produce un gradiente térmico donde ocurre una {escenario[0]}."
+enunciado: "Al aumentar la altitud en una montaña, se produce un gradiente térmico donde ocurre una ___."
 
 explicacion: |
   A mayor altitud, la presión atmosférica disminuye y la temperatura desciende, lo que puede cambiar el bioma local (piso térmico).
@@ -248,7 +241,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "seco"
-  - "húmedo"
 
 enunciado: "Los desiertos se localizan generalmente en zonas subtropicales y se caracterizan por tener un clima muy ___."
 
@@ -358,12 +350,9 @@ metadata:
   nivel: "intermedio"
   tags: ["biogeografia", "aislamiento"]
 
-variables:
-  caso: uno_de([["Australia", "el continente que permitió el aislamiento de marsupiales"], ["América del Sur", "el continente que se unió a Norteamérica por el istmo"]])
+enunciado: "La separación de Australia permitió que la fauna evolucionara de manera única (el aislamiento de los marsupiales), un proceso clave en la biogeografía histórica."
 
-enunciado: "La separación de {caso[0]} permitió que la fauna evolucionara de manera única, un proceso clave en la biogeografía histórica."
-
-respuesta: caso[0]
+respuesta: "Australia"
 tipo: mc
 opciones_explicitas: ["Australia", "América del Sur", "África", "Antártida"]
 
@@ -427,17 +416,13 @@ metadata:
   nivel: "avanzado"
   tags: ["biogeografia", "tectonica"]
 
-variables:
-  relacion: uno_de([["directa", "existe una conexión clara entre movimiento de placas y especies"], ["inversa", "el movimiento de placas impide la distribución de especies"]])
-
 enunciado: "La relación entre la tectónica de placas y la biogeografía es ___________."
 
-respuesta: relacion[0]
+respuesta: "directa"
 tipo: completar
 opciones_explicitas: ["directa", "inversa"]
 respuestas_validas:
   - "directa"
-  - "inversa"
 
 pasos:
   - "Analizar cómo el movimiento de placas crea o destruye barreras físicas."
@@ -456,13 +441,9 @@ metadata:
   nivel: "basico"
   tags: ["clima", "latitud", "selva"]
 
-variables:
-  datos: [["latitud_ecuatorial", "Selva Tropical"], ["latitud_polar", "Tundra"], ["latitud_desertica", "Desierto"]]
-  idx: uno_de([0,1,2])
+enunciado: "Un ecosistema con temperaturas elevadas durante todo el año, precipitaciones constantes y una biodiversidad extrema se encuentra en la zona de latitud ecuatorial. ¿Qué bioma es?"
 
-enunciado: "Un ecosistema con temperaturas elevadas durante todo el año, precipitaciones constantes y una biodiversidad extrema se encuentra en la {datos[idx][0]}."
-
-respuesta: datos[idx][1]
+respuesta: "Selva Tropical"
 tipo: mc
 opciones_explicitas: ["Selva Tropical", "Tundra", "Desierto"]
 
@@ -479,13 +460,9 @@ metadata:
   nivel: "basico"
   tags: ["clima", "precipitacion"]
 
-variables:
-  datos: [["precipitaciones_nulas", "Desierto"], ["precipitaciones_moderadas", "Bosque Templado"], ["precipitaciones_altas", "Selva Tropical"]]
-  idx: uno_de([0,1,2])
+enunciado: "Si un área presenta precipitaciones prácticamente nulas y una evaporación muy superior a la precipitación, el bioma es un ___."
 
-enunciado: "Si un área presenta {datos[idx][0]} y una evaporación muy superior a la precipitación, el bioma es un ___."
-
-respuesta: datos[idx][1]
+respuesta: "Desierto"
 tipo: completar
 respuestas_validas:
   - "Desierto"
@@ -522,13 +499,9 @@ metadata:
   nivel: "intermedio"
   tags: ["clima", "suelo", "tundra"]
 
-variables:
-  datos: [["permafrost_permanente", "Tundra"], ["suelo_nutritivo", "Selva"], ["estaciones_marcadas", "Bosque Templado"]]
-  idx: uno_de([0,1,2])
+enunciado: "Un bioma caracterizado por el permafrost permanente y la presencia de musgos y líquenes es la ___."
 
-enunciado: "Un bioma caracterizado por el {datos[idx][0]} y la presencia de musgos y líquenes es la ___."
-
-respuesta: datos[idx][1]
+respuesta: "Tundra"
 tipo: completar
 respuestas_validas:
   - "Tundra"
@@ -546,13 +519,9 @@ metadata:
   nivel: "basico"
   tags: ["clima", "estaciones"]
 
-variables:
-  datos: [["estaciones_bien_definidas", "Bosque Templado"], ["clima_extremadamente_seco", "Desierto"], ["clima_calido_húmedo", "Selva"]]
-  idx: uno_de([0,1,2])
+enunciado: "Un ecosistema con estaciones bien definidas y árboles que pierden sus hojas en otoño es un ___."
 
-enunciado: "Un ecosistema con {datos[idx][0]} y árboles que pierden sus hojas en otoño es un ___."
-
-respuesta: datos[idx][1]
+respuesta: "Bosque Templado"
 tipo: mc
 opciones_explicitas: ["Bosque Templado", "Desierto", "Selva"]
 
