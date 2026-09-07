@@ -1,6 +1,6 @@
 # Economía — Tipos de organizaciones (teoria)
 
-> Tema del MAPA: `ORG1` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `ORG1` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

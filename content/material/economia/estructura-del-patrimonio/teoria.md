@@ -1,6 +1,6 @@
 # Economía — Estructura del patrimonio (teoria)
 
-> Tema del MAPA: `E20A1` (`troncos.md`). Depende de del nodo `E20` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `E20A1` (`troncos.md`). Depende de del nodo `E20` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
