@@ -1,6 +1,6 @@
 # Historia — Reforma Universitaria 1918 (teoria)
 
-> Tema del MAPA: `AH9B` (`troncos.md`). Depende de del nodo `AH9` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `AH9B` (`troncos.md`). Depende de del nodo `AH9` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -10,13 +10,13 @@
 
 ## El contexto de una revolución estudiantil
 
-A principios del siglo XX, Argentina vivía un momento de transformación profunda. La economía crecía gracias a la exportación de productos agropecuarios y llegaban muchas familias de inmigrantes, lo que generaba una clase media urbana más numerosa y exigente. Sin embargo, la Universidad de Buenos Aires (UBA), fundada en 1821, seguía funcionando con estructuras coloniales y rígidas. Era un espacio elitista, cerrado y controlado por un grupo reducido de profesores que se autoproclamaban dueños del saber. La enseñanza era memorística, los exámenes eran arbitrarios y no había participación de los estudiantes en las decisiones académicas.
+A principios del siglo XX, Argentina vivía un momento de transformación profunda. La economía crecía gracias a la exportación de productos agropecuarios y llegaban muchas familias de inmigrantes, lo que generaba una clase media urbana más numerosa y exigente. Sin embargo, la Universidad Nacional de Córdoba, fundada en 1613 por la orden jesuita (la más antigua del país), seguía funcionando con estructuras casi coloniales y rígidas. Era un espacio elitista, cerrado y controlado por un grupo reducido de profesores conservadores y por la influencia de la Iglesia, que se autoproclamaban dueños del saber. La enseñanza era memorística, los exámenes eran arbitrarios y no había participación de los estudiantes en las decisiones académicas.
 
-Frente a este panorama, un grupo de jóvenes estudiantes, liderados por figuras como Deodoro Roca, decidió organizarse para exigir cambios radicales. No querían solo mejorar las aulas; querían democratizar la institución. En abril de 1918, estalló la protesta en Córdoba, que rápidamente se extendió a otras universidades del país y de América Latina. Este movimiento no fue solo una huelga escolar, sino una revolución cultural y política que cuestionaba quién tiene derecho a conocer y cómo debe enseñarse el conocimiento.
+Frente a este panorama, un grupo de jóvenes estudiantes, liderados por figuras como Deodoro Roca, decidió organizarse para exigir cambios radicales. No querían solo mejorar las aulas; querían democratizar la institución. En abril de 1918, estalló la protesta en Córdoba, que rápidamente se extendió a otras universidades del país (incluida la UBA) y de América Latina. Este movimiento no fue solo una huelga escolar, sino una revolución cultural y política que cuestionaba quién tiene derecho a conocer y cómo debe enseñarse el conocimiento.
 
 ## El Manifiesto Liminar y sus principios fundamentales
 
-El punto de inflexión de este movimiento fue la publicación del "Manifiesto Liminar", redactado por Alejandro Goyeneche y presentado por el delegado estudiantil Deodoro Roca. Este documento, llamado "liminar" porque busca abrir o iniciar una nueva etapa, es considerado la carta fundacional de la Reforma Universitaria. En él, se expresaban tres ideas centrales que rompían con el modelo tradicional: la autonomía universitaria, el cogobierno y la gratuidad de la enseñanza.
+El punto de inflexión de este movimiento fue la publicación del "Manifiesto Liminar" (título completo: "La juventud argentina de Córdoba a los hombres libres de Sud América"), redactado por el propio Deodoro Roca, dirigente estudiantil y una de las figuras centrales de la Reforma. Este documento, llamado "liminar" porque busca abrir o iniciar una nueva etapa, es considerado la carta fundacional de la Reforma Universitaria. En él, se expresaban tres ideas centrales que rompían con el modelo tradicional: la autonomía universitaria, el cogobierno y la gratuidad de la enseñanza.
 
 La autonomía significaba que la universidad debía gobernarse a sí misma, sin interferencia del gobierno nacional o de poderes políticos externos. Esto permitía a la institución decidir sus propios presupuestos, nombrar a sus autoridades y definir sus planes de estudio libremente. El cogobierno, por su parte, establecía que la universidad no era solo para los profesores, sino una comunidad integrada por docentes, graduados y estudiantes. Por primera vez, los estudiantes ganaban derecho a voz y voto en los órganos de gobierno, reconociendo su rol activo en la vida académica.
 

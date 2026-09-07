@@ -1,6 +1,6 @@
 # Historia — reforma universitaria 1918 (cuestionario, 22 preguntas VBLang)
 
-> Tema: `historia/reforma-universitaria-1918`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `historia/reforma-universitaria-1918`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -14,15 +14,15 @@ metadata:
   tags: ["reforma_universitaria_1918", "contexto_social"]
 
 variables:
-  anio_fundacion_uba: 1821
+  anio_fundacion_unc: 1613
 
-respuesta: "1821"
+respuesta: "1613"
 tipo: input
 
-enunciado: "La Universidad de Buenos Aires, institución central en el contexto de la Reforma de 1918, fue fundada en el año {anio_fundacion_uba}. ¿En qué año se fundó?"
+enunciado: "La Universidad Nacional de Córdoba, epicentro de la Reforma de 1918, fue fundada por la orden jesuita en el año {anio_fundacion_unc}. ¿En qué año se fundó?"
 
 explicacion: |
-  La UBA fue fundada en 1821, durante los primeros años de la organización nacional. Sin embargo, su estructura permaneció rígida y elitista hasta la reforma de 1918.
+  La Universidad Nacional de Córdoba, fundada en 1613, es la más antigua del país. Su estructura permaneció rígida, elitista y bajo fuerte influencia clerical hasta la reforma de 1918.
 ```
 
 ### 2 — pregunta 2
@@ -124,7 +124,7 @@ variables:
 respuesta: "memorística"
 tipo: completar
 
-enunciado: "Antes de la reforma, la enseñanza en la UBA era predominantemente {metodo}, basada en la repetición y exámenes arbitrarios."
+enunciado: "Antes de la reforma, la enseñanza en la Universidad Nacional de Córdoba era predominantemente {metodo}, basada en la repetición y exámenes arbitrarios."
 
 explicacion: |
   El modelo antiguo se basaba en la transmisión pasiva del conocimiento. La reforma exigió clases dinámicas y una renovación pedagógica profunda.
@@ -187,7 +187,7 @@ variables:
 respuesta: "arbitrarios"
 tipo: completar
 
-enunciado: "Los exámenes en la UBA pre-reforma eran considerados {caracteristica}, sin criterios claros ni participación estudiantil."
+enunciado: "Los exámenes en la Universidad Nacional de Córdoba, pre-reforma, eran considerados {caracteristica}, sin criterios claros ni participación estudiantil."
 
 explicacion: |
   La arbitrariedad era una fuente de frustración. La reforma buscaba objetividad y transparencia en la evaluación del conocimiento.
@@ -376,7 +376,7 @@ variables:
 respuesta: "elitista"
 tipo: completar
 
-enunciado: "La UBA pre-reforma era un espacio {caracteristica}, cerrado y controlado por una minoría."
+enunciado: "La Universidad Nacional de Córdoba, pre-reforma, era un espacio {caracteristica}, cerrado y controlado por una minoría."
 
 explicacion: |
   Solo las élites tradicionales podían acceder y permanecer. La reforma buscó abrir las puertas a la clase trabajadora y media.
@@ -418,7 +418,7 @@ variables:
 respuesta: "colonial"
 tipo: completar
 
-enunciado: "La UBA seguía funcionando con estructuras {estructura} y rígidas."
+enunciado: "La Universidad Nacional de Córdoba seguía funcionando con estructuras {estructura} y rígidas."
 
 explicacion: |
   Se refería a un modelo heredado de la época virreinal, con jerarquías rígidas y falta de modernidad académica.
