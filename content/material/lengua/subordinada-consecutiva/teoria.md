@@ -1,6 +1,6 @@
 # Lengua — Subordinada consecutiva (teoria)
 
-> Tema del MAPA: `SX16` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SX16` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -21,7 +21,9 @@ El elemento que introduce a la subordinada consecutiva es casi siempre la conjun
 *   **Tan + adjetivo/adverbio + que**: Indica un grado alto de una cualidad que provoca una consecuencia. Ejemplo: "El examen fue **tan** difícil **que** muchos alumnos abandonaron".
 *   **Tanto + sustantivo + que**: Se usa cuando el grado se refiere a una cantidad de algo. Ejemplo: "Tenía **tanto** miedo **que** se quedó paralizado".
 *   **Tal + sustantivo + que**: Similar a "tanto", pero enfatiza la naturaleza o tipo de la causa. Ejemplo: "Fue **tal** su sorpresa **que** se le cayó el celular".
-*   **Tanto... como**: Aunque a veces se usa para comparación, en contextos consecutivos puede indicar equivalencia de acción o estado.
+*   **De tal manera/modo que**: Locución consecutiva independiente, que no necesita ningún adverbio de grado previo. Ejemplo: "Organizó todo **de tal manera que** nadie tuvo quejas".
+
+(Nota: "tanto... como" no es una estructura consecutiva; es comparativa de igualdad — "Juan estudia **tanto como** María" iguala dos términos, no expresa causa-efecto. No hay que confundirla con "tanto... que", que sí es consecutiva.)
 
 Es crucial distinguir estas estructuras de las comparativas. En las comparativas, se igualan dos términos (A es igual a B). En las consecutivas, se establece una relación de causa-efecto donde el primer término alcanza un nivel tal que provoca el segundo. Si podés reemplazar "que" por "por lo tanto" o "entonces" y la oración mantiene un sentido lógico de consecuencia, probablemente estés ante una subordinada consecutiva.
 

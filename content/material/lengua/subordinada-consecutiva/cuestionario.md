@@ -1,6 +1,6 @@
 # Lengua — subordinada consecutiva (cuestionario, 45 preguntas VBLang)
 
-> Tema: `lengua/subordinada-consecutiva`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-consecutiva`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -43,10 +43,10 @@ variables:
 respuesta: "{total}"
 tipo: input
 
-enunciado: "Si tengo {base} manzanas y compro {incremento} más, tengo tanto fruta como para hacer {total} pasteles. ¿Cuántas manzanas tengo en total?"
+enunciado: "Si tengo {base} manzanas y compro {incremento} más, tengo tanta fruta que me alcanza para hacer {total} pasteles. ¿Cuántas manzanas tengo en total?"
 
 explicacion: |
-  Aunque el contexto usa "tanto... como" en sentido comparativo de cantidad, el ejercicio pide calcular la suma total que justifica la consecuencia. En una estructura consecutiva estricta sería "tanto [sustantivo] que", aquí se evalúa la lógica de la cantidad resultante.
+  {base} + {incremento} = {total}. La estructura consecutiva es "tanta fruta que...": 'tanta' concuerda en género femenino con 'fruta', y 'que' introduce la consecuencia (la cantidad de pasteles que permite hacer).
 ```
 
 ### 3 — pregunta 3
@@ -510,7 +510,7 @@ metadata:
 
 variables:
   sujeto: uno_de(["El niño", "La profesora", "El perro", "El coche"])
-  adjetivo: uno_de(["frío", "caliente", "ruido", "silencio"])
+  adjetivo: uno_de(["intenso", "fuerte", "agudo", "molesto"])
   resultado: uno_de(["tembló", "sudó", "huyó", "paró"])
 
 respuesta: "tan"
@@ -519,7 +519,7 @@ tipo: completar
 enunciado: "El ruido fue ___ {adjetivo} que el perro se {resultado}. ¿Qué correlato falta?"
 
 explicacion: |
-  Para expresar un grado intenso de un adjetivo o sustantivo que provoca una consecuencia, se usa 'tan' (si es adjetivo/adverbio) o 'tanto' (si es sustantivo). Aquí 'ruido' es sustantivo, pero en el ejemplo dado 'ruido fue tan intenso' es común, sin embargo, si 'ruido' es el sustantivo principal, la estructura correcta sería 'tanto ruido como...'. Pero si 'ruido' actúa como adjetivo cualificando la intensidad, o si la oración es 'El ruido fue tan fuerte...', usamos 'tan'. Dado que el blank precede a un adjetivo implícito o la estructura 'tan + adj', la respuesta estándar para grado de cualidad es 'tan'. *Nota: Si 'ruido' es el sustantivo, debería ser 'tanto ruido'. Asumiendo la estructura 'tan + adj' para el blank.*
+  '{adjetivo}' es un adjetivo que cualifica a 'ruido' (el sustantivo 'ruido' ya está en la oración; lo que falta es el correlato antes del adjetivo). Como el hueco precede a un adjetivo, se usa 'tan' (no 'tanto', que se usaría directamente ante el sustantivo: 'Hizo tanto ruido que...').
 ```
 
 ### 24 — pregunta 24
