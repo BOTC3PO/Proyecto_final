@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,15 +40,11 @@ metadata:
   nivel: "basico"
   tags: ["causas", "agricultura"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["El cultivo de cereales permitió el asentamiento", "la agricultura"], ["La domesticación de plantas impulsó", "la agricultura"]]
-
-respuesta: escenarios[escenario_idx][1]
+respuesta: "la agricultura"
 tipo: mc
 opciones_explicitas: ["la caza", "la agricultura", "la recolección", "la migración"]
 
-enunciado: "{escenarios[escenario_idx][0]} fue el motor principal de la sedentarización."
+enunciado: "La domesticación de plantas fue el motor principal de la sedentarización, un proceso conocido como ___."
 
 explicacion: |
   El paso de una economía de subsistencia basada en la recolección a una basada en la producción agrícola permitió la permanencia en un territorio.
@@ -69,7 +65,7 @@ respuestas_validas:
   - "especialización"
   - "especializacion"
 
-enunciado: "La generación de un ___ agrícola permitió que no todos los individuos tuvieran que dedicarse a la producción de alimentos, dando lugar a la ___ del trabajo."
+enunciado: "La generación de un excedente agrícola permitió que no todos los individuos tuvieran que dedicarse a la producción de alimentos, dando lugar a la ___ del trabajo."
 
 explicacion: |
   El excedente alimentario permitió que surgieran otros roles sociales (artesanos, guerreros, sacerdotes), rompiendo la igualdad de la economía de subsistencia.
@@ -103,15 +99,11 @@ metadata:
   nivel: "avanzado"
   tags: ["territorio", "geografia_humana"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["El asentamiento cerca de ríos", "fueron"], ["La agricultura de riego", "fueron"]]
+respuesta: verdadero
+tipo: vf
+opciones_explicitas: [verdadero, falso]
 
-respuesta: "fueron"
-tipo: mc
-opciones_explicitas: ["fueron", "fueron"]
-
-enunciado: "Los asentamientos permanentes {casos[caso_idx][0]} una consecuencia directa de la necesidad de cuidar los cultivos."
+enunciado: "Los asentamientos permanentes fueron una consecuencia directa de la necesidad de cuidar los cultivos."
 
 explicacion: |
   La agricultura requiere una inversión de tiempo y cuidado constante en el mismo terreno, lo que obliga a la población a permanecer en un radio cercano a sus campos.
