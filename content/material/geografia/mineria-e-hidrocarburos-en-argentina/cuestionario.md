@@ -1,6 +1,6 @@
 # Geografia — mineria e hidrocarburos en argentina (cuestionario, 25 preguntas VBLang)
 
-> Tema: `geografia/mineria-e-hidrocarburos-en-argentina`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `geografia/mineria-e-hidrocarburos-en-argentina`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -286,7 +286,7 @@ metadata:
   materia: "Geografía"
   tema: "mineria_e_hidrocarburos_en_argentina"
   nivel: "intermedio"
-  tags: ["hidrocarburos", "tucuman", "historia"]
+  tags: ["hidrocarburos", "salta", "historia"]
 
 variables:
   region_norte: "norte"
@@ -294,10 +294,10 @@ variables:
 respuesta: "norte"
 tipo: completar
 
-enunciado: "Históricamente, la producción de hidrocarburos se concentraba en el Golfo San Jorge y en el {region_norte} (Tucumán y Neuquén antiguo)."
+enunciado: "Históricamente, la producción de hidrocarburos se concentraba en el Golfo San Jorge y en el {region_norte} (Salta y la cuenca Neuquina convencional)."
 
 explicacion: |
-  Antes de Vaca Muerta, el norte argentino (incluyendo Tucumán) tenía actividad petrolera significativa.
+  Antes de Vaca Muerta, el norte argentino (Salta/Jujuy, cuenca del Noroeste — Aguaray, Campo Durán) tenía actividad petrolera significativa. (Tucumán, en cambio, no tiene historia petrolera relevante — su economía se asocia al azúcar, no a hidrocarburos.)
 ```
 
 ### 15 — pregunta 15

@@ -1,6 +1,6 @@
 # Geografía — Minería e hidrocarburos en Argentina (teoria)
 
-> Tema del MAPA: `GEOA6` (`troncos.md`). Depende de del nodo `G7` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `GEOA6` (`troncos.md`). Depende de del nodo `G7` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,12 +22,12 @@ En el sur, la provincia de Santa Cruz tiene una larga tradición en la extracci�
 
 ## Hidrocarburos: el desafío de Vaca Muerta
 
-La extracción de petróleo y gas natural ha sido tradicionalmente el pilar energético del país, aunque su centro de gravedad ha cambiado drásticamente en las últimas décadas. Mientras que históricamente la producción se concentraba en el Golfo San Jorge (Chubut y Santa Cruz) y en el norte (Tucumán y Neuquén antiguo), hoy el epicentro es la formación geológica conocida como Vaca Muerta.
+La extracción de petróleo y gas natural ha sido tradicionalmente el pilar energético del país, aunque su centro de gravedad ha cambiado drásticamente en las últimas décadas. Mientras que históricamente la producción se concentraba en el Golfo San Jorge (Chubut y Santa Cruz) y en la cuenca Neuquina convencional, hoy el epicentro es la formación geológica conocida como Vaca Muerta.
 
 Ubicada principalmente en el noroeste de la provincia de Neuquén y extendiéndose hacia el sur de Río Negro, Vaca Muerta es una de las formaciones de shale (esquistos) más grandes del mundo. La explotación de estos recursos requiere técnicas específicas, como la fractura hidráulica o "fracking", que permiten liberar el gas y el petróleo atrapados en las rocas impermeables. Esta actividad ha transformado la economía regional, atrayendo inversiones masivas y generando debates intensos sobre el uso del agua, los riesgos sísmicos y los impactos en las comunidades locales y el medio ambiente.
 
 ## Aplicación práctica: análisis de casos locales
 
-Para entender mejor estos conceptos, podemos analizar ejemplos concretos de nuestra realidad. En Salta, el proyecto de litio en el Salar de Atacama (aunque internacional, con participación argentina) o los salares locales en Jujuy muestran cómo la extracción de recursos no metálicos interactúa con ecosistemas áridos y comunidades originarias. Los estudiantes pueden investigar cómo se gestiona el agua en estas zonas, ya que es un recurso escaso y vital.
+Para entender mejor estos conceptos, podemos analizar ejemplos concretos de nuestra realidad. En Salta, los proyectos de litio en el Salar del Hombre Muerto (compartido con Catamarca) o los salares locales en Jujuy (como Olaroz) muestran cómo la extracción de recursos no metálicos interactúa con ecosistemas áridos y comunidades originarias (el Salar de Atacama, en cambio, está del otro lado de la cordillera, en Chile). Los estudiantes pueden investigar cómo se gestiona el agua en estas zonas, ya que es un recurso escaso y vital.
 
-Por otro lado, en Neuquén, es útil observar cómo la ciudad de Zapla o las localidades cercanas a Vaca Muerta han cambiado su dinámica urbana y laboral. Se puede comparar la situación actual con la de Chubut, donde la extracción de petróleo en el Golfo San Jorge ha generado conflictos ambientales históricos, como el derrame de crudo en la costa patagónica. Analizar estos casos ayuda a visualizar los trade-offs (compensaciones) entre el desarrollo económico, la sostenibilidad ambiental y los derechos de las poblaciones locales.
+Por otro lado, en Neuquén, es útil observar cómo la ciudad de Añelo, epicentro de Vaca Muerta, ha cambiado su dinámica urbana y laboral. Se puede comparar la situación actual con la de Chubut, donde la extracción de petróleo en el Golfo San Jorge ha generado conflictos ambientales históricos, como el derrame de crudo en la costa patagónica. Analizar estos casos ayuda a visualizar los trade-offs (compensaciones) entre el desarrollo económico, la sostenibilidad ambiental y los derechos de las poblaciones locales.
