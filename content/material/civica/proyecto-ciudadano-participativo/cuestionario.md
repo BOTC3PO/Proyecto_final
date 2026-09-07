@@ -1,6 +1,6 @@
 # Cívica — Proyecto ciudadano participativo (cuestionario, 22 preguntas VBLang)
 
-> Tema: `civica/proyecto-ciudadano-participativo`. Ver `teoria.md` en esta misma carpeta. Escrito a mano (Claude), cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `civica/proyecto-ciudadano-participativo`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 

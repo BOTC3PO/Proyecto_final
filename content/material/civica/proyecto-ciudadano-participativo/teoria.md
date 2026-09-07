@@ -1,6 +1,6 @@
 # Cívica — Proyecto ciudadano participativo (teoria)
 
-> Tema del MAPA: `C22` (`troncos.md`). Depende de del nodo `proyectos<br/>(Economía-Gestión)"]` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `C22` (`troncos.md`). Depende del nodo de proyectos organizacionales (Economía-Gestión) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

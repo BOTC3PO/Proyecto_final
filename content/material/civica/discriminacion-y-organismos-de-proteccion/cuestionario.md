@@ -1,6 +1,6 @@
 # Civica — discriminacion y organismos de proteccion (cuestionario, 30 preguntas VBLang)
 
-> Tema: `civica/discriminacion-y-organismos-de-proteccion`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `civica/discriminacion-y-organismos-de-proteccion`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -31,13 +31,13 @@ metadata:
   nivel: "basico"
   tags: ["leyes", "identidad_genero"]
 
-respuesta: 26370
+respuesta: 26743
 tipo: input
 
 enunciado: "¿Cuál es el número de la Ley que reconoce el derecho a la identidad de género en Argentina?"
 
 explicacion: |
-  La Ley 26.370 permite el cambio de nombre y sexo en documentos oficiales sin necesidad de autorización judicial compleja.
+  La Ley 26.743 permite el cambio de nombre y sexo en documentos oficiales sin necesidad de autorización judicial compleja.
 ```
 
 ### 3 — pregunta 3
@@ -146,15 +146,15 @@ metadata:
   tags: ["leyes", "identidad_genero"]
 
 variables:
-  numero_ley: 26370
+  numero_ley: 26743
 
-respuesta: "26.370"
+respuesta: "26.743"
 tipo: completar
 
 enunciado: "La normativa que reconoce el derecho de todas las personas a ser identificadas con el género que sienten y viven es la Ley {numero_ley}."
 
 explicacion: |
-  La Ley 26.370, conocida como Ley de Identidad de Género, permite el cambio de nombre y sexo en documentos oficiales sin intervenciones quirúrgicas complejas.
+  La Ley 26.743, conocida como Ley de Identidad de Género, permite el cambio de nombre y sexo en documentos oficiales sin intervenciones quirúrgicas complejas.
 ```
 
 ### 9 — pregunta 9
@@ -188,15 +188,15 @@ metadata:
   tags: ["leyes", "input"]
 
 variables:
-  ley_num: 26370
+  ley_num: 26743
 
-respuesta: "26370"
+respuesta: "26743"
 tipo: input
 
 enunciado: "Escribe el número de la Ley de Identidad de Género (sin puntos ni guiones): {ley_num}."
 
 explicacion: |
-  La Ley de Identidad de Género es la número 26.370.
+  La Ley de Identidad de Género es la número 26.743.
 ```
 
 ### 11 — pregunta 11
@@ -284,7 +284,7 @@ metadata:
   materia: "civica"
   tema: "discriminacion_y_organismos_de_proteccion"
   nivel: "intermedio"
-  tags: ["ley_26370", "derechos"]
+  tags: ["ley_26743", "derechos"]
 
 respuesta: verdadero
 tipo: vf
@@ -292,7 +292,7 @@ tipo: vf
 enunciado: "La Ley de Identidad de Género permite el cambio de nombre en documentos oficiales sin necesidad de autorizaciones judiciales complejas."
 
 explicacion: |
-  Sí, la Ley 26.370 asegura el respeto a la autodeterminación, permitiendo cambios administrativos sin requisitos médicos o judiciales invasivos.
+  Sí, la Ley 26.743 asegura el respeto a la autodeterminación, permitiendo cambios administrativos sin requisitos médicos o judiciales invasivos.
 ```
 
 ### 16 — pregunta 16
@@ -356,12 +356,12 @@ metadata:
   materia: "civica"
   tema: "discriminacion_y_organismos_de_proteccion"
   nivel: "intermedio"
-  tags: ["ley_26370", "mitos"]
+  tags: ["ley_26743", "mitos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Para cambiar el sexo en los documentos oficiales según la Ley 26.370, es necesario realizar intervenciones quirúrgicas previas."
+enunciado: "Para cambiar el sexo en los documentos oficiales según la Ley 26.743, es necesario realizar intervenciones quirúrgicas previas."
 
 explicacion: |
   Falso. La ley permite el cambio sin necesidad de intervenciones quirúrgicas, respetando la autodeterminación.
@@ -428,7 +428,7 @@ metadata:
   materia: "civica"
   tema: "discriminacion_y_organismos_de_proteccion"
   nivel: "intermedio"
-  tags: ["ley_26370", "definicion"]
+  tags: ["ley_26743", "definicion"]
 
 respuesta: verdadero
 tipo: vf
@@ -464,21 +464,21 @@ metadata:
   materia: "civica"
   tema: "discriminacion_y_organismos_de_proteccion"
   nivel: "intermedio"
-  tags: ["ley_26370", "memoria"]
+  tags: ["ley_26743", "memoria"]
 
 variables:
   digito1: random(1, 9)
   digito2: random(1, 9)
   # Generamos un número falso aleatorio para distracción, pero la respuesta es fija en la explicación si fuera mc, aquí es input
-  # Para input, la respuesta es fija 26370
+  # Para input, la respuesta es fija 26743
 
-respuesta: 26370
+respuesta: 26743
 tipo: input
 
 enunciado: "Escribe el número de la Ley de Identidad de Género: {random(10000, 99999)}"
 
 explicacion: |
-  La ley es la 26.370. El número en el enunciado es solo un marcador de posición visual.
+  La ley es la 26.743. El número en el enunciado es solo un marcador de posición visual.
 ```
 
 ### 26 — pregunta 26
@@ -524,7 +524,7 @@ metadata:
   materia: "civica"
   tema: "discriminacion_y_organismos_de_proteccion"
   nivel: "intermedio"
-  tags: ["ley_26370", "tramites"]
+  tags: ["ley_26743", "tramites"]
 
 respuesta: verdadero
 tipo: vf
