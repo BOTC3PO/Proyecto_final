@@ -10,7 +10,7 @@
 
 ## 1. Características del nuevo sistema electoral
 
-La Ley 8.831, sancionada en 1912 y promulgada en mayo del mismo año, fue un cambio radical en el funcionamiento de las elecciones argentinas. Estableció tres pilares fundamentales: el voto secreto, universal (para varones) y obligatorio. Esto significó que cualquier hombre mayor de edad podía participar sin restricciones de clase social o educación, algo inédito hasta ese momento. El voto secreto eliminó la posibilidad de coacción directa, ya que los electores no tenían que manifestar su elección en voz alta ni ante testigos. La obligatoriedad, aunque generó controversia, buscaba aumentar la participación ciudadana y reducir el poder de las élites sobre el proceso electoral.
+La Ley 8.871, sancionada en 1912 y promulgada en febrero del mismo año, fue un cambio radical en el funcionamiento de las elecciones argentinas. Estableció tres pilares fundamentales: el voto secreto, universal (para varones) y obligatorio. Esto significó que cualquier hombre mayor de edad podía participar sin restricciones de clase social o educación, algo inédito hasta ese momento. El voto secreto eliminó la posibilidad de coacción directa, ya que los electores no tenían que manifestar su elección en voz alta ni ante testigos. La obligatoriedad, aunque generó controversia, buscaba aumentar la participación ciudadana y reducir el poder de las élites sobre el proceso electoral.
 
 ## 2. El fin del fraude electoral
 
@@ -26,7 +26,7 @@ El nuevo sistema electoral alteró el equilibrio de poder entre los partidos pol
 
 ## 5. Críticas y limitaciones
 
-A pesar de su importancia, la Ley Sáenz Peña no fue un cambio sin problemas. La obligatoriedad del voto generó resistencias en ciertos sectores, especialmente entre los pobres, que veían el acto electoral como una carga adicional. Además, el sistema no incluyó a las mujeres ni a los analfabetos (aunque este último requisito se eliminó posteriormente). También hubo críticas sobre la forma en que se aplicó: en algunas regiones, la autoridad de mesa seguía manipulando los resultados con métodos menos visibles.
+A pesar de su importancia, la Ley Sáenz Peña no fue un cambio sin problemas. La obligatoriedad del voto generó resistencias en ciertos sectores, especialmente entre los pobres, que veían el acto electoral como una carga adicional. Además, el sistema siguió excluyendo a las mujeres del padrón electoral (algo que recién cambiaría en 1947) y, al basarse en el padrón militar, dejaba afuera a quienes no estuvieran empadronados para el servicio militar obligatorio. También hubo críticas sobre la forma en que se aplicó: en algunas regiones, la autoridad de mesa seguía manipulando los resultados con métodos menos visibles.
 
 ## N. Conexión con lo que sigue
 

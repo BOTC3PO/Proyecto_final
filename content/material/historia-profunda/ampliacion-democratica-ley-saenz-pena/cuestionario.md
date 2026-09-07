@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -32,7 +32,7 @@ tipo: mc
 enunciado: "La Ley Sáenz Peña, sancionada en 1912, introdujo un cambio fundamental en el sistema electoral argentino al establecer el voto ___."
 
 explicacion: |
-  La Ley 8.831, conocida como Ley Sáenz Peña, transformó la vida política argentina al garantizar el voto secreto, universal (para varones) y obligatorio, terminando con el fraude electoral de la época.
+  La Ley 8.871, conocida como Ley Sáenz Peña, transformó la vida política argentina al garantizar el voto secreto, universal (para varones) y obligatorio, terminando con el fraude electoral de la época.
 ```
 
 ### 2 — El fin del fraude
@@ -190,7 +190,7 @@ respuestas_validas:
 enunciado: "La reforma introducida por la Ley Sáenz Peña estableció que el sufragio debía ser ___."
 
 explicacion: |
-  La Ley 8.830 transformó el sistema electoral argentino al establecer tres pilares: el voto debe ser universal (para varones), secreto (para evitar coacciones) y obligatorio (para asegurar la participación masiva).
+  La Ley 8.871 transformó el sistema electoral argentino al establecer tres pilares: el voto debe ser universal (para varones), secreto (para evitar coacciones) y obligatorio (para asegurar la participación masiva).
 ```
 
 ### 9 — Secuencia de la reforma electoral
@@ -383,7 +383,7 @@ respuestas_validas:
 enunciado: "Si bien la reforma de 1912 fue un paso hacia la democracia, las mujeres en Argentina no pudieron ejercer el voto hasta el año ___."
 
 explicacion: |
-  Fue mediante la sanción de la Ley 13.512, impulsada por el voto femenino, que las mujeres argentinas obtuvieron el derecho político pleno en 1947.
+  Fue mediante la sanción de la Ley 13.010, impulsada por el voto femenino, que las mujeres argentinas obtuvieron el derecho político pleno en 1947.
 ```
 
 ### 18 — Evolución del sufragio en Argentina
