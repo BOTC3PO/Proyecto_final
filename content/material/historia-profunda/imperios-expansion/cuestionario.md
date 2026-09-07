@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -57,15 +57,11 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "territorio"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["territorios diversos", "pueblos conquistados"], ["un solo pueblo homogéneo", "un solo territorio pequeño"]]
-
 tipo: mc
 opciones_explicitas: ["Un territorio con un solo grupo étnico", "Un centro de poder que gobierna sobre territorios y pueblos diversos", "Una confederación de estados soberanos"]
 respuesta: "Un centro de poder que gobierna sobre territorios y pueblos diversos"
 
-enunciado: "Un imperio se distingue de un estado-nación moderno porque su estructura incluye {datos[escenario_idx][0]} y {datos[escenario_idx][1]}."
+enunciado: "Un imperio se distingue de un estado-nación moderno porque su estructura incluye territorios diversos y pueblos conquistados."
 
 explicacion: |
   La diversidad es la clave: un imperio no es un bloque homogéneo, sino un centro que gobierna sobre múltiples realidades culturales y geográficas.
@@ -144,12 +140,9 @@ metadata:
   nivel: "intermedio"
   tags: ["alejandro_magno", "helenismo"]
 
-variables:
-  escenario: uno_de([["Grecia", "Macedonia"], ["Egipto", "Dinastía Ptolemaica"], ["India", "Reino de los Indo-Griegos"]])
-
-respuesta: escenario[1]
+respuesta: "Egipto"
 tipo: mc
-opciones_explicitas: ["Grecia", "Macedonia", "Egipto", "Dinastía Ptolemaica", "India", "Reino de los Indo-Griegos"]
+opciones_explicitas: ["Grecia", "Macedonia", "Egipto", "India"]
 
 enunciado: "Tras la muerte de Alejandro Magno, su imperio se fragmentó. ¿Qué región fue gobernada por la dinastía Ptolemaica?"
 
@@ -247,17 +240,12 @@ metadata:
   nivel: "intermedio"
   tags: ["infraestructura", "caminos"]
 
-variables:
-  escenario: uno_de([["un sistema de calzadas romanas", "facilitar el movimiento de legiones y el comercio"], ["la Gran Muralla China", "defender fronteras y controlar el paso de caravanas"], ["el sistema de caminos del Inca", "conectar los diversos puntos del Tahuantinsuyo para la administración"]])
-
-respuesta: escenario[1]
+respuesta: "facilitar el movimiento de legiones y el comercio"
 tipo: completar
 respuestas_validas:
   - "facilitar el movimiento de legiones y el comercio"
-  - "defender fronteras y controlar el paso de caravanas"
-  - "conectar los diversos puntos del Tahuantinsuyo para la administración"
 
-enunciado: "El desarrollo de obras como {escenario[0]} tenía como objetivo principal {escenario[1]}."
+enunciado: "El desarrollo de obras como un sistema de calzadas romanas tenía como objetivo principal ___."
 
 explicacion: |
   La construcción de infraestructura vial es una herramienta de poder que permite la proyección de la fuerza militar y la integración económica del territorio conquistado.
@@ -296,8 +284,6 @@ respuesta: "Ruta de la Seda"
 tipo: completar
 respuestas_validas:
   - "Ruta de la Seda"
-  - "Ruta de la Fraga"
-  - "Ruta del Ámbar"
 
 enunciado: "La expansión de los imperios asiáticos a menudo se vio impulsada por el control de las redes comerciales, siendo la ___ un ejemplo fundamental de conexión entre Oriente y Occidente."
 
@@ -333,12 +319,9 @@ metadata:
   nivel: "intermedio"
   tags: ["gobierno", "diversidad"]
 
-variables:
-  escenario: uno_de([["El Imperio Romano implementaba el culto al Emperador en las provincias para unificar la lealtad.", "asimilación"], ["El Imperio Persa permitía que los pueblos conquistados mantuvieran sus leyes y religiones.", "tolerancia"], ["El Imperio Inca exigía tributos y trabajo (mita) pero permitía cultos locales bajo el Sol.", "autonomia"]])
+enunciado: "Un imperio que permite que sus súbditos conserven sus propias leyes y costumbres a cambio de lealtad y tributos está aplicando una política de ___."
 
-enunciado: "Un imperio que permite que sus súbditos conserven sus propias leyes y costumbres a cambio de lealtad y tributos está aplicando una política de {escenario[1]}."
-
-respuesta: escenario[1]
+respuesta: "tolerancia"
 tipo: mc
 opciones_explicitas: ["asimilación", "tolerancia", "autonomia"]
 
@@ -375,12 +358,9 @@ metadata:
   nivel: "avanzado"
   tags: ["tributo", "autonomia"]
 
-variables:
-  caso: uno_de([["Un imperio que deja gobernadores locales con poder absoluto pero exige oro.", "autonomia"], ["Un imperio que impone sus propios jueces y gobernadores en cada ciudad.", "centralizacion"], ["Un imperio que obliga a todos a hablar su lengua y vestir su ropa.", "asimilacion"]])
+enunciado: "En los imperios que optan por la centralización, imponiendo sus propios jueces y gobernadores en cada ciudad conquistada, el desafío principal es asegurar que dicha ________ sea efectiva para financiar el centro sin causar rebeliones por exceso de control."
 
-enunciado: "En el modelo de {caso[0]}, el desafío principal es asegurar que la ________ sea efectiva para financiar el centro sin causar rebeliones por exceso de control."
-
-respuesta: caso[1]
+respuesta: "centralizacion"
 tipo: mc
 opciones_explicitas: ["autonomia", "centralizacion", "asimilacion"]
 
@@ -416,12 +396,9 @@ metadata:
   nivel: "intermedio"
   tags: ["conflicto", "gestion"]
 
-variables:
-  conflicto: uno_de([["La falta de tolerancia religiosa suele derivar en...", "rebeliones"], ["La asimilación forzada suele derivar en...", "resistencia"], ["La autonomía excesiva suele derivar en...", "secesion"]])
+enunciado: "Si un imperio intenta imponer una única religión en un territorio con fuertes tradiciones locales, lo más probable es que surjan ___."
 
-enunciado: "Si un imperio intenta imponer una única religión en un territorio con fuertes tradiciones locales, lo más probable es que surjan {conflicto[0]}."
-
-respuesta: conflicto[1]
+respuesta: "rebeliones"
 tipo: mc
 opciones_explicitas: ["rebeliones", "resistencia", "secesion"]
 
