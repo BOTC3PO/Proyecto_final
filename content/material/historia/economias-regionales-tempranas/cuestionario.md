@@ -109,27 +109,6 @@ explicacion: |
   La aplicación estricta de la ley por Urquiza provocó la reacción armada de los caudillos litorales.
 ```
 
-### 6 — pregunta 6
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["lopez_jordan", "lideres"]
-
-variables:
-  lider: "Ricardo López Jordán"
-
-respuesta: "Ricardo López Jordán"
-tipo: completar
-
-enunciado: "El gobernador entrerriano que lideró la resistencia contra la Ley de Aduanas fue:"
-
-explicacion: |
-  Ricardo López Jordán fue el principal líder de la oposición en Entre Ríos.
-```
-
 ### 7 — pregunta 7
 
 ```
