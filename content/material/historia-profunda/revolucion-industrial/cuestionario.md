@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -20,12 +20,7 @@ metadata:
   nivel: "basico"
   tags: ["tecnologia", "energia"]
 
-variables:
-  idx: uno_de([0, 1])
-  combustible: uno_de(["carbón", "madera"])
-  motor: uno_de(["máquina de vapor", "motor de combustión"])
-
-enunciado: "La Revolución Industrial en Inglaterra se caracterizó por el uso masivo de {combustible} como fuente de energía para impulsar la nueva {motor}."
+enunciado: "La Revolución Industrial en Inglaterra se caracterizó por el uso masivo de carbón como fuente de energía para impulsar la nueva ___."
 
 respuesta: "máquina de vapor"
 tipo: mc
@@ -44,10 +39,7 @@ metadata:
   nivel: "intermedio"
   tags: ["social", "economia"]
 
-variables:
-  sistema: uno_de(["factory system", "domestic system"])
-
-enunciado: "El paso del 'putting-out system' (producción doméstica) al {sistema} supuso la concentración de trabajadores en grandes edificios llamados fábricas."
+enunciado: "El paso del 'putting-out system' (producción doméstica) al ___ supuso la concentración de trabajadores en grandes edificios llamados fábricas."
 
 respuesta: "factory system"
 tipo: mc
@@ -333,7 +325,7 @@ tipo: mc
 
 opciones_explicitas: ["el hacinamiento en barrios obreros", "la falta de sistemas de alcantarillado", "la contaminación del aire", "la falta de agua potable"]
 
-enunciado: "Uno de los problemas sociales y sanitarios más graves de las ciudades industriales fue {problema}."
+enunciado: "Uno de los problemas sociales y sanitarios más graves de las ciudades industriales fue {problema[0]}."
 
 explicacion: |
   El crecimiento descontrolado de las ciudades atrajo a tanta gente que se crearon barrios obreros con condiciones de hacinamiento extremo, facilitando la propagación de enfermedades.
