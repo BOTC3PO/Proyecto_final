@@ -373,6 +373,136 @@ idéntico**, cada teoría debe señalar en qué difiere de `pt-BR`.
 
 ---
 
+## Árabe estándar moderno (`ar`) — objetivo C1
+
+> Nota de alcance: se enseña **fusha** (árabe estándar moderno, el
+> registro académico/de medios, sin variante dialectal) — mismo criterio
+> que ya usa la plataforma para separar registro formal de coloquial en
+> otros idiomas. No hay un test único dominante como JLPT/TOPIK/HSK para
+> árabe; el objetivo se mide en CEFR igual que inglés/alemán/francés.
+> Sin atajo léxico con español (como ja/ko/zh) — arranca de cero en
+> escritura y estructura.
+
+### Escritura (prerrequisito de todo lo demás, 3 temas)
+`alfabeto-arabe-y-conexion-de-letras`, `vocalizacion-tashkil`,
+`sistema-de-raices-trilateras`
+
+### A1-A2 — gramática (10 temas)
+`pronombres-personales`, `genero-masculino-femenino`,
+`articulo-determinado-al`, `oraciones-nominales-mubtada-khabar`,
+`plural-regular-masculino-femenino`, `plural-quebrado`,
+`presente-verbal-mudari`, `pasado-verbal-madi`,
+`numeros-cardinales-y-concordancia-inversa`, `preposiciones-e-interrogativos`
+
+### B1 — gramática (7 temas)
+`caso-nominativo-acusativo-genitivo-irab`, `verbos-huecos-y-defectivos`,
+`formas-verbales-derivadas-wazn`, `dual-el-mutanna`,
+`comparativo-y-superlativo`, `adjetivos-relativos-nisba`,
+`oraciones-condicionales-basicas`
+
+### B2 — gramática (6 temas)
+`voz-pasiva`, `modo-subjuntivo-y-yusivo`, `oraciones-de-relativo`,
+`concordancia-plural-no-humano-como-femenino-singular`,
+`discurso-indirecto`, `conectores-avanzados`
+
+### C1 — gramática (5 temas)
+`diglosia-fusha-vs-dialectos-hablados`, `estilo-retorico-balagha`,
+`estructura-nominal-idafa-compleja`, `matices-de-particulas`,
+`prosa-periodistica-y-formal`
+
+### Destrezas por nivel (4 niveles × 4 destrezas = 16 temas)
+`reading-a2`, `writing-a2`, `listening-a2`, `speaking-a2`,
+`reading-b1`, `writing-b1`, `listening-b1`, `speaking-b1`,
+`reading-b2`, `writing-b2`, `listening-b2`, `speaking-b2`,
+`reading-c1`, `writing-c1`, `listening-c1`, `speaking-c1`
+
+**Total árabe: 47 temas**
+
+---
+
+## Ruso (`ru`) — objetivo equivalente a ТРКИ-3 / TORFL (nivel C1)
+
+> Sin atajo léxico con español — arranca de cero en escritura (cirílico)
+> y estructura. ТРКИ (Test of Russian as a Foreign Language) es el
+> estándar internacional real, mismo tipo de anclaje que JLPT/TOPIK/HSK.
+
+### Escritura (prerrequisito, 1 tema)
+`alfabeto-cirilico-y-pronunciacion`
+
+### A1-A2 — gramática (10 temas)
+`genero-de-sustantivos`, `caso-nominativo`, `caso-acusativo`,
+`caso-genitivo`, `pronombres-personales-y-posesivos`,
+`presente-de-verbos`, `pasado-de-verbos-y-genero`,
+`numeros-cardinales-y-concordancia`, `adjetivos-y-concordancia`,
+`interrogativos-y-negacion`
+
+### B1 — gramática (8 temas)
+`caso-dativo`, `caso-instrumental`, `caso-preposicional`,
+`aspecto-verbal-perfectivo-imperfectivo`, `verbos-de-movimiento`,
+`imperativo`, `comparativo-y-superlativo`, `oraciones-condicionales-basicas`
+
+### B2 — gramática (6 temas)
+`participios-activos-y-pasivos`, `gerundio-deeprichastie`,
+`voz-pasiva-con-participios`, `discurso-indirecto`,
+`declinacion-completa-de-numerales`, `conectores-argumentativos`
+
+### C1 — gramática (5 temas)
+`registro-formal-vs-coloquial`, `estilo-periodistico-y-burocratico`,
+`matices-aspectuales-avanzados`, `prefijos-verbales-y-cambio-de-significado`,
+`estructuras-nominales-complejas`
+
+### Destrezas por nivel (4 niveles × 4 destrezas = 16 temas)
+`reading-a2`, `writing-a2`, `listening-a2`, `speaking-a2`,
+`reading-b1`, `writing-b1`, `listening-b1`, `speaking-b1`,
+`reading-b2`, `writing-b2`, `listening-b2`, `speaking-b2`,
+`reading-c1`, `writing-c1`, `listening-c1`, `speaking-c1`
+
+**Total ruso: 46 temas**
+
+---
+
+## Hindi (`hi`) — objetivo C1
+
+> Sin atajo léxico con español — arranca de cero en escritura
+> (devanagari) y estructura. No hay test internacional tan establecido
+> como JLPT/TOPIK/HSK/ТРКИ para hindi; el objetivo se mide en CEFR,
+> mismo criterio que inglés/alemán/francés/árabe.
+
+### Escritura (prerrequisito, 2 temas)
+`devanagari-consonantes-y-vocales`, `matras-y-conjuntas`
+
+### A1-A2 — gramática (10 temas)
+`genero-masculino-femenino`, `pronombres-personales`,
+`presente-habitual`, `posposiciones-basicas-ka-ko-se`,
+`plural-de-sustantivos`, `adjetivos-y-concordancia`,
+`numeros-cardinales`, `interrogativos`, `negacion`, `presente-continuo`
+
+### B1 — gramática (8 temas)
+`pasado-y-construccion-ergativa-ne`, `futuro`,
+`posposiciones-compuestas`, `imperativo-y-cortesia`,
+`oraciones-condicionales-basicas`, `comparativo-y-superlativo`,
+`verbos-compuestos-halka-kriya`, `discurso-directo-basico`
+
+### B2 — gramática (6 temas)
+`voz-pasiva`, `participios-y-oraciones-participiales`,
+`discurso-indirecto`, `subjuntivo-y-modo-optativo`,
+`registro-sanscritizado-vs-persa-urdu`, `conectores-argumentativos`
+
+### C1 — gramática (5 temas)
+`registro-formal-vs-coloquial`, `estilo-literario-y-periodistico`,
+`estructuras-nominales-complejas`, `matices-de-posposiciones`,
+`prosa-formal-y-oficial`
+
+### Destrezas por nivel (4 niveles × 4 destrezas = 16 temas)
+`reading-a2`, `writing-a2`, `listening-a2`, `speaking-a2`,
+`reading-b1`, `writing-b1`, `listening-b1`, `speaking-b1`,
+`reading-b2`, `writing-b2`, `listening-b2`, `speaking-b2`,
+`reading-c1`, `writing-c1`, `listening-c1`, `speaking-c1`
+
+**Total hindi: 47 temas**
+
+---
+
 ## Esperanto (`eo`) — objetivo C1 (aprendizaje más rápido por regularidad,
 pero igual profundidad final)
 
@@ -424,14 +554,38 @@ justo para lunfardo/voseo cuando llegue el momento de generar audio acá.
 | Inglés | 49 | C1 |
 | Alemán | 45 | C1 |
 | Japonés | 45 | JLPT N1 |
+| Hindi | 47 | C1 |
+| Árabe | 47 | C1 |
 | Francés | 44 | C1 |
+| Ruso | 46 | ТРКИ-3 |
 | Chino | 35 | HSK 5-6 |
 | Italiano | 37 | C1 |
 | Coreano | 34 | TOPIK II |
 | Portugués BR | 33 | C1 |
 | Portugués PT | 33 | C1 |
 | Esperanto | 25 | C1 |
-| **TOTAL** | **380** | |
+| **TOTAL** | **520** | 13 idiomas (sin contar es-AR, pendiente) |
+
+**Árabe/Ruso/Hindi agregados 2026-09-07** — planificación de temas recién
+armada (currículum arriba). Antes de esta fecha sólo existían a nivel de
+interfaz (selector de idioma), sin currículum ni contenido — confirmado
+con Javier, no es que se haya perdido nada con la falla de disco.
+**No generar nada de estos 3 todavía**, mismo criterio "NO generar hasta
+confirmar" del resto del documento.
+
+### Conflicto a resolver antes de generar: numeración de logros
+
+`troncos.md` (sección "Logros: diseño unificado") ya reservó ids
+**41-51 para Idiomas (10 certificaciones + 1 meta)** y **52+ para
+examen-jefe** (hoy 165 clusters). Agregar 3 idiomas más rompe ese rango
+cerrado — hacen falta ids nuevos para 3 certificaciones más (y el logro
+"meta" pasa de "completar los 10" a "completar los 13"), pero 52+ ya
+está tomado por examen-jefe. **Pendiente de decidir con Javier**: ¿se
+corre el rango de examen-jefe (52+ → 55+) para insertar 52-54 en
+Idiomas, o los 3 nuevos van al final después de todo examen-jefe (ids
+más altos, fuera de la tabla original)? No es una decisión de contenido,
+es de numeración — no bloquea escribir el currículum, sólo bloquea
+generar los `logros-idiomas.ar/ru/hi.json` finales.
 
 ## Examen de certificación como logro (pendiente de diseño, NO bloquea el resto)
 
