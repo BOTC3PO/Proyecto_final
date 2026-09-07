@@ -1,6 +1,6 @@
 # Informática — Historia y evolución de los sistemas operativos (teoria)
 
-> Tema del MAPA: `SO0` (`troncos.md`). Depende de del nodo `profunda)"]` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SO0` (`troncos.md`) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
