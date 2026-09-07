@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,14 +39,11 @@ metadata:
   nivel: "intermedio"
   tags: ["gran_oxidacion", "atmosfera", "cianobacterias"]
 
-variables:
-  escenario: uno_de([["La liberación masiva de O2", "La extinción de organismos anaerobios"], ["La acumulación de metano", "La formación de la capa de ozono"]])
-
 tipo: mc
 respuesta: "La atmósfera se volvió oxidante"
 opciones_explicitas: ["La atmósfera se volvió oxidante", "La atmósfera se volvió reductora", "La atmósfera se volvió rica en metano", "La atmósfera se volvió rica en nitrógeno"]
 
-enunciado: "El aumento de la concentración de oxígeno atmosférico debido a la actividad de las cianobacterias provocó que la atmósfera dejara de ser reductora para convertirse en {escenario[0]}."
+enunciado: "El aumento de la concentración de oxígeno atmosférico debido a la actividad de las cianobacterias provocó que la atmósfera dejara de ser reductora. ¿En qué se convirtió?"
 
 explicacion: |
   La Gran Oxidación (o Evento de la Gran Oxidación) transformó la atmósfera primitiva de un estado reductor (rico en gases como CH4 y NH3) a uno oxidante, debido a la acumulación de O2.
@@ -99,13 +96,10 @@ metadata:
   nivel: "avanzado"
   tags: ["metano", "clima", "oxidacion"]
 
-variables:
-  factor: uno_de(["metano", "dióxido de carbono"])
-
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en {factor}. La introducción de oxígeno causó que la concentración de este gas ___ drásticamente, afectando el efecto invernadero global."
+enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en metano. La introducción de oxígeno causó que la concentración de este gas ___ drásticamente, afectando el efecto invernadero global."
 
 explicacion: |
   El metano (CH4) es un potente gas de efecto invernadero. La oxidación del metano por el nuevo oxígeno atmosférico redujo el efecto invernadero, lo que posiblemente contribuyó a la primera glaciación global (Glaciación Huronesiana).
@@ -143,13 +137,10 @@ metadata:
   nivel: "intermedio"
   tags: ["evolucion", "oxigeno", "geologia"]
 
-variables:
-  escenario: uno_de([["el oxígeno se acumuló en los océanos", "el oxígeno se acumuló en la atmósfera", "el oxígeno reaccionó con el metano"], ["el oxígeno se acumuló en los océanos", "el oxígeno se acumuló en la atmósfera", "el oxígeno reaccionó con el metano"]])
-
-enunciado: "Durante el Gran Evento de Oxidación, antes de que el oxígeno se acumulara masivamente en la atmósfera, ¿qué sucedió principalmente con el O2 producido por las cianobacterias? {escenario[0]}"
+enunciado: "Durante el Gran Evento de Oxidación, antes de que el oxígeno se acumulara masivamente en la atmósfera, ¿qué sucedió principalmente con el O2 producido por las cianobacterias?"
 
 opciones_explicitas: ["el oxígeno se acumuló en los océanos", "el oxígeno se acumuló en la atmósfera", "el oxígeno reaccionó con el metano"]
-respuesta: escenario[1]
+respuesta: "el oxígeno se acumuló en los océanos"
 tipo: mc
 
 explicacion: |
@@ -184,13 +175,10 @@ metadata:
   nivel: "avanzado"
   tags: ["geologia", "oxigenacion"]
 
-variables:
-  caso: uno_de([["el hierro disuelto en el agua", "la presencia de metano atmosférico"], ["el hierro disuelto en el agua", "la presencia de metano atmosférico"]])
-
-enunciado: "La acumulación de oxígeno en la atmósfera fue un proceso extremadamente lento debido a la existencia de sumideros. Un ejemplo principal fue {caso[0]}."
+enunciado: "La acumulación de oxígeno en la atmósfera fue un proceso extremadamente lento debido a la existencia de sumideros. Un ejemplo principal fue el hierro disuelto en el agua."
 
 opciones_explicitas: ["el hierro disuelto en el agua", "la presencia de metano atmosférico"]
-respuesta: caso[0]
+respuesta: "el hierro disuelto en el agua"
 tipo: mc
 
 explicacion: |
@@ -320,7 +308,7 @@ metadata:
   nivel: "basico"
   tags: ["oxigeno", "atmosfera"]
 
-respuesta: 0.0
+respuesta: 21.0
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -358,11 +346,11 @@ metadata:
   nivel: "basico"
   tags: ["radiacion_uv", "proteccion"]
 
-respuesta: "falso"
+respuesta: "verdadero"
 tipo: mc
 opciones_explicitas: ["verdadero", "falso"]
 
-enunciado: "¿Es correcto afirmar que sin la fotosíntesis oxigénica la radiación ultravioleta no habría afectado la vida terrestre de la misma manera debido a la falta de una capa de ozono?"
+enunciado: "¿Es correcto afirmar que sin la fotosíntesis oxigénica la radiación ultravioleta habría afectado la vida terrestre de forma mucho más severa debido a la falta de una capa de ozono?"
 
 explicacion: |
   Correcto. La capa de ozono actúa como un escudo contra la radiación UV. Sin la producción masiva de oxígeno por parte de los organismos fotosintéticos, esta capa no se habría formado.
@@ -436,18 +424,14 @@ metadata:
   nivel: "intermedio"
   tags: ["fotosintesis", "oxigeno", "evolucion"]
 
-variables:
-  datos: [["cianobacterias", "oxigeno"], ["plantas", "oxigeno"], ["algas", "oxigeno"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "oxigeno"
 tipo: mc
 opciones_explicitas: ["oxigeno", "metano", "dióxido de carbono", "nitrógeno"]
 
-enunciado: "Durante el Gran Evento de Oxidación, la actividad de las {datos[idx][0]} liberó un gas que transformó la atmósfera primitiva. ¿Qué gas fue?"
+enunciado: "Durante el Gran Evento de Oxidación, la actividad de las cianobacterias liberó un gas que transformó la atmósfera primitiva. ¿Qué gas fue?"
 
 explicacion: |
-  La aparición de organismos fotosintéticos como las {datos[idx][0]} permitió la liberación masiva de oxígeno como subproducto, cambiando la química atmosférica.
+  La aparición de organismos fotosintéticos como las cianobacterias permitió la liberación masiva de oxígeno como subproducto, cambiando la química atmosférica.
 ```
 
 ### 22 — El cambio redox
@@ -459,18 +443,14 @@ metadata:
   nivel: "avanzado"
   tags: ["redox", "fotosintesis", "oxigeno"]
 
-variables:
-  datos: [["CO2 + H2O", "O2"], ["CH4 + O2", "CO2"], ["H2O + CO2", "H2"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "O2"
 tipo: mc
 opciones_explicitas: ["O2", "CO2", "H2", "CH4"]
 
-enunciado: "En la fase luminosa de la fotosíntesis, la fotólisis del agua produce el gas que permitió la vida aeróbica. El balance simplificado es: {datos[idx][0]} -> ___ + glucosa."
+enunciado: "En la fase luminosa de la fotosíntesis, la fotólisis del agua produce el gas que permitió la vida aeróbica. El balance simplificado es: CO2 + H2O -> ___ + glucosa."
 
 explicacion: |
-  La fotólisis del agua libera {datos[idx][1]}, el cual es fundamental para la respiración celular aeróbica posterior.
+  La fotólisis del agua libera O2, el cual es fundamental para la respiración celular aeróbica posterior.
 ```
 
 ### 23 — Impacto en la vida aeróbica
@@ -482,14 +462,9 @@ metadata:
   nivel: "intermedio"
   tags: ["respiracion", "oxigeno", "metabolismo"]
 
-variables:
-  datos: [["presencia de O2", "respiracion aerobia"], ["ausencia de O2", "fermentacion"], ["exceso de O2", "respiracion aerobia"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "fermentacion"
 tipo: completar
 respuestas_validas:
-  - "respiracion aerobia"
   - "fermentacion"
 
 enunciado: "La acumulación de oxígeno en la atmósfera permitió que los organismos pasaran de la ___ a la utilización de aceptores de electrones más eficientes."
