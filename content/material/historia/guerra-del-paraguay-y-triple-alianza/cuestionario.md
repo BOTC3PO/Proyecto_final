@@ -452,15 +452,15 @@ metadata:
   tags: ["batallas", "humaita"]
 
 variables:
-  fortaleza: "Humaitá"
+  batalla: "Curupayty"
 
-respuesta: "Humaitá"
+respuesta: "Curupayty"
 tipo: completar
 
-enunciado: "Inicialmente, los paraguayos lograron victorias tácticas, como la toma de la fortaleza de {fortaleza}."
+enunciado: "Inicialmente, los paraguayos lograron victorias tácticas, como el rechazo del asalto aliado en la batalla de {batalla} (1866)."
 
 explicacion: |
-  La toma de Humaitá fue una de las pocas victorias tácticas significativas iniciales de los paraguayos.
+  En Curupayty, los paraguayos rechazaron un asalto aliado infligiendo bajas enormes al atacante — una de las pocas victorias tácticas significativas iniciales de los paraguayos. Humaitá, en cambio, era la fortaleza paraguaya que resistió un largo asedio y cayó ante los aliados en 1868.
 ```
 
 ### 21 — pregunta 21
@@ -527,7 +527,7 @@ enunciado: "¿En qué momento se firmó el Tratado de la Triple Alianza?"
 opciones_explicitas: ["mayo de 1865", "diciembre de 1864", "enero de 1866", "octubre de 1867"]
 
 explicacion: |
-  El tratado se firmó en mayo de 1865, tras la invasión brasileña al norte del Paraguay.
+  El tratado se firmó en mayo de 1865, después de que Paraguay invadiera Corrientes (territorio argentino) al no obtener paso libre hacia Rio Grande do Sul, lo que sumó a la Argentina al conflicto.
 ```
 
 ### 24 — pregunta 24
@@ -678,17 +678,16 @@ metadata:
   tags: ["batallas"]
 
 variables:
-  fortaleza: "Humaitá"
+  batalla: "Curupayty"
 
-respuesta: "Humaitá"
+respuesta: "Curupayty"
 tipo: mc
-opciones: 4
+opciones_explicitas: ["Curupayty", "Humaitá", "Tuyutí", "Piribebuy"]
 
-enunciado: "¿Qué fortaleza fue tomada inicialmente por los paraguayos?"
-opciones_explicitas: ["Humaitá", "Curupayty", "Tuyutí", "Piribebuy"]
+enunciado: "¿En qué batalla rechazaron los paraguayos un asalto aliado con enormes bajas para el atacante, al inicio de la guerra?"
 
 explicacion: |
-  La toma de Humaitá fue una victoria táctica importante para Paraguay al inicio de la guerra.
+  En Curupayty (1866) los paraguayos rechazaron el asalto aliado — una victoria táctica importante para Paraguay al inicio de la guerra. Humaitá era su fortaleza, y cayó ante los aliados recién en 1868, tras un largo asedio.
 ```
 
 ### 31 — pregunta 31

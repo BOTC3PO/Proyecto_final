@@ -1,6 +1,6 @@
 # Historia — rosas y la confederacion (cuestionario, 24 preguntas VBLang)
 
-> Tema: `historia/rosas-y-la-confederacion`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `historia/rosas-y-la-confederacion`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -36,16 +36,16 @@ metadata:
   tags: ["unitarios", "federales", "caseros"]
 
 variables:
-  lider_unitario: "Justo José de Urquiza"
+  lider_coalicion: "Justo José de Urquiza"
   lider_federal: "Juan Manuel de Rosas"
 
 respuesta: "Justo José de Urquiza"
 tipo: input
 
-enunciado: "¿Quién lideró la 'Liga del Interior' que derrotó al ejército porteño de {lider_federal} en Caseros?"
+enunciado: "¿Quién lideró el 'Ejército Grande' que derrotó al ejército de {lider_federal} en Caseros?"
 
 explicacion: |
-  Justo José de Urquiza, gobernador de Entre Ríos, lideró la coalición contra Rosas, representando intereses provinciales opuestos a la hegemonía porteña.
+  Justo José de Urquiza, gobernador federal de Entre Ríos, lideró la coalición (con Brasil, Uruguay y Corrientes) contra Rosas — una ruptura dentro del propio federalismo, no un regreso de los unitarios al poder.
 ```
 
 ### 3 — pregunta 3
@@ -64,7 +64,7 @@ variables:
 respuesta: "Gran Bretaña y Francia"
 tipo: input
 
-enunciado: "En la batalla de la Vuelta de Obligado (1842), las fuerzas rosistas enfrentaron a una flota conjunta de {pais_a} y {pais_b}."
+enunciado: "En la batalla de la Vuelta de Obligado (1845), las fuerzas rosistas enfrentaron a una flota conjunta de {pais_a} y {pais_b}."
 
 explicacion: |
   La intervención anglo-francesa buscaba abrir el comercio del Paraná. La resistencia simbolizó la defensa de la soberanía nacional.
@@ -89,7 +89,7 @@ tipo: input
 enunciado: "La caída de Rosas se debió a una alianza entre fuerzas internas motivadas por el {factor_interno} y la presión externa."
 
 explicacion: |
-  El descontento de las provincias interiores (Liga del Interior) fue clave para que Urquiza pudiera vencer a Rosas.
+  El descontento de las provincias interiores con la hegemonía porteña fue clave para que Urquiza, al frente del Ejército Grande, pudiera vencer a Rosas.
 ```
 
 ### 5 — pregunta 5
@@ -144,7 +144,7 @@ metadata:
   tags: ["batallas", "soberania"]
 
 variables:
-  fecha_correcta: "20 de noviembre de 1842"
+  fecha_correcta: "20 de noviembre de 1845"
   fecha_falsa: "3 de febrero de 1852"
 
 respuesta: verdadero
@@ -153,7 +153,7 @@ tipo: vf
 enunciado: "La batalla de la Vuelta de Obligado, un símbolo de la resistencia contra la intervención anglo-francesa, ocurrió el {fecha_correcta}."
 
 explicacion: |
-  La Vuelta de Obligado se libró el 20 de noviembre de 1842. La fecha mencionada en el enunciado es correcta.
+  La Vuelta de Obligado se libró el 20 de noviembre de 1845 — fecha que hoy se conmemora en Argentina como el Día de la Soberanía Nacional. La fecha mencionada en el enunciado es correcta.
 ```
 
 ### 8 — pregunta 8
@@ -293,10 +293,10 @@ variables:
 respuesta: "20"
 tipo: input
 
-enunciado: "La batalla de la Vuelta de Obligado ocurrió el día {dia} del mes {mes} de 1842. Escribe solo el número del día."
+enunciado: "La batalla de la Vuelta de Obligado ocurrió el día {dia} del mes {mes} de 1845. Escribe solo el número del día."
 
 explicacion: |
-  La fecha es 20 de noviembre de 1842.
+  La fecha es 20 de noviembre de 1845.
 ```
 
 ### 15 — pregunta 15
