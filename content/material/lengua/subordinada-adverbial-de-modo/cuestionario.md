@@ -1,6 +1,6 @@
 # Lengua — subordinada adverbial de modo (cuestionario, 27 preguntas VBLang)
 
-> Tema: `lengua/subordinada-adverbial-de-modo`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-adverbial-de-modo`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -567,17 +567,16 @@ metadata:
   materia: "Lengua"
   tema: "subordinada_adverbial_de_modo"
   nivel: "avanzado"
-  tags: ["diferenciacion", "finalidad"]
+  tags: ["ambiguedad", "consecutiva"]
 
 variables:
-  oracion_modo: "Lo dijo de modo que todos entendieran."
-  oracion_fin: "Lo dijo de modo que lo escucharan."
+  oracion: "Lo dijo de modo que todos entendieran."
 
-respuesta: oracion_modo
-tipo: input
+respuesta: verdadero
+tipo: vf
 
-enunciado: "¿Cuál de estas oraciones usa 'de modo que' como nexo de modo? {oracion_modo} / {oracion_fin}."
+enunciado: "Verdadero o Falso: En '{oracion}', el nexo 'de modo que' es ambiguo y, según el contexto, puede interpretarse tanto con valor modal (la forma en que lo dijo) como consecutivo (el resultado de decirlo así)."
 
 explicacion: |
-  'De modo que' puede tener valor consecutivo o final. En '{oracion_modo}', se refiere a la manera de decirlo (para que la forma de decirlo permitiera la comprensión). En '{oracion_fin}', el énfasis está en la intención (finalidad). La primera es más claramente de modo en contextos de análisis sintáctico estricto, aunque la distinción es sutil. (Nota: En muchos contextos, 'de modo que' se considera consecutivo/final. Para evaluar modo estricto, se prefiere 'como'. Sin embargo, en el contexto de este ejercicio, se busca distinguir la intención de la forma. La respuesta correcta es la que enfatiza la *forma* de la acción).
+  Verdadero. 'De modo que', 'de manera que' y 'de forma que' son nexos que en la práctica suelen tener valor consecutivo (introducen una consecuencia), y solo se leen como estrictamente modales en contextos muy específicos. Para expresar modo sin ambigüedad, el nexo más directo y menos discutido es 'como'.
 ```
