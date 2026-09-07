@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -71,7 +71,7 @@ respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si consideramos al espécimen del escenario, su volumen craneal promedio era de aproximadamente {datos[idx][1]} cc."
+enunciado: "El {datos[idx][0]} tenía un volumen craneal promedio de aproximadamente ___ cc."
 
 pasos:
   - "Identificar la especie según el escenario."
@@ -303,13 +303,9 @@ metadata:
   nivel: "basico"
   tags: ["sapiens", "modernidad"]
 
-variables:
-  datos: [["Homo sapiens", "70000000000"], ["Homo sapiens", "300000"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: 300000
 tipo: completar
-tolerancia_abs: 1000000
+tolerancia_abs: 50000
 
 enunciado: "Se estima que el Homo sapiens apareció en África hace aproximadamente ___ años (expresado en número entero)."
 
@@ -434,18 +430,14 @@ metadata:
   nivel: "basico"
   tags: ["evolucion", "hominidos"]
 
-variables:
-  datos: [["Australopithecus afarensis", "bipedismo temprano"], ["Homo habilis", "uso de herramientas de piedra"], ["Homo erectus", "control del fuego"]]
-  idx: uno_de([0, 1, 2])
+enunciado: "Se analiza un fósil que presenta una pelvis ancha y adaptaciones para la marcha vertical. Se trata de un Australopithecus afarensis cuyo rasgo distintivo es el ___."
 
-enunciado: "Se analiza un fósil que presenta una pelvis ancha y adaptaciones para la marcha vertical. Se trata de un {datos[idx][0]} cuyo rasgo distintivo es el {datos[idx][1]}."
-
-respuesta: datos[idx][1]
+respuesta: "bipedismo temprano"
 tipo: mc
 opciones_explicitas: ["bipedismo temprano", "uso de herramientas de piedra", "control del fuego", "desarrollo del lenguaje"]
 
 explicacion: |
-  El {datos[idx][0]} es reconocido principalmente por su capacidad de caminar erguido, lo cual es un paso clave en la hominización.
+  El Australopithecus afarensis es reconocido principalmente por su capacidad de caminar erguido, lo cual es un paso clave en la hominización.
 ```
 
 ### 22 — La revolución tecnológica
@@ -534,11 +526,10 @@ variables:
 
 enunciado: "El hallazgo de restos con evidencias de ___ es característico de {datos[idx][0]}."
 
-respuesta: "{datos[idx][1]}"
+respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "enterramientos rituales"
-  - "arte rupestre complejo"
+  - datos[idx][1]
 
 explicacion: |
   La presencia de ___ sugiere una estructura de pensamiento espiritual o ritual en {datos[idx][0]}.
