@@ -14,11 +14,11 @@ El pleito por las islas Malvinas tiene raíces en el siglo XIX, cuando Gran Bret
 
 ## 2. Cronología del conflicto
 
-El conflicto se desarrolló en tres etapas clave. La primera fue la **invasión argentina** el 2 de abril, cuando las tropas ocuparon Puerto Argentino y Stanley sin resistencia. La segunda etapa comenzó con el **desembarco británico** en San Carlos el 21 de mayo, marcando el inicio de una ofensiva para recuperar las islas. Finalmente, el 14 de junio se produjo la **rendición argentina**, tras un bombardeo masivo y la caída del aeropuerto de Stanley. [IMAGEN: cronograma con fechas clave del conflicto]
+El conflicto se desarrolló en tres etapas clave. La primera fue la **invasión argentina** el 2 de abril, cuando las tropas ocuparon Puerto Argentino (llamado Stanley por los británicos, la misma ciudad) sin resistencia significativa. La segunda etapa comenzó con el **desembarco británico** en San Carlos el 21 de mayo, marcando el inicio de una ofensiva para recuperar las islas. Finalmente, el 14 de junio se produjo la **rendición argentina**, tras un bombardeo masivo y la caída del aeropuerto de Stanley. [IMAGEN: cronograma con fechas clave del conflicto]
 
 ## 3. El hundimiento del ARA General Belgrano
 
-Uno de los episodios más polémicos fue el hundimiento del crucero **ARA General Belgrano** por un submarino británico el 2 de mayo, cuando la embarcación estaba a 500 km de las islas. El ataque provocó la muerte de 323 tripulantes y generó controversia internacional sobre la legalidad del acto. Desde el punto de vista físico, la diferencia vertical entre el submarino (a 200 metros) y el crucero (en superficie) fue de **360 metros**, según cálculos basados en la profundidad del buque subacuático. [IMAGEN: esquema con profundidades del hundimiento]
+Uno de los episodios más polémicos fue el hundimiento del crucero **ARA General Belgrano** por el submarino nuclear británico HMS Conqueror el 2 de mayo, cuando la embarcación navegaba fuera de la zona de exclusión total declarada por el Reino Unido. El ataque provocó la muerte de 323 tripulantes y generó una fuerte controversia internacional sobre la legalidad del hundimiento, precisamente por encontrarse el crucero fuera de esa zona. [IMAGEN: esquema con la zona de exclusión y la posición del hundimiento]
 
 ## 4. Contexto internacional
 

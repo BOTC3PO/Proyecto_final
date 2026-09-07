@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -61,11 +61,11 @@ metadata:
   nivel: "avanzado"
   tags: ["naval", "tactic"]
 
-respuesta: 360
+respuesta: 200
 tipo: "input"
 tolerancia_abs: 1
 
-enunciado: "El crucero ARA General Belgrano fue hundido por un submarino británico el 2 de mayo de 1982. Si el submarino se encontraba a una profundidad de 200 metros y el crucero estaba en la superficie, ¿cuál es la distancia vertical (en metros) entre ambos?"
+enunciado: "El crucero ARA General Belgrano fue hundido por un submarino británico el 2 de mayo de 1982. Si, hipotéticamente, el submarino se encontraba a una profundidad de 200 metros y el crucero estaba en la superficie, ¿cuál sería la distancia vertical (en metros) entre ambos?"
 
 pasos:
   - "Identificar la profundidad del submarino: 200m"
@@ -190,7 +190,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "integridad"
-  - "autodeterminación"
 
 enunciado: "Argentina sostiene que el principio de ___ territorial debe prevalecer sobre el principio de autodeterminación en el caso de las Malvinas."
 
@@ -257,7 +256,7 @@ opciones_explicitas: ["reforzar la legitimidad", "recuperar el apoyo popular", "
 enunciado: "Uno de los objetivos estratégicos de la junta militar al ordenar el desembarco en las islas era ___."
 
 explicacion: |
-  La dictadura intentó utilizar el conflicto bélico para generar un sentimiento de unidad nacional y así ___."
+  La dictadura intentó utilizar el conflicto bélico para generar un sentimiento de unidad nacional y así recuperar el apoyo popular que había perdido por la crisis económica y la represión.
 ```
 
 ### 13 — Cronología del conflicto
@@ -432,15 +431,10 @@ metadata:
   nivel: "basico"
   tags: ["cronologia", "conflicto"]
 
-variables:
-  escenario: uno_de([[2, "2 de abril de 1982"], [1, "1 de abril de 1982"]])
-  fecha_evento: escenario[0]
-
-respuesta: fecha_evento
+respuesta: "2 de abril de 1982"
 tipo: completar
 respuestas_validas:
   - "2 de abril de 1982"
-  - "1 de abril de 1982"
 
 enunciado: "La operación de desembarco de las fuerzas argentinas en las islas Malvinas tuvo lugar el ___."
 
@@ -457,15 +451,10 @@ metadata:
   nivel: "intermedio"
   tags: ["hechos", "maritimo"]
 
-variables:
-  escenario: uno_de([[0, "2 de mayo de 1982"], [1, "25 de mayo de 1982"]])
-  fecha_hundimiento: escenario[0]
-
-respuesta: fecha_hundimiento
+respuesta: "2 de mayo de 1982"
 tipo: completar
 respuestas_validas:
   - "2 de mayo de 1982"
-  - "25 de mayo de 1982"
 
 enunciado: "El hundimiento del crucero ARA General Belgrano por parte de un submarino británico ocurrió el ___."
 
@@ -504,15 +493,10 @@ metadata:
   nivel: "basico"
   tags: ["final", "rendicion"]
 
-variables:
-  escenario: uno_de([[0, "14 de junio de 1982"], [1, "2 de abril de 1982"]])
-  fecha_final: escenario[0]
-
-respuesta: fecha_final
+respuesta: "14 de junio de 1982"
 tipo: completar
 respuestas_validas:
   - "14 de junio de 1982"
-  - "2 de abril de 1982"
 
 enunciado: "La firma de la rendición de las fuerzas argentinas en las islas Malvinas se produjo el ___."
 
