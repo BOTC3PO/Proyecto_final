@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -60,18 +60,13 @@ metadata:
   nivel: "intermedio"
   tags: ["historia_economica", "procesos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Artesano medieval", "Realiza todas las etapas de un producto de principio a fin"], ["Fábrica moderna", "Cada operario realiza una sola tarea repetitiva en una línea de montaje"]]
-
-enunciado: "En un escenario de {escenarios[escenario_idx][1]}, el modelo de producción se caracteriza por ser: ___"
+enunciado: "En un escenario de fábrica moderna, donde cada operario realiza una sola tarea repetitiva en una línea de montaje, el modelo de producción se caracteriza por ser: ___"
 
 pasos:
   - "Identificar el escenario seleccionado."
   - "Analizar si el trabajador realiza todo el proceso o solo una parte."
 
 respuestas_validas:
-  - "integral"
   - "fragmentado"
 respuesta: "fragmentado"
 tipo: completar
@@ -328,7 +323,7 @@ metadata:
 variables:
   caso_idx: uno_de([0, 1])
   valores: [[10, 50], [5, 100]]
-  total: [500, 500]
+  total: [500, 1000]
 
 respuesta: total[caso_idx]
 tipo: completar
@@ -372,17 +367,12 @@ metadata:
   nivel: "intermedio"
   tags: ["economia", "recursos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["agricultores", "excedente"], ["artesanos", "especialización"]]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "excedente"
 tipo: completar
 respuestas_validas:
   - "excedente"
-  - "especialización"
 
-enunciado: "En los primeros asentamientos sedentarios, la división del trabajo permitió que ciertos grupos controlaran el {datos[escenario_idx][1]}, consolidando la desigualdad."
+enunciado: "En los primeros asentamientos sedentarios, la división del trabajo permitió que ciertos grupos controlaran el excedente, consolidando la desigualdad."
 
 explicacion: |
   El control sobre el excedente de producción (como el grano) o sobre procesos técnicos específicos permitió que ciertos individuos acumularan poder sobre el resto de la comunidad.
@@ -445,7 +435,7 @@ respuesta: casos[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["dueños", "maestros", "trabajadores", "esclavos"]
 
-enunciado: "Cuando la división del trabajo se vinculó con la propiedad de los medios de producción, surgieron grupos como los {casos[caso_idx][0]} que controlaban a los demás."
+enunciado: "Cuando la división del trabajo se vinculó con la propiedad de los medios de producción (como {casos[caso_idx][0]}), surgieron grupos de ___ que controlaban a los demás."
 
 explicacion: |
   La combinación de la especialización con la propiedad privada de los recursos (tierra o herramientas) es el motor fundamental de la estratificación de clases.
@@ -460,11 +450,7 @@ metadata:
   nivel: "basico"
   tags: ["especializacion", "prehistoria"]
 
-variables:
-  datos: [["un grupo de nómadas que fabrica puntas de lanza de piedra", "cazador"], ["un grupo de nómadas que trabaja el cuero", "curtidor"], ["un grupo que fabrica vasijas de arcilla", "alfarero"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "alfarero"
 tipo: mc
 opciones_explicitas: ["cazador", "curtidor", "alfarero", "agricultor"]
 
@@ -483,16 +469,10 @@ metadata:
   nivel: "intermedio"
   tags: ["jerarquia", "especializacion"]
 
-variables:
-  datos: [["el agricultor", "productor"], ["el escriba", "registrador"], ["el guerrero", "protector"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "registrador"
 tipo: completar
 respuestas_validas:
-  - "productor"
   - "registrador"
-  - "protector"
 
 enunciado: "Si en una civilización antigua la función principal de un escriba es llevar el control de los granos, su rol especializado es el de ___."
 
@@ -528,11 +508,7 @@ metadata:
   nivel: "avanzado"
   tags: ["excedente", "sociedad"]
 
-variables:
-  datos: [["el excedente de comida permite que alguien sea sacerdote", "religioso"], ["el excedente de comida permite que alguien sea soldado", "militar"], ["el excedente de comida permite que alguien sea metalúrgico", "herrero"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "religioso"
 tipo: mc
 opciones_explicitas: ["religioso", "militar", "herrero", "comerciante"]
 
@@ -551,15 +527,9 @@ metadata:
   nivel: "basico"
   tags: ["oficios", "identificacion"]
 
-variables:
-  oficio_datos: [["trabaja el metal", "herrero"], ["domina el agua", "irrigador"], ["mide la tierra", "agrimensor"]]
-  idx: uno_de([0,1,2])
-
-respuesta: oficio_datos[idx][1]
+respuesta: "agrimensor"
 tipo: completar
 respuestas_validas:
-  - "herrero"
-  - "irrigador"
   - "agrimensor"
 
 enunciado: "Un individuo cuya tarea principal es medir los límites de las tierras para la distribución de impuestos es un ___."
