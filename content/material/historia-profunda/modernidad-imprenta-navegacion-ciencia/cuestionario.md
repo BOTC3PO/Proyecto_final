@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,14 +40,10 @@ metadata:
   nivel: "intermedio"
   tags: ["revolucion_cientifica", "imprenta"]
 
-variables:
-  datos: [["La imprenta permitió la estandarización de textos y mapas.", "La imprenta fomentó el análisis crítico y la alfabetización."], ["La imprenta dificultó la comunicación científica.", "La imprenta centralizó el conocimiento en la Iglesia."]]
-  idx: uno_de([0, 1])
-
 tipo: mc
 opciones_explicitas: ["Estandarización y alfabetización", "Centralización del saber", "Aislamiento de las ideas"]
 
-enunciado: "{datos[idx][0]}"
+enunciado: "La imprenta permitió la estandarización de textos y mapas, y fomentó el análisis crítico y la alfabetización. ¿Qué efecto describe mejor este proceso?"
 
 respuesta: "Estandarización y alfabetización"
 
@@ -87,7 +83,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "Protestante"
-  - "Católica"
 
 enunciado: "La capacidad de imprimir la Biblia en lenguas vernáculas (como el alemán) fue un factor clave para el éxito de la Reforma ___."
 
@@ -126,14 +121,11 @@ metadata:
   nivel: "basico"
   tags: ["navegacion", "tecnologia"]
 
-variables:
-  punto_cardinal: uno_de(["Norte", "Sur", "Este", "Oeste"])
-
-respuesta: punto_cardinal
+respuesta: "Norte"
 tipo: mc
 opciones_explicitas: ["Norte", "Sur", "Este", "Oeste"]
 
-enunciado: "La brújula, perfeccionada por los navegantes, permitía a los exploradores mantener un rumbo constante hacia el {punto_cardinal}, evitando perderse en mar abierto."
+enunciado: "La brújula, perfeccionada por los navegantes, funciona porque su aguja se orienta siempre hacia el polo magnético ___, permitiendo mantener un rumbo constante en mar abierto."
 
 explicacion: |
   La brújula permitía identificar el polo magnético de la Tierra, facilitando la navegación en condiciones de baja visibilidad o en alta mar.
@@ -148,15 +140,10 @@ metadata:
   nivel: "intermedio"
   tags: ["astrolabio", "astronomia"]
 
-variables:
-  instrumento: uno_de(["Astrolabio", "Sextante", "Cronómetro"])
-
-respuesta: instrumento
+respuesta: "Astrolabio"
 tipo: completar
 respuestas_validas:
   - "Astrolabio"
-  - "Sextante"
-  - "Cronómetro"
 
 enunciado: "Para determinar la latitud mediante la observación de los astros, los navegantes de la Era de los Descubrimientos utilizaban principalmente el ___."
 
@@ -173,10 +160,7 @@ metadata:
   nivel: "intermedio"
   tags: ["carabela", "barcos"]
 
-variables:
-  caracteristica: uno_de(["velas cuadradas", "velas latinas", "remos de madera"])
-
-respuesta: caracteristica
+respuesta: "velas latinas"
 tipo: mc
 opciones_explicitas: ["velas cuadradas", "velas latinas", "remos de madera"]
 
@@ -214,10 +198,7 @@ metadata:
   nivel: "intermedio"
   tags: ["imprenta", "conocimiento"]
 
-variables:
-  efecto: uno_de(["difusión", "recolección", "eliminación"])
-
-respuesta: efecto
+respuesta: "difusión"
 tipo: mc
 opciones_explicitas: ["difusión", "recolección", "eliminación"]
 
@@ -358,13 +339,10 @@ metadata:
   nivel: "intermedio"
   tags: ["navegacion", "cartografia", "imprenta"]
 
-variables:
-  escenario: uno_de([["mapa_preciso", "cartografía náutica detallada"], ["mapa_vago", "esquemas de navegación imprecisos"]])
-
 tipo: mc
 opciones_explicitas: ["Permitió la creación de mapas más precisos y repetibles", "Hizo que la navegación fuera más peligrosa", "Eliminó la necesidad de usar la brújula", "Limitó el conocimiento a los capitanes de flota"]
 
-enunciado: "La imprenta facilitó la reproducción de {escenario[0]}. ¿Cómo ayudó esto directamente a la era de las grandes navegaciones?"
+enunciado: "La imprenta facilitó la reproducción de cartografía náutica detallada. ¿Cómo ayudó esto directamente a la era de las grandes navegaciones?"
 
 respuesta: "Permitió la creación de mapas más precisos y repetibles"
 
@@ -403,9 +381,8 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "observación"
-  - "autoridad"
 
-enunciado: "El Renacimiento promovió el paso de un conocimiento basado en la ___ de los textos antiguos a uno basado en la ___ directa de la naturaleza."
+enunciado: "El Renacimiento promovió el paso de un conocimiento basado en la autoridad de los textos antiguos a uno basado en la ___ directa de la naturaleza."
 
 explicacion: |
   La imprenta permitió que los textos antiguos fueran comparados entre sí, revelando contradicciones y fomentando que los científicos confiaran más en sus propios experimentos y observaciones que en la tradición dogmática.
@@ -538,7 +515,6 @@ respuesta: "Copernicanismo"
 tipo: completar
 respuestas_validas:
   - "Copernicanismo"
-  - "Geocentrismo"
 
 enunciado: "El perfeccionamiento del telescopio por parte de Galileo Galilei fue clave para validar el ___."
 
