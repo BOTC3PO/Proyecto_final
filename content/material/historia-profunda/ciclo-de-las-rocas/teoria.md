@@ -32,7 +32,7 @@ Una vez depositados, los sedimentos quedan enterrados bajo capas sucesivas de ma
 
 El **metamorfismo** ocurre cuando una roca está sometida a condiciones extremas sin llegar a fundirse. Estas condiciones pueden surgir en zonas de colisión tectónica, donde la presión es alta, o cerca de intrusiones magmáticas, donde la temperatura sube drásticamente.
 
-Durante el metamorfismo, los minerales originales se reorganizan, formando nuevas estructuras. Por ejemplo, una roca sedimentaria como la arenisca puede convertirse en esquistos o pizarra bajo presión y calor. Este proceso no destruye la roca original, sino que la transforma en un estado más estable para las condiciones del ambiente.
+Durante el metamorfismo, los minerales originales se reorganizan, formando nuevas estructuras. Por ejemplo, una roca sedimentaria como la lutita (arcilla compactada) puede convertirse en pizarra o esquisto bajo presión y calor, mientras que la arenisca se transforma en cuarcita. Este proceso no destruye la roca original, sino que la transforma en un estado más estable para las condiciones del ambiente.
 
 [IMAGEN: Comparación entre una roca original y su versión metamórfica]
 

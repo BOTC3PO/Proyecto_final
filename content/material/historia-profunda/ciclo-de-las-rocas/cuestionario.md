@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,15 +39,10 @@ metadata:
   nivel: "basico"
   tags: ["geologia", "sedimentacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["sedimentaria", "sedimentos"], ["metamórfica", "presión"]]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "sedimentos"
 tipo: completar
 respuestas_validas:
   - "sedimentos"
-  - "presión"
 
 enunciado: "El proceso de litificación ocurre cuando los _______ se compactan y cementan para formar nuevas rocas."
 
@@ -112,7 +107,6 @@ respuesta: "fusión"
 tipo: completar
 respuestas_validas:
   - "fusión"
-  - "erosión"
 
 enunciado: "Para que una roca metamórfica o sedimentaria vuelva a convertirse en magma, debe experimentar un proceso de _______."
 
@@ -355,16 +349,11 @@ metadata:
   nivel: "intermedio"
   tags: ["procesos_geologicos", "tectonica"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["tectónica de placas y calor interno", "erosión y clima"], ["procesos endógenos", "procesos exógenos"]]
-
 tipo: completar
 respuestas_validas:
-  - "tectónica de placas y calor interno"
-  - "erosión y clima"
+  - "erosión"
 
-enunciado: "El ciclo de las rocas es impulsado por dos tipos de fuerzas principales: las fuerzas ___ y las fuerzas ___."
+enunciado: "El ciclo de las rocas es impulsado por la tectónica de placas y el calor interno como fuerzas internas, y por la ___ y el clima como fuerzas externas."
 
 pasos:
   - "Identifica los procesos internos (endógenos) que mueven el material desde el interior."
@@ -445,15 +434,11 @@ metadata:
   nivel: "basico"
   tags: ["magma", "roca_ignea"]
 
-variables:
-  datos: [["magma enfriado lentamente bajo la superficie", "roca intrusiva"], ["magma enfriado rápidamente en la superficie", "roca extrusiva"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "roca intrusiva"
 tipo: mc
 opciones_explicitas: ["roca intrusiva", "roca extrusiva", "roca sedimentaria", "roca metamórfica"]
 
-enunciado: "Si el magma se enfría lentamente bajo la superficie terrestre, el proceso de cristalización produce una {datos[idx][0]}."
+enunciado: "Si el magma se enfría lentamente bajo la superficie terrestre, el proceso de cristalización produce una ___."
 
 explicacion: |
   El enfriamiento lento permite el desarrollo de cristales grandes, formando rocas ígneas intrusivas (plutónicas).
@@ -468,15 +453,11 @@ metadata:
   nivel: "basico"
   tags: ["sedimento", "litificacion"]
 
-variables:
-  datos: [["sedimentos acumulados en el fondo de un lago", "roca sedimentaria"], ["cristales de granito bajo presión", "roca metamórfica"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "roca sedimentaria"
 tipo: mc
 opciones_explicitas: ["roca sedimentaria", "roca metamórfica", "roca ígnea", "magma"]
 
-enunciado: "La acumulación, compactación y cementación de {datos[idx][0]} da lugar a una ___."
+enunciado: "La acumulación, compactación y cementación de sedimentos acumulados en el fondo de un lago da lugar a una ___."
 
 explicacion: |
   La litificación de sedimentos es el proceso mediante el cual se forman las rocas sedimentarias.
@@ -491,15 +472,11 @@ metadata:
   nivel: "intermedio"
   tags: ["metamorfismo", "presion"]
 
-variables:
-  datos: [["una roca ígnea sometida a altas presiones y temperaturas", "roca metamórfica"], ["un sedimento depositado en un río", "roca sedimentaria"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "roca metamórfica"
 tipo: mc
 opciones_explicitas: ["roca metamórfica", "roca ígnea", "roca sedimentaria", "magma"]
 
-enunciado: "Cuando {datos[idx][0]} experimenta cambios físicos sin llegar a fundirse, se transforma en una ___."
+enunciado: "Cuando una roca ígnea sometida a altas presiones y temperaturas experimenta cambios físicos sin llegar a fundirse, se transforma en una ___."
 
 explicacion: |
   El metamorfismo es la transformación de rocas preexistentes debido a cambios en la presión y temperatura.
@@ -514,15 +491,11 @@ metadata:
   nivel: "intermedio"
   tags: ["erosion", "sedimentos"]
 
-variables:
-  datos: [["una roca sólida expuesta a la lluvia y el viento", "sedimentos"], ["un núcleo de magma", "magma"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "sedimentos"
 tipo: mc
 opciones_explicitas: ["sedimentos", "magma", "roca metamórfica", "cristales"]
 
-enunciado: "La meteorización y erosión de {datos[idx][0]} producen partículas sueltas llamadas ___."
+enunciado: "La meteorización y erosión de una roca sólida expuesta a la lluvia y el viento producen partículas sueltas llamadas ___."
 
 explicacion: |
   La erosión rompe las rocas en fragmentos más pequeños llamados sedimentos.
