@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -374,15 +374,11 @@ metadata:
   nivel: "avanzado"
   tags: ["estado", "leyes", "orden"]
 
-variables:
-  datos: [["leyes escritas", "orden social"], ["leyes orales", "caos"]]
-  idx: uno_de([0, 1])
-
 tipo: mc
 respuesta: "Estabilidad y orden social"
 opciones_explicitas: ["Estabilidad y orden social", "Inestabilidad constante", "Desigualdad extrema"]
 
-enunciado: "Cuando las sociedades pasaron de leyes orales a {datos[idx][0]}, el resultado principal fue la ___________."
+enunciado: "Cuando las sociedades pasaron de leyes orales a leyes escritas, el resultado principal fue la ___________."
 
 explicacion: |
   La codificación de leyes por escrito permitió una aplicación más uniforme y predecible de la justicia, contribuyendo a la estabilidad del Estado.
@@ -417,15 +413,11 @@ metadata:
   nivel: "basico"
   tags: ["mesopotamia", "sumerios"]
 
-variables:
-  datos: [["cuneiforme", "Mesopotamia"], ["jeroglíficos", "Egipto"], ["logogramas", "China"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "Mesopotamia"
 tipo: mc
 opciones_explicitas: ["Mesopotamia", "Egipto", "China", "India"]
 
-enunciado: "El sistema de escritura basado en marcas en forma de cuña se desarrolló en la región de {datos[idx][0]}."
+enunciado: "El sistema de escritura basado en marcas en forma de cuña (cuneiforme) se desarrolló en la región de ___."
 
 explicacion: |
   La escritura cuneiforme fue desarrollada por los sumerios en la antigua Mesopotamia alrededor del 3200 a.C.
@@ -440,15 +432,11 @@ metadata:
   nivel: "basico"
   tags: ["egipto", "jeroglíficos"]
 
-variables:
-  datos: [["jeroglíficos", "Egipto"], ["cuneiforme", "Mesopotamia"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "Egipto"
 tipo: mc
 opciones_explicitas: ["Egipto", "Mesopotamia", "Fenicia", "China"]
 
-enunciado: "Los {datos[idx][0]} fueron utilizados por las civilizaciones del valle del Nilo."
+enunciado: "Los jeroglíficos fueron utilizados por las civilizaciones del valle del Nilo."
 
 explicacion: |
   Los jeroglíficos egipcios combinaban logogramas y signos fonéticos para representar el lenguaje.
@@ -486,15 +474,11 @@ metadata:
   nivel: "avanzado"
   tags: ["orden", "evolucion"]
 
-variables:
-  datos: [["Tokens", "Escritura Cuneiforme", "Tablillas"], ["Pictogramas", "Jeroglíficos", "Papiro"]]
-  idx: uno_de([0,1])
-
 respuesta_orden: ["Tokens", "Escritura Cuneiforme", "Tablillas"]
 tipo: ordenar
 opciones_explicitas: ["Tokens", "Escritura Cuneiforme", "Tablillas"]
 
-enunciado: "Ordena la evolución de los soportes y formas de registro en el contexto de {datos[idx][0]} (si es el caso):"
+enunciado: "Ordena la evolución de los soportes y formas de registro en el contexto de Mesopotamia:"
 
 explicacion: |
   El proceso comenzó con objetos de arcilla (tokens) para contar, evolucionando hacia signos abstractos en tablillas.
@@ -509,15 +493,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fenicia", "alfabeto"]
 
-variables:
-  datos: [["alfabético", "Fenicia"], ["logográfico", "China"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "Fenicia"
 tipo: mc
 opciones_explicitas: ["Fenicia", "China", "Mesopotamia", "Egipto"]
 
-enunciado: "A diferencia de los sistemas complejos, el sistema {datos[idx][0]} fue perfeccionado por los fenicios en la región de {datos[idx][1]}."
+enunciado: "A diferencia de los sistemas complejos, el sistema alfabético fue perfeccionado por los fenicios en la región de ___."
 
 explicacion: |
   El alfabeto fenicio fue un sistema fonético que facilitó el comercio y fue la base de muchos alfabetos modernos.
