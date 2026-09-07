@@ -1,6 +1,6 @@
 # Lengua — subordinada sustantiva de sujeto (cuestionario, 23 preguntas VBLang)
 
-> Tema: `lengua/subordinada-sustantiva-de-sujeto`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-sustantiva-de-sujeto`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -14,15 +14,14 @@ metadata:
   tags: ["sintaxis", "subordinada_sustantiva", "identificacion"]
 
 variables:
-  # Generamos dos frases para elegir aleatoriamente
-  frase_1: "Es necesario que estudies más"
-  frase_2: "Me alegra que estés aquí"
-  seleccion: uno_de([1, 2])
+  pares: [["Es necesario que estudies más", "que estudies más"], ["Me alegra que estés aquí", "que estés aquí"]]
+  idx: uno_de([0, 1])
+  frase: pares[idx][0]
 
-respuesta: "que estudies más"
+respuesta: pares[idx][1]
 tipo: completar
 
-enunciado: "Analizá la siguiente oración: '{frase_1}' si seleccion == 1 else '{frase_2}'. ¿Cuál es la oración subordinada sustantiva de sujeto?"
+enunciado: "Analizá la siguiente oración: '{frase}'. ¿Cuál es la oración subordinada sustantiva de sujeto?"
 
 explicacion: |
   La subordinada sustantiva de sujeto cumple la función de sujeto del verbo principal (ser/estar/gustar, etc.). En 'Es necesario que estudies más', el sujeto es 'que estudies más'. En 'Me alegra que estés aquí', el sujeto es 'que estés aquí'.
@@ -368,20 +367,16 @@ metadata:
   tags: ["sintaxis", "verbos_atipicos"]
 
 variables:
-  oracion: "Depende de que vengas"
-  subordinada: "que vengas"
+  oracion: "Falta que confirmes tu asistencia"
+  subordinada: "que confirmes tu asistencia"
 
-respuesta: "que vengas"
+respuesta: "que confirmes tu asistencia"
 tipo: input
 
 enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
 
 explicacion: |
-  Verbo 'depender'. Pregunta '¿De qué depende?'. Respuesta: 'de que vengas'. La proposición completa es el objeto de la preposición, pero en análisis profundo de sujeto oracional, a veces se discute. Sin embargo, en la estructura 'Depende de X', X es CD o CO. Pero si la oración es 'Depende que vengas' (menos común pero posible), sería sujeto. Asumiremos la estructura estándar 'Depende de que...' donde 'que vengas' es el objeto de la preposición. 
-  Corrección: Para evitar ambigüedad, usaremos una oración donde el sujeto sea claro.
-  Nueva oracion: "Es necesario que vengas" -> Ya usada.
-  Usaremos: "Es probable que vengas".
-  Respuesta: "que vengas".
+  Verbo 'faltar' (en sentido de 'quedar pendiente'). Pregunta '¿Qué falta?'. Respuesta: 'que confirmes tu asistencia', que es el sujeto de 'falta'. (Ojo: 'Depende de que vengas' NO es un buen ejemplo de sujeto — 'depender de' rige la preposición 'de' de forma fija, por lo que 'de que vengas' ahí es complemento de régimen, no sujeto.)
 ```
 
 ### 18 — pregunta 18

@@ -1,6 +1,6 @@
 # Lengua — Subordinada sustantiva de sujeto (teoria)
 
-> Tema del MAPA: `SX5` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SX5` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -30,4 +30,4 @@ En el habla cotidiana argentina, es común encontrar estructuras donde el sujeto
 
 Para afianzar este concepto, analicemos ejemplos cercanos a nuestra realidad. En la frase "Es fundamental que los jóvenes participen en la política", la pregunta es: ¿Qué es fundamental? La respuesta es "que los jóvenes participen en la política". Aquí, la subordinada es el sujeto de "es".
 
-Otro ejemplo típico es: "No sabemos si ganará el partido". Preguntamos: ¿Qué no sabemos? Respuesta: "si ganará el partido". La subordinada introducida por "si" funciona como sujeto de "sabemos". También es común en expresiones de opinión: "Me parece bien que te ayuden". El sujeto de "parece" es "que te ayuden". Reconocer estas estructuras te permitirá analizar textos periodísticos, literarios o incluso discursos políticos con mayor precisión, entendiendo quién es el protagonista de la acción principal, aunque esté disfrazado en una oración más larga.
+Ojo con un error común: en "No sabemos si ganará el partido", la subordinada "si ganará el partido" NO es sujeto de "sabemos" — es complemento directo (sustituible por "eso": "No sabemos eso"). "Sabemos" ya tiene su propio sujeto explícito, "nosotros" (implícito en la conjugación); la prueba del interrogativo lo confirma: preguntamos "¿quién no sabe?" (nosotros), no "¿qué es lo que no sabe?". Para que sea sujeto necesitamos un verbo como "parecer" o "gustar", sin un agente propio: "Me parece bien que te ayuden". Acá sí, el sujeto de "parece" es "que te ayuden" (equivalente a "Eso me parece bien"). Reconocer estas estructuras te permitirá analizar textos periodísticos, literarios o incluso discursos políticos con mayor precisión, entendiendo quién es el protagonista de la acción principal, aunque esté disfrazado en una oración más larga.
