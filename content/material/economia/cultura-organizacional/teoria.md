@@ -1,6 +1,6 @@
 # Economía — Cultura organizacional (teoria)
 
-> Tema del MAPA: `ORG3` (`troncos.md`). Depende de `../elementos-de-las-organizaciones/` (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `ORG3` (`troncos.md`). Depende de `../elementos-de-las-organizaciones/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
