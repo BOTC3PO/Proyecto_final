@@ -1,6 +1,6 @@
 # Lengua — Variedades de la lengua (teoria)
 
-> Tema del MAPA: `LC2` (`troncos.md`). Depende de del nodo `LC1` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `LC2` (`troncos.md`). Depende de del nodo `LC1` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -20,7 +20,7 @@ Por otro lado, los **lectos** (o variedades sociolectales) aluden a las diferenc
 
 Comprender la diferencia entre registro y lecto nos permite analizar la realidad lingüística argentina con mayor profundidad. A menudo, estos dos niveles se entrelazan. Por ejemplo, el lunfardo es un lecto histórico vinculado a la clase trabajadora porteña, pero su uso hoy puede variar según el registro: un músico puede usarlo en una canción para evocar autenticidad (registro artístico/informal), mientras que un abogado podría evitarlo en un juicio (registro formal).
 
-Es crucial entender que la competencia lingüística no consiste en hablar siempre de la misma manera, sino en tener la capacidad de moverse entre estos códigos. Un hablante competente sabe que el "voseo" y el uso de "che" son perfectamente válidos y necesarios en un lecto informal rioplatense, pero que en un registro académico deben ser sustituidos por el "tuteo" y otras formas de cortesía estándar. Esta flexibilidad es lo que permite la cohesión social: nos permite pertenecer a nuestro grupo sin perder la capacidad de entendernos con quienes están fuera de él.
+Es crucial entender que la competencia lingüística no consiste en hablar siempre de la misma manera, sino en tener la capacidad de moverse entre estos códigos. Un hablante competente sabe que el "voseo" y el uso de "che" son perfectamente válidos y necesarios en un lecto informal rioplatense, pero que en un registro académico o de máxima formalidad conviene reemplazarlos por el "ustedeo" (la forma "usted") y otras fórmulas de cortesía estándar — el "tuteo" (tú), en cambio, prácticamente no se usa en ningún registro del español rioplatense, ni siquiera en los más formales. Esta flexibilidad es lo que permite la cohesión social: nos permite pertenecer a nuestro grupo sin perder la capacidad de entendernos con quienes están fuera de él.
 
 ## Aplicación práctica: Analizando el habla cotidiana
 

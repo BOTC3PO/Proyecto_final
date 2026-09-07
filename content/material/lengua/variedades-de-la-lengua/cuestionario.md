@@ -1,6 +1,6 @@
 # Lengua — variedades de la lengua (cuestionario, 23 preguntas VBLang)
 
-> Tema: `lengua/variedades-de-la-lengua`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/variedades-de-la-lengua`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -67,13 +67,13 @@ metadata:
   nivel: "intermedio"
   tags: ["voseo", "registro"]
 
-respuesta: "tuteo"
+respuesta: "ustedeo"
 tipo: completar
 
-enunciado: "En un registro académico, el 'voseo' y el uso de 'che' deben ser sustituidos por el __________."
+enunciado: "En un registro académico o de máxima formalidad, el 'voseo' y el uso de 'che' suelen ser sustituidos por el __________."
 
 explicacion: |
-  En contextos formales o académicos, se prefiere el tuteo y las formas de cortesía estándar.
+  En contextos formales o académicos, se prefiere el 'ustedeo' (la forma 'usted') — el tuteo (tú) prácticamente no se usa en ningún registro del español rioplatense.
 ```
 
 ### 5 — pregunta 5
