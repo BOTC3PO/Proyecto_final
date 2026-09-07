@@ -1,6 +1,6 @@
 # Historia — Semana Trágica 1919 (teoria)
 
-> Tema del MAPA: `AH9C` (`troncos.md`). Depende de del nodo `AH9` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `AH9C` (`troncos.md`). Depende de del nodo `AH9` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,13 +12,13 @@
 
 La Semana Trágica de 1919 fue un período de intensa violencia política y social que ocurrió en Buenos Aires entre el 7 y el 13 de enero de ese año. Para entender este evento, es fundamental mirar hacia atrás, a la Primera Guerra Mundial (1914-1918). Durante esos años, la demanda mundial de productos agropecuarios argentinos se disparó, lo que generó un boom económico y una fuerte migración interna y externa hacia las ciudades. Sin embargo, al terminar la guerra, los precios de los alimentos cayeron drásticamente. Los empresarios, buscando mantener sus ganancias, decidieron recortar salarios y aumentar la jornada laboral, lo que provocó un descontento generalizado entre los trabajadores.
 
-En este escenario, el movimiento obrero argentino, influenciado por las ideas anarquistas y socialistas, estaba en pleno auge. La Federación Obrera Regional Argentina (FORA) organizó una huelga general en la fábrica de muebles El Progreso de Liniers para exigir mejoras laborales. Esta acción inicial rápidamente se transformó en un conflicto de mayor escala, involucrando a miles de trabajadores de distintos sectores que paralizaron la capital argentina. La huelga no fue solo una disputa económica, sino un choque frontal entre dos visiones de sociedad: la burguesía conservadora, que temía la expansión del socialismo, y el proletariado organizado, que buscaba derechos básicos y justicia social.
+En este escenario, el movimiento obrero argentino, influenciado por las ideas anarquistas y socialistas, estaba en pleno auge. El conflicto estalló como una huelga en los Talleres Metalúrgicos Vasena, en el barrio de Nueva Pompeya, por mejoras salariales y de jornada. La represión policial al piquete obrero dejó varios muertos y el entierro de las víctimas derivó en un paro general convocado por la Federación Obrera Regional Argentina (FORA) para exigir justicia. Esta acción inicial rápidamente se transformó en un conflicto de mayor escala, involucrando a miles de trabajadores de distintos sectores que paralizaron la capital argentina. La huelga no fue solo una disputa económica, sino un choque frontal entre dos visiones de sociedad: la burguesía conservadora, que temía la expansión del socialismo, y el proletariado organizado, que buscaba derechos básicos y justicia social.
 
 ## La respuesta de la Liga Patriótica
 
 La reacción de las clases dominantes fue inmediata y violenta. Se formó la Liga Patriótica Argentina, una organización de extrema derecha compuesta por sectores conservadores, nacionalistas y militares. Esta entidad actuó como una milicia privada que buscaba "defender la civilización" contra lo que llamaban el "peligro rojo". La Liga organizó grupos de choque que recorrieron las calles de Buenos Aires, atacando a huelguistas, a inmigrantes y a cualquier persona sospechosa de tener ideologías de izquierda.
 
-La violencia no se limitó a los enfrentamientos callejeros. Hubo detenciones arbitrarias, torturas y ejecuciones extrajudiciales. Los trabajadores eran perseguidos en sus hogares y en los centros de reunión. Este clima de terror fue utilizado por el gobierno de Hipólito Yrigoyan, del Partido Radical, para justificar la intervención militar. Aunque Yrigoyan había sido elegido con el apoyo de amplios sectores populares, la magnitud de la crisis lo llevó a aliarse con las fuerzas conservadoras para restablecer el orden, priorizando la estabilidad institucional sobre los derechos laborales.
+La violencia no se limitó a los enfrentamientos callejeros. Hubo detenciones arbitrarias, torturas y ejecuciones extrajudiciales. Los trabajadores eran perseguidos en sus hogares y en los centros de reunión. Este clima de terror fue utilizado por el gobierno de Hipólito Yrigoyen, del Partido Radical, para justificar la intervención militar. Aunque Yrigoyen había sido elegido con el apoyo de amplios sectores populares, la magnitud de la crisis lo llevó a aliarse con las fuerzas conservadoras para restablecer el orden, priorizando la estabilidad institucional sobre los derechos laborales.
 
 ## Consecuencias y legado histórico
 

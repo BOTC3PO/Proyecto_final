@@ -1,6 +1,6 @@
 # Historia — semana tragica 1919 (cuestionario, 27 preguntas VBLang)
 
-> Tema: `historia/semana-tragica-1919`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `historia/semana-tragica-1919`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -32,18 +32,18 @@ metadata:
   materia: "Historia"
   tema: "semana_tragica_1919"
   nivel: "intermedio"
-  tags: ["huelga", "fora", "liniers"]
+  tags: ["huelga", "fora", "vasena"]
 
 variables:
-  lugar_huelga: "El Progreso"
+  lugar_huelga: "los Talleres Metalúrgicos Vasena"
 
-respuesta: "El Progreso"
+respuesta: "los Talleres Metalúrgicos Vasena"
 tipo: input
 
-enunciado: "La FORA organizó una huelga general que tuvo como detonante inicial la situación laboral en la fábrica de muebles {lugar_huelga}, ubicada en Liniers."
+enunciado: "El conflicto tuvo como detonante inicial una huelga en {lugar_huelga}, en el barrio de Nueva Pompeya."
 
 explicacion: |
-  La huelga comenzó en la fábrica de muebles El Progreso en Liniers, escalando rápidamente hacia una huelga general en Buenos Aires.
+  La huelga comenzó en los Talleres Metalúrgicos Vasena; la represión policial al piquete y el entierro de las víctimas escalaron hacia una huelga general convocada por la FORA en Buenos Aires.
 ```
 
 ### 3 — pregunta 3
@@ -77,15 +77,15 @@ metadata:
   tags: ["yrigoyen", "partido_radical", "intervencion"]
 
 variables:
-  presidente: "Hipólito Yrigoyan"
+  presidente: "Hipólito Yrigoyen"
 
-respuesta: "Hipólito Yrigoyan"
+respuesta: "Hipólito Yrigoyen"
 tipo: input
 
 enunciado: "El presidente de la Nación durante la Semana Trágica, {presidente}, del Partido Radical, intervino militarmente para restablecer el orden."
 
 explicacion: |
-  Aunque Yrigoyan tenía apoyo popular, su gobierno se alió con las fuerzas conservadoras para reprimir la huelga, priorizando la estabilidad sobre los derechos laborales.
+  Aunque Yrigoyen tenía apoyo popular, su gobierno se alió con las fuerzas conservadoras para reprimir la huelga, priorizando la estabilidad sobre los derechos laborales.
 ```
 
 ### 5 — pregunta 5
@@ -230,7 +230,7 @@ variables:
 respuesta: "disputa económica"
 tipo: input
 
-enunciado: "Inicialmente, la huelga en Liniers fue una {tipo_conflicto}, pero pronto se transformó en un choque político más amplio."
+enunciado: "Inicialmente, la huelga en los Talleres Vasena fue una {tipo_conflicto}, pero pronto se transformó en un choque político más amplio."
 
 explicacion: |
   El conflicto comenzó por demandas salariales y de condiciones laborales, escalando a una crisis política nacional.
@@ -545,7 +545,7 @@ variables:
 respuesta: "ruptura con la base popular"
 tipo: input
 
-enunciado: "La represión de la Semana Trágica marcó una {ruptura} para el gobierno de Yrigoyan, alienando a sus antiguos aliados obreros."
+enunciado: "La represión de la Semana Trágica marcó una {ruptura} para el gobierno de Yrigoyen, alienando a sus antiguos aliados obreros."
 
 explicacion: |
   Este evento es visto como un punto de inflexión donde el radicalismo se alejó de sus orígenes más progresistas.
