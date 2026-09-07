@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,16 +41,16 @@ metadata:
   tags: ["cronologia", "evolucion"]
 
 variables:
-  escenario: uno_de([["plantas", "470", "artrópodos"], ["artrópodos", "370", "plantas"], ["tetrápodos", "370", "artrópodos"]])
+  escenario: uno_de([["plantas", "470"], ["artrópodos", "428"], ["tetrápodos", "365"]])
 
 respuesta: escenario[0]
 tipo: mc
 opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
 
-enunciado: "De acuerdo con el registro fósil, ¿qué grupo fue el primero en colonizar la tierra firme hace {escenario[2]} millones de años?"
+enunciado: "De acuerdo con el registro fósil, ¿qué grupo colonizó la tierra firme hace aproximadamente {escenario[1]} millones de años?"
 
 explicacion: |
-  El orden de colonización fue: 1° Plantas (~470 Ma), 2° Artrópodos y 3° Tetrápodos (~370 Ma).
+  El orden de colonización fue: 1° Plantas (~470 Ma), 2° Artrópodos (~428 Ma) y 3° Tetrápodos (~365 Ma).
 ```
 
 ### 3 — El ascenso de los tetrápodos
@@ -146,15 +146,11 @@ metadata:
   nivel: "intermedio"
   tags: ["soporte", "esqueleto"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["agua", "flotabilidad"], ["aire", "gravedad"]]
-
-respuesta: uno_de(["esqueleto interno", "flotabilidad"])
+respuesta: "esqueleto interno"
 tipo: mc
 opciones_explicitas: ["esqueleto interno", "flotabilidad", "flotabilidad neutra", "soporte hidrostático"]
 
-enunciado: "En el medio acuático, el empuje compensa el peso. Sin embargo, al pasar a vivir en el {datos[escenario_idx][0]}, los organismos necesitan estructuras de soporte para vencer la {datos[escenario_idx][1]}."
+enunciado: "En el medio acuático, el empuje compensa el peso. Sin embargo, al pasar a vivir en tierra firme, los organismos necesitan estructuras de soporte para vencer la gravedad, como un ___."
 
 explicacion: |
   En tierra, la gravedad actúa directamente sobre el cuerpo sin la ayuda del empuje hidrostático, lo que requiere estructuras rígidas (como esqueletos) para mantener la forma y permitir el movimiento.
@@ -188,17 +184,12 @@ metadata:
   nivel: "avanzado"
   tags: ["evolucion", "respiracion"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: [["branquias", "agua"], ["pulmones", "aire"]]
-
-respuesta: uno_de(["branquias", "pulmones"])
+respuesta: "pulmones"
 tipo: completar
 respuestas_validas:
-  - "branquias"
   - "pulmones"
 
-enunciado: "Si un organismo evoluciona de un medio de {escenarios[caso_idx][1]} a uno de aire, su sistema de intercambio gaseoso debe pasar de tener {escenarios[caso_idx][0]} a tener ___."
+enunciado: "Si un organismo evoluciona de un medio de agua a uno de aire, su sistema de intercambio gaseoso debe pasar de tener branquias a tener ___."
 
 explicacion: |
   La transición del agua al aire exige un cambio radical: de estructuras que dependen de la humedad constante (branquias) a órganos protegidos que eviten el colapso y la sequedad (pulmones).
@@ -451,116 +442,99 @@ explicacion: |
   La vegetación no solo provee alimento, sino que estabiliza el suelo (nutrientes) y crea estructuras físicas para la protección (refugio), permitiendo la diversificación de nichos para la fauna.
 ```
 
-### 21 — El primer contacto en Tierra Firme
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "basico"
-  tags: ["conquista", "exploracion"]
-
-variables:
-  datos: [["expedición de Colón", "1492"], ["expedición de Cortés", "1519"], ["expedición de Pizarro", "1532"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["1492", "1519", "1532"]
-
-enunciado: "El año en que se produjo el evento de la {datos[idx][0]} fue en el año ___."
-
-explicacion: |
-  El año mencionado corresponde al inicio de la era de exploración y conquista según el escenario seleccionado.
-```
-
-### 22 — Cronología de la Conquista
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_ferme"
-  nivel: "intermedio"
-  tags: ["ordenar", "cronologia"]
-
-variables:
-  eventos: [["Llegada a las Antillas", "Llegada a México", "Conquista del Imperio Inca"], ["Llegada a las Antillas", "Llegada a México", "Conquista del Imperio Inca"]]
-
-respuesta_orden: ["Llegada a las Antillas", "Llegada a México", "Conquista del Imperio Inca"]
-tipo: ordenar
-opciones_explicitas: ["Llegada a las Antillas", "Llegada a México", "Conquista del Imperio Inca"]
-
-enunciado: "Ordena cronológicamente los hitos de la conquista española en Tierra Firme:"
-
-explicacion: |
-  La secuencia correcta comienza con las Antillas, sigue con la caída de los Aztecas y finaliza con la conquista de los Incas.
-```
-
-### 23 — Identificación de Conquistadores
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "basico"
-  tags: ["personajes"]
-
-variables:
-  parejas: [["Hernán Cortés", "Imperio Azteca"], ["Francisco Pizarro", "Imperio Inca"], ["Diego Velázquez", "Cuba"]]
-  idx: uno_de([0,1,2])
-
-respuesta: parejas[idx][1]
-tipo: mc
-opciones_explicitas: ["Imperio Azteca", "Imperio Inca", "Cuba"]
-
-enunciado: "El conquistador {parejas[idx][0]} lideró la expedición contra el ___."
-
-explicacion: |
-  Cada conquistador estuvo vinculado a una región o imperio específico durante la expansión española.
-```
-
-### 24 — El impacto de la conquista
+### 21 — El pionero terrestre entre los artrópodos
 
 ```
 metadata:
   materia: "historia_profunda"
   tema: "conquista_tierra_firme"
   nivel: "avanzado"
-  tags: ["consecuencias"]
+  tags: ["artropodos", "silurico", "paleontologia"]
 
-variables:
-  datos: [["caída demográfica", "positiva"], ["encuentro cultural", "positiva"], ["colonización", "positiva"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "428"
 tipo: completar
-respuestas_validas:
-  - "positiva"
+tolerancia_abs: 5
 
-enunciado: "Históricamente, el proceso de la {datos[idx][0]} se analiza como una consecuencia de carácter ___."
+enunciado: "El fósil de miriápodo Pneumodesmus newmani, considerado el animal terrestre que respira aire más antiguo conocido, data de hace aproximadamente ___ millones de años (período Silúrico)."
 
 explicacion: |
-  El término utilizado depende de la perspectiva historiográfica aplicada al evento seleccionado.
+  Los artrópodos colonizaron la tierra firme mucho antes que los tetrápodos, ya en el Silúrico (hace ~428 millones de años), no recién hacia el final del Devónico.
 ```
 
-### 25 — El orden de las expediciones
+### 22 — Las primeras plantas terrestres
 
 ```
 metadata:
   materia: "historia_profunda"
   tema: "conquista_tierra_firme"
   nivel: "intermedio"
-  tags: ["ordenar", "cronologia"]
+  tags: ["plantas", "briofitas", "evolucion"]
 
-variables:
-  secuencia: ["Exploración de las Antillas", "Conquista de México", "Conquista del Perú"]
+respuesta: "falso"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
 
-respuesta_orden: ["Exploración de las Antillas", "Conquista de México", "Conquista del Perú"]
-tipo: ordenar
-opciones_explicitas: ["Exploración de las Antillas", "Conquista de México", "Conquista del Perú"]
-
-enunciado: "Ordena los procesos de expansión territorial en orden cronológico:"
+enunciado: "¿Es correcto afirmar que las primeras plantas terrestres ya poseían raíces verdaderas y tejido vascular desarrollado, similares a los árboles actuales?"
 
 explicacion: |
-  La expansión se movió desde el Caribe hacia el continente (México) y luego hacia el sur (Perú).
+  Falso. Las primeras plantas terrestres eran simples, parecidas a musgos y hepáticas, sin raíces verdaderas ni sistema vascular complejo; estas estructuras se desarrollaron más tarde, en plantas vasculares posteriores.
+```
+
+### 23 — Reproducción de las plantas pioneras
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "intermedio"
+  tags: ["plantas", "esporas", "reproduccion"]
+
+respuesta: "esporas"
+tipo: completar
+respuestas_validas:
+  - "esporas"
+
+enunciado: "Las primeras plantas terrestres se reprodujeron principalmente mediante ___, estructuras resistentes a la desecación que les permitían dispersarse sin depender de un medio acuático constante."
+
+explicacion: |
+  A diferencia de las semillas (una innovación posterior), las esporas fueron el mecanismo reproductivo de las plantas pioneras, permitiéndoles colonizar ambientes terrestres secos.
+```
+
+### 24 — El exoesqueleto como ventaja
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "basico"
+  tags: ["artropodos", "exoesqueleto", "adaptacion"]
+
+respuesta: "exoesqueleto"
+tipo: completar
+respuestas_validas:
+  - "exoesqueleto"
+
+enunciado: "La estructura externa rígida y cerosa que permitió a los artrópodos resistir la deshidratación al colonizar la tierra firme se denomina ___."
+
+explicacion: |
+  El exoesqueleto de quitina, recubierto por una capa cerosa, reduce la pérdida de agua por evaporación, una de las principales amenazas para los primeros animales terrestres.
+```
+
+### 25 — El vacío de Romer
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "avanzado"
+  tags: ["tetrapodos", "diversificacion", "paleontologia"]
+
+respuesta: "falso"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "¿Es correcto afirmar que, inmediatamente después de la aparición de los primeros tetrápodos en el Devónico, existe un registro fósil abundante y continuo de su diversificación en tierra?"
+
+explicacion: |
+  Falso. Existe un período con muy pocos fósiles de tetrápodos justo después de su aparición, conocido como el 'vacío de Romer' (Romer's Gap), que dificulta rastrear en detalle su diversificación temprana en el Carbonífero inicial.
 ```

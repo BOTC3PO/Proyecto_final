@@ -28,7 +28,7 @@ Este orden no es aleatorio: cada grupo adaptó características clave para sobre
 
 Una vez que las plantas establecieron condiciones viables, los **artrópodos** —insectos, arácnidos y crustáceos— fueron los siguientes en colonizar la tierra firme. Su éxito se debe a su capacidad para adaptarse rápidamente: sus exoesqueletos les protegían del desecamiento, y su tamaño reducido les permitía aprovechar microhábitats.
 
-Hacia el final del período Devoniano (hace unos 370 millones de años), los artrópodos ya eran una parte fundamental de los ecosistemas terrestres. Aunque no dominaban como lo harían más tarde, su presencia sentó las bases para la diversificación de vida en tierra.
+Los artrópodos colonizaron la tierra firme mucho antes que los tetrápodos: los fósiles más antiguos de animales terrestres respirando aire (como el miriápodo *Pneumodesmus newmani*) datan de hace unos 428 millones de años, durante el período Silúrico. Para cuando aparecieron los primeros tetrápodos en el Devónico, los artrópodos ya eran una parte consolidada de los ecosistemas terrestres.
 
 ---
 
@@ -44,7 +44,7 @@ Estos primeros tetrápodos eran anfibios primitivos, como **Ichthyostega** o **A
 
 La transición del medio acuático al terrestre no fue un evento aislado, sino una serie de adaptaciones acumuladas a lo largo de millones de años. Cada grupo que colonizó la tierra firme dejó una huella en el entorno y en los siguientes habitantes. Las plantas modificaron el clima al liberar oxígeno; los artrópodos dieron lugar a redes tróficas complejas; y los tetrápodos abrieron camino para la evolución de mamíferos, aves y reptiles.
 
-[IMAGEN: Cronología visual con marcas en 470 Ma (plantas), 370 Ma (artrópodos) y 360-350 Ma (tetrápodos)]
+[IMAGEN: Cronología visual con marcas en 470 Ma (plantas), 428 Ma (artrópodos) y 365 Ma (tetrápodos)]
 
 ---
 
