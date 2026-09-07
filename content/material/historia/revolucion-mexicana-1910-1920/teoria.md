@@ -1,6 +1,6 @@
 # Historia — Revolución Mexicana 1910-1920 (teoria)
 
-> Tema del MAPA: `HM9B` (`troncos.md`). Depende de del nodo `HM9` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `HM9B` (`troncos.md`). Depende de del nodo `HM9` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,9 +22,9 @@ En el norte, Francisco "Pancho" Villa y Emiliano Zapata en el sur representaban 
 
 ## El fin de la guerra y el legado institucional
 
-Tras años de violencia, traiciones y cambios de liderazgo, el conflicto se fue institucionalizando. La Convención de Aguascalientes intentó mediar entre los bandos, pero fracasó, dando paso a la fase más sangrienta de la guerra entre los ejércitos constitucionalistas (liderados inicialmente por Venustiano Carranza) y los villistas-zapatistas. Finalmente, el general Álvaro Obregón, aliado de Carranza pero luego rival, firmó el Plan de Agua Prieta que puso fin a la fase armada principal.
+Tras años de violencia, traiciones y cambios de liderazgo, el conflicto se fue institucionalizando. La Convención de Aguascalientes intentó mediar entre los bandos, pero fracasó, dando paso a la fase más sangrienta de la guerra entre los ejércitos constitucionalistas (liderados por Venustiano Carranza, con Álvaro Obregón como su principal general) y los villistas-zapatistas. Los constitucionalistas se impusieron militarmente, lo que le permitió a Carranza consolidar el poder y convocar el Congreso Constituyente que promulgó la Constitución de 1917.
 
-Aunque la violencia no desapareció por completo, el resultado fue la promulgación de la Constitución de 1917. Este documento fue revolucionario porque incluyó, por primera vez en el mundo, garantías sociales explícitas: el derecho al trabajo digno, a la sindicación, a la huelga y, crucialmente, la reforma agraria y la nacionalización de los recursos naturales del subsuelo. México se convirtió en un ejemplo de cómo una revolución puede transformar no solo el gobierno, sino también la estructura económica y social de una nación, influyendo en movimientos posteriores en América Latina y el mundo.
+Sin embargo, la violencia no desapareció por completo: en 1920, Obregón (ahora rival de Carranza por la sucesión presidencial) se alzó contra él junto a Plutarco Elías Calles y Adolfo de la Huerta mediante el Plan de Agua Prieta, lo que provocó la huida y posterior asesinato de Carranza y llevó a Obregón a la presidencia — recién ahí se cerró definitivamente la fase armada del conflicto. Este documento fue revolucionario porque incluyó, por primera vez en el mundo, garantías sociales explícitas: el derecho al trabajo digno, a la sindicación, a la huelga y, crucialmente, la reforma agraria y la nacionalización de los recursos naturales del subsuelo. México se convirtió en un ejemplo de cómo una revolución puede transformar no solo el gobierno, sino también la estructura económica y social de una nación, influyendo en movimientos posteriores en América Latina y el mundo.
 
 ## Ejemplos y aplicación práctica en la historia
 

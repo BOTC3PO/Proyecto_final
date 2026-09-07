@@ -1,6 +1,6 @@
 # Historia — revolucion mexicana 1910 1920 (cuestionario, 27 preguntas VBLang)
 
-> Tema: `historia/revolucion-mexicana-1910-1920`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `historia/revolucion-mexicana-1910-1920`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -464,7 +464,7 @@ tipo: input
 enunciado: "Aunque la violencia continuó, se considera que la fase principal de la Revolución Mexicana concluyó alrededor del año _______________."
 
 explicacion: |
-  Con la muerte de Zapata (1919) y la renuncia de Carranza (1920), se inicia la etapa de consolidación institucional que lleva a la Constitución de 1917 ya vigente.
+  Con la muerte de Zapata (1919) y la caída y asesinato de Carranza (1920, tras el Plan de Agua Prieta), se cierra la fase armada principal, ya bajo la Constitución de 1917 vigente.
 ```
 
 ### 23 — pregunta 23
