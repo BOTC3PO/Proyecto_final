@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -229,14 +229,11 @@ metadata:
   nivel: "intermedio"
   tags: ["rosas", "federales", "confederacion"]
 
-variables:
-  rol_rosas: uno_de(["gobernador de Buenos Aires", "presidente de la Confederación", "dictador de la nación"])
-
 respuesta: "gobernador de Buenos Aires"
 tipo: mc
 opciones_explicitas: ["gobernador de Buenos Aires", "presidente de la Confederación", "dictador de la nación"]
 
-enunciado: "Durante el período de la Confederación Argentina, Juan Manuel de Rosas ejercía el poder real como {rol_rosas}, manteniendo el control sobre la Aduana y los recursos de la provincia."
+enunciado: "Durante el período de la Confederación Argentina, ¿qué cargo ocupaba formalmente Juan Manuel de Rosas, aunque en la práctica ejercía una hegemonía sobre el resto de las provincias?"
 
 explicacion: |
   Aunque Rosas era el líder de facto de la Confederación, formalmente su cargo era el de Gobernador de la Provincia de Buenos Aires, cargo desde el cual ejercía una hegemonía política y económica sobre las demás provincias.
@@ -399,8 +396,6 @@ respuesta: "exilio"
 tipo: completar
 respuestas_validas:
   - "exilio"
-  - "muerte"
-  - "derrota"
 
 enunciado: "Tras la derrota en la batalla de Caseros, Juan Manuel de Rosas se vio obligado a partir hacia el ___."
 

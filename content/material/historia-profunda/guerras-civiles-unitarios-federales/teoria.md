@@ -24,11 +24,11 @@ Esta idea ganó fuerza entre el bloque rural y las elites provinciales, que se s
 
 El conflicto entre unitarios y federales alcanzó su punto más agudo con el control de los ingresos aduaneros. Para los unitarios, la Aduana era un recurso que debía ir al Estado nacional para financiar infraestructuras y servicios públicos. En cambio, los federales argumentaban que las provincias necesitaban esos fondos para desarrollar sus propios proyectos sin depender de Buenos Aires.
 
-Esta diferencia generó enfrentamientos directos, como la formación de la Liga Federal en 1820, un pacto entre gobernadores provinciales para resistir el centralismo unitario. La disputa no solo fue política: también involucró a actores económicos y militares que se alinearon según sus intereses.
+Esta diferencia generó enfrentamientos directos, como la formación de la Liga Federal (o Liga de los Pueblos Libres) hacia 1814-1815, impulsada por José Gervasio de Artigas, un pacto entre provincias del Litoral para resistir el centralismo porteño. La disputa no solo fue política: también involucró a actores económicos y militares que se alinearon según sus intereses.
 
 ## 4. Guerras civiles y su impacto
 
-Las guerras civiles entre unitarios y federales se convirtieron en una constante del siglo XIX argentino. Desde la Guerra de las Águilas (1820) hasta los conflictos con Rosas en la década de 1840, el debate sobre el modelo de Estado no solo fue un tema político, sino también social y económico.
+Las guerras civiles entre unitarios y federales se convirtieron en una constante del siglo XIX argentino. Desde la batalla de Cepeda (1820), que provocó la caída del gobierno central del Directorio y dio inicio a la llamada "anarquía del año XX", hasta los conflictos con Rosas en la década de 1840, el debate sobre el modelo de Estado no solo fue un tema político, sino también social y económico.
 
 La lucha por el poder generó divisiones internas en la sociedad argentina: las élites porteñas apoyaron al centralismo unitario, mientras que los grupos rurales y provinciales respaldaron a los federales. Estos conflictos marcaron una etapa de inestabilidad institucional, pero también sentaron las bases para futuras reformas.
 
