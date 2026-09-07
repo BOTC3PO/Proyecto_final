@@ -1,6 +1,6 @@
 # Investigación — Trabajo de campo (teoria)
 
-> Tema del MAPA: `INVQ2` (`troncos.md`). Depende de `../metodologia-cualitativa-vs-cuantitativa/` (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `INVQ2` (`troncos.md`). Depende de `../metodologia-cualitativa-vs-cuantitativa/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

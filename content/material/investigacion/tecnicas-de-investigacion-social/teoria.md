@@ -1,6 +1,6 @@
 # Investigación — Técnicas de investigación social (teoria)
 
-> Tema del MAPA: `INVQ3` (`troncos.md`). Depende de `../trabajo-de-campo/` (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `INVQ3` (`troncos.md`). Depende de `../trabajo-de-campo/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
