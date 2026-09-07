@@ -1,6 +1,6 @@
 # Educación Física — Juegos Olímpicos (teoria)
 
-> Tema del MAPA: `EF8B` (`troncos.md`). Depende de del nodo `EF8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `EF8B` (`troncos.md`). Depende de del nodo `EF8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -28,6 +28,6 @@ La relevancia de estudiar esta evolución radica en comprender cómo el deporte 
 
 ## Aplicación práctica: análisis de casos locales
 
-Para conectar esta teoría con la realidad argentina, podés investigar cómo se desarrolló la participación de nuestro país en los Juegos Olímpicos. Por ejemplo, estudiá la figura de Juan Carlos Zabala, quien ganó la medalla de oro en los Juegos de Berlín 1936 en la maratón, convirtiéndose en un ícono nacional. Otro ejemplo relevante es la historia de las mujeres en el deporte olímpico argentino, como las primeras participantes femeninas en los años 20 y 30, quienes rompieron barreras sociales y deportivas.
+Para conectar esta teoría con la realidad argentina, podés investigar cómo se desarrolló la participación de nuestro país en los Juegos Olímpicos. Por ejemplo, estudiá la figura de Juan Carlos Zabala, quien ganó la medalla de oro en los Juegos de Los Ángeles 1932 en la maratón (con récord olímpico incluido, siendo el ganador más joven de esa prueba hasta entonces), convirtiéndose en un ícono nacional. Otro ejemplo relevante es la historia de las mujeres en el deporte olímpico argentino, como las primeras participantes femeninas en los años 20 y 30, quienes rompieron barreras sociales y deportivas.
 
 Además, podés analizar cómo los Juegos Olímpicos de Río 2016 impactaron en la percepción del deporte sudamericano y cómo esto influyó en la preparación de atletas argentinos para Tokio 2020 y París 2024. Esta investigación te permitirá entender la evolución técnica y táctica del deporte de alto rendimiento en la región, comparando las condiciones de entrenamiento antiguas con las actuales, y discutiendo la importancia de la inversión pública y privada en el deporte de elite.
