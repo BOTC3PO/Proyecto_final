@@ -18,7 +18,7 @@ La Constitución Nacional Argentina fue sancionada en **1853**, en un contexto d
 
 ## 2. República Federal: balance entre autonomía provincial y poder nacional
 
-La Constitución estableció como forma de gobierno una **República Federal**, un modelo que buscaba equilibrar la soberanía de las provincias con la existencia de un Estado central. Este sistema reconocía a cada provincia el derecho a gobernarse por sí misma, pero sometida al marco jurídico y político nacional. El Congreso de la Nación, como órgano legislativo, representaba a todas las provincias en igualdad de condiciones, mientras que el Poder Ejecutivo, encabezado por un Presidente elegido por sufragio universal (aunque limitado a varones blancos), actuaba como vínculo entre el gobierno central y las provincias.
+La Constitución estableció como forma de gobierno una **República Federal**, un modelo que buscaba equilibrar la soberanía de las provincias con la existencia de un Estado central. Este sistema reconocía a cada provincia el derecho a gobernarse por sí misma, pero sometida al marco jurídico y político nacional. El Congreso de la Nación, como órgano legislativo, representaba a todas las provincias en igualdad de condiciones, mientras que el Poder Ejecutivo, encabezado por un Presidente elegido de forma indirecta (mediante un colegio electoral) por el voto masculino (las mujeres quedaban excluidas), actuaba como vínculo entre el gobierno central y las provincias.
 
 Este modelo intentó resolver tensiones históricas entre regiones con intereses económicos y políticos divergentes, pero no evitó conflictos posteriores sobre la interpretación de los límites de la autonomía provincial.
 
@@ -40,7 +40,7 @@ Esta separación no era absoluta: cada poder tenía herramientas para limitar o 
 
 ## 4. Limitaciones y desafíos institucionales
 
-A pesar de su importancia, la Constitución de 1853 no resolvió todas las tensiones del país. La falta de claridad sobre el reparto de recursos entre nación y provincias generó conflictos económicos. Además, la exclusión de ciertos grupos (mujeres, indígenas, negros libres) del sufragio universal limitó su alcance democrático. Estos problemas llevaron a reformas posteriores, como la ampliación del voto en 1860 y la consolidación del poder nacional durante el gobierno de Domingo Sarmiento.
+A pesar de su importancia, la Constitución de 1853 no resolvió todas las tensiones del país. La falta de claridad sobre el reparto de recursos entre nación y provincias generó conflictos económicos. Además, la exclusión de las mujeres del padrón electoral limitó su alcance democrático (recién se incorporarían al voto en 1947), y los pueblos originarios que habitaban los llamados "territorios nacionales" (fuera de las provincias) quedaron durante décadas al margen de la representación política plena. Estos problemas llevaron a reformas posteriores, como la ampliación del voto en 1860 y la consolidación del poder nacional durante el gobierno de Domingo Sarmiento.
 
 ---
 
