@@ -1,6 +1,6 @@
 # Matemática — Integral definida y área bajo la curva (cuestionario, 22 preguntas VBLang)
 
-> Tema: `matematica/integral-definida-y-area-bajo-la-curva`. Ver `teoria.md` en esta misma carpeta. Escrito a mano (Claude), cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `matematica/integral-definida-y-area-bajo-la-curva`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
