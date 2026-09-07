@@ -1,6 +1,6 @@
 # Lengua — Subordinada causal (teoria)
 
-> Tema del MAPA: `SX15` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SX15` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -10,7 +10,7 @@
 
 ## ¿Qué es una oración subordinada causal?
 
-Para entender las oraciones compuestas, es útil imaginar que las palabras y frases se organizan como una familia donde unos miembros dependen de otros. Una oración subordinada causal es, precisamente, ese miembro "dependiente" que responde a la pregunta **¿por qué?** o **¿para qué?** de la acción principal. En términos gramaticales, es un tipo de oración subordinada adverbial que expresa la causa, el motivo o el origen de lo que sucede en la oración principal.
+Para entender las oraciones compuestas, es útil imaginar que las palabras y frases se organizan como una familia donde unos miembros dependen de otros. Una oración subordinada causal es, precisamente, ese miembro "dependiente" que responde a la pregunta **¿por qué?** de la acción principal. En términos gramaticales, es un tipo de oración subordinada adverbial que expresa la causa, el motivo o el origen de lo que sucede en la oración principal. (Nota: **¿para qué?** es la pregunta de las subordinadas *finales*, que expresan propósito, no causa — como se ve más abajo, es un error común confundirlas.)
 
 Imaginá que estás explicando por qué llegaste tarde a la escuela. Si decís "Llegué tarde porque hubo un accidente en la autopista", la parte "porque hubo un accidente en la autopista" no tiene sentido por sí sola si la separás completamente del contexto. Depende de "llegué tarde" para tener significado completo. Esa es la esencia de la subordinación: la subordinada no puede existir independientemente de la principal, ya que aporta la razón de ser de la acción principal.
 

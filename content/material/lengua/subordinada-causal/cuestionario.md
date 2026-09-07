@@ -1,6 +1,6 @@
 # Lengua — subordinada causal (cuestionario, 27 preguntas VBLang)
 
-> Tema: `lengua/subordinada-causal`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-causal`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -383,16 +383,16 @@ metadata:
 
 variables:
   causa: uno_de(["el frío", "la lluvia", "el viento", "la nieve"])
-  efecto: uno_de(["cerraron las calles", "cancelaron el vuelo", "suspendieron el partido", "clausuraron el parque"])
+  efecto: uno_de(["Cerraron las calles", "Cancelaron el vuelo", "Suspendieron el partido", "Clausuraron el parque"])
   nexo: "ya que"
 
-respuesta: "Cerraron las calles ya que {causa}."
+respuesta: "{efecto} {nexo} {causa}."
 tipo: completar
 
 enunciado: "Transformá la relación causal: '{efecto}. La razón fue {causa}.' Usando el nexo '{nexo}'."
 
 explicacion: |
-  Se unen las oraciones usando el nexo causal para integrar la causa como subordinada. Ej: 'Cerraron las calles ya que el frío.'
+  Se unen las oraciones usando el nexo causal para integrar la causa como subordinada. Ej: '{efecto} {nexo} {causa}.'
 ```
 
 ### 20 — pregunta 20
@@ -428,8 +428,8 @@ metadata:
   tags: ["inferencia", "comprension"]
 
 variables:
-  efecto: uno_de(["está sonriendo", "se abrigó", "cerró la ventana", "apagó la luz"])
-  causa: uno_de(["vio una buena noticia", "hace frío", "está lloviendo", "hay mucho ruido"])
+  efecto: "cerró la ventana"
+  causa: "estaba lloviendo"
 
 respuesta: "porque {causa}"
 tipo: input
@@ -437,7 +437,7 @@ tipo: input
 enunciado: "Si '{efecto}', ¿cuál es la causa más probable que se podría expresar con 'porque'?"
 
 explicacion: |
-  Se busca la relación lógica más directa. Ej: 'Está cerrando la ventana porque está lloviendo'.
+  Se busca la relación lógica más directa. Ej: 'Cerró la ventana porque estaba lloviendo'.
 ```
 
 ### 22 — pregunta 22
@@ -522,13 +522,13 @@ variables:
   efecto: uno_de(["estoy cansado", "tengo hambre", "estoy frío", "estoy feliz"])
   causa: uno_de(["trabajé todo el día", "no comí", "hace mucho frío", "recibí una noticia"])
 
-respuesta: "trabajé todo el día"
+respuesta: "{causa}"
 tipo: input
 
 enunciado: "En 'Estoy cansado {nexo} {causa}', ¿cuál es la causa?"
 
 explicacion: |
-  La causa es la razón que produce el efecto. En este caso, 'trabajé todo el día' es la causa del cansancio.
+  La causa es la razón que produce el efecto. En este caso, '{causa}' es la causa del cansancio.
 ```
 
 ### 26 — pregunta 26
