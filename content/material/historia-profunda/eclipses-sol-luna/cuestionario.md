@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -232,7 +232,6 @@ respuesta: "umbra"
 tipo: completar
 respuestas_validas:
   - "umbra"
-  - "penumbra"
 
 enunciado: "La parte más oscura y central de la sombra proyectada por la Luna sobre la Tierra se denomina ___."
 
@@ -309,17 +308,14 @@ metadata:
   nivel: "avanzado"
   tags: ["calculo", "geometria"]
 
-variables:
-  distancia_luna: uno_de([384400, 405500])
-
-respuesta: redondear(distancia_luna, 0)
+respuesta: 384400
 tipo: completar
-tolerancia_abs: 0
+tolerancia_abs: 5000
 
-enunciado: "Si la Luna se encuentra a una distancia de {distancia_luna} km de la Tierra, ¿cuál es ese valor en kilómetros?"
+enunciado: "¿Cuál es la distancia promedio entre la Tierra y la Luna, en kilómetros?"
 
 explicacion: |
-  El valor de la distancia varía según la órbita elíptica de la Luna.
+  La distancia promedio es de unos 384.400 km, aunque varía entre unos 363.300 km (perigeo) y 405.500 km (apogeo) debido a la órbita elíptica de la Luna.
 ```
 
 ### 16 — Visibilidad del eclipse lunar
@@ -461,8 +457,8 @@ metadata:
   tags: ["astronomia"]
 
 variables:
-  escenario_datos: [["Luna-Sol-Tierra", "Solar"], ["Sol-Luna-Tierra", "Lunar"], ["Sol-Tierra-Luna", "Lunar"]]
-  idx: uno_de([0, 1, 2])
+  escenario_datos: [["Sol-Luna-Tierra", "Solar"], ["Sol-Tierra-Luna", "Lunar"]]
+  idx: uno_de([0, 1])
 
 enunciado: "Dada la configuración {escenario_datos[idx][0]}, el tipo de eclipse es ___."
 
