@@ -24,7 +24,7 @@ Los cambios climáticos a gran escala no son aleatorios, sino que siguen patrone
 
 ## 3. El papel de la paleoclimatología
 
-La ciencia del clima histórico (paleoclimatología) estudia cómo el clima cambió antes de las mediciones instrumentales modernas. Esto incluye analizar isótopos en los sedimentos ocre, marcas de crecimiento anual en árboles antiguos (dendrocronología), y la composición química del aire atrapado en capas de hielo. Estos datos muestran que el clima ha fluctuado naturalmente, pero también revelan que los últimos 200 años marcan una desviación inusual.
+La ciencia del clima histórico (paleoclimatología) estudia cómo el clima cambió antes de las mediciones instrumentales modernas. Esto incluye analizar isótopos en los sedimentos oceánicos, marcas de crecimiento anual en árboles antiguos (dendrocronología), y la composición química del aire atrapado en capas de hielo. Estos datos muestran que el clima ha fluctuado naturalmente, pero también revelan que los últimos 200 años marcan una desviación inusual.
 
 ---
 

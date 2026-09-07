@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -86,16 +86,12 @@ metadata:
   nivel: "intermedio"
   tags: ["paleoclimatologia", "hielo"]
 
-variables:
-  datos: [["isótopos de oxígeno", "concentración de CO2"], ["isótopos de carbono", "presión atmosférica"]]
-  idx: uno_de([0, 1])
-
 tipo: mc
 opciones_explicitas: ["isótopos de oxígeno", "isótopos de carbono", "niveles de salinidad", "densidad del aire"]
 
-enunciado: "Para reconstruir la temperatura de hace miles de años, los científicos analizan los {datos[idx][0]} atrapados en las burbujas de aire de los núcleos de hielo."
+enunciado: "Para reconstruir la temperatura de hace miles de años, los científicos analizan los ___ atrapados en el hielo de los núcleos glaciares."
 
-respuesta: datos[idx][0]
+respuesta: "isótopos de oxígeno"
 
 explicacion: |
   Los isótopos de oxígeno (especialmente la relación entre 18O y 16O) en el hielo actúan como un termómetro paleoclimático muy preciso.
@@ -237,10 +233,7 @@ metadata:
   nivel: "intermedio"
   tags: ["paleoclimatologia", "nucleos_de_hielo"]
 
-variables:
-  gas_atrapado: uno_de(["CO2", "O2", "N2"])
-
-respuesta: gas_atrapado
+respuesta: "CO2"
 tipo: mc
 opciones_explicitas: ["CO2", "O2", "N2"]
 
@@ -364,15 +357,11 @@ metadata:
   nivel: "intermedio"
   tags: ["co2", "comparacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[420, "Superior"], [280, "Inferior"]]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "Superior"
 tipo: mc
 opciones_explicitas: ["Superior", "Inferior"]
 
-enunciado: "Considerando que los niveles de CO2 actuales son de aproximadamente {datos[escenario_idx][0]} ppm y que los niveles históricos preindustriales eran de ~280 ppm, la situación actual es ________ respecto al pasado geológico reciente."
+enunciado: "Considerando que los niveles de CO2 actuales son de aproximadamente 420 ppm y que los niveles históricos preindustriales eran de ~280 ppm, la situación actual es ________ respecto al pasado geológico reciente."
 
 explicacion: |
   La concentración actual de CO2 es significativamente más alta que los niveles estables de los últimos milenios, rompiendo el ciclo natural de los últimos 800.000 años.
