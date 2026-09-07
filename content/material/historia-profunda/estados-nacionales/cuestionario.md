@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -92,7 +92,7 @@ enunciado: "Ordena cronológicamente los procesos típicos en la formación de u
 
 explicacion: |
   Aunque los procesos varían, históricamente la identidad cultural suele preceder o acompañar la centralización del poder y la delimitación formal de las fronteras.
-respuesta_orden: ["Consolidación de fronteras territoriales", "Surgimiento de una identidad cultural común", "Centralización del poder y gobierno"]
+respuesta_orden: ["Surgimiento de una identidad cultural común", "Centralización del poder y gobierno", "Consolidación de fronteras territoriales"]
 ```
 
 ### 5 — Diferencia entre Estado y Nación
@@ -308,7 +308,7 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [["Un grupo con cultura propia pero sin fronteras claras.", "Un Estado con fronteras claras pero con múltiples etnias sin cohesión."], ["Un grupo con cultura propia pero sin fronteras claras.", "Un Estado con fronteras claras pero con múltiples etnias sin cohesión."]]
+  casos: [["Un grupo con cultura propia pero sin fronteras claras."], ["Un Estado con fronteras claras pero con múltiples etnias sin cohesión."]]
   respuestas: ["Nación sin Estado", "Estado sin Nación"]
 
 respuesta: respuestas[caso_idx]
@@ -330,12 +330,9 @@ metadata:
   nivel: "intermedio"
   tags: ["italia", "risorgimento", "siglo_xix"]
 
-variables:
-  figura_clave: uno_de([["Cavour", "Primer Ministro"], ["Garibaldi", "Líder de los Mil"]])
+enunciado: "Durante el proceso de unificación italiana, el liderazgo político y diplomático fue fundamental. El personaje que actuó como el cerebro diplomático del Reino de Piamonte-Cerdeña fue ___."
 
-enunciado: "Durante el proceso de unificación italiana, el liderazgo político y diplomático fue fundamental. El personaje que actuó como el cerebro diplomático del Reino de Piamonte-Cerdeña fue {figura_clave[0]}."
-
-respuesta: figura_clave[0]
+respuesta: "Cavour"
 tipo: mc
 opciones_explicitas: ["Cavour", "Garibaldi", "Mazzini", "Vittorio Emanuele II"]
 
@@ -352,12 +349,9 @@ metadata:
   nivel: "intermedio"
   tags: ["alemania", "bismarck", "prusia"]
 
-variables:
-  conferencia: uno_de([["Congreso de Viena", "1815"], ["Tratado de Frankfurt", "1871"]])
+enunciado: "La unificación alemana se consolidó tras la victoria en la Guerra Franco-Prusiana, lo que llevó a la firma del ___ en el año 1871."
 
-enunciado: "La unificación alemana se consolidó tras la victoria en la Guerra Franco-Prusiana, lo que llevó a la firma del {conferencia[0]} en el año {conferencia[1]}."
-
-respuesta: conferencia[0]
+respuesta: "Tratado de Frankfurt"
 tipo: mc
 opciones_explicitas: ["Congreso de Viena", "Tratado de Frankfurt", "Tratado de Versalles", "Paz de Westfalia"]
 
@@ -477,15 +471,10 @@ metadata:
   nivel: "avanzado"
   tags: ["identidad", "nacionalismo"]
 
-variables:
-  contexto: uno_de([["La creación de un sentimiento de pertenencia común.", "Identidad"], ["La imposición de un líder autoritario.", "Gobierno"], ["El control de las rutas comerciales.", "Territorio"]])
-
 tipo: completar
-respuesta: contexto[1]
+respuesta: "Identidad"
 respuestas_validas:
   - "Identidad"
-  - "Gobierno"
-  - "Territorio"
 
 enunciado: "En el proceso de formación de los Estados nacionales, la creación de un sentimiento de pertenencia común a través de símbolos y lengua se conoce como ___."
 
