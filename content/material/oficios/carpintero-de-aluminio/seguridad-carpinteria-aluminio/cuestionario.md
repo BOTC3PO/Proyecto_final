@@ -206,7 +206,7 @@ variables:
   ancho: random(50, 150)
   alto: random(50, 150)
 
-respuesta: "{ancho} * {alto}"
+respuesta: ancho + " * " + alto
 tipo: input
 
 enunciado: "Si se debe manipular un vidrio de {ancho} cm de ancho por {alto} cm de alto, ¿cuál es el área total en cm² que se está manejando?"
@@ -291,7 +291,7 @@ variables:
   lado1: random(40, 100)
   lado2: random(40, 100)
 
-respuesta: "2 * ({lado1} + {lado2})"
+respuesta: "2 * (" + lado1 + " + " + lado2 + ")"
 tipo: input
 
 enunciado: "Un marco de aluminio rectangular tiene lados de {lado1} cm y {lado2} cm. ¿Cuál es el perímetro total del marco en cm?"
@@ -334,7 +334,7 @@ variables:
   volumen: random(100, 500)
   densidad: 2.7
 
-respuesta: "{volumen} * {densidad}"
+respuesta: volumen + " * " + densidad
 tipo: input
 
 enunciado: "Si un perfil de aluminio tiene un volumen de {volumen} cm³ y la densidad del aluminio es de {densidad} g/cm³, ¿cuál es el peso estimado en gramos?"

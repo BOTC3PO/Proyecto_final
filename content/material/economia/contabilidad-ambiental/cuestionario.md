@@ -151,7 +151,7 @@ variables:
   b: random(1, 10)
   costo_total: a + b
 
-respuesta: "{costo_total}"
+respuesta: costo_total
 tipo: input
 
 enunciado: "Si una fábrica genera un beneficio privado de {a} millones pero traslada un costo de salud pública de {b} millones a la comunidad, ¿cuál es el costo social total no internalizado inicialmente?"
@@ -197,7 +197,7 @@ variables:
   c: random(100, 500)
   promedio: redondear((a + b + c) / 3, 2)
 
-respuesta: "{promedio}"
+respuesta: promedio
 tipo: input
 
 enunciado: "Si una empresa emitió {a} toneladas en Q1, {b} en Q2 y {c} en Q3, ¿cuál fue la emisión promedio trimestral?"
@@ -220,7 +220,7 @@ variables:
   b: random(1, 10)
   costo: a * b
 
-respuesta: "{costo}"
+respuesta: costo
 tipo: input
 
 enunciado: "Si el costo de recuperación por hectárea es de {a} mil pesos y se degradaron {b} hectáreas, ¿cuál es el costo total de recuperación?"
@@ -243,7 +243,7 @@ variables:
   b: random(100, 1000)
   costo_total: a * b
 
-respuesta: "{costo_total}"
+respuesta: costo_total
 tipo: input
 
 enunciado: "Si el precio por tonelada de CO2 es de {a} dólares y la empresa emite {b} toneladas, ¿cuál es el costo total de las emisiones?"
@@ -266,7 +266,7 @@ variables:
   b: random(10, 50)
   total: a + b
 
-respuesta: "{total}"
+respuesta: total
 tipo: input
 
 enunciado: "Si el costo de limpieza del río es {a} millones y el de salud pública es {b} millones, ¿cuál es el costo total trasladado a la comunidad?"
@@ -290,7 +290,7 @@ variables:
   c: random(10, 50)
   total: a + b + c
 
-respuesta: "{total}"
+respuesta: total
 tipo: input
 
 enunciado: "Si las fuentes fijas emiten {a}, las móviles {b} y los residuos {c}, ¿cuál es la huella total de emisiones?"
@@ -313,7 +313,7 @@ variables:
   b: random(10, 50)
   ratio: redondear(a / b, 2)
 
-respuesta: "{ratio}"
+respuesta: ratio
 tipo: input
 
 enunciado: "Si el beneficio privado es {a} y el costo ambiental es {b}, ¿cuál es la relación beneficio/costo ambiental?"

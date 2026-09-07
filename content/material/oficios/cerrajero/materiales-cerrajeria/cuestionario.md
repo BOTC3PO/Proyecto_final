@@ -177,7 +177,7 @@ variables:
   factor_seguridad: uno_de([1.5, 2.0, 2.5])
   fuerza_total: redondear(fuerza_base * factor_seguridad, 1)
 
-respuesta: "{fuerza_total}"
+respuesta: fuerza_total
 tipo: input
 
 enunciado: "Si la fuerza mínima requerida para accionar una barra antipánico es de {fuerza_base} Newtons y se aplica un factor de seguridad de {factor_seguridad}x para garantizar la evacuación, ¿cuál es la fuerza total de actuación necesaria? (Redondear a 1 decimal)"
@@ -220,7 +220,7 @@ variables:
   margen_ajuste: random(5, 10)
   largo_final: largo_total - margen_ajuste
 
-respuesta: "{largo_final}"
+respuesta: largo_final
 tipo: input
 
 enunciado: "Para instalar un picaporte con varilla de paso en una puerta de {espesor_puerta} mm de grosor, si el mecanismo del picaporte requiere 60 mm de recorrido interno y se deja un margen de ajuste de {margen_ajuste} mm, ¿cuál es la longitud total mínima de la varilla?"
@@ -279,7 +279,7 @@ variables:
   densidad_acero: 7.85
   peso_g: redondear(volumen_cm3 * densidad_acero, 1)
 
-respuesta: "{peso_g}"
+respuesta: peso_g
 tipo: input
 
 enunciado: "Un cerrojo de acero tiene un volumen de {volumen_cm3} cm³. Sabiendo que la densidad del acero es aproximadamente 7.85 g/cm³, ¿cuánto pesa el componente en gramos?"
@@ -339,7 +339,7 @@ variables:
   fuerza_n: area_mm2 * resistencia_mp
   fuerza_kn: redondear(fuerza_n / 1000, 2)
 
-respuesta: "{fuerza_kn}"
+respuesta: fuerza_kn
 tipo: input
 
 enunciado: "Una varilla de acero para cerrajería tiene un área de sección transversal de {area_mm2} mm² y una resistencia a la tracción de {resistencia_mp} MPa. ¿Cuál es la fuerza máxima que puede soportar en kilonewtons (kN)?"
@@ -382,7 +382,7 @@ variables:
   margen: random(2, 5)
   largo_final: largo_total + margen
 
-respuesta: "{largo_final}"
+respuesta: largo_final
 tipo: input
 
 enunciado: "Si el gollete de una llave mide {largo_gollete} mm y el cuerpo principal mide {largo_cuerpo} mm, ¿cuál es la longitud total aproximada incluyendo un margen de {margen} mm para la cabeza de la llave?"
@@ -423,7 +423,7 @@ variables:
   ancho_placa: random(20, 40)
   area_cm2: redondear((largo_placa * ancho_placa) / 100, 2)
 
-respuesta: "{area_cm2}"
+respuesta: area_cm2
 tipo: input
 
 enunciado: "Una placa de protección para cilindro tiene dimensiones de {largo_placa} mm de largo por {ancho_placa} mm de ancho. ¿Cuál es su área en centímetros cuadrados?"
@@ -446,7 +446,7 @@ variables:
   intervalo_meses: uno_de([3, 6, 12])
   intervalo_dias: intervalo_meses * 30
 
-respuesta: "{intervalo_dias}"
+respuesta: intervalo_dias
 tipo: input
 
 enunciado: "Si una puerta de alta concurrencia con {uso_diario} aperturas diarias requiere mantenimiento preventivo cada {intervalo_meses} meses, ¿cuántos días pasan entre cada servicio?"
@@ -487,7 +487,7 @@ variables:
   holgura: 2
   diametro_broca: diametro_cilindro + holgura
 
-respuesta: "{diametro_broca}"
+respuesta: diametro_broca
 tipo: input
 
 enunciado: "Para taladrar el alojamiento de un cilindro de {diametro_cilindro} mm de diámetro, se utiliza una broca de {holgura} mm mayor. ¿Cuál es el diámetro de la broca?"
@@ -510,7 +510,7 @@ variables:
   peso_por_mm: 0.1
   peso_total: redondear(largo_llave * peso_por_mm, 2)
 
-respuesta: "{peso_total}"
+respuesta: peso_total
 tipo: input
 
 enunciado: "Si una llave de acero tiene una longitud de {largo_llave} mm y pesa aproximadamente 0.1 gramos por milímetro de longitud, ¿cuánto pesa la llave?"
@@ -551,7 +551,7 @@ variables:
   temperatura_max: 1000
   resistencia_calc: tiempo_resistencia * 10
 
-respuesta: "{resistencia_calc}"
+respuesta: resistencia_calc
 tipo: input
 
 enunciado: "Si una cerradura debe resistir el fuego durante {tiempo_resistencia} minutos, y cada minuto equivale a 10 unidades de índice de resistencia, ¿cuál es el índice total?"
@@ -574,7 +574,7 @@ variables:
   holgura: 2
   distancia_final: distancia_centro + holgura
 
-respuesta: "{distancia_final}"
+respuesta: distancia_final
 tipo: input
 
 enunciado: "Si la distancia estándar del centro del orificio de la llave al borde de la puerta es {distancia_centro} mm y se requiere una holgura de {holgura} mm, ¿cuál es la distancia final de marcado?"
@@ -615,7 +615,7 @@ variables:
   aceite_por_puerta: 2
   total_ml: cantidad_puertas * aceite_por_puerta
 
-respuesta: "{total_ml}"
+respuesta: total_ml
 tipo: input
 
 enunciado: "Si se requieren 2 ml de aceite lubricante por cada una de las {cantidad_puertas} puertas de una instalación, ¿cuántos mililitros de aceite se necesitan en total?"

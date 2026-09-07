@@ -169,8 +169,7 @@ tolerancia_abs: 0
 
 enunciado: "Considera la siguiente función recursiva para calcular el factorial de n: \n`f(n) = if n == 0 then 1 else n * f(n-1)` \n\n¿Cuál es el valor de f({n})?"
 
-respuesta: "{resultado}"
-
+respuesta: resultado
 explicacion: |
   El resultado de 4! (factorial de 4) es 24.
 ```

@@ -40,7 +40,7 @@ variables:
   porcentaje_liberacion: uno_de([10, 20, 50])
   resultado: floor(neurotransmisores * porcentaje_liberacion / 100)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si un terminal sináptico contiene {neurotransmisores} vesículas y se libera un {porcentaje_liberacion}% durante el estímulo, ¿cuántas vesículas se liberan aproximadamente?"
@@ -112,7 +112,7 @@ variables:
   tiempo_refractario_relativo: random(3, 5)
   total: tiempo_refractario_absoluto + tiempo_refractario_relativo
 
-respuesta: "{total}"
+respuesta: total
 tipo: input
 
 enunciado: "Si el período refractario absoluto dura {tiempo_refractario_absoluto} ms y el relativo dura {tiempo_refractario_relativo} ms, ¿cuál es el tiempo total mínimo para que la neurona pueda generar otro potencial de acción?"
@@ -137,7 +137,7 @@ variables:
   potencial_accion: 30
   valor_final: potencial_reposo + despolarizacion
 
-respuesta: "{valor_final}"
+respuesta: valor_final
 tipo: input
 
 enunciado: "Si el potencial de reposo es {potencial_reposo} mV y una excitación causa una despolarización de {despolarizacion} mV, ¿cuál es el nuevo potencial de membrana antes de alcanzar el umbral?"
@@ -160,7 +160,7 @@ variables:
   volumen: random(10, 20)
   concentracion: floor(moléculas / volumen)
 
-respuesta: "{concentracion}"
+respuesta: concentracion
 tipo: input
 
 enunciado: "Si se liberan {moléculas} moléculas de neurotransmisor en una hendidura de volumen {volumen} µm³, ¿cuál es la concentración aproximada (moléculas/µm³)?"
@@ -230,7 +230,7 @@ variables:
   largo_dendrita: random(1, 5)
   ratio: floor(largo_axon / largo_dendrita)
 
-respuesta: "{ratio}"
+respuesta: ratio
 tipo: input
 
 enunciado: "Si el axón mide {largo_axon} µm y las dendritas {largo_dendrita} µm, ¿cuántas veces es más largo el axón que las dendritas?"
@@ -278,7 +278,7 @@ variables:
   velocidad_amielinizada: random(1, 5)
   factor: floor(velocidad_mielinizada / velocidad_amielinizada)
 
-respuesta: "{factor}"
+respuesta: factor
 tipo: input
 
 enunciado: "Si la neurona mielinizada viaja a {velocidad_mielinizada} m/s y la amielínica a {velocidad_amielinizada} m/s, ¿cuántas veces más rápida es la primera?"

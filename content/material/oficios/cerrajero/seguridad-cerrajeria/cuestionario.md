@@ -58,7 +58,7 @@ metadata:
 variables:
   material_guante: uno_de(["nitrilo", "neopreno"])
 
-respuesta: "{material_guante}"
+respuesta: material_guante
 tipo: completar
 
 enunciado: "Para protegerse de disolventes y aceites, se recomiendan guantes resistentes a químicos, como los de {material_guante}."
@@ -164,7 +164,7 @@ variables:
   riesgo: "exposición a productos químicos"
   sintoma: "quemaduras químicas"
 
-respuesta: "{riesgo}"
+respuesta: riesgo
 tipo: completar
 
 enunciado: "Trabajar con disolventes sin guantes expone al cerrajero principalmente a {riesgo}, pudiendo causar {sintoma}."
@@ -186,7 +186,7 @@ variables:
   problema: "iluminación deficiente y vapores"
   solucion: "mascarillas y iluminación adecuada"
 
-respuesta: "{solucion}"
+respuesta: solucion
 tipo: completar
 
 enunciado: "En espacios reducidos con mala ventilación, el cerrajero debe priorizar {solucion} para evitar intoxicaciones."
@@ -208,7 +208,7 @@ variables:
   herramienta: "martillos o sierras"
   riesgo: "proyectiles"
 
-respuesta: "{riesgo}"
+respuesta: riesgo
 tipo: completar
 
 enunciado: "Al usar martillos o sierras, el riesgo principal de proyección son {riesgo} de metal o fragmentos."
@@ -230,7 +230,7 @@ variables:
   objeto: "cilindros de cerradura"
   proteccion: "puntera reforzada"
 
-respuesta: "{proteccion}"
+respuesta: proteccion
 tipo: completar
 
 enunciado: "Para proteger los pies de la caída de {objeto} u herramientas grandes, se requiere calzado con {proteccion}."
@@ -252,7 +252,7 @@ variables:
   riesgo_alto: 1
   riesgo_bajo: 0
 
-respuesta: "{riesgo_alto}"
+respuesta: riesgo_alto
 tipo: input
 
 enunciado: "Si un cerrajero trabaja con disolventes en un espacio cerrado sin ventilación, ¿cuánto (1 o 0) representa el riesgo de intoxicación si NO usa mascarilla? (1 = Riesgo presente, 0 = Sin riesgo)"
@@ -273,7 +273,7 @@ metadata:
 variables:
   sintoma: "pérdida de audición"
 
-respuesta: "{sintoma}"
+respuesta: sintoma
 tipo: completar
 
 enunciado: "La hipoacusia ocupacional se manifiesta principalmente como {sintoma} progresiva."
@@ -294,7 +294,7 @@ metadata:
 variables:
   proteccion: "gafas de seguridad"
 
-respuesta: "{proteccion}"
+respuesta: proteccion
 tipo: completar
 
 enunciado: "Para trabajar con llaves maestras y punzones, la {proteccion} es obligatoria para evitar lesiones oculares."

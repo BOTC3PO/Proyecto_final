@@ -112,7 +112,7 @@ variables:
   origen: "interior"
   destino: "grandes centros urbanos"
 
-respuesta: "{origen} hacia {destino}"
+respuesta: origen + " hacia " + destino
 tipo: completar
 
 enunciado: "Históricamente, el gran flujo interno en Argentina ha sido del {origen} hacia los {destino}."
@@ -154,7 +154,7 @@ metadata:
 variables:
   causa: "ciclos productivos estacionales"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "La migración golondrina se caracteriza por estar vinculada principalmente a {causa}."
@@ -175,7 +175,7 @@ metadata:
 variables:
   provincia: "Misiones"
 
-respuesta: "{provincia}"
+respuesta: provincia
 tipo: completar
 
 enunciado: "Un ejemplo de provincia en la región norte con flujos significativos de migración fronteriza es {provincia}."
@@ -217,7 +217,7 @@ metadata:
 variables:
   causa: "mejores oportunidades laborales"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "Una causa estructural que empuja a las personas a mudarse es la búsqueda de {causa}."
@@ -280,7 +280,7 @@ metadata:
 variables:
   causa: "proyectos de infraestructura"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "La migración fronteriza suele estar impulsada por {causa}, turismo o búsqueda de tierras cultivables."
@@ -322,7 +322,7 @@ metadata:
 variables:
   provincia: "Corrientes"
 
-respuesta: "{provincia}"
+respuesta: provincia
 tipo: completar
 
 enunciado: "Otra provincia en la región norte con flujos de migración fronteriza es {provincia}."
@@ -364,7 +364,7 @@ metadata:
 variables:
   causa: "situaciones de conflicto"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "Las personas pueden migrar internas por la huida de {causa} o desastres naturales."
@@ -406,7 +406,7 @@ metadata:
 variables:
   concepto: "procesos de urbanización"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: completar
 
 enunciado: "Las migraciones internas revelan los {concepto} que han definido la historia reciente de Argentina."
@@ -448,7 +448,7 @@ metadata:
 variables:
   definicion: "desplazamiento hacia zonas limítrofes"
 
-respuesta: "{definicion}"
+respuesta: definicion
 tipo: completar
 
 enunciado: "La migración fronteriza se refiere al desplazamiento de personas hacia {definicion}."

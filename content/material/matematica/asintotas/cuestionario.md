@@ -321,7 +321,7 @@ variables:
   a: random(1, 5)
   b: random(6, 10)
 
-respuesta: "{a},{b}"
+respuesta: a + "," + b
 tipo: input
 
 enunciado: "Encontrá las asíntotas verticales de f(x) = 1 / ((x - {a})(x - {b})). Escribí los valores separados por coma."

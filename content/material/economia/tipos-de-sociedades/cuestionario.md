@@ -82,7 +82,7 @@ variables:
   min_socios: 2
   max_socios: 50
 
-respuesta: "entre {min_socios} y {max_socios}"
+respuesta: "entre " + min_socios + " y " + max_socios
 tipo: completar
 
 enunciado: "La ley argentina establece que una S.R.L. debe tener un número de socios comprendido entre {min_socios} y {max_socios}."

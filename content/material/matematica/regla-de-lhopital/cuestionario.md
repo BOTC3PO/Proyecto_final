@@ -118,7 +118,7 @@ metadata:
 variables:
   k: random(2, 6)
 
-respuesta: "{k}"
+respuesta: k
 tipo: input
 
 enunciado: "Calcule: lim(x→0) (sin(k*x)) / x"

@@ -17,7 +17,7 @@ variables:
   funcion: uno_de(["absorbe", "filtra"])
   tipo_radiacion: "ultravioleta"
 
-respuesta: "{funcion} la radiación {tipo_radiacion}"
+respuesta: funcion + " la radiación " + tipo_radiacion
 tipo: completar
 
 enunciado: "En la estratosfera, la capa de ozono tiene la función principal de {funcion} la radiación {tipo_radiacion} del sol."
@@ -39,7 +39,7 @@ variables:
   gas: "SO2"
   nombre: "dióxido de azufre"
 
-respuesta: "{nombre}"
+respuesta: nombre
 tipo: completar
 
 enunciado: "Uno de los principales precursores de la lluvia ácida, emitido por la quema de combustibles fósiles que contienen impurezas de azufre, es el {nombre} ({gas})."
@@ -60,7 +60,7 @@ metadata:
 variables:
   formula: "H2SO4"
 
-respuesta: "{formula}"
+respuesta: formula
 tipo: input
 
 enunciado: "Escribe la fórmula química del ácido fuerte formado cuando el dióxido de azufre reacciona con el vapor de agua y el oxígeno en la atmósfera."
@@ -81,7 +81,7 @@ metadata:
 variables:
   energia: "radiación ultravioleta"
 
-respuesta: "{energia}"
+respuesta: energia
 tipo: completar
 
 enunciado: "El esmog fotoquímico se forma cuando los óxidos de nitrógeno y los compuestos orgánicos volátiles (COV) reaccionan en presencia de {energia}."
@@ -105,7 +105,7 @@ variables:
   nombre1: "óxidos de nitrógeno"
   nombre2: "compuestos orgánicos volátiles"
 
-respuesta: "{nombre1} y {nombre2}"
+respuesta: nombre1 + " y " + nombre2
 tipo: completar
 
 enunciado: "Los dos grupos principales de contaminantes que interactúan para formar el esmog fotoquímico son los {nombre1} y los {nombre2}."
@@ -126,7 +126,7 @@ metadata:
 variables:
   metal: "aluminio"
 
-respuesta: "{metal}"
+respuesta: metal
 tipo: input
 
 enunciado: "La acidificación de los suelos causada por la lluvia ácida puede liberar metales pesados. ¿Qué metal, comúnmente presente en arcillas, se vuelve soluble y tóxico para las plantas?"
@@ -148,7 +148,7 @@ variables:
   capa_buena: "estratosfera"
   capa_mala: "troposfera"
 
-respuesta: "{capa_buena} y {capa_mala}"
+respuesta: capa_buena + " y " + capa_mala
 tipo: completar
 
 enunciado: "El ozono es beneficioso en la {capa_buena}, pero actúa como contaminante en la {capa_mala}."
@@ -169,7 +169,7 @@ metadata:
 variables:
   formula: "HNO3"
 
-respuesta: "{formula}"
+respuesta: formula
 tipo: input
 
 enunciado: "Además del ácido sulfúrico, la lluvia ácida contiene ácido nítrico. Escribe su fórmula química."
@@ -190,7 +190,7 @@ metadata:
 variables:
   lugar: "áreas urbanas"
 
-respuesta: "{lugar}"
+respuesta: lugar
 tipo: input
 
 enunciado: "El esmog fotoquímico es particularmente relevante y frecuente en {lugar} debido a la alta densidad vehicular y emisiones industriales."
@@ -211,7 +211,7 @@ metadata:
 variables:
   nombre: "alótropos"
 
-respuesta: "{nombre}"
+respuesta: nombre
 tipo: input
 
 enunciado: "El oxígeno molecular ($O_2$) y el ozono ($O_3$) son {nombre} del elemento oxígeno."
@@ -232,7 +232,7 @@ metadata:
 variables:
   efecto: "acidificar"
 
-respuesta: "{efecto}"
+respuesta: efecto
 tipo: input
 
 enunciado: "Al precipitar, los ácidos formados en la lluvia ácida tienen la capacidad de {efecto} los cuerpos de agua, poniendo en riesgo la vida acuática."
@@ -253,7 +253,7 @@ metadata:
 variables:
   producto: "ozono troposférico"
 
-respuesta: "{producto}"
+respuesta: producto
 tipo: input
 
 enunciado: "Una de las principales consecuencias de la reacción fotoquímica entre $NO_x$ y COV es la generación de {producto}."
@@ -274,7 +274,7 @@ metadata:
 variables:
   fuente: "vehículos"
 
-respuesta: "{fuente}"
+respuesta: fuente
 tipo: input
 
 enunciado: "Los óxidos de nitrógeno ($NO_x$) se generan principalmente por la combustión a alta temperatura en {fuente} e industrias."
@@ -295,7 +295,7 @@ metadata:
 variables:
   propiedad: "inestable"
 
-respuesta: "{propiedad}"
+respuesta: propiedad
 tipo: input
 
 enunciado: "A diferencia del $O_2$, el ozono ($O_3$) es un gas químicamente {propiedad} y altamente reactivo."
@@ -316,7 +316,7 @@ metadata:
 variables:
   categoria: "metales pesados"
 
-respuesta: "{categoria}"
+respuesta: categoria
 tipo: input
 
 enunciado: "La lluvia ácida libera de los suelos y sedimentos {categoria} que son tóxicos para la vida terrestre y acuática."
@@ -337,7 +337,7 @@ metadata:
 variables:
   proteccion: "escudo natural"
 
-respuesta: "{proteccion}"
+respuesta: proteccion
 tipo: input
 
 enunciado: "La capa de ozono actúa como un {proteccion} natural contra la radiación ultravioleta solar."
@@ -358,7 +358,7 @@ metadata:
 variables:
   forma: "ácidos fuertes"
 
-respuesta: "{forma}"
+respuesta: forma
 tipo: input
 
 enunciado: "Los óxidos de nitrógeno y azufre reaccionan con el vapor de agua para formar {forma} que luego precipitan."
@@ -380,7 +380,7 @@ variables:
   siglas: "COV"
   nombre: "compuestos orgánicos volátiles"
 
-respuesta: "{nombre}"
+respuesta: nombre
 tipo: input
 
 enunciado: "Las siglas COV se refieren a los {nombre}, precursoes clave del esmog."
@@ -401,7 +401,7 @@ metadata:
 variables:
   formula: "O3"
 
-respuesta: "{formula}"
+respuesta: formula
 tipo: input
 
 enunciado: "Escribe la fórmula molecular del ozono."
@@ -422,7 +422,7 @@ metadata:
 variables:
   alcance: "distantes"
 
-respuesta: "{alcance}"
+respuesta: alcance
 tipo: input
 
 enunciado: "La lluvia ácida puede tener consecuencias devastadoras en ecosistemas {alcance} a la fuente de emisión de contaminantes."
@@ -443,7 +443,7 @@ metadata:
 variables:
   organo: "pulmones"
 
-respuesta: "{organo}"
+respuesta: organo
 tipo: input
 
 enunciado: "El ozono troposférico presente en el esmog irrita principalmente los {organo} de las personas."
@@ -464,7 +464,7 @@ metadata:
 variables:
   concepto: "reactor químico"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "La atmósfera puede ser conceptualizada como un gigante {concepto} donde ocurren reacciones constantes."
@@ -485,7 +485,7 @@ metadata:
 variables:
   nombre: "óxidos de nitrógeno"
 
-respuesta: "{nombre}"
+respuesta: nombre
 tipo: input
 
 enunciado: "Los {nombre} ($NO_x$) son emitidos por la combustión y contribuyen a la formación de lluvia ácida."
@@ -506,7 +506,7 @@ metadata:
 variables:
   rol: "catalizador"
 
-respuesta: "{rol}"
+respuesta: rol
 tipo: input
 
 enunciado: "En la formación del esmog fotoquímico, la luz solar actúa como {rol} de las transformaciones químicas."
@@ -527,7 +527,7 @@ metadata:
 variables:
   capa: "estratosfera"
 
-respuesta: "{capa}"
+respuesta: capa
 tipo: input
 
 enunciado: "La capa de ozono protectora se encuentra ubicada en la {capa}."

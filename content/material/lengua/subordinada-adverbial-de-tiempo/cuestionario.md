@@ -220,7 +220,7 @@ variables:
   accion2: uno_de(["llegaste", "sonó el teléfono", "terminó la película", "abrió la puerta", "llovió"])
   conector: "mientras"
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Completa la oración para expresar simultaneidad: '{accion1} {conector} {accion2}'."
@@ -265,7 +265,7 @@ variables:
   subordinada: uno_de(["Cuando llegues", "Mientras estudiabas", "Después de que comiste"])
   principal: uno_de(["llámame", "te avisé", "vamos al cine"])
 
-respuesta: "{principal}"
+respuesta: principal
 tipo: completar
 
 enunciado: "En la oración compuesta '{subordinada}, {principal}', ¿cuál es la oración principal (la que contiene la información central independiente)?"
@@ -288,7 +288,7 @@ variables:
   accion2: uno_de(["comimos", "descansamos", "viajamos", "estudiemos", "descansamos"])
   conector: "después de que"
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Si la acción '{accion1}' ocurre primero y '{accion2}' luego, el conector adecuado para unir ambas es: "
@@ -311,7 +311,7 @@ variables:
   accion_final: uno_de(["llegó", "terminó", "apareció", "sonó", "llovió"])
   conector: "hasta que"
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Completa: '{accion_continua} {conector} {accion_final}' para indicar el límite temporal de una acción."
@@ -334,7 +334,7 @@ variables:
   conector_inmediato: "en cuanto"
   conector_general: "cuando"
 
-respuesta: "{conector_inmediato}"
+respuesta: conector_inmediato
 tipo: completar
 
 enunciado: "Para expresar inmediatez absoluta ('tan pronto como'), entre '{conector_general}' y '{conector_inmediato}', ¿cuál es más preciso?"
@@ -380,7 +380,7 @@ variables:
   accion2: uno_de(["te avisé", "lo llamé", "salí", "corrí", "grité"])
   conector: "tan pronto como"
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Sustituye 'en cuanto' por su sinónimo temporal más común en: '{accion1} {conector} {accion2}'."
@@ -403,7 +403,7 @@ variables:
   accion_continua: uno_de(["estudio", "trabajo", "vivo", "escribo", "viajo"])
   conector: "desde que"
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Para indicar el punto de inicio de una acción que continúa hasta el presente o un momento pasado: '{accion_inicial} {conector} {accion_continua}'."
@@ -426,7 +426,7 @@ variables:
   verbo_sub: uno_de(["se ponía", "llegaba", "llovía", "enseñaba", "estaba"])
   sujeto_princ: uno_de(["armamos", "salimos", "corrimos", "cantamos", "viajamos"])
 
-respuesta: "{sujeto_sub}"
+respuesta: sujeto_sub
 tipo: completar
 
 enunciado: "En la oración '{verbo_sub} {sujeto_sub}, {sujeto_princ} la carpa', ¿quién es el sujeto de la subordinada adverbial de tiempo?"
@@ -449,7 +449,7 @@ variables:
   conector: "en cuanto"
   resultado: uno_de(["te avisaré", "te llamaré", "saldré", "volveré", "gritaré"])
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Completa la frase condicional-temporal: '{conector} {accion}, {resultado}'."
@@ -472,7 +472,7 @@ variables:
   conector_correcto: "después de que"
   accion: uno_de(["llegues", "termines", "salgas", "vengas", "hables"])
 
-respuesta: "{conector_correcto}"
+respuesta: conector_correcto
 tipo: completar
 
 enunciado: "En la frase 'Te avisaré {conector_erroneo} {accion}', ¿cuál es la forma correcta del conector?"
@@ -495,7 +495,7 @@ variables:
   accion_pasada_anterior: uno_de(["había comido", "había llegado", "había terminado", "había salido", "había hablado"])
   conector: "después de que"
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Para expresar anterioridad en el pasado con indicativo: '{accion_pasada} {conector} {accion_pasada_anterior}'."
@@ -541,7 +541,7 @@ variables:
   forma_subordinada: "mientras + verbo conjugado"
   forma_gerundio: "mientras + gerundio"
 
-respuesta: "{forma_subordinada}"
+respuesta: forma_subordinada
 tipo: completar
 
 enunciado: "Para formar una subordinada adverbial de tiempo explícita (con sujeto propio) en lugar de una perífrasis con gerundio, usamos: "
@@ -563,7 +563,7 @@ variables:
   conector: uno_de(["cuando", "mientras", "antes de que", "después de que"])
   accion: uno_de(["llegues", "termines", "salgas", "vengas"])
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "¿Cuál de estos conectores NO es temporal? (Opción A: 'cuando', Opción B: 'mientras', Opción C: 'porque', Opción D: 'antes de que')"
@@ -586,7 +586,7 @@ variables:
   verbo_principal: uno_de(["llevaré", "avisaré", "saldré", "volveré", "gritaré"])
   objeto: uno_de(["el paraguas", "la noticia", "temprano", "tarde", "allí"])
 
-respuesta: "{subordinada}"
+respuesta: subordinada
 tipo: completar
 
 enunciado: "Completa la oración compuesta: '{subordinada}, {verbo_principal} {objeto}'."
@@ -609,7 +609,7 @@ variables:
   accion_principal: uno_de(["armamos", "salimos", "corrimos", "cantamos", "viajamos"])
   objeto: uno_de(["la carpa", "temprano", "tarde", "allí", "el parque"])
 
-respuesta: "{accion_principal}"
+respuesta: accion_principal
 tipo: completar
 
 enunciado: "En la oración '{subordinada}, {accion_principal} {objeto}', ¿cuál es el verbo de la oración principal?"
@@ -632,7 +632,7 @@ variables:
   conector: "tan pronto como"
   accion_princ: uno_de(["te avisaré", "te llamaré", "saldré", "volveré", "gritaré"])
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Completa la frase de inmediatez futura: '{conector} {accion_sub}, {accion_princ}'."
@@ -656,7 +656,7 @@ variables:
   verbo_correcto: uno_de(["llegó", "llegó", "llegaron", "llegó", "llegamos"])
   conector: "cuando"
 
-respuesta: "{verbo_correcto}"
+respuesta: verbo_correcto
 tipo: completar
 
 enunciado: "En la oración '{sujeto} {conector} {verbo_erroneo}, hay un error de concordancia. ¿Cuál es la forma correcta del verbo?"
@@ -679,7 +679,7 @@ variables:
   accion_final: uno_de(["llegó", "terminó", "apareció", "sonó", "llovió"])
   conector: "hasta que"
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Completa la oración que indica el fin de una acción: '{accion} {conector} {accion_final}'."
@@ -702,7 +702,7 @@ variables:
   accion_principal: uno_de(["llevaré", "avisaré", "saldré", "volveré", "gritaré"])
   objeto: uno_de(["el paraguas", "la noticia", "temprano", "tarde", "allí"])
 
-respuesta: "{subordinada}"
+respuesta: subordinada
 tipo: completar
 
 enunciado: "En la oración '{subordinada}, {accion_principal} {objeto}', ¿cuál es la cláusula subordinada adverbial de tiempo?"
@@ -725,7 +725,7 @@ variables:
   conector: "desde que"
   accion_continua_pasada: uno_de(["estudié", "trabajé", "viví", "escribí", "viajé"])
 
-respuesta: "{conector}"
+respuesta: conector
 tipo: completar
 
 enunciado: "Completa la oración que indica el inicio en el pasado: '{accion_inicial} {conector} {accion_continua_pasada}'."

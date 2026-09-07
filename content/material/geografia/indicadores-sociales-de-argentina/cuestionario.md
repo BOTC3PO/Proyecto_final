@@ -83,7 +83,7 @@ metadata:
 variables:
   tipo_pobreza: uno_de(["indigente", "general"])
 
-respuesta: "{tipo_pobreza}"
+respuesta: tipo_pobreza
 tipo: completar
 
 enunciado: "Cuando los ingresos de un hogar no alcanzan para cubrir la canasta básica de ALIMENTOS, se denomina pobreza {tipo_pobreza}."
@@ -125,7 +125,7 @@ metadata:
 variables:
   region: uno_de(["norte", "centro", "sur"])
 
-respuesta: "{region}"
+respuesta: region
 tipo: completar
 
 enunciado: "En Argentina, las provincias de la región {region} suelen presentar tasas más altas de pobreza e indicadores de carencia estructural en comparación con otras zonas del país."
@@ -146,7 +146,7 @@ metadata:
 variables:
   material: uno_de(["ladrillo", "quincha", "madera"])
 
-respuesta: "{material}"
+respuesta: material
 tipo: completar
 
 enunciado: "Para ser considerada vivienda precaria en el cálculo del NBI, el techo o las paredes deben estar construidos con materiales como {material} o similares no dignos, en lugar de ladrillo o bloques sólidos."
@@ -167,7 +167,7 @@ metadata:
 variables:
   causa: "crecimiento_urbano_desordenado"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "El fenómeno de migración interna y el {causa} generan asentamientos periféricos donde el hacinamiento se intensifica debido a la falta de planificación territorial."
@@ -188,7 +188,7 @@ metadata:
 variables:
   diferencia: "canasta_basica_total"
 
-respuesta: "{diferencia}"
+respuesta: diferencia
 tipo: completar
 
 enunciado: "La pobreza general se diferencia de la indigente porque toma como referencia la canasta básica de {diferencia}, que incluye alimentos y servicios no alimentarios."
@@ -232,7 +232,7 @@ metadata:
 variables:
   funcion: "cuantificar"
 
-respuesta: "{funcion}"
+respuesta: funcion
 tipo: completar
 
 enunciado: "Los indicadores sociales permiten {funcion} la calidad de vida de una población, transformando condiciones subjetivas en datos objetivos y medibles."
@@ -274,7 +274,7 @@ metadata:
 variables:
   patron: "geograficos"
 
-respuesta: "{patron}"
+respuesta: patron
 tipo: completar
 
 enunciado: "La distribución de la pobreza en Argentina revela patrones {patron} claros, concentrándose más en ciertas provincias y periferias urbanas que en otras."
@@ -295,7 +295,7 @@ metadata:
 variables:
   condicion: "asistir"
 
-respuesta: "{condicion}"
+respuesta: condicion
 tipo: completar
 
 enunciado: "Una de las variables del NBI es la escolaridad: se considera carencia si hay niños en el hogar que no {condicion} a la escuela."
@@ -338,7 +338,7 @@ metadata:
 variables:
   impacto: "menores"
 
-respuesta: "{impacto}"
+respuesta: impacto
 tipo: completar
 
 enunciado: "El hacinamiento se traduce en {impacto} oportunidades de desarrollo personal y comunitario debido a la falta de espacio físico y privacidad."
@@ -359,7 +359,7 @@ metadata:
 variables:
   referencia: "alimentos"
 
-respuesta: "{referencia}"
+respuesta: referencia
 tipo: completar
 
 enunciado: "La pobreza indigente se define como la incapacidad de cubrir la canasta básica de {referencia}."
@@ -380,7 +380,7 @@ metadata:
 variables:
   relacion: "acceso"
 
-respuesta: "{relacion}"
+respuesta: relacion
 tipo: completar
 
 enunciado: "El NBI captura la falta de {relacion} a servicios básicos y educación, más allá de la situación económica del hogar."
@@ -401,7 +401,7 @@ metadata:
 variables:
   servicios: "no alimentarios"
 
-respuesta: "{servicios}"
+respuesta: servicios
 tipo: completar
 
 enunciado: "La pobreza general incluye la incapacidad de cubrir la canasta básica de alimentos más los bienes y servicios {servicios}."
@@ -422,7 +422,7 @@ metadata:
 variables:
   zona: "periferias"
 
-respuesta: "{zona}"
+respuesta: zona
 tipo: completar
 
 enunciado: "El hacinamiento en Argentina es más frecuente en las {zona} de las grandes ciudades y en asentamientos informales, debido al crecimiento demográfico no planificado."
@@ -443,7 +443,7 @@ metadata:
 variables:
   efecto: "mayor"
 
-respuesta: "{efecto}"
+respuesta: efecto
 tipo: completar
 
 enunciado: "El hacinamiento está ligado a un {efecto} riesgo de enfermedades respiratorias y infecciosas debido a la falta de ventilación y higiene adecuada."
@@ -464,7 +464,7 @@ metadata:
 variables:
   variable: "economia"
 
-respuesta: "{variable}"
+respuesta: variable
 tipo: completar
 
 enunciado: "La tasa de pobreza en Argentina suele fluctuar con la {variable} nacional, aumentando en tiempos de crisis y disminuyendo en etapas de crecimiento."
@@ -485,7 +485,7 @@ metadata:
 variables:
   objetivo: "desigualdad"
 
-respuesta: "{objetivo}"
+respuesta: objetivo
 tipo: completar
 
 enunciado: "Los indicadores sociales como NBI, pobreza y hacinamiento son fundamentales para entender la {objetivo} territorial en Argentina."

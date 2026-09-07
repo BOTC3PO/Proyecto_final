@@ -17,7 +17,7 @@ variables:
   amenaza: random(1, 10)
   vulnerabilidad: random(1, 10)
 
-respuesta: "{amenaza} + {vulnerabilidad}"
+respuesta: amenaza + " + " + vulnerabilidad
 tipo: input
 
 enunciado: "Si modelamos el riesgo como una función de la amenaza y la vulnerabilidad, y asignamos valores arbitrarios de {amenaza} y {vulnerabilidad}, ¿cuál es la suma conceptual de sus componentes principales?"

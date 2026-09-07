@@ -107,11 +107,10 @@ variables:
 enunciado: "Para ubicar el punto ({lat}° S, {lon}° O) en un mapa, ¿qué dos líneas de la grilla tenés que encontrar?"
 tipo: mc
 opciones_explicitas:
-  - "El paralelo de {lat}° S y el meridiano de {lon}° O"
-  - "Sólo el meridiano de {lon}° O"
-  - "El ecuador y el ecuador"
-respuesta: "El paralelo de {lat}° S y el meridiano de {lon}° O"
-
+  - "El paralelo y el meridiano correspondientes a esas coordenadas"
+  - "Sólo el meridiano correspondiente a esa longitud"
+  - "El ecuador y el meridiano de Greenwich, siempre"
+respuesta: "El paralelo y el meridiano correspondientes a esas coordenadas"
 explicacion: |
   El punto está en la intersección del paralelo correspondiente a esa
   latitud y el meridiano correspondiente a esa longitud.

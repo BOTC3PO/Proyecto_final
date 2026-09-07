@@ -414,7 +414,7 @@ variables:
   temp_min: random(850, 950)
   temp_max: random(1050, 1150)
 
-respuesta: "{temp_min}-{temp_max}"
+respuesta: temp_min + "-" + temp_max
 tipo: completar
 
 enunciado: "El rango de temperatura óptimo para trabajar el acero, donde se vuelve blando y maleable sin quemarse, es aproximadamente entre {temp_min} y {temp_max} °C."
@@ -457,7 +457,7 @@ variables:
   largo_inicial: random(10, 20)
   largo_final: "{floor(largo_inicial * 1.5)}"
 
-respuesta: "{largo_final}"
+respuesta: largo_final
 tipo: input
 
 enunciado: "Si realizamos un estirado sobre una barra que tenía {largo_inicial} cm de longitud efectiva en la zona de trabajo, y logramos duplicar aproximadamente su longitud, ¿cuántos cm mide ahora la zona estirada (redondeado al entero más cercano)?"
@@ -521,7 +521,7 @@ metadata:
 variables:
   temp_soldadura: random(1250, 1350)
 
-respuesta: "{temp_soldadura}"
+respuesta: temp_soldadura
 tipo: input
 
 enunciado: "Para lograr una soldadura por forja exitosa, las piezas deben calentarse hasta un color casi blanco, correspondiente a una temperatura aproximada de {temp_soldadura} °C. ¿Es esta temperatura mayor que la de trabajo óptimo (1200 °C)?"
@@ -542,7 +542,7 @@ metadata:
 variables:
   temp_rojo: random(600, 700)
 
-respuesta: "{temp_rojo}"
+respuesta: temp_rojo
 tipo: input
 
 enunciado: "El acero comienza a tomar un rojo oscuro alrededor de los {temp_rojo} °C. A esta temperatura, ¿se recomienda manipularlo con fuerza moderada o esperar a que esté más caliente?"
@@ -601,7 +601,7 @@ variables:
   t2: random(1000, 1100)
   t_promedio: "{floor((t1 + t2) / 2)}"
 
-respuesta: "{t_promedio}"
+respuesta: t_promedio
 tipo: input
 
 enunciado: "Si la temperatura de inicio del trabajo es {t1} °C y la de fin es {t2} °C, ¿cuál es el promedio aproximado de temperatura durante la forja (redondeado al entero más cercano)?"
@@ -658,7 +658,7 @@ metadata:
 variables:
   temp_cereza: random(750, 850)
 
-respuesta: "{temp_cereza}"
+respuesta: temp_cereza
 tipo: input
 
 enunciado: "El color rojo cereza se alcanza aproximadamente a los {temp_cereza} °C. Es un paso intermedio antes del naranja."
@@ -717,7 +717,7 @@ variables:
   t2: random(3, 6)
   mcm_val: mcm(t1, t2)
 
-respuesta: "{mcm_val}"
+respuesta: mcm_val
 tipo: input
 
 enunciado: "Si un proceso de enfriado tarda {t1} minutos y otro tarda {t2} minutos, ¿cuántos minutos deben pasar para que ambos terminen exactamente al mismo tiempo por primera vez (MCM)?"

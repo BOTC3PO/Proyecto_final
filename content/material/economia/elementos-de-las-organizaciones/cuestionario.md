@@ -253,7 +253,7 @@ variables:
   capital: random(30, 150)
   total: redondear(tierra + trabajo + capital, 0)
 
-respuesta: "{total}"
+respuesta: total
 tipo: input
 
 enunciado: "Si una organización utiliza recursos naturales valorados en {tierra}, capital humano en {trabajo} y capital físico en {capital}, ¿cuál es el valor total de los elementos combinados?"

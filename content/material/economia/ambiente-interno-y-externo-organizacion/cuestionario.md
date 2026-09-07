@@ -37,7 +37,7 @@ metadata:
 variables:
   recurso: uno_de(["humano", "material", "natural", "de conocimiento"])
 
-respuesta: "recursos {recurso}"
+respuesta: "recursos " + recurso
 tipo: completar
 
 enunciado: "Los factores que componen el ambiente interno se denominan recursos {recurso}."

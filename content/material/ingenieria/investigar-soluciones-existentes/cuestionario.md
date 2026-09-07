@@ -141,13 +141,15 @@ metadata:
   tags: ["estandar", "benchmarking"]
 
 variables:
-  estandar_nombre: uno_de(["ISO-9001", "IEEE-802.11", "ASTM-E12"])
-  estandar_valor: uno_de(["Calidad", "Conectividad", "Materiales"])
+  estandares: [["ISO-9001", "Calidad"], ["IEEE-802.11", "Conectividad"], ["ASTM-E12", "Materiales"]]
+  idx: uno_de([0, 1, 2])
+  estandar_nombre: estandares[idx][0]
+  estandar_valor: estandares[idx][1]
 
 enunciado: "Al diseñar un sistema de comunicación inalámbrica, el ingeniero consulta el estándar ${estandar_nombre} para evitar errores de compatibilidad. El objetivo principal de este estándar es asegurar la: ___"
 
 respuestas_validas:
-  - "{estandar_valor}"
+  - estandar_valor
 tipo: completar
 
 explicacion: |

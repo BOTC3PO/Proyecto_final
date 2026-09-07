@@ -1,6 +1,6 @@
 # Lengua — sintagmas nominal adjetivo preposicional adverbial verbal (cuestionario, 21 preguntas VBLang)
 
-> Tema: `lengua/sintagmas-nominal-adjetivo-preposicional-adverbial-verbal`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/sintagmas-nominal-adjetivo-preposicional-adverbial-verbal`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -414,7 +414,7 @@ variables:
   auxiliar: uno_de(["ha", "está", "va"])
   participio: uno_de(["comido", "durmiendo", "yendo", "saliendo"])
 
-respuesta: "{auxiliar} {participio}"
+respuesta: auxiliar + " " + participio
 tipo: input
 
 enunciado: "En el sintagma '{auxiliar} {participio}', ¿cuál es el núcleo (escribe el verbo completo)?"

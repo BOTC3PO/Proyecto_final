@@ -37,7 +37,7 @@ metadata:
 variables:
   agente: "turismo"
 
-respuesta: "{agente}"
+respuesta: agente
 tipo: input
 
 enunciado: "El __________ es una de las actividades más dinámicas que transforma paisajes, economías y culturas de regiones antes poco accesibles."
@@ -58,7 +58,7 @@ metadata:
 variables:
   concepto: "turismo"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "No se trata simplemente de 'vacaciones', sino de un fenómeno global complejo de movimiento transfronterizo: el __________."
@@ -79,7 +79,7 @@ metadata:
 variables:
   variable: "estabilidad"
 
-respuesta: "{variable}"
+respuesta: variable
 tipo: input
 
 enunciado: "La dinámica estacional del turismo afecta directamente la planificación de infraestructuras y la __________ del empleo en los destinos."
@@ -100,7 +100,7 @@ metadata:
 variables:
   concepto: "movimiento transfronterizo"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: completar
 respuestas_validas:
   - "movimiento transfronterizo"
@@ -124,7 +124,7 @@ metadata:
 variables:
   concepto: "consumo"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "El turismo no es solo viajar, sino el __________ de servicios en el destino."
@@ -145,7 +145,7 @@ metadata:
 variables:
   hemisferio: "Hemisferio Norte"
 
-respuesta: "{hemisferio}"
+respuesta: hemisferio
 tipo: input
 
 enunciado: "Generalmente, los grandes emisores de turistas se encuentran en el __________."
@@ -166,7 +166,7 @@ metadata:
 variables:
   region: "Asia Oriental"
 
-respuesta: "{region}"
+respuesta: region
 tipo: input
 
 enunciado: "¿Qué región asiática está emergiendo con fuerza como gran emisora de turistas?"
@@ -187,7 +187,7 @@ metadata:
 variables:
   zona: "Unión Europea"
 
-respuesta: "{zona}"
+respuesta: zona
 tipo: input
 
 enunciado: "¿En qué zona se mencionan flujos turísticos regionales muy intensos entre países vecinos?"
@@ -208,7 +208,7 @@ metadata:
 variables:
   zona: "América del Sur"
 
-respuesta: "{zona}"
+respuesta: zona
 tipo: input
 
 enunciado: "¿Qué otra región se menciona junto a Europa por tener flujos turísticos regionales fuertes entre vecinos?"
@@ -229,7 +229,7 @@ metadata:
 variables:
   zona: "zonas rurales"
 
-respuesta: "{zona}"
+respuesta: zona
 tipo: input
 
 enunciado: "El turismo está presente en casi todos los territorios, incluyendo las __________ más remotas."
@@ -250,7 +250,7 @@ metadata:
 variables:
   concepto: "poco accesibles"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "El turismo transforma regiones que antes eran __________ o desconocidas para el gran público."
@@ -271,7 +271,7 @@ metadata:
 variables:
   tiempo: 12
 
-respuesta: "{tiempo}"
+respuesta: tiempo
 tipo: input
 
 enunciado: "Para ser considerado turismo, el período consecutivo de estancia debe ser inferior a cuántos meses?"
@@ -292,7 +292,7 @@ metadata:
 variables:
   concepto: "distintos"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "El turismo ocurre en lugares __________ al entorno habitual de la persona."
@@ -313,7 +313,7 @@ metadata:
 variables:
   concepto: "conecta"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "El turismo ha dejado de ser un lujo para convertirse en una actividad masiva que __________ al mundo."
@@ -334,7 +334,7 @@ metadata:
 variables:
   concepto: "desigualdades"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "Comprender los flujos turísticos permite identificar las __________ entre países emisores y receptores."

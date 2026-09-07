@@ -197,7 +197,7 @@ variables:
   activo: random(100000, 500000)
   pasivo: random(20000, 100000)
 
-respuesta: "{activo} - {pasivo}"
+respuesta: activo + " - " + pasivo
 tipo: input
 
 enunciado: "Si una empresa tiene un Activo total de ${activo} y un Pasivo total de ${pasivo}, ¿cuál es su Patrimonio Neto?"
@@ -219,7 +219,7 @@ variables:
   activo: random(100000, 500000)
   patrimonio: random(20000, 100000)
 
-respuesta: "{activo} - {patrimonio}"
+respuesta: activo + " - " + patrimonio
 tipo: input
 
 enunciado: "Si el Activo total es ${activo} y el Patrimonio Neto es ${patrimonio}, ¿cuánto es el Pasivo?"
@@ -241,7 +241,7 @@ variables:
   pasivo: random(20000, 100000)
   patrimonio: random(20000, 100000)
 
-respuesta: "{pasivo} + {patrimonio}"
+respuesta: pasivo + " + " + patrimonio
 tipo: input
 
 enunciado: "Si el Pasivo es ${pasivo} y el Patrimonio Neto es ${patrimonio}, ¿cuál es el Activo total?"

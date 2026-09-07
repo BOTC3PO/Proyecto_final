@@ -39,7 +39,7 @@ variables:
   min_temp: random(60, 65)
   max_temp: random(80, 85)
 
-respuesta: "{min_temp}-{max_temp}°C"
+respuesta: min_temp + "-" + max_temp + "°C"
 tipo: input
 
 enunciado: "El colágeno necesita un rango de temperatura aproximado para gelificar. Si el rango estándar es entre 65°C y 80°C, ¿cuáles son los límites inferior y superior? Escribe el rango."
@@ -61,7 +61,7 @@ variables:
   corte_bajo_colageno: "lomo"
   corte_alto_colageno: "osobuco"
 
-respuesta: "{corte_bajo_colageno}"
+respuesta: corte_bajo_colageno
 tipo: input
 
 enunciado: "Si tenés un corte con poco tejido conectivo como el {corte_bajo_colageno}, ¿qué técnica de cocción es más adecuada: rápida o lenta?"
@@ -82,7 +82,7 @@ metadata:
 variables:
   efecto: "seca y dura"
 
-respuesta: "{efecto}"
+respuesta: efecto
 tipo: input
 
 enunciado: "Cuanto más tiempo y temperatura se aplica a las fibras musculares, más agua expulsan. Esto hace que la carne quede ___."
@@ -125,7 +125,7 @@ metadata:
 variables:
   corte_alto_colageno: "osobuco"
 
-respuesta: "{corte_alto_colageno}"
+respuesta: corte_alto_colageno
 tipo: input
 
 enunciado: "Para un corte rico en tejido conectivo como el {corte_alto_colageno}, se requiere cocción lenta y prolongada. ¿Verdadero o Falso?"
@@ -221,7 +221,7 @@ metadata:
 variables:
   tecnica: "rápida"
 
-respuesta: "{tecnica}"
+respuesta: tecnica
 tipo: input
 
 enunciado: "Para cortes con poco tejido conectivo, la técnica recomendada es de cocción ___ y alta temperatura."
@@ -242,7 +242,7 @@ metadata:
 variables:
   tecnica: "lenta"
 
-respuesta: "{tecnica}"
+respuesta: tecnica
 tipo: input
 
 enunciado: "Para cortes con mucho tejido conectivo, la técnica recomendada es de cocción ___ y prolongada."
@@ -303,7 +303,7 @@ metadata:
 variables:
   consecuencia: "dura"
 
-respuesta: "{consecuencia}"
+respuesta: consecuencia
 tipo: input
 
 enunciado: "Si se cocina rápido y fuerte un corte con mucho colágeno, las fibras musculares se endurecen mucho antes de que el colágeno se ablande, dejando la carne muy ___."

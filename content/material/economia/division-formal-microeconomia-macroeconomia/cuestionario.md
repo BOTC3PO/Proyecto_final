@@ -264,7 +264,7 @@ variables:
   ganancia_trabajo: random(10000, 50000)
   ganancia_estudio: 0
 
-respuesta: "{ganancia_trabajo}"
+respuesta: ganancia_trabajo
 tipo: input
 
 enunciado: "Si un estudiante deja de trabajar para estudiar y pierde una ganancia potencial de ${ganancia_trabajo}, ¿cuál es el costo de oportunidad monetario directo?"

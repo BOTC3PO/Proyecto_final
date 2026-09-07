@@ -306,7 +306,7 @@ variables:
   angulo_total: 90
   angulo_pieza: random(10, 80)
 
-respuesta: "{angulo_total} - {angulo_pieza}"
+respuesta: angulo_total + " - " + angulo_pieza
 tipo: input
 
 enunciado: "Si necesitas unir dos perfiles para formar una esquina de {angulo_total} grados, y una pieza ya está cortada a {angulo_pieza} grados, ¿a qué ángulo debe cortarse la otra pieza para completar la unión?"
@@ -347,7 +347,7 @@ variables:
   espaciamiento: 0.5
   cantidad: "{ceil(largo_perfil / espaciamiento)}"
 
-respuesta: "{cantidad}"
+respuesta: cantidad
 tipo: input
 
 enunciado: "Si tienes un perfil de {largo_perfil} metros y debes colocar remaches cada {espaciamiento} metros, ¿cuántos remaches necesitas como mínimo para cubrir toda la longitud?"
@@ -388,7 +388,7 @@ variables:
   ancho_disco: 3
   largo_final: "{redondear(largo_original - (ancho_disco / 1000), 2)}"
 
-respuesta: "{largo_final}"
+respuesta: largo_final
 tipo: input
 
 enunciado: "Un perfil de aluminio mide {largo_original} metros. Si el ancho del disco de corte es {ancho_disco} mm y necesitas un corte recto, ¿cuál es la longitud máxima aproximada que puedes obtener restando el ancho del disco?"
@@ -429,7 +429,7 @@ variables:
   alto_perfil: 10
   area: "{ancho_perfil * alto_perfil}"
 
-respuesta: "{area}"
+respuesta: area
 tipo: input
 
 enunciado: "Si el perfil de aluminio tiene un ancho de {ancho_perfil} cm y un alto de {alto_perfil} cm, ¿cuál es el área de la sección transversal que corta la sierra?"
@@ -470,7 +470,7 @@ variables:
   angulo_cortado: random(15, 75)
   angulo_restante: "{angulo_meta - angulo_cortado}"
 
-respuesta: "{angulo_restante}"
+respuesta: angulo_restante
 tipo: input
 
 enunciado: "Para formar una esquina de {angulo_meta} grados, si ya cortaste una pieza a {angulo_cortado} grados, ¿cuántos grados debe medir el corte de la otra pieza?"
@@ -529,7 +529,7 @@ variables:
   tiempo_por_corte: 0.5
   tiempo_total: "{numero_cortes * tiempo_por_corte}"
 
-respuesta: "{tiempo_total}"
+respuesta: tiempo_total
 tipo: input
 
 enunciado: "Si cada corte con la sierra de ingletar tarda aproximadamente {tiempo_por_corte} minutos, ¿cuánto tiempo tomarán {numero_cortes} cortes consecutivos?"
@@ -571,7 +571,7 @@ variables:
   num_cortes: random(3, 6)
   area_corte: "{ancho_perfil * alto_perfil * num_cortes}"
 
-respuesta: "{area_corte}"
+respuesta: area_corte
 tipo: input
 
 enunciado: "Si cada corte atraviesa un perfil de {ancho_perfil} cm de ancho y {alto_perfil} cm de alto, ¿cuál es el área total de sección transversal cortada en {num_cortes} cortes?"

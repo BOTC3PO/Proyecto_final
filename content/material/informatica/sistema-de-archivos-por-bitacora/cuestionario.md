@@ -53,7 +53,7 @@ variables:
   tiempo_fsck: random(30, 120)
   tiempo_journal: random(1, 5)
 
-respuesta: "{tiempo_journal}"
+respuesta: tiempo_journal
 tipo: input
 
 enunciado: "Si un sistema sin journaling tarda {tiempo_fsck} segundos en escanear errores (fsck), ¿cuántos segundos tarda aproximadamente uno con journaling en recuperar la consistencia? (Redondea a entero)."
@@ -147,7 +147,7 @@ variables:
   tiempo_sin_journal: random(10, 60)
   tiempo_con_journal: random(1, 5)
 
-respuesta: "{tiempo_con_journal}"
+respuesta: tiempo_con_journal
 tipo: input
 
 enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."
@@ -295,7 +295,7 @@ variables:
   tiempo_sin_journal: random(20, 90)
   tiempo_con_journal: random(1, 5)
 
-respuesta: "{tiempo_con_journal}"
+respuesta: tiempo_con_journal
 tipo: input
 
 enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."

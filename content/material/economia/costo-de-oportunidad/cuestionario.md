@@ -233,7 +233,7 @@ variables:
   costo_alquiler: random(50000, 100000)
   ganancia_potencial: random(120000, 200000)
 
-respuesta: "{ganancia_potencial}"
+respuesta: ganancia_potencial
 tipo: input
 
 enunciado: "Un empresario deja de ganar {ganancia_potencial} pesos por su sueldo anterior para abrir su negocio. El alquiler del local cuesta {costo_alquiler}. ¿Cuál es el costo de oportunidad de la primera decisión (abrir el negocio) respecto a su empleo anterior?"
@@ -415,7 +415,7 @@ variables:
   tiempo_viaje: 1
   salario_hora: 1000
 
-respuesta: "{costo_pasaje}"
+respuesta: costo_pasaje
 tipo: input
 
 enunciado: "Si vas al trabajo, gastas {costo_pasaje} en pasaje y tardas {tiempo_viaje} hora. Si quedás en casa, ahorrás el pasaje pero perdés el salario de {salario_hora}. Si tu decisión es ir al trabajo, ¿cuál es el costo de oportunidad de QUEDARTE en casa?"
@@ -438,7 +438,7 @@ variables:
   tiempo_viaje: 1
   salario_hora: 1000
 
-respuesta: "{salario_hora}"
+respuesta: salario_hora
 tipo: input
 
 enunciado: "Si vas al trabajo, gastas {costo_pasaje} en pasaje. Si quedás en casa, ahorrás el pasaje pero perdés el salario de {salario_hora}. Si tu opción elegida es 'quedarse en casa', ¿cuál es el costo de oportunidad monetario?"

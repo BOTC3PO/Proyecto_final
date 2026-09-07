@@ -289,7 +289,7 @@ variables:
   verbo: uno_de(["corre", "brilla", "trabaja", "juegan"])
   complemento: uno_de(["en el parque", "por la noche", "en la oficina", "con sus vecinos"])
 
-respuesta: "{sujeto}"
+respuesta: sujeto
 tipo: input
 
 enunciado: "Identificá el sujeto en la siguiente oración: '{sujeto} {verbo} {complemento}'"
@@ -424,7 +424,7 @@ variables:
   verbo: uno_de(["juegan", "cantan", "estudiamos", "leo"])
   complemento: uno_de(["fútbol", "canciones", "matemáticas", "un libro"])
 
-respuesta: "{pronombre}"
+respuesta: pronombre
 tipo: input
 
 enunciado: "Identificá el sujeto en la oración: '{pronombre} {verbo} {complemento}'"

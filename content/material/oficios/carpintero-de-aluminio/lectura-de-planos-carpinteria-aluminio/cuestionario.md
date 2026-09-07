@@ -41,7 +41,7 @@ variables:
   holgura: 10
   largo_transversal: ancho_exterior - (2 * espesor_perfil) + (2 * holgura)
 
-respuesta: "{largo_transversal}"
+respuesta: largo_transversal
 tipo: input
 
 enunciado: "Si el ancho exterior del hueco es {ancho_exterior} mm, el espesor del perfil es {espesor_perfil} mm y se considera una holgura de {holgura} mm por lado para el ajuste, ¿cuál es la longitud de corte de la trasversal superior del marco fijo?"
@@ -65,7 +65,7 @@ variables:
   holgura: 10
   largo_montante: alto_exterior - (2 * espesor_perfil) + (2 * holgura)
 
-respuesta: "{largo_montante}"
+respuesta: largo_montante
 tipo: input
 
 enunciado: "Para un hueco de {alto_exterior} mm de alto, con perfiles de {espesor_perfil} mm de espesor y {holgura} mm de holgura por lado, ¿cuánto mide el montante lateral del marco fijo?"
@@ -88,7 +88,7 @@ variables:
   escala: uno_de([1, 2, 5])
   cota_real: cota_dibujo * escala
 
-respuesta: "{cota_real}"
+respuesta: cota_real
 tipo: input
 
 enunciado: "Si en un plano a escala 1:{escala}, una línea que representa el espesor de un perfil mide {cota_dibujo} mm en el dibujo, ¿cuál es su medida real en milímetros?"
@@ -112,7 +112,7 @@ variables:
   holgura_bisagra: 15
   ancho_hoja: ancho_hueco - (2 * ancho_marco) - (2 * holgura_bisagra)
 
-respuesta: "{ancho_hoja}"
+respuesta: ancho_hoja
 tipo: input
 
 enunciado: "Si el hueco mide {ancho_hueco} mm, el marco fijo tiene {ancho_marco} mm de espesor y se deja una holgura de {holgura_bisagra} mm por lado para las bisagras, ¿cuál es el ancho interior de la hoja batiente?"
@@ -136,7 +136,7 @@ variables:
   holgura: 10
   largo_montante: alto_hueco - (2 * espesor_perfil) + (2 * holgura)
 
-respuesta: "{largo_montante}"
+respuesta: largo_montante
 tipo: input
 
 enunciado: "En una puerta de {alto_hueco} mm de alto, si el montante intermedio debe tener la misma longitud que los montantes laterales del marco, y el espesor del perfil es {espesor_perfil} mm con {holgura} mm de holgura, ¿cuál es su longitud de corte?"
@@ -160,7 +160,7 @@ variables:
   holgura: 10
   largo_transversal: ancho_hueco - (2 * espesor_perfil) + (2 * holgura)
 
-respuesta: "{largo_transversal}"
+respuesta: largo_transversal
 tipo: input
 
 enunciado: "Para una puerta de {ancho_hueco} mm de ancho, con perfiles de {espesor_perfil} mm y {holgura} mm de holgura, ¿cuál es la longitud de la trasversal inferior del marco?"
@@ -184,7 +184,7 @@ variables:
   holgura_rueda: 20
   ancho_hoja: (ancho_hueco - (2 * ancho_marco) - (2 * holgura_rueda)) / 2
 
-respuesta: "{ancho_hoja}"
+respuesta: ancho_hoja
 tipo: input
 
 enunciado: "En una puerta corrediza de {ancho_hueco} mm de ancho, con marco de {ancho_marco} mm y holgura de {holgura_rueda} mm por lado para las ruedas, ¿cuál es el ancho de cada hoja (asumiendo 2 hojas iguales)?"
@@ -208,7 +208,7 @@ variables:
   holgura: 10
   largo_montante: alto_hueco - (2 * espesor_perfil) + (2 * holgura)
 
-respuesta: "{largo_montante}"
+respuesta: largo_montante
 tipo: input
 
 enunciado: "Si un marco tiene una trasversal intermedia a la altura de la manija, ¿cambia la longitud de los montantes laterales respecto a un marco sin ella? (Asumiendo mismo alto de hueco {alto_hueco} mm, espesor {espesor_perfil} mm y holgura {holgura} mm)."
@@ -232,7 +232,7 @@ variables:
   holgura: 10
   largo_transversal: ancho_hueco - (2 * espesor_perfil) + (2 * holgura)
 
-respuesta: "{largo_transversal}"
+respuesta: largo_transversal
 tipo: input
 
 enunciado: "Para un hueco de {ancho_hueco} mm, con perfiles de {espesor_perfil} mm y {holgura} mm de holgura, ¿cuál es la longitud de la trasversal superior del marco fijo?"
@@ -256,7 +256,7 @@ variables:
   holgura_bisagra: 10
   alto_hoja: alto_hueco - (2 * alto_marco) - (2 * holgura_bisagra)
 
-respuesta: "{alto_hoja}"
+respuesta: alto_hoja
 tipo: input
 
 enunciado: "Si el hueco mide {alto_hueco} mm, el marco tiene {alto_marco} mm de espesor y se deja {holgura_bisagra} mm de holgura por arriba y abajo para las bisagras, ¿cuál es el alto de la hoja batiente?"
@@ -279,7 +279,7 @@ variables:
   espesor_perfil: 50
   largo_transversal: ancho_hueco - (2 * espesor_perfil)
 
-respuesta: "{largo_transversal}"
+respuesta: largo_transversal
 tipo: input
 
 enunciado: "Si se instala una trasversal intermedia en un marco de {ancho_hueco} mm de ancho, con espesor de perfil de {espesor_perfil} mm, ¿cuál es su longitud de corte (sin holguras adicionales, asumiendo empalme exacto)?"
@@ -345,7 +345,7 @@ variables:
   espesor_perfil: 50
   holgura: 10
 
-respuesta: "{ancho_hueco} - {espesor_perfil} + {holgura}"
+respuesta: ancho_hueco + " - " + espesor_perfil + " + " + holgura
 tipo: input
 
 enunciado: "Si el ancho del hueco es {ancho_hueco} mm, el perfil de trasversal superior se corta restando el espesor del montante ({espesor_perfil} mm) y sumando la holgura ({holgura} mm). Escriba la expresión de cálculo:"
@@ -368,7 +368,7 @@ variables:
   espesor_perfil: 50
   holgura: 10
 
-respuesta: "{alto_hueco} - {espesor_perfil} + {holgura}"
+respuesta: alto_hueco + " - " + espesor_perfil + " + " + holgura
 tipo: input
 
 enunciado: "Para un hueco de alto {alto_hueco} mm, la longitud del montante lateral se calcula con la expresión (restando espesor {espesor_perfil} y sumando holgura {holgura}):"
@@ -412,7 +412,7 @@ variables:
   espesor_perfil: 50
   holgura: 10
 
-respuesta: "{ancho_hueco} - {espesor_perfil} + {holgura}"
+respuesta: ancho_hueco + " - " + espesor_perfil + " + " + holgura
 tipo: input
 
 enunciado: "La trasversal inferior tiene la misma longitud que la superior. Para un hueco de {ancho_hueco} mm, con espesor {espesor_perfil} y holgura {holgura}, la expresión es:"
@@ -435,7 +435,7 @@ variables:
   espesor_perfil: 50
   holgura: 10
 
-respuesta: "{alto_hueco} - {espesor_perfil} + {holgura}"
+respuesta: alto_hueco + " - " + espesor_perfil + " + " + holgura
 tipo: input
 
 enunciado: "Un montante central (si existe) tiene la misma longitud que los laterales. Para un hueco de {alto_hueco} mm, con espesor {espesor_perfil} y holgura {holgura}, la expresión es:"

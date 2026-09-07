@@ -40,7 +40,7 @@ variables:
   incremento: random(5, 20)
   total: base + incremento
 
-respuesta: "{total}"
+respuesta: total
 tipo: input
 
 enunciado: "Si tengo {base} manzanas y compro {incremento} más, tengo tanta fruta que me alcanza para hacer {total} pasteles. ¿Cuántas manzanas tengo en total?"
@@ -135,7 +135,7 @@ variables:
   principal: uno_de(["El frío era intenso", "La noticia fue terrible", "El trabajo era pesado"])
   subordinada: uno_de(["que temblaba", "que lloró", "que se rindió"])
 
-respuesta: "{principal}"
+respuesta: principal
 tipo: completar
 
 enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la oración principal?"
@@ -157,7 +157,7 @@ variables:
   x: random(2, 10)
   resultado: x * 2
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si 'tanto' equivale a {x} y la consecuencia es el doble, ¿cuánto es el resultado? (Escribe solo el número)."
@@ -223,7 +223,7 @@ variables:
   principal: uno_de(["Estaba tan cansado", "Tenía tanto sueño", "Fue tal el ruido"])
   subordinada: uno_de(["que no pude estudiar", "que me dormí", "que salí corriendo"])
 
-respuesta: "{subordinada}"
+respuesta: subordinada
 tipo: completar
 
 enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la subordinada consecutiva?"
@@ -246,7 +246,7 @@ variables:
   porcentaje: random(10, 50)
   resultado: floor(base * porcentaje / 100)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si el grado es {base} y la consecuencia es el {porcentaje}% de ese grado, ¿cuánto es el resultado? (Redondea al entero más cercano)."
@@ -312,7 +312,7 @@ variables:
   x: random(5, 15)
   resultado: x + 10
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si 'tanto' equivale a {x} y la consecuencia es {x} + 10, ¿cuánto es el resultado? (Escribe solo el número)."
@@ -357,7 +357,7 @@ variables:
   principal: uno_de(["Estaba tan cansado", "Tenía tanto sueño", "Fue tal el ruido"])
   subordinada: uno_de(["que no pude estudiar", "que me dormí", "que salí corriendo"])
 
-respuesta: "{subordinada}"
+respuesta: subordinada
 tipo: completar
 
 enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la subordinada consecutiva?"
@@ -380,7 +380,7 @@ variables:
   porcentaje: random(10, 50)
   resultado: floor(base * porcentaje / 100)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si el grado es {base} y la consecuencia es el {porcentaje}% de ese grado, ¿cuánto es el resultado? (Redondea al entero más cercano)."

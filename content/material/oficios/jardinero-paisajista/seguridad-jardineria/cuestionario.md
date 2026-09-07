@@ -334,7 +334,7 @@ metadata:
 variables:
   tiempo_reingreso: uno_de([12, 24, 48])
 
-respuesta: "Esperar {tiempo_reingreso} horas"
+respuesta: "Esperar " + tiempo_reingreso + " horas"
 tipo: input
 
 enunciado: "Si la etiqueta del producto indica un tiempo de reingreso de {tiempo_reingreso} horas, ¿qué acción se debe tomar antes de volver a entrar al área tratada?"

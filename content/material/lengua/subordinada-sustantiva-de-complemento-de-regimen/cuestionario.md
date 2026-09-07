@@ -1,6 +1,6 @@
 # Lengua — subordinada sustantiva de complemento de regimen (cuestionario, 22 preguntas VBLang)
 
-> Tema: `lengua/subordinada-sustantiva-de-complemento-de-regimen`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-sustantiva-de-complemento-de-regimen`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -19,7 +19,7 @@ variables:
   nexo: uno_de(["que", "si"])
   contenido: uno_de(["el éxito", "la verdad", "lo correcto"])
 
-respuesta: "prep + ' ' + nexo"
+respuesta: prep + " " + nexo
 tipo: input
 
 enunciado: "En la oración 'El docente {verbo_base} {prep}{nexo} {contenido}', ¿cuál es la secuencia preposición-nexo que introduce la subordinada?"
@@ -63,22 +63,17 @@ metadata:
   tags: ["subordinada_sustantiva", "completar", "preposicion"]
 
 variables:
-  prep: uno_de(["en", "por", "de", "con"])
-  verbo: uno_de(["insistir", "hablar", "acordar", "trabajar"])
   sujeto: uno_de(["el equipo", "los alumnos", "la directiva", "el gobierno"])
 
-respuesta: "prep"
+respuesta: "en"
 tipo: completar
 
-enunciado: "Completa la oración: '{sujeto} {verbo} ___ que se apruebe el presupuesto.' (Escribe solo la preposición)."
+enunciado: "Completa la oración: '{sujeto} insiste ___ que se apruebe el presupuesto.' (Escribe solo la preposición)."
 respuestas_validas:
   - "en"
-  - "por"
-  - "de"
-  - "con"
 
 explicacion: |
-  Dependiendo del verbo elegido, la preposición cambia: insistir EN, hablar POR, acordar DE, trabajar CON. Todas son válidas según el verbo seleccionado.
+  'Insistir' rige la preposición 'en': '{sujeto} insiste en que se apruebe el presupuesto'.
 ```
 
 ### 4 — pregunta 4
@@ -142,7 +137,7 @@ metadata:
 variables:
   prep: "por"
   nexo: "que"
-  verbo: "lamentar"
+  verbo: "se preocupa"
   sujeto: "el director"
 
 respuesta: "complemento_de_regimen"
@@ -151,7 +146,7 @@ tipo: input
 enunciado: "En la oración '{sujeto} {verbo} {prep}{nexo} se retrasara la reunión', ¿qué tipo de complemento sustantivo cumple la parte '{prep}{nexo} se retrasara la reunión'?"
 
 explicacion: |
-  Cumple la función de Complemento de Régimen (o Régimen Preposicional) porque completa al verbo 'lamentar' mediante la preposición 'por'.
+  Cumple la función de Complemento de Régimen (o Régimen Preposicional) porque completa al verbo 'preocuparse' mediante la preposición 'por'.
 ```
 
 ### 7 — pregunta 7
@@ -239,19 +234,13 @@ metadata:
   nivel: "basico"
   tags: ["subordinada_sustantiva", "regimen_preposicional", "identificacion"]
 
-variables:
-  prep: "por"
-  nexo: "que"
-  verbo: "agradecer"
-  sujeto: "te"
-
-respuesta: "prep"
+respuesta: "de"
 tipo: input
 
-enunciado: "En la oración incorrecta 'Te agradezco ___ que me ayudes', ¿qué preposición falta para que sea correcta?"
+enunciado: "En la oración incorrecta 'Todo depende ___ que llegues a tiempo', ¿qué preposición falta para que sea correcta?"
 
 explicacion: |
-  El verbo 'agradecer' (en su uso formal con persona) rige 'a', pero con cosas/acciones suele ser directo. Sin embargo, 'agradecer' a veces se usa con 'por' en contextos específicos o se considera CD. Mejor ejemplo: 'hablar POR que'. Ajustemos la pregunta a un verbo claro: 'depender DE que'.
+  El verbo 'depender' rige la preposición 'de': 'todo depende de que llegues a tiempo'. Sin ella, la oración es agramatical.
 ```
 
 ### 11 — pregunta 11
@@ -272,11 +261,11 @@ variables:
 respuesta: "de"
 tipo: mc
 
-enunciado: "¿Qué preposición rige el verbo 'acordar' en la oración 'Acuerdo ___ que nos vimos ayer'?"
+enunciado: "¿Qué preposición rige el verbo reflexivo 'acordarse' en la oración 'Me acuerdo ___ que nos vimos ayer'?"
 opciones_explicitas: ["en", "a", "de", "por"]
 
 explicacion: |
-  El verbo 'acordar' (en el sentido de tener en la memoria) rige el régimen preposicional 'de'. Por lo tanto, 'acuerdo de que...'.
+  El verbo reflexivo 'acordarse' (en el sentido de recordar) rige el régimen preposicional 'de': 'me acuerdo de que...'. Ojo: sin el 'me' reflexivo, 'acordar que' (en el sentido de decidir de común acuerdo) NO lleva 'de' — usarla ahí sería un dequeísmo.
 ```
 
 ### 12 — pregunta 12
@@ -323,11 +312,11 @@ variables:
 respuesta: "por"
 tipo: mc
 
-enunciado: "¿Qué preposición rige el verbo 'lamentar' en la oración 'Lamento ___ se haya perdido el tren'?"
+enunciado: "¿Qué preposición rige el verbo 'optar' en la oración 'Optamos ___ que se posponga la reunión'?"
 opciones_explicitas: ["en", "de", "a", "por"]
 
 explicacion: |
-  El verbo 'lamentar' rige el régimen preposicional 'por'. Por lo tanto, 'lamento por que...'.
+  El verbo 'optar' rige el régimen preposicional 'por'. Por lo tanto, 'optamos por que...'. (Nota: 'lamentar que se haya perdido el tren' NO lleva preposición — es complemento directo, no de régimen.)
 ```
 
 ### 14 — pregunta 14
@@ -388,22 +377,15 @@ metadata:
   nivel: "basico"
   tags: ["subordinada_sustantiva", "completar", "preposicion"]
 
-variables:
-  prep: uno_de(["en", "de", "por"])
-  verbo: uno_de(["insistir", "acordar", "lamentar"])
-  sujeto: uno_de(["yo", "tú", "nosotros"])
-
-respuesta: "prep"
+respuesta: "en"
 tipo: completar
 
-enunciado: "Completa la oración: '{sujeto} {verbo} ___ que todo salga bien.' (Escribe la preposición correcta para ese verbo)."
+enunciado: "Completa la oración: 'Insisto ___ que todo salga bien.' (Escribe la preposición correcta para el verbo 'insistir')."
 respuestas_validas:
   - "en"
-  - "de"
-  - "por"
 
 explicacion: |
-  Insistir EN, Acordar DE, Lamentar POR. La respuesta depende del verbo sorteado.
+  'Insistir' rige la preposición 'en': 'insisto en que todo salga bien'.
 ```
 
 ### 17 — pregunta 17
@@ -525,11 +507,11 @@ variables:
 respuesta: "en"
 tipo: mc
 
-enunciado: "¿Qué preposición rige el verbo 'creer' en la oración 'Creo ___ es correcto'?"
+enunciado: "¿Qué preposición rige el verbo 'consistir' en la oración 'El plan consiste ___ que todos participen'?"
 opciones_explicitas: ["de", "a", "en", "por"]
 
 explicacion: |
-  El verbo 'creer' rige el régimen preposicional 'en' cuando expresa convicción sobre algo. Por lo tanto, 'creo en que...'.
+  El verbo 'consistir' rige el régimen preposicional 'en'. Por lo tanto, 'consiste en que...'. (Nota: 'creo que es correcto' NO lleva preposición — 'creer que' para expresar opinión es complemento directo, no de régimen; solo 'creer EN' con sentido de fe o confianza rige 'en', y no suele combinarse con 'que'.)
 ```
 
 ### 22 — pregunta 22
@@ -544,14 +526,14 @@ metadata:
 variables:
   prep: "por"
   nexo: "que"
-  verbo: "lamentar"
+  verbo: "optamos"
   sujeto: "nosotros"
 
 respuesta: "regimen_preposicional"
 tipo: input
 
-enunciado: "En la oración '{sujeto} {verbo} {prep}{nexo} se haya perdido', ¿cómo se clasifica la subordinada '{prep}{nexo} se haya perdido'?"
+enunciado: "En la oración '{sujeto} {verbo} {prep}{nexo} se posponga la reunión', ¿cómo se clasifica la subordinada '{prep}{nexo} se posponga la reunión'?"
 
 explicacion: |
-  Se clasifica como Subordinada Sustantiva de Complemento de Régimen, ya que completa al verbo 'lamentar' mediante la preposición 'por'.
+  Se clasifica como Subordinada Sustantiva de Complemento de Régimen, ya que completa al verbo 'optar' mediante la preposición 'por'.
 ```

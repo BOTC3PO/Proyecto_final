@@ -113,7 +113,7 @@ metadata:
 variables:
   factor: uno_de(["reducción de costos de transporte", "revolución de la información", "avances en telecomunicaciones"])
 
-respuesta: "{factor}"
+respuesta: factor
 tipo: completar
 
 enunciado: "Un factor clave que aceleró la deslocalización fue el {factor}."
@@ -197,7 +197,7 @@ metadata:
 variables:
   pais: uno_de(["China", "India", "Vietnam"])
 
-respuesta: "{pais}"
+respuesta: pais
 tipo: completar
 
 enunciado: "Un ejemplo clásico de país receptor de deslocalización industrial es {pais}."

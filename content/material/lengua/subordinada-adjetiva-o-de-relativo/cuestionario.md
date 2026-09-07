@@ -209,7 +209,7 @@ variables:
   verbo: uno_de(["leí", "construí", "conocí", "adopté"])
   adjetivo: uno_de(["nuevo", "grande", "viejo", "pequeño"])
 
-respuesta: "{antecedente}"
+respuesta: antecedente
 tipo: input
 
 enunciado: "En la oración 'El {antecedente} que {verbo} es {adjetivo}', ¿cuál es el antecedente de la subordinada adjetiva?"
@@ -355,7 +355,7 @@ variables:
   antecedente: uno_de(["el coche", "el avión", "el tren", "el barco", "el auto"])
   caracteristica: uno_de(["que viaja rápido", "que es nuevo", "que es rojo", "que es viejo", "que es caro"])
 
-respuesta: "{caracteristica}"
+respuesta: caracteristica
 tipo: input
 
 enunciado: "En 'El {antecedente} {caracteristica} es mío', ¿cuál es el segmento que forma la subordinada adjetiva?"

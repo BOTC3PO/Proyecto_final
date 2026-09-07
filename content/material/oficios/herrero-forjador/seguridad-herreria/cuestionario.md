@@ -722,7 +722,7 @@ variables:
   delta_temp: random(800, 1000)
   temp_final: temp_inicial + delta_temp
 
-respuesta: "{temp_final}"
+respuesta: temp_final
 tipo: input
 
 enunciado: "Si la temperatura ambiente es {temp_inicial}°C y se añade {delta_temp}°C en la fragua, la temperatura final es {temp_final}°C."
@@ -765,7 +765,7 @@ variables:
   n: 4
   resultado: factorial(n)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si hay {n} tipos de EPP críticos a inspeccionar, el número de permutaciones posibles de inspección es {resultado}."
@@ -808,7 +808,7 @@ variables:
   intensidad: 1000
   resultado: log10(intensidad)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si la intensidad del ruido es {intensidad}, el nivel en decibelios (escala logarítmica base 10) es {resultado} dB."

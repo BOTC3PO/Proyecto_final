@@ -18,7 +18,7 @@ variables:
   pc: random(50, 150)
   resultado: redondear(ac / pc, 2)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Una empresa tiene Activos Corrientes de {ac} y Pasivos Corrientes de {pc}. Calculá el índice de Liquidez Corriente. Redondeá a 2 decimales."
@@ -42,7 +42,7 @@ variables:
   inventario: random(100, 500)
   resultado: redondear(costo / inventario, 2)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "El Costo de Mercadería Vendida es {costo} y el Inventario Promedio es {inventario}. Calculá la rotación de stock."
@@ -65,7 +65,7 @@ variables:
   af: random(400, 900)
   resultado: ac + af
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Los Activos Corrientes son {ac} y los Activos Fijos son {af}. ¿Cuál es el total de Activos?"
@@ -90,7 +90,7 @@ variables:
   numerador: ac - inventario
   resultado: redondear(numerador / pc, 2)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Activos Corrientes: {ac}, Inventario: {inventario}, Pasivos Corrientes: {pc}. Calculá la Liquidez Ácida."
@@ -114,7 +114,7 @@ variables:
   monto: random(1000, 5000)
   interes: redondear(monto * (tasa / 100), 0)
 
-respuesta: "{interes}"
+respuesta: interes
 tipo: completar
 
 enunciado: "Si inviertes {monto} a una tasa del {tasa}% anual, el rendimiento futuro es {interes}. Este monto representa el costo de oportunidad de no tener el dinero disponible hoy."
@@ -139,7 +139,7 @@ variables:
   rotacion: ventas_credito / cuentas_cobrar
   resultado: floor(dias / rotacion)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Ventas a Crédito: {ventas_credito}, Cuentas por Cobrar: {cuentas_cobrar}. Usando un año de 360 días, calculá el período promedio de cobro en días."
@@ -163,7 +163,7 @@ variables:
   anios: uno_de([1, 2, 3])
   resultado: redondear(vf / ((1 + tasa/100) ^ anios), 2)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Un valor futuro de {vf} dentro de {anios} años, con una tasa de descuento del {tasa}%, tiene un Valor Presente de aproximadamente:"
@@ -186,7 +186,7 @@ variables:
   bancos: random(200, 800)
   resultado: caja + bancos
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Caja: {caja}, Bancos: {bancos}. ¿Cuál es el total de Efectivo y Equivalentes de Efectivo?"
@@ -210,7 +210,7 @@ variables:
   crecimiento: random(2, 8)
   costo: redondear((dividendo / precio) + (crecimiento / 100), 4)
 
-respuesta: "{costo}"
+respuesta: costo
 tipo: input
 
 enunciado: "Dividendo esperado: {dividendo}, Precio de la acción: {precio}, Tasa de crecimiento: {crecimiento}%. Calculá el Costo de Capital Accionario (Modelo Gordon)."
@@ -235,7 +235,7 @@ variables:
   costo_variable: random(40, 80)
   resultado: floor(costos_fijos / (precio - costo_variable))
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Costos Fijos: {costos_fijos}, Precio de Venta: {precio}, Costo Variable Unitario: {costo_variable}. Calculá el punto de equilibrio en unidades."
@@ -259,7 +259,7 @@ variables:
   anios: uno_de([1, 2, 3])
   resultado: redondear(pv * ((1 + tasa/100) ^ anios), 2)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si inviertes {pv} hoy a una tasa del {tasa}% anual durante {anios} años, el Valor Futuro será:"
@@ -282,7 +282,7 @@ variables:
   pc: random(100, 400)
   resultado: redondear(efectivo / pc, 2)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Efectivo y Equivalentes: {efectivo}, Pasivos Corrientes: {pc}. Calculá la Liquidez Inmediata."
@@ -306,7 +306,7 @@ variables:
   flujo_anual: random(1000, 3000)
   resultado: floor(inversion / flujo_anual)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Inversión Inicial: {inversion}, Flujo de Caja Anual Constante: {flujo_anual}. Calculá el periodo de recuperación simple en años."
@@ -332,7 +332,7 @@ variables:
   impuesto: 0.30
   wacc: redondear((deuda_ratio * costo_deuda * (1 - impuesto)) + (eq_ratio * costo_equity), 4)
 
-respuesta: "{wacc}"
+respuesta: wacc
 tipo: input
 
 enunciado: "Estructura de Capital: 40% Deuda, 60% Equity. Costo Deuda: 8%, Costo Equity: 12%, Impuesto: 30%. Calculá el WACC."

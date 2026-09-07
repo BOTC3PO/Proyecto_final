@@ -17,7 +17,7 @@ variables:
   causa_suciedad: uno_de(["suciedad acumulada", "residuos de lubricante viejo"])
   causa_desalineacion: uno_de(["desalineación mecánica", "eje doblado"])
 
-respuesta: "{causa_suciedad}"
+respuesta: causa_suciedad
 tipo: completar
 
 enunciado: "Cuando una llave no entra o queda trabada en el bombín, una causa frecuente es la {causa_suciedad}, que impide la alineación correcta de los pasados internos."
@@ -38,7 +38,7 @@ metadata:
 variables:
   sintoma: "resistencia granular"
 
-respuesta: "{sintoma}"
+respuesta: sintoma
 tipo: completar
 
 enunciado: "El diagnóstico de suciedad interna se confirma al notar una {sintoma} al girar la llave en el bombín."
@@ -59,7 +59,7 @@ metadata:
 variables:
   causa_posible: uno_de(["eje de la llave doblado", "mecanismo de retorno atascado"])
 
-respuesta: "{causa_posible}"
+respuesta: causa_posible
 tipo: completar
 
 enunciado: "Si la llave entra pero no gira, o gira con mucho juego sin accionar el pestillo, puede deberse a que el {causa_posible}."
@@ -80,7 +80,7 @@ metadata:
 variables:
   causa_principal: "alineación entre la hoja móvil y la placa fija"
 
-respuesta: "{causa_principal}"
+respuesta: causa_principal
 tipo: completar
 
 enunciado: "En los cerrojos que no cierran o cierran mal, el problema rara vez es del cilindro en sí, sino de la {causa_principal}."
@@ -101,7 +101,7 @@ metadata:
 variables:
   material: uno_de(["tiza", "lápiz"])
 
-respuesta: "{material}"
+respuesta: material
 tipo: completar
 
 enunciado: "Para diagnosticar si el pestillo golpea fuera de su ranura, se marca el punto de contacto con {material}."
@@ -122,7 +122,7 @@ metadata:
 variables:
   diagnostico: "la puerta se ha asentado"
 
-respuesta: "{diagnostico}"
+respuesta: diagnostico
 tipo: completar
 
 enunciado: "Si la marca del pestillo aparece arriba, el diagnóstico indica que {diagnostico}."
@@ -143,7 +143,7 @@ metadata:
 variables:
   diagnostico: "las bisagras se han relajado"
 
-respuesta: "{diagnostico}"
+respuesta: diagnostico
 tipo: completar
 
 enunciado: "Si la marca del pestillo aparece en los laterales, el diagnóstico suele indicar que {diagnostico}."
@@ -164,7 +164,7 @@ metadata:
 variables:
   riesgo: "destrucción total del cilindro o de la hoja metálica"
 
-respuesta: "{riesgo}"
+respuesta: riesgo
 tipo: completar
 
 enunciado: "Intentar forzar una cerradura sin entender su estado interno puede convertir un problema menor en una {riesgo}."
@@ -185,7 +185,7 @@ metadata:
 variables:
   consecuencia: "imposible su recuperación sin taladrar"
 
-respuesta: "{consecuencia}"
+respuesta: consecuencia
 tipo: completar
 
 enunciado: "Intentar extraer una llave rota con herramientas inadecuadas puede empujar el fragmento más al fondo, haciendo {consecuencia}."
@@ -208,7 +208,7 @@ variables:
   pilar2: "sensación táctil"
   pilar3: "evaluación del estado"
 
-respuesta: "{pilar1}"
+respuesta: pilar1
 tipo: completar
 
 enunciado: "El diagnóstico se basa en tres pilares: la {pilar1} del llavero y la ranura, la sensación táctil y la evaluación del estado de las piezas móviles."
@@ -229,7 +229,7 @@ metadata:
 variables:
   sintoma: "gira con mucho juego"
 
-respuesta: "{sintoma}"
+respuesta: sintoma
 tipo: completar
 
 enunciado: "Si la llave gira con mucho juego sin accionar el pestillo, un diagnóstico posible es que el eje de la llave se ha doblado."
@@ -250,7 +250,7 @@ metadata:
 variables:
   causa: "mecanismo de retorno está atascado"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "Si la llave entra pero no gira, otra causa posible es que el {causa}."
@@ -271,7 +271,7 @@ metadata:
 variables:
   beneficio: "determina la viabilidad de la reparación y el costo final"
 
-respuesta: "{beneficio}"
+respuesta: beneficio
 tipo: completar
 
 enunciado: "El diagnóstico es crítico porque {beneficio} del servicio."
@@ -293,7 +293,7 @@ variables:
   ejemplo1: "cerraduras de perno tradicional"
   ejemplo2: "cilindros de alta seguridad con pasadores de pinza"
 
-respuesta: "{ejemplo1}"
+respuesta: ejemplo1
 tipo: completar
 
 enunciado: "Desde las {ejemplo1} hasta los cilindros de alta seguridad con pasadores de pinza, cada sistema responde distinto a la presión."
@@ -315,7 +315,7 @@ variables:
   falla_mecanica: "falta de lubricación"
   falla_estructural: "rotura de un resorte interno"
 
-respuesta: "{falla_mecanica}"
+respuesta: falla_mecanica
 tipo: completar
 
 enunciado: "Un diagnóstico preciso permite distinguir entre una falla mecánica simple, como la {falla_mecanica}, y una estructural."
@@ -336,7 +336,7 @@ metadata:
 variables:
   sintoma: "desgaste excesivo de las llaves maestras"
 
-respuesta: "{sintoma}"
+respuesta: sintoma
 tipo: completar
 
 enunciado: "El diagnóstico debe considerar el {sintoma}, que afecta la compatibilidad y el funcionamiento del sistema."
@@ -357,7 +357,7 @@ metadata:
 variables:
   beneficio: "ahorra tiempo al cliente"
 
-respuesta: "{beneficio}"
+respuesta: beneficio
 tipo: completar
 
 enunciado: "La capacidad de diagnosticar rápidamente {beneficio}, además de evitar el daño colateral."
@@ -378,7 +378,7 @@ metadata:
 variables:
   elemento: "llavero"
 
-respuesta: "{elemento}"
+respuesta: elemento
 tipo: completar
 
 enunciado: "El primer pilar del diagnóstico es la inspección visual del {elemento} y la ranura de la cerradura."
@@ -399,7 +399,7 @@ metadata:
 variables:
   accion: "sensación táctil"
 
-respuesta: "{accion}"
+respuesta: accion
 tipo: completar
 
 enunciado: "La {accion} al girar la llave es fundamental para detectar resistencias o juego anormal."
@@ -420,7 +420,7 @@ metadata:
 variables:
   objeto: "piezas móviles"
 
-respuesta: "{objeto}"
+respuesta: objeto
 tipo: completar
 
 enunciado: "El tercer pilar es la evaluación del estado de las {objeto} internas."
@@ -441,7 +441,7 @@ metadata:
 variables:
   material: uno_de(["tiza", "lápiz"])
 
-respuesta: "{material}"
+respuesta: material
 tipo: completar
 
 enunciado: "Para diagnosticar la alineación del pestillo, se marca el punto de contacto con {material}."
@@ -462,7 +462,7 @@ metadata:
 variables:
   diagnostico: "la puerta se ha asentado"
 
-respuesta: "{diagnostico}"
+respuesta: diagnostico
 tipo: completar
 
 enunciado: "Si la marca aparece abajo, el diagnóstico indica que {diagnostico}."
@@ -483,7 +483,7 @@ metadata:
 variables:
   objetivo: "evita el daño colateral"
 
-respuesta: "{objetivo}"
+respuesta: objetivo
 tipo: completar
 
 enunciado: "El diagnóstico preciso en el contexto profesional {objetivo}."
@@ -504,7 +504,7 @@ metadata:
 variables:
   causa: "suciedad acumulada"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "Cuando la llave no entra, una causa suele ser la {causa}."
@@ -525,7 +525,7 @@ metadata:
 variables:
   causa: "desalineación mecánica"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "La otra causa frecuente de llave trabada es la {causa}."
@@ -546,7 +546,7 @@ metadata:
 variables:
   sintoma: "resistencia granular"
 
-respuesta: "{sintoma}"
+respuesta: sintoma
 tipo: completar
 
 enunciado: "La presencia de {sintoma} confirma el diagnóstico de suciedad interna."
@@ -568,7 +568,7 @@ variables:
   falla1: "eje de la llave se ha doblado"
   falla2: "mecanismo de retorno está atascado"
 
-respuesta: "{falla1}"
+respuesta: falla1
 tipo: completar
 
 enunciado: "Si la llave entra pero no gira, puede deberse a que el {falla1}."
@@ -589,7 +589,7 @@ metadata:
 variables:
   componente: "hoja móvil y la placa fija"
 
-respuesta: "{componente}"
+respuesta: componente
 tipo: completar
 
 enunciado: "El problema de cerrojos defectuosos suele estar en la alineación entre la {componente}."

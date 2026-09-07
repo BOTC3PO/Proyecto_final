@@ -63,7 +63,7 @@ variables:
   temp_min: temp_optima - margen_error
   temp_max: temp_optima + margen_error
 
-respuesta: "{temp_min}"
+respuesta: temp_min
 tipo: input
 
 enunciado: "Si la temperatura óptima para forjar un acero es {temp_optima} °C y se permite un margen de error de ±{margen_error} °C para evitar grietas por frío, ¿cuál es el límite inferior de temperatura seguro?"
@@ -151,7 +151,7 @@ variables:
   enfriamiento: random(150, 300)
   temp_final: temp_inicial - enfriamiento
 
-respuesta: "{temp_final}"
+respuesta: temp_final
 tipo: input
 
 enunciado: "Una pieza se calienta a {temp_inicial} °C. Si se enfría {enfriamiento} °C antes de ser golpeada, ¿cuál es su temperatura actual?"
@@ -323,7 +323,7 @@ variables:
   temp_fusion: 1500
   temp_soldadura: random(1300, 1400)
 
-respuesta: "{temp_soldadura}"
+respuesta: temp_soldadura
 tipo: input
 
 enunciado: "Para soldar, la temperatura debe estar cercana al punto de fusión (1500 °C) pero sin fundirse. Si se elige una temperatura de {temp_soldadura} °C, ¿es adecuada para evitar la quema?"
@@ -367,7 +367,7 @@ variables:
   temp_pieza2: random(1100, 1200)
   diferencia: temp_pieza1 - temp_pieza2
 
-respuesta: "{diferencia}"
+respuesta: diferencia
 tipo: input
 
 enunciado: "Si la pieza A está a {temp_pieza1} °C y la pieza B a {temp_pieza2} °C, ¿cuál es la diferencia de temperatura que puede causar fallo en la soldadura?"
@@ -433,7 +433,7 @@ variables:
   componentes_flux: uno_de(["bórax y agua", "sílice y carbonato", "sulfato y magnesio"])
   temp_fusion_flux: random(600, 700)
 
-respuesta: "{componentes_flux}"
+respuesta: componentes_flux
 tipo: completar
 
 enunciado: "Para remover el óxido y proteger la superficie del oxígeno antes de calentar para una soldadura, se usa un flux compuesto principalmente por {componentes_flux}. Este funde a una temperatura aproximada de {temp_fusion_flux} °C."
@@ -455,7 +455,7 @@ variables:
   direccion_forjado: uno_de(["paralelo", "perpendicular", "oblicuo"])
   riesgo_grieta: "alto"
 
-respuesta: "{direccion_forjado}"
+respuesta: direccion_forjado
 tipo: completar
 
 enunciado: "Forjar {direccion_forjado} a las fibras del metal en ciertos aceros puede facilitar la apertura de grietas, ya que se opone a la dirección natural de los granos cristalinos."
@@ -477,7 +477,7 @@ variables:
   tiempo_minimo: random(5, 10)
   tiempo_maximo: random(15, 20)
 
-respuesta: "{tiempo_minimo} a {tiempo_maximo}"
+respuesta: tiempo_minimo + " a " + tiempo_maximo
 tipo: completar
 
 enunciado: "Para que la soldadura de forja prenda correctamente, las piezas deben mantenerse en el punto crítico durante un tiempo adecuado, típicamente entre {tiempo_minimo} y {tiempo_maximo} segundos, dependiendo del grosor."
@@ -498,7 +498,7 @@ metadata:
 variables:
   efecto_granos: "debilitamiento"
 
-respuesta: "{efecto_granos}"
+respuesta: efecto_granos
 tipo: completar
 
 enunciado: "El sobrecalentamiento provoca que los límites de los granos cristalinos experimenten {efecto_granos} o se fundan parcialmente, lo que lleva a la fractura interna al golpear."
@@ -519,7 +519,7 @@ metadata:
 variables:
   nombre_tecnica: "soldadura de forja"
 
-respuesta: "{nombre_tecnica}"
+respuesta: nombre_tecnica
 tipo: completar
 
 enunciado: "El proceso que consiste en unir dos piezas de metal mediante calor y martillado, sin agregar material de relleno, se denomina {nombre_tecnica}."
@@ -562,7 +562,7 @@ metadata:
 variables:
   tipo_barrera: "óxido, escoria o grasa"
 
-respuesta: "{tipo_barrera}"
+respuesta: tipo_barrera
 tipo: completar
 
 enunciado: "Las superficies deben estar limpias porque el {tipo_barrera} actúa como una barrera física que impide la unión directa de los metales."
@@ -583,7 +583,7 @@ metadata:
 variables:
   accion_martillo: "expulsar escoria y unir"
 
-respuesta: "{accion_martillo}"
+respuesta: accion_martillo
 tipo: completar
 
 enunciado: "El martillado en la soldadura de forja cumple dos funciones principales: {accion_martillo} las superficies para lograr la unión metálica."
@@ -626,7 +626,7 @@ metadata:
 variables:
   problema: "falta de tiempo"
 
-respuesta: "{problema}"
+respuesta: problema
 tipo: completar
 
 enunciado: "Si las piezas se separan antes de que la difusión atómica se complete, la causa probable es la {problema} en el punto crítico."
@@ -647,7 +647,7 @@ metadata:
 variables:
   efecto: "facilita apertura"
 
-respuesta: "{efecto}"
+respuesta: efecto
 tipo: completar
 
 enunciado: "Forjar perpendicularmente a las fibras del metal en ciertos aceros puede {efecto} de grietas, comprometiendo la integridad estructural."
@@ -668,7 +668,7 @@ metadata:
 variables:
   defecto: "quema"
 
-respuesta: "{defecto}"
+respuesta: defecto
 tipo: completar
 
 enunciado: "Cuando los límites de los granos cristalinos se funden parcialmente, el defecto resultante se conoce como {defecto}."
@@ -689,7 +689,7 @@ metadata:
 variables:
   causa: "tensiones internas"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "Forzar la deformación con calor insuficiente genera {causa} que superan la resistencia del metal, provocando grietas repentinas."
@@ -710,7 +710,7 @@ metadata:
 variables:
   requisito: "superficies limpias"
 
-respuesta: "{requisito}"
+respuesta: requisito
 tipo: completar
 
 enunciado: "Para que la soldadura prenda, es fundamental que las {requisito} estén libres de óxido, escoria o grasa."
@@ -732,7 +732,7 @@ variables:
   temp_min: random(800, 900)
   temp_max: random(1100, 1200)
 
-respuesta: "{temp_min} a {temp_max}"
+respuesta: temp_min + " a " + temp_max
 tipo: completar
 
 enunciado: "El rango de temperatura de trabajo seguro para muchos aceros al carbono está entre {temp_min} °C y {temp_max} °C, dependiendo del tipo de acero."
@@ -753,7 +753,7 @@ metadata:
 variables:
   barrera: "óxido"
 
-respuesta: "{barrera}"
+respuesta: barrera
 tipo: completar
 
 enunciado: "El {barrera} que se forma en la superficie debe ser removido porque actúa como una barrera contra el oxígeno y la unión metálica."
@@ -774,7 +774,7 @@ metadata:
 variables:
   causa: "debilitamiento de límites de grano"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "La fractura interna al golpear se debe al {causa} por sobrecalentamiento."
@@ -795,7 +795,7 @@ metadata:
 variables:
   requisito: "temperatura homogénea"
 
-respuesta: "{requisito}"
+respuesta: requisito
 tipo: completar
 
 enunciado: "Ambas superficies deben alcanzar una {requisito} y cercana al punto de fusión, pero sin llegar a fundirse."
@@ -838,7 +838,7 @@ metadata:
 variables:
   defecto: "grieta por frío"
 
-respuesta: "{defecto}"
+respuesta: defecto
 tipo: completar
 
 enunciado: "La {defecto} se produce cuando la resistencia al flujo del material aumenta drásticamente por calor insuficiente."
@@ -859,7 +859,7 @@ metadata:
 variables:
   funcion: "fundir y proteger"
 
-respuesta: "{funcion}"
+respuesta: funcion
 tipo: completar
 
 enunciado: "El flux tiene la función de {funcion} las superficies metálicas del oxígeno y limpiar el óxido."
@@ -902,7 +902,7 @@ metadata:
 variables:
   causa: "dirección perpendicular"
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: completar
 
 enunciado: "La grieta puede facilitarse si el forjado se realiza en {causa} a las fibras del metal."
@@ -923,7 +923,7 @@ metadata:
 variables:
   sintoma: "fractura interna"
 
-respuesta: "{sintoma}"
+respuesta: sintoma
 tipo: completar
 
 enunciado: "El síntoma principal de la quema es la {sintoma} al golpear el metal sobrecalentado."

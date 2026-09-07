@@ -1,6 +1,6 @@
 # Lengua — Subordinada sustantiva de complemento de régimen (teoria)
 
-> Tema del MAPA: `SX7` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SX7` (`troncos.md`). Depende de del nodo `P8` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 En el análisis sintáctico de las oraciones compuestas, a menudo nos encontramos con verbos que no pueden funcionar solos. Muchos de ellos exigen la presencia de una preposición específica para conectar con su complemento directo o indirecto. Cuando esa preposición es obligatoria por naturaleza del verbo, decimos que el verbo rige ese régimen preposicional. Si el elemento que completa esa relación no es una simple palabra, sino una oración entera, entramos en el terreno de la **subordinada sustantiva de complemento de régimen**.
 
-Esta construcción es fundamental porque revela cómo el lenguaje organiza la información compleja. No se trata solo de saber qué hace el sujeto o el verbo, sino de entender qué acciones, estados o ideas dependen de otros elementos mediante nexos preposicionales. En el español rioplatense, estas estructuras son onívoras y aparecen constantemente en la comunicación diaria, tanto en el habla coloquial como en la escrita, permitiendo expresar matices de intención, obligación, preferencia o relación temporal con gran precisión.
+Esta construcción es fundamental porque revela cómo el lenguaje organiza la información compleja. No se trata solo de saber qué hace el sujeto o el verbo, sino de entender qué acciones, estados o ideas dependen de otros elementos mediante nexos preposicionales. En el español rioplatense, estas estructuras son omnipresentes y aparecen constantemente en la comunicación diaria, tanto en el habla coloquial como en la escrita, permitiendo expresar matices de intención, obligación, preferencia o relación temporal con gran precisión.
 
 ## Características y marcadores sintácticos
 

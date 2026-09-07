@@ -67,7 +67,7 @@ variables:
   # Pregunta simple sobre el ángulo de corte necesario.
   angulo_corte: angulo_bisel
 
-respuesta: "{angulo_corte}"
+respuesta: angulo_corte
 tipo: input
 
 enunciado: "Para unir dos perfiles en una esquina de 90° con bisel, ¿a cuántos grados se corta cada extremo?"
@@ -116,7 +116,7 @@ variables:
   # Un marco simple tiene 2 perfiles de alto y 2 de ancho
   total_perfiles: 4
 
-respuesta: "{total_perfiles}"
+respuesta: total_perfiles
 tipo: input
 
 enunciado: "Para armar un marco rectangular simple de una ventana, ¿cuántos perfiles de larguero (2 de alto y 2 de ancho) se necesitan como base?"
@@ -139,7 +139,7 @@ variables:
   holgua_sierra: 2
   largo_corte: largo_necesario - holgua_sierra
 
-respuesta: "{largo_corte}"
+respuesta: largo_corte
 tipo: input
 
 enunciado: "Si necesitas un perfil de {largo_necesario} cm y la sierra quita {holgua_sierra} cm de material por el grosor de la hoja (corte), ¿a qué medida debes marcar el corte para obtener la longitud final correcta?"
@@ -163,7 +163,7 @@ variables:
   # Pregunta conceptual sobre la ergonomía
   respuesta_texto: "fuerza_razonable"
 
-respuesta: "{respuesta_texto}"
+respuesta: respuesta_texto
 tipo: input
 
 enunciado: "La ventana debe ser fácil de operar sin requerir una fuerza excesiva. ¿Qué concepto describe esta característica?"
@@ -188,7 +188,7 @@ variables:
   perimetro_cm: (alto + ancho) * 200 # Convertido a cm si las vars son en m
   perimetro_m: (alto + ancho) * 2
 
-respuesta: "{perimetro_m}"
+respuesta: perimetro_m
 tipo: input
 
 enunciado: "Si una ventana tiene {alto} m de alto y {ancho} m de ancho, ¿cuántos metros lineales de perfil se necesitan para el perímetro exterior?"
@@ -235,7 +235,7 @@ variables:
   tornillos_por_metro: 2
   total_tornillos: largo_m * tornillos_por_metro * 2 # 2 lados
 
-respuesta: "{total_tornillos}"
+respuesta: total_tornillos
 tipo: input
 
 enunciado: "Si se debe fijar el marco al muro con un tornillo cada 50 cm en ambos lados verticales, ¿cuántos tornillos se necesitan para un alto de {largo_m} m?"
@@ -444,7 +444,7 @@ variables:
   ancho: random(80, 120)
   alto: random(100, 140)
 
-respuesta: "{ancho} * {alto}"
+respuesta: ancho + " * " + alto
 tipo: input
 
 enunciado: "Se debe instalar una hoja de vidrio rectangular con {ancho} cm de ancho y {alto} cm de alto. ¿Cuál es el área total del vidrio en cm²?"
@@ -466,7 +466,7 @@ variables:
   largo: random(100, 150)
   ancho: random(80, 120)
 
-respuesta: "2 * {largo} + 2 * {ancho}"
+respuesta: "2 * " + largo + " + 2 * " + ancho
 tipo: input
 
 enunciado: "Para armar el marco rectangular de una ventana, se necesitan perfiles de {largo} cm y {ancho} cm. ¿Cuál es la suma total de longitudes de perfil necesarias para el perímetro?"
@@ -488,7 +488,7 @@ variables:
   num_esquinas: 4
   tornillos_por_esquina: 2
 
-respuesta: "{num_esquinas} * {tornillos_por_esquina}"
+respuesta: num_esquinas + " * " + tornillos_por_esquina
 tipo: input
 
 enunciado: "Para asegurar un marco rectangular de aluminio, se utilizan {tornillos_por_esquina} tornillos autorroscantes por cada una de las {num_esquinas} esquinas. ¿Cuántos tornillos se necesitan en total?"
@@ -510,7 +510,7 @@ variables:
   medida_perfil: 50
   medida_abertura: 52
 
-respuesta: "{medida_abertura} - {medida_perfil}"
+respuesta: medida_abertura + " - " + medida_perfil
 tipo: input
 
 enunciado: "Si un perfil de {medida_perfil} mm entra en una abertura de {medida_abertura} mm, ¿cuál es la holgura resultante en mm?"
@@ -550,7 +550,7 @@ variables:
   longitud_m: random(2, 5)
   peso_por_m: 2.5
 
-respuesta: "{longitud_m} * {peso_por_m}"
+respuesta: longitud_m + " * " + peso_por_m
 tipo: input
 
 enunciado: "Un perfil de aluminio tiene un peso de {peso_por_m} kg/m. Si se utiliza una barra de {longitud_m} metros, ¿cuál es el peso total en kg?"
@@ -573,7 +573,7 @@ variables:
   alto_muro: 120
   espesor_sello: 5
 
-respuesta: "2 * ({ancho_muro} + {alto_muro}) * {espesor_sello}"
+respuesta: "2 * (" + ancho_muro + " + " + alto_muro + ") * " + espesor_sello
 tipo: input
 
 enunciado: "Se aplica sellado en todo el perímetro de un marco de {ancho_muro} cm x {alto_muro} cm. Si el ancho del sello es de {espesor_sello} cm, ¿cuál es el área total de sellado en cm²?"
@@ -613,7 +613,7 @@ variables:
   metros_totales: random(10, 20)
   precio_por_metro: 1500
 
-respuesta: "{metros_totales} * {precio_por_metro}"
+respuesta: metros_totales + " * " + precio_por_metro
 tipo: input
 
 enunciado: "Si se necesitan {metros_totales} metros de perfil de aluminio y el precio es de ${precio_por_metro} por metro, ¿cuál es el costo total?"
@@ -635,7 +635,7 @@ variables:
   angulo_total: 360
   num_esquinas: 4
 
-respuesta: "{angulo_total} / {num_esquinas}"
+respuesta: angulo_total + " / " + num_esquinas
 tipo: input
 
 enunciado: "Para un marco rectangular, si se divide el giro completo de {angulo_total} grados entre las {num_esquinas} esquinas, ¿cuál es el ángulo de corte ideal para cada esquina?"
@@ -675,7 +675,7 @@ variables:
   longitud_esquina: 50
   num_tornillos: 2
 
-respuesta: "{longitud_esquina} / ({num_tornillos} - 1)"
+respuesta: longitud_esquina + " / (" + num_tornillos + " - 1)"
 tipo: input
 
 enunciado: "Si se colocan {num_tornillos} tornillos equidistantes a lo largo de una esquina de {longitud_esquina} cm, ¿cuál es la distancia entre ellos en cm?"

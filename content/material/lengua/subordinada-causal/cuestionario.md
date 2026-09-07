@@ -386,7 +386,7 @@ variables:
   efecto: uno_de(["Cerraron las calles", "Cancelaron el vuelo", "Suspendieron el partido", "Clausuraron el parque"])
   nexo: "ya que"
 
-respuesta: "{efecto} {nexo} {causa}."
+respuesta: efecto + " " + nexo + " " + causa + "."
 tipo: completar
 
 enunciado: "Transformá la relación causal: '{efecto}. La razón fue {causa}.' Usando el nexo '{nexo}'."
@@ -409,7 +409,7 @@ variables:
   nexo: "porque"
   accion: uno_de(["me fui", "me callé", "me quedé", "salí"])
 
-respuesta: "me {accion}"
+respuesta: "me " + accion
 tipo: input
 
 enunciado: "En la oración 'Me {accion} {nexo} {causa}', ¿cuál es la oración principal?"
@@ -431,7 +431,7 @@ variables:
   efecto: "cerró la ventana"
   causa: "estaba lloviendo"
 
-respuesta: "porque {causa}"
+respuesta: "porque " + causa
 tipo: input
 
 enunciado: "Si '{efecto}', ¿cuál es la causa más probable que se podría expresar con 'porque'?"
@@ -522,7 +522,7 @@ variables:
   efecto: uno_de(["estoy cansado", "tengo hambre", "estoy frío", "estoy feliz"])
   causa: uno_de(["trabajé todo el día", "no comí", "hace mucho frío", "recibí una noticia"])
 
-respuesta: "{causa}"
+respuesta: causa
 tipo: input
 
 enunciado: "En 'Estoy cansado {nexo} {causa}', ¿cuál es la causa?"
@@ -567,7 +567,7 @@ variables:
   causa: uno_de(["la falta de recursos", "el cambio de normas", "la urgencia", "la disponibilidad"])
   efecto: uno_de(["se pospuso", "se adaptó", "se aceleró", "se canceló"])
 
-respuesta: "Puesto que {causa}, {efecto}."
+respuesta: "Puesto que " + causa + ", " + efecto + "."
 tipo: completar
 
 enunciado: "Reescribí: '{efecto}. La razón es {causa}.' Usando 'Puesto que'."

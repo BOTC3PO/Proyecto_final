@@ -39,7 +39,7 @@ variables:
   incremento: random(1, 5)
   resultado: base + incremento
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si la justicia ordena las relaciones de poder entre iguales, y consideramos que la 'razón' tiene un peso de {base} puntos y la 'virtud' un peso de {incremento} puntos en la legitimidad aristotélica, ¿cuál es la suma total de estos factores de legitimidad?"
@@ -125,7 +125,7 @@ variables:
   b: random(1, 10)
   resultado: a + b
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si la calidad de la comunicación pública tiene un peso de {a} y la transparencia tiene un peso de {b} en la legitimidad habermasiana, ¿cuál es la suma de estos factores?"
@@ -211,7 +211,7 @@ variables:
   b: random(1, 10)
   resultado: a * b
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si la libertad de expresión tiene un valor de {a} y la ausencia de coerción tiene un valor de {b} en la esfera pública, ¿cuál es el producto de estos valores en la legitimidad?"
@@ -297,7 +297,7 @@ variables:
   b: random(1, 10)
   resultado: a + b
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si el poder gestiona la diversidad de intereses (valor {a}) y la diversidad de valores (valor {b}), ¿cuál es la suma total de factores gestionados?"

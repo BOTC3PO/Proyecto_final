@@ -19,7 +19,7 @@ variables:
   area_cm2: ancho_cm * alto_cm
   area_m2: redondear(area_cm2 / 10000, 2)
 
-respuesta: "{area_m2}"
+respuesta: area_m2
 tipo: input
 
 enunciado: "Se debe reemplazar un vidrio rectangular de {ancho_cm} cm de ancho por {alto_cm} cm de alto. ¿Cuál es el área en metros cuadrados? (Redondear a 2 decimales)"
@@ -66,7 +66,7 @@ variables:
   total_cm: largo_cm * piezas
   total_m: redondear(total_cm / 100, 2)
 
-respuesta: "{total_m}"
+respuesta: total_m
 tipo: input
 
 enunciado: "Se necesitan {piezas} tramos de perfil de {largo_cm} cm cada uno. ¿Cuál es la longitud total en metros?"
@@ -115,7 +115,7 @@ variables:
   largo_total_cm: (ancho_cm * perfiles_horizontales) + (alto_cm * perfiles_verticales)
   largo_total_m: redondear(largo_total_cm / 100, 2)
 
-respuesta: "{largo_total_m}"
+respuesta: largo_total_m
 tipo: input
 
 enunciado: "Para un marco rectangular de {ancho_cm} cm x {alto_cm} cm, ¿cuántos metros lineales de perfil se necesitan para los cuatro lados?"
@@ -162,7 +162,7 @@ variables:
   area_m2: (ancho_cm * alto_cm) / 10000
   peso_kg: redondear(area_m2 * 25 * espesor_mm / 4, 1)
 
-respuesta: "{peso_kg}"
+respuesta: peso_kg
 tipo: input
 
 enunciado: "Un vidrio de {ancho_cm} cm x {alto_cm} cm con espesor de {espesor_mm} mm. ¿Cuál es su peso aproximado en kg? (Factor: 25 kg/m2 por mm de espesor)"
@@ -208,7 +208,7 @@ variables:
   perimetro_cm: 2 * (ancho_cm + alto_cm)
   perimetro_m: redondear(perimetro_cm / 100, 2)
 
-respuesta: "{perimetro_m}"
+respuesta: perimetro_m
 tipo: input
 
 enunciado: "Para un marco de {ancho_cm} cm x {alto_cm} cm, ¿cuál es el perímetro en metros?"
@@ -253,7 +253,7 @@ variables:
   largo_junta_m: 1.0
   cantidad_juntas: ceil(perimetro_m / largo_junta_m)
 
-respuesta: "{cantidad_juntas}"
+respuesta: cantidad_juntas
 tipo: input
 
 enunciado: "Para un perímetro de {perimetro_m} m, ¿cuántas juntas de goma de 1 metro se necesitan como mínimo?"

@@ -1,6 +1,6 @@
 # Lengua — subordinada sustantiva de complemento de un adjetivo (cuestionario, 36 preguntas VBLang)
 
-> Tema: `lengua/subordinada-sustantiva-de-complemento-de-un-adjetivo`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-sustantiva-de-complemento-de-un-adjetivo`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -15,10 +15,6 @@ metadata:
 
 variables:
   adj: uno_de(["seguro", "consciente", "orgulloso", "temeroso"])
-  prep: uno_de(["de", "de", "de", "por"]) 
-  # Nota: 'seguro' y 'consciente' y 'temeroso' usan 'de'. 'orgulloso' usa 'de'.
-  # Para variar, usaremos un mapeo lógico o simplemente asumimos que la pregunta pide la preposición estándar.
-  # Reajustamos para que la respuesta sea determinista basada en la elección del adjetivo común.
 
 respuesta: "de"
 
@@ -213,8 +209,8 @@ metadata:
   tags: ["funcion", "basico"]
 
 variables:
-  adj: uno_de(["alegre", "miedo"])
-  prep: uno_de(["de", "por"])
+  adj: uno_de(["alegre", "contento", "conforme"])
+  prep: "de"
 
 respuesta: "complemento del adjetivo"
 tipo: input
@@ -234,13 +230,13 @@ metadata:
   nivel: "basico"
   tags: ["reglas", "basico"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "Es correcto decir 'Estoy seguro que vendrás' en un registro formal culto, omitiendo la preposición."
 
 explicacion: |
-  Falso. En registro formal, la preposición es obligatoria: 'Estoy seguro DE que vendrás'. Omitirla puede considerarse incorrecto o coloquial.
+  Falso. En registro formal, la preposición es obligatoria: 'Estoy seguro DE que vendrás'. Omitirla (queísmo) puede considerarse incorrecto o coloquial.
 ```
 
 ### 12 — pregunta 12
@@ -317,10 +313,10 @@ respuesta: "complemento del adjetivo"
 tipo: mc
 opciones_explicitas: ["sujeto", "complemento directo", "complemento del adjetivo", "complemento circunstancial"]
 
-enunciado: "En 'Me alegra de que estés bien', la subordinada 'de que estés bien' es:"
+enunciado: "En 'Estoy alegre de que estés bien', la subordinada 'de que estés bien' es:"
 
 explicacion: |
-  Aunque 'alegra' es verbo, la estructura 'estar alegre de que...' (o similar con adjetivos) hace que funcione como complemento del adjetivo si analizamos el adjetivo como núcleo. Nota: En 'Me alegra...', 'alegra' es verbo. Mejor ejemplo: 'Estoy alegre de que estés bien'. Aquí 'de que estés bien' es complemento del adjetivo 'alegre'.
+  'De que estés bien' completa al adjetivo 'alegre', indicando la causa de la alegría: es complemento del adjetivo.
 ```
 
 ### 16 — pregunta 16
@@ -360,7 +356,7 @@ tipo: vf
 enunciado: "La subordinada sustantiva de complemento de un adjetivo puede estar introducida por un infinitivo."
 
 explicacion: |
-  Verdadero. Ejemplo: 'Es bueno para la salud comer verduras'. Aquí 'para comer verduras' (o similar estructuras) puede funcionar, aunque más común es 'de + que'. Ejemplo claro: 'Estoy dispuesto a ayudarte'. 'A ayudarte' es infinitiva, pero en adjetivos como 'capaz', 'dispuesto', etc., la estructura varía. Sin embargo, la teoría dice que puede ser introducida por 'que', 'si' o infinitivo.
+  Verdadero. Ejemplo: 'Estoy dispuesto a ayudarte' — 'a ayudarte' es una subordinada de infinitivo que completa al adjetivo 'dispuesto', igual que 'a que me ayuden' lo haría con 'que' + subjuntivo.
 ```
 
 ### 18 — pregunta 18
@@ -418,7 +414,7 @@ variables:
   adj: uno_de(["temeroso", "temeroso"])
   prep: "de"
 
-respuesta: "{adj}"
+respuesta: adj
 tipo: input
 
 enunciado: "En 'Estoy {adj} de que llueva', ¿cuál es el adjetivo que rige la subordinada?"
@@ -556,10 +552,10 @@ respuesta: "por"
 tipo: mc
 opciones_explicitas: ["de", "por", "a", "en"]
 
-enunciado: "¿Qué preposición rige el adjetivo 'grato' en 'Me resulta grato por que...'?"
+enunciado: "¿Qué preposición rige el adjetivo 'preocupado' en 'Estoy preocupado por que llegues bien'?"
 
 explicacion: |
-  El adjetivo 'grato' puede regir la preposición 'por' para indicar la causa.
+  El adjetivo 'preocupado' rige la preposición 'por' para indicar la causa de la preocupación.
 ```
 
 ### 28 — pregunta 28
@@ -596,7 +592,7 @@ variables:
   adj: uno_de(["temeroso", "temeroso"])
   prep: "de"
 
-respuesta: "{adj}"
+respuesta: adj
 tipo: input
 
 enunciado: "En 'Estoy {adj} de que...', ¿cuál es el adjetivo?"
@@ -695,7 +691,7 @@ variables:
   adj: uno_de(["contento", "conforme"])
   prep: "de"
 
-respuesta: "{adj}"
+respuesta: adj
 tipo: input
 
 enunciado: "En 'Estoy {adj} de que todo esté bien', ¿cuál es el adjetivo?"

@@ -122,7 +122,7 @@ variables:
   margen_min: 1
   margen_max: 2
 
-respuesta: "{margen_min} a {margen_max}"
+respuesta: margen_min + " a " + margen_max
 tipo: completar
 
 enunciado: "Para que la costura sea resistente, es necesario dejar un margen de costura adecuado, generalmente de {margen_min} a {margen_max} centímetros."
@@ -187,7 +187,7 @@ variables:
   costo_2: "francesa"
   costo_3: "sobrehilvanada"
 
-respuesta: "{costo_1}, {costo_2} y {costo_3}"
+respuesta: costo_1 + ", " + costo_2 + " y " + costo_3
 tipo: completar
 
 enunciado: "Las costuras más utilizadas en la enseñanza básica son la costura {costo_1}, la costura {costo_2} y la {costo_3}."
@@ -209,7 +209,7 @@ variables:
   tela_1: "algodon"
   tela_2: "lino"
 
-respuesta: "{tela_1} y {tela_2}"
+respuesta: tela_1 + " y " + tela_2
 tipo: completar
 
 enunciado: "En la confección argentina, es común utilizar telas de {tela_1}, {tela_2} o mezclas sintéticas para prendas de uso diario."
@@ -230,7 +230,7 @@ metadata:
 variables:
   resultado: "ajuste"
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: completar
 
 enunciado: "El patrón actúa como guía exacta para que, al unir las piezas, la prenda tenga la estructura y el {resultado} deseado."
@@ -251,7 +251,7 @@ metadata:
 variables:
   vital: "vital"
 
-respuesta: "{vital}"
+respuesta: vital
 tipo: completar
 
 enunciado: "Respetar el sentido del tejido es {vital} para la caída natural de la prenda."
@@ -272,7 +272,7 @@ metadata:
 variables:
   herramienta_alt: "pesas"
 
-respuesta: "{herramienta_alt}"
+respuesta: herramienta_alt
 tipo: completar
 
 enunciado: "Además de los alfileres, se pueden usar {herramienta_alt} especiales para fijar los patrones sin dañar la tela."
@@ -293,7 +293,7 @@ metadata:
 variables:
   caracteristica: "interior"
 
-respuesta: "limpio por el {caracteristica}"
+respuesta: "limpio por el " + caracteristica
 tipo: completar
 
 enunciado: "La costura francesa se utiliza comúnmente porque deja un acabado {caracteristica} limpio por el interior."
@@ -314,7 +314,7 @@ metadata:
 variables:
   funcion: "evitar"
 
-respuesta: "{funcion}"
+respuesta: funcion
 tipo: completar
 
 enunciado: "La costura sobrehilvanada se usa para el remate de los bordes con el fin de {funcion} que la tela se deshilache."
@@ -335,7 +335,7 @@ metadata:
 variables:
   tipo_acabado: "decorativos"
 
-respuesta: "{tipo_acabado}"
+respuesta: tipo_acabado
 tipo: completar
 
 enunciado: "En la moda local, es común ver acabados visibles que forman parte del diseño, como costuras {tipo_acabado}."
@@ -356,7 +356,7 @@ metadata:
 variables:
   factor: "tipo"
 
-respuesta: "{factor}"
+respuesta: factor
 tipo: completar
 
 enunciado: "El margen de costura adecuado depende del {factor} de tela y la máquina utilizada."
@@ -377,7 +377,7 @@ metadata:
 variables:
   descripcion: "continua"
 
-respuesta: "{descripcion}"
+respuesta: descripcion
 tipo: completar
 
 enunciado: "La costura recta se caracteriza por unir las piezas con una línea de puntadas {descripcion}."
@@ -398,7 +398,7 @@ metadata:
 variables:
   objetivo: "volumen"
 
-respuesta: "{objetivo}"
+respuesta: objetivo
 tipo: completar
 
 enunciado: "Unir los hombros y los laterales permite dar {objetivo} a la prenda."
@@ -419,7 +419,7 @@ metadata:
 variables:
   accion: "remate"
 
-respuesta: "{accion}"
+respuesta: accion
 tipo: completar
 
 enunciado: "Los acabados incluyen el {accion} de los bordes para evitar que la tela se deshilache."
@@ -441,7 +441,7 @@ variables:
   paso_1: "primero"
   paso_2: "siguiente"
 
-respuesta: "{paso_1}, {paso_2}"
+respuesta: paso_1 + ", " + paso_2
 tipo: completar
 
 enunciado: "El patronaje es el {paso_1} paso, y el corte de la tela es el {paso_2} paso crítico."
@@ -462,7 +462,7 @@ metadata:
 variables:
   determinante: "acabados"
 
-respuesta: "{determinante}"
+respuesta: determinante
 tipo: completar
 
 enunciado: "Los {determinante} definen la calidad percibida de la prenda por el usuario final."
@@ -483,7 +483,7 @@ metadata:
 variables:
   factor_durabilidad: "acabados"
 
-respuesta: "{factor_durabilidad}"
+respuesta: factor_durabilidad
 tipo: completar
 
 enunciado: "Los {factor_durabilidad} también contribuyen directamente a la durabilidad de la prenda."
@@ -504,7 +504,7 @@ metadata:
 variables:
   accion: "unir"
 
-respuesta: "{accion}"
+respuesta: accion
 tipo: completar
 
 enunciado: "El ensamble es el proceso de {accion} todas las piezas cortadas siguiendo un orden lógico."

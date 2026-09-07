@@ -191,15 +191,15 @@ variables:
   f_a: -random(10, 20)
   f_b: random(10, 20)
 
-respuesta: "({a}, {b})"
+respuesta: "(" + a + ", " + b + ")"
 tipo: completar
 
 enunciado: "Si $f$ es continua, $f({a}) = {f_a}$ y $f({b}) = {f_b}$, el cero $c$ se encuentra en el intervalo abierto _______."
 
 respuestas_validas:
-  - "({a}, {b})"
-  - "({b}, {a})"
-  - "entre {a} y {b}"
+  - "(" + a + ", " + b + ")"
+  - "(" + b + ", " + a + ")"
+  - "entre " + a + " y " + b
 
 explicacion: |
   El teorema garantiza que $c$ está estrictamente entre $a$ y $b$, es decir, $c \in (a, b)$.
@@ -453,7 +453,7 @@ enunciado: "La continuidad debe verificarse en el intervalo _______ $[{a}, {b}]$
 respuestas_validas:
   - "cerrado"
   - "cerrado ["
-  - "[{a}, {b}]"
+  - "[" + a + ", " + b + "]"
 
 explicacion: |
   El teorema exige continuidad en el intervalo cerrado $[a, b]$, incluyendo los extremos.

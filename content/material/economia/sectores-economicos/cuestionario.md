@@ -68,7 +68,7 @@ variables:
     si etapa == "industrial" entonces "secundario"
     si etapa == "postindustrial" entonces "terciario"
 
-respuesta: "{sector_dominante}"
+respuesta: sector_dominante
 tipo: input
 
 enunciado: "En la etapa de {etapa}, el sector económico con mayor peso en el empleo y el PIB suele ser el sector {sector_dominante}."
@@ -202,7 +202,7 @@ variables:
     si actividad == "construcción de puentes" entonces "secundario"
     si actividad == "enseñanza universitaria" entonces "terciario"
 
-respuesta: "{sector_correcto}"
+respuesta: sector_correcto
 tipo: input
 
 enunciado: "La actividad '{actividad}' corresponde al sector:"

@@ -368,7 +368,7 @@ tipo: mc
 opciones_explicitas:
   - "Infinito (crece sin límite)"
   - "0"
-  - "{a}"
+  - a
 
 enunciado: "lim(x→∞) [{a}x² + 3x − 7]. ¿Qué pasa con este límite?"
 

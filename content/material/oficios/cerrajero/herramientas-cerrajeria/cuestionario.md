@@ -258,7 +258,7 @@ metadata:
 variables:
   perfiles: random(2, 5)
 
-respuesta: "{perfiles}"
+respuesta: perfiles
 tipo: input
 
 enunciado: "Si un cerrajero atiende {perfiles} tipos distintos de cilindros (europeo, chino, etc.) y necesita al menos una punta de extractor por cada perfil, ¿cuántas puntas mínimas debe tener en su kit?"
@@ -412,7 +412,7 @@ metadata:
 variables:
   perfiles: random(3, 6)
 
-respuesta: "{perfiles}"
+respuesta: perfiles
 tipo: input
 
 enunciado: "Si un cerrajero necesita cubrir {perfiles} perfiles de cilindros distintos y tiene una punta por cada perfil, ¿cuántas puntas tiene?"
@@ -480,7 +480,7 @@ metadata:
 variables:
   perfiles: random(2, 4)
 
-respuesta: "{perfiles}"
+respuesta: perfiles
 tipo: input
 
 enunciado: "Si un cerrajero atiende {perfiles} tipos de cilindros y tiene una punta por cada uno, ¿cuántas puntas tiene en total?"

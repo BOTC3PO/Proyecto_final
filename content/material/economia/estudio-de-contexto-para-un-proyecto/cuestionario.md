@@ -73,7 +73,7 @@ metadata:
 variables:
   actor: uno_de(["clientes", "proveedores", "competidores"])
 
-respuesta: "{actor}"
+respuesta: actor
 tipo: input
 
 enunciado: "Menciona un actor clave del microentorno que define la viabilidad del producto o servicio: {actor}."

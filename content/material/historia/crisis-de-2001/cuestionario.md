@@ -18,7 +18,7 @@ variables:
   mes: 12
   anio: 2001
 
-respuesta: "{dia}/{mes}/{anio}"
+respuesta: dia + "/" + mes + "/" + anio
 tipo: input
 
 enunciado: "¿En qué fecha (dd/mm/aaaa) se decretó el Corralito?"

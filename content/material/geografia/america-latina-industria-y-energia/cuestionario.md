@@ -272,7 +272,7 @@ variables:
   industria: "siderúrgica y de aluminio"
   requisito: "grandes cantidades de electricidad"
 
-respuesta: "{requisito}"
+respuesta: requisito
 tipo: completar
 
 enunciado: "La instalación de industrias {industria} en países como Brasil y Paraguay ha sido posible gracias al acceso a grandes saltos de agua que permiten generar {requisito}."
@@ -294,7 +294,7 @@ variables:
   pais: uno_de(["Venezuela", "Argentina", "Brasil"])
   industria: "petroquímica"
 
-respuesta: "{industria}"
+respuesta: industria
 tipo: completar
 
 enunciado: "La presencia de grandes reservas de hidrocarburos en {pais} ha moldeado el desarrollo de la industria {industria} regional, permitiendo la producción de derivados del petróleo."
@@ -316,7 +316,7 @@ variables:
   proceso: "transformar recursos en valor agregado"
   factor: "procesos industriales intensivos en energía"
 
-respuesta: "{factor}"
+respuesta: factor
 tipo: completar
 
 enunciado: "El desafío actual de América Latina es {proceso} mediante {factor}, pasando de ser un proveedor exclusivo de materias primas a un actor industrial relevante."
@@ -360,7 +360,7 @@ variables:
   requisito: "precios competitivos"
   resultado: "atraer inversiones"
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: completar
 
 enunciado: "Sin acceso a fuentes de energía confiables y a {requisito}, es imposible {resultado} industriales que compitan en el mercado mundial."
@@ -382,7 +382,7 @@ variables:
   fenomeno: "deslocalización"
   consecuencia: "zonas francas"
 
-respuesta: "{consecuencia}"
+respuesta: consecuencia
 tipo: completar
 
 enunciado: "La {fenomeno} de empresas ha tenido un impacto dual, fomentando la instalación de maquiladoras y {consecuencia} en la región."
@@ -404,7 +404,7 @@ variables:
   tipo1: "solar"
   tipo2: "eólica"
 
-respuesta: "{tipo1} y {tipo2}"
+respuesta: tipo1 + " y " + tipo2
 tipo: completar
 
 enunciado: "Más recientemente, los centros de desarrollo industrial se han concentrado en áreas con potencial para energías renovables como la {tipo1} y la {tipo2}."
@@ -426,7 +426,7 @@ variables:
   condicion: "dependencia de cadenas de suministro externas"
   requisito: "matriz energética robusta"
 
-respuesta: "{requisito}"
+respuesta: requisito
 tipo: completar
 
 enunciado: "La deslocalización genera {condicion} que requiere una {requisito} y competitiva para ser sostenible."
@@ -448,7 +448,7 @@ variables:
   industria: "siderúrgica"
   recurso: "grandes saltos de agua"
 
-respuesta: "{recurso}"
+respuesta: recurso
 tipo: completar
 
 enunciado: "La generación hidroeléctrica ha sido fundamental para el desarrollo industrial de países como Brasil y Paraguay, permitiendo la instalación de industrias {industria} gracias al acceso a {recurso}."
@@ -470,7 +470,7 @@ variables:
   evento: "sequías prolongadas"
   consecuencia: "racionamiento eléctrico"
 
-respuesta: "{consecuencia}"
+respuesta: consecuencia
 tipo: completar
 
 enunciado: "La dependencia de la hidroelectricidad expone a la región a la vulnerabilidad climática; {evento} pueden paralizar la producción industrial, como se ha observado en episodios recientes de {consecuencia}."
@@ -492,7 +492,7 @@ variables:
   pasado: "proveedor exclusivo de materias primas"
   presente: "actor industrial relevante"
 
-respuesta: "{presente}"
+respuesta: presente
 tipo: completar
 
 enunciado: "América Latina ha transitado un camino complejo, pasando de ser un {pasado} a intentar posicionarse como un {presente}."
@@ -514,7 +514,7 @@ variables:
   rol: "factor habilitante crítico"
   condición: "acceso a fuentes confiables"
 
-respuesta: "{rol}"
+respuesta: rol
 tipo: completar
 
 enunciado: "En este contexto, la energía actúa como el {rol}. Sin {condición} y a precios competitivos, es imposible atraer inversiones industriales."
@@ -558,7 +558,7 @@ variables:
   positivo: "fomentado la instalación de maquiladoras"
   negativo: "dependencia de cadenas externas"
 
-respuesta: "{negativo}"
+respuesta: negativo
 tipo: completar
 
 enunciado: "El impacto de la deslocalización ha sido dual: por un lado, {positivo}; por otro, ha generado {negativo}."
@@ -580,7 +580,7 @@ variables:
   ventaja: "ventaja comparativa histórica"
   recurso: "recursos naturales"
 
-respuesta: "{recurso}"
+respuesta: recurso
 tipo: completar
 
 enunciado: "La región posee una {ventaja} en {recurso}, pero su desafío actual radica en cómo transformarlos en valor agregado."
@@ -625,7 +625,7 @@ variables:
   característica: "predominantemente renovable"
   oportunidad: "oportunidad estratégica"
 
-respuesta: "{oportunidad}"
+respuesta: oportunidad
 tipo: completar
 
 enunciado: "La matriz energética de América Latina es {característica}, lo que constituye una {oportunidad} en un mundo que busca descarbonizar su economía."
@@ -648,7 +648,7 @@ variables:
   acción: "trasladan su producción"
   motivo: "menores costos operativos"
 
-respuesta: "{motivo}"
+respuesta: motivo
 tipo: completar
 
 enunciado: "La {sujeto} {acción} a países con {motivo}, fenómeno conocido como deslocalización."
@@ -670,7 +670,7 @@ variables:
   industria: "aluminio"
   requisito: "grandes cantidades de electricidad"
 
-respuesta: "{requisito}"
+respuesta: requisito
 tipo: completar
 
 enunciado: "La generación hidroeléctrica ha permitido la instalación de industrias de {industria} que requieren {requisito}."
@@ -692,7 +692,7 @@ variables:
   causa: "dependencia de la hidroelectricidad"
   efecto: "vulnerabilidad climática"
 
-respuesta: "{efecto}"
+respuesta: efecto
 tipo: completar
 
 enunciado: "La {causa} expone a la región a la {efecto}; sequías prolongadas pueden paralizar la producción industrial."
@@ -714,7 +714,7 @@ variables:
   sector: "tecnológicos y de servicios avanzados"
   estructura: "agroindustria y minería"
 
-respuesta: "{estructura}"
+respuesta: estructura
 tipo: completar
 
 enunciado: "Mientras algunos países han logrado desarrollar sectores {sector}, otros mantienen una estructura productiva basada en {estructura}."
@@ -736,7 +736,7 @@ variables:
   requisito: "precios competitivos"
   resultado: "atraer inversiones industriales"
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: completar
 
 enunciado: "Sin acceso a fuentes de energía confiables y a {requisito}, es imposible {resultado} que compitan en el mercado mundial."
@@ -758,7 +758,7 @@ variables:
   tipo1: "maquiladoras"
   tipo2: "zonas francas"
 
-respuesta: "{tipo2}"
+respuesta: tipo2
 tipo: completar
 
 enunciado: "La deslocalización ha fomentado la instalación de {tipo1} y {tipo2} en la región."
@@ -780,7 +780,7 @@ variables:
   acción: "transformar recursos en valor agregado"
   medio: "procesos industriales intensivos en energía"
 
-respuesta: "{medio}"
+respuesta: medio
 tipo: completar
 
 enunciado: "El desafío actual radica en {acción} mediante {medio}."

@@ -35,7 +35,7 @@ variables:
   nombre: uno_de(["María", "Pedro", "Lucía"])
   verbo: uno_de(["dijo", "comentó", "afirmó"])
 
-respuesta: "El {nombre} {verbo} que estaba lloviendo."
+respuesta: "El " + nombre + " " + verbo + " que estaba lloviendo."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: '{nombre} dijo: —Está lloviendo.'"
@@ -93,7 +93,7 @@ variables:
   sujeto: uno_de(["Ella", "Ellos"])
   accion: uno_de(["vino", "llegaron"])
 
-respuesta: "El profesor dijo que {sujeto} {accion} tarde."
+respuesta: "El profesor dijo que " + sujeto + " " + accion + " tarde."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'El profesor dijo: —{sujeto} {accion} tarde.'"
@@ -114,7 +114,7 @@ metadata:
 variables:
   lugar: uno_de(["a la escuela", "al parque", "en casa"])
 
-respuesta: "Me preguntó si iba a {lugar}."
+respuesta: "Me preguntó si iba a " + lugar + "."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Me preguntó: —¿Vas a {lugar}?'"
@@ -154,7 +154,7 @@ variables:
   verbo: uno_de(["canto", "baila", "corro"])
   sujeto: uno_de(["él", "ella"])
 
-respuesta: "Dijo que {sujeto} {verbo} bien."
+respuesta: "Dijo que " + sujeto + " " + verbo + " bien."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Dijo: —{sujeto} {verbo} bien.'"
@@ -175,7 +175,7 @@ metadata:
 variables:
   accion: uno_de(["viajaré", "comeré", "dormiré"])
 
-respuesta: "Afirmó que {accion} mañana."
+respuesta: "Afirmó que " + accion + " mañana."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Afirmó: —{accion} mañana.'"
@@ -214,7 +214,7 @@ metadata:
 variables:
   accion: uno_de(["había comido", "había salido"])
 
-respuesta: "Me contó que {accion} antes."
+respuesta: "Me contó que " + accion + " antes."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Me contó: —Ya {accion} antes.'"
@@ -235,7 +235,7 @@ metadata:
 variables:
   orden: uno_de(["ven", "sal", "calla"])
 
-respuesta: "Me mandó que {orden}."
+respuesta: "Me mandó que " + orden + "."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Me mandó: —¡{orden}!'"
@@ -274,7 +274,7 @@ metadata:
 variables:
   duda: uno_de(["no sé", "desconfío", "me pregunto"])
 
-respuesta: "Dijo que {duda}."
+respuesta: "Dijo que " + duda + "."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Dijo: —{duda} si viene.'"
@@ -314,7 +314,7 @@ variables:
   objeto: uno_de(["este", "ese"])
   sustantivo: uno_de(["libro", "caso", "problema"])
 
-respuesta: "Dijo que {objeto} {sustantivo} era importante."
+respuesta: "Dijo que " + objeto + " " + sustantivo + " era importante."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Dijo: —{objeto} {sustantivo} es importante.'"
@@ -353,7 +353,7 @@ metadata:
 variables:
   emocion: uno_de(["qué alegría", "qué dolor", "qué sorpresa"])
 
-respuesta: "Exclamó que {emocion}."
+respuesta: "Exclamó que " + emocion + "."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Exclamó: —¡{emocion}!'"
@@ -392,7 +392,7 @@ metadata:
 variables:
   accion: uno_de(["trabaja", "estudia", "vive"])
 
-respuesta: "Dice que {accion} aquí."
+respuesta: "Dice que " + accion + " aquí."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Dice: —{accion} aquí.'"
@@ -431,7 +431,7 @@ metadata:
 variables:
   adverbio: uno_de(["ahora", "hoy", "mañana"])
 
-respuesta: "Dijo que {adverbio} era difícil."
+respuesta: "Dijo que " + adverbio + " era difícil."
 tipo: completar
 
 enunciado: "Transformá al estilo indirecto: 'Dijo: —{adverbio} es difícil.'"

@@ -58,7 +58,7 @@ metadata:
 variables:
   metrica: "rendimiento por unidad de superficie"
 
-respuesta: "{metrica}"
+respuesta: metrica
 tipo: completar
 
 enunciado: "En la geografía económica actual, la agricultura se mide menos por la extensión de tierras y más por la capacidad de generar {metrica}."
@@ -100,7 +100,7 @@ metadata:
 variables:
   efecto: "pueden ahora producir cultivos rentables"
 
-respuesta: "{efecto}"
+respuesta: efecto
 tipo: completar
 
 enunciado: "Gracias a la biotecnología, regiones con suelos salinos o propensas a sequías que antes eran marginales {efecto}, alterando los flujos comerciales."
@@ -163,7 +163,7 @@ metadata:
 variables:
   cambio: "se han convertido en grandes exportadores"
 
-respuesta: "{cambio}"
+respuesta: cambio
 tipo: completar
 
 enunciado: "Países que antes importaban granos básicos {cambio} gracias a la adopción masiva de semillas modificadas genéticamente."
@@ -184,7 +184,7 @@ metadata:
 variables:
   factor: "intereses corporativos globales"
 
-respuesta: "{factor}"
+respuesta: factor
 tipo: completar
 
 enunciado: "Las decisiones sobre qué y dónde se cultiva están cada vez más influenciadas por {factor} y no solo por las condiciones naturales locales."
@@ -205,7 +205,7 @@ metadata:
 variables:
   concepto: "nueva división internacional del trabajo agrario"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: completar
 
 enunciado: "La biotecnología ha creado una {concepto}, diferenciando a los productores de tecnología de los consumidores de insumos."
@@ -247,7 +247,7 @@ metadata:
 variables:
   tendencia: "se reducen los recursos naturales disponibles"
 
-respuesta: "{tendencia}"
+respuesta: tendencia
 tipo: completar
 
 enunciado: "La intensificación tecnológica responde a la necesidad de alimentar a la población mientras {tendencia}."
@@ -289,7 +289,7 @@ metadata:
 variables:
   entidad: "empresas que patentan"
 
-respuesta: "{entidad}"
+respuesta: entidad
 tipo: completar
 
 enunciado: "La concentración tecnológica ha generado debates sobre la dependencia de las {entidad} de estas tecnologías."
@@ -331,7 +331,7 @@ metadata:
 variables:
   motor: "biotecnología"
 
-respuesta: "{motor}"
+respuesta: motor
 tipo: completar
 
 enunciado: "La {motor} se ha convertido en el motor principal de la transformación del campo global hacia la intensificación tecnológica."
@@ -373,7 +373,7 @@ metadata:
 variables:
   recurso: "recursos naturales"
 
-respuesta: "{recurso}"
+respuesta: recurso
 tipo: completar
 
 enunciado: "La transformación agraria responde a la necesidad de alimentar a la población mientras se reducen los {recurso} disponibles."
@@ -415,7 +415,7 @@ metadata:
 variables:
   condicion: "condiciones naturales locales"
 
-respuesta: "{condicion}"
+respuesta: condicion
 tipo: completar
 
 enunciado: "Las decisiones sobre qué se cultiva están influenciadas por intereses corporativos y no solo por las {condicion}."

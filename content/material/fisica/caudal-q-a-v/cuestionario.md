@@ -520,7 +520,7 @@ pasos:
   - "Realizar la división."
 
 respuestas_validas:
-  - "{velocidad_correcta}"
+  - velocidad_correcta
 
 explicacion: |
   Usando v = Q / A:

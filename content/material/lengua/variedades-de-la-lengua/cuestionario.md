@@ -356,18 +356,16 @@ metadata:
   tags: ["lecto", "identidad", "sociolecto"]
 
 variables:
-  grupo: uno_de(["adolescentes en Buenos Aires", "adultos mayores en Córdoba", "trabajadores históricos porteños"])
-  factor_determinante: uno_de(["edad", "región", "clase social"])
+  pares: [["adolescentes en Buenos Aires", "edad"], ["adultos mayores en Córdoba", "región"], ["trabajadores históricos porteños", "clase social"]]
+  idx: uno_de([0, 1, 2])
+  grupo: pares[idx][0]
+  factor_determinante: pares[idx][1]
 
-respuesta: "{grupo} se define principalmente por su {factor_determinante}."
+respuesta: grupo + " se definen principalmente por su " + factor_determinante + "."
 tipo: completar
 
 enunciado: "Completa la frase: Los {grupo} se definen principalmente por su {factor_determinante}."
 
-respuestas_validas:
-  - "adolescentes en Buenos Aires se definen principalmente por su edad."
-  - "adultos mayores en Córdoba se definen principalmente por su región."
-  - "trabajadores históricos porteños se definen principalmente por su clase social."
 explicacion: |
   Los lectos son variedades sociolectales determinadas por factores como la edad, la región o la clase social, funcionando como marcadores de identidad.
 ```
@@ -403,19 +401,18 @@ metadata:
   tags: ["error", "inadecuacion"]
 
 variables:
-  situacion: uno_de(["usar registro informal en un examen", "usar registro formal con amigos"])
-  consecuencia: uno_de(["error comunicativo", "generar distancia"])
+  pares: [["usar registro informal en un examen", "error comunicativo"], ["usar registro formal con amigos", "generador de distancia"]]
+  idx: uno_de([0, 1])
+  situacion: pares[idx][0]
+  consecuencia: pares[idx][1]
 
-respuesta: "{situacion} es un {consecuencia}."
+respuesta: situacion + " es un " + consecuencia + "."
 tipo: completar
 
 enunciado: "Completa: '{situacion}' es un '{consecuencia}'."
 
-respuestas_validas:
-  - "usar registro informal en un examen es un error comunicativo."
-  - "usar registro formal con amigos es un generar distancia."
 explicacion: |
-  Usar el registro informal en un examen es un error comunicativo. Usar uno excesivamente formal con amigos puede generar distancia.
+  Usar el registro informal en un examen es un error comunicativo. Usar uno excesivamente formal con amigos puede ser un generador de distancia.
 ```
 
 ### 23 — pregunta 23

@@ -63,7 +63,7 @@ variables:
   accion: uno_de(["anuncia", "promete", "niega", "confirma"])
   hecho: uno_de(["los cambios", "la reunión", "el resultado", "la fecha"])
 
-respuesta: "{accion}"
+respuesta: accion
 tipo: input
 
 enunciado: "En la oración '{sujeto} {accion} {hecho}', ¿cuál es el verbo principal que rige al complemento directo? Escribí el verbo."
@@ -131,7 +131,7 @@ variables:
   verbo2: uno_de(["acuerdarse", "olvidarse", "recordar", "pensar"])
   contenido: uno_de(["que viene", "que lo hizo", "que es tarde", "que gane"])
 
-respuesta: "{verbo1}"
+respuesta: verbo1
 tipo: input
 
 enunciado: "De los siguientes verbos, ¿cuál NO exige preposición antes de una subordinada sustantiva de complemento directo típica con 'que'? Opciones: '{verbo1}' o 'acordarse de'. Escribí el verbo correcto."
@@ -200,7 +200,7 @@ variables:
   accion: uno_de(["confirmó", "negó", "sugirió", "recordó"])
   hecho: uno_de(["la reunión", "el error", "la fecha", "el detalle"])
 
-respuesta: "{accion}"
+respuesta: accion
 tipo: input
 
 enunciado: "En la oración '{persona} {accion} {hecho}', ¿qué verbo es el principal que rige al sustantivo '{hecho}'? Escribí el verbo."
@@ -246,7 +246,7 @@ variables:
   v2: uno_de(["está", "parece", "va", "corre"])
   contenido: uno_de(["que viene", "que hace", "que lo sabe", "que gane"])
 
-respuesta: "{v2}"
+respuesta: v2
 tipo: input
 
 enunciado: "De los verbos '{v1}' y '{v2}', ¿cuál NO puede regir directamente una subordinada sustantiva de complemento directo con 'que' en el sentido de 'informar/opinar'? Escribí el verbo."
@@ -292,7 +292,7 @@ variables:
   contenido: uno_de(["que lo hizo", "que no vino", "que fue tarde", "que lo dijo"])
   preposicion: "de"
 
-respuesta: "{preposicion}"
+respuesta: preposicion
 tipo: input
 
 enunciado: "El verbo '{verbo}' requiere una preposición antes de la subordinada. ¿Cuál es? Escribí la preposición."
@@ -315,7 +315,7 @@ variables:
   verbo: uno_de(["es", "parece", "resulta", "consta"])
   adjetivo: uno_de(["importante", "claro", "evidente", "necesario"])
 
-respuesta: "{contenido}"
+respuesta: contenido
 tipo: input
 
 enunciado: "En la oración '{verbo} {adjetivo} {contenido}', ¿cuál es el sujeto? Escribí la parte que funciona como sujeto."
@@ -339,9 +339,9 @@ variables:
   oracion3: uno_de(["Juan está feliz", "Juan corre rápido", "Juan es alto", "Juan duerme"])
   oracion4: uno_de(["Juan corre rápido", "Juan es alto", "Juan duerme", "Juan lee"])
 
-respuesta: "{oracion1}"
+respuesta: oracion1
 tipo: mc
-opciones_explicitas: ["{oracion1}", "{oracion2}", "{oracion3}", "{oracion4}"]
+opciones_explicitas: [oracion1, oracion2, oracion3, oracion4]
 
 enunciado: "¿Cuál de estas oraciones contiene una subordinada sustantiva de complemento directo?"
 
@@ -386,7 +386,7 @@ variables:
   contenido: uno_de(["que es justo", "que es injusto", "que es correcto", "que es erróneo"])
   sujeto: uno_de(["Ella", "Él", "Nosotros", "Ellos"])
 
-respuesta: "{verbo}"
+respuesta: verbo
 tipo: input
 
 enunciado: "En la oración '{sujeto} {verbo} {contenido}', ¿cuál es el verbo de opinión que rige la subordinada? Escribí el verbo."
@@ -431,7 +431,7 @@ variables:
   sujeto: uno_de(["No sé", "Me pregunto", "Ignoro", "Desconozco"])
   interrogante: uno_de(["qué es", "quién es", "dónde está", "cuándo llega"])
 
-respuesta: "{interrogante}"
+respuesta: interrogante
 tipo: input
 
 enunciado: "En la oración '{sujeto} {interrogante}', ¿cuál es la parte interrogativa que funciona como CD? Escribí la parte."
@@ -454,7 +454,7 @@ variables:
   verbo: uno_de(["anuncia", "promete", "niega", "confirma"])
   contenido: uno_de(["que hay cambios", "que es tarde", "que lo hizo", "que gane"])
 
-respuesta: "{verbo}"
+respuesta: verbo
 tipo: input
 
 enunciado: "En la oración '{sujeto} {verbo} {contenido}', ¿cuál es el verbo principal que rige a la subordinada? Escribí el verbo."
