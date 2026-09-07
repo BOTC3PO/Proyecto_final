@@ -1,6 +1,6 @@
 # Economía — Tipos de sociedades (teoria)
 
-> Tema del MAPA: `E20A3` (`troncos.md`). Depende de del nodo `E20` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `E20A3` (`troncos.md`). Depende de del nodo `E20` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -32,4 +32,4 @@ Imaginemos tres escenarios típicos argentinos para aplicar estos conceptos. Si 
 
 Si María quiere lanzar una app tecnológica y necesita millones de pesos de inversores que no van a trabajar en la empresa, una **S.A.** es la opción correcta, ya que permite emitir acciones y atraer capital externo sin perder el control operativo si se estructura bien.
 
-Por último, si un grupo de productores de café en Tucumán quiere vender su producto directamente al consumidor final para mejorar sus precios, formar una **Cooperativa** les permite tener mayor poder de negociación y compartir costos logísticos, asegurando que los beneficios queden en la comunidad productora y no en un dueño externo.
+Por último, si un grupo de productores de limón en Tucumán (la provincia argentina líder en este cultivo) quiere vender su producto directamente al consumidor final para mejorar sus precios, formar una **Cooperativa** les permite tener mayor poder de negociación y compartir costos logísticos, asegurando que los beneficios queden en la comunidad productora y no en un dueño externo.
