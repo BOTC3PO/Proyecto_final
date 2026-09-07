@@ -1,6 +1,6 @@
 # Ed Fisica — el pato (cuestionario, 27 preguntas VBLang)
 
-> Tema: `ed-fisica/el-pato`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `ed-fisica/el-pato`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -13,13 +13,13 @@ metadata:
   nivel: "basico"
   tags: ["definicion", "contexto"]
 
-respuesta: "deporte acuatico"
+respuesta: "a caballo"
 tipo: completar
 
-enunciado: "El Pato es un deporte colectivo que se practica principalmente en ___, como lagos o lagunas."
+enunciado: "El Pato es un deporte colectivo que se practica ___, sobre un campo de césped similar al del polo."
 
 explicacion: |
-  El Pato se define como un deporte de agua, a diferencia de los deportes terrestres tradicionales.
+  El Pato es un deporte ecuestre — se juega montado a caballo, no en el agua.
 ```
 
 ### 2 — pregunta 2
@@ -34,10 +34,10 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El objetivo principal del Pato es mantener la posesión de la pelota e intentar lanzarla dentro de la canasta rival para anotar puntos."
+enunciado: "El objetivo principal del Pato es llevar la pelota hasta el aro rival e intentar encestarla para anotar puntos."
 
 explicacion: |
-  Correcto. A diferencia de otros deportes, el Pato se centra en la posesión y el lanzamiento a la canasta, no solo en cruzar una línea.
+  Correcto. El Pato combina elementos del polo (juego a caballo) y el básquet (anotar encestando en un aro).
 ```
 
 ### 3 — pregunta 3
@@ -49,13 +49,13 @@ metadata:
   nivel: "intermedio"
   tags: ["equipamiento", "reglas"]
 
-respuesta: "en el agua"
+respuesta: "vertical"
 tipo: completar
 
-enunciado: "La canasta, también llamada 'el pato', debe ser colocada en el agua a cierta distancia de la línea central."
+enunciado: "El aro donde se anota, tomado del básquet, está montado en un poste de forma ___, en cada extremo de la cancha."
 
 explicacion: |
-  La canasta es el objetivo de anotación y flota o se ancla en el agua, no en la orilla.
+  El aro es vertical (a diferencia del aro horizontal del básquet), de aproximadamente un metro de diámetro.
 ```
 
 ### 4 — pregunta 4
@@ -70,10 +70,10 @@ metadata:
 respuesta: "asas"
 tipo: completar
 
-enunciado: "El balón del Pato suele tener ___ para facilitar su agarre y lanzamiento incluso cuando está mojado."
+enunciado: "El balón del Pato tiene seis ___ de cuero para facilitar que el jinete lo agarre con una sola mano al galope."
 
 explicacion: |
-  Las asas son una característica distintiva del balón de Pato, permitiendo un agarre seguro en el agua.
+  Las seis asas son la característica distintiva del balón, permiten sostenerlo firme mientras se controla el caballo con la otra mano.
 ```
 
 ### 5 — pregunta 5
@@ -83,15 +83,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "intermedio"
-  tags: ["habilidad", "natacion"]
+  tags: ["habilidad", "equitacion"]
 
-respuesta: "natacion"
+respuesta: "equitacion"
 tipo: completar
 
-enunciado: "Aunque no se requiere ser nadador olímpico, se necesita buena condición física y eficiencia en la ___ para mantener la cabeza fuera del agua."
+enunciado: "Jugar al Pato exige un dominio avanzado de la ___, ya que las dos manos están ocupadas (riendas y pelota) y el caballo se maneja con el cuerpo y las piernas."
 
 explicacion: |
-  La natación eficiente permite conservar energía y mantener la visibilidad del juego.
+  El manejo ecuestre es la habilidad central: el jinete debe controlar el caballo sin usar directamente las riendas con ambas manos.
 ```
 
 ### 6 — pregunta 6
@@ -101,15 +101,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "avanzado"
-  tags: ["pedagogia", "valores"]
+  tags: ["historia", "origen"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El Pato fomenta la toma de decisiones rápidas bajo presión física debido al medio inestable del agua."
+enunciado: "El nombre 'pato' viene de un pato vivo real, que en la época colonial se disputaba metido dentro de una bolsa de cuero con asas."
 
 explicacion: |
-  La inestabilidad del agua exige ajustes constantes de equilibrio y decisiones tácticas rápidas.
+  Así es — el juego original, mucho más violento, se jugaba con un pato vivo en una bolsa, antes de reglamentarse con una pelota de cuero.
 ```
 
 ### 7 — pregunta 7
@@ -118,16 +118,16 @@ explicacion: |
 metadata:
   materia: "Educación Física"
   tema: "el_pato"
-  nivel: "basico"
-  tags: ["reglas", "inicio"]
+  nivel: "intermedio"
+  tags: ["historia", "prohibicion"]
 
-respuesta: "salto"
+respuesta: "prohibido"
 tipo: completar
 
-enunciado: "El juego comienza con un ___ al agua desde las orillas por parte de todos los jugadores."
+enunciado: "Por su extrema violencia (con frecuencia terminaba en muertes o heridas graves), el pato original fue ___ varias veces durante los siglos XVIII y XIX."
 
 explicacion: |
-  El inicio tradicional implica un salto simultáneo desde la orilla hacia la zona de juego.
+  Tanto autoridades coloniales como gobiernos provinciales prohibieron el juego en distintos momentos antes de su reglamentación.
 ```
 
 ### 8 — pregunta 8
@@ -137,15 +137,18 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "basico"
-  tags: ["reglas", "puntuacion"]
+  tags: ["historia", "decreto"]
 
-respuesta: "canasta"
-tipo: completar
+variables:
+  anio: 1953
 
-enunciado: "Cada vez que se lanza la pelota dentro de la canasta rival, se anota una ___."
+respuesta: "1953"
+tipo: input
+
+enunciado: "El Pato fue declarado deporte nacional argentino por decreto en el año {anio}, durante el gobierno de Juan Domingo Perón."
 
 explicacion: |
-  La unidad básica de puntuación es la canasta anotada.
+  El decreto de 1953 formalizó al Pato como deporte nacional, ya con las reglas modernas (pelota de asas, aro vertical).
 ```
 
 ### 9 — pregunta 9
@@ -155,15 +158,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "basico"
-  tags: ["contexto", "entorno"]
+  tags: ["contexto", "cancha"]
 
-respuesta: "agua"
+respuesta: "cesped"
 tipo: completar
 
-enunciado: "El campo de juego del Pato es un cuerpo de ___ delimitado, como una laguna o río de corriente lenta."
+enunciado: "El campo de juego del Pato es una cancha de ___ similar a la de polo, no un cuerpo de agua."
 
 explicacion: |
-  El agua es el elemento central que define la dinámica y dificultad del deporte.
+  El pato se juega sobre césped, igual que el polo — el error común de asociarlo con el agua no tiene base real.
 ```
 
 ### 10 — pregunta 10
@@ -173,15 +176,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "intermedio"
-  tags: ["reglas", "defensa"]
+  tags: ["reglas", "forcejeo"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si un jugador con la pelota es tocado por un oponente, debe pasarla inmediatamente o arriesgarse a perderla."
+enunciado: "Los jugadores pueden forcejear por la pelota mientras cabalgan pegados unos a otros, siempre que ambos tengan al menos una mano en un asa."
 
 explicacion: |
-  Esta regla evita que un jugador se quede estático con el balón y mantiene el dinamismo del juego.
+  El 'forcejeo' es una jugada reglamentaria central del Pato, con reglas estrictas de seguridad para evitar caídas peligrosas.
 ```
 
 ### 11 — pregunta 11
@@ -193,13 +196,13 @@ metadata:
   nivel: "intermedio"
   tags: ["habilidad", "equilibrio"]
 
-respuesta: "coordinacion"
+respuesta: "equilibrio"
 tipo: completar
 
-enunciado: "Jugar en un medio inestable obliga a desarrollar un equilibrio y una ___ específicos no requeridos en tierra."
+enunciado: "Forcejear por la pelota sin caerse del caballo exige fuerza de brazo y un gran sentido del ___."
 
 explicacion: |
-  La coordinación motora se ve desafiada por la flotabilidad y el movimiento del agua.
+  El equilibrio a caballo, en contacto físico con otro jinete, es una de las habilidades técnicas más exigentes del deporte.
 ```
 
 ### 12 — pregunta 12
@@ -209,15 +212,18 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "intermedio"
-  tags: ["reglas", "victoria"]
+  tags: ["reglas", "equipo"]
 
-respuesta: "tiempo"
-tipo: completar
+variables:
+  jinetes: 4
 
-enunciado: "Generalmente gana el equipo con más puntos al finalizar el ___, aunque existe la variante de ganar al alcanzar un número fijo de canastas."
+respuesta: "4"
+tipo: input
+
+enunciado: "Cada equipo de Pato está formado por {jinetes} jinetes."
 
 explicacion: |
-  El límite temporal es la forma estándar de determinar el ganador en las competiciones oficiales.
+  Se juega con dos equipos de cuatro jinetes cada uno, igual que en el polo tradicional.
 ```
 
 ### 13 — pregunta 13
@@ -227,15 +233,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "avanzado"
-  tags: ["tactica", "trabajo_en_equipo"]
+  tags: ["historia", "reforma"]
 
-respuesta: "comunicacion"
+respuesta: "Alberto del Castillo Posse"
 tipo: completar
 
-enunciado: "Al ser un deporte de equipo en el agua, se obliga a una constante ___ verbal y visual entre los compañeros."
+enunciado: "El gran reformador que, a principios del siglo XX, ayudó a reglamentar el pato moderno (pelota con asas, aro vertical, reglas de seguridad) fue ___."
 
 explicacion: |
-  La visibilidad reducida y el ruido del agua hacen crucial la comunicación efectiva.
+  Alberto del Castillo Posse encabezó, junto a otros estancieros, la reglamentación que transformó el juego violento original en el deporte federado actual.
 ```
 
 ### 14 — pregunta 14
@@ -250,10 +256,10 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La pelota utilizada en este deporte se conoce coloquialmente como 'el pato'."
+enunciado: "La pelota utilizada en este deporte se conoce, igual que el juego, como 'el pato'."
 
 explicacion: |
-  Es común referirse tanto al juego como al balón con el mismo nombre.
+  Es común referirse tanto al juego como a la pelota con el mismo nombre.
 ```
 
 ### 15 — pregunta 15
@@ -268,10 +274,10 @@ metadata:
 respuesta: "resistencia"
 tipo: completar
 
-enunciado: "El Pato combina fuerza, ___ y estrategia, exigiendo un alto nivel de resistencia cardiovascular."
+enunciado: "El Pato combina fuerza, ___ y estrategia, exigiendo buena condición física tanto del jinete como del caballo."
 
 explicacion: |
-  La lucha contra la resistencia del agua demanda una gran capacidad aeróbica y anaeróbica.
+  La resistencia física es clave para sostener el ritmo de galope, forcejeo y juego durante todo el partido.
 ```
 
 ### 16 — pregunta 16
@@ -281,15 +287,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "intermedio"
-  tags: ["reglas", "campo"]
+  tags: ["reglas", "puntuacion"]
 
-respuesta: "central"
+respuesta: "gol"
 tipo: completar
 
-enunciado: "La canasta de cada equipo se coloca a cierta distancia de la línea ___ del campo de juego."
+enunciado: "Cada vez que se encesta la pelota en el aro rival se anota un ___ (con un valor mayor si se convierte desde fuera del área)."
 
 explicacion: |
-  La simetría del campo se define por esta línea central imaginaria.
+  El sistema de puntuación por gol/tanto es similar en estructura al de otros deportes de cancha con arco o aro.
 ```
 
 ### 17 — pregunta 17
@@ -299,15 +305,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "avanzado"
-  tags: ["valores", "adaptacion"]
+  tags: ["valores", "identidad"]
 
-respuesta: "adaptacion"
+respuesta: "gaucha"
 tipo: completar
 
-enunciado: "El Pato fomenta la resiliencia y la ___ a un entorno natural cambiante e inestable."
+enunciado: "El Pato está fuertemente ligado a la tradición ___ y a la vida rural del campo argentino."
 
 explicacion: |
-  La capacidad de adaptarse a las condiciones del agua es tan importante como la técnica.
+  Su origen colonial en el ámbito rural y su vínculo con la equitación lo conectan directamente con la identidad gauchesca.
 ```
 
 ### 18 — pregunta 18
@@ -319,13 +325,13 @@ metadata:
   nivel: "intermedio"
   tags: ["habilidad", "tecnica"]
 
-respuesta: "fundamental"
+respuesta: "una"
 tipo: completar
 
-enunciado: "El agarre de la pelota es ___ debido a las asas que permiten un control preciso bajo el agua."
+enunciado: "Gracias a las asas, el jinete puede agarrar y lanzar la pelota con ___ sola mano, dejando la otra libre para las riendas."
 
 explicacion: |
-  Sin un buen agarre, el lanzamiento y la protección del balón serían imposibles.
+  Este detalle técnico es lo que hace jugable al pato a caballo — sin las asas sería imposible sostenerlo con una mano al galope.
 ```
 
 ### 19 — pregunta 19
@@ -335,15 +341,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "basico"
-  tags: ["seguridad", "entorno"]
+  tags: ["seguridad", "equipamiento"]
 
-respuesta: "lenta"
+respuesta: "casco"
 tipo: completar
 
-enunciado: "Se recomienda jugar en lagos o ríos de corriente ___ para garantizar la seguridad y la jugabilidad."
+enunciado: "Dado el historial violento del juego original, hoy es obligatorio el uso de ___ y otros elementos de protección en la práctica federada."
 
 explicacion: |
-  Corrientes fuertes podrían desplazar a los jugadores fuera del campo o causar lesiones.
+  Las medidas de seguridad modernas (casco, reglas estrictas de forcejeo) buscan evitar los accidentes graves que llevaron a prohibir el juego original.
 ```
 
 ### 20 — pregunta 20
@@ -353,15 +359,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "intermedio"
-  tags: ["reglas", "defensa"]
+  tags: ["reglas", "seguridad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Los jugadores rivales intentan interceptar la pelota tocando al poseedor mientras este está en el agua."
+enunciado: "Está prohibido cruzarse de forma peligrosa delante de otro caballo al galope durante el juego."
 
 explicacion: |
-  El contacto físico controlado es parte integral de la defensa en el Pato.
+  Esta regla de seguridad busca evitar caídas y choques graves entre jinetes, un riesgo real dado que se juega a alta velocidad.
 ```
 
 ### 21 — pregunta 21
@@ -373,13 +379,13 @@ metadata:
   nivel: "basico"
   tags: ["cultura", "argentina"]
 
-respuesta: "argentina"
+respuesta: "nacional"
 tipo: completar
 
-enunciado: "El Pato es considerado un deporte emblemático de la cultura ___."
+enunciado: "El Pato es, por decreto, el deporte ___ de Argentina."
 
 explicacion: |
-  Tiene raíces profundas en la tradición deportiva nacional, especialmente en zonas con cuerpos de agua.
+  Esa declaración oficial de 1953 es la que le da su lugar simbólico particular en la cultura deportiva argentina.
 ```
 
 ### 22 — pregunta 22
@@ -394,10 +400,10 @@ metadata:
 respuesta: "precision"
 tipo: completar
 
-enunciado: "Se requiere fuerza de brazos y ___ para lanzar la pelota dentro de la canasta rival desde el agua."
+enunciado: "Se requiere fuerza de brazo y ___ para encestar la pelota en el aro rival mientras el caballo está en movimiento."
 
 explicacion: |
-  La precisión es clave porque el objetivo está flotando y el lanzador está en movimiento.
+  La precisión es clave porque tanto el jinete como el objetivo (el aro) requieren coordinación en movimiento, a diferencia de un lanzamiento estático.
 ```
 
 ### 23 — pregunta 23
@@ -407,15 +413,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "avanzado"
-  tags: ["comparacion", "especificidad"]
+  tags: ["comparacion", "polo"]
 
-respuesta: "inestable"
+respuesta: "polo"
 tipo: completar
 
-enunciado: "A diferencia de los deportes terrestres, el medio de juego es ___ por naturaleza, requiriendo ajustes continuos."
+enunciado: "El Pato combina elementos del ___ (juego a caballo, cancha de césped) y del básquet (encestar en un aro para anotar)."
 
 explicacion: |
-  La inestabilidad del agua es el factor diferenciador principal de la mecánica del juego.
+  Esta combinación de dos deportes es lo que hace único al Pato entre los deportes ecuestres del mundo.
 ```
 
 ### 24 — pregunta 24
@@ -425,15 +431,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "intermedio"
-  tags: ["reglas", "variantes"]
+  tags: ["cultura", "federacion"]
 
-respuesta: "canastas"
+respuesta: "Federación Argentina de Pato"
 tipo: completar
 
-enunciado: "En algunas variantes, el equipo gana al lograr un número determinado de ___ antes de que termine el tiempo."
+enunciado: "El organismo que organiza el campeonato 'Abierto Argentino de Pato' es la ___."
 
 explicacion: |
-  Esta variante acelera el juego y obliga a un ataque más agresivo desde el inicio.
+  La Federación Argentina de Pato regula la práctica federada del deporte y organiza su torneo más prestigioso.
 ```
 
 ### 25 — pregunta 25
@@ -443,15 +449,15 @@ metadata:
   materia: "Educación Física"
   tema: "el_pato"
   nivel: "basico"
-  tags: ["seguridad", "prevencion"]
+  tags: ["seguridad", "entrenamiento"]
 
-respuesta: "nadador"
+respuesta: "entrenados"
 tipo: completar
 
-enunciado: "No se necesita ser un nadador olímpico, pero sí tener habilidad para mantenerse a flote y moverse."
+enunciado: "Para jugar al Pato con seguridad, los caballos deben estar específicamente ___ para el deporte, acostumbrados al contacto físico y al forcejeo."
 
 explicacion: |
-  La competencia de natación básica es un prerrequisito de seguridad para participar.
+  Un caballo sin entrenamiento específico puede reaccionar mal al forcejeo o al contacto con otros caballos, aumentando el riesgo de caídas.
 ```
 
 ### 26 — pregunta 26
@@ -463,13 +469,13 @@ metadata:
   nivel: "avanzado"
   tags: ["valores", "etica"]
 
-respuesta: "lealtad"
+respuesta: "destreza"
 tipo: completar
 
-enunciado: "El Pato fomenta valores como la lealtad, la resiliencia y el trabajo en equipo."
+enunciado: "Más allá de lo lúdico, el Pato es valorado como una muestra de ___ ecuestre y de la tradición criolla."
 
 explicacion: |
-  Estos valores son esenciales para la cohesión del equipo en un entorno desafiante.
+  La destreza a caballo, heredada de la vida rural, es el valor central que el deporte busca preservar y mostrar.
 ```
 
 ### 27 — pregunta 27
@@ -487,5 +493,5 @@ tipo: completar
 enunciado: "El equipo que logre la mayor cantidad de puntos al ___ el tiempo reglamentario es el ganador."
 
 explicacion: |
-  La puntuación acumulada hasta el final determina el resultado oficial del partido.
+  La puntuación acumulada hasta el final determina el resultado oficial del partido, igual que en la mayoría de los deportes de cancha.
 ```
