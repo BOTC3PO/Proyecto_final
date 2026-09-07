@@ -1,6 +1,6 @@
 # Antropologia — subcampos de la antropologia (cuestionario, 25 preguntas VBLang)
 
-> Tema: `antropologia/subcampos-de-la-antropologia`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `antropologia/subcampos-de-la-antropologia`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
