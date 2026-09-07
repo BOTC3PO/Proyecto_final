@@ -14,7 +14,7 @@ La metalurgia surgió como una respuesta a las limitaciones del material rocoso:
 
 ## 2. Propiedades del cobre
 
-El cobre se destacó por su **blandez** y su **color rojizo**, características que lo hacían accesible para tallar con herramientas de piedra o martillos rudimentarios. A diferencia de otros metales, no requería temperaturas extremadamente altas para fundirse, lo que facilitaba su procesamiento en hornos sencillos. Además, al mezclarse con estaño (un proceso llamado **aleación**), daba lugar al bronce, un material mucho más duro y resistente. Esta combinación fue clave durante la Edad del Cobre, permitiendo objetos como cuchillos, espadas o recipientes que no se rompían ni se desgastaban fácilmente. Sin embargo, su fragilidad en comparación con el hierro lo limitó a usos específicos: herramientas de cultivo, ornamentos y piezas decorativas.
+El cobre se destacó por su **blandez** y su **color rojizo**, características que lo hacían accesible para tallar con herramientas de piedra o martillos rudimentarios. A diferencia de otros metales, no requería temperaturas extremadamente altas para fundirse, lo que facilitaba su procesamiento en hornos sencillos. Además, al mezclarse con estaño (un proceso llamado **aleación**), daba lugar al bronce, un material mucho más duro y resistente. Esta combinación (el bronce) fue clave durante la Edad del Bronce, permitiendo objetos como cuchillos, espadas o recipientes más duros y resistentes que los de cobre puro. Sin embargo, el cobre sin alear seguía siendo blando y frágil en comparación con el hierro, lo que limitó su uso en estado puro a piezas específicas: herramientas de cultivo, ornamentos y objetos decorativos.
 
 ## 3. El proceso de fundición
 

@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,14 +40,11 @@ metadata:
   nivel: "intermedio"
   tags: ["cobre", "propiedades"]
 
-variables:
-  escenario: uno_de([["cobre", "blando", "color rojizo"], ["hierro", "duro", "color grisáceo"], ["bronce", "aleación", "color amarillento"]])
-
-respuesta: escenario[0]
+respuesta: "cobre"
 tipo: mc
 opciones_explicitas: ["cobre", "hierro", "bronce"]
 
-enunciado: "En la Edad del Cobre, este metal se caracterizaba por ser un material ___ y de color ___."
+enunciado: "Un material blando y de color rojizo, ampliamente usado antes de alearse con estaño, es el ___."
 
 explicacion: |
   El cobre fue uno de los primeros metales utilizados debido a su relativa abundancia y su capacidad para ser moldeado en frío o mediante fundición.
@@ -105,14 +102,11 @@ metadata:
   nivel: "intermedio"
   tags: ["hierro", "impacto"]
 
-variables:
-  caso: uno_de([["más resistente", "mayor alcance de conquista"], ["más blando", "menor expansión territorial"], ["más caro", "menor uso en agricultura"]])
-
-respuesta: caso[0]
+respuesta: "más resistente"
 tipo: mc
 opciones_explicitas: ["más resistente", "más blando", "más caro"]
 
-enunciado: "Debido a que el hierro es ___ que el cobre, su uso permitió un ___."
+enunciado: "Debido a que el hierro es ___ que el cobre, su uso permitió un mayor alcance de conquista."
 
 explicacion: |
   La disponibilidad y dureza del hierro permitieron una producción masiva de herramientas y armas, transformando la agricultura y la guerra.
@@ -203,18 +197,15 @@ metadata:
   nivel: "avanzado"
   tags: ["propiedades_materiales"]
 
-variables:
-  idx: uno_de([0,1])
-  datos: [["Cobre", "Blando"], ["Bronce", "Duro"]]
+enunciado: "Si comparamos el cobre puro con el bronce, el cobre es notablemente más ___."
 
-enunciado: "Si comparamos el material de la Edad del Cobre con el de la Edad del Bronce, el material de la Edad del {datos[idx][0]} es más {datos[idx][1]} que el de la Edad del Bronce."
-
+respuesta: "Blando"
 respuestas_validas:
   - "Blando"
 tipo: completar
 
 explicacion: |
-  Dependiendo del escenario sorteado, el enunciado evalúa la relación de dureza entre el cobre y el bronce.
+  El cobre puro es más blando que el bronce, que gana dureza gracias a la aleación con estaño.
 ```
 
 ### 11 — El desafío térmico del hierro
@@ -272,8 +263,6 @@ enunciado: "Si comparamos la durabilidad de las herramientas de la Edad del Bron
 
 respuestas_validas:
   - "resistentes"
-  - "frágiles"
-  - "blandas"
 
 respuesta: "resistentes"
 tipo: completar
@@ -311,12 +300,7 @@ metadata:
   nivel: "avanzado"
   tags: ["economía", "recursos"]
 
-variables:
-  caso: uno_de([[1, "más abundante"], [2, "menos abundante"]])
-  desc: caso[0]
-  resp: caso[1]
-
-enunciado: "La transición a la Edad del Hierro se vio favorecida porque el hierro es {desc} que los componentes del bronce."
+enunciado: "La transición a la Edad del Hierro se vio favorecida porque el hierro es más abundante que los componentes del bronce."
 
 respuesta: "más abundante"
 tipo: mc
@@ -359,10 +343,7 @@ opciones_explicitas: ["Estaño", "Zinc", "Níquel", "Plomo"]
 respuesta: "Estaño"
 tipo: mc
 
-enunciado: "El bronce es una aleación metálica compuesta principalmente por cobre y un segundo elemento clave, que es el {elemento}."
-
-variables:
-  elemento: "uno_de(['Estaño', 'Zinc', 'Níquel', 'Plomo'])"
+enunciado: "El bronce es una aleación metálica compuesta principalmente por cobre y un segundo elemento clave, que es el ___."
 
 explicacion: |
   El bronce se obtiene al fundir cobre con estaño, lo que permite obtener un metal más duro y resistente.
