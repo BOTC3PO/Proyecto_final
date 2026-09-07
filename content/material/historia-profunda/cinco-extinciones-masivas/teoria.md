@@ -30,7 +30,7 @@ La extinción del **Pérmico-Triásico** (hace unos **252 millones de años**) f
 
 ## 5. La cuarta extinción: Triásico-Jurásico
 
-Hace unos **201 millones de años**, una nueva crisis biológica eliminó alrededor del **80% de las especies marinas**. Esta extinción, vinculada a la actividad volcánica en el desierto de Namibia, provocó un calentamiento global y cambios en los océanos. Sin embargo, este evento marcó el fin de las formas dominantes del Triásico y abrió camino para el ascenso de los dinosaurios, que se convertirían en los reyes de la era siguiente.
+Hace unos **201 millones de años**, una nueva crisis biológica eliminó alrededor del **80% de las especies marinas**. Esta extinción, vinculada a la actividad volcánica de la Provincia Magmática del Atlántico Central (que hoy corresponde a zonas del noroeste de África, el este de Norteamérica y el noreste de Sudamérica, durante la fragmentación de Pangea), provocó un calentamiento global y cambios en los océanos. Sin embargo, este evento marcó el fin de las formas dominantes del Triásico y abrió camino para el ascenso de los dinosaurios, que se convertirían en los reyes de la era siguiente.
 
 ## 6. La quinta extinción: Cretácico-Paleógeno
 

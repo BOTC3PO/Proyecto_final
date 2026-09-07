@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,16 +40,12 @@ metadata:
   nivel: "intermedio"
   tags: ["permico", "extincion"]
 
-variables:
-  datos: [["Pérmico-Triásico", "La más devastadora"], ["Cretácico-Paleógeno", "La de los dinosaurios"]]
-  idx: uno_de([0, 1])
-
 tipo: mc
 opciones_explicitas: ["Pérmico-Triásico", "Triásico-Jurásico", "Cretácico-Paleógeno"]
 
 enunciado: "El evento conocido como 'La Gran Mortandad' ocurrió durante la extinción ___."
 
-respuesta: datos[idx][0]
+respuesta: "Pérmico-Triásico"
 
 explicacion: |
   La extinción del Pérmico-Triásico fue la más severa de la historia, eliminando aproximadamente el 96% de las especies marinas.
@@ -107,8 +103,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "anoxia"
-  - "oxigenación"
-  - "glaciación"
 
 enunciado: "Se cree que la extinción del Devónico fue causada por cambios en los niveles de ___ en los océanos, debido a la proliferación de plantas terrestres que aumentaron la escorrentía de nutrientes."
 
@@ -149,14 +143,11 @@ metadata:
   nivel: "basico"
   tags: ["permerico", "triasico", "magnitud"]
 
-variables:
-  escenario: uno_de([["Pérmico-Triásico", "la mayor"], ["Cretácico-Paleógeno", "la de los dinosaurios"]])
-
-respuesta: escenario[0]
+respuesta: "Pérmico-Triásico"
 tipo: mc
 opciones_explicitas: ["Pérmico-Triásico", "Cretácico-Paleógeno", "Ordovícico-Silúrico", "Devónico-Carbonífero"]
 
-enunciado: "La extinción que ocurrió hace aproximadamente 252 millones de años y fue la más devastadora de la historia es la del periodo {escenario[0]}."
+enunciado: "La extinción que ocurrió hace aproximadamente 252 millones de años y fue la más devastadora de la historia es la del periodo ___."
 
 explicacion: |
   El evento Pérmico-Triásico es el punto de extinción más grande registrado en el registro fósil.
@@ -215,14 +206,11 @@ metadata:
   nivel: "intermedio"
   tags: ["oceanos", "biodiversidad"]
 
-variables:
-  impacto: uno_de([["96%", "96%"], ["50%", "50%"], ["75%", "75%"]])
-
-respuesta: impacto[1]
+respuesta: "96%"
 tipo: mc
 opciones_explicitas: ["96%", "50%", "75%", "10%"]
 
-enunciado: "El impacto en la biodiversidad marina durante el evento del Pérmico-Triásico fue de aproximadamente un {impacto[0]} de especies extinguidas."
+enunciado: "El impacto en la biodiversidad marina durante el evento del Pérmico-Triásico fue de aproximadamente un ___ de especies extinguidas."
 
 explicacion: |
   La acidificación y la anoxia (falta de oxígeno) en los océanos fueron fatales para la mayoría de los organismos marinos de la época.
@@ -295,13 +283,9 @@ metadata:
   nivel: "intermedio"
   tags: ["geologia", "crater"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Yucatán, México", "Chicxulub"], ["Península de Kola, Rusia", "Popigai"]]
-
 tipo: completar
 
-enunciado: "El cráter formado por el impacto que causó la extinción del Cretácico-Paleógeno se localiza en {escenarios[escenario_idx][0]} y se conoce como cráter de {escenarios[escenario_idx][1]}."
+enunciado: "El cráter formado por el impacto que causó la extinción del Cretácico-Paleógeno se localiza en Yucatán, México y se conoce como cráter de ___."
 
 respuesta: "Chicxulub"
 
@@ -362,10 +346,7 @@ metadata:
   nivel: "intermedio"
   tags: ["volcanismo", "trapp", "extincion"]
 
-variables:
-  escenario: uno_de([["Siberian Traps", "Erupción masiva en Siberia"], ["Deccan Traps", "Erupción masiva en la India"]])
-
-enunciado: "Durante la extinción del Pérmico-Triásico, la actividad de las {escenario[1]} liberó enormes cantidades de gases de efecto invernadero, provocando un cambio climático abrupto. ¿Qué fenómeno climático fue el principal responsable de la anoxia oceánica?"
+enunciado: "Durante la extinción del Pérmico-Triásico, la actividad de los Siberian Traps liberó enormes cantidades de gases de efecto invernadero, provocando un cambio climático abrupto. ¿Qué fenómeno climático fue el principal responsable de la anoxia oceánica?"
 
 opciones_explicitas: ["Enfriamiento global", "Calentamiento global extremo", "Glaciación masiva", "Ciclo de hielo y deshielo"]
 
@@ -447,15 +428,11 @@ metadata:
   nivel: "basico"
   tags: ["precambrico", "oxigeno"]
 
-variables:
-  idx: uno_de([0,1,2])
-  escenarios: [["La acumulación de oxígeno atmosférico tras la fotosíntesis de cianobacterias", "oxigenación"], ["El impacto de un gran asteroide en la Tierra primitiva", "impacto"], ["Intensas erupciones volcánicas masivas", "vulcanismo"]]
-
-respuesta: escenarios[idx][1]
+respuesta: "oxigenación"
 tipo: mc
 opciones_explicitas: ["oxigenación", "impacto", "vulcanismo"]
 
-enunciado: "La extinción del evento del Gran Oxígeno fue causada principalmente por la {escenarios[idx][0]}."
+enunciado: "La extinción del evento del Gran Oxígeno fue causada principalmente por la acumulación de oxígeno atmosférico tras la fotosíntesis de cianobacterias, un proceso de ___."
 
 explicacion: |
   El aumento de oxígeno libre en la atmósfera fue tóxico para la mayoría de los organismos anaerobios de la época.
@@ -470,19 +447,13 @@ metadata:
   nivel: "intermedio"
   tags: ["paleozoico", "clima"]
 
-variables:
-  idx: uno_de([0,1,2])
-  datos: [["El grupo más afectado fue el de los...", "trilobites"], ["El principal agente causante fue el...", "enfriamiento"], ["La causa principal fue el cambio en el...", "nivel_del_mar"]]
-  respuestas: [["trilobites", "enfriamiento", "nivel_del_mar"]]
-
-respuesta: datos[idx][1]
+respuesta: "enfriamiento"
 tipo: completar
 respuestas_validas:
-  - "trilobites"
   - "enfriamiento"
-  - "nivel_del_mar"
+  - "nivel del mar"
 
-enunciado: "Durante la extinción del Ordovícico-Devónico, el factor determinante fue el {datos[idx][1]}."
+enunciado: "Durante la extinción del Ordovícico-Devónico, el factor determinante fue el ___ climático que provocó la glaciación."
 
 explicacion: |
   Cambios climáticos y fluctuaciones en el nivel del mar afectaron drásticamente la vida marina.
@@ -547,15 +518,11 @@ metadata:
   nivel: "basico"
   tags: ["asteroide", "dinosaurios"]
 
-variables:
-  idx: uno_de([0,1,2])
-  escenarios: [["El asteroide Chicxulub causó la extinción de...", "dinosaurios"], ["El impacto masivo provocó un cambio en la...", "luz_solar"], ["La extinción del Cretácico afectó principalmente a...", "reptiles"]]
-
-respuesta: escenarios[idx][1]
+respuesta: "luz solar"
 tipo: mc
-opciones_explicitas: ["dinosaurios", "luz_solar", "reptiles"]
+opciones_explicitas: ["dinosaurios", "luz solar", "reptiles"]
 
-enunciado: "El evento del Cretácico-Paleógeno se caracteriza por la reducción de la {escenarios[idx][0]}."
+enunciado: "El evento del Cretácico-Paleógeno se caracteriza por la reducción drástica de la ___, causada por el polvo y las cenizas liberadas tras el impacto del asteroide."
 
 explicacion: |
   El impacto de un asteroide bloqueó la luz solar, colapsando la fotosíntesis y las cadenas alimentarias.
