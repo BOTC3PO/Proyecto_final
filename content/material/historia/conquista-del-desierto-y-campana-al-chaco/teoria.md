@@ -1,6 +1,6 @@
 # Historia — Conquista del Desierto y campaña al Chaco (teoria)
 
-> Tema del MAPA: `AH7C` (`troncos.md`). Depende de del nodo `AH7B` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `AH7C` (`troncos.md`). Depende de del nodo `AH7B` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -16,9 +16,9 @@ Este contexto de expansión no fue un evento aislado, sino una estrategia milita
 
 ## La Conquista del Desierto y la campaña al Chaco
 
-La llamada "Conquista del Desierto" se refiere a la campaña militar lanzada en 1879 bajo el mando del general Julio Argentino Roca. Su objetivo principal era avanzar sobre la Pampa Patagónica, territorio controlado por mapuches, pehuenches y querandíes. Las fuerzas nacionales avanzaron hacia el sur, estableciendo fortines y provocando el desplazamiento o la muerte de miles de personas. El resultado fue la incorporación de millones de hectáreas a la propiedad privada, lo que permitió una masiva entrada de capital extranjero y europeo, impulsando la exportación de carne y trigo. Sin embargo, esta victoria militar significó el fin de la soberanía indígena en la región y su marginación social y económica que persiste hasta hoy.
+La llamada "Conquista del Desierto" se refiere a la campaña militar lanzada en 1879 bajo el mando del general Julio Argentino Roca. Su objetivo principal era avanzar sobre la Pampa y la Patagonia, territorio controlado por mapuches, pehuenches y ranqueles. Las fuerzas nacionales avanzaron hacia el sur, estableciendo fortines y provocando el desplazamiento o la muerte de miles de personas. El resultado fue la incorporación de millones de hectáreas a la propiedad privada, lo que permitió una masiva entrada de capital extranjero y europeo, impulsando la exportación de carne y trigo. Sin embargo, esta victoria militar significó el fin de la soberanía indígena en la región y su marginación social y económica que persiste hasta hoy.
 
-Paralelamente, hacia el norte, se desarrolló la Campaña al Chaco, que tuvo lugar principalmente entre 1884 y 1885, bajo el gobierno de Miguel Juárez Celman. Mientras que la campaña del sur buscaba tierras fértiles para la agricultura, la del norte tenía como objetivo asegurar las fronteras con Bolivia y Paraguay, y controlar los recursos forestales y ganaderos del Chaco Austral. Esta región, habitada por pueblos como los eacha, toba y wichi, presentaba un clima más hostil y una geografía compleja que dificultaba la ocupación inmediata. Las operaciones militares lograron debilitar la resistencia indígena y abrir zonas para la explotación del quebracho y la ganadería, integrando también estas tierras al mercado nacional, aunque con un proceso de ocupación más lento y fragmentado que en el sur.
+Paralelamente, hacia el norte, se desarrolló la Campaña al Chaco, que tuvo lugar principalmente entre 1884 y 1885, bajo el gobierno de Julio A. Roca (su primera presidencia, 1880-1886). Mientras que la campaña del sur buscaba tierras fértiles para la agricultura, la del norte tenía como objetivo asegurar las fronteras con Bolivia y Paraguay, y controlar los recursos forestales y ganaderos del Chaco Austral. Esta región, habitada por pueblos como los tobas (qom), wichís (mataco) y mocovíes, presentaba un clima más hostil y una geografía compleja que dificultaba la ocupación inmediata. Las operaciones militares lograron debilitar la resistencia indígena y abrir zonas para la explotación del quebracho y la ganadería, integrando también estas tierras al mercado nacional, aunque con un proceso de ocupación más lento y fragmentado que en el sur.
 
 ## Legado y memoria histórica
 

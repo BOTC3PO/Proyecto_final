@@ -35,19 +35,19 @@ metadata:
   tags: ["conquista_del_desierto", "pueblos_originarios"]
 
 variables:
-  pueblos: ["mapuches", "pehuenches", "querandíes", "ranqueles"]
-  correctos: ["mapuches", "pehuenches", "querandíes"]
+  pueblos: ["mapuches", "pehuenches", "ranqueles", "querandíes"]
+  correctos: ["mapuches", "pehuenches", "ranqueles"]
 
 respuesta: |
   mapuches
   pehuenches
-  querandíes
+  ranqueles
 tipo: completar
 
 enunciado: "Nombra tres de los pueblos originarios que habitaban la Pampa y la Patagonia y fueron afectados por la Conquista del Desierto."
 
 explicacion: |
-  Los mapuches, pehuenches y querandíes, entre otros, eran los habitantes principales de la región que fue objeto de la campaña militar de 1879.
+  Los mapuches, pehuenches y ranqueles, entre otros, eran los habitantes principales de la región que fue objeto de la campaña militar de 1879 (los ranqueles, en cambio, eran un pueblo pampeano ya prácticamente asimilado desde la época colonial, no un objetivo de esta campaña).
 ```
 
 ### 3 — pregunta 3
@@ -69,7 +69,7 @@ tipo: input
 enunciado: "La Campaña al Chaco, dirigida a asegurar las fronteras del norte, se desarrolló principalmente durante los años: {inicio} y {fin}."
 
 explicacion: |
-  Aunque hubo acciones previas y posteriores, el periodo clave de la Campaña al Chaco bajo el gobierno de Miguel Juárez Celman fue entre 1884 y 1885.
+  Aunque hubo acciones previas y posteriores, el periodo clave de la Campaña al Chaco bajo el gobierno de Julio A. Roca fue entre 1884 y 1885.
 ```
 
 ### 4 — pregunta 4
@@ -82,15 +82,15 @@ metadata:
   tags: ["campana_al_chaco", "gobierno"]
 
 variables:
-  presidente: "Miguel Juárez Celman"
+  presidente: "Julio A. Roca"
 
-respuesta: "Miguel Juárez Celman"
+respuesta: "Julio A. Roca"
 tipo: input
 
 enunciado: "¿Qué presidente estaba en el cargo durante el desarrollo principal de la Campaña al Chaco (1884-1885)?"
 
 explicacion: |
-  La Campaña al Chaco se llevó a cabo durante el gobierno de Miguel Juárez Celman, buscando consolidar el control estatal en el norte argentino.
+  La Campaña al Chaco se llevó a cabo durante el gobierno de Julio A. Roca, buscando consolidar el control estatal en el norte argentino.
 ```
 
 ### 5 — pregunta 5
@@ -174,7 +174,7 @@ tipo: completar
 enunciado: "El objetivo geográfico principal de la Conquista del Desierto era avanzar sobre la {region}."
 
 explicacion: |
-  La campaña buscaba someter a los pueblos mapuches, pehuenches y querandíes que habitaban la Pampa y la Patagonia, integrando estas tierras al Estado nacional.
+  La campaña buscaba someter a los pueblos mapuches, pehuenches y ranqueles que habitaban la Pampa y la Patagonia, integrando estas tierras al Estado nacional.
 ```
 
 ### 9 — pregunta 9
@@ -187,9 +187,9 @@ metadata:
   tags: ["pueblos_originarios", "mapuche", "pehuenche"]
 
 variables:
-  pueblos: "mapuches, pehuenches y querandíes"
+  pueblos: "mapuches, pehuenches y ranqueles"
 
-respuesta: "mapuches, pehuenches y querandíes"
+respuesta: "mapuches, pehuenches y ranqueles"
 tipo: completar
 
 enunciado: "Los principales pueblos originarios que habitaban los territorios conquistados en la campaña del sur eran los {pueblos}."
@@ -234,7 +234,7 @@ tipo: input
 enunciado: "¿En qué año comenzó principalmente la Campaña al Chaco, paralela a la consolidación de la frontera sur?"
 
 explicacion: |
-  La Campaña al Chaco se desarrolló principalmente entre 1884 y 1885, bajo el gobierno de Miguel Juárez Celman, para asegurar la frontera norte.
+  La Campaña al Chaco se desarrolló principalmente entre 1884 y 1885, bajo el gobierno de Julio A. Roca, para asegurar la frontera norte.
 ```
 
 ### 12 — pregunta 12
@@ -247,15 +247,15 @@ metadata:
   tags: ["juarez_celman", "presidencia", "gobierno"]
 
 variables:
-  presidente: "Miguel Juárez Celman"
+  presidente: "Julio A. Roca"
 
-respuesta: "Miguel Juárez Celman"
+respuesta: "Julio A. Roca"
 tipo: completar
 
 enunciado: "La Campaña al Chaco se llevó a cabo durante el gobierno de {presidente}."
 
 explicacion: |
-  Miguel Juárez Celman fue presidente de Argentina entre 1886 y 1890. Durante su mandato, se intensificó la expansión hacia el norte del país.
+  Julio A. Roca fue presidente de Argentina en su primer mandato entre 1880 y 1886 (tuvo un segundo mandato entre 1898 y 1904). Durante ese primer gobierno se intensificó la expansión hacia el norte del país.
 ```
 
 ### 13 — pregunta 13
@@ -291,7 +291,7 @@ tipo: vf
 enunciado: "La Campaña al Chaco tuvo lugar principalmente entre 1884 y 1885."
 
 explicacion: |
-  Correcto. Aunque hubo conflictos anteriores y posteriores, este período marca el inicio de la ocupación sistemática del norte bajo el gobierno de Juárez Celman.
+  Correcto. Aunque hubo conflictos anteriores y posteriores, este período marca el inicio de la ocupación sistemática del norte bajo el gobierno de Roca.
 ```
 
 ### 15 — pregunta 15
