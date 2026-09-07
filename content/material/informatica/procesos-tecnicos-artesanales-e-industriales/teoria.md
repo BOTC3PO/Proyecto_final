@@ -1,6 +1,6 @@
 # Informática — Procesos técnicos (teoria)
 
-> Tema del MAPA: `TEC0c` (`troncos.md`). Depende de `../medios-tecnicos-como-extension-de-capacidades-humanas/` (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `TEC0c` (`troncos.md`). Depende de `../medios-tecnicos-como-extension-de-capacidades-humanas/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

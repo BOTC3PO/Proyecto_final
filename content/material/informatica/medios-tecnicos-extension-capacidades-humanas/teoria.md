@@ -1,6 +1,6 @@
 # Informática — Medios técnicos como extensión de capacidades humanas (teoria)
 
-> Tema del MAPA: `TEC0b` (`troncos.md`). Depende de del nodo `tecnología"]` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `TEC0b` (`troncos.md`). Depende de `../que-es-la-tecnica-y-la-tecnologia/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

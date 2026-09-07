@@ -1,6 +1,6 @@
 # Informática — Procesos técnicos artesanales e industriales (cuestionario, 22 preguntas VBLang)
 
-> Tema: `informatica/procesos-tecnicos-artesanales-e-industriales`. Ver `teoria.md` en esta misma carpeta. Escrito a mano (Claude), cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `informatica/procesos-tecnicos-artesanales-e-industriales`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
