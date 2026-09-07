@@ -1,6 +1,6 @@
 # Lengua — subordinada sustantiva de complemento directo (cuestionario, 20 preguntas VBLang)
 
-> Tema: `lengua/subordinada-sustantiva-de-complemento-directo`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-sustantiva-de-complemento-directo`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -46,7 +46,7 @@ tipo: vf
 enunciado: "En la oración 'Es importante {contenido}', la parte '{contenido}' es el sujeto de la oración."
 
 explicacion: |
-  Falso. En construcciones impersonales con 'es importante', la subordinada suele funcionar como sujeto real (antepuesto al verbo lógico). Sin embargo, si la oración principal tuviera un sujeto explícito que realiza la acción sobre la subordinada (ej. 'Juan cree que...'), sería CD. Pero en 'Es importante que...', la subordinada es el sujeto. *Nota: Esta pregunta busca confundir. En 'Juan dice que...', es CD. En 'Es importante que...', es Sujeto. La afirmación dice que es CD, por lo tanto es FALSA.*
+  Falso. En construcciones impersonales con 'es importante', la subordinada funciona como sujeto (no hay un sujeto explícito distinto que realice la acción sobre ella). Compará con 'Juan cree que...', donde sí sería CD, porque ahí 'Juan' es el sujeto que ejerce la acción de creer.
 ```
 
 ### 3 — pregunta 3
@@ -128,7 +128,6 @@ metadata:
 
 variables:
   verbo1: uno_de(["piensa", "cree", "sabe", "dice"])
-  verbo2: uno_de(["acuerdarse", "olvidarse", "recordar", "pensar"])
   contenido: uno_de(["que viene", "que lo hizo", "que es tarde", "que gane"])
 
 respuesta: verbo1
