@@ -1,6 +1,6 @@
 # Geografia — migraciones internacionales (cuestionario, 29 preguntas VBLang)
 
-> Tema: `geografia/migraciones-internacionales`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `geografia/migraciones-internacionales`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
