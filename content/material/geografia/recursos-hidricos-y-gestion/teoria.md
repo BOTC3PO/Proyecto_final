@@ -1,6 +1,6 @@
 # Geografía — Recursos hídricos y gestión (teoria)
 
-> Tema del MAPA: `GM7` (`troncos.md`). Depende de del nodo `AM1` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `GM7` (`troncos.md`). Depende de del nodo `AM1` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

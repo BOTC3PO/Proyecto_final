@@ -1,6 +1,6 @@
 # Geografía — Riesgos ambientales mundiales (teoria)
 
-> Tema del MAPA: `GM8` (`troncos.md`). Depende de `../riesgos-naturales-argentinos/` (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `GM8` (`troncos.md`). Depende de `../riesgos-naturales-argentinos/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
