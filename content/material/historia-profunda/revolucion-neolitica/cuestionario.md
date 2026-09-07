@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -105,15 +105,12 @@ metadata:
   nivel: "avanzado"
   tags: ["demografia", "salud"]
 
-variables:
-  dato: uno_de([[12000, "aumentó"], [5000, "disminuyó"]])
-
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Se estima que hace aproximadamente {dato[0]} años, la transición hacia la agricultura provocó que la población mundial {dato[1]} de forma drástica."
+enunciado: "Se estima que hace aproximadamente 12000 años, la transición hacia la agricultura provocó que la población mundial ___ de forma drástica."
 
-respuesta: dato[1]
+respuesta: "aumentó"
 
 explicacion: |
   La agricultura permitió una mayor densidad de población por unidad de superficie, aunque también trajo nuevos desafíos como enfermedades zoonóticas y carencias nutricionales específicas.
@@ -150,14 +147,11 @@ metadata:
   nivel: "basico"
   tags: ["ganaderia", "animales"]
 
-variables:
-  animal_base: uno_de([["oveja", "cabras"], ["vaca", "cerdos"]])
-
-respuesta: animal_base[0]
+respuesta: "oveja"
 tipo: mc
 opciones_explicitas: ["oveja", "vaca", "cerdo", "caballo"]
 
-enunciado: "Uno de los animales más importantes para la obtención de lana y carne en el Neolítico fue la {animal_base[0]}."
+enunciado: "Uno de los animales más importantes para la obtención de lana y carne en el Neolítico fue la ___."
 
 explicacion: |
   La domesticación de la oveja permitió no solo alimento, sino también fibras textiles para la vestimenta.
@@ -172,7 +166,7 @@ metadata:
   nivel: "intermedio"
   tags: ["america", "papa"]
 
-respuesta: ["papa"]
+respuesta: "papa"
 respuestas_validas:
   - "papa"
 tipo: completar
@@ -211,14 +205,11 @@ metadata:
   nivel: "intermedio"
   tags: ["consecuencias", "poblacion"]
 
-variables:
-  cambio: uno_de([["aumento", "crecimiento"], ["disminución", "caída"]])
-
-respuesta: cambio[0]
+respuesta: "aumento"
 tipo: mc
 opciones_explicitas: ["aumento", "disminución", "estancamiento", "variación"]
 
-enunciado: "La capacidad de producir excedentes alimentarios provocó un {cambio} de la población humana."
+enunciado: "La capacidad de producir excedentes alimentarios provocó un ___ de la población humana."
 
 explicacion: |
   La agricultura permitió alimentar a más personas en un mismo territorio, lo que derivó en un crecimiento demográfico sostenido.
@@ -363,14 +354,11 @@ metadata:
   nivel: "basico"
   tags: ["sedentarismo", "agricultura"]
 
-variables:
-  escenario: uno_de([["agricultura estable", "sedentarismo"], ["caza nómada", "desplazamiento constante"]])
-
-respuesta: escenario[1]
+respuesta: "sedentarismo"
 tipo: mc
 opciones_explicitas: ["sedentarismo", "desplazamiento constante", "nomadismo extremo", "migración estacional"]
 
-enunciado: "La adopción de la {escenario[0]} permitió que los grupos humanos abandonaran el nomadismo, dando paso al ___."
+enunciado: "La adopción de la agricultura estable permitió que los grupos humanos abandonaran el nomadismo, dando paso al ___."
 
 explicacion: |
   Al tener una fuente de alimento constante y predecible, las poblaciones pudieron establecer asentamientos permanentes.
@@ -429,14 +417,11 @@ metadata:
   nivel: "avanzado"
   tags: ["causalidad", "sociedad"]
 
-variables:
-  caso: uno_de([["excedente", "sedentarismo"], ["caza", "nomadismo"]])
-
-respuesta: caso[1]
+respuesta: "sedentarismo"
 tipo: mc
 opciones_explicitas: ["sedentarismo", "nomadismo", "migración", "recolección"]
 
-enunciado: "Si la agricultura genera un {caso[0]}, la consecuencia social directa es el ___."
+enunciado: "Si la agricultura genera un excedente, la consecuencia social directa es el ___."
 
 explicacion: |
   El excedente permite que la sociedad deje de moverse constantemente en busca de comida, fijando la población en un territorio.
@@ -451,15 +436,11 @@ metadata:
   nivel: "basico"
   tags: ["agricultura", "origen"]
 
-variables:
-  datos: [["Creciente Fértil", "Oriente Próximo"], ["China", "Río Amarillo"], ["Mesoamérica", "México"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "Oriente Próximo"
 tipo: mc
 opciones_explicitas: ["Oriente Próximo", "Río Amarillo", "México"]
 
-enunciado: "La domesticación de cereales como el trigo y la cebada ocurrió principalmente en la región de {datos[idx][0]}."
+enunciado: "La domesticación de cereales como el trigo y la cebada ocurrió principalmente en la región del Creciente Fértil, también conocida como ___."
 
 explicacion: |
   La región del Creciente Fértil fue el núcleo de la revolución neolítica, permitiendo el sedentarismo gracias al cultivo de cereales.
@@ -497,16 +478,12 @@ metadata:
   nivel: "intermedio"
   tags: ["nomadismo", "sedentarismo"]
 
-variables:
-  datos: [["Nómadas", "recolectores"], ["Sedentarios", "agricultores"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "agricultores"
 tipo: completar
 respuestas_validas:
   - "agricultores"
 
-enunciado: "Antes de la revolución neolítica, los grupos humanos eran mayoritariamente ___; tras la domesticación de plantas, se convirtieron en ___."
+enunciado: "Antes de la revolución neolítica, los grupos humanos eran mayoritariamente nómadas y recolectores; tras la domesticación de plantas, se convirtieron en ___."
 
 explicacion: |
   La capacidad de producir alimento permitió que los grupos humanos dejaran de desplazarse constantemente.
@@ -521,15 +498,11 @@ metadata:
   nivel: "avanzado"
   tags: ["geografia", "cultivos"]
 
-variables:
-  datos: [["China", "arroz"], ["Andes", "papa"], ["Creciente Fértil", "trigo"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "papa"
 tipo: mc
 opciones_explicitas: ["arroz", "papa", "trigo"]
 
-enunciado: "Si un arqueólogo encuentra restos de tubérculos domesticados en la zona de {datos[idx][0]}, lo más probable es que se trate de ___."
+enunciado: "Si un arqueólogo encuentra restos de tubérculos domesticados en la zona de los Andes, lo más probable es que se trate de ___."
 
 explicacion: |
   La domesticación de la papa es un proceso clave que ocurrió en la región andina.
