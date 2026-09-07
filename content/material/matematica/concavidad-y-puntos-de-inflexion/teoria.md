@@ -1,6 +1,6 @@
 # Matemática — Concavidad y puntos de inflexión (teoria)
 
-> Tema del MAPA: `A13CONC` (`troncos.md`). Depende de del nodo `A13` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `A13CONC` (`troncos.md`). Depende de del nodo `A13` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Matematica — concavidad y puntos de inflexion (cuestionario, 27 preguntas VBLang)
 
-> Tema: `matematica/concavidad-y-puntos-de-inflexion`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `matematica/concavidad-y-puntos-de-inflexion`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
