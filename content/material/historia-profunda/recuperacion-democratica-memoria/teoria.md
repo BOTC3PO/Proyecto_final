@@ -10,7 +10,7 @@
 
 ## 1. El fin de la dictadura y el retorno a la democracia
 
-La caída del último gobierno militar en Argentina marcó un giro fundamental en su historia contemporánea. Tras décadas de inestabilidad política, el régimen cívico-militar que gobernó desde 1976 se derrumbó en 1983 debido a la crisis económica, la deslegitimación social y las presiones internacionales tras la Guerra de Malvinas. Las elecciones generales del 25 de octubre de ese año pusieron fin al modelo autoritario: el pueblo argentino ejerció su derecho al voto por primera vez desde 1973, eligiendo a un gobierno representativo. Este evento simbolizó no solo la restauración formal de la democracia, sino también el inicio de una lucha para recuperar la memoria colectiva de los años de violencia y represión.
+La caída del último gobierno militar en Argentina marcó un giro fundamental en su historia contemporánea. Tras décadas de inestabilidad política, el régimen cívico-militar que gobernó desde 1976 se derrumbó en 1983 debido a la crisis económica, la deslegitimación social y las presiones internacionales tras la Guerra de Malvinas. Las elecciones generales del 30 de octubre de ese año pusieron fin al modelo autoritario: el pueblo argentino ejerció su derecho al voto por primera vez desde 1973, eligiendo a un gobierno representativo. Este evento simbolizó no solo la restauración formal de la democracia, sino también el inicio de una lucha para recuperar la memoria colectiva de los años de violencia y represión.
 
 ## 2. Raúl Alfonsín: el primer presidente elegido
 
