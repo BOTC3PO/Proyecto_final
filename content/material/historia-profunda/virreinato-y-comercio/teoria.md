@@ -14,7 +14,7 @@ El Virreinato del Río de la Plata fue creado oficialmente en 1776 como parte de
 
 ## 2. Motivaciones detrás de su creación
 
-La principal razón para establecer este virreinato fue consolidar el control sobre los flujos económicos y garantizar la defensa de un territorio vasto que incluía lo que hoy son Argentina, Paraguay, Uruguay y parte del norte de Brasil. España temía la expansión portuguesa hacia el sur y quería evitar la pérdida de recursos naturales y rutas comerciales clave. Además, el aumento del contrabando en el Atlántico obligó a reorganizar las autoridades para fiscalizar mejor los intercambios con otras colonias.
+La principal razón para establecer este virreinato fue consolidar el control sobre los flujos económicos y garantizar la defensa de un territorio vasto que incluía lo que hoy son Argentina, Bolivia (el Alto Perú), Paraguay y Uruguay, además de zonas en disputa con Portugal en el sur de Brasil (como la región de Colonia del Sacramento). España temía la expansión portuguesa hacia el sur y quería evitar la pérdida de recursos naturales y rutas comerciales clave. Además, el aumento del contrabando en el Atlántico obligó a reorganizar las autoridades para fiscalizar mejor los intercambios con otras colonias.
 
 ## 3. Buenos Aires: nueva capital
 

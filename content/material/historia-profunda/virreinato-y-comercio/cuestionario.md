@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -79,17 +79,13 @@ metadata:
   nivel: "avanzado"
   tags: ["geopolitica", "administracion"]
 
-variables:
-  escenario: uno_de([["Perú", "Río de la Plata"], ["Río de la Plata", "Perú"]])
-
-respuesta: escenario[0]
+respuesta: "Perú"
 
 tipo: completar
 respuestas_validas:
   - "Perú"
-  - "Río de la Plata"
 
-enunciado: "Antes de 1776, el territorio que hoy comprende gran parte del Cono Sur pertenecía al Virreinato del {escenario[0]}."
+enunciado: "Antes de 1776, el territorio que hoy comprende gran parte del Cono Sur pertenecía al Virreinato del ___."
 
 pasos:
   - "Identificar la dependencia administrativa previa a la reforma borbónica."
@@ -147,18 +143,14 @@ metadata:
   nivel: "intermedio"
   tags: ["puertos", "comercio", "españa"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[0, "Sevilla", "Cádiz"], [1, "Sevilla", "Barcelona"]]
-
-respuesta: escenario[idx][1]
+respuesta: "Cádiz"
 tipo: mc
 opciones_explicitas: ["Sevilla", "Cádiz", "Barcelona", "Valencia"]
 
-enunciado: "Durante gran parte del periodo virreinal, el comercio con las Indias se centralizaba en el puerto de {escenario[idx][0]}, pero la autoridad principal de la Casa de Contratación residía en {escenario[idx][1]}."
+enunciado: "La Casa de Contratación, que monopolizaba el comercio con las Indias, se estableció originalmente en Sevilla en 1503, pero en 1717 su sede y el puerto único autorizado se trasladaron a ___."
 
 explicacion: |
-  Aunque Sevilla fue el puerto principal inicialmente, la Casa de Contratación se estableció en Sevilla, pero el control administrativo y el flujo comercial se concentraba en estas ciudades clave.
+  El traslado a Cádiz se debió principalmente al progresivo azolvamiento (acumulación de sedimentos) del río Guadalquivir, que dificultaba la navegación de barcos grandes hasta Sevilla.
 ```
 
 ### 8 — Consecuencias del Sistema
