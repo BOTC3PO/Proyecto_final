@@ -2,7 +2,7 @@
 
 > Tema: `AS2`. Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
+>
 > Corregido a mano. Bugs de esta tanda: pregunta cuyo `enunciado`
 > interpolaba directamente el valor de `respuesta:` (revelaba la
 > respuesta antes de contestar) — reescrita para que el enunciado sólo
@@ -461,7 +461,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1, 2, 3])
-  datos: [["Diciembre", "Verano", "Hemisferio Sur"], ["Junio", "Invierno", "Hemisferio Sur"], ["Diciembre", "Verano", "Hemisferio Norte"], ["Junio", "Invierno", "Hemisferio Norte"]]
+  datos: [["Diciembre", "Verano", "Hemisferio Sur"], ["Junio", "Invierno", "Hemisferio Sur"], ["Diciembre", "Invierno", "Hemisferio Norte"], ["Junio", "Verano", "Hemisferio Norte"]]
 
 respuesta: datos[idx][1]
 tipo: mc
@@ -484,7 +484,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [["Solsticio de Junio", "Invierno", "Hemisferio Norte"], ["Solsticio de Diciembre", "Invierno", "Hemisferio Sur"]]
+  datos: [["Solsticio de Diciembre", "Invierno", "Hemisferio Norte"], ["Solsticio de Junio", "Invierno", "Hemisferio Sur"]]
 
 respuesta: datos[idx][1]
 tipo: mc
