@@ -1,6 +1,6 @@
-# Lengua — coordinadas distributivas (cuestionario, 32 preguntas VBLang)
+# Lengua — coordinadas distributivas (cuestionario, 26 preguntas VBLang)
 
-> Tema: `lengua/coordinadas-distributivas`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/coordinadas-distributivas`. Ver `teoria.md` en esta misma carpeta. Reescrito 2026-09-07: el crudo generado con qwen/qwen3.6-35b-a3b definía la distributiva a partir de verbos recíprocos ("pelearse", "saludarse") y de la ambigüedad de "y", un concepto inexistente en la gramática real. La coordinación distributiva se marca con **pares correlativos** ("ya... ya...", "unos... otros...", "bien... bien...", "ora... ora...", "éste... aquél...") sin nexo conjuntivo, y este archivo fue reescrito para reflejar eso. Cada pregunta validada con parse+lint+compile+generate real de packages/vblang.
 
 ---
 
@@ -10,21 +10,23 @@
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["conteo", "aplicacion"]
+  nivel: "basico"
+  tags: ["definicion", "pares-correlativos"]
 
 variables:
-  n1: random(1, 5)
-  n2: random(1, 5)
-  total: n1 + n2
+  op_a: "un nexo como 'y' u 'o'"
+  op_b: "la repetición de una palabra correlativa ('ya... ya...', 'unos... otros...')"
+  op_c: "una coma sin ninguna palabra que se repita"
+  op_d: "el uso de 'pero' o 'sino'"
 
-respuesta: total
-tipo: input
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración 'Hay {n1} docentes y {n2} estudiantes que se saludaron', ¿cuántos individuos participan de la acción distributiva de saludarse mutuamente?"
+enunciado: "¿Qué marca principalmente a la coordinación distributiva, a diferencia de la copulativa, la disyuntiva y la adversativa?"
 
 explicacion: |
-  La respuesta es la suma de los sujetos coordinados: {n1} + {n2} = {total}. Al usar el verbo recíproco 'saludarse', todos los sujetos mencionados (docentes y estudiantes) participan activamente de la acción distribuida entre ellos."
+  La distributiva no usa un nexo conjuntivo único: se reconoce por la repetición de una palabra correlativa al inicio de cada proposición ("ya... ya...", "unos... otros...", "bien... bien...", "ora... ora...").
 ```
 
 ### 2 — pregunta 2
@@ -34,18 +36,19 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "basico"
-  tags: ["sintaxis", "sujeto"]
+  tags: ["ejemplo", "ya-ya"]
 
 variables:
-  n: random(2, 4)
+  estado1: uno_de(["ríe", "canta", "duda"])
+  estado2: uno_de(["llora", "calla", "afirma"])
 
-respuesta: "plural"
-tipo: input
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En la oración 'Los alumnos {n} y las alumnas {n} se abrazaron', ¿qué número tiene el sujeto compuesto? (Escribe 'singular' o 'plural')"
+enunciado: "En 'Ya {estado1}, ya {estado2}', la repetición de 'ya' marca una coordinación distributiva que alterna entre dos momentos o estados."
 
 explicacion: |
-  La respuesta es 'plural'. Aunque la coordinación distributiva enfatiza la acción individual, gramaticalmente los dos elementos unidos por 'y' forman un sujeto compuesto plural. El verbo se conjuga en plural ('se abrazaron')."
+  Correcto. El par correlativo "ya... ya..." indica que el sujeto alterna entre esos estados en distintos momentos, sin que haya un nexo como "y" u "o" uniéndolos.
 ```
 
 ### 3 — pregunta 3
@@ -54,21 +57,21 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["conteo", "logica"]
+  nivel: "basico"
+  tags: ["ejemplo", "unos-otros"]
 
 variables:
-  a: random(1, 3)
-  b: random(1, 3)
-  total: a + b
+  grupo: uno_de(["Los alumnos", "Los vecinos", "Los jugadores"])
+  accion1: uno_de(["cantan", "estudian", "corren"])
+  accion2: uno_de(["bailan", "dibujan", "descansan"])
 
-respuesta: total
-tipo: input
+respuesta: "unos... otros..."
+tipo: completar
 
-enunciado: "En 'Hay {a} perros y {b} gatos que se persiguieron', ¿cuántos animales participan de la persecución mutua?"
+enunciado: "'{grupo}: unos {accion1}, otros {accion2}' reparte la acción entre dos subgrupos mediante el par correlativo:"
 
 explicacion: |
-  La respuesta es {total}. El verbo 'persiguieron' (recíproco) implica que cada animal persigue a los demás. Todos los sujetos coordinados están incluidos en la acción distribuida."
+  El par "unos... otros..." distribuye la acción entre distintos miembros del mismo grupo: una parte hace una cosa, otra parte hace otra, simultáneamente.
 ```
 
 ### 4 — pregunta 4
@@ -77,19 +80,22 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["sintaxis", "concordancia"]
+  nivel: "intermedio"
+  tags: ["distincion", "copulativa"]
 
 variables:
-  n: random(2, 5)
+  nombre1: uno_de(["Juan", "Pedro", "Luis"])
+  nombre2: uno_de(["María", "Ana", "Sofía"])
+  accion1: uno_de(["estudia", "lee", "escribe"])
+  accion2: uno_de(["cocina", "canta", "pinta"])
 
-respuesta: "plural"
-tipo: input
+respuesta: falso
+tipo: vf
 
-enunciado: "En 'Los docentes {n} y los estudiantes {n} se felicitaron', ¿qué género y número debe tener el participio 'felicitar' si se usara en voz pasiva refleja? (Escribe 'felicitaron')"
+enunciado: "En '{nombre1} {accion1} y {nombre2} {accion2}', hay coordinación distributiva porque cada sujeto realiza una acción distinta."
 
 explicacion: |
-  La respuesta es 'felicitaron'. Al ser sujeto compuesto plural, el verbo concuerda en plural. La coordinación distributiva no cambia la concordancia gramatical, solo la interpretación semántica de la acción."
+  Falso. Es un error común confundir esto con la distributiva. Aquí solo hay dos proposiciones sumadas con "y" (copulativa); no hay ninguna palabra correlativa repetida. Que las acciones sean distintas no alcanza para que sea distributiva.
 ```
 
 ### 5 — pregunta 5
@@ -99,20 +105,19 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["conteo", "logica"]
+  tags: ["ejemplo", "bien-bien"]
 
 variables:
-  n1: random(1, 4)
-  n2: random(1, 4)
-  total: n1 + n2
+  medio1: uno_de(["por las buenas", "con paciencia", "con esfuerzo"])
+  medio2: uno_de(["por las malas", "con firmeza", "con tiempo"])
 
-respuesta: total
-tipo: input
+respuesta: "bien... bien..."
+tipo: completar
 
-enunciado: "En 'Hay {n1} manzanas y {n2} naranjas que se repartieron', ¿cuántas frutas participan del reparto?"
+enunciado: "'Lo resolveremos, bien {medio1}, bien {medio2}' usa el par correlativo:"
 
 explicacion: |
-  La respuesta es {total}. El verbo 'repartirse' (o la acción de ser repartidas) implica que todas las frutas son objeto de la distribución entre los sujetos. Todos los elementos coordinados están incluidos."
+  "Bien... bien..." es otro par correlativo productivo de la distributiva: presenta dos vías o modos posibles, distribuidos, sin un nexo conjuntivo.
 ```
 
 ### 6 — pregunta 6
@@ -121,19 +126,20 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["sintaxis", "sujeto"]
+  nivel: "avanzado"
+  tags: ["ejemplo", "ora-ora", "registro"]
 
 variables:
-  n: random(2, 5)
+  clima1: uno_de(["llueve", "truena", "nubla"])
+  clima2: uno_de(["escampa", "sale el sol", "aclara"])
 
-respuesta: "plural"
-tipo: input
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En 'Los profesores {n} y los directivos {n} se saludaron', ¿qué número tiene el verbo 'saludar' en esta oración? (Escribe 'singular' o 'plural')"
+enunciado: "'Ora {clima1}, ora {clima2}' es un uso literario o arcaizante del par correlativo distributivo 'ora... ora...'."
 
 explicacion: |
-  La respuesta es 'plural'. Los sujetos coordinados forman un grupo plural, por lo que el verbo concuerda en plural."
+  Correcto. "Ora... ora..." funciona igual que "ya... ya..." pero con un registro más literario o arcaizante, típico de textos narrativos o poéticos.
 ```
 
 ### 7 — pregunta 7
@@ -142,21 +148,23 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["sintaxis", "coordinacion", "distributiva"]
+  nivel: "intermedio"
+  tags: ["distincion", "disyuntiva"]
 
 variables:
-  sujeto1: uno_de(["Juan", "María", "Pedro", "Ana"])
-  sujeto2: uno_de(["Carlos", "Laura", "Luis", "Sofía"])
-  verbo: uno_de(["se pelearon", "se miraron", "se saludaron", "se conocieron"])
+  op_a: "La distributiva reparte la acción entre elementos o momentos con un par correlativo; la disyuntiva plantea una alternativa excluyente con 'o'/'u'."
+  op_b: "Son exactamente lo mismo, solo cambia el nexo."
+  op_c: "La disyuntiva siempre implica reciprocidad y la distributiva no."
+  op_d: "La distributiva solo se usa con sujetos plurales y la disyuntiva no."
 
-respuesta: verdadero
-tipo: vf
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración '{sujeto1} {verbo} {sujeto2}', la coordinación es distributiva porque la acción se aplica recíprocamente a cada individuo."
+enunciado: "¿Cuál es la diferencia real entre coordinación distributiva y disyuntiva?"
 
 explicacion: |
-  Los verbos como 'pelearse', 'mirarse' o 'saludarse' son recíprocos. Esto implica que la acción se distribuye entre los sujetos: A hace la acción con B y B hace la acción con A. Por lo tanto, es una coordinación distributiva (o recíproca).
+  La disyuntiva ("o"/"u") presenta opciones donde se elige o se excluye una; la distributiva reparte la acción entre elementos o momentos distintos mediante un par correlativo, sin plantear una elección excluyente.
 ```
 
 ### 8 — pregunta 8
@@ -166,21 +174,21 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["sintaxis", "diferencias", "coordinacion"]
+  tags: ["distincion", "adversativa"]
 
 variables:
-  elem1: uno_de(["el libro", "la casa", "el coche"])
-  elem2: uno_de(["el cuaderno", "el departamento", "la moto"])
-  accion: uno_de(["es grande", "es vieja", "es nueva"])
+  elem1: uno_de(["El primero", "El más chico", "El del fondo"])
+  elem2: uno_de(["el segundo", "el más grande", "el de adelante"])
+  cualidad1: uno_de(["es tímido", "corre rápido", "estudia mucho"])
+  cualidad2: uno_de(["es extrovertido", "corre lento", "estudia poco"])
 
-respuesta: |
-  La coordinación es copulativa.
-tipo: completar
+respuesta: falso
+tipo: vf
 
-enunciado: "Analiza la oración: '{elem1} y {elem2} {accion}'. ¿Es esta coordinación distributiva o copulativa? Responde con una de las opciones."
+enunciado: "'{elem1} {cualidad1}, pero {elem2} {cualidad2}' es un ejemplo de coordinación distributiva porque compara dos elementos."
 
 explicacion: |
-  En 'el libro y el cuaderno es grande', la propiedad se atribuye al grupo como un todo o se aplica de forma acumulativa/no distributiva en el sentido recíproco. No hay una acción que se reparta entre ellos de manera individualizada o recíproca. Es una coordinación copulativa simple.
+  Falso. El nexo "pero" marca una coordinación adversativa (contraste), no distributiva. La distributiva no usa "pero"; usa pares correlativos repetidos como "ya... ya..." o "unos... otros...".
 ```
 
 ### 9 — pregunta 9
@@ -190,19 +198,18 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "basico"
-  tags: ["verbos", "reciprocidad", "sintaxis"]
+  tags: ["pares-correlativos", "reconocimiento"]
 
 variables:
-  grupo: uno_de(["Los hermanos", "Los vecinos", "Los compañeros"])
-  accion: uno_de(["se ayudaron", "se querían", "se respetaron", "se conocieron"])
+  n: random(2, 4)
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "En la oración '{grupo} {accion}', la conjunción 'y' introduce una coordinación distributiva porque la acción se realiza mutuamente."
+enunciado: "El par correlativo 'ni... ni...' (como en 'Ni {n} vino ni {n} llamó') es un caso de coordinación distributiva."
 
 explicacion: |
-  Correcto. Los verbos pronominales recíprocos (como ayudarse, quererse, respetarse) implican que el sujeto A actúa sobre B y B sobre A. La acción se distribuye en ambas direcciones.
+  Falso. "Ni... ni..." es la forma negativa de la coordinación copulativa (niega ambos elementos por igual), no una coordinación distributiva. La distributiva reparte acciones o momentos distintos entre elementos, no niega lo mismo dos veces.
 ```
 
 ### 10 — pregunta 10
@@ -212,22 +219,20 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["semántica", "distribución", "medios"]
+  tags: ["ejemplo", "demostrativos"]
 
 variables:
-  grupo1: uno_de(["Los alumnos", "Los trabajadores", "Los clientes"])
-  grupo2: uno_de(["las alumnas", "los empleados", "los usuarios"])
-  medio1: uno_de(["por la puerta principal", "por el ascensor", "por la ventana"])
-  medio2: uno_de(["por la puerta lateral", "por la escalera", "por la puerta de servicio"])
+  tema: uno_de(["el problema", "la película", "el partido"])
+  opinion1: uno_de(["una cosa", "que estuvo bien", "que ganó el mejor"])
+  opinion2: uno_de(["la contraria", "que estuvo mal", "que perdió el mejor"])
 
-respuesta: |
-  Distributiva
+respuesta: "éste... aquél..."
 tipo: completar
 
-enunciado: "En la frase '{grupo1} y {grupo2} entrarán {medio1} y {medio2} respectivamente', la coordinación de los medios es de tipo:"
+enunciado: "En 'Sobre {tema}, éste opina {opinion1}, aquél opina {opinion2}', el par correlativo demostrativo usado es:"
 
 explicacion: |
-  La conjunción 'y' distribuye los medios de acceso entre los dos colectivos: un grupo usa uno y el otro grupo usa el otro. No es una acción compartida simultáneamente por todos, sino una repartición de recursos o acciones.
+  "Éste... aquél..." (o "uno... otro...") es un par correlativo demostrativo: distribuye opiniones o acciones distintas entre dos referentes ya mencionados o sobreentendidos.
 ```
 
 ### 11 — pregunta 11
@@ -237,21 +242,18 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["sintaxis", "sujeto", "agrupación"]
+  tags: ["puntuacion", "estructura"]
 
 variables:
-  nombre1: uno_de(["Luis", "Ana", "Pedro", "María"])
-  nombre2: uno_de(["Carlos", "Laura", "Juan", "Sofía"])
-  verbo: uno_de(["comió", "durmió", "estudió", "trabajó"])
+  par: uno_de(["ya... ya...", "unos... otros...", "bien... bien..."])
 
-respuesta: |
-  Copulativa
-tipo: completar
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En la oración '{nombre1} y {nombre2} {verbo} temprano', la coordinación de los sujetos se considera:"
+enunciado: "Cuando se usa el par correlativo '{par}', las proposiciones distribuidas suelen ir separadas por comas, sin conjunción."
 
 explicacion: |
-  La acción de comer, dormir, estudiar o trabajar se atribuye al conjunto 'Luis y Carlos' como un sujeto plural. No implica que Luis comió con Carlos de manera recíproca, sino que ambos realizaron la acción. Es una coordinación copulativa.
+  Correcto. A diferencia de la copulativa, disyuntiva y adversativa (que llevan un nexo como "y", "o" o "pero"), la distributiva no necesita conjunción: las proposiciones quedan yuxtapuestas y separadas por comas.
 ```
 
 ### 12 — pregunta 12
@@ -261,19 +263,19 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "avanzado"
-  tags: ["definicion", "concepto", "teoria"]
+  tags: ["contexto-deportivo", "aplicacion"]
 
 variables:
-  clave: uno_de(["la reciprocidad", "la alternancia", "la separación", "la independencia"])
+  causa1: uno_de(["la lluvia", "el viento", "el calor"])
+  causa2: uno_de(["el cansancio", "las lesiones", "los nervios"])
 
-respuesta: |
-  La reciprocidad o la separación de la acción
-tipo: completar
+respuesta: falso
+tipo: vf
 
-enunciado: "La característica fundamental que distingue a una coordinación distributiva es que la conjunción indica que la acción o cualidad se aplica por separado o mutuamente a cada elemento, a menudo marcada por:"
+enunciado: "En 'El equipo, ya por {causa1}, ya por {causa2}, no pudo sostener el ritmo', la oración afirma con certeza cuál de las dos causas fue la responsable."
 
 explicacion: |
-  A diferencia de la copulativa que suma elementos, la distributiva indica que lo que se dice de uno se aplica al otro individualmente, ya sea por reciprocidad (acción mutua) o por alternancia (reparto de elementos).
+  Falso. El par "ya... ya..." distribuye dos causas posibles sin afirmar cuál de las dos fue exactamente la responsable, ni excluir a la otra (a diferencia de una disyuntiva con 'o').
 ```
 
 ### 13 — pregunta 13
@@ -283,21 +285,19 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["ejemplos", "alternancia"]
+  tags: ["contexto-aula", "aplicacion"]
 
 variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  accion: uno_de(["subirán", "bajarán", "saldrán"])
-  via1: uno_de(["por la escalera", "por el ascensor", "por la puerta"])
-  via2: uno_de(["por el ascensor", "por la escalera", "por la puerta"])
+  lugar1: uno_de(["en el pizarrón", "en la carpeta", "en la computadora"])
+  lugar2: uno_de(["en sus carpetas", "en el pizarrón", "en el cuaderno"])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "unos... otros..."
+tipo: completar
 
-enunciado: "En la oración '{sujeto} {accion} {via1} y {via2}', si se entiende que un sube por una vía y el otro por la otra, se trata de una coordinación distributiva."
+enunciado: "'Unos alumnos resuelven el ejercicio {lugar1}, otros lo hacen {lugar2}' reparte la actividad mediante el par:"
 
 explicacion: |
-  Correcto. La conjunción distribuye los medios (vías) entre los sujetos. No todos usan ambas vías juntos, sino que se reparten el uso de los medios disponibles.
+  "Unos... otros..." reparte una misma actividad entre dos subgrupos que la realizan de forma distinta y simultánea, sin nexo conjuntivo.
 ```
 
 ### 14 — pregunta 14
@@ -306,22 +306,21 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["conectivos", "distribucion", "estructura"]
+  nivel: "basico"
+  tags: ["copulativa", "distincion"]
 
 variables:
-  elem1: uno_de(["unos", "algunos", "otros"])
-  elem2: uno_de(["otros", "unos", "algunos"])
-  accion: uno_de(["vienen", "van", "llegan"])
+  sujeto1: uno_de(["El perro", "El gato", "El niño"])
+  sujeto2: uno_de(["el gato", "el niño", "el perro"])
+  cualidad: uno_de(["es grande", "es rápido", "es curioso"])
 
-respuesta: |
-  Distributiva
-tipo: completar
+respuesta: falso
+tipo: vf
 
-enunciado: "En la frase '{elem1} y {elem2} {accion} mañana', la estructura 'y... y...' suele indicar una coordinación:"
+enunciado: "'{sujeto1} y {sujeto2} {cualidad}' es una coordinación distributiva porque hay dos sujetos distintos."
 
 explicacion: |
-  La repetición de la conjunción 'y' a menudo enfatiza la distribución individual de la acción o la cualidad sobre cada elemento del grupo, separándolos en la ejecución del predicado.
+  Falso. Tener dos sujetos unidos por "y" no basta para que sea distributiva: eso sigue siendo copulativa (suma de sujetos). La distributiva se reconoce por el par correlativo repetido ("ya... ya...", "unos... otros..."), no por la mera presencia de dos sujetos.
 ```
 
 ### 15 — pregunta 15
@@ -330,21 +329,23 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["verbos", "no-distributivo", "copulativo"]
+  nivel: "intermedio"
+  tags: ["reconocimiento", "opciones"]
 
 variables:
-  sujeto1: uno_de(["El perro", "El gato", "El niño"])
-  sujeto2: uno_de(["el perro", "el gato", "el niño"])
-  adjetivo: uno_de(["es grande", "es pequeño", "es rápido"])
+  op_a: "unos... otros..."
+  op_b: "y... también..."
+  op_c: "porque... entonces..."
+  op_d: "si... entonces..."
 
-respuesta: falso
-tipo: vf
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración '{sujeto1} y {sujeto2} {adjetivo}', la coordinación es siempre distributiva porque hay dos sujetos."
+enunciado: "¿Cuál de las siguientes es una pareja correlativa real de la coordinación distributiva?"
 
 explicacion: |
-  Falso. La presencia de dos sujetos unidos por 'y' no garantiza que sea distributiva. Si la cualidad se aplica al grupo como un todo (ej. 'Juan y Pedro es alto' - incorrecto gramaticalmente pero conceptualmente copulativo de atributo), o si no hay reciprocidad, es copulativa. La distribución requiere que la acción/cualidad se aplique individualmente de forma separada o recíproca.
+  "Unos... otros..." es un par correlativo distributivo reconocido. Las otras opciones no son pares correlativos de coordinación distributiva en la gramática del español.
 ```
 
 ### 16 — pregunta 16
@@ -353,22 +354,21 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "sujeto", "pluralidad"]
+  nivel: "avanzado"
+  tags: ["analisis", "sujeto"]
 
 variables:
-  nombre1: uno_de(["María", "Juan", "Ana"])
-  nombre2: uno_de(["Carlos", "Luis", "Pedro"])
-  verbo: uno_de(["se ayudaron", "se miraron", "se conocieron"])
+  n1: random(2, 5)
+  n2: random(2, 5)
+  total: n1 + n2
 
-respuesta: |
-  Sujeto plural coordinado
-tipo: completar
+respuesta: total
+tipo: input
 
-enunciado: "En la oración '{nombre1} y {nombre2} {verbo}', el sujeto sintáctico es:"
+enunciado: "Si en un curso 'unos {n1} alumnos resuelven en el pizarrón, otros {n2} lo hacen en la carpeta', ¿cuántos alumnos en total participan de la actividad distribuida?"
 
 explicacion: |
-  El sujeto es el conjunto '{nombre1} y {nombre2}'. Aunque la acción es distributiva (recíproca), gramaticalmente funciona como un sujeto plural compuesto por dos coordenadas.
+  {n1} + {n2} = {total}. Aunque la actividad está distribuida entre dos subgrupos (par "unos... otros..."), ambos forman parte del mismo curso, así que se suman.
 ```
 
 ### 17 — pregunta 17
@@ -377,22 +377,21 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["ambigüedad", "contexto", "interpretación"]
+  nivel: "intermedio"
+  tags: ["ejemplo", "no-distributiva"]
 
 variables:
-  elem1: uno_de(["El padre", "El maestro", "El director"])
-  elem2: uno_de(["el hijo", "el alumno", "el estudiante"])
-  accion: uno_de(["se pelearon", "se abrazaron", "se saludaron"])
+  sujeto1: uno_de(["Los profesores", "Los directivos", "Los preceptores"])
+  sujeto2: uno_de(["los alumnos", "las familias", "los tutores"])
+  accion: uno_de(["se saludaron", "se reunieron", "conversaron"])
 
-respuesta: |
-  Puede ser copulativa o distributiva según el contexto
-tipo: completar
+respuesta: falso
+tipo: vf
 
-enunciado: "En la frase '{elem1} y {elem2} {accion}', sin más contexto, la coordinación puede interpretarse como:"
+enunciado: "'{sujeto1} y {sujeto2} {accion}' es distributiva porque el verbo describe una acción entre dos grupos."
 
 explicacion: |
-  Dependiendo del verbo y el contexto, puede ser copulativa (ambos realizan la acción individualmente pero no necesariamente uno con el otro, ej. 'se saludaron' a terceros) o distributiva/recíproca (uno con el otro, ej. 'se pelearon'). El verbo recíproco fuerza la interpretación distributiva.
+  Falso. Que el verbo implique interacción entre los sujetos (verbos recíprocos como "saludarse") no la convierte en distributiva; eso es un fenómeno léxico del verbo, no una categoría de coordinación. Sigue siendo copulativa: no hay par correlativo repetido.
 ```
 
 ### 18 — pregunta 18
@@ -401,21 +400,23 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["conjunciones", "negación", "distributiva"]
+  nivel: "basico"
+  tags: ["definicion", "nexo-ausente"]
 
 variables:
-  elem1: uno_de(["Ninguno", "Nadie", "Nada"])
-  elem2: uno_de(["de ellos", "de nosotros", "de ustedes"])
-  accion: uno_de(["vinieron", "llegaron", "estuvieron"])
+  op_a: "Que siempre lleva 'y' repetido dos veces."
+  op_b: "Que no necesita un nexo conjuntivo único; la marca es la palabra correlativa repetida."
+  op_c: "Que solo puede tener dos proposiciones, nunca más."
+  op_d: "Que siempre describe acciones recíprocas entre personas."
 
-respuesta: falso
-tipo: vf
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración 'Ni {elem1} {elem2} {accion}', la coordinación 'ni... ni...' es siempre distributiva."
+enunciado: "¿Qué es correcto decir sobre la coordinación distributiva?"
 
 explicacion: |
-  Falso. La coordinación disyuntiva negativa 'ni... ni...' niega la acción a ambos elementos por igual, pero no implica necesariamente una acción recíproca o una repartición de medios entre ellos. Es una negación acumulativa a los sujetos, no una distribución de acción entre ellos.
+  Su rasgo distintivo es la ausencia de un nexo único: se marca con la repetición de una palabra correlativa ("ya... ya...", "bien... bien...", etc.), no con "y" ni con verbos recíprocos.
 ```
 
 ### 19 — pregunta 19
@@ -425,20 +426,22 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "avanzado"
-  tags: ["reciprocidad", "sintaxis", "semántica"]
+  tags: ["comparacion", "copulativa"]
 
 variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  verbo: uno_de(["se vieron", "se encontraron", "se llamaron"])
+  op_a: "La copulativa suma con un nexo ('y'/'ni'); la distributiva reparte con un par correlativo repetido, sin nexo."
+  op_b: "No hay diferencia real entre ambas."
+  op_c: "La copulativa nunca puede tener más de un sujeto."
+  op_d: "La distributiva siempre requiere verbos en pasado."
 
-respuesta: |
-  La acción se realiza mutuamente por cada uno de los sujetos
-tipo: completar
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración '{sujeto} {verbo} ayer', el significado de la coordinación distributiva recíproca es que:"
+enunciado: "¿En qué se diferencia estructuralmente la coordinación distributiva de la copulativa?"
 
 explicacion: |
-  La reciprocidad implica que cada sujeto realiza la acción sobre el otro. Si son A y B, A hace la acción con B y B hace la acción con A.
+  La copulativa suma elementos con un nexo fijo ("y", "e", "ni"). La distributiva no tiene nexo: reparte la acción o cualidad usando una palabra correlativa que se repite al inicio de cada proposición.
 ```
 
 ### 20 — pregunta 20
@@ -448,22 +451,19 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["objeto", "distribución", "complemento"]
+  tags: ["contexto-argentino", "aplicacion"]
 
 variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  verbo: uno_de(["comieron", "leían", "escucharon"])
-  obj1: uno_de(["la manzana", "el libro", "la canción"])
-  obj2: uno_de(["la pera", "el diario", "la radio"])
+  motivo1: uno_de(["por gusto", "por necesidad", "por curiosidad"])
+  motivo2: uno_de(["por obligación", "por costumbre", "por consejo"])
 
-respuesta: |
-  Distributiva
+respuesta: "ya... ya..."
 tipo: completar
 
-enunciado: "En la oración '{sujeto} {verbo} {obj1} y {obj2}', si se entiende que uno comió la manzana y el otro la pera, la coordinación de los objetos es:"
+enunciado: "'Ya {motivo1}, ya {motivo2}, mucha gente elige estudiar de noche' usa el par correlativo:"
 
 explicacion: |
-  La conjunción 'y' distribuye los objetos entre los sujetos. Cada sujeto recibe un objeto diferente. Es una coordinación distributiva del complemento directo.
+  "Ya... ya..." distribuye dos motivos posibles sin afirmar cuál aplica en cada caso ni excluir al otro.
 ```
 
 ### 21 — pregunta 21
@@ -472,22 +472,23 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["comparación", "copulativa", "distributiva"]
+  nivel: "basico"
+  tags: ["identificacion", "no-distributiva"]
 
 variables:
-  elem1: uno_de(["Juan", "María", "Pedro"])
-  elem2: uno_de(["Carlos", "Laura", "Luis"])
-  accion: uno_de(["es alto", "es bajo", "es rubio"])
+  op_a: "'Ya ríe, ya llora.'"
+  op_b: "'Juan estudia y María trabaja.'"
+  op_c: "'Unos cantan, otros bailan.'"
+  op_d: "'Bien por las buenas, bien por las malas.'"
 
-respuesta: |
-  La copulativa agrupa los elementos como un conjunto único para la acción, mientras que la distributiva aplica la acción individualmente o recíprocamente.
-tipo: completar
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "La diferencia principal entre la coordinación copulativa en '{elem1} y {elem2} {accion}' y la distributiva es:"
+enunciado: "¿Cuál de estas oraciones NO es un ejemplo de coordinación distributiva?"
 
 explicacion: |
-  En la copulativa, la cualidad o acción se atribuye al grupo como un todo. En la distributiva, la acción se reparte o se realiza mutuamente entre los individuos.
+  "Juan estudia y María trabaja" es una coordinación copulativa (nexo "y", sin par correlativo repetido). Las otras tres sí presentan pares correlativos ("ya... ya...", "unos... otros...", "bien... bien...").
 ```
 
 ### 22 — pregunta 22
@@ -496,24 +497,19 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["adjetivos", "distribución", "cualidades"]
+  nivel: "intermedio"
+  tags: ["repeticion", "correlativos"]
 
 variables:
-  elem1: uno_de(["El primer", "El segundo", "El último"])
-  elem2: uno_de(["el segundo", "el tercero", "el último"])
-  sust: uno_de(["piso", "nivel", "grupo"])
-  adj1: uno_de(["alto", "grande", "amplio"])
-  adj2: uno_de(["bajo", "pequeño", "estrecho"])
+  par_valido: uno_de(["ya... ya...", "unos... otros...", "bien... bien...", "ora... ora..."])
 
-respuesta: |
-  Distributiva
-tipo: completar
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En la frase '{elem1} {sust} es {adj1} y {elem2} {sust} es {adj2}', la coordinación de las cualidades es:"
+enunciado: "El par correlativo '{par_valido}' funciona sin necesidad de una conjunción como 'y' u 'o' entre las proposiciones."
 
 explicacion: |
-  Cada elemento tiene una cualidad diferente. La conjunción distribuye las propiedades: una para el primero, otra para el segundo. Es distributiva.
+  Correcto. Ese es precisamente el rasgo definitorio de la distributiva: la palabra correlativa repetida reemplaza la función de un nexo conjuntivo.
 ```
 
 ### 23 — pregunta 23
@@ -522,21 +518,23 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["verbos", "no-recíproco", "sintaxis"]
+  nivel: "avanzado"
+  tags: ["registro", "literario"]
 
 variables:
-  sujeto1: uno_de(["Los niños", "Los alumnos", "Los jugadores"])
-  sujeto2: uno_de(["las niñas", "las alumnas", "las jugadoras"])
-  accion: uno_de(["jugaron", "estudiaron", "trabajaron"])
+  op_a: "'ora... ora...', de uso más literario o arcaizante"
+  op_b: "'y... y...', de uso exclusivamente coloquial"
+  op_c: "'o sea... o sea...', propio de textos legales"
+  op_d: "'pero... pero...', típico de discursos formales"
 
-respuesta: falso
-tipo: vf
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración '{sujeto1} y {sujeto2} {accion} en el parque', la coordinación es distributiva porque hay dos grupos de sujetos."
+enunciado: "¿Cuál de estos pares correlativos tiene un registro más literario o arcaizante?"
 
 explicacion: |
-  Falso. La acción de jugar, estudiar o trabajar se realiza por cada grupo o por todos juntos, pero no implica reciprocidad ni repartición de medios entre los grupos. Es una coordinación copulativa.
+  "Ora... ora..." (como en 'Ora llueve, ora escampa') es el par correlativo distributivo de uso más literario o arcaizante, equivalente en función a "ya... ya...".
 ```
 
 ### 24 — pregunta 24
@@ -546,21 +544,20 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["sintaxis", "sujeto", "análisis"]
+  tags: ["error-comun", "reciprocidad"]
 
 variables:
-  nombre1: uno_de(["Ana", "Luis", "María"])
-  nombre2: uno_de(["Carlos", "Pedro", "Juan"])
-  verbo: uno_de(["se ayudaron", "se miraron", "se conocieron"])
+  verbo: uno_de(["se pelearon", "se abrazaron", "se saludaron"])
+  sujeto1: uno_de(["Juan", "Pedro", "Luis"])
+  sujeto2: uno_de(["Carlos", "Diego", "Martín"])
 
-respuesta: |
-  Ana y Carlos
-tipo: completar
+respuesta: falso
+tipo: vf
 
-enunciado: "En la oración '{nombre1} y {nombre2} {verbo}', el sujeto sintáctico es:"
+enunciado: "'{sujeto1} y {sujeto2} {verbo}' es una coordinación distributiva porque el verbo recíproco reparte la acción entre ambos sujetos."
 
 explicacion: |
-  El sujeto es el conjunto coordinado '{nombre1} y {nombre2}'. Aunque la acción sea distributiva, gramaticalmente forman un único sujeto plural.
+  Falso. La reciprocidad es una propiedad léxica del verbo (verbos pronominales recíprocos), no una categoría de coordinación. La oración sigue siendo copulativa: dos núcleos de sujeto unidos por "y", sin par correlativo repetido.
 ```
 
 ### 25 — pregunta 25
@@ -569,22 +566,23 @@ explicacion: |
 metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["conjunciones", "disyuntiva", "distribución"]
+  nivel: "basico"
+  tags: ["sintesis", "definicion"]
 
 variables:
-  elem1: uno_de(["Uno", "Algunos", "Otros"])
-  elem2: uno_de(["de ellos", "de nosotros", "de ustedes"])
-  accion: uno_de(["viene", "va", "llega"])
+  op_a: "Distributiva"
+  op_b: "Copulativa"
+  op_c: "Disyuntiva"
+  op_d: "Adversativa"
 
-respuesta: |
-  Distributiva (por alternancia)
-tipo: completar
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la frase '{elem1} {elem2} {accion} por la mañana y {elem1} {elem2} {accion} por la tarde', la coordinación es:"
+enunciado: "'Unos llegan temprano, otros llegan tarde' es un ejemplo de coordinación:"
 
 explicacion: |
-  La conjunción 'o' (implícita en la alternancia) distribuye la acción en el tiempo. Un grupo realiza la acción en un momento y el otro en otro. Es una coordinación distributiva por alternancia.
+  Es distributiva: el par correlativo "unos... otros..." reparte la acción de llegar entre dos subgrupos, sin nexo conjuntivo entre las proposiciones.
 ```
 
 ### 26 — pregunta 26
@@ -594,163 +592,20 @@ metadata:
   materia: "Lengua"
   tema: "coordinadas_distributivas"
   nivel: "avanzado"
-  tags: ["conectivos", "combinación", "distribución"]
+  tags: ["repaso-general", "las-cuatro-coordinaciones"]
 
 variables:
-  elem1: uno_de(["El libro", "El cuaderno", "La carpeta"])
-  elem2: uno_de(["el lápiz", "el borrador", "la regla"])
-  accion: uno_de(["es necesario", "es útil", "es importante"])
+  op_a: "Copulativa: 'y'/'e'/'ni'; Disyuntiva: 'o'/'u'; Adversativa: 'pero'/'sino'; Distributiva: par correlativo repetido, sin nexo."
+  op_b: "Las cuatro coordinaciones usan siempre el mismo nexo 'y'."
+  op_c: "Solo la distributiva admite más de dos proposiciones."
+  op_d: "La adversativa y la distributiva son la misma categoría con distinto nombre."
 
-respuesta: |
-  Puede ser distributiva si se aplica a cada uno individualmente
-tipo: completar
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la frase '{elem1} y {elem2} {accion}', si se entiende que cada uno es necesario por separado, la coordinación es:"
-
-explicacion: |
-  Si la cualidad se aplica a cada elemento de forma individual (el libro es necesario y el lápiz es necesario), se trata de una coordinación distributiva de la cualidad.
-```
-
-### 27 — pregunta 27
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["verbos", "recíproco", "sujeto"]
-
-variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  verbo: uno_de(["se abrazaron", "se besaron", "se saludaron"])
-
-respuesta: |
-  La acción se realiza mutuamente
-tipo: completar
-
-enunciado: "En la oración '{sujeto} {verbo} ayer', el significado de la coordinación distributiva es que:"
+enunciado: "¿Cuál resume correctamente las cuatro coordinaciones (copulativa, disyuntiva, adversativa, distributiva)?"
 
 explicacion: |
-  Los verbos recíprocos indican que cada sujeto realiza la acción sobre el otro. A abraza a B y B abraza a A.
-```
-
-### 28 — pregunta 28
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["objeto", "distribución", "complemento"]
-
-variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  verbo: uno_de(["dieron", "enviaron", "mandaron"])
-  obj1: uno_de(["el regalo", "la carta", "el paquete"])
-  obj2: uno_de(["el premio", "el mensaje", "la nota"])
-
-respuesta: |
-  Distributiva
-tipo: completar
-
-enunciado: "En la oración '{sujeto} {verbo} {obj1} y {obj2} a sus amigos', si se entiende que uno dio el regalo y el otro el premio, la coordinación de los objetos directos es:"
-
-explicacion: |
-  La conjunción 'y' distribuye los objetos entre los sujetos. Cada sujeto entrega un objeto diferente. Es una coordinación distributiva del complemento directo.
-```
-
-### 29 — pregunta 29
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["comparación", "disyuntiva", "distributiva"]
-
-variables:
-  elem1: uno_de(["Juan", "María", "Pedro"])
-  elem2: uno_de(["Carlos", "Laura", "Luis"])
-  accion: uno_de(["viene", "va", "llega"])
-
-respuesta: |
-  La distributiva aplica la acción a ambos, la disyuntiva excluye una opción
-tipo: completar
-
-enunciado: "La diferencia entre la coordinación distributiva en '{elem1} y {elem2} {accion}' y la disyuntiva en '{elem1} o {elem2} {accion}' es:"
-
-explicacion: |
-  La distributiva indica que la acción se realiza por ambos (individualmente o recíprocamente). La disyuntiva indica que solo uno de los dos realizará la acción, excluyendo al otro.
-```
-
-### 30 — pregunta 30
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["verbos", "distribución", "acción"]
-
-variables:
-  elem1: uno_de(["El primero", "El segundo", "El último"])
-  elem2: uno_de(["el segundo", "el tercero", "el último"])
-  accion1: uno_de(["habló", "cantó", "dibujó"])
-  accion2: uno_de(["escuchó", "bailó", "pintó"])
-
-respuesta: |
-  Distributiva
-tipo: completar
-
-enunciado: "En la frase '{elem1} {accion1} y {elem2} {accion2}', la coordinación de las acciones es:"
-
-explicacion: |
-  Cada elemento realiza una acción diferente. La conjunción distribuye las acciones entre los sujetos. Es una coordinación distributiva.
-```
-
-### 31 — pregunta 31
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["conjunciones", "negación", "no-distributivo"]
-
-variables:
-  elem1: uno_de(["Ninguno", "Nadie", "Nada"])
-  elem2: uno_de(["de ellos", "de nosotros", "de ustedes"])
-  accion: uno_de(["vinieron", "llegaron", "estuvieron"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la oración 'Ni {elem1} {elem2} {accion}', la coordinación 'ni... ni...' es distributiva porque niega la acción a cada uno por separado."
-
-explicacion: |
-  Falso. Aunque niega a cada uno, no implica una acción recíproca ni una repartición de medios. Es una negación acumulativa a los sujetos. No es una coordinación distributiva en el sentido sintáctico de aplicación de acción mutua o alternante.
-```
-
-### 32 — pregunta 32
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "sujeto", "análisis"]
-
-variables:
-  nombre1: uno_de(["Ana", "Luis", "María"])
-  nombre2: uno_de(["Carlos", "Pedro", "Juan"])
-  verbo: uno_de(["se ayudaron", "se miraron", "se conocieron"])
-
-respuesta: |
-  Ana y Carlos
-tipo: completar
-
-enunciado: "En la oración '{nombre1} y {nombre2} {verbo}', el sujeto sintáctico es:"
-
-explicacion: |
-  El sujeto es el conjunto coordinado '{nombre1} y {nombre2}'. Aunque la acción sea distributiva, gramaticalmente forman un único sujeto plural.
+  Cada una se marca por su propio nexo (o su ausencia): copulativa suma con "y"/"e"/"ni", disyuntiva alterna con "o"/"u", adversativa contrasta con "pero"/"sino", y distributiva reparte con un par correlativo repetido, sin nexo conjuntivo.
 ```
