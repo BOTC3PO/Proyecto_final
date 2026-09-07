@@ -34,7 +34,7 @@ En Asia Oriental, el Huang He (Río Amarillo) dio forma a una civilización que 
 
 ## 4. El Indus Valley: organización urbana sin escritura
 
-A pesar de no haber dejado registros escritos, la civilización del Valle del Indo (actual Pakistán y Punjab) alcanzó un alto nivel de desarrollo. Ciudades como Mohenjo-Daro tenían planificación urbana avanzada: calles ortogonales, sistemas de cloacas y viviendas con techos de paja. Su economía se basaba en el comercio marítimo con Mesopotamia, usando sellos cilíndricos para identificar mercancías.
+A pesar de no haber dejado registros escritos, la civilización del Valle del Indo (actual Pakistán y Punjab) alcanzó un alto nivel de desarrollo. Ciudades como Mohenjo-Daro tenían planificación urbana avanzada: calles ortogonales, sistemas de cloacas y viviendas con techos de paja. Su economía se basaba en el comercio marítimo con Mesopotamia, usando sellos de piedra (estampados, con motivos de animales y una escritura aún no descifrada) para identificar mercancías — a diferencia de los sellos cilíndricos, que fueron una tecnología característica de Mesopotamia, no del Valle del Indo.
 
 ---
 

@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -292,7 +292,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "centralizado"
-  - "descentralizado"
 
 enunciado: "A diferencia de las tribus igualitarias, las civilizaciones antiguas se caracterizan por poseer un gobierno __________, donde el poder político se concentra en una autoridad que coordina la sociedad."
 
@@ -349,14 +348,16 @@ metadata:
   tags: ["andes", "caral"]
 
 variables:
-  datos: [["Caral", "Perú", "más antigua"], ["Chavín", "Perú", "formadora"]]
+  datos: [["Caral", "Perú", "la civilización más antigua"], ["Chavín", "Perú", "una cultura formadora clave"]]
   idx: uno_de([0, 1])
 
-respuesta: datos[idx][0]
-tipo: "mc"
-opciones_explicitas: ["Caral", "Chavín", "Moche", "Nazca"]
+respuesta: datos[idx][2]
+tipo: "completar"
+respuestas_validas:
+  - "la civilización más antigua"
+  - "una cultura formadora clave"
 
-enunciado: "La civilización de {datos[idx][0]} se encuentra ubicada en el actual territorio de {datos[idx][1]} y es considerada una de las más ___ del continente americano."
+enunciado: "La civilización de {datos[idx][0]} se encuentra ubicada en el actual territorio de {datos[idx][1]} y es considerada ___ del continente americano."
 
 explicacion: |
   Caral es la civilización más antigua de América, situada en la costa central de Perú.
@@ -513,14 +514,14 @@ metadata:
   tags: ["identificacion"]
 
 variables:
-  pares: [["Egipto", "Nilo"], ["China", "Yangtsé"], ["Mesopotamia", "Tigris"]]
+  pares: [["Egipto", "Nilo"], ["China", "Huang He"], ["Mesopotamia", "Tigris"]]
   idx: uno_de([0,1,2])
 
 enunciado: "Si estamos analizando la región de {pares[idx][0]}, el río principal es el ___."
 
 respuestas_validas:
   - "Nilo"
-  - "Yangtsé"
+  - "Huang He"
   - "Tigris"
 respuesta: pares[idx][1]
 tipo: completar
