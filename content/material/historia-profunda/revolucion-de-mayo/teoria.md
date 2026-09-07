@@ -20,7 +20,7 @@ La Junta de Gobierno de 1810, formada por representantes de la sociedad porteña
 
 Tras la destitución del virrey, se formó la **Primera Junta de Gobierno**, que marcó el primer intento de autogobierno en América Latina. Esta junta estuvo compuesta por un presidente y varios secretarios y vocales, con responsabilidades específicas. **Cornelio Saavedra** fue elegido como presidente, mientras que figuras como **Mariano Moreno** y **Juan José Paso** ocuparon cargos de secretario.
 
-La Primera Junta no era una república, sino un gobierno transitorio que buscaba reemplazar la autoridad del Rey de España. Su objetivo era mantener el orden y preparar el camino para una posible independencia total. Sin embargo, su existencia fue breve: en 1811 se transformó en una **Junta Suprema**, que incluyó a representantes de otras provincias del Virreinato.
+La Primera Junta no era una república, sino un gobierno transitorio que buscaba reemplazar la autoridad del Rey de España. Su objetivo era mantener el orden y preparar el camino para una posible independencia total. Sin embargo, su existencia fue breve: a fines de 1810 se transformó en la **Junta Grande**, que incorporó a representantes de otras provincias del Virreinato.
 
 ---
 
