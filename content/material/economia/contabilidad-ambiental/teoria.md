@@ -1,6 +1,6 @@
 # Economía — Contabilidad ambiental (teoria)
 
-> Tema del MAPA: `E20A6` (`troncos.md`). Depende de del nodo `E20D` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `E20A6` (`troncos.md`). Depende de del nodo `E20D` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
