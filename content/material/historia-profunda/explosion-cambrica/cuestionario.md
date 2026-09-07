@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -83,10 +83,7 @@ metadata:
   nivel: "avanzado"
   tags: ["paleontologia", "fósiles"]
 
-variables:
-  comparacion: uno_de([["más complejos", "más complejos"], ["más simples", "más simples"]])
-
-respuesta: comparacion[1]
+respuesta: "más complejos"
 tipo: mc
 opciones_explicitas: ["más complejos", "más simples", "idénticos", "menos diversos"]
 
@@ -150,7 +147,7 @@ metadata:
 
 enunciado: "La aparición de una familia de genes reguladores fundamentales para el plan corporal de los animales se denomina genes ___."
 
-respuesta: ["Hox"]
+respuesta: "Hox"
 respuestas_validas:
   - "Hox"
 tipo: completar
@@ -168,12 +165,9 @@ metadata:
   nivel: "intermedio"
   tags: ["depredacion", "seleccion_natural"]
 
-variables:
-  caso: uno_de([["depredación", "depredación"], ["simbiósis", "simbiósis"], ["filtración", "filtración"]])
+enunciado: "La aparición de la depredación actuó como una presión evolutiva masiva, obligando a los organismos a desarrollar conchas, esqueletos y sistemas sensoriales."
 
-enunciado: "La aparición de la {caso[0]} actuó como una presión evolutiva masiva, obligando a los organismos a desarrollar conchas, esqueletos y sistemas sensoriales."
-
-respuesta: caso[1]
+respuesta: "depredación"
 tipo: mc
 opciones_explicitas: ["depredación", "simbiósis", "filtración"]
 
@@ -212,10 +206,9 @@ metadata:
 
 enunciado: "Si el nivel de oxígeno en el océano aumenta, la probabilidad de que surjan organismos de gran tamaño es: ___"
 
-respuesta: ["mayor"]
+respuesta: "mayor"
 respuestas_validas:
   - "mayor"
-  - "menor"
 tipo: completar
 
 explicacion: |
@@ -395,10 +388,7 @@ metadata:
   nivel: "avanzado"
   tags: ["anomalocaris", "depredador"]
 
-variables:
-  es_depredador: uno_de([verdadero, falso])
-
-respuesta: es_depredador
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Basándonos en la morfología de *Anomalocaris canadensis* hallado en Burgess Shale, se considera que era un depredador de ápice."
@@ -416,15 +406,10 @@ metadata:
   nivel: "intermedio"
   tags: ["biologia", "evolucion"]
 
-variables:
-  tabla: [["baja", "baja"], ["alta", "alta"]]
-  valor_diversidad: uno_de([0, 1])
-
-respuesta: tabla[valor_diversidad][1]
+respuesta: "alta"
 tipo: completar
 respuestas_validas:
   - "alta"
-  - "baja"
 
 pasos:
   - "Identificar el periodo de la explosión cámbrica."
@@ -445,15 +430,11 @@ metadata:
   nivel: "basico"
   tags: ["geologia", "paleontologia"]
 
-variables:
-  datos: [["Hace aproximadamente 541 millones de años", "Paleozoico"], ["Hace aproximadamente 541 millones de años", "Proterozoico"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "Paleozoico"
 tipo: mc
 opciones_explicitas: ["Paleozoico", "Proterozoico", "Mesozoico", "Cenozoico"]
 
-enunciado: "La explosión cámbrica marca el inicio del eón Phanerozoico, específicamente de la era del {datos[idx][0]}."
+enunciado: "La explosión cámbrica marca el inicio del eón Fanerozoico, específicamente de la era del ___."
 
 explicacion: |
   La explosión cámbrica ocurrió hace unos 541 millones de años, marcando el inicio del eón Fanerozoico y la era Paleozoica.
@@ -468,16 +449,11 @@ metadata:
   nivel: "intermedio"
   tags: ["escala_tiempo", "geologia"]
 
-variables:
-  datos: [["Ediacarano", "Cámbrico"], ["Cámbrico", "Ordovícico"], ["Ordovícico", "Silúrico"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "Ediacárico"
 tipo: completar
 respuestas_validas:
-  - "Cámbrico"
-  - "Ordovícico"
-  - "Silúrico"
+  - "Ediacárico"
+  - "Ediacarano"
 
 enunciado: "Si nos situamos inmediatamente antes de la explosión cámbrica, nos encontramos en el periodo ___."
 
@@ -516,15 +492,11 @@ metadata:
   nivel: "avanzado"
   tags: ["geologia", "eventos"]
 
-variables:
-  datos: [["541 Ma", "Cambriano"], ["252 Ma", "Triásico"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "Cambriano"
 tipo: mc
 opciones_explicitas: ["Cambriano", "Triásico", "Jurásico", "Permiano"]
 
-enunciado: "La diversificación masiva de la vida animal, conocida como la explosión cámbrica, ocurrió hace aproximadamente {datos[idx][0]}."
+enunciado: "La diversificación masiva de la vida animal, conocida como la explosión cámbrica, ocurrió hace aproximadamente 541 Ma, dando inicio al periodo ___."
 
 explicacion: |
   La explosión cámbrica es el evento que define el inicio del periodo Cámbrico hace unos 541 millones de años.
@@ -539,15 +511,10 @@ metadata:
   nivel: "basico"
   tags: ["geologia"]
 
-variables:
-  contexto: [["Paleozoico", "Cámbrico"], ["Mesozoico", "Jurásico"]]
-  idx: uno_de([0,1])
-
-respuesta: contexto[idx][1]
+respuesta: "Cámbrico"
 tipo: completar
 respuestas_validas:
   - "Cámbrico"
-  - "Jurásico"
 
 enunciado: "La explosión cámbrica es el evento fundacional del periodo ___."
 

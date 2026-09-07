@@ -28,7 +28,7 @@ Los fósiles del período Ediacárico (hacia 635–541 millones de años) muestr
 
 ## 5. Causas posibles
 
-Aunque no hay consenso absoluto, se han propuesto varias causas para la Explosión Cámbrica. Entre ellas destacan el **calentamiento global** tras un período de glaciación extensa (la "Edad del Hielo Fanerozoico"), que liberó nutrientes y creó condiciones favorables para la vida. También se considera la evolución del **oxígeno en la atmósfera**, que permitió el desarrollo de organismos con mayor complejidad metabólica. Además, la aparición de nuevos nichos ecológicos —como la colonización de sustratos rocosos— pudo haber estimulado la diversificación.
+Aunque no hay consenso absoluto, se han propuesto varias causas para la Explosión Cámbrica. Entre ellas destacan el **calentamiento global** tras un período de glaciación extensa (las glaciaciones globales del Criogénico, conocidas como "Tierra Bola de Nieve", ocurridas antes del inicio del Cámbrico), que liberó nutrientes y creó condiciones favorables para la vida. También se considera la evolución del **oxígeno en la atmósfera**, que permitió el desarrollo de organismos con mayor complejidad metabólica. Además, la aparición de nuevos nichos ecológicos —como la colonización de sustratos rocosos— pudo haber estimulado la diversificación.
 
 ## N. Conexión con lo que sigue
 
