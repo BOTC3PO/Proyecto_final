@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -141,10 +141,7 @@ metadata:
   nivel: "intermedio"
   tags: ["telecomunicaciones", "internet"]
 
-variables:
-  tecnologia_clave: uno_de(["Internet", "Radio", "Telégrafo"])
-
-enunciado: "La globalización en la era digital se vio potenciada por el desarrollo de {tecnologia_clave}, que permitió la transferencia de datos instantánea entre continentes."
+enunciado: "La globalización en la era digital se vio potenciada por el desarrollo de ___, que permitió la transferencia de datos instantánea entre continentes."
 
 respuesta: "Internet"
 tipo: "completar"
@@ -202,21 +199,16 @@ metadata:
   nivel: "intermedio"
   tags: ["economia", "digital"]
 
-variables:
-  escenario: uno_de([0, 1])
-  tabla: [["muy alto", "muy alto"], ["nulo", "nulo"]]
-  respuesta_correcta: tabla[escenario][1]
-
-enunciado: "En un mundo altamente globalizado digitalmente, el costo de enviar información tiende a ser {respuesta_correcta}."
+enunciado: "En un mundo altamente globalizado digitalmente, el costo marginal de enviar información tiende a ser ___."
 
 pasos:
   - "Considerar la digitalización de bits vs el transporte físico de papel."
 
 tipo: "completar"
-respuesta: "___"
+respuesta: "nulo"
 respuestas_validas:
   - "nulo"
-  - "muy alto"
+  - "cero"
 
 explicacion: |
   La digitalización permite que el costo marginal de transmitir información sea prácticamente cero, acelerando el comercio global.
@@ -252,14 +244,11 @@ metadata:
   nivel: "intermedio"
   tags: ["comercio", "e-commerce", "economia"]
 
-variables:
-  escenario: uno_de([["comercio electrónico", "comercio electrónico"], ["transacciones bancarias", "transacciones bancarias"], ["servicios en la nube", "servicios en la nube"]])
-
-respuesta: escenario[0]
+respuesta: "comercio electrónico"
 tipo: mc
 opciones_explicitas: ["comercio electrónico", "transacciones bancarias", "servicios en la nube", "todos los anteriores"]
 
-enunciado: "La era digital ha facilitado la expansión del {escenario[0]} a nivel mundial, permitiendo que pequeñas empresas accedan a mercados globales sin necesidad de presencia física."
+enunciado: "La era digital ha facilitado la expansión del comercio electrónico a nivel mundial, permitiendo que pequeñas empresas accedan a mercados globales sin necesidad de presencia física."
 
 explicacion: |
   El e-commerce es uno de los motores más visibles de la globalización digital, permitiendo la integración de mercados de consumo de manera global y directa.
@@ -314,7 +303,7 @@ metadata:
   nivel: "basico"
   tags: ["teoria", "sociedad", "cultura"]
 
-respuesta: "Marsall McLuhan"
+respuesta: "Marshall McLuhan"
 tipo: completar
 tolerancia_abs: 0
 
@@ -355,11 +344,7 @@ metadata:
   nivel: "avanzado"
   tags: ["economia", "desigualdad"]
 
-variables:
-  datos: [[100, "Aumenta"], [100, "Disminuye"], [100, "Se mantiene"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "Aumenta"
 tipo: completar
 tolerancia_abs: 0
 
@@ -386,8 +371,6 @@ respuesta: "hibridación"
 tipo: completar
 respuestas_validas:
   - "hibridación"
-  - "aislamiento"
-  - "anulación"
 
 enunciado: "Cuando elementos de diferentes culturas se mezclan a través de las redes sociales para crear nuevas formas de expresión, ocurre un proceso de ___ cultural."
 
@@ -423,16 +406,12 @@ metadata:
   nivel: "avanzado"
   tags: ["tecnologia", "poder"]
 
-variables:
-  caso: uno_de(["monopolio", "competencia"])
-  valor: uno_de(["creciente", "decreciente"])
-
-respuesta: caso
+respuesta: "monopolio"
 
 tipo: mc
 opciones_explicitas: ["monopolio", "competencia", "cooperación", "neutralidad"]
 
-enunciado: "La concentración de datos en pocas corporaciones tecnológicas globales tiende a fomentar un {caso} de información."
+enunciado: "La concentración de datos en pocas corporaciones tecnológicas globales tiende a fomentar un ___ de información."
 
 explicacion: |
   La economía de plataformas a menudo crea estructuras de poder centralizadas donde unos pocos actores controlan el flujo de información global.
