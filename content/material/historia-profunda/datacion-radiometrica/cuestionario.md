@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -66,7 +66,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [["10.0", "0.1", 2], ["25.0", "0.0625", 4]]
+  escenario: [["200", "0.25", 2], ["400", "0.0625", 4]]
 
 respuesta: escenario[idx][0]
 tipo: completar
@@ -80,7 +80,7 @@ pasos:
   - "Multiplicar el número de periodos por la duración de la vida media."
 
 explicacion: |
-  Si la fracción es 0.1 y han pasado 2 periodos (en el caso 1), la edad es 2 * 100 = 200. En el caso 2, 4 * 100 = 400. El cálculo depende de la relación entre la fracción y la constante de desintegración.
+  Si la fracción es 0.25 y han pasado 2 periodos (en el caso 1), la edad es 2 * 100 = 200. En el caso 2, con fracción 0.0625 y 4 periodos, la edad es 4 * 100 = 400.
 ```
 
 ### 4 — Orden de desintegración
@@ -216,7 +216,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [["fósil de madera de 40,000 años", "uranio-plomo"], ["cristal de circon en roca de 1,000 millones de años", "potasio-argón"]]
+  escenario: [["fósil de madera de 40,000 años", "carbono-14"], ["cristal de circón en roca de 1,000 millones de años", "uranio-plomo"]]
 
 enunciado: "Si un arqueólogo encuentra {escenario[idx][0]}, el método más adecuado de datación sería el de {escenario[idx][1]}."
 
@@ -300,7 +300,7 @@ metadata:
   tags: ["calculo", "tiempo"]
 
 variables:
-  datos: [[100, 50, 500], [80, 40, 1000], [60, 30, 1500]]
+  datos: [[100, 50, 50], [80, 40, 40], [60, 30, 30]]
   idx: uno_de([0, 1, 2])
 
 tipo: completar
@@ -484,9 +484,7 @@ variables:
 
 tipo: completar
 respuestas_validas:
-  - "10"
-  - "20"
-  - "40"
+  - "3"
 
 enunciado: "Se analiza una roca con una masa inicial de {m_i} g de un isótopo radiactivo. Si tras el paso del tiempo la masa remanente es de {m_f} g, ¿cuántas vidas medias han transcurrido?"
 
