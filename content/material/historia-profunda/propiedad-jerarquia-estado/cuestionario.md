@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,14 +40,11 @@ metadata:
   nivel: "intermedio"
   tags: ["revolucion_neolitica", "acumulacion"]
 
-variables:
-  escenario: uno_de([["comunidad_tribal", "propiedad colectiva"], ["asentamiento_fijo", "propiedad privada"]])
-
-respuesta: escenario[1]
+respuesta: "propiedad privada"
 tipo: "mc"
 opciones_explicitas: ["propiedad colectiva", "propiedad privada"]
 
-enunciado: "En un sistema de asentamientos fijos con excedentes, la organización social tiende a transicionar de una {escenario[0]} hacia una {escenario[1]}."
+enunciado: "En un sistema de asentamientos fijos con excedentes, la organización social tiende a transicionar de una propiedad colectiva (típica de comunidades nómadas) hacia una ___."
 
 explicacion: |
   El control sobre el excedente y la tierra delimita territorios y derechos de uso, consolidando la propiedad privada frente al modelo de uso común de las tribus nómadas.
@@ -107,14 +104,11 @@ metadata:
   nivel: "avanzado"
   tags: ["derecho", "propiedad"]
 
-variables:
-  caso: uno_de([["robo_tierra", "delito"], ["tributo_no_pagado", "delito"]])
-
 respuesta: "delito"
 tipo: "mc"
-opciones_explicitas: ["acto_social", "delito"]
+opciones_explicitas: ["acto social", "delito"]
 
-enunciado: "En una sociedad con propiedad privada consolidada, el acto de apropiarse de la tierra de otro sin permiso es considerado un {caso[0]} bajo el código del Estado."
+enunciado: "En una sociedad con propiedad privada consolidada, el acto de apropiarse de la tierra de otro sin permiso es considerado un ___ bajo el código del Estado."
 
 explicacion: |
   La creación de leyes penales es fundamental para proteger la propiedad privada, transformando la apropiación de bienes ajenos en un delito contra el orden establecido.
@@ -149,13 +143,9 @@ metadata:
   nivel: "intermedio"
   tags: ["excedente", "poder", "clases_sociales"]
 
-variables:
-  escenario: uno_de([["el control de la tierra", "el control de la fuerza"], ["el control de la tierra", "el control de la religión"], ["el control de la tierra", "el control de la tecnología"]])
-  respuesta_correcta: ["el control de la tierra", "el control de la fuerza", "el control de la tierra", "el control de la religión", "el control de la tierra", "el control de la tecnología"]
-
 opciones_explicitas: ["el control de la tierra", "el control de la fuerza", "el control de la religión", "el control de la tecnología"]
 
-respuesta: escenario[1]
+respuesta: "el control de la tierra"
 tipo: "mc"
 
 enunciado: "En las primeras sociedades con excedente agrícola, la jerarquía social se consolidó principalmente a través de ___."
@@ -193,13 +183,12 @@ metadata:
   tags: ["propiedad", "desigualdad"]
 
 variables:
-  caso: uno_de([["A", "B"], ["C", "D"]])
-  datos: [["Familia A posee tierras y herramientas", "Familia B posee solo su fuerza de trabajo"], ["Familia C posee excedentes almacenados", "Familia D posee tierras comunales"]]
-  respuestas: [["dominante", "subordinada"], ["dominante", "subordinada"]]
+  caso_idx: uno_de([0, 1])
+  datos: [["Familia A posee tierras y herramientas, mientras que Familia B posee sólo su fuerza de trabajo", "dominante"], ["Familia C posee excedentes almacenados, mientras que Familia D posee tierras comunales", "dominante"]]
 
-enunciado: "Considerando el caso de la {caso[0]}, la relación social resultante es de carácter ___."
+enunciado: "Considerando que {datos[caso_idx][0]}, la relación social resultante para la familia que posee más recursos es de carácter ___."
 
-respuesta: respuestas[0][0]
+respuesta: datos[caso_idx][1]
 tipo: "mc"
 
 opciones_explicitas: ["dominante", "subordinada"]
@@ -301,7 +290,7 @@ metadata:
   nivel: "avanzado"
   tags: ["jerarquia", "orden"]
 
-respuesta_orden: ["imposición de normas", "recaudación de tributos", "mantenimiento del orden"]
+respuesta_orden: ["recaudación de tributos", "imposición de normas", "mantenimiento del orden"]
 tipo: ordenar
 opciones_explicitas: ["imposición de normas", "recaudación de tributos", "mantenimiento del orden"]
 
@@ -358,10 +347,7 @@ metadata:
   nivel: "intermedio"
   tags: ["propiedad_privada", "desigualdad"]
 
-variables:
-  escenario: uno_de([["La acumulación de excedentes permitió que la tierra y los bienes pasaran de ser de uso común a ser de uso individual.", "propiedad privada"], ["La gestión de los graneros llevó a la creación de leyes para proteger el acaparamiento de recursos.", "propiedad privada"]])
-
-enunciado: "Según el proceso de transición histórica, la aparición de la {escenario[0]} es la consecuencia directa de la acumulación de excedentes."
+enunciado: "Según el proceso de transición histórica, la aparición de la propiedad privada es la consecuencia directa de la acumulación de excedentes, que permitió que la tierra y los bienes pasaran de ser de uso común a ser de uso individual."
 
 opciones_explicitas: ["propiedad común", "propiedad privada", "propiedad estatal"]
 respuesta: "propiedad privada"
@@ -418,10 +404,7 @@ metadata:
   nivel: "avanzado"
   tags: ["estado", "poder"]
 
-variables:
-  caso: uno_de([["El Estado surge para proteger la propiedad y administrar la fuerza.", "Estado organizado"], ["El Estado aparece como un mecanismo de control de la jerarquía establecida.", "Estado organizado"]])
-
-enunciado: "En el proceso histórico estudiado, la fase final de la organización social compleja es la aparición del {caso[0]}."
+enunciado: "En el proceso histórico estudiado, la fase final de la organización social compleja es la aparición del Estado organizado, que surge para proteger la propiedad y administrar la fuerza."
 
 opciones_explicitas: ["comunidad tribal", "Estado organizado", "anarquía"]
 respuesta: "Estado organizado"
