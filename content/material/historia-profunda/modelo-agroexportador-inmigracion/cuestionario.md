@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -64,9 +64,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "Europa"
-  - "Asia"
-  - "África"
-  - "Oceanía"
 
 enunciado: "Durante el periodo agroexportador, la mayoría de la corriente migratoria hacia la Argentina provenía de ___."
 
@@ -102,15 +99,10 @@ metadata:
   nivel: "avanzado"
   tags: ["estado", "politica"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  escenario: uno_de(["La exportación de granos fue ___", "La exportación de carne fue ___"])
-  resultado: uno_de(["el motor principal de la balanza comercial", "un proceso que requirió la expansión de frigoríficos"])
-
 tipo: mc
 opciones_explicitas: ["Un proceso de autosuficiencia", "Un motor de dependencia externa", "Un sistema de comercio cerrado", "Una economía de subsistencia"]
 
-enunciado: "En el contexto del modelo agroexportador, la dinámica comercial se caracterizó por ser {resultado}."
+enunciado: "En el contexto del modelo agroexportador, la dinámica comercial argentina con Europa se caracterizó fundamentalmente por ser:"
 
 explicacion: |
   El modelo generó una fuerte dependencia de los mercados externos (Europa) y de la tecnología/capital extranjero, integrando a Argentina al mercado mundial como proveedor de materias primas.
@@ -146,14 +138,11 @@ metadata:
   nivel: "basico"
   tags: ["nacionalidades", "europa"]
 
-variables:
-  escenario: uno_de([["italianos", "españoles"], ["españoles", "italianos"]])
-
-respuesta: escenario[0]
+respuesta: "italianos"
 tipo: mc
 opciones_explicitas: ["italianos", "españoles", "alemanes", "franceses"]
 
-enunciado: "Si bien hubo diversas corrientes, los dos grupos de nacionalidades más representativos en la inmigración masiva a la Argentina fueron los _______ y los _______."
+enunciado: "Si bien hubo diversas corrientes migratorias, el grupo de nacionalidad más numeroso en la inmigración masiva a la Argentina (por delante de los españoles) fue el de los _______."
 
 explicacion: |
   La gran mayoría de los inmigrantes que llegaron entre 1880 y 1914 provenían de Italia y España, aunque también hubo presencia de otras nacionalidades europeas.
@@ -172,8 +161,6 @@ respuesta: "crisis económica y demográfica"
 tipo: completar
 respuestas_validas:
   - "crisis económica y demográfica"
-  - "guerras mundiales"
-  - "revolución industrial"
 
 enunciado: "Los inmigrantes europeos huían de Europa debido a la _______ que afectaba sus países de origen."
 
@@ -281,6 +268,7 @@ respuesta: datos[escenario_idx][1]
 tipo: "completar"
 respuestas_validas:
   - "expansión de la frontera agrícola"
+  - "consolidación de fronteras norteñas"
 
 enunciado: "La denominada {datos[escenario_idx][0]} permitió la {datos[escenario_idx][1]} para el modelo agroexportador."
 
@@ -319,7 +307,7 @@ metadata:
 
 opciones_explicitas: ["Demanda europea", "Expansión de frontera", "Ferrocarriles", "Inversión británica"]
 
-respuesta_orden: ["Demanda europea", "Expansión de frontera", "Ferrocarriles", "Inversión británica"]
+respuesta_orden: ["Demanda europea", "Expansión de frontera", "Inversión británica", "Ferrocarriles"]
 tipo: "ordenar"
 
 enunciado: "Ordene cronológicamente los factores que permitieron la consolidación del modelo (desde el estímulo externo hasta la infraestructura de transporte):"
@@ -337,14 +325,11 @@ metadata:
   nivel: "intermedio"
   tags: ["demografia", "inmigracion"]
 
-variables:
-  escenario: uno_de(["el flujo masivo de inmigrantes europeos", "la llegada de colonias agrícolas"])
-
 respuesta: "el flujo masivo de inmigrantes europeos"
 tipo: mc
 opciones_explicitas: ["el flujo masivo de inmigrantes europeos", "la llegada de colonias agrícolas", "el crecimiento de la población nativa", "la migración interna desde el interior"]
 
-enunciado: "Durante el modelo agroexportador, la principal causa de la transformación demográfica en el litoral argentino fue {escenario}."
+enunciado: "Durante el modelo agroexportador, la principal causa de la transformación demográfica en el litoral argentino fue el flujo masivo de inmigrantes europeos."
 
 explicacion: |
   La gran escala de la inmigración europea (principalmente italianos y españoles) alteró radicalmente la proporción de población extranjera en las zonas portuarias y de exportación.
@@ -447,11 +432,11 @@ variables:
   idx: uno_de([0, 1, 2])
   producto: datos[idx][0]
 
-respuesta: producto
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["trigo", "carne", "lana", "maíz"]
+opciones_explicitas: ["cereales", "ganadería", "ovinos"]
 
-enunciado: "Durante el modelo agroexportador, la economía argentina se centró en la exportación de productos primarios. Si el principal producto de exportación en el escenario dado es {producto}, ¿cuál es el rubro correspondiente?"
+enunciado: "Durante el modelo agroexportador, la economía argentina se centró en la exportación de productos primarios. El {producto} pertenece al rubro de la ___."
 
 explicacion: |
   El modelo agroexportador se basó en la exportación de materias primas hacia Europa, siendo el {producto} uno de los pilares fundamentales.
@@ -471,11 +456,11 @@ variables:
   idx: uno_de([0, 1, 2])
   nacionalidad: datos_migratorios[idx][0]
 
-respuesta: nacionalidad
+respuesta: datos_migratorios[idx][1]
 tipo: mc
-opciones_explicitas: ["italianos", "españoles", "alemanes", "británicos"]
+opciones_explicitas: ["Europa", "Asia", "América", "África"]
 
-enunciado: "La gran inmigración europea fue clave para la mano de obra en el campo. Si el grupo mencionado es de {nacionalidad}, ¿de qué nacionalidad se trata?"
+enunciado: "La gran inmigración fue clave para la mano de obra en el campo. El grupo de los {nacionalidad} llegó a la Argentina proveniente del continente: ___"
 
 explicacion: |
   La llegada masiva de inmigrantes de Europa (principalmente italianos y españoles) fue esencial para la expansión de la frontera agrícola.
@@ -490,22 +475,15 @@ metadata:
   nivel: "intermedio"
   tags: ["transporte", "infraestructura"]
 
-variables:
-  infraestructura: [["ferrocarril", "transporte"], ["puerto", "comercio"], ["telégrafo", "comunicación"]]
-  idx: uno_de([0, 1, 2])
-  elemento: infraestructura[idx][0]
-
-respuesta: elemento
+respuesta: "ferrocarril"
 tipo: completar
 respuestas_validas:
   - "ferrocarril"
-  - "puerto"
-  - "telégrafo"
 
 enunciado: "Para integrar los centros de producción con los puertos, se construyó una red de ___ fundamental para el modelo."
 
 explicacion: |
-  El ___ permitió el traslado masivo de cargas desde el interior hacia los puertos de exportación de manera eficiente.
+  El ferrocarril permitió el traslado masivo de cargas desde el interior hacia los puertos de exportación de manera eficiente.
 ```
 
 ### 24 — El rol de los puertos
@@ -517,16 +495,11 @@ metadata:
   nivel: "intermedio"
   tags: ["puertos", "comercio"]
 
-variables:
-  puerto_clave: ["Buenos Aires", "Rosario", "Bahía Blanca"]
-  idx: uno_de([0, 1, 2])
-  ciudad: puerto_clave[idx]
-
-respuesta: ciudad
+respuesta: "Buenos Aires"
 tipo: mc
 opciones_explicitas: ["Buenos Aires", "Rosario", "Bahía Blanca", "Córdoba"]
 
-enunciado: "El sistema agroexportador dependía de la salida hacia el mundo a través de puertos específicos. Si el puerto central es {ciudad}, ¿cuál es?"
+enunciado: "El sistema agroexportador dependía de la salida hacia el mundo a través de puertos específicos. ¿Cuál fue el principal puerto de salida de la producción agroexportadora argentina?"
 
 explicacion: |
   Los puertos eran el punto de conexión vital entre la producción interna y el mercado mundial.
@@ -548,5 +521,5 @@ opciones_explicitas: ["Producción", "Transporte", "Exportación"]
 enunciado: "Ordene el proceso lógico de una mercancía en el modelo agroexportador: desde la cosecha hasta la salida del país."
 
 explicacion: |
-  El ciclo comenzaba con la ___ en el campo, seguía con el ___ ferroviario y terminaba con la ___ en el puerto.
+  El ciclo comenzaba con la producción en el campo, seguía con el transporte ferroviario y terminaba con la exportación en el puerto.
 ```
