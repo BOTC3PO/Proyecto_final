@@ -1,6 +1,6 @@
 # Economía — Estudio de contexto para un proyecto (teoria)
 
-> Tema del MAPA: `PROY2` (`troncos.md`). Depende de `../vision-y-mision-organizacional/` (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `PROY2` (`troncos.md`). Depende de `../vision-y-mision-organizacional/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

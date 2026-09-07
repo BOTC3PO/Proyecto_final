@@ -1,6 +1,6 @@
 # Economía — Tipos de proyecto (teoria)
 
-> Tema del MAPA: `PROY3` (`troncos.md`). Depende de del nodo `GP1` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `PROY3` (`troncos.md`). Depende de del nodo `GP1` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
