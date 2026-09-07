@@ -1,6 +1,6 @@
 # Geografía — Índice de Desarrollo Humano (teoria)
 
-> Tema del MAPA: `IDH1` (`troncos.md`). Depende de del nodo `hacinamiento"]` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `IDH1` (`troncos.md`). Depende de `../indicadores-sociales-de-argentina/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
