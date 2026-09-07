@@ -1,6 +1,6 @@
 # Lengua — Texto teatral (teoria)
 
-> Tema del MAPA: `TT1` (`troncos.md`). Depende de del nodo `P10` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `TT1` (`troncos.md`). Depende de del nodo `P10` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -30,4 +30,4 @@ La figura del dramaturgo en Argentina tiene una tradición muy rica y diversa. D
 
 Para aplicar estos conceptos, tomá una obra corta o un fragmento conocido y realizá la siguiente lectura activa. Primero, identificá los parlamentos y subrayá con un color las palabras que revelen el estado de ánimo del personaje (por ejemplo, palabras cortas y secas para la ira, o pausas largas para la duda). Luego, localizá las acotaciones y tratá de visualizarlas: si el texto dice "con voz temblorosa", ¿cómo cambiaría tu tono si lo leyeras en voz alta?
 
-Un ejemplo real y cercano es la lectura de fragmentos de "Los siete locos" de Roberto Arlt o las obras de Cossa como "El campo". Al leer un diálogo, intentá imaginar a los personajes en un espacio físico. Si la acotación dice "se acerca lentamente", ¿por qué lo hace? ¿Por miedo, por curiosidad o por agresión? Esta práctica no solo mejora tu comprensión lectora, sino que también desarrolla tu empatía y tu capacidad de interpretación, habilidades clave para cualquier ciudadano crítico y sensible al arte.
+Un ejemplo real y cercano es la lectura de fragmentos de "Saverio el Cruel" de Roberto Arlt (su incursión más conocida en el teatro, distinta de sus novelas como "Los siete locos") o las obras de Cossa como "El campo". Al leer un diálogo, intentá imaginar a los personajes en un espacio físico. Si la acotación dice "se acerca lentamente", ¿por qué lo hace? ¿Por miedo, por curiosidad o por agresión? Esta práctica no solo mejora tu comprensión lectora, sino que también desarrolla tu empatía y tu capacidad de interpretación, habilidades clave para cualquier ciudadano crítico y sensible al arte.
