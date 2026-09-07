@@ -26,24 +26,43 @@ correspondiente (ver `changelog.md`, parche v3.0). Lo que queda
 pendiente por materia es exclusivamente **generación de contenido**
 (teoría/cuestionario), no estructura de grafo.
 
+> **✅ Auditoría 2026-09-07**: los ~104 nodos de esta tabla (excepto los
+> 4 nodos de Economía-Gestión que dependen de una decisión de producto
+> sin resolver) están generados y verificados carpeta por carpeta
+> contra `content/material/`. ~15 con nombre de carpeta levemente
+> distinto al de este documento (drift normal de autoría, anotado caso
+> por caso en cada sección) — ninguno es un hueco real. 1 nodo
+> (ácidos nucleicos) quedó en Biología en vez de Química. 1 materia
+> completa (Educación Tecnológica) quedó dentro de Informática en vez
+> de como materia propia. Ningún contenido perdido con la falla de
+> disco del 2026-09-07 — a diferencia de Idiomas Extranjeros (Tronco
+> 18), que si sufrió pérdida total de interfaz/currículum (ver memoria
+> de Claude, sesión de esa fecha). Sí quedan genuinamente pendientes
+> (no forman parte de los ~104): `como-se-calcula-el-ipc-argentina`
+> (Economía) y los 4 nodos de "Salud y Adolescencia" (2 sensibles,
+> requieren diseño cuidadoso antes de generar — ver esas secciones más
+> abajo), más los sub-planes grandes que necesitan decisión de alcance
+> (Arte, Filosofía, Lengua-Literatura, Derecho profundo, Economía-Gestión
+> como Tronco nuevo).
+
 | Materia | Nodos | Nota |
 |---|---:|---|
-| Geografía | 16 | Argentina (6) + Mundial (8) + América Latina/Anglosajona mini-cluster (4, ya contado dentro del 8) — sólo falta resolver `turismo-mundial` |
-| Lengua (sintaxis+comunicación) | 29 | Sub-plan propio ya armado, el más grande "listo" |
-| Historia Argentina | 8 | Guerra del Paraguay, Conquista del Desierto, Rosas/Confederación, economías regionales tempranas, Reforma Universitaria 1918, Crisis de 2001, Semana Trágica 1919, ISI |
-| Historia Mundial | 2 | Guerra Civil Española, Revolución Mexicana |
-| Cívica | 3 | Poder político/tipos de Estado, proyecto ciudadano participativo, discriminación e INADI |
-| Economía-Gestión/SIC | 18 | Teoría de las Organizaciones (5) + SIC (6) + Proyectos Organizacionales (3) + Economía formal (4) — falta decidir si va en Tronco 13.a o Tronco nuevo |
-| Educación Física | 2-3 | Juegos Olímpicos, El Pato; deporte-cultural opcional |
-| Biología | 3 | Sistema nervioso (el más importante), quimiosíntesis, Mal de Chagas |
-| Física | 1 | Física médica (rayos X, PET, radioterapia) |
-| Física/Química | 6 | Nanotecnología, superconductividad, petróleo-recurso, química analítica, ácidos nucleicos, química de la atmósfera — todos baja prioridad |
-| Matemática | 6 | Análisis Matemático nivel 2 (asíntotas, Bolzano, concavidad, L'Hôpital, técnicas de integración, integral definida) |
-| Derecho (chico) | 1 | Fuentes del derecho |
-| Antropología | 2 | Subcampos de la antropología, parentesco |
-| Educación Tecnológica | 3 | Materia que no existía en absoluto |
-| Investigación | 3 | Metodología cualitativa (contrapeso al método cuantitativo ya sólido) |
-| Filosofía (chico) | 1 | Bioética general |
+| Geografía | 16 | ✅ **Generado y verificado 2026-09-07** (incluye `turismo-mundial`) |
+| Lengua (sintaxis+comunicación) | 29 | ✅ **Generado y verificado 2026-09-07** |
+| Historia Argentina | 8 | ✅ **Generado y verificado 2026-09-07** |
+| Historia Mundial | 2 | ✅ **Generado y verificado 2026-09-07** |
+| Cívica | 3 | ✅ **Generado y verificado 2026-09-07** |
+| Economía-Gestión/SIC | 18 | ✅ **Generado y verificado 2026-09-07** — sigue pendiente sólo la decisión de producto (Tronco 13.a vs. Tronco nuevo), no bloquea nada ya escrito |
+| Educación Física | 2-3 | ✅ **Generado y verificado 2026-09-07** (los 3, incluido el opcional) |
+| Biología | 3 | ✅ **Generado y verificado 2026-09-07** |
+| Física | 1 | ✅ **Generado y verificado 2026-09-07** |
+| Física/Química | 6 | ✅ **5/6 generados y verificados 2026-09-07** — ácidos nucleicos quedó como `biologia/adn-gen-proteina`, no en Química (relocación, no hueco) |
+| Matemática | 6 | ✅ **Generado y verificado 2026-09-07** |
+| Derecho (chico) | 1 | ✅ **Generado y verificado 2026-09-07** |
+| Antropología | 2 | ✅ **Generado y verificado 2026-09-07** |
+| Educación Tecnológica | 3 | ✅ **Generado y verificado 2026-09-07** — quedó dentro de `informatica/`, no como materia nueva |
+| Investigación | 3 | ✅ **Generado y verificado 2026-09-07** |
+| Filosofía (chico) | 1 | ✅ **Generado y verificado 2026-09-07** |
 | **Total listos** | **~104** | |
 
 ### Sensible — requiere diseño cuidadoso, no generar en piloto automático
@@ -92,7 +111,19 @@ separadas, 3 regiones ausentes (África/Medio Oriente/Asia-Pacífico).
 Validado independientemente por NAP 7° año 2011 (confirma exactamente
 Bizancio/Islam/feudalismo como contenido oficial esperado a esa edad).
 
-## En curso — Geografía
+## Cerrado — Geografía (✅ verificado 2026-09-07, 16/16 generados)
+
+> Los 16 nodos de abajo (5 Argentina + 11 Mundial, incluido el
+> mini-cluster América Latina/Anglosajona expandido a 4) tienen carpeta
+> real en `material/geografia/` y fila en `dependencias.md`. 4 con
+> nombre levemente distinto al de este plan (drift normal de autoría,
+> no huecos): `indicadores-sociales-argentina` → carpeta real
+> `indicadores-sociales-de-argentina`; `migraciones-en-argentina` →
+> `migraciones-internas-en-argentina`;
+> `america-latina-formacion-de-la-poblacion` → `america-latina-formacion-poblacion`;
+> `america-anglosajona-poblamiento-y-territorio` → `america-anglosajona`.
+> `turismo-mundial` también generado (la duda de solapamiento con
+> `material/turismo/` se resolvió generando ambos, ángulos distintos).
 
 Nuestros 21 temas actuales (`material/geografia/`, nodos `G1-G12`,
 `AM1`, `AM5a-d` en `troncos.md` Tronco 6) son **puramente
@@ -178,7 +209,11 @@ concepto, no tocan contenido regional).
 del Tronco 6 con prerrequisitos reales (probablemente todos cuelgan de
 `G6`/`G7`/`G8` según corresponda), y resolver el punto de `turismo-mundial`.
 
-## En curso — Lengua
+## Cerrado — Lengua (✅ verificado 2026-09-07, 29/29 generados)
+
+> Los 29 nodos de abajo (7 comunicación/pragmática + 19 sintaxis + 3
+> técnicas de estudio/género teatral) tienen carpeta real en
+> `material/lengua/` y fila en `dependencias.md`, sin excepciones.
 
 ### Bloque comunicación/pragmática (7 nodos, fuente: "Prácticas del
 Lenguaje 1" Ed. Estrada, colección Huellas, vía OCR)
@@ -262,7 +297,7 @@ puede descartar en bloque** (como se había decidido antes) ni asumir
 por el nombre de la carpeta — hay que revisar archivo por archivo por
 su contenido real, no por dónde está guardado.
 
-## Hallazgo — Historia Argentina (Rosas/economías regionales)
+## Cerrado — Historia Argentina (Rosas/economías regionales) (✅ verificado 2026-09-07, 2/2 — parte de los 8 totales del resumen ejecutivo)
 
 Confirmado 2026-08-12 vía `Ciencias Sociales 5 Bonaerense` (Estación
 Mandioca, 2019 — currículum real, provincia de Buenos Aires):
@@ -281,7 +316,17 @@ independencia, Ley de Aduanas, economías del Litoral). Mismo patrón
 que Lengua: un nodo lumped tapando conceptos reales con nombre propio.
 Pendiente de decisión de alcance antes de sumar a `troncos.md`.
 
-## En curso — Economía/Administración/Contabilidad (biblioteca "Economía-Gestión, Proyecto, Teoría Organizacional, SIC")
+## Cerrado (contenido) — Economía/Administración/Contabilidad (biblioteca "Economía-Gestión, Proyecto, Teoría Organizacional, SIC")
+
+> ✅ Verificado 2026-09-07: los 18 nodos de abajo (A-D, incluidos `9b`/`9c`
+> agregados después del recuento original) tienen carpeta
+> real en `material/economia/` y fila en `dependencias.md`. 1 con
+> nombre levemente distinto: `ambiente-interno-y-externo-de-la-organizacion`
+> → carpeta real `ambiente-interno-y-externo-organizacion` (sin
+> "-de-la-"). **La generación de contenido está resuelta — lo que
+> sigue pendiente es sólo la decisión de producto** marcada más abajo
+> ("Pendiente de decidir": si esto cuelga de Tronco 13.a o es un
+> Tronco nuevo propio), que no bloquea nada ya generado.
 
 Confirmado 2026-08-12 vía ~15 libros reales (algunos universitarios,
 otros de bachillerato técnico argentino: Eggers, Angrisani, MAIPUE,
@@ -351,7 +396,9 @@ Fuente: Eggers (Francisco), Casani/Llorente/Pérez.
 15. `sectores-economicos` (primario/industrial/servicios/cuaternario)
 16. `economia-positiva-y-normativa`
 
-**Total: 16 nodos nuevos.** Deliberadamente dejé afuera Nicholson
+**Total: 18 nodos nuevos** (16 del recuento original A-D + `9b`/`9c`
+agregados 2026-08-13, ver arriba — total corregido 2026-09-07 para
+coincidir con el resumen ejecutivo). Deliberadamente dejé afuera Nicholson
 (microeconomía universitaria pura: teoría del consumidor, estructuras
 de mercado formales) y Cameron & Neal (historia económica de cátedra)
 — ambos de nivel más alto que lo que se enseña hoy en la materia
@@ -424,8 +471,7 @@ la escuela realmente separa "Historia del Arte" como su propia
 materia (como en la mayoría de bachilleratos con orientación Arte) o
 si en la plataforma esto entra dentro de "Arte" a secas ampliándolo.
 
-## Hallazgo — Educación Física: mismo patrón que Arte (huecos chicos,
-no una pared)
+## Cerrado — Educación Física: Juegos Olímpicos + El Pato (✅ verificado 2026-09-07, 3/3; `juegos-olimpicos-historia`→`juegos-olimpicos`, `el-pato-deporte-nacional-argentino`→`el-pato`, ambos sin el sufijo largo)
 
 Confirmado 2026-08-12: la carpeta tiene el mismo patrón que Arte
 (varios videos que Javier ya revisó sin nada útil + PDFs reales que
@@ -460,8 +506,7 @@ nodos genéricos existentes (`deportes-medidas-cancha-superficies`,
 `deportes-jugadores-posiciones-puntaje`, `fisiologia-del-ejercicio`) —
 no piden nodo nuevo.
 
-## Hallazgo — Historia Argentina, segundo tramo (Guerra del Paraguay /
-Conquista del Desierto)
+## Cerrado — Historia Argentina, segundo tramo (Guerra del Paraguay / Conquista del Desierto) (✅ verificado 2026-09-07, 4/4 — completa los 8 del resumen ejecutivo junto con el tramo de arriba)
 
 Confirmado 2026-08-12 vía `ACTIVA 6.pdf` (Ciencias Sociales 6
 Bonaerense, real, currículum actual): dos hechos centrales y siempre
@@ -495,7 +540,7 @@ exactamente este hueco.
   reciente argentina, hoy `AH15` "Historia reciente" es un cajón
   genérico sin esto desarrollado)
 
-## Hallazgo — Derecho: fuentes del derecho + oportunidad grande sin diseñar
+## Cerrado (parcial) — Derecho: fuentes del derecho (✅ verificado 2026-09-07, `fuentes-del-derecho` generado) + oportunidad grande sin diseñar (sigue pendiente de decisión de alcance, no bloquea lo demás)
 
 Confirmado 2026-08-13 vía Zajac, *Derecho 5: bases jurídicas de las
 organizaciones* (real, profesional):
@@ -544,7 +589,7 @@ que el sub-plan de Derecho es del tamaño de un tronco casi completo
 en sí mismo. Pendiente de decisión de alcance con Javier antes de
 diseñarlo entero.
 
-## Hallazgo — Antropología: 2 nodos chicos
+## Cerrado — Antropología (✅ verificado 2026-09-07, 2/2 generados)
 
 Confirmado 2026-08-13 vía materia real "Antropología" (GCBA, 2021).
 Expande la cadena existente `ANTRO1a-c` (Cultura → Diversidad
@@ -559,7 +604,16 @@ profunda):
 universitario/posgrado (primatología, antropología forense, ADN) —
 mismo nivel que Nicholson, demasiado avanzado, no se usa como fuente.
 
-## Hallazgo — Educación Tecnológica no existe como materia
+## Cerrado (con cambio de criterio) — Educación Tecnológica
+
+> ✅ Verificado 2026-09-07: los 3 nodos de abajo están generados, pero
+> **no como materia nueva** — quedaron dentro de `material/informatica/`
+> (`que-es-la-tecnica-y-la-tecnologia`, `medios-tecnicos-extension-capacidades-humanas`
+> —nombre sin "-como-", `procesos-tecnicos-artesanales-e-industriales`),
+> sin materia "Educación Tecnológica" propia en `troncos.md`/`examen-jefe/`.
+> Contenido no es un hueco; la decisión de producto de este hallazgo
+> (crear materia nueva vs. no) terminó resuelta como "no", implícita —
+> no hay registro explícito de por qué, marcar si hace falta revisar.
 
 Confirmado 2026-08-13 vía `TECNOLOGIA 1 DE SANTILLANA` (real,
 currículum NAP). "Educación Tecnológica" — distinta de Informática
@@ -574,7 +628,7 @@ Candidatos (3, chicos, no requieren sub-plan):
 - `medios-tecnicos-como-extension-de-capacidades-humanas`
 - `procesos-tecnicos-artesanales-e-industriales`
 
-## Hallazgo — Investigación: metodología cualitativa ausente
+## Cerrado — Investigación: metodología cualitativa (✅ verificado 2026-09-07, 3/3 generados; `trabajo-de-campo-y-enfoque-socioantropologico` → carpeta real sin "-y-")
 
 Confirmado 2026-08-13 vía *Proyectos de Investigación en Ciencias
 Sociales 6to* (Maipue, real — materia de un programa antiguo, pero
@@ -592,7 +646,7 @@ objeto de estudio — 0 resultados en grep. Candidatos (cuelgan de
 - `tecnicas-de-investigacion-social` (entrevista, encuesta, historia
   de vida)
 
-## Hallazgo — Física: aplicaciones médicas nunca se hicieron nodo
+## Cerrado — Física: aplicaciones médicas (✅ verificado 2026-09-07; carpeta real `fisica-medica`, sin "-aplicaciones")
 
 Confirmado 2026-08-13 vía `Física contenidos nivel adultos.pdf` (real,
 argentino, época Kirchner, educación de adultos). `fisica-medica-
@@ -651,7 +705,7 @@ proyecto es la única fuente de verdad para sexualidad.
 servicio en Mosso refuerza el hallazgo de `proyecto-ciudadano-
 participativo` ya logueado en Cívica.
 
-## Hallazgo — Matemática: Análisis Matemático nivel 2 (6 técnicas)
+## Cerrado — Matemática: Análisis Matemático nivel 2 (✅ verificado 2026-09-07, 6/6 generados)
 
 Confirmado 2026-08-13 vía *Análisis 1* y *Análisis 2* (Polimodal,
 Longseller, reales — Altman/Comparatore/Kurzrok). El árbol ya tiene el
@@ -669,8 +723,7 @@ diferenciales" no tendría sentido pedagógico sin `tecnicas-de-
 integracion` antes). *Matemáticas 4 ES* (Estrada) confirmó cobertura
 existente sin hallazgos nuevos.
 
-## Hallazgo — Cívica: teoría del poder + "Construcción de Ciudadanía"
-como materia con metodología propia
+## Cerrado — Cívica: teoría del poder + "Construcción de Ciudadanía" (✅ verificado 2026-09-07, 2/2; `poder-politico-y-teorias-del-poder` → carpeta real `teoria-del-poder`)
 
 Confirmado 2026-08-13 vía 5 libros reales de "Construcción de
 Ciudadanía" (Eggers-Brass/Maipue/Kapelusz, currículum de la provincia
@@ -702,7 +755,7 @@ de Buenos Aires):
    su instancia cívica específica, mismo patrón que Proyectos
    Organizacionales en Economía-Gestión. 0 resultados en grep.
 
-## Hallazgo — Biología: sistema nervioso ausente + quimiosíntesis
+## Cerrado — Biología: sistema nervioso + quimiosíntesis + Mal de Chagas (✅ verificado 2026-09-07, 3/3; `sistema-nervioso-neurona-y-sinapsis` → carpeta real sin "-y-")
 
 Confirmado 2026-08-13 vía `Biología sec.pdf` y `Biologia IV - Díaz,
 Martín.pdf` (avanzado, real):
@@ -802,7 +855,7 @@ decisión de alcance):
    `P11B`, que es panorama, no autor/obra)
 6. `narrativa-argentina-posdictadura` (Manuel Puig, posmodernidad)
 
-## Hallazgo — Historia Argentina/Latinoamericana, tercer tramo
+## Cerrado (parcial) — Historia Argentina/Latinoamericana, tercer tramo (✅ verificado 2026-09-07: semana-tragica-1919 e ISI generados, completan los 8 del resumen ejecutivo; el hueco regional de Latinoamérica —imperio-de-maximiliano-mexico, brasil-monarquico— sigue sin diseñar, no forma parte del conteo de 8)
 
 Confirmado 2026-08-13 vía *Historia Argentina y Latinoamericana.
 Siglo XIX* (Puerto de Palos) e *Historia: la Argentina y el resto del
@@ -826,7 +879,7 @@ Universitaria ya sourceado. Nuevo:
   confirmado también en Historia. No diseñado entero, sólo marcado
   con estos 2 ejemplos.
 
-## Hallazgo — Historia Mundial: dos procesos sin nodo
+## Cerrado — Historia Mundial: Guerra Civil Española + Revolución Mexicana (✅ verificado 2026-09-07, 2/2; ambos con año agregado en el nombre real de carpeta)
 
 Confirmado 2026-08-13 vía `Historia 4 - Serie Huellas (2013).pdf`
 (que de paso confirma, independiente, el hallazgo de Reforma
@@ -841,7 +894,7 @@ Universitaria de arriba — buena señal cruzada):
   la Primera Guerra Mundial pero un proceso propio — cuelga cerca de
   `HM9`.
 
-## Hallazgo — Cívica: discriminación e INADI
+## Cerrado — Cívica: discriminación e INADI (✅ verificado 2026-09-07)
 
 Confirmado 2026-08-12 vía `pdp_feyc_voces_alumnos_1.pdf` (GCBA,
 Formación Ética y Ciudadana 6°, real): la Convención de Derechos del
