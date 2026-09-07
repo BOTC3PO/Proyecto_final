@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -187,15 +187,11 @@ metadata:
   nivel: "intermedio"
   tags: ["atomica", "hiroshima", "nagasaki"]
 
-variables:
-  escenarios: [["Hiroshima", "Little Boy"], ["Nagasaki", "Fat Man"]]
-  idx: uno_de([0, 1])
-
-respuesta: escenarios[idx][1]
+respuesta: "Fat Man"
 tipo: mc
 opciones_explicitas: ["Little Boy", "Fat Man", "Enola Gay", "B-29"]
 
-enunciado: "En el segundo ataque atómico de la historia, ocurrido en la ciudad de {escenarios[idx][0]}, se utilizó la bomba llamada ___."
+enunciado: "En el segundo ataque atómico de la historia, ocurrido en la ciudad de Nagasaki, se utilizó la bomba llamada ___."
 
 explicacion: |
   El 9 de agosto de 1945, la bomba 'Fat Man' fue lanzada sobre Nagasaki, marcando el segundo uso de armas nucleares en combate.
