@@ -1,6 +1,6 @@
-# Lengua — subordinada sustantiva de complemento circunstancial (cuestionario, 25 preguntas VBLang)
+# Lengua — subordinada sustantiva de complemento circunstancial (cuestionario, 22 preguntas VBLang)
 
-> Tema: `lengua/subordinada-sustantiva-de-complemento-circunstancial`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `lengua/subordinada-sustantiva-de-complemento-circunstancial`. Ver `teoria.md` en esta misma carpeta. Reescrito 2026-09-07: el crudo generado con qwen/qwen3.6-35b-a3b (y sus 25 preguntas) nunca testeaban la función de Complemento Circunstancial (CC) que da nombre al tema — solo sujeto/CD/atributo/CR — y dos preguntas tenían razonamiento del modelo filtrado en la explicación. Cada pregunta validada con parse+lint+compile+generate real de packages/vblang.
 
 ---
 
@@ -8,569 +8,486 @@
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "basico"
-  tags: ["subordinada_sustantiva", "sujeto", "identificacion"]
+  tags: ["definicion", "sustitucion"]
 
 variables:
-  sujeto: "Que llueva hoy"
-  verbo: "molesta"
-  objeto: "a mi madre"
+  op_a: "por un adverbio simple, como 'entonces'"
+  op_b: "por una preposición más un pronombre demostrativo, como 'por eso'"
+  op_c: "por el pronombre 'lo' sin preposición"
+  op_d: "por otro sustantivo cualquiera"
 
-respuesta: "Que llueva hoy"
-tipo: completar
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración '{sujeto} {verbo} {objeto}', ¿cuál es la subordinada sustantiva que funciona como sujeto?"
+enunciado: "Una subordinada sustantiva de complemento circunstancial (de causa, finalidad, condición o concesión) se reconoce porque puede sustituirse..."
 
 explicacion: |
-  La oración "Que llueva hoy" realiza la acción de "molestar". Si la sustituimos por el pronombre "lo" ("Lo molesta a mi madre"), la oración sigue teniendo sentido gramatical, lo que confirma su naturaleza sustantiva y su función de sujeto.
+  Se sustituye por "preposición + eso/ello" ('por eso', 'para eso', 'a pesar de eso'), no por un adverbio simple. Esa sustitución nominal es la prueba de que, aunque cumpla un papel circunstancial, es sintácticamente una sustantiva.
 ```
 
 ### 2 — pregunta 2
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "infinitivo", "complemento_directo"]
+  nivel: "basico"
+  tags: ["causa", "sustitucion"]
 
 variables:
-  sujeto: "Ella"
-  verbo: "quiere"
-  infinitivo: "viajar a Mendoza"
+  causa: uno_de(["comió mal", "no durmió bien", "tomó frío"])
 
-respuesta: "viajar a Mendoza"
+respuesta: "por eso"
 tipo: completar
 
-enunciado: "Identificá la subordinada sustantiva (en este caso, un infinitivo) que funciona como complemento directo en: '{sujeto} {verbo} {infinitivo}'."
+enunciado: "'Se enfermó porque {causa}' se puede parafrasear como 'Se enfermó ___'."
 
 explicacion: |
-  La oración infinitiva "viajar a Mendoza" funciona como objeto directo del verbo "quiere". Se puede sustituir por "lo": "Ella lo quiere". Las oraciones con infinitivo pueden cumplir funciones sustantivas.
+  La subordinada de causa se sustituye por 'por eso', confirmando que es una sustantiva de CC de causa, no un adverbio.
 ```
 
 ### 3 — pregunta 3
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "atributo", "verbo_ser"]
+  nivel: "basico"
+  tags: ["finalidad", "sustitucion"]
 
 variables:
-  sujeto: "La verdad"
-  verbo: "es"
-  subordinada: "que no lo sé"
+  objetivo: uno_de(["aprobaran todos", "nadie se quejara", "el equipo mejorara"])
 
-respuesta: "que no lo sé"
+respuesta: "para eso"
 tipo: completar
 
-enunciado: "En la oración '{sujeto} {verbo} {subordinada}', ¿cuál es la subordinada sustantiva que funciona como atributo?"
+enunciado: "'El profesor explicó de nuevo para que {objetivo}' se puede parafrasear como 'El profesor explicó de nuevo ___'."
 
 explicacion: |
-  La subordinada "que no lo sé" completa el significado del verbo copulativo "es" y se refiere al sujeto "La verdad". Se puede sustituir por "lo": "La verdad es lo". Por tanto, funciona como atributo.
+  La subordinada de finalidad se sustituye por 'para eso'. Esa sustitución con preposición + pronombre demostrativo (no un adverbio) revela su naturaleza sustantiva.
 ```
 
 ### 4 — pregunta 4
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "diferenciacion", "adverbial"]
+  tags: ["distincion", "regimen"]
 
 variables:
-  oracion_a: "Vengo cuando puedo"
-  oracion_b: "Quiero que vengas"
+  op_a: "La preposición del CC tiene un significado circunstancial propio (causa, fin); la del CR es una exigencia arbitraria del verbo, sin ese significado."
+  op_b: "No hay ninguna diferencia real entre CC y CR."
+  op_c: "El CR siempre lleva la preposición 'para' y el CC siempre 'de'."
+  op_d: "El CC nunca lleva preposición y el CR siempre sí."
 
-respuesta: "oracion_b"
+respuesta: op_a
 tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "¿Cuál de las siguientes oraciones contiene una subordinada sustantiva?"
-opciones: 2
-opciones_explicitas: ["oracion_a", "oracion_b"]
+enunciado: "¿Cuál es la diferencia real entre una subordinada sustantiva de CC y una de complemento de régimen (CR)?"
 
 explicacion: |
-  En "Vengo cuando puedo", "cuando puedo" es una subordinada adverbial de tiempo. En "Quiero que vengas", "que vengas" es una subordinada sustantiva que funciona como complemento directo (Quiero lo). No se puede sustituir "cuando puedo" por "lo" de manera natural para mantener la estructura sustantiva en el mismo lugar.
+  En el CR ('insisto EN que vayas', 'me arrepiento DE haber mentido') la preposición es una exigencia fija del verbo, sin aportar significado circunstancial. En el CC ('lo hizo POR que lo despidieran') la preposición sí expresa una circunstancia real (causa, fin, etc.).
 ```
 
 ### 5 — pregunta 5
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "avanzado"
-  tags: ["subordinada_sustantiva", "complemento_de_regimen", "preposicion"]
+  nivel: "intermedio"
+  tags: ["regimen", "identificacion"]
 
 variables:
-  sujeto: "Me"
-  verbo: "arrepiento"
-  subordinada: "de haber mentido"
+  verbo_regimen: uno_de(["Insisto en", "Confío en", "Me arrepiento de"])
+  subordinada: uno_de(["que vayas", "que ganes", "haber mentido"])
 
-respuesta: "de haber mentido"
-tipo: completar
+respuesta: falso
+tipo: vf
 
-enunciado: "En la oración '{sujeto} {verbo} {subordinada}', identificá la subordinada sustantiva que funciona como complemento de régimen verbal."
+enunciado: "En '{verbo_regimen} {subordinada}', la preposición aporta un significado circunstancial de causa o finalidad, por lo que es una subordinada sustantiva de CC."
 
 explicacion: |
-  El verbo "arrepentirse" exige la preposición "de". La oración "de haber mentido" depende de este verbo y cumple la función de complemento de régimen. Se puede sustituir por "lo": "Me arrepiento de lo".
+  Falso. Verbos como 'insistir en', 'confiar en' o 'arrepentirse de' exigen esa preposición de forma fija, sin que aporte significado circunstancial: es un complemento de régimen (CR), no un CC.
 ```
 
 ### 6 — pregunta 6
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "sujeto", "interrogativa_indirecta"]
+  tags: ["condicion", "identificacion"]
 
 variables:
-  subordinada: "Si vendrán a la fiesta"
-  verbo: "es"
-  predicado: "una incógnita"
+  condicion: uno_de(["me invitan", "hay lugar", "llueve"])
 
-respuesta: "Si vendrán a la fiesta"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En la oración '{subordinada} {verbo} {predicado}', ¿cuál es la subordinada sustantiva que funciona como sujeto?"
+enunciado: "En 'Vendré si {condicion}', la subordinada 'si {condicion}' puede analizarse como una sustantiva en función de complemento circunstancial de condición."
 
 explicacion: |
-  La oración introducida por "si" ("Si vendrán a la fiesta") actúa como sujeto de "es". Se puede sustituir por "lo": "Lo es una incógnita". Las oraciones interrogativas indirectas pueden funcionar como sustantivas.
+  Correcto. La gramática moderna reanaliza las tradicionales 'adverbiales de condición' como sustantivas de CC de condición, ya que no se sustituyen por un adverbio simple sino por una expresión equivalente a 'en ese caso'.
 ```
 
 ### 7 — pregunta 7
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "complemento_directo", "funcion"]
+  nivel: "basico"
+  tags: ["concesion", "sustitucion"]
 
 variables:
-  oracion: "Necesito que me ayudes"
-  parte: "que me ayudes"
+  obstaculo: uno_de(["llueva", "haga frío", "esté cansado"])
 
-respuesta: "complemento_directo"
+respuesta: "a pesar de eso"
 tipo: completar
 
-enunciado: "En la oración '{oracion}', la parte '{parte}' funciona como:"
+enunciado: "'Iremos al partido aunque {obstaculo}' se puede parafrasear como 'Iremos al partido ___'."
 
 explicacion: |
-  "Que me ayudes" recibe la acción del verbo "necesitar". Se puede sustituir por "lo": "Necesito lo". Por tanto, es un complemento directo.
+  La subordinada de concesión se sustituye por 'a pesar de eso', mostrando que se comporta como una sustantiva con preposición, no como un adverbio simple.
 ```
 
 ### 8 — pregunta 8
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "atributo", "funcion"]
+  tags: ["distincion", "adverbial_genuina"]
 
 variables:
-  oracion: "El problema es que no hay dinero"
-  parte: "que no hay dinero"
+  lugar: uno_de(["nació", "vivió de chico", "estudió"])
 
-respuesta: "atributo"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En la oración '{oracion}', la parte '{parte}' funciona como:"
+enunciado: "En 'Volvió a donde {lugar}', la subordinada se sustituye por un adverbio simple ('allí'), por lo que es una adverbial de lugar genuina y NO una sustantiva de CC."
 
 explicacion: |
-  "Que no hay dinero" completa el verbo copulativo "es" y se refiere al sujeto "El problema". Se puede sustituir por "lo": "El problema es lo". Por tanto, es un atributo.
+  Correcto. 'Volvió allí' funciona con un adverbio simple, sin necesidad de preposición + pronombre demostrativo. Eso la distingue de las sustantivas de CC de causa/fin/condición/concesión.
 ```
 
 ### 9 — pregunta 9
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "avanzado"
-  tags: ["subordinada_sustantiva", "complemento_de_regimen", "funcion"]
+  tags: ["causa", "prueba"]
 
 variables:
-  oracion: "Insisto en que vayas"
-  parte: "en que vayas"
+  causa: uno_de(["se cortó la luz", "hubo una huelga", "llovió mucho"])
 
-respuesta: "complemento_de_regimen"
-tipo: completar
+respuesta: falso
+tipo: vf
 
-enunciado: "En la oración '{oracion}', la parte '{parte}' funciona como:"
+enunciado: "En 'No pudimos entrar porque {causa}', la subordinada 'porque {causa}' se sustituye mejor por el adverbio 'entonces' que por 'por eso'."
 
 explicacion: |
-  El verbo "insistir" rige la preposición "en". La oración "en que vayas" depende de este verbo y cumple la función de complemento de régimen. Se puede sustituir por "lo": "Insisto en lo".
+  Falso. Se sustituye naturalmente por 'por eso' ('No pudimos entrar por eso'), no por 'entonces'. Esa sustitución con preposición + pronombre es justamente la prueba de que es una subordinada sustantiva, no una adverbial genuina.
 ```
 
 ### 10 — pregunta 10
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "infinitivo", "sujeto"]
+  tags: ["finalidad", "identificacion"]
 
 variables:
-  infinitivo: "Estudiar mucho"
-  verbo: "ayuda"
-  complemento: "al éxito"
+  op_a: "Causa"
+  op_b: "Finalidad"
+  op_c: "Condición"
+  op_d: "Concesión"
 
-respuesta: "Estudiar mucho"
-tipo: completar
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración '{infinitivo} {verbo} {complemento}', ¿cuál es la subordinada sustantiva que funciona como sujeto?"
+enunciado: "En 'Bajaron los impuestos para que bajara la inflación', ¿qué tipo de circunstancia expresa la subordinada sustantiva de CC?"
 
 explicacion: |
-  La oración infinitiva "Estudiar mucho" realiza la acción de "ayudar". Se puede sustituir por "lo": "Lo ayuda al éxito". Por tanto, funciona como sujeto.
+  Expresa finalidad: el propósito de bajar los impuestos era que bajara la inflación. Se sustituye por 'para eso'.
 ```
 
 ### 11 — pregunta 11
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "que", "atributo"]
+  nivel: "avanzado"
+  tags: ["regimen_vs_cc", "identificacion"]
 
 variables:
-  sujeto: "La noticia"
-  verbo: "es"
-  subordinada: "que ganamos"
+  frase: uno_de(["Confío en que ganes", "Insisto en que vengas"])
 
-respuesta: "que ganamos"
-tipo: completar
+respuesta: falso
+tipo: vf
 
-enunciado: "En la oración '{sujeto} {verbo} {subordinada}', ¿cuál es la subordinada sustantiva que funciona como atributo?"
+enunciado: "En '{frase}', la preposición que acompaña a 'que' expresa una circunstancia de causa o finalidad (CC), y no una exigencia fija del verbo (CR)."
 
 explicacion: |
-  "Que ganamos" completa el verbo copulativo "es" y se refiere al sujeto "La noticia". Se puede sustituir por "lo": "La noticia es lo". Por tanto, es un atributo.
+  Falso. 'Confiar en' e 'insistir en' rigen la preposición 'en' de forma fija y arbitraria, sin significado circunstancial propio: es complemento de régimen (CR), no CC.
 ```
 
 ### 12 — pregunta 12
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "si", "complemento_directo"]
+  nivel: "basico"
+  tags: ["repaso", "funciones"]
 
 variables:
-  sujeto: "No sé"
-  subordinada: "si vendrá"
+  op_a: "Sujeto, complemento directo, atributo y complemento de régimen."
+  op_b: "Solo complemento directo."
+  op_c: "Solo sujeto y atributo."
+  op_d: "Ninguna otra función; el CC es la única posible."
 
-respuesta: "si vendrá"
-tipo: completar
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración '{sujeto} {subordinada}', ¿cuál es la subordinada sustantiva que funciona como complemento directo?"
+enunciado: "Además de complemento circunstancial, ¿qué otras funciones puede cumplir una subordinada sustantiva?"
 
 explicacion: |
-  "Si vendrá" es el objeto de la duda expresada por "No sé". Se puede sustituir por "lo": "No sé lo". Por tanto, funciona como complemento directo.
+  Puede ser sujeto ('Que llueva molesta'), complemento directo ('Quiero que vengas'), atributo ('El problema es que no hay tiempo') o complemento de régimen ('Me arrepiento de haber mentido'), además de CC.
 ```
 
 ### 13 — pregunta 13
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "avanzado"
-  tags: ["subordinada_sustantiva", "infinitivo", "complemento_de_regimen"]
+  nivel: "intermedio"
+  tags: ["condicion", "sustitucion"]
 
 variables:
-  sujeto: "Decidiste"
-  verbo: "dejar"
-  subordinada: "de fumar"
+  condicion: uno_de(["estudias", "practicás todos los días", "pedís ayuda"])
 
-respuesta: "de fumar"
+respuesta: "en ese caso"
 tipo: completar
 
-enunciado: "En la oración '{sujeto} {verbo} {subordinada}', ¿cuál es la subordinada sustantiva que funciona como complemento de régimen?"
+enunciado: "'Aprobarás si {condicion}' se puede parafrasear como 'Aprobarás ___'."
 
 explicacion: |
-  El verbo "decidir" puede regir la preposición "de" seguido de infinitivo. "De fumar" depende de "decidiste" y cumple la función de complemento de régimen. Se puede sustituir por "lo": "Decidiste de lo".
+  La subordinada condicional se parafrasea como 'en ese caso', una expresión nominal (preposición + pronombre), coherente con su análisis como sustantiva de CC de condición.
 ```
 
 ### 14 — pregunta 14
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "basico"
-  tags: ["subordinada_sustantiva", "sujeto"]
+  nivel: "avanzado"
+  tags: ["distincion", "adverbial_genuina"]
 
 variables:
-  subordinada: "Que te vayas"
-  verbo: "es"
-  predicado: "lo mejor"
+  modo: uno_de(["mejor pudo", "quiso", "le pareció correcto"])
 
-respuesta: "Que te vayas"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En la oración '{subordinada} {verbo} {predicado}', ¿cuál es la subordinada sustantiva que funciona como sujeto?"
+enunciado: "En 'Lo hizo como {modo}', la subordinada se sustituye por el adverbio 'así', por lo que es una adverbial de modo genuina, distinta de las sustantivas de CC vistas en este tema."
 
 explicacion: |
-  "Que te vayas" es quien realiza la acción de "ser" en el sentido de equivalencia o definición. Se puede sustituir por "lo": "Lo es lo mejor". Por tanto, funciona como sujeto.
+  Correcto. 'Lo hizo así' usa un adverbio simple. Esto la distingue de las subordinadas de causa/finalidad/condición/concesión, que se sustituyen por preposición + pronombre ('por eso', 'para eso').
 ```
 
 ### 15 — pregunta 15
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "basico"
-  tags: ["subordinada_sustantiva", "complemento_directo"]
+  nivel: "intermedio"
+  tags: ["concesion", "identificacion"]
 
 variables:
-  sujeto: "Ellos"
-  verbo: "afirman"
-  subordinada: "que todo está bien"
+  obstaculo: uno_de(["el equipo estaba cansado", "el clima era malo", "faltaba tiempo"])
 
-respuesta: "que todo está bien"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En la oración '{sujeto} {verbo} {subordinada}', ¿cuál es la subordinada sustantiva que funciona como complemento directo?"
+enunciado: "En 'El técnico cambió la formación aunque {obstaculo}', la subordinada concesiva puede analizarse como sustantiva de CC, sustituible por 'a pesar de eso'."
 
 explicacion: |
-  "Que todo está bien" recibe la acción de "afirman". Se puede sustituir por "lo": "Ellos lo afirman". Por tanto, funciona como complemento directo.
+  Correcto. Es sustituible por 'a pesar de eso' (preposición + pronombre), lo que confirma su naturaleza sustantiva pese a expresar una circunstancia (concesión).
 ```
 
 ### 16 — pregunta 16
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "avanzado"
-  tags: ["subordinada_sustantiva", "atributo", "infinitivo"]
+  nivel: "basico"
+  tags: ["causa", "identificacion"]
 
 variables:
-  sujeto: "Su meta"
-  verbo: "es"
-  subordinada: "viajar por el mundo"
+  op_a: "Causa"
+  op_b: "Lugar"
+  op_c: "Sujeto"
+  op_d: "Complemento directo"
 
-respuesta: "viajar por el mundo"
-tipo: completar
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración '{sujeto} {verbo} {subordinada}', ¿cuál es la subordinada sustantiva que funciona como atributo?"
+enunciado: "En 'No fuimos a la cancha porque se suspendió el partido', ¿qué tipo de circunstancia expresa la subordinada?"
 
 explicacion: |
-  "Viajar por el mundo" completa el verbo copulativo "es" y se refiere al sujeto "Su meta". Se puede sustituir por "lo": "Su meta es lo". Por tanto, funciona como atributo.
+  Expresa causa ('se sustituye por 'por eso''). Es una subordinada sustantiva de CC de causa.
 ```
 
 ### 17 — pregunta 17
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "avanzado"
-  tags: ["subordinada_sustantiva", "complemento_de_regimen"]
+  tags: ["regimen", "prueba"]
 
 variables:
-  sujeto: "Confío"
-  verbo: "en"
-  subordinada: "que ganarás"
+  verbo: uno_de(["insistir", "confiar", "arrepentirse"])
 
-respuesta: "en que ganarás"
-tipo: completar
+respuesta: falso
+tipo: vf
 
-enunciado: "En la oración '{sujeto} {verbo} {subordinada}', ¿cuál es la subordinada sustantiva que funciona como complemento de régimen?"
+enunciado: "El verbo '{verbo}' exige una preposición que aporta un significado circunstancial (causa, finalidad, etc.), por lo que su complemento es un CC."
 
 explicacion: |
-  El verbo "confiar" rige la preposición "en". La oración "en que ganarás" depende de este verbo y cumple la función de complemento de régimen. Se puede sustituir por "lo": "Confío en lo".
+  Falso. Estos verbos exigen su preposición ('en' o 'de') de forma arbitraria, sin significado circunstancial propio: su complemento es de régimen (CR), no CC.
 ```
 
 ### 18 — pregunta 18
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "diferenciacion", "adjetiva"]
+  tags: ["repaso", "distincion"]
 
 variables:
-  oracion_a: "El libro que leí es bueno"
-  oracion_b: "Quiero que leas el libro"
+  op_a: "Se sustituye por preposición + 'eso' (CC de causa/fin/condición/concesión) o por adverbio simple (adverbial genuina de tiempo/lugar/modo)."
+  op_b: "Ambas se sustituyen siempre por 'lo', sin diferencia posible."
+  op_c: "La adverbial genuina siempre lleva 'que' y la sustantiva de CC nunca."
+  op_d: "No existe ninguna diferencia entre ambas categorías."
 
-respuesta: "oracion_b"
+respuesta: op_a
 tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "¿Cuál de las siguientes oraciones contiene una subordinada sustantiva?"
-opciones: 2
-opciones_explicitas: ["oracion_a", "oracion_b"]
+enunciado: "¿Cómo se distingue una subordinada sustantiva de CC de una adverbial genuina (de tiempo, lugar o modo)?"
 
 explicacion: |
-  En "El libro que leí es bueno", "que leí" es una subordinada adjetiva (modifica a "libro"). No se puede sustituir por "lo" sin cambiar la estructura (El libro lo es bueno -> incorrecto). En "Quiero que leas el libro", "que leas el libro" es sustantiva (CD). Se puede sustituir por "lo": "Quiero lo".
+  La prueba de sustitución es la clave: la sustantiva de CC se reemplaza por preposición + 'eso' ('por eso', 'para eso'); la adverbial genuina se reemplaza por un adverbio simple ('entonces', 'allí', 'así').
 ```
 
 ### 19 — pregunta 19
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "diferenciacion", "adverbial"]
+  tags: ["finalidad", "sustitucion"]
 
 variables:
-  oracion_a: "Voy porque tengo que ir"
-  oracion_b: "Quiero porque ir"
+  fin: uno_de(["nadie se lastimara", "todos entendieran", "el proyecto avanzara"])
 
-respuesta: "oracion_a"
-tipo: mc
+respuesta: falso
+tipo: vf
 
-enunciado: "¿Cuál de las siguientes oraciones contiene una subordinada sustantiva?"
-opciones: 2
-opciones_explicitas: ["oracion_a", "oracion_b"]
+enunciado: "En 'Organizó todo para que {fin}', la subordinada se sustituye mejor por el adverbio 'así' que por 'para eso'."
 
 explicacion: |
-  En "Voy porque tengo que ir", "porque tengo que ir" es una subordinada adverbial de causa. No se puede sustituir por "lo" directamente. En "Quiero porque ir" (oración incorrecta o mal formada, pero asumamos que "porque ir" es un error tipográfico de "que ir"), si la oración fuera "Quiero que ir", no es gramatical. Si la opción B fuera "Quiero ir", sería infinitivo. Asumiendo que B es "Quiero que vayas" (sustantiva) y A es adverbial, la respuesta sería B. Pero aquí, A es claramente adverbial. Revisemos: "Quiero porque ir" no es estándar. Vamos a cambiar la opción B a "Quiero que vayas". Entonces B es la sustantiva. Pero el ejercicio pide identificar la sustantiva. Si A es adverbial y B es "Quiero que vayas", entonces B es la respuesta. En este caso, A es adverbial, B es "Quiero que vayas" (sustantiva). Por lo tanto, la respuesta correcta es B. Pero el prompt original tenia "Quiero porque ir". Vamos a corregir la opción B a "Quiero que vayas" para que sea una opción válida de sustantiva. Entonces la respuesta es B. Pero el ejercicio es "¿Cuál contiene una sustantiva?". A es adverbial. B es sustantiva. Respuesta: B. Pero en el DSL, opciones_explicitas es ["oracion_a", "oracion_b"]. La respuesta es "oracion_b". Explicación: "Porque tengo que ir" es adverbial. "Que vayas" es sustantiva.
+  Falso. Se sustituye naturalmente por 'para eso', no por 'así'. Esa sustitución nominal confirma que es sustantiva de CC de finalidad.
 ```
 
 ### 20 — pregunta 20
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "basico"
-  tags: ["subordinada_sustantiva", "sujeto"]
+  nivel: "avanzado"
+  tags: ["sintesis", "clasificacion"]
 
-variables:
-  subordinada: "Que estudies"
-  verbo: "es"
-  predicado: "necesario"
+respuesta: verdadero
+tipo: vf
 
-respuesta: "Que estudies"
-tipo: completar
-
-enunciado: "En la oración '{subordinada} {verbo} {predicado}', ¿cuál es la subordinada sustantiva que funciona como sujeto?"
+enunciado: "Las subordinadas de causa, finalidad, condición y concesión comparten el rasgo de sustituirse por una preposición más un pronombre demostrativo, lo que justifica analizarlas como sustantivas de complemento circunstancial."
 
 explicacion: |
-  "Que estudies" es quien realiza la acción de "ser" en el sentido de necesidad. Se puede sustituir por "lo": "Lo es necesario". Por tanto, funciona como sujeto.
+  Correcto. 'Por eso' (causa), 'para eso' (finalidad), 'en ese caso' (condición) y 'a pesar de eso' (concesión) son todas construcciones nominales, no adverbios simples — de ahí su clasificación como sustantivas de CC.
 ```
 
 ### 21 — pregunta 21
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
   nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "complemento_directo"]
+  tags: ["regimen", "distincion"]
 
 variables:
-  sujeto: "Me pregunto"
-  subordinada: "si es verdad"
+  verbo_cr: uno_de(["Me arrepiento de", "Confío en", "Insisto en"])
 
-respuesta: "si es verdad"
+respuesta: "complemento de régimen"
 tipo: completar
 
-enunciado: "En la oración '{sujeto} {subordinada}', ¿cuál es la subordinada sustantiva que funciona como complemento directo?"
+enunciado: "'{verbo_cr} que vengas' — la parte introducida por la preposición funciona como:"
 
 explicacion: |
-  "Si es verdad" es el objeto de la duda expresada por "Me pregunto". Se puede sustituir por "lo": "Me pregunto lo". Por tanto, funciona como complemento directo.
+  Es complemento de régimen (CR): la preposición es exigida arbitrariamente por el verbo, sin aportar un significado circunstancial de causa, fin, condición o concesión.
 ```
 
 ### 22 — pregunta 22
 
 ```
 metadata:
-  materia: "lengua"
+  materia: "Lengua"
   tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "atributo"]
+  nivel: "basico"
+  tags: ["condicion", "clasificacion"]
 
 variables:
-  sujeto: "El resultado"
-  verbo: "es"
-  subordinada: "que ganaste"
+  op_a: "Complemento circunstancial de condición"
+  op_b: "Complemento directo"
+  op_c: "Sujeto"
+  op_d: "Complemento de régimen"
 
-respuesta: "que ganaste"
-tipo: completar
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "En la oración '{sujeto} {verbo} {subordinada}', ¿cuál es la subordinada sustantiva que funciona como atributo?"
-
-explicacion: |
-  "Que ganaste" completa el verbo copulativo "es" y se refiere al sujeto "El resultado". Se puede sustituir por "lo": "El resultado es lo". Por tanto, funciona como atributo.
-```
-
-### 23 — pregunta 23
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "avanzado"
-  tags: ["subordinada_sustantiva", "complemento_de_regimen"]
-
-variables:
-  sujeto: "Decidiste"
-  verbo: "abandonar"
-  subordinada: "el proyecto"
-
-respuesta: "el proyecto"
-tipo: completar
-
-enunciado: "En la oración '{sujeto} {verbo} {subordinada}', ¿cuál es el complemento directo?"
+enunciado: "En 'Aprobarás si estudiás', ¿qué función cumple la subordinada 'si estudiás', según el análisis moderno?"
 
 explicacion: |
-  "El proyecto" es el objeto directo de "abandonar". Se puede sustituir por "lo": "Decidiste abandonarlo". No es una subordinada sustantiva, es un sustantivo simple. Pero la pregunta pide identificar el CD. En este caso, no hay subordinada sustantiva. Vamos a cambiar la pregunta para que evalúe la subordinada sustantiva. Cambiemos la oración a "Decidiste de abandonar el proyecto". Entonces "de abandonar el proyecto" es CR. O mejor, "Insisto en que vayas". Vamos a usar "Insisto en que vayas". Entonces la respuesta es "en que vayas". Pero la pregunta original era "Decidiste abandonar el proyecto". No hay subordinada. Vamos a cambiar la oración a "Me arrepiento de haber mentido". Ya usé esa. Vamos a usar "Confío en que ganes". Entonces la respuesta es "en que ganes".
-```
-
-### 24 — pregunta 24
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "intermedio"
-  tags: ["subordinada_sustantiva", "atributo"]
-
-variables:
-  oracion: "Mi deseo es que viajes"
-  parte: "que viajes"
-
-respuesta: "atributo"
-tipo: completar
-
-enunciado: "En la oración '{oracion}', la parte '{parte}' funciona como:"
-
-explicacion: |
-  "Que viajes" completa el verbo copulativo "es" y se refiere al sujeto "Mi deseo". Se puede sustituir por "lo": "Mi deseo es lo". Por tanto, es un atributo.
-```
-
-### 25 — pregunta 25
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_sustantiva_de_complemento_circunstancial"
-  nivel: "avanzado"
-  tags: ["subordinada_sustantiva", "complemento_de_regimen"]
-
-variables:
-  oracion: "Depende de que vengas"
-  parte: "de que vengas"
-
-respuesta: "complemento_de_regimen"
-tipo: completar
-
-enunciado: "En la oración '{oracion}', la parte '{parte}' funciona como:"
-
-explicacion: |
-  El verbo "depender" rige la preposición "de". La oración "de que vengas" depende de este verbo y cumple la función de complemento de régimen. Se puede sustituir por "lo": "Depende de lo".
+  Cumple la función de complemento circunstancial de condición: se parafrasea como 'en ese caso', una construcción nominal.
 ```
