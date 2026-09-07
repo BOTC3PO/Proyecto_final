@@ -1,6 +1,6 @@
 # Informática — Sistema de archivos por bitácora (journaling) (teoria)
 
-> Tema del MAPA: `SO4B` (`troncos.md`). Depende de del nodo `SO4` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `SO4B` (`troncos.md`). Depende de del nodo `SO4` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
