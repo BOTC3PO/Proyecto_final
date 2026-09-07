@@ -65,15 +65,15 @@ metadata:
   materia: "Cívica"
   tema: "constitucion_nacional_jerarquia_normativa"
   nivel: "intermedio"
-  tags: ["control_constitucionalidad", "abstracto"]
+  tags: ["control_constitucionalidad", "difuso"]
 
-respuesta: "antes de que entre en vigor"
+respuesta: "un caso concreto"
 tipo: completar
 
-enunciado: "El control de constitucionalidad abstracto se realiza ___ la norma entre en vigencia."
+enunciado: "En Argentina, el control de constitucionalidad es difuso y a posteriori: cualquier juez puede declarar la inconstitucionalidad de una norma, pero sólo al aplicarla a ___."
 
 explicacion: |
-  El control abstracto verifica la validez de la ley antes de su aplicación concreta.
+  A diferencia de países con un tribunal especializado que revisa leyes en abstracto antes de que entren en vigor, en Argentina cualquier juez ejerce el control, pero únicamente sobre un caso concreto que esté juzgando.
 ```
 
 ### 5 — pregunta 5
@@ -524,24 +524,24 @@ metadata:
   tags: ["tribunal", "anulacion"]
 
 variables:
-  correcto: "Tribunal Supremo"
+  correcto: "El Poder Judicial"
   distractor1: "El Presidente"
   distractor2: "El Congreso"
   distractor3: "Los gobernadores"
 
-respuesta: "Tribunal Supremo"
+respuesta: "El Poder Judicial"
 tipo: mc
 
-enunciado: "¿Qué autoridad puede anular una ley provincial por inconstitucionalidad?"
+enunciado: "¿Qué autoridad puede declarar inconstitucional una ley provincial?"
 
 opciones_explicitas:
-  - "Tribunal Supremo"
+  - "El Poder Judicial"
   - "El Presidente"
   - "El Congreso"
   - "Los gobernadores"
 
 explicacion: |
-  El Tribunal Supremo (Corte Suprema de Justicia) es el encargado de declarar la inconstitucionalidad de las normas.
+  En Argentina, cualquier juez puede declarar la inconstitucionalidad de una norma al aplicarla a un caso concreto (control difuso) — no es una facultad exclusiva de la Corte Suprema de Justicia de la Nación, aunque sus fallos suelen sentar precedente para el resto de los tribunales.
 ```
 
 ### 27 — pregunta 27

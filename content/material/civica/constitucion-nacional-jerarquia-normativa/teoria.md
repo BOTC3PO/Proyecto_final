@@ -26,14 +26,11 @@ La jerarquía de las normas se organiza como una pirámide, donde cada nivel der
 
 ## 3. Incompatibilidad entre normas
 
-Una **norma de menor rango no puede contradecir a una superior**. Por ejemplo, una provincia no puede aprobar una ley que limite los derechos laborales más allá de lo establecido en la Constitución. Si eso ocurre, el **juez o el Tribunal Supremo** puede anularla por inconstitucionalidad. Esta regla garantiza que todas las leyes respeten los principios fundamentales del Estado.
+Una **norma de menor rango no puede contradecir a una superior**. Por ejemplo, una provincia no puede aprobar una ley que limite los derechos laborales más allá de lo establecido en la Constitución. Si eso ocurre, cualquier **juez**, en el caso concreto que le toque resolver, puede declararla inconstitucional (y, en última instancia, la **Corte Suprema de Justicia de la Nación** si el caso llega hasta ahí). Esta regla garantiza que todas las leyes respeten los principios fundamentales del Estado.
 
 ## 4. Control de constitucionalidad
 
-El **control de constitucionalidad** es el mecanismo mediante el cual se verifica si una norma cumple con la Constitución. Puede ser:
-
-- **Abstrato**: Cuando el Tribunal Supremo revisa una ley antes de que entre en vigor.
-- **Concreto**: Cuando un juez evalúa si una norma aplica a un caso específico.
+El **control de constitucionalidad** es el mecanismo mediante el cual se verifica si una norma cumple con la Constitución. En Argentina es un sistema **difuso y a posteriori**: cualquier juez, de cualquier fuero e instancia, puede declarar la inconstitucionalidad de una norma cuando se aplica a un caso concreto que está juzgando — no existe un tribunal especializado que revise leyes en abstracto antes de que entren en vigor (a diferencia de otros países, como Chile o Francia, que sí tienen ese mecanismo). El fallo sólo tiene efecto para ese caso puntual (no deroga la norma en general), salvo que la Corte Suprema siente un precedente que los tribunales inferiores suelen seguir.
 
 Este control asegura que la jerarquía normativa se respete y evita que leyes o reglamentos violen los derechos garantizados por el texto constitucional.
 
