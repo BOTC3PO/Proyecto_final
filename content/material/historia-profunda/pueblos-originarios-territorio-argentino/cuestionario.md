@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -59,13 +59,13 @@ metadata:
   tags: ["guaraníes", "litoral", "agricultura"]
 
 variables:
-  escenario: uno_de([["Guaraníes", "agricultura de roza y quema", "selva/ríos"], ["Mapuches", "pastoreo y agricultura", "zonas templadas"], ["Selk'nam", "caza de focas", "Tierra del Fuego"]])
+  escenario: uno_de([["Guaraníes", "agricultura de roza y quema", "selva/ríos"], ["Mapuches", "caza y recolección con agricultura limitada", "zonas templadas"], ["Selk'nam", "caza terrestre de guanacos", "Tierra del Fuego"]])
 
 tipo: completar
 respuestas_validas:
   - "agricultura de roza y quema"
-  - "pastoreo y agricultura"
-  - "caza de focas"
+  - "caza y recolección con agricultura limitada"
+  - "caza terrestre de guanacos"
 respuesta: escenario[1]
 enunciado: "Los pueblos {escenario[2]} se destacaban por su técnica de {escenario[1]}."
 
