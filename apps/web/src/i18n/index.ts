@@ -10,6 +10,9 @@ import eo from "./eo.json";
 import ja from "./ja.json";
 import ko from "./ko.json";
 import zh from "./zh.json";
+import ar from "./ar.json";
+import ru from "./ru.json";
+import hi from "./hi.json";
 
 export type LanguageId =
   | "es"
@@ -23,7 +26,10 @@ export type LanguageId =
   | "eo"
   | "ja"
   | "ko"
-  | "zh";
+  | "zh"
+  | "ar"
+  | "ru"
+  | "hi";
 export type Catalog = Record<string, string>;
 
 // Agregar un idioma = copiar es.json, traducirlo, y sumar la entrada acá.
@@ -41,6 +47,9 @@ export const CATALOGS: Record<LanguageId, Catalog> = {
   ja,
   ko,
   zh,
+  ar,
+  ru,
+  hi,
 };
 
 export const LANGUAGES: { id: LanguageId; name: string }[] = [
@@ -56,6 +65,9 @@ export const LANGUAGES: { id: LanguageId; name: string }[] = [
   { id: "ja", name: "日本語" },
   { id: "ko", name: "한국어" },
   { id: "zh", name: "中文" },
+  { id: "ar", name: "العربية" },
+  { id: "ru", name: "Русский" },
+  { id: "hi", name: "हिन्दी" },
 ];
 
 export const DEFAULT_LANGUAGE: LanguageId = "es";
