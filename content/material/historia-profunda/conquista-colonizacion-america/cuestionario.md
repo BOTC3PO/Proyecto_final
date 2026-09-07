@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -92,8 +92,8 @@ tolerancia_abs: 0
 
 enunciado: "Además de las guerras, un factor determinante en la caída de la población indígena fue la llegada de enfermedades como la viruela. ¿El efecto demográfico fue de aumento o disminución? (Escribe 'aumento' o 'disminución')"
 
+respuesta: "disminución"
 respuestas_validas:
-  - "aumento"
   - "disminución"
 
 explicacion: |
@@ -534,7 +534,7 @@ metadata:
   tags: ["intercambio_colombino", "impacto"]
 
 variables:
-  escenario: [[ "Cebolla", "Eurasia" ], [ "Cacao", "América" ], [ "Cangrejo", "América" ], [ "Cabra", "Eurasia" ]]
+  escenario: [[ "Cebolla", "Eurasia" ], [ "Cacao", "América" ], [ "Girasol", "América" ], [ "Cabra", "Eurasia" ]]
   idx: uno_de([0,1,2,3])
 
 respuesta: escenario[idx][1]

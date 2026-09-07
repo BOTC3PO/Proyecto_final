@@ -11,7 +11,7 @@
 
 En 1492, Cristóbal Colón emprendió un viaje desde España con el objetivo de encontrar una ruta comercial hacia Asia navegando hacia el oeste. No imaginaba que su expedición lo llevaría a un continente desconocido para la Europa medieval: América. Este encuentro marcó el inicio de un proceso complejo y multifacético, donde culturas antiguas como las mesoamericanas (aztecas, mayas) y andinas (incas) se enfrentaron con la expansión colonial europea.  
 
-La llegada de los españoles no fue un acto único ni pacífico: implicó contactos iniciales, intercambios culturales y comerciales, pero también conflictos violentos. La introducción de enfermedades como el cólera o la viruela, a las que los pueblos indígenas no tenían inmunidad, fue un factor decisivo en la caída de civilizaciones poderosas, aunque no siempre directo ni inmediato.  
+La llegada de los españoles no fue un acto único ni pacífico: implicó contactos iniciales, intercambios culturales y comerciales, pero también conflictos violentos. La introducción de enfermedades como la viruela o el sarampión, a las que los pueblos indígenas no tenían inmunidad, fue un factor decisivo en la caída de civilizaciones poderosas, aunque no siempre directo ni inmediato. (El cólera, en cambio, no llegó a América hasta el siglo XIX.)  
 
 [IMAGEN: Mapa del mundo europeo en el siglo XV con rutas marítimas y continentes desconocidos]  
 
