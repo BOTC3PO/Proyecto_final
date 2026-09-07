@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -20,12 +20,9 @@ metadata:
   nivel: "intermedio"
   tags: ["africa", "conferencia_de_berlin"]
 
-variables:
-  escenario: uno_de([["Conferencia de Berlín", "1884"], ["Tratado de Versalles", "1919"], ["Conferencia de Yalta", "1945"]])
+enunciado: "El proceso de reparto de África entre las potencias europeas se formalizó durante la Conferencia de Berlín en el año ___."
 
-enunciado: "El proceso de reparto de África entre las potencias europeas se formalizó durante la {escenario[0]} en el año {escenario[1]}."
-
-respuesta: escenario[1]
+respuesta: "1884"
 tipo: completar
 respuestas_validas:
   - "1884"
@@ -63,12 +60,9 @@ metadata:
   nivel: "avanzado"
   tags: ["ideologia", "darwinismo_social"]
 
-variables:
-  caso: uno_de([["Darwinismo Social", "la supervivencia del más apto"], ["Misión Civilizadora", "la carga del hombre blanco"], ["Destino Manifiesto", "la expansión divina"]])
+enunciado: "El concepto de '___' fue utilizado para justificar la expansión colonial mediante la idea de la supervivencia del más apto aplicada a los pueblos y naciones."
 
-enunciado: "El concepto de '{caso[0]}' fue utilizado para justificar la expansión colonial mediante la idea de {caso[1]}."
-
-respuesta: caso[0]
+respuesta: "Darwinismo Social"
 tipo: completar
 respuestas_validas:
   - "Darwinismo Social"
@@ -144,14 +138,11 @@ metadata:
   nivel: "intermedio"
   tags: ["politica", "prestigio", "competencia"]
 
-variables:
-  escenario: uno_de([["Gran Bretaña", "control naval"], ["Francia", "expansión territorial"]])
-
-respuesta: uno_de(["prestigio", "recursos", "religión"])
+respuesta: "prestigio"
 tipo: mc
 opciones_explicitas: ["prestigio", "recursos", "religión"]
 
-enunciado: "La expansión colonial no solo buscaba beneficios económicos, sino también aumentar el {escenario[1]} de la nación frente a sus rivales europeos. Esta motivación se clasifica como de tipo ___."
+enunciado: "La expansión colonial no solo buscaba beneficios económicos, sino también aumentar el estatus internacional de la nación frente a sus rivales europeos. Esta motivación se clasifica como de tipo ___."
 
 explicacion: |
   La competencia por el poder político y el estatus internacional (prestigio) llevó a las potencias a disputarse territorios estratégicos para demostrar su dominio.
@@ -255,10 +246,7 @@ metadata:
   nivel: "avanzado"
   tags: ["congo", "leopoldo_ii", "explotacion"]
 
-variables:
-  escenario: uno_de([["Estado Libre del Congo", "explotación extrema de caucho y marfil"], ["África Occidental", "control comercial de materias primas"], ["Egipto", "control del canal de Suez"]])
-
-enunciado: "En el contexto del imperialismo, el caso del {escenario[0]} es recordado por la gestión de Leopoldo II, cuyo régimen se caracterizó por la {escenario[1]}."
+enunciado: "En el contexto del imperialismo, el caso del Estado Libre del Congo es recordado por la gestión de Leopoldo II, cuyo régimen se caracterizó por la ___."
 
 respuesta: "explotación extrema de caucho y marfil"
 tipo: completar
@@ -345,10 +333,7 @@ metadata:
   nivel: "intermedio"
   tags: ["geopolitica", "africa", "fronteras"]
 
-variables:
-  caso: uno_de([["la Conferencia de Berlín", "la división de África"], ["el Reino Unido", "el control británico"], ["fronteras artificiales", "líneas trazadas"]])
-
-enunciado: "Durante el siglo XIX, la delimitación de {caso[0]} ignoró las realidades étnicas locales, lo que ha generado tensiones geopolíticas que persisten en la actualidad."
+enunciado: "Durante el siglo XIX, la delimitación de la Conferencia de Berlín ignoró las realidades étnicas locales, lo que ha generado tensiones geopolíticas que persisten en la actualidad."
 
 respuesta: "la división de África"
 tipo: completar
@@ -388,10 +373,7 @@ metadata:
   nivel: "avanzado"
   tags: ["etnia", "conflictos", "herencia_colonial"]
 
-variables:
-  escenario: uno_de([["el uso de la política de 'divide y vencerás'", "tácticas de división"], ["la creación de élites privilegiadas", "el favoritismo étnico"], ["la imposición de lenguas coloniales", "la barrera lingüística"]])
-
-enunciado: "Una de las consecuencias sociales más persistentes es el legado de {escenario[0]}, donde las potencias coloniales utilizaban {escenario[1]} para mantener el control, exacerbando las divisiones entre grupos que hoy derivan en conflictos civiles."
+enunciado: "Una de las consecuencias sociales más persistentes es el legado del uso de la política de 'divide y vencerás', donde las potencias coloniales utilizaban tácticas de división para mantener el control, exacerbando las divisiones entre grupos que hoy derivan en conflictos civiles."
 
 respuesta: "tácticas de división"
 tipo: completar
