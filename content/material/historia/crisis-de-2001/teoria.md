@@ -1,6 +1,6 @@
 # Historia — Crisis de 2001 (teoria)
 
-> Tema del MAPA: `AH15B` (`troncos.md`). Depende de del nodo `AH15` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `AH15B` (`troncos.md`). Depende de del nodo `AH15` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,9 +22,9 @@ Las restricciones limitaban los retiros en efectivo y el monto que se podía tra
 
 ## La sucesión presidencial y la caída de la autoridad estatal
 
-La incapacidad para resolver la crisis económica y social derivó en una inestabilidad política extrema. En apenas once días, entre el 19 y el 30 de diciembre de 2001, Argentina tuvo cinco presidentes o figuras que ejercieron el poder ejecutivo. La renuncia del vicepresidente Carlos Duhalde y la presión de las calles llevaron a la renuncia del presidente Fernando de la Rúa el 20 de diciembre.
+La incapacidad para resolver la crisis económica y social derivó en una inestabilidad política extrema. La presión de las calles —incluidos los saqueos y la represión con un saldo de más de 30 muertos— llevó a la renuncia del presidente Fernando de la Rúa el 20 de diciembre de 2001 (su vicepresidente, Carlos Álvarez, ya había renunciado mucho antes, en octubre de 2000, por un escándalo de sobornos en el Senado, así que la presidencia no tenía vicepresidente en ejercicio).
 
-Tras su partida, la Asamblea Legislativa designó brevemente a Eduardo Camaño como presidente provisional. Sin embargo, la situación en las calles, marcada por protestas masivas y saqueos, hacía imposible la gobernabilidad. Dos días después, el Congreso eligió a Eduardo Duhalde como nuevo presidente. Esta sucesión veloz no solo reflejaba la fragmentación del poder político, sino también la ruptura del contrato social y la legitimidad de las instituciones tradicionales. La democracia, aunque se mantuvo formalmente, enfrentó su prueba más dura en décadas, cuestionando la capacidad del sistema representativo para responder a las demandas urgentes de la ciudadanía.
+Lo que siguió fue una sucesión vertiginosa: en apenas once días, entre el 20 y el 31 de diciembre, Argentina tuvo **cinco presidentes**. Tras la renuncia de De la Rúa asumió primero, por ley de acefalía, el presidente provisional del Senado, **Ramón Puerta** (Misiones), sólo por unos días mientras la Asamblea Legislativa buscaba un reemplazo. Esta designó entonces al gobernador de San Luis, **Adolfo Rodríguez Saá**, quien asumió el 23 de diciembre — y pasó a la historia por anunciar ante el Congreso, en medio de una ovación, el **default (cese de pagos) de la deuda externa argentina**, la mayor cesación de pagos soberana hasta ese momento. Su gobierno duró apenas una semana: presionado por internas dentro del propio peronismo, renunció el 30 de diciembre. Asumió entonces, de manera interina, el presidente de la Cámara de Diputados, **Eduardo Camaño**, hasta que la Asamblea Legislativa designó a **Eduardo Duhalde** como presidente el 1º de enero de 2002, quien completaría el mandato hasta 2003. Esta sucesión veloz no solo reflejaba la fragmentación del poder político, sino también la ruptura del contrato social y la legitimidad de las instituciones tradicionales. La democracia, aunque se mantuvo formalmente, enfrentó su prueba más dura en décadas, cuestionando la capacidad del sistema representativo para responder a las demandas urgentes de la ciudadanía.
 
 ## Consecuencias y memoria histórica
 
