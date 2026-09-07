@@ -11,7 +11,7 @@
 
 La Guerra Fría definió un orden mundial dominado por dos bloques contrapuestos: Estados Unidos, líder del bloque capitalista, y la Unión Soviética, cabeza del bloque socialista. Este sistema **bipolar** no solo se manifestó en conflictos directos entre ambas potencias, sino también en una competencia constante por influencia política, económica y militar en todo el planeta. Las decisiones de cada superpotencia tenían un impacto global: desde la ayuda económica a países en desarrollo hasta la implantación de bases militares estratégicas.  
 
-Este equilibrio de poder generó una lógica de **contención**, donde ambas partes buscaban evitar la expansión del otro. Por ejemplo, Estados Unidos promovió alianzas como el Pacto de Varsovia y la OTAN, mientras la URSS respaldó movimientos antiimperialistas en África, Asia y América Latina. Esta dinámica no solo polarizó a las naciones, sino que también influyó en los procesos de independencia de colonias, al convertirlas en escenarios de lucha por el control ideológico y estratégico.  
+Este equilibrio de poder generó una lógica de **contención**, donde ambas partes buscaban evitar la expansión del otro. Por ejemplo, Estados Unidos impulsó la OTAN (1949) como alianza militar occidental, mientras la URSS respondió creando el Pacto de Varsovia (1955) y respaldó movimientos antiimperialistas en África, Asia y América Latina. Esta dinámica no solo polarizó a las naciones, sino que también influyó en los procesos de independencia de colonias, al convertirlas en escenarios de lucha por el control ideológico y estratégico.  
 
 [IMAGEN: mapa del mundo dividido en bloques capitalista y socialista]  
 

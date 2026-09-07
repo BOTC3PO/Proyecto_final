@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -77,14 +77,14 @@ metadata:
   nivel: "intermedio"
   tags: ["alemania", "fronteras"]
 
-respuesta_orden: ["RFA", "RDA", "Alemania Oriental", "Alemania Occidental"]
+respuesta_orden: ["RFA (Alemania Occidental)", "RDA (Alemania Oriental)"]
 tipo: ordenar
-opciones_explicitas: ["RFA", "RDA", "Alemania Oriental", "Alemania Occidental"]
+opciones_explicitas: ["RFA (Alemania Occidental)", "RDA (Alemania Oriental)"]
 
 enunciado: "Ordena las entidades políticas resultantes de la división alemana, desde la capitalista hacia la socialista:"
 
 explicacion: |
-  La República Federal de Alemania (RFA) representaba al bloque occidental, mientras que la República Democrática Alemana (RDA) representaba al bloque soviético.
+  La República Federal de Alemania (RFA), es decir Alemania Occidental, representaba al bloque capitalista, mientras que la República Democrática Alemana (RDA), es decir Alemania Oriental, representaba al bloque soviético.
 ```
 
 ### 5 — Descolonización y Tercer Mundo
@@ -155,14 +155,11 @@ metadata:
   nivel: "intermedio"
   tags: ["onu", "diplomacia"]
 
-variables:
-  caso_onu: uno_de([["La Carta de las Naciones Unidas", "promovió la autodeterminación"], ["El Pacto de Varsovia", "no tuvo relación con la descolonización"]])
-
 tipo: mc
 opciones_explicitas: ["La Carta de las Naciones Unidas", "El Pacto de Varsovia", "La Liga de las Naciones", "El Tratado de Versalles"]
-respuesta: caso_onu[0]
+respuesta: "La Carta de las Naciones Unidas"
 
-enunciado: "En el contexto de la descolonización, {caso_onu[0]} fue fundamental porque la {caso_onu[1]}."
+enunciado: "En el contexto de la descolonización, ___ fue fundamental porque promovió el principio de autodeterminación de los pueblos."
 
 explicacion: |
   La ONU, a través de su principio de autodeterminación de los pueblos, dio un marco jurídico internacional que legitimó los movimientos de independencia.
@@ -177,14 +174,11 @@ metadata:
   nivel: "avanzado"
   tags: ["geopolitica", "guerra_fria"]
 
-variables:
-  escenario: uno_de([["Asia y África", "se convirtieron en escenarios de disputa"], ["Europa", "se mantuvo estable"]])
-
 tipo: mc
 opciones_explicitas: ["Se unificaron en un solo bloque", "Se convirtieron en escenarios de disputa entre las superpotencias", "Eliminaron el capitalismo de sus territorios", "Se volvieron potencias nucleares de inmediato"]
 respuesta: "Se convirtieron en escenarios de disputa entre las superpotencias"
 
-enunciado: "Debido a la Guerra Fría, la descolonización en {escenario[0]} provocó que estos nuevos estados {escenario[1]} entre EE. UU. y la URSS."
+enunciado: "Debido a la Guerra Fría, la descolonización en Asia y África provocó que estos nuevos estados ___."
 
 explicacion: |
   Muchos nuevos estados independientes se convirtieron en "campos de batalla" por delegación (proxy wars) debido a la polarización de la Guerra Fría.
@@ -341,15 +335,12 @@ metadata:
   nivel: "intermedio"
   tags: ["urss", "geopolitica"]
 
-variables:
-  escenario: uno_de([["URSS", "1991"], ["Alemania", "1989"]])
-
+respuesta: "1991"
 tipo: completar
 respuestas_validas:
-  - "URSS"
   - "1991"
 
-enunciado: "La disolución formal de la {escenario[0]} ocurrió en el año {escenario[1]}."
+enunciado: "La disolución formal de la URSS ocurrió en el año ___."
 
 explicacion: |
   La desintegración de la Unión Soviética en 1991 puso fin a la existencia de la superpotencia que lideraba el bloque socialista, consolidando el orden mundial unipolar liderado por EE.UU.
@@ -384,13 +375,13 @@ metadata:
   tags: ["cronologia", "eventos"]
 
 tipo: ordenar
-opciones_explicitas: ["Caída del Muro de Berlín", "Disolución de la URSS", "Reunificación de Alemania", "Tratado de Malta"]
+opciones_explicitas: ["Caída del Muro de Berlín", "Tratado de Malta", "Reunificación de Alemania", "Disolución de la URSS"]
 
 enunciado: "Ordena cronológicamente los siguientes eventos que marcaron el fin de la Guerra Fría:"
 
 explicacion: |
-  La secuencia comenzó con la caída del muro (1989), seguida de la reunificación alemana (1990), la firma de acuerdos de paz/fin de la era (Tratado de Malta, 1989/90) y culminó con la disolución total de la URSS (1991).
-respuesta_orden: ["Caída del Muro de Berlín", "Disolución de la URSS", "Reunificación de Alemania", "Tratado de Malta"]
+  La secuencia correcta es: caída del muro (noviembre de 1989), Cumbre de Malta (diciembre de 1989, donde EE.UU. y la URSS declararon el fin simbólico de la Guerra Fría), reunificación alemana (octubre de 1990) y, finalmente, la disolución total de la URSS (diciembre de 1991).
+respuesta_orden: ["Caída del Muro de Berlín", "Tratado de Malta", "Reunificación de Alemania", "Disolución de la URSS"]
 ```
 
 ### 20 — El nuevo orden mundial
@@ -490,18 +481,14 @@ metadata:
   nivel: "avanzado"
   tags: ["crisis", "misiles"]
 
-variables:
-  datos: [["Cuba", "1962"], ["Berlín", "1961"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "1962"
 tipo: mc
 opciones_explicitas: ["1953", "1962", "1961", "1979"]
 
-enunciado: "La crisis de los misiles en {datos[idx][0]} llevó al mundo al borde de una guerra nuclear en el año ___."
+enunciado: "La crisis de los misiles en Cuba llevó al mundo al borde de una guerra nuclear en el año ___."
 
 explicacion: |
-  La Crisis de los Misiles (en Cuba en 1962 o la construcción del muro en Berlín en 1961) representó los momentos de mayor tensión de la Guerra Fría.
+  La Crisis de los Misiles de Cuba (octubre de 1962) representó el momento de mayor tensión nuclear de la Guerra Fría. (No confundir con la Crisis de Berlín de 1961, que no fue una 'crisis de misiles' sino el episodio de la construcción del Muro de Berlín.)
 ```
 
 ### 25 — Procesos de Descolonización
@@ -514,7 +501,7 @@ metadata:
   tags: ["independencia", "africa"]
 
 variables:
-  eventos: [["La independencia de Argelia de Francia", "Guerra de Argelia"], ["La independencia de Ghana del Reino Unido", "Independencia de Ghana"]]
+  eventos: [["La independencia de Argelia de Francia", "Guerra de Argelia"], ["La independencia de Ghana del Reino Unido", "Movimiento independentista liderado por Nkrumah"]]
   idx: uno_de([0, 1])
   evento_actual: eventos[idx]
 
