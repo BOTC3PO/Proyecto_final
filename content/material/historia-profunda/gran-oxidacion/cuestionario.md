@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,15 +39,12 @@ metadata:
   nivel: "intermedio"
   tags: ["geologia", "quimica"]
 
-variables:
-  escenario: uno_de([["el oxígeno reaccionó con el hierro disuelto en los océanos", "se formaron formaciones de hierro bandeado (BIF)"], ["el oxígeno se acumuló rápidamente en la atmósfera", "se produjo un efecto invernadero masivo"]])
-
 tipo: mc
-opciones_explicitas: ["Escenario A", "Escenario B"]
+opciones_explicitas: ["reaccionó con el hierro disuelto en los océanos", "se acumuló rápidamente en la atmósfera"]
 
-enunciado: "Durante el inicio de la Gran Oxidación, el oxígeno liberado no fue a la atmósfera inmediatamente, sino que primero {escenario[0]}."
+enunciado: "Durante el inicio de la Gran Oxidación, el oxígeno liberado no fue a la atmósfera inmediatamente. ¿Qué sucedió primero con él?"
 
-respuesta: "Escenario A"
+respuesta: "reaccionó con el hierro disuelto en los océanos"
 
 explicacion: |
   Antes de que el oxígeno se acumulara en la atmósfera, reaccionó con el hierro disuelto en los océanos, depositándolo en el fondo marino como hierro bandeado.
@@ -141,14 +138,11 @@ metadata:
   nivel: "basico"
   tags: ["anaerobico", "oxigeno"]
 
-variables:
-  tipo_organismo: uno_de(["anaeróbicos", "aeróbicos"])
-
 tipo: mc
 opciones_explicitas: ["anaeróbicos", "aeróbicos", "fotosintéticos", "eucariotas"]
 respuesta: "anaeróbicos"
 
-enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en gases reductores y la vida estaba compuesta mayoritariamente por organismos de tipo {tipo_organismo}."
+enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en gases reductores. ¿Qué tipo de organismos dominaba la vida en ese entonces?"
 
 explicacion: |
   Los organismos anaeróbicos no poseen mecanismos para neutralizar el oxígeno, por lo que este actuó como un veneno oxidante para ellos.
@@ -200,9 +194,6 @@ metadata:
   tema: "gran_oxidacion"
   nivel: "avanzado"
   tags: ["quimica_atmosferica", "oxigeno"]
-
-variables:
-  estado_oxigeno: uno_de(["tóxico", "vital"])
 
 respuesta: "tóxico"
 tipo: mc
@@ -263,14 +254,11 @@ metadata:
   nivel: "avanzado"
   tags: ["metabolismo", "oxigeno"]
 
-variables:
-  resultado: uno_de(["Limitación energética", "Aumento de la eficiencia energética"])
-
-respuesta: resultado
+respuesta: "Aumento de la eficiencia energética"
 tipo: mc
 opciones_explicitas: ["Limitación energética", "Aumento de la eficiencia energética", "Reducción del tamaño celular", "Extinción de la vida multicelular"]
 
-enunciado: "Considerando el impacto metabólico de la Gran Oxidación, el oxígeno permitió un {resultado}."
+enunciado: "Considerando el impacto metabólico de la Gran Oxidación, ¿qué efecto tuvo el oxígeno sobre el metabolismo de los organismos que pudieron utilizarlo?"
 
 pasos:
   - "Analizar la diferencia entre metabolismo anaeróbico y aeróbico."
@@ -333,7 +321,7 @@ tipo: mc
 opciones_explicitas: ["Formaciones de hierro bandeado (BIF)", "Capas de esquisto negro", "Depósitos de carbón", "Calizas de magnesio"]
 respuesta: "Formaciones de hierro bandeado (BIF)"
 
-enunciado: "Las evidencias geológicas de la Gran Oxidación se manifiestan principalmente en las llamadas Formaciones de hierro bandeado (BIF)."
+enunciado: "¿En qué evidencias geológicas se manifiestan principalmente los efectos de la Gran Oxidación?"
 
 explicacion: |
   Las Formaciones de Hierro Bandeado (BIF, por sus siglas en inglés) son capas de roca ricas en óxidos de hierro que se depositaron cuando el oxígeno liberado por la fotosíntesis reaccionó con el hierro disuelto en los océanos.
@@ -347,10 +335,6 @@ metadata:
   tema: "gran_oxidacion"
   nivel: "intermedio"
   tags: ["quimica_prebiotica", "oceanos"]
-
-variables:
-  elemento_reactivo: "uno_de(['hierro disuelto', 'azufre líquido', 'silicato de magnesio'])"
-  idx: "uno_de([0, 1, 2])"
 
 tipo: completar
 respuestas_validas:
@@ -409,23 +393,18 @@ metadata:
   nivel: "avanzado"
   tags: ["geoquimica", "oxigeno"]
 
-variables:
-  concentracion_oxigeno: "random_float(0.0, 0.01)"
-  umbral_saturacion: "0.05"
-  respuesta_correcta: "0.05 - concentracion_oxigeno"
-
 tipo: completar
 tolerancia_abs: 0.001
 
-enunciado: "Si la concentración de oxígeno en el océano es de {concentracion_oxigeno} moles/m³ y el umbral de saturación de los sumideros de hierro es de {umbral_saturacion} moles/m³, ¿cuál es la diferencia respecto al umbral?"
+enunciado: "Si la concentración de oxígeno en el océano es de 0.02 moles/m³ y el umbral de saturación de los sumideros de hierro es de 0.05 moles/m³, ¿cuál es la diferencia respecto al umbral?"
 
 pasos:
   - "Calcular la diferencia absoluta entre el umbral y la concentración actual."
 
 explicacion: |
-  La diferencia es el margen que faltaba para que el oxígeno comenzara a acumularse en la atmósfera tras saturar los sumideros químicos.
+  La diferencia es el margen que faltaba para que el oxígeno comenzara a acumularse en la atmósfera tras saturar los sumideros químicos: 0.05 - 0.02 = 0.03 moles/m³.
 
-respuesta: respuesta_correcta
+respuesta: 0.03
 ```
 
 ### 21 — El origen del oxígeno
@@ -437,11 +416,7 @@ metadata:
   nivel: "basico"
   tags: ["biologia", "atmosfera"]
 
-variables:
-  datos: [["cianobacterias", "fotosíntesis"], ["cianobacterias", "fotosíntesis"]]
-  idx: uno_de([0,1])
-
-enunciado: "El evento conocido como la Gran Oxidación fue impulsado por la aparición de organismos capaces de realizar la {datos[idx][1]}."
+enunciado: "El evento conocido como la Gran Oxidación fue impulsado por la aparición de organismos capaces de realizar la fotosíntesis."
 
 respuesta: "fotosíntesis"
 tipo: mc
@@ -460,11 +435,7 @@ metadata:
   nivel: "intermedio"
   tags: ["quimica", "oxigeno"]
 
-variables:
-  datos: [["oxígeno", "oxidación de metano"], ["oxígeno", "oxidación de metano"]]
-  idx: uno_de([0,1])
-
-enunciado: "La acumulación de {datos[idx][0]} en la atmósfera provocó la ___ de gases reductores como el metano."
+enunciado: "La acumulación de oxígeno en la atmósfera provocó la ___ de gases reductores como el metano."
 
 respuesta: "oxidación de metano"
 tipo: completar
@@ -484,11 +455,7 @@ metadata:
   nivel: "intermedio"
   tags: ["extincion", "biologia"]
 
-variables:
-  caso: uno_de([["oxígeno", "extinción masiva"], ["oxígeno", "extinción masiva"]])
-  tipo_efecto: uno_de(["extinción masiva", "explosión de vida"])
-
-enunciado: "Para los organismos anaerobios de la época, el aumento de ___ representó una ___."
+enunciado: "Para los organismos anaerobios de la época, el aumento de oxígeno en la atmósfera representó una ___."
 
 respuesta: "extinción masiva"
 tipo: mc
@@ -529,11 +496,7 @@ metadata:
   nivel: "avanzado"
   tags: ["quimica", "atmosfera"]
 
-variables:
-  datos: [["oxígeno", "oxidante", "oxidante"], ["oxígeno", "oxidante", "oxidante"]]
-  idx: uno_de([0,1])
-
-enunciado: "La transición de una atmósfera reductora a una oxidante fue causada por la liberación de ___ que actuó como un potente ___."
+enunciado: "La transición de una atmósfera reductora a una oxidante fue causada por la liberación de oxígeno, que actuó como un potente ___."
 
 respuesta: "oxidante"
 tipo: completar

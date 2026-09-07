@@ -26,7 +26,7 @@ El oxígeno generado no se acumuló directamente en la atmósfera. Al principio,
 
 ## 3. Impacto climático
 
-Cuando el oxígeno finalmente comenzó a acumularse en la atmósfera, no fue sin consecuencias. El metano (CH₄), un gas de efecto invernadero muy potente que había estado presente en grandes cantidades, se oxidó al combinarse con el O₂, produciendo dióxido de carbono y agua. Esta reacción redujo abruptamente el calentamiento global, provocando una de las **mayores glaciaciones** del planeta. Este evento, conocido como la **Glaciación del Huracán**, duró varios millones de años y tuvo un impacto devastador en la vida existente en ese momento.
+Cuando el oxígeno finalmente comenzó a acumularse en la atmósfera, no fue sin consecuencias. El metano (CH₄), un gas de efecto invernadero muy potente que había estado presente en grandes cantidades, se oxidó al combinarse con el O₂, produciendo dióxido de carbono y agua. Esta reacción redujo abruptamente el calentamiento global, provocando una de las **mayores glaciaciones** del planeta. Este evento, conocido como la **Glaciación Huronesiana** (por los depósitos hallados cerca del lago Hurón, en Norteamérica), duró varios millones de años y tuvo un impacto devastador en la vida existente en ese momento.
 
 ---
 
