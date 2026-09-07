@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -66,15 +66,10 @@ variables:
   escenario: uno_de([["piedra", "cincel"], ["papiro", "caña"], ["papel", "pluma"], ["pantalla", "teclado"]])
 
 tipo: completar
-respuestas_validas:
-  - "cincel"
-  - "caña"
-  - "pluma"
-  - "teclado"
 
 enunciado: "La tecnología de la escritura evoluciona junto a sus soportes. Por ejemplo, si el soporte es {escenario[0]}, la herramienta tradicional es un {escenario[1]}."
 
-respuesta: "cincel"
+respuesta: escenario[1]
 
 explicacion: |
   Cada avance en la tecnología de la escritura ha estado ligado a la invención de nuevos soportes y herramientas para grabarlos.
