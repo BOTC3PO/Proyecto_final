@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -62,16 +62,13 @@ metadata:
   nivel: "basico"
   tags: ["ipv4", "ipv6", "protocolos"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "La principal diferencia entre IPv4 e IPv6 es que IPv6 utiliza direcciones de 128 bits, mientras que IPv4 utiliza 32 bits."
 
 explicacion: |
-  La afirmación es falsa porque la descripción de los tamaños es correcta, pero la pregunta suele ser de validación de conceptos. (Nota: En este caso la afirmación es verdadera, por lo tanto la respuesta es verdadero. Corregido: La afirmación es verdadera, el usuario debe marcar verdadero).
-
-# Re-ajuste para cumplir la lógica de la pregunta:
-# Si la afirmación es "IPv6 tiene 128 bits y IPv4 32 bits", la respuesta es verdadero.
+  Verdadero. IPv4 usa direcciones de 32 bits (unos 4.3 mil millones posibles), mientras que IPv6 usa direcciones de 128 bits, lo que ofrece un espacio prácticamente ilimitado.
 ```
 
 ### 4 — Verdad o Falso: Capa de aplicación
@@ -172,7 +169,7 @@ tipo: completar
 respuestas_validas:
   - "142.250.190.46"
   - "103.102.166.224"
-respuesta: escenario[0]
+respuesta: escenario[1]
 
 enunciado: "Cuando escribes un nombre de dominio en tu navegador, el sistema DNS realiza una traducción. Si el dominio es {escenario[0]}, el servidor DNS te devolverá la dirección IP correspondiente, que es ___."
 
@@ -362,11 +359,11 @@ metadata:
   nivel: "basico"
   tags: ["redes", "ip", "mac"]
 
-respuesta: "capa_red"
+respuesta: "capa de red"
 tipo: completar
 respuestas_validas:
-  - "capa_red"
-  - "capa_enlace"
+  - "capa de red"
+  - "capa red"
 
 enunciado: "Mientras que la dirección MAC se utiliza para la comunicación en la capa de enlace, la dirección IP se utiliza para el direccionamiento en la ___."
 
@@ -559,7 +556,7 @@ respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["192.168.1.255", "10.0.0.255", "172.16.0.255"]
 
-enunciado: "En una red con máscara de subred que identifica la dirección de broadcast como {datos[idx][1]}, ¿cuál es la dirección de broadcast para el host {datos[idx][0]}?"
+enunciado: "Si un host tiene la dirección IP {datos[idx][0]} en una red con máscara /24 (255.255.255.0), ¿cuál es la dirección de broadcast de esa red?"
 
 explicacion: |
   La dirección de broadcast es la dirección que se utiliza para enviar paquetes a todos los hosts de una red específica; es la última dirección de ese rango de red.
