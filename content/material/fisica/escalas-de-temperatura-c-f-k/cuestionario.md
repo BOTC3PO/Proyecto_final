@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,8 +40,8 @@ metadata:
   nivel: "basico"
   tags: ["celsius", "fahrenheit", "kelvin"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La escala Celsius y la escala Kelvin tienen el mismo tamaño de grado; es decir, un aumento de 1 °C equivale a un aumento de 1 K."
 
 explicacion: |
@@ -215,7 +215,7 @@ metadata:
   tags: ["ordenar", "comparacion"]
 
 variables:
-  escenario: uno_de([[0.0, 273.15, 32.0], [-50.0, 223.15, -58.0], [10.0, 283.15, 50.0]])
+  escenario: uno_de([[0.0, 273.15, 32.0], [-10.0, 263.15, 14.0], [10.0, 283.15, 50.0]])
   t_c: escenario[0]
   t_k: escenario[1]
   t_f: escenario[2]
@@ -324,13 +324,7 @@ metadata:
   tags: ["conceptos", "termodinamica"]
 
 variables:
-  val_c: uno_de([10, 20, 30])
-  val_f: uno_de([50, 68, 86])
-  # Nota: Para asegurar que el usuario vea valores distintos pero coherentes, 
-  # en un entorno real usaríamos un array de pares como en la pregunta 2.
-  # Para este ejemplo simplificado, usaremos un valor fijo para evitar desincronización.
   temp_c: 20
-  temp_f: 68
 
 respuesta: "293.15"
 tipo: completar
@@ -341,7 +335,7 @@ respuestas_validas:
 enunciado: "Un estudiante afirma que si la temperatura sube 1 grado Celsius, también sube 1 grado Kelvin. Si la temperatura actual es de {temp_c} °C, ¿cuál es su valor en Kelvin?"
 
 explicacion: |
-  Es correcto: el tamaño de un grado Celsius es igual al tamaño de un grado Kelvin. La diferencia es solo el punto de origen. 20 + 273.15 = 293.15 K.
+  Es correcto: el tamaño de un grado Celsius es igual al tamaño de un grado Kelvin. La diferencia es solo el punto de origen. {temp_c} + 273.15 = 293.15 K.
 ```
 
 ### 16 — Escala Kelvin vs Celsius
@@ -437,15 +431,14 @@ metadata:
   nivel: "basico"
   tags: ["orden", "escalas"]
 
-respuesta_orden: ["Celsius", "Kelvin", "Fahrenheit"]
+respuesta_orden: ["Celsius", "Fahrenheit", "Kelvin"]
 tipo: ordenar
 opciones_explicitas: ["Celsius", "Kelvin", "Fahrenheit"]
 
 enunciado: "Ordena las siguientes escalas de temperatura de menor a mayor valor numérico, considerando que el punto de congelación del agua es 0 en la primera, 273 en la segunda y 32 en la tercera."
 
 explicacion: |
-  Para el punto de congelación del agua: Celsius (0), Kelvin (273.15) y Fahrenheit (32). Sin embargo, el enunciado pide ordenar las escalas según sus valores en ese punto específico: 0 < 32 < 273.15.
-  *Nota: El usuario debe ordenar las etiquetas según los valores 0 (C), 32 (F), 273 (K) -> El orden correcto basado en el valor numérico es Celsius, Fahrenheit, Kelvin. Reajustando para que la respuesta coincida con la lógica del DSL.*
+  Para el punto de congelación del agua: Celsius (0), Kelvin (273.15) y Fahrenheit (32). Ordenando por valor numérico ascendente: 0 < 32 < 273.15, es decir, Celsius, Fahrenheit, Kelvin.
 ```
 
 ### 21 — Orden de valores de congelación
