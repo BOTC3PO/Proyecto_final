@@ -2,12 +2,14 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q6 confundía frecuencia con período (2.0 en vez
+> de 0.5), Q8 tenía una lista de 4 valores como respuesta cuando el
+> cálculo fijo sólo admite 32, Q9 tenía la clave invertida con notas de
+> LM Studio sin resolver, Q12 asignaba "comunicación efectiva" a ambas
+> ramas del sorteo pese a describir un caso incompleto, Q14 tenía dos
+> blanks sin interpolar el dato real, Q17 interpolaba un booleano crudo
+> al final de la pregunta, Q3/Q5/Q21/Q25 tenían `respuestas_validas`
+> sobre-permisivas o variables muertas sin usar.
 
 ---
 
@@ -59,20 +61,9 @@ metadata:
   nivel: "intermedio"
   tags: ["expresion_corporal", "lenguaje"]
 
-variables:
-  escenario: uno_de([["gesto", "movimiento", "postura"], ["emoción", "acción", "forma"], ["espacio", "energía", "tiempo"]])
-
 tipo: completar
 respuestas_validas:
   - "gesto"
-  - "movimiento"
-  - "postura"
-  - "emoción"
-  - "acción"
-  - "forma"
-  - "espacio"
-  - "energía"
-  - "tiempo"
 
 enunciado: "La expresión corporal utiliza el ________ como unidad mínima de comunicación para transmitir significados."
 
@@ -111,15 +102,11 @@ metadata:
   nivel: "intermedio"
   tags: ["ritmo", "pulso"]
 
-variables:
-  caso: uno_de([["pulso", "ritmo"], ["ritmo", "pulso"]])
-
 tipo: completar
 respuestas_validas:
   - "pulso"
-  - "ritmo"
 
-enunciado: "Si el ________ es la unidad básica y constante de la música, el ________ es la organización de acentos sobre esa base."
+enunciado: "Si el ________ es la unidad básica y constante de la música, el ritmo es la organización de acentos sobre esa base."
 
 respuesta: "pulso"
 
@@ -139,7 +126,7 @@ metadata:
 variables:
   bpm: 120
 
-respuesta: 2.0
+respuesta: 0.5
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -148,8 +135,6 @@ enunciado: "Si una pieza musical tiene un tempo de {bpm} pulsos por minuto (BPM)
 pasos:
   - "Convertir BPM a pulsos por segundo: 120 / 60 = 2 pulsos por segundo."
   - "Calcular el tiempo de un pulso (periodo): 1 / 2 = 0.5 segundos."
-  - "Nota: El cálculo solicitado es el inverso del tiempo de un pulso para obtener la frecuencia en Hz, o bien la duración de un compás de 4/4. En este caso, calculamos el periodo de un pulso: 60 / 120 = 0.5."
-  - "Re-evaluación del enunciado para evitar ambigüedad: Si el tempo es {bpm}, el periodo es 60/{bpm}."
 
 explicacion: |
   El tempo indica la velocidad de los pulsos. Para hallar el tiempo en segundos de un solo pulso, dividimos 60 segundos por la cantidad de pulsos por minuto. 60 / 120 = 0.5 segundos.
@@ -191,12 +176,9 @@ variables:
   compases: 8
   bpm: 60
 
-respuesta: ["4", "8", "16", "32"]
+respuesta: "32"
 tipo: completar
 respuestas_validas:
-  - "4"
-  - "8"
-  - "16"
   - "32"
 
 enunciado: "Si una coreografía dura exactamente {compases} compases de 4/4 y el tempo es de {bpm} BPM, ¿cuántos pulsos totales ha ejecutado el bailarín?"
@@ -221,13 +203,13 @@ metadata:
 variables:
   tempo: 100
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Si el tempo es de {tempo} BPM, una subdivisión de corcheas (dos notas por pulso) implica que el bailarín realiza 200 movimientos por minuto."
 
 explicacion: |
-  Verdadero. Si hay 100 pulsos por minuto y cada pulso se divide en 2 corcheas, el total de movimientos es 100 * 2 = 200. (Nota: El enunciado pregunta si es falso, por lo tanto la respuesta es falso si la afirmación fuera incorrecta, pero la afirmación es verdadera. Corregido: La respuesta es verdadero).
+  Verdadero. Si hay 100 pulsos por minuto y cada pulso se divide en 2 corcheas, el total de movimientos es 100 * 2 = 200.
 ```
 
 ### 10 — Secuencia de niveles de expresión
@@ -278,7 +260,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Un bailarín que solo mueve los brazos sin mirar al público", "una comunicación efectiva"], ["Un bailarín que utiliza todo su cuerpo para transmitir una emoción", "una comunicación efectiva"]]
+  escenarios: [["Un bailarín que solo mueve los brazos sin mirar al público", "una expresión mecánica"], ["Un bailarín que utiliza todo su cuerpo para transmitir una emoción", "una comunicación efectiva"]]
 
 respuesta: escenarios[escenario_idx][1]
 tipo: mc
@@ -325,10 +307,9 @@ variables:
 respuesta: casos[caso_idx][1]
 tipo: completar
 respuestas_validas:
-  - "un ritmo irregular"
-  - "un ritmo regular"
+  - casos[caso_idx][1]
 
-enunciado: "Si en una danza el acento rítmico se desplaza y ___, estamos ante ___."
+enunciado: "Si en una danza {casos[caso_idx][0]}, estamos ante ___."
 
 explicacion: |
   La regularidad rítmica depende de la consistencia de los acentos en los tiempos fuertes. Si el acento se desplaza, la percepción del tiempo cambia.
@@ -382,13 +363,10 @@ metadata:
   nivel: "intermedio"
   tags: ["tiempo", "ritmo"]
 
-variables:
-  es_ritmo_constante: uno_de([verdadero, falso])
+tipo: vf
+respuesta: verdadero
 
-tipo: completar
-respuesta: es_ritmo_constante
-
-enunciado: "Si un bailarín mantiene un movimiento con una duración de pulsos idéntica y regular, ¿se dice que está siguiendo un ritmo constante? {es_ritmo_constante}"
+enunciado: "Si un bailarín mantiene un movimiento con una duración de pulsos idéntica y regular, ¿se dice que está siguiendo un ritmo constante?"
 
 explicacion: |
   Un ritmo constante implica una regularidad en la subdivisión del tiempo, permitiendo una estructura predecible para el movimiento.
@@ -468,8 +446,7 @@ enunciado: "Un coreógrafo está preparando una pieza basada en {datos[idx][0]}.
 respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "3/4"
-  - "4/4"
+  - datos[idx][1]
 
 explicacion: |
   El ritmo en la danza está determinado por la métrica musical. El vals se caracteriza por un compás ternario (3/4), mientras que el tango y el reggaetón usan compases binarios/cuaternarios (4/4).
@@ -564,9 +541,7 @@ enunciado: "En la danza, el concepto de {datos[idx][0]} se clasifica fundamental
 respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "espacio"
-  - "energía"
-  - "tiempo"
+  - datos[idx][1]
 
 explicacion: |
   Los elementos de la danza incluyen el cuerpo, el espacio (niveles, direcciones), el tiempo (ritmo, duración) y la energía (tensión, peso).
