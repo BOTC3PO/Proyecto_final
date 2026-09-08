@@ -2,12 +2,13 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q1/Q15 tenían dos blanks con una sola respuesta
+> (colapsados a un blank), Q6 tenía una lista de 7 números como
+> respuesta de un blank de texto, Q7 mezclaba nombres de escala con
+> nombres de nota en la misma respuesta sorteada (premisa fija sólo
+> compatible con una rama), Q9 era un mc con una sola opción (sin
+> distractores), Q16/Q25 mezclaban `tipo: completar` con una pregunta
+> verdadero/falso.
 
 ---
 
@@ -24,7 +25,7 @@ respuesta: 5
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "El pentagrama está compuesto por ___ líneas horizontales y ___ espacios."
+enunciado: "El pentagrama está compuesto por ___ líneas horizontales (y 4 espacios entre ellas)."
 
 explicacion: |
   El pentagrama es el conjunto de 5 líneas y 4 espacios donde se escribe la música.
@@ -115,12 +116,12 @@ metadata:
   nivel: "intermedio"
   tags: ["escala_mayor", "tonos", "semitonos"]
 
-respuesta: [1, 1, 0.5, 1, 1, 1, 0.5]
+respuesta: "Semitono"
 tipo: completar
 respuestas_validas:
-  - [1, 1, 0.5, 1, 1, 1, 0.5]
+  - "Semitono"
 
-enunciado: "La estructura de intervalos de una escala mayor es: Tono, Tono, ____, Tono, Tono, Tono, ____."
+enunciado: "La estructura de intervalos de una escala mayor sigue el patrón Tono, Tono, Semitono, Tono, Tono, Tono, ____. ¿Cuál es el último intervalo?"
 
 explicacion: |
   La escala mayor sigue el patrón: T-T-S-T-T-T-S (donde T=Tono y S=Semitono).
@@ -135,18 +136,14 @@ metadata:
   nivel: "intermedio"
   tags: ["escala_mayor"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Do mayor", "Do"], ["Sol mayor", "Fa#"]]
-
-respuesta: datos[idx][1]
+respuesta: "Sol mayor"
 tipo: mc
-opciones_explicitas: ["Do", "Fa#"]
+opciones_explicitas: ["Sol mayor", "Do mayor"]
 
-enunciado: "Si una escala tiene un sostenido en la séptima nota, la escala es de ___."
+enunciado: "Si una escala mayor tiene exactamente un sostenido, ubicado en su séptima nota (Fa#), esa escala es ___."
 
 explicacion: |
-  La escala de Sol mayor tiene un Fa# para cumplir el patrón de la escala mayor.
+  La escala de Sol mayor tiene un Fa# para cumplir el patrón de la escala mayor; Do mayor no tiene ningún sostenido.
 ```
 
 ### 8 — Escala Menor Natural
@@ -177,7 +174,7 @@ metadata:
   nivel: "avanzado"
   tags: ["armadura", "sostenidos"]
 
-opciones_explicitas: ["Fa, Do, Sol, Re, La, Mi, Si"]
+opciones_explicitas: ["Fa, Do, Sol, Re, La, Mi, Si", "Si, Mi, La, Re, Sol, Do, Fa", "Do, Re, Mi, Fa, Sol, La, Si"]
 respuesta: "Fa, Do, Sol, Re, La, Mi, Si"
 tipo: mc
 
@@ -296,7 +293,7 @@ opciones_explicitas: ["Mayor", "Menor"]
 respuesta: "Mayor"
 tipo: mc
 
-enunciado: "Un intervalo de Do a Mi es una tercera ___, mientras que de Do a Mi bemol es una tercera ___."
+enunciado: "Un intervalo de Do a Mi es una tercera ___, mientras que de Do a Mi bemol es una tercera menor."
 
 explicacion: |
   La tercera mayor tiene 4 semitonos y la menor tiene 3.
@@ -311,8 +308,8 @@ metadata:
   nivel: "basico"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "¿Es cierto que entre cualquier par de notas consecutivas en un piano siempre hay un semitono?"
 
 explicacion: |
@@ -485,9 +482,8 @@ metadata:
   nivel: "intermedio"
   tags: ["escala_mayor"]
 
-opciones_explicitas: ["Falso", "Verdadero"]
-respuesta: "Falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "En una escala mayor, el intervalo entre el IV y el V grado es siempre un semitono."
 
 explicacion: |
