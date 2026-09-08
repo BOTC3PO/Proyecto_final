@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -60,14 +60,12 @@ metadata:
   nivel: "intermedio"
   tags: ["variables", "parametros"]
 
-variables:
-  escenario: uno_de([[0, "variable", "cambia durante el proceso"], [1, "parámetro", "se mantiene constante"]])
-
-respuesta: escenario[1]
 tipo: "mc"
 opciones_explicitas: ["variable", "parámetro"]
 
-enunciado: "En el contexto de un modelo, si un valor cambia a medida que el sistema evoluciona, se denomina {escenario[0]}. Si el valor permanece constante durante el análisis, se denomina {escenario[1]}."
+enunciado: "En el contexto de un modelo, si un valor cambia a medida que el sistema evoluciona, se denomina variable. Si el valor permanece constante durante el análisis, se denomina ___."
+
+respuesta: "parámetro"
 
 explicacion: |
   Las variables representan las incógnitas del sistema (como la posición o el tiempo), mientras que los parámetros son valores que definen las propiedades del sistema (como la gravedad o la densidad).
@@ -101,14 +99,12 @@ metadata:
   nivel: "intermedio"
   tags: ["determinismo", "probabilidad"]
 
-variables:
-  caso: uno_de([[0, "determinista", "no tiene incertidumbre"], [1, "estocástico", "incluye elementos aleatorios"]])
-
-respuesta: caso[1]
 tipo: "mc"
 opciones_explicitas: ["determinista", "estocástico"]
 
-enunciado: "Si un modelo matemático incluye variables aleatorias y la incertidumbre en sus resultados, estamos ante un modelo {caso[0]}. Si el resultado es único y predecible para las mismas condiciones iniciales, es un modelo {caso[1]}."
+enunciado: "Si un modelo matemático incluye variables aleatorias y la incertidumbre en sus resultados, estamos ante un modelo estocástico. Si el resultado es único y predecible para las mismas condiciones iniciales, es un modelo ___."
+
+respuesta: "determinista"
 
 explicacion: |
   Los modelos deterministas no consideran la probabilidad, mientras que los estocásticos (o probabilísticos) modelan sistemas donde existe el azar.
@@ -260,9 +256,8 @@ metadata:
 
 enunciado: "¿Es correcto afirmar que un modelo matemático es una representación exacta y absoluta de la realidad física?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   Todo modelo es una simplificación de la realidad. Un modelo matemático omite variables (como la fricción del aire o imperfecciones del material) para facilitar el cálculo. Por definición, un modelo es una aproximación, no la realidad misma.
 ```
@@ -295,11 +290,7 @@ metadata:
   nivel: "avanzado"
   tags: ["sensibilidad", "incertidumbre"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["error_bajo", "error_alto"], ["error_bajo", "error_alto"]]
-
-enunciado: "En un modelo de simulación, si un pequeño cambio en una variable de entrada produce un cambio desproporcionadamente grande en el resultado, decimos que el modelo tiene una sensibilidad de tipo {datos[idx][0]}."
+enunciado: "En un modelo de simulación, si un pequeño cambio en una variable de entrada produce un cambio desproporcionadamente grande en el resultado, decimos que el modelo tiene una sensibilidad ___."
 
 opciones_explicitas: ["baja", "alta"]
 respuesta: "alta"
@@ -434,7 +425,7 @@ metadata:
   tags: ["estructuras", "calculo"]
 
 variables:
-  escenario: [[150, "150"], [220, "220"], [310, "310"]]
+  escenario: [[150, 200], [220, 280], [310, 400]]
   idx: uno_de([0, 1, 2])
   carga: escenario[idx][0]
   resistencia_critica: escenario[idx][1]
@@ -457,12 +448,12 @@ metadata:
   tags: ["hidraulica", "modelado"]
 
 variables:
-  datos: [[5.0, "5.0"], [12.5, "12.5"], [8.2, "8.2"]]
+  datos: [[5.0, 2.0], [12.5, 2.5], [8.2, 2.0]]
   idx: uno_de([0, 1, 2])
   volumen_requerido: datos[idx][0]
   area_base: datos[idx][1]
 
-respuesta: "volumen_requerido / area_base"
+respuesta: volumen_requerido / area_base
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -505,12 +496,13 @@ metadata:
   tags: ["materiales", "seguridad"]
 
 variables:
-  test: [[0.85, "0.85"], [1.15, "1.15"], [0.95, "0.95"]]
+  valores_factor: [0.85, 1.15, 0.95]
+  es_seguro: [falso, verdadero, falso]
   idx: uno_de([0, 1, 2])
-  factor_seguridad: test[idx][0]
+  factor_seguridad: valores_factor[idx]
 
-respuesta: "factor_seguridad > 1.0"
-tipo: completar
+respuesta: es_seguro[idx]
+tipo: vf
 enunciado: "En el modelado de un componente mecánico, se calcula un factor de seguridad de {factor_seguridad}. ¿Es el diseño considerado seguro según los estándares de ingeniería (donde factor > 1)?"
 
 explicacion: |
@@ -527,17 +519,13 @@ metadata:
   tags: ["presupuesto", "modelado"]
 
 variables:
-  materiales: [[450, "450"], [1200, "1200"], [850, "850"]]
+  materiales: [450, 1200, 850]
   idx: uno_de([0, 1, 2])
-  cantidad: materiales[idx][0]
+  cantidad: materiales[idx]
   precio_unitario: 15.5
 
-respuesta: "cantidad * precio_unitario"
+respuesta: cantidad * precio_unitario
 tipo: completar
-respuestas_validas:
-  - 6975.0
-  - 18600.0
-  - 13175.0
 
 enunciado: "Para el presupuesto de una obra, el modelo de costos indica que se requieren {cantidad} unidades de un componente. Si el precio unitario es de {precio_unitario} USD, el costo total estimado es de ___ USD."
 
