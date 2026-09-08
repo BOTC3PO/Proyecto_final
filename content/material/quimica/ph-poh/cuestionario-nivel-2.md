@@ -3,12 +3,6 @@
 > Continúa `cuestionario.md` (nivel 1). Cubre la profundidad de `QN`
 > dentro del Tronco 7: ácidos/bases fuertes vs. débiles, y la relación
 > [H+] ↔ pH.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bugs de esta tanda: `uno_de([...])[idx]` con `idx` de rango mayor que
-> el array indexado (fuera de rango — ej. `idx: uno_de([0,1,2,3])`
-> sobre una lista de 2 elementos), y un `respuestas_validas` que
-> aceptaba `["verdadero","falso"]` como ambos correctos en una `vf`.
 
 ---
 
@@ -43,7 +37,7 @@ variables:
   conc: uno_de([0.001, 0.01, 0.1])
 
 respuesta: -log10(conc)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.05
 
 enunciado: "Una solución de ácido fuerte tiene concentración inicial {conc} M. ¿Cuál es el pH?"
@@ -183,7 +177,8 @@ metadata:
 
 respuesta: "10"
 tipo: completar
-respuestas_validas: ["10"]
+respuestas_validas:
+  - "10"
 
 enunciado: "Despejando pH = -log10([H+]), la concentración [H+] se expresa como ___ elevado a menos pH."
 
@@ -204,7 +199,7 @@ variables:
   ph: uno_de([1, 2, 3, 4])
 
 respuesta: 10 ^ (-ph)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.0001
 
 enunciado: "Una solución tiene pH = {ph}. ¿Cuál es la concentración de [H+] en mol/L?"
@@ -303,7 +298,7 @@ variables:
   conc: uno_de([0.0001, 0.001, 0.01])
 
 respuesta: -log10(conc)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.05
 
 enunciado: "Una solución de base fuerte (NaOH) tiene concentración inicial {conc} M. ¿Cuál es el pOH?"
@@ -347,7 +342,7 @@ variables:
   ph: uno_de([2, 4, 6, 8, 10])
 
 respuesta: 14 - ph
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si una solución tiene pH = {ph}, ¿cuál es su pOH?"
@@ -390,7 +385,7 @@ variables:
   conc: uno_de([0.00001, 0.0001])
 
 respuesta: -log10(conc)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.05
 
 enunciado: "Un ácido fuerte tiene concentración {conc} M. ¿Cuál es su pH?"
