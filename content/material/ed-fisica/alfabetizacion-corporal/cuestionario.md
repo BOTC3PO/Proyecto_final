@@ -1,17 +1,6 @@
 # Ed. Física — Alfabetización corporal: grupos musculares, sistemas energéticos, mitos (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF5a/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); una
-> pregunta con `tabla:` declarada fuera del bloque `variables:`
-> (posición inválida) y un blank sin interpolar dentro de `pasos:` —
-> reescrita moviendo la tabla a `variables:` y simplificando el
-> enunciado; dos preguntas con `respuesta: "___"` (el placeholder
-> literal, no la respuesta real) — corregidas con la palabra correcta;
-> `tipo: vf` con `opciones_explicitas: ["Verdadero","Falso"]`
-> innecesario — normalizado.
 
 ---
 
