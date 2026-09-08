@@ -1,12 +1,6 @@
 # Química — Gases ideales: PV = nRT (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QZ1`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bug recurrente: `respuesta: "verdadero"` entrecomillado con
-> `opciones_explicitas` de más en un `vf` (no las necesita, es binario).
-> También se limpiaron variables declaradas y nunca usadas (residuo de
-> un intento previo de la misma pregunta).
 
 ---
 
@@ -106,7 +100,7 @@ variables:
   r: 0.0821
 
 respuesta: datos_n[n_idx] * r * datos_t[t_idx]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "Calculá el producto PV usando PV=nRT, con n = {datos_n[n_idx]} mol y T = {datos_t[t_idx]} K (R = {r})."
@@ -137,7 +131,7 @@ variables:
   r: 0.0821
 
 respuesta: (p_vals[p_idx] * v_vals[v_idx]) / (r * t_vals[t_idx])
-tipo: input
+tipo: completar
 tolerancia_abs: 0.2
 
 enunciado: "Con P = {p_vals[p_idx]} atm, V = {v_vals[v_idx]} L y T = {t_vals[t_idx]} K (R = {r}), calculá el número de moles (n)."
@@ -219,7 +213,7 @@ variables:
   idx: uno_de([0, 1, 2, 3])
 
 respuesta: moles_lista[idx] * 22.4
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "En condiciones normales, ¿qué volumen ocupan {moles_lista[idx]} moles de un gas ideal?"
@@ -323,7 +317,7 @@ variables:
   r: 0.0821
 
 respuesta: n_val * r * t_val / p_val
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "Calculá el volumen (V) de un gas ideal con P = {p_val} atm, n = {n_val} mol, R = {r} L·atm/(K·mol) y T = {t_val} K."
