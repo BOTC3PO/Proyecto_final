@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,11 +41,8 @@ metadata:
   nivel: "basico"
   tags: ["evidencia", "prueba"]
 
-variables:
-  es_falso: uno_de([verdadero, falso])
-
-respuesta: es_falso
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "La evidencia recolectada durante la investigación es, por definición, una prueba por sí misma, independientemente de su valoración judicial."
 
 explicacion: |
@@ -183,7 +180,6 @@ respuesta: "ilegal"
 tipo: completar
 respuestas_validas:
   - "ilegal"
-  - "legal"
 
 enunciado: "Si la evidencia fue obtenida mediante la violación de un derecho fundamental (como la inviolabilidad del domicilio sin orden), su calificación jurídica es: ___"
 
@@ -223,8 +219,6 @@ respuesta: "recaudar y presentar"
 tipo: completar
 respuestas_validas:
   - "recaudar y presentar"
-  - "decidir la culpabilidad"
-  - "dictar sentencia"
 
 enunciado: "En la etapa de investigación de un proceso penal, la función principal del Fiscal es ___ la evidencia necesaria para sustentar la acusación ante el juez."
 
@@ -321,9 +315,6 @@ respuesta: "reunir elementos de convicción"
 tipo: completar
 respuestas_validas:
   - "reunir elementos de convicción"
-  - "dictar sentencia"
-  - "acusar al imputado"
-  - "defender al procesado"
 
 enunciado: "A diferencia del juez, cuya función es decidir sobre la aplicación de la ley, el rol principal del Fiscal durante la etapa de investigación es ___."
 
