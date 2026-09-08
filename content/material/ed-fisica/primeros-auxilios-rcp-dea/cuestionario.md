@@ -1,21 +1,6 @@
 # Ed. Física — Primeros auxilios: RCP, DEA, atragantamiento, quemaduras, golpe de calor (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF9a-e`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: `respuesta: {variable}` con
-> llaves alrededor de una variable en un campo no-string (sintaxis
-> inválida, las llaves son sólo para interpolar dentro de un string)
-> — corregido a la variable sin llaves; varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); un
-> bloque `mc` sin `enunciado:` ni `tipo:` — agregados; dos preguntas
-> con `respuestas_validas` de una sola frase larga pero sin campo
-> `respuesta:` — agregado; un escenario de "dolor de pecho consciente"
-> cuya respuesta "correcta" enseñaba **observación pasiva** en vez de
-> pedir ayuda médica (mensaje de seguridad incorrecto) — reescrito;
-> `respuestas_validas` con distractores incorrectos incluidos como si
-> fueran válidos (aceite/hielo junto a "agua fresca") — recortado a
-> la única respuesta correcta.
 
 ---
 
