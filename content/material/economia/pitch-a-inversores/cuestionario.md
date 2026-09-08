@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -43,13 +43,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [[ "conseguir una reunión", "vender el producto directamente" ], [ "generar interés", "obtener la firma del contrato en el momento" ]]
+  escenarios: ["conseguir una reunión", "generar interés"]
 
-respuesta: escenarios[escenario_idx][0]
+respuesta: escenarios[escenario_idx]
 tipo: mc
 opciones_explicitas: ["conseguir una reunión", "vender el producto directamente", "generar interés", "obtener la firma del contrato en el momento"]
 
-enunciado: "En un pitch inicial ante un inversor de capital de riesgo, el objetivo principal suele ser {escenarios[escenario_idx][1]}."
+enunciado: "En un pitch inicial ante un inversor de capital de riesgo, ¿cuál suele ser el objetivo principal?"
 
 explicacion: |
   Un pitch no busca cerrar la inversión en ese instante, sino despertar curiosidad suficiente para obtener una segunda reunión de análisis profundo (due diligence).
@@ -227,8 +227,10 @@ variables:
   escenario_financiero: [["$500,000", "15%", "Desarrollo de producto y marketing"], ["$1,000,000", "10%", "Expansión internacional y ventas"], ["$250,000", "5%", "Contratación de equipo técnico"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: escenario_financiero[idx][0]
+respuesta: escenario_financiero[idx][2]
 tipo: completar
+respuestas_validas:
+  - escenario_financiero[idx][2]
 
 enunciado: "En la última diapositiva, el emprendedor debe ser claro con el 'Ask'. Si el emprendedor busca una inversión de ${escenario_financiero[idx][0]} a cambio de un ${escenario_financiero[idx][1]} de participación, el objetivo principal de ese capital según su plan es: ___."
 
@@ -270,13 +272,10 @@ metadata:
   nivel: "basico"
   tags: ["competencia", "pitch"]
 
-variables:
-  es_error_decir_que_no_hay_competencia: falso
-
 enunciado: "Si un emprendedor afirma durante su pitch que 'no tiene competencia en el mercado', ¿es esto una señal positiva o un error?"
 
 opciones_explicitas: ["Es una señal positiva", "Es un error"]
-respuesta: uno_de(["Es una señal positiva", "Es un error"])
+respuesta: "Es un error"
 tipo: mc
 
 explicacion: |
@@ -373,9 +372,6 @@ metadata:
   nivel: "basico"
   tags: ["objetivo", "pitch", "inversion"]
 
-variables:
-  es_correcto: falso
-
 respuesta: falso
 tipo: vf
 
@@ -397,7 +393,6 @@ metadata:
 variables:
   idx: uno_de([0, 1, 2])
   escenario: [["Problema", "Solución", "Modelo de Negocio", "Equipo", "Mercado"], ["Problema", "Propuesta de Valor", "Modelo de Negocio", "Tracción", "Equipo"], ["Problema", "Solución", "Modelo de Negocio", "Competencia", "Equipo"]]
-  respuesta_correcta: ["Solución", "Propuesta de Valor", "Solución"]
 
 respuesta: escenario[idx][1]
 tipo: mc
@@ -492,9 +487,9 @@ variables:
   datos: [["Una startup de biotecnología", "revolucionar la medicina preventiva"], ["Una fintech de microcréditos", "democratizar el acceso al capital"]]
   idx: uno_de([0, 1])
 
-respuesta: "revolucionar la medicina preventiva"
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["revolucionar la medicina preventiva", "ganar dinero rápido", "crear empleos masivos", "dominar el mercado global"]
+opciones_explicitas: ["revolucionar la medicina preventiva", "democratizar el acceso al capital", "ganar dinero rápido", "dominar el mercado global"]
 
 enunciado: "Si estás presentando un caso de {datos[idx][0]}, un buen 'hook' debería enfocarse en la misión de {datos[idx][1]} para captar el interés emocional del inversor."
 
