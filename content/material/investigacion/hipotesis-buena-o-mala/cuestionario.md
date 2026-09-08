@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -344,12 +344,9 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia", "criterio_falsabilidad"]
 
-variables:
-  es_falsable: uno_de([verdadero, falso])
-
-respuesta: es_falsable
-tipo: completar
-enunciado: "Una hipótesis científica se considera 'buena' si es falsa, es decir, si existe la posibilidad de que un experimento pueda demostrar que es incorrecta. ¿Es esto cierto? {es_falsable}"
+respuesta: verdadero
+tipo: vf
+enunciado: "Una hipótesis científica se considera 'buena' si es falsable, es decir, si existe la posibilidad de que un experimento pueda demostrar que es incorrecta. ¿Es esto cierto?"
 
 explicacion: |
   Si una afirmación no puede ser refutada por ningún experimento imaginable (es vaga o metafísica), no es científica. La falsabilidad es el criterio de demarcación de Popper.
@@ -369,10 +366,9 @@ variables:
   datos: [[ "La medicina mejora la salud", "vaga", falso ], [ "El fármaco X reduce el tiempo de recuperación en un 20% en pacientes con gripe en 5 días", "especifica", verdadero ]]
 
 respuestas_validas:
-  - datos[escenario][2]
-respuesta: datos[escenario][2]
+  - datos[escenario][1]
+respuesta: datos[escenario][1]
 tipo: completar
-tolerancia_abs: 0
 
 enunciado: "Analice el siguiente caso: {datos[escenario][0]} es una hipótesis ___."
 
@@ -409,17 +405,12 @@ metadata:
   nivel: "avanzado"
   tags: ["estadistica", "metodologia"]
 
-variables:
-  idx: uno_de([0,1])
-  tipo_h: ["nula", "alternativa"][idx]
-  respuesta_correcta: ["hipotesis_nula", "hipotesis_alternativa"][idx]
-
-respuesta: respuesta_correcta
+respuesta: "hipotesis_nula"
 tipo: mc
 
 opciones_explicitas: ["hipotesis_nula", "hipotesis_alternativa"]
 
-enunciado: "En un experimento, la hipótesis que postula que 'no existe una relación o diferencia significativa entre las variables' se conoce como: {tipo_h}"
+enunciado: "En un experimento, la hipótesis que postula que 'no existe una relación o diferencia significativa entre las variables' se conoce como: ___"
 
 explicacion: |
   La hipótesis nula (H0) es la que se busca rechazar mediante la estadística, mientras que la alternativa (H1) es la que el investigador realmente propone.
