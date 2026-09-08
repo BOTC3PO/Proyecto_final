@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -38,11 +38,7 @@ metadata:
   nivel: "basico"
   tags: ["vocabulario", "introspeccion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["la observación de los propios pensamientos", "la introspección"], ["el análisis de las reacciones ajenas", "la proyección"]]
-
-respuesta: datos[escenario_idx][0]
+respuesta: "la observación de los propios pensamientos"
 tipo: completar
 respuestas_validas:
   - "la observación de los propios pensamientos"
@@ -108,17 +104,13 @@ metadata:
   nivel: "intermedio"
   tags: ["dinamismo", "evolucion"]
 
-variables:
-  casos: ["un proceso de transformación constante", "un dato estático y definitivo"]
-  caso_idx: uno_de([0, 1])
-  respuesta_correcta: casos[caso_idx]
+respuesta: "un proceso de transformación constante"
 
 enunciado: "Debido a que el ser humano es un ser histórico y cambiante, el autoconocimiento debe entenderse como ___."
 
 tipo: completar
 respuestas_validas:
   - "un proceso de transformación constante"
-  - "un dato estático y definitivo"
 
 explicacion: |
   Dado que nuestras circunstancias y madurez cambian, el autoconocimiento no es un destino, sino un camino de exploración permanente.
@@ -499,9 +491,8 @@ metadata:
 
 enunciado: "¿Es el autoconocimiento un estado final de iluminación donde se llega a conocer todo sobre uno mismo?"
 
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   Dado que el ser humano es un proyecto en constante construcción, el autoconocimiento es una búsqueda inacabada, no un destino final.
 ```
@@ -536,13 +527,12 @@ metadata:
 
 variables:
   ejemplo_idx: uno_de([0, 1])
-  ejemplos: [["'Soy una persona ansiosa' (como etiqueta definitiva)", "etiqueta"], ["'Siento ansiedad en este momento' (como estado temporal)", "estado"]]
+  ejemplos: ["'Soy una persona ansiosa' (como etiqueta definitiva)", "'Siento ansiedad en este momento' (como estado temporal)"]
 
-enunciado: "Si una persona dice: '{ejemplos[ejemplo_idx][0]}', está cometiendo el error de confundir su ___ con su ___."
+enunciado: "Si una persona dice: '{ejemplos[ejemplo_idx]}', está cometiendo el error de confundir un estado temporal con su ___."
 
 respuestas_validas:
   - "esencia"
-  - "estado"
 respuesta: "esencia"
 tipo: completar
 
