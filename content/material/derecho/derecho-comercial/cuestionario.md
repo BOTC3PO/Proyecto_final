@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -149,7 +149,7 @@ metadata:
   nivel: "basico"
   tags: ["comerciante", "acto_de_comercio"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "Una persona que realiza actos de comercio de forma habitual y profesional es considerada comerciante por la ley."
@@ -168,8 +168,8 @@ metadata:
   tags: ["sociedades", "pasos_legales"]
 
 tipo: "ordenar"
-opciones_explicitas: ["redacción del contrato", "inscripción en el registro", "publicación de edictos", "obtención de CUIT"]
-respuesta_orden: ["redacción del contrato", "inscripción en el registro", "publicación de edictos", "obtención de CUIT"]
+opciones_explicitas: ["redacción del contrato", "publicación de edictos", "inscripción en el registro", "obtención de CUIT"]
+respuesta_orden: ["redacción del contrato", "publicación de edictos", "inscripción en el registro", "obtención de CUIT"]
 
 enunciado: "Ordene cronológicamente los pasos para la formalización de una sociedad comercial (Considere el orden estándar de constitución)."
 
@@ -186,14 +186,11 @@ metadata:
   nivel: "avanzado"
   tags: ["quiebras", "concurso_preventivo"]
 
-variables:
-  caso: uno_de([[1000, "reorganización"], [2000, "liquidación"]])
-
 respuesta: "reorganización"
 tipo: "mc"
 opciones_explicitas: ["reorganización", "liquidación", "extinción inmediata", "suspensión de pagos"]
 
-enunciado: "Un comerciante con dificultades financieras solicita un concurso preventivo para evitar la quiebra. El objetivo principal de este proceso es la {caso[1]} de sus deudas."
+enunciado: "Un comerciante con dificultades financieras solicita un concurso preventivo para evitar la quiebra. El objetivo principal de este proceso es la ___ de sus deudas."
 
 explicacion: |
   El concurso preventivo busca la reorganización de la empresa mediante un acuerdo con los acreedores para evitar la quiebra.
@@ -290,13 +287,14 @@ metadata:
   tags: ["concursos_y_quiebras", "insolvencia"]
 
 variables:
-  es_insolvente: uno_de([verdadero, falso])
-  caso_texto: uno_de(["El sujeto mantiene su patrimonio pero no puede pagar sus deudas vencidas.", "El sujeto tiene activos que superan sus deudas pero tiene problemas de liquidez."])
+  idx: uno_de([0, 1])
+  casos: ["El sujeto mantiene su patrimonio pero no puede pagar sus deudas vencidas.", "El sujeto tiene activos que superan sus deudas pero tiene problemas de liquidez."]
+  valores: [verdadero, falso]
 
-respuesta: es_insolvente
+respuesta: valores[idx]
 
-tipo: completar
-enunciado: "En el marco del derecho comercial, la quiebra se dicta cuando el sujeto presenta un estado de {caso_texto} que constituye insolvencia."
+tipo: vf
+enunciado: "En el marco del derecho comercial, ¿el siguiente estado constituye insolvencia (cesación de pagos) para que se dicte la quiebra? '{casos[idx]}'"
 
 explicacion: |
   La quiebra es un proceso de ejecución colectiva que requiere la existencia de un estado de cesación de pagos (insolvencia), no solo una dificultad temporal de caja.
@@ -523,9 +521,6 @@ metadata:
   tema: "derecho_comercial"
   nivel: "intermedio"
   tags: ["concurso", "pasos"]
-
-variables:
-  orden_correcta: ["Presentación del pedido de concurso", "Verificación de créditos", "Acuerdo preventivo", "Homologación judicial"]
 
 enunciado: "Ordene cronológicamente las etapas típicas de un proceso de concurso preventivo exitoso:"
 
