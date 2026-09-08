@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -131,25 +131,23 @@ variables:
   Q: 5000.0
   T_caliente: 400.0
   T_frio: 300.0
-  delta_S: Q / T_caliente - Q / T_frio
+  delta_S: Q / T_frio - Q / T_caliente
 
 respuesta: delta_S
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un sistema absorbe {Q} J de calor a una temperatura de {T_caliente} K y luego se transfiere a un foco frío a {T_frio} K. ¿Cuál es el cambio de entropía del universo en este proceso reversible? (Expresar en J/K)"
+enunciado: "Un foco caliente a {T_caliente} K cede {Q} J de calor a un foco frío a {T_frio} K. ¿Cuál es el cambio de entropía total del universo en este proceso? (Expresar en J/K)"
 
 pasos:
-  - "Calcular la entropía del sistema: ΔS_sis = Q / T_caliente"
-  - "Calcular la entropía del entorno: ΔS_ent = -Q / T_frio"
-  - "Sumar ambos valores para obtener el cambio total: ΔS_total = ΔS_sis + ΔS_ent"
+  - "Calcular la entropía perdida por el foco caliente: ΔS_caliente = -Q / T_caliente"
+  - "Calcular la entropía ganada por el foco frío: ΔS_frio = +Q / T_frio"
+  - "Sumar ambos valores para obtener el cambio total: ΔS_total = ΔS_frio - ΔS_caliente en magnitud, es decir Q/T_frio - Q/T_caliente"
 
 explicacion: |
-  La entropía total del universo en un proceso reversible es cero, pero aquí estamos calculando el cambio de entropía de los componentes. 
-  ΔS_sis = 5000 / 400 = 12.5 J/K
-  ΔS_ent = -5000 / 300 = -16.666... J/K
-  ΔS_total = 12.5 - 16.666 = -4.166... J/K (Nota: El enunciado pide el cambio de entropía del sistema/proceso según los datos).
-  *Corrección conceptual: Si el proceso es reversible, la suma es 0. Si el cálculo da distinto, es un proceso irreversible.*
+  ΔS_caliente = -5000 / 400 = -12.5 J/K (el foco caliente pierde entropía al ceder calor).
+  ΔS_frio = +5000 / 300 = 16.666... J/K (el foco frío gana más entropía de la que pierde el caliente, por estar a menor temperatura).
+  ΔS_total = 16.666 - 12.5 = 4.166... J/K, un valor positivo, consistente con la Segunda Ley (la entropía del universo aumenta en un proceso espontáneo de transferencia de calor).
 ```
 
 ### 7 — Dirección del flujo de calor
@@ -245,7 +243,7 @@ metadata:
   tags: ["termodinamica", "calor", "entropia"]
 
 tipo: completar
-enunciado: "En un sistema aislado, según la segunda ley de la termodinamica, el flujo espontáneo de calor ocurre siempre desde un cuerpo con mayor temperatura hacia uno con menor temperatura."
+enunciado: "En un sistema aislado, según la segunda ley de la termodinamica, el flujo espontáneo de calor ocurre siempre desde un cuerpo con mayor ___ hacia uno con menor ___."
 respuesta: "temperatura"
 explicacion: |
   La segunda ley de la termodinámica establece que el calor fluye espontáneamente de los cuerpos con mayor temperatura a los de menor temperatura, aumentando la entropía total del universo.
@@ -278,15 +276,10 @@ metadata:
   nivel: "avanzado"
   tags: ["entropia", "sistemas_abiertos", "orden"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[10, "aumenta"], [20, "disminuye"]]
-
 tipo: completar
 respuestas_validas:
   - "aumenta"
-  - "disminuye"
-respuesta: datos[escenario_idx][1]
+respuesta: "aumenta"
 
 enunciado: "Si un sistema abierto (como un ser vivo) crea orden interno reduciendo su entropía local, la entropía total del universo ___ debido a la energía disipada en forma de calor."
 
@@ -340,11 +333,12 @@ metadata:
   nivel: "basico"
   tags: ["termodinamica", "entropia"]
 
-variables:
-  es_sistema_aislado: uno_de([verdadero, falso])
-
-respuesta: es_sistema_aislado
+respuesta: "aumentar"
 tipo: completar
+respuestas_validas:
+  - "aumentar"
+  - "crecer"
+
 enunciado: "En un sistema aislado, la entropía total siempre tiende a ___ o permanecer constante según la segunda ley de la termodinamica."
 
 explicacion: |
