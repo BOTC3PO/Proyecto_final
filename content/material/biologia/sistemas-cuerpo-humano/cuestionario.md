@@ -1,11 +1,6 @@
 # Biología — Sistemas del cuerpo humano (cuestionario, 22 preguntas VBLang)
 
 > Tema: `BK`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: ninguno grave — sólo una
-> `variables:`/`respuesta:` innecesaria en un `completar` con respuesta
-> fija (pregunta 22), simplificada a literal directo.
 
 ---
 
