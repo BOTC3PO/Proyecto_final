@@ -14,7 +14,7 @@ Un mineral es una sustancia sólida, inorgánica, formada naturalmente en la cor
 
 ## 2. El carácter inorgánico
 
-La condición de "inorgánico" excluye materiales formados por procesos biológicos o orgánicos, incluso si cumplen otras características. Por ejemplo, un fósil calcáreo no se considera mineral porque su estructura depende de la organización biológica (como conchas de animales). La distinción es clave: los minerales son productos de procesos geológicos, como la cristalización del magma o la precipitación en aguas subterráneas. Esto no significa que no puedan interactuar con organismos; por ejemplo, el yeso (sulfato de calcio) puede formarse a partir de agua dulce evaporada, un proceso inorgánico.
+La condición de "inorgánico" excluye materiales formados por procesos biológicos o orgánicos, incluso si cumplen otras características. Por ejemplo, un fósil calcáreo no se considera mineral porque su estructura depende de la organización biológica (como conchas de animales). La distinción es clave: los minerales son productos de procesos geológicos, como la cristalización del magma o la precipitación en aguas subterráneas. Esto no significa que no puedan interactuar con organismos; por ejemplo, el yeso (sulfato de calcio) puede formarse a partir de agua salada (salmueras o lagos salinos) evaporada, un proceso inorgánico.
 
 ## 3. Estructura interna y cristalografía
 

@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -384,7 +384,7 @@ metadata:
   tags: ["raya", "color"]
 
 variables:
-  escenario: [["Hematita", "Rojo"], ["Pirita", "Negro"], ["Calcopirita", "Amarillo"], ["Malaquita", "Verde"]]
+  escenario: [["Hematita", "Rojo"], ["Pirita", "Negro"], ["Calcopirita", "Negro verdoso"], ["Malaquita", "Verde"]]
   idx: uno_de([0, 1, 2, 3])
 
 enunciado: "Al realizar la prueba de la raya sobre una placa de porcelana sin esmaltar con el mineral {escenario[idx][0]}, el color resultante es ___."
@@ -392,7 +392,7 @@ enunciado: "Al realizar la prueba de la raya sobre una placa de porcelana sin es
 respuestas_validas:
   - "Rojo"
   - "Negro"
-  - "Amarillo"
+  - "Negro verdoso"
   - "Verde"
 respuesta: escenario[idx][1]
 tipo: completar
@@ -449,7 +449,7 @@ metadata:
   tags: ["dureza", "mohs"]
 
 variables:
-  escenario: [[4, "Fluorita"], [7, "Cuarzo"], [9, "Diamante"]]
+  escenario: [[4, "Fluorita"], [7, "Cuarzo"], [10, "Diamante"]]
   idx: uno_de([0, 1, 2])
   dureza_dada: escenario[idx][0]
   nombre_mineral: escenario[idx][1]
@@ -532,17 +532,12 @@ metadata:
   nivel: "avanzado"
   tags: ["cristalización", "geología"]
 
-variables:
-  proceso: [["Nucleación", "Crecimiento", "Terminación"], ["Nucleación", "Crecimiento", "Erosión"]]
-  idx: uno_de([0, 1])
-  etapas: proceso[idx]
-
 tipo: ordenar
-opciones_explicitas: etapas
+opciones_explicitas: ["Nucleación", "Crecimiento", "Terminación"]
 
 enunciado: "Ordene las etapas típicas de la formación de un cristal perfecto en una solución saturada:"
 
-respuesta_orden: etapas
+respuesta_orden: ["Nucleación", "Crecimiento", "Terminación"]
 
 explicacion: |
   El proceso de cristalización requiere primero la nucleación, luego el crecimiento de la red y finalmente la terminación de los bordes.
@@ -558,7 +553,7 @@ metadata:
   tags: ["densidad", "propiedades_fisicas"]
 
 variables:
-  escenario: [[5.0, "Hematita"], [2.6, "Cuarzo"], [11.3, "Galena"]]
+  escenario: [[5.0, "Hematita"], [2.6, "Cuarzo"], [7.5, "Galena"]]
   idx: uno_de([0, 1, 2])
   valor_densidad: escenario[idx][0]
   mineral_ref: escenario[idx][1]
