@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -121,10 +121,7 @@ metadata:
   nivel: "basico"
   tags: ["virtualizacion", "conceptos_base"]
 
-variables:
-  tipo_tecnologia: uno_de(["vm", "contenedor"])
-
-enunciado: "Si utilizamos {tipo_tecnologia}, el aislamiento se logra mediante un hipervisor que emula hardware completo, mientras que si usamos un contenedor, el aislamiento se basa en el aislamiento de procesos del kernel del sistema operativo host."
+enunciado: "En una de estas dos tecnologías, el aislamiento se logra mediante un hipervisor que emula hardware completo; en la otra (contenedor), el aislamiento se basa en el aislamiento de procesos del kernel del sistema operativo host. ¿Cuál es la que usa el hipervisor con hardware emulado?"
 
 respuesta: "vm"
 tipo: mc
@@ -169,12 +166,13 @@ metadata:
   tags: ["recursos", "performance"]
 
 variables:
-  escenario_tipo: uno_de(["contenedor", "máquina virtual"])
-  es_contenedor: uno_de([verdadero, falso])
+  tipos: ["contenedor", "máquina virtual"]
+  valores: [verdadero, falso]
+  idx: uno_de([0, 1])
 
-enunciado: "Un desarrollador necesita desplegar 50 instancias de una micro-aplicación que solo tarda 10 segundos en arrancar. Si elige la opción {escenario_tipo}, el tiempo de arranque será significativamente menor debido a que no debe cargar un kernel completo por cada instancia."
+enunciado: "Un desarrollador necesita desplegar 50 instancias de una micro-aplicación que solo tarda 10 segundos en arrancar. Si elige la opción {tipos[idx]}, el tiempo de arranque será significativamente menor debido a que no debe cargar un kernel completo por cada instancia."
 
-respuesta: es_contenedor
+respuesta: valores[idx]
 tipo: vf
 
 explicacion: |
@@ -189,9 +187,6 @@ metadata:
   tema: "virtualizacion_maquina_virtual_contenedor"
   nivel: "intermedio"
   tags: ["hipervisor", "vm"]
-
-variables:
-  valor_hipervisor: uno_de([1, 0])
 
 enunciado: "En una arquitectura de virtualización de tipo 1 (Bare Metal), el hipervisor se instala directamente sobre el hardware. Si el software de virtualización se instala sobre un sistema operativo ya existente (Tipo 2), ¿el hipervisor es el componente que gestiona directamente el hardware físico? (Responde verdadero o falso)."
 
@@ -211,10 +206,7 @@ metadata:
   nivel: "avanzado"
   tags: ["namespaces", "cgroups"]
 
-variables:
-  tecnologia_nombre: uno_de(["Docker", "VMware"])
-
-enunciado: "Para lograr el aislamiento de procesos en un contenedor como {tecnologia_nombre}, el kernel de Linux utiliza dos mecanismos críticos: los namespaces para la visibilidad de recursos y los ___ para la limitación de recursos (CPU/RAM)."
+enunciado: "Para lograr el aislamiento de procesos en un contenedor como Docker, el kernel de Linux utiliza dos mecanismos críticos: los namespaces para la visibilidad de recursos y los ___ para la limitación de recursos (CPU/RAM)."
 
 respuesta: "cgroups"
 tipo: completar
@@ -255,10 +247,7 @@ metadata:
   nivel: "intermedio"
   tags: ["recursos", "overhead", "rendimiento"]
 
-variables:
-  escenario: uno_de([["Máquina Virtual", "Contenedor", "Hipervisor"], ["Contenedor", "Máquina Virtual", "Hipervisor"], ["Hipervisor", "Contenedor", "Máquina Virtual"]])
-
-respuesta: escenario[0]
+respuesta: "Contenedor"
 tipo: mc
 opciones_explicitas: ["Máquina Virtual", "Contenedor", "Hipervisor"]
 
@@ -378,7 +367,7 @@ metadata:
   nivel: "intermedio"
   tags: ["abstraccion", "arquitectura"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es correcto afirmar que la virtualización a nivel de sistema operativo (contenedores) ofrece un aislamiento más fuerte que la virtualización a nivel de hardware (máquinas virtuales)?"
@@ -416,17 +405,14 @@ metadata:
   tags: ["arquitectura", "microservicios"]
 
 variables:
-  casos: [["microservicios", "una aplicación monolítica que requiere un kernel de Linux específico en un host Windows"], ["una aplicación monolítica que requiere un kernel de Linux específico en un host Windows", "microservicios"]]
-  caso_idx: uno_de([0, 1])
-  caso_actual: casos[caso_idx]
-  tecnologia_correcta: caso_actual[0]
-  objetivo_correcto: caso_actual[1]
+  casos: [["microservicios", "contenedores"], ["una aplicación monolítica que requiere un kernel de Linux específico en un host Windows", "una máquina virtual"]]
+  idx: uno_de([0, 1])
 
-respuesta: tecnologia_correcta
+respuesta: casos[idx][1]
 tipo: mc
-opciones_explicitas: ["microservicios", "una aplicación monolítica que requiere un kernel de Linux específico en un host Windows"]
+opciones_explicitas: ["contenedores", "una máquina virtual"]
 
-enunciado: "Si el objetivo principal es desplegar una arquitectura de {objetivo_correcto}, la tecnología más adecuada es el uso de contenedores. Si el objetivo es ejecutar {tecnologia_correcta}, se prefiere una máquina virtual."
+enunciado: "Si el objetivo principal es desplegar {casos[idx][0]}, ¿qué tecnología es la más adecuada?"
 
 explicacion: |
   Los contenedores son ideales para microservicios por su agilidad y escalabilidad. Las máquinas virtuales son necesarias cuando se requiere un aislamiento total del kernel o se necesita ejecutar un sistema operativo distinto al del host.
