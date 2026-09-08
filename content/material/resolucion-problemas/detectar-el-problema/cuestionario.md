@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -58,10 +58,6 @@ metadata:
   tema: "detectar_el_problema"
   nivel: "intermedio"
   tags: ["brecha", "estado_actual"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["El estado actual es un proceso manual lento", "El estado deseado es un proceso automatizado rápido"], ["La temperatura actual es de 20°C", "La temperatura requerida es de 50°C"]]
 
 tipo: completar
 respuestas_validas:
@@ -206,11 +202,11 @@ metadata:
   tags: ["enunciado", "precision"]
 
 variables:
-  caso_estudio: uno_de([["El tiempo de entrega de pedidos ha subido de 2 a 10 días", "Retraso en logística"], ["La tasa de error en el código aumentó un 15% tras la última actualización", "Regresión de software"]])
+  caso_estudio: uno_de([["El tiempo de entrega de pedidos ha subido de 2 a 10 días", "El problema es el Retraso en logística"], ["La tasa de error en el código aumentó un 15% tras la última actualización", "El problema es el Regresión de software"]])
 
-enunciado: "Analizando el caso: '{caso_estudio[0]}', el enunciado del problema correctamente definido sería: 'El problema es el {caso_estudio[1]}'."
+enunciado: "Analizando el caso: '{caso_estudio[0]}', el enunciado del problema correctamente definido sería: '___'."
 
-respuesta: "El problema es el {caso_estudio[1]}"
+respuesta: caso_estudio[1]
 tipo: completar
 respuestas_validas:
   - "El problema es el Retraso en logística"
@@ -272,19 +268,13 @@ metadata:
   tags: ["analisis", "causa_raiz"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["El cliente se queja de que el producto llegó tarde", "El cliente dice que el producto es de mala calidad"], ["El motor hace un ruido extraño", "El motor no arranca"]]
-  causas: [["Falta de stock en el almacén", "Defecto en la línea de ensamblaje"], ["Filtro de aceite obstruido", "Batería descargada"]]
+  par: uno_de([["El cliente se queja de que el producto llegó tarde", "Falta de stock en el almacén"], ["El cliente dice que el producto es de mala calidad", "Defecto en la línea de ensamblaje"], ["El motor hace un ruido extraño", "Filtro de aceite obstruido"], ["El motor no arranca", "Batería descargada"]])
 
-enunciado: "Para el caso '{casos[caso_idx][0]}', la causa raíz probable es '{causas[caso_idx][0]}'. Para identificar esto, primero debemos definir el problema real."
+enunciado: "Un cliente reporta el siguiente síntoma: '{par[0]}'. ¿Cuál es la causa raíz más probable?"
 
-respuestas_validas:
-  - "Falta de stock en el almacén"
-  - "Defecto en la línea de ensamblaje"
-  - "Filtro de aceite obstruido"
-  - "Batería descargada"
-respuesta: ""
-tipo: "completar"
+respuesta: par[1]
+tipo: "mc"
+opciones_explicitas: ["Falta de stock en el almacén", "Defecto en la línea de ensamblaje", "Filtro de aceite obstruido", "Batería descargada"]
 
 explicacion: |
   La identificación precisa del problema depende de distinguir entre el efecto visible y la causa subyacente.
@@ -318,10 +308,11 @@ metadata:
   nivel: "basico"
   tags: ["definicion", "logica"]
 
-tipo: vf
-respuesta: verdadero
+tipo: mc
+opciones_explicitas: ["Estamos definiendo el problema real", "Estamos definiendo una consecuencia de un problema mayor"]
+respuesta: "Estamos definiendo una consecuencia de un problema mayor"
 
-enunciado: "Si definimos un problema como 'Falta de dinero en la caja', ¿estamos definiendo el problema o estamos definiendo una consecuencia de un problema mayor?"
+enunciado: "Si definimos un problema como 'Falta de dinero en la caja', ¿qué estamos definiendo realmente?"
 
 explicacion: |
   'Falta de dinero' suele ser un síntoma de problemas más profundos (ventas bajas, exceso de gastos, errores de contabilidad, robos). Un problema bien definido debe apuntar a la raíz, no al resultado financiero.
@@ -375,16 +366,14 @@ metadata:
   tags: ["terminologia", "contexto"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Un obstáculo que impide alcanzar un objetivo específico", "Una situación que requiere esfuerzo pero no implica una falla"], ["Una situación de oportunidad para mejorar un proceso", "Una dificultad que bloquea el flujo de trabajo"]]
-  respuestas: ["problema", "desafío"]
+  par: uno_de([["Un obstáculo que impide alcanzar un objetivo específico", "problema"], ["Una situación que requiere esfuerzo pero no implica una falla", "desafío"], ["Una situación de oportunidad para mejorar un proceso", "desafío"], ["Una dificultad que bloquea el flujo de trabajo", "problema"]])
 
 tipo: mc
 opciones_explicitas: ["problema", "desafío"]
 
-enunciado: "Considerando el escenario: '{escenarios[escenario_idx][0]}', estamos ante un ___."
+enunciado: "Considerando el escenario: '{par[0]}', estamos ante un ___."
 
-respuesta: "problema"
+respuesta: par[1]
 
 explicacion: |
   Un problema implica una desviación de un estado deseado, mientras que un desafío es una meta que requiere superación pero no necesariamente parte de una falla previa.
@@ -468,10 +457,6 @@ variables:
 
 respuesta: caso[1]
 tipo: completar
-respuestas_validas:
-  - "Temperatura de servicio"
-  - "Gestión de memoria"
-  - "Estado de la batería"
 
 enunciado: "Para resolver el problema '{caso[0]}', el primer paso es identificar la variable crítica que está fallando. La variable es: ___"
 
@@ -537,7 +522,7 @@ respuesta: error_tipo[1]
 tipo: mc
 opciones_explicitas: ["solucion_parche", "salto_lógico"]
 
-enunciado: "Si un equipo detecta que 'el sistema está lento' y decide 'comprar más memoria RAM' sin investigar si el problema es un proceso mal programado, están cometiendo un: '{error_tipo[1]}'"
+enunciado: "Si un equipo detecta que 'el sistema está lento' y decide 'comprar más memoria RAM' sin investigar si el problema es un proceso mal programado, están cometiendo un:"
 
 explicacion: |
   La solución prematura es uno de los errores más costosos en la resolución de problemas, ya que se gasta recurso en atacar una consecuencia y no la causa.
