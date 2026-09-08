@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,12 +41,8 @@ metadata:
   nivel: "basico"
   tags: ["sintomas", "depresion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["anhedonia", "apatía"], ["insomnio", "fatiga"]]
-
-respuesta: uno_de(["verdadero", "falso"])
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La pérdida de interés en actividades que antes resultaban placenteras, conocida como anhedonia, es un síntoma central de la depresión."
 
 explicacion: |
@@ -148,11 +144,6 @@ metadata:
   nivel: "intermedio"
   tags: ["depresion", "sintomas"]
 
-variables:
-  estado_animo: uno_de(["anhedonia", "irritabilidad"])
-  valor_anhedonia: "anhedonia"
-  valor_irritabilidad: "irritabilidad"
-
 enunciado: "Si una persona pierde la capacidad de sentir placer por actividades que antes disfrutaba, este síntoma se denomina ___."
 
 respuesta: "anhedonia"
@@ -212,15 +203,14 @@ metadata:
   tags: ["somatización", "ansiedad"]
 
 variables:
-  sintoma_fisico: uno_de(["taquicardia", "dolor_estomago"])
-  res_taquicardia: "taquicardia"
-  res_dolor_estomago: "dolor de estómago"
+  sintoma_idx: uno_de([0, 1])
+  sintomas: ["taquicardia", "dolor de estómago"]
 
-enunciado: "Una persona con un trastorno de ansiedad generalizada suele presentar síntomas físicos como {sintoma_fisico}."
+enunciado: "Una persona con un trastorno de ansiedad generalizada puede presentar, por ejemplo, ___."
 
 opciones_explicitas: ["taquicardia", "dolor de estómago"]
 
-respuesta: uno_de(["taquicardia", "dolor de estómago"])
+respuesta: sintomas[sintoma_idx]
 tipo: mc
 
 explicacion: |
@@ -452,8 +442,6 @@ enunciado: "En el caso de {escenarios[escenario_idx][0]}, la persona está exper
 
 respuestas_validas:
   - "ansiedad"
-  - "depresión"
-  - "estrés"
 respuesta: escenarios[escenario_idx][1]
 tipo: completar
 
@@ -478,8 +466,7 @@ enunciado: "Si una persona presenta {casos[caso_idx][0]}, es un indicador clíni
 
 respuestas_validas:
   - "anhedonia"
-  - "euforia"
-  - "estrés"
+  - "depresion"
 respuesta: casos[caso_idx][1]
 tipo: completar
 
