@@ -2,7 +2,7 @@
 
 > Tema: `U4`. Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
+>
 > Corregido a mano. Bugs de esta tanda: varias preguntas de blank
 > `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); una
 > pregunta con `variables:` sorteando un escenario "decoy" (colisión
@@ -130,7 +130,7 @@ tipo: mc
 opciones_explicitas: ["Fusión de helio", "Fusión de hidrógeno", "Fisión de uranio", "Fusión de carbono"]
 respuesta: "Fusión de hidrógeno"
 
-enunciado: "En la secuencia principal de las estrellas, el proceso de nucleosíntesis que sostiene la estrella durante la mayor parte de su vida es la fusión de hidrógeno en helio. ¿Cuál es ese proceso?"
+enunciado: "¿Cuál es el proceso de nucleosíntesis que sostiene a una estrella en la secuencia principal durante la mayor parte de su vida?"
 
 explicacion: |
   La fusión de hidrógeno en helio es el proceso fundamental que libera la energía que permite a una estrella brillar.
@@ -325,7 +325,7 @@ opciones_explicitas: ["Fusión de hidrógeno", "Fusión de helio", "Fusión de e
 
 respuesta: "Fusión de elementos pesados en núcleos estelares"
 
-enunciado: "El hierro presente en nuestra sangre (hemoglobina) no se creó en el Sistema Solar, sino que fue el resultado de la fusión de elementos pesados en el núcleo de estrellas masivas antes de que estas explotaran. ¿Cuál es el proceso principal?"
+enunciado: "El hierro presente en nuestra sangre (hemoglobina) no se creó en el Sistema Solar, sino en estrellas masivas mucho antes de que existiera el Sol. ¿Cuál es el proceso principal responsable de su formación?"
 
 explicacion: |
   Los elementos más pesados que el hierro se forman en explosiones de supernovas, mientras que el hierro se produce en las etapas finales de la vida de estrellas masivas mediante la fusión nuclear.
