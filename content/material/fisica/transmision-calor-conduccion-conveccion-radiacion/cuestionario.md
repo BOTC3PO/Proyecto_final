@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -83,13 +83,9 @@ metadata:
 tipo: mc
 opciones_explicitas: ["Conducción", "Convección", "Radiación"]
 
-variables:
-  idx: uno_de([0, 1, 2])
-  tabla: [["Conducción", "Conducción"], ["Convección", "Convección"], ["Radiación", "Radiación"]]
+enunciado: "Si el calor se transmite mediante el movimiento de un fluido, estamos ante la ___."
 
-enunciado: "Si el calor se transmite mediante el movimiento de un fluido, estamos ante la {tabla[idx][0]}."
-
-respuesta: tabla[idx][1]
+respuesta: "Convección"
 ```
 
 ### 5 — Identificación de procesos
@@ -236,7 +232,7 @@ variables:
   area: 2.0
   temp_k: 300
   sigma: 5.67e-8
-  potencia: emision * sigma * area * (temp_k^2)
+  potencia: emision * sigma * area * (temp_k^4)
 
 respuesta: potencia
 tipo: completar
@@ -360,7 +356,7 @@ respuestas_validas:
   - "conduccion"
   - "conveccion"
   - "radiacion"
-respuesta: "{escenarios[escenario_idx][1]}"
+respuesta: escenarios[escenario_idx][1]
 
 explicacion: |
   Cada mecanismo tiene una naturaleza distinta: la conducción requiere contacto directo en sólidos, la convección requiere movimiento de fluidos, y la radiación requiere ondas electromagnéticas.
@@ -385,11 +381,11 @@ enunciado: "Si un objeto emite radiación térmica, la cantidad de energía emit
 pasos:
   - "Elevar la temperatura absoluta al exponente 4."
 
-respuesta: 8100000000000.0
+respuesta: 8100000000.0
 tolerancia_abs: 0.1
 
 explicacion: |
-  Según la ley de Stefan-Boltzmann, la potencia irradiada es proporcional a T^4. Para 300 K, el cálculo es 300^4 = 8,100,000,000,000.
+  Según la ley de Stefan-Boltzmann, la potencia irradiada es proporcional a T^4. Para 300 K, el cálculo es 300^4 = 8,100,000,000 (coherente con el cálculo de la pregunta 11, que usa este mismo valor de 300^4).
 ```
 
 ### 18 — Mecanismos de transferencia térmica
@@ -485,7 +481,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Radiación", "Convección", "Conducción"]
 
-enunciado: "Ordene los mecanismos de transferencia de calor de mayor a menor dependencia de la presencia de un medio material (desde el que no requiere medio hasta el que requiere contacto directo):"
+enunciado: "Ordene los mecanismos de transferencia de calor de menor a mayor dependencia de la presencia de un medio material (desde el que no requiere medio hasta el que requiere contacto directo):"
 
 respuesta_orden: ["Radiación", "Convección", "Conducción"]
 
