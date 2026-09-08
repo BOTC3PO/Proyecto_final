@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,14 +40,11 @@ metadata:
   nivel: "intermedio"
   tags: ["migracion", "causas"]
 
-variables:
-  caso: uno_de([["falta de tierras y mecanización agrícola", "atracción por empleos industriales"], ["escasez de servicios en el campo", "búsqueda de mejores oportunidades educativas"], ["crisis de subsistencia rural", "promesa de salarios fijos en la ciudad"]])
-
-respuesta: caso[1]
+respuesta: "atracción por empleos industriales"
 tipo: mc
-opciones_explicitas: [caso[0], caso[1], "Crecimiento natural de la población urbana", "Políticas de vivienda"]
+opciones_explicitas: ["falta de tierras y mecanización agrícola", "atracción por empleos industriales", "Crecimiento natural de la población urbana", "Políticas de vivienda"]
 
-enunciado: "En un contexto de urbanización acelerada, una causa principal de la migración desde el campo hacia la ciudad es: {caso[0]}."
+enunciado: "En un contexto de urbanización acelerada, un factor de \"atracción\" (pull) que impulsa la migración desde el campo hacia la ciudad es: ___."
 
 explicacion: |
   La migración suele responder a un factor de "expulsión" (lo que sucede en el origen) y un factor de "atracción" (lo que ofrece el destino).
@@ -86,7 +83,7 @@ metadata:
   nivel: "avanzado"
   tags: ["procesos", "urbanismo"]
 
-respuesta_orden: ["Expansión de la periferia", "Densificación del centro", "Crecimiento de la zona industrial", "Consolidación del núcleo urbano"]
+respuesta_orden: ["Consolidación del núcleo urbano", "Crecimiento de la zona industrial", "Densificación del centro", "Expansión de la periferia"]
 tipo: ordenar
 opciones_explicitas: ["Expansión de la periferia", "Densificación del centro", "Crecimiento de la zona industrial", "Consolidación del núcleo urbano"]
 
@@ -105,14 +102,11 @@ metadata:
   nivel: "basico"
   tags: ["consecuencias", "social"]
 
-variables:
-  impacto: uno_de([["Problemas de infraestructura", "Desigualdad social"], ["Contaminación ambiental", "Hacinamiento"], ["Escasez de servicios", "Crecimiento de asentamientos informales"]])
-
-respuesta: impacto[1]
+respuesta: "Desigualdad social"
 tipo: mc
-opciones_explicitas: ["Crecimiento demográfico natural", impacto[1], "Despoblación de las metrópolis", "Migración estacional"]
+opciones_explicitas: ["Crecimiento demográfico natural", "Desigualdad social", "Despoblación de las metrópolis", "Migración estacional"]
 
-enunciado: "Un efecto común de la urbanización rápida y descontrolada es: {impacto[0]}."
+enunciado: "Un efecto común de la urbanización rápida y descontrolada es: ___."
 
 explicacion: |
   Cuando la población urbana crece más rápido que la capacidad de la ciudad para proveer servicios y vivienda, surgen problemas como el hacinamiento o la falta de infraestructura.
@@ -144,16 +138,11 @@ metadata:
   nivel: "intermedio"
   tags: ["urbanizacion", "crecimiento"]
 
-variables:
-  datos: [["crecimiento_desordenado", "crecimiento_planificado"], ["asentamientos_informales", "barrios_planificados"], ["servicios_insuficientes", "infraestructura_moderna"]]
-  idx: uno_de([0, 1, 2])
-  tipo_crecimiento: datos[idx][0]
-
 tipo: mc
 opciones_explicitas: ["crecimiento_planificado", "crecimiento_desordenado"]
 respuesta: "crecimiento_desordenado"
 
-enunciado: "Cuando la migración hacia la ciudad es masiva y rápida, suele producirse un {tipo_crecimiento} que genera problemas de vivienda."
+enunciado: "Cuando la migración hacia la ciudad es masiva y rápida, suele producirse un ___ que genera problemas de vivienda."
 
 explicacion: |
   El crecimiento desordenado ocurre cuando la infraestructura urbana no puede seguir el ritmo de la llegada de nuevos habitantes, derivando en asentamientos informales.
@@ -195,7 +184,7 @@ enunciado: "Ordena cronológicamente las etapas típicas de un proceso de migrac
 
 explicacion: |
   Primero surge la necesidad o dificultad en el origen (campo), luego se realiza el traslado buscando oportunidades y finalmente se establece la residencia en la zona de destino (ciudad).
-respuesta_orden: ["Búsqueda de empleo en la ciudad", "Dificultades económicas en el sector rural", "Asentamiento en la periferia urbana"]
+respuesta_orden: ["Dificultades económicas en el sector rural", "Búsqueda de empleo en la ciudad", "Asentamiento en la periferia urbana"]
 ```
 
 ### 10 — Consecuencias socioeconómicas
@@ -207,15 +196,11 @@ metadata:
   nivel: "avanzado"
   tags: ["economia", "servicios"]
 
-variables:
-  datos: [["alta_densidad", "baja_densidad"], ["escasez_servicios", "abundancia_servicios"], ["desempleo_estructural", "pleno_empleo"]]
-  idx: uno_de([0, 1, 2])
-
 tipo: mc
-opciones_explicitas: ["alta_densidad", "baja_densidad"]
-respuesta: "alta_densidad"
+opciones_explicitas: ["alta densidad", "baja densidad"]
+respuesta: "alta densidad"
 
-enunciado: "La llegada masiva de personas a las urbes provoca un aumento de la alta_densidad en los centros urbanos."
+enunciado: "La llegada masiva de personas a las urbes provoca un aumento de la ___ en los centros urbanos."
 
 explicacion: |
   La concentración de población en áreas limitadas aumenta la densidad demográfica, lo que puede sobrecargar los servicios públicos y el mercado laboral.
@@ -255,11 +240,11 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["crecimiento de asentamientos informales", "falta de planificación urbana"], ["aumento de la contaminación", "congestión vehicular"]]
 
-respuesta: uno_de(escenarios[escenario_idx])
+respuesta: escenarios[escenario_idx][0]
 tipo: mc
 opciones_explicitas: ["crecimiento de asentamientos informales", "falta de planificación urbana", "aumento de la contaminación", "congestión vehicular"]
 
-enunciado: "La expansión descontrolada de la mancha urbana hacia las periferias suele derivar en {escenarios[escenario_idx][0]}."
+enunciado: "La expansión descontrolada de la mancha urbana hacia las periferias suele derivar en ___."
 
 explicacion: |
   La falta de regulación y el rápido crecimiento demográfico llevan a la formación de barrios precarios o asentamientos informales en zonas no planificadas.
@@ -322,11 +307,11 @@ variables:
   caso_idx: uno_de([0, 1])
   casos: [["positiva", "acceso a educación"], ["negativa", "hacinamiento"]]
 
-respuesta: uno_de(casos[caso_idx])
+respuesta: casos[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["positiva", "acceso a educación", "negativa", "hacinamiento"]
 
-enunciado: "La urbanización es un proceso dual: puede tener una consecuencia {casos[caso_idx][0]} como el {casos[caso_idx][1]}."
+enunciado: "La urbanización es un proceso dual: puede tener una consecuencia {casos[caso_idx][0]} como el ___."
 
 explicacion: |
   La urbanización presenta una dualidad: por un lado, ofrece ventajas como el acceso a educación y salud; por otro, presenta desafíos como el hacinamiento y la falta de servicios.
@@ -368,7 +353,7 @@ respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["menos de la mitad", "exactamente la mitad", "más de la mitad", "casi la totalidad"]
 
-enunciado: "En la actualidad, la población mundial es, aproximadamente, {datos[idx][1]} urbana."
+enunciado: "En la actualidad, la población mundial es, aproximadamente, ___ urbana."
 
 explicacion: |
   Hoy en día, la tendencia global muestra que la población urbana ha superado el umbral del 50% de la población total del planeta.
@@ -383,7 +368,7 @@ metadata:
   nivel: "intermedio"
   tags: ["migracion", "causas"]
 
-respuesta_orden: ["Migración rural", "Industrialización", "Crecimiento natural urbano"]
+respuesta_orden: ["Industrialización", "Migración rural", "Crecimiento natural urbano"]
 tipo: ordenar
 
 opciones_explicitas: ["Migración rural", "Industrialización", "Crecimiento natural urbano"]
