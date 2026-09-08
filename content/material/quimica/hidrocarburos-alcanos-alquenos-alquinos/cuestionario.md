@@ -1,9 +1,6 @@
 # Química — Hidrocarburos: alcanos, alquenos, alquinos (cuestionario, 20 preguntas VBLang)
 
 > Temas: `QSa/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Sin bugs funcionales esta tanda.
 
 ---
 
@@ -76,7 +73,7 @@ variables:
   n: uno_de([1, 2, 3, 4, 5])
 
 respuesta: 2 * n + 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la cantidad de átomos de hidrógeno en un alcano con {n} átomos de carbono."
@@ -162,7 +159,7 @@ variables:
   n: uno_de([2, 3, 4, 5])
 
 respuesta: 2 * n
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la cantidad de hidrógenos de un alqueno con {n} carbonos y 1 doble enlace."
@@ -243,7 +240,7 @@ variables:
   n: uno_de([2, 3, 4, 5])
 
 respuesta: 2 * n - 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la cantidad de hidrógenos de un alquino lineal con {n} carbonos."
@@ -363,7 +360,7 @@ variables:
   n: uno_de([3, 4, 5, 6])
 
 respuesta: (2 * n + 2) - (2 * n - 2)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para {n} carbonos, ¿cuántos hidrógenos MÁS tiene el alcano que el alquino (con 1 triple enlace)?"
