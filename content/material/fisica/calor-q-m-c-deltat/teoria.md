@@ -59,7 +59,7 @@ Por ejemplo, calentar 1 kg de agua desde 20°C hasta 30°C requiere menos energ�
 
 Esta relación se usa en situaciones cotidianas y técnicas:  
 - **Calentadores solares**: Calculan cuánto calor captarán los fluidos según su masa y material.  
-- **Cocina**: Determina por qué hierve más rápido una olla de aluminio que una de hierro (el aluminio tiene menor capacidad térmica).  
+- **Cocina**: Ayuda a explicar por qué una olla de aluminio transmite el calor al agua más rápido que una de hierro: el aluminio tiene una conductividad térmica mucho mayor (aunque, de hecho, su calor específico —900 J/(kg·°C)— es más alto que el del hierro, 450 J/(kg·°C), por lo que la olla en sí misma necesita más energía para calentarse).  
 - **Termografía**: En medicina, la variación de temperatura en tejidos ayuda a detectar inflamaciones.
 
 ---

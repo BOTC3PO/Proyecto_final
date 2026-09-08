@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -528,7 +528,7 @@ variables:
   ce_medido: datos[idx][1]
   nombre_real: datos[idx][0]
 
-respuesta: "___"
+respuesta: datos[idx][0]
 opciones_explicitas: ["oro", "cobre", "plomo"]
 respuestas_validas:
   - datos[idx][0]
