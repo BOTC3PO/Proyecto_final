@@ -1,6 +1,6 @@
 # Biologia — quimiosintesis (cuestionario, 22 preguntas VBLang)
 
-> Tema: `biologia/quimiosintesis`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `biologia/quimiosintesis`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -211,13 +211,14 @@ metadata:
   nivel: "basico"
   tags: ["definicion", "organismos"]
 
-variables:
-  organismos: uno_de(["bacterias", "arqueas"])
-
 respuesta: "bacterias y arqueas"
 tipo: completar
+respuestas_validas:
+  - "bacterias y arqueas"
+  - "bacterias"
+  - "arqueas"
 
-enunciado: "La quimiosíntesis es un proceso llevado a cabo principalmente por {organismos} que producen su propio alimento."
+enunciado: "La quimiosíntesis es un proceso llevado a cabo principalmente por ___ que producen su propio alimento."
 
 explicacion: |
   A diferencia de los organismos fotosintéticos, las bacterias y arqueas quimiosintéticas utilizan energía química inorgánica para sintetizar materia orgánica.
@@ -232,13 +233,10 @@ metadata:
   nivel: "basico"
   tags: ["energia", "comparacion"]
 
-variables:
-  fuente: uno_de(["luz solar", "reacciones químicas inorgánicas"])
-
 respuesta: "reacciones químicas inorgánicas"
 tipo: completar
 
-enunciado: "Mientras la fotosíntesis usa luz solar, la quimiosíntesis obtiene energía de {fuente}."
+enunciado: "Mientras la fotosíntesis usa luz solar, la quimiosíntesis obtiene energía de ___."
 
 explicacion: |
   La clave de la quimiosíntesis es la oxidación de compuestos inorgánicos (como sulfuro de hidrógeno o amoníaco) para obtener la energía necesaria para fijar el carbono.
@@ -253,13 +251,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ecologia", "productores"]
 
-variables:
-  rol: uno_de(["productores primarios", "descomponedores", "consumidores secundarios"])
-
 respuesta: "productores primarios"
 tipo: completar
 
-enunciado: "En ecosistemas extremos sin luz, las bacterias quimiosintéticas actúan como {rol}."
+enunciado: "En ecosistemas extremos sin luz, las bacterias quimiosintéticas actúan como ___."
 
 explicacion: |
   Estas bacterias forman la base de la cadena alimentaria en hábitats como las fuentes hidrotermales, al igual que las plantas en ecosistemas terrestres.
@@ -273,9 +268,6 @@ metadata:
   tema: "quimiosintesis"
   nivel: "intermedio"
   tags: ["sustratos", "azufre"]
-
-variables:
-  sustrato: uno_de(["sulfuro de hidrógeno", "amoníaco", "hierro ferroso"])
 
 respuesta: "sulfuro de hidrógeno"
 tipo: input
@@ -295,13 +287,14 @@ metadata:
   nivel: "intermedio"
   tags: ["nitrificacion", "nitrogeno"]
 
-variables:
-  paso: random(1,2)
-
-respuesta: "nitrito"
+respuesta: "nitrato"
 tipo: input
+respuestas_validas:
+  - "nitrato"
+  - "NO3-"
+  - "NO3"
 
-enunciado: "En la nitrificación, las bacterias oxidan amoníaco ($NH_3$) a {paso}. Si el paso es 2, responde 'nitrato'."
+enunciado: "En la nitrificación, las bacterias oxidan primero amoníaco ($NH_3$) a nitrito ($NO_2^-$) y luego a ___."
 
 explicacion: |
   El primer paso de la nitrificación convierte amoníaco en nitrito ($NO_2^-$). El segundo paso convierte nitrito en nitrato ($NO_3^-$).
@@ -315,9 +308,6 @@ metadata:
   tema: "quimiosintesis"
   nivel: "basico"
   tags: ["habitat", "hidrotermal"]
-
-variables:
-  ambiente: uno_de(["fuentes hidrotermales", "superficie del océano", "bosques tropicales"])
 
 respuesta: "fuentes hidrotermales"
 tipo: input
@@ -337,13 +327,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ATP", "bioquimica"]
 
-variables:
-  mol: "ATP"
-
 respuesta: "ATP"
 tipo: input
 
-enunciado: "La energía liberada en la oxidación inorgánica se almacena temporalmente en moléculas de {mol}."
+enunciado: "La energía liberada en la oxidación inorgánica se almacena temporalmente en moléculas de ___."
 
 explicacion: |
   Similar a la fotosíntesis, la energía química se convierte en ATP para ser utilizada en la fijación de carbono.
@@ -358,13 +345,10 @@ metadata:
   nivel: "basico"
   tags: ["carbono", "comparacion"]
 
-variables:
-  sustrato_c: "dióxido de carbono"
-
 respuesta: "dióxido de carbono"
 tipo: input
 
-enunciado: "Tanto la fotosíntesis como la quimiosíntesis utilizan {sustrato_c} como fuente de carbono."
+enunciado: "Tanto la fotosíntesis como la quimiosíntesis utilizan ___ como fuente de carbono."
 
 explicacion: |
   Ambas procesos fijan el carbono inorgánico ($CO_2$) para producir materia orgánica, pero difieren en la fuente de energía.
@@ -379,13 +363,10 @@ metadata:
   nivel: "avanzado"
   tags: ["ciclo", "calvin"]
 
-variables:
-  ciclo: "Calvin"
-
 respuesta: "Calvin"
 tipo: input
 
-enunciado: "La fijación de carbono en bacterias quimiosintéticas ocurre mediante un mecanismo similar al {ciclo} de las plantas."
+enunciado: "La fijación de carbono en bacterias quimiosintéticas ocurre mediante un mecanismo similar al ciclo de ___ de las plantas."
 
 explicacion: |
   El ciclo de Calvin es utilizado para convertir $CO_2$ en glucosa, utilizando el ATP y NADPH generados por la oxidación inorgánica.
@@ -400,13 +381,10 @@ metadata:
   nivel: "intermedio"
   tags: ["crecimiento", "comparacion"]
 
-variables:
-  tasa: uno_de(["rápida", "lenta"])
-
 respuesta: "lenta"
 tipo: input
 
-enunciado: "Las comunidades quimiosintéticas suelen tener tasas de crecimiento {tasa} comparadas con las fotosintéticas."
+enunciado: "Las comunidades quimiosintéticas suelen tener tasas de crecimiento ___ comparadas con las fotosintéticas."
 
 explicacion: |
   La energía obtenida de la oxidación de compuestos inorgánicos es menor que la de la fotosíntesis, lo que resulta en crecimiento más lento.
@@ -420,9 +398,6 @@ metadata:
   tema: "quimiosintesis"
   nivel: "basico"
   tags: ["ecologia", "base"]
-
-variables:
-  base: 1
 
 respuesta: 1
 tipo: input
