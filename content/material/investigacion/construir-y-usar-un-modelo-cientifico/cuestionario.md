@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -58,20 +58,14 @@ metadata:
   nivel: "intermedio"
   tags: ["componentes", "variables"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["masa", "gravedad"], ["presión", "temperatura"]]
-
 tipo: completar
 respuestas_validas:
-  - "masa"
   - "gravedad"
-  - "presión"
-  - "temperatura"
+  - "masa"
 
-enunciado: "Para modelar la caída de un objeto, un científico suele considerar como variables principales la ___ y la ___."
+enunciado: "Para modelar la caída de un objeto, un científico suele considerar como variables principales la masa y la ___."
 
-respuesta: datos[escenario_idx][1]
+respuesta: "gravedad"
 
 explicacion: |
   Los modelos requieren la selección de variables clave. En el caso de la caída libre, la masa y la gravedad son determinantes para predecir la aceleración.
@@ -176,9 +170,9 @@ metadata:
 
 enunciado: "Para desarrollar un modelo científico sobre el efecto de un fertilizante en el crecimiento de una planta, se deben seguir estos pasos en orden lógico:"
 
-opciones_explicitas: ["Observar el fenómeno y plantear una pregunta", "Construir el modelo matemático o conceptual", "Realar experimentos para validar el modelo", "Ajustar el modelo según los resultados obtenidos"]
+opciones_explicitas: ["Observar el fenómeno y plantear una pregunta", "Construir el modelo matemático o conceptual", "Realizar experimentos para validar el modelo", "Ajustar el modelo según los resultados obtenidos"]
 
-respuesta_orden: ["Observar el fenómeno y plantear una pregunta", "Construir el modelo matemático o conceptual", "Realar experimentos para validar el modelo", "Ajustar el modelo según los resultados obtenidos"]
+respuesta_orden: ["Observar el fenómeno y plantear una pregunta", "Construir el modelo matemático o conceptual", "Realizar experimentos para validar el modelo", "Ajustar el modelo según los resultados obtenidos"]
 tipo: ordenar
 
 explicacion: |
@@ -273,24 +267,14 @@ metadata:
   nivel: "basico"
   tags: ["variables", "simplificacion"]
 
-variables:
-  escenario: uno_de([["Temperatura", "Presión", "Volumen"], ["Velocidad", "Aceleración", "Fuerza"], ["Concentración", "Molaridad", "Solvente"]])
-
 tipo: completar
 respuestas_validas:
   - "Temperatura"
-  - "Presión"
-  - "Volumen"
-  - "Velocidad"
-  - "Aceleración"
-  - "Fuerza"
-  - "Concentración"
-  - "Molaridad"
-  - "Solvente"
+  - "temperatura"
 
-enunciado: "Al construir un modelo para estudiar el comportamiento de un gas ideal, el científico debe seleccionar ciertas variables críticas. Si decidimos ignorar la variable {escenario[0]}, estamos realizando una simplificación para enfocarnos en la relación entre {escenario[1]} y {escenario[2]}."
+enunciado: "Al construir un modelo para estudiar el comportamiento de un gas ideal, el científico debe seleccionar ciertas variables críticas. Si mantenemos constante la temperatura para enfocarnos en la relación entre la presión y el volumen (Ley de Boyle), estamos ignorando la variable ___."
 
-respuesta: "Presión"
+respuesta: "Temperatura"
 
 explicacion: |
   La simplificación implica elegir qué variables incluir (variables independientes/dependientes) y cuáles omitir (variables controladas o ignoradas) para reducir la complejidad del sistema.
@@ -325,12 +309,11 @@ metadata:
   nivel: "avanzado"
   tags: ["error_conceptual", "prediccion"]
 
-tipo: completar
-tolerancia_abs: 0
+tipo: vf
 
 enunciado: "Si un modelo predice que el valor de una variable será 10.5, pero el experimento arroja 10.7, ¿el modelo es necesariamente falso?"
 
-respuesta: 10.7
+respuesta: falso
 
 explicacion: |
   No necesariamente. En ciencia, los modelos suelen tener un margen de error debido a las simplificaciones realizadas. La discrepancia puede deberse a la incertidumbre de las mediciones o a que el modelo es una aproximación útil pero no exacta.
@@ -373,7 +356,7 @@ respuesta: escenario[0]
 tipo: "mc"
 opciones_explicitas: ["predecir", "describir", "observar", "repetir"]
 
-enunciado: "Una de las funciones principales de un modelo científico es la capacidad de {escenario[1]} fenómenos futuros, diferenciándose de la simple observación pasiva."
+enunciado: "Una de las funciones principales de un modelo científico es la capacidad de ___ fenómenos futuros, diferenciándose de la simple observación pasiva."
 
 explicacion: |
   Mientras que la observación describe lo que ocurre, el modelo busca capturar la lógica del sistema para poder predecir comportamientos futuros.
@@ -425,14 +408,11 @@ metadata:
   nivel: "avanzado"
   tags: ["epistemologia", "conceptos"]
 
-variables:
-  caso: uno_de([["el modelo es una herramienta para aplicar una teoría", "la teoría es un modelo simplificado"], ["el modelo es una generalización, la teoría es una herramienta", "la teoría es una generalización, el modelo es una herramienta"]])
-
-respuesta: "la teoría es un modelo simplificado"
+respuesta: "la teoría es una generalización, el modelo es una herramienta"
 tipo: "mc"
-opciones_explicitas: ["el modelo es una herramienta para aplicar una teoría", "la teoría es un modelo simplificado", "son conceptos idénticos", "el modelo es una ley universal"]
+opciones_explicitas: ["el modelo es una herramienta para aplicar una teoría", "la teoría es un modelo simplificado", "la teoría es una generalización, el modelo es una herramienta", "el modelo es una ley universal"]
 
-enunciado: "En el marco del método científico, se distingue que {caso[1]}."
+enunciado: "En el marco del método científico, se distingue que ___."
 
 explicacion: |
   La teoría es un marco explicativo general, mientras que el modelo es una representación específica y simplificada que permite operacionalizar esa teoría para estudiar un fenómeno concreto.
@@ -448,13 +428,13 @@ metadata:
   tags: ["modelo", "simulacion", "fisica"]
 
 variables:
-  datos: [["Un objeto cae desde 10m", "6.38"], ["Un objeto cae desde 20m", "6.38"], ["Un objeto cae desde 5m", "6.38"]]
+  datos: [["Un objeto cae desde 10m", "1.43"], ["Un objeto cae desde 20m", "2.02"], ["Un objeto cae desde 5m", "1.01"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Para estudiar el movimiento, usamos un modelo que ignora la resistencia del aire. Si el objeto se lanza desde {datos[idx][0]}, el tiempo estimado de caída es de ___ segundos."
 
-respuestas_validas:
-  - "6.38"
+respuesta: datos[idx][1]
+tolerancia_abs: 0.05
 tipo: completar
 
 explicacion: |
@@ -531,14 +511,10 @@ metadata:
   nivel: "avanzado"
   tags: ["error", "precisión"]
 
-variables:
-  datos: [["el modelo es demasiado simple", "error_simplificacion"], ["el modelo es demasiado complejo", "error_complejidad"]]
-  idx: uno_de([0, 1])
-
 enunciado: "Si un modelo matemático predice que un objeto caerá en 2 segundos, pero en el experimento real tarda 5 segundos debido a la fricción del aire (que el modelo ignoró), decimos que el modelo tiene un error de ___."
 
 opciones_explicitas: ["error_simplificacion", "error_complejidad", "error_medicion"]
-respuesta: datos[idx][1]
+respuesta: "error_simplificacion"
 tipo: mc
 
 explicacion: |
