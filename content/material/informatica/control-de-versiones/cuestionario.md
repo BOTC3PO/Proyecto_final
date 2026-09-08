@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -193,9 +193,6 @@ respuesta: "mensaje"
 tipo: completar
 respuestas_validas:
   - "mensaje"
-  - "autor"
-  - "fecha"
-  - "hash"
 
 enunciado: "Para que un commit sea útil en un equipo de trabajo, es fundamental incluir un ___ descriptivo que explique qué cambios se realizaron."
 
@@ -275,14 +272,10 @@ metadata:
   nivel: "intermedio"
   tags: ["git", "flujo_de_trabajo"]
 
-variables:
-  escenario: uno_de([["hice un commit localmente", "no es visible para mis compañeros"], ["hice un push al servidor", "es visible para mis compañeros"], ["hice un fetch de la rama principal", "solo descargo la información sin cambiar mi código"]])
-
 tipo: completar
 respuestas_validas:
   - "no es visible para mis compañeros"
-  - "es visible para mis compañeros"
-  - "solo descargo la información sin cambiar mi código"
+respuesta: "no es visible para mis compañeros"
 
 enunciado: "Si un desarrollador realiza un commit en su repositorio local, la situación es: ___."
 
@@ -323,13 +316,10 @@ metadata:
   nivel: "avanzado"
   tags: ["git", "flujo_de_trabajo"]
 
-variables:
-  caso: uno_de([["trabajar directamente en la rama 'main'", "causa errores en la versión estable"], ["crear una rama nueva para una función", "permite experimentar sin romper el código principal"], ["hacer un merge de una rama con conflictos", "requiere resolución manual de cambios"]])
-
 tipo: mc
 opciones_explicitas: ["trabajar directamente en la rama 'main'", "crear una rama nueva para una función", "hacer un merge de una rama con conflictos"]
 
-enunciado: "En un entorno de equipo, una práctica de riesgo que suele causar errores en la versión estable es {caso[0]}."
+enunciado: "En un entorno de equipo, ¿cuál de las siguientes prácticas es la de mayor riesgo, ya que suele causar errores en la versión estable?"
 
 respuesta: "trabajar directamente en la rama 'main'"
 
@@ -392,9 +382,6 @@ variables:
 tipo: completar
 respuestas_validas:
   - "merge"
-  - "conflito"
-  - "commit"
-  - "push"
 respuesta: "merge"
 
 enunciado: "Cuando dos personas trabajan en la misma línea de un archivo, al intentar integrar sus cambios, el sistema de control de versiones debe realizar un ___ para unir las historias."
@@ -432,7 +419,6 @@ metadata:
   tags: ["commit", "metadatos"]
 
 variables:
-  es_valido: uno_de([verdadero, falso])
   datos: [["mensaje descriptivo", verdadero], ["solo un espacio", falso]]
 
 tipo: mc
@@ -480,17 +466,12 @@ metadata:
   nivel: "basico"
   tags: ["git", "workflow"]
 
-variables:
-  idx: uno_de([0,1])
-  datos: [["guardar un cambio con un mensaje descriptivo", "guardar un cambio con un mensaje descriptivo"], ["borrar todo el historial de cambios", "borrar todo el historial de cambios"]]
-
 enunciado: "En Git, realizar un 'commit' equivale a ___."
 
 respuestas_validas:
   - "guardar un cambio con un mensaje descriptivo"
-  - "borrar todo el historial de cambios"
 
-respuesta: datos[idx][0]
+respuesta: "guardar un cambio con un mensaje descriptivo"
 
 tipo: completar
 
@@ -507,14 +488,11 @@ metadata:
   nivel: "intermedio"
   tags: ["git", "arquitectura"]
 
-variables:
-  es_distribuido: verdadero
-
 enunciado: "Git es un sistema de control de versiones de tipo distribuido, lo que significa que cada desarrollador tiene una copia completa del historial en su máquina local. ¿Es esto verdadero?"
 
-respuesta: es_distribuido
+respuesta: verdadero
 
-tipo: completar
+tipo: vf
 explicacion: |
   A diferencia de los sistemas centralizados, en Git cada clon es un repositorio completo con todo su historial, lo que permite trabajar sin conexión y ofrece mayor seguridad.
 ```
@@ -550,7 +528,7 @@ metadata:
   tags: ["git", "conflictos"]
 
 variables:
-  idx: uno_de([0,1])
+  idx: uno_de([0,1,2])
   datos: [["dos personas modificaron la misma línea de un archivo", "Se produce un conflicto de fusión (merge conflict)"], ["una persona modificó un archivo y otra borró el mismo archivo", "Se produce un conflicto de fusión (merge conflict)"], ["una persona añadió una función nueva en un archivo distinto", "Git lo resuelve automáticamente sin avisar"]]
 
 enunciado: "Si ocurre la situación: {datos[idx][0]}, ¿qué sucede en Git?"
