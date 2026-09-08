@@ -1,12 +1,6 @@
 # Química — Reactivo limitante y rendimiento (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QL`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bugs de esta tanda: `uno_de(...)` sorteando entre las 4 opciones de
-> un `mc` (incluidas las incorrectas) para decidir la "respuesta
-> correcta" — dos veces, en preguntas que además no necesitaban ningún
-> sorteo — y un `respuesta:` faltante en un bloque `vf`.
 
 ---
 
@@ -98,7 +92,7 @@ variables:
   moles_h2: uno_de([4, 6, 8, 10])
 
 respuesta: moles_h2 / 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En la reacción 2 H2 + O2 → 2 H2O, si hay {moles_h2} moles de H2, ¿cuál es el cociente moles/coeficiente del H2?"
@@ -124,7 +118,7 @@ variables:
   moles_o2: uno_de([1, 2, 3])
 
 respuesta: moles_o2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En la reacción 2 H2 + O2 → 2 H2O, si hay {moles_o2} moles de O2, ¿cuál es el cociente moles/coeficiente del O2?"
@@ -215,7 +209,7 @@ variables:
   rendimiento_real: rendimiento_teorico * porcentaje / 100
 
 respuesta: porcentaje
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "El rendimiento teórico de una reacción es de {rendimiento_teorico} g y el rendimiento real obtenido en el laboratorio es de {rendimiento_real} g. ¿Cuál es el porcentaje de rendimiento?"
@@ -353,7 +347,7 @@ variables:
   idx: uno_de([0, 1, 2, 3])
 
 respuesta: datos[idx][1] / datos[idx][0] * 100
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "El rendimiento teórico de una reacción es de {datos[idx][0]} gramos y el rendimiento real obtenido es de {datos[idx][1]} gramos. ¿Cuál es el porcentaje de rendimiento?"
