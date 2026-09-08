@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -77,15 +77,10 @@ metadata:
   nivel: "intermedio"
   tags: ["informes", "estructura"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Resumen Ejecutivo", "Introducción", "Metodología", "Resultados", "Conclusiones"], ["Objetivos", "Marco Teórico", "Desarrollo", "Análisis de Resultados", "Recomendaciones"]]
-
-respuesta: datos[escenario_idx][0]
+respuesta: "Resumen Ejecutivo"
 tipo: completar
 respuestas_validas:
   - "Resumen Ejecutivo"
-  - "Objetivos"
 
 enunciado: "En la estructura estándar de un informe técnico profesional, la sección que ofrece una visión general de todo el documento para una lectura rápida se denomina ___."
 
@@ -121,17 +116,12 @@ metadata:
   nivel: "intermedio"
   tags: ["documentacion", "informes"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: [["El informe debe centrarse en el análisis de cargas y materiales.", "El informe debe centrarse en el análisis de cargas y materiales."], ["El informe debe centrarse en la gestión del presupuesto y tiempos.", "El informe debe centrarse en la gestión del presupuesto y tiempos."]]
+tipo: mc
+opciones_explicitas: ["El análisis de cargas y materiales (seguridad estructural)", "La gestión del presupuesto y los tiempos"]
 
-enunciado: "Al redactar el informe técnico final para un proyecto de infraestructura civil, el enfoque principal debe ser {escenarios[caso_idx][0]}"
+enunciado: "Al redactar el informe técnico final para un proyecto de infraestructura civil (por ejemplo, un puente), ¿en qué debe centrarse principalmente el enfoque del informe?"
 
-respuesta: escenarios[caso_idx][1]
-tipo: completar
-respuestas_validas:
-  - "El informe debe centrarse en el análisis de cargas y materiales."
-  - "El informe debe centrarse en la gestión del presupuesto y tiempos."
+respuesta: "El análisis de cargas y materiales (seguridad estructural)"
 
 explicacion: |
   Un informe técnico de ingeniería debe priorizar la integridad estructural y los datos técnicos del diseño para garantizar la seguridad y la viabilidad del proyecto.
@@ -288,14 +278,14 @@ metadata:
   tags: ["presentacion", "errores"]
 
 variables:
-  escenario: uno_de([["Presentación con exceso de texto y tablas pequeñas", "El cliente se distrae leyendo y no escucha al orador"], ["Presentación con gráficos abstractos sin ejes", "El cliente no puede interpretar los datos presentados"], ["Presentación con lenguaje excesivamente técnico para un cliente no experto", "El cliente no comprende el valor de la solución"]])
+  escenario: uno_de([["Presentación con exceso de texto y tablas pequeñas", "Falta de claridad visual"], ["Presentación con gráficos abstractos sin ejes", "Falta de claridad visual"], ["Presentación con lenguaje excesivamente técnico para un cliente no experto", "Exceso de información técnica para la audiencia"]])
 
 tipo: mc
 opciones_explicitas: ["Falta de claridad visual", "Falta de rigor técnico", "Exceso de información técnica para la audiencia"]
 
 enunciado: "Un error crítico al presentar una solución ante un cliente que no es especialista en el área es: {escenario[0]}."
 
-respuesta: "Exceso de información técnica para la audiencia"
+respuesta: escenario[1]
 
 explicacion: |
   La comunicación debe adaptarse al receptor. Un error común es asumir que el cliente entiende la terminología técnica profunda, lo que genera una desconexión entre la solución propuesta y la comprensión del cliente.
@@ -310,17 +300,9 @@ metadata:
   nivel: "avanzado"
   tags: ["informe", "estructura"]
 
-variables:
-  datos: uno_de([["Memoria de cálculo", "Resumen ejecutivo"], ["Planos de conjunto", "Lista de materiales"], ["Análisis de riesgos", "Conclusiones"]])
-
 tipo: completar
 respuestas_validas:
   - "Memoria de cálculo"
-  - "Resumen ejecutivo"
-  - "Planos de conjunto"
-  - "Lista de materiales"
-  - "Análisis de riesgos"
-  - "Conclusiones"
 
 enunciado: "En un informe de ingeniería profesional, el apartado que contiene el desarrollo matemático y la justificación de las decisiones de diseño se denomina ___."
 
@@ -358,9 +340,6 @@ metadata:
   tema: "comunicar_la_solucion"
   nivel: "basico"
   tags: ["planos", "dibujo_tecnico"]
-
-variables:
-  es_informativo: verdadero
 
 respuesta: verdadero
 tipo: vf
@@ -445,7 +424,7 @@ metadata:
 variables:
   escenario: uno_de([["Un plano de conjunto de una pieza mecánica", "ISO"], ["Un esquema de un circuito electrónico", "IEC"], ["Un diagrama de flujo de un proceso químico", "ANSI"]])
 
-enunciado: "Para asegurar la interoperabilidad internacional, un ingeniero debe seguir la normativa {escenario[0]} al presentar el diseño de {escenario[0]}."
+enunciado: "Para asegurar la interoperabilidad internacional, un ingeniero debe seguir la normativa {escenario[1]} al presentar el diseño de {escenario[0]}."
 
 respuesta: escenario[1]
 tipo: mc
@@ -465,14 +444,16 @@ metadata:
   tags: ["informes", "veracidad"]
 
 variables:
-  caso: uno_de([["Un informe técnico que incluye datos experimentales sin citar la fuente de los instrumentos", falso], ["Un manual de usuario que especifica las tolerancias de montaje según el fabricante", verdadero]])
+  textos: ["Un informe técnico que incluye datos experimentales sin citar la fuente de los instrumentos", "Un manual de usuario que especifica las tolerancias de montaje según el fabricante"]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
 
-enunciado: "En el contexto de la documentación de ingeniería, ¿es correcto afirmar que: {caso[0]}?"
+enunciado: "En el contexto de la documentación de ingeniería, ¿es correcto afirmar que: {textos[idx]}?"
 
-respuesta: caso[1]
-tipo: completar
+respuesta: valores[idx]
+tipo: vf
 explicacion: |
-  La veracidad y la trazabilidad son pilares de la ingeniería. {caso[1]} es la respuesta correcta porque {caso[0]} es {caso[1]}.
+  La veracidad y la trazabilidad son pilares de la ingeniería: un dato experimental sin citar la fuente del instrumento no es trazable (incorrecto), mientras que un manual que especifica tolerancias según el fabricante sí lo es (correcto).
 ```
 
 ### 23 — Secuencia de un informe de diseño
@@ -535,12 +516,14 @@ metadata:
   tags: ["documentacion", "control_de_revisiones"]
 
 variables:
-  revision: uno_de([["El plano muestra la versión 'Rev. 02' pero el índice del informe dice 'Rev. 01'", falso], ["El plano y el informe coinciden en la fecha y el número de revisión", verdadero]])
+  textos: ["El plano muestra la versión 'Rev. 02' pero el índice del informe dice 'Rev. 01', y aun así se considera consistente", "El plano y el informe coinciden en la fecha y el número de revisión, por lo que se consideran consistentes"]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
 
-enunciado: "En un proceso de auditoría de diseño, se detecta que: {revision[0]}"
+enunciado: "En un proceso de auditoría de diseño, se detecta que: {textos[idx]}. ¿Es correcta esta afirmación?"
 
-respuesta: revision[1]
-tipo: completar
+respuesta: valores[idx]
+tipo: vf
 explicacion: |
-  La consistencia entre planos e informes es vital. Si hay discrepancias como en el caso {revision[0]}, la documentación se considera no válida. Por tanto, la afirmación es {revision[1]}.
+  La consistencia entre planos e informes es vital. Si hay discrepancias en la versión o revisión, la documentación se considera no válida, aunque describa el mismo diseño.
 ```
