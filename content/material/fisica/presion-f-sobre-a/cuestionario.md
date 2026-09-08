@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -60,12 +60,8 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion_proporcional", "analisis"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["2", "4"], ["5", "10"]] # [fuerza, area]
-
 tipo: vf
-enunciado: "Si mantenemos la fuerza constante, al aumentar el área de contacto, la presión ___."
+enunciado: "Si mantenemos la fuerza constante, al aumentar el área de contacto, la presión aumenta."
 
 respuesta: falso
 
@@ -84,7 +80,7 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1, 2])
-  escenario: [["100", "2"], ["50", "5"], ["200", "4"]]
+  escenario: [[100, 2], [50, 5], [200, 4]]
 
 tipo: completar
 tolerancia_abs: 0.01
@@ -95,7 +91,7 @@ pasos:
   - "Identificar la fuerza (F) y el área (A)."
   - "Aplicar la fórmula P = F/A."
 
-respuesta: uno_de([50, 10, 50])
+respuesta: escenario[caso_idx][0] / escenario[caso_idx][1]
 
 explicacion: |
   Utilizando la fórmula P = F/A, dividimos la fuerza entre el área proporcionada.
@@ -240,9 +236,6 @@ enunciado: "Si se mantiene la misma fuerza aplicada sobre una superficie, pero e
 
 respuestas_validas:
   - "2"
-  - "0.5"
-  - "1"
-  - "4"
 respuesta: "2"
 tipo: completar
 
@@ -307,9 +300,8 @@ metadata:
 
 enunciado: "Si un objeto se sumerge en un fluido y la presión sobre él aumenta debido a la profundidad, ¿la fuerza total ejercida por el fluido sobre el objeto cambia necesariamente?"
 
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   La presión es una magnitud intensiva (no depende de la cantidad de materia), pero la fuerza es la presión multiplicada por el área ($F = P \cdot A$). Si la presión aumenta y el área es constante, la fuerza también aumenta.
 ```
@@ -403,7 +395,7 @@ metadata:
   tags: ["presion", "comparacion"]
 
 variables:
-  caso: uno_de([[10, 5], [20, 2], [5, 10]])
+  caso: uno_de([[10, 5], [20, 2], [8, 3]])
 
 respuesta: "El caso con menor área"
 tipo: "mc"
@@ -530,7 +522,7 @@ metadata:
   tags: ["procedimiento", "calculo"]
 
 opciones_explicitas: ["Identificar la fuerza y el área", "Dividir la fuerza por el área", "Verificar las unidades de medida"]
-respuesta_orden: ["Identificar la fuerza y el área", "Dividir la fuerza por el área", "Verificar las unidades de medida"]
+respuesta_orden: ["Identificar la fuerza y el área", "Verificar las unidades de medida", "Dividir la fuerza por el área"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para resolver un problema de presión donde te dan la fuerza en Newtons y el área en centímetros cuadrados:"
