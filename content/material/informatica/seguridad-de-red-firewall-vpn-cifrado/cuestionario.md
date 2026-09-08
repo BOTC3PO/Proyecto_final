@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -98,11 +98,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cifrado", "hash", "seguridad"]
 
-variables:
-  tabla: [["El cifrado es reversible con una clave, el hashing es una función de una sola vía", "El cifrado es reversible con una clave, el hashing es una función de una sola vía"], ["El cifrado es de una vía, el hashing es reversible", "El cifrado es de una vía, el hashing es reversible"]]
-  idx: uno_de([0, 1])
-
-respuesta: tabla[idx][0]
+respuesta: "El cifrado es reversible con una clave, el hashing es una función de una sola vía"
 tipo: mc
 opciones_explicitas: ["El cifrado es reversible con una clave, el hashing es una función de una sola vía", "El cifrado es de una vía, el hashing es reversible", "Ambos son lo mismo", "El cifrado es para archivos y el hashing para redes"]
 
@@ -147,14 +143,10 @@ metadata:
   nivel: "intermedio"
   tags: ["vpn", "cifrado", "tunel"]
 
-variables:
-  protocolo: uno_de(["IPsec", "HTTP", "FTP"])
-  es_seguro: protocolo == "IPsec"
+enunciado: "Para establecer un túnel seguro en una VPN, se utiliza comúnmente el protocolo IPsec. ¿Es este protocolo un estándar utilizado para asegurar la comunicación en una VPN?"
 
-enunciado: "Para establecer un túnel seguro en una VPN, se utiliza comúnmente el protocolo {protocolo}. ¿Es este protocolo un estándar utilizado para asegurar la comunicación en una VPN?"
-
-respuesta: es_seguro
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   IPsec (Internet Protocol Security) es un conjunto de protocolos para asegurar las comunicaciones IP mediante la autenticación y el cifrado de cada paquete en una comunicación IP.
 ```
@@ -192,11 +184,7 @@ metadata:
   nivel: "basico"
   tags: ["protocolos", "cifrado", "web"]
 
-variables:
-  protocolo_web: uno_de(["HTTPS", "HTTP"])
-  es_seguro: protocolo_web == "HTTPS"
-
-enunciado: "Un usuario navega por una web utilizando el protocolo {protocolo_web}. Si el usuario desea que sus datos (como contraseñas) viajen cifrados en tránsito, el protocolo utilizado debe ser ___."
+enunciado: "Un usuario navega por una web. Si el usuario desea que sus datos (como contraseñas) viajen cifrados en tránsito, el protocolo utilizado debe ser ___."
 
 respuestas_validas:
   - "HTTPS"
@@ -218,7 +206,6 @@ metadata:
   tags: ["hash", "integridad", "seguridad"]
 
 variables:
-  mensaje: uno_de(["Hola", "Mundo", "Seguro"])
   hash_original: "a1b2c3d4"
   hash_recibido: "a1b2c3d4"
 
@@ -501,8 +488,6 @@ respuesta: "túnel"
 tipo: completar
 respuestas_validas:
   - "túnel"
-  - "puente"
-  - "cable"
 
 enunciado: "Una VPN (Virtual Private Network) crea un ___ cifrado sobre una red pública para permitir el transporte seguro de datos."
 
