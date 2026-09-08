@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -183,7 +183,6 @@ metadata:
 
 variables:
   ejemplo_idx: uno_de([0, 1])
-  ejemplos: [["El hito es el ___ de la fase de diseño.", "El hito es el ___ de la fase de diseño."], ["El hito es el ___ de la fase de diseño.", "El hito es el ___ de la fase de diseño."]]
   palabras: [["final", "final"], ["cierre", "cierre"]]
 
 enunciado: "En un cronograma, si una tarea es 'Escribir código', el hito correspondiente al finalizar esa actividad sería el ___ de la fase de desarrollo."
@@ -238,7 +237,6 @@ metadata:
 respuesta: "hito"
 tipo: completar
 respuestas_validas:
-  - "hito"
   - "hito"
 
 enunciado: "En la gestión de proyectos, una actividad que requiere esfuerzo y tiempo para ser completada se denomina tarea, mientras que un punto de control que marca un evento significativo o la finalización de una fase se denomina ___."
@@ -315,17 +313,12 @@ metadata:
   nivel: "avanzado"
   tags: ["relaciones", "dependencias"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  enunciado_caso: uno_de(["La tarea es un subconjunto de un hito.", "El hito es el resultado de la finalización de una o más tareas.", "Un hito siempre contiene múltiples tareas dentro de sí mismo.", "Las tareas y los hitos son conceptos intercambiables."])
-  respuesta_correcta: uno_de(["La tarea es un subconjunto de un hito.", "El hito es el resultado de la finalización de una o más tareas.", "Un hito siempre contiene múltiples tareas dentro de sí mismo.", "Las tareas y los hitos son conceptos intercambiables."])
-
 tipo: mc
 opciones_explicitas: ["La tarea es un subconjunto de un hito.", "El hito es el resultado de la finalización de una o más tareas.", "Un hito siempre contiene múltiples tareas dentro de sí mismo.", "Las tareas y los hitos son conceptos intercambiables."]
 
-enunciado: "Considerando el caso: {enunciado_caso}. ¿Cuál es la relación correcta entre estos elementos?"
+enunciado: "¿Cuál de las siguientes afirmaciones describe correctamente la relación entre tareas e hitos?"
 
-respuesta: respuesta_correcta
+respuesta: "El hito es el resultado de la finalización de una o más tareas."
 
 explicacion: |
   Un hito actúa como un marcador de posición que se alcanza cuando las tareas que lo preceden han sido completadas con éxito.
@@ -403,15 +396,10 @@ metadata:
   nivel: "intermedio"
   tags: ["analisis", "gestion"]
 
-variables:
-  item_idx: uno_de([0, 1])
-  datos: [["Instalar software", "Hito: Sistema operativo listo"], ["Pintar la pared", "Hito: Habitación terminada"]]
-
-respuesta: "Hito: sistema operativo listo"
+respuesta: "Hito: Sistema operativo listo"
 tipo: "completar"
 respuestas_validas:
-  - "Hito: sistema operativo listo"
-  - "Hito: Habitación terminada"
+  - "Hito: Sistema operativo listo"
 
 enunciado: "Analiza el primer caso: La acción es 'Instalar software'. El evento de control resultante es: ___"
 
@@ -454,9 +442,7 @@ variables:
 
 enunciado: "En un proyecto de {escenario[0]}, el punto de control que marca el fin de una fase crítica y permite validar el progreso es el/la ___."
 
-respuestas_validas:
-  - "{escenario[1]}"
-respuesta: "{escenario[1]}"
+respuesta: escenario[1]
 tipo: completar
 
 explicacion: |
@@ -491,13 +477,13 @@ metadata:
   tags: ["orden", "secuencia"]
 
 variables:
-  secuencia: [["Definición de requisitos", "Diseño de arquitectura", "Desarrollo de código", "Pruebas de usuario"], ["Compra de materiales", "Cimentación", "Levantado de paredes", "Techado"]]
+  proyectos: [["software", ["Definición de requisitos", "Diseño de arquitectura", "Desarrollo de código", "Pruebas de usuario"]], ["construcción", ["Compra de materiales", "Cimentación", "Levantado de paredes", "Techado"]]]
   idx: uno_de([0, 1])
 
-enunciado: "Ordene las fases de un proyecto de {secuencia[idx][0]} según el orden lógico de ejecución:"
+enunciado: "Ordene las fases de un proyecto de {proyectos[idx][0]} según el orden lógico de ejecución:"
 
-opciones_explicitas: ["Definición de requisitos", "Diseño de arquitectura", "Desarrollo de código", "Pruebas de usuario"]
-respuesta_orden: ["Definición de requisitos", "Diseño de arquitectura", "Desarrollo de código", "Pruebas de usuario"]
+opciones_explicitas: proyectos[idx][1]
+respuesta_orden: proyectos[idx][1]
 tipo: ordenar
 
 explicacion: |
