@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,14 +41,11 @@ metadata:
   nivel: "basico"
   tags: ["periodo", "tiempo"]
 
-variables:
-  escenario: uno_de([["un ciclo completo", "el tiempo que tarda en realizarse un ciclo completo"], ["la frecuencia", "la cantidad de ciclos por unidad de tiempo"], ["la amplitud", "la distancia máxima desde el equilibrio"]])
-
-respuesta: escenario[1]
+respuesta: "el tiempo que tarda en realizarse un ciclo completo"
 tipo: mc
 opciones_explicitas: ["el tiempo que tarda en realizarse un ciclo completo", "la cantidad de ciclos por unidad de tiempo", "la distancia máxima desde el equilibrio"]
 
-enunciado: "El periodo (T) se define como: {escenario[0]}."
+enunciado: "El periodo (T) se define como: ___."
 
 explicacion: |
   El periodo es precisamente el intervalo de tiempo necesario para que el sistema complete un ciclo completo de movimiento.
@@ -81,14 +78,11 @@ metadata:
   nivel: "basico"
   tags: ["unidades", "dimensiones"]
 
-variables:
-  medida: uno_de([["segundos", "s"], ["metros", "m"], ["hertz", "Hz"]])
-
-respuesta: medida[1]
+respuesta: "s"
 tipo: mc
 opciones_explicitas: ["s", "m", "Hz"]
 
-enunciado: "Dado que el periodo mide el tiempo de un ciclo, su unidad en el Sistema Internacional es el/la {medida[0]}."
+enunciado: "Dado que el periodo mide el tiempo de un ciclo, su unidad en el Sistema Internacional es ___."
 
 explicacion: |
   El tiempo se mide en segundos (s) en el SI. El metro (m) es longitud y el Hertz (Hz) es frecuencia.
@@ -345,7 +339,7 @@ metadata:
 variables:
   frecuencia_ejemplo: 5.0
 
-respuesta: "El número de ciclos por unidad de tiempo"
+respuesta: "El tiempo que tarda en completarse un ciclo"
 tipo: mc
 opciones_explicitas: ["El tiempo que tarda en completarse un ciclo", "El número de ciclos por unidad de tiempo", "La distancia máxima desde el punto de equilibrio", "La velocidad máxima del objeto"]
 
@@ -364,11 +358,8 @@ metadata:
   nivel: "basico"
   tags: ["ciclo", "movimiento_repetitivo"]
 
-variables:
-  valor_ciclo: 1.0
-
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En un movimiento oscilatorio, un 'ciclo completo' implica que el objeto regresa exactamente a su posición inicial con la misma dirección de movimiento que tenía al comenzar."
 
 explicacion: |
@@ -540,8 +531,7 @@ metadata:
   tags: ["fases", "ciclo"]
 
 variables:
-  secuencia: [["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"], ["máximo desplazamiento negativo", "punto de equilibrio", "máximo desplazamiento positivo", "punto de equilibrio"]]
-  estado_inicial: uno_de(secuencia)
+  estado_inicial: ["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"]
 
 enunciado: "Un pistón de motor realiza un movimiento oscilatorio. Si su estado inicial es {estado_inicial[0]}, ordene los eventos que marcan un ciclo completo de oscilación."
 
