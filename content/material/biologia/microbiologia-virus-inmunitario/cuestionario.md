@@ -1,12 +1,6 @@
 # Biología — Microbiología, virus y sistema inmunitario (cuestionario, 20 preguntas VBLang)
 
 > Tema: `BMICRO`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Bug de esta tanda: `tipo: ordenar` con estructura
-> de opción múltiple (3 oraciones completas como "opciones", respuesta
-> un string plano en vez de la lista completa a reordenar) — no es lo
-> que pide `ordenar`; convertida a `mc`.
 
 ---
 
