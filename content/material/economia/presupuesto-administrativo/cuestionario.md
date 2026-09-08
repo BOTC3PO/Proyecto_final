@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -202,7 +202,7 @@ metadata:
   tags: ["calculo", "déficit"]
 
 variables:
-  escenario: [["Ingresos: 12000, Gastos: 15000", "3000"], ["Ingresos: 8000, Gastos: 7500", "500"]]
+  escenario: [["Ingresos: 12000, Gastos: 15000", "3000"], ["Ingresos: 8000, Gastos: 8500", "500"]]
   idx: uno_de([0, 1])
 
 respuesta: escenario[idx][1]
@@ -311,12 +311,9 @@ metadata:
   nivel: "avanzado"
   tags: ["confusiones_comunes"]
 
-variables:
-  caso: uno_de([["Una empresa tiene ventas altas en el presupuesto pero no tiene efectivo en caja", "verdadero"], ["Si el presupuesto de ingresos es positivo, la empresa siempre tiene liquidez inmediata", "falso"]])
-
-respuesta: caso[1]
-tipo: completar
-enunciado: "Es posible que una organización presente un presupuesto de ingresos positivo pero experimente problemas de liquidez: {caso[0]}"
+respuesta: verdadero
+tipo: vf
+enunciado: "Es posible que una organización presente un presupuesto de ingresos positivo pero experimente problemas de liquidez, si esas ventas presupuestadas son a crédito y el dinero aún no ingresó a caja."
 
 explicacion: |
   Este es un error clásico. El presupuesto puede mostrar ingresos por ventas (devengado), pero si esas ventas son a crédito, el dinero no está disponible inmediatamente en caja (flujo de efectivo).
@@ -352,10 +349,7 @@ metadata:
   nivel: "basico"
   tags: ["contabilidad", "planificacion"]
 
-variables:
-  es_planificacion: verdadero
-
-respuesta: es_planificacion
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "El presupuesto se distingue de la contabilidad financiera principalmente porque el presupuesto tiene un carácter prospectivo (hacia el futuro), mientras que la contabilidad es histórica (registra lo ya ocurrido)."
@@ -373,13 +367,7 @@ metadata:
   nivel: "intermedio"
   tags: ["control_presupuestal", "desviaciones"]
 
-variables:
-  escenario: uno_de([["real_menor", "real_mayor"], ["real_menor", "real_mayor"], ["real_menor", "real_mayor"]])
-  dato_real: uno_de([0, 1])
-  dato_tipo: uno_de(["ingreso", "gasto"])
-  resultado_lógica: uno_de([["desfavorable", verdadero], ["favorable", falso], ["desfavorable", verdadero]])
-
-respuesta: resultado_lógica[0]
+respuesta: "desfavorable"
 tipo: "mc"
 opciones_explicitas: ["favorable", "desfavorable"]
 
