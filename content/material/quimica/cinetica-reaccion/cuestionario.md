@@ -1,10 +1,6 @@
 # Química — Cinética de reacción (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QQ`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bugs de esta tanda: `respuesta` envuelta en array (`["tiempo"]`) y un
-> `respuesta:` faltante en un bloque `completar`.
 
 ---
 
@@ -78,7 +74,7 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][0] / datos[idx][1]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la velocidad media de una reacción si el cambio de concentración es {datos[idx][0]} unidades y el intervalo de tiempo es {datos[idx][1]} segundos."
