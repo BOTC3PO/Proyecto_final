@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,11 +39,8 @@ metadata:
   nivel: "basico"
   tags: ["luz", "rayos", "optica"]
 
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: caso == 0
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En una lente divergente, los rayos de luz paralelos que inciden sobre ella se separan tras atravesarla."
 
 explicacion: |
@@ -103,7 +100,7 @@ respuesta: "negativo"
 tipo: mc
 opciones_explicitas: ["positivo", "negativo", "cero"]
 
-enunciado: "Según la convención de signos en óptica, la distancia focal de una lente ________ es siempre un valor ________."
+enunciado: "Según la convención de signos en óptica, la distancia focal de una lente divergente es siempre un valor ________."
 
 explicacion: |
   En el sistema de signos estándar, las lentes divergentes tienen una distancia focal negativa, mientras que las convergentes tienen una positiva.
@@ -122,7 +119,7 @@ respuesta: "convergente"
 tipo: "mc"
 opciones_explicitas: ["convergente", "divergente"]
 
-enunciado: "Una lente que es más gruesa en el centro que en los bordes se denomina lente _______ y su función principal es _______ los rayos de luz que pasan a través de ella."
+enunciado: "Una lente que es más gruesa en el centro que en los bordes se denomina lente _______."
 
 explicacion: |
   Las lentes convergentes son más gruesas en el centro y hacen que los rayos de luz se unan en un punto llamado foco.
@@ -199,7 +196,7 @@ respuesta: 15.0
 tipo: "input"
 tolerancia_abs: 0.1
 
-enunciado: "Un objeto se encuentra a {s} cm de una lente divergente y forma una imagen a {s_prime} cm de la lente. ¿Cuál es la distancia focal de la lente en cm?"
+enunciado: "Un objeto se encuentra a {s} cm de una lente convergente y forma una imagen a {s_prime} cm de la lente. ¿Cuál es la distancia focal de la lente en cm?"
 
 pasos:
   - "Identificar datos: s = 10, s' = -30"
@@ -220,10 +217,11 @@ metadata:
   nivel: "basico"
   tags: ["formula", "optica"]
 
-respuesta: "1/f"
+respuesta: "Gauss"
 tipo: "completar"
 respuestas_validas:
-  - "1/f"
+  - "Gauss"
+  - "lentes delgadas"
 
 enunciado: "La relación fundamental para el estudio de lentes delgadas es la ecuación de _______ que relaciona la distancia focal con las distancias del objeto y la imagen."
 
@@ -287,7 +285,7 @@ respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["positiva", "negativa"]
 
-enunciado: "En el convenio de signos estándar para la óptica, si nos encontramos con una lente ________, su distancia focal se considera como ________."
+enunciado: "En el convenio de signos estándar para la óptica, si nos encontramos con una lente {escenario[0]}, su distancia focal se considera como ________."
 
 explicacion: |
   Por convención, las lentes convergentes tienen distancia focal positiva y las divergentes tienen distancia focal negativa.
@@ -321,15 +319,14 @@ metadata:
   tags: ["confusion_comun", "imagen_virtual"]
 
 variables:
-  caso: uno_de([["convergente", "real"], ["divergente", "virtual"]])
+  caso: ["convergente", "virtual"]
 
 respuesta: caso[1]
 tipo: completar
 respuestas_validas:
-  - "real"
   - "virtual"
 
-enunciado: "Un error común es pensar que todas las imágenes que vemos a través de una lupa son invertidas. Sin embargo, si usamos una lente ________, la imagen que vemos es de tipo ________."
+enunciado: "Un error común es pensar que todas las imágenes que vemos a través de una lupa son invertidas. Sin embargo, si usamos una lente {caso[0]} como lupa (con el objeto dentro del foco), la imagen que vemos es de tipo ________."
 
 explicacion: |
   Las lentes divergentes solo producen imágenes virtuales (derechas), mientras que las convergentes pueden producir imágenes reales (invertidas) o virtuales (derechas) dependiendo de la posición del objeto.
@@ -391,8 +388,8 @@ metadata:
 variables:
   tipo_lente: uno_de(["convergente", "divergente"])
 
-respuesta: tipo_lente == "convergente"
-tipo: completar
+respuesta: tipo_lente == "divergente"
+tipo: vf
 enunciado: "Si utilizamos una lente {tipo_lente}, los rayos de luz paralelos que inciden sobre ella se separan (divergen) tras el paso por la lente."
 
 explicacion: |
@@ -413,8 +410,12 @@ variables:
   escenario_datos: [["lente convergente", "real"], ["lente divergente", "virtual"]]
 
 respuesta: escenario_datos[escenario][1]
+tipo: completar
+respuestas_validas:
+  - "real"
+  - "virtual"
 
-enunciado: "Considerando una lente {escenario_datos[escenario][0]}, la imagen formada por un objeto situado más allá del foco es {escenario_datos[escenario][1]}."
+enunciado: "Considerando una lente {escenario_datos[escenario][0]}, la imagen formada por un objeto situado más allá del foco es ________."
 
 explicacion: |
   Las lentes convergentes pueden formar imágenes reales (si el objeto está lejos) o virtuales (si está muy cerca). Las lentes divergentes siempre forman imágenes virtuales.
@@ -433,7 +434,7 @@ tipo: mc
 opciones_explicitas: ["Positiva", "Negativa"]
 respuesta: "Positiva"
 
-enunciado: "En el convenio de signos de la óptica, la distancia focal de una lente convergente se representa con un valor Positiva."
+enunciado: "En el convenio de signos de la óptica, la distancia focal de una lente convergente es siempre ________."
 
 explicacion: |
   Por convención, las lentes convergentes tienen una distancia focal positiva ($f > 0$), mientras que las lentes divergentes tienen una distancia focal negativa ($f < 0$).
@@ -495,7 +496,6 @@ respuesta: "convergen"
 tipo: completar
 respuestas_validas:
   - "convergen"
-  - "divergen"
 
 enunciado: "Cuando los rayos de luz paralelos atraviesan una lente convergente, estos ___ en un punto llamado foco."
 
@@ -516,13 +516,13 @@ variables:
   caso: uno_de([[10, 20], [15, 30], [20, 40]])
   focal: caso[1]
 
-enunciado: "Si un objeto se coloca a una distancia de {caso[0]} cm de una lente convergente y la distancia focal es de {focal} cm, la imagen se formará en una posición que es ___ a la distancia del objeto."
+enunciado: "Un objeto se coloca a una distancia de {caso[0]} cm de una lente convergente cuya distancia focal es de {focal} cm (el objeto está dentro del foco, ya que {caso[0]} < {focal}). ¿La imagen formada será virtual y estará ubicada del mismo lado de la lente que el objeto?"
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 explicacion: |
-  Si el objeto está entre el foco y la lente (distancia objeto < f), la imagen es virtual, derecha y aumenta su tamaño, pero la posición depende de la ecuación de Gauss. En este caso, la imagen es virtual.
+  Como el objeto está entre el foco y la lente (distancia objeto < f), la imagen es virtual, derecha, aumentada y se ubica del mismo lado de la lente que el objeto.
 ```
 
 ### 25 — Construcción de la imagen
@@ -555,8 +555,10 @@ metadata:
   tags: ["geometria", "lentes"]
 
 variables:
-  tipo_lente: uno_de(["convergente", "divergente"])
-  forma: uno_de(["más gruesa en el centro", "más delgada en el centro"])
+  idx: uno_de([0, 1])
+  pares: [["convergente", "más gruesa en el centro"], ["divergente", "más delgada en el centro"]]
+  tipo_lente: pares[idx][0]
+  forma: pares[idx][1]
 
 enunciado: "Una lente es de tipo {tipo_lente} si es {forma}."
 
