@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,15 +41,11 @@ metadata:
   nivel: "basico"
   tags: ["beta", "electrones"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  particula_beta: uno_de(["electrón", "positrón"])
-
 respuesta: "negativa"
 tipo: mc
 opciones_explicitas: ["positiva", "negativa", "neutra"]
 
-enunciado: "En el decaimiento beta menos ($\\beta^-$), un neutrón se transforma en un protón y se emite una partícula de carga {particula_beta}."
+enunciado: "En el decaimiento beta menos ($\\beta^-$), un neutrón se transforma en un protón y se emite una partícula de carga ___."
 
 explicacion: |
   En el decaimiento beta menos, el neutrón se convierte en protón y emite un electrón (carga negativa).
@@ -83,14 +79,14 @@ metadata:
   tags: ["alcance", "radiacion"]
 
 variables:
-  tipo_rad: uno_de(["alfa", "beta", "gamma"])
-  alcance_desc: uno_de(["muy corto", "moderado", "muy alto"])
+  datos: [["alfa", "muy corto"], ["beta", "moderado"], ["gamma", "muy alto"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: alcance_desc
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["muy corto", "moderado", "muy alto"]
 
-enunciado: "El alcance de la radiación tipo {tipo_rad} en el aire es {alcance_desc}."
+enunciado: "El alcance de la radiación tipo {datos[idx][0]} en el aire es ___."
 
 explicacion: |
   La partícula alfa tiene un alcance muy corto (se detiene con una hoja de papel), la beta un alcance moderado y la gamma un alcance muy alto.
@@ -147,13 +143,13 @@ metadata:
   tags: ["beta", "nucleica"]
 
 variables:
-  escenario: uno_de([["14", "14", "15", "14"], ["238", "238", "239", "238"], ["12", "12", "13", "12"]])
+  escenario: uno_de([[14, 15], [238, 239], [12, 13]])
 
 enunciado: "Un núcleo radiactivo de un isótopo con número de masa {escenario[0]} emite una partícula beta negativa ($\\beta^-$). ¿Cuál será el número de masa del nuevo núcleo resultante?"
 
-opciones_explicitas: ["{escenario[0]}", "{escenario[2]}", "{escenario[1]}", "1"]
+opciones_explicitas: [escenario[0], escenario[1], 1]
 
-respuesta: "{escenario[0]}"
+respuesta: escenario[0]
 tipo: mc
 
 explicacion: |
@@ -362,10 +358,7 @@ metadata:
   nivel: "avanzado"
   tags: ["beta", "neutrino", "nucleo"]
 
-variables:
-  escenario: uno_de([[1, "electrón"], [2, "neutrino"]])
-
-enunciado: "En un decaimiento beta negativo, un neutrón se transforma en un protón y emite una partícula tipo {escenario[1]} para conservar la carga."
+enunciado: "En un decaimiento beta negativo, un neutrón se transforma en un protón y emite una partícula tipo ___ para conservar la carga."
 
 pasos:
   - "Identificar la partícula emitida en el decaimiento beta-"
@@ -390,11 +383,11 @@ metadata:
   nivel: "intermedio"
   tags: ["interacción", "materia", "orden"]
 
-opciones_explicitas: ["Gamma, Beta, Alfa"]
+opciones_explicitas: ["Gamma", "Beta", "Alfa"]
 
 enunciado: "Ordena las radiaciones de mayor a menor capacidad de penetración (de la que más atraviesa a la que menos atraviesa):"
 
-respuesta_orden: ["Gamma, Beta, Alfa"]
+respuesta_orden: ["Gamma", "Beta", "Alfa"]
 tipo: ordenar
 
 explicacion: |
