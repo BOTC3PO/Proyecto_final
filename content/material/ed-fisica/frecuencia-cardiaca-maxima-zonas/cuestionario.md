@@ -1,21 +1,6 @@
 # Ed. Física — Frecuencia cardíaca máxima: zonas de entrenamiento (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF10`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: uso de funciones no
-> confirmadas en el DSL (`concatenar()`, `redondear()`) y expresiones
-> aritméticas directas en `respuesta:` (`datos[idx][1] - 180`) — todas
-> reemplazadas por valores ya calculados como literales dentro de la
-> propia tabla `variables:`, patrón usado en el resto del mapa; varias
-> preguntas de blank `___` etiquetadas `tipo: vf` (reclasificadas a
-> `completar`); una pregunta de comparación de edades donde uno de los
-> escenarios sorteados coincidía exactamente con la edad de
-> comparación (25 años vs. "persona de 25 años", sin opción de
-> "igual") — corregida con edades que nunca empatan; dos preguntas con
-> `variables:`/`uno_de` sorteando un escenario cuya `respuesta:`
-> quedaba fija sin importar qué opción salía — corregidas indexando la
-> respuesta a la misma variable sorteada.
 
 ---
 
