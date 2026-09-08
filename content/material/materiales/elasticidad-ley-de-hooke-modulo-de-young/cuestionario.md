@@ -2,12 +2,15 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3 usaba `tipo: ordenar` sin tarea de orden real
+> (convertido a vf), Q8/Q16/Q18/Q20 interpolaban o usaban directamente
+> variables booleanas donde correspondía texto o `tipo: vf`, Q14 tenía
+> dos blanks en un `respuesta:` de lista, Q17 podía contradecirse a sí
+> mismo (ambos módulos "de cizalladura" en la misma rama de sorteo),
+> Q18 tenía la clave invertida respecto a su propia explicación, Q21
+> mezclaba fórmulas contradictorias no verificadas (reescrita con
+> valores consistentes), Q22 no tenía `explicacion`, Q23 tenía un
+> sorteo completamente muerto.
 
 ---
 
@@ -61,11 +64,10 @@ metadata:
   nivel: "intermedio"
   tags: ["deformacion", "esfuerzo", "modulo_young"]
 
-tipo: ordenar
-opciones_explicitas: ["esfuerzo", "deformacion"]
-respuesta_orden: ["esfuerzo", "deformacion"]
+tipo: vf
+respuesta: verdadero
 
-enunciado: "Para calcular el Módulo de Young (E), se debe dividir el esfuerzo entre la deformación."
+enunciado: "Para calcular el Módulo de Young (E), se debe dividir el esfuerzo entre la deformación. ¿Verdadero o falso?"
 
 explicacion: |
   La fórmula del Módulo de Young es E = σ / ε, donde σ es el esfuerzo (fuerza/área) y ε es la deformación unitaria.
@@ -168,10 +170,7 @@ metadata:
   nivel: "intermedio"
   tags: ["tension", "deformacion", "elasticidad"]
 
-variables:
-  es_elastico: verdadero
-
-enunciado: "Si un material se somete a una carga y, al retirar dicha carga, recupera su forma original sin deformaciones permanentes, se dice que el material se ha comportado de forma {es_elastico}."
+enunciado: "Si un material se somete a una carga y, al retirar dicha carga, recupera su forma original sin deformaciones permanentes, se dice que el material se ha comportado de forma elástica. ¿Verdadero o falso?"
 
 respuesta: verdadero
 tipo: vf
@@ -320,10 +319,12 @@ metadata:
   nivel: "basico"
   tags: ["completar", "esfuerzo", "deformación"]
 
-respuesta: ["esfuerzo", "deformación"]
+respuesta: "deformación"
 tipo: completar
+respuestas_validas:
+  - "deformación"
 
-enunciado: "La Ley de Hooke establece que el ___ es proporcional a la ___ unitaria en el régimen elástico."
+enunciado: "La Ley de Hooke establece que el esfuerzo es proporcional a la ___ unitaria en el régimen elástico."
 
 explicacion: |
   La relación es $\sigma \propto \epsilon$. El error común es confundir el esfuerzo (fuerza por área) con la fuerza directamente, o la deformación (cambio relativo) con el desplazamiento absoluto.
@@ -358,11 +359,10 @@ metadata:
   nivel: "basico"
   tags: ["elasticidad", "hooke"]
 
-variables:
-  es_elastico: verdadero
-
-respuesta: es_elastico
+respuesta: "elástico"
 tipo: completar
+respuestas_validas:
+  - "elástico"
 enunciado: "Si un material se deforma y, al retirar la carga, recupera su forma original, se dice que se encuentra dentro de su rango ____. Si la deformación es permanente, se ha superado el límite elástico."
 
 pasos:
@@ -381,15 +381,12 @@ metadata:
   nivel: "intermedio"
   tags: ["modulo_young", "modulo_corte", "deformacion"]
 
-variables:
-  tipo_deformacion: uno_de(["axial", "cizalladura"])
-
-respuesta: tipo_deformacion
+respuesta: "axial"
 tipo: mc
 
 opciones_explicitas: ["axial", "cizalladura"]
 
-enunciado: "El Módulo de Young mide la rigidez de un material frente a una deformación de tipo {tipo_deformacion}, mientras que el Módulo de Corte mide la resistencia a la deformación por cizalladura."
+enunciado: "El Módulo de Young mide la rigidez de un material frente a una deformación de tipo ___, mientras que el Módulo de Corte mide la resistencia a la deformación por cizalladura."
 
 explicacion: |
   El Módulo de Young ($E$) relaciona el esfuerzo normal con la deformación axial. El Módulo de Corte ($G$) relaciona el esfuerzo cortante con la deformación por cizalladura.
@@ -404,11 +401,8 @@ metadata:
   nivel: "intermedio"
   tags: ["modulo_young", "rigidez"]
 
-variables:
-  es_mayor: verdadero
-
-respuesta: es_mayor
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si comparamos dos barras del mismo material pero con diferentes diámetros, la barra con mayor diámetro tendrá un valor de Módulo de Young más alto. ¿Es esto verdadero o falso?"
 
 explicacion: |
@@ -444,11 +438,8 @@ metadata:
   nivel: "basico"
   tags: ["esfuerzo", "deformacion", "hooke"]
 
-variables:
-  es_relacion_directa: verdadero
-
-respuesta: es_relacion_directa
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En el régimen elástico, si el esfuerzo aplicado sobre un material aumenta, la deformación resultante también aumenta. ¿Es esta relación directa?"
 
 explicacion: |
@@ -465,28 +456,30 @@ metadata:
   tags: ["elasticidad", "fisica", "materiales"]
 
 variables:
-  escenario: uno_de([[10, 0.001, 200e9, 0.005], [15, 0.002, 150e9, 0.004], [20, 0.001, 100e9, 0.002]])
+  escenario: uno_de([[1000, 0.001, 2, 0.0001], [2000, 0.001, 1, 0.0002]])
   F: escenario[0]
-  delta_L: escenario[1]
-  E: escenario[2]
-  L: escenario[3]
+  A: escenario[1]
+  L: escenario[2]
+  delta_L: escenario[3]
+  esfuerzo: F / A
+  deformacion: delta_L / L
+  modulo_e: esfuerzo / deformacion
 
-respuesta: (F / delta_L) / (E * L) * L
+respuesta: modulo_e
 tipo: completar
-tolerancia_abs: 1e-6
+tolerancia_abs: 1e7
 
-enunciado: "Un material tiene una longitud inicial de {L} m. Al aplicarle una fuerza de {F} N, su longitud aumenta {delta_L} m. ¿Cuál es el módulo de Young (E) del material en Pa?"
+enunciado: "Una varilla de sección transversal A = {A} m² y longitud inicial L = {L} m se somete a una fuerza F = {F} N, lo que produce un alargamiento ΔL = {delta_L} m. ¿Cuál es el módulo de Young (E) del material, en Pa?"
 
 pasos:
-  - "Calcular la tensión (stress): σ = F / A. Como no se da el área, usamos la forma deformación: σ = E * ε"
-  - "La deformación unitaria es ε = ΔL / L"
-  - "Despejamos E de la fórmula: E = (F / ΔL) / (A / L) -> En este caso, para obtener E directamente con los datos: E = (F * L) / (ΔL * A). Si asumimos que el dato proporcionado es la relación para el cálculo directo: E = (F / ΔL) / (L / (L * (ΔL/L))) -> Simplificado: E = (F * L) / (ΔL * A). Dado que el problema pide el módulo y relaciona F, ΔL, L y E, la fórmula es E = (F / ΔL) / (A/L). Si el área no se da, el enunciado implica el cálculo de la relación de rigidez: E = (F * L) / (ΔL * A). Asumiendo un área unitaria de 1 m² para el cálculo del módulo si no se especifica, o que el usuario debe despejar de la relación dada."
-  - "Nota: Para este ejercicio, asuma un área de sección transversal de 1 m² para el cálculo del módulo de Young."
+  - "Calcular el esfuerzo: σ = F / A"
+  - "Calcular la deformación unitaria: ε = ΔL / L"
+  - "Calcular E = σ / ε"
 
 explicacion: |
-  El módulo de Young se define como el esfuerzo dividido por la deformación unitaria: E = σ / ε.
-  Donde σ = F / A y ε = ΔL / L.
-  Si A = 1 m², entonces E = (F / ΔL) / (1 / L) = (F * L) / ΔL.
+  σ = {F} / {A} = {esfuerzo} Pa.
+  ε = {delta_L} / {L} = {deformacion}.
+  E = {esfuerzo} / {deformacion} = {modulo_e} Pa.
 ```
 
 ### 22 — Concepto de deformación elástica
@@ -502,6 +495,9 @@ respuesta: verdadero
 tipo: vf
 
 enunciado: "Si un material se encuentra dentro de su límite elástico, al retirar la carga aplicada, este recuperará su forma original."
+
+explicacion: |
+  Verdadero. Dentro del límite elástico, la deformación es reversible: el material recupera completamente su forma original al retirar la carga.
 ```
 
 ### 23 — Relación entre fuerza y deformación
@@ -513,11 +509,7 @@ metadata:
   nivel: "basico"
   tags: ["ley_de_hooke", "proporcionalidad"]
 
-variables:
-  datos: [[10, "aumenta"], [20, "aumenta"], [30, "aumenta"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "aumenta"
 tipo: mc
 
 opciones_explicitas: ["disminuye", "aumenta", "se mantiene constante", "se vuelve negativo"]
