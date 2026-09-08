@@ -2,12 +2,9 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: correcciones de doble sorteo desincronizado
+> del enunciado fijo (Q5, Q8, Q10, Q13, Q17, Q21, Q24) y una pregunta
+> mal planteada (Q20).
 
 ---
 
@@ -97,12 +94,11 @@ metadata:
   nivel: "basico"
   tags: ["punto_de_fluencia", "definicion"]
 
-variables:
-  tipo_deformacion: uno_de(["elástica", "plástica"])
-
 respuesta: "plástica"
+tipo: mc
+opciones_explicitas: ["elástica", "plástica"]
 
-enunciado: "Si un material supera su punto de fluencia, la deformación resultante será de tipo {tipo_deformacion}."
+enunciado: "Si un material supera su punto de fluencia, la deformación resultante será de tipo ___."
 
 explicacion: |
   El punto de fluencia marca la transición entre el comportamiento elástico (reversible) y el comportamiento plástico (permanente).
@@ -160,16 +156,10 @@ metadata:
   nivel: "intermedio"
   tags: ["calculo", "deformacion_unitaria"]
 
-variables:
-  datos: [[0.002, "0.002"], [0.005, "0.005"], [0.012, "0.012"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "0.005"
 tipo: completar
 respuestas_validas:
-  - "0.002"
   - "0.005"
-  - "0.012"
 
 enunciado: "Un cilindro de aluminio se estira desde una longitud inicial de 100 mm hasta una longitud final de 100.5 mm. La deformación unitaria (ε) se calcula como (L_final - L_inicial) / L_inicial. El valor obtenido es ________."
 
@@ -209,11 +199,7 @@ metadata:
   nivel: "avanzado"
   tags: ["punto_de_fluencia", "esfuerzo"]
 
-variables:
-  datos: [["el material fluye sin aumento de carga", "fluencia"], ["el material se estira proporcionalmente", "elástico"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "fluencia"
 tipo: mc
 opciones_explicitas: ["fluencia", "elástico"]
 
@@ -235,8 +221,6 @@ metadata:
 respuesta: "elástica"
 tipo: completar
 respuestas_validas:
-  - "elástica"
-  - "elástica"
   - "elástica"
 
 enunciado: "Cuando un material se somete a una carga y, al retirarla, recupera su forma original sin presentar deformación permanente, se dice que ha ocurrido una deformación ___."
@@ -273,15 +257,11 @@ metadata:
   nivel: "intermedio"
   tags: ["diagrama_esfuerzo_deformacion", "curva"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["El material es un metal dúctil que presenta una meseta de fluencia clara.", "El material es un metal dúctil que presenta una meseta de fluencia clara."], ["El material es un polímero que muestra una transición suave sin meseta clara.", "El material es un polímero que muestra una transición suave sin meseta clara."]]
-
-respuesta: escenario[idx][1]
+respuesta: "un metal dúctil"
 tipo: mc
-opciones_explicitas: ["El material es un metal dúctil que presenta una meseta de fluencia clara.", "El material es un metal dúctil que presenta una meseta de fluencia clara.", "El material es un polímero que muestra una transición suave sin meseta clara.", "El material es un polímero que muestra una transición suave sin meseta clara."]
+opciones_explicitas: ["un metal dúctil", "un polímero"]
 
-enunciado: "En un diagrama de esfuerzo-deformación, la presencia de una meseta horizontal donde la deformación aumenta sin aumento de carga es característica de: {escenario[idx][0]}"
+enunciado: "En un diagrama de esfuerzo-deformación, la presencia de una meseta horizontal donde la deformación aumenta sin aumento de carga es característica de ___."
 
 explicacion: |
   Los metales con estructura FCC o BCC suelen mostrar una meseta de fluencia bien definida, mientras que otros materiales como polímeros o aleaciones específicas pueden tener una transición más gradual.
@@ -354,11 +334,8 @@ metadata:
   nivel: "basico"
   tags: ["punto_de_fluencia", "esfuerzo"]
 
-variables:
-  escenario: uno_de([["el material se deforma y vuelve a su forma original", "elástico"], ["el material se deforma y no recupera su forma", "plástico"], ["el material se rompe inmediatamente", "frágil"]])
-
 opciones_explicitas: ["elástico", "plástico", "frágil"]
-respuesta: escenario[1]
+respuesta: "elástico"
 tipo: mc
 
 enunciado: "Si sometemos un material a un esfuerzo que es inferior al punto de fluencia, su comportamiento es ___."
@@ -413,17 +390,14 @@ metadata:
   nivel: "intermedio"
   tags: ["límite", "esfuerzo"]
 
-variables:
-  valor: uno_de([["el límite de proporcionalidad", "límite"], ["el límite de rotura", "límite"], ["el límite elástico", "límite"]])
-
-opciones_explicitas: ["el límite de proporcionalidad", "el límite de rotura", "el límite elástico"]
-respuesta: valor[0]
+opciones_explicitas: ["el límite de rotura", "la región elástica"]
+respuesta: "la región elástica"
 tipo: mc
 
-enunciado: "En un diagrama de esfuerzo-deformación, el punto de fluencia se distingue de ___ porque marca el inicio de la deformación no reversible."
+enunciado: "En un diagrama de esfuerzo-deformación, el punto de fluencia marca el inicio de la deformación no reversible, a diferencia de ___, donde toda la deformación es recuperable."
 
 explicacion: |
-  El punto de fluencia es el umbral crítico que separa la zona donde el material es elástico de la zona donde comienza la deformación plástica.
+  El punto de fluencia es el umbral crítico que separa la región elástica (donde el material recupera su forma) de la región donde comienza la deformación plástica permanente.
 ```
 
 ### 21 — El límite de deformación
@@ -436,14 +410,15 @@ metadata:
   tags: ["deformacion", "elasticidad"]
 
 variables:
-  datos: [["un resorte de acero", "elástico"], ["un clip de papel", "plástico"], ["una banda elástica", "elástico"]]
+  datos: ["un resorte de acero", "un clip de papel", "una banda elástica"]
   idx: uno_de([0,1,2])
+  objeto: datos[idx]
 
-respuesta: datos[idx][1]
+respuesta: "plástico"
 tipo: mc
 opciones_explicitas: ["elástico", "plástico"]
 
-enunciado: "Si sometemos {datos[idx][0]} a una carga que supera su límite elástico, el comportamiento del material será ___."
+enunciado: "Si sometemos {objeto} a una carga que supera su límite elástico, el comportamiento del material será ___."
 
 explicacion: |
   Si la deformación supera el punto de fluencia, el material entra en el régimen plástico, donde la deformación es permanente.
@@ -500,22 +475,16 @@ metadata:
   nivel: "avanzado"
   tags: ["esfuerzo", "calculo"]
 
-variables:
-  datos: [["150", "250"], ["300", "450"], ["50", "80"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "250"
 tipo: completar
 respuestas_validas:
   - "250"
-  - "450"
-  - "80"
 
 enunciado: "Un cilindro de sección transversal de 100 mm² sufre una fuerza de 25000 N antes de alcanzar su punto de fluencia. El esfuerzo de fluencia es de ___ MPa."
 
 pasos:
   - "Calcular el esfuerzo: $\\sigma = F / A$"
-  - "$\\sigma = 25000 / 100 = 250$ (Nota: el valor de respuesta en la tabla es el objetivo del ejercicio)"
+  - "$\\sigma = 25000 / 100 = 250$"
 
 explicacion: |
   El esfuerzo se calcula dividiendo la fuerza entre el área de la sección transversal.
