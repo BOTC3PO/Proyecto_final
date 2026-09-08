@@ -1,18 +1,6 @@
 # Biología — Dinámica poblacional: crecimiento y capacidad de carga (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BP`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); un
-> `recurso: uno_de([...])` (ya devuelve un string escalar) indexado
-> después como `recurso[idx]` (indexación inválida de un escalar) —
-> corregido a uso directo de la variable; `tipo: vf`/`completar` con
-> `opciones_explicitas`/`respuestas_validas` conteniendo más de una
-> opción "válida" cuando sólo una lo era — recortado a la correcta;
-> un bloque con `tipo: input` (tipo no confirmado en el DSL, nunca
-> usado en el resto del mapa) — normalizado a `completar`; `tipo:`
-> entrecomillado en varios bloques — sin comillas.
 
 ---
 
@@ -47,15 +35,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["bacteria", "2"], ["levadura", "3"]]
+  datos: [["bacteria", "duplica", "2"], ["levadura", "triplica", "3"]]
 
-respuesta: datos[escenario_idx][1]
+respuesta: datos[escenario_idx][2]
 tipo: completar
 respuestas_validas:
   - "2"
   - "3"
 
-enunciado: "Si una población de {datos[escenario_idx][0]} se duplica en cada intervalo de tiempo, y empezamos con una unidad, el crecimiento sigue un modelo exponencial donde el factor de multiplicación por intervalo es ___."
+enunciado: "Si una población de {datos[escenario_idx][0]} se {datos[escenario_idx][1]} en cada intervalo de tiempo, y empezamos con una unidad, el crecimiento sigue un modelo exponencial donde el factor de multiplicación por intervalo es ___."
 
 explicacion: |
   En el modelo de crecimiento exponencial, la tasa de crecimiento es proporcional al número de individuos presentes, lo que genera una curva en forma de 'J'.
@@ -110,22 +98,14 @@ metadata:
   nivel: "avanzado"
   tags: ["tasa_crecimiento", "modelo_exponencial"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  valores: [["0.5", "0.8"], ["1.2", "1.5"]]
+respuesta: "más rápido"
+tipo: mc
+opciones_explicitas: ["más rápido", "más lento", "igual", "no depende de r"]
 
-respuesta: valores[caso_idx][0]
-tipo: completar
-respuestas_validas:
-  - "0.5"
-  - "0.8"
-  - "1.2"
-  - "1.5"
-
-enunciado: "En un modelo de crecimiento exponencial, la tasa de crecimiento intrínseca para el caso seleccionado es de ___ por individuo por unidad de tiempo."
+enunciado: "En un modelo de crecimiento exponencial, cuanto mayor es la tasa de crecimiento intrínseca (r) de una población, ___ crece esa población por unidad de tiempo."
 
 explicacion: |
-  En el modelo exponencial, la tasa de crecimiento per cápita se mantiene constante, lo que provoca que el número total de individuos crezca cada vez más rápido.
+  En el modelo exponencial, la tasa de crecimiento per cápita (r) se mantiene constante; cuanto mayor es r, más rápido crece el número total de individuos.
 ```
 
 ### 6 — Curva de crecimiento logístico
