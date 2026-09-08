@@ -1,6 +1,6 @@
 # Historia — crisis de 2001 (cuestionario, 21 preguntas VBLang)
 
-> Tema: `historia/crisis-de-2001`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `historia/crisis-de-2001`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -24,7 +24,7 @@ tipo: input
 enunciado: "¿En qué fecha (dd/mm/aaaa) se decretó el Corralito?"
 
 explicacion: |
-  El Corralito fue decretado el 1 de diciembre de 2001 por el ministro Ricardo López Murphy, aunque su implementación efectiva ocurrió poco después bajo Domingo Cavallo.
+  El Corralito fue decretado el 1 de diciembre de 2001 por el ministro de Economía Domingo Cavallo, mediante la Resolución 1570/2001, que restringió la extracción de efectivo de los bancos.
 ```
 
 ### 2 — pregunta 2
@@ -36,13 +36,14 @@ metadata:
   nivel: "intermedio"
   tags: ["convertibilidad", "déficit_fiscal"]
 
-variables:
-  paridad: 1
-
 respuesta: "uno a uno"
 tipo: completar
+respuestas_validas:
+  - "uno a uno"
+  - "1 a 1"
+  - "1:1"
 
-enunciado: "Durante la década de los noventa, la convertibilidad vinculaba el peso argentino al dólar estadounidense a una paridad de {paridad} a {paridad}."
+enunciado: "Durante la década de los noventa, la convertibilidad vinculaba el peso argentino al dólar estadounidense a una paridad de ___."
 
 explicacion: |
   La paridad era de 1:1, lo que significaba que un dólar estadounidense equivalía exactamente a un peso argentino.
@@ -57,13 +58,10 @@ metadata:
   nivel: "basico"
   tags: ["inflación", "déficit"]
 
-variables:
-  resultado: random(0, 1)
-
 respuesta: "déficit fiscal crónico"
 tipo: completar
 
-enunciado: "Aunque frenó la hiperinflación, la convertibilidad generó {resultado + 1} problema estructural principal mencionado: un _______________ crónico que obligó al endeudamiento."
+enunciado: "Aunque frenó la hiperinflación, la convertibilidad generó un problema estructural principal: un _______________ que obligó al endeudamiento."
 
 explicacion: |
   El texto indica que la convertibilidad generó desequilibrios estructurales, específicamente un déficit fiscal crónico.
@@ -99,11 +97,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fmi", "ajuste"]
 
-variables:
-  entidad: "Fondo Monetario Internacional"
-
-respuesta: "FMI"
+respuesta: "Fondo Monetario Internacional"
 tipo: completar
+respuestas_validas:
+  - "Fondo Monetario Internacional"
+  - "FMI"
 
 enunciado: "El gobierno intentó negociar un nuevo plan de ajuste con el _______________ (FMI), pero las negociaciones colapsaron."
 
@@ -120,11 +118,12 @@ metadata:
   nivel: "basico"
   tags: ["reservas", "déficit"]
 
-variables:
-  falta: "falta"
-
-respuesta: "reservas"
+respuesta: "falta"
 tipo: completar
+respuestas_validas:
+  - "falta"
+  - "escasez"
+  - "carencia"
 
 enunciado: "La _______________ de reservas para defender la moneda fue un factor clave del pánico financiero."
 
@@ -267,10 +266,7 @@ metadata:
   nivel: "intermedio"
   tags: ["protesta", "social"]
 
-variables:
-  transformacion: "transformar"
-
-respuesta: "transformar"
+respuesta: "transformadora"
 tipo: completar
 
 enunciado: "La indignación creció, buscando una salida _______________ a la crisis."
@@ -309,13 +305,10 @@ metadata:
   nivel: "basico"
   tags: ["presidencia", "tiempo"]
 
-variables:
-  dias: 11
-
 respuesta: "11"
 tipo: input
 
-enunciado: "En apenas {dias} días, entre el 19 y el 30 de diciembre, Argentina tuvo cinco presidentes o figuras de poder."
+enunciado: "Entre el 19 y el 30 de diciembre de 2001, Argentina tuvo cinco presidentes o figuras de poder en apenas ___ días."
 
 explicacion: |
   El periodo de sucesión presidencial rápida duró 11 días en diciembre de 2001.
@@ -330,13 +323,10 @@ metadata:
   nivel: "basico"
   tags: ["fechas", "diciembre"]
 
-variables:
-  inicio: 19
-
 respuesta: "19"
 tipo: input
 
-enunciado: "La sucesión presidencial crítica comenzó el {inicio} de diciembre de 2001."
+enunciado: "La sucesión presidencial crítica comenzó el ___ de diciembre de 2001."
 
 explicacion: |
   El 19 de diciembre fue el inicio de los eventos que llevaron a la renuncia de De la Rúa.
@@ -351,13 +341,10 @@ metadata:
   nivel: "basico"
   tags: ["fechas", "diciembre"]
 
-variables:
-  fin: 30
-
 respuesta: "30"
 tipo: input
 
-enunciado: "La sucesión presidencial crítica finalizó el {fin} de diciembre de 2001."
+enunciado: "La sucesión presidencial crítica finalizó el ___ de diciembre de 2001."
 
 explicacion: |
   El 30 de diciembre marca el final del periodo de cinco presidentes en tan pocos días.
@@ -393,16 +380,17 @@ metadata:
   nivel: "intermedio"
   tags: ["vicepresidente", "renuncia"]
 
-variables:
-  vp: "Carlos"
-
-respuesta: "Carlos"
+respuesta: "Carlos Álvarez"
 tipo: completar
+respuestas_validas:
+  - "Carlos Álvarez"
+  - "Chacho Álvarez"
+  - "Carlos \"Chacho\" Álvarez"
 
-enunciado: "La renuncia del vicepresidente _______________ (Carl...) fue parte de la inestabilidad."
+enunciado: "La renuncia del vicepresidente _______________ en octubre de 2000, en medio de denuncias de sobornos en el Senado, debilitó políticamente al gobierno de la Alianza y sentó las bases de la crisis de diciembre de 2001."
 
 explicacion: |
-  El texto menciona la renuncia del vicepresidente Carlos como parte de la sucesión caótica.
+  Carlos "Chacho" Álvarez renunció a la vicepresidencia en octubre de 2000, más de un año antes del estallido de diciembre de 2001, pero su salida profundizó la crisis política del gobierno de De la Rúa.
 ```
 
 ### 20 — pregunta 20
