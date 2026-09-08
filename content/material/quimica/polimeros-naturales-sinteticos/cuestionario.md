@@ -1,9 +1,6 @@
 # Química — Polímeros naturales y sintéticos (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QV`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Sin bugs funcionales esta tanda.
 
 ---
 
