@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -128,10 +128,13 @@ metadata:
   nivel: "basico"
   tags: ["radiactividad", "conceptos"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "La semivida (o vida media) es el tiempo necesario para que la cantidad de núcleos radiactivos de una muestra se reduzca a la mitad de su valor inicial."
+
+explicacion: |
+  Esta es exactamente la definición de semivida: el tiempo que tarda una muestra radiactiva en reducirse a la mitad de su cantidad inicial de núcleos.
 ```
 
 ### 7 — Relación entre constante y semivida
@@ -143,11 +146,7 @@ metadata:
   nivel: "intermedio"
   tags: ["formula", "constante_desintegracion"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: ["ln(2)", "1"]
-
-respuesta: datos[idx]
+respuesta: "ln(2)"
 tipo: mc
 opciones_explicitas: ["ln(2)", "1", "e", "0"]
 
@@ -167,9 +166,9 @@ metadata:
   tags: ["calculo", "masa"]
 
 variables:
-  escenario: uno_de([[100, 2, 20], [80, 3, 10], [50, 1, 25]])
+  escenario: uno_de([[100, 2], [80, 3], [50, 1]])
 
-respuesta: escenario[2]
+respuesta: escenario[0] / 4
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -182,7 +181,7 @@ pasos:
 explicacion: |
   1. El tiempo transcurrido es 2 veces la semivida ($n = 2$).
   2. La masa remanente es $N_0 \cdot (1/2)^2 = N_0 \cdot 1/4$.
-  3. Si $N_0 = {escenario[0]}$, el resultado es {escenario[2]} g.
+  3. Si $N_0 = {escenario[0]}$, el resultado es {escenario[0] / 4} g.
 ```
 
 ### 9 — Determinación del tiempo transcurrido
@@ -195,14 +194,14 @@ metadata:
   tags: ["logaritmos", "tiempo"]
 
 variables:
-  caso: uno_de([[100, 25, 50], [200, 10, 50], [120, 20, 60]])
+  caso: uno_de([[100, 25, 50], [200, 10, 100], [120, 20, 60]])
 
-respuesta: caso[2]
+respuesta: caso[1]
 tipo: completar
 respuestas_validas:
-  - "50"
-  - "40"
-  - "60"
+  - "25"
+  - "10"
+  - "20"
 
 enunciado: "Una muestra de sustancia radiactiva tiene una masa inicial de {caso[0]} g y una semivida de {caso[1]} años. Si actualmente la muestra tiene una masa de {caso[2]} g, ¿cuántos años han transcurrido?"
 
@@ -246,17 +245,17 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [[0.5, 0.693], [0.3, 2.31]]
+  datos: [[0.5, 1.386], [0.3, 2.31]]
 
-enunciado: "La semivida ($T_{1/2}$) y la constante de desintegración ($\\lambda$) están relacionadas mediante una fórmula logarítmica. Si la semivida de una muestra es de {datos[idx][0]} unidades de tiempo, el valor de la constante $\\lambda$ es aproximadamente {datos[idx][1]}."
+enunciado: "La semivida ($T_{1/2}$) y la constante de desintegración ($\\lambda$) están relacionadas mediante una fórmula logarítmica. Si la semivida de una muestra es de {datos[idx][0]} unidades de tiempo, el valor de la constante $\\lambda$ es aproximadamente ___."
 
 respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
-  La relación es $\lambda = \ln(2) / T_{1/2}$. 
-  Para el caso de $T_{1/2} = 0.5$, $\lambda = 0.693/0.5 = 1.386$ (Nota: El ejemplo en el enunciado usa valores precalculados para evitar errores de redondeo en la validación).
+  La relación es $\lambda = \ln(2) / T_{1/2}$.
+  Para el caso de $T_{1/2} = {datos[idx][0]}$, $\lambda = 0.693/{datos[idx][0]} = {datos[idx][1]}$.
   La confusión común es intentar multiplicar en lugar de dividir o usar $\log_{10}$ en lugar de $\ln$.
 ```
 
@@ -492,16 +491,15 @@ metadata:
   tags: ["medicina_nuclear", "isótopos"]
 
 variables:
-  datos: [[300, "150"], [100, "50"], [400, "100"]]
+  datos: [[300, 150], [100, 50], [400, 200]]
   idx: uno_de([0, 1, 2])
   m_inicial: datos[idx][0]
   m_final: datos[idx][1]
   t_medio: 6
 
-respuesta: "150"
+respuesta: m_final
 tipo: completar
-respuestas_validas:
-  - "150"
+tolerancia_abs: 0.1
 
 enunciado: "Un radiofármaco con una semivida de {t_medio} horas se inyecta en un paciente con una actividad de {m_inicial} MBq. Tras transcurrir un tiempo equivalente a una semivida, la actividad medida es de ___ MBq."
 
