@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -58,17 +58,14 @@ metadata:
   nivel: "intermedio"
   tags: ["procesos", "ciclo"]
 
-variables:
-  escenario: uno_de([["Desviación detectada", "Acción correctiva"], ["Meta alcanzada", "Continuar monitoreo"], ["Error en reporte", "Revisar recolección de datos"]])
-
-respuesta: escenario[1]
+respuesta: "Acción correctiva"
 tipo: mc
 opciones_explicitas: ["Acción correctiva", "Continuar monitoreo", "Revisar recolección de datos"]
 
 enunciado: "En un proyecto, se observa que el costo real es un 20% superior al presupuesto planificado para la fase actual. ¿Cuál es la respuesta inmediata del proceso de control?"
 
 explicacion: |
-  Cuando se identifica una desviación (costo alto), el control debe ejecutar una {escenario[0]} para mitigar el impacto.
+  Cuando se identifica una desviación (costo alto), el control debe ejecutar una acción correctiva para mitigar el impacto.
 ```
 
 ### 4 — Ciclo de gestión de desviaciones
@@ -99,14 +96,11 @@ metadata:
   nivel: "avanzado"
   tags: ["indicadores", "KPI"]
 
-variables:
-  caso: uno_de([["desviación", "retraso"], ["desviación", "sobrecosto"], ["desviación", "falta de calidad"]])
-
-respuesta: caso[1]
+respuesta: "retraso"
 tipo: mc
 opciones_explicitas: ["retraso", "sobrecosto", "falta de calidad"]
 
-enunciado: "Si el seguimiento indica que el cronograma muestra una {caso[0]} respecto a la fecha de entrega original, el control debe enfocarse en mitigar un ___."
+enunciado: "Si el seguimiento indica que el cronograma muestra una desviación respecto a la fecha de entrega original, el control debe enfocarse en mitigar un ___."
 
 explicacion: |
   Una desviación en el cronograma se traduce directamente en un retraso en la ejecución del proyecto.
@@ -236,11 +230,8 @@ metadata:
   nivel: "basico"
   tags: ["gestion", "conceptos"]
 
-variables:
-  es_control: verdadero
-
-respuesta: es_control
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "El seguimiento se enfoca en la recolección de datos sobre el progreso, mientras que el control implica la toma de acciones correctivas para volver al plan original. ¿Es esta distinción correcta?"
 
 explicacion: |
@@ -264,7 +255,7 @@ respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["se completó el 50% de las tareas", "se consumió el 50% del presupuesto", "se ha alcanzado el hito principal", "no hay desviación detectada"]
 
-enunciado: "Un gerente observa que el proyecto tiene un avance del {datos[idx][0]} respecto al tiempo transcurrido, pero nota una desviación crítica en el recurso principal. ¿Cuál es el error más común al reportar este estado?"
+enunciado: "Un gerente observa un reporte que indica que {datos[idx][0]}, en línea con el tiempo transcurrido, pero nota una desviación crítica en el recurso principal. ¿Cuál es el error más común al interpretar este reporte?"
 
 pasos:
   - "Identificar la métrica que está mostrando el avance."
@@ -329,11 +320,8 @@ metadata:
   nivel: "intermedio"
   tags: ["riesgo", "tiempo"]
 
-variables:
-  es_tarde: verdadero
-
-respuesta: es_tarde
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si el control se realiza únicamente al final de cada fase importante, se está realizando un seguimiento reactivo que impide la corrección temprana de desviaciones. ¿Es esto una práctica de control efectivo?"
 
 explicacion: |
@@ -349,13 +337,10 @@ metadata:
   nivel: "basico"
   tags: ["gestion", "planificacion"]
 
-variables:
-  es_control_preventivo: verdadero
-
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El seguimiento se centra en la recolección de datos sobre el estado actual, mientras que el control implica la toma de decisiones para corregir desviaciones. Si el objetivo es evitar que un error ocurra antes de que suceda, estamos ante un enfoque de control {es_control_preventivo}."
+enunciado: "El seguimiento se centra en la recolección de datos sobre el estado actual, mientras que el control implica la toma de decisiones para corregir desviaciones. Si el objetivo es evitar que un error ocurra antes de que suceda, estamos ante un enfoque de control preventivo. ¿Es correcta esta afirmación?"
 
 explicacion: |
   El seguimiento es la fase de observación y medición, mientras que el control es la acción correctiva. El control preventivo actúa sobre los riesgos antes de que se conviertan en problemas reales.
@@ -431,12 +416,9 @@ metadata:
   nivel: "avanzado"
   tags: ["linea_base"]
 
-variables:
-  es_indispensable: verdadero
-
-respuesta: es_indispensable
-tipo: completar
-enunciado: "Para poder ejercer el control de un proyecto, es indispensable contar con una 'Línea Base' (plan original). Sin un punto de referencia, el seguimiento no puede determinar si existe una desviación. ¿Es esto verdadero o falso? {es_indispensable}"
+respuesta: verdadero
+tipo: vf
+enunciado: "Para poder ejercer el control de un proyecto, es indispensable contar con una 'Línea Base' (plan original). Sin un punto de referencia, el seguimiento no puede determinar si existe una desviación. ¿Es esto verdadero o falso?"
 
 explicacion: |
   Sin una línea base (alcance, tiempo y costo), el seguimiento solo nos daría datos aislados, pero no nos permitiría saber si estamos cumpliendo o no con lo prometido.
