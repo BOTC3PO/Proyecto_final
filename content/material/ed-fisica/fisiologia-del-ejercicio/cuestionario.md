@@ -1,20 +1,6 @@
 # Ed. Física — Fisiología del ejercicio (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF2`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); `tipo:
-> vf` con `opciones_explicitas: ["Verdadero","Falso"]` innecesario —
-> normalizado a `respuesta: verdadero`/`falso` sin opciones; dos
-> preguntas con `variables:` mal anidadas (`[[[...],[...]]]`, un
-> nivel de más) donde `escenario_idx` indexaba fuera de rango y la
-> `respuesta:` quedaba fija sin importar el escenario sorteado —
-> reescritas con la lista plana correcta y `respuesta:` indexada;
-> `opciones_explicitas` con un texto que no coincidía exactamente con
-> `respuesta:` ("menos fuerza" vs "más fuerza") — corregido;
-> `respuestas_validas` con más de una opción cuando sólo una era
-> correcta — recortado.
 
 ---
 
