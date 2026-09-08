@@ -3,11 +3,6 @@
 > Continúa `cuestionario.md` (nivel 1). Cubre la profundidad de `BE`
 > dentro del tronco de Biología: alelo a nivel molecular, dominancia
 > incompleta, codominancia, cruza de prueba.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Sin bugs graves — sólo complejidad innecesaria
-> (`uno_de` sobre listas de un único valor repetido) simplificada a
-> valores fijos.
 
 ---
 
@@ -130,7 +125,8 @@ metadata:
 
 respuesta: "incompleta"
 tipo: completar
-respuestas_validas: ["incompleta"]
+respuestas_validas:
+  - "incompleta"
 
 enunciado: "Cuando el heterocigota muestra un fenotipo intermedio entre los dos homocigotas, se llama dominancia ___."
 
@@ -298,7 +294,8 @@ metadata:
 
 respuesta: "prueba"
 tipo: completar
-respuestas_validas: ["prueba"]
+respuestas_validas:
+  - "prueba"
 
 enunciado: "La cruza que sirve para descubrir el genotipo desconocido de un individuo con fenotipo dominante se llama cruza de ___."
 
@@ -356,7 +353,7 @@ variables:
   total_descendencia: uno_de([20, 40, 60, 80])
 
 respuesta: total_descendencia / 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En una cruza de prueba Aa × aa, si nacen {total_descendencia} crías en total, ¿cuántas se espera que tengan fenotipo recesivo?"
