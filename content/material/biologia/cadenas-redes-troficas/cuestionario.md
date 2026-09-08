@@ -1,11 +1,6 @@
 # Biología — Cadenas y redes tróficas (cuestionario, 24 preguntas VBLang)
 
 > Tema: `BH`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 6 lotes concurrentes.
-> Corregido a mano. Bug de esta tanda: `uno_de(...)` sorteando entre
-> las 4 opciones (correcta e incorrectas) de una pregunta cuya
-> respuesta era siempre la misma — sin necesidad de sorteo.
 
 ---
 
