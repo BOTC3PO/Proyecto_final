@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -155,8 +155,7 @@ variables:
 
 tipo: completar
 respuestas_validas:
-  - "5000"
-  - "10000"
+  - "500"
 
 enunciado: "Si para fundir {escenario[idx][0]} g de una sustancia se requieren {escenario[idx][1]} J, ¿cuánto calor se requiere para fundir 1 g?"
 
@@ -274,13 +273,11 @@ metadata:
 
 tipo: completar
 respuestas_validas:
-  - "Líquido"
-  - "Sólido"
   - "Gaseoso"
 
 enunciado: "Si una sustancia ha absorbido su calor latente de vaporización y se encuentra a la temperatura de ebullición, su estado es ____."
 
-respuesta: "Líquido"
+respuesta: "Gaseoso"
 ```
 
 ### 16 — Escenario de evaporación
@@ -381,14 +378,14 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[100, 334], [50, 334]]
+  escenario: [[334, 334], [167, 334]]
 
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Si un sistema libera {escenario[idx][0]} kJ de calor durante la solidificación, ¿cuántos kJ de energía se liberaron? (Considera el valor absoluto)"
+enunciado: "Un sistema libera {escenario[idx][0]} kJ de calor al solidificarse cierta masa de agua (L_fusión = {escenario[idx][1]} kJ/kg). ¿Cuál es esa masa, en kg?"
 
-respuesta: escenario[idx][0]
+respuesta: escenario[idx][0] / escenario[idx][1]
 ```
 
 ### 22 — El papel de la presión
@@ -434,7 +431,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[1000, 334000], [500, 334000]]
+  escenario: [[334000, 334000], [167000, 334000]]
 
 tipo: completar
 tolerancia_abs: 0.01
