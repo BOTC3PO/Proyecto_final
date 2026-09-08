@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -144,13 +144,11 @@ enunciado: "Si un espejo cóncavo tiene una distancia focal de {f} cm, ¿a qué 
 
 pasos:
   - "Identificar la distancia focal: f = 15 cm."
-  - "Para que la imagen sea virtual e infinita, el objeto debe estar en el foco."
-  - "Por lo tanto, la distancia del objeto es 15 cm (pero el enunciado pide la posición de la imagen/objeto en el límite, en este caso se refiere a la distancia al foco para imágenes en el infinito, pero para este cálculo de posición de objeto para imagen en el infinito, la distancia es f)."
-  - "Revisión: Si el objeto está en el foco, la imagen está en el infinito. Si el objeto está en el infinito, la imagen está en el foco. Si el objeto está en el centro de curvatura (2f), la imagen está en el centro de curvatura. Vamos a plantear una pregunta de posición de imagen para un objeto dado."
+  - "Para que la imagen se forme en la misma posición que el objeto, este debe estar en el centro de curvatura (C = 2f)."
+  - "Calcular: C = 2 * 15 = 30 cm."
 
-# Re-calculando para evitar ambigüedad:
-# Si f=15, C=30. Si objeto en 30, imagen en 30.
-# Si f=15, objeto en 10, 1/s + 1/s' = 1/f -> 1/10 + 1/s' = 1/15 -> 1/s' = 1/15 - 1/10 = -1/30 -> s' = -30.
+explicacion: |
+  Cuando un objeto se coloca en el centro de curvatura (C = 2f) de un espejo cóncavo, los rayos incidentes se reflejan sobre sí mismos y la imagen se forma exactamente en la misma posición que el objeto (real, invertida y del mismo tamaño).
 ```
 
 ### 7 — Distancia de la imagen en espejo cóncavo
@@ -164,7 +162,7 @@ metadata:
 
 variables:
   f: 20.0
-  s: 30.0
+  s: 15.0
 
 respuesta: -60.0
 tipo: completar
@@ -174,13 +172,15 @@ enunciado: "Un espejo cóncavo tiene una distancia focal de {f} cm. Si colocamos
 
 pasos:
   - "Usar la ecuación de los espejos: 1/s + 1/s' = 1/f"
-  - "Sustituir valores: 1/30 + 1/s' = 1/20"
-  - "Despejar 1/s': 1/s' = 1/20 - 1/30 = 3/60 - 2/60 = 1/60"
-  - "Sin embargo, si el objeto está entre el foco y el espejo, la imagen es virtual. Probemos con s=12: 1/12 + 1/s' = 1/20 -> 1/s' = 1/20 - 1/12 = 3/60 - 5/60 = -2/60 -> s' = -30."
-  - "Usemos s=12 para que sea virtual y requiera signo negativo."
+  - "Sustituir valores: 1/15 + 1/s' = 1/20"
+  - "Despejar 1/s': 1/s' = 1/20 - 1/15 = 3/60 - 4/60 = -1/60"
+  - "s' = -60 cm (imagen virtual, ya que el objeto está entre el foco y el espejo)"
 
-# Ajuste final de variables para el ejemplo:
-# f = 20, s = 12 -> s' = -30
+explicacion: |
+  Usamos la ecuación de Gauss: 1/s + 1/s' = 1/f.
+  1/15 + 1/s' = 1/20
+  1/s' = 1/20 - 1/15 = (3 - 4) / 60 = -1/60
+  s' = -60 cm. El signo negativo indica que la imagen es virtual, ya que el objeto está entre el foco y el espejo.
 ```
 
 ### 8 — Distancia de la imagen en espejo cóncavo
@@ -343,7 +343,6 @@ respuesta: "frente"
 tipo: completar
 respuestas_validas:
   - "frente"
-  - "detras"
 
 enunciado: "Para que un espejo cóncavo produzca una imagen real que pueda ser proyectada en una pantalla, el objeto debe colocarse ___ al espejo."
 
@@ -403,7 +402,6 @@ respuesta: "virtual"
 tipo: completar
 respuestas_validas:
   - "virtual"
-  - "real"
 
 enunciado: "A diferencia de una imagen real que puede proyectarse en una pantalla, la imagen formada por un espejo plano es de naturaleza ___."
 
@@ -420,11 +418,8 @@ metadata:
   nivel: "intermedio"
   tags: ["espejos", "reflexion"]
 
-variables:
-  es_convexo: uno_de([verdadero, falso])
-
-respuesta: es_convexo == verdadero
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Considerando la desviación de los rayos de luz tras la reflexión: ¿Es cierto que un espejo convexo siempre produce una imagen virtual y divergente, a diferencia de un espejo cóncavo que puede producir imágenes reales?"
 
 explicacion: |
@@ -466,7 +461,7 @@ metadata:
   tags: ["optica", "rayos_luz"]
 
 opciones_explicitas: ["Incidencia", "Reflexión", "Propagación"]
-respuesta_orden: ["Incidencia", "Reflexión", "Propagación"]
+respuesta_orden: ["Propagación", "Incidencia", "Reflexión"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los fenómenos que ocurren cuando un rayo de luz se encuentra con un espejo plano:"
@@ -549,11 +544,8 @@ metadata:
   nivel: "intermedio"
   tags: ["espejos_convexos", "seguridad"]
 
-variables:
-  es_convexo: verdadero
-
-respuesta: es_convexo
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Los espejos situados en las salidas de los estacionamientos o en curvas peligrosas suelen ser convexos para ampliar el campo visual. ¿Es cierto que un espejo convexo siempre produce imágenes virtuales y menores que el objeto?"
 
 explicacion: |
