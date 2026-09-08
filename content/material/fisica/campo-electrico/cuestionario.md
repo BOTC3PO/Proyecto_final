@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -80,11 +80,7 @@ metadata:
   nivel: "intermedio"
   tags: ["fuerza", "direccion"]
 
-variables:
-  caso: uno_de([0, 1])
-  tabla: [["misma", "opuesta"], ["opuesta", "misma"]]
-
-respuesta: tabla[caso][1]
+respuesta: "opuesta"
 tipo: mc
 opciones_explicitas: ["misma", "opuesta", "perpendicular"]
 
@@ -129,7 +125,7 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El campo eléctrico es una perturbación en el espacio que rodea a una carga eléctrica y que ejerce una fuerza sobre otras cargas colocadas en su vicinity."
+enunciado: "El campo eléctrico es una perturbación en el espacio que rodea a una carga eléctrica y que ejerce una fuerza sobre otras cargas colocadas en su vecindad."
 
 explicacion: |
   El campo eléctrico es una magnitud vectorial que describe la influencia que una carga ejerce sobre el espacio circundante.
@@ -194,21 +190,20 @@ metadata:
   tags: ["fuerza", "carga_de_prueba"]
 
 variables:
-  datos: [["1.5e-6", "3.0e-3"], ["2.0e-6", "4.0e-3"]]
+  datos: [[1.5e-6, 3.0e-3], [2.0e-6, 4.0e-3]]
   idx: uno_de([0, 1])
   q: datos[idx][0]
   E: datos[idx][1]
-  F: "{q}*{E}"
 
-respuesta: F
+respuesta: q * E
 tipo: completar
+tolerancia_abs: 1e-10
 
 enunciado: "Si una carga de {q} C se coloca en un campo eléctrico de {E} N/C, la fuerza resultante sobre ella es de ___ N."
 
 explicacion: |
-  La relación es F = q * E. 
-  Caso 1: 1.5e-6 * 3.0e-3 = 4.5e-9 (Nota: El ejemplo en el enunciado usa valores simplificados para el ejercicio).
-  Para el ejercicio planteado: F = q * E.
+  La relación es F = q * E.
+  Para el caso seleccionado: F = {q} * {E} = {q * E} N.
 ```
 
 ### 10 — Orden de pasos para resolver un problema
@@ -307,20 +302,15 @@ metadata:
   nivel: "intermedio"
   tags: ["ley_coulomb", "intensidad"]
 
-variables:
-  distancia_relativa: uno_de([0.5, 2.0])
-  factor_distancia: uno_de([4.0, 0.25])
-
 enunciado: "Si la distancia entre una carga puntual y un punto en el espacio se duplica (se multiplica por 2), la magnitud del campo eléctrico en ese punto cambiará por un factor de ___."
 
 pasos:
   - "Recordar que el campo eléctrico es inversamente proporcional al cuadrado de la distancia (E ∝ 1/r²)"
   - "Calcular (1 / 2²) para hallar el factor de cambio"
 
-respuesta: factor_distancia
+respuesta: "0.25"
 tipo: completar
 respuestas_validas:
-  - "4.0"
   - "0.25"
 
 explicacion: |
@@ -501,7 +491,7 @@ metadata:
   tags: ["fuerza_electrica", "calculo"]
 
 variables:
-  datos: [["1.5", "0.05"], ["2.0", "0.08"], ["0.5", "0.02"]]
+  datos: [[1.5, 1.5], [2.0, 2.0], [0.5, 0.5]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "En un proceso de filtrado de partículas cargadas, una partícula con carga de {datos[idx][0]} C se encuentra dentro de un campo eléctrico uniforme de 1 N/C. La magnitud de la fuerza eléctrica que actúa sobre la partícula es de ___ N."
