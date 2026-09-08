@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -25,7 +25,6 @@ tipo: completar
 respuestas_validas:
   - "fuerza / area"
   - "fuerza / área"
-  - "F/A"
   - "F/A"
 
 enunciado: "La tensión (o esfuerzo) se define matemáticamente como la relación entre la ___ aplicada sobre una sección transversal y el ___ de dicha sección."
@@ -166,7 +165,6 @@ metadata:
 
 variables:
   esfuerzo: 150
-  area: 100
 
 respuesta: verdadero
 tipo: vf
@@ -227,21 +225,15 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion", "tension"]
 
-variables:
-  fuerza: 1000
-  area: 50
-  tension_calculada: 20
-
-respuesta: "20"
+respuesta: "doble"
 tipo: completar
 respuestas_validas:
-  - "20"
+  - "doble"
 
 enunciado: "Si duplicamos la carga aplicada a una barra manteniendo su área constante, la tensión resultante será el ___ de la tensión original."
 
 explicacion: |
-  Como la tensión $\sigma = F / A$ es directamente proporcional a la fuerza, si la fuerza se duplica, la tensión también se duplica.
-  En este ejemplo: $1000 / 50 = 20$.
+  Como la tensión $\sigma = F / A$ es directamente proporcional a la fuerza, si la fuerza se duplica (manteniendo el área constante), la tensión también se duplica.
 ```
 
 ### 11 — Tensión vs Presión
@@ -316,22 +308,23 @@ metadata:
   tags: ["calculo", "tension_axial"]
 
 variables:
-  datos: [[1200, 0.02, 0.05], [800, 0.03, 0.04]]
+  datos: [[1200, 0.02], [800, 0.03]]
+  idx: uno_de([0, 1])
 
-respuesta: datos[0][0] / datos[0][1]
+respuesta: datos[idx][0] / datos[idx][1]
 
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Se aplica una carga axial de 1200 N sobre una barra de sección transversal de 0.02 m². ¿Cuál es el valor del esfuerzo normal (en Pascales)?"
+enunciado: "Se aplica una carga axial de {datos[idx][0]} N sobre una barra de sección transversal de {datos[idx][1]} m². ¿Cuál es el valor del esfuerzo normal (en Pascales)?"
 
 pasos:
-  - "Identificar la carga (P = 1200 N)"
-  - "Identificar el área (A = 0.02 m²)"
+  - "Identificar la carga (P)"
+  - "Identificar el área (A)"
   - "Calcular el esfuerzo usando la fórmula σ = P / A"
 
 explicacion: |
-  El esfuerzo normal σ se calcula dividiendo la fuerza aplicada (N) por el área de la sección transversal (m²). En este caso: 1200 / 0.02 = 60000 Pa.
+  El esfuerzo normal σ se calcula dividiendo la fuerza aplicada (N) por el área de la sección transversal (m²): σ = {datos[idx][0]} / {datos[idx][1]} = {redondear(datos[idx][0] / datos[idx][1], 2)} Pa.
 ```
 
 ### 15 — Secuencia de análisis estructural
@@ -362,11 +355,8 @@ metadata:
   nivel: "basico"
   tags: ["tension", "esfuerzo", "conceptos"]
 
-variables:
-  es_distinguido: verdadero
-
-respuesta: es_distinguido
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En ingeniería, la tensión se define como la fuerza interna por unidad de área, mientras que el concepto de esfuerzo suele referirse a la carga aplicada externamente sobre una sección transversal. ¿Es esta distinción conceptualmente válida para diferenciar la respuesta interna del material de la carga externa?"
 
 explicacion: |
@@ -540,9 +530,9 @@ metadata:
   nivel: "basico"
   tags: ["triangulo", "elementos"]
 
-respuesta_orden: ["Vértice", "Vértice", "Vértice"]
+respuesta_orden: ["Vértice", "Lado", "Superficie"]
 tipo: ordenar
-opciones_explicitas: ["Vértice", "Vértice", "Vértice"]
+opciones_explicitas: ["Vértice", "Lado", "Superficie"]
 
 enunciado: "Ordene los elementos de un triángulo según su jerarquía de construcción (puntos de unión, líneas de conexión, espacio interno):"
 
