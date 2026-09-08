@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -98,15 +98,11 @@ metadata:
   nivel: "intermedio"
   tags: ["evaluacion", "criterios"]
 
-variables:
-  escenario: uno_de([["Bajo costo / Alta complejidad", "Costo"], ["Alta velocidad / Baja calidad", "Velocidad"], ["Máxima calidad / Alto costo", "Calidad"]])
-
 tipo: completar
 respuestas_validas:
   - "Costo"
-  - "Velocidad"
-  - "Calidad"
-respuesta: escenario[1]
+
+respuesta: "Costo"
 
 enunciado: "Si al evaluar una solución priorizamos que sea la más económica posible, el criterio de evaluación principal es el ___________."
 
@@ -360,9 +356,6 @@ metadata:
   nivel: "intermedio"
   tags: ["brainstorming", "metodologia"]
 
-variables:
-  es_critica: uno_de([verdadero, falso])
-
 respuesta: falso
 tipo: vf
 
@@ -419,9 +412,6 @@ metadata:
   nivel: "avanzado"
   tags: ["sesgos", "cognicion"]
 
-variables:
-  caso_estudio: uno_de([0, 1])
-
 respuesta: "sesgo de anclaje"
 tipo: "completar"
 respuestas_validas:
@@ -443,16 +433,16 @@ metadata:
   tags: ["alternativas", "decision"]
 
 variables:
-  escenarios: [["El transporte de carga es muy costoso", "optimizar rutas"], ["La empresa quiere reducir costos", "contratar más vehículos"]]
+  escenario: uno_de([["El transporte de carga es muy costoso", "optimizar rutas"], ["La empresa no logra cubrir toda la demanda de entregas a tiempo", "contratar más vehículos"]])
 
-respuesta: escenarios[1][1]
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["optimizar rutas", "contratar más vehículos", "cambiar de proveedor", "no hacer nada"]
 
-enunciado: "Ante el problema de que {escenarios[1][0]}, ¿cuál sería la alternativa más directa para abordar la situación?"
+enunciado: "Ante el problema de que {escenario[0]}, ¿cuál sería la alternativa más directa para abordar la situación?"
 
 explicacion: |
-  Diseñar soluciones requiere identificar si el problema es de costo o de tiempo. En este caso, la alternativa seleccionada ataca directamente la raíz del problema planteado.
+  Diseñar soluciones requiere identificar si el problema es de costo, de capacidad o de tiempo. En este caso, la alternativa seleccionada ataca directamente la raíz del problema planteado.
 ```
 
 ### 22 — Evaluación de impacto
@@ -465,16 +455,14 @@ metadata:
   tags: ["evaluacion", "riesgo"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Implementar software nuevo", "Cambiar la política de horarios"], ["Reducir el presupuesto", "Aumentar la jornada laboral"]]
-  es_viable: [falso, falso]
+  medida: uno_de(["Implementar software nuevo", "Cambiar la política de horarios", "Reducir el presupuesto", "Aumentar la jornada laboral"])
 
-respuesta: es_viable[caso_idx]
-tipo: completar
-enunciado: "Si decides aplicar la medida de: {casos[caso_idx]}, ¿consideras que la solución es viable sin realizar un estudio de impacto previo?"
+respuesta: falso
+tipo: vf
+enunciado: "Si decides aplicar la medida de: '{medida}', ¿consideras que la solución es viable sin realizar un estudio de impacto previo?"
 
 explicacion: |
-  En el diseño de soluciones, una alternativa puede ser lógica pero no viable sin un análisis previo. En ambos casos presentados, la respuesta es falsa debido a la falta de estudio de impacto.
+  En el diseño de soluciones, una alternativa puede ser lógica pero no viable sin un análisis previo. En los cuatro casos presentados, la respuesta es falsa debido a la falta de estudio de impacto.
 ```
 
 ### 23 — Secuencia de ideación
@@ -507,19 +495,16 @@ metadata:
 
 variables:
   contexto_idx: uno_de([0, 1])
-  contextos: [["El cliente pide rapidez", "El cliente pide calidad"], ["El cliente pide bajo costo", "El cliente pide durabilidad"]]
+  contextos: ["El cliente pide rapidez en la entrega", "El cliente pide precisión y calidad en el producto final"]
   termino_clave: ["velocidad", "precisión"]
 
 respuesta: termino_clave[contexto_idx]
 tipo: completar
-respuestas_validas:
-  - "velocidad"
-  - "precisión"
 
-enunciado: "Si el problema principal detectado es que el cliente requiere ____, la solución debe enfocarse en la optimización de procesos de entrega."
+enunciado: "Si el problema principal detectado es que '{contextos[contexto_idx]}', la palabra clave que resume la necesidad del cliente es ____."
 
 explicacion: |
-  El diseño de soluciones debe estar alineado con la necesidad principal. Si la necesidad es rapidez, la palabra clave es velocidad.
+  El diseño de soluciones debe estar alineado con la necesidad principal. Si la necesidad es rapidez, la palabra clave es velocidad; si es calidad del resultado, la palabra clave es precisión.
 ```
 
 ### 25 — El filtro de soluciones
@@ -543,5 +528,5 @@ opciones_explicitas: ["alto", "bajo", "medio", "nulo"]
 enunciado: "Al evaluar una alternativa de solución, si el factor de {criterios[criterio_idx]} es ____, la solución podría ser difícil de adoptar a pesar de ser efectiva."
 
 explicacion: |
-  Evaluar las restricciones es parte del diseño. Si el criterio evaluado tiene un valor "alto" (ya sea en costo o dificultad), la implementación se ve comprometida.
+  Evaluar las restricciones es parte del diseño: un costo de implementación alto, o una facilidad de uso baja, dificultan que una solución efectiva termine siendo adoptada.
 ```
