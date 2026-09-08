@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,13 +41,10 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "terminologia"]
 
-variables:
-  es_necesario: verdadero
-
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para evitar un bucle infinito en una función recursiva, es indispensable contar con un {es_necesario} caso base que detenga las llamadas."
+enunciado: "Para evitar un bucle infinito en una función recursiva, es indispensable contar con al menos un caso base que detenga las llamadas."
 
 explicacion: |
   Sin un caso base, la función se llamaría a sí misma indefinidamente (causando un error de desbordamiento de pila o stack overflow).
@@ -262,18 +259,14 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo_ejecucion", "recursividad"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["f(3) -> f(2) -> f(1) -> f(0) -> Retorno", "f(3) -> f(2) -> f(1) -> f(0) -> Retorno"], ["f(3) -> f(4) -> f(5) -> ...", "f(3) -> f(4) -> f(5) -> ..."]]
-
-respuesta: escenario[idx][1]
+respuesta: "f(3) -> f(2) -> f(1) -> f(0) -> Retorno"
 tipo: mc
 opciones_explicitas: ["f(3) -> f(2) -> f(1) -> f(0) -> Retorno", "f(3) -> f(4) -> f(5) -> ..."]
 
 enunciado: "Si tenemos una función que resta 1 al argumento en cada llamada y el caso base es cuando el argumento es 0, ¿cuál es la secuencia correcta de llamadas para f(3)?"
 
 explicacion: |
-  En una recursión correcta, cada llamada debe acercarse al caso base. En el escenario {escenario[idx][0]}, la secuencia se detiene al llegar a 0.
+  En una recursión correcta, cada llamada debe acercarse al caso base. La secuencia f(3) -> f(2) -> f(1) -> f(0) se detiene al llegar a 0.
 ```
 
 ### 14 — Componentes de la función
@@ -346,7 +339,7 @@ metadata:
   nivel: "intermedio"
   tags: ["recursividad", "iteracion", "comparacion"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "En términos de complejidad de espacio en la memoria (stack), una función recursiva suele ser más costosa que un bucle iterativo equivalente debido al uso de la pila de llamadas."
@@ -511,7 +504,7 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][1]
-tipo: "input"
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Si tenemos una función para calcular el factorial de n, donde f(n) = n * f(n-1) y f(0) = 1, ¿cuál es el resultado de ejecutar la función con el valor n = {datos[idx][0]}?"
