@@ -1,11 +1,6 @@
 # Química — Equilibrio químico y Kc (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QP`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Esta tanda salió sin bugs funcionales — sólo cosmético: `tema:` con
-> typo ("equilibrio_quimica_kc") en algunos bloques, normalizado, y
-> LaTeX crudo (`$K_c \gg 1$`) pasado a texto plano.
 
 ---
 
@@ -98,7 +93,7 @@ variables:
   c: uno_de([2, 4, 8])
 
 respuesta: c / (a * b)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para la reacción A + B ⇌ C en equilibrio, con [A] = {a} M, [B] = {b} M y [C] = {c} M, calculá la constante de equilibrio Kc."
