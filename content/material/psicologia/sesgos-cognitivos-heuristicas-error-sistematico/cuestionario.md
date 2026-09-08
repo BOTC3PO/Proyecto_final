@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -162,7 +162,7 @@ metadata:
   nivel: "basico"
   tags: ["confirmacion", "evidencia"]
 
-enunciado: "Un investigador que cree que una nueva terapia es efectiva solo busca estudios que demuestren su éxito y descarta aquellos que muestran que no funciona. ¿Es este un ejemplo de sesgo de confirmación? ___"
+enunciado: "Un investigador que cree que una nueva terapia es efectiva solo busca estudios que demuestren su éxito y descarta aquellos que muestran que no funciona. ¿Es este un ejemplo de sesgo de confirmación?"
 
 respuesta: verdadero
 tipo: vf
@@ -301,9 +301,9 @@ metadata:
 
 variables:
   idx: uno_de([0,1])
-  datos: [["$100", "bajo"], ["$10", "alto"]]
+  datos: [["$100", "alto"], ["$10", "bajo"]]
 
-enunciado: "Si en una subasta el primer precio que se menciona es de {datos[idx][0]}, la percepción del valor de los objetos siguientes se verá afectada hacia un nivel {datos[idx][1]} debido al efecto de anclaje."
+enunciado: "Si en una subasta el primer precio que se menciona es de {datos[idx][0]}, la percepción del valor de los objetos siguientes se verá afectada hacia un nivel ___ debido al efecto de anclaje."
 
 respuesta: datos[idx][1]
 tipo: completar
@@ -405,9 +405,6 @@ metadata:
   nivel: "avanzado"
   tags: ["anclaje", "ajuste"]
 
-variables:
-  escenario: uno_de(["ancla | ajuste", "base | cálculo", "punto | movimiento"])
-
 enunciado: "En el efecto de anclaje, el primer dato recibido actúa como un ___ sobre el cual se realiza un ___ insuficiente para llegar a la respuesta correcta."
 
 opciones_explicitas: ["ancla | ajuste", "base | cálculo", "punto | movimiento"]
@@ -480,10 +477,6 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas:
-  - "500"
-  - "2500"
-  - "40"
 
 enunciado: "En una negociación, si el vendedor comienza diciendo que el precio es de ${datos[idx][0]}, la primera cifra actúa como un 'ancla' que condiciona la negociación, haciendo que la contraparte termine aceptando un precio cercano a ${datos[idx][1]}."
 
