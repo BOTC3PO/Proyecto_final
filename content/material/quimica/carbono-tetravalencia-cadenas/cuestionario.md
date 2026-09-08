@@ -1,14 +1,6 @@
 # Química — Carbono: tetravalencia y cadenas (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QR`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo — 4
-> lotes concurrentes, `Max Concurrent Predictions: 8`) y corregido a
-> mano. Bugs de esta tanda: `opciones_explicitas` con los nombres de
-> tipo mientras `respuesta` daba la descripción (no coincidían),
-> `opciones_explicitas` como strings ("1"/"2"/"3") contra `respuesta`
-> numérica, y un `uno_de(...)` sorteando entre las 4 opciones de una
-> pregunta cuya respuesta correcta era siempre la misma.
 
 ---
 
