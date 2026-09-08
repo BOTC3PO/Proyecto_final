@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -44,11 +44,11 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [["capital", "recursos financieros y maquinaria"], ["humanos", "conocimientos y habilidades de las personas"]]
 
-respuesta: uno_de(["capital", "humanos"])
+respuesta: datos[escenario_idx][0]
 tipo: mc
 opciones_explicitas: ["capital", "humanos", "tecnología", "materias primas"]
 
-enunciado: "En el contexto de la coordinación de recursos, el factor representado por {datos[escenario_idx][0]} se refiere a {datos[escenario_idx][1]}."
+enunciado: "En el contexto de la coordinación de recursos, ¿qué factor se refiere a {datos[escenario_idx][1]}?"
 
 explicacion: |
   Las organizaciones deben coordinar diversos recursos. El tipo seleccionado en este ejercicio es {datos[escenario_idx][0]}.
@@ -104,11 +104,11 @@ variables:
   caso_idx: uno_de([0, 1])
   casos: [["se detecta una desviación en la producción", "corregir la desviación"], ["se comparan los resultados con los objetivos", "verificar el desempeño"]]
 
-respuesta: uno_de(["corregir la desviación", "verificar el desempeño"])
+respuesta: casos[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["corregir la desviación", "verificar el desempeño", "asignar tareas", "contratar personal"]
 
-enunciado: "Si en una empresa {casos[caso_idx][0]}, la acción inmediata que corresponde a la función de control es {casos[caso_idx][1]}."
+enunciado: "Si en una empresa {casos[caso_idx][0]}, ¿cuál es la acción inmediata que corresponde a la función de control?"
 
 explicacion: |
   El control implica comparar el desempeño real con los estándares planeados y, si hay diferencias, tomar medidas para corregirlas.
@@ -145,9 +145,6 @@ metadata:
   tema: "coordinacion_recursos"
   nivel: "intermedio"
   tags: ["costo_oportunidad", "decision"]
-
-variables:
-  escenario: uno_de([["recurso_a", "recurso_b"], ["tiempo_dev", "tiempo_marketing"]])
 
 enunciado: "Si una empresa decide utilizar todo su presupuesto disponible para contratar más personal de producción en lugar de invertir en publicidad, el costo de oportunidad es el ___ que se dejó de obtener."
 
@@ -208,10 +205,7 @@ metadata:
   nivel: "avanzado"
   tags: ["tecnologia", "productividad"]
 
-variables:
-  tecnologia: uno_de([["software_gestión", "maquinaria_automatica"]])
-
-enunciado: "Una fábrica decide implementar {tecnologia} para coordinar mejor sus turnos de trabajo. Si esta implementación reduce el tiempo de inactividad de los trabajadores en un 15%, la productividad laboral total de la empresa ___."
+enunciado: "Una fábrica decide implementar un software de gestión para coordinar mejor sus turnos de trabajo. Si esta implementación reduce el tiempo de inactividad de los trabajadores en un 15%, la productividad laboral total de la empresa ___."
 
 respuestas_validas:
   - "aumentará"
@@ -270,9 +264,6 @@ metadata:
   nivel: "avanzado"
   tags: ["planificacion", "logistica"]
 
-variables:
-  pasos_orden: [0, 1, 2]
-
 respuesta_orden: ["Identificar necesidades", "Asignar recursos", "Monitorear ejecución"]
 tipo: ordenar
 opciones_explicitas: ["Monitorear ejecución", "Identificar necesidades", "Asignar recursos"]
@@ -297,16 +288,12 @@ metadata:
   nivel: "intermedio"
   tags: ["especializacion", "costos"]
 
-variables:
-  escenario: uno_de([[10, "exceso"], [5, "escasez"]])
-
-respuesta: "____"
+respuesta: "exceso"
 tipo: completar
 respuestas_validas:
   - "exceso"
-  - "escasez"
 
-enunciado: "Si una empresa asigna demasiados trabajadores a una misma tarea de modo que se estorben entre sí, se produce un ____ de recursos humanos."
+enunciado: "Si una empresa asigna demasiados trabajadores a una misma tarea de modo que se estorben entre sí, se produce un ___ de recursos humanos."
 
 explicacion: |
   El exceso de recursos en una tarea específica genera rendimientos marginales decrecientes y aumenta los costos de coordinación.
@@ -321,7 +308,7 @@ metadata:
   nivel: "intermedio"
   tags: ["informacion", "asimetria"]
 
-respuesta: 25.5
+respuesta: 56
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -330,7 +317,6 @@ enunciado: "Un equipo de 10 personas debe completar 200 unidades. Si la capacida
 pasos:
   - "Calcular la producción teórica: 10 personas * 7 unidades = 70 unidades."
   - "Aplicar la reducción por falta de coordinación: 70 * (1 - 0.20) = 56."
-  - "Nota: El enunciado pide la producción final tras la caída."
 
 explicacion: |
   La falta de coordinación actúa como una fricción que reduce la productividad real por debajo de la capacidad teórica de los recursos individuales.
@@ -369,11 +355,11 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["un equipo de producción de automóviles", "gestionar la cadena de suministros"], ["una clínica médica", "coordinar turnos de especialistas"]]
 
-respuesta: uno_de(["gestionar la cadena de suministros", "coordinar turnos de especialistas"])
+respuesta: escenarios[escenario_idx][1]
 tipo: "mc"
 opciones_explicitas: ["gestionar la cadena de suministros", "coordinar turnos de especialistas", "eliminar la necesidad de supervisión", "maximizar la autonomía individual sin control"]
 
-enunciado: "En el escenario de {escenarios[escenario_idx][0]}, la función principal de la coordinación de recursos es {escenarios[escenario_idx][1]}."
+enunciado: "En el escenario de {escenarios[escenario_idx][0]}, ¿cuál es la función principal de la coordinación de recursos?"
 
 explicacion: |
   La coordinación busca sincronizar los recursos (humanos o materiales) con la demanda o el flujo de trabajo para evitar cuellos de botella.
@@ -516,16 +502,13 @@ metadata:
   nivel: "basico"
   tags: ["productividad", "especializacion"]
 
-variables:
-  escenario: uno_de([["En un taller, la división de tareas aumenta la eficiencia.", "Aumenta"], ["En un taller, la división de tareas disminuye la eficiencia.", "Disminuye"]])
-
 tipo: mc
 
 opciones_explicitas: ["Aumenta", "Disminuye", "Se mantiene igual"]
 
-enunciado: "Considerando la teoría de la división del trabajo de Adam Smith, si aplicamos la especialización en un taller: la eficiencia {escenario[1]}"
+enunciado: "Considerando la teoría de la división del trabajo de Adam Smith, si aplicamos la especialización en un taller, ¿qué ocurre con la eficiencia?"
 
-respuesta: escenario[1]
+respuesta: "Aumenta"
 
 explicacion: |
   La especialización permite que los trabajadores se vuelvan más hábiles en tareas específicas, reduciendo tiempos de transición y aumentando la productividad.
