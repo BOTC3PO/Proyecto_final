@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -77,11 +77,7 @@ metadata:
   nivel: "basico"
   tags: ["variables", "formula"]
 
-variables:
-  datos: [[1000, "densidad", "kg/m^3"], [9.8, "gravedad", "m/s^2"], [5, "profundidad", "m"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "densidad"
 tipo: "mc"
 opciones_explicitas: ["densidad", "gravedad", "profundidad"]
 
@@ -118,9 +114,9 @@ metadata:
   nivel: "basico"
   tags: ["teoria", "conceptos"]
 
-respuesta: "d"
+respuesta: "únicamente de la profundidad, la densidad y la gravedad"
 tipo: "mc"
-opciones_explicitas: ["a", "b", "c", "d"]
+opciones_explicitas: ["únicamente de la profundidad, la densidad y la gravedad", "del área de la base del recipiente", "del volumen total del fluido", "de la forma del recipiente"]
 
 enunciado: "La presión hidrostática en un fluido en reposo depende de la profundidad, la densidad del fluido y la aceleración de la gravedad. Si un recipiente tiene una forma irregular, la presión en el fondo dependerá de:"
 
@@ -141,7 +137,7 @@ metadata:
   tags: ["calculo", "hidrostatica"]
 
 variables:
-  escenario: uno_de([[1000, 10, 20, 200000], [800, 5, 10, 40000], [1260, 4, 5, 30870]])
+  escenario: uno_de([[1000, 10, 20, 200000], [800, 5, 10, 40000], [1260, 4, 5, 25200]])
 
 respuesta: escenario[3]
 tipo: "input"
@@ -338,12 +334,13 @@ metadata:
   nivel: "basico"
   tags: ["presion", "fuerza", "conceptos"]
 
-enunciado: "Mientras que la fuerza es una interacción que puede ser vectorial y depender del área de contacto, la presión se define como la ___ ejercida por una superficie sobre un objeto."
+enunciado: "La presión se define como la fuerza ejercida por unidad de ___."
 
 respuestas_validas:
-  - "fuerza"
+  - "área"
+  - "superficie"
 
-respuesta: "fuerza"
+respuesta: "área"
 tipo: completar
 
 explicacion: |
@@ -361,13 +358,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [[40, 100, 200], [50, 150, 250]]
+  datos: [[40, 100], [50, 150]]
+  factor_idx: uno_de([0, 1, 2])
+  factores: ["área", "volumen", "forma"]
 
-enunciado: "Considerando un recipiente con un área de base de {datos[escenario_idx][0]} cm² y una profundidad de {datos[escenario_idx][1]} cm, la presión hidrostática en el fondo depende únicamente de la densidad del fluido, la gravedad y la profundidad, siendo independiente del {datos[escenario_idx][2]} del recipiente."
+enunciado: "Considerando un recipiente con un área de base de {datos[escenario_idx][0]} cm² y una profundidad de {datos[escenario_idx][1]} cm, la presión hidrostática en el fondo depende únicamente de la densidad del fluido, la gravedad y la profundidad, siendo independiente del {factores[factor_idx]} del recipiente."
 
 opciones_explicitas: ["área", "volumen", "forma"]
 
-respuesta: uno_de(["área", "volumen", "forma"])
+respuesta: factores[factor_idx]
 tipo: mc
 
 explicacion: |
@@ -411,7 +410,7 @@ enunciado: "Si tenemos dos columnas de igual radio y misma altura $h$, pero una 
 
 opciones_explicitas: ["mayor", "menor", "igual"]
 
-respuesta: uno_de(["mayor", "menor", "igual"])
+respuesta: "mayor"
 tipo: mc
 
 explicacion: |
@@ -431,8 +430,6 @@ enunciado: "Si la profundidad de un buzo aumenta al doble, la presión hidrostá
 
 respuestas_validas:
   - "doble"
-  - "cuádruple"
-  - "mitad"
 
 respuesta: "doble"
 tipo: completar
@@ -480,17 +477,20 @@ metadata:
   tags: ["comparacion", "fluidos"]
 
 variables:
-  datos: [["agua_dulce", 1000, "agua_salada", 1030], ["agua_dulce", 1000, "mercurio", 13600], ["agua_dulce", 1000, "aceite", 800]]
+  nombres: [["agua dulce", "agua salada"], ["agua dulce", "mercurio"], ["agua dulce", "aceite"]]
+  densidades: [[1000, 1030], [1000, 13600], [1000, 800]]
   idx: uno_de([0, 1, 2])
-  rho1: datos[idx][0]
-  rho2: datos[idx][2]
+  nombre1: nombres[idx][0]
+  rho1: densidades[idx][0]
+  nombre2: nombres[idx][1]
+  rho2: densidades[idx][1]
 
-respuesta: "rho1 < rho2"
-tipo: completar
-enunciado: "Si dos recipientes iguales están llenos con {rho1} y {rho2} respectivamente, y se miden a la misma profundidad, ¿la presión en el recipiente con {rho1} es menor que en el de {rho2}?"
+respuesta: rho1 < rho2
+tipo: vf
+enunciado: "Si dos recipientes iguales están llenos con {nombre1} (densidad {rho1} kg/m³) y {nombre2} (densidad {rho2} kg/m³) respectivamente, y se miden a la misma profundidad, ¿la presión en el recipiente con {nombre1} es menor que en el de {nombre2}?"
 
 explicacion: |
-  La presión hidrostática es directamente proporcional a la densidad del fluido. Como la densidad de {rho1} es menor que la de {rho2}, la presión también lo será.
+  La presión hidrostática es directamente proporcional a la densidad del fluido. Comparando: {nombre1} tiene {rho1} kg/m³ y {nombre2} tiene {rho2} kg/m³.
 ```
 
 ### 23 — El misterio del tanque
@@ -503,21 +503,18 @@ metadata:
   tags: ["completar", "fluidos"]
 
 variables:
-  casos: [["10", "20", "500"], ["5", "40", "200"], ["2", "100", "2000"]]
   idx: uno_de([0, 1, 2])
+  profundidades: [5, 10, 2]
   rho: 1000
   g: 9.8
-  h: casos[idx][1]
-  p_calc: casos[idx][2]
+  h: profundidades[idx]
+  p_calc: redondear(rho * g * h, 0)
 
 respuesta: h
 tipo: completar
-respuestas_validas:
-  - "10"
-  - "5"
-  - "2"
+tolerancia_abs: 0.1
 
-enunciado: "Un tanque con un fluido de densidad 1000 kg/m³ tiene una profundidad de ___ metros. Si la presión hidrostática en el fondo es de {p_calc} Pa, ¿cuál es la profundidad?"
+enunciado: "Un tanque con un fluido de densidad 1000 kg/m³ tiene una profundidad de ___ metros. Si la presión hidrostática en el fondo es de {p_calc} Pa (con g = 9.8 m/s²), ¿cuál es la profundidad?"
 
 explicacion: |
   Despejando la fórmula P = ρ · g · h para la profundidad (h):
