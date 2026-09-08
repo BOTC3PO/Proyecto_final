@@ -1,9 +1,6 @@
 # Biología — Célula y organelas (cuestionario, 20 preguntas VBLang)
 
 > Tema: `BB`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Sin bugs funcionales esta tanda.
 
 ---
 
