@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,15 +41,11 @@ metadata:
   nivel: "basico"
   tags: ["jerarquia", "directorios"]
 
-variables:
-  datos: [["Estructura lineal", "Estructura jerárquica"], ["Estructura plana", "Estructura jerárquica"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "Estructura jerárquica"
 tipo: mc
 opciones_explicitas: ["Estructura lineal", "Estructura jerárquica", "Estructura aleatoria", "Estructura plana"]
 
-enunciado: "La mayoría de los sistemas operativos modernos utilizan una estructura de archivos de tipo {datos[idx][0]} para organizar la información."
+enunciado: "¿Qué tipo de estructura de archivos utiliza la mayoría de los sistemas operativos modernos para organizar la información?"
 
 explicacion: |
   Una estructura jerárquica permite organizar archivos en directorios y subdirectorios, creando una "rama" o árbol de información.
@@ -102,14 +98,11 @@ metadata:
   nivel: "intermedio"
   tags: ["sectores", "clúster"]
 
-variables:
-  datos: uno_de([["Sector", "Clúster"], ["Clúster", "Clúster"]])
-
-respuesta: datos[1]
+respuesta: "Clúster"
 tipo: mc
 opciones_explicitas: ["Sector", "Clúster", "Pista", "Cilindro"]
 
-enunciado: "En un sistema de archivos, la unidad lógica mínima de asignación de espacio en el disco, que puede estar compuesta por varios sectores físicos, se denomina {datos[0]}."
+enunciado: "En un sistema de archivos, la unidad lógica mínima de asignación de espacio en el disco, que puede estar compuesta por varios sectores físicos, se denomina ___."
 
 explicacion: |
   Un clúster es la unidad de asignación de espacio que utiliza el sistema de archivos para gestionar bloques de datos en el disco.
@@ -147,14 +140,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["archivo_A", "40KB", "fragmentado"], ["archivo_B", "12KB", "contiguo"]]
-  opcion_correcta: ["fragmentado", "contiguo"]
+  datos: [["archivo_A", "40KB", "en bloques no adyacentes, ya que el espacio libre está disperso", "fragmentado"], ["archivo_B", "12KB", "en un único bloque de espacio libre contiguo", "contiguo"]]
 
-respuesta: datos[escenario_idx][2]
+respuesta: datos[escenario_idx][3]
 tipo: mc
 opciones_explicitas: ["fragmentado", "contiguo"]
 
-enunciado: "Un archivo de {datos[escenario_idx][0]} tiene un tamaño de {datos[escenario_idx][1]}. Si el sistema de archivos debe guardar este archivo en bloques no adyacentes debido a que el espacio libre está disperso, el archivo se encuentra ___."
+enunciado: "Un archivo de {datos[escenario_idx][0]} tiene un tamaño de {datos[escenario_idx][1]}. El sistema de archivos lo guarda {datos[escenario_idx][2]}. Por lo tanto, el archivo se encuentra ___."
 
 explicacion: |
   Cuando un archivo no se puede almacenar en bloques contiguos y debe repartirse por diferentes partes del disco, se produce la fragmentación.
@@ -216,7 +208,7 @@ metadata:
   nivel: "basico"
   tags: ["estructura", "jerarquia"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "En un sistema de archivos jerárquico, un directorio es una estructura especial que contiene una lista de nombres de archivos y sus correspondientes punteros a inodos o direcciones de inicio. ¿Es esto verdadero o falso?"
@@ -281,7 +273,7 @@ respuesta: escenarios[caso_idx][0]
 tipo: mc
 opciones_explicitas: ["el sistema marca el espacio como disponible", "el sistema sobreescribe los datos inmediatamente", "solo se borra el puntero en el directorio", "se limpian todos los bits del sector"]
 
-enunciado: "Cuando un usuario elimina un archivo de gran tamaño en un sistema de archivos estándar, {escenarios[caso_idx][0]}."
+enunciado: "Cuando un usuario elimina un archivo de gran tamaño en un sistema de archivos estándar, ¿qué ocurre realmente con los datos y el espacio en disco?"
 
 explicacion: |
   En la mayoría de los sistemas de archivos modernos, borrar un archivo no borra los datos reales del disco, sino que marca los clusters/sectores como "libres" en la tabla de asignación para que el SO pueda escribir nuevos datos allí en el futuro.
@@ -360,14 +352,11 @@ metadata:
   nivel: "intermedio"
   tags: ["formatos", "comparacion"]
 
-variables:
-  escenario: uno_de([["FAT32", "No permite archivos mayores a 4GB"], ["NTFS", "Permite archivos de gran tamaño y seguridad"]])
-
-respuesta: escenario[0]
+respuesta: "FAT32"
 tipo: mc
 opciones_explicitas: ["FAT32", "NTFS", "ext4"]
 
-enunciado: "Si comparamos un sistema de archivos moderno como NTFS con uno antiguo como {escenario[0]}, ¿cuál es la limitación principal de este último en cuanto al tamaño de archivos individuales?"
+enunciado: "Si comparamos un sistema de archivos moderno como NTFS con uno antiguo como FAT32, ¿cuál es el sistema de archivos que tiene una limitación de 4GB en el tamaño de archivos individuales?"
 
 explicacion: |
   El sistema FAT32 tiene una limitación técnica en el tamaño de los clusters que impide almacenar archivos individuales que superen los 4GB.
@@ -382,7 +371,7 @@ metadata:
   nivel: "basico"
   tags: ["metadatos", "atributos"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es correcto afirmar que los metadatos de un archivo (como fecha de creación o tamaño) forman parte del contenido de datos del archivo mismo?"
@@ -419,14 +408,11 @@ metadata:
   nivel: "avanzado"
   tags: ["rendimiento", "fragmentacion"]
 
-variables:
-  caso: uno_de([[100, "fragmentado"], [100, "contiguo"]])
-
-respuesta: caso[1]
+respuesta: "contiguo"
 tipo: mc
 opciones_explicitas: ["fragmentado", "contiguo"]
 
-enunciado: "En un disco duro, si un archivo se almacena en bloques de datos que están físicamente separados en diferentes sectores del plato, el archivo se encuentra en un estado {caso[1]}. Si los bloques estuvieran en sectores adyacentes, se diría que es..."
+enunciado: "En un disco duro, si un archivo se almacena en bloques de datos que están físicamente separados en diferentes sectores del plato, el archivo se encuentra en un estado fragmentado. Si en cambio los bloques estuvieran en sectores adyacentes, se diría que el archivo está..."
 
 explicacion: |
   La fragmentación ocurre cuando el sistema de archivos no puede asignar bloques contiguos, lo que obliga al cabezal del disco a moverse más, reduciendo el rendimiento.
@@ -489,12 +475,12 @@ metadata:
   tags: ["fragmentacion", "rendimiento"]
 
 variables:
-  datos: [[verdadero, "fragmentado"], [falso, "contiguo"]]
+  datos: ["fragmentado", "contiguo"]
   idx: uno_de([0,1])
 
 respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
+  - datos[idx]
+respuesta: datos[idx]
 tipo: completar
 enunciado: "Si un archivo se almacena en sectores no contiguos debido a que el espacio libre está disperso, el disco está ___."
 
