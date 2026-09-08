@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -260,7 +260,7 @@ variables:
   potencia_w: datos[idx][0]
   tiempo_h: datos[idx][1]
 
-respuesta: datos[idx][1] - datos[idx][0]
+respuesta: (datos[idx][0] / 1000) * datos[idx][1]
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -272,7 +272,7 @@ pasos:
 
 explicacion: |
   Para calcular el consumo en kWh: (Potencia en W / 1000) * Horas de uso. 
-  En este caso: ({potencia_w} / 1000) * {tiempo_h} = {datos[idx][1] - datos[idx][0]} kWh.
+  En este caso: ({potencia_w} / 1000) * {tiempo_h} = {(datos[idx][0] / 1000) * datos[idx][1]} kWh.
 ```
 
 ### 13 — Lectura de medidor: ¿Subida o bajada?
@@ -511,12 +511,12 @@ metadata:
   tags: ["lectura", "medidor"]
 
 variables:
-  lectura: uno_de([[1250.5, 1300.2], [4500.0, 4480.5], [890.2, 910.8]])
+  lectura: uno_de([[1250.5, 1300.2], [4500.0, 4650.5], [890.2, 910.8]])
   anterior: lectura[0]
   actual: lectura[1]
 
 respuesta: actual > anterior
-tipo: completar
+tipo: vf
 enunciado: "Si la lectura anterior del medidor era {anterior} kWh y la lectura actual es {actual} kWh, ¿el consumo registrado es positivo?"
 
 explicacion: |
@@ -564,7 +564,7 @@ tipo: completar
 respuestas_validas:
   - consumo * tarifa
 
-enunciado: "Si el consumo registrado es de ___ kWh y el precio por cada kWh es de $___, el costo total de la energía es $___."
+enunciado: "Si el consumo registrado es de {consumo} kWh y el precio por cada kWh es de ${tarifa}, el costo total de la energía es $___."
 
 explicacion: |
   El costo se calcula multiplicando el consumo total en kWh por el precio unitario de la tarifa.
