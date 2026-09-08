@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -149,7 +149,7 @@ metadata:
 
 enunciado: "Si intentamos eliminar un registro de la tabla 'Clientes' que tiene un ID asociado a registros existentes en la tabla 'Pedidos', y la restricción de integridad referencial está activa, la base de datos impedirá la acción para evitar datos huérfanos."
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 explicacion: |
@@ -184,9 +184,6 @@ metadata:
   nivel: "avanzado"
   tags: ["diseño", "pasos", "normalizacion"]
 
-variables:
-  pasos_orden: [["Identificar entidades", "Definir claves primarias", "Establecer relaciones mediante claves foráneas"]]
-
 enunciado: "Para diseñar correctamente un esquema relacional desde un modelo conceptual, se deben seguir estos pasos en orden lógico:"
 
 opciones_explicitas: ["Identificar entidades", "Definir claves primarias", "Establecer relaciones mediante claves foráneas"]
@@ -210,7 +207,7 @@ variables:
   datos: [["Estudiantes", "Cursos", 10, 5], ["Usuarios", "Roles", 100, 5]]
   idx: uno_de([0, 1])
 
-enunciado: "En un sistema donde cada {datos[idx][0]} puede inscribirse en múltiples {datos[idx][1]}, y cada {datos[idx][1]} puede tener múltiples {datos[idx][0]}, se requiere una tabla intermedia para resolver la relación. Si tenemos {datos[idx][0]} registros de origen y {datos[idx][1]} de destino, la tabla intermedia gestionará la relación de tipo ___."
+enunciado: "En un sistema donde cada {datos[idx][0]} puede inscribirse en múltiples {datos[idx][1]}, y cada {datos[idx][1]} puede tener múltiples {datos[idx][0]}, se requiere una tabla intermedia para resolver la relación. Si tenemos {datos[idx][2]} registros de origen y {datos[idx][3]} de destino, la tabla intermedia gestionará la relación de tipo ___."
 
 respuestas_validas:
   - "Muchos a Muchos"
@@ -271,13 +268,14 @@ metadata:
   tags: ["sql", "cascada", "errores"]
 
 variables:
-  escenario: uno_de([["Se borra un registro en la tabla 'Clientes' que tiene pedidos asociados", "error"], ["Se intenta insertar un 'Pedido' con un 'Cliente_ID' que no existe", "error"], ["Se intenta borrar un 'Producto' que está siendo referenciado por una 'Venta'", "error"]])
+  escenario: uno_de(["Se borra un registro en la tabla 'Clientes' que tiene pedidos asociados", "Se intenta insertar un 'Pedido' con un 'Cliente_ID' que no existe", "Se intenta borrar un 'Producto' que está siendo referenciado por una 'Venta'"])
 
-respuesta: escenario[1]
-tipo: mc
-opciones_explicitas: ["error", "error", "error"]
+respuesta: "error"
+tipo: completar
+respuestas_validas:
+  - "error"
 
-enunciado: "Si una base de datos tiene activada la restricción de integridad referencial estándar (sin ON DELETE CASCADE), ¿qué sucede en el caso: {escenario[0]}?"
+enunciado: "Si una base de datos tiene activada la restricción de integridad referencial estándar (sin ON DELETE CASCADE), ¿qué sucede en el caso: {escenario}? (responde con una palabra: error o éxito)"
 
 explicacion: |
   El sistema de gestión de base de datos (DBMS) bloqueará la operación y lanzará un error para evitar que queden registros de 'Pedidos' sin un 'Cliente' asociado.
@@ -375,7 +373,7 @@ respuesta: escenarios[escenario_idx][0]
 tipo: "mc"
 opciones_explicitas: ["RESTRICT", "CASCADE", "SET NULL", "NO ACTION"]
 
-enunciado: "Si configuramos una relación con la acción '{escenarios[escenario_idx][0]}', el comportamiento resultante es: ___"
+enunciado: "Si el comportamiento deseado ante el borrado del registro padre es: '{escenarios[escenario_idx][1]}', la acción de configuración adecuada es: ___"
 
 explicacion: |
   La opción elegida define cómo reacciona la base de datos ante la pérdida de un registro padre. {escenarios[escenario_idx][0]} es el comportamiento específico seleccionado para este caso.
@@ -433,7 +431,7 @@ metadata:
 variables:
   escenario: uno_de([["Tabla_Clientes(id_cliente, nombre) y Tabla_Pedidos(id_pedido, id_cliente)", "id_cliente"], ["Tabla_Autores(id_autor, nombre) y Tabla_Libros(id_libro, id_autor)", "id_autor"], ["Tabla_Estudiantes(id_estudiante, nombre) y Tabla_Inscripciones(id_inscripcion, id_estudiante)", "id_estudiante"]])
 
-enunciado: "En el escenario de {escenario}, ¿cuál es el nombre del campo que actúa como clave foránea en la segunda tabla para establecer la relación?"
+enunciado: "En el escenario de {escenario[0]}, ¿cuál es el nombre del campo que actúa como clave foránea en la segunda tabla para establecer la relación?"
 
 opciones_explicitas: ["id_pedido", "id_cliente", "nombre", "id_autor", "id_estudiante"]
 respuesta: escenario[1]
@@ -454,7 +452,7 @@ metadata:
 
 enunciado: "Si intentamos eliminar un registro de una tabla 'Padre' que posee una clave primaria siendo referenciada por una clave foránea en una tabla 'Hija', y la restricción de integridad está activa, la operación será rechazada para evitar datos huérfanos."
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 explicacion: |
@@ -517,7 +515,7 @@ metadata:
 variables:
   caso: uno_de([["Una tabla 'Departamentos' y una tabla 'Empleados' (cada empleado pertenece a un departamento)", "1"], ["Una tabla 'Libros' y una tabla 'Autores' (cada libro tiene un único autor)", "1"]])
 
-enunciado: "Considerando el caso: {caso}. Si aplicamos una restricción de integridad donde cada registro de la tabla dependiente debe tener exactamente ___ registro relacionado en la tabla principal, estamos ante una relación 1:1 o 1:N dependiendo del sentido."
+enunciado: "Considerando el caso: {caso[0]}. Si aplicamos una restricción de integridad donde cada registro de la tabla dependiente debe tener exactamente ___ registro relacionado en la tabla principal, estamos ante una relación 1:1 o 1:N dependiendo del sentido."
 
 respuestas_validas:
   - "1"
