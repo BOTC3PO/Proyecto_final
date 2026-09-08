@@ -42,7 +42,7 @@ La unidad estándar para medir frecuencia en el **Sistema Internacional** es el 
 
 Ejemplos:
 - Una onda de radio con 100 MHz (megahercios) completa 100 millones de ciclos cada segundo.
-- El corazón humano late aproximadamente entre 60 y 100 Hz en reposo.
+- El corazón humano late aproximadamente entre 60 y 100 veces por minuto en reposo, lo que equivale a una frecuencia de entre 1 y 1,7 Hz aproximadamente.
 
 [IMAGEN: Escalas de frecuencia, desde ondas de baja frecuencia (Hz) hasta microondas o luz visible (THz)]
 

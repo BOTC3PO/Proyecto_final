@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -255,7 +255,7 @@ variables:
   idx: uno_de([0, 1])
   datos: [[0.5, "2.0"], [2.0, "0.5"]]
 
-enunciado: "Si un objeto realiza una oscilación cada {datos[idx][0]} segundos (período), su frecuencia será de {datos[idx][1]} Hz."
+enunciado: "Si un objeto realiza una oscilación cada {datos[idx][0]} segundos (período), ¿cuál será su frecuencia en Hz?"
 
 respuesta: datos[idx][1]
 tipo: mc
@@ -366,7 +366,7 @@ variables:
   idx: uno_de([0, 1])
   datos: [["0.5", "2.0"], ["2.0", "0.5"]]
 
-enunciado: "Si el período de un oscilador es de {datos[idx][0]} segundos, su frecuencia será de {datos[idx][1]} Hz."
+enunciado: "Si el período de un oscilador es de {datos[idx][0]} segundos, ¿cuál será su frecuencia en Hz?"
 
 respuesta: datos[idx][1]
 tipo: mc
@@ -429,7 +429,6 @@ metadata:
 respuesta: "inversamente"
 tipo: completar
 respuestas_validas:
-  - "directamente"
   - "inversamente"
 
 enunciado: "Mientras que el período mide el tiempo de un solo ciclo, la frecuencia y el período tienen una relación ___."
@@ -447,19 +446,17 @@ metadata:
   nivel: "basico"
   tags: ["identificacion"]
 
-respuesta_orden: ["Período", "Frecuencia", "Amplitud"]
+respuesta_orden: ["Amplitud", "Período", "Frecuencia"]
 tipo: ordenar
 
 opciones_explicitas: ["Período", "Frecuencia", "Amplitud"]
 
-enunciado: "Ordene las siguientes magnitudes de mayor a menor, considerando un sistema donde el tiempo de un ciclo es mayor que el número de ciclos por segundo, y la distancia máxima es la mayor de todas:"
+enunciado: "Un sistema oscilante tiene un período de 2 s, una frecuencia de 0.5 Hz y una amplitud de 5 m. Ordena estas tres magnitudes de mayor a menor según su valor numérico:"
 
 explicacion: |
-  El enunciado pide ordenar: 
-  1. Período (tiempo de un ciclo, ej: 2s).
-  2. Frecuencia (ciclos por segundo, ej: 0.5Hz).
-  3. Amplitud (distancia, ej: 5m).
-  Nota: El orden depende de los valores numéricos dados en el enunciado para establecer la jerarquía.
+  Comparando los valores dados: Amplitud = 5, Período = 2, Frecuencia = 0.5.
+  De mayor a menor: Amplitud, Período, Frecuencia.
+  Nota: al ser magnitudes físicas distintas (metros, segundos y hertz) esta comparación es puramente numérica, no física.
 ```
 
 ### 21 — El péndulo del reloj
@@ -522,7 +519,7 @@ metadata:
   nivel: "basico"
   tags: ["ondas", "radio"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Si una onda electromagnética tiene una frecuencia muy alta, su período de oscilación debe ser muy corto."
