@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -96,9 +96,9 @@ metadata:
   nivel: "basico"
   tags: ["alu", "logica"]
 
-tipo: completar
+tipo: vf
 enunciado: "Además de las operaciones aritméticas, la ALU es capaz de realizar operaciones lógicas."
-respuesta: "lógicas"
+respuesta: verdadero
 explicacion: |
   La ALU (Arithmetic Logic Unit) realiza tanto cálculos aritméticos (como sumas) como comparaciones y operaciones lógicas (como AND, OR, XOR).
 ```
@@ -112,10 +112,7 @@ metadata:
   nivel: "basico"
   tags: ["cpu", "ciclo_instruccion", "uc"]
 
-variables:
-  paso_uc: uno_de(["buscar", "decodificar", "ejecutar"])
-
-respuesta: paso_uc
+respuesta: "decodificar"
 tipo: mc
 opciones_explicitas: ["buscar", "decodificar", "ejecutar"]
 
@@ -134,11 +131,7 @@ metadata:
   nivel: "intermedio"
   tags: ["alu", "logica", "operaciones"]
 
-variables:
-  op_tipo: uno_de([0, 1])
-  tabla: [["AND", "AND"], ["OR", "OR"]]
-
-respuesta: tabla[op_tipo][1]
+respuesta: "AND"
 tipo: completar
 
 enunciado: "La ALU es responsable de las operaciones aritméticas y lógicas. Si la CPU necesita verificar si dos valores binarios cumplen con la condición de que ambos sean 1, la ALU debe utilizar la operación lógica ___."
@@ -194,17 +187,12 @@ metadata:
   nivel: "basico"
   tags: ["uc", "control"]
 
-variables:
-  escenario: uno_de([0, 1])
-  tabla: [["controlar", "controlar"], ["calcular", "calcular"]]
-
-respuesta: tabla[escenario][1]
+respuesta: "calcular"
 tipo: completar
 respuestas_validas:
-  - "controlar"
   - "calcular"
 
-enunciado: "Si comparamos las funciones de los dos componentes principales de la CPU: la ALU se encarga de ___ los datos, mientras que la Unidad de Control se encarga de ___ el flujo de ejecución."
+enunciado: "Si comparamos las funciones de los dos componentes principales de la CPU: la ALU se encarga de ___ los datos, mientras que la Unidad de Control se encarga de controlar el flujo de ejecución."
 
 explicacion: |
   La ALU es el "músculo" que realiza los cálculos (calcular), mientras que la UC es el "cerebro" que dirige el tráfico de información (controlar).
@@ -277,11 +265,10 @@ metadata:
 
 tipo: completar
 
-enunciado: "La ALU es capaz de realizar dos tipos principales de operaciones: las operaciones ___ (como la suma o resta) y las operaciones ___ (como la comparación de si un número es mayor que otro)."
+enunciado: "La ALU es capaz de realizar dos tipos principales de operaciones: las operaciones ___ (como la suma o resta) y las operaciones lógicas (como la comparación de si un número es mayor que otro)."
 
 respuestas_validas:
   - "aritméticas"
-  - "lógicas"
 
 respuesta: "aritméticas"
 
@@ -298,13 +285,10 @@ metadata:
   nivel: "avanzado"
   tags: ["arquitectura", "uc", "alu"]
 
-variables:
-  escenario: uno_de([[0, "La UC decide qué operación hacer"], [1, "La ALU decide qué operación hacer"]])
-
 tipo: mc
 opciones_explicitas: ["La UC decide qué operación hacer", "La ALU decide qué operación hacer", "Ambas deciden por igual", "Ninguna de las anteriores"]
 
-enunciado: "Analizando el flujo de datos, cuando se lee una instrucción de la memoria, {escenario}."
+enunciado: "Cuando se lee una instrucción de la memoria, ¿qué componente decide qué operación debe ejecutar la ALU?"
 
 respuesta: "La UC decide qué operación hacer"
 
@@ -359,17 +343,12 @@ metadata:
   nivel: "intermedio"
   tags: ["instrucciones", "ciclo_fetch_execute"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["decodificar", "ejecutar"], ["ejecutar", "decodificar"]]
-
 tipo: completar
 respuestas_validas:
   - "decodificar"
-  - "ejecutar"
-respuesta: datos[idx][0]
+respuesta: "decodificar"
 
-enunciado: "En el ciclo de instrucción, la Unidad de Control se encarga de ___ la instrucción, mientras que la ALU se encarga de ___ la operación lógica o aritmética resultante."
+enunciado: "En el ciclo de instrucción, la Unidad de Control se encarga de ___ la instrucción, mientras que la ALU se encarga de ejecutar la operación lógica o aritmética resultante."
 
 pasos:
   - "La UC interpreta el código de operación."
@@ -438,7 +417,7 @@ respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["ALU", "UC", "Memoria RAM"]
 
-enunciado: "En un procesador, cuando se requiere realizar una operación de comparación entre dos valores, ¿qué componente es el encargado de ejecutar dicha lógica?: {datos[idx][0]}"
+enunciado: "En un procesador, considera el siguiente caso: {datos[idx][0]}. ¿Qué componente es el responsable de ejecutar esa tarea?"
 
 explicacion: |
   La Unidad de Control (UC) dirige el flujo de datos, mientras que la Unidad Aritmético-Lógica (ALU) es la encargada de realizar las operaciones matemáticas y de comparación.
@@ -529,8 +508,8 @@ respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["UC", "ALU"]
 
-enunciado: "Considerando el siguiente escenario: '{datos[idx][0]}'. ¿Qué componente es el responsable de coordinar el movimiento de datos entre la memoria y el registro?: {datos[idx][0]}"
+enunciado: "Considerando el siguiente escenario: '{datos[idx][0]}'. ¿Qué componente de la CPU es el responsable de esa tarea?"
 
 explicacion: |
-  El movimiento de datos y la coordinación de señales entre componentes es la función principal de la Unidad de Control (UC).
+  Mover datos entre memoria y registros es tarea de la Unidad de Control (UC), que coordina el flujo de información. En cambio, un cálculo como una raíz cuadrada requiere operaciones aritméticas, que son responsabilidad de la ALU.
 ```
