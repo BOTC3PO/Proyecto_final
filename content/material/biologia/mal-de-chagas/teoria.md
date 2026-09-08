@@ -1,6 +1,6 @@
 # Biología — Mal de Chagas (teoria)
 
-> Tema del MAPA: `BCHAGAS` (`troncos.md`). Depende de del nodo `BMICRO` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `BCHAGAS` (`troncos.md`). Depende de del nodo `BMICRO` de `troncos.md` (sin carpeta propia todavía) (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
