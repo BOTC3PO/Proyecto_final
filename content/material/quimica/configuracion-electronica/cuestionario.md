@@ -1,12 +1,6 @@
 # Química — Configuración electrónica (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QE`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bug de esta tanda: `respuesta` numérica (`6`) contra
-> `opciones_explicitas` con los mismos valores entre comillas (`"6"`)
-> — dos tipos distintos que no matchean como iguales. Homogeneizado a
-> numérico sin comillas en ambos lados.
 
 ---
 
@@ -122,7 +116,7 @@ variables:
   idx: uno_de([0, 1, 2, 3, 4])
 
 respuesta: pares[idx][1]
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Dado un átomo neutro con número atómico Z = {pares[idx][0]}, ¿cuántos electrones tiene en total?"
