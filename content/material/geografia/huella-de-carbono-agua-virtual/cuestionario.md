@@ -2,7 +2,7 @@
 
 > Tema: `AM2`. Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
+>
 > Corregido a mano. Bugs de esta tanda: **un lote entero (5 preguntas)
 > traía un corchete `]` sobrante al final de cada `respuesta:`**
 > (sintaxis inválida) — eliminado en las 5; en ese mismo lote, varias
