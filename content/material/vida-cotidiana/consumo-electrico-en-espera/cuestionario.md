@@ -1,6 +1,6 @@
 # Vida Cotidiana — Consumo eléctrico en espera (phantom loads) (cuestionario, 22 preguntas VBLang)
 
-> Tema: `vida-cotidiana/consumo-electrico-en-espera`. Ver `teoria.md` en esta misma carpeta. Escrito a mano (Claude), cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `vida-cotidiana/consumo-electrico-en-espera`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
