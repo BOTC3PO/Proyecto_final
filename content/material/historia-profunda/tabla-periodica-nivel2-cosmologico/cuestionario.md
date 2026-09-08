@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -20,13 +20,10 @@ metadata:
   nivel: "intermedio"
   tags: ["big_bang", "hidrogeno", "helio"]
 
-variables:
-  escenario: uno_de(["Big Bang", "Fusión Estelar"])
-
-respuesta: escenario
+respuesta: "Big Bang"
 tipo: mc
 
-enunciado: "Los elementos más abundantes del universo, como el Hidrógeno y el Helio, se formaron principalmente durante el {escenario}."
+enunciado: "Los elementos más abundantes del universo, como el Hidrógeno y el Helio, se formaron principalmente durante el ___."
 
 opciones_explicitas: ["Big Bang", "Fusión Estelar"]
 
@@ -103,7 +100,7 @@ metadata:
   nivel: "avanzado"
   tags: ["hierro", "energia"]
 
-respuesta: 0.0
+respuesta: 26
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -237,11 +234,11 @@ variables:
   escenario_idx: uno_de([0,1])
   escenarios: [["supernova", "colisión de estrellas de neutrones"], ["estrellas de neutrones", "supernovas"]]
 
-enunciado: "Los elementos más pesados que el hierro, como el oro o el uranio, no se forman en estrellas comunes, sino que requieren eventos cataclísmicos como una {escenarios[escenario_idx]}."
+enunciado: "Los elementos más pesados que el hierro, como el oro o el uranio, no se forman en estrellas comunes, sino que requieren eventos cataclísmicos como una {escenarios[escenario_idx][0]}."
 
 respuesta: escenarios[escenario_idx][0]
 tipo: mc
-opciones_explicitas: ["supernova", "estrellas de neutrones", "fusiones de helio", "ananas estelares"]
+opciones_explicitas: ["supernova", "estrellas de neutrones", "fusiones de helio", "fusión estelar ordinaria"]
 
 explicacion: |
   La nucleosíntesis de elementos más pesados que el hierro requiere un flujo masivo de neutrones (proceso r), algo que solo ocurre en eventos de altísima energía como supernovas o la fusión de estrellas de neutrones.
@@ -358,15 +355,10 @@ metadata:
   nivel: "avanzado"
   tags: ["supernova", "nucleosintesis"]
 
-variables:
-  tipo_estrella_idx: uno_de([0, 1])
-  escenarios: [["supernova de tipo II", "el hierro"], ["enanas blancas", "el carbono"]]
-
-respuesta: escenarios[tipo_estrella_idx][1]
+respuesta: "el hierro"
 tipo: completar
 respuestas_validas:
   - "el hierro"
-  - "el carbono"
 
 enunciado: "Cuando una estrella masiva colapsa en una supernova, libera en el espacio elementos pesados como ___."
 
@@ -420,20 +412,14 @@ metadata:
   nivel: "intermedio"
   tags: ["hierro", "estrellas"]
 
-variables:
-  is_heavy: uno_de([verdadero, falso])
-  elemento_pesado: "hierro"
-  elemento_ligero: "helio"
-  elemento: uno_de([elemento_pesado, elemento_ligero])
-
 respuesta: verdadero
 
 tipo: vf
 
-enunciado: "Considerando que el {elemento} es un elemento producido por la fusión estelar, ¿es cierto que su origen es estelar?"
+enunciado: "Considerando que el hierro es un elemento producido por la fusión estelar, ¿es cierto que su origen es estelar?"
 
 explicacion: |
-  Tanto el helio (en el Big Bang y estrellas) como el hierro (en estrellas masivas) tienen orígenes nucleares/estelares.
+  El hierro se forma exclusivamente mediante fusión en el interior de estrellas masivas, a diferencia del hidrógeno o el helio, que son mayoritariamente de origen primordial (Big Bang).
 ```
 
 ### 21 — Origen del Hidrógeno

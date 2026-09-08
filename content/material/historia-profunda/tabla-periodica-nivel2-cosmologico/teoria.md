@@ -9,7 +9,7 @@
 
 ## 1. Origen de los elementos ligeros: el Big Bang  
 
-El universo primitivo, poco después del Big Bang (hace unos 13.800 millones de años), estaba compuesto por una sopa caliente y densa de partículas subatómicas. A medida que se enfriaba, los protones y neutrones comenzaron a combinarse en núcleos atómicos ligeros. Este proceso, llamado **nucleosíntesis primordia**, generó principalmente hidrógeno (el más abundante) y helio, junto con pequeñas cantidades de litio y berilio. Estos elementos son los bloques básicos del universo y forman la base de las estrellas que surgirán después.  
+El universo primitivo, poco después del Big Bang (hace unos 13.800 millones de años), estaba compuesto por una sopa caliente y densa de partículas subatómicas. A medida que se enfriaba, los protones y neutrones comenzaron a combinarse en núcleos atómicos ligeros. Este proceso, llamado **nucleosíntesis primordial**, generó principalmente hidrógeno (el más abundante) y helio, junto con pequeñas cantidades de litio y berilio. Estos elementos son los bloques básicos del universo y forman la base de las estrellas que surgirán después.  
 
 ---
 
