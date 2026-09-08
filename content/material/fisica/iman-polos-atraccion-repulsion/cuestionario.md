@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -275,7 +275,7 @@ respuestas_validas:
   - "un solo polo"
   - "polo único"
 
-enunciado: "Si cortas un imán por la mitad para intentar separar su polo norte del polo sur, obtendrás dos imanes nuevos, cada uno con un ___."
+enunciado: "Si cortas un imán por la mitad para intentar separar su polo norte del polo sur, obtendrás dos imanes nuevos, cada uno con su propio polo norte y sur; en ningún caso lograrás aislar un imán de un solo polo, es decir, un ___."
 
 respuesta: "monopolo"
 
@@ -353,12 +353,9 @@ metadata:
   nivel: "intermedio"
   tags: ["magnetismo", "electricidad"]
 
-variables:
-  es_magnetico: uno_de([verdadero, falso])
-
-respuesta: es_magnetico
-tipo: completar
-enunciado: "Si un objeto tiene una carga eléctrica neta, se puede separar en un polo positivo y un polo negativo de forma independiente. ¿Es esto una propiedad de los imanes magnéticos? {es_magnetico}"
+respuesta: falso
+tipo: vf
+enunciado: "Si un objeto tiene una carga eléctrica neta, se puede separar en un polo positivo y un polo negativo de forma independiente. ¿Es esto también una propiedad de los imanes magnéticos?"
 
 explicacion: |
   Falso. Los imanes son dipolos; si cortas un imán por la mitad, obtendrás dos imanes más pequeños, cada uno con su propio polo norte y sur. No existen los "monopolos magnéticos" en la naturaleza.
@@ -380,7 +377,7 @@ respuesta: escenario[2]
 tipo: mc
 opciones_explicitas: ["atracción", "repulsión"]
 
-enunciado: "Considerando el escenario donde se aproximan un polo {escenario[0]} y un polo {escenario[1]}, la fuerza resultante es de {escenario[2]}."
+enunciado: "Considerando el escenario donde se aproximan un polo {escenario[0]} y un polo {escenario[1]}, la fuerza resultante es de ___."
 
 explicacion: |
   Los polos opuestos (Norte-Sur) se atraen, mientras que los polos iguales (Norte-Norte o Sur-Sur) se repelen.
@@ -422,7 +419,7 @@ respuesta: tipo_interaccion[1]
 tipo: mc
 opciones_explicitas: ["atracción", "repulsión"]
 
-enunciado: "En un sistema de dos imanes, si la interacción entre sus polos es de {tipo_interaccion[1]}, esto significa que los polos presentados son {tipo_interaccion[0]}."
+enunciado: "En un sistema de dos imanes, si los polos presentados son {tipo_interaccion[0]}, la interacción resultante es de ___."
 
 explicacion: |
   La regla fundamental es: polos iguales se repelen, polos opuestos se atraen.
@@ -525,7 +522,7 @@ metadata:
   tags: ["magnetismo", "vida_diaria"]
 
 variables:
-  caso: uno_de([["el imán tiene polo sur y la puerta polo norte", "atracción"], ["el imán tiene polo norte y la puerta polo norte", "repulsión"]])
+  caso: ["el imán tiene polo sur y la puerta polo norte", "atracción"]
 
 respuesta: caso[1]
 tipo: mc
