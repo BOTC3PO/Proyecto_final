@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,8 +40,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "flujo_calorico"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Cuando dos cuerpos en contacto alcanzan el equilibrio térmico, sus temperaturas son iguales."
 
 explicacion: |
@@ -120,7 +120,7 @@ variables:
   idx: uno_de([0,1])
   datos: [[20, 293.15], [100, 373.15]]
 
-respuesta: "datos[idx][1]"
+respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -314,7 +314,7 @@ variables:
   datos: [[100, 50], [20, 80]] 
   # datos[idx][0] es T_inicial, datos[idx][1] es T_final
 
-respuesta: "datos[idx][1]"
+respuesta: (datos[idx][0] + datos[idx][1]) / 2
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -352,8 +352,8 @@ metadata:
   nivel: "intermedio"
   tags: ["cambio_fase"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Durante un cambio de fase (como la fusión del hielo), la temperatura del sistema aumenta aunque se siga suministrando calor."
 
 explicacion: |
@@ -428,8 +428,8 @@ metadata:
   nivel: "avanzado"
   tags: ["flujo_calorico"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si un objeto caliente se coloca en un ambiente frío, el calor fluirá del objeto al ambiente hasta que sus temperaturas se igualen."
 
 explicacion: |
