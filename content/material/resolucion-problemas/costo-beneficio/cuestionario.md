@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -157,7 +157,7 @@ variables:
 
 respuesta: datos[escenario_idx][1] / datos[escenario_idx][0] > 1
 
-tipo: completar
+tipo: vf
 enunciado: "Considerando que el beneficio se define como la relación entre la ganancia y el costo (Ratio = Ganancia / Costo), ¿es la inversión en el escenario seleccionado rentable (Ratio > 1)?"
 
 explicacion: |
@@ -179,7 +179,7 @@ variables:
   opcion_b_costo: 200
   opcion_b_ganancia: 300
 
-respuesta: "Opción A"
+respuesta: "Opción B"
 
 tipo: mc
 opciones_explicitas: ["Opción A", "Opción B", "Ambas son iguales"]
@@ -187,9 +187,9 @@ opciones_explicitas: ["Opción A", "Opción B", "Ambas son iguales"]
 enunciado: "Se deben elegir dos proyectos. El Proyecto A cuesta ${opcion_a_costo} y genera ${opcion_a_ganancia}. El Proyecto B cuesta ${opcion_b_costo} y genera ${opcion_b_ganancia}. Si buscamos la opción con el mayor beneficio neto (Ganancia - Costo), ¿cuál es la mejor elección?"
 
 explicacion: |
-  Beneficio A: 150 - 100 = 50.
-  Beneficio B: 300 - 200 = 100.
-  Nota: Aunque el beneficio de B es mayor, la pregunta pide comparar la relación de beneficio neto. Si comparamos la rentabilidad relativa (1.5 vs 1.5), son iguales, pero en términos de valor absoluto, B es superior. Sin embargo, en este ejercicio comparamos la diferencia absoluta.
+  Beneficio neto A: 150 - 100 = 50.
+  Beneficio neto B: 300 - 200 = 100.
+  Por valor absoluto del beneficio neto, la Opción B es superior, aunque su rentabilidad relativa (ratio ganancia/costo) sea la misma que la de A.
 ```
 
 ### 9 — Proceso de toma de decisiones
@@ -224,11 +224,9 @@ variables:
   costo_fijo: 1000
   margen_unitario: 50
 
-respuesta: "1000 / 50"
+respuesta: costo_fijo / margen_unitario
 tipo: completar
-respuestas_validas:
-  - "20"
-  - "20.0"
+tolerancia_abs: 0.01
 
 enunciado: "Si una empresa tiene un costo fijo de ${costo_fijo} y cada unidad vendida aporta un margen de ${margen_unitario} para cubrir costos, ¿cuántas unidades debe vender para alcanzar el punto de equilibrio (donde el beneficio es cero)?"
 
@@ -279,9 +277,8 @@ metadata:
 
 enunciado: "Un proyecto genera una ganancia contable de $10.000, pero requiere una inversión inicial de $12.000. Si el análisis de costo-beneficio solo considera el beneficio contable sin considerar el desembolso inicial (inversión), ¿el resultado de la decisión es financieramente positivo?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   Un error común es confundir el ingreso o beneficio bruto con el beneficio neto. Para una decisión correcta, se debe restar el costo total (inversión) del beneficio obtenido.
 ```
@@ -437,15 +434,15 @@ metadata:
   tags: ["punto_de_equilibrio", "break_even"]
 
 variables:
-  datos: [[100, 50, 10], [200, 100, 15], [50, 20, 5]]
+  datos: [[1000, 30, 50], [500, 20, 45], [2000, 60, 100]]
   idx: uno_de([0,1,2])
   costo_fijo: datos[idx][0]
   costo_variable: datos[idx][1]
   precio_venta: datos[idx][2]
 
-respuesta: 10
+respuesta: costo_fijo / (precio_venta - costo_variable)
 tipo: completar
-tolerancia_abs: 0
+tolerancia_abs: 0.01
 
 enunciado: "Si una empresa tiene un costo fijo de ${costo_fijo}, un costo variable por unidad de ${costo_variable} y un precio de venta de ${precio_venta}, ¿cuántas unidades debe vender para alcanzar el punto de equilibrio (donde el beneficio es cero)?"
 
@@ -454,7 +451,7 @@ pasos:
   - "Dividir el costo fijo entre el margen de contribución: {costo_fijo / (precio_venta - costo_variable)}"
 
 explicacion: |
-  El punto de equilibrio se alcanza cuando los ingresos totales igualan a los costos totales. En este caso: 100 / (10 - 5) = 20. (Nota: El ejemplo usa los valores del array indexado).
+  El punto de equilibrio se alcanza cuando los ingresos totales igualan a los costos totales: ${costo_fijo} / (${precio_venta} - ${costo_variable}) = ${costo_fijo / (precio_venta - costo_variable)}.
 ```
 
 ### 21 — Análisis de inversión inicial
