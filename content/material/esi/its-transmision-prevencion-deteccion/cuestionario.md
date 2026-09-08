@@ -2,7 +2,7 @@
 
 > Tema: `ES3a/b/c`. Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
+>
 > Corregido a mano. Bugs de esta tanda: varias preguntas `tipo: vf`
 > cuya `respuesta:` era un texto libre en vez de `verdadero`/`falso`
 > — reclasificadas a `completar`/`mc`; dos preguntas con **dos**
