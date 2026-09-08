@@ -1,6 +1,6 @@
 # Civica — constitucion nacional jerarquia normativa (cuestionario, 35 preguntas VBLang)
 
-> Tema: `civica/constitucion-nacional-jerarquia-normativa`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `civica/constitucion-nacional-jerarquia-normativa`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -49,7 +49,7 @@ metadata:
   nivel: "basico"
   tags: ["piramide", "jerarquia"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "En la pirámide normativa argentina, las leyes nacionales están por encima de la Constitución."
@@ -286,13 +286,10 @@ metadata:
   nivel: "basico"
   tags: ["jerarquia", "piramide"]
 
-variables:
-  valido: verdadero
-
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "En la jerarquía normativa, una ley provincial puede contradicer una ley nacional si es de su interés."
+enunciado: "En la jerarquía normativa, una ley provincial puede contradecir una ley nacional si es de su interés."
 
 explicacion: |
   Falso. Las normas de menor rango no pueden contradecir a las de mayor rango. La ley nacional prevalece sobre la provincial en materias de competencia nacional.
@@ -481,13 +478,10 @@ metadata:
   nivel: "intermedio"
   tags: ["tratados", "dh"]
 
-variables:
-  nivel: "constitucional"
-
 respuesta: "constitucional"
 tipo: completar
 
-enunciado: "Los tratados de derechos humanos tienen jerarquía {nivel} según la Constitución de 1994."
+enunciado: "Los tratados de derechos humanos tienen jerarquía ___ según la Constitución de 1994."
 
 explicacion: |
   El art. 75 inc. 22 otorga a los tratados de derechos humanos jerarquía constitucional, situándolos por encima de las leyes ordinarias.
