@@ -1,13 +1,6 @@
 # Química — Mol y masa molar (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QJ`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bugs de esta tanda: `respuesta: "verdadero"` entrecomillado (debe ser
-> literal sin comillas) con `opciones_explicitas` de más en una `vf`
-> (no las necesita), y `tolerancia_abs: 1e-3` en notación científica —
-> no confirmado que el parser de expresiones del DSL acepte esa
-> notación, cambiado a decimal/entero plano.
 
 ---
 
@@ -119,7 +112,7 @@ variables:
   masa_o: 16
 
 respuesta: 2 * h + masa_o
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Calcula la masa molar del agua (H2O) si la masa atómica del H es {h} y la del O es {masa_o}."
@@ -146,7 +139,7 @@ variables:
   masa_o: 16
 
 respuesta: c + 2 * masa_o
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Calcula la masa molar del dióxido de carbono (CO2) si la masa atómica del C es {c} y la del O es {masa_o}."
@@ -173,7 +166,7 @@ variables:
   cl: 35.5
 
 respuesta: na + cl
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Calcula la masa molar del cloruro de sodio (NaCl) si la masa atómica del Na es {na} y la del Cl es {cl}."
@@ -215,7 +208,7 @@ variables:
   masa: masa_molar * moles_deseados
 
 respuesta: moles_deseados
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Una muestra contiene {masa} g de una sustancia cuya masa molar es {masa_molar} g/mol. ¿Cuántos moles hay en la muestra?"
@@ -238,7 +231,7 @@ variables:
   moles: random(1, 10)
 
 respuesta: masa_molar * moles
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Si hay {moles} moles de una sustancia con masa molar {masa_molar} g/mol, ¿cuál es la masa de la muestra en gramos?"
@@ -295,7 +288,7 @@ metadata:
   tags: ["avogadro", "mol"]
 
 respuesta: N_A
-tipo: input
+tipo: completar
 tolerancia_abs: 1000000000000000000
 
 enunciado: "¿Cuántas partículas (átomos o moléculas) hay en exactamente 1 mol de cualquier sustancia?"
@@ -318,7 +311,7 @@ variables:
   gramos: uno_de([18, 36, 54, 72, 90])
 
 respuesta: gramos / masa_molar_agua
-tipo: input
+tipo: completar
 tolerancia_abs: 0.001
 
 enunciado: "Una muestra de agua tiene {gramos} gramos. ¿Cuántos moles de agua hay? (masa molar del agua = {masa_molar_agua} g/mol)"
@@ -381,7 +374,7 @@ variables:
   masa_atomica_na: 23
 
 respuesta: masa_atomica_na
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Si la masa atómica del sodio (Na) en la tabla periódica es {masa_atomica_na}, ¿cuál es su masa molar en g/mol?"
@@ -424,7 +417,7 @@ variables:
   gramos_co2: uno_de([44, 88, 132, 176])
 
 respuesta: gramos_co2 / masa_molar_co2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.001
 
 enunciado: "El CO2 tiene masa molar {masa_molar_co2} g/mol (C={c}, O={masa_o}). Si hay {gramos_co2} g de CO2, ¿cuántos moles son?"
