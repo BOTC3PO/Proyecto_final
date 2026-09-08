@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -139,11 +139,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  datos: [[4.0, 2.0], [10.0, 5.0]]
+  datos: [[4.0, 5.0], [10.0, 5.0]]
   tiempo: 2.0
   flujo_inicial: datos[escenario_idx][0]
   flujo_final: datos[escenario_idx][1]
-  fem: (flujo_final - flujo_inicial) / tiempo
+  fem: abs((flujo_final - flujo_inicial) / tiempo)
 
 respuesta: fem
 
@@ -173,7 +173,7 @@ metadata:
 
 opciones_explicitas: ["Aumenta el flujo magnético", "Disminuye el flujo magnético", "No afecta el flujo"]
 
-respuesta: "Aumenta el flujo magnético"
+respuesta: "Disminuye el flujo magnético"
 tipo: mc
 
 enunciado: "Si un imán se acerca a una espira conductorista, la corriente inducida en la espira creará un campo magnético con la intención de:"
@@ -192,12 +192,10 @@ metadata:
   tags: ["formula", "flujo_magnetico"]
 
 respuestas_validas:
-  - "phi"
-  - "B"
-  - "A"
+  - "coseno"
   - "cos"
 
-respuesta: "phi"
+respuesta: "coseno"
 tipo: completar
 
 enunciado: "La expresión del flujo magnético $\\Phi$ a través de una superficie es el producto del campo magnético $B$ por el área $A$ por el ___ del ángulo entre el vector campo y la normal a la superficie."
@@ -306,7 +304,6 @@ respuesta: "se produce una corriente inducida"
 tipo: completar
 respuestas_validas:
   - "se produce una corriente inducida"
-  - "no se produce una corriente inducida"
 
 enunciado: "Si un imán se mueve lentamente hacia una espira de cobre colocada sobre una superficie no conductora, la variación del flujo magnético provoca que ___."
 
@@ -345,10 +342,11 @@ metadata:
 variables:
   es_variable: verdadero
 
-respuesta: "flujo_magnetico"
+respuesta: "flujo magnético"
 tipo: completar
 respuestas_validas:
-  - "flujo_magnetico"
+  - "flujo magnético"
+  - "flujo"
 
 enunciado: "Mientras que el campo magnético B describe la intensidad del campo en un punto, la magnitud que describe la cantidad de líneas de campo que atraviesan una superficie dada es el ___."
 
@@ -386,15 +384,11 @@ metadata:
   nivel: "intermedio"
   tags: ["faraday", "fem"]
 
-variables:
-  caso: uno_de([0, 1])
-  datos: [["La FEM es una diferencia de potencial inducida", "voltaje"], ["La corriente es el flujo de carga resultante", "corriente"]]
-
-respuesta: datos[caso][1]
+respuesta: "voltaje"
 tipo: mc
 opciones_explicitas: ["voltaje", "corriente"]
 
-enunciado: "En un proceso de inducción, la Ley de Faraday describe la magnitud de la ___ que surge debido al cambio en el flujo, mientras que la Ley de Ohm describe la ___ que circula por el circuito."
+enunciado: "En un proceso de inducción, la Ley de Faraday describe la magnitud de la FEM (una diferencia de potencial) que surge debido al cambio en el flujo magnético; esta magnitud se mide en unidades de ___."
 
 explicacion: |
   La Ley de Faraday se centra en la Fuerza Electromotriz (FEM), que tiene unidades de voltios, mientras que la corriente es el movimiento de carga resultante.
@@ -409,12 +403,9 @@ metadata:
   nivel: "basico"
   tags: ["faraday", "proceso"]
 
-variables:
-  es_orden_correcto: verdadero
-
-respuesta_orden: ["cambio_campo", "cambio_flujo", "fem_inducida", "corriente"]
+respuesta_orden: ["Cambio en el campo magnético", "Cambio en el flujo magnético", "FEM inducida", "Corriente inducida"]
 tipo: ordenar
-opciones_explicitas: ["cambio_campo", "cambio_flujo", "fem_inducida", "corriente"]
+opciones_explicitas: ["Cambio en el campo magnético", "Cambio en el flujo magnético", "FEM inducida", "Corriente inducida"]
 
 enunciado: "Ordena cronológicamente los eventos que ocurren cuando movemos un imán cerca de una bobina de cobre:"
 
@@ -437,10 +428,7 @@ metadata:
   nivel: "avanzado"
   tags: ["electromagnetismo", "faraday"]
 
-variables:
-  es_falso: falso
-
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "A diferencia de la electrostática donde las cargas se mueven por diferencias de potencial estáticas, en la inducción electromagnética la corriente surge únicamente debido a un campo eléctrico inducido por un flujo magnético variable."
@@ -514,11 +502,11 @@ metadata:
 
 enunciado: "Si acercamos el polo norte de un imán hacia una bobina, la bobina experimentará una fuerza de repulsión porque la corriente inducida creará un campo magnético con el mismo polo (norte) hacia el imán. ¿Es esto verdadero o falso?"
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 explicacion: |
-  Falso. Según la Ley de Lenz, la corriente inducida crea un campo que se opone al cambio. Si el flujo aumenta (acercar imán), la bobina crea un campo opuesto para intentar mantener el flujo constante.
+  Verdadero. Según la Ley de Lenz, la corriente inducida crea un campo que se opone al aumento de flujo causado por el imán que se acerca; ese campo opuesto presenta un polo norte hacia el imán entrante, lo que produce una fuerza de repulsión.
 ```
 
 ### 24 — Componentes de la FEM
