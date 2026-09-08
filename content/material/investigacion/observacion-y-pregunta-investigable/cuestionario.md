@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,11 +40,8 @@ metadata:
   nivel: "basico"
   tags: ["pregunta", "metodologia"]
 
-variables:
-  es_investigable: uno_de([verdadero, falso])
-
-respuesta: es_investigable
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Una pregunta que solo puede responderse con un 'sí' o un 'no' se considera una pregunta de investigación de alto nivel científico."
 
 pasos:
@@ -102,11 +99,7 @@ metadata:
   nivel: "avanzado"
   tags: ["variables", "metodologia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["La temperatura del agua", "La velocidad del crecimiento"], ["La luz solar", "La cantidad de fertilizante"]]
-
-respuesta: datos[escenario_idx][0]
+respuesta: "La luz solar"
 tipo: mc
 opciones_explicitas: ["La luz solar", "La temperatura del agua", "El color de la planta", "El tipo de maceta"]
 
@@ -148,10 +141,10 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["Se observa que los perros corren más rápido si les dan premios", "comida"], ["Se observa que las plantas crecen más si se riegan con té", "líquido"]]
 
-enunciado: "Observación: {escenarios[escenario_idx][0]}. En este caso, la variable que el investigador puede manipular (variable independiente) es el/la {escenarios[escenario_idx][1]}."
+enunciado: "Observación: {escenarios[escenario_idx][0]}. En este caso, la variable que el investigador puede manipular (variable independiente) es el/la ___."
 
-opciones_explicitas: ["{escenarios[escenario_idx][1]}", "velocidad de carrera", "perro", "entorno"]
-respuesta: "{escenarios[escenario_idx][1]}"
+opciones_explicitas: ["comida", "líquido", "velocidad de carrera", "entorno"]
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 
 explicacion: |
@@ -169,9 +162,8 @@ metadata:
 
 enunciado: "Analiza la siguiente pregunta de investigación: '¿Por qué los gatos prefieren el color azul sobre el rojo?'. ¿Es esta una pregunta científicamente investigable mediante experimentación directa?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   Las preferencias subjetivas (sentimientos o gustos) no son directamente medibles de forma objetiva sin una metodología de observación de comportamiento muy específica; las preguntas sobre 'por qué' suelen ser demasiado amplias para un experimento simple.
 ```
@@ -208,10 +200,10 @@ variables:
   caso_idx: uno_de([0, 1])
   casos: [["¿Cómo afecta la temperatura al tiempo de disolución de la sal?", "temperatura", "tiempo"], ["¿Cómo influye la intensidad de la luz en la altura de la planta?", "luz", "altura"]]
 
-enunciado: "En el caso: '{casos[caso_idx][0]}', la estructura de la pregunta busca relacionar la variable independiente ({casos[caso_idx][0]}) con la variable dependiente ({casos[caso_idx][1]})."
+enunciado: "En el caso: '{casos[caso_idx][0]}', la variable independiente es ___."
 
-opciones_explicitas: ["{casos[caso_idx][0]}", "{casos[caso_idx][1]}", "ambas", "ninguna"]
-respuesta: "{casos[caso_idx][1]}"
+opciones_explicitas: ["temperatura", "tiempo", "luz", "altura"]
+respuesta: casos[caso_idx][1]
 tipo: mc
 
 explicacion: |
@@ -420,10 +412,7 @@ metadata:
   nivel: "intermedio"
   tags: ["conceptos_relacionados", "metodologia"]
 
-variables:
-  caso: uno_de([["¿Influye la luz en el crecimiento?", "pregunta"], ["La luz influye en el crecimiento.", "hipotesis"]])
-
-respuesta: caso[0]
+respuesta: "¿Influye la luz en el crecimiento?"
 tipo: mc
 opciones_explicitas: ["¿Influye la luz en el crecimiento?", "La luz influye en el crecimiento."]
 
@@ -515,11 +504,11 @@ metadata:
   tags: ["estructura", "metodologia"]
 
 variables:
-  escenarios: [["Observación: Los perros corren más rápido cuando hay un estímulo sonoro fuerte.", "¿De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "El ruido hace que los perros corran."]]
+  escenarios: [["Observación: Los perros corren más rápido cuando hay un estímulo sonoro fuerte.", "¿De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "¿De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "El ruido hace que los perros corran."]]
 
-respuesta_orden: ["De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "¿Los perros corren con ruido?", "¿Por qué los perros corren rápido?", "El ruido hace que los perros corran."]
+respuesta_orden: ["¿De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "¿Los perros corren con ruido?", "¿Por qué los perros corren rápido?", "El ruido hace que los perros corran."]
 tipo: ordenar
-opciones_explicitas: ["De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "¿Los perros corren con ruido?", "¿Por qué los perros corren rápido?", "El ruido hace que los perros corran."]
+opciones_explicitas: ["¿De qué manera el nivel de decibelios de un estímulo sonoro afecta la velocidad de carrera de un canino?", "¿Los perros corren con ruido?", "¿Por qué los perros corren rápido?", "El ruido hace que los perros corran."]
 
 enunciado: "Ordena los siguientes enunciados desde la pregunta de investigación más técnica y bien estructurada hasta la más informal o vaga, basándote en la observación: 'Observación: Los perros corren más rápido cuando hay un estímulo sonoro fuerte.'."
 
