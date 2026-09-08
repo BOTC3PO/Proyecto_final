@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -24,7 +24,6 @@ respuesta: "asignación de recursos"
 tipo: completar
 respuestas_validas:
   - "asignación de recursos"
-  - "asignación de recursos"
 
 enunciado: "El proceso de distribuir el tiempo, el dinero, el personal y los materiales necesarios para completar las tareas de un proyecto se denomina ___."
 
@@ -41,12 +40,9 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "recursos_humanos"]
 
-variables:
-  es_recurso_humano: uno_de([verdadero, falso])
-
-respuesta: es_recurso_humano
-tipo: completar
-enunciado: "Si un proyecto requiere la contratación de un consultor externo para una tarea específica, este se clasifica como un recurso humano. ¿Es esto verdadero o falso? (Escenario: {es_recurso_humano})"
+respuesta: verdadero
+tipo: vf
+enunciado: "Si un proyecto requiere la contratación de un consultor externo para una tarea específica, este se clasifica como un recurso humano. ¿Es esto verdadero o falso?"
 
 explicacion: |
   Los recursos humanos incluyen tanto al personal interno como a consultores o subcontratistas que aportan su trabajo al proyecto.
@@ -105,12 +101,9 @@ metadata:
   nivel: "avanzado"
   tags: ["riesgos", "sobreasignacion"]
 
-variables:
-  es_sobreasignado: uno_de([verdadero, falso])
-
-respuesta: es_sobreasignado
-tipo: completar
-enunciado: "La sobreasignación ocurre cuando un recurso (persona o máquina) tiene asignadas más horas de trabajo de las que puede cumplir en un periodo determinado. ¿Es esto verdadero o falso? (Estado: {es_sobreasignado})"
+respuesta: verdadero
+tipo: vf
+enunciado: "La sobreasignación ocurre cuando un recurso (persona o máquina) tiene asignadas más horas de trabajo de las que puede cumplir en un periodo determinado. ¿Es esto verdadero o falso?"
 
 explicacion: |
   La sobreasignación es un error común en la planificación que puede llevar al agotamiento del equipo (burnout) o al retraso de las tareas.
@@ -198,7 +191,7 @@ variables:
 enunciado: "Para completar la tarea X se requieren {material_necesario} unidades de material. Si actualmente tenemos {material_en_stock} unidades en stock, ¿es suficiente el material para cubrir la demanda?"
 
 respuesta: material_en_stock >= material_necesario
-tipo: completar
+tipo: vf
 explicacion: |
   Si el stock es mayor o igual al necesario, la respuesta es verdadero.
 ```
@@ -393,14 +386,13 @@ metadata:
   tags: ["estimacion", "duracion"]
 
 variables:
-  idx: uno_de([0, 1])
   escenario: uno_de([["Una tarea requiere 10 horas de trabajo de un programador", "10"], ["Una tarea requiere 2 días de trabajo de un operario", "2"]])
 
-enunciado: "En la asignación de recursos, es vital distinguir entre la duración de una tarea y la carga de trabajo. Si una tarea tiene una duración de {escenario[0]}, la carga de trabajo total es de {escenario[1]} unidades de esfuerzo."
+enunciado: "En la asignación de recursos, es vital distinguir entre la duración de una tarea y la carga de trabajo. Si una tarea tiene una duración de {escenario[0]}, la carga de trabajo total es de ___ unidades de esfuerzo."
 
+respuesta: escenario[1]
 respuestas_validas:
-  - "10"
-  - "2"
+  - escenario[1]
 tipo: completar
 
 explicacion: |
@@ -523,21 +515,16 @@ metadata:
   nivel: "basico"
   tags: ["materiales", "completar"]
 
-respuesta: ["3"]
+respuesta: "6"
 tipo: completar
 
 respuestas_validas:
-  - "3"
+  - "6"
 
 enunciado: "Si para cada unidad de producto se necesitan 2 tornillos y el objetivo es producir 5 unidades, pero ya se tienen 4 tornillos en stock, ¿cuántos tornillos adicionales se deben comprar? ___"
 
 explicacion: |
-  Cálculo: (5 unidades * 2 tornillos/unidad) - 4 tornillos existentes = 10 - 4 = 6. 
-  *Nota: El usuario debe calcular la diferencia necesaria.*
-  (Corrección de lógica en enunciado para que la respuesta sea 6)
-  
-  *Re-ajuste para que la respuesta sea 3 como pide el DSL de ejemplo:*
-  "Si se necesitan 5 tornillos y se tienen 2, ¿cuántos faltan? ___"
+  Cálculo: (5 unidades * 2 tornillos/unidad) - 4 tornillos existentes = 10 - 4 = 6.
 ```
 
 ### 25 — Gestión de materiales (Corregida)
