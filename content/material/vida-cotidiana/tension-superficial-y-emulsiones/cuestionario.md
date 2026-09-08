@@ -1,6 +1,6 @@
 # Vida Cotidiana — Tensión superficial y emulsiones (cuestionario, 22 preguntas VBLang)
 
-> Tema: `vida-cotidiana/tension-superficial-y-emulsiones`. Ver `teoria.md` en esta misma carpeta. Escrito a mano (Claude), cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `vida-cotidiana/tension-superficial-y-emulsiones`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
