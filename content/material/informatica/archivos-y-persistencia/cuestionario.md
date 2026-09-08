@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,17 +40,17 @@ metadata:
 
 variables:
   formato_idx: uno_de([0, 1])
-  formato_nombre: uno_de(["JSON", "XML"])
-  formato_descripcion: uno_de(["es un formato basado en etiquetas como <tag>", "es un formato basado en pares clave-valor"])
+  nombres: ["JSON", "XML"]
+  descripciones: ["es un formato basado en pares clave-valor", "es un formato basado en etiquetas como <tag>"]
 
 opciones_explicitas:
   - "JSON"
   - "XML"
 
-respuesta: formato_nombre
+respuesta: nombres[formato_idx]
 tipo: mc
 
-enunciado: "El formato {formato_nombre} {formato_descripcion} es ampliamente utilizado en la web moderna para el intercambio de datos."
+enunciado: "El formato {nombres[formato_idx]} {descripciones[formato_idx]} es ampliamente utilizado en la web moderna para el intercambio de datos."
 
 explicacion: |
   Si elegiste JSON, recuerda que usa llaves y corchetes. Si elegiste XML, recuerda que usa etiquetas jerárquicas.
@@ -216,8 +216,8 @@ metadata:
 
 enunciado: "Para asegurar que todos los datos almacenados en el búfer de escritura se escriban físicamente en el disco duro antes de cerrar un archivo, se debe seguir este orden lógico de operaciones:"
 
-opciones_explicitas: ["Abrir archivo -> Escribir datos -> Cerrar archivo"]
-respuesta_orden: ["Abrir archivo -> Escribir datos -> Cerrar archivo"]
+opciones_explicitas: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
+respuesta_orden: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
 tipo: ordenar
 
 explicacion: |
@@ -270,10 +270,6 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo", "escritura", "orden"]
 
-variables:
-  pasos_correctos: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
-  opciones_desordenadas: ["Cerrar archivo", "Abrir archivo", "Escribir datos"]
-
 respuesta_orden: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
 tipo: ordenar
 opciones_explicitas: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
@@ -292,9 +288,6 @@ metadata:
   tema: "archivos_y_persistencia"
   nivel: "intermedio"
   tags: ["binario", "texto", "encoding"]
-
-variables:
-  escenario: uno_de([["Un archivo .txt con caracteres legibles", "texto"], ["Un archivo .jpg con datos comprimidos", "binario"], ["Un archivo .exe con instrucciones de CPU", "binario"]])
 
 respuesta: "texto"
 tipo: completar
@@ -317,9 +310,6 @@ metadata:
   tema: "archivos_y_persistencia"
   nivel: "avanzado"
   tags: ["sobrescritura", "append", "error"]
-
-variables:
-  caso: uno_de([["un archivo existente que se borra al abrirlo", "sobrescritura"], ["un archivo nuevo que se crea al abrirlo", "creacion"]])
 
 respuesta: "sobrescritura"
 tipo: mc
@@ -359,13 +349,10 @@ metadata:
   nivel: "basico"
   tags: ["memoria", "persistencia", "volatilidad"]
 
-variables:
-  es_persistente: verdadero
-
-respuesta: es_persistente
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Si un programa guarda una variable en el disco duro (archivo), la información se mantiene aunque el proceso termine o se apague la computadora. Esto significa que la escritura en disco es una operación de ___ persistencia."
+enunciado: "Si un programa guarda una variable en el disco duro (archivo), la información se mantiene aunque el proceso termine o se apague la computadora. Esto significa que la escritura en disco es una operación persistente."
 
 explicacion: |
   La memoria RAM es volátil (se pierde al apagar el equipo), mientras que el almacenamiento secundario (archivos) permite la persistencia de los datos.
@@ -384,8 +371,7 @@ respuesta: "CSV"
 tipo: "completar"
 respuestas_validas:
   - "CSV"
-  - "txt"
-  - "bin"
+  - "csv"
 
 enunciado: "Mientras que un archivo de texto plano (.txt) no tiene una estructura interna definida, un archivo ___ utiliza un carácter delimitador (como una coma o punto y coma) para separar los campos de cada registro."
 
@@ -482,11 +468,7 @@ metadata:
   nivel: "intermedio"
   tags: ["xml", "estructura"]
 
-variables:
-  es_xml: uno_de([verdadero, falso])
-  dato_xml: [[ "Es un formato basado en etiquetas (tags) como <item>...</item>", "Es un formato de texto plano sin estructura definida", "Es un formato binario propietario", "Es un formato de solo lectura" ], [ "Es un formato basado en etiquetas (tags) como <item>...</item>", "Es un formato de texto plano sin estructura definida", "Es un formato binario propietario", "Es un formato de solo lectura" ]]
-
-respuesta: es_xml
+respuesta: verdadero
 tipo: vf
 enunciado: "Considerando que el formato XML utiliza etiquetas para definir la jerarquía de los datos, ¿es este un formato estructurado?"
 
@@ -524,12 +506,14 @@ metadata:
   tags: ["binario", "eficiencia"]
 
 variables:
-  caso: uno_de([[".exe o .png", "verdadero"], [".txt o .log", "falso"]])
+  extensiones: [".exe o .png", ".txt o .log"]
+  valores: [verdadero, falso]
+  idx: uno_de([0, 1])
 
-respuesta: caso[1]
+respuesta: valores[idx]
 
-tipo: completar
-enunciado: "Si estamos trabajando con un archivo de tipo {caso[0]}, ¿estamos ante un formato de datos binarios que no es legible directamente como texto plano? (verdadero/falso)"
+tipo: vf
+enunciado: "Si estamos trabajando con un archivo de tipo {extensiones[idx]}, ¿estamos ante un formato de datos binarios que no es legible directamente como texto plano?"
 
 explicacion: |
   Los archivos binarios contienen datos codificados que requieren un software específico para ser interpretados, a diferencia de los archivos de texto que representan caracteres legibles.
