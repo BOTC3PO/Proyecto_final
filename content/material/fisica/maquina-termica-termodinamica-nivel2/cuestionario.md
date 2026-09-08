@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -24,7 +24,7 @@ variables:
   temp_caliente: uno_de([600, 800, 1000])
   temp_fria: 300
 
-respuesta: (temp_caliente / (temp_caliente + temp_fria)) * 100
+respuesta: (1 - (temp_fria / temp_caliente)) * 100
 
 tipo: completar
 tolerancia_abs: 0.1
@@ -355,7 +355,7 @@ metadata:
   tags: ["termodinamica", "historia_ciencia", "watt"]
 
 variables:
-  escenario: uno_de([["Máquina de Newcomen", "calentaba y enfriaba el cilindro en cada ciclo", "causaba una pérdida masiva de energía térmica al enfriar el cilindro"], ["Máquina de Watt", "mantenía el cilindro caliente y usaba un condensador separado", "permitía que el cilindro permaneciera a la temperatura del vapor"]])
+  escenario: ["Máquina de Newcomen", "calentaba y enfriaba el cilindro en cada ciclo", "causaba una pérdida masiva de energía térmica al enfriar el cilindro"]
 
 enunciado: "En la {escenario[0]}, el principal problema de eficiencia era que el {escenario[1]}."
 
@@ -381,12 +381,12 @@ variables:
 
 enunciado: "Si una máquina térmica industrial de la era de Watt tiene una eficiencia térmica de {valor_eficiencia[1]}, esto significa que solo una parte del calor absorbido se convierte en trabajo. El valor decimal es ___."
 
-respuestas_validas:
-  - "0.12"
+respuesta: valor_eficiencia[0]
 tipo: completar
+tolerancia_abs: 0.01
 
 explicacion: |
-  La eficiencia térmica es la relación entre el trabajo útil obtenido y el calor suministrado. Un valor de 0.12 representa un 12% de eficiencia.
+  La eficiencia térmica es la relación entre el trabajo útil obtenido y el calor suministrado. Por ejemplo, un valor de 0.12 representa un 12% de eficiencia.
 ```
 
 ### 18 — Componentes de la máquina de Watt
@@ -403,11 +403,11 @@ enunciado: "Ordena los componentes de una máquina de vapor de Watt según el fl
 pasos:
   - "Generación de vapor por combustión"
   - "Expansión del vapor en el cilindro"
-  - "Condensación en el condensador separado"
   - "Movimiento del pistón/émbolo"
+  - "Condensación en el condensador separado"
 
 opciones_explicitas: ["Generación de vapor por combustión", "Expansión del vapor en el cilindro", "Condensación en el condensador separado", "Movimiento del pistón/émbolo"]
-respuesta_orden: ["Generación de vapor por combustión", "Expansión del vapor en el cilindro", "Condensación en el condensador separado", "Movimiento del pistón/émbolo"]
+respuesta_orden: ["Generación de vapor por combustión", "Expansión del vapor en el cilindro", "Movimiento del pistón/émbolo", "Condensación en el condensador separado"]
 tipo: ordenar
 
 explicacion: |
