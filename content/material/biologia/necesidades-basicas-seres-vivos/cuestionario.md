@@ -1,11 +1,6 @@
 # Biología — Necesidades básicas de los seres vivos: agua, aire, alimento (cuestionario, 20 preguntas VBLang)
 
 > Temas: `BA0a/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Bug de esta tanda: array de un solo elemento
-> indexado con `idx` de rango 0-3, fuera de rango para idx≠0 — la
-> pregunta no necesitaba sorteo (respuesta única), reescrita fija.
 
 ---
 
