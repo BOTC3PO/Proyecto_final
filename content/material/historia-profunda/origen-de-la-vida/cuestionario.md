@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,11 +39,7 @@ metadata:
   nivel: "intermedio"
   tags: ["miller_urey", "aminoacidos"]
 
-variables:
-  datos: [["aminoácidos", "aminoácidos"], ["nucleótidos", "nucleótidos"]]
-  idx: uno_de([0,1])
-
-enunciado: "En el famoso experimento de Miller y Urey, se simularon las condiciones de la Tierra primitiva mediante descargas eléctricas. El resultado principal fue la formación de {datos[idx][0]} a partir de sustancias inorgánicas."
+enunciado: "En el famoso experimento de Miller y Urey, se simularon las condiciones de la Tierra primitiva mediante descargas eléctricas. ¿Cuál fue el resultado principal a partir de sustancias inorgánicas?"
 
 respuesta: "aminoácidos"
 tipo: "mc"
@@ -140,15 +136,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fuentes_hidrotermales", "quimiosintesis"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [["charcos superficiales", "exposición a radiación UV"], ["fuentes hidrotermales", "protección de la radiación UV"]]
-
-respuesta: escenario[escenario_idx][1]
+respuesta: "protección de la radiación UV"
 tipo: mc
 opciones_explicitas: ["exposición a radiación UV", "protección de la radiación UV", "alta radiación solar", "ausencia de calor"]
 
-enunciado: "A diferencia de la hipótesis de la sopa primordial, la teoría de las fuentes hidrotermales sugiere que la vida pudo originarse en el fondo oceánico debido a la {escenario[escenario_idx][0]}."
+enunciado: "A diferencia de la hipótesis de la sopa primordial, la teoría de las fuentes hidrotermales sugiere que la vida pudo originarse en el fondo oceánico debido a la ___."
 
 explicacion: |
   Las fuentes hidrotermales ofrecen un ambiente protegido de la radiación UV superficial y proporcionan gradientes térmicos y químicos esenciales para la síntesis de moléculas complejas.
@@ -203,15 +195,11 @@ metadata:
   nivel: "avanzado"
   tags: ["energia", "hipotesis"]
 
-variables:
-  tipo_energia_idx: uno_de([0, 1])
-  tipo_energia: [["descargas eléctricas"], ["gradientes térmicos"]]
-
-respuesta: tipo_energia[tipo_energia_idx][0]
+respuesta: "descargas eléctricas"
 tipo: mc
 opciones_explicitas: ["descargas eléctricas", "gradientes térmicos", "radiación gamma", "energía cinética"]
 
-enunciado: "En el modelo de la sopa primordial, el motor energético para la síntesis de moléculas orgánicas es la {tipo_energia[tipo_energia_idx][0]}."
+enunciado: "En el modelo de la sopa primordial, ¿cuál es el motor energético propuesto para la síntesis de moléculas orgánicas?"
 
 explicacion: |
   En el modelo de Miller-Urey, las descargas eléctricas (simulando rayos) proporcionan la energía necesaria para romper los enlaces de los gases y formar nuevas moléculas.
@@ -245,14 +233,10 @@ metadata:
   nivel: "intermedio"
   tags: ["biologia", "bioquimica"]
 
-variables:
-  escenario: uno_de([["metabolismo_quimiosintetico", "quimiosíntesis"], ["fotosintesis", "fotosíntesis"]])
-
 tipo: completar
 respuestas_validas:
   - "quimiosíntesis"
-  - "fotosíntesis"
-respuesta: escenario[1]
+respuesta: "quimiosíntesis"
 
 enunciado: "Se postula que LUCA habitaba en entornos extremos, como fuentes hidrotermales, y que su principal fuente de energía era la ___."
 
@@ -436,11 +420,7 @@ metadata:
   nivel: "basico"
   tags: ["atmosfera", "gases"]
 
-variables:
-  gas_principal: ["metano", "oxígeno", "nitrógeno"]
-  idx: uno_de([0,1,2])
-
-respuesta: gas_principal[idx]
+respuesta: "metano"
 tipo: mc
 opciones_explicitas: ["metano", "oxígeno", "nitrógeno"]
 
@@ -459,16 +439,10 @@ metadata:
   nivel: "basico"
   tags: ["energia", "descarga"]
 
-variables:
-  fuente: ["descargas eléctricas", "radiación solar", "calor volcánico"]
-  idx: uno_de([0,1,2])
-
-respuesta: fuente[idx]
+respuesta: "descargas eléctricas"
 tipo: completar
 respuestas_validas:
   - "descargas eléctricas"
-  - "radiación solar"
-  - "calor volcánico"
 
 enunciado: "Para simular la energía disponible en la atmósfera primitiva, el aparato de Miller utilizó ___ entre los gases."
 
@@ -508,15 +482,11 @@ metadata:
   nivel: "avanzado"
   tags: ["montaje", "componentes"]
 
-variables:
-  orden: [["gases", "descargas", "condensación"], ["gases", "condensación", "descargas"], ["condensación", "gases", "descargas"]]
-  idx: uno_de([0,1,2])
-
-respuesta_orden: orden[idx]
+respuesta_orden: ["gases", "descargas", "condensación"]
 tipo: ordenar
 opciones_explicitas: ["gases", "descargas", "condensación"]
 
-enunciado: "Ordena los elementos o procesos según el flujo lógico de la síntesis química en el experimento de Miller: primero los {orden[idx][0]}; luego las {orden[idx][1]}; y finalmente la {orden[idx][2]} de los productos."
+enunciado: "Ordena los elementos o procesos según el flujo lógico de la síntesis química en el experimento de Miller:"
 
 explicacion: |
   El experimento requiere primero la mezcla de gases, luego la aplicación de energía (descargas) y finalmente la recuperación de productos mediante condensación.
