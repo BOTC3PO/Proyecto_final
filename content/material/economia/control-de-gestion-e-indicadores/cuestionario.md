@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,14 +40,11 @@ metadata:
   nivel: "basico"
   tags: ["indicadores", "KPI"]
 
-variables:
-  tipo_indicador: uno_de(["eficiencia", "eficacia"])
-
-respuesta: uno_de(["eficiencia", "eficacia"])
+respuesta: "eficiencia"
 tipo: "mc"
 opciones_explicitas: ["eficiencia", "eficacia", "efectividad"]
 
-enunciado: "Si una empresa logra sus objetivos de ventas utilizando la menor cantidad de recursos posibles, está demostrando un alto nivel de {tipo_indicador}."
+enunciado: "Si una empresa logra sus objetivos de ventas utilizando la menor cantidad de recursos posibles, está demostrando un alto nivel de ___."
 
 explicacion: |
   La eficiencia se refiere a la relación entre los resultados obtenidos y los recursos utilizados. La eficacia, en cambio, se centra solo en el cumplimiento del objetivo.
@@ -62,7 +59,7 @@ metadata:
   nivel: "intermedio"
   tags: ["balanced_scorecard", "perspectivas"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: "vf"
 
 enunciado: "¿El Cuadro de Mando Integral (Balanced Scorecard) propone medir a la organización únicamente desde una perspectiva financiera?"
@@ -151,18 +148,19 @@ metadata:
 
 variables:
   escenario: [[100, 120], [150, 130], [200, 200]]
+  clasificaciones: ["Desviación Positiva", "Desviación Negativa", "Sin Desviación"]
   idx: uno_de([0,1,2])
   costo_real: escenario[idx][0]
   costo_presupuestado: escenario[idx][1]
 
-respuesta: "Desviación Negativa"
+respuesta: clasificaciones[idx]
 tipo: mc
 opciones_explicitas: ["Desviación Positiva", "Desviación Negativa", "Sin Desviación"]
 
 enunciado: "Si el costo real de un proyecto es de ${costo_real} y el presupuesto asignado era de ${costo_presupuestado}, y considerando que un costo mayor al presupuestado es desfavorable para la organización, ¿cómo se clasifica la desviación?"
 
 explicacion: |
-  Cuando el costo real es mayor al presupuestado (como en el caso de {costo_real} vs {costo_presupuestado}), se produce una desviación desfavorable o negativa en términos de control de costos."
+  Si el costo real ({costo_real}) es mayor al presupuestado ({costo_presupuestado}), la desviación es negativa (desfavorable); si es menor, es positiva; si son iguales, no hay desviación.
 ```
 
 ### 8 — El concepto de KPI
@@ -244,7 +242,7 @@ respuesta: "eficiencia"
 tipo: mc
 opciones_explicitas: ["eficiencia", "eficacia", "efectividad", "productividad"]
 
-enunciado: "Un gerente observa que su equipo produjo 100 unidades usando 10 horas de trabajo. Si el objetivo era producir 80 unidades en 12 horas, el equipo cumplió con el objetivo (fue eficaz), pero no optimizó los recursos. El indicador que mide la relación entre resultados y recursos utilizados se denomina ___."
+enunciado: "Un gerente observa que su equipo produjo 100 unidades usando 15 horas de trabajo. Si el objetivo era producir 80 unidades en 12 horas, el equipo cumplió y superó el objetivo (fue eficaz), pero utilizó más horas de las previstas, sin optimizar los recursos. El indicador que mide la relación entre resultados y recursos utilizados se denomina ___."
 
 explicacion: |
   La eficacia mide el grado de cumplimiento de los objetivos (lograr la meta), mientras que la eficiencia mide la relación entre los resultados obtenidos y los recursos empleados para lograrlos.
