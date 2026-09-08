@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,11 +41,8 @@ metadata:
   nivel: "basico"
   tags: ["metodos", "tecnica"]
 
-variables:
-  es_cualitativo: uno_de([verdadero, falso])
-
-respuesta: es_cualitativo
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si un investigador utiliza una entrevista en profundidad para comprender las motivaciones subjetivas de un grupo, está utilizando un método de recolección de tipo cualitativo."
 
 explicacion: |
@@ -351,10 +348,10 @@ metadata:
 variables:
   escenario: uno_de([["un investigador realiza entrevistas para un nuevo estudio", "primarios"], ["un investigador analiza censos nacionales ya existentes", "secundarios"]])
 
-enunciado: "Si un investigador utiliza el {escenario[0]} para su estudio, los datos obtenidos se clasifican como datos {escenario[1]}."
+enunciado: "Si un investigador utiliza el {escenario[0]} para su estudio, los datos obtenidos se clasifican como datos ___."
 
 opciones_explicitas: ["primarios", "secundarios"]
-respuesta: "primarios"
+respuesta: escenario[1]
 tipo: mc
 
 explicacion: |
@@ -391,9 +388,8 @@ metadata:
 
 enunciado: "¿Es correcto afirmar que un error de muestreo ocurre cuando la muestra no es representativa de la población debido a una falla en el diseño de la recolección?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   El sesgo de selección es un error sistemático que ocurre cuando algunos miembros de la población tienen una probabilidad menor o mayor de ser seleccionados, invalidando la representatividad de la muestra.
 ```
@@ -430,9 +426,9 @@ variables:
   escenario_idx: uno_de([0, 1, 2])
   escenarios: [["Se desea conocer la opinión de 500 ciudadanos sobre una nueva ley de tránsito.", "encuesta"], ["Se busca observar el comportamiento natural de primates en una selva sin intervenir.", "observacion"], ["Se requiere profundizar en las experiencias de vida de tres sobrevivientes de un naufragio.", "entrevista"]]
 
-enunciado: "Para el escenario: {escenarios[escenario_idx][0]}, el método de recolección más adecuado es una {escenarios[escenario_idx][1]}."
+enunciado: "Para el escenario: {escenarios[escenario_idx][0]}, el método de recolección más adecuado es una ___."
 
-respuesta: "___"
+respuesta: escenarios[escenario_idx][1]
 tipo: completar
 respuestas_validas:
   - "encuesta"
@@ -479,7 +475,7 @@ variables:
 
 enunciado: "El instrumento '{instrumentos[instrumento_idx][0]}' se clasifica principalmente como un método de recolección de tipo _________."
 
-respuesta: "___"
+respuesta: instrumentos[instrumento_idx][1]
 tipo: completar
 respuestas_validas:
   - "cuantitativo"
@@ -517,13 +513,9 @@ metadata:
   nivel: "avanzado"
   tags: ["validez", "confiabilidad"]
 
-variables:
-  propiedad_idx: uno_de([0, 1])
-  propiedades: [["El instrumento mide realmente la variable que pretende medir.", "validez"], ["El instrumento produce resultados consistentes al aplicarse repetidamente.", "confiabilidad"]]
-
 enunciado: "Si un test de inteligencia arroja resultados muy distintos cada vez que se le aplica a la misma persona en condiciones iguales, decimos que el test carece de _________."
 
-respuesta: "___"
+respuesta: "confiabilidad"
 tipo: completar
 respuestas_validas:
   - "validez"
