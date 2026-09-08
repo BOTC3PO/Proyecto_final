@@ -36,7 +36,7 @@ La ubicación del objeto respecto a los elementos ópticos define si la imagen e
   - Si está **entre el foco y el centro**, la imagen es real, invertida y mayor.
   - Si está **detrás del foco**, la imagen se vuelve virtual, derecha y aumentada.
 
-Este comportamiento también ocurre en lentes: si un objeto está dentro de la distancia focal de una lente convergente, la imagen es virtual; si está más allá, puede ser real o virtual según su posición exacta.
+Este comportamiento también ocurre en lentes: si un objeto está dentro de la distancia focal de una lente convergente, la imagen es virtual; si está más allá del foco, la imagen es siempre real (invertida, y de tamaño mayor, igual o menor según la distancia exacta al doble del foco).
 
 ---
 
@@ -48,7 +48,7 @@ Las imágenes virtuales tienen algunas propiedades universales:
 - **Dirección**: En espejos planos o convexos, son siempre derechas (no invertidas).
 - **Tamaño**: Pueden ser reducidas, aumentadas o del mismo tamaño según el sistema. Por ejemplo, un lente divergente forma imágenes virtuales siempre reducidas.
 
-Un caso práctico es el microscopio: los objetivos forman una imagen virtual que luego es ampliada por el ocular. Otra aplicación es en gafas de lectura, donde las lentes convergentes corriguen la visión creando imágenes virtuales más grandes para el usuario.
+Un caso práctico es el microscopio: el objetivo forma una imagen real (invertida y ampliada) que luego actúa como objeto para el ocular, el cual la amplía nuevamente produciendo una imagen virtual final. Otra aplicación es en gafas de lectura, donde las lentes convergentes corrigen la visión creando imágenes virtuales más grandes para el usuario.
 
 ---
 

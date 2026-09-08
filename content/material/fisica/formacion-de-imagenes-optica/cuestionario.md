@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -59,13 +59,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  datos: [[10, "virtual"], [5, "real"]]
+  datos: [[10, "virtual"], [5, "virtual"]]
 
 respuesta: datos[escenario_idx][1]
 tipo: completar
 respuestas_validas:
   - "virtual"
-  - "real"
 
 enunciado: "Si un objeto se coloca a una distancia de {datos[escenario_idx][0]} cm de un espejo convexo, la imagen resultante será ___."
 
@@ -240,7 +239,7 @@ metadata:
   nivel: "basico"
   tags: ["optica", "espejos", "imágenes"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Una imagen es siempre real si los rayos de luz convergen en un punto físico después de reflejarse o refractarse."
@@ -258,11 +257,7 @@ metadata:
   nivel: "intermedio"
   tags: ["espejos_curvos", "imágenes"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[10, "real", "invertida"], [5, "virtual", "derecha"]]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "real"
 tipo: mc
 opciones_explicitas: ["real", "virtual"]
 
@@ -281,15 +276,12 @@ metadata:
   nivel: "intermedio"
   tags: ["espejos", "lentes"]
 
-variables:
-  caso: uno_de([0, 1])
-  datos: [[15, "grande"], [5, "pequeña"]]
-
-respuesta: datos[caso][1]
+respuesta: "pequeña"
 tipo: completar
 respuestas_validas:
-  - "grande"
   - "pequeña"
+  - "menor"
+  - "reducida"
 
 enunciado: "En un espejo convexo, la imagen siempre es ___ respecto al objeto."
 
@@ -310,7 +302,6 @@ respuesta: "derecha"
 tipo: completar
 respuestas_validas:
   - "derecha"
-  - "invertida"
 
 enunciado: "En un espejo plano, la imagen que se observa es siempre de orientación ___."
 
@@ -327,8 +318,8 @@ metadata:
   nivel: "avanzado"
   tags: ["lentes", "proceso"]
 
-opciones_explicitas: ["Objeto frente a la lente", "Lente refracta los rayos", "Intersección de rayos divergentes", "Formación de imagen real"]
-respuesta_orden: ["Objeto frente a la lente", "Lente refracta los rayos", "Intersección de rayos divergentes", "Formación de imagen real"]
+opciones_explicitas: ["Objeto frente a la lente", "Lente refracta los rayos", "Intersección de rayos convergentes", "Formación de imagen real"]
+respuesta_orden: ["Objeto frente a la lente", "Lente refracta los rayos", "Intersección de rayos convergentes", "Formación de imagen real"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los pasos para la formación de una imagen real con una lente convergente cuando el objeto está fuera del foco:"
@@ -365,10 +356,7 @@ metadata:
   nivel: "intermedio"
   tags: ["optica", "imagen_virtual"]
 
-variables:
-  es_derecha: uno_de([verdadero, falso])
-
-respuesta: es_derecha
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "En el caso de una imagen virtual formada por un espejo plano, la imagen es siempre derecha respecto al objeto."
@@ -386,14 +374,12 @@ metadata:
   nivel: "intermedio"
   tags: ["optica", "orientacion"]
 
-variables:
-  caso: uno_de([0, 1])
-  tabla: [["derecha", "derecha"], ["invertida", "invertida"]]
-
-respuesta: tabla[caso][1]
+respuesta: "derecha"
 tipo: "completar"
+respuestas_validas:
+  - "derecha"
 
-enunciado: "Si una imagen es real, su orientación respecto al objeto será _______, mientras que si la imagen es virtual en un espejo plano, será _______."
+enunciado: "Una imagen real suele ser invertida respecto al objeto; en cambio, si la imagen es virtual y se forma en un espejo plano, su orientación es siempre _______."
 
 explicacion: |
   Las imágenes reales suelen ser invertidas (en lentes o espejos convexos/cóncavos según posición), mientras que las imágenes virtuales en espejos planos son siempre derechas.
@@ -429,7 +415,7 @@ metadata:
   nivel: "basico"
   tags: ["optica", "proyeccion"]
 
-respuesta: "0"
+respuesta: "1"
 tipo: "mc"
 opciones_explicitas: ["0", "1"]
 
@@ -450,7 +436,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  datos: [["un espejo plano", "virtual"], ["una lupa (lupa)", "virtual"]]
+  datos: [["un espejo plano", "virtual"], ["una lupa", "virtual"]]
 
 enunciado: "Al colocar un objeto frente a {datos[escenario_idx][0]}, la imagen que se observa es de tipo ___."
 
