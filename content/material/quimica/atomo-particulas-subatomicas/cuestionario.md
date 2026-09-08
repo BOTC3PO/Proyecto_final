@@ -2,7 +2,7 @@
 
 > Tema: `QC`. Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
+>
 > Bug nuevo esta tanda: `uno_de(...)` llamado más de una vez para la
 > "misma" decisión (una vez en `respuesta`, otra en `enunciado`) —
 > cada llamada sortea independiente, así que a veces no coincidían.
@@ -315,7 +315,7 @@ variables:
   protones: random(1, 20)
 
 respuesta: protones
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo neutro tiene {protones} protones. ¿Cuántos electrones tiene este átomo?"
