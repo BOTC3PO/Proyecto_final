@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -100,16 +100,12 @@ metadata:
   nivel: "intermedio"
   tags: ["viabilidad", "recursos"]
 
-variables:
-  datos_viabilidad: [["Viable", "Inviable"], ["Inviable", "Viable"]]
-  idx: uno_de([0, 1])
-  resultado: datos_viabilidad[idx][1]
-
-respuesta: resultado
 tipo: "mc"
 opciones_explicitas: ["Viable", "Inviable", "Óptimo", "Indeterminado"]
 
-enunciado: "Si un diseño cumple con todos los requisitos funcionales pero excede el presupuesto máximo disponible, la solución es: {datos_viabilidad[idx][0]}"
+enunciado: "Si un diseño cumple con todos los requisitos funcionales pero excede el presupuesto máximo disponible, ¿cómo se clasifica la solución?"
+
+respuesta: "Inviable"
 
 explicacion: |
   Si una solución no cumple con una restricción crítica (como el presupuesto), se considera inviable, aunque sea técnicamente funcional.
@@ -185,18 +181,22 @@ metadata:
   tags: ["materiales", "viabilidad"]
 
 variables:
-  material_data: uno_de([["Acero", 7.8, 5.0], ["Aluminio", 2.7, 2.0]])
+  nombres: ["Acero", "Aluminio"]
+  densidades: [7.8, 2.7]
+  limites: [5.0, 3.0]
+  resultados: [falso, verdadero]
+  idx: uno_de([0, 1])
 
-enunciado: "Se requiere un componente con una densidad máxima de {material_data[2]} g/cm³. El material seleccionado es {material_data[0]} con una densidad de {material_data[1]} g/cm³."
+enunciado: "Se requiere un componente con una densidad máxima de {limites[idx]} g/cm³. El material seleccionado es {nombres[idx]} con una densidad de {densidades[idx]} g/cm³. ¿Es viable este material según la restricción de densidad?"
 
 pasos:
   - "Identificar la densidad del material propuesto."
   - "Comparar la densidad del material con el límite máximo permitido."
 
-respuesta: verdadero
+respuesta: resultados[idx]
 tipo: vf
 explicacion: |
-  La solución es viable si la propiedad física del material no excede el límite impuesto por la restricción de diseño.
+  La solución es viable si la propiedad física del material no excede el límite impuesto por la restricción de diseño. En este caso, {densidades[idx]} g/cm³ frente al límite de {limites[idx]} g/cm³.
 ```
 
 ### 10 — Cumplimiento de plazos de entrega
@@ -209,18 +209,21 @@ metadata:
   tags: ["tiempo", "cronograma"]
 
 variables:
-  fases: uno_de([["diseño", 15, 20], ["prototipado", 30, 25], ["pruebas", 10, 12]])
-  nombre_fase: fases[0]
-  tiempo_estimado: fases[1]
-  plazo_maximo: fases[2]
+  nombres_fase: ["diseño", "prototipado", "pruebas"]
+  tiempos: [15, 30, 10]
+  plazos: [20, 25, 12]
+  idx: uno_de([0, 1, 2])
+  nombre_fase: nombres_fase[idx]
+  tiempo_estimado: tiempos[idx]
+  plazo_maximo: plazos[idx]
 
-enunciado: "Para la fase de {nombre_fase}, el tiempo estimado es de {tiempo_estimado} días, mientras que el plazo máximo permitido es de {plazo_maximo} días."
+enunciado: "Para la fase de {nombre_fase}, el tiempo estimado es de {tiempo_estimado} días, mientras que el plazo máximo permitido es de {plazo_maximo} días. ¿Se cumple con el plazo establecido?"
 
-respuesta: "___"
-tipo: completar
+respuesta: tiempo_estimado <= plazo_maximo
+tipo: vf
 
 explicacion: |
-  El usuario debe completar el nombre de la fase según el índice sorteado. En el caso de {nombre_fase}, el tiempo es {tiempo_estimado} y el límite es {plazo_maximo}.
+  Se cumple el plazo cuando el tiempo estimado no supera el plazo máximo permitido. En este caso: {tiempo_estimado} días frente al límite de {plazo_maximo} días.
 ```
 
 ### 11 — Requisitos vs. Restricciones
@@ -312,13 +315,12 @@ metadata:
   nivel: "intermedio"
   tags: ["definicion_problema", "errores_comunes"]
 
-respuesta: ["implícitas", "explícitas"]
+respuesta: "explícitas"
 tipo: completar
 respuestas_validas:
-  - "implícitas"
   - "explícitas"
 
-enunciado: "Las restricciones que no son mencionadas directamente por el cliente pero que son obligatorias por ley o normas técnicas se conocen como restricciones ________, mientras que las comunicadas directamente son ________."
+enunciado: "Las restricciones que no son mencionadas directamente por el cliente pero que son obligatorias por ley o normas técnicas se conocen como restricciones implícitas, mientras que las comunicadas directamente son ________."
 
 explicacion: |
   Las restricciones explícitas son las dadas por el cliente (ej. "quiero que sea rojo"). Las implícitas son aquellas que el ingeniero debe conocer por conocimiento profesional (ej. normas de seguridad eléctrica o leyes ambientales).
@@ -373,15 +375,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["El sistema debe procesar 100 transacciones por segundo.", "El sistema debe pesar menos de 5kg."], ["El sistema debe ser de color azul.", "El sistema debe operar entre 0°C y 50°C."]]
-  tipos: ["Funcional", "No Funcional"]
+  escenarios: [["El sistema debe procesar 100 transacciones por segundo.", "Funcional"], ["El sistema debe ser de color azul.", "No Funcional"]]
 
 tipo: completar
-enunciado: "Considerando el escenario: '{escenarios[escenario_idx][0]}', este se clasifica como un requisito de tipo {tipos[0]}."
+enunciado: "Considerando el escenario: '{escenarios[escenario_idx][0]}', este se clasifica como un requisito de tipo ___."
 respuestas_validas:
   - "Funcional"
   - "No Funcional"
-respuesta: "Funcional"
+respuesta: escenarios[escenario_idx][1]
 
 explicacion: |
   Los requisitos funcionales definen acciones o comportamientos específicos del sistema (lo que hace), mientras que los no funcionales (como peso, color o temperatura) definen atributos o cualidades de la solución.
