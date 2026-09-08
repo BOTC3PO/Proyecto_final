@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -161,10 +161,6 @@ metadata:
   nivel: "intermedio"
   tags: ["etapas", "procedimiento"]
 
-variables:
-  pasos_ordenados: [["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"], ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"], ["Producción de prueba", "Alegato de apertura", "Alegatos de clausura"]]
-  idx: uno_de([0,1,2])
-
 respuesta_orden: ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"]
 tipo: ordenar
 opciones_explicitas: ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"]
@@ -183,10 +179,6 @@ metadata:
   tema: "juicio_oral"
   nivel: "basico"
   tags: ["sentencia", "veredicto"]
-
-variables:
-  caso_escenario: [["absolución", "el acusado es libre de cargos"], ["condena", "el acusado es hallado culpable"]]
-  idx: uno_de([0,1])
 
 respuesta: "condena"
 tipo: mc
@@ -289,9 +281,6 @@ respuesta: "imparcial"
 tipo: completar
 respuestas_validas:
   - "imparcial"
-  - "activo"
-  - "perito"
-  - "acusador"
 
 enunciado: "Durante la etapa de producción de prueba en el juicio oral, el juez debe mantener un rol ___ y no debe proponer pruebas de oficio que no hayan sido solicitadas por las partes, para no vulnerar la imparcialidad."
 
@@ -308,11 +297,7 @@ metadata:
   nivel: "avanzado"
   tags: ["pruebas", "limites"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [[0, "prohibido"], [1, "excepcional"]]
-
-respuesta: casos[caso_idx][1]
+respuesta: "excepcional"
 
 enunciado: "En un juicio oral, la regla general es la prohibición de introducir elementos de convicción que no hayan sido debidamente anunciados y admitidos en la etapa intermedia. Sin embargo, la incorporación de prueba nueva es ___ si se demuestra que es un elemento sobreviniente que no pudo ser conocido antes."
 
@@ -416,7 +401,7 @@ respuesta: datos[escenario][1]
 tipo: "mc"
 opciones_explicitas: ["presentación de pruebas", "argumentos", "determinar culpabilidad", "convencer al juez"]
 
-enunciado: "En el juicio oral, la etapa de {datos[escenario][0]} tiene como objetivo principal {datos[escenario][1]}."
+enunciado: "En el juicio oral, ¿cuál es el objetivo principal de la etapa de {datos[escenario][0]}?"
 
 explicacion: |
   El objetivo de la producción probatoria es aportar elementos que permitan al tribunal alcanzar la certeza necesaria para dictar un veredicto.
@@ -431,13 +416,9 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso_penal", "fiscalia"]
 
-variables:
-  datos: [["El fiscal presenta un testigo que afirma haber visto al imputado cometiendo el robo.", "acusación"], ["El abogado defensor presenta una pericia que exculpa al imputado.", "defensa"]]
-  idx: uno_de([0, 1])
+enunciado: "En el escenario donde el fiscal presenta un testigo que afirma haber visto al imputado cometiendo el robo, ¿qué parte está ejerciendo la carga de la prueba?"
 
-enunciado: "En el escenario donde el {datos[idx][0]}, la parte que está ejerciendo la carga de la prueba es la de {datos[idx][1]}."
-
-respuesta: datos[idx][1]
+respuesta: "acusación"
 tipo: mc
 opciones_explicitas: ["acusación", "defensa", "tribunal", "testigo"]
 
@@ -472,9 +453,6 @@ metadata:
   nivel: "intermedio"
   tags: ["etapas", "debate"]
 
-variables:
-  secuencia: [["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]]
-
 enunciado: "Ordene cronológicamente las etapas fundamentales de un juicio oral:"
 
 respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
@@ -503,8 +481,7 @@ enunciado: "Si en un juicio {datos[idx][0]}, la validez del acto procesal se con
 respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "invalida"
-  - "valida"
+  - datos[idx][1]
 
 explicacion: |
   El principio de inmediación exige que el tribunal esté en contacto directo con la producción de la prueba para poder valorarla correctamente.
@@ -519,10 +496,7 @@ metadata:
   nivel: "intermedio"
   tags: ["principios", "in dubio pro reo"]
 
-variables:
-  resultado_prueba: uno_de(["insuficiente", "contundente"])
-
-enunciado: "Si la prueba presentada por la fiscalía es {resultado_prueba}, y surge una duda razonable, el juez debe dictar una sentencia de ___."
+enunciado: "Si la prueba presentada por la fiscalía es insuficiente y surge una duda razonable, el juez debe dictar una sentencia de ___."
 
 respuesta: "absolución"
 tipo: mc
