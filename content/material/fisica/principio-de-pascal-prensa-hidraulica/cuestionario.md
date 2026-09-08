@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -213,19 +213,13 @@ metadata:
   nivel: "avanzado"
   tags: ["proporcionalidad", "calculo"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Si el área de un pistón de salida es el doble que la del pistón de entrada, la fuerza ejercida en el pistón de salida será el doble que la aplicada en el de entrada. ¿Es esto verdadero o falso?"
 
 explicacion: |
-  Es falso. Debido a la relación $F_2 / F_1 = A_2 / A_1$, si el área se duplica, la fuerza también se duplica. Sin embargo, la pregunta se refiere a la lógica de la prensa: si queremos multiplicar la fuerza, necesitamos que el área de salida sea mayor. En este caso específico, la afirmación es matemáticamente correcta para ese caso, pero si la pregunta fuera sobre la relación inversa, sería falsa. 
-  
-  *Corrección de lógica para el DSL*: Si $A_2 = 2 \cdot A_1$, entonces $F_2 = 2 \cdot F_1$. La afirmación es verdadera.
-  
-  *Re-generando para asegurar falsedad según requerimiento de variabilidad*:
-  
-  "Si el área del pistón de salida es el CUARTO de la del pistón de entrada, la fuerza de salida será el DOBLE de la fuerza de entrada."
+  Es verdadero. Debido a la relación $F_2 / F_1 = A_2 / A_1$, si el área de salida es el doble de la de entrada ($A_2 = 2 \cdot A_1$), entonces la fuerza de salida también es el doble ($F_2 = 2 \cdot F_1$).
 ```
 
 ### 11 — Relación de áreas (Corregida)
@@ -319,7 +313,7 @@ pasos:
   - "Identificar la presión constante: P = {datos[idx][0]} Pa."
   - "Multiplicar la presión por el área de salida: F = P * A_salida."
 
-respuesta: "datos[idx][0] * datos[idx][1]"
+respuesta: datos[idx][0] * datos[idx][1]
 
 explicacion: |
   La fuerza es el producto de la presión por el área (F = P * A). Como la presión es constante en todo el fluido, la fuerza en el émbolo de salida depende directamente de su área.
@@ -435,7 +429,7 @@ metadata:
   nivel: "basico"
   tags: ["prensa_hidraulica", "componentes"]
 
-respuesta_orden: ["Fluido incompresible", "Émbolo pequeño", "Émbolo grande", "Carga o peso"]
+respuesta_orden: ["Émbolo pequeño", "Fluido incompresible", "Émbolo grande", "Carga o peso"]
 tipo: ordenar
 
 opciones_explicitas: ["Fluido incompresible", "Émbolo pequeño", "Émbolo grande", "Carga o peso"]
@@ -443,7 +437,7 @@ opciones_explicitas: ["Fluido incompresible", "Émbolo pequeño", "Émbolo grand
 enunciado: "Ordene los elementos de una prensa hidráulica según el orden en que la energía mecánica se transmite desde la aplicación de la fuerza inicial hasta el levantamiento de la carga:"
 
 explicacion: |
-  El proceso comienza con el fluido transmitiendo la presión, el émbolo pequeño recibiendo la fuerza, la presión moviendo el émbolo grande y finalmente levantando la carga.
+  El proceso comienza con la fuerza aplicada al émbolo pequeño, que genera una presión transmitida íntegramente por el fluido incompresible, moviendo el émbolo grande y finalmente levantando la carga.
 ```
 
 ### 21 — Comparación: Pascal vs. Arquímedes
@@ -475,13 +469,10 @@ metadata:
   nivel: "avanzado"
   tags: ["ventaja_mecanica", "relacion"]
 
-variables:
-  datos: uno_de([[2, 10], [5, 25], [10, 100]])
-
-respuesta: datos[0]
+respuesta: "10"
 tipo: completar
 respuestas_validas:
-  - "20"
+  - "10"
 
 enunciado: "Si en una prensa hidráulica el área del émbolo de salida es 10 veces mayor que el área del émbolo de entrada, la fuerza de salida será ___ veces la fuerza de entrada."
 
