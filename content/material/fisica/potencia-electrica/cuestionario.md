@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -318,7 +318,7 @@ metadata:
 variables:
   datos: uno_de([[12, 2], [220, 5], [12, 0.5]])
 
-respuesta: "{datos[0]} * {datos[1]}"
+respuesta: datos[0] * datos[1]
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -381,14 +381,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [[10, 5, 2], [20, 2, 4]]
-  comparacion: datos[escenario_idx][2] > datos[escenario_idx][1]
+  datos: [[2, 5, "mayor"], [4, 2, "menor"]]
 
-respuesta: "mayor"
+respuesta: datos[escenario_idx][2]
 tipo: "mc"
 opciones_explicitas: ["menor", "mayor", "igual", "nula"]
 
-enunciado: "Si mantenemos el voltaje constante en un circuito, un componente con una resistencia de {datos[escenario_idx][2]} $\\Omega$ disipará una potencia {\"mayor\" if comparacion else \"menor\"} que uno con una resistencia de {datos[escenario_idx][1]} $\\Omega$."
+enunciado: "Si mantenemos el voltaje constante en un circuito, un componente con una resistencia de {datos[escenario_idx][0]} $\\Omega$ disipará una potencia ___ que uno con una resistencia de {datos[escenario_idx][1]} $\\Omega$."
 
 explicacion: |
   Usando la fórmula $P = V^2 / R$, la potencia es inversamente proporcional a la resistencia cuando el voltaje es constante.
@@ -449,7 +448,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   valores: [[12, 2], [24, 3]]
 
-respuesta: 36.0
+respuesta: valores[escenario_idx][0] * valores[escenario_idx][0] * valores[escenario_idx][1]
 tipo: "input"
 tolerancia_abs: 0.1
 
@@ -462,9 +461,7 @@ pasos:
 
 explicacion: |
   Aplicando $P = I^2 \cdot R$:
-  Si I = 2 y R = 2 $\rightarrow$ $2^2 \cdot 2 = 8$ (Nota: El ejemplo en el código usa valores específicos, el usuario verá uno de los dos casos).
-  Si I = 4 y R = 2 $\rightarrow$ $4^2 \cdot 2 = 32$.
-  *(Nota para el generador: El valor de respuesta debe ser calculado dinámicamente según el escenario seleccionado en la variable `valores`)*.
+  P = {valores[escenario_idx][0]}² · {valores[escenario_idx][1]} = {valores[escenario_idx][0] * valores[escenario_idx][0] * valores[escenario_idx][1]} W.
 ```
 
 ### 21 — Consumo de una bombilla
@@ -543,7 +540,7 @@ variables:
   limite: escenario[1]
 
 respuesta: p > limite
-tipo: completar
+tipo: vf
 enunciado: "Un dispositivo consume una potencia de {p} W. Si el límite de seguridad de la instalación es de {limite} W, ¿se ha superado el límite de seguridad?"
 
 explicacion: |
