@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -176,16 +176,16 @@ metadata:
   tags: ["intensidad", "amplitud"]
 
 variables:
-  datos: [[0.5, "Mayor"], [0.8, "Menor"]]
+  amplitudes: [[0.5, 0.8], [0.3, 0.9]]
   idx: uno_de([0, 1])
-  amplitud_a: datos[idx][0]
-  amplitud_b: datos[idx][1]
+  amplitud_a: amplitudes[idx][0]
+  amplitud_b: amplitudes[idx][1]
 
-respuesta: datos[idx][1]
+respuesta: "Mayor"
 tipo: mc
 opciones_explicitas: ["Mayor", "Menor"]
 
-enunciado: "Si comparamos dos ondas sonoras, una con amplitud {amplitud_a} y otra con amplitud {amplitud_b}, la que tiene mayor amplitud tendrá una intensidad sonora ___."
+enunciado: "Si comparamos dos ondas sonoras, una con amplitud {amplitud_a} y otra con amplitud {amplitud_b} (mayor que la primera), la onda con mayor amplitud tendrá una intensidad sonora ___."
 
 explicacion: |
   La intensidad sonora depende del cuadrado de la amplitud de la onda. A mayor amplitud, mayor intensidad (volumen).
@@ -460,7 +460,7 @@ variables:
   idx: uno_de([0, 1])
   escenario: [[440, "La nota es más aguda"], [100, "La nota es más grave"]]
 
-respuesta: "La nota es más aguda"
+respuesta: escenario[idx][1]
 tipo: "mc"
 opciones_explicitas: ["La nota es más aguda", "La nota es más grave"]
 
@@ -552,10 +552,7 @@ variables:
   caracteristica: relaciones[idx][1]
 
 tipo: completar
-respuestas_validas:
-  - "tono"
-  - "intensidad"
-  - "timbre"
+respuesta: caracteristica
 enunciado: "Si modificamos la {propiedad}, estamos alterando la característica auditiva conocida como ________."
 
 explicacion: |
