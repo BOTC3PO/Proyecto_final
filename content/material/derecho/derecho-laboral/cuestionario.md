@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -23,7 +23,6 @@ metadata:
 respuesta: "regula la relación entre empleador y trabajador"
 tipo: completar
 respuestas_validas:
-  - "regula la relación entre empleador y trabajador"
   - "regula la relación entre empleador y trabajador"
 
 enunciado: "El Derecho Laboral es la rama del derecho que ___."
@@ -143,7 +142,7 @@ metadata:
   nivel: "intermedio"
   tags: ["elementos_esenciales", "verificacion"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "Si una persona presta servicios de forma autónoma, con sus propios medios, sin cumplir un horario impuesto y sin recibir órdenes directas, ¿se configura un contrato de trabajo?"
@@ -213,7 +212,7 @@ variables:
   casos: [["$500", "es_ilegal"], ["$1200", "es_legal"]]
   ley_minima: 1000
 
-respuesta: "es_ilegal"
+respuesta: casos[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["es_ilegal", "es_legal"]
 
@@ -271,17 +270,14 @@ metadata:
   nivel: "intermedio"
   tags: ["distinciones", "contratos"]
 
-variables:
-  escenario: uno_de([["Contrato de Locación de Servicios (Civil)", "Civil"], ["Contrato de Trabajo (Laboral)", "Laboral"]])
-
-respuesta: escenario[1]
+respuesta: "Civil"
 tipo: mc
 opciones_explicitas: ["Civil", "Laboral"]
 
 enunciado: "Si una persona es contratada para realizar una tarea específica, pero no está sujeta a horarios, no recibe órdenes directas y utiliza sus propios medios, ¿bajo qué rama del derecho se encuadra principalmente esta relación?"
 
 explicacion: |
-  En el escenario seleccionado ({escenario[0]}), la ausencia de subordinación y la autonomía técnica desplazan la relación al ámbito del Derecho Civil.
+  La ausencia de subordinación y la autonomía técnica desplazan la relación al ámbito del Derecho Civil (contrato de locación de servicios), no al Derecho Laboral.
 ```
 
 ### 14 — Principios del Derecho Laboral
@@ -354,14 +350,11 @@ metadata:
   nivel: "intermedio"
   tags: ["contratos", "derecho_civil"]
 
-variables:
-  escenario: uno_de([["Contrato de locación de servicios (Civil)", "Civil"], ["Contrato de trabajo (Laboral)", "Laboral"]])
-
-respuesta: escenario[1]
+respuesta: "Civil"
 tipo: mc
 opciones_explicitas: ["Civil", "Laboral"]
 
-enunciado: "Si una persona presta un servicio de manera autónoma, sin dependencia ni subordinación, bajo un contrato de locación de servicios, la relación se rige principalmente por el Derecho {escenario[1]}."
+enunciado: "Si una persona presta un servicio de manera autónoma, sin dependencia ni subordinación, bajo un contrato de locación de servicios, la relación se rige principalmente por el Derecho ___."
 
 explicacion: |
   La subordinación técnica, jurídica y económica es el elemento distintivo que traslada la relación del ámbito Civil al ámbito Laboral.
@@ -466,14 +459,13 @@ metadata:
   tags: ["jornada", "horas_extra"]
 
 variables:
-  datos: [["8 horas", "8"], ["9 horas", "9"]]
   idx: uno_de([0, 1])
+  horas_trabajadas: [8, 10]
+  hay_extra: [falso, verdadero]
 
-respuestas_validas:
-  - 2
-respuesta: 2
-tipo: completar
-enunciado: "Si la jornada legal es de {datos[idx][0]} horas diarias y el trabajador realiza {datos[idx][0]} horas, ¿se han devengado horas extraordinarias?"
+respuesta: hay_extra[idx]
+tipo: vf
+enunciado: "Si la jornada legal es de 8 horas diarias y el trabajador realizó {horas_trabajadas[idx]} horas, ¿se han devengado horas extraordinarias?"
 
 explicacion: |
   Si la jornada trabajada excede el límite legal establecido, el excedente debe pagarse como hora extraordinaria según la legislación vigente.
