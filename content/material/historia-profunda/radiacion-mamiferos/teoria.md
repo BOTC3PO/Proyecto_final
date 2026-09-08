@@ -22,7 +22,7 @@ Este vacío no fue una desgracia, sino un catalizador para los mamíferos. Comen
 
 ## 3. El rol de los nichos ecológicos
 
-Los nichos ecológicos vacíos no eran solo espacios físicos, sino roles funcionales en el ecosistema: desde herbivoría hasta caza, desde vida terrestre hasta acuática. Los mamíferos, con su capacidad de adaptación y reproducción rápida, llenaron estos huecos. Algunos se especializaron en alimentarse de plantas, otros en cazar presas, y algunos incluso evolucionaron hacia estilos de vida completamente nuevos, como el vuelo (en el caso de los chiropteranos).
+Los nichos ecológicos vacíos no eran solo espacios físicos, sino roles funcionales en el ecosistema: desde herbivoría hasta caza, desde vida terrestre hasta acuática. Los mamíferos, con su capacidad de adaptación y reproducción rápida, llenaron estos huecos. Algunos se especializaron en alimentarse de plantas, otros en cazar presas, y algunos incluso evolucionaron hacia estilos de vida completamente nuevos, como el vuelo (en el caso de los quirópteros).
 
 ## 4. Factores que impulsaron la radiación
 

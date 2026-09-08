@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,14 +40,11 @@ metadata:
   nivel: "intermedio"
   tags: ["tiempo", "geologia", "paleontologia"]
 
-variables:
-  escenario: uno_de([["66 millones de años", "Cenomaniense"], ["230 millones de años", "Triásico"], ["66 millones de años", "Cretácico-Paleógeno"]])
-
-respuesta: escenario[0]
+respuesta: "66 millones de años"
 tipo: mc
-opciones_explicitas: ["66 millones de años", "230 millones de años", "66 millones de años", "100 millones de años"]
+opciones_explicitas: ["66 millones de años", "230 millones de años", "100 millones de años", "500 millones de años"]
 
-enunciado: "La gran extinción que permitió la radiación de los mamíferos ocurrió hace aproximadamente {escenario[0]}."
+enunciado: "La gran extinción que permitió la radiación de los mamíferos ocurrió hace aproximadamente:"
 
 explicacion: |
   El evento de extinción masiva del Cretácico-Paleógeno ocurrió hace unos 66 millones de años, marcando el inicio de la era de los mamíferos.
@@ -138,10 +135,6 @@ metadata:
   nivel: "intermedio"
   tags: ["extincion_kp", "adaptacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Extinción K-Pg", "Diversificación"], ["Evento de extinción", "Radiación"]]
-
 tipo: completar
 respuestas_validas:
   - "Diversificación"
@@ -203,10 +196,6 @@ metadata:
   tema: "radiacion_mamiferos"
   nivel: "intermedio"
   tags: ["ecologia", "evolucion"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  info: [["K-Pg", "liberó nichos"], ["Extinción", "permitió la radiación"]]
 
 tipo: completar
 tolerancia_abs: 0
@@ -392,17 +381,14 @@ metadata:
   nivel: "avanzado"
   tags: ["filogenia", "ordenar"]
 
-respuesta_orden: ["Euteria", "Primates", "Carnivora", "Cetacea"]
+respuesta_orden: ["Mammalia", "Eutheria", "Primates", "Hominidae"]
 tipo: ordenar
-opciones_explicitas: ["Euteria", "Primates", "Carnivora", "Cetacea"]
+opciones_explicitas: ["Mammalia", "Eutheria", "Primates", "Hominidae"]
 
-enunciado: "Ordene de mayor a menor nivel taxonómico (de lo más general a lo más específico) la siguiente jerarquía de un humano: [Primates, Euteria, Carnivora, Cetacea] (Nota: El usuario debe identificar la jerarquía correcta de un orden específico dentro de los Euterios, pero para este ejercicio de ordenamiento use la secuencia de niveles de un ancestro común a los órdenes)."
+enunciado: "Ordene la jerarquía taxonómica del ser humano desde la Clase hasta la Familia:"
 
-# Nota: El prompt pide ordenar una secuencia real. Reajustando para evitar ambigüedad:
-# El usuario debe ordenar la jerarquía de un grupo específico.
-# Como "ordenar" requiere la lista completa, usaré la jerarquía de un Cetáceo.
-
-# Re-haciendo pregunta 4 para cumplir estrictamente con el tipo "ordenar" (secuencia real):
+explicacion: |
+  La secuencia correcta es Clase Mammalia, Infraclase Eutheria, Orden Primates y Familia Hominidae (los grandes simios, incluyendo al ser humano).
 ```
 
 ### 20 — Jerarquía de un Cetáceo
@@ -549,17 +535,12 @@ metadata:
   nivel: "intermedio"
   tags: ["competencia", "ecologia"]
 
-variables:
-  datos: [["Sin la presión de los dinosaurios, los mamíferos habrían sido...", "menos diversos"], ["La radiación ocurrió porque los mamíferos eran...", "menos diversos"]]
-  idx: uno_de([0, 1])
-
 respuesta: "menos diversos"
 tipo: completar
 respuestas_validas:
   - "menos diversos"
-  - "más grandes"
 
-enunciado: "{datos[idx][0]} ___"
+enunciado: "Durante el Mesozoico, la presión competitiva y depredadora de los dinosaurios mantuvo a los mamíferos ___."
 
 explicacion: |
   La competencia por recursos y la depredación por parte de los dinosaurios habrían limitado la diversificación y el tamaño de los mamíferos durante el Mesozoico.
