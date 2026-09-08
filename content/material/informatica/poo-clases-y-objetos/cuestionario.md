@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -78,17 +78,11 @@ metadata:
   nivel: "intermedio"
   tags: ["poo", "clases", "objetos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Perro", "Fido"], ["Auto", "Toyota"]]
-  clase: datos[escenario_idx][0]
-  objeto: datos[escenario_idx][1]
-
-respuesta: objeto
+respuesta: "Fido es una instancia concreta de la clase Perro"
 tipo: mc
-opciones_explicitas: ["Fido", "Toyota"]
+opciones_explicitas: ["Fido es una instancia concreta de la clase Perro", "Perro es una instancia de Fido", "Fido y Perro son la misma cosa", "Ninguna clase puede tener objetos"]
 
-enunciado: "Si tenemos la clase {clase}, la afirmación correcta sobre un objeto es que {objeto}."
+enunciado: "Si tenemos la clase 'Perro' y un objeto llamado 'Fido' creado a partir de ella, ¿cuál de las siguientes afirmaciones es correcta?"
 
 explicacion: |
   La clase es la definición abstracta (Perro), mientras que el objeto es la realización concreta con datos específicos (Fido).
@@ -207,7 +201,7 @@ variables:
   datos: uno_de([[5.0, 10.0, 50.0], [3.0, 4.0, 12.0], [2.0, 6.0, 12.0]])
 
 respuesta: datos[2]
-tipo: "input"
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Tenemos una clase 'Rectangulo' con los atributos 'base' y 'altura'. Si un objeto de esta clase tiene base = {datos[0]} y altura = {datos[1]}, ¿cuál es el valor resultante del método 'calcular_area()'?"
@@ -248,14 +242,11 @@ metadata:
   nivel: "intermedio"
   tags: ["memoria", "alcance"]
 
-variables:
-  escenario: uno_de([["Atributo de instancia", "valor_especifico"], ["Atributo de clase", "valor_compartido"]])
-
 respuesta: "Atributo de clase"
 tipo: mc
 opciones_explicitas: ["Atributo de instancia", "Atributo de clase"]
 
-enunciado: "Si definimos una variable dentro de una clase pero fuera de cualquier método, y dicha variable es compartida por todos los objetos de esa clase, estamos ante un: {escenario[0]}."
+enunciado: "Si definimos una variable dentro de una clase pero fuera de cualquier método, y dicha variable es compartida por todos los objetos de esa clase, estamos ante un: ___."
 
 explicacion: |
   Los atributos de clase pertenecen a la clase misma y se comparten entre todas las instancias, mientras que los de instancia son únicos para cada objeto.
@@ -351,14 +342,11 @@ metadata:
   nivel: "basico"
   tags: ["poo", "atributos", "metodos"]
 
-variables:
-  es_estado: uno_de(["estado", "comportamiento"])
-
 respuesta: "estado"
 tipo: mc
 opciones_explicitas: ["estado", "comportamiento"]
 
-enunciado: "En el paradigma de POO, la principal distinción es que los atributos representan el {es_estado}, mientras que los métodos representan el comportamiento."
+enunciado: "En el paradigma de POO, la principal distinción es que los atributos representan el ___, mientras que los métodos representan el comportamiento."
 
 pasos:
   - "Identificar qué elemento define las características (datos)."
