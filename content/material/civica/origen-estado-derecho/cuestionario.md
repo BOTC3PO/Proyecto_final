@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,18 +40,13 @@ metadata:
   nivel: "intermedio"
   tags: ["excedente", "jerarquia", "historia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [["La aparición de excedentes agrícolas permitió la especialización y la jerarquización social.", "excedente"], ["La migración constante impidió la formación de estructuras de poder fijas.", "migración"]]
-
 tipo: completar
 respuestas_validas:
   - "excedente"
-  - "migración"
 
 enunciado: "Históricamente, el surgimiento de sociedades con ___ permitió que aparecieran jerarquías sociales y, eventualmente, la formación del Estado."
 
-respuesta: escenario[escenario_idx][1]
+respuesta: "excedente"
 
 explicacion: |
   El control de un excedente de producción (comida, bienes) permitió que no todos los miembros de la sociedad se dedicaran a la agricultura, dando lugar a clases sociales y una autoridad centralizada.
@@ -145,14 +140,11 @@ metadata:
   nivel: "basico"
   tags: ["historia", "hammurabi", "babilonia"]
 
-variables:
-  escenario: uno_de([["Código de Hammurabi", "Babilonia"], ["Código de Ur-Nammu", "Sumeria"], ["Ley de las XII Tablas", "Roma"]])
-
-respuesta: escenario[1]
+respuesta: "Babilonia"
 tipo: mc
 opciones_explicitas: ["Babilonia", "Sumeria", "Roma", "Egipto"]
 
-enunciado: "El Código de Hammurabi es uno de los primeros conjuntos de leyes escritas de la historia y pertenece a la civilización de {escenario[0]}."
+enunciado: "El Código de Hammurabi es uno de los primeros conjuntos de leyes escritas de la historia y pertenece a la civilización de ___."
 
 explicacion: |
   El Código de Hammurabi fue creado en la antigua Babilonia y es uno de los pilares del derecho histórico.
@@ -249,13 +241,10 @@ metadata:
   nivel: "intermedio"
   tags: ["evolucion", "derecho_formal"]
 
-variables:
-  escenario: uno_de([["tribu_pequena", "costumbres"], ["estado_moderno", "leyes escritas"]])
-
-enunciado: "Considerando el desarrollo de las sociedades, si nos encontramos en un {escenario[0]}, el control social se ejerce mediante {escenario[1]}. Sin embargo, en un {escenario[0]} de gran escala, se requiere de un sistema de {escenario[1]} para garantizar la certeza jurídica."
+enunciado: "En una tribu pequeña, el control social se ejerce mediante costumbres. Sin embargo, en un Estado moderno de gran escala, se requiere de un sistema de ___ para garantizar la certeza jurídica."
 
 opciones_explicitas: ["costumbres", "leyes escritas"]
-respuesta: escenario[1]
+respuesta: "leyes escritas"
 tipo: mc
 
 explicacion: |
@@ -309,13 +298,10 @@ metadata:
   nivel: "intermedio"
   tags: ["estado", "normas"]
 
-variables:
-  caso: uno_de([["sociedad_simple", "presión social"], ["sociedad_compleja", "coacción estatal"]])
-
-enunciado: "En una {caso[0]}, la desviación de la norma se sanciona mediante la {caso[1]}. En una {caso[1]}, la sanción es ejercida por el aparato de {caso[1]}."
+enunciado: "En una sociedad simple, la desviación de la norma se sanciona mediante la presión social. En una sociedad compleja, la sanción es ejercida por el aparato de ___."
 
 opciones_explicitas: ["presión social", "coacción estatal"]
-respuesta: caso[1]
+respuesta: "coacción estatal"
 tipo: mc
 
 explicacion: |
@@ -331,16 +317,12 @@ metadata:
   nivel: "basico"
   tags: ["contrato_social", "seguridad"]
 
-variables:
-  datos: [["un estado de naturaleza sin leyes", "la inseguridad constante"], ["un sistema de normas claras", "la convivencia pacífica"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "la inseguridad constante"
 tipo: mc
 
 opciones_explicitas: ["la inseguridad constante", "la convivencia pacífica"]
 
-enunciado: "Según la teoría del contrato social, el paso del estado de naturaleza al Estado busca evitar {datos[idx][0]}."
+enunciado: "Según la teoría del contrato social, el paso del estado de naturaleza al Estado busca evitar ___, propia de un estado de naturaleza sin leyes."
 
 explicacion: |
   El Estado surge para garantizar la seguridad y la vida de los ciudadanos, evitando el caos o la violencia constante propia de un estado de naturaleza sin autoridad central.
@@ -399,10 +381,7 @@ metadata:
   nivel: "intermedio"
   tags: ["recaudación", "impuestos"]
 
-variables:
-  tipo_recaudacion: uno_de(["impuestos", "tasas"])
-
-respuesta: tipo_recaudacion
+respuesta: "impuestos"
 
 tipo: mc
 
