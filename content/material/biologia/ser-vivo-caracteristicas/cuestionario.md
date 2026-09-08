@@ -1,9 +1,6 @@
 # Biología — Ser vivo: características (cuestionario, 20 preguntas VBLang)
 
 > Tema: `BA`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Sin bugs funcionales esta tanda.
 
 ---
 
