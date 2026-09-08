@@ -1,11 +1,6 @@
 # Química — Biomoléculas: glúcidos, lípidos, proteínas (cuestionario, 20 preguntas VBLang)
 
 > Temas: `QUa/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Bug de esta tanda: **las 17 preguntas** salieron con
-> `materia: "biologia"` en vez de `"quimica"` (es carpeta de química,
-> aunque el contenido conecta con biología) — normalizado.
 
 ---
 
