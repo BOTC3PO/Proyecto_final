@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -206,7 +206,7 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [["El demandado alega un hecho extintivo de la obligación.", "falso"], ["El actor afirma la existencia de un contrato verbal.", "verdadero"]]
+  casos: [["El demandado alega un hecho extintivo de la obligación.", "verdadero"], ["El actor afirma la existencia de un contrato verbal.", "falso"]]
 
 respuesta: casos[caso_idx][1]
 tipo: completar
@@ -443,9 +443,9 @@ metadata:
   tags: ["silogismo", "premisa_mayor", "premisa_menor"]
 
 variables:
-  silogismo: uno_de([["La norma establece una sanción para el robo. Juan robó. Por tanto, Juan debe ser sancionado.", "premisa_menor"], ["El contrato exige firma para ser válido. El contrato no tiene firma. Por tanto, es nulo.", "premisa_mayor"], ["La ley prohíbe conducir sin licencia. Pedro no tiene licencia. Por tanto, Pedro infringe la ley.", "premisa_menor"]])
+  silogismo: uno_de([["La norma establece una sanción para el robo. Juan robó. Por tanto, Juan debe ser sancionado.", "Juan robó", "premisa_menor"], ["El contrato exige firma para ser válido. El contrato no tiene firma. Por tanto, es nulo.", "El contrato exige firma para ser válido", "premisa_mayor"], ["La ley prohíbe conducir sin licencia. Pedro no tiene licencia. Por tanto, Pedro infringe la ley.", "Pedro no tiene licencia", "premisa_menor"]])
 
-respuesta: silogismo[1]
+respuesta: silogismo[2]
 tipo: completar
 respuestas_validas:
   - "premisa_menor"
