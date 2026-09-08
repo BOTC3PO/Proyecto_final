@@ -1,15 +1,6 @@
 # Biología — Sistema endocrino: hormonas y glándulas (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BKE`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); una
-> pregunta con **dos** blancos en el `enunciado` pero uno de ellos sin
-> interpolación real (quedaba como `___` literal, no calificable) —
-> recortada a un solo blanco; `tipo: vf` con `respuestas_validas`
-> conteniendo `["verdadero","falso"]` (innecesario, ya está `respuesta:`)
-> — normalizado.
 
 ---
 
@@ -84,16 +75,12 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion", "señales"]
 
-variables:
-  escenario: uno_de([["eléctricas", "rápidas"], ["químicas", "lentas"]])
-
-respuesta: escenario[1]
+respuesta: "lentas"
 tipo: completar
 respuestas_validas:
-  - "rápidas"
   - "lentas"
 
-enunciado: "El sistema endocrino utiliza señales {escenario[0]} para transmitir su mensaje, lo que hace que la respuesta sea ___."
+enunciado: "El sistema endocrino utiliza señales químicas para transmitir su mensaje, lo que hace que la respuesta sea ___."
 
 explicacion: |
   El sistema nervioso es como un mensaje de texto instantáneo (rápido/eléctrico), mientras que el endocrino es como una carta (lento/químico).
