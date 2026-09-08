@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -151,14 +151,10 @@ metadata:
   nivel: "intermedio"
   tags: ["historia_economica", "servidumbre", "esclavitud"]
 
-variables:
-  escenario: uno_de([["esclavo", "poseído como propiedad"], ["siervo", "vinculado a la tierra"], ["artesano", "dueño de sus herramientas"]])
-
+respuesta: "esclavo"
 tipo: completar
 respuestas_validas:
   - "esclavo"
-  - "siervo"
-  - "artesano"
 
 enunciado: "A diferencia del trabajador asalariado, el ___ es aquel que es considerado una propiedad del amo."
 
@@ -385,7 +381,7 @@ metadata:
 
 variables:
   causa_idx: uno_de([0, 1, 2])
-  causas: [["la falta de regulación de salarios", "la falta de regulación de salarios", "la falta de regulación de salarios"], ["la falta de seguridad social", "la falta de seguridad social", "la falta de seguridad social"], ["la falta de límites a la jornada", "la falta de límites a la jornada", "la falta de límites a la jornada"]]
+  causas: ["la falta de regulación de salarios", "la falta de seguridad social", "la falta de límites a la jornada"]
 
 enunciado: "La organización de los primeros sindicatos fue una respuesta directa a la precariedad, especialmente ante la ___."
 
