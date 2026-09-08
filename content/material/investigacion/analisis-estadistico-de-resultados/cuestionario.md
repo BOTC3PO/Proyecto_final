@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -42,11 +42,7 @@ metadata:
   nivel: "intermedio"
   tags: ["desviacion", "variabilidad"]
 
-variables:
-  datos: uno_de([["10", "11", "10", "11", "10"], ["10", "20", "0", "30", "10"]])
-  desviacion_esperada: uno_de(["baja", "alta"])
-
-respuesta: desviacion_esperada
+respuesta: "alta"
 tipo: mc
 opciones_explicitas: ["baja", "alta"]
 
@@ -171,7 +167,7 @@ variables:
   valor_real: 50.0
   mediciones: [49.8, 50.1, 49.9, 50.2, 50.0]
 
-respuesta: 0.2
+respuesta: 0.12
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -183,7 +179,7 @@ pasos:
   - "Dividir el resultado por el número total de mediciones."
 
 explicacion: |
-  El error absoluto promedio se calcula como: (|49.8-50| + |50.1-50| + |49.9-50| + |50.2-50| + |50.0-50|) / 5 = (0.2 + 0.1 + 0.1 + 0.2 + 0) / 5 = 0.6 / 5 = 0.12. (Nota: El ejemplo usa valores simplificados para el cálculo).
+  El error absoluto promedio se calcula como: (|49.8-50| + |50.1-50| + |49.9-50| + |50.2-50| + |50.0-50|) / 5 = (0.2 + 0.1 + 0.1 + 0.2 + 0) / 5 = 0.6 / 5 = 0.12.
 ```
 
 ### 9 — Secuencia de Procesamiento de Datos
@@ -215,23 +211,18 @@ metadata:
   tags: ["moda", "frecuencia"]
 
 variables:
-  frecuencias: [5, 12, 8, 12, 3]
+  frecuencias: [5, 10, 8, 12, 3]
   categorias: ["A", "B", "C", "D", "E"]
-  idx_moda: 3
 
 respuesta: "D"
 tipo: completar
 respuestas_validas:
-  - "A"
-  - "B"
-  - "C"
   - "D"
-  - "E"
 
 enunciado: "En un estudio de preferencias de consumo, las frecuencias de las categorías son {frecuencias}. La categoría que presenta la mayor frecuencia (la moda) es la categoría ___."
 
 explicacion: |
-  Observando el array de frecuencias, el valor máximo es 12. Este valor aparece en la posición index 1 y en la posición index 3. En este caso, el sistema identifica la categoría correspondiente al índice de la moda seleccionada.
+  Observando el array de frecuencias, el valor máximo es 12, que corresponde a la categoría D (índice 3).
 ```
 
 ### 11 — Correlación vs Causalidad
@@ -446,7 +437,7 @@ metadata:
   tags: ["mediana", "tendencia_central"]
 
 variables:
-  datos: [[10, 12, 15, 18, 20], [5, 8, 10, 12, 50], [100, 110, 120, 130, 140]]
+  datos: [[[10, 12, 15, 18, 20], 15], [[5, 8, 10, 12, 50], 10], [[100, 110, 120, 130, 140], 120]]
   idx: uno_de([0, 1, 2])
   mediana_correcta: datos[idx][1]
 
@@ -476,13 +467,14 @@ metadata:
   tags: ["outliers", "desviacion"]
 
 variables:
-  datos_escenario: [[10, 10, 11, 12, 100], [50, 52, 48, 51, 49], [20, 21, 19, 20, 22]]
+  datos_escenario: [[[10, 10, 11, 12, 100], "sí"], [[50, 52, 48, 51, 49], "no"], [[20, 21, 19, 20, 22], "no"]]
   idx: uno_de([0, 1, 2])
   datos: datos_escenario[idx][0]
   es_outlier: datos_escenario[idx][1]
 
 respuestas_validas:
-  - es_outlier
+  - "sí"
+  - "no"
 respuesta: es_outlier
 tipo: completar
 enunciado: "Al analizar el conjunto de datos {datos}, ¿se observa la presencia de un valor atípico (outlier) que afecte significativamente la media aritmética?"
@@ -500,20 +492,14 @@ metadata:
   nivel: "intermedio"
   tags: ["desviacion_estandar", "dispersion"]
 
-variables:
-  datos: [["baja", "alta"], ["alta", "baja"], ["baja", "baja"]]
-  idx: uno_de([0, 1, 2])
-  tipo_dispersion: datos[idx][0]
-  valor_esperado: datos[idx][1]
-
-respuesta: valor_esperado
+respuesta: "baja"
 tipo: mc
 opciones_explicitas: ["baja", "alta"]
 
 enunciado: "Si un experimento presenta una desviación estándar muy cercana a cero respecto a la media, ¿cómo se describe la dispersión de los datos recolectados?"
 
 explicacion: |
-  Una desviación estándar cercana a cero indica que los datos están muy agrupados alrededor de la media, por lo tanto, la dispersión es {valor_esperado}.
+  Una desviación estándar cercana a cero indica que los datos están muy agrupados alrededor de la media, por lo tanto, la dispersión es baja.
 ```
 
 ### 24 — Secuencia de Procesamiento de Datos
@@ -544,21 +530,13 @@ metadata:
   nivel: "avanzado"
   tags: ["correlacion", "causalidad"]
 
-variables:
-  datos: [["correlación", "causalidad"], ["causalidad", "correlación"], ["correlación", "significancia"]]
-  idx: uno_de([0, 1, 2])
-  term1: datos[idx][0]
-  term2: datos[idx][1]
-
-respuesta: term2
+respuesta: "correlación"
 tipo: completar
 respuestas_validas:
-  - "causalidad"
   - "correlación"
-  - "significancia"
 
-enunciado: "Es un error común en la investigación afirmar que existe una ___ entre dos variables basándose únicamente en que presentan una ___ estadística."
+enunciado: "Es un error común en la investigación afirmar que existe una causalidad entre dos variables basándose únicamente en que presentan una ___ estadística."
 
 explicacion: |
-  Es fundamental recordar que la existencia de una {term1} no implica necesariamente una {term2}.
+  Es fundamental recordar que la existencia de una correlación no implica necesariamente una causalidad.
 ```
