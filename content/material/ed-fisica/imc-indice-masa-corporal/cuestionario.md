@@ -1,21 +1,6 @@
 # Ed. Física — IMC: índice de masa corporal (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF11`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: una `respuesta:` calculada con
-> división de variables en vivo (`peso / (altura * altura)`, patrón
-> no confirmado en el DSL) — reemplazada por el resultado ya
-> precalculado como literal en la tabla; un `tipo: input` (tipo no
-> confirmado) — normalizado a `completar`; un blank doble con
-> `respuesta:` en forma de array — recortado a un solo blanco; tres
-> preguntas con `variables:`/`uno_de` sorteando un escenario cuya
-> `respuesta:` quedaba **fija** sin importar qué opción salía —
-> corregidas indexando la respuesta a la variable sorteada; **un
-> error aritmético real de Gemma** (70 kg / 1,75² dio "45,71" en vez
-> de "22,86") — recalculado a mano; 5 preguntas `mc`/`vf` sin campo
-> `explicacion:` — agregado; `metadata.tema` con un typo
-> (`imc_indice_massa_corporal`) — corregido.
 
 ---
 
