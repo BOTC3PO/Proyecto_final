@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -244,7 +244,7 @@ metadata:
 variables:
   escenario: uno_de([[1, "global"], [2, "local"]])
 
-enunciado: "En un programa, una variable definida dentro de una función tiene un alcance {escenario}."
+enunciado: "En un programa, una variable definida dentro de una función tiene un alcance ___."
 
 opciones_explicitas:
   - "global"
@@ -266,10 +266,7 @@ metadata:
   nivel: "intermedio"
   tags: ["return", "side_effects", "output"]
 
-variables:
-  caso: uno_de([[1, "print"], [2, "return"]])
-
-enunciado: "Si una función utiliza {caso} para mostrar un resultado en pantalla pero no tiene una instrucción de salida de datos hacia el flujo principal, la función devuelve un valor de tipo ___."
+enunciado: "Si una función utiliza 'print' para mostrar un resultado en pantalla pero no tiene una instrucción de salida de datos hacia el flujo principal, la función devuelve un valor de tipo ___."
 
 respuestas_validas:
   - "None"
@@ -292,11 +289,8 @@ metadata:
 
 enunciado: "¿Es verdadero que una 'función pura' es aquella que, además de devolver siempre el mismo resultado para los mismos argumentos, no produce efectos secundarios (como modificar una variable global o escribir en un archivo)?"
 
-respuestas_validas:
-  - "verdadero"
-
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   La pureza en las funciones es la base de la programación funcional y de la modularidad robusta. Si una función modifica algo fuera de su propio ámbito, se dice que tiene un 'efecto secundario', lo cual dificulta el testing y la reutilización.
 ```
@@ -377,13 +371,10 @@ metadata:
   nivel: "intermedio"
   tags: ["funciones", "terminologia"]
 
-variables:
-  es_diferente: verdadero
-
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En el contexto de la definición de funciones, el 'parámetro' es la variable declarada en la firma de la función, mientras que el 'argumento' es el valor real pasado al invocarla. ¿Es esta distinción correcta? {es_diferente}"
+enunciado: "En el contexto de la definición de funciones, el 'parámetro' es la variable declarada en la firma de la función, mientras que el 'argumento' es el valor real pasado al invocarla. ¿Es esta distinción correcta?"
 
 explicacion: |
   Correcto. El parámetro actúa como un marcador de posición (variable local) y el argumento es el dato concreto que se envía durante la llamada.
@@ -445,9 +436,9 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [["local", "solo es visible dentro de la función"], ["global", "es accesible desde cualquier parte del programa"]]
 
-respuesta: "datos[escenario_idx][1]"
+respuesta: datos[escenario_idx][1]
 tipo: mc
-opciones_explicitas: ["datos[escenario_idx][1]", "datos[escenario_idx][0]", "ninguna de las anteriores"]
+opciones_explicitas: ["solo es visible dentro de la función", "es accesible desde cualquier parte del programa", "ninguna de las anteriores"]
 
 enunciado: "Si definimos una variable dentro de una función, su alcance es {datos[escenario_idx][0]}. ¿Cuál es la característica de este tipo de variable?"
 
