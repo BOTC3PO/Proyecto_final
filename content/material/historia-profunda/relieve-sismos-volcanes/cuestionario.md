@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -143,15 +143,11 @@ metadata:
   nivel: "basico"
   tags: ["placas_tectonicas", "bordes_de_placas"]
 
-variables:
-  escenarios: [["el Cinturón de Fuego del Pacífico", "bordes de placas tectónicas"], ["la zona central de una placa continental", "zonas de estabilidad tectónica"]]
-  escenario: uno_de(escenarios)
-
 tipo: mc
 opciones_explicitas: ["Bordes de placas tectónicas", "Zonas de estabilidad tectónica", "Cimas de las montañas", "Fondos oceánicos estables"]
 respuesta: "Bordes de placas tectónicas"
 
-enunciado: "Los terremotos ocurren mayormente en los {escenario[1]}."
+enunciado: "Los terremotos ocurren mayormente en los ___."
 
 explicacion: |
   La mayor actividad sísmica se concentra en los límites o bordes de las placas tectónicas, donde la interacción entre ellas es constante.
@@ -205,14 +201,10 @@ metadata:
   nivel: "avanzado"
   tags: ["placas_tectonicas", "friccion"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["fricción", "movimiento constante"], ["presión", "estabilidad absoluta"]]
-
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si las placas tectónicas se encuentran en un estado de {casos[caso_idx][0]}, la acumulación de tensión es mayor que en un estado de {casos[caso_idx][1]}."
+enunciado: "Si las placas tectónicas se encuentran en un estado de ___, la acumulación de tensión es mayor que en un estado de estabilidad absoluta."
 
 respuesta: "fricción"
 

@@ -22,7 +22,7 @@ Los bordes entre placas se clasifican según cómo interactúan los bloques. En 
 
 ## 3. Formación de cordilleras y fosas
 
-Las **cordilleras** surgen principalmente en zonas de colisión convergente. Cuando una placa continental choca contra otra (como la Placa del Pacífico contra la Sudamericana), el choque comprime las rocas, elevando terrenos. En cambio, las **fosas oceánicas** se forman en zonas de subducción: una placa oceánica se hunde bajo otra (continental u oceánica), creando un pozo profundo en el fondo marino. Estos procesos no son estáticos: la Tierra sigue "ajustándose" a través de movimientos que modifican constantemente su superficie.
+Las **cordilleras** surgen principalmente en zonas de colisión convergente. Cuando una placa oceánica se hunde bajo una placa continental (como la Placa de Nazca bajo la Sudamericana), el choque comprime las rocas, elevando terrenos. En cambio, las **fosas oceánicas** se forman en zonas de subducción: una placa oceánica se hunde bajo otra (continental u oceánica), creando un pozo profundo en el fondo marino. Estos procesos no son estáticos: la Tierra sigue "ajustándose" a través de movimientos que modifican constantemente su superficie.
 
 ## 4. Sismos y actividad volcánica
 
