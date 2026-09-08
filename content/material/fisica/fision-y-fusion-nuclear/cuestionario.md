@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,11 +41,8 @@ metadata:
   nivel: "basico"
   tags: ["fusion", "masa", "energia"]
 
-variables:
-  es_fusion: verdadero
-
-respuesta: es_fusion
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "¿En un proceso de fusión nuclear, la masa de los núcleos resultantes es mayor que la masa de los núcleos originales?"
 
 explicacion: |
@@ -171,17 +168,14 @@ metadata:
   nivel: "intermedio"
   tags: ["fision", "fusion"]
 
-variables:
-  escenario: uno_de(["fision", "fusion"])
-
-respuesta: escenario
+respuesta: "fusion"
 tipo: mc
 opciones_explicitas: ["fision", "fusion"]
 
-enunciado: "El proceso que consiste en la unión de dos núcleos ligeros para formar uno más pesado se denomina {escenario}."
+enunciado: "El proceso que consiste en la unión de dos núcleos ligeros para formar uno más pesado se denomina ___."
 
 explicacion: |
-  Si el escenario seleccionado fue {escenario}, la respuesta es correcta. La fusión une núcleos ligeros (como el hidrógeno) y la fisión divide núcleos pesados (como el uranio).
+  La fusión une núcleos ligeros (como el hidrógeno) y la fisión divide núcleos pesados (como el uranio).
 ```
 
 ### 9 — Cálculo de energía de fusión
@@ -193,16 +187,10 @@ metadata:
   nivel: "avanzado"
   tags: ["calculo", "fusion"]
 
-variables:
-  datos: [[0.002, "1.8e14"], [0.005, "4.5e14"], [0.001, "9.0e13"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "4.5e14"
 tipo: completar
 respuestas_validas:
-  - "1.8e14"
   - "4.5e14"
-  - "9.0e13"
 
 enunciado: "En una reacción de fusión, la masa inicial es de 1.005 kg y la masa final es de 1.000 kg. La energía liberada es de ___ J."
 
@@ -451,18 +439,14 @@ metadata:
   nivel: "intermedio"
   tags: ["energia", "relatividad", "masa"]
 
-variables:
-  datos: [["Uranio-235", "fision"], ["Hidrogeno", "fusion"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "fision"
 tipo: mc
 opciones_explicitas: ["fision", "fusion", "combustion", "desintegracion"]
 
-enunciado: "En una central nuclear convencional, se utiliza el proceso de {datos[idx][0]} para liberar energía. Este proceso se denomina:"
+enunciado: "En una central nuclear convencional, se utiliza Uranio-235 para liberar energía. Este proceso se denomina:"
 
 explicacion: |
-  El proceso de {datos[idx][0]} en reactores nucleares se basa en la fisión, donde un núcleo pesado se divide.
+  Las centrales nucleares convencionales se basan en la fisión, donde un núcleo pesado (como el Uranio-235) se divide. La fusión, en cambio, aún no es una tecnología comercial madura.
 ```
 
 ### 22 — El defecto de masa
@@ -523,7 +507,7 @@ metadata:
   tags: ["e_mc2", "calculo"]
 
 variables:
-  valores: [["1.0e-30", "2.7e-13"], ["2.0e-30", "5.4e-13"], ["5.0e-30", "4.5e-13"]]
+  valores: [["1.0e-30", "9.0e-14"], ["2.0e-30", "1.8e-13"], ["5.0e-30", "4.5e-13"]]
   idx: uno_de([0,1,2])
 
 respuesta: valores[idx][1]
