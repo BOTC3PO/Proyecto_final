@@ -1,9 +1,6 @@
 # Biología — Organismos transgénicos y bioética (cuestionario, 23 preguntas VBLang)
 
 > Tema: `BIOTEC2`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 6 lotes concurrentes.
-> Corregido a mano. Sin bugs funcionales esta tanda.
 
 ---
 
