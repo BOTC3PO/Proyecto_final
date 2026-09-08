@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -58,16 +58,11 @@ metadata:
   nivel: "intermedio"
   tags: ["electroimanes", "componentes"]
 
-variables:
-  escenario_datos: [["núcleo de hierro", "Núcleo ferromagnético"], ["bobina de cobre", "Núcleo ferromagnético"]]
-  escenario_idx: uno_de([0, 1])
-  respuesta_correcta: escenario_datos[escenario_idx][1]
-
 tipo: "mc"
 opciones_explicitas: ["Núcleo ferromagnético", "Material aislante", "Resistencia eléctrica"]
-respuesta: respuesta_correcta
+respuesta: "Núcleo ferromagnético"
 
-enunciado: "En un electroimán típico, para aumentar la intensidad del campo magnético se suele utilizar un {escenario_datos[escenario_idx][0]} que concentre las líneas de flujo."
+enunciado: "En un electroimán típico, para aumentar la intensidad del campo magnético se suele utilizar un núcleo de hierro que concentre las líneas de flujo."
 
 explicacion: |
   El núcleo ferromagnético (como el hierro) aumenta significativamente la intensidad del campo magnético del electroimán al canalizar las líneas de campo.
@@ -174,18 +169,18 @@ variables:
   I: 10.0
   mu_0: 4 * pi * 1e-7
 
-respuesta: "0.000002"
+respuesta: "0.00002"
 tipo: completar
 respuestas_validas:
-  - "0.000002"
-  - "2.0e-6"
+  - "0.00002"
+  - "2.0e-5"
 
 enunciado: "Un cable largo y recto transporta una corriente de {I} A. El campo magnético a una distancia de {r} metros del cable es de ___ Teslas."
 
 pasos:
   - "Usar la fórmula para el campo magnético de un conductor infinito: B = (mu_0 * I) / (2 * pi * r)."
   - "Sustituir: B = (4 * pi * 1e-7 * 10) / (2 * pi * 0.1)."
-  - "Simplificar: B = (2 * 1e-7 * 10) / 0.1 = 2e-6 / 0.1 = 2e-5... no, corregimos: B = (2 * 10^-7 * 10) / 0.1 = 2e-6 / 0.1 = 0.00002. Re-calculando: B = (4*pi*1e-7 * 10) / (2*pi*0.1) = (2e-6) / 0.1 = 0.00002."
+  - "Simplificar: el pi se cancela: B = (4e-7 * 10) / (2 * 0.1) = 4e-6 / 0.2 = 2e-5 = 0.00002 T."
 
 explicacion: |
   El campo magnético alrededor de un conductor recto se determina mediante la Ley de Ampère. La fórmula es B = (mu_0 * I) / (2 * pi * r).
@@ -265,7 +260,7 @@ respuesta: resultados_texto[escenario_idx]
 tipo: mc
 opciones_explicitas: ["Un campo magnético constante", "Un campo magnético que depende de la corriente", "Un campo magnético que no existe"]
 
-enunciado: "Si observamos {datos[escenario_idx][0]}, el campo magnético producido es ___."
+enunciado: "Si observamos {datos[escenario_idx][1]}, el campo magnético producido es ___."
 
 explicacion: |
   En el caso del imán, el campo es permanente. En el caso del electroimán, la intensidad y dirección dependen directamente de la intensidad de la corriente eléctrica que circula por el conductor.
@@ -405,11 +400,7 @@ metadata:
   nivel: "intermedio"
   tags: ["ley_ampere", "distancia"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[0.5, "se reduce"], [2.0, "se mantiene"]]
-
-respuesta: datos[idx][1]
+respuesta: "se reduce"
 tipo: "mc"
 opciones_explicitas: ["se reduce", "se mantiene", "se duplica", "se anula"]
 
@@ -447,20 +438,12 @@ metadata:
   nivel: "intermedio"
   tags: ["electromagnetismo", "corrientes"]
 
-variables:
-  datos: [[10, "aumenta"], [20, "disminuye"], [5, "se mantiene"]]
-  idx: uno_de([0, 1, 2])
-  valor_corriente: datos[idx][0]
-  efecto: datos[idx][1]
-
 enunciado: "En una planta de reciclaje, una grúa utiliza un electroimán para levantar chatarra. Si se duplica la intensidad de la corriente eléctrica que circula por la bobina del electroimán, la fuerza del campo magnético generado ___."
 
-respuesta: efecto
+respuesta: "aumenta"
 tipo: completar
 respuestas_validas:
   - "aumenta"
-  - "disminuye"
-  - "se mantiene"
 
 explicacion: |
   La intensidad del campo magnético ($B$) generado por una corriente eléctrica es directamente proporcional a la intensidad de dicha corriente ($I$). Al aumentar la corriente, aumenta la fuerza del campo magnético.
@@ -475,16 +458,11 @@ metadata:
   nivel: "basico"
   tags: ["magnetismo", "brujula"]
 
-variables:
-  datos: [[verdadero, "se desvía"], [falso, "no cambia"]]
-  idx: uno_de([0, 1])
-  resultado: datos[idx][1]
-
 enunciado: "Si acercas una brújula a un cable conductor por el cual circula una corriente eléctrica constante, la aguja de la brújula ___ de su posición de reposo."
 
 respuestas_validas:
-  - resultado
-respuesta: resultado
+  - "se desvía"
+respuesta: "se desvía"
 tipo: completar
 explicacion: |
   Una corriente eléctrica genera un campo magnético a su alrededor. Este campo interactúa con el imán de la brújula, provocando que la aguja se alinee con las líneas de campo magnético.
@@ -547,17 +525,11 @@ metadata:
   nivel: "avanzado"
   tags: ["calculo", "campo_magnetico"]
 
-variables:
-  datos: [[0.5, "0.001"], [2.0, "0.005"]]
-  idx: uno_de([0, 1])
-  distancia: datos[idx][0]
-  resultado_teorico: datos[idx][1]
-
 enunciado: "Considerando un cable conductor muy largo, la intensidad del campo magnético $B$ es inversamente proporcional a la distancia $r$ del cable. Si la distancia se reduce a la mitad, el valor de $B$ será ___ veces el valor original."
 
 respuestas_validas:
-  - resultado_teorico
-respuesta: resultado_teorico
+  - "2"
+respuesta: "2"
 tipo: completar
 tolerancia_abs: 0.001
 
