@@ -1,13 +1,14 @@
-# Arte — Ritmo compas pulso figuras musicales (cuestionario, 26 preguntas VBLang)
+# Arte — Ritmo compas pulso figuras musicales (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3 tenía un error aritmético real (4 en vez de
+> 2 corcheas por negra), Q5 dejaba el placeholder literal "___" como
+> respuesta, Q9/Q18/Q19 tenían valores o blanks inconsistentes con la
+> propia relación de figuras, Q15 era un bloque roto ya reemplazado por
+> el Q16 "(Corregida)" siguiente (eliminado, duplicado), Q23/Q26 tenían
+> `respuestas_validas` sobre-permisivas — Q26 además con los 3 valores
+> de su tabla desplazados x2 respecto a su propia explicación.
 
 ---
 
@@ -60,7 +61,7 @@ metadata:
   nivel: "intermedio"
   tags: ["figuras_musicales", "calculo"]
 
-respuesta: 4
+respuesta: 2
 tipo: completar
 tolerancia_abs: 0
 
@@ -68,11 +69,9 @@ enunciado: "Si una nota negra equivale a 1 tiempo, ¿cuántas corcheas caben en 
 
 pasos:
   - "Identificar que una negra es igual a dos corcheas."
-  - "Identificar que una blanca equivale a dos negras."
-  - "Calcular la relación entre la figura solicitada y la base."
 
 explicacion: |
-  Una negra contiene 2 corcheas. Por lo tanto, en una negra caben 2 corcheas. (Nota: El usuario debe entender la relación de división por 2).
+  Una negra contiene 2 corcheas. Por lo tanto, en una negra caben 2 corcheas.
 ```
 
 ### 4 — Orden de duración
@@ -103,7 +102,7 @@ metadata:
   nivel: "basico"
   tags: ["compas", "terminologia"]
 
-respuesta: "___"
+respuesta: "compás"
 tipo: completar
 respuestas_validas:
   - "compás"
@@ -112,7 +111,7 @@ respuestas_validas:
 enunciado: "La división de un tiempo musical en partes iguales, que agrupa pulsos, se denomina ___."
 
 explicacion: |
-  El ___ es la unidad que organiza los pulsos en grupos regulares.
+  El compás es la unidad que organiza los pulsos en grupos regulares.
 ```
 
 ### 6 — Duración de la negra
@@ -198,17 +197,12 @@ metadata:
   nivel: "intermedio"
   tags: ["musica", "figuras_musicales"]
 
-variables:
-  relacion_blanca_negra: "2"
-  relacion_negra_corchea: "2"
-
-respuesta: ["2", "4"]
+respuesta: "2"
 respuestas_validas:
   - "2"
-  - "4"
 tipo: completar
 
-enunciado: "En términos de duración de pulsos, una blanca equivale a ___ negras, y una negra equivale a ___ corcheas."
+enunciado: "En términos de duración de pulsos, una blanca equivale a ___ negras (y una negra equivale a 2 corcheas)."
 
 explicacion: |
   La jerarquía es: Redonda (4) -> Blanca (2) -> Negra (1) -> Corchea (0.5).
@@ -311,30 +305,7 @@ explicacion: |
   La jerarquía de duración es: Redonda (4) > Blanca (2) > Negra (1) > Corchea (0.5).
 ```
 
-### 15 — Completar la igualdad
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "intermedio"
-  tags: ["figuras_musicales", "calculo"]
-
-enunciado: "Para completar un compás de 4/4, si ya tenemos dos blancas, nos falta una ___ para completar el tiempo."
-
-respuestas_validas:
-  - "negra"
-  - "negra"
-respuesta: "negra"
-tipo: completar
-
-explicacion: |
-  Dos blancas suman 4 tiempos (2+2=4). Si el compás es de 4/4 y ya hay 4 tiempos, la respuesta técnica sería "nada", pero bajo la lógica de la pregunta de completar una unidad: una negra suma 1, pero aquí el enunciado busca la figura que falta para completar la suma de 4 si solo tuviéramos 2 blancas (que ya son 4). 
-  *Re-ajuste para evitar ambigüedad*:
-  "Si tenemos una blanca y una negra, nos falta una ___ para completar un compás de 4/4."
-```
-
-### 16 — Completar la igualdad (Corregida)
+### 16 — Completar la igualdad
 
 ```
 metadata:
@@ -382,12 +353,9 @@ metadata:
   nivel: "basico"
   tags: ["figuras_musicales", "duracion"]
 
-variables:
-  relacion: uno_de([2, 4])
-
-respuesta: relacion
-tipo: completar
-enunciado: "Si comparamos la duración de una negra con la de una corchea, ¿es cierto que la negra dura {relacion} veces lo que dura una corchea?"
+respuesta: verdadero
+tipo: vf
+enunciado: "Si comparamos la duración de una negra con la de una corchea, ¿es cierto que la negra dura el doble de tiempo que una corchea?"
 
 explicacion: |
   En la música estándar, una negra equivale a dos corcheas. Por lo tanto, la relación es de 2 a 1.
@@ -402,16 +370,12 @@ metadata:
   nivel: "basico"
   tags: ["figuras_musicales", "redonda"]
 
-variables:
-  valor_blanca: uno_de([2, 4])
-
-respuesta: valor_blanca
+respuesta: "4"
 tipo: completar
 respuestas_validas:
-  - 2
-  - 4
+  - "4"
 
-enunciado: "En un compás de 4/4, si una blanca tiene un valor de {valor_blanca} pulsos (negras), una redonda tendrá un valor de ___ pulsos."
+enunciado: "En un compás de 4/4, si una blanca tiene un valor de 2 pulsos (negras), una redonda tendrá un valor de ___ pulsos."
 
 pasos:
   - "Identificar el valor de la blanca en pulsos."
@@ -505,8 +469,7 @@ enunciado: "Estamos en un compás de {datos[idx][0]}. ¿Cuántos pulsos (negras)
 respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "3"
-  - "4"
+  - datos[idx][1]
 
 explicacion: |
   El número superior del compás indica cuántos pulsos de la unidad de medida (generalmente la negra) caben en cada compás.
@@ -568,16 +531,14 @@ metadata:
 
 variables:
   idx: uno_de([0, 1, 2])
-  datos: [["blanca", "4"], ["negra", "8"], ["corchea", "16"]]
+  datos: [["blanca", "2"], ["negra", "4"], ["corchea", "8"]]
 
 enunciado: "En un compás de 4/4, ¿cuántas {datos[idx][0]} caben exactamente para completar el compás?"
 
 respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "4"
-  - "8"
-  - "16"
+  - datos[idx][1]
 
 explicacion: |
   En un compás de 4/4 hay 4 pulsos. Si la figura es blanca (2 pulsos), caben 2. Si es negra (1 pulso), caben 4. Si es corchea (0.5), caben 8.
