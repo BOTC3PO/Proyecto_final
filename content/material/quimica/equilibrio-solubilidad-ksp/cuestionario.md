@@ -1,11 +1,6 @@
 # Química — Equilibrio de solubilidad: Ksp (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QKSP`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bug de esta tanda: `respuesta` envuelta en array (`["solubilidad"]`)
-> otra vez. También se limpió LaTeX crudo (`$K_{sp} = s^2$`) a texto
-> plano en varias preguntas.
 
 ---
 
@@ -61,7 +56,7 @@ variables:
   b: uno_de([1, 2, 3])
 
 respuesta: a * b
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para AB ⇌ A+ + B-, Ksp = [A+] × [B-]. Si [A+] = {a} M y [B-] = {b} M, ¿cuál es el valor de Ksp?"
@@ -121,7 +116,7 @@ variables:
   b: uno_de([2, 3, 4, 5])
 
 respuesta: a2 * (b ^ 2)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para AB2(s) ⇌ A2+(ac) + 2B-(ac), con [A2+] = {a2} M y [B-] = {b} M en el equilibrio, calculá Ksp."
@@ -164,7 +159,7 @@ variables:
   s: uno_de([2, 3, 4, 5])
 
 respuesta: s * s
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para una sal AB (1:1), Ksp = s², con s la solubilidad molar. Si s = {s} mol/L, ¿cuál es Ksp?"
@@ -190,7 +185,7 @@ variables:
   ksp: uno_de([4, 9, 16, 25])
 
 respuesta: sqrt(ksp)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para una sal AB (1:1), Ksp = s². Si Ksp = {ksp}, ¿cuál es la solubilidad molar s?"
