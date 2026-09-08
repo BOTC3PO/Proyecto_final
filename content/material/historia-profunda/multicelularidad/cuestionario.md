@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -212,7 +212,7 @@ respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["Rhodophyta", "Chlorophyta", "Oomycota"]
 
-enunciado: "En el caso de las algas {caso[0]}, la aparición de estructuras multicelulares es un evento independiente al de las algas {caso[1]}."
+enunciado: "El nombre científico (taxón) del linaje de las algas {caso[0]} es:"
 
 explicacion: |
   Incluso dentro de los grupos que parecen similares, como las algas, la multicelularidad ha surgido en múltiples linajes distintos (algas rojas, verdes, pardas, etc.).
@@ -409,21 +409,18 @@ metadata:
   tags: ["proteinas", "adhesion"]
 
 variables:
-  proteina_tipo: uno_de(["cadherina", "integrina"])
   datos: [["cadherina", "unión célula-célula"], ["integrina", "unión célula-matriz"]]
-  escenario_idx: uno_de([0, 1])
-  proteina_seleccionada: datos[escenario_idx][0]
-  funcion_seleccionada: datos[escenario_idx][1]
+  idx: uno_de([0, 1])
 
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si una célula utiliza una {proteina_seleccionada} para unirse a otra célula vecina, está ejerciendo una función de {funcion_seleccionada}."
+enunciado: "Si una célula utiliza una {datos[idx][0]} para adherirse a su entorno, está ejerciendo una función de ___."
 
 explicacion: |
-  Las cadherinas son proteínas clave para la adhesión célula-célula, esenciales para la integridad de los tejidos en organismos multicelulares.
+  Las cadherinas median la unión célula-célula, mientras que las integrinas median la unión célula-matriz extracelular; ambas son clave para la cohesión de los tejidos en organismos multicelulares.
 
-respuesta: "unión célula-célula"
+respuesta: datos[idx][1]
 ```
 
 ### 21 — Clasificación celular básica
