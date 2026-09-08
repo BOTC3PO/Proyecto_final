@@ -2,12 +2,15 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q2/Q5/Q7 tenían respuesta fija desincronizada
+> del sorteo mostrado en el enunciado, Q4 mezclaba `tipo: completar`
+> con una afirmación sin pregunta ni blank, Q18 tenía un doble sorteo
+> independiente y confundía el objeto pintado con el concepto de
+> "ausencia", Q21/Q22 sorteaban entre respuestas incompatibles con una
+> premisa fija que sólo admite una, Q24 usaba terminología dudosa/no
+> estándar ("osteografía") para técnicas de grabado, Q25 sorteaba
+> "estética" como respuesta válida para una premisa que la niega
+> explícitamente ("no era decorativo").
 
 ---
 
@@ -40,12 +43,7 @@ metadata:
   nivel: "basico"
   tags: ["arte_rupestre", "pintura_cavernica"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["animales", "manos"], ["figuras humanas", "herramientas"]]
-  respuestas: [["animales", "manos"], ["figuras humanas", "herramientas"]]
-
-enunciado: "En las pinturas rupestres más comunes del Paleolítico, es frecuente encontrar representaciones de {escenarios[escenario_idx][0]} y {escenarios[escenario_idx][1]}."
+enunciado: "En las pinturas rupestres del Paleolítico, ¿cuál es uno de los motivos más frecuentes que se representa?"
 
 respuesta: "animales"
 tipo: mc
@@ -86,9 +84,9 @@ metadata:
   nivel: "avanzado"
   tags: ["simbolismo", "antropologia"]
 
-respuesta: "verdadero"
-tipo: completar
-enunciado: "La capacidad de crear arte rupestre implica que el ser humano ya posee la capacidad de abstracción y pensamiento simbólico."
+respuesta: verdadero
+tipo: vf
+enunciado: "¿Es cierto que la capacidad de crear arte rupestre implica que el ser humano ya posee la capacidad de abstracción y pensamiento simbólico?"
 
 explicacion: |
   El arte no es solo una copia de la realidad, sino una representación que requiere que el individuo pueda pensar en algo que no está presente físicamente.
@@ -103,12 +101,7 @@ metadata:
   nivel: "intermedio"
   tags: ["tecnologia_prehistorica", "pigmentos"]
 
-variables:
-  pigmento_idx: uno_de([0, 1])
-  pigmentos: [["óxido de hierro", "azul de ultramar"], ["carbón vegetal", "tinta china"]]
-  respuestas: [["óxido de hierro", "azul de ultramar"], ["carbón vegetal", "tinta china"]]
-
-enunciado: "Para realizar sus pinturas, los artistas del Paleolítico utilizaban pigmentos naturales como el {pigmentos[pigmento_idx][0]}."
+enunciado: "Para realizar sus pinturas, los artistas del Paleolítico utilizaban pigmentos naturales como el óxido de hierro (ocre)."
 
 respuesta: "óxido de hierro"
 tipo: mc
@@ -147,18 +140,13 @@ metadata:
   nivel: "intermedio"
   tags: ["registro", "comunicación"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario_datos: [["pinturas de escenas de danza", "registrar eventos sociales"], ["grabados de manos", "marcar la presencia de individuos"]]
-
 tipo: completar
 respuestas_validas:
   - "registrar eventos sociales"
-  - "marcar la presencia de individuos"
 
 enunciado: "Si un grupo de homínidos utilizaba el arte para dejar constancia de lo ocurrido en su comunidad, el arte estaría cumpliendo la función de ___."
 
-respuesta: escenario_datos[escenario_idx][1]
+respuesta: "registrar eventos sociales"
 
 explicacion: |
   El arte también funcionó como un sistema de registro para preservar la memoria de eventos o la identidad de quienes habitaban un lugar.
@@ -236,7 +224,6 @@ metadata:
 respuesta: "Venus de Willendorf"
 tipo: completar
 respuestas_validas:
-  - "Venus de Willendorf"
   - "Venus de Willendorf"
 
 enunciado: "Una de las esculturas más famosas del Paleolítico Superior, que destaca por enfatizar la fertilidad, es la ___."
@@ -382,14 +369,13 @@ metadata:
   tags: ["abstraccion", "evolucion"]
 
 variables:
-  escenario: uno_de([[0, "un bisonte en una cueva"], [1, "un paisaje estático"], [2, "una herramienta de piedra"]])
-  respuesta_texto: uno_de(["un bisonte en una cueva", "un paisaje estático", "una herramienta de piedra"])
+  escenario: uno_de(["un bisonte", "un paisaje", "una herramienta de piedra"])
 
-respuesta: respuesta_texto
+respuesta: "ausente"
 tipo: mc
-opciones_explicitas: ["un bisonte en una cueva", "un paisaje estático", "una herramienta de piedra"]
+opciones_explicitas: ["ausente", "presente", "en movimiento"]
 
-enunciado: "Si un artista prehistórico pinta {escenario[0]}, está demostrando la capacidad de representar lo que está ___."
+enunciado: "Si un artista prehistórico pinta {escenario}, está demostrando la capacidad de representar algo que está ___ en el momento de crear la obra."
 
 explicacion: |
   El arte no es solo imitación, es la capacidad de traer a la mente un objeto ausente para darle un significado nuevo.
@@ -443,18 +429,14 @@ metadata:
   nivel: "basico"
   tags: ["prehistoria", "pintura"]
 
-variables:
-  datos: [["pinturas sobre paredes de cuevas usando pigmentos naturales", "pintura rupestre"], ["esculturas de piedra en el exterior", "escultura megalitica"], ["grabados sobre hueso o madera", "grabado"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "pintura rupestre"
 tipo: mc
 opciones_explicitas: ["pintura rupestre", "escultura megalitica", "grabado"]
 
-enunciado: "Se han encontrado restos de pigmentos rojos y negros aplicados sobre las paredes de una cueva profunda. ¿A qué forma de arte corresponde esta descripción? ___"
+enunciado: "Se han encontrado restos de pigmentos rojos y negros aplicados sobre las paredes de una cueva profunda. ¿A qué forma de arte corresponde esta descripción?"
 
 explicacion: |
-  La descripción corresponde a la {datos[idx][0]}.
+  La descripción corresponde a la pintura rupestre: pigmentos aplicados directamente sobre la roca de una cueva.
 ```
 
 ### 22 — El Venus Paleolítico
@@ -466,18 +448,14 @@ metadata:
   nivel: "intermedio"
   tags: ["escultura", "paleolitico"]
 
-variables:
-  datos: [["pequeñas figuras femeninas con rasgos sexuales muy acentuados", "Venus"], ["figuras de animales realistas", "Zoomorfos"], ["manos grabadas en piedra", "Manos"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "Venus"
 tipo: mc
 opciones_explicitas: ["Venus", "Zoomorfos", "Manos"]
 
 enunciado: "Se descubre una pequeña estatuilla de piedra que enfatiza la fertilidad mediante formas redondeadas. Se trata de una ___."
 
 explicacion: |
-  Las figuras con estas características se denominan {datos[idx][1]}.
+  Las pequeñas figuras femeninas con rasgos sexuales muy acentuados se denominan Venus paleolíticas.
 ```
 
 ### 23 — Cronología del Arte Prehistórico
@@ -511,21 +489,15 @@ metadata:
   nivel: "basico"
   tags: ["tecnica", "materiales"]
 
-variables:
-  datos: [["piedra", "litografía"], ["hueso", "osteografía"], ["madera", "xilografía"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "grabado"
 tipo: completar
 respuestas_validas:
-  - "litografía"
-  - "osteografía"
-  - "xilografía"
+  - "grabado"
 
-enunciado: "Si el soporte utilizado para realizar un grabado es un ___, la técnica se denomina ___."
+enunciado: "En arqueología, cuando la decoración consiste en incidir líneas o diseños sobre un soporte duro (piedra, hueso o madera), la técnica se denomina genéricamente ___."
 
 explicacion: |
-  Al usar {datos[idx][0]}, la técnica es la {datos[idx][1]}.
+  El término genérico es "grabado", sin importar si el soporte es piedra, hueso o madera.
 ```
 
 ### 25 — El Concepto de Arte
@@ -538,8 +510,8 @@ metadata:
   tags: ["teoria", "prehistoria"]
 
 variables:
-  datos: [["magia", "ritual"], ["decoración", "estética"], ["comunicación", "lenguaje"]]
-  idx: uno_de([0, 1, 2])
+  datos: [["magia", "ritual"], ["comunicación", "lenguaje"]]
+  idx: uno_de([0, 1])
 
 respuesta: datos[idx][1]
 tipo: mc
