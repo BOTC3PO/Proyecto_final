@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -142,11 +142,7 @@ metadata:
   nivel: "intermedio"
   tags: ["machine_learning", "paradigma"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[ "Reglas manuales", "Programador escribe IF/ELSE" ], [ "Aprendizaje", "El modelo extrae patrones de datos" ]]
-
-enunciado: "En el paradigma de Machine Learning, a diferencia de la programación tradicional, el componente principal que determina la lógica del sistema es: {datos[escenario_idx][0]}"
+enunciado: "En el paradigma de Machine Learning, a diferencia de la programación tradicional, el componente principal que determina la lógica del sistema es:"
 
 opciones_explicitas: ["El código fuente escrito por el humano", "Los datos y los ejemplos proporcionados", "La memoria RAM del computador"]
 respuesta: "Los datos y los ejemplos proporcionados"
@@ -188,8 +184,6 @@ enunciado: "Un sistema de filtrado de SPAM analiza miles de correos electrónico
 
 respuestas_validas:
   - "Entrenamiento"
-  - "Inferencia"
-  - "Etiquetado"
 respuesta: "Entrenamiento"
 tipo: completar
 
@@ -206,11 +200,7 @@ metadata:
   nivel: "avanzado"
   tags: ["machine_learning", "error"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  caso: [[ "El modelo memorizó los datos de entrenamiento y falla con datos nuevos", "Overfitting" ], [ "El modelo es muy simple y no captura la tendencia de los datos", "Underfitting" ]]
-
-enunciado: "Cuando un sistema de IA ha aprendido tan perfectamente los datos de entrenamiento que ha 'memorizado' el ruido y los detalles irrelevantes, perdiendo su capacidad de aplicarse a casos reales distintos, estamos ante un problema de: {caso[caso_idx][1]}"
+enunciado: "Cuando un sistema de IA ha aprendido tan perfectamente los datos de entrenamiento que ha 'memorizado' el ruido y los detalles irrelevantes, perdiendo su capacidad de aplicarse a casos reales distintos, estamos ante un problema de:"
 
 opciones_explicitas: ["Overfitting", "Underfitting", "Bias", "Variance"]
 respuesta: "Overfitting"
@@ -375,7 +365,7 @@ metadata:
   nivel: "avanzado"
   tags: ["ia", "generalizacion", "overfitting"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "Un sistema basado en reglas es capaz de manejar situaciones que no fueron explícitamente programadas mediante una regla 'si-entonces', a diferencia de un modelo de aprendizaje que puede generalizar patrones nuevos."
@@ -462,8 +452,8 @@ variables:
 enunciado: "En el caso: {casos[caso_idx][0]}, el paradigma predominante es ___."
 
 respuestas_validas:
-  - casos[caso_idx][0]
-  - ""
+  - "Aprendizaje basado en datos"
+  - "Basado en reglas explícitas"
 respuesta: respuestas[caso_idx][0]
 tipo: completar
 
@@ -481,13 +471,14 @@ metadata:
   tags: ["generalizacion", "ia"]
 
 variables:
+  textos: ["Un sistema de reglas que no reconoce un nuevo tipo de spam porque la palabra clave no está en su lista.", "Un modelo de IA que, al ver un objeto nunca visto, estima su categoría basándose en su similitud con datos previos."]
+  valores: [falso, verdadero]
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Un sistema de reglas que no reconoce un nuevo tipo de spam porque la palabra clave no está en su lista.", "Un modelo de IA que, al ver un objeto nunca visto, estima su categoría basándose en su similitud con datos previos."], ["Un sistema de reglas que es muy preciso en su dominio pero rígido.", "Un sistema de aprendizaje que puede generalizar ante datos nuevos."]]
 
-enunciado: "Analiza la situación: {escenarios[escenario_idx][0]}. ¿Es esta una característica típica de un sistema que aprende de datos?"
+enunciado: "Analiza la situación: {textos[escenario_idx]}. ¿Es esta una característica típica de un sistema que aprende de datos?"
 
-respuesta: escenarios[escenario_idx][1] == "Un sistema de aprendizaje que puede generalizar ante datos nuevos."
-tipo: completar
+respuesta: valores[escenario_idx]
+tipo: vf
 explicacion: |
   La generalización es la capacidad de un modelo de aprendizaje para aplicar lo aprendido a datos no vistos durante el entrenamiento, algo que los sistemas de reglas puras no pueden hacer sin intervención humana.
 ```
