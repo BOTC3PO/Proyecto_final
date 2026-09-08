@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -61,13 +61,12 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["un problema matemático con una sola respuesta numérica", "una estrategia de marketing para aumentar ventas"], ["un acertijo de lógica con una única solución", "un conflicto interpersonal en un equipo de trabajo"]]
-  tipo_pensamiento: uno_de(["pensamiento divergente", "pensamiento convergente"])
 
-respuesta: tipo_pensamiento
+respuesta: "pensamiento divergente"
 tipo: mc
 opciones_explicitas: ["pensamiento divergente", "pensamiento convergente"]
 
-enunciado: "Cuando nos enfocamos en generar la mayor cantidad posible de opciones distintas para el escenario {escenarios[escenario_idx][0]}, estamos utilizando el {tipo_pensamiento}."
+enunciado: "Cuando nos enfocamos en generar la mayor cantidad posible de opciones distintas para el escenario '{escenarios[escenario_idx][1]}', estamos utilizando el tipo de pensamiento conocido como:"
 
 explicacion: |
   El pensamiento divergente es la capacidad de generar múltiples soluciones creativas, mientras que el convergente busca la única respuesta correcta o la más lógica.
@@ -203,14 +202,11 @@ metadata:
   nivel: "avanzado"
   tags: ["analisis_costo", "decision"]
 
-variables:
-  caso: uno_de([[100, "Opción A"], [150, "Opción B"], [200, "Opción C"]])
-
-respuesta: caso[1]
+respuesta: "Opción A"
 tipo: mc
 opciones_explicitas: ["Opción A", "Opción B", "Opción C"]
 
-enunciado: "Tienes un presupuesto de 120 unidades. Si debes elegir la alternativa más económica que se ajuste a tu presupuesto, ¿cuál elegirías?"
+enunciado: "Tienes un presupuesto de 120 unidades. Las alternativas disponibles cuestan: Opción A = 100, Opción B = 150, Opción C = 200. Si debes elegir la alternativa más económica que se ajuste a tu presupuesto, ¿cuál elegirías?"
 
 explicacion: |
   Al identificar alternativas, también debemos filtrar aquellas que no cumplen con nuestras restricciones (en este caso, el presupuesto). La Opción A es la más barata, pero si el problema exigiera la opción que más se acerca al límite sin pasarse, la respuesta cambiaría.
@@ -246,7 +242,7 @@ metadata:
 variables:
   escenario: uno_de([["Camino A (Rápido pero costoso)", "Camino B (Lento pero económico)"], ["Opción 1 (Tecnológica)", "Opción 2 (Manual)"]])
 
-respuesta: uno_de(["Camino B (Lento pero económico)", "Opción 2 (Manual)"])
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["Camino A (Rápido pero costoso)", "Camino B (Lento pero económico)", "Opción 1 (Tecnológica)", "Opción 2 (Manual)", "No hay otra opción"]
 
@@ -388,17 +384,10 @@ metadata:
   nivel: "intermedio"
   tags: ["evaluacion"]
 
-variables:
-  escenario: uno_de([["alta", "baja"], ["baja", "alta"]])
-  respuesta_correcta: escenario[1]
-
 tipo: "completar"
-respuesta: respuesta_correcta
-respuestas_validas:
-  - "alta"
-  - "baja"
+respuesta: "alta"
 
-enunciado: "Si una alternativa tiene un riesgo muy elevado pero un beneficio muy alto, se dice que su relación riesgo-beneficio es de escala {respuesta_correcta}."
+enunciado: "Si una alternativa tiene un riesgo muy elevado pero un beneficio muy alto, se dice que su relación riesgo-beneficio es de escala ___."
 
 explicacion: |
   El análisis de alternativas busca cuantificar o cualificar el impacto de cada camino para tomar una decisión informada.
@@ -432,19 +421,14 @@ metadata:
   nivel: "basico"
   tags: ["decision", "alternativas"]
 
-variables:
-  escenarios: [["viajar en bus", "viajar en tren"], ["viajar en avión", "viajar en auto"]]
-  idx: uno_de([0, 1])
-  opcion_elegida: escenarios[idx][0]
-
-respuesta: "viajar en tren"
+respuesta: "viajar en avión"
 tipo: mc
-opciones_explicitas: ["viajar en bus", "viajar en tren", "quedarse en casa"]
+opciones_explicitas: ["viajar en bus", "viajar en tren", "viajar en avión", "quedarse en casa"]
 
-enunciado: "Para ir de una ciudad a otra, tienes el factor tiempo y el factor costo. Si decides que el factor costo es la prioridad absoluta, podrías elegir {opcion_elegida} o podrías elegir una alternativa más rápida pero cara. ¿Cuál sería la otra alternativa lógica para optimizar el tiempo?"
+enunciado: "Para ir de una ciudad a otra, tienes el factor tiempo y el factor costo. Si decides que el factor costo es la prioridad absoluta, podrías elegir viajar en tren (más barato pero lento). ¿Cuál sería la otra alternativa lógica si en cambio decidieras optimizar el tiempo?"
 
 explicacion: |
-  En la resolución de problemas, identificar alternativas implica reconocer que si cambias la prioridad (de costo a tiempo), el camino elegido cambia.
+  En la resolución de problemas, identificar alternativas implica reconocer que si cambias la prioridad (de costo a tiempo), el camino elegido cambia: el avión prioriza la velocidad sobre el costo.
 ```
 
 ### 22 — Gestión de proyectos
@@ -464,7 +448,7 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Ante un aumento inesperado en la demanda de producción, la empresa enfrenta el problema de: {problema}. ¿Es correcto afirmar que existen múltiples caminos para resolver este cuelloOTOP (como la subcontratación o la inversión en tecnología) en lugar de una única solución obligatoria?"
+enunciado: "Ante un aumento inesperado en la demanda de producción, la empresa enfrenta el problema de: {problema}. ¿Es correcto afirmar que existen múltiples caminos para resolver este cuello de botella (como la subcontratación o la inversión en tecnología) en lugar de una única solución obligatoria?"
 
 explicacion: |
   La flexibilidad estratégica permite que ante un mismo problema existan diversos caminos dependiendo de los recursos disponibles.
@@ -479,10 +463,7 @@ metadata:
   nivel: "basico"
   tags: ["aprendizaje", "metodologia"]
 
-variables:
-  metodos: ["leer el libro", "ver un video", "hacer ejercicios"]
-
-respuesta_orden: ["leer el libro", "ver un video", "hacer ejercicios"]
+respuesta_orden: ["leer el libro", "hacer ejercicios", "ver un video"]
 tipo: ordenar
 
 opciones_explicitas: ["leer el libro", "ver un video", "hacer ejercicios"]
@@ -526,15 +507,11 @@ metadata:
   nivel: "avanzado"
   tags: ["finanzas", "decision"]
 
-variables:
-  opciones_financieras: [["pedir un préstamo", "usar ahorros", "vender un activo"]]
-  situacion: opciones_financieras[0][0]
-
 respuesta: "usar ahorros"
 tipo: mc
 opciones_explicitas: ["pedir un préstamo", "usar ahorros", "vender un activo"]
 
-enunciado: "Tienes una deuda urgente. Si decides que la prioridad es no generar intereses, tu primera opción sería: {situacion}. Si la prioridad es mantener liquidez inmediata, ¿cuál sería la alternativa más coherente?"
+enunciado: "Tienes una deuda urgente. Si decides que la prioridad es no generar intereses, tu primera opción sería: vender un activo (ya que un préstamo sí generaría intereses). Si en cambio la prioridad es mantener liquidez inmediata sin desprenderte de bienes, ¿cuál sería la alternativa más coherente?"
 
 explicacion: |
   La identificación de alternativas depende directamente de la jerarquía de valores o prioridades que se le asigne al problema.
