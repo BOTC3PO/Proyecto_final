@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -58,18 +58,12 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "sentencia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["vistos", "considerando", "fallo"], ["pretensiones", "pruebas", "resolución"]]
-
 tipo: completar
 respuestas_validas:
-  - "vistos"
-  - "considerando"
   - "fallo"
-respuesta: datos[escenario_idx][0]
 
-enunciado: "La estructura clásica de una sentencia contiene los ___ (antecedentes), los ___ (fundamentos de derecho) y el ___ (la decisión final)."
+enunciado: "La estructura clásica de una sentencia contiene los vistos (antecedentes), los considerando (fundamentos de derecho) y el ___ (la decisión final)."
+respuesta: "fallo"
 
 explicacion: |
   La estructura lógica de una sentencia requiere la exposición de los hechos, el análisis jurídico y la decisión final.
@@ -167,9 +161,8 @@ metadata:
   nivel: "avanzado"
   tags: ["motivacion", "derecho_constitucional"]
 
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La 'motivación' de una sentencia es el deber del juez de explicar las razones fácticas y jurídicas que lo llevaron a tomar una decisión, evitando la arbitrariedad."
 
 explicacion: |
@@ -403,7 +396,6 @@ metadata:
 respuesta: "laudo"
 tipo: completar
 respuestas_validas:
-  - "sentencia"
   - "laudo"
 
 enunciado: "En un proceso de arbitraje, la decisión final que resuelve la controversia se denomina ___."
@@ -444,10 +436,6 @@ metadata:
   tema: "resolucion_de_conflictos_y_sentencia"
   nivel: "intermedio"
   tags: ["estructura", "sentencia", "vistos", "fallo"]
-
-variables:
-  orden_partes: ["Vistos", "Considerandos", "Fallo"]
-  idx: 0
 
 respuesta_orden: ["Vistos", "Considerandos", "Fallo"]
 tipo: ordenar
@@ -496,13 +484,12 @@ metadata:
   nivel: "basico"
   tags: ["elementos", "sentencia", "fundamentación"]
 
-respuesta: ["fundamentación", "resolución"]
+respuesta: "resolución"
 tipo: completar
 respuestas_validas:
-  - "fundamentación"
   - "resolución"
 
-enunciado: "Toda sentencia debe contener una ___ (donde se explica el porqué de la decisión) y una ___ (donde se dicta el mandato final)."
+enunciado: "Toda sentencia debe contener una fundamentación (donde se explica el porqué de la decisión) y una ___ (donde se dicta el mandato final)."
 
 explicacion: |
   La fundamentación es la parte donde el juez aplica la ley a los hechos, y la resolución es la parte dispositiva donde se decide el conflicto.
