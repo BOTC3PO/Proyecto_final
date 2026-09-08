@@ -1,11 +1,6 @@
 # Química — Presiones parciales: Ley de Dalton (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QDALTON`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bug de esta tanda: `uno_de([...])[idx]` otra vez — `uno_de(lista)` ya
-> devuelve un valor escalar, no se puede indexar de nuevo. Cambiado a
-> tres `uno_de(...)` independientes (no hacía falta correlacionarlos).
 
 ---
 
@@ -62,7 +57,7 @@ variables:
   p3: uno_de([1, 2, 3])
 
 respuesta: p1 + p2 + p3
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una mezcla de tres gases tiene presiones parciales P1 = {p1} atm, P2 = {p2} atm y P3 = {p3} atm. ¿Cuál es la presión total de la mezcla?"
@@ -144,7 +139,7 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][0] / datos[idx][1]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la fracción molar de un componente con {datos[idx][0]} moles, en una mezcla de {datos[idx][1]} moles totales."
@@ -187,7 +182,7 @@ variables:
   p_total: 3
 
 respuesta: (n_n2 / (n_n2 + n_o2)) * p_total
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una mezcla tiene 2 moles de N2 y 1 mol de O2, con presión total de 3 atm. ¿Cuál es la presión parcial del N2?"
@@ -216,7 +211,7 @@ variables:
   p_total: 3
 
 respuesta: (n_o2 / (n_n2 + n_o2)) * p_total
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Con la misma mezcla (2 mol de N2, 1 mol de O2, presión total 3 atm), ¿cuál es la presión parcial del O2?"
@@ -317,7 +312,7 @@ variables:
   p_total: uno_de([6, 9, 12])
 
 respuesta: (n_a / (n_a + n_b)) * p_total
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Un recipiente tiene el gas A con {n_a} moles y el gas B con {n_b} moles. Si la presión total es {p_total} atm, ¿cuál es la presión parcial del gas A?"
