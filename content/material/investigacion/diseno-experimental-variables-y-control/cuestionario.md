@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -24,7 +24,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["El efecto de la temperatura en el crecimiento de una planta", "temperatura", "crecimiento"], ["El efecto de la dosis de un fármaco en la presión arterial", "dosis", "presion"]]
 
-enunciado: "En un experimento sobre {escenarios[escenario_idx][0]}, la variable que el investigador manipula deliberadamente es la {escenarios[escenario_idx][1]}."
+enunciado: "En un experimento sobre {escenarios[escenario_idx][0]}, la variable que el investigador manipula deliberadamente es la ___."
 
 respuesta: escenarios[escenario_idx][1]
 tipo: completar
@@ -147,10 +147,7 @@ metadata:
   nivel: "basico"
   tags: ["variable_dependiente"]
 
-variables:
-  escenario: uno_de([["El tiempo de reacción ante un estímulo sonoro", "tiempo de reacción"], ["La cantidad de azúcar en una solución", "cantidad de azúcar"], ["La velocidad de un vehículo según su carga", "velocidad"]])
-
-enunciado: "En el siguiente experimento: {escenario[0]}, la variable que el investigador mide para obtener sus resultados es la {escenario[1]}."
+enunciado: "En un experimento donde se mide el tiempo de reacción ante un estímulo sonoro, la variable que el investigador mide para obtener sus resultados es el/la ___."
 
 respuesta: "tiempo de reacción"
 tipo: completar
@@ -172,8 +169,9 @@ metadata:
 
 enunciado: "En un ensayo clínico para un nuevo medicamento, se administra el fármaco real a un grupo y un placebo (sustancia inerte) a otro grupo. ¿Cuál es la función principal del grupo que recibe el placebo?"
 
-respuesta: falso
-tipo: vf
+respuesta: "Servir como línea base para comparar si los efectos se deben al fármaco y no a otros factores"
+tipo: mc
+opciones_explicitas: ["Servir como línea base para comparar si los efectos se deben al fármaco y no a otros factores", "Recibir una dosis más alta del fármaco", "Ser excluido del análisis de resultados", "Aumentar el costo del estudio"]
 
 explicacion: |
   El grupo de control (placebo) sirve como línea base para comparar si los cambios observados en el grupo experimental se deben realmente al fármaco y no a factores externos o al efecto psicológico del tratamiento.
@@ -356,13 +354,12 @@ metadata:
 variables:
   escenarios: [["un fármaco nuevo", "un placebo"], ["un nuevo fertilizante", "un fertilizante estándar"]]
   dado: uno_de(escenarios)
-  objetivo: "comparar el efecto del {dado[0]} contra un grupo de control para aislar la causa del cambio observado."
 
 respuesta: "Asegurar que los cambios se deban a la variable independiente y no a factores externos"
 tipo: "mc"
 opciones_explicitas: ["Observar el comportamiento natural sin intervención", "Asegurar que los cambios se deban a la variable independiente y no a factores externos", "Aumentar el tamaño de la muestra para mayor validez", "Eliminar la necesidad de una variable dependiente"]
 
-enunciado: "En un experimento que utiliza {dado[0]}, el grupo de control es fundamental porque su función principal es {objetivo}"
+enunciado: "En un experimento que utiliza {dado[0]}, el grupo de control es fundamental porque su función principal es: ___"
 
 explicacion: |
   El grupo de control actúa como línea base. Sin él, no sabríamos si el cambio en la variable dependiente se debió a la manipulación o a factores ambientales/externos.
@@ -464,9 +461,9 @@ variables:
 
 enunciado: "En el escenario '{escenarios[escenario_idx][0]}', ¿cuál es la variable independiente?"
 
-opciones_explicitas: ["{escenarios[escenario_idx][1]}", "La nota del examen", "El tipo de planta", "El clima"]
+opciones_explicitas: [escenarios[escenario_idx][1], "La nota del examen", "El tipo de planta", "El clima"]
 
-respuesta: "{escenarios[escenario_idx][1]}"
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 
 explicacion: |
@@ -484,14 +481,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Se prueba un nuevo fármaco contra el dolor de cabeza.", "placebo"], ["Se prueba un nuevo método de enseñanza de matemáticas.", "clase_tradicional"]]
   controles: [["placebo"], ["clase_tradicional"]]
 
 enunciado: "Para validar que el efecto observado se debe al tratamiento y no a otros factores, es necesario comparar los resultados con un grupo de {controles[escenario_idx][0]}."
 
-opciones_explicitas: ["{controles[escenario_idx][0]}", "observación", "reacción", "descarte"]
+opciones_explicitas: [controles[escenario_idx][0], "observación", "reacción", "descarte"]
 
-respuesta: "{controles[escenario_idx][0]}"
+respuesta: controles[escenario_idx][0]
 tipo: mc
 
 explicacion: |
