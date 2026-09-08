@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -23,8 +23,6 @@ metadata:
 respuesta: "no reinventar la rueda"
 tipo: completar
 respuestas_validas:
-  - "no reinventar la rueda"
-  - "no reinventar la rueda"
   - "no reinventar la rueda"
 
 enunciado: "En ingeniería, una de las reglas de oro para optimizar tiempos y recursos es ___."
@@ -146,14 +144,15 @@ variables:
   estandar_nombre: estandares[idx][0]
   estandar_valor: estandares[idx][1]
 
-enunciado: "Al diseñar un sistema de comunicación inalámbrica, el ingeniero consulta el estándar ${estandar_nombre} para evitar errores de compatibilidad. El objetivo principal de este estándar es asegurar la: ___"
+enunciado: "Al diseñar un sistema de comunicación inalámbrica, el ingeniero consulta el estándar {estandar_nombre} para evitar errores de compatibilidad. El objetivo principal de este estándar es asegurar la: ___"
 
+respuesta: estandar_valor
 respuestas_validas:
   - estandar_valor
 tipo: completar
 
 explicacion: |
-  Consultar estándares como el ${estandar_nombre} permite que el diseño sea compatible con el ecosistema existente, evitando el error de 'reinventar' protocolos de comunicación.
+  Consultar estándares como el {estandar_nombre} permite que el diseño sea compatible con el ecosistema existente, evitando el error de 'reinventar' protocolos de comunicación.
 ```
 
 ### 8 — Análisis de patentes
@@ -164,9 +163,6 @@ metadata:
   tema: "investigar_soluciones_existentes"
   nivel: "avanzado"
   tags: ["propiedad_intelectual", "riesgo"]
-
-variables:
-  patente_valida: uno_de([verdadero, falso])
 
 enunciado: "Un ingeniero encuentra una solución técnica que resuelve el problema del diseño actual, pero descubre que existe una patente vigente para ese mecanismo específico. ¿Es legalmente seguro implementar esta solución sin una licencia?"
 
@@ -205,9 +201,6 @@ metadata:
   tema: "investigar_soluciones_existentes"
   nivel: "basico"
   tags: ["mentalidad", "eficiencia"]
-
-variables:
-  es_eficiente: uno_de([verdadero, falso])
 
 enunciado: "Si un ingeniero dedica el 40% del tiempo de un proyecto a documentar soluciones que ya han sido resueltas en la industria para evitar errores previos, ¿esta práctica se considera eficiente en la gestión de ingeniería?"
 
@@ -398,13 +391,13 @@ variables:
   idx: uno_de([0, 1])
   terminos: [["Estado del Arte", "Prototipo"], ["Revisión de literatura", "Modelo físico experimental"]]
 
-enunciado: "La investigación de soluciones existentes se basa principalmente en el {terminos[idx][0]}, mientras que la validación de una nueva idea propia se realiza mediante un {terminos[idx][1]}."
+enunciado: "La investigación de soluciones existentes se basa principalmente en el {terminos[idx][0]}, mientras que la validación de una nueva idea propia se realiza mediante un ___."
 
-respuesta: [terminos[idx][0], terminos[idx][1]]
+respuesta: terminos[idx][1]
 tipo: "completar"
 respuestas_validas:
-  - terminos[idx][0]
-  - terminos[idx][1]
+  - "Prototipo"
+  - "Modelo físico experimental"
 
 explicacion: |
   El Estado del Arte es el conocimiento actual acumulado en la disciplina, mientras que el prototipo es la materialización física o digital de la nueva propuesta del ingeniero.
@@ -418,9 +411,6 @@ metadata:
   tema: "investigar_soluciones_existentes"
   nivel: "intermedio"
   tags: ["riesgo", "diseño"]
-
-variables:
-  riesgo_alto: verdadero
 
 enunciado: "Si un ingeniero omite la fase de investigación de soluciones existentes, el riesgo de cometer errores de diseño ya superados por la industria es ___."
 
@@ -530,11 +520,11 @@ metadata:
 variables:
   patron: uno_de([["Modularidad", "Escalabilidad"], ["Redundancia", "Robustez"], ["Simplicidad", "Mantenibilidad"]])
 
-respuesta: patron[0]
+respuesta: patron[1]
 tipo: mc
 opciones_explicitas: ["Modularidad", "Escalabilidad", "Redundancia", "Robustez", "Simplicidad", "Mantenibilidad"]
 
-enunciado: "Al estudiar un sistema de ingeniería previo, se observa que su principal fortaleza es la {patron[0]}. Si el nuevo diseño busca replicar exactamente esta característica, el objetivo principal es la: ___"
+enunciado: "Al estudiar un sistema de ingeniería previo, se observa que su principal fortaleza es la {patron[0]}. Esta característica le aporta directamente al sistema una mayor: ___"
 
 explicacion: |
   Identificar la característica clave de una solución exitosa permite replicar su éxito en nuevos contextos.
