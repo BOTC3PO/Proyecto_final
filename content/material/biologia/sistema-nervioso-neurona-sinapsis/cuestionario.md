@@ -1,6 +1,6 @@
 # Biologia — sistema nervioso neurona sinapsis (cuestionario, 35 preguntas VBLang)
 
-> Tema: `biologia/sistema-nervioso-neurona-sinapsis`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `biologia/sistema-nervioso-neurona-sinapsis`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -14,13 +14,14 @@ metadata:
   tags: ["neurona", "mielina", "velocidad"]
 
 variables:
-  velocidad_sin_miélina: random(1, 5)
-  velocidad_con_miélina: random(50, 120)
+  velocidad_sin_mielina: random(1, 5)
+  factor_mielina: uno_de([20, 30, 50])
+  velocidad_con_mielina: velocidad_sin_mielina * factor_mielina
 
-respuesta: "{velocidad_con_miélina} m/s"
+respuesta: velocidad_con_mielina
 tipo: input
 
-enunciado: "Si una neurona amielínica transmite a {velocidad_sin_miélina} m/s, ¿cuál es la velocidad aproximada de una neurona mielinizada en el mismo contexto? (Valor entero entre {velocidad_con_miélina} y {velocidad_con_miélina + 10})"
+enunciado: "Una neurona amielínica transmite a {velocidad_sin_mielina} m/s. Si la mielinización multiplica la velocidad de conducción por un factor de {factor_mielina}, ¿a qué velocidad (en m/s) transmite la neurona mielinizada?"
 
 explicacion: |
   La vaina de mielina permite la conducción saltatoria, acelerando drásticamente la velocidad del impulso nervioso comparado con neuronas sin mielina.
@@ -58,16 +59,14 @@ metadata:
   nivel: "basico"
   tags: ["soma", "cuerpo celular"]
 
-variables:
-  nombre: uno_de(["soma", "cuerpo celular", "pericario"])
-
 respuesta: "soma"
 tipo: completar
 
-enunciado: "El cuerpo celular de la neurona, donde se encuentra el núcleo y se realizan las funciones metabólicas, se denomina {nombre}."
+enunciado: "El cuerpo celular de la neurona, donde se encuentra el núcleo y se realizan las funciones metabólicas, se denomina ___."
 respuestas_validas:
   - "soma"
   - "cuerpo celular"
+  - "pericarion"
 
 explicacion: |
   El soma o cuerpo celular contiene el núcleo y es el centro metabólico de la neurona.
@@ -82,17 +81,13 @@ metadata:
   nivel: "intermedio"
   tags: ["sinapsis", "conversión"]
 
-variables:
-  tipo1: "eléctrica"
-  tipo2: "química"
-
-respuesta: "eléctrica a química"
+respuesta: "eléctrica"
 tipo: completar
 
-enunciado: "En la sinapsis, el impulso {tipo1} se convierte en señal {tipo2} para cruzar la hendidura."
+enunciado: "En la sinapsis, el impulso ___ se convierte en señal química para cruzar la hendidura."
 respuestas_validas:
-  - "eléctrica a química"
-  - "electrica a quimica"
+  - "eléctrica"
+  - "electrica"
 
 explicacion: |
   El impulso eléctrico no puede saltar el espacio físico de la hendidura sináptica, por lo que se convierte en señal química mediante neurotransmisores.
@@ -178,13 +173,10 @@ metadata:
   nivel: "basico"
   tags: ["sinapsis", "espacio"]
 
-variables:
-  nombre: "hendidura sináptica"
-
 respuesta: "hendidura sináptica"
 tipo: completar
 
-enunciado: "El pequeño espacio físico entre dos neuronas donde ocurre la transmisión química se llama {nombre}."
+enunciado: "El pequeño espacio físico entre dos neuronas donde ocurre la transmisión química se llama ___."
 respuestas_validas:
   - "hendidura sináptica"
   - "hendidura sinaptica"
@@ -207,10 +199,10 @@ variables:
   velocidad: 50
   tiempo: distancia / velocidad
 
-respuesta: "{redondear(tiempo, 2)}"
+respuesta: redondear(tiempo, 2)
 tipo: input
 
-enunciado: "Si un impulso viaja {distancia} mm a una velocidad de {velocidad} m/s (convertido a mm/ms: {velocidad}/1000), ¿cuánto tarda en llegar? (Resultado en ms)"
+enunciado: "Si un impulso viaja {distancia} mm a una velocidad de conducción de {velocidad} mm/ms (equivalente a {velocidad} m/s), ¿cuánto tarda en llegar? (Resultado en ms, con dos decimales)"
 
 explicacion: |
   El tiempo de transmisión depende de la distancia y la velocidad de conducción, que se ve afectada por la mielina.
@@ -248,13 +240,10 @@ metadata:
   nivel: "basico"
   tags: ["terminal", "liberación"]
 
-variables:
-  nombre: "terminal sináptica"
-
 respuesta: "terminal sináptica"
 tipo: completar
 
-enunciado: "Las estructuras al final del axón que contienen vesículas con neurotransmisores se llaman {nombre}."
+enunciado: "Las estructuras al final del axón que contienen vesículas con neurotransmisores se llaman ___."
 respuestas_validas:
   - "terminal sináptica"
   - "terminal sinaptica"
@@ -296,13 +285,10 @@ metadata:
   nivel: "intermedio"
   tags: ["mielina", "nodo"]
 
-variables:
-  nombre: "nodo de Ranvier"
-
 respuesta: "nodo de Ranvier"
 tipo: completar
 
-enunciado: "Los espacios sin mielina a lo largo del axón se denominan {nombre}."
+enunciado: "Los espacios sin mielina a lo largo del axón se denominan ___."
 respuestas_validas:
   - "nodo de Ranvier"
   - "nodo de ranvier"
@@ -341,13 +327,13 @@ metadata:
   nivel: "basico"
   tags: ["dendritas", "estructura"]
 
-variables:
-  funcion: "recepcion"
-
 respuesta: "reciben"
 tipo: completar
 
-enunciado: "Las {funcion} son prolongaciones cortas y ramificadas que {funcion} mensajes de otras neuronas."
+enunciado: "Las dendritas son prolongaciones cortas y ramificadas que ___ mensajes de otras neuronas."
+respuestas_validas:
+  - "reciben"
+  - "captan"
 
 explicacion: |
   Las dendritas tienen la función de recibir señales de otras neuronas y transmitirlas hacia el cuerpo celular.
@@ -362,13 +348,14 @@ metadata:
   nivel: "basico"
   tags: ["axon", "impulso"]
 
-variables:
-  direccion: "salida"
-
 respuesta: "lleva"
 tipo: completar
 
-enunciado: "El axón es una prolongación larga que {direccion} el impulso nervioso desde el cuerpo celular hacia las terminales."
+enunciado: "El axón es una prolongación larga que ___ el impulso nervioso desde el cuerpo celular hacia las terminales."
+respuestas_validas:
+  - "lleva"
+  - "conduce"
+  - "transmite"
 
 explicacion: |
   El axón conduce el impulso eléctrico desde el soma (cuerpo celular) hacia las terminales sinápticas para enviarlo a otras células.
@@ -383,13 +370,13 @@ metadata:
   nivel: "intermedio"
   tags: ["mielina", "celulas_gliales"]
 
-variables:
-  origen: "celulas_gliales"
-
-respuesta: "celulas gliales"
+respuesta: "células gliales"
 tipo: completar
 
-enunciado: "La vaina de mielina está formada por células llamadas {origen}."
+enunciado: "La vaina de mielina está formada por células llamadas ___."
+respuestas_validas:
+  - "células gliales"
+  - "celulas gliales"
 
 explicacion: |
   Las células gliales (como los oligodendrocitos en el SNC y las células de Schwann en el SNP) forman la vaina de mielina alrededor de los axones.
@@ -404,13 +391,10 @@ metadata:
   nivel: "intermedio"
   tags: ["mielina", "patologia"]
 
-variables:
-  consecuencia: "lenta"
-
 respuesta: "lenta"
 tipo: completar
 
-enunciado: "Si la mielina se daña, la comunicación entre el cerebro y el cuerpo se vuelve {consecuencia} o falla."
+enunciado: "Si la mielina se daña, la comunicación entre el cerebro y el cuerpo se vuelve ___ o falla."
 
 explicacion: |
   El daño a la mielina (desmielinización) interrumpe o ralentiza la conducción del impulso nervioso, afectando la función motora y sensorial.
@@ -425,13 +409,10 @@ metadata:
   nivel: "basico"
   tags: ["sinapsis", "comunicacion"]
 
-variables:
-  concepto: "puente"
-
 respuesta: "sinapsis"
 tipo: completar
 
-enunciado: "La {concepto} es el proceso mediante el cual la señal eléctrica se convierte en química y luego vuelve a ser eléctrica."
+enunciado: "La ___ es el proceso mediante el cual la señal eléctrica se convierte en química y luego vuelve a ser eléctrica."
 
 explicacion: |
   La sinapsis es el punto de comunicación entre dos neuronas (o entre una neurona y una efectora) donde se produce el relevo de la señal.
@@ -446,13 +427,14 @@ metadata:
   nivel: "intermedio"
   tags: ["hendidura", "espacio"]
 
-variables:
-  espacio: "hendidura"
-
 respuesta: "hendidura sináptica"
 tipo: completar
 
-enunciado: "Existe un pequeño espacio físico entre las neuronas llamado {espacio}."
+enunciado: "Existe un pequeño espacio físico entre las neuronas llamado ___."
+respuestas_validas:
+  - "hendidura sináptica"
+  - "hendidura sinaptica"
+  - "hendidura"
 
 explicacion: |
   La hendidura sináptica es el espacio extracelular por donde difunden los neurotransmisores para llegar a la neurona postsináptica.
@@ -467,14 +449,13 @@ metadata:
   nivel: "intermedio"
   tags: ["señal", "conversion"]
 
-variables:
-  tipo1: "electrica"
-  tipo2: "quimica"
-
 respuesta: "química"
 tipo: completar
 
-enunciado: "En la sinapsis, la señal {tipo1} se convierte en {tipo2} y luego vuelve a ser eléctrica."
+enunciado: "En la sinapsis, la señal eléctrica se convierte en señal ___ y luego vuelve a ser eléctrica."
+respuestas_validas:
+  - "química"
+  - "quimica"
 
 explicacion: |
   El impulso eléctrico llega a la terminal, libera neurotransmisores (señal química) que cruzan la hendidura y generan un nuevo impulso eléctrico en la siguiente neurona.
@@ -489,13 +470,13 @@ metadata:
   nivel: "basico"
   tags: ["soma", "cuerpo_celular"]
 
-variables:
-  contenido: "nucleo"
-
 respuesta: "núcleo"
 tipo: completar
 
-enunciado: "En el cuerpo celular (soma) se encuentra el {contenido} y se realizan funciones metabólicas."
+enunciado: "En el cuerpo celular (soma) se encuentra el ___ y se realizan funciones metabólicas."
+respuestas_validas:
+  - "núcleo"
+  - "nucleo"
 
 explicacion: |
   El soma contiene el núcleo con el material genético y es el centro metabólico de la neurona.
@@ -510,13 +491,14 @@ metadata:
   nivel: "avanzado"
   tags: ["ranvier", "impulso"]
 
-variables:
-  funcion: "salto"
-
-respuesta: "nodos de Ranvier"
+respuesta: "nodo de Ranvier"
 tipo: completar
 
-enunciado: "El impulso 'salta' de un {funcion} a otro en los axones mielinizados."
+enunciado: "El impulso 'salta' de un ___ a otro en los axones mielinizados."
+respuestas_validas:
+  - "nodo de Ranvier"
+  - "nodo de ranvier"
+  - "nodos de Ranvier"
 
 explicacion: |
   Los nodos de Ranvier son los espacios sin mielina entre los segmentos de vaina, donde se regenera el potencial de acción.
@@ -531,13 +513,10 @@ metadata:
   nivel: "basico"
   tags: ["funcion", "comando"]
 
-variables:
-  rol: "centro_de_comando"
-
 respuesta: "centro de comando"
 tipo: completar
 
-enunciado: "El sistema nervioso funciona como el {rol} y la red de comunicación del cuerpo."
+enunciado: "El sistema nervioso funciona como el ___ y la red de comunicación del cuerpo."
 
 explicacion: |
   Su rol principal es integrar información, procesarla y generar respuestas coordinadas para mantener la homeostasis y la interacción con el entorno.
@@ -552,13 +531,10 @@ metadata:
   nivel: "intermedio"
   tags: ["neurotransmisor", "quimico"]
 
-variables:
-  sustancia: "neurotransmisor"
-
 respuesta: "neurotransmisores"
 tipo: completar
 
-enunciado: "Los {sustancia} son las moléculas que cruzan la hendidura sináptica."
+enunciado: "Los ___ son las moléculas que cruzan la hendidura sináptica."
 
 explicacion: |
   Los neurotransmisores son mensajeros químicos liberados por la neurona presináptica que se unen a receptores en la postsináptica.
@@ -573,13 +549,10 @@ metadata:
   nivel: "basico"
   tags: ["direccion", "flujo"]
 
-variables:
-  flujo: "dendritas_a_axon"
-
 respuesta: "dendritas"
 tipo: completar
 
-enunciado: "La información llega a la neurona principalmente a través de las {flujo}."
+enunciado: "La información llega a la neurona principalmente a través de las ___."
 
 explicacion: |
   El flujo típico de información es: Dendritas -> Soma -> Axón -> Terminales sinápticas.
@@ -594,13 +567,10 @@ metadata:
   nivel: "basico"
   tags: ["mielina", "aislante"]
 
-variables:
-  propiedad: "aislante"
-
 respuesta: "aislante"
 tipo: completar
 
-enunciado: "La vaina de mielina actúa como una capa {propiedad} alrededor del axón."
+enunciado: "La vaina de mielina actúa como una capa ___ alrededor del axón."
 
 explicacion: |
   La mielina es rica en lípidos y actúa como aislante eléctrico, impidiendo que la carga se escape y forzando el salto entre nodos.
@@ -615,13 +585,14 @@ metadata:
   nivel: "basico"
   tags: ["respuesta", "estimulo"]
 
-variables:
-  accion: "reaccion"
-
 respuesta: "respuesta"
 tipo: completar
 
-enunciado: "El sistema nervioso procesa datos para generar una {accion} adecuada."
+enunciado: "El sistema nervioso procesa datos para generar una ___ adecuada."
+respuestas_validas:
+  - "respuesta"
+  - "reacción"
+  - "reaccion"
 
 explicacion: |
   La función integradora del sistema nervioso es generar una respuesta motora o secretora apropiada ante un estímulo.
@@ -636,13 +607,13 @@ metadata:
   nivel: "avanzado"
   tags: ["sinapsis", "tipos"]
 
-variables:
-  tipo_comun: "quimica"
-
 respuesta: "química"
 tipo: completar
 
-enunciado: "La mayoría de las sinapsis en el sistema nervioso humano son de tipo {tipo_comun}."
+enunciado: "La mayoría de las sinapsis en el sistema nervioso humano son de tipo ___."
+respuestas_validas:
+  - "química"
+  - "quimica"
 
 explicacion: |
   Aunque existen sinapsis eléctricas, la gran mayoría de la comunicación neuronal en humanos es química, mediada por neurotransmisores.
@@ -657,13 +628,10 @@ metadata:
   nivel: "basico"
   tags: ["funcion", "vital"]
 
-variables:
-  tarea: "mantener"
-
 respuesta: "mantener"
 tipo: completar
 
-enunciado: "El sistema nervioso ayuda a {tarea} funciones vitales como la respiración."
+enunciado: "El sistema nervioso ayuda a ___ funciones vitales como la respiración."
 
 explicacion: |
   El sistema nervioso autónomo regula funciones involuntarias como la respiración, el ritmo cardíaco y la digestión.
@@ -678,13 +646,14 @@ metadata:
   nivel: "basico"
   tags: ["terminal", "emision"]
 
-variables:
-  destino: "otras_celulas"
-
 respuesta: "terminales"
 tipo: completar
 
-enunciado: "El axón termina en {destino} para enviar el mensaje."
+enunciado: "El axón termina en ___ para enviar el mensaje a otras células."
+respuestas_validas:
+  - "terminales"
+  - "terminales sinápticas"
+  - "terminales sinapticas"
 
 explicacion: |
   Las terminales sinápticas (botones terminales) son las puntas del axón donde se almacenan y liberan los neurotransmisores.
@@ -699,13 +668,10 @@ metadata:
   nivel: "avanzado"
   tags: ["plasticidad", "sinapsis"]
 
-variables:
-  proceso: "aprender"
-
 respuesta: "sinapsis"
 tipo: completar
 
-enunciado: "Entender cómo trabajan juntas las neuronas y su {proceso} es clave para comprender el aprendizaje."
+enunciado: "Entender cómo trabajan juntas las neuronas y cómo se comunican a través de la ___ es clave para comprender el aprendizaje."
 
 explicacion: |
   La plasticidad sináptica (cambio en la fuerza de la sinapsis) es la base celular del aprendizaje y la memoria.
@@ -720,13 +686,10 @@ metadata:
   nivel: "basico"
   tags: ["dendrita", "forma"]
 
-variables:
-  forma: "ramificada"
-
 respuesta: "dendritas"
 tipo: completar
 
-enunciado: "Las {forma} son prolongaciones cortas y ramificadas."
+enunciado: "Las ___ son prolongaciones cortas y ramificadas."
 
 explicacion: |
   La ramificación de las dendritas aumenta la superficie de contacto para recibir más señales de otras neuronas.
@@ -741,13 +704,13 @@ metadata:
   nivel: "avanzado"
   tags: ["impulso", "electrico"]
 
-variables:
-  nombre: "potencial"
-
 respuesta: "potencial de acción"
 tipo: completar
 
-enunciado: "El impulso nervioso es también conocido como {nombre}."
+enunciado: "El impulso nervioso es también conocido como ___."
+respuestas_validas:
+  - "potencial de acción"
+  - "potencial de accion"
 
 explicacion: |
   El potencial de acción es la onda de despolarización que viaja por el axón, permitiendo la transmisión rápida de la señal.
@@ -762,13 +725,10 @@ metadata:
   nivel: "intermedio"
   tags: ["receptor", "uniones"]
 
-variables:
-  objetivo: "receptores"
-
 respuesta: "receptores"
 tipo: completar
 
-enunciado: "Los neurotransmisores se unen a {objetivo} en la membrana de la siguiente neurona."
+enunciado: "Los neurotransmisores se unen a ___ en la membrana de la siguiente neurona."
 
 explicacion: |
   Los receptores específicos en la membrana postsináptica detectan los neurotransmisores y generan la respuesta celular correspondiente.
