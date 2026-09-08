@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -166,13 +166,14 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[[5, 2, 8], [2, 5, 8]], [[3, 1, 4], [1, 3, 4]]]
+  arrays_iniciales: ["[5, 2, 8]", "[3, 1, 4]"]
+  resultados: ["[2, 5, 8]", "[1, 3, 4]"]
 
-enunciado: "Considera el array {escenario[idx][0]}. Tras completar la primera pasada completa del algoritmo de ordenamiento burbuja (comparando pares adyacentes de izquierda a derecha), ¿cuál es el estado del array?"
+enunciado: "Considera el array {arrays_iniciales[idx]}. Tras completar la primera pasada completa del algoritmo de ordenamiento burbuja (comparando pares adyacentes de izquierda a derecha), ¿cuál es el estado del array?"
 
-opciones_explicitas: ["{escenario[idx][1]}", "[5, 8, 2]", "[2, 5, 8]", "[8, 5, 2]"]
+opciones_explicitas: [resultados[idx], "[8, 5, 2]", "[4, 3, 1]", "[2, 8, 5]"]
 
-respuesta: "{escenario[idx][1]}"
+respuesta: resultados[idx]
 tipo: mc
 
 explicacion: |
@@ -254,9 +255,6 @@ variables:
 tipo: completar
 respuestas_validas:
   - "O(n)"
-  - "O(1)"
-  - "O(log n)"
-  - "O(n^2)"
 
 enunciado: "En el peor de los casos, si tenemos un arreglo de tamaño {n}, la complejidad temporal de una búsqueda lineal es ___."
 
@@ -314,11 +312,6 @@ metadata:
   nivel: "avanzado"
   tags: ["eficiencia", "comparacion"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[100, 7], [100, 100]]
-  valor_buscado: uno_de(["log2(n)", "n"])
-
 tipo: mc
 opciones_explicitas: ["log2(n)", "n"]
 
@@ -339,14 +332,11 @@ metadata:
   nivel: "basico"
   tags: ["busqueda", "eficiencia"]
 
-variables:
-  es_ordenado: verdadero
-
 respuesta: "binaria"
 tipo: mc
 opciones_explicitas: ["lineal", "binaria", "exponencial"]
 
-enunciado: "Para que un algoritmo de búsqueda sea más eficiente que la búsqueda lineal, aprovechando la estructura de los datos, el arreglo debe estar previamente {es_ordenado} y el algoritmo utilizado sería la búsqueda ___."
+enunciado: "Para que un algoritmo de búsqueda sea más eficiente que la búsqueda lineal, aprovechando la estructura de los datos, el arreglo debe estar previamente ordenado y el algoritmo utilizado sería la búsqueda ___."
 
 explicacion: |
   La búsqueda binaria requiere que el conjunto de datos esté ordenado para poder dividir el espacio de búsqueda a la mitad en cada paso, logrando una complejidad de O(log n), mientras que la lineal siempre recorre uno por uno.
@@ -375,7 +365,7 @@ pasos:
   - "Calcular el número de comparaciones como n^2."
 
 explicacion: |
-  El algoritmo de burbuja compara pares adyacentes. En el peor de los casos, realiza n*(n-1)/2 comparaciones, lo cual es asimptóticamente O(n^2). Para n=10, el valor aproximado es 100.
+  El algoritmo de burbuja compara pares adyacentes. En el peor de los casos realiza exactamente n*(n-1)/2 comparaciones (45 para n=10), pero esa cifra crece asintóticamente como n^2, por lo que decimos que su complejidad es O(n^2). Usando n^2 como aproximación, para n=10 el valor es 100.
 ```
 
 ### 18 — Requisito de la Búsqueda Binaria
@@ -425,16 +415,11 @@ metadata:
   nivel: "intermedio"
   tags: ["eficiencia", "comparacion"]
 
-variables:
-  idx_caso: uno_de([0, 1])
-  es_mejor_binaria: ["verdadero", "falso"][idx_caso]
-  tipo_busqueda: ["binaria", "lineal"][idx_caso]
-
 respuesta: "binaria"
 tipo: mc
 opciones_explicitas: ["lineal", "binaria"]
 
-enunciado: "Si comparamos la eficiencia de búsqueda en un arreglo de un millón de elementos, la búsqueda {tipo_busqueda} es preferible sobre la búsqueda lineal porque su complejidad es menor. El nombre de la búsqueda más eficiente es ___."
+enunciado: "Si comparamos la eficiencia de búsqueda en un arreglo de un millón de elementos, una de las dos es preferible sobre la otra porque su complejidad es menor. El nombre de la búsqueda más eficiente es ___."
 
 explicacion: |
   La búsqueda binaria tiene una complejidad logarítmica O(log n), lo que significa que para un millón de elementos solo requiere unos 20 pasos, mientras que la lineal podría requerir un millón.
@@ -512,20 +497,16 @@ metadata:
   nivel: "avanzado"
   tags: ["complejidad", "big_o"]
 
-variables:
-  caso: [["O(n)", "lineal"], ["O(log n)", "logarítmica"]]
-  idx: uno_de([0, 1])
-
-respuesta: caso[idx][1]
+respuesta: "logarítmica"
 tipo: completar
 respuestas_validas:
-  - "lineal"
   - "logarítmica"
+  - "logaritmica"
 
-enunciado: "La complejidad temporal de la búsqueda binaria en el mejor de los casos de éxito (encontrar el elemento justo en el medio) se describe como ___."
+enunciado: "La complejidad temporal de la búsqueda binaria en el peor de los casos se describe como ___."
 
 explicacion: |
-  Aunque en el peor caso la búsqueda binaria es O(log n), si el elemento está justo en la posición central de la primera división, la complejidad es constante, pero el término general para su eficiencia comparada con la lineal es logarítmica.
+  La búsqueda binaria reduce el espacio de búsqueda a la mitad en cada paso, por lo que en el peor de los casos su complejidad es O(log n), es decir, logarítmica (nunca lineal, ni siquiera en escenarios favorables).
 ```
 
 ### 25 — Comparación de algoritmos
@@ -539,14 +520,15 @@ metadata:
 
 variables:
   datos: [[ 10, 5, 8, 2 ], [ 3, 1, 4, 2 ], [ 7, 9, 6, 5 ]]
+  intercambios_primer_par: [1, 1, 0]
   idx: uno_de([0, 1, 2])
   lista: datos[idx]
 
-respuesta: "burbuja"
-tipo: mc
-opciones_explicitas: ["burbuja", "quicksort", "merge"]
+respuesta: intercambios_primer_par[idx]
+tipo: completar
+tolerancia_abs: 0
 
-enunciado: "Si aplicamos el algoritmo de burbuja a la lista {lista}, ¿cuál es el número de intercambios realizados si comparamos solo el primer par de elementos en la primera pasada?"
+enunciado: "Si aplicamos el algoritmo de burbuja a la lista {lista}, ¿cuántos intercambios se realizan si comparamos solo el primer par de elementos (el primero con el segundo) en la primera pasada?"
 
 pasos:
   - "Comparar el primer elemento con el segundo."
@@ -554,5 +536,5 @@ pasos:
   - "Contar los intercambios realizados."
 
 explicacion: |
-  En el algoritmo de burbuja, se comparan elementos adyacentes. Si el elemento de la izquierda es mayor que el de la derecha, se realiza un intercambio para ir moviendo el valor más grande hacia el final de la lista.
+  En el algoritmo de burbuja, se comparan elementos adyacentes: si el de la izquierda es mayor que el de la derecha, se intercambian (1 intercambio); si no, no se realiza ninguno (0 intercambios). Para {lista}, comparando solo el primer par, el resultado depende de si ese par está o no en el orden correcto.
 ```
