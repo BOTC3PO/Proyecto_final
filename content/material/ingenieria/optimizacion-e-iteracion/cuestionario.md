@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,10 +40,7 @@ metadata:
   nivel: "basico"
   tags: ["objetivo", "optimización"]
 
-variables:
-  escenario: uno_de([["minimizar", "costo"], ["maximizar", "eficiencia"]])
-
-respuesta: escenario[0]
+respuesta: "minimizar"
 tipo: mc
 opciones_explicitas: ["minimizar", "maximizar", "estabilizar", "ignorar"]
 
@@ -203,10 +200,10 @@ variables:
   idx: uno_de([0, 1])
   datos: [[10.5, 10.0], [5.0, 4.8]]
 
-respuesta: datos[idx][0]
+respuesta: abs(datos[idx][0] - datos[idx][1])
 
 enunciado: "En la iteración actual, el valor óptimo estimado es {datos[idx][0]} y el valor obtenido en el ensayo es {datos[idx][1]}. Calcule el error absoluto de la iteración (asumiendo error = |valor_estimado - valor_obtenido|)."
-tipo: "input"
+tipo: completar
 tolerancia_abs: 0.001
 
 explicacion: |
@@ -223,12 +220,11 @@ metadata:
   tags: ["convergencia", "criterio_parada"]
 
 variables:
-  idx: uno_de([0, 1])
   error_actual: uno_de([0.001, 0.0001])
   error_previo: uno_de([0.005, 0.0005])
 
 respuesta: error_actual < error_previo
-tipo: completar
+tipo: vf
 enunciado: "En un proceso iterativo de optimización, si el error absoluto en la iteración {error_actual} es menor que el error de la iteración anterior {error_previo}, ¿se está cumpliendo un criterio de convergencia?"
 
 explicacion: |
@@ -243,9 +239,6 @@ metadata:
   tema: "optimizacion_e_iteracion"
   nivel: "avanzado"
   tags: ["errores", "precision"]
-
-variables:
-  escenario: uno_de(["truncamiento", "redondeo"])
 
 respuesta: "truncamiento"
 
@@ -287,17 +280,13 @@ metadata:
   nivel: "intermedio"
   tags: ["convergencia", "tolerancia"]
 
-variables:
-  tol: uno_de([0.00001, 0.0000001])
-
 respuesta: "infinitas"
 
 tipo: completar
 respuestas_validas:
   - "infinitas"
-  - "finitas"
 
-enunciado: "Si un programador establece una tolerancia de error de ___ para un problema que tiene una precisión de máquina limitada, el algoritmo podría entrar en un ciclo de iteraciones ___."
+enunciado: "Si un programador establece una tolerancia de error extremadamente pequeña (por debajo de la precisión de punto flotante de la máquina) para un problema con precisión de máquina limitada, el algoritmo podría entrar en un ciclo de iteraciones ___."
 
 explicacion: |
   Si la tolerancia exigida es menor que la precisión que la computadora puede representar para ese número (debido al error de punto flotante), el error nunca llegará a ser menor que la tolerancia y el bucle será infinito.
@@ -318,7 +307,7 @@ variables:
 
 respuesta: valor_f < valor_f_prev
 
-tipo: completar
+tipo: vf
 enunciado: "En un problema de minimización, si el valor de la función objetivo en la iteración actual es de {valor_f} y en la anterior era de {valor_f_prev}, ¿se ha logrado una mejora en la solución?"
 
 explicacion: |
@@ -470,11 +459,11 @@ variables:
 
 enunciado: "Se está ejecutando un método de Newton-Raphson para hallar la raíz de una función. El error absoluto en la iteración actual es {error_iter[2]}. Si el criterio de parada es un error menor a 0.001, ¿se ha cumplido la condición de convergencia?"
 
-respuesta: falso
+respuesta: error_iter[2] < 0.001
 tipo: vf
 
 explicacion: |
-  El error actual es {error_iter[2]}, el cual no es estrictamente menor a 0.001 en el caso seleccionado.
+  El criterio de parada exige que el error absoluto sea estrictamente menor a 0.001. En este caso, el error de la iteración actual es {error_iter[2]}.
 ```
 
 ### 23 — Secuencia de mejora de proceso
@@ -505,10 +494,6 @@ metadata:
   nivel: "intermedio"
   tags: ["parametros", "ajuste"]
 
-variables:
-  ajuste: [["K_p: 1.5", "K_i: 0.5", "K_d: 0.1"], ["K_p: 2.0", "K_i: 1.0", "K_d: 0.2"], ["K_p: 0.5", "K_i: 0.1", "K_d: 0.05"]]
-  idx: uno_de([0, 1, 2])
-
 enunciado: "Tras un ensayo de respuesta transitoria, se observa un sobreimpulso excesivo. ¿Cuál de los siguientes conjuntos de parámetros debería probarse en la siguiente iteración para reducir el sobreimpulso (asumiendo un control PID estándar)?"
 
 opciones_explicitas: ["Reducir K_p", "Aumentar K_p", "Eliminar K_d"]
@@ -535,10 +520,11 @@ variables:
   val_previo: datos[idx][1]
   diferencia: abs(val_actual - val_previo)
 
-enunciado: "En un proceso de optimización por descenso de gradiente, la diferencia entre el valor de la función en la iteración actual y la anterior es de {diferencia}."
+enunciado: "En un proceso de optimización por descenso de gradiente, ¿cuál es la diferencia entre el valor de la función en la iteración actual ({val_actual}) y la anterior ({val_previo})?"
 
-respuesta: "0.05"
+respuesta: diferencia
 tipo: completar
+tolerancia_abs: 0.001
 
 explicacion: |
   El error o cambio entre iteraciones se calcula como |{val_actual} - {val_previo}|. En este caso: {diferencia}.
