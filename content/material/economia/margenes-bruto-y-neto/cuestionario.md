@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -124,13 +124,12 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "margen_bruto", "margen_neto"]
 
-respuesta: "neto"
+respuesta: "bruto"
 tipo: "completar"
 respuestas_validas:
-  - "neto"
   - "bruto"
 
-enunciado: "El margen que se calcula restando únicamente los costos de ventas a los ingresos totales se denomina margen _____, mientras que el margen que resta también los gastos operativos y otros costos se denomina margen _____."
+enunciado: "El margen que se calcula restando únicamente los costos de ventas a los ingresos totales se denomina margen ___."
 
 explicacion: |
   El margen bruto mide la rentabilidad directa del producto/servicio (Ingresos - Costo de Ventas). El margen neto es el beneficio real final tras considerar todos los gastos de la estructura operativa.
@@ -150,7 +149,7 @@ variables:
   datos: [[1000, 600], [2500, 1500]]
 
 respuesta: datos[idx][1]
-tipo: "input"
+tipo: "completar"
 tolerancia_abs: 0.01
 
 enunciado: "Una empresa tiene un nivel de ventas de ${datos[idx][0]} y un costo de ventas de ${datos[idx][0] - datos[idx][1]}. ¿Cuál es el valor del margen bruto (en unidades monetarias)?"
@@ -278,10 +277,8 @@ variables:
   datos: [[1000, 400, 200, 100], [2000, 1200, 500, 300]]
 
 tipo: completar
-respuestas_validas:
-  - "100"
-  - "200"
-respuesta: datos[escenario_idx][3]
+tolerancia_abs: 0
+respuesta: datos[escenario_idx][0] - datos[escenario_idx][1] - datos[escenario_idx][2] - datos[escenario_idx][3]
 
 enunciado: "Considera el siguiente escenario: Ventas: {datos[escenario_idx][0]}, Costo de Ventas: {datos[escenario_idx][1]}, Gastos Operativos: {datos[escenario_idx][2]}, Impuestos: {datos[escenario_idx][3]}. El margen neto (en valor absoluto) es ___."
 
@@ -290,7 +287,7 @@ pasos:
   - "Restar los gastos operativos y los impuestos a la utilidad bruta."
 
 explicacion: |
-  El margen neto es la ganancia final después de restar TODOS los costos y gastos. En el caso seleccionado, el resultado es {datos[escenario_idx][3]}.
+  El margen neto es la ganancia final después de restar TODOS los costos y gastos: {datos[escenario_idx][0]} - {datos[escenario_idx][1]} - {datos[escenario_idx][2]} - {datos[escenario_idx][3]}.
 ```
 
 ### 14 — Jerarquía de la rentabilidad
@@ -361,16 +358,13 @@ metadata:
   tags: ["calculo", "gastos_operativos"]
 
 variables:
-  escenario: uno_de([["Ventas: 1000, Costo de Ventas: 400, Gastos Operativos: 200", "600", "400"], ["Ventas: 5000, Costo de Ventas: 2000, Gastos Operativos: 1500", "3000", "1500"]])
+  escenario: uno_de([["Ventas: 1000, Costo de Ventas: 400, Gastos Operativos: 200", "400"], ["Ventas: 5000, Costo de Ventas: 2000, Gastos Operativos: 1500", "1500"]])
 
 tipo: completar
 respuestas_validas:
-  - "600"
-  - "400"
-  - "3000"
-  - "1500"
+  - escenario[1]
 
-enunciado: "Si una empresa tiene ventas de {escenario[0]}, su margen bruto es ___ y su margen neto es ___."
+enunciado: "Si una empresa tiene {escenario[0]}, su margen neto es ___."
 
 pasos:
   - "1. Calcular Margen Bruto: Ventas - Costo de Ventas"
@@ -381,7 +375,7 @@ explicacion: |
   El margen neto se calcula restando los Gastos Operativos al Margen Bruto.
   Dependiendo del escenario sorteado, los valores cambian, pero la lógica es la misma.
 
-respuesta: [escenario[1], escenario[2]]
+respuesta: escenario[1]
 ```
 
 ### 18 — El impacto de los gastos operativos (Corregido)
@@ -394,16 +388,14 @@ metadata:
   tags: ["calculo", "gastos_operativos"]
 
 variables:
-  escenario: uno_de([["1000", "600", "400"], ["5000", "3000", "1500"]])
+  escenario: uno_de([[1000, 600, 250], [5000, 3000, 1200]])
 
 tipo: completar
-respuestas_validas:
-  - "400"
-  - "1500"
+tolerancia_abs: 0
 
 enunciado: "Si una empresa tiene ventas de {escenario[0]}, un margen bruto de {escenario[1]} y gastos operativos de {escenario[2]}, el margen neto es ___."
 
-respuesta: uno_de(["400", "1500"])
+respuesta: escenario[1] - escenario[2]
 
 explicacion: |
   El margen neto se obtiene restando los gastos operativos al margen bruto.
