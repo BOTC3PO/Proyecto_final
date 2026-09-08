@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -150,13 +150,13 @@ metadata:
 enunciado: "En programación, una comparación como 10 > 5 resulta en un valor de tipo ___."
 
 respuestas_validas:
-  - "verdadero"
-  - "falso"
-respuesta: "verdadero"
+  - "booleano"
+  - "bool"
+respuesta: "booleano"
 tipo: completar
 
 explicacion: |
-  Las comparaciones lógicas devuelven valores booleanos: 'verdadero' (true) si la condición se cumple, o 'falso' (false) si no se cumple.
+  Las comparaciones lógicas devuelven valores booleanos: 'verdadero' (true) si la condición se cumple, o 'falso' (false) si no se cumple. Como 10 > 5 se cumple, el resultado concreto es 'verdadero', pero su tipo de dato es booleano.
 ```
 
 ### 8 — Conversión de tipos (Casting)
@@ -170,11 +170,10 @@ metadata:
 
 variables:
   valor_original: "10.7"
-  tipo_destino: uno_de([0, 1])
   escenario: [["int", "10"], ["float", "10.7"]]
   idx: uno_de([0, 1])
 
-enunciado: "Si convertimos el valor {valor_original} al tipo {escenario[idx][0]}, el resultado será {escenario[idx][1]}."
+enunciado: "Si convertimos el valor {valor_original} al tipo {escenario[idx][0]}, ¿cuál será el resultado?"
 
 respuesta: escenario[idx][1]
 tipo: mc
@@ -361,7 +360,7 @@ opciones_explicitas: ["falso", "verdadero", "texto", "entero"]
 respuesta: "verdadero"
 tipo: mc
 
-enunciado: "Un tipo de dato booleano se distingue de otros tipos porque su valor solo puede representar uno de dos estados lógicos. ¿Cuáles son esos estados?"
+enunciado: "Un tipo de dato booleano se distingue de otros tipos porque su valor solo puede representar uno de dos estados lógicos: 'falso' es uno de ellos. ¿Cuál es el otro estado posible?"
 
 explicacion: |
   Los booleanos son la base de la lógica computacional y solo pueden ser 'verdadero' o 'falso'.
@@ -434,13 +433,13 @@ metadata:
   tags: ["tipos_de_dato", "programacion"]
 
 variables:
-  datos: [["edad", "25", "nombre", "Ana", "precio", "19.99", "es_valido", "true"], ["puntos", "100", "usuario", "Dev_User", "promedio", "8.5", "esta_activo", "false"]]
-  idx: uno_de([0, 1])
+  datos: [["edad", "25", "entero"], ["nombre", "Ana", "texto"], ["precio", "19.99", "decimal"], ["es_valido", "true", "booleano"], ["puntos", "100", "entero"], ["usuario", "Dev_User", "texto"], ["promedio", "8.5", "decimal"], ["esta_activo", "false", "booleano"]]
+  idx: uno_de([0, 1, 2, 3, 4, 5, 6, 7])
 
 enunciado: "Si queremos almacenar el valor de la variable {datos[idx][0]} que contiene el dato {datos[idx][1]}, ¿qué tipo de dato es?"
 
 opciones_explicitas: ["entero", "decimal", "texto", "booleano"]
-respuesta: ["entero", "decimal", "texto", "booleano"][idx % 4]
+respuesta: datos[idx][2]
 tipo: mc
 
 explicacion: |
