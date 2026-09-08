@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -156,10 +156,6 @@ variables:
 
 respuesta: datos[1] - datos[0]
 tipo: completar
-respuestas_validas:
-  - 50
-  - 30
-  - 50
 
 enunciado: "Un tanque de agua comienza con {datos[0]} litros y después de una hora tiene {datos[1]} litros. Si el llenado es lineal, la tasa de cambio (litros por hora) es de ___ litros/h."
 
@@ -207,6 +203,9 @@ respuesta: verdadero
 tipo: vf
 
 enunciado: "Si modelamos la concentración de sal en un tanque donde entra salmuera con una concentración constante y el volumen de líquido es constante, la ecuación diferencial que describe la cantidad de sal será de primer orden lineal."
+
+explicacion: |
+  Verdadero. Con volumen constante, la variación de sal respecto al tiempo depende linealmente de la cantidad de sal presente (tasa de salida) y de un término constante (tasa de entrada), lo cual da una ecuación diferencial ordinaria de primer orden lineal.
 ```
 
 ### 10 — Secuencia de resolución de un problema de optimización
@@ -328,7 +327,7 @@ metadata:
   tags: ["validacion", "errores"]
 
 variables:
-  rango: uno_de([["[0, 10] para un experimento de tensión"], ["[20, 50] para el flujo de un fluido"], ["[100, 500] para la carga de una viga"]])
+  rango: uno_de([["[0, 10] para un experimento de tensión"], ["[20, 50] para el flujo de un fluido"], ["[600, 900] para la carga de una viga"]])
 
 enunciado: "Si un modelo ha sido validado experimentalmente solo en el rango {rango[0]}, aplicar el modelo para predecir el comportamiento en el rango [100, 200] sin nueva validación se denomina error de ___."
 
@@ -390,10 +389,7 @@ metadata:
   nivel: "intermedio"
   tags: ["variables", "parametros", "dinamica"]
 
-variables:
-  tipo_elemento: uno_de(["estado", "parametro"])
-
-enunciado: "En un sistema dinámico, las variables de {tipo_elemento} son aquellas que cambian con el tiempo durante la evolución del proceso, mientras que los ________ son valores que permanecen constantes durante el análisis del modelo."
+enunciado: "En un sistema dinámico, las variables de estado son aquellas que cambian con el tiempo durante la evolución del proceso, mientras que los ________ son valores que permanecen constantes durante el análisis del modelo."
 
 respuestas_validas:
   - "parámetros"
@@ -413,12 +409,11 @@ metadata:
   nivel: "basico"
   tags: ["tiempo", "sistemas", "estatica"]
 
-enunciado: "Un modelo que describe un sistema en un momento específico, sin considerar la evolución temporal de sus variables, se considera un modelo ________, mientras que uno que describe la evolución de las variables respecto al tiempo es un modelo ________."
+enunciado: "Un modelo que describe un sistema en un momento específico, sin considerar la evolución temporal de sus variables, se considera un modelo estático, mientras que uno que describe la evolución de las variables respecto al tiempo es un modelo ________."
 
 respuestas_validas:
-  - "estático"
   - "dinámico"
-respuesta: "estático"
+respuesta: "dinámico"
 tipo: completar
 
 explicacion: |
