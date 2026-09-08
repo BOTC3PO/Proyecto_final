@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -65,7 +65,6 @@ respuesta: "probabilidad y resultados"
 tipo: completar
 respuestas_validas:
   - "probabilidad y resultados"
-  - "incertidumbre y azar"
 
 enunciado: "Para que un problema sea clasificado como de riesgo, es indispensable conocer la ___ y los ___ posibles."
 
@@ -167,9 +166,7 @@ variables:
   # caso[0]: valor_a, prob, valor_b
   # caso[1]: valor_a, prob, valor_b
 
-respuestas_validas:
-  - casos[caso_idx][0] * casos[caso_idx][1] + casos[caso_idx][2] * (1 - casos[caso_idx][1])
-respuesta: casos[caso_idx][0] * casos[caso_idx][1] + casos[caso_idx][2] * (1 - casos[caso_idx][1])
+respuesta: casos[caso_idx][2] * casos[caso_idx][1] + casos[caso_idx][0] * (1 - casos[caso_idx][1])
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -193,16 +190,12 @@ metadata:
   nivel: "basico"
   tags: ["completar"]
 
-respuesta: tabla[0][1]
+respuesta: "riesgo"
 tipo: completar
 respuestas_validas:
   - "riesgo"
-  - "incertidumbre"
 
-variables:
-  tabla: [["Conocemos las probabilidades de los resultados", "riesgo"], ["No conocemos las probabilidades de los resultados", "incertidumbre"]]
-
-enunciado: "Si un gestor de proyectos puede asignar probabilidades a los retrasos, está operando bajo un escenario de ___, pero si el impacto de una crisis global es totalmente impredecible, está ante la ___."
+enunciado: "Si un gestor de proyectos puede asignar probabilidades a los retrasos, está operando bajo un escenario de ___, pero si el impacto de una crisis global es totalmente impredecible, está ante la incertidumbre."
 
 explicacion: |
   La distinción clave es la disponibilidad de información sobre la distribución de probabilidad.
@@ -240,9 +233,8 @@ respuesta: "riesgo"
 tipo: "completar"
 respuestas_validas:
   - "riesgo"
-  - "incertidumbre"
 
-enunciado: "Cuando un decisor conoce la distribución de probabilidad de los posibles resultados de un evento, se encuentra ante un escenario de ___, mientras que si desconoce dichas probabilidades, se enfrenta a la ___."
+enunciado: "Cuando un decisor conoce la distribución de probabilidad de los posibles resultados de un evento, se encuentra ante un escenario de ___, mientras que si desconoce dichas probabilidades, se enfrenta a la incertidumbre."
 
 explicacion: |
   La diferencia fundamental radica en la información disponible: el riesgo implica que conocemos las probabilidades de los distintos desenlaces, mientras que la incertidumbre implica un desconocimiento total de las probabilidades.
@@ -317,7 +309,7 @@ metadata:
   tags: ["error_comun", "sesgo"]
 
 respuesta: 0.8
-tipo: "input"
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Un analista dice: 'Tengo un 80% de certeza de que el mercado subirá'. Si el analista está tratando de convertir la incertidumbre en riesgo mediante su juicio subjetivo, ¿cuál es el valor de la probabilidad asignada (en formato decimal)?"
@@ -356,7 +348,7 @@ metadata:
   tags: ["incertidumbre", "decision"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
+  escenario_idx: uno_de([0, 1, 2, 3, 4])
   escenarios: [["Lanzar una moneda equilibrada para decidir un contrato", "riesgo"], ["Lanzar un dado de 6 caras para decidir un contrato", "riesgo"], ["Lanzar un dado de 6 caras para decidir un contrato", "riesgo"], ["Predecir el clima exacto de un día desconocido sin modelos históricos", "incertidumbre"], ["Lanzar una moneda trucada sin saber su probabilidad", "incertidumbre"]]
 
 respuesta: escenarios[escenario_idx][1]
@@ -416,17 +408,16 @@ metadata:
   tags: ["comparacion"]
 
 variables:
-  es_riesgo: uno_de([verdadero, falso])
-  caso_riesgo: "Lanzar una moneda justa"
-  caso_incertidumbre: "Lanzar una moneda cuya probabilidad de cara se desconoce"
-  caso_actual: uno_de([caso_riesgo, caso_incertidumbre])
+  textos: ["Lanzar una moneda justa", "Lanzar una moneda cuya probabilidad de cara se desconoce"]
+  valores: [verdadero, falso]
+  idx: uno_de([0, 1])
 
-respuesta: es_riesgo
+respuesta: valores[idx]
 tipo: vf
-enunciado: "El siguiente caso representa un escenario de riesgo: {caso_actual}."
+enunciado: "El siguiente caso representa un escenario de riesgo: {textos[idx]}."
 
 explicacion: |
-  Si el caso seleccionado es 'Lanzar una moneda justa', la respuesta es verdadero porque la probabilidad (0.5) es conocida. Si el caso es el otro, es falso.
+  Si el caso es 'Lanzar una moneda justa', la respuesta es verdadero porque la probabilidad (0.5) es conocida. Si es 'lanzar una moneda cuya probabilidad de cara se desconoce', es falso porque no se puede asignar una probabilidad.
 ```
 
 ### 21 — Identificación de conceptos
@@ -467,7 +458,7 @@ variables:
 
 respuesta: casos[caso_idx][1]
 tipo: completar
-enunciado: "El escenario de {casos[caso_idx][0]} se clasifica como incertidumbre."
+enunciado: "El escenario de {casos[caso_idx][0]} se clasifica como ___."
 
 explicacion: |
   En el primer caso, el porcentaje de default es conocido (probabilidad conocida = riesgo). En el segundo, la falta de datos históricos impide asignar una probabilidad (incertidumbre).
