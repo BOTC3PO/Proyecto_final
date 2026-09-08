@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -44,10 +44,10 @@ tipo: vf
 
 enunciado: "En el punto de equilibrio, la utilidad de la empresa es exactamente cero."
 
-respuesta: falso
+respuesta: verdadero
 
 explicacion: |
-  Es correcto. Si los ingresos igualan a los costos, la diferencia (utilidad) es cero. En el DSL, el valor booleano para falso es falso.
+  Es correcto. Si los ingresos igualan a los costos, la diferencia (utilidad) es cero.
 ```
 
 ### 3 — Componentes del punto de equilibrio
@@ -59,17 +59,11 @@ metadata:
   nivel: "intermedio"
   tags: ["costos", "estructuras"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["costos_fijos", "costos_variables", "precio_venta"], ["costos_fijos", "costos_variables", "precio_venta"]]
-
 tipo: completar
 respuestas_validas:
   - "costos_fijos"
-  - "costos_variables"
-  - "precio_venta"
 
-enunciado: "Para calcular el punto de equilibrio en unidades, se requiere conocer los ___ (que no cambian con la producción), los ___ (que dependen del volumen) y el ___ (valor por unidad)."
+enunciado: "Para calcular el punto de equilibrio en unidades, se requiere conocer los ___ (que no cambian con la producción), los costos variables (que dependen del volumen) y el precio de venta (valor por unidad)."
 
 pasos:
   - "Identificar los costos fijos (CF)"
@@ -80,7 +74,7 @@ pasos:
 respuesta: "costos_fijos"
 
 explicacion: |
-  Nota: El sistema evaluará la secuencia de términos. Para este ejercicio de completar, la respuesta correcta es el primer término omitido en la lógica de la estructura: costos_fijos.
+  Para calcular el punto de equilibrio se necesitan los costos fijos, los costos variables unitarios y el precio de venta.
 ```
 
 ### 4 — Relación de ingresos y costos
@@ -151,7 +145,7 @@ metadata:
   tags: ["calculo", "unidades"]
 
 variables:
-  escenario: uno_de([["Precio: $100, Costo Variable: $60, Costo Fijo: $400", "20"], ["Precio: $50, Costo Variable: $30, Costo Fijo: $1000", "50"], ["Precio: $200, Costo Variable: $150, Costo Fijo: $500", "10"]])
+  escenario: uno_de([["Precio: $100, Costo Variable: $60, Costo Fijo: $400", "10"], ["Precio: $50, Costo Variable: $30, Costo Fijo: $1000", "50"], ["Precio: $200, Costo Variable: $150, Costo Fijo: $500", "10"]])
 
 respuesta: escenario[1]
 tipo: mc
@@ -215,7 +209,7 @@ metadata:
   tags: ["calculo", "ingresos"]
 
 variables:
-  datos: uno_de([["Precio: $50, Costo Variable: $30, Costo Fijo: $1000", "1000"], ["Precio: $20, Costo Variable: $10, Costo Fijo: $500", "1000"], ["Precio: $10, Costo Variable: $5, Costo Fijo: $200", "400"]])
+  datos: uno_de([["Precio: $50, Costo Variable: $30, Costo Fijo: $1000", "2500"], ["Precio: $20, Costo Variable: $10, Costo Fijo: $500", "1000"], ["Precio: $10, Costo Variable: $5, Costo Fijo: $200", "400"]])
 
 respuesta: datos[1]
 tipo: completar
@@ -229,9 +223,8 @@ pasos:
 
 explicacion: |
   Siguiendo los datos:
-  1. Unidades = 1000 / (50 - 30) = 1000 / 20 = 50 unidades.
-  2. Ingresos = 50 unidades * $50 = $2500.
-  *Nota: El ejemplo en la variable fue ajustado para que el resultado coincida con la lógica de los datos proporcionados en el array.*
+  1. Unidades = Costo Fijo / (Precio - Costo Variable)
+  2. Ingresos de equilibrio = Unidades de equilibrio * Precio
 ```
 
 ### 11 — El concepto de equilibrio
@@ -264,9 +257,6 @@ metadata:
   tema: "punto_de_equilibrio"
   nivel: "intermedio"
   tags: ["costos_fijos", "costos_variables"]
-
-variables:
-  escenario: uno_de([["Costo Fijo: 1000, Costo Variable Unitario: 5, Precio: 15", "100"], ["Costo Fijo: 500, Costo Variable Unitario: 10, Precio: 30", "25"], ["Costo Fijo: 2400, Costo Variable Unitario: 20, Precio: 50", "80"]])
 
 respuesta: "100"
 tipo: "mc"
