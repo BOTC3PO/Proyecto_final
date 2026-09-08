@@ -1,13 +1,6 @@
 # Química — Mezclas y métodos de separación (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QB`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, `reasoning_effort: none`)
-> y corregido a mano. Bugs encontrados esta vez: interpolación `{}` de una
-> variable inexistente (revela el campo `respuesta`/nombre del builtin en
-> vez del valor), `respuesta:` faltante en un bloque, `respuesta` envuelta
-> en array cuando debía ser escalar, y `"verdadero"`/`"falso"` como string
-> en vez de literal sin comillas.
 
 ---
 
