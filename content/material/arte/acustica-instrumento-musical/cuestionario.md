@@ -2,12 +2,12 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q6 tenía un error aritmético real (110.44 en
+> vez de 119.17 según su propio cálculo), Q9 usaba una secuencia de
+> orden con etiquetas duplicadas, Q21 mal etiquetaba la madera de la
+> caja como el elemento vibrante en vez de las cuerdas, Q22/Q24/Q10
+> tenían `respuestas_validas` sobre-permisivas que aceptaban valores de
+> cualquier rama del sorteo, Q25 tenía concordancia de género rota.
 
 ---
 
@@ -131,17 +131,16 @@ variables:
   tension: 120
   densidad_lineal: 0.005
 
-respuesta: 110.44
+respuesta: 119.17
 tipo: completar
-tolerancia_abs: 0.01
+tolerancia_abs: 0.1
 
 enunciado: "Una cuerda de una guitarra tiene una longitud de {L} metros, una tensión de {tension} N y una densidad lineal de {densidad_lineal} kg/m. ¿Cuál es la frecuencia fundamental de vibración de la cuerda en Hz?"
 
 pasos:
   - "Identificar la fórmula de la frecuencia de una cuerda vibrante: f = (1 / (2 * L)) * sqrt(T / μ)"
-  - "Calcular la raíz cuadrada de la tensión dividida por la densidad: sqrt(120 / 0.005) = sqrt(24000) ≈ 154.919"
-  - "Multiplicar por la longitud: 154.919 / (2 * 0.65) = 154.919 / 1.3 ≈ 119.16"
-  - "Nota: Usando los valores exactos: 110.44 Hz"
+  - "Calcular la raíz cuadrada de la tensión dividida por la densidad: sqrt(120 / 0.005) = sqrt(24000) ≈ 154.92"
+  - "Dividir por el doble de la longitud: 154.92 / (2 * 0.65) = 154.92 / 1.3 ≈ 119.17"
 
 explicacion: |
   La frecuencia fundamental de una cuerda tensa depende de su longitud, su tensión y su masa por unidad de longitud. A mayor tensión o menor longitud, la frecuencia es mayor (sonido más agudo).
@@ -170,11 +169,9 @@ opciones_explicitas: ["170.0", "340.0", "510.0", "680.0"]
 enunciado: "Un instrumento de viento funciona como un tubo abierto por ambos extremos con una longitud de {L} metros. Si la velocidad del sonido es de {v} m/s, ¿cuál es la frecuencia del {n_armonico}-ésimo armónico?"
 
 explicacion: |
-  Para un tubo abierto en ambos extremos, las frecuencias de los armónicos siguen la serie: f_n = n * (v / 2L). 
+  Para un tubo abierto en ambos extremos, las frecuencias de los armónicos siguen la serie: f_n = n * (v / 2L).
   Si n=1 (fundamental): 340 / (2 * 0.5) = 340 Hz.
   Si n=2: 2 * 340 = 680 Hz.
-  Si n=3: 3 * 340 / 1 = 1020 Hz (ajustar según el índice sorteado).
-  *Nota: El cálculo depende del índice seleccionado.*
 ```
 
 ### 8 — Relación de longitudes y octavas
@@ -207,12 +204,12 @@ metadata:
   nivel: "basico"
   tags: ["ondas", "propiedades"]
 
-respuesta_orden: ["Compresión", "Rarefacción", "Compresión", "Rarefacción"]
+respuesta_orden: ["Compresión", "Rarefacción"]
 tipo: ordenar
 
 enunciado: "Ordena las fases de las variaciones de presión en una onda longitudinal (como el sonido) desde el punto de máxima presión hasta el de mínima presión:"
 
-opciones_explicitas: ["Compresión", "Rarefacción", "Compresión", "Rarefacción"]
+opciones_explicitas: ["Compresión", "Rarefacción"]
 
 explicacion: |
   El sonido es una onda mecánica longitudinal. Se propaga mediante ciclos de compresión (aumento de presión) y rarefacción (disminución de presión).
@@ -237,14 +234,14 @@ variables:
 respuesta: tabla[idx]
 tipo: completar
 respuestas_validas:
-  - "340.0"
-  - "1020.0"
+  - tabla[idx]
 
-enunciado: "Un tubo cerrado en un extremo (como una flauta de pan o un clarinete en ciertas condiciones) de {L} metros tiene una frecuencia fundamental de ___ Hz (si el índice del armónico es {n_armonico})."
+enunciado: "Un tubo cerrado en un extremo (como una flauta de pan o un clarinete en ciertas condiciones) de {L} metros. Para su {n_armonico}-ésimo armónico permitido, la frecuencia es de ___ Hz."
 
 explicacion: |
   Para un tubo cerrado en un extremo, solo existen armónicos impares. La fórmula es f_n = n * v / (4 * L), donde n es 1, 3, 5...
-  Si n=1: 340 / (4 * 0.25) = 340 Hz. (Ajustar según el índice seleccionado).
+  Si n=1: 340 / (4 * 0.25) = 340 Hz.
+  Si n=3: 3 * 340 / (4 * 0.25) = 1020 Hz.
 ```
 
 ### 11 — El origen del sonido en instrumentos de cuerda
@@ -376,9 +373,6 @@ metadata:
   nivel: "intermedio"
   tags: ["timbre", "armonicos"]
 
-variables:
-  es_mismo_tono: falso
-
 enunciado: "Si dos instrumentos diferentes (por ejemplo, un piano y un violín) tocan exactamente la misma nota con la misma intensidad, ¿por qué percibimos que su sonido es distinto?"
 
 opciones_explicitas: ["Porque tienen diferentes frecuencias fundamentales", "Porque tienen diferentes contenidos de armónicos (timbre)", "Porque uno es más fuerte que el otro", "Porque uno es más agudo que el otro"]
@@ -439,10 +433,6 @@ metadata:
   nivel: "intermedio"
   tags: ["frecuencia", "longitud"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Si la longitud de la columna de aire aumenta, la frecuencia disminuye.", "Si la longitud de la columna de aire disminuye, la frecuencia aumenta."], ["baja", "sube"]]
-
 enunciado: "En un instrumento de viento, si el músico tapa más agujeros (aumentando la longitud efectiva de la columna de aire), la frecuencia del sonido resultante ___."
 
 tipo: completar
@@ -462,7 +452,7 @@ metadata:
   tags: ["guitarra", "cuerdas", "vibracion"]
 
 variables:
-  datos: [["guitarra_acustica", "madera"], ["violín", "cuerdas de metal"], ["arpa", "cuerdas de nylon"]]
+  datos: [["guitarra acústica", "cuerdas de acero"], ["violín", "cuerdas de metal"], ["arpa", "cuerdas de nylon"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "En una {datos[idx][0]}, el sonido se produce principalmente por la vibración de las {datos[idx][1]}."
@@ -493,9 +483,7 @@ enunciado: "Al soplar en un {datos[idx][0]}, el sonido se genera mediante la vib
 respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "columna de aire"
-  - "caña de madera"
-  - "labios del músico"
+  - datos[idx][1]
 
 explicacion: |
   En los instrumentos de viento, la columna de aire que resuena dentro del tubo es la responsable de la amplificación y el tono.
@@ -539,8 +527,7 @@ enunciado: "Si un músico decide {datos[idx][0]} la nota, la amplitud de la onda
 respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
-  - "mayor"
-  - "menor"
+  - datos[idx][1]
 
 explicacion: |
   La intensidad del sonido (lo que percibimos como volumen) está directamente relacionada con la amplitud de la onda sonora.
@@ -559,7 +546,7 @@ variables:
   datos: [["violonchelo", "caja de madera"], ["tambor", "parche de piel"], ["trompeta", "tubo de metal"]]
   idx: uno_de([0, 1, 2])
 
-enunciado: "¿Es cierto que la {datos[idx][0]} actúa como resonador para amplificar el sonido producido por la fuente vibratoria?"
+enunciado: "¿Es cierto que un instrumento como {datos[idx][0]} posee un cuerpo resonador (en este caso, {datos[idx][1]}) que amplifica el sonido producido por su fuente vibratoria?"
 
 respuesta: verdadero
 tipo: vf
