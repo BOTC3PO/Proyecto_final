@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -169,7 +169,7 @@ variables:
   n2: 1.33
   theta1: 30.0
 
-respuesta: 40.6
+respuesta: asin_deg(n1 * sin_deg(theta1) / n2)
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -185,7 +185,7 @@ explicacion: |
   1.0 · sin(30°) = 1.33 · sin(θ2)
   0.5 = 1.33 · sin(θ2)
   sin(θ2) = 0.5 / 1.33 ≈ 0.3759
-  θ2 = arcsin(0.3759) ≈ 40.6°
+  θ2 = arcsin(0.3759) ≈ {asin_deg(n1 * sin_deg(theta1) / n2)}°
 ```
 
 ### 9 — Elementos de la Ley de Snell
@@ -368,7 +368,7 @@ metadata:
   tags: ["ley_de_snell", "angulo_de_refraccion"]
 
 variables:
-  escenario: uno_de([["aire", "agua", 1.0, 1.33], ["agua", "diamante", 1.33, 2.42], ["vidrio", "aire", 1.5, 1.0]])
+  escenario: uno_de([["aire", "agua", 1.0, 1.33], ["agua", "diamante", 1.33, 2.42], ["aire", "diamante", 1.0, 2.42]])
 
 respuesta: "hacia_la_normal"
 tipo: mc
@@ -391,9 +391,9 @@ metadata:
   tags: ["ley_de_snell", "velocidad_luz"]
 
 variables:
-  caso: uno_de([["n1=1.0", "n2=1.5"], ["n1=1.5", "n2=1.0"], ["n1=1.33", "n2=1.5"]])
+  caso: uno_de([["n1=1.0", "n2=1.5", "menor"], ["n1=1.5", "n2=1.0", "mayor"], ["n1=1.33", "n2=1.5", "menor"]])
 
-respuesta: "menor"
+respuesta: caso[2]
 tipo: completar
 
 respuestas_validas:
@@ -484,22 +484,26 @@ metadata:
   tags: ["snell", "calculo", "angulo"]
 
 variables:
-  datos: [["aire", 1.0, 30.0], ["agua", 1.33, 45.0], ["diamante", 2.42, 15.0]]
+  nombres: ["aire", "agua", "diamante"]
+  indices: [1.0, 1.33, 2.42]
+  angulos: [30.0, 45.0, 15.0]
   idx: uno_de([0, 1, 2])
+  n1: indices[idx]
+  theta1: angulos[idx]
 
-enunciado: "Un rayo de luz viaja desde el {datos[idx][0]} (n={datos[idx][1]}) hacia un medio con un índice de refracción de 1.50. Si el ángulo de incidencia es de {datos[idx][2]} grados, ¿cuál es el ángulo de refracción aproximado?"
+enunciado: "Un rayo de luz viaja desde el {nombres[idx]} (n={n1}) hacia un medio con un índice de refracción de 1.50. Si el ángulo de incidencia es de {theta1} grados, ¿cuál es el ángulo de refracción aproximado?"
 
 pasos:
-  - "Identificar los índices de refracción: n1 = {datos[idx][1]} y n2 = 1.50"
-  - "Aplicar la Ley de Snell: n1 * sin_deg({datos[idx][2]}) = n2 * sin_deg(theta2)"
-  - "Despejar: theta2 = arcsin((n1 * sin_deg({datos[idx][2]}) / n2))"
+  - "Identificar los índices de refracción: n1 = {n1} y n2 = 1.50"
+  - "Aplicar la Ley de Snell: n1 * sin_deg({theta1}) = n2 * sin_deg(theta2)"
+  - "Despejar: theta2 = arcsin((n1 * sin_deg({theta1}) / n2))"
 
-respuesta: 21.0
+respuesta: asin_deg(n1 * sin_deg(theta1) / 1.50)
 tipo: completar
 tolerancia_abs: 0.1
 
 explicacion: |
-  Usando la Ley de Snell: 1.0 * sin(30°) = 1.5 * sin(theta2) -> 0.5 / 1.5 = sin(theta2) -> sin(theta2) = 0.333 -> theta2 ≈ 19.47°. (Nota: El valor de respuesta depende del cálculo exacto del escenario sorteado, para este ejemplo se asume el cálculo de la tabla).
+  Usando la Ley de Snell: {n1} * sin({theta1}°) = 1.50 * sin(theta2) -> sin(theta2) = ({n1} * sin_deg({theta1})) / 1.50 -> theta2 ≈ {asin_deg(n1 * sin_deg(theta1) / 1.50)}°.
 ```
 
 ### 23 — ¿Luz del aire al diamante?
