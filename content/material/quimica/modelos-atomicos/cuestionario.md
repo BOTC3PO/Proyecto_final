@@ -1,13 +1,6 @@
 # Química — Modelos atómicos: Dalton, Thomson, Rutherford, Bohr (cuestionario, 21 preguntas VBLang)
 
 > Tema: `QCMa→QCMb→QCMc→QCMd→QCM`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bugs de esta tanda: interpolación `{}` de variables inexistentes
-> (revela texto crudo en vez del valor), `respuesta:` envuelta entre
-> comillas como texto literal en vez de expresión evaluada (`"{expr}"` en
-> vez de `expr`), opciones que no matcheaban el tipo de la respuesta, y
-> `"Falso"` capitalizado/entrecomillado en vez del literal `falso`.
 
 ---
 
