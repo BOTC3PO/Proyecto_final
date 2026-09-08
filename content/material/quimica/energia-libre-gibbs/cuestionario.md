@@ -1,13 +1,6 @@
 # Química — Energía libre de Gibbs: por qué una reacción es espontánea (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QGIBBS`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bugs grandes esta tanda: **un lote entero (4 preguntas) sin el campo
-> `respuesta:`**, y dos preguntas con datos de `variables:` totalmente
-> desalineados de `opciones_explicitas` (la respuesta calculada ni
-> siquiera aparecía entre las opciones) — reescritas como preguntas
-> fijas, ya que la respuesta correcta no dependía de ningún sorteo.
 
 ---
 
@@ -100,7 +93,7 @@ variables:
   idx: uno_de([0, 1, 2, 3])
 
 respuesta: datos[idx][0] - datos[idx][1] * datos[idx][2]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "Calculá ΔG para una reacción con ΔH = {datos[idx][0]} kJ/mol, T = {datos[idx][1]} K y ΔS = {datos[idx][2]} kJ/(K·mol)."
