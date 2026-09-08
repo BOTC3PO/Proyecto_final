@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -121,16 +121,10 @@ metadata:
   nivel: "basico"
   tags: ["celdas", "referencias"]
 
-variables:
-  tipo_referencia: uno_de(["absoluta", "relativa"])
-  valor_celda: 100
-
-respuesta: "A1"
+respuesta: "absoluta"
 tipo: completar
 respuestas_validas:
-  - "A1"
-  - "B2"
-  - "$A$1"
+  - "absoluta"
 
 enunciado: "Si queremos fijar la celda A1 para que no cambie al arrastrar una fórmula hacia abajo, debemos usar una referencia tipo ___."
 
@@ -335,9 +329,6 @@ enunciado: "Para fijar la columna A pero permitir que la fila cambie al arrastra
 
 respuestas_validas:
   - "$A1"
-  - "A$1"
-  - "$A$1"
-  - "A1"
 
 respuesta: "$A1"
 tipo: completar
@@ -355,12 +346,9 @@ metadata:
   nivel: "basico"
   tags: ["celdas", "referencias"]
 
-variables:
-  tipo_ref: uno_de(["relativa", "absoluta"])
-
-respuesta: tipo_ref == "absoluta"
-tipo: completar
-enunciado: "En una planilla de cálculo, la principal distinción de una referencia {tipo_ref} es que mantiene la posición de la celda fija aunque se copie la fórmula a otra ubicación, utilizando el signo $."
+respuesta: verdadero
+tipo: vf
+enunciado: "En una planilla de cálculo, la principal distinción de una referencia absoluta es que mantiene la posición de la celda fija aunque se copie la fórmula a otra ubicación, utilizando el signo $."
 
 pasos:
   - "Identificar si la referencia cambia al arrastrar la fórmula."
@@ -474,7 +462,7 @@ respuestas_validas:
   - "C6*C6"
   - "F11*F11"
 
-respuesta: "{datos[idx][2]}"
+respuesta: datos[idx][2]
 tipo: completar
 tolerancia_abs: 0
 
