@@ -1,17 +1,6 @@
 # Ed. Física — Deportes: medidas de cancha y comparación de superficies (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF6`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: muchas preguntas con
-> `tipo: input` (tipo no confirmado en el DSL) y `respuesta:` calculada
-> con una expresión aritmética en vivo (`largo * ancho`,
-> `area_grande / area_chica`) — todas normalizadas a `completar`/`mc`
-> con el resultado ya precalculado como literal en la tabla, patrón
-> usado en el resto del mapa; una pregunta cuya `respuesta:` ("Fútbol
-> Sala") no aparecía entre las `opciones_explicitas` — corregida;
-> preguntas con dos blancos `___ x ___` mapeados a una sola
-> `respuesta:` combinada — reescritas con un solo blanco.
 
 ---
 
@@ -317,13 +306,13 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [[7140, 648, "6492"], [5500, 420, "5080"]]
+  datos: [[7140, 196, "6944"], [6400, 196, "6204"]]
 
 respuesta: datos[idx][2]
 tipo: completar
 respuestas_validas:
-  - "6492"
-  - "5080"
+  - "6944"
+  - "6204"
 
 enunciado: "Considerando una cancha de fútbol de {datos[idx][0]} m² y una de tenis de {datos[idx][1]} m², ¿cuál es la diferencia de superficie entre ambas, en m²?"
 
@@ -342,7 +331,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [[648, "Tenis"], [420, "Básquet"]]
+  datos: [[196, "Tenis"], [420, "Básquet"]]
 
 respuesta: datos[idx][1]
 tipo: mc
