@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -38,15 +38,11 @@ metadata:
   nivel: "basico"
   tags: ["iuspositivismo", "norma"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[ "una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal", "la validez de una norma depende de su concordancia con la moral" ], [ "la validez de una norma depende de su concordancia con la moral", "una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal" ]]
-
-respuesta: datos[idx][0]
+respuesta: "una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal"
 tipo: mc
 opciones_explicitas: ["una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal", "la validez de una norma depende de su concordancia con la moral"]
 
-enunciado: "Desde la perspectiva del iuspositivismo, {datos[idx][0]}"
+enunciado: "¿Cuál de las siguientes afirmaciones representa correctamente la perspectiva del iuspositivismo?"
 
 explicacion: |
   Para el iuspositivismo, la validez de una norma es una cuestión de forma y procedencia (derecho puesto), separando la validez jurídica de la moralidad.
@@ -404,7 +400,7 @@ tipo: "vf"
 enunciado: "Determina si la siguiente afirmación es correcta: {frases[idx]}"
 
 explicacion: |
-  El ejercicio requiere identificar cuál de las dos descripciones de la variable `escenario` es correcta según la teoría jurídica.
+  Ambas afirmaciones posibles son correctas: el iuspositivismo prioriza la norma escrita mientras el realismo jurídico se centra en la conducta judicial efectiva, y el iusnaturalismo prioriza la justicia universal mientras el iuspositivismo prioriza la validez formal.
 ```
 
 ### 21 — El origen de la norma
@@ -420,7 +416,7 @@ variables:
   datos: [["Un juez decide que una ley es injusta porque viola la dignidad humana y, por tanto, no es aplicable", "iusnaturalismo"], ["Un juez aplica una ley que considera moralmente cuestionable simplemente porque fue promulgada por la autoridad competente", "iuspositivismo"]]
   idx: uno_de([0, 1])
 
-enunciado: "Si un jurista sostiene que el derecho debe basarse en principios morales universales y superiores a la ley escrita, estamos ante el..."
+enunciado: "{datos[idx][0]}. ¿Qué corriente de interpretación jurídica ejemplifica esta actitud?"
 
 respuesta: datos[idx][1]
 tipo: mc
@@ -440,15 +436,14 @@ metadata:
   tags: ["iuspositivismo"]
 
 variables:
-  datos: [["La ley es válida porque cumple con el proceso legislativo, independientemente de su contenido moral", "Verdadero"], ["La validez de una norma depende de su conformidad con la moralidad social", "Falso"]]
+  textos: ["La ley es válida porque cumple con el proceso legislativo, independientemente de su contenido moral", "La validez de una norma depende de su conformidad con la moralidad social"]
+  valores: [verdadero, falso]
   idx: uno_de([0, 1])
 
-enunciado: "En el iuspositivismo estricto, la validez de una norma jurídica reside en su origen formal y no en su contenido ético."
+enunciado: "Según el iuspositivismo estricto, ¿es correcta la siguiente afirmación? '{textos[idx]}'"
 
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
+respuesta: valores[idx]
+tipo: vf
 explicacion: |
   Para el iuspositivismo, la separación entre derecho y moral es fundamental para determinar la validez de la norma.
 ```
@@ -462,17 +457,13 @@ metadata:
   nivel: "avanzado"
   tags: ["realismo_juridico"]
 
-variables:
-  datos: [["El derecho es el conjunto de normas escritas en el código", "normativismo"], ["El derecho es lo que los jueces deciden en sus sentencias", "realismo_juridico"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Desde la perspectiva del realismo jurídico, el derecho se define como ___."
-
-respuesta: datos[idx][1]
+respuesta: "lo que los jueces deciden en sus sentencias"
 tipo: completar
 respuestas_validas:
   - "lo que los jueces realmente hacen"
   - "lo que los jueces deciden en sus sentencias"
+
+enunciado: "Desde la perspectiva del realismo jurídico, el derecho se define como ___."
 
 explicacion: |
   El realismo jurídico desplaza el foco de la norma escrita hacia la conducta y decisiones de los tribunales.
@@ -511,15 +502,11 @@ metadata:
   nivel: "basico"
   tags: ["iusnaturalismo", "iuspositivismo"]
 
-variables:
-  datos: [["La ley es la ley y debe aplicarse sin importar la percepción de injusticia", "positivismo"], ["La ley debe ser sometida al juicio de la justicia natural", "iusnaturalismo"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si un sistema jurídico afirma que 'la ley es la ley' y su aplicación es obligatoria incluso si es considerada injusta, el sistema está operando bajo el principio de ___."
-
-respuesta: datos[idx][1]
+respuesta: "positivismo"
 tipo: mc
 opciones_explicitas: ["positivismo", "iusnaturalismo", "realismo_juridico"]
+
+enunciado: "Si un sistema jurídico afirma que 'la ley es la ley' y su aplicación es obligatoria incluso si es considerada injusta, el sistema está operando bajo el principio de ___."
 
 explicacion: |
   El principio de legalidad estricta es un pilar del iuspositivismo, donde la validez es formal.
