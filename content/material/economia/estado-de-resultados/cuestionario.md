@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -69,8 +69,8 @@ metadata:
   nivel: "basico"
   tags: ["terminologia"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si el total de ingresos es menor que el total de costos y gastos en un período determinado, la organización presenta una pérdida."
 
 explicacion: |
@@ -376,12 +376,7 @@ metadata:
   nivel: "intermedio"
   tags: ["rentabilidad", "liquidez"]
 
-variables:
-  escenarios: [[verdadero, falso], [falso, verdadero]]
-  escenario_idx: uno_de([0, 1])
-  respuesta_correcta: escenarios[escenario_idx][0]
-
-respuesta: respuesta_correcta
+respuesta: falso
 tipo: vf
 
 enunciado: "Si una empresa reporta una utilidad neta positiva pero tiene problemas para pagar sus deudas corrientes, ¿es correcto afirmar que la utilidad neta indica la liquidez inmediata de la empresa?"
@@ -436,13 +431,9 @@ metadata:
   nivel: "avanzado"
   tags: ["costos", "clasificacion"]
 
-variables:
-  tipo_item_idx: uno_de([0, 1])
-  items: [[0, 1], [1, 0]]
-
-respuesta: items[tipo_item_idx][0]
+respuesta: "Costo"
 tipo: mc
-opciones_explicitas: [0, 1]
+opciones_explicitas: ["Costo", "Gasto"]
 
 enunciado: "En el Estado de Resultados, el concepto que se relaciona directamente con el ingreso por ventas para determinar la utilidad bruta se denomina ___."
 
@@ -512,7 +503,7 @@ variables:
   gastos: datos[idx][1]
 
 respuesta: ingresos > gastos
-tipo: completar
+tipo: vf
 enunciado: "Considerando que los ingresos totales son ${ingresos} y los gastos totales son ${gastos}, ¿el resultado del ejercicio es una utilidad (ganancia)?"
 
 explicacion: |
@@ -558,10 +549,7 @@ variables:
 respuesta: utilidad_antes_imp * (1 - impuesto_tasa)
 
 tipo: completar
-respuestas_validas:
-  - 7000
-  - 10500
-  - 5600
+tolerancia_abs: 0
 
 enunciado: "Si una empresa obtiene una utilidad antes de impuestos de ${utilidad_antes_imp} y debe afrontar una tasa impositiva del 30%, el valor de la utilidad neta es ___"
 
