@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -295,13 +295,10 @@ metadata:
 variables:
   caso: uno_de([["El sistema funciona para el caso ideal pero falla con datos atípicos", "error de robustez"], ["La solución resuelve el problema pero es demasiado costosa para el presupuesto", "error de viabilidad"]])
 
-respuesta: caso[0]
+respuesta: caso[1]
 tipo: completar
-respuestas_validas:
-  - "error de robustez"
-  - "error de viabilidad"
 
-enunciado: "En un escenario donde ___ se presenta, la implementación ha fallado en cubrir la totalidad de los casos de uso previstos."
+enunciado: "En un escenario donde '{caso[0]}', decimos que la implementación presenta un: ___"
 
 explicacion: |
   Una implementación exitosa debe ser robusta, es decir, capaz de manejar variaciones y casos borde, no solo el camino feliz.
@@ -417,9 +414,6 @@ metadata:
   nivel: "avanzado"
   tags: ["evaluacion", "comparacion"]
 
-variables:
-  escenario: uno_de([0, 1])
-
 enunciado: "Si la implementación se define como el proceso de 'hacer', la evaluación de la solución se distingue por ser el proceso de ___."
 
 respuestas_validas:
@@ -476,10 +470,10 @@ variables:
 
 respuesta: caso[2] == "numero"
 tipo: vf
-enunciado: "Al implementar la solución, el sistema recibe un dato de tipo {caso[0]}. ¿Es correcto afirmar que el tipo de dato es 'int'?"
+enunciado: "Al implementar la solución, el sistema recibe un dato de tipo {caso[1]}. ¿Es correcto afirmar que el tipo de dato es 'int'?"
 
 explicacion: |
-  En este caso, el tipo es {caso[0]}, por lo tanto, la afirmación de que es 'int' es {caso[2] == "numero"}.
+  En este caso, el tipo es {caso[1]}, por lo tanto, la afirmación de que es 'int' es {caso[2] == "numero"}.
 ```
 
 ### 23 — Flujo de ejecución de la solución
@@ -518,16 +512,13 @@ metadata:
   nivel: "avanzado"
   tags: ["errores", "excepciones"]
 
-variables:
-  error_tipo: uno_de([["división por cero", "Error Matemático"], ["fuera de rango", "Error de Índice"]])
-
-respuesta: error_tipo[1]
+respuesta: "Error de Índice"
 tipo: completar
 
 enunciado: "Durante la implementación, el programa falla al intentar acceder a una posición inexistente en un array. Este error se clasifica como: ___"
 
 explicacion: |
-  El error de acceso a un índice inexistente se conoce como {error_tipo[1]}.
+  El error de acceso a un índice inexistente se conoce como Error de Índice.
 ```
 
 ### 25 — Selección de la estructura de datos adecuada
@@ -540,9 +531,9 @@ metadata:
   tags: ["estructuras", "decisión"]
 
 variables:
-  escenario: uno_de([[1, "una lista de tareas pendientes"], [2, "un diccionario de usuarios con sus IDs"]])
+  escenario: uno_de([["una lista de tareas pendientes", "Lista"], ["un diccionario de usuarios con sus IDs", "Diccionario"]])
 
-respuesta: "Diccionario"
+respuesta: escenario[1]
 tipo: mc
 
 opciones_explicitas: ["Lista", "Diccionario", "Árbol", "Grafo"]
@@ -550,5 +541,5 @@ opciones_explicitas: ["Lista", "Diccionario", "Árbol", "Grafo"]
 enunciado: "Para implementar la solución de un sistema de gestión de {escenario[0]}, la estructura de datos más eficiente es un:"
 
 explicacion: |
-  Para {escenario[0]}, la estructura más adecuada es un Diccionario.
+  Para gestionar {escenario[0]}, la estructura más adecuada es un {escenario[1]}: una lista de tareas se recorre en orden, mientras que un conjunto de usuarios con IDs se busca por clave, lo cual encaja mejor con un diccionario.
 ```
