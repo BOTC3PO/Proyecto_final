@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -203,7 +203,7 @@ metadata:
   nivel: "basico"
   tags: ["componentes", "motor"]
 
-respuesta_orden: ["Armadura", "Colector", "Escobillas"]
+respuesta_orden: ["Escobillas", "Colector", "Armadura"]
 tipo: ordenar
 
 opciones_explicitas: ["Escobillas", "Colector", "Armadura"]
@@ -232,10 +232,10 @@ variables:
   Ns: 12
   Is: 50
 
-respuesta: "600"
+respuesta: "50"
 tipo: completar
 respuestas_validas:
-  - "600"
+  - "50"
 
 enunciado: "En un transformador ideal, la potencia de entrada es igual a la potencia de salida (Pin = Pout). Si el voltaje primario es de {Vp} V con una corriente de {Ip} A, y el voltaje secundario es de {Ns} V, ¿cuál es el valor de la corriente secundaria Is en Amperios?"
 
@@ -354,13 +354,13 @@ metadata:
   nivel: "basico"
   tags: ["electromagnetismo", "motor"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "En un motor eléctrico, la energía eléctrica se transforma en energía mecánica."
 
 explicacion: |
-  Es falso. En un motor, la energía eléctrica se transforma en energía mecánica. El enunciado describe correctamente el proceso, pero la pregunta pide validar la afirmación. (Nota: Si la afirmación es verdadera, la respuesta debe ser verdadero).
+  Es verdadero. En un motor, la energía eléctrica se transforma en energía mecánica mediante la fuerza de Lorentz sobre los conductores con corriente dentro de un campo magnético.
 ```
 
 ### 17 — Transformación de energía en el generador
@@ -373,7 +373,7 @@ metadata:
   tags: ["generador", "energia"]
 
 variables:
-  escenario: uno_de([["mecánica", "eléctrica"], ["eléctrica", "mecánica"]])
+  escenario: ["mecánica", "eléctrica"]
 
 respuesta: escenario[1]
 tipo: mc
@@ -484,7 +484,7 @@ metadata:
 
 variables:
   caso_idx: uno_de([0,1])
-  info: [["aumentar el voltaje", "bajar el voltaje"], ["aumentar el voltaje", "bajar el voltaje"]]
+  info: [["bajar el voltaje", "aumentar el voltaje"], ["bajar el voltaje", "aumentar el voltaje"]]
 
 respuesta: info[caso_idx][0]
 tipo: mc
@@ -506,8 +506,8 @@ metadata:
   tags: ["induccion", "generador"]
 
 variables:
-  tipo_gen: uno_de([0,1])
-  principio: [["movimiento mecánico", "energía eléctrica"], ["energía eléctrica", "energía mecánica"]]
+  tipo_gen: 0
+  principio: [["movimiento mecánico", "energía eléctrica"]]
 
 respuesta: principio[tipo_gen][1]
 tipo: completar
@@ -526,7 +526,7 @@ metadata:
   nivel: "basico"
   tags: ["componentes", "transformador"]
 
-respuesta_orden: ["Núcleo ferromagnético", "Bobina primaria", "Bobina secundaria"]
+respuesta_orden: ["Bobina primaria", "Núcleo ferromagnético", "Bobina secundaria"]
 tipo: ordenar
 
 opciones_explicitas: ["Núcleo ferromagnético", "Bobina primaria", "Bobina secundaria"]
