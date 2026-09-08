@@ -12,7 +12,7 @@
 
 Hace unos 3800 millones de años, cuando la Tierra era un planeta recién formado con atmósfera densa y océanos primitivos, aparecieron las primeras formas de vida: seres unicelulares sin núcleo definido. Estos organismos, los procariotas, se adaptaron a condiciones extremas como altas temperaturas, alta salinidad o ambientes anóxicos. Su existencia marcó el comienzo del proceso biológico en la historia de nuestro planeta.
 
-[IMAGEN: diagrama de una célula procariota con标注 de membrana plasmática, citoplasma y material genético sin núcleo]
+[IMAGEN: diagrama de una célula procariota con etiquetas de membrana plasmática, citoplasma y material genético sin núcleo]
 
 ---
 

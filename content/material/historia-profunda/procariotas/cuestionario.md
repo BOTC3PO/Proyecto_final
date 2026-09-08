@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -59,15 +59,10 @@ metadata:
   nivel: "intermedio"
   tags: ["clasificacion", "eucariotas"]
 
-variables:
-  datos: [["procariota", "sin núcleo"], ["eucariota", "con núcleo"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "procariota"
 tipo: completar
 respuestas_validas:
-  - "sin núcleo"
-  - "con núcleo"
+  - "procariota"
 
 enunciado: "Si observamos una célula que no posee un núcleo definido, estamos ante una célula de tipo ___."
 
@@ -250,16 +245,11 @@ metadata:
   nivel: "intermedio"
   tags: ["evidencia", "fósiles", "precámbrico"]
 
-variables:
-  datos: [["Estructuras laminares de carbonato", "Estructuras laminares de carbonato"], ["Microfósiles de algas", "Microfósiles de algas"]]
-  escenario_idx: uno_de([0, 1])
-  estructura: datos[escenario_idx][0]
-
 respuesta: "Estructuras laminares de carbonato"
 tipo: mc
 opciones_explicitas: ["Estructuras laminares de carbonato", "Huellas de trilobites", "Fósiles de plantas vasculares", "Células con núcleo definido"]
 
-enunciado: "En el registro fósil, la presencia de {estructura} es una de las principales evidencias de la existencia de vida procariota en la Tierra primitiva."
+enunciado: "En el registro fósil, ¿cuál es una de las principales evidencias de la existencia de vida procariota en la Tierra primitiva?"
 
 pasos:
   - "Identificar el tipo de estructura fósil mencionada."
@@ -359,15 +349,11 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "eucariota", "procariota"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[0, "procariota", "bacteria"], [1, "eucariota", "animal"]]
-
-respuesta: escenario[idx][1]
+respuesta: "eucariota"
 tipo: mc
 opciones_explicitas: ["procariota", "eucariota"]
 
-enunciado: "Si observamos una célula con un núcleo definido y organelos membranosos, estamos ante una célula de tipo {escenario[idx][2]}."
+enunciado: "Si observamos una célula con un núcleo definido y organelos membranosos, estamos ante una célula de tipo:"
 
 explicacion: |
   Las células eucariotas (como las animales o vegetales) poseen un núcleo que contiene el ADN, a diferencia de las procariotas.
@@ -443,7 +429,7 @@ metadata:
   tags: ["procariotas", "eucariotas"]
 
 variables:
-  datos: [["Bacteria subtilis", "procariota"], ["Saccharomyces cerevisiae", "eucariota"], ["Escherichia coli", "procariota"]]
+  datos: [["Bacillus subtilis", "procariota"], ["Saccharomyces cerevisiae", "eucariota"], ["Escherichia coli", "procariota"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "El organismo {datos[idx][0]} presenta una organización celular caracterizada por ser {datos[idx][1]}."
@@ -537,10 +523,6 @@ metadata:
   tema: "evolucion_celular"
   nivel: "avanzado"
   tags: ["evolucion", "linajes"]
-
-variables:
-  secuencia: [["Procariota", "Eucariota", "Multicelularidad"]]
-  idx: uno_de([0, 1, 2])
 
 enunciado: "Ordena los niveles de complejidad biológica desde el más simple al más complejo según la escala evolutiva:"
 
