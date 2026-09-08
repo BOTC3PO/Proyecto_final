@@ -1,24 +1,6 @@
 # Biología — Filogenia y árboles evolutivos (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BO`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: dos preguntas `completar` con
-> **dos** blancos y una `respuesta:` en forma de array (no confirmado
-> que el DSL soporte multi-blank) — recortadas a un solo blanco;
-> un `tipo: mc` con `enunciado` terminado en "(verdadero/falso)" pero
-> `opciones_explicitas` de un par de especies (mezcla de dos formatos)
-> — reescrita como `vf` limpio; un operador ternario `? :` usado en
-> `respuesta:` (no existe en el DSL) en dos preguntas distintas —
-> reescritas con tabla `[opción, veredicto]` indexada por `idx`;
-> una pregunta `mc` cuya `respuesta:` apuntaba a una secuencia de ADN
-> que no aparecía en `opciones_explicitas` — reescrita con datos
-> consistentes; una comparación de arrays (`== secuencia`) en
-> `respuesta:` (tampoco existe en el DSL) en una pregunta `tipo:
-> ordenar` con placeholders sin interpolar en `opciones_explicitas` —
-> descartada y reemplazada por una versión funcional; una `variables:`
-> con clave `tabla` declarada fuera del bloque `variables:` — corregida
-> y simplificada (la respuesta no dependía realmente de la variable).
 
 ---
 
@@ -427,13 +409,10 @@ variables:
 
 enunciado: "El ser humano comparte más secuencia de ADN con el {escenario[0]} (diferencia de apenas {escenario[1]}% en algunas regiones comparadas) que con el {escenario[2]}. ¿Cuál de los dos animales comparte un ancestro común más reciente con el ser humano?"
 
-opciones_explicitas: ["{escenario[0]}", "{escenario[2]}"]
 respuesta: escenario[0]
 tipo: completar
 respuestas_validas:
-  - "chimpancé"
-  - "chimpance"
-  - "gorila"
+  - escenario[0]
 
 explicacion: |
   Cuanto menor es la diferencia porcentual entre secuencias de ADN, más reciente es el ancestro común compartido — por eso el árbol filogenético ubica a los primates mucho más cerca del ser humano que a otros mamíferos.
