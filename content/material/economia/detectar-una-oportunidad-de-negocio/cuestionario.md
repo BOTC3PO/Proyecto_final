@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -188,7 +188,7 @@ metadata:
 
 enunciado: "Si un emprendedor detecta una necesidad insatisfecha, pero ya existen tres empresas ofreciendo exactamente lo mismo con el mismo precio y calidad, la probabilidad de que sea una oportunidad de negocio rentable es baja sin una ventaja competitiva clara."
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 explicacion: |
@@ -209,8 +209,8 @@ variables:
 
 enunciado: "Si el mercado total (TAM) es de {datos[0]} personas, el mercado que puede alcanzar tu modelo de negocio (SAM) es de {datos[1]} personas, y tu capacidad real de captación (SOM) es de {datos[2]} personas, ¿cuál es el valor del SOM?"
 
-respuesta: 500
-tipo: "input"
+respuesta: datos[2]
+tipo: "completar"
 tolerancia_abs: 0
 
 explicacion: |
@@ -469,14 +469,10 @@ metadata:
   nivel: "intermedio"
   tags: ["validación", "mercado"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Se lanza un producto premium en un barrio de bajos ingresos", "falso"], ["Se detecta una queja recurrente sobre el envío de un competidor", "verdadero"]]
+enunciado: "Si un emprendedor observa que los clientes de la competencia se quejan constantemente de la lentitud en la entrega, ¿es este un indicador válido para una nueva oportunidad de negocio?"
 
-enunciado: "Si un emprendedor observa que los clientes de la competencia se quejan constantemente de la lentitud en la entrega, ¿es este un indicador válido para una nueva oportunidad de negocio? (Verdadero/Falso)"
-
-respuesta: casos[caso_idx][1]
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   Las quejas de los clientes son "puntos de dolor" (pain points) que representan oportunidades de mejora y diferenciación para un nuevo negocio.
 ```
@@ -489,9 +485,6 @@ metadata:
   tema: "detectar_una_oportunidad_de_negocio"
   nivel: "intermedio"
   tags: ["metodologia", "pasos"]
-
-variables:
-  pasos_orden: ["Observar el problema", "Entrevistar clientes potenciales", "Crear un Producto Mínimo Viable", "Escalar el modelo de negocio"]
 
 enunciado: "Ordena los pasos lógicos para validar una oportunidad de negocio desde la detección hasta el crecimiento:"
 
@@ -512,17 +505,12 @@ metadata:
   nivel: "avanzado"
   tags: ["competencia", "estrategia"]
 
-variables:
-  situacion_idx: uno_de([0, 1])
-  situaciones: [["Hay muchos competidores pero todos ofrecen lo mismo", "alta"], ["Hay pocos competidores pero la demanda es muy baja", "baja"]]
-
 enunciado: "Si el análisis de mercado muestra que la competencia es muy similar entre sí y no cubre una necesidad específica, la intensidad de la oportunidad se considera: ___"
 
-respuesta: situaciones[situacion_idx][0]
+respuesta: "alta"
 tipo: completar
 respuestas_validas:
   - "alta"
-  - "baja"
 
 explicacion: |
   La falta de diferenciación en la competencia actual indica un espacio para la innovación y la captura de mercado.
