@@ -1,22 +1,6 @@
 # Biología — Deriva genética y flujo génico (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BM`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Esta tanda tuvo más bugs que el promedio: varios
-> bloques `mc`/`vf` sin campo `respuesta:` en absoluto (agregado);
-> `tipo: vf`/`tipo: completar` mal aplicados entre sí en varias
-> preguntas (una pregunta con blank `___` no es `vf`, y viceversa);
-> un `enunciado` que revelaba la respuesta interpolándola directo en
-> el texto (`{escenario[idx][1]}` con el resultado correcto, no un
-> dato de la pregunta) — reescrito sin la fuga; un `uno_de(...)`
-> envolviendo una lista que después se indexaba con un `idx`
-> independiente (doble sorteo desincronizado) — corregido a un solo
-> sorteo; `respuestas_validas` aceptando más de una respuesta correcta
-> cuando sólo una lo era; un bloque literalmente duplicado y comentado
-> a medio terminar por Gemma (pregunta 5 del primer lote) — descartado
-> y reemplazado por una versión limpia; `tipo:`/comillas inconsistentes
-> normalizadas sin comillas.
 
 ---
 
