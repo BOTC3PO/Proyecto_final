@@ -1,11 +1,6 @@
 # Química — Electrólisis (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QY`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Bug de esta tanda: `uno_de([...])[opcion_idx]` — de
-> nuevo, indexar el resultado escalar de `uno_de(...)` — en una
-> pregunta que además tenía respuesta fija, sin necesidad de sorteo.
 
 ---
 
@@ -203,7 +198,7 @@ variables:
   volumen_o2: uno_de([1, 2, 3, 5])
 
 respuesta: volumen_o2 * 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En la electrólisis del agua la proporción H₂:O₂ es 2:1. Si se producen {volumen_o2} mL de O₂, ¿qué volumen de H₂ se produce?"
