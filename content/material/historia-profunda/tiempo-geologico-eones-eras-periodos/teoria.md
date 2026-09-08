@@ -24,7 +24,7 @@ Un caso claro es el **Eón Fanerozoico**, que abarca desde la aparición de vida
 Imaginá que estás en un libro de historia: los capítulos principales serían los eones, los subcapítulos las eras, los párrafos los períodos y las oraciones las épocas. Por ejemplo:  
 
 - **Eón Hadeico** (4.600 millones de años): comienza con la formación del planeta.  
-- **Era Precámbrica**: dentro del Hadeico, incluye etapas como el Arqueano y el Proterozoico.  
+- **Precámbrico**: no es una era ni un eón propiamente dicho, sino un término informal que agrupa a los tres eones más antiguos: el Hadeico, el Arcaico y el Proterozoico.  
 - **Período Jurásico**: parte de la Era Mesozoica, conocida por los dinosaurios.  
 - **Época Holoceno**: es el último tramo del Período Cuaternario y está en curso actualmente.  
 

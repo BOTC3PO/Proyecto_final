@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -303,14 +303,13 @@ metadata:
   nivel: "basico"
   tags: ["geologia", "fosil"]
 
-respuesta: 100
-tipo: "input"
-tolerancia_abs: 0.1
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si un geólogo encuentra un cambio abrupto en la abundancia de fósiles en un estrato, este cambio suele indicar que se está cruzando un límite de un periodo o era. ¿Qué porcentaje (0-100) de estos cambios se deben a eventos de extinción masiva según la geología histórica? (Responde con un número entero aproximado)."
+enunciado: "Un cambio abrupto en la abundancia de fósiles en un estrato suele indicar que se está cruzando un límite de un periodo o era geológica. ¿Es esto correcto?"
 
 explicacion: |
-  Aunque no es un valor matemático exacto de la naturaleza, en el contexto de la geología histórica, la mayoría de los límites de periodos se definen por estos eventos de extinción. (Nota: Esta es una pregunta de validación de concepto sobre la importancia de la extinción).
+  Los límites de las unidades geológicas se definen precisamente por estos cambios abruptos en la fauna y flora fósil, muchas veces asociados a eventos de extinción masiva.
 ```
 
 ### 16 — El inicio del Fanerozoico
@@ -403,16 +402,12 @@ metadata:
   nivel: "intermedio"
   tags: ["fanerozoico", "clasificacion"]
 
-variables:
-  escenario: uno_de([0, 1])
-  datos: [["Mesozoico", "Paleozoico"], ["Cenozoico", "Mesozoico"]]
-
 tipo: mc
 opciones_explicitas: ["Mesozoico", "Paleozoico", "Cenozoico"]
 
-enunciado: "Si estamos hablando de la era que precede al Cenozoico, nos referimos al {datos[escenario][0]}."
+enunciado: "Si estamos hablando de la era que precede al Cenozoico, ¿a qué era nos referimos?"
 
-respuesta: datos[escenario][1]
+respuesta: "Mesozoico"
 
 explicacion: |
   El Cenozoico es la era actual; la era inmediatamente anterior fue el Mesozoico.
@@ -526,7 +521,6 @@ respuestas_validas:
   - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
-opciones_explicitas: [verdadero, falso]
 
 enunciado: "El {datos[idx][0]} es un evento que define la era ___."
 
