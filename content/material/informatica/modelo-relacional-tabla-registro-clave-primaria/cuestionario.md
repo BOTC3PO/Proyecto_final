@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -210,10 +210,9 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   valores_max: [100, 50]
-  respuestas: [100, 50]
 
 respuesta: valores_max[escenario_idx]
-tipo: "input"
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Si una tabla de 'Clientes' tiene una clave primaria que solo permite valores numéricos del 1 al {valores_max[escenario_idx]}, ¿cuántos registros distintos se pueden almacenar como máximo sin violar la restricción de clave primaria?"
@@ -252,10 +251,7 @@ metadata:
   nivel: "intermedio"
   tags: ["base_de_datos", "clave_primaria"]
 
-variables:
-  es_valido: uno_de([verdadero, falso])
-
-respuesta: es_valido
+respuesta: falso
 tipo: vf
 enunciado: "Si una tabla tiene una columna llamada 'Edad', ¿puede esta ser designada como la clave primaria de la tabla si existen múltiples personas con la misma edad?"
 
@@ -421,10 +417,7 @@ metadata:
   nivel: "intermedio"
   tags: ["base_de_datos", "integridad"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: uno_de(["Debe ser única y no nula"])
+respuesta: "Debe ser única y no nula"
 
 tipo: mc
 opciones_explicitas: ["Puede contener valores nulos", "Debe ser única y no nula"]
@@ -454,7 +447,8 @@ variables:
 enunciado: "En una base de datos de una tienda, se tiene la siguiente estructura de tabla: {escenario[0]}. El campo que actúa como clave primaria es ___."
 
 respuestas_validas:
-  - "{escenario[1]}"
+  - escenario[1]
+respuesta: escenario[1]
 
 tipo: completar
 
@@ -471,14 +465,10 @@ metadata:
   nivel: "basico"
   tags: ["base_de_datos", "registro"]
 
-variables:
-  datos: [["Una fila de una tabla que representa un objeto único", "verdadero"], ["Un conjunto de todas las filas de una tabla", "falso"], ["El nombre de una columna en la tabla", "falso"]]
-  idx: uno_de([0,1,2])
+enunciado: "¿Un registro en una base de datos relacional es equivalente a una fila que contiene datos de un objeto o entidad específica?"
 
-enunciado: "¿Un registro en una base de datos relacional es equivalente a una fila que contiene datos de un objeto o entidad específica? {datos[idx][1]}"
-
-tipo: completar
-respuesta: datos[idx][1]
+tipo: vf
+respuesta: verdadero
 
 explicacion: |
   En el modelo relacional, un registro (o tupla) es la colección de atributos que describen una única instancia de la entidad.
@@ -494,15 +484,15 @@ metadata:
   tags: ["base_de_datos", "columnas"]
 
 variables:
-  caso: uno_de([["Nombre, Edad, Ciudad", "Nombre"], ["Producto, Stock, Precio", "Producto"], ["ID, Fecha, Monto", "ID"]])
+  caso: uno_de([["ID, Fecha, Monto", "ID"], ["Codigo_Cliente, Nombre, Telefono", "Codigo_Cliente"], ["Legajo, Empleado, Puesto", "Legajo"]])
 
 enunciado: "Si tenemos la tabla con las columnas {caso[0]}, ¿cuál de ellas es la más adecuada para ser la clave primaria?"
 
-opciones_explicitas: ["{caso[0]}", "Otra columna no listada"]
+opciones_explicitas: ["ID", "Codigo_Cliente", "Legajo", "Ninguna de las anteriores"]
 
 tipo: mc
 
-respuesta: "{caso[0]}"
+respuesta: caso[1]
 
 explicacion: |
   La clave primaria debe ser un atributo que no se repita entre distintos registros.
@@ -520,10 +510,10 @@ metadata:
 variables:
   propiedad: uno_de(["Un valor de clave primaria puede ser nulo (NULL)", "Dos registros pueden tener la misma clave primaria", "La clave primaria puede ser un número repetido"])
 
-enunciado: "Analizando las reglas de integridad de entidad: {propiedad}. (verdadero/falso)"
+enunciado: "Analizando las reglas de integridad de entidad: {propiedad}. ¿Es esto verdadero o falso?"
 
-tipo: completar
-respuesta: "falso"
+tipo: vf
+respuesta: falso
 
 explicacion: |
   La integridad de entidad establece que ninguna parte de una clave primaria puede ser nula y que debe ser única.
