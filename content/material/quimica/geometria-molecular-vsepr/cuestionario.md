@@ -1,12 +1,6 @@
 # Química — Geometría molecular: teoría VSEPR (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QG2`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bugs de esta tanda: `respuesta` envuelta en array (`["plana"]`) otra
-> vez, y un indexado `[[...],[...]][idx]` aplicado directo sobre un
-> literal en vez de sobre una variable ya declarada — normalizado al
-> patrón `variable: [...]`, `idx: uno_de(...)`, `variable[idx]`.
 
 ---
 
