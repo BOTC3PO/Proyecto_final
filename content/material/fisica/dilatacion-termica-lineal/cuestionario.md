@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -247,15 +247,11 @@ metadata:
   nivel: "basico"
   tags: ["dilatacion", "masa", "densidad"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[0.1, "aumenta"], [0.2, "se mantiene igual"]]
-
 enunciado: "Si una barra de hierro se calienta de 20°C a 100°C, su longitud aumenta debido a la dilatación térmica. Sin embargo, un error común es pensar que su masa también cambia. En realidad, la masa de la barra ___."
 
 opciones_explicitas: ["aumenta", "se mantiene igual", "disminuye"]
 
-respuesta: datos[idx][1]
+respuesta: "se mantiene igual"
 tipo: mc
 
 explicacion: |
@@ -289,15 +285,11 @@ metadata:
   nivel: "intermedio"
   tags: ["coeficientes", "comparacion"]
 
-variables:
-  material_idx: uno_de([0, 1])
-  escenario: [["aluminio", "mayor"], ["acero", "menor"]]
-
-enunciado: "Si comparamos dos barras de igual longitud y sección transversal, una de {escenario[material_idx][0]} y otra de acero, ante un mismo incremento de temperatura, la barra de {escenario[material_idx][0]} experimentará una dilatación lineal ___."
+enunciado: "Si comparamos dos barras de igual longitud y sección transversal, una de aluminio y otra de acero, ante un mismo incremento de temperatura, la barra de aluminio experimentará una dilatación lineal ___."
 
 opciones_explicitas: ["mayor", "menor", "nula"]
 
-respuesta: escenario[material_idx][1]
+respuesta: "mayor"
 tipo: mc
 
 explicacion: |
@@ -374,10 +366,6 @@ metadata:
   tema: "dilatacion_termica_lineal"
   nivel: "intermedio"
   tags: ["coeficiente", "material"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[["aluminio", 2.3e-5], ["hierro", 1.2e-5]], [["aluminio", 2.3e-5], ["hierro", 1.2e-5]]]
 
 tipo: mc
 opciones_explicitas: ["El coeficiente de dilatación lineal es una propiedad intrínseca del material y no depende de la cantidad de masa.", "El coeficiente de dilatación lineal depende de la longitud inicial del objeto.", "A mayor masa del objeto, mayor es el coeficiente de dilatación lineal.", "El coeficiente de dilatación lineal es igual para todos los metales."]
@@ -491,18 +479,14 @@ metadata:
   nivel: "basico"
   tags: ["materiales", "conceptos"]
 
-variables:
-  material: [[0, "Aluminio"], [1, "Acero"], [2, "Vidrio"]]
-  idx: uno_de([0,1,2])
-
-respuesta: material[idx][1]
+respuesta: "Acero"
 tipo: mc
 opciones_explicitas: ["Aluminio", "Acero", "Vidrio"]
 
 enunciado: "Se requiere un material para las vías de un ferrocarril que tenga una dilatación térmica lineal muy baja para evitar que las vías se deformen en verano. Basado en los materiales comunes, ¿cuál de estos es más estable térmicamente?"
 
 explicacion: |
-  El {material[idx][1]} tiene un coeficiente de dilatación menor que el {material[0]} (Aluminio), lo que lo hace más adecuado para estructuras que requieren estabilidad dimensional frente a cambios de temperatura.
+  El acero tiene un coeficiente de dilatación menor que el aluminio y es el material real utilizado en las vías férreas, lo que lo hace más adecuado para estructuras que requieren estabilidad dimensional frente a cambios de temperatura.
 ```
 
 ### 23 — Relación entre temperatura y longitud
