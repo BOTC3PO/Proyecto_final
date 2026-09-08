@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -244,9 +244,9 @@ pasos:
 
 tipo: completar
 
+respuesta: "legalidad"
 respuestas_validas:
   - "legalidad"
-  - "arbitrariedad"
 
 explicacion: |
   El principio de legalidad asegura que todas las acciones del Estado estén sujetas a leyes preexistentes y no a la voluntad arbitraria de quienes gobiernan.
@@ -261,7 +261,7 @@ metadata:
   nivel: "intermedio"
   tags: ["elementos", "orden"]
 
-respuesta_orden: ["Igualdad ante la ley", "División de poderes", "Sometimiento de la autoridad a la ley"]
+respuesta_orden: ["Sometimiento de la autoridad a la ley", "Igualdad ante la ley", "División de poderes"]
 tipo: ordenar
 
 opciones_explicitas: ["Sometimiento de la autoridad a la ley", "Igualdad ante la ley", "División de poderes"]
@@ -367,16 +367,12 @@ metadata:
   nivel: "intermedio"
   tags: ["controles", "poder_ejecutivo"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["El Presidente decide ignorar una ley aprobada por el Congreso.", "El Poder Ejecutivo actúa por encima de la ley"], ["Un juez anula un decreto que viola la Constitución.", "El Poder Judicial controla al Ejecutivo"]]
-
 tipo: mc
 opciones_explicitas: ["Fomentar el autoritarismo", "Debilitar la democracia", "Mantener el equilibrio de poderes", "Eliminar la necesidad de leyes"]
 
 respuesta: "Mantener el equilibrio de poderes"
 
-enunciado: "Cuando existen controles efectivos sobre el Poder Ejecutivo, como en el caso de: {escenarios[escenario_idx][0]}, se está protegiendo el principio de:"
+enunciado: "Cuando existen controles efectivos sobre el Poder Ejecutivo, como en el caso de: Un juez anula un decreto que viola la Constitución, se está protegiendo el principio de:"
 
 explicacion: |
   Los sistemas de pesos y contrapesos evitan la concentración excesiva de poder en una sola rama del Estado.
@@ -521,11 +517,7 @@ metadata:
   nivel: "basico"
   tags: ["legalidad", "arbitrariedad"]
 
-variables:
-  datos: [["La autoridad actúa según su voluntad propia sin base legal.", "arbitrariedad"], ["La autoridad actúa conforme a la ley escrita.", "legalidad"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "arbitrariedad"
 tipo: completar
 
 enunciado: "Si un gobernante actúa basándose únicamente en su voluntad personal, sin someterse a las leyes, está incurriendo en una ___."
