@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -61,14 +61,12 @@ metadata:
   nivel: "intermedio"
   tags: ["represion", "terminologia"]
 
-respuesta: ["represión", "olvido", "inconsciente"]
+respuesta: "represión"
 tipo: completar
 respuestas_validas:
   - "represión"
-  - "olvido"
-  - "inconsciente"
 
-enunciado: "El proceso de ___ consiste en el desplazamiento de contenidos hacia el ___ para evitar el dolor, lo que genera un ___ que no es por falta de capacidad de almacenamiento, sino por una barrera psíquica."
+enunciado: "El proceso de ___ consiste en el desplazamiento de contenidos hacia el inconsciente para evitar el dolor, lo que genera un olvido que no es por falta de capacidad de almacenamiento, sino por una barrera psíquica."
 
 pasos:
   - "Identificar el mecanismo de defensa."
@@ -151,9 +149,9 @@ variables:
   caso_idx: uno_de([0, 1])
   casos: [["Un individuo olvida el nombre de una persona que le causó un trauma severo.", "olvido_selectivo"], ["Un paciente presenta un lapsus linguae (error al hablar) que revela un deseo reprimido.", "lapsus"]]
 
-respuesta: "casos[caso_idx][1]"
+respuesta: casos[caso_idx][1]
 tipo: mc
-opciones_explicitas: ["casos[caso_idx][1]", "amnesia anterógrada", "olvido por interferencia", "desatención"]
+opciones_explicitas: ["olvido_selectivo", "lapsus", "amnesia anterógrada", "olvido por interferencia"]
 
 enunciado: "Analicemos el siguiente escenario: {casos[caso_idx][0]}. Según la teoría psicoanalítica, este fenómeno es una manifestación de:"
 
@@ -212,13 +210,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Un trauma infantil es bloqueado por la mente.", "angustia"], ["Un deseo prohibido es enviado al inconsciente.", "angustia"]]
+  escenarios: ["Un trauma infantil es bloqueado por la mente.", "Un deseo prohibido es enviado al inconsciente."]
 
-respuesta: "escenarios[escenario_idx][1]"
+respuesta: "angustia"
 tipo: mc
-opciones_explicitas: ["escenarios[escenario_idx][1]", "placer", "olvido absoluto", "memoria episódica"]
+opciones_explicitas: ["angustia", "placer", "olvido absoluto", "memoria episódica"]
 
-enunciado: "Considerando el siguiente caso: {escenarios[escenario_idx][0]}. El motor que activa el mecanismo de defensa es la aparición de la ___."
+enunciado: "Considerando el siguiente caso: {escenarios[escenario_idx]}. El motor que activa el mecanismo de defensa es la aparición de la ___."
 
 explicacion: |
   La angustia actúa como una señal de alarma que advierte al Yo sobre la proximidad de un impulso que no puede ser integrado, disparando así la represión.
@@ -252,15 +250,10 @@ metadata:
   nivel: "basico"
   tags: ["inconsciente", "memoria", "confusion"]
 
-variables:
-  escenario: uno_de([["un evento traumático", "represión"], ["un dato matemático", "memoria semántica"], ["el nombre de un color", "memoria episódica"]])
-
-respuesta: "escenario[0][1"
+respuesta: "represión"
 tipo: completar
 respuestas_validas:
   - "represión"
-  - "memoria semántica"
-  - "memoria episódica"
 
 enunciado: "Cuando un individuo experimenta un evento traumático que su psiquismo considera inaceptable, el mecanismo de defensa que actúa para alejarlo de la conciencia se denomina ___."
 
@@ -355,10 +348,7 @@ metadata:
   nivel: "basico"
   tags: ["inconsciente", "represion"]
 
-variables:
-  es_inconsciente: verdadero
-
-respuesta: es_inconsciente
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Según el psicoanálisis, los contenidos reprimidos permanecen en el inconsciente y pueden manifestarse a través de síntomas o sueños, manteniendo su carga afectiva."
@@ -396,17 +386,13 @@ metadata:
   nivel: "intermedio"
   tags: ["mecanismos_de_defensa", "represion"]
 
-variables:
-  escenario: uno_de(["angustia", "conflicto"])
-  escenario_desc: uno_de(["la angustia", "el conflicto"])
-
 respuesta: "represion"
 tipo: "completar"
 respuestas_validas:
   - "represion"
   - "represión"
 
-enunciado: "Cuando un individuo experimenta {escenario} debido a un {escenario_desc} entre un impulso y una norma moral, el yo utiliza la ________ para evitar el malestar."
+enunciado: "Cuando un individuo experimenta angustia debido a un conflicto entre un impulso y una norma moral, el yo utiliza la ________ para evitar el malestar."
 
 pasos:
   - "Identificar el conflicto psíquico."
@@ -511,13 +497,14 @@ metadata:
   tags: ["olvido", "represion"]
 
 variables:
-  comparacion: uno_de([["El olvido es un proceso de pérdida de información, mientras que la represión es un proceso de exclusión activa.", "A"], ["El olvido es un proceso de exclusión activa, mientras que la represión es un proceso de pérdida de información.", "B"]])
+  textos: ["El olvido es un proceso de pérdida de información, mientras que la represión es un proceso de exclusión activa.", "El olvido es un proceso de exclusión activa, mientras que la represión es un proceso de pérdida de información."]
+  valores: [verdadero, falso]
+  idx: uno_de([0, 1])
 
-respuesta: comparacion[1]
-tipo: mc
-opciones_explicitas: ["A", "B"]
+respuesta: valores[idx]
+tipo: vf
 
-enunciado: "Respecto a la distinción entre olvido y represión, es correcto afirmar que: {comparacion[0]}."
+enunciado: "Respecto a la distinción entre olvido y represión, ¿es correcto afirmar que: {textos[idx]}?"
 
 explicacion: |
   El olvido suele ser un fallo en la recuperación o almacenamiento, mientras que la represión implica una lucha del Yo contra un impulso que busca ser reprimido.
