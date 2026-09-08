@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -59,7 +59,7 @@ metadata:
   nivel: "basico"
   tags: ["esfuerzo", "estatico"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "Si un material está sometido a un esfuerzo constante (estático) que es menor a su límite de rotura, el material nunca fallará por fatiga."
@@ -297,7 +297,6 @@ respuesta: "inversamente"
 tipo: "completar"
 respuestas_validas:
   - "inversamente"
-  - "directamente"
 
 enunciado: "En una curva de Wöhler (S-N), la relación entre el esfuerzo de la carga aplicada y el número de ciclos hasta la falla es de tipo ___."
 
@@ -354,11 +353,8 @@ metadata:
   nivel: "avanzado"
   tags: ["limite_fatiga", "esfuerzo"]
 
-variables:
-  es_ciclo_critico: uno_de([verdadero, falso])
-
-respuesta: es_ciclo_critico
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si un material está sometido a un esfuerzo cíclico cuyo valor máximo es inferior al límite de fatiga del material, ¿se producirá la falla por fatiga tras un número infinito de ciclos? (Asumiendo un material con límite de fatiga definido)"
 
 explicacion: |
@@ -412,12 +408,9 @@ metadata:
   nivel: "basico"
   tags: ["acabado", "rugosidad"]
 
-variables:
-  es_superficie_lisa: uno_de([verdadero, falso])
-
-respuesta: es_superficie_lisa
-tipo: completar
-enunciado: "Un acabado superficial rugoso o con muescas actúa como un concentrador de esfuerzos, lo que {es_superficie_lisa} aumenta la resistencia a la fatiga del material en comparación con una superficie pulida."
+respuesta: falso
+tipo: vf
+enunciado: "Un acabado superficial rugoso o con muescas actúa como un concentrador de esfuerzos, lo que aumenta la resistencia a la fatiga del material en comparación con una superficie pulida."
 
 explicacion: |
   La rugosidad superficial crea micro-entalladuras que actúan como concentradores de tensión, facilitando la iniciación de grietas y, por lo tanto, reduciendo la vida útil a la fatiga.
@@ -458,8 +451,6 @@ respuesta: "propagación"
 tipo: completar
 respuestas_validas:
   - "propagación"
-  - "iniciación"
-  - "nucleación"
 
 enunciado: "En un proceso de fatiga, una vez que se ha formado una microgrieta en la superficie, la etapa siguiente es la de ___ de la grieta hacia el interior del material."
 
@@ -476,15 +467,11 @@ metadata:
   nivel: "avanzado"
   tags: ["curva_s_n", "fatiga"]
 
-variables:
-  datos: [[200, "alta"], [350, "baja"]]
-  idx: uno_de([0, 1])
-
 respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
+  - "baja"
+respuesta: "baja"
 tipo: completar
-enunciado: "Si aumentamos la amplitud del esfuerzo aplicado en un componente, la vida útil a la fatiga (número de ciclos hasta la rotura) será: {datos[idx][1]}."
+enunciado: "Si aumentamos la amplitud del esfuerzo aplicado en un componente, la vida útil a la fatiga (número de ciclos hasta la rotura) será: ___."
 
 explicacion: |
   Existe una relación inversa entre la amplitud del esfuerzo y la vida útil: a mayor esfuerzo, menor es el número de ciclos que el material puede resistir antes de fallar.
@@ -519,7 +506,7 @@ metadata:
   tags: ["morfología", "fractura"]
 
 variables:
-  tipo_falla: uno_de([[1, "rugosa"], [2, "dúctil"], [3, "frágil"]])
+  tipo_falla: uno_de([[1, "rugosa"], [3, "frágil"]])
 
 respuesta: tipo_falla[1]
 tipo: mc
