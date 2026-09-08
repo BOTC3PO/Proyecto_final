@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -122,10 +122,10 @@ metadata:
   nivel: "basico"
   tags: ["hardware", "historia"]
 
-respuesta: "v"
+respuesta: "válvulas"
 tipo: "mc"
 
-opciones_explicitas: ["v", "t", "i", "m"]
+opciones_explicitas: ["válvulas", "transistores", "circuitos integrados", "microprocesadores"]
 
 enunciado: "Las primeras computadoras de gran escala, como la ENIAC, utilizaban principalmente ________ de vacío para realizar sus operaciones lógicas."
 
@@ -142,16 +142,12 @@ metadata:
   nivel: "intermedio"
   tags: ["hardware", "historia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[0, "Transistor"], [1, "Circuito Integrado"]]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "Transistor"
 tipo: "mc"
 
 opciones_explicitas: ["Transistor", "Circuito Integrado", "Microprocesador", "CPU"]
 
-enunciado: "La invención del {datos[escenario_idx][0]} permitió reemplazar las válvulas de vacío, reduciendo drásticamente el tamaño y el calor de las máquinas."
+enunciado: "La invención del ___ permitió reemplazar las válvulas de vacío, reduciendo drásticamente el tamaño y el calor de las máquinas."
 
 explicacion: |
   El transistor permitió la segunda generación de computadoras, permitiendo que fueran más pequeñas y confiables que las de válvulas.
@@ -258,7 +254,7 @@ tolerancia_abs: 0
 
 enunciado: "Si un chip tiene {base} transistores hoy, siguiendo la Ley de Moore, ¿cuántos transistores tendrá aproximadamente en el próximo ciclo de dos años?"
 
-respuesta: "doble"
+respuesta: doble
 
 pasos:
   - "Identificar la cantidad actual de transistores."
@@ -364,8 +360,8 @@ variables:
 
 tipo: completar
 respuestas_validas:
-  - "comercio_electronico"
   - "servicios_streaming"
+  - "suscripciones_digitales"
 respuesta: escenarios[escenario_idx][1]
 
 enunciado: "Un ejemplo clave de la transformación económica es el paso de modelos basados en el ________ hacia modelos basados en las ________."
@@ -466,20 +462,15 @@ metadata:
   nivel: "intermedio"
   tags: ["lenguajes", "historia"]
 
-variables:
-  figuras: ["Ada Lovelace", "Grace Hopper", "John Backus"]
-  idx: uno_de([0, 1, 2])
-  figura_correcta: figuras[idx]
-
-respuesta: figura_correcta
+respuesta: "Ada Lovelace"
 tipo: mc
 
 opciones_explicitas: ["Ada Lovelace", "Grace Hopper", "John Backus", "Alan Turing"]
 
-enunciado: "Identifica a la figura histórica asociada a los primeros algoritmos para la Máquina Analítica: {figura_correcta}."
+enunciado: "Identifica a la figura histórica reconocida por escribir los primeros algoritmos destinados a ser procesados por la Máquina Analítica de Charles Babbage."
 
 explicacion: |
-  {figura_correcta} es reconocida históricamente por haber escrito el primer algoritmo destinado a ser procesado por una máquina.
+  Ada Lovelace es reconocida históricamente por haber escrito el primer algoritmo destinado a ser procesado por una máquina.
 ```
 
 ### 23 — Evolución del almacenamiento
@@ -492,7 +483,7 @@ metadata:
   tags: ["hardware", "almacenamiento"]
 
 variables:
-  casos: [["Disquete", "CD-ROM", "USB"], ["Disco Duro", "Cassette", "SSD"]]
+  casos: [["Disquete", "CD-ROM", "USB"], ["Cassette", "Disco Duro", "SSD"]]
   idx: uno_de([0,1])
   respuesta_correcta: casos[idx][0]
 
