@@ -1,13 +1,6 @@
 # Química — Seguridad de laboratorio: pictogramas GHS, EPP (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QSAFE`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Bug de esta tanda: variable sorteada entre 3
-> valores DISTINTOS pero `respuestas_validas` sólo aceptaba uno de
-> ellos — la respuesta hubiera sido incorrecta 2 de cada 3 veces.
-> Reescrita como pregunta fija (no había ningún motivo real para
-> sortear ahí).
 
 ---
 
