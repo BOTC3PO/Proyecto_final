@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -38,15 +38,12 @@ metadata:
   nivel: "intermedio"
   tags: ["hardware", "direccionamiento"]
 
-variables:
-  escenario: uno_de([["dirección lógica", "dirección física"], ["dirección física", "dirección lógica"]])
-
-respuesta: escenario[0]
+respuesta: "dirección lógica"
 tipo: mc
 
 opciones_explicitas: ["dirección lógica", "dirección física", "dirección de disco", "dirección de caché"]
 
-enunciado: "En un sistema con memoria virtual, la unidad de gestión de memoria (MMU) es el componente de hardware encargado de traducir la {escenario[0]} en una {escenario[1]}."
+enunciado: "En un sistema con memoria virtual, la unidad de gestión de memoria (MMU) es el componente de hardware encargado de traducir la ___ en una dirección física."
 
 explicacion: |
   La MMU (Memory Management Unit) es el componente encargado de la traducción de direcciones lógicas (generadas por la CPU) a direcciones físicas (ubicadas en la RAM).
@@ -177,21 +174,21 @@ metadata:
   tags: ["paginacion", "fragmentacion_interna"]
 
 variables:
-  datos: uno_de([["15000", "4096", "14048"], ["18000", "4096", "17856"], ["10000", "4096", "9408"]])
+  datos: uno_de([["15000", "4096", "1384"], ["18000", "4096", "2480"], ["10000", "4096", "2288"]])
 
 respuesta: datos[2]
 tipo: completar
 respuestas_validas:
-  - "14048"
-  - "17856"
-  - "9408"
+  - "1384"
+  - "2480"
+  - "2288"
 
 enunciado: "En un sistema con paginación de {datos[1]} bytes, se asigna un proceso de {datos[0]} bytes. La fragmentación interna (espacio desperdiciado en la última página) es de ___ bytes."
 
 explicacion: |
-  1. Calculamos cuántas páginas completas se necesitan: ceil({datos[0]} / {datos[1]}) = 4 páginas.
-  2. Espacio total asignado: 4 * {datos[1]} = 16384 (en el primer caso).
-  3. Fragmentación: 16384 - {datos[0]} = {datos[2]}.
+  1. Calculamos cuántas páginas completas se necesitan: ceil({datos[0]} / {datos[1]}) páginas.
+  2. Espacio total asignado: número de páginas * {datos[1]}.
+  3. Fragmentación: espacio total asignado - {datos[0]} = {datos[2]}.
 ```
 
 ### 9 — Ciclo de Intercambio (Swapping)
@@ -228,11 +225,11 @@ metadata:
   tags: ["direccionamiento", "paginacion"]
 
 variables:
-  direccion: uno_de([["0x0045", "0x0005"], ["0x01A2", "0x01A2"], ["0x03FF", "0x03FF"]])
+  direccion: uno_de([["0x0045", "0x0005"], ["0x01A2", "0x0002"], ["0x03FF", "0x000F"]])
 
 respuesta: direccion[1]
 tipo: mc
-opciones_explicitas: ["0x0000", "0x0005", "0x01A2", "0x03FF"]
+opciones_explicitas: ["0x0000", "0x0005", "0x0002", "0x000F"]
 
 enunciado: "Si el tamaño de página es de 16 bytes (0x10 en hex) y una dirección virtual es {direccion[0]}, ¿cuál es el desplazamiento (offset) dentro de la página?"
 
@@ -253,7 +250,7 @@ metadata:
   nivel: "basico"
   tags: ["memoria_virtual", "conceptos_base"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "La memoria virtual permite que un proceso acceda a una cantidad de memoria que excede la capacidad de la memoria RAM física instalada en el sistema."
@@ -317,7 +314,6 @@ respuesta: "page_fault"
 tipo: completar
 respuestas_validas:
   - "page_fault"
-  - "error_de_segmentacion"
 
 enunciado: "Cuando un proceso intenta acceder a una página de memoria que no se encuentra actualmente cargada en la memoria RAM, se produce una excepción llamada ___."
 
@@ -335,8 +331,10 @@ metadata:
   tags: ["bus_direcciones", "arquitectura"]
 
 variables:
-  bits: uno_de([32, 64])
-  max_direccion: uno_de([4294967296, 18446744073709551616])
+  pares: [[32, 4294967296], [64, 18446744073709551616]]
+  idx: uno_de([0, 1])
+  bits: pares[idx][0]
+  max_direccion: pares[idx][1]
 
 respuesta: max_direccion
 
@@ -377,14 +375,11 @@ metadata:
   nivel: "avanzado"
   tags: ["paginacion", "segmentacion", "fragmentacion"]
 
-variables:
-  tipo_fragmentacion: uno_de(["interna", "externa"])
-
-respuesta: tipo_fragmentacion
+respuesta: "externa"
 tipo: mc
 opciones_explicitas: ["interna", "externa"]
 
-enunciado: "La paginación divide la memoria en bloques de tamaño fijo, lo que puede causar fragmentación {tipo_fragmentacion}. Por el contrario, la segmentación, al usar tamaños variables, suele provocar fragmentación ___."
+enunciado: "La paginación divide la memoria en bloques de tamaño fijo, lo que puede causar fragmentación interna. Por el contrario, la segmentación, al usar tamaños variables, suele provocar fragmentación ___."
 
 explicacion: |
   La paginación causa fragmentación interna (espacio sobrante dentro de una página), mientras que la segmentación causa fragmentación externa (huecos entre segmentos que no son lo suficientemente grandes para nuevos procesos).
@@ -463,6 +458,7 @@ metadata:
 
 variables:
   datos: [["segmento_codigo", "0x0040"], ["segmento_datos", "0x0080"], ["segmento_stack", "0x0120"]]
+  resultados: ["1040", "1080", "1120"]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Un sistema operativo utiliza segmentación para gestionar la memoria de un proceso. Si el proceso requiere cargar el {datos[idx][0]} en una dirección base específica, la dirección física final será el resultado de sumar la base más el offset. Si la base es 0x1000 y el offset es {datos[idx][1]}, ¿cuál es la dirección física resultante en hexadecimal (sin el prefijo 0x)?"
@@ -473,14 +469,16 @@ pasos:
   - "Convertir el resultado de nuevo a hexadecimal."
 
 respuestas_validas:
+  - "1040"
+  - "1080"
   - "1120"
-respuesta: "1120"
+respuesta: resultados[idx]
 tipo: completar
 tolerancia_abs: 0
 
 explicacion: |
-  La dirección física se calcula sumando la dirección base del segmento al offset relativo. 
-  Para el caso de {datos[idx][0]}, la suma es 0x1000 + {datos[idx][1]} = 0x1120.
+  La dirección física se calcula sumando la dirección base del segmento al offset relativo.
+  Para el caso de {datos[idx][0]}, la suma es 0x1000 + {datos[idx][1]} = 0x{resultados[idx]}.
 ```
 
 ### 22 — Concepto de Memoria Virtual
@@ -531,6 +529,7 @@ metadata:
 
 variables:
   datos: [["pagina_virtual_2", "frame_fisico_5"], ["pagina_virtual_3", "frame_fisico_8"], ["pagina_virtual_5", "frame_fisico_12"]]
+  resultados: [20480, 32768, 49152]
   idx: uno_de([0, 1, 2])
 
 enunciado: "En un sistema de paginación, la tabla de páginas mapea la {datos[idx][0]} hacia el {datos[idx][1]}. Si el tamaño de página es de 4KB, ¿en qué dirección física comienza el {datos[idx][1]}?"
@@ -540,9 +539,7 @@ pasos:
   - "Multiplicar el número de frame por el tamaño de página (4096)."
   - "El resultado es la dirección base del frame."
 
-respuestas_validas:
-  - "{redondear(datos[idx][1].replace('frame_fisico_', ''), 0) * 4096}"
-respuesta: "{redondear(datos[idx][1].replace('frame_fisico_', ''), 0) * 4096}"
+respuesta: resultados[idx]
 tipo: completar
 tolerancia_abs: 0
 
