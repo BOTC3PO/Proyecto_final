@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -24,8 +24,6 @@ respuesta: "lente convergente"
 tipo: completar
 respuestas_validas:
   - "lente convergente"
-  - "lente divergente"
-  - "espejo plano"
 
 enunciado: "El cristalino es una estructura del ojo que actúa como una ___ para enfocar la luz en la retina."
 ```
@@ -43,9 +41,6 @@ respuesta: "real e invertida"
 tipo: completar
 respuestas_validas:
   - "real e invertida"
-  - "virtual y derecha"
-  - "real y derecha"
-  - "virtual e invertida"
 
 enunciado: "La imagen que se forma sobre la ___ es de naturaleza ___."
 ```
@@ -59,8 +54,8 @@ metadata:
   nivel: "basico"
   tags: ["fisiologia"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "¿El cristalino cambia su distancia focal para permitir la acomodación visual?"
 ```
 
@@ -93,8 +88,6 @@ respuesta: "controlar la cantidad de luz"
 tipo: completar
 respuestas_validas:
   - "controlar la cantidad de luz"
-  - "enfocar la imagen"
-  - "producir la visión"
 
 enunciado: "La función principal del iris es ___."
 ```
@@ -112,8 +105,6 @@ respuesta: "divergente"
 tipo: completar
 respuestas_validas:
   - "divergente"
-  - "convergente"
-  - "plana"
 
 enunciado: "En un ojo con miopía, la imagen se forma antes de la retina, por lo que se requiere una lente ___ para corregirlo."
 ```
@@ -131,8 +122,6 @@ respuesta: "convergente"
 tipo: completar
 respuestas_validas:
   - "convergente"
-  - "divergente"
-  - "neutra"
 
 enunciado: "Para corregir la hipermetropía, donde el punto focal está detrás de la retina, se utiliza una lente ___."
 ```
@@ -146,12 +135,10 @@ metadata:
   nivel: "intermedio"
   tags: ["defectos"]
 
-respuesta: "detrás"
+respuesta: "delante"
 tipo: completar
 respuestas_validas:
-  - "detrás"
   - "delante"
-  - "sobre"
 
 enunciado: "En un ojo miope, el punto focal de los rayos paralelos se encuentra ___ de la retina."
 ```
@@ -169,8 +156,6 @@ respuesta: "cilíndrica"
 tipo: completar
 respuestas_validas:
   - "cilíndrica"
-  - "esférica"
-  - "plana"
 
 enunciado: "El astigmatismo se debe a una curvatura irregular de la córnea o el cristalino y se corrige con lentes ___."
 ```
@@ -204,7 +189,7 @@ variables:
   f: 25.0
   d: 100.0
 
-respuesta: 0.25
+respuesta: 0.3333
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -243,7 +228,7 @@ variables:
   f_ojo: 0.02
   d_obj: 0.5
 
-respuesta: 0.0416
+respuesta: 0.02083
 tipo: completar
 tolerancia_abs: 0.001
 
@@ -299,8 +284,8 @@ metadata:
   nivel: "basico"
   tags: ["teoria"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "¿La luz debe refractarse al pasar del aire al córnea?"
 ```
 
@@ -313,8 +298,8 @@ metadata:
   nivel: "basico"
   tags: ["teoria"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "¿La retina es la parte del ojo encargada de enfocar la luz mediante la refracción?"
 ```
 
@@ -331,8 +316,6 @@ respuesta: "pupila más pequeña"
 tipo: completar
 respuestas_validas:
   - "pupila más pequeña"
-  - "pupila más grande"
-  - "cristalino más plano"
 
 enunciado: "En condiciones de mucha luz, la pupila experimenta miosis, lo que significa que la pupila es ___."
 ```
@@ -350,8 +333,6 @@ respuesta: "pupila más grande"
 tipo: completar
 respuestas_validas:
   - "pupila más grande"
-  - "pupila más pequeña"
-  - "cristalino más esférico"
 
 enunciado: "La midriasis es la dilatación de la pupila, es decir, la ___."
 ```
@@ -365,12 +346,10 @@ metadata:
   nivel: "intermedio"
   tags: ["teoria"]
 
-respuesta: "distancia mínima"
+respuesta: "distancia máxima"
 tipo: completar
 respuestas_validas:
-  - "distancia mínima"
   - "distancia máxima"
-  - "foco infinito"
 
 enunciado: "El punto remoto se define como la ___ a la que un objeto puede estar para ser visto con nitidez por un ojo con un defecto."
 ```
@@ -425,8 +404,6 @@ respuesta: "se desvía"
 tipo: completar
 respuestas_validas:
   - "se desvía"
-  - "no cambia"
-  - "se refleja"
 
 enunciado: "Cuando la luz pasa del aire al cristalino, su velocidad cambia y, por lo tanto, el rayo ___."
 ```
@@ -444,8 +421,6 @@ respuesta: "real"
 tipo: completar
 respuestas_validas:
   - "real"
-  - "virtual"
-  - "imaginaria"
 
 enunciado: "Si la imagen se puede proyectar sobre una pantalla, decimos que la imagen es ___."
 ```
