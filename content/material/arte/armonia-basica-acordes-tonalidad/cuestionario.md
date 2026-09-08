@@ -2,12 +2,12 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3 no tenía campo `respuesta:` y aceptaba
+> "mayor"/"menor" como válidos para una premisa fija que sólo admite
+> "mayor", Q7/Q12/Q17/Q20 usaban variables booleanas fijas o sorteadas
+> como respuesta de un `tipo: completar` de texto (o de un `vf` mal
+> tipeado), Q24 pedía "ordenar" tres respuestas candidatas completas en
+> vez de elegir una (convertida a mc).
 
 ---
 
@@ -28,7 +28,7 @@ respuesta: "La combinación de tres o más notas que suenan simultáneamente"
 enunciado: "En la teoría musical, un acorde se define como ___."
 
 explicacion: |
-  Un acorde es la superposición de dos o más notas musicales que suenan al mismo tiempo, creando una sonoridad específica.
+  Un acorde es la superposición de tres o más notas musicales que suenan al mismo tiempo, creando una sonoridad específica (dos notas simultáneas forman un intervalo, no un acorde).
 ```
 
 ### 2 — Tonalidad y centro tonal
@@ -59,13 +59,10 @@ metadata:
   nivel: "intermedio"
   tags: ["acordes", "intervalos"]
 
-variables:
-  es_mayor: uno_de([verdadero, falso])
-
 tipo: completar
+respuesta: "mayor"
 respuestas_validas:
   - "mayor"
-  - "menor"
 
 enunciado: "Si un acorde está formado por la raíz, una tercera mayor y una quinta justa, se trata de un acorde ___."
 
@@ -141,11 +138,8 @@ metadata:
   nivel: "basico"
   tags: ["tonalidad", "escala", "teoria"]
 
-variables:
-  es_do_mayor: uno_de([verdadero, falso])
-
-respuesta: es_do_mayor
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si una pieza musical utiliza exclusivamente las notas de la escala de Do Mayor (Do, Re, Mi, Fa, Sol, La, Si) y sus acordes derivados, ¿es correcto afirmar que la pieza está en la tonalidad de Do Mayor?"
 
 explicacion: |
@@ -253,11 +247,10 @@ metadata:
   nivel: "intermedio"
   tags: ["tonalidad", "escala"]
 
-variables:
-  es_escala: verdadero
-
-respuesta: es_escala
+respuesta: "tonalidad"
 tipo: completar
+respuestas_validas:
+  - "tonalidad"
 enunciado: "La escala es el conjunto de notas que forman la base de una ___."
 
 explicacion: |
@@ -353,11 +346,10 @@ metadata:
   nivel: "intermedio"
   tags: ["tonalidad", "escala"]
 
-variables:
-  es_tonal: falso
-
-respuesta: es_tonal
+respuesta: "tonalidad"
 tipo: completar
+respuestas_validas:
+  - "tonalidad"
 enunciado: "Si una pieza musical utiliza un conjunto de notas que actúan como centro gravitacional, estableciendo una jerarquía de tensión y reposo, ¿podemos decir que la pieza posee una ___?"
 
 explicacion: |
@@ -417,12 +409,9 @@ metadata:
   nivel: "intermedio"
   tags: ["consonancia", "disonancia"]
 
-variables:
-  es_consonante: verdadero
-
-respuesta: es_consonante
-tipo: completar
-enunciado: "En el contexto de la armonía, cuando un acorde produce una sensación de estabilidad y reposo, se dice que es una consonancia. ¿Es esto cierto? (verdadero/falso)"
+respuesta: verdadero
+tipo: vf
+enunciado: "En el contexto de la armonía, cuando un acorde produce una sensación de estabilidad y reposo, se dice que es una consonancia. ¿Es esto cierto?"
 
 explicacion: |
   La consonancia es la cualidad de los intervalos o acordes que suenan estables y no requieren resolución inmediata.
@@ -507,8 +496,8 @@ metadata:
 enunciado: "Para construir un acorde de Do Mayor de forma ascendente, ¿cuál es el orden correcto de sus notas?"
 
 opciones_explicitas: ["Do, Mi, Sol", "Sol, Mi, Do", "Do, Sol, Mi"]
-respuesta_orden: ["Do, Mi, Sol", "Sol, Mi, Do", "Do, Sol, Mi"]
-tipo: ordenar
+respuesta: "Do, Mi, Sol"
+tipo: mc
 
 explicacion: |
   Un acorde se construye por intervalos superpuestos (terceras) partiendo desde la nota raíz hacia arriba.
