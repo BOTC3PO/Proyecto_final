@@ -2,12 +2,8 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: correcciones de doble sorteo, arrays mal indexados
+> y una conversión de entorno invertida (Q22).
 
 ---
 
@@ -44,7 +40,7 @@ variables:
   escenarios: [["humedad alta", "oxidación rápida"], ["humedad baja", "oxidación lenta"]]
   escenario: uno_de(escenarios)
 
-respuesta: uno_de(["oxidación rápida", "oxidación lenta"])
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["oxidación rápida", "oxidación lenta", "ausencia de reacción", "estabilidad química"]
 
@@ -85,7 +81,6 @@ respuesta: "capa protectora"
 tipo: completar
 respuestas_validas:
   - "capa protectora"
-  - "capa destructiva"
 
 enunciado: "Cuando el producto de la corrosión es denso y adherente, puede actuar como una ___ que reduce la velocidad de degradación. Si es poroso, el proceso continúa."
 
@@ -354,14 +349,11 @@ metadata:
   nivel: "intermedio"
   tags: ["mecanica", "deterioro"]
 
-variables:
-  tipo_deterioro: uno_de(["quimico", "mecanico"])
-
-respuesta: uno_de(["quimico", "mecanico"])
+respuesta: "quimico"
 tipo: "mc"
 opciones_explicitas: ["quimico", "mecanico"]
 
-enunciado: "El deterioro de un material debido al desgaste físico por el impacto de partículas o flujo de fluidos se denomina erosión, mientras que la corrosión es un proceso de naturaleza {tipo_deterioro}."
+enunciado: "El deterioro de un material debido al desgaste físico por el impacto de partículas o flujo de fluidos se denomina erosión, mientras que la corrosión es un proceso de naturaleza ___."
 
 explicacion: |
   La erosión es un proceso mecánico de remoción de material por fricción o impacto, mientras que la corrosión es un proceso químico o electroquímico.
@@ -413,14 +405,11 @@ metadata:
   nivel: "avanzado"
   tags: ["defectos", "localizada"]
 
-variables:
-  escenario_desc: uno_de(["localizada", "general"])
-
-respuesta: "localizada"
+respuesta: "general"
 tipo: "mc"
 opciones_explicitas: ["localizada", "general"]
 
-enunciado: "Si el daño por corrosión se concentra en puntos específicos creando pequeños agujeros profundos, estamos ante una corrosión {escenario_desc}, a diferencia de la corrosión ___ que afecta toda la superficie por igual."
+enunciado: "Si el daño por corrosión se concentra en puntos específicos creando pequeños agujeros profundos, estamos ante una corrosión localizada, a diferencia de la corrosión ___ que afecta toda la superficie por igual."
 
 explicacion: |
   La corrosión por picadura (pitting) es un tipo de corrosión localizada muy peligrosa porque es difícil de detectar, a diferencia de la corrosión general que es uniforme.
@@ -436,7 +425,7 @@ metadata:
   tags: ["metales", "electroquimica"]
 
 variables:
-  datos: [["Hierro (Fe)", "Zinc (Zn)"], ["Aluminio (Al)", "Cobre (Cu)"], ["Acero (Fe)", "Plata (Ag)"]]
+  datos: [["Zinc (Zn)", "Hierro (Fe)"], ["Aluminio (Al)", "Cobre (Cu)"], ["Acero (Fe)", "Plata (Ag)"]]
   idx: uno_de([0, 1, 2])
   metal_anodo: datos[idx][0]
   metal_catodo: datos[idx][1]
@@ -463,15 +452,14 @@ metadata:
 variables:
   datos: [["ambiente seco", "ambiente húmedo y salino"], ["aire puro", "ambiente con alta salinidad"]]
   idx: uno_de([0, 1])
-  entorno: datos[idx][0]
+  entorno: datos[idx][1]
 
-enunciado: "La velocidad de corrosión de un acero al carbono aumenta significativamente cuando se encuentra en un {entorno}."
+enunciado: "La velocidad de corrosión de un acero al carbono ___ significativamente cuando se encuentra en un {entorno}."
 
 respuesta: "aumenta"
 tipo: completar
 respuestas_validas:
   - "aumenta"
-  - "disminuye"
 
 explicacion: |
   La presencia de electrolitos (como la sal o el agua) facilita el flujo de iones en la superficie del metal, acelerando la reacción electroquímica de corrosión.
