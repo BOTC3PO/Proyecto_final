@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,10 +41,7 @@ metadata:
   nivel: "basico"
   tags: ["mvp", "validacion"]
 
-variables:
-  opcion_correcta: uno_de(["probar_hipotesis", "maximizar_ganancias", "perfeccionar_producto"])
-
-respuesta: opcion_correcta
+respuesta: "probar_hipotesis"
 tipo: mc
 opciones_explicitas: ["probar_hipotesis", "maximizar_ganancias", "perfeccionar_producto"]
 
@@ -100,11 +97,7 @@ metadata:
   nivel: "intermedio"
   tags: ["aprendizaje_validado", "metrica"]
 
-variables:
-  escenario: uno_de([0, 1])
-  escenario_res: uno_de(["aprendizaje_validado", "métricas de vanidad"])
-
-respuesta: escenario_res
+respuesta: "métricas de vanidad"
 tipo: mc
 opciones_explicitas: ["aprendizaje_validado", "métricas de vanidad", "intuición pura"]
 
@@ -145,11 +138,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Lanzar una app completa con todas las funciones para ver si alguien la usa.", "falso"], ["Crear una landing page con un botón de 'comprar' para medir el interés real.", "verdadero"]]
+  textos: ["Lanzar una app completa con todas las funciones para ver si alguien la usa.", "Crear una landing page con un botón de 'comprar' para medir el interés real."]
+  valores: [falso, verdadero]
 
-respuesta: escenarios[escenario_idx][1]
-tipo: completar
-enunciado: "Analiza el siguiente escenario: {escenarios[escenario_idx][0]}. ¿Es esta una forma válida de aplicar el concepto de MVP para validar una idea de forma barata y rápida?"
+respuesta: valores[escenario_idx]
+tipo: vf
+enunciado: "Analiza el siguiente escenario: {textos[escenario_idx]}. ¿Es esta una forma válida de aplicar el concepto de MVP para validar una idea de forma barata y rápida?"
 
 explicacion: |
   Un Producto Mínimo Viable (MVP) debe permitir aprender con el mínimo esfuerzo. Si el escenario es verdadero, es un MVP; si es falso, es un producto completo que ignora el ahorro de recursos.
@@ -204,7 +198,7 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [["Una pizzería nota que la gente pide la masa pero no el queso, entonces decide vender solo masas artesanales.", "pivotar"], ["Una app de paseadores de perros ve que nadie la descarga y decide cerrar la empresa inmediatamente.", "perseverar"]]
+  casos: [["Una pizzería nota que la gente pide la masa pero no el queso, entonces decide vender solo masas artesanales.", "pivotar"], ["Una app de paseadores de perros confirma que los usuarios la descargan y la usan como se esperaba, así que decide mantener el mismo modelo de negocio.", "perseverar"]]
 
 respuesta: casos[caso_idx][1]
 tipo: mc
@@ -242,13 +236,10 @@ metadata:
   nivel: "intermedio"
   tags: ["metricas_vanidosas", "metricas_accionables"]
 
-variables:
-  es_metrica_accionable: uno_de([verdadero, falso])
-
 tipo: vf
 respuesta: falso
 
-enunciado: "Si una métrica solo muestra que el número de usuarios totales crece, pero no explica por qué vuelven o se van, se considera una 'métrica de vanidad'. ¿Es una métrica de vanidad útil para pivotar o perseverar? {es_metrica_accionable}"
+enunciado: "Si una métrica solo muestra que el número de usuarios totales crece, pero no explica por qué vuelven o se van, se considera una 'métrica de vanidad'. ¿Es una métrica de vanidad útil para pivotar o perseverar?"
 
 explicacion: |
   Las métricas de vanidad (como el número de seguidores o visitas totales) pueden dar una falsa sensación de éxito. Para el ciclo de aprendizaje, necesitamos métricas accionables que nos permitan tomar decisiones sobre el modelo de negocio.
@@ -303,13 +294,10 @@ metadata:
   nivel: "avanzado"
   tags: ["riesgo", "pivotar"]
 
-variables:
-  es_error_comun: uno_de([verdadero, falso])
-
 tipo: vf
 respuesta: verdadero
 
-enunciado: "Invertir grandes cantidades de capital en el desarrollo de todas las funcionalidades de un producto antes de validar si el mercado tiene interés es un error común en el emprendimiento. {es_error_comun}"
+enunciado: "Invertir grandes cantidades de capital en el desarrollo de todas las funcionalidades de un producto antes de validar si el mercado tiene interés es un error común en el emprendimiento."
 
 explicacion: |
   Este error se conoce como "desperdicio de recursos". La metodología Lean Startup sugiere validar primero la propuesta de valor antes de escalar la inversión en ingeniería o marketing masivo.
