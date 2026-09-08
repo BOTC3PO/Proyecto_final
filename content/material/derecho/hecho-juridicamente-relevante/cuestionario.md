@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,16 +40,12 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "hechos_juridicos"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: ["un rayo que incendia un bosque", "un accidente de tránsito"]
-
 tipo: mc
 opciones_explicitas: ["hecho puro", "acto jurídico"]
 
 respuesta: "hecho puro"
 
-enunciado: "Analice el siguiente caso: {escenarios[caso_idx]}. Si este suceso ocurre sin la intervención de la voluntad humana con el fin de producir efectos legales, estamos ante un ___."
+enunciado: "Analice el siguiente caso: un rayo que incendia un bosque. Si este suceso ocurre sin la intervención de la voluntad humana con el fin de producir efectos legales, estamos ante un ___."
 
 explicacion: |
   El hecho puro es aquel suceso de la naturaleza que no es producto de la voluntad humana, pero que aun así tiene relevancia para el derecho (ej: un desastre natural).
@@ -203,13 +199,14 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [[0, "Juan camina por la calle y ve una nube negra (No relevante)", "Juan choca su auto contra un muro por negligencia (Relevante)"], [1, "Juan camina por la calle y ve una nube negra (No relevante)", "Juan firma un testamento (Relevante)"]]
+  irrelevante: "Juan camina por la calle y ve una nube negra"
+  relevantes: ["Juan choca su auto contra un muro por negligencia", "Juan firma un testamento"]
 
-respuesta: casos[caso_idx][1]
+respuesta: relevantes[caso_idx]
 tipo: mc
-opciones_explicitas: ["Juan camina por la calle y ve una nube negra (No relevante)", "Juan choca su auto contra un muro por negligencia (Relevante)"]
+opciones_explicitas: [irrelevante, relevantes[caso_idx]]
 
-enunciado: "Analice el caso seleccionado: {casos[caso_idx][1]}. ¿Cuál de los dos eventos descritos en la variable de contexto es el que posee relevancia jurídica?"
+enunciado: "Analice los dos eventos: (1) {irrelevante}. (2) {relevantes[caso_idx]}. ¿Cuál de los dos posee relevancia jurídica?"
 
 explicacion: |
   El primer evento es un hecho simple/natural sin consecuencias legales inmediatas. El segundo es un hecho/acto que genera responsabilidad civil (consecuencia jurídica).
@@ -358,7 +355,7 @@ respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["es", "no es"]
 
-enunciado: "Analice el siguiente escenario: {datos[idx][0]} ¿Este evento es un hecho jurídicamente relevante? ___"
+enunciado: "Analice el siguiente escenario: {datos[idx][0]} ¿Este evento es un hecho jurídicamente relevante?"
 
 explicacion: |
   En el primer caso, el rayo (hecho natural) activa una consecuencia legal (el contrato de seguro). En el segundo, el atardecer es un hecho de la naturaleza pero no altera ninguna relación jurídica ni crea derechos u obligaciones.
@@ -373,7 +370,7 @@ metadata:
   nivel: "intermedio"
   tags: ["clasificacion", "hechos_naturales"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es correcto afirmar que todos los hechos de la naturaleza (como un terremoto) son hechos jurídicamente relevantes por el solo hecho de ocurrir?"
@@ -458,8 +455,9 @@ variables:
   casos: [["Juan choca su auto por descuido y rompe un muro", "responsabilidad"], ["Juan camina por la vereda y ve una nube", "no relevante"]]
 
 respuesta: casos[caso_idx][1]
-tipo: completar
-enunciado: "Analice el siguiente caso: {casos[caso_idx][0]}. ¿Es este un hecho jurídicamente relevante para el derecho de daños? (Responda verdadero o falso)"
+tipo: mc
+opciones_explicitas: ["responsabilidad", "no relevante"]
+enunciado: "Analice el siguiente caso: {casos[caso_idx][0]}. ¿Cuál es la calificación jurídica de este evento para el derecho de daños?"
 
 explicacion: |
   El segundo caso es un hecho natural sin consecuencias legales, mientras que el primero es un hecho humano que activa la responsabilidad civil.
@@ -479,7 +477,6 @@ tipo: completar
 respuestas_validas:
   - "norma"
   - "ley"
-  - "sentencia"
   - "decreto"
 
 enunciado: "Para que un hecho sea jurídicamente relevante, debe existir una ___ que le asigne una consecuencia jurídica específica."
@@ -498,7 +495,6 @@ metadata:
   tags: ["contrato", "hecho_juridico"]
 
 variables:
-  orden_idx: 0
   pasos_correctos: ["Acuerdo de voluntades", "Nacimiento de la obligación", "Cumplimiento o incumplimiento"]
 
 respuesta_orden: pasos_correctos
