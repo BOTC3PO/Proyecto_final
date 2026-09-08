@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -149,7 +149,7 @@ metadata:
   tags: ["calculo", "numerico"]
 
 variables:
-  escenario: uno_de([[2, "15", "5", 10], [3, "10", "4", 20], [4, "5", "10", 50]])
+  escenario: uno_de([[2, "15", "5", 150], [3, "10", "4", 120], [4, "5", "10", 200]])
   m: escenario[0]
   h: escenario[1]
   g: escenario[2]
@@ -304,7 +304,7 @@ metadata:
 variables:
   datos: uno_de([[100, 9.8, 50], [50, 9.8, 20], [200, 9.8, 100]])
 
-respuesta: "datos[2]"
+respuesta: redondear(datos[2]/(datos[0]*datos[1]), 2)
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -494,8 +494,8 @@ variables:
   m: datos[idx][0]
   ep: datos[idx][1]
 
-respuesta: ep == (m * 9.8 * 10)
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un paquete de {m} kg se encuentra en un estante a 10 metros de altura. Si la energía potencial es de {ep} J, ¿es correcto afirmar que la gravedad aplicada fue de 9.8 m/s²?"
 
 explicacion: |
@@ -533,12 +533,12 @@ metadata:
   tags: ["energia", "calculo"]
 
 variables:
-  caso: uno_de([[2, 5, 10], [5, 2, 10], [10, 5, 2]])
+  caso: uno_de([[2, 5, 98.0], [5, 2, 98.0], [10, 5, 490.0]])
   m: caso[0]
   h: caso[1]
   ep: caso[2]
 
-respuesta_orden: ["m * g * h", "m * g / h", "m / (g * h)", "g * h / m"]
+respuesta_orden: ["m * g / h", "m / (g * h)", "g * h / m", "m * g * h"]
 tipo: ordenar
 
 opciones_explicitas: ["m * g * h", "m * g / h", "m / (g * h)", "g * h / m"]
@@ -563,12 +563,9 @@ variables:
   m: escenario[0]
   h: escenario[1]
 
-respuesta: "500"
+respuesta: m * 10 * h
 tipo: completar
-respuestas_validas:
-  - "500"
-  - "500.0"
-  - "500.00"
+tolerancia_abs: 0.1
 
 enunciado: "Un dron de {m} kg vuela a una altura de {h} metros. Su energía potencial gravitatoria es de ___ Joules (usa g = 10 m/s²)."
 
