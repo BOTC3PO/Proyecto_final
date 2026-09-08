@@ -1,11 +1,6 @@
 # Química — Termoquímica (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QO`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bug de esta tanda: `uno_de([...])[idx]` otra vez (indexar un escalar).
-> También se limpió LaTeX crudo (`$\Delta H_1$`) a notación de texto
-> plano en varias preguntas.
 
 ---
 
@@ -158,7 +153,7 @@ variables:
   dh_reactivos: uno_de([-80, -30, 20, 40])
 
 respuesta: dh_productos - dh_reactivos
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la entalpía de reacción si la entalpía de los productos es {dh_productos} kJ/mol y la de los reactivos es {dh_reactivos} kJ/mol."
@@ -220,7 +215,7 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][0] + datos[idx][1]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una reacción A→C se puede escribir como A→B (ΔH1 = {datos[idx][0]} kJ) y B→C (ΔH2 = {datos[idx][1]} kJ). ¿Cuál es el ΔH total de A→C?"
