@@ -1,20 +1,6 @@
 # Biología — Especiación (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BN`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas `completar`
-> (con blank `___`) etiquetadas como `tipo: vf` — reclasificadas;
-> un bloque con `variables:` declarada dos veces dentro del mismo
-> bloque (YAML inválido/ambiguo) — fusionada en una sola; dos
-> preguntas que interpolaban `{mecanismo}` directo en el `enunciado`
-> revelando la respuesta, con `respuestas_validas` pero sin
-> `respuesta:` — reescritas como `completar` con blank real y
-> `respuesta:` agregado; una pregunta con dos blancos en el
-> `enunciado` pero una sola `respuesta` (y en el orden equivocado) —
-> recortada a un solo blanco; `tipo: vf` con `opciones_explicitas`
-> explícitas (`["Verdadero","Falso"]`) — innecesario, normalizado a
-> `respuesta: verdadero` sin opciones.
 
 ---
 
