@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -219,9 +219,6 @@ variables:
 respuesta: casos[caso_idx][1]
 
 tipo: "completar"
-respuestas_validas:
-  - "30%"
-  - "8s"
 
 enunciado: "Para iterar con éxito, primero debemos cuantificar la brecha. En el caso planteado, la diferencia entre el estado actual y el objetivo es de ___."
 
@@ -293,7 +290,7 @@ opciones_explicitas: ["Implementar", "Evaluar", "Ajustar", "Identificar"]
 enunciado: "Para mejorar una solución que no ha alcanzado el rendimiento esperado, se debe seguir este orden lógico de pasos:"
 
 explicacion: |
-  El ciclo de mejora requiere primero implementar una idea, luego evaluar su desempeño, identificar la brecha entre el resultado y el objetivo, y finalmente ajustar la solución para iterar.
+  Al tratarse de una solución ya implementada que no alcanzó el rendimiento esperado, el ciclo comienza evaluando su desempeño, luego identifica la brecha entre el resultado y el objetivo, después ajusta la solución y finalmente implementa ese cambio.
 ```
 
 ### 14 — La confusión del "Terminado"
@@ -330,11 +327,11 @@ variables:
   caso_idx: uno_de([0, 1])
   casos: [["La solución no cumple con el objetivo principal", "Falla de diseño"], ["La solución cumple el objetivo pero es muy costosa", "Falla de eficiencia"]]
 
-enunciado: "Analizamos el siguiente caso: '{casos[caso_idx][0]}'. Esto se clasifica como una: '{casos[caso_idx][1]}'."
+enunciado: "Analizamos el siguiente caso: '{casos[caso_idx][0]}'. ¿Cómo se clasifica esta situación?"
 
 opciones_explicitas: ["Falla de diseño", "Falla de eficiencia"]
 
-respuesta: "Falla de diseño"
+respuesta: casos[caso_idx][1]
 tipo: mc
 
 explicacion: |
@@ -431,18 +428,13 @@ metadata:
   nivel: "avanzado"
   tags: ["correccion", "optimizacion"]
 
-variables:
-  escenarios: [["Corregir un error crítico", "Optimizar el rendimiento"]]
-  tipo_accion: ["reparar", "mejorar"]
-  idx: uno_de([0, 1])
-
-respuesta: tipo_accion[idx]
+respuesta: "mejorar"
 tipo: completar
 respuestas_validas:
-  - "reparar"
   - "mejorar"
+  - "optimizar"
 
-enunciado: "Si el objetivo es eliminar un fallo que impide el funcionamiento, estamos en una fase de ________; si el objetivo es elevar la calidad de una solución que ya funciona, estamos en una fase de ________."
+enunciado: "Si el objetivo es eliminar un fallo que impide el funcionamiento, estamos en una fase de reparación; si el objetivo es elevar la calidad de una solución que ya funciona, estamos en una fase de ________."
 
 explicacion: |
   La corrección es reactiva (arreglar lo que está mal), mientras que la iteración para mejora es proactiva (elevar lo que ya está bien).
@@ -526,9 +518,6 @@ variables:
 
 respuesta: objetivo
 tipo: completar
-respuestas_validas:
-  - "reducir_latencia"
-  - "aumentar_rendimiento"
 
 enunciado: "Al comparar el desempeño real con el esperado en el caso '{casos[caso_idx][0]}', la acción de iteración necesaria es: ___"
 
@@ -545,11 +534,10 @@ metadata:
   nivel: "basico"
   tags: ["feedback", "iteracion"]
 
-respuesta: 1
-tipo: mc
-opciones_explicitas: [0, 1]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si tras una iteración el error de la solución disminuye de 0.5 a 0.1, ¿se ha cumplido el objetivo de la fase de mejora? (1 para sí, 0 para no)"
+enunciado: "Si tras una iteración el error de la solución disminuye de 0.5 a 0.1, ¿se ha cumplido el objetivo de la fase de mejora?"
 
 explicacion: |
   Una reducción en la magnitud del error indica que la iteración fue efectiva y se acerca al estándar de calidad deseado.
