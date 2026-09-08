@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -58,15 +58,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ciclo", "procesador"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Escribir", "Enviar"], ["Leer", "Recibir"]]
-
 tipo: completar
 respuestas_validas:
   - "Enviar"
-  - "Recibir"
-respuesta: escenarios[escenario_idx][0]
+respuesta: "Enviar"
 
 enunciado: "En una operación de salida (output), el procesador debe ___ datos al periférico."
 
@@ -227,11 +222,8 @@ metadata:
   nivel: "intermedio"
   tags: ["arquitectura", "buses", "control"]
 
-variables:
-  es_control: verdadero
-
-respuesta: es_control
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "El bus de control es el encargado de transportar los datos reales (como un número o un carácter) entre el procesador y la memoria."
 
 explicacion: |
@@ -310,16 +302,12 @@ metadata:
   nivel: "intermedio"
   tags: ["E/S", "interrupciones", "eficiencia"]
 
-variables:
-  metodo: uno_de([["Polling", "el CPU pregunta constantemente si el dispositivo está listo"], ["Interrupción", "el dispositivo avisa al CPU cuando está listo"]])
-
-respuesta: metodo[1]
+respuesta: "el CPU pregunta constantemente si el dispositivo está listo"
 tipo: completar
 respuestas_validas:
   - "el CPU pregunta constantemente si el dispositivo está listo"
-  - "el dispositivo avisa al CPU cuando está listo"
 
-enunciado: "Si un sistema utiliza el método de ___ para gestionar un periférico, el procesador pierde eficiencia porque ___."
+enunciado: "Si un sistema utiliza el método de Polling para gestionar un periférico, el procesador pierde eficiencia porque ___."
 
 explicacion: |
   El Polling (o consulta) obliga al CPU a estar en un bucle de espera, desperdiciando ciclos de reloj. Las interrupciones permiten que el CPU realice otras tareas hasta que el hardware lo necesite.
@@ -354,11 +342,8 @@ metadata:
   nivel: "intermedio"
   tags: ["control", "sincronizacion"]
 
-variables:
-  es_control: verdadero
-
-respuesta: es_control
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "El bus de control es el encargado de transmitir señales de sincronización y de estado (como señales de lectura/escritura) para coordinar la comunicación entre la CPU y los periféricos."
 
 explicacion: |
@@ -530,6 +515,8 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: config[idx][1]
+tipo: completar
+tolerancia_abs: 0
 
 enunciado: "Si un sistema tiene un bus de datos de {config[idx][0]} bits, ¿cuántos bytes puede transferir en un solo ciclo de bus?"
 
