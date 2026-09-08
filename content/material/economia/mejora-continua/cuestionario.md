@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -42,9 +42,6 @@ metadata:
   nivel: "basico"
   tags: ["kaizen", "filosofia"]
 
-variables:
-  es_kaizen: verdadero
-
 respuesta: verdadero
 tipo: vf
 enunciado: "El término japonés 'Kaizen' se traduce comúnmente como 'cambio para mejor' y es el pilar fundamental de la mejora continua."
@@ -62,9 +59,9 @@ metadata:
   nivel: "intermedio"
   tags: ["ciclo_pdca", "metodologia"]
 
-opciones_explicitas: ["Planificar, Hacer, Verificar, Actuar"]
+opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
 
-respuesta_orden: ["Planificar, Hacer, Verificar, Actuar"]
+respuesta_orden: ["Planificar", "Hacer", "Verificar", "Actuar"]
 tipo: ordenar
 
 enunciado: "Ordene las etapas del Ciclo de Deming (PDCA), herramienta esencial para la mejora continua:"
@@ -108,17 +105,12 @@ metadata:
   nivel: "intermedio"
   tags: ["muda", "desperdicio"]
 
-variables:
-  escenario: uno_de([0,1])
-  datos: [["Muda", "Desperdicio"], ["Kaizen", "Cambio"]]
-  respuestas: ["Muda", "Desperdicio"]
-
-respuesta: datos[escenario][0]
+respuesta: "Muda"
 tipo: mc
 
 opciones_explicitas: ["Muda", "Kaizen", "Poka-Yoke", "Kanban"]
 
-enunciado: "En la metodología de mejora continua, el término japonés utilizado para referirse a cualquier tipo de ___________ en el proceso es {datos[escenario][1]}."
+enunciado: "En la metodología de mejora continua, el término japonés utilizado para referirse a cualquier tipo de desperdicio en el proceso es: ___"
 
 explicacion: |
   'Muda' es el término utilizado para referirse a las actividades que no agregan valor (desperdicio) y que deben eliminarse.
@@ -196,11 +188,11 @@ metadata:
   tags: ["calculo", "eficiencia"]
 
 variables:
-  escenario: [["Tiempo actual: 100 min, Tiempo meta: 85 min", "15"], ["Tiempo actual: 50 min, Tiempo meta: 48 min", "2"], ["Tiempo actual: 200 min, Tiempo meta: 180 min", "20"]]
+  escenario: [["Tiempo actual: 100 min, Tiempo meta: 85 min", 15], ["Tiempo actual: 50 min, Tiempo meta: 48 min", 2], ["Tiempo actual: 200 min, Tiempo meta: 180 min", 20]]
   idx: uno_de([0, 1, 2])
 
-respuesta: "escenario[idx][1]"
-tipo: "input"
+respuesta: escenario[idx][1]
+tipo: "completar"
 tolerancia_abs: 0
 
 enunciado: "Una empresa de logística aplica mejora continua. Si su tiempo de despacho actual es de {escenario[idx][0]}, ¿cuántos minutos de reducción debe lograr para alcanzar su meta establecida?"
@@ -324,11 +316,7 @@ metadata:
   nivel: "avanzado"
   tags: ["mentalidad", "eficiencia"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["El gerente cree que una vez que el proceso es eficiente, el trabajo de mejora ha terminado.", "terminado"], ["El gerente cree que la mejora es un proceso infinito de refinamiento constante.", "infinito"]]
-
-enunciado: "Si un gerente adopta la visión del caso {casos[caso_idx][0]}, ¿está aplicando correctamente la filosofía de mejora continua?"
+enunciado: "Si un gerente cree que una vez que el proceso es eficiente, el trabajo de mejora ha terminado, ¿está aplicando correctamente la filosofía de mejora continua?"
 
 opciones_explicitas: ["Sí, la eficiencia es un estado de llegada.", "No, la mejora es un proceso cíclico sin fin."]
 
@@ -372,10 +360,11 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["Una empresa que implementa un cambio masivo de software una vez cada 5 años.", "Un equipo que realiza pequeñas ajustes diarios en su línea de producción para reducir desperdicios."], ["Un evento único de reestructuración organizacional.", "Un ciclo constante de revisión y optimización de tareas."]]
 
-tipo: completar
+tipo: mc
+opciones_explicitas: [escenarios[escenario_idx][0], escenarios[escenario_idx][1]]
 respuesta: escenarios[escenario_idx][1]
 
-enunciado: "Identifica cuál de los siguientes escenarios representa verdaderamente la filosofía de mejora continua: {escenarios[escenario_idx][0]}"
+enunciado: "¿Cuál de los siguientes escenarios representa verdaderamente la filosofía de mejora continua?"
 
 explicacion: |
   La mejora continua no es un evento aislado o un proyecto con fecha de finalización, sino un ciclo perpetuo de optimización.
@@ -454,11 +443,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["Una fábrica de calzado que cambia toda su maquinaria de golpe cada 5 años.", "falso"], ["Una línea de producción que ajusta pequeños detalles cada semana para reducir desperdicios.", "verdadero"]]
+  textos: ["Una fábrica de calzado que cambia toda su maquinaria de golpe cada 5 años.", "Una línea de producción que ajusta pequeños detalles cada semana para reducir desperdicios."]
+  valores: [falso, verdadero]
 
-respuesta: datos[escenario_idx][1]
-tipo: completar
-enunciado: "La mejora continua se define como un proceso de optimización constante e incremental. Analice el siguiente escenario: {datos[escenario_idx][0]}. ¿Es este un ejemplo de mejora continua? (verdadero/falso)"
+respuesta: valores[escenario_idx]
+tipo: vf
+enunciado: "La mejora continua se define como un proceso de optimización constante e incremental. Analice el siguiente escenario: {textos[escenario_idx]}. ¿Es este un ejemplo de mejora continua?"
 
 explicacion: |
   La mejora continua (Kaizen) se basa en cambios incrementales y constantes, no en transformaciones disruptivas o únicas de gran escala.
@@ -513,18 +503,13 @@ metadata:
   nivel: "intermedio"
   tags: ["eficiencia", "costos"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Reducción del 2% en el tiempo de espera mensual", "2%"], ["Reducción del 5% en el desperdicio de materia prima mensual", "5%"]]
-
-respuesta: casos[caso_idx][1]
+respuesta: "5%"
 tipo: completar
 
 respuestas_validas:
-  - "2%"
   - "5%"
 
-enunciado: "En un programa de mejora continua, una empresa logra reducir el ___ de desperdicio de materia prima cada mes mediante ajustes en la maquinaria. (Use el valor del escenario actual)"
+enunciado: "En un programa de mejora continua, una empresa logra reducir el ___ de desperdicio de materia prima cada mes mediante ajustes en la maquinaria."
 
 pasos:
   - "Identificar el valor del desperdicio en el escenario."
@@ -545,11 +530,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["El enfoque de la empresa es reactivo: solo actúa cuando hay crisis.", "falso"], ["El enfoque de la empresa es proactivo: busca fallas antes de que ocurran.", "verdadero"]]
+  textos: ["El enfoque de la empresa es reactivo: solo actúa cuando hay crisis.", "El enfoque de la empresa es proactivo: busca fallas antes de que ocurran."]
+  valores: [falso, verdadero]
 
-respuesta: escenarios[escenario_idx][1]
-tipo: completar
-enunciado: "Un pilar de la mejora continua es la proactividad. Analice el siguiente enfoque: {escenarios[escenario_idx][0]}. ¿Este enfoque es compatible con la filosofía de mejora continua? (verdadero/falso)"
+respuesta: valores[escenario_idx]
+tipo: vf
+enunciado: "Un pilar de la mejora continua es la proactividad. Analice el siguiente enfoque: {textos[escenario_idx]}. ¿Este enfoque es compatible con la filosofía de mejora continua?"
 
 explicacion: |
   La mejora continua requiere una mentalidad proactiva para identificar oportunidades de mejora antes de que los problemas se conviertan en crisis.
