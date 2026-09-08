@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -152,13 +152,11 @@ variables:
 
 tipo: completar
 respuestas_validas:
-  - "vulnerabilidad a precios internacionales"
-  - "dependencia de patentes extranjeras"
-  - "dependencia de capitales volátiles"
+  - escenario[1]
 
-enunciado: "Un país que basa su matriz productiva principalmente en la {escenario[0]} suele enfrentar una alta {escenario[1]}."
+enunciado: "Un país que basa su matriz productiva principalmente en la {escenario[0]} suele enfrentar una alta ___."
 
-respuesta: "vulnerabilidad a precios internacionales"
+respuesta: escenario[1]
 
 explicacion: |
   La especialización en productos primarios (commodities) expone a las economías a la volatilidad de los precios internacionales, lo que caracteriza a los modelos de dependencia.
@@ -494,10 +492,6 @@ metadata:
   tema: "estructura_productiva_dependencia"
   nivel: "avanzado"
   tags: ["enfermedad_holandesa", "tipo_de_cambio", "recursos_naturales"]
-
-variables:
-  efecto_idx: uno_de([0, 1])
-  efectos: [["la apreciación de la moneda local", "la caída de los precios de los commodities"]]
 
 enunciado: "Cuando un país descubre un gran yacimiento de petróleo y aumenta sus exportaciones, se produce una apreciación de la moneda local. Este fenómeno, conocido como Enfermedad Holandesa, suele provocar la falta de competitividad de la ___."
 
