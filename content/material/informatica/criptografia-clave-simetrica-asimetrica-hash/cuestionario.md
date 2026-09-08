@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -20,10 +20,10 @@ metadata:
   nivel: "basico"
   tags: ["criptografia", "seguridad"]
 
-respuesta: "misma_clave"
+respuesta: "misma clave"
 tipo: completar
 respuestas_validas:
-  - "misma_clave"
+  - "misma clave"
 
 enunciado: "En la criptografía simétrica, se utiliza la ___ para cifrar y descifrar el mensaje."
 
@@ -41,17 +41,17 @@ metadata:
   tags: ["criptografia", "clave_publica"]
 
 variables:
+  textos: ["La clave privada debe compartirse con cualquier persona para que el sistema funcione.", "La clave pública se puede distribuir libremente para que cualquiera pueda cifrar un mensaje para el dueño."]
+  valores: [falso, verdadero]
   idx: uno_de([0, 1])
-  escenario: [["La clave privada debe compartirse con cualquier persona para que el sistema funcione.", "falso"], ["La clave pública se puede distribuir libremente para que cualquiera pueda cifrar un mensaje para el dueño.", "verdadero"]]
 
-respuesta: escenario[idx][1]
-tipo: completar
-opciones_explicitas: ["verdadero", "falso"]
+respuesta: valores[idx]
+tipo: vf
 
-enunciado: "En un sistema de clave pública (asimétrica), {escenario[idx][0]}"
+enunciado: "En un sistema de clave pública (asimétrica), {textos[idx]}"
 
 explicacion: |
-  El enunciado seleccionado es {escenario[idx][1]}. En la criptografía asimétrica, la clave pública se distribuye para cifrar, mientras que la privada se mantiene en secreto para descifrar.
+  En la criptografía asimétrica, la clave pública se distribuye para cifrar, mientras que la privada se mantiene en secreto para descifrar. Compartir la clave privada rompería la seguridad del sistema.
 ```
 
 ### 3 — Propiedades de una Función Hash
@@ -122,13 +122,13 @@ metadata:
   tags: ["seguridad", "claves"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Alice envía un mensaje a Bob usando la misma clave que ambos conocen para cifrar y descifrar.", "Alice envía un mensaje a Bob usando su clave privada para cifrar y Bob usa la clave pública de Alice para descifrar."], ["Un sistema de comunicación donde la clave de cifrado es idéntica a la de descifrado.", "Un sistema de firma digital donde la clave de cifrado es distinta a la de descifrado."]]
+  escenarios: [["Alice envía un mensaje a Bob usando la misma clave que ambos conocen para cifrar y descifrar.", "Simétrica"], ["Alice envía un mensaje a Bob usando su clave privada para cifrar y Bob usa la clave pública de Alice para descifrar.", "Asimétrica"], ["Un sistema de comunicación donde la clave de cifrado es idéntica a la de descifrado.", "Simétrica"], ["Un sistema de firma digital donde la clave de cifrado es distinta a la de descifrado.", "Asimétrica"]]
+  idx: uno_de([0, 1, 2, 3])
 
-enunciado: "Si estamos ante el escenario de: {datos[escenario_idx][0]}, ¿qué tipo de criptografía se está utilizando?"
+enunciado: "Si estamos ante el escenario de: {escenarios[idx][0]}, ¿qué tipo de criptografía se está utilizando?"
 
 opciones_explicitas: ["Simétrica", "Asimétrica"]
-respuesta: uno_de(["Simétrica", "Asimétrica"])
+respuesta: escenarios[idx][1]
 tipo: mc
 
 explicacion: |
@@ -148,8 +148,6 @@ enunciado: "Se aplica una función hash a un archivo de 1 GB. Si se cambia un so
 
 respuestas_validas:
   - "completamente diferente"
-  - "el mismo"
-  - "casi igual"
 respuesta: "completamente diferente"
 tipo: completar
 
@@ -205,14 +203,15 @@ metadata:
 
 variables:
   hash_original: "a1b2c3d4"
-  hash_recibido: uno_de(["a1b2c3d4", "f9e8d7c6"])
-  es_integro: hash_original == hash_recibido
-  respuesta_correcta: uno_de(["No, el archivo es íntegro", "Sí, el archivo fue alterado"])
+  opciones_hash: ["a1b2c3d4", "f9e8d7c6"]
+  respuestas_texto: ["No, el archivo es íntegro", "Sí, el archivo fue alterado"]
+  idx: uno_de([0, 1])
+  hash_recibido: opciones_hash[idx]
 
 enunciado: "El emisor envía un archivo con el hash '{hash_original}'. El receptor, tras descargar el archivo, calcula el hash y obtiene '{hash_recibido}'. ¿El archivo ha sido alterado?"
 
 opciones_explicitas: ["No, el archivo es íntegro", "Sí, el archivo fue alterado"]
-respuesta: respuesta_correcta
+respuesta: respuestas_texto[idx]
 tipo: mc
 
 explicacion: |
@@ -329,7 +328,7 @@ variables:
 enunciado: "En un sistema de cifrado {escenario}, se utiliza la misma clave para cifrar y descifrar el mensaje."
 
 respuesta: escenario == "simetrica"
-tipo: completar
+tipo: vf
 explicacion: |
   En la criptografía simétrica, la clave compartida es idéntica para ambas operaciones. En la asimétrica, se usa un par de claves (pública y privada).
 ```
@@ -363,20 +362,15 @@ metadata:
   nivel: "intermedio"
   tags: ["hash", "seguridad"]
 
-variables:
-  caso: uno_de(["colision", "unidireccional"])
-  tabla: [["colision", "colision"], ["unidireccional", "unidireccional"]]
-
-enunciado: "Una función hash es considerada {caso} si es computacionalmente imposible encontrar el mensaje original a partir de su hash."
+enunciado: "Una función hash es considerada ___ si es computacionalmente imposible encontrar el mensaje original a partir de su hash."
 
 pasos:
   - "Identificar la propiedad descrita."
 
-respuesta: tabla[0][1]
+respuesta: "unidireccional"
 
 tipo: completar
 respuestas_validas:
-  - "colision"
   - "unidireccional"
 
 explicacion: |
@@ -521,14 +515,13 @@ metadata:
   tags: ["claves", "seguridad"]
 
 variables:
-  datos: [["enviar una sola clave por un canal inseguro", "falso"], ["usar dos llaves distintas (pública y privada)", "verdadero"]]
-  idx: uno_de([0,1])
+  textos: ["enviar una sola clave por un canal inseguro", "usar dos llaves distintas (pública y privada)"]
+  valores: [verdadero, falso]
+  idx: uno_de([0, 1])
 
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "En el cifrado simétrico, el principal problema de seguridad es: {datos[idx][0]}."
+respuesta: valores[idx]
+tipo: vf
+enunciado: "En el cifrado simétrico, el principal problema de seguridad es: {textos[idx]}."
 
 explicacion: |
   El cifrado simétrico requiere que ambas partes compartan la misma clave. Si el canal para compartirla es inseguro, un atacante podría interceptarla.
