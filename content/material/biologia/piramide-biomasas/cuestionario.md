@@ -1,11 +1,6 @@
 # Biología — Pirámide de biomasas (cuestionario, 20 preguntas VBLang)
 
 > Tema: `BH2`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bug de esta tanda: `respuesta: uno_de(opciones[0])`
-> — `uno_de()` espera una lista, no un string único; era una pregunta
-> de respuesta fija sin necesidad de sorteo.
 
 ---
 
@@ -94,7 +89,7 @@ variables:
   biomasa_productores: uno_de([1000, 5000, 10000, 20000])
 
 respuesta: biomasa_productores * 0.10
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "La biomasa de productores es {biomasa_productores} kg. Con la regla del 10%, ¿cuál es la biomasa aproximada del siguiente nivel?"
@@ -116,7 +111,7 @@ variables:
   biomasa_productores: uno_de([10000, 20000])
 
 respuesta: biomasa_productores * 0.10 * 0.10
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Si la biomasa de los productores (nivel 1) es {biomasa_productores} kg, ¿cuál es la biomasa aproximada de los consumidores secundarios (2 niveles arriba), aplicando la regla del 10% dos veces?"
@@ -307,7 +302,7 @@ variables:
   biomasa_base: uno_de([100000, 500000, 1000000])
 
 respuesta: biomasa_base * 0.1
-tipo: input
+tipo: completar
 tolerancia_abs: 1
 
 enunciado: "Si la biomasa de productores es {biomasa_base} kg, ¿cuánta se estima en el segundo nivel trófico (regla del 10%)?"
