@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -62,17 +62,16 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["Búsqueda de pertenencia a grupos", "Construcción de la autonomía personal"], ["Dependencia de la opinión parental", "Definición de valores propios"]]
+  claves: ["autonomía", "valores"]
 
 tipo: completar
 respuestas_validas:
-  - "pertenencia"
   - "autonomía"
-  - "dependencia"
   - "valores"
 
 enunciado: "En la etapa de la adolescencia, el individuo suele transitar desde una etapa de {escenarios[escenario_idx][0]} hacia una fase de {escenarios[escenario_idx][1]}."
 
-respuesta: "autonomía"
+respuesta: claves[escenario_idx]
 
 explicacion: |
   La identidad se construye mediante el proceso de diferenciación de las figuras de autoridad y la búsqueda de un sentido de autonomía.
@@ -280,7 +279,7 @@ variables:
   escenario: [["el aumento de la estatura y vello corporal", "cambios físicos"], ["la búsqueda de autonomía y pertenencia grupal", "cambios psicosociales"]]
   idx: uno_de([0, 1])
 
-respuesta: "cambios físicos"
+respuesta: escenario[idx][1]
 tipo: mc
 
 opciones_explicitas:
@@ -325,12 +324,8 @@ metadata:
   nivel: "avanzado"
   tags: ["pubertad", "autoimagen", "psicologia"]
 
-variables:
-  casos: [["La percepción de la imagen corporal se vuelve más crítica y sensible.", "verdadero"], ["La identidad se vuelve independiente de la opinión de los pares.", "falso"]]
-  idx: uno_de([0, 1])
-
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Durante la pubertad, debido a los cambios en la imagen corporal, es común que la percepción de la autopercepción se vuelva más crítica y sensible. ¿Es esto cierto?"
 
 explicacion: |
@@ -365,12 +360,9 @@ metadata:
   nivel: "intermedio"
   tags: ["identidad", "psicologia_evolutiva"]
 
-variables:
-  es_identidad_estable: uno_de([verdadero, falso])
-
-respuesta: es_identidad_estable
-tipo: completar
-enunciado: "Durante la transición de la pubertad a la adolescencia, la identidad del individuo suele ser un proceso dinámico y en constante búsqueda, por lo tanto, ¿es la identidad un constructo estático e inmutable durante este periodo? {es_identidad_estable}"
+respuesta: falso
+tipo: vf
+enunciado: "Durante la transición de la pubertad a la adolescencia, la identidad del individuo suele ser un proceso dinámico y en constante búsqueda. ¿Es la identidad un constructo estático e inmutable durante este periodo?"
 
 explicacion: |
   La identidad en la adolescencia es un proceso de exploración. No es un estado fijo, sino una construcción que se moldea a través de la interacción social y la introspección.
@@ -409,14 +401,10 @@ metadata:
   nivel: "intermedio"
   tags: ["maduracion", "crecimiento"]
 
-variables:
-  casos: ["maduración", "maduración"]
-  idx: uno_de([0, 1])
-
-respuesta: casos[idx]
+respuesta: "maduración"
 tipo: completar
 
-enunciado: "En el contexto del desarrollo, el crecimiento se refiere al aumento de tamaño físico, mientras que la ___ se refiere a la adquisición de funciones complejas a través de la maduración del sistema nervioso. El caso analizado es: {idx}."
+enunciado: "En el contexto del desarrollo, el crecimiento se refiere al aumento de tamaño físico, mientras que la ___ se refiere a la adquisición de funciones complejas a través de la maduración del sistema nervioso."
 
 pasos:
   - "Diferenciar entre aumento cuantitativo (crecimiento) y aumento cualitativo (maduración)."
@@ -434,12 +422,9 @@ metadata:
   nivel: "avanzado"
   tags: ["identidad", "cambios_fisicos"]
 
-variables:
-  es_centrado_en_el_otro: uno_de([verdadero, falso])
-
-respuesta: es_centrado_en_el_otro
-tipo: completar
-enunciado: "Durante la pubertad, el egocentrismo adolescente suele aumentar, lo que lleva al individuo a sentir que es el centro de atención de los demás (el 'público imaginario'). ¿Es este fenómeno una característica distintiva de la identidad en esta etapa? {es_centrado_en_el_otro}"
+respuesta: verdadero
+tipo: vf
+enunciado: "Durante la pubertad, el egocentrismo adolescente suele aumentar, lo que lleva al individuo a sentir que es el centro de atención de los demás (el 'público imaginario'). ¿Es este fenómeno una característica distintiva de la identidad en esta etapa?"
 
 explicacion: |
   El egocentrismo adolescente es un fenómeno psicológico donde el joven siente que sus experiencias y su apariencia son observadas constantemente por los demás, marcando un cambio en su autoconcepto.
@@ -551,7 +536,7 @@ variables:
 
 enunciado: "En la transición de la niñez a la adolescencia, el foco de influencia social suele cambiar. Si observamos que {datos[idx][0]}, esto indica un desplazamiento hacia el grupo de ________."
 
-respuesta: "{datos[idx][1]}"
+respuesta: datos[idx][1]
 tipo: completar
 respuestas_validas:
   - "amigos"
