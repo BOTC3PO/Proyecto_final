@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -37,9 +37,6 @@ metadata:
   tema: "diseno_y_arquitectura_de_software"
   nivel: "basico"
   tags: ["calidad", "requerimientos"]
-
-variables:
-  es_calidad: verdadero
 
 tipo: vf
 
@@ -127,7 +124,7 @@ metadata:
 variables:
   escenario: uno_de([["Sistema de Clima", "Sensor de Temperatura"], ["App de Bolsa", "Widget de Cotizaciones"], ["Videojuego", "Sistema de Logros"]])
 
-enunciado: "En un sistema de {escenario[0]}, el {escenario[1]} actúa como el 'Subject'. Cuando la temperatura cambia, debe notificar a todos los observadores registrados. Si un observador no está suscrito, no recibirá la actualización."
+enunciado: "En un sistema de {escenario[0]}, el {escenario[1]} actúa como el 'Subject'. Cuando su estado cambia, debe notificar a todos los observadores registrados. Si un observador no está suscrito, no recibirá la actualización."
 
 opciones_explicitas: ["El Subject mantiene una lista de suscriptores", "El Observer decide cuándo notificar al Subject", "El Subject debe conocer la implementación interna de cada Observer"]
 
@@ -320,11 +317,7 @@ metadata:
   nivel: "avanzado"
   tags: ["acoplamiento", "diseño_estructural"]
 
-variables:
-  tipo_acoplamiento: uno_de(["control", "datos"])
-  descripcion: [["cuando un módulo le dice a otro exactamente qué hacer y cómo", "control"], ["cuando un módulo solo pasa información necesaria", "datos"]]
-
-enunciado: "Cuando un módulo A le pasa un objeto a un módulo B, pero además le indica a B qué método debe llamar y en qué orden, estamos ante un acoplamiento de {tipo_acoplamiento}."
+enunciado: "Cuando un módulo A le pasa un objeto a un módulo B, pero además le indica a B qué método debe llamar y en qué orden, estamos ante un acoplamiento de ___."
 
 opciones_explicitas: ["control", "datos"]
 
@@ -386,7 +379,7 @@ tipo: "completar"
 respuestas_validas:
   - "microservicios"
 
-enunciado: "A diferencia de una arquitectura de tipo ___, donde todos los componentes están en un único paquete desplegable, la arquitectura de ___ divide la aplicación en servicios independientes que se comunican por red."
+enunciado: "A diferencia de una arquitectura monolítica, donde todos los componentes están en un único paquete desplegable, la arquitectura de ___ divide la aplicación en servicios independientes que se comunican por red."
 
 explicacion: |
   Los microservicios permiten escalar partes específicas del sistema de forma independiente, algo que en un monolito requiere escalar toda la aplicación.
@@ -462,14 +455,16 @@ metadata:
   tags: ["principios_solid", "refactorizacion"]
 
 variables:
-  caso: uno_de([["Una clase 'Factura' que calcula el total, guarda en la base de datos y genera un PDF.", "Falso"], ["Una clase 'Usuario' que contiene solo los atributos de datos y métodos de acceso.", "Verdadero"]])
+  textos: ["Una clase 'Factura' que calcula el total, guarda en la base de datos y genera un PDF.", "Una clase 'Usuario' que contiene solo los atributos de datos y métodos de acceso."]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
 
-respuesta: caso[1]
-tipo: completar
-enunciado: "Analice el siguiente caso: {caso[0]}. ¿Cumple esta clase con el Principio de Responsabilidad Única (SRP)? (Verdadero/Falso)"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Analice el siguiente caso: {textos[idx]}. ¿Cumple esta clase con el Principio de Responsabilidad Única (SRP)?"
 
 explicacion: |
-  El valor es {caso[1]}. El SRP establece que una clase debe tener una, y solo una, razón para cambiar.
+  El SRP establece que una clase debe tener una, y solo una, razón para cambiar. Una clase que mezcla cálculo, persistencia y generación de PDF viola ese principio; una clase que solo agrupa datos y su acceso lo cumple.
 ```
 
 ### 23 — Flujo de datos en capas
@@ -526,12 +521,14 @@ metadata:
   tags: ["mantenibilidad", "deuda_tecnica"]
 
 variables:
-  escenario: uno_de([["Se decide omitir la creación de tests unitarios y la documentación de la arquitectura para cumplir con una fecha de entrega inmediata.", "Verdadero"], ["Se implementa un patrón de diseño robusto y se realiza una revisión de arquitectura antes de cada sprint.", "Falso"]])
+  textos: ["Se decide omitir la creación de tests unitarios y la documentación de la arquitectura para cumplir con una fecha de entrega inmediata.", "Se implementa un patrón de diseño robusto y se realiza una revisión de arquitectura antes de cada sprint."]
+  valores: [verdadero, falso]
+  idx: uno_de([0, 1])
 
-respuesta: escenario[1]
-tipo: completar
-enunciado: "¿Es cierto que el siguiente escenario representa la acumulación de deuda técnica?: {escenario[0]} (Verdadero/Falso)"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "¿Es cierto que el siguiente escenario representa la acumulación de deuda técnica?: {textos[idx]}"
 
 explicacion: |
-  La respuesta es {escenario[1]}. La deuda técnica surge cuando se prioriza la rapidez sobre la calidad del diseño y la estructura del código.
+  La deuda técnica surge cuando se prioriza la rapidez sobre la calidad del diseño y la estructura del código, como al omitir tests y documentación por una fecha límite. Una revisión de arquitectura regular con buenos patrones, en cambio, reduce la deuda técnica.
 ```
