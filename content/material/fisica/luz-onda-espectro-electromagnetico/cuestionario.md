@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -58,25 +58,15 @@ metadata:
   nivel: "basico"
   tags: ["color", "espectro"]
 
-variables:
-  colores: ["rojo", "naranja", "amarillo", "verde", "azul", "añil", "violeta"]
-  idx: uno_de([0,1,2,3,4,5,6])
-
 tipo: completar
 respuestas_validas:
   - "rojo"
-  - "naranja"
-  - "amarillo"
-  - "verde"
-  - "azul"
-  - "añil"
-  - "violeta"
-respuesta: colores[idx]
+respuesta: "rojo"
 
 enunciado: "En el espectro de la luz visible, el color que se encuentra en el extremo de las longitudes de onda más largas es el color ___."
 
 explicacion: |
-  El color {colores[idx]} tiene la longitud de onda más larga en el espectro visible, situándose en el extremo rojo.
+  El color rojo tiene la longitud de onda más larga en el espectro visible.
 ```
 
 ### 4 — Relación frecuencia y longitud de onda
@@ -200,15 +190,13 @@ metadata:
   nivel: "basico"
   tags: ["teoria", "velocidad"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "¿Es verdadero o falso que todas las ondas del espectro electromagnético (desde radio hasta gamma) viajan a la misma velocidad en el vacío?"
 
 explicacion: |
-  Es falso. Todas las ondas electromagnéticas viajan a la misma velocidad (c) en el VACÍO. 
-  Sin embargo, la pregunta se refiere a la naturaleza de la constante c en el vacío, que es universal para todo el espectro.
-  *Nota: En el vacío la velocidad es constante, pero la pregunta busca evaluar la comprensión de la constante universal.*
+  Es verdadero. Todas las ondas electromagnéticas, sin importar su frecuencia, viajan a la misma velocidad (c ≈ 3×10⁸ m/s) en el vacío; esa es precisamente la constante universal que las une.
 ```
 
 ### 10 — Cálculo de energía de un fotón
@@ -343,17 +331,13 @@ metadata:
   nivel: "avanzado"
   tags: ["frecuencia", "energía", "rayos_gamma"]
 
-variables:
-  datos: [["alta", "alta"], ["baja", "baja"]]
-  idx: uno_de([0, 1])
-
 enunciado: "Los rayos gamma tienen una frecuencia extremadamente ___ que la luz visible, lo que les permite ser altamente ionizantes."
 
 opciones_explicitas:
   - "alta"
   - "baja"
 
-respuesta: datos[idx][0]
+respuesta: "alta"
 tipo: mc
 
 explicacion: |
@@ -390,8 +374,8 @@ metadata:
   tags: ["luz_visible", "color", "frecuencia"]
 
 variables:
-  idx: uno_de([0, 1, 2])
-  datos: [["rojo", "frecuencia baja"], ["azul", "frecuencia alta"], ["verde", "frecuencia media"]]
+  idx: uno_de([0, 1])
+  datos: [["rojo", "frecuencia baja"], ["verde", "frecuencia media"]]
 
 respuesta: datos[idx][1]
 tipo: mc
@@ -449,15 +433,11 @@ metadata:
   nivel: "basico"
   tags: ["luz_visible", "espectro"]
 
-variables:
-  idx: uno_de([0, 1])
-  limites: [["infrarrojo", "longitud de onda mayor"], ["ultravioleta", "longitud de onda menor"]]
-
-respuesta: limites[idx][1]
+respuesta: "longitud de onda menor"
 tipo: mc
 opciones_explicitas: ["longitud de onda mayor", "longitud de onda menor"]
 
-enunciado: "La luz visible es el rango que el ojo humano puede detectar. El límite que se encuentra por encima del violeta (hacia el ___ ) se define por tener una {limites[idx][1]}."
+enunciado: "La luz visible es el rango que el ojo humano puede detectar. El límite que se encuentra por encima del violeta (hacia el ultravioleta) se define por tener una ___."
 
 explicacion: |
   El ultravioleta tiene frecuencias más altas y longitudes de onda más cortas que el límite superior del espectro visible.
@@ -472,16 +452,11 @@ metadata:
   nivel: "basico"
   tags: ["luz_visible", "infrarrojo", "tecnologia"]
 
-variables:
-  escenario_idx: uno_de([0,1])
-  datos: [["infrarrojo", "luz visible"], ["ultravioleta", "luz visible"]]
-  frecuencia_hz: [3e12, 5e14]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "infrarrojo"
 tipo: mc
 opciones_explicitas: ["infrarrojo", "luz visible", "ultravioleta", "rayos x"]
 
-enunciado: "Un control remoto de televisión emite una radiación que no es perceptible para el ojo humano, situándose por debajo de la frecuencia de la {datos[escenario_idx][0]}. ¿Qué tipo de radiación es?"
+enunciado: "Un control remoto de televisión emite una radiación que no es perceptible para el ojo humano, situándose por debajo de la frecuencia de la luz visible. ¿Qué tipo de radiación es?"
 
 explicacion: |
   El control remoto utiliza luz infrarroja, la cual tiene una longitud de onda mayor y una frecuencia menor que la luz visible.
