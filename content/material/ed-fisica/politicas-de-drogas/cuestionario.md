@@ -1,18 +1,6 @@
 # Ed. Física — Políticas de drogas: prohibicionismo, reducción de daños, despenalización/legalización regulada (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF13a/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); dos
-> preguntas con doble indexado sobre una variable ya sorteada
-> (`escenario[0][1]` cuando `escenario` ya era el par elegido, no la
-> lista completa) con pares de datos contradictorios entre sí —
-> simplificadas a preguntas fijas sin sorteo; `tipo: vf` con
-> `respuesta: falso` que contradecía la propia `explicacion:`
-> ("Verdadero...") — corregida a `verdadero`; `tipo: vf` con
-> `opciones_explicitas: ["Verdadero","Falso"]` innecesario —
-> normalizado.
 
 ---
 
