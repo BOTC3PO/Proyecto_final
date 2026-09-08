@@ -1,12 +1,6 @@
 # Biología — Biotecnología: PCR, ADN recombinante, CRISPR (cuestionario, 24 preguntas VBLang)
 
 > Temas: `BIOTEC1a/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 6 lotes concurrentes.
-> Corregido a mano. Bug de esta tanda: `respuesta: 2^{ciclos}` — las
-> llaves `{}` son sólo para interpolar texto en `enunciado`/`pasos`/
-> `explicacion`; en `respuesta:` (una expresión, no texto) van sin
-> llaves: `2^ciclos`.
 
 ---
 
@@ -138,7 +132,7 @@ variables:
   ciclos: uno_de([1, 2, 3, 4])
 
 respuesta: 2 ^ ciclos
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Partiendo de 1 copia de ADN, si la PCR duplica en cada ciclo, ¿cuántas copias hay después de {ciclos} ciclos?"
