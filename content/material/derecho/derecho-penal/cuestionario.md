@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -68,9 +68,6 @@ respuesta: "prevención y retribución"
 tipo: completar
 respuestas_validas:
   - "prevención y retribución"
-  - "castigo puro"
-  - "rehabilitación social"
-  - "represión"
 
 enunciado: "Tradicionalmente, la pena tiene como fines principales la ___."
 
@@ -268,7 +265,7 @@ variables:
 respuesta: verdadero
 tipo: "vf"
 
-enunciado: "En el marco del Derecho Penal, cuando se comete un {escenario[1]}, es el Estado quien ejerce el 'ius puniendi' para imponer la sanción, independientemente de la voluntad de la víctima."
+enunciado: "En el marco del Derecho Penal, cuando se comete un {escenario[0]}, es el Estado quien ejerce el 'ius puniendi' para imponer la sanción, independientemente de la voluntad de la víctima."
 
 explicacion: |
   El Estado tiene el monopolio del ejercicio de la fuerza y la potestad de sancionar (ius puniendi) para mantener el orden social.
@@ -364,11 +361,8 @@ metadata:
   nivel: "basico"
   tags: ["naturaleza", "derecho_civil"]
 
-variables:
-  es_penal: falso
-
-respuesta: es_penal
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "A diferencia del Derecho Civil, donde el incumplimiento de una obligación suele derivar en una indemnización, en el Derecho Penal el incumplimiento de una norma puede derivar en la privación de la libertad."
 
 explicacion: |
@@ -450,14 +444,13 @@ metadata:
   tags: ["principios", "legalidad"]
 
 variables:
-  datos: [["Juan comete una acción que no está tipificada en el código penal", "falso"], ["Juan comete una acción que está tipificada en el código penal", "verdadero"]]
+  textos: ["Juan comete una acción que no está tipificada en el código penal", "Juan comete una acción que está tipificada en el código penal"]
+  valores: [falso, verdadero]
   idx: uno_de([0, 1])
 
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "De acuerdo al principio de legalidad, si {datos[idx][0]}, ¿es posible que el Estado imponga una pena a Juan?"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "De acuerdo al principio de legalidad, si {textos[idx]}, ¿es posible que el Estado imponga una pena a Juan?"
 
 explicacion: |
   El principio de legalidad establece que no hay delito ni pena sin ley previa (*nullum crimen, nulla poena sine lege*). Si la conducta no está tipificada, no puede haber sanción.
@@ -542,14 +535,13 @@ metadata:
   tags: ["imputabilidad", "responsabilidad"]
 
 variables:
-  datos: [["Un menor de edad con plena capacidad de comprensión", "no es imputable"], ["Un adulto con plena capacidad de comprensión", "es imputable"]]
+  textos: ["Un menor de edad con plena capacidad de comprensión", "Un adulto con plena capacidad de comprensión"]
+  valores: [falso, verdadero]
   idx: uno_de([0, 1])
 
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Considerando el caso de {datos[idx][0]}, ¿se le puede atribuir responsabilidad penal bajo el concepto de imputabilidad?"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Considerando el caso de {textos[idx]}, ¿se le puede atribuir responsabilidad penal bajo el concepto de imputabilidad?"
 
 explicacion: |
   La imputabilidad es la capacidad de comprender la ilicitud del hecho. Si el sujeto carece de ella (como en menores según la legislación), no hay responsabilidad penal en el sentido estricto.
