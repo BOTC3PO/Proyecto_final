@@ -1,12 +1,6 @@
 # Biología — Ciclos biogeoquímicos (cuestionario, 24 preguntas VBLang)
 
 > Tema: `BI`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 6 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: `respuesta`/`opciones_explicitas`
-> entrecomilladas de más en un `vf`, y un lote entero con
-> `tema: "ciclo_del_nitrogeno"` en vez de `"ciclos_biogeoquimicos"`
-> (la carpeta cubre los 3 ciclos juntos) — normalizado.
 
 ---
 
