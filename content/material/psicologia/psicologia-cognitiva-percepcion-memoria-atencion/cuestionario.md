@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -97,18 +97,16 @@ metadata:
   nivel: "basico"
   tags: ["aprendizaje", "cambio"]
 
-variables:
-  escenario: uno_de([["Cambio en la conducta", "Cambio en la conducta"], ["Cambio en la estructura", "Cambio en la estructura"]])
-
-respuesta: escenario[0]
 tipo: mc
 
-opciones_explicitas: ["Cambio en la conducta", "Cambio en la estructura"]
+opciones_explicitas: ["Un cambio relativamente permanente en la conducta o las representaciones mentales como resultado de la experiencia", "Un cambio temporal debido a la fatiga o el estado de ánimo", "Una respuesta puramente refleja sin participación cognitiva", "Un proceso exclusivamente biológico sin relación con la experiencia"]
 
 pasos:
   - "Identificar la definición clásica de aprendizaje."
 
-enunciado: "En psicología cognitiva, el aprendizaje se define fundamentalmente como un {escenario[0]}."
+enunciado: "En psicología cognitiva, ¿cómo se define fundamentalmente el aprendizaje?"
+
+respuesta: "Un cambio relativamente permanente en la conducta o las representaciones mentales como resultado de la experiencia"
 
 explicacion: |
   El aprendizaje implica un cambio relativamente permanente en la conducta o en las representaciones mentales como resultado de la experiencia.
@@ -210,9 +208,9 @@ metadata:
 
 variables:
   tarea_idx: uno_de([0, 1])
-  escenarios: [["un número de teléfono que se repite mentalmente por 5 segundos", "sensorial"], ["el nombre de una persona que acabas de conocer y mantienes en mente brevemente", "sensorial"]]
+  escenarios: ["el reflejo visual que queda unos milisegundos tras ver un flash de luz", "el eco de un sonido que persiste apenas un instante después de escucharlo"]
 
-enunciado: "Un sujeto está realizando la siguiente acción: {escenarios[tarea_idx][0]}. Si el sujeto no presta atención a este estímulo, la información se pierde casi instantáneamente de la memoria ___."
+enunciado: "Un sujeto experimenta {escenarios[tarea_idx]}. Si el sujeto no presta atención a este estímulo, la información se pierde casi instantáneamente de la memoria ___."
 
 opciones_explicitas: ["sensorial", "a corto plazo", "a largo plazo", "semántica"]
 respuesta: "sensorial"
@@ -249,16 +247,12 @@ metadata:
   nivel: "intermedio"
   tags: ["memoria", "errores_comunes"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[0, "memoria_sensorial"], [1, "memoria_de_trabajo"]]
-
 opciones_explicitas: ["memoria_sensorial", "memoria_de_trabajo", "memoria_a_largo_plazo", "memoria_episodica"]
 
-respuesta: datos[escenario_idx][1]
+respuesta: "memoria_sensorial"
 tipo: mc
 
-enunciado: "Si una persona es capaz de retener una imagen visual por apenas unos milisegundos antes de que se desvanezca, está utilizando la {datos[escenario_idx][0]}."
+enunciado: "Si una persona es capaz de retener una imagen visual por apenas unos milisegundos antes de que se desvanezca, ¿qué tipo de memoria está utilizando?"
 
 explicacion: |
   La memoria sensorial es el sistema que retiene la información sensorial por un periodo muy breve (milisegundos) antes de que sea procesada o perdida.
@@ -353,15 +347,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["estudiar para un examen final", "recordar el número de teléfono de un amigo"], ["mantener la información activa para resolver un problema inmediato", "almacenar información de forma permanente para su recuperación futura"]]
+  escenarios: [["manteniendo activamente en mente el número de teléfono de un amigo mientras lo marca", "memoria de trabajo"], ["recordando el nombre de la capital de un país que aprendió hace años", "memoria a largo plazo"]]
 
 tipo: completar
 respuestas_validas:
   - "memoria de trabajo"
   - "memoria a largo plazo"
-respuesta: escenarios[escenario_idx][0]
+respuesta: escenarios[escenario_idx][1]
 
-enunciado: "Si una persona está {escenarios[escenario_idx][0]}, el proceso mental predominante que está utilizando para gestionar esa información temporalmente es la ___."
+enunciado: "Si una persona está {escenarios[escenario_idx][0]}, el proceso mental predominante que está utilizando para gestionar esa información es la ___."
 
 explicacion: |
   La memoria de trabajo es un sistema de capacidad limitada que mantiene y manipula la información necesaria para tareas cognitivas complejas en el momento presente.
@@ -454,21 +448,17 @@ metadata:
   nivel: "intermedio"
   tags: ["memoria", "carga_cognitiva"]
 
-variables:
-  datos: [["7", "7"], ["12", "12"], ["45", "45"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][0]
+respuesta: "7"
 tipo: completar
 respuestas_validas:
   - "7"
-  - "12"
-  - "45"
+  - "7 ± 2"
+  - "5 a 9"
 
-enunciado: "Si un sujeto debe retener el número ___ en su memoria de trabajo mientras realiza una tarea secundaria, el número de elementos es el límite de la capacidad de procesamiento inmediato."
+enunciado: "Según el 'número mágico' propuesto por Miller, la capacidad promedio de elementos que la memoria de trabajo puede retener simultáneamente es de ___ (más o menos 2)."
 
 explicacion: |
-  La memoria de trabajo tiene una capacidad limitada (el número mágico de Miller es 7 ± 2), pero el ejercicio pide el valor específico del escenario.
+  La memoria de trabajo tiene una capacidad limitada: el número mágico de Miller es 7 ± 2 elementos.
 ```
 
 ### 23 — Procesamiento Bottom-up vs Top-down
@@ -480,15 +470,12 @@ metadata:
   nivel: "avanzado"
   tags: ["percepcion", "procesamiento"]
 
-variables:
-  datos: [["reconocer una cara por sus rasgos físicos", "bottom_up"], ["interpretar una sombra como un animal por miedo", "top_down"]]
-  idx: uno_de([0,1])
-
+respuesta: "top_down"
 respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
+  - "top_down"
+  - "top-down"
 tipo: completar
-enunciado: "Si el sujeto está interpretando una sombra como un animal debido a sus expectativas o estados emocionales previos, el procesamiento es de tipo {datos[idx][1]}."
+enunciado: "Si el sujeto está interpretando una sombra como un animal debido a sus expectativas o estados emocionales previos, el procesamiento es de tipo ___."
 
 explicacion: |
   El procesamiento Top-down (de arriba hacia abajo) ocurre cuando los conocimientos previos, expectativas o motivaciones influyen en la percepción.
