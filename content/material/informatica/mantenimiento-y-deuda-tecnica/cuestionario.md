@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -48,7 +48,7 @@ respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["correctivo", "adaptativo", "evolutivo", "preventivo"]
 
-enunciado: "Se debe realizar un mantenimiento tipo {escenarios[escenario_idx][0]} cuando el objetivo es {escenarios[escenario_idx][0]}."
+enunciado: "Se debe realizar un mantenimiento tipo ___ cuando el objetivo es {escenarios[escenario_idx][0]}."
 
 explicacion: |
   El mantenimiento correctivo busca arreglar fallos; el adaptativo ajusta el software a nuevos entornos; el evolutivo añade funciones y el preventivo busca evitar fallos futuros.
@@ -123,12 +123,9 @@ metadata:
   nivel: "intermedio"
   tags: ["deuda_tecnica", "mantenimiento"]
 
-variables:
-  es_mantenimiento_preventivo: falso
-
-respuesta: es_mantenimiento_preventivo
-tipo: completar
-enunciado: "Si un equipo de desarrollo decide no refactorizar un módulo complejo para cumplir con una fecha de entrega, está acumulando deuda técnica. Esta acción, si no se paga pronto, aumenta el costo de mantenimiento futuro. ¿Es el refactorizado una forma de mantenimiento preventivo? {es_mantenimiento_preventivo}"
+respuesta: verdadero
+tipo: vf
+enunciado: "Si un equipo de desarrollo decide no refactorizar un módulo complejo para cumplir con una fecha de entrega, está acumulando deuda técnica. Esta acción, si no se paga pronto, aumenta el costo de mantenimiento futuro. ¿Es el refactorizado una forma de mantenimiento preventivo?"
 
 explicacion: |
   El refactorizado busca mejorar la estructura interna del código sin cambiar su comportamiento externo, lo cual es una actividad de mantenimiento preventivo para evitar la acumulación de deuda técnica.
@@ -197,10 +194,6 @@ respuestas_validas:
 
 explicacion: |
   El mantenimiento perfectivo se encarga de mejorar el rendimiento o la eficiencia de un software que ya funciona correctamente.
-  
-  Tabla de referencia:
-  [ ["correctivo", "correctivo"], ["evolutivo", "evolutivo"], ["adaptativo", "adaptativo"], ["perfectivo", "perfectivo"] ]
-  *Nota: El ejemplo usa el índice para validar la respuesta correcta según el enunciado de optimización.*
 ```
 
 ### 10 — El impacto de la deuda técnica
@@ -212,21 +205,15 @@ metadata:
   nivel: "avanzado"
   tags: ["deuda_tecnica", "costos"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-
 tipo: completar
 
-enunciado: "En el caso seleccionado, el equipo decide ignorar las pruebas unitarias para lanzar una versión hoy. Esto genera una deuda técnica que se traduce en ___."
+enunciado: "Un equipo decide ignorar las pruebas unitarias para lanzar una versión hoy. Esto genera una deuda técnica que se traduce en ___."
 
 respuestas_validas:
   - "intereses"
 
 explicacion: |
   La deuda técnica funciona como un préstamo financiero: el 'principal' es el tiempo ahorrado hoy, y los 'intereses' es el tiempo extra que se perderá mañana arreglando errores o lidiando con código complejo.
-
-  Tabla de referencia:
-  [["intereses", "intereses"], ["intereses", "intereses"]]
 ```
 
 ### 11 — Mantenimiento Adaptativo
@@ -283,7 +270,7 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "gestion_de_proyectos"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "La deuda técnica es siempre un error de programación que debe evitarse a toda costa desde el primer día del proyecto."
@@ -343,14 +330,11 @@ metadata:
   nivel: "intermedio"
   tags: ["mantenibilidad", "calidad_software"]
 
-variables:
-  impacto: uno_de(["bajo", "medio", "alto"])
-
-respuesta: impacto
+respuesta: "alto"
 tipo: mc
 opciones_explicitas: ["bajo", "medio", "alto"]
 
-enunciado: "Si un módulo tiene una alta complejidad ciclomática y falta de documentación, el esfuerzo requerido para realizar mantenimiento sobre él será {impacto}."
+enunciado: "Si un módulo tiene una alta complejidad ciclomática y falta de documentación, el esfuerzo requerido para realizar mantenimiento sobre él será ___."
 
 explicacion: |
   La falta de estándares y la complejidad excesiva aumentan la carga cognitiva de los desarrolladores, elevando el esfuerzo de mantenimiento.
@@ -516,13 +500,10 @@ metadata:
   nivel: "intermedio"
   tags: ["costo", "deuda_tecnica"]
 
-variables:
-  impacto: uno_de([["Aumentar", "false"], ["Disminuir", "true"]])
-
-enunciado: "A medida que la deuda técnica en un proyecto de software aumenta, el costo de implementar nuevos cambios tiende a {impacto[0]}."
+enunciado: "A medida que la deuda técnica en un proyecto de software aumenta, el costo de implementar nuevos cambios tiende a ___."
 
 opciones_explicitas: ["Aumentar", "Disminuir"]
-respuesta: impacto[0]
+respuesta: "Aumentar"
 tipo: mc
 
 explicacion: |
@@ -559,10 +540,6 @@ metadata:
   tema: "mantenimiento_y_deuda_tecnica"
   nivel: "basico"
   tags: ["calidad", "mantenimiento"]
-
-variables:
-  estandar: uno_de([["El código sigue las convenciones de estilo y es fácil de leer.", "verdadero"], ["El código funciona pero tiene múltiples funciones de 500 líneas sin comentarios.", "falso"]])
-  idx: uno_de([0, 1])
 
 enunciado: "Si un software tiene un alto nivel de deuda técnica, es ___ que su código sea fácil de mantener a largo plazo."
 
