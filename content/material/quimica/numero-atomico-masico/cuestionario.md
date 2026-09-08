@@ -1,12 +1,6 @@
 # Química — Número atómico y másico (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QD`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bug de esta tanda: **la mitad de un lote salió sin el campo
-> `respuesta:` del todo** (dejaba `explicacion`/`respuestas_validas`
-> pero nunca el campo obligatorio) — hay que revisar siempre que
-> `respuesta:` exista, no sólo que sea correcta.
 
 ---
 
@@ -119,7 +113,7 @@ variables:
   masico: protones + neutrones
 
 respuesta: neutrones
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo tiene un número atómico (Z) de {protones} y un número másico (A) de {masico}. ¿Cuántos neutrones tiene?"
@@ -143,7 +137,7 @@ variables:
   masico: protones + neutrones
 
 respuesta: masico
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo tiene {protones} protones y {neutrones} neutrones. ¿Cuál es su número másico (A)?"
@@ -167,7 +161,7 @@ variables:
   masico: protones + neutrones
 
 respuesta: protones
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo tiene un número másico (A) de {masico} y contiene {neutrones} neutrones. ¿Cuál es su número atómico (Z)?"
@@ -248,7 +242,7 @@ variables:
   N: random(0, 20)
 
 respuesta: Z + N
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo tiene {Z} protones y {N} neutrones. ¿Cuál es su número másico (A)?"
@@ -327,7 +321,7 @@ variables:
   protones: random(1, 30)
 
 respuesta: protones
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Dado un átomo neutro con {protones} protones, ¿cuántos electrones tiene?"
