@@ -1,21 +1,6 @@
 # Biología — Enzimas: proteína, sustrato, temperatura y pH (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BENZa/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); una
-> pregunta con `respuesta:` en forma de array para dos blancos —
-> recortada a un solo blanco; un `enunciado` con una expresión
-> condicional estilo Python (`{x if escenario == 'y' else z}`) dentro
-> de la interpolación — no existe en el DSL, reescrita con la tabla
-> `[escenario, dato, respuesta]` indexada por `uno_de`, mismo patrón
-> que el resto del mapa; una pregunta cuya `respuesta:` era un número
-> sin comillas que no coincidía con ninguna `opciones_explicitas`
-> (`respuesta: 1` contra opciones tipo `"40°C"`) — corregida al string
-> real; un bloque `tipo: input` (tipo no confirmado en el DSL) —
-> normalizado a `completar`; `metadata.tema` con un typo
-> (`enzimas_protein_sustrato_ph`) — corregido.
 
 ---
 
