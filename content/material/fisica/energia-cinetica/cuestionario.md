@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -202,7 +202,7 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion", "proporcionalidad"]
 
-respuesta: "se cuadruplica"
+respuesta: "se duplica"
 tipo: mc
 opciones_explicitas: ["se duplica", "se cuadruplica", "se mantiene igual", "se reduce a la mitad"]
 
@@ -348,13 +348,13 @@ metadata:
   tags: ["errores_comunes", "proporcionalidad"]
 
 opciones_explicitas: ["Se duplica", "Se cuadruplica", "Se mantiene igual", "Se reduce a la mitad"]
-respuesta: "Se cuadruplica"
+respuesta: "Se duplica"
 tipo: mc
 
-enunciado: "Un error común es pensar que si la masa de un objeto se duplica, su energía cinética también se duplica. Sin embargo, si la masa se duplica y la velocidad se mantiene constante, la energía cinética real se: ___"
+enunciado: "Un error común es pensar que si la masa de un objeto se duplica, su energía cinética se cuadruplica (confundiendo esta relación con la de la velocidad). Si la masa se duplica y la velocidad se mantiene constante, la energía cinética real se: ___"
 
 explicacion: |
-  La energía cinética es directamente proporcional a la masa ($E_c \propto m$). Si la masa se duplica, la energía cinética también se duplica. El error común suele ser confundir la relación de la masa con la de la velocidad.
+  La energía cinética es directamente proporcional a la masa ($E_c \propto m$). Si la masa se duplica, la energía cinética también se duplica. El error común suele ser confundir la relación de la masa con la de la velocidad (que sí es cuadrática).
 ```
 
 ### 16 — Energía cinética y reposo
@@ -540,7 +540,7 @@ metadata:
   tags: ["mecanica", "cinetica"]
 
 variables:
-  datos: [[1200, 1500], [800, 400], [1500, 900]]
+  datos: [[1200, 25], [800, 20], [1500, 15]]
   idx: uno_de([0, 1, 2])
   m: datos[idx][0]
   v: datos[idx][1]
@@ -600,7 +600,7 @@ metadata:
   tags: ["velocidad", "seguridad_vial"]
 
 variables:
-  datos: [["20", "40"], ["30", "90"], ["10", "20"]]
+  datos: [["20", "40"], ["30", "60"], ["10", "20"]]
   idx: uno_de([0, 1, 2])
   v1: datos[idx][0]
   v2: datos[idx][1]
@@ -626,7 +626,7 @@ metadata:
   tags: ["despeje", "velocidad"]
 
 variables:
-  datos: [["100", "10", "10"], ["500", "20", "20"], ["80", "20", "20"]]
+  datos: [[500, 10, 10], [1000, 5, 20], [100, 8, 5]]
   idx: uno_de([0, 1, 2])
   ec: datos[idx][0]
   m: datos[idx][1]
@@ -634,6 +634,7 @@ variables:
 
 respuesta: v
 tipo: completar
+tolerancia_abs: 0.01
 
 enunciado: "Un objeto de {m} kg posee una energía cinética de {ec} J. La velocidad del objeto es de ___ m/s."
 
