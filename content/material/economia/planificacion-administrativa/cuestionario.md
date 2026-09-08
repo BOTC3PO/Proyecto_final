@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,13 +39,12 @@ metadata:
   nivel: "basico"
   tags: ["elementos", "objetivos"]
 
+respuesta: "objetivos"
 tipo: completar
 respuestas_validas:
   - "objetivos"
-  - "estrategias"
-  - "recursos"
 
-enunciado: "Para que una planificación sea efectiva, debe definir claramente los ___________ que se desean alcanzar, las ___________ para lograrlos y los ___________ necesarios para llevar a cabo las acciones."
+enunciado: "Para que una planificación sea efectiva, debe definir claramente los ___________ que se desean alcanzar, así como las estrategias para lograrlos y los recursos necesarios para llevar a cabo las acciones."
 
 explicacion: |
   La planificación requiere de objetivos (el qué), estrategias (el cómo) y recursos (con qué).
@@ -105,8 +104,10 @@ variables:
   horizonte: datos[idx][1]
 
 tipo: completar
-respuesta: "___"
-enunciado: "La planificación que se realiza a nivel de alta dirección, enfocándose en la organización como un todo y con un horizonte de {horizonte}, es la planificación {tipo_planificacion}."
+respuesta: tipo_planificacion
+respuestas_validas:
+  - tipo_planificacion
+enunciado: "La planificación que se realiza a nivel de alta dirección, enfocándose en la organización como un todo y con un horizonte de {horizonte}, es la planificación ___."
 explicacion: |
   La planificación estratégica es global y de largo plazo, mientras que la operativa es específica y de corto plazo.
 ```
@@ -141,14 +142,11 @@ metadata:
   nivel: "intermedio"
   tags: ["toma_de_decisiones", "estrategia"]
 
-variables:
-  escenario: uno_de([["Abrir una sucursal en otra ciudad", "aumentar costos fijos", "crecer mercado"], ["Lanzar un producto digital", "reducir costos de envío", "expandir alcance"]])
-
-respuesta: escenario[1]
+respuesta: "aumentar costos fijos"
 tipo: mc
 opciones_explicitas: ["aumentar costos fijos", "reducir costos de envío", "maximizar beneficios", "reducir personal"]
 
-enunciado: "Una empresa decide expandirse mediante la apertura de una nueva sucursal física. Según la planificación estratégica, esta acción implica principalmente: {escenario[0]}."
+enunciado: "Una empresa decide expandirse mediante la apertura de una nueva sucursal física. Según la planificación estratégica, esta acción implica principalmente: ___"
 
 explicacion: |
   Al abrir una sucursal física, la empresa está planificando un crecimiento que conlleva un aumento en sus costos fijos (alquiler, servicios, salarios fijos), como se indica en la opción seleccionada.
@@ -311,11 +309,11 @@ metadata:
   tags: ["incertidumbre", "riesgo"]
 
 variables:
-  caso: uno_de([[0.85, "alta"], [0.40, "baja"], [0.10, "nula"]])
+  caso: uno_de([[0.90, "baja"], [0.50, "moderada"], [0.15, "alta"]])
 
 respuesta: caso[1]
 tipo: mc
-opciones_explicitas: ["alta", "baja", "nula"]
+opciones_explicitas: ["alta", "baja", "moderada"]
 
 enunciado: "Si una empresa planifica basándose en un entorno con una probabilidad de éxito del {caso[0]}, la incertidumbre asociada a su planificación es ___."
 
@@ -434,11 +432,7 @@ metadata:
   nivel: "basico"
   tags: ["gestion", "procesos"]
 
-variables:
-  datos: [["establecer_objetivos", "definir_metas"], ["asignar_recursos", "distribuir_insumos"], ["determinar_plazos", "fijar_tiempos"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "definir_metas"
 tipo: mc
 opciones_explicitas: ["definir_metas", "distribuir_insumos", "fijar_tiempos", "evaluar_desempeño"]
 
@@ -521,14 +515,14 @@ metadata:
   tags: ["tiempo", "cronograma"]
 
 variables:
-  datos: [["corto_plazo", "1 año"], ["mediano_plazo", "3 años"], ["largo_plazo", "5 años"]]
+  datos: [["corto plazo", "1 año"], ["mediano plazo", "3 años"], ["largo plazo", "5 años"]]
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["1 año", "3 años", "5 años", "10 años"]
 
-enunciado: "Si una empresa está realizando una planificación de ___, su horizonte temporal suele ser de ___."
+enunciado: "Si una empresa está realizando una planificación de {datos[idx][0]}, su horizonte temporal suele ser de ___."
 
 explicacion: |
   El horizonte temporal define si la planificación es operativa (corto), táctica (mediano) o estratégica (largo).
