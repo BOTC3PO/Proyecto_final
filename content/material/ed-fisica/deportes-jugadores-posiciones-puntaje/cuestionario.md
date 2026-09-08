@@ -1,17 +1,6 @@
 # Ed. Física — Deportes: jugadores, posiciones y sistema de puntaje (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF7`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: `tipo: input` (tipo no
-> confirmado en el DSL) — normalizado a `completar`; varias preguntas
-> de blank `___` etiquetadas `tipo: vf` (reclasificadas); una pregunta
-> con `variables:`/`uno_de` sorteando 3 posiciones pero el `enunciado`
-> preguntaba fijo por "arquero" (desincronizado del sorteo, la
-> respuesta podía salir "Delantero" para una pregunta sobre el arco)
-> — corregida a respuesta fija; una pregunta con dos blancos donde el
-> segundo dato (nombre de la jugada) nunca se interpolaba en el
-> `enunciado` — reescrita con un solo blanco.
 
 ---
 
