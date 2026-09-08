@@ -1,19 +1,6 @@
 # Biología — Selección natural: mecanismo y evidencias (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BL`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: una interpolación `{uno_de(...)}`
-> llamada inline dentro del `enunciado` (no permitido, debe declararse
-> en `variables:`); `tipo: "vf"` mal aplicado a 5 preguntas que en
-> realidad eran `completar` (usaban `respuestas_validas` y un blank
-> `___`, no una afirmación V/F) — reclasificadas; `respuestas_validas`
-> con el mismo valor duplicado dos veces; un `tipo: ordenar` con 4
-> opciones en `opciones_explicitas` pero sólo 3 en la respuesta —
-> recortado a 3; una `variables:` sorteando una pareja
-> [evento, etiqueta] donde la etiqueta no encajaba como texto de blank
-> — simplificada a respuesta fija; `tipo: "vf"` y `respuesta: "falso"`
-> entrecomillados (deben ir sin comillas) — normalizado.
 
 ---
 
