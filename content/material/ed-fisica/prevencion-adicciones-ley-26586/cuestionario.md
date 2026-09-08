@@ -1,16 +1,6 @@
 # Ed. Física — Prevención de adicciones: consumos problemáticos (Ley 26.586) (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF12`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); una
-> pregunta `tipo: vf` cuya `respuesta: "Verdadero"` contradecía tanto
-> el enunciado (una afirmación falsa) como la propia `explicacion:`
-> ("Falso...") — corregida a `falso`; dos preguntas con `variables:`
-> declaradas pero nunca interpoladas en el `enunciado` (decorativas,
-> sin efecto) — removidas; una pregunta con `respuesta:` en forma de
-> array para dos blancos — recortada a un solo blanco.
 
 ---
 
