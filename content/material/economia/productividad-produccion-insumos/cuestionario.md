@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,15 +40,11 @@ metadata:
   nivel: "basico"
   tags: ["insumos", "factores_produccion"]
 
-variables:
-  datos: [["Materia prima", "Insumo"], ["Precio de venta", "Insumo"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "Insumo"
 tipo: mc
 opciones_explicitas: ["Materia prima", "Precio de venta", "Insumo", "Demanda"]
 
-enunciado: "De acuerdo a la definición de productividad, el factor utilizado en el proceso de transformación es un ___."
+enunciado: "De acuerdo a la definición de productividad, el factor utilizado en el proceso de transformación (como la materia prima) es un ___."
 
 explicacion: |
   Los insumos son todos aquellos elementos (materiales, energía, tiempo) que se consumen o utilizan en el proceso productivo.
@@ -62,9 +58,6 @@ metadata:
   tema: "productividad_produccion_insumos"
   nivel: "intermedio"
   tags: ["eficiencia", "calculo"]
-
-variables:
-  escenario: uno_de([0, 1])
 
 respuesta: verdadero
 tipo: vf
@@ -164,7 +157,7 @@ opciones_explicitas: ["4", "5", "6", "7"]
 enunciado: "Si el Caso A tiene una productividad de {resultado_a}, y el Caso B tiene una producción de 200 unidades con 40 unidades de insumo, ¿cuál es la productividad del Caso B?"
 
 explicacion: |
-  Para el Caso B: 200 / 40 = 5. Ambos casos presentan la misma productividad.
+  Para el Caso B: 200 / 40 = 5, independientemente de la productividad del Caso A.
 ```
 
 ### 8 — Factores que afectan la Productividad
@@ -236,11 +229,10 @@ metadata:
   nivel: "basico"
   tags: ["conceptos_clave", "eficiencia"]
 
-variables:
-  es_eficiente: verdadero
-
-respuesta: verdadero
-tipo: vf
+respuesta: "ineficiente"
+tipo: completar
+respuestas_validas:
+  - "ineficiente"
 
 enunciado: "Si una empresa aumenta su producción total pero su productividad (producción por unidad de insumo) disminuye, significa que la empresa es más ___."
 
@@ -273,7 +265,7 @@ opciones_explicitas: [10, 12, 9, 15]
 enunciado: "Una empresa tiene una producción de {produccion} unidades usando {insumo} unidades de insumo. Si al agregar una unidad de insumo la producción total sube a {produccion + prod_marginal}, la productividad marginal es ___."
 
 explicacion: |
-  La productividad marginal es el cambio en la producción total resultante de añadir una unidad adicional de insumo. En el tercer caso del escenario, la producción pasó de 120 a 135 (un aumento de 15), pero si analizamos el cambio específico del último paso: 135 - 120 = 15. (Nota: El ejemplo se ajusta para mostrar la diferencia entre producción total y marginal).
+  La productividad marginal es el cambio en la producción total resultante de añadir una unidad adicional de insumo: {produccion + prod_marginal} - {produccion} = {prod_marginal}.
 ```
 
 ### 13 — Relación Insumo-Producto
@@ -291,12 +283,9 @@ variables:
   i_total: datos[1]
   prod_media: datos[0] / datos[1]
 
-respuesta: "10"
+respuesta: prod_media
 tipo: completar
-respuestas_validas:
-  - "10"
-  - "10.0"
-  - "10.00"
+tolerancia_abs: 0.01
 
 enunciado: "Si una fábrica produce {p_total} unidades utilizando {i_total} unidades de materia prima, la productividad media es ___."
 
@@ -313,11 +302,11 @@ metadata:
   nivel: "intermedio"
   tags: ["productividad_marginal", "rendimientos"]
 
-variables:
-  estado: uno_de([[verdadero, "Aumenta"], [falso, "Disminuye"]])
-
-respuesta: estado[0]
+respuesta: "Disminuye"
 tipo: completar
+respuestas_validas:
+  - "Disminuye"
+
 enunciado: "Según la ley de los rendimientos decrecientes, al añadir más de un factor variable (como trabajo) manteniendo los demás constantes, la productividad marginal eventualmente ___."
 
 explicacion: |
@@ -375,16 +364,11 @@ metadata:
   nivel: "intermedio"
   tags: ["insumos", "teoria_produccion"]
 
-variables:
-  escenarios: [["Aumento de capital", "Mejora de tecnología", "Mejora de capacitación"], ["Aumento de insumos", "Mejora de tecnología", "Mejora de capacitación"]]
-  escenario_idx: uno_de([0, 1])
-  respuesta_correcta: escenarios[escenario_idx][1]
-
 tipo: mc
 opciones_explicitas: ["Aumento de insumos", "Mejora de tecnología", "Mejora de capacitación"]
-respuesta: respuesta_correcta
+respuesta: "Mejora de tecnología"
 
-enunciado: "Si una empresa logra producir lo mismo que el periodo anterior pero utilizando menos materia prima gracias a la implementación de maquinaria automatizada, estamos ante un caso de: {respuesta_correcta}."
+enunciado: "Si una empresa logra producir lo mismo que el periodo anterior pero utilizando menos materia prima gracias a la implementación de maquinaria automatizada, ¿ante qué caso estamos?"
 
 pasos:
   - "Identificar el cambio en la relación output/input."
@@ -421,16 +405,11 @@ metadata:
   nivel: "intermedio"
   tags: ["ley_rendimientos_decrecientes"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["La producción se mantiene constante a pesar de sumar más trabajadores", "La producción aumenta a un ritmo decreciente al sumar más trabajadores"], ["La producción se mantiene constante a pesar de sumar más trabajadores", "La producción aumenta a un ritmo decreciente al sumar más trabajadores"]]
-  respuestas: ["Ley de rendimientos constantes", "Ley de rendimientos decrecientes"]
-
-respuesta: respuestas[caso_idx]
+respuesta: "Ley de rendimientos decrecientes"
 tipo: "mc"
 opciones_explicitas: ["Ley de rendimientos constantes", "Ley de rendimientos decrecientes"]
 
-enunciado: "Cuando la adición de una unidad de insumo variable (como trabajo) produce un incremento en la producción total cada vez menor, estamos observando la: {casos[caso_idx][1]}."
+enunciado: "Cuando la adición de una unidad de insumo variable (como trabajo) produce un incremento en la producción total cada vez menor, ¿qué ley estamos observando?"
 
 explicacion: |
   La ley de rendimientos decrecientes indica que, en el corto plazo, añadir más de un factor variable a un factor fijo eventualmente reduce la productividad marginal.
@@ -569,21 +548,12 @@ metadata:
   nivel: "intermedio"
   tags: ["ordenar"]
 
-variables:
-  casos: [["P: 10, I: 2", "P: 20, I: 5", "P: 30, I: 10"], ["P: 100, I: 10", "P: 100, I: 5", "P: 100, I: 2"], ["P: 5, I: 1", "P: 15, I: 3", "P: 45, I: 9"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta_orden: ["P: 10, I: 2", "P: 20, I: 5", "P: 30, I: 10"]
+respuesta_orden: ["P: 30, I: 10", "P: 20, I: 5", "P: 10, I: 2"]
 tipo: ordenar
 opciones_explicitas: ["P: 10, I: 2", "P: 20, I: 5", "P: 30, I: 10"]
 
 enunciado: "Ordene los siguientes casos de producción según su productividad, de MENOR a MAYOR productividad."
 
 explicacion: |
-  Para ordenar debemos calcular la relación P/I de cada elemento:
-  Caso 1: 10/2=5, 20/5=4, 30/10=3 (Orden descendente si se pide de menor a mayor: 3, 4, 5)
-  Caso 2: 100/10=10, 100/5=20, 100/2=50 (Orden: 10, 20, 50)
-  Caso 3: 5/1=5, 15/3=5, 45/9=5 (Son iguales)
-  
-  Nota: El usuario debe identificar el orden correcto basado en los valores calculados.
+  Calculando la relación P/I de cada caso: 30/10=3, 20/5=4, 10/2=5. De menor a mayor productividad: 3, 4, 5.
 ```
