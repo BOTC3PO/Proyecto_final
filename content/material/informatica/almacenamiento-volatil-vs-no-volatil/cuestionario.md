@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -21,11 +21,11 @@ metadata:
   tags: ["memoria", "hardware", "conceptos"]
 
 tipo: mc
-opciones_explicitas: ["Memoria volátil", "Memoria no volátil", "Procesador", "Bus de datos"]
+opciones_explicitas: ["energía eléctrica", "datos", "programas", "espacio en disco"]
 
 enunciado: "La característica que define a una memoria como 'volátil' es que su contenido se pierde cuando se corta el suministro de ___."
 
-respuesta: "Memoria volátil"
+respuesta: "energía eléctrica"
 
 explicacion: |
   La memoria volátil (como la RAM) requiere energía eléctrica constante para mantener almacenada la información. Sin energía, los datos se borran.
@@ -41,16 +41,17 @@ metadata:
   tags: ["ram", "disco_duro"]
 
 variables:
-  escenario: uno_de([["RAM", "SSD"], ["ROM", "HDD"], ["Cache", "Pendrive"]])
-  es_volatil: uno_de([verdadero, falso])
+  nombres: ["RAM", "ROM", "Caché", "Disco SSD", "Pendrive"]
+  valores: [verdadero, falso, verdadero, falso, falso]
+  idx: uno_de([0, 1, 2, 3, 4])
 
 tipo: vf
-enunciado: "Si el componente es {escenario[0]}, ¿se considera que es una memoria volátil?"
+enunciado: "Si el componente es {nombres[idx]}, ¿se considera que es una memoria volátil?"
 
-respuesta: es_volatil
+respuesta: valores[idx]
 
 explicacion: |
-  En el caso de {escenario[0]}, la respuesta es verdadero porque la {escenario[0]} es volátil.
+  La RAM y la memoria caché son volátiles: pierden su contenido sin energía. La ROM, el disco SSD y el pendrive son no volátiles: conservan los datos aunque se corte la energía.
 ```
 
 ### 3 — Clasificación de dispositivos
@@ -63,7 +64,7 @@ metadata:
   tags: ["clasificacion", "hardware"]
 
 tipo: mc
-opciones_explicitas: ["Disco Duro (HDD)", "Memoria RAM", "Memoria Caché", "Memoria ROM"]
+opciones_explicitas: ["Disco Duro (HDD)", "Memoria RAM", "Memoria Caché", "Registros del procesador"]
 
 enunciado: "¿Cuál de los siguientes dispositivos es un ejemplo de almacenamiento NO volátil?"
 
@@ -409,7 +410,7 @@ respuestas_validas:
 enunciado: "La capacidad de un medio de almacenamiento para mantener la información sin necesidad de suministro eléctrico se denomina ___."
 
 explicacion: |
-  La ___ es la característica que define a los medios no volátiles como los SSD o los discos duros.
+  La persistencia es la característica que define a los medios no volátiles como los SSD o los discos duros.
 ```
 
 ### 20 — Comparativa de velocidad y uso
@@ -484,7 +485,7 @@ metadata:
   tags: ["clasificacion", "hardware"]
 
 variables:
-  item: uno_de([["Memoria RAM", "volatil"], ["Disco Duro (HDD)", "no_volatil"], ["Memoria Flash (USB)", "no_volatil"], ["Memoria Caché", "volatil"]])
+  item: uno_de([["Memoria RAM", "volátil"], ["Disco Duro (HDD)", "no volátil"], ["Memoria Flash (USB)", "no volátil"], ["Memoria Caché", "volátil"]])
 
 tipo: completar
 respuesta: item[1]
@@ -534,8 +535,8 @@ respuesta: accion[1]
 tipo: mc
 opciones_explicitas: ["volátil", "no volátil"]
 
-enunciado: "Cuando realizas la acción de '{accion[0]}', los datos se trasladan de un medio de almacenamiento ___________ a uno de trabajo ___________."
+enunciado: "Cuando realizas la acción de '{accion[0]}', el destino final donde quedan los datos es un medio ___________."
 
 explicacion: |
-  Al guardar, los datos pasan de la memoria no volátil (disco) a la volátil (RAM) para que el procesador pueda trabajar con ellos.
+  Al guardar un archivo, los datos pasan de la memoria volátil (RAM) al almacenamiento no volátil (disco), donde quedan grabados de forma permanente. Al abrir un programa, ocurre lo contrario: los datos se cargan desde el disco (no volátil) hacia la RAM (volátil) para que el procesador pueda trabajar con ellos.
 ```
