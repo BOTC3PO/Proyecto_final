@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -100,8 +100,8 @@ metadata:
   nivel: "intermedio"
   tags: ["limitaciones", "ética"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "¿Es una mala práctica de comunicación omitir las limitaciones encontradas en el estudio para que la investigación parezca más sólida?"
 
 explicacion: |
@@ -132,10 +132,7 @@ metadata:
   nivel: "intermedio"
   tags: ["comunicacion", "revision"]
 
-variables:
-  escenario: uno_de([["El investigador escribe el artículo y lo envía directamente a la revista sin revisión previa.", "error"], ["El investigador envía el artículo a un colega para una revisión por pares informal antes de la revista.", "acierto"], ["El investigador publica los resultados en un blog personal sin pasar por revisión científica.", "error"]])
-
-enunciado: "En el proceso de comunicación científica, el paso que describe una práctica recomendada para mejorar la calidad del manuscrito antes de la sumisión formal es: {escenario[0]}"
+enunciado: "En el proceso de comunicación científica, ¿cuál de las siguientes prácticas es recomendada para mejorar la calidad del manuscrito antes de la sumisión formal?"
 
 respuesta: "El investigador envía el artículo a un colega para una revisión por pares informal antes de la revista."
 tipo: mc
@@ -154,8 +151,8 @@ metadata:
 enunciado: "Para asegurar una comunicación efectiva de un nuevo descubrimiento científico, se deben seguir estos pasos en orden lógico:"
 
 pasos:
-  - "Redactar el manuscrito siguiendo las normas de la revista elegida."
   - "Realizar el análisis exhaustivo de los datos obtenidos."
+  - "Redactar el manuscrito siguiendo las normas de la revista elegida."
   - "Enviar el manuscrito a la editorial para la revisión por pares."
   - "Presentar los resultados en un congreso para recibir feedback."
 
@@ -331,11 +328,8 @@ metadata:
   nivel: "basico"
   tags: ["comunicacion", "estructura"]
 
-variables:
-  es_resumen_en_conclusio: falso
-
-respuesta: es_resumen_en_conclusio
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "En un artículo científico, la sección de conclusiones debe ser una mera repetición del texto del resumen (abstract) sin aportar una síntesis interpretativa de los hallazgos."
 
 explicacion: |
@@ -371,11 +365,10 @@ metadata:
   nivel: "basico"
   tags: ["metodologia"]
 
-respuesta: ["se_confirma_o_rechaza", "se_plantea_al_inicio"]
+respuesta: "se_confirma_o_rechaza"
 tipo: completar
 respuestas_validas:
   - "se_confirma_o_rechaza"
-  - "se_plantea_al_inicio"
 
 enunciado: "Si la hipótesis es la proposición que se intenta verificar al inicio de la investigación, la conclusión es el espacio donde la hipótesis ___."
 
@@ -439,7 +432,7 @@ metadata:
   nivel: "basico"
   tags: ["etica", "comunicacion"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "En la comunicación de resultados, es éticamente aceptable omitir datos que contradicen la hipótesis principal para asegurar que la conclusión sea contundente."
@@ -510,7 +503,7 @@ respuesta: datos[idx][0]
 tipo: mc
 opciones_explicitas: ["un congreso científico", "una red social personal", "una revista indexada", "un blog de opinión"]
 
-enunciado: "Si el objetivo es la difusión académica formal de los resultados de una investigación, el medio más apropiado es {datos[idx][1]}."
+enunciado: "Si el objetivo es la difusión académica formal de los resultados de una investigación, el medio más apropiado es ___."
 
 explicacion: |
   Para la comunicación científica formal, se requieren canales con revisión por pares (peer-review) como revistas indexadas o presentaciones en congresos especializados.
