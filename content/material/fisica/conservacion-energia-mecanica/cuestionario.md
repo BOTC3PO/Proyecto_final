@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -241,13 +241,13 @@ metadata:
   nivel: "intermedio"
   tags: ["error", "relacion"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Si duplicamos la masa de un objeto, su energía cinética se duplica para una misma velocidad."
 
 explicacion: |
-  Verdadero. $E_c = 0.5 \cdot m \cdot v^2$, por lo tanto es directamente proporcional a la masa. (Nota: El usuario debe saber que es verdadero).
+  Verdadero. $E_c = 0.5 \cdot m \cdot v^2$, por lo tanto es directamente proporcional a la masa.
 ```
 
 ### 12 — Comparación de energías
