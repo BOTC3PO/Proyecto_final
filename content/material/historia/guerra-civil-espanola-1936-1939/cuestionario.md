@@ -1,6 +1,6 @@
 # Historia — guerra civil espanola 1936 1939 (cuestionario, 26 preguntas VBLang)
 
-> Tema: `historia/guerra-civil-espanola-1936-1939`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `historia/guerra-civil-espanola-1936-1939`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -502,7 +502,7 @@ variables:
 respuesta: "luchas por el poder"
 tipo: input
 
-enunciado: "El estallido del conflicto fue resultado de décadas de qué fenómeno?"
+enunciado: "¿De qué fenómeno fueron resultado las décadas de tensión que precedieron al estallido del conflicto?"
 
 explicacion: |
   Décadas de luchas por el poder y la identidad nacional precedieron al estallido.
@@ -544,7 +544,7 @@ variables:
 respuesta: "punto de inflexión"
 tipo: input
 
-enunciado: "La Guerra Civil Española marcó un qué crucial en la historia del siglo XX?"
+enunciado: "¿Qué representó la Guerra Civil Española en la historia del siglo XX?"
 
 explicacion: |
   Fue un punto de inflexión que prefiguró los conflictos ideológicos de la Segunda Guerra Mundial.
