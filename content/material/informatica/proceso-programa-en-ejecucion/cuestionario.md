@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -100,7 +100,7 @@ metadata:
   nivel: "basico"
   tags: ["sistemas_operativos"]
 
-respuesta: 2
+respuesta: 3
 tipo: completar
 tolerancia_abs: 0
 
@@ -111,10 +111,7 @@ pasos:
   - "Relacionar cada instancia con un proceso distinto."
 
 explicacion: |
-  Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y estado, aunque el código base (el programa) sea el mismo. Por lo tanto, hay 2 procesos (en este ejemplo hipotético de 2 instancias, pero el usuario preguntó por 3, corregimos lógica: el usuario preguntó por 3, la respuesta debe ser 3). 
-
-# Corrigiendo para que la lógica sea coherente con la pregunta:
-# Si la pregunta dice "tres instancias", la respuesta debe ser 3.
+  Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y estado, aunque el código base (el programa) sea el mismo. Por lo tanto, con tres instancias hay 3 procesos.
 ```
 
 ### 6 — Relación de cardinalidad
@@ -164,7 +161,7 @@ metadata:
   nivel: "basico"
   tags: ["diferencias"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "Si abro dos instancias diferentes del mismo navegador web (por ejemplo, dos ventanas independientes), estoy ejecutando dos procesos distintos que comparten el mismo código de programa original."
@@ -228,15 +225,11 @@ metadata:
   nivel: "avanzado"
   tags: ["gestion_recursos"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["gestionar_recursos", "controlar_ejecucion"], ["gestionar_recursos", "modificar_el_codigo"]]
-
-respuesta: casos[caso_idx][1]
+respuesta: "controlar_ejecucion"
 tipo: "mc"
 opciones_explicitas: ["gestionar_recursos", "controlar_ejecucion", "modificar_el_codigo", "eliminar_el_archivo"]
 
-enunciado: "Cuando un programa se convierte en proceso, el Sistema Operativo asume la tarea de {casos[caso_idx][0]} para asegurar que el proceso pueda realizar su función sin interferir con otros."
+enunciado: "Cuando un programa se convierte en proceso, el Sistema Operativo asume la tarea de gestionar_recursos para asegurar que el proceso pueda realizar su función sin interferir con otros. Además, ¿qué otra tarea clave realiza el SO sobre el proceso?"
 
 explicacion: |
   El SO actúa como un administrador que asigna tiempo de CPU y memoria (gestiona recursos) y decide cuándo un proceso puede estar en la CPU (controla la ejecución).
@@ -288,10 +281,6 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "memoria"]
 
-variables:
-  escenario: uno_de([[0, "Contador de instrucciones"], [1, "Espacio de direcciones"], [2, "Estado del proceso"]])
-  respuesta_correcta: escenario[1]
-
 tipo: completar
 respuesta: "Contador de instrucciones"
 
@@ -329,15 +318,12 @@ metadata:
   nivel: "avanzado"
   tags: ["memoria", "ejecucion"]
 
-variables:
-  caso: uno_de([[0, "estático"], [1, "dinámico"]])
-
 tipo: completar
+respuesta: "dinámico"
 respuestas_validas:
-  - "estático"
   - "dinámico"
 
-enunciado: "Mientras que el programa se considera un ente {caso[1]} almacenado en soporte persistente, el proceso es un ente {caso[1]} que reside principalmente en la memoria RAM."
+enunciado: "Mientras que el programa se considera un ente estático almacenado en soporte persistente, el proceso es un ente ___ que reside principalmente en la memoria RAM."
 
 explicacion: |
   El programa es una secuencia de instrucciones en un archivo (estático), mientras que el proceso es la entidad viva que gestiona memoria y registros (dinámico).
@@ -392,14 +378,14 @@ metadata:
   tags: ["memoria", "so"]
 
 variables:
-  datos: [["Contador de instrucciones", "Contexto de CPU"], ["Contenido de memoria", "Estado de E/S"], ["Código fuente", "Archivo ejecutable"]]
+  datos: [["Contador de instrucciones", "Contexto de CPU"], ["Contenido de memoria", "Estado de E/S"], ["Identificador de proceso (PID)", "Puntero de pila"]]
   idx: uno_de([0, 1, 2])
 
 tipo: completar
 respuestas_validas:
   - "Contador de instrucciones"
   - "Contenido de memoria"
-  - "Código fuente"
+  - "Identificador de proceso (PID)"
 
 enunciado: "Un proceso contiene información dinámica que un programa no posee, como por ejemplo el {datos[idx][0]}."
 
@@ -439,14 +425,18 @@ metadata:
   tags: ["pid", "so"]
 
 tipo: completar
-tolerancia_abs: 0
 
 enunciado: "Si un usuario abre dos veces el mismo navegador (ej. Chrome), el sistema operativo crea dos procesos distintos. ¿Cómo se denomina el identificador único numérico que el SO asigna a cada uno de estos procesos para distinguirlos?"
 
-respuesta: 1024
+respuesta: "PID"
+respuestas_validas:
+  - "PID"
+  - "pid"
+  - "Process Identifier"
+  - "identificador de proceso"
 
 explicacion: |
-  Aunque el código sea el mismo, cada instancia en ejecución es un proceso distinto y posee un identificador único llamado PID (Process Identifier). Para este ejercicio, se asume que el usuario debe ingresar un valor numérico representativo (en este caso, el ejemplo es el número 1024).
+  Aunque el código sea el mismo, cada instancia en ejecución es un proceso distinto y posee un identificador único llamado PID (Process Identifier), asignado por el sistema operativo.
 ```
 
 ### 22 — El estado de un proceso
