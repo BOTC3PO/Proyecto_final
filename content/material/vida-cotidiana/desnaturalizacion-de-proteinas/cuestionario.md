@@ -1,6 +1,6 @@
 # Vida Cotidiana — desnaturalizacion de proteinas (cuestionario, 22 preguntas VBLang)
 
-> Tema: `vida-cotidiana/desnaturalizacion-de-proteinas`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `vida-cotidiana/desnaturalizacion-de-proteinas`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -35,14 +35,10 @@ metadata:
   nivel: "intermedio"
   tags: ["temperatura", "colageno", "rango"]
 
-variables:
-  min_temp: random(60, 65)
-  max_temp: random(80, 85)
-
-respuesta: min_temp + "-" + max_temp + "°C"
+respuesta: "65-80°C"
 tipo: input
 
-enunciado: "El colágeno necesita un rango de temperatura aproximado para gelificar. Si el rango estándar es entre 65°C y 80°C, ¿cuáles son los límites inferior y superior? Escribe el rango."
+enunciado: "El colágeno necesita un rango de temperatura aproximado para gelificar, entre 65°C y 80°C. Escribe ese rango (formato: número-número°C)."
 
 explicacion: |
   La gelificación del colágeno ocurre eficazmente entre 65°C y 80°C. Fuera de este rango, el proceso es ineficiente o las fibras musculares se endurecen demasiado.
@@ -61,7 +57,7 @@ variables:
   corte_bajo_colageno: "lomo"
   corte_alto_colageno: "osobuco"
 
-respuesta: corte_bajo_colageno
+respuesta: "rápida"
 tipo: input
 
 enunciado: "Si tenés un corte con poco tejido conectivo como el {corte_bajo_colageno}, ¿qué técnica de cocción es más adecuada: rápida o lenta?"
@@ -125,8 +121,8 @@ metadata:
 variables:
   corte_alto_colageno: "osobuco"
 
-respuesta: corte_alto_colageno
-tipo: input
+respuesta: verdadero
+tipo: vf
 
 enunciado: "Para un corte rico en tejido conectivo como el {corte_alto_colageno}, se requiere cocción lenta y prolongada. ¿Verdadero o Falso?"
 
@@ -179,7 +175,7 @@ metadata:
   nivel: "basico"
   tags: ["musculo", "estructura", "miosina"]
 
-respuesta: "miosina y actina"
+respuesta: "actina"
 tipo: input
 
 enunciado: "Las fibras musculares están hechas de proteínas como la miosina y la ___."
@@ -197,10 +193,7 @@ metadata:
   nivel: "intermedio"
   tags: ["mecanismo", "colageno", "proceso"]
 
-variables:
-  accion: "romper"
-
-respuesta: "romper"
+respuesta: "rotas"
 tipo: input
 
 enunciado: "Para que el colágeno se transforme en gelatina, sus cadenas largas deben ser ___ de a poco en fragmentos más chicos."
@@ -432,14 +425,10 @@ metadata:
   nivel: "avanzado"
   tags: ["resumen", "procesos", "dualidad"]
 
-variables:
-  proceso1: "coagulación"
-  proceso2: "gelificación"
-
-respuesta: "coagulación y gelificación"
+respuesta: "gelificación"
 tipo: input
 
-enunciado: "Al cocinar carne, ocurren simultáneamente dos procesos principales: la ___ de las fibras musculares y la ___ del colágeno."
+enunciado: "Al cocinar carne, ocurren simultáneamente dos procesos principales: la coagulación de las fibras musculares y la ___ del colágeno."
 
 explicacion: |
   Ambos procesos ocurren al mismo tiempo, pero tienen requisitos de tiempo y temperatura diferentes.
