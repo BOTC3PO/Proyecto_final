@@ -3,9 +3,6 @@
 > Continúa `cuestionario.md` (nivel 1). Cubre la profundidad de `QM`
 > dentro del Tronco 7: molaridad/molalidad/normalidad, y el
 > procedimiento de preparar una solución desde soluto sólido.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Sin bugs funcionales esta tanda.
 
 ---
 
@@ -20,7 +17,8 @@ metadata:
 
 respuesta: "solucion"
 tipo: completar
-respuestas_validas: ["solucion"]
+respuestas_validas:
+  - "solucion"
 
 enunciado: "La molaridad se calcula como moles de soluto dividido litros de ___."
 
@@ -39,7 +37,8 @@ metadata:
 
 respuesta: "solvente"
 tipo: completar
-respuestas_validas: ["solvente"]
+respuestas_validas:
+  - "solvente"
 
 enunciado: "La molalidad se calcula como moles de soluto dividido kilogramos de ___."
 
@@ -115,7 +114,7 @@ variables:
   litros: uno_de([1, 2])
 
 respuesta: moles / litros
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Se disuelven {moles} moles de soluto en {litros} litros de solución. ¿Cuál es la molaridad?"
@@ -141,7 +140,7 @@ variables:
   kg: uno_de([1, 2])
 
 respuesta: moles / kg
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Se disuelven {moles} moles de soluto en {kg} kg de solvente. ¿Cuál es la molalidad?"
@@ -237,7 +236,8 @@ metadata:
 
 respuesta: "aforado"
 tipo: completar
-respuestas_validas: ["aforado"]
+respuestas_validas:
+  - "aforado"
 
 enunciado: "El instrumento que se usa para completar exactamente hasta el volumen final se llama matraz ___."
 
@@ -259,7 +259,7 @@ variables:
   moles_deseados: uno_de([1, 2])
 
 respuesta: moles_deseados * m_molar
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Se quiere preparar una solución con {moles_deseados} moles de un soluto de masa molar {m_molar} g/mol. ¿Cuántos gramos hay que pesar?"
