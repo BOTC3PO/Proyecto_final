@@ -2,12 +2,17 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q2 tenía la clave invertida con notas de LM
+> Studio sin limpiar, Q7/Q12 mezclaban dos blanks en un solo
+> `respuesta:`, Q8 contradecía su propio enunciado según la rama de
+> sorteo, Q11 interpolaba el índice en vez del valor real (y el valor
+> de la rama "baja" no era menor que el de comparación), Q14/Q23
+> mezclaban vf con `tipo: completar`, Q16 interpolaba un booleano crudo
+> en medio de la oración, Q18 tenía un `respuesta:` con una expresión
+> booleana en vez de texto, Q22 revelaba la respuesta en el propio
+> enunciado, Q24 nunca interpolaba el escenario del que dependía la
+> respuesta, Q26 aceptaba "mayor" como válida cuando siempre es
+> incorrecta.
 
 ---
 
@@ -41,13 +46,12 @@ metadata:
   tags: ["tenacidad", "energia"]
 
 tipo: vf
-respuesta: falso
+respuesta: verdadero
 
 enunciado: "¿Es la tenacidad la capacidad de un material para absorber energía antes de romperse?"
 
 explicacion: |
-  La afirmación es verdadera. La tenacidad es la capacidad de un material para absorber energía y deformarse plásticamente antes de la fractura. (Nota: El usuario debe marcar falso si la pregunta se plantea como "La tenacidad es la resistencia al rayado").
-  *Corrección de lógica para VF*: Si la pregunta es "¿La tenacidad es la capacidad de absorber energía?", la respuesta es verdadero.
+  Verdadero. La tenacidad es la capacidad de un material para absorber energía y deformarse plásticamente antes de la fractura.
 ```
 
 ### 3 — Definición de tenacidad
@@ -138,12 +142,11 @@ metadata:
   nivel: "basico"
   tags: ["definiciones", "dureza", "tenacidad"]
 
-enunciado: "Un diamante es extremadamente difícil de rayar, mientras que un trozo de vidrio se rompe fácilmente ante un impacto seco. El diamante presenta una alta ___ y el vidrio una baja ___."
+enunciado: "Un diamante es extremadamente difícil de rayar, mientras que un trozo de vidrio se rompe fácilmente ante un impacto seco. La propiedad que hace al diamante difícil de rayar es su alta ___."
 
 respuestas_validas:
   - "dureza"
-  - "tenacidad"
-respuesta: ["dureza", "tenacidad"]
+respuesta: "dureza"
 tipo: completar
 
 explicacion: |
@@ -161,11 +164,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [[0, "cobre", "ductil"], [1, "hierro fundido", "frágil"]]
+  datos: [["cobre", "este se estira significativamente sin romperse", "dúctil"], ["hierro fundido", "este se rompe repentinamente con muy poca deformación previa", "frágil"]]
 
-enunciado: "Se analiza un material {datos[escenario_idx][1]}. Al someterlo a una deformación plástica prolongada, este se estira significativamente sin romperse. Por lo tanto, el material es {datos[escenario_idx][2]}."
+enunciado: "Se analiza un material de {datos[escenario_idx][0]}. Al someterlo a una carga creciente, {datos[escenario_idx][1]}. Por lo tanto, el material es ___."
 
-opciones_explicitas: ["ductil", "frágil"]
+opciones_explicitas: ["dúctil", "frágil"]
 respuesta: datos[escenario_idx][2]
 tipo: mc
 
@@ -221,12 +224,12 @@ metadata:
 
 variables:
   curva_tipo: uno_de([0, 1])
-  curva_datos: [[0, 50, "alta"], [1, 10, "baja"]]
+  curva_datos: [[50, "alta"], [2, "baja"]]
 
-enunciado: "En un ensayo de tracción, la tenacidad se representa mediante el área bajo la curva de esfuerzo-deformación. Si comparamos un material con un área de {curva_datos[curva_tipo][0]} MPa·mm/mm frente a otro con un área de 5 MPa·mm/mm, el primero tiene una tenacidad {curva_datos[curva_tipo][1]}."
+enunciado: "En un ensayo de tracción, la tenacidad se representa mediante el área bajo la curva de esfuerzo-deformación. Si comparamos un material con un área de {curva_datos[curva_tipo][0]} MPa·mm/mm frente a otro con un área de 5 MPa·mm/mm, el primero tiene una tenacidad ___."
 
 opciones_explicitas: ["alta", "baja"]
-respuesta: curva_datos[curva_tipo][2]
+respuesta: curva_datos[curva_tipo][1]
 tipo: mc
 
 explicacion: |
@@ -242,12 +245,11 @@ metadata:
   nivel: "basico"
   tags: ["dureza", "tenacidad", "confusiones"]
 
-enunciado: "Un material que es extremadamente duro (como el diamante) no es necesariamente tenaz. La dureza mide la resistencia al ___ mientras que la tenacidad mide la capacidad de absorber energía antes de la ___."
+enunciado: "Un material que es extremadamente duro (como el diamante) no es necesariamente tenaz. La dureza mide la resistencia al ___, mientras que la tenacidad mide la capacidad de absorber energía antes de la rotura."
 
 respuestas_validas:
   - "rayado"
-  - "rotura"
-respuesta: ["rayado", "rotura"]
+respuesta: "rayado"
 tipo: completar
 
 explicacion: |
@@ -262,9 +264,6 @@ metadata:
   tema: "propiedades_mecanicas"
   nivel: "intermedio"
   tags: ["ductilidad", "fragilidad"]
-
-variables:
-  es_ductil: verdadero
 
 enunciado: "Si un material se deforma significativamente de manera plástica antes de fallar, se dice que es dúctil. Si se rompe de forma repentina con mínima deformación, el material es considerado ___."
 
@@ -287,9 +286,8 @@ metadata:
 
 enunciado: "¿Es posible que un material sea muy duro y, al mismo tiempo, muy tenaz?"
 
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   En la mayoría de los metales, existe una relación inversa: al aumentar la dureza (mediante tratamientos térmicos como la templación), generalmente disminuye la tenacidad (el material se vuelve más frágil).
 ```
@@ -322,10 +320,7 @@ metadata:
   nivel: "basico"
   tags: ["dureza", "resistencia"]
 
-variables:
-  es_error: verdadero
-
-enunciado: "Si un material resiste muy bien una carga de compresión sin deformarse, pero se raya fácilmente con una lija, ¿es correcto decir que es un material duro? {es_error}"
+enunciado: "Si un material resiste muy bien una carga de compresión sin deformarse, pero se raya fácilmente con una lija, ¿es correcto decir que es un material duro?"
 
 opciones_explicitas: ["Sí, es correcto", "No, es un error"]
 respuesta: "No, es un error"
@@ -364,13 +359,11 @@ metadata:
   nivel: "basico"
   tags: ["ductilidad", "fragilidad"]
 
-variables:
-  escenario: uno_de([["cobre", "ductil"], ["vidrio", "fragil"]])
+tipo: mc
+opciones_explicitas: ["dúctil", "frágil"]
+enunciado: "El cobre es un material dúctil que se deforma plásticamente antes de romperse. Por el contrario, el vidrio es un material ___ que se rompe con muy poca deformación previa."
 
-tipo: completar
-enunciado: "Si un material se comporta como un {escenario[0]}, se dice que posee alta ductilidad, lo que lo distingue de un material {escenario[1]}."
-
-respuesta: escenario[1] == "fragil"
+respuesta: "frágil"
 
 explicacion: |
   Un material dúctil (como el cobre) puede deformarse significativamente bajo tensión antes de fallar. Un material frágil (como el vidrio) se rompe con muy poca deformación plástica.
@@ -450,7 +443,7 @@ variables:
   escenario_idx: uno_de([0, 1, 2])
   datos: [["Un diamante es extremadamente difícil de rayar con una lija de carburo.", "dureza"], ["Un cable de cobre se estira formando un hilo fino sin romperse.", "ductilidad"], ["Un acero de alta calidad absorbe mucha energía antes de fracturarse.", "tenacidad"]]
 
-enunciado: "El material descrito en el escenario: '{datos[escenario_idx][0]}' posee principalmente la propiedad de {datos[escenario_idx][1]}."
+enunciado: "El material descrito en el escenario: '{datos[escenario_idx][0]}' posee principalmente la propiedad de ___."
 
 respuesta: datos[escenario_idx][1]
 tipo: mc
@@ -469,16 +462,12 @@ metadata:
   nivel: "intermedio"
   tags: ["tenacidad", "fractura"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Un cristal de vidrio se rompe instantáneamente al recibir un golpe seco.", "falsa"], ["Un polímero elástico absorbe el impacto de una caída sin fragmentarse.", "verdadera"]]
+enunciado: "Si un material se rompe de forma súbita ante un impacto sin absorber energía, ¿se puede decir que tiene una alta tenacidad?"
 
-enunciado: "Si un material se rompe de forma súbita ante un impacto sin absorber energía, ¿se puede decir que tiene una alta tenacidad? (Escenario: {casos[caso_idx][0]})"
-
-respuesta: casos[caso_idx][1]
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
-  La tenacidad es la capacidad de absorber energía antes de la rotura. Si el material se rompe súbitamente, su tenacidad es baja.
+  Falso. La tenacidad es la capacidad de absorber energía antes de la rotura. Si el material se rompe súbitamente sin absorber energía, su tenacidad es baja, no alta.
 ```
 
 ### 24 — Comparación de materiales
@@ -494,7 +483,7 @@ variables:
   test_idx: uno_de([0, 1])
   tests: [["Un material A es rayado fácilmente por un clavo de acero.", "baja"], ["Un material B no presenta marcas tras ser frotado con acero.", "alta"]]
 
-enunciado: "En el test de rayado, el material presenta una dureza ___ respecto al acero."
+enunciado: "En un test de rayado se observa lo siguiente: {tests[test_idx][0]} Esto indica que, respecto al acero, el material presenta una dureza ___."
 
 respuesta: tests[test_idx][1]
 tipo: completar
@@ -553,7 +542,6 @@ respuesta: "menor"
 tipo: completar
 respuestas_validas:
   - "menor"
-  - "mayor"
 
 explicacion: |
   A mayor energía absorbida antes de la fractura, mayor es la tenacidad del material.
