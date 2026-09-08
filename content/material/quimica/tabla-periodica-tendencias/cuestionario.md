@@ -1,13 +1,6 @@
 # Química — Tabla periódica y tendencias (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QF`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bug de esta tanda: `uno_de(...)` llamado dos veces por separado (de
-> nuevo) en una pregunta que además no necesitaba ningún sorteo (la
-> respuesta correcta es siempre la misma), e indexado `opciones[idx][0]`
-> sobre un array de strings — eso agarra el primer *carácter* del
-> string, no el string completo.
 
 ---
 
