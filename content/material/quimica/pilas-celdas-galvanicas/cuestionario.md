@@ -1,9 +1,6 @@
 # Química — Pilas y celdas galvánicas (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QX`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Sin bugs funcionales esta tanda.
 
 ---
 
@@ -335,7 +332,7 @@ variables:
   moles_zn: uno_de([1, 2, 3])
 
 respuesta: moles_zn * electrones_por_reaccion
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si reaccionan {moles_zn} moles de Zn, ¿cuántos moles de electrones se liberan en total?"
