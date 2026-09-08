@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -147,12 +147,11 @@ variables:
   datos: [["Falta de comunicación", "Retraso en aprobaciones"], ["Error de presupuesto", "Compra de materiales"], ["Falta de capacitación", "Lentitud en ejecución"]]
   idx: uno_de([0,1,2])
 
-enunciado: "En el caso analizado, se identificó que el problema principal fue: {datos[idx][0]} y su consecuencia directa fue: {datos[idx][1]}."
+enunciado: "En el caso analizado, se identificó que la consecuencia observada fue: {datos[idx][1]}. El problema principal (causa raíz) que la originó fue: ___"
 
+respuesta: datos[idx][0]
 respuestas_validas:
-  - "Falta de comunicación"
-  - "Error de presupuesto"
-  - "Falta de capacitación"
+  - datos[idx][0]
 tipo: completar
 
 explicacion: |
@@ -209,11 +208,11 @@ metadata:
 variables:
   escenario: uno_de([["Error en estimación de tiempos", "Mejorar uso de software de gestión"], ["Conflicto de roles", "Definir matrices de responsabilidad"]])
 
-enunciado: "Durante el cierre, se detectó: {escenario[0]}. La acción correctiva para el próximo proyecto será: {escenario[1]}."
+enunciado: "Durante el cierre, se detectó: {escenario[0]}. La acción correctiva para el próximo proyecto será: ___"
 
+respuesta: escenario[1]
 respuestas_validas:
-  - "Mejorar uso de software de gestión"
-  - "Definir matrices de responsabilidad"
+  - escenario[1]
 tipo: completar
 
 explicacion: |
@@ -371,9 +370,8 @@ metadata:
 
 enunciado: "¿Es correcto afirmar que una 'Auditoría de Proyecto' busca identificar errores para el aprendizaje, mientras que una 'Retrospectiva' busca verificar el cumplimiento de estándares y normativas?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   Es al revés: la Retrospectiva (común en metodologías ágiles) se enfoca en el aprendizaje y la mejora del equipo, mientras que la Auditoría es un proceso formal para verificar el cumplimiento de procesos, normas o estándares.
 ```
@@ -408,11 +406,11 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [["un error en la comunicación", "un retraso en el proveedor"], ["mejorar la reunión diaria", "revisar la cadena de suministro"]]
+  escenario: [["un error en la comunicación", "mejorar la reunión diaria"], ["un retraso en el proveedor", "revisar la cadena de suministro"]]
 
-enunciado: "Si el problema detectado fue {escenario[idx][0]}, la acción correctiva para el próximo proyecto debería ser {escenario[idx][1]}."
+enunciado: "Si el problema detectado fue {escenario[idx][0]}, la acción correctiva para el próximo proyecto debería ser: ___"
 
-respuesta: "mejorar la reunión diaria"
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["mejorar la reunión diaria", "revisar la cadena de suministro"]
 
@@ -470,9 +468,6 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso", "orden"]
 
-variables:
-  pasos_correctos: ["Entrega final al cliente", "Reunión de lecciones aprendidas", "Archivo de documentación técnica", "Liberación de recursos del equipo"]
-
 opciones_explicitas: ["Entrega final al cliente", "Reunión de lecciones aprendidas", "Archivo de documentación técnica", "Liberación de recursos del equipo"]
 respuesta_orden: ["Entrega final al cliente", "Reunión de lecciones aprendidas", "Archivo de documentación técnica", "Liberación de recursos del equipo"]
 tipo: ordenar
@@ -513,11 +508,8 @@ metadata:
   nivel: "avanzado"
   tags: ["calidad", "datos"]
 
-variables:
-  evaluacion: uno_de([[verdadero, "Las lecciones se registraron en una base de datos accesible."], [falso, "Las lecciones se quedaron en una charla informal de café."]])
-
-respuesta: evaluacion[0]
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Para que una lección aprendida sea útil para la organización, debe estar registrada en un formato accesible y consultable, no solo discutida verbalmente. ¿Es esto verdadero?"
 
 explicacion: |
