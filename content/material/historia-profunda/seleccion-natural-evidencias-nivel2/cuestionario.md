@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -383,7 +383,7 @@ respuestas_validas:
   - "huesos"
   - "músculos"
   - "tejido"
-respuesta: escenario[0]
+respuesta: "huesos"
 
 enunciado: "Si comparamos {escenario[0]}, {escenario[1]} y {escenario[2]}, observamos que presentan una organización similar de ___ óseos, lo que evidencia un ancestro común para los tetrápodos."
 
@@ -442,7 +442,7 @@ metadata:
   tags: ["anatomia", "evolucion"]
 
 variables:
-  caso: uno_de([["un ala de murciélago y un ala de ave"], ["una pata de perro y una aleta de ballena"], ["un brazo humano y una pata de gato"]])
+  caso: uno_de([["un brazo humano y una aleta de foca"], ["una pata de perro y una aleta de ballena"], ["un brazo humano y una pata de gato"]])
 
 tipo: mc
 opciones_explicitas: ["Son estructuras análogas", "Son estructuras homólogas", "Son estructuras vestigiales", "Son estructuras de origen independiente"]

@@ -20,7 +20,7 @@ La existencia de estos fósiles refuta la idea de especies estáticas. Por ejemp
 
 ## 2. La evolución de los équidos: un caso de adaptación morfológica
 
-El registro fósil de los equinos ilustra una transformación espectacular en respuesta a cambios ambientales. Desde *Eohippus*, un pequeño mamífero con cinco dedos y dientes adaptables, hasta *Equus* (el caballo actual), se observa una progresión clara: aumento del tamaño corporal, reducción de los dedos a uno solo y especialización dental para pastar hierbas. Estas modificaciones no ocurrieron de forma abrupta, sino que se desarrollaron a lo largo de millones de años, adaptándose al cambio de bosques densos a praderas abiertas.
+El registro fósil de los equinos ilustra una transformación espectacular en respuesta a cambios ambientales. Desde *Eohippus*, un pequeño mamífero con varios dedos (cuatro en las patas delanteras, tres en las traseras) y dientes adaptables, hasta *Equus* (el caballo actual), se observa una progresión clara: aumento del tamaño corporal, reducción de los dedos a uno solo y especialización dental para pastar hierbas. Estas modificaciones no ocurrieron de forma abrupta, sino que se desarrollaron a lo largo de millones de años, adaptándose al cambio de bosques densos a praderas abiertas.
 
 [IMAGEN: Secuencia evolutiva de équidos desde Eohippus hasta Equus con escalas de tiempo]
 
