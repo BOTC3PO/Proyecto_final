@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -102,11 +102,7 @@ metadata:
   nivel: "intermedio"
   tags: ["calculo", "despeje"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["V = I * R", "I = V / R"], ["I = V / R", "R = V / I"]]
-
-respuesta: escenario[idx][1]
+respuesta: "R = V / I"
 tipo: mc
 opciones_explicitas: ["I = V / R", "R = V / I", "V = I / R", "R = I / V"]
 
@@ -245,13 +241,12 @@ metadata:
   nivel: "basico"
   tags: ["ley_de_ohm", "relaciones_proporcionales"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[2.0, 5.0, 10.0], [12.0, 4.0, 3.0]]
-
-respuesta: datos[idx][2]
+respuesta: "reducirse a la mitad"
 tipo: completar
-tolerancia_abs: 0.01
+respuestas_validas:
+  - "reducirse a la mitad"
+  - "disminuir a la mitad"
+  - "la mitad"
 
 enunciado: "Si mantenemos el voltaje constante y duplicamos la resistencia, la intensidad de corriente debe ___ para mantener la igualdad de la Ley de Ohm."
 
@@ -312,20 +307,20 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[12.0, 2.5], [24.0, 4.0]]
+  escenario: [[24.0, 12.0, 2.0], [40.0, 8.0, 5.0]]
 
-respuesta: escenario[idx][1]
+respuesta: escenario[idx][2]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un circuito tiene una corriente de {escenario[idx][0]} A y una resistencia de {escenario[idx][1]} $\\Omega$. ¿Cuál es el valor de la resistencia si el voltaje es {escenario[idx][0]} V?"
+enunciado: "Un circuito tiene un voltaje de {escenario[idx][0]} V y una corriente de {escenario[idx][1]} A. ¿Cuál es el valor de su resistencia (en $\\Omega$)?"
 
 pasos:
   - "Usar la fórmula despejada: $R = V / I$."
-  - "Sustituir los valores: $R = {escenario[idx][0]} / {escenario[idx][0]}$."
+  - "Sustituir los valores: $R = {escenario[idx][0]} / {escenario[idx][1]}$."
 
 explicacion: |
-  Utilizando $R = V / I$, dividimos el voltaje por la corriente para hallar la resistencia.
+  Utilizando $R = V / I$, dividimos el voltaje por la corriente para hallar la resistencia: $R = {escenario[idx][0]} / {escenario[idx][1]} = {escenario[idx][2]}$ Ω.
 ```
 
 ### 15 — El orden de los factores
@@ -404,7 +399,7 @@ tolerancia_abs: 0.01
 
 enunciado: "Un circuito tiene una diferencia de potencial de {escenario[0]} V y una corriente que circula por él es de {escenario[1]} A. ¿Cuál es el valor de la resistencia en Ohmios ($\\Omega$)?"
 
-respuesta: escenario[1]
+respuesta: escenario[0] / escenario[1]
 
 explicacion: |
   Usando la fórmula $R = V / I$:
@@ -545,7 +540,7 @@ metadata:
   tags: ["voltaje", "corriente", "resistencia"]
 
 variables:
-  escenario: uno_de([[5.0, "0.1", "0.5"], [10.0, "2.0", "5.0"], [12.0, "0.5", "24.0"]])
+  escenario: uno_de([[5.0, "0.1", "0.5"], [10.0, "2.0", "20.0"], [12.0, "0.5", "6.0"]])
   r: escenario[0]
   i: escenario[1]
   v: escenario[2]
@@ -554,8 +549,8 @@ respuesta: v
 tipo: completar
 respuestas_validas:
   - "0.5"
-  - "5.0"
-  - "24.0"
+  - "20.0"
+  - "6.0"
 
 enunciado: "Un componente electrónico tiene una resistencia de {r} Ω y es atravesado por una corriente de {i} A. ¿Qué voltaje se aplica a dicho componente?"
 
