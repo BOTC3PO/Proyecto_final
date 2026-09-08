@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -98,8 +98,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si la resistencia de un circuito aumenta (manteniendo el voltaje constante), la intensidad de la corriente disminuirá."
 
 explicacion: |
@@ -197,8 +197,8 @@ metadata:
   nivel: "intermedio"
   tags: ["temperatura"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En la mayoría de los metales, la resistencia eléctrica aumenta cuando aumenta la temperatura."
 
 explicacion: |
@@ -214,8 +214,8 @@ metadata:
   nivel: "avanzado"
   tags: ["error_comun"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si el radio de un cable se duplica, su resistencia se reduce a la cuarta parte."
 
 explicacion: |
@@ -269,8 +269,8 @@ metadata:
   nivel: "basico"
   tags: ["unidades"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "La unidad de la resistencia eléctrica es el Amperio."
 
 explicacion: |
@@ -324,11 +324,7 @@ metadata:
   nivel: "avanzado"
   tags: ["aplicacion"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["100", "10"], ["50", "20"]]
-
-respuesta: "datos[idx][1]"
+respuesta: 50
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -347,8 +343,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La resistencia eléctrica es una propiedad que depende de la forma del objeto."
 
 explicacion: |
@@ -364,8 +360,8 @@ metadata:
   nivel: "intermedio"
   tags: ["geometria"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un cable más grueso (mayor sección) presenta menos resistencia que uno más delgado."
 
 explicacion: |
@@ -381,8 +377,8 @@ metadata:
   nivel: "intermedio"
   tags: ["resumen"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La resistencia eléctrica depende de la longitud, el área de sección y la resistividad del material."
 
 explicacion: |
@@ -398,11 +394,7 @@ metadata:
   nivel: "avanzado"
   tags: ["calculo"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["1.5", "2.0"], ["0.5", "4.0"]]
-
-respuesta: "datos[idx][1]"
+respuesta: 1.0
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -413,7 +405,7 @@ pasos:
   - "Calcular $R = 0.5 \\cdot 2 / 1$."
 
 explicacion: |
-  R = 1.0 $\Omega$. (Nota: El ejemplo usa valores simplificados para cálculo rápido).
+  R = 0.5 * 2 / 1 = 1.0 $\Omega$.
 ```
 
 ### 22 — El concepto de Ohm
@@ -465,12 +457,12 @@ metadata:
   nivel: "avanzado"
   tags: ["conceptos"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si aumentamos el área de la sección transversal, la densidad de corriente aumenta si el voltaje es constante."
 
 explicacion: |
-  Falso. Al aumentar el área, la resistencia baja y la corriente aumenta, pero la densidad de corriente ($J = I/A$) depende de otros factores. (Corrección: La pregunta es para evaluar razonamiento de la relación inversa).
+  Falso. Al aumentar el área (A), la resistencia baja (R = ρL/A) y la corriente sube proporcionalmente (I = V/R ∝ A), por lo que la densidad de corriente J = I/A se mantiene CONSTANTE, no aumenta.
 ```
 
 ### 25 — Escenario final
@@ -482,8 +474,8 @@ metadata:
   nivel: "intermedio"
   tags: ["aplicacion"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Para reducir la resistencia de un cable sin cambiar el material, se puede aumentar su sección transversal."
 
 explicacion: |
