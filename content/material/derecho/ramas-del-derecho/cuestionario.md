@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -24,8 +24,6 @@ respuesta: "personas y relaciones privadas"
 tipo: completar
 respuestas_validas:
   - "personas y relaciones privadas"
-  - "delitos y penas"
-  - "contratos laborales"
 
 enunciado: "El Derecho Civil es la rama que regula las relaciones entre ___."
 
@@ -60,17 +58,14 @@ metadata:
   nivel: "intermedio"
   tags: ["comercial", "laboral", "administrativo"]
 
-variables:
-  escenario: uno_de([["relaciones de trabajo", "laboral"], ["actos de comercio", "comercial"], ["relación Estado-ciudadano", "administrativo"]])
-
-respuesta: escenario[1]
+respuesta: "comercial"
 tipo: mc
 opciones_explicitas: ["laboral", "comercial", "administrativo", "penal"]
 
 enunciado: "Si una disputa surge a raíz de un contrato de compraventa entre dos empresas, ¿qué rama del derecho regula este conflicto?"
 
 explicacion: |
-  El escenario seleccionado fue: {escenario[0]}. Por lo tanto, la rama correspondiente es el Derecho {escenario[1]}.
+  Un contrato de compraventa entre empresas es un acto de comercio, por lo tanto la rama correspondiente es el Derecho Comercial.
 ```
 
 ### 4 — El Derecho Administrativo
@@ -86,8 +81,6 @@ respuesta: "Estado"
 tipo: completar
 respuestas_validas:
   - "Estado"
-  - "Empresas"
-  - "Ciudadanos"
 
 enunciado: "El Derecho Administrativo regula la organización y el funcionamiento del ___ y sus relaciones con los particulares."
 
@@ -142,14 +135,11 @@ metadata:
   nivel: "basico"
   tags: ["laboral", "trabajo"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["despido sin indemnización", "reclamación de salarios"], ["renuncia sin aviso", "liquidación final"]]
-  respuesta_correcta: ["laboral", "laboral"]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "laboral"
 tipo: completar
-enunciado: "Un empleado es despedido sin causa y sin recibir la indemnización que establece la ley. El trabajador decide demandar para reclamar sus derechos. ¿La rama del derecho que interviene en este caso es el derecho laboral? {datos[escenario_idx][0]}"
+respuestas_validas:
+  - "laboral"
+enunciado: "Un empleado es despedido sin causa y sin recibir la indemnización que establece la ley. El trabajador decide demandar para reclamar sus derechos. ¿Qué rama del derecho interviene en este caso? Derecho ___."
 
 explicacion: |
   El derecho laboral regula el vínculo entre empleadores y empleados, protegiendo la parte más débil de la relación y regulando despidos y salarios.
@@ -267,16 +257,12 @@ metadata:
   nivel: "intermedio"
   tags: ["penal", "delitos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["robo", "delito"], ["incumplimiento de contrato", "civil"]]
-
 respuesta: "penal"
 tipo: completar
 respuestas_validas:
   - "penal"
 
-enunciado: "Si una persona comete un ___, el Estado interviene para imponer una sanción punitiva; esta materia es regulada por el Derecho ___."
+enunciado: "Si una persona comete un delito, el Estado interviene para imponer una sanción punitiva; esta materia es regulada por el Derecho ___."
 
 explicacion: |
   El Derecho Penal se encarga de las conductas que son consideradas delitos y las sanciones que el Estado impone. No debe confundirse con el Derecho Civil, que busca la reparación de daños pero no la pena criminal.
@@ -350,7 +336,7 @@ metadata:
   nivel: "basico"
   tags: ["penal", "civil"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "A diferencia del Derecho Civil, que busca la reparación de un daño, el Derecho Penal tiene como fin principal la imposición de una sanción o pena por la comisión de un delito."
@@ -471,16 +457,12 @@ metadata:
   nivel: "basico"
   tags: ["laboral", "trabajo"]
 
-variables:
-  datos: [["Un empleado es despedido sin causa y reclama sus indemnizaciones.", "laboral"], ["Un comerciante tiene una disputa por una deuda de mercadería.", "comercial"]]
-  idx: uno_de([0, 1])
-
-respuesta: "___"
+respuesta: "laboral"
 tipo: completar
 respuestas_validas:
   - "laboral"
 
-enunciado: "{datos[idx][0]} El conflicto se debe resolver ante el derecho ___."
+enunciado: "Un empleado es despedido sin causa y reclama sus indemnizaciones. El conflicto se debe resolver ante el derecho ___."
 
 explicacion: |
   El derecho laboral regula las relaciones entre empleadores y trabajadores, incluyendo despidos, salarios y condiciones de trabajo.
