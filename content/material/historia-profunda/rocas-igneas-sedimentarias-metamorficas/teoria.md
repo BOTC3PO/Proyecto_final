@@ -22,7 +22,7 @@ Las rocas sedimentarias se forman a partir de la acumulación de sedimentos, que
 
 ## 3. Rocas metamórficas
 
-Las rocas metamórficas surgen cuando una roca existente — ya sea ígnea, sedimentaria o incluso otra metamórfica — es sometida a altas presiones y temperaturas sin fundirse completamente. Esto ocurre generalmente en zonas de colisión tectónica o cerca de intrusiones magmáticas. El proceso altera la estructura y composición original de la roca, dando lugar a formas como el **mármol** (derivado de la caliza) o la **pizarra** (transformada desde arenisca o arcilla).
+Las rocas metamórficas surgen cuando una roca existente — ya sea ígnea, sedimentaria o incluso otra metamórfica — es sometida a altas presiones y temperaturas sin fundirse completamente. Esto ocurre generalmente en zonas de colisión tectónica o cerca de intrusiones magmáticas. El proceso altera la estructura y composición original de la roca, dando lugar a formas como el **mármol** (derivado de la caliza) o la **pizarra** (transformada desde arcilla o lutita; la arenisca, en cambio, se transforma en cuarcita).
 
 [IMAGEN: Transformación de una roca sedimentaria en pizarra bajo presión y calor]
 

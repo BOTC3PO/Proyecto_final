@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -330,17 +330,12 @@ metadata:
   nivel: "avanzado"
   tags: ["geologia", "fósiles"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  tabla: [["sedimentarias", "sedimentarias"], ["ígneas", "ígneas"]]
-
-respuesta: tabla[escenario_idx][1]
+respuesta: "ígneas"
 tipo: completar
 respuestas_validas:
-  - "sedimentarias"
   - "ígneas"
 
-enunciado: "Si un paleontólogo busca restos de un trilobita, lo hará en rocas de tipo {tabla[escenario_idx][0]}. Si busca magma solidificado, lo hará en rocas {tabla[escenario_idx][1]}."
+enunciado: "Si un paleontólogo busca restos de un trilobita, lo hará en rocas de tipo sedimentarias. Si busca magma solidificado, lo hará en rocas ___."
 
 pasos:
   - "Identificar el tipo de roca donde se preserva la vida."
