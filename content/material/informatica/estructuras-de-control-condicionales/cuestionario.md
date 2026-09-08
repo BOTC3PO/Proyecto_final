@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -76,7 +76,7 @@ metadata:
   tags: ["evaluacion", "booleano"]
 
 variables:
-  escenario: uno_de([[10 > 5, verdadero], [5 > 10, falso], [7 == 7, verdadero], [3 != 3, falso]])
+  escenario: uno_de([["10 > 5", verdadero], ["5 > 10", falso], ["7 == 7", verdadero], ["3 != 3", falso]])
 
 enunciado: "Si evaluamos la expresión {escenario[0]}, el resultado es ___."
 
@@ -85,7 +85,7 @@ tipo: mc
 opciones_explicitas: [verdadero, falso]
 
 explicacion: |
-  La expresión evaluada es verdadera, por lo tanto, el resultado booleano es verdadero.
+  Cada expresión de comparación se evalúa como verdadera o falsa según los valores involucrados: {escenario[0]} da como resultado {escenario[1]}.
 ```
 
 ### 5 — Orden de evaluación
@@ -123,7 +123,7 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un programa, si evaluamos la expresión {x > 5} siendo x = {x}, el resultado de la condición es ___."
+enunciado: "En un programa, si evaluamos la expresión x > 5 siendo x = {x}, el resultado de la condición es ___."
 
 explicacion: |
   Dado que 10 es mayor que 5, la expresión es verdadera.
@@ -345,7 +345,7 @@ metadata:
   tags: ["booleanos", "lógica"]
 
 variables:
-  escenario: uno_de([["x > 5", "verdadero"], ["x == 10", "falso"], ["5 < 2", "falso"]])
+  escenario: uno_de([["8 > 5", "verdadero"], ["3 == 10", "falso"], ["5 < 2", "falso"]])
 
 respuesta: escenario[1]
 tipo: "mc"
@@ -453,8 +453,8 @@ variables:
   es_mayor: edad >= 18
 
 respuesta: es_mayor
-tipo: completar
-enunciado: "Si tenemos una variable `edad` con el valor {edad}, la expresión `if (edad >= 18)` resultará en un valor booleano ___."
+tipo: vf
+enunciado: "Si tenemos una variable `edad` con el valor {edad}, ¿es verdadera la expresión `edad >= 18`?"
 
 explicacion: |
   La expresión evalúa si el valor de la variable es mayor o igual a 18. Como {edad} es {edad}, el resultado es {es_mayor}.
@@ -503,8 +503,8 @@ variables:
   es_calor: temp > 30
 
 respuesta: es_calor
-tipo: completar
-enunciado: "Dada una variable `temp` con valor {temp}, la condición `if (temp > 30)` se evalúa como ___."
+tipo: vf
+enunciado: "Dada una variable `temp` con valor {temp}, ¿es verdadera la condición `temp > 30`?"
 
 explicacion: |
   Al comparar {temp} con 30, obtenemos el valor booleano {es_calor}.
