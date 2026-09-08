@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -62,8 +62,6 @@ respuesta: "título ejecutivo"
 tipo: completar
 respuestas_validas:
   - "título ejecutivo"
-  - "sentencia firme"
-  - "mandamiento"
 
 enunciado: "Para iniciar la fase de ejecución, es requisito indispensable contar con un ___ que sea exigible y que esté debidamente firme."
 
@@ -120,7 +118,6 @@ metadata:
   tags: ["procedimiento", "firmeza"]
 
 variables:
-  caso_idx: uno_de([0, 1])
   escenario: uno_de([["La sentencia de alimentos fue dictada pero el demandado apeló y la cámara confirmó la resolución.", "firme"], ["El juez dictó sentencia, pero el plazo para interponer recursos venció sin que ninguna parte se presentara.", "firme"]])
 
 enunciado: "En el escenario descrito, la sentencia se considera {escenario[1]}."
@@ -150,7 +147,7 @@ pasos:
   - "El juez libra el mandamiento (orden judicial)."
   - "El oficial de justicia diligencia el mandamiento para cumplir la orden."
 
-respuesta: "embargo"
+respuesta: accion_tipo[1]
 tipo: completar
 respuestas_validas:
   - "embargo"
@@ -213,7 +210,7 @@ variables:
 
 enunciado: "Si el deudor presenta una defensa basada en que {defensa[0]}, se está oponiendo mediante una excepción de {defensa[1]}."
 
-respuesta: "pago"
+respuesta: defensa[1]
 tipo: completar
 respuestas_validas:
   - "pago"
@@ -232,7 +229,7 @@ metadata:
   nivel: "basico"
   tags: ["procedimiento", "cosa_juzgada"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Una sentencia que aún puede ser apelada (es decir, que no ha quedado firme) puede ser objeto de ejecución forzada para el cumplimiento de la obligación principal?"
@@ -313,14 +310,11 @@ metadata:
   nivel: "basico"
   tags: ["cumplimiento", "plazos"]
 
-variables:
-  caso: uno_de([["el plazo para el cumplimiento voluntario ha vencido", "el demandado ha apelado la sentencia"]])
-
-respuesta: caso[0]
+respuesta: "el plazo para el cumplimiento voluntario ha vencido"
 tipo: mc
 opciones_explicitas: ["el plazo para el cumplimiento voluntario ha vencido", "el demandado ha apelado la sentencia", "la sentencia es nula", "el juez ha dictado una medida cautelar"]
 
-enunciado: "Para que el acreedor pueda instar la ejecución forzada ante el incumplimiento, ¿qué condición debe cumplirse respecto al plazo de cumplimiento voluntario en {caso}?"
+enunciado: "Para que el acreedor pueda instar la ejecución forzada ante el incumplimiento, ¿qué condición debe cumplirse respecto al plazo de cumplimiento voluntario?"
 
 explicacion: |
   La ejecución forzada es la vía subsidiaria que se activa precisamente cuando el plazo otorgado para el cumplimiento espontáneo ha expirado sin que el deudor haya satisfecho la prestación.
@@ -380,9 +374,6 @@ respuesta: "el juez"
 tipo: completar
 respuestas_validas:
   - "el juez"
-  - "el abogado"
-  - "el secretario"
-  - "el fiscal"
 
 enunciado: "A diferencia de la etapa de conocimiento donde el juez decide el derecho, en la etapa de ejecución, ___ es quien debe dirigir las medidas para asegurar el cumplimiento de lo ordenado."
 
@@ -399,7 +390,7 @@ metadata:
   nivel: "avanzado"
   tags: ["requisitos", "sentencia"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es necesario que la sentencia sea líquida (que el monto sea determinado) para poder proceder a un embargo preventivo o ejecutivo de inmediato?"
@@ -460,14 +451,13 @@ metadata:
   tags: ["requisitos", "firmeza"]
 
 variables:
-  datos: [["firme", verdadero], ["apelada", falso]]
+  estados: ["firme", "apelada"]
+  valores: [verdadero, falso]
   idx: uno_de([0,1])
 
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Para que una sentencia pueda ser ejecutada forzadamente, debe haber quedado firme, es decir, que no existan recursos pendientes de resolución. Si la sentencia se encuentra {datos[idx][0]}, ¿es posible iniciar la ejecución? ___"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Para que una sentencia pueda ser ejecutada forzadamente, debe haber quedado firme, es decir, que no existan recursos pendientes de resolución. Si la sentencia se encuentra {estados[idx]}, ¿es posible iniciar la ejecución?"
 
 explicacion: |
   La ejecución de una sentencia requiere la certeza del derecho, la cual se obtiene cuando la sentencia queda firme (cosa juzgada), impidiendo que la parte vencida pueda modificar la decisión mediante recursos ordinarios.
@@ -525,15 +515,9 @@ metadata:
   nivel: "basico"
   tags: ["autoridad_judicial"]
 
-variables:
-  datos: [["El acreedor actúa por su cuenta", "falso"], ["El juez ordena el cumplimiento", "verdadero"]]
-  idx: uno_de([0,1])
-
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "En la etapa de ejecución, el cumplimiento de la sentencia no es una facultad discrecional del acreedor, sino que requiere la intervención del órgano jurisdiccional para el uso de la fuerza pública si fuera necesario. ¿Es esto correcto? ___"
+respuesta: verdadero
+tipo: vf
+enunciado: "En la etapa de ejecución, el cumplimiento de la sentencia no es una facultad discrecional del acreedor, sino que requiere la intervención del órgano jurisdiccional para el uso de la fuerza pública si fuera necesario. ¿Es esto correcto?"
 
 explicacion: |
   La ejecución es una actividad de imperio. Si el obligado no cumple voluntariamente, el Estado, a través del juez, debe intervenir para asegurar el cumplimiento de la decisión judicial.
