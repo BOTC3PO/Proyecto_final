@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,9 +39,8 @@ metadata:
 
 tipo: completar
 respuestas_validas:
-  - "A"
-  - "v"
-  - "Q"
+  - "velocidad"
+  - "velocidad media"
 
 enunciado: "En la ecuación del caudal para un fluido incompresible, Q = A · v, la variable 'A' representa el área de la sección transversal y 'v' representa la ___."
 
@@ -196,9 +195,6 @@ respuesta: "m³/s"
 tipo: completar
 respuestas_validas:
   - "m³/s"
-  - "m/s"
-  - "m²"
-  - "kg/m³"
 
 enunciado: "En el Sistema Internacional, la unidad de medida del caudal es ___."
 
@@ -238,7 +234,7 @@ variables:
   radio: 0.05
   velocidad: 2.0
 
-respuesta: 0.00157
+respuesta: 0.0157
 tipo: completar
 tolerancia_abs: 0.0001
 
@@ -251,8 +247,7 @@ pasos:
 explicacion: |
   El caudal Q es el producto del área de la sección transversal por la velocidad.
   A = pi * (0.05)^2 = 0.007853... m²
-  Q = 0.007853 * 2.0 = 0.0157... m³/s. 
-  *Nota: Revisa si el resultado es 0.00157 o 0.0157 según el cálculo.*
+  Q = 0.007853 * 2.0 = 0.0157 m³/s.
 ```
 
 ### 12 — Confusión entre diámetro y radio
@@ -269,7 +264,7 @@ opciones_explicitas: ["Es correcto", "Es incorrecto"]
 respuesta: "Es incorrecto"
 tipo: mc
 
-enunciado: "Si un problema te da el diámetro de una tubería de 0.4 m, y utilizas directamente el valor 0.4 en la fórmula del área (A = pi * r^2), ¿el caudal resultante será mayor o menor al real?"
+enunciado: "Si un problema te da el diámetro de una tubería de 0.4 m, y utilizas directamente el valor 0.4 en la fórmula del área (A = pi * r^2) en lugar de dividirlo por 2 primero, ¿es correcto este procedimiento?"
 
 explicacion: |
   Es incorrecto. El error común es usar el diámetro en lugar del radio. Como el radio es la mitad del diámetro, usar el diámetro directamente sobreestima el área y, por lo tanto, el caudal.
@@ -284,11 +279,10 @@ metadata:
   nivel: "intermedio"
   tags: ["continuidad", "velocidad"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[0.5, 2.0, 1.0], [0.2, 1.0, 4.0]]
-
-respuesta: datos[idx][2]
+respuesta: "duplicarse"
+respuestas_validas:
+  - "duplicarse"
+  - "aumentar al doble"
 tipo: completar
 enunciado: "En una tubería con sección constante, si el área de la sección transversal se reduce a la mitad, la velocidad del fluido debe ___ para mantener el mismo caudal."
 
@@ -542,9 +536,6 @@ respuesta: "m³/s"
 tipo: completar
 respuestas_validas:
   - "m³/s"
-  - "m/s"
-  - "m²"
-  - "kg/m³"
 
 enunciado: "En el Sistema Internacional, la unidad fundamental para medir el caudal (Q) es ___."
 

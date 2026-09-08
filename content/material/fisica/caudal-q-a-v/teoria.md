@@ -15,7 +15,7 @@ El **caudal** (simbolizado como *Q*) mide la cantidad de volumen de un fluido qu
 ## 2. La fórmula Q = A · v
 
 El caudal también se puede calcular usando la fórmula **Q = A · v**, donde:  
-- *A* es el **área de la sección transversal** del conducto (por ejemplo, el radio de una tubería).  
+- *A* es el **área de la sección transversal** del conducto (por ejemplo, calculada a partir del radio de una tubería circular, A = π·r²).  
 - *v* es la **velocidad media** del fluido dentro de ese conducto.  
 
 Esta relación se aplica especialmente a **fluidos incompresibles**, como el agua o los aceites, cuya densidad no cambia con la presión. Si el área de la tubería disminuye (por ejemplo, al estrecharse), la velocidad del fluido debe aumentar para mantener el mismo caudal. Es una ley directa: si *A* es menor, *v* es mayor, y viceversa.
