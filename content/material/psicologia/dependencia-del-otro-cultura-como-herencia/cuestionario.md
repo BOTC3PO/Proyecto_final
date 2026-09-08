@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -60,13 +60,13 @@ metadata:
   nivel: "basico"
   tags: ["dependencia", "herencia"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
-enunciado: "¿Es falso que la cultura actúe como una 'herencia social' que condiciona la percepción que tenemos de la realidad?"
+enunciado: "¿Es correcto afirmar que la cultura actúa como una 'herencia social' que condiciona la percepción que tenemos de la realidad?"
 
 explicacion: |
-  La afirmación es falsa porque la cultura SÍ actúa como una herencia social. La pregunta está formulada de modo que, al ser la premisa "la cultura condiciona la realidad" algo verdadero, la respuesta a la pregunta "¿Es falso que...?" debe ser 'falso'.
+  Verdadero. La cultura actúa como una herencia social que transmite valores, normas y marcos de referencia que condicionan cómo percibimos e interpretamos la realidad.
 ```
 
 ### 4 — Elementos de la herencia cultural
@@ -140,10 +140,7 @@ metadata:
   nivel: "intermedio"
   tags: ["socializacion", "agentes_socializadores"]
 
-variables:
-  agente: uno_de(["la familia", "la escuela", "el grupo de pares"])
-
-enunciado: "El proceso mediante el cual un individuo internaliza las normas y valores de su entorno se denomina socialización. Si el primer contacto con estas normas ocurre en {agente}, estamos ante la socialización primaria."
+enunciado: "El proceso mediante el cual un individuo internaliza las normas y valores de su entorno se denomina socialización. Si el primer contacto con estas normas ocurre en la familia, estamos ante la socialización primaria."
 
 respuesta: verdadero
 tipo: vf
@@ -193,12 +190,10 @@ variables:
 
 enunciado: "En el caso de {caso[0]}, el individuo sigue operando bajo estructuras lingüísticas y cognitivas heredadas de la cultura, lo que demuestra que la dependencia cultural es:"
 
-respuesta: "inevitables"
+respuesta: "inevitable"
 tipo: completar
 respuestas_validas:
-  - "inevitables"
-  - "nulas"
-  - "mínimas"
+  - "inevitable"
 
 explicacion: |
   Incluso en el intento de aislamiento, el pensamiento está mediado por el lenguaje y las categorías conceptuales que la cultura nos ha proporcionado. No existe un 'yo' puro sin la mediación cultural.
@@ -250,18 +245,10 @@ metadata:
   nivel: "intermedio"
   tags: ["herencia", "socializacion", "identidad"]
 
-variables:
-  escenario: uno_de([["el lenguaje", "la comunicación"], ["las normas", "la conducta"], ["los valores", "la moral"]])
-
-respuesta: escenario[0]
+respuesta: "el lenguaje"
 tipo: completar
 respuestas_validas:
   - "el lenguaje"
-  - "la comunicación"
-  - "las normas"
-  - "la conducta"
-  - "los valores"
-  - "la moral"
 
 enunciado: "La cultura se transmite a través de la socialización; por ejemplo, mediante ___ es como el sujeto internaliza la estructura del lenguaje de su comunidad."
 
@@ -316,18 +303,12 @@ metadata:
   nivel: "avanzado"
   tags: ["identidad", "otredad", "cultura"]
 
-variables:
-  caso: uno_de([["el individuo", "la cultura"], ["el sujeto", "la sociedad"]])
-
-respuesta: caso[1]
+respuesta: "cultura"
 tipo: completar
 respuestas_validas:
-  - "el individuo"
-  - "la cultura"
-  - "el sujeto"
-  - "la sociedad"
+  - "cultura"
 
-enunciado: "Para que un ___ pueda desarrollar una identidad única, paradójicamente, debe primero estar profundamente arraigado en una ___ que le provea símbolos y significados."
+enunciado: "Para que un individuo pueda desarrollar una identidad única, paradójicamente, debe primero estar profundamente arraigado en una ___ que le provea símbolos y significados."
 
 explicacion: |
   La paradoja de la identidad radica en que para ser "único" necesitamos un marco común (cultura) que nos permita distinguirnos de los demás.
@@ -421,10 +402,7 @@ metadata:
   nivel: "basico"
   tags: ["biologia", "cultura"]
 
-variables:
-  caso: uno_de([["el color de ojos", "biológico"], ["el uso de utensilios", "cultural"]])
-
-respuesta: caso[1]
+respuesta: "cultural"
 tipo: mc
 opciones_explicitas: ["biológico", "cultural", "innato", "instintivo"]
 
@@ -510,16 +488,11 @@ metadata:
   nivel: "intermedio"
   tags: ["lenguaje", "simbolico", "herencia"]
 
-variables:
-  datos: [["El lenguaje permite la distinción entre el 'yo' y el 'otro'.", "permite"], ["El lenguaje es solo un código de comunicación sin impacto en la identidad.", "no permite"]]
-  idx: uno_de([0, 1])
-
 enunciado: "En el proceso de formación de la persona, el lenguaje como herencia cultural es aquello que ___ la distinción entre el sujeto y el mundo externo."
 
 respuestas_validas:
   - "permite"
-  - "no permite"
-respuesta: datos[idx][1]
+respuesta: "permite"
 tipo: completar
 
 explicacion: |
@@ -535,15 +508,11 @@ metadata:
   nivel: "avanzado"
   tags: ["identidad", "cultura", "subjetividad"]
 
-variables:
-  datos: [["La cultura es una limitación que impide la libertad.", "limitacion"], ["La cultura es la condición de posibilidad de la subjetividad.", "condicion"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Desde una perspectiva psicológica, la relación entre cultura y sujeto se comprende mejor si entendemos que la cultura es la: {datos[idx][0]}"
-
-opciones_explicitas: ["limitacion", "condicion"]
-respuesta: datos[idx][1]
+respuesta: "condicion"
 tipo: mc
+opciones_explicitas: ["limitacion", "condicion"]
+
+enunciado: "Desde una perspectiva psicológica, la relación entre cultura y sujeto se comprende mejor si entendemos que la cultura es la:"
 
 explicacion: |
   Aunque la cultura impone marcos de referencia, también es la "condición de posibilidad": sin la herencia cultural (símbolos, lenguaje, otros), no habría un sujeto con quien procesar la realidad.
