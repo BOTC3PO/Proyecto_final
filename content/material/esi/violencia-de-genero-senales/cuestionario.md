@@ -2,7 +2,7 @@
 
 > Tema: `ES5`. Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
+>
 > Corregido a mano. Bugs de esta tanda: varias preguntas de blank
 > `___` etiquetadas `tipo: vf` (reclasificadas a `completar`);
 > `metadata.tema` inconsistente (`violencia_genero_senales` sin "de")
@@ -174,11 +174,11 @@ metadata:
   tags: ["celular", "privacidad", "redes_sociales"]
 
 tipo: mc
-opciones_explicitas: ["Respeto a la intimidad", "Seguridad en la relación", "Violencia digital"]
+opciones_explicitas: ["Respeto a la intimidad", "Seguridad en la relación", "Violencia psicológica"]
 
 enunciado: "Revisar el celular de la pareja sin su consentimiento, bajo la excusa de 'querer estar tranquilos', se clasifica como:"
 
-respuesta: "Violencia digital"
+respuesta: "Violencia psicológica"
 
 explicacion: |
   La privacidad es un derecho fundamental. El acceso no consentido a la información privada es una vulneración de los límites individuales.
