@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -59,16 +59,13 @@ metadata:
   nivel: "intermedio"
   tags: ["ransomware", "amenazas"]
 
-variables:
-  escenario: uno_de([["cifrado", "secuestro"], ["borrado", "destrucción"]])
-  respuesta_correcta: escenario[1]
-
 tipo: completar
 respuestas_validas:
   - "secuestro"
-  - "destrucción"
 
-enunciado: "El ransomware es un tipo de malware que realiza un {escenario[0]} de los archivos del usuario para luego exigir un pago a cambio de la clave de descifrado."
+respuesta: "secuestro"
+
+enunciado: "El ransomware es un tipo de malware que realiza un cifrado de los archivos del usuario para luego exigir un pago a cambio de la clave de descifrado. Esto se conoce como un ___ digital."
 
 explicacion: |
   El ransomware bloquea el acceso a tus datos (usualmente mediante cifrado) para extorsionar a la víctima.
@@ -327,10 +324,7 @@ metadata:
   nivel: "basico"
   tags: ["malware", "phishing"]
 
-variables:
-  canal: uno_de(["email", "sms"])
-
-enunciado: "Si un ataque de ingeniería social se realiza a través de un mensaje de texto (SMS) en lugar de un {canal}, el término técnico correcto para este tipo de phishing es smishing."
+enunciado: "Si un ataque de ingeniería social se realiza a través de un mensaje de texto (SMS) en lugar de un correo electrónico, el término técnico correcto para este tipo de phishing es smishing."
 
 respuesta: "smishing"
 tipo: completar
@@ -406,9 +400,6 @@ metadata:
   tema: "seguridad_informatica"
   nivel: "intermedio"
   tags: ["malware", "gusano"]
-
-variables:
-  tipo_ataque: uno_de(["necesita_interaccion", "autonomo"])
 
 enunciado: "A diferencia de un gusano (worm), que se propaga de forma autónoma a través de la red, un troyano requiere que el usuario ___ para infectar el sistema."
 
@@ -513,18 +504,13 @@ metadata:
   nivel: "basico"
   tags: ["phishing", "ingenieria_social"]
 
-variables:
-  tabla: [["ingeniería social", "phishing"], ["software malicioso", "malware"]]
-  idx: uno_de([0,1])
-
 enunciado: "El uso de técnicas psicológicas para engañar a las personas y obtener información confidencial se conoce como ___."
 
 respuestas_validas:
   - "ingeniería social"
-  - "malware"
-respuesta: tabla[idx][0]
+respuesta: "ingeniería social"
 tipo: completar
 
 explicacion: |
-  La técnica utilizada es la {tabla[idx][0]}. El eslabón más débil en la seguridad suele ser el usuario debido a la manipulación psicológica.
+  La técnica utilizada es la ingeniería social. El eslabón más débil en la seguridad suele ser el usuario debido a la manipulación psicológica.
 ```
