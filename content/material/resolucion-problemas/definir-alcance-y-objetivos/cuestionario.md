@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,12 +40,9 @@ metadata:
   nivel: "basico"
   tags: ["objetivos", "smart"]
 
-variables:
-  es_smart: uno_de([verdadero, falso])
-
-respuesta: es_smart
-tipo: completar
-enunciado: "Un objetivo que es ambiguo, no tiene una fecha de finalización clara y no es medible, ¿cumple con la metodología SMART? {es_smart == falso}"
+respuesta: falso
+tipo: vf
+enunciado: "Un objetivo que es ambiguo, no tiene una fecha de finalización clara y no es medible, ¿cumple con la metodología SMART?"
 
 explicacion: |
   Para que un objetivo sea SMART debe ser Específico, Medible, Alcanzable, Relevante y con un Tiempo determinado.
@@ -120,10 +117,7 @@ metadata:
   nivel: "basico"
   tags: ["gestion_proyectos", "alcance"]
 
-variables:
-  escenario: uno_de([["App de delivery de comida", "incluye la gestión de pedidos y pagos", "no incluye la preparación de los alimentos"], ["Sistema de gestión de biblioteca", "incluye el préstamo de libros", "no incluye la compra de nuevos ejemplares"], ["Software de turnos médicos", "incluye la reserva de citas", "no incluye la gestión de salarios del personal"]])
-
-enunciado: "Se está diseñando un proyecto para una {escenario[0]}. Según la definición de alcance establecida, el proyecto {escenario[1]} pero {escenario[2]}."
+enunciado: "Se está diseñando un proyecto para una App de delivery de comida. Según la definición de alcance establecida, el proyecto incluye la gestión de pedidos y pagos pero no incluye la preparación de los alimentos."
 
 respuesta: "incluye la gestión de pedidos y pagos"
 tipo: mc
@@ -346,10 +340,7 @@ metadata:
   nivel: "intermedio"
   tags: ["exclusiones", "gestion_riesgos"]
 
-variables:
-  escenario: uno_de([["Incluir soporte técnico 24/7", "Excluir mantenimiento preventivo"], ["Desarrollar la app móvil", "Excluir la versión web"], ["Instalar el software", "Excluir la capacitación de usuarios"]])
-
-respuesta: escenario[1]
+respuesta: "Excluir la versión web"
 tipo: "mc"
 opciones_explicitas: ["Incluir soporte técnico 24/7", "Excluir mantenimiento preventivo", "Desarrollar la app móvil", "Excluir la versión web", "Instalar el software", "Excluir la capacitación de usuarios"]
 
@@ -409,9 +400,6 @@ metadata:
   nivel: "avanzado"
   tags: ["riesgos", "gestion_proyectos"]
 
-variables:
-  caso: uno_de([["aumentar el presupuesto", "retrasar la fecha de entrega", "reducir la calidad"], ["aumentar el presupuesto", "retrasar la fecha de entrega", "reducir la calidad"], ["aumentar el presupuesto", "retrasar la fecha de entrega", "reducir la calidad"]])
-
 respuesta: "retrasar la fecha de entrega"
 tipo: "mc"
 opciones_explicitas: ["aumentar el presupuesto", "retrasar la fecha de entrega", "reducir la calidad"]
@@ -455,15 +443,17 @@ metadata:
   tags: ["objetivos", "smart"]
 
 variables:
-  caso: uno_de([["Aumentar las ventas un 20% en 6 meses", "Verdadero"], ["Mejorar la calidad del servicio", "Falso"], ["Reducir costos de producción", "Falso"]])
+  textos: ["Aumentar las ventas un 20% en 6 meses", "Mejorar la calidad del servicio", "Reducir costos de producción"]
+  valores: [verdadero, falso, falso]
+  idx: uno_de([0, 1, 2])
 
-tipo: completar
-respuesta: caso[1]
+tipo: vf
+respuesta: valores[idx]
 
-enunciado: "Analizando el siguiente objetivo: '{caso[0]}'. ¿Cumple con los criterios SMART (Específico, Medible, Alcanzable, Relevante y con Tiempo definido)? {caso[1]}"
+enunciado: "Analizando el siguiente objetivo: '{textos[idx]}'. ¿Cumple con los criterios SMART (Específico, Medible, Alcanzable, Relevante y con Tiempo definido)?"
 
 explicacion: |
-  Un objetivo SMART debe ser medible y tener un plazo determinado. 'Mejorar la calidad' es un deseo, no un objetivo SMART, porque no indica cuánto ni cuándo.
+  Un objetivo SMART debe ser medible y tener un plazo determinado. 'Mejorar la calidad del servicio' es un deseo, no un objetivo SMART, porque no indica cuánto ni cuándo. 'Reducir costos de producción' tampoco lo es, ya que no especifica un porcentaje ni un plazo concreto.
 ```
 
 ### 23 — Elementos de la definición de alcance
@@ -521,7 +511,7 @@ variables:
 tipo: mc
 opciones_explicitas: ["Inviable", "Viable"]
 
-enunciado: "Evaluando el objetivo planteado: '{escenario[0]}'. ¿Es un objetivo realista y alcanzable para el equipo? {escenario[1]}"
+enunciado: "Evaluando el objetivo planteado: '{escenario[0]}'. ¿Es un objetivo realista y alcanzable para el equipo?"
 
 respuesta: escenario[1]
 
