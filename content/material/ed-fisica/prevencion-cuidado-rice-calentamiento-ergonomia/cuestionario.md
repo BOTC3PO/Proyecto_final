@@ -1,17 +1,6 @@
 # Ed. Física — Prevención y cuidado: RICE, entrada en calor, sobreentrenamiento, ergonomía, sueño (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF4a-e`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: muchas preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); dos
-> preguntas con `respuestas_validas` listando varias opciones válidas
-> pero sin campo `respuesta:` — agregado, recortando a una sola
-> respuesta; una pregunta de "los 5 ejes de cuidado" cuya lista
-> generada por Gemma (nutrición, hidratación, etc.) **no coincidía**
-> con los 5 ejes reales de esta carpeta (RICE, entrada en calor,
-> sobreentrenamiento, ergonomía, sueño) — reescrita con la lista
-> correcta.
 
 ---
 
