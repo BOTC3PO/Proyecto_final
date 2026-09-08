@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -139,7 +139,7 @@ metadata:
   nivel: "intermedio"
   tags: ["decode", "control_unit"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "Durante la fase de 'decode', la Unidad de Control interpreta el código de operación (opcode) para determinar qué acción debe realizar la ALU. ¿Es esto verdadero o falso?"
@@ -158,8 +158,8 @@ metadata:
   tags: ["orden", "proceso"]
 
 tipo: ordenar
-opciones_explicitas: ["fetch", "decode", "execute", "interrupt"]
-respuesta_orden: ["fetch", "decode", "execute", "interrupt"]
+opciones_explicitas: ["fetch", "decode", "execute"]
+respuesta_orden: ["fetch", "decode", "execute"]
 
 enunciado: "Ordena las etapas fundamentales del ciclo de instrucción de una CPU en su secuencia lógica de ejecución."
 
@@ -209,8 +209,6 @@ respuesta: "ALU"
 tipo: "completar"
 respuestas_validas:
   - "ALU"
-  - "CU"
-  - "RAM"
 
 enunciado: "En la fase de ejecución, si la instrucción es una suma aritmética, el componente encargado de realizar la operación matemática es la ___."
 
@@ -286,10 +284,11 @@ variables:
   datos: [["Instrucción A: SUMAR R1, R2", "Instrucción B: SUBTRACT R1, R3"], ["Instrucción A: LOAD R1, [1000]", "Instrucción B: ADD R1, R2"]]
   problema: ["R1", "R1"]
 
-enunciado: "En un procesador con pipeline, si la segunda instrucción requiere el resultado de la primera (como en el caso de {datos[escenario_idx][0]} y {datos[escenario_idx][1]}), se produce un conflicto de dependencia sobre el registro {datos[escenario_idx][1]}. ¿Cómo se llama este problema?"
+enunciado: "En un procesador con pipeline, si la segunda instrucción requiere el resultado de la primera (como en el caso de {datos[escenario_idx][0]} y {datos[escenario_idx][1]}), se produce un conflicto de dependencia sobre el registro {problema[escenario_idx]}. ¿Cómo se llama este problema?"
 
 opciones_explicitas: ["Data Hazard", "Control Hazard", "Structural Hazard", "Memory Leak"]
 respuesta: "Data Hazard"
+tipo: mc
 
 explicacion: |
   Se produce un 'Data Hazard' (conflicto de datos) cuando una instrucción depende del resultado de una instrucción anterior que aún no ha terminado de escribir su valor en el registro o memoria.
@@ -367,10 +366,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cpu", "ejecucion"]
 
-variables:
-  escenario: uno_de([["La instrucción es una suma de dos registros", "ejecutar"], ["La instrucción es un salto a otra dirección", "ejecutar"], ["La instrucción es una carga de memoria", "ejecutar"]])
-
-enunciado: "En el ciclo de instrucción, la fase de Execute se diferencia de la de Decode porque en la primera la CPU realmente ___ la operación lógica o aritmética solicitada."
+enunciado: "En el ciclo de instrucción, la fase de Execute se diferencia de la de Decode porque en la primera la CPU realmente ejecuta la operación lógica o aritmética solicitada."
 
 respuesta: verdadero
 tipo: "vf"
@@ -511,10 +507,6 @@ metadata:
   tema: "ciclo_de_instruccion_cpu"
   nivel: "avanzado"
   tags: ["debug", "memoria"]
-
-variables:
-  datos: [["La CPU intenta leer una dirección de memoria que no existe", "error_fetch"], ["La instrucción recibida es un código no reconocido", "error_decode"], ["La ALU detecta una división por cero", "error_execute"]]
-  idx: uno_de([0, 1, 2])
 
 enunciado: "Se detecta que la CPU ha recibido un código de operación (opcode) que no corresponde a ninguna instrucción válida en su conjunto de instrucciones. ¿En qué fase del ciclo ha ocurrido el fallo?"
 
