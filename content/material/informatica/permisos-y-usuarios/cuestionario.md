@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -99,11 +99,7 @@ metadata:
   nivel: "avanzado"
   tags: ["acl", "seguridad"]
 
-variables:
-  tabla: [["Lista de Control de Acceso", "permisos estándar"], ["Lista de Control de Acceso", "permisos de red"], ["Lista de Control de Acceso", "permisos de hardware"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: tabla[idx][1]
+respuesta: "permisos estándar"
 tipo: mc
 opciones_explicitas: ["permisos estándar", "permisos de red", "permisos de hardware", "permisos de memoria"]
 
@@ -147,7 +143,7 @@ metadata:
 
 enunciado: "Si un usuario intenta modificar un archivo que pertenece al 'root' y el usuario actual no tiene permisos de escritura, la operación será denegada."
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 explicacion: |
@@ -164,17 +160,17 @@ metadata:
   tags: ["chmod", "simbolico"]
 
 variables:
-  comando_ejemplo: uno_de(["chmod u+x", "chmod g-w", "chmod o+r"])
-  resultado_esperado: uno_de(["u+x", "g-w", "o+r"])
+  comandos: [["chmod u+x", "u+x"], ["chmod g-w", "g-w"], ["chmod o+r", "o+r"]]
+  idx: uno_de([0, 1, 2])
 
-enunciado: "Si aplicamos el comando {comando_ejemplo} a un archivo, estamos modificando los permisos de forma simbólica."
+enunciado: "Si aplicamos el comando 'chmod {comandos[idx][1]}' a un archivo, estamos modificando los permisos de forma simbólica. El código de modificación aplicado es ___."
 
 pasos:
   - "Identificar el usuario (u=user, g=group, o=others)"
   - "Identificar la acción (+ para añadir, - para quitar)"
   - "Identificar el permiso (r, w, x)"
 
-respuesta: "resultado_esperado"
+respuesta: comandos[idx][1]
 tipo: "completar"
 respuestas_validas:
   - "u+x"
@@ -182,8 +178,8 @@ respuestas_validas:
   - "o+r"
 
 explicacion: |
-  El modo simbólico permite modificar permisos específicos sin redefinir todos los valores. 
-  En el caso de {comando_ejemplo}, estamos operando directamente sobre la categoría seleccionada.
+  El modo simbólico permite modificar permisos específicos sin redefinir todos los valores.
+  En el caso de {comandos[idx][0]}, estamos operando directamente sobre la categoría seleccionada.
 ```
 
 ### 9 — Proceso de creación de un script
@@ -214,18 +210,12 @@ metadata:
   nivel: "avanzado"
   tags: ["binario", "permisos"]
 
-variables:
-  valor_permiso: uno_de([6, 7, 5])
-  valor_binario: uno_de(["110", "111", "101"])
+enunciado: "Un archivo tiene permisos de lectura y escritura para el dueño, pero ningún permiso para el grupo ni para otros. ¿Cuál es su valor decimal?"
 
-enunciado: "Un archivo tiene permisos de lectura y escritura para el dueño, pero ningún permiso para el grupo ni para otros. ¿Cuál es su valor decimal y su representación binaria?"
-
-respuesta: "valor_permiso"
+respuesta: "6"
 tipo: "completar"
 respuestas_validas:
   - "6"
-  - "7"
-  - "5"
 
 explicacion: |
   Lectura (4) + Escritura (2) + Ejecución (0) = 6.
@@ -451,15 +441,15 @@ metadata:
   tags: ["linux", "permisos"]
 
 variables:
-  datos: [["archivo_secreto.txt", "600"], ["config.sys", "644"], ["script.sh", "755"]]
+  archivos: ["archivo_secreto.txt", "config.sys", "script.sh"]
   idx: uno_de([0, 1, 2])
 
-enunciado: "Se desea que el archivo {datos[idx][0]} tenga permisos donde el dueño tenga lectura y escritura, pero nadie más tenga acceso. El modo octal correspondiente es ___."
+enunciado: "Se desea que el archivo {archivos[idx]} tenga permisos donde el dueño tenga lectura y escritura, pero nadie más tenga acceso. El modo octal correspondiente es ___."
 
 respuestas_validas:
   - "600"
 
-respuesta: datos[idx][1]
+respuesta: "600"
 tipo: completar
 
 explicacion: |
@@ -494,13 +484,13 @@ metadata:
   tags: ["permisos", "octal"]
 
 variables:
-  datos: [["rwx r-- ---", "754"], ["rw- r-- r--", "644"], ["rwx rwx ---", "770"]]
+  datos: [["rwx r-- ---", "740"], ["rw- r-- r--", "644"], ["rwx rwx ---", "770"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Si un comando 'ls -l' muestra que un archivo tiene los permisos {datos[idx][0]}, ¿cuál es su representación en formato octal?"
 
 opciones_explicitas:
-  - "754"
+  - "740"
   - "644"
   - "770"
 
