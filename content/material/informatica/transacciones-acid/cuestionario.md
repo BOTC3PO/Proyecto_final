@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -104,7 +104,7 @@ respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["Interferencia", "Aislamiento"]
 
-enunciado: "Si una transacción puede ver los cambios de otra transacción solo después de que esta última haya finalizado, estamos ante un escenario de: {escenario[1]}"
+enunciado: "En un sistema con control de concurrencia ocurre lo siguiente: {escenario[0]}. ¿Qué término describe mejor esta situación?"
 
 explicacion: |
   El aislamiento (Isolation) asegura que las transacciones se ejecuten de manera que parezca que se están ejecutando de forma secuencial, evitando que una vea estados intermedios de otra.
@@ -171,9 +171,6 @@ metadata:
   tema: "transacciones_acid"
   nivel: "avanzado"
   tags: ["bases_de_datos", "acid", "aislamiento"]
-
-variables:
-  escenario: uno_de(["lectura_sucia", "lectura_no_repetible", "fantasma"])
 
 enunciado: "En un entorno de alta concurrencia, si la Transacción 1 modifica un dato pero no hace commit, y la Transacción 2 puede leer ese dato modificado antes de que la Transacción 1 decida si confirma o cancela, estamos ante un problema de _________."
 
@@ -242,12 +239,12 @@ metadata:
   nivel: "intermedio"
   tags: ["acid", "atomicidad", "errores_comunes"]
 
-variables:
-  estado_final: uno_de(["completada", "fallida"])
-
-respuesta: estado_final == "completada"
+respuesta: "Atomicidad"
 tipo: completar
-enunciado: "Si una transacción de transferencia bancaria falla justo después de descontar dinero de la cuenta A, pero antes de sumarlo a la cuenta B, la propiedad de {estado_final} garantiza que el sistema vuelva al estado original como si nada hubiera ocurrido."
+respuestas_validas:
+  - "Atomicidad"
+  - "atomicidad"
+enunciado: "Si una transacción de transferencia bancaria falla justo después de descontar dinero de la cuenta A, pero antes de sumarlo a la cuenta B, la propiedad de ___ garantiza que el sistema vuelva al estado original como si nada hubiera ocurrido."
 
 explicacion: |
   La atomicidad asegura que la transacción se trate como una unidad indivisible: o se realizan todos los pasos o ninguno. Si un paso falla, se realiza un rollback para mantener la integridad.
@@ -282,9 +279,9 @@ metadata:
   nivel: "basico"
   tags: ["acid", "durabilidad"]
 
-respuesta: "verdadero"
-tipo: completar
-enunciado: "Si una base de datos confirma (commit) una transacción y, un milisegundo después, el servidor sufre un corte de energía total, la propiedad de Durabilidad garantiza que los cambios realizados por esa transacción no se perderán al reiniciar el sistema."
+respuesta: verdadero
+tipo: vf
+enunciado: "Si una base de datos confirma (commit) una transacción y, un milisegundo después, el servidor sufre un corte de energía total, la propiedad de Durabilidad garantiza que los cambios realizados por esa transacción no se perderán al reiniciar el sistema. ¿Es esto correcto?"
 
 explicacion: |
   La durabilidad asegura que una vez que el usuario recibe la confirmación de éxito, los datos han sido escritos en soporte no volátil (disco) y persistirán ante fallos de energía.
@@ -343,8 +340,6 @@ respuesta: "todo o nada"
 tipo: completar
 respuestas_validas:
   - "todo o nada"
-  - "todo o nada"
-  - "todo o nada"
 
 enunciado: "A diferencia de un proceso secuencial simple, la propiedad de atomicidad garantiza que una transacción se ejecute como una unidad indivisible, es decir, que el resultado sea ___."
 ```
@@ -358,14 +353,11 @@ metadata:
   nivel: "intermedio"
   tags: ["acid", "aislamiento"]
 
-variables:
-  escenario: uno_de([["Dos usuarios editan el mismo saldo simultáneamente sin restricciones", "problemas de concurrencia"], ["Un usuario ve datos intermedios de una transacción no finalizada", "problemas de aislamiento"]])
-
 respuesta: "aislamiento"
 tipo: mc
 opciones_explicitas: ["consistencia", "aislamiento", "durabilidad", "atomicidad"]
 
-enunciado: "Si un sistema permite que una transacción vea cambios parciales de otra transacción en curso, está fallando en la propiedad de {escenario[1]} para evitar {escenario[0]}."
+enunciado: "Si un sistema permite que una transacción vea cambios parciales (no confirmados) de otra transacción en curso, ¿qué propiedad ACID está fallando en garantizarse?"
 ```
 
 ### 18 — Consistencia vs Integridad
@@ -392,14 +384,11 @@ metadata:
   nivel: "basico"
   tags: ["acid", "durabilidad"]
 
-variables:
-  caso: uno_de([["un fallo de energía justo después de confirmar la transacción", "se pierden los datos"], ["un error de software antes de hacer el commit", "no hay cambios persistentes"]])
-
 respuesta: "se mantienen los cambios"
 tipo: mc
 opciones_explicitas: ["se pierden los datos", "se mantienen los cambios", "el sistema se bloquea", "se revierte todo"]
 
-enunciado: "La durabilidad garantiza que, una vez que la transacción ha sido confirmada (commit), los cambios {caso[0]} y, por lo tanto, ___."
+enunciado: "La durabilidad garantiza que, una vez que la transacción ha sido confirmada (commit), si ocurre un fallo del sistema inmediatamente después, ___."
 ```
 
 ### 20 — Ciclo de vida de una transacción
@@ -460,14 +449,13 @@ metadata:
   tags: ["acid", "consistencia"]
 
 variables:
-  datos: [["Un usuario intenta borrar un cliente que tiene facturas activas y el sistema lo impide para mantener la integridad", "true"], ["El sistema permite que el saldo de una cuenta sea negativo a pesar de que la regla de negocio dice que no puede", "false"]]
+  textos: ["Un usuario intenta borrar un cliente que tiene facturas activas y el sistema lo impide para mantener la integridad", "El sistema permite que el saldo de una cuenta sea negativo a pesar de que la regla de negocio dice que no puede"]
+  valores: [verdadero, falso]
   idx: uno_de([0, 1])
 
-respuestas_validas:
-  - datos[idx][1]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Si una transacción permite que la base de datos pase de un estado válido (cumpliendo todas las reglas de integridad) a un estado inválido, ¿se ha mantenido la propiedad de consistencia? {datos[idx][0]}"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Analiza el siguiente escenario: {textos[idx]}. ¿Se ha mantenido la propiedad de consistencia?"
 
 explicacion: |
   La consistencia asegura que una transacción solo lleve a la base de datos de un estado válido a otro estado válido, respetando todas las reglas y restricciones definidas.
@@ -481,10 +469,6 @@ metadata:
   tema: "transacciones_acid"
   nivel: "intermedio"
   tags: ["acid", "aislamiento"]
-
-variables:
-  datos: [["Dos usuarios compran el último ticket de un concierto al mismo tiempo y ambos reciben confirmación", "aislamiento"], ["Un reporte de ventas muestra un total que no coincide con la suma de las filas debido a cambios en curso", "aislamiento"], ["El sistema se apaga y al volver, la transacción que ya había terminado se perdió", "aislamiento"]]
-  idx: uno_de([0, 1, 2])
 
 respuesta: "aislamiento"
 tipo: mc
@@ -504,10 +488,6 @@ metadata:
   tema: "transacciones_acid"
   nivel: "basico"
   tags: ["acid", "durabilidad"]
-
-variables:
-  datos: [["La transacción se confirma (commit) y tras un corte de energía los datos persisten", "durabilidad"], ["La transacción se confirma y el sistema falla, pero los datos se recuperan del log", "durabilidad"], ["La transacción se completa pero el usuario no ve el cambio hasta que refresca", "durabilidad"]]
-  idx: uno_de([0, 1, 2])
 
 respuesta: "durabilidad"
 tipo: completar
@@ -530,8 +510,8 @@ metadata:
   tags: ["transacciones", "flujo"]
 
 tipo: ordenar
-opciones_explicitas: ["Inicio de transacción", "COMMIT", "Confirmación de cambios"]
-respuesta_orden: ["Inicio de transacción", "COMMIT", "Confirmación de cambios"]
+opciones_explicitas: ["Inicio de transacción", "Ejecución de comandos", "COMMIT", "Aplicación permanente de los cambios"]
+respuesta_orden: ["Inicio de transacción", "Ejecución de comandos", "COMMIT", "Aplicación permanente de los cambios"]
 
 enunciado: "Ordena los pasos lógicos de una transacción que termina con éxito:"
 
