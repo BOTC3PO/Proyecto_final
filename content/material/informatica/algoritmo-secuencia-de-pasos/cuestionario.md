@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -165,7 +165,7 @@ variables:
 enunciado: "Considera el siguiente algoritmo para sumar dos números: 1. Leer primer número, 2. Leer segundo número, 3. Sumar ambos valores, 4. Mostrar resultado. Si los números ingresados son {datos[idx][0]} y {datos[idx][1]}, ¿cuál es el valor final que mostrará el paso 4?"
 
 respuesta: datos[idx][2]
-tipo: "input"
+tipo: completar
 tolerancia_abs: 0
 
 explicacion: |
@@ -227,7 +227,7 @@ metadata:
   nivel: "basico"
   tags: ["definicion", "caracteristicas"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Un algoritmo se define como una secuencia de pasos que debe ser finita para poder resolver un problema."
@@ -302,7 +302,6 @@ tipo: completar
 
 respuestas_validas:
   - "ambiguo"
-  - "preciso"
 
 enunciado: "Si una instrucción en un algoritmo dice 'añadir un poco de sal' sin especificar la cantidad, el paso es considerado ___________."
 
@@ -434,11 +433,13 @@ metadata:
   tags: ["algoritmo", "secuencia"]
 
 variables:
-  escenario: uno_de([["Para hacer un café: 1. Calentar agua, 2. Poner café en filtro, 3. Verter agua", "Verdadero"], ["Para encender una PC: 1. Presionar botón, 2. Conectar cable, 3. Esperar inicio", "Falso"]])
+  textos: ["Para hacer un café: 1. Calentar agua, 2. Poner café en filtro, 3. Verter agua", "Para encender una PC: 1. Presionar botón, 2. Conectar cable, 3. Esperar inicio"]
+  valores: [verdadero, falso]
+  idx: uno_de([0, 1])
 
-respuesta: escenario[1]
-tipo: completar
-enunciado: "Analiza el siguiente escenario: {escenario[0]}. ¿Es una secuencia lógica y ordenada para resolver el problema planteado? (Verdadero/Falso)"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Analiza el siguiente escenario: {textos[idx]}. ¿Es una secuencia lógica y ordenada para resolver el problema planteado?"
 
 explicacion: |
   Un algoritmo debe ser una secuencia finita y ordenada de pasos. En el primer caso, los pasos siguen un orden lógico para obtener el resultado. En el segundo, el orden es incorrecto (primero se debe conectar el cable).
@@ -474,11 +475,13 @@ metadata:
   tags: ["definicion", "caracteristicas"]
 
 variables:
-  caso: uno_de([["Un proceso que no termina nunca", "Falso"], ["Un proceso con pasos finitos y definidos", "Verdadero"]])
+  textos: ["Un proceso que no termina nunca", "Un proceso con pasos finitos y definidos"]
+  valores: [falso, verdadero]
+  idx: uno_de([0, 1])
 
-respuesta: caso[1]
-tipo: completar
-enunciado: "Un algoritmo debe ser necesariamente finito, es decir, debe tener un número determinado de pasos que se completan en un tiempo razonable. ¿Es esto correcto para describir lo siguiente: {caso[0]}? (Verdadero/Falso)"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Un algoritmo debe ser necesariamente finito, es decir, debe tener un número determinado de pasos que se completan en un tiempo razonable. ¿Es esto correcto para describir lo siguiente: {textos[idx]}?"
 
 explicacion: |
   La finitud es una característica esencial de todo algoritmo. Si un proceso no termina, no puede ser considerado un algoritmo funcional para resolver un problema.
