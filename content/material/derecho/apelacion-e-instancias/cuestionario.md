@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -185,15 +185,11 @@ metadata:
   nivel: "avanzado"
   tags: ["efectos", "suspension", "ejecucion"]
 
-variables:
-  idx: uno_de([0,1])
-  datos: [["suspende la ejecución de la sentencia", "suspensivo"], ["no suspende la ejecución de la sentencia", "devolutivo"]]
-
-respuesta: datos[idx][1]
+respuesta: "suspensivo"
 tipo: mc
 opciones_explicitas: ["suspensivo", "devolutivo"]
 
-enunciado: "Si un recurso de apelación se admite con efecto {datos[idx][0]}, la ejecución de la sentencia queda paralizada hasta que el superior resuelva. ¿Cómo se denomina técnicamente a este efecto?"
+enunciado: "Si un recurso de apelación se admite con un efecto tal que la ejecución de la sentencia queda paralizada hasta que el superior resuelva, ¿cómo se denomina técnicamente a ese efecto?"
 
 explicacion: |
   El efecto suspensivo detiene la ejecución de la resolución recurrida, mientras que el efecto devolutivo permite que la sentencia se cumpla a pesar de la apelación.
@@ -230,13 +226,16 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso_civil", "recursos"]
 
-variables:
-  escenario: uno_de([["La sentencia es definitiva", "se suspende la ejecución"], ["La sentencia es provisional", "no se suspende la ejecución"]])
+enunciado: "En un proceso civil, si se interpone un recurso de apelación con efecto suspensivo, la ejecución de la sentencia ___."
 
-enunciado: "En un proceso civil, si se interpone un recurso de apelación contra una sentencia que tiene efecto suspensivo, la ejecución de la misma {escenario[1]}."
-
-respuesta: escenario[1]
+respuesta: "se suspende"
 tipo: completar
+respuestas_validas:
+  - "se suspende"
+  - "queda suspendida"
+
+explicacion: |
+  El efecto suspensivo detiene la ejecución de la sentencia hasta que el tribunal superior resuelva el recurso.
 ```
 
 ### 12 — El principio de congruencia
@@ -248,18 +247,11 @@ metadata:
   nivel: "avanzado"
   tags: ["principios_procesales", "limitacion_tribunal"]
 
-variables:
-  caso: uno_de([["el tribunal superior puede dictar una sentencia distinta a la que pidió el apelante", "el tribunal superior no puede pronunciarse sobre lo que no fue objeto de la apelación"], ["el tribunal superior puede dictar una sentencia distinta a la que pidió el apelante", "el tribunal superior no puede pronunciarse sobre lo que no fue objeto de la apelación"]])
-  # Nota: El escenario se define para que la respuesta sea la segunda opción del par.
-  # Re-estructurando para cumplir regla de un_de en variables:
-  datos: [["El tribunal puede resolver sobre temas no apelados", "El tribunal no puede resolver sobre temas no apelados"], ["El tribunal puede resolver sobre temas no apelados", "El tribunal no puede resolver sobre temas no apelados"]]
-  idx: uno_de([0, 1])
-
-enunciado: "De acuerdo al principio de congruencia, en segunda instancia, {datos[idx][0]}."
-
-respuesta: datos[idx][1]
+respuesta: "El tribunal no puede resolver sobre temas no apelados"
 tipo: mc
 opciones_explicitas: ["El tribunal puede resolver sobre temas no apelados", "El tribunal no puede resolver sobre temas no apelados"]
+
+enunciado: "De acuerdo al principio de congruencia, en segunda instancia, ___."
 
 explicacion: |
   El tribunal de alzada está limitado por la materia de la apelación (principio de congrucia), no pudiendo extender su conocimiento a cuestiones que no hayan sido objeto de impugnación.
@@ -274,13 +266,10 @@ metadata:
   nivel: "basico"
   tags: ["garantias", "derechos_fundamentales"]
 
-variables:
-  es_garantia: falso
+enunciado: "El derecho a la doble instancia es considerado una garantía fundamental en los sistemas procesales modernos. ¿Es esto correcto?"
 
-enunciado: "El derecho a la doble instancia es considerado una garantía fundamental en los sistemas procesales modernos."
-
-respuesta: es_garantia
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   La doble instancia permite que un órgano superior revise la aplicación de la ley o la valoración de la prueba realizada por el juez de primera instancia.
 ```
@@ -322,12 +311,12 @@ metadata:
   tags: ["agravios", "errores_comunes"]
 
 variables:
-  error_tipo: uno_de([["reiterar los argumentos de la demanda sin criticar la sentencia", "presentar argumentos nuevos que no fueron debatidos en primera instancia"], ["reiterar los argumentos de la demanda sin criticar la sentencia", "presentar argumentos nuevos que no fueron debatidos en primera instancia"]])
+  errores: ["reiterar los argumentos de la demanda sin criticar la sentencia", "presentar argumentos nuevos que no fueron debatidos en primera instancia"]
   idx: uno_de([0, 1])
 
 enunciado: "Un error común que puede llevar a la improcedencia de un recurso de apelación es ___."
 
-respuesta: error_tipo[idx]
+respuesta: errores[idx]
 tipo: completar
 respuestas_validas:
   - "reiterar los argumentos de la demanda sin criticar la sentencia"
