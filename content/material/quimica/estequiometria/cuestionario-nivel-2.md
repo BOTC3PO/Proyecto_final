@@ -3,13 +3,6 @@
 > Continúa `cuestionario.md` (nivel 1). Cubre la profundidad de `QK`
 > dentro del Tronco 7: relaciones mol-mol/mol-masa/masa-masa leídas
 > directo de una ecuación balanceada.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bug real esta tanda: una pregunta con `respuesta: verdadero` que
-> **contradecía su propia `explicacion:`** (que decía "Falso...") — la
-> respuesta correcta a "¿se puede convertir gramos a gramos sin pasar
-> por moles?" es `falso`, no `verdadero`. También el `respuesta`
-> envuelto en array de siempre.
 
 ---
 
@@ -26,7 +19,7 @@ variables:
   moles_h2: uno_de([2, 4, 6, 10])
 
 respuesta: moles_h2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para 2H2 + O2 -> 2H2O, ¿cuántos moles de H2O se producen a partir de {moles_h2} moles de H2?"
@@ -48,7 +41,7 @@ variables:
   moles_h2o: uno_de([2, 4, 6])
 
 respuesta: moles_h2o / 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para 2H2 + O2 -> 2H2O, ¿cuántos moles de O2 se necesitan para producir {moles_h2o} moles de H2O?"
@@ -89,7 +82,8 @@ metadata:
 
 respuesta: "coeficientes"
 tipo: completar
-respuestas_validas: ["coeficientes"]
+respuestas_validas:
+  - "coeficientes"
 
 enunciado: "Para pasar de moles de A a moles de B se multiplica por la razón entre los ___ de B y A."
 
@@ -110,7 +104,7 @@ variables:
   gramos_h2: uno_de([2, 4, 10, 20])
 
 respuesta: gramos_h2 / 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si hay {gramos_h2} gramos de H2 (masa molar 2 g/mol), ¿cuántos moles hay?"
@@ -135,7 +129,7 @@ variables:
   gramos_h2: uno_de([2, 4, 10, 20])
 
 respuesta: (gramos_h2 / 2) * 18
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Para 2H2 + O2 -> 2H2O (masa molar H2O = 18 g/mol), si hay {gramos_h2} g de H2, ¿cuántos gramos de H2O se producen?"
@@ -178,7 +172,9 @@ metadata:
 
 respuesta: "moles"
 tipo: completar
-respuestas_validas: ["moles", "mol"]
+respuestas_validas:
+  - "moles"
+  - "mol"
 
 enunciado: "La unidad común entre dos sustancias distintas de una ecuación balanceada son los ___, porque los coeficientes están en esa unidad."
 
@@ -255,7 +251,7 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][2] * (datos[idx][1] / datos[idx][0])
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Una reacción tiene coeficiente {datos[idx][0]} para el reactivo A y {datos[idx][1]} para el producto B. Con {datos[idx][2]} moles de A, ¿cuántos moles de B se producen?"
@@ -280,7 +276,7 @@ variables:
   moles_n2: uno_de([1, 2, 3])
 
 respuesta: moles_n2 * 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para N2 + 3H2 -> 2NH3, si reaccionan {moles_n2} moles de N2, ¿cuántos moles de NH3 se producen?"
@@ -305,7 +301,7 @@ variables:
   moles_n2: uno_de([1, 2, 3])
 
 respuesta: moles_n2 * 3
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para N2 + 3H2 -> 2NH3, si reaccionan {moles_n2} moles de N2, ¿cuántos moles de H2 hacen falta?"
@@ -348,7 +344,7 @@ variables:
   gramos_n2: uno_de([28, 56, 84])
 
 respuesta: gramos_n2 / 28
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si hay {gramos_n2} gramos de N2 (masa molar 28 g/mol), ¿cuántos moles hay?"
@@ -424,7 +420,7 @@ variables:
   moles_nh3_deseados: uno_de([2, 4, 6])
 
 respuesta: moles_nh3_deseados / 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para N2 + 3H2 -> 2NH3, si se quieren obtener {moles_nh3_deseados} moles de NH3, ¿cuántos moles de N2 hacen falta?"
