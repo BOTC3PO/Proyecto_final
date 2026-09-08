@@ -1,6 +1,6 @@
 # Vida Cotidiana — Identificar una fibra por combustión (burn test) (cuestionario, 22 preguntas VBLang)
 
-> Tema: `vida-cotidiana/identificacion-de-fibras-por-combustion`. Ver `teoria.md` en esta misma carpeta. Escrito a mano (Claude), cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `vida-cotidiana/identificacion-de-fibras-por-combustion`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
