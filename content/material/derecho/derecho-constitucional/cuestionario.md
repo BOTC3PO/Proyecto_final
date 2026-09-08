@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,14 +40,11 @@ metadata:
   nivel: "basico"
   tags: ["objeto_estudio"]
 
-variables:
-  escenario: uno_de([[ "Constitución", "leyes comunes" ], [ "Constitución", "normas de tránsito" ], [ "Constitución", "contratos privados" ]])
-
-respuesta: escenario[1]
+respuesta: "Constitución"
 tipo: mc
 opciones_explicitas: ["Constitución", "leyes comunes", "normas de tránsito", "contratos privados"]
 
-enunciado: "El objeto principal de estudio del Derecho Constitucional es la {escenario[0]}."
+enunciado: "El objeto principal de estudio del Derecho Constitucional es la ___."
 
 explicacion: |
   La Constitución es la norma suprema que rige la organización de un Estado.
@@ -143,15 +140,16 @@ metadata:
   tags: ["poderes", "estado"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [[0, "Poder Ejecutivo"], [1, "Poder Legislativo"]]
+  idx: uno_de([0, 1])
+  poderes: ["Poder Ejecutivo", "Poder Legislativo"]
+  valores: [falso, verdadero]
 
-respuesta: "falso"
-tipo: completar
-enunciado: "En un sistema republicano, el {escenario[escenario_idx]} tiene la función principal de dictar leyes que rigen a toda la sociedad."
+respuesta: valores[idx]
+tipo: vf
+enunciado: "En un sistema republicano, el {poderes[idx]} tiene la función principal de dictar leyes que rigen a toda la sociedad."
 
 explicacion: |
-  La función de dictar leyes corresponde al Poder Legislativo. El Poder Ejecutivo (escenario[0]) tiene la función de administrar y ejecutar las leyes.
+  La función de dictar leyes corresponde al Poder Legislativo. El Poder Ejecutivo tiene la función de administrar y ejecutar las leyes.
 ```
 
 ### 8 — Derechos fundamentales en un caso práctico
@@ -163,13 +161,12 @@ metadata:
   nivel: "intermedio"
   tags: ["derechos_fundamentales", "libertad_expresion"]
 
-respuesta: ["libertad de expresión", "derecho a la intimidad"]
+respuesta: "libertad de expresión"
 tipo: completar
 respuestas_validas:
   - "libertad de expresión"
-  - "derecho a la intimidad"
 
-enunciado: "Un periodista publica información veraz sobre un funcionario público para denunciar corrupción. En este conflicto de derechos, la jurisprudencia suele priorizar la ___ sobre el ___."
+enunciado: "Un periodista publica información veraz sobre un funcionario público para denunciar corrupción. En este conflicto de derechos, la jurisprudencia suele priorizar la ___ (el derecho a informar) sobre el derecho a la intimidad del funcionario."
 
 pasos:
   - "Identificar el derecho en juego: informar sobre asuntos de interés público."
@@ -498,16 +495,14 @@ metadata:
   tags: ["derechos_fundamentales", "libertades"]
 
 variables:
-  datos: [["El Estado prohíbe toda manifestación pública sin permiso previo.", "es_falso"], ["Se garantiza la libertad de expresión, pero con responsabilidad.", "es_verdadero"]]
+  textos: ["El Estado prohíbe toda manifestación pública sin permiso previo.", "Se garantiza la libertad de expresión, pero con responsabilidad."]
+  valores: [falso, verdadero]
   idx: uno_de([0, 1])
 
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas:
-  - "es_falso"
-  - "es_verdadero"
+respuesta: valores[idx]
+tipo: vf
 
-enunciado: "En un Estado de Derecho, la afirmación: '{datos[idx][0]}' ___."
+enunciado: "En un Estado de Derecho, ¿es correcta la siguiente afirmación? '{textos[idx]}'"
 
 explicacion: |
   Los derechos fundamentales son inherentes a la persona y el Estado debe garantizarlos, permitiendo solo restricciones legales y proporcionales.
@@ -522,11 +517,7 @@ metadata:
   nivel: "avanzado"
   tags: ["poder_judicial", "control_represivo"]
 
-variables:
-  datos: [["El Poder Judicial debe realizar un control ___ sobre la constitucionalidad de las leyes.", "represivo"], ["El Poder Judicial realiza un control ___ sobre la constitucionalidad de las leyes.", "preventivo"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "represivo"
 tipo: mc
 opciones_explicitas: ["represivo", "preventivo", "legislativo"]
 
