@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -69,7 +69,7 @@ respuestas_validas:
 enunciado: "La Ley de Sufragio Universal, Masculino, Secreto y Obligatorio en Argentina fue sancionada en el año ___."
 
 explicacion: |
-  La Ley 8.830, sancionada en 1912, fue el hito que permitió el paso del fraude al voto secreto, sentando las bases de la democracia moderna en el país.
+  La Ley 8.871, sancionada en 1912, fue el hito que permitió el paso del fraude al voto secreto, sentando las bases de la democracia moderna en el país.
 ```
 
 ### 4 — Evolución del concepto de votante
@@ -127,7 +127,7 @@ respuestas_validas:
 enunciado: "La Ley Sáenz Peña, que estableció el voto universal, secreto y obligatorio para los varones, fue sancionada en el año ___."
 
 explicacion: |
-  La Ley 8.831 de 1912 permitió que la ciudadanía masculina pudiera votar de manera efectiva, terminando con el fraude electoral de la época.
+  La Ley 8.871 de 1912 permitió que la ciudadanía masculina pudiera votar de manera efectiva, terminando con el fraude electoral de la época.
 ```
 
 ### 7 — El sufragio femenino en Argentina
@@ -139,14 +139,11 @@ metadata:
   nivel: "basico"
   tags: ["derechos_mujeres", "historia"]
 
-variables:
-  escenario: uno_de([["1947", "Ley 13.001"], ["1951", "Ley 13.001"]])
-
-respuesta: escenario[0]
+respuesta: "1947"
 tipo: mc
 opciones_explicitas: ["1947", "1951", "1972", "1991"]
 
-enunciado: "La ley que garantizó el derecho de las mujeres argentinas a votar y ser elegidas fue sancionada en el año {escenario[0]} mediante la {escenario[1]}."
+enunciado: "La ley que garantizó el derecho de las mujeres argentinas a votar y ser elegidas fue sancionada en el año ___ mediante la Ley 13.010."
 
 explicacion: |
   Aunque el debate venía de décadas atrás, fue en 1947 cuando se promulgó la ley que permitió el voto femenino en Argentina.
@@ -303,8 +300,8 @@ metadata:
   nivel: "avanzado"
   tags: ["logica", "derechos"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "El sufragio universal implica que el derecho al voto puede ser limitado por el nivel de instrucción o alfabetismo del ciudadano."
 
 explicacion: |
@@ -340,15 +337,11 @@ metadata:
   nivel: "intermedio"
   tags: ["representacion", "derechos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Solo propietarios", "Solo hombres con renta"], ["Solo personas con estudios", "Solo militares"]]
-
 respuesta: "tener más personas con voz política formal en las decisiones colectivas"
 tipo: mc
 opciones_explicitas: ["reducir la participación ciudadana", "tener más personas con voz política formal en las decisiones colectivas", "centralizar el poder en una sola élite", "eliminar la necesidad de leyes"]
 
-enunciado: "Si comparamos un sistema de sufragio restringido con uno universal, el principal cambio en la legitimidad del Estado es {escenarios[escenario_idx][0]} frente al derecho de {escenarios[escenario_idx][1]}."
+enunciado: "Si comparamos un sistema de sufragio restringido con uno universal, el principal cambio en la legitimidad del Estado es ___."
 
 explicacion: |
   La democracia se profundiza cuando la voluntad popular no es un privilegio de una minoría económica o social, sino un derecho que integra la diversidad de la sociedad en la toma de decisiones.
@@ -401,7 +394,7 @@ metadata:
   nivel: "intermedio"
   tags: ["legitimidad", "participacion"]
 
-respuesta: 0
+respuesta: 9
 tipo: completar
 tolerancia_abs: 0
 
@@ -470,16 +463,11 @@ metadata:
   nivel: "basico"
   tags: ["fechas", "leyes"]
 
-variables:
-  datos: [["Ley Sáenz Peña", "1912"], ["Ley de Ciudadanía", "1892"]]
-  idx: uno_de([0, 1])
-
 enunciado: "La implementación del voto universal, secreto y obligatorio en Argentina ocurrió en el año ___."
 
 respuestas_validas:
   - "1912"
-  - "1892"
-respuesta: datos[idx][1]
+respuesta: "1912"
 tipo: completar
 
 explicacion: |
@@ -495,14 +483,10 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-variables:
-  datos: [["1853", "restringido"], ["1912", "universal"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si comparamos el sistema de {datos[idx][0]} con el de 1912, el primero era de tipo ___."
+enunciado: "Si comparamos el sistema de 1853 con el de 1912, el primero era de tipo ___."
 
 opciones_explicitas: ["restringido", "universal"]
-respuesta: datos[idx][1]
+respuesta: "restringido"
 tipo: mc
 
 explicacion: |
@@ -518,18 +502,12 @@ metadata:
   nivel: "intermedio"
   tags: ["derechos_mujer", "historia"]
 
-variables:
-  datos: [["Voto Femenino", "1947"], ["Ley Sáenz Peña", "1912"]]
-  idx: uno_de([0, 1])
+enunciado: "El hito histórico que permitió el ejercicio del voto por parte de las mujeres en Argentina fue el Voto Femenino, sancionado en el año ___."
 
-enunciado: "El hito histórico que permitió el ejercicio del voto por parte de las mujeres en Argentina fue el ___ en el año ___."
-
-respuesta: datos[idx][0] + " " + datos[idx][1]
+respuesta: "1947"
 tipo: completar
-tolerancia_abs: 0
 
 respuestas_validas:
-  - "Voto Femenino"
   - "1947"
 explicacion: |
   La Ley 14.243 sancionada en 1947 garantizó la participación política de las mujeres en el sufragio argentino.
