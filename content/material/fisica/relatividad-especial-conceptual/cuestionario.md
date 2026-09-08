@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -139,7 +139,7 @@ metadata:
   nivel: "intermedio"
   tags: ["dilatacion_tiempo"]
 
-respuesta: "mayor"
+respuesta: "menor"
 tipo: "mc"
 opciones_explicitas: ["menor", "mayor", "igual", "nula"]
 
@@ -255,7 +255,7 @@ metadata:
   tags: ["masa_relativista"]
 
 tipo: vf
-respuesta: falso
+respuesta: verdadero
 
 enunciado: "En la física moderna, se prefiere hablar de 'masa inercial' constante en lugar de una 'masa que aumenta con la velocidad'."
 
