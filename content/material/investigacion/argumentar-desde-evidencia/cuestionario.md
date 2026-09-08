@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -44,11 +44,11 @@ metadata:
 variables:
   escenario: uno_de([["Un científico presenta un estudio sobre el cambio climático.", "una observación contradictoria"], ["Un investigador propone una nueva vacuna.", "un estudio que muestra efectos secundarios"], ["Un biólogo afirma que una especie está en peligro.", "un censo que muestra población estable"]])
 
-respuesta: escenario[1]
+respuesta: "objeción"
 tipo: mc
-opciones_explicitas: ["una observación contradictoria", "un estudio que muestra efectos secundarios", "un censo que muestra población estable"]
+opciones_explicitas: ["objeción", "conclusión", "hipótesis", "premisa"]
 
-enunciado: "Si un investigador presenta una conclusión, la respuesta a una ___ es un componente clave del proceso de refutación o validación científica."
+enunciado: "Si un investigador presenta una conclusión, presentar evidencia contraria a ella (como {escenario[1]}) se conoce como plantear una ___."
 
 pasos:
   - "Identificar la conclusión del argumento original."
@@ -68,7 +68,7 @@ metadata:
   nivel: "basico"
   tags: ["veracidad", "booleano"]
 
-respuesta: verdadero
+respuesta: falso
 
 tipo: vf
 
@@ -129,14 +129,11 @@ metadata:
   nivel: "intermedio"
   tags: ["evidencia", "argumentacion", "metodologia"]
 
-variables:
-  escenario: uno_de([["El aumento de la temperatura global coincide con el incremento de CO2", "El aumento de la temperatura global es causado por el CO2"], ["El fármaco X reduce la presión arterial en el grupo de prueba", "El fármaco X es efectivo para tratar la hipertensión"]])
-
-respuesta: escenario[1]
+respuesta: "un mecanismo causal directo"
 tipo: mc
-opciones_explicitas: ["La correlación no implica causalidad", escenario[1], "La muestra es demasiado pequeña", "Los datos son insuficientes"]
+opciones_explicitas: ["un mecanismo causal directo", "un aumento en el tamaño de la muestra", "un consenso de expertos", "una repetición de la misma correlación"]
 
-enunciado: "Ante la objeción de que los datos solo muestran una relación estadística, la defensa científica más sólida basada en la evidencia es: ___"
+enunciado: "Ante la objeción de que los datos solo muestran una relación estadística, la defensa científica más sólida basada en la evidencia consiste en demostrar: ___"
 
 explicacion: |
   Para defender una conclusión, no basta con señalar la correlación; se debe argumentar que la evidencia respalda el mecanismo causal propuesto.
@@ -196,7 +193,7 @@ respuesta: solucion[0]
 tipo: mc
 opciones_explicitas: ["Controlar variables externas", "Ignorar la objeción", "Cambiar la conclusión", "Aceptar la correlación"]
 
-enunciado: "En el caso de {caso}, si un revisor objeta que existe una variable de confusión (como el clima), la defensa científica correcta para mantener la validez de la conclusión es: ___"
+enunciado: "En el caso de {caso[0]}, si un revisor objeta que existe una variable de confusión (como el clima), la defensa científica correcta para mantener la validez de la conclusión es: ___"
 
 explicacion: |
   La defensa ante una variable de confusión consiste en demostrar, mediante el control de variables o análisis estadísticos adicionales, que el efecto observado persiste independientemente de la variable externa.
@@ -211,13 +208,12 @@ metadata:
   nivel: "intermedio"
   tags: ["refutacion", "evidencia", "metodologia"]
 
-respuesta: ["datos", "conclusión"]
+respuesta: "conclusión"
 tipo: completar
 respuestas_validas:
-  - "datos"
   - "conclusión"
 
-enunciado: "Para refutar una objeción científica, el investigador debe presentar ___ que contradiga la crítica y así validar su ___ original."
+enunciado: "Para refutar una objeción científica, el investigador debe presentar datos que contradigan la crítica y así validar su ___ original."
 
 explicacion: |
   La ciencia se basa en la evidencia; sin datos que respalden la posición frente a una crítica, la conclusión pierde validez científica.
@@ -271,16 +267,16 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["El investigador presenta un gráfico con tendencia clara y valores de p < 0.05", "El investigador repite su conclusión sin mostrar nuevos datos"], ["El investigador utiliza una muestra de 1000 sujetos con control de variables", "El investigador utiliza una muestra de 5 sujetos sin grupo de control"]]
+  escenarios: ["El investigador presenta un gráfico con tendencia clara y valores de p < 0.05", "El investigador repite su conclusión sin mostrar nuevos datos"]
   respuestas: ["Es una defensa válida mediante evidencia cuantitativa", "Es una falacia de autoridad o repetición"]
 
 tipo: completar
 respuestas_validas:
   - "Es una defensa válida mediante evidencia cuantitativa"
   - "Es una falacia de autoridad o repetición"
-respuesta: escenarios[escenario_idx][1]
+respuesta: respuestas[escenario_idx]
 
-enunciado: "Ante una objeción científica, si el investigador actúa como en el escenario {escenarios[escenario_idx][0]}, su respuesta es: ___"
+enunciado: "Ante una objeción científica, si el investigador actúa como en el escenario: {escenarios[escenario_idx]}, su respuesta es: ___"
 
 explicacion: |
   Para defender una conclusión, no basta con insistir en la idea; se requiere aportar datos que refuten la objeción o que fortalezcan la validez del hallazgo original.
@@ -364,7 +360,7 @@ respuesta: "correlación"
 tipo: "mc"
 opciones_explicitas: ["causalidad", "correlación", "coincidencia", "hipótesis"]
 
-enunciado: "En el escenario {escenarios[escenario_idx][0]} y {escenarios[escenario_idx][1]}, la relación observada entre ambas variables es una {escenarios[escenario_idx][1]} pero no necesariamente una relación de causa-efecto. ¿Cómo se define este fenómeno?"
+enunciado: "En el escenario {escenarios[escenario_idx][0]} y {escenarios[escenario_idx][1]}, la relación observada entre ambas variables es una ___ pero no necesariamente una relación de causa-efecto. ¿Cómo se define este fenómeno?"
 
 explicacion: |
   La correlación indica que dos variables cambian juntas, pero no implica que una cause la otra. Confundir esto con causalidad es un error lógico común en la argumentación científica.
@@ -441,7 +437,7 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   objecion: ["la variabilidad natural", "la falta de mediciones precisas"]
-  evidencia_correcta: ["datos de registros satelitales", "datos de núcleos de hielo"]
+  evidencia_correcta: ["datos de núcleos de hielo", "datos de registros satelitales"]
 
 respuesta: evidencia_correcta[escenario_idx]
 tipo: mc
@@ -518,7 +514,7 @@ respuestas_validas:
   - "falacia de la evidencia insuficiente"
   - "error de generalización"
 
-enunciado: "Ante la objecion: '{objecion_texto[ejemplo_idx]}', el investigador debe identificar que el crítico está cometiendo una ___ para poder responder con datos que cubran el margen de error."
+enunciado: "Ante la objecion: '{objecion_texto[ejemplo_idx][0]}', el investigador debe identificar que el crítico está cometiendo una ___ para poder responder con datos que cubran el margen de error."
 
 explicacion: |
   Cuando un crítico exige una certeza absoluta (imposible en ciencia) para invalidar una tendencia, está incurriendo en una falacia de evidencia insuficiente.
