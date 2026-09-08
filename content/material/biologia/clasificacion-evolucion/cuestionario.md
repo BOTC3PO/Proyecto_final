@@ -1,12 +1,6 @@
 # Biología — Clasificación y evolución (cuestionario, 20 preguntas VBLang)
 
 > Tema: `BJ`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: `opciones_explicitas` con
-> textos meta ("el primero"/"el segundo") que no coincidían con la
-> `respuesta` real (el nombre de la categoría), y otro `uno_de(...)`
-> sorteando entre las 4 opciones de una pregunta de respuesta fija.
 
 ---
 
