@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -97,15 +97,11 @@ metadata:
   nivel: "intermedio"
   tags: ["diagnostico"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenarios: [["La función 'sumar(a, b)' devuelve un error de sintaxis", "unitario"], ["El módulo de 'Pagos' no logra recibir los datos del módulo de 'Carrito'", "integracion"]]
-
-respuesta: escenarios[idx][1]
+respuesta: "unitario"
 tipo: mc
 opciones_explicitas: ["unitario", "integracion"]
 
-enunciado: "Si una función matemática falla al calcular un resultado, pero el resto del sistema funciona bien, estamos ante un error de tipo: {escenarios[idx][0]}"
+enunciado: "Si una función matemática falla al calcular un resultado, pero el resto del sistema funciona bien, estamos ante un error de tipo: ___"
 
 explicacion: |
   Como el fallo está contenido en la lógica interna de una pieza aislada, el error se identifica mediante pruebas unitarias.
@@ -205,9 +201,6 @@ metadata:
   nivel: "avanzado"
   tags: ["debug"]
 
-variables:
-  errores: [["Si una prueba de integración falla, el error puede estar en la lógica de un módulo o en la comunicación entre ellos.", "integracion"], ["Si una prueba unitaria falla, el error está garantizado en la lógica interna de la función probada.", "unitaria"]]
-
 enunciado: "En el contexto de pruebas de ___, un fallo puede indicar un problema en la interfaz entre dos componentes, no necesariamente en la lógica interna de cada uno."
 tipo: completar
 respuesta: "integracion"
@@ -262,15 +255,11 @@ metadata:
   nivel: "intermedio"
   tags: ["testing", "errores_comunes"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["La función A llama a la función B y el error ocurre por un valor de retorno inesperado de B", "de_integracion"], ["La función A tiene un error de lógica en su cálculo interno", "unitarias"]]
-
-respuesta: escenarios[escenario_idx][1]
+respuesta: "de_integracion"
 tipo: mc
 opciones_explicitas: ["unitarias", "de_integracion"]
 
-enunciado: "Si una prueba falla porque la interacción entre dos módulos es incorrecta, pero cada módulo funciona bien por separado, estamos ante un error de tipo: {escenarios[escenario_idx][0]}."
+enunciado: "Si una prueba falla porque la interacción entre dos módulos es incorrecta, pero cada módulo funciona bien por separado, estamos ante un error de tipo: ___."
 
 explicacion: |
   En este caso, el problema no reside en la lógica interna de los módulos (unitario), sino en el contrato o la comunicación entre ellos (integración).
