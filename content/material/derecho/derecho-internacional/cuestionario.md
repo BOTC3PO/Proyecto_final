@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -121,7 +121,7 @@ variables:
   caso_idx: uno_de([0, 1])
   datos: [["Estado A", "Estado B", "Tratado de Límites"], ["Estado C", "Estado D", "Acuerdo de Fronteras"]]
 
-enunciado: "El {datos[caso_idx][0]} es un instrumento jurídico mediante el cual el {datos[caso_idx][1]} y el {datos[caso_idx][2]} establecen normas de conducta mutua. ¿Es este un ejemplo de Derecho Internacional Público?"
+enunciado: "El {datos[caso_idx][2]} es un instrumento jurídico mediante el cual el {datos[caso_idx][0]} y el {datos[caso_idx][1]} establecen normas de conducta mutua. ¿Es este un ejemplo de Derecho Internacional Público?"
 
 respuesta: verdadero
 tipo: "vf"
@@ -139,10 +139,7 @@ metadata:
   nivel: "intermedio"
   tags: ["organismos_internacionales", "onu"]
 
-variables:
-  organismo: uno_de(["ONU", "Corte Penal Internacional"])
-
-enunciado: "Si un Estado firma un tratado para combatir el cambio climático, este compromiso se rige por el Derecho Internacional. Si la entidad encargada de velar por la paz y seguridad internacional es la {organismo}, ¿cuál es su función principal?"
+enunciado: "Si un Estado firma un tratado para combatir el cambio climático, este compromiso se rige por el Derecho Internacional. La ONU es la entidad encargada de velar por la paz y seguridad internacional. ¿Cuál es su función principal?"
 
 opciones_explicitas: ["Mantener la paz y seguridad internacional", "Regular el comercio entre empresas privadas", "Dictar leyes internas de los países"]
 respuesta: "Mantener la paz y seguridad internacional"
@@ -200,10 +197,7 @@ metadata:
   nivel: "intermedio"
   tags: ["pacta_sunt_servanda"]
 
-variables:
-  norma: uno_de(["Pacta sunt servanda", "Lex posterior"])
-
-enunciado: "El principio de que 'lo pactado obliga' se conoce como {norma}. Si un Estado firma un tratado, ¿está obligado a cumplirlo de buena fe?"
+enunciado: "El principio de que 'lo pactado obliga' se conoce como Pacta sunt servanda. Si un Estado firma un tratado, ¿está obligado a cumplirlo de buena fe?"
 
 respuesta: verdadero
 tipo: "vf"
@@ -242,11 +236,8 @@ metadata:
   nivel: "intermedio"
   tags: ["distincion", "derecho_privado"]
 
-variables:
-  es_privado: falso
-
-respuesta: es_privado
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "El Derecho Internacional Privado se encarga de regular las relaciones entre particulares (individuos o empresas) cuando existe un elemento extranjero en la relación jurídica."
 
 explicacion: |
@@ -360,14 +351,10 @@ metadata:
   nivel: "avanzado"
   tags: ["jerarquia", "normas"]
 
-variables:
-  caso: uno_de([["Tratado", "Norma Imperativa (Jus Cogens)"], ["Tratado", "Tratado Bilateral"]])
-
-respuesta: caso[1]
+respuesta: "Norma Imperativa (Jus Cogens)"
 tipo: completar
 respuestas_validas:
   - "Norma Imperativa (Jus Cogens)"
-  - "Tratado Bilateral"
 
 enunciado: "Mientras que la mayoría de las normas internacionales derivan del consentimiento, existen normas de carácter superior denominadas ___ que no admiten acuerdo en contrario."
 
