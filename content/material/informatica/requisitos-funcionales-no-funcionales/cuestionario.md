@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -370,7 +370,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["El sistema debe cifrar los datos con AES-256", "El sistema debe soportar 1000 usuarios concurrentes"], ["Seguridad", "Rendimiento"]]
+  escenarios: [["El sistema debe cifrar los datos con AES-256", "Seguridad"], ["El sistema debe soportar 1000 usuarios concurrentes", "Rendimiento"]]
 
 tipo: completar
 respuestas_validas:
@@ -482,12 +482,14 @@ metadata:
   tags: ["logica", "requisitos"]
 
 variables:
-  item: uno_de([["El sistema debe permitir eliminar una cuenta de usuario.", "verdadero"], ["El sistema debe ser compatible con navegadores Chrome y Firefox.", "falso"], ["El sistema debe emitir una alerta si el stock es bajo.", "verdadero"], ["El sistema debe tener una interfaz de colores suaves.", "falso"]])
+  textos: ["El sistema debe permitir eliminar una cuenta de usuario.", "El sistema debe ser compatible con navegadores Chrome y Firefox.", "El sistema debe emitir una alerta si el stock es bajo.", "El sistema debe tener una interfaz de colores suaves."]
+  valores: [verdadero, falso, verdadero, falso]
+  idx: uno_de([0, 1, 2, 3])
 
-enunciado: "Analiza el siguiente requerimiento: '{item[0]}'. ¿Es un requisito funcional? (verdadero/falso)"
+enunciado: "Analiza el siguiente requerimiento: '{textos[idx]}'. ¿Es un requisito funcional?"
 
-respuesta: item[1]
-tipo: completar
+respuesta: valores[idx]
+tipo: vf
 explicacion: |
   Si el requerimiento describe una funcionalidad o acción que el usuario puede realizar, es funcional. Si describe una restricción o una característica de calidad, es no funcional.
 ```
@@ -522,9 +524,6 @@ metadata:
   tema: "requisitos_software"
   nivel: "avanzado"
   tags: ["proceso", "ingenieria_software"]
-
-variables:
-  secuencia: ["Identificar necesidades del cliente", "Definir requisitos funcionales", "Definir requisitos no funcionales", "Validar especificaciones"]
 
 enunciado: "Ordena los pasos lógicos en el proceso de ingeniería de requisitos, desde la detección de la necesidad hasta la validación final:"
 
