@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,12 +41,9 @@ metadata:
   nivel: "intermedio"
   tags: ["kuhn", "paradigmas", "ciencia_normal"]
 
-variables:
-  escenario: uno_de([["ciencia_normal", "periodo de estabilidad donde se trabaja bajo un paradigma establecido"], ["crisis", "periodo de acumulación de anomalías que el paradigma actual no puede resolver"], ["revolucion", "periodo de cambio radical donde un paradigma es reemplazado por otro"]])
-
 opciones_explicitas: ["ciencia_normal", "crisis", "revolucion"]
 
-respuesta: escenario[0]
+respuesta: "crisis"
 tipo: mc
 
 enunciado: "Según Thomas Kuhn, el periodo caracterizado por la acumulación de anomalías que el modelo vigente no puede explicar se denomina ___________."
@@ -102,12 +99,9 @@ metadata:
   nivel: "avanzado"
   tags: ["popper", "kuhn", "feyerabend"]
 
-variables:
-  comparacion: uno_de([["falsacionismo", "Popper propone que la ciencia avanza mediante la refutación de teorías."], ["paradigmas", "Kuhn sostiene que la ciencia avanza mediante cambios de modelos compartidos."], ["anarquismo", "Feyerabend defiende la pluralidad de métodos frente a la rigidez metodológica."]])
-
 opciones_explicitas: ["falsacionismo", "paradigmas", "anarquismo"]
 
-respuesta: comparacion[0]
+respuesta: "falsacionismo"
 tipo: mc
 
 enunciado: "Si un autor afirma que el progreso científico se da a través de la eliminación de teorías que han sido refutadas por la experiencia, se refiere al ___________."
@@ -149,13 +143,10 @@ metadata:
   nivel: "intermedio"
   tags: ["kuhn", "paradigmas", "ciencia_normal"]
 
-variables:
-  fase: uno_de([["Ciencia Normal", "Crisis"], ["Ciencia Normal", "Revolución Científica"], ["Ciencia Normal", "Cambio de Paradigma"]])
-
 enunciado: "Thomas Kuhn sostiene que la ciencia no progresa de forma lineal, sino mediante saltos. El proceso sigue este orden: primero ocurre la 'Ciencia Normal', luego surge una serie de anomalías que no pueden ser resueltas, lo que lleva a una ___ y, finalmente, a un cambio de paradigma."
 
 opciones_explicitas: ["Crisis", "Revolución Científica", "Cambio de Paradigma"]
-respuesta: fase[1]
+respuesta: "Crisis"
 tipo: mc
 
 explicacion: |
@@ -171,7 +162,7 @@ metadata:
   nivel: "avanzado"
   tags: ["feyerabend", "anarquismo", "metodologia"]
 
-enunciado: "Paul Feyerabend argumenta en su obra 'Contra la muerte de la razón' que no existe un único método científico universal que deba seguirse estrictamente para que el conocimiento sea válido. Su principio fundamental es 'Anything goes' (Todo vale). ¿Es esto cierto?"
+enunciado: "Paul Feyerabend argumenta en su obra 'Contra el método' que no existe un único método científico universal que deba seguirse estrictamente para que el conocimiento sea válido. Su principio fundamental es 'Anything goes' (Todo vale). ¿Es esto cierto?"
 
 opciones_explicitas: [verdadero, falso]
 respuesta: verdadero
@@ -209,13 +200,10 @@ metadata:
   nivel: "avanzado"
   tags: ["comparativa", "popper", "kuhn", "feyerabend"]
 
-variables:
-  caso: uno_de([["Un científico busca una teoría que sea lo más arriesgada y falsable posible.", "Popper"], ["Un científico trabaja dentro de un marco de reglas aceptadas por su comunidad para resolver acertijos.", "Kuhn"], ["Un científico decide ignorar las reglas lógicas establecidas para permitir una nueva idea creativa.", "Feyerabend"]])
-
 enunciado: "Si un investigador se enfoca exclusivamente en la capacidad de una teoría para ser refutada mediante la experimentación, ¿qué autor está siguiendo?"
 
 opciones_explicitas: ["Popper", "Kuhn", "Feyerabend"]
-respuesta: caso[1]
+respuesta: "Popper"
 tipo: mc
 
 explicacion: |
@@ -249,12 +237,9 @@ metadata:
   nivel: "intermedio"
   tags: ["kuhn", "paradigmas", "ciencia-normal"]
 
-variables:
-  escenario: uno_de([["ciencia-normal", "periodo de estabilidad donde se trabaja bajo un paradigma establecido"], ["revolucion-cientifica", "periodo de crisis donde el paradigma actual es reemplazado"]])
-
 opciones_explicitas: ["ciencia-normal", "revolucion-cientifica"]
 
-respuesta: escenario[0]
+respuesta: "ciencia-normal"
 tipo: mc
 
 enunciado: "Según Thomas Kuhn, el periodo en el que los científicos se dedican a resolver 'enigmas' dentro de un marco teórico aceptado se denomina: ___"
@@ -263,7 +248,7 @@ pasos:
   - "Identificar si el enunciado describe un periodo de estabilidad o de crisis."
 
 explicacion: |
-  En la {escenario[0]}, los científicos no cuestionan los fundamentos, sino que resuelven problemas dentro del modelo vigente. La ruptura de este estado da lugar a la revolución científica.
+  En la ciencia-normal, los científicos no cuestionan los fundamentos, sino que resuelven problemas dentro del modelo vigente. La ruptura de este estado da lugar a la revolución científica.
 ```
 
 ### 13 — El anarquismo de Feyerabend
@@ -280,10 +265,9 @@ tipo: completar
 
 respuestas_validas:
   - "contra el método"
-  - "pro-método"
   - "sin método"
 
-enunciado: "El principio de 'contra el método' de Paul Feyerabend sugiere que no existe una regla metodológica única y universal que guíe todo progreso científico."
+enunciado: "El principio de '___' de Paul Feyerabend sugiere que no existe una regla metodológica única y universal que guíe todo progreso científico."
 
 explicacion: |
   Feyerabend argumenta que la ciencia es una actividad pluralista y que imponer un método único (como el inductivismo o el falsacionismo) limitaría el progreso científico y la libertad de investigación.
@@ -369,10 +353,7 @@ metadata:
   nivel: "intermedio"
   tags: ["kuhn", "paradigmas", "ciencia_normal"]
 
-variables:
-  escenario: uno_de([["Ciencia Normal", "Resolución de acertijos"], ["Ciencia Normal", "Búsqueda de la verdad absoluta"], ["Crisis", "Resolución de acertijos"]])
-
-respuesta: escenario[1]
+respuesta: "Resolución de acertijos"
 tipo: mc
 opciones_explicitas: ["Resolución de acertijos", "Búsqueda de la verdad absoluta", "Resolución de crisis"]
 
@@ -436,10 +417,7 @@ metadata:
   nivel: "avanzado"
   tags: ["popper", "kuhn", "comparacion"]
 
-variables:
-  caso: uno_de([["Popper", "Refutación"], ["Kuhn", "Cambio de paradigma"]])
-
-respuesta: caso[1]
+respuesta: "Refutación"
 tipo: mc
 opciones_explicitas: ["Cambio de paradigma", "Refutación", "Confirmación absoluta"]
 
@@ -509,11 +487,8 @@ respuesta: "contra-intuitivo"
 tipo: completar
 respuestas_validas:
   - "contra-intuitivo"
-  - "metodico"
-  - "riguroso"
-  - "falsable"
 
-enunciado: "Paul Feyerabend, en su obra 'Contra la muerte de la razón', sostiene que no existe un método único y universal para el progreso científico, proponiendo un enfoque que puede ser considerado ___ para la metodología tradicional."
+enunciado: "Paul Feyerabend, en su obra 'Contra el método', sostiene que no existe un método único y universal para el progreso científico, proponiendo un enfoque que puede ser considerado ___ para la metodología tradicional."
 
 explicacion: |
   Feyerabend defiende el 'anything goes' (todo vale), argumentando que la adherencia estricta a reglas metodológicas ha frenado el progreso científico.
