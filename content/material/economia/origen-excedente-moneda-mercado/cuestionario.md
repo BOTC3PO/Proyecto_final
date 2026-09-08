@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -141,14 +141,11 @@ metadata:
   nivel: "intermedio"
   tags: ["funciones_moneda", "teoria_monetaria"]
 
-variables:
-  escenario: uno_de([["Se usa para fijar el precio de un producto", "unidad de cuenta"], ["Se usa para comprar bienes hoy y pagar después", "medio de cambio"], ["Se usa para ahorrar para el futuro", "reserva de valor"]])
-
-respuesta: escenario[1]
+respuesta: "medio de cambio"
 tipo: mc
 opciones_explicitas: ["unidad de cuenta", "medio de cambio", "reserva de valor"]
 
-enunciado: "Si un comerciante utiliza una moneda para facilitar la transacción inmediata de un bien, está utilizando la moneda como: {escenario[0]}."
+enunciado: "Si un comerciante utiliza una moneda para facilitar la transacción inmediata de un bien, está utilizando la moneda como: ___"
 
 explicacion: |
   La función de medio de cambio permite que la moneda actúe como un intermediario en el intercambio, eliminando la necesidad de buscar una coincidencia exacta de bienes.
@@ -183,7 +180,7 @@ metadata:
   nivel: "intermedio"
   tags: ["valor", "moneda"]
 
-respuesta: 100
+respuesta: 13
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -226,7 +223,7 @@ metadata:
   tags: ["moneda_mercado", "dinero_mercado", "historia_economica"]
 
 variables:
-  escenario: uno_de([["conchas_cauri", "conchas"], ["sal", "sal"]])
+  escenario: uno_de([["conchas cauri", "conchas"], ["sal", "sal"]])
 
 enunciado: "En diversas culturas antiguas, antes de la existencia de monedas acuñadas, se utilizaban objetos con valor intrínseco como medio de cambio. Un ejemplo común es el uso de {escenario[0]}."
 
@@ -287,7 +284,7 @@ explicacion: |
 ```
 metadata:
   materia: "economia"
-  tema: "origen_excedente_monoda_mercado"
+  tema: "origen_excedente_moneda_mercado"
   nivel: "intermedio"
   tags: ["metales_preciosos", "valor_intrínseco"]
 
@@ -361,11 +358,12 @@ metadata:
 variables:
   escenario: uno_de([["agricultor", "trigo"], ["pastor", "lana"], ["alfarero", "cerámica"]])
 
-respuesta: "segundo"
-tipo: "mc"
-opciones_explicitas: ["primero", "segundo", "tercero"]
+respuesta: "mercado"
+tipo: "completar"
+respuestas_validas:
+  - "mercado"
 
-enunciado: "En una economía con división del trabajo, un {escenario[0]} produce un excedente de {escenario[1]}. Si este desea obtener un bien diferente, debe acudir al mercado para realizar un intercambio."
+enunciado: "En una economía con división del trabajo, un {escenario[0]} produce un excedente de {escenario[1]}. Si este desea obtener un bien diferente, debe acudir al ___ para realizar un intercambio."
 
 explicacion: |
   La especialización permite que cada individuo se concentre en una actividad, generando excedentes específicos que se intercambian en el mercado.
@@ -400,13 +398,13 @@ metadata:
   tags: ["moneda", "liquidez", "intercambio"]
 
 variables:
-  caso: uno_de([["sal", "sal"], ["conchas", "conchas"], ["metales", "metales"]])
+  caso: uno_de(["sal", "conchas", "metales"])
 
-respuesta: "1"
+respuesta: "unidad de cuenta"
 tipo: "mc"
-opciones_explicitas: ["1", "2", "3"]
+opciones_explicitas: ["unidad de cuenta", "medio de cambio", "reserva de valor"]
 
-enunciado: "Para facilitar el comercio de excedentes, se utilizan objetos como medio de cambio. Si usamos {caso[0]} como unidad de cuenta, el valor de un bien se mide en {caso[1]}."
+enunciado: "Para facilitar el comercio de excedentes, se utilizan objetos como medio de cambio. Si usamos {caso} para expresar y comparar el valor de otros bienes, estamos usando esa mercancía como:"
 
 explicacion: |
   La moneda actúa como un estándar de valor que resuelve la dificultad de coincidencia de necesidades del trueque.
