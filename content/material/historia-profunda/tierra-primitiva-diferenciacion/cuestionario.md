@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,11 +41,12 @@ metadata:
   tags: ["calor", "estado_fisico"]
 
 tipo: completar
-tolerancia_abs: 100000000
+respuestas_validas:
+  - "fundido"
 
-enunciado: "Debido a los impactos constantes y el calor radiactivo, la Tierra primitiva se encontraba en un estado casi ___ (en millones de años, valor aproximado de la edad de formación)."
+enunciado: "Debido a los impactos constantes y el calor radiactivo, la Tierra primitiva se encontraba en un estado casi ___."
 
-respuesta: 4600000000
+respuesta: "fundido"
 
 explicacion: |
   El calor generado por el bombardeo de planetesimales y la desintegración de isótopos radiactivos mantuvo el manto y el núcleo en un estado fundido o casi fundido.
@@ -356,12 +357,10 @@ metadata:
   nivel: "intermedio"
   tags: ["fisica", "colision", "teoria"]
 
-variables:
-  escenario: uno_de([["un objeto masivo", "aumentó la rotación", "creó un disco de escombros"], ["un objeto pequeño", "no alteró la órbita", "no generó escombros"], ["un objeto gaseoso", "enfrió el núcleo", "disipó la atmósfera"]])
-  respuesta_correcta: escenario[1]
-
 tipo: completar
-respuesta: respuesta_correcta
+respuestas_validas:
+  - "aumentó la rotación"
+respuesta: "aumentó la rotación"
 
 enunciado: "En el escenario de una colisión con un objeto de gran masa, la energía cinética transferida _______."
 
@@ -439,17 +438,12 @@ metadata:
   nivel: "basico"
   tags: ["diferenciacion", "densidad"]
 
-variables:
-  escenario: uno_de([["hierro", "núcleo"], ["silicatos", "manto"], ["granito", "corteza"]])
-  dato: escenario[0]
-  resp: escenario[1]
-
 tipo: mc
 opciones_explicitas: ["núcleo", "manto", "corteza"]
 
-enunciado: "Durante la diferenciación planetaria, los elementos más densos como el {dato} se hundieron hacia el centro, formando la capa conocida como ___."
+enunciado: "Durante la diferenciación planetaria, los elementos más densos como el hierro se hundieron hacia el centro, formando la capa conocida como ___."
 
-respuesta: resp
+respuesta: "núcleo"
 
 explicacion: |
   Los elementos más pesados (densos) como el hierro y el níquel migraron al centro debido a la gravedad, formando el núcleo.
@@ -464,21 +458,13 @@ metadata:
   nivel: "intermedio"
   tags: ["composicion", "corteza"]
 
-variables:
-  escenario: [["silicatos ligeros", "corteza"], ["metales pesados", "núcleo"], ["magma denso", "manto"]]
-  idx: uno_de([0,1,2])
-  dato: escenario[idx][0]
-  resp: escenario[idx][1]
-
 tipo: completar
 respuestas_validas:
   - "corteza"
-  - "núcleo"
-  - "manto"
 
-enunciado: "La capa más externa de la Tierra está compuesta principalmente por ___."
+enunciado: "La capa más externa de la Tierra está compuesta principalmente por silicatos ligeros. ¿Cómo se llama esta capa?"
 
-respuesta: resp
+respuesta: "corteza"
 
 explicacion: |
   La corteza es la capa más superficial y está formada por materiales menos densos (silicatos) que flotaron sobre el manto.
@@ -512,18 +498,12 @@ metadata:
   nivel: "basico"
   tags: ["manto", "densidad"]
 
-variables:
-  escenario: [["materiales de densidad intermedia", "manto"], ["hierro puro", "núcleo"], ["rocas ligeras", "corteza"]]
-  idx: uno_de([0,1,2])
-  dato: escenario[idx][0]
-  resp: escenario[idx][1]
-
 tipo: mc
 opciones_explicitas: ["manto", "núcleo", "corteza"]
 
-enunciado: "La capa situada entre la corteza y el núcleo, compuesta por ___ , se denomina ___."
+enunciado: "La capa situada entre la corteza y el núcleo, compuesta por materiales de densidad intermedia, se denomina ___."
 
-respuesta: resp
+respuesta: "manto"
 
 explicacion: |
   El manto está compuesto por materiales con una densidad intermedia, situándose debajo de la corteza.
@@ -537,12 +517,6 @@ metadata:
   tema: "tierra_primitiva_diferenciacion"
   nivel: "avanzado"
   tags: ["nucleo", "densidad"]
-
-variables:
-  escenario: [["muy alta", "núcleo"], ["media", "manto"], ["baja", "corteza"]]
-  idx: uno_de([0,1,2])
-  dato: escenario[idx][0]
-  resp: escenario[idx][1]
 
 tipo: completar
 tolerancia_abs: 0
