@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -87,9 +87,9 @@ respuestas_validas:
   - "Trama"
   - "Segmento"
 
-enunciado: "En la capa de {escenario[0]}, la unidad de datos de protocolo (PDU) se denomina ________."
+enunciado: "En la capa de {escenario[1]}, la unidad de datos de protocolo (PDU) se denomina ________."
 
-respuesta: escenario[1]
+respuesta: escenario[0]
 
 explicacion: |
   Cada capa tiene su propia PDU: Segmento (Transporte), Paquete (Internet) y Trama (Acceso a la red).
@@ -144,19 +144,14 @@ metadata:
   nivel: "intermedio"
   tags: ["encapsulamiento", "sdp"]
 
-variables:
-  idx: uno_de([0, 1, 2])
-  escenario: [["Datos de aplicación", "Segmento", "Paquete"], ["Segmento de transporte", "Paquete", "Trama"], ["Paquete IP", "Trama", "Bit"]]
-
 tipo: completar
 respuestas_validas:
-  - ["Segmento", "Paquete", "Trama"]
-  - ["Paquete", "Trama", "Bit"]
-  - ["Trama", "Bit", "Frame"]
+  - "Trama"
+  - "Frame"
 
-enunciado: "Si estamos en la capa de Transporte y añadimos la cabecera correspondiente, el resultado es un {escenario[idx][0]}. Al pasar a la capa de Internet, este se convierte en un {escenario[idx][1]}, y finalmente en la capa de Acceso a Red se transforma en una {escenario[idx][2]}."
+enunciado: "Si estamos en la capa de Transporte y añadimos la cabecera correspondiente, el resultado es un Segmento. Al pasar a la capa de Internet, este se encapsula dentro de un Paquete, y finalmente en la capa de Acceso a Red se transforma en una ___."
 
-respuesta: escenario[idx][2]
+respuesta: "Trama"
 
 explicacion: |
   El proceso de encapsulamiento añade información de control (cabeceras) a medida que los datos descienden por las capas del modelo.
@@ -243,9 +238,7 @@ respuesta: "Capa de Red"
 tipo: completar
 respuestas_validas:
   - "Capa de Red"
-  - "Capa de Enlace"
   - "Capa de Internet"
-  - "Capa de Aplicación"
 
 enunciado: "En el modelo TCP/IP, la función de determinar la mejor ruta para un paquete de datos a través de múltiples redes es responsabilidad de la ___."
 
@@ -284,7 +277,7 @@ metadata:
   nivel: "intermedio"
   tags: ["encapsulamiento", "PDU", "datos"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es correcto afirmar que un segmento TCP contiene dentro de su cuerpo (payload) un datagrama IP?"
@@ -408,7 +401,7 @@ tipo: ordenar
 
 opciones_explicitas: ["datos", "segmento", "paquete", "trama"]
 
-enunciado: "Ordena los elementos de mayor a menor nivel de encapsulamiento (desde la información original hasta la unidad de la capa física):"
+enunciado: "Ordena los elementos de menor a mayor nivel de encapsulamiento (desde la información original hasta la unidad de la capa física):"
 
 explicacion: |
   El proceso de encapsulamiento añade encabezados en cada capa: Datos (Aplicación) -> Segmento (Transporte) -> Paquete (Red) -> Trama (Enlace).
@@ -526,15 +519,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenario: [[19216810, "2552552550"], [100000, "25500000"]]
-  red: escenario[escenario_idx][0]
-  mascara: escenario[escenario_idx][1]
-  red_decimal: uno_de([3232235776, 167772160])
+  datos: [["192.168.1.10", "255.255.255.0", 3232235776], ["10.0.0.5", "255.0.0.0", 167772160]]
 
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si un host tiene la dirección IP {red} y la máscara de subred {mascara}, ¿cuál es el valor decimal de la dirección de red (Network ID)?"
+enunciado: "Si un host tiene la dirección IP {datos[escenario_idx][0]} y la máscara de subred {datos[escenario_idx][1]}, ¿cuál es el valor decimal de la dirección de red (Network ID)?"
 
 pasos:
   - "Identificar la máscara de red."
@@ -543,5 +533,5 @@ pasos:
 explicacion: |
   La dirección de red se obtiene aplicando una operación AND lógica entre la dirección IP del host y su máscara de subred.
 
-respuesta: red_decimal
+respuesta: datos[escenario_idx][2]
 ```
