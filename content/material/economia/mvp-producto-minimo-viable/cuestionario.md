@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,7 +41,7 @@ metadata:
   nivel: "basico"
   tags: ["estrategia", "validación"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "Un MVP debe contener todas las características que el cliente final espera de un producto completo para asegurar su éxito."
@@ -59,14 +59,11 @@ metadata:
   nivel: "intermedio"
   tags: ["desarrollo", "iteración"]
 
-variables:
-  escenario: uno_de([["Landing Page", "Validar interés"], ["Mago de Oz", "Simular funcionalidad"], ["Conserje", "Proceso manual"]])
-
-respuesta: escenario[0]
+respuesta: "Landing Page"
 tipo: mc
 opciones_explicitas: ["Landing Page", "Mago de Oz", "Conserje"]
 
-enunciado: "Si una startup lanza una página web simple para ver cuántas personas hacen clic en un botón de 'comprar' antes de tener el producto desarrollado, está utilizando un modelo de: {escenario[0]} con el fin de {escenario[1]}."
+enunciado: "Si una startup lanza una página web simple para ver cuántas personas hacen clic en un botón de 'comprar' antes de tener el producto desarrollado, ¿qué modelo de MVP está utilizando?"
 
 explicacion: |
   La Landing Page es uno de los MVPs más rápidos para validar la demanda de una idea antes de invertir en desarrollo técnico.
@@ -266,11 +263,7 @@ metadata:
   nivel: "intermedio"
   tags: ["ciclo_feedback", "lean_startup"]
 
-variables:
-  pasos_orden: [["Construir", "Medir", "Aprender"], ["Aprender", "Construir", "Medir"], ["Medir", "Aprender", "Construir"]]
-  idx: uno_de([0,1,2])
-
-respuesta_orden: pasos_orden[idx]
+respuesta_orden: ["Construir", "Medir", "Aprender"]
 tipo: ordenar
 opciones_explicitas: ["Construir", "Medir", "Aprender"]
 
@@ -296,10 +289,7 @@ variables:
 respuesta: escenario[idx][1]
 tipo: completar
 respuestas_validas:
-  - "un prototipo de baja fidelidad"
-  - "una versión con todas las funciones pero sin marketing"
-  - "un producto incompleto que no resuelve el problema principal"
-  - "una campaña de publicidad sin producto"
+  - escenario[idx][1]
 
 enunciado: "Un error crítico es confundir un MVP con ___."
 
@@ -320,9 +310,6 @@ respuesta: "una función principal"
 tipo: completar
 respuestas_validas:
   - "una función principal"
-  - "todas las funciones posibles"
-  - "ninguna función para ahorrar costes"
-  - "una interfaz muy compleja"
 
 enunciado: "Para evitar el exceso de funciones (feature creep) en un MVP, el equipo debe centrarse en desarrollar ___ que aporte valor real."
 
