@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,11 +40,7 @@ metadata:
   nivel: "basico"
   tags: ["observacion", "astronomia"]
 
-variables:
-  dir_estrellas: uno_de(["Este-Oeste", "Oeste-Este"])
-  sentido_estrellas: uno_de(["Este-Oeste", "Este-Oeste"])
-
-respuesta: dir_estrellas
+respuesta: "Este-Oeste"
 tipo: mc
 opciones_explicitas: ["Este-Oeste", "Oeste-Este", "Norte-Sur", "Sur-Norte"]
 
@@ -81,11 +77,7 @@ metadata:
   nivel: "avanzado"
   tags: ["eje_terrestre", "estrellas_fijas"]
 
-variables:
-  punto_fijo: uno_de(["Polo Norte Celeste", "Ecuador Celeste", "Polo Sur Celeste"])
-  nombre_fijo: uno_de(["Polo Norte Celeste", "Polo Sur Celeste"])
-
-respuesta: punto_fijo
+respuesta: "Polo Norte Celeste"
 tipo: mc
 opciones_explicitas: ["Polo Norte Celeste", "Ecuador Celeste", "Polo Sur Celeste"]
 
@@ -230,7 +222,7 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "basico"
   tags: ["astronomia", "orientacion"]
 
@@ -250,7 +242,7 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "basico"
   tags: ["orientacion", "navegacion"]
 
@@ -270,7 +262,7 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "intermedio"
   tags: ["movimiento_aparente", "rotacion"]
 
@@ -292,7 +284,7 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "intermedio"
   tags: ["geometria_celeste"]
 
@@ -312,7 +304,7 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "avanzado"
   tags: ["observacion", "secuencia"]
 
@@ -438,18 +430,14 @@ metadata:
   nivel: "basico"
   tags: ["astronomia", "estaciones"]
 
-variables:
-  datos: [["Orión", "Leo"], ["Sirio", "Tauro"], ["Spica", "Cáncer"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "Leo"
 tipo: mc
 opciones_explicitas: ["Leo", "Tauro", "Cáncer", "Orión"]
 
-enunciado: "Durante la primavera en el hemisferio norte, la constelación que se encuentra en su punto más alto en el cielo es {datos[idx][0]}."
+enunciado: "Durante la primavera en el hemisferio norte, ¿cuál de las siguientes constelaciones se encuentra en su punto más alto (culminación) en el cielo nocturno?"
 
 explicacion: |
-  Debido al movimiento de traslación de la Tierra, diferentes constelaciones son visibles en diferentes épocas del año. En primavera, la constelación de {datos[idx][0]} es prominente.
+  Debido al movimiento de traslación de la Tierra, diferentes constelaciones son visibles en diferentes épocas del año. Leo es la constelación clásica de las noches de primavera, mientras que Tauro y Orión son constelaciones invernales.
 ```
 
 ### 22 — El Zodiaco y las Estaciones
@@ -534,7 +522,7 @@ metadata:
   tags: ["sol", "ecliptic"]
 
 variables:
-  par: [["Junio", "Géminis"], ["Diciembre", "Sagitario"], ["Septiembre", "Virgo"]]
+  par: [["Géminis", "Sagitario"], ["Sagitario", "Géminis"], ["Virgo", "Piscis"]]
   idx: uno_de([0, 1, 2])
 
 respuesta: par[idx][1]

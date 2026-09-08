@@ -26,7 +26,7 @@ Este fenómeno es similar al que observamos con el Sol: aunque parece que se lev
 
 ## 3. ¿Por qué no vemos movimiento de las estrellas durante el día?
 
-Durante el día, el Sol domina el cielo, lo que hace prácticamente imposible observar otras estrellas. Sin embargo, si logramos ver alguna (como la Sirio en verano), notaremos que también sigue un patrón similar al del resto de las constelaciones: desplazamiento aparente de este a oeste. Esto confirma que el movimiento no es exclusivo de ciertas estrellas, sino que ocurre con todas ellas.
+Durante el día, el Sol domina el cielo, lo que hace prácticamente imposible observar otras estrellas. Sin embargo, si logramos ver alguna (como Sirio, visible en las noches de invierno del hemisferio norte), notaremos que también sigue un patrón similar al del resto de las constelaciones: desplazamiento aparente de este a oeste. Esto confirma que el movimiento no es exclusivo de ciertas estrellas, sino que ocurre con todas ellas.
 
 [IMAGEN: Comparación entre la posición aparente de una estrella en dos momentos distintos de la noche, mostrando su desplazamiento hacia el oeste]
 
