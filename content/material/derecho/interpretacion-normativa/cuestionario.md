@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,14 +41,11 @@ metadata:
   nivel: "basico"
   tags: ["elementos", "metodologia"]
 
-variables:
-  tipo_interpretacion: uno_de(["gramatical", "teleologica", "sistemática"])
-
-respuesta: tipo_interpretacion
+respuesta: "gramatical"
 tipo: mc
 opciones_explicitas: ["gramatical", "teleologica", "sistemática"]
 
-enunciado: "Cuando un juez busca el sentido de la norma basándose exclusivamente en el significado de las palabras utilizadas en el texto, está realizando una interpretación de tipo {tipo_interpretacion}."
+enunciado: "Cuando un juez busca el sentido de la norma basándose exclusivamente en el significado de las palabras utilizadas en el texto, ¿qué tipo de interpretación está realizando?"
 
 explicacion: |
   La interpretación gramatical o literal se centra en el tenor semántico de las palabras del texto normativo.
@@ -100,14 +97,11 @@ metadata:
   nivel: "avanzado"
   tags: ["teleologica", "finalidad"]
 
-variables:
-  escenario: uno_de(["finalidad_legislador", "finalidad_social"])
-
-respuesta: escenario
+respuesta: "teleológica"
 tipo: mc
-opciones_explicitas: ["finalidad_legislador", "finalidad_social"]
+opciones_explicitas: ["gramatical", "teleológica", "sistemática", "histórica"]
 
-enunciado: "Si un intérprete busca el sentido de la norma atendiendo a los fines o propósitos para los cuales fue creada (el 'espíritu' de la ley), está realizando una interpretación de {escenario}."
+enunciado: "Si un intérprete busca el sentido de la norma atendiendo a los fines o propósitos para los cuales fue creada (el 'espíritu' de la ley), ¿qué tipo de interpretación está realizando?"
 
 explicacion: |
   La interpretación teleológica se centra en la finalidad (telos) de la norma, ya sea la intención original del legislador o la finalidad social/actual de la norma en la comunidad.
@@ -144,13 +138,14 @@ metadata:
   nivel: "intermedio"
   tags: ["finalidad", "ratio_legis"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: [[["El fin de la norma es proteger la vida", "falso"], ["El fin de la norma es la sanción", "falso"]], [["La norma busca la equidad", "verdadero"], ["La norma busca el castigo"], ["La norma busca la paz", "verdadero"]]]
-
-respuesta: escenarios[caso_idx][0][1]
+respuesta: "finalidad"
 tipo: completar
-enunciado: "En el escenario seleccionado, la interpretación teleológica busca determinar el significado de la norma basándose en su ___."
+respuestas_validas:
+  - "finalidad"
+  - "fin"
+  - "propósito"
+
+enunciado: "La interpretación teleológica busca determinar el significado de la norma basándose en su ___ (el 'espíritu' de la ley)."
 
 explicacion: |
   La interpretación teleológica (o finalista) busca el 'espíritu' de la ley, es decir, el fin o la finalidad (ratio legis) para la cual fue creada la norma.
@@ -262,7 +257,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [["existe una laguna legal", "analogía"], ["la norma es ambigua", "interpretación sistemática"]]
 
-respuesta: "datos[escenario_idx][1]"
+respuesta: datos[escenario_idx][1]
 tipo: "completar"
 respuestas_validas:
   - "analogía"
@@ -431,7 +426,7 @@ respuesta: tipo_norma
 tipo: mc
 opciones_explicitas: ["prohibición", "regulación", "exención", "derogación"]
 
-enunciado: "Ante el escenario de {escenario}, el intérprete debe determinar si el alcance de la norma es de {tipo_norma}."
+enunciado: "Ante el escenario de {escenario}, ¿de qué tipo es el alcance de la norma que el intérprete debe determinar?"
 
 explicacion: |
   La interpretación normativa busca determinar el sentido de la norma (su contenido) y su alcance (su aplicación) frente a un hecho concreto.
@@ -464,11 +459,6 @@ metadata:
   tema: "interpretacion_normativa"
   nivel: "avanzado"
   tags: ["teleologica", "finalidad"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["la norma busca proteger la vida", "finalidad"], ["la norma busca proteger el patrimonio", "finalidad"]]
-  objetivo: casos[caso_idx][0]
 
 respuesta: "finalidad"
 tipo: completar
