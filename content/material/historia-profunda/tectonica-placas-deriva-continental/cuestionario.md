@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -82,15 +82,11 @@ metadata:
   nivel: "basico"
   tags: ["cronologia", "historia"]
 
-respuesta_orden: [1912, "Deriva Continental"]
-tipo: ordenar
-opciones_explicitas: [1912, "Deriva Continental"]
+respuesta: 1912
+tipo: completar
+tolerancia_abs: 0
 
-enunciado: "Ordena los eventos según la cronología de la propuesta de Wegener (Año -> Concepto):"
-
-pasos:
-  - "Identificar el año de la propuesta"
-  - "Asociar el concepto principal"
+enunciado: "Wegener presentó su hipótesis de la deriva continental en el año ___."
 
 explicacion: |
   En 1912, Wegener presentó su hipótesis que cambiaría la geología para siempre.
@@ -148,15 +144,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fragmentacion", "oceanos"]
 
-variables:
-  escenario: uno_de([0, 1])
-  escenario_datos: [["Panthalassa", "Panthalassa"], ["Tetis", "Tetis"]]
-
-respuesta: escenario_datos[escenario][1]
+respuesta: "Panthalassa"
 tipo: mc
 opciones_explicitas: ["Panthalassa", "Tetis", "Atlántico", "Índico"]
 
-enunciado: "Cuando Pangea comenzó a fragmentarse, el vasto océano que rodeaba a la masa continental se llamaba {escenario_datos[escenario][0]}."
+enunciado: "Cuando Pangea comenzó a fragmentarse, el vasto océano que rodeaba a la masa continental se llamaba ___."
 
 explicacion: |
   El océano global que rodeaba a Pangea era el Panthalassa. El Tetis era un océano más pequeño situado entre Laurasia y Gondwana.
@@ -209,15 +201,11 @@ metadata:
   nivel: "intermedio"
   tags: ["evidencias", "fósiles"]
 
-variables:
-  evidencia_idx: uno_de([0, 1])
-  evidencia_lista: [["Fósiles de Mesosaurus", "Fósiles de Mesosaurus"], ["Estructuras volcánicas", "Estructuras volcánicas"]]
-
-respuesta: evidencia_lista[evidencia_idx][1]
+respuesta: "Fósiles de Mesosaurus"
 tipo: mc
 opciones_explicitas: ["Fósiles de Mesosaurus", "Restos de dinosaurios", "Estructuras volcánicas", "Depósitos de carbón"]
 
-enunciado: "La presencia de {evidencia_lista[evidencia_idx][0]} en continentes separados como África y Sudamérica es una prueba clave de la deriva continental."
+enunciado: "La presencia de ___ en continentes separados como África y Sudamérica es una prueba clave de la deriva continental."
 
 explicacion: |
   El Mesosaurus era un reptil de agua dulce cuyas huellas fósiles se encuentran tanto en África como en Sudamérica, lo que indica que ambos continentes estuvieron unidos.
@@ -252,14 +240,10 @@ metadata:
   nivel: "intermedio"
   tags: ["subduccion", "convergencia"]
 
-variables:
-  escenario: uno_de([["Placa Oceánica", "Placa Continental"], ["Placa Oceánica", "Placa Oceánica"]])
-  tipo_borde: uno_de(["convergente", "divergente", "transformante"])
-
 tipo: mc
 opciones_explicitas: ["Subducción", "Rifting", "Deslizamiento lateral"]
 
-enunciado: "En un borde tipo {tipo_borde}, si una placa oceánica colisiona con una placa continental, el proceso por el cual la placa más densa se hunde hacia el manto se denomina ________."
+enunciado: "En un borde tipo convergente, si una placa oceánica colisiona con una placa continental, el proceso por el cual la placa más densa se hunde hacia el manto se denomina ________."
 
 respuesta: "Subducción"
 
@@ -295,9 +279,6 @@ metadata:
   tema: "tectonica_placas_deriva_continental"
   nivel: "intermedio"
   tags: ["montañas", "convergencia"]
-
-variables:
-  evento: uno_de([["colisión continental", "subducción oceánica"]])
 
 tipo: completar
 respuestas_validas:
@@ -446,14 +427,10 @@ metadata:
   nivel: "basico"
   tags: ["tectonica", "bordes_divergentes"]
 
-variables:
-  datos: [["dorsal oceánica", "divergente"], ["falla transformante", "transformante"], ["cordillera de subducción", "convergente"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "Se observa la formación de nueva corteza oceánica en una ___."
+enunciado: "Se observa la formación de nueva corteza oceánica en un límite de tipo ___."
 
 opciones_explicitas: ["divergente", "convergente", "transformante"]
-respuesta: datos[idx][1]
+respuesta: "divergente"
 tipo: mc
 
 explicacion: |
@@ -473,7 +450,7 @@ variables:
   datos: [["cordillera de los Andes", "convergente"], ["dorsal mesoatlantica", "divergente"], ["falla de San Andrés", "transformante"]]
   idx: uno_de([0,1,2])
 
-enunciado: "La presencia de una ___ es característica de un límite de tipo {datos[idx][0]}."
+enunciado: "La presencia de la {datos[idx][0]} es característica de un límite de tipo ___."
 
 opciones_explicitas: ["divergente", "convergente", "transformante"]
 respuesta: datos[idx][1]
@@ -492,14 +469,10 @@ metadata:
   nivel: "basico"
   tags: ["tectonica", "bordes_transformantes"]
 
-variables:
-  datos: [["falla de San Andrés", "transformante"], ["dorsal del Pacífico", "divergente"], ["fosa marina", "convergente"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "Un movimiento de deslizamiento lateral como el de la ___ indica un borde ___."
+enunciado: "Un movimiento de deslizamiento lateral, como el de la falla de San Andrés, indica un borde de tipo ___."
 
 opciones_explicitas: ["divergente", "convergente", "transformante"]
-respuesta: datos[idx][1]
+respuesta: "transformante"
 tipo: mc
 
 explicacion: |
@@ -515,14 +488,10 @@ metadata:
   nivel: "intermedio"
   tags: ["tectonica", "subduccion"]
 
-variables:
-  datos: [["fosa marina", "convergente"], ["dorsal oceánica", "divergente"], ["falla transformante", "transformante"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "La existencia de una ___ profunda es evidencia de un límite de placas tipo {datos[idx][0]}."
+enunciado: "La existencia de una fosa oceánica profunda es evidencia de un límite de placas tipo ___."
 
 opciones_explicitas: ["divergente", "convergente", "transformante"]
-respuesta: datos[idx][1]
+respuesta: "convergente"
 tipo: mc
 
 explicacion: |

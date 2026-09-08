@@ -20,7 +20,7 @@ Una de las pruebas más visibles que Wegener usó fue la coincidencia entre los 
 
 ## 3. Fósiles y formaciones geológicas como pruebas
 
-Wegener no se limitó a observar formas terrestres; también examinó la distribución de fósiles. Encontró restos de especies idénticas, como el reptil *Mesosaurus*, en continentes que hoy están separados por océanos. Estas criaturas no podrían haber cruzado distancias tan grandes si los continentes estaban separados durante millones de años, lo que apoyaba la idea de que estuvieron unidos. Además, rocas y estructuras montañosas similares aparecen en lugares como el Cinturón de Montañas del Himalaya (Asia) y el Río Andino (América), sugiriendo una historia compartida.
+Wegener no se limitó a observar formas terrestres; también examinó la distribución de fósiles. Encontró restos de especies idénticas, como el reptil *Mesosaurus*, en continentes que hoy están separados por océanos. Estas criaturas no podrían haber cruzado distancias tan grandes si los continentes estaban separados durante millones de años, lo que apoyaba la idea de que estuvieron unidos. Además, rocas y estructuras montañosas similares aparecen en lugares como el Cinturón de Montañas del Himalaya (Asia) y la Cordillera de los Andes (América), sugiriendo una historia compartida.
 
 ## 4. Las limitaciones iniciales de la teoría
 
