@@ -1,6 +1,6 @@
 # Vida Cotidiana — eficiencia energetica domestica (cuestionario, 28 preguntas VBLang)
 
-> Tema: `vida-cotidiana/eficiencia-energetica-domestica`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `vida-cotidiana/eficiencia-energetica-domestica`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -18,7 +18,7 @@ variables:
   delta_t: random(5, 15)
   c_agua: 4186
 
-respuesta: redondear(masa * c_agua * delta_t / 1000, 2)
+respuesta: redondear(masa * c_agua * delta_t / 1000000, 2)
 tipo: input
 
 enunciado: "Calculá la energía en kJ necesaria para elevar {redondear(masa / 1000, 1)} kg de agua en {delta_t} °C. Usá c_agua = 4186 J/(kg·°C)."
@@ -78,8 +78,7 @@ metadata:
   nivel: "basico"
   tags: ["mitos", "consumo"]
 
-respuesta: |
-  "falso"
+respuesta: "falso"
 tipo: completar
 
 enunciado: "Verdadero o Falso: Poner la heladera al máximo enfría más rápido. Respuesta: ___"
@@ -103,7 +102,7 @@ variables:
   t_final: random(4, 6)
   c_leche: 3800
 
-respuesta: redondear(masa * c_leche * (t_inicial - t_final) / 1000, 2)
+respuesta: redondear(masa * c_leche * (t_inicial - t_final) / 1000000, 2)
 tipo: input
 
 enunciado: "¿Cuántos kJ se liberan al enfriar {redondear(masa / 1000, 1)} kg de leche de {t_inicial} °C a {t_final} °C? (c_leche = 3800 J/kg°C)."
@@ -121,8 +120,7 @@ metadata:
   nivel: "basico"
   tags: ["masa_termica", "eficiencia"]
 
-respuesta: |
-  "masa_termica"
+respuesta: "masa_termica"
 tipo: completar
 
 enunciado: "Una heladera llena mantiene mejor la temperatura porque tiene mayor ___, que absorbe y libera calor lentamente."
@@ -189,7 +187,7 @@ variables:
   c_hielo: 2090
   l_fusion: 334000
 
-respuesta: redondear((masa * c_agua * (t_inicial - 0) + masa * l_fusion + masa * c_hielo * (0 - t_final)) / 1000, 2)
+respuesta: redondear((masa * c_agua * (t_inicial - 0) + masa * l_fusion + masa * c_hielo * (0 - t_final)) / 1000000, 2)
 tipo: input
 
 enunciado: "Energía total en kJ para enfriar {redondear(masa / 1000, 1)} kg de agua de {t_inicial}°C a {t_final}°C (incluyendo congelación)."
@@ -231,8 +229,7 @@ metadata:
   nivel: "basico"
   tags: ["habitos", "eficiencia"]
 
-respuesta: |
-  "aire_caliente"
+respuesta: "aire_caliente"
 tipo: completar
 
 enunciado: "Dejar la puerta abierta introduce ___, que la heladera debe volver a enfriar, gastando más energía."
@@ -338,8 +335,7 @@ metadata:
   nivel: "basico"
   tags: ["mitos", "metodos"]
 
-respuesta: |
-  "falso"
+respuesta: "falso"
 tipo: completar
 
 enunciado: "Verdadero o Falso: Poner botellas de agua congelada en una heladera vacía es ineficiente. Respuesta: ___"
@@ -363,7 +359,7 @@ variables:
   delta_t: random(10, 15)
   c_aire: 1005
 
-respuesta: redondear(volumen * densidad_aire * c_aire * delta_t / 1000, 2)
+respuesta: redondear(volumen * densidad_aire * c_aire * delta_t / 1000000, 2)
 tipo: input
 
 enunciado: "Energía en kJ para calentar {volumen} litros de aire (densidad 1.2 kg/m³) en {delta_t}°C. (c_aire = 1005 J/kg°C)."
@@ -488,8 +484,7 @@ metadata:
   nivel: "basico"
   tags: ["mitos", "eficiencia"]
 
-respuesta: |
-  "ineficiente"
+respuesta: "ineficiente"
 tipo: completar
 
 enunciado: "Una heladera casi vacía es más ___ porque el aire cambia de temperatura rápido."
@@ -570,8 +565,7 @@ metadata:
   nivel: "basico"
   tags: ["mitos", "funcionamiento"]
 
-respuesta: |
-  "potencia"
+respuesta: "potencia"
 tipo: completar
 
 enunciado: "El dial no controla la ___, sino el punto de corte del termostato."
