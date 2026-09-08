@@ -1,11 +1,6 @@
 # Química — Nomenclatura de compuestos (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QH`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bug de esta tanda: una pregunta con un array de datos irregular (una
-> fila con menos elementos que las otras) combinado con contenido que
-> no coincidía con lo pedido — reescrita entera con datos consistentes.
 
 ---
 
