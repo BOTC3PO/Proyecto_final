@@ -5,7 +5,7 @@
 > ecuación molecular/iónica/iónica neta, iones espectadores, y la
 > conexión con `../tipos-reacciones-quimicas/`.
 >
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
+>
 > Esta tanda salió limpia — sin bugs funcionales.
 
 ---
@@ -21,7 +21,8 @@ metadata:
 
 respuesta: 3
 tipo: completar
-respuestas_validas: [3]
+respuestas_validas:
+  - 3
 
 enunciado: "Al balancear C3H8 + O2 -> CO2 + H2O, el coeficiente del CO2 es ___."
 
@@ -40,7 +41,8 @@ metadata:
 
 respuesta: 4
 tipo: completar
-respuestas_validas: [4]
+respuestas_validas:
+  - 4
 
 enunciado: "Al balancear C3H8 + O2 -> CO2 + H2O, el coeficiente del H2O es ___."
 
@@ -59,7 +61,8 @@ metadata:
 
 respuesta: 5
 tipo: completar
-respuestas_validas: [5]
+respuestas_validas:
+  - 5
 
 enunciado: "Al balancear C3H8 + O2 -> CO2 + H2O, el coeficiente del O2 es ___."
 
@@ -134,7 +137,8 @@ metadata:
 
 respuesta: "espectadores"
 tipo: completar
-respuestas_validas: ["espectadores"]
+respuestas_validas:
+  - "espectadores"
 
 enunciado: "Los iones que aparecen igual de los dos lados de una ecuación iónica, sin participar realmente, se llaman iones ___."
 
