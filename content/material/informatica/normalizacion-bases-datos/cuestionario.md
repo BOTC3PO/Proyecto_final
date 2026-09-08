@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -43,7 +43,7 @@ metadata:
   tags: ["anomalia", "integridad"]
 
 opciones_explicitas: ["Anomalía de inserción", "Anomalía de borrado", "Anomalía de actualización", "Todas las anteriores"]
-respuesta: "Todas las anteriores"
+respuesta: "Anomalía de actualización"
 tipo: mc
 
 enunciado: "Si un dato está duplicado y se cambia en un registro pero no en el otro, estamos ante una anomalía de tipo:"
@@ -80,13 +80,13 @@ metadata:
   tags: ["pasos", "proceso"]
 
 opciones_explicitas: ["Identificar dependencias funcionales", "Definir la clave primaria", "Crear tablas relacionadas", "Aplicar reglas de formas normales"]
-respuesta_orden: ["Definir la clave primaria", "Identificar dependencias funcionales", "Aplicar reglas de formas normales", "Crear tablas relacionadas"]
+respuesta_orden: ["Identificar dependencias funcionales", "Definir la clave primaria", "Aplicar reglas de formas normales", "Crear tablas relacionadas"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para diseñar una base de datos normalizada:"
 
 explicacion: |
-  Primero se debe definir la estructura básica (claves), luego entender cómo se relacionan los datos (dependencias) para finalmente aplicar las reglas de las Formas Normales.
+  Primero se deben entender cómo se relacionan los datos (dependencias funcionales), luego definir la estructura básica (clave primaria) y finalmente aplicar las reglas de las Formas Normales para crear las tablas relacionadas.
 ```
 
 ### 5 — Relación redundancia e integridad
@@ -140,10 +140,7 @@ metadata:
   nivel: "intermedio"
   tags: ["dependencia_funcional", "normalizacion"]
 
-variables:
-  escenario: uno_de([["ID_Estudiante", "Nombre", "Email", "Curso", "Aula"], ["ID_Libro", "Titulo", "ISBN", "Autor", "Editorial"], ["ID_Producto", "Nombre", "Precio", "Categoria", "Proveedor"]])
-
-enunciado: "Considerando el escenario {escenario}, si queremos eliminar la redundancia de la información del 'Curso' y su 'Aula' asociada, ¿cuál debería ser la clave primaria para una tabla separada que gestione la ubicación de los cursos?"
+enunciado: "Considerando una tabla de estudiantes con los campos ID_Estudiante, Nombre, Email, Curso y Aula, si queremos eliminar la redundancia de la información del 'Curso' y su 'Aula' asociada, ¿cuál debería ser la clave primaria para una tabla separada que gestione la ubicación de los cursos?"
 
 opciones_explicitas: ["ID_Estudiante", "Nombre", "Email", "Curso"]
 
@@ -223,12 +220,9 @@ metadata:
   nivel: "intermedio"
   tags: ["redundancia", "anomalias"]
 
-variables:
-  escenario: uno_de([["Nombre: Juan, Tel: 123, Ciudad: BsAs", "Anomalía de actualización"], ["Nombre: Ana, Tel: 456, Ciudad: Córdoba", "Anomalía de inserción"], ["Nombre: Luis, Tel: 789, Ciudad: Salta", "Anomalía de borrado"]])
+enunciado: "Si al cambiar el número de teléfono de un cliente debemos buscar todas sus filas repetidas para actualizar cada una de ellas, estamos ante una anomalía de tipo ___ causada por la redundancia."
 
-enunciado: "Si al cambiar el número de teléfono de un cliente debemos buscar todas sus filas repetidas para actualizar cada una de ellas, estamos ante una {escenario[1]} causada por la redundancia."
-
-respuesta: escenario[1]
+respuesta: "Anomalía de actualización"
 tipo: mc
 opciones_explicitas: ["Anomalía de actualización", "Anomalía de inserción", "Anomalía de borrado"]
 
@@ -247,7 +241,7 @@ metadata:
 
 enunciado: "La normalización de bases de datos tiene como objetivo principal minimizar la redundancia de datos para evitar las anomalías de inserción, actualización y ___."
 
-respuesta: ["borrado"]
+respuesta: "borrado"
 respuestas_validas:
   - "borrado"
 tipo: completar
@@ -307,7 +301,7 @@ metadata:
 
 enunciado: "En la Segunda Forma Normal (2FN), es fundamental que todos los atributos que no forman parte de la clave primaria dependan de la clave completa y no solo de una parte de ella. A esto se le llama evitar la dependencia ___."
 
-respuesta: ["parcial"]
+respuesta: "parcial"
 respuestas_validas:
   - "parcial"
 tipo: completar
@@ -346,15 +340,11 @@ metadata:
   nivel: "intermedio"
   tags: ["desnormalizacion", "rendimiento"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  respuesta_correcta: uno_de(["La normalización prioriza la integridad mediante la reducción de redundancia.", "La desnormalización prioriza la integridad mediante la reducción de redundancia."])
-
-respuesta: respuesta_correcta
+respuesta: "La normalización prioriza la integridad mediante la reducción de redundancia."
 tipo: "mc"
 opciones_explicitas: ["La normalización prioriza la integridad mediante la reducción de redundancia.", "La desnormalización prioriza la integridad mediante la reducción de redundancia.", "Ambas buscan lo mismo pero con diferentes nombres.", "Ninguna de las anteriores."]
 
-enunciado: "Considerando el objetivo principal de cada proceso, ¿cuál de las siguientes afirmaciones es correcta según el escenario seleccionado?"
+enunciado: "Considerando el objetivo principal de cada proceso, ¿cuál de las siguientes afirmaciones es correcta?"
 
 pasos:
   - "Analizar si el objetivo es evitar duplicados (normalizar) o acelerar lecturas (desnormalizar)."
@@ -409,10 +399,7 @@ metadata:
   nivel: "intermedio"
   tags: ["redundancia", "duplicacion"]
 
-variables:
-  es_redundante: uno_de([verdadero, falso])
-
-respuesta: es_redundante
+respuesta: falso
 tipo: vf
 
 enunciado: "Si un dato se repite en una tabla simplemente porque es necesario para realizar un JOIN eficiente en un modelo OLAP (Data Warehouse), ¿se considera una redundancia problemática que debe evitarse estrictamente como en el modelo OLTP?"
@@ -430,17 +417,11 @@ metadata:
   nivel: "basico"
   tags: ["redundancia", "integridad"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Nombre del Cliente", "Dirección del Cliente"], ["Nombre del Producto", "Precio del Producto"]]
-  error_tipo: uno_de([0, 1])
-  errores: [["Inconsistencia", "Anomalía de actualización"], ["Inconsistencia", "Anomalía de inserción"]]
-
-respuesta: errores[escenario_idx][error_tipo]
+respuesta: "Anomalía de actualización"
 tipo: mc
 opciones_explicitas: ["Inconsistencia", "Anomalía de actualización", "Anomalía de inserción", "Pérdida de integridad"]
 
-enunciado: "Si en una tabla de ventas repetimos {escenarios[escenario_idx][0]} para cada producto vendido, y el cliente cambia de domicilio pero solo actualizamos una fila, generamos una anomalía de tipo: ___"
+enunciado: "Si en una tabla de ventas repetimos el Nombre y la Dirección del Cliente para cada producto vendido, y el cliente cambia de domicilio pero solo actualizamos una fila, generamos una anomalía de tipo: ___"
 
 explicacion: |
   La redundancia de datos provoca que la información se repita innecesariamente, lo que deriva en anomalías de actualización cuando los datos no se mantienen sincronizados en todos los registros.
@@ -473,15 +454,10 @@ metadata:
   nivel: "intermedio"
   tags: ["anomalia", "insercion"]
 
-variables:
-  caso_idx: uno_de([0])
-  casos: [["No podemos registrar un nuevo curso si no hay alumnos inscritos", "No podemos registrar un proveedor si no tiene productos"]]
-
-respuesta: casos[caso_idx][0]
+respuesta: "No podemos registrar un nuevo curso si no hay alumnos inscritos"
 tipo: completar
 respuestas_validas:
   - "No podemos registrar un nuevo curso si no hay alumnos inscritos"
-  - "No podemos registrar un nuevo proveedor si no tiene productos"
 
 enunciado: "En una tabla desnormalizada que combina 'Estudiantes' y 'Cursos', si intentamos agregar un curso que aún no tiene alumnos inscritos y la clave primaria depende de ambos, nos enfrentamos a una: ___"
 
