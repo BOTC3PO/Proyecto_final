@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -44,7 +44,7 @@ tipo: vf
 
 enunciado: "El objetivo principal de la etapa de instrucción es determinar si existe mérito para llevar a juicio a una persona."
 
-respuesta: falso
+respuesta: verdadero
 
 explicacion: |
   La instrucción tiene como fin la investigación de la verdad real y la recolección de pruebas para determinar si hay elementos suficientes para el juicio.
@@ -59,11 +59,7 @@ metadata:
   nivel: "intermedio"
   tags: ["pruebas", "instruccion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["testimonio", "pericia"], ["allanamiento", "interrogatorio"]]
-
-enunciado: "Durante la etapa de instrucción, el fiscal o el juez pueden ordenar un {datos[escenario_idx][0]} para obtener evidencia física o técnica."
+enunciado: "Durante la etapa de instrucción, si el fiscal o el juez necesitan la opinión técnica de un experto para analizar una evidencia física, ordenan un ___."
 
 pasos:
   - "Se identifica el hecho delictivo."
@@ -147,12 +143,8 @@ metadata:
   nivel: "intermedio"
   tags: ["fiscalia", "investigacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [["El Fiscal debe dirigir la investigación para recolectar pruebas.", "verdadero"], ["El Fiscal decide la culpabilidad final del imputado.", "falso"]]
-
-respuesta: escenario[escenario_idx][1]
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En la etapa de instrucción, el Fiscal tiene la función de dirigir la investigación y recolectar elementos de convicción para determinar si existe un caso para ir a juicio. ¿Es esto correcto en el sistema acusatorio?"
 
 explicacion: |
@@ -187,11 +179,7 @@ metadata:
   nivel: "avanzado"
   tags: ["pruebas", "instruccion"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  caso: [["testimonio", "pericia"], ["testimonio", "sentencia"]]
-
-respuesta: caso[caso_idx][1]
+respuesta: "pericia"
 tipo: mc
 opciones_explicitas: ["testimonio", "pericia", "sentencia", "recurso"]
 
@@ -214,8 +202,6 @@ respuesta: "sobreseimiento"
 tipo: completar
 respuestas_validas:
   - "sobreseimiento"
-  - "condena"
-  - "absolución"
 
 enunciado: "Si durante la etapa de instrucción se demuestra que el hecho denunciado no existió o que el imputado no participó en él, el juez debe dictar el ___ para finalizar el proceso sin llegar a juicio."
 
@@ -236,7 +222,6 @@ respuesta: "denuncia"
 tipo: completar
 respuestas_validas:
   - "denuncia"
-  - "querella"
 
 enunciado: "El proceso penal puede iniciarse de diversas formas; cuando un ciudadano comunica un hecho presuntamente delictivo ante la autoridad, el acto formal se denomina ___."
 
@@ -371,13 +356,13 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [["denuncia", "noticia criminal"], ["querella", "acción penal privada/pública con legitimación"]]
 
-respuesta: datos[escenario_idx][1]
+respuesta: datos[escenario_idx][0]
 tipo: completar
 respuestas_validas:
-  - "noticia criminal"
-  - "acción penal privada/pública con legitimación"
+  - "denuncia"
+  - "querella"
 
-enunciado: "En el escenario seleccionado, la diferencia fundamental es que la ___ se caracteriza por ser una {datos[escenario_idx][1]}."
+enunciado: "En el escenario seleccionado, se caracteriza por ser una {datos[escenario_idx][1]}. Esta figura procesal se denomina ___."
 
 explicacion: |
   La distinción radica en la legitimación y la participación procesal de la víctima.
@@ -415,8 +400,6 @@ respuesta: "investigar"
 tipo: completar
 respuestas_validas:
   - "investigar"
-  - "sentenciar"
-  - "acusar"
 
 enunciado: "Mientras que el Tribunal de Juicio tiene la función de dictar sentencia, el Juez de Instrucción tiene la función primordial de ___ los hechos."
 
@@ -464,7 +447,7 @@ respuestas_validas:
   - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
-enunciado: "En la etapa de instrucción, el objetivo principal del fiscal es {datos[idx][0]}."
+enunciado: "Ante un caso de {datos[idx][0]}, el objetivo principal del fiscal en la etapa de instrucción es ___."
 
 explicacion: |
   La etapa de instrucción tiene como fin la recolección de elementos de convicción para determinar si existe mérito para llevar a juicio a una persona.
