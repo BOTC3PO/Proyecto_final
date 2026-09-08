@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,14 +41,10 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "categorias"]
 
-variables:
-  idx: uno_de([0, 1, 2])
-  escenario: [["Creacionales", "se enfocan en la creación de objetos."], ["Estructurales", "se enfocan en cómo se componen las clases y objetos."], ["De Comportamiento", "se enfocan en la comunicación entre objetos."]]
-
-respuesta: escenario[idx][0]
+respuesta: "Creacionales"
 tipo: "completar"
 
-enunciado: "Si un programador utiliza el patrón 'Singleton' para asegurar que una clase tenga una única instancia, está utilizando un patrón de tipo: {escenario[idx][0]}."
+enunciado: "Si un programador utiliza el patrón 'Singleton' para asegurar que una clase tenga una única instancia, está utilizando un patrón de tipo: ___."
 
 explicacion: |
   Los patrones se dividen en tres categorías principales según su propósito: Creacionales, Estructurales y de Comportamiento.
@@ -100,11 +96,7 @@ metadata:
   nivel: "basico"
   tags: ["reutilizacion", "eficiencia"]
 
-variables:
-  idx: uno_de([0, 1])
-  ejemplo: [["reutilizar", "reutilizar"], ["copiar", "copiar"]]
-
-respuesta: ejemplo[idx][0]
+respuesta: "reutilizar"
 tipo: "mc"
 opciones_explicitas: ["reutilizar", "copiar"]
 
@@ -232,9 +224,6 @@ metadata:
   nivel: "intermedio"
   tags: ["creacionales", "singleton"]
 
-variables:
-  escenario: uno_de([["Instancia única garantizada", "Permite múltiples instancias"], ["Dificulta el testing unitario", "Facilita el testing unitario"]])
-
 enunciado: "El patrón Singleton se utiliza para asegurar que una clase tenga una única instancia y proporciona un punto de acceso global a ella. Sin embargo, una crítica común es que su uso excesivo puede ___."
 
 opciones_explicitas: ["mejorar la modularidad", "crear un estado global difícil de testear", "aumentar la velocidad de ejecución", "eliminar la necesidad de clases"]
@@ -276,9 +265,6 @@ metadata:
   nivel: "avanzado"
   tags: ["inversion_de_control", "di"]
 
-variables:
-  caso: uno_de([["El objeto crea sus propias dependencias internamente.", "El objeto recibe sus dependencias desde el exterior."], ["El objeto recibe sus dependencias desde el exterior.", "El objeto crea sus propias dependencias internamente."]])[0]
-
 enunciado: "En el patrón de Inyección de Dependencias (DI), el comportamiento correcto es que ___"
 
 opciones_explicitas: ["el objeto crea sus propias dependencias internamente", "el objeto recibe sus dependencias desde el exterior"]
@@ -318,11 +304,6 @@ metadata:
   tema: "buenas_practicas"
   nivel: "basico"
   tags: ["calidad_codigo", "acoplamiento"]
-
-variables:
-  valor: uno_de([0, 1])
-  objetivo_acoplamiento: uno_de(["alto", "bajo"])
-  objetivo_cohesion: uno_de(["baja", "alta"])
 
 enunciado: "En un diseño de software de alta calidad, buscamos que el acoplamiento entre módulos sea ___ y que la cohesión dentro de un módulo sea ___."
 
@@ -364,10 +345,7 @@ metadata:
   nivel: "intermedio"
   tags: ["creacionales", "singleton", "factory"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: uno_de(["Singleton", "Factory"])
+respuesta: "Singleton"
 tipo: mc
 opciones_explicitas: ["Singleton", "Factory"]
 
@@ -423,15 +401,11 @@ metadata:
   nivel: "avanzado"
   tags: ["oop", "herencia", "interfaces"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  datos: [["interfaz", "interfaz"], ["clase_abstracta", "clase_abstracta"]]
-
-respuesta: datos[caso_idx][1]
+respuesta: "interfaz"
 tipo: mc
 opciones_explicitas: ["interfaz", "clase_abstracta"]
 
-enunciado: "Si necesitamos definir un contrato que solo especifique comportamientos (métodos sin implementación) sin poseer estado o lógica compartida, lo más adecuado es usar una {datos[caso_idx][0]}."
+enunciado: "Si necesitamos definir un contrato que solo especifique comportamientos (métodos sin implementación) sin poseer estado o lógica compartida, lo más adecuado es usar una ___."
 
 explicacion: |
   Las interfaces definen "qué" puede hacer un objeto (contrato puro), mientras que las clases abstractas pueden definir "cómo" se hace algo (compartiendo código y estado) pero impidiendo la instanciación directa.
@@ -452,7 +426,7 @@ variables:
 tipo: mc
 opciones_explicitas: ["Singleton", "Flyweight", "Factory Method", "Observer"]
 
-enunciado: "Un desarrollador necesita asegurar que una clase de gestión de configuración no permita la creación de múltiples instancias, garantizando un único punto de acceso. ¿Qué patrón de diseño debe aplicar para resolver este escenario: {escenario[0]}?"
+enunciado: "Un desarrollador debe resolver el siguiente escenario: {escenario[0]} ¿Qué patrón de diseño debe aplicar?"
 
 respuesta: escenario[1]
 
@@ -535,10 +509,6 @@ metadata:
   tema: "buenas_practicas"
   nivel: "basico"
   tags: ["calidad", "procesos"]
-
-variables:
-  flujo: [["Reportar error", "Asignar a desarrollador", "Corregir error", "Verificar solución", "Cerrar ticket"], "Flujo de resolución de errores"]
-  idx: 0
 
 tipo: ordenar
 opciones_explicitas: ["Reportar error", "Asignar a desarrollador", "Corregir error", "Verificar solución", "Cerrar ticket"]
