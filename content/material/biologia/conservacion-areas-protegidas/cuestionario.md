@@ -1,17 +1,6 @@
 # Biología — Conservación y áreas protegidas (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BS`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: `metadata.tema` con typos
-> (`conservacion_areas_protectedas`, `conservacion_areas_protected`)
-> — normalizado a `conservacion_areas_protegidas`; varias preguntas
-> de blank `___` etiquetadas `tipo: vf` y/o sin campo `respuesta:`
-> (sólo `respuestas_validas`) — reclasificadas a `completar` con
-> `respuesta:` agregado; dos preguntas `completar` con **múltiples**
-> blancos en el `enunciado` pero una sola `respuesta:` en forma de
-> array — recortadas a un solo blanco; tres preguntas `mc` sin campo
-> `explicacion:` — agregado.
 
 ---
 
