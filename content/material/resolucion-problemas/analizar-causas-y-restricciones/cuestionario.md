@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -65,7 +65,7 @@ metadata:
   nivel: "basico"
   tags: ["restricciones", "limitaciones"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "¿Es una restricción un factor que limita las opciones de solución, pero que no es necesariamente la causa del problema original?"
@@ -104,7 +104,7 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [["No hay dinero para comprar insumos", "Presupuesto limitado"], ["La máquina se rompió por falta de aceite", "Falta de mantenimiento"]]
+  casos: [["No hay dinero para comprar insumos", "Presupuesto limitado"], ["Solo hay un técnico disponible para reparar la máquina", "Disponibilidad de personal"]]
 
 respuesta: "Es una restricción"
 tipo: mc
@@ -178,7 +178,7 @@ variables:
 enunciado: "Se propone una solución que cuesta {caso[0]} unidades, pero el presupuesto máximo disponible es de {caso[1]} unidades. ¿Es la solución viable bajo la restricción presupuestaria actual?"
 
 respuesta: caso[0] <= caso[1]
-tipo: completar
+tipo: vf
 explicacion: |
   Una restricción es un límite impuesto que la solución debe respetar. Si el costo excede el presupuesto, la solución es inviable aunque sea técnicamente perfecta.
 ```
@@ -381,7 +381,7 @@ metadata:
   nivel: "basico"
   tags: ["causa_raiz", "verdadero_falso"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "¿Es verdadero o falso que, en un análisis de causa raíz, si una solución elimina el síntoma pero el problema vuelve a aparecer, significa que no se ha identificado la causa raíz?"
