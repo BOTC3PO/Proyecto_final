@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,14 +40,11 @@ metadata:
   nivel: "intermedio"
   tags: ["galaxias", "rotación", "gravedad"]
 
-variables:
-  escenario: uno_de([0, 1])
-
 respuesta: "La velocidad de rotación se mantiene constante o aumenta en la periferia"
 tipo: mc
 opciones_explicitas: ["La velocidad de rotación disminuye conforme nos alejamos del centro", "La velocidad de rotación se mantiene constante o aumenta en la periferia", "Las galaxias colapsarían por falta de masa", "La gravedad es nula en los bordes de la galaxia"]
 
-enunciado: "Al observar las curvas de rotación de las galaxias espirales, se detecta que las estrellas en la periferia se mueven a una velocidad que contradice la masa visible. Según el escenario {escenario}, ¿cuál es la observación real?"
+enunciado: "Al observar las curvas de rotación de las galaxias espirales, se detecta que las estrellas en la periferia se mueven a una velocidad que contradice la masa visible. ¿Cuál es la observación real?"
 
 explicacion: |
   Si solo existiera la materia visible, las estrellas externas deberían girar más lento. El hecho de que mantengan velocidades altas sugiere la presencia de una masa adicional (materia oscura) que proporciona la gravedad necesaria.
@@ -106,11 +103,7 @@ tipo: completar
 respuestas_validas:
   - "masa_visible"
 
-variables:
-  datos: [[0, "masa_visible"], [1, "presión_solar"], [2, "luz_estelar"]]
-  indice: uno_de([0, 1, 2])
-
-enunciado: "La discrepancia observada entre la velocidad de rotación galáctica y la cantidad de {datos[indice][1]} es la principal prueba de la existencia de la materia oscura."
+enunciado: "La discrepancia observada entre la velocidad de rotación galáctica y la cantidad de ___ es la principal prueba de la existencia de la materia oscura."
 
 explicacion: |
   La falta de masa visible suficiente para explicar la velocidad de las galaxias es la evidencia fundamental que llevó a la hipótesis de la materia oscura.
@@ -146,7 +139,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[1998, "el descubrimiento de la expansión acelerada"], [2011, "la confirmación de la constante de Hubble"]]
+  escenario: [[1998, "el descubrimiento de la expansión acelerada"], [2011, "el otorgamiento del Premio Nobel de Física por dicho descubrimiento"]]
 
 tipo: completar
 respuestas_validas:
@@ -316,7 +309,7 @@ metadata:
   tags: ["conceptos"]
 
 variables:
-  caso: [["verdadero", "La materia ordinaria es el componente más abundante."], ["falso", "La materia oscura es el componente más abundante."]]
+  caso: [["verdadero", "La energía oscura es el componente más abundante."], ["falso", "La materia oscura es el componente más abundante."]]
   seleccionada: uno_de(caso)
 
 respuesta: seleccionada[0]
@@ -340,7 +333,7 @@ metadata:
 
 respuesta: "materia_oscura"
 tipo: mc
-opciones_explicitas: ["materia_oscura", "materia_oscura", "materia_oscura", "materia_oscura"]
+opciones_explicitas: ["materia_oscura", "energia_oscura", "materia_bariónica", "radiación_cósmica"]
 
 enunciado: "Aunque no podemos verla directamente, sabemos que existe la ___ debido a su influencia gravitatoria en las galaxias."
 
@@ -357,16 +350,11 @@ metadata:
   nivel: "intermedio"
   tags: ["expansion", "energia_oscura"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Big Crunch", "Big Freeze"], ["Big Rip", "Big Freeze"]]
-  respuestas: [["Big Crunch", "Big Freeze"], ["Big Rip", "Big Freeze"]]
-
-respuesta: escenarios[escenario_idx][0]
+respuesta: "Big Freeze"
 tipo: mc
 opciones_explicitas: ["Big Crunch", "Big Freeze", "Big Rip", "Big Bounce"]
 
-enunciado: "Si la energía oscura domina y acelera la expansión indefinidamente, el destino más probable del universo es el {escenarios[escenario_idx][1]}."
+enunciado: "Si la energía oscura domina y acelera la expansión del universo de manera constante e indefinida, el destino más probable del universo es el ___."
 
 explicacion: |
   La energía oscura actúa como una fuerza repulsiva que acelera la expansión del universo. Dependiendo de su densidad, el universo podría terminar en un enfriamiento eterno (Big Freeze) o un desgarro final (Big Rip).
@@ -490,17 +478,12 @@ metadata:
   nivel: "intermedio"
   tags: ["cosmologia", "estructura_cosmica"]
 
-variables:
-  datos: [["formacion_estructuras", "materia_oscura"], ["repulsion_espacial", "energia_oscura"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "energia_oscura"
 tipo: completar
 respuestas_validas:
-  - "materia_oscura"
   - "energia_oscura"
 
-enunciado: "Mientras que la {datos[idx][0]} ayuda a la formación de galaxias mediante su atracción gravitatoria, la {datos[idx][1]} es responsable de la {datos[idx][1]} que separa las cúmusters de galaxias."
+enunciado: "Mientras que la materia oscura ayuda a la formación de galaxias mediante su atracción gravitatoria, la responsable de la repulsión espacial que separa los cúmulos de galaxias es la ___."
 
 explicacion: |
   La materia oscura es atractiva (favorece la agrupación de materia), mientras que la energía oscura es repulsiva (favorece la expansión).
@@ -538,17 +521,12 @@ metadata:
   nivel: "avanzado"
   tags: ["modelo_estandar", "cosmologia"]
 
-variables:
-  datos: [["materia_oscura", "materia_oscura"], ["energia_oscura", "energia_oscura"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "materia_oscura"
 tipo: completar
 respuestas_validas:
   - "materia_oscura"
-  - "energia_oscura"
 
-enunciado: "En el modelo estándar de cosmología, la {datos[idx][0]} es la fuerza que domina la expansión, mientras que la {datos[idx][1]} es la componente que permite la formación de estructuras a gran escala."
+enunciado: "En el modelo estándar de cosmología, la energía oscura es la fuerza que domina la expansión, mientras que la ___ es la componente que permite la formación de estructuras a gran escala."
 
 explicacion: |
   Es un error conceptual común: la energía oscura domina la expansión (dinámica global), la materia oscura domina la formación de estructuras (dinámica local/regional).
