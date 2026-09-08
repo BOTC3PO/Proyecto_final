@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -119,20 +119,22 @@ metadata:
 
 variables:
   idx: uno_de([0,1])
-  datos: [[1.0, 2.0], [4.0, 5.0]]
+  masas: [1.0, 4.0]
+  m: masas[idx]
+  k: 100
 
-respuesta: "datos[idx][1]"
+respuesta: (1 / (2 * 3.14159)) * sqrt(k / m)
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un sistema tiene una constante de rigidez de 100 N/m y una masa de {datos[idx][0]} kg. Calcule su frecuencia natural en Hz (f = 1/(2*pi)*sqrt(k/m))."
+enunciado: "Un sistema tiene una constante de rigidez de 100 N/m y una masa de {m} kg. Calcule su frecuencia natural en Hz (f = 1/(2*pi)*sqrt(k/m))."
 
 pasos:
   - "Calcular la raíz cuadrada de k/m"
   - "Dividir por 2*pi"
 
 explicacion: |
-  La fórmula es f = (1 / 2π) * sqrt(k/m).
+  La fórmula es f = (1 / 2π) * sqrt(k/m) = (1 / 2π) * sqrt(100/{m}) = {(1 / (2 * 3.14159)) * sqrt(k / m)} Hz.
 ```
 
 ### 7 — Relación masa-frecuencia
@@ -167,8 +169,6 @@ respuesta: "fuerza de fricción"
 tipo: completar
 respuestas_validas:
   - "fuerza de fricción"
-  - "fuerza de gravedad"
-  - "fuerza centrípeta"
 
 enunciado: "La amplitud en la resonancia no es infinita en la realidad debido a la presencia de la ___."
 
@@ -224,8 +224,8 @@ metadata:
   nivel: "intermedio"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "En un sistema real con amortiguamiento, la amplitud en la resonancia es infinita."
 
 explicacion: |
@@ -241,8 +241,8 @@ metadata:
   nivel: "intermedio"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si un objeto es más pesado, su frecuencia natural es mayor."
 
 explicacion: |
@@ -258,8 +258,8 @@ metadata:
   nivel: "basico"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "La resonancia solo ocurre en objetos sólidos, nunca en ondas sonoras."
 
 explicacion: |
@@ -275,8 +275,8 @@ metadata:
   nivel: "basico"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Un sistema con un periodo muy corto tiene una frecuencia natural muy baja."
 
 explicacion: |
@@ -292,8 +292,8 @@ metadata:
   nivel: "intermedio"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Añadir masa a un columpio lo hace oscilar más rápido."
 
 explicacion: |
@@ -328,7 +328,7 @@ metadata:
   nivel: "avanzado"
   tags: ["contraste"]
 
-respuesta: "mayor"
+respuesta: "menor"
 tipo: mc
 opciones_explicitas: ["mayor", "menor", "igual"]
 
