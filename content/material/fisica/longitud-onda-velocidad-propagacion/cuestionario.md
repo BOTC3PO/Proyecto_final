@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -44,7 +44,7 @@ tipo: vf
 
 enunciado: "Si la frecuencia de una onda se duplica y la velocidad de propagación se mantiene constante, la longitud de onda debe reducirse a la mitad."
 
-respuesta: falso
+respuesta: verdadero
 
 explicacion: |
   De la fórmula v = λ · f, despejamos λ = v / f. Si la frecuencia aumenta, la longitud de onda disminuye inversamente.
@@ -72,11 +72,11 @@ pasos:
   - "Identificar la frecuencia (f): {escenario[1]} Hz"
   - "Aplicar la fórmula v = λ * f"
 
-respuesta: escenario[1]
+respuesta: escenario[0] * escenario[1]
 
 explicacion: |
   Usando la fórmula v = λ * f:
-  v = {escenario[0]} m * {escenario[1]} Hz = {escenario[1]} m/s.
+  v = {escenario[0]} m * {escenario[1]} Hz = {escenario[0] * escenario[1]} m/s.
 ```
 
 ### 4 — Unidades de medida
@@ -91,9 +91,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "m/s"
-  - "m/s²"
-  - "Hz"
-  - "m"
 
 respuesta: "m/s"
 
@@ -243,13 +240,10 @@ metadata:
   nivel: "basico"
   tags: ["unidades", "conceptos_basicos"]
 
-variables:
-  frecuencia: 50.0
-  longitud: 2.0
-
-respuesta: "100.0"
+respuesta: "m/s"
 tipo: completar
-tolerancia_abs: 0.01
+respuestas_validas:
+  - "m/s"
 
 enunciado: "Para calcular la velocidad de una onda usando la fórmula $v = \\lambda \\cdot f$, si la longitud de onda $\\lambda$ está en metros (m) y la frecuencia $f$ está en Hertz (Hz), la unidad resultante para la velocidad será ___."
 
@@ -270,12 +264,8 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion_inversa", "ondas"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[440.0, 0.75], [220.0, 1.5]]
-
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En un medio donde la velocidad de propagación es constante, si la frecuencia de una onda se duplica, su longitud de onda se reduce a la mitad. ¿Es esto correcto?"
 
 explicacion: |
@@ -295,7 +285,7 @@ variables:
   v_onda: 340.0
   f_onda: 170.0
 
-respuesta: "1.75"
+respuesta: "340"
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -452,7 +442,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "conceptos"]
 
-respuesta_orden: ["frecuencia", "velocidad", "longitud_onda"]
+respuesta_orden: ["longitud_onda", "velocidad", "frecuencia"]
 tipo: ordenar
 opciones_explicitas: ["frecuencia", "velocidad", "longitud_onda"]
 
@@ -484,20 +474,20 @@ variables:
   escenario: uno_de([[130, 0.5, 260], [440, 1.0, 440], [256, 2.0, 128]])
   v_sonido: 340
 
-respuesta: v_sonido / escenario[1]
+respuesta: v_sonido / escenario[0]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un músico toca una nota cuya frecuencia es de {escenario[1]} Hz. Si la velocidad del sonido en el aire es de {v_sonido} m/s, ¿cuál es la longitud de onda λ en metros?"
+enunciado: "Un músico toca una nota cuya frecuencia es de {escenario[0]} Hz. Si la velocidad del sonido en el aire es de {v_sonido} m/s, ¿cuál es la longitud de onda λ en metros?"
 
 pasos:
   - "Identificar la fórmula de velocidad: v = λ · f"
   - "Despejar la longitud de onda: λ = v / f"
-  - "Sustituir los valores: λ = {v_sonido} / {escenario[1]}"
+  - "Sustituir los valores: λ = {v_sonido} / {escenario[0]}"
 
 explicacion: |
   La longitud de onda se calcula dividiendo la velocidad de propagación por la frecuencia: λ = v / f.
-  Para este caso: {v_sonido} / {escenario[1]} = {redondear(v_sonido / escenario[1], 2)} m.
+  Para este caso: {v_sonido} / {escenario[0]} = {redondear(v_sonido / escenario[0], 2)} m.
 ```
 
 ### 22 — Radiofrecuencia en comunicaciones
@@ -555,7 +545,7 @@ metadata:
   tags: ["oceanografia", "calculo"]
 
 variables:
-  caso: uno_de([[0.5, 12, 6], [2.0, 10, 5], [0.2, 15, 75]])
+  caso: uno_de([[0.5, 12, 24], [2.0, 10, 5], [0.2, 15, 75]])
   f_onda: caso[0]
   v_onda: caso[1]
   l_onda: caso[2]
@@ -563,7 +553,7 @@ variables:
 respuesta: l_onda
 tipo: completar
 respuestas_validas:
-  - 6.0
+  - 24.0
   - 5.0
   - 75.0
 
