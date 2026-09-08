@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -23,7 +23,7 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un circuito en paralelo, todos los componentes conectados a las mismas ramas mantienen la misma ___."
+enunciado: "En un circuito en paralelo, todos los componentes conectados a las mismas ramas mantienen la misma tensión."
 
 explicacion: |
   En un circuito en paralelo, la diferencia de potencial (tensión o voltaje) es la misma para todas las ramas que están conectadas directamente a los terminales de la fuente.
@@ -191,10 +191,10 @@ variables:
   i1: 2.0
   i2: 1.3333
 
-respuesta: "i1"
+respuesta: "3 A"
 tipo: mc
 
-opciones_explicitas: ["i1", "i2", "i_total"]
+opciones_explicitas: ["3 A", "2 A", "5 A"]
 
 enunciado: "Se tiene una fuente de {v_total}V conectada a dos resistencias en paralelo: R1 = {r1} Ω y R2 = {r2} Ω. ¿Cuál es la corriente que circula por la rama de la resistencia R1?"
 
@@ -491,11 +491,9 @@ variables:
 
 enunciado: "En una instalación eléctrica doméstica, dos resistencias se conectan en paralelo. Si la primera resistencia es de {R1} $\\Omega$ y la resistencia equivalente del circuito es de {R_eq} $\\Omega$, ¿cuál es el valor de la segunda resistencia?"
 
-respuestas_validas:
-  - R_eq
-respuesta: R_eq
+respuesta: (R1 * R_eq) / (R1 - R_eq)
 tipo: completar
-tolerancia_abs: 0.001
+tolerancia_abs: 0.01
 
 explicacion: |
   Para resistencias en paralelo, la fórmula es: 1/R_eq = 1/R1 + 1/R2.
@@ -534,20 +532,19 @@ metadata:
   tags: ["corriente", "ley_de_ohm"]
 
 variables:
-  datos: [[12.0, 3.0, 1.0], [24.0, 6.0, 2.0], [10.0, 5.0, 2.0]]
+  datos: [[12.0, 3.0, "4.0 A"], [24.0, 6.0, "4.0 A"], [10.0, 5.0, "2.0 A"]]
   idx: uno_de([0, 1, 2])
   V: datos[idx][0]
   R: datos[idx][1]
-  I_rama: datos[idx][2]
 
 enunciado: "En un circuito en paralelo con una fuente de {V} V, una de las ramas tiene una resistencia de {R} $\\Omega$. ¿Cuál es la intensidad de corriente que circula por esa rama específica?"
 
 opciones_explicitas: ["0.5 A", "2.0 A", "4.0 A", "6.0 A"]
-respuesta: "4.0 A"
+respuesta: datos[idx][2]
 tipo: mc
 
 explicacion: |
-  Usando la Ley de Ohm: I = V / R. En este caso, {V} / {R} = {I_rama} A.
+  Usando la Ley de Ohm: I = V / R. En este caso, {V} / {R} = {datos[idx][2]}.
 ```
 
 ### 24 — Comportamiento de la corriente total
