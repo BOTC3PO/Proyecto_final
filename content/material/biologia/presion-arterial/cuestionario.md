@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -159,8 +159,8 @@ metadata:
   nivel: "intermedio"
   tags: ["gasto_cardiaco"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un aumento en el volumen de sangre expulsado por el corazón en cada latido (volumen sistólico) tiende a elevar la presión arterial."
 
 explicacion: |
@@ -176,8 +176,8 @@ metadata:
   nivel: "intermedio"
   tags: ["error", "medicion"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Realizar una toma de presión con el brazo por debajo del nivel del corazón no afecta el resultado de la lectura."
 
 explicacion: |
@@ -294,8 +294,8 @@ metadata:
   nivel: "intermedio"
   tags: ["edad"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La rigidez de las arterias asociada al envejecimiento suele provocar un aumento en la presión sistólica."
 
 explicacion: |
@@ -372,8 +372,8 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion"]
 
-respuesta: "mayor"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La presión sistólica es siempre mayor que la presión diastólica."
 
 explicacion: |
@@ -448,8 +448,8 @@ metadata:
   nivel: "intermedio"
   tags: ["cafeina", "estimulante"]
 
-respuesta: "aumenta"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "El consumo de grandes cantidades de cafeína puede provocar un aumento temporal de la presión arterial."
 
 explicacion: |
