@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -60,18 +60,13 @@ metadata:
   nivel: "intermedio"
   tags: ["vigencia", "publicacion"]
 
-variables:
-  datos: [["publicación en el Boletín Oficial", "vigente"], ["omisión de publicación", "inexistente"]]
-  idx: uno_de([0, 1])
-
 tipo: completar
 respuestas_validas:
   - "publicación en el Boletín Oficial"
-  - "omisión de publicación"
 
 enunciado: "Para que una norma sea obligatoria y tenga vigencia, es requisito indispensable su ___."
 
-respuesta: datos[idx][0]
+respuesta: "publicación en el Boletín Oficial"
 
 explicacion: |
   La vigencia de una norma comienza, por regla general, desde su publicación en el órgano oficial correspondiente (como el Boletín Oficial), permitiendo que sea conocida por todos los ciudadanos.
@@ -148,7 +143,7 @@ metadata:
   nivel: "basico"
   tags: ["vigencia", "promulgacion"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Una norma jurídica adquiere vigencia obligatoria desde el momento exacto de su sanción por el legislativo, incluso antes de su publicación en el Boletín Oficial?"
@@ -165,9 +160,6 @@ metadata:
   tema: "jerarquia_normativa"
   nivel: "intermedio"
   tags: ["orden", "jerarquia"]
-
-variables:
-  orden_lista: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Decretos", "Reglamentos"]
 
 respuesta_orden: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Decretos", "Reglamentos"]
 tipo: ordenar
@@ -195,10 +187,6 @@ metadata:
   tema: "jerarquia_normativa"
   nivel: "intermedio"
   tags: ["decreto", "poder_ejecutivo"]
-
-variables:
-  caso_tipo: uno_de([0, 1])
-  casos: [["El Presidente dicta un decreto que busca regular una materia reservada exclusivamente a la ley.", "decreto"], ["El Presidente dicta un decreto para reglamentar una ley ya existente.", "decreto"]]
 
 respuesta: "decreto"
 tipo: completar
@@ -399,11 +387,8 @@ metadata:
   nivel: "avanzado"
   tags: ["reglamento", "ley"]
 
-variables:
-  es_reglamento_que_crea_derechos: falso
-
-respuesta: es_reglamento_que_crea_derechos
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "A diferencia de la Ley, un Reglamento tiene la capacidad de crear derechos y obligaciones nuevos de manera autónoma, sin necesidad de una ley previa."
 
 explicacion: |
@@ -481,18 +466,13 @@ metadata:
   nivel: "basico"
   tags: ["reglamento", "decreto"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["El Poder Ejecutivo dicta un decreto para reglamentar una ley existente.", "reglamentar"], ["Un Ministerio dicta una resolución para aplicar una norma superior.", "aplicar"]]
-
 tipo: completar
 respuestas_validas:
   - "reglamentar"
-  - "aplicar"
 
 enunciado: "El objetivo principal de un decreto reglamentario es ___ la norma de jerarquía superior para facilitar su ejecución."
 
-respuesta: casos[caso_idx][1]
+respuesta: "reglamentar"
 
 explicacion: |
   Los reglamentos y decretos no pueden modificar el espíritu de la ley, sino que su función es reglamentar o aplicar los detalles técnicos para su cumplimiento.
