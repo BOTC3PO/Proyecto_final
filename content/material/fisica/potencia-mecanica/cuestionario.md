@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -90,7 +90,7 @@ tipo: mc
 opciones_explicitas: ["Directamente proporcional al trabajo realizado", "Inversamente proporcional al tiempo", "Inversamente proporcional al trabajo realizado", "Directamente proporcional al tiempo"]
 respuesta: "Directamente proporcional al trabajo realizado"
 
-enunciado: "Si mantenemos el tiempo constante, la potencia es ___ al trabajo realizado. Si mantenemos el trabajo constante, la potencia es ___ al tiempo empleado."
+enunciado: "Si mantenemos el tiempo constante, la relación entre la potencia y el trabajo realizado es: ___."
 
 explicacion: |
   Según la fórmula P = W/t: si W aumenta, P aumenta (directamente proporcional). Si t aumenta, P disminuye (inversamente proporcional).
@@ -307,8 +307,8 @@ metadata:
   nivel: "intermedio"
   tags: ["analisis_dimensional"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si duplicamos la fuerza aplicada a un objeto y también duplicamos su velocidad, la potencia mecánica resultante se cuadruplica."
 
 explicacion: |
@@ -369,7 +369,7 @@ metadata:
   tags: ["relacion", "proporcionalidad"]
 
 variables:
-  escenario: uno_de([["Realiza 100J en 2s", 20, 50], ["Realiza 100J en 5s", 20, 20], ["Realiza 100J en 10s", 20, 10]])
+  escenario: uno_de([[100, 2, 50], [100, 5, 20], [100, 10, 10]])
   valor_w: escenario[0]
   valor_t: escenario[1]
   valor_p: escenario[2]
@@ -521,7 +521,7 @@ variables:
   p2: w2 / t2
 
 respuesta: p1 > p2
-tipo: completar
+tipo: vf
 enunciado: "Se comparan dos máquinas. La máquina A realiza {w1} J en {t1} s. La máquina B realiza {w2} J en {t2} s. ¿Es la potencia de la máquina A mayor que la de la máquina B?"
 
 explicacion: |
@@ -571,7 +571,7 @@ metadata:
   tags: ["metodologia"]
 
 opciones_explicitas: ["Calcular el trabajo realizado", "Dividir el trabajo por el tiempo", "Identificar los datos de trabajo y tiempo"]
-respuesta_orden: ["Calcular el trabajo realizado", "Dividir el trabajo por el tiempo", "Identificar los datos de trabajo y tiempo"]
+respuesta_orden: ["Identificar los datos de trabajo y tiempo", "Calcular el trabajo realizado", "Dividir el trabajo por el tiempo"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide la potencia, pero solo se conocen la fuerza, la distancia y el tiempo."
