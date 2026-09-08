@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,9 +40,6 @@ metadata:
   tema: "lenguaje_pensamiento_y_creatividad"
   nivel: "intermedio"
   tags: ["relativismo_linguistico", "determinismo"]
-
-variables:
-  escenario: uno_de([["el lenguaje determina el pensamiento", "el lenguaje influye en el pensamiento"], ["la estructura del lenguaje limita la cognición", "el lenguaje moldea la percepción"]])
 
 respuesta: "el lenguaje determina el pensamiento"
 tipo: mc
@@ -124,16 +121,16 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  escenarios: [["Un hablante de un idioma que tiene una sola palabra para 'azul' y 'verde'", "color_unico"], ["Un hablante de un idioma que distingue claramente entre 'azul' y 'celeste'", "distincion_clara"]]
+  escenarios: [["Un hablante de un idioma que tiene una sola palabra para 'azul' y 'verde'", "restringe"], ["Un hablante de un idioma que distingue claramente entre 'azul' y 'celeste'", "potencia"]]
 
-enunciado: "Según la hipótesis de Sapir-Whorf, si una persona pertenece al escenario {escenarios[caso_idx][0]}, su capacidad para categorizar y recordar matices cromáticos estará influenciada por su estructura lingüística. Esto sugiere que el lenguaje ___ el pensamiento."
+enunciado: "Según la hipótesis de Sapir-Whorf, si una persona pertenece al escenario '{escenarios[caso_idx][0]}', su capacidad para categorizar y recordar matices cromáticos estará influenciada por su estructura lingüística. Esto sugiere que el lenguaje ___ el pensamiento."
 
 pasos:
   - "Analizar cómo la falta de términos específicos afecta la percepción de los límites de color."
   - "Relacionar la estructura gramatical con la organización mental de los estímulos."
 
 opciones_explicitas: ["restringe", "no tiene", "potencia", "ignora"]
-respuesta: "restringe"
+respuesta: escenarios[caso_idx][1]
 tipo: "mc"
 
 explicacion: |
@@ -192,6 +189,7 @@ variables:
 
 enunciado: "En el desarrollo cognitivo, el paso hacia el pensamiento simbólico permite que el sujeto utilice un ___ para representar objetos ausentes. En el caso de '{ejemplos[ejemplo_idx][0]}', estamos ante una representación mental de alto nivel."
 
+respuesta: "símbolo"
 respuestas_validas:
   - "símbolo"
   - "signo"
@@ -306,12 +304,11 @@ metadata:
 
 respuestas_validas:
   - "significante"
-  - "significado"
 
-respuesta: ["significante", "significado"]
+respuesta: "significante"
 tipo: completar
 
-enunciado: "En la estructura del signo lingüístico, la forma física o acústica (el sonido de la palabra) se denomina ___ y el concepto mental que esta evoca se denomina ___."
+enunciado: "En la estructura del signo lingüístico, la forma física o acústica (el sonido de la palabra) se denomina ___ y el concepto mental que esta evoca se denomina significado."
 
 explicacion: |
   Saussure definió el signo como la unión de una parte material (significante) y una parte conceptual (significado).
@@ -367,12 +364,9 @@ metadata:
   nivel: "basico"
   tags: ["comunicacion", "lenguaje", "simbolismo"]
 
-variables:
-  es_comunicacion_solo: uno_de([verdadero, falso])
-
-respuesta: es_comunicacion_solo
-tipo: completar
-enunciado: "Si una persona emite un grito de dolor para pedir ayuda, está realizando un acto de comunicación, pero no necesariamente un acto de lenguaje simbólico."
+respuesta: verdadero
+tipo: vf
+enunciado: "Si una persona emite un grito de dolor para pedir ayuda, está realizando un acto de comunicación, pero no necesariamente un acto de lenguaje simbólico. ¿Es correcta esta afirmación?"
 
 explicacion: |
   La comunicación es el intercambio de información (puede ser instintiva o gestual), mientras que el lenguaje implica el uso de sistemas de signos arbitrarios y simbólicos con reglas gramaticales.
@@ -471,13 +465,9 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "categorizacion"]
 
-variables:
-  ejemplo_idx: uno_de([0, 1])
-  ejemplos: [["El concepto de 'perro' permite agrupar a un caniche, un labrador y un bulldog.", "perro"], ["El concepto de 'fruta' permite agrupar a una manzana, una pera y una uva.", "fruta"]]
-
 enunciado: "Cuando una persona utiliza una palabra para agrupar diversos objetos con características comunes, está utilizando un ___ para organizar su pensamiento."
 
-respuesta: ejemplos[ejemplo_idx][1]
+respuesta: "concepto"
 tipo: completar
 respuestas_validas:
   - "concepto"
