@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -128,7 +128,7 @@ metadata:
 respuesta: "m·v"
 tipo: completar
 respuestas_validas:
-  - "m*v"
+  - "m·v"
   - "m*v"
   - "p=m*v"
 
@@ -174,8 +174,8 @@ metadata:
   nivel: "intermedio"
   tags: ["proporcionalidad"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si un objeto duplica su velocidad pero mantiene su masa constante, su momento lineal también se duplica."
 
 explicacion: |
@@ -192,21 +192,21 @@ metadata:
   tags: ["comparacion"]
 
 variables:
-  datos: [[0, "A"], [1, "B"]]
   idx: uno_de([0, 1])
+  b_vel: [2, 8]
+  ganador: ["A", "B"]
 
-respuesta: datos[idx][1]
+respuesta: ganador[idx]
 tipo: mc
 opciones_explicitas: ["A", "B"]
 
-enunciado: "Considera dos objetos: el Objeto A tiene 2 kg a 10 m/s. El Objeto B tiene 5 kg a 4 m/s. ¿Cuál de ellos posee un mayor momento lineal?"
+enunciado: "Considera dos objetos: el Objeto A tiene 2 kg a 10 m/s. El Objeto B tiene 5 kg a {b_vel[idx]} m/s. ¿Cuál de ellos posee un mayor momento lineal?"
 
 explicacion: |
   Calculamos ambos:
   p_A = 2 kg * 10 m/s = 20 kg·m/s.
-  p_B = 5 kg * 4 m/s = 20 kg·m/s.
-  En este caso, ambos tienen el mismo momento lineal. 
-  (Nota: Error en lógica de ejemplo, corregido para igualdad)."
+  p_B = 5 kg * {b_vel[idx]} m/s = {5 * b_vel[idx]} kg·m/s.
+  Por lo tanto, el objeto con mayor momento lineal es el {ganador[idx]}.
 ```
 
 ### 10 — Comparación de Objetos (Corregida)
@@ -267,10 +267,9 @@ variables:
 
 enunciado: "Si un objeto tiene una masa de {datos[idx][0]} kg y una velocidad de {datos[idx][1]} m/s, su momento lineal es de ___ kg·m/s."
 
-respuestas_validas:
-  - "{datos[idx][0] * datos[idx][1]}"
-
+respuesta: datos[idx][0] * datos[idx][1]
 tipo: completar
+tolerancia_abs: 0.01
 
 explicacion: |
   El momento lineal (p) se define como el producto de la masa por la velocidad (p = m · v). En este caso, el cálculo es {datos[idx][0]} * {datos[idx][1]} = {datos[idx][0] * datos[idx][1]}.
@@ -472,7 +471,7 @@ tipo: completar
 respuestas_validas:
   - "impulso"
 
-enunciado: "El cambio en el momento lineal de un objeto es igual al impulso aplicado sobre dicho objeto."
+enunciado: "El cambio en el momento lineal de un objeto es igual al ___ aplicado sobre dicho objeto."
 
 explicacion: |
   Según el teorema del impulso, el cambio en la cantidad de movimiento ($\Delta p$) es igual al impulso ($J = F \cdot \Delta t$). En el caso de {caso[0]}, se observa este principio.
@@ -539,8 +538,6 @@ enunciado: "Si un objeto con masa constante aumenta su velocidad, su cantidad de
 
 respuestas_validas:
   - "aumenta"
-  - "disminuye"
-  - "se mantiene"
 respuesta: "aumenta"
 tipo: completar
 
@@ -559,7 +556,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [[0.05, 400, 20], [0.02, 600, 12]]
+  datos: [[0.05, 400], [0.02, 600]]
 
 enunciado: "Una bala de masa {datos[escenario_idx][0]} kg viaja a una velocidad de {datos[escenario_idx][1]} m/s. Al impactar un bloque, su velocidad se reduce a 5 m/s. ¿Cuál es la magnitud del cambio en su momento lineal (Δp)?"
 
@@ -568,13 +565,13 @@ pasos:
   - "Calcular el momento final: p_final = m * v_final"
   - "Calcular la diferencia: Δp = p_inicial - p_final"
 
-respuesta: datos[escenario_idx][2]
+respuesta: datos[escenario_idx][0] * (datos[escenario_idx][1] - 5)
 tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
   Δp = m(v_i - v_f).
-  Para este caso: {datos[escenario_idx][0]} * ({datos[escenario_idx][1]} - 5) = {datos[escenario_idx][2]}.
+  Para este caso: {datos[escenario_idx][0]} * ({datos[escenario_idx][1]} - 5) = {datos[escenario_idx][0] * (datos[escenario_idx][1] - 5)}.
 ```
 
 ### 26 — Verificación de igualdad
