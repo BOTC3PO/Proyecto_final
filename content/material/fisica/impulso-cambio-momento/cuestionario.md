@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -178,9 +178,7 @@ variables:
 
 tipo: completar
 respuestas_validas:
-  - "10.0"
   - "30.0"
-  - "40.0"
 
 enunciado: "Un objeto de {masa} kg pasa de una velocidad de {v_inicial} m/s a una de {v_final} m/s. El cambio en su momento lineal (Δp) es de ___ kg·m/s."
 
@@ -306,16 +304,16 @@ metadata:
   nivel: "avanzado"
   tags: ["fuerza_media", "integral"]
 
-respuesta: "fuerza_media"
+respuesta: "fuerza"
 tipo: completar
 
 enunciado: "Cuando una fuerza no es constante en el tiempo, el impulso total se calcula como la integral de la ___ en el intervalo de tiempo dado."
 
 respuestas_validas:
-  - "fuerza_media"
+  - "fuerza"
 
 explicacion: |
-  Para fuerzas variables, el impulso es la integral temporal de la fuerza: J = integral de F(t) dt. En este contexto, el resultado de la integral representa la fuerza media aplicada durante ese periodo.
+  Para fuerzas variables, el impulso es la integral temporal de la fuerza: J = integral de F(t) dt. El resultado de esa integral es el impulso (en N·s), no una fuerza; si se conoce el impulso J y la duración Δt, puede definirse una fuerza media equivalente como F_media = J / Δt.
 ```
 
 ### 15 — Factores que afectan el cambio de momento
@@ -391,8 +389,6 @@ respuesta: "kg·m/s"
 tipo: "completar"
 respuestas_validas:
   - "kg·m/s"
-  - "N·s"
-  - "kg·m/s^2"
 
 enunciado: "El impulso puede expresarse en unidades de Newton-segundo (N·s) o en unidades de momento lineal, que son ___."
 
@@ -507,7 +503,7 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si el impulso aplicado a un objeto es nulo (J = 0), entonces el cambio en su momento lineal (Δp) debe ser ___."
+enunciado: "Si el impulso aplicado a un objeto es nulo (J = 0), entonces el cambio en su momento lineal (Δp) también es nulo."
 
 explicacion: |
   Según el teorema del impulso y la cantidad de movimiento, J = Δp. Si el impulso es cero, el cambio en el momento también lo es, lo que significa que el objeto mantiene su estado de movimiento original.
@@ -528,12 +524,11 @@ variables:
   impulse: datos[idx][0]
   tiempo: datos[idx][1]
 
-respuesta: "fuerza_media"
+respuesta: impulse / tiempo
 tipo: completar
-respuestas_validas:
-  - "fuerza_media"
+tolerancia_abs: 0.1
 
-enunciado: "Un astronauta de masa constante recibe un impulso de {impulse} kg·m/s durante un tiempo de {tiempo} s. La fuerza media aplicada se calcula como ___."
+enunciado: "Un astronauta de masa constante recibe un impulso de {impulse} kg·m/s durante un tiempo de {tiempo} s. ¿Cuál es la fuerza media aplicada, en N?"
 
 pasos:
   - "Recordar que J = F_media * Δt"
