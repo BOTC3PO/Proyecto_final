@@ -1,15 +1,6 @@
 # Química — Propiedades coligativas (cuestionario, 20 preguntas VBLang)
 
 > Temas: `QCOLIGa/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bugs de esta tanda: interpolación escrita como `\{variable\}` (con
-> backslash, sintaxis inválida — la interpolación real es `{variable}`
-> sin barra), y un caso de `uno_de([...])[idx]` — `uno_de(lista)` ya
-> devuelve UN valor escalar, indexarlo de nuevo con `[idx]` intenta
-> indexar un número, no una lista; y el array indexado tenía menos
-> elementos que el rango del índice usado. Reescrito con el patrón
-> simple de variables independientes.
 
 ---
 
@@ -138,7 +129,7 @@ variables:
   molalidad: uno_de([1, 2, 3, 4])
 
 respuesta: k_constante * molalidad
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá el descenso de la temperatura de congelación usando la constante crioscópica Kc = {k_constante} y molalidad m = {molalidad}."
@@ -204,7 +195,7 @@ variables:
   m: uno_de([1, 2, 3, 4])
 
 respuesta: ke * m
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá el ascenso de la temperatura de ebullición usando ΔT = Ke × m, con Ke = {ke} y m = {m}."
@@ -305,7 +296,7 @@ variables:
   T: uno_de([273, 298, 300])
 
 respuesta: M * R * T
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "Calculá la presión osmótica de una solución con molaridad {M} M a temperatura {T} K, usando R = {R} L·atm/(mol·K)."
