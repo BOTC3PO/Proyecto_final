@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -24,7 +24,6 @@ respuesta: "onda"
 tipo: "completar"
 respuestas_validas:
   - "onda"
-  - "particula"
 
 enunciado: "Cuando la luz presenta fenómenos como la difracción o la interferencia, se comporta como una ___."
 
@@ -82,9 +81,6 @@ respuesta: "Planck"
 tipo: "completar"
 respuestas_validas:
   - "Planck"
-  - "Einstein"
-  - "Newton"
-  - "Maxwell"
 
 enunciado: "La constante que relaciona la energía de un fotón con su frecuencia es la constante de ___."
 
@@ -122,20 +118,20 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [[1.0e-24, "1.0e-24"], [2.0e-24, "2.0e-24"]]
+  datos: [[1.0e-24, 1.0e24], [2.0e-24, 5.0e23]]
 
-respuesta: "datos[idx][1]"
-tipo: "input"
-tolerancia_abs: 0.001
+respuesta: datos[idx][1]
+tipo: "completar"
+tolerancia_abs: 1e20
 
-enunciado: "Si un electrón tiene un momento lineal de {datos[idx][0]} kg·m/s, su longitud de onda de De Broglie es aproximadamente {datos[idx][0]} m (asumiendo h = 1)."
+enunciado: "Si un electrón tiene un momento lineal de {datos[idx][0]} kg·m/s, su longitud de onda de De Broglie es aproximadamente ___ m (asumiendo h = 1)."
 
 pasos:
   - "Calcular lambda = h / p"
   - "Sustituir el valor de p dado"
 
 explicacion: |
-  La fórmula es lambda = h / p.
+  La fórmula es lambda = h / p = 1 / {datos[idx][0]} = {datos[idx][1]} m.
 ```
 
 ### 7 — Efecto fotoeléctrico
@@ -205,10 +201,7 @@ metadata:
 respuesta: "inversamente"
 tipo: "completar"
 respuestas_validas:
-  - "directamente"
   - "inversamente"
-  - "exponencialmente"
-  - "logarítmicamente"
 
 enunciado: "La longitud de onda de De Broglie es ___ proporcional al momento lineal de la partícula."
 
@@ -285,9 +278,6 @@ respuesta: "posición"
 tipo: "completar"
 respuestas_validas:
   - "posición"
-  - "momento"
-  - "energía"
-  - "carga"
 
 enunciado: "El principio de incertidumbre de Heisenberg establece que no podemos conocer simultáneamente con precisión la ___ y el momento de una partícula."
 
@@ -323,20 +313,19 @@ metadata:
   tags: ["calculo", "rayos_x"]
 
 variables:
-  idx: uno_de([0, 1])
-  datos: [[6.6e-34, "6.6e-34"], [6.6e-34, "6.6e-34"]]
+  h_val: 6.6e-34
 
-respuesta: "datos[idx][1]"
-tipo: "input"
+respuesta: 1
+tipo: "completar"
 tolerancia_abs: 0.001
 
-enunciado: "Si la constante de Planck es {datos[idx][0]} J·s y un fotón tiene una energía de {datos[idx][0]} J, su frecuencia es {datos[idx][0]} Hz."
+enunciado: "Si la constante de Planck es {h_val} J·s y un fotón tiene una energía de {h_val} J, su frecuencia es ___ Hz."
 
 pasos:
   - "Usar f = E / h"
 
 explicacion: |
-  Como E = h * f, si E = h, entonces f = 1.
+  Como E = h * f, si E = h, entonces f = E/h = 1.
 ```
 
 ### 17 — Naturaleza de la luz en el vacío
@@ -405,20 +394,19 @@ metadata:
   tags: ["calculo", "de_broglie"]
 
 variables:
-  idx: uno_de([0, 1])
-  datos: [[1.0e-34, "1.0e-34"], [1.0e-34, "1.0e-34"]]
+  p_val: 1.0e-34
 
-respuesta: "datos[idx][1]"
-tipo: "input"
-tolerancia_abs: 0.001
+respuesta: 1.0e34
+tipo: "completar"
+tolerancia_abs: 1e30
 
-enunciado: "Si un objeto tiene un momento de {datos[idx][0]} kg·m/s y h = 1, su longitud de onda es {datos[idx][0]} m."
+enunciado: "Si un objeto tiene un momento de {p_val} kg·m/s y h = 1, su longitud de onda es ___ m."
 
 pasos:
   - "lambda = h / p"
 
 explicacion: |
-  Aplicación directa de la fórmula de De Broglie.
+  Aplicación directa de la fórmula de De Broglie: lambda = 1 / {p_val} = 1.0e34 m.
 ```
 
 ### 21 — Resumen de la dualidad
