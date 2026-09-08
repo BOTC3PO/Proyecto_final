@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -58,17 +58,16 @@ metadata:
   tags: ["volumen", "desplazamiento"]
 
 variables:
-  datos: [[1.5, "1.5"], [2.0, "2.0"], [0.8, "0.8"]]
+  volumenes: [1.5, 2.0, 0.8]
   idx: uno_de([0,1,2])
+  volumen: volumenes[idx]
 
 tipo: completar
-respuestas_validas:
-  - "1.5"
-  - "2.0"
-  - "0.8"
-respuesta: datos[idx][1]
+tolerancia_abs: 1
 
-enunciado: "Un objeto sumergido desplaza un volumen de fluido de {datos[idx][0]} m³. Según el principio de Arquímedes, la magnitud del empuje será equivalente al peso de una masa de fluido de ___ kg."
+respuesta: volumen * 1000
+
+enunciado: "Un objeto sumergido desplaza un volumen de agua (densidad 1000 kg/m³) de {volumen} m³. Según el principio de Arquímedes, la magnitud del empuje será equivalente al peso de una masa de fluido de ___ kg."
 
 explicacion: |
   El volumen de fluido desplazado es igual al volumen de la parte sumergida del objeto. El empuje es igual al peso de ese fluido desplazado.
@@ -141,22 +140,23 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [[1000, 0.5, 5], [1200, 0.8, 2]]
+  volumenes: [0.5, 0.8]
+  V: volumenes[idx]
 
-respuesta: datos[idx][2]
+respuesta: redondear(1000 * 9.8 * V, 1)
 tipo: completar
-tolerancia_abs: 0.1
+tolerancia_abs: 1
 
-enunciado: "Un objeto con volumen de {datos[idx][0]} kg/m³ (densidad del fluido) desplaza un volumen de {datos[idx][1]} m³ de agua. Si la densidad del agua es 1000 kg/m³ y la gravedad es 9.8 m/s², ¿cuál es el valor del empuje en Newtons?"
+enunciado: "Un objeto desplaza un volumen de {V} m³ de agua al sumergirse. Si la densidad del agua es 1000 kg/m³ y la gravedad es 9.8 m/s², ¿cuál es el valor del empuje en Newtons?"
 
 pasos:
-  - "Calcular el volumen desplazado: V = {datos[idx][1]} m³"
+  - "Calcular el volumen desplazado: V = {V} m³"
   - "Calcular el peso del fluido desalojado: E = ρ * g * V"
-  - "E = 1000 * 9.8 * {datos[idx][1]}"
+  - "E = 1000 * 9.8 * {V}"
 
 explicacion: |
   El empuje se calcula con la fórmula E = ρ_fluido * g * V_sumergido.
-  Usando los datos: E = 1000 * 9.8 * {datos[idx][1]} = {datos[idx][2]} N.
+  Usando los datos: E = 1000 * 9.8 * {V} = {redondear(1000 * 9.8 * V, 1)} N.
 ```
 
 ### 8 — ¿Flota o se hunde?
@@ -349,7 +349,7 @@ variables:
   densidad_liq: 1000
 
 respuesta: densidad_obj < densidad_liq
-tipo: completar
+tipo: vf
 enunciado: "Si un objeto tiene una densidad de {densidad_obj} kg/m³ y se sumerge en un líquido de {densidad_liq} kg/m³, el objeto flotará en la superficie. ¿Es esto verdadero o falso?"
 
 explicacion: |
@@ -453,7 +453,7 @@ metadata:
   tags: ["flotacion", "empuje", "densidad"]
 
 variables:
-  escenario: uno_de([[1.2, "flota"], [0.8, "se hunde"], [1.0, "flota"]])
+  escenario: uno_de([[1.2, "se hunde"], [0.8, "flota"], [1.0, "flota"]])
   densidad_objeto: escenario[0]
   densidad_fluido: 1.0
 
@@ -477,17 +477,17 @@ metadata:
   tags: ["empuje", "volumen", "arquimedes"]
 
 variables:
-  datos: [[0.5, 4.9, 5.0], [0.2, 1.96, 2.0], [1.0, 9.8, 10.0]]
+  volumenes: [0.5, 0.2, 1.0]
   idx: uno_de([0, 1, 2])
-  volumen: datos[idx][0]
-  densidad_fluido: datos[idx][1]
-  empuje_real: datos[idx][2]
+  volumen: volumenes[idx]
+  densidad_fluido: 1000
+  g: 10
 
-respuesta: empuje_real
+respuesta: densidad_fluido * g * volumen
 tipo: completar
-tolerancia_abs: 0.1
+tolerancia_abs: 1
 
-enunciado: "Un cuerpo con un volumen de {volumen} m³ está completamente sumergido en un fluido con densidad de {densidad_fluido} kg/m³. ¿Cuál es el valor del empuje (en Newtons) que experimenta el cuerpo? (Usa g = 10 m/s² para tus cálculos)."
+enunciado: "Un cuerpo con un volumen de {volumen} m³ está completamente sumergido en agua (densidad {densidad_fluido} kg/m³). ¿Cuál es el valor del empuje (en Newtons) que experimenta el cuerpo? (Usa g = {g} m/s² para tus cálculos)."
 
 pasos:
   - "Calcular el volumen desplazado (es igual al volumen del cuerpo sumergido)."
@@ -495,7 +495,7 @@ pasos:
 
 explicacion: |
   El empuje es igual al peso del volumen de fluido desplazado: E = ρ * g * V.
-  Para el caso seleccionado: {densidad_fluido} * 10 * {volumen} = {empuje_real} N.
+  Para el caso seleccionado: {densidad_fluido} * {g} * {volumen} = {densidad_fluido * g * volumen} N.
 ```
 
 ### 23 — La condición de equilibrio
@@ -525,18 +525,10 @@ metadata:
   nivel: "basico"
   tags: ["densidad", "conceptos"]
 
-respuesta: "densidad_objeto"
+respuesta: "densidad"
 tipo: completar
 respuestas_validas:
-  - "densidad_objeto"
-  - "peso_objeto"
-  - "volumen_objeto"
-
-variables:
-  escenario: [[1.5, "densidad_objeto"], [0.5, "peso_objeto"], [2.0, "volumen_objeto"]]
-  idx: uno_de([0, 1, 2])
-  densidad_objeto: escenario[idx][0]
-  valor_comparar: escenario[idx][1]
+  - "densidad"
 
 enunciado: "Si un objeto tiene una ___ mayor que la del fluido, el objeto se hundirá."
 
