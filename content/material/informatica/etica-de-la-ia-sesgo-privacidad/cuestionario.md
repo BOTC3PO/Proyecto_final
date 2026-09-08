@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -59,18 +59,13 @@ metadata:
   nivel: "intermedio"
   tags: ["datos", "sesgo", "entrenamiento"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["El conjunto de datos no representa la diversidad de la población real", "El diseño del algoritmo favorece erróneamente un resultado sobre otro"], ["Falta de diversidad en los datos de entrenamiento", "Sesgo de diseño o algorítmico"]]
-
 tipo: completar
 respuestas_validas:
   - "Falta de diversidad en los datos de entrenamiento"
-  - "Sesgo de diseño o algorítmico"
 
 enunciado: "Si un modelo de reconocimiento facial falla sistemáticamente con personas de piel oscura porque el dataset era mayoritariamente de personas de piel clara, estamos ante un caso de: ___."
 
-respuesta: escenario[idx][0]
+respuesta: "Falta de diversidad en los datos de entrenamiento"
 
 explicacion: |
   Cuando el problema reside en que los datos no cubren todas las categorías de la población, se denomina sesgo de representación o falta de diversidad en los datos.
@@ -185,15 +180,10 @@ metadata:
   nivel: "intermedio"
   tags: ["explicabilidad", "privacidad"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  caso: [[0, "un sistema de crédito que niega préstamos sin explicar por qué"], [1, "un sistema de traducción que traduce textos sin errores"]]
-
-respuesta: caso[caso_idx][0]
+respuesta: "un sistema de crédito que niega préstamos sin explicar por qué"
 tipo: completar
 respuestas_validas:
   - "un sistema de crédito que niega préstamos sin explicar por qué"
-  - "un sistema de traducción que traduce textos sin errores"
 
 enunciado: "Un problema ético común es la falta de explicabilidad (caja negra). Un ejemplo de esto es: ___"
 
@@ -252,15 +242,12 @@ metadata:
   nivel: "avanzado"
   tags: ["privacidad", "memorizacion", "seguridad"]
 
-variables:
-  caso: uno_de([["Un modelo de lenguaje revela la dirección de un usuario tras ser interrogado con prompts específicos.", "falso"], ["Un modelo de lenguaje predice la probabilidad de que un usuario compre un producto basado en tendencias generales.", "verdadero"]])
-
-respuesta: caso[1]
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si un modelo de IA ha memorizado datos sensibles de entrenamiento (como números de identificación) y los reproduce textualmente ante un prompt malintencionado, ¿se ha vulnerado la privacidad de los datos?"
 
 explicacion: |
-  La memorización de datos sensibles es un riesgo crítico de privacidad en modelos de lenguaje grandes (LLMs). Aunque el modelo prediga tendencias generales (caso verdadero), la capacidad de extraer datos específicos de individuos es una vulneración.
+  La memorización de datos sensibles es un riesgo crítico de privacidad en modelos de lenguaje grandes (LLMs). Si el modelo puede reproducir textualmente datos identificables ante un prompt malintencionado, se ha vulnerado la privacidad de esos individuos.
 ```
 
 ### 13 — Mitigación de sesgos en el ciclo de vida
@@ -355,7 +342,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Se eliminan los nombres de los usuarios pero se mantiene la combinación exacta de fecha de nacimiento, código postal y género.", "El proceso es insuficiente porque la re-identificación es posible mediante ataques de vinculación."], ["Se aplica ruido estadístico (privacidad diferencial) para que no se pueda identificar a un individuo específico en el dataset.", "El proceso es efectivo para proteger la identidad individual manteniendo la utilidad estadística."]]
+  escenarios: [["Se eliminan los nombres de los usuarios pero se mantiene la combinación exacta de fecha de nacimiento, código postal y género.", "El proceso es insuficiente porque la re-identificación es posible mediante ataques de vinculación."], ["Se aplica ruido estadístico (privacidad diferencial) para que no se pueda identificar a un individuo específico en el dataset.", "Aunque la privacidad diferencial es una técnica robusta y mucho más efectiva, tampoco garantiza una privacidad matemáticamente 'total': sigue existiendo un riesgo residual controlado (el parámetro epsilon), por lo que la respuesta correcta sigue siendo falso."]]
 
 tipo: vf
 respuesta: falso
@@ -477,17 +464,12 @@ metadata:
   nivel: "avanzado"
   tags: ["mitigacion", "sesgo", "datos"]
 
-variables:
-  accion_idx: uno_de([0, 1])
-  acciones: [["Aumentar la diversidad de los datos de entrenamiento", "A"], ["Eliminar variables sensibles como la raza de los ejemplos", "B"]]
-
 enunciado: "Para mitigar el sesgo algorítmico, una técnica común es la 'equidad mediante la ceguera' (fairness through unawareness), que consiste en: ___"
 
-respuesta: acciones[accion_idx][1]
+respuesta: "Eliminar variables sensibles como la raza de los ejemplos"
 tipo: completar
 respuestas_validas:
-  - "A"
-  - "B"
+  - "Eliminar variables sensibles como la raza de los ejemplos"
 
 explicacion: |
   Aunque eliminar variables sensibles (como raza o género) es una técnica llamada 'ceguera', no siempre es efectiva porque otras variables (como el código postal) pueden actuar como 'proxies' de la variable sensible.
