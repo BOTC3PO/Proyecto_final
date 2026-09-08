@@ -1,11 +1,6 @@
 # Química — Tipos de reacciones químicas: síntesis, descomposición, desplazamiento (cuestionario, 20 preguntas VBLang)
 
 > Temas: `QTIPOSa/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Bugs de esta tanda: otro lote entero (4 preguntas) sin el campo
-> `respuesta:`, y `respuesta: "verdadero"`/`"falso"` entrecomillado en
-> vez del literal sin comillas en varios `vf`.
 
 ---
 
