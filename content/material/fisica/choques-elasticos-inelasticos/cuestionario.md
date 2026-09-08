@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -59,11 +59,7 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "choque_inelastico"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Los objetos rebotan sin deformarse", "Inelástico"], ["Los objetos quedan pegados tras el impacto", "Inelástico"]]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "Inelástico"
 tipo: mc
 opciones_explicitas: ["Elástico", "Inelástico"]
 
@@ -140,10 +136,7 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-variables:
-  es_elastico: uno_de(["Elástico", "Inelástico"])
-
-respuesta: es_elastico
+respuesta: "Elástico"
 tipo: mc
 opciones_explicitas: ["Elástico", "Inelástico"]
 
@@ -166,7 +159,7 @@ variables:
   m1: uno_de([2.0, 5.0])
   v1: uno_de([10.0, 4.0])
   m2: uno_de([3.0, 2.0])
-  v2: uno_de([0.0, 5.0])
+  v2: 0.0
 
 respuesta: m1 * v1 + m2 * v2
 tipo: completar
@@ -218,7 +211,7 @@ variables:
   m2: 2.0
   v2: 6.0
 
-respuesta: 40.0
+respuesta: 52.0
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -233,7 +226,6 @@ explicacion: |
   Ek1 = 0.5 * 2 * 4^2 = 16 J.
   Ek2 = 0.5 * 2 * 6^2 = 36 J.
   Ek_total = 16 + 36 = 52 J.
-  *Nota: El valor calculado en la respuesta es el correcto para el ejercicio planteado.*
 ```
 
 ### 11 — Conservación en choques
@@ -264,7 +256,7 @@ metadata:
   nivel: "intermedio"
   tags: ["energia_cinetica", "choque_elastico"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "En un choque perfectamente elástico entre dos partículas, la energía cinética total del sistema se conserva."
@@ -282,17 +274,12 @@ metadata:
   nivel: "intermedio"
   tags: ["clasificacion", "energia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  tabla: [["elástico", "elástico"], ["inelástico", "inelástico"]]
-
-respuesta: tabla[escenario_idx][1]
+respuesta: "inelástico"
 tipo: "completar"
 
 enunciado: "Si en una colisión la energía cinética total se reduce tras el impacto, el choque es de tipo ___."
 
 respuestas_validas:
-  - "elástico"
   - "inelástico"
 
 explicacion: |
@@ -366,15 +353,11 @@ metadata:
   nivel: "basico"
   tags: ["energia", "choques"]
 
-variables:
-  datos: [["El choque es elástico", "elástico"], ["El choque es inelástico", "inelástico"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "elástico"
 tipo: mc
 opciones_explicitas: ["elástico", "inelástico"]
 
-enunciado: "Si en un sistema de dos partículas se observa que la energía cinética total se mantiene constante antes y después del impacto, podemos afirmar que el choque es: {datos[idx][0]}."
+enunciado: "Si en un sistema de dos partículas se observa que la energía cinética total se mantiene constante antes y después del impacto, podemos afirmar que el choque es: ___"
 
 explicacion: |
   La característica distintiva del choque elástico es que la energía cinética se conserva. En el inelástico, parte de esa energía se transforma en calor o deformación.
@@ -408,13 +391,10 @@ metadata:
   nivel: "intermedio"
   tags: ["propiedades", "comparacion"]
 
-variables:
-  tipo_choque: uno_de([0, 1])
+respuesta: verdadero
 
-respuesta: tipo_choque == 0
-
-tipo: completar
-enunciado: "Si comparamos un choque elástico con uno inelástico, el choque elástico se distingue porque la energía cinética se conserva. (Verdadero/Falso)"
+tipo: vf
+enunciado: "Si comparamos un choque elástico con uno inelástico, el choque elástico se distingue porque la energía cinética se conserva."
 
 explicacion: |
   Efectivamente, la conservación de la energía cinética es el criterio que define la elasticidad de un choque.
@@ -514,16 +494,11 @@ metadata:
   nivel: "intermedio"
   tags: ["energia", "momento"]
 
-variables:
-  tipo_choque: uno_de([0, 1])
-  info: [["elástico", "se conserva la energía cinética"], ["inelástico", "no se conserva la energía cinética"]]
+enunciado: "Un accidente de tránsito donde los vehículos quedan trabados tras el impacto es un ejemplo de choque inelástico. En este caso, la energía cinética ___."
 
-enunciado: "Un accidente de tránsito donde los vehículos quedan trabados tras el impacto es un ejemplo de choque {info[tipo_choque][0]}. En este caso, la energía cinética ___."
-
-respuesta: info[tipo_choque][1]
+respuesta: "no se conserva la energía cinética"
 tipo: completar
 respuestas_validas:
-  - "se conserva la energía cinética"
   - "no se conserva la energía cinética"
 
 explicacion: |
