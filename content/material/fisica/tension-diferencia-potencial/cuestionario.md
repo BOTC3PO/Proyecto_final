@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -74,7 +74,7 @@ pasos:
   - "Identificar el trabajo (W) y la carga (Q)."
   - "Aplicar la fórmula V = W / Q."
 
-respuesta: "escenario[0] / escenario[1]"
+respuesta: escenario[0] / escenario[1]
 
 explicacion: |
   Usando la fórmula V = W/Q: {escenario[0]}J / {escenario[1]}C = {escenario[0]/escenario[1]} V.
@@ -232,12 +232,9 @@ variables:
   v: datos[idx][1]
   w: datos[idx][2]
 
-respuesta: [0, 1, 2]
+respuesta: v
 tipo: completar
-respuestas_validas:
-  - "20"
-  - "20"
-  - "20"
+tolerancia_abs: 0.01
 
 enunciado: "Si una carga de {q} C requiere un trabajo de {w} J para ser trasladada entre dos puntos, la diferencia de potencial entre dichos puntos es de ___ V."
 
@@ -274,8 +271,8 @@ metadata:
   nivel: "intermedio"
   tags: ["corriente", "voltaje", "analogia"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si una batería tiene una diferencia de potencial (voltaje) de 12V, esto significa que siempre hay una corriente fluyendo a través de cualquier cable conectado a ella, incluso si el circuito está abierto."
 
 explicacion: |
@@ -294,7 +291,7 @@ metadata:
 variables:
   escenario: uno_de([[10.0, 5.0], [20.0, 10.0], [5.0, 2.0]])
 
-respuesta: escenario[0] * escenario[1]
+respuesta: escenario[0] / escenario[1]
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -531,16 +528,17 @@ metadata:
   tags: ["carga", "energia"]
 
 variables:
-  caso: uno_de([[["0.002", "2.0"], ["0.005", "5.0"], ["0.010", "10.0"]]])
+  idx: uno_de([0, 1, 2])
+  trabajos: [0.004, 0.025, 0.1]
+  cargas: [0.002, 0.005, 0.010]
+  w: trabajos[idx]
+  q: cargas[idx]
 
-enunciado: "Si se realiza un trabajo de {caso[0][0]} Joules para mover una carga de {caso[0][0]} Coulombs entre dos puntos, la diferencia de potencial es de ___ voltios."
+enunciado: "Si se realiza un trabajo de {w} Joules para mover una carga de {q} Coulombs entre dos puntos, la diferencia de potencial es de ___ voltios."
 
-respuestas_validas:
-  - "2.0"
-  - "5.0"
-  - "10.0"
-respuesta: caso[0][1]
+respuesta: w / q
 tipo: completar
+tolerancia_abs: 0.01
 
 explicacion: |
   La diferencia de potencial (V) se define como el trabajo (W) realizado por unidad de carga (Q): V = W / Q.
