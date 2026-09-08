@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,7 +39,7 @@ metadata:
   nivel: "basico"
   tags: ["historia", "sujeto"]
 
-respuesta: falso
+respuesta: verdadero
 
 tipo: vf
 
@@ -59,16 +59,16 @@ metadata:
   tags: ["autonomia", "razon"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["autonomía", "razón"], ["colectividad", "tradición"]]
+  concepto_idx: uno_de([0, 1])
+  conceptos: ["autonomía", "razón"]
 
-respuesta: datos[escenario_idx][0]
+respuesta: conceptos[concepto_idx]
 tipo: completar
 respuestas_validas:
   - "autonomía"
   - "razón"
 
-enunciado: "En el pensamiento moderno, el sujeto se define por su capacidad de ___ y su capacidad de actuar según su propia ________."
+enunciado: "En el pensamiento moderno, uno de los pilares que define al sujeto moderno es su capacidad de ___."
 
 explicacion: |
   La modernidad sitúa a la razón y la autonomía como los pilares que permiten al individuo desprenderse de las imposiciones externas para ser dueño de sus actos.
@@ -122,13 +122,11 @@ metadata:
   nivel: "intermedio"
   tags: ["historia", "modernidad", "subjetividad"]
 
-variables:
-  periodo_transicion: uno_de(["Edad Media", "Renacimiento", "Edad Moderna"])
-  concepto_yo: uno_de(["colectivo", "individual", "divino"])
-
-respuesta: "periodo_transicion == \"Renacimiento\" && concepto_yo == \"individual\""
+respuesta: "colectivo"
 tipo: completar
-enunciado: "En la transición de la Edad Media al {periodo_transicion}, la noción de identidad se desplaza desde un sentido {concepto_yo} hacia la idea de un sujeto autónomo."
+respuestas_validas:
+  - "colectivo"
+enunciado: "En la transición de la Edad Media al Renacimiento, la noción de identidad se desplaza desde un sentido ___ hacia la idea de un sujeto autónomo."
 
 explicacion: |
   Históricamente, la modernidad marca el paso de un sujeto definido por su posición en un orden social y religioso (colectivo) a un 'yo' centrado en la introspección y la autonomía individual.
@@ -143,16 +141,12 @@ metadata:
   nivel: "avanzado"
   tags: ["filosofia", "subjetividad"]
 
-variables:
-  filosofo: uno_de(["Descartes", "Spinoza", "Locke"])
-  premisas: [["Pienso, luego existo", "el yo es una ilusión"], ["Pienso, luego existo", "el yo es social"], ["El yo es una construcción", "el yo es una ilusión"]]
-
-respuesta: premisas[0][0]
+respuesta: "Pienso, luego existo"
 tipo: mc
 
 opciones_explicitas: ["Pienso, luego existo", "El yo es una construcción social", "El yo es una ilusión", "El yo es una función del lenguaje"]
 
-enunciado: "Consideremos el caso del pensamiento de {filosofo}. Si aplicamos su método de duda metódica para encontrar una base sólida para el conocimiento, la conclusión fundamental sobre el 'yo' es: ___"
+enunciado: "Consideremos el caso del pensamiento de Descartes. Si aplicamos su método de duda metódica para encontrar una base sólida para el conocimiento, la conclusión fundamental sobre el 'yo' es: ___"
 
 pasos:
   - "Dudar de todo lo que pueda ser falso."
@@ -192,14 +186,13 @@ metadata:
   nivel: "intermedio"
   tags: ["postmodernidad", "sujeto"]
 
-respuesta: ["estable y esencial", "cambiante y construida"]
+respuesta: "cambiante y construida"
 
 tipo: completar
 
-enunciado: "En la modernidad tardía y la posmodernidad, el 'yo' deja de ser visto como una entidad ___ y pasa a entenderse como algo ___."
+enunciado: "En la modernidad tardía y la posmodernidad, el 'yo' deja de ser visto como una entidad estable y esencial, y pasa a entenderse como algo ___."
 
 respuestas_validas:
-  - "estable y esencial"
   - "cambiante y construida"
 
 explicacion: |
@@ -274,10 +267,6 @@ metadata:
   nivel: "avanzado"
   tags: ["historia", "subjetividad"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["La subjetividad pre-moderna", "La subjetividad moderna"], ["Se basaba en el lugar social y el orden cósmico.", "Se basa en la introspección y la autonomía individual."]]
-
 tipo: ordenar
 opciones_explicitas: ["La subjetividad pre-moderna", "La subjetividad moderna"]
 respuesta_orden: ["La subjetividad pre-moderna", "La subjetividad moderna"]
@@ -303,15 +292,15 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [["un sujeto medieval", "un sujeto contemporáneo"], ["se define por su rol en la comunidad y la tradición.", "se define por su identidad personal y deseos internos."]]
+  casos: [["un sujeto medieval", "se define por su rol en la comunidad y la tradición"], ["un sujeto contemporáneo", "se define por su identidad personal y deseos internos"]]
 
 tipo: completar
 respuestas_validas:
-  - "se define por su rol en la comunidad y la tradición."
-  - "se define por su identidad personal y deseos internos."
+  - "se define por su rol en la comunidad y la tradición"
+  - "se define por su identidad personal y deseos internos"
 respuesta: casos[caso_idx][1]
 
-enunciado: "Para entender el error de la universalización del 'yo', comparemos: mientras que ___ , ___"
+enunciado: "Para entender el error de la universalización del 'yo': mientras que {casos[caso_idx][0]} ___."
 
 explicacion: |
   Confundir la psicología moderna con una verdad universal es un error: lo que hoy llamamos 'identidad' es un producto de la modernidad y no necesariamente una constante humana universal.
@@ -392,7 +381,7 @@ respuesta: datos[escenario_idx][1]
 tipo: "mc"
 opciones_explicitas: ["identidad colectiva", "identidad individual", "orden social estático", "orden social dinámico"]
 
-enunciado: "En el contexto de la transición a la modernidad, el cambio fundamental radica en el paso de una {datos[escenario_idx][0]} a una {datos[escenario_idx][1]}."
+enunciado: "En el contexto de la transición a la modernidad, el cambio fundamental radica en el paso de {datos[escenario_idx][0]} a {datos[escenario_idx][1]}."
 
 explicacion: |
   El paso de lo colectivo a lo individual es el núcleo del cambio en la construcción del 'yo' moderno.
@@ -445,17 +434,12 @@ metadata:
   nivel: "intermedio"
   tags: ["historia", "identidad"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["un individuo que busca su esencia interna", "subjetividad"], ["un sujeto definido por sus roles sociales", "colectividad"]]
+enunciado: "Según la transición de la modernidad, el paso de un yo definido por la comunidad a un yo basado en la ___ marca el nacimiento de la subjetividad moderna."
 
-enunciado: "Según la transición de la modernidad, el paso de un yo definido por la comunidad a un yo basado en la {datos[escenario_idx][1]} marca el nacimiento de la subjetividad moderna."
-
-respuesta: datos[escenario_idx][1]
+respuesta: "subjetividad"
 tipo: completar
 respuestas_validas:
   - "subjetividad"
-  - "colectividad"
 
 explicacion: |
   La modernidad desplaza el eje de la identidad desde el grupo (familia, gremio, religión) hacia el individuo como centro de su propio universo psíquico.
@@ -488,13 +472,9 @@ metadata:
   nivel: "intermedio"
   tags: ["identidad", "sociedad"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["identidad ligada a la tradición", "colectivismo"], ["identidad ligada a la elección personal", "individualismo"]]
+enunciado: "En un análisis histórico, si comparamos un sistema basado en la identidad ligada a la tradición con uno basado en la identidad ligada a la elección personal, el segundo representa el ideal de la modernidad: ___"
 
-enunciado: "En un análisis histórico, si comparamos un sistema basado en el {casos[caso_idx][0]} con uno basado en el {casos[caso_idx][1]}, el segundo representa el ideal de la modernidad."
-
-respuesta: casos[caso_idx][1]
+respuesta: "individualismo"
 tipo: mc
 opciones_explicitas: ["colectivismo", "individualismo"]
 
@@ -535,18 +515,12 @@ metadata:
   nivel: "intermedio"
   tags: ["sujeto", "autonomia"]
 
-variables:
-  perfil_idx: uno_de([0, 1])
-  perfiles: [["el sujeto es un reflejo de su linaje", "determinismo"], ["el sujeto es un agente de su propia historia", "autonomía"]]
-
-enunciado: "En la psicología moderna, el concepto central es la {perfiles[perfil_idx][1]}, donde el individuo se percibe como un ___ de su propia historia."
+enunciado: "En la psicología moderna, el concepto central es la autonomía, donde el individuo se percibe como un ___ de su propia historia."
 
 respuesta: "agente"
 tipo: completar
 respuestas_validas:
   - "agente"
-  - "esclavo"
-  - "reflejo"
 
 explicacion: |
   La modernidad introduce la idea de agencia, donde el sujeto tiene la capacidad de decidir y actuar sobre su propio destino psíquico.
