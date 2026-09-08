@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,11 +39,6 @@ metadata:
   tema: "corrientes_psicologicas"
   nivel: "basico"
   tags: ["conductismo", "estímulo", "respuesta"]
-
-variables:
-  escenario: uno_de([["estímulo", "respuesta"], ["estímulo", "reacción"], ["estímulo", "consecuencia"]])
-  opcion_correcta: "estímulo"
-  opcion_incorrecta: "respuesta"
 
 respuesta: "estímulo"
 tipo: mc
@@ -102,19 +97,19 @@ metadata:
   nivel: "intermedio"
   tags: ["historia", "orden"]
 
-respuesta_orden: ["conductismo", "cognitivismo", "humanismo"]
+respuesta_orden: ["conductismo", "humanismo", "cognitivismo"]
 tipo: ordenar
-opciones_explicitas: ["conductismo", "cognitivismo", "humanismo"]
+opciones_explicitas: ["conductismo", "humanismo", "cognitivismo"]
 
 enunciado: "Ordena cronológicamente estas corrientes según su predominio o surgimiento principal en la historia de la psicología moderna (del más antiguo al más reciente):"
 
 pasos:
   - "Identifica el predominio del conductismo en la primera mitad del siglo XX."
-  - "Ubica la revolución cognitiva a mediados del siglo XX."
-  - "Considera el auge del enfoque humanista como la 'tercera fuerza'."
+  - "Considera el auge del enfoque humanista como la 'tercera fuerza' a mediados de siglo."
+  - "Ubica la revolución cognitiva consolidándose en los años 60."
 
 explicacion: |
-  El conductismo dominó la primera mitad del siglo XX; el cognitivismo surgió como respuesta a sus limitaciones en los años 50/60; y el humanismo se consolidó como la 'tercera fuerza' alternativa a ambos.
+  El conductismo dominó la primera mitad del siglo XX; el humanismo se consolidó a mediados de siglo como la 'tercera fuerza' alternativa al psicoanálisis y al conductismo; y el cognitivismo tomó el relevo con la revolución cognitiva de los años 60.
 ```
 
 ### 6 — El caso de la fobia al desorden
@@ -127,7 +122,7 @@ metadata:
   tags: ["conductismo", "condicionamiento"]
 
 variables:
-  escenario: uno_de([["Un niño asocia el sonido de un timbre con un pinchazo en el brazo.", "condicionamiento_clasico"], ["Un estudiante estudia solo cuando hay silencio absoluto para evitar distracciones.", "condicionamiento_operante"], ["Un perro busca comida porque sabe que al sonar una campana recibirá un premio.", "condicionamiento_operante"]])
+  escenario: uno_de([["Un niño asocia el sonido de un timbre con un pinchazo en el brazo.", "condicionamiento_clasico"], ["Un estudiante estudia solo cuando hay silencio absoluto para evitar distracciones.", "condicionamiento_operante"], ["Un perro saliva al escuchar una campana porque la asocia con la comida que recibirá después.", "condicionamiento_clasico"]])
 
 enunciado: "En el caso de que {escenario[0]}, estamos ante un ejemplo de {escenario[1]}."
 
@@ -190,14 +185,15 @@ metadata:
   tags: ["humanismo", "maslow"]
 
 variables:
-  caso_humanista: uno_de([["Un paciente busca terapia para alcanzar su máximo potencial personal.", "autorrealizacion"], ["Un paciente busca terapia para mejorar su autoestima y sentirse aceptado.", "pertenencia"]])
+  caso_humanista: uno_de([["Un paciente busca terapia para alcanzar su máximo potencial personal.", "autorrealizacion"], ["Un paciente busca terapia para sentirse aceptado y formar vínculos significativos con otros.", "pertenencia"]])
 
 enunciado: "Según el enfoque humanista, si el objetivo principal de una persona es {caso_humanista[0]}, está buscando la ___."
 
-respuesta: "autorrealizacion"
+respuesta: caso_humanista[1]
 tipo: completar
 respuestas_validas:
   - "autorrealizacion"
+  - "pertenencia"
 
 explicacion: |
   El humanismo se enfoca en la autorrealización y el crecimiento personal, viendo al individuo como alguien con tendencia innata hacia la plenitud.
@@ -211,9 +207,6 @@ metadata:
   tema: "corrientes_psicologicas"
   nivel: "avanzado"
   tags: ["metodologia", "comparativa"]
-
-variables:
-  metodo_orden: uno_de([["Observar la conducta, identificar el estímulo, analizar la respuesta", "paso1_paso2_paso3"], ["Escuchar el sueño, analizar el lapsus, buscar el trauma", "paso1_paso2_paso3"]])
 
 enunciado: "Para realizar un estudio clínico, un psicólogo debe seguir una secuencia lógica de pasos. Ordena los siguientes elementos según el enfoque conductista: 1. Estímulo, 2. Respuesta, 3. Consecuencia."
 
@@ -254,12 +247,9 @@ metadata:
   nivel: "intermedio"
   tags: ["conductismo", "cognitivismo"]
 
-variables:
-  es_conductista: uno_de([verdadero, falso])
-
-respuesta: es_conductista == falso
-tipo: completar
-enunciado: "Un psicólogo conductista clásico se centraría exclusivamente en los procesos mentales internos (como el pensamiento o la memoria) para explicar la conducta, ignorando el estímulo y la respuesta."
+respuesta: falso
+tipo: vf
+enunciado: "Un psicólogo conductista clásico se centraría exclusivamente en los procesos mentales internos (como el pensamiento o la memoria) para explicar la conducta, ignorando el estímulo y la respuesta. ¿Es correcta esta afirmación?"
 
 explicacion: |
   Falso. El conductismo se centra en la conducta observable y la relación entre estímulo y respuesta, rechazando (en sus versiones más estrictas) el estudio de los procesos mentales internos por no ser medibles objetivamente.
@@ -354,12 +344,9 @@ metadata:
   nivel: "basico"
   tags: ["conductismo", "conducta"]
 
-variables:
-  es_conductismo: verdadero
-
-respuesta: es_conductismo
-tipo: completar
-enunciado: "El conductismo radical se distingue de otras corrientes por centrarse exclusivamente en la conducta observable, rechazando el estudio de los procesos mentales internos como objeto de la psicología científica."
+respuesta: verdadero
+tipo: vf
+enunciado: "El conductismo radical se distingue de otras corrientes por centrarse exclusivamente en la conducta observable, rechazando el estudio de los procesos mentales internos como objeto de la psicología científica. ¿Es correcta esta afirmación?"
 
 explicacion: |
   El conductismo (especialmente el de Watson) sostiene que para que la psicología sea una ciencia objetiva, debe limitarse al estudio de la conducta observable y su relación con el entorno, evitando la introspección.
@@ -375,13 +362,13 @@ metadata:
   tags: ["humanismo", "psicoanalisis", "comparacion"]
 
 variables:
-  escenario: uno_de([["visión determinista del pasado", "visión optimista del potencial humano"], ["énfasis en la patología", "énfasis en el crecimiento personal"], ["foco en los impulsos reprimidos", "foco en la autorrealización"]])
+  escenario: uno_de([["una visión determinista del pasado", "una visión optimista del potencial humano"], ["un énfasis en la patología", "un énfasis en el crecimiento personal"], ["un foco en los impulsos reprimidos", "un foco en la autorrealización"]])
 
 respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: [escenario[0], escenario[1]]
 
-enunciado: "Mientras que el psicoanálisis suele tener una visión determinista basada en los conflictos del pasado, el humanismo se distingue por una ___."
+enunciado: "Mientras que el psicoanálisis suele tener una visión determinista basada en los conflictos del pasado, el humanismo se distingue por ___."
 
 explicacion: |
   El humanismo (Rogers, Maslow) se enfoca en la capacidad del individuo para el crecimiento y la autorrealización, contrastando con el enfoque clínico-patológico del psicoanálisis.
