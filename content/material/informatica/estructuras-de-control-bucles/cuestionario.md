@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,8 +41,8 @@ metadata:
   nivel: "basico"
   tags: ["diferencias", "for", "while"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "El bucle 'while' se utiliza preferentemente cuando se conoce de antemano el número exacto de veces que se debe repetir el bloque de código."
 
 explicacion: |
@@ -100,8 +100,8 @@ metadata:
   nivel: "basico"
   tags: ["errores", "bucle_infinito"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Un bucle infinito ocurre únicamente cuando la condición de parada es siempre verdadera debido a un error de lógica en el programa."
 
 explicacion: |
@@ -118,7 +118,7 @@ metadata:
   tags: ["for", "iteracion", "suma"]
 
 variables:
-  escenario: uno_de([[1, 10], [1, 5], [1, 20]])
+  escenario: uno_de([[10, 55], [5, 15], [20, 210]])
   limite: escenario[0]
   suma_final: escenario[1]
 
@@ -379,9 +379,9 @@ metadata:
 
 tipo: completar
 respuestas_validas:
-  - "falso"
+  - "verdadero"
 
-respuesta: "falso"
+respuesta: "verdadero"
 
 enunciado: "Si una condición en un bucle 'while' nunca cambia su valor y permanece siempre como ___, el programa entrará en un bucle infinito."
 
@@ -485,16 +485,14 @@ variables:
   datos: [["x", 10, 2], ["y", 20, 5], ["z", 15, 3]]
   idx: uno_de([0, 1, 2])
 
-enunciado: "Considera el siguiente código: \n`valor = {datos[idx][0]} \nwhile (valor > 1): \n    valor = valor - {datos[idx][1]}` \n\n¿Cuál será el valor final de la variable después de que el bucle termine?"
+enunciado: "Considera el siguiente código: \n`valor = {datos[idx][1]} \nwhile (valor > 1): \n    valor = valor - {datos[idx][2]}` \n\n¿Cuál será el valor final de la variable después de que el bucle termine?"
 
-respuesta: "1"
+respuesta: "0"
 tipo: mc
 opciones_explicitas: ["0", "1", "2", "5"]
 
 explicacion: |
-  El bucle se ejecuta mientras la variable sea mayor a 1. 
-  Si empezamos con {datos[idx][0]} y restamos {datos[idx][1]} sucesivamente, el último valor que cumple la condición es el que, al restarle {datos[idx][1]}, resulta en un valor <= 1.
-  En este escenario, el valor final será 1.
+  El bucle resta {datos[idx][2]} repetidamente mientras el valor sea mayor a 1. Como {datos[idx][1]} es múltiplo exacto de {datos[idx][2]}, la secuencia de restas llega exactamente a 0 (por ejemplo, para x: 10 → 8 → 6 → 4 → 2 → 0), momento en el que "0 > 1" es falso y el bucle se detiene.
 ```
 
 ### 23 — Lógica de bucles anidados
