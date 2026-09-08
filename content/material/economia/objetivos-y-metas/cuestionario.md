@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -62,9 +62,9 @@ metadata:
   nivel: "basico"
   tags: ["terminologia"]
 
+respuesta: "cuantificable"
 tipo: completar
 respuestas_validas:
-  - "cuantificable"
   - "cuantificable"
 
 enunciado: "Para que una meta sea considerada efectiva, debe ser __________, es decir, debe poder medirse a través de indicadores numéricos."
@@ -103,7 +103,7 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [["Objetivo: 'Ser la empresa más rentable del sector'. Meta: 'Aumentar el margen de utilidad neta del 5% al 8% en un año'.", "Falso"], ["Objetivo: 'Mejorar el clima laboral'. Meta: 'Reducir la rotación de personal en un 20% para fin de año'.", "Verdadero"]]
+  casos: [["Objetivo: 'Ser la empresa más rentable del sector'. Meta: 'Aumentar el margen de utilidad neta del 5% al 8% en un año'.", "Verdadero"], ["Objetivo: 'Mejorar el clima laboral'. Meta: 'Reducir la rotación de personal en un 20% para fin de año'.", "Verdadero"]]
 
 tipo: mc
 opciones_explicitas: ["Verdadero", "Falso"]
@@ -112,7 +112,7 @@ respuesta: casos[caso_idx][1]
 enunciado: "Determine si la relación entre el objetivo y la meta presentados en el caso es coherente: '{casos[caso_idx][0]}'"
 
 explicacion: |
-  En el caso 0 (Falso), la meta es coherente con el objetivo. En el caso 1 (Verdadero), la meta de reducir la rotación es un indicador directo y medible para alcanzar la mejora del clima laboral.
+  En el caso 0, la meta de aumentar el margen de utilidad neta es coherente y directamente medible respecto al objetivo de rentabilidad. En el caso 1, la meta de reducir la rotación es un indicador directo y medible para alcanzar la mejora del clima laboral.
 ```
 
 ### 6 — Diferencia conceptual
@@ -203,7 +203,7 @@ metadata:
   tags: ["calculo", "indicadores"]
 
 variables:
-  datos: [["Ventas actuales: 100.000 USD", "120.000 USD", "10%"], ["Clientes actuales: 500", "600", "20%"], ["Producción actual: 1000 unidades", "1100", "10%"]]
+  datos: [["Ventas actuales: 100.000 USD", "120.000 USD", "20%"], ["Clientes actuales: 500", "600", "20%"], ["Producción actual: 1000 unidades", "1100", "10%"]]
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][2]
@@ -436,9 +436,9 @@ variables:
 
 enunciado: "En el escenario '{escenarios[escenario_idx][0]}', la expresión '{escenarios[escenario_idx][1]}' representa una: ___"
 
+respuesta: "meta"
 respuestas_validas:
   - "meta"
-  - "objetivo general"
 tipo: completar
 
 explicacion: |
@@ -522,10 +522,9 @@ variables:
 
 enunciado: "Para el escenario '{datos[dato_idx][0]}', el valor numérico que permite medir el cumplimiento de la meta es: ___"
 
-respuestas_validas:
-  - "95"
-  - "1000"
+respuesta: datos[dato_idx][1]
 tipo: completar
+tolerancia_abs: 0
 
 explicacion: |
   Las metas proporcionan el indicador numérico (KPI) necesario para evaluar si el objetivo general se está cumpliendo.
