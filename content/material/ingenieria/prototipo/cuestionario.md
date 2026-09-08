@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -179,15 +179,11 @@ metadata:
   nivel: "avanzado"
   tags: ["costos", "riesgo"]
 
-variables:
-  escenario: [["detectar error en prototipo", "10"], ["detectar error en producción", "1000"]]
-  idx: uno_de([0, 1])
-
-respuesta: escenario[idx][1]
+respuesta: 990
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si el costo de corregir un error en fase de prototipado es de ${escenario[idx][0]} y en fase de producción es de ${escenario[idx][1]}, ¿cuál es la diferencia de costo (en unidades monetarias) entre ambos escenarios según el caso actual?"
+enunciado: "Si el costo de corregir un error en fase de prototipado es de $10 y en fase de producción es de $1000, ¿cuál es la diferencia de costo (en unidades monetarias) entre ambos escenarios?"
 
 pasos:
   - "Identificar el costo en prototipado: 10"
@@ -211,8 +207,6 @@ respuesta: "funcionalidad"
 tipo: completar
 respuestas_validas:
   - "funcionalidad"
-  - "estetica"
-  - "marketing"
 
 enunciado: "En un prototipo de concepto (Proof of Concept), el enfoque principal no es la estética del producto, sino validar su _______ principal."
 
@@ -251,10 +245,7 @@ metadata:
   nivel: "basico"
   tags: ["error_comun", "gestion_proyectos"]
 
-variables:
-  es_final: uno_de([verdadero, falso])
-
-respuesta: es_final
+respuesta: falso
 tipo: "vf"
 
 enunciado: "Un prototipo funcional que permite probar la lógica de un sistema, pero que utiliza materiales de baja fidelidad y no es apto para la venta al público, es considerado una versión final del producto."
@@ -358,15 +349,12 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-variables:
-  es_final: uno_de([verdadero, falso])
-
-respuesta: es_final
-tipo: completar
-enunciado: "Un prototipo es una versión preliminar y simplificada de la solución que busca probar ideas antes de la versión final. ¿Es el prototipo la versión definitiva del diseño? {es_final}"
+respuesta: falso
+tipo: vf
+enunciado: "Un prototipo es una versión preliminar y simplificada de la solución que busca probar ideas antes de la versión final. ¿Es el prototipo la versión definitiva del diseño?"
 
 explicacion: |
-  Si la variable sorteada es falso, la respuesta es falso. El prototipo es una etapa de experimentación, no el resultado final.
+  Falso. El prototipo es una etapa de experimentación, no el resultado final.
 ```
 
 ### 18 — Diferencias clave
@@ -416,12 +404,9 @@ metadata:
   nivel: "avanzado"
   tags: ["especificaciones"]
 
-variables:
-  es_alta_fidelidad: uno_de([verdadero, falso])
-
-respuesta: es_alta_fidelidad
-tipo: completar
-enunciado: "Un prototipo de alta fidelidad se distingue de uno de baja fidelidad porque posee una apariencia y funcionalidad muy cercanas al producto final. ¿Es esto correcto? {es_alta_fidelidad}"
+respuesta: verdadero
+tipo: vf
+enunciado: "Un prototipo de alta fidelidad se distingue de uno de baja fidelidad porque posee una apariencia y funcionalidad muy cercanas al producto final. ¿Es esto correcto?"
 
 explicacion: |
   La fidelidad se refiere a qué tan cerca está el prototipo del producto real en términos de estética, interacción y precisión técnica.
@@ -438,15 +423,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  escenarios: [["un sensor de temperatura para un invernadero", "un nuevo diseño de ala para un dron"], ["validar la precisión de la lectura", "probar la estabilidad aerodinámica"]]
+  escenarios: [["un sensor de temperatura para un invernadero", "validar la precisión de la lectura"], ["un nuevo diseño de ala para un dron", "probar la estabilidad aerodinámica"]]
 
-respuesta: "___"
+respuesta: escenarios[escenario_idx][1]
 tipo: completar
 respuestas_validas:
   - "validar la precisión de la lectura"
   - "probar la estabilidad aerodinámica"
 
-enunciado: "En el desarrollo de {escenarios[escenario_idx][0]}, el objetivo principal de crear un prototipo es {escenarios[escenario_idx][1]}."
+enunciado: "En el desarrollo de {escenarios[escenario_idx][0]}, el objetivo principal de crear un prototipo es ___."
 
 explicacion: |
   Un prototipo es una versión preliminar que permite testear hipótesis específicas antes de la producción masiva.
