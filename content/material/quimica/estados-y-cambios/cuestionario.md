@@ -1,14 +1,6 @@
 # Química — Materia: estados y cambios (cuestionario, 24 preguntas VBLang)
 
 > Tema: `QA`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (`google/gemma-4-26b-a4b-qat`,
-> `reasoning_effort: none`) y revisado/corregido a mano contra los gotchas
-> de `../../PROCEDIMIENTO.md`. Bugs típicos encontrados y arreglados: uso
-> de `&&`/`||` (no existen en el DSL), interpolación rota de un booleano
-> en medio de una oración, `respuesta:` de tipo distinto al de
-> `opciones_explicitas`, y un `uno_de()` sorteando entre respuestas
-> correctas e incorrectas mezcladas (rompe la pregunta).
 
 ---
 
@@ -429,7 +421,7 @@ variables:
   valor_fusion: 0
 
 respuesta: valor_fusion
-tipo: input
+tipo: completar
 
 enunciado: "Indica el punto de fusión del agua en grados Celsius a presión atmosférica normal."
 
@@ -450,7 +442,7 @@ variables:
   valor_ebullicion: 100
 
 respuesta: valor_ebullicion
-tipo: input
+tipo: completar
 
 enunciado: "Indica el punto de ebullición del agua en grados Celsius a presión atmosférica normal."
 
