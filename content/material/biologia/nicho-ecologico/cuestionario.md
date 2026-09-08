@@ -1,19 +1,6 @@
 # Biología — Nicho ecológico (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BQ`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); una
-> pregunta con `variables:`/`uno_de` cuya `respuesta:` no dependía del
-> escenario sorteado (quedaba fija sin importar qué opción salía) y
-> además tenía **notas internas para el motor filtradas dentro de
-> `explicacion:`** — reescrita con respuesta indexada correctamente y
-> sin las notas; `tipo: vf` con `respuestas_validas` conteniendo
-> `["Verdadero","Falso"]` u oraciones completas en vez de
-> `verdadero`/`falso` — normalizado; dos preguntas `tipo: vf` que en
-> realidad comparaban 4 frases largas como si fueran opciones de
-> `vf` — reclasificadas a `completar` con una sola respuesta correcta.
 
 ---
 
@@ -441,14 +428,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["El búho y el ratón", "nocturno", "diurno"], ["El águila y el halcón", "diurno", "nocturno"]]
+  escenarios: [["El búho", "nocturno", "diurno", "el halcón"], ["El halcón", "diurno", "nocturno", "el búho"]]
 
 opciones_explicitas: ["nocturno", "diurno"]
 
 respuesta: escenarios[escenario_idx][1]
 tipo: mc
 
-enunciado: "En un mismo bosque, un {escenarios[escenario_idx][0]} es predominantemente ___, mientras que su competidor potencial es {escenarios[escenario_idx][2]}. Esta diferencia de horario permite la coexistencia mediante la partición temporal del nicho."
+enunciado: "En un mismo bosque, {escenarios[escenario_idx][0]} es predominantemente ___, mientras que su competidor potencial, {escenarios[escenario_idx][3]}, es {escenarios[escenario_idx][2]}. Esta diferencia de horario permite la coexistencia mediante la partición temporal del nicho."
 
 explicacion: |
   La partición temporal es una estrategia donde especies con recursos similares se dividen el tiempo de uso del hábitat para evitar la competencia directa.
