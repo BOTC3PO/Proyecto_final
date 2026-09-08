@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -194,23 +194,19 @@ metadata:
   tags: ["calculo", "corriente"]
 
 variables:
-  escenario: [[10, 2, "0.5"], [20, 5, "4.0"], [5, 1, "5.0"]]
+  escenario: [[10, 2], [20, 5], [5, 1]]
   idx: uno_de([0,1,2])
   q: escenario[idx][0]
   t: escenario[idx][1]
-  res: escenario[idx][2]
 
-respuesta: res
+respuesta: q / t
 tipo: completar
-respuestas_validas:
-  - "0.5"
-  - "4.0"
-  - "5.0"
+tolerancia_abs: 0.01
 
-enunciado: "Si una corriente de ___ A fluye por un cable, la carga que atraviesa el conductor en ___ segundos es de ___ C."
+enunciado: "Si una carga de {q} C atraviesa un conductor en un tiempo de {t} segundos, ¿cuál es la intensidad de corriente (en Amperios)?"
 
 explicacion: |
-  Usando la relación despejada de la fórmula I = Q / t, tenemos que Q = I * t. Para este caso: {res} = {q} * {t}.
+  Usando la fórmula I = Q / t: {q} / {t} = {q / t} A.
 ```
 
 ### 10 — Orden de magnitudes
@@ -369,21 +365,21 @@ metadata:
   tags: ["voltaje", "corriente", "diferencia"]
 
 variables:
-  escenario: uno_de([["un cable conectado a una batería de 9V", "9", "0.5"], ["un cable conectado a una batería de 12V", "12", "0.8"], ["un cable conectado a una batería de 5V", "5", "0.3"]])
+  escenario: uno_de([[9, "0.9"], [12, "1.2"], [5, "0.5"]])
 
-respuesta: escenario[2]
+respuesta: escenario[1]
 tipo: "mc"
-opciones_explicitas: [escenario[1], escenario[2], escenario[0]]
+opciones_explicitas: ["0.9", "1.2", "0.5"]
 
-enunciado: "Si mantenemos la resistencia constante, ¿cuál es la intensidad de corriente que circula por el circuito dado el voltaje de {escenario[0]}?"
+enunciado: "Si mantenemos la resistencia constante en R = 10 Ω, ¿cuál es la intensidad de corriente que circula por el circuito dado un voltaje de {escenario[0]} V?"
 
 pasos:
-  - "Identificar el voltaje: {escenario[1]} V"
-  - "Identificar la resistencia (asumida constante para el ejemplo)"
+  - "Identificar el voltaje: {escenario[0]} V"
+  - "Usar la resistencia constante R = 10 Ω"
   - "Calcular I = V / R"
 
 explicacion: |
-  La intensidad de corriente es directamente proporcional al voltaje según la Ley de Ohm. Al aumentar el voltaje, la corriente aumenta proporcionalmente.
+  La intensidad de corriente es directamente proporcional al voltaje según la Ley de Ohm (I = V/R). Con R = 10 Ω constante: I = {escenario[0]} / 10 = {escenario[1]} A.
 ```
 
 ### 18 — Corriente Continua vs. Alterna
@@ -478,15 +474,15 @@ metadata:
   tags: ["carga", "electrones"]
 
 variables:
-  datos: [["2.0", "1.25e25"], ["0.5", "3.12e24"], ["4.0", "2.50e25"]]
+  datos: [["2.0", "1.25e19"], ["0.5", "3.13e18"], ["4.0", "2.50e19"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Si por un conductor circula una carga de {datos[idx][0]} Coulombs en un tiempo de 1 segundo, la cantidad de electrones que fluyen es aproximadamente ___."
 
 respuestas_validas:
-  - "1.25e25"
-  - "3.12e24"
-  - "2.50e25"
+  - "1.25e19"
+  - "3.13e18"
+  - "2.50e19"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -505,9 +501,8 @@ metadata:
 
 enunciado: "¿La corriente que suministran las baterías de un teléfono móvil es de tipo alterna (AC)?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   Las baterías proporcionan corriente continua (DC), donde los electrones fluyen en un solo sentido. La corriente alterna (AC) es la que llega a los enchufes de las casas.
 ```
