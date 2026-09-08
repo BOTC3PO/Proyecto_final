@@ -2,12 +2,10 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3 tenía la respuesta invertida (monómeros vs.
+> macromoléculas), Q12 y Q22 mezclaban `tipo: completar`/booleano muerto
+> con enunciado sin hueco, Q15 tenía la clave invertida respecto a su
+> propia explicación, Q18 revelaba la respuesta en el propio enunciado.
 
 ---
 
@@ -59,9 +57,8 @@ metadata:
 
 tipo: completar
 respuestas_validas:
-  - "macromoléculas"
   - "monómeros"
-respuesta: "macromoléculas"
+respuesta: "monómeros"
 
 enunciado: "Los polímeros son materiales formados por la unión de largas cadenas de ___."
 
@@ -240,12 +237,9 @@ metadata:
   nivel: "basico"
   tags: ["polimeros", "conductividad"]
 
-variables:
-  es_conductor: falso
-
-respuesta: es_conductor
-tipo: completar
-enunciado: "Un error común es pensar que todos los polímeros son conductores debido a su flexibilidad; sin embargo, la mayoría de los polímeros son aislantes eléctricos."
+respuesta: verdadero
+tipo: vf
+enunciado: "¿Es cierto que, a pesar de la creencia común de que los polímeros son conductores por ser flexibles, la mayoría de los polímeros son en realidad aislantes eléctricos?"
 
 explicacion: |
   Los polímeros son generalmente aislantes debido a que sus electrones están localizados en enlaces covalentes, a diferencia de los metales.
@@ -303,7 +297,7 @@ metadata:
   nivel: "basico"
   tags: ["metales", "aleaciones"]
 
-respuesta: verdadero
+respuesta: falso
 
 tipo: vf
 
@@ -368,10 +362,9 @@ variables:
 respuesta: datos[escenario_idx][1]
 tipo: completar
 respuestas_validas:
-  - "resina epoxi"
-  - "cemento"
+  - datos[escenario_idx][1]
 
-enunciado: "Un material compuesto se distingue de una aleación porque combina dos o más fases distintas. Por ejemplo, en un material reforzado con fibras de {datos[escenario_idx][0]}, la fase continua es la {datos[escenario_idx][1]}."
+enunciado: "Un material compuesto se distingue de una aleación porque combina dos o más fases distintas. Por ejemplo, en un material reforzado con fibras de {datos[escenario_idx][0]}, la fase continua (matriz) es la ___."
 
 explicacion: |
   En un compuesto, la fase continua (matriz) rodea a la fase dispersa (refuerzo) para combinar propiedades que ninguna de las fases posee por separado.
@@ -453,11 +446,7 @@ metadata:
   nivel: "basico"
   tags: ["metales", "electricidad"]
 
-variables:
-  propiedad: uno_de(["alta conductividad eléctrica", "baja conductividad eléctrica", "aislamiento total"])
-  es_metal: uno_de([verdadero, falso])
-
-enunciado: "Los metales se distinguen principalmente por su {propiedad} debido a la movilidad de sus electrones de valencia."
+enunciado: "Los metales se distinguen principalmente por su alta conductividad eléctrica debido a la movilidad de sus electrones de valencia. ¿Verdadero o falso?"
 
 respuesta: verdadero
 tipo: vf
