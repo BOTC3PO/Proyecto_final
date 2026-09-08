@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -68,7 +68,7 @@ respuesta: 7000000000
 tipo: completar
 tolerancia_abs: 1
 
-enunciado: "Una galaxia se encuentra a una distancia de {distancia} parsecs. Si la constante de Hubble es $H_0 = {hubble}$ km/s/Mpc, ¿cuál es la velocidad de recesión en km/s? (Usa la fórmula $v = H_0 \\cdot d$)"
+enunciado: "Una galaxia se encuentra a una distancia de {distancia} Mpc. Si la constante de Hubble es $H_0 = {hubble}$ km/s/Mpc, ¿cuál es la velocidad de recesión en km/s? (Usa la fórmula $v = H_0 \\cdot d$)"
 
 pasos:
   - "Identificar la distancia ($d$) y la constante de Hubble ($H_0$)."
@@ -371,11 +371,7 @@ metadata:
   nivel: "basico"
   tags: ["expansion", "observacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario_datos: [[0, "se alejan"], [1, "se alejan"]]
-
-respuesta: escenario_datos[escenario_idx][1]
+respuesta: "se alejan"
 tipo: completar
 
 respuestas_validas:
@@ -383,7 +379,7 @@ respuestas_validas:
   - "se acercan"
   - "estacionarias"
 
-enunciado: "Si un observador se situara en una galaxia muy lejana, en lugar de la Tierra, vería que las demás galaxias del universo {escenario_datos[escenario_idx][1]} de la misma forma que nosotros."
+enunciado: "Si un observador se situara en una galaxia muy lejana, en lugar de la Tierra, vería que las demás galaxias del universo ___ de la misma forma que nosotros."
 
 explicacion: |
   La expansión del universo no es una explosión que ocurre desde un punto central, sino una expansión del tejido mismo del espacio. Por lo tanto, desde cualquier punto, la observación es la misma.
@@ -399,8 +395,9 @@ metadata:
   tags: ["geometria", "espacio"]
 
 respuesta: "falso"
-tipo: completar
-enunciado: "La Ley de Hubble implica que existe un punto central en el universo desde el cual todas las galaxias se expanden en forma radial, situando a la Tierra en un lugar privilegiado."
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+enunciado: "¿Es correcto afirmar que la Ley de Hubble implica que existe un punto central en el universo desde el cual todas las galaxias se expanden en forma radial, situando a la Tierra en un lugar privilegiado?"
 
 explicacion: |
   Falso. La expansión es local en cada punto del espacio. Es similar a la superficie de un globo inflándose: todos los puntos se alejan de todos los demás, sin que haya un centro en la superficie.
@@ -415,10 +412,6 @@ metadata:
   nivel: "avanzado"
   tags: ["isotropia", "observador"]
 
-variables:
-  obs_idx: uno_de([0, 1])
-  obs_tipo: ["un observador en la Vía Lemaître", "un observador en una galaxia lejana"]
-
 respuesta: "isotropico"
 tipo: completar
 
@@ -427,7 +420,7 @@ respuestas_validas:
   - "anisotropico"
   - "central"
 
-enunciado: "Debido a la naturaleza de la expansión, el universo es {obs_tipo[obs_idx]} para {obs_tipo[obs_idx]}, lo que significa que las leyes físicas y la apariencia de la expansión no dependen de la posición del observador."
+enunciado: "Debido a la naturaleza de la expansión, el universo es ___ para cualquier observador, ya sea uno situado en la Vía Láctea o uno en una galaxia lejana, lo que significa que las leyes físicas y la apariencia de la expansión no dependen de la posición del observador."
 
 explicacion: |
   La isotropía significa que las propiedades del universo son las mismas en todas las direcciones. Esto garantiza que no haya un "centro" observable.
@@ -533,22 +526,18 @@ metadata:
   nivel: "avanzado"
   tags: ["calculo", "inverso"]
 
-variables:
-  datos: [[1400, 70], [3000, 70], [4500, 75]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][0]
+respuesta: 20
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Si una galaxia tiene una velocidad de alejamiento de {datos[idx][1]} km/s y asumimos una constante de Hubble de {datos[idx][1]} (km/s)/Mpc, ¿a qué distancia se encuentra en Mpc?"
+enunciado: "Si una galaxia tiene una velocidad de alejamiento de 1400 km/s y asumimos una constante de Hubble de 70 (km/s)/Mpc, ¿a qué distancia se encuentra en Mpc?"
 
 pasos:
   - "Identificar la velocidad (v) y la constante (H0)."
   - "Despejar la distancia de la fórmula v = H0 * d, obteniendo d = v / H0."
 
 explicacion: |
-  Para hallar la distancia, dividimos la velocidad por la constante de Hubble: {datos[idx][1]} / {datos[idx][1]} = {datos[idx][0]} Mpc.
+  Para hallar la distancia, dividimos la velocidad por la constante de Hubble: 1400 / 70 = 20 Mpc.
 ```
 
 ### 25 — Orden de magnitudes de Hubble
