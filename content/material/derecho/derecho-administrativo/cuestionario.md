@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -97,14 +97,10 @@ metadata:
   nivel: "intermedio"
   tags: ["principios", "legalidad"]
 
-variables:
-  caso: uno_de([["La Administración puede actuar solo si una norma la autoriza.", "verdadero"], ["La Administración puede actuar incluso sin norma previa si es urgente.", "falso"]])
+respuesta: falso
+tipo: vf
 
-respuesta: caso[1]
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "Según el Principio de Legalidad, la afirmación siguiente es {caso[0]}: 'La Administración puede actuar incluso sin norma previa si es urgente'."
+enunciado: "Según el Principio de Legalidad, es correcto afirmar que 'La Administración puede actuar incluso sin norma previa si es urgente'."
 
 explicacion: |
   El Principio de Legalidad establece que la Administración solo puede realizar aquello que la ley le permite expresamente.
@@ -125,7 +121,7 @@ variables:
 
 enunciado: "Considerando que {escenarios[escenario_idx][0]}, estamos ante un acto administrativo que regula la actividad del Estado frente a un particular."
 
-respuesta: "{escenarios[escenario_idx][1]}"
+respuesta: escenarios[escenario_idx][1]
 tipo: completar
 respuestas_validas:
   - "licencia"
@@ -181,9 +177,6 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "pasos"]
 
-variables:
-  pasos_ordenados: ["Inicio del trámite", "Instrucción/Prueba", "Resolución", "Notificación"]
-
 enunciado: "Ordene la secuencia lógica de un procedimiento administrativo estándar para la resolución de un reclamo ciudadano:"
 
 respuesta_orden: ["Inicio del trámite", "Instrucción/Prueba", "Resolución", "Notificación"]
@@ -202,10 +195,6 @@ metadata:
   tema: "derecho_administrativo"
   nivel: "avanzado"
   tags: ["control", "recurso"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Un ciudadano considera que una multa de tránsito es ilegal.", "impugnar"], ["Una empresa cree que una concesión fue otorgada arbitrariamente.", "impugnar"]]
 
 enunciado: "Ante un acto administrativo que el administrado considera lesivo a sus derechos, el paso siguiente es ___ el acto mediante un recurso administrativo."
 
