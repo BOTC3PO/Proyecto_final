@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -119,11 +119,8 @@ metadata:
   nivel: "basico"
   tags: ["ley_26206", "gestion_democratica"]
 
-variables:
-  es_cooperativa: verdadero
-
-respuesta: es_cooperativa
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En una cooperativa de trabajo, según el principio de gestión democrática, cada asociado tiene un voto, independientemente del capital aportado."
 
 explicacion: |
@@ -288,11 +285,7 @@ metadata:
   nivel: "avanzado"
   tags: ["ley_26206", "marco_legal"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["La cooperativa es una sociedad de personas.", "sociedad de personas"], ["La cooperativa es una sociedad de capitales.", "sociedad de capitales"]]
-
-respuesta: escenario[idx][1]
+respuesta: "sociedad de personas"
 tipo: mc
 opciones_explicitas: ["sociedad de personas", "sociedad de capitales"]
 
@@ -354,10 +347,10 @@ tipo: vf
 
 enunciado: "El mutualismo se distingue del cooperativismo principalmente en que su fin primordial es la ayuda mutua para satisfacer necesidades comunes, sin tener como objetivo principal la distribución de excedentes entre sus miembros."
 
-respuesta: falso
+respuesta: verdadero
 
 explicacion: |
-  Aunque ambos pertenecen a la economía social, el mutualismo se centra en la prestación de servicios de asistencia mutua, mientras que la cooperativa busca satisfacer necesidades mediante la actividad económica de sus socios.
+  Correcto. Las cooperativas suelen distribuir excedentes entre sus socios según el uso de servicios, mientras que las mutuales no distribuyen ganancias: su propósito es cubrir gastos comunes o brindar asistencia recíproca.
 ```
 
 ### 18 — Principios de la Ley 26.206
@@ -369,14 +362,9 @@ metadata:
   nivel: "intermedio"
   tags: ["ley_26206", "principios"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["gestión democrática", "ayuda mutua"], ["gestión democrática", "maximización de renta"]]
-
 tipo: completar
 respuestas_validas:
   - "ayuda mutua"
-  - "maximización de renta"
 
 enunciado: "Según el espíritu de la Ley 26.206, una organización que se distingue de una empresa comercial por su fin social debe basarse en el principio de ___."
 
@@ -386,7 +374,7 @@ pasos:
 explicacion: |
   La ayuda mutua es el pilar que diferencia a estas organizaciones de las empresas de capital, donde el fin es el lucro.
 
-respuesta: datos[escenario_idx][1]
+respuesta: "ayuda mutua"
 ```
 
 ### 19 — Orden de principios cooperativos
@@ -461,7 +449,7 @@ metadata:
   nivel: "intermedio"
   tags: ["gestion", "democracia"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "En una organización cooperativa, el principio de 'una persona, un voto' implica que el poder de decisión es proporcional al capital aportado por cada socio."
