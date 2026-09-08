@@ -25,7 +25,7 @@ El canvas se divide en módulos que abordan distintos ejes de la operación empr
 - **Recursos clave**: Activos necesarios para operar (ej: tecnología, talento humano).
 - **Actividades clave**: Tareas esenciales para entregar la propuesta de valor (ej: producción, marketing).
 - **Estructura de costos**: Gastos asociados a los recursos y actividades.
-- **Partes interesadas**: Individuos o grupos que afectan o son afectados por el negocio.
+- **Alianzas clave**: Socios, proveedores o colaboradores externos que aportan recursos o actividades que la empresa no realiza por sí misma.
 
 ---
 

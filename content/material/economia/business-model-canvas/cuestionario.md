@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -84,7 +84,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Canales", "Presupuesto", "Organigrama", "Plan de Marketing"]
-respuesta: "Canales"
+respuesta: "Organigrama"
 
 enunciado: "¿Cuál de los siguientes NO es uno de los 9 bloques fundamentales del Business Model Canvas?"
 
@@ -161,14 +161,13 @@ metadata:
   nivel: "intermedio"
   tags: ["canales", "distribucion"]
 
-variables:
-  pasos_distribucion: uno_de([["Crear el producto", "Almacenar stock", "Enviar al cliente"], ["Desarrollar software", "Procesar pago", "Entrega digital"]])
-
-respuesta: pasos_distribucion[2]
+respuesta: "Enviar al cliente"
 tipo: completar
+respuestas_validas:
+  - "Enviar al cliente"
 pasos:
-  - "Paso 1: {pasos_distribucion[0]}"
-  - "Paso 2: {pasos_distribucion[1]}"
+  - "Paso 1: Crear el producto"
+  - "Paso 2: Almacenar stock"
   - "Paso 3: ___"
 
 enunciado: "Para un modelo de negocio basado en productos físicos, el proceso de entrega sigue este orden lógico:"
@@ -244,13 +243,10 @@ metadata:
   nivel: "intermedio"
   tags: ["segmentos_de_clientes", "errores_comunes"]
 
-variables:
-  es_nicho: uno_de([verdadero, falso])
-
-respuesta: es_nicho
+respuesta: verdadero
 tipo: "vf"
 
-enunciado: "Si una empresa intenta dirigirse a 'todo el mundo' sin definir características específicas, está cometiendo el error de no definir correctamente sus {es_nicho}."
+enunciado: "Si una empresa intenta dirigirse a 'todo el mundo' sin definir características específicas, está cometiendo el error de no definir correctamente sus segmentos de clientes."
 
 explicacion: |
   Intentar ser todo para todos suele diluir la propuesta de valor. La segmentación permite enfocar recursos y mensajes.
