@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -298,7 +298,7 @@ variables:
   r1: 5
   r2: 7
 
-respuesta_orden: ["V1", "V2"]
+respuesta_orden: ["V2", "V1"]
 tipo: ordenar
 
 opciones_explicitas: ["V1", "V2"]
@@ -593,15 +593,11 @@ variables:
   r1: escenario[idx][1]
 
 respuestas_validas:
-  - escenario[idx][1]
-respuesta: escenario[idx][1]
+  - r_total - r1
+respuesta: r_total - r1
 tipo: completar
 
-enunciado: "Si la resistencia total de un circuito en serie es de ___ Ω y una de las resistencias es de ___ Ω, la otra resistencia debe ser de ___ Ω."
-
-# Nota: El sistema de completar en VBLang para este prompt requiere que la respuesta sea el valor exacto. 
-# Debido a la restricción de no usar expresiones complejas en 'respuesta', 
-# se define la respuesta como el valor de la segunda resistencia de la tupla.
+enunciado: "Si la resistencia total de un circuito en serie es de {r_total} Ω y una de las resistencias es de {r1} Ω, la otra resistencia debe ser de ___ Ω."
 
 explicacion: |
   En serie: R_total = R1 + R2. Por lo tanto, R2 = R_total - R1.
