@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -60,7 +60,6 @@ metadata:
 
 tipo: completar
 respuestas_validas:
-  - "sistemas de máquinas"
   - "sistemas de máquinas"
   - "motores térmicos"
 
@@ -230,7 +229,7 @@ opciones_explicitas: ["civil", "mecanica", "electrica", "quimica"]
 enunciado: "Un error común es pensar que el diseño de maquinaria con partes móviles y sistemas de combustión es competencia de la ingeniería {idx_disciplina[1]}, cuando en realidad pertenece a la ingeniería _________."
 
 variables:
-  idx_disciplina: uno_de([[0, "civil"], [1, "mecanica"], [2, "electrica"], [3, "quimica"]])
+  idx_disciplina: uno_de([[0, "civil"], [2, "electrica"], [3, "quimica"]])
 
 explicacion: |
   La ingeniería civil se enfoca principalmente en infraestructuras estáticas (puentes, carreteras, edificios), mientras que la ingeniería mecánica se especializa en sistemas con movimiento y transformación de energía.
@@ -263,15 +262,10 @@ metadata:
   nivel: "intermedio"
   tags: ["industrial", "procesos", "optimizacion"]
 
-variables:
-  escenario: uno_de([[0, "optimizar la cadena de suministro", "optimizar la cadena de suministro"], [1, "diseñar circuitos integrados", "diseñar circuitos integrados"], [2, "diseñar motores de reacción", "diseñar motores de reacción"]])
-
 respuesta: "optimizar la cadena de suministro"
 tipo: completar
 respuestas_validas:
   - "optimizar la cadena de suministro"
-  - "diseñar circuitos integrados"
-  - "diseñar motores de reacción"
 
 enunciado: "A menudo se confunde la ingeniería industrial con la administración pura; sin embargo, la ingeniería industrial busca _________ para mejorar la productividad de un sistema."
 
@@ -352,11 +346,8 @@ metadata:
   nivel: "basico"
   tags: ["quimica", "civil"]
 
-variables:
-  es_quimica: falso
-
-respuesta: es_quimica
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si el objetivo principal de un proyecto es la transformación de la materia a nivel molecular mediante reacciones químicas, estamos ante el campo de la ingeniería química y no de la ingeniería civil."
 
 explicacion: |
@@ -377,7 +368,7 @@ opciones_explicitas: ["flujo de electrones y energía", "diseño de motores de c
 respuesta: "flujo de electrones y energía"
 tipo: mc
 
-enunciado: "La disciplina que se distingue por el estudio y aplicación del flujo de electrones y energía es la ingeniería eléctrica."
+enunciado: "¿Cuál es el fenómeno físico central que estudia y aplica la ingeniería eléctrica?"
 
 explicacion: |
   La ingeniería eléctrica se especializa en el control y la distribución de la energía eléctrica y el flujo de electrones en sistemas de potencia y circuitos.
@@ -392,13 +383,11 @@ metadata:
   nivel: "intermedio"
   tags: ["biomedica", "medicina"]
 
-variables:
-  escenario: uno_de([0,1])
-  escenario_datos: [["la creación de prótesis y dispositivos médicos", "el diseño de motores de alta potencia"], ["la creación de prótesis y dispositivos médicos", "el diseño de motores de alta potencia"]]
+tipo: mc
+opciones_explicitas: ["La creación de prótesis y dispositivos médicos", "El diseño de motores de alta potencia"]
+respuesta: "La creación de prótesis y dispositivos médicos"
 
-respuesta: escenario_datos[escenario][1]
-
-enunciado: "En un contexto de aplicación tecnológica, la ingeniería biomédica se diferencia de otras ingenierías por su objetivo principal: {escenario_datos[escenario][0]}."
+enunciado: "En un contexto de aplicación tecnológica, ¿cuál es el objetivo principal que distingue a la ingeniería biomédica de otras ingenierías?"
 
 pasos:
   - "Identificar la aplicación principal de la ingeniería biomédica."
@@ -487,17 +476,16 @@ metadata:
   tags: ["industrial", "logistica"]
 
 variables:
-  datos: [["optimizar una línea de producción", "Industrial"], ["diseñar un satélite", "Aeroespacial"], ["crear una prótesis", "Biomédica"]]
+  textos: ["optimizar una línea de producción", "diseñar un satélite", "crear una prótesis"]
+  valores: [verdadero, falso, falso]
   idx: uno_de([0, 1, 2])
 
-respuestas_validas:
-  - datos[idx][0]
-respuesta: datos[idx][0]
-tipo: completar
-enunciado: "Un ingeniero es contratado para {datos[idx][0]} en una fábrica de automóviles para reducir desperdicios y tiempos de espera. ¿Es esta una tarea típica de la Ingeniería Industrial?"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Un ingeniero es contratado para {textos[idx]}. ¿Es esta una tarea típica de la Ingeniería Industrial?"
 
 explicacion: |
-  Verdadero. La Ingeniería Industrial se enfoca en la optimización de procesos, sistemas y recursos para mejorar la eficiencia.
+  La Ingeniería Industrial se enfoca en la optimización de procesos, sistemas y recursos para mejorar la eficiencia — como optimizar una línea de producción. Diseñar un satélite es tarea de la Ingeniería Aeroespacial, y crear una prótesis es tarea de la Ingeniería Biomédica.
 ```
 
 ### 24 — El futuro de la medicina
