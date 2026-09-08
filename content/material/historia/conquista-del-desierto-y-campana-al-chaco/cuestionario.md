@@ -1,6 +1,6 @@
 # Historia — conquista del desierto y campana al chaco (cuestionario, 24 preguntas VBLang)
 
-> Tema: `historia/conquista-del-desierto-y-campana-al-chaco`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `historia/conquista-del-desierto-y-campana-al-chaco`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -47,7 +47,7 @@ tipo: completar
 enunciado: "Nombra tres de los pueblos originarios que habitaban la Pampa y la Patagonia y fueron afectados por la Conquista del Desierto."
 
 explicacion: |
-  Los mapuches, pehuenches y ranqueles, entre otros, eran los habitantes principales de la región que fue objeto de la campaña militar de 1879 (los ranqueles, en cambio, eran un pueblo pampeano ya prácticamente asimilado desde la época colonial, no un objetivo de esta campaña).
+  Los mapuches, pehuenches y ranqueles, entre otros, eran los habitantes principales de la región que fue objeto de la campaña militar de 1879.
 ```
 
 ### 3 — pregunta 3
@@ -59,14 +59,10 @@ metadata:
   nivel: "intermedio"
   tags: ["campana_al_chaco", "cronologia"]
 
-variables:
-  inicio: 1884
-  fin: 1885
-
 respuesta: "1884-1885"
 tipo: input
 
-enunciado: "La Campaña al Chaco, dirigida a asegurar las fronteras del norte, se desarrolló principalmente durante los años: {inicio} y {fin}."
+enunciado: "¿Entre qué dos años se desarrolló principalmente la Campaña al Chaco, dirigida a asegurar las fronteras del norte? (formato: aaaa-aaaa)"
 
 explicacion: |
   Aunque hubo acciones previas y posteriores, el periodo clave de la Campaña al Chaco bajo el gobierno de Julio A. Roca fue entre 1884 y 1885.
@@ -102,13 +98,10 @@ metadata:
   nivel: "intermedio"
   tags: ["consecuencias", "demografia"]
 
-variables:
-  efecto: "desplazamiento o muerte de miles de personas"
-
 respuesta: "desplazamiento o muerte de miles de personas"
 tipo: input
 
-enunciado: "Una de las consecuencias humanas inmediatas de la Conquista del Desierto fue el {efecto}."
+enunciado: "Una de las consecuencias humanas inmediatas de la Conquista del Desierto fue el ___."
 
 explicacion: |
   La campaña militar provocó el desalojo forzado, la muerte o la reducción a la servidumbre de miles de indígenas, alterando radicalmente la demografía regional.
@@ -144,13 +137,10 @@ metadata:
   nivel: "basico"
   tags: ["roca", "liderazgo", "militar"]
 
-variables:
-  comandante: "Julio Argentino Roca"
-
 respuesta: "Julio Argentino Roca"
 tipo: completar
 
-enunciado: "La campaña de la Conquista del Desierto fue comandada por el general {comandante}."
+enunciado: "La campaña de la Conquista del Desierto fue comandada por el general ___."
 
 explicacion: |
   Julio Argentino Roca fue el general que lideró la expedición de 1879. Su éxito en esta campaña consolidó su posición política y lo llevó a la presidencia posteriormente.
@@ -165,13 +155,10 @@ metadata:
   nivel: "intermedio"
   tags: ["territorio", "patagonia", "pampa"]
 
-variables:
-  region: "Pampa Patagónica"
-
 respuesta: "Pampa Patagónica"
 tipo: completar
 
-enunciado: "El objetivo geográfico principal de la Conquista del Desierto era avanzar sobre la {region}."
+enunciado: "El objetivo geográfico principal de la Conquista del Desierto era avanzar sobre la ___."
 
 explicacion: |
   La campaña buscaba someter a los pueblos mapuches, pehuenches y ranqueles que habitaban la Pampa y la Patagonia, integrando estas tierras al Estado nacional.
@@ -186,13 +173,10 @@ metadata:
   nivel: "intermedio"
   tags: ["pueblos_originarios", "mapuche", "pehuenche"]
 
-variables:
-  pueblos: "mapuches, pehuenches y ranqueles"
-
 respuesta: "mapuches, pehuenches y ranqueles"
 tipo: completar
 
-enunciado: "Los principales pueblos originarios que habitaban los territorios conquistados en la campaña del sur eran los {pueblos}."
+enunciado: "Los principales pueblos originarios que habitaban los territorios conquistados en la campaña del sur eran los ___."
 
 explicacion: |
   Estos grupos mantenían una organización social y económica autónoma en la región pampeana y patagónica antes de la intervención militar estatal.
@@ -246,13 +230,10 @@ metadata:
   nivel: "intermedio"
   tags: ["juarez_celman", "presidencia", "gobierno"]
 
-variables:
-  presidente: "Julio A. Roca"
-
 respuesta: "Julio A. Roca"
 tipo: completar
 
-enunciado: "La Campaña al Chaco se llevó a cabo durante el gobierno de {presidente}."
+enunciado: "La Campaña al Chaco se llevó a cabo durante el gobierno de ___."
 
 explicacion: |
   Julio A. Roca fue presidente de Argentina en su primer mandato entre 1880 y 1886 (tuvo un segundo mandato entre 1898 y 1904). Durante ese primer gobierno se intensificó la expansión hacia el norte del país.
