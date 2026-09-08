@@ -1,15 +1,6 @@
 # Ed. Física — Deportes: origen histórico y país de origen (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF8`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas `tipo: vf`
-> cuya `respuesta:` era un texto ("Inglaterra", "James Naismith",
-> "mano") en vez de `verdadero`/`falso` (el tipo `vf` exige un
-> booleano) — reclasificadas a `completar` o `mc` según correspondía;
-> `tipo: vf` con `respuesta: "verdadero"`/`"falso"` entre comillas —
-> sin comillas; `respuestas_validas` con el mismo valor repetido 3
-> veces — recortado a una sola entrada.
 
 ---
 
