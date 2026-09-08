@@ -1,18 +1,6 @@
 # Biología — Biodiversidad e índices (cuestionario, 25 preguntas VBLang)
 
 > Tema: `BR`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); dos
-> preguntas con `respuestas_validas` pero **sin** el campo `respuesta:`
-> (agregado); un bloque `tipo: input` (tipo no confirmado en el DSL) —
-> normalizado a `completar`; dos preguntas con `variables:`/`uno_de`
-> sorteando un escenario donde la `respuesta:` quedaba **fija** sin
-> importar qué escenario salía (no se adaptaba al índice sorteado) —
-> reescritas con una tabla `[dato1, dato2, respuesta_correcta]`
-> indexada por el mismo sorteo, mismo patrón usado en el resto del
-> mapa.
 
 ---
 
