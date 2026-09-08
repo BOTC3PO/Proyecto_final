@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -41,15 +41,11 @@ metadata:
   nivel: "intermedio"
   tags: ["tipos", "algoritmos"]
 
-variables:
-  tipo_idx: uno_de([0, 1])
-  escenario: [[0, "Preemptiva"], [1, "No preemptiva"]]
-
-respuesta: escenario[tipo_idx][1]
+respuesta: "No preemptiva"
 tipo: mc
 opciones_explicitas: ["Preemptiva", "No preemptiva"]
 
-enunciado: "En un modelo de planificación {escenario[tipo_idx][1]}, una vez que un proceso toma el control de la CPU, no puede ser retirado de él hasta que finalice o se bloquee por una operación de E/S."
+enunciado: "En un modelo de planificación ___, una vez que un proceso toma el control de la CPU, no puede ser retirado de él hasta que finalice o se bloquee por una operación de E/S."
 
 explicacion: |
   En la planificación no preemptiva, el proceso mantiene la CPU hasta que termina su ejecución o realiza una llamada al sistema que lo deja en estado de espera.
@@ -173,10 +169,11 @@ variables:
 
 enunciado: "En un sistema operativo con planificación por prioridades (donde un número menor indica mayor prioridad), se tienen dos procesos: P1 con prioridad {caso[0]} y P2 con prioridad {caso[1]}. Si P1 llega primero, pero P2 tiene una prioridad más alta, en un sistema de planificación por prioridades NO PREEMPTIVE, ¿cuál es la prioridad del proceso que se está ejecutando actualmente si P1 ya tomó la CPU?"
 
-respuesta: "falso"
+respuesta: caso[0]
 tipo: completar
+tolerancia_abs: 0
 explicacion: |
-  En la planificación por prioridades NO PREEMPTIVE, una vez que un proceso toma la CPU, no puede ser expulsado por uno de mayor prioridad; debe esperar a que termine su ráfaga actual.
+  En la planificación por prioridades NO PREEMPTIVE, una vez que un proceso toma la CPU, no puede ser expulsado por uno de mayor prioridad; debe esperar a que termine su ráfaga actual. Por lo tanto, el proceso en ejecución sigue siendo P1, con su prioridad original ({caso[0]}).
 ```
 
 ### 9 — Round Robin (RR)
@@ -213,8 +210,8 @@ metadata:
 
 enunciado: "Ordena correctamente los estados por los que pasa un proceso desde que se crea hasta que termina su ejecución en un sistema operativo estándar:"
 
-opciones_explicitas: ["Nuevo, Listo, Ejecución, Bloqueado, Terminado"]
-respuesta_orden: ["Nuevo, Listo, Ejecución, Bloqueado, Terminado"]
+opciones_explicitas: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
+respuesta_orden: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
 tipo: ordenar
 
 explicacion: |
@@ -354,10 +351,7 @@ metadata:
   nivel: "intermedio"
   tags: ["algoritmos", "scheduling"]
 
-variables:
-  escenario: uno_de([["Round Robin", "FCFS"], ["FCFS", "Round Robin"]])
-
-respuesta: escenario[0]
+respuesta: "Round Robin"
 tipo: mc
 
 opciones_explicitas: ["Round Robin", "FCFS"]
@@ -419,15 +413,13 @@ metadata:
   nivel: "intermedio"
   tags: ["prioridad", "scheduling"]
 
-variables:
-  caso: uno_de([[10, "Prioridad"], [5, "Tiempo de ráfaga"]])
+respuesta: "la prioridad"
+tipo: completar
+respuestas_validas:
+  - "la prioridad"
+  - "prioridad"
 
-respuesta: caso[1]
-tipo: mc
-
-opciones_explicitas: ["Prioridad", "Tiempo de ráfaga"]
-
-enunciado: "En un algoritmo de planificación basado en el tiempo de ráfaga (Shortest Job First), el criterio de decisión para elegir el siguiente proceso es el valor de {caso[0]}. ¿En qué se diferencia este criterio de un algoritmo basado en {caso[1]}?"
+enunciado: "En un algoritmo de planificación Shortest Job First (SJF), el criterio de decisión para elegir el siguiente proceso es el tiempo de ráfaga. En cambio, un algoritmo de planificación por prioridades toma su decisión basándose en ___."
 
 explicacion: |
   En SJF se busca minimizar el tiempo de espera promedio priorizando procesos cortos. En el de prioridad, se busca atender primero tareas críticas independientemente de su duración.
@@ -443,7 +435,7 @@ metadata:
   tags: ["scheduler", "round_robin", "cpu"]
 
 variables:
-  datos: [[10, 4], [15, 5], [8, 3]]
+  datos: [[10, 2], [15, 3], [8, 1]]
   idx: uno_de([0, 1, 2])
   quantum: 4
 
@@ -491,7 +483,7 @@ metadata:
   nivel: "basico"
   tags: ["estados", "process_control_block"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es verdadero que un proceso en estado 'Waiting' (Esperando) se encuentra actualmente utilizando la CPU para ejecutar sus instrucciones?"
@@ -530,17 +522,17 @@ metadata:
   tags: ["turnaround", "waiting_time"]
 
 variables:
-  datos: [[12, 5], [20, 10], [15, 7]]
+  datos: [12, 20, 15]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1]
+respuesta: datos[idx]
 tipo: completar
 respuestas_validas:
-  - 5
-  - 10
-  - 7
+  - 12
+  - 20
+  - 15
 
-enunciado: "Un proceso llega al sistema en el tiempo 0. Su tiempo de ráfaga de CPU es de {datos[idx][0]} ms. Si el proceso termina exactamente cuando su tiempo de ejecución se completa sin esperas adicionales de E/S, su tiempo de retorno (turnaround time) es de ___ ms."
+enunciado: "Un proceso llega al sistema en el tiempo 0. Su tiempo de ráfaga de CPU es de {datos[idx]} ms. Si el proceso termina exactamente cuando su tiempo de ejecución se completa sin esperas adicionales de E/S, su tiempo de retorno (turnaround time) es de ___ ms."
 
 explicacion: |
   El tiempo de retorno (turnaround time) es el tiempo transcurrido desde que el proceso llega hasta que termina. En este caso simple: Turnaround = Tiempo de finalización - Tiempo de llegada.
