@@ -1,10 +1,6 @@
 # Biología — Fotosíntesis y respiración celular (cuestionario, 24 preguntas VBLang)
 
 > Tema: `BF`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 6 lotes concurrentes.
-> Corregido a mano. Bug de esta tanda: `uno_de([...])[idx]` otra vez
-> (indexar el resultado escalar de `uno_de`).
 
 ---
 
@@ -393,7 +389,7 @@ variables:
   co2_consumido: uno_de([6, 12, 18])
 
 respuesta: co2_consumido
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En la fotosíntesis, la proporción CO2 consumido : O2 producido es 1:1. Si se consumen {co2_consumido} moléculas de CO2, ¿cuántas de O2 se producen?"
