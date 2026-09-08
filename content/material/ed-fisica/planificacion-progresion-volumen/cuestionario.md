@@ -1,21 +1,6 @@
 # Ed. Física — Planificación y progresión: volumen, regla del 10%, 150 min/semana OMS (cuestionario, 25 preguntas VBLang)
 
 > Tema: `EF3a/b/c`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: varias preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); un
-> `tipo: input` (tipo no confirmado en el DSL) — normalizado a
-> `completar`; una pregunta con `variables:`/`uno_de` sorteando 3
-> escenarios de cálculo pero con `respuesta:` **fija** en `"600"` sin
-> importar cuál salía (sólo coincidía con uno de los 3) — corregida
-> incluyendo el resultado correcto en la propia tabla; una pregunta
-> `tipo: vf` cuya `respuesta:` contradecía la propia `explicacion:`
-> (`respuesta: "verdadero"` con `explicacion: "Falso..."`) —
-> corregida a `falso`; una pregunta que referenciaba una variable
-> `idx` nunca declarada (`escenario[idx][1]` sin `idx:` en
-> `variables:`) — corregida a indexar directamente la variable
-> sorteada.
 
 ---
 
