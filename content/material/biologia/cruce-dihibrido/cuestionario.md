@@ -1,14 +1,6 @@
 # Biología — Cruce dihíbrido (cuestionario, 31 preguntas VBLang)
 
 > Tema: `BDIHIB`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en **8 lotes, corridos en 6+2
-> hilos concurrentes** (el server tenía `Max Concurrent Predictions: 8`
-> pero 8 a la vez saturó el timeout de la herramienta — 6 concurrentes
-> anduvo bien) — para cubrir bien por encima de las 20 preguntas
-> mínimas en una sola tanda. Corregido a mano. Bug de esta tanda: array
-> de un solo elemento indexado con un `idx` de rango 0-3 (fuera de
-> rango para idx≠0).
 
 ---
 
@@ -227,7 +219,7 @@ variables:
   genes: uno_de([1, 2, 3])
 
 respuesta: 2 ^ genes
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Un individuo heterocigoto para {genes} genes produce 2 elevado a n tipos de gametos. ¿Cuántos tipos produce?"
@@ -419,7 +411,7 @@ variables:
   p2: uno_de([3, 1])
 
 respuesta: (p1 / 4) * (p2 / 4)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En AaBb × AaBb, P(dominante gen1) = {p1}/4 y P(dominante gen2) = {p2}/4. ¿Cuál es la probabilidad combinada?"
@@ -481,7 +473,7 @@ variables:
   total: uno_de([16, 32, 48, 64])
 
 respuesta: total * 9 / 16
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo dominante en ambos genes?"
@@ -503,7 +495,7 @@ variables:
   total: uno_de([16, 32, 48, 64])
 
 respuesta: total * 1 / 16
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo recesivo en ambos genes?"
@@ -525,7 +517,7 @@ variables:
   total: uno_de([16, 32, 48, 64])
 
 respuesta: total * 3 / 16
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo dominante en el gen 1 y recesivo en el gen 2?"
