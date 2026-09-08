@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -104,7 +104,7 @@ respuesta: escenario[0]
 tipo: mc
 opciones_explicitas: ["el resultado es incorrecto", "el resultado es correcto pero lento", "fallo en la lógica", "fallo en la eficiencia"]
 
-enunciado: "Si tras la evaluación se detecta que la solución no cumple con los criterios de aceptación debido a un error en el proceso, se concluye que: {escenario[0]}"
+enunciado: "Si tras la evaluación se detecta que la solución no cumple con los criterios de aceptación debido a un error en el proceso, ¿cuál de las siguientes conclusiones describe correctamente la situación?"
 
 explicacion: |
   Si la solución no satisface los criterios establecidos, la evaluación indica que el problema no ha sido resuelto satisfactoriamente.
@@ -225,6 +225,7 @@ variables:
 
 enunciado: "Se implementó la siguiente lógica para un sistema de facturación: 'Si el monto es mayor a 100, aplicar descuento de 10; de lo contrario, sumar el monto tal cual'. Si el monto es {x} y se le suma {oy}, el resultado final debería ser ___."
 
+respuesta: "15"
 respuestas_validas:
   - "15"
 tipo: completar
@@ -283,18 +284,17 @@ metadata:
   tags: ["edge_cases", "testing"]
 
 variables:
-  input_val: uno_de([0, -1, 1000000, 0.00001])
-  resultado_esperado: uno_de(["0", "-1", "1000000", "0.00001"])
+  caso: uno_de([[0, "0"], [1, "1"], [1000000, "1000"], [0.0001, "0.01"]])
 
-respuesta: resultado_esperado
+respuesta: caso[1]
 tipo: completar
 respuestas_validas:
   - "0"
-  - "-1"
-  - "1000000"
-  - "0.00001"
+  - "1"
+  - "1000"
+  - "0.01"
 
-enunciado: "Si estamos evaluando un algoritmo de cálculo de raíz cuadrada y el valor de entrada es {input_val}, el resultado esperado es ___."
+enunciado: "Si estamos evaluando un algoritmo de cálculo de raíz cuadrada y el valor de entrada es {caso[0]}, el resultado esperado es ___."
 
 explicacion: |
   Evaluar el resultado implica probar no solo valores comunes, sino también valores extremos o 'edge cases' (como cero, números negativos o números muy grandes) para asegurar la robustez del sistema.
@@ -370,10 +370,7 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "metodologia"]
 
-variables:
-  es_correcta: uno_de([verdadero, falso])
-
-respuesta: es_correcta
+respuesta: falso
 tipo: vf
 
 enunciado: "Si una solución cumple con todos los requisitos técnicos pero no resuelve el problema original del usuario, ¿se puede considerar que la solución es exitosa desde la perspectiva de la validación?"
@@ -503,21 +500,18 @@ metadata:
   tags: ["ordenamiento", "verificacion"]
 
 variables:
-  datos: [[5, 1, 9], [10, 2, 8], [3, 7, 4]]
-  idx: uno_de([0, 1, 2])
-  lista_original: datos[idx]
-  lista_ordenada: [1, 3, 5, 7, 9, 10]
+  caso: uno_de([[[5, 1, 9], "[1, 5, 9]"], [[10, 2, 8], "[2, 8, 10]"], [[3, 7, 4], "[3, 4, 7]"]])
 
-respuesta: "[1, 3, 5, 7, 9, 10]"
+respuesta: caso[1]
 tipo: mc
 
-enunciado: "Si el algoritmo de ordenamiento recibe la lista {lista_original}, ¿cuál debería ser la salida correcta para validar que el proceso fue exitoso?"
+enunciado: "Si el algoritmo de ordenamiento recibe la lista {caso[0]}, ¿cuál debería ser la salida correcta para validar que el proceso fue exitoso?"
 
 opciones_explicitas:
-  - "[1, 3, 5, 7, 9, 10]"
   - "[1, 5, 9]"
+  - "[2, 8, 10]"
+  - "[3, 4, 7]"
   - "[9, 5, 1]"
-  - "[5, 1, 9]"
 
 explicacion: |
   Un algoritmo de ordenamiento ascendente debe transformar la lista desordenada en una secuencia estrictamente creciente.
@@ -542,11 +536,6 @@ tolerancia_abs: 0
 
 enunciado: "Para validar la función `factorial(n)`, se prueba con n = {datos[idx][0]}. El valor de salida esperado es ___."
 
-respuestas_validas:
-  - "120"
-  - "24"
-  - "720"
-
 explicacion: |
   La validación de funciones recursivas requiere comparar el valor retornado con el valor matemático esperado para un caso de prueba dado.
 ```
@@ -561,10 +550,10 @@ metadata:
   tags: ["filtros", "primos"]
 
 variables:
-  datos: [[ [2, 3, 4, 5, 6], [2, 3, 5] ], [ [1, 7, 8, 9, 11], [7, 11] ]]
+  datos: [[ [2, 3, 4, 5, 6], "[2, 3, 5]" ], [ [1, 7, 8, 9, 11], "[7, 11]" ]]
   idx: uno_de([0, 1])
 
-respuesta: "[2, 3, 5]"
+respuesta: datos[idx][1]
 tipo: mc
 
 enunciado: "Se aplica una función `filtrar_primos` a la lista {datos[idx][0]}. ¿Cuál es el resultado esperado para confirmar que la implementación es correcta?"
