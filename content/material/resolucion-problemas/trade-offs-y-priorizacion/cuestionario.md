@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -43,13 +43,12 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["Aumentar la velocidad de producción", "Aumentar los costos de mantenimiento"], ["Mejorar la calidad del producto", "Aumentar el precio de venta"]]
-  consecuencias: [["Aumentar los costos de mantenimiento", "Aumentar el precio de venta"], ["Aumentar la velocidad de producción", "Mejorar la calidad del producto"]]
 
 respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["Aumentar la velocidad de producción", "Mejorar la calidad del producto", "Aumentar los costos de mantenimiento", "Aumentar el precio de venta"]
 
-enunciado: "Si decidimos '{escenarios[escenario_idx][0]}', el trade-off directo (lo que se ve afectado negativamente) sería: {consecuencias[escenario_idx][0]}."
+enunciado: "Si decidimos '{escenarios[escenario_idx][0]}', ¿cuál sería el trade-off directo (lo que se ve afectado negativamente)?"
 
 explicacion: |
   Un trade-off ocurre cuando la mejora en una dimensión (ej. velocidad) conlleva una degradación en otra (ej. mantenimiento o calidad).
@@ -121,12 +120,9 @@ metadata:
   nivel: "basico"
   tags: ["gestion_de_proyectos", "trade_offs"]
 
-variables:
-  escenario: uno_de([["Priorizar rapidez", "costo_alto"], ["Priorizar bajo costo", "calidad_baja"]])
-
 enunciado: "Un equipo de desarrollo debe decidir entre lanzar una funcionalidad mañana con errores menores (sacrificando calidad) o lanzarla en un mes con alta calidad (sacrificando tiempo). Si el objetivo principal del cliente es la estabilidad del sistema, el trade-off implica que elegir la rapidez resultará en una ___."
 
-respuesta: escenario[1]
+respuesta: "calidad_baja"
 tipo: completar
 respuestas_validas:
   - "costo_alto"
@@ -164,13 +160,10 @@ metadata:
   nivel: "intermedio"
   tags: ["priorizacion", "metodologias"]
 
-variables:
-  caso: uno_de([["reparar_bug_critico", "reparar_bug_estetico"], ["añadir_nueva_funcionalidad", "mejorar_documentacion"]])
-
 enunciado: "Se tiene un presupuesto limitado de horas de trabajo. Según el criterio de 'Impacto en el Usuario Final', ¿cuál de las siguientes tareas debería priorizarse?"
 
 opciones_explicitas: ["reparar_bug_critico", "reparar_bug_estetico", "añadir_nueva_funcionalidad", "mejorar_documentacion"]
-respuesta: caso[0]
+respuesta: "reparar_bug_critico"
 tipo: mc
 
 explicacion: |
@@ -222,9 +215,6 @@ metadata:
   tema: "trade_offs_y_priorizacion"
   nivel: "basico"
   tags: ["conceptos_clave", "costo_de_oportunidad"]
-
-variables:
-  escenario: uno_de([["Invertir en marketing para ganar clientes", "Perder tiempo de desarrollo de producto"], ["Acelerar la entrega de un software", "Aumentar la cantidad de errores (bugs)"], ["Reducir costos de materiales", "Disminuir la calidad del producto final"]])
 
 respuesta: "El costo de oportunidad"
 tipo: mc
@@ -310,9 +300,6 @@ metadata:
   nivel: "intermedio"
   tags: ["paralisis_por_analisis"]
 
-variables:
-  valor_decisivo: 0.8
-
 respuesta: "parálisis por análisis"
 tipo: completar
 respuestas_validas:
@@ -360,7 +347,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["Elegir desarrollar una nueva función que tarda 3 meses", "perder la oportunidad de arreglar 5 bugs críticos"], ["Invertir todo el presupuesto en marketing", "no tener fondos para soporte técnico"]]
 
-enunciado: "En el escenario: {escenarios[escenario_idx][0]}, el costo de oportunidad es: {escenarios[escenario_idx][1]}."
+enunciado: "En el escenario: {escenarios[escenario_idx][0]}, el costo de oportunidad es: ___."
 
 respuestas_validas:
   - "perder la oportunidad de arreglar 5 bugs críticos"
@@ -440,15 +427,11 @@ metadata:
   nivel: "intermedio"
   tags: ["gestion_de_proyectos", "trade_offs"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Lanzar el producto hoy con errores menores", "Velocidad"], ["Retrasar el lanzamiento para asegurar calidad total", "Calidad"]]
-
-respuesta: datos[escenario_idx][1]
+respuesta: "Velocidad"
 tipo: mc
 opciones_explicitas: ["Velocidad", "Calidad", "Costo", "Seguridad"]
 
-enunciado: "Si una startup decide priorizar el 'Time-to-Market' para capturar usuarios rápidamente, está aceptando un trade-off donde la prioridad principal es la {datos[escenario_idx][0]} en detrimento de otros factores."
+enunciado: "Si una startup decide priorizar el 'Time-to-Market' para capturar usuarios rápidamente, está aceptando un trade-off donde la prioridad principal es la velocidad, en detrimento de otros factores como la calidad."
 
 explicacion: |
   En gestión de proyectos, elegir una prioridad implica sacrificar otra (trade-off). Si el objetivo es salir rápido, la prioridad es la velocidad, aunque se sacrifique la perfección.
@@ -463,15 +446,11 @@ metadata:
   nivel: "basico"
   tags: ["costos", "priorizacion"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Reducir la calidad de materiales para bajar el precio", "Costo"], ["Aumentar el precio para usar materiales premium", "Calidad"]]
-
-respuesta: casos[caso_idx][1]
+respuesta: "Costo"
 tipo: mc
 opciones_explicitas: ["Costo", "Calidad", "Tiempo", "Estética"]
 
-enunciado: "Al decidir reducir la calidad de los componentes para disminuir el precio de venta, se está realizando un trade-off donde se prioriza el {casos[caso_idx][0]}."
+enunciado: "Al decidir reducir la calidad de los componentes para disminuir el precio de venta, se está realizando un trade-off donde se prioriza el costo por sobre la calidad."
 
 explicacion: |
   El trade-off es la compensación entre dos variables contrapuestas. En este caso, bajar costos suele implicar una reducción en la calidad percibida o real.
@@ -490,9 +469,8 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["Añadir una nueva funcionalidad compleja al software", "Aumenta el valor pero aumenta la complejidad"], ["Simplificar la interfaz de usuario", "Aumenta la facilidad de uso pero reduce la potencia"]]
 
-respuesta: escenarios[escenario_idx][1]
-tipo: completar
-opciones_explicitas: [verdadero, falso]
+respuesta: verdadero
+tipo: vf
 
 enunciado: "Si aplicamos la decisión de {escenarios[escenario_idx][0]}, ¿es cierto que esto genera un trade-off donde una mejora en un aspecto conlleva una degradación o cambio en otro?"
 
