@@ -1,11 +1,6 @@
 # Biología — Mitosis y meiosis (cuestionario, 20 preguntas VBLang)
 
 > Tema: `BC`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Bugs de esta tanda: `tipo:` faltante en una
-> pregunta (sólo `respuesta` sin declarar el tipo), y un lote entero sin
-> `explicacion:` — agregada por consistencia con el resto del archivo.
 
 ---
 
@@ -76,7 +71,7 @@ variables:
   cromosomas_originales: uno_de([2, 4, 6, 8])
 
 respuesta: cromosomas_originales
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si una célula original tiene {cromosomas_originales} cromosomas, ¿cuántos tendrá cada célula hija tras la mitosis?"
@@ -155,7 +150,7 @@ variables:
   cromosomas_originales: uno_de([4, 8, 12, 16])
 
 respuesta: cromosomas_originales / 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si una célula somática tiene {cromosomas_originales} cromosomas, ¿cuántos tendrá cada célula hija tras la meiosis?"
