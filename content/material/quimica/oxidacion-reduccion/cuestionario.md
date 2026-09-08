@@ -1,9 +1,6 @@
 # Química — Oxidación y reducción: número de oxidación (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QW`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma, en paralelo) y
-> corregido a mano. Sin bugs funcionales esta tanda.
 
 ---
 
@@ -279,7 +276,7 @@ variables:
   carga_final: uno_de([2, 3])
 
 respuesta: carga_final - carga_inicial
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si un átomo pasa de una carga de {carga_inicial} a {carga_final}, ¿cuántos electrones perdió?"
