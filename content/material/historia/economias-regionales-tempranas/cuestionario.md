@@ -1,6 +1,6 @@
 # Historia — economias regionales tempranas (cuestionario, 24 preguntas VBLang)
 
-> Tema: `historia/economias-regionales-tempranas`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `historia/economias-regionales-tempranas`. Ver `teoria.md` en esta misma carpeta.
 
 ---
 
@@ -34,13 +34,10 @@ metadata:
   nivel: "basico"
   tags: ["comercio_exterior", "britanicos"]
 
-variables:
-  pais: "británica"
-
 respuesta: "británica"
 tipo: completar
 
-enunciado: "La Ley de Aduanas de 1854 buscaba proteger la producción local frente a la competencia de la industria {pais}."
+enunciado: "La Ley de Aduanas de 1854 buscaba proteger la producción local frente a la competencia de la industria ___."
 
 explicacion: |
   La industria británica era la principal competidora en el mercado argentino de la época.
@@ -76,13 +73,10 @@ metadata:
   nivel: "intermedio"
   tags: ["economia_litoral", "comercio"]
 
-variables:
-  caracteristica: "abierta"
-
 respuesta: "abierta"
 tipo: completar
 
-enunciado: "La economía de las provincias del Litoral se caracterizaba por ser más {caracteristica} al comercio internacional."
+enunciado: "La economía de las provincias del Litoral se caracterizaba por ser más ___ al comercio internacional."
 
 explicacion: |
   A diferencia del centro del país, el Litoral tenía una economía más integrada y dependiente del comercio exterior.
@@ -97,13 +91,10 @@ metadata:
   nivel: "intermedio"
   tags: ["conflicto_armado", "causas"]
 
-variables:
-  causa: "Ley de Aduanas"
-
 respuesta: "Ley de Aduanas"
 tipo: completar
 
-enunciado: "La resistencia a la {causa} se convirtió en el detonante de una nueva guerra civil entre la Confederación y el Litoral."
+enunciado: "La resistencia a la ___ se convirtió en el detonante de una nueva guerra civil entre la Confederación y el Litoral."
 
 explicacion: |
   La aplicación estricta de la ley por Urquiza provocó la reacción armada de los caudillos litorales.
@@ -118,13 +109,10 @@ metadata:
   nivel: "avanzado"
   tags: ["ideologia", "descentralizacion"]
 
-variables:
-  vision: "descentralizada"
-
 respuesta: "descentralizada"
 tipo: completar
 
-enunciado: "Los rebeldes del Litoral defendían una visión política más {vision}, donde las provincias tendrían mayor control sobre sus recursos."
+enunciado: "Los rebeldes del Litoral defendían una visión política más ___, donde las provincias tendrían mayor control sobre sus recursos."
 
 explicacion: |
   Los caudillos litorales argumentaban a favor de una mayor autonomía provincial frente al centralismo confederado.
@@ -139,13 +127,10 @@ metadata:
   nivel: "basico"
   tags: ["exportaciones", "carne"]
 
-variables:
-  productos: "carne salada y cueros"
-
 respuesta: "carne salada y cueros"
 tipo: completar
 
-enunciado: "En la década de 1850, las exportaciones de {productos} seguían siendo vitales para la economía argentina."
+enunciado: "En la década de 1850, las exportaciones de ___ seguían siendo vitales para la economía argentina."
 
 explicacion: |
   Aunque la industria nacía, la ganadería y sus derivados seguían siendo la base de las exportaciones.
@@ -160,13 +145,10 @@ metadata:
   nivel: "intermedio"
   tags: ["fiscalidad", "estado"]
 
-variables:
-  fin: "asegurar ingresos"
-
 respuesta: "asegurar ingresos"
 tipo: completar
 
-enunciado: "Además de proteger la industria, la Ley de Aduanas buscaba {fin} para el Estado nacional."
+enunciado: "Además de proteger la industria, la Ley de Aduanas buscaba ___ para el Estado nacional."
 
 explicacion: |
   El Estado nacional necesitaba recursos fiscales para estructurarse tras la caída de Rosas.
@@ -181,13 +163,10 @@ metadata:
   nivel: "avanzado"
   tags: ["soberania", "comercio"]
 
-variables:
-  objetivo_confederacion: "soberanía sobre el comercio exterior"
-
 respuesta: "soberanía sobre el comercio exterior"
 tipo: completar
 
-enunciado: "Mientras la Confederación buscaba consolidar la {objetivo_confederacion}, los rebeldes defendían la autonomía provincial."
+enunciado: "Mientras la Confederación buscaba consolidar la ___, los rebeldes defendían la autonomía provincial."
 
 explicacion: |
   El conflicto fue también una disputa sobre quién controlaba las tarifas y el comercio exterior.
@@ -202,13 +181,10 @@ metadata:
   nivel: "intermedio"
   tags: ["confederacion", "estructuracion"]
 
-variables:
-  estado: "recién comenzaba a estructurarse"
-
 respuesta: "recién comenzaba a estructurarse"
 tipo: completar
 
-enunciado: "La Ley de Aduanas se promulgó cuando el Estado nacional {estado} tras la caída de Rosas."
+enunciado: "La Ley de Aduanas se promulgó cuando el Estado nacional ___ tras la caída de Rosas."
 
 explicacion: |
   El nuevo orden constitucional estaba frágil y necesitaba consolidar su autoridad fiscal.
@@ -223,13 +199,10 @@ metadata:
   nivel: "intermedio"
   tags: ["percepcion", "amenaza"]
 
-variables:
-  percepcion: "amenaza directa"
-
 respuesta: "amenaza directa"
 tipo: completar
 
-enunciado: "Los caudillos litorales percibieron la Ley de Aduanas como una {percepcion} a su autonomía y prosperidad."
+enunciado: "Los caudillos litorales percibieron la Ley de Aduanas como una ___ a su autonomía y prosperidad."
 
 explicacion: |
   La ley fue vista no como una medida técnica, sino como un ataque político y económico.
@@ -244,13 +217,10 @@ metadata:
   nivel: "avanzado"
   tags: ["consecuencias", "guerra"]
 
-variables:
-  resultado: "no se resolvió con una victoria clara inmediata"
-
 respuesta: "no se resolvió con una victoria clara inmediata"
 tipo: completar
 
-enunciado: "La guerra entre la Confederación y el Litoral {resultado}, dejando un legado de desconfianza."
+enunciado: "La guerra entre la Confederación y el Litoral ___, dejando un legado de desconfianza."
 
 explicacion: |
   El conflicto prolongado debilitó la legitimidad del gobierno de Urquiza sin definir una supremacía clara de inmediato.
@@ -265,13 +235,10 @@ metadata:
   nivel: "intermedio"
   tags: ["acuerdos", "federalismo"]
 
-variables:
-  argumento: "violaba los acuerdos federales"
-
 respuesta: "violaba los acuerdos federales"
 tipo: completar
 
-enunciado: "Los rebeldes argumentaban que la ley {argumento} y perjudicaba sus economías locales."
+enunciado: "Los rebeldes argumentaban que la ley ___ y perjudicaba sus economías locales."
 
 explicacion: |
   La imposición unilateral de tarifas fue vista como una violación de los pactos federativos.
@@ -286,13 +253,10 @@ metadata:
   nivel: "basico"
   tags: ["diplomacia", "conflicto"]
 
-variables:
-  evento: "rompimiento de relaciones"
-
 respuesta: "rompimiento de relaciones"
 tipo: completar
 
-enunciado: "La situación escaló rápidamente, llevando al {evento} diplomáticas entre el gobierno nacional y el Litoral."
+enunciado: "La situación escaló rápidamente, llevando al ___ diplomáticas entre el gobierno nacional y el Litoral."
 
 explicacion: |
   La tensión económica derivó en una crisis política y diplomática abierta.
@@ -307,13 +271,10 @@ metadata:
   nivel: "intermedio"
   tags: ["rosas", "urquiza", "control"]
 
-variables:
-  control_rosas: "control absoluto"
-
 respuesta: "control absoluto"
 tipo: completar
 
-enunciado: "La tensión se generó aunque la capital ya no tuviera el {control_rosas} que había tenido bajo Rosas."
+enunciado: "La tensión se generó aunque la capital ya no tuviera el ___ que había tenido bajo Rosas."
 
 explicacion: |
   Urquiza intentaba centralizar el poder que Rosas había ejercido desde Buenos Aires, pero con menos fuerza coercitiva inicial.
@@ -328,13 +289,10 @@ metadata:
   nivel: "avanzado"
   tags: ["constitucion", "fragilidad"]
 
-variables:
-  problema: "fragilidad del nuevo orden constitucional"
-
 respuesta: "fragilidad del nuevo orden constitucional"
 tipo: completar
 
-enunciado: "El conflicto puso de manifiesto la {problema} y la dificultad de integrar intereses dispares."
+enunciado: "El conflicto puso de manifiesto la ___ y la dificultad de integrar intereses dispares."
 
 explicacion: |
   La incapacidad de resolver el conflicto fiscal mostró los límites del nuevo marco legal.
@@ -349,13 +307,10 @@ metadata:
   nivel: "avanzado"
   tags: ["integracion", "economia"]
 
-variables:
-  desafio: "integrar intereses económicos tan dispares"
-
 respuesta: "integrar intereses económicos tan dispares"
 tipo: completar
 
-enunciado: "El gran desafío del momento era {desafio} bajo un mismo marco legal."
+enunciado: "El gran desafío del momento era ___ bajo un mismo marco legal."
 
 explicacion: |
   Los intereses de Buenos Aires/Confederación y los del Litoral eran económicamente antagónicos en términos arancelarios.
@@ -370,13 +325,10 @@ metadata:
   nivel: "basico"
   tags: ["tarifas", "proteccionismo"]
 
-variables:
-  politica: "tarifas altas"
-
 respuesta: "tarifas altas"
 tipo: completar
 
-enunciado: "La Ley de Aduanas imponía {politica} a las importaciones para proteger la industria local."
+enunciado: "La Ley de Aduanas imponía ___ a las importaciones para proteger la industria local."
 
 explicacion: |
   El proteccionismo se lograba mediante barreras arancelarias elevadas.
@@ -391,13 +343,10 @@ metadata:
   nivel: "intermedio"
   tags: ["regulacion", "comercio_exterior"]
 
-variables:
-  accion: "regular el comercio exterior"
-
 respuesta: "regular el comercio exterior"
 tipo: completar
 
-enunciado: "Además de las tarifas, la ley buscaba {accion} bajo el control del Estado nacional."
+enunciado: "Además de las tarifas, la ley buscaba ___ bajo el control del Estado nacional."
 
 explicacion: |
   La centralización del comercio exterior era clave para la soberanía nacional.
