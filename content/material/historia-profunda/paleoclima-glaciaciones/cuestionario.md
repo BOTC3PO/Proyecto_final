@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -40,15 +40,11 @@ metadata:
   nivel: "intermedio"
   tags: ["metodos", "reconstruccion"]
 
-variables:
-  metodo_idx: uno_de([0, 1, 2])
-  metodos: ["núcleos de hielo", "sedimentos marinos", "anillos de árboles"]
-
-respuesta: metodos[metodo_idx]
+respuesta: "núcleos de hielo"
 tipo: mc
 opciones_explicitas: ["núcleos de hielo", "sedimentos marinos", "anillos de árboles", "fósiles de insectos"]
 
-enunciado: "Un método común para reconstruir el paleoclima mediante el análisis de capas de precipitación congelada es el uso de {metodos[metodo_idx]}."
+enunciado: "Un método común para reconstruir el paleoclima mediante el análisis de capas de precipitación congelada es el uso de ___."
 
 explicacion: |
   Los núcleos de hielo almacenan burbujas de aire y partículas que permiten conocer la composición atmosférica de hace miles de años.
@@ -150,22 +146,18 @@ metadata:
   nivel: "avanzado"
   tags: ["oblicuidad", "inclinacion", "clima"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[15, 23.5], [24.5, 22.1]]
-
-respuesta: escenario[idx][1]
+respuesta: 22.1
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "La inclinación del eje terrestre (oblicuidad) varía periódicamente. Si la inclinación aumenta hacia el valor de {escenario[idx][0]} grados, ¿cuál es el valor aproximado de la inclinación mínima que alcanza en el ciclo?"
+enunciado: "La inclinación del eje terrestre (oblicuidad) varía periódicamente entre aproximadamente 22.1° y 24.5°. Si la inclinación aumenta hacia el valor máximo de 24.5 grados, ¿cuál es el valor aproximado de la inclinación mínima que alcanza en el ciclo?"
 
 pasos:
   - "Identificar el valor máximo de inclinación proporcionado."
-  - "Identificar el valor mínimo de inclinación proporcionado en el escenario."
+  - "Identificar el valor mínimo de inclinación del ciclo real (22.1°-24.5°)."
 
 explicacion: |
-  La oblicuidad influye en la estacionalidad. Una mayor inclinación genera estaciones más marcadas, mientras que una menor inclinación (como el valor de {escenario[idx][1]} grados) tiende a favorecer la glaciación al hacer los veranos menos intensos en las altas latitudes.
+  La oblicuidad influye en la estacionalidad. Una mayor inclinación genera estaciones más marcadas, mientras que una menor inclinación (22.1 grados) tiende a favorecer la glaciación al hacer los veranos menos intensos en las altas latitudes.
 ```
 
 ### 8 — Precesión de los equinoccios
@@ -219,14 +211,10 @@ metadata:
   nivel: "intermedio"
   tags: ["radiacion", "insolacion"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["disminuye", "glaciación"], ["aumenta", "interglaciar"]]
-
-respuesta: datos[idx][1]
+respuesta: "glaciación"
 tipo: mc
 
-enunciado: "Si los ciclos de Milankovitch provocan que la insolación estival en las altas latitudes sea significativamente menor, el efecto resultante en el clima global es una: {datos[idx][0]}"
+enunciado: "Si los ciclos de Milankovitch provocan que la insolación estival en las altas latitudes sea significativamente menor, el efecto resultante en el clima global es una:"
 
 opciones_explicitas: ["glaciación", "interglaciar", "estabilidad térmica"]
 
@@ -415,11 +403,11 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "clima"]
 
-respuesta_orden: ["Glaciación", "Interglaciar", "Glaciación", "Interglaciar"]
+respuesta_orden: ["Interglaciar actual (Holoceno)", "Enfriamiento gradual", "Máximo glacial", "Deshielo hacia el siguiente interglaciar"]
 tipo: ordenar
-opciones_explicitas: ["Glaciación", "Interglaciar", "Glaciación", "Interglaciar"]
+opciones_explicitas: ["Interglaciar actual (Holoceno)", "Enfriamiento gradual", "Máximo glacial", "Deshielo hacia el siguiente interglaciar"]
 
-enunciado: "Ordena la secuencia típica de los ciclos climáticos que han definido el Cuaternario (de mayor a menor cobertura de hielo):"
+enunciado: "Ordena las etapas de un ciclo climático típico del Cuaternario, comenzando desde el interglaciar actual:"
 
 explicacion: |
   El Cuaternario se caracteriza por la alternancia entre periodos fríos (glaciaciones) y periodos cálidos (interglaciares).
@@ -453,15 +441,11 @@ metadata:
   nivel: "intermedio"
   tags: ["milankovitch", "astronomia"]
 
-variables:
-  escenario: [[ "excentricidad", "cambios en la órbita terrestre" ], [ "oblicuidad", "inclinación del eje terrestre" ], [ "precesión", "balanceo del eje terrestre" ]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1]
+respuesta: "cambios en la órbita terrestre"
 tipo: mc
 opciones_explicitas: ["cambios en la órbita terrestre", "inclinación del eje terrestre", "balanceo del eje terrestre"]
 
-enunciado: "La variación en la forma de la órbita terrestre alrededor del Sol, conocida como ciclo de {escenario[idx][0]}, es un factor clave en las glaciaciones."
+enunciado: "La variación en la forma de la órbita terrestre alrededor del Sol, conocida como ciclo de excentricidad, consiste en:"
 
 explicacion: |
   La excentricidad describe qué tan elíptica es la órbita, afectando la distancia promedio al Sol.
@@ -476,15 +460,11 @@ metadata:
   nivel: "basico"
   tags: ["volcanes", "clima"]
 
-variables:
-  caso: [[ "ceniza y aerosoles", "enfriamiento" ], [ "gases de efecto invernadero", "calentamiento" ]]
-  idx: uno_de([0, 1])
-
-respuesta: caso[idx][1]
+respuesta: "enfriamiento"
 tipo: mc
 opciones_explicitas: ["enfriamiento", "calentamiento"]
 
-enunciado: "Una erupción volcánica masiva inyecta partículas en la estratosfera. Dependiendo de la composición predominante, el efecto inmediato sobre la temperatura global puede ser de ___."
+enunciado: "Una erupción volcánica masiva inyecta ceniza y aerosoles en la estratosfera. El efecto inmediato de estas partículas sobre la temperatura global es de ___."
 
 explicacion: |
   Las erupciones grandes suelen causar enfriamiento temporal debido al efecto albedo de los aerosoles.
@@ -499,14 +479,9 @@ metadata:
   nivel: "avanzado"
   tags: ["carbono", "geoquimica"]
 
-variables:
-  evento: [[ "aumento", "liberación de CO2" ], [ "disminución", "secuestro de CO2" ]]
-  idx: uno_de([0, 1])
-
-respuesta: evento[idx][1]
+respuesta: "secuestro de CO2"
 tipo: completar
 respuestas_validas:
-  - "liberación de CO2"
   - "secuestro de CO2"
 
 enunciado: "Durante un periodo de glaciación, la actividad biológica y la sedimentación oceánica provocan una ___ de carbono atmosférico."
@@ -543,15 +518,11 @@ metadata:
   nivel: "basico"
   tags: ["escalas", "tiempo"]
 
-variables:
-  escala: [[ "Milankovitch", "Ciclos orbitales" ], [ "Ciclos de hielo", "Variaciones milenarias" ]]
-  idx: uno_de([0, 1])
-
-respuesta: escala[idx][1]
+respuesta: "Ciclos orbitales"
 tipo: mc
 opciones_explicitas: ["Ciclos orbitales", "Variaciones milenarias"]
 
-enunciado: "Las variaciones climáticas de escala geológica, como las glaciaciones, están impulsadas principalmente por los ciclos de ___."
+enunciado: "Las variaciones climáticas de escala geológica, como las glaciaciones, están impulsadas principalmente por los ciclos de Milankovitch, es decir, por:"
 
 explicacion: |
   Los ciclos de Milankovitch operan en escalas de decenas de miles de años.
