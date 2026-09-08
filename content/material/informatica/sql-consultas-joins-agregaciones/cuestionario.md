@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -99,11 +99,7 @@ metadata:
   nivel: "intermedio"
   tags: ["sql", "having"]
 
-variables:
-  escenario: uno_de([0, 1])
-  tabla_respuestas: [["WHERE", "WHERE"], ["HAVING", "HAVING"]]
-
-respuesta: tabla_respuestas[escenario][1]
+respuesta: "HAVING"
 tipo: mc
 opciones_explicitas: ["WHERE", "HAVING", "FILTER", "GROUP"]
 
@@ -224,13 +220,12 @@ variables:
   columna: "salario"
   tabla: "empleados"
 
-respuesta: ["AVG", "salario"]
+respuesta: "AVG"
 tipo: completar
 respuestas_validas:
   - "AVG"
-  - "salario"
 
-enunciado: "Para obtener el promedio de la columna ___ en la tabla ___, la sentencia correcta sería: `SELECT ___({columna}) FROM {tabla};`"
+enunciado: "Para obtener el promedio de la columna {columna} en la tabla {tabla}, la sentencia correcta sería: `SELECT ___({columna}) FROM {tabla};`"
 
 explicacion: |
   Para calcular el promedio aritmético de una columna, se utiliza la función de agregación `AVG()`. La sintaxis requiere la función seguida de la columna entre paréntesis.
@@ -438,12 +433,12 @@ metadata:
   nivel: "intermedio"
   tags: ["sql", "union", "join"]
 
-respuesta: "JOIN combina columnas de diferentes tablas, UNION combina filas de diferentes consultas"
+respuesta: "JOIN"
 tipo: completar
 respuestas_validas:
-  - "JOIN combina columnas de diferentes tablas, UNION combina filas de diferentes consultas"
+  - "JOIN"
 
-enunciado: "En términos de estructura de resultados, un ___ ___ añade nuevas columnas a una fila mediante la relación de tablas, mientras que un ___ ___ añade nuevas filas al resultado combinando conjuntos de datos."
+enunciado: "En términos de estructura de resultados, un ___ añade nuevas columnas a una fila mediante la relación de tablas, mientras que un UNION añade nuevas filas al resultado combinando conjuntos de datos."
 
 explicacion: |
   Un JOIN expande la consulta hacia la derecha (más columnas) basándose en una clave común. Un UNION expande la consulta hacia abajo (más filas) combinando los resultados de dos SELECT que deben tener la misma estructura de columnas.
@@ -459,18 +454,14 @@ metadata:
   tags: ["sql", "joins", "count"]
 
 variables:
-  escenario: uno_de([["Clientes (id, nombre) | Pedidos (id, cliente_id)", "3"], ["Usuarios (id, nombre) | Posts (id, user_id)", "5"], ["Departamentos (id, nombre) | Empleados (id, dept_id)", "2"]])
+  escenario_idx: uno_de([0, 1, 2])
+  datos: [["una tabla Clientes con 5 filas y una tabla Pedidos con 3 filas, todas referenciando clientes existentes", 3], ["una tabla Usuarios con 4 filas y una tabla Posts con 6 filas, todas referenciando usuarios existentes", 6], ["una tabla Departamentos con 3 filas y una tabla Empleados con 2 filas, todas referenciando departamentos existentes", 2]]
 
-enunciado: "Dada la siguiente estructura de tablas: {escenario[0]}. Si tenemos la tabla de pedidos/posts/empleados con los siguientes IDs de relación: {escenario[1]}, ¿cuántos registros resultantes devolvería un INNER JOIN entre ambas tablas?"
+enunciado: "Si tenemos {datos[escenario_idx][0]}, ¿cuántos registros resultantes devolvería un INNER JOIN entre ambas tablas?"
 
-respuesta: escenario[1]
+respuesta: datos[escenario_idx][1]
 tipo: completar
-respuestas_validas:
-  - "1"
-  - "2"
-  - "3"
-  - "4"
-  - "5"
+tolerancia_abs: 0
 
 explicacion: |
   El INNER JOIN solo devuelve las filas donde hay una coincidencia en ambas tablas. En este caso, se contaron las coincidencias exitosas.
