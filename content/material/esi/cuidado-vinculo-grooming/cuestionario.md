@@ -2,7 +2,7 @@
 
 > Tema: `ES8`. Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
+>
 > Corregido a mano. Bugs de esta tanda: varias preguntas de blank
 > `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); varias
 > preguntas con `opciones_explicitas` (formato `mc`) etiquetadas
