@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -44,7 +44,7 @@ tipo: vf
 
 enunciado: "La memoria RAM es considerada una memoria volátil porque pierde su contenido al interrumpirse el suministro eléctrico."
 
-respuesta: falso
+respuesta: verdadero
 
 explicacion: |
   La RAM es volátil por definición. Si no hay energía, los datos almacenados en sus capacitores se pierden.
@@ -58,10 +58,6 @@ metadata:
   tema: "cache_funcionamiento"
   nivel: "intermedio"
   tags: ["cache", "latencia"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["L1", "L2", "L3"], ["L1", "L3", "L2"]]
 
 tipo: completar
 respuestas_validas:
@@ -130,15 +126,11 @@ metadata:
   nivel: "basico"
   tags: ["hardware", "memoria", "cache"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["rápida", "pequeña"], ["lenta", "grande"]]
-
-enunciado: "En una jerarquía de memoria típica, si comparamos la memoria caché L1 con la memoria RAM, la caché L1 es más ___ que la RAM, pero tiene una capacidad ___."
+enunciado: "En una jerarquía de memoria típica, si comparamos la memoria caché L1 con la memoria RAM, la caché L1 es más ___ que la RAM, pero tiene una capacidad menor."
 
 opciones_explicitas: ["rápida", "lenta", "pequeña", "grande"]
 
-respuesta: datos[idx][0]
+respuesta: "rápida"
 
 tipo: mc
 
@@ -176,17 +168,12 @@ metadata:
   nivel: "intermedio"
   tags: ["cache", "hit", "miss"]
 
-variables:
-  caso: uno_de([0, 1])
-  resultado: [["hit", "encontrado"], ["miss", "no encontrado"]]
-
 enunciado: "El procesador solicita el dato en la dirección 0x4F. La unidad de control busca en la caché L1 y el dato no se encuentra allí. A este evento se le denomina ___ y el sistema deberá buscar el dato en la siguiente capa de la jerarquía."
 
 respuestas_validas:
   - "miss"
-  - "hit"
 
-respuesta: resultado[caso][0]
+respuesta: "miss"
 
 tipo: completar
 
@@ -224,15 +211,11 @@ metadata:
   nivel: "basico"
   tags: ["costo", "capacidad"]
 
-variables:
-  afirmacion: uno_de([0, 1])
-  es_cierto: [[verdadero, "La memoria RAM es más cara por GB que el disco duro"], [falso, "La memoria RAM es más barata por GB que el disco duro"]]
-
 enunciado: "La memoria RAM tiene un costo por gigabyte significativamente mayor que un disco duro (HDD/SSD)."
 
-respuesta: es_cierto[afirmacion][0]
+respuesta: verdadero
 
-tipo: completar
+tipo: vf
 explicacion: |
   Es verdadero. Debido a que la RAM utiliza tecnología semiconductoras mucho más rápida y compleja para mantener los datos, su costo por unidad de capacidad es mucho más elevado que el de los medios de almacenamiento masivo.
 ```
@@ -265,13 +248,10 @@ metadata:
   nivel: "intermedio"
   tags: ["latencia", "velocidad", "confucion"]
 
-variables:
-  es_falso: falso
-
 enunciado: "Un error común es pensar que tener más capacidad de RAM (ej. 64GB vs 16GB) aumenta automáticamente la velocidad de procesamiento de una tarea que ya cabe en 16GB. ¿Es esto verdadero o falso?"
 
-respuesta: es_falso
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   La capacidad de la RAM determina cuánta información puede estar disponible para la CPU. Si el software ya cabe en la memoria disponible, aumentar la capacidad no acelera la ejecución; lo que acelera la ejecución es la velocidad de acceso (frecuencia) y la latencia, no el tamaño total.
 ```
@@ -289,7 +269,7 @@ variables:
   datos: [["L1", "muy rápida"], ["L2", "rápida"], ["L3", "moderada"]]
   idx: uno_de([0,1,2])
 
-enunciado: "Considerando la jerarquía de la caché del procesador, la caché de nivel {datos[idx][0]} es la que ofrece la latencia de acceso más baja, siendo la {datos[idx][1]} de todas las memorias principales."
+enunciado: "Considerando la jerarquía de la caché del procesador, la caché de nivel {datos[idx][0]} tiene una latencia de acceso descrita como {datos[idx][1]}."
 
 respuesta: datos[idx][0]
 tipo: completar
@@ -376,11 +356,7 @@ metadata:
   nivel: "intermedio"
   tags: ["costo", "capacidad", "jerarquia"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Menor capacidad y mayor costo por bit", "Mayor capacidad y menor costo por bit"], ["Mayor capacidad y menor costo por bit", "Menor capacidad y mayor costo por bit"]]
-
-respuesta: datos[idx][1]
+respuesta: "Mayor capacidad y menor costo por bit"
 tipo: mc
 opciones_explicitas: ["Mayor capacidad y menor costo por bit", "Menor capacidad y mayor costo por bit"]
 
