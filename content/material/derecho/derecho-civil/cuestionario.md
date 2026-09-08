@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -42,12 +42,11 @@ metadata:
 
 tipo: completar
 respuestas_validas:
-  - "persona física"
   - "persona jurídica"
 
 respuesta: "persona jurídica"
 
-enunciado: "En el derecho civil, además de la ___ (ser humano), existen las ___ (entidades como sociedades o fundaciones) que tienen capacidad para ser sujetos de derechos y obligaciones."
+enunciado: "En el derecho civil, además de la persona física (ser humano), existen las ___ (entidades como sociedades o fundaciones) que tienen capacidad para ser sujetos de derechos y obligaciones."
 
 explicacion: |
   Existen dos tipos de sujetos de derecho: la persona física (el ser humano) y la persona jurídica (entes colectivos o instituciones con personalidad propia).
@@ -171,14 +170,15 @@ metadata:
   tags: ["sucesiones", "herencia"]
 
 variables:
-  causa: uno_de(["testamento", "falta de testamento"])
+  idx: uno_de([0, 1])
+  causas: ["testamento", "falta de testamento"]
+  tipos: ["testamentaria", "legítima"]
 
-enunciado: "Ante el fallecimiento de una persona, si la causa de la transmisión de sus bienes es {causa}, nos encontramos ante una sucesión testamentaria o una sucesión legítima (ab intestato) respectivamente."
+enunciado: "Ante el fallecimiento de una persona, si la causa de la transmisión de sus bienes es {causas[idx]}, nos encontramos ante una sucesión ___ (o legítima/ab intestato, según corresponda)."
 
 respuestas_validas:
-  - "testamentaria"
-  - "legítima"
-respuesta: "testamentaria"
+  - tipos[idx]
+respuesta: tipos[idx]
 tipo: "completar"
 
 explicacion: |
@@ -193,9 +193,6 @@ metadata:
   tema: "derecho_civil"
   nivel: "avanzado"
   tags: ["acton_juridico", "vicios"]
-
-variables:
-  vicio: uno_de(["error", "dolo", "violencia"])
 
 enunciado: "Para que un acto jurídico sea válido, su voluntad debe ser libre. Si una persona es obligada mediante amenazas físicas para firmar un contrato, el vicio que afecta la validez es el ___."
 
@@ -217,10 +214,7 @@ metadata:
   nivel: "intermedio"
   tags: ["propiedad", "derechos_reales"]
 
-variables:
-  bien: uno_de(["inmueble", "mueble"])
-
-enunciado: "Para que la transferencia de un {bien} sea oponible a terceros y perfeccione el derecho real de propiedad, se deben seguir ciertos pasos legales. Ordene el proceso típico de una compraventa de este tipo:"
+enunciado: "Para que la transferencia de un inmueble sea oponible a terceros y perfeccione el derecho real de propiedad, se deben seguir ciertos pasos legales. Ordene el proceso típico de una compraventa de este tipo:"
 
 opciones_explicitas: ["Escritura pública", "Pago del precio", "Inscripción registral"]
 respuesta_orden: ["Escritura pública", "Pago del precio", "Inscripción registral"]
@@ -484,10 +478,10 @@ metadata:
   tags: ["derechos_reales", "propiedad"]
 
 respuestas_validas:
-  - "Es poseedor"
-respuesta: "Es poseedor"
+  - "poseedor"
+respuesta: "poseedor"
 tipo: completar
-enunciado: "Si una persona tiene el control de un bien pero no tiene el título de propiedad que la acredite legalmente, la afirmación de que 'tiene el dominio pleno sobre el bien' es ___."
+enunciado: "Si una persona tiene el control de un bien pero no tiene el título de propiedad que la acredite legalmente (no 'tiene el dominio pleno sobre el bien'), su situación jurídica correcta es la de ___."
 
 explicacion: |
   La posesión es el poder de hecho sobre una cosa, mientras que el dominio es el derecho real de propiedad. No son sinónimos.
