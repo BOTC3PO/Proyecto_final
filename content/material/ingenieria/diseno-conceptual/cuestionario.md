@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -24,7 +24,6 @@ respuesta: "diseño conceptual"
 tipo: completar
 respuestas_validas:
   - "diseño conceptual"
-  - "diseño conceptual"
 
 enunciado: "La etapa en la que se establece la idea general de la solución, definiendo el enfoque y los principios básicos antes de entrar en detalles técnicos profundos, se denomina ___."
 
@@ -41,15 +40,12 @@ metadata:
   nivel: "basico"
   tags: ["objetivos", "metodologia"]
 
-variables:
-  datos: [["Definir la arquitectura general y la funcionalidad de la solución.", "A"], ["Realizar el modelado matemático detallado de cada componente.", "B"], ["Seleccionar los proveedores de materia prima.", "C"], ["Realizar pruebas de fatiga en prototipos finales.", "D"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["A", "B", "C", "D"]
+opciones_explicitas: ["Definir la arquitectura general y la funcionalidad de la solución.", "Realizar el modelado matemático detallado de cada componente.", "Seleccionar los proveedores de materia prima.", "Realizar pruebas de fatiga en prototipos finales."]
 
-enunciado: "Según el enfoque de diseño seleccionado, ¿cuál es el objetivo principal de esta fase? {datos[idx][0]}"
+respuesta: "Definir la arquitectura general y la funcionalidad de la solución."
+
+enunciado: "¿Cuál es el objetivo principal de la fase de diseño conceptual?"
 
 explicacion: |
   El diseño conceptual busca la arquitectura funcional. El modelado detallado, la selección de proveedores y las pruebas de fatiga pertenecen a etapas posteriores (diseño detallado y validación).
@@ -107,7 +103,6 @@ respuesta: "requisitos"
 tipo: completar
 respuestas_validas:
   - "requisitos"
-  - "requisitos"
 
 enunciado: "El diseño conceptual debe basarse primordialmente en los ___ del cliente y las restricciones del problema."
 
@@ -148,7 +143,7 @@ variables:
   escenarios: [["Un dron de carga debe elevar 5kg", "5"], ["Un sensor de temperatura debe operar a -20°C", "-20"]]
 
 respuesta: escenarios[caso_idx][1]
-tipo: "input"
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "En el diseño conceptual de un sistema de transporte de carga, si el requisito principal es que el dispositivo debe ser capaz de levantar una masa de {escenarios[caso_idx][0]}, ¿cuál es el valor numérico de la carga de diseño en kg?"
@@ -251,12 +246,9 @@ metadata:
   nivel: "intermedio"
   tags: ["errores_comunes", "definicion"]
 
-variables:
-  es_tecnico: uno_de([verdadero, falso])
-
-respuesta: es_tecnico
-tipo: completar
-enunciado: "Si el diseño conceptual se centra en la selección de tornillos, aleaciones específicas y tolerancias de fabricación, ¿se está cumpliendo estrictamente con la fase de diseño conceptual? (Respuesta: verdadero o falso)"
+respuesta: falso
+tipo: vf
+enunciado: "Si el diseño conceptual se centra en la selección de tornillos, aleaciones específicas y tolerancias de fabricación, ¿se está cumpliendo estrictamente con la fase de diseño conceptual?"
 
 explicacion: |
   Falso. El diseño conceptual debe responder al 'qué' y al 'por qué' de la solución a nivel macro. La selección de componentes específicos y tolerancias pertenece al diseño detallado.
@@ -315,7 +307,7 @@ respuesta: "optimizar_detalles"
 tipo: mc
 opciones_explicitas: ["optimizar_detalles", "validar_requisitos", "definir_presupuesto", "analizar_competencia"]
 
-enunciado: "En la fase de diseño conceptual, el mayor riesgo de error es intentar optimizar_detalles antes de haber validado si la idea general satisface las necesidades del usuario."
+enunciado: "En la fase de diseño conceptual, ¿cuál es el mayor riesgo de error antes de haber validado si la idea general satisface las necesidades del usuario?"
 
 explicacion: |
   Intentar optimizar detalles técnicos (como reducir el peso de una pieza en gramos) cuando la arquitectura general del sistema aún no es válida es una pérdida de recursos conocida como 'optimización prematura'.
@@ -375,7 +367,7 @@ metadata:
   nivel: "basico"
   tags: ["naturaleza", "proceso"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "El diseño conceptual es un proceso lineal y único que se completa antes de pasar a cualquier otra fase del proyecto."
@@ -440,11 +432,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["un sistema de purificación de agua para una comunidad rural", "un motor de combustión de alta eficiencia"], ["priorizar la simplicidad y el costo", "priorizar la potencia máxima y el rendimiento"]]
+  escenarios: [["un sistema de purificación de agua para una comunidad rural", "priorizar la simplicidad y el costo"], ["un motor de combustión de alta eficiencia", "priorizar la potencia máxima y el rendimiento"]]
 
 enunciado: "En la fase de diseño conceptual para {escenarios[escenario_idx][0]}, el objetivo principal es {escenarios[escenario_idx][1]}."
 
-respuesta: "priorizar la simplicidad y el costo"
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["priorizar la simplicidad y el costo", "priorizar la potencia máxima y el rendimiento", "definir el presupuesto detallado de materiales", "realizar pruebas de fatiga de materiales"]
 
@@ -481,16 +473,15 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  datos: [["un puente peatonal", "un software de gestión hospitalaria"], ["la estructura principal y el flujo de carga", "la arquitectura de la base de datos y la interfaz de usuario"]]
+  datos: [["un puente peatonal", "la estructura principal y el flujo de carga"], ["un software de gestión hospitalaria", "la arquitectura de la base de datos y la interfaz de usuario"]]
 
 enunciado: "Para el diseño conceptual de {datos[caso_idx][0]}, el ingeniero debe definir principalmente {datos[caso_idx][1]}."
 
-respuesta: "la estructura principal y el flujo de carga"
+respuesta: datos[caso_idx][1]
 tipo: completar
 respuestas_validas:
   - "la estructura principal y el flujo de carga"
-  - "el acabado estético de los materiales"
-  - "el costo de la mano de obra"
+  - "la arquitectura de la base de datos y la interfaz de usuario"
 
 explicacion: |
   El diseño conceptual define la arquitectura funcional o estructural básica que permitirá cumplir con los requerimientos.
