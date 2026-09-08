@@ -1,11 +1,6 @@
 # Química — Dilución de soluciones: C1V1 = C2V2 (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QDIL`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Esta tanda salió sin bugs funcionales — sólo cosmético: LaTeX crudo
-> (`$C_1 \cdot V_1$`) en algunas preguntas, que no se renderiza en texto
-> plano; pasado a notación simple (C1, V1).
 
 ---
 
@@ -100,7 +95,7 @@ variables:
   c2: escenario[2]
 
 respuesta: c1 * v1 / c2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Se tienen {c1} M de una solución de volumen {v1} L. Se diluye hasta {c2} M. ¿Cuál es el volumen final (V2) en litros?"
@@ -125,7 +120,7 @@ variables:
   v2: escenario[2]
 
 respuesta: c1 * v1 / v2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una solución tiene concentración {c1} M y volumen {v1} L. Se diluye hasta un volumen final de {v2} L. ¿Cuál es la nueva concentración (C2)?"
@@ -150,7 +145,7 @@ variables:
   v1: escenario[2]
 
 respuesta: c2 * v2 / v1
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Se quiere preparar {c2} M con un volumen final de {v2} L, partiendo de {v1} L de una solución concentrada. ¿Qué concentración (C1) debe tener esa solución original?"
@@ -192,7 +187,7 @@ variables:
   c2: 2
 
 respuesta: c1 * v1 / c2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Tengo una solución al {c1}% con volumen de {v1} mL y quiero diluirla hasta {c2}%. ¿Cuál será el volumen final (V2) en mL?"
@@ -333,7 +328,7 @@ variables:
   v2: datos[idx][2]
 
 respuesta: c1 * v1 / v2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una solución tiene concentración C1={c1} M y volumen V1={v1} mL. Se diluye hasta un volumen final V2={v2} mL. ¿Cuál es la nueva concentración C2 (en M)?"
@@ -379,7 +374,7 @@ variables:
   v2: 100
 
 respuesta: c1 * v1 / v2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si diluyo {v1} mL de una solución {c1} M hasta un volumen final de {v2} mL, ¿cuál es la concentración final?"
