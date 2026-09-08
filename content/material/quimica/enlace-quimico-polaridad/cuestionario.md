@@ -1,12 +1,6 @@
 # Química — Enlace químico y polaridad (cuestionario, 20 preguntas VBLang)
 
 > Tema: `QG`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado por lotes con LM Studio (Gemma) y corregido a mano.
-> Esta tanda salió limpia de bugs funcionales — sólo cosméticos:
-> `tema:` con typo ("enlace_quimica_polaridad") en algunos bloques,
-> normalizado, y un artefacto LaTeX (`$\Delta EN$`) en una explicación
-> que no se renderiza, cambiado a texto plano.
 
 ---
 
