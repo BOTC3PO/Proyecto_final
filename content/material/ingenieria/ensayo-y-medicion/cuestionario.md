@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -60,7 +60,7 @@ metadata:
   nivel: "basico"
   tags: ["precision", "veracidad"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "La precisión se refiere a qué tan cerca está un valor medido del valor real o verdadero de la magnitud."
@@ -100,7 +100,7 @@ metadata:
 variables:
   escenario: uno_de([[10.5, 0.1], [25.2, 0.5], [100.0, 2.0]])
 
-respuesta: "10.5"
+respuesta: escenario[0]
 tipo: completar
 respuestas_validas:
   - "10.5"
@@ -246,12 +246,9 @@ metadata:
   nivel: "intermedio"
   tags: ["metrologia", "error_de_medicion"]
 
-variables:
-  error_sistema: uno_de(["positivo", "negativo"])
+enunciado: "Si un sensor de presión siempre marca 5 kPa por encima del valor real debido a una mala calibración, el instrumento presenta un error de tipo ___."
 
-enunciado: "Si un sensor de presión siempre marca 5 kPa por encima del valor real debido a una mala calibración, el instrumento presenta un error de tipo {error_sistema} y tiene una baja precisión."
-
-respuesta: error_sistema
+respuesta: "positivo"
 tipo: mc
 opciones_explicitas: ["positivo", "negativo"]
 
@@ -269,16 +266,16 @@ metadata:
   tags: ["incertidumbre", "incertidumbre_tipo_a"]
 
 variables:
-  datos: [[10.1, 10.2, 10.1, 10.3, 10.2], [5.0, 5.1, 4.9, 5.0, 5.0]]
+  datos: [[[10.1, 10.2, 10.1, 10.3, 10.2], 0.24], [[5.0, 5.1, 4.9, 5.0, 5.0], 0.07]]
   idx: uno_de([0, 1])
 
-enunciado: "Se realizan mediciones repetidas de un componente. El conjunto de datos obtenidos es: {datos[idx]}."
+enunciado: "Se realizan mediciones repetidas de un componente. El conjunto de datos obtenidos es: {datos[idx][0]}."
 
 pasos:
   - "Calcular el promedio de las mediciones."
   - "Calcular la desviación estándar de la muestra."
 
-respuesta: "redondear(sqrt(sumar(map(lambda x: (x - promedio(datos[idx]))^2, datos[idx])) / (largo(datos[idx]) - 1), 2))"
+respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -335,12 +332,9 @@ metadata:
   nivel: "basico"
   tags: ["error_humano", "lectura"]
 
-variables:
-  error_tipo: uno_de(["paralaje", "redondeo", "calibracion"])
-
 enunciado: "Al leer un manómetro analógico, si el observador no se posiciona perpendicularmente a la escala, comete un error de ___."
 
-respuesta: error_tipo
+respuesta: "paralaje"
 tipo: mc
 opciones_explicitas: ["paralaje", "redondeo", "calibracion"]
 
@@ -378,14 +372,11 @@ metadata:
   nivel: "intermedio"
   tags: ["calibracion", "ajuste"]
 
-variables:
-  tipo_accion: uno_de(["calibracion", "ajuste"])
-
 respuesta: "calibracion"
 tipo: "mc"
 opciones_explicitas: ["calibracion", "ajuste", "estandarización", "mantenimiento"]
 
-enunciado: "El proceso de comparar un instrumento de medición contra un patrón de referencia para determinar la desviación es la {tipo_accion}."
+enunciado: "El proceso de comparar un instrumento de medición contra un patrón de referencia para determinar la desviación se denomina:"
 
 explicacion: |
   La calibración establece la relación entre los valores indicados por el instrumento y los valores de un patrón. El ajuste es la acción de corregir el instrumento para que coincida con el patrón.
@@ -457,13 +448,13 @@ metadata:
   tags: ["calibracion", "sensores", "error"]
 
 variables:
-  datos: [["10.5", "10.2"], ["25.0", "24.8"], ["50.2", "49.9"]]
+  datos: [["10.5", "10.2", "0.3"], ["25.0", "24.8", "0.2"], ["50.2", "49.9", "0.3"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1]
+respuesta: datos[idx][2]
 tipo: completar
 respuestas_validas:
-  - datos[idx][1]
+  - datos[idx][2]
 
 enunciado: "Se realiza una prueba de calibración en un prototipo de sensor de presión. El valor nominal de referencia es {datos[idx][0]} kPa, pero la lectura obtenida del sensor es {datos[idx][1]} kPa. El error absoluto medido es ___ kPa."
 
@@ -474,7 +465,7 @@ pasos:
 
 explicacion: |
   El error absoluto se define como |Valor_Referencia - Valor_Medido|. 
-  En este caso: |{datos[idx][0]} - {datos[idx][1]}| = {datos[idx][1]}.
+  En este caso: |{datos[idx][0]} - {datos[idx][1]}| = {datos[idx][2]}.
 ```
 
 ### 22 — Desviación estándar en pruebas de fatiga
@@ -487,20 +478,18 @@ metadata:
   tags: ["estadistica", "fatiga", "desviacion"]
 
 variables:
-  datos: [["100", "105", "95", "100"], ["50", "52", "48", "50"], ["200", "210", "190", "200"]]
+  series: ["100, 105, 95 y 100", "50, 52, 48 y 50", "200, 210, 190 y 200"]
+  resultados: ["3.54", "1.41", "7.07"]
   idx: uno_de([0, 1, 2])
 
-respuesta: 5.0
+respuesta: resultados[idx]
 tipo: completar
-tolerancia_abs: 0.1
+tolerancia_abs: 0.05
 
-enunciado: "Se realizan 4 ensayos de fatiga en un componente estructural. Los resultados de ciclos hasta la falla son: {datos[idx][0]}, {datos[idx][1]}, {datos[idx][2]} y {datos[idx][3]}. Calcule la desviación estándar poblacional de este conjunto de datos."
+enunciado: "Se realizan 4 ensayos de fatiga en un componente estructural. Los resultados de ciclos hasta la falla son: {series[idx]}. Calcule la desviación estándar poblacional de este conjunto de datos."
 
 explicacion: |
-  Primero calculamos el promedio (media): ({datos[idx][0]} + {datos[idx][1]} + {datos[idx][2]} + {datos[idx][3]}) / 4 = 100.
-  Luego la varianza: ((100-100)^2 + (105-100)^2 + (95-100)^2 + (100-100)^2) / 4 = (0 + 25 + 25 + 0) / 4 = 12.5.
-  Finalmente, la desviación estándar es la raíz cuadrada de 12.5, que es aproximadamente 3.53. 
-  Nota: Si se pide la desviación poblacional con los datos proporcionados, el resultado es 5.0 para el primer set.
+  Primero se calcula el promedio de los 4 valores. Luego, la varianza poblacional es el promedio de los cuadrados de las desviaciones respecto a la media (dividiendo por N=4, no por N-1). Finalmente, la desviación estándar poblacional es la raíz cuadrada de esa varianza.
 ```
 
 ### 23 — Verificación de cumplimiento de tolerancia
@@ -555,15 +544,14 @@ metadata:
   tags: ["metrologia", "precision", "exactitud"]
 
 variables:
-  caso: ["Alta precisión, baja exactitud", "Baja precisión, alta exactitud", "Alta precisión, alta exactitud", "Baja precisión, baja exactitud"]
-  idx: uno_de([0, 1, 2, 3])
+  caso: uno_de([["98.1°C, 98.2°C, 98.1°C, 98.2°C", "Alta precisión, baja exactitud"], ["97.5°C, 102.3°C, 99.8°C, 100.4°C", "Baja precisión, alta exactitud"], ["99.9°C, 100.1°C, 100.0°C, 100.0°C", "Alta precisión, alta exactitud"], ["95.0°C, 103.0°C, 90.0°C, 108.0°C", "Baja precisión, baja exactitud"]])
 
-respuesta: caso[idx]
+respuesta: caso[1]
 tipo: mc
 
 opciones_explicitas: ["Alta precisión, baja exactitud", "Baja precisión, alta exactitud", "Alta precisión, alta exactitud", "Baja precisión, baja exactitud"]
 
-enunciado: "Un prototipo de sensor de temperatura entrega los siguientes valores ante una referencia constante de 100°C: {caso[idx]}. ¿Qué característica define este comportamiento?"
+enunciado: "Un prototipo de sensor de temperatura entrega los siguientes valores ante una referencia constante de 100°C: {caso[0]}. ¿Qué característica define este comportamiento?"
 
 explicacion: |
   La precisión se refiere a la repetibilidad (qué tan cerca están los valores entre sí), mientras que la exactitud se refiere a qué tan cerca están del valor real.
