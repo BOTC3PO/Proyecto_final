@@ -1,11 +1,6 @@
 # Biología — Flujo de materia y energía (cuestionario, 22 preguntas VBLang)
 
 > Tema: `BG`. Ver `teoria.md` en esta misma carpeta.
->
-> Borrador generado con LM Studio (Gemma) en 6 lotes concurrentes.
-> Corregido a mano. Bug de esta tanda: `respuesta: termodinamica` sin
-> comillas, referenciando un identificador nunca declarado (ni variable
-> ni string) — debía ser `respuesta: "termodinamica"`.
 
 ---
 
@@ -352,7 +347,7 @@ variables:
   porcentaje_transferido: 10
 
 respuesta: energia_nivel1 * porcentaje_transferido / 100
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Un productor tiene {energia_nivel1} kJ. Con la regla del 10%, ¿cuánta energía llega al consumidor de segundo nivel?"
