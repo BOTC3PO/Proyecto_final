@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -39,8 +39,8 @@ metadata:
   nivel: "basico"
   tags: ["nucleones", "definicion"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "A las partículas que forman el núcleo (protones y neutrones) se las denomina colectivamente como nucleones."
 
 explicacion: |
@@ -76,8 +76,8 @@ metadata:
   nivel: "basico"
   tags: ["carga", "electromagnetismo"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Debido a que los protones tienen carga positiva, la fuerza electromagnética entre ellos es de atracción, lo que ayuda a mantener unido el núcleo."
 
 explicacion: |
@@ -184,13 +184,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["12", 6], ["23", 11]]
+  datos: [[12, 6], [23, 11]]
 
-respuesta: datos[escenario_idx][1]
+respuesta: datos[escenario_idx][0] - datos[escenario_idx][1]
 tipo: completar
-respuestas_validas:
-  - "4"
-  - "12"
+tolerancia_abs: 0
 
 enunciado: "Un átomo tiene un número de masa (A) de {datos[escenario_idx][0]} y un número atómico (Z) de {datos[escenario_idx][1]}. El número de neutrones es ___."
 
@@ -200,7 +198,7 @@ pasos:
 
 explicacion: |
   Para hallar los neutrones, restamos el número de protones (Z) de la masa total (A).
-  Cálculo: {datos[escenario_idx][0]} - {datos[escenario_idx][1]} = {datos[escenario_idx][1]}.
+  Cálculo: {datos[escenario_idx][0]} - {datos[escenario_idx][1]} = {datos[escenario_idx][0] - datos[escenario_idx][1]}.
 ```
 
 ### 10 — Secuencia de composición nuclear
@@ -253,11 +251,8 @@ metadata:
   nivel: "intermedio"
   tags: ["fuerza_nuclear", "alcance", "interacciones"]
 
-variables:
-  es_larga_distancia: falso
-
-respuesta: es_larga_distancia
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "¿Es la fuerza nuclear fuerte una interacción de largo alcance, similar a la fuerza electromagnética o la gravedad?"
 
 explicacion: |
@@ -351,11 +346,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fuerza_nuclear_fuerte", "alcance"]
 
-variables:
-  es_corta: verdadero
-
-respuesta: es_corta
+respuesta: "corto"
 tipo: completar
+respuestas_validas:
+  - "corto"
+
 enunciado: "La fuerza nuclear fuerte es una interacción de ___ alcance, lo que la distingue de la fuerza electromagnética que actúa a distancias mayores."
 
 explicacion: |
@@ -467,11 +462,11 @@ metadata:
   tags: ["carga", "electrones", "protones"]
 
 variables:
-  datos: [["un átomo neutro de Helio", 2, 2], ["un ion de Litio con 3 protones y 2 electrones", 3, 2], ["un ion de Magnesio con 12 protones y 10 electrones", 12, 10]]
+  datos: [["un átomo neutro de Helio", 2, 2, "neutro"], ["un ion de Litio con 3 protones y 2 electrones", 3, 2, "positivo"], ["un ion de Magnesio con 12 protones y 10 electrones", 12, 10, "positivo"]]
   idx: uno_de([0, 1, 2])
   dato: datos[idx]
 
-respuesta: "positivo"
+respuesta: dato[3]
 tipo: mc
 opciones_explicitas: ["positivo", "negativo", "neutro"]
 
@@ -479,7 +474,7 @@ enunciado: "Considerando {dato[0]}, si el núcleo tiene {dato[1]} protones y {da
 
 explicacion: |
   La carga total depende de la diferencia entre protones (positivos) y electrones (negativos). 
-  En el caso de {dato[0]}, la carga es ___ debido a la diferencia de cargas.
+  En el caso de {dato[0]}, la carga es {dato[3]} debido a la diferencia de cargas.
 ```
 
 ### 23 — Estabilidad nuclear y fuerza fuerte
