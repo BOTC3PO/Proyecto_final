@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -136,13 +136,13 @@ metadata:
   tags: ["seguridad", "castigo", "mano_dura"]
 
 variables:
-  escenario: uno_de([["Aumento de la criminalidad", "mano_dura"], ["Inseguridad ciudadana", "mano_dura"], ["Crisis de delincuencia", "mano_dura"]])
+  escenario: uno_de(["Aumento de la criminalidad", "Inseguridad ciudadana", "Crisis de delincuencia"])
 
-respuesta: escenario[1]
+respuesta: "mano_dura"
 tipo: "mc"
 opciones_explicitas: ["garantismo", "mano_dura"]
 
-enunciado: "Ante el escenario de {escenario[0]}, una política criminal de tipo {escenario[1]} suele proponer el endurecimiento de las penas y la expansión de la vigilancia policial para restaurar el orden."
+enunciado: "Ante el escenario de {escenario}, ¿qué tipo de política criminal suele proponer el endurecimiento de las penas y la expansión de la vigilancia policial para restaurar el orden?"
 
 explicacion: |
   La política de "mano dura" responde a la percepción de inseguridad mediante el incremento de la severidad penal, priorizando la prevención general a través del castigo.
@@ -200,8 +200,7 @@ variables:
 respuesta: caso[1]
 tipo: "completar"
 respuestas_validas:
-  - "mano_dura"
-  - "garantismo"
+  - caso[1]
 
 enunciado: "En un caso donde {caso[0]}, estamos ante una política de tipo ___."
 
@@ -256,12 +255,12 @@ metadata:
   nivel: "intermedio"
   tags: ["procesal", "garantismo"]
 
+respuesta: "debido proceso"
 tipo: completar
 respuestas_validas:
-  - "derecho"
   - "debido proceso"
 
-enunciado: "El garantismo penal se fundamenta en la protección de los ___ del imputado y la observancia estricta del ___."
+enunciado: "El garantismo penal se fundamenta en la protección de los derechos del imputado y la observancia estricta del ___."
 
 explicacion: |
   El garantismo actúa como un límite al poder punitivo del Estado, asegurando que el proceso penal sea una herramienta de justicia y no de arbitrariedad, respetando los derechos fundamentales y las reglas de procedimiento.
@@ -354,12 +353,12 @@ metadata:
   nivel: "intermedio"
   tags: ["garantismo", "principios"]
 
+respuesta: "presunción de inocencia"
 tipo: completar
 respuestas_validas:
-  - "debido proceso"
   - "presunción de inocencia"
 
-enunciado: "Para que una política criminal sea considerada estrictamente garantista, debe asegurar el ___ y respetar la ___ como pilares del sistema penal."
+enunciado: "Para que una política criminal sea considerada estrictamente garantista, debe asegurar el debido proceso y respetar la ___ como pilares del sistema penal."
 
 explicacion: |
   El garantismo penal se sostiene sobre la idea de que el Estado debe respetar el debido proceso y la presunción de inocencia, limitando su capacidad de sanción a lo estrictamente necesario y legalmente establecido.
@@ -465,8 +464,7 @@ enunciado: "La estrategia de {caso[0]} es un ejemplo característico de una pol�
 respuesta: caso[1]
 tipo: completar
 respuestas_validas:
-  - "garantismo"
-  - "mano_dura"
+  - caso[1]
 
 explicacion: |
   Las medidas que buscan la eficacia punitiva inmediata suelen asociarse al modelo de mano dura.
