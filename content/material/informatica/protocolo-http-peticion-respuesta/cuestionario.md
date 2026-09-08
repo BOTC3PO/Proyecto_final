@@ -2,7 +2,7 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
+>
 > Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
 > respuesta de texto -> `completar`, `tipo: input` -> `completar`,
 > corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
@@ -78,19 +78,14 @@ metadata:
   nivel: "intermedio"
   tags: ["http", "status_code"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["404", "No encontrado"], ["200", "OK"]]
-
 tipo: completar
 
 respuestas_validas:
   - "404"
-  - "200"
 
 enunciado: "Si un cliente solicita una página que no existe en el servidor, el servidor responderá con un código de estado HTTP de tipo ___."
 
-respuesta: escenarios[escenario_idx][0]
+respuesta: "404"
 
 explicacion: |
   El código 404 indica que el servidor no pudo encontrar el recurso solicitado. El código 200 indica que la petición fue exitosa.
@@ -267,11 +262,7 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura_respuesta", "status_code"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["404", "Not Found"], ["200", "OK"]]
-
-respuesta: escenarios[escenario_idx][0]
+respuesta: "404"
 tipo: mc
 opciones_explicitas: ["404", "200", "500", "301"]
 
@@ -349,11 +340,8 @@ metadata:
   nivel: "basico"
   tags: ["protocolos", "web"]
 
-variables:
-  es_statica: uno_de([verdadero, falso])
-
-respuesta: es_statica
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "A diferencia de FTP, que está diseñado principalmente para la transferencia de archivos, HTTP es un protocolo orientado a la transferencia de hipermedios (páginas web, imágenes, etc.). ¿Es correcto afirmar que HTTP es un protocolo sin estado (stateless) por diseño?"
 
 explicacion: |
@@ -517,7 +505,7 @@ variables:
   datos: [["actualizar un recurso existente", "PUT"], ["eliminar un recurso", "DELETE"], ["enviar datos para crear un nuevo usuario", "POST"]]
   idx: uno_de([0, 1, 2])
 
-enunciado: "Si el objetivo de la operación es ___, el método HTTP más adecuado es ___."
+enunciado: "Si el objetivo de la operación es {datos[idx][0]}, el método HTTP más adecuado es ___."
 
 opciones_explicitas: ["GET", "POST", "PUT", "DELETE"]
 respuesta: datos[idx][1]
