@@ -2,12 +2,13 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q6 premisa fija "estrategia de redes sociales"
+> incompatible con 2 de las 3 ramas sorteadas (radio, email no son redes
+> sociales), generalizada a "estrategia de comunicación"; Q15 array con
+> una rama ajena al tema (mezclaba "engagement" con "conversión", un eje
+> distinto) cuyo valor interpolado no encajaba con las opciones fijas,
+> sorteo removido y fijado a la rama coherente; Q20 respuestas_validas
+> duplicada exacta, deduplicada.
 
 ---
 
@@ -132,7 +133,7 @@ metadata:
 variables:
   escenario: uno_de([["Instagram", "Influencers", "Visual"], ["Radio local", "Pautas en radio", "Auditivo"], ["Email Marketing", "Newsletter", "Directo"]])
 
-enunciado: "Un destino busca captar público joven mediante una estrategia de redes sociales utilizando {escenario[0]} a través de {escenario[1]} para lograr un impacto {escenario[2]}."
+enunciado: "Un destino busca captar público joven mediante una estrategia de comunicación que utiliza {escenario[0]} a través de {escenario[1]} para lograr un impacto {escenario[2]}."
 
 respuesta: escenario[2]
 tipo: mc
@@ -315,17 +316,12 @@ metadata:
   nivel: "avanzado"
   tags: ["canales_digitales", "influencer_marketing"]
 
-variables:
-  datos: [["alcance masivo pero poco engagement", "engagement alto pero nicho muy pequeño"], ["poca conversión", "alta conversión"]]
-  idx: uno_de([0, 1])
-  opcion_correcta: datos[idx][0]
-
 respuesta: "engagement alto pero nicho muy pequeño"
 tipo: "mc"
 
 opciones_explicitas: ["alcance masivo pero poco engagement", "engagement alto pero nicho muy pequeño"]
 
-enunciado: "Al contratar influencers para promocionar un destino, un error común es elegir solo por el número de seguidores. Si un destino busca un impacto real en un nicho específico, el riesgo de elegir un perfil con {opcion_correcta} es alto."
+enunciado: "Al contratar influencers para promocionar un destino, un error común es elegir solo por el número de seguidores. Si un destino busca un impacto real en un nicho específico, el riesgo de elegir un perfil con alcance masivo pero poco engagement es alto."
 
 explicacion: |
   El éxito de la comunicación turística digital no reside solo en el alcance (cantidad de personas), sino en la relevancia y la interacción (engagement) con el público que realmente puede viajar al destino.
@@ -424,7 +420,6 @@ metadata:
 respuesta: "gestión de crisis"
 tipo: "completar"
 respuestas_validas:
-  - "gestión de crisis"
   - "gestión de crisis"
 
 enunciado: "Mientras que la promoción turística busca atraer flujo de visitantes, la ___ busca mitigar los efectos negativos de un evento inesperado (desastre natural, inseguridad) sobre la imagen del destino."
