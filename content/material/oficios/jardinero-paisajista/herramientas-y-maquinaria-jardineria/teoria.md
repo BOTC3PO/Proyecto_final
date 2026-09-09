@@ -1,6 +1,6 @@
 # Oficios — Jardinero Paisajista — Herramientas y maquinaria de jardinería (teoria)
 
-> Tema del MAPA: `OF20.herramientas-y-maquinaria-jardineria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF20.herramientas-y-maquinaria-jardineria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: "motograbadoras" (término inventado) corregido a "motoguadañas"; resto del contenido verificado correcto.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ El mantenimiento de estas herramientas es tan importante como su uso. Un corte s
 
 ## Maquinaria y sistemas de riego: eficiencia y escala
 
-Cuando las tareas superan la capacidad manual, entran en juego las máquinas. La cortadora de césped es quizás el equipo más común, y su selección depende del tamaño del terreno y la topografía. Para espacios pequeños y regulares, las cortadoras manuales o eléctricas son suficientes y silenciosas. En terrenos extensos o con desniveles, las motograbadoras o cortadoras a gasolina ofrecen la potencia necesaria, aunque requieren mayor cuidado en su operación y mantenimiento.
+Cuando las tareas superan la capacidad manual, entran en juego las máquinas. La cortadora de césped es quizás el equipo más común, y su selección depende del tamaño del terreno y la topografía. Para espacios pequeños y regulares, las cortadoras manuales o eléctricas son suficientes y silenciosas. En terrenos extensos o con desniveles, las motoguadañas o cortadoras a gasolina ofrecen la potencia necesaria, aunque requieren mayor cuidado en su operación y mantenimiento.
 
 Por otro lado, la motosierra de poda es una herramienta de alta potencia utilizada para el corte de ramas gruesas y árboles pequeños. Su uso exige estrictas normas de seguridad, como el uso de casco, protección ocular y guantes, debido al riesgo de rebote y proyección de fragmentos. Finalmente, los sistemas de riego, desde las mangueras convencionales hasta los sistemas automatizados por goteo o aspersión, son cruciales para la conservación del agua. Un buen paisajista diseña el riego para minimizar el desperdicio y asegurar que cada planta reciba la hidratación precisa según sus necesidades hídricas.
 
