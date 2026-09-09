@@ -1,6 +1,6 @@
 # Oficios — Jardinero Paisajista — Seguridad del jardinero (teoria)
 
-> Tema del MAPA: `OF20.seguridad-jardineria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF20.seguridad-jardineria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: sin errores factuales encontrados.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

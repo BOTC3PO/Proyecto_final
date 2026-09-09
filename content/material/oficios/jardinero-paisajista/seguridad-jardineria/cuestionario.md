@@ -1,6 +1,6 @@
 # Oficios — seguridad jardineria (cuestionario, 22 preguntas VBLang)
 
-> Tema: `oficios/jardinero-paisajista/seguridad-jardineria`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/jardinero-paisajista/seguridad-jardineria`. Ver `teoria.md` en esta misma carpeta. Revisado manualmente: Q5 tenía una respuesta fija ("No aplicar") que ignoraba el sorteo del viento (0-15 km/h contra un umbral de 10 km/h) — corregido con sorteo indexado que correlaciona viento y acción; typo "morded"→"morder" en Q20. Resto de las 22 preguntas verificadas correctas.
 
 ---
 
@@ -18,7 +18,7 @@ variables:
   dosis_por_m2: 0.025
 
 respuesta: redondear(area * dosis_por_m2, 2)
-tipo: input
+tipo: completar
 
 enunciado: "Un jardinero debe aplicar herbicida en un lote de {area} m². La dosis recomendada es de 0.025 litros por metro cuadrado. ¿Cuántos litros de producto necesita en total? (Redondear a 2 decimales)"
 
@@ -58,7 +58,7 @@ variables:
   concentracion: uno_de([0.01, 0.02, 0.05])
 
 respuesta: redondear(volumen_agua * concentracion, 2)
-tipo: input
+tipo: completar
 
 enunciado: "Se debe preparar una solución de abono líquido. Si se tienen {volumen_agua} litros de agua y la concentración requerida es del {redondear(concentracion*100, 0)}%, ¿cuántos litros de abono puro se deben agregar?"
 
@@ -94,16 +94,17 @@ metadata:
   tags: ["quimicos", "distancia", "viento"]
 
 variables:
-  viento: random_float(0, 15)
-  umbral: 10
+  viento_idx: uno_de([0, 1])
+  viento: [random_float(1, 9), random_float(11, 20)][viento_idx]
+  accion: ["Aplicar el producto (el viento está dentro del límite seguro)", "No aplicar (el viento supera el límite de 10 km/h)"][viento_idx]
 
-respuesta: "No aplicar"
-tipo: input
+respuesta: accion
+tipo: completar
 
 enunciado: "Si la velocidad del viento es de {redondear(viento, 1)} km/h y el límite de seguridad para aplicar productos aerotransportados es de 10 km/h, ¿qué acción se debe tomar?"
 
 explicacion: |
-  Si la velocidad del viento supera el umbral establecido (en este caso 10 km/h), no se debe aplicar el producto para evitar la deriva y la contaminación de áreas circundantes o la inhalación por parte del operador.
+  Si la velocidad del viento supera el umbral establecido (10 km/h), no se debe aplicar el producto para evitar la deriva y la contaminación de áreas circundantes o la inhalación por parte del operador. Si está por debajo del umbral, es seguro proceder con la aplicación.
 ```
 
 ### 6 — pregunta 6
@@ -139,7 +140,7 @@ variables:
   area_m2: random(100, 500)
 
 respuesta: redondear((area_m2 / 10000) * dosis_por_ha, 2)
-tipo: input
+tipo: completar
 
 enunciado: "Para tratar {area_m2} m² con un fungicida cuya dosis es de {dosis_por_ha} litros por hectárea, ¿cuántos litros de producto puro se necesitan?"
 
@@ -180,7 +181,7 @@ variables:
   alto: random(0.5, 1.5)
 
 respuesta: redondear(largo * ancho * alto, 2)
-tipo: input
+tipo: completar
 
 enunciado: "Se va a construir un montón de compost con dimensiones de {largo}m de largo, {ancho}m de ancho y {alto}m de alto. ¿Cuál es el volumen aproximado de materia orgánica necesaria en metros cúbicos?"
 
@@ -238,7 +239,7 @@ variables:
   plantas_por_m2: uno_de([4, 6, 9, 12])
 
 respuesta: floor(area * plantas_por_m2)
-tipo: input
+tipo: completar
 
 enunciado: "Si se debe plantar vegetación a una densidad de {plantas_por_m2} plantas por metro cuadrado en un área de {area} m², ¿cuántas plantas se necesitan en total?"
 
@@ -296,7 +297,7 @@ variables:
   distancia: random(5, 20)
 
 respuesta: redondear((desnivel / distancia) * 100, 1)
-tipo: input
+tipo: completar
 
 enunciado: "Un terreno tiene un desnivel de {desnivel} metros en una distancia horizontal de {distancia} metros. ¿Cuál es el porcentaje de pendiente del terreno?"
 
@@ -335,7 +336,7 @@ variables:
   tiempo_reingreso: uno_de([12, 24, 48])
 
 respuesta: "Esperar " + tiempo_reingreso + " horas"
-tipo: input
+tipo: completar
 
 enunciado: "Si la etiqueta del producto indica un tiempo de reingreso de {tiempo_reingreso} horas, ¿qué acción se debe tomar antes de volver a entrar al área tratada?"
 
@@ -375,7 +376,7 @@ variables:
   gramos_por_m2: random(5, 20)
 
 respuesta: redondear(area * gramos_por_m2, 0)
-tipo: input
+tipo: completar
 
 enunciado: "Para sembrar un césped en {area} m², con una recomendación de {gramos_por_m2} gramos de semilla por metro cuadrado, ¿cuántos gramos de semilla se necesitan en total?"
 
@@ -398,7 +399,7 @@ tipo: vf
 enunciado: "Es recomendable usar pantalones largos y calzado cerrado para prevenir picaduras de insectos y arácnidos al trabajar en zonas de vegetación alta o densa."
 
 explicacion: |
-  La vegetación alta es hábitat de insectos y arácnidos que pueden picar o morded. La barrera física de la ropa adecuada reduce significativamente este riesgo.
+  La vegetación alta es hábitat de insectos y arácnidos que pueden picar o morder. La barrera física de la ropa adecuada reduce significativamente este riesgo.
 ```
 
 ### 21 — pregunta 21
@@ -433,7 +434,7 @@ variables:
   profundidad: random(20, 40)
 
 respuesta: redondear(pi * (diametro/2)^2 * profundidad / 1000000, 3)
-tipo: input
+tipo: completar
 
 enunciado: "Se necesita llenar una maceta cilíndrica de {diametro} cm de diámetro y {profundidad} cm de profundidad. ¿Cuántos metros cúbicos de sustrato se requieren? (Usar pi = 3.14159)"
 
