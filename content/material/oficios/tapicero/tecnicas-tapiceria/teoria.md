@@ -1,6 +1,6 @@
 # Oficios — Tapicero — Técnicas de tapicería (teoria)
 
-> Tema del MAPA: `OF21.tecnicas-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF21.tecnicas-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: "urdimiento"→"urdimbre" corregido (término textil estándar); resto del contenido sin errores factuales.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -16,7 +16,7 @@ La importancia de dominar estas técnicas radica en la capacidad de adaptar dife
 
 ## Preparación: extendido, marcado y corte
 
-El primer paso crucial es preparar la tela antes de que toque el mueble. Se debe extender la tela sobre una superficie plana y limpia, asegurándose de que los hilos de urdimiento y trama estén alineados correctamente. Esto evita que la tela se retuerza una vez instalada. Luego, se realiza el marcado utilizando tiza de tapicero o marcadores específicos que no manchen permanentemente. Las líneas de corte y costura se trazan con precisión, dejando un margen suficiente para las costuras y los pliegues necesarios en las esquinas.
+El primer paso crucial es preparar la tela antes de que toque el mueble. Se debe extender la tela sobre una superficie plana y limpia, asegurándose de que los hilos de urdimbre y trama estén alineados correctamente. Esto evita que la tela se retuerza una vez instalada. Luego, se realiza el marcado utilizando tiza de tapicero o marcadores específicos que no manchen permanentemente. Las líneas de corte y costura se trazan con precisión, dejando un margen suficiente para las costuras y los pliegues necesarios en las esquinas.
 
 El corte debe realizarse con tijeras grandes y afiladas o un cortador rotativo, siguiendo las líneas marcadas con firmeza y continuidad. Es importante cortar siempre en un solo sentido para evitar que la tela se desplace y se corte de manera irregular. En telas con estampados o dirección de la fibra, como el terciopelo o el chenilla, se debe prestar especial atención a la orientación para que el brillo o la textura se vean uniformes en todo el mueble. Un corte preciso ahorra tiempo y materiales en las etapas siguientes.
 

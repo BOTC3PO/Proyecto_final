@@ -1,6 +1,6 @@
 # Oficios — Tapicero — Materiales de tapicería (teoria)
 
-> Tema del MAPA: `OF21.materiales-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF21.materiales-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: mezclaba el "curtido vegetal" (proceso de curtido) con "grano completo"/"corregido" (grado del grano) como si fueran tres opciones de la misma categoría — aclarado que son ejes de clasificación distintos.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -16,7 +16,7 @@ Una vez definida la base estructural, el acojinado entra en juego para definir l
 
 ## Materiales de cobertura y acabados estéticos
 
-La elección de la tela o el cuero define la personalidad del mueble y su resistencia al desgaste. En el caso de las telas, se analiza el peso del hilo y la trama; las telas de alta resistencia suelen tener un alto contenido de fibras sintéticas como el polipropileno o el poliéster, que las hacen ideales para zonas de alto tráfico. Para el cuero, la distinción clave radica en si es de grano completo, curtido vegetal o de corrección. El cuero de grano completo conserva la textura natural y es más transpirable, mientras que el cuero corregido tiene una superficie uniforme tratada con pigmentos, ofreciendo mayor resistencia a manchas pero menor naturalidad en el tacto.
+La elección de la tela o el cuero define la personalidad del mueble y su resistencia al desgaste. En el caso de las telas, se analiza el peso del hilo y la trama; las telas de alta resistencia suelen tener un alto contenido de fibras sintéticas como el polipropileno o el poliéster, que las hacen ideales para zonas de alto tráfico. Para el cuero, la distinción clave radica en si es de grano completo o de corrección (el curtido, vegetal o al cromo, es un eje de clasificación aparte, relacionado con el proceso de tratamiento y no con el grado del grano). El cuero de grano completo conserva la textura natural y es más transpirable, mientras que el cuero corregido tiene una superficie uniforme tratada con pigmentos, ofreciendo mayor resistencia a manchas pero menor naturalidad en el tacto.
 
 Las guarniciones decorativas no son solo un adorno final, sino elementos que protegen las uniones y ocultan los puntos de fijación de la tela. Los cordones, picados, botones y flecos requieren técnicas específicas de aplicación. Por ejemplo, los botones deben estar distribuidos simétricamente para generar un efecto visual equilibrado, y los picados deben seguir las líneas de costura para reforzar las áreas de mayor tensión. Una guarnición bien aplicada no solo cierra el mueble estéticamente, sino que también contribuye a la rigidez estructural de la funda, evitando que la tela se afloje con el tiempo.
 

@@ -1,6 +1,6 @@
 # Oficios — Tapicero — Seguridad del tapicero (teoria)
 
-> Tema del MAPA: `OF21.seguridad-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF21.seguridad-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: typo "derrapes"→"derrames" corregido; resto del contenido sin errores factuales.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -24,4 +24,4 @@ Por otro lado, el manejo de espumas de poliuretano y adhesivos solventes requier
 
 Para implementar una cultura de seguridad efectiva, se deben establecer protocolos claros de uso del EPP y manejo de materiales. En primer lugar, el EPP debe ser específico para cada tarea: gafas de seguridad contra proyecciones al trabajar con grapadoras, guantes de nitrilo o neopreno al aplicar adhesivos, y tapones o orejeras en zonas de alto ruido. Nunca se debe trabajar con la grapadora neumática sin haber verificado que el tanque de aire esté a la presión recomendada y que las mangueras estén en buen estado.
 
-En cuanto al manejo de espumas y adhesivos, es crucial trabajar siempre en áreas bien ventiladas o bajo campanas extractoras. Los residuos de espuma y los trapos impregnados de solventes deben depositarse en contenedores metálicos con tapa, ya que pueden inflamarse espontáneamente por oxidación. En Argentina, es común encontrar talleres en barrios industriales o casas adaptadas; en estos espacios, la acumulación de materiales inflamables debe evitarse estrictamente. Mantener el orden, limpiar derrapes inmediatamente y capacitar al personal en el manejo de extintores adecuados para incendios por químicos son pasos esenciales para garantizar un entorno de trabajo seguro y saludable.
+En cuanto al manejo de espumas y adhesivos, es crucial trabajar siempre en áreas bien ventiladas o bajo campanas extractoras. Los residuos de espuma y los trapos impregnados de solventes deben depositarse en contenedores metálicos con tapa, ya que pueden inflamarse espontáneamente por oxidación. En Argentina, es común encontrar talleres en barrios industriales o casas adaptadas; en estos espacios, la acumulación de materiales inflamables debe evitarse estrictamente. Mantener el orden, limpiar derrames inmediatamente y capacitar al personal en el manejo de extintores adecuados para incendios por químicos son pasos esenciales para garantizar un entorno de trabajo seguro y saludable.
