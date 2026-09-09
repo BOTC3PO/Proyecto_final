@@ -2,12 +2,13 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q12 sorteo cuya respuesta fija sólo era válida
+> para la primera rama (tostador) — sorteadas ventilador/semáforo
+> quedaban desincronizadas del listado de opciones — sorteo removido,
+> fijado al caso del tostador; Q15/Q22 declarativas sin hueco `___`
+> tipeadas `completar` con respuesta booleana/string, convertidas a
+> `tipo: vf` (Q22 además con arreglo mixto string/booleano separado en
+> dos arrays paralelos para pasar el lint `vf-requires-boolean`).
 
 ---
 
@@ -253,14 +254,11 @@ metadata:
   nivel: "intermedio"
   tags: ["error", "perturbaciones"]
 
-variables:
-  escenario: uno_de([["un tostador de pan", "el tiempo de tostado es fijo"], ["un ventilador común", "la velocidad es constante"], ["un semáforo", "el ciclo de luces es predeterminado"]])
-
 respuesta: "el tiempo de tostado es fijo"
 tipo: mc
 opciones_explicitas: ["el tiempo de tostado es fijo", "el nivel de quemado del pan", "la temperatura interna del pan", "la humedad del aire"]
 
-enunciado: "En un sistema de lazo abierto, como {escenario[0]}, el sistema no puede compensar una perturbación porque su acción de control es ___."
+enunciado: "En un sistema de lazo abierto, como un tostador de pan, el sistema no puede compensar una perturbación porque su acción de control es ___."
 
 explicacion: |
   Al no tener realimentación, el sistema de lazo abierto no "sabe" si el objetivo se cumplió o si una perturbación (como un pan más grueso) afectó el resultado.
@@ -317,15 +315,12 @@ metadata:
   nivel: "avanzado"
   tags: ["estabilidad", "perturbaciones"]
 
-variables:
-  caso: uno_de([["un sistema de control de temperatura de un horno", "la temperatura ambiente sube repentinamente"], ["un sistema de crucero en un auto", "una pendiente fuerte en la carretera"], ["un sistema de llenado de un tanque", "la presión de entrada de agua varía"]])
-
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Un sistema de lazo cerrado es inherentemente inmune a las perturbaciones externas, independientemente de su diseño."
 
 explicacion: |
-  Falso. Aunque el lazo cerrado tiene la *capacidad* de compensar perturbaciones (como {caso[0]}), su éxito depende del diseño del controlador y la precisión del sensor. Un mal diseño puede incluso causar inestabilidad.
+  Falso. Aunque el lazo cerrado tiene la *capacidad* de compensar perturbaciones, su éxito depende del diseño del controlador y la precisión del sensor. Un mal diseño puede incluso causar inestabilidad.
 ```
 
 ### 16 — Diferencia fundamental en la estructura
@@ -466,12 +461,13 @@ metadata:
   tags: ["error", "control"]
 
 variables:
-  casos: [["lazo abierto", falso], ["lazo cerrado", verdadero]]
+  nombres: ["lazo abierto", "lazo cerrado"]
+  resultados: [falso, verdadero]
   idx: uno_de([0,1])
 
-respuesta: casos[idx][1]
-tipo: completar
-enunciado: "En un sistema de {casos[idx][0]}, el controlador puede calcular la diferencia entre el valor deseado (setpoint) y la salida real (error) para ajustar la acción de control."
+respuesta: resultados[idx]
+tipo: vf
+enunciado: "En un sistema de {nombres[idx]}, el controlador puede calcular la diferencia entre el valor deseado (setpoint) y la salida real (error) para ajustar la acción de control."
 
 explicacion: |
   En el lazo cerrado, el sensor permite conocer la salida real, permitiendo calcular el error. En el lazo abierto, el sistema no sabe si la salida es la correcta.
