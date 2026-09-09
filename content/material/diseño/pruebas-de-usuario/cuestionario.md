@@ -2,12 +2,13 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q6/Q11 tenían `respuestas_validas`
+> sobre-permisivas que aceptaban distractores factualmente incorrectos
+> ("validar la estética", "medir la velocidad de internet"), Q12 usaba
+> una variable booleana fija como respuesta de un `tipo: completar`
+> para una pregunta sí/no, Q15 revelaba la respuesta interpolándola
+> directamente en el propio enunciado y sorteaba entre una premisa
+> compatible y otra que no encaja en la categoría preguntada.
 
 ---
 
@@ -124,8 +125,6 @@ respuesta: "identificar problemas de usabilidad"
 tipo: completar
 respuestas_validas:
   - "identificar problemas de usabilidad"
-  - "validar la estética del producto"
-  - "medir la velocidad de internet"
 
 enunciado: "El objetivo principal de realizar pruebas de usuario mediante la observación directa es ___."
 
@@ -233,8 +232,6 @@ respuesta: "detectar problemas de usabilidad"
 tipo: completar
 respuestas_validas:
   - "detectar problemas de usabilidad"
-  - "mejorar la estética"
-  - "validar la identidad visual"
 
 enunciado: "El propósito principal de observar a usuarios reales interactuando con un diseño es ___."
 
@@ -251,11 +248,8 @@ metadata:
   nivel: "intermedio"
   tags: ["sesgo", "metodologia"]
 
-variables:
-  es_sesgado: verdadero
-
-respuesta: es_sesgado
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si el facilitador de la prueba comienza a dar pistas o sugerencias sobre cómo usar la interfaz para que el usuario no se frustre, ¿está induciendo un sesgo en la prueba?"
 
 explicacion: |
@@ -311,15 +305,11 @@ metadata:
   nivel: "avanzado"
   tags: ["analisis", "errores"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["El usuario dice 'Me gusta este color', pero tarda 10 segundos en encontrar el botón de compra.", "error_interpretacion"], ["El usuario logra completar la tarea rápidamente y sin dudas.", "uso_exitoso"]]
-
-respuesta: casos[caso_idx][0]
+respuesta: "El usuario dice 'Me gusta este color', pero tarda 10 segundos en encontrar el botón de compra."
 tipo: mc
 opciones_explicitas: ["El usuario dice 'Me gusta este color', pero tarda 10 segundos en encontrar el botón de compra.", "El usuario logra completar la tarea rápidamente y sin dudas.", "El usuario pide ayuda constantemente al facilitador."]
 
-enunciado: "Identifica cuál de estos comportamientos es un ejemplo de un error de interpretación común (confundir la opinión verbal con la usabilidad real): {casos[caso_idx][0]}"
+enunciado: "Identifica cuál de estos comportamientos es un ejemplo de un error de interpretación común (confundir la opinión verbal con la usabilidad real):"
 
 explicacion: |
   Un error común es confiar en lo que el usuario *dice* ("me gusta", "es fácil") en lugar de observar lo que el usuario *hace* (tiempo de ejecución, errores de clic, frustración gestual). La acción suele ser más honesta que la palabra.
