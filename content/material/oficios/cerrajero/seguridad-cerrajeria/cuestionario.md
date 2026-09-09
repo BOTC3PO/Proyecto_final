@@ -1,6 +1,12 @@
 # Oficios — seguridad cerrajeria (cuestionario, 21 preguntas VBLang)
 
-> Tema: `oficios/cerrajero/seguridad-cerrajeria`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/cerrajero/seguridad-cerrajeria`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q1/Q2/Q3/Q4/Q5/Q6/Q7/Q10/Q14 interpolaban la
+> propia variable-respuesta directamente en una oración declarativa sin
+> ningún hueco `___` (autorrevelador sistemático), corregidas todas a un
+> hueco real; Q12 preguntaba un valor binario 1/0 en vez de una pregunta
+> verdadero/falso real, convertida a `tipo: vf`.
 
 ---
 
@@ -13,13 +19,10 @@ metadata:
   nivel: "basico"
   tags: ["EPP", "definicion"]
 
-variables:
-  respuesta_correcta: "Equipo de Protección Personal"
-
 respuesta: "Equipo de Protección Personal"
 tipo: completar
 
-enunciado: "El acrónimo EPP se refiere al {respuesta_correcta}, fundamental para la seguridad del cerrajero."
+enunciado: "El acrónimo EPP se refiere al ___, fundamental para la seguridad del cerrajero."
 
 explicacion: |
   EPP son las siglas de Equipo de Protección Personal. Es el conjunto de dispositivos que protege al trabajador contra riesgos laborales.
@@ -34,13 +37,10 @@ metadata:
   nivel: "basico"
   tags: ["EPP", "funcion"]
 
-variables:
-  funcion: "ultima linea de defensa"
-
 respuesta: "ultima linea de defensa"
 tipo: completar
 
-enunciado: "Aunque existan medidas de control en el entorno, el EPP actúa como la {funcion} contra los riesgos residuales."
+enunciado: "Aunque existan medidas de control en el entorno, el EPP actúa como la ___ contra los riesgos residuales."
 
 explicacion: |
   El EPP no elimina el riesgo, pero sí actúa como la última barrera entre el trabajador y el peligro cuando las otras medidas fallan o son insuficientes.
@@ -61,7 +61,7 @@ variables:
 respuesta: material_guante
 tipo: completar
 
-enunciado: "Para protegerse de disolventes y aceites, se recomiendan guantes resistentes a químicos, como los de {material_guante}."
+enunciado: "Para protegerse de disolventes y aceites, se recomiendan guantes resistentes a químicos, como los de ___."
 
 explicacion: |
   Los guantes de nitrilo o neopreno ofrecen resistencia adecuada contra grasas, aceites y disolventes comunes en la cerrajería.
@@ -76,13 +76,10 @@ metadata:
   nivel: "intermedio"
   tags: ["quimicos", "respiracion"]
 
-variables:
-  proteccion: "mascarillas con filtros"
-
 respuesta: "mascarillas con filtros"
 tipo: completar
 
-enunciado: "En espacios mal ventilados con vapores nocivos, es indispensable usar {proteccion} adecuados."
+enunciado: "En espacios mal ventilados con vapores nocivos, es indispensable usar ___ adecuados."
 
 explicacion: |
   Los vapores de productos químicos pueden ser inhalados. Las mascarillas con filtros específicos protegen las vías respiratorias de estos agentes.
@@ -97,13 +94,10 @@ metadata:
   nivel: "basico"
   tags: ["mecanicos", "ojos"]
 
-variables:
-  proteccion_ocular: "gafas de seguridad con protección lateral"
-
 respuesta: "gafas de seguridad con protección lateral"
 tipo: completar
 
-enunciado: "Para evitar lesiones por astillas o herramientas resbaladas, se deben usar {proteccion_ocular}."
+enunciado: "Para evitar lesiones por astillas o herramientas resbaladas, se deben usar ___."
 
 explicacion: |
   Las gafas con protección lateral evitan que partículas o objetos entren por los costados, protegiendo los ojos de accidentes mecánicos.
@@ -118,13 +112,10 @@ metadata:
   nivel: "basico"
   tags: ["mecanicos", "pies"]
 
-variables:
-  proteccion_pies: "calzado de seguridad con puntera reforzada"
-
 respuesta: "calzado de seguridad con puntera reforzada"
 tipo: completar
 
-enunciado: "Para proteger los pies ante la caída de objetos pesados como cilindros, se usa {proteccion_pies}."
+enunciado: "Para proteger los pies ante la caída de objetos pesados como cilindros, se usa ___."
 
 explicacion: |
   La puntera reforzada (generalmente de acero o composite) absorbe el impacto y protege los dedos ante objetos que caen desde alturas.
@@ -139,13 +130,10 @@ metadata:
   nivel: "intermedio"
   tags: ["auditivo", "taladrado"]
 
-variables:
-  proteccion_auditiva: "tapones auditivos o orejeras"
-
 respuesta: "tapones auditivos o orejeras"
 tipo: completar
 
-enunciado: "Ante el ruido prolongado del taladrado o corte de metales, se previene la hipoacusia usando {proteccion_auditiva}."
+enunciado: "Ante el ruido prolongado del taladrado o corte de metales, se previene la hipoacusia usando ___."
 
 explicacion: |
   La exposición constante a altos niveles de ruido causa pérdida auditiva irreversible. Los tapones o orejeras atenúan el sonido alcanzado por el oído.
@@ -167,7 +155,7 @@ variables:
 respuesta: riesgo
 tipo: completar
 
-enunciado: "Trabajar con disolventes sin guantes expone al cerrajero principalmente a {riesgo}, pudiendo causar {sintoma}."
+enunciado: "Trabajar con disolventes sin guantes expone al cerrajero principalmente a ___, pudiendo causar {sintoma}."
 
 explicacion: |
   Los disolventes y grasas pueden penetrar la piel o causar irritación severa. El riesgo principal es la exposición química directa.
@@ -189,7 +177,7 @@ variables:
 respuesta: solucion
 tipo: completar
 
-enunciado: "En espacios reducidos con mala ventilación, el cerrajero debe priorizar {solucion} para evitar intoxicaciones."
+enunciado: "En espacios reducidos con mala ventilación, el cerrajero debe priorizar ___ para evitar intoxicaciones."
 
 explicacion: |
   La acumulación de vapores nocivos en espacios cerrados requiere filtración respiratoria y buena visibilidad para trabajar con seguridad.
@@ -211,7 +199,7 @@ variables:
 respuesta: riesgo
 tipo: completar
 
-enunciado: "Al usar martillos o sierras, el riesgo principal de proyección son {riesgo} de metal o fragmentos."
+enunciado: "Al usar martillos o sierras, el riesgo principal de proyección son ___ de metal o fragmentos."
 
 explicacion: |
   Las herramientas de impacto o corte pueden generar astillas o fragmentos que viajan a gran velocidad, requiriendo protección ocular.
@@ -233,7 +221,7 @@ variables:
 respuesta: proteccion
 tipo: completar
 
-enunciado: "Para proteger los pies de la caída de {objeto} u herramientas grandes, se requiere calzado con {proteccion}."
+enunciado: "Para proteger los pies de la caída de {objeto} u herramientas grandes, se requiere calzado con ___."
 
 explicacion: |
   Los cilindros y herramientas pesadas pueden romper los dedos si caen sobre ellos. La puntera reforzada distribuye la fuerza del impacto.
@@ -248,17 +236,13 @@ metadata:
   nivel: "basico"
   tags: ["EPP", "conceptos"]
 
-variables:
-  riesgo_alto: 1
-  riesgo_bajo: 0
+respuesta: verdadero
+tipo: vf
 
-respuesta: riesgo_alto
-tipo: input
-
-enunciado: "Si un cerrajero trabaja con disolventes en un espacio cerrado sin ventilación, ¿cuánto (1 o 0) representa el riesgo de intoxicación si NO usa mascarilla? (1 = Riesgo presente, 0 = Sin riesgo)"
+enunciado: "Si un cerrajero trabaja con disolventes en un espacio cerrado sin ventilación, ¿existe riesgo de intoxicación si NO usa mascarilla?"
 
 explicacion: |
-  El valor es 1. Sin mascarilla y sin ventilación, el riesgo de inhalar vapores nocivos es alto y presente.
+  Verdadero. Sin mascarilla y sin ventilación, el riesgo de inhalar vapores nocivos es alto y presente.
 ```
 
 ### 13 — pregunta 13
@@ -276,7 +260,7 @@ variables:
 respuesta: sintoma
 tipo: completar
 
-enunciado: "La hipoacusia ocupacional se manifiesta principalmente como {sintoma} progresiva."
+enunciado: "La hipoacusia ocupacional se manifiesta principalmente como ___ progresiva."
 
 explicacion: |
   La exposición al ruido daña el oído interno, causando una disminución gradual de la capacidad de escuchar.
@@ -297,7 +281,7 @@ variables:
 respuesta: proteccion
 tipo: completar
 
-enunciado: "Para trabajar con llaves maestras y punzones, la {proteccion} es obligatoria para evitar lesiones oculares."
+enunciado: "Para trabajar con llaves maestras y punzones, la ___ es obligatoria para evitar lesiones oculares."
 
 explicacion: |
   El uso de herramientas de impacto puede generar proyecciones. Las gafas de seguridad son la barrera principal para los ojos.
