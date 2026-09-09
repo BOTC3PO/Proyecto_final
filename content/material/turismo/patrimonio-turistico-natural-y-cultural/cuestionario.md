@@ -2,12 +2,15 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q7 enunciado con dos blancos y `respuesta` como
+> lista `["monumentos", "tradiciones"]`, colapsado a un solo blanco con
+> el primer término fijo en el texto; Q12 booleano crudo interpolado al
+> final del enunciado (`{es_intangible}`) más sorteo que permitía marcar
+> "falso" como correcto para un hecho siempre verdadero, sorteo removido
+> y fijado a verdadero; Q19 `opciones_explicitas` construidas
+> interpolando las propias variables sorteadas (incluía el nombre del
+> sitio como distractor de sí mismo), reemplazadas por distractores fijos
+> coherentes con las tres ramas posibles.
 
 ---
 
@@ -143,12 +146,10 @@ metadata:
 
 respuestas_validas:
   - "tradiciones"
-  - "monumentos"
-  - "gastronomía"
 
-enunciado: "El patrimonio cultural se divide en elementos tangibles e intangibles. Los ___ son elementos tangibles (como edificios históricos), mientras que las ___ son elementos intangibles (como las danzas típicas)."
+enunciado: "El patrimonio cultural se divide en elementos tangibles e intangibles. Los monumentos son elementos tangibles (como edificios históricos), mientras que las ___ son elementos intangibles (como las danzas típicas)."
 
-respuesta: ["monumentos", "tradiciones"]
+respuesta: "tradiciones"
 tipo: "completar"
 
 explicacion: |
@@ -247,12 +248,9 @@ metadata:
   nivel: "basico"
   tags: ["cultura", "intangible"]
 
-variables:
-  es_intangible: uno_de([verdadero, falso])
+enunciado: "Si un destino ofrece una danza tradicional y una leyenda local, ¿estamos ante un patrimonio cultural intangible?"
 
-enunciado: "Si un destino ofrece una danza tradicional y una leyenda local, ¿estamos ante un patrimonio cultural intangible? {es_intangible}"
-
-respuesta: es_intangible
+respuesta: verdadero
 tipo: "vf"
 
 explicacion: |
@@ -389,7 +387,7 @@ variables:
 respuesta: escenario[1]
 tipo: "mc"
 
-opciones_explicitas: [escenario[0], escenario[1], "Museos de antropología", "Arquitectura colonial"]
+opciones_explicitas: ["Protección de la biodiversidad", "Formaciones geológicas naturales", "Ecosistemas marinos", "Arquitectura colonial"]
 
 enunciado: "Si un turista visita un destino cuyo principal atractivo es la {escenario[0]}, está consumiendo principalmente:"
 
