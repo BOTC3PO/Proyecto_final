@@ -1,6 +1,6 @@
 # Oficios — diagnostico confeccion por casos (cuestionario, 21 preguntas VBLang)
 
-> Tema: `oficios/modista-corte-y-confeccion/diagnostico-confeccion-por-casos`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/modista-corte-y-confeccion/diagnostico-confeccion-por-casos`. Ver `teoria.md` en esta misma carpeta. Revisado manualmente: 10 bloques (Q4-Q13) tenían `respuesta: "{expr}"` entre comillas, nunca interpolada por el motor VBLang fuera de enunciado/explicacion — corregido a expresión sin comillas. Q3 comparaba una tela sorteada contra "algodón puro", con "algodón" como una de las opciones del propio sorteo (tautología: comparar algodón consigo mismo) — sorteo eliminado, fijado a poliéster. Q14 tenía la clave invertida (`respuesta: verdadero` contradiciendo la propia explicación, que empieza con "Falso.") — corregido a falso. `tipo: input` normalizado a `completar`.
 
 ---
 
@@ -12,9 +12,6 @@ metadata:
   tema: "modista_corte_y_confeccion_diagnostico_confeccion_por_casos"
   nivel: "intermedio"
   tags: ["tension", "costura", "maquina"]
-
-variables:
-  sintoma: uno_de(["se rompe", "queda suelta"])
 
 respuesta: falso
 tipo: vf
@@ -56,13 +53,10 @@ metadata:
   nivel: "basico"
   tags: ["tela", "sintetica", "algodon"]
 
-variables:
-  tela: uno_de(["algodon", "poliester", "lana"])
-
 respuesta: falso
 tipo: vf
 
-enunciado: "Una prenda confeccionada en {tela} tiene la misma probabilidad de encogerse significativamente tras el lavado que una de algodón puro."
+enunciado: "Una prenda confeccionada en poliéster tiene la misma probabilidad de encogerse significativamente tras el lavado que una de algodón puro."
 
 explicacion: |
   Falso. Las telas sintéticas como el poliéster tienen una resistencia al encogimiento mucho mayor que el algodón. El algodón es la fibra natural que más requiere pre-lavado y consideración de encogimiento.
@@ -81,8 +75,8 @@ variables:
   medida_base: random(80, 100)
   holgura_adicional: uno_de([2, 3, 4])
 
-respuesta: "{medida_base + holgura_adicional}"
-tipo: input
+respuesta: medida_base + holgura_adicional
+tipo: completar
 
 enunciado: "Para confeccionar una prenda que debe tener una holgura de {holgura_adicional} cm sobre la medida base de {medida_base} cm, ¿cuál será la medida final del patrón en la cintura?"
 
@@ -103,8 +97,8 @@ variables:
   metros_tela: random(1.5, 3.0)
   porcentaje_extra: 10
 
-respuesta: "{redondear(metros_tela * (1 + porcentaje_extra/100), 1)}"
-tipo: input
+respuesta: redondear(metros_tela * (1 + porcentaje_extra/100), 1)
+tipo: completar
 
 enunciado: "Si necesitás {metros_tela} metros de tela, ¿cuántos metros de hilo de trama debes comprar considerando un {porcentaje_extra}% de holgura por desperdicio o tensión?"
 
@@ -125,8 +119,8 @@ variables:
   pulgada: random(1, 3)
   cm_por_pulgada: 2.54
 
-respuesta: "{redondear(pulgada * cm_por_pulgada, 2)}"
-tipo: input
+respuesta: redondear(pulgada * cm_por_pulgada, 2)
+tipo: completar
 
 enunciado: "Un patrón importado indica una holgura de {pulgada} pulgadas. ¿A cuántos centímetros equivale esto? (Usá 1 pulgada = 2.54 cm)"
 
@@ -147,8 +141,8 @@ variables:
   ancho_base: random(1, 2)
   doblez: 1
 
-respuesta: "{ancho_base + doblez}"
-tipo: input
+respuesta: ancho_base + doblez
+tipo: completar
 
 enunciado: "Si el patrón indica un margen de costura de {ancho_base} cm, pero decidís doblar el borde para un acabado limpio, ¿cuánto ancho total de tela debes añadir al patrón?"
 
@@ -169,8 +163,8 @@ variables:
   metros_totales: random(3, 5)
   desperdicio: random(10, 20)
 
-respuesta: "{redondear(metros_totales * (1 - desperdicio/100), 2)}"
-tipo: input
+respuesta: redondear(metros_totales * (1 - desperdicio/100), 2)
+tipo: completar
 
 enunciado: "Si comprás {metros_totales} metros de tela y se estima un {desperdicio}% de merma por corte y ensayos, ¿cuántos metros útiles quedarán?"
 
@@ -191,8 +185,8 @@ variables:
   medida_busto: random(80, 90)
   holgura: 4
 
-respuesta: "{medida_busto + holgura}"
-tipo: input
+respuesta: medida_busto + holgura
+tipo: completar
 
 enunciado: "Si la medida de busto es {medida_busto} cm y necesitás {holgura} cm de holgura para la movilidad, ¿cuál es la medida del patrón en esa línea?"
 
@@ -213,8 +207,8 @@ variables:
   largo_prenda: random(50, 100)
   margen: 1.5
 
-respuesta: "{redondear(largo_prenda + margen, 1)}"
-tipo: input
+respuesta: redondear(largo_prenda + margen, 1)
+tipo: completar
 
 enunciado: "Si la prenda mide {largo_prenda} cm y añadís un margen de costura de {margen} cm en la parte inferior, ¿cuál es la longitud total del patrón?"
 
@@ -235,8 +229,8 @@ variables:
   metros_iniciales: random(2, 4)
   porcentaje_encogido: 5
 
-respuesta: "{redondear(metros_iniciales * (1 - porcentaje_encogido/100), 2)}"
-tipo: input
+respuesta: redondear(metros_iniciales * (1 - porcentaje_encogido/100), 2)
+tipo: completar
 
 enunciado: "Si encolás {metros_iniciales} metros de tela y esta se encoge un {porcentaje_encogido}%, ¿cuántos metros útiles te quedarán?"
 
@@ -257,8 +251,8 @@ variables:
   doblez_interior: 1
   doblez_exterior: 2
 
-respuesta: "{doblez_interior + doblez_exterior}"
-tipo: input
+respuesta: doblez_interior + doblez_exterior
+tipo: completar
 
 enunciado: "Para un dobladillo de {doblez_exterior} cm visible y un doblez interior de {doblez_interior} cm, ¿cuánto ancho total de margen debes añadir al patrón?"
 
@@ -279,8 +273,8 @@ variables:
   medida_cintura: random(60, 80)
   holgura: 2
 
-respuesta: "{medida_cintura + holgura}"
-tipo: input
+respuesta: medida_cintura + holgura
+tipo: completar
 
 enunciado: "Si la medida de cintura es {medida_cintura} cm y necesitás {holgura} cm de holgura para el confort, ¿cuál es la medida del patrón en la cintura?"
 
@@ -297,7 +291,7 @@ metadata:
   nivel: "basico"
   tags: ["preparacion", "tela", "encogimiento"]
 
-respuesta: verdadero
+respuesta: falso
 
 tipo: vf
 
@@ -323,7 +317,7 @@ variables:
 
 respuesta: holgura_necesaria
 
-tipo: input
+tipo: completar
 
 enunciado: "Tenés una prenda de {medida_original} cm de largo en algodón que tiene un encogimiento del {porcentaje_encogimiento}%. Si no pre-lavaste la tela, ¿cuántos centímetros de holgura adicional debiste haber considerado en el patronaje para compensar el encogimiento? Redondeá al entero más cercano."
 
@@ -366,7 +360,7 @@ variables:
 
 respuesta: largo_final
 
-tipo: input
+tipo: completar
 
 enunciado: "Un patrón tiene un largo de {largo_patron} cm. La tela tiene un encogimiento del {encogimiento}%. ¿Cuál será el largo final aproximado de la prenda si no se ajusta el patronaje? Redondeá al entero más cercano."
 
@@ -428,7 +422,7 @@ variables:
 
 respuesta: diferencia
 
-tipo: input
+tipo: completar
 
 enunciado: "Si la tensión de la aguja es {tension_aguja} y la de la canilla es {tension_canilla}, ¿cuál es la diferencia absoluta entre ambas tensiones? Un valor alto indica desequilibrio."
 
