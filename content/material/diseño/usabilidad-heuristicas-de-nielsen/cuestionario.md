@@ -2,12 +2,18 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q1 aceptaba "estándares rígidos" como sinónimo
+> válido cuando la propia teoría dice que las heurísticas NO son
+> estándares rígidos, Q2/Q9/Q12 tenían `respuesta` fija pese al sorteo
+> (una rama quedaba con la clave incorrecta), Q7 tenía la misma
+> respuesta fija para dos ramas con calificación opuesta, Q13 tenía
+> `respuesta: uno_de(...)` (doble sorteo desconectado, podía marcar
+> como correcta una opción objetivamente incorrecta), Q17 tenía un
+> tercer escenario nunca alcanzable por el rango del sorteo, Q18 tenía
+> una rama que no encajaba como ejemplo de "prevención", Q23 tenía una
+> rama que describía un uso CORRECTO pero la premisa fija preguntaba
+> por una violación, Q24 mezclaba una respuesta de tipo texto con una
+> pregunta sí/no y nunca interpolaba el escenario sorteado.
 
 ---
 
@@ -25,7 +31,6 @@ tipo: completar
 respuestas_validas:
   - "reglas generales"
   - "guías de diseño"
-  - "estándares rígidos"
 
 enunciado: "Las heurísticas de Nielsen se definen como ___ que sirven para evaluar la usabilidad de una interfaz."
 
@@ -44,11 +49,12 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  escenarios: [["Una barra de progreso que indica la carga de un archivo", "verdadero"], ["Un botón que no cambia de color al hacer clic", "falso"]]
+  descripciones: ["Una barra de progreso que indica la carga de un archivo", "Un botón que no cambia de color al hacer clic"]
+  resultados: [verdadero, falso]
 
-respuesta: escenarios[caso_idx][1]
-tipo: completar
-enunciado: "En el siguiente caso: '{escenarios[caso_idx][0]}', ¿se está cumpliendo la heurística de 'Visibilidad del estado del sistema'?"
+respuesta: resultados[caso_idx]
+tipo: vf
+enunciado: "En el siguiente caso: '{descripciones[caso_idx]}', ¿se está cumpliendo la heurística de 'Visibilidad del estado del sistema'?"
 
 explicacion: |
   La visibilidad del estado del sistema requiere que el sistema mantenga informado al usuario sobre lo que está sucediendo, mediante retroalimentación apropiada y en un tiempo razonable.
@@ -142,15 +148,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["El sistema pregunta '¿Estás seguro de que quieres borrar este archivo?' antes de ejecutar la acción.", "prevencion"], ["El sistema muestra un mensaje de error después de que el usuario hizo clic en un botón inexistente.", "error_post"]]
+  escenarios: [["El sistema pregunta '¿Estás seguro de que quieres borrar este archivo?' antes de ejecutar la acción.", "correcta"], ["El sistema muestra un mensaje de error después de que el usuario hizo clic en un botón inexistente.", "incorrecta"]]
 
 enunciado: "Analizamos el siguiente caso: {escenarios[escenario_idx][0]}. Según la heurística de 'Prevención de errores', esta acción es: ___"
 
 respuestas_validas:
-  - "correcta"
-  - "incorrecta"
+  - escenarios[escenario_idx][1]
 
-respuesta: "correcta"
+respuesta: escenarios[escenario_idx][1]
 tipo: "completar"
 
 explicacion: |
@@ -188,13 +193,12 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [["Un buscador que muestra los términos de búsqueda recientes justo debajo del campo de texto.", "reconocimiento"], ["Un sistema que obliga al usuario a recordar un código de 8 dígitos que apareció hace 5 pantallas para completar un formulario.", "recuerdo"]]
+  descripciones: ["Un buscador que muestra los términos de búsqueda recientes justo debajo del campo de texto.", "Un sistema que obliga al usuario a recordar un código de 8 dígitos que apareció hace 5 pantallas para completar un formulario."]
+  resultados: [verdadero, falso]
 
-enunciado: "Se presenta el siguiente caso de uso: {casos[caso_idx][0]}. ¿Este diseño favorece el 'Reconocimiento antes que recuerdo'?"
+enunciado: "Se presenta el siguiente caso de uso: {descripciones[caso_idx]}. ¿Este diseño favorece el 'Reconocimiento antes que recuerdo'?"
 
-opciones_explicitas: [verdadero, falso]
-
-respuesta: verdadero
+respuesta: resultados[caso_idx]
 tipo: "vf"
 
 explicacion: |
@@ -252,11 +256,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["Un usuario hace clic en 'Subir archivo' y no aparece ningún indicador de carga.", "falso"], ["Una barra de progreso muestra el avance de una descarga de software.", "verdadero"]]
+  descripciones: ["Un usuario hace clic en 'Subir archivo' y no aparece ningún indicador de carga.", "Una barra de progreso muestra el avance de una descarga de software."]
+  resultados: [falso, verdadero]
 
-respuesta: escenarios[escenario_idx][1]
-tipo: completar
-enunciado: "En el siguiente caso: '{escenarios[escenario_idx][0]}', ¿se está cumpliendo la heurística de 'Visibilidad del estado del sistema'?"
+respuesta: resultados[escenario_idx]
+tipo: vf
+enunciado: "En el siguiente caso: '{descripciones[escenario_idx]}', ¿se está cumpliendo la heurística de 'Visibilidad del estado del sistema'?"
 
 pasos:
   - "Identificar si existe feedback inmediato sobre la acción realizada."
@@ -276,7 +281,7 @@ metadata:
   tags: ["prevencion_errores", "nielsen"]
 
 opciones_explicitas: ["Prevenir el error antes de que ocurra", "Informar sobre el error una vez cometido", "Ambas son correctas y complementarias"]
-respuesta: uno_de(["Prevenir el error antes de que ocurra", "Informar sobre el error una vez cometido", "Ambas son correctas y complementarias"])
+respuesta: "Prevenir el error antes de que ocurra"
 tipo: mc
 
 enunciado: "Según Nielsen, la heurística de 'Prevención de errores' es más efectiva cuando se logra: "
@@ -357,7 +362,7 @@ metadata:
   tags: ["control", "libertad", "nielsen"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
+  escenario_idx: uno_de([0, 1, 2])
   escenarios: ["El usuario hace clic en un enlace por error y necesita volver atrás.", "El usuario está completando un formulario largo y quiere borrar un campo sin reiniciar todo.", "El usuario borró un archivo importante por accidente."]
 
 enunciado: "Considerando el escenario: {escenarios[escenario_idx]}, la heurística de 'Control y libertad del usuario' se aplica mediante la provisión de una función de ___."
@@ -385,7 +390,7 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: ["Mostrar una advertencia antes de que el usuario borre una cuenta.", "Mostrar un mensaje de 'Contraseña incorrecta' después de intentar loguearse."]
+  casos: ["Mostrar una advertencia antes de que el usuario borre una cuenta.", "Deshabilitar el botón de 'Enviar' hasta que todos los campos del formulario estén completos."]
 
 enunciado: "Si la interfaz presenta el caso: {casos[caso_idx]}, está aplicando la heurística de 'Prevención de errores'. Si en su lugar presenta un mensaje explicativo tras un fallo, está aplicando la heurística de: ___."
 
@@ -503,7 +508,7 @@ metadata:
 
 variables:
   elemento_idx: uno_de([0,1])
-  elementos: [["El botón de 'Aceptar' es azul en una pantalla y rojo en la siguiente.", "Consistencia y estándares"], ["El icono de una lupa se usa para 'Buscar' en todo el sitio.", "Consistencia y estándares"]]
+  elementos: [["El botón de 'Aceptar' es azul en una pantalla y rojo en la siguiente.", "Consistencia y estándares"], ["El icono de un sobre se usa para 'Buscar' en vez del icono estándar de lupa.", "Consistencia y estándares"]]
 
 respuesta: elementos[elemento_idx][1]
 tipo: mc
@@ -524,12 +529,8 @@ metadata:
   nivel: "intermedio"
   tags: ["nielsen", "control_libertad"]
 
-variables:
-  accion_idx: uno_de([0,1])
-  acciones: [["El usuario cometió un error y necesita deshacer la última acción.", "true"], ["El usuario quiere salir de un modo de edición sin guardar cambios.", "true"]]
-
-respuesta: acciones[accion_idx][0]
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si un usuario necesita poder 'deshacer' o 'rehacer' acciones para corregir errores accidentales, ¿se está cumpliendo la heurística de 'Control y libertad del usuario'? "
 
 explicacion: |
