@@ -1,6 +1,19 @@
 # Oficios — lectura de planos carpinteria aluminio (cuestionario, 20 preguntas VBLang)
 
-> Tema: `oficios/carpintero-de-aluminio/lectura-de-planos-carpinteria-aluminio`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/carpintero-de-aluminio/lectura-de-planos-carpinteria-aluminio`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q9 pregunta sí/no ("¿cambia la longitud...?")
+> con `respuesta:` numérica (fórmula de otro tipo de pregunta pegada por
+> error), convertida a `tipo: vf` con la respuesta correcta (no cambia);
+> Q14 mezclaba una premisa condicional sorteada con una pregunta final
+> fija no relacionada, simplificado a la pregunta fija directa; Q17
+> enunciado declarativo sin hueco que afirmaba literalmente "la línea
+> horizontal representa un montante" para una de sus dos ramas —
+> fácticamente falso (horizontal = trasversal, no montante) —
+> reescrito con datos correlacionados y un hueco real; Q20 enunciado
+> declarativo sin hueco que ya contenía la palabra "vital" (la propia
+> respuesta) en el texto, se agregó un hueco `___` real; `tipo: input`
+> (alias legacy) normalizado a `completar`.
 
 ---
 
@@ -42,7 +55,7 @@ variables:
   largo_transversal: ancho_exterior - (2 * espesor_perfil) + (2 * holgura)
 
 respuesta: largo_transversal
-tipo: input
+tipo: completar
 
 enunciado: "Si el ancho exterior del hueco es {ancho_exterior} mm, el espesor del perfil es {espesor_perfil} mm y se considera una holgura de {holgura} mm por lado para el ajuste, ¿cuál es la longitud de corte de la trasversal superior del marco fijo?"
 
@@ -66,7 +79,7 @@ variables:
   largo_montante: alto_exterior - (2 * espesor_perfil) + (2 * holgura)
 
 respuesta: largo_montante
-tipo: input
+tipo: completar
 
 enunciado: "Para un hueco de {alto_exterior} mm de alto, con perfiles de {espesor_perfil} mm de espesor y {holgura} mm de holgura por lado, ¿cuánto mide el montante lateral del marco fijo?"
 
@@ -89,7 +102,7 @@ variables:
   cota_real: cota_dibujo * escala
 
 respuesta: cota_real
-tipo: input
+tipo: completar
 
 enunciado: "Si en un plano a escala 1:{escala}, una línea que representa el espesor de un perfil mide {cota_dibujo} mm en el dibujo, ¿cuál es su medida real en milímetros?"
 
@@ -113,7 +126,7 @@ variables:
   ancho_hoja: ancho_hueco - (2 * ancho_marco) - (2 * holgura_bisagra)
 
 respuesta: ancho_hoja
-tipo: input
+tipo: completar
 
 enunciado: "Si el hueco mide {ancho_hueco} mm, el marco fijo tiene {ancho_marco} mm de espesor y se deja una holgura de {holgura_bisagra} mm por lado para las bisagras, ¿cuál es el ancho interior de la hoja batiente?"
 
@@ -137,7 +150,7 @@ variables:
   largo_montante: alto_hueco - (2 * espesor_perfil) + (2 * holgura)
 
 respuesta: largo_montante
-tipo: input
+tipo: completar
 
 enunciado: "En una puerta de {alto_hueco} mm de alto, si el montante intermedio debe tener la misma longitud que los montantes laterales del marco, y el espesor del perfil es {espesor_perfil} mm con {holgura} mm de holgura, ¿cuál es su longitud de corte?"
 
@@ -161,7 +174,7 @@ variables:
   largo_transversal: ancho_hueco - (2 * espesor_perfil) + (2 * holgura)
 
 respuesta: largo_transversal
-tipo: input
+tipo: completar
 
 enunciado: "Para una puerta de {ancho_hueco} mm de ancho, con perfiles de {espesor_perfil} mm y {holgura} mm de holgura, ¿cuál es la longitud de la trasversal inferior del marco?"
 
@@ -185,7 +198,7 @@ variables:
   ancho_hoja: (ancho_hueco - (2 * ancho_marco) - (2 * holgura_rueda)) / 2
 
 respuesta: ancho_hoja
-tipo: input
+tipo: completar
 
 enunciado: "En una puerta corrediza de {ancho_hueco} mm de ancho, con marco de {ancho_marco} mm y holgura de {holgura_rueda} mm por lado para las ruedas, ¿cuál es el ancho de cada hoja (asumiendo 2 hojas iguales)?"
 
@@ -206,10 +219,9 @@ variables:
   alto_hueco: random(2000, 2400)
   espesor_perfil: 60
   holgura: 10
-  largo_montante: alto_hueco - (2 * espesor_perfil) + (2 * holgura)
 
-respuesta: largo_montante
-tipo: input
+respuesta: falso
+tipo: vf
 
 enunciado: "Si un marco tiene una trasversal intermedia a la altura de la manija, ¿cambia la longitud de los montantes laterales respecto a un marco sin ella? (Asumiendo mismo alto de hueco {alto_hueco} mm, espesor {espesor_perfil} mm y holgura {holgura} mm)."
 
@@ -233,7 +245,7 @@ variables:
   largo_transversal: ancho_hueco - (2 * espesor_perfil) + (2 * holgura)
 
 respuesta: largo_transversal
-tipo: input
+tipo: completar
 
 enunciado: "Para un hueco de {ancho_hueco} mm, con perfiles de {espesor_perfil} mm y {holgura} mm de holgura, ¿cuál es la longitud de la trasversal superior del marco fijo?"
 
@@ -257,7 +269,7 @@ variables:
   alto_hoja: alto_hueco - (2 * alto_marco) - (2 * holgura_bisagra)
 
 respuesta: alto_hoja
-tipo: input
+tipo: completar
 
 enunciado: "Si el hueco mide {alto_hueco} mm, el marco tiene {alto_marco} mm de espesor y se deja {holgura_bisagra} mm de holgura por arriba y abajo para las bisagras, ¿cuál es el alto de la hoja batiente?"
 
@@ -280,7 +292,7 @@ variables:
   largo_transversal: ancho_hueco - (2 * espesor_perfil)
 
 respuesta: largo_transversal
-tipo: input
+tipo: completar
 
 enunciado: "Si se instala una trasversal intermedia en un marco de {ancho_hueco} mm de ancho, con espesor de perfil de {espesor_perfil} mm, ¿cuál es su longitud de corte (sin holguras adicionales, asumiendo empalme exacto)?"
 
@@ -319,13 +331,10 @@ metadata:
   nivel: "basico"
   tags: ["montantes", "trasversales", "orientación"]
 
-variables:
-  orientacion: uno_de(["vertical", "horizontal"])
-
 respuesta: "montante"
 tipo: completar
 
-enunciado: "Si en el plano de abertura observamos una pieza con orientación {orientacion}, estamos identificando un montante (si es vertical) o una trasversal (si es horizontal). Complete: Las piezas verticales se llaman:"
+enunciado: "En el plano de abertura, las piezas verticales que soportan la estructura se llaman:"
 
 explicacion: |
   Los montantes son las piezas verticales que soportan la estructura, mientras que las trasversales son las horizontales.
@@ -346,7 +355,7 @@ variables:
   holgura: 10
 
 respuesta: ancho_hueco + " - " + espesor_perfil + " + " + holgura
-tipo: input
+tipo: completar
 
 enunciado: "Si el ancho del hueco es {ancho_hueco} mm, el perfil de trasversal superior se corta restando el espesor del montante ({espesor_perfil} mm) y sumando la holgura ({holgura} mm). Escriba la expresión de cálculo:"
 
@@ -369,7 +378,7 @@ variables:
   holgura: 10
 
 respuesta: alto_hueco + " - " + espesor_perfil + " + " + holgura
-tipo: input
+tipo: completar
 
 enunciado: "Para un hueco de alto {alto_hueco} mm, la longitud del montante lateral se calcula con la expresión (restando espesor {espesor_perfil} y sumando holgura {holgura}):"
 
@@ -387,12 +396,16 @@ metadata:
   tags: ["montante", "trasversal", "identificación"]
 
 variables:
-  linea: uno_de(["vertical", "horizontal"])
+  datos: [["vertical", "montante"], ["horizontal", "trasversal"]]
+  idx: uno_de([0, 1])
 
-respuesta: "montante"
+respuesta: datos[idx][1]
 tipo: completar
+respuestas_validas:
+  - datos[0][1]
+  - datos[1][1]
 
-enunciado: "En el plano de abertura, la línea {linea} representa un montante."
+enunciado: "En el plano de abertura, una línea con orientación {datos[idx][0]} representa un ___."
 
 explicacion: |
   Los montantes son verticales. Las trasversales son horizontales.
@@ -413,7 +426,7 @@ variables:
   holgura: 10
 
 respuesta: ancho_hueco + " - " + espesor_perfil + " + " + holgura
-tipo: input
+tipo: completar
 
 enunciado: "La trasversal inferior tiene la misma longitud que la superior. Para un hueco de {ancho_hueco} mm, con espesor {espesor_perfil} y holgura {holgura}, la expresión es:"
 
@@ -436,7 +449,7 @@ variables:
   holgura: 10
 
 respuesta: alto_hueco + " - " + espesor_perfil + " + " + holgura
-tipo: input
+tipo: completar
 
 enunciado: "Un montante central (si existe) tiene la misma longitud que los laterales. Para un hueco de {alto_hueco} mm, con espesor {espesor_perfil} y holgura {holgura}, la expresión es:"
 
@@ -458,8 +471,13 @@ variables:
 
 respuesta: "vital"
 tipo: completar
+respuestas_validas:
+  - "vital"
+  - "fundamental"
+  - "esencial"
+  - "crucial"
 
-enunciado: "La claridad en la identificación de los {elemento} es vital para saber qué perfil se corta en qué medida."
+enunciado: "La claridad en la identificación de los {elemento} es ___ para saber qué perfil se corta en qué medida."
 
 explicacion: |
   Distinguir montantes de trasversales es esencial para el corte correcto.
