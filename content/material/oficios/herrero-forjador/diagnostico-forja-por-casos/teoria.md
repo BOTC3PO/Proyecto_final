@@ -1,6 +1,6 @@
 # Oficios — Herrero Forjador — Diagnóstico de forja por casos (teoria)
 
-> Tema del MAPA: `OF26.diagnostico-forja-por-casos` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF26.diagnostico-forja-por-casos` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: sin errores factuales encontrados (soldadura de forja, flux de bórax, sobrecalentamiento verificados).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

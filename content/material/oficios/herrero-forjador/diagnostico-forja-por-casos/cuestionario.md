@@ -1,6 +1,21 @@
 # Oficios — diagnostico forja por casos (cuestionario, 43 preguntas VBLang)
 
-> Tema: `oficios/herrero-forjador/diagnostico-forja-por-casos`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/herrero-forjador/diagnostico-forja-por-casos`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: 22 bloques interpolaban la propia
+> variable-respuesta directamente en una oración declarativa sin hueco
+> (autorrevelador), corregidos con hueco `___` real; Q4/Q6/Q12 tenían un
+> valor de relleno que NO coincidía con la respuesta esperada,
+> produciendo texto sin sentido ("...martillado ninguno.", "temperatura
+> y alta.", "...a través de sus herrero_experimental."), corregidas;
+> Q19/Q25/Q28/Q38/Q41 tenían `respuesta: "{expresión}"` entre comillas
+> (bug de interpolación), corregidas; Q22/Q34 eran declarativas que ya
+> mostraban ambos extremos de un rango sin hueco, con una `respuesta`
+> concatenada que no correspondía a ningún blanco, colapsadas a un solo
+> hueco real; Q5 el rango aleatorio de `temp_actual` podía generar
+> valores por encima de 1100°C mientras la respuesta fija asumía
+> siempre "demasiado frío", corregido el rango para garantizar
+> consistencia; `tipo: input` (alias legacy) normalizado a `completar`.
 
 ---
 
@@ -19,7 +34,7 @@ variables:
   temp_final: temp_base + incremento
 
 respuesta: "sobrecalentamiento"
-tipo: input
+tipo: completar
 
 enunciado: "Si un herrero eleva la temperatura de un acero al carbono de {temp_base} °C a {temp_final} °C, acercándose peligrosamente al punto de fusión, ¿qué defecto térmico principal corre riesgo de aparecer?"
 
@@ -40,7 +55,7 @@ variables:
   direccion_fibra: "laminación_previa"
 
 respuesta: "perpendicular"
-tipo: input
+tipo: completar
 
 enunciado: "En ciertos aceros, forjar {direccion_fibra}mente a la dirección de las fibras puede facilitar la apertura de grietas. ¿Qué dirección de forja es la peligrosa en este contexto específico?"
 
@@ -64,7 +79,7 @@ variables:
   temp_max: temp_optima + margen_error
 
 respuesta: temp_min
-tipo: input
+tipo: completar
 
 enunciado: "Si la temperatura óptima para forjar un acero es {temp_optima} °C y se permite un margen de error de ±{margen_error} °C para evitar grietas por frío, ¿cuál es el límite inferior de temperatura seguro?"
 
@@ -81,13 +96,10 @@ metadata:
   nivel: "basico"
   tags: ["soldadura", "definición", "sin relleno"]
 
-variables:
-  material_relleno: "ninguno"
+respuesta: "material de relleno"
+tipo: completar
 
-respuesta: "sin agregar material de relleno"
-tipo: input
-
-enunciado: "La soldadura de forja se define como el proceso de unir dos piezas mediante calor y martillado {material_relleno}."
+enunciado: "La soldadura de forja se define como el proceso de unir dos piezas mediante calor y martillado, sin agregar ___."
 
 explicacion: |
   A diferencia de la soldadura por arco o oxicorte, la soldadura de forja no utiliza varilla o material de aporte externo. La unión se logra puramente por la fusión y compactación de las bases metálicas.
@@ -105,12 +117,12 @@ metadata:
 variables:
   temp_max: random(1250, 1300)
   temp_min: random(900, 1000)
-  temp_actual: random(temp_min, temp_max)
+  temp_actual: random(temp_min, 1099)
 
 respuesta: "demasiado_frío"
-tipo: input
+tipo: completar
 
-enunciado: "Si el rango ideal de forja es entre {temp_min} °C y {temp_max} °C, y la pieza está actualmente a {temp_actual} °C (asumiendo que {temp_actual} es menor que el inicio ideal de 1100 °C), ¿cómo se clasifica el estado térmico?"
+enunciado: "Si el rango ideal de forja es entre {temp_min} °C y {temp_max} °C, y la pieza está actualmente a {temp_actual} °C, por debajo del inicio ideal de 1100 °C, ¿cómo se clasifica el estado térmico?"
 
 explicacion: |
   Si la temperatura está por debajo del rango de trabajo seguro (ej. 1100 °C para muchos aceros), se considera "demasiado frío". Forzar en este estado genera grietas por alta resistencia.
@@ -125,13 +137,10 @@ metadata:
   nivel: "avanzado"
   tags: ["velocidad", "deformación", "grietas"]
 
-variables:
-  velocidad: "alta"
+respuesta: "velocidad de deformación"
+tipo: completar
 
-respuesta: "velocidad_de_deformación"
-tipo: input
-
-enunciado: "Dos factores principales causan grietas: temperatura y {velocidad}. ¿Cuál es el segundo factor crítico mencionado en la teoría?"
+enunciado: "Dos factores principales causan grietas: la temperatura y otro factor relacionado con la rapidez del golpe. ¿Cuál es el segundo factor crítico mencionado en la teoría?"
 
 explicacion: |
   La velocidad de deformación. Un golpe demasiado rápido o una deformación excesiva en un tiempo muy corto puede superar la capacidad del material para fluir, generando grietas.
@@ -152,7 +161,7 @@ variables:
   temp_final: temp_inicial - enfriamiento
 
 respuesta: temp_final
-tipo: input
+tipo: completar
 
 enunciado: "Una pieza se calienta a {temp_inicial} °C. Si se enfría {enfriamiento} °C antes de ser golpeada, ¿cuál es su temperatura actual?"
 
@@ -174,7 +183,7 @@ variables:
   pieza_fria: "B"
 
 respuesta: "temperatura_desigual"
-tipo: input
+tipo: completar
 
 enunciado: "Si la pieza {pieza_caliente} está a 1300 °C y la pieza {pieza_fria} está a 1000 °C, ¿qué defecto térmico impide la soldadura?"
 
@@ -195,7 +204,7 @@ variables:
   proceso: "laminación"
 
 respuesta: "laminación"
-tipo: input
+tipo: completar
 
 enunciado: "La dirección de las fibras del metal corresponde a la dirección en la que fluyen los granos durante el proceso de {proceso} o forja previa."
 
@@ -217,7 +226,7 @@ variables:
   temp_sobrecalentamiento: random(1350, 1450)
 
 respuesta: "sobrecalentamiento"
-tipo: input
+tipo: completar
 
 enunciado: "Si el punto de fusión del acero es 1500 °C y se trabaja a {temp_sobrecalentamiento} °C, ¿qué estado peligroso se ha alcanzado?"
 
@@ -238,7 +247,7 @@ variables:
   causa: "tensión_interna"
 
 respuesta: "tensión_interna"
-tipo: input
+tipo: completar
 
 enunciado: "Forzar la deformación con calor insuficiente genera {causa} que superan la resistencia del metal, provocando grietas."
 
@@ -255,13 +264,10 @@ metadata:
   nivel: "basico"
   tags: ["diagnóstico", "experiencia", "defectos"]
 
-variables:
-  experto: "herrero_experimental"
-
 respuesta: "defectos"
-tipo: input
+tipo: completar
 
-enunciado: "Un herrero experimentado sabe que la pieza 'habla' a través de sus {experto}. ¿Qué es lo que la pieza muestra?"
+enunciado: "Un herrero experimentado sabe que la pieza 'habla' a través de sus ___. ¿Qué es lo que la pieza muestra?"
 
 explicacion: |
   La pieza muestra sus defectos (grietas, fallos de unión). Identificar la causa raíz de estos defectos permite corregir el proceso térmico o mecánico.
@@ -281,7 +287,7 @@ variables:
   temp_actual: random(800, 899)
 
 respuesta: "peligroso"
-tipo: input
+tipo: completar
 
 enunciado: "Si la temperatura mínima segura para forjar es {temp_min_segura} °C y la pieza está a {temp_actual} °C, ¿cómo se clasifica la situación?"
 
@@ -302,7 +308,7 @@ variables:
   impureza: "escoria"
 
 respuesta: "escoria"
-tipo: input
+tipo: completar
 
 enunciado: "La {impureza} que se forma en la superficie debe ser removida o fundida con flux antes de calentar para la soldadura."
 
@@ -324,9 +330,9 @@ variables:
   temp_soldadura: random(1300, 1400)
 
 respuesta: temp_soldadura
-tipo: input
+tipo: completar
 
-enunciado: "Para soldar, la temperatura debe estar cercana al punto de fusión (1500 °C) pero sin fundirse. Si se elige una temperatura de {temp_soldadura} °C, ¿es adecuada para evitar la quema?"
+enunciado: "Para soldar, la temperatura debe estar cercana al punto de fusión (1500 °C) pero sin fundirse. Si se elige una temperatura de ___ °C, ¿es adecuada para evitar la quema?"
 
 explicacion: |
   Sí, si está por debajo del punto de fusión pero alta suficiente para la plasticidad. Sin embargo, debe vigilarse para no acercarse demasiado a los límites de grano que se funden.
@@ -345,7 +351,7 @@ variables:
   direccion_peligrosa: "perpendicular"
 
 respuesta: "perpendicular"
-tipo: input
+tipo: completar
 
 enunciado: "Forjar {direccion_peligrosa}mente a las fibras en ciertos aceros facilita la apertura de grietas. ¿Cuál es esa dirección?"
 
@@ -368,7 +374,7 @@ variables:
   diferencia: temp_pieza1 - temp_pieza2
 
 respuesta: diferencia
-tipo: input
+tipo: completar
 
 enunciado: "Si la pieza A está a {temp_pieza1} °C y la pieza B a {temp_pieza2} °C, ¿cuál es la diferencia de temperatura que puede causar fallo en la soldadura?"
 
@@ -390,7 +396,7 @@ variables:
   temp_actual: random(700, 899)
 
 respuesta: "grieta"
-tipo: input
+tipo: completar
 
 enunciado: "Si la temperatura mínima para forjar es {temp_min_forja} °C y la pieza está a {temp_actual} °C, ¿qué defecto es probable que aparezca al golpear?"
 
@@ -411,8 +417,8 @@ variables:
   temp_base: random(1200, 1300)
   margen_sobrecalentamiento: random(50, 100)
 
-respuesta: "{temp_base + margen_sobrecalentamiento}"
-tipo: input
+respuesta: temp_base + margen_sobrecalentamiento
+tipo: completar
 
 enunciado: "Un acero al carbono tiene su punto de inicio de sobrecalentamiento a {temp_base} °C. Si el herrero supera este límite en {margen_sobrecalentamiento} °C, se produce la 'quema'. ¿A qué temperatura exacta ocurrió el fallo?"
 
@@ -436,7 +442,7 @@ variables:
 respuesta: componentes_flux
 tipo: completar
 
-enunciado: "Para remover el óxido y proteger la superficie del oxígeno antes de calentar para una soldadura, se usa un flux compuesto principalmente por {componentes_flux}. Este funde a una temperatura aproximada de {temp_fusion_flux} °C."
+enunciado: "Para remover el óxido y proteger la superficie del oxígeno antes de calentar para una soldadura, se usa un flux compuesto principalmente por ___. Este funde a una temperatura aproximada de {temp_fusion_flux} °C."
 
 explicacion: |
   El flux (comúnmente bórax y agua) se utiliza porque funde a menor temperatura que el acero. Esto permite limpiar las superficies de óxido y escoria, protegiéndolas del oxígeno atmosférico para que los metales limpios puedan fusionarse.
@@ -458,7 +464,7 @@ variables:
 respuesta: direccion_forjado
 tipo: completar
 
-enunciado: "Forjar {direccion_forjado} a las fibras del metal en ciertos aceros puede facilitar la apertura de grietas, ya que se opone a la dirección natural de los granos cristalinos."
+enunciado: "Forjar ___ a las fibras del metal en ciertos aceros puede facilitar la apertura de grietas, ya que se opone a la dirección natural de los granos cristalinos."
 
 explicacion: |
   La dirección de las fibras (flujo de granos) debe considerarse. Forjar perpendicularmente a estas fibras en ciertos aceros puede facilitar la apertura de grietas, ya que se rompe la continuidad del material en su dirección de mayor resistencia.
@@ -477,10 +483,10 @@ variables:
   tiempo_minimo: random(5, 10)
   tiempo_maximo: random(15, 20)
 
-respuesta: tiempo_minimo + " a " + tiempo_maximo
+respuesta: tiempo_maximo
 tipo: completar
 
-enunciado: "Para que la soldadura de forja prenda correctamente, las piezas deben mantenerse en el punto crítico durante un tiempo adecuado, típicamente entre {tiempo_minimo} y {tiempo_maximo} segundos, dependiendo del grosor."
+enunciado: "Para que la soldadura de forja prenda correctamente, las piezas deben mantenerse en el punto crítico durante un tiempo adecuado, típicamente entre {tiempo_minimo} y ___ segundos, dependiendo del grosor."
 
 explicacion: |
   La falta de tiempo en el punto crítico es una causa frecuente de soldadura fallida. Las superficies deben alcanzar una temperatura homogénea y cercana al punto de fusión sin llegar a fundirse, lo que requiere un tiempo suficiente de mantenimiento térmico.
@@ -501,7 +507,7 @@ variables:
 respuesta: efecto_granos
 tipo: completar
 
-enunciado: "El sobrecalentamiento provoca que los límites de los granos cristalinos experimenten {efecto_granos} o se fundan parcialmente, lo que lleva a la fractura interna al golpear."
+enunciado: "El sobrecalentamiento provoca que los límites de los granos cristalinos experimenten ___ o se fundan parcialmente, lo que lleva a la fractura interna al golpear."
 
 explicacion: |
   El sobrecalentamiento debilita los límites de grano. Al golpear el metal en este estado, no se deforma plásticamente de manera uniforme, sino que se fractura internamente debido a la pérdida de cohesión entre los granos.
@@ -522,7 +528,7 @@ variables:
 respuesta: nombre_tecnica
 tipo: completar
 
-enunciado: "El proceso que consiste en unir dos piezas de metal mediante calor y martillado, sin agregar material de relleno, se denomina {nombre_tecnica}."
+enunciado: "El proceso que consiste en unir dos piezas de metal mediante calor y martillado, sin agregar material de relleno, se denomina ___."
 
 explicacion: |
   La soldadura de forja (o soldadura en caliente) une el metal base mediante calor y presión mecánica (martillado), sin filler. Esto diferencia a esta técnica de la soldadura por arco o gas, que utilizan material de aportación.
@@ -541,8 +547,8 @@ variables:
   resistencia_inicial: random(200, 300)
   factor_aumento: random(1.5, 2.0)
 
-respuesta: "{redondear(resistencia_inicial * factor_aumento, 0)}"
-tipo: input
+respuesta: redondear(resistencia_inicial * factor_aumento, 0)
+tipo: completar
 
 enunciado: "Si la resistencia inicial del metal a deformarse es {resistencia_inicial} MPa y al enfriarse la resistencia aumenta por un factor de {factor_aumento}, ¿cuál es la nueva resistencia que debe superar el herrero para evitar grietas?"
 
@@ -565,7 +571,7 @@ variables:
 respuesta: tipo_barrera
 tipo: completar
 
-enunciado: "Las superficies deben estar limpias porque el {tipo_barrera} actúa como una barrera física que impide la unión directa de los metales."
+enunciado: "Las superficies deben estar limpias porque el ___ actúa como una barrera física que impide la unión directa de los metales."
 
 explicacion: |
   La falta de limpieza es una causa frecuente de soldadura fallida. El óxido, la escoria o la grasa actúan como barrera entre las superficies metálicas, impidiendo que se fusionen incluso a altas temperaturas.
@@ -586,7 +592,7 @@ variables:
 respuesta: accion_martillo
 tipo: completar
 
-enunciado: "El martillado en la soldadura de forja cumple dos funciones principales: {accion_martillo} las superficies para lograr la unión metálica."
+enunciado: "El martillado en la soldadura de forja cumple dos funciones principales: ___ las superficies para lograr la unión metálica."
 
 explicacion: |
   El martillado no solo forma la pieza, sino que en la soldadura sirve para expulsar la escoria residual y forzar la unión íntima de los granos metálicos limpios, permitiendo la difusión atómica.
@@ -605,8 +611,8 @@ variables:
   temp_max_segura: random(1250, 1350)
   temp_real: random(1100, 1200)
 
-respuesta: "{temp_max_segura - temp_real}"
-tipo: input
+respuesta: temp_max_segura - temp_real
+tipo: completar
 
 enunciado: "Si la temperatura máxima segura para forjar es {temp_max_segura} °C y la temperatura actual de la pieza es {temp_real} °C, ¿cuánto margen de calentamiento queda antes de riesgo de sobrecalentamiento?"
 
@@ -629,7 +635,7 @@ variables:
 respuesta: problema
 tipo: completar
 
-enunciado: "Si las piezas se separan antes de que la difusión atómica se complete, la causa probable es la {problema} en el punto crítico."
+enunciado: "Si las piezas se separan antes de que la difusión atómica se complete, la causa probable es la ___ en el punto crítico."
 
 explicacion: |
   La falta de tiempo en el punto crítico es una causa frecuente de soldadura fallida. La unión requiere que las superficies estén a temperatura adecuada durante el tiempo necesario para que los átomos se difundan y creen un enlace sólido.
@@ -650,7 +656,7 @@ variables:
 respuesta: efecto
 tipo: completar
 
-enunciado: "Forjar perpendicularmente a las fibras del metal en ciertos aceros puede {efecto} de grietas, comprometiendo la integridad estructural."
+enunciado: "Forjar perpendicularmente a las fibras del metal en ciertos aceros puede ___ de grietas, comprometiendo la integridad estructural."
 
 explicacion: |
   La dirección de las fibras debe considerarse. Forjar perpendicularmente a estas fibras puede facilitar la apertura de grietas, ya que se opone a la dirección natural de los granos, debilitando la cohesión del material.
@@ -671,7 +677,7 @@ variables:
 respuesta: defecto
 tipo: completar
 
-enunciado: "Cuando los límites de los granos cristalinos se funden parcialmente, el defecto resultante se conoce como {defecto}."
+enunciado: "Cuando los límites de los granos cristalinos se funden parcialmente, el defecto resultante se conoce como ___."
 
 explicacion: |
   La quema es un defecto grave que ocurre cuando el metal se calienta demasiado cerca de su punto de fusión. Los límites de grano se debilitan o funden, causando fractura interna al forjar.
@@ -692,7 +698,7 @@ variables:
 respuesta: causa
 tipo: completar
 
-enunciado: "Forzar la deformación con calor insuficiente genera {causa} que superan la resistencia del metal, provocando grietas repentinas."
+enunciado: "Forzar la deformación con calor insuficiente genera ___ que superan la resistencia del metal, provocando grietas repentinas."
 
 explicacion: |
   Si el metal está demasiado frío, la resistencia al flujo aumenta. Forzar la deformación genera tensiones internas que superan la resistencia del metal, provocando grietas repentinas.
@@ -713,7 +719,7 @@ variables:
 respuesta: requisito
 tipo: completar
 
-enunciado: "Para que la soldadura prenda, es fundamental que las {requisito} estén libres de óxido, escoria o grasa."
+enunciado: "Para que la soldadura prenda, es fundamental que las ___ estén libres de óxido, escoria o grasa."
 
 explicacion: |
   La limpieza superficial es crítica. Cualquier contaminante actúa como barrera para la unión metálica, impidiendo la difusión atómica necesaria para una soldadura fuerte.
@@ -732,10 +738,10 @@ variables:
   temp_min: random(800, 900)
   temp_max: random(1100, 1200)
 
-respuesta: temp_min + " a " + temp_max
+respuesta: temp_max
 tipo: completar
 
-enunciado: "El rango de temperatura de trabajo seguro para muchos aceros al carbono está entre {temp_min} °C y {temp_max} °C, dependiendo del tipo de acero."
+enunciado: "El rango de temperatura de trabajo seguro para muchos aceros al carbono está entre {temp_min} °C y ___ °C, dependiendo del tipo de acero."
 
 explicacion: |
   El herrero debe trabajar dentro de un rango específico. Por debajo, el metal es demasiado resistente; por encima, se sobrecalienta o quema. Este rango varía según la composición del acero.
@@ -756,7 +762,7 @@ variables:
 respuesta: barrera
 tipo: completar
 
-enunciado: "El {barrera} que se forma en la superficie debe ser removido porque actúa como una barrera contra el oxígeno y la unión metálica."
+enunciado: "El ___ que se forma en la superficie debe ser removido porque actúa como una barrera contra el oxígeno y la unión metálica."
 
 explicacion: |
   El óxido (escoria) debe ser removido con flux. Protege la superficie del oxígeno atmosférico y permite que los metales limpios se fusionen durante la soldadura.
@@ -777,7 +783,7 @@ variables:
 respuesta: causa
 tipo: completar
 
-enunciado: "La fractura interna al golpear se debe al {causa} por sobrecalentamiento."
+enunciado: "La fractura interna al golpear se debe al ___ por sobrecalentamiento."
 
 explicacion: |
   El sobrecalentamiento debilita los límites de grano. Al golpear, el material no se deforma uniformemente, sino que se fractura internamente debido a la pérdida de cohesión entre los granos.
@@ -798,7 +804,7 @@ variables:
 respuesta: requisito
 tipo: completar
 
-enunciado: "Ambas superficies deben alcanzar una {requisito} y cercana al punto de fusión, pero sin llegar a fundirse."
+enunciado: "Ambas superficies deben alcanzar una ___ y cercana al punto de fusión, pero sin llegar a fundirse."
 
 explicacion: |
   La homogeneidad térmica es crucial. Si una pieza está más fría que la otra, la unión será débil o fallará, ya que la difusión atómica requiere temperaturas similares en ambos lados.
@@ -817,8 +823,8 @@ variables:
   temp_pieza_a: random(1100, 1200)
   temp_pieza_b: random(1000, 1100)
 
-respuesta: "{abs(temp_pieza_a - temp_pieza_b)}"
-tipo: input
+respuesta: abs(temp_pieza_a - temp_pieza_b)
+tipo: completar
 
 enunciado: "Si la pieza A está a {temp_pieza_a} °C y la pieza B a {temp_pieza_b} °C, ¿cuál es la diferencia de temperatura que puede causar una soldadura fallida?"
 
@@ -841,7 +847,7 @@ variables:
 respuesta: defecto
 tipo: completar
 
-enunciado: "La {defecto} se produce cuando la resistencia al flujo del material aumenta drásticamente por calor insuficiente."
+enunciado: "La ___ se produce cuando la resistencia al flujo del material aumenta drásticamente por calor insuficiente."
 
 explicacion: |
   El frío excesivo aumenta la resistencia del metal. Forzar la deformación en estas condiciones genera tensiones internas que superan la resistencia del metal, provocando grietas.
@@ -862,7 +868,7 @@ variables:
 respuesta: funcion
 tipo: completar
 
-enunciado: "El flux tiene la función de {funcion} las superficies metálicas del oxígeno y limpiar el óxido."
+enunciado: "El flux tiene la función de ___ las superficies metálicas del oxígeno y limpiar el óxido."
 
 explicacion: |
   El flux funde a menor temperatura que el acero, limpiando las superficies y formando una capa protectora contra el oxígeno, permitiendo la fusión de los metales limpios.
@@ -881,8 +887,8 @@ variables:
   tiempo_base: random(10, 15)
   factor_grosor: random(1.5, 2.0)
 
-respuesta: "{redondear(tiempo_base * factor_grosor, 0)}"
-tipo: input
+respuesta: redondear(tiempo_base * factor_grosor, 0)
+tipo: completar
 
 enunciado: "Si el tiempo base de mantenimiento es {tiempo_base} segundos y el grosor de la pieza requiere un factor de {factor_grosor}, ¿cuánto tiempo total se debe mantener la temperatura?"
 
@@ -905,7 +911,7 @@ variables:
 respuesta: causa
 tipo: completar
 
-enunciado: "La grieta puede facilitarse si el forjado se realiza en {causa} a las fibras del metal."
+enunciado: "La grieta puede facilitarse si el forjado se realiza en ___ a las fibras del metal."
 
 explicacion: |
   Forjar perpendicularmente a las fibras en ciertos aceros facilita la apertura de grietas, ya que se opone a la dirección natural de los granos, debilitando la cohesión del material.
@@ -926,7 +932,7 @@ variables:
 respuesta: sintoma
 tipo: completar
 
-enunciado: "El síntoma principal de la quema es la {sintoma} al golpear el metal sobrecalentado."
+enunciado: "El síntoma principal de la quema es la ___ al golpear el metal sobrecalentado."
 
 explicacion: |
   La quema provoca que los límites de grano se debiliten o fundan. Al golpear, el material no se deforma uniformemente, sino que se fractura internamente, comprometiendo la integridad de la pieza.
