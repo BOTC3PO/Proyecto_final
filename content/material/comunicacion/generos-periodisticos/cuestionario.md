@@ -2,12 +2,15 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3 tenía un blank que pedía "obtener ___ de una
+> persona" pero la respuesta correcta describía el FORMATO de la
+> entrevista (no algo que se obtiene) — enunciado reescrito para que
+> coincida gramaticalmente, Q11 aceptaba "subjetiva" como sinónimo
+> válido de "objetiva" (lo opuesto), Q12 usaba una variable booleana
+> fija como respuesta de un `tipo: completar` para una pregunta
+> sí/no, Q19 tenía una variable sorteada nunca usada, Q23 tenía dos
+> blanks con una sola respuesta y `respuestas_validas` sin distinguir
+> cuál palabra iba en cada hueco.
 
 ---
 
@@ -64,7 +67,7 @@ opciones_explicitas: ["Relato cronológico de un evento", "Diálogo entre un ent
 
 respuesta: "Diálogo entre un entrevistador y un entrevistado"
 
-enunciado: "Dependiendo del enfoque, la entrevista puede ser una herramienta para obtener ___ de una persona relevante."
+enunciado: "La entrevista periodística se estructura fundamentalmente como un ___."
 
 explicacion: |
   La entrevista es un género basado en el diálogo con el fin de obtener información, opiniones o testimonios de un personaje.
@@ -229,7 +232,6 @@ respuesta: "objetiva"
 tipo: completar
 respuestas_validas:
   - "objetiva"
-  - "subjetiva"
 
 enunciado: "A diferencia de la crónica o el artículo de opinión, la noticia busca ser una narración ___ de los hechos."
 
@@ -246,11 +248,8 @@ metadata:
   nivel: "intermedio"
   tags: ["cronica", "estilo"]
 
-variables:
-  es_cronica_subjetiva: verdadero
-
-respuesta: es_cronica_subjetiva
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "¿Es la crónica un género que permite al periodista utilizar recursos literarios y aportar su visión personal del evento?"
 
 explicacion: |
@@ -384,9 +383,6 @@ metadata:
   nivel: "intermedio"
   tags: ["opinion", "editorial"]
 
-variables:
-  caso: uno_de([0, 1])
-
 enunciado: "Si el texto de opinión no va firmado por un periodista, sino que representa la postura institucional del medio, estamos ante un ___."
 
 pasos:
@@ -469,15 +465,10 @@ metadata:
   nivel: "basico"
   tags: ["entrevista", "dialogo"]
 
-variables:
-  datos: [["diálogo", "entrevista"], ["relato", "noticia"], ["análisis", "editorial"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "La característica fundamental que define a la ___ es la presencia de un ___ entre el periodista y el entrevistado."
+enunciado: "La característica fundamental que define a la entrevista es la presencia de un ___ entre el periodista y el entrevistado."
 
 respuestas_validas:
   - "diálogo"
-  - "entrevista"
 respuesta: "diálogo"
 tipo: completar
 
