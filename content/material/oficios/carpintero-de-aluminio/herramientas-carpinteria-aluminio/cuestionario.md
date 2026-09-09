@@ -1,6 +1,18 @@
 # Oficios — herramientas carpinteria aluminio (cuestionario, 29 preguntas VBLang)
 
-> Tema: `oficios/carpintero-de-aluminio/herramientas-carpinteria-aluminio`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/carpintero-de-aluminio/herramientas-carpinteria-aluminio`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: 6 bloques (Q17/Q19/Q21/Q23/Q26/Q28) tenían una
+> variable intermedia definida como `"{expresión}"` entre comillas — el
+> motor VBLang no interpola `{var}` fuera de enunciado/explicacion, el
+> valor quedaba literal con llaves — corregidas a la expresión sin
+> comillas; Q15 `respuesta: angulo_total + " - " + angulo_pieza`
+> concatenaba un string de depuración ("90 - 45") en vez de calcular el
+> ángulo restante, corregida a la resta numérica; Q1/Q4/Q5/Q7/Q8/Q10/Q11
+> interpolaban una variable fija directamente en una oración declarativa
+> sin ningún hueco real (autorrevelador), convertidas a un hueco `___`
+> real (Q1 además tenía un sorteo independiente de la respuesta fija,
+> removido); `tipo: input` (alias legacy) normalizado a `completar`.
 
 ---
 
@@ -13,14 +25,13 @@ metadata:
   nivel: "basico"
   tags: ["herramientas", "discos", "carburo"]
 
-variables:
-  material: "aluminio"
-  tipo_disco: uno_de(["carburo de tungsteno", "carburo de wolframio"])
-
 respuesta: "carburo de tungsteno"
 tipo: completar
+respuestas_validas:
+  - "carburo de tungsteno"
+  - "carburo de wolframio"
 
-enunciado: "Para cortar perfiles de {material} sin sobrecalentamiento ni deformación, es crucial utilizar discos de corte fabricados en {tipo_disco} con dientes finos."
+enunciado: "Para cortar perfiles de aluminio sin sobrecalentamiento ni deformación, es crucial utilizar discos de corte fabricados en ___ con dientes finos."
 
 explicacion: |
   El carburo de tungsteno (o wolframio) es el material estándar para discos de corte en aluminio debido a su dureza y resistencia al calor generado por la fricción. Los dientes finos previenen el desgarro del material blando.
@@ -77,13 +88,10 @@ metadata:
   nivel: "intermedio"
   tags: ["fresadora", "rebajes", "ranuras"]
 
-variables:
-  tipo_corte: "rebajes"
-
 respuesta: "rebajes"
 tipo: completar
 
-enunciado: "La fresadora no solo crea ranuras, sino también {tipo_corte} para adaptar los perfiles a componentes como sellos o uniones especiales."
+enunciado: "La fresadora no solo crea ranuras, sino también ___ para adaptar los perfiles a componentes como sellos o uniones especiales."
 
 explicacion: |
   Los rebajes son cavidades superficiales creadas por la fresadora para que ciertos componentes queden a ras o encajen profundamente en el perfil, asegurando un ajuste perfecto y una estética limpia.
@@ -98,13 +106,10 @@ metadata:
   nivel: "basico"
   tags: ["fresadora", "ranuras", "identificacion"]
 
-variables:
-  herramienta: "fresadora"
-
 respuesta: "fresadora"
 tipo: completar
 
-enunciado: "La {herramienta} es la herramienta utilizada para realizar ranuras y ajustes precisos en los perfiles de aluminio, permitiendo la inserción de vidrios y sellos."
+enunciado: "La ___ es la herramienta utilizada para realizar ranuras y ajustes precisos en los perfiles de aluminio, permitiendo la inserción de vidrios y sellos."
 
 explicacion: |
   La fresadora es la herramienta clave para el mecanizado de perfiles, permitiendo crear las guías y cavidades necesarias para el ensamblaje de los componentes del cerramiento.
@@ -140,13 +145,10 @@ metadata:
   nivel: "basico"
   tags: ["remachadora", "union", "identificacion"]
 
-variables:
-  herramienta: "remachadora"
-
 respuesta: "remachadora"
 tipo: completar
 
-enunciado: "Para realizar uniones mecánicas mediante remaches en perfiles de aluminio, se utiliza la {herramienta}."
+enunciado: "Para realizar uniones mecánicas mediante remaches en perfiles de aluminio, se utiliza la ___."
 
 explicacion: |
   La remachadora es la herramienta específica diseñada para deformar y fijar los remaches, creando una unión sólida entre los perfiles de aluminio.
@@ -161,13 +163,10 @@ metadata:
   nivel: "intermedio"
   tags: ["sierra", "calibración", "precisión"]
 
-variables:
-  objetivo: "ensamblaje"
-
 respuesta: "ensamblaje"
 tipo: completar
 
-enunciado: "Verificar el ángulo de corte antes del trabajo definitivo asegura que el {objetivo} final sea exitoso y la instalación tenga calidad."
+enunciado: "Verificar el ángulo de corte antes del trabajo definitivo asegura que el ___ final sea exitoso y la instalación tenga calidad."
 
 explicacion: |
   La calibración previa evita errores acumulados. Si los ángulos son incorrectos, las piezas no encajan durante el ensamblaje, comprometiendo la estanqueidad y la estética del producto final.
@@ -203,13 +202,10 @@ metadata:
   nivel: "intermedio"
   tags: ["remaches", "materiales", "compatibilidad"]
 
-variables:
-  material: "aluminio"
-
 respuesta: "aluminio"
 tipo: completar
 
-enunciado: "Para evitar la corrosión galvánica, los remaches utilizados en perfiles de aluminio deben ser preferiblemente de {material} o acero inoxidable pasivado."
+enunciado: "Para evitar la corrosión galvánica, los remaches utilizados en perfiles de aluminio deben ser preferiblemente de ___ o acero inoxidable pasivado."
 
 explicacion: |
   El uso de remaches del mismo material o compatibles evita la corrosión galvánica, que ocurre cuando dos metales diferentes están en contacto en presencia de un electrolito, debilitando la unión.
@@ -224,13 +220,10 @@ metadata:
   nivel: "basico"
   tags: ["remachadora", "union", "temporal"]
 
-variables:
-  herramienta: "remachadora"
-
 respuesta: "remachadora"
 tipo: completar
 
-enunciado: "La {herramienta} permite realizar uniones mecánicas que pueden ser temporales o permanentes, dependiendo del tipo de remache utilizado."
+enunciado: "La ___ permite realizar uniones mecánicas que pueden ser temporales o permanentes, dependiendo del tipo de remache utilizado."
 
 explicacion: |
   La remachadora es la herramienta versátil que permite fijar distintos tipos de remaches, ofreciendo flexibilidad en el tipo de unión (temporal o permanente) requerida por el diseño.
@@ -306,8 +299,8 @@ variables:
   angulo_total: 90
   angulo_pieza: random(10, 80)
 
-respuesta: angulo_total + " - " + angulo_pieza
-tipo: input
+respuesta: angulo_total - angulo_pieza
+tipo: completar
 
 enunciado: "Si necesitas unir dos perfiles para formar una esquina de {angulo_total} grados, y una pieza ya está cortada a {angulo_pieza} grados, ¿a qué ángulo debe cortarse la otra pieza para completar la unión?"
 
@@ -345,10 +338,10 @@ metadata:
 variables:
   largo_perfil: random_float(1.0, 3.0)
   espaciamiento: 0.5
-  cantidad: "{ceil(largo_perfil / espaciamiento)}"
+  cantidad: ceil(largo_perfil / espaciamiento)
 
 respuesta: cantidad
-tipo: input
+tipo: completar
 
 enunciado: "Si tienes un perfil de {largo_perfil} metros y debes colocar remaches cada {espaciamiento} metros, ¿cuántos remaches necesitas como mínimo para cubrir toda la longitud?"
 
@@ -386,10 +379,10 @@ metadata:
 variables:
   largo_original: random_float(2.0, 4.0)
   ancho_disco: 3
-  largo_final: "{redondear(largo_original - (ancho_disco / 1000), 2)}"
+  largo_final: redondear(largo_original - (ancho_disco / 1000), 2)
 
 respuesta: largo_final
-tipo: input
+tipo: completar
 
 enunciado: "Un perfil de aluminio mide {largo_original} metros. Si el ancho del disco de corte es {ancho_disco} mm y necesitas un corte recto, ¿cuál es la longitud máxima aproximada que puedes obtener restando el ancho del disco?"
 
@@ -427,10 +420,10 @@ metadata:
 variables:
   ancho_perfil: 5
   alto_perfil: 10
-  area: "{ancho_perfil * alto_perfil}"
+  area: ancho_perfil * alto_perfil
 
 respuesta: area
-tipo: input
+tipo: completar
 
 enunciado: "Si el perfil de aluminio tiene un ancho de {ancho_perfil} cm y un alto de {alto_perfil} cm, ¿cuál es el área de la sección transversal que corta la sierra?"
 
@@ -468,10 +461,10 @@ metadata:
 variables:
   angulo_meta: 90
   angulo_cortado: random(15, 75)
-  angulo_restante: "{angulo_meta - angulo_cortado}"
+  angulo_restante: angulo_meta - angulo_cortado
 
 respuesta: angulo_restante
-tipo: input
+tipo: completar
 
 enunciado: "Para formar una esquina de {angulo_meta} grados, si ya cortaste una pieza a {angulo_cortado} grados, ¿cuántos grados debe medir el corte de la otra pieza?"
 
@@ -527,10 +520,10 @@ metadata:
 variables:
   numero_cortes: random(5, 10)
   tiempo_por_corte: 0.5
-  tiempo_total: "{numero_cortes * tiempo_por_corte}"
+  tiempo_total: numero_cortes * tiempo_por_corte
 
 respuesta: tiempo_total
-tipo: input
+tipo: completar
 
 enunciado: "Si cada corte con la sierra de ingletar tarda aproximadamente {tiempo_por_corte} minutos, ¿cuánto tiempo tomarán {numero_cortes} cortes consecutivos?"
 
@@ -569,10 +562,10 @@ variables:
   ancho_perfil: 4
   alto_perfil: 8
   num_cortes: random(3, 6)
-  area_corte: "{ancho_perfil * alto_perfil * num_cortes}"
+  area_corte: ancho_perfil * alto_perfil * num_cortes
 
 respuesta: area_corte
-tipo: input
+tipo: completar
 
 enunciado: "Si cada corte atraviesa un perfil de {ancho_perfil} cm de ancho y {alto_perfil} cm de alto, ¿cuál es el área total de sección transversal cortada en {num_cortes} cortes?"
 
