@@ -1,6 +1,6 @@
 # Oficios — Carpintero De Aluminio — Fundamentos de carpintería de aluminio (teoria)
 
-> Tema del MAPA: `OF23.fundamentos-carpinteria-aluminio` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF23.fundamentos-carpinteria-aluminio` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: sin errores factuales encontrados (historia del aluminio, propiedades físicas y proceso de extrusión verificados).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
