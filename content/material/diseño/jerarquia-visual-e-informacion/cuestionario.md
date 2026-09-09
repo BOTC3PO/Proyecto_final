@@ -2,12 +2,17 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q7 interpolaba un array completo en el
+> enunciado en vez de un solo valor, Q8 sorteaba título/subtítulo/
+> cuerpo de forma independiente (podía producir tamaños fuera de
+> orden), Q11/Q15 usaban una variable booleana fija como respuesta de
+> un `tipo: completar` de texto en vez de `tipo: vf`, Q12 mostraba en
+> el enunciado la etiqueta de la rama contraria a la marcada como
+> correcta, Q17 sorteaba entre una premisa (agrupación) y su opuesto
+> (dispersión) para un enunciado fijo sólo compatible con la primera,
+> Q20 marcaba "mayor" como respuesta válida para una comparación que
+> siempre da "menor" (tamaño X vs 2X), Q21 etiquetaba un botón
+> "Cancelar" secundario como elemento de "alta prioridad".
 
 ---
 
@@ -146,12 +151,7 @@ metadata:
   nivel: "intermedio"
   tags: ["layout", "patrones_de_lectura"]
 
-variables:
-  patron_idx: uno_de([0, 1])
-  patrones: [["F", "Z"], ["Z", "F"]]
-  patron_actual: patrones[patron_idx]
-
-enunciado: "Al diseñar un dashboard con mucha información dispersa, el usuario suele seguir un patrón de escaneo visual. Si estamos diseñando una interfaz con una estructura de bloques horizontales y verticales muy marcados, el patrón más probable es el patrón {patron_actual}."
+enunciado: "Al diseñar un dashboard con mucha información dispersa, el usuario suele seguir un patrón de escaneo visual. Si estamos diseñando una interfaz con una estructura de bloques horizontales y verticales muy marcados, el patrón más probable es el patrón ___."
 
 opciones_explicitas: ["F", "Z"]
 respuesta: "F"
@@ -171,9 +171,11 @@ metadata:
   tags: ["escala", "tipografia"]
 
 variables:
-  titulo_size: uno_de([48, 24, 12])
-  subtitulo_size: uno_de([32, 18, 10])
-  cuerpo_size: uno_de([16, 14, 12])
+  tamanos_idx: uno_de([0, 1, 2])
+  conjuntos: [[48, 32, 16], [36, 24, 14], [60, 40, 20]]
+  titulo_size: conjuntos[tamanos_idx][0]
+  subtitulo_size: conjuntos[tamanos_idx][1]
+  cuerpo_size: conjuntos[tamanos_idx][2]
 
 enunciado: "Para establecer una jerarquía tipográfica clara en un artículo, debemos asignar tamaños distintos a los elementos. Si definimos un título de {titulo_size}px, un subtítulo de {subtitulo_size}px y un cuerpo de {cuerpo_size}px, el orden de importancia visual (de mayor a menor) es:"
 
@@ -237,11 +239,8 @@ metadata:
   nivel: "basico"
   tags: ["jerarquia", "atencion", "error_comun"]
 
-variables:
-  es_efectivo: falso
-
-respuesta: es_efectivo
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si un diseñador aplica el mismo tamaño, color vibrante y peso visual a todos los elementos de una interfaz, ¿se logra establecer una jerarquía visual efectiva para guiar la atención del usuario?"
 
 explicacion: |
@@ -257,16 +256,11 @@ metadata:
   nivel: "intermedio"
   tags: ["patrones_lectura", "f-pattern", "z-pattern"]
 
-variables:
-  patron_idx: uno_de([0, 1])
-  patrones: [["F-Pattern", "Z-Pattern"], ["Z-Pattern", "F-Pattern"]]
-  descripciones: [["lectura densa de texto", "elementos visuales dispersos"]]
-
-respuesta: patrones[patron_idx][0]
+respuesta: "F-Pattern"
 tipo: mc
 opciones_explicitas: ["F-Pattern", "Z-Pattern"]
 
-enunciado: "En una interfaz con mucho contenido textual (como un blog o un artículo), el usuario suele seguir un patrón de escaneo conocido como {patrones[patron_idx][1]}."
+enunciado: "En una interfaz con mucho contenido textual (como un blog o un artículo), el usuario suele seguir un patrón de escaneo conocido como ___."
 
 pasos:
   - "Identificar la densidad de texto."
@@ -337,10 +331,9 @@ metadata:
 variables:
   color_fondo: "blanco"
   color_texto: "gris claro"
-  es_legible: falso
 
-respuesta: es_legible
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si utilizo un texto de color {color_texto} sobre un fondo {color_fondo}, el contraste será muy bajo. ¿Esto ayuda a crear una jerarquía clara y legible?"
 
 explicacion: |
@@ -375,14 +368,10 @@ metadata:
   nivel: "intermedio"
   tags: ["gestalt", "organizacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["elementos agrupados por su función", "crea una unidad visual clara"], ["elementos dispersos sin relación", "genera confusión en la lectura"]]
-
-respuesta: escenarios[escenario_idx][1]
+respuesta: "crea una unidad visual clara"
 tipo: completar
 respuestas_validas:
-  - escenarios[escenario_idx][1]
+  - "crea una unidad visual clara"
 
 enunciado: "Cuando aplicamos el principio de proximidad en una interfaz, si agrupamos elementos que están relacionados, esto ___."
 
@@ -439,14 +428,12 @@ metadata:
 variables:
   valor_escala: uno_de([0, 1])
   tamanos: [10, 50]
-  importancias: ["menor", "mayor"]
 
-respuesta: importancias[valor_escala]
+respuesta: "menor"
 
 tipo: completar
 respuestas_validas:
   - "menor"
-  - "mayor"
 
 enunciado: "En una composición visual, un elemento con un tamaño de {tamanos[valor_escala]}px tiene una importancia visual ___ que uno de {tamanos[valor_escala] * 2}px."
 
@@ -464,9 +451,7 @@ metadata:
   tags: ["ux", "ui", "jerarquia"]
 
 variables:
-  datos: ["Botón de 'Comprar ahora' con color contrastante", "Botón de 'Cancelar' con borde gris"]
-  idx: uno_de([0, 1])
-  elemento_foco: datos[idx]
+  elemento_foco: "Botón de 'Comprar ahora' con color contrastante"
 
 tipo: mc
 opciones_explicitas: ["El elemento con mayor peso visual es el que debe tener la acción principal", "El elemento con menor peso visual debe ser el más llamativo", "Todos los elementos deben tener el mismo peso visual", "El color no influye en la jerarquía"]
