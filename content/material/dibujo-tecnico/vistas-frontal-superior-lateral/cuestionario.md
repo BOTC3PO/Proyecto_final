@@ -2,12 +2,18 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3 tenía una premisa fija (vista "desde un
+> costado") compatible sólo con izquierda/derecha, pero el sorteo
+> podía marcar "frontal" o "superior" como correctas, Q7 sorteaba entre
+> 3 arrays completos de forma incoherente (2 de 3 ramas producían
+> oraciones sin sentido gramatical), Q10 tenía `respuesta: 50` fija
+> pese al sorteo de dimensiones (sólo correcta para una de las 3
+> ramas), Q18/Q22 tenían una premisa/conclusión fija que sólo admite
+> una respuesta pero el sorteo permitía marcar la contraria como
+> correcta, Q23 etiquetaba un cilindro vertical como "circular" en sus
+> vistas frontal/lateral cuando la propia explicación del bloque dice
+> que esas vistas son rectangulares (la forma circular sólo se ve
+> desde arriba).
 
 ---
 
@@ -59,21 +65,14 @@ metadata:
   nivel: "basico"
   tags: ["vistas", "proyeccion"]
 
-variables:
-  escenario: uno_de([["izquierda", "derecha"], ["frontal", "posterior"], ["superior", "inferior"]])
-
 tipo: completar
 respuestas_validas:
   - "izquierda"
   - "derecha"
-  - "frontal"
-  - "posterior"
-  - "superior"
-  - "inferior"
 
-enunciado: "Si el objeto se observa desde un costado, la vista resultante se conoce como vista ___."
+enunciado: "Si el objeto se observa desde un costado, la vista resultante se conoce como vista lateral ___ (indica el lado desde el que se observa)."
 
-respuesta: escenario[0]
+respuesta: "izquierda"
 
 explicacion: |
   Dependiendo de qué lado se elija, la vista lateral puede ser derecha o izquierda, pero siempre se denomina vista lateral.
@@ -149,10 +148,7 @@ metadata:
   nivel: "basico"
   tags: ["cubo", "vistas"]
 
-variables:
-  escenario: uno_de([["frontal", "superior", "lateral"], ["cuadrado", "cuadrado", "cuadrado"], ["visto de frente", "visto desde arriba", "visto de costado"]])
-
-enunciado: "Si tenemos un cubo perfecto, la vista {escenario[2]} será un ___ que representa la cara ___."
+enunciado: "Si tenemos un cubo perfecto, cualquiera de sus tres vistas principales (frontal, superior o lateral) será un ___."
 
 opciones_explicitas: ["cuadrado", "triángulo", "rectángulo"]
 tipo: mc
@@ -212,12 +208,12 @@ metadata:
   tags: ["dimensiones", "proyeccion"]
 
 variables:
-  objeto: uno_de([[10, 5, 2, 20], [15, 8, 3, 30], [12, 6, 4, 25]])
+  objeto: uno_de([[10, 5, 2], [15, 8, 3], [12, 6, 4]])
 
 enunciado: "Un prisma rectangular tiene las siguientes dimensiones: Largo = {objeto[0]}mm, Ancho = {objeto[1]}mm y Alto = {objeto[2]}mm. Si la vista superior muestra el largo y el ancho, ¿cuál es el área de dicha vista?"
 
 tipo: completar
-respuesta: 50
+respuesta: objeto[0] * objeto[1]
 tolerancia_abs: 0.1
 
 pasos:
@@ -384,11 +380,7 @@ metadata:
   nivel: "intermedio"
   tags: ["vistas", "proyeccion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["perfil_izquierdo", "izquierda"], ["perfil_derecho", "derecha"]]
-
-respuesta: escenarios[escenario_idx][1]
+respuesta: "izquierda"
 tipo: mc
 opciones_explicitas: ["izquierda", "derecha", "superior", "frontal"]
 
@@ -474,14 +466,11 @@ metadata:
   nivel: "basico"
   tags: ["vistas", "relacion"]
 
-variables:
-  caso: uno_de([["superior", "frontal"], ["frontal", "lateral"], ["lateral", "superior"]])
-
-enunciado: "Si estamos proyectando un objeto y la vista que estamos dibujando es la vista {caso[0]}, la vista que se encuentra inmediatamente debajo de ella en un sistema de proyección diédrico estándar es la vista ___."
+enunciado: "Si estamos proyectando un objeto y la vista que estamos dibujando es la vista frontal, la vista que se encuentra inmediatamente debajo de ella en un sistema de proyección diédrico estándar es la vista ___."
 
 opciones_explicitas: ["frontal", "lateral", "superior"]
 
-respuesta: caso[1]
+respuesta: "superior"
 tipo: mc
 
 explicacion: |
@@ -498,7 +487,7 @@ metadata:
   tags: ["simetria", "vistas"]
 
 variables:
-  objeto: uno_de([["cilindro_vertical", "circular"], ["cubo_perfecto", "cuadrada"]])
+  objeto: uno_de([["cilindro_vertical", "rectangular"], ["cubo_perfecto", "cuadrada"]])
 
 enunciado: "Para un {objeto[0]}, la vista lateral y la vista frontal presentan la misma forma geométrica, la cual es ___."
 
@@ -508,7 +497,7 @@ respuesta: objeto[1]
 tipo: mc
 
 explicacion: |
-  Un cilindro tiene una sección transversal circular; por lo tanto, sus vistas laterales y frontales (si el eje es vertical) son rectángulos, pero si el eje es horizontal, muestran la forma circular. En este caso, se define la forma de la sección.
+  Un cilindro vertical, visto de frente o de perfil, se ve como un rectángulo (su forma circular solo se aprecia en la vista superior). Un cubo perfecto, en cambio, se ve como un cuadrado desde cualquiera de sus vistas principales.
 ```
 
 ### 24 — Veracidad de proyecciones
