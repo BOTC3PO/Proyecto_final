@@ -2,12 +2,17 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q7 sorteo muerto (variable declarada pero nunca
+> interpolada) removido, Q12 premisa fija ("offset") incompatible con la
+> segunda rama del sorteo ("estabilidad", respuesta sin sentido gramatical
+> ni conceptual) fijada a la única correcta, Q17 boolean-en-completar sin
+> hueco convertido a `tipo: vf`, Q19 enunciado autorrevelador que además
+> era fácticamente incorrecto para su segunda rama (atribuía al
+> derivativo una acción propia del integral) reescrito sin sorteo, Q21
+> premisa fija "si el error es positivo" incompatible con la rama del
+> horno (donde el error es negativo) corregida a una formulación neutra,
+> Q22 sorteo estéril (la descripción nunca se interpolaba y la respuesta
+> era idéntica en las tres ramas) simplificado a respuesta fija.
 
 ---
 
@@ -137,9 +142,6 @@ metadata:
   nivel: "intermedio"
   tags: ["pid", "integral", "offset"]
 
-variables:
-  escenario: uno_de([["error_persistente", "elimina_offset"], ["error_transitorio", "no_hace_nada"]])
-
 enunciado: "Un controlador PID presenta un error de estado estacionario (offset) constante en el setpoint. Para corregir este error acumulado, el término que debe actuar es el ___."
 
 opciones_explicitas: ["Proporcional", "Integral", "Derivativo"]
@@ -239,11 +241,7 @@ metadata:
   nivel: "intermedio"
   tags: ["pid", "integral", "offset"]
 
-variables:
-  datos: [["error constante", "offset"], ["error cero", "estabilidad"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "offset"
 tipo: "mc"
 opciones_explicitas: ["offset", "estabilidad", "oscilacion", "saturacion"]
 
@@ -345,11 +343,8 @@ metadata:
   nivel: "intermedio"
   tags: ["pid", "integral", "error_offset"]
 
-variables:
-  es_integral_mejor: verdadero
-
-respuesta: es_integral_mejor
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "A diferencia del término proporcional, el término integral tiene la capacidad de eliminar el error de estado estacionario (offset) en el sistema."
 
 explicacion: |
@@ -384,15 +379,11 @@ metadata:
   nivel: "avanzado"
   tags: ["pid", "estabilidad", "transitorio"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Aumento brusco de la carga", "el_derivativo_suaviza"], ["Error constante pequeño", "el_integral_corrige"]]
-
-respuesta: escenarios[escenario_idx][1]
+respuesta: "el_derivativo_suaviza"
 tipo: mc
 opciones_explicitas: ["el_derivativo_suaviza", "el_integral_corrige", "el_proporcional_estabiliza"]
 
-enunciado: "Si el sistema experimenta un {escenarios[escenario_idx][0]}, la acción principal del término derivativo es que {escenarios[escenario_idx][1]}."
+enunciado: "Si el sistema experimenta un aumento brusco de la carga, ¿cuál es la acción principal del término derivativo ante ese cambio?"
 
 explicacion: |
   El término derivativo es sensible a la velocidad de cambio; ante un cambio brusco (alta derivada), reacciona rápidamente para contrarrestar la tendencia.
@@ -435,7 +426,7 @@ respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["aumentar", "disminuir", "mantener"]
 
-enunciado: "En un sistema de control, el término Proporcional actúa sobre el error actual. Si el error es positivo (según el escenario: {escenario[0]}), la acción de control debe ser para {escenario[1]} la variable de proceso."
+enunciado: "En un sistema de control, el término Proporcional actúa sobre el error actual. Dado el escenario: {escenario[0]}, la acción de control debe ser {escenario[1]} la variable de proceso."
 
 explicacion: |
   El término proporcional reacciona instantáneamente al error actual. Si hay un error, la acción de control es proporcional a la magnitud de dicho error para intentar llevar el sistema al setpoint.
@@ -450,10 +441,7 @@ metadata:
   nivel: "intermedio"
   tags: ["pid", "integral", "error_offset"]
 
-variables:
-  caso: uno_de([["El error persiste en un valor constante de 5 unidades", "eliminar"], ["El sistema se estabiliza con un error de estado estacionario", "eliminar"], ["La temperatura no alcanza el setpoint por una perturbación", "eliminar"]])
-
-respuesta: caso[1]
+respuesta: "eliminar"
 tipo: mc
 opciones_explicitas: ["aumentar", "eliminar", "amplificar"]
 
