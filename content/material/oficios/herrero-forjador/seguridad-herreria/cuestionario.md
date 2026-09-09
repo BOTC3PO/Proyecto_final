@@ -1,6 +1,21 @@
 # Oficios — seguridad herreria (cuestionario, 35 preguntas VBLang)
 
-> Tema: `oficios/herrero-forjador/seguridad-herreria`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/herrero-forjador/seguridad-herreria`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q5 enunciado literalmente cortado a mitad de
+> palabra ("...si se utilizan com"), completado; Q11 sorteo producía
+> afirmaciones falsas para las ramas no correctas, sorteo removido; Q12-
+> 14 y Q18-19 mostraban las TRES/DOS palabras a completar ya escritas
+> por completo en el propio enunciado sin ningún hueco real, volviendo
+> la pregunta trivial/imposible de fallar aun sabiendo la respuesta
+> equivocada — reescritas cada una con un solo hueco genuino; Q15-17,
+> Q20-27, Q30, Q32, Q34 interpolaban una variable fija en una oración
+> declarativa sin hueco (autorrevelador), corregidas con hueco `___`
+> real; Q28/Q29/Q31/Q33/Q35 (contenido de matemática/física ajeno al
+> tema de seguridad) interpolaban el propio resultado ya calculado
+> directamente en el enunciado, haciendo trivial la respuesta — reescritas
+> como preguntas genuinas sin autorrevelación; `tipo: input` (alias
+> legacy) normalizado a `completar`.
 
 ---
 
@@ -111,7 +126,7 @@ variables:
 respuesta: "gas"
 tipo: mc
 
-enunciado: "El riesgo de incendio y explosión es real en la fragua, especialmente si se utilizan com"
+enunciado: "El riesgo de incendio y explosión es real en la fragua, especialmente si se utilizan combustibles ___."
 
 opciones_explicitas: ["gas", "carbón", "leña", "electricidad"]
 
@@ -243,13 +258,10 @@ metadata:
   nivel: "intermedio"
   tags: ["calidad", "seguridad", "taller"]
 
-variables:
-  consecuencia: uno_de(["afectar la calidad", "mejorar la velocidad", "reducir costos", "aumentar producción"])
-
-respuesta: ["afectar la calidad", "afectar la calidad del trabajo"]
+respuesta: "afectar la calidad"
 tipo: completar
 
-enunciado: "Ignorar los riesgos de seguridad no solo pone en peligro la integridad física, sino que también puede {consecuencia} y la sostenibilidad del taller."
+enunciado: "Ignorar los riesgos de seguridad no solo pone en peligro la integridad física, sino que también puede ___ y la sostenibilidad del taller."
 
 respuestas_validas:
   - "afectar la calidad"
@@ -268,19 +280,13 @@ metadata:
   nivel: "intermedio"
   tags: ["pilares", "seguridad"]
 
-variables:
-  pilar1: "conocimiento de los riesgos"
-  pilar2: "uso correcto del EPP"
-  pilar3: "mantenimiento adecuado"
-
 respuesta: "conocimiento de los riesgos"
 tipo: completar
 
-enunciado: "Los tres pilares de la cultura de seguridad son: {pilar1}, {pilar2} y {pilar3}."
+enunciado: "Los tres pilares de la cultura de seguridad son: ___, uso correcto del EPP y mantenimiento adecuado."
 
 respuestas_validas:
   - "conocimiento de los riesgos"
-  - "conocimiento de los riesgos,"
 
 explicacion: |
   Los pilares son: conocimiento de los riesgos, uso correcto del EPP y mantenimiento adecuado.
@@ -295,19 +301,13 @@ metadata:
   nivel: "intermedio"
   tags: ["pilares", "seguridad"]
 
-variables:
-  pilar1: "conocimiento de los riesgos"
-  pilar2: "uso correcto del EPP"
-  pilar3: "mantenimiento adecuado"
-
 respuesta: "uso correcto del EPP"
 tipo: completar
 
-enunciado: "Los tres pilares de la cultura de seguridad son: {pilar1}, {pilar2} y {pilar3}."
+enunciado: "Los tres pilares de la cultura de seguridad son: conocimiento de los riesgos, ___ y mantenimiento adecuado."
 
 respuestas_validas:
   - "uso correcto del EPP"
-  - "uso correcto del EPP,"
 
 explicacion: |
   Los pilares son: conocimiento de los riesgos, uso correcto del EPP y mantenimiento adecuado.
@@ -322,19 +322,13 @@ metadata:
   nivel: "intermedio"
   tags: ["pilares", "seguridad"]
 
-variables:
-  pilar1: "conocimiento de los riesgos"
-  pilar2: "uso correcto del EPP"
-  pilar3: "mantenimiento adecuado"
-
 respuesta: "mantenimiento adecuado"
 tipo: completar
 
-enunciado: "Los tres pilares de la cultura de seguridad son: {pilar1}, {pilar2} y {pilar3}."
+enunciado: "Los tres pilares de la cultura de seguridad son: conocimiento de los riesgos, uso correcto del EPP y ___."
 
 respuestas_validas:
   - "mantenimiento adecuado"
-  - "mantenimiento adecuado."
 
 explicacion: |
   Los pilares son: conocimiento de los riesgos, uso correcto del EPP y mantenimiento adecuado.
@@ -349,18 +343,13 @@ metadata:
   nivel: "intermedio"
   tags: ["fragua", "riesgos"]
 
-variables:
-  riesgo1: "incendio"
-  riesgo2: "explosión"
-
 respuesta: "incendio"
 tipo: completar
 
-enunciado: "El riesgo de {riesgo1} y {riesgo2} es real en la fragua si no se maneja con rigor."
+enunciado: "El riesgo de ___ y explosión es real en la fragua si no se maneja con rigor."
 
 respuestas_validas:
   - "incendio"
-  - "incendio "
 
 explicacion: |
   Los riesgos principales son incendio y explosión, especialmente con gases.
@@ -375,17 +364,12 @@ metadata:
   nivel: "intermedio"
   tags: ["fragua", "riesgos"]
 
-variables:
-  riesgo1: "incendio"
-  riesgo2: "explosión"
-
 respuesta: "explosión"
 tipo: completar
 
-enunciado: "El riesgo de {riesgo1} y {riesgo2} es real en la fragua si no se maneja con rigor."
+enunciado: "El riesgo de incendio y ___ es real en la fragua si no se maneja con rigor."
 
 respuestas_validas:
-  - "explosión"
   - "explosión"
 
 explicacion: |
@@ -401,14 +385,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ojos", "protección"]
 
-variables:
-  elemento: "gafas de seguridad"
-  filtro: "filtro solar adecuado"
-
 respuesta: "filtro solar adecuado"
 tipo: completar
 
-enunciado: "Las {elemento} deben tener {filtro} para proteger la retina."
+enunciado: "Las gafas de seguridad deben tener ___ para proteger la retina."
 
 respuestas_validas:
   - "filtro solar adecuado"
@@ -427,18 +407,13 @@ metadata:
   nivel: "basico"
   tags: ["guantes", "material"]
 
-variables:
-  material1: "cuero de becerro"
-  material2: "cuero de vacuno"
-
 respuesta: "cuero de becerro"
 tipo: completar
 
-enunciado: "Los guantes de forja son generalmente de {material1} o {material2}."
+enunciado: "Los guantes de forja son generalmente de ___ o cuero de vacuno."
 
 respuestas_validas:
   - "cuero de becerro"
-  - "cuero de becerro "
 
 explicacion: |
   Los guantes suelen ser de cuero de becerro o vacuno por su resistencia y flexibilidad.
@@ -453,17 +428,12 @@ metadata:
   nivel: "basico"
   tags: ["guantes", "material"]
 
-variables:
-  material1: "cuero de becerro"
-  material2: "cuero de vacuno"
-
 respuesta: "cuero de vacuno"
 tipo: completar
 
-enunciado: "Los guantes de forja son generalmente de {material1} o {material2}."
+enunciado: "Los guantes de forja son generalmente de cuero de becerro o ___."
 
 respuestas_validas:
-  - "cuero de vacuno"
   - "cuero de vacuno"
 
 explicacion: |
@@ -479,13 +449,10 @@ metadata:
   nivel: "basico"
   tags: ["riesgos-termicos", "EPP", "quemaduras"]
 
-variables:
-  riesgo_principal: "quemaduras"
-
 respuesta: "quemaduras"
 tipo: completar
 
-enunciado: "En el taller de herrería, el accidente más común y doloroso por exposición al calor radiante y salpicaduras es: {riesgo_principal}."
+enunciado: "En el taller de herrería, el accidente más común y doloroso por exposición al calor radiante y salpicaduras es: ___."
 
 explicacion: |
   Las quemaduras son el riesgo primario en la forja debido al contacto con metal caliente, chispas y calor radiante. El EPP específico (guantes largos, ropa ignífuga) está diseñado para mitigar este riesgo.
@@ -500,14 +467,10 @@ metadata:
   nivel: "basico"
   tags: ["EPP", "guantes", "cuero"]
 
-variables:
-  material: "cuero"
-  tipo_cuero: "becerro o vacuno"
-
 respuesta: "cuero"
 tipo: completar
 
-enunciado: "Los guantes de forja deben ser confeccionados generalmente con {material} (de becerro o vacuno) para proteger muñecas y antebrazos de chispas."
+enunciado: "Los guantes de forja deben ser confeccionados generalmente con ___ (de becerro o vacuno) para proteger muñecas y antebrazos de chispas."
 
 explicacion: |
   El cuero grueso es resistente al calor y no se inflama ni se derrite fácilmente. Los guantes deben ser largos para cubrir las muñecas y antebrazos, zonas vulnerables a las chispas que suben por la manga.
@@ -522,13 +485,10 @@ metadata:
   nivel: "intermedio"
   tags: ["EPP", "ojos", "radiacion"]
 
-variables:
-  tipo_proteccion: "gafas de seguridad con filtro solar"
-
 respuesta: "gafas de seguridad con filtro solar"
 tipo: completar
 
-enunciado: "Cuando se trabaja con el soplete o cerca de la fragua encendida, es indispensable usar {tipo_proteccion} para evitar daños a la retina por radiación infrarroja."
+enunciado: "Cuando se trabaja con el soplete o cerca de la fragua encendida, es indispensable usar ___ para evitar daños a la retina por radiación infrarroja."
 
 explicacion: |
   La radiación infrarroja puede dañar la retina. Las gafas de seguridad con filtro solar adecuado son obligatorias para proteger los ojos en estas situaciones específicas.
@@ -587,13 +547,10 @@ metadata:
   nivel: "basico"
   tags: ["EPP", "ropa", "ignifugo"]
 
-variables:
-  propiedad: "ignífuga"
-
 respuesta: "ignífuga"
 tipo: completar
 
-enunciado: "La ropa de trabajo para herrería debe estar confeccionada con materiales {propiedad} que no se inflamen ni se derritan sobre la piel."
+enunciado: "La ropa de trabajo para herrería debe estar confeccionada con materiales ___ que no se inflamen ni se derritan sobre la piel."
 
 explicacion: |
   Los materiales sintéticos comunes pueden derretirse y adherirse a la piel, causando quemaduras graves. Los materiales ignífugos o cuero grueso son esenciales para la protección térmica.
@@ -631,13 +588,10 @@ metadata:
   nivel: "avanzado"
   tags: ["fragua", "riesgos", "explosion"]
 
-variables:
-  riesgo: "incendio y explosión"
-
 respuesta: "incendio y explosión"
 tipo: completar
 
-enunciado: "El manejo incorrecto de la fragua, especialmente con ciertos combustibles, puede generar un riesgo real de {riesgo}."
+enunciado: "El manejo incorrecto de la fragua, especialmente con ciertos combustibles, puede generar un riesgo real de ___."
 
 explicacion: |
   La fragua es la fuente de calor, pero también de peligros si no se maneja con rigor. El riesgo de incendio y explosión es real, especialmente si se utilizan combustibles inadecuados o hay fugas.
@@ -652,14 +606,10 @@ metadata:
   nivel: "intermedio"
   tags: ["matematicas", "logaritmo", "naturaleza"]
 
-variables:
-  base: "e"
-  nombre_funcion: "log(x)"
-
 respuesta: "log(x)"
-tipo: input
+tipo: completar
 
-enunciado: "En el contexto de cálculos técnicos, ¿qué función representa el logaritmo natural? (Escribe la función DSL: {nombre_funcion})"
+enunciado: "En el contexto de cálculos técnicos aplicados a la forja (ej. transferencia de calor), ¿qué función del DSL representa el logaritmo natural (base e)?"
 
 explicacion: |
   En VBLang y matemáticas avanzadas, `log(x)` se refiere al logaritmo natural (base e). Para base 10 se usa `log10(x)`. Es importante distinguirlos en cálculos de transferencia de calor o eficiencia.
@@ -674,14 +624,10 @@ metadata:
   nivel: "avanzado"
   tags: ["constantes", "fisica", "c"]
 
-variables:
-  constante: "c"
-  valor_aprox: "300000"
-
 respuesta: "300000"
-tipo: input
+tipo: completar
 
-enunciado: "La constante {constante} (velocidad de la luz en km/s) se aproxima a {valor_aprox} en cálculos físicos simplificados."
+enunciado: "En cálculos físicos simplificados de radiación térmica, la constante c (velocidad de la luz) se aproxima a ___ km/s."
 
 explicacion: |
   La constante `c` representa la velocidad de la luz en el vacío. En cálculos de radiación térmica o física aplicada a la forja, es una constante fundamental.
@@ -696,13 +642,10 @@ metadata:
   nivel: "basico"
   tags: ["fragua", "funcion", "corazon"]
 
-variables:
-  funcion: "corazón del taller"
-
 respuesta: "corazón del taller"
 tipo: completar
 
-enunciado: "La fragua es considerada el {funcion} del taller, pero también la fuente de mayores peligros si no se maneja con rigor."
+enunciado: "La fragua es considerada el ___ del taller, pero también la fuente de mayores peligros si no se maneja con rigor."
 
 explicacion: |
   La fragua es central en el proceso de forja, pero su manejo requiere estrictas normas de seguridad debido al riesgo de incendio y explosión.
@@ -723,9 +666,9 @@ variables:
   temp_final: temp_inicial + delta_temp
 
 respuesta: temp_final
-tipo: input
+tipo: completar
 
-enunciado: "Si la temperatura ambiente es {temp_inicial}°C y se añade {delta_temp}°C en la fragua, la temperatura final es {temp_final}°C."
+enunciado: "Si la temperatura ambiente es {temp_inicial}°C y se añade {delta_temp}°C en la fragua, ¿cuál es la temperatura final en °C?"
 
 explicacion: |
   Cálculo simple de temperatura final. En herrería, controlar la temperatura es crucial para la calidad del metal y la seguridad del operario.
@@ -740,13 +683,10 @@ metadata:
   nivel: "basico"
   tags: ["EPP", "guantes", "muñecas"]
 
-variables:
-  zona: "muñecas y antebrazos"
-
 respuesta: "muñecas y antebrazos"
 tipo: completar
 
-enunciado: "Los guantes largos de forja protegen principalmente las {zona} de las chispas que suben por la manga."
+enunciado: "Los guantes largos de forja protegen principalmente las ___ de las chispas que suben por la manga."
 
 explicacion: |
   Las chispas tienden a subir por la manga debido al calor y al movimiento. Los guantes largos cubren esta zona vulnerable, evitando quemaduras en muñecas y antebrazos.
@@ -766,9 +706,9 @@ variables:
   resultado: factorial(n)
 
 respuesta: resultado
-tipo: input
+tipo: completar
 
-enunciado: "Si hay {n} tipos de EPP críticos a inspeccionar, el número de permutaciones posibles de inspección es {resultado}."
+enunciado: "Si hay {n} tipos de EPP críticos a inspeccionar, ¿cuál es el número de permutaciones posibles del orden de inspección?"
 
 explicacion: |
   El factorial de 4 (4!) es 24. Esto representa el número de formas de ordenar la inspección de 4 elementos distintos.
@@ -783,13 +723,10 @@ metadata:
   nivel: "basico"
   tags: ["riesgos", "chispas", "fuego"]
 
-variables:
-  riesgo: "incendio"
-
 respuesta: "incendio"
 tipo: completar
 
-enunciado: "Las chispas voladoras de la forja pueden iniciar un {riesgo} si entran en contacto con materiales inflamables."
+enunciado: "Las chispas voladoras de la forja pueden iniciar un ___ si entran en contacto con materiales inflamables."
 
 explicacion: |
   Las chispas son fuentes de ignición potenciales. Mantener el área libre de materiales inflamables es una medida de seguridad básica para prevenir incendios.
@@ -809,9 +746,9 @@ variables:
   resultado: log10(intensidad)
 
 respuesta: resultado
-tipo: input
+tipo: completar
 
-enunciado: "Si la intensidad del ruido es {intensidad}, el nivel en decibelios (escala logarítmica base 10) es {resultado} dB."
+enunciado: "Si la intensidad del ruido es {intensidad} (en la escala de referencia), ¿cuál es el nivel en decibelios (escala logarítmica base 10)?"
 
 explicacion: |
   `log10(1000)` es 3. En acústica, los decibelios se calculan usando logaritmos base 10. El ruido constante en la herrería requiere protección auditiva.
