@@ -1,13 +1,31 @@
-# Turismo — Planificacion de destino (cuestionario, 28 preguntas VBLang)
+# Turismo — Planificacion de destino (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente (28→25 preguntas): Q2 sorteo del propio booleano
+> para una premisa siempre falsa, convertido a `tipo: vf` fijo; Q3 doble
+> sorteo independiente (nombre de actor y rol elegidos por separado,
+> podían desincronizarse) unificado a un solo índice; Q5 la respuesta
+> repetía la capacidad máxima en vez de calcular 0 visitantes
+> adicionales cuando el flujo ya iguala el límite, corregida; Q8
+> `respuesta: ["mala"]` (lista) corregida a string simple; Q11
+> `respuesta: escenario == "..."` (expresión booleana dependiente de un
+> sorteo ajeno a la pregunta real, que es siempre falsa) reescrita como
+> `tipo: vf` fijo; Q12 sorteo permitía marcar "capacidad_optima" como
+> correcto para una premisa fija que describe inequívocamente un
+> "exceso_de_carga" social, sorteo removido; Q18–21 (originales) eran
+> CUATRO bloques casi idénticos probando el mismo hecho ("primer
+> elemento de un plan"), tres de ellos rotos (doble sorteo sin usar,
+> `respuestas_validas` con los 9 términos de las 3 ramas sin
+> desambiguar, o comentarios de depuración del LM sin resolver
+> admitiendo el problema) — consolidados en un único bloque limpio,
+> bajando el total de 28 a 25 preguntas; Q21 (antes 24) respuesta fija
+> "255" sólo correcta para una de las tres ramas sorteadas, corregida a
+> fórmula dinámica; Q22 (antes 25) sin `respuesta:` explícita y con
+> `respuestas_validas` aceptando "positivo" Y "negativo" a la vez
+> (cualquier respuesta pasaba), corregida a dinámica; Q25 (antes 28)
+> pregunta vf tipeada `completar` con string "verdadero", convertida a
+> `tipo: vf`.
 
 ---
 
@@ -41,11 +59,8 @@ metadata:
   nivel: "basico"
   tags: ["sostenibilidad", "conceptos"]
 
-variables:
-  es_sostenible: uno_de([verdadero, falso])
-
-respuesta: es_sostenible
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Un destino que prioriza el crecimiento económico inmediato de los hoteles, aunque esto implique la destrucción de ecosistemas locales y la expulsión de la población residente, se considera un modelo de turismo sostenible."
 
 explicacion: |
@@ -62,15 +77,14 @@ metadata:
   tags: ["stakeholders", "gestion"]
 
 variables:
+  datos: [["Sector Público", "gestión de infraestructura y normativa"], ["Sector Privado", "oferta de servicios y empleo"], ["Comunidad Local", "preservación de la identidad y cultura"]]
   idx: uno_de([0, 1, 2])
-  actor_nombre: uno_de(["Sector Público", "Sector Privado", "Comunidad Local"])
-  actor_rol: uno_de(["gestión de infraestructura y normativa", "oferta de servicios y empleo", "preservación de la identidad y cultura"])
 
-respuesta: actor_rol
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["gestión de infraestructura y normativa", "oferta de servicios y empleo", "preservación de la identidad y cultura"]
 
-enunciado: "En la gestión de un destino, el rol principal del {actor_nombre} es: ___"
+enunciado: "En la gestión de un destino, el rol principal del {datos[idx][0]} es: ___"
 
 explicacion: |
   Cada actor tiene un papel clave: el Estado regula, las empresas proveen servicios y la comunidad mantiene la esencia del lugar.
@@ -107,7 +121,7 @@ metadata:
 variables:
   valor_capacidad: uno_de([500, 1200, 3000])
 
-respuesta: valor_capacidad
+respuesta: 0
 tipo: completar
 tolerancia_abs: 0
 
@@ -118,7 +132,7 @@ pasos:
   - "Restar la cantidad de visitantes actuales al límite máximo."
 
 explicacion: |
-  La capacidad de carga es el número máximo de personas que pueden visitar un área sin causar daños significativos al entorno o a la experiencia del visitante.
+  La capacidad de carga es el número máximo de personas que pueden visitar un área sin causar daños significativos al entorno o a la experiencia del visitante. Si los visitantes actuales ya igualan la capacidad máxima, no queda margen: 0 visitantes adicionales.
 ```
 
 ### 6 — Gestión de la capacidad de carga
@@ -178,7 +192,7 @@ metadata:
 
 enunciado: "Para medir el impacto ambiental en un destino costero, un planificador debe monitorear la calidad del agua. Si el parámetro de turbidez aumenta significativamente, esto indica una ___ gestión de los residuos o la erosión costera."
 
-respuesta: ["mala"]
+respuesta: "mala"
 tipo: completar
 respuestas_validas:
   - "mala"
@@ -237,11 +251,8 @@ metadata:
   nivel: "intermedio"
   tags: ["sostenibilidad", "capacidad_de_carga"]
 
-variables:
-  escenario: uno_de(["un_lugar_saturado", "un_destino_emergente"])
-
-respuesta: escenario == "un_lugar_saturado"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "En la planificación de destinos, se asume erróneamente que un mayor número de visitantes siempre se traduce en un mayor beneficio neto para la comunidad local. ¿Es esto siempre verdadero?"
 
 explicacion: |
@@ -257,19 +268,14 @@ metadata:
   nivel: "avanzado"
   tags: ["capacidad_de_carga", "gestion"]
 
-variables:
-  caso: uno_de([0, 1])
-  datos: [[150, "exceso_de_carga"], [200, "capacidad_optima"]]
-  idx: caso
-
-respuesta: datos[idx][1]
+respuesta: "exceso_de_carga"
 tipo: mc
 opciones_explicitas: ["capacidad_optima", "exceso_de_carga", "punto_de_equilibrio", "capacidad_de_resiliencia"]
 
 enunciado: "Si un destino alcanza su límite de capacidad de carga social, pero la infraestructura física aún permite recibir más turistas, ¿cuál es el riesgo principal según la planificación sostenible?"
 
 explicacion: |
-  El riesgo es el {datos[idx][1]}. La sostenibilidad no solo es ambiental, sino también social; si la comunidad rechaza al turista, el destino pierde su valor.
+  El riesgo es el exceso de carga (social). La sostenibilidad no solo es ambiental, sino también social; si la comunidad rechaza al turista, el destino pierde su valor.
 ```
 
 ### 13 — Elementos de la gestión sostenible
@@ -304,9 +310,6 @@ metadata:
   tema: "planificacion_de_destino"
   nivel: "intermedio"
   tags: ["desarrollo_local"]
-
-variables:
-  error_comun: uno_de([verdadero, falso])
 
 respuesta: verdadero
 tipo: vf
@@ -392,125 +395,23 @@ metadata:
   nivel: "intermedio"
   tags: ["componentes", "estructura"]
 
-variables:
-  escenario: uno_de([["Infraestructura", "Producto Turístico", "Promoción"], ["Capacidad de Carga", "Gestión de Residuos", "Seguridad Ciudadana"], ["Marketing", "Transporte", "Alojamiento"]])
-
+respuesta: "Infraestructura"
 tipo: completar
 respuestas_validas:
   - "Infraestructura"
-  - "Producto Turístico"
-  - "Promoción"
-  - "Capacidad de Carga"
-  - "Gestión de Residuos"
-  - "Seguridad Ciudadana"
-  - "Marketing"
-  - "Transporte"
-  - "Alojamiento"
 
-enunciado: "En un plan de desarrollo, el primer elemento que se debe definir para asegurar la viabilidad operativa es la {escenario[0]}, seguida por la definición del {escenario[1]} y finalmente la estrategia de {escenario[2]}."
+enunciado: "En un plan de desarrollo, el primer elemento que se debe definir para asegurar la viabilidad operativa es la ___, ya que sin ella no es posible ofrecer un producto turístico ni promocionarlo."
 
 pasos:
-  - "Identificar los elementos físicos y de servicios."
-  - "Definir la oferta de valor para el turista."
-  - "Establecer cómo se comunicará el destino."
-
-respuesta: "Infraestructura" 
-# Nota: Debido a la restricción de la lógica de completar y la estructura de variables, 
-# se ajusta para que la respuesta sea el primer elemento del escenario sorteado.
-# Re-estructurando para cumplir estrictamente la regla de respuesta: tabla[idx][1] o similar.
-```
-
-### 19 — Elementos de la Planificación
-
-```
-metadata:
-  materia: "turismo"
-  tema: "planificacion_de_destino"
-  nivel: "intermedio"
-  tags: ["componentes", "estructura"]
-
-variables:
-  datos: [["Infraestructura", "Producto Turístico", "Promoción"], ["Capacidad de Carga", "Gestión de Residuos", "Seguridad Ciudadana"], ["Marketing", "Transporte", "Alojamiento"]]
-  idx: uno_de([0, 1, 2])
-
-tipo: completar
-respuestas_validas:
-  - "Infraestructura"
-  - "Producto Turístico"
-  - "Promoción"
-  - "Capacidad de Carga"
-  - "Gestión de Residuos"
-  - "Seguridad Ciudadana"
-  - "Marketing"
-  - "Transporte"
-  - "Alojamiento"
-
-enunciado: "En un plan de desarrollo, el primer elemento que se debe definir para asegurar la viabilidad operativa es el ___."
-
-pasos:
-  - "Identificar el elemento físico o de servicios base."
+  - "Identificar los elementos físicos y de servicios base."
+  - "Definir la oferta de valor para el turista (producto turístico)."
+  - "Establecer cómo se comunicará el destino (promoción)."
 
 explicacion: |
-  El primer paso en la planificación física es la infraestructura.
+  El primer paso en la planificación física es la infraestructura (accesos, servicios básicos, alojamiento), base sobre la cual se construyen luego el producto turístico y la estrategia de promoción.
 ```
 
-### 20 — Elementos de la Planificación
-
-```
-metadata:
-  materia: "turismo"
-  tema: "planificacion_de_destino"
-  nivel: "intermedio"
-  tags: ["componentes", "estructura"]
-
-variables:
-  escenario: uno_de([["Infraestructura", "Producto Turístico", "Promoción"], ["Capacidad de Carga", "Gestión de Residuos", "Seguridad Ciudadana"], ["Marketing", "Transporte", "Alojamiento"]])
-  idx: uno_de([0, 1, 2])
-
-tipo: completar
-respuestas_validas:
-  - "Infraestructura"
-  - "Producto Turístico"
-  - "Promoción"
-  - "Capacidad de Carga"
-  - "Gestión de Residuos"
-  - "Seguridad Ciudadana"
-  - "Marketing"
-  - "Transporte"
-  - "Alojamiento"
-
-enunciado: "En un plan de desarrollo, el primer elemento que se debe definir para asegurar la viabilidad operativa es el ___."
-
-explicacion: |
-  La respuesta correcta depende del escenario sorteado.
-```
-
-### 21 — Elementos de la Planificación
-
-```
-metadata:
-  materia: "turismo"
-  tema: "planificacion_de_destino"
-  nivel: "intermedio"
-  tags: ["componentes", "estructura"]
-
-variables:
-  datos: [["Infraestructura", "Infraestructura"], ["Capacidad de Carga", "Capacidad de Carga"], ["Marketing", "Marketing"]]
-  idx: uno_de([0, 1, 2])
-
-tipo: completar
-respuestas_validas:
-  - "Infraestructura"
-  - "Capacidad de Carga"
-  - "Marketing"
-
-enunciado: "En un plan de desarrollo, el primer elemento que se debe definir para asegurar la viabilidad operativa es el ___."
-
-explicacion: |
-  El elemento base es el componente físico o de gestión inicial sorteado.
-```
-
-### 22 — Fases de la Gestión de un Destino
+### 19 — Fases de la Gestión de un Destino
 
 ```
 metadata:
@@ -529,7 +430,7 @@ explicacion: |
 respuesta_orden: ["Diagnóstico de la situación actual", "Diseño del modelo de gestión", "Implementación de acciones", "Evaluación y monitoreo de resultados"]
 ```
 
-### 23 — Planificación Participativa vs. Centralizada
+### 20 — Planificación Participativa vs. Centralizada
 
 ```
 metadata:
@@ -537,9 +438,6 @@ metadata:
   tema: "planificacion_de_destino"
   nivel: "avanzado"
   tags: ["gobernanza", "participacion"]
-
-variables:
-  caso: uno_de([["Top-down", "Bottom-up"], ["Centralizada", "Participativa"]])
 
 tipo: mc
 opciones_explicitas: ["La planificación centralizada involucra a la comunidad en la toma de decisiones, mientras que la participativa es impuesta por el gobierno.", "La planificación participativa (bottom-up) integra a los actores locales, mientras que la centralizada (top-down) es decidida por autoridades sin consulta local.", "Ambas son iguales en su impacto sobre el desarrollo local.", "La planificación participativa solo se aplica en turismo de naturaleza."]
@@ -552,7 +450,7 @@ explicacion: |
   La planificación participativa o 'bottom-up' busca el consenso de los actores locales (vecinos, empresarios, gobierno), mientras que la centralizada es una decisión vertical de las autoridades.
 ```
 
-### 24 — Gestión de capacidad de carga
+### 21 — Gestión de capacidad de carga
 
 ```
 metadata:
@@ -562,10 +460,11 @@ metadata:
   tags: ["sostenibilidad", "capacidad_de_carga"]
 
 variables:
-  datos: [["Parque Nacional", "300"], ["Reserva Costera", "150"], ["Pueblo Colonial", "50"]]
+  nombres: ["Parque Nacional", "Reserva Costera", "Pueblo Colonial"]
+  capacidades: [300, 150, 50]
   idx: uno_de([0, 1, 2])
-  escenario: datos[idx][0]
-  capacidad: datos[idx][1]
+  escenario: nombres[idx]
+  capacidad: capacidades[idx]
 
 enunciado: "Un gestor de destinos debe determinar la capacidad de carga para el {escenario}. Si la capacidad máxima es de {capacidad} visitantes diarios y actualmente hay 45 visitantes, ¿cuántos visitantes más se pueden admitir antes de alcanzar el límite?"
 
@@ -574,18 +473,15 @@ pasos:
   - "Restar la cantidad de visitantes presentes: 45"
   - "Resultado: {capacidad} - 45"
 
-respuestas_validas:
-  - 255
-respuesta: 255
+respuesta: capacidad - 45
 tipo: completar
 tolerancia_abs: 0
 
 explicacion: |
-  La capacidad de carga es el número máximo de personas que pueden visitar un destino sin degradar el entorno. 
-  En este caso: 300 - 45 = 255.
+  La capacidad de carga es el número máximo de personas que pueden visitar un destino sin degradar el entorno: capacidad máxima menos visitantes actuales.
 ```
 
-### 25 — Clasificación de impactos turísticos
+### 22 — Clasificación de impactos turísticos
 
 ```
 metadata:
@@ -600,16 +496,16 @@ variables:
 
 enunciado: "En la planificación de un destino, la ' {impactos[idx][0]} ' se clasifica generalmente como un impacto de tipo: ___ "
 
+respuesta: impactos[idx][1]
 respuestas_validas:
-  - "positivo"
-  - "negativo"
+  - impactos[idx][1]
 tipo: completar
 
 explicacion: |
   Los impactos positivos fomentan el desarrollo local, mientras que los negativos representan costos ambientales o sociales que la planificación debe mitigar.
 ```
 
-### 26 — El modelo de gestión sostenible
+### 23 — El modelo de gestión sostenible
 
 ```
 metadata:
@@ -628,7 +524,7 @@ explicacion: |
   La sostenibilidad se basa en el triple balance: la viabilidad económica, la equidad social y la integridad ambiental.
 ```
 
-### 27 — Etapas del ciclo de vida de un destino
+### 24 — Etapas del ciclo de vida de un destino
 
 ```
 metadata:
@@ -647,7 +543,7 @@ explicacion: |
   El modelo de Butler describe cómo los destinos pasan por diferentes fases de crecimiento, madurez y eventual declive o renovación.
 ```
 
-### 28 — Veracidad de la gestión participativa
+### 25 — Veracidad de la gestión participativa
 
 ```
 metadata:
@@ -658,9 +554,8 @@ metadata:
 
 enunciado: "¿Es verdadero o falso que la planificación participativa implica que las comunidades locales deben ser consultadas y parte activa en la toma de decisiones sobre el desarrollo turístico de su territorio?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   La gestión participativa es clave en el turismo sostenible para asegurar que el beneficio sea distribuido y que la comunidad acepte el modelo de desarrollo.
 ```
