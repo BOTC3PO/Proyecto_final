@@ -2,12 +2,16 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q2/Q17/Q20 usaban variables booleanas fijas o
+> sorteadas como respuesta de un `tipo: completar` para afirmaciones
+> declarativas sin pregunta, Q5 sorteaba entre "milímetros" y "metros"
+> de forma independiente al símbolo mostrado (podía marcar "metros"
+> como correcto, factualmente incorrecto), Q7 tenía una premisa fija
+> que mezclaba las dos reglas de lectura (horizontal/vertical) en una
+> sola oración sin blank real, Q23 era trivialmente autorrevelador
+> (pedía repetir el mismo número ya mostrado), "Línea de auxiliar" se
+> corrigió a "Línea auxiliar" (grafía incorrecta repetida en varios
+> bloques).
 
 ---
 
@@ -40,12 +44,9 @@ metadata:
   nivel: "basico"
   tags: ["elementos", "componentes"]
 
-variables:
-  es_correcta: verdadero
-
-respuesta: es_correcta
-tipo: completar
-enunciado: "En la acotación normalizada, la línea de cota es aquella que contiene el valor numérico y es paralela a la dimensión que se está midiendo."
+respuesta: verdadero
+tipo: vf
+enunciado: "¿Es correcto afirmar que, en la acotación normalizada, la línea de cota es aquella que contiene el valor numérico y es paralela a la dimensión que se está midiendo?"
 
 explicacion: |
   Correcto. La línea de cota es la línea que indica la dimensión, y sobre ella se coloca la cifra de la cota.
@@ -60,15 +61,15 @@ metadata:
   nivel: "basico"
   tags: ["lineas", "normas"]
 
-opciones_explicitas: ["Línea de contorno", "Línea de cota", "Línea de auxiliar", "Línea de referencia"]
-respuesta: "Línea de auxiliar"
+opciones_explicitas: ["Línea de contorno", "Línea de cota", "Línea auxiliar", "Línea de referencia"]
+respuesta: "Línea auxiliar"
 
 tipo: mc
 
 enunciado: "La línea que se traza perpendicularmente a la parte del objeto que se va a acotar, para delimitar el espacio de la cota, se denomina:"
 
 explicacion: |
-  La línea de auxiliar (o de extensión) sirve para separar la línea de cota del contorno del objeto, evitando confusiones.
+  La línea auxiliar (o de extensión) sirve para separar la línea de cota del contorno del objeto, evitando confusiones.
 ```
 
 ### 4 — Orden de lectura de una cota
@@ -80,8 +81,8 @@ metadata:
   nivel: "basico"
   tags: ["proceso", "orden"]
 
-opciones_explicitas: ["Línea de contorno", "Línea de auxiliar", "Línea de cota", "Cifra de la cota"]
-respuesta_orden: ["Línea de contorno", "Línea de auxiliar", "Línea de cota", "Cifra de la cota"]
+opciones_explicitas: ["Línea de contorno", "Línea auxiliar", "Línea de cota", "Cifra de la cota"]
+respuesta_orden: ["Línea de contorno", "Línea auxiliar", "Línea de cota", "Cifra de la cota"]
 tipo: ordenar
 
 enunciado: "Ordene los elementos de una cota estándar desde el objeto hacia el exterior (desde la pieza hacia la cifra):"
@@ -99,18 +100,13 @@ metadata:
   nivel: "basico"
   tags: ["normas", "unidades"]
 
-variables:
-  escenario: uno_de([0, 1])
-  valor_sistema: uno_de(["milímetros", "metros"])
-  valor_simbolo: uno_de(["mm", "m"])
-
-respuesta: valor_sistema
+respuesta: "milímetros"
 
 tipo: mc
 
 opciones_explicitas: ["milímetros", "metros", "centímetros", "pulgadas"]
 
-enunciado: "Según la normativa ISO/UNE, en los dibujos de fabricación mecánica es estándar representar las dimensiones en {valor_sistema} (sin necesidad de escribir el símbolo {valor_simbolo} junto a cada cifra)."
+enunciado: "Según la normativa ISO/UNE, en los dibujos de fabricación mecánica es estándar representar las dimensiones en ___ (sin necesidad de escribir el símbolo mm junto a cada cifra)."
 
 explicacion: |
   En dibujo técnico industrial, el sistema métrico decimal es la norma, siendo el milímetro la unidad más común para evitar errores de escala.
@@ -129,7 +125,6 @@ respuesta: "línea de cota"
 tipo: completar
 respuestas_validas:
   - "línea de cota"
-  - "línea de cota"
 
 enunciado: "La línea que es paralela a la arista o contorno que se desea medir y que contiene la cifra de la medida se denomina ___."
 
@@ -146,17 +141,14 @@ metadata:
   nivel: "basico"
   tags: ["cifras", "orientacion"]
 
-variables:
-  orientacion_vertical: uno_de(["horizontal", "vertical"])
-
-respuesta: "vertical"
+respuesta: "de abajo hacia arriba"
 tipo: mc
-opciones_explicitas: ["horizontal", "vertical", "diagonal", "oblicua"]
+opciones_explicitas: ["de izquierda a derecha", "de abajo hacia arriba"]
 
-enunciado: "Si una cota se sitúa en una línea de cota con orientación {orientacion_vertical}, la cifra de la cota debe leerse de izquierda a derecha o de abajo hacia arriba."
+enunciado: "Si una línea de cota tiene orientación vertical, la cifra de la cota debe leerse principalmente ___."
 
 explicacion: |
-  Según la norma, cuando la línea de cota es vertical, la cifra debe colocarse de modo que se lea desde el lado derecho del plano o de abajo hacia arriba.
+  Según la norma, cuando la línea de cota es vertical, la cifra debe colocarse de modo que se lea de abajo hacia arriba; cuando es horizontal, se lee de izquierda a derecha.
 ```
 
 ### 8 — Componentes de la acotación
@@ -204,9 +196,6 @@ metadata:
   tema: "acotacion_normalizada"
   nivel: "basico"
   tags: ["unidades", "norma_iso"]
-
-variables:
-  unidad_base: uno_de(["mm", "cm", "m"])
 
 respuesta: "mm"
 tipo: mc
@@ -331,8 +320,6 @@ respuesta: "línea de cota"
 tipo: completar
 respuestas_validas:
   - "línea de cota"
-  - "línea de cota"
-  - "línea de cota"
 
 enunciado: "Mientras que la línea de referencia establece los límites de la medición, la ___ es la que contiene la cifra de la cota y las flechas de terminación."
 
@@ -349,12 +336,9 @@ metadata:
   nivel: "intermedio"
   tags: ["acotacion", "normas"]
 
-variables:
-  es_referencia: uno_de([verdadero, falso])
-
-respuesta: es_referencia
-tipo: completar
-enunciado: "En un sistema de acotación normalizado, una cota de referencia es aquella que no lleva flechas ni líneas de extensión, sino que se indica mediante un número entre paréntesis, por ejemplo: (50)."
+respuesta: verdadero
+tipo: vf
+enunciado: "¿Es correcto afirmar que, en un sistema de acotación normalizado, una cota de referencia es aquella que no lleva flechas ni líneas de extensión, sino que se indica mediante un número entre paréntesis, por ejemplo: (50)?"
 
 explicacion: |
   Las cotas de referencia se usan para indicar dimensiones que son necesarias para la fabricación pero que ya están implícitas en otras cotas, evitando la redundancia.
@@ -409,12 +393,9 @@ metadata:
   nivel: "avanzado"
   tags: ["metodologia", "comparacion"]
 
-variables:
-  es_paralelo: uno_de([verdadero, falso])
-
-respuesta: es_paralelo
-tipo: completar
-enunciado: "En la acotación en paralelo (o en conjunto), todas las líneas de cota son paralelas entre sí y las cotas se acumulan desde un mismo punto de origen, a diferencia de la acotación en serie."
+respuesta: verdadero
+tipo: vf
+enunciado: "¿Es correcto afirmar que, en la acotación en paralelo (o en conjunto), todas las líneas de cota son paralelas entre sí y las cotas se acumulan desde un mismo punto de origen, a diferencia de la acotación en serie?"
 
 explicacion: |
   En la acotación en serie, las cotas se colocan una a continuación de otra, lo que puede acumular errores de medición si no es preciso. En la paralela, todas parten de un mismo punto base.
@@ -470,19 +451,18 @@ metadata:
   tags: ["unidades", "normas"]
 
 variables:
-  escenario: uno_de(["150", "45,5", "12"])
+  datos: [["150 mm", "150"], ["45,5 mm", "45,5"], ["12 mm", "12"]]
+  idx: uno_de([0, 1, 2])
 
 tipo: completar
 respuestas_validas:
-  - "150"
-  - "45,5"
-  - "12"
-respuesta: escenario
+  - datos[idx][1]
+respuesta: datos[idx][1]
 
-enunciado: "En un plano de piezas mecánicas estandarizado, una cota indica el valor {escenario} sin unidad de medida escrita junto a la cifra. Según la norma, esa cifra debe interpretarse en milímetros (mm) y se escribe tal cual, sin la unidad: ___."
+enunciado: "En un plano de piezas mecánicas estandarizado, una medición real es de {datos[idx][0]}. Según la norma, en el plano esa cota se escribe sin la unidad, como: ___."
 
 pasos:
-  - "Identificar la cifra de cota en el escenario."
+  - "Identificar la cifra de la medición."
   - "Escribir la cifra exacta sin añadir la unidad 'mm' en el campo de respuesta."
 
 explicacion: |
@@ -499,14 +479,14 @@ metadata:
   tags: ["tipos_linea", "normas"]
 
 variables:
-  orden_lineas: ["Línea de contorno", "Línea de cota", "Línea de auxiliar"]
+  orden_lineas: ["Línea de contorno", "Línea de cota", "Línea auxiliar"]
   idx: uno_de([0, 1, 2])
 
 tipo: completar
 respuestas_validas:
   - "Línea de contorno"
   - "Línea de cota"
-  - "Línea de auxiliar"
+  - "Línea auxiliar"
 respuesta: orden_lineas[idx]
 
 enunciado: "En un esquema de acotación, el orden de importancia visual (de mayor a menor grosor de línea) suele seguir esta jerarquía: 1. ___ , 2. ___ , 3. ___ ."
