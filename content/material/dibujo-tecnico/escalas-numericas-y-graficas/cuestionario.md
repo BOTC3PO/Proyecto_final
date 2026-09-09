@@ -2,12 +2,11 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3/Q17 tenían la clave invertida respecto a su
+> propia explicación ("Correcto"/"Verdadero" pero `respuesta: falso`),
+> Q9/Q17 mezclaban `tipo: completar` con preguntas verdadero/falso,
+> Q12 etiquetaba la rama "1:5" como "el dibujo es 5 veces más grande"
+> cuando en realidad es una reducción (5 veces más pequeño).
 
 ---
 
@@ -62,7 +61,7 @@ metadata:
   nivel: "basico"
   tags: ["escala_natural", "verdadero_falso"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "¿Es cierto que una escala 1:1 representa un objeto en su tamaño real, sin aumentarlo ni reducirlo?"
@@ -150,7 +149,6 @@ metadata:
   tags: ["escala", "ampliacion"]
 
 variables:
-  escala_factor: 5
   escala_str: "5:1"
 
 enunciado: "Un engranaje muy pequeño se representa en un plano con una escala de {escala_str}. ¿Qué significa esto respecto al tamaño del objeto?"
@@ -201,10 +199,8 @@ metadata:
 
 enunciado: "La escala gráfica es una línea graduada dibujada en el plano que permite medir directamente dimensiones reales sin necesidad de realizar cálculos matemáticos. ¿Es esto verdadero o falso?"
 
-opciones_explicitas: ["verdadero", "falso"]
-
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   La escala gráfica es extremadamente útil porque, si el plano se reduce o amplía (por fotocopiado o digitalmente), la escala gráfica se escala proporcionalmente con el dibujo, manteniendo la precisión de la lectura.
 ```
@@ -261,7 +257,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escena: [[ "1:5", "el dibujo es 5 veces más grande que el objeto real" ], [ "5:1", "el dibujo es 5 veces más grande que el objeto real" ]]
+  escena: [[ "1:5", "el dibujo es 5 veces más pequeño que el objeto real" ], [ "5:1", "el dibujo es 5 veces más grande que el objeto real" ]]
 
 respuesta: escena[idx][1]
 tipo: mc
@@ -365,12 +361,9 @@ metadata:
   nivel: "basico"
   tags: ["escalas", "reduccion"]
 
-variables:
-  es_reduccion: falso
-
-respuesta: es_reduccion
-tipo: completar
-enunciado: "En una escala de dibujo técnico, si el valor del denominador es mayor que el valor del numerador (ej. 1:50), estamos ante una escala de reducción."
+respuesta: verdadero
+tipo: vf
+enunciado: "¿Es correcto afirmar que, en una escala de dibujo técnico, si el valor del denominador es mayor que el valor del numerador (ej. 1:50), estamos ante una escala de reducción?"
 
 explicacion: |
   Correcto. En una escala de reducción, el objeto real es más grande que el dibujo, por lo tanto, el número de la derecha (denominador) debe ser mayor.
