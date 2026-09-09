@@ -1,6 +1,6 @@
 # Oficios — Relojero — Materiales de relojería (teoria)
 
-> Tema del MAPA: `OF27.materiales-relojeria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF27.materiales-relojeria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: typo "tricloetileno"→"tricloroetileno"; proponía "hidrocarburos clorados" como alternativa MENOS agresiva al tricloroetileno (que es él mismo un hidrocarburo clorado, contradictorio) — corregido a hidrocarburos alifáticos no clorados.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ Por otro lado, las grasas de alta densidad se reservan para zonas de alta presi�
 
 ## Solventes de limpieza y seguridad
 
-La limpieza es el paso previo indispensable a cualquier lubricación. Los solventes utilizados deben ser de grado técnico, diseñados para disolver la grasa oxidada sin atacar los materiales no metálicos. El tricloetileno fue el estándar durante décadas, pero debido a su toxicidad y impacto ambiental, hoy se utilizan alternativas menos agresivas como los hidrocarburos clorados específicos o soluciones a base de agua para componentes externos. Nunca se deben usar solventes domésticos como acetona o alcohol común en el interior del calibre, ya que pueden disolver el barniz protector de las agujas, dañar los rodamientos de bolas sintetizados o corroer el latón y el acero azulado.
+La limpieza es el paso previo indispensable a cualquier lubricación. Los solventes utilizados deben ser de grado técnico, diseñados para disolver la grasa oxidada sin atacar los materiales no metálicos. El tricloroetileno fue el estándar durante décadas, pero debido a su toxicidad y impacto ambiental, hoy se utilizan alternativas menos agresivas como los hidrocarburos alifáticos (nafta especial para relojería, no clorada) o soluciones a base de agua para componentes externos. Nunca se deben usar solventes domésticos como acetona o alcohol común en el interior del calibre, ya que pueden disolver el barniz protector de las agujas, dañar los rodamientos de bolas sintetizados o corroer el latón y el acero azulado.
 
 La seguridad personal es también parte de la teoría del oficio. Estos productos químicos son inflamables y sus vapores pueden ser nocivos si se inhalan en espacios cerrados. El uso de campanas extractoras, guantes resistentes a químicos y gafas de protección no es opcional, sino una exigencia profesional básica. La limpieza debe realizarse en máquinas ultrasónicas diseñadas para relojería, que utilizan la frecuencia correcta para desprender la suciedad sin dañar los componentes frágiles por vibración excesiva.
 
