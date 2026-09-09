@@ -1,6 +1,6 @@
 # Oficios — Tapicero — Fundamentos de tapicería (teoria)
 
-> Tema del MAPA: `OF21.fundamentos-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF21.fundamentos-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: typo "butca"→"butaca" corregido; regla 3-4-5 (30-40-50 cm) verificada correcta; resto del contenido sin errores factuales.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 La tapicería no se limita a cubrir un mueble con tela bonita; es una disciplina que combina arquitectura, ergonomía y estética. Antes de pensar en los colores o las texturas del tejido, es fundamental entender la estructura interna que sostiene todo el trabajo: el armazón. Este término se refiere al esqueleto del mueble, generalmente de madera, sobre el cual se fijan los materiales de relleno y la tela final. Si esta base es inestable o está mal construida, por más calidad que tenga la tela, el mueble terminará cediendo, haciendo ruidos molestos o deformándose con el tiempo.
 
-Comprender los fundamentos del armazón es crucial porque determina la durabilidad y la funcionalidad del objeto. Un tapicero profesional sabe que el 80% del éxito de una restauración o una creación nueva depende de la solidez de esta estructura. Además, conocer los distintos tipos de armazón permite elegir el material y la técnica adecuados para cada proyecto, ya que no es lo mismo trabajar en un sillón de estilo clásico con patas curvas que en una butca moderna de líneas rectas. La precisión en esta etapa inicial evita retrabajos costosos y asegura que el cliente reciba un producto que resista el uso diario.
+Comprender los fundamentos del armazón es crucial porque determina la durabilidad y la funcionalidad del objeto. Un tapicero profesional sabe que el 80% del éxito de una restauración o una creación nueva depende de la solidez de esta estructura. Además, conocer los distintos tipos de armazón permite elegir el material y la técnica adecuados para cada proyecto, ya que no es lo mismo trabajar en un sillón de estilo clásico con patas curvas que en una butaca moderna de líneas rectas. La precisión en esta etapa inicial evita retrabajos costosos y asegura que el cliente reciba un producto que resista el uso diario.
 
 ## Tipos de armazón y su función
 

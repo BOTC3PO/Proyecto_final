@@ -1,6 +1,6 @@
 # Oficios — Tapicero — Herramientas de tapicería (teoria)
 
-> Tema del MAPA: `OF21.herramientas-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF21.herramientas-tapiceria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: error de concordancia "el tensión"→"la tensión" corregido; resto del contenido sin errores factuales.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ Para lograr un acabado impecable, la grapadora se utiliza en conjunto con los te
 
 ## La costura industrial y la aguja curva
 
-Mientras que la grapadora une la tela a la estructura, la máquina de coser industrial es la encargada de unir las piezas de tela entre sí. A diferencia de las máquinas domésticas, las industriales de tapicería son de puntada recta o de cadena, con motores potentes capaces de atravesar múltiples capas de tela gruesa, cuero o vinilo sin detenerse. Su velocidad y estabilidad permiten realizar costuras largas y uniformes, vitales para la construcción de cojines, respaldos y fundas. El ajuste del tensión del hilo y la selección de la aguja adecuada (generalmente de punta redonda o diamante para no cortar las fibras) son ajustes técnicos que marcan la diferencia entre una costura resistente y una que se rompe fácilmente.
+Mientras que la grapadora une la tela a la estructura, la máquina de coser industrial es la encargada de unir las piezas de tela entre sí. A diferencia de las máquinas domésticas, las industriales de tapicería son de puntada recta o de cadena, con motores potentes capaces de atravesar múltiples capas de tela gruesa, cuero o vinilo sin detenerse. Su velocidad y estabilidad permiten realizar costuras largas y uniformes, vitales para la construcción de cojines, respaldos y fundas. El ajuste de la tensión del hilo y la selección de la aguja adecuada (generalmente de punta redonda o diamante para no cortar las fibras) son ajustes técnicos que marcan la diferencia entre una costura resistente y una que se rompe fácilmente.
 
 En casos donde la máquina industrial no puede acceder, como en costuras profundas o curvas cerradas dentro de un cojín, se utiliza la aguja curva. Esta herramienta manual permite realizar costuras invisibles o de refuerzo en espacios reducidos. La aguja curva facilita el paso del hilo a través de capas de espuma y tela sin necesidad de desmontar la estructura, lo que resulta indispensable para reparaciones o acabados finales donde la máquina no cabe. Su manejo requiere práctica y paciencia, ya que la curvatura obliga a seguir un camino específico, pero ofrece un control manual que la máquina no puede replicar en ciertas situaciones complejas.
 
