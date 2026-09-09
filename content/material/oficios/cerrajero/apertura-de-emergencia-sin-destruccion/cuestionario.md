@@ -1,6 +1,13 @@
 # Oficios — apertura de emergencia sin destruccion (cuestionario, 27 preguntas VBLang)
 
-> Tema: `oficios/cerrajero/apertura-de-emergencia-sin-destruccion`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/cerrajero/apertura-de-emergencia-sin-destruccion`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q1 clave invertida (`respuesta: verdadero`
+> cuando la propia explicación empieza con "No. Aunque el DNI es
+> fundamental, generalmente se requiere además prueba de titularidad...")
+> corregida a `falso`. Las 26 preguntas restantes (todas `tipo: vf`)
+> fueron re-verificadas una por una contra su propia explicación sin
+> encontrar más inconsistencias.
 
 ---
 
@@ -13,11 +20,7 @@ metadata:
   nivel: "basico"
   tags: ["etica", "identidad", "dni"]
 
-variables:
-  tiene_dni: verdadero
-  tiene_contrato: falso
-
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "Para verificar la identidad de un cliente que solicita una apertura de emergencia, ¿es suficiente con mostrar solo el Documento Nacional de Identidad (DNI)?"

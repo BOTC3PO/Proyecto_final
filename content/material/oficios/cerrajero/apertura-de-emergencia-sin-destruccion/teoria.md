@@ -1,6 +1,6 @@
 # Oficios — Cerrajero — Apertura de emergencia sin destrucción (nivel conceptual (teoria)
 
-> Tema del MAPA: `OF25.apertura-de-emergencia-sin-destruccion` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF25.apertura-de-emergencia-sin-destruccion` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: sin errores factuales encontrados.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
