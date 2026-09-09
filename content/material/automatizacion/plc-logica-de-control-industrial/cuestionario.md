@@ -2,12 +2,12 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q7 sorteo con respuesta fija ("Motor_B_OFF")
+> sólo correcta para una de las dos ramas — nombres de motor confundidos
+> con estados en las propias opciones — reescrito sin sorteo con
+> opciones de estado ON/OFF reales; Q16 booleano crudo `{es_industrial}`
+> interpolado en medio de la oración (donde se esperaba el sustantivo
+> "robustez"), reemplazado por un hueco `___` real.
 
 ---
 
@@ -141,16 +141,11 @@ metadata:
   nivel: "intermedio"
   tags: ["seguridad", "logica_digital", "plc"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Motor_A_ON", "Motor_A_OFF"], ["Motor_B_ON", "Motor_B_OFF"]]
-  estados: ["ON", "OFF"]
-
-respuesta: "Motor_B_OFF"
+respuesta: "OFF"
 tipo: mc
-opciones_explicitas: ["Motor_A_ON", "Motor_A_OFF", "Motor_B_ON", "Motor_B_OFF"]
+opciones_explicitas: ["ON", "OFF"]
 
-enunciado: "Se tiene un sistema de enclavamiento eléctrico para evitar que dos motores funcionen simultáneamente. Si el motor {escenarios[escenario_idx][0]} está activo, el PLC debe asegurar que el motor {escenarios[escenario_idx][1]} se mantenga en estado ___."
+enunciado: "Se tiene un sistema de enclavamiento eléctrico para evitar que dos motores funcionen simultáneamente. Si el Motor A está activo (ON), el PLC debe asegurar que el Motor B se mantenga en estado ___."
 
 explicacion: |
   El enclavamiento (interlock) es una medida de seguridad donde la activación de una salida impide la activación de otra, garantizando que procesos incompatibles no ocurran al mismo tiempo.
@@ -337,14 +332,11 @@ metadata:
   nivel: "basico"
   tags: ["hardware", "control"]
 
-variables:
-  es_industrial: verdadero
-
 respuesta: "robustez"
 tipo: mc
 opciones_explicitas: ["velocidad de reloj", "robustez", "tamaño", "costo"]
 
-enunciado: "A diferencia de un microcontrolador convencional, el PLC se distingue principalmente por su {es_industrial} ante entornos con ruido electromagnético y vibraciones."
+enunciado: "A diferencia de un microcontrolador convencional, el PLC se distingue principalmente por su ___ ante entornos con ruido electromagnético y vibraciones."
 
 explicacion: |
   Los PLC están diseñados con hardware industrial para resistir condiciones extremas (temperatura, humedad, ruido eléctrico), mientras que los microcontroladores requieren circuitos de protección adicionales para operar en la misma planta.
