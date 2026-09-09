@@ -1,6 +1,21 @@
 # Oficios — materiales herreria (cuestionario, 28 preguntas VBLang)
 
-> Tema: `oficios/herrero-forjador/materiales-herreria`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/herrero-forjador/materiales-herreria`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q1/Q6 usaban especificadores de formato estilo
+> Python (`{var:.2%}`, `{var:.1f}`) ajenos a la convención real del
+> proyecto (que usa `redondear()`), con un error de escala de 100x en
+> Q1 (el valor 0.01-0.07 mostrado como "%" habría renderizado 1%-7% en
+> vez de 0.01%-0.07%), corregidos a `redondear()` sin especificador; Q3
+> combinaba dos rangos aleatorios con una `respuesta` de texto fija
+> ("0.05% y 2.1%") que nunca podía coincidir con los valores realmente
+> sorteados, simplificado a un hecho fijo con un solo hueco real; Q2/Q4/
+> Q5 sorteaban una palabra ausente de las propias opciones/coherencia de
+> la oración (ej. "viscoso y viscoso", "fundirse o fundirse en los
+> bordes"), sorteos removidos; 22 bloques adicionales interpolaban una
+> variable fija en una oración declarativa sin hueco (autorrevelador),
+> corregidos con hueco `___` real; `tipo: input` (alias legacy)
+> normalizado a `completar`.
 
 ---
 
@@ -14,12 +29,12 @@ metadata:
   tags: ["hierro_dulce", "propiedades_mecanicas"]
 
 variables:
-  carbono: random_float(0.01, 0.07)
+  carbono: redondear(random_float(0.01, 0.07), 2)
 
 respuesta: "bajo"
-tipo: input
+tipo: completar
 
-enunciado: "El hierro dulce se caracteriza por tener un contenido de carbono {carbono:.2%}. ¿Cómo describirías este nivel?"
+enunciado: "El hierro dulce se caracteriza por tener un contenido de carbono de aproximadamente {carbono}%. ¿Cómo describirías este nivel?"
 
 explicacion: |
   El hierro dulce contiene menos del 0.08% de carbono, lo que lo clasifica como de bajo contenido carbónico.
@@ -34,14 +49,11 @@ metadata:
   nivel: "intermedio"
   tags: ["temperatura", "forja"]
 
-variables:
-  estado: uno_de(["blanco", "viscoso"])
-
 respuesta: "blanco"
 tipo: mc
 opciones_explicitas: ["rojo", "blanco", "gris", "negro"]
 
-enunciado: "Al alcanzar la temperatura adecuada de forja, el hierro dulce se vuelve {estado} y viscoso."
+enunciado: "Al alcanzar la temperatura adecuada de forja, el hierro dulce se vuelve ___ y viscoso."
 
 explicacion: |
   El hierro dulce se vuelve blanco y viscoso al calentarse, permitiendo su moldeo.
@@ -56,14 +68,10 @@ metadata:
   nivel: "basico"
   tags: ["acero", "carbono"]
 
-variables:
-  min_c: random_float(0.05, 0.10)
-  max_c: random_float(2.0, 2.1)
+respuesta: "2.1"
+tipo: completar
 
-respuesta: "0.05% y 2.1%"
-tipo: input
-
-enunciado: "El acero al carbono es una aleación de hierro y carbono donde este varía típicamente entre {min_c:.2%} y {max_c:.1%}."
+enunciado: "El acero al carbono es una aleación de hierro y carbono donde este último varía típicamente entre 0.05% y ___% de contenido de carbono."
 
 explicacion: |
   El contenido de carbono en el acero al carbono varía entre 0.05% y 2.1%.
@@ -78,14 +86,11 @@ metadata:
   nivel: "intermedio"
   tags: ["acero", "resistencia"]
 
-variables:
-  propiedad: uno_de(["dureza", "resistencia"])
-
 respuesta: "resistencia"
 tipo: mc
 opciones_explicitas: ["ductilidad", "maleabilidad", "resistencia", "corrosión"]
 
-enunciado: "A diferencia del hierro dulce, el acero al carbono ofrece mayor {propiedad} para herramientas y estructuras."
+enunciado: "A diferencia del hierro dulce, el acero al carbono ofrece mayor ___ para herramientas y estructuras."
 
 explicacion: |
   El acero al carbono es más duro y resistente que el hierro dulce.
@@ -100,13 +105,10 @@ metadata:
   nivel: "intermedio"
   tags: ["hierro_dulce", "defectos"]
 
-variables:
-  riesgo: uno_de(["quemarse", "fundirse"])
-
 respuesta: "quemarse"
-tipo: input
+tipo: completar
 
-enunciado: "Si se sobrecalienta el hierro dulce, puede {riesgo} o fundirse en los bordes."
+enunciado: "Si se sobrecalienta el hierro dulce, puede ___ o fundirse en los bordes."
 
 explicacion: |
   El sobrecalentamiento del hierro dulce puede causar que se queme o funda en los bordes.
@@ -122,12 +124,12 @@ metadata:
   tags: ["hierro_dulce", "enfriamiento"]
 
 variables:
-  contraccion: random_float(1.0, 1.5)
+  contraccion: redondear(random_float(1.0, 1.5), 1)
 
 respuesta: "más"
-tipo: input
+tipo: completar
 
-enunciado: "Al enfriarse, el hierro dulce tiende a contraerse {contraccion:.1f} veces más que otros aceros."
+enunciado: "Al enfriarse, el hierro dulce tiende a contraerse {contraccion} veces ___ que otros aceros."
 
 explicacion: |
   El hierro dulce se contrae más que otros aceros al enfriarse, afectando ajustes y uniones.
@@ -142,13 +144,10 @@ metadata:
   nivel: "basico"
   tags: ["hierro_dulce", "calidad"]
 
-variables:
-  textura: "fibrosa"
-
 respuesta: "fibrosa"
-tipo: input
+tipo: completar
 
-enunciado: "La textura {textura}, visible al fracturar el hierro, es señal de su calidad."
+enunciado: "La textura ___, visible al fracturar el hierro, es señal de su calidad."
 
 explicacion: |
   La textura fibrosa es una característica distintiva del hierro dulce de calidad.
@@ -163,13 +162,10 @@ metadata:
   nivel: "basico"
   tags: ["hierro_dulce", "aplicaciones"]
 
-variables:
-  uso: "decorativo"
-
 respuesta: "decorativo"
-tipo: input
+tipo: completar
 
-enunciado: "El hierro dulce es ideal para piezas {uso} que requieren dobles y curvas complejas."
+enunciado: "El hierro dulce es ideal para piezas ___ que requieren dobles y curvas complejas."
 
 explicacion: |
   El hierro dulce es preferido para trabajos decorativos por su ductilidad.
@@ -184,13 +180,10 @@ metadata:
   nivel: "intermedio"
   tags: ["hierro_dulce", "corrosión"]
 
-variables:
-  resistencia: "alta"
-
 respuesta: "alta"
-tipo: input
+tipo: completar
 
-enunciado: "El hierro dulce tiene una resistencia a la corrosión {resistencia} comparado con otros metales ferrosos."
+enunciado: "El hierro dulce tiene una resistencia a la corrosión ___ comparado con otros metales ferrosos."
 
 explicacion: |
   El hierro dulce resiste mejor la corrosión que otros metales ferrosos.
@@ -205,13 +198,10 @@ metadata:
   nivel: "intermedio"
   tags: ["acero", "deformación"]
 
-variables:
-  energia: "más"
-
 respuesta: "más"
-tipo: input
+tipo: completar
 
-enunciado: "El acero al carbono requiere {energia} energía para ser deformado en la forja."
+enunciado: "El acero al carbono requiere ___ energía para ser deformado en la forja."
 
 explicacion: |
   El acero es más duro y requiere más energía para deformarse que el hierro dulce.
@@ -226,13 +216,10 @@ metadata:
   nivel: "basico"
   tags: ["hierro_dulce", "maleabilidad"]
 
-variables:
-  propiedad: "maleable"
-
 respuesta: "maleable"
-tipo: input
+tipo: completar
 
-enunciado: "El hierro dulce es notablemente dúctil y {propiedad}."
+enunciado: "El hierro dulce es notablemente dúctil y ___."
 
 explicacion: |
   La maleabilidad permite deformar el hierro dulce sin romperlo.
@@ -247,13 +234,10 @@ metadata:
   nivel: "basico"
   tags: ["acero", "aleación"]
 
-variables:
-  componentes: "hierro y carbono"
-
 respuesta: "hierro y carbono"
-tipo: input
+tipo: completar
 
-enunciado: "El acero al carbono es una aleación de {componentes}."
+enunciado: "El acero al carbono es una aleación de ___."
 
 explicacion: |
   El acero al carbono está compuesto principalmente de hierro y carbono.
@@ -268,13 +252,10 @@ metadata:
   nivel: "intermedio"
   tags: ["hierro_dulce", "carbono"]
 
-variables:
-  limite: "0.08%"
-
 respuesta: "0.08%"
-tipo: input
+tipo: completar
 
-enunciado: "El hierro dulce contiene generalmente menos del {limite} de carbono."
+enunciado: "El hierro dulce contiene generalmente menos del ___ de carbono."
 
 explicacion: |
   El límite superior de carbono para el hierro dulce es 0.08%.
@@ -289,13 +270,10 @@ metadata:
   nivel: "basico"
   tags: ["hierro_dulce", "acabado"]
 
-variables:
-  acabado: "pulidos"
-
 respuesta: "pulidos"
-tipo: input
+tipo: completar
 
-enunciado: "El hierro dulce puede recibir acabados {acabado} de alta calidad."
+enunciado: "El hierro dulce puede recibir acabados ___ de alta calidad."
 
 explicacion: |
   El hierro dulce permite obtener acabados pulidos brillantes.
@@ -310,13 +288,10 @@ metadata:
   nivel: "intermedio"
   tags: ["acero", "aplicaciones"]
 
-variables:
-  uso: "herramientas"
-
 respuesta: "herramientas"
-tipo: input
+tipo: completar
 
-enunciado: "El acero al carbono es adecuado para fabricar {uso} que soportan cargas pesadas."
+enunciado: "El acero al carbono es adecuado para fabricar ___ que soportan cargas pesadas."
 
 explicacion: |
   El acero es ideal para herramientas estructurales por su resistencia.
@@ -331,13 +306,10 @@ metadata:
   nivel: "avanzado"
   tags: ["hierro_dulce", "control"]
 
-variables:
-  control: "preciso"
-
 respuesta: "preciso"
-tipo: input
+tipo: completar
 
-enunciado: "La ductilidad del hierro dulce requiere un control de temperatura {control}."
+enunciado: "La ductilidad del hierro dulce requiere un control de temperatura ___."
 
 explicacion: |
   El control preciso es vital para evitar defectos en el hierro dulce.
@@ -352,13 +324,10 @@ metadata:
   nivel: "intermedio"
   tags: ["hierro_dulce", "integridad"]
 
-variables:
-  integridad: "estructural"
-
 respuesta: "estructural"
-tipo: input
+tipo: completar
 
-enunciado: "Sobrecalentar el hierro puede perder su integridad {integridad}."
+enunciado: "Sobrecalentar el hierro puede perder su integridad ___."
 
 explicacion: |
   La integridad estructural se pierde si el hierro se sobrecalienta.
@@ -373,13 +342,10 @@ metadata:
   nivel: "intermedio"
   tags: ["acero", "propiedades"]
 
-variables:
-  propiedad: "dureza"
-
 respuesta: "dureza"
-tipo: input
+tipo: completar
 
-enunciado: "El acero es más {propiedad} pero menos dúctil que el hierro a temperatura ambiente."
+enunciado: "El acero es más ___ pero menos dúctil que el hierro a temperatura ambiente."
 
 explicacion: |
   El acero gana dureza a costa de la ductilidad en frío.
@@ -394,13 +360,10 @@ metadata:
   nivel: "basico"
   tags: ["hierro_dulce", "fractura"]
 
-variables:
-  señal: "textura"
-
 respuesta: "textura"
-tipo: input
+tipo: completar
 
-enunciado: "La {señal} visible al fracturar indica la pureza del hierro."
+enunciado: "La ___ visible al fracturar indica la pureza del hierro."
 
 explicacion: |
   La textura de la fractura revela la calidad del material.
@@ -415,13 +378,10 @@ metadata:
   nivel: "basico"
   tags: ["combustibles", "fragua"]
 
-variables:
-  combustible: "carbón"
-
 respuesta: "carbón"
-tipo: input
+tipo: completar
 
-enunciado: "Los combustibles tradicionales para alimentar la fragua incluyen el {combustible}."
+enunciado: "Los combustibles tradicionales para alimentar la fragua incluyen el ___."
 
 explicacion: |
   El carbón es un combustible común en la forja tradicional.
@@ -436,13 +396,10 @@ metadata:
   nivel: "avanzado"
   tags: ["filosofía", "técnica"]
 
-variables:
-  acción: "anticipando"
-
 respuesta: "anticipando"
-tipo: input
+tipo: completar
 
-enunciado: "Conocer los materiales permite al artesano {acción} cómo reaccionará al calor."
+enunciado: "Conocer los materiales permite al artesano ___ cómo reaccionará al calor."
 
 explicacion: |
   El conocimiento permite anticipar el comportamiento del metal.
@@ -457,13 +414,10 @@ metadata:
   nivel: "basico"
   tags: ["hierro_dulce", "historia"]
 
-variables:
-  material: "hierro dulce"
-
 respuesta: "hierro dulce"
-tipo: input
+tipo: completar
 
-enunciado: "Históricamente, el {material} ha sido el material por excelencia de la herrería artística."
+enunciado: "Históricamente, el ___ ha sido el material por excelencia de la herrería artística."
 
 explicacion: |
   El hierro dulce es el material histórico por defecto para la herrería artística.
@@ -478,13 +432,10 @@ metadata:
   nivel: "basico"
   tags: ["hierro_dulce", "deformación"]
 
-variables:
-  condición: "sin romperse"
-
 respuesta: "sin romperse"
-tipo: input
+tipo: completar
 
-enunciado: "La ductilidad permite deformar el hierro {condición}."
+enunciado: "La ductilidad permite deformar el hierro ___."
 
 explicacion: |
   La ductilidad es la capacidad de deformarse sin fracturarse.
@@ -499,13 +450,10 @@ metadata:
   nivel: "intermedio"
   tags: ["acero", "cargas"]
 
-variables:
-  resistencia: "pesadas"
-
 respuesta: "pesadas"
-tipo: input
+tipo: completar
 
-enunciado: "El acero ofrece resistencia para estructuras que soportan cargas {resistencia}."
+enunciado: "El acero ofrece resistencia para estructuras que soportan cargas ___."
 
 explicacion: |
   El acero es adecuado para cargas pesadas debido a su resistencia.
@@ -520,13 +468,10 @@ metadata:
   nivel: "avanzado"
   tags: ["hierro_dulce", "uniones"]
 
-variables:
-  ajuste: "medida"
-
 respuesta: "medida"
-tipo: input
+tipo: completar
 
-enunciado: "La contracción del hierro dulce debe tenerse en cuenta al realizar uniones o ajustes de {ajuste}."
+enunciado: "La contracción del hierro dulce debe tenerse en cuenta al realizar uniones o ajustes de ___."
 
 explicacion: |
   La contracción afecta las medidas finales en las uniones.
@@ -541,13 +486,10 @@ metadata:
   nivel: "intermedio"
   tags: ["temperatura", "forja"]
 
-variables:
-  estado: "viscoso"
-
 respuesta: "viscoso"
-tipo: input
+tipo: completar
 
-enunciado: "A temperatura de forja, el hierro dulce se vuelve blanco y {estado}."
+enunciado: "A temperatura de forja, el hierro dulce se vuelve blanco y ___."
 
 explicacion: |
   La viscosidad permite el moldeo en la fragua.
@@ -562,13 +504,10 @@ metadata:
   nivel: "intermedio"
   tags: ["acero", "versatilidad"]
 
-variables:
-  propiedad: "versatilidad"
-
 respuesta: "versatilidad"
-tipo: input
+tipo: completar
 
-enunciado: "El acero al carbono combina resistencia y {propiedad}."
+enunciado: "El acero al carbono combina resistencia y ___."
 
 explicacion: |
   El acero es versátil para múltiples aplicaciones.
@@ -583,13 +522,10 @@ metadata:
   nivel: "avanzado"
   tags: ["defectos", "calor"]
 
-variables:
-  defecto: "quemarse"
-
 respuesta: "quemarse"
-tipo: input
+tipo: completar
 
-enunciado: "Un defecto común por sobrecalentamiento es que el metal puede {defecto}."
+enunciado: "Un defecto común por sobrecalentamiento es que el metal puede ___."
 
 explicacion: |
   El sobrecalentamiento provoca quemaduras en el material.
