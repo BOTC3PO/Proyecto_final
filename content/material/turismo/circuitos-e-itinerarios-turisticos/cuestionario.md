@@ -2,12 +2,25 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q2/Q5/Q17 declarativas sin hueco con respuesta
+> booleana fija invertida respecto al hecho real (Q17 además con la
+> propia explicación diciendo "Correcto" sobre una respuesta `falso`),
+> convertidas a `tipo: vf` con la clave correcta; Q3 enunciado
+> autorrevelador (afirmaba la respuesta como hecho en vez de preguntar)
+> reescrito como pregunta real; Q8 índices de array completamente
+> desplazados (asignaba la etiqueta "A"/"B"/"C" a `distancia_km` en vez
+> del valor numérico) y `velocidad_promedio` fijada al dato crudo en vez
+> de calculada, reescrito con datos numéricos reales y fórmula dinámica;
+> Q10 respuesta fija "3" sólo correcta para una de las tres ramas
+> sorteadas, corregida a fórmula dinámica; Q13 clave invertida (pregunta
+> "¿es correcto ignorar la eficiencia?" con `respuesta: verdadero`
+> cuando la propia explicación dice "Falso"); Q15 enunciado con dos
+> blancos y una sola `respuesta` ambigua, colapsado a un blanco; Q21
+> interpolaba un par de ciudades donde se esperaba un concepto de
+> prioridad, produciendo una oración sin sentido, corregido; Q22
+> pregunta sí/no con `respuesta: "fijo"` (palabra que no responde nada),
+> convertida a `tipo: vf`; Q24/Q25 respuesta fija sólo correcta para una
+> de las ramas sorteadas, corregidas a fórmulas/mapeos dinámicos.
 
 ---
 
@@ -40,11 +53,8 @@ metadata:
   nivel: "basico"
   tags: ["terminologia"]
 
-variables:
-  es_circuito: falso
-
-respuesta: es_circuito
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un circuito turístico se caracteriza por tener un recorrido cerrado que inicia y termina en el mismo punto, a diferencia de un tour que puede ser lineal."
 
 explicacion: |
@@ -60,15 +70,11 @@ metadata:
   nivel: "intermedio"
   tags: ["diseño", "logistica"]
 
-variables:
-  datos: [["itinerario", "secuencia de paradas", "planificación temporal"], ["atractivo", "punto de interés", "recurso turístico"], ["transporte", "medio de desplazamiento", "logística de movilidad"]]
-  termino_correcto: datos[0][1]
-
 tipo: mc
 respuesta: "secuencia de paradas"
 opciones_explicitas: ["secuencia de paradas", "punto de interés", "logística de movilidad"]
 
-enunciado: "En el diseño de un circuito, el elemento que define el orden cronológico de las visitas es la secuencia de paradas."
+enunciado: "¿Qué elemento define el orden cronológico de las visitas en el diseño de un circuito?"
 
 explicacion: |
   El diseño de un itinerario requiere organizar la secuencia de paradas para optimizar los tiempos de traslado.
@@ -102,11 +108,8 @@ metadata:
   nivel: "intermedio"
   tags: ["sostenibilidad", "capacidad"]
 
-variables:
-  es_sostenible: verdadero
-
-respuesta: es_sostenible
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un itinerario que respeta la capacidad de carga de un destino para evitar la degradación del entorno se considera un diseño sostenible."
 
 explicacion: |
@@ -164,10 +167,10 @@ metadata:
   tags: ["logistica", "tiempos"]
 
 variables:
-  escenario: uno_de([["A", "4", "120"], ["B", "6", "180"], ["C", "2", "60"]])
+  escenario: uno_de([[120, 90], [100, 60], [150, 120]])
   distancia_km: escenario[0]
   tiempo_minutos: escenario[1]
-  velocidad_promedio: escenario[2]
+  velocidad_promedio: distancia_km / (tiempo_minutos / 60)
 
 respuesta: velocidad_promedio
 tipo: completar
@@ -211,21 +214,19 @@ metadata:
   tags: ["sostenibilidad", "capacidad"]
 
 variables:
-  datos: [["15", "5", "3"], ["20", "4", "5"], ["10", "2", "2"]]
+  datos: [[15, 5], [20, 4], [10, 2]]
   idx: uno_de([0,1,2])
   capacidad_max: datos[idx][0]
   grupos_max: datos[idx][1]
-  personas_por_grupo: datos[idx][2]
 
-respuesta: "3"
+respuesta: capacidad_max / grupos_max
 tipo: completar
-respuestas_validas:
-  - "3"
+tolerancia_abs: 0.01
 
 enunciado: "Si la capacidad de carga de un sendero es de {capacidad_max} personas y se permite un máximo de {grupos_max} grupos simultáneos, el tamaño máximo de cada grupo debe ser de ___ personas para no exceder el límite."
 
 explicacion: |
-  Para no sobrepasar la capacidad, dividimos la capacidad total por el número de grupos: {capacidad_max} / {grupos_max} = 3 (en este escenario).
+  Para no sobrepasar la capacidad, dividimos la capacidad total por el número de grupos: {capacidad_max} / {grupos_max}.
 ```
 
 ### 11 — El concepto de itinerario vs. circuito
@@ -280,7 +281,7 @@ metadata:
   nivel: "intermedio"
   tags: ["logistica", "transporte"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es correcto diseñar un circuito que conecte puntos geográficos basándose únicamente en la belleza de los atractivos, ignorando la eficiencia de las rutas de transporte y los tiempos de traslado?"
@@ -317,17 +318,12 @@ metadata:
   nivel: "intermedio"
   tags: ["logistica", "tiempos"]
 
-variables:
-  distancia_km: random_float(100, 500)
-  tiempo_estimado_min: 120
-
 respuesta: "tiempo real"
 tipo: completar
 respuestas_validas:
   - "tiempo real"
-  - "distancia física"
 
-enunciado: "Al planificar un itinerario, un error crítico es calcular la duración de un tramo basándose en la ___ entre dos puntos, sin considerar el ___ (tráfico, clima, estado de rutas)."
+enunciado: "Al planificar un itinerario, un error crítico es calcular la duración de un tramo basándose únicamente en la distancia física entre dos puntos, sin considerar el ___ (tráfico, clima, estado de rutas)."
 
 explicacion: |
   La distancia física (km) no es equivalente al tiempo de viaje. Un itinerario profesional debe basarse en el tiempo real de tránsito para garantizar la viabilidad del cronograma.
@@ -361,10 +357,7 @@ metadata:
   nivel: "basico"
   tags: ["definiciones"]
 
-variables:
-  es_cerrado: falso
-
-respuesta: es_cerrado
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "Un circuito turístico se caracteriza por ser un recorrido con un inicio y un fin determinados que permite volver al punto de partida o conectar puntos de forma secuencial."
@@ -450,12 +443,12 @@ metadata:
   tags: ["logistica", "diseño_de_recorridos"]
 
 variables:
-  datos: [["Circuito de los Lagos", "Bariloche-Villa La Angostura"], ["Ruta del Vino", "Mendoza-San Juan"], ["Circuito de las Cataratas", "Puerto Iguazú-Iguazú"]]
+  destinos: ["Circuito de los Lagos", "Ruta del Vino", "Circuito de las Cataratas"]
   idx: uno_de([0,1,2])
 
 opciones_explicitas: ["Optimización de tiempos", "Reducción de costos", "Aumento de la experiencia del cliente"]
 
-enunciado: "Para diseñar el {datos[idx][0]}, el agente debe priorizar la {datos[idx][1]} para asegurar que el itinerario sea viable y fluido."
+enunciado: "Para diseñar el {destinos[idx]}, el agente debe priorizar principalmente la ___ para asegurar que el itinerario sea viable y fluido."
 
 respuesta: "Optimización de tiempos"
 tipo: mc
@@ -473,8 +466,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "diseño"]
 
-respuesta: "fijo"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "¿Es el 'tiempo de pernocte' un componente esencial en la planificación de un itinerario de varios días?"
 
 explicacion: |
@@ -511,18 +504,19 @@ metadata:
   tags: ["estrategia", "producto"]
 
 variables:
-  datos: [["itinerario_cerrado", "No permite cambios"], ["itinerario_abierto", "Permite flexibilidad"]]
+  datos: [["itinerario_cerrado", "cerrado"], ["itinerario_abierto", "abierto"]]
   idx: uno_de([0,1])
 
 opciones_explicitas: ["cerrado", "abierto"]
 
 enunciado: "Un circuito diseñado con un esquema {datos[idx][0]} se caracteriza por ser ___."
 
-respuesta: "abierto"
+respuesta: datos[idx][1]
 tipo: completar
 
 respuestas_validas:
-  - "abierto"
+  - datos[0][1]
+  - datos[1][1]
 
 explicacion: |
   En el caso de un itinerario abierto, la flexibilidad es la característica principal que permite al turista modificar partes del recorrido.
@@ -538,14 +532,15 @@ metadata:
   tags: ["análisis", "distancias"]
 
 variables:
-  datos: [["30 km", "15 km", "100 km"], ["2 horas", "45 min", "5 horas"], ["50 USD", "20 USD", "200 USD"]]
+  ejemplos: ["30 km", "2 horas", "50 USD"]
+  categorias: ["Distancia", "Tiempo", "Costo"]
   idx: uno_de([0,1,2])
 
 opciones_explicitas: ["Distancia", "Tiempo", "Costo"]
 
-enunciado: "Si un diseñador está evaluando la variable de {datos[idx][0]}, está analizando la ___ entre los puntos del circuito."
+enunciado: "Si un diseñador está evaluando la variable de {ejemplos[idx]}, está analizando la ___ entre los puntos del circuito."
 
-respuesta: "Distancia"
+respuesta: categorias[idx]
 tipo: mc
 
 explicacion: |
