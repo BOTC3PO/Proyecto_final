@@ -2,12 +2,12 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q2 sorteo muerto (variable nunca interpolada) +
+> respuestas_validas sobrepermisiva (aceptaba "actuador"/"error"/
+> "setpoint" para una premisa que sólo describe al sensor) trimida a la
+> única respuesta correcta, Q6 explicacion faltante agregada, Q17
+> declarativa sin hueco tipeada `completar` con respuesta booleana
+> (`es_negativa`), convertida a `tipo: vf`.
 
 ---
 
@@ -39,15 +39,10 @@ metadata:
   nivel: "basico"
   tags: ["componentes", "lazo_cerrado"]
 
-variables:
-  escenario: uno_de([["sensor", "error"], ["actuador", "setpoint"]])
-
+respuesta: "sensor"
 tipo: completar
 respuestas_validas:
   - "sensor"
-  - "actuador"
-  - "error"
-  - "setpoint"
 
 enunciado: "En un lazo de control cerrado, el dispositivo encargado de medir la variable de salida para compararla con el valor deseado es el ___."
 
@@ -125,6 +120,9 @@ respuesta: verdadero
 tipo: vf
 
 enunciado: "En un sistema de control con realimentación, la salida se mide y se compara con el valor deseado para ajustar la entrada."
+
+explicacion: |
+  Correcto. Esta comparación entre la salida medida y el valor deseado (setpoint) es la esencia del lazo de control cerrado: permite calcular el error y corregir la entrada del sistema.
 ```
 
 ### 7 — El sensor en un sistema de temperatura
@@ -361,11 +359,8 @@ metadata:
   nivel: "intermedio"
   tags: ["estabilidad", "control"]
 
-variables:
-  es_negativa: verdadero
-
-respuesta: es_negativa
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En un sistema de control, la realimentación negativa tiene como objetivo principal reducir la diferencia entre la variable de proceso y el setpoint, contribuyendo a la estabilidad del sistema."
 
 explicacion: |
