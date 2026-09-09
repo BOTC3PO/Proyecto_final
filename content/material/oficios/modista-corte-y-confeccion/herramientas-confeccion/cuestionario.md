@@ -1,6 +1,6 @@
 # Oficios — herramientas confeccion (cuestionario, 26 preguntas VBLang)
 
-> Tema: `oficios/modista-corte-y-confeccion/herramientas-confeccion`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/modista-corte-y-confeccion/herramientas-confeccion`. Ver `teoria.md` en esta misma carpeta. Revisado manualmente: Q3 tenía `respuesta` igual al NOMBRE de la variable ("con_overlock") en vez de su valor real ("acabado profesional"); Q13 usaba una clave interna snake_case ("evitando_desperdicios") como respuesta esperada en vez de texto natural — corregido a "desperdicios de tela"; typo "moldos"→"moldes" en dos enunciados. `tipo: input` normalizado a `completar`.
 
 ---
 
@@ -18,7 +18,7 @@ variables:
   velocidad_industrial: random(4000, 6000)
 
 respuesta: "La máquina industrial es más rápida"
-tipo: input
+tipo: completar
 
 enunciado: "Si una máquina doméstica cosía a {velocidad_domestica} ppm y una industrial a {velocidad_industrial} ppm, ¿cuál afirmación describe mejor su diferencia de rendimiento?"
 
@@ -39,7 +39,7 @@ variables:
   potencia: random(50, 150)
 
 respuesta: "Menor potencia"
-tipo: input
+tipo: completar
 
 enunciado: "La máquina doméstica tiene un motor con {potencia} vatios aproximadamente. ¿Cómo se describe su capacidad de fuerza comparada con la industrial?"
 
@@ -56,12 +56,8 @@ metadata:
   nivel: "intermedio"
   tags: ["overlock", "durabilidad"]
 
-variables:
-  sin_overlock: "bordes crudos"
-  con_overlock: "acabado profesional"
-
-respuesta: "con_overlock"
-tipo: input
+respuesta: "acabado profesional"
+tipo: completar
 
 enunciado: "Para prendas que se lavan frecuentemente, ¿qué resultado garantiza el uso de la overlock?"
 
@@ -82,7 +78,7 @@ variables:
   tipo_puntada: "recta"
 
 respuesta: "recta"
-tipo: input
+tipo: completar
 
 enunciado: "La máquina industrial está optimizada generalmente para realizar un solo tipo de puntada. ¿Cuál es?"
 
@@ -104,7 +100,7 @@ variables:
   peso_industrial: random(30, 50)
 
 respuesta: "mas_pesada"
-tipo: input
+tipo: completar
 
 enunciado: "Si la máquina doméstica pesa {peso_domestico} kg y la industrial {peso_industrial} kg, ¿cuál ofrece mayor estabilidad para evitar que la tela se mueva?"
 
@@ -126,7 +122,7 @@ variables:
   rol_patron: "representacion geometrica"
 
 respuesta: "guia fisica"
-tipo: input
+tipo: completar
 
 enunciado: "En el proceso creativo, ¿cómo se define típicamente el rol de un molde?"
 
@@ -149,7 +145,7 @@ variables:
   puntada_elastica: verdadero
 
 respuesta: "versatil"
-tipo: input
+tipo: completar
 
 enunciado: "La máquina doméstica permite realizar distintos tipos de puntadas. ¿Qué característica describe mejor su diseño?"
 
@@ -170,7 +166,7 @@ variables:
   resultado: "se deshilachan"
 
 respuesta: "se deshilachan"
-tipo: input
+tipo: completar
 
 enunciado: "Sin el uso de la overlock, ¿qué sucede con los bordes de la tela en una prenda?"
 
@@ -191,7 +187,7 @@ variables:
   ratio: random(4, 8)
 
 respuesta: "mucho_mayor"
-tipo: input
+tipo: completar
 
 enunciado: "La velocidad de una máquina industrial es aproximadamente {ratio} veces mayor que la de una doméstica. ¿Cómo se califica esta diferencia?"
 
@@ -213,7 +209,7 @@ variables:
   puntada: "zigzag"
 
 respuesta: "domestica"
-tipo: input
+tipo: completar
 
 enunciado: "¿Qué tipo de máquina suele facilitar más la realización de puntadas elásticas o en zigzag?"
 
@@ -234,7 +230,7 @@ variables:
   precision: "milimetrica"
 
 respuesta: "milimetrica"
-tipo: input
+tipo: completar
 
 enunciado: "La máquina industrial realiza la puntada recta con una precisión de tipo:"
 
@@ -255,7 +251,7 @@ variables:
   contexto: "fabricas_textiles"
 
 respuesta: "indispensable"
-tipo: input
+tipo: completar
 
 enunciado: "En la producción en serie de fábricas textiles argentinas, la máquina industrial es considerada:"
 
@@ -272,13 +268,10 @@ metadata:
   nivel: "intermedio"
   tags: ["patrones", "moldes", "eficiencia"]
 
-variables:
-  resultado: "evitando_desperdicios"
+respuesta: "desperdicios de tela"
+tipo: completar
 
-respuesta: "evitando_desperdicios"
-tipo: input
-
-enunciado: "Dominar la terminología de patrones y moldos permite pasar de una idea abstracta a una prenda tangible, evitando:"
+enunciado: "Dominar la terminología de patrones y moldes permite pasar de una idea abstracta a una prenda tangible, evitando:"
 
 explicacion: |
   Permite evitar desperdicios de tela y errores costosos en el proceso de armado.
@@ -297,7 +290,7 @@ variables:
   estructura: "pesada"
 
 respuesta: "pesada"
-tipo: input
+tipo: completar
 
 enunciado: "La estructura de la máquina industrial es de tipo:"
 
@@ -318,7 +311,7 @@ variables:
   uso: "puntual"
 
 respuesta: "puntual"
-tipo: input
+tipo: completar
 
 enunciado: "La máquina doméstica está diseñada para la versatilidad y el uso:"
 
@@ -339,7 +332,7 @@ variables:
   accion: "corta_y_remalla"
 
 respuesta: "corta_y_remalla"
-tipo: input
+tipo: completar
 
 enunciado: "La overlock realiza dos acciones simultáneamente:"
 
@@ -360,7 +353,7 @@ variables:
   sonido: "silenciosa"
 
 respuesta: "silenciosa"
-tipo: input
+tipo: completar
 
 enunciado: "Comparada con la industrial, la máquina doméstica suele ser más compacta y:"
 
@@ -381,7 +374,7 @@ variables:
   garantia: "costuras_no_abran"
 
 respuesta: "costuras_no_abran"
-tipo: input
+tipo: completar
 
 enunciado: "La overlock es crucial en prendas lavables porque garantiza que:"
 
@@ -402,7 +395,7 @@ variables:
   patron: "representacion_geometrica"
 
 respuesta: "representacion_geometrica"
-tipo: input
+tipo: completar
 
 enunciado: "El patrón se define técnicamente como:"
 
@@ -423,7 +416,7 @@ variables:
   razon: "proteger_mecanismos"
 
 respuesta: "proteger_mecanismos"
-tipo: input
+tipo: completar
 
 enunciado: "La velocidad de la máquina doméstica es limitada para:"
 
@@ -444,7 +437,7 @@ variables:
   resultado: "profesionales"
 
 respuesta: "profesionales"
-tipo: input
+tipo: completar
 
 enunciado: "La overlock es la herramienta clave para dar acabados de tipo:"
 
@@ -465,7 +458,7 @@ variables:
   funcion: "unir_piezas"
 
 respuesta: "unir_piezas"
-tipo: input
+tipo: completar
 
 enunciado: "Mientras la overlock corta, la máquina recta tiene la función de:"
 
@@ -486,9 +479,9 @@ variables:
   error: "costosos"
 
 respuesta: "costosos"
-tipo: input
+tipo: completar
 
-enunciado: "Dominar patrones y moldos evita errores de tipo:"
+enunciado: "Dominar patrones y moldes evita errores de tipo:"
 
 explicacion: |
   Evita desperdicios de tela y errores costosos en el proceso de armado.
@@ -507,7 +500,7 @@ variables:
   potencia: "menos_potencia"
 
 respuesta: "menos_potencia"
-tipo: input
+tipo: completar
 
 enunciado: "El motor de la máquina doméstica tiene:"
 
@@ -528,7 +521,7 @@ variables:
   riesgo: "rapidamente"
 
 respuesta: "rapidamente"
-tipo: input
+tipo: completar
 
 enunciado: "Sin overlock, los bordes crudos son propensos a deteriorarse:"
 
@@ -549,7 +542,7 @@ variables:
   relacion: "complementarios"
 
 respuesta: "complementarios"
-tipo: input
+tipo: completar
 
 enunciado: "Los moldes y patrones tienen roles que son:"
 
