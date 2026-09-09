@@ -1,6 +1,21 @@
 # Oficios — herramientas cerrajeria (cuestionario, 23 preguntas VBLang)
 
-> Tema: `oficios/cerrajero/herramientas-cerrajeria`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/cerrajero/herramientas-cerrajeria`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q1/Q2/Q3/Q4 tenían `respuesta: "{expresión}"`
+> entre comillas, corregidas a la expresión sin comillas; Q7/Q10/Q11/Q15/
+> Q18 sorteaban la propia palabra a insertar en una oración declarativa
+> fija, permitiendo afirmaciones fácticamente falsas o autocontradictorias
+> ("La llave de presión se usa para abrir múltiples cerraduras... mientras
+> que la de presión se usa para manipulación individual") mientras la
+> respuesta seguía fija a la rama original — sorteos removidos, huecos
+> `___` reales agregados; Q5/Q21 interpolaban una variable fija en una
+> oración declarativa sin hueco (autorrevelador), corregidas; Q20 era un
+> bloque roto con notas de depuración del LM sin resolver ("*Corrección*:
+> La pregunta es trampa... Vamos a cambiar la pregunta... Respuesta
+> correcta: Llave de presión" contradiciendo el campo `respuesta` real),
+> reescrito limpio según la conclusión que el propio LM ya había
+> alcanzado; `tipo: input` (alias legacy) normalizado a `completar`.
 
 ---
 
@@ -17,8 +32,8 @@ variables:
   tipos_europeos: random(3, 5)
   tipos_chinos: random(2, 4)
 
-respuesta: "{floor((tipos_europeos + tipos_chinos) / 2) + 1}"
-tipo: input
+respuesta: floor((tipos_europeos + tipos_chinos) / 2) + 1
+tipo: completar
 
 enunciado: "Si un cerrajero atiende {tipos_europeos} tipos de cilindros europeos y {tipos_chinos} tipos de cilindros chinos, y decide llevar un set de puntas variadas que cubra al menos la mitad redondeada hacia arriba de la suma total de tipos, ¿cuántas puntas mínimo debe llevar?"
 
@@ -39,8 +54,8 @@ variables:
   tension_base: random_float(1.0, 2.0)
   factor_sensibilidad: random_float(0.5, 1.5)
 
-respuesta: "{redondear(tension_base * factor_sensibilidad, 2)}"
-tipo: input
+respuesta: redondear(tension_base * factor_sensibilidad, 2)
+tipo: completar
 
 enunciado: "Si la tensión base recomendada es {tension_base} y el factor de sensibilidad para una cerradura específica es {factor_sensibilidad}, ¿cuál es la tensión ajustada resultante? (Redondear a 2 decimales)"
 
@@ -62,8 +77,8 @@ variables:
   precio_juego: random(8000, 15000)
   precio_taladro: random(15000, 25000)
 
-respuesta: "{precio_extractor + precio_juego + precio_taladro}"
-tipo: input
+respuesta: precio_extractor + precio_juego + precio_taladro
+tipo: completar
 
 enunciado: "Si el extractor cuesta {precio_extractor}, el juego de llaves {precio_juego} y el taladro {precio_taladro}, ¿cuál es el costo total del equipo básico?"
 
@@ -84,8 +99,8 @@ variables:
   intervenciones_totales: random(100, 200)
   intervenciones_no_dañinas: random(80, 95)
 
-respuesta: "{floor((intervenciones_no_dañinas / intervenciones_totales) * 100)}"
-tipo: input
+respuesta: floor((intervenciones_no_dañinas / intervenciones_totales) * 100)
+tipo: completar
 
 enunciado: "Si de {intervenciones_totales} intervenciones, {intervenciones_no_dañinas} se realizaron sin daño, ¿cuál es el porcentaje de intervenciones no dañinas?"
 
@@ -102,13 +117,10 @@ metadata:
   nivel: "intermedio"
   tags: ["desbloqueo", "técnica", "pines"]
 
-variables:
-  objetivo: "alinear los pines"
-
 respuesta: "alinear los pines"
 tipo: completar
 
-enunciado: "El juego de llaves permite simular la acción de la llave original para {objetivo} internos del cilindro."
+enunciado: "El juego de llaves permite simular la acción de la llave original para ___ internos del cilindro."
 
 explicacion: |
   Las herramientas del juego de llaves manipulan los pines hasta alinearlos en el punto de corte correcto, permitiendo el giro del cilindro.
@@ -145,13 +157,10 @@ metadata:
   nivel: "intermedio"
   tags: ["tecnicas", "precauciones", "herramientas"]
 
-variables:
-  fuerza: uno_de(["Suave", "Excesiva", "Brusca"])
-
 respuesta: "Suave"
 tipo: mc
 
-enunciado: "Para evitar deformar la llave o romperla dentro de la cerradura al usar el extractor, la fuerza aplicada debe ser {fuerza}."
+enunciado: "Para evitar deformar la llave o romperla dentro de la cerradura al usar el extractor, la fuerza aplicada debe ser ___."
 opciones_explicitas: ["Suave", "Excesiva", "Brusca", "Máxima"]
 
 explicacion: |
@@ -211,13 +220,10 @@ metadata:
   nivel: "intermedio"
   tags: ["adaptacion", "cilindros", "variedad"]
 
-variables:
-  perfil: uno_de(["Europeos", "Chinos", "Americanos"])
-
 respuesta: "Europeos"
 tipo: mc
 
-enunciado: "En Argentina, es común encontrar cilindros de perfil {perfil}, por lo que se requieren extractores de puntas variadas."
+enunciado: "En Argentina, es común encontrar cilindros de perfil ___, por lo que se requieren extractores de puntas variadas."
 opciones_explicitas: ["Europeos", "Chinos", "Americanos", "Japoneses"]
 
 explicacion: |
@@ -233,13 +239,10 @@ metadata:
   nivel: "intermedio"
   tags: ["objetivo", "alineacion", "seguridad"]
 
-variables:
-  objetivo: uno_de(["Alinear los pines", "Romper el cilindro", "Derretir la cerradura"])
-
 respuesta: "Alinear los pines"
 tipo: mc
 
-enunciado: "El objetivo principal del juego de llaves es simular la acción de la llave original para {objetivo}."
+enunciado: "El objetivo principal del juego de llaves es simular la acción de la llave original para ___."
 opciones_explicitas: ["Alinear los pines", "Romper el cilindro", "Derretir la cerradura", "Insertar una llave falsa"]
 
 explicacion: |
@@ -259,7 +262,7 @@ variables:
   perfiles: random(2, 5)
 
 respuesta: perfiles
-tipo: input
+tipo: completar
 
 enunciado: "Si un cerrajero atiende {perfiles} tipos distintos de cilindros (europeo, chino, etc.) y necesita al menos una punta de extractor por cada perfil, ¿cuántas puntas mínimas debe tener en su kit?"
 
@@ -320,13 +323,10 @@ metadata:
   nivel: "intermedio"
   tags: ["llaves_maestras", "mecanica", "seguridad"]
 
-variables:
-  efecto: uno_de(["Alinear pines múltiples", "Romper pines", "Derretir el cilindro"])
-
 respuesta: "Alinear pines múltiples"
 tipo: mc
 
-enunciado: "Las llaves maestras están diseñadas para {efecto} en un rango de cerraduras específicas."
+enunciado: "Las llaves maestras están diseñadas para ___ en un rango de cerraduras específicas."
 opciones_explicitas: ["Alinear pines múltiples", "Romper pines", "Derretir el cilindro", "Bloquear el mecanismo"]
 
 explicacion: |
@@ -387,13 +387,10 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion", "herramientas", "funcion"]
 
-variables:
-  llave: uno_de(["maestra", "de presión"])
-
 respuesta: "maestra"
 tipo: mc
 
-enunciado: "La llave {llave} se usa para abrir múltiples cerraduras de un mismo sistema, mientras que la de presión se usa para manipulación individual."
+enunciado: "La llave ___ se usa para abrir múltiples cerraduras de un mismo sistema, mientras que la de presión se usa para manipulación individual."
 opciones_explicitas: ["maestra", "de tensión", "de extracción", "de seguridad"]
 
 explicacion: |
@@ -413,7 +410,7 @@ variables:
   perfiles: random(3, 6)
 
 respuesta: perfiles
-tipo: input
+tipo: completar
 
 enunciado: "Si un cerrajero necesita cubrir {perfiles} perfiles de cilindros distintos y tiene una punta por cada perfil, ¿cuántas puntas tiene?"
 
@@ -430,20 +427,14 @@ metadata:
   nivel: "intermedio"
   tags: ["mantenimiento", "herramientas", "limpieza"]
 
-variables:
-  problema: "suciedad en pines"
-
-respuesta: "Extractor de cilindros"
+respuesta: "Llave de presión"
 tipo: mc
 
-enunciado: "¿Cuál de estas herramientas NO se usa típicamente para limpiar la suciedad en los pines?"
-opciones_explicitas: ["Extractor de cilindros", "Llave de presión", "Taladro", "Juego de llaves"]
+enunciado: "¿Cuál de estas herramientas se usa para manipular y alinear los pines internos del cilindro?"
+opciones_explicitas: ["Extractor de cilindros", "Llave de presión", "Taladro", "Ninguna de las anteriores"]
 
 explicacion: |
-  El extractor de cilindros es para recuperar llaves. Las llaves de presión y tensión son para manipulación. El taladro no es una herramienta de limpieza. Ninguna de estas es ideal para limpiar, pero el extractor es la menos relacionada. *Corrección*: La pregunta es trampa. Ninguna es para limpiar. Pero el extractor es la más alejada de la función de limpieza. Mejor enfoque: ¿Cuál se usa para manipular pines? Llave de presión. Vamos a cambiar la pregunta para ser clara.
-
-  *Reescritura mental*: Pregunta sobre la herramienta de manipulación.
-  Respuesta correcta: Llave de presión.
+  La llave de presión (junto con la herramienta de tensión) es la que se inserta en el cilindro para manipular y alinear los pines. El extractor recupera llaves atascadas y el taladro es una herramienta de intervención destructiva, no de manipulación.
 ```
 
 ### 21 — pregunta 21
@@ -455,13 +446,10 @@ metadata:
   nivel: "avanzado"
   tags: ["habilidad", "sensibilidad", "practica"]
 
-variables:
-  habilidad: "sensibilidad táctil"
-
 respuesta: "sensibilidad táctil"
 tipo: mc
 
-enunciado: "La habilidad de sentir el 'clic' de los pines se desarrolla con práctica y depende principalmente de la {habilidad} del cerrajero."
+enunciado: "La habilidad de sentir el 'clic' de los pines se desarrolla con práctica y depende principalmente de la ___ del cerrajero."
 opciones_explicitas: ["sensibilidad táctil", "fuerza muscular", "velocidad de reacción", "visión nocturna"]
 
 explicacion: |
@@ -481,7 +469,7 @@ variables:
   perfiles: random(2, 4)
 
 respuesta: perfiles
-tipo: input
+tipo: completar
 
 enunciado: "Si un cerrajero atiende {perfiles} tipos de cilindros y tiene una punta por cada uno, ¿cuántas puntas tiene en total?"
 
