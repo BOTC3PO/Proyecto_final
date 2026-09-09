@@ -1,13 +1,15 @@
-# Comunicacion — Teoria de la comunicacion emisor receptor canal ruido (cuestionario, 26 preguntas VBLang)
+# Comunicacion — Teoria de la comunicacion emisor receptor canal ruido (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q1 tenía `respuestas_validas` triplicada, Q10
+> era un bloque roto con comentarios de LM Studio admitiendo el
+> problema sin resolverlo, ya reemplazado por el Q11 "Versión
+> Corregida" siguiente (eliminado por duplicado — el archivo pasó de
+> 26 a 25 preguntas), Q18 tenía la clave invertida respecto a su propia
+> explicación ("Es verdadero" pero `respuesta: falso`), Q24 mezclaba
+> una pregunta sí/no con una respuesta de texto ("aire") y un blank
+> "___" pegado tras el signo de interrogación.
 
 ---
 
@@ -23,8 +25,6 @@ metadata:
 respuesta: "emisor"
 tipo: completar
 respuestas_validas:
-  - "emisor"
-  - "emisor"
   - "emisor"
 
 enunciado: "El sujeto que codifica y transmite la información en el proceso comunicativo se denomina ___."
@@ -190,35 +190,7 @@ explicacion: |
   El proceso lógico es: 1. El emisor codifica la idea, 2. El mensaje viaja por el canal, 3. El receptor decodifica el código y 4. Se produce la comprensión.
 ```
 
-### 10 — Caso práctico: Análisis de elementos
-
-```
-metadata:
-  materia: "comunicacion"
-  tema: "teoria_de_la_comunicacion"
-  nivel: "intermedio"
-  tags: ["caso_practico", "emisor", "receptor"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Un profesor dicta una lección a sus alumnos en un aula", "profesor", "alumnos"], ["Un periodista escribe un artículo para un periódico impreso", "periodista", "lectores"]]
-
-enunciado: "Analizamos el siguiente caso: {escenarios[escenario_idx][0]}. En este ejemplo, el {escenarios[escenario_idx][1]} actúa como el emisor."
-
-respuesta: "profesor"
-tipo: mc
-opciones_explicitas: ["profesor", "alumnos", "periodista", "lectores"]
-# Nota: La respuesta se deriva de la lógica del escenario sorteado. 
-# Para cumplir estrictamente con la regla de que la respuesta sea el mismo valor que la opción:
-# Re-estructuramos para que la respuesta sea el valor exacto del elemento en la variable.
-
-# Corrección de lógica para cumplir la regla de "respuesta debe ser del mismo tipo/valor que las opciones"
-# Usaremos una estructura donde la respuesta es el texto exacto.
-
-# (Re-definición de la pregunta 5 para asegurar compatibilidad total con el DSL)
-```
-
-### 11 — Caso práctico: Análisis de elementos (Versión Corregida)
+### 11 — Caso práctico: Análisis de elementos
 
 ```
 metadata:
@@ -369,7 +341,7 @@ metadata:
 
 enunciado: "En un proceso comunicativo, el ruido se distingue del mensaje porque el primero representa una interferencia que distorsiona la señal, mientras que el segundo es el objeto de la comunicación."
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 explicacion: |
@@ -494,9 +466,9 @@ metadata:
   nivel: "basico"
   tags: ["canal"]
 
-respuesta: "aire"
-tipo: completar
-enunciado: "¿El aire es el canal físico utilizado en una conversación cara a cara? ___"
+respuesta: verdadero
+tipo: vf
+enunciado: "¿El aire es el canal físico utilizado en una conversación cara a cara?"
 
 explicacion: |
   Verdadero. El canal es el medio físico a través del cual viaja el mensaje (en este caso, ondas sonoras en el aire).
