@@ -2,12 +2,15 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q4/Q7/Q14 tenían `respuestas_validas`
+> sobre-permisivas que aceptaban valores de cualquier rama del sorteo
+> o distractores no equivalentes, Q10 tenía una premisa fija
+> (evidencia sin nombres/fuentes) compatible con una sola rama del
+> sorteo pero permitía marcar otras ramas como correctas, además de
+> interpolar el booleano crudo al final de la pregunta
+> (autorrevelación), Q17 mezclaba `tipo: completar` con texto
+> booleano para una pregunta fija cuyo sorteo era completamente
+> incompatible con la premisa mostrada.
 
 ---
 
@@ -39,9 +42,6 @@ metadata:
   tema: "confiabilidad_y_verificacion_de_una_fuente"
   nivel: "basico"
   tags: ["verificacion", "pasos"]
-
-variables:
-  pasos_ordenados: ["Identificar la fuente original", "Contrastar la información con otros medios", "Verificar la fecha de publicación", "Evaluar la reputación del autor"]
 
 tipo: ordenar
 opciones_explicitas: ["Identificar la fuente original", "Contrastar la información con otros medios", "Verificar la fecha de publicación", "Evaluar la reputación del autor"]
@@ -85,9 +85,6 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "autoría"
-  - "URL"
-  - "fecha"
-  - "reputación"
 
 respuesta: "autoría"
 
@@ -151,9 +148,7 @@ variables:
 respuesta: escenario[1]
 tipo: completar
 respuestas_validas:
-  - "2015"
-  - "2020"
-  - "2023"
+  - escenario[1]
 
 enunciado: "Si estás investigando la situación climática actual para un trabajo escolar, pero encuentras un artículo que fue publicado en el año {escenario[1]}, la información podría estar desactualizada."
 
@@ -212,15 +207,12 @@ metadata:
   nivel: "avanzado"
   tags: ["referencias", "evidencia"]
 
-variables:
-  caso: uno_de([["El artículo cita un estudio de la NASA", "verdadero"], ["El artículo dice 'científicos dicen' sin nombres", "falso"], ["El artículo incluye enlaces a documentos oficiales", "verdadero"]])
-
-respuesta: caso[1]
+respuesta: "falso"
 
 tipo: mc
 opciones_explicitas: ["verdadero", "falso"]
 
-enunciado: "En un informe sobre el cambio climático, el texto afirma que 'un grupo de científicos internacionales asegura que el hielo se está derritiendo', pero no proporciona nombres, instituciones ni enlaces a los estudios mencionados. ¿Es esta una evidencia sólida? {caso[1]}"
+enunciado: "En un informe sobre el cambio climático, el texto afirma que 'un grupo de científicos internacionales asegura que el hielo se está derritiendo', pero no proporciona nombres, instituciones ni enlaces a los estudios mencionados. ¿Es esta una evidencia sólida?"
 
 explicacion: |
   Una fuente confiable debe permitir la trazabilidad. Si una noticia menciona "expertos" o "estudios" de forma genérica sin dar datos específicos para que el lector pueda comprobarlos, es una señal de alerta de desinformación.
@@ -311,8 +303,7 @@ pasos:
 enunciado: "{casos[caso_idx][0]} Si se está difundiendo hoy como si describiera algo actual, la información es considerada ___ para el contexto presente."
 
 respuestas_validas:
-  - "falsa"
-  - "verdadera"
+  - casos[caso_idx][1]
 
 explicacion: |
   La descontextualización temporal es una técnica común de desinformación. Una noticia puede ser real en su momento, pero si se presenta como actual para manipular la opinión, pierde su veracidad contextual.
@@ -371,11 +362,8 @@ metadata:
   nivel: "intermedio"
   tags: ["conceptos", "verificacion"]
 
-variables:
-  escenario: uno_de([["un sitio web con diseño profesional pero noticias falsas", "falso"], ["un blog de un experto con datos citados", "verdadero"]])
-
-tipo: completar
-respuesta: escenario[1]
+tipo: vf
+respuesta: falso
 
 enunciado: "Si un sitio web tiene una apariencia profesional y un diseño impecable, ¿podemos afirmar que su información es necesariamente verdadera?"
 
