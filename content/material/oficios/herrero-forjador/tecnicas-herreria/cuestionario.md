@@ -1,6 +1,28 @@
 # Oficios — tecnicas herreria (cuestionario, 41 preguntas VBLang)
 
-> Tema: `oficios/herrero-forjador/tecnicas-herreria`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/herrero-forjador/tecnicas-herreria`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q1 respuesta fija de texto no coincidía con los
+> valores aleatorios realmente mostrados, simplificado a un hecho fijo
+> con un hueco real; Q2/Q3 interpolaban una variable con el nombre de
+> una DIMENSIÓN (ej. "longitud") en el lugar donde debía ir el NOMBRE
+> DE LA TÉCNICA (ej. "estirado"), produciendo frases sin sentido
+> ("...se llama longitud"), reescritas; Q5/Q8/Q9 sorteaban una palabra
+> que coincidía textualmente con otra parte fija de la misma oración
+> para 1 de sus ramas, produciendo redundancia ("crear puntas, puntas de
+> herramientas..."), sorteos removidos; Q19 declarativa que ya mostraba
+> ambos extremos del rango sin hueco, con `respuesta` concatenada en
+> formato distinto al mostrado, colapsada a un hueco real; Q21 el
+> enunciado decía "duplicar" pero la fórmula usaba un factor de 1.5,
+> corregido a factor 2; Q22/Q28 tenían `respuesta: "{expresión}"` entre
+> comillas, corregidas; Q24/Q25 el tipo de pregunta (sí/no, o elegir
+> entre dos opciones de texto) no coincidía con el tipo de `respuesta`
+> (un número mostrado sin relación con la pregunta), corregidas; Q31
+> declarativa sin pregunta real que mostraba el propio valor aleatorio
+> a repetir, simplificada a un hecho fijo con hueco; 8 bloques
+> adicionales interpolaban una variable fija en una oración declarativa
+> sin hueco (autorrevelador), corregidos; `tipo: input` (alias legacy)
+> normalizado a `completar`.
 
 ---
 
@@ -13,14 +35,10 @@ metadata:
   nivel: "basico"
   tags: ["teoria", "temperatura", "color"]
 
-variables:
-  temp_min: random(900, 1100)
-  temp_max: random(1101, 1200)
-
-respuesta: "entre 900 y 1200 °C"
+respuesta: "1200"
 tipo: completar
 
-enunciado: "El rango de temperatura óptimo para trabajar el acero, donde se vuelve blando y maleable sin quemarse, está entre {temp_min} y {temp_max} °C. ¿Cuál es el rango general aceptado?"
+enunciado: "El rango de temperatura óptimo para trabajar el acero, donde se vuelve blando y maleable sin quemarse, está entre 900 y ___ °C."
 
 explicacion: |
   El acero alcanza su punto óptimo de trabajo entre los 900 y 1200 °C. En este rango es lo suficientemente plástico para deformarse sin agrietarse ni perder su estructura cristalina.
@@ -35,14 +53,10 @@ metadata:
   nivel: "basico"
   tags: ["operaciones", "estirado", "geometria"]
 
-variables:
-  dimension_aumentada: "longitud"
-  dimension_disminuida: "sección"
-
 respuesta: "estirado"
 tipo: completar
 
-enunciado: "La operación que consiste en alargar el material reduciendo su {dimension_disminuida} transversal se llama {dimension_aumentada}."
+enunciado: "La operación que consiste en alargar el material reduciendo su sección transversal se llama ___."
 
 explicacion: |
   El estirado consiste en alargar el material. Para lograrlo, se golpea el extremo caliente sobre el yunque distribuyendo el impacto uniformemente.
@@ -57,14 +71,10 @@ metadata:
   nivel: "basico"
   tags: ["operaciones", "recalcado", "geometria"]
 
-variables:
-  dimension_aumentada: "grosor"
-  dimension_disminuida: "longitud"
-
 respuesta: "recalcado"
 tipo: completar
 
-enunciado: "La técnica que busca reducir la {dimension_disminuida} del material aumentando su {dimension_aumentada} se denomina {dimension_aumentada}."
+enunciado: "La técnica que busca reducir la longitud del material aumentando su grosor se denomina ___."
 
 explicacion: |
   El recalcado busca reducir la longitud aumentando el grosor o sección. Se logra calentando una zona específica y golpeándola para que el metal fluya hacia los lados.
@@ -100,13 +110,10 @@ metadata:
   nivel: "intermedio"
   tags: ["herramientas", "dobladado", "yunque"]
 
-variables:
-  herramienta: uno_de(["pata de carnero", "esquina del yunque"])
-
 respuesta: "pata de carnero"
 tipo: completar
 
-enunciado: "Para guiar el ángulo deseado durante el doblado en caliente, a menudo se utiliza una herramienta auxiliar llamada {herramienta} o las esquinas del yunque."
+enunciado: "Para guiar el ángulo deseado durante el doblado en caliente, a menudo se utiliza una herramienta auxiliar llamada ___, o las esquinas del yunque."
 
 explicacion: |
   La 'pata de carnero' es una herramienta auxiliar comúnmente usada para guiar y sostener el ángulo del doblado en caliente.
@@ -121,13 +128,10 @@ metadata:
   nivel: "avanzado"
   tags: ["soldadura", "temperatura", "unión"]
 
-variables:
-  estado_metal: "casi blancas"
-
 respuesta: "casi blancas"
 tipo: completar
 
-enunciado: "Para realizar una soldadura por forja, las dos piezas de acero deben calentarse hasta que estén {estado_metal}, casi en el punto de fusión."
+enunciado: "Para realizar una soldadura por forja, las dos piezas de acero deben calentarse hasta que estén ___, casi en el punto de fusión."
 
 explicacion: |
   La soldadura por forja requiere calentar las piezas hasta un color casi blanco. El calor elimina el óxido superficial y permite que los metales se fusionen al golpearlos con fuerza.
@@ -164,13 +168,10 @@ metadata:
   nivel: "basico"
   tags: ["operaciones", "estirado", "aplicación"]
 
-variables:
-  aplicacion: uno_de(["barras", "puntas", "espigas"])
-
 respuesta: "barras"
 tipo: completar
 
-enunciado: "El estirado es esencial para crear {aplicacion}, puntas de herramientas o espigas."
+enunciado: "El estirado es esencial para crear ___, puntas de herramientas o espigas."
 
 explicacion: |
   El estirado alarga el material, siendo esencial para crear barras, puntas de herramientas o espigas.
@@ -185,13 +186,10 @@ metadata:
   nivel: "basico"
   tags: ["operaciones", "recalcado", "aplicación"]
 
-variables:
-  aplicacion: uno_de(["base sólida", "mango robusto"])
-
 respuesta: "mango robusto"
 tipo: completar
 
-enunciado: "El recalcado es muy útil cuando se necesita una base sólida o un {aplicacion} en una herramienta."
+enunciado: "El recalcado es muy útil cuando se necesita una base sólida o un ___ en una herramienta."
 
 explicacion: |
   El recalcado engrosa el material, siendo ideal para crear mangos robustos o bases sólidas en herramientas.
@@ -206,14 +204,10 @@ metadata:
   nivel: "intermedio"
   tags: ["seguridad", "calidad", "defectos"]
 
-variables:
-  defecto: "quemar"
-  consecuencia: "quebradizo"
-
 respuesta: "quemar"
 tipo: completar
 
-enunciado: "Si el metal se calienta demasiado, se corre el riesgo de {defecto}, lo que hace que el acero sea {consecuencia} al enfriarse."
+enunciado: "Si el metal se calienta demasiado, se corre el riesgo de ___, lo que hace que el acero sea quebradizo al enfriarse."
 
 explicacion: |
   Quemar el metal es un defecto irreversible que debilita la estructura cristalina, volviendo al acero quebradizo.
@@ -228,13 +222,10 @@ metadata:
   nivel: "intermedio"
   tags: ["historia", "soldadura", "técnica"]
 
-variables:
-  tecnica: "soldadura por forja"
-
 respuesta: "soldadura por forja"
 tipo: completar
 
-enunciado: "La {tecnica} es una de las técnicas de unión más antiguas del oficio."
+enunciado: "La ___ es una de las técnicas de unión más antiguas del oficio."
 
 explicacion: |
   La soldadura por forja es una técnica ancestral que consiste en unir piezas mediante calor y golpeo intenso.
@@ -249,16 +240,10 @@ metadata:
   nivel: "intermedio"
   tags: ["color", "secuencia", "memoria"]
 
-variables:
-  c1: "rojo oscuro"
-  c2: "rojo cereza"
-  c3: "naranja"
-  c4: "amarillo pálido"
-
 respuesta: "amarillo pálido"
 tipo: completar
 
-enunciado: "La secuencia de colores al calentar es: rojo oscuro, rojo cereza, {c3} y finalmente {c4}."
+enunciado: "La secuencia de colores al calentar es: rojo oscuro, rojo cereza, naranja y finalmente ___."
 
 explicacion: |
   La secuencia correcta es rojo oscuro -> rojo cereza -> naranja -> amarillo pálido. El amarillo pálido es el último paso antes del peligro de quemado.
@@ -299,14 +284,10 @@ metadata:
   nivel: "avanzado"
   tags: ["soldadura", "proceso", "acción"]
 
-variables:
-  accion: "golpeándolas"
-  estado: "casi blancas"
-
 respuesta: "golpeándolas"
 tipo: completar
 
-enunciado: "La soldadura por forja consiste en unir piezas calentándolas hasta que estén casi blancas y {accion} con fuerza."
+enunciado: "La soldadura por forja consiste en unir piezas calentándolas hasta que estén casi blancas y ___ con fuerza."
 
 explicacion: |
   El calor elimina el óxido, pero es el golpeo intenso el que une las piezas plásticamente.
@@ -321,13 +302,10 @@ metadata:
   nivel: "intermedio"
   tags: ["defectos", "quemado", "irreversible"]
 
-variables:
-  defecto: "quemar"
-
 respuesta: "quemar"
 tipo: completar
 
-enunciado: "El defecto irreversible que hace quebradizo al acero al enfriarse se conoce como {defecto}."
+enunciado: "El defecto irreversible que hace quebradizo al acero al enfriarse se conoce como ___."
 
 explicacion: |
   Quemar el metal es un defecto irreversible que altera la estructura cristalina.
@@ -368,13 +346,10 @@ metadata:
   nivel: "intermedio"
   tags: ["dobladado", "precisión", "zona"]
 
-variables:
-  zona: "exacta"
-
 respuesta: "exacta"
 tipo: completar
 
-enunciado: "El doblado en caliente se realiza calentando la zona {zona} donde se desea la curva."
+enunciado: "El doblado en caliente se realiza calentando la zona ___ donde se desea la curva."
 
 explicacion: |
   Es crucial calentar solo la zona exacta para evitar deformaciones no deseadas en otras partes de la pieza.
@@ -389,13 +364,10 @@ metadata:
   nivel: "avanzado"
   tags: ["soldadura", "mecanismo", "óxido"]
 
-variables:
-  capa: "óxido superficial"
-
 respuesta: "óxido superficial"
 tipo: completar
 
-enunciado: "Durante la soldadura por forja, el calor elimina la capa de {capa} para permitir la unión."
+enunciado: "Durante la soldadura por forja, el calor elimina la capa de ___ para permitir la unión."
 
 explicacion: |
   El óxido superficial impide la unión directa. El calor lo elimina, permitiendo que los metales limpios se fusionen bajo presión.
@@ -414,10 +386,10 @@ variables:
   temp_min: random(850, 950)
   temp_max: random(1050, 1150)
 
-respuesta: temp_min + "-" + temp_max
+respuesta: temp_max
 tipo: completar
 
-enunciado: "El rango de temperatura óptimo para trabajar el acero, donde se vuelve blando y maleable sin quemarse, es aproximadamente entre {temp_min} y {temp_max} °C."
+enunciado: "El rango de temperatura óptimo para trabajar el acero, donde se vuelve blando y maleable sin quemarse, es aproximadamente entre {temp_min} y ___ °C."
 
 explicacion: |
   Entre 900 y 1200 °C (o rangos cercanos como 850-1150 °C según la aleación), el acero tiene la plasticidad ideal. Por debajo es muy duro, por encima pierde estructura.
@@ -455,12 +427,12 @@ metadata:
 
 variables:
   largo_inicial: random(10, 20)
-  largo_final: "{floor(largo_inicial * 1.5)}"
+  largo_final: floor(largo_inicial * 2)
 
 respuesta: largo_final
-tipo: input
+tipo: completar
 
-enunciado: "Si realizamos un estirado sobre una barra que tenía {largo_inicial} cm de longitud efectiva en la zona de trabajo, y logramos duplicar aproximadamente su longitud, ¿cuántos cm mide ahora la zona estirada (redondeado al entero más cercano)?"
+enunciado: "Si realizamos un estirado sobre una barra que tenía {largo_inicial} cm de longitud efectiva en la zona de trabajo, y logramos duplicar su longitud, ¿cuántos cm mide ahora la zona estirada?"
 
 explicacion: |
   El estirado alarga el material reduciendo su sección transversal. Si se duplica la longitud inicial de 10-20cm, el resultado depende del factor exacto, pero la clave es entender que el volumen se conserva al deformarse.
@@ -479,8 +451,8 @@ variables:
   grosor_inicial: random(2, 4)
   factor_grosor: 2
 
-respuesta: "{grosor_inicial * factor_grosor}"
-tipo: input
+respuesta: grosor_inicial * factor_grosor
+tipo: completar
 
 enunciado: "En el recalcado, se busca reducir la longitud aumentando el grosor. Si partimos de una sección de {grosor_inicial} mm y logramos duplicar su espesor, ¿cuál es el nuevo grosor en mm?"
 
@@ -521,8 +493,8 @@ metadata:
 variables:
   temp_soldadura: random(1250, 1350)
 
-respuesta: temp_soldadura
-tipo: input
+respuesta: verdadero
+tipo: vf
 
 enunciado: "Para lograr una soldadura por forja exitosa, las piezas deben calentarse hasta un color casi blanco, correspondiente a una temperatura aproximada de {temp_soldadura} °C. ¿Es esta temperatura mayor que la de trabajo óptimo (1200 °C)?"
 
@@ -542,8 +514,8 @@ metadata:
 variables:
   temp_rojo: random(600, 700)
 
-respuesta: temp_rojo
-tipo: input
+respuesta: "fuerza moderada"
+tipo: completar
 
 enunciado: "El acero comienza a tomar un rojo oscuro alrededor de los {temp_rojo} °C. A esta temperatura, ¿se recomienda manipularlo con fuerza moderada o esperar a que esté más caliente?"
 
@@ -599,10 +571,10 @@ metadata:
 variables:
   t1: random(800, 900)
   t2: random(1000, 1100)
-  t_promedio: "{floor((t1 + t2) / 2)}"
+  t_promedio: floor((t1 + t2) / 2)
 
 respuesta: t_promedio
-tipo: input
+tipo: completar
 
 enunciado: "Si la temperatura de inicio del trabajo es {t1} °C y la de fin es {t2} °C, ¿cuál es el promedio aproximado de temperatura durante la forja (redondeado al entero más cercano)?"
 
@@ -655,13 +627,10 @@ metadata:
   nivel: "intermedio"
   tags: ["temperatura", "color"]
 
-variables:
-  temp_cereza: random(750, 850)
+respuesta: "800"
+tipo: completar
 
-respuesta: temp_cereza
-tipo: input
-
-enunciado: "El color rojo cereza se alcanza aproximadamente a los {temp_cereza} °C. Es un paso intermedio antes del naranja."
+enunciado: "El color rojo cereza (paso intermedio entre el rojo oscuro y el naranja) se alcanza aproximadamente a los ___ °C."
 
 explicacion: |
   El rojo cereza indica una temperatura media-alta, adecuada para comenzar a trabajar más suavemente que con el rojo oscuro.
@@ -718,7 +687,7 @@ variables:
   mcm_val: mcm(t1, t2)
 
 respuesta: mcm_val
-tipo: input
+tipo: completar
 
 enunciado: "Si un proceso de enfriado tarda {t1} minutos y otro tarda {t2} minutos, ¿cuántos minutos deben pasar para que ambos terminen exactamente al mismo tiempo por primera vez (MCM)?"
 
