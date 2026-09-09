@@ -2,12 +2,14 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q10 no tenía campo `respuesta:` explícito y
+> aceptaba "devolver" como sinónimo válido de "comprar" (confuso, ya
+> que el propio enunciado usa "devolver el favor" en otro sentido),
+> Q17 usaba una variable booleana sorteada como respuesta de un
+> `tipo: completar` para un escenario que siempre es antiético (ocultar
+> información para forzar una decisión nunca es ético), Q25 tenía una
+> variable sorteada con estructura malformada (mezclaba un array
+> anidado con strings sueltos) y nunca usada.
 
 ---
 
@@ -208,10 +210,9 @@ variables:
 
 enunciado: "Caso: '{caso[0]}'. Tras recibir el beneficio gratuito, el cliente siente la obligación psicológica de devolver el favor. Esto se traduce en la acción de: ___."
 
+respuesta: "comprar"
 respuestas_validas:
   - "comprar"
-  - "pagar"
-  - "devolver"
 tipo: completar
 
 explicacion: |
@@ -352,11 +353,8 @@ metadata:
   nivel: "intermedio"
   tags: ["etica", "persuasion"]
 
-variables:
-  es_etica: uno_de([verdadero, falso])
-
-respuesta: es_etica
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "En el contexto de la comunicación persuasiva, si el emisor oculta información relevante para inducir un error en el receptor y forzar una decisión, ¿se considera una práctica ética?"
 
 explicacion: |
@@ -522,10 +520,6 @@ metadata:
   tema: "publicidad_y_persuasion"
   nivel: "intermedio"
   tags: ["familiaridad", "reiteracion"]
-
-variables:
-  campaña_idx: uno_de([0, 1])
-  campañas: [["Una marca de gaseosas que aparece en todos los eventos deportivos", "Una marca de zapatillas que usa siempre los mismos colores y música"], "reiteracion_visual", "reiteracion_auditiva"]
 
 enunciado: "Un anuncio que utiliza la repetición constante de un jingle musical para que el consumidor lo reconozca al instante, está apelando a la _________."
 
