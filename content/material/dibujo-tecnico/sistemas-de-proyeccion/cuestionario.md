@@ -2,12 +2,16 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3 era un bloque roto con notas de LM Studio
+> sin resolver y la clave invertida, Q5 describía los rayos oblicuos
+> como "paralelos al plano" (geométricamente imposible; se corrigió a
+> "inclinados"), Q8/Q10/Q13/Q19/Q23 tenían una premisa fija compatible
+> con una sola rama (isométrica/oblicua) pero el sorteo permitía
+> marcar como correcta la respuesta de otra rama incompatible, Q12
+> mezclaba `tipo: completar` con una afirmación verdadero/falso, Q21
+> combinaba una premisa fija sobre proyección ortogonal con un
+> "caso actual" sorteado que a veces describía un sistema distinto,
+> generando una pregunta contradictoria.
 
 ---
 
@@ -60,19 +64,13 @@ metadata:
   nivel: "basico"
   tags: ["oblicua", "verdad_falso"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "En la proyección oblicua, la cara frontal del objeto se proyecta sin deformación, ya que el plano de proyección es paralelo a dicha cara."
 
 explicacion: |
-  Es verdadero que la cara frontal no se deforma, pero la pregunta es de falso/verdadero sobre la propiedad de la cara frontal. En la oblicua, la cara frontal es paralela al plano, por lo tanto es verdadera la premisa. (Nota: El usuario debe marcar falso si la premisa es falsa).
-  *Corrección de lógica para el DSL*: Si la premisa es verdadera, la respuesta es verdadero.
-  
-  *Re-ajuste*:
-  Enunciado: "En la proyección oblicua, la cara frontal del objeto se proyecta sin deformación, ya que el plano de proyección es paralelo a dicha cara."
-  Respuesta: verdadero
-  Tipo: vf
+  Verdadero. En la proyección oblicua, la cara frontal es paralela al plano de proyección, por lo que se representa en su verdadera magnitud, sin deformación. Las demás caras sí sufren distorsión por el ángulo de los rayos proyectantes.
 ```
 
 ### 4 — Orden de visualización de planos
@@ -105,7 +103,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [["Paralelas al plano", "Oblicua"], ["Perpendiculares al plano", "Axonométrica"]]
+  datos: [["Inclinadas respecto al plano", "Oblicua"], ["Perpendiculares al plano", "Axonométrica"]]
 
 enunciado: "Si comparamos la orientación de los rayos proyectantes respecto al plano de proyección, la proyección {datos[idx][0]} se caracteriza por tener rayos que son {datos[idx][1]}."
 
@@ -114,7 +112,7 @@ tipo: mc
 opciones_explicitas: ["Oblicua", "Axonométrica"]
 
 explicacion: |
-  La respuesta depende del caso sorteado. Si es Oblicua, los rayos son paralelos al plano (en su cara frontal); si es Axonométrica (Ortogonal), son perpendiculares.
+  La respuesta depende del caso sorteado. Si es Oblicua, los rayos son paralelos entre sí pero inclinados respecto al plano; si es Axonométrica (que técnicamente se proyecta igual que la Ortogonal), son perpendiculares al plano.
 ```
 
 ### 6 — Proyección Ortogonal: El concepto de paralelismo
@@ -166,13 +164,9 @@ metadata:
   nivel: "intermedio"
   tags: ["isométrica", "ángulos"]
 
-variables:
-  datos: [[120, "isométrica"], [90, "ortogonal"], [45, "oblicua"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "120"
 tipo: mc
-opciones_explicitas: ["isométrica", "ortogonal", "oblicua"]
+opciones_explicitas: ["120", "90", "45"]
 
 enunciado: "En una proyección isométrica (un tipo de axonometría), los tres ejes principales del objeto forman ángulos de ___ grados entre sí sobre el plano de proyección."
 
@@ -208,20 +202,15 @@ metadata:
   nivel: "avanzado"
   tags: ["axonométrica", "escala"]
 
-variables:
-  caso: [[1.0, "isométrica"], [0.5, "oblicua"]]
-  idx: uno_de([0, 1])
-
-respuesta: caso[idx][0]
+respuesta: "1.0"
 tipo: completar
 respuestas_validas:
   - "1.0"
-  - "0.5"
 
 enunciado: "En una proyección isométrica, el coeficiente de reducción de las dimensiones en los tres ejes principales es de ___."
 
 explicacion: |
-  A diferencia de la proyección oblicua (donde las caras frontales mantienen escala 1:1), en la isométrica todas las dimensiones se reducen por igual para mantener la proporción visual de los tres ejes.
+  En la práctica, el coeficiente de reducción de la proyección isométrica se simplifica a 1.0 (aunque teóricamente el valor exacto es 0.82) para facilitar el trazado. En cambio, la proyección oblicua sí reduce notablemente la profundidad (con un coeficiente típico de 0.5).
 ```
 
 ### 11 — Proyección Ortogonal vs Axonométrica
@@ -253,8 +242,8 @@ metadata:
   nivel: "intermedio"
   tags: ["oblicua", "escala"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "En una proyección oblicua, las dimensiones de la cara frontal (la que es paralela al plano de proyección) se ven distorsionadas por un ángulo de inclinación, a diferencia de la proyección ortogonal."
 
 explicacion: |
@@ -270,19 +259,13 @@ metadata:
   nivel: "intermedio"
   tags: ["axonometria", "isometria"]
 
-variables:
-  datos: [["isométrica", "dimensión igual"], ["dimétrica", "dos dimensiones iguales"], ["trimétrica", "tres dimensiones distintas"]]
-  idx: uno_de([0,1,2])
-
 respuesta: "dimensión igual"
 tipo: completar
 
 respuestas_validas:
   - "dimensión igual"
-  - "dos dimensiones iguales"
-  - "tres dimensiones distintas"
 
-enunciado: "En la proyección axonometría de tipo {datos[idx][0]}, las tres escalas de las dimensiones en los ejes principales son la misma, lo que implica que la {datos[idx][1]}."
+enunciado: "En la proyección axonométrica de tipo isométrica, las tres escalas de las dimensiones en los ejes principales son la misma, lo que implica que la ___."
 
 explicacion: |
   En la isometría, los tres ejes están a la misma distancia del observador, por lo que no hay deformación de escala entre ellos.
@@ -393,16 +376,10 @@ metadata:
   nivel: "intermedio"
   tags: ["axonométrica", "ejes"]
 
-variables:
-  datos: [["isométrica", "todos los ejes iguales"], ["dimétrica", "dos ejes iguales"], ["trimétrica", "tres ejes distintos"]]
-  idx: uno_de([0,1,2])
-
 tipo: completar
 respuestas_validas:
   - "isométrica"
-  - "dimétrica"
-  - "trimétrica"
-respuesta: datos[idx][0]
+respuesta: "isométrica"
 
 enunciado: "Si en una proyección axonométrica los tres ejes principales tienen la misma inclinación y la misma escala, estamos ante una proyección ___________."
 
@@ -449,7 +426,7 @@ respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["ortogonal", "oblicua", "axonométrica"]
 
-enunciado: "Si un técnico dibuja una pieza mostrando sus vistas principales (alzado, planta y perfil) de forma perpendicular a los planos de proyección, ¿qué sistema está utilizando? El caso actual es: {datos[idx][0]}"
+enunciado: "Un técnico dibuja una pieza. El caso es: {datos[idx][0]}. ¿Qué sistema de proyección está utilizando?"
 
 explicacion: |
   La proyección ortogonal se caracteriza por proyectar líneas perpendiculares a los planos de proyección, permitiendo obtener las vistas diédricas de un objeto sin distorsión de forma.
@@ -482,15 +459,10 @@ metadata:
   nivel: "intermedio"
   tags: ["oblicua", "terminologia"]
 
-variables:
-  datos: [["En la proyección oblicua, la cara frontal es paralela al plano y la profundidad se proyecta con un ángulo", "oblicua"], ["En la proyección ortogonal, las líneas de proyección son", "perpendiculares"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "oblicua"
 tipo: completar
 respuestas_validas:
   - "oblicua"
-  - "perpendiculares"
 
 enunciado: "El sistema de proyección que se caracteriza por que la cara frontal no sufre distorsión pero las líneas de fuga tienen un ángulo respecto a la vertical es la proyección ___."
 
