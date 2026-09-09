@@ -2,12 +2,12 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q13 tenía la clave invertida ("0" en vez de
+> "1" para que un AND dé salida 1), Q18 era un bloque roto con
+> comentarios de LM Studio sin resolver mezclados en la explicación
+> (arreglado en vez de eliminado, ya que describía un caso válido y
+> distinto de Q19), Q10 tenía "\n" literal sin interpretar dentro de
+> un bloque `|`.
 
 ---
 
@@ -219,7 +219,9 @@ tipo: completar
 tolerancia_abs: 0
 
 explicacion: |
-  Paso 1: AND(1, 0) = 0. \nPaso 2: NOT(0) = 1. \nLa salida final es 1.
+  Paso 1: AND(1, 0) = 0.
+  Paso 2: NOT(0) = 1.
+  La salida final es 1.
 ```
 
 ### 11 — La confusión de la puerta NOT
@@ -274,10 +276,9 @@ metadata:
   nivel: "basico"
   tags: ["logica", "and"]
 
-respuesta: "0"
+respuesta: "1"
 tipo: completar
 respuestas_validas:
-  - "0"
   - "1"
 
 enunciado: "Para que una puerta AND entregue una salida de '1', todas sus entradas deben ser ___."
@@ -318,9 +319,6 @@ metadata:
   tema: "logica_digital_puertas"
   nivel: "basico"
   tags: ["logica", "and"]
-
-variables:
-  caso: uno_de([[0, 1], [1, 0], [0, 0]])
 
 respuesta: 0
 tipo: completar
@@ -383,16 +381,13 @@ metadata:
   nivel: "basico"
   tags: ["puerta_or", "logica"]
 
-respuesta: falso
+respuesta: verdadero
 
 tipo: vf
 enunciado: "Si una puerta OR tiene una entrada en estado 0, la salida dependerá exclusivamente del valor de la otra entrada."
 
 explicacion: |
-  Es verdadero que la salida depende de la otra entrada, pero la afirmación de que 'la salida dependerá de la otra entrada' es una propiedad de la puerta OR cuando una entrada es 0. Sin embargo, si la pregunta se plantea como: 'La puerta OR solo da 1 si ambas son 1', eso sería falso. Reevaluando la lógica: Si una entrada es 0, la salida es igual a la otra entrada. Por lo tanto, la afirmación es verdadera. Corrijo el tipo a vf con respuesta verdadera para el ejemplo:
-  (Nota: El usuario pidió VF con booleano real).
-  
-  Re-generando para evitar ambigüedad:
+  Verdadero. Como 0 OR X = X, cuando una entrada es 0 la salida queda determinada enteramente por el valor de la otra entrada.
 ```
 
 ### 19 — Verdad o Falso: Propiedad de la puerta OR
@@ -564,7 +559,7 @@ opciones_explicitas: ["00", "01", "10", "11"]
 respuesta_orden: ["00", "01", "10", "11"]
 tipo: ordenar
 
-enunciado: "Ordene las posibles combinaciones de salida de una puerta AND de dos entradas, empezando desde el valor binario más bajo hasta el más alto."
+enunciado: "Ordene las posibles combinaciones de entrada (A, B) de una puerta AND de dos bits, empezando desde el valor binario más bajo hasta el más alto."
 
 explicacion: |
   El orden correcto de las combinaciones binarias de dos bits es 00, 01, 10 y 11.
