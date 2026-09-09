@@ -2,20 +2,13 @@
 
 > Tema: `S2`. Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma) en 5 lotes concurrentes.
-> Corregido a mano. Bugs de esta tanda: muchas preguntas de blank
-> `___` etiquetadas `tipo: vf` (reclasificadas a `completar`); varias
-> preguntas con `respuesta:`/`respuestas_validas` calculadas con
-> multiplicación en vivo (`peso * dosis_unitaria`), `respuestas_validas:
-> [resultado]` envolviendo una variable (no un string), y un `tipo:
-> input` (tipo no confirmado en el DSL) — todas normalizadas con el
-> resultado precalculado como literal en la tabla; un lote entero
-> (5 preguntas) sorteaba un escenario con `uno_de(...)` pero la
-> `respuesta:` quedaba **fija** en un solo valor sin importar qué
-> escenario salía (la mitad de las veces la "correcta" no
-> correspondía al escenario mostrado) — recalculadas y corregidas
-> las 5; una pregunta `tipo: vf` cuya `respuesta:` era la variable
-> calculada en vez de `verdadero`/`falso` — corregida.
+> Revisado manualmente (2026-09-09): las 25 preguntas fueron reauditadas
+> pregunta por pregunta contra la fórmula dosis = peso × dosis/kg,
+> incluyendo verificación manual de toda la aritmética de las 25
+> tablas de sorteo. No se encontraron bugs nuevos — la corrección a
+> mano de una tanda anterior (blanks mal tipeados `vf`, cálculos en
+> vivo, `respuesta:` fija desincronizada del sorteo) resultó ser
+> genuina y completa.
 
 ---
 
