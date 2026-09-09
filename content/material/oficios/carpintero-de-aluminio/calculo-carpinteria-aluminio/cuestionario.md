@@ -1,6 +1,17 @@
 # Oficios — calculo carpinteria aluminio (cuestionario, 23 preguntas VBLang)
 
-> Tema: `oficios/carpintero-de-aluminio/calculo-carpinteria-aluminio`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/carpintero-de-aluminio/calculo-carpinteria-aluminio`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q6/Q13 sorteos muertos (variables nunca
+> interpoladas) removidos, Q10 faltaba aplicar el redondeo a dos
+> decimales que el propio enunciado pedía, agregado; Q15
+> `respuesta: uno_de([verdadero, falso])` (segundo sorteo independiente
+> de la variable `es_alta` ya calculada, podía marcar como correcta la
+> opción opuesta a la real) corregida a `respuesta: es_alta`; Q22
+> enunciado afirmaba "0.5% de holgura" pero la fórmula sumaba una
+> constante fija de 0.5 m (no un porcentaje del perímetro), reformulado
+> como holgura fija; `tipo: input` (alias legacy) normalizado a
+> `completar` en todo el archivo.
 
 ---
 
@@ -123,9 +134,6 @@ metadata:
   nivel: "avanzado"
   tags: ["fuego", "resistencia", "seguridad"]
 
-variables:
-  tipo_vidrio: uno_de(["común", "ignífugo"])
-
 respuesta: verdadero
 tipo: vf
 
@@ -170,7 +178,7 @@ variables:
   holgura_total: 10
 
 respuesta: luz + holgura_total
-tipo: input
+tipo: completar
 
 enunciado: "Se debe fabricar un marco rectangular para una abertura de {luz} cm de ancho. Si se deben agregar {holgura_total} cm de holgura total (5 cm por cada lado vertical) para el ajuste en el hueco, ¿cuál es el largo exacto del perfil superior del marco en cm?"
 
@@ -192,7 +200,7 @@ variables:
   centimetros: redondear(metros * 100, 0)
 
 respuesta: centimetros
-tipo: input
+tipo: completar
 
 enunciado: "Un perfil de contramarco tiene una longitud de {metros} metros. ¿A cuántos centímetros equivale esta medida para programar el corte en la sierra de precisión?"
 
@@ -215,8 +223,8 @@ variables:
   area_cm2: ancho * alto
   area_m2: area_cm2 / 10000
 
-respuesta: area_m2
-tipo: input
+respuesta: redondear(area_m2, 2)
+tipo: completar
 
 enunciado: "Se debe colocar un vidrio de dimensiones {ancho} cm de ancho por {alto} cm de alto. Calculá el área total del vidrio en metros cuadrados (m²), redondeando a dos decimales."
 
@@ -261,7 +269,7 @@ variables:
   largo_perfil: alto_abertura + holgura_vertical
 
 respuesta: largo_perfil
-tipo: input
+tipo: completar
 
 enunciado: "Si la altura de la abertura es de {alto_abertura} cm y se deben sumar {holgura_vertical} cm de holgura vertical para el contramarco, ¿cuánto mide cada perfil vertical (montante) del marco?"
 
@@ -280,10 +288,9 @@ metadata:
 
 variables:
   tipo_ventana: uno_de(["corrediza", "abatiente", "fija"])
-  respuesta_correcta: uno_de(["goma EPDM", "burlete de espuma", "silicona"])
 
 respuesta: "goma EPDM"
-tipo: input
+tipo: completar
 
 enunciado: "Para garantizar la hermeticidad al agua y aire en una ventana de aluminio de tipo {tipo_ventana}, ¿qué material se utiliza comúnmente en las juntas de contacto entre el marco y la hoja?"
 
@@ -306,7 +313,7 @@ variables:
   peso_total: largo_total * peso_por_metro
 
 respuesta: peso_total
-tipo: input
+tipo: completar
 
 enunciado: "Se necesitan {largo_total} metros lineales de un perfil de aluminio que pesa {peso_por_metro} kg/m. ¿Cuál es el peso total aproximado de estos perfiles en kg?"
 
@@ -329,7 +336,7 @@ variables:
   ratio: luz / alto
   es_alta: ratio > 1.5
 
-respuesta: uno_de([verdadero, falso])
+respuesta: es_alta
 tipo: vf
 
 enunciado: "Si la abertura tiene una luz de {luz} cm y un alto de {alto} cm, es una abertura 'alta' (relación luz/altura > 1.5), lo que exige perfiles con mayor inercia."
@@ -355,7 +362,7 @@ variables:
   total: perfiles_horizontales + perfiles_verticales
 
 respuesta: total
-tipo: input
+tipo: completar
 
 enunciado: "Para armar el contramarco de una abertura rectangular de {luz} x {alto} cm, ¿cuántos perfiles lineales completos se necesitan como mínimo (sin contar piezas de unión ni refuerzos)?"
 
@@ -378,7 +385,7 @@ variables:
   carga_kn: area_vidrio * presion_viento
 
 respuesta: carga_kn
-tipo: input
+tipo: completar
 
 enunciado: "Si el área del vidrio es de {area_vidrio} m² y la presión de viento de diseño es de {presion_viento} kN/m², ¿cuál es la carga total en kN que debe soportar el marco?"
 
@@ -401,7 +408,7 @@ variables:
   ancho_hoja: luz_abertura + holgura_deslizamiento
 
 respuesta: ancho_hoja
-tipo: input
+tipo: completar
 
 enunciado: "Para una abertura de {luz_abertura} cm, la hoja de la ventana corrediza debe ser más ancha que la luz para permitir el traslape y el cierre. Si se suma {holgura_deslizamiento} cm de traslape, ¿cuál es el ancho mínimo de la hoja?"
 
@@ -424,7 +431,7 @@ variables:
   cantidad_tornillos: ceil(largo_perfil / distancia_max) + 1
 
 respuesta: cantidad_tornillos
-tipo: input
+tipo: completar
 
 enunciado: "Para fijar un perfil de {largo_perfil} metros al muro, y sabiendo que la distancia máxima permitida entre puntos de anclaje es de 0.5 m, ¿cuántos tornillos como mínimo se necesitan?"
 
@@ -447,7 +454,7 @@ variables:
   area_m2: perimetro * altura_perfil
 
 respuesta: area_m2
-tipo: input
+tipo: completar
 
 enunciado: "Si el perímetro del marco es de {perimetro} m y la altura del perfil es de 0.05 m, ¿cuál es el área lateral total del marco en m²?"
 
@@ -470,7 +477,7 @@ variables:
   ancho_canal: ancho_vidrio + holgura_lado
 
 respuesta: ancho_canal
-tipo: input
+tipo: completar
 
 enunciado: "Si el vidrio mide {ancho_vidrio} cm de ancho, ¿cuál debe ser el ancho interno del canal del perfil para recibir el vidrio, considerando una holgura de {holgura_lado} cm en total?"
 
@@ -493,12 +500,12 @@ variables:
   largo_total: perimetro + holgura_total
 
 respuesta: largo_total
-tipo: input
+tipo: completar
 
-enunciado: "Para un cerramiento de perímetro {perimetro} m, se debe sumar un 0.5% de holgura para cortes y ajustes. ¿Cuál es el largo total de perfiles necesarios en metros?"
+enunciado: "Para un cerramiento de perímetro {perimetro} m, se debe sumar 0.5 m de holgura fija para cortes y ajustes. ¿Cuál es el largo total de perfiles necesarios en metros?"
 
 explicacion: |
-  El largo total incluye la holgura por cortes y ajustes. {perimetro} + 0.5 = {largo_total} m (aproximado para simplificación en este contexto básico).
+  El largo total incluye la holgura fija por cortes y ajustes. {perimetro} + 0.5 = {largo_total} m.
 ```
 
 ### 23 — pregunta 23
@@ -516,7 +523,7 @@ variables:
   costo_total: metros * precio_por_metro
 
 respuesta: costo_total
-tipo: input
+tipo: completar
 
 enunciado: "Si se necesitan {metros} metros de perfil y el precio es de ${precio_por_metro} por metro, ¿cuál es el costo total del material de perfiles en pesos?"
 
