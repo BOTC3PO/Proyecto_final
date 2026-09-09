@@ -1,6 +1,6 @@
 # Oficios — Tornero — Fundamentos de tornería (teoria)
 
-> Tema del MAPA: `OF24.fundamentos-torneria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF24.fundamentos-torneria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: el texto confundía "carro transversal" con "bancada" (son piezas distintas: la bancada es la estructura rígida fija, el carro transversal es la parte móvil que se desplaza sobre ella) — corregido.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -18,7 +18,7 @@ Este conocimiento es la base para entender cómo se fabrican componentes mecáni
 
 El torno paralelo, también conocido como torno de banco o torno de herramientas, es el equipo más versátil para el aprendizaje y la producción de piezas únicas o pequeñas series. Su diseño se centra en la estabilidad y la capacidad de realizar múltiples operaciones básicas. Para trabajar con seguridad y eficacia, es crucial identificar sus partes principales y comprender su función específica dentro del sistema de mecanizado.
 
-El cuerpo principal se divide en tres secciones vitales. Primero está la **caja de cambios**, ubicada en el extremo izquierdo, que contiene el mecanismo interno responsable de transmitir la potencia del motor y regular la velocidad de giro del husillo. A continuación, encontramos el **husillo** o plato portapiezas, que es el eje giratorio donde se fija la materia prima. Su rotación es la fuerza motriz que permite el corte. Por último, el **carro transversal** o bancada es la estructura rígida que soporta el movimiento de la herramienta, permitiendo desplazamientos precisos en dirección longitudinal (paralela al eje de giro) y transversal (perpendicular al eje).
+El cuerpo principal se divide en tres secciones vitales. Primero está la **caja de cambios**, ubicada en el extremo izquierdo, que contiene el mecanismo interno responsable de transmitir la potencia del motor y regular la velocidad de giro del husillo. A continuación, encontramos el **husillo** o plato portapiezas, que es el eje giratorio donde se fija la materia prima. Su rotación es la fuerza motriz que permite el corte. Por último, la **bancada** es la estructura rígida (los rieles guía) sobre la que se desplaza el carro principal, que porta a su vez al carro transversal —el que permite el movimiento perpendicular al eje de giro, usado por ejemplo para refrentar— y al carro longitudinal, que avanza en paralelo al eje.
 
 ## Herramientas de corte y seguridad operativa
 
