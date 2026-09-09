@@ -1,6 +1,6 @@
 # Oficios — Tornero — Materiales para mecanizado (teoria)
 
-> Tema del MAPA: `OF24.materiales-torneria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF24.materiales-torneria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: dos términos mal aplicados corregidos ("trabajable" para el endurecimiento por deformación del inoxidable → "acritud"; "libre de viruta" para el latón de corte libre → "de corte libre/maquinado libre").
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -18,7 +18,7 @@ Comprender las propiedades de corte permite anticipar problemas antes de encende
 
 Entre los metales más utilizados en talleres de tornería y fresado se encuentran el acero al carbono, el acero inoxidable, el aluminio y el latón. Cada uno presenta desafíos específicos. El acero al carbono es resistente y duradero, pero genera mucho calor durante el corte. Por ello, suele requerir un fluido refrigerante para evitar que la herramienta se rebaje demasiado rápido o se queme. Su estructura granular permite obtener buenos acabados si se controla la profundidad de corte.
 
-El acero inoxidable, por su parte, es conocido por ser "trabajable" en el sentido de que endurece por deformación. Esto significa que, si la herramienta no avanza con suficiente velocidad o se detiene en seco, el material se endurece justo debajo de la herramienta, haciendo imposible continuar el corte sin dañar el filo. Por el contrario, el aluminio es ligero y blando, con excelente conductividad térmica, lo que permite velocidades de corte muy altas. Sin embargo, tiende a ser pegajoso y puede adherirse al filo de la herramienta, formando una acumulación que deteriora el acabado superficial. El latón, en cambio, es un material "libre de viruta" o de corte libre, ya que su estructura quebradiza hace que la viruta se rompa fácilmente, facilitando un mecanizado limpio y rápido sin necesidad de refrigerante en muchos casos.
+El acero inoxidable, por su parte, es conocido por su tendencia a la acritud, es decir, a endurecer por deformación. Esto significa que, si la herramienta no avanza con suficiente velocidad o se detiene en seco, el material se endurece justo debajo de la herramienta, haciendo imposible continuar el corte sin dañar el filo. Por el contrario, el aluminio es ligero y blando, con excelente conductividad térmica, lo que permite velocidades de corte muy altas. Sin embargo, tiende a ser pegajoso y puede adherirse al filo de la herramienta, formando una acumulación que deteriora el acabado superficial. El latón, en cambio, es un material de corte libre (o de maquinado libre), ya que su estructura quebradiza hace que la viruta se rompa fácilmente en fragmentos cortos, facilitando un mecanizado limpio y rápido sin necesidad de refrigerante en muchos casos.
 
 ## Propiedades clave para el ajuste de parámetros
 
