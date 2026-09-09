@@ -2,12 +2,14 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3 respuestas_validas gramaticalmente rota
+> ("comenta el original" no encajaba en la oración) corregida a un único
+> verbo consistente, Q7 `respuesta:` explícita agregada, Q18 estructura
+> de datos mal indexada (el blanco esperaba la categoría "primaria"/
+> "secundaria" pero devolvía texto descriptivo completo) simplificada a
+> premisa fija con respuesta "secundaria", Q20 respuestas_validas
+> triplicada deduplicada, Q23 `respuesta: "ejemplos[idx][1]"` (string
+> literal sin evaluar) corregido a la referencia de variable evaluada.
 
 ---
 
@@ -61,11 +63,10 @@ metadata:
   nivel: "basico"
   tags: ["secundaria"]
 
-respuesta: "interpreta o analiza"
+respuesta: "interpretar o analizar"
 tipo: completar
 respuestas_validas:
-  - "interpreta o analiza"
-  - "comenta el original"
+  - "interpretar o analizar"
 
 enunciado: "A diferencia de la fuente primaria, una fuente secundaria tiene como función principal ___ la información de la fuente original."
 
@@ -151,6 +152,7 @@ metadata:
 
 enunciado: "Un historiador lee un diario íntimo de una persona que vivió la Revolución Francesa para escribir un libro sobre ese periodo. El diario es una fuente primaria, mientras que el libro del historiador es una fuente ________."
 
+respuesta: "secundaria"
 respuestas_validas:
   - "secundaria"
 tipo: completar
@@ -371,15 +373,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["Entrevista a un sobreviviente", "Análisis de una carta antigua"], ["Interpretación de la carta", "Resumen de la entrevista"]]
+  datos: ["Entrevista a un sobreviviente", "una carta antigua"]
 
-respuesta: datos[escenario_idx][1]
+respuesta: "secundaria"
 tipo: completar
 respuestas_validas:
-  - datos[0][1]
-  - datos[1][1]
+  - "secundaria"
 
-enunciado: "Si el objeto de estudio es {datos[escenario_idx][0]}, el documento que analiza ese registro se clasifica como una fuente ___."
+enunciado: "Si el objeto de estudio es {datos[escenario_idx]}, el documento que la analiza se clasifica como una fuente ___."
 
 pasos:
   - "Identificar el origen del documento base."
@@ -420,8 +421,6 @@ metadata:
 respuesta: "interpretación"
 tipo: completar
 respuestas_validas:
-  - "interpretación"
-  - "interpretación"
   - "interpretación"
 
 enunciado: "La principal diferencia entre una fuente primaria y una secundaria radica en la presencia de ___ o análisis sobre el evento original."
@@ -494,7 +493,7 @@ enunciado: "Un historiador lee {ejemplos[idx][0]}. Por lo tanto, está trabajand
 respuestas_validas:
   - "primaria"
   - "secundaria"
-respuesta: "ejemplos[idx][1]"
+respuesta: ejemplos[idx][1]
 tipo: "completar"
 
 explicacion: |
