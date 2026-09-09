@@ -2,12 +2,13 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q2 tenía la clave invertida respecto a su
+> propia explicación, Q4/Q12/Q18 sorteaban una respuesta incompatible
+> con una premisa fija o directamente desconectada (doble sorteo), Q7
+> y Q17 mezclaban `tipo: completar`/booleano con preguntas
+> verdadero/falso, Q16 aceptaba "mallas" como válida para un blank que
+> sólo admite "nodos", Q19 usaba índices numéricos en vez de texto como
+> respuesta de un blank.
 
 ---
 
@@ -40,7 +41,7 @@ metadata:
   nivel: "basico"
   tags: ["kcl", "corrientes", "nodos"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "La Ley de Corrientes de Kirchhoff (KCL) establece que la suma de las corrientes que entran a un nodo es igual a la suma de las corrientes que salen de dicho nodo."
@@ -77,11 +78,7 @@ metadata:
   nivel: "basico"
   tags: ["terminologia", "rama", "lazo"]
 
-variables:
-  datos: [["rama", "rama"], ["lazo", "lazo"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][0]
+respuesta: "rama"
 tipo: mc
 opciones_explicitas: ["rama", "nodo", "lazo", "fuente"]
 
@@ -91,7 +88,7 @@ pasos:
   - "Determinar la trayectoria entre ellos"
 
 explicacion: |
-  La respuesta correcta es {datos[idx][0]}. Un elemento o segmento de circuito entre dos nodos se llama rama.
+  Un elemento o segmento de circuito entre dos nodos se llama rama.
 ```
 
 ### 5 — Secuencia de análisis de mallas
@@ -158,11 +155,8 @@ variables:
 
 enunciado: "En una malla simple con una fuente de tensión de {fuente} V y dos resistencias en serie que suman {resistencia_total} $\\Omega$, la suma de las caídas de tensión en las resistencias debe ser igual a la tensión de la fuente según la Ley de Tensiones de Kirchhoff (LVK). ¿La suma de las caídas de tensión en las resistencias es igual a la tensión de la fuente?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuestas_validas:
-  - "verdadero"
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   La LVK establece que la suma algebraica de las tensiones alrededor de cualquier lazo cerrado es igual a cero. En términos de magnitudes, la suma de las caídas de tensión en las resistencias es igual a la tensión suministrada por la fuente.
 ```
@@ -250,7 +244,7 @@ metadata:
   tags: ["nodos", "corriente", "ley_de_kirchhoff"]
 
 respuesta: 4
-tipo: "input"
+tipo: completar
 tolerancia_abs: 0.001
 
 enunciado: "En un nodo de un circuito, entran dos corrientes de 5A y 3A, y salen una corriente de 4A y otra de I_salida. Según la Ley de Corrientes de Kirchhoff (LCC), ¿cuál es el valor de I_salida en Amperios?"
@@ -274,15 +268,11 @@ metadata:
   nivel: "intermedio"
   tags: ["mallas", "tension", "ley_de_tensiones"]
 
-variables:
-  escenario: uno_de([["positivo", "negativo"], ["negativo", "positivo"]])
-  signo: escenario[0]
-
-respuesta: signo
+respuesta: "negativo"
 tipo: "mc"
 opciones_explicitas: ["positivo", "negativo"]
 
-enunciado: "Al aplicar la Ley de Tensiones de Kirchhoff (LTK) en una malla, si recorremos una resistencia en el mismo sentido que la corriente, la caída de tensión se considera con signo {signo} respecto al potencial del nodo anterior."
+enunciado: "Al aplicar la Ley de Tensiones de Kirchhoff (LTK) en una malla, si recorremos una resistencia en el mismo sentido que la corriente, la caída de tensión se considera con signo ___ respecto al potencial del nodo anterior."
 
 explicacion: |
   Al recorrer una resistencia en la dirección de la corriente, el potencial disminuye (caída de tensión), por lo tanto, se suele representar con signo negativo en la ecuación de la malla para reflejar la pérdida de energía.
@@ -367,7 +357,6 @@ respuesta: "nodos"
 tipo: completar
 respuestas_validas:
   - "nodos"
-  - "mallas"
 
 enunciado: "Mientras que la Ley de Tensiones de Kirchhoff (LVK) se aplica a lazos cerrados para analizar caídas de potencial, la Ley de Corrientes de Kirchhoff (LKK) se aplica a los ___ para analizar la conservación de la carga."
 
@@ -384,11 +373,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "fisica"]
 
-variables:
-  es_conservacion: uno_de([verdadero, falso])
-
-respuesta: es_conservacion
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La Ley de Corrientes de Kirchhoff es, en esencia, una aplicación directa del principio de conservación de la carga eléctrica en un punto de unión."
 
 explicacion: |
@@ -404,11 +390,7 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia", "análisis"]
 
-variables:
-  escenario: uno_de([0, 1])
-  respuesta_correcta: uno_de(["Análisis de Mallas", "Análisis de Nodos"])
-
-respuesta: respuesta_correcta
+respuesta: "Análisis de Mallas"
 tipo: mc
 opciones_explicitas: ["Análisis de Nodos", "Análisis de Mallas", "Análisis de Componentes"]
 
@@ -432,16 +414,12 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion", "variables"]
 
-variables:
-  par: uno_de([[0, 1], [1, 0]])
-
-respuesta: par[1]
+respuesta: "corriente"
 tipo: completar
 respuestas_validas:
   - "corriente"
-  - "tensión"
 
-enunciado: "En el análisis de mallas, la variable principal que se busca determinar mediante la aplicación de la LVK es la ___, mientras que en el análisis de nodos la variable principal es la ___."
+enunciado: "En el análisis de mallas, la variable principal que se busca determinar mediante la aplicación de la LVK es la ___ (mientras que en el análisis de nodos la variable principal es la tensión)."
 
 explicacion: |
   En mallas trabajamos con corrientes de lazo (LVK) y en nodos con potenciales o tensiones (LKK).
