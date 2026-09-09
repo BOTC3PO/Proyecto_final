@@ -2,12 +2,16 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q1 aceptaba "receptor"/"mensaje"/"canal" como
+> sinónimos válidos de "emisor" para una pregunta con una sola
+> respuesta correcta, Q3 tenía la clave invertida respecto a su propia
+> explicación, Q5 usaba `escenario[idx][idx]` (autoindexado) que nunca
+> podía devolver "lectura negociada" pese a ser la única respuesta
+> correcta según la propia explicación, Q20/Q23 tenían una premisa fija
+> compatible sólo con una rama (estudios culturales/negociación,
+> lectura negociada) pero el sorteo permitía marcar la rama
+> incompatible (teoría crítica/dominación, lectura dominante) como
+> correcta.
 
 ---
 
@@ -24,9 +28,6 @@ respuesta: "emisor"
 tipo: completar
 respuestas_validas:
   - "emisor"
-  - "receptor"
-  - "mensaje"
-  - "canal"
 
 enunciado: "En el modelo de transmisión de la comunicación, el sujeto que codifica y envía el mensaje se denomina ___."
 
@@ -62,7 +63,7 @@ metadata:
   nivel: "avanzado"
   tags: ["audiencia", "recepcion", "interpretacion"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "En los Estudios Culturales, se considera que la audiencia es un sujeto pasivo que solo recibe e incorpora los mensajes sin posibilidad de resistencia."
@@ -99,11 +100,7 @@ metadata:
   nivel: "intermedio"
   tags: ["decodificacion", "significado"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["lectura dominante", "lectura negociada"], ["lectura dominante", "lectura oposicional"]]
-
-respuesta: escenario[idx][idx]
+respuesta: "lectura negociada"
 tipo: mc
 opciones_explicitas: ["lectura dominante", "lectura negociada", "lectura oposicional"]
 
@@ -396,18 +393,14 @@ metadata:
   nivel: "intermedio"
   tags: ["estudios_culturales", "teoria_critica"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["estudios_culturales", "negociación"], ["teoria_critica", "dominación"]]
-
-respuesta: escenario[idx][1]
+respuesta: "negociación"
 tipo: "mc"
 opciones_explicitas: ["negociación", "dominación", "estabilidad", "transmisión"]
 
-enunciado: "Si nos enfocamos en el estudio de cómo los grupos sociales reinterpretan los significados de los mensajes mediáticos, estamos bajo el paradigma de los {escenario[idx][0]}, donde el proceso es de ___."
+enunciado: "Si nos enfocamos en el estudio de cómo los grupos sociales reinterpretan los significados de los mensajes mediáticos, estamos bajo el paradigma de los estudios culturales, donde el proceso es de ___."
 
 explicacion: |
-  Dependiendo del sorteo, la pregunta identifica si el enfoque es de negociación (Estudios Culturales) o de dominación (Teoría Crítica).
+  Los Estudios Culturales analizan cómo las audiencias reinterpretan y negocian el sentido de los mensajes, a diferencia de la Teoría Crítica, centrada en la dominación ideológica.
 ```
 
 ### 21 — El modelo de transmisión
@@ -465,17 +458,12 @@ metadata:
   nivel: "avanzado"
   tags: ["audiencia", "decodificacion", "subcultura"]
 
-variables:
-  datos: [["Un espectador que ve un comercial y lo usa para criticar al sistema", "lectura_negociada"], ["Un espectador que acepta el mensaje sin cuestionar", "lectura_dominante"]]
-  idx: uno_de([0,1])
-
 enunciado: "Según los Estudios Culturales, si un individuo recibe un mensaje pero lo reinterpreta según su propio contexto cultural, está realizando una ___."
 
-respuesta: datos[idx][1]
+respuesta: "lectura_negociada"
 tipo: completar
 respuestas_validas:
   - "lectura_negociada"
-  - "lectura_dominante"
 
 explicacion: |
   A diferencia del funcionalismo, los Estudios Culturales sostienen que la audiencia no es pasiva, sino que decodifica los mensajes de forma activa y diversa.
