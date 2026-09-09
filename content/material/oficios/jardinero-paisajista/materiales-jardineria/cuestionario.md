@@ -1,6 +1,6 @@
 # Oficios — materiales jardineria (cuestionario, 28 preguntas VBLang)
 
-> Tema: `oficios/jardinero-paisajista/materiales-jardineria`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/jardinero-paisajista/materiales-jardineria`. Ver `teoria.md` en esta misma carpeta. Revisado manualmente: 8 bugs corregidos (blancos mal ubicados sin relación con la respuesta, respuestas ya reveladas literalmente en el enunciado, una variable interpolada sin formatear con guiones bajos, un error de tipeo). `tipo: input` normalizado a `completar`.
 
 ---
 
@@ -226,7 +226,7 @@ variables:
 respuesta: "perlita"
 tipo: completar
 
-enunciado: "Para mejorar el {porcentaje}% de aireación en un sustrato compacto, se suele añadir {porcentaje}% de __________ como material inorgánico ligero."
+enunciado: "Para mejorar el {porcentaje}% de aireación en un sustrato compacto, se suele añadir {porcentaje}% de ___ como material inorgánico ligero."
 
 explicacion: |
   La perlita es un mineral volcánico expandido que se utiliza comúnmente para mejorar la aireación y el drenaje de los sustratos, evitando la compactación.
@@ -246,7 +246,7 @@ variables:
   funcion: "desarrollo de raíces y floración"
 
 respuesta: "P"
-tipo: input
+tipo: completar
 
 enunciado: "En la etiqueta de un fertilizante, ¿qué símbolo químico corresponde al nutriente que estimula el desarrollo de raíces y la floración?"
 
@@ -267,7 +267,7 @@ variables:
   efecto: "fortalece los tejidos"
 
 respuesta: "K"
-tipo: input
+tipo: completar
 
 enunciado: "¿Qué elemento químico, representado por la letra K, es responsable de fortalecer los tejidos vegetales y mejorar la resistencia a enfermedades?"
 
@@ -290,7 +290,7 @@ variables:
 respuesta: "materia orgánica compostada"
 tipo: completar
 
-enunciado: "Antes de plantar en suelo directo, el paso {paso} indispensable es la enmienda del terreno con __________ para mejorar su textura y fertilidad."
+enunciado: "Antes de plantar en suelo directo, el paso {paso} e indispensable es la enmienda del terreno con ___ para mejorar su textura y fertilidad."
 
 explicacion: |
   La materia orgánica compostada mejora la estructura del suelo nativo, facilitando la infiltración de agua y el crecimiento radicular, a diferencia de los sustratos en maceta.
@@ -305,13 +305,10 @@ metadata:
   nivel: "intermedio"
   tags: ["turba", "acidez", "sustrato"]
 
-variables:
-  propiedad: "acidez"
-
 respuesta: "turba rubia"
-tipo: input
+tipo: completar
 
-enunciado: "¿Qué componente común en los sustratos comerciales aporta retención de agua y aumenta la __________ del medio?"
+enunciado: "¿Qué componente común en los sustratos comerciales aporta retención de agua y aumenta la acidez del medio?"
 
 explicacion: |
   La turba rubia es ácida y tiene una gran capacidad de retención de agua, lo que la hace ideal para plantas que prefieren medios ligeramente ácidos, aunque su extracción es ambientalmente controvertida.
@@ -332,7 +329,7 @@ variables:
 respuesta: "evitar el encharcamiento"
 tipo: completar
 
-enunciado: "Una de las tres funciones vitales de un sustrato es permitir el drenaje para __________, lo que protege a las raíces de la asfixia."
+enunciado: "Una de las tres funciones vitales de un sustrato es permitir el drenaje para ___, lo que protege a las raíces de la asfixia."
 
 explicacion: |
   El encharcamiento priva a las raíces de oxígeno, provocando pudrición. Un buen drenaje es tan crítico como la retención de humedad.
@@ -351,9 +348,9 @@ variables:
   origen: "lombriz"
 
 respuesta: "humus de lombriz"
-tipo: input
+tipo: completar
 
-enunciado: "El __________ es un abono orgánico de alta calidad, rico en nutrientes y microorganismos beneficiosos, obtenido mediante la digestión de materia orgánica por lombrices."
+enunciado: "El ___ es un abono orgánico de alta calidad, rico en nutrientes y microorganismos beneficiosos, obtenido mediante la digestión de materia orgánica por lombrices."
 
 explicacion: |
   El humus de lombriz es un excelente acondicionador del suelo y abono, mejorando la estructura y la fertilidad biológica del sustrato.
@@ -368,13 +365,10 @@ metadata:
   nivel: "basico"
   tags: ["aireación", "oxígeno", "respiración"]
 
-variables:
-  necesidad: "oxígeno"
+respuesta: "oxígeno"
+tipo: completar
 
-respuesta: "aireación"
-tipo: input
-
-enunciado: "Las raíces necesitan __________ para respirar, por lo que el sustrato debe garantizar espacios porosos que permitan el intercambio gaseoso."
+enunciado: "Las raíces necesitan ___ para respirar, por lo que el sustrato debe garantizar espacios porosos que permitan el intercambio gaseoso."
 
 explicacion: |
   La respiración radicular requiere oxígeno. Si el sustrato está compactado, las raíces no pueden obtener este gas, lo que detiene el crecimiento y puede causar la muerte de la planta.
@@ -389,13 +383,10 @@ metadata:
   nivel: "intermedio"
   tags: ["fitosanitarios", "plagas", "hongos"]
 
-variables:
-  objetivo: "hongos"
-
 respuesta: "fungicida"
-tipo: input
+tipo: completar
 
-enunciado: "Para controlar una infección causada por __________ en las hojas, se debe aplicar un producto fitosanitario específico llamado fungicida."
+enunciado: "Para controlar una infección causada por hongos en las hojas, se debe aplicar un producto fitosanitario específico llamado ___."
 
 explicacion: |
   Los fungicidas están diseñados para eliminar o prevenir el crecimiento de hongos, mientras que los insecticidas actúan sobre plagas de insectos. Su uso debe ser específico y responsable.
@@ -415,7 +406,7 @@ variables:
   porcentaje_perlita: 15
 
 respuesta: floor(total_litros * porcentaje_perlita / 100)
-tipo: input
+tipo: completar
 
 enunciado: "Si necesitas preparar {total_litros} litros de sustrato y la recomendación es usar un {porcentaje_perlita}% de perlita para aireación, ¿cuántos litros de perlita debes añadir? (Redondeá al entero más cercano)."
 
@@ -432,13 +423,10 @@ metadata:
   nivel: "intermedio"
   tags: ["nitrógeno", "crecimiento", "hojas"]
 
-variables:
-  parte: "hojas"
-
 respuesta: "Nitrógeno"
-tipo: input
+tipo: completar
 
-enunciado: "¿Qué nutriente mayoritario favorece principalmente el crecimiento de __________ y tallos en las plantas?"
+enunciado: "¿Qué nutriente mayoritario favorece principalmente el crecimiento de hojas y tallos en las plantas?"
 
 explicacion: |
   El Nitrógeno (N) es el motor del crecimiento vegetativo. Su deficiencia se manifiesta en hojas amarillentas y crecimiento lento, mientras que su exceso puede debilitar los tejidos.
@@ -457,9 +445,9 @@ variables:
   función: "aireación"
 
 respuesta: "vermiculita"
-tipo: input
+tipo: completar
 
-enunciado: "Al igual que la perlita, la __________ es un mineral expandido que se añade al sustrato para mejorar la {función} y la estructura."
+enunciado: "Al igual que la perlita, la ___ es un mineral expandido que se añade al sustrato para mejorar la {función} y la estructura."
 
 explicacion: |
   La vermiculita retiene más agua que la perlita pero también contribuye a la aireación y al intercambio catiónico, siendo útil en mezclas para plántulas o esquejes.
@@ -474,13 +462,10 @@ metadata:
   nivel: "intermedio"
   tags: ["plagas", "fitosanitarios", "control"]
 
-variables:
-  agente: "plagas"
-
 respuesta: "insecticida"
-tipo: input
+tipo: completar
 
-enunciado: "Para controlar poblaciones de __________ como pulgones o cochinillas, se emplean productos específicos llamados insecticidas."
+enunciado: "Para controlar poblaciones de plagas como pulgones o cochinillas, se emplean productos específicos llamados ___."
 
 explicacion: |
   El manejo sanitario distingue entre plagas (animales como insectos) y enfermedades (hongos/bacterias). Los insecticidas atacan específicamente a los primeros.
@@ -499,7 +484,7 @@ variables:
   alternativa: "fibra_de_coco"
 
 respuesta: "fibra de coco"
-tipo: input
+tipo: completar
 
 enunciado: "Dada la controversia ambiental por la extracción de turba, ¿cuál es una alternativa sostenible comúnmente recomendada para la retención de humedad?"
 
@@ -520,12 +505,12 @@ variables:
   efecto: "mejora la estructura"
 
 respuesta: "humus de lombriz"
-tipo: input
+tipo: completar
 
 enunciado: "¿Qué abono orgánico, además de nutrir, se destaca por mejorar la estructura del suelo a largo plazo gracias a su actividad biológica?"
 
 explicacion: |
-  El humus de lombriz no solo aporta nutrientes, sino que los microorganismos y la materia orguma estabilizada mejoran la agregación del suelo, facilitando el trabajo del jardinero.
+  El humus de lombriz no solo aporta nutrientes, sino que los microorganismos y la materia orgánica estabilizada mejoran la agregación del suelo, facilitando el trabajo del jardinero.
 ```
 
 ### 25 — pregunta 25
@@ -537,13 +522,10 @@ metadata:
   nivel: "intermedio"
   tags: ["fertilizante", "químico", "rápida_absorción"]
 
-variables:
-  velocidad: "rápida"
-
 respuesta: "fertilizante"
-tipo: input
+tipo: completar
 
-enunciado: "Los productos químicos concentrados que proporcionan nutrientes de absorción {velocidad} se denominan técnicamente fertilizantes, no abonos."
+enunciado: "¿Cómo se denomina técnicamente a los productos químicos concentrados que proporcionan nutrientes de absorción rápida, a diferencia de los abonos orgánicos de liberación lenta?"
 
 explicacion: |
   La distinción clave es la velocidad de liberación y el origen: los fertilizantes químicos son solubles y de acción rápida, mientras que los abonos orgánicos requieren descomposición.
@@ -564,7 +546,7 @@ variables:
   k: random(10, 20)
 
 respuesta: n + p + k
-tipo: input
+tipo: completar
 
 enunciado: "Un fertilizante tiene la etiqueta {n}-{p}-{k}. ¿Cuál es la suma total de los porcentajes principales de nutrientes (N+P+K) en esta etiqueta?"
 
@@ -585,7 +567,7 @@ variables:
   material: "perlita"
 
 respuesta: "perlita"
-tipo: input
+tipo: completar
 
 enunciado: "¿Qué material inorgánico, de origen volcánico, es más ligero y mejora más la aireación que la vermiculita, aunque retiene menos agua?"
 
@@ -602,13 +584,10 @@ metadata:
   nivel: "intermedio"
   tags: ["sustrato", "equilibrio", "composición"]
 
-variables:
-  componentes: "turba_fibra_de_coco_perlita"
-
 respuesta: "turba, fibra de coco y perlita"
 tipo: completar
 
-enunciado: "Los componentes más comunes en sustratos comerciales para equilibrar retención, sostenibilidad y aireación son la {componentes}."
+enunciado: "¿Cuáles son los tres componentes más comunes en sustratos comerciales que, combinados, equilibran retención de agua, sostenibilidad y aireación?"
 
 explicacion: |
   Esta combinación busca el equilibrio: turba/fibra para retener agua y nutrientes, y perlita para garantizar que el aire circule entre las raíces.
