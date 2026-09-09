@@ -1,6 +1,6 @@
 # Oficios — Carpintero De Aluminio — Materiales (teoria)
 
-> Tema del MAPA: `OF23.materiales-carpinteria-aluminio` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF23.materiales-carpinteria-aluminio` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: DVH expandido incorrectamente como "Doble Vacío Hidráulico" (término inventado) corregido a "Doble Vidriado Hermético" (el término real).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ En el trabajo con aluminio, es fundamental distinguir entre los perfiles estruct
 
 ## El sistema de vidrio DVH y la importancia de los burletes
 
-El vidrio DVH (Doble Vacío Hidráulico) no es simplemente dos láminas de vidrio pegadas; es un sistema complejo que requiere componentes auxiliares vitales para funcionar correctamente. Aquí entran en juego los burletes y los selladores. Los burletes son tiras de goma o material sintético que se colocan entre el vidrio y el perfil de aluminio. Su función principal es permitir el movimiento térmico: cuando el vidrio se expande o contrae por cambios de temperatura, el burlete absorbe esa tensión evitando que el vidrio se rompa o que el aluminio se deforme. Además, actúan como barrera contra la entrada de agua y polvo.
+El vidrio DVH (Doble Vidriado Hermético) no es simplemente dos láminas de vidrio pegadas; es un sistema complejo que requiere componentes auxiliares vitales para funcionar correctamente. Aquí entran en juego los burletes y los selladores. Los burletes son tiras de goma o material sintético que se colocan entre el vidrio y el perfil de aluminio. Su función principal es permitir el movimiento térmico: cuando el vidrio se expande o contrae por cambios de temperatura, el burlete absorbe esa tensión evitando que el vidrio se rompa o que el aluminio se deforme. Además, actúan como barrera contra la entrada de agua y polvo.
 
 Los selladores, por su parte, son los encargados de la estanqueidad final. Se aplican en las uniones entre los componentes para impedir el paso del aire y la humedad. Es crucial elegir el tipo de sellador adecuado según la ubicación (interior o exterior) y la exposición a los rayos UV, ya que un sellador de mala calidad puede degradarse con el tiempo, causando filtraciones que dañan tanto la estructura como el interior de los ambientes.
 
