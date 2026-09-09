@@ -2,12 +2,13 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q5 etiquetaba "correcto" una imagen decorativa
+> SIN atributo alt (la práctica correcta es `alt=""` vacío, no
+> omitirlo), Q14 sorteaba entre el ratio de íconos y el de texto para
+> una premisa fija sólo sobre íconos, Q21 usaba una expresión booleana
+> como respuesta de un `tipo: completar` con datos poco realistas
+> (texto "gris claro" etiquetado con ratio 4.5, quedaba en el límite de
+> aprobar) — convertido a `tipo: vf` con valores más representativos.
 
 ---
 
@@ -23,7 +24,6 @@ metadata:
 respuesta: "Pautas de Accesibilidad para el Contenido Web"
 tipo: completar
 respuestas_validas:
-  - "Pautas de Accesibilidad para el Contenido Web"
   - "Pautas de Accesibilidad para el Contenido Web"
 
 enunciado: "Las siglas WCAG significan ___."
@@ -104,7 +104,7 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [[ "Un botón que solo contiene un icono de lupa sin texto", "incorrecto" ], [ "Una imagen decorativa sin atributo alt", "correcto" ]]
+  casos: [[ "Un botón que solo contiene un icono de lupa sin texto", "incorrecto" ], [ "Una imagen decorativa con atributo alt vacío (alt=\"\")", "correcto" ]]
 
 respuesta: casos[caso_idx][1]
 tipo: mc
@@ -296,11 +296,7 @@ metadata:
   nivel: "avanzado"
   tags: ["iconos", "ui_design", "wcag"]
 
-variables:
-  escenario: uno_de([0,1])
-  datos: [["iconos_informativos", "3:1"], ["texto_cuerpo", "4.5:1"]]
-
-respuesta: datos[escenario][1]
+respuesta: "3:1"
 tipo: "mc"
 opciones_explicitas: ["4.5:1", "3:1", "2:1", "7:1"]
 
@@ -355,9 +351,6 @@ metadata:
   tema: "lectores_pantalla_vs_subtitulos"
   nivel: "basico"
   tags: ["accesibilidad", "discapacidad_auditiva", "discapacidad_visual"]
-
-variables:
-  es_visual: uno_de([verdadero, falso])
 
 enunciado: "Si el usuario tiene una discapacidad visual, la herramienta principal de navegación es un lector de pantalla. Si el usuario tiene una discapacidad auditiva, la herramienta principal es ___."
 
@@ -435,18 +428,16 @@ metadata:
   tags: ["wcag", "contraste", "diseño_ui"]
 
 variables:
-  datos: [["Texto gris claro sobre fondo blanco", "4.5"], ["Texto azul sobre fondo negro", "7.0"]]
+  datos: [["Texto gris claro sobre fondo blanco", "2.5"], ["Texto azul oscuro sobre fondo blanco", "7.0"]]
+  resultados: [falso, verdadero]
   idx: uno_de([0, 1])
 
-enunciado: "Un diseñador debe cumplir con el nivel WCAG AA para texto normal. Según el escenario seleccionado, el ratio de contraste es {datos[idx][0]}. ¿Es este valor suficiente para cumplir la pauta de contraste mínimo de 4.5:1? (Responde con verdadero o falso)"
+enunciado: "Un diseñador debe cumplir con el nivel WCAG AA para texto normal. El escenario seleccionado es: {datos[idx][0]}, con un ratio de contraste medido de {datos[idx][1]}:1. ¿Es este valor suficiente para cumplir la pauta de contraste mínimo de 4.5:1?"
 
-respuestas_validas:
-  - datos[idx][1] == "4.5"
-respuesta: datos[idx][1] == "4.5"
-
-tipo: completar
+respuesta: resultados[idx]
+tipo: vf
 explicacion: |
-  Para cumplir con el nivel AA de las pautas WCAG, el texto normal debe tener un ratio de contraste de al menos 4.5:1. El valor {datos[idx][0]} cumple con este requisito.
+  Para cumplir con el nivel AA de las pautas WCAG, el texto normal debe tener un ratio de contraste de al menos 4.5:1. El escenario "{datos[idx][0]}" tiene un ratio de {datos[idx][1]}:1.
 ```
 
 ### 22 — Lectores de pantalla y navegación
