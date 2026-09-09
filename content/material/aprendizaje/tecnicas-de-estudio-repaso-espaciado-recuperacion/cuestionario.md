@@ -2,12 +2,21 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q4 sorteo con premisa fija ("cramming justo
+> antes del examen") sólo relacionada con "curva del olvido" pero podía
+> marcar como correcto un concepto ajeno ("ilusión de competencia", de
+> otra rama), sorteo removido; Q5 respuesta con token roto
+> "es_falsas" (snake_case sin sentido gramatical) corregida a "falsa";
+> Q7/Q13 interpolaban la propia respuesta en el enunciado
+> (autorrevelación) y para una de las dos ramas el texto resultante
+> contradecía la premisa fija (ej. "la técnica más efectiva es el
+> Cramming"), sorteos removidos y fijados al hecho correcto; Q18 sorteo
+> producía oraciones sin sentido/contradictorias para su segunda rama
+> ("el estudio pasivo se asocia con la repaso_activo"), sorteo removido;
+> Q22 pregunta vf tipeada `completar` con etiquetas de categoría en vez
+> de verdadero/falso, convertida a `tipo: vf`; Q24 enunciado con dos
+> blancos y una sola respuesta, colapsado a un blanco con el primero
+> interpolado como texto fijo por rama.
 
 ---
 
@@ -76,11 +85,7 @@ metadata:
   nivel: "basico"
   tags: ["curva_del_olvido", "memoria"]
 
-variables:
-  datos: [["curva del olvido", "efecto de espaciamiento"], ["relectura", "ilusión de competencia"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "curva del olvido"
 tipo: mc
 opciones_explicitas: ["curva del olvido", "efecto de espaciamiento", "relectura", "ilusión de competencia"]
 
@@ -99,11 +104,12 @@ metadata:
   nivel: "intermedio"
   tags: ["terminologia", "metacognicion"]
 
-respuesta: "es_falsas"
+respuesta: "falsa"
 tipo: completar
 respuestas_validas:
-  - "es_verdadero"
-  - "es_falsas"
+  - "falsa"
+  - "ilusoria"
+  - "engañosa"
 
 enunciado: "Si un estudiante solo utiliza la técnica de relectura pasiva para estudiar, su percepción de dominio sobre la materia es ___."
 
@@ -139,14 +145,11 @@ metadata:
   nivel: "intermedio"
   tags: ["espaciado", "eficiencia"]
 
-variables:
-  escenario: uno_de([["Estudiar 10 horas seguidas un domingo", "atiborramiento"], ["Estudiar 1 hora cada día durante 10 días", "espaciado"]])
-
-respuesta: escenario[1]
+respuesta: "espaciado"
 tipo: "mc"
 opciones_explicitas: ["atiborramiento", "espaciado"]
 
-enunciado: "Un estudiante decide estudiar para su examen de medicina distribuyendo las sesiones en intervalos de tiempo cada vez más largos. El escenario descrito como {escenario[1]} es un ejemplo de:"
+enunciado: "Un estudiante decide estudiar para su examen de medicina distribuyendo las sesiones en intervalos de tiempo cada vez más largos. Esta estrategia es un ejemplo de:"
 
 explicacion: |
   El repaso espaciado (spaced repetition) aprovecha la curva del olvido para repasar la información justo antes de que se pierda, optimizando la retención a largo plazo.
@@ -258,13 +261,10 @@ metadata:
   nivel: "basico"
   tags: ["espaciado", "atencion", "curva_del_olvido"]
 
-variables:
-  escenario: uno_de([["Estudiar 10 horas seguidas la noche anterior", "Cramming"], ["Estudiar 1 hora durante 10 días", "Repaso espaciado"]])
-
 tipo: mc
 opciones_explicitas: ["Cramming", "Repaso espaciado"]
 
-enunciado: "Para combatir la curva del olvido, la técnica más efectiva es el {escenario[1]}."
+enunciado: "Para combatir la curva del olvido, la técnica más efectiva es el ___."
 
 respuesta: "Repaso espaciado"
 
@@ -361,16 +361,13 @@ metadata:
   nivel: "intermedio"
   tags: ["metacognicion", "procesos"]
 
-variables:
-  escenario_idx: uno_de([0,1])
-  datos: [["repaso_pasivo", "relectura"], ["repaso_activo", "recuperacion"]]
-
+respuesta: "recuperación"
 tipo: completar
 respuestas_validas:
-  - "relectura"
+  - "recuperación"
   - "recuperacion"
 
-enunciado: "Si el estudio pasivo se asocia con la {datos[escenario_idx][0]}, el estudio activo se asocia con la ___."
+enunciado: "Si el estudio pasivo se asocia con la relectura, el estudio activo se asocia con la ___."
 
 explicacion: |
   La clave del aprendizaje es pasar de procesos de reconocimiento (relectura) a procesos de producción (recuperación).
@@ -449,12 +446,13 @@ metadata:
   tags: ["recuperacion_activa", "metacognicion"]
 
 variables:
-  datos: [["leer un capítulo tres veces seguidas", "falsa_sensacion_dominio"], ["hacerse preguntas sin mirar el libro", "recuperacion_activa"]]
+  acciones: ["leer un capítulo tres veces seguidas", "hacerse preguntas sin mirar el libro"]
+  es_recuperacion_activa: [falso, verdadero]
   idx: uno_de([0, 1])
 
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Un estudiante decide aplicar {datos[idx][0]}. ¿Esta acción es un ejemplo de práctica de recuperación activa? (verdadero/falso)"
+respuesta: es_recuperacion_activa[idx]
+tipo: vf
+enunciado: "Un estudiante decide aplicar {acciones[idx]}. ¿Esta acción es un ejemplo de práctica de recuperación activa?"
 
 explicacion: |
   La lectura pasiva suele generar una 'ilusión de competencia' o falsa sensación de dominio, mientras que la recuperación activa obliga al cerebro a buscar la información, fortaleciendo la memoria.
@@ -489,14 +487,17 @@ metadata:
   tags: ["dificultad_deseable", "eficiencia"]
 
 variables:
-  datos: [["Es muy fácil y no requiere esfuerzo mental", "baja_retencion"], ["Es desafiante pero permite el aprendizaje", "alta_retencion"]]
+  sensaciones: ["fácil, sin esfuerzo mental", "desafiante, que exige esfuerzo mental"]
+  resultados: ["baja retención", "alta retención"]
   idx: uno_de([0, 1])
 
-respuesta: datos[idx][1]
+respuesta: resultados[idx]
+respuestas_validas:
+  - resultados[0]
+  - resultados[1]
 tipo: completar
-opciones_explicitas: ["baja_retencion", "alta_retencion"]
 
-enunciado: "Si una técnica de estudio se siente ___ debido a que el estudiante está forzando la recuperación de la información, el resultado esperado es una ___."
+enunciado: "Si una técnica de estudio se siente {sensaciones[idx]}, el resultado esperado en la memoria a largo plazo es una ___."
 
 explicacion: |
   El concepto de 'dificultad deseable' sugiere que cuanto más esfuerzo cognitivo requiere el proceso de recuperación, más fuerte es la huella de memoria a largo plazo.
