@@ -2,12 +2,17 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q13 premisa fija específica sobre Newton pero el
+> sorteo permitía marcar como "su" contribución leyes de otros
+> científicos (conservación de la masa de Lavoisier, relatividad
+> especial de Einstein) — atribución históricamente falsa —, sorteo
+> removido; Q18 array que emparejaba a cada autor con su PROPIA teoría
+> (Aristóteles-Geocentrismo, Copérnico-Heliocentrismo) usado en una
+> frase que pedía un reemplazo entre ambas, produciendo un enunciado sin
+> sentido ("el modelo de Copérnico fue reemplazado por el de
+> Heliocentrismo"), reescrito sin sorteo; Q19 enunciado decía "Ordene"
+> para una pregunta de tipo mc (no ordenar), reformulado como pregunta
+> directa.
 
 ---
 
@@ -266,11 +271,7 @@ metadata:
   nivel: "avanzado"
   tags: ["newton", "mecanicismo"]
 
-variables:
-  leyes: [["La ley de la gravitación universal y las leyes del movimiento", "La ley de la gravitación universal y las leyes del movimiento"], ["La ley de la conservación de la masa", "La ley de la conservación de la masa"], ["La ley de la relatividad especial", "La ley de la relatividad especial"]]
-  ley_idx: uno_de([0,1,2])
-
-respuesta: leyes[ley_idx][1]
+respuesta: "La ley de la gravitación universal y las leyes del movimiento"
 tipo: mc
 opciones_explicitas: ["La ley de la gravitación universal y las leyes del movimiento", "La ley de la conservación de la masa", "La ley de la relatividad especial", "La ley de la termodinámica"]
 
@@ -369,14 +370,11 @@ metadata:
   nivel: "avanzado"
   tags: ["cosmologia", "ciencia_moderna", "paradigma"]
 
-variables:
-  escenario: uno_de([["Aristóteles", "Geocentrismo"], ["Copérnico", "Heliocentrismo"]])
-
-respuesta: escenario[1]
+respuesta: "Heliocentrismo"
 tipo: mc
 opciones_explicitas: ["Geocentrismo", "Heliocentrismo", "Teocentrismo", "Fisiocracia"]
 
-enunciado: "Si consideramos el cambio de paradigma donde el modelo de {escenario[0]} fue reemplazado por el de {escenario[1]}, estamos ante un ejemplo de cómo el método científico desplazó la explicación teológica del cosmos."
+enunciado: "El modelo geocéntrico de Aristóteles y Ptolomeo fue reemplazado por el modelo copernicano. Este cambio de paradigma es un ejemplo de cómo el método científico desplazó la explicación teológica del cosmos mediante el ___."
 
 explicacion: |
   El paso del modelo geocéntrico (basado en la física aristotélica y la teología) al heliocéntrico es el ejemplo clásico de cómo la evidencia matemática y la observación desplazaron la autoridad de la tradición.
@@ -396,7 +394,7 @@ opciones_explicitas: ["Observación, Hipótesis, Experimentación, Conclusión",
 respuesta: "Observación, Hipótesis, Experimentación, Conclusión"
 tipo: mc
 
-enunciado: "Ordene los pasos fundamentales que caracterizan el método científico moderno, el cual se opone al método de la autoridad dogmática:"
+enunciado: "¿Cuál de las siguientes secuencias representa correctamente los pasos fundamentales del método científico moderno, el cual se opone al método de la autoridad dogmática?"
 
 explicacion: |
   El método científico requiere un ciclo de observación y experimentación que permite validar o refutar hipótesis, alejándose de la aceptación pasiva de verdades preestablecidas por la tradición.
