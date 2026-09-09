@@ -2,12 +2,13 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q5 tenía `respuestas_validas` sobre-permisiva
+> (aceptaba "wireframe" y "mockup" sin importar la rama sorteada), Q9
+> tenía la clave invertida con una nota de LM Studio confusa admitiendo
+> el problema sin resolverlo (la afirmación descripta era verdadera,
+> no falsa), Q15 devolvía la etiqueta de rama ("A"/"B", ni siquiera
+> presente en `respuestas_validas`) en vez de la palabra real
+> ("estético"/"funcional").
 
 ---
 
@@ -102,8 +103,7 @@ variables:
 enunciado: "Si estamos trabajando en {escenarios[escenario_idx][0]}, estamos creando un ___."
 
 respuestas_validas:
-  - "wireframe"
-  - "mockup"
+  - escenarios[escenario_idx][1]
 tipo: completar
 
 explicacion: |
@@ -182,10 +182,10 @@ tipo: vf
 
 enunciado: "Un prototipo interactivo es aquel que permite al usuario simular la experiencia de uso de la aplicación, permitiendo transiciones entre pantallas y flujos de navegación."
 
-respuesta: falso
+respuesta: verdadero
 
 explicacion: |
-  La afirmación es falsa porque lo descrito es la definición de un prototipo interactivo. (Nota: En este caso, la pregunta se plantea como una afirmación para evaluar si el usuario comprende que la descripción pertenece al prototipo, no al mockup o wireframe).
+  Verdadero. La afirmación describe correctamente al prototipo interactivo: es el artefacto que permite simular transiciones entre pantallas y flujos de navegación, a diferencia del wireframe o el mockup, que son estáticos.
 ```
 
 ### 10 — Análisis de un caso de estudio
@@ -298,14 +298,10 @@ metadata:
   nivel: "avanzado"
   tags: ["error", "mockup"]
 
-variables:
-  caso: uno_de([["A", "estético"], ["B", "funcional"]])
-
-respuesta: caso[0]
+respuesta: "estético"
 tipo: completar
 respuestas_validas:
   - "estético"
-  - "funcional"
 
 enunciado: "Un error común es saltar directamente al mockup, enfocándose demasiado en lo ___ y descuidando la lógica de navegación que debería definirse en el wireframe."
 
