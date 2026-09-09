@@ -2,12 +2,14 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q1/Q2/Q4/Q5 no tenían `explicacion`, Q3 tenía
+> la clave invertida respecto al resto del propio archivo (Q12/Q14/
+> Q17/Q22/Q24 coinciden en que la perspectiva caballera SÍ aplica un
+> coeficiente de reducción al eje de profundidad), Q15 mezclaba
+> `tipo: completar` con una pregunta verdadero/falso, Q21/Q25 sorteaban
+> entre un valor correcto (30°/120°) y valores incompatibles con la
+> propia `explicacion` del bloque, además Q25 no tenía blank real en
+> el enunciado (el ángulo sorteado ya se afirmaba como hecho fijo).
 
 ---
 
@@ -26,6 +28,9 @@ opciones_explicitas: ["Una perspectiva donde los tres ejes tienen la misma incli
 respuesta: "Una perspectiva donde los tres ejes tienen la misma inclinación y escala"
 
 enunciado: "La perspectiva isométrica se caracteriza principalmente por que sus ejes principales mantienen una relación de ___ entre ellos, lo que permite una representación proporcional del objeto."
+
+explicacion: |
+  En la perspectiva isométrica, los tres ejes se dibujan con la misma inclinación y escala, lo que evita distorsiones visuales y permite medir directamente sobre el dibujo.
 ```
 
 ### 2 — Ejes en Perspectiva Caballera
@@ -43,6 +48,9 @@ opciones_explicitas: ["El eje de profundidad se dibuja con una inclinación de 4
 respuesta: "El eje de profundidad se dibuja con una inclinación de 45°"
 
 enunciado: "En la perspectiva caballera, ¿cómo se representa típicamente el eje de profundidad (eje Z) para dar sensación de tridimensionalidad?"
+
+explicacion: |
+  En la perspectiva caballera, el eje de profundidad se inclina comúnmente a 45° respecto al plano del papel, mientras que los otros dos ejes permanecen horizontales o verticales.
 ```
 
 ### 3 — Verdad o Falso: Escala en Caballera
@@ -56,9 +64,12 @@ metadata:
 
 tipo: vf
 
-respuesta: falso
+respuesta: verdadero
 
 enunciado: "En la perspectiva caballera, para evitar la distorsión visual, se suele aplicar una reducción de escala (coeficiente de reducción) al eje de profundidad."
+
+explicacion: |
+  Verdadero. En la práctica habitual de la perspectiva caballera, se aplica un coeficiente de reducción (comúnmente 0.5) al eje de profundidad para compensar la distorsión visual que haría ver al objeto "alargado".
 ```
 
 ### 4 — Componentes de la Proyección
@@ -78,6 +89,9 @@ respuestas_validas:
 respuesta: "ejes"
 
 enunciado: "Para representar un objeto tridimensional en un plano bidimensional, las perspectivas utilizan ___ principales que definen la dirección de las aristas."
+
+explicacion: |
+  Los ejes principales (X, Y, Z) son las referencias direccionales sobre las que se construye toda la representación tridimensional del objeto.
 ```
 
 ### 5 — Orden de construcción de una perspectiva
@@ -95,6 +109,9 @@ opciones_explicitas: ["Trazar el eje vertical", "Definir los ejes de profundidad
 respuesta_orden: ["Trazar el eje vertical", "Definir los ejes de profundidad con la inclinación correspondiente", "Dibujar las caras frontales y laterales según la escala", "Unir los puntos para cerrar el volumen"]
 
 enunciado: "Ordene los pasos lógicos para construir un objeto en perspectiva (isométrica o caballera) partiendo desde el esqueleto básico:"
+
+explicacion: |
+  Se traza primero el eje vertical de referencia, luego los ejes de profundidad con su inclinación, después las caras según la escala correspondiente y finalmente se cierra el volumen uniendo los puntos.
 ```
 
 ### 6 — Ejes en perspectiva isométrica
@@ -292,9 +309,9 @@ metadata:
   nivel: "avanzado"
   tags: ["isometria", "escala", "error"]
 
-respuesta: "falso"
-tipo: completar
-enunciado: "Es un error común pensar que en la perspectiva isométrica se debe aplicar un coeficiente de reducción en los tres ejes para que el objeto se vea natural."
+respuesta: falso
+tipo: vf
+enunciado: "¿Es correcto pensar que en la perspectiva isométrica se debe aplicar un coeficiente de reducción en los tres ejes para que el objeto se vea natural?"
 
 explicacion: |
   Falso. En la isométrica, la escala es 1:1 en los tres ejes (isométrica significa "igual medida"). El coeficiente de reducción es exclusivo de la perspectiva caballera.
@@ -403,15 +420,11 @@ metadata:
   nivel: "basico"
   tags: ["ejes", "isometria", "angulos"]
 
-variables:
-  datos: [["30 grados", "30 grados"], ["45 grados", "45 grados"], ["60 grados", "60 grados"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En una proyección isométrica, los ejes principales (X, Y, Z) forman un ángulo de ___ entre sí respecto a la horizontal para representar la profundidad de forma equilibrada."
+enunciado: "En una proyección isométrica, los ejes principales (X, Y, Z) forman un ángulo de ___ respecto a la horizontal para representar la profundidad de forma equilibrada."
 
 respuestas_validas:
-  - datos[idx][0]
-respuesta: datos[idx][0]
+  - "30 grados"
+respuesta: "30 grados"
 tipo: completar
 tolerancia_abs: 0
 
@@ -492,11 +505,7 @@ metadata:
   nivel: "avanzado"
   tags: ["angulos", "isometria"]
 
-variables:
-  datos: [["120", "120"], ["90", "90"], ["60", "60"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En la proyección isométrica, el ángulo real que existe entre los ejes X, Y y Z en el espacio tridimensional es de {datos[idx][0]} grados."
+enunciado: "En la proyección isométrica, el ángulo real que existe entre los ejes X, Y y Z en el espacio tridimensional es de ___ grados."
 
 respuestas_validas:
   - "120"
