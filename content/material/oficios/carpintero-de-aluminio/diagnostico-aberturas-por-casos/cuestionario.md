@@ -1,6 +1,21 @@
 # Oficios — diagnostico aberturas por casos (cuestionario, 30 preguntas VBLang)
 
-> Tema: `oficios/carpintero-de-aluminio/diagnostico-aberturas-por-casos`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/carpintero-de-aluminio/diagnostico-aberturas-por-casos`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: 7 bloques (Q13/Q16/Q19/Q24/Q25/Q27/Q29) tenían
+> `respuesta: "{expresión}"` entre comillas — el motor VBLang real NO
+> interpola `{var}` dentro de `respuesta:`, así que el valor guardado
+> era literalmente el string con llaves y nunca podía coincidir con la
+> respuesta numérica real — corregidas a la expresión sin comillas;
+> Q7 factor de peso del vidrio mal escrito (25 kg/m² por mm en vez de
+> 2.5 kg/m², un orden de magnitud de más, inconsistente con el propio
+> factor de 2.5 kg/dm³ usado en Q19), corregido; Q27 fórmula de volumen
+> de sellador multiplicaba por `rendimiento_lata` pese a que el propio
+> enunciado aclaraba que ese dato "no afecta el volumen requerido",
+> corregida; Q30 pedía una "acción recomendada" pero la respuesta
+> esperada repetía el diagnóstico ya dado en el enunciado en vez de la
+> acción correctiva, corregida; `tipo: input` (alias legacy) normalizado
+> a `completar` en todo el archivo.
 
 ---
 
@@ -20,7 +35,7 @@ variables:
   area_m2: redondear(area_cm2 / 10000, 2)
 
 respuesta: area_m2
-tipo: input
+tipo: completar
 
 enunciado: "Se debe reemplazar un vidrio rectangular de {ancho_cm} cm de ancho por {alto_cm} cm de alto. ¿Cuál es el área en metros cuadrados? (Redondear a 2 decimales)"
 
@@ -67,7 +82,7 @@ variables:
   total_m: redondear(total_cm / 100, 2)
 
 respuesta: total_m
-tipo: input
+tipo: completar
 
 enunciado: "Se necesitan {piezas} tramos de perfil de {largo_cm} cm cada uno. ¿Cuál es la longitud total en metros?"
 
@@ -116,7 +131,7 @@ variables:
   largo_total_m: redondear(largo_total_cm / 100, 2)
 
 respuesta: largo_total_m
-tipo: input
+tipo: completar
 
 enunciado: "Para un marco rectangular de {ancho_cm} cm x {alto_cm} cm, ¿cuántos metros lineales de perfil se necesitan para los cuatro lados?"
 
@@ -160,12 +175,12 @@ variables:
   alto_cm: random(90, 150)
   espesor_mm: 4
   area_m2: (ancho_cm * alto_cm) / 10000
-  peso_kg: redondear(area_m2 * 25 * espesor_mm / 4, 1)
+  peso_kg: redondear(area_m2 * 2.5 * espesor_mm, 1)
 
 respuesta: peso_kg
-tipo: input
+tipo: completar
 
-enunciado: "Un vidrio de {ancho_cm} cm x {alto_cm} cm con espesor de {espesor_mm} mm. ¿Cuál es su peso aproximado en kg? (Factor: 25 kg/m2 por mm de espesor)"
+enunciado: "Un vidrio de {ancho_cm} cm x {alto_cm} cm con espesor de {espesor_mm} mm. ¿Cuál es su peso aproximado en kg? (Factor: 2.5 kg/m2 por mm de espesor)"
 
 explicacion: |
   El peso se calcula multiplicando el área por el factor de peso por mm y por el espesor.
@@ -209,7 +224,7 @@ variables:
   perimetro_m: redondear(perimetro_cm / 100, 2)
 
 respuesta: perimetro_m
-tipo: input
+tipo: completar
 
 enunciado: "Para un marco de {ancho_cm} cm x {alto_cm} cm, ¿cuál es el perímetro en metros?"
 
@@ -254,7 +269,7 @@ variables:
   cantidad_juntas: ceil(perimetro_m / largo_junta_m)
 
 respuesta: cantidad_juntas
-tipo: input
+tipo: completar
 
 enunciado: "Para un perímetro de {perimetro_m} m, ¿cuántas juntas de goma de 1 metro se necesitan como mínimo?"
 
@@ -298,8 +313,8 @@ variables:
   vida_util_estimada: random_float(10, 15)
   anio_actual: 2024
 
-respuesta: "{redondear(anio_actual - anio_instalacion + vida_util_estimada, 0)}"
-tipo: input
+respuesta: redondear(anio_actual - anio_instalacion + vida_util_estimada, 0)
+tipo: completar
 
 enunciado: "Una ventana fue instalada en {anio_instalacion}. Se estima que la vida útil del sellador original es de {redondear(vida_util_estimada, 0)} años. ¿En qué año (entero) se espera que el sellador requiera reemplazo preventivo si se mantiene su estado actual?"
 
@@ -357,8 +372,8 @@ variables:
   alto: random(80, 150)
   porcentaje_apertura: uno_de([50, 75])
 
-respuesta: "{redondear(ancho * alto * porcentaje_apertura / 100 / 10000, 2)}"
-tipo: input
+respuesta: redondear(ancho * alto * porcentaje_apertura / 100 / 10000, 2)
+tipo: completar
 
 enunciado: "Una ventana corredera tiene {ancho} cm de ancho y {alto} cm de alto. Si solo se puede abrir el {porcentaje_apertura}% de su superficie por restricciones de espacio, ¿cuántos metros cuadrados (m²) de área efectiva de ventilación quedan disponibles? (Redondear a 2 decimales)"
 
@@ -417,8 +432,8 @@ variables:
   espesor_mm: uno_de([4, 5, 6])
   densidad_vidrio: 2.5
 
-respuesta: "{redondear(ancho_cm / 100 * alto_cm / 100 * espesor_mm / 1000 * densidad_vidrio, 1)}"
-tipo: input
+respuesta: redondear(ancho_cm / 100 * alto_cm / 100 * espesor_mm / 1000 * densidad_vidrio, 1)
+tipo: completar
 
 enunciado: "Una hoja de vidrio templado para ventana tiene {ancho_cm} cm de ancho, {alto_cm} cm de alto y {espesor_mm} mm de espesor. Considerando una densidad del vidrio de 2.5 kg/dm³, ¿cuántos kilogramos (kg) pesa aproximadamente? (Redondear a 1 decimal)"
 
@@ -512,8 +527,8 @@ variables:
   carga_viento_kpa: random_float(1.5, 2.5)
   factor_seguridad: 1.5
 
-respuesta: "{redondear(largo_m * carga_viento_kpa * factor_seguridad, 2)}"
-tipo: input
+respuesta: redondear(largo_m * carga_viento_kpa * factor_seguridad, 2)
+tipo: completar
 
 enunciado: "Un perfil de marco de {largo_m} metros debe soportar una presión de viento de {carga_viento_kpa} kPa. Aplicando un factor de seguridad de 1.5, ¿cuál es la carga de diseño mínima en kN? (Redondear a 2 decimales)"
 
@@ -534,8 +549,8 @@ variables:
   largo_brazo_cm: random(30, 50)
   largo_marco_cm: random(80, 120)
 
-respuesta: "{redondear(asin(largo_brazo_cm / largo_marco_cm) * 180 / pi, 1)}"
-tipo: input
+respuesta: redondear(asin(largo_brazo_cm / largo_marco_cm) * 180 / pi, 1)
+tipo: completar
 
 enunciado: "Una ventana con brazo de apertura tiene un brazo de {largo_brazo_cm} cm y un marco de {largo_marco_cm} cm. Si el brazo se extiende completamente perpendicular al marco, ¿cuál es el ángulo máximo de apertura en grados? (Usar arcsin y redondear a 1 decimal)"
 
@@ -574,10 +589,9 @@ variables:
   perimetro_m: random(4, 8)
   ancho_junta_cm: random(1, 2)
   profundidad_junta_cm: random(0.5, 1)
-  rendimiento_lata: 300
 
-respuesta: "{redondear(perimetro_m * ancho_junta_cm / 100 * profundidad_junta_cm / 100 * rendimiento_lata, 1)}"
-tipo: input
+respuesta: redondear(perimetro_m * 100 * ancho_junta_cm * profundidad_junta_cm, 1)
+tipo: completar
 
 enunciado: "Para sellar una ventana con perímetro de {perimetro_m} m, una junta de {ancho_junta_cm} cm de ancho y {profundidad_junta_cm} cm de profundidad, ¿cuántos centímetros cúbicos (cm³) de sellador se necesitan? (El rendimiento de la lata no afecta el volumen requerido, solo la cantidad de latas. Calcular volumen en cm³)"
 
@@ -616,8 +630,8 @@ variables:
   espesor_mm: random(3, 6)
   tiempo_curado_por_mm: 1.5
 
-respuesta: "{redondear(espesor_mm * tiempo_curado_por_mm, 1)}"
-tipo: input
+respuesta: redondear(espesor_mm * tiempo_curado_por_mm, 1)
+tipo: completar
 
 enunciado: "Un sellador de silicona requiere {tiempo_curado_por_mm} horas para curar por cada milímetro de espesor. Si se aplica una junta de {espesor_mm} mm, ¿cuántas horas (horas) se deben esperar antes de exponerla a lluvia? (Redondear a 1 decimal)"
 
@@ -634,10 +648,10 @@ metadata:
   nivel: "basico"
   tags: ["bisagras", "funcionamiento", "diagnostico"]
 
-respuesta: "Las bisagras están flojas o desgastadas"
+respuesta: "Ajustar o reemplazar las bisagras"
 tipo: completar
 
-enunciado: "Una ventana abatible de aluminio se hunde y no cierra correctamente en la parte superior. El diagnóstico de las bisagras indica que están flojas o desgastadas. ¿Qué acción se recomienda?"
+enunciado: "Una ventana abatible de aluminio se hunde y no cierra correctamente en la parte superior. Al inspeccionar, se detecta que las bisagras están flojas y desgastadas. ¿Qué acción se recomienda?"
 
 explicacion: |
   Si las bisagras están flojas o desgastadas, no sostienen la hoja en su posición correcta, causando hundimiento y mala hermeticidad. Se deben ajustar o reemplazar.
