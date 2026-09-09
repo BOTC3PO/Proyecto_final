@@ -2,12 +2,13 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q12 explicación con ejemplo numérico que
+> contradecía la fórmula real del bloque (usaba "12 - 10 = 2" cuando la
+> fórmula es consigna - medida = 10 - 12 = -2 para la primera rama),
+> generalizada sin números fijos; Q20 inversión lógica — un error de
+> posición bajo (0.05) se etiquetaba como precisión "bajo" y un error
+> alto (0.5) como precisión "alto", exactamente al revés (a menor error,
+> mayor precisión), corregido.
 
 ---
 
@@ -264,7 +265,7 @@ tolerancia_abs: 0
 enunciado: "En un servomecanismo, si la consigna es {escenario[0]} y el sensor detecta que la posición actual es {escenario[1]}, el valor del error (consigna - medida) es:"
 
 explicacion: |
-  El error es la diferencia entre el valor deseado (setpoint) y el valor real medido. En este caso: 12 - 10 = 2 (o la diferencia correspondiente según el escenario sorteado).
+  El error es la diferencia entre el valor deseado (setpoint) y el valor real medido: error = consigna - medida.
 ```
 
 ### 13 — Componentes de un Servomecanismo
@@ -411,7 +412,7 @@ metadata:
 
 variables:
   caso_error: uno_de([0, 1])
-  valores: [[0.05, "bajo"], [0.5, "alto"]]
+  valores: [[0.05, "alto"], [0.5, "bajo"]]
 
 respuesta: valores[caso_error][1]
 tipo: mc
