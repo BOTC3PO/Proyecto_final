@@ -1,6 +1,6 @@
 # Oficios — Jardinero Paisajista — Técnicas de jardinería (teoria)
 
-> Tema del MAPA: `OF20.tecnicas-jardineria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF20.tecnicas-jardineria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: "cianotis" (no es una pastura de uso real en Argentina) corregido a "gramón"; resto del contenido verificado correcto.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -24,4 +24,4 @@ Existen dos grandes tipos de poda: la formativa y la de mantenimiento. La format
 
 El diseño de canteros implica la selección y disposición de plantas considerando factores como la altura, el color, la textura del follaje y los requerimientos hídricos. Un cantero bien diseñado no solo es visualmente atractivo, sino funcional: debe facilitar el riego, la limpieza y el acceso para el mantenimiento. Se recomienda agrupar plantas con necesidades similares (xerojardinería para zonas secas, hidrojardinería para áreas húmedas) para optimizar el uso del agua y los recursos. La estratificación vertical, combinando plantas de cobertura, medianas y altas, crea profundidad y evita la erosión del suelo.
 
-Por otro lado, la implantación y mantenimiento de praderas requiere una preparación meticulosa del suelo. La siembra o plantado de césped debe realizarse en épocas de crecimiento activo, generalmente en primavera u otoño en la región pampeana, para evitar el estrés por calor o frío. El mantenimiento incluye el corte regular, la aireación del suelo para permitir el paso de oxígeno y agua, y la fertilización equilibrada. En Argentina, es común el uso de pasturas como el festuca o el cianotis, adaptadas al clima local, pero su éxito depende de una irrigación adecuada y de un control constante de malezas que compiten por los nutrientes.
+Por otro lado, la implantación y mantenimiento de praderas requiere una preparación meticulosa del suelo. La siembra o plantado de césped debe realizarse en épocas de crecimiento activo, generalmente en primavera u otoño en la región pampeana, para evitar el estrés por calor o frío. El mantenimiento incluye el corte regular, la aireación del suelo para permitir el paso de oxígeno y agua, y la fertilización equilibrada. En Argentina, es común el uso de pasturas como la festuca o el gramón, adaptadas al clima local, pero su éxito depende de una irrigación adecuada y de un control constante de malezas que compiten por los nutrientes.
