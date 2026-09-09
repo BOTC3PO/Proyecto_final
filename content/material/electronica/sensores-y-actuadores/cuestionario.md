@@ -2,12 +2,16 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q1/Q2 no tenían `explicacion`, Q9 tenía una
+> lista de dos actuadores como respuesta (uno de ellos, "resistencia",
+> incorrecto para un escenario de enfriamiento), Q10 sorteaba un valor
+> pero la respuesta quedaba fija al primero, Q13 mezclaba una premisa
+> fija sobre iluminación con una rama de sorteo sobre riego, Q17 pedía
+> la categoría (sensor/actuador) pero devolvía el nombre del
+> dispositivo, Q18 tenía `respuestas_validas` con ambos booleanos (una
+> pregunta vf que aceptaba cualquier respuesta), Q23 combinaba filas de
+> sensores y actuadores de forma incoherente y podía marcar como
+> "correcto" un sensor de un robot para regar plantas.
 
 ---
 
@@ -25,6 +29,9 @@ opciones_explicitas: ["Un dispositivo que convierte una magnitud física en una 
 respuesta: "Un dispositivo que convierte una magnitud física en una señal eléctrica"
 
 enunciado: "Un sensor se define fundamentalmente como ___."
+
+explicacion: |
+  Un sensor detecta una magnitud física del entorno (temperatura, luz, presión, etc.) y la transforma en una señal eléctrica que puede procesar un sistema electrónico.
 ```
 
 ### 2 — Función de los actuadores
@@ -40,6 +47,9 @@ tipo: vf
 respuesta: falso
 
 enunciado: "Los actuadores tienen la función principal de captar información del entorno para procesarla en un controlador."
+
+explicacion: |
+  Falso. Captar información del entorno es la función del sensor. El actuador recibe una señal ya procesada y la convierte en una acción física.
 ```
 
 ### 3 — El ciclo de control
@@ -50,10 +60,6 @@ metadata:
   tema: "sensores_y_actuadores"
   nivel: "intermedio"
   tags: ["flujo_de_trabajo", "sistemas_combinados"]
-
-variables:
-  flujo: [["Sensor", "Controlador", "Actuador"], ["Actuador", "Controlador", "Sensor"], ["Sensor", "Actuador", "Controlador"]]
-  idx: uno_de([0,1,2])
 
 tipo: ordenar
 opciones_explicitas: ["Sensor", "Controlador", "Actuador"]
@@ -187,9 +193,8 @@ variables:
   temp_actual: 28
   temp_objetivo: 22
 
-respuesta: ["resistencia", "ventilador"]
+respuesta: "ventilador"
 respuestas_validas:
-  - "resistencia"
   - "ventilador"
 
 enunciado: "En un sistema de climatización, si la temperatura actual es de {temp_actual}°C y el objetivo es de {temp_objetivo}°C, el sensor de temperatura detecta un exceso de calor. Para enfriar la habitación, el controlador debe activar el ___."
@@ -213,11 +218,10 @@ metadata:
   tags: ["sensores", "calculo"]
 
 variables:
-  idx: uno_de([0, 1])
   sensor_val: uno_de([2.5, 4.8])
   voltaje_max: 5.0
 
-respuesta: 2.5
+respuesta: sensor_val / voltaje_max * 5
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -229,7 +233,7 @@ pasos:
   - "Multiplicar por el rango de la escala: (resultado) * 5"
 
 explicacion: |
-  Si el valor es 2.5V y el máximo es 5.0V, la proporción es 0.5. En una escala de 0 a 5, el valor es 0.5 * 5 = 2.5.
+  Se divide el voltaje actual por el voltaje máximo y se multiplica por el rango de la escala (5). Por ejemplo, si el valor es 2.5V y el máximo es 5.0V, la proporción es 0.5, y en una escala de 0 a 5 eso equivale a 0.5 * 5 = 2.5.
 ```
 
 ### 11 — El rol de los componentes
@@ -279,16 +283,14 @@ metadata:
   tags: ["flujo_de_datos", "control"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["sensor de luz", "microcontrolador", "LED"], ["sensor de humedad", "PLC", "bomba de agua"]]
+  datos: ["sensor de luz", "microcontrolador", "LED"]
 
-respuesta: datos[escenario_idx][2]
+respuesta: datos[2]
 tipo: completar
 respuestas_validas:
-  - datos[0][2]
-  - datos[1][2]
+  - "LED"
 
-enunciado: "En un sistema automatizado, el flujo de información sigue un orden lógico. Si el sistema busca regular la iluminación de una habitación, el orden de los componentes es: {datos[escenario_idx][0]} -> {datos[escenario_idx][1]} -> ___."
+enunciado: "En un sistema automatizado, el flujo de información sigue un orden lógico. Si el sistema busca regular la iluminación de una habitación, el orden de los componentes es: {datos[0]} -> {datos[1]} -> ___."
 
 explicacion: |
   El flujo correcto es: Sensor (captación) -> Procesador (decisión) -> Actuador (acción).
@@ -367,11 +369,8 @@ variables:
 
 tipo: completar
 respuestas_validas:
-  - "LDR"
-  - "Motor DC"
-  - "Buzzer"
-  - "Potenciómetro"
-respuesta: datos[idx][0]
+  - datos[idx][1]
+respuesta: datos[idx][1]
 
 enunciado: "Si tenemos un dispositivo como un {datos[idx][0]}, su función principal en el sistema es actuar como un ___."
 
@@ -389,9 +388,6 @@ metadata:
   tags: ["lógica_de_control"]
 
 tipo: vf
-respuestas_validas:
-  - verdadero
-  - falso
 respuesta: falso
 
 enunciado: "¿Es correcto afirmar que un actuador es el encargado de captar cambios en el entorno para enviarlos a un microcontrolador?"
@@ -456,7 +452,7 @@ variables:
   componente_sensor: escenarios[idx][0]
   componente_actuador: escenarios[idx][1]
 
-enunciado: "En un sistema de control de temperatura, el {componente_sensor} detecta el calor y el {componente_actuador} realiza la acción física. ¿Cuál de los dos es el actuador?"
+enunciado: "En el siguiente sistema, el {componente_sensor} detecta una variable del entorno y el {componente_actuador} realiza la acción física. ¿Cuál de los dos es el actuador?"
 
 opciones_explicitas: ["el sensor", "el actuador"]
 respuesta: "el actuador"
@@ -493,16 +489,11 @@ metadata:
   nivel: "intermedio"
   tags: ["completar", "flujo"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["un sensor de humedad en un riego", "un sensor de proximidad en un robot"], ["una bomba de agua", "una rueda motriz"]]
-
 enunciado: "En un sistema de riego automático, el sensor de humedad detecta que la tierra está seca, el controlador activa la ___ para regar."
 
 respuestas_validas:
   - "bomba de agua"
-  - "rueda motriz"
-respuesta: casos[caso_idx][1]
+respuesta: "bomba de agua"
 tipo: completar
 
 explicacion: |
