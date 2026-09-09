@@ -1,6 +1,15 @@
 # Oficios — materiales cerrajeria (cuestionario, 30 preguntas VBLang)
 
-> Tema: `oficios/cerrajero/materiales-cerrajeria`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/cerrajero/materiales-cerrajeria`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q2 opción con typo en inglés ("elastic" en vez
+> de "elástico"), corregida; Q8 sorteo muerto (variable nunca
+> interpolada) removido; Q12 bloque roto con notas de depuración del
+> LM sin resolver ("Espera, la pregunta es VF... Cambiaré la respuesta a
+> verdadero para ser preciso") que contradecían el campo `respuesta`
+> real (falso), corregido a verdadero según la conclusión que el propio
+> LM ya había alcanzado; `tipo: input` (alias legacy) normalizado a
+> `completar`.
 
 ---
 
@@ -32,7 +41,7 @@ metadata:
   tags: ["picaporte", "cerrojo", "mecanismo"]
 
 variables:
-  tipo_mecanismo: uno_de(["resorte", "muelle", "elastic"])
+  tipo_mecanismo: uno_de(["resorte", "muelle", "elástico"])
 
 respuesta: "No depende de un resorte"
 tipo: completar
@@ -151,9 +160,6 @@ metadata:
   nivel: "avanzado"
   tags: ["formacion", "diferencia", "profesional"]
 
-variables:
-  factor: uno_de(["conocimiento", "velocidad", "precio"])
-
 respuesta: "conocimiento"
 tipo: completar
 
@@ -178,7 +184,7 @@ variables:
   fuerza_total: redondear(fuerza_base * factor_seguridad, 1)
 
 respuesta: fuerza_total
-tipo: input
+tipo: completar
 
 enunciado: "Si la fuerza mínima requerida para accionar una barra antipánico es de {fuerza_base} Newtons y se aplica un factor de seguridad de {factor_seguridad}x para garantizar la evacuación, ¿cuál es la fuerza total de actuación necesaria? (Redondear a 1 decimal)"
 
@@ -221,7 +227,7 @@ variables:
   largo_final: largo_total - margen_ajuste
 
 respuesta: largo_final
-tipo: input
+tipo: completar
 
 enunciado: "Para instalar un picaporte con varilla de paso en una puerta de {espesor_puerta} mm de grosor, si el mecanismo del picaporte requiere 60 mm de recorrido interno y se deja un margen de ajuste de {margen_ajuste} mm, ¿cuál es la longitud total mínima de la varilla?"
 
@@ -238,13 +244,13 @@ metadata:
   nivel: "basico"
   tags: ["cerrojos", "picaportes", "mecanismos"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "A diferencia del cerrojo, el picaporte depende de un resorte para su retorno automático y generalmente ofrece menor firmeza de cierre."
 
 explicacion: |
-  La afirmación es falsa porque describe correctamente al picaporte. El picaporte SÍ depende de un resorte y ofrece MENOR firmeza que el cerrojo. Espera, la pregunta es VF. Si la respuesta es falso, la premisa debe ser incorrecta. Revisemos: El picaporte depende de resorte (cierto) y ofrece menor firmeza (cierto). Entonces la afirmación es verdadera. Cambiaré la respuesta a verdadero para ser preciso.
+  Correcto. El picaporte se mantiene cerrado por la acción de un resorte, que puede ceder bajo presión lateral, mientras que el cerrojo se fija mecánicamente sin depender de esa energía, ofreciendo mayor firmeza.
 ```
 
 ### 13 — pregunta 13
@@ -280,7 +286,7 @@ variables:
   peso_g: redondear(volumen_cm3 * densidad_acero, 1)
 
 respuesta: peso_g
-tipo: input
+tipo: completar
 
 enunciado: "Un cerrojo de acero tiene un volumen de {volumen_cm3} cm³. Sabiendo que la densidad del acero es aproximadamente 7.85 g/cm³, ¿cuánto pesa el componente en gramos?"
 
@@ -340,7 +346,7 @@ variables:
   fuerza_kn: redondear(fuerza_n / 1000, 2)
 
 respuesta: fuerza_kn
-tipo: input
+tipo: completar
 
 enunciado: "Una varilla de acero para cerrajería tiene un área de sección transversal de {area_mm2} mm² y una resistencia a la tracción de {resistencia_mp} MPa. ¿Cuál es la fuerza máxima que puede soportar en kilonewtons (kN)?"
 
@@ -383,7 +389,7 @@ variables:
   largo_final: largo_total + margen
 
 respuesta: largo_final
-tipo: input
+tipo: completar
 
 enunciado: "Si el gollete de una llave mide {largo_gollete} mm y el cuerpo principal mide {largo_cuerpo} mm, ¿cuál es la longitud total aproximada incluyendo un margen de {margen} mm para la cabeza de la llave?"
 
@@ -424,7 +430,7 @@ variables:
   area_cm2: redondear((largo_placa * ancho_placa) / 100, 2)
 
 respuesta: area_cm2
-tipo: input
+tipo: completar
 
 enunciado: "Una placa de protección para cilindro tiene dimensiones de {largo_placa} mm de largo por {ancho_placa} mm de ancho. ¿Cuál es su área en centímetros cuadrados?"
 
@@ -447,7 +453,7 @@ variables:
   intervalo_dias: intervalo_meses * 30
 
 respuesta: intervalo_dias
-tipo: input
+tipo: completar
 
 enunciado: "Si una puerta de alta concurrencia con {uso_diario} aperturas diarias requiere mantenimiento preventivo cada {intervalo_meses} meses, ¿cuántos días pasan entre cada servicio?"
 
@@ -488,7 +494,7 @@ variables:
   diametro_broca: diametro_cilindro + holgura
 
 respuesta: diametro_broca
-tipo: input
+tipo: completar
 
 enunciado: "Para taladrar el alojamiento de un cilindro de {diametro_cilindro} mm de diámetro, se utiliza una broca de {holgura} mm mayor. ¿Cuál es el diámetro de la broca?"
 
@@ -511,7 +517,7 @@ variables:
   peso_total: redondear(largo_llave * peso_por_mm, 2)
 
 respuesta: peso_total
-tipo: input
+tipo: completar
 
 enunciado: "Si una llave de acero tiene una longitud de {largo_llave} mm y pesa aproximadamente 0.1 gramos por milímetro de longitud, ¿cuánto pesa la llave?"
 
@@ -552,7 +558,7 @@ variables:
   resistencia_calc: tiempo_resistencia * 10
 
 respuesta: resistencia_calc
-tipo: input
+tipo: completar
 
 enunciado: "Si una cerradura debe resistir el fuego durante {tiempo_resistencia} minutos, y cada minuto equivale a 10 unidades de índice de resistencia, ¿cuál es el índice total?"
 
@@ -575,7 +581,7 @@ variables:
   distancia_final: distancia_centro + holgura
 
 respuesta: distancia_final
-tipo: input
+tipo: completar
 
 enunciado: "Si la distancia estándar del centro del orificio de la llave al borde de la puerta es {distancia_centro} mm y se requiere una holgura de {holgura} mm, ¿cuál es la distancia final de marcado?"
 
@@ -616,7 +622,7 @@ variables:
   total_ml: cantidad_puertas * aceite_por_puerta
 
 respuesta: total_ml
-tipo: input
+tipo: completar
 
 enunciado: "Si se requieren 2 ml de aceite lubricante por cada una de las {cantidad_puertas} puertas de una instalación, ¿cuántos mililitros de aceite se necesitan en total?"
 
