@@ -2,12 +2,12 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q7/Q23/Q25 tenían `respuestas_validas`
+> sobre-permisivas que aceptaban valores de cualquier rama del sorteo
+> (o distractores no equivalentes) en vez de sólo la respuesta
+> correcta, Q7/Q10 tenían sorteos con ramas idénticas o mal
+> estructuradas (dead/sin efecto real), Q16/Q18/Q20 no tenían
+> `explicacion`.
 
 ---
 
@@ -148,16 +148,10 @@ metadata:
   nivel: "intermedio"
   tags: ["privacidad", "configuracion"]
 
-variables:
-  perfil_tipo: uno_de([0, 1])
-  perfiles: [["público", "privado"], ["público", "privado"]]
-
-enunciado: "Si configuras el perfil de una red social como {perfiles[perfil_tipo][1]}, los usuarios que no sean tus amigos no podrán ver tu contenido directamente. Esto es una medida de: ___"
+enunciado: "Si configuras el perfil de una red social como privado, los usuarios que no sean tus amigos no podrán ver tu contenido directamente. Esto es una medida de: ___"
 
 respuestas_validas:
   - "privacidad"
-  - "seguridad"
-  - "identidad"
 respuesta: "privacidad"
 tipo: completar
 
@@ -216,9 +210,9 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [["un sitio web de noticias", "una tienda online"], ["un sitio web de noticias", "una tienda online"]]
+  casos: ["un sitio web de noticias", "una tienda online"]
 
-enunciado: "Al visitar {casos[caso_idx][0]}, el sitio utiliza 'cookies' para recordar tus preferencias. ¿Es cierto que estas cookies forman parte de tu huella digital?"
+enunciado: "Al visitar {casos[caso_idx]}, el sitio utiliza 'cookies' para recordar tus preferencias. ¿Es cierto que estas cookies forman parte de tu huella digital?"
 
 respuesta: verdadero
 tipo: vf
@@ -347,6 +341,9 @@ respuestas_validas:
   - "huella digital"
 
 enunciado: "Mientras que la privacidad se refiere al derecho a controlar nuestra información personal, el rastro de datos que dejamos al navegar por internet se conoce como ___."
+
+explicacion: |
+  La privacidad es el derecho a decidir qué información se comparte; la huella digital es el conjunto de rastros (activos y pasivos) que dejamos al navegar, independientemente de si controlamos su difusión.
 ```
 
 ### 17 — Actividad pasiva vs. Activa
@@ -385,6 +382,9 @@ respuesta: verdadero
 tipo: vf
 
 enunciado: "A diferencia de una conversación presencial que puede ser olvidada, la huella digital suele ser persistente y difícil de eliminar por completo de la red."
+
+explicacion: |
+  Verdadero. Una vez que un contenido se publica en la red, puede ser copiado, capturado o archivado por terceros, lo que hace casi imposible eliminarlo por completo.
 ```
 
 ### 19 — El proceso de recolección de datos
@@ -422,6 +422,9 @@ respuestas_validas:
   - "anonimato"
 
 enunciado: "La privacidad busca proteger nuestra identidad y datos, mientras que el ___ busca permitir que un usuario actúe en la red sin que se le pueda identificar directamente."
+
+explicacion: |
+  El anonimato busca que un usuario no pueda ser identificado en absoluto, mientras que la privacidad se enfoca en controlar quién accede a la información ya identificada de una persona.
 ```
 
 ### 21 — El rastro de tus redes
@@ -483,8 +486,7 @@ enunciado: "En el caso de {casos[caso_idx][0]}, el usuario tiene ___."
 respuesta: casos[caso_idx][1]
 tipo: completar
 respuestas_validas:
-  - "poca privacidad"
-  - "mayor privacidad"
+  - casos[caso_idx][1]
 
 explicacion: |
   La configuración de privacidad determina quién puede acceder a tu información y cómo se construye tu huella digital frente a terceros.
@@ -527,8 +529,7 @@ enunciado: "Si ocurre que {impactos[impacto_idx][0]}, esto puede resultar en ___
 respuesta: impactos[impacto_idx][1]
 tipo: completar
 respuestas_validas:
-  - "daño a la reputación digital"
-  - "perfilamiento de datos"
+  - impactos[impacto_idx][1]
 
 explicacion: |
   La huella digital no solo afecta la privacidad, sino que tiene consecuencias tangibles en la vida real, como la reputación profesional o el perfilamiento comercial.
