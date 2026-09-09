@@ -2,12 +2,15 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q2 tenía descripciones de tarea como
+> `opciones_explicitas` en vez de los tipos de procesador reales, Q18
+> tenía dos blanks con una sola respuesta parcial y `respuestas_validas`
+> incompatibles entre sí, Q23 revelaba el orden "correcto" en el propio
+> enunciado y lo definía arbitrariamente según el sorteo (además de
+> incluir "CPU"/"Unidad de Control" como si fueran externos al
+> microprocesador), Q24/Q25 sorteaban entre una combinación
+> factualmente correcta y una invertida/inconsistente respecto a la
+> propia explicación del bloque.
 
 ---
 
@@ -42,15 +45,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["controlar el ciclo de lavado de una lavadora", "procesar un videojuego de alta resolución"], ["gestionar el sistema de frenado ABS de un auto", "ejecutar un sistema operativo complejo en una PC"]]
-  tarea: escenarios[escenario_idx][0]
-  respuesta_correcta: escenarios[escenario_idx][1]
+  escenarios: [["controlar el ciclo de lavado de una lavadora", "microcontrolador"], ["procesar un videojuego de alta resolución en una PC", "microprocesador"]]
 
 tipo: mc
-opciones_explicitas: [tarea, respuesta_correcta]
-respuesta: respuesta_correcta
+opciones_explicitas: ["microcontrolador", "microprocesador"]
+respuesta: escenarios[escenario_idx][1]
 
-enunciado: "Considerando el uso de {tarea}, ¿qué tipo de procesador es el más adecuado?"
+enunciado: "Considerando el uso de {escenarios[escenario_idx][0]}, ¿qué tipo de procesador es el más adecuado?"
 
 pasos:
   - "Identificar si la tarea requiere procesamiento de datos masivos o control de periféricos."
@@ -368,10 +369,8 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "RAM"
-  - "ROM"
-  - "Periféricos"
 
-enunciado: "En un microcontrolador, la memoria ___ y los ___ (como GPIO o ADC) están integrados en el mismo encapsulado que la CPU, a diferencia de un microprocesador que requiere chips adicionales."
+enunciado: "En un microcontrolador, la memoria ___ (junto con la ROM y los periféricos como GPIO o ADC) está integrada en el mismo encapsulado que la CPU, a diferencia de un microprocesador que requiere chips adicionales."
 
 pasos:
   - "Identificar qué tipo de memoria volátil se integra."
@@ -472,18 +471,14 @@ metadata:
   nivel: "intermedio"
   tags: ["hardware", "perifericos"]
 
-variables:
-  componentes: [["CPU", "Memoria RAM", "Controlador de E/S", "Unidad de Control"], ["Memoria RAM", "Unidad de Control", "CPU", "Controlador de E/S"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Ordena los componentes que se conectan externamente a un microprocesador para que este pueda funcionar como un sistema completo: {componentes[idx][0]}, {componentes[idx][1]}, {componentes[idx][2]}, {componentes[idx][3]}"
+enunciado: "Ordena los siguientes componentes EXTERNOS que deben conectarse a un microprocesador para que funcione como un sistema completo, agregando primero la memoria de trabajo y dejando para el final los periféricos de entrada/salida:"
 
 pasos:
   - "Identificar los elementos que el microprocesador no tiene integrados por defecto."
 
-respuesta_orden: componentes[idx]
+respuesta_orden: ["Memoria RAM", "Memoria ROM/Flash", "Controlador de E/S"]
 tipo: ordenar
-opciones_explicitas: ["CPU", "Memoria RAM", "Controlador de E/S", "Unidad de Control"]
+opciones_explicitas: ["Memoria RAM", "Memoria ROM/Flash", "Controlador de E/S"]
 
 explicacion: |
   El microprocesador es solo el núcleo de procesamiento; necesita que el usuario o el diseñador añada la memoria y los controladores de E/S para ser útil.
@@ -498,16 +493,13 @@ metadata:
   nivel: "basico"
   tags: ["aplicacion", "uso"]
 
-variables:
-  caso: uno_de([["especifico", "general"], ["general", "especifico"]])
+enunciado: "El uso de un microprocesador está orientado a tareas de propósito general, mientras que un microcontrolador se usa para tareas de propósito ___."
 
-enunciado: "El uso de un microprocesador está orientado a tareas de propósito {caso[0]}, mientras que un microcontrolador se usa para tareas de propósito {caso[1]}."
-
-respuesta: caso[0]
+respuesta: "especifico"
 tipo: completar
 respuestas_validas:
   - "especifico"
-  - "general"
+  - "específico"
 
 explicacion: |
   Los microprocesadores son versátiles (general), mientras que los microcontroladores están optimizados para una función dedicada (específico).
@@ -522,13 +514,9 @@ metadata:
   nivel: "intermedio"
   tags: ["consumo", "energia"]
 
-variables:
-  datos: [["bajo", "alto"], ["alto", "bajo"]]
-  idx: uno_de([0, 1])
+enunciado: "En comparación con un microprocesador, un microcontrolador suele tener un consumo de energía de tipo bajo y un rendimiento de tipo ___."
 
-enunciado: "En comparación con un microprocesador, un microcontrolador suele tener un consumo de energía de tipo {datos[idx][0]} y un rendimiento de tipo {datos[idx][1]}."
-
-respuesta: datos[idx][1]
+respuesta: "bajo"
 tipo: mc
 opciones_explicitas: ["bajo", "alto"]
 
