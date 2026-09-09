@@ -2,12 +2,12 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3/Q8 tenían dos o tres blanks con una sola
+> respuesta (colapsados a un único blank); Q8 además tenía una
+> inversión lógica ("la desinformación carece de intencionalidad"
+> cuando en realidad la desinformación SE DEFINE por tenerla — es el
+> error honesto el que carece de ella), Q5 revelaba la respuesta
+> interpolándola directamente en el propio enunciado (autorrevelación).
 
 ---
 
@@ -65,12 +65,11 @@ metadata:
   tags: ["componentes", "verificacion"]
 
 tipo: completar
+respuesta: "titulares"
 respuestas_validas:
   - "titulares"
-  - "sensacionalismo"
-  - "fuentes"
 
-enunciado: "Para detectar desinformación, es vital revisar los ___ exagerados, el uso de ___ para captar atención y la falta de ___ confiables."
+enunciado: "Para detectar desinformación, es vital revisar los ___ exagerados (junto con el uso de sensacionalismo para captar atención y la falta de fuentes confiables)."
 
 explicacion: |
   Las noticias falsas suelen usar titulares impactantes, lenguaje emocional o sensacionalista y carecen de fuentes verificables o expertos que respalden la información.
@@ -104,16 +103,12 @@ metadata:
   nivel: "avanzado"
   tags: ["fact_checking", "herramientas"]
 
-variables:
-  metodo_idx: uno_de([0, 1, 2, 3])
-  metodos: ["Buscar la noticia en sitios oficiales", "Verificar en sitios de fact-checking", "Revisar la fecha de publicación", "Analizar la fuente original"]
-
 tipo: mc
 opciones_explicitas: ["Buscar la noticia en sitios oficiales", "Verificar en sitios de fact-checking", "Revisar la fecha de publicación", "Analizar la fuente original"]
 
-respuesta: metodos[metodo_idx]
+respuesta: "Verificar en sitios de fact-checking"
 
-enunciado: "Ante una noticia sospechosa, una de las acciones más efectivas es: {metodos[metodo_idx]}"
+enunciado: "Ante una noticia sospechosa, ¿cuál de las siguientes es una de las acciones más efectivas para verificarla?"
 
 explicacion: |
   El uso de herramientas de fact-checking (verificación de hechos) es una de las defensas más robustas contra la desinformación en la era digital.
@@ -174,9 +169,8 @@ metadata:
 tipo: completar
 respuestas_validas:
   - "intencionalidad"
-  - "veracidad"
 
-enunciado: "La diferencia fundamental entre la desinformación y el error honesto radica en la _______, ya que la desinformación carece de _______."
+enunciado: "La diferencia fundamental entre la desinformación y el error honesto radica en la _______, ya que el error honesto carece de intención de engañar."
 
 respuesta: "intencionalidad"
 
