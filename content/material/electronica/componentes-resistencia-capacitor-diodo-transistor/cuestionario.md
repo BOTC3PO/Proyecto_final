@@ -2,12 +2,12 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q4/Q18 tenían dos blanks con una sola
+> respuesta desconectada, Q9 pedía "aplicar voltaje en la base" como
+> primer paso para lograr el estado de corte (lógicamente invertido),
+> Q10 dejaba el placeholder literal "resultado" en vez de la fórmula
+> evaluada, Q23 tenía pseudocódigo sin evaluar como respuesta ("si
+> tipo_polar == 'directa' entonces...") con variables muertas.
 
 ---
 
@@ -88,7 +88,7 @@ respuestas_validas:
   - "amplificar una señal"
   - "actuar como interruptor"
 
-enunciado: "Dependiendo de cómo se polarice, un transistor puede utilizarse para ___ o para ___."
+enunciado: "Dependiendo de cómo se polarice, un transistor puede utilizarse para ___."
 
 respuesta: datos[escenario_idx][0]
 
@@ -187,9 +187,9 @@ metadata:
 
 enunciado: "Para que un transistor NPN funcione como un interruptor en estado de corte, se deben seguir estos pasos en orden:"
 
-opciones_explicitas: ["Aplicar voltaje en la base", "Corriente en la base es cero", "El transistor no conduce"]
+opciones_explicitas: ["No aplicar corriente en la base", "La corriente en la base permanece en cero", "El transistor no conduce"]
 
-respuesta_orden: ["Aplicar voltaje en la base", "Corriente en la base es cero", "El transistor no conduce"]
+respuesta_orden: ["No aplicar corriente en la base", "La corriente en la base permanece en cero", "El transistor no conduce"]
 tipo: ordenar
 
 explicacion: |
@@ -211,7 +211,7 @@ variables:
 
 enunciado: "Si tenemos una resistencia de {escenario[idx][0]} Ω conectada a una fuente de voltaje de {escenario[idx][1]} V, la corriente que circula es de ___ A."
 
-respuesta: "resultado"
+respuesta: escenario[idx][1] / escenario[idx][0]
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -372,18 +372,14 @@ metadata:
   nivel: "intermedio"
   tags: ["transistor", "control", "resistencia"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [["resistencia", "limita"], ["transistor", "controla"]]
-
 tipo: completar
 respuestas_validas:
-  - "limita"
+  - "controlar"
   - "controla"
 
-enunciado: "Mientras que una resistencia se utiliza para ___ la corriente de manera pasiva, un transistor permite ___ la corriente mediante una señal externa en su terminal de base."
+enunciado: "Mientras que una resistencia se utiliza para limitar la corriente de manera pasiva, un transistor permite ___ la corriente mediante una señal externa en su terminal de base."
 
-respuesta: escenario[idx][1]
+respuesta: "controlar"
 
 explicacion: |
   La resistencia es un componente pasivo que ofrece oposición al flujo; el transistor es un dispositivo activo que puede actuar como interruptor o amplificador según la corriente de control.
@@ -483,20 +479,15 @@ metadata:
 variables:
   caso_idx: uno_de([0, 1])
   casos: [["directa", "conduce"], ["inversa", "bloquea"]]
-  tipo_polar: ["directa", "inversa"]
-  resultado: ["conduce", "bloquea"]
 
 tipo: completar
 
-enunciado: "Si un diodo se encuentra en polarización ___, la corriente será ___."
+enunciado: "Si un diodo se encuentra en polarización {casos[caso_idx][0]}, la corriente ___."
 
 respuestas_validas:
-  - "directa"
-  - "inversa"
-  - "conduce"
-  - "bloquea"
+  - casos[caso_idx][1]
 
-respuesta: "si tipo_polar == 'directa' entonces 'conduce' sino 'bloquea'"
+respuesta: casos[caso_idx][1]
 
 explicacion: |
   En polarización directa, el diodo permite el paso de corriente. En polarización inversa, actúa como un aislante (bloquea).
