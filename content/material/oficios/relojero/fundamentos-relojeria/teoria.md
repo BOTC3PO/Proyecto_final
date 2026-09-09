@@ -1,6 +1,6 @@
 # Oficios — Relojero — Fundamentos de relojería (teoria)
 
-> Tema del MAPA: `OF27.fundamentos-relojeria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF27.fundamentos-relojeria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: el rodaje estaba descripto al revés ("reduce la velocidad y aumenta el par" / "caja de cambios") — en realidad el rodaje de un reloj mecánico AUMENTA la velocidad de rotación en cada etapa (y reduce el par), convirtiendo el giro lento y potente del motor en la oscilación rápida del escape. Corregido.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,9 +22,9 @@ Es importante notar que el motor no entrega la energía de golpe, sino de forma 
 
 ## El rodaje: la transmisión del movimiento
 
-Una vez generada la energía, esta debe viajar desde el motor hasta las manecillas que marcan la hora. Este trayecto lo realiza el rodaje, un conjunto de engranajes interconectados. Cada engranaje tiene un número específico de dientes y gira a una velocidad diferente, lo que permite reducir la velocidad de rotación y aumentar el par de fuerza necesario para mover las manecillas grandes.
+Una vez generada la energía, esta debe viajar desde el motor hasta las manecillas que marcan la hora. Este trayecto lo realiza el rodaje, un conjunto de engranajes interconectados. Cada engranaje tiene un número específico de dientes y gira a una velocidad diferente: a diferencia de una caja reductora, aquí la velocidad de rotación aumenta progresivamente en cada etapa (mientras el par de fuerza disminuye), convirtiendo el giro lento y potente del motor en la oscilación rápida que necesita el escape.
 
-El rodaje actúa como una caja de cambios. Por ejemplo, el eje que mueve la manecilla de los segundos gira mucho más rápido que el de las horas. Los relojeros deben conocer estas relaciones de transmisión para entender cómo se distribuye la energía y para poder calcular las dimensiones correctas de las piezas si se necesita reemplazar alguna.
+El rodaje actúa como un multiplicador de velocidad. Por ejemplo, el eje que mueve la manecilla de los segundos gira mucho más rápido que el de las horas. Los relojeros deben conocer estas relaciones de transmisión para entender cómo se distribuye la energía y para poder calcular las dimensiones correctas de las piezas si se necesita reemplazar alguna.
 
 ## El escape y el órgano regulador: el control del tiempo
 
