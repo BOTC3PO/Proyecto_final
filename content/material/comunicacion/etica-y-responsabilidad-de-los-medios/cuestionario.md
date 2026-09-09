@@ -2,12 +2,14 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q2 usaba una variable booleana sorteada como
+> respuesta de un `tipo: completar` para una afirmación siempre
+> verdadera, Q9 tenía una explicación confusa que sugería que ambos
+> casos eran violaciones cuando el Caso A en realidad muestra la
+> independencia editorial funcionando correctamente, Q13 tenía una
+> variable sorteada declarada y nunca usada, Q14 tenía dos blanks con
+> una sola respuesta y `respuestas_validas` que no distinguía cuál
+> palabra correspondía a cada hueco.
 
 ---
 
@@ -40,12 +42,9 @@ metadata:
   nivel: "basico"
   tags: ["responsabilidad", "social", "etica"]
 
-variables:
-  es_falso: uno_de([verdadero, falso])
-
-respuesta: es_falso
-tipo: completar
-enunciado: "La responsabilidad social implica que los medios tienen el deber de informar de manera objetiva, incluso si esto contraviene sus intereses económicos o políticos."
+respuesta: verdadero
+tipo: vf
+enunciado: "¿Es correcto afirmar que la responsabilidad social implica que los medios tienen el deber de informar de manera objetiva, incluso si esto contraviene sus intereses económicos o políticos?"
 
 explicacion: |
   La ética periodística exige priorizar el derecho a la información de la sociedad sobre los intereses particulares del medio.
@@ -203,7 +202,7 @@ respuesta: "Caso B"
 enunciado: "Analice los siguientes dos escenarios. Caso A: {caso_a} Caso B: {caso_b} ¿Cuál de los dos representa una falta directa a la independencia editorial?"
 
 explicacion: |
-  La independencia editorial es la capacidad de informar sin presiones externas. Tanto la influencia económica de los anunciantes como los incentivos personales (viajes, regalos) comprometen la objetividad y la responsabilidad hacia el público.
+  El Caso A muestra en realidad la independencia editorial FUNCIONANDO (el medio publicó la crítica pese a la presión económica del anunciante). El Caso B, en cambio, es una falta directa: aceptar un viaje pagado por la fuente que se va a cubrir es un incentivo personal que compromete la objetividad periodística.
 ```
 
 ### 10 — Clasificación de la responsabilidad informativa
@@ -273,10 +272,6 @@ metadata:
   nivel: "intermedio"
   tags: ["fuentes", "verificacion", "procedimiento"]
 
-variables:
-  pasos_ordenar: [["Recibir la información o pista", "Búsqueda de evidencia y contraste"], ["Contrastar con al menos dos fuentes independientes", "Publicar la noticia"], ["Verificar la credibilidad de la fuente original", "Redactar el informe final"]]
-  idx: uno_de([0,1,2])
-
 tipo: ordenar
 opciones_explicitas: ["Recibir la información o pista", "Verificar la credibilidad de la fuente original", "Búsqueda de evidencia y contraste", "Contrastar con al menos dos fuentes independientes", "Redactar el informe final", "Publicar la noticia"]
 
@@ -299,10 +294,9 @@ metadata:
 
 tipo: completar
 respuestas_validas:
-  - "opinión"
   - "hecho"
 
-enunciado: "Una confusión común en los medios es mezclar el ___ (dato objetivo y verificable) con la ___ (juicio de valor del periodista), lo cual desinforma al público sobre la naturaleza de la noticia."
+enunciado: "Una confusión común en los medios es mezclar el ___ (dato objetivo y verificable) con la opinión (juicio de valor del periodista), lo cual desinforma al público sobre la naturaleza de la noticia."
 
 respuesta: "hecho"
 
