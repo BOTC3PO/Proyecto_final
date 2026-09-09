@@ -1,6 +1,6 @@
 # Oficios — Cerrajero — Fundamentos de cerrajería (teoria)
 
-> Tema del MAPA: `OF25.fundamentos-cerrajeria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Generado con qwen/qwen3.6-35b-a3b, revisión pendiente antes de considerarse final.
+> Tema del MAPA: `OF25.fundamentos-cerrajeria` (`troncos.md`). Depende de ninguno (nodo raíz de esta rama) (ver `../dependencias.md`). Revisado manualmente: sin errores factuales encontrados (mecanismo de pines/línea de cizallamiento verificado).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
