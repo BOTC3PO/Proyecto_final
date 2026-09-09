@@ -1,6 +1,21 @@
 # Oficios — tecnicas carpinteria aluminio (cuestionario, 30 preguntas VBLang)
 
-> Tema: `oficios/carpintero-de-aluminio/tecnicas-carpinteria-aluminio`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/carpintero-de-aluminio/tecnicas-carpinteria-aluminio`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: Q1/Q2/Q4/Q9 tenían `respuesta: "{expresión}"`
+> entre comillas — el motor VBLang no la interpola fuera de
+> enunciado/explicacion — corregidas a la expresión sin comillas;
+> Q19/Q20/Q21/Q22/Q24/Q25/Q27/Q28/Q30 tenían `respuesta:` con
+> concatenación de strings que producía una fórmula sin resolver (ej.
+> "80 * 120") en vez de calcular el valor numérico pedido, corregidas;
+> Q7 respuesta con un token inventado ("fuerza_razonable") que no es un
+> término real, corregida al término correcto del propio tema
+> (ergonomía); Q17 fórmula incluía un factor "perfiles" redundante y
+> una división de más, dando 16 en vez de los 8 tornillos que la propia
+> explicación calcula, corregida; Q6 usaba un kerf de sierra de 2 cm
+> (20 mm), un orden de magnitud mayor al real (2-3 mm en discos para
+> aluminio), corregido a 3 mm; `tipo: input` (alias legacy) normalizado
+> a `completar`.
 
 ---
 
@@ -17,8 +32,8 @@ variables:
   angulo_esquina: 90
   angulo_corte: angulo_esquina / 2
 
-respuesta: "{redondear(angulo_corte, 0)}"
-tipo: input
+respuesta: redondear(angulo_corte, 0)
+tipo: completar
 
 enunciado: "Para armar una esquina de 90° en un marco de aluminio, ¿a qué ángulo se debe cortar cada perfil?"
 
@@ -41,8 +56,8 @@ variables:
   holgura_total: 10
   holgura_por_lado: holgura_total / 2
 
-respuesta: "{redondear(holgura_por_lado, 1)}"
-tipo: input
+respuesta: redondear(holgura_por_lado, 1)
+tipo: completar
 
 enunciado: "Si el ancho de la apertura es {ancho_apertura} cm y se deja una holgura total de 10 mm para el deslizamiento, ¿cuántos mm de holgura corresponden a cada lado del perfil móvil?"
 
@@ -68,7 +83,7 @@ variables:
   angulo_corte: angulo_bisel
 
 respuesta: angulo_corte
-tipo: input
+tipo: completar
 
 enunciado: "Para unir dos perfiles en una esquina de 90° con bisel, ¿a cuántos grados se corta cada extremo?"
 
@@ -91,8 +106,8 @@ variables:
   area_cm2: alto_vidrio * ancho_vidrio
   area_m2: area_cm2 / 10000
 
-respuesta: "{redondear(area_m2, 4)}"
-tipo: input
+respuesta: redondear(area_m2, 4)
+tipo: completar
 
 enunciado: "Si un vidrio tiene {alto_vidrio} cm de alto y {ancho_vidrio} cm de ancho, ¿cuántos metros cuadrados (m²) de superficie tiene?"
 
@@ -117,7 +132,7 @@ variables:
   total_perfiles: 4
 
 respuesta: total_perfiles
-tipo: input
+tipo: completar
 
 enunciado: "Para armar un marco rectangular simple de una ventana, ¿cuántos perfiles de larguero (2 de alto y 2 de ancho) se necesitan como base?"
 
@@ -136,17 +151,16 @@ metadata:
 
 variables:
   largo_necesario: random(50, 100)
-  holgua_sierra: 2
-  largo_corte: largo_necesario - holgua_sierra
+  holgura_sierra_mm: 3
+  largo_corte: largo_necesario - (holgura_sierra_mm / 10)
 
 respuesta: largo_corte
-tipo: input
+tipo: completar
 
-enunciado: "Si necesitas un perfil de {largo_necesario} cm y la sierra quita {holgua_sierra} cm de material por el grosor de la hoja (corte), ¿a qué medida debes marcar el corte para obtener la longitud final correcta?"
+enunciado: "Si necesitas un perfil de {largo_necesario} cm y la sierra quita {holgura_sierra_mm} mm de material por el grosor de la hoja (corte), ¿a qué medida en cm debes marcar el corte para obtener la longitud final correcta?"
 
 explicacion: |
-  Se debe restar el ancho del corte (kerf) a la medida final deseada.
-  50 - 2 = 48 cm (ejemplo).
+  Se debe restar el ancho del corte (kerf, típicamente 2-3 mm en discos para aluminio) a la medida final deseada.
 ```
 
 ### 7 — pregunta 7
@@ -158,13 +172,8 @@ metadata:
   nivel: "intermedio"
   tags: ["ergonomia", "mecanismos"]
 
-variables:
-  fuerza_requerida: random(5, 15)
-  # Pregunta conceptual sobre la ergonomía
-  respuesta_texto: "fuerza_razonable"
-
-respuesta: respuesta_texto
-tipo: input
+respuesta: "ergonomía"
+tipo: completar
 
 enunciado: "La ventana debe ser fácil de operar sin requerir una fuerza excesiva. ¿Qué concepto describe esta característica?"
 
@@ -189,7 +198,7 @@ variables:
   perimetro_m: (alto + ancho) * 2
 
 respuesta: perimetro_m
-tipo: input
+tipo: completar
 
 enunciado: "Si una ventana tiene {alto} m de alto y {ancho} m de ancho, ¿cuántos metros lineales de perfil se necesitan para el perímetro exterior?"
 
@@ -211,8 +220,8 @@ variables:
   peso_por_metro: 2.5 # kg/m aproximado para un perfil estándar
   peso_total: largo_m * peso_por_metro
 
-respuesta: "{redondear(peso_total, 1)}"
-tipo: input
+respuesta: redondear(peso_total, 1)
+tipo: completar
 
 enunciado: "Si un perfil de aluminio pesa aproximadamente {peso_por_metro} kg/m, ¿cuánto pesa un trozo de {largo_m} metros?"
 
@@ -236,7 +245,7 @@ variables:
   total_tornillos: largo_m * tornillos_por_metro * 2 # 2 lados
 
 respuesta: total_tornillos
-tipo: input
+tipo: completar
 
 enunciado: "Si se debe fijar el marco al muro con un tornillo cada 50 cm en ambos lados verticales, ¿cuántos tornillos se necesitan para un alto de {largo_m} m?"
 
@@ -260,7 +269,7 @@ variables:
   factor: 1.4142
 
 respuesta: redondear(lado * factor, 1)
-tipo: input
+tipo: completar
 
 enunciado: "Para armar una esquina de 45° en un marco de aluminio, si el lado interno del marco mide {lado} mm, ¿cuánto mide aproximadamente el corte de la pieza en diagonal? (Usa 1.4142 como factor de conversión)."
 
@@ -307,7 +316,7 @@ variables:
   area: ancho_vidrio * alto_vidrio
 
 respuesta: redondear(area / 10000, 2)
-tipo: input
+tipo: completar
 
 enunciado: "Una ventana corrediza tiene un marco interior de {ancho} cm de ancho por {alto} cm de alto. Si se dejan {holgura} cm de holgura total para el deslizamiento del vidrio, ¿cuál es el área del vidrio en metros cuadrados? (Redondear a 2 decimales)."
 
@@ -337,7 +346,7 @@ variables:
   sobrante: largo_barra - usado
 
 respuesta: sobrante
-tipo: input
+tipo: completar
 
 enunciado: "Tienes una barra estándar de aluminio de {largo_barra} mm. Necesitas cortar 4 piezas de longitudes: {corte1} mm, {corte2} mm, {corte3} mm y {corte4} mm. Si cada corte pierde {ancho_corte} mm de material por el disco, ¿cuánto mide el sobrante final de la barra en mm?"
 
@@ -360,7 +369,7 @@ variables:
   fuerza: area * presion
 
 respuesta: fuerza
-tipo: input
+tipo: completar
 
 enunciado: "Si una ventana tiene un área de {area} m² y está expuesta a una presión de viento de {presion} kg/m², ¿cuál es la fuerza total en kg que soporta la estructura de la ventana?"
 
@@ -399,13 +408,12 @@ metadata:
   tags: ["herrajes", "fijacion", "logistica"]
 
 variables:
-  perfiles: 4
   tornillos_por_union: 2
   uniones: 4
-  total: perfiles * tornillos_por_union * uniones / 2
+  total: tornillos_por_union * uniones
 
 respuesta: total
-tipo: input
+tipo: completar
 
 enunciado: "Para armar un marco rectangular de 4 perfiles, se usan {tornillos_por_union} tornillos autorroscantes en cada una de las {uniones} esquinas. ¿Cuántos tornillos se necesitan en total para el armado del marco?"
 
@@ -444,8 +452,8 @@ variables:
   ancho: random(80, 120)
   alto: random(100, 140)
 
-respuesta: ancho + " * " + alto
-tipo: input
+respuesta: ancho * alto
+tipo: completar
 
 enunciado: "Se debe instalar una hoja de vidrio rectangular con {ancho} cm de ancho y {alto} cm de alto. ¿Cuál es el área total del vidrio en cm²?"
 
@@ -466,8 +474,8 @@ variables:
   largo: random(100, 150)
   ancho: random(80, 120)
 
-respuesta: "2 * " + largo + " + 2 * " + ancho
-tipo: input
+respuesta: 2 * largo + 2 * ancho
+tipo: completar
 
 enunciado: "Para armar el marco rectangular de una ventana, se necesitan perfiles de {largo} cm y {ancho} cm. ¿Cuál es la suma total de longitudes de perfil necesarias para el perímetro?"
 
@@ -488,8 +496,8 @@ variables:
   num_esquinas: 4
   tornillos_por_esquina: 2
 
-respuesta: num_esquinas + " * " + tornillos_por_esquina
-tipo: input
+respuesta: num_esquinas * tornillos_por_esquina
+tipo: completar
 
 enunciado: "Para asegurar un marco rectangular de aluminio, se utilizan {tornillos_por_esquina} tornillos autorroscantes por cada una de las {num_esquinas} esquinas. ¿Cuántos tornillos se necesitan en total?"
 
@@ -510,8 +518,8 @@ variables:
   medida_perfil: 50
   medida_abertura: 52
 
-respuesta: medida_abertura + " - " + medida_perfil
-tipo: input
+respuesta: medida_abertura - medida_perfil
+tipo: completar
 
 enunciado: "Si un perfil de {medida_perfil} mm entra en una abertura de {medida_abertura} mm, ¿cuál es la holgura resultante en mm?"
 
@@ -550,8 +558,8 @@ variables:
   longitud_m: random(2, 5)
   peso_por_m: 2.5
 
-respuesta: longitud_m + " * " + peso_por_m
-tipo: input
+respuesta: redondear(longitud_m * peso_por_m, 1)
+tipo: completar
 
 enunciado: "Un perfil de aluminio tiene un peso de {peso_por_m} kg/m. Si se utiliza una barra de {longitud_m} metros, ¿cuál es el peso total en kg?"
 
@@ -573,8 +581,8 @@ variables:
   alto_muro: 120
   espesor_sello: 5
 
-respuesta: "2 * (" + ancho_muro + " + " + alto_muro + ") * " + espesor_sello
-tipo: input
+respuesta: 2 * (ancho_muro + alto_muro) * espesor_sello
+tipo: completar
 
 enunciado: "Se aplica sellado en todo el perímetro de un marco de {ancho_muro} cm x {alto_muro} cm. Si el ancho del sello es de {espesor_sello} cm, ¿cuál es el área total de sellado en cm²?"
 
@@ -613,8 +621,8 @@ variables:
   metros_totales: random(10, 20)
   precio_por_metro: 1500
 
-respuesta: metros_totales + " * " + precio_por_metro
-tipo: input
+respuesta: metros_totales * precio_por_metro
+tipo: completar
 
 enunciado: "Si se necesitan {metros_totales} metros de perfil de aluminio y el precio es de ${precio_por_metro} por metro, ¿cuál es el costo total?"
 
@@ -635,8 +643,8 @@ variables:
   angulo_total: 360
   num_esquinas: 4
 
-respuesta: angulo_total + " / " + num_esquinas
-tipo: input
+respuesta: angulo_total / num_esquinas
+tipo: completar
 
 enunciado: "Para un marco rectangular, si se divide el giro completo de {angulo_total} grados entre las {num_esquinas} esquinas, ¿cuál es el ángulo de corte ideal para cada esquina?"
 
@@ -675,8 +683,8 @@ variables:
   longitud_esquina: 50
   num_tornillos: 2
 
-respuesta: longitud_esquina + " / (" + num_tornillos + " - 1)"
-tipo: input
+respuesta: longitud_esquina / (num_tornillos - 1)
+tipo: completar
 
 enunciado: "Si se colocan {num_tornillos} tornillos equidistantes a lo largo de una esquina de {longitud_esquina} cm, ¿cuál es la distancia entre ellos en cm?"
 
