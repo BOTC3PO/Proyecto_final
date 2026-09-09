@@ -1,6 +1,15 @@
 # Oficios — diagnostico cerrajeria por casos (cuestionario, 28 preguntas VBLang)
 
-> Tema: `oficios/cerrajero/diagnostico-cerrajeria-por-casos`. Ver `teoria.md` en esta misma carpeta. Generado con qwen/qwen3.6-35b-a3b, cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/cerrajero/diagnostico-cerrajeria-por-casos`. Ver `teoria.md` en esta misma carpeta.
+>
+> Revisado manualmente: las 28 preguntas (todas `tipo: completar`)
+> interpolaban la propia variable-respuesta directamente en una oración
+> declarativa sin ningún hueco `___` en todo el archivo — autorrevelador
+> sistemático — corregidas todas a un hueco `___` real; Q11 además tenía
+> el texto de la respuesta ya escrito como parte fija del enunciado
+> (sin ninguna interpolación) seguido de una conclusión distinta no
+> relacionada con el campo `respuesta`, reescrita para pedir realmente
+> el componente dañado (eje de la llave).
 
 ---
 
@@ -20,7 +29,7 @@ variables:
 respuesta: causa_suciedad
 tipo: completar
 
-enunciado: "Cuando una llave no entra o queda trabada en el bombín, una causa frecuente es la {causa_suciedad}, que impide la alineación correcta de los pasados internos."
+enunciado: "Cuando una llave no entra o queda trabada en el bombín, una causa frecuente es la ___, que impide la alineación correcta de los pasados internos."
 
 explicacion: |
   La suciedad, compuesta por polvo, óxido o residuos de lubricantes viejos, impide que los pasadores internos se alineen correctamente con la llave.
@@ -41,7 +50,7 @@ variables:
 respuesta: sintoma
 tipo: completar
 
-enunciado: "El diagnóstico de suciedad interna se confirma al notar una {sintoma} al girar la llave en el bombín."
+enunciado: "El diagnóstico de suciedad interna se confirma al notar una ___ al girar la llave en el bombín."
 
 explicacion: |
   La presencia de partículas en el interior genera una fricción irregular que se percibe táctilmente como una resistencia granular.
@@ -62,7 +71,7 @@ variables:
 respuesta: causa_posible
 tipo: completar
 
-enunciado: "Si la llave entra pero no gira, o gira con mucho juego sin accionar el pestillo, puede deberse a que el {causa_posible}."
+enunciado: "Si la llave entra pero no gira, o gira con mucho juego sin accionar el pestillo, puede deberse a que el ___."
 
 explicacion: |
   Una llave que entra pero no transmite movimiento sugiere un fallo en la transmisión de fuerza, ya sea por deformación del eje o bloqueo del retorno.
@@ -83,7 +92,7 @@ variables:
 respuesta: causa_principal
 tipo: completar
 
-enunciado: "En los cerrojos que no cierran o cierran mal, el problema rara vez es del cilindro en sí, sino de la {causa_principal}."
+enunciado: "En los cerrojos que no cierran o cierran mal, el problema rara vez es del cilindro en sí, sino de la ___."
 
 explicacion: |
   El cerrojo depende de la coincidencia precisa entre la hoja que se mueve y la placa fija donde encaja el pestillo.
@@ -104,7 +113,7 @@ variables:
 respuesta: material
 tipo: completar
 
-enunciado: "Para diagnosticar si el pestillo golpea fuera de su ranura, se marca el punto de contacto con {material}."
+enunciado: "Para diagnosticar si el pestillo golpea fuera de su ranura, se marca el punto de contacto con ___."
 
 explicacion: |
   Marcar el pestillo permite visualizar si el impacto ocurre en el centro o en los bordes, indicando desajustes de la puerta.
@@ -125,7 +134,7 @@ variables:
 respuesta: diagnostico
 tipo: completar
 
-enunciado: "Si la marca del pestillo aparece arriba, el diagnóstico indica que {diagnostico}."
+enunciado: "Si la marca del pestillo aparece arriba, el diagnóstico indica que ___."
 
 explicacion: |
   Una marca superior sugiere que la puerta ha bajado por asentamiento o que las bisagras superiores están sueltas.
@@ -146,7 +155,7 @@ variables:
 respuesta: diagnostico
 tipo: completar
 
-enunciado: "Si la marca del pestillo aparece en los laterales, el diagnóstico suele indicar que {diagnostico}."
+enunciado: "Si la marca del pestillo aparece en los laterales, el diagnóstico suele indicar que ___."
 
 explicacion: |
   El desplazamiento lateral del pestillo es típico de puertas que han perdido su verticalidad por relajación de las bisagras.
@@ -167,7 +176,7 @@ variables:
 respuesta: riesgo
 tipo: completar
 
-enunciado: "Intentar forzar una cerradura sin entender su estado interno puede convertir un problema menor en una {riesgo}."
+enunciado: "Intentar forzar una cerradura sin entender su estado interno puede convertir un problema menor en una ___."
 
 explicacion: |
   La fuerza bruta sin diagnóstico previo es la principal causa de daños irreparables en los mecanismos de seguridad.
@@ -188,7 +197,7 @@ variables:
 respuesta: consecuencia
 tipo: completar
 
-enunciado: "Intentar extraer una llave rota con herramientas inadecuadas puede empujar el fragmento más al fondo, haciendo {consecuencia}."
+enunciado: "Intentar extraer una llave rota con herramientas inadecuadas puede empujar el fragmento más al fondo, haciendo ___."
 
 explicacion: |
   Las herramientas incorrectas actúan como cuñas, profundizando la llave hasta la zona de los pasadores, donde no se puede alcanzar.
@@ -211,7 +220,7 @@ variables:
 respuesta: pilar1
 tipo: completar
 
-enunciado: "El diagnóstico se basa en tres pilares: la {pilar1} del llavero y la ranura, la sensación táctil y la evaluación del estado de las piezas móviles."
+enunciado: "El diagnóstico se basa en tres pilares: la ___ del llavero y la ranura, la sensación táctil y la evaluación del estado de las piezas móviles."
 
 explicacion: |
   La inspección visual es el primer paso para identificar obstrucciones externas o daños visibles en la llave.
@@ -226,13 +235,10 @@ metadata:
   nivel: "intermedio"
   tags: ["diagnostico", "mecanico", "eje"]
 
-variables:
-  sintoma: "gira con mucho juego"
-
-respuesta: sintoma
+respuesta: "eje de la llave"
 tipo: completar
 
-enunciado: "Si la llave gira con mucho juego sin accionar el pestillo, un diagnóstico posible es que el eje de la llave se ha doblado."
+enunciado: "Si la llave gira con mucho juego sin accionar el pestillo, un diagnóstico posible es que el ___ se ha doblado."
 
 explicacion: |
   El juego excesivo indica que la fuerza no se transmite al mecanismo de giro, sino que se pierde en la holgura del eje.
@@ -253,7 +259,7 @@ variables:
 respuesta: causa
 tipo: completar
 
-enunciado: "Si la llave entra pero no gira, otra causa posible es que el {causa}."
+enunciado: "Si la llave entra pero no gira, otra causa posible es que el ___."
 
 explicacion: |
   El mecanismo de retorno es responsable de la posición neutra; si se atasca, impide el movimiento rotatorio normal.
@@ -274,7 +280,7 @@ variables:
 respuesta: beneficio
 tipo: completar
 
-enunciado: "El diagnóstico es crítico porque {beneficio} del servicio."
+enunciado: "El diagnóstico es crítico porque ___ del servicio."
 
 explicacion: |
   Sin un diagnóstico preciso, es imposible presupuestar correctamente o decidir si la reparación es viable.
@@ -296,7 +302,7 @@ variables:
 respuesta: ejemplo1
 tipo: completar
 
-enunciado: "Desde las {ejemplo1} hasta los cilindros de alta seguridad con pasadores de pinza, cada sistema responde distinto a la presión."
+enunciado: "Desde las ___ hasta los cilindros de alta seguridad con pasadores de pinza, cada sistema responde distinto a la presión."
 
 explicacion: |
   La variedad de mecanismos requiere que el cerrajero adapte su diagnóstico a la tecnología específica de cada cerradura.
@@ -318,7 +324,7 @@ variables:
 respuesta: falla_mecanica
 tipo: completar
 
-enunciado: "Un diagnóstico preciso permite distinguir entre una falla mecánica simple, como la {falla_mecanica}, y una estructural."
+enunciado: "Un diagnóstico preciso permite distinguir entre una falla mecánica simple, como la ___, y una estructural."
 
 explicacion: |
   La lubricación es un mantenimiento rutinario, mientras que la rotura de resortes implica una intervención más compleja.
@@ -339,7 +345,7 @@ variables:
 respuesta: sintoma
 tipo: completar
 
-enunciado: "El diagnóstico debe considerar el {sintoma}, que afecta la compatibilidad y el funcionamiento del sistema."
+enunciado: "El diagnóstico debe considerar el ___, que afecta la compatibilidad y el funcionamiento del sistema."
 
 explicacion: |
   Las llaves maestras tienen cortes especiales que, si se desgastan, pierden su capacidad de activar múltiples cerraduras.
@@ -360,7 +366,7 @@ variables:
 respuesta: beneficio
 tipo: completar
 
-enunciado: "La capacidad de diagnosticar rápidamente {beneficio}, además de evitar el daño colateral."
+enunciado: "La capacidad de diagnosticar rápidamente ___, además de evitar el daño colateral."
 
 explicacion: |
   Un diagnóstico rápido reduce la duración de la intervención y mejora la satisfacción del usuario final.
@@ -381,7 +387,7 @@ variables:
 respuesta: elemento
 tipo: completar
 
-enunciado: "El primer pilar del diagnóstico es la inspección visual del {elemento} y la ranura de la cerradura."
+enunciado: "El primer pilar del diagnóstico es la inspección visual del ___ y la ranura de la cerradura."
 
 explicacion: |
   El llavero puede mostrar signos de uso excesivo, doblez o corrosión que explican el fallo.
@@ -402,7 +408,7 @@ variables:
 respuesta: accion
 tipo: completar
 
-enunciado: "La {accion} al girar la llave es fundamental para detectar resistencias o juego anormal."
+enunciado: "La ___ al girar la llave es fundamental para detectar resistencias o juego anormal."
 
 explicacion: |
   El tacto del cerrajero es una herramienta de diagnóstico tan importante como la vista.
@@ -423,7 +429,7 @@ variables:
 respuesta: objeto
 tipo: completar
 
-enunciado: "El tercer pilar es la evaluación del estado de las {objeto} internas."
+enunciado: "El tercer pilar es la evaluación del estado de las ___ internas."
 
 explicacion: |
   Verificar si los pasadores, resortes o ejes se mueven libremente es clave para el diagnóstico interno.
@@ -444,7 +450,7 @@ variables:
 respuesta: material
 tipo: completar
 
-enunciado: "Para diagnosticar la alineación del pestillo, se marca el punto de contacto con {material}."
+enunciado: "Para diagnosticar la alineación del pestillo, se marca el punto de contacto con ___."
 
 explicacion: |
   El material de marcado deja una huella clara en la placa fija, revelando el punto exacto de impacto.
@@ -465,7 +471,7 @@ variables:
 respuesta: diagnostico
 tipo: completar
 
-enunciado: "Si la marca aparece abajo, el diagnóstico indica que {diagnostico}."
+enunciado: "Si la marca aparece abajo, el diagnóstico indica que ___."
 
 explicacion: |
   Una marca inferior confirma que la puerta ha bajado, desalineando el pestillo con la placa.
@@ -486,7 +492,7 @@ variables:
 respuesta: objetivo
 tipo: completar
 
-enunciado: "El diagnóstico preciso en el contexto profesional {objetivo}."
+enunciado: "El diagnóstico preciso en el contexto profesional ___."
 
 explicacion: |
   Prevenir daños adicionales es una obligación ética y técnica del cerrajero profesional.
@@ -507,7 +513,7 @@ variables:
 respuesta: causa
 tipo: completar
 
-enunciado: "Cuando la llave no entra, una causa suele ser la {causa}."
+enunciado: "Cuando la llave no entra, una causa suele ser la ___."
 
 explicacion: |
   La acumulación de partículas es la falla más común en cerraduras de uso frecuente.
@@ -528,7 +534,7 @@ variables:
 respuesta: causa
 tipo: completar
 
-enunciado: "La otra causa frecuente de llave trabada es la {causa}."
+enunciado: "La otra causa frecuente de llave trabada es la ___."
 
 explicacion: |
   La desalineación puede deberse a golpes, desgaste de bisagras o deformación de la hoja.
@@ -549,7 +555,7 @@ variables:
 respuesta: sintoma
 tipo: completar
 
-enunciado: "La presencia de {sintoma} confirma el diagnóstico de suciedad interna."
+enunciado: "La presencia de ___ confirma el diagnóstico de suciedad interna."
 
 explicacion: |
   Este síntoma es distintivo y no suele aparecer en fallas puramente mecánicas de eje o retorno.
@@ -571,7 +577,7 @@ variables:
 respuesta: falla1
 tipo: completar
 
-enunciado: "Si la llave entra pero no gira, puede deberse a que el {falla1}."
+enunciado: "Si la llave entra pero no gira, puede deberse a que el ___."
 
 explicacion: |
   Ambos problemas provocan falta de giro, pero el eje doblado suele tener un origen físico externo (golpe).
@@ -592,7 +598,7 @@ variables:
 respuesta: componente
 tipo: completar
 
-enunciado: "El problema de cerrojos defectuosos suele estar en la alineación entre la {componente}."
+enunciado: "El problema de cerrojos defectuosos suele estar en la alineación entre la ___."
 
 explicacion: |
   La coincidencia geométrica entre estas dos piezas es esencial para el cierre correcto de la puerta.
