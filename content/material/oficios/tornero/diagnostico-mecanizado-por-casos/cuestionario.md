@@ -1,6 +1,6 @@
 # Oficios — Tornero — Diagnóstico de mecanizado por casos (cuestionario, 22 preguntas VBLang)
 
-> Tema: `oficios/tornero/diagnostico-mecanizado-por-casos`. Cierre de la ruta del oficio (Sección 8). Ver `teoria.md` en esta misma carpeta. Escrito a mano (Claude), casos técnicos de pieza fuera de medida, acabado deficiente y chatter — cada pregunta validada con parse+lint+compile+generate real de packages/vblang antes de guardarse (revisión pedagógica/semántica manual pendiente).
+> Tema: `oficios/tornero/diagnostico-mecanizado-por-casos`. Cierre de la ruta del oficio (Sección 8). Ver `teoria.md` en esta misma carpeta. Revisado manualmente: las 22 preguntas fueron reauditadas una por una contra `teoria.md` sin encontrar bugs — sorteos, pares pregunta/respuesta y explicaciones consistentes en todos los casos.
 
 ---
 
