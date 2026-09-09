@@ -2,12 +2,22 @@
 
 > Ver `teoria.md` en esta misma carpeta.
 >
-> Borrador generado con LM Studio (Gemma/Qwen) en lotes concurrentes.
-> Corregido automáticamente (patrones de bug conocidos: `tipo: vf` con
-> respuesta de texto -> `completar`, `tipo: input` -> `completar`,
-> corchetes sueltos, `explicación` con tilde). Preguntas marcadas con
-> advertencia en el reporte de corrección requieren revisión manual
-> adicional (doble sorteo, operadores inválidos, arrays mal indexados).
+> Revisado manualmente: Q3 enunciado con dos blancos y `respuesta`
+> indexando un array literal, colapsado a un blanco; Q5 enunciado
+> enteramente declarativo sin hueco real con respuesta fija sólo válida
+> para el primer elemento de cada rama, reescrito con un hueco real;
+> Q9/Q10 `respuesta`/`opciones_explicitas` con literales string sin
+> evaluar (`"caso[0]"`, `"resultado[0]"`) en vez de referencias de
+> variable, corregidos; Q12 premisa fija describía una "detección"
+> (monitoreo) pero el sorteo permitía marcar "control" como correcto
+> para una de las tres ramas, sorteo removido; Q20 enunciado con tres
+> blancos y `respuesta` como lista, colapsado a un blanco (los otros dos
+> fijados en el texto) y sorteo muerto (nunca interpolado) eliminado;
+> Q21 claves invertidas — el caso de Ana (sin ninguna laguna de
+> conocimiento) estaba marcado "verdadero" y el de Juan (que sí revela
+> una laguna real) "falso", exactamente al revés de lo que pregunta el
+> enunciado — corregido y convertido de `completar` con string a
+> `tipo: vf`.
 
 ---
 
@@ -60,12 +70,11 @@ metadata:
 
 tipo: completar
 respuestas_validas:
-  - "conocimiento"
   - "regulación"
 
-respuesta: ["conocimiento", "regulación"][0]
+respuesta: "regulación"
 
-enunciado: "La metacognición se compone de dos dimensiones principales: el _______ (saber qué sabemos y cómo aprendemos) y la _______ (capacidad de dirigir y ajustar ese aprendizaje)."
+enunciado: "La metacognición se compone de dos dimensiones principales: el conocimiento (saber qué sabemos y cómo aprendemos) y la _______ (capacidad de dirigir y ajustar ese aprendizaje)."
 
 explicacion: |
   El conocimiento permite identificar nuestras capacidades, mientras que la regulación nos permite aplicar estrategias para mejorar el desempeño.
@@ -107,12 +116,10 @@ variables:
 tipo: completar
 respuestas_validas:
   - "monitoreo"
-  - "control"
-  - "ajuste"
 
-respuesta: ["monitoreo", "control", "ajuste"][0]
+respuesta: "monitoreo"
 
-enunciado: "En un ciclo metacognitivo, el paso de identificar un problema es el {escenarios[idx][0]}, el paso de decidir una acción es el {escenarios[idx][1]} y la ejecución final es el {escenarios[idx][2]}."
+enunciado: "En el ciclo metacognitivo, el paso de '{escenarios[idx][0]}' corresponde a la fase de ___."
 
 pasos:
   - "1. Identificar la situación (Monitoreo)"
@@ -120,7 +127,7 @@ pasos:
   - "3. Ejecutar el cambio (Ajuste)"
 
 explicacion: |
-  El ciclo metacognitivo implica: 1. Monitorear (detectar), 2. Controlar (planificar la respuesta) y 3. Ajustar (ejecutar la estrategia).
+  El ciclo metacognitivo implica: 1. Monitorear (detectar), 2. Controlar (planificar la respuesta) y 3. Ajustar (ejecutar la estrategia). El ejemplo mostrado corresponde a la fase de monitoreo, la detección inicial del problema.
 ```
 
 ### 6 — El efecto de la ilusión de competencia
@@ -193,11 +200,12 @@ metadata:
   tags: ["tecnicas", "evaluacion"]
 
 variables:
-  caso: uno_de([["El estudiante escribe todo lo que recuerda sobre la fotosíntesis sin mirar el libro", "Recuperación activa"], ["El estudiante subraya con colores las partes más importantes del texto", "Pasivo/Reconocimiento"]])
+  caso_a: "El estudiante escribe todo lo que recuerda sobre la fotosíntesis sin mirar el libro"
+  caso_b: "El estudiante subraya con colores las partes más importantes del texto"
 
-respuesta: "caso[0]"
+respuesta: caso_a
 tipo: mc
-opciones_explicitas: ["caso[0]", "caso[1]"]
+opciones_explicitas: [caso_a, caso_b]
 
 enunciado: "Un estudiante decide aplicar la técnica de 'recuperación activa' (active recall) para verificar qué sabe realmente. ¿Cuál de estas acciones describe mejor este proceso metacognitivo?"
 
@@ -214,14 +222,10 @@ metadata:
   nivel: "intermedio"
   tags: ["error", "aprendizaje"]
 
-variables:
-  resultado: uno_de([["El estudiante sabe el concepto pero no sabe aplicarlo a un problema", "Teoría"], ["El estudiante no recuerda ni el nombre del concepto", "Falta de memoria"]])
-
-respuesta: "resultado[0]"
+respuesta: "Teoría"
 tipo: completar
 respuestas_validas:
-  - "resultado[0]"
-  - "resultado[1]"
+  - "Teoría"
 
 enunciado: "Si un estudiante puede definir un concepto con precisión, pero al enfrentar un ejercicio práctico no logra resolverlo, su diagnóstico metacognitivo indica que posee conocimiento de tipo ___."
 
@@ -256,10 +260,7 @@ metadata:
   nivel: "intermedio"
   tags: ["monitoreo", "control"]
 
-variables:
-  escenario: uno_de([["Un estudiante nota que se distrajo al leer un párrafo.", "monitoreo"], ["Un estudiante decide cambiar de técnica porque no entiende el tema.", "control"], ["Un estudiante se da cuenta de que no puede explicar el concepto en voz alta.", "monitoreo"]])
-
-respuesta: escenario[1]
+respuesta: "monitoreo"
 tipo: mc
 opciones_explicitas: ["monitoreo", "control"]
 
@@ -426,17 +427,12 @@ metadata:
   nivel: "intermedio"
   tags: ["autoevaluacion", "estrategia"]
 
-variables:
-  caso: uno_de([["El estudiante sabe que no entiende el concepto de fotosíntesis.", "identificar"], ["El estudiante sabe que necesita 20 minutos para leer el capítulo.", "estimar"], ["El estudiante sabe que la técnica de subrayado no le funciona.", "evaluar"]])
-
-respuesta: ["identificar", "estimar", "evaluar"]
+respuesta: "identificar"
 tipo: "completar"
 respuestas_validas:
   - "identificar"
-  - "estimar"
-  - "evaluar"
 
-enunciado: "La metacognición permite al estudiante: 1. __________ lo que no sabe, 2. __________ el tiempo necesario para aprenderlo y 3. __________ la efectividad de sus técnicas."
+enunciado: "La metacognición permite al estudiante: 1. __________ lo que no sabe, 2. estimar el tiempo necesario para aprenderlo y 3. evaluar la efectividad de sus técnicas."
 
 explicacion: |
   Estas tres fases (identificación, estimación y evaluación) son pilares para transformar el conocimiento pasivo en un aprendizaje activo y eficiente.
@@ -452,15 +448,16 @@ metadata:
   tags: ["estudio", "metacognicion"]
 
 variables:
-  datos: [["Juan revisó sus notas pero no puede explicar el concepto de fotosíntesis sin leer el libro", "falso"], ["Ana leyó todo el capítulo y puede explicar cada concepto con sus propias palabras", "verdadero"]]
+  casos: ["Juan revisó sus notas pero no puede explicar el concepto de fotosíntesis sin leer el libro", "Ana leyó todo el capítulo y puede explicar cada concepto con sus propias palabras"]
+  resultados: [verdadero, falso]
   idx: uno_de([0, 1])
 
-enunciado: "Analiza el caso: {datos[idx][0]}. ¿Es este un ejemplo de una autoevaluación metacognitiva exitosa donde el estudiante reconoce su falta de conocimiento?"
+enunciado: "Analiza el caso: {casos[idx]}. ¿Es este un ejemplo de una autoevaluación metacognitiva exitosa donde el estudiante reconoce su falta de conocimiento?"
 
-respuesta: datos[idx][1]
-tipo: completar
+respuesta: resultados[idx]
+tipo: vf
 explicacion: |
-  La metacognición implica reconocer los límites del propio conocimiento. Si el estudiante necesita leer el libro para explicar algo, su autoevaluación fue correcta al detectar que no lo sabe.
+  La metacognición implica reconocer los límites del propio conocimiento. El caso de Juan es una autoevaluación exitosa: al intentar explicar sin apoyo, descubre que no domina el tema. El caso de Ana no aplica: ella sí puede explicar todo correctamente, así que no hay una laguna de conocimiento que reconocer.
 ```
 
 ### 22 — Estrategia de estudio eficiente
