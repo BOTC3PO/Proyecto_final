@@ -106,6 +106,19 @@ pendiente" en el header de cada uno.
 | `tecnico-en-refrigeracion/instalaciones-refrigeracion/` | `herramientas-refrigeracion/` | Sección 5. Split/central/cámaras frigoríficas + normativa (categoría 7 del diseño original, plegada acá: Protocolo de Montreal y Enmienda de Kigali). |
 | `tecnico-en-refrigeracion/diagnostico-refrigeracion-por-casos/` | `instalaciones-refrigeracion/` | Sección 6, cierre — única sección con `cuestionario.md`. |
 
+## Mecánico (`OF5`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `mecanico/fundamentos-mecanicos-automotor/` | `../fisica/trabajo-de-una-fuerza/`, `../fisica/conservacion-energia-mecanica/` | Sección 1. Comparte piso conceptual con `../tecnico-electromecanico/` (`OF11`) — la diferencia es de alcance, no de base. |
+| `mecanico/seguridad-mecanica-automotor/` | `fundamentos-mecanicos-automotor/` | Sección 2. |
+| `mecanico/motor/` | `seguridad-mecanica-automotor/` | Sección 3. Ciclo Otto/Diésel + nota sobre motos (2 tiempos) y vehículos eléctricos. |
+| `mecanico/transmision/` | `motor/` | Sección 4. |
+| `mecanico/sistemas-electricos-vehiculo/` | `transmision/` | Sección 5. Comparte base con `../electricista/fundamentos-electricidad/`, alcance 12V/24V. |
+| `mecanico/frenos-y-suspension/` | `sistemas-electricos-vehiculo/` | Sección 6. |
+| `mecanico/mantenimiento-mecanico/` | `frenos-y-suspension/` | Sección 7. Mantenimiento preventivo + normativa (categoría 9 del diseño original, plegada acá: VTV y emisiones vehiculares). |
+| `mecanico/diagnostico-automotor-por-casos/` | `mantenimiento-mecanico/` | Sección 8, cierre — única sección con `cuestionario.md`. El corazón del oficio moderno (diagnóstico por scanner OBD). |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
