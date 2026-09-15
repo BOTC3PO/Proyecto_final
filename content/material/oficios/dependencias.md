@@ -58,6 +58,19 @@ pendiente" en el header de cada uno.
 | `plomero/calculo-plomeria/` | `instalaciones-plomeria/` | Sección 6. |
 | `plomero/diagnostico-plomeria-por-casos/` | `calculo-plomeria/` | Sección 7, cierre — única sección con `cuestionario.md`. |
 
+## Albañil / Constructor (`OF3`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `albanil-constructor/fundamentos-albanileria/` | `../geografia/area-de-poligonos-regulares-y-compuestas/`, `../matematica/volumen-y-capacidad/` | Sección 1. Área de polígonos, volumen y capacidad, escalas de plano, replanteo en terreno. |
+| `albanil-constructor/seguridad-albanileria/` | `fundamentos-albanileria/` | Sección 2. |
+| `albanil-constructor/herramientas-albanileria/` | `seguridad-albanileria/` | Sección 3. |
+| `albanil-constructor/materiales-albanileria/` | `herramientas-albanileria/` | Sección 4. |
+| `albanil-constructor/tecnicas-albanileria/` | `materiales-albanileria/` | Sección 5. Cimientos, mampostería, revoques, estructura, cubiertas, terminaciones, aislación térmica/hidrófuga, mampostería de bloques de hormigón + normativa (categoría 9 del diseño original, plegada acá, defaulteada a Argentina). |
+| `albanil-constructor/calculo-albanileria/` | `tecnicas-albanileria/` | Sección 6. |
+| `albanil-constructor/lectura-de-planos-albanileria/` | `calculo-albanileria/` | Sección 7. |
+| `albanil-constructor/diagnostico-albanileria-por-casos/` | `lectura-de-planos-albanileria/` | Sección 8, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
