@@ -46,6 +46,18 @@ pendiente" en el header de cada uno.
 | `electricista/tecnicas-electricista/` | `lectura-de-planos-electricos/` | Sección 7. |
 | `electricista/diagnostico-electricidad-por-casos/` | `tecnicas-electricista/` | Sección 8, cierre — única sección con `cuestionario.md` (evaluación concentrada al final, decisión de Javier 2026-09-15; el resto son lecciones informativas, sólo `teoria.md`). |
 
+## Plomero (`OF2`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `plomero/fundamentos-plomeria/` | `../fisica/caudal/`, `../matematica/volumen-y-capacidad/` | Sección 1. Presión, caudal, volumen y capacidad, unidades. |
+| `plomero/seguridad-plomeria/` | `fundamentos-plomeria/` | Sección 2. |
+| `plomero/herramientas-plomeria/` | `seguridad-plomeria/` | Sección 3. |
+| `plomero/materiales-plomeria/` | `herramientas-plomeria/` | Sección 4. |
+| `plomero/instalaciones-plomeria/` | `materiales-plomeria/` | Sección 5. Agua fría/caliente, desagües, ventilación, pendientes, artefactos + normativa y frontera con gasista (categoría 8 del diseño original, plegada acá). |
+| `plomero/calculo-plomeria/` | `instalaciones-plomeria/` | Sección 6. |
+| `plomero/diagnostico-plomeria-por-casos/` | `calculo-plomeria/` | Sección 7, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
