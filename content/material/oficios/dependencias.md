@@ -197,6 +197,16 @@ pendiente" en el header de cada uno.
 | `panadero/calculo-panaderia/` | `procesos-panaderia/` | Sección 5. Escalado por cantidad, tiempos de fermentación según temperatura. |
 | `panadero/diagnostico-panaderia-por-casos/` | `calculo-panaderia/` | Sección 6, cierre — única sección con `cuestionario.md`. |
 
+## Procesador de Alimentos (`OF15`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `procesador-de-alimentos/fundamentos-procesamiento-alimentos/` | `../fisica/calor-q-m-c-deltat/`, `../quimica/concentracion-de-una-solucion/` | Sección 1. Calor y concentración de soluciones aplicados a la conservación. |
+| `procesador-de-alimentos/seguridad-e-higiene-procesamiento-alimentos/` | `fundamentos-procesamiento-alimentos/` | Sección 2. Cadena de frío, contaminación cruzada, HACCP básico. |
+| `procesador-de-alimentos/procesos-procesamiento-alimentos/` | `seguridad-e-higiene-procesamiento-alimentos/` | Sección 3. Pasteurización, conservación, envasado, deshidratación, normativa. |
+| `procesador-de-alimentos/calculo-procesamiento-alimentos/` | `procesos-procesamiento-alimentos/` | Sección 4. Concentración de solución conservante, tiempo y temperatura de proceso térmico. |
+| `procesador-de-alimentos/diagnostico-procesamiento-alimentos-por-casos/` | `calculo-procesamiento-alimentos/` | Sección 5, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
