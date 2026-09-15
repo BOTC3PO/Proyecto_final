@@ -152,6 +152,19 @@ pendiente" en el header de cada uno.
 | `montador-de-estructuras/tecnicas-montaje-estructuras/` | `materiales-montaje-estructuras/` | Sección 5. Secuencia de armado, plomado/nivelación, arriostramiento temporal + normativa (categoría 7 del diseño original, plegada acá). |
 | `montador-de-estructuras/diagnostico-montaje-por-casos/` | `tecnicas-montaje-estructuras/` | Sección 6, cierre — única sección con `cuestionario.md`. |
 
+## Técnico Electromecánico (`OF11`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `tecnico-electromecanico/fundamentos-electromecanica/` | `../fisica/generador-motor-transformador/`, `../fisica/energia-cinetica/` | Sección 1. Metrología, estática/dinámica/cinemática, torque, vibraciones, dibujo técnico industrial. Comparte piso mecánico con `../mecanico/`. |
+| `tecnico-electromecanico/seguridad-electromecanica/` | `fundamentos-electromecanica/` | Sección 2. Variante extendida de `../electricista/seguridad-electricista/` + riesgos mecánicos/energías residuales. |
+| `tecnico-electromecanico/materiales-y-mecanizado-electromecanica/` | `seguridad-electromecanica/` | Sección 3. Comparte materiales con `../metalurgico/`. |
+| `tecnico-electromecanico/elementos-de-maquinas-y-fluidos/` | `materiales-y-mecanizado-electromecanica/` | Sección 4. Ejes/rodamientos/engranajes, hidráulica, neumática. |
+| `tecnico-electromecanico/maquinas-electricas-y-electronica/` | `elementos-de-maquinas-y-fluidos/` | Sección 5. Comparte fundamentos con `../electricista/fundamentos-electricidad/`. |
+| `tecnico-electromecanico/control-y-automatizacion/` | `maquinas-electricas-y-electronica/` | Sección 6. Comparte base con la rama de Sistemas de Control ya construida. |
+| `tecnico-electromecanico/mantenimiento-e-instrumentacion/` | `control-y-automatizacion/` | Sección 7. Contenido confirmado contra currícula real de EEST argentina (7° año, 144 hs) + gestión técnica (categoría 18 del diseño original, plegada acá). |
+| `tecnico-electromecanico/diagnostico-electromecanico-por-casos/` | `mantenimiento-e-instrumentacion/` | Sección 8, cierre — única sección con `cuestionario.md`. Diagnóstico multivariable (varios síntomas cruzados a la vez), distinto del diagnóstico de síntoma único de otros oficios. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
