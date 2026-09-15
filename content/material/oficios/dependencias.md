@@ -141,6 +141,17 @@ pendiente" en el header de cada uno.
 | `metalurgico/control-de-calidad-metalurgico/` | `materiales-metalurgicos/` | Sección 5. Dureza, propiedades mecánicas + normativa (categoría 7 del diseño original, plegada acá). |
 | `metalurgico/diagnostico-metalurgico-por-casos/` | `control-de-calidad-metalurgico/` | Sección 6, cierre — única sección con `cuestionario.md`. |
 
+## Montador de Estructuras (`OF10`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `montador-de-estructuras/fundamentos-montaje-estructuras/` | `../fisica/dinamica-fuerzas-concurrentes/`, `../matematica/teorema-de-pitagoras/` | Sección 1. |
+| `montador-de-estructuras/seguridad-montaje-estructuras/` | `fundamentos-montaje-estructuras/` | Sección 2 — junto con Gasista, el más crítico de los 16 (trabajo en altura, izaje de cargas, zona de riesgo bajo carga suspendida). |
+| `montador-de-estructuras/herramientas-montaje-estructuras/` | `seguridad-montaje-estructuras/` | Sección 3. Comparte soldadura estructural con `../soldador/`. |
+| `montador-de-estructuras/materiales-montaje-estructuras/` | `herramientas-montaje-estructuras/` | Sección 4. |
+| `montador-de-estructuras/tecnicas-montaje-estructuras/` | `materiales-montaje-estructuras/` | Sección 5. Secuencia de armado, plomado/nivelación, arriostramiento temporal + normativa (categoría 7 del diseño original, plegada acá). |
+| `montador-de-estructuras/diagnostico-montaje-por-casos/` | `tecnicas-montaje-estructuras/` | Sección 6, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
