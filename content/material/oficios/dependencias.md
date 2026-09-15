@@ -71,6 +71,18 @@ pendiente" en el header de cada uno.
 | `albanil-constructor/lectura-de-planos-albanileria/` | `calculo-albanileria/` | Sección 7. |
 | `albanil-constructor/diagnostico-albanileria-por-casos/` | `lectura-de-planos-albanileria/` | Sección 8, cierre — única sección con `cuestionario.md`. |
 
+## Carpintero (`OF4`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `carpintero/fundamentos-carpinteria/` | `../geometria-analitica/rectas-y-angulos/` | Sección 1. Distinto de `../carpintero-de-aluminio/` (`OF23`, perfiles de aluminio para aberturas) — este oficio trabaja madera maciza y tableros. |
+| `carpintero/seguridad-carpinteria/` | `fundamentos-carpinteria/` | Sección 2. |
+| `carpintero/herramientas-carpinteria/` | `seguridad-carpinteria/` | Sección 3. |
+| `carpintero/materiales-carpinteria/` | `herramientas-carpinteria/` | Sección 4. |
+| `carpintero/tecnicas-carpinteria/` | `materiales-carpinteria/` | Sección 5. Cola de milano, espiga, ensamble, lijado, barnizado + normativa (categoría 8 del diseño original, plegada acá — a diferencia de Gasista/Electricista, sin habilitación matriculada obligatoria). |
+| `carpintero/lectura-de-planos-carpinteria/` | `tecnicas-carpinteria/` | Sección 6. |
+| `carpintero/diagnostico-carpinteria-por-casos/` | `lectura-de-planos-carpinteria/` | Sección 7, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
