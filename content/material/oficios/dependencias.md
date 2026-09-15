@@ -7,19 +7,44 @@
 Materia nueva (2026-08-13, decisión de Javier): mismo patrón
 `teoria.md`/`cuestionario.md` que el resto de las materias, no el
 formato Ruta A/B de `Cocina/Gastronomía` (ver nota en
-`../PROCEDIMIENTO.md`). Cada oficio nuevo (`OF20`-`OF27` de
-`troncos.md`) es una subcarpeta; dentro, un tema por **sección
-numerada** del diseño en `../oficios-orientacion-vocacional-
-PLANIFICACION.md` (no un tema por cada sub-ítem — las secciones
-"Materiales"/"Herramientas"/etc. se tratan como una sola lección
-cohesiva, mismo criterio de "dos caras de la misma cosa" del Paso 2 de
-`../PROCEDIMIENTO.md`, para no explotar en 150+ carpetas un contenido
-que por diseño es más liviano que las materias académicas).
+`../PROCEDIMIENTO.md`). Cada oficio (`OF1`-`OF16`, `OF20`-`OF27` de
+`troncos.md` — `OF17`/`OF18` son sub-ramas de Agricultor `OF12`, no
+oficios propios; `OF19` Cocina/Gastronomía usa el formato Ruta A/B
+aparte) es una subcarpeta; dentro, un tema por **sección numerada**
+del diseño en `../oficios-orientacion-vocacional-PLANIFICACION.md` (no
+un tema por cada sub-ítem — las secciones "Materiales"/"Herramientas"/
+etc. se tratan como una sola lección cohesiva, mismo criterio de "dos
+caras de la misma cosa" del Paso 2 de `../PROCEDIMIENTO.md`, para no
+explotar en 150+ carpetas un contenido que por diseño es más liviano
+que las materias académicas — esto reemplaza la decisión #5, más
+atómica, de la propia `PLANIFICACION.md`, 2026-08-11).
+
+**Confirmado 2026-09-15 (decisión de Javier)**: dentro de cada oficio,
+las lecciones son **informativas** (sólo `teoria.md`) — la evaluación
+(`cuestionario.md`) se concentra en la última sección, típicamente
+`diagnostico-<oficio>-por-casos/`. Algunos de los oficios `OF20`-`OF27`
+generados antes de esta decisión tienen `cuestionario.md` en más de una
+sección (inconsistencia histórica, no se corrigió retroactivamente);
+los oficios `OF1`-`OF16` que se generen de acá en adelante siguen el
+criterio nuevo: un solo `cuestionario.md` por oficio, al cierre.
 
 El "Nodo MAPA" de cada fila es `OFxx.slug-de-la-seccion` (no hay ID de
 mermaid por sub-sección, sólo el `OFxx` del oficio entero en
 `troncos.md`). `teoria.md` generado con qwen/qwen3.6-35b-a3b, "revisión
 pendiente" en el header de cada uno.
+
+## Electricista (`OF1`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `electricista/fundamentos-electricidad/` | `../fisica/ley-de-ohm/` | Sección 1. Magnitudes básicas (carga, corriente, tensión, resistencia), Ley de Ohm, CC vs. CA, serie/paralelo. |
+| `electricista/seguridad-electricista/` | `fundamentos-electricidad/` | Sección 2. |
+| `electricista/herramientas-electricista/` | `seguridad-electricista/` | Sección 3. |
+| `electricista/materiales-electricista/` | `herramientas-electricista/` | Sección 4. |
+| `electricista/calculo-electrico/` | `materiales-electricista/` | Sección 5. |
+| `electricista/lectura-de-planos-electricos/` | `calculo-electrico/` | Sección 6. |
+| `electricista/tecnicas-electricista/` | `lectura-de-planos-electricos/` | Sección 7. |
+| `electricista/diagnostico-electricidad-por-casos/` | `tecnicas-electricista/` | Sección 8, cierre — única sección con `cuestionario.md` (evaluación concentrada al final, decisión de Javier 2026-09-15; el resto son lecciones informativas, sólo `teoria.md`). |
 
 ## Jardinero / Paisajista (`OF20`)
 
