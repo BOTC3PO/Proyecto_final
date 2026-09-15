@@ -165,6 +165,17 @@ pendiente" en el header de cada uno.
 | `tecnico-electromecanico/mantenimiento-e-instrumentacion/` | `control-y-automatizacion/` | Sección 7. Contenido confirmado contra currícula real de EEST argentina (7° año, 144 hs) + gestión técnica (categoría 18 del diseño original, plegada acá). |
 | `tecnico-electromecanico/diagnostico-electromecanico-por-casos/` | `mantenimiento-e-instrumentacion/` | Sección 8, cierre — única sección con `cuestionario.md`. Diagnóstico multivariable (varios síntomas cruzados a la vez), distinto del diagnóstico de síntoma único de otros oficios. |
 
+## Agricultor (`OF12`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `agricultor/fundamentos-agricultura/` | `../biologia/fotosintesis-y-respiracion-celular/`, `../quimica/acido-base-y-ph/` | Sección 1. A diferencia de `../operario-agricola/` (`OF13`), que ejecuta, el Agricultor decide qué y cuándo plantar. |
+| `agricultor/seguridad-agricultura/` | `fundamentos-agricultura/` | Sección 2. |
+| `agricultor/suelo-y-cultivo/` | `seguridad-agricultura/` | Sección 3. |
+| `agricultor/calculo-agricola/` | `suelo-y-cultivo/` | Sección 4. |
+| `agricultor/modelos-de-produccion-agricola/` | `calculo-agricola/` | Sección 5 (`OF18`, tratado con neutralidad como las corrientes de `../../economia/`) + especializaciones `OF17a`-`OF17d` (ganadería, apicultura, horticultura, fruticultura) mencionadas como cierre, sin sub-secciones propias. |
+| `agricultor/diagnostico-agricola-por-casos/` | `modelos-de-produccion-agricola/` | Sección 6, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
