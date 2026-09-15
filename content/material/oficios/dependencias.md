@@ -176,6 +176,16 @@ pendiente" en el header de cada uno.
 | `agricultor/modelos-de-produccion-agricola/` | `calculo-agricola/` | Sección 5 (`OF18`, tratado con neutralidad como las corrientes de `../../economia/`) + especializaciones `OF17a`-`OF17d` (ganadería, apicultura, horticultura, fruticultura) mencionadas como cierre, sin sub-secciones propias. |
 | `agricultor/diagnostico-agricola-por-casos/` | `modelos-de-produccion-agricola/` | Sección 6, cierre — única sección con `cuestionario.md`. |
 
+## Operario Agrícola (`OF13`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `operario-agricola/fundamentos-operario-agricola/` | `../matematica/proporcionalidad-funcion/`, base mecánica compartida con `../mecanico/` | Sección 1. A diferencia de `../agricultor/` (`OF12`), que decide, el Operario Agrícola ejecuta y mantiene la maquinaria. |
+| `operario-agricola/seguridad-operario-agricola/` | `fundamentos-operario-agricola/` | Sección 2. |
+| `operario-agricola/maquinaria-agricola/` | `seguridad-operario-agricola/` | Sección 3. |
+| `operario-agricola/dosificacion-agricola/` | `maquinaria-agricola/` | Sección 4. |
+| `operario-agricola/diagnostico-maquinaria-agricola-por-casos/` | `dosificacion-agricola/` | Sección 5, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
