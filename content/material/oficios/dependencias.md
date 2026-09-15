@@ -130,6 +130,17 @@ pendiente" en el header de cada uno.
 | `soldador/defectos-y-normativa-soldadura/` | `materiales-soldadura/` | Sección 5. Porosidad, falta de fusión, socavado + normativa (categoría 7 del diseño original, plegada acá: certificación IRAM/IAS por proceso y posición). |
 | `soldador/diagnostico-soldadura-por-casos/` | `defectos-y-normativa-soldadura/` | Sección 6, cierre — única sección con `cuestionario.md`. |
 
+## Metalúrgico (`OF9`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `metalurgico/fundamentos-metalurgia/` | `../quimica/oxidacion-y-reduccion/`, `../fisica/calor-q-m-c-deltat/` | Sección 1. Comparte el piso térmico con `../soldador/`. |
+| `metalurgico/seguridad-metalurgia/` | `fundamentos-metalurgia/` | Sección 2. |
+| `metalurgico/procesos-metalurgicos/` | `seguridad-metalurgia/` | Sección 3. Fundición, laminado, forjado, temple, revenido, recocido. |
+| `metalurgico/materiales-metalurgicos/` | `procesos-metalurgicos/` | Sección 4. Aleaciones ferrosas/no ferrosas, aceros según uso. |
+| `metalurgico/control-de-calidad-metalurgico/` | `materiales-metalurgicos/` | Sección 5. Dureza, propiedades mecánicas + normativa (categoría 7 del diseño original, plegada acá). |
+| `metalurgico/diagnostico-metalurgico-por-casos/` | `control-de-calidad-metalurgico/` | Sección 6, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
