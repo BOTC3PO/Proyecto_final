@@ -1,11 +1,14 @@
 # Cívica — Sistema de salud: público, privado y mixto (teoria)
 
 > Tema del MAPA: `C19a`/`C19b`/`C19c` (`C14 --> C19a/b/c`, `E23P -->
-> C19a/b/c`, `E28P --> C19a/b/c`). Depende de `../impuestos/`,
-> `../../economia/descuentos-obligatorios/obra-social/` y
-> `../../economia/corrientes-pensamiento-economico/` (ver
-> `../dependencias.md`). **Decisión propia (Paso 2)**: 1 sola carpeta
-> con 3 secciones comparativas.
+> C19a/b/c`, `E28fP --> C19a`, `E28cP --> C19b`, `E28gP --> C19c`).
+> Depende de `../impuestos/`,
+> `../../economia/descuentos-obligatorios/obra-social/`,
+> `../../economia/keynesianismo/` (modelo público universal),
+> `../../economia/liberalismo-clasico-y-escuela-austriaca/` (modelo
+> privado de mercado) y `../../economia/ordoliberalismo/` (modelo
+> mixto) (ver `../dependencias.md`). **Decisión propia (Paso 2)**: 1
+> sola carpeta con 3 secciones comparativas.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -25,7 +28,8 @@ sistema de salud de un país.
 
 ## Tratamiento neutral (obligatorio)
 
-Igual que `../../economia/corrientes-pensamiento-economico/`, acá se
+Igual que en el bloque de corrientes de pensamiento económico
+(`../../economia/`), acá se
 describe cada modelo y el argumento que lo sostiene, **sin tomar
 postura** sobre cuál es "mejor". El objetivo es que el alumno reconozca
 los 3 modelos y sepa ubicar al sistema argentino real (mixto) dentro de
@@ -46,7 +50,7 @@ Los servicios de salud se financian con seguros y prepagas que compiten
 por cobertura — cada persona paga (directamente o vía su empleador) por
 el plan que elige. En su versión más radical, asociada a la **escuela
 austriaca** (la misma corriente ya nombrada en
-`../../economia/corrientes-pensamiento-economico/`), el argumento es
+`../../economia/liberalismo-clasico-y-escuela-austriaca/`), el argumento es
 que el hospital público es un modelo de negocio centralizado y
 obsoleto: en un mercado sin regulación estatal, los servicios de salud
 se desagregarían en oferentes especializados y competitivos (más

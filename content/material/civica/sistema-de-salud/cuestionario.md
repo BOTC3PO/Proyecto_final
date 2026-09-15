@@ -89,7 +89,7 @@ respuesta: "La escuela austriaca"
 
 explicacion: |
   Misma corriente ya nombrada en
-  `../../economia/corrientes-pensamiento-economico/`.
+  `../../economia/liberalismo-clasico-y-escuela-austriaca/`.
 ```
 
 ### 5 — Argumento radical de la escuela austriaca sobre salud
@@ -329,8 +329,8 @@ opciones_explicitas:
 respuesta: "Describe cada modelo y su argumento, sin tomar postura sobre cuál es mejor"
 
 explicacion: |
-  Mismo criterio de neutralidad usado en
-  `../../economia/corrientes-pensamiento-economico/`.
+  Mismo criterio de neutralidad usado en el bloque de corrientes de
+  pensamiento económico (`../../economia/`).
 ```
 
 ### 16 — Verdadero o falso: el hospital público cobra en el punto de atención

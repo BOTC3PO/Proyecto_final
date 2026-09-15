@@ -16,7 +16,8 @@ de pensamiento" del proyecto.
 
 ## Cómo se trata este tema: identificar, no evaluar
 
-Igual que en `../../economia/corrientes-pensamiento-economico/` y
+Igual que en el bloque de corrientes de pensamiento económico (por
+ejemplo `../../economia/liberalismo-clasico-y-escuela-austriaca/`) y en
 `../../filosofia/historia-de-la-filosofia-y-corrientes/`: cada corriente
 se presenta explicando **qué sostiene**, con la misma seriedad
 expositiva que las demás. Este material no evalúa cuál tiene razón —

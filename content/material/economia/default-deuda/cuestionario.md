@@ -258,7 +258,9 @@ enunciado: "Este tema explica la mecánica de qué pasa en un default (consecuen
 
 explicacion: |
   Es el mismo criterio de neutralidad ya aplicado a otros temas
-  sensibles de esta materia (ver `corrientes-pensamiento-economico/`).
+  sensibles de esta materia (ver el bloque de corrientes de
+  pensamiento económico, `../liberalismo-clasico-y-escuela-austriaca/`
+  y afines).
 ```
 
 ### 13 — Las calificadoras de riesgo

@@ -36,7 +36,7 @@ La vertiente más desarrollada del ecologismo político es el
 **ecosocialismo**, que combina el análisis marxista de clases con la
 crítica ecológica: sostiene que el mismo sistema que explota el
 trabajo humano (extrayendo plusvalía, ver
-`../../economia/corrientes-pensamiento-economico/`) explota también a la
+`../../economia/marxismo/`) explota también a la
 naturaleza de la misma manera estructural — ambas explotaciones,
 para esta corriente, tienen la misma raíz y no se pueden resolver por
 separado.
