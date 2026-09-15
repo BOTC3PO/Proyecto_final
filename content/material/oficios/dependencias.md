@@ -95,6 +95,17 @@ pendiente" en el header de cada uno.
 | `gasista/calculo-gasista/` | `instalaciones-gasista/` | Sección 6. |
 | `gasista/diagnostico-gasista-por-casos/` | `calculo-gasista/` | Sección 7, cierre — única sección con `cuestionario.md`. |
 
+## Técnico en Refrigeración y Climatización (`OF7`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `tecnico-en-refrigeracion/fundamentos-termodinamicos-refrigeracion/` | `../fisica/cambios-de-estado-calor-latente/` | Sección 1. Ciclo de refrigeración (compresión-condensación-expansión-evaporación). El más compuesto del cluster de construcción: junta piso térmico y eléctrico. |
+| `tecnico-en-refrigeracion/fundamentos-electricos-refrigeracion/` | `fundamentos-termodinamicos-refrigeracion/` | Sección 2. Comparte base con `../electricista/fundamentos-electricidad/`. |
+| `tecnico-en-refrigeracion/seguridad-refrigeracion/` | `fundamentos-electricos-refrigeracion/` | Sección 3. |
+| `tecnico-en-refrigeracion/herramientas-refrigeracion/` | `seguridad-refrigeracion/` | Sección 4. |
+| `tecnico-en-refrigeracion/instalaciones-refrigeracion/` | `herramientas-refrigeracion/` | Sección 5. Split/central/cámaras frigoríficas + normativa (categoría 7 del diseño original, plegada acá: Protocolo de Montreal y Enmienda de Kigali). |
+| `tecnico-en-refrigeracion/diagnostico-refrigeracion-por-casos/` | `instalaciones-refrigeracion/` | Sección 6, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
