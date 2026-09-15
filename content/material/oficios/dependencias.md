@@ -186,6 +186,17 @@ pendiente" en el header de cada uno.
 | `operario-agricola/dosificacion-agricola/` | `maquinaria-agricola/` | Sección 4. |
 | `operario-agricola/diagnostico-maquinaria-agricola-por-casos/` | `dosificacion-agricola/` | Sección 5, cierre — única sección con `cuestionario.md`. |
 
+## Panadero (`OF14`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `panadero/fundamentos-panaderia/` | `../matematica/proporcionalidad-funcion/` | Sección 1. Escalado de receta (proporcionalidad) y temperatura/fermentación. |
+| `panadero/seguridad-e-higiene-panaderia/` | `fundamentos-panaderia/` | Sección 2. Manipulación de alimentos, conservación, alérgenos. |
+| `panadero/materia-prima-panaderia/` | `seguridad-e-higiene-panaderia/` | Sección 3. Harinas, gluten, levaduras, grasas. |
+| `panadero/procesos-panaderia/` | `materia-prima-panaderia/` | Sección 4. Amasado, fermentación, horneado, tipos de pan, normativa. |
+| `panadero/calculo-panaderia/` | `procesos-panaderia/` | Sección 5. Escalado por cantidad, tiempos de fermentación según temperatura. |
+| `panadero/diagnostico-panaderia-por-casos/` | `calculo-panaderia/` | Sección 6, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
