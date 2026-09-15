@@ -91,7 +91,7 @@ bien sourceados, pero demasiado grandes para diseñar de pasada.
 - Diccionarios de lenguas indígenas (Quechua/Mapudungún/Aymara/Rapa Nui) — categoría de contenido nueva, no track C1 de idioma extranjero.
 - Mitos y leyendas de pueblos originarios — nodo chico, baja prioridad.
 - Separar `AH10` ("Golpes de Estado") en golpes específicos — baja prioridad.
-- Ordoliberalismo/Friedman ya resueltos con fuente (Röpke, Friedman) — falta sólo diseñar `E28g`/`E28h` con esas fuentes cuando se generen.
+- ✅ **Ordoliberalismo/Friedman: generado 2026-09-15.** El bloque entero de corrientes de pensamiento económico se atomizó en sus 9 nodos reales (`E28a`-`E28i`, ya definidos en `troncos.md` desde v2.9.5 pero nunca separados en el contenido). Nodos nuevos generados de cero: `economia/socialismo-utopico/` (Robert Owen, *A New View of Society*) y `economia/ordoliberalismo/` (Wilhelm Röpke, *Civitas Humana*, fuente confirmada en `/home/javier/libros/recomendaciones propias/`). El resto del archivo lumped (`corrientes-pensamiento-economico/`, eliminado) se repartió en `mercantilismo/`, `fisiocracia/`, `liberalismo-clasico-y-escuela-austriaca/`, `marxismo/` (+objeción de Mises), `keynesianismo/`, `neoliberalismo/` (incorpora monetarismo/Friedman). 24→85 preguntas totales. Ver commit `d72398ea`.
 
 ### Pendiente de revisar todavía
 
