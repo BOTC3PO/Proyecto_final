@@ -119,6 +119,17 @@ pendiente" en el header de cada uno.
 | `mecanico/mantenimiento-mecanico/` | `frenos-y-suspension/` | Sección 7. Mantenimiento preventivo + normativa (categoría 9 del diseño original, plegada acá: VTV y emisiones vehiculares). |
 | `mecanico/diagnostico-automotor-por-casos/` | `mantenimiento-mecanico/` | Sección 8, cierre — única sección con `cuestionario.md`. El corazón del oficio moderno (diagnóstico por scanner OBD). |
 
+## Soldador (`OF8`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `soldador/fundamentos-soldadura/` | `../fisica/calor-q-m-c-deltat/`, metalurgia de Historia profunda | Sección 1. Comparte el piso térmico con `../tecnico-en-refrigeracion/` y con Procesador de Alimentos. |
+| `soldador/seguridad-soldadura/` | `fundamentos-soldadura/` | Sección 2 — la más específica de EPP de los 16 oficios (arco eléctrico, radiación UV, humos metálicos). |
+| `soldador/procesos-soldadura/` | `seguridad-soldadura/` | Sección 3. SMAW, MIG/MAG, TIG, autógena. |
+| `soldador/materiales-soldadura/` | `procesos-soldadura/` | Sección 4. |
+| `soldador/defectos-y-normativa-soldadura/` | `materiales-soldadura/` | Sección 5. Porosidad, falta de fusión, socavado + normativa (categoría 7 del diseño original, plegada acá: certificación IRAM/IAS por proceso y posición). |
+| `soldador/diagnostico-soldadura-por-casos/` | `defectos-y-normativa-soldadura/` | Sección 6, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
