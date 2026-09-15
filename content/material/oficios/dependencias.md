@@ -207,6 +207,26 @@ pendiente" en el header de cada uno.
 | `procesador-de-alimentos/calculo-procesamiento-alimentos/` | `procesos-procesamiento-alimentos/` | Sección 4. Concentración de solución conservante, tiempo y temperatura de proceso térmico. |
 | `procesador-de-alimentos/diagnostico-procesamiento-alimentos-por-casos/` | `calculo-procesamiento-alimentos/` | Sección 5, cierre — única sección con `cuestionario.md`. |
 
+## Técnico en Automatización y Robótica (`OF16`)
+
+Se construye tomando prestado buena parte de `../tecnico-electromecanico/`
+(`OF11` — mecánica, electricidad, electrónica, control) y agregando
+sólo lo específicamente robótico por encima: matemática espacial,
+microcontroladores, sensores/actuadores propios, cinemática, visión,
+IA/software y seguridad. Quien ya completó `OF11` tiene gran parte del
+camino desbloqueado.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `tecnico-en-automatizacion-y-robotica/fundamentos-robotica/` | `../tecnico-electromecanico/diagnostico-electromecanico-por-casos/`, `../informatica/estructuras-de-control-bucles/`, `../electronica/sensores-y-actuadores/` | Sección 1. Matemática para robótica (vectores/matrices), sistemas de coordenadas, bucles como base del control robótico. |
+| `tecnico-en-automatizacion-y-robotica/microcontroladores-y-programacion-embebida/` | `fundamentos-robotica/` | Sección 5 del diseño. GPIO/ADC/PWM, UART/I2C/SPI, algoritmos y POO aplicados a sistemas embebidos. |
+| `tecnico-en-automatizacion-y-robotica/actuadores-y-sensores-robotica/` | `microcontroladores-y-programacion-embebida/` | Secciones 7-8. Servomotores/paso a paso/BLDC, encoders/IMU/cámaras/LIDAR. |
+| `tecnico-en-automatizacion-y-robotica/cinematica-y-dinamica-robotica/` | `actuadores-y-sensores-robotica/` | Secciones 9-11. Cinemática directa/inversa, matrices homogéneas, dinámica de manipuladores, control de trayectoria. |
+| `tecnico-en-automatizacion-y-robotica/robotica-industrial-y-vision/` | `cinematica-y-dinamica-robotica/` | Secciones 12-13. SCARA/delta/cobots, procesamiento de imagen y detección de objetos. |
+| `tecnico-en-automatizacion-y-robotica/ia-y-software-robotico/` | `robotica-industrial-y-vision/` | Secciones 14-16. Machine learning/redes neuronales/aprendizaje por refuerzo, ROS (nodos/tópicos), SLAM y planificación de trayectoria. |
+| `tecnico-en-automatizacion-y-robotica/seguridad-y-comunicaciones-robotica/` | `ia-y-software-robotico/` | Secciones 17-19 salvo diagnóstico. Seguridad en robótica industrial, protocolos de comunicación. |
+| `tecnico-en-automatizacion-y-robotica/diagnostico-robotica-por-casos/` | `seguridad-y-comunicaciones-robotica/` | Sección 18, cierre — única sección con `cuestionario.md`. Diagnóstico multivariable, mismo patrón que `../tecnico-electromecanico/diagnostico-electromecanico-por-casos/`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
