@@ -83,6 +83,18 @@ pendiente" en el header de cada uno.
 | `carpintero/lectura-de-planos-carpinteria/` | `tecnicas-carpinteria/` | Sección 6. |
 | `carpintero/diagnostico-carpinteria-por-casos/` | `lectura-de-planos-carpinteria/` | Sección 7, cierre — única sección con `cuestionario.md`. |
 
+## Gasista (`OF6`)
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `gasista/fundamentos-gasista/` | `../quimica/gases-ideales/`, `../fisica/presion/` | Sección 1. Gases ideales, presión, poder calorífico, combustión completa/incompleta. |
+| `gasista/seguridad-gasista/` | `fundamentos-gasista/` | Sección 2 — la más crítica del oficio (monóxido de carbono, qué no hacer ante olor a gas). |
+| `gasista/herramientas-gasista/` | `seguridad-gasista/` | Sección 3. |
+| `gasista/materiales-gasista/` | `herramientas-gasista/` | Sección 4. |
+| `gasista/instalaciones-gasista/` | `materiales-gasista/` | Sección 5. Trazado, ventilación, categorías A/B/C + normativa (categoría 8 del diseño original, plegada acá — la habilitación más restrictiva de los 16 oficios, disclaimer explícito de que el material no habilita a ejercer). |
+| `gasista/calculo-gasista/` | `instalaciones-gasista/` | Sección 6. |
+| `gasista/diagnostico-gasista-por-casos/` | `calculo-gasista/` | Sección 7, cierre — única sección con `cuestionario.md`. |
+
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
