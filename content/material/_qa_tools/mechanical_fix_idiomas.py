@@ -40,11 +40,21 @@ def fix_trailing_punct_outside_quote(text: str) -> str:
     return re.sub(r'("[^"\n]*)"(\s*)([.,])\s*$', r'\1\3"', text, flags=re.M)
 
 
+def fix_mc_respuestas_validas(text: str) -> str:
+    # tipo: mc requiere `respuesta:` (singular), no `respuestas_validas:` (lista)
+    return re.sub(
+        r'respuestas_validas:\n(\s*)- "([^"\n]+)"\n(\s*)opciones_explicitas:',
+        r'respuesta: "\2"\n\3opciones_explicitas:',
+        text,
+    )
+
+
 def process(text: str) -> str:
     text = strip_stray_dashes(text)
     text = fix_unclosed_explicacion(text)
     text = fix_trailing_punct_outside_quote(text)
     text = quote_bare_pasos(text)
+    text = fix_mc_respuestas_validas(text)
     return text
 
 
