@@ -1,4 +1,4 @@
-> Corregido a partir de `content/material/_borradores-gemma/idiomas-extranjeros/japones/listening-n2/teoria_crudo.md`. Se corrigieron romanizaciones erróneas ("Ahōyō", "Gōan'na", "masshaku"), la afirmación de que です・ます es "honorífico" (es estilo cortés; el honorífico es el keigo), que en español el verbo va al final de la oración (en japonés sí), que el español "depende de los pronombres" más que el japonés (el español también omite el sujeto) y que を marca "objeto directo" en その先をまっすぐ行く (marca el trayecto recorrido).
+> Corregido a partir de `content/material/_borradores-gemma/idiomas-extranjeros/japones/listening-n2/teoria_crudo.md`. Se corrigieron romanizaciones erróneas ("Ahōyō", "Gōan'na", "massugu"), la afirmación de que です・ます es "honorífico" (es estilo cortés; el honorífico es el keigo), que en español el verbo va al final de la oración (en japonés sí), que el español "depende de los pronombres" más que el japonés (el español también omite el sujeto) y que を marca "objeto directo" en その先をまっすぐ行く (marca el trayecto recorrido).
 
 # Escuchar en japonés: habilidad clave para el nivel N2  
 
@@ -36,8 +36,8 @@ Los estudiantes que hablan español pueden confundir aspectos del japonés oral 
 **Escenario**: Un turista pregunta sobre la ubicación de un restaurante en una estación de tren.  
 **Diálogo**:  
 *A: すみません、駅の近くに寿司屋がありますか？* (Sumimasen, eki no chikaku ni sushiya ga arimasu ka? Disculpe, ¿hay un restaurante de sushi cerca de la estación?)  
-*B: はい、あります。その先をまっすぐ行くと、左側に見えます。* (Hai, arimasu. Sono saki o masshaku iku to, hidarigawa ni miemasu. Sí, está. Si sigue recto por ahí, lo verá a su izquierda.)  
+*B: はい、あります。その先をまっすぐ行くと、左側に見えます。* (Hai, arimasu. Sono saki o massugu iku to, hidarigawa ni miemasu. Sí, está. Si sigue recto por ahí, lo verá a su izquierda.)  
 
-En este ejemplo, el turista usa *に* (ni) para indicar ubicación ("cerca de la estación") y *が* (ga) para marcar el sujeto (*寿司屋*, sushiya: restaurante de sushi). El interlocutor responde con *その先をまっすぐ行くと* (sono saki o massugu iku to: si camina derecho por ahí), donde *を* (o) marca el camino por el que se transita con el verbo *行く* (iku: ir), no un objeto directo. La comprensión requiere identificar estos elementos y relacionarlos con el contexto espacial.  
+En este ejemplo, el turista usa *に* (ni) para indicar ubicación ("cerca de la estación") y *が* (ga) para marcar el sujeto (*寿司屋*, sushiya: restaurante de sushi). El interlocutor responde con *その先をまっすぐ行くと* (sono saki o massugu iku to: si sigue recto por ahí), donde *を* (o) marca el camino por el que se transita con el verbo *行く* (iku: ir), no un objeto directo. La comprensión requiere identificar estos elementos y relacionarlos con el contexto espacial.  
 
 Este tipo de intercambio es típico en situaciones cotidianas, lo que subraya la importancia de practicar escucha activa con materiales reales para desarrollar esta habilidad a nivel N2.
