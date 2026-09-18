@@ -37,8 +37,8 @@ En español, las palabras extranjeras suelen conservar su ortografía original (
   *「¿Desea tomar café?」*  
 - "**Cliente**: 「いいえ、パンとサンドイッチをお願いします。」（Iie, pan to sandōitchi o onegaishimasu.）"
   *«No, por favor, un pan y un sándwich.»*  
-- "**Camarero**: 「了解しました。ポコポコの音が聞こえますね。」（Ryōkai shimashita. Pokopoko no oto ga kikoemasu ne.）"
-  *«Entendido. ¿Oye el sonido de las gotas?»*  
+- "**Camarero**: 「かしこまりました。少々お待ちください。」（Kashikomarimashita. Shōshō omachi kudasai.）"
+  *«Entendido. Espere un momento, por favor.»*
 
 **Explicación**: En este ejemplo, se usan katakana para:  
 - "*「コーヒー」* (café), *「パン」* (pan) y *「サンドイッチ」* (sándwich)."
