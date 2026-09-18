@@ -1,6 +1,6 @@
 # Idiomas — Japonés — reading-n2 (cuestionario)
 
-> Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/japones/reading-n2/cuestionario_crudo.md`. Sin `enunciado:` (0/25 OK), sin ningún texto que leer, con `respuestas_validas` que eran oraciones completas distintas entre sí (「彼は学校に通っています。」/「彼は学校で勉強しています。」) o incluso contradictorias (「先週…行きました」 y 「今週…行く予定です」 aceptadas a la vez). Los 25 bloques se rehicieron como lectura de nivel N2: 17 de gramática en contexto (につれて, にもかかわらず, ばかりか, ところ, 〜ば〜ほど…) y 3 de comprensión de pasajes cortos (idea principal, opinión del autor, contraste), cada uno con respuesta única.
+> Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/japones/reading-n2/cuestionario_crudo.md`. Sin `enunciado:` (0/25 OK), sin ningún texto que leer, con `respuestas_validas` que eran oraciones completas distintas entre sí (「彼は学校に通っています。」/「彼は学校で勉強しています。」) o incluso contradictorias (「先週…行きました」 y 「今週…行く予定です」 aceptadas a la vez). Los 25 bloques se rehicieron como lectura de nivel N2: 21 de gramática en contexto (につれて, にもかかわらず, ばかりか, ところ, 〜ば〜ほど…) y 4 de comprensión de pasajes cortos (idea principal, opinión del autor, contraste), cada uno con respuesta única.
 
 ---
 
