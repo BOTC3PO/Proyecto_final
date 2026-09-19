@@ -1,0 +1,202 @@
+[
+ {
+  "n": 1,
+  "file": "q01.mp3",
+  "text": "Доброе утро! Как дела?",
+  "spoken": "Доброе утро! Как дела?",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 2.24
+ },
+ {
+  "n": 2,
+  "file": "q02.mp3",
+  "text": "Меня зовут Мария, я из Испании.",
+  "spoken": "Меня зовут Мария, я из Испании.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 2.5
+ },
+ {
+  "n": 3,
+  "file": "q03.mp3",
+  "text": "Мне двадцать лет.",
+  "spoken": "Мне двадцать лет.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 1.35
+ },
+ {
+  "n": 4,
+  "file": "q04.mp3",
+  "text": "Сейчас восемь часов.",
+  "spoken": "Сейчас восемь часов.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 1.59
+ },
+ {
+  "n": 5,
+  "file": "q05.mp3",
+  "text": "Мы встретимся в понедельник.",
+  "spoken": "Мы встретимся в понедельник.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 1.74
+ },
+ {
+  "n": 6,
+  "file": "q06.mp3",
+  "text": "Эта книга стоит пять рублей.",
+  "spoken": "Эта книга стоит пять рублей.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 2.12
+ },
+ {
+  "n": 7,
+  "file": "q07.mp3",
+  "text": "Школа слева.",
+  "spoken": "Школа слева.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 1.14
+ },
+ {
+  "n": 8,
+  "file": "q08.mp3",
+  "text": "Сегодня очень холодно.",
+  "spoken": "Сегодня очень холодно.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 1.57
+ },
+ {
+  "n": 9,
+  "file": "q09.mp3",
+  "text": "Я хочу чай и хлеб.",
+  "spoken": "Я хочу чай и хлеб.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 2.11
+ },
+ {
+  "n": 10,
+  "file": "q10.mp3",
+  "text": "У меня один брат и две сестры.",
+  "spoken": "У меня один брат и две сестры.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 2.07
+ },
+ {
+  "n": 11,
+  "file": "q11.mp3",
+  "text": "Мой папа — врач, а мама — учитель.",
+  "spoken": "Мой папа — врач, а мама — учитель.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 4.03
+ },
+ {
+  "n": 12,
+  "file": "q12.mp3",
+  "text": "Я живу в большом городе.",
+  "spoken": "Я живу в большом городе.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 1.59
+ },
+ {
+  "n": 13,
+  "file": "q13.mp3",
+  "text": "Я еду на работу на автобусе.",
+  "spoken": "Я еду на работу на автобусе.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 2.22
+ },
+ {
+  "n": 14,
+  "file": "q14.mp3",
+  "text": "Я люблю спорт, но не люблю музыку.",
+  "spoken": "Я люблю спорт, но не люблю музыку.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 2.53
+ },
+ {
+  "n": 15,
+  "file": "q15.mp3",
+  "text": "Где магазин? Он близко.",
+  "spoken": "Где магазин? Он близко.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 2.53
+ },
+ {
+  "n": 16,
+  "file": "q16.mp3",
+  "text": "Летом жарко.",
+  "spoken": "Летом жарко.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 1.17
+ },
+ {
+  "n": 17,
+  "file": "q17.mp3",
+  "text": "Завтра я иду к другу.",
+  "spoken": "Завтра я иду к другу.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 1.9
+ },
+ {
+  "n": 18,
+  "file": "q18.mp3",
+  "text": "Я хочу учить русский язык.",
+  "spoken": "Я хочу учить русский язык.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 2.03
+ },
+ {
+  "n": 19,
+  "file": "q19.mp3",
+  "text": "Книга на столе.",
+  "spoken": "Книга на столе.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 1.13
+ },
+ {
+  "n": 20,
+  "file": "q20.mp3",
+  "text": "Я поеду в Москву в пятницу.",
+  "spoken": "Я поеду в Москву в пятницу.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 1.99
+ },
+ {
+  "n": 21,
+  "file": "q21.mp3",
+  "text": "Откуда ты?",
+  "spoken": "Откуда ты?",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 1.07
+ },
+ {
+  "n": 22,
+  "file": "q22.mp3",
+  "text": "В классе тридцать студентов.",
+  "spoken": "В классе тридцать студентов.",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 1.74
+ },
+ {
+  "n": 23,
+  "file": "q23.mp3",
+  "text": "Большое спасибо! — Пожалуйста.",
+  "spoken": "Большое спасибо! — Пожалуйста.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 2.4
+ },
+ {
+  "n": 24,
+  "file": "q24.mp3",
+  "text": "Доброе утро!",
+  "spoken": "Доброе утро!",
+  "voice": "ru_RU-denis-medium",
+  "seconds": 1.14
+ },
+ {
+  "n": 25,
+  "file": "q25.mp3",
+  "text": "Меня зовут Мария.",
+  "spoken": "Меня зовут Мария.",
+  "voice": "ru_RU-irina-medium",
+  "seconds": 1.43
+ }
+]

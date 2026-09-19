@@ -1,0 +1,202 @@
+[
+ {
+  "n": 1,
+  "file": "q01.mp3",
+  "text": "صباح الخير! كيف حالك؟",
+  "spoken": "صباح الخير! كيف حالك؟",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 3.04
+ },
+ {
+  "n": 2,
+  "file": "q02.mp3",
+  "text": "اسمي سارة وأنا من المغرب.",
+  "spoken": "اسمي سارة وأنا من المغرب.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.87
+ },
+ {
+  "n": 3,
+  "file": "q03.mp3",
+  "text": "عمري عشرون سنة.",
+  "spoken": "عمري عشرون سنة.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.23
+ },
+ {
+  "n": 4,
+  "file": "q04.mp3",
+  "text": "الساعة الآن الثامنة.",
+  "spoken": "الساعة الآن الثامنة.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.64
+ },
+ {
+  "n": 5,
+  "file": "q05.mp3",
+  "text": "نلتقي يوم الاثنين.",
+  "spoken": "نلتقي يوم الاثنين.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.08
+ },
+ {
+  "n": 6,
+  "file": "q06.mp3",
+  "text": "هذا الكتاب بخمسة دنانير.",
+  "spoken": "هذا الكتاب بخمسة دنانير.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.86
+ },
+ {
+  "n": 7,
+  "file": "q07.mp3",
+  "text": "المدرسة على اليمين.",
+  "spoken": "المدرسة على اليمين.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.08
+ },
+ {
+  "n": 8,
+  "file": "q08.mp3",
+  "text": "الجو اليوم بارد جدًا.",
+  "spoken": "الجو اليوم بارد جدا.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.44
+ },
+ {
+  "n": 9,
+  "file": "q09.mp3",
+  "text": "أريد شايًا وخبزًا.",
+  "spoken": "أريد شايا وخبزا.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 1.96
+ },
+ {
+  "n": 10,
+  "file": "q10.mp3",
+  "text": "عندي أخ واحد وأختان.",
+  "spoken": "عندي أخ واحد وأختان.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.86
+ },
+ {
+  "n": 11,
+  "file": "q11.mp3",
+  "text": "أبي طبيب وأمي معلمة.",
+  "spoken": "أبي طبيب وأمي معلمة.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 3.17
+ },
+ {
+  "n": 12,
+  "file": "q12.mp3",
+  "text": "أسكن في مدينة كبيرة.",
+  "spoken": "أسكن في مدينة كبيرة.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.5
+ },
+ {
+  "n": 13,
+  "file": "q13.mp3",
+  "text": "أذهب إلى العمل بالحافلة.",
+  "spoken": "أذهب إلى العمل بالحافلة.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.68
+ },
+ {
+  "n": 14,
+  "file": "q14.mp3",
+  "text": "أحب الرياضة ولا أحب الموسيقى.",
+  "spoken": "أحب الرياضة ولا أحب الموسيقى.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 3.54
+ },
+ {
+  "n": 15,
+  "file": "q15.mp3",
+  "text": "أين المحل؟ إنه قريب.",
+  "spoken": "أين المحل؟ إنه قريب.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.58
+ },
+ {
+  "n": 16,
+  "file": "q16.mp3",
+  "text": "في الصيف الجو حار.",
+  "spoken": "في الصيف الجو حار.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 1.99
+ },
+ {
+  "n": 17,
+  "file": "q17.mp3",
+  "text": "ألتقي بصديقي غدًا.",
+  "spoken": "ألتقي بصديقي غدا.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.1
+ },
+ {
+  "n": 18,
+  "file": "q18.mp3",
+  "text": "أريد أن أتعلم العربية.",
+  "spoken": "أريد أن أتعلم العربية.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.88
+ },
+ {
+  "n": 19,
+  "file": "q19.mp3",
+  "text": "الكتاب على الطاولة.",
+  "spoken": "الكتاب على الطاولة.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.48
+ },
+ {
+  "n": 20,
+  "file": "q20.mp3",
+  "text": "سأسافر يوم الجمعة.",
+  "spoken": "سأسافر يوم الجمعة.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.05
+ },
+ {
+  "n": 21,
+  "file": "q21.mp3",
+  "text": "من أين أنت؟",
+  "spoken": "من أين أنت؟",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 1.27
+ },
+ {
+  "n": 22,
+  "file": "q22.mp3",
+  "text": "في الصف ثلاثون طالبًا.",
+  "spoken": "في الصف ثلاثون طالبا.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.64
+ },
+ {
+  "n": 23,
+  "file": "q23.mp3",
+  "text": "شكرًا جزيلًا، لا شكر على واجب.",
+  "spoken": "شكرا جزيلا، لا شكر على واجب.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 3.46
+ },
+ {
+  "n": 24,
+  "file": "q24.mp3",
+  "text": "صباح الخير!",
+  "spoken": "صباح الخير!",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 1.7
+ },
+ {
+  "n": 25,
+  "file": "q25.mp3",
+  "text": "اسمي سارة وأنا من المغرب.",
+  "spoken": "اسمي سارة وأنا من المغرب.",
+  "voice": "ar_JO-kareem-medium",
+  "seconds": 2.82
+ }
+]
