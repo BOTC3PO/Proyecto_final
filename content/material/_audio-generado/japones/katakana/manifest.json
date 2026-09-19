@@ -1,0 +1,479 @@
+[
+ {
+  "id": 1,
+  "file": "001.mp3",
+  "tipo": "letra",
+  "etiqueta": "ア",
+  "hablado": "ア",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.89
+ },
+ {
+  "id": 2,
+  "file": "002.mp3",
+  "tipo": "letra",
+  "etiqueta": "イ",
+  "hablado": "イ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.9
+ },
+ {
+  "id": 3,
+  "file": "003.mp3",
+  "tipo": "letra",
+  "etiqueta": "ウ",
+  "hablado": "ウ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 4,
+  "file": "004.mp3",
+  "tipo": "letra",
+  "etiqueta": "エ",
+  "hablado": "エ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 5,
+  "file": "005.mp3",
+  "tipo": "letra",
+  "etiqueta": "オ",
+  "hablado": "オ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.81
+ },
+ {
+  "id": 6,
+  "file": "006.mp3",
+  "tipo": "letra",
+  "etiqueta": "カ",
+  "hablado": "カ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 7,
+  "file": "007.mp3",
+  "tipo": "letra",
+  "etiqueta": "キ",
+  "hablado": "キ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.02
+ },
+ {
+  "id": 8,
+  "file": "008.mp3",
+  "tipo": "letra",
+  "etiqueta": "ク",
+  "hablado": "ク",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.71
+ },
+ {
+  "id": 9,
+  "file": "009.mp3",
+  "tipo": "letra",
+  "etiqueta": "ケ",
+  "hablado": "ケ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.98
+ },
+ {
+  "id": 10,
+  "file": "010.mp3",
+  "tipo": "letra",
+  "etiqueta": "コ",
+  "hablado": "コ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 11,
+  "file": "011.mp3",
+  "tipo": "letra",
+  "etiqueta": "サ",
+  "hablado": "サ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.9
+ },
+ {
+  "id": 12,
+  "file": "012.mp3",
+  "tipo": "letra",
+  "etiqueta": "シ",
+  "hablado": "シ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.98
+ },
+ {
+  "id": 13,
+  "file": "013.mp3",
+  "tipo": "letra",
+  "etiqueta": "ス",
+  "hablado": "ス",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.75
+ },
+ {
+  "id": 14,
+  "file": "014.mp3",
+  "tipo": "letra",
+  "etiqueta": "セ",
+  "hablado": "セ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.98
+ },
+ {
+  "id": 15,
+  "file": "015.mp3",
+  "tipo": "letra",
+  "etiqueta": "ソ",
+  "hablado": "ソ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 16,
+  "file": "016.mp3",
+  "tipo": "letra",
+  "etiqueta": "タ",
+  "hablado": "タ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 17,
+  "file": "017.mp3",
+  "tipo": "letra",
+  "etiqueta": "チ",
+  "hablado": "チ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 18,
+  "file": "018.mp3",
+  "tipo": "letra",
+  "etiqueta": "ツ",
+  "hablado": "ツ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.54
+ },
+ {
+  "id": 19,
+  "file": "019.mp3",
+  "tipo": "letra",
+  "etiqueta": "テ",
+  "hablado": "テ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 20,
+  "file": "020.mp3",
+  "tipo": "letra",
+  "etiqueta": "ト",
+  "hablado": "ト",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.9
+ },
+ {
+  "id": 21,
+  "file": "021.mp3",
+  "tipo": "letra",
+  "etiqueta": "ナ",
+  "hablado": "ナ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.9
+ },
+ {
+  "id": 22,
+  "file": "022.mp3",
+  "tipo": "letra",
+  "etiqueta": "ニ",
+  "hablado": "ニ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 23,
+  "file": "023.mp3",
+  "tipo": "letra",
+  "etiqueta": "ヌ",
+  "hablado": "ヌ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 24,
+  "file": "024.mp3",
+  "tipo": "letra",
+  "etiqueta": "ネ",
+  "hablado": "ネ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 25,
+  "file": "025.mp3",
+  "tipo": "letra",
+  "etiqueta": "ノ",
+  "hablado": "ノ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.9
+ },
+ {
+  "id": 26,
+  "file": "026.mp3",
+  "tipo": "letra",
+  "etiqueta": "ハ",
+  "hablado": "ハ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 27,
+  "file": "027.mp3",
+  "tipo": "letra",
+  "etiqueta": "ヒ",
+  "hablado": "ヒ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 28,
+  "file": "028.mp3",
+  "tipo": "letra",
+  "etiqueta": "フ",
+  "hablado": "フ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.75
+ },
+ {
+  "id": 29,
+  "file": "029.mp3",
+  "tipo": "letra",
+  "etiqueta": "ヘ",
+  "hablado": "ヘ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 30,
+  "file": "030.mp3",
+  "tipo": "letra",
+  "etiqueta": "ホ",
+  "hablado": "ホ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.9
+ },
+ {
+  "id": 31,
+  "file": "031.mp3",
+  "tipo": "letra",
+  "etiqueta": "マ",
+  "hablado": "マ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.9
+ },
+ {
+  "id": 32,
+  "file": "032.mp3",
+  "tipo": "letra",
+  "etiqueta": "ミ",
+  "hablado": "ミ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.98
+ },
+ {
+  "id": 33,
+  "file": "033.mp3",
+  "tipo": "letra",
+  "etiqueta": "ム",
+  "hablado": "ム",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 34,
+  "file": "034.mp3",
+  "tipo": "letra",
+  "etiqueta": "メ",
+  "hablado": "メ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.9
+ },
+ {
+  "id": 35,
+  "file": "035.mp3",
+  "tipo": "letra",
+  "etiqueta": "モ",
+  "hablado": "モ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.98
+ },
+ {
+  "id": 36,
+  "file": "036.mp3",
+  "tipo": "letra",
+  "etiqueta": "ヤ",
+  "hablado": "ヤ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.81
+ },
+ {
+  "id": 37,
+  "file": "037.mp3",
+  "tipo": "letra",
+  "etiqueta": "ユ",
+  "hablado": "ユ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 38,
+  "file": "038.mp3",
+  "tipo": "letra",
+  "etiqueta": "ヨ",
+  "hablado": "ヨ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 39,
+  "file": "039.mp3",
+  "tipo": "letra",
+  "etiqueta": "ラ",
+  "hablado": "ラ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 40,
+  "file": "040.mp3",
+  "tipo": "letra",
+  "etiqueta": "リ",
+  "hablado": "リ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.98
+ },
+ {
+  "id": 41,
+  "file": "041.mp3",
+  "tipo": "letra",
+  "etiqueta": "ル",
+  "hablado": "ル",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.71
+ },
+ {
+  "id": 42,
+  "file": "042.mp3",
+  "tipo": "letra",
+  "etiqueta": "レ",
+  "hablado": "レ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.81
+ },
+ {
+  "id": 43,
+  "file": "043.mp3",
+  "tipo": "letra",
+  "etiqueta": "ロ",
+  "hablado": "ロ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 44,
+  "file": "044.mp3",
+  "tipo": "letra",
+  "etiqueta": "ワ",
+  "hablado": "ワ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 45,
+  "file": "045.mp3",
+  "tipo": "letra",
+  "etiqueta": "ヲ",
+  "hablado": "ヲ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.81
+ },
+ {
+  "id": 46,
+  "file": "046.mp3",
+  "tipo": "letra",
+  "etiqueta": "ン",
+  "hablado": "ン",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.49
+ },
+ {
+  "id": 47,
+  "file": "047.mp3",
+  "tipo": "palabra",
+  "etiqueta": "パン",
+  "hablado": "パン",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.15
+ },
+ {
+  "id": 48,
+  "file": "048.mp3",
+  "tipo": "palabra",
+  "etiqueta": "コーヒー",
+  "hablado": "コーヒー",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.71
+ },
+ {
+  "id": 49,
+  "file": "049.mp3",
+  "tipo": "palabra",
+  "etiqueta": "タクシー",
+  "hablado": "タクシー",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.83
+ },
+ {
+  "id": 50,
+  "file": "050.mp3",
+  "tipo": "palabra",
+  "etiqueta": "テレビ",
+  "hablado": "テレビ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.58
+ },
+ {
+  "id": 51,
+  "file": "051.mp3",
+  "tipo": "palabra",
+  "etiqueta": "インタビュー",
+  "hablado": "インタビュー",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 3.39
+ },
+ {
+  "id": 52,
+  "file": "052.mp3",
+  "tipo": "palabra",
+  "etiqueta": "ハンバーガー",
+  "hablado": "ハンバーガー",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 3.26
+ },
+ {
+  "id": 53,
+  "file": "053.mp3",
+  "tipo": "palabra",
+  "etiqueta": "スパゲッティ",
+  "hablado": "スパゲッティ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 3.47
+ }
+]

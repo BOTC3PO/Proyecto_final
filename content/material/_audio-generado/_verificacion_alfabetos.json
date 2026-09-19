@@ -1,0 +1,2966 @@
+{
+ "arabe/alfabeto-arabe-y-conexion-de-letras": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "ألف",
+   "oido": "أف أف",
+   "similitud": 0.8,
+   "segundos": 1.77
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "باء",
+   "oido": "ده ده",
+   "similitud": 0.0,
+   "segundos": 1.42
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "تاء",
+   "oido": "ساف .. ساف",
+   "similitud": 0.33,
+   "segundos": 1.6
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "ثاء",
+   "oido": "ه ه",
+   "similitud": 0.0,
+   "segundos": 1.6
+  },
+  {
+   "id": 5,
+   "tipo": "letra",
+   "esperado": "جيم",
+   "oido": "ديب ديب",
+   "similitud": 0.33,
+   "segundos": 1.91
+  },
+  {
+   "id": 6,
+   "tipo": "letra",
+   "esperado": "حاء",
+   "oido": "ته ته",
+   "similitud": 0.0,
+   "segundos": 1.46
+  },
+  {
+   "id": 7,
+   "tipo": "letra",
+   "esperado": "خاء",
+   "oido": "ته ته",
+   "similitud": 0.0,
+   "segundos": 1.63
+  },
+  {
+   "id": 8,
+   "tipo": "letra",
+   "esperado": "دال",
+   "oido": "اقدر اقدر اقدر",
+   "similitud": 0.44,
+   "segundos": 2.09
+  },
+  {
+   "id": 9,
+   "tipo": "letra",
+   "esperado": "ذال",
+   "oido": "زرس زرس",
+   "similitud": 0.0,
+   "segundos": 1.7
+  },
+  {
+   "id": 10,
+   "tipo": "letra",
+   "esperado": "راء",
+   "oido": "مرحبا",
+   "similitud": 0.36,
+   "segundos": 1.81
+  },
+  {
+   "id": 11,
+   "tipo": "letra",
+   "esperado": "زاي",
+   "oido": "ذهب",
+   "similitud": 0.0,
+   "segundos": 1.49
+  },
+  {
+   "id": 12,
+   "tipo": "letra",
+   "esperado": "سين",
+   "oido": "سن سن",
+   "similitud": 0.8,
+   "segundos": 1.63
+  },
+  {
+   "id": 13,
+   "tipo": "letra",
+   "esperado": "شين",
+   "oido": "فين",
+   "similitud": 0.44,
+   "segundos": 1.49
+  },
+  {
+   "id": 14,
+   "tipo": "letra",
+   "esperado": "صاد",
+   "oido": "صدق",
+   "similitud": 0.44,
+   "segundos": 2.28
+  },
+  {
+   "id": 15,
+   "tipo": "letra",
+   "esperado": "ضاد",
+   "oido": "ذاكت ذاكت",
+   "similitud": 0.29,
+   "segundos": 1.84
+  },
+  {
+   "id": 16,
+   "tipo": "letra",
+   "esperado": "طاء",
+   "oido": "ده ده",
+   "similitud": 0.0,
+   "segundos": 1.77
+  },
+  {
+   "id": 17,
+   "tipo": "letra",
+   "esperado": "ظاء",
+   "oido": "ذا ذا",
+   "similitud": 0.4,
+   "segundos": 1.63
+  },
+  {
+   "id": 18,
+   "tipo": "letra",
+   "esperado": "عين",
+   "oido": "ان ان",
+   "similitud": 0.4,
+   "segundos": 1.6
+  },
+  {
+   "id": 19,
+   "tipo": "letra",
+   "esperado": "غين",
+   "oido": "وإنه",
+   "similitud": 0.2,
+   "segundos": 1.98
+  },
+  {
+   "id": 20,
+   "tipo": "letra",
+   "esperado": "فاء",
+   "oido": "خف",
+   "similitud": 0.25,
+   "segundos": 2.18
+  },
+  {
+   "id": 21,
+   "tipo": "letra",
+   "esperado": "قاف",
+   "oido": "خفخ خفخ",
+   "similitud": 0.33,
+   "segundos": 1.81
+  },
+  {
+   "id": 22,
+   "tipo": "letra",
+   "esperado": "كاف",
+   "oido": "صف صف",
+   "similitud": 0.4,
+   "segundos": 2.3
+  },
+  {
+   "id": 23,
+   "tipo": "letra",
+   "esperado": "لام",
+   "oido": "love love",
+   "similitud": 0.0,
+   "segundos": 1.72
+  },
+  {
+   "id": 24,
+   "tipo": "letra",
+   "esperado": "ميم",
+   "oido": "ومن ومن",
+   "similitud": 0.33,
+   "segundos": 2.09
+  },
+  {
+   "id": 25,
+   "tipo": "letra",
+   "esperado": "نون",
+   "oido": "لن لن",
+   "similitud": 0.4,
+   "segundos": 2.3
+  },
+  {
+   "id": 26,
+   "tipo": "letra",
+   "esperado": "هاء",
+   "oido": "ها ها",
+   "similitud": 0.8,
+   "segundos": 1.65
+  },
+  {
+   "id": 27,
+   "tipo": "letra",
+   "esperado": "واو",
+   "oido": "هو هو",
+   "similitud": 0.4,
+   "segundos": 2.6
+  },
+  {
+   "id": 28,
+   "tipo": "letra",
+   "esperado": "ياء",
+   "oido": "أف .. أف ..",
+   "similitud": 0.0,
+   "segundos": 1.65
+  },
+  {
+   "id": 29,
+   "tipo": "palabra",
+   "esperado": "كتاب",
+   "oido": "كتب كتب",
+   "similitud": 0.86,
+   "segundos": 2.04
+  },
+  {
+   "id": 30,
+   "tipo": "palabra",
+   "esperado": "بيت",
+   "oido": "ذايت ذايت",
+   "similitud": 0.57,
+   "segundos": 1.84
+  },
+  {
+   "id": 31,
+   "tipo": "palabra",
+   "esperado": "باب",
+   "oido": "ذا ذا ذا",
+   "similitud": 0.33,
+   "segundos": 1.51
+  },
+  {
+   "id": 32,
+   "tipo": "palabra",
+   "esperado": "مدرسة",
+   "oido": "مصف مصف",
+   "similitud": 0.25,
+   "segundos": 2.18
+  },
+  {
+   "id": 33,
+   "tipo": "palabra",
+   "esperado": "ولد",
+   "oido": "وليس وليس",
+   "similitud": 0.57,
+   "segundos": 2.02
+  },
+  {
+   "id": 34,
+   "tipo": "palabra",
+   "esperado": "قلم",
+   "oido": "رلين رلين",
+   "similitud": 0.29,
+   "segundos": 2.3
+  }
+ ],
+ "ruso/alfabeto-cirilico-y-pronunciacion": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "а",
+   "oido": "Ай. Ай.",
+   "similitud": 0.67,
+   "segundos": 1.95
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "бэ",
+   "oido": "Бэй, Бэй",
+   "similitud": 0.8,
+   "segundos": 2.23
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "вэ",
+   "oido": "With With",
+   "similitud": 0.0,
+   "segundos": 2.21
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "гэ",
+   "oido": "Нгэ? Нгэ?",
+   "similitud": 0.8,
+   "segundos": 2.25
+  },
+  {
+   "id": 5,
+   "tipo": "letra",
+   "esperado": "дэ",
+   "oido": "Д. Д.",
+   "similitud": 0.67,
+   "segundos": 2.16
+  },
+  {
+   "id": 6,
+   "tipo": "letra",
+   "esperado": "е",
+   "oido": "Ие! Ие!",
+   "similitud": 0.67,
+   "segundos": 2.04
+  },
+  {
+   "id": 7,
+   "tipo": "letra",
+   "esperado": "ё",
+   "oido": "Ио... Ио...",
+   "similitud": 0.0,
+   "segundos": 2.39
+  },
+  {
+   "id": 8,
+   "tipo": "letra",
+   "esperado": "жэ",
+   "oido": "ЖЕ ЖЕ",
+   "similitud": 0.5,
+   "segundos": 2.23
+  },
+  {
+   "id": 9,
+   "tipo": "letra",
+   "esperado": "зэ",
+   "oido": "Зе... Зе...",
+   "similitud": 0.5,
+   "segundos": 2.18
+  },
+  {
+   "id": 10,
+   "tipo": "letra",
+   "esperado": "и",
+   "oido": "И, И",
+   "similitud": 1.0,
+   "segundos": 1.81
+  },
+  {
+   "id": 11,
+   "tipo": "letra",
+   "esperado": "и краткое",
+   "oido": "и краткой и краткой",
+   "similitud": 0.88,
+   "segundos": 3.35
+  },
+  {
+   "id": 12,
+   "tipo": "letra",
+   "esperado": "ка",
+   "oido": "Хоро! Хоро!",
+   "similitud": 0.0,
+   "segundos": 2.04
+  },
+  {
+   "id": 13,
+   "tipo": "letra",
+   "esperado": "эль",
+   "oido": "Ая! Ая!",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 14,
+   "tipo": "letra",
+   "esperado": "эм",
+   "oido": "Ам. Ам.",
+   "similitud": 0.5,
+   "segundos": 2.0
+  },
+  {
+   "id": 15,
+   "tipo": "letra",
+   "esperado": "эн",
+   "oido": "Айен. Айен.",
+   "similitud": 0.33,
+   "segundos": 2.18
+  },
+  {
+   "id": 16,
+   "tipo": "letra",
+   "esperado": "о",
+   "oido": "О? О?",
+   "similitud": 1.0,
+   "segundos": 1.74
+  },
+  {
+   "id": 17,
+   "tipo": "letra",
+   "esperado": "пэ",
+   "oido": "плы, плы",
+   "similitud": 0.4,
+   "segundos": 1.84
+  },
+  {
+   "id": 18,
+   "tipo": "letra",
+   "esperado": "эр",
+   "oido": "Э-э-э-э",
+   "similitud": 0.5,
+   "segundos": 2.46
+  },
+  {
+   "id": 19,
+   "tipo": "letra",
+   "esperado": "эс",
+   "oido": "Эс. Эс.",
+   "similitud": 1.0,
+   "segundos": 2.04
+  },
+  {
+   "id": 20,
+   "tipo": "letra",
+   "esperado": "тэ",
+   "oido": "Те. Те.",
+   "similitud": 0.5,
+   "segundos": 2.04
+  },
+  {
+   "id": 21,
+   "tipo": "letra",
+   "esperado": "у",
+   "oido": "О, О!",
+   "similitud": 0.0,
+   "segundos": 1.84
+  },
+  {
+   "id": 22,
+   "tipo": "letra",
+   "esperado": "эф",
+   "oido": "Эйф. Эйф.",
+   "similitud": 0.8,
+   "segundos": 2.09
+  },
+  {
+   "id": 23,
+   "tipo": "letra",
+   "esperado": "ха",
+   "oido": "Краа.",
+   "similitud": 0.5,
+   "segundos": 2.11
+  },
+  {
+   "id": 24,
+   "tipo": "letra",
+   "esperado": "цэ",
+   "oido": "Сэй! Сэй!",
+   "similitud": 0.4,
+   "segundos": 1.84
+  },
+  {
+   "id": 25,
+   "tipo": "letra",
+   "esperado": "че",
+   "oido": "Че?",
+   "similitud": 0.67,
+   "segundos": 1.88
+  },
+  {
+   "id": 26,
+   "tipo": "letra",
+   "esperado": "ша",
+   "oido": "Шэ",
+   "similitud": 0.33,
+   "segundos": 2.07
+  },
+  {
+   "id": 27,
+   "tipo": "letra",
+   "esperado": "ща",
+   "oido": "Шэ, Шэ.",
+   "similitud": 0.0,
+   "segundos": 2.23
+  },
+  {
+   "id": 28,
+   "tipo": "letra",
+   "esperado": "твёрдый знак",
+   "oido": "Твердый знак. Твердый знак.",
+   "similitud": 0.91,
+   "segundos": 3.25
+  },
+  {
+   "id": 29,
+   "tipo": "letra",
+   "esperado": "ы",
+   "oido": "Эй! Эй!",
+   "similitud": 0.0,
+   "segundos": 1.88
+  },
+  {
+   "id": 30,
+   "tipo": "letra",
+   "esperado": "мягкий знак",
+   "oido": "Мягкий знак.",
+   "similitud": 0.67,
+   "segundos": 3.83
+  },
+  {
+   "id": 31,
+   "tipo": "letra",
+   "esperado": "э",
+   "oido": "Ай. Ай.",
+   "similitud": 0.0,
+   "segundos": 2.0
+  },
+  {
+   "id": 32,
+   "tipo": "letra",
+   "esperado": "ю",
+   "oido": "Ио Ио",
+   "similitud": 0.0,
+   "segundos": 1.95
+  },
+  {
+   "id": 33,
+   "tipo": "letra",
+   "esperado": "я",
+   "oido": "Бия, Бия...",
+   "similitud": 0.5,
+   "segundos": 2.07
+  },
+  {
+   "id": 34,
+   "tipo": "palabra",
+   "esperado": "дом",
+   "oido": "Дом, дом",
+   "similitud": 1.0,
+   "segundos": 2.18
+  },
+  {
+   "id": 35,
+   "tipo": "palabra",
+   "esperado": "книга",
+   "oido": "хнига",
+   "similitud": 0.53,
+   "segundos": 3.04
+  },
+  {
+   "id": 36,
+   "tipo": "palabra",
+   "esperado": "вода",
+   "oido": "Вода. Вода.",
+   "similitud": 1.0,
+   "segundos": 2.53
+  },
+  {
+   "id": 37,
+   "tipo": "palabra",
+   "esperado": "мама",
+   "oido": "Мама! Мама!",
+   "similitud": 1.0,
+   "segundos": 2.6
+  },
+  {
+   "id": 38,
+   "tipo": "palabra",
+   "esperado": "школа",
+   "oido": "Школа, школа.",
+   "similitud": 1.0,
+   "segundos": 2.86
+  },
+  {
+   "id": 39,
+   "tipo": "palabra",
+   "esperado": "хлеб",
+   "oido": "КЛЕП",
+   "similitud": 0.33,
+   "segundos": 2.76
+  },
+  {
+   "id": 40,
+   "tipo": "palabra",
+   "esperado": "молоко",
+   "oido": "Молоко! Молоко!",
+   "similitud": 1.0,
+   "segundos": 2.72
+  },
+  {
+   "id": 41,
+   "tipo": "palabra",
+   "esperado": "шапка",
+   "oido": "Шапка.",
+   "similitud": 0.67,
+   "segundos": 2.28
+  },
+  {
+   "id": 42,
+   "tipo": "palabra",
+   "esperado": "жизнь",
+   "oido": "Жизнь, жизнь.",
+   "similitud": 1.0,
+   "segundos": 2.49
+  },
+  {
+   "id": 43,
+   "tipo": "palabra",
+   "esperado": "щётка",
+   "oido": "Щётка",
+   "similitud": 0.67,
+   "segundos": 3.02
+  },
+  {
+   "id": 44,
+   "tipo": "palabra",
+   "esperado": "цирк",
+   "oido": "Цирк.",
+   "similitud": 0.67,
+   "segundos": 2.49
+  },
+  {
+   "id": 45,
+   "tipo": "palabra",
+   "esperado": "чай",
+   "oido": "Чай. Чай.",
+   "similitud": 1.0,
+   "segundos": 2.3
+  }
+ ],
+ "hindi/devanagari-consonantes-y-vocales": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "अ",
+   "oido": "इंग, इंग",
+   "similitud": 0.0,
+   "segundos": 2.15
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "आ",
+   "oido": "व्दाड़ी",
+   "similitud": 0.0,
+   "segundos": 2.49
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "इ",
+   "oido": "अंगी, अंगी, अंगी",
+   "similitud": 0.0,
+   "segundos": 2.32
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "ई",
+   "oido": "अन्नेटि",
+   "similitud": 0.0,
+   "segundos": 2.24
+  },
+  {
+   "id": 5,
+   "tipo": "letra",
+   "esperado": "उ",
+   "oido": "अगु, अगु",
+   "similitud": 0.0,
+   "segundos": 2.24
+  },
+  {
+   "id": 6,
+   "tipo": "letra",
+   "esperado": "ऊ",
+   "oido": "अन्दू यूए अन्दू यूए",
+   "similitud": 0.0,
+   "segundos": 2.28
+  },
+  {
+   "id": 7,
+   "tipo": "letra",
+   "esperado": "ए",
+   "oido": "वंबेड़ वंबेड़",
+   "similitud": 0.0,
+   "segundos": 2.41
+  },
+  {
+   "id": 8,
+   "tipo": "letra",
+   "esperado": "ऐ",
+   "oido": "अगे, अगे",
+   "similitud": 0.0,
+   "segundos": 2.49
+  },
+  {
+   "id": 9,
+   "tipo": "letra",
+   "esperado": "ओ",
+   "oido": "अगो अगे",
+   "similitud": 0.0,
+   "segundos": 2.54
+  },
+  {
+   "id": 10,
+   "tipo": "letra",
+   "esperado": "औ",
+   "oido": "एंगाएड एंगाएड",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 11,
+   "tipo": "letra",
+   "esperado": "ऋ",
+   "oido": "येल्री येल्री",
+   "similitud": 0.0,
+   "segundos": 2.41
+  },
+  {
+   "id": 12,
+   "tipo": "letra",
+   "esperado": "क",
+   "oido": "अगगे अगगे",
+   "similitud": 0.0,
+   "segundos": 2.32
+  },
+  {
+   "id": 13,
+   "tipo": "letra",
+   "esperado": "ख",
+   "oido": "अंकाई अंकाई",
+   "similitud": 0.0,
+   "segundos": 2.54
+  },
+  {
+   "id": 14,
+   "tipo": "letra",
+   "esperado": "ग",
+   "oido": "अंगाए अंगाए",
+   "similitud": 0.5,
+   "segundos": 2.45
+  },
+  {
+   "id": 15,
+   "tipo": "letra",
+   "esperado": "घ",
+   "oido": "अग्धाई अग्धाई",
+   "similitud": 0.0,
+   "segundos": 2.49
+  },
+  {
+   "id": 16,
+   "tipo": "letra",
+   "esperado": "ङ",
+   "oido": "उदंगाई उदंगाई",
+   "similitud": 0.0,
+   "segundos": 3.13
+  },
+  {
+   "id": 17,
+   "tipo": "letra",
+   "esperado": "च",
+   "oido": "इच्या इच्या",
+   "similitud": 0.5,
+   "segundos": 2.32
+  },
+  {
+   "id": 18,
+   "tipo": "letra",
+   "esperado": "छ",
+   "oido": "इंच्याड इंच्याड",
+   "similitud": 0.0,
+   "segundos": 2.54
+  },
+  {
+   "id": 19,
+   "tipo": "letra",
+   "esperado": "ज",
+   "oido": "इज्याए इज्याए",
+   "similitud": 0.4,
+   "segundos": 2.41
+  },
+  {
+   "id": 20,
+   "tipo": "letra",
+   "esperado": "झ",
+   "oido": "इंज्याए इंज्याए",
+   "similitud": 0.0,
+   "segundos": 2.58
+  },
+  {
+   "id": 21,
+   "tipo": "letra",
+   "esperado": "ञ",
+   "oido": "इन्या इन्या",
+   "similitud": 0.0,
+   "segundos": 2.32
+  },
+  {
+   "id": 22,
+   "tipo": "letra",
+   "esperado": "ट",
+   "oido": "एक ता है? एक ता है?",
+   "similitud": 0.0,
+   "segundos": 2.32
+  },
+  {
+   "id": 23,
+   "tipo": "letra",
+   "esperado": "ठ",
+   "oido": "इंट्याई इंट्याई",
+   "similitud": 0.0,
+   "segundos": 2.54
+  },
+  {
+   "id": 24,
+   "tipo": "letra",
+   "esperado": "ड",
+   "oido": "इंग्डिराई इंग्डिराई",
+   "similitud": 0.33,
+   "segundos": 2.45
+  },
+  {
+   "id": 25,
+   "tipo": "letra",
+   "esperado": "ढ",
+   "oido": "अग्ड़ाई अग्ड़ाई",
+   "similitud": 0.0,
+   "segundos": 2.62
+  },
+  {
+   "id": 26,
+   "tipo": "letra",
+   "esperado": "ण",
+   "oido": "अगान देए अगान देए",
+   "similitud": 0.0,
+   "segundos": 2.88
+  },
+  {
+   "id": 27,
+   "tipo": "letra",
+   "esperado": "त",
+   "oido": "एक तए एक तए",
+   "similitud": 0.4,
+   "segundos": 2.32
+  },
+  {
+   "id": 28,
+   "tipo": "letra",
+   "esperado": "थ",
+   "oido": "एठाई एठाई",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 29,
+   "tipo": "letra",
+   "esperado": "द",
+   "oido": "इंग दाए इंग दाए",
+   "similitud": 0.4,
+   "segundos": 2.41
+  },
+  {
+   "id": 30,
+   "tipo": "letra",
+   "esperado": "ध",
+   "oido": "अद्याए अद्याए",
+   "similitud": 0.0,
+   "segundos": 2.58
+  },
+  {
+   "id": 31,
+   "tipo": "letra",
+   "esperado": "न",
+   "oido": "इं नाइ इं नाइ",
+   "similitud": 0.5,
+   "segundos": 2.45
+  },
+  {
+   "id": 32,
+   "tipo": "letra",
+   "esperado": "प",
+   "oido": "अब बाई अब बाई",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 33,
+   "tipo": "letra",
+   "esperado": "फ",
+   "oido": "अंप्याई अंप्याई",
+   "similitud": 0.0,
+   "segundos": 2.49
+  },
+  {
+   "id": 34,
+   "tipo": "letra",
+   "esperado": "ब",
+   "oido": "बबई बबई",
+   "similitud": 0.5,
+   "segundos": 2.41
+  },
+  {
+   "id": 35,
+   "tipo": "letra",
+   "esperado": "भ",
+   "oido": "अंभ्हाई अंभ्हाई",
+   "similitud": 0.4,
+   "segundos": 2.58
+  },
+  {
+   "id": 36,
+   "tipo": "letra",
+   "esperado": "म",
+   "oido": "मैं मैं मैं मैं",
+   "similitud": 0.67,
+   "segundos": 2.49
+  },
+  {
+   "id": 37,
+   "tipo": "letra",
+   "esperado": "य",
+   "oido": "येंगिया येंगिया",
+   "similitud": 0.5,
+   "segundos": 2.19
+  },
+  {
+   "id": 38,
+   "tipo": "letra",
+   "esperado": "र",
+   "oido": "इलिए दाए इलिए दाए",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 39,
+   "tipo": "letra",
+   "esperado": "ल",
+   "oido": "इल्लाए इल्लाए",
+   "similitud": 0.4,
+   "segundos": 2.37
+  },
+  {
+   "id": 40,
+   "tipo": "letra",
+   "esperado": "व",
+   "oido": "वेल्ज़ाई वेल्ज़ाई",
+   "similitud": 0.4,
+   "segundos": 2.49
+  },
+  {
+   "id": 41,
+   "tipo": "letra",
+   "esperado": "श",
+   "oido": "वेंच्याए वेंच्याए",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 42,
+   "tipo": "letra",
+   "esperado": "ष",
+   "oido": "वेश्णाः",
+   "similitud": 0.0,
+   "segundos": 2.37
+  },
+  {
+   "id": 43,
+   "tipo": "letra",
+   "esperado": "स",
+   "oido": "बैचाए बैचाए",
+   "similitud": 0.0,
+   "segundos": 2.37
+  },
+  {
+   "id": 44,
+   "tipo": "letra",
+   "esperado": "ह",
+   "oido": "अन्हीड अन्हीड",
+   "similitud": 0.4,
+   "segundos": 2.37
+  },
+  {
+   "id": 45,
+   "tipo": "palabra",
+   "esperado": "कमल",
+   "oido": "एक कम अदे एक कम अदे",
+   "similitud": 0.44,
+   "segundos": 2.88
+  },
+  {
+   "id": 46,
+   "tipo": "palabra",
+   "esperado": "घर",
+   "oido": "वेंगाएडे वेंगाएडे",
+   "similitud": 0.0,
+   "segundos": 2.75
+  },
+  {
+   "id": 47,
+   "tipo": "palabra",
+   "esperado": "पानी",
+   "oido": "अपाने, अपाने",
+   "similitud": 0.8,
+   "segundos": 2.96
+  },
+  {
+   "id": 48,
+   "tipo": "palabra",
+   "esperado": "माँ",
+   "oido": "व्माए व्माए",
+   "similitud": 0.5,
+   "segundos": 2.62
+  },
+  {
+   "id": 49,
+   "tipo": "palabra",
+   "esperado": "किताब",
+   "oido": "एंकिटाब एंकिटाब",
+   "similitud": 0.57,
+   "segundos": 3.05
+  },
+  {
+   "id": 50,
+   "tipo": "palabra",
+   "esperado": "भारत",
+   "oido": "इंभ्हारेत इंभ्हारेत",
+   "similitud": 0.75,
+   "segundos": 3.09
+  }
+ ],
+ "hindi/matras-y-conjuntas": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "का",
+   "oido": "इगाए इगाए",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "कि",
+   "oido": "अंकि अंकि",
+   "similitud": 0.67,
+   "segundos": 2.41
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "की",
+   "oido": "अगी, अगी",
+   "similitud": 0.0,
+   "segundos": 2.37
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "कु",
+   "oido": "अगुए अगुए",
+   "similitud": 0.0,
+   "segundos": 2.37
+  },
+  {
+   "id": 5,
+   "tipo": "letra",
+   "esperado": "कू",
+   "oido": "एक ओवे, एक गवे",
+   "similitud": 0.4,
+   "segundos": 2.54
+  },
+  {
+   "id": 6,
+   "tipo": "letra",
+   "esperado": "के",
+   "oido": "अंके, अंके",
+   "similitud": 0.67,
+   "segundos": 2.49
+  },
+  {
+   "id": 7,
+   "tipo": "letra",
+   "esperado": "कै",
+   "oido": "अंक्रे! अंक्रे!",
+   "similitud": 0.5,
+   "segundos": 2.79
+  },
+  {
+   "id": 8,
+   "tipo": "letra",
+   "esperado": "को",
+   "oido": "एंगोग़, एंगोग़",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 9,
+   "tipo": "letra",
+   "esperado": "कौ",
+   "oido": "येंकोई येंकोई",
+   "similitud": 0.5,
+   "segundos": 2.62
+  },
+  {
+   "id": 10,
+   "tipo": "letra",
+   "esperado": "क्ष",
+   "oido": "उखिशाड उखिशाड",
+   "similitud": 0.0,
+   "segundos": 2.58
+  },
+  {
+   "id": 11,
+   "tipo": "letra",
+   "esperado": "त्र",
+   "oido": "इत्लाए इत्लाए",
+   "similitud": 0.33,
+   "segundos": 2.62
+  },
+  {
+   "id": 12,
+   "tipo": "letra",
+   "esperado": "ज्ञ",
+   "oido": "एक गिया एक गिया",
+   "similitud": 0.0,
+   "segundos": 2.54
+  },
+  {
+   "id": 13,
+   "tipo": "letra",
+   "esperado": "श्र",
+   "oido": "इशिनाए इशिनाए",
+   "similitud": 0.33,
+   "segundos": 2.66
+  },
+  {
+   "id": 14,
+   "tipo": "letra",
+   "esperado": "प्र",
+   "oido": "एप्राई एप्राई",
+   "similitud": 0.67,
+   "segundos": 2.62
+  },
+  {
+   "id": 15,
+   "tipo": "palabra",
+   "esperado": "किताब",
+   "oido": "एंकिटाब एंकिटाब",
+   "similitud": 0.57,
+   "segundos": 3.05
+  },
+  {
+   "id": 16,
+   "tipo": "palabra",
+   "esperado": "दोस्त",
+   "oido": "अंदूस्ट अंदूस्ट",
+   "similitud": 0.57,
+   "segundos": 2.88
+  },
+  {
+   "id": 17,
+   "tipo": "palabra",
+   "esperado": "प्रेम",
+   "oido": "अप्रेम्ड, अप्रेम्ड",
+   "similitud": 0.75,
+   "segundos": 2.96
+  },
+  {
+   "id": 18,
+   "tipo": "palabra",
+   "esperado": "पत्र",
+   "oido": "अपात्रे अपात्रे",
+   "similitud": 0.86,
+   "segundos": 3.09
+  },
+  {
+   "id": 19,
+   "tipo": "palabra",
+   "esperado": "हिन्दी",
+   "oido": "अहिन्दी अहिन्दी",
+   "similitud": 0.86,
+   "segundos": 3.05
+  },
+  {
+   "id": 20,
+   "tipo": "palabra",
+   "esperado": "ज्ञान",
+   "oido": "एग्यान एग्यान",
+   "similitud": 0.29,
+   "segundos": 2.92
+  },
+  {
+   "id": 21,
+   "tipo": "palabra",
+   "esperado": "क्षमा",
+   "oido": "इच्शम्माई इच्शम्माई",
+   "similitud": 0.22,
+   "segundos": 3.01
+  }
+ ],
+ "chino/pinyin-y-tonos": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "妈",
+   "oido": "羽毛羽毛",
+   "similitud": 0.0,
+   "segundos": 2.41
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "麻",
+   "oido": "My! My!",
+   "similitud": 0.0,
+   "segundos": 2.37
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "马",
+   "oido": "My! My!",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "骂",
+   "oido": "雲霾雲霾",
+   "similitud": 0.0,
+   "segundos": 2.41
+  },
+  {
+   "id": 5,
+   "tipo": "palabra",
+   "esperado": "妈妈骂马。",
+   "oido": "金阿娜娜娜金阿娜娜娜",
+   "similitud": 0.0,
+   "segundos": 3.6
+  },
+  {
+   "id": 6,
+   "tipo": "palabra",
+   "esperado": "你好。",
+   "oido": "你好你好",
+   "similitud": 1.0,
+   "segundos": 3.01
+  },
+  {
+   "id": 7,
+   "tipo": "palabra",
+   "esperado": "谢谢。",
+   "oido": "一謝謝",
+   "similitud": 0.0,
+   "segundos": 3.09
+  },
+  {
+   "id": 8,
+   "tipo": "palabra",
+   "esperado": "朋友。",
+   "oido": "给朋友给朋友",
+   "similitud": 0.8,
+   "segundos": 3.09
+  },
+  {
+   "id": 9,
+   "tipo": "palabra",
+   "esperado": "不是。",
+   "oido": "不是!",
+   "similitud": 0.67,
+   "segundos": 2.75
+  },
+  {
+   "id": 10,
+   "tipo": "palabra",
+   "esperado": "一个。",
+   "oido": "いいく。いいく。",
+   "similitud": 0.0,
+   "segundos": 2.92
+  },
+  {
+   "id": 11,
+   "tipo": "palabra",
+   "esperado": "一天。",
+   "oido": "一一天",
+   "similitud": 0.57,
+   "segundos": 2.58
+  },
+  {
+   "id": 12,
+   "tipo": "letra",
+   "esperado": "知",
+   "oido": "痴痴",
+   "similitud": 0.0,
+   "segundos": 2.95
+  },
+  {
+   "id": 13,
+   "tipo": "letra",
+   "esperado": "吃",
+   "oido": "仁师仁师",
+   "similitud": 0.0,
+   "segundos": 2.11
+  },
+  {
+   "id": 14,
+   "tipo": "letra",
+   "esperado": "诗",
+   "oido": "呃 是呃 是",
+   "similitud": 0.0,
+   "segundos": 2.85
+  },
+  {
+   "id": 15,
+   "tipo": "letra",
+   "esperado": "日",
+   "oido": "YiYi",
+   "similitud": 0.0,
+   "segundos": 2.95
+  },
+  {
+   "id": 16,
+   "tipo": "letra",
+   "esperado": "鸡",
+   "oido": "嘻!",
+   "similitud": 0.0,
+   "segundos": 2.15
+  },
+  {
+   "id": 17,
+   "tipo": "letra",
+   "esperado": "七",
+   "oido": "一起呀一起呀",
+   "similitud": 0.0,
+   "segundos": 2.49
+  },
+  {
+   "id": 18,
+   "tipo": "letra",
+   "esperado": "西",
+   "oido": "意思 意思",
+   "similitud": 0.0,
+   "segundos": 2.15
+  },
+  {
+   "id": 19,
+   "tipo": "letra",
+   "esperado": "资",
+   "oido": "",
+   "similitud": 0.0,
+   "segundos": 2.37
+  },
+  {
+   "id": 20,
+   "tipo": "letra",
+   "esperado": "词",
+   "oido": "別死!別死!",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 21,
+   "tipo": "letra",
+   "esperado": "思",
+   "oido": "YES",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 22,
+   "tipo": "letra",
+   "esperado": "女",
+   "oido": "一逆而二",
+   "similitud": 0.0,
+   "segundos": 2.37
+  },
+  {
+   "id": 23,
+   "tipo": "letra",
+   "esperado": "绿",
+   "oido": "莉莉莉莉莉",
+   "similitud": 0.0,
+   "segundos": 2.28
+  },
+  {
+   "id": 24,
+   "tipo": "letra",
+   "esperado": "去",
+   "oido": "也許…也許…",
+   "similitud": 0.0,
+   "segundos": 2.58
+  },
+  {
+   "id": 25,
+   "tipo": "letra",
+   "esperado": "鱼",
+   "oido": "11",
+   "similitud": 0.0,
+   "segundos": 1.98
+  }
+ ],
+ "chino/caracteres-y-radicales-basicos": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "日",
+   "oido": "YiYi",
+   "similitud": 0.0,
+   "segundos": 2.95
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "月",
+   "oido": "一月一月",
+   "similitud": 0.67,
+   "segundos": 2.41
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "山",
+   "oido": "一山",
+   "similitud": 0.5,
+   "segundos": 2.02
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "大",
+   "oido": "一旦一旦",
+   "similitud": 0.0,
+   "segundos": 2.37
+  },
+  {
+   "id": 5,
+   "tipo": "letra",
+   "esperado": "水",
+   "oido": "睡",
+   "similitud": 0.0,
+   "segundos": 2.24
+  },
+  {
+   "id": 6,
+   "tipo": "letra",
+   "esperado": "火",
+   "oido": "雲霍",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 7,
+   "tipo": "letra",
+   "esperado": "木",
+   "oido": "羽毛鞋",
+   "similitud": 0.0,
+   "segundos": 2.41
+  },
+  {
+   "id": 8,
+   "tipo": "letra",
+   "esperado": "心",
+   "oido": "一信一信",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 9,
+   "tipo": "letra",
+   "esperado": "好",
+   "oido": "好意!好意!",
+   "similitud": 0.67,
+   "segundos": 2.62
+  },
+  {
+   "id": 10,
+   "tipo": "letra",
+   "esperado": "休",
+   "oido": "音效音效",
+   "similitud": 0.0,
+   "segundos": 2.02
+  },
+  {
+   "id": 11,
+   "tipo": "letra",
+   "esperado": "林",
+   "oido": "GelinaGelina",
+   "similitud": 0.0,
+   "segundos": 2.71
+  },
+  {
+   "id": 12,
+   "tipo": "letra",
+   "esperado": "你",
+   "oido": "一鸡一一鸡一",
+   "similitud": 0.0,
+   "segundos": 2.45
+  },
+  {
+   "id": 13,
+   "tipo": "letra",
+   "esperado": "河",
+   "oido": "呵呵",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 14,
+   "tipo": "letra",
+   "esperado": "热",
+   "oido": "惹惹",
+   "similitud": 0.0,
+   "segundos": 2.37
+  },
+  {
+   "id": 15,
+   "tipo": "letra",
+   "esperado": "想",
+   "oido": "一下一下",
+   "similitud": 0.0,
+   "segundos": 2.07
+  },
+  {
+   "id": 16,
+   "tipo": "letra",
+   "esperado": "妈",
+   "oido": "羽毛羽毛",
+   "similitud": 0.0,
+   "segundos": 2.41
+  },
+  {
+   "id": 17,
+   "tipo": "letra",
+   "esperado": "吃",
+   "oido": "吟氏吟氏",
+   "similitud": 0.0,
+   "segundos": 2.11
+  },
+  {
+   "id": 18,
+   "tipo": "letra",
+   "esperado": "请",
+   "oido": "也亲也亲",
+   "similitud": 0.0,
+   "segundos": 2.11
+  },
+  {
+   "id": 19,
+   "tipo": "letra",
+   "esperado": "说",
+   "oido": "說。說。",
+   "similitud": 0.0,
+   "segundos": 2.28
+  },
+  {
+   "id": 20,
+   "tipo": "letra",
+   "esperado": "打",
+   "oido": "Dang!Dang!",
+   "similitud": 0.0,
+   "segundos": 2.28
+  },
+  {
+   "id": 21,
+   "tipo": "letra",
+   "esperado": "花",
+   "oido": "雲輝雲輝",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 22,
+   "tipo": "palabra",
+   "esperado": "森林。",
+   "oido": "杰森林杰森林",
+   "similitud": 0.8,
+   "segundos": 3.3
+  }
+ ],
+ "coreano/hangul": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "기역",
+   "oido": "키요",
+   "similitud": 0.0,
+   "segundos": 3.04
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "니은",
+   "oido": "리윤",
+   "similitud": 0.0,
+   "segundos": 3.74
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "디귿",
+   "oido": "티쿠잇 티쿠잇",
+   "similitud": 0.0,
+   "segundos": 3.23
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "리을",
+   "oido": "이유로",
+   "similitud": 0.0,
+   "segundos": 3.72
+  },
+  {
+   "id": 5,
+   "tipo": "letra",
+   "esperado": "미음",
+   "oido": "리움",
+   "similitud": 0.0,
+   "segundos": 3.48
+  },
+  {
+   "id": 6,
+   "tipo": "letra",
+   "esperado": "비읍",
+   "oido": "피 피",
+   "similitud": 0.0,
+   "segundos": 3.46
+  },
+  {
+   "id": 7,
+   "tipo": "letra",
+   "esperado": "시옷",
+   "oido": "시옷",
+   "similitud": 0.67,
+   "segundos": 3.51
+  },
+  {
+   "id": 8,
+   "tipo": "letra",
+   "esperado": "이응",
+   "oido": "you",
+   "similitud": 0.0,
+   "segundos": 3.58
+  },
+  {
+   "id": 9,
+   "tipo": "letra",
+   "esperado": "지읒",
+   "oido": "지유 지유",
+   "similitud": 0.5,
+   "segundos": 3.6
+  },
+  {
+   "id": 10,
+   "tipo": "letra",
+   "esperado": "치읓",
+   "oido": "치우",
+   "similitud": 0.33,
+   "segundos": 3.46
+  },
+  {
+   "id": 11,
+   "tipo": "letra",
+   "esperado": "키읔",
+   "oido": "킬",
+   "similitud": 0.0,
+   "segundos": 3.81
+  },
+  {
+   "id": 12,
+   "tipo": "letra",
+   "esperado": "티읕",
+   "oido": "치잇 치잇",
+   "similitud": 0.0,
+   "segundos": 2.97
+  },
+  {
+   "id": 13,
+   "tipo": "letra",
+   "esperado": "피읖",
+   "oido": "키우 키우",
+   "similitud": 0.0,
+   "segundos": 3.48
+  },
+  {
+   "id": 14,
+   "tipo": "letra",
+   "esperado": "히읗",
+   "oido": "퓨, 퓨",
+   "similitud": 0.0,
+   "segundos": 2.93
+  },
+  {
+   "id": 15,
+   "tipo": "letra",
+   "esperado": "쌍기역",
+   "oido": "3기요",
+   "similitud": 0.22,
+   "segundos": 3.74
+  },
+  {
+   "id": 16,
+   "tipo": "letra",
+   "esperado": "쌍디귿",
+   "oido": "산디굿!",
+   "similitud": 0.22,
+   "segundos": 3.67
+  },
+  {
+   "id": 17,
+   "tipo": "letra",
+   "esperado": "쌍비읍",
+   "oido": "땡큐요.",
+   "similitud": 0.0,
+   "segundos": 3.97
+  },
+  {
+   "id": 18,
+   "tipo": "letra",
+   "esperado": "쌍시옷",
+   "oido": "3시옷",
+   "similitud": 0.44,
+   "segundos": 4.04
+  },
+  {
+   "id": 19,
+   "tipo": "letra",
+   "esperado": "쌍지읒",
+   "oido": "Thank you!",
+   "similitud": 0.0,
+   "segundos": 4.0
+  },
+  {
+   "id": 20,
+   "tipo": "letra",
+   "esperado": "아",
+   "oido": "다 다",
+   "similitud": 0.0,
+   "segundos": 2.79
+  },
+  {
+   "id": 21,
+   "tipo": "letra",
+   "esperado": "야",
+   "oido": "다",
+   "similitud": 0.0,
+   "segundos": 3.23
+  },
+  {
+   "id": 22,
+   "tipo": "letra",
+   "esperado": "어",
+   "oido": "또",
+   "similitud": 0.0,
+   "segundos": 2.65
+  },
+  {
+   "id": 23,
+   "tipo": "letra",
+   "esperado": "여",
+   "oido": "다 다",
+   "similitud": 0.0,
+   "segundos": 3.02
+  },
+  {
+   "id": 24,
+   "tipo": "letra",
+   "esperado": "오",
+   "oido": "또 또",
+   "similitud": 0.0,
+   "segundos": 2.86
+  },
+  {
+   "id": 25,
+   "tipo": "letra",
+   "esperado": "요",
+   "oido": "여올로 여올로",
+   "similitud": 0.0,
+   "segundos": 3.44
+  },
+  {
+   "id": 26,
+   "tipo": "letra",
+   "esperado": "우",
+   "oido": "으 으",
+   "similitud": 0.0,
+   "segundos": 2.74
+  },
+  {
+   "id": 27,
+   "tipo": "letra",
+   "esperado": "유",
+   "oido": "유 유",
+   "similitud": 1.0,
+   "segundos": 3.11
+  },
+  {
+   "id": 28,
+   "tipo": "letra",
+   "esperado": "으",
+   "oido": "1 1",
+   "similitud": 0.0,
+   "segundos": 3.11
+  },
+  {
+   "id": 29,
+   "tipo": "letra",
+   "esperado": "이",
+   "oido": "",
+   "similitud": 0.0,
+   "segundos": 3.0
+  },
+  {
+   "id": 30,
+   "tipo": "letra",
+   "esperado": "애",
+   "oido": "때 때",
+   "similitud": 0.0,
+   "segundos": 3.07
+  },
+  {
+   "id": 31,
+   "tipo": "letra",
+   "esperado": "에",
+   "oido": "때 때",
+   "similitud": 0.0,
+   "segundos": 2.81
+  },
+  {
+   "id": 32,
+   "tipo": "letra",
+   "esperado": "가",
+   "oido": "가 가",
+   "similitud": 1.0,
+   "segundos": 3.11
+  },
+  {
+   "id": 33,
+   "tipo": "letra",
+   "esperado": "나",
+   "oido": "나",
+   "similitud": 0.67,
+   "segundos": 3.28
+  },
+  {
+   "id": 34,
+   "tipo": "letra",
+   "esperado": "다",
+   "oido": "다",
+   "similitud": 0.67,
+   "segundos": 3.04
+  },
+  {
+   "id": 35,
+   "tipo": "letra",
+   "esperado": "라",
+   "oido": "다 다",
+   "similitud": 0.0,
+   "segundos": 2.86
+  },
+  {
+   "id": 36,
+   "tipo": "letra",
+   "esperado": "마",
+   "oido": "마",
+   "similitud": 0.67,
+   "segundos": 3.32
+  },
+  {
+   "id": 37,
+   "tipo": "letra",
+   "esperado": "바",
+   "oido": "뱅 뱅",
+   "similitud": 0.0,
+   "segundos": 3.09
+  },
+  {
+   "id": 38,
+   "tipo": "letra",
+   "esperado": "사",
+   "oido": "쌔아 쌔아",
+   "similitud": 0.0,
+   "segundos": 3.21
+  },
+  {
+   "id": 39,
+   "tipo": "letra",
+   "esperado": "아",
+   "oido": "아 아",
+   "similitud": 1.0,
+   "segundos": 2.51
+  },
+  {
+   "id": 40,
+   "tipo": "letra",
+   "esperado": "자",
+   "oido": "차",
+   "similitud": 0.0,
+   "segundos": 2.97
+  },
+  {
+   "id": 41,
+   "tipo": "letra",
+   "esperado": "차",
+   "oido": "차",
+   "similitud": 0.67,
+   "segundos": 3.16
+  },
+  {
+   "id": 42,
+   "tipo": "letra",
+   "esperado": "카",
+   "oido": "테 테",
+   "similitud": 0.0,
+   "segundos": 2.93
+  },
+  {
+   "id": 43,
+   "tipo": "letra",
+   "esperado": "타",
+   "oido": "다",
+   "similitud": 0.0,
+   "segundos": 3.25
+  },
+  {
+   "id": 44,
+   "tipo": "letra",
+   "esperado": "파",
+   "oido": "타 타",
+   "similitud": 0.0,
+   "segundos": 3.11
+  },
+  {
+   "id": 45,
+   "tipo": "letra",
+   "esperado": "하",
+   "oido": "타",
+   "similitud": 0.0,
+   "segundos": 2.93
+  },
+  {
+   "id": 46,
+   "tipo": "letra",
+   "esperado": "까",
+   "oido": "까 까",
+   "similitud": 1.0,
+   "segundos": 3.25
+  },
+  {
+   "id": 47,
+   "tipo": "palabra",
+   "esperado": "한국",
+   "oido": "한국",
+   "similitud": 0.67,
+   "segundos": 3.62
+  },
+  {
+   "id": 48,
+   "tipo": "palabra",
+   "esperado": "학교",
+   "oido": "発기요",
+   "similitud": 0.0,
+   "segundos": 3.86
+  },
+  {
+   "id": 49,
+   "tipo": "palabra",
+   "esperado": "산",
+   "oido": "산",
+   "similitud": 0.67,
+   "segundos": 3.41
+  },
+  {
+   "id": 50,
+   "tipo": "palabra",
+   "esperado": "강",
+   "oido": "칸 칸",
+   "similitud": 0.0,
+   "segundos": 3.3
+  },
+  {
+   "id": 51,
+   "tipo": "palabra",
+   "esperado": "사랑",
+   "oido": "사랑",
+   "similitud": 0.67,
+   "segundos": 3.3
+  },
+  {
+   "id": 52,
+   "tipo": "palabra",
+   "esperado": "물",
+   "oido": "보이잉 보이잉",
+   "similitud": 0.0,
+   "segundos": 3.32
+  },
+  {
+   "id": 53,
+   "tipo": "palabra",
+   "esperado": "밥",
+   "oido": "팝 팝",
+   "similitud": 0.0,
+   "segundos": 3.04
+  },
+  {
+   "id": 54,
+   "tipo": "palabra",
+   "esperado": "친구",
+   "oido": "친구",
+   "similitud": 0.67,
+   "segundos": 3.81
+  }
+ ],
+ "japones/hiragana": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "あ",
+   "oido": "what? what?",
+   "similitud": 0.0,
+   "segundos": 1.89
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "い",
+   "oido": "おや、おや",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "う",
+   "oido": "うぅわっうぅわっ",
+   "similitud": 0.4,
+   "segundos": 1.94
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "え",
+   "oido": "うえ?うえ?",
+   "similitud": 0.67,
+   "segundos": 1.85
+  },
+  {
+   "id": 5,
+   "tipo": "letra",
+   "esperado": "お",
+   "oido": "うぅん、うぅん",
+   "similitud": 0.0,
+   "segundos": 1.81
+  },
+  {
+   "id": 6,
+   "tipo": "letra",
+   "esperado": "か",
+   "oido": "がが",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 7,
+   "tipo": "letra",
+   "esperado": "き",
+   "oido": "おし、おし",
+   "similitud": 0.0,
+   "segundos": 2.02
+  },
+  {
+   "id": 8,
+   "tipo": "letra",
+   "esperado": "く",
+   "oido": "くん",
+   "similitud": 0.5,
+   "segundos": 1.71
+  },
+  {
+   "id": 9,
+   "tipo": "letra",
+   "esperado": "け",
+   "oido": "ギェ?",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 10,
+   "tipo": "letra",
+   "esperado": "こ",
+   "oido": "ゴー、ゴー",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 11,
+   "tipo": "letra",
+   "esperado": "さ",
+   "oido": "さあ、さあ",
+   "similitud": 0.67,
+   "segundos": 1.9
+  },
+  {
+   "id": 12,
+   "tipo": "letra",
+   "esperado": "し",
+   "oido": "あそい、あそい",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 13,
+   "tipo": "letra",
+   "esperado": "す",
+   "oido": "ズー",
+   "similitud": 0.0,
+   "segundos": 1.75
+  },
+  {
+   "id": 14,
+   "tipo": "letra",
+   "esperado": "せ",
+   "oido": "せ、せ",
+   "similitud": 1.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 15,
+   "tipo": "letra",
+   "esperado": "そ",
+   "oido": "そう",
+   "similitud": 0.5,
+   "segundos": 1.94
+  },
+  {
+   "id": 16,
+   "tipo": "letra",
+   "esperado": "た",
+   "oido": "だだ",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 17,
+   "tipo": "letra",
+   "esperado": "ち",
+   "oido": "で?",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 18,
+   "tipo": "letra",
+   "esperado": "つ",
+   "oido": "ズー ズー",
+   "similitud": 0.0,
+   "segundos": 1.54
+  },
+  {
+   "id": 19,
+   "tipo": "letra",
+   "esperado": "て",
+   "oido": "で?で?",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 20,
+   "tipo": "letra",
+   "esperado": "と",
+   "oido": "ど?",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 21,
+   "tipo": "letra",
+   "esperado": "な",
+   "oido": "な…な…",
+   "similitud": 1.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 22,
+   "tipo": "letra",
+   "esperado": "に",
+   "oido": "ねっねっ",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 23,
+   "tipo": "letra",
+   "esperado": "ぬ",
+   "oido": "お姉?お姉?",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 24,
+   "tipo": "letra",
+   "esperado": "ね",
+   "oido": "うね、うね",
+   "similitud": 0.67,
+   "segundos": 1.85
+  },
+  {
+   "id": 25,
+   "tipo": "letra",
+   "esperado": "の",
+   "oido": "いの?",
+   "similitud": 0.5,
+   "segundos": 1.9
+  },
+  {
+   "id": 26,
+   "tipo": "letra",
+   "esperado": "は",
+   "oido": "わっ",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 27,
+   "tipo": "letra",
+   "esperado": "ひ",
+   "oido": "え?",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 28,
+   "tipo": "letra",
+   "esperado": "ふ",
+   "oido": "ふん",
+   "similitud": 0.5,
+   "segundos": 1.75
+  },
+  {
+   "id": 29,
+   "tipo": "letra",
+   "esperado": "へ",
+   "oido": "うえ?うえ?",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 30,
+   "tipo": "letra",
+   "esperado": "ほ",
+   "oido": "ほ?ほ?",
+   "similitud": 1.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 31,
+   "tipo": "letra",
+   "esperado": "ま",
+   "oido": "マイ、マイ",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 32,
+   "tipo": "letra",
+   "esperado": "み",
+   "oido": "甘い甘い",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 33,
+   "tipo": "letra",
+   "esperado": "む",
+   "oido": "アメ? アメ?",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 34,
+   "tipo": "letra",
+   "esperado": "め",
+   "oido": "うめ、うめ",
+   "similitud": 0.67,
+   "segundos": 1.9
+  },
+  {
+   "id": 35,
+   "tipo": "letra",
+   "esperado": "も",
+   "oido": "でも、でも",
+   "similitud": 0.67,
+   "segundos": 1.98
+  },
+  {
+   "id": 36,
+   "tipo": "letra",
+   "esperado": "や",
+   "oido": "や?",
+   "similitud": 0.67,
+   "segundos": 1.81
+  },
+  {
+   "id": 37,
+   "tipo": "letra",
+   "esperado": "ゆ",
+   "oido": "ユ…ユ…",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 38,
+   "tipo": "letra",
+   "esperado": "よ",
+   "oido": "ヨ?ヨ?",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 39,
+   "tipo": "letra",
+   "esperado": "ら",
+   "oido": "な、な",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 40,
+   "tipo": "letra",
+   "esperado": "り",
+   "oido": "あれ?あれ?",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 41,
+   "tipo": "letra",
+   "esperado": "る",
+   "oido": "るん",
+   "similitud": 0.5,
+   "segundos": 1.71
+  },
+  {
+   "id": 42,
+   "tipo": "letra",
+   "esperado": "れ",
+   "oido": "ね、ね。",
+   "similitud": 0.0,
+   "segundos": 1.81
+  },
+  {
+   "id": 43,
+   "tipo": "letra",
+   "esperado": "ろ",
+   "oido": "いろいろ",
+   "similitud": 0.67,
+   "segundos": 1.94
+  },
+  {
+   "id": 44,
+   "tipo": "letra",
+   "esperado": "わ",
+   "oido": "わっ",
+   "similitud": 0.5,
+   "segundos": 1.85
+  },
+  {
+   "id": 45,
+   "tipo": "letra",
+   "esperado": "を",
+   "oido": "うぅん、うぅん",
+   "similitud": 0.0,
+   "segundos": 1.81
+  },
+  {
+   "id": 46,
+   "tipo": "letra",
+   "esperado": "ん",
+   "oido": "ねっねっ",
+   "similitud": 0.0,
+   "segundos": 1.49
+  },
+  {
+   "id": 47,
+   "tipo": "palabra",
+   "esperado": "こんにちは",
+   "oido": "こんにちは",
+   "similitud": 0.67,
+   "segundos": 3.52
+  },
+  {
+   "id": 48,
+   "tipo": "palabra",
+   "esperado": "ありがとう",
+   "oido": "ありがとう",
+   "similitud": 0.67,
+   "segundos": 3.35
+  },
+  {
+   "id": 49,
+   "tipo": "palabra",
+   "esperado": "おはよう",
+   "oido": "おはよう、おはよう。",
+   "similitud": 1.0,
+   "segundos": 2.96
+  },
+  {
+   "id": 50,
+   "tipo": "palabra",
+   "esperado": "さようなら",
+   "oido": "さようなら",
+   "similitud": 0.67,
+   "segundos": 3.18
+  },
+  {
+   "id": 51,
+   "tipo": "palabra",
+   "esperado": "みかん",
+   "oido": "うみいかうみいか",
+   "similitud": 0.57,
+   "segundos": 2.37
+  },
+  {
+   "id": 52,
+   "tipo": "palabra",
+   "esperado": "かさ",
+   "oido": "がーさーがーさー",
+   "similitud": 0.33,
+   "segundos": 2.19
+  },
+  {
+   "id": 53,
+   "tipo": "palabra",
+   "esperado": "りんご",
+   "oido": "ありげんごありげんご",
+   "similitud": 0.75,
+   "segundos": 2.58
+  }
+ ],
+ "japones/katakana": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "ア",
+   "oido": "what? what?",
+   "similitud": 0.0,
+   "segundos": 1.89
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "イ",
+   "oido": "おや、おや",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "ウ",
+   "oido": "うぅぅん",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "エ",
+   "oido": "うえ?うえ?",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 5,
+   "tipo": "letra",
+   "esperado": "オ",
+   "oido": "うぅん、うぅん",
+   "similitud": 0.0,
+   "segundos": 1.81
+  },
+  {
+   "id": 6,
+   "tipo": "letra",
+   "esperado": "カ",
+   "oido": "がが",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 7,
+   "tipo": "letra",
+   "esperado": "キ",
+   "oido": "おし、おし",
+   "similitud": 0.0,
+   "segundos": 2.02
+  },
+  {
+   "id": 8,
+   "tipo": "letra",
+   "esperado": "ク",
+   "oido": "くん",
+   "similitud": 0.0,
+   "segundos": 1.71
+  },
+  {
+   "id": 9,
+   "tipo": "letra",
+   "esperado": "ケ",
+   "oido": "ギェ?",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 10,
+   "tipo": "letra",
+   "esperado": "コ",
+   "oido": "ゴー、ゴー",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 11,
+   "tipo": "letra",
+   "esperado": "サ",
+   "oido": "さあ、さあ",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 12,
+   "tipo": "letra",
+   "esperado": "シ",
+   "oido": "あそい、あそい",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 13,
+   "tipo": "letra",
+   "esperado": "ス",
+   "oido": "ズー",
+   "similitud": 0.0,
+   "segundos": 1.75
+  },
+  {
+   "id": 14,
+   "tipo": "letra",
+   "esperado": "セ",
+   "oido": "せ、せ",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 15,
+   "tipo": "letra",
+   "esperado": "ソ",
+   "oido": "そう",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 16,
+   "tipo": "letra",
+   "esperado": "タ",
+   "oido": "だだ",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 17,
+   "tipo": "letra",
+   "esperado": "チ",
+   "oido": "で?",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 18,
+   "tipo": "letra",
+   "esperado": "ツ",
+   "oido": "ズー ズー",
+   "similitud": 0.0,
+   "segundos": 1.54
+  },
+  {
+   "id": 19,
+   "tipo": "letra",
+   "esperado": "テ",
+   "oido": "で?で?",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 20,
+   "tipo": "letra",
+   "esperado": "ト",
+   "oido": "ど?",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 21,
+   "tipo": "letra",
+   "esperado": "ナ",
+   "oido": "な…な…",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 22,
+   "tipo": "letra",
+   "esperado": "ニ",
+   "oido": "ねっねっ",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 23,
+   "tipo": "letra",
+   "esperado": "ヌ",
+   "oido": "お姉?お姉?",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 24,
+   "tipo": "letra",
+   "esperado": "ネ",
+   "oido": "うね、うね",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 25,
+   "tipo": "letra",
+   "esperado": "ノ",
+   "oido": "いの?",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 26,
+   "tipo": "letra",
+   "esperado": "ハ",
+   "oido": "はぁはぁ",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 27,
+   "tipo": "letra",
+   "esperado": "ヒ",
+   "oido": "え?",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 28,
+   "tipo": "letra",
+   "esperado": "フ",
+   "oido": "ふん",
+   "similitud": 0.0,
+   "segundos": 1.75
+  },
+  {
+   "id": 29,
+   "tipo": "letra",
+   "esperado": "ヘ",
+   "oido": "え?",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 30,
+   "tipo": "letra",
+   "esperado": "ホ",
+   "oido": "ほ?ほ?",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 31,
+   "tipo": "letra",
+   "esperado": "マ",
+   "oido": "マイ、マイ",
+   "similitud": 0.67,
+   "segundos": 1.9
+  },
+  {
+   "id": 32,
+   "tipo": "letra",
+   "esperado": "ミ",
+   "oido": "甘い甘い",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 33,
+   "tipo": "letra",
+   "esperado": "ム",
+   "oido": "アメ? アメ?",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 34,
+   "tipo": "letra",
+   "esperado": "メ",
+   "oido": "うめ、うめ",
+   "similitud": 0.0,
+   "segundos": 1.9
+  },
+  {
+   "id": 35,
+   "tipo": "letra",
+   "esperado": "モ",
+   "oido": "でも、でも",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 36,
+   "tipo": "letra",
+   "esperado": "ヤ",
+   "oido": "や?",
+   "similitud": 0.0,
+   "segundos": 1.81
+  },
+  {
+   "id": 37,
+   "tipo": "letra",
+   "esperado": "ユ",
+   "oido": "ユ…ユ…",
+   "similitud": 1.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 38,
+   "tipo": "letra",
+   "esperado": "ヨ",
+   "oido": "ヨ?ヨ?",
+   "similitud": 1.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 39,
+   "tipo": "letra",
+   "esperado": "ラ",
+   "oido": "な、な",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 40,
+   "tipo": "letra",
+   "esperado": "リ",
+   "oido": "あれ?あれ?",
+   "similitud": 0.0,
+   "segundos": 1.98
+  },
+  {
+   "id": 41,
+   "tipo": "letra",
+   "esperado": "ル",
+   "oido": "るん",
+   "similitud": 0.0,
+   "segundos": 1.71
+  },
+  {
+   "id": 42,
+   "tipo": "letra",
+   "esperado": "レ",
+   "oido": "ね、ね。",
+   "similitud": 0.0,
+   "segundos": 1.81
+  },
+  {
+   "id": 43,
+   "tipo": "letra",
+   "esperado": "ロ",
+   "oido": "いろいろ",
+   "similitud": 0.0,
+   "segundos": 1.94
+  },
+  {
+   "id": 44,
+   "tipo": "letra",
+   "esperado": "ワ",
+   "oido": "わっ",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 45,
+   "tipo": "letra",
+   "esperado": "ヲ",
+   "oido": "うぅん、うぅん",
+   "similitud": 0.0,
+   "segundos": 1.81
+  },
+  {
+   "id": 46,
+   "tipo": "letra",
+   "esperado": "ン",
+   "oido": "ねっねっ",
+   "similitud": 0.0,
+   "segundos": 1.49
+  },
+  {
+   "id": 47,
+   "tipo": "palabra",
+   "esperado": "パン",
+   "oido": "でばんでばん",
+   "similitud": 0.0,
+   "segundos": 2.15
+  },
+  {
+   "id": 48,
+   "tipo": "palabra",
+   "esperado": "コーヒー",
+   "oido": "無コーヒー",
+   "similitud": 0.62,
+   "segundos": 2.71
+  },
+  {
+   "id": 49,
+   "tipo": "palabra",
+   "esperado": "タクシー",
+   "oido": "ダークシー",
+   "similitud": 0.46,
+   "segundos": 2.83
+  },
+  {
+   "id": 50,
+   "tipo": "palabra",
+   "esperado": "テレビ",
+   "oido": "テレビテレビ",
+   "similitud": 1.0,
+   "segundos": 2.58
+  },
+  {
+   "id": 51,
+   "tipo": "palabra",
+   "esperado": "インタビュー",
+   "oido": "インタビュー インタビュー",
+   "similitud": 1.0,
+   "segundos": 3.39
+  },
+  {
+   "id": 52,
+   "tipo": "palabra",
+   "esperado": "ハンバーガー",
+   "oido": "ハンバーガーハンバーガー",
+   "similitud": 1.0,
+   "segundos": 3.26
+  },
+  {
+   "id": 53,
+   "tipo": "palabra",
+   "esperado": "スパゲッティ",
+   "oido": "スバゲーティー",
+   "similitud": 0.42,
+   "segundos": 3.47
+  }
+ ],
+ "japones/kanji-basicos": [
+  {
+   "id": 1,
+   "tipo": "letra",
+   "esperado": "いち",
+   "oido": "ういちあ",
+   "similitud": 0.5,
+   "segundos": 2.58
+  },
+  {
+   "id": 2,
+   "tipo": "letra",
+   "esperado": "に",
+   "oido": "ねっねっ",
+   "similitud": 0.0,
+   "segundos": 1.85
+  },
+  {
+   "id": 3,
+   "tipo": "letra",
+   "esperado": "さん",
+   "oido": "えさん、えさん",
+   "similitud": 0.8,
+   "segundos": 2.07
+  },
+  {
+   "id": 4,
+   "tipo": "letra",
+   "esperado": "き",
+   "oido": "おし、おし",
+   "similitud": 0.0,
+   "segundos": 2.02
+  },
+  {
+   "id": 5,
+   "tipo": "letra",
+   "esperado": "みず",
+   "oido": "アミエス、アミエス",
+   "similitud": 0.0,
+   "segundos": 2.28
+  },
+  {
+   "id": 6,
+   "tipo": "letra",
+   "esperado": "ほん",
+   "oido": "でほん",
+   "similitud": 0.57,
+   "segundos": 2.02
+  },
+  {
+   "id": 7,
+   "tipo": "letra",
+   "esperado": "いえ",
+   "oido": "ういえ?ういえ?",
+   "similitud": 0.8,
+   "segundos": 2.02
+  },
+  {
+   "id": 8,
+   "tipo": "letra",
+   "esperado": "くに",
+   "oido": "アクアニー アクアニー",
+   "similitud": 0.0,
+   "segundos": 2.28
+  },
+  {
+   "id": 9,
+   "tipo": "palabra",
+   "esperado": "ほんや",
+   "oido": "ほんや ほんや",
+   "similitud": 1.0,
+   "segundos": 2.41
+  },
+  {
+   "id": 10,
+   "tipo": "palabra",
+   "esperado": "いっさつ",
+   "oido": "イース圧",
+   "similitud": 0.0,
+   "segundos": 2.71
+  },
+  {
+   "id": 11,
+   "tipo": "palabra",
+   "esperado": "ほんど",
+   "oido": "えほんど えほんど",
+   "similitud": 0.86,
+   "segundos": 2.45
+  }
+ ]
+}

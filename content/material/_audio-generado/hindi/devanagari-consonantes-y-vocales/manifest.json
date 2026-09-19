@@ -1,0 +1,452 @@
+[
+ {
+  "id": 1,
+  "file": "001.mp3",
+  "tipo": "letra",
+  "etiqueta": "अ",
+  "hablado": "अ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.15
+ },
+ {
+  "id": 2,
+  "file": "002.mp3",
+  "tipo": "letra",
+  "etiqueta": "आ",
+  "hablado": "आ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.49
+ },
+ {
+  "id": 3,
+  "file": "003.mp3",
+  "tipo": "letra",
+  "etiqueta": "इ",
+  "hablado": "इ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.32
+ },
+ {
+  "id": 4,
+  "file": "004.mp3",
+  "tipo": "letra",
+  "etiqueta": "ई",
+  "hablado": "ई",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.24
+ },
+ {
+  "id": 5,
+  "file": "005.mp3",
+  "tipo": "letra",
+  "etiqueta": "उ",
+  "hablado": "उ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.24
+ },
+ {
+  "id": 6,
+  "file": "006.mp3",
+  "tipo": "letra",
+  "etiqueta": "ऊ",
+  "hablado": "ऊ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.28
+ },
+ {
+  "id": 7,
+  "file": "007.mp3",
+  "tipo": "letra",
+  "etiqueta": "ए",
+  "hablado": "ए",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.41
+ },
+ {
+  "id": 8,
+  "file": "008.mp3",
+  "tipo": "letra",
+  "etiqueta": "ऐ",
+  "hablado": "ऐ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.49
+ },
+ {
+  "id": 9,
+  "file": "009.mp3",
+  "tipo": "letra",
+  "etiqueta": "ओ",
+  "hablado": "ओ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.54
+ },
+ {
+  "id": 10,
+  "file": "010.mp3",
+  "tipo": "letra",
+  "etiqueta": "औ",
+  "hablado": "औ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.45
+ },
+ {
+  "id": 11,
+  "file": "011.mp3",
+  "tipo": "letra",
+  "etiqueta": "ऋ",
+  "hablado": "ऋ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.41
+ },
+ {
+  "id": 12,
+  "file": "012.mp3",
+  "tipo": "letra",
+  "etiqueta": "क",
+  "hablado": "क",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.32
+ },
+ {
+  "id": 13,
+  "file": "013.mp3",
+  "tipo": "letra",
+  "etiqueta": "ख",
+  "hablado": "ख",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.54
+ },
+ {
+  "id": 14,
+  "file": "014.mp3",
+  "tipo": "letra",
+  "etiqueta": "ग",
+  "hablado": "ग",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.45
+ },
+ {
+  "id": 15,
+  "file": "015.mp3",
+  "tipo": "letra",
+  "etiqueta": "घ",
+  "hablado": "घ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.49
+ },
+ {
+  "id": 16,
+  "file": "016.mp3",
+  "tipo": "letra",
+  "etiqueta": "ङ",
+  "hablado": "ङ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 3.13
+ },
+ {
+  "id": 17,
+  "file": "017.mp3",
+  "tipo": "letra",
+  "etiqueta": "च",
+  "hablado": "च",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.32
+ },
+ {
+  "id": 18,
+  "file": "018.mp3",
+  "tipo": "letra",
+  "etiqueta": "छ",
+  "hablado": "छ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.54
+ },
+ {
+  "id": 19,
+  "file": "019.mp3",
+  "tipo": "letra",
+  "etiqueta": "ज",
+  "hablado": "ज",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.41
+ },
+ {
+  "id": 20,
+  "file": "020.mp3",
+  "tipo": "letra",
+  "etiqueta": "झ",
+  "hablado": "झ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.58
+ },
+ {
+  "id": 21,
+  "file": "021.mp3",
+  "tipo": "letra",
+  "etiqueta": "ञ",
+  "hablado": "ञ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.32
+ },
+ {
+  "id": 22,
+  "file": "022.mp3",
+  "tipo": "letra",
+  "etiqueta": "ट",
+  "hablado": "ट",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.32
+ },
+ {
+  "id": 23,
+  "file": "023.mp3",
+  "tipo": "letra",
+  "etiqueta": "ठ",
+  "hablado": "ठ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.54
+ },
+ {
+  "id": 24,
+  "file": "024.mp3",
+  "tipo": "letra",
+  "etiqueta": "ड",
+  "hablado": "ड",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.45
+ },
+ {
+  "id": 25,
+  "file": "025.mp3",
+  "tipo": "letra",
+  "etiqueta": "ढ",
+  "hablado": "ढ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.62
+ },
+ {
+  "id": 26,
+  "file": "026.mp3",
+  "tipo": "letra",
+  "etiqueta": "ण",
+  "hablado": "ण",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.88
+ },
+ {
+  "id": 27,
+  "file": "027.mp3",
+  "tipo": "letra",
+  "etiqueta": "त",
+  "hablado": "त",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.32
+ },
+ {
+  "id": 28,
+  "file": "028.mp3",
+  "tipo": "letra",
+  "etiqueta": "थ",
+  "hablado": "थ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.45
+ },
+ {
+  "id": 29,
+  "file": "029.mp3",
+  "tipo": "letra",
+  "etiqueta": "द",
+  "hablado": "द",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.41
+ },
+ {
+  "id": 30,
+  "file": "030.mp3",
+  "tipo": "letra",
+  "etiqueta": "ध",
+  "hablado": "ध",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.58
+ },
+ {
+  "id": 31,
+  "file": "031.mp3",
+  "tipo": "letra",
+  "etiqueta": "न",
+  "hablado": "न",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.45
+ },
+ {
+  "id": 32,
+  "file": "032.mp3",
+  "tipo": "letra",
+  "etiqueta": "प",
+  "hablado": "प",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.45
+ },
+ {
+  "id": 33,
+  "file": "033.mp3",
+  "tipo": "letra",
+  "etiqueta": "फ",
+  "hablado": "फ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.49
+ },
+ {
+  "id": 34,
+  "file": "034.mp3",
+  "tipo": "letra",
+  "etiqueta": "ब",
+  "hablado": "ब",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.41
+ },
+ {
+  "id": 35,
+  "file": "035.mp3",
+  "tipo": "letra",
+  "etiqueta": "भ",
+  "hablado": "भ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.58
+ },
+ {
+  "id": 36,
+  "file": "036.mp3",
+  "tipo": "letra",
+  "etiqueta": "म",
+  "hablado": "म",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.49
+ },
+ {
+  "id": 37,
+  "file": "037.mp3",
+  "tipo": "letra",
+  "etiqueta": "य",
+  "hablado": "य",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.19
+ },
+ {
+  "id": 38,
+  "file": "038.mp3",
+  "tipo": "letra",
+  "etiqueta": "र",
+  "hablado": "र",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.45
+ },
+ {
+  "id": 39,
+  "file": "039.mp3",
+  "tipo": "letra",
+  "etiqueta": "ल",
+  "hablado": "ल",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.37
+ },
+ {
+  "id": 40,
+  "file": "040.mp3",
+  "tipo": "letra",
+  "etiqueta": "व",
+  "hablado": "व",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.49
+ },
+ {
+  "id": 41,
+  "file": "041.mp3",
+  "tipo": "letra",
+  "etiqueta": "श",
+  "hablado": "श",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.45
+ },
+ {
+  "id": 42,
+  "file": "042.mp3",
+  "tipo": "letra",
+  "etiqueta": "ष",
+  "hablado": "ष",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.37
+ },
+ {
+  "id": 43,
+  "file": "043.mp3",
+  "tipo": "letra",
+  "etiqueta": "स",
+  "hablado": "स",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.37
+ },
+ {
+  "id": 44,
+  "file": "044.mp3",
+  "tipo": "letra",
+  "etiqueta": "ह",
+  "hablado": "ह",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.37
+ },
+ {
+  "id": 45,
+  "file": "045.mp3",
+  "tipo": "palabra",
+  "etiqueta": "कमल",
+  "hablado": "कमल",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.88
+ },
+ {
+  "id": 46,
+  "file": "046.mp3",
+  "tipo": "palabra",
+  "etiqueta": "घर",
+  "hablado": "घर",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.75
+ },
+ {
+  "id": 47,
+  "file": "047.mp3",
+  "tipo": "palabra",
+  "etiqueta": "पानी",
+  "hablado": "पानी",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.96
+ },
+ {
+  "id": 48,
+  "file": "048.mp3",
+  "tipo": "palabra",
+  "etiqueta": "माँ",
+  "hablado": "माँ",
+  "voz": "kokoro:hm_omega",
+  "segundos": 2.62
+ },
+ {
+  "id": 49,
+  "file": "049.mp3",
+  "tipo": "palabra",
+  "etiqueta": "किताब",
+  "hablado": "किताब",
+  "voz": "kokoro:hm_omega",
+  "segundos": 3.05
+ },
+ {
+  "id": 50,
+  "file": "050.mp3",
+  "tipo": "palabra",
+  "etiqueta": "भारत",
+  "hablado": "भारत",
+  "voz": "kokoro:hm_omega",
+  "segundos": 3.09
+ }
+]

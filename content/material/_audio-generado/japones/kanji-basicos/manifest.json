@@ -1,0 +1,101 @@
+[
+ {
+  "id": 1,
+  "file": "001.mp3",
+  "tipo": "letra",
+  "etiqueta": "一",
+  "hablado": "いち",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.58
+ },
+ {
+  "id": 2,
+  "file": "002.mp3",
+  "tipo": "letra",
+  "etiqueta": "二",
+  "hablado": "に",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 3,
+  "file": "003.mp3",
+  "tipo": "letra",
+  "etiqueta": "三",
+  "hablado": "さん",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.07
+ },
+ {
+  "id": 4,
+  "file": "004.mp3",
+  "tipo": "letra",
+  "etiqueta": "木",
+  "hablado": "き",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.02
+ },
+ {
+  "id": 5,
+  "file": "005.mp3",
+  "tipo": "letra",
+  "etiqueta": "水",
+  "hablado": "みず",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.28
+ },
+ {
+  "id": 6,
+  "file": "006.mp3",
+  "tipo": "letra",
+  "etiqueta": "本",
+  "hablado": "ほん",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.02
+ },
+ {
+  "id": 7,
+  "file": "007.mp3",
+  "tipo": "letra",
+  "etiqueta": "家",
+  "hablado": "いえ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.02
+ },
+ {
+  "id": 8,
+  "file": "008.mp3",
+  "tipo": "letra",
+  "etiqueta": "国",
+  "hablado": "くに",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.28
+ },
+ {
+  "id": 9,
+  "file": "009.mp3",
+  "tipo": "palabra",
+  "etiqueta": "本屋",
+  "hablado": "ほんや",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.41
+ },
+ {
+  "id": 10,
+  "file": "010.mp3",
+  "tipo": "palabra",
+  "etiqueta": "一冊",
+  "hablado": "いっさつ",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.71
+ },
+ {
+  "id": 11,
+  "file": "011.mp3",
+  "tipo": "palabra",
+  "etiqueta": "本土",
+  "hablado": "ほんど",
+  "voz": "kokoro:jf_alpha+misaki",
+  "segundos": 2.45
+ }
+]

@@ -1,0 +1,407 @@
+[
+ {
+  "id": 1,
+  "file": "001.mp3",
+  "tipo": "letra",
+  "etiqueta": "А",
+  "hablado": "а",
+  "voz": "piper:irina",
+  "segundos": 1.95
+ },
+ {
+  "id": 2,
+  "file": "002.mp3",
+  "tipo": "letra",
+  "etiqueta": "Б",
+  "hablado": "бэ",
+  "voz": "piper:irina",
+  "segundos": 2.23
+ },
+ {
+  "id": 3,
+  "file": "003.mp3",
+  "tipo": "letra",
+  "etiqueta": "В",
+  "hablado": "вэ",
+  "voz": "piper:irina",
+  "segundos": 2.21
+ },
+ {
+  "id": 4,
+  "file": "004.mp3",
+  "tipo": "letra",
+  "etiqueta": "Г",
+  "hablado": "гэ",
+  "voz": "piper:irina",
+  "segundos": 2.25
+ },
+ {
+  "id": 5,
+  "file": "005.mp3",
+  "tipo": "letra",
+  "etiqueta": "Д",
+  "hablado": "дэ",
+  "voz": "piper:irina",
+  "segundos": 2.16
+ },
+ {
+  "id": 6,
+  "file": "006.mp3",
+  "tipo": "letra",
+  "etiqueta": "Е",
+  "hablado": "е",
+  "voz": "piper:irina",
+  "segundos": 2.04
+ },
+ {
+  "id": 7,
+  "file": "007.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ё",
+  "hablado": "ё",
+  "voz": "piper:irina",
+  "segundos": 2.39
+ },
+ {
+  "id": 8,
+  "file": "008.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ж",
+  "hablado": "жэ",
+  "voz": "piper:irina",
+  "segundos": 2.23
+ },
+ {
+  "id": 9,
+  "file": "009.mp3",
+  "tipo": "letra",
+  "etiqueta": "З",
+  "hablado": "зэ",
+  "voz": "piper:irina",
+  "segundos": 2.18
+ },
+ {
+  "id": 10,
+  "file": "010.mp3",
+  "tipo": "letra",
+  "etiqueta": "И",
+  "hablado": "и",
+  "voz": "piper:irina",
+  "segundos": 1.81
+ },
+ {
+  "id": 11,
+  "file": "011.mp3",
+  "tipo": "letra",
+  "etiqueta": "Й",
+  "hablado": "и краткое",
+  "voz": "piper:irina",
+  "segundos": 3.35
+ },
+ {
+  "id": 12,
+  "file": "012.mp3",
+  "tipo": "letra",
+  "etiqueta": "К",
+  "hablado": "ка",
+  "voz": "piper:irina",
+  "segundos": 2.04
+ },
+ {
+  "id": 13,
+  "file": "013.mp3",
+  "tipo": "letra",
+  "etiqueta": "Л",
+  "hablado": "эль",
+  "voz": "piper:irina",
+  "segundos": 1.98
+ },
+ {
+  "id": 14,
+  "file": "014.mp3",
+  "tipo": "letra",
+  "etiqueta": "М",
+  "hablado": "эм",
+  "voz": "piper:irina",
+  "segundos": 2.0
+ },
+ {
+  "id": 15,
+  "file": "015.mp3",
+  "tipo": "letra",
+  "etiqueta": "Н",
+  "hablado": "эн",
+  "voz": "piper:irina",
+  "segundos": 2.18
+ },
+ {
+  "id": 16,
+  "file": "016.mp3",
+  "tipo": "letra",
+  "etiqueta": "О",
+  "hablado": "о",
+  "voz": "piper:irina",
+  "segundos": 1.74
+ },
+ {
+  "id": 17,
+  "file": "017.mp3",
+  "tipo": "letra",
+  "etiqueta": "П",
+  "hablado": "пэ",
+  "voz": "piper:irina",
+  "segundos": 1.84
+ },
+ {
+  "id": 18,
+  "file": "018.mp3",
+  "tipo": "letra",
+  "etiqueta": "Р",
+  "hablado": "эр",
+  "voz": "piper:irina",
+  "segundos": 2.46
+ },
+ {
+  "id": 19,
+  "file": "019.mp3",
+  "tipo": "letra",
+  "etiqueta": "С",
+  "hablado": "эс",
+  "voz": "piper:irina",
+  "segundos": 2.04
+ },
+ {
+  "id": 20,
+  "file": "020.mp3",
+  "tipo": "letra",
+  "etiqueta": "Т",
+  "hablado": "тэ",
+  "voz": "piper:irina",
+  "segundos": 2.04
+ },
+ {
+  "id": 21,
+  "file": "021.mp3",
+  "tipo": "letra",
+  "etiqueta": "У",
+  "hablado": "у",
+  "voz": "piper:irina",
+  "segundos": 1.84
+ },
+ {
+  "id": 22,
+  "file": "022.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ф",
+  "hablado": "эф",
+  "voz": "piper:irina",
+  "segundos": 2.09
+ },
+ {
+  "id": 23,
+  "file": "023.mp3",
+  "tipo": "letra",
+  "etiqueta": "Х",
+  "hablado": "ха",
+  "voz": "piper:irina",
+  "segundos": 2.11
+ },
+ {
+  "id": 24,
+  "file": "024.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ц",
+  "hablado": "цэ",
+  "voz": "piper:irina",
+  "segundos": 1.84
+ },
+ {
+  "id": 25,
+  "file": "025.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ч",
+  "hablado": "че",
+  "voz": "piper:irina",
+  "segundos": 1.88
+ },
+ {
+  "id": 26,
+  "file": "026.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ш",
+  "hablado": "ша",
+  "voz": "piper:irina",
+  "segundos": 2.07
+ },
+ {
+  "id": 27,
+  "file": "027.mp3",
+  "tipo": "letra",
+  "etiqueta": "Щ",
+  "hablado": "ща",
+  "voz": "piper:irina",
+  "segundos": 2.23
+ },
+ {
+  "id": 28,
+  "file": "028.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ъ",
+  "hablado": "твёрдый знак",
+  "voz": "piper:irina",
+  "segundos": 3.25
+ },
+ {
+  "id": 29,
+  "file": "029.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ы",
+  "hablado": "ы",
+  "voz": "piper:irina",
+  "segundos": 1.88
+ },
+ {
+  "id": 30,
+  "file": "030.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ь",
+  "hablado": "мягкий знак",
+  "voz": "piper:irina",
+  "segundos": 3.83
+ },
+ {
+  "id": 31,
+  "file": "031.mp3",
+  "tipo": "letra",
+  "etiqueta": "Э",
+  "hablado": "э",
+  "voz": "piper:irina",
+  "segundos": 2.0
+ },
+ {
+  "id": 32,
+  "file": "032.mp3",
+  "tipo": "letra",
+  "etiqueta": "Ю",
+  "hablado": "ю",
+  "voz": "piper:irina",
+  "segundos": 1.95
+ },
+ {
+  "id": 33,
+  "file": "033.mp3",
+  "tipo": "letra",
+  "etiqueta": "Я",
+  "hablado": "я",
+  "voz": "piper:irina",
+  "segundos": 2.07
+ },
+ {
+  "id": 34,
+  "file": "034.mp3",
+  "tipo": "palabra",
+  "etiqueta": "дом",
+  "hablado": "дом",
+  "voz": "piper:irina",
+  "segundos": 2.18
+ },
+ {
+  "id": 35,
+  "file": "035.mp3",
+  "tipo": "palabra",
+  "etiqueta": "книга",
+  "hablado": "книга",
+  "voz": "piper:irina",
+  "segundos": 3.04
+ },
+ {
+  "id": 36,
+  "file": "036.mp3",
+  "tipo": "palabra",
+  "etiqueta": "вода",
+  "hablado": "вода",
+  "voz": "piper:irina",
+  "segundos": 2.53
+ },
+ {
+  "id": 37,
+  "file": "037.mp3",
+  "tipo": "palabra",
+  "etiqueta": "мама",
+  "hablado": "мама",
+  "voz": "piper:irina",
+  "segundos": 2.6
+ },
+ {
+  "id": 38,
+  "file": "038.mp3",
+  "tipo": "palabra",
+  "etiqueta": "школа",
+  "hablado": "школа",
+  "voz": "piper:irina",
+  "segundos": 2.86
+ },
+ {
+  "id": 39,
+  "file": "039.mp3",
+  "tipo": "palabra",
+  "etiqueta": "хлеб",
+  "hablado": "хлеб",
+  "voz": "piper:irina",
+  "segundos": 2.76
+ },
+ {
+  "id": 40,
+  "file": "040.mp3",
+  "tipo": "palabra",
+  "etiqueta": "молоко",
+  "hablado": "молоко",
+  "voz": "piper:irina",
+  "segundos": 2.72
+ },
+ {
+  "id": 41,
+  "file": "041.mp3",
+  "tipo": "palabra",
+  "etiqueta": "шапка",
+  "hablado": "шапка",
+  "voz": "piper:irina",
+  "segundos": 2.28
+ },
+ {
+  "id": 42,
+  "file": "042.mp3",
+  "tipo": "palabra",
+  "etiqueta": "жизнь",
+  "hablado": "жизнь",
+  "voz": "piper:irina",
+  "segundos": 2.49
+ },
+ {
+  "id": 43,
+  "file": "043.mp3",
+  "tipo": "palabra",
+  "etiqueta": "щётка",
+  "hablado": "щётка",
+  "voz": "piper:irina",
+  "segundos": 3.02
+ },
+ {
+  "id": 44,
+  "file": "044.mp3",
+  "tipo": "palabra",
+  "etiqueta": "цирк",
+  "hablado": "цирк",
+  "voz": "piper:irina",
+  "segundos": 2.49
+ },
+ {
+  "id": 45,
+  "file": "045.mp3",
+  "tipo": "palabra",
+  "etiqueta": "чай",
+  "hablado": "чай",
+  "voz": "piper:irina",
+  "segundos": 2.3
+ }
+]
