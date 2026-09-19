@@ -77,7 +77,7 @@ opciones_explicitas:
   - "читает"
 respuesta: "Брат"
 tipo: mc
-explicacion: "Brат está en nominativo."
+explicacion: "Брат está en nominativo."
 ```
 
 ### 5 — это

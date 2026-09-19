@@ -172,7 +172,7 @@ opciones_explicitas:
   - "referirse a sí mismo"
 respuesta: "dirigirse con cortesía a una persona"
 tipo: mc
-explicacion: "Vы con mayúscula en cartas es forma de cortesía."
+explicacion: "Вы con mayúscula en cartas es forma de cortesía."
 ```
 
 ### 10 — мой
