@@ -1,0 +1,595 @@
+# gramatica
+Q | Er tat so, ＿＿ er nichts gehört hätte. | als ob | wenn | dass | weil | Comparación irreal: als ob + Konjunktiv II.
+Q | Wenn ich mehr Zeit ＿＿, würde ich häufiger reisen. | hätte | habe | hatte | gehabt | Irreal del presente: Konjunktiv II de haben.
+Q | Wäre er pünktlich gekommen, ＿＿ wir den Zug erreicht. | hätten | haben | würden | hatten | Irreal del pasado: hätten + Partizip II.
+Q | Der Mann, ＿＿ Auto gestohlen wurde, ging zur Polizei. | dessen | dem | den | sein | Genitivo relativo masculino: dessen.
+Q | Die Frau, mit ＿＿ ich gesprochen habe, ist Ärztin. | der | die | deren | dem | Preposición mit + dativo femenino: der.
+Q | Sie fragte mich, ＿＿ ich schon fertig sei. | ob | dass | wenn | weil | Pregunta indirecta sí/no: ob.
+Q | Er sagte, er ＿＿ krank. | sei | ist gewesen | wäre werden | war sein | Estilo indirecto: Konjunktiv I (sei).
+Q | Das Buch ＿＿ von vielen Studenten gelesen. | wird | hat | ist | wurde worden | Pasiva de proceso presente: wird + Partizip II.
+Q | Der Vertrag ＿＿ gestern unterschrieben. | wurde | ist | war | hat | Pasiva en Präteritum: wurde.
+Q | Das Fenster ＿＿ offen. | ist | wird | wurde | hat | Estado resultante (Zustandspassiv): ist geöffnet/offen.
+Q | Ich freue mich ＿＿ deinen Besuch. | auf | über | an | für | Sich freuen auf = alegrarse por algo futuro.
+Q | Ich ärgere mich ＿＿ den Lärm. | über | auf | an | um | Sich ärgern über.
+Q | Sie wartet ＿＿ einen Anruf. | auf | an | für | über | Warten auf + Akkusativ.
+Q | Er hat sich ＿＿ die Stelle beworben. | um | für | auf | an | Sich bewerben um.
+Q | Wir haben lange ＿＿ gesprochen. | darüber | davon dass | wovon | worüber | Adverbio pronominal: darüber (sprechen über).
+Q | ＿＿ hast du dich so gefreut? | Worüber | Über was zu | Womit | Wozu | Pregunta con Wor- + preposición.
+Q | Nachdem er gegessen ＿＿, ging er spazieren. | hatte | hat | war | wurde | Nachdem + Plusquamperfekt.
+Q | Er ist zu müde, ＿＿ noch zu arbeiten. | um | damit | dass | weil | Zu + adjetivo + um ... zu + Infinitiv.
+Q | Sie arbeitet viel, ＿＿ ihre Familie zu unterstützen. | um | damit | weil | sodass | Um ... zu con mismo sujeto.
+Q | Er spricht laut, ＿＿ ihn alle verstehen. | damit | um | weil | obwohl | Damit con sujeto distinto.
+Q | ＿＿ es regnete, gingen wir spazieren. | Obwohl | Weil | Damit | Falls | Obwohl = aunque (concesiva).
+Q | Ich bleibe zu Hause, ＿＿ es regnet. | falls | obwohl | damit | sodass | Falls = en caso de que.
+Q | Je mehr er lernt, ＿＿ besser wird er. | desto | umso je | als | denn | Je ..., desto ...
+Q | Er ist nicht nur klug, ＿＿ auch fleißig. | sondern | aber | denn | oder | Nicht nur ..., sondern auch.
+Q | Weder er ＿＿ sie kannte die Antwort. | noch | oder | und | sondern | Weder ... noch.
+Q | Entweder wir gehen jetzt, ＿＿ wir kommen zu spät. | oder | sondern | aber | noch | Entweder ... oder.
+Q | Er wohnt ＿＿ seiner Tante. | bei | mit | zu | an | Wohnen bei + Dativ.
+Q | Wir fahren ＿＿ Wochenende ＿＿ Berlin. | am / nach | im / zu | an / in | auf / bei | am Wochenende; nach + ciudad.
+Q | Sie fährt jeden Tag ＿＿ Arbeit. | zur | nach | in der | am | Ir al trabajo: zur Arbeit.
+Q | Er hat ein Haus ＿＿ Land gekauft. | auf dem | im | in das | zum | Lugar (Wo?): auf dem Land.
+Q | Das Bild hängt ＿＿ der Wand. | an | auf | in | bei | Superficie vertical: an der Wand.
+Q | Sie legt das Buch ＿＿ den Tisch. | auf | an | bei | im | Wohin? + Akkusativ: auf den Tisch.
+Q | Der Lehrer lobte ＿＿ Schüler. | den | dem | der | des | Loben + Akkusativ.
+Q | Er hilft ＿＿ Freund. | seinem | seinen | sein | seines | Helfen + Dativ.
+Q | Trotz ＿＿ Regens gingen wir spazieren. | des | der | dem | den | Trotz + Genitiv.
+Q | Wegen ＿＿ Krankheit blieb er zu Hause. | seiner | seine | seinem | seinen | Wegen + Genitiv femenino.
+Q | Während ＿＿ Ferien haben wir viel gelesen. | der | die | dem | den | Während + Genitiv plural.
+Q | Aufgrund ＿＿ Verspätung haben wir den Anschluss verpasst. | der | die | dem | den | Aufgrund + Genitiv.
+Q | Der ＿＿ Mann ist mein Onkel. | alte | alter | alten | altes | Nominativo masculino tras artículo definido: -e.
+Q | Ich sehe einen ＿＿ Film. | interessanten | interessante | interessanter | interessantes | Akkusativ masculino tras ein-: -en.
+Q | Sie trägt ein ＿＿ Kleid. | rotes | roter | rote | roten | Neutro tras ein-: -es.
+Q | Mit ＿＿ Kindern spielt sie im Garten. | ihren | ihre | ihrem | ihrer | Dativ plural: ihren.
+Q | Das ist das Auto ＿＿ Nachbarn. | meines | mein | meinem | meinen | Genitivo masculino: meines.
+Q | Das Bild wurde ＿＿ dem Künstler gemalt. | von | durch | mit | bei | Agente personal en pasiva: von.
+Q | Die Tür wurde ＿＿ den Wind geöffnet. | durch | von | mit | bei | Causa/medio: durch.
+Q | Ich habe keine Lust, heute ins Kino ＿＿. | zu gehen | gehen zu | zu gegangen | gegangen zu | Lust haben + zu + Infinitiv: zu gehen.
+Q | Es ist wichtig, ＿＿ pünktlich zu sein. | dass man | wenn man | um man | ob man | Dass-Satz tras Es ist wichtig.
+Q | Er hat vergessen, ＿＿ Tür abzuschließen. | die | der | den | dem | Akkusativ femenino: die Tür.
+Q | Ich habe ihn nicht ＿＿ können. | erreichen | erreicht | zu erreichen | erreichte | Modal en infinitivo doble: erreichen können.
+Q | Er hat mich ＿＿ lassen. | warten | gewartet | zu warten | wartete | Lassen como modal: Ersatzinfinitiv.
+Q | Sie ＿＿ gestern nicht kommen. | konnte | kann | könnte | konnten | Präteritum de können (3.ª sing.).
+Q | Wählen Sie die Bedeutung: Er hat das Angebot abgelehnt. | Er hat es nicht angenommen. | Er hat es angenommen. | Er hat es vergessen. | Er hat es verbessert. | Ablehnen = rechazar.
+Q | Wählen Sie die Bedeutung: Das kommt nicht in Frage. | Das ist ausgeschlossen. | Das ist eine Frage. | Das ist wahrscheinlich. | Das ist bekannt. | Nicht in Frage kommen = ser imposible.
+Q | Wählen Sie die Bedeutung: Sie hat den Nagel auf den Kopf getroffen. | Sie hat genau richtig geurteilt. | Sie hat sich verletzt. | Sie hat gearbeitet. | Sie hat gelogen. | Idioma: dar en el clavo.
+Q | Wählen Sie die Bedeutung: Er hat Schwein gehabt. | Er hatte Glück. | Er hatte Hunger. | Er hatte Pech. | Er hatte ein Tier. | Schwein haben = tener suerte.
+Q | Wählen Sie die Bedeutung: Das ist mir Wurst. | Das ist mir egal. | Ich mag das. | Ich esse das. | Das ist teuer. | Idioma: me da igual.
+Q | Wählen Sie die Bedeutung: Ich verstehe nur Bahnhof. | Ich verstehe nichts. | Ich bin am Bahnhof. | Ich verstehe alles. | Ich fahre weg. | Idioma: no entiendo nada.
+Q | Wählen Sie die Bedeutung: Er ließ die Katze aus dem Sack. | Er verriet ein Geheimnis. | Er rettete eine Katze. | Er ging weg. | Er kaufte ein Tier. | Idioma: descubrir el secreto.
+Q | Wählen Sie die Bedeutung: Sie hat die Nase voll. | Sie hat genug. | Sie ist erkältet. | Sie ist müde. | Sie ist glücklich. | Die Nase voll haben = estar harta.
+Q | Wählen Sie die Bedeutung: Wir sitzen alle im selben Boot. | Wir haben dasselbe Problem. | Wir machen Urlaub. | Wir sind auf einem Schiff. | Wir sind Freunde. | Idioma: estar en el mismo barco.
+Q | Wählen Sie die Bedeutung: Er hat kalte Füße bekommen. | Er hat Angst bekommen. | Er hat gefroren. | Er ist gelaufen. | Er ist krank. | Idioma: echarse atrás por miedo.
+Q | Was bedeutet 'anpassen'? | sich einer Situation angleichen | zerstören | vergessen | verkaufen | Sich anpassen = adaptarse.
+Q | Was bedeutet 'Vorstellungsgespräch'? | Bewerbungsgespräch | Theaterstück | Einkauf | Prüfung | Entrevista de trabajo.
+Q | Was bedeutet 'nachhaltig'? | langfristig wirksam und ressourcenschonend | sehr schnell | teuer | kurz | Nachhaltig = sostenible.
+Q | Was bedeutet 'Umwelt'? | die natürliche Umgebung | das Wetter | ein Auto | ein Buch | Umwelt = medio ambiente.
+Q | Was bedeutet 'Herausforderung'? | schwierige Aufgabe | Geschenk | Reise | Prüfung im Radio | Herausforderung = reto.
+Q | Was bedeutet 'Voraussetzung'? | Bedingung | Hoffnung | Ergebnis | Meinung | Voraussetzung = requisito.
+Q | Was bedeutet 'zuverlässig'? | so, dass man sich darauf verlassen kann | sehr langsam | sehr laut | unfreundlich | Zuverlässig = fiable.
+Q | Was bedeutet 'Erfahrung'? | Wissen aus eigenem Erleben | Ausflug | Schulbuch | Ergebnis | Erfahrung = experiencia.
+Q | Was bedeutet 'Gesellschaft'? | Gemeinschaft von Menschen | Firma nur | Geschenk | Reise | Gesellschaft = sociedad.
+Q | Was bedeutet 'beeinflussen'? | auf etwas einwirken | wegwerfen | erfinden | vergessen | Beeinflussen = influir.
+Q | Was bedeutet 'vorschlagen'? | eine Idee nennen | ablehnen | schreiben | rennen | Vorschlagen = proponer.
+Q | Was bedeutet 'Ansicht'? | Meinung | Fahrzeug | Fenster | Bruder | Ansicht = opinión.
+Q | Was bedeutet 'Verantwortung'? | Pflicht, für etwas einzustehen | Reise | Sport | Getränk | Verantwortung = responsabilidad.
+Q | Was bedeutet 'Ereignis'? | Vorfall | Hausaufgabe | Beruf | Farbe | Ereignis = suceso.
+Q | Was bedeutet 'Auswirkung'? | Folge | Ursache | Vorschlag | Mahlzeit | Auswirkung = consecuencia.
+Q | Bilden Sie das Nomen: Die ＿＿ des Projekts dauerte zwei Jahre. (durchführen) | Durchführung | Durchführen | Durchführer | Durchgeführt | Sustantivo en -ung: Durchführung.
+Q | Bilden Sie das Nomen: Seine ＿＿ war beeindruckend. (leisten) | Leistung | Leistend | Leister | Geleistet | Leistung = rendimiento.
+Q | Bilden Sie das Adjektiv: Das Ergebnis war ＿＿. (erfolg) | erfolgreich | erfolgig | erfolgreiche | erfolgen | Adjetivo: erfolgreich.
+Q | Bilden Sie das Adjektiv: Die Lösung ist ＿＿. (denken) | denkbar | denklich | denkend zu | gedenkt | Sufijo -bar: denkbar (concebible).
+Q | Bilden Sie das Adverb: Er hat sich ＿＿ verhalten. (vernunft) | vernünftig | Vernunft | vernünftige | vernünftigt | Adjetivo/adverbio: vernünftig.
+Q | Bilden Sie das Nomen: Die ＿＿ der Regierung wurde kritisiert. (entscheiden) | Entscheidung | Entscheider | Entscheiden | Entschieden | Entscheidung.
+Q | Bilden Sie das Nomen: Die ＿＿ zwischen den Parteien dauerte lange. (verhandeln) | Verhandlung | Verhandler | Verhandelt | Verhandeln von | Verhandlung = negociación.
+Q | Bilden Sie das Adjektiv: Es ist ＿＿, dass er kommt. (wahrscheinlich) | wahrscheinlich | Wahrscheinlichkeit | wahrscheinlicher weise | wahren | Adjetivo: wahrscheinlich.
+Q | Bilden Sie das Nomen: Die ＿＿ der Kinder ist wichtig. (erziehen) | Erziehung | Erzieher der | Erzogen | Erziehen ist | Erziehung = educación.
+Q | Bilden Sie das Adjektiv: Sie ist eine sehr ＿＿ Person. (freund) | freundliche | freundlich zu | Freundschaft | befreundet ist | Adjetivo declinado: freundliche.
+Q | Wie heißt es richtig? Er hat sich ＿＿ entschuldigt. | bei ihr | ihr | ihrer | für ihr | Sich entschuldigen bei + Dativ.
+Q | Wie heißt es richtig? Sie interessiert sich ＿＿ Kunst. | für | an | auf | über | Sich interessieren für.
+Q | Wie heißt es richtig? Er ist stolz ＿＿ seine Tochter. | auf | für | über | an | Stolz sein auf.
+Q | Wie heißt es richtig? Wir sind ＿＿ Erfolg überzeugt. | vom | für den | zu dem | an dem | Überzeugt sein von.
+Q | Wie heißt es richtig? Er leidet ＿＿ Rückenschmerzen. | unter | auf | für | zu | Leiden unter (síntoma) / an (enfermedad); unter Rückenschmerzen es habitual.
+Q | Wie heißt es richtig? Sie verzichtet ＿＿ ihr Gehalt. | auf | für | an | über | Verzichten auf.
+Q | Wie heißt es richtig? Ich rechne ＿＿ deiner Hilfe. | mit | auf | an | für | Rechnen mit.
+Q | Wie heißt es richtig? Das hängt ＿＿ vielen Faktoren ab. | von | an | für | um | Abhängen von.
+Q | Wie heißt es richtig? Sie beschwert sich ＿＿ den Service. | über | für | auf | an | Sich beschweren über.
+Q | Wie heißt es richtig? Wir sprechen ＿＿ das Thema morgen. | über | für | an | zu | Sprechen über.
+Q | Wie heißt es richtig? Er hat mich ＿＿ seine Absicht informiert. | über | für | auf | an | Informieren über.
+Q | Wie heißt es richtig? Ich habe mich ＿＿ die Regeln gehalten. | an | auf | über | zu | Sich halten an.
+Q | Wie heißt es richtig? Er glaubt ＿＿ seinen Erfolg. | an | über | für | auf | Glauben an + Akkusativ.
+Q | Wie heißt es richtig? Sie träumt ＿＿ einer Weltreise. | von | über | auf | für | Träumen von.
+Q | Wie heißt es richtig? Es handelt sich ＿＿ ein Missverständnis. | um | über | von | an | Sich handeln um.
+Q | Wie heißt es richtig? Die Teilnehmer haben sich ＿＿ die Regeln geeinigt. | auf | über | an | für | Sich einigen auf.
+Q | Wie heißt es richtig? Sie fürchtet sich ＿＿ dem Hund. | vor | auf | über | für | Sich fürchten vor.
+Q | Wie heißt es richtig? Er bedankte sich ＿＿ ihr für die Hilfe. | bei | für | an | zu | Sich bedanken bei jemandem.
+Q | Wie heißt es richtig? Wir haben ＿＿ Unterschied bemerkt. | einen | einem | eines | ein | Bemerken + Akkusativ masculino.
+Q | Wie heißt es richtig? Wir sind ＿＿ dem Ergebnis gekommen, dass die Studie fehlerhaft war. | zu | an | auf | bei | Zu einem Ergebnis kommen.
+Q | Wie heißt es richtig? Ich habe ＿＿ Angst vor Spinnen. | große | großen | großer | großes | Femenino singular sin artículo: große Angst.
+Q | Wie heißt es richtig? Trotz ＿＿ Kritik blieb sie ruhig. | der | die | den | dem | Trotz + Genitiv femenino.
+Q | Wie heißt es richtig? Das ist die Frau, ＿＿ ich gestern gesehen habe. | die | der | den | dem | Relativo acusativo femenino: die.
+Q | Wie heißt es richtig? Das Buch, ＿＿ ich lese, ist spannend. | das | dem | den | die | Relativo acusativo neutro: das.
+Q | Wie heißt es richtig? Die Kollegen, mit ＿＿ ich arbeite, sind nett. | denen | die | denen die | deren | Relativo dativo plural tras mit: denen.
+Q | Wie heißt es richtig? Der Grund, ＿＿ er kam, ist unbekannt. | warum | wenn | worauf | als | Relativo adverbial: warum.
+Q | Wie heißt es richtig? Alles, ＿＿ er sagt, stimmt. | was | das | dem | wer | Tras alles: was.
+Q | Wie heißt es richtig? ＿＿ er kam, war es schon dunkel. | Als | Wenn | Ob | Dass | Als para un evento único pasado.
+Q | Wie heißt es richtig? ＿＿ ich Kind war, spielte ich oft draußen. | Wenn | Als | Ob | Falls | Wenn para acción repetida en el pasado (siempre que).
+Q | Wie heißt es richtig? Ich rufe dich an, ＿＿ ich zu Hause bin. | sobald | obwohl | damit | weil nicht | Sobald = en cuanto (temporal).
+Q | Wie heißt es richtig? Bevor er ging, ＿＿ er sich. | verabschiedete | hat verabschieden | verabschiedet er | verabschiedeten | Präteritum en subordinada principal: verabschiedete er sich.
+Q | Wie heißt es richtig? Er arbeitet, ＿＿ er sich eine Wohnung leisten kann. | damit | um | dass | ob | Damit + sujeto expreso.
+Q | Wie heißt es richtig? Sie tut so, ＿＿ ob sie schliefe. | als | wie | wenn | dass | Als ob + Konjunktiv II.
+Q | Wie heißt es richtig? Er wird wohl krank ＿＿. | sein | ist | war | wäre gewesen | Vermutung: wird wohl + Infinitiv.
+Q | Wie heißt es richtig? Sie soll sehr reich ＿＿. | sein | ist | war sein | gewesen sein worden | Soll + Infinitiv = se dice que.
+Q | Wie heißt es richtig? Er dürfte bald da ＿＿. | sein | ist | wäre | gewesen | Dürfte + Infinitiv expresa probabilidad.
+Q | Wie heißt es richtig? Das kann er nicht gewusst ＿＿. | haben | hat | worden | werden | Modal en pasado: gewusst haben.
+Q | Wie heißt es richtig? Ich muss mich ＿＿ die Prüfung vorbereiten. | auf | für | an | von | Sich vorbereiten auf.
+Q | Wie heißt es richtig? Hätten Sie ＿＿ Zeit für ein Gespräch? | einen Moment | ein Moment | einem Moment | eines Moment | Akkusativ masculino.
+Q | Wie heißt es richtig? Ich hätte gern einen Tisch ＿＿ zwei Personen. | für | zu | mit für | an | Reservar para: für + Akk.
+Q | Wie heißt es richtig? Er ist der Einzige, ＿＿ die Wahrheit kennt. | der | den | dem | des | Relativo nominativo masculino.
+Q | Wie heißt es richtig? Die Zahl der Studenten ＿＿ gestiegen. | ist | sind | wurde | haben | La cifra (singular): ist gestiegen.
+Q | Wie heißt es richtig? Die meisten Studenten ＿＿ zufrieden. | sind | ist | wird | hat | Die meisten + plural.
+Q | Wie heißt es richtig? Keiner der Gäste ＿＿ gekommen. | ist | sind | waren | haben | Keiner + singular: ist.
+Q | Wie heißt es richtig? Alle Gäste ＿＿ pünktlich gekommen. | sind | ist | wird | hat | Sujeto plural con sein en Perfekt.
+Q | Wie heißt es richtig? Es freut mich, ＿＿ Sie kennenzulernen. | Sie | Ihnen | Ihre | Ihrer | Kennenlernen + Akkusativ.
+Q | Wie heißt es richtig? Ich glaube, ＿＿ er Recht hat. | dass | ob | wenn | um | Dass-Satz tras glauben.
+Q | Wie heißt es richtig? Er bat mich, ihm ＿＿. | zu helfen | helfen | zu hilft | geholfen zu | Bitten + zu-Infinitiv.
+Q | Wie heißt es richtig? ＿＿ Sie mir bitte sagen, wie spät es ist? | Könnten | Können sein | Konnten | Gekonnt | Petición cortés: Könnten (Konjunktiv II).
+Q | Wie heißt es richtig? Ich möchte wissen, ＿＿ er wohnt. | wo | wohin | woher | wann sein | Pregunta indirecta con wo.
+Q | Wie heißt es richtig? Er fragte, ＿＿ ich kommen könne. | ob | dass | wenn | als | Ob = si (pregunta indirecta).
+Q | Wie heißt es richtig? Ich weiß nicht, ＿＿ er heißt. | wie | wer nach | was er | wozu | Pregunta indirecta: wie er heißt.
+Q | Wie heißt es richtig? Der Vortrag war ＿＿ interessant, dass alle zuhörten. | so | sehr wie | zu | genauso | So ..., dass = tan ... que.
+Q | Wie heißt es richtig? Das Wetter war schlecht, ＿＿ fiel das Fest aus. | deshalb | obwohl | damit | weil | Deshalb = por eso (conector).
+Q | Wie heißt es richtig? Er war krank, ＿＿ ging er zur Arbeit. | trotzdem | deshalb | weil | dass | Trotzdem = a pesar de ello.
+Q | Wie heißt es richtig? Ich habe viel gelernt, ＿＿ ich bestanden habe. | sodass | weil | obwohl | falls | Sodass = de modo que.
+Q | Wie heißt es richtig? Er hat nicht nur ein Auto, ＿＿ auch ein Boot. | sondern | aber | oder | denn | Nicht nur ... sondern auch.
+Q | Wie heißt es richtig? Ich nehme den Bus, ＿＿ das Auto kaputt ist. | weil | denn ich | deshalb | obwohl | Weil = porque (verbo al final).
+Q | Wie heißt es richtig? Ich nehme den Bus, ＿＿ das Auto ist kaputt. | denn | weil | dass | obwohl | Denn no cambia el orden.
+Q | Wie heißt es richtig? Er ist krank, ＿＿ kann er nicht kommen. | deshalb | weil | obwohl | dass | Deshalb + inversión del verbo.
+Q | Wie heißt es richtig? Er sprach so leise, ＿＿ ihn niemand verstand. | dass | damit | um | ob | So ..., dass = tan ... que (consecuencia).
+Q | Wie heißt es richtig? Ich habe die Aufgabe ＿＿ gelöst. | selbstständig | selbstständige | selbstständigen | selbstständiges | Adverbio invariable.
+Q | Wie heißt es richtig? Das war ein sehr ＿＿ Vorschlag. | guter | gutes | gut | guten | Nominativo masculino con ein-: guter.
+Q | Wie heißt es richtig? Wir haben kein ＿＿ Geld mehr. | Geld | Gelden | Gelder | Gelds | Geld es incontable.
+# reading
+@R Der Trend zur Vier-Tage-Woche verbreitet sich. Befürworter argumentieren, dass Beschäftigte konzentrierter arbeiten, wenn ihnen mehr Freizeit bleibt. Kritiker halten dagegen, dass in Branchen mit festen Öffnungszeiten, etwa im Einzelhandel oder in der Pflege, eine Verkürzung kaum umsetzbar sei. Erste Pilotprojekte deuten darauf hin, dass die Produktivität stabil bleibt, doch ob sich dies langfristig bestätigt, ist offen.
+Q | Was ist die Hauptaussage des Textes? | Die Vier-Tage-Woche ist vielversprechend, aber nicht überall machbar. | Die Vier-Tage-Woche ist gescheitert. | Alle Branchen führen sie ein. | Die Produktivität sinkt stark. | Se equilibran ventajas y límites.
+Q | Wo halten Kritiker die Verkürzung für schwierig? | im Einzelhandel und in der Pflege | in Büros | in der Schule | im Homeoffice | Branchen con horarios fijos.
+Q | Was zeigen erste Pilotprojekte? | Die Produktivität bleibt stabil. | Die Kosten steigen. | Die Beschäftigten kündigen. | Es gibt keine Ergebnisse. | Productividad estable.
+Q | Was bedeutet 'Befürworter'? | Menschen, die etwas unterstützen | Menschen, die etwas verbieten | Arbeitgeber | Kunden | Befürworter = partidarios.
+Q | Die langfristige Wirkung ist | noch unklar | bewiesen | negativ | belanglos | El texto la deja abierta.
+@@
+@R Immer mehr Städte richten Fahrradstraßen ein, auf denen Radfahrer Vorrang haben. Anwohner sind gespalten: Während die einen die ruhigere Umgebung loben, klagen andere über fehlende Parkplätze. Verkehrsplaner betonen, dass die Maßnahme nur wirkt, wenn sie in ein Gesamtkonzept eingebettet ist, das auch den öffentlichen Nahverkehr stärkt.
+Q | Wer hat auf Fahrradstraßen Vorrang? | Radfahrer | Autofahrer | Busse | Fußgänger allein | Radfahrer tienen prioridad.
+Q | Was kritisieren manche Anwohner? | fehlende Parkplätze | Lärm | hohe Kosten | zu viele Radfahrer | Falta de aparcamientos.
+Q | Wann wirkt die Maßnahme laut Planern? | wenn sie Teil eines Gesamtkonzepts ist | immer | nie | nur nachts | Debe integrarse en un concepto global.
+Q | 'gespalten' bedeutet hier | uneinig | zerbrochen | glücklich | müde | Gespalten = divididos.
+Q | Der Text ist im Ton | sachlich | empört | ironisch | begeistert | Tono objetivo.
+@@
+@R Die Autorin verzichtet in ihrem neuen Roman auf eine lineare Handlung. Stattdessen setzt sich die Geschichte aus Erinnerungsfragmenten zusammen, die der Leser selbst ordnen muss. Manche Kritiker bemängeln, das Buch verlange zu viel Geduld. Andere sehen gerade darin seinen Reiz: Es traue dem Leser etwas zu und belohne aufmerksames Lesen.
+Q | Was ist an dem Roman besonders? | Er hat keine lineare Handlung. | Er ist sehr kurz. | Er ist ein Krimi. | Er hat viele Figuren. | Fragmentos de memoria.
+Q | Was bemängeln manche Kritiker? | Das Buch verlange zu viel Geduld. | Das Buch sei zu einfach. | Das Buch sei zu teuer. | Das Buch sei zu lang. | Exige paciencia.
+Q | Worin sehen andere den Reiz? | Das Buch traue dem Leser etwas zu. | Das Buch sei unterhaltsam. | Das Buch sei leicht. | Das Buch sei neu. | Confía en el lector.
+Q | 'verzichtet auf' bedeutet | lässt weg | benutzt | kauft | liebt | Verzichten auf = renunciar a.
+Q | Der Leser muss die Fragmente | selbst ordnen | vergessen | kaufen | übersetzen | Debe ordenarlos.
+@@
+@R Ein neues Gesetz soll den Datenschutz stärken. Unternehmen müssen künftig offenlegen, welche Daten sie sammeln und zu welchem Zweck. Verbraucherschützer begrüßen das, halten die Strafen aber für zu gering, um große Konzerne abzuschrecken. Die Wirtschaft warnt dagegen vor zusätzlicher Bürokratie, die vor allem kleine Firmen belaste.
+Q | Was müssen Unternehmen künftig tun? | offenlegen, welche Daten sie sammeln | keine Daten sammeln | Daten verkaufen | Steuern zahlen | Transparenzpflicht.
+Q | Was kritisieren Verbraucherschützer? | Die Strafen sind zu gering. | Das Gesetz ist zu streng. | Das Gesetz kommt zu früh. | Es gibt keine Regeln. | Sanciones insuficientes.
+Q | Wovor warnt die Wirtschaft? | vor zusätzlicher Bürokratie | vor Steuern | vor Streiks | vor Konkurrenz | Burocracia.
+Q | Wen belastet die Bürokratie besonders? | kleine Firmen | Konzerne | Verbraucher | Behörden | Sobre todo a pequeñas empresas.
+Q | 'abschrecken' bedeutet | von etwas abhalten | anlocken | erklären | überraschen | Abschrecken = disuadir.
+@@
+@R Die Zahl der Menschen, die im Homeoffice arbeiten, hat sich seit der Pandemie dauerhaft erhöht. Studien zufolge schätzen Beschäftigte die Flexibilität, vermissen aber den spontanen Austausch mit Kollegen. Manche Unternehmen reagieren mit hybriden Modellen, bei denen feste Bürotage vorgeschrieben sind. Ob dieser Kompromiss beide Seiten zufriedenstellt, muss sich noch zeigen.
+Q | Was schätzen Beschäftigte am Homeoffice? | die Flexibilität | den Austausch | die Bürotage | die Kosten | Flexibilidad.
+Q | Was vermissen sie? | den spontanen Austausch | das Gehalt | den Chef | die Technik | Intercambio espontáneo.
+Q | Was sind hybride Modelle? | Mischung aus Büro- und Heimarbeit | reine Heimarbeit | reine Büroarbeit | Schichtarbeit | Modelo mixto.
+Q | Was ist noch offen? | ob der Kompromiss beide zufriedenstellt | ob Homeoffice existiert | ob es Studien gibt | ob Firmen reagieren | Queda por ver.
+Q | 'dauerhaft' bedeutet | auf lange Zeit | kurz | selten | plötzlich | Dauerhaft = duradero.
+@@
+@R Das Dorf hatte seine letzte Bäckerei verloren, und mit ihr einen Treffpunkt. Die Bewohner gründeten eine Genossenschaft, kauften das Gebäude und betreiben es nun gemeinsam. Der Laden macht keinen großen Gewinn, doch der Vorsitzende meint, darum gehe es nicht: Wichtig sei, dass im Ort wieder Menschen zusammenkämen.
+Q | Was ging im Dorf verloren? | die letzte Bäckerei | die Schule | die Kirche | der Bahnhof | Perdieron la última panadería.
+Q | Wie wurde der Laden gerettet? | durch eine Genossenschaft der Bewohner | durch die Stadt | durch einen Konzern | durch eine Spende | Cooperativa vecinal.
+Q | Was sagt der Vorsitzende über den Gewinn? | Er sei nicht das Wichtigste. | Er sei riesig. | Er sei das Ziel. | Er sei verboten. | Lo importante es reunir gente.
+Q | 'Treffpunkt' bedeutet | Ort, an dem man sich trifft | Bäckerei | Verkehrsknoten | Fest | Punto de encuentro.
+Q | Der Laden bringt | wenig Gewinn | großen Gewinn | Verlust | keinen Umsatz | Poco beneficio.
+@@
+@R Forscher haben herausgefunden, dass Bienen nicht nur durch Pestizide bedroht sind, sondern auch durch den Mangel an vielfältigen Blühpflanzen. Monokulturen liefern zwar zeitweise viel Nahrung, aber keine ausgewogene. Landwirte, die Blühstreifen anlegen, berichten von höheren Erträgen, weil mehr Insekten ihre Felder bestäuben.
+Q | Was bedroht Bienen laut dem Text außerdem? | Mangel an vielfältigen Pflanzen | zu viele Blumen | Regen | Honigproduktion | Falta de diversidad.
+Q | Was liefern Monokulturen? | zeitweise viel, aber keine ausgewogene Nahrung | dauerhaft ausgewogene Nahrung | keine Nahrung | Honig | Alimento desequilibrado.
+Q | Was berichten Landwirte mit Blühstreifen? | höhere Erträge | niedrigere Erträge | mehr Arbeit | weniger Bienen | Mayores rendimientos.
+Q | Warum steigen die Erträge? | Mehr Insekten bestäuben die Felder. | Es regnet mehr. | Es gibt mehr Dünger. | Die Felder sind größer. | Polinización.
+Q | 'bestäuben' bedeutet | Pollen übertragen | Pflanzen kaufen | ernten | wässern | Bestäuben = polinizar.
+@@
+@R Die Kommission legte einen Bericht vor, der die Ursachen der Krise nüchtern analysiert. Fehler seien auf mehreren Ebenen gemacht worden: Frühwarnsignale wurden ignoriert, Zuständigkeiten waren unklar, und die Kommunikation mit der Öffentlichkeit kam zu spät. Auf Schuldzuweisungen verzichtet der Bericht bewusst; er wolle Lehren ziehen, nicht Sündenböcke suchen.
+Q | Wie beschreibt der Text die Analyse? | nüchtern | emotional | polemisch | unvollständig | Nüchtern = sobrio.
+Q | Was wurde laut Bericht ignoriert? | Frühwarnsignale | Gesetze | Presse | Kosten | Señales de alerta.
+Q | Was fehlte bei den Zuständigkeiten? | Klarheit | Geld | Zeit | Personal allein | Falta de claridad.
+Q | Wozu dient der Bericht laut Kommission? | Lehren zu ziehen | Schuldige zu finden | Kosten zu senken | Gesetze aufzuheben | Extraer lecciones.
+Q | 'Sündenböcke' sind | Personen, denen man die Schuld zuschiebt | Tiere | Richter | Zeugen | Chivos expiatorios.
+@@
+@R Wer eine Fremdsprache lernt, macht Fehler, und das ist gut so. Sprachforscher betonen, dass Fehler zeigen, wo das Gehirn Regeln überprüft. Wer aus Angst vor Fehlern schweigt, lernt langsamer als jemand, der mutig spricht. Entscheidend sei, Rückmeldung zu bekommen und daraus zu lernen.
+Q | Was sagen Sprachforscher über Fehler? | Sie zeigen, wie das Gehirn Regeln prüft. | Sie sind schädlich. | Sie sollten vermieden werden. | Sie sind selten. | Los errores son señal de aprendizaje.
+Q | Wer lernt langsamer? | wer aus Angst schweigt | wer mutig spricht | wer viel liest | wer reist | Quien calla por miedo.
+Q | Was ist entscheidend? | Rückmeldung zu bekommen | Fehler zu vermeiden | perfekt zu sprechen | Bücher zu kaufen | Retroalimentación.
+Q | 'mutig' bedeutet | tapfer | ängstlich | leise | langsam | Mutig = valiente.
+Q | Die Haltung des Textes zu Fehlern ist | positiv | ablehnend | gleichgültig | ironisch | Positiva.
+@@
+@R Die Stadt plant, das alte Hafenviertel neu zu gestalten. Neben Wohnungen sollen Grünflächen und ein kleines Museum entstehen. Alteingesessene fürchten steigende Mieten und Verdrängung. Die Stadtverwaltung verspricht, dass ein Teil der Wohnungen zu festen, niedrigen Mieten vergeben wird, räumt aber ein, dass dies allein nicht ausreichen werde.
+Q | Was soll im Hafenviertel entstehen? | Wohnungen, Grünflächen und ein Museum | ein Flughafen | Fabriken | ein Stadion | Proyecto urbano.
+Q | Was fürchten Alteingesessene? | steigende Mieten und Verdrängung | Lärm | Kriminalität | Verkehr | Gentrificación.
+Q | Was verspricht die Stadtverwaltung? | Einen Teil der Wohnungen zu niedrigen Mieten | Mietfreiheit | keine Änderungen | Neubau des Hafens | Vivienda asequible.
+Q | Die Verwaltung räumt ein, dass | das allein nicht genüge | alles gelöst sei | es keine Probleme gebe | das Projekt scheitere | Admite que no basta.
+Q | 'Alteingesessene' sind | Menschen, die lange dort wohnen | Touristen | Beamte | Investoren | Residentes de larga data.
+@@
+@R Die Regisseurin gilt als Meisterin des leisen Films. In ihrem jüngsten Werk verzichtet sie fast vollständig auf Musik und lässt stattdessen Alltagsgeräusche sprechen. Das Publikum reagierte zunächst irritiert, doch nach wenigen Minuten, so schreibt ein Kritiker, gerate man in einen Sog, dem man sich kaum entziehen könne.
+Q | Wofür ist die Regisseurin bekannt? | für leise Filme | für Actionfilme | für Komödien | für Dokumentationen | Meisterin des leisen Films.
+Q | Worauf verzichtet sie im neuen Film? | fast ganz auf Musik | auf Bilder | auf Schauspieler | auf Text | Sin música.
+Q | Wie reagierte das Publikum zunächst? | irritiert | begeistert | gelangweilt | wütend | Irritado.
+Q | Was passiert laut Kritiker nach wenigen Minuten? | Man wird hineingezogen. | Man schläft ein. | Man geht. | Man lacht. | Sog = atracción.
+Q | 'Sog' bedeutet hier | starke Anziehung | Lärm | Streit | Pause | Sog = succión, atracción.
+@@
+@R Der Wirtschaftsforscher warnt vor einer Überhitzung des Immobilienmarkts. Zwar seien die Zinsen gestiegen, doch die Nachfrage in Ballungsräumen bleibe hoch. Er empfiehlt, die Wohnungsknappheit an der Wurzel zu packen, also mehr zu bauen, statt Käufer mit Zuschüssen zu unterstützen, die nur die Preise weiter antreiben würden.
+Q | Wovor warnt der Forscher? | Überhitzung des Immobilienmarkts | Deflation | Arbeitslosigkeit | Inflation der Löhne | Sobrecalentamiento.
+Q | Was bleibt trotz höherer Zinsen hoch? | die Nachfrage | das Angebot | die Löhne | die Steuern | Demanda alta.
+Q | Was empfiehlt er? | mehr bauen | Zuschüsse erhöhen | Zinsen senken | Steuern erhöhen | Construir más.
+Q | Warum lehnt er Zuschüsse ab? | Sie treiben die Preise. | Sie sind zu teuer für Käufer. | Sie sind illegal. | Sie senken Preise. | Elevan precios.
+Q | 'an der Wurzel packen' bedeutet | die Ursache angehen | ausgraben | vermeiden | verschieben | Ir a la raíz.
+@@
+@R Beim Übersetzen literarischer Texte geht es selten um Wort-für-Wort-Entsprechungen. Vielmehr muss der Übersetzer den Ton, den Rhythmus und die Untertöne eines Werkes in eine andere Sprache übertragen. Das gelingt nie vollständig, weshalb manche Fachleute Übersetzen eher als Neuschöpfung denn als Kopie betrachten.
+Q | Worum geht es beim literarischen Übersetzen selten? | um Wort-für-Wort-Entsprechungen | um Ton | um Rhythmus | um Untertöne | Traducción no literal.
+Q | Was muss der Übersetzer übertragen? | Ton, Rhythmus und Untertöne | nur den Inhalt | die Grammatik | die Seitenzahl | Tono y ritmo.
+Q | Warum sei es keine Kopie? | Es gelingt nie vollständig. | Es ist illegal. | Es ist zu teuer. | Es ist zu kurz. | Nunca es completa.
+Q | Manche Fachleute betrachten Übersetzen als | Neuschöpfung | Kopie | Handwerk ohne Kunst | Fehler | Recreación.
+Q | 'Untertöne' sind hier | mitschwingende Bedeutungen | leise Musik | Fehler | Noten | Matices.
+@@
+@R Der Berg gilt als schwer zugänglich, und doch zieht er jedes Jahr Tausende Wanderer an. Die Hütten am Weg sind im Sommer oft ausgebucht, weshalb die Betreiber raten, frühzeitig zu reservieren. Bei schlechtem Wetter sollte man nicht aufsteigen: Nebel und Gewitter haben in den vergangenen Jahren mehrere Notrufe ausgelöst.
+Q | Warum raten die Betreiber, früh zu reservieren? | Die Hütten sind oft ausgebucht. | Die Hütten sind teuer. | Die Hütten sind geschlossen. | Es gibt zu wenig Wanderer. | Reservar con tiempo.
+Q | Wann sollte man nicht aufsteigen? | bei schlechtem Wetter | im Sommer | bei Sonne | am Wochenende | Mal tiempo.
+Q | Was löste mehrere Notrufe aus? | Nebel und Gewitter | Lawinen | Schnee | Hitze | Niebla y tormentas.
+Q | Der Berg ist | schwer zugänglich, aber beliebt | leicht und einsam | gesperrt | unbekannt | Difícil pero popular.
+Q | 'ausgebucht' bedeutet | vollständig reserviert | leer | teuer | alt | Ausgebucht = completo.
+@@
+@R Die Studie untersuchte, wie Jugendliche soziale Medien nutzen. Überraschend war, dass nicht die Nutzungsdauer entscheidend für das Wohlbefinden war, sondern die Art der Nutzung: Wer aktiv kommuniziert, fühlt sich besser als jemand, der nur passiv Inhalte konsumiert. Die Autoren mahnen jedoch, das Ergebnis nicht zu verallgemeinern, da die Stichprobe klein war.
+Q | Was war überraschend? | Die Art der Nutzung ist wichtiger als die Dauer. | Jugendliche nutzen keine Medien. | Die Dauer ist entscheidend. | Alle fühlen sich schlecht. | Tipo de uso, no duración.
+Q | Wer fühlt sich besser? | wer aktiv kommuniziert | wer nur konsumiert | wer nie online ist | wer lange schläft | Uso activo.
+Q | Warum sollte man nicht verallgemeinern? | Die Stichprobe war klein. | Die Studie war falsch. | Es gab keine Ergebnisse. | Die Autoren sind unbekannt. | Muestra pequeña.
+Q | 'Stichprobe' bedeutet | ausgewählte Gruppe für eine Untersuchung | Fehler | Vermutung | Befragung ohne Ziel | Stichprobe = muestra.
+Q | Der Ton der Autoren ist | vorsichtig | übermütig | aggressiv | gleichgültig | Cautelosos.
+@@
+@R Ein Museum bietet erstmals Führungen in leichter Sprache an. Das Angebot richtet sich an Menschen mit Lernschwierigkeiten, aber auch an alle, die komplizierte Erklärungen meiden. Die Rückmeldung sei überwältigend, sagt die Leiterin, und mehrere Häuser hätten bereits angefragt, wie man das Konzept übernehmen könne.
+Q | Was bietet das Museum erstmals an? | Führungen in leichter Sprache | Nachtführungen | Kinderprogramme | Online-Kurse | Lectura fácil.
+Q | An wen richtet sich das Angebot? | an Menschen mit Lernschwierigkeiten und andere | nur an Touristen | nur an Kinder | nur an Experten | Público amplio.
+Q | Wie ist die Rückmeldung? | überwältigend | schlecht | gemischt | gering | Muy positiva.
+Q | Was möchten andere Häuser? | das Konzept übernehmen | das Museum schließen | die Preise senken | Personal abwerben | Copiar el concepto.
+Q | 'meiden' bedeutet | vermeiden | suchen | mögen | zeigen | Meiden = evitar.
+@@
+@R Die Regierung will Pflegekräfte aus dem Ausland leichter anwerben. Bürokratische Hürden bei der Anerkennung von Abschlüssen sollen abgebaut werden. Gewerkschaften begrüßen den Schritt, warnen aber davor, dass die Anwerbung die Probleme im Herkunftsland verschärfen könnte, wo selbst Fachkräfte fehlen.
+Q | Was will die Regierung erleichtern? | die Anwerbung ausländischer Pflegekräfte | Auswanderung | Studiengebühren | Renten | Reclutamiento.
+Q | Was soll abgebaut werden? | bürokratische Hürden | Arbeitsplätze | Gehälter | Sprachkurse | Barreras burocráticas.
+Q | Wovor warnen Gewerkschaften? | Verschärfung der Probleme im Herkunftsland | Streik | Lohnsenkungen | Überstunden | Fuga de cerebros.
+Q | Wie reagieren die Gewerkschaften grundsätzlich? | positiv, aber mit Vorbehalt | ablehnend | gleichgültig | begeistert ohne Kritik | Positivas con reservas.
+Q | 'Herkunftsland' ist | das Land, aus dem jemand stammt | Zielland | Hauptstadt | Nachbarland | País de origen.
+@@
+@R Der Autor beschreibt in seinem Essay, wie sich das Lesen im digitalen Zeitalter verändert hat. Wir überfliegen mehr, als dass wir vertieft lesen. Dennoch sei das nicht zwangsläufig ein Verlust: Wer Informationen schnell sichtet, könne bewusster entscheiden, welche Texte Aufmerksamkeit verdienen. Wichtig sei, beide Lesearten zu beherrschen.
+Q | Wie hat sich das Lesen verändert? | Wir überfliegen mehr. | Wir lesen langsamer. | Wir lesen nicht mehr. | Wir lesen nur Bücher. | Lectura superficial.
+Q | Ist das laut Autor nur ein Verlust? | Nein, es hat auch Vorteile. | Ja, vollständig. | Ja, aber unwichtig. | Er äußert sich nicht. | No necesariamente.
+Q | Was ist wichtig? | beide Lesearten zu beherrschen | nur tief zu lesen | nur schnell zu lesen | nicht mehr zu lesen | Dominar ambas.
+Q | 'überfliegen' bedeutet | flüchtig lesen | fliegen | übersetzen | vorlesen | Überfliegen = ojear.
+Q | Der Autor argumentiert | ausgewogen | polemisch | verzweifelt | spöttisch | Equilibrado.
+@@
+@R Die Feuerwehr warnt vor Waldbränden in diesem trockenen Sommer. Schon ein weggeworfener Zigarettenstummel könne genügen, um eine Katastrophe auszulösen. In mehreren Regionen gilt deshalb ein Rauchverbot im Wald, und Verstöße werden mit hohen Bußgeldern geahndet.
+Q | Wovor warnt die Feuerwehr? | vor Waldbränden | vor Überschwemmungen | vor Stürmen | vor Lärm | Incendios.
+Q | Was kann genügen, um einen Brand auszulösen? | ein Zigarettenstummel | ein Blitz allein | Regen | Wind | Colilla.
+Q | Was gilt in mehreren Regionen? | ein Rauchverbot im Wald | ein Wanderverbot | ein Autoverbot | ein Zeltverbot allein | Prohibición de fumar.
+Q | Was droht bei Verstößen? | hohe Bußgelder | Freiheitsstrafe immer | nichts | Ermahnung | Multas.
+Q | 'ahnden' bedeutet | bestrafen | belohnen | erklären | ansehen | Ahnden = sancionar.
+@@
+@R Als die Firma ihre Produktion ins Ausland verlagern wollte, protestierten die Beschäftigten. Nach langen Verhandlungen einigte man sich auf einen Kompromiss: Ein Teil der Fertigung bleibt im Land, dafür verzichten die Mitarbeiter auf Lohnerhöhungen der nächsten zwei Jahre. Beide Seiten sprachen von einer Lösung, mit der man leben könne, aber niemand war wirklich zufrieden.
+Q | Was wollte die Firma tun? | die Produktion ins Ausland verlagern | Personal aufstocken | Standorte schließen ohne Ersatz | Preise senken | Deslocalizar.
+Q | Wie reagierten die Beschäftigten? | Sie protestierten. | Sie kündigten. | Sie stimmten zu. | Sie streikten nicht. | Protesta.
+Q | Was ist Teil des Kompromisses? | Verzicht auf Lohnerhöhungen | Entlassungen | Neubau | Prämien | Renuncia a subidas.
+Q | Was bleibt im Land? | ein Teil der Fertigung | die ganze Firma | nichts | die Verwaltung allein | Parte de la producción.
+Q | Die Stimmung am Ende ist | resigniert | begeistert | feindlich | euphorisch | Nadie realmente satisfecho.
+@@
+@R Sie war die erste Frau, die den Lehrstuhl für Physik an der Universität übernahm. Anfangs stieß sie auf Skepsis, doch ihre Vorlesungen wurden schnell zu den meistbesuchten. Rückblickend sagt sie, dass sie sich nie als Vorbild gesehen habe: Sie habe einfach gute Physik machen wollen. Gerade diese Bescheidenheit, meinen ihre Schüler, mache sie zum Vorbild.
+Q | Was war sie als Erste? | Inhaberin des Lehrstuhls für Physik | Rektorin | Nobelpreisträgerin | Ministerin | Primera catedrática.
+Q | Wie waren ihre Vorlesungen? | die meistbesuchten | schlecht besucht | abgesagt | kurz | Muy concurridas.
+Q | Wie sieht sie sich selbst? | nicht als Vorbild | als Vorbild | als Pionierin | als Kritikerin | Se ve sin pretensión.
+Q | Was macht sie laut Schülern zum Vorbild? | ihre Bescheidenheit | ihr Ehrgeiz | ihre Rede | ihr Alter | Modestia.
+Q | 'Skepsis' bedeutet | Zweifel | Freude | Wut | Neid | Skepsis = escepticismo.
+@@
+@R Die Bibliothek wird zum Ort für Begegnungen. Neben Büchern gibt es dort nun Werkstätten, Sprachcafés und Beratungsangebote. Kritiker fürchten, dass der eigentliche Auftrag, das Verleihen von Medien, dadurch in den Hintergrund gerate. Die Leiterin entgegnet, dass gerade diese Angebote neue Besucher anzögen, die später auch Bücher entliehen.
+Q | Was gibt es neben Büchern? | Werkstätten, Sprachcafés und Beratung | Kino | Restaurants | Läden | Talleres y cafés.
+Q | Was fürchten Kritiker? | Der Kernauftrag gerate in den Hintergrund. | Die Bibliothek schließt. | Bücher werden teurer. | Es kommen zu viele Besucher. | Se descuida la función principal.
+Q | Was entgegnet die Leiterin? | Neue Angebote gewinnen neue Besucher. | Bücher sind unwichtig. | Das Konzept sei gescheitert. | Kritiker hätten recht. | Atraen a nuevos usuarios.
+Q | 'entgegnen' bedeutet | antworten | vorschlagen | gehen | fragen | Entgegnen = replicar.
+Q | 'Auftrag' bedeutet hier | zentrale Aufgabe | Bestellung | Vertrag | Reise | Auftrag = misión.
+@@
+@R Ein neues Verfahren soll helfen, Plastikmüll im Meer zu reduzieren. Spezielle Netze fangen Abfälle ab, bevor sie das offene Meer erreichen. Umweltschützer sind skeptisch: Wichtiger als das Aufräumen sei die Vermeidung von Plastik an der Quelle. Der Erfinder räumt ein, dass sein Verfahren nur eine Ergänzung sein könne, keine Lösung.
+Q | Was fangen die Netze ab? | Abfälle vor dem offenen Meer | Fische | Wellen | Boote | Residuos.
+Q | Was fordern Umweltschützer? | Vermeidung an der Quelle | mehr Netze | keine Kontrolle | Verbot des Meeres | Prevención.
+Q | Wie beurteilt der Erfinder sein Verfahren? | als Ergänzung | als einzige Lösung | als Fehler | als überflüssig | Complemento.
+Q | Umweltschützer sind | skeptisch | begeistert | gleichgültig | aggressiv | Escépticos.
+Q | 'Quelle' bedeutet hier | Ursprung | Fluss | Bericht | Buch | Quelle = fuente/origen.
+@@
+@R Viele Unternehmen setzen inzwischen auf Bewerbungen ohne Foto und Namen, um Vorurteile zu verringern. Erste Auswertungen zeigen, dass mehr Bewerber aus Minderheiten zu Gesprächen eingeladen werden. Personalverantwortliche geben allerdings zu bedenken, dass sich Diskriminierung später im Prozess, etwa im Vorstellungsgespräch, fortsetzen könne.
+Q | Was ist das Ziel anonymer Bewerbungen? | Vorurteile zu verringern | Kosten zu senken | Bewerber zu verlieren | Fotos zu sammeln | Reducir sesgos.
+Q | Was zeigen erste Auswertungen? | Mehr Bewerber aus Minderheiten werden eingeladen. | Weniger Bewerber werden eingeladen. | Es ändert sich nichts. | Alle werden eingestellt. | Más invitaciones.
+Q | Was geben Personalverantwortliche zu bedenken? | Diskriminierung könne später weitergehen. | Das Verfahren sei zu teuer. | Fotos seien wichtig. | Es gebe keine Bewerber. | Persistencia posterior.
+Q | 'Vorurteile' sind | vorgefasste Meinungen | Vorteile | Urteile eines Gerichts | Fragen | Vorurteil = prejuicio.
+Q | Der Text urteilt | vorsichtig | abfällig | euphorisch | gleichgültig | Prudente.
+@@
+@R Nach Jahren des Wachstums stagniert der Buchmarkt. Die Verlage klagen über steigende Papierpreise, während Leser zunehmend zu Hörbüchern greifen. Einige Häuser reagieren mit kleineren Auflagen und höherer Qualität. Buchhändler beobachten, dass gerade gut gestaltete Ausgaben als Geschenk gefragt sind, was Anlass zu vorsichtigem Optimismus gebe.
+Q | Wie entwickelt sich der Buchmarkt? | Er stagniert. | Er wächst stark. | Er bricht zusammen. | Er verdoppelt sich. | Estancado.
+Q | Wozu greifen Leser zunehmend? | zu Hörbüchern | zu Zeitungen | zu Comics | zu Magazinen | Audiolibros.
+Q | Wie reagieren einige Verlage? | mit kleineren Auflagen und höherer Qualität | mit Preissenkungen | mit Schließung | mit Massenproduktion | Menos tirada, más calidad.
+Q | Was ist als Geschenk gefragt? | gut gestaltete Ausgaben | Taschenbücher | E-Books | Zeitschriften | Ediciones cuidadas.
+Q | 'Auflage' bedeutet | Anzahl gedruckter Exemplare | Rechnung | Regal | Buchrücken | Auflage = tirada.
+@@
+# listening
+@L Moderatorin: Herr Krause, Sie leiten ein Start-up für Solartechnik. Wie war der Anfang? Herr Krause: Schwierig. Wir hatten eine gute Idee, aber kein Kapital. Erst als ein Investor uns vertraute, konnten wir die ersten Mitarbeiter einstellen.
+Q | Was fehlte dem Start-up am Anfang? | Kapital | eine Idee | Mitarbeiter allein | ein Büro | Faltaba capital.
+Q | Wann konnten sie Mitarbeiter einstellen? | nachdem ein Investor vertraute | sofort | nach zwei Jahren | nie | Cuando llegó un inversor.
+Q | Womit befasst sich die Firma? | Solartechnik | Software | Mode | Autos | Tecnología solar.
+Q | Herr Krause beschreibt den Anfang als | schwierig | leicht | langweilig | lustig | Difícil.
+Q | Die Moderatorin | stellt Fragen | hält einen Vortrag | verkauft Produkte | ist Investorin | Entrevistadora.
+@@
+@L Frau: Hast du gehört, dass der Zug nach Hamburg ausfällt? Mann: Nein. Was ist passiert? Frau: Ein Baum ist auf die Gleise gestürzt. Es fährt ein Schienenersatzverkehr, aber der braucht fast doppelt so lange. Mann: Dann nehme ich lieber das Auto.
+Q | Warum fällt der Zug aus? | Ein Baum liegt auf den Gleisen. | Streik | Ein Unfall | Schnee | Árbol en las vías.
+Q | Was fährt stattdessen? | ein Schienenersatzverkehr | ein Flugzeug | ein Taxi | nichts | Servicio sustitutivo.
+Q | Wie lange dauert der Ersatzverkehr? | fast doppelt so lange | halb so lange | gleich lang | drei Tage | Casi el doble.
+Q | Was entscheidet der Mann? | das Auto zu nehmen | zu Hause zu bleiben | den Bus zu nehmen | zu warten | Coche.
+Q | Wohin fährt der Zug? | nach Hamburg | nach Berlin | nach München | nach Köln | Hamburgo.
+@@
+@L Dozent: Die Digitalisierung verändert die Arbeitswelt tiefgreifend. Doch entgegen der verbreiteten Angst werden nicht nur Stellen abgebaut; es entstehen auch neue Berufe, für die es heute noch keine Bezeichnung gibt. Entscheidend ist daher die Fähigkeit, sich weiterzubilden.
+Q | Was ist die Hauptaussage? | Man muss sich weiterbilden. | Alle Stellen verschwinden. | Die Digitalisierung ist harmlos. | Es gibt keine neuen Berufe. | Formación continua.
+Q | Was entsteht neben dem Stellenabbau? | neue Berufe | neue Schulen | neue Städte | neue Gesetze | Nuevos empleos.
+Q | 'tiefgreifend' bedeutet | grundlegend | oberflächlich | schnell | leise | Tiefgreifend = profundo.
+Q | Die verbreitete Angst betrifft | Stellenabbau | Kosten | Wetter | Reisen | Miedo al desempleo.
+Q | Der Dozent ist gegenüber der Digitalisierung | ausgewogen | ablehnend | begeistert ohne Vorbehalt | ängstlich | Equilibrado.
+@@
+@L Kundin: Guten Tag, ich habe diesen Toaster vor drei Wochen gekauft, und er funktioniert nicht mehr. Verkäufer: Haben Sie den Kassenbon dabei? Kundin: Ja, hier. Verkäufer: Dann können wir ihn umtauschen oder Ihnen das Geld erstatten. Kundin: Ich hätte gern das Geld zurück.
+Q | Was ist mit dem Toaster? | Er funktioniert nicht mehr. | Er ist zu teuer. | Er ist zu groß. | Er ist gestohlen. | No funciona.
+Q | Was braucht der Verkäufer? | den Kassenbon | die Verpackung | den Ausweis | die Garantiekarte allein | Ticket.
+Q | Welche Möglichkeiten bietet er an? | Umtausch oder Erstattung | nur Reparatur | nichts | Gutschein allein | Cambio o reembolso.
+Q | Was wählt die Kundin? | das Geld zurück | einen neuen Toaster | eine Reparatur | einen Gutschein | Reembolso.
+Q | Seit wann hat sie den Toaster? | seit drei Wochen | seit drei Jahren | seit gestern | seit drei Monaten | Tres semanas.
+@@
+@L Sprecher: Guten Abend, meine Damen und Herren. In der Nacht ist mit Regen zu rechnen, im Bergland auch mit Schnee ab 1200 Metern. Morgen wird es zunächst neblig, im Tagesverlauf lockert die Bewölkung auf, und am Nachmittag scheint zeitweise die Sonne bei Höchstwerten um 14 Grad.
+Q | Wo schneit es in der Nacht? | im Bergland ab 1200 Metern | überall | an der Küste | nirgends | Nieve en montaña.
+Q | Wie beginnt der Morgen? | neblig | sonnig | stürmisch | heiß | Niebla.
+Q | Was passiert am Nachmittag? | Zeitweise scheint die Sonne. | Es schneit. | Es stürmt. | Es regnet stark. | Sol intermitente.
+Q | Wie hoch sind die Höchstwerte? | um 14 Grad | um 4 Grad | um 24 Grad | um 40 Grad | 14 grados.
+Q | Der Text ist | ein Wetterbericht | ein Werbespot | ein Interview | eine Nachricht | Boletín meteorológico.
+@@
+@L Studentin: Ich schaffe die Hausarbeit nicht bis Freitag. Betreuer: Woran liegt es? Studentin: Ich habe mehr Quellen gefunden als erwartet und weiß nicht, wie ich sie einordnen soll. Betreuer: Das ist ein gutes Problem. Beschränken Sie sich auf die wichtigsten drei, und wir verlängern die Frist um eine Woche.
+Q | Warum schafft die Studentin die Arbeit nicht? | Sie hat zu viele Quellen. | Sie ist krank. | Sie hat keine Quellen. | Sie hat keine Zeit. | Demasiadas fuentes.
+Q | Was rät der Betreuer? | sich auf drei Quellen zu beschränken | mehr Quellen zu suchen | abzugeben | aufzugeben | Limitarse a tres.
+Q | Wie lange verlängert er die Frist? | um eine Woche | um einen Monat | um einen Tag | gar nicht | Una semana.
+Q | Das Problem nennt der Betreuer | ein gutes Problem | ein Desaster | unlösbar | peinlich | Buen problema.
+Q | Die Hausarbeit ist fällig | bis Freitag | bis Montag | im Juni | morgen Nachmittag | Viernes.
+@@
+@L Reporter: Der Bürgermeister hat heute den Bau der neuen Brücke angekündigt. Die Kosten betragen rund 40 Millionen Euro. Kritiker bemängeln, das Geld fehle für Schulen. Der Bürgermeister entgegnet, dass die Brücke die Wirtschaft der ganzen Region beleben werde.
+Q | Was hat der Bürgermeister angekündigt? | den Bau einer Brücke | den Abriss einer Brücke | eine Steuer | eine Wahl | Puente nuevo.
+Q | Wie hoch sind die Kosten? | rund 40 Millionen Euro | 4 Millionen | 400 Millionen | 14 Millionen | 40 millones.
+Q | Was bemängeln Kritiker? | Das Geld fehle für Schulen. | Die Brücke sei hässlich. | Die Brücke sei zu klein. | Es gebe keine Planung. | Falta dinero para escuelas.
+Q | Wie verteidigt sich der Bürgermeister? | Die Brücke belebe die Wirtschaft. | Er schweigt. | Er streicht das Projekt. | Er verweist auf Schulen. | Beneficio económico.
+Q | Der Text ist | eine Nachrichtenmeldung | ein Gedicht | eine Werbung | ein Brief | Noticia.
+@@
+@L Mutter: Wie war dein erster Tag im neuen Job? Tochter: Anstrengend, aber gut. Alle waren nett, und mein Chef hat mir gleich ein eigenes Projekt gegeben. Mutter: Schon am ersten Tag? Tochter: Ja, ich hatte ein bisschen Angst, aber es macht Spaß, so viel Verantwortung zu haben.
+Q | Wie war der erste Tag? | anstrengend, aber gut | schlecht | langweilig | katastrophal | Cansado pero bueno.
+Q | Was gab der Chef ihr? | ein eigenes Projekt | Urlaub | eine Prämie | eine Kündigung | Proyecto propio.
+Q | Wie fühlte sie sich? | ein wenig ängstlich, aber froh | wütend | müde und traurig | gleichgültig | Miedo pero contenta.
+Q | Die Kollegen waren | nett | unfreundlich | abwesend | streng | Amables.
+Q | Wer spricht mit wem? | Tochter mit Mutter | Chef mit Mutter | Kollegin mit Chef | Freundin mit Freund | Madre e hija.
+@@
+@L Ärztin: Ihre Werte sind insgesamt gut, aber der Blutdruck ist etwas zu hoch. Ich würde vorschlagen, dass Sie mehr Bewegung in Ihren Alltag einbauen und das Salz reduzieren. In drei Monaten kontrollieren wir erneut, und falls sich nichts ändert, sprechen wir über Medikamente.
+Q | Was ist zu hoch? | der Blutdruck | der Zucker | die Temperatur | das Gewicht | Presión arterial.
+Q | Was soll der Patient tun? | mehr Bewegung, weniger Salz | Medikamente nehmen | nichts | im Bett bleiben | Ejercicio y menos sal.
+Q | Wann ist die nächste Kontrolle? | in drei Monaten | in drei Tagen | in einem Jahr | morgen | Tres meses.
+Q | Wann sprechen sie über Medikamente? | falls sich nichts ändert | sofort | nie | im nächsten Jahr | Si no cambia.
+Q | Die Werte sind insgesamt | gut | schlecht | gefährlich | unklar | Buenos.
+@@
+@L Reisebüro: Ihr Flug nach Wien wurde leider gestrichen. Wir können Sie auf den Flug am Donnerstag umbuchen, oder Sie erhalten den vollen Preis zurück. Kunde: Donnerstag ist zu spät, ich habe am Mittwoch einen Termin. Reisebüro: Dann bleibt nur die Erstattung, und Sie müssten selbst einen neuen Flug buchen.
+Q | Was ist mit dem Flug passiert? | Er wurde gestrichen. | Er wurde verspätet. | Er wurde vorverlegt. | Er wurde verkauft. | Cancelado.
+Q | Was schlägt das Reisebüro vor? | Umbuchung oder Erstattung | Zugreise | Hotel | Gutschein | Cambio o reembolso.
+Q | Warum passt Donnerstag nicht? | Der Kunde hat mittwochs einen Termin. | Er ist krank. | Er hat kein Geld. | Er fliegt nicht gern. | Cita el miércoles.
+Q | Was bleibt am Ende? | die Erstattung | die Umbuchung | ein Gutschein | Entschädigung | Reembolso.
+Q | Das Reiseziel ist | Wien | Berlin | Zürich | Prag | Viena.
+@@
+@L Trainer: Ihr habt in der ersten Halbzeit gut gespielt, aber ihr habt zu viele Bälle verloren. In der zweiten Hälfte müsst ihr ruhiger werden und die Räume besser nutzen. Kapitän: Und wenn sie hoch pressen? Trainer: Dann spielen wir lange Bälle auf die Flügel.
+Q | Was lobt der Trainer? | die erste Halbzeit | die Abwehr | die Fans | das Wetter | Primer tiempo.
+Q | Was kritisiert er? | zu viele Ballverluste | zu wenig Laufen | Streit | Verspätung | Pérdidas de balón.
+Q | Was sollen die Spieler tun? | ruhiger werden | schneller rennen | hoch pressen | aufgeben | Calma.
+Q | Was passiert, wenn der Gegner hoch presst? | lange Bälle auf die Flügel | Rückzug | Wechsel | Pause | Balones largos.
+Q | Wer stellt die Frage? | der Kapitän | der Trainer | ein Fan | der Schiedsrichter | Capitán.
+@@
+@L Journalistin: Wie erklären Sie den Erfolg Ihrer Partei? Politikerin: Wir haben konkrete Lösungen angeboten, statt Ängste zu schüren. Journalistin: Aber Ihre Gegner sagen, Sie hätten kein Finanzierungskonzept. Politikerin: Das stimmt nicht. Es liegt auf dem Tisch, man muss es nur lesen.
+Q | Wie erklärt die Politikerin den Erfolg? | konkrete Lösungen statt Ängste | Werbung | Glück | Geld | Soluciones concretas.
+Q | Was werfen Gegner ihr vor? | kein Finanzierungskonzept | Lügen | Korruption | Untätigkeit | Sin plan de financiación.
+Q | Wie reagiert sie? | Sie widerspricht. | Sie gibt zu. | Sie schweigt. | Sie geht. | Lo niega.
+Q | Der Ton der Politikerin ist | selbstbewusst | ängstlich | gleichgültig | traurig | Segura.
+Q | Was liegt 'auf dem Tisch'? | das Finanzierungskonzept | ein Vertrag | ein Buch | eine Rechnung | Plan disponible.
+@@
+@L Ansage: Sehr geehrte Fahrgäste, wegen einer Weichenstörung verspätet sich der ICE 574 nach München um etwa zwanzig Minuten. Wir bitten um Entschuldigung. Reisende nach Augsburg nutzen bitte den Regionalzug auf Gleis 7, der in fünf Minuten abfährt.
+Q | Warum verspätet sich der ICE? | Weichenstörung | Streik | Unfall | Wetter | Avería de agujas.
+Q | Wie lange dauert die Verspätung? | etwa zwanzig Minuten | zwei Stunden | fünf Minuten | eine Stunde | Veinte minutos.
+Q | Wohin fährt der ICE? | nach München | nach Augsburg | nach Köln | nach Wien | Múnich.
+Q | Was sollen Reisende nach Augsburg tun? | den Regionalzug auf Gleis 7 nutzen | warten | ein Taxi nehmen | den ICE nehmen | Tren regional.
+Q | Wann fährt der Regionalzug ab? | in fünf Minuten | in einer Stunde | sofort | gar nicht | Cinco minutos.
+@@
+@L Herr: Ich möchte mich über den Lärm beschweren. Gestern Nacht wurde bis drei Uhr gefeiert. Nachbarin: Das tut mir sehr leid. Es war der Geburtstag meines Sohnes, und wir haben nicht bedacht, wie weit man es hört. Herr: Ich verstehe, aber das darf sich nicht wiederholen. Nachbarin: Selbstverständlich, ich werde es weitergeben.
+Q | Worüber beschwert sich der Mann? | über Lärm | über Müll | über Parkplätze | über die Miete | Ruido.
+Q | Warum wurde gefeiert? | Geburtstag des Sohnes | Hochzeit | Silvester | Einzug | Cumpleaños.
+Q | Wie reagiert die Nachbarin? | entschuldigend | trotzig | wütend | gleichgültig | Se disculpa.
+Q | Was fordert der Mann? | dass es sich nicht wiederholt | Geld | eine Anzeige | Umzug | No repetir.
+Q | Wie lange wurde gefeiert? | bis drei Uhr | bis zehn | bis Mitternacht | bis fünf | Tres.
+@@
+@L Professorin: Der Klimawandel ist kein Problem der Zukunft, sondern der Gegenwart. Extremwetter nehmen zu, Ernten fallen aus, und Küstenregionen sind gefährdet. Zwar lässt sich die Entwicklung nicht vollständig aufhalten, doch jedes Zehntelgrad weniger Erwärmung verringert die Folgen spürbar.
+Q | Wann ist der Klimawandel ein Problem laut Professorin? | schon in der Gegenwart | nur in der Zukunft | nie | in 100 Jahren | Ya presente.
+Q | Was nimmt zu? | Extremwetter | Ernten | Küsten | Regen allein | Fenómenos extremos.
+Q | Kann man die Entwicklung aufhalten? | nicht vollständig | vollständig | gar nicht | nur im Norden | No del todo.
+Q | Was verringert die Folgen? | jedes Zehntelgrad weniger Erwärmung | mehr Autos | mehr Industrie | Nichtstun | Cada décima cuenta.
+Q | Der Ton der Professorin ist | eindringlich | fröhlich | ironisch | gleichgültig | Enfático.
+@@
+@L Frau: Ich überlege, meine Wohnung zu verkaufen. Mann: Wirklich? Du hast sie doch erst renoviert. Frau: Eben deshalb. Der Wert ist gestiegen, und die Zinsen sind noch moderat. Ich könnte mit dem Erlös etwas Kleineres im Zentrum kaufen. Mann: Klingt vernünftig, aber pass auf, dass du nicht überstürzt handelst.
+Q | Was überlegt die Frau? | ihre Wohnung zu verkaufen | ein Haus zu mieten | umzuziehen ohne Verkauf | zu heiraten | Vender.
+Q | Warum jetzt? | Der Wert ist gestiegen. | Sie braucht Geld nicht. | Sie hasst die Wohnung. | Es gibt Streit. | Ha subido de valor.
+Q | Was möchte sie kaufen? | etwas Kleineres im Zentrum | ein Haus auf dem Land | ein Auto | ein Grundstück | Piso pequeño céntrico.
+Q | Was rät der Mann? | nicht überstürzt zu handeln | sofort zu verkaufen | nichts zu tun | zu warten fünf Jahre | Cautela.
+Q | Die Wohnung wurde | kürzlich renoviert | vermietet | verkauft | zerstört | Recién reformada.
+@@
+@L Mitarbeiter: Der Bericht ist fertig, aber ich habe bei den Zahlen ein ungutes Gefühl. Chefin: Warum? Mitarbeiter: Die Umsätze im dritten Quartal sind so stark gestiegen, dass ich einen Eingabefehler vermute. Chefin: Dann prüfen Sie das bitte, bevor der Bericht rausgeht.
+Q | Was beunruhigt den Mitarbeiter? | die starken Umsatzzahlen | das Layout | die Frist | der Titel | Cifras sospechosas.
+Q | Was vermutet er? | einen Eingabefehler | Betrug | Diebstahl | einen Virus | Error de entrada.
+Q | Was verlangt die Chefin? | Prüfung vor Versand | Sofortversand | Entlassung | Neuschreiben | Revisar.
+Q | Für welches Quartal sind die Zahlen? | das dritte | das erste | das zweite | das vierte | Tercer trimestre.
+Q | Der Bericht ist | fertig | nicht begonnen | verloren | veröffentlicht | Terminado.
+@@
+@L Stimme: Sie haben die Mailbox von Frau Berger erreicht. Ich bin bis zum 15. Mai nicht im Büro. In dringenden Fällen wenden Sie sich bitte an meinen Kollegen, Herrn Lang, unter der Nummer 4 5 6 7. Ich werde Ihre Nachricht nach meiner Rückkehr beantworten.
+Q | Bis wann ist Frau Berger nicht im Büro? | bis zum 15. Mai | bis Ende Mai | bis morgen | bis Montag | 15 de mayo.
+Q | An wen wendet man sich in dringenden Fällen? | an Herrn Lang | an Frau Berger | an die Zentrale | an den Chef | Sr. Lang.
+Q | Wann beantwortet sie die Nachricht? | nach ihrer Rückkehr | sofort | nie | morgen | Al volver.
+Q | Was ist das für ein Text? | eine Mailbox-Ansage | ein Werbespot | ein Brief | ein Gespräch | Buzón de voz.
+Q | Die Durchwahl des Kollegen ist | 4567 | 7654 | 4576 | 5467 | Número 4567.
+@@
+@L Lehrer: Bevor wir mit dem neuen Thema beginnen, möchte ich, dass ihr in Gruppen kurz besprecht, was ihr bereits über Nachhaltigkeit wisst. Notiert drei Stichpunkte, und danach stellt jede Gruppe ein Ergebnis vor. Ihr habt zehn Minuten.
+Q | Was sollen die Schüler zuerst tun? | in Gruppen besprechen, was sie wissen | einen Test schreiben | zuhören | nach Hause gehen | Trabajo en grupo.
+Q | Wie viele Stichpunkte sollen notiert werden? | drei | zwei | fünf | zehn | Tres.
+Q | Was folgt danach? | Jede Gruppe stellt ein Ergebnis vor. | Der Lehrer prüft. | Pause. | Test. | Presentan un resultado.
+Q | Wie viel Zeit haben die Schüler? | zehn Minuten | eine Stunde | fünf Minuten | zwanzig Minuten | Diez minutos.
+Q | Das Thema ist | Nachhaltigkeit | Geschichte | Sport | Politik | Sostenibilidad.
+@@
+@L Kollegin: Der Kunde hat sich schon wieder beschwert. Kollege: Worüber diesmal? Kollegin: Er sagt, die Lieferung sei unvollständig gewesen. Dabei haben wir alles laut Liste eingepackt. Kollege: Vielleicht ist beim Transport etwas verloren gegangen. Ich rufe den Spediteur an.
+Q | Worüber beschwert sich der Kunde? | unvollständige Lieferung | Preis | Qualität | Verspätung | Entrega incompleta.
+Q | Was sagen die Kollegen zur Verpackung? | Alles wurde laut Liste eingepackt. | Es fehlte etwas. | Nichts wurde eingepackt. | Der Kunde lügt. | Según la lista.
+Q | Was vermutet der Kollege? | Verlust beim Transport | Betrug | Fehler des Kunden | Diebstahl im Lager | Pérdida en transporte.
+Q | Was will er tun? | den Spediteur anrufen | den Kunden anrufen | die Polizei rufen | kündigen | Llamar al transportista.
+Q | Der Kunde beschwert sich | schon wieder | zum ersten Mal | nie | selten | Otra vez.
+@@
+# writing
+Q | Wählen Sie den passenden Konnektor: Das Projekt ist teuer; ＿＿ lohnt es sich langfristig. | dennoch | deshalb | außerdem | nämlich | Dennoch = a pesar de ello (contraste).
+Q | Wählen Sie den passenden Konnektor: Er hat nicht gelernt. ＿＿ ist er durchgefallen. | Folglich | Trotzdem | Immerhin | Sonst | Folglich = consecuencia.
+Q | Wählen Sie den passenden Konnektor: Sie muss sich beeilen; ＿＿ verpasst sie den Zug. | andernfalls | folglich | außerdem | jedoch | Andernfalls = de lo contrario.
+Q | Wählen Sie den passenden Konnektor: Die Stadt ist schön. ＿＿ ist sie sehr teuer. | Allerdings | Deshalb | Also | Somit | Allerdings introduce una restricción.
+Q | Wählen Sie den passenden Konnektor: ＿＿ das Wetter schlecht war, fand das Fest statt. | Obwohl | Weil | Damit | Falls | Obwohl = concesión.
+Q | Wählen Sie den passenden Konnektor: Die Preise steigen; ＿＿ sinken die Löhne. | gleichzeitig | dennoch nicht | daher | nämlich | Gleichzeitig = al mismo tiempo.
+Q | Wählen Sie den passenden Konnektor: Er hat viel Erfahrung; ＿＿ ist er sehr jung. | zudem | dennoch | folglich | sonst | Zudem = además.
+Q | Wählen Sie die passende Anrede in einem formellen Brief an eine unbekannte Person. | Sehr geehrte Damen und Herren, | Hallo zusammen, | Liebe Leute, | Hi, | Saludo formal.
+Q | Wählen Sie den passenden Schluss eines formellen Briefes. | Mit freundlichen Grüßen | Bis bald | Tschüss | Ciao | Cierre formal.
+Q | Welcher Satz ist der höflichste? | Könnten Sie mir bitte mitteilen, wann die Unterlagen eintreffen? | Sag mir, wann die Sachen kommen. | Wann kommt das Zeug? | Ich will wissen, wann. | Registro formal con Konjunktiv II.
+Q | Welcher Satz passt in eine Beschwerde? | Ich bitte Sie, den Mangel umgehend zu beheben. | Ich finde alles toll. | Danke für nichts. | Egal. | Reclamación formal.
+Q | Welcher Satz ist der formellste? | Ich möchte mich für die Stelle bewerben. | Ich will den Job. | Ich hätte den Job gern, danke. | Job her! | Frase de solicitud.
+Q | Welcher Satz ist korrekt geschrieben? | Er hat sich für die Stelle beworben. | Er hat sich für die Stelle bewerbt. | Er hat sich für die Stelle beworbet. | Er hat sich für die Stelle bewirbt. | Partizip II de bewerben: beworben.
+Q | Welcher Satz ist korrekt geschrieben? | Das Ergebnis, das wir erwartet hatten, blieb aus. | Das Ergebnis das wir erwartet hatten blieb aus. | Das Ergebnis; das wir erwartet hatten, blieb aus. | Das Ergebnis, das, wir erwartet hatten blieb aus. | Coma antes y después de la relativa.
+Q | Welche Schreibweise ist richtig? | Er fährt morgen nach Berlin. | Er fährt Morgen nach Berlin. | Er fährt morgen Nach Berlin. | er fährt Morgen nach berlin. | Adverbio morgen en minúscula.
+Q | Welche Schreibweise ist richtig? | im Allgemeinen | im allgemeinen | Im allgemeinen | imallgemeinen | Im Allgemeinen se escribe con mayúscula (sustantivación).
+Q | Welche Schreibweise ist richtig? | zurzeit | zur zeit | zu Zeit | zuzeit | Zurzeit (actualmente) junto.
+Q | Ich hoffe, ＿＿ du bald wieder gesund bist. | dass | das | daß | dasz | Conjunción subordinante: dass.
+Q | Welche Schreibweise ist richtig? | im Grunde genommen | im grunde genommen | Im grunde Genommen | imgrunde genommen | Locución con Grunde en mayúscula (sustantivo).
+Q | Welches Wort ist richtig geschrieben? | Adresse | Addresse | Adrese | Adreße | Adresse con una d.
+Q | Welches Wort ist richtig geschrieben? | Bibliothek | Bibliotek | Biblioteck | Bibliothehk | Bibliothek con th.
+Q | Welches Wort ist richtig geschrieben? | Standard | Standart | Stantard | Standhard | Standard.
+Q | Welches Wort ist richtig geschrieben? | vielleicht | vieleicht | fieleicht | vieleich | Vielleicht.
+Q | Welches Wort ist richtig geschrieben? | Entschuldigung | Endschuldigung | Entschuldigunk | Entschuldichung | Entschuldigung.
+Q | Welcher Satz enthält keinen Fehler? | Dem Kind wurde ein Buch geschenkt. | Das Kind wurde ein Buch geschenkt. | Dem Kind wurde einem Buch geschenkt. | Dem Kinde ward ein Buch geschenken. | Dativ + Passiv.
+Q | Welcher Satz enthält keinen Fehler? | Obwohl er müde war, arbeitete er weiter. | Obwohl er war müde, arbeitete er weiter. | Obwohl er müde war, er arbeitete weiter. | Obwohl er müde war arbeitete er. weiter. | Verbo al final y verbo conjugado en la principal.
+Q | Welcher Satz enthält keinen Fehler? | Ich habe gestern einen interessanten Vortrag gehört. | Ich habe gestern ein interessanten Vortrag gehört. | Ich habe gestern einen interessante Vortrag gehört. | Ich habe gestern einen interessanten Vortrag gehören. | Concordancia adjetivo y Partizip II.
+Q | Welcher Satz enthält keinen Fehler? | Er interessiert sich dafür, wie das funktioniert. | Er interessiert sich dafür, wie funktioniert das. | Er interessiert sich dafür, wie das funktioniert wird. | Er interessiert sich dafür wie, das funktioniert. | Subordinada con verbo al final.
+Q | Welcher Satz enthält keinen Fehler? | Wenn ich Zeit habe, rufe ich dich an. | Wenn ich habe Zeit, rufe ich dich an. | Wenn ich Zeit habe, ich rufe dich an. | Wenn ich Zeit habe rufe dich ich an. | Orden verbal.
+Q | Welcher Satz enthält keinen Fehler? | Sie hat mir erzählt, dass sie umziehen wird. | Sie hat mir erzählt, dass sie wird umziehen. | Sie hat mir erzählt, dass sie umziehen wurde. | Sie hat mir erzählt, dass umziehen sie wird. | Verbo auxiliar al final.
+Q | Formen Sie um: 'Man muss die Tür schließen.' | Die Tür muss geschlossen werden. | Die Tür wird geschlossen müssen. | Die Tür muss schließen werden. | Die Tür wurde geschlossen müssen. | Pasiva con modal.
+Q | Formen Sie um: 'Man hat den Fehler entdeckt.' | Der Fehler wurde entdeckt. | Der Fehler hat entdeckt. | Der Fehler ist entdecken. | Der Fehler wird entdeckt worden. | Pasiva de Präteritum.
+Q | Formen Sie um: 'Weil es regnet, bleiben wir zu Hause.' | Es regnet, deshalb bleiben wir zu Hause. | Es regnet, deshalb wir bleiben zu Hause. | Es regnet, weil bleiben wir zu Hause. | Es regnet, dass bleiben wir zu Hause. | Deshalb + verbo en segunda posición.
+Q | Formen Sie um: 'Sie sagte: Ich bin müde.' | Sie sagte, sie sei müde. | Sie sagte, ich bin müde. | Sie sagte, dass sie müde ist gewesen. | Sie sagte, sie war müde sein. | Discurso indirecto con Konjunktiv I.
+Q | Formen Sie um: 'Er sagte: Ich habe keine Zeit.' | Er sagte, er habe keine Zeit. | Er sagte, ich habe keine Zeit. | Er sagte, er hatte keine Zeit haben. | Er sagte, dass ich keine Zeit habe. | Konjunktiv I: habe.
+Q | Formen Sie um: 'Wenn ich reich wäre, würde ich reisen.' | Wäre ich reich, würde ich reisen. | Wäre ich reich, ich würde reisen. | Wenn wäre ich reich, würde ich reisen. | War ich reich, würde ich reisen. | Condicional sin wenn con inversión.
+Q | Formen Sie um: 'Der Student, der gestern kam, ist krank.' | Der gestern gekommene Student ist krank. | Der gestern gekommen Student ist krank. | Der Student gestern gekommene ist krank. | Der gestern gekommenen Student ist krank. | Participio como atributo (Partizipialattribut).
+Q | Welche Formulierung ist die neutralste? | Es ist bedauerlich, dass das Treffen ausfällt. | Das ist voll blöd, dass das ausfällt. | Mist, fällt aus. | Wie doof! | Registro neutral-formal.
+Q | Welche Formulierung passt in einen Aufsatz? | Die Zahl der Studierenden ist in den letzten Jahren gestiegen. | Voll viele Studis gibt es jetzt. | Es gibt hammer viele Studenten. | Ey, mehr Leute studieren. | Registro académico.
+Q | Welche Formulierung ist die stärkste These? | Meiner Ansicht nach überwiegen die Vorteile deutlich. | Vielleicht ist es gut. | Man kann sagen irgendwie. | Es gibt Vor- und Nachteile. | Postura clara.
+Q | Welche Einleitung passt zu einem Aufsatz über Klimaschutz? | Der Klimaschutz gehört zu den zentralen Herausforderungen unserer Zeit. | Ich schreibe über Klima. | Klima ist Klima. | Hallo, heute Klima. | Introducción formal.
+Q | Welcher Schlusssatz passt zu einem Aufsatz? | Zusammenfassend lässt sich sagen, dass Klimaschutz unverzichtbar ist. | Und so weiter. | Das war es. | Ende. | Conclusión.
+Q | Welches Verb passt? Die Studie ＿＿ zu dem Schluss, dass ... | kommt | geht | läuft | schaut | Zu dem Schluss kommen = concluir.
+Q | Welches Verb passt? Die Firma ＿＿ einen Gewinn. | erzielt | macht auf | schafft an | bekommt aus | Einen Gewinn erzielen.
+Q | Welches Verb passt? Das Gesetz ＿＿ in Kraft. | tritt | geht | läuft | kommt | In Kraft treten.
+Q | Welches Verb passt? Wir müssen eine Entscheidung ＿＿. | treffen | machen | geben | nehmen | Eine Entscheidung treffen.
+Q | Welches Verb passt? Die Regierung ＿＿ Maßnahmen. | ergreift | nimmt | macht | gibt | Maßnahmen ergreifen.
+Q | Welches Verb passt? Er ＿＿ Verantwortung für den Fehler. | übernimmt | nimmt | macht | gibt | Verantwortung übernehmen.
+Q | Welches Verb passt? Sie ＿＿ eine wichtige Rolle. | spielt | macht | tut | hat gemacht | Eine Rolle spielen.
+Q | Welches Nomen passt? Er hat ＿＿ am Projekt. | Interesse | Lust an | Spaß zu | Freude auf | Interesse am Projekt haben.
+Q | Welches Nomen passt? Wir stehen vor einer großen ＿＿. | Herausforderung | Aufforderung | Anforderung | Erforderung | Vor einer Herausforderung stehen.
+Q | Welche Präposition passt? Das Thema wurde ＿＿ der Sitzung diskutiert. | in | bei | mit | an | In der Sitzung.
+Q | Welche Präposition passt? Sie hat ＿＿ Erfolg gerechnet. | mit | auf | an | für | Rechnen mit.
+Q | Welche Präposition passt? Der Text handelt ＿＿ Migration. | von | über | um | an | Handeln von = tratar de.
+Q | Welche Präposition passt? Er wies ＿＿ das Problem hin. | auf | an | für | über | Hinweisen auf.
+Q | Welche Präposition passt? Er beruft sich ＿＿ das Gesetz. | auf | an | für | mit | Sich berufen auf.
+Q | Welche Präposition passt? Das Ergebnis führt ＿＿ Verbesserungen. | zu | auf | an | für | Führen zu.
+Q | Welche Form ist richtig? Der Antrag wurde ＿＿. | abgelehnt | ablehnt | ablehnen | gelehnt ab | Partizip II de ablehnen.
+Q | Welche Form ist richtig? Ich habe ihn ＿＿. | eingeladen | einladet | geeinladen | einegeladen | Partizip II de einladen.
+Q | Welche Form ist richtig? Wir haben das Ziel ＿＿. | erreicht | geerreicht | erreichet | ereicht | Verbo inseparable: sin ge-.
+Q | Welche Form ist richtig? Es wurde ein neues Gesetz ＿＿. | verabschiedet | geverabschiedet | verabschiedert | verabschieden | Partizip II sin ge-.
+Q | Welche Form ist richtig? Er hat den Vertrag ＿＿. | unterschrieben | geunterschrieben | unterschreibt | unterschreiben | Partizip II de unterschreiben.
+Q | Welche Form ist richtig? Der Zug ist pünktlich ＿＿. | angekommen | ankommt | geankommt | ankommen | Perfekt con sein: angekommen.
+Q | Welche Form ist richtig? Sie ist gestern früh ＿＿. | aufgestanden | aufgestand | gestanden auf | aufstehen | Partizip II de aufstehen.
+Q | Welche Form ist richtig? Hast du die Tür ＿＿? | abgeschlossen | abschließt | abgeschließt | geabschlossen | Partizip II de abschließen.
+Q | Welche Form ist richtig? Er hat sich ＿＿ entschieden. | dafür | darüber zu | wofür | dazu von | Adverbio pronominal de sich entscheiden für.
+Q | Welche Form ist richtig? Bitte ＿＿ Sie das Formular vollständig aus. | füllen | fülle | gefüllt | füllt | Imperativo formal: füllen Sie aus.
+Q | Welche Form ist richtig? ＿＿ Sie bitte leise! | Seien | Sind | Bist | Wäre | Imperativo formal de sein: Seien Sie.
+Q | Welche Form ist richtig? Ich hätte gern ＿＿ Auskunft. | eine | einen | einem | eines | Auskunft es femenino: eine.
+Q | Welche Form ist richtig? Das Ergebnis der Wahl ＿＿ morgen bekannt gegeben. | wird | wurde | worden | ist | Futuro con presente pasivo.
+Q | Welche Form ist richtig? Nach ＿＿ Meinung ist das falsch. | meiner | mein | meinen | meine | Nach + Dativ femenino.
+Q | Welche Form ist richtig? Wir freuen uns ＿＿ Ihre Antwort. | auf | über von | an | für | Sich freuen auf.
+Q | Welche Form ist richtig? Er ist ＿＿ als sein Bruder. | größer | mehr groß | größte | am größten | Comparativo con als.
+Q | Welche Form ist richtig? Das ist die ＿＿ Lösung. | beste | besten | gute | bester | Superlativo tras artículo definido femenino.
+Q | Welche Form ist richtig? Sie ist ＿＿ Ärztin in der Stadt. | die beste | am besten | gut | die gut | Superlativo atributivo.
+# speaking
+Q | Sie haben etwas nicht verstanden. Was sagen Sie höflich? | Entschuldigung, könnten Sie das bitte wiederholen? | Was? | Sprich lauter! | Noch mal! | Petición cortés.
+Q | Ein Kollege dankt Ihnen. Was antworten Sie? | Gern geschehen. | Bitte schön danke. | Ich danke dir zurück. | Nichts zu danken ich. | Respuesta natural.
+Q | Sie möchten höflich widersprechen. Was sagen Sie? | Da bin ich anderer Meinung, weil die Zahlen etwas anderes zeigen. | Falsch! | Quatsch. | Das ist doch Unsinn. | Desacuerdo diplomático.
+Q | Sie möchten unterbrechen. Was sagen Sie? | Entschuldigung, darf ich kurz etwas ergänzen? | Halt den Mund. | Jetzt rede ich. | Stopp. | Interrupción cortés.
+Q | Sie wollen eine Einladung ablehnen. Was sagen Sie? | Vielen Dank, aber leider habe ich schon etwas vor. | Nein. | Keine Lust. | Ich komme nicht, tschüss. | Rechazo cortés.
+Q | Sie brauchen Zeit zum Nachdenken. Was sagen Sie? | Das ist eine interessante Frage; lassen Sie mich kurz überlegen. | Weiß nicht. | Keine Ahnung. | Frag jemand anders. | Ganar tiempo.
+Q | Sie fragen nach dem Weg. Was sagen Sie? | Entschuldigung, wie komme ich am besten zum Bahnhof? | Bahnhof wo? | Sag Bahnhof! | Wo ist Bahnhof mich? | Pregunta cortés.
+Q | Sie beschweren sich im Hotel. Was sagen Sie? | Leider funktioniert die Heizung in meinem Zimmer nicht. Könnten Sie das bitte prüfen? | Die Heizung ist Müll. | Repariert das sofort. | Ihr Hotel ist schlecht. | Queja formal.
+Q | Jemand gratuliert Ihnen zur bestandenen Prüfung. Was sagen Sie? | Vielen Dank, ich freue mich sehr. | Ja, natürlich. | Das war leicht. | Ich weiß. | Respuesta natural.
+Q | Sie möchten einen Vorschlag machen. Was sagen Sie? | Wie wäre es, wenn wir den Termin verschieben? | Wir verschieben. | Termin ist verschieben. | Verschiebe du. | Sugerencia.
+Q | Sie möchten Ihre Meinung sagen. Was sagen Sie? | Meiner Meinung nach sollten wir das Projekt fortsetzen. | Ich Meinung Projekt. | Das Projekt ist Meinung. | Meinung fortsetzen. | Fórmula de opinión.
+Q | Sie möchten etwas bestätigen. Was sagen Sie? | Genau, das sehe ich genauso. | Ja nein. | Stimmt nicht. | Vielleicht so. | Acuerdo.
+Q | Sie möchten um Hilfe bitten. Was sagen Sie? | Könnten Sie mir vielleicht kurz helfen? | Hilf mir jetzt. | Du hilfst. | Hilfe geben. | Petición cortés.
+Q | Jemand entschuldigt sich für die Verspätung. Was sagen Sie? | Kein Problem, nehmen Sie doch Platz. | Das ist Ihr Problem. | Zu spät! | Schon wieder. | Respuesta comprensiva.
+Q | Sie wissen die Antwort nicht. Was sagen Sie im Vorstellungsgespräch? | Das kann ich momentan nicht sagen, aber ich informiere mich gern. | Weiß ich nicht. | Keine Ahnung. | Fragen Sie jemand anderen. | Respuesta profesional.
+Q | Sie möchten die Rechnung im Restaurant. Was sagen Sie? | Wir würden gern zahlen, bitte. | Rechnung! | Gib Rechnung. | Zahlen jetzt. | Petición cortés.
+Q | Sie möchten das Gespräch beenden. Was sagen Sie? | Es war sehr nett, mit Ihnen zu sprechen, aber ich muss leider los. | Ich gehe. | Genug geredet. | Tschüss, langweilig. | Cierre educado.
+Q | Sie möchten etwas erklären. Welche Einleitung passt? | Ich möchte kurz erläutern, wie das funktioniert. | Ich erkläre kurz wie. | Erklären ich jetzt. | Das ist so. | Introducción formal.
+Q | Sie möchten Ihre Präsentation beenden. Was sagen Sie? | Vielen Dank für Ihre Aufmerksamkeit; ich freue mich auf Ihre Fragen. | Ende. | Das war's, tschüss. | Fertig, geht jetzt. | Cierre profesional.
+Q | Sie möchten etwas betonen. Was sagen Sie? | Ich möchte betonen, dass Sicherheit an erster Stelle steht. | Sicherheit ist Sicherheit. | Betonen Sicherheit. | Ich Sicherheit. | Énfasis.
+Q | Sie möchten ein Beispiel geben. Was sagen Sie? | Ein Beispiel dafür ist die neue Buslinie. | Beispiel die Buslinie sein. | Beispiel ist Buslinie neu. | Beispielen Buslinie. | Ejemplificación.
+Q | Sie möchten Unsicherheit ausdrücken. Was sagen Sie? | Ich bin mir nicht ganz sicher, aber ich glaube, es ist Dienstag. | Es ist Dienstag nicht sicher. | Dienstag sicher nicht ich. | Ich nicht Dienstag. | Incertidumbre.
+Q | Sie möchten einen Rat geben. Was sagen Sie? | An Ihrer Stelle würde ich das Angebot annehmen. | Nimm an. | Du musst annehmen. | Angebot annehmen jetzt. | Consejo.
+Q | Sie möchten sich verabschieden. Was sagen Sie am Ende eines Geschäftsessens? | Vielen Dank für die Einladung, es war ein sehr angenehmer Abend. | Danke, tschüss. | Ich gehe nach Hause. | Essen war okay. | Despedida formal.
+Q | Sie möchten Kritik freundlich äußern. Was sagen Sie? | Ich finde, der Bericht könnte etwas ausführlicher sein. | Der Bericht ist schlecht. | Ihr Bericht taugt nichts. | Total unbrauchbar. | Crítica suave.
+Q | Sie möchten eine Zusage machen. Was sagen Sie? | Ich sorge dafür, dass der Bericht bis Montag bei Ihnen liegt. | Bericht vielleicht Montag. | Ich mache nichts versprochen. | Montag Bericht eventuell. | Promesa clara.
+Q | Sie möchten sich nach der Meinung eines anderen erkundigen. Was sagen Sie? | Wie sehen Sie das, Frau Weber? | Frau Weber, sag was. | Sagen Sie jetzt. | Was Sie denken, los. | Invitación cortés.
+Q | Sie möchten um Verständnis bitten. Was sagen Sie? | Ich bitte um Verständnis, dass wir den Termin verschieben müssen. | Verstehen Sie das. | Termin verschoben, Punkt. | Sie müssen verstehen. | Petición de comprensión.
+Q | Sie möchten Überraschung ausdrücken. Was sagen Sie? | Wirklich? Das hätte ich nicht gedacht! | Du lügst. | Unmöglich Sache. | Das ist überraschend mich. | Sorpresa.
+Q | Sie möchten etwas anbieten. Was sagen Sie? | Darf ich Ihnen einen Kaffee anbieten? | Kaffee trinken du. | Du willst Kaffee. | Nimm Kaffee. | Ofrecimiento cortés.
+Q | Jemand bietet Ihnen Hilfe an. Was antworten Sie? | Das ist sehr freundlich, danke, aber ich komme zurecht. | Ich brauche dich nicht. | Nein. | Lass mich in Ruhe. | Rechazo cortés de ayuda.
+Q | Sie möchten Ihre Meinung abschwächen. Was sagen Sie? | Es könnte sein, dass die Maßnahme nicht ausreicht. | Die Maßnahme reicht nie. | Alle wissen es. | Es ist so, Punkt. | Atenuación.
+Q | Sie möchten Vor- und Nachteile vergleichen. Was sagen Sie? | Einerseits ist es günstiger, andererseits weniger haltbar. | Günstiger und haltbar ist nicht. | Günstig oder haltbar. | Einer ist, der andere nicht. | Contraste.
+Q | Sie möchten das Thema wechseln. Was sagen Sie? | Übrigens, haben Sie schon von dem neuen Projekt gehört? | Anderes Thema jetzt. | Genug, Thema. | Thema wechseln. | Cambio de tema.
+Q | Sie möchten um eine Erklärung bitten. Was sagen Sie? | Was genau meinen Sie mit diesem Begriff? | Erklär Begriff. | Begriff was. | Ich nicht verstehe. | Aclaración.
+Q | Sie möchten eine Verabredung bestätigen. Was sagen Sie? | Dann sehen wir uns also am Donnerstag um zehn. | Donnerstag zehn also wir. | Donnerstag, ich kommen. | Am Donnerstag zehn du. | Confirmación.
+Q | Jemand erzählt von einem Unglück. Was sagen Sie? | Das tut mir sehr leid. Kann ich etwas für Sie tun? | Selbst schuld. | Ist doch egal. | So ist das Leben. | Empatía.
+Q | Sie möchten höflich um Ruhe bitten. Was sagen Sie? | Könnten Sie bitte etwas leiser sein? | Ruhe! | Sei leise! | Halt die Klappe. | Petición cortés.
+Q | Sie möchten Zustimmung einholen. Was sagen Sie? | Sind Sie damit einverstanden? | Du zustimmen? | Einverstanden Sie damit? | Ja oder was? | Pregunta de acuerdo.
+Q | Sie möchten Ihr Bedauern ausdrücken. Was sagen Sie? | Ich bedaure sehr, dass wir keine Einigung erzielen konnten. | Ich bedaure Einigung nicht. | Leid Einigung. | Keine Einigung, schade. | Pesar formal.
+Q | Sie möchten sich für eine Verspätung entschuldigen. Was sagen Sie? | Entschuldigen Sie bitte die Verspätung; der Zug hatte Verspätung. | Verspätung sorry. | Ich zu spät, ja. | Später Zug ich. | Disculpa formal.
+Q | Sie möchten etwas zusammenfassen. Was sagen Sie? | Zusammenfassend lässt sich sagen, dass wir flexibel bleiben müssen. | Zusammen wir flexibel. | Ende flexibel. | Alles flexibel Schluss. | Resumen.
+Q | Sie möchten um Bedenkzeit bitten. Was sagen Sie? | Könnte ich bis morgen darüber nachdenken? | Ich denke morgen. | Morgen nachdenken du. | Nachdenken nein. | Pedir tiempo.
+Q | Sie möchten jemanden vorstellen. Was sagen Sie? | Darf ich Ihnen meine Kollegin Frau Weber vorstellen? | Das ist Frau Weber, so. | Frau Weber, Sie. | Kollegin Weber hier. | Presentación.
+Q | Sie möchten sich bedanken für ein Geschenk. Was sagen Sie? | Das ist wirklich sehr aufmerksam von Ihnen, vielen Dank! | Danke Geschenk. | Ich habe Geschenk. | Gut, ja. | Agradecimiento.
+Q | Sie möchten eine Behauptung belegen. Was sagen Sie? | Das lässt sich anhand der aktuellen Zahlen belegen. | Das ist so, glaub mir. | Zahlen egal. | Alle sagen es. | Argumento con datos.
+Q | Sie sind am Telefon und möchten Ihre Kollegin sprechen. Was sagen Sie? | Guten Tag, könnte ich bitte Frau Weber sprechen? | Weber, jetzt! | Ich will Weber. | Gib mir Weber. | Llamada formal.
+Q | Sie möchten bei einer Besprechung das Wort ergreifen. Was sagen Sie? | Wenn ich kurz etwas anmerken darf: ... | Jetzt komme ich. | Hört mir zu! | Ich rede jetzt. | Tomar la palabra.
+Q | Sie möchten einen Termin verschieben. Was sagen Sie? | Wäre es möglich, unseren Termin auf nächste Woche zu verschieben? | Termin nächste Woche du. | Ich verschiebe Termin, ok. | Termin weg. | Petición cortés.
+Q | Sie möchten Zustimmung mit Einschränkung ausdrücken. Was sagen Sie? | Grundsätzlich stimme ich zu, allerdings sehe ich ein Risiko. | Ich stimme nicht zu, ja. | Alles ist gut, aber nein. | Ja und nein zugleich nichts. | Acuerdo con reservas.
