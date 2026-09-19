@@ -224,9 +224,9 @@ pasos:
   - "Elegir la frase que dirías en esa situación."
 enunciado: "Situación: Preguntas qué hora es. ¿Qué dices?"
 opciones_explicitas:
-  - "क्या बजा है?"
-  - "क्या समय है?"
   - "कितने बजे हैं?"
+  - "कितना बजे कहाँ?"
+  - "बजे कितने क्या?"
 respuesta: "कितने बजे हैं?"
 tipo: mc
 explicacion: "कितने बजे = ¿qué hora?"
