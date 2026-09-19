@@ -1,0 +1,595 @@
+# gramatica
+Q | Mi vidis lin ＿＿ la stratangulo. | ĉe | al | per | pro | Loko sen movo: ĉe (ĉe la stratangulo).
+Q | Ŝi sidas ＿＿ la seĝo. | sur | al | per | pri | Loko sur supraĵo: sur.
+Q | Mi skribis la leteron ＿＿ plumo. | per | kun | sen | pro | Instrumento: per.
+Q | Mi iros al la kinejo ＿＿ mia amiko. | kun | per | sen | pro | Akompano: kun.
+Q | Li venis ＿＿ mi ne scias kial. | sed | ĉar | ke | kvankam | Konjunkcio: sed.
+Q | Mi ne scias ＿＿ li venos. | ĉu | ke | ĉar | kvankam | Demando jes/ne en subfrazo: ĉu.
+Q | Mi opinias ＿＿ li pravas. | ke | ĉu | kvankam | tial | Subordigo de aserto: ke.
+Q | ＿＿ pluvis, ni iris promeni. | Kvankam | Ĉar | Kiel | Se | Koncesio: kvankam.
+Q | ＿＿ li malsanas, li ne venis. | Ĉar | Kvankam | Kvazaŭ | Tamen | Kaŭzo: ĉar.
+Q | Se mi ＿＿ riĉa, mi vojaĝus. | estus | estas | estos | estis | Kondiĉa: se…-us.
+Q | Se li ＿＿ pli frue, ni ne perdus la trajnon. | venus | venos | venis | vena | Kondiĉa se…-us.
+Q | Kiam mi ＿＿ hejmen, mi telefonos. | alvenos | alvenus | alvenis | alvenas | Estonteco: -os.
+Q | Antaŭ ol li ＿＿, li lavis la manojn. | manĝis | manĝas | manĝos | manĝus | Antaŭ ol + pasinteco.
+Q | Post kiam li ＿＿, li iris dormi. | manĝis | manĝos | manĝus | manĝas | Post kiam + pasinteco.
+Q | Dum mi ＿＿, la telefono sonoris. | laboris | laboros | laborus | laboras | Simultaneco: -is.
+Q | La viro, ＿＿ mi vidis hieraŭ, estas kuracisto. | kiun | kiu | kies | kian | Rilata pronomo, objekto: kiun.
+Q | La virino, ＿＿ filo estas kuracisto, loĝas apude. | kies | kiu | kiun | kian | Posedo: kies.
+Q | La libro, ＿＿ vi legas, estas interesa. | kiun | kiu | kies | kia | Objekto: kiun.
+Q | Mi ne scias ＿＿ vi parolas. | pri kio | pri kiu | kio | pro kio | Demando pri temo: pri kio.
+Q | Estas neniu ＿＿ povas helpi min. | kiu | kiun | kies | kian | Rilata pronomo subjekto: kiu.
+Q | Ĉio ＿＿ li diris, estis vera. | kion | kio | kiu | kies | Post ĉio: kio/kion; ĉi tie objekto: kion.
+Q | Ŝi estas tiel alta ＿＿ sia patro. | kiel | ol | ke | kvankam | Egaleco: tiel…kiel.
+Q | Li parolas pli bone ＿＿ mi. | ol | kiel | ke | kvazaŭ | Pli bone ol.
+Q | Tio estas la plej bela urbo ＿＿ la mondo. | en | de | inter | al | Superlativo: en la mondo.
+Q | Li estas la plej juna ＿＿ la klaso. | el | de | en | pri | El + grupo: la plej juna el la klaso.
+Q | La pomo estas ＿＿ la tablo. | sub | supre | super sur | ekster | Sub = sub la tablo.
+Q | Li iris ＿＿ la vilaĝo. | al | ĉe la | en | pri | Direkto: al la vilaĝo.
+Q | Mi trinkas ＿＿ trinkejo. | en | enen | tra | trans | En = ene de.
+Q | Mi iris ＿＿ la pordo. | tra | trans | per | ĉe | Tra = trapasi.
+Q | ＿＿ la nokto la stratoj estas mallaŭtaj. | Dum | Post | Per | Al | Dum + tempo.
+Q | Li laboras ＿＿ la mateno ĝis la vespero. | de | el | pri | per | De…ĝis.
+Q | Li leviĝis ＿＿ la sesa. | je | en | pri | ĉe | Je por horoj: je la sesa.
+Q | Mi pensas ＿＿ vi. | pri | de | pro | por | Pensi pri.
+Q | Ŝi ridas ＿＿ mia ŝerco. | pro | ĉe | sub | ĝis | Kaŭzo: pro.
+Q | Ni laboras ＿＿ la paco. | por | pro | pri | de | Celo: por.
+Q | La libro estas ＿＿ mi. | de | el | je | per | Posedo: de mi.
+Q | Li estas ＿＿ Hispanio. | el | de | en | pro | Origino: el.
+Q | La tablo estas farita ＿＿ ligno. | el | de | per | pri | Materialo: el.
+Q | Mi ne povas vivi ＿＿ vi. | sen | sub | kun | per | Sen = sen.
+Q | Malgraŭ la pluvo, ni ＿＿ promenis. | tamen | tial | ĉar | ke | Tamen = tamen.
+Q | Li estas malsana; ＿＿ li ne venos. | tial | tamen | kvankam | ĉar | Rezulto: tial.
+Q | Li laboras multe ＿＿ li ne estas riĉa. | kvankam | ĉar | tial | do | Koncesio.
+Q | Mi estas laca; ＿＿ mi dormas. | do | tamen | kvankam | ĉu | Konkludo: do.
+Q | La libroj ＿＿ mi aĉetis, estas bonaj. | kiujn | kiuj | kies | kian | Plurala objekto: kiujn.
+Q | Mi vidas belan ＿＿ . | domon | domo | dome | domoj | Akuzativo: domon.
+Q | Ŝi havas grandajn ＿＿ . | okulojn | okuloj | okulo | okuloin | Pluralo + akuzativo: okulojn.
+Q | Kie vi loĝas? Mi loĝas ＿＿ Berlino. | en | enen | al | Berlinon | Loko: en Berlino.
+Q | Kien vi iras? Mi iras ＿＿ . | Berlinon | Berlino | en Berlino | de Berlino | Direkto: Berlinon.
+Q | La knabo salte ＿＿ sur la tablon. | saltis | saltas | saltus | saltu | Pasinteco: saltis.
+Q | Mi volas ke vi ＿＿ . | venu | venas | venos | venus | Volitivo: venu.
+Q | Li petis ke ŝi ＿＿ la fenestron. | fermu | fermas | fermis | fermos | Peto + volitivo.
+Q | Ni ĝojas, ke vi ＿＿ ĉi tie. | estas | estu | estus | estos | Fakto post ĝoji: estas.
+Q | Estas grave, ke ni ＿＿ fruaj. | estu | estas | estis | estus | Volitivo post grave.
+Q | ＿＿ hodiaŭ estas varme! | Kiel | Kian | Kial | Kiu | Ekkria demando: kiel.
+Q | ＿＿ vi ploras? | Kial | Kiel | Kiam | Kie | Kaŭzo: kial.
+Q | ＿＿ vi naskiĝis? | Kiam | Kie | Kiel | Kiu | Temp: kiam.
+Q | ＿＿ estas via nomo? | Kio | Kiu | Kia | Kiom | Demando pri identeco: kio.
+Q | Mi havas ＿＿ libron. | ian | kian | kiam | kiun | Nedefinita: ian libron.
+Q | ＿＿ ajn venos, li estos bonvena. | Kiu | Kiun | Kio | Kiom | Kiu ajn = iu ajn.
+Q | Li ne ＿＿ trinki vinon. | volas | volo | volu | volus | Volas + infinitivo.
+Q | Mi ne ＿＿ ke li estas malsana. | sciis | scias ke | scio | scii | Preterito.
+Q | Se vi ＿＿ ĉiam, vi ne malsaniĝus. | dormus | dormas | dormos | dormis | Se + -us.
+Q | Estas la lasta fojo ＿＿ mi helpas vin. | kiam | kie | kiu | kiel | Rilata adverbo: kiam.
+Q | Mi ne scias, ＿＿ li loĝas. | kie | kien | kiel | kiam | Loko sen movo: kie.
+Q | Mi ne scias, ＿＿ li iras. | kien | kie | kiu | kiam | Direkto: kien.
+Q | Kiun ＿＿ vi vidis? | homon | homo | homoj | hom | Objekto.
+Q | Post la lernejo ni iris ＿＿ . | hejmen | hejme | hejmo | hejmis | Direkto: hejmen.
+Q | La infanoj ludas ＿＿ . | ekstere | eksteren | ekstera | ekstero | Loko: ekstere.
+Q | La infanoj kuris ＿＿ . | eksteren | ekstere | ekstera | ekstero | Direkto: eksteren.
+Q | Mi ne ＿＿ ion pri tio. | scias | scii | sciu | scio | Konjugacio.
+Q | Nenio estas pli ＿＿ ol la libereco. | valora | valoro | valore | valori | Adjektivo post estas.
+Q | Li ne estas alta, sed ankoraŭ ＿＿ pli alta ol mi. | multe | multaj | multe da | tre multe | Multe pli alta.
+Q | Mi havas ＿＿ da tempo. | multe | multa | multaj | multan | Multe da + substantivo.
+Q | Ĉu vi havas ＿＿ da mono? | iom | iomaj | iomo | iome de | Iom da mono.
+Q | Mi ne havas ＿＿ da mono. | multe | multaj | multa | multo | Multe da.
+Q | Li tre ＿＿ la lingvon Esperanto. | ŝatas | ŝato | ŝati | ŝatu | Ŝati + objekto.
+Q | La domo estas ne granda, sed ＿＿ . | komforta | komforte | komforto | komforti | Adjektivo post estas.
+Q | Li parolas ＿＿ . | rapide | rapida | rapido | rapidan | Adverbo: rapide.
+Q | Mi ne vidis lin ＿＿ la lastaj tri tagoj. | dum | de | ĉe | por | Dum + daŭro.
+Q | Li ne venis ＿＿ mi atendis lin horon. | kvankam | ĉar | tial | kvazaŭ | Koncesio.
+Q | Por ke vi ＿＿ , mi parolos malrapide. | komprenu | komprenas | komprenus | komprenos | Por ke + volitivo.
+Q | Li laboras por ＿＿ pli da mono. | gajni | gajno | gajna | gajnu | Por + infinitivo.
+Q | Li ne povis ＿＿ sen mi. | fari ĝin | faris | faras | faru | Povi + infinitivo.
+Q | Mi ĵus ＿＿ mian laboron. | finis | finas | finos | finus | Ĵus + preterito.
+Q | Li ĉiam ＿＿ tro malfrue. | alvenas | alveno | alvenu | alvenus | Ĉiam + prezenco.
+Q | ＿＿ frato loĝas en Parizo. | Mia | Mi | Min | Mian de | Posedaj vortoj: mia.
+Q | Li diris al mi ke ＿＿ hejmo estas granda. | lia | sia | ĝia | ties | Lia = de li (ne estas la subjekto de "diris").
+Q | Ili ĉiuj ＿＿ manĝis. | jam | ankoraŭ ne | neniam | ĉiam | Jam = ne plu atendante.
+Q | ＿＿ ne estas facile. | Tio | Ĝi | Ĉi | Ties | Tio = ĉi tiu afero.
+Q | Mi volas fari ĝin ＿＿ . | mem | sin | li | ĝi | Mem = persone.
+Q | Ĉu vi jam ＿＿ tion? | vidis | vidos | vidu | vidus | Jam + preterito.
+Q | Li jam ne ＿＿ pli. | povas | povu | povis | povus | Jam ne + prezenco.
+Q | Li ne estas ＿＿ . | ĉi tie | ĉi ties | ĉi kie | ĉi tion | Loko: ĉi tie.
+Q | Ĝi estas ＿＿ . | tie | tien | tiel | tiam | Loko: tie.
+Q | Bonvolu iri ＿＿ . | tien | tie | tia | tio | Direkto.
+Q | Li havas ＿＿ multe da amikoj. | tro | tre | tre da | troa | Tro multe da.
+Q | Mi ne volas ĝin ＿＿ . | vidi | vido | vidu | vidus | Volas + infinitivo.
+Q | Li estas ＿＿ ol mi. | pli aĝa | pli aĝe | pli aĝo | plej aĝa | Komparo.
+Q | Ili estas la ＿＿ knaboj. | plej bonaj | plej bona | plej bone | pli bonaj | Superlativo.
+Q | Ĉu vi konas ilin? ＿＿ , mi konas ilin. | Jes | Ne | Tiel | Tio | Jes/ne.
+Q | Kion signifas la vorto "malgaja"? | ne gaja | tre gaja | gaja | ne vera | Mal- = malo.
+Q | Kion signifas "malamiko"? | persono kiu ne amas | amiko | kunulo | ĉefo | Mal- + amiko.
+Q | Kion signifas "edzino"? | ina edzo | infano | patrino | fratino | -in-.
+Q | Kion signifas "lernejo"? | loko kie oni lernas | persono kiu lernas | ilo por lerni | la ago lerni | -ej- = loko.
+Q | Kion signifas "instruisto"? | persono kiu instruas | loko | ilo | agado | -ist- = profesio.
+Q | Kion signifas "libraro"? | kolekto de libroj | libro | librujo | librejo | -ar- = kolekto.
+Q | Kion signifas "ŝlosilo"? | ilo por ŝlosi | loko | persono | ago | -il- = ilo.
+Q | Kion signifas "legebla"? | kio povas esti legata | kio ne povas | kiu legas | kiu legis | -ebl- = eblo.
+Q | Kion signifas "manĝinda"? | inda esti manĝata | ne manĝebla | manĝanta | manĝata | -ind- = inda.
+Q | Kion signifas "bonulo"? | bona persono | bona loko | bona ilo | bona ago | -ul- = persono.
+Q | Kion signifas "grandeco"? | la stato de esti granda | granda loko | granda persono | granda ago | -ec- = eco.
+Q | Kion signifas "domego"? | tre granda domo | malgranda domo | domo de lignoj | domo sen tegmento | -eg- = grandeco.
+Q | Kion signifas "dometo"? | malgranda domo | granda domo | ĉambro | fenestro | -et- = malgrandeco.
+Q | Kion signifas "rekonstrui"? | konstrui denove | ne konstrui | konstrui malbone | detrui | re- = denove.
+Q | Kion signifas "disĵeti"? | ĵeti en ĉiuj direktoj | ĵeti unu | reĵeti | kunĵeti | dis- = disiĝo.
+Q | Kion signifas "foriri"? | iri for | reiri | veni | resti | for- = for.
+Q | Kion signifas "eklabori"? | komenci labori | fini labori | ĉesi | pli labori | ek- = komenco.
+Q | Kion signifas "misuzi"? | uzi malĝuste | uzi bone | ne uzi | reuzi | mis- = malĝuste.
+Q | Kion signifas "gepatroj"? | patro kaj patrino | nur patro | nur patrino | gefratoj | ge- = ambaŭ seksoj.
+Q | Kion signifas "boparenco"? | parenco per edziĝo | patrino | filo | avo | bo- = parenco per edziĝo.
+Q | Kion signifas "fifamo"? | malbona fama | bona fama | granda fama | eta fama | fi- = malaprobo.
+Q | La ＿＿ letero estis sendita hieraŭ. (skribi) | skribita | skribanta | skribonta | skribata | -it- = pasiva participo, pasinta.
+Q | Li estis ＿＿ leteron, kiam mi envenis. (skribi) | skribanta | skribinta | skribonta | skribita | Estis + -anta = daŭra ago.
+Q | Kiam mi alvenis, li jam ＿＿ dormanta. | estis | estas | estos | estus | Estis + -anta.
+Q | La libro ＿＿ legata de multaj homoj nun. | estas | estis | estos | estus | Estas + -ata = nun okazanta ago.
+Q | La ＿＿ ĉeesto de la prezidanto estos grava. (esti) | estonta | estanta | estinta | estata | -ont- = estonta.
+Q | Li faris tion ＿＿ mia scio. | sen | sub | trans | dum | Sen mia scio = sen scii.
+Q | ＿＿ kio vi parolas? | Pri | Al | Sen | Ĝis | Pri kio = pri kiu temo.
+Q | ＿＿ kies ordono vi agis? | Laŭ | Ĝis | Pri | Dum | Laŭ ordono = konforme.
+Q | Li konsideras sin ＿＿ heroo. | heroo | hero | herae | heroa | Predikativo post konsideri: heroo (sen prepozicio).
+Q | Mi ne povas ne ＿＿ . | rideti | ridis | ridu | ridas | Ne povi ne + infinitivo.
+Q | Ĉu vi scias, ＿＿ li venos morgaŭ? | ĉu | ke | kiel | kial | Ĉu = ĉu-jes/ne subfrazo.
+Q | Li diris, ke li ＿＿ venos. | ne | ĉu | ĉio | eĉ | Ne = negacio.
+Q | Mi ne volas ĝeni vin; ＿＿ , mi bezonas helpon. | tamen | tial | ĉar | kvazaŭ | Tamen = malgraŭ tio.
+Q | La homo, ＿＿ mi parolis, estis lerta. | kun kiu | kiun | kies | kia | Prepozicio + kiu: kun kiu.
+Q | La domo, ＿＿ mi loĝas, estas malnova. | en kiu | kiun | kies | kia | Loko: en kiu.
+Q | La knabino, pri ＿＿ mi parolis, estas mia filino. | kiu | kiun | kies | kia | Prepozicio + kiu: pri kiu.
+Q | Estas malfacile ＿＿ tiun problemon. | solvi | solvo | solvu | solvita | Adjektivo + infinitivo.
+Q | Ĝi estas facila ＿＿ fari. | por | pro | per | pri | Adjektivo + por + infinitivo.
+Q | Ĉu vi havas ion ＿＿ manĝi? | por | pro | pri | per | Por + infinitivo = celo.
+Q | Ni povas ne nur legi, ＿＿ ankaŭ skribi. | sed | ĉar | tial | ke | Ne nur…sed ankaŭ.
+Q | Ili estas ne tiel malbonaj ＿＿ mi pensis. | kiel | ol | ke | kvankam | Tiel…kiel.
+Q | Ĉu ŝi estas pli maljuna ＿＿ li? | ol | kiel | ke | kvankam | Pli…ol.
+Q | La ＿＿ de la libro estas interesa. (enhavi) | enhavo | enhavas | enhavis | enhavu | Substantivo: enhavo = kio estas en.
+Q | Li estas la homo, ＿＿ havas la ŝlosilon. | kiu | kiun | kies | kiel | Rilata pronomo sujeta: kiu.
+Q | Mi ne komprenas la vorton ＿＿ vi uzis. | kiun | kiu | kies | kiel | Objekto de uzis: kiun.
+Q | Ŝi dormas, ＿＿ ni parolu mallaŭte. | tial | ĉar | kvankam | kvazaŭ | Konsekvenco: tial.
+Q | Ju pli li lernas, ＿＿ pli li scias. | des | tiel | ĉi | nu | Ju…des…
+Q | Ju pli frue, ＿＿ pli bone. | des | jen | ol | ke | Ju…des…
+Q | Li ne nur bone parolas, sed ＿＿ bone skribas. | ankaŭ | ankoraŭ | almenaŭ | jam | Ne nur…sed ankaŭ.
+# reading
+@R Pli kaj pli da kompanioj enkondukas kvartagan laborsemajnon. Subtenantoj diras, ke la dungitoj laboras pli koncentrite, se ili sufiĉe ripozas. Kritikantoj kontraŭdiras, ke en lokoj kun fiksaj malfermaj horoj, kiel butikoj aŭ malsanulejoj, tia redukto malfacile realiĝas. Unuaj provoj montras, ke la produktiveco restas stabila, sed ĉu la efiko daŭros longtempe, ankoraŭ ne certas.
+Q | Kio estas la ĉefa ideo de la teksto? | La kvartaga semajno estas promesplena, sed ne uzebla ĉie. | Ĝi fiaskis. | Ĉiuj kompanioj jam uzas ĝin. | La produktiveco falis forte. | Nuancita takso.
+Q | Kie la redukto malfacile realiĝas? | en lokoj kun fiksaj malfermaj horoj | en oficejoj | en lernejoj | hejme | Butikoj kaj malsanulejoj.
+Q | Kion montras la unuaj provoj? | La produktiveco restas stabila. | La kostoj eksplodas. | Dungitoj eksiĝas. | Nenio. | Produktiveco stabila.
+Q | Kion signifas "subtenanto"? | homo kiu apogas | kontraŭulo | estro | kliento | Subtenanto = partiano.
+Q | Pri la longtempa efiko la teksto diras, ke ĝi estas | ankoraŭ nekerta | pruvita | negativa | sen graveco | Nekerta.
+@@
+@R La muzeo decidis malfermi senpage la unuan dimanĉon de ĉiu monato. La rezulto estis duobliĝo de la vizitantoj, sed ankaŭ longaj vicoj kaj pli granda eluziĝo de la salonoj. La direktoro taksas la eksperimenton duonsukceso: la publiko pligrandiĝis, tamen ne venis tiuj, kiuj pro manko de tempo aŭ nekutimo ne kuraĝis eniri.
+Q | Kio okazis pro la senpaga malfermo? | La vizitantoj duobliĝis. | La muzeo fermiĝis. | La vizitantoj malpliiĝis. | La biletoj plikariĝis. | Duobliĝo.
+Q | Kiuj problemoj aperis? | longaj vicoj kaj eluziĝo | ŝtelo | nur bruo | konstrulaboro | Vicoj kaj eluziĝo.
+Q | Kiel la direktoro taksas la eksperimenton? | kiel duonsukceson | kiel plenan fiaskon | kiel grandan sukceson | kiel senvaloran | Duonsukceso.
+Q | Kiun publikon oni ne atingis? | homojn kiuj ne kuraĝis eniri | eksterlandanojn | infanojn | studentojn | Nekutimaj/okupataj.
+Q | "Nekutimo" signifas | manko de kutimo | granda kutimo | ĝojo | nekonata | Ne-kutimo.
+@@
+@R La verkisto eldonis ĉijare strangan libron, duone taglibron, duone enketon. Li pripensas la memoron de sia familio, sed neniam pretendas prezenti definitivan veron. Kelkaj kritikistoj bedaŭras la mankon de konkludo; aliaj vidas en tiu rifuzo decidi maloftan honestecon.
+Q | Kia estas la formo de la libro? | duone taglibro, duone enketo | krimromano | poemaro | klasika biografio | Miksa formo.
+Q | Kion faras la verkisto pri la familia memoro? | Li pripensas ĝin sen konkludi. | Li kondamnas ĝin. | Li ignoras ĝin. | Li glorigas ĝin. | Pripensado.
+Q | Kion bedaŭras kelkaj kritikistoj? | la mankon de konkludo | la longecon | la prezon | la stilon | Manko de fino.
+Q | Kion vidas aliaj en la rifuzo decidi? | maloftan honestecon | maldiligenton | difekton | mallertecon | Honesteco.
+Q | "Bedaŭri" signifas | senti bedaŭron | ĝoji | kontraŭdiri | forgesi | Bedaŭri = lamenti.
+@@
+@R Kiam oni volas ĉion mezuri per ciferoj, oni facile forgesas tion, kio ne kalkuleblas. Indikiloj de rendimento utilas por direkti organizaĵon, sed foje ili mem diktas la kondutojn: oni zorgas pri la cifero pli ol pri la servo. Pro tio kelkaj sociologoj konsilas kompletigi la tabulojn per kvalitaj informoj.
+Q | Kian riskon la teksto montras? | forgesi tion, kio ne kalkuleblas | nenion mezuri | elspezi tro | dungi malbone | Ciferoj.
+Q | Kion foje faras la indikiloj? | Ili diktas la kondutojn. | Ili malaperas. | Ili plibonigas. | Ili maloftiĝas. | Dikti = decidi.
+Q | Kion sociologoj konsilas? | kompletigi per kvalitaj informoj | forigi ciferojn | dungi | maldungi | Kompletigi.
+Q | "Kompletigi" signifas | fari plena | forigi | rapidigi | kopii | Kompletigi = plenigi.
+Q | La tono de la aŭtoro estas | kritika sed ekvilibra | fervora | indiferenta | humura | Ekvilibra.
+@@
+@R En urboj oni instigas al tegmentaj ĝardenoj. Ili malvarmigas la someron, retenas pluvakvon kaj gastigas insektojn. Tamen la kosto kaj la ŝarĝo por malnovaj konstruaĵoj malhelpas ilian disvastiĝon. Komunumoj, kiuj subtenas ilin per subvencioj, atingas pli bonajn rezultojn ol tiuj, kiuj nur devigas.
+Q | Kiu avantaĝo estas menciita? | Ili malvarmigas la someron. | Ili pliigas la bruon. | Ili malpliigas spacon. | Ili estas malmultekostaj. | Malvarmigo.
+Q | Kio malhelpas la disvastiĝon? | kosto kaj ŝarĝo por malnovaj domoj | manko de insektoj | pluvo | leĝoj | Kosto/ŝarĝo.
+Q | Kiuj komunumoj plej sukcesas? | tiuj, kiuj donas subvenciojn | tiuj, kiuj nur devigas | tiuj, kiuj malpermesas | tiuj, kiuj ignoras | Subvencioj.
+Q | "Gastigi" signifas | doni loĝejon | vendi | mezuri | kolekti | Gastigi = akcepti.
+Q | La teksto estas | informa | polemika | humura | rakonta | Informa.
+@@
+@R La tradukistino, kiu dum dudek jaroj konigas eksterlandajn aŭtorojn, diras ke traduki ne signifas anstataŭi vortojn per aliaj vortoj. Temas pri retrovi la voĉon de la teksto, ĝian ritmon, ĝiajn silentojn. Ŝi konfesas, ke tia fideleco foje postulas perfidi la literon por savi la spiriton, kompromiso, kiun puristoj ne ĉiam pardonas.
+Q | Laŭ ŝi, traduki signifas | retrovi la voĉon de la teksto | anstataŭi vortojn | resumi | korekti | Voĉo.
+Q | Kion tia fideleco foje postulas? | perfidi la literon por savi la spiriton | sekvi vorton post vorto | aldoni notojn | forigi tekston | Perfidi la literon.
+Q | Kiuj ne ĉiam pardonas ĉi kompromison? | puristoj | aŭtoroj | legantoj | eldonistoj | Puristoj.
+Q | Dum kiom da jaroj ŝi tradukas? | dudek | du | dek | kvin | Dudek.
+Q | "Pardoni" ĉi tie implicas | ne plu riproĉi | ĝoji | ne scii | forgesi | Ne-pardoni = daŭra riproĉo.
+@@
+@R La agrikulturisto transiris al organika kultivado antaŭ dek jaroj. Komence estis malfacile: la rikolto malpliiĝis, la kostoj kreskis. Nun li opinias, ke li gajnis la vetadon, ĉar la bona kvalito ebligas vendi pli multekoste rekte al la aĉetantoj. Li tamen konfesas, ke sen la subteno de kooperativo li verŝajne rezignus.
+Q | Kiam li transiris al organika kultivado? | antaŭ dek jaroj | pasintjare | antaŭ du jaroj | antaŭ dudek jaroj | Dek jaroj.
+Q | Kiel estis la komenco? | malfacila | facila | profita | rapida | Malfacila.
+Q | Kial li opinias, ke li gajnis? | Li vendas pli multekoste rekte. | Li havas pli da tero. | Li produktas pli. | Li laboras malpli. | Rekta vendo.
+Q | Kio okazus sen la kooperativo? | Li verŝajne rezignus. | Li sukcesus sole. | Li vendus la teron. | Li elmigrus. | Rezigni.
+Q | "Rezigni" signifas | ĉesi klopodi | komenci | elekti | peti | Rezigni.
+@@
+@R Leĝprojekto celas pli bone protekti tiujn, kiuj denuncas misagojn en sia laborloko. Ĝi garantias anonimecon kaj malpermesas ĉian venĝan agon. Civitanaj asocioj salutas progreson, sed bedaŭras, ke la procedo postulas unue turni sin al la hierarkio, kio povas senkuraĝigi tiujn, kiuj timas esti identigitaj.
+Q | Kion celas la leĝprojekto? | protekti denuncantojn | puni ilin | pagi ilin | eduki ilin | Protekti.
+Q | Kion ĝi garantias? | anonimecon | salajron | dumvivan laboron | premion | Anonimeco.
+Q | Kion bedaŭras la asocioj? | la devon turni sin unue al la hierarkio | la mankon de leĝo | la daŭron | la koston | Hierarkio.
+Q | Kial la procedo povas senkuraĝigi? | Oni povas esti identigita. | Ĝi estas multekosta. | Ĝi estas longa. | Ĝi estas sekreta. | Identigo.
+Q | "Venĝa" rilatas al | venĝo | rekompenco | konsilo | raporto | Venĝo = reprezalio.
+@@
+@R La dormo de gejunuloj estas kronike nesufiĉa. Se oni prokrastas la komencon de la lecionoj je unu horo, kiel faris kelkaj gimnazioj, pliiĝas la ĉeesto kaj malpliiĝas la trafikaj akcidentoj. Kontraŭuloj timas ĥaoson en la horaroj, sed esploristoj taksas la ĝenon malgranda kompare kun la observataj avantaĝoj.
+Q | Kio pliboniĝas pro la prokrasto? | la ĉeesto kaj la trafika sekureco | nur la notoj | la salajroj | la ferioj | Ĉeesto/sekureco.
+Q | Kion timas la kontraŭuloj? | ĥaoson en la horaroj | lacecon | koston | bruon | Horaroj.
+Q | Kiel esploristoj taksas la ĝenon? | kiel malgrandan | kiel grandegan | kiel neakcepteblan | kiel neekzistantan | Malgranda.
+Q | "Kronike" signifas | long daŭre | subite | malofte | nove | Kronika = daŭra.
+Q | Kia estas la verŝajna konkludo? | La avantaĝoj superas la ĝenon. | Oni devas rezigni. | Nenio ŝanĝiĝas. | Dormo ne necesas. | Avantaĝoj.
+@@
+@R La vilaĝo perdis sian lastan kafejon kaj kun ĝi lokon de renkontiĝoj. La loĝantoj fondis asocion, aĉetis la konstruaĵon kaj nun kune funkciigas ĝin. La kafejo donas modestan profiton, sed la prezidanto insistas: esenca ne estas mono, sed konservi lokon, kie oni ankoraŭ kunvenas.
+Q | Kion perdis la vilaĝo? | sian lastan kafejon | la lernejon | la urbodomon | la staciidomon | Kafejo.
+Q | Kiel la kafejo estis savita? | per asocio de loĝantoj | per la komunumo | per firmao | per donaco | Asocio.
+Q | Kion emfazas la prezidanto? | ke esenca ne estas mono | profiton | fermon | vendon | Kunvenejo.
+Q | "Kunveni" signifas | veni kune | disiĝi | kvereli | forlasi | Kunveni = renkontiĝi.
+Q | Kia estas la profito de la kafejo? | modesta | granda perdo | granda gajno | neniu | Modesta.
+@@
+@R Esploristino klarigas, ke la malapero de abeloj ne estas nur kaŭzita de insekticidoj. La manko de diversaj floroj, pro unukulturoj, senigas ilin je ekvilibra nutraĵo. Kamparanoj, kiuj kreas florajn striojn, raportas pli grandajn rikoltojn, ĉar pli da insektoj polenas la kampojn.
+Q | Kio ankoraŭ minacas abelojn? | manko de diversaj floroj | tro da floroj | pluvo | mielo | Manko de floroj.
+Q | Kion produktas unukulturoj? | malekvilibran nutraĵon | ekvilibran nutraĵon | mielon | florojn | Malekvilibro.
+Q | Kion raportas la kamparanoj? | pli grandajn rikoltojn | pli malgrandajn rikoltojn | pli da laboro | pli malmultajn abelojn | Pli granda rikolto.
+Q | Kial la rikolto kreskas? | Pli da insektoj polenas. | Pli pluvas. | Estas pli da sterko. | La kampoj pligrandiĝis. | Polenado.
+Q | "Polenado" rilatas al | disportado de polen | akvumado | vendado | mezurado | Polenado.
+@@
+@R La proceso finiĝis sen dramaj turniĝoj. En la tribunalo ĉiu atestanto mildigis sian deklaron, ĝis kiam la akuzo similis konstruaĵon sen kolonoj. La verdikto surprizis neniun, eĉ ne la akuzaton, kiu dum la lasta aŭdienco rigardis la plafonon.
+Q | Kiel finiĝis la proceso? | sen dramaj turniĝoj | tre drame | per konfeso | per tumulto | Senturniĝe.
+Q | Kion faris ĉiu atestanto? | Ĝi mildigis la deklaron. | Ĝi plifortigis la deklaron. | Ĝi forkuris. | Ĝi kriis. | Mildigo.
+Q | La bildo de la konstruaĵo sugestas, ke la akuzo | perdis sian bazon | estis solida | kostis multe | estis nova | Perdo de bazo.
+Q | La konduto de la akuzito sugestas, ke li | atendis la verdikton | furiozis | surpriziĝis | estis senkulpa | Atendis.
+Q | "Verdikto" signifas | decido de la juĝistoj | parolado | leĝo | defendo | Verdikto.
+@@
+@R Urbisto opinias, ke urbo similas malpli maŝinon ol ekosistemon: ĝiaj partoj adaptiĝas, konkurencas kaj kunlaboras sen ke iu plano tion antaŭvidis. La plej sukcesaj kvartaloj estus tiuj malmulte planitaj, kiuj lasas al la loĝantoj spacon por improvizi.
+Q | Al kio li komparas la urbon? | al ekosistemo | al maŝino | al libro | al muzeo | Ekosistemo.
+Q | Kiuj kvartaloj plej sukcesas? | malmulte planitaj | detale planitaj | plej malnovaj | plej novaj | Malmulte planitaj.
+Q | Kion oni lasas al la loĝantoj? | spacon por improvizi | nenion | ordonojn | planojn | Improvizo.
+Q | "Adaptiĝi" signifas | agordiĝi al situacio | foriri | malaperi | ordoni | Adaptiĝi.
+Q | La ĉefa tezo estas ke la urbo | ne reduktiĝas al plano | estas maŝino | estas antaŭvidebla | estas senutila | Ekosistemo.
+@@
+@R Kun la disvastiĝo de la kontinua elsendado, la eltrovado de muziko okazas per algoritmoj. Defendantoj vidas en tio demokratiiĝon; kritikantoj, enfermiĝon en la propraj gustoj. Lastatempa studo montras, ke aŭskultantoj de personaj listoj esploras multe malpli da ĝenroj ol tiuj, kiuj serĉas libere.
+Q | Per kio okazas la eltrovado de muziko? | per algoritmoj | per radio | per kritikistoj | per koncertoj | Algoritmoj.
+Q | Kion riproĉas la kritikantoj? | enfermiĝon en la propraj gustoj | koston | mankon de aliro | kvaliton | Enfermiĝo.
+Q | Kion montras la studo? | Aŭskultantoj de listoj esploras malpli da ĝenroj. | Ĉiuj esploras pli. | Elsendado estas senpaga. | Radio kreskas. | Malpli da ĝenroj.
+Q | "Defendanto" signifas | homo kiu subtenas | kontraŭulo | muzikisto | estro | Defendanto.
+Q | La teksto prezentas | ambaŭ vidpunktojn | nur unu vidpunkton | reklamon | poemon | Ekvilibro.
+@@
+@R La ĉefredaktoro defendas longformatan raportadon. Kontraŭ konstanta urĝo li volas proponi profundajn enketojn, eĉ se li eldonas malpli ofte. Anoncistoj, li diras, estas sentemaj pri tio: atenta leganto estas fidela leganto. Kontraŭuloj respondas, ke tiu vetado eblas nur por malmultaj titoloj apogataj de mecenatoj.
+Q | Kion defendas la ĉefredaktoro? | longformatan raportadon | tujan informadon | reklamon | senpagecon | Longformato.
+Q | Kion li volas eviti? | konstantan urĝon | anoncistojn | enketojn | leganton | Urĝo.
+Q | Kian argumenton havas la kontraŭuloj? | Tio eblas nur por malmultaj titoloj. | Ĝi kostas malmulte. | Ĉiuj ŝatas ĝin. | Ĝi estas kontraŭleĝa. | Malmultaj titoloj.
+Q | "Respondi" ĉi tie signifas | replik-i | ignori | skribi | legi | Respondi = kontraŭdiri.
+Q | Kion, laŭ li, anoncistoj deziras? | fidelan leganton | rapidajn novaĵojn | senpagon | nenion | Fidela leganto.
+@@
+@R La ekspozicio pri malgrandaj ĉiutagaj objektoj invitas la vizitanton rigardi alie tion, kion li plu ne vidas. Kulero, butono, ŝlosilo: ĉiu rakontas epokon, metion, manieron vivi. La kuratoro klarigas, ke li volis nek nostalgion nek erudicion, sed atenton.
+Q | Kion prezentas la ekspozicio? | ĉiutagajn objektojn | pentraĵojn | aŭtomobilojn | juvelojn | Objektoj.
+Q | Kion volis la kuratoro? | atenton | nostalgion | erudicion | ŝokon | Atento.
+Q | Kion rakontas ĉiu objekto? | epokon kaj vivmanieron | mistero | proceson | vojaĝon | Epoko.
+Q | "Kuratoro" ĉi tie signifas | organizanto de la ekspozicio | kuracisto | juĝisto | gvidanto | Kuratoro.
+Q | La tono de la teksto estas | trankvila | perforta | komika | hasta | Trankvila.
+@@
+@R Antaŭ la altiĝo de la maro kelkaj bordaj komunumoj pripensas translokigi siajn loĝantojn. La ideo, longe tabua, akiras subtenon, ĉar teni digojn kostas ĉiam pli kaj ilia efiko malpliiĝas. Restas nesolvita, kiu pagos la translokigon kaj kiel konservi la identecon de tutaj vilaĝoj.
+Q | Kion pripensas kelkaj komunumoj? | translokigi la loĝantojn | konstrui digojn | fermi la strandojn | vendi teron | Translokigo.
+Q | Kial la ideo akiras subtenon? | Digoj kostas pli kaj efikas malpli. | Pluvas malpli. | La maro malaltiĝas. | Ĉiuj petas ĝin. | Kosto/efiko.
+Q | Kio restas nesolvita? | kiu pagos la translokigon | kiu konstruos digojn | kie fari havenojn | kiu fiŝkaptos | Pagado.
+Q | "Tabua" signifas | pri kio oni evitas paroli | populara | malnova | senpaga | Tabua.
+Q | "Akiri subtenon" signifas | ricevi pli da apogantoj | perdi forton | malaperi | kaŝiĝi | Akiri subtenon.
+@@
+@R La sociologino rimarkas, ke fora laboro ŝanĝis la rilatojn inter kolegoj. Se individuaj taskoj plieficiĝas, la neformalaj interŝanĝoj, kiuj nutras la novigon, maloftiĝas. Kompanioj, kiuj postulas plenan revenon al la oficejo, riskas naskon de rankoro, dum tiuj, kiuj rezignas pri ĝi, perdas komunan kulturon.
+Q | Kion ŝanĝis la fora laboro? | la rilatojn inter kolegoj | la salajrojn | la horarojn | la trafikon | Rilatoj.
+Q | Kio maloftiĝas? | la neformalaj interŝanĝoj | la taskoj | la kunvenoj | la retpoŝtoj | Neformalaj interŝanĝoj.
+Q | Kio okazas pro plena reveno? | naskiĝas rankoro | pliiĝas novigo | malpliiĝas bruo | pliiĝas fora laboro | Rankoro.
+Q | Kion perdas tiuj, kiuj rezignas pri reveno? | komunan kulturon | dungitojn | monon | oficejojn | Kulturo.
+Q | "Maloftiĝi" signifas | fariĝi malpli ofta | pliiĝi | ŝanĝiĝi | aperi | Maloftiĝi.
+@@
+@R La poeto ĉiam evitis ceremoniojn. Kiam oni anoncis al li la grandan premion, li unue kredis, ke tio estas ŝerco, poste li pardonpetis, ke li ne povos veni. Li lasis legi mallongan tekston anstataŭ li, en kiu li dankas precipe la leganton, "tiun, kiu portas poemon kun si kaj tiel vivigas ĝin".
+Q | Kiel la poeto unue reagis? | Li kredis ŝerco. | Li ekĝojis. | Li rifuzis. | Li ploris. | Ŝerco.
+Q | Kion li faris en la tago de la ceremonio? | Li lasis legi tekston. | Li venis. | Li kantis. | Li skribis libron. | Tekstlegado.
+Q | Kiun li dankas precipe? | la leganton | la ĵurion | la familion | la eldonejon | Leganto.
+Q | Lia sinteno al ceremonioj estas | konstanta evitado | entuziasmo | scivolo | timo | Evitado.
+Q | "Evitadi" signifas | deteni sin de | ŝati | scii | skribi | Eviti.
+@@
+@R La registaro proponas edukan reformon, kiu malpliigu la nombron de lernantoj en klasoj en malriĉaj regionoj. Instruistoj bonvenigas ĝin, sed atentigas, ke klasgrandeco ne estas ĉio: sen daŭra trejnado kaj materialaj rimedoj la efiko restos limigita. La ministro promesas subtenon, tamen ne precizigas la kalendaron.
+Q | Kion celas la reformo? | pli malmultajn lernantojn en klasoj | pli da ferioj | malpli da lecionoj | novan ekzamenon | Klasgrandeco.
+Q | Kiel reagas la instruistoj? | Ili akceptas kun rezervoj. | Ili protestas. | Ili ignoras. | Ili eksiĝas. | Rezervoj.
+Q | Kion ili opinias necesa krome? | daŭran trejnadon kaj rimedojn | pli da lernantoj | malpli da horoj | punojn | Trejnado.
+Q | Kion promesas la ministro? | subtenon sen kalendaro | nenion | tujan buĝeton | eksiĝon | Subteno.
+Q | "Limigita" signifas | havanta limojn | senlima | granda | rapida | Limigita.
+@@
+@R Post jaroj de kresko la eldonmerkato staras sur unu loko. Eldonistoj mencias la altiĝon de la paperprezo kaj la konkurencon de aŭdlibroj. Kelkaj vetas je pli malgrandaj eldonoj kaj zorge faritaj volumoj, tre petataj kiel donacoj, kio permesas singardan optimismon.
+Q | Kiel evoluas la eldonmerkato? | Ĝi stagnas. | Ĝi kreskas rapide. | Ĝi malaperas. | Ĝi duobliĝas. | Stagno.
+Q | Kion mencias la eldonistoj? | paperprezon kaj aŭdlibrojn | televidon | veteron | politikan krizon | Paperprezo.
+Q | Je kio kelkaj vetas? | malgrandaj eldonoj kaj zorgaj volumoj | malaltaj prezoj | reklamo | filmoj | Zorga volumo.
+Q | Kia estas la fina sinteno? | singarda optimismo | plena pesimismo | indiferenteco | kolero | Singarda optimismo.
+Q | "Eldono" ĉi tie signifas | serio de presitaj ekzempleroj | bileto | loterio | breto | Eldono.
+@@
+@R La ŝipistino rompis la rekordon de solula transirado. Demandite pri sia sekreto, ŝi mencias malpli la teknikon ol la paciencon: akcepti, ke la maro decidas, rezigni pri kontrolo de tio, kio ne dependas de ŝi. Ŝi konfesas, ke la plej malfacila estis ne la malvarmo, sed la soleco de noktoj sen vento.
+Q | Kian rekordon ŝi rompis? | de solula transirado | de rapideco | de plonĝado | de piedirado | Transirado.
+Q | Kion ŝi metas antaŭ la tekniko? | la paciencon | la forton | la ŝancon | la monon | Pacienco.
+Q | Kio estis plej malfacila? | la soleco de noktoj sen vento | la malvarmo | la malsato | la timo pri vento | Soleco.
+Q | Kion oni devas akcepti? | ke la maro decidas | ke oni kontrolu ĉion | ke oni venku | ke oni rezignu | Maro decidas.
+Q | "Rezigni pri" signifas | forlasi la ideon de | elekti | peti | kopii | Rezigni pri.
+@@
+@R La debato pri la markado de nacieco en statistikoj estas varma. Subtenantoj vidas ilon por taksi diskriminaciojn; kontraŭuloj timas misuzojn. Komitato de fakuloj proponas kompromison: anonimigitaj datumoj, alireblaj nur por esploristoj, kun regulaj kontroloj.
+Q | Kio estas la temo de la debato? | nacieco en statistikoj | impostoj | lernejoj | pensioj | Nacieco.
+Q | Kion vidas subtenantoj? | ilon por taksi diskriminaciojn | minacon | koston | politikan profiton | Ilo.
+Q | Kion timas kontraŭuloj? | misuzojn | kostojn | erarojn | malrapidon | Misuzoj.
+Q | Kion proponas la komitato? | anonimigitajn datumojn kaj kontrolojn | totalan malpermeson | malfermitan publikigon | rezignon | Kompromiso.
+Q | "Misuzo" signifas | malĝusta uzo | alta uzo | malmulta uzo | nuligo | Misuzo.
+@@
+@R Esploristoj observis dum dek jaroj grupon de vulpoj, kiuj vivas en la ĉirkaŭurbo. Malkiel siaj kamparaj kuzoj, ili moviĝas malmulte, ĉar manĝaĵo abundas ĉirkaŭ la domoj. Ilia nombro dependus pli de la mastrumado de rubo ol de la verdaj spacoj, kio invitas rekonsideri la regulajn strategiojn.
+Q | Kiom da tempo daŭris la observado? | dek jarojn | unu jaron | du jarojn | dudek jarojn | Dek jaroj.
+Q | Kial tiuj vulpoj moviĝas malmulte? | Manĝaĵo abundas. | Ili estas malsanaj. | Estas baroj. | Ili dormas. | Abundo.
+Q | Je kio dependas ilia nombro? | je la rubo-mastrumado | je la verdaj spacoj | je la klimato | je la ĉasado | Rubo.
+Q | Kion invitas rekonsideri la rezultoj? | la regulajn strategiojn | la edukon | la arkitekturon | la turismon | Reguligo.
+Q | "Ĉirkaŭurbo" signifas | ĉirkaŭaĵo de urbo | urbocentro | kamparo | maro | Ĉirkaŭurbo.
+@@
+@R Multaj gepatroj maltrankviliĝas pri la loko de ekranoj en la vivo de siaj infanoj. Studo mildigas tiun timon: gravas malpli la daŭro ol la maniero de uzo. Infano, kiu komunikas aŭ kreas per ekrano, fartas pli bone ol tiu, kiu pasive konsumas. La aŭtoroj tamen konsilas singardon, ĉar la specimeno estis malgranda.
+Q | Kio pli gravas laŭ la studo? | la maniero de uzo | la daŭro de uzo | la prezo | la marko | Maniero.
+Q | Kiu infano fartas pli bone? | tiu, kiu komunikas aŭ kreas | la pasiva | tiu sen ekranoj | tiu, kiu dormas malmulte | Aktiva uzo.
+Q | Kial oni konsilas singardon? | La specimeno estis malgranda. | La studo estis malnova. | La gepatroj mensogas. | La ekranoj ŝanĝiĝas. | Malgranda specimeno.
+Q | "Mildigi" signifas | fari malpli forta | forigi | konfirmi | troigi | Mildigi.
+Q | La tono de la teksto estas | singarda | avertema | ironia | fervora | Singarda.
+@@
+# listening
+@L Ĵurnalisto: Vi gvidas firmaon pri suna energio. Kiel estis la komenco? Direktoro: Malfacila. Ni havis bonan ideon, sed neniun kapitalon. Nur kiam investanto fidis nin, ni povis dungi la unuajn laboristojn.
+Q | Kio mankis komence? | kapitalo | ideo | klientoj | oficejo | Manko de kapitalo.
+Q | Kiam ili povis dungi laboristojn? | post kiam investanto fidis ilin | tuj | post du jaroj | neniam | Investanto.
+Q | Pri kio la firmao okupiĝas? | suna energio | komputiloj | vestaĵoj | manĝaĵoj | Suna energio.
+Q | Kiel la direktoro priskribas la komencon? | malfacila | facila | enuiga | amuza | Malfacila.
+Q | Kio estas la rolo de la ĵurnalisto? | demandi | vendi | investi | gvidi | Intervjuo.
+@@
+@L Ŝi: Ĉu vi aŭdis, ke la trajno al Bruselo estas nuligita? Li: Ne, kio okazis? Ŝi: Arbo falis sur la reloj. Estas anstataŭa buso, sed ĝi bezonas preskaŭ duoble pli da tempo. Li: Tiam mi prenos aŭton.
+Q | Kial la trajno estas nuligita? | Arbo falis sur la reloj. | Striko | Akcidento | Neĝo | Arbo.
+Q | Kio ekzistas anstataŭe? | anstataŭa buso | aviadilo | taksio | nenio | Buso.
+Q | Kiom da tempo bezonas la buso? | preskaŭ duoble | duono | same | tri tagojn | Duoble.
+Q | Kion li decidas? | preni aŭton | resti hejme | preni la buson | atendi | Aŭto.
+Q | Kien iras la trajno? | al Bruselo | al Parizo | al Berlino | al Vieno | Bruselo.
+@@
+@L Profesoro: La ciferecigo profunde ŝanĝas la laboron. Kontraŭe al ofta timo, ne nur malaperas postenoj; naskiĝas ankaŭ novaj profesioj, kiuj ankoraŭ ne havas nomon. Tial plej grava estas la kapablo lerni dum la tuta vivo.
+Q | Kion emfazas la profesoro? | la kapablon lerni dum la tuta vivo | ke ĉiuj postenoj malaperos | ke la ciferecigo estas sendanĝera | ke ne estos novaj profesioj | Vivlonga lernado.
+Q | Kio naskiĝas apud la malaperantaj postenoj? | novaj profesioj | novaj lernejoj | novaj leĝoj | novaj urboj | Novaj profesioj.
+Q | "Profunde" signifas | en la fundo, ĝisfunde | supraĵe | rapide | malrapide | Profunde.
+Q | Kia estas la ofta timo? | malapero de postenoj | kosto | bruo | vojaĝoj | Senlaboreco.
+Q | Kia estas la sinteno de la profesoro? | ekvilibra | malamika | naiva | timema | Ekvilibra.
+@@
+@L Kliento: Bonan tagon, mi aĉetis ĉi tiun panrostilon antaŭ tri semajnoj kaj ĝi ne plu funkcias. Vendisto: Ĉu vi havas la kvitancon? Kliento: Jes, jen ĝi. Vendisto: Tiam ni povas ŝanĝi ĝin aŭ repagi. Kliento: Mi preferas repagon.
+Q | Kio estas la problemo? | La aparato ne funkcias. | Ĝi estas tro kosta. | Ĝi estas tro granda. | Ĝi estas ŝtelita. | Paneo.
+Q | Kion petas la vendisto? | la kvitancon | la pakaĵon | la identigilon | nur la garantion | Kvitanco.
+Q | Kiujn eblojn proponas la vendisto? | ŝanĝon aŭ repagon | nur riparon | nenion | donackuponon | Ŝanĝo/repago.
+Q | Kion elektas la kliento? | repagon | novan aparaton | riparon | kuponon | Repago.
+Q | Kiam la kliento aĉetis la aparaton? | antaŭ tri semajnoj | antaŭ tri jaroj | hieraŭ | antaŭ tri monatoj | Tri semajnoj.
+@@
+@L Anoncisto: Bonan vesperon. Dum la nokto pluvos en la tuta lando, kun neĝo super mil ducent metroj. Morgaŭ matene estos nebulo; dum la tago la nuboj disiĝos, posttagmeze la suno brilos intertempe, kun maksimuma temperaturo ĉirkaŭ dek kvar gradoj.
+Q | Kie neĝos dum la nokto? | super mil ducent metroj | ĉie | ĉe la maro | nenie | Alte.
+Q | Kia estos la mateno? | nebula | suna | fulma | varma | Nebulo.
+Q | Kio okazos posttagmeze? | La suno brilos intertempe. | Neĝos. | Blovos ŝtormo. | Pluvos forte. | Intertempa suno.
+Q | Kiom estos la maksimuma temperaturo? | ĉirkaŭ dek kvar gradoj | kvar gradoj | dudek kvar gradoj | kvardek gradoj | 14.
+Q | Kio estas tiu ĉi teksto? | veterprognozo | reklamo | intervjuo | artikolo | Veterprognozo.
+@@
+@L Studentino: Mi ne povos transdoni la diplomlaboron vendrede. Gvidanto: Kial? Studentino: Mi trovis pli da fontoj ol mi atendis kaj mi ne scias kiel organizi ilin. Gvidanto: Tio estas bona problemo. Limigu vin al la tri ĉefaj kaj ni prokrastos la limdaton je unu semajno.
+Q | Kial ŝi ne povas transdoni la laboron? | Ŝi havas tro da fontoj. | Ŝi malsanas. | Ŝi ne havas fontojn. | Ŝi ne havas tempon. | Tro da fontoj.
+Q | Kion konsilas la gvidanto? | limigi sin al tri fontoj | serĉi pliajn | rezigni | reskribi ĉion | Tri fontoj.
+Q | Je kiom la limdato estas prokrastita? | je unu semajno | je unu monato | je unu tago | neniom | Semajno.
+Q | Kiel la gvidanto nomas la problemon? | bona problemo | katastrofo | nesolvebla | embarasa | Bona problemo.
+Q | Kiam estis la origina limdato? | vendrede | lunde | en junio | morgaŭ | Vendredo.
+@@
+@L Raportisto: La urbestro hodiaŭ anoncis la konstruon de nova ponto kostanta kvardek milionojn da eŭroj. Kontraŭuloj denuncas malŝparon dum mankas mono en la lernejoj. La urbestro respondas, ke la ponto vigligos la tutan regionon.
+Q | Kion anoncis la urbestro? | konstruon de ponto | detruon de ponto | imposton | balotojn | Ponto.
+Q | Kiom kostos la ponto? | kvardek milionojn da eŭroj | kvar milionojn | kvarcent milionojn | dek kvar milionojn | 40 M.
+Q | Kion denuncas la kontraŭuloj? | malŝparon dum lernejoj mankas mono | malbelecon | grandon | manko de plano | Malŝparo.
+Q | Kiel defendas sin la urbestro? | La ponto vigligos la regionon. | Li silentas. | Li nuligas. | Li citas la lernejojn. | Ekonomia efiko.
+Q | Kia teksto tio estas? | novaĵo | poemo | reklamo | letero | Novaĵo.
+@@
+@L Patrino: Kiel iris via unua tago en la nova laboro? Filino: Laciga, sed bona. Ĉiuj estis afablaj kaj la ĉefo jam donis al mi projekton. Patrino: Jam la unuan tagon? Filino: Jes, mi iom timis, sed estas agrable havi tiom da respondeco.
+Q | Kiel estis la unua tago? | laciga sed bona | malbona | enuiga | katastrofa | Laciga sed bona.
+Q | Kion donis la ĉefo al ŝi? | projekton | ferion | premion | maldungon | Projekto.
+Q | Kiel ŝi sentas sin? | iom timema sed kontenta | kolera | malĝoja | indiferenta | Ambaŭ sentoj.
+Q | La kolegoj estis | afablaj | malvarmaj | forestantaj | severaj | Afablaj.
+Q | Kiu parolas kun kiu? | filino kun patrino | ĉefo kun patrino | du kolegoj | du amikoj | Filino/patrino.
+@@
+@L Kuracisto: Viaj analizoj ĝenerale estas bonaj, sed la sangopremo estas iom alta. Mi konsilas pli moviĝi kaj malpli salumi la manĝaĵon. Post tri monatoj ni kontrolos denove, kaj se nenio ŝanĝiĝos, ni parolos pri medikamentoj.
+Q | Kio estas iom alta? | la sangopremo | la sukero | la temperaturo | la pezo | Sangopremo.
+Q | Kion devas fari la paciento? | pli moviĝi kaj malpli salumi | preni medikamentojn | nenion | resti en lito | Movado kaj sal-reduko.
+Q | Kiam estos la sekva kontrolo? | post tri monatoj | post tri tagoj | post unu jaro | morgaŭ | Tri monatoj.
+Q | Kiam ili parolos pri medikamentoj? | se nenio ŝanĝiĝos | tuj | neniam | venontjare | Kondiĉe.
+Q | Kiaj estas la analizoj ĝenerale? | bonaj | malbonaj | danĝeraj | necertaj | Bonaj.
+@@
+@L Vojaĝagentejo: Via flugo al Vieno estas nuligita. Ni povas ŝanĝi ĝin al la jaŭda aŭ repagi plene. Kliento: Ĵaŭdo estas tro malfrue, mi havas rendevuon merkrede. Agentejo: Tiam restas nur repago, kaj vi mem devos mendi alian flugon.
+Q | Kio okazis al la flugo? | Ĝi estis nuligita. | Ĝi malfruis. | Ĝi estis avancita. | Ĝi estis vendita. | Nuligo.
+Q | Kion proponas la agentejo? | ŝanĝon aŭ repagon | trajnon | hotelon | kuponon | Ŝanĝo/repago.
+Q | Kial ĵaŭdo ne taŭgas? | La kliento havas rendevuon merkrede. | Li malsanas. | Li ne havas monon. | Li malŝatas flugi. | Merkreda rendevuo.
+Q | Kio restas fine? | repago | ŝanĝo | kuponon | kompenson | Repago.
+Q | Kien la kliento iras? | al Vieno | al Berlino | al Zuriko | al Prago | Vieno.
+@@
+@L Trejnisto: Vi bone ludis en la unua duono, sed vi perdis tro da pilkoj. En la dua duono estu pli trankvilaj kaj pli bone uzu la spacojn. Estro: Kaj se ili premos alte? Trejnisto: Tiam ni ludos longajn pilkojn al la flankoj.
+Q | Kion laŭdas la trejnisto? | la unuan duonon | la defendon | la spektantojn | la gazonon | Unua duono.
+Q | Kion li kritikas? | perdon de tro da pilkoj | manko de kurado | kvereloj | malfruo | Perdoj.
+Q | Kion devas fari la ludantoj? | esti pli trankvilaj | kuri pli | premi | rezigni | Trankvilo.
+Q | Kion fari se la kontraŭulo premos alte? | ludi longajn pilkojn al la flankoj | reiri | ŝanĝi | halti | Longaj pilkoj.
+Q | Kiu starigas la demandon? | la estro (ĉefo de la teamo) | la trejnisto | spektanto | arbitraciisto | Teamestro.
+@@
+@L Ĵurnalisto: Kiel vi klarigas la sukceson de via partio? Ministro: Ni proponis konkretajn solvojn anstataŭ instigi timojn. Ĵurnalisto: Viaj kontraŭuloj diras, ke vi ne havas financan planon. Ministro: Tio ne veras. La plano jam estas publike konata; sufiĉas legi ĝin.
+Q | Kiel la ministro klarigas la sukceson? | per konkretaj solvoj | per ŝanco | per mono | per reklamo | Solvoj.
+Q | Kion riproĉas la kontraŭuloj? | mankon de financa plano | mensogojn | korupton | senagon | Financa plano.
+Q | Kiel reagas la ministro? | Ŝi neas. | Ŝi konfesas. | Ŝi silentas. | Ŝi foriras. | Neo.
+Q | La tono de la ministro estas | memcerta | timema | indiferenta | malĝoja | Memcerta.
+Q | Kion signifas "jam publike konata"? | ĉiuj povas koni ĝin | kontrakto | libro | kalkulo | Publike konata.
+@@
+@L Anonco: Estimataj pasaĝeroj, pro difekto de signalaparato la trajno 574 al Antverpeno malfruos ĉirkaŭ dudek minutojn. Ni pardonpetas. Pasaĝeroj al Mechelen bonvolu uzi la regionan trajnon ĉe la kvara perono; ĝi ekveturos post kvin minutoj.
+Q | Kial la trajno malfruas? | pro difekto de signalaparato | pro striko | pro akcidento | pro vetero | Signaloj.
+Q | Kiom da tempo ĝi malfruas? | ĉirkaŭ dudek minutojn | du horojn | kvin minutojn | unu horon | 20 minutoj.
+Q | Kien iras la trajno 574? | al Antverpeno | al Mechelen | al Gento | al Brugo | Antverpeno.
+Q | Kion faru pasaĝeroj al Mechelen? | uzi la regionan trajnon ĉe la kvara perono | atendi | preni taksion | preni la trajnon 574 | Regiona trajno.
+Q | Kiam ekveturos la regiona trajno? | post kvin minutoj | post unu horo | nun | neniam | Kvin minutoj.
+@@
+@L Najbaro: Mi venis pro la bruo. Hieraŭ vespere vi festis ĝis la tria nokte. Loĝanto: Mi ege bedaŭras. Estis la naskiĝtago de mia filo kaj ni ne pensis, ke oni tiel aŭdas. Najbaro: Mi komprenas, sed tio ne plu okazu. Loĝanto: Certe, mi atentos.
+Q | Pri kio plendas la najbaro? | pri bruo | pri rubo | pri parkado | pri lupago | Bruo.
+Q | Kial oni festis? | pro la naskiĝtago de la filo | pro geedziĝo | pro Novjaro | pro translokiĝo | Naskiĝtago.
+Q | Kiel reagas la loĝanto? | Li pardonpetas. | Li koleras. | Li neas. | Li ridas. | Pardonpeto.
+Q | Kion postulas la najbaro? | ke tio ne plu okazu | monon | akuzon | translokiĝon | Ne ripeti.
+Q | Ĝis kioma horo daŭris la festo? | ĝis la tria | ĝis la deka | ĝis noktomezo | ĝis la kvina | Tria.
+@@
+@L Profesorino: La klimata ŝanĝiĝo ne estas problemo de la estonteco, sed de la nuno. Ekstremaj vetero-eventoj kreskas, rikoltoj suferas, bordoj estas minacataj. Oni ne povas plene haltigi ĝin, sed ĉiu dekono da grado malpli da varmiĝo multe reduktas la sekvojn.
+Q | Kiam estas problemo la klimata ŝanĝiĝo? | jam nun | nur estonte | neniam | post cent jaroj | Nuno.
+Q | Kio kreskas? | ekstremaj veteraĵoj | rikoltoj | bordoj | nur pluvoj | Ekstremoj.
+Q | Ĉu oni povas plene haltigi ĝin? | ne | jes | jes, en la nordo | eble | Ne.
+Q | Kio reduktas la sekvojn? | ĉiu dekono da grado malpli da varmiĝo | pli da aŭtoj | pli da industrio | nenifarado | Malpli da varmiĝo.
+Q | La tono de la profesorino estas | urĝa | gaja | ironia | indiferenta | Urĝa.
+@@
+@L Ŝi: Mi pensas vendi mian apartamenton. Li: Ĉu vere? Vi ĵus renovigis ĝin. Ŝi: Ĝuste pro tio. La valoro altiĝis kaj la interezoj ankoraŭ estas akcepteblaj. Kun la vendo mi povus aĉeti ion pli malgrandan en la urbocentro. Li: Ŝajnas prudente, sed ne hastu.
+Q | Kion pensas fari la virino? | vendi sian apartamenton | lui domon | translokiĝi sen vendi | edziniĝi | Vendi.
+Q | Kial nun? | La valoro altiĝis. | Ŝi bezonas monon. | Ŝi malamas ĝin. | Estas kverelo. | Valoro.
+Q | Kion ŝi volas aĉeti? | pli malgrandan en la centro | domon kampare | aŭton | terpecon | Centro.
+Q | Kion konsilas la viro? | ne hasti | vendi tuj | nenion fari | atendi kvin jarojn | Preteco.
+Q | La apartamento estis | ĵus renovigita | luita | vendita | detruita | Renovigita.
+@@
+@L Dungito: La raporto estas preta, sed mi dubas pri la ciferoj. Ĉefo: Kiuj? Dungito: La vendoj de la tria trimonato estas tiel altaj, ke mi suspektas enigan eraron. Ĉefo: Tiam kontrolu ĉion antaŭ ol sendi.
+Q | Kio maltrankviligas la dungiton? | la vendaj ciferoj | la aranĝo | la limdato | la titolo | Ciferoj.
+Q | Kion li suspektas? | enigan eraron | fraŭdon | ŝtelon | viruson | Eraro.
+Q | Kion petas la ĉefo? | kontroli antaŭ sendo | tuj sendi | maldungi | reskribi ĉion | Kontrolo.
+Q | Pri kiu trimonato temas? | la tria | la unua | la dua | la kvara | Tria.
+Q | La raporto estas | preta | nekomencita | perdita | publikigita | Preta.
+@@
+@L Voĉo: Vi atingis la voĉpoŝton de Sinjorino Berger. Mi forestas ĝis la dekkvina de majo. Urĝe kontaktu mian kolegon, S-ron Lang, ĉe interna numero kvar kvin ses sep. Mi respondos al via mesaĝo post mia reveno.
+Q | Ĝis kiam ŝi forestas? | ĝis la dekkvina de majo | ĝis fino de majo | ĝis morgaŭ | ĝis lundo | 15 majo.
+Q | Kiun kontakti urĝe? | S-ron Lang | Sinjorinon Berger | la direkcion | la recepcion | Lang.
+Q | Kiam ŝi respondos? | post sia reveno | nun | neniam | morgaŭ | Reveno.
+Q | Kio estas la aŭdita teksto? | voĉpoŝta anonco | reklamo | letero | konversacio | Voĉpoŝto.
+Q | Kiu estas la interna numero de la kolego? | 4567 | 7654 | 4576 | 5467 | 4567.
+@@
+@L Instruisto: Antaŭ ol komenci la novan temon, diskutu en grupoj, kion vi jam scias pri daŭripovo. Notu tri punktojn kaj poste ĉiu grupo prezentu unu rezulton. Vi havas dek minutojn.
+Q | Kion faru la lernantoj unue? | diskuti en grupoj, kion ili scias | fari teston | nur aŭskulti | iri hejmen | Grupa diskuto.
+Q | Kiom da punktoj oni notu? | tri | du | kvin | dek | Tri.
+Q | Kio sekvas poste? | ĉiu grupo prezentas unu rezulton | la instruisto taksas | paŭzo | testo | Prezento.
+Q | Kiom da tempo ili havas? | dek minutojn | unu horon | kvin minutojn | dudek minutojn | Dek minutoj.
+Q | Kio estas la temo? | daŭripovo | historio | sporto | politiko | Daŭripovo.
+@@
+@L Kolego A: La kliento denove plendis. Kolego B: Pri kio ĉifoje? Kolego A: Li diras, ke la sendaĵo estis nekompleta. Tamen ni enpakis ĉion laŭ la listo. Kolego B: Eble io perdiĝis dum la transporto. Mi telefonos al la transportisto.
+Q | Pri kio plendas la kliento? | pri nekompleta sendaĵo | pri prezo | pri kvalito | pri malfruo | Nekompleta.
+Q | Kion diras la kolegoj pri la enpakado? | Ĉio estis enpakita laŭ la listo. | Io mankis. | Nenio estis enpakita. | La kliento mensogas. | Laŭ listo.
+Q | Kion supozas kolego B? | perdon dum transporto | fraŭdon | eraron de la kliento | ŝtelon en la stokejo | Transporto.
+Q | Kion li faros? | telefoni al la transportisto | telefoni al la kliento | voki la policon | eksiĝi | Transportisto.
+Q | La kliento plendas | denove | unuafoje | neniam | malofte | Denove.
+@@
+# writing
+Q | Elektu la ĝustan konektilon: La projekto estas multekosta; ＿＿ ĝi estas profita longtempe. | tamen | tial | krome | ĉar | Kontrasto: tamen.
+Q | Elektu la ĝustan konektilon: Li ne lernis; ＿＿ li malsukcesis en la ekzameno. | tial | tamen | dum | kvankam | Konsekvenco: tial.
+Q | Elektu la ĝustan konektilon: Rapidu; ＿＿ vi perdos la trajnon. | alie | tial | krome | tamen | Alie = alikaze.
+Q | Elektu la ĝustan konektilon: La urbo estas bela; ＿＿ ĝi estas tre kosta. | sed | tial | do | ĉar | Malaprobo: sed.
+Q | Elektu la ĝustan konektilon: ＿＿ la vetero estis malbona, la festo okazis. | Kvankam | Ĉar | Por ke | Se | Koncesio.
+Q | Elektu la ĝustan konektilon: La prezoj pliiĝas; ＿＿ la salajroj malpliiĝas. | samtempe | tio estas | do | ekzemple | Samtempeco.
+Q | Elektu la ĝustan konektilon: Li havas multan sperton; ＿＿ , li estas tre juna. | tamen | do | sekve | alie | Kontrasto.
+Q | Kiu salutformulo taŭgas por formala letero? | Estimata Sinjoro, | Saluton, geamikoj, | He, vi, | Hej, | Formala saluto.
+Q | Kiu fino taŭgas por formala letero? | Kun estimo, | Kisojn, | Ĝis, ĝis, | Adiaŭ, ĉu? | Formala fino.
+Q | Kiu frazo estas plej ĝentila? | Ĉu vi bonvolus diri al mi, kiam la dokumentoj alvenos? | Diru al mi kiam venos. | Kiam venos ili? | Mi volas scii kiam. | Ĝentila peto.
+Q | Kiu frazo taŭgas por plendo? | Mi petas, ke la difekto estu ripartita kiel eble plej baldaŭ. | Ĉio bonas. | Dankon pro nenio. | Ne gravas. | Formala plendo.
+Q | Kiu frazo estas la plej formala? | Mi deziras kandidatiĝi por la ofertita posteno. | Mi volas tiun laboron. | Mi prenus tiun laboron. | Donu al mi la postenon. | Formala registro.
+Q | Kiu frazo estas ĝusta? | Ŝi ĉeestis la kunvenon. | Ŝi ĉeestis al la kunveno. | Ŝi ĉeestis en la kunvenon. | Ŝi ĉeestis pri la kunveno. | Ĉeesti + akuzativo.
+Q | Kiu frazo estas ĝuste interpunkciita? | La raporto, kiu estas longa, prenis horojn. | La raporto kiu estas longa, prenis horojn. | La raporto, kiu estas longa prenis horojn. | La raporto kiu, estas longa prenis horojn. | Enkomo inter komoj.
+Q | Kiu skribmaniero estas ĝusta? | ŝanĝo | ŝango | ŝanĉo | sanĝo | Ŝanĝo.
+Q | Kiu skribmaniero estas ĝusta? | ĵurnalo | ĝurnalo | jurnalo (kun j) | ĥurnalo | Ĵurnalo.
+Q | Kiu skribmaniero estas ĝusta? | ĝardeno | ĵardeno | ĝardenon (por loko) | ĥardeno | Ĝardeno.
+Q | Kiu skribmaniero estas ĝusta? | ĥoro | ĝoro | ĉoro | ŝoro | Ĥoro.
+Q | Kiu skribmaniero estas ĝusta? | eŭropa | eŭropo | ŭeropa | europaŭ | Eŭropa.
+Q | Kiu frazo ne enhavas eraron? | Li aĉetis novan aŭton. | Li aĉetis nova aŭto. | Li aĉetis novan aŭto. | Li aĉetis novajn aŭton. | Akuzativo kaj adjektivo.
+Q | Kiu frazo ne enhavas eraron? | Ŝi legas interesan libron. | Ŝi legas interesa libron. | Ŝi legas interesan libro. | Ŝi legas interesajn libron. | Akordo.
+Q | Kiu frazo ne enhavas eraron? | Mi vidis lin en la parko. | Mi vidis li en la parko. | Mi vidis lin en la parkon. | Mi vidis lin al la parko. | Akuzativo ĉe objekto.
+Q | Kiu frazo ne enhavas eraron? | Ili iris al la strando. | Ili iris en la strando. | Ili iris ĉe la strando. | Ili iris pri la strando. | Direkto: al.
+Q | Kiu frazo ne enhavas eraron? | Ni ricevis multajn leterojn. | Ni ricevis multaj leteroj. | Ni ricevis multajn leteron. | Ni ricevis multa leteroj. | Pluralo kaj akuzativo.
+Q | Kiu frazo ne enhavas eraron? | Ŝi estas pli alta ol mi. | Ŝi estas pli alta kiel mi. | Ŝi estas pli alta ke mi. | Ŝi estas pli alta ol min. | Komparo: pli … ol.
+Q | Kiu frazo ne enhavas eraron? | Ĉi tio estas la plej bona libro. | Ĉi tio estas la pli bona libro. | Ĉi tio estas plej la bona libro. | Ĉi tio estas la plej bone libro. | Superlativo.
+Q | Kiu frazo ne enhavas eraron? | Mi ne scias, ĉu li venos. | Mi ne scias, ke li venos. | Mi ne scias, se li venos. | Mi ne scias, kiu li venos. | Ĉu en subfrazo.
+Q | Kiu frazo ne enhavas eraron? | Se mi havus tempon, mi helpus vin. | Se mi havos tempon, mi helpus vin. | Se mi havus tempon, mi helpos vin. | Se mi havis tempon, mi helpus vin. | Kondiĉa: -us … -us.
+Q | Kiu frazo ne enhavas eraron? | Ĝi estas la libro, kiun mi legis. | Ĝi estas la libro, kiu mi legis. | Ĝi estas la libro, kies mi legis. | Ĝi estas la libro, kiuj mi legis. | Rilata pronomo objekta.
+Q | Kiu vorto plej taŭgas? Li ＿＿ la aferon kun granda zorgo. | traktis | tratis | trafis | trenis | Trakti = trakti.
+Q | Kiu vorto plej taŭgas? La ministro ＿＿ novan leĝon. | proponis | sendis | ricevis | ludis | Proponi leĝon.
+Q | Kiu vorto plej taŭgas? La komitato ＿＿ decidon. | prenis | donis al | portis | lasis | Preni decidon.
+Q | Kiu vorto plej taŭgas? Ĝi ＿＿ gravan rolon. | ludas | kantas | legas | dormas | Ludi rolon.
+Q | Kiu vorto plej taŭgas? Li ＿＿ la respondecon. | akceptas | manĝas | sendas | rigardas | Akcepti respondecon.
+Q | Kiu vorto plej taŭgas? La studo ＿＿ al la konkludo, ke... | kondukas | iras sur | faras | havas | Konduki al konkludo.
+Q | Kiu vorto plej taŭgas? Ni staras antaŭ granda ＿＿ . | defio | defii | defiu | defia | Defio.
+Q | Kiu prepozicio plej taŭgas? Li insistis ＿＿ tiu punkto. | pri | je | al | per | Insisti pri.
+Q | Kiu prepozicio plej taŭgas? Ili alvenis ＿＿ interkonsento. | al | de | por | pro | Alveni al.
+Q | Kiu prepozicio plej taŭgas? Ŝi respondecas ＿＿ la sekureco. | pri | al | je | per | Respondeci pri.
+Q | Kiu prepozicio plej taŭgas? Ĝi dependas ＿＿ la cirkonstancoj. | de | je | pri | al | Dependi de.
+Q | Kiu prepozicio plej taŭgas? Li fidas ＿＿ sia intuicio. | al | de | pri | per | Fidi al.
+Q | Kiu prepozicio plej taŭgas? Ŝi sonĝas ＿＿ vojaĝo. | pri | je | al | de | Sonĝi pri.
+Q | Kiu formo estas ĝusta? Mi ＿＿ vin hieraŭ. | vidis | vidos | vidu | vidas | Preterito.
+Q | Kiu formo estas ĝusta? Mi ＿＿ vin morgaŭ. | vidos | vidis | vidu | vidus | Estonteco.
+Q | Kiu formo estas ĝusta? Se mi ＿＿ riĉa, mi helpus ĉiujn. | estus | estas | estos | estis | Kondiĉa.
+Q | Kiu formo estas ĝusta? Mi volas, ke vi ＿＿ ĉi tie. | restu | restas | restis | restos | Volitivo.
+Q | Kiu formo estas ĝusta? ＿＿ ni iri? | Ĉu | Ke | Se | Kial | Ĉu-demando.
+Q | Kiu formo estas ĝusta? Kiam mi ＿＿ knabo, mi ludis multe. | estis | estas | estos | estus | Preterito.
+Q | Kiu formo estas ĝusta? La libroj ＿＿ vendataj. | estas | estas vendinta | estos vendis | estus vendita | Estas + -ataj.
+Q | Kiu formo estas ĝusta? La letero ＿＿ jam sendita. | estas | estos sendos | estu sendi | estas sendante | Estas + -ita.
+Q | Kiu formo estas ĝusta? Mi ne povis ＿＿ . | veni | venis | venu | venus | Povi + infinitivo.
+Q | Kiu formo estas ĝusta? Li ne ＿＿ ion pri tio. | scias | scii | sciu | scio | Prezenco.
+Q | Kiu formo estas ĝusta? Kiam vi ＿＿ ? | venos | venus | venu | veni | Estonteco.
+Q | Kiu formo estas ĝusta? Ili ĉiuj ＿＿ hejmen. | iris | iri | iru | irus | Preterito.
+Q | Kiu formo estas ĝusta? La ＿＿ de la ĉefo estis bona. | decido | decidi | decidu | decidas | Substantivo.
+Q | Kiu formo estas ĝusta? Li estas ＿＿ homo. | bona | bone | bono | bonan | Adjektivo.
+Q | Kiu formo estas ĝusta? Ŝi parolas ＿＿ . | bone | bona | bono | bonan | Adverbo.
+Q | Kiu formo estas ĝusta? Ni ＿＿ dankas. | ĉiuj | ĉiu | ĉio | ĉia | Ĉiuj = ĉiuj homoj.
+Q | Kiu formo estas ĝusta? ＿＿ homoj estas bonaj. | Ĉiuj | Ĉiu | Ĉio | Ĉie | Ĉiuj homoj.
+Q | Kiu formo estas ĝusta? Ĉu vi havas ＿＿ amikojn? | multajn | multa | multe | multo | Akuzativo pluralo.
+Q | Kiu skribmaniero estas ĝusta? | ĉevalo | ĉeŭalo | ceval | ĉevalu | Ĉevalo.
+Q | Kiu skribmaniero estas ĝusta? | ĝoji | ĵoji | ĉoji | ŝoji | Ĝoji = senti ĝojon.
+Q | Kiu skribmaniero estas ĝusta? | ŝtato | ŝtaco | stato (kun s) | ĥtato | Ŝtato.
+Q | Kiu skribmaniero estas ĝusta? | ĉielo | ĝielo | ĵielo | ŝielo | Ĉielo.
+Q | Kiu skribmaniero estas ĝusta? | ĵaŭdo | ĝaŭdo | ĥaŭdo | ŝaŭdo | Ĵaŭdo.
+Q | Kiu skribmaniero estas ĝusta? | ĥaoso | ĝaoso | ĉaoso | ŝaoso | Ĥaoso.
+Q | Kiu skribmaniero estas ĝusta? | ŝipo | ĉipo | ĝipo | ĥipo | Ŝipo.
+Q | Kiu frazo ne enhavas eraron? | La infanoj ludis en la ĝardeno. | La infanoj ludis en la ĝardenon. | La infanoj ludis al la ĝardeno. | La infanoj ludis ĉe la ĝardenon. | Loko: en + nominativo.
+Q | Kiu frazo ne enhavas eraron? | La infanoj kuris en la ĝardenon. | La infanoj kuris en la ĝardeno. | La infanoj kuris ĉe la ĝardenon. | La infanoj kuris pri la ĝardeno. | Direkto: en + -n.
+Q | Kiu frazo ne enhavas eraron? | Ili ĉiuj manĝis. | Ili ĉiu manĝis. | Ili ĉiuj manĝas hieraŭ. | Ili ĉio manĝis. | Ĉiuj + plurala verbo.
+Q | Kiu frazo ne enhavas eraron? | Li diris, ke li venos morgaŭ. | Li diris, ĉu li venos morgaŭ. | Li diris, se li venos morgaŭ. | Li diris, kiel li venos. | Ke por aserto.
+Q | Kiu frazo ne enhavas eraron? | Ĝi estas tiel simpla kiel mi pensis. | Ĝi estas tiel simpla ol mi pensis. | Ĝi estas pli simpla kiel mi pensis. | Ĝi estas tiel simpla ke mi pensis. | Tiel … kiel.
+Q | Kiu frazo ne enhavas eraron? | Post la kunveno, ni iris manĝi. | Post la kunveno, ni iris manĝas. | Post la kunveno ni iru manĝis. | Post la kunveno ni irus manĝu. | Iri + infinitivo.
+Q | Kiu frazo ne enhavas eraron? | Estas necese, ke vi venu tuj. | Estas necese, ke vi venas tuj. | Estas necese, ke vi venis tuj. | Estas necese, ke vi venos tuj. | Ke + volitivo.
+Q | Kiu frazo ne enhavas eraron? | Ĉu vi jam manĝis? | Ĉu vi jam manĝas hieraŭ? | Ĉu vi jam manĝus hieraŭ? | Ĉu vi jam manĝos hieraŭ? | Jam + preterito.
+# speaking
+Q | Vi ne komprenis. Kion vi diras ĝentile? | Pardonu, ĉu vi povus ripeti tion, mi petas? | Kio? | Ripetu! | Denove! | Ĝentila peto.
+Q | Kolego dankas vin. Kion vi respondas? | Ne dankinde, mi ĝojas helpi. | Ankaŭ mi dankas vin vin. | Ne diru dankon. | Ne ripetu tion. | Natura respondo.
+Q | Vi volas ĝentile kontraŭdiri. Kion vi diras? | Mi ne tute samopinias, ĉar la ciferoj montras alion. | Malvere! | Sensencaĵo. | Tio estas stultaĵo. | Ĝentila kontraŭdiro.
+Q | Vi volas ĝentile interrompi. Kion vi diras? | Pardonu, ĉu mi rajtas aldoni ion? | Silentu. | Nun mi parolas. | Sufiĉe. | Ĝentila interrompo.
+Q | Vi devas malakcepti inviton. Kion vi diras? | Dankon pro la invito, bedaŭrinde mi jam havas alian aranĝon. | Ne. | Mi ne volas. | Mi ne venos, ĝis. | Ĝentila rifuzo.
+Q | Vi bezonas tempon por pensi. Kion vi diras? | Tio estas interesa demando; lasu min pripensi momenton. | Mi ne scias. | Nenion mi pensas. | Demandu alian. | Gajni tempon.
+Q | Vi demandas la vojon. Kion vi diras? | Pardonu, kiel mi iras al la stacidomo, mi petas? | Stacidomo kie? | Diru stacidomon. | Stacidomo, rapide! | Ĝentila demando.
+Q | Vi plendas en hotelo. Kion vi diras? | Bedaŭrinde la hejtado en mia ĉambro ne funkcias; ĉu vi povus kontroli? | Via hejtado estas rubo. | Riparu ĝin tuj. | Via hotelo estas plej malbona. | Formala plendo.
+Q | Oni gratulas vin pro la ekzameno. Kion vi respondas? | Multan dankon, mi ege ĝojas. | Jes, memkompreneble. | Ĝi estis facila. | Mi scias. | Natura respondo.
+Q | Vi proponas ion. Kion vi diras? | Kion vi dirus pri prokrasto de la rendevuo? | Prokrastu. | Rendevuo prokrasti vi. | Prokrastu simple. | Propono.
+Q | Vi esprimas vian opinion. Kion vi diras? | Laŭ mi, ni daŭrigu la projekton. | Mi opinio projekto. | La projekto estas opinio. | Opinio daŭrigi. | Opinia formulo.
+Q | Vi konfirmas interkonsenton. Kion vi diras? | Ĝuste, mi pensas same. | Jes ne. | Ne veras. | Eble tiel. | Konsento.
+Q | Vi petas helpon. Kion vi diras? | Ĉu vi povus helpi min momenton, mi petas? | Helpu min nun. | Vi helpu. | Donu helpon. | Ĝentila peto.
+Q | Iu pardonpetas pro malfruo. Kion vi respondas? | Ne gravas, bonvolu sidiĝi. | Tio estas via problemo. | Tro malfrue! | Denove! | Komprena respondo.
+Q | Ĉe intervjuo vi ne scias la respondon. Kion vi diras? | Mi ne scias precize, sed volonte esploros kaj respondos. | Mi ne scias. | Neniu ideo. | Demandu alian. | Profesia respondo.
+Q | Vi volas la fakturon en restoracio. Kion vi diras? | Ĉu ni povus havi la kalkulon, mi petas? | La kalkulon! | Donu kalkulon. | Pagi nun. | Ĝentila peto.
+Q | Vi volas fini la konversacion. Kion vi diras? | Estis agrable paroli kun vi, sed mi bedaŭrinde devas foriri. | Mi iras. | Sufiĉe da parolo. | Ĝis, enuiga. | Ĝentila fino.
+Q | Vi komencas klarigon. Kion vi diras? | Mi volus mallonge klarigi, kiel tio funkcias. | Mi klarigas rapide. | Klarigi mi nun. | Tio estas tiel. | Formala enkonduko.
+Q | Vi finas prezenton. Kion vi diras? | Mi dankas pro via atento kaj estas preta respondi demandojn. | Fino. | Tio estas ĉio, ĝis. | Finiĝis, foriru. | Prezenta fino.
+Q | Vi volas substreki gravan punkton. Kion vi diras? | Mi volas substreki, ke sekureco estas la unua prioritato. | Sekureco estas sekureco. | Mi substreko sekureco. | Mi sekureco. | Substreko.
+Q | Vi donas ekzemplon. Kion vi diras? | Ekzemple, la nova busa servo montras tion. | Ekzemplo buso. | Buso nova ekzemplo estas. | Ekzemploj buso de. | Ekzemplo.
+Q | Vi esprimas necertecon. Kion vi diras? | Mi ne tute certas, sed mi pensas, ke tio estas mardo. | Mardo ne certa. | Mardo certa ne mi. | Mi ne mardo. | Necerteco.
+Q | Vi donas konsilon. Kion vi diras? | Se mi estus vi, mi akceptus la proponon. | Akceptu. | Vi devas akcepti. | Propono akcepti nun. | Konsilo.
+Q | Vi adiaŭas post komerca vespermanĝo. Kion vi diras? | Mi dankas pro la invito; la vespero estis tre agrabla. | Dankon, ĝis. | Mi iras hejmen. | La manĝo estis tiel-tiel. | Formala adiaŭo.
+Q | Vi kritikas kun takto. Kion vi diras? | Mi pensas, ke la raporto povus esti iom pli detala. | La raporto estas malbona. | Via raporto estas senvalora. | Ĝi estas neuzebla. | Milda kritiko.
+Q | Vi faras promeson. Kion vi diras? | Mi zorgos, ke la raporto estu sur via tablo ĝis lundo. | Raporto eble lunde. | Mi promesas nenion, lunde. | Lunde raporto eventuale. | Promeso.
+Q | Vi invitas iun paroli. Kion vi diras? | Kion vi pensas pri tio, sinjorino Weber? | Weber, parolu. | Diru, rapide. | Weber, nun. | Ĝentila invito.
+Q | Vi petas komprenon. Kion vi diras? | Mi petas komprenon, ĉar ni devas prokrasti la kunvenon. | Komprenu. | Kunveno prokrastita, fino. | Vi devas kompreni. | Peto pri kompreno.
+Q | Vi montras surprizon. Kion vi diras? | Ĉu vere? Mi tute ne sciis! | Vi mensogas. | Neebla afero. | Tio surprizas min mi. | Surprizo.
+Q | Vi proponas trinkaĵon. Kion vi diras? | Ĉu mi rajtas proponi al vi kafon? | Trinku kafon. | Vi volas kafon. | Prenu kafon. | Ĝentila propono.
+Q | Oni proponas al vi helpon. Kion vi respondas? | Dankon, tre afable, sed mi mem povas pritrakti ĝin. | Mi ne bezonas vin. | Ne. | Lasu min. | Ĝentila rifuzo.
+Q | Vi mildigas vian opinion. Kion vi diras? | Eble tiu rimedo ne sufiĉos. | Ĝi neniam sufiĉas. | Ĉiu scias tion. | Tiel estas, punkto. | Mildigo.
+Q | Vi komparas du eblojn. Kion vi diras? | Unuflanke ĝi estas pli malmultekosta, aliflanke malpli daŭra. | Malmultekosta kaj daŭra ne. | Malmultekosta aŭ daŭra. | Unu estas, la alia ne. | Kontrasto.
+Q | Vi ŝanĝas la temon. Kion vi diras? | Cetere, ĉu vi aŭdis pri la nova projekto? | Alia temo. | Sufiĉe, temo. | Ŝanĝu temon. | Ŝanĝo de temo.
+Q | Vi petas klarigon pri termino. Kion vi diras? | Kion precize vi signifas per tiu vorto? | Klarigu vorton. | Vorto kio. | Mi ne komprenas. | Klarigo.
+Q | Vi konfirmas rendevuon. Kion vi diras? | Do ni renkontiĝos ĵaŭdon je la deka. | Ĵaŭdon deka ni. | Ĵaŭdon, mi venas. | Ĵaŭdon deka vi. | Konfirmo.
+Q | Iu rakontas malbonan novaĵon. Kion vi diras? | Mi ege bedaŭras. Ĉu mi povas fari ion por vi? | Estas via kulpo. | Ne gravas. | Tia estas la vivo. | Kompato.
+Q | Vi petas silenton ĝentile. Kion vi diras? | Ĉu vi povus esti iom pli trankvilaj, mi petas? | Silentu! | Fermu la buŝon. | Kion vi bruas. | Ĝentila peto.
+Q | Vi petas akordon de iu. Kion vi diras? | Ĉu vi konsentas pri tio? | Vi konsentu? | Konsentas vi tion? | Jes aŭ ne? | Ĝentila demando.
+Q | Vi esprimas bedaŭron. Kion vi diras? | Mi ege bedaŭras, ke ni ne atingis interkonsenton. | Bedaŭro interkonsento ne. | Pri interkonsento ĉagreno. | Neniu akordo, domaĝe. | Formala bedaŭro.
+Q | Vi pardonpetas pro malfruo. Kion vi diras? | Pardonu la malfruon; la trajno malfruis. | Malfruo pardono. | Mi malfrua, jes. | Malfrue trajno mi. | Formala pardonpeto.
+Q | Vi resumas. Kion vi diras? | Resume, ni devas resti fleksebla. | Resumo ni fleksebla. | Fino fleksebla. | Ĉio fleksebla fino. | Resumo.
+Q | Vi petas tempon. Kion vi diras? | Ĉu mi povus pripensi ĝis morgaŭ? | Mi pensas morgaŭ. | Morgaŭ pensi vi. | Ne pensi. | Peto pri tempo.
+Q | Vi prezentas iun. Kion vi diras? | Permesu, ke mi prezentu mian kolegon, sinjoron Weber. | Jen Weber, rigardu. | Sinjoro Weber, vi. | Kolego Weber ĉi tie. | Prezento.
+Q | Vi dankas pro donaco. Kion vi diras? | Vi estas tre afabla, multan dankon! | Dankon donaco. | Mi havas donacon. | Bone, jes. | Danko.
+Q | Vi subtenas aserton. Kion vi diras? | Tio povas esti pruvita per la nunaj ciferoj. | Tiel estas, kredu min. | La ciferoj samas. | Ĉiuj diras tion. | Argumento.
+Q | Vi telefonas al kolego. Kion vi diras? | Bonan tagon, ĉu mi povus paroli kun sinjoro Weber? | Weber, nun! | Mi volas Weber. | Donu Weber. | Formala telefono.
+Q | Vi volas paroli en kunsido. Kion vi diras? | Se mi rajtas, mi volus fari rimarkon. | Mia vico. | Aŭskultu min! | Mi parolas nun. | Peto pri parolo.
+Q | Vi petas prokraston de rendevuo. Kion vi diras? | Ĉu eblus prokrasti nian rendevuon ĝis la venonta semajno? | Rendevuo semajno vi. | Mi prokrastas, bone. | Rendevuo foriris. | Ĝentila peto.
+Q | Vi esprimas kondiĉan konsenton. Kion vi diras? | Principe mi konsentas, sed mi vidas riskon. | Mi ne konsentas, jes. | Bone, sed ne. | Jes kaj ne nenio. | Kondiĉa konsento.
