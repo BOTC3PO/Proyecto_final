@@ -7,7 +7,7 @@ En B1, escribir es redactar textos coherentes: cartas formales e informales, rel
 
 ## Explicación central
 - **Carta formal**: **आदरणीय महोदय / महोदया** … **कृपया मुझे जानकारी भेजिए** … **भवदीय / आपका**; **विषय:** (asunto).
-- **Narración**: pasado con concordancia: कल मैं बाज़ार गया और फल ख़रीदे.
+- **Narración**: pasado con concordancia: कल मैं बाज़ार गया और मैंने फल ख़रीदे.
 - **Opinión**: **मेरे विचार में** …, **क्योंकि** …; **उदाहरण के लिए**, …; **अंत में**, …
 - **Contraste, causa, consecuencia**: लेकिन, क्योंकि, इसलिए.
 - **Comparación**: शहर गाँव **से** बड़ा है.

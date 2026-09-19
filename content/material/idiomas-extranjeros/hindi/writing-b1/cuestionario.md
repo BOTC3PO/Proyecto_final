@@ -91,12 +91,12 @@ pasos:
   - "Elegir la opción correcta para escribir."
 enunciado: "Tarea de escritura: Cuentas lo que hiciste ayer (m.)."
 opciones_explicitas:
-  - "कल मैं बाज़ार गया और फल ख़रीदे"
+  - "कल मैं बाज़ार गया और मैंने फल ख़रीदे"
   - "कल मैं बाज़ार जाता और फल ख़रीदूँगा"
   - "कल मैं बाज़ार जाऊँगा"
-respuesta: "कल मैं बाज़ार गया और फल ख़रीदे"
+respuesta: "कल मैं बाज़ार गया और मैंने फल ख़रीदे"
 tipo: mc
-explicacion: "गया + मैंने ख़रीदे... (aquí simplificado)."
+explicacion: "गया (intransitivo) y मैंने + ख़रीदे (ergativo)."
 ```
 
 ### 6 — opinión
