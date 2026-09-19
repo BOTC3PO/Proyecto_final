@@ -112,10 +112,10 @@ enunciado: "El plural de طالب (estudiante) es:"
 opciones_explicitas:
   - "طلاب"
   - "طالبات"
-  - "طالبون"
+  - "طلبات"
 respuesta: "طلاب"
 tipo: mc
-explicacion: "طالب → طلاب (ṭullāb); طالبون también existe, pero طلاب es el más común."
+explicacion: "طالب → طلاب (ṭullāb)."
 ```
 
 ### 7 — مدينة
