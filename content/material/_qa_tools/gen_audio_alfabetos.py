@@ -120,14 +120,14 @@ class Engines:
     def __init__(self):
         self.piper_v, self.kokoro, self.zh, self.ja = {}, None, None, None
 
-    def piper(self, name, text):
+    def piper(self, name, text, ls=1.3):
         if name not in self.piper_v:
             from piper import PiperVoice
             self.piper_v[name] = PiperVoice.load(str(PIPER / f"{name}.onnx"))
         from piper import SynthesisConfig
         buf = io.BytesIO()
         with wave.open(buf, "wb") as w:
-            self.piper_v[name].synthesize_wav(text, w, syn_config=SynthesisConfig(length_scale=1.3))
+            self.piper_v[name].synthesize_wav(text, w, syn_config=SynthesisConfig(length_scale=ls))
         buf.seek(0)
         with wave.open(buf) as w:
             return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16), w.getframerate()

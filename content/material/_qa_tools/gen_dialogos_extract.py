@@ -6,6 +6,8 @@ STOP=re.compile(r"^[>\-\s\*]*\**(Explicaci|Traducci|An[aá]lisis|Este ejemplo|Es
 SKIP=re.compile(r"^[>\-\s\*]*\**(Escenario|Situaci|Contexto|Di[aá]logo|Dialogo)\b",re.I)
 def section(t):
     m=re.search(r"^#{2,3}\s*(?:\d+[.)]\s*)?Ejemplo extendido[^\n]*\n(.*?)(?=\n#{2,3} |\Z)",t,re.S|re.M)
+    if not m:
+        m=re.search(r"^\*\*Ejemplo extendido[^\n]*\n(.*?)(?=\n#{2,3} |\Z)",t,re.S|re.M)
     return m.group(1) if m else ""
 def strip_md(s):
     s=re.sub(r"\*+","",s)
@@ -38,7 +40,7 @@ def eo_lines(path):
         r=strip_md(raw)
         m=re.match(r"^([^:]{1,20}):\s*(.+)$",r)
         if m and len(LATRE.findall(m.group(2)))>=4:
-            out.append((m.group(1).strip(),re.sub(r"\s*\([^)]*\)\s*$","",m.group(2)).strip()))
+            out.append((m.group(1).strip(),re.sub(r"\s*\([^)]*\)[.!?\s]*$","",m.group(2)).strip()))
     return out
 def lines(path,lang): return eo_lines(path) if lang=="esperanto" else cjk_lines(path)
 def topics():
@@ -50,3 +52,45 @@ if __name__=="__main__":
     for lang,n,d in topics():
         L=lines(d,lang); print(f"## {lang}/{n}: {len(L)}")
         for s,x in L: print("   ",s,"|",x[:70])
+
+
+# ---- idiomas latinos y coreano (audio previo defectuoso) -------------------
+LANGCODE = {"ingles": "en", "aleman": "de", "frances": "fr", "italiano": "it", "portugues-br": "pt",
+            "portugues-pt": "pt", "coreano": "ko"}
+HANGUL = re.compile("[가-힣]")
+_QUOTES = "„“”«»\"‘’"
+
+
+def _es_idioma(txt, code):
+    if code == "ko":
+        h = len(HANGUL.findall(txt))
+        return h >= 4 and h / max(1, len(re.sub(r"\s", "", txt))) > 0.5
+    if len(LATRE.findall(txt)) < 4:
+        return False
+    from langdetect import DetectorFactory, detect
+    DetectorFactory.seed = 0
+    try:
+        return detect(txt) == code
+    except Exception:
+        return False
+
+
+def latin_lines(path, lang):
+    code = LANGCODE[lang]
+    t = open(path + "/teoria.md", encoding="utf-8").read(); out = []
+    for raw in section(t).split("\n"):
+        if STOP.match(raw):
+            break
+        r = strip_md(raw)
+        if not r or SKIP.match(raw):
+            continue
+        spk = ""
+        m = re.match(r"^([^:„“«]{1,25}?):\s*(.+)$", r)
+        if m and len(m.group(1).split()) <= 3:
+            spk, r = m.group(1).strip(), m.group(2)
+        r = re.sub(r"\s*\([^)]*\)[.!?\s]*$", "", r)          # traducción final entre paréntesis
+        r = re.sub(r"\s*\([^)]*\)[.!?\s]*$", "", r)
+        r = r.strip().strip(_QUOTES).strip()
+        if r and (_es_idioma(r, code) or (spk and len(LATRE.findall(r)) >= 4 and not _es_idioma(r, "es"))):
+            out.append((spk or "A", r))
+    return out
