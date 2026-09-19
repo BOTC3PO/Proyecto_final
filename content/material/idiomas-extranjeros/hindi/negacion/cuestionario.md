@@ -92,7 +92,7 @@ pasos:
 enunciado: "«No como carne» (m.):"
 opciones_explicitas:
   - "मैं मांस नहीं खाता"
-  - "मैं मांस खाता नहीं हूँ"
+  - "मैं मांस नहीं खाती हूँ हूँ"
   - "मैं नहीं मांस खाता"
 respuesta: "मैं मांस नहीं खाता"
 tipo: mc
