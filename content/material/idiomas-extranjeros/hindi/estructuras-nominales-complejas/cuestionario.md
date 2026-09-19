@@ -279,7 +279,7 @@ metadata:
   tags: ["nominalizacion", "ka-ki-ke", "verbos-conjuntos"]
 pasos:
   - "Elegir la forma correcta."
-enunciado: "«El desarrollo» (verbo विकसित करना → ）:"
+enunciado: "«El desarrollo» (sustantivo derivado del verbo विकसित करना):"
 opciones_explicitas:
   - "विकास"
   - "विकसित"
@@ -377,8 +377,8 @@ pasos:
 enunciado: "«El libro que compré»:"
 opciones_explicitas:
   - "जो किताब मैंने खरीदी, वह…"
-  - "किताब जो मैंने खरीदी वह नहीं"
-  - "मैंने जो किताब खरीदी वो"
+  - "वह किताब जो खरीदी मैंने नहीं"
+  - "किताब जो वह मैंने खरीदी न"
 respuesta: "जो किताब मैंने खरीदी, वह…"
 tipo: mc
 explicacion: "Estructura correlativa."
