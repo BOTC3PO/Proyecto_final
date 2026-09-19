@@ -37,7 +37,7 @@ OUT = Path("/home/javier/Proyecto_final/content/material/_audio-generado")
 PIPER = Path.home() / "piper"
 KOKORO = Path.home() / "tts-venv/models"
 TASHKIL = re.compile(r"[ؐ-ًؚ-ٰٟۖ-ۭـ]")
-ASR_LANG = {"arabe": "ar", "ruso": "ru", "hindi": "hi", "chino": "zh", "coreano": "ko", "japones": "ja"}
+ASR_LANG = {"arabe": "ar", "ruso": "ru", "hindi": "hi", "chino": "zh", "coreano": "ko", "japones": "ja", "esperanto": "es"}
 
 # ---------------------------------------------------------------- contenido
 # item = (tipo, etiqueta, texto_hablado)  — texto_hablado None => igual a la etiqueta
@@ -149,7 +149,8 @@ class Engines:
         pad = np.zeros(int(sr * 0.15), dtype=np.int16)
         return np.concatenate([pad, pcm, sil, pcm, pad]), sr, voz
 
-    def _say(self, idioma, text):
+    def _say(self, idioma, text, alt=False):
+        """alt=True -> segunda voz (interlocutor B en los diálogos)."""
         if idioma == "ruso":
             return self.piper("ru_RU-irina-medium", text) + ("piper:irina",)
         if idioma == "arabe":
@@ -164,7 +165,8 @@ class Engines:
             if self.zh is None:
                 from misaki import zh
                 self.zh = zh.ZHG2P()
-            return self.kok_pcm(self.zh(text), "zf_xiaoxiao", "cmn", True) + ("kokoro:zf_xiaoxiao+misaki",)
+            v = "zm_yunxi" if alt else "zf_xiaoxiao"
+            return self.kok_pcm(self.zh(text), v, "cmn", True) + (f"kokoro:{v}+misaki",)
         if idioma == "japones":
             if self.ja is None:
                 import jaconv
@@ -176,7 +178,12 @@ class Engines:
                 self.ja = ja.JAG2P()
             r = self.ja(text)
             ph = r[0] if isinstance(r, tuple) else r
-            return self.kok_pcm(ph, "jf_alpha", "ja", True) + ("kokoro:jf_alpha+misaki",)
+            v = "jm_kumo" if alt else "jf_alpha"
+            return self.kok_pcm(ph, v, "ja", True) + (f"kokoro:{v}+misaki",)
+        if idioma == "esperanto":
+            # fonemas de eSpeak "eo" (ortografía esperanto correcta) con voz castellana de Kokoro
+            v = "em_alex" if alt else "ef_dora"
+            return self.kok_pcm(text, v, "eo") + (f"kokoro:{v}+espeak-eo",)
         raise ValueError(idioma)
 
 

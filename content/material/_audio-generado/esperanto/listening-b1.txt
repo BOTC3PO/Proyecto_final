@@ -1,7 +1,4 @@
-Situo: Un turista pregunta a un local sobre cómo llegar al museo.
-Turisto: Bonan tagon! Ĉu vi povas montri, kie estas la muzeo?
-Lokalo: Bonan tagon! La muzeo troviĝas en la veneto, malproksime de la stacio.
-Turisto: Ĉu estas busegoj al tie?
-Lokalo: Jes, sed ili prenas multe da tempo. Mi konsilas iri per piedoj.
-Turisto: Dankon! Ĉu vi scias, kie troviĝas la plej proksima busego?
-Lokalo: Ĝi estas sur la bulvardo, malproksime de tiuj ĉi butikoj.
+A: Kion vi faros sabate?
+B: Se ne pluvos, mi iros al la marbordo. Se mi havus pli da tempo, mi restus tie la tutan semajnfinon.
+A: Kial vi ne restas?
+B: Ĉar mi devas labori dimanĉe.
