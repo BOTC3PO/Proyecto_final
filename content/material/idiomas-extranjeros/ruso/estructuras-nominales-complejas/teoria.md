@@ -24,7 +24,7 @@ El ruso escrito, sobre todo científico, periodístico y administrativo, tiende 
 ## Comparación con el español
 El español también nominaliza (*el aumento de los precios*), pero el ruso lo hace con más frecuencia y encadena genitivos sin preposición.
 
-## Ejemplo extendido en contexто
+## Ejemplo extendido en contexto
 - В рамках проекта было принято решение о повышении уровня образования. Рост цен привёл к снижению затрат на улучшение ситуации.
 
 **Explicación:** в рамках проекта, решение о повышении уровня образования, рост цен, снижение затрат.
