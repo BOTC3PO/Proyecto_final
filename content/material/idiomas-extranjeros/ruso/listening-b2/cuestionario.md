@@ -463,10 +463,10 @@ metadata:
   tags: ["listening", "b2", "comprension-oral"]
 pasos:
   - "Completar con la palabra que se oye."
-enunciado: "Audio: «＿＿ компании приветствуют технологию, рабочие боятся.» (mientras que; tres palabras: В то время как; escribe solo «время»)"
+enunciado: "Audio: «Ожидается, ＿＿ население достигнет десяти миллиардов.» (que)"
 tipo: completar
 respuestas_validas:
-  - "время"
-explicacion: "В то время как."
+  - "что"
+explicacion: "Ожидается, что."
 ```
 
