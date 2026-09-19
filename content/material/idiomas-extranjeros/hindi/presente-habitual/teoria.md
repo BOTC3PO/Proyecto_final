@@ -25,7 +25,7 @@ El **presente habitual** hindi expresa acciones repetidas o generales. Se forma 
 ## Errores comunes de hispanohablantes
 1. **No concordar el género** del sujeto en el participio.
 2. **Olvidar el auxiliar** होना.
-3. **Colocar नहीं después del verbo**.
+3. **Colocar नहीं lejos del verbo**: lo normal es justo antes del verbo.
 4. **Usar -ते con आप en femenino** (*आप पढ़ती हैं*).
 
 ## Comparación con el español

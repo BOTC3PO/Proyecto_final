@@ -339,8 +339,8 @@ pasos:
 enunciado: "«Yo (m.) no como carne»:"
 opciones_explicitas:
   - "मैं मांस नहीं खाता"
-  - "मैं मांस खाता नहीं हूँ"
   - "मैं नहीं मांस खाता हूँ"
+  - "मांस मैं खाता नहीं नहीं"
 respuesta: "मैं मांस नहीं खाता"
 tipo: mc
 explicacion: "नहीं + verbo (है puede omitirse)."
