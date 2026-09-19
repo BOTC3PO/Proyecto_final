@@ -466,7 +466,7 @@ metadata:
   tags: ["listening", "b1", "comprension-oral"]
 pasos:
   - "Completar con la palabra que se oye."
-enunciado: "Audio: «Я читаю ＿＿ поездки.» (durante; una palabra: во время)"
+enunciado: "Audio: «Я читаю ＿＿ поездки.» (durante; dos palabras)"
 tipo: completar
 respuestas_validas:
   - "во время"
