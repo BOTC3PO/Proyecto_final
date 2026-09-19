@@ -573,7 +573,11 @@ con Javier, no es que se haya perdido nada con la falla de disco.
 **Plan confirmado por Javier el 2026-09-19** ("te acepto el plan de los 3
 idiomas nuevos aunque no esté en la lista de logros"): se generan los 140
 temas (ar 47, ru 46, hi 47) sin esperar a resolver la numeración de logros.
-El conflicto de ids (abajo) sólo bloquea los `logros-idiomas.ar/ru/hi.json`.
+**Resuelto 2026-09-19** (Javier: "y con eso los logros"): sin tocar los ids
+de examen-jefe (52-216, no se renumeran), las certificaciones nuevas van al
+final: **217 Árabe (C1), 218 Ruso (ТРКИ-3), 219 Hindi (C1)**, agregadas a los
+12 `logros-idiomas.<locale>.json`; el logro meta 51 "Políglota" pasa a
+"completar los 13 idiomas".
 
 ### Conflicto a resolver antes de generar: numeración de logros
 

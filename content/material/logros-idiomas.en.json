@@ -80,11 +80,35 @@
     "icono": "🟢"
   },
   {
+    "id": 217,
+    "idioma": "Árabe",
+    "objetivo": "C1",
+    "nombre": "C1 Arabic Certification",
+    "descripcion": "You passed the C1 level Arabic certification exam.",
+    "icono": "🇸🇦"
+  },
+  {
+    "id": 218,
+    "idioma": "Ruso",
+    "objetivo": "ТРКИ-3",
+    "nombre": "ТРКИ-3 Russian Certification",
+    "descripcion": "You passed the ТРКИ-3 level Russian certification exam.",
+    "icono": "🇷🇺"
+  },
+  {
+    "id": 219,
+    "idioma": "Hindi",
+    "objetivo": "C1",
+    "nombre": "C1 Hindi Certification",
+    "descripcion": "You passed the C1 level Hindi certification exam.",
+    "icono": "🇮🇳"
+  },
+  {
     "id": 51,
     "idioma": null,
     "objetivo": null,
     "nombre": "Polyglot",
-    "descripcion": "You completed the certifications for all 10 languages on the map.",
+    "descripcion": "You completed the certifications for all 13 languages on the map.",
     "icono": "🌐",
     "meta": true
   }

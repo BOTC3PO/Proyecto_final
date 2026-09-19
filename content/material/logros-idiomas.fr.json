@@ -80,11 +80,35 @@
     "icono": "🟢"
   },
   {
+    "id": 217,
+    "idioma": "Árabe",
+    "objetivo": "C1",
+    "nombre": "Certification C1 en arabe",
+    "descripcion": "Vous avez réussi l'examen de certification d'arabe, niveau C1.",
+    "icono": "🇸🇦"
+  },
+  {
+    "id": 218,
+    "idioma": "Ruso",
+    "objetivo": "ТРКИ-3",
+    "nombre": "Certification ТРКИ-3 en russe",
+    "descripcion": "Vous avez réussi l'examen de certification de russe, niveau ТРКИ-3.",
+    "icono": "🇷🇺"
+  },
+  {
+    "id": 219,
+    "idioma": "Hindi",
+    "objetivo": "C1",
+    "nombre": "Certification C1 en hindi",
+    "descripcion": "Vous avez réussi l'examen de certification d'hindi, niveau C1.",
+    "icono": "🇮🇳"
+  },
+  {
     "id": 51,
     "idioma": null,
     "objetivo": null,
     "nombre": "Polyglotte",
-    "descripcion": "Vous avez obtenu la certification pour les 10 langues de la carte.",
+    "descripcion": "Vous avez obtenu la certification pour les 13 langues de la carte.",
     "icono": "🌐",
     "meta": true
   }

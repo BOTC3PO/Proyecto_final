@@ -80,11 +80,35 @@
     "icono": "🟢"
   },
   {
+    "id": 217,
+    "idioma": "Árabe",
+    "objetivo": "C1",
+    "nombre": "Certificazione C1 di Arabo",
+    "descripcion": "Hai superato l'esame di certificazione di Arabo, livello C1.",
+    "icono": "🇸🇦"
+  },
+  {
+    "id": 218,
+    "idioma": "Ruso",
+    "objetivo": "ТРКИ-3",
+    "nombre": "Certificazione ТРКИ-3 di Russo",
+    "descripcion": "Hai superato l'esame di certificazione di Russo, livello ТРКИ-3.",
+    "icono": "🇷🇺"
+  },
+  {
+    "id": 219,
+    "idioma": "Hindi",
+    "objetivo": "C1",
+    "nombre": "Certificazione C1 di Hindi",
+    "descripcion": "Hai superato l'esame di certificazione di Hindi, livello C1.",
+    "icono": "🇮🇳"
+  },
+  {
     "id": 51,
     "idioma": null,
     "objetivo": null,
     "nombre": "Poliglotta",
-    "descripcion": "Hai completato la certificazione dei 10 lingue della mappa.",
+    "descripcion": "Hai completato la certificazione delle 13 lingue della mappa.",
     "icono": "🌐",
     "meta": true
   }

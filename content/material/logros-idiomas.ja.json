@@ -80,11 +80,35 @@
     "icono": "🟢"
   },
   {
+    "id": 217,
+    "idioma": "Árabe",
+    "objetivo": "C1",
+    "nombre": "C1アラビア語認定",
+    "descripcion": "C1レベルのアラビア語認定試験に合格しました。",
+    "icono": "🇸🇦"
+  },
+  {
+    "id": 218,
+    "idioma": "Ruso",
+    "objetivo": "ТРКИ-3",
+    "nombre": "ТРКИ-3ロシア語認定",
+    "descripcion": "ТРКИ-3レベルのロシア語認定試験に合格しました。",
+    "icono": "🇷🇺"
+  },
+  {
+    "id": 219,
+    "idioma": "Hindi",
+    "objetivo": "C1",
+    "nombre": "C1ヒンディー語認定",
+    "descripcion": "C1レベルのヒンディー語認定試験に合格しました。",
+    "icono": "🇮🇳"
+  },
+  {
     "id": 51,
     "idioma": null,
     "objetivo": null,
     "nombre": "ポリグロット",
-    "descripcion": "地図上の10言語の認定をすべて完了しました。",
+    "descripcion": "地図上の13言語の認定をすべて完了しました。",
     "icono": "🌐",
     "meta": true
   }

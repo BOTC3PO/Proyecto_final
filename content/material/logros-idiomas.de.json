@@ -80,11 +80,35 @@
     "icono": "🟢"
   },
   {
+    "id": 217,
+    "idioma": "Árabe",
+    "objetivo": "C1",
+    "nombre": "C1-Arabischzertifikat",
+    "descripcion": "Du hast die C1-Arabischzertifizierung bestanden.",
+    "icono": "🇸🇦"
+  },
+  {
+    "id": 218,
+    "idioma": "Ruso",
+    "objetivo": "ТРКИ-3",
+    "nombre": "ТРКИ-3-Russischzertifikat",
+    "descripcion": "Du hast die ТРКИ-3-Russischzertifizierung bestanden.",
+    "icono": "🇷🇺"
+  },
+  {
+    "id": 219,
+    "idioma": "Hindi",
+    "objetivo": "C1",
+    "nombre": "C1-Hindizertifikat",
+    "descripcion": "Du hast die C1-Hindizertifizierung bestanden.",
+    "icono": "🇮🇳"
+  },
+  {
     "id": 51,
     "idioma": null,
     "objetivo": null,
     "nombre": "Polyglott",
-    "descripcion": "Du hast die Zertifizierung für alle 10 Sprachen auf der Karte abgeschlossen.",
+    "descripcion": "Du hast die Zertifizierung für alle 13 Sprachen auf der Karte abgeschlossen.",
     "icono": "🌐",
     "meta": true
   }

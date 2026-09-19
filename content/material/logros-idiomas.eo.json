@@ -80,11 +80,35 @@
     "icono": "🟢"
   },
   {
+    "id": 217,
+    "idioma": "Árabe",
+    "objetivo": "C1",
+    "nombre": "C1-Atestilo pri la Araba Lingvo",
+    "descripcion": "Vi sukcesis en la C1-nivela atestila ekzameno pri la araba lingvo.",
+    "icono": "🇸🇦"
+  },
+  {
+    "id": 218,
+    "idioma": "Ruso",
+    "objetivo": "ТРКИ-3",
+    "nombre": "ТРКИ-3-Atestilo pri la Rusa Lingvo",
+    "descripcion": "Vi sukcesis en la ТРКИ-3-nivela atestila ekzameno pri la rusa lingvo.",
+    "icono": "🇷🇺"
+  },
+  {
+    "id": 219,
+    "idioma": "Hindi",
+    "objetivo": "C1",
+    "nombre": "C1-Atestilo pri la Hinda Lingvo",
+    "descripcion": "Vi sukcesis en la C1-nivela atestila ekzameno pri la hinda lingvo.",
+    "icono": "🇮🇳"
+  },
+  {
     "id": 51,
     "idioma": null,
     "objetivo": null,
     "nombre": "Poligloto",
-    "descripcion": "Vi kompletigis la atestilojn de la 10 lingvoj de la mapo.",
+    "descripcion": "Vi kompletigis la atestilojn de la 13 lingvoj de la mapo.",
     "icono": "🌐",
     "meta": true
   }

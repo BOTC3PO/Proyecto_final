@@ -80,11 +80,35 @@
     "icono": "🟢"
   },
   {
+    "id": 217,
+    "idioma": "Árabe",
+    "objetivo": "C1",
+    "nombre": "아랍어 C1 인증",
+    "descripcion": "아랍어 C1 수준의 인증 시험에 합격했습니다.",
+    "icono": "🇸🇦"
+  },
+  {
+    "id": 218,
+    "idioma": "Ruso",
+    "objetivo": "ТРКИ-3",
+    "nombre": "러시아어 ТРКИ-3 인증",
+    "descripcion": "러시아어 ТРКИ-3 수준의 인증 시험에 합격했습니다.",
+    "icono": "🇷🇺"
+  },
+  {
+    "id": 219,
+    "idioma": "Hindi",
+    "objetivo": "C1",
+    "nombre": "힌디어 C1 인증",
+    "descripcion": "힌디어 C1 수준의 인증 시험에 합격했습니다.",
+    "icono": "🇮🇳"
+  },
+  {
     "id": 51,
     "idioma": null,
     "objetivo": null,
     "nombre": "다국어 구사자",
-    "descripcion": "지도상의 10개 언어 인증을 모두 완료했습니다.",
+    "descripcion": "지도상의 13개 언어 인증을 모두 완료했습니다.",
     "icono": "🌐",
     "meta": true
   }

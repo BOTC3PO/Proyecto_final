@@ -80,11 +80,35 @@
     "icono": "🟢"
   },
   {
+    "id": 217,
+    "idioma": "Árabe",
+    "objetivo": "C1",
+    "nombre": "C1 阿拉伯语认证",
+    "descripcion": "已通过 C1 级别阿拉伯语认证考试。",
+    "icono": "🇸🇦"
+  },
+  {
+    "id": 218,
+    "idioma": "Ruso",
+    "objetivo": "ТРКИ-3",
+    "nombre": "ТРКИ-3 俄语认证",
+    "descripcion": "已通过 ТРКИ-3 级别俄语认证考试。",
+    "icono": "🇷🇺"
+  },
+  {
+    "id": 219,
+    "idioma": "Hindi",
+    "objetivo": "C1",
+    "nombre": "C1 印地语认证",
+    "descripcion": "已通过 C1 级别印地语认证考试。",
+    "icono": "🇮🇳"
+  },
+  {
     "id": 51,
     "idioma": null,
     "objetivo": null,
     "nombre": "多语言达人",
-    "descripcion": "完成了地图中全部 10 种语言的认证。",
+    "descripcion": "完成了地图中全部 13 种语言的认证。",
     "icono": "🌐",
     "meta": true
   }
