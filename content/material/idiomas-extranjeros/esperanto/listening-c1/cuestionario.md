@@ -1,4 +1,4 @@
-# Idiomas — Coreano — listening-c1 (cuestionario)
+# Idiomas — Esperanto — listening-c1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/listening-c1/cuestionario_crudo.md`. Los bloques eran conjugaciones sueltas (Estas/Estos/Estus/Estis) sin contexto ni audio, con varias formas válidas. Ahora cada bloque trae una transcripción y una pregunta de comprensión con una sola respuesta.
 

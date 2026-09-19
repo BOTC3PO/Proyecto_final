@@ -1,4 +1,4 @@
-# Idiomas — Coreano — subordinadas-con-ke-kiu-kiam (cuestionario)
+# Idiomas — Esperanto — subordinadas-con-ke-kiu-kiam (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/subordinadas-con-ke-kiu-kiam/cuestionario_crudo.md`. Los bloques se repetían con huecos sueltos, sin cubrir kiu/kiun/kies ni ĉu/ke, y algunos con respuestas sin -n. Se redactaron 25 bloques con contexto y una única respuesta.
 

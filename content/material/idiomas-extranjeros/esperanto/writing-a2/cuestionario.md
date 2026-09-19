@@ -1,4 +1,4 @@
-# Idiomas — Coreano — writing-a2 (cuestionario)
+# Idiomas — Esperanto — writing-a2 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/writing-a2/cuestionario_crudo.md`. Los bloques eran huecos sueltos sin tarea de escritura ni contexto (Li ___ studento). Ahora cada bloque describe una tarea de escritura A2 y la respuesta es la frase correcta.
 

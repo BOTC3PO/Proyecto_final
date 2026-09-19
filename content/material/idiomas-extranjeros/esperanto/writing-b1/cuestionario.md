@@ -1,4 +1,4 @@
-# Idiomas — Coreano — writing-b1 (cuestionario)
+# Idiomas — Esperanto — writing-b1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/writing-b1/cuestionario_crudo.md`. Los bloques eran huecos con listas sin sentido («La kato, ___ la hundo, ___ la birdo») y explicaciones erróneas. Ahora cada bloque describe una tarea de escritura B1 y la respuesta es la frase correcta.
 

@@ -1,4 +1,4 @@
-# Idiomas — Coreano — modo-condicional-y-volitivo (cuestionario)
+# Idiomas — Esperanto — modo-condicional-y-volitivo (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/modo-condicional-y-volitivo/cuestionario_crudo.md`. Los bloques repetían dos frases con huecos dobles y respuestas que no encajaban (Se li venus / ni povus con ?), contenían restos de marcado (Venus con backticks) y aceptaban formas equivalentes. Se redactaron 25 bloques con hipótesis, cortesía y volitivo.
 

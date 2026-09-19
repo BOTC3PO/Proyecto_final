@@ -1,4 +1,4 @@
-# Idiomas — Coreano — variacion-dialectal-minima (cuestionario)
+# Idiomas — Esperanto — variacion-dialectal-minima (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/variacion-dialectal-minima/cuestionario_crudo.md`. Los bloques repetían pares sin contexto y opciones sin sentido. Se redactaron 25 bloques sobre acento, letras especiales, sistemas de escritura, pronombres y normas.
 

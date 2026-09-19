@@ -1,4 +1,4 @@
-# Idiomas — Coreano — participios-activos-y-pasivos (cuestionario)
+# Idiomas — Esperanto — participios-activos-y-pasivos (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/participios-activos-y-pasivos/cuestionario_crudo.md`. Los bloques mezclaban instrucciones (pasos de razonamiento) como respuestas válidas y repetían opciones duplicadas (pentranta ×2), aceptaban participios activos como respuesta de sentido pasivo y confundían estigi con proponer. Se redactaron 25 bloques con contexto.
 

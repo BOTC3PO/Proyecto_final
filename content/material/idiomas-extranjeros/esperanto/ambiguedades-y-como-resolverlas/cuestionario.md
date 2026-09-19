@@ -1,4 +1,4 @@
-# Idiomas — Coreano — ambiguedades-y-como-resolverlas (cuestionario)
+# Idiomas — Esperanto — ambiguedades-y-como-resolverlas (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/ambiguedades-y-como-resolverlas/cuestionario_crudo.md`. Los 22 bloques eran cuatro preguntas repetidas cinco veces, con todas las opciones válidas (por ejemplo ludas kun/de/al) y el último bloque vacío. Se redactaron 25 bloques distintos con contexto.
 

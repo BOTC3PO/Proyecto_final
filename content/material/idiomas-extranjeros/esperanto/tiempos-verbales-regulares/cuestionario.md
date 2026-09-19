@@ -1,4 +1,4 @@
-# Idiomas — Coreano — tiempos-verbales-regulares (cuestionario)
+# Idiomas — Esperanto — tiempos-verbales-regulares (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/tiempos-verbales-regulares/cuestionario_crudo.md`. Los bloques repetían pocos verbos sin enunciado ni contexto. Se redactaron 25 bloques que trabajan presente, pasado, futuro, condicional, imperativo e infinitivo con marcadores de tiempo.
 

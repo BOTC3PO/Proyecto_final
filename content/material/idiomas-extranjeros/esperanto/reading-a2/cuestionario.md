@@ -1,4 +1,4 @@
-# Idiomas — Coreano — reading-a2 (cuestionario)
+# Idiomas — Esperanto — reading-a2 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/reading-a2/cuestionario_crudo.md`. Los bloques no traían ningún texto que leer y tenían opciones repetidas (parolas/ridas/parolas). Cada bloque incluye ahora un texto corto y una pregunta con una única respuesta.
 

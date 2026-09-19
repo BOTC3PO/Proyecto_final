@@ -1,4 +1,4 @@
-# Idiomas — Coreano — writing-c1 (cuestionario)
+# Idiomas — Esperanto — writing-c1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/writing-c1/cuestionario_crudo.md`. Los bloques eran huecos con «laboris» / «Laboris» sin contexto y condicionales con formas aceptadas de más. Ahora cada bloque describe una tarea de escritura C1 y la respuesta es la frase correcta.
 

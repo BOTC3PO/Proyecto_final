@@ -1,4 +1,4 @@
-# Idiomas — Coreano — estilo-literario-vs-tecnico (cuestionario)
+# Idiomas — Esperanto — estilo-literario-vs-tecnico (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/estilo-literario-vs-tecnico/cuestionario_crudo.md`. Los bloques no tenían enunciado ni tipo claro y varias opciones eran «progreso, lego» sin sentido. Se redactaron 25 bloques que piden clasificar el estilo, elegir la versión técnica o literaria y reconocer figuras.
 

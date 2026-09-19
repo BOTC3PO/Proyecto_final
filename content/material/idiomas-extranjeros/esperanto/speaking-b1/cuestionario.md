@@ -1,4 +1,4 @@
-# Idiomas — Coreano — speaking-b1 (cuestionario)
+# Idiomas — Esperanto — speaking-b1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/speaking-b1/cuestionario_crudo.md`. Los bloques eran huecos sueltos con respuestas inconexas (kaj, ĉar li estis malsana) y no describían ninguna situación oral. Cada bloque plantea ahora una situación y una frase adecuada.
 

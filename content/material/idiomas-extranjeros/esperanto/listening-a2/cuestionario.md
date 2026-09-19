@@ -1,4 +1,4 @@
-# Idiomas — Coreano — listening-a2 (cuestionario)
+# Idiomas — Esperanto — listening-a2 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/listening-a2/cuestionario_crudo.md`. Los bloques no tenían audio ni transcripción, todos eran huecos sueltos. Cada bloque incluye ahora la transcripción del audio y una pregunta de comprensión con una sola respuesta.
 

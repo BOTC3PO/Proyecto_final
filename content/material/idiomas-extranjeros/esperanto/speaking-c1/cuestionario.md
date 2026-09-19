@@ -1,4 +1,4 @@
-# Idiomas — Coreano — speaking-c1 (cuestionario)
+# Idiomas — Esperanto — speaking-c1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/speaking-c1/cuestionario_crudo.md`. Los bloques eran huecos sueltos sin situación (ĉar li estis malsana) y varios con opciones equivalentes. Cada bloque plantea ahora una situación oral de C1 y una única frase adecuada.
 

@@ -1,4 +1,4 @@
-# Idiomas — Coreano — neologismos-y-prestamos (cuestionario)
+# Idiomas — Esperanto — neologismos-y-prestamos (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/neologismos-y-prestamos/cuestionario_crudo.md`. Los bloques mezclaban huecos sueltos con opciones inventadas (teatrio, pilkilo, klimatilo, historiilo) y un mc con cuatro sinónimos válidos. Se redactaron 25 bloques con préstamos, sufijos y composición.
 

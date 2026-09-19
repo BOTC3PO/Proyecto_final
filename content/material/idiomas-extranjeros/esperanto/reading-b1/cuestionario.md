@@ -1,4 +1,4 @@
-# Idiomas — Coreano — reading-b1 (cuestionario)
+# Idiomas — Esperanto — reading-b1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/reading-b1/cuestionario_crudo.md`. Los bloques no traían texto y contenían opciones absurdas («un», «neni»). Cada bloque incluye ahora un texto y una pregunta con una única respuesta.
 

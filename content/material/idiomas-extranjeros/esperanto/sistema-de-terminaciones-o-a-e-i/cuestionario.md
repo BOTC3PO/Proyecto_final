@@ -1,4 +1,4 @@
-# Idiomas — Coreano — sistema-de-terminaciones-o-a-e-i (cuestionario)
+# Idiomas — Esperanto — sistema-de-terminaciones-o-a-e-i (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/sistema-de-terminaciones-o-a-e-i/cuestionario_crudo.md`. Los bloques repetían pocas frases con respuestas erróneas (Mi kapto, Li -as parol) o sin sentido gramatical. Se redactaron 25 bloques que trabajan cada terminación con contexto.
 

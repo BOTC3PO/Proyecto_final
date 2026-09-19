@@ -1,4 +1,4 @@
-# Idiomas — Coreano — reading-c1 (cuestionario)
+# Idiomas — Esperanto — reading-c1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/reading-c1/cuestionario_crudo.md`. Los bloques eran huecos sueltos (kerno, temo) o mc con opciones absurdas y sin texto. Cada bloque incluye ahora un texto de nivel C1 y una pregunta con una única respuesta.
 

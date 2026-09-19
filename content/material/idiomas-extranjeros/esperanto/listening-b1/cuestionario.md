@@ -1,4 +1,4 @@
-# Idiomas — Coreano — listening-b1 (cuestionario)
+# Idiomas — Esperanto — listening-b1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/listening-b1/cuestionario_crudo.md`. Los bloques eran huecos sueltos («La kato ___ sur la tablo» → «sit») con opciones incompletas o inexistentes y sin audio. Ahora cada bloque trae una transcripción y una pregunta de comprensión.
 

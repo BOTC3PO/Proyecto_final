@@ -1,4 +1,4 @@
-# Idiomas — Coreano — afijos-y-formacion-de-palabras (cuestionario)
+# Idiomas — Esperanto — afijos-y-formacion-de-palabras (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/afijos-y-formacion-de-palabras/cuestionario_crudo.md`. Los bloques pedían formas con guion (rapid-e, kompon-o) que no existen, mezclaban adverbios con adjetivos y varios no tenían enunciado. Se redactaron 25 bloques con un afijo por bloque (mal-, re-, -ul-, -in-, -ist-, -ej-, -ar-, -et-, -eg-, -ig-, -iĝ-, -aĵ-, -ad-, -ebl-, -ind-, -em-, -ec-, ge-, -uj-, -il-, dis-, eks-, -an-).
 

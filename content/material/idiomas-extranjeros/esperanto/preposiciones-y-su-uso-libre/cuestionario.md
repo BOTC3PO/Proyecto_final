@@ -1,4 +1,4 @@
-# Idiomas — Coreano — preposiciones-y-su-uso-libre (cuestionario)
+# Idiomas — Esperanto — preposiciones-y-su-uso-libre (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/preposiciones-y-su-uso-libre/cuestionario_crudo.md`. Los bloques se validaban pero eran erróneos: «La pomo kuŝas en la tablo», «Ni iris tra la katedron», «Ŝi estas altaj ol», «La domo estas de la patro kaj filino» y varias frases sin sentido. Se redactaron 25 bloques con una preposición por bloque y contexto claro.
 

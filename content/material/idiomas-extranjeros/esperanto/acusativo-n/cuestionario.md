@@ -1,4 +1,4 @@
-# Idiomas — Coreano — acusativo-n (cuestionario)
+# Idiomas — Esperanto — acusativo-n (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/acusativo-n/cuestionario_crudo.md`. Los completar aceptaban la misma palabra con mayúscula («Hundon», «Kameron») y respuestas inexistentes («tuneleon», «propozon»), y varios huecos no tenían enunciado. Se redactaron 25 bloques sobre objeto, pronombres, adjetivos, dirección, tiempo y casos sin -n.
 

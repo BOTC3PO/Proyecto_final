@@ -1,4 +1,4 @@
-# Idiomas — Coreano — speaking-a2 (cuestionario)
+# Idiomas — Esperanto — speaking-a2 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/speaking-a2/cuestionario_crudo.md`. Los bloques eran opciones sueltas sin situación (La infano estas ĝui, Li estos leganta la libro) o formas inexistentes. Cada bloque plantea ahora una situación comunicativa y una única respuesta.
 

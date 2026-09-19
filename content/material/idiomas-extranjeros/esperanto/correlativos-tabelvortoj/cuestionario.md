@@ -1,4 +1,4 @@
-# Idiomas — Coreano — correlativos-tabelvortoj (cuestionario)
+# Idiomas — Esperanto — correlativos-tabelvortoj (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/esperanto/correlativos-tabelvortoj/cuestionario_crudo.md`. Los 25 bloques repetían el mismo esquema sin enunciado ni contexto, con las mismas 4 opciones. Se redactaron 25 bloques con frase y sentido: preguntas ki-, demostrativos, indefinidos, totalidad y negación.
 
