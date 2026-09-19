@@ -570,8 +570,10 @@ justo para lunfardo/voseo cuando llegue el momento de generar audio acá.
 armada (currículum arriba). Antes de esta fecha sólo existían a nivel de
 interfaz (selector de idioma), sin currículum ni contenido — confirmado
 con Javier, no es que se haya perdido nada con la falla de disco.
-**No generar nada de estos 3 todavía**, mismo criterio "NO generar hasta
-confirmar" del resto del documento.
+**Plan confirmado por Javier el 2026-09-19** ("te acepto el plan de los 3
+idiomas nuevos aunque no esté en la lista de logros"): se generan los 140
+temas (ar 47, ru 46, hi 47) sin esperar a resolver la numeración de logros.
+El conflicto de ids (abajo) sólo bloquea los `logros-idiomas.ar/ru/hi.json`.
 
 ### Conflicto a resolver antes de generar: numeración de logros
 
