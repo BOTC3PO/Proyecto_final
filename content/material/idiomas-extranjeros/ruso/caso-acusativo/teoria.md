@@ -18,7 +18,7 @@ El **acusativo** marca el **complemento directo** (кого? что? — *a qui�
 ## Errores comunes de hispanohablantes
 1. **Dejar el nominativo** en los femeninos en -а.
 2. **Olvidar la regla de animados**: *Я вижу брат*.
-3. **Usar prepositivo tras вести movimiento**: *Я иду в школе*.
+3. **Usar prepositivo tras verbos de movimiento**: *Я иду в школе*.
 4. **Confundir animado con vivo**: incluye animales; no plantas ni cosas.
 
 ## Comparación con el español
