@@ -1,4 +1,4 @@
-# Idiomas — Coreano — construccion-ba (cuestionario)
+# Idiomas — Chino — construccion-ba (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/construccion-ba/cuestionario_crudo.md`. Solo 14 bloques (3 OK), casi todos el mismo hueco 「＿＿」 con respuesta 「把」 (o el pinyin «Ba»), sin trabajar orden, negación ni restricciones. Se redactaron 25 bloques sobre orden, complemento obligatorio, negación, 在/给/成/到, limitaciones y 被.
 

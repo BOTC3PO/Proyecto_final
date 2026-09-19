@@ -1,4 +1,4 @@
-# Idiomas — Coreano — complementos-de-resultado (cuestionario)
+# Idiomas — Chino — complementos-de-resultado (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/complementos-de-resultado/cuestionario_crudo.md`. Los bloques pedían 「得」/「地」/「的」 (partículas estructurales) en frases como 「我___吃了饭」, sin relación con el resultado, con respuestas duplicadas (「得」/「得」) y varios sin enunciado. Se redactaron 25 bloques con complementos reales (完, 见, 懂, 到, 好, 错, 对, 住…), su negación con 没 y el potencial V得/不+complemento.
 

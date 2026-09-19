@@ -1,4 +1,4 @@
-# Idiomas — Coreano — orden-de-la-oracion (cuestionario)
+# Idiomas — Chino — orden-de-la-oracion (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/orden-de-la-oracion/cuestionario_crudo.md`. Varios bloques sin enunciado y respuestas dobles en las que el hueco admitía dos formas (「这」/「这本」, 「在书店」/「书店里」) y una opción inválida («老师»/«教师» para el mismo hueco). Se redactaron 25 bloques de elección de orden correcto.
 

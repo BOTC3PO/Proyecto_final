@@ -1,4 +1,4 @@
-# Idiomas — Coreano — chengyu-modismos-de-cuatro-caracteres (cuestionario)
+# Idiomas — Chino — chengyu-modismos-de-cuatro-caracteres (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/chengyu-modismos-de-cuatro-caracteres/cuestionario_crudo.md`. Los 25 bloques no tenían enunciado (0/25 OK): solo listaban chengyu como opciones o respuestas sin decir qué significado se buscaba. Se redactaron 25 bloques: 16 de significado→chengyu y 9 de carácter faltante, con distractores del mismo campo.
 

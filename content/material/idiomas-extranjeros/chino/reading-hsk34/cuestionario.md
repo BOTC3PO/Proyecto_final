@@ -1,4 +1,4 @@
-# Idiomas — Coreano — reading-hsk34 (cuestionario)
+# Idiomas — Chino — reading-hsk34 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/reading-hsk34/cuestionario_crudo.md`. El archivo tenía 37 «bloques» para el validador (fences dobles) y ninguno era válido; los enunciados no traían texto. Se redactaron 25 textos con pregunta y respuesta única.
 

@@ -1,4 +1,4 @@
-# Idiomas — Coreano — clasificadores-medidores (cuestionario)
+# Idiomas — Chino — clasificadores-medidores (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/clasificadores-medidores/cuestionario_crudo.md`. Los 24 bloques carecían de enunciado (0/24 OK): solo listaban tres clasificadores sin decir con qué sustantivo debían usarse. Se redactaron 25 bloques con la frase completa (一＿＿书, 一＿＿鱼…) y opciones en las que solo uno es la elección estándar.
 

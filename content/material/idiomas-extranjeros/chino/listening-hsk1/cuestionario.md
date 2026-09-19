@@ -1,4 +1,4 @@
-# Idiomas — Coreano — listening-hsk1 (cuestionario)
+# Idiomas — Chino — listening-hsk1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/listening-hsk1/cuestionario_crudo.md`. Los bloques pedían «escuchar» un audio que no existe: huecos aislados como 「这个球是＿＿」 con pinyin como respuesta válida («Hóngsè», «Māma») y sin ningún dato del que deducir la respuesta. Se redactaron 25 mini-transcripciones con pregunta y respuesta única.
 

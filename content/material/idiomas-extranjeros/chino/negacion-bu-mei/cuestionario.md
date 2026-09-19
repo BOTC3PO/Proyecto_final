@@ -1,4 +1,4 @@
-# Idiomas — Coreano — negacion-bu-mei (cuestionario)
+# Idiomas — Chino — negacion-bu-mei (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/negacion-bu-mei/cuestionario_crudo.md`. Los 25 bloques (0 OK) eran mc 「不」/「没」/「是」/「有」 sin ninguna frase. Se redactaron 25 frases con respuesta única sobre presente, pasado, 有, 是, adjetivos y 别.
 

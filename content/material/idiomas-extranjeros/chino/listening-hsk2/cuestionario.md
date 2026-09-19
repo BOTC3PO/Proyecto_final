@@ -1,4 +1,4 @@
-# Idiomas — Coreano — listening-hsk2 (cuestionario)
+# Idiomas — Chino — listening-hsk2 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/listening-hsk2/cuestionario_crudo.md`. 13 de 24 bloques sin enunciado y sin audio, con «respuestas» duplicadas en hanzi (「三」/「叁」) o mc en que el hueco no estaba definido. Se redactaron 25 transcripciones con pregunta y respuesta única.
 

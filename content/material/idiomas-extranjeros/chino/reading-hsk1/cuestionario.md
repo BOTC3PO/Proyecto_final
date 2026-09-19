@@ -1,4 +1,4 @@
-# Idiomas — Coreano — reading-hsk1 (cuestionario)
+# Idiomas — Chino — reading-hsk1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/reading-hsk1/cuestionario_crudo.md`. Los huecos («她＿＿学生», «他＿＿学校») aceptaban respuestas duplicadas (「是」/「是」, 「去」/「去了」) y no había texto que leer. Se redactaron 26 textos breves con pregunta de comprensión.
 

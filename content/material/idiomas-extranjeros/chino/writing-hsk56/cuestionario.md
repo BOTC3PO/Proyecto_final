@@ -1,4 +1,4 @@
-# Idiomas — Coreano — writing-hsk56 (cuestionario)
+# Idiomas — Chino — writing-hsk56 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/writing-hsk56/cuestionario_crudo.md`. Los 25 bloques carecían de enunciado y ofrecían pares de conectores (「因为…所以…」/「虽然…但是…」) sin frase, ni marcas del registro formal. Se redactaron 25 tareas de escritura avanzada con frase correcta.
 

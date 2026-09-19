@@ -1,4 +1,4 @@
-# Idiomas — Coreano — conectores-de-parrafo (cuestionario)
+# Idiomas — Chino — conectores-de-parrafo (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/conectores-de-parrafo/cuestionario_crudo.md`. 16 de 23 bloques sin enunciado (7 OK): mc con pares de conectores en la lista sin frase, y varios con respuestas en las que el mismo hueco admitía dos conectores (「然而」/「但是」, 「并且」/「而且」, 「虽然」/「尽管」). Se redactaron 25 bloques con una frase completa y un solo conector posible.
 

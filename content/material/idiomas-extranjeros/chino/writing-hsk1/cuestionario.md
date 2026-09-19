@@ -1,4 +1,4 @@
-# Idiomas — Coreano — writing-hsk1 (cuestionario)
+# Idiomas — Chino — writing-hsk1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/writing-hsk1/cuestionario_crudo.md`. Los completar aceptaban glosas inglesas («Eat», «Mamá de») como respuesta y varios bloques no tenían enunciado. Se redactaron 25 tareas de escritura con frase correcta.
 

@@ -1,4 +1,4 @@
-# Idiomas — Coreano — registro-formal-escrito (cuestionario)
+# Idiomas — Chino — registro-formal-escrito (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/registro-formal-escrito/cuestionario_crudo.md`. Solo la mitad de los bloques validaba; muchos mc no tenían pregunta y los huecos aceptaban dos respuestas (「应当」/「应」, 「请问」/「请」). Se redactaron 25 bloques de elección entre versión formal y dos coloquiales.
 

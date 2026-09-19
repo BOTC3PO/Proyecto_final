@@ -1,4 +1,4 @@
-# Idiomas — Coreano — estructuras-retoricas-avanzadas (cuestionario)
+# Idiomas — Chino — estructuras-retoricas-avanzadas (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/estructuras-retoricas-avanzadas/cuestionario_crudo.md`. Los 25 bloques no tenían enunciado (0/25 OK): repetían pares de conectores (「虽然…但是…」, 「如果…就…」) sin frase, que pertenecen a otro tema (conectores), no a retórica. Se redactaron 25 bloques sobre identificación de 比喻, 拟人, 夸张, 反问, 设问, 排比, 对偶, 对比, 反复, 引用 y sus marcadores.
 

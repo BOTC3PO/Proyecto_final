@@ -1,4 +1,4 @@
-# Idiomas — Coreano — speaking-hsk34 (cuestionario)
+# Idiomas — Chino — speaking-hsk34 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/speaking-hsk34/cuestionario_crudo.md`. Los completar aceptaban glosas en otros idiomas ("de", "go", "quién") con un comentario del generador («variante ortográfica aceptada»), y varios mc no eran de habla. Se redactaron 25 situaciones con frase correcta y respuesta única.
 

@@ -1,4 +1,4 @@
-# Idiomas — Coreano — particula-aspectual-le (cuestionario)
+# Idiomas — Chino — particula-aspectual-le (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/particula-aspectual-le/cuestionario_crudo.md`. Los huecos aceptaban el pinyin «Le» como respuesta válida y varios mc tenían dos opciones igualmente correctas (「他们吃了苹果。」/「他们吃苹果了。」). Se redactaron 25 bloques con respuesta única sobre 了.
 

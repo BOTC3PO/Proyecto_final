@@ -1,4 +1,4 @@
-# Idiomas — Coreano — speaking-hsk1 (cuestionario)
+# Idiomas — Chino — speaking-hsk1 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/speaking-hsk1/cuestionario_crudo.md`. Los huecos con espacios entre caracteres («你 是 学 生 吗？») eran ilegibles y los mc no tenían pregunta; y había respuestas absurdas («星期三» tras «今天是星期一»). Se redactaron 25 situaciones con la frase correcta entre distractores.
 

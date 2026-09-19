@@ -1,4 +1,4 @@
-# Idiomas — Coreano — oraciones-condicionales (cuestionario)
+# Idiomas — Chino — oraciones-condicionales (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/oraciones-condicionales/cuestionario_crudo.md`. El crudo no era analizable (0 bloques): el cierre del fence estaba pegado al enunciado y varios mc no tenían pregunta (opciones como 「帮助我」/「帮我不」/「帮我吗」). Se redactaron 25 bloques sobre 如果, 要是, 只要, 只有, 除非, 无论, 即使, 否则, 万一…
 

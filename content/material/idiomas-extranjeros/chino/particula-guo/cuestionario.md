@@ -1,4 +1,4 @@
-# Idiomas — Coreano — particula-guo (cuestionario)
+# Idiomas — Chino — particula-guo (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/particula-guo/cuestionario_crudo.md`. Los huecos aceptaban caracteres tradicionales (「看過」, 「去過」) junto a los simplificados y varios mc no tenían pregunta. Se redactaron 25 bloques con respuesta única sobre 过.
 

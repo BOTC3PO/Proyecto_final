@@ -1,4 +1,4 @@
-# Idiomas — Coreano — complementos-de-grado (cuestionario)
+# Idiomas — Chino — complementos-de-grado (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/complementos-de-grado/cuestionario_crudo.md`. El crudo consistía en la misma frase con una lista de adverbios (「非常」/「有点儿」/「最」/「不」) en la que varios eran igualmente válidos, y aceptaba «Very» (inglés) como respuesta. Se redactaron 25 bloques con adverbios y complementos de grado reales y respuesta única.
 

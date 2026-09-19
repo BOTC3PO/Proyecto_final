@@ -1,4 +1,4 @@
-# Idiomas — Coreano — writing-hsk2 (cuestionario)
+# Idiomas — Chino — writing-hsk2 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/writing-hsk2/cuestionario_crudo.md`. Los completar aceptaban «Today» y otras glosas en inglés, y los mc no tenían pregunta. Se redactaron 25 tareas de escritura con frase correcta.
 

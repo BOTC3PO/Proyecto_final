@@ -1,4 +1,4 @@
-# Idiomas — Coreano — listening-hsk56 (cuestionario)
+# Idiomas — Chino — listening-hsk56 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/listening-hsk56/cuestionario_crudo.md`. Los 25 bloques carecían de enunciado y de audio (0/25 OK). Se redactaron 25 fragmentos transcritos con matices propios de este nivel.
 

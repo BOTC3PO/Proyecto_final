@@ -1,4 +1,4 @@
-# Idiomas — Coreano — listening-hsk34 (cuestionario)
+# Idiomas — Chino — listening-hsk34 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/listening-hsk34/cuestionario_crudo.md`. Solo 1 bloque fallaba pero ninguno tenía audio ni transcripción, por lo que ninguna pregunta se podía responder. Se redactaron 25 transcripciones B1 con pregunta y respuesta única.
 

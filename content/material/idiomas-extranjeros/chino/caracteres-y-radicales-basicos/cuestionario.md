@@ -1,4 +1,4 @@
-# Idiomas — Coreano — caracteres-y-radicales-basicos (cuestionario)
+# Idiomas — Chino — caracteres-y-radicales-basicos (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/caracteres-y-radicales-basicos/cuestionario_crudo.md`. Los bloques pedían el orden de trazos en símbolos ('一、丨、丶') o en números ('1, 2, 3') sin criterio y con secuencias incorrectas (「山」: 3 trazos ≠ '一、丨、丶'; 「火」/「心」/「水」 con orden inventado), asignaban radicales erróneos (「尖」/「木」, 「休」 缺少 「木」 con opciones inconsistentes) y varios no tenían enunciado. Se redactaron 25 bloques sobre número de trazos, radicales, 形声字 y 会意字 con respuesta verificada.
 

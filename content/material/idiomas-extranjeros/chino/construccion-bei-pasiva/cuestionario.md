@@ -1,4 +1,4 @@
-# Idiomas — Coreano — construccion-bei-pasiva (cuestionario)
+# Idiomas — Chino — construccion-bei-pasiva (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/construccion-bei-pasiva/cuestionario_crudo.md`. Los bloques de tipo completar tenían como «respuestas válidas» instrucciones metalingüísticas en chino («分析句子中的动作：'泄露'是核心动词», «选择带有'了'的被动句式来强调结果») filtradas por el generador, y los mc no tenían pregunta. Se redactaron 25 bloques sobre orden, negación, modales, 叫/让, complemento obligatorio, 由 vs 被 y limitaciones.
 

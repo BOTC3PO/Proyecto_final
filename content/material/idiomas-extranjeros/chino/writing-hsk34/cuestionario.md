@@ -1,4 +1,4 @@
-# Idiomas — Coreano — writing-hsk34 (cuestionario)
+# Idiomas — Chino — writing-hsk34 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/writing-hsk34/cuestionario_crudo.md`. Los completar aceptaban dos respuestas para el mismo hueco (「买」/「买了」) y un mc tenía la respuesta sin comillas. Se redactaron 25 tareas de escritura con frase correcta.
 

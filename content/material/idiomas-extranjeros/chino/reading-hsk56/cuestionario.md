@@ -1,4 +1,4 @@
-# Idiomas — Coreano — reading-hsk56 (cuestionario)
+# Idiomas — Chino — reading-hsk56 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/reading-hsk56/cuestionario_crudo.md`. Todo el tema giraba en torno a la clasificación de residuos con preguntas triviales; los bloques completar (14, 16, 18, 21) no tenían texto, uno tenía la anotación «(no, no usar)» y los de referencia (「这」) eran ambiguos. Se redactaron 25 textos de nivel HSK 5-6 con temas variados.
 

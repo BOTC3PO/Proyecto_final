@@ -1,4 +1,4 @@
-# Idiomas — Coreano — particulas-interrogativas-ma-ne (cuestionario)
+# Idiomas — Chino — particulas-interrogativas-ma-ne (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/particulas-interrogativas-ma-ne/cuestionario_crudo.md`. Los huecos pedían la partícula escrita en pinyin («ma», «ne», «Ma») en lugar del carácter 吗/呢; varios no tenían enunciado, un bloque aceptaba 「是不是…吗」 (agramatical). Se redactaron 25 bloques con caracteres y respuesta única.
 

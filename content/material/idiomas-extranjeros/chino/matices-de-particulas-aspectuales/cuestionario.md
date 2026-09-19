@@ -1,4 +1,4 @@
-# Idiomas — Coreano — matices-de-particulas-aspectuales (cuestionario)
+# Idiomas — Chino — matices-de-particulas-aspectuales (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/matices-de-particulas-aspectuales/cuestionario_crudo.md`. Los 24 bloques carecían de enunciado (0/24 OK): huecos con una sola palabra («已经», «到目前为止») sin frase, y mc con las mismas cuatro opciones sin contexto. Se redactaron 25 frases con respuesta única.
 

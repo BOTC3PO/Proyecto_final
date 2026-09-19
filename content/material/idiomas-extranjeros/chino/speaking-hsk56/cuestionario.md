@@ -1,4 +1,4 @@
-# Idiomas — Coreano — speaking-hsk56 (cuestionario)
+# Idiomas — Chino — speaking-hsk56 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/speaking-hsk56/cuestionario_crudo.md`. Sin enunciado; opciones que eran partículas sueltas (「要」/「吗」/「呢」/「吧」) sin situación. Se redactaron 25 situaciones formales con la fórmula correcta.
 

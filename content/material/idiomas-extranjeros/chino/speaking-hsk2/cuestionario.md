@@ -1,4 +1,4 @@
-# Idiomas — Coreano — speaking-hsk2 (cuestionario)
+# Idiomas — Chino — speaking-hsk2 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/speaking-hsk2/cuestionario_crudo.md`. Ningún bloque tenía enunciado y varios aceptaban el pinyin en mayúsculas («LE», «BEN», «DE»). Se redactaron 25 situaciones con frase correcta y respuesta única.
 

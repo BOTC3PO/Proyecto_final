@@ -1,4 +1,4 @@
-# Idiomas — Coreano — estructuras-comparativas (cuestionario)
+# Idiomas — Chino — estructuras-comparativas (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/estructuras-comparativas/cuestionario_crudo.md`. Los 25 bloques eran el mismo hueco 「＿＿」 con 「比」 o 「更」 y respuestas en pinyin («Bi», «Geng») inválidas para un ejercicio de hanzi; no trabajaban negación, 没有, 不如, 一样 ni las restricciones con 很. Se redactaron 25 bloques con esas estructuras.
 

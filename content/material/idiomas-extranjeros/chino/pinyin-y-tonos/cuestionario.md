@@ -1,4 +1,4 @@
-# Idiomas — Coreano — pinyin-y-tonos (cuestionario)
+# Idiomas — Chino — pinyin-y-tonos (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/pinyin-y-tonos/cuestionario_crudo.md`. Los 25 bloques no tenían enunciado; aceptaban «Ma»/«Mao» sin tono como respuesta y en un mc había pinyin inexistente («shiui»). Se redactaron 25 bloques con la pregunta y respuesta única.
 

@@ -1,4 +1,4 @@
-# Idiomas — Coreano — reading-hsk2 (cuestionario)
+# Idiomas — Chino — reading-hsk2 (cuestionario)
 
 > Reconstruido a partir de `../../../_borradores-gemma/idiomas-extranjeros/chino/reading-hsk2/cuestionario_crudo.md`. Los huecos de una palabra («他＿＿学校» con 「去」/「去的」) eran ambiguos y sin texto que leer, con «respuestas» agramaticales (「去的」, 「是的」). Se redactaron 25 textos con pregunta.
 
