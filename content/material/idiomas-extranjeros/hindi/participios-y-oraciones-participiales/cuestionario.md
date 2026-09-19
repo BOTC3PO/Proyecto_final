@@ -281,9 +281,9 @@ pasos:
   - "Elegir la forma correcta."
 enunciado: "«La puerta cerrada» (दरवाज़ा, m.):"
 opciones_explicitas:
-  - "बंद दरवाज़ा"
   - "बंद हुआ दरवाज़ा"
-  - "बंदा दरवाज़ा"
+  - "बंद हुई दरवाज़ा"
+  - "बंद हुए दरवाज़ा"
 respuesta: "बंद हुआ दरवाज़ा"
 tipo: mc
 explicacion: "हुआ concuerda con m."
