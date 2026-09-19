@@ -637,6 +637,18 @@ TOPIK, HSK, etc.); **cada intento sortea 100 de esas 500**, respetando
 la proporción por sección. Logros a diseñar junto con esto: uno por
 idioma (al aprobar su examen) y uno meta por completar los 10.
 
+**Pools generados 2026-09-19** (Javier: "hace las evaluaciones jefe faltantes de
+idiomas"): los 13 idiomas (incluye ar/ru/hi) tienen su pool de 500 preguntas mc en
+`content/material/examen-jefe-idiomas/<idioma>.md` (fuente editable en
+`_qa_tools/examen_jefe_idiomas/<idioma>.txt`, generador `gen_examen_jefe_idiomas.py`).
+Secciones y cuota por pool: gramática/vocabulario 150, lectura 125, audición 100
+(transcripción en el enunciado), escritura 75, oral (situaciones) 50; cada intento
+sortea 100 en proporción 30/25/20/15/10. Escritos nuevos, no agregados de los
+cuestionarios por tema (los promovidos de borrador tienen respuestas erróneas). Los
+logros son 41-50 (10 idiomas previos), 217-219 (ar/ru/hi) y 51 (meta, 13 idiomas).
+Pendiente: integrarlos al schema/app (Prisma), revisión nativa, y las preguntas de
+audición aún llevan la transcripción en texto (falta enlazar los mp3).
+
 **Sin `teoria.md`** — el pool de 500 es sólo cuestionario, un idioma =
 un pool = 500 preguntas. El módulo de evaluación de la plataforma no
 empareja teoría como los temas normales, así que no aplica generarla acá.
