@@ -279,7 +279,7 @@ metadata:
   tags: ["numerales", "declinacion", "casos"]
 pasos:
   - "Elegir la forma correcta."
-enunciado: "«Tengo dos hermanos» (у + genitivo): У меня ＿＿ брата. Pero «de dos hermanos»: у ＿＿ братьев."
+enunciado: "«Los dos hermanos tienen un coche» (у + genitivo): У ＿＿ братьев есть машина."
 opciones_explicitas:
   - "двух"
   - "два"
