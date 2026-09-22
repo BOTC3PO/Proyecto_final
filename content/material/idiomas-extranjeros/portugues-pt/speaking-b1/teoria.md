@@ -17,13 +17,13 @@ En portugués, el nivel B1 implica dominar verbos regulares e irregulares en tie
 - **Pretérito imperfecto**: *Ela estudava português quando eu a vi.* (Estudiaba portugués cuando la vi).
 
 También es fundamental usar expresiones de cortesía (*por favor*, *obrigado/a*) y preguntas abiertas para mantener conversaciones. Por ejemplo:
-- *Você gosta de viajar?* (¿Te gusta viajar?).
-- *O que você acha disso?* (¿Qué opinas de esto?).
+- *Tu gostas de viajar?* (¿Te gusta viajar?).
+- *O que achas disso?* (¿Qué opinas de esto?).
 
 ## Errores comunes de hispanohablantes
 Los hablantes de español suelen cometer errores relacionados con:
 1. **Uso incorrecto del pretérito perfecto compuesto**: En portugués, se usa *ter + participio* (ejemplo: *Eu tenho viajado muito este ano*) en lugar de estructuras similares al español.
-2. **Confusión entre *você* y *tu***: En Portugal, *você* es más común que *tu*, mientras que en Brasil se usan ambos según el contexto.
+2. **Confusión entre *você* y *tu***: En Portugal, *tu* es el pronombre informal habitual entre amigos y familia (con conjugación de 2ª persona: *tu viajaste*, *tu achas*), mientras que *você* suena distante o formal. En Brasil es al revés: *você* domina en el habla informal y *tu* queda relegado a algunas regiones.
 3. **Falta de concordancia en adjetivos**: En portugués, los adjetivos cambian de género y número según el sustantivo (*uma casa pequena* vs. *um carro pequeno*).
 
 ## Comparación con el español: diferencias clave
@@ -35,11 +35,11 @@ Los hablantes de español suelen cometer errores relacionados con:
 **Contexto**: Un estudiante de B1 se reúne con un amigo para hablar sobre sus vacaciones.
 
 **Diálogo**:
-**Amigo**: *Você viajou este verão?* (¿Viajaste este verano?).
-**Estudiante**: *Sim, fui a Lisboa com minha família. Fizemos muitas atividades interessantes.* (Sí, fui a Lisboa con mi familia. Hicimos muchas actividades interesantes).
-**Amigo**: *O que você mais gostou?* (¿Qué te gustó más?).
+**Amigo**: *Tu viajaste este verão?* (¿Viajaste este verano?).
+**Estudiante**: *Sim, fui a Lisboa com a minha família. Fizemos muitas atividades interessantes.* (Sí, fui a Lisboa con mi familia. Hicimos muchas actividades interesantes).
+**Amigo**: *O que gostaste mais?* (¿Qué te gustó más?).
 **Estudiante**: *Eu adorei o Mosteiro de Belém! Fiquei impressionado com os detalhes da arquitetura.* (Adoré el Monasterio de Belén. Me impresionaron los detalles de la arquitectura).
-**Amigo**: *Você acha que voltará lá?* (¿Crees que volverás allí?).
-**Estudiante**: *Claro! Quero explorar mais da cidade e aprender sobre a história local.* (¡Claro! Quiero explorar más de la ciudad y aprender sobre la historia local).
+**Amigo**: *Achas que vais voltar lá?* (¿Crees que volverás allí?).
+**Estudiante**: *Claro! Quero explorar mais a cidade e aprender sobre a história local.* (¡Claro! Quiero explorar más la ciudad y aprender sobre la historia local).
 
 Este intercambio muestra el uso de tiempos verbales, conectores lógicos y vocabulario específico para describir experiencias personales.
