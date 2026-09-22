@@ -1,0 +1,47 @@
+[
+ {
+  "id": 904,
+  "materia": "Arte",
+  "cluster": 1,
+  "temas": [
+   "acustica-instrumento-musical",
+   "armonia-basica-acordes-tonalidad",
+   "composicion-y-proporcion",
+   "danza-ritmo-tiempo-expresion-corporal",
+   "elementos-del-arte"
+  ],
+  "nombre": "Maestro de los Elementos del Arte",
+  "descripcion": "Completaste el examen jefe integrando la acústica, la armonía musical, la composición y la expresión corporal en la danza.",
+  "icono": "🎨"
+ },
+ {
+  "id": 905,
+  "materia": "Arte",
+  "cluster": 2,
+  "temas": [
+   "lenguaje-musical-pentagrama-escalas-intervalos",
+   "origen-del-arte",
+   "principios-de-diseno",
+   "ritmo-compas-pulso-figuras-musicales",
+   "narrativa-audiovisual/plano"
+  ],
+  "nombre": "Maestro del Lenguaje Musical y el Diseño",
+  "descripcion": "Aprobaste el parcial sobre el pentagrama, las escalas, los principios de diseño y los planos en la narrativa audiovisual, jefe.",
+  "icono": "🎼"
+ },
+ {
+  "id": 906,
+  "materia": "Arte",
+  "cluster": 3,
+  "temas": [
+   "rosetones-y-simetria",
+   "narrativa-audiovisual/encuadre",
+   "teatro-dramaturgia-y-actuacion",
+   "narrativa-audiovisual/montaje",
+   "produccion-multimedial"
+  ],
+  "nombre": "Maestro de la Escena y lo Audiovisual",
+  "descripcion": "Completaste el examen jefe sobre teatro y actuación, el encuadre y montaje audiovisual, la producción multimedial y la simetría de los rosetones.",
+  "icono": "🎬"
+ }
+]

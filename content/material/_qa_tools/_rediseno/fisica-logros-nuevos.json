@@ -1,0 +1,229 @@
+[
+ {
+  "id": 736,
+  "materia": "Física",
+  "cluster": 1,
+  "temas": [
+   "calor-q-m-c-deltat",
+   "cambios-de-estado-calor-latente",
+   "campo-electrico",
+   "campo-magnetico-imanes-corrientes",
+   "cargas-electricas"
+  ],
+  "nombre": "Maestro del Calor y las Cargas Eléctricas",
+  "descripcion": "Completaste el parcial dominando el calor específico, los cambios de estado y los campos eléctrico y magnético, jefe.",
+  "icono": "🔥⚡"
+ },
+ {
+  "id": 737,
+  "materia": "Física",
+  "cluster": 2,
+  "temas": [
+   "caudal-q-a-v",
+   "choques-elasticos-inelasticos",
+   "circuitos-en-paralelo",
+   "circuitos-en-serie",
+   "circuitos-mixtos"
+  ],
+  "nombre": "Experto en Circuitos y Choques",
+  "descripcion": "Dominaste los circuitos en serie, en paralelo y mixtos, además del caudal y los choques elásticos e inelásticos.",
+  "icono": "🔌💥"
+ },
+ {
+  "id": 738,
+  "materia": "Física",
+  "cluster": 3,
+  "temas": [
+   "conservacion-energia-mecanica",
+   "corriente-electrica",
+   "decaimiento-radiactivo-alfa-beta-gamma",
+   "decibeles-richter",
+   "dilatacion-termica-lineal"
+  ],
+  "nombre": "Domina la Energía y la Radiactividad",
+  "descripcion": "Completaste el examen dominando la conservación de la energía mecánica, la corriente eléctrica, el decaimiento radiactivo y la dilatación térmica, jefe.",
+  "icono": "☢️⚡"
+ },
+ {
+  "id": 739,
+  "materia": "Física",
+  "cluster": 4,
+  "temas": [
+   "dinamica-fuerzas-concurrentes",
+   "dualidad-onda-particula",
+   "energia-cinetica",
+   "energia-potencial-gravitatoria",
+   "entropia-segunda-ley-termodinamica"
+  ],
+  "nombre": "Maestro de la Dinámica y la Entropía",
+  "descripcion": "Dominaste las fuerzas concurrentes, la energía cinética y potencial, y cerraste con la entropía y la dualidad onda-partícula.",
+  "icono": "⚛️⚖️"
+ },
+ {
+  "id": 740,
+  "materia": "Física",
+  "cluster": 5,
+  "temas": [
+   "escalas-de-temperatura-c-f-k",
+   "estatica/centro-de-gravedad",
+   "estatica/equilibrio-de-cuerpo-rigido",
+   "estatica/momento-de-una-fuerza",
+   "estructura-del-nucleo-atomico"
+  ],
+  "nombre": "Dominio del Equilibrio y las Escalas Térmicas",
+  "descripcion": "Completaste el parcial dominando el centro de gravedad, el equilibrio del cuerpo rígido, las escalas de temperatura y la estructura del núcleo atómico, jefe.",
+  "icono": "⚖️🌡️"
+ },
+ {
+  "id": 741,
+  "materia": "Física",
+  "cluster": 6,
+  "temas": [
+   "fisica-medica",
+   "fision-y-fusion-nuclear",
+   "formacion-de-imagenes-optica",
+   "formulas-con-literales",
+   "frecuencia"
+  ],
+  "nombre": "Experto en Física Médica y Nuclear",
+  "descripcion": "Dominaste la fisión y fusión nuclear, la formación de imágenes ópticas y la física médica, sin fallar una fórmula literal.",
+  "icono": "🏥☢️"
+ },
+ {
+  "id": 742,
+  "materia": "Física",
+  "cluster": 7,
+  "temas": [
+   "generador-motor-transformador",
+   "gravitacion-universal",
+   "iman-polos-atraccion-repulsion",
+   "impulso-cambio-momento",
+   "induccion-electromagnetica-faraday-lenz"
+  ],
+  "nombre": "Maestro del Electromagnetismo y la Gravitación",
+  "descripcion": "Completaste el examen dominando generadores, motores y transformadores, la inducción electromagnética de Faraday y Lenz, y la gravitación universal, jefe.",
+  "icono": "🧲🌍"
+ },
+ {
+  "id": 743,
+  "materia": "Física",
+  "cluster": 8,
+  "temas": [
+   "lentes-convergentes-divergentes",
+   "ley-de-coulomb",
+   "ley-de-ohm",
+   "leyes-de-newton/primera-inercia",
+   "leyes-de-newton/segunda-fma"
+  ],
+  "nombre": "Dominio de las Leyes Fundamentales",
+  "descripcion": "Dominaste la ley de Coulomb, la ley de Ohm y las dos primeras leyes de Newton, además de las lentes convergentes y divergentes.",
+  "icono": "🔍⚡"
+ },
+ {
+  "id": 744,
+  "materia": "Física",
+  "cluster": 9,
+  "temas": [
+   "leyes-de-newton/tercera-accion-reaccion",
+   "longitud-onda-velocidad-propagacion",
+   "luz-onda-espectro-electromagnetico",
+   "maquina-termica-termodinamica-nivel2",
+   "maquinas-simples"
+  ],
+  "nombre": "Maestro de las Ondas y las Máquinas",
+  "descripcion": "Completaste el parcial dominando la tercera ley de Newton, la propagación de ondas, el espectro electromagnético y las máquinas simples, jefe.",
+  "icono": "🌊⚙️"
+ },
+ {
+  "id": 745,
+  "materia": "Física",
+  "cluster": 10,
+  "temas": [
+   "momento-lineal",
+   "movimiento-circular-y-fuerza-centripeta",
+   "mru",
+   "ojo-humano-instrumento-optico",
+   "mruv"
+  ],
+  "nombre": "Domina el Movimiento y la Visión",
+  "descripcion": "Dominaste el MRU, el MRUV, el momento lineal y el movimiento circular, y entendiste el ojo humano como instrumento óptico.",
+  "icono": "🏃‍♂️👁️"
+ },
+ {
+  "id": 746,
+  "materia": "Física",
+  "cluster": 11,
+  "temas": [
+   "oscilacion-periodo",
+   "plano-inclinado-y-rozamiento",
+   "potencia-electrica",
+   "potencia-mecanica",
+   "presion-atmosferica"
+  ],
+  "nombre": "Maestro de la Potencia y las Oscilaciones",
+  "descripcion": "Completaste el examen dominando la potencia eléctrica y mecánica, el plano inclinado con rozamiento, la oscilación y la presión atmosférica, jefe.",
+  "icono": "🔄⚡"
+ },
+ {
+  "id": 747,
+  "materia": "Física",
+  "cluster": 12,
+  "temas": [
+   "presion-f-sobre-a",
+   "masas-de-aire-y-frentes",
+   "presion-hidrostatica",
+   "formacion-de-nubes",
+   "principio-de-arquimedes-empuje-flotacion"
+  ],
+  "nombre": "Domina la Presión y el Clima",
+  "descripcion": "Dominaste la presión hidrostática, el principio de Arquímedes, las masas de aire y frentes, y la formación de nubes.",
+  "icono": "🌬️☁️"
+ },
+ {
+  "id": 748,
+  "materia": "Física",
+  "cluster": 13,
+  "temas": [
+   "precipitacion",
+   "principio-de-pascal-prensa-hidraulica",
+   "reflexion-espejos-planos-curvos",
+   "refraccion-indice-ley-snell",
+   "relatividad-especial-conceptual"
+  ],
+  "nombre": "Maestro de la Óptica y la Relatividad",
+  "descripcion": "Completaste el parcial dominando la reflexión, la refracción con la ley de Snell, el principio de Pascal y la relatividad especial, jefe.",
+  "icono": "🔭🌀"
+ },
+ {
+  "id": 749,
+  "materia": "Física",
+  "cluster": 14,
+  "temas": [
+   "resistencia-electrica",
+   "resonancia-frecuencia-natural",
+   "semivida-desintegracion-exponencial",
+   "sonido-timbre-altura-intensidad",
+   "temperatura-equilibrio-termico"
+  ],
+  "nombre": "Domina el Sonido y la Resistencia",
+  "descripcion": "Dominaste la resistencia eléctrica, la resonancia, el timbre y la intensidad del sonido, y la desintegración exponencial de la semivida.",
+  "icono": "🔊🔋"
+ },
+ {
+  "id": 750,
+  "materia": "Física",
+  "cluster": 15,
+  "temas": [
+   "tension-diferencia-potencial",
+   "tiro-oblicuo",
+   "tiro-vertical",
+   "tormentas-y-fenomenos-severos",
+   "trabajo-de-una-fuerza",
+   "transmision-calor-conduccion-conveccion-radiacion",
+   "velocidad-aceleracion-instantaneas"
+  ],
+  "nombre": "Maestro del Tiro y las Tormentas",
+  "descripcion": "Completaste el examen dominando el tiro oblicuo y vertical, el trabajo de una fuerza, la transmisión del calor y las tormentas severas, jefe.",
+  "icono": "🎯🌪️"
+ }
+]

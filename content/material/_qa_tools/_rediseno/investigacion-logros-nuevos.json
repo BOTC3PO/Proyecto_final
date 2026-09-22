@@ -1,0 +1,34 @@
+[
+ {
+  "id": 912,
+  "materia": "Investigación",
+  "cluster": 1,
+  "temas": [
+   "analisis-estadistico-de-resultados",
+   "argumentar-desde-evidencia",
+   "conclusion-y-comunicacion-de-resultados",
+   "construir-y-usar-un-modelo-cientifico",
+   "corrientes-filosofia-de-la-ciencia"
+  ],
+  "nombre": "Dominio del Método Científico",
+  "descripcion": "Completaste el examen jefe integrando el análisis estadístico, la argumentación desde evidencia y las corrientes de la filosofía de la ciencia.",
+  "icono": "🔬"
+ },
+ {
+  "id": 913,
+  "materia": "Investigación",
+  "cluster": 2,
+  "temas": [
+   "diseno-experimental-variables-y-control",
+   "hipotesis-buena-o-mala",
+   "observacion-y-pregunta-investigable",
+   "recoleccion-de-datos",
+   "metodologia-cualitativa-vs-cuantitativa",
+   "trabajo-de-campo-enfoque-socioantropologico",
+   "tecnicas-de-investigacion-social"
+  ],
+  "nombre": "Maestro del Diseño Experimental y de Campo",
+  "descripcion": "Aprobaste el parcial sobre el diseño experimental, la formulación de hipótesis, la metodología cualitativa y cuantitativa, y el trabajo de campo socioantropológico.",
+  "icono": "🧪"
+ }
+]
