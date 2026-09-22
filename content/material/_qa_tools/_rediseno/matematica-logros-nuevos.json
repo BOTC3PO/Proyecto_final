@@ -1,0 +1,483 @@
+[
+ {
+  "id": 601,
+  "materia": "Matemática",
+  "cluster": 1,
+  "temas": [
+   "asintotas",
+   "concavidad-y-puntos-de-inflexion",
+   "conjuntos-pertenencia-e-inclusion",
+   "conteo",
+   "divisibilidad/regla-del-7-opcional"
+  ],
+  "nombre": "Domina Asíntotas y Conjuntos",
+  "descripcion": "Analizaste asíntotas y concavidad de funciones, trabajaste pertenencia de conjuntos, conteo y la regla del 7 en un mismo parcial.",
+  "icono": "📈"
+ },
+ {
+  "id": 602,
+  "materia": "Matemática",
+  "cluster": 2,
+  "temas": [
+   "grafos-vertices-y-aristas",
+   "integral-definida-y-area-bajo-la-curva",
+   "arboles-grafo-sin-ciclos",
+   "grafos-dirigidos-no-dirigidos-y-ponderados",
+   "leer-una-tabla"
+  ],
+  "nombre": "Maestro de Grafos y Árboles",
+  "descripcion": "Dominaste vértices, aristas, árboles y grafos ponderados, además de integrales definidas y lectura de tablas.",
+  "icono": "🌳"
+ },
+ {
+  "id": 603,
+  "materia": "Matemática",
+  "cluster": 3,
+  "temas": [
+   "caminos-y-ciclos",
+   "leer-grafico/barras",
+   "algoritmos-de-recorrido-bfs-dfs",
+   "leer-grafico/lineas",
+   "leer-grafico/torta"
+  ],
+  "nombre": "Domina Caminos, BFS y DFS",
+  "descripcion": "Recorriste caminos y ciclos con BFS y DFS, y leíste gráficos de barras, líneas y torta sin fallar.",
+  "icono": "🔍"
+ },
+ {
+  "id": 604,
+  "materia": "Matemática",
+  "cluster": 4,
+  "temas": [
+   "magnitud-unidad-instrumento",
+   "construir-un-grafico",
+   "grafico-eje-truncado",
+   "media-mediana-y-moda",
+   "razones-trigonometricas"
+  ],
+  "nombre": "Maestro de Gráficos y Medidas",
+  "descripcion": "Construiste gráficos, detectaste ejes truncados, calculaste media, mediana y moda, y aplicaste razones trigonométricas.",
+  "icono": "📊"
+ },
+ {
+  "id": 605,
+  "materia": "Matemática",
+  "cluster": 5,
+  "temas": [
+   "cual-miente-y-cuando",
+   "funciones-trigonometricas-seno-coseno",
+   "regla-de-lhopital",
+   "identidades-y-ecuaciones-trigonometricas",
+   "regresion-lineal"
+  ],
+  "nombre": "Domina Trigonometría y Regresión",
+  "descripcion": "Trabajaste funciones trigonométricas, identidades, la regla de L'Hôpital y regresión lineal, y detectaste quién miente y cuándo.",
+  "icono": "📐"
+ },
+ {
+  "id": 606,
+  "materia": "Matemática",
+  "cluster": 6,
+  "temas": [
+   "sistema-metrico-y-conversiones",
+   "correlacion-no-es-causalidad",
+   "analisis-dimensional",
+   "angulos",
+   "cifras-significativas-y-error"
+  ],
+  "nombre": "Maestro de Unidades y Análisis",
+  "descripcion": "Convertiste unidades, analizaste dimensiones y cifras significativas, midiste ángulos y distinguiste correlación de causalidad, jefe.",
+  "icono": "📏"
+ },
+ {
+  "id": 607,
+  "materia": "Matemática",
+  "cluster": 7,
+  "temas": [
+   "circunferencia-y-circulo",
+   "error-sistematico-vs-aleatorio",
+   "perimetro-y-area",
+   "poligonos",
+   "tablas-de-frecuencia-cuartiles-percentiles-y-varianza"
+  ],
+  "nombre": "Domina Perímetro, Área y Estadística",
+  "descripcion": "Calculaste perímetro y área de polígonos y circunferencias, y trabajaste cuartiles, percentiles y varianza en tablas de frecuencia.",
+  "icono": "⭕"
+ },
+ {
+  "id": 608,
+  "materia": "Matemática",
+  "cluster": 8,
+  "temas": [
+   "area-poligonos-regulares-y-compuestas",
+   "dispersion-rango-y-desvio",
+   "teorema-de-bolzano",
+   "distribucion-normal",
+   "teorema-del-seno-y-del-coseno"
+  ],
+  "nombre": "Maestro de Áreas y Distribución Normal",
+  "descripcion": "Calculaste áreas de polígonos compuestos, aplicaste el teorema del seno y coseno, y dominaste la distribución normal y la dispersión.",
+  "icono": "📐"
+ },
+ {
+  "id": 609,
+  "materia": "Matemática",
+  "cluster": 9,
+  "temas": [
+   "muestreo-y-sesgo",
+   "triangulos",
+   "teorema-central-del-limite",
+   "congruencia-de-triangulos",
+   "intervalo-de-confianza"
+  ],
+  "nombre": "Experto en Muestreo y Triángulos",
+  "descripcion": "Dominaste el muestreo, el sesgo, el teorema central del límite, los intervalos de confianza y la congruencia de triángulos.",
+  "icono": "🎯"
+ },
+ {
+  "id": 610,
+  "materia": "Matemática",
+  "cluster": 10,
+  "temas": [
+   "semejanza-y-teorema-de-thales",
+   "teorema-de-pitagoras",
+   "test-de-hipotesis",
+   "transformaciones-geometricas/homotecia",
+   "transformaciones-geometricas/reflexion"
+  ],
+  "nombre": "Maestro de Semejanza y Pitágoras",
+  "descripcion": "Aplicaste el teorema de Thales y Pitágoras, homotecias y reflexiones, y completaste un test de hipótesis, jefe.",
+  "icono": "📐"
+ },
+ {
+  "id": 611,
+  "materia": "Matemática",
+  "cluster": 11,
+  "temas": [
+   "transformaciones-geometricas/rotacion",
+   "transformaciones-geometricas/traslacion",
+   "union-interseccion-y-diferencia",
+   "valor-posicional",
+   "diagramas-de-venn"
+  ],
+  "nombre": "Domina Transformaciones y Conjuntos",
+  "descripcion": "Rotaste y trasladaste figuras, calculaste uniones e intersecciones, y trabajaste diagramas de Venn y valor posicional.",
+  "icono": "🔄"
+ },
+ {
+  "id": 612,
+  "materia": "Matemática",
+  "cluster": 12,
+  "temas": [
+   "suma",
+   "principio-multiplicativo-de-conteo",
+   "multiplicacion",
+   "combinaciones",
+   "permutaciones"
+  ],
+  "nombre": "Maestro del Conteo y las Operaciones",
+  "descripcion": "Dominaste la suma y la multiplicación básica junto con el principio de conteo, las combinaciones y las permutaciones.",
+  "icono": "🔢"
+ },
+ {
+  "id": 613,
+  "materia": "Matemática",
+  "cluster": 13,
+  "temas": [
+   "independencia-de-eventos-y-diagrama-de-arbol",
+   "potencias",
+   "probabilidad-simple",
+   "logaritmos",
+   "probabilidad-compuesta"
+  ],
+  "nombre": "Domina Probabilidad y Potencias",
+  "descripcion": "Calculaste probabilidad simple y compuesta con diagramas de árbol, y trabajaste potencias y logaritmos, jefe.",
+  "icono": "🎲"
+ },
+ {
+  "id": 614,
+  "materia": "Matemática",
+  "cluster": 14,
+  "temas": [
+   "raices",
+   "distribucion-binomial",
+   "esperanza-matematica-valor-esperado",
+   "irracionales-y-reales",
+   "probabilidad-condicional"
+  ],
+  "nombre": "Experto en Probabilidad y Raíces",
+  "descripcion": "Calculaste raíces de números irracionales y reales, y dominaste la distribución binomial, el valor esperado y la probabilidad condicional.",
+  "icono": "🎲"
+ },
+ {
+  "id": 615,
+  "materia": "Matemática",
+  "cluster": 15,
+  "temas": [
+   "resta",
+   "sucesiones-aritmeticas",
+   "dinero",
+   "division",
+   "hora-y-reloj"
+  ],
+  "nombre": "Maestro de las Operaciones Básicas",
+  "descripcion": "Dominaste la resta, la división, el manejo del dinero, la hora y el reloj, y las sucesiones aritméticas.",
+  "icono": "🕐"
+ },
+ {
+  "id": 616,
+  "materia": "Matemática",
+  "cluster": 16,
+  "temas": [
+   "jerarquia-operaciones",
+   "numeros-enteros",
+   "divisibilidad/multiplos",
+   "lenguaje-algebraico",
+   "divisibilidad/divisores"
+  ],
+  "nombre": "Domina Jerarquía y Divisibilidad",
+  "descripcion": "Aplicaste la jerarquía de operaciones con números enteros, calculaste múltiplos y divisores, y tradujiste lenguaje algebraico.",
+  "icono": "➗"
+ },
+ {
+  "id": 617,
+  "materia": "Matemática",
+  "cluster": 17,
+  "temas": [
+   "expresiones-equivalentes",
+   "divisibilidad/regla-del-2",
+   "divisibilidad/regla-del-3",
+   "divisibilidad/regla-del-4",
+   "divisibilidad/regla-del-5"
+  ],
+  "nombre": "Maestro de las Reglas de Divisibilidad",
+  "descripcion": "Dominaste las reglas de divisibilidad del 2 al 5 y armaste expresiones equivalentes, jefe.",
+  "icono": "➗"
+ },
+ {
+  "id": 618,
+  "materia": "Matemática",
+  "cluster": 18,
+  "temas": [
+   "divisibilidad/regla-del-6",
+   "divisibilidad/regla-del-10",
+   "divisibilidad/regla-del-8",
+   "divisibilidad/regla-del-9",
+   "ecuacion-primer-grado"
+  ],
+  "nombre": "Domina Divisibilidad y Ecuaciones",
+  "descripcion": "Completaste las reglas de divisibilidad del 6, 8, 9 y 10, y resolviste ecuaciones de primer grado.",
+  "icono": "✖️"
+ },
+ {
+  "id": 619,
+  "materia": "Matemática",
+  "cluster": 19,
+  "temas": [
+   "numeros-primos",
+   "demostracion-contraejemplo",
+   "demostracion-deduccion",
+   "demostracion-induccion",
+   "demostracion-reduccion-al-absurdo"
+  ],
+  "nombre": "Maestro de las Demostraciones",
+  "descripcion": "Dominaste los números primos y las técnicas de demostración: contraejemplo, deducción, inducción y reducción al absurdo.",
+  "icono": "🧠"
+ },
+ {
+  "id": 620,
+  "materia": "Matemática",
+  "cluster": 20,
+  "temas": [
+   "despejar-formula",
+   "funcion-dominio",
+   "funcion-imagen",
+   "inecuaciones",
+   "funcion-inversa-composicion"
+  ],
+  "nombre": "Domina Funciones e Inecuaciones",
+  "descripcion": "Despejaste fórmulas, resolviste inecuaciones, y trabajaste dominio, imagen, composición e inversa de funciones.",
+  "icono": "📉"
+ },
+ {
+  "id": 621,
+  "materia": "Matemática",
+  "cluster": 21,
+  "temas": [
+   "funcion-lineal-pendiente",
+   "mcd",
+   "operaciones-enteros",
+   "fracciones",
+   "mcm"
+  ],
+  "nombre": "Maestro de Fracciones y Función Lineal",
+  "descripcion": "Calculaste MCD y MCM, operaste con fracciones y enteros, y analizaste la pendiente de la función lineal.",
+  "icono": "📈"
+ },
+ {
+  "id": 622,
+  "materia": "Matemática",
+  "cluster": 22,
+  "temas": [
+   "plano-cartesiano",
+   "operaciones-fracciones",
+   "coordenadas-de-un-punto",
+   "decimales",
+   "distancia-entre-dos-puntos"
+  ],
+  "nombre": "Domina el Plano Cartesiano",
+  "descripcion": "Ubicaste coordenadas y calculaste distancia entre puntos en el plano cartesiano, y operaste con fracciones y decimales.",
+  "icono": "🧭"
+ },
+ {
+  "id": 623,
+  "materia": "Matemática",
+  "cluster": 23,
+  "temas": [
+   "notacion-cientifica",
+   "ecuacion-de-la-recta",
+   "polinomios-factoreo",
+   "proporcionalidad-funcion",
+   "division-polinomios-ruffini"
+  ],
+  "nombre": "Maestro de Polinomios y la Recta",
+  "descripcion": "Factoreaste polinomios, dividiste con Ruffini, hallaste la ecuación de la recta y usaste notación científica, jefe.",
+  "icono": "📐"
+ },
+ {
+  "id": 624,
+  "materia": "Matemática",
+  "cluster": 24,
+  "temas": [
+   "ecuacion-cuadratica",
+   "punto-medio-de-un-segmento",
+   "funcion-cuadratica-parabola",
+   "numeros-complejos",
+   "familias-exponencial-logaritmica"
+  ],
+  "nombre": "Domina la Función Cuadrática",
+  "descripcion": "Resolviste ecuaciones cuadráticas, graficaste parábolas, calculaste el punto medio de un segmento y trabajaste con números complejos.",
+  "icono": "🔵"
+ },
+ {
+  "id": 625,
+  "materia": "Matemática",
+  "cluster": 25,
+  "temas": [
+   "forma-polar-complejos",
+   "ecuaciones-exponenciales-logaritmicas",
+   "limite",
+   "razon",
+   "continuidad"
+  ],
+  "nombre": "Maestro de Límites y Complejos",
+  "descripcion": "Calculaste límites y continuidad de funciones, resolviste ecuaciones exponenciales y logarítmicas, y expresaste complejos en forma polar.",
+  "icono": "∞"
+ },
+ {
+  "id": 626,
+  "materia": "Matemática",
+  "cluster": 26,
+  "temas": [
+   "proporcion",
+   "derivada",
+   "rectas-paralelas-y-perpendiculares",
+   "integral",
+   "optimizacion"
+  ],
+  "nombre": "Domina Derivadas e Integrales",
+  "descripcion": "Calculaste derivadas e integrales, resolviste problemas de optimización y trabajaste rectas paralelas y perpendiculares.",
+  "icono": "∫"
+ },
+ {
+  "id": 627,
+  "materia": "Matemática",
+  "cluster": 27,
+  "temas": [
+   "ecuaciones-diferenciales",
+   "redondeo",
+   "regla-de-tres-directa",
+   "secciones-conicas-circunferencia",
+   "porcentaje"
+  ],
+  "nombre": "Maestro de Ecuaciones Diferenciales",
+  "descripcion": "Resolviste ecuaciones diferenciales y secciones cónicas, y aplicaste regla de tres, porcentaje y redondeo, jefe.",
+  "icono": "🌀"
+ },
+ {
+  "id": 628,
+  "materia": "Matemática",
+  "cluster": 28,
+  "temas": [
+   "regla-de-tres-inversa",
+   "sistemas-dos-ecuaciones",
+   "sucesiones-y-series",
+   "matrices/operaciones",
+   "series-geometricas"
+  ],
+  "nombre": "Domina Sistemas y Series",
+  "descripcion": "Resolviste sistemas de dos ecuaciones, operaste con matrices, y trabajaste sucesiones, series geométricas y regla de tres inversa.",
+  "icono": "🔢"
+ },
+ {
+  "id": 629,
+  "materia": "Matemática",
+  "cluster": 29,
+  "temas": [
+   "matrices/sistemas-nxn",
+   "tecnicas-de-integracion",
+   "determinante",
+   "teorema-de-bayes",
+   "matriz-inversa"
+  ],
+  "nombre": "Maestro de Matrices y Bayes",
+  "descripcion": "Calculaste determinantes y matrices inversas, resolviste sistemas nxn, aplicaste técnicas de integración y el teorema de Bayes.",
+  "icono": "🧮"
+ },
+ {
+  "id": 630,
+  "materia": "Matemática",
+  "cluster": 30,
+  "temas": [
+   "riesgo-relativo-vs-absoluto",
+   "teorema-del-binomio",
+   "variable-aleatoria-discreta-continua",
+   "variaciones",
+   "distribucion-de-poisson"
+  ],
+  "nombre": "Domina Distribuciones y el Binomio",
+  "descripcion": "Aplicaste el teorema del binomio y la distribución de Poisson, trabajaste variables aleatorias y riesgo relativo, jefe.",
+  "icono": "🎲"
+ },
+ {
+  "id": 631,
+  "materia": "Matemática",
+  "cluster": 31,
+  "temas": [
+   "distribucion-exponencial",
+   "vectores-modulo-y-direccion",
+   "volumen-y-capacidad",
+   "suma-de-vectores-y-descomposicion",
+   "cuerpos-redondos-y-poliedros/cilindros"
+  ],
+  "nombre": "Maestro de Vectores y Volumen",
+  "descripcion": "Sumaste y descompusiste vectores, calculaste volumen de cilindros y capacidad, y trabajaste la distribución exponencial.",
+  "icono": "➡️"
+ },
+ {
+  "id": 632,
+  "materia": "Matemática",
+  "cluster": 32,
+  "temas": [
+   "cuerpos-redondos-y-poliedros/conos",
+   "cuerpos-redondos-y-poliedros/esferas",
+   "cuerpos-redondos-y-poliedros/piramides",
+   "cuerpos-redondos-y-poliedros/prismas",
+   "producto-escalar",
+   "cuerpos-redondos-y-poliedros/desarrollo-plano"
+  ],
+  "nombre": "Domina los Cuerpos Geométricos",
+  "descripcion": "Calculaste conos, esferas, pirámides y prismas, desarrollaste sus planos, y aplicaste el producto escalar entre vectores.",
+  "icono": "🔺"
+ }
+]
