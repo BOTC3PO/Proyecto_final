@@ -1,1974 +1,5 @@
 [
   {
-    "id": 52,
-    "materia": "Matemática",
-    "cluster": 1,
-    "temas": [
-      "algoritmos-de-recorrido-bfs-dfs",
-      "analisis-dimensional",
-      "angulos",
-      "arboles-grafo-sin-ciclos",
-      "area-poligonos-regulares-y-compuestas"
-    ],
-    "nombre": "Maestro del Grafismo e Geometria",
-    "descripcion": "Hai esplorato grafi con BFS e DFS, analizzato dimensioni e calcolato aree di poligoni senza errori.",
-    "icono": "🌳"
-  },
-  {
-    "id": 53,
-    "materia": "Matemática",
-    "cluster": 2,
-    "temas": [
-      "asintotas",
-      "caminos-y-ciclos",
-      "cifras-significativas-y-error",
-      "circunferencia-y-circulo",
-      "combinaciones"
-    ],
-    "nombre": "Domina asintoti e combinazioni",
-    "descripcion": "Esame parziale completato con successo, integrando analisi di funzioni geometriche e conteggio combinatorio.",
-    "icono": "📐"
-  },
-  {
-    "id": 54,
-    "materia": "Matemática",
-    "cluster": 3,
-    "temas": [
-      "concavidad-y-puntos-de-inflexion",
-      "congruencia-de-triangulos",
-      "conjuntos-pertenencia-e-inclusion",
-      "construir-un-grafico",
-      "conteo"
-    ],
-    "nombre": "Maestro di Insiemi e Grafici",
-    "descripcion": "Hai analizzato concavità, congruenza e conteggio con precisione.",
-    "icono": "📐"
-  },
-  {
-    "id": 55,
-    "materia": "Matemática",
-    "cluster": 4,
-    "temas": [
-      "continuidad",
-      "coordenadas-de-un-punto",
-      "correlacion-no-es-causalidad",
-      "cual-miente-y-cuando",
-      "cuerpos-redondos-y-poliedros/cilindros"
-    ],
-    "nombre": "Maestro della Continuità",
-    "descripcion": "Hai dominato la continuità, le coordinate e i corpi solidi per risolvere con precisione.",
-    "icono": "📐"
-  },
-  {
-    "id": 56,
-    "materia": "Matemática",
-    "cluster": 5,
-    "temas": [
-      "cuerpos-redondos-y-poliedros/conos",
-      "cuerpos-redondos-y-poliedros/desarrollo-plano",
-      "cuerpos-redondos-y-poliedros/esferas",
-      "cuerpos-redondos-y-poliedros/piramides",
-      "cuerpos-redondos-y-poliedros/prismas"
-    ],
-    "nombre": "Maestro di Poliedri e Corpi",
-    "descripcion": "Hai completato il parziale dominando coni, sfere, piramidi, prismi e i loro sviluppi piani.",
-    "icono": "📐"
-  },
-  {
-    "id": 57,
-    "materia": "Matemática",
-    "cluster": 6,
-    "temas": [
-      "decimales",
-      "demostracion-contraejemplo",
-      "demostracion-deduccion",
-      "demostracion-induccion",
-      "demostracion-reduccion-al-absurdo"
-    ],
-    "nombre": "Maestro delle Dimostrazioni",
-    "descripcion": "Hai dimostrato il tuo dominio sui decimali e sui diversi tipi di dimostrazioni logiche.",
-    "icono": "🧠"
-  },
-  {
-    "id": 58,
-    "materia": "Matemática",
-    "cluster": 7,
-    "temas": [
-      "derivada",
-      "despejar-formula",
-      "determinante",
-      "diagramas-de-venn",
-      "dinero"
-    ],
-    "nombre": "Maestro dello Svolgimento e delle Derivate",
-    "descripcion": "Hai risolto il parziale dominando derivate, determinanti, diagrammi di Venn e lo svolgimento di formule.",
-    "icono": "🧮"
-  },
-  {
-    "id": 59,
-    "materia": "Matemática",
-    "cluster": 8,
-    "temas": [
-      "dispersion-rango-y-desvio",
-      "distancia-entre-dos-puntos",
-      "distribucion-binomial",
-      "distribucion-de-poisson",
-      "distribucion-exponencial"
-    ],
-    "nombre": "Domini le distribuzioni e le distanze",
-    "descripcion": "Hai completato l'esame su dispersione, intervalli, deviazioni, distanze e distribuzioni binomiale, di Poisson ed esponenziale.",
-    "icono": "📊"
-  },
-  {
-    "id": 60,
-    "materia": "Matemática",
-    "cluster": 9,
-    "temas": [
-      "distribucion-normal",
-      "divisibilidad/divisores",
-      "divisibilidad/multiplos",
-      "divisibilidad/regla-del-10",
-      "divisibilidad/regla-del-2"
-    ],
-    "nombre": "Maestro della Divisibilità",
-    "descripcion": "Hai completato il parziale dominando le regole di divisibilità e la distribuzione normale.",
-    "icono": "🔢"
-  },
-  {
-    "id": 61,
-    "materia": "Matemática",
-    "cluster": 10,
-    "temas": [
-      "divisibilidad/regla-del-3",
-      "divisibilidad/regla-del-4",
-      "divisibilidad/regla-del-5",
-      "divisibilidad/regla-del-6",
-      "divisibilidad/regla-del-7-opcional"
-    ],
-    "nombre": "Maestro delle Regole di Divisibilità",
-    "descripcion": "Hai dominato le regole del 3, 4, 5 e 6 per scomporre i numeri come un professionista.",
-    "icono": "🔢"
-  },
-  {
-    "id": 62,
-    "materia": "Matemática",
-    "cluster": 11,
-    "temas": [
-      "divisibilidad/regla-del-8",
-      "divisibilidad/regla-del-9",
-      "division",
-      "division-polinomios-ruffini",
-      "ecuacion-cuadratica"
-    ],
-    "nombre": "Dominio della Regola dell'8",
-    "descripcion": "Hai completato il parziale dominando divisibilità, Ruffini ed equazioni quadratiche.",
-    "icono": "🧮"
-  },
-  {
-    "id": 63,
-    "materia": "Matemática",
-    "cluster": 12,
-    "temas": [
-      "ecuacion-de-la-recta",
-      "ecuacion-primer-grado",
-      "ecuaciones-diferenciales",
-      "ecuaciones-exponenciales-logaritmicas",
-      "error-sistematico-vs-aleatorio"
-    ],
-    "nombre": "Domina la retta e gli errori",
-    "descripcion": "Hai completato il parziale risolvendo equazioni di primo grado, differenziali, esponenziali e logaritmiche, distinguendo bene l'errore sistematico da quello casuale.",
-    "icono": "📐"
-  },
-  {
-    "id": 64,
-    "materia": "Matemática",
-    "cluster": 13,
-    "temas": [
-      "esperanza-matematica-valor-esperado",
-      "expresiones-equivalentes",
-      "familias-exponencial-logaritmica",
-      "forma-polar-complejos",
-      "fracciones"
-    ],
-    "nombre": "Maestro dei Complessi e dei Logaritmi",
-    "descripcion": "Hai dominato le frazioni, i numeri complessi in forma polare e le funzioni esponenziali e logaritmiche per risolvere il parziale.",
-    "icono": "📐"
-  },
-  {
-    "id": 65,
-    "materia": "Matemática",
-    "cluster": 14,
-    "temas": [
-      "funcion-cuadratica-parabola",
-      "funcion-dominio",
-      "funcion-imagen",
-      "funcion-inversa-composicion",
-      "funcion-lineal-pendiente"
-    ],
-    "nombre": "Maestro delle Funzioni",
-    "descripcion": "Hai dominato le funzioni lineari, quadratiche e le loro proprietà chiave.",
-    "icono": "📐"
-  },
-  {
-    "id": 66,
-    "materia": "Matemática",
-    "cluster": 15,
-    "temas": [
-      "funciones-trigonometricas-seno-coseno",
-      "grafico-eje-truncado",
-      "grafos-dirigidos-no-dirigidos-y-ponderados",
-      "grafos-vertices-y-aristas",
-      "hora-y-reloj"
-    ],
-    "nombre": "Domini la trigonometria e i grafi",
-    "descripcion": "Hai completato il parziale dominando funzioni trigonometriche, grafi e problemi di orario.",
-    "icono": "📐"
-  },
-  {
-    "id": 67,
-    "materia": "Matemática",
-    "cluster": 16,
-    "temas": [
-      "identidades-y-ecuaciones-trigonometricas",
-      "independencia-de-eventos-y-diagrama-de-arbol",
-      "inecuaciones",
-      "integral",
-      "integral-definida-y-area-bajo-la-curva"
-    ],
-    "nombre": "Maestro del Calcolo e della Probabilità",
-    "descripcion": "Hai risolto con successo il parziale integrando trigonometria, probabilità e l'area sotto la curva.",
-    "icono": "📐"
-  },
-  {
-    "id": 68,
-    "materia": "Matemática",
-    "cluster": 17,
-    "temas": [
-      "intervalo-de-confianza",
-      "irracionales-y-reales",
-      "jerarquia-operaciones",
-      "leer-grafico/barras",
-      "leer-grafico/lineas"
-    ],
-    "nombre": "Maestro degli Intervalli e dei Grafici",
-    "descripcion": "Hai completato il parziale dominando intervalli di confidenza, numeri irrazionali, gerarchia delle operazioni e lettura dei grafici.",
-    "icono": "📊"
-  },
-  {
-    "id": 69,
-    "materia": "Matemática",
-    "cluster": 18,
-    "temas": [
-      "leer-grafico/torta",
-      "leer-una-tabla",
-      "lenguaje-algebraico",
-      "limite",
-      "logaritmos"
-    ],
-    "nombre": "Maestro dell'Analisi dei Dati",
-    "descripcion": "Hai letto grafici, tabelle ed espressioni algebriche fino a dominare limiti e logaritmi.",
-    "icono": "📊"
-  },
-  {
-    "id": 70,
-    "materia": "Matemática",
-    "cluster": 19,
-    "temas": [
-      "magnitud-unidad-instrumento",
-      "matrices/operaciones",
-      "matrices/sistemas-nxn",
-      "matriz-inversa",
-      "mcd"
-    ],
-    "nombre": "Maestro delle Matrici e del MCD",
-    "descripcion": "Hai dominato le operazioni con matrici, sistemi nxn, inverse e il calcolo del MCD.",
-    "icono": "📐"
-  },
-  {
-    "id": 71,
-    "materia": "Matemática",
-    "cluster": 20,
-    "temas": [
-      "mcm",
-      "media-mediana-y-moda",
-      "muestreo-y-sesgo",
-      "multiplicacion",
-      "notacion-cientifica"
-    ],
-    "nombre": "Maestro del mcm e della statistica",
-    "descripcion": "Hai calcolato il mcm, analizzato dati con media, mediana e moda, e dominato il campionamento senza bias!",
-    "icono": "📊"
-  },
-  {
-    "id": 72,
-    "materia": "Matemática",
-    "cluster": 21,
-    "temas": [
-      "numeros-complejos",
-      "numeros-enteros",
-      "numeros-primos",
-      "operaciones-enteros",
-      "operaciones-fracciones"
-    ],
-    "nombre": "Maestro degli Interi e delle Frazioni",
-    "descripcion": "Hai superato l'esame padroneggiando numeri interi, primi, frazioni e complessi!",
-    "icono": "🧮"
-  },
-  {
-    "id": 73,
-    "materia": "Matemática",
-    "cluster": 22,
-    "temas": [
-      "optimizacion",
-      "perimetro-y-area",
-      "permutaciones",
-      "plano-cartesiano",
-      "poligonos"
-    ],
-    "nombre": "Padronanza di Forme e Spazi",
-    "descripcion": "Hai completato l'esame di geometria e combinatoria con eccellenza.",
-    "icono": "📐"
-  },
-  {
-    "id": 74,
-    "materia": "Matemática",
-    "cluster": 23,
-    "temas": [
-      "polinomios-factoreo",
-      "porcentaje",
-      "potencias",
-      "principio-multiplicativo-de-conteo",
-      "probabilidad-compuesta"
-    ],
-    "nombre": "Esperto in Polinomi e Probabilità",
-    "descripcion": "Hai completato l'esame padroneggiando fattorizzazione, potenze, conteggio e probabilità composta.",
-    "icono": "🧮"
-  },
-  {
-    "id": 75,
-    "materia": "Matemática",
-    "cluster": 24,
-    "temas": [
-      "probabilidad-condicional",
-      "probabilidad-simple",
-      "producto-escalar",
-      "proporcion",
-      "proporcionalidad-funcion"
-    ],
-    "nombre": "Maestro delle Probabilità e delle Proporzioni",
-    "descripcion": "Hai completato l'esame padroneggiando probabilità condizionale, semplice, prodotto scalare e funzioni di proporzionalità.",
-    "icono": "📐"
-  },
-  {
-    "id": 76,
-    "materia": "Matemática",
-    "cluster": 25,
-    "temas": [
-      "punto-medio-de-un-segmento",
-      "raices",
-      "razon",
-      "razones-trigonometricas",
-      "rectas-paralelas-y-perpendiculares"
-    ],
-    "nombre": "Padronanza della Geometria Analitica",
-    "descripcion": "Hai completato l'esame integrando punto medio, rette e ragioni trigonometriche.",
-    "icono": "📐"
-  },
-  {
-    "id": 77,
-    "materia": "Matemática",
-    "cluster": 26,
-    "temas": [
-      "redondeo",
-      "regla-de-lhopital",
-      "regla-de-tres-directa",
-      "regla-de-tres-inversa",
-      "regresion-lineal"
-    ],
-    "nombre": "Maestro delle Regole e della Regressione",
-    "descripcion": "Hai superato l'esame padroneggiando arrotondamento, L'Hôpital, regole di tre e regressione lineare.",
-    "icono": "📐"
-  },
-  {
-    "id": 78,
-    "materia": "Matemática",
-    "cluster": 27,
-    "temas": [
-      "resta",
-      "riesgo-relativo-vs-absoluto",
-      "secciones-conicas-circunferencia",
-      "semejanza-y-teorema-de-thales",
-      "series-geometricas"
-    ],
-    "nombre": "Maestro delle Serie e delle Coniche",
-    "descripcion": "Hai risolto l'esame padroneggiando sottrazione, rischi, circonferenze, Talete e serie geometriche.",
-    "icono": "📐"
-  },
-  {
-    "id": 79,
-    "materia": "Matemática",
-    "cluster": 28,
-    "temas": [
-      "sistema-metrico-y-conversiones",
-      "sistemas-dos-ecuaciones",
-      "sucesiones-aritmeticas",
-      "sucesiones-y-series",
-      "suma"
-    ],
-    "nombre": "Maestro delle Conversioni e delle Serie",
-    "descripcion": "Hai risolto l'esame integrando sistemi di equazioni, successioni e conversioni metriche.",
-    "icono": "📐"
-  },
-  {
-    "id": 80,
-    "materia": "Matemática",
-    "cluster": 29,
-    "temas": [
-      "suma-de-vectores-y-descomposicion",
-      "tablas-de-frecuencia-cuartiles-percentiles-y-varianza",
-      "tecnicas-de-integracion",
-      "teorema-central-del-limite",
-      "teorema-de-bayes"
-    ],
-    "nombre": "Padronanza di Vettori e Statistica",
-    "descripcion": "Hai risolto l'esame integrando vettori, distribuzioni e teoremi probabilistici.",
-    "icono": "📊"
-  },
-  {
-    "id": 81,
-    "materia": "Matemática",
-    "cluster": 30,
-    "temas": [
-      "teorema-de-bolzano",
-      "teorema-de-pitagoras",
-      "teorema-del-binomio",
-      "teorema-del-seno-y-del-coseno",
-      "test-de-hipotesis"
-    ],
-    "nombre": "Maestro dei Teoremi",
-    "descripcion": "Hai completato l'esame finale padroneggiando Bolzano, Pitagora, il binomio, trigonometria e statistica.",
-    "icono": "📐"
-  },
-  {
-    "id": 82,
-    "materia": "Matemática",
-    "cluster": 31,
-    "temas": [
-      "transformaciones-geometricas/homotecia",
-      "transformaciones-geometricas/reflexion",
-      "transformaciones-geometricas/rotacion",
-      "transformaciones-geometricas/traslacion",
-      "triangulos"
-    ],
-    "nombre": "Maestro delle Trasformazioni",
-    "descripcion": "Hai completato l'esame sulle trasformazioni geometriche e sui triangoli, capo.",
-    "icono": "🔺"
-  },
-  {
-    "id": 83,
-    "materia": "Matemática",
-    "cluster": 32,
-    "temas": [
-      "union-interseccion-y-diferencia",
-      "valor-posicional",
-      "variable-aleatoria-discreta-continua",
-      "variaciones",
-      "vectores-modulo-y-direccion",
-      "volumen-y-capacidad"
-    ],
-    "nombre": "Maestro degli Insiemi e dei Vettori",
-    "descripcion": "Hai completato l'esame padroneggiando unioni, intersezioni, vettori e variabili aleatorie.",
-    "icono": "📐"
-  },
-  {
-    "id": 84,
-    "materia": "Lengua",
-    "cluster": 1,
-    "temas": [
-      "argumentos",
-      "boom-latinoamericano",
-      "circuito-de-la-comunicacion",
-      "clases-de-palabras",
-      "comprension-idea-principal"
-    ],
-    "nombre": "Maestro del Boom e della Grammatica",
-    "descripcion": "Hai completato l'esame padroneggiando il circuito della comunicazione, le classi di parole e l'essenza del Boom latinoamericano.",
-    "icono": "📚"
-  },
-  {
-    "id": 85,
-    "materia": "Lengua",
-    "cluster": 2,
-    "temas": [
-      "conciencia-fonologica",
-      "concordancia-nominal-y-verbal",
-      "conectores-textuales",
-      "conjugacion-verbal-indicativo",
-      "conjugacion-verbal-subjuntivo"
-    ],
-    "nombre": "Maestro della Sintassi",
-    "descripcion": "Hai completato l'esame dimostrando padronanza totale di fonologia, concordanza e tutti i modi verbali.",
-    "icono": "📝"
-  },
-  {
-    "id": 86,
-    "materia": "Lengua",
-    "cluster": 3,
-    "temas": [
-      "contraargumentos",
-      "coordinadas-adversativas",
-      "coordinadas-copulativas",
-      "coordinadas-distributivas",
-      "coordinadas-disyuntivas"
-    ],
-    "nombre": "Maestro delle Coordinate",
-    "descripcion": "Hai padroneggiato i controargomenti e i diversi tipi di proposizioni coordinate per argomentare con precisione.",
-    "icono": "🧠"
-  },
-  {
-    "id": 87,
-    "materia": "Lengua",
-    "cluster": 4,
-    "temas": [
-      "correo-formal",
-      "cv",
-      "debate-refutar-en-vivo",
-      "decodificacion-y-fluidez",
-      "detectar-falacias"
-    ],
-    "nombre": "Maestro del Dibattito e della Scrittura",
-    "descripcion": "Hai completato l'esame finale su lettere formali, CV, dibattito e rilevamento di fallacie.",
-    "icono": "🎤"
-  },
-  {
-    "id": 88,
-    "materia": "Lengua",
-    "cluster": 5,
-    "temas": [
-      "discurso-referido",
-      "escritura-como-tecnologia",
-      "estructura-narrativa",
-      "exposicion-oral",
-      "generacion-del-98"
-    ],
-    "nombre": "Maestro del Discorso e della Narrativa",
-    "descripcion": "Hai completato l'esame sulla struttura narrativa, il discorso riferito e la scrittura come tecnologia, padroneggiando i temi della Generazione del '98.",
-    "icono": "📜"
-  },
-  {
-    "id": 89,
-    "materia": "Lengua",
-    "cluster": 6,
-    "temas": [
-      "genero-dramatico",
-      "genero-lirico",
-      "genero-narrativo",
-      "generos-discursivos",
-      "generos-periodisticos"
-    ],
-    "nombre": "Padronanza dei Generi Discorsivi",
-    "descripcion": "Hai completato l'esame identificando e differenziando i generi drammatico, lirico, narrativo e giornalistico.",
-    "icono": "📚"
-  },
-  {
-    "id": 90,
-    "materia": "Lengua",
-    "cluster": 7,
-    "temas": [
-      "informe-tecnico",
-      "modernismo",
-      "narrador",
-      "negociacion",
-      "nucleos-y-modificadores"
-    ],
-    "nombre": "Maestro del Rapporto e del Modernismo",
-    "descripcion": "Hai completato l'esame con padronanza del rapporto tecnico, del modernismo e della struttura del testo.",
-    "icono": "📚"
-  },
-  {
-    "id": 91,
-    "materia": "Lengua",
-    "cluster": 8,
-    "temas": [
-      "objetos-y-circunstanciales",
-      "oracion-compuesta-coordinacion-y-subordinacion",
-      "oraciones-negativas-e-interrogativas",
-      "ortografia-y-tildacion",
-      "paratextos"
-    ],
-    "nombre": "Maestro della Grammatica",
-    "descripcion": "Hai superato l'esame padroneggiando sintassi, ortografia e paratesti.",
-    "icono": "📚"
-  },
-  {
-    "id": 92,
-    "materia": "Lengua",
-    "cluster": 9,
-    "temas": [
-      "persuasion-etica-vs-manipulacion",
-      "presentacion-con-apoyo-visual",
-      "produccion-escrita-compleja",
-      "progresion-tematica",
-      "punto-de-vista"
-    ],
-    "nombre": "Dominio Persuasivo Etico",
-    "descripcion": "Hai superato l'esame dimostrando la capacita di distinguere tra persuasione etica e manipolazione in produzioni scritte complesse con una chiara progressione tematica.",
-    "icono": "🎓"
-  },
-  {
-    "id": 93,
-    "materia": "Lengua",
-    "cluster": 10,
-    "temas": [
-      "realismo",
-      "recursos-literarios",
-      "referencia-anafora-y-catafora",
-      "romanticismo",
-      "signos-de-puntuacion"
-    ],
-    "nombre": "Domini il Realismo e il Romanticismo",
-    "descripcion": "Hai completato l'esame analizzando con maestria le risorse letterarie, l'anafora, la catafora e i segni di punteggiatura.",
-    "icono": "🖋️"
-  },
-  {
-    "id": 94,
-    "materia": "Lengua",
-    "cluster": 11,
-    "temas": [
-      "sintagmas-nominal-adjetivo-preposicional-adverbial-verbal",
-      "subjetivemas-y-modalizadores",
-      "subordinada-adjetiva-o-de-relativo",
-      "subordinada-adverbial-de-lugar",
-      "subordinada-adverbial-de-modo"
-    ],
-    "nombre": "Maestro della Sintassi e delle Frasi Subordinate",
-    "descripcion": "Hai dominato gli sintagmi, la soggettivazione e le frasi subordinate aggettivali e avverbiali.",
-    "icono": "🏆"
-  },
-  {
-    "id": 95,
-    "materia": "Lengua",
-    "cluster": 12,
-    "temas": [
-      "subordinada-adverbial-de-tiempo",
-      "subordinada-causal",
-      "subordinada-concesiva-y-final",
-      "subordinada-condicional",
-      "subordinada-consecutiva"
-    ],
-    "nombre": "Maestro delle Frasi Subordinate",
-    "descripcion": "Hai completato l'esame padroneggiando le subordinate avverbiali di tempo, causale, concessiva, finale, condizionale e consecutiva.",
-    "icono": "📝"
-  },
-  {
-    "id": 96,
-    "materia": "Lengua",
-    "cluster": 13,
-    "temas": [
-      "subordinada-sustantiva-de-complemento-circunstancial",
-      "subordinada-sustantiva-de-complemento-de-regimen",
-      "subordinada-sustantiva-de-complemento-de-un-adjetivo",
-      "subordinada-sustantiva-de-complemento-del-nombre",
-      "subordinada-sustantiva-de-complemento-directo"
-    ],
-    "nombre": "Dominio delle Subordinate Sostantive",
-    "descripcion": "Hai completato l'esame sulle subordinate sostantive dimostrando un dominio totale dei loro complementi.",
-    "icono": "📚"
-  },
-  {
-    "id": 97,
-    "materia": "Lengua",
-    "cluster": 14,
-    "temas": [
-      "subordinada-sustantiva-de-sujeto",
-      "sujeto-y-predicado",
-      "tecnicas-de-estudio-resumen-y-organizadores-graficos",
-      "tesis",
-      "texto-teatral"
-    ],
-    "nombre": "Maestro della Sintassi e della Drammaturgia",
-    "descripcion": "Hai dominato le subordinate sostantive di soggetto, la struttura del soggetto e predicato, le tecniche di studio e il testo teatrale.",
-    "icono": "🎭"
-  },
-  {
-    "id": 98,
-    "materia": "Lengua",
-    "cluster": 15,
-    "temas": [
-      "tipos-de-sujeto",
-      "tipos-textuales",
-      "variedades-de-la-lengua",
-      "vocabulario-y-familia-de-palabras",
-      "voz-activa-y-pasiva"
-    ],
-    "nombre": "Dominio della Grammatica",
-    "descripcion": "Hai completato l'esame integrando soggetto, voce e tipologia testuale con stile.",
-    "icono": "📚"
-  },
-  {
-    "id": 99,
-    "materia": "Historia profunda",
-    "cluster": 1,
-    "temas": [
-      "absolutismo-europeo",
-      "agujeros-negros",
-      "ampliacion-democratica-ley-saenz-pena",
-      "antigua-grecia",
-      "antigua-roma"
-    ],
-    "nombre": "Dalla Grecia all'Assolutismo",
-    "descripcion": "Hai completato l'esame di storia approfondita con un voto di 10.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 100,
-    "materia": "Historia profunda",
-    "cluster": 2,
-    "temas": [
-      "antiguo-egipto",
-      "atmosfera-primitiva",
-      "baja-edad-media-y-crisis",
-      "caida-de-roma-y-alta-edad-media",
-      "cambio-climatico-linea-base-historica"
-    ],
-    "nombre": "Viaggio temporale storico",
-    "descripcion": "Hai completato l'esame principale sulla storia approfondita.",
-    "icono": "🏺"
-  },
-  {
-    "id": 101,
-    "materia": "Historia profunda",
-    "cluster": 3,
-    "temas": [
-      "china-antigua",
-      "ciclo-de-las-rocas",
-      "ciencia-revolucion-cientifica",
-      "cinco-extinciones-masivas",
-      "civilizaciones-antiguas"
-    ],
-    "nombre": "Viaggio nella storia profonda",
-    "descripcion": "Hai completato l'esame sull'evoluzione della Terra, le estinzioni di massa e le civiltà antiche.",
-    "icono": "🌍"
-  },
-  {
-    "id": 102,
-    "materia": "Historia profunda",
-    "cluster": 4,
-    "temas": [
-      "civilizaciones-de-america-precolombinas",
-      "conquista-colonizacion-america",
-      "conquista-tierra-firme",
-      "conquista-y-colonia-argentina",
-      "corrimiento-al-rojo-expansion-universo"
-    ],
-    "nombre": "Dalla Mesoamerica al Cosmo",
-    "descripcion": "Hai completato l'esame che spazia dalle civiltà precolombiane all'espansione dell'universo.",
-    "icono": "🌎"
-  },
-  {
-    "id": 103,
-    "materia": "Historia profunda",
-    "cluster": 5,
-    "temas": [
-      "datacion-radiometrica",
-      "descolonizacion-de-africa-y-asia",
-      "distribucion-biomas",
-      "division-del-trabajo",
-      "eclipses-sol-luna"
-    ],
-    "nombre": "Maestro della Cronologia Terrestre",
-    "descripcion": "Hai sbloccato la conoscenza sulla datazione radiometrica, la decolonizzazione, i biomi, la divisione del lavoro e le eclissi.",
-    "icono": "🌍"
-  },
-  {
-    "id": 104,
-    "materia": "Historia profunda",
-    "cluster": 6,
-    "temas": [
-      "edad-media-feudalismo",
-      "edad-media-plena",
-      "electrificacion-fabrica-hogar",
-      "entreguerras-y-crisis-de-1929",
-      "escalas-de-tiempo-profundo"
-    ],
-    "nombre": "Maestro delle scale temporali",
-    "descripcion": "Hai attraversato dal feudalesimo alla crisi del '29 dominando le grandi trasformazioni.",
-    "icono": "🌍"
-  },
-  {
-    "id": 105,
-    "materia": "Historia profunda",
-    "cluster": 7,
-    "temas": [
-      "escritura-primeras-ciudades",
-      "estaciones-del-ano",
-      "estados-nacionales",
-      "eucariotas",
-      "expansion-del-imperio-romano"
-    ],
-    "nombre": "Dai Eucarioti a Roma",
-    "descripcion": "Hai completato l'esame principale sull'evoluzione dai primi organismi all'espansione dell'impero.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 106,
-    "materia": "Historia profunda",
-    "cluster": 8,
-    "temas": [
-      "explosion-cambrica",
-      "fases-lunares",
-      "formacion-de-estrellas",
-      "formacion-del-sistema-solar",
-      "fotosintesis-cambio-atmosfera-nivel2"
-    ],
-    "nombre": "Cronaca del Cosmo e della Vita",
-    "descripcion": "Hai dominato gli eventi che hanno forgiato l'universo e l'origine dell'atmosfera.",
-    "icono": "🌌"
-  },
-  {
-    "id": 107,
-    "materia": "Historia profunda",
-    "cluster": 9,
-    "temas": [
-      "galaxias-tipos-escala",
-      "globalizacion-era-digital",
-      "golpes-de-estado-interrupciones",
-      "gran-oxidacion",
-      "guerra-de-malvinas"
-    ],
-    "nombre": "Cosmo, Crisi e Memorie",
-    "descripcion": "Hai dominato la scala dell'universo, le rotture politiche e l'era digitale.",
-    "icono": "🌌"
-  },
-  {
-    "id": 108,
-    "materia": "Historia profunda",
-    "cluster": 10,
-    "temas": [
-      "guerra-fria-descolonizacion",
-      "guerras-civiles-unitarios-federales",
-      "guerras-de-independencia-argentina",
-      "guerras-mundiales",
-      "herramientas-arte-rupestre"
-    ],
-    "nombre": "Maestro dei Conflitti Storici",
-    "descripcion": "Hai completato con successo l'esame su guerre, decolonizzazione e arte rupestre.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 109,
-    "materia": "Historia profunda",
-    "cluster": 11,
-    "temas": [
-      "historia-contemporanea-de-africa",
-      "historia-contemporanea-de-asia-y-pacifico",
-      "historia-contemporanea-de-medio-oriente",
-      "historia-reciente-argentina",
-      "hominizacion"
-    ],
-    "nombre": "Dominio Globale e Umano",
-    "descripcion": "Hai superato l'esame integrando l'ominizzazione, la storia contemporanea di Africa, Asia, Medio Oriente e l'Argentina recente.",
-    "icono": "🌍"
-  },
-  {
-    "id": 110,
-    "materia": "Historia profunda",
-    "cluster": 12,
-    "temas": [
-      "huella-humana-en-el-clima-inicio",
-      "ilustracion",
-      "imperialismo",
-      "imperio-bizantino",
-      "imperio-de-alejandro-magno-helenistico"
-    ],
-    "nombre": "Impronta Imperiale e Ellenistica",
-    "descripcion": "Hai completato l'esame sulle tracce dell'impero bizantino, Alessandro Magno e l'illuminismo nel clima.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 111,
-    "materia": "Historia profunda",
-    "cluster": 13,
-    "temas": [
-      "imperio-han-china",
-      "imperio-persa",
-      "imperios-expansion",
-      "imprenta",
-      "india-antigua"
-    ],
-    "nombre": "Dominio degli Imperi Antichi",
-    "descripcion": "Hai completato l'esame sui grandi imperi e la rivoluzione della stampa.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 112,
-    "materia": "Historia profunda",
-    "cluster": 14,
-    "temas": [
-      "internet-redes-globalizacion-digital",
-      "islam-y-expansion-arabe",
-      "ley-de-hubble",
-      "materia-energia-oscura",
-      "mesopotamia"
-    ],
-    "nombre": "Da Mesopotamia al Cosmo",
-    "descripcion": "Hai completato il ripasso che copre dalle prime civiltà all'espansione dell'universo e all'era digitale.",
-    "icono": "🌌"
-  },
-  {
-    "id": 113,
-    "materia": "Historia profunda",
-    "cluster": 15,
-    "temas": [
-      "metalurgia-cobre-hierro",
-      "minerales-estructura-cristalina",
-      "modelo-agroexportador-inmigracion",
-      "modernidad-imprenta-navegacion-ciencia",
-      "movimiento-aparente-constelaciones"
-    ],
-    "nombre": "Maestro dei Metalli e delle Costellazioni",
-    "descripcion": "Hai completato l'esame finale sulla metallurgia, la struttura minerale, il modello agro-esportatore, la modernità e il movimento apparente delle stelle.",
-    "icono": "🌌"
-  },
-  {
-    "id": 114,
-    "materia": "Historia profunda",
-    "cluster": 16,
-    "temas": [
-      "movimiento-rotacion-traslacion",
-      "multicelularidad",
-      "navegacion",
-      "nucleosintesis",
-      "organizacion-nacional-constitucion-1853"
-    ],
-    "nombre": "Cosmo, Cellule e Costituzione",
-    "descripcion": "Hai dimostrato padronanza dalla nucleosintesi all'organizzazione nazionale del 1853.",
-    "icono": "🌌🧬📜"
-  },
-  {
-    "id": 115,
-    "materia": "Historia profunda",
-    "cluster": 17,
-    "temas": [
-      "origen-de-la-vida",
-      "origen-del-universo",
-      "paleoclima-glaciaciones",
-      "paleolitico",
-      "peronismo-derechos-sociales"
-    ],
-    "nombre": "Dal Big Bang a Perón",
-    "descripcion": "Hai completato questo esame finale coprendo dall'origine dell'universo alla storia sociale argentina.",
-    "icono": "🌌"
-  },
-  {
-    "id": 116,
-    "materia": "Historia profunda",
-    "cluster": 18,
-    "temas": [
-      "poblamiento-planeta-america",
-      "primera-guerra-mundial-y-revolucion-rusa",
-      "procariotas",
-      "propiedad-jerarquia-estado",
-      "pueblos-originarios-territorio-argentino"
-    ],
-    "nombre": "Da procarioti alle guerre mondiali",
-    "descripcion": "Hai completato l'esame sull'evoluzione biologica, il popolamento americano e i conflitti globali che hanno segnato la storia.",
-    "icono": "🌍"
-  },
-  {
-    "id": 117,
-    "materia": "Historia profunda",
-    "cluster": 19,
-    "temas": [
-      "radiacion-mamiferos",
-      "recuperacion-democratica-memoria",
-      "relieve-sismos-volcanes",
-      "renacimiento-y-reforma",
-      "revolucion-de-mayo"
-    ],
-    "nombre": "Esploratore della Storia Profonda",
-    "descripcion": "Hai dominato i temi chiave dell'esame finale con maestria.",
-    "icono": "🌍"
-  },
-  {
-    "id": 118,
-    "materia": "Historia profunda",
-    "cluster": 20,
-    "temas": [
-      "revolucion-industrial",
-      "revolucion-neolitica",
-      "revoluciones-burguesas-liberalismo",
-      "rocas-igneas-sedimentarias-metamorficas",
-      "sedentarizacion-excedente"
-    ],
-    "nombre": "Evoluzione dell'Umanità e della Terra",
-    "descripcion": "Hai completato il parziale dominando le grandi rivoluzioni e la geologia del pianeta, capo.",
-    "icono": "🌍"
-  },
-  {
-    "id": 119,
-    "materia": "Historia profunda",
-    "cluster": 21,
-    "temas": [
-      "segunda-guerra-mundial",
-      "seleccion-natural-evidencias-nivel2",
-      "sociedad-de-masas-y-democracia-liberal",
-      "tabla-periodica-nivel2-cosmologico",
-      "tectonica-placas-deriva-continental"
-    ],
-    "nombre": "Maestro della Storia Profonda",
-    "descripcion": "Hai completato l'esame integratore sui grandi processi storici e scientifici.",
-    "icono": "🌍"
-  },
-  {
-    "id": 120,
-    "materia": "Historia profunda",
-    "cluster": 22,
-    "temas": [
-      "terrorismo-de-estado-argentina",
-      "tiempo-geologico-eones-eras-periodos",
-      "tierra-primitiva-diferenciacion",
-      "virreinato-y-comercio"
-    ],
-    "nombre": "Maestro della Storia Profonda",
-    "descripcion": "Hai superato il parziale dominando dal terrorismo di stato alla formazione della Terra.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 121,
-    "materia": "Historia",
-    "cluster": 1,
-    "temas": [
-      "antes-y-despues-de-cristo",
-      "cambio-y-continuidad",
-      "causa-y-consecuencia",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "crisis-de-2001"
-    ],
-    "nombre": "Crisi del 2001 e Conquista del Deserto",
-    "descripcion": "Hai completato il parziale analizzando la Conquista del Deserto, la crisi del 2001 e i cambiamenti storici.",
-    "icono": "📜"
-  },
-  {
-    "id": 122,
-    "materia": "Historia",
-    "cluster": 2,
-    "temas": [
-      "decada-siglo-milenio",
-      "dimension-etica",
-      "economias-regionales-tempranas",
-      "escuela-de-los-annales",
-      "evidencia"
-    ],
-    "nombre": "Maestro del Tempo e dell'Etica",
-    "descripcion": "Hai completato il parziale dominando le scale temporali, le economie primordiali e la metodologia degli Annales.",
-    "icono": "⏳"
-  },
-  {
-    "id": 123,
-    "materia": "Historia",
-    "cluster": 3,
-    "temas": [
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "guerras",
-      "historia-cultural",
-      "independencias"
-    ],
-    "nombre": "Maestro delle Guerre e delle Indipendenze",
-    "descripcion": "Hai completato l'esame sulle guerre, le indipendenze e la storia culturale dell'Argentina e del mondo.",
-    "icono": "📜"
-  },
-  {
-    "id": 124,
-    "materia": "Historia",
-    "cluster": 4,
-    "temas": [
-      "industrializacion-por-sustitucion-de-importaciones-isi",
-      "interpretar-una-fuente-historica",
-      "linea-de-tiempo-y-antes-despues",
-      "materialismo-historico",
-      "multicausalidad"
-    ],
-    "nombre": "Esperto in ISI e Analisi Storica",
-    "descripcion": "Hai completato l'esame dominando l'industrializzazione per sostituzione delle importazioni, il materialismo storico e l'interpretazione delle fonti con multicausalità.",
-    "icono": "🏭"
-  },
-  {
-    "id": 125,
-    "materia": "Historia",
-    "cluster": 5,
-    "temas": [
-      "periodizacion-historica",
-      "positivismo",
-      "reforma-universitaria-1918",
-      "revolucion-mexicana-1910-1920",
-      "revoluciones"
-    ],
-    "nombre": "Rivoluzioni e Positivismo",
-    "descripcion": "Hai completato il parziale sulle rivoluzioni e il positivismo, capo.",
-    "icono": "📜"
-  },
-  {
-    "id": 126,
-    "materia": "Historia",
-    "cluster": 6,
-    "temas": [
-      "rosas-y-la-confederacion",
-      "semana-tragica-1919",
-      "significancia-historica"
-    ],
-    "nombre": "Rosas, Settimana Tragica e Eredità",
-    "descripcion": "Hai completato il parziale analizzando la Confederazione Argentina, la Settimana Tragica del 1919 e la sua significanza storica.",
-    "icono": "📜"
-  },
-  {
-    "id": 127,
-    "materia": "Geografía",
-    "cluster": 1,
-    "temas": [
-      "ambientalismo-liberal",
-      "ambiente-y-recursos",
-      "america-anglosajona",
-      "america-latina-formacion-poblacion",
-      "america-latina-industria-y-energia"
-    ],
-    "nombre": "Maestro dell'Ambiente e delle Risorse",
-    "descripcion": "Hai completato l'esame sull'ambientalismo, le risorse e la dinamica dell'America Latina e anglosassone.",
-    "icono": "🌍"
-  },
-  {
-    "id": 128,
-    "materia": "Geografía",
-    "cluster": 2,
-    "temas": [
-      "conservacionismo",
-      "coordenadas-geograficas",
-      "coordenadas-y-husos-horarios",
-      "decrecimiento",
-      "densidad-poblacion"
-    ],
-    "nombre": "Maestro delle Coordinate e della Densità",
-    "descripcion": "Hai completato il parziale integrando il conservazionismo, le coordinate geografiche, i fusi orari, il decrescita e la densità della popolazione.",
-    "icono": "🌍"
-  },
-  {
-    "id": 129,
-    "materia": "Geografía",
-    "cluster": 3,
-    "temas": [
-      "division-politica",
-      "ecologismo-politico",
-      "escala-de-mapa",
-      "estados-y-globalizacion",
-      "geografia-economica-agricola-argentina"
-    ],
-    "nombre": "Mappa Politica ed Economica Argentina",
-    "descripcion": "Hai completato il parziale integrando la divisione politica, la scala cartografica e la geografia economica agricola dell'Argentina.",
-    "icono": "🗺️"
-  },
-  {
-    "id": 130,
-    "materia": "Geografía",
-    "cluster": 4,
-    "temas": [
-      "geografia-industrial-mundial",
-      "huella-de-carbono-agua-virtual",
-      "indicadores-sociales-de-argentina",
-      "indice-de-desarrollo-humano",
-      "mapa-plano-escala"
-    ],
-    "nombre": "Maestro dell'Impronta Globale",
-    "descripcion": "Hai completato il parziale dominando la geografia industriale, gli indicatori sociali e l'impronta ecologica.",
-    "icono": "🌍"
-  },
-  {
-    "id": 131,
-    "materia": "Geografía",
-    "cluster": 5,
-    "temas": [
-      "migraciones-internacionales",
-      "migraciones-internas-en-argentina",
-      "mineria-e-hidrocarburos-en-argentina",
-      "orientacion-puntos-cardinales",
-      "paises-de-america-latina"
-    ],
-    "nombre": "Esploratore di Flussi e Risorse",
-    "descripcion": "Hai completato l'esame sulle migrazioni, l'estrazione mineraria e i paesi dell'America Latina, capo.",
-    "icono": "🌎"
-  },
-  {
-    "id": 132,
-    "materia": "Geografía",
-    "cluster": 6,
-    "temas": [
-      "poblacion-piramides-migraciones",
-      "produccion-agraria-mundial-y-biotecnologia",
-      "recursos-actividades-economicas",
-      "recursos-hidricos-y-gestion",
-      "region"
-    ],
-    "nombre": "Analista delle Dinamiche Territoriali",
-    "descripcion": "Hai padroneggiato l'interazione tra popolazione, economia e gestione delle risorse nella regione.",
-    "icono": "🌍"
-  },
-  {
-    "id": 133,
-    "materia": "Geografía",
-    "cluster": 7,
-    "temas": [
-      "regiones-naturales-de-argentina",
-      "relieve-clima-biomas",
-      "riesgos-ambientales-mundiales",
-      "riesgos-naturales-argentinos",
-      "sig-gps"
-    ],
-    "nombre": "Padroneggia il Territorio Argentino",
-    "descripcion": "Hai completato l'esame finale sulle regioni naturali, i rischi e gli strumenti geografici.",
-    "icono": "🌎"
-  },
-  {
-    "id": 134,
-    "materia": "Geografía",
-    "cluster": 8,
-    "temas": [
-      "sig-imagenes-satelitales",
-      "sig-mapas-digitales",
-      "trabajo-y-desempleo-mundial",
-      "turismo-mundial",
-      "urbanizacion-migracion-ciudad"
-    ],
-    "nombre": "Maestro dei GIS e delle Dinamiche Globali",
-    "descripcion": "Hai completato l'esame integrando GIS, urbanizzazione e turismo mondiale.",
-    "icono": "🌍"
-  },
-  {
-    "id": 135,
-    "materia": "Cívica",
-    "cluster": 1,
-    "temas": [
-      "alcoholemia-y-conduccion",
-      "como-se-hace-una-ley",
-      "constitucion-nacional-jerarquia-normativa",
-      "constitucion-preambulo",
-      "derechos-genero"
-    ],
-    "nombre": "Maestro della Normativa e della Legge",
-    "descripcion": "Hai superato il parziale dominando la gerarchia costituzionale, il processo legislativo, l'alcolemia e i diritti di genere.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 136,
-    "materia": "Cívica",
-    "cluster": 2,
-    "temas": [
-      "derechos-indigenas",
-      "derechos-nino",
-      "derechos-y-garantias",
-      "discriminacion-y-organismos-de-proteccion",
-      "division-de-poderes"
-    ],
-    "nombre": "Difensore dei Diritti e delle Garanzie",
-    "descripcion": "Hai superato il parziale sui diritti indigeni, dell'infanzia, contro la discriminazione e sulla separazione dei poteri.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 137,
-    "materia": "Cívica",
-    "cluster": 3,
-    "temas": [
-      "documentos-y-tramites",
-      "encuesta-electoral",
-      "estado-de-derecho-por-que-importa",
-      "impuestos",
-      "marchas-patrioticas"
-    ],
-    "nombre": "Maestro dello Stato di Diritto",
-    "descripcion": "Hai completato l'esame su documenti, tasse e l'importanza dello Stato di Diritto.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 138,
-    "materia": "Cívica",
-    "cluster": 4,
-    "temas": [
-      "organismos-internacionales",
-      "organizacion-del-estado",
-      "origen-estado-derecho",
-      "partidos-politicos",
-      "prioridades-de-paso"
-    ],
-    "nombre": "Architetto dello Stato e della Legge",
-    "descripcion": "Hai completato il parziale sull'organizzazione dello Stato, i diritti e gli organismi internazionali, cara.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 139,
-    "materia": "Cívica",
-    "cluster": 5,
-    "temas": [
-      "proyecto-ciudadano-participativo",
-      "senalizacion-vial",
-      "simbolos-patrios",
-      "sistema-de-salud",
-      "sistema-electoral-dhondt"
-    ],
-    "nombre": "Esperto in Cittadinanza e Norme",
-    "descripcion": "Hai fatto il parziale di Educazione Civica e ti è venuto benissimo, capo.",
-    "icono": "🇦🇷"
-  },
-  {
-    "id": 140,
-    "materia": "Cívica",
-    "cluster": 6,
-    "temas": [
-      "sistemas-politicos-comparados",
-      "sueldo-promedio-pais",
-      "sufragio-restringido-universal",
-      "teoria-del-poder",
-      "tipos-de-estado",
-      "tratados-internacionales"
-    ],
-    "nombre": "Esperto in Sistemi Politici",
-    "descripcion": "Hai completato il parziale di Educazione Civica dominando i sistemi politici e il potere statale, capo.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 141,
-    "materia": "Química",
-    "cluster": 1,
-    "temas": [
-      "atomo-particulas-subatomicas",
-      "balanceo-ecuaciones",
-      "biomoleculas-glucidos-lipidos-proteinas",
-      "carbono-tetravalencia-cadenas",
-      "cinetica-reaccion"
-    ],
-    "nombre": "Maestro dell'Atomo e delle Biomolecole",
-    "descripcion": "Dimostra padronanza delle particelle subatomiche, bilanciamento delle equazioni, biomolecole, tetravalenza del carbonio e cinetica delle reazioni.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 142,
-    "materia": "Química",
-    "cluster": 2,
-    "temas": [
-      "concentracion-de-una-solucion",
-      "configuracion-electronica",
-      "densidad",
-      "dilucion-soluciones",
-      "electrolisis"
-    ],
-    "nombre": "Padronanza di Soluzioni ed Elettroni",
-    "descripcion": "Hai risolto il parziale integrando concentrazioni, configurazioni ed elettrolisi.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 143,
-    "materia": "Química",
-    "cluster": 3,
-    "temas": [
-      "energia-libre-gibbs",
-      "enlace-quimico-polaridad",
-      "equilibrio-quimico-kc",
-      "equilibrio-solubilidad-ksp",
-      "estados-y-cambios"
-    ],
-    "nombre": "Maestro dell'Equilibrio e di Gibbs",
-    "descripcion": "Dimostra padronanza totale sull'energia libera, la polarità dei legami e i diversi tipi di equilibrio chimico.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 144,
-    "materia": "Química",
-    "cluster": 4,
-    "temas": [
-      "estequiometria",
-      "gases-ideales",
-      "geometria-molecular-vsepr",
-      "grupos-funcionales",
-      "hidrocarburos-alcanos-alquenos-alquinos"
-    ],
-    "nombre": "Maestro della Stechiometria e dei Gas",
-    "descripcion": "Hai completato il parziale dominando i calcoli stechiometrici, i gas ideali e la geometria molecolare.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 145,
-    "materia": "Química",
-    "cluster": 5,
-    "temas": [
-      "medicion-de-laboratorio",
-      "mezclas-metodos-separacion",
-      "modelos-atomicos",
-      "mol-masa-molar",
-      "nanotecnologia"
-    ],
-    "nombre": "Maestro della Misura e della Materia",
-    "descripcion": "Hai completato l'esame finale dominando misurazioni, miscele, modelli atomici e nanotecnologia.",
-    "icono": "🧪"
-  },
-  {
-    "id": 146,
-    "materia": "Química",
-    "cluster": 6,
-    "temas": [
-      "nomenclatura-compuestos",
-      "numero-atomico-masico",
-      "oxidacion-reduccion",
-      "petroleo-como-recurso-energetico",
-      "ph-poh"
-    ],
-    "nombre": "Padroneggia la Nomenclatura e il pH",
-    "descripcion": "Hai completato il parziale integrando concetti di nomenclatura, redox, petrolio ed equilibrio acido-base.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 147,
-    "materia": "Química",
-    "cluster": 7,
-    "temas": [
-      "pilas-celdas-galvanicas",
-      "polimeros-naturales-sinteticos",
-      "presiones-parciales",
-      "propiedades-coligativas",
-      "quimica-analitica"
-    ],
-    "nombre": "Maestro delle Celle e dei Polimeri",
-    "descripcion": "Hai completato l'esame integrando pile galvaniche, polimeri e proprietà colligative.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 148,
-    "materia": "Química",
-    "cluster": 8,
-    "temas": [
-      "quimica-de-la-atmosfera",
-      "reactivo-limitante-rendimiento",
-      "seguridad-laboratorio",
-      "superconductividad",
-      "tabla-periodica-tendencias",
-      "termoquimica",
-      "tipos-reacciones-quimicas"
-    ],
-    "nombre": "Maestro della Chimica",
-    "descripcion": "Hai completato l'esame integrando concetti atmosferici, termodinamici e di laboratorio.",
-    "icono": "🧪"
-  },
-  {
-    "id": 149,
-    "materia": "Biología",
-    "cluster": 1,
-    "temas": [
-      "adn-gen-proteina",
-      "biodiversidad-indices",
-      "biotecnologia-pcr-crispr",
-      "cadenas-redes-troficas",
-      "celula-organelas"
-    ],
-    "nombre": "Maestro del DNA e della Vita",
-    "descripcion": "Hai completato l'esame finale su DNA, biodiversità, biotecnologia e catena trofica.",
-    "icono": "🧬"
-  },
-  {
-    "id": 150,
-    "materia": "Biología",
-    "cluster": 2,
-    "temas": [
-      "ciclos-biogeoquimicos",
-      "ciclos-vida-metamorfosis",
-      "clasificacion-evolucion",
-      "conservacion-areas-protegidas",
-      "crecimiento-poblacional"
-    ],
-    "nombre": "Maestro dei Cicli di Vita",
-    "descripcion": "Hai completato questo esame finale dominando i cicli biogeochimici, la metamorfosi, l'evoluzione e la conservazione delle popolazioni.",
-    "icono": "🌿"
-  },
-  {
-    "id": 151,
-    "materia": "Biología",
-    "cluster": 3,
-    "temas": [
-      "cruce-dihibrido",
-      "deriva-genetica-flujo-genico",
-      "dinamica-poblacional-capacidad-carga",
-      "enzimas-proteina-sustrato-ph",
-      "especiacion"
-    ],
-    "nombre": "Maestro della Dinamica Evolutiva",
-    "descripcion": "Hai completato l'esame finale dominando i meccanismi di cambiamento poblazionale e molecolare.",
-    "icono": "🧬"
-  },
-  {
-    "id": 152,
-    "materia": "Biología",
-    "cluster": 4,
-    "temas": [
-      "filogenia-arboles-evolutivos",
-      "flujo-materia-energia",
-      "fotosintesis-respiracion-celular",
-      "genetica-mendeliana-punnett",
-      "grupos-sanguineos"
-    ],
-    "nombre": "Esperto in Dinamica Evolutiva e Genetica",
-    "descripcion": "Hai completato il parziale padroneggiando filogenesi, metabolismo ed eredità mendeliana, capo.",
-    "icono": "🧬"
-  },
-  {
-    "id": 153,
-    "materia": "Biología",
-    "cluster": 5,
-    "temas": [
-      "habitats-adaptacion",
-      "herencia-ligada-al-sexo",
-      "mal-de-chagas",
-      "microbiologia-virus-inmunitario",
-      "mitosis-meiosis"
-    ],
-    "nombre": "Maestro della Biologia",
-    "descripcion": "Hai completato l'esame capo coprendo dalle adattamenti negli habitat ai processi cellulari e alle malattie come il morbo di Chagas.",
-    "icono": "🧬"
-  },
-  {
-    "id": 154,
-    "materia": "Biología",
-    "cluster": 6,
-    "temas": [
-      "necesidades-basicas-seres-vivos",
-      "nicho-ecologico",
-      "partes-planta-germinacion",
-      "piramide-biomasas",
-      "presion-arterial"
-    ],
-    "nombre": "Dominio della Vita e del Corpo",
-    "descripcion": "Hai completato l'esame integrando ecologia e fisiologia, capo.",
-    "icono": "🌿❤️"
-  },
-  {
-    "id": 155,
-    "materia": "Biología",
-    "cluster": 7,
-    "temas": [
-      "quimiosintesis",
-      "seleccion-natural",
-      "ser-vivo-caracteristicas",
-      "sistema-endocrino-hormonas-glandulas",
-      "sistema-nervioso-neurona-sinapsis",
-      "sistemas-cuerpo-humano",
-      "transgenicos-bioetica"
-    ],
-    "nombre": "Maestro della Vita Umana",
-    "descripcion": "Hai completato l'esame integratore sui sistemi del corpo, l'evoluzione e la bioetica, capo.",
-    "icono": "🧬"
-  },
-  {
-    "id": 156,
-    "materia": "Física",
-    "cluster": 1,
-    "temas": [
-      "calor-q-m-c-deltat",
-      "cambios-de-estado-calor-latente",
-      "campo-electrico",
-      "campo-magnetico-imanes-corrientes",
-      "cargas-electricas"
-    ],
-    "nombre": "Padroneggia il calore e l'elettricità",
-    "descripcion": "Hai completato il parziale di termodinamica ed elettromagnetismo, capo.",
-    "icono": "⚡🔥"
-  },
-  {
-    "id": 157,
-    "materia": "Física",
-    "cluster": 2,
-    "temas": [
-      "caudal-q-a-v",
-      "choques-elasticos-inelasticos",
-      "circuitos-en-paralelo",
-      "circuitos-en-serie",
-      "circuitos-mixtos"
-    ],
-    "nombre": "Maestro dei Circuiti e degli Scontri",
-    "descripcion": "Hai padroneggiato i circuiti misti, gli scontri e il flusso, completando questo esame capo.",
-    "icono": "⚡"
-  },
-  {
-    "id": 158,
-    "materia": "Física",
-    "cluster": 3,
-    "temas": [
-      "conservacion-energia-mecanica",
-      "corriente-electrica",
-      "decaimiento-radiactivo-alfa-beta-gamma",
-      "decibeles-richter",
-      "dilatacion-termica-lineal"
-    ],
-    "nombre": "Maestro delle Conservazioni",
-    "descripcion": "Hai padroneggiato l'energia, la corrente e le radiazioni per chiudere con successo questo parziale.",
-    "icono": "⚡"
-  },
-  {
-    "id": 159,
-    "materia": "Física",
-    "cluster": 4,
-    "temas": [
-      "dinamica-fuerzas-concurrentes",
-      "dualidad-onda-particula",
-      "energia-cinetica",
-      "energia-potencial-gravitatoria",
-      "entropia-segunda-ley-termodinamica"
-    ],
-    "nombre": "Maestro della Dinamica e Termodinamica",
-    "descripcion": "Hai completato l'esame padroneggiando forze, energie ed entropia.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 160,
-    "materia": "Física",
-    "cluster": 5,
-    "temas": [
-      "escalas-de-temperatura-c-f-k",
-      "estatica/centro-de-gravedad",
-      "estatica/equilibrio-de-cuerpo-rigido",
-      "estatica/momento-de-una-fuerza",
-      "estructura-del-nucleo-atomico"
-    ],
-    "nombre": "Maestro dell'Equilibrio e della Temperatura",
-    "descripcion": "Hai completato il parziale padroneggiando scale termiche, momenti di forza e struttura nucleare.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 161,
-    "materia": "Física",
-    "cluster": 6,
-    "temas": [
-      "fisica-medica",
-      "fision-y-fusion-nuclear",
-      "formacion-de-imagenes-optica",
-      "formacion-de-nubes",
-      "formulas-con-literales"
-    ],
-    "nombre": "Esperto in Fisica Medica e Nucleare",
-    "descripcion": "Hai completato il parziale padroneggiando l'intersezione tra fisica nucleare, imaging medico e formule letterali.",
-    "icono": "☢️"
-  },
-  {
-    "id": 162,
-    "materia": "Física",
-    "cluster": 7,
-    "temas": [
-      "frecuencia",
-      "generador-motor-transformador",
-      "gravitacion-universal",
-      "iman-polos-atraccion-repulsion",
-      "impulso-cambio-momento"
-    ],
-    "nombre": "Maestro dei Campi e dei Movimenti",
-    "descripcion": "Hai padroneggiato i concetti di frequenze, macchine elettriche, gravitazione, magnetismo e impulso nell'esame capo.",
-    "icono": "🧲"
-  },
-  {
-    "id": 163,
-    "materia": "Física",
-    "cluster": 8,
-    "temas": [
-      "induccion-electromagnetica-faraday-lenz",
-      "lentes-convergentes-divergentes",
-      "ley-de-coulomb",
-      "ley-de-ohm",
-      "leyes-de-newton/primera-inercia"
-    ],
-    "nombre": "Padroneggia le leggi della fisica",
-    "descripcion": "Hai completato il parziale di induzione, ottica ed elettrostatica, capo.",
-    "icono": "⚛️"
-  },
-  {
-    "id": 164,
-    "materia": "Física",
-    "cluster": 9,
-    "temas": [
-      "leyes-de-newton/segunda-fma",
-      "leyes-de-newton/tercera-accion-reaccion",
-      "longitud-onda-velocidad-propagacion",
-      "luz-onda-espectro-electromagnetico",
-      "maquina-termica-termodinamica-nivel2"
-    ],
-    "nombre": "Maestro delle Leggi e delle Onde",
-    "descripcion": "Hai completato l'esame capo padroneggiando Newton, la luce e la termodinamica.",
-    "icono": "🌌"
-  },
-  {
-    "id": 165,
-    "materia": "Física",
-    "cluster": 10,
-    "temas": [
-      "maquinas-simples",
-      "masas-de-aire-y-frentes",
-      "momento-lineal",
-      "movimiento-circular-y-fuerza-centripeta",
-      "mru"
-    ],
-    "nombre": "Macchine e Movimenti",
-    "descripcion": "Hai completato il parziale di macchine semplici, movimento circolare e momento lineare.",
-    "icono": "⚙️"
-  },
-  {
-    "id": 166,
-    "materia": "Física",
-    "cluster": 11,
-    "temas": [
-      "mruv",
-      "ojo-humano-instrumento-optico",
-      "oscilacion-periodo",
-      "plano-inclinado-y-rozamiento",
-      "potencia-electrica"
-    ],
-    "nombre": "Maestro dei Movimenti e dell'Ottica",
-    "descripcion": "Hai completato l'esame superbo integrando MRUV, ottica, oscillazioni e potenza.",
-    "icono": "🔭"
-  },
-  {
-    "id": 167,
-    "materia": "Física",
-    "cluster": 12,
-    "temas": [
-      "potencia-mecanica",
-      "precipitacion",
-      "presion-atmosferica",
-      "presion-f-sobre-a",
-      "presion-hidrostatica"
-    ],
-    "nombre": "Maestro della Pressione e della Potenza",
-    "descripcion": "Hai completato il parziale padroneggiando la meccanica, la pressione idrostatica e atmosferica, e la potenza.",
-    "icono": "⚙️"
-  },
-  {
-    "id": 168,
-    "materia": "Física",
-    "cluster": 13,
-    "temas": [
-      "principio-de-arquimedes-empuje-flotacion",
-      "principio-de-pascal-prensa-hidraulica",
-      "reflexion-espejos-planos-curvos",
-      "refraccion-indice-ley-snell",
-      "relatividad-especial-conceptual"
-    ],
-    "nombre": "Maestro dei Fluidi e della Luce",
-    "descripcion": "Hai completato il parziale padroneggiando spinta, pressione, ottica e relatività.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 169,
-    "materia": "Física",
-    "cluster": 14,
-    "temas": [
-      "resistencia-electrica",
-      "resonancia-frecuencia-natural",
-      "semivida-desintegracion-exponencial",
-      "sonido-timbre-altura-intensidad",
-      "temperatura-equilibrio-termico"
-    ],
-    "nombre": "Maestro dei Fenomeni Fisici",
-    "descripcion": "Hai completato l'esame integrando concetti di elettricità, onde e termodinamica.",
-    "icono": "⚛️"
-  },
-  {
-    "id": 170,
-    "materia": "Física",
-    "cluster": 15,
-    "temas": [
-      "tension-diferencia-potencial",
-      "tiro-oblicuo",
-      "tiro-vertical",
-      "tormentas-y-fenomenos-severos",
-      "trabajo-de-una-fuerza",
-      "transmision-calor-conduccion-conveccion-radiacion",
-      "velocidad-aceleracion-instantaneas"
-    ],
-    "nombre": "Maestro del Movimento e del Calore",
-    "descripcion": "Hai analizzato con precisione il tiro obliquo, il trasferimento termico e i fenomeni severi per superare questo parziale.",
-    "icono": "🌩️"
-  },
-  {
-    "id": 171,
-    "materia": "Informática",
-    "cluster": 1,
-    "temas": [
-      "algebra-booleana",
-      "algoritmo-secuencia-de-pasos",
-      "algoritmos-busqueda-ordenamiento",
-      "almacenamiento-volatil-vs-no-volatil",
-      "archivos-y-persistencia"
-    ],
-    "nombre": "Maestro dell'Algoritmo",
-    "descripcion": "Hai completato il parziale padroneggiando logica booleana, strutture dati e persistenza delle informazioni.",
-    "icono": "🧠"
-  },
-  {
-    "id": 172,
-    "materia": "Informática",
-    "cluster": 2,
-    "temas": [
-      "arranque-de-la-computadora-boot",
-      "buses-y-entrada-salida",
-      "ciclo-de-instruccion-fetch-decode-execute",
-      "complejidad-asintotica",
-      "comunicacion-entre-procesos"
-    ],
-    "nombre": "Maestro del Boot e dei Processi",
-    "descripcion": "Hai completato il parziale padroneggiando l'avvio, i bus, il ciclo di istruzione e la complessità.",
-    "icono": "🖥️"
-  },
-  {
-    "id": 173,
-    "materia": "Informática",
-    "cluster": 3,
-    "temas": [
-      "control-de-versiones",
-      "cpu-unidad-de-control-y-alu",
-      "criptografia-clave-simetrica-asimetrica-hash",
-      "direccionamiento-ip-dns",
-      "diseno-y-arquitectura-de-software"
-    ],
-    "nombre": "Dominio di Sistemi e Reti",
-    "descripcion": "Hai completato l'esame principale che copre dall'architettura della CPU alla crittografia e all'indirizzamento IP.",
-    "icono": "🖥️"
-  },
-  {
-    "id": 174,
-    "materia": "Informática",
-    "cluster": 4,
-    "temas": [
-      "estructuras-de-control-bucles",
-      "estructuras-de-control-condicionales",
-      "estructuras-de-datos-listas-pilas-colas",
-      "etica-de-la-ia-sesgo-privacidad",
-      "funciones-y-modularidad"
-    ],
-    "nombre": "Maestro dei Cicli e della Logica",
-    "descripcion": "Hai completato il parziale padroneggiando le strutture di controllo, i dati e l'etica dell'IA.",
-    "icono": "🧠"
-  },
-  {
-    "id": 175,
-    "materia": "Informática",
-    "cluster": 5,
-    "temas": [
-      "historia-y-evolucion-de-los-sistemas-operativos",
-      "inteligencia-artificial-reglas-a-aprendizaje",
-      "interrupciones",
-      "mantenimiento-y-deuda-tecnica",
-      "medios-tecnicos-extension-capacidades-humanas"
-    ],
-    "nombre": "Maestro dei Sistemi Operativi e dell'IA",
-    "descripcion": "Hai completato il parziale padroneggiando l'evoluzione dei sistemi, l'intelligenza artificiale e la gestione tecnica.",
-    "icono": "🤖"
-  },
-  {
-    "id": 176,
-    "materia": "Informática",
-    "cluster": 6,
-    "temas": [
-      "memoria-asignacion-memoria-virtual",
-      "memoria-ram-cache-jerarquia",
-      "modelo-relacional-tabla-registro-clave-primaria",
-      "normalizacion-bases-datos",
-      "ofimatica-planilla-de-calculo"
-    ],
-    "nombre": "Maestro delle Memorie e dei Database",
-    "descripcion": "Hai superato il parziale padroneggiando le gerarchie di memoria, i database relazionali e i fogli di calcolo.",
-    "icono": "💾"
-  },
-  {
-    "id": 177,
-    "materia": "Informática",
-    "cluster": 7,
-    "temas": [
-      "paginacion",
-      "patrones-y-buenas-practicas",
-      "permisos-y-usuarios",
-      "planificacion-de-procesos",
-      "poo-clases-y-objetos"
-    ],
-    "nombre": "Maestro della POO e dei Pattern",
-    "descripcion": "Hai completato l'esame sulla POO, i pattern, la paginazione, i permessi e la pianificazione dei processi.",
-    "icono": "💻"
-  },
-  {
-    "id": 178,
-    "materia": "Informática",
-    "cluster": 8,
-    "temas": [
-      "proceso-programa-en-ejecucion",
-      "procesos-tecnicos-artesanales-e-industriales",
-      "protocolo-http-peticion-respuesta",
-      "pruebas-unitarias-integracion",
-      "que-es-la-tecnica-y-la-tecnologia"
-    ],
-    "nombre": "Dominio di Processi e Protocolli",
-    "descripcion": "Hai completato il parziale integrando concetti di esecuzione, tecniche e protocolli HTTP.",
-    "icono": "🔧"
-  },
-  {
-    "id": 179,
-    "materia": "Informática",
-    "cluster": 9,
-    "temas": [
-      "recursividad",
-      "relaciones-y-claves-foraneas",
-      "requisitos-funcionales-no-funcionales",
-      "revolucion-informatica",
-      "segmentacion"
-    ],
-    "nombre": "Padroneggi la ricorsione e SQL",
-    "descripcion": "Hai superato il parziale integrando logica ricorsiva, database relazionali e requisiti di sistema.",
-    "icono": "🧠"
-  },
-  {
-    "id": 180,
-    "materia": "Informática",
-    "cluster": 10,
-    "temas": [
-      "seguridad-de-red-firewall-vpn-cifrado",
-      "seguridad-informatica",
-      "sistema-de-archivos",
-      "sistema-de-archivos-por-bitacora",
-      "sistemas-numeracion"
-    ],
-    "nombre": "Guardiano dei Dati",
-    "descripcion": "Hai protetto le informazioni tramite firewall, cifratura e sistemi di file sicuri.",
-    "icono": "🛡️"
-  },
-  {
-    "id": 181,
-    "materia": "Informática",
-    "cluster": 11,
-    "temas": [
-      "sql-consultas-joins-agregaciones",
-      "subsistema-de-entrada-y-salida",
-      "tcp-ip-capas-enrutamiento",
-      "tipos-de-licencias-de-software",
-      "tipos-de-so-por-dispositivo"
-    ],
-    "nombre": "Maestro di SQL e Reti",
-    "descripcion": "Hai dimostrato di essere un esperto nel gestire query complesse, protocolli di rete e licenze software.",
-    "icono": "🛠️"
-  },
-  {
-    "id": 182,
-    "materia": "Informática",
-    "cluster": 12,
-    "temas": [
-      "transacciones-acid",
-      "unidades-almacenamiento",
-      "variables-y-tipos-de-dato",
-      "virtualizacion-maquina-virtual-contenedor"
-    ],
-    "nombre": "Maestro dei Dati e della Virtualizzazione",
-    "descripcion": "Hai completato l'esame principale padroneggiando ACID, storage, tipi di dati e virtualizzazione.",
-    "icono": "💾"
-  },
-  {
     "id": 183,
     "materia": "Ingeniería",
     "cluster": 1,
@@ -1998,326 +29,6 @@
     "nombre": "Modellazione e Ottimizzazione",
     "descripcion": "Hai risolto il parziale integrando modellazione matematica, ottimizzazione e resistenza dei materiali con criterio ingegneristico.",
     "icono": "📐"
-  },
-  {
-    "id": 185,
-    "materia": "Investigación",
-    "cluster": 1,
-    "temas": [
-      "analisis-estadistico-de-resultados",
-      "argumentar-desde-evidencia",
-      "conclusion-y-comunicacion-de-resultados",
-      "construir-y-usar-un-modelo-cientifico",
-      "corrientes-filosofia-de-la-ciencia"
-    ],
-    "nombre": "Dominio del Metodo Scientifico",
-    "descripcion": "Hai completato l'esame integrando filosofia, modellazione e analisi statistica con criterio critico.",
-    "icono": "🔬"
-  },
-  {
-    "id": 186,
-    "materia": "Investigación",
-    "cluster": 2,
-    "temas": [
-      "diseno-experimental-variables-y-control",
-      "hipotesis-buena-o-mala",
-      "metodologia-cualitativa-vs-cuantitativa",
-      "observacion-y-pregunta-investigable",
-      "recoleccion-de-datos",
-      "tecnicas-de-investigacion-social",
-      "trabajo-de-campo-enfoque-socioantropologico"
-    ],
-    "nombre": "Maestro del Design e del Metodo",
-    "descripcion": "Hai completato il parziale integrando design sperimentale, metodologie e tecniche sul campo con rigore scientifico.",
-    "icono": "🔬"
-  },
-  {
-    "id": 187,
-    "materia": "Economía",
-    "cluster": 1,
-    "temas": [
-      "ambiente-interno-y-externo-organizacion",
-      "balanza-comercial",
-      "blockchain-claves-wallet",
-      "business-model-canvas",
-      "capitalismo-industrial-trabajo-asalariado"
-    ],
-    "nombre": "Padroneggi l'ambiente e blockchain",
-    "descripcion": "Hai completato il parziale integrando economia, modelli di business e criptovalute.",
-    "icono": "📊"
-  },
-  {
-    "id": 188,
-    "materia": "Economía",
-    "cluster": 2,
-    "temas": [
-      "cft-vs-tasa-nominal",
-      "comercio-internacional-ventaja-comparativa",
-      "contabilidad-ambiental",
-      "contabilidad-como-sistema-de-informacion",
-      "contratos-inteligentes"
-    ],
-    "nombre": "Maestro dei Contratti e del Commercio",
-    "descripcion": "Hai completato l'esame principale integrando contabilità, smart contract e vantaggio comparativo.",
-    "icono": "🌍"
-  },
-  {
-    "id": 189,
-    "materia": "Economía",
-    "cluster": 3,
-    "temas": [
-      "control-de-gestion-e-indicadores",
-      "cooperativismo-y-mutualismo",
-      "coordinar-personas-y-recursos",
-      "corrientes-pensamiento-economico",
-      "costo-de-oportunidad"
-    ],
-    "nombre": "Maestro dei Costi e delle Cooperative",
-    "descripcion": "Hai padroneggiato le correnti economiche, il costo opportunità e il funzionamento delle cooperative.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 190,
-    "materia": "Economía",
-    "cluster": 4,
-    "temas": [
-      "costo-marginal",
-      "cultura-organizacional",
-      "cuota-credito-frances",
-      "debe-haber-balance",
-      "default-deuda"
-    ],
-    "nombre": "Padroneggi i costi e i bilanci",
-    "descripcion": "Hai superato il parziale integrando concetti di costo marginale, cultura organizzativa e analisi del debito.",
-    "icono": "📊"
-  },
-  {
-    "id": 191,
-    "materia": "Economía",
-    "cluster": 5,
-    "temas": [
-      "descuentos-obligatorios/jubilacion",
-      "descuentos-obligatorios/obra-social",
-      "detectar-una-oportunidad-de-negocio",
-      "deuda-publica-externa",
-      "deuda-publica-interna"
-    ],
-    "nombre": "Dominio degli Obblighi Fiscali e delle Opportunità",
-    "descripcion": "Hai completato il parziale su sconti obbligatori, debito pubblico e rilevamento di opportunità di business.",
-    "icono": "📊"
-  },
-  {
-    "id": 192,
-    "materia": "Economía",
-    "cluster": 6,
-    "temas": [
-      "devaluacion",
-      "dex-swap",
-      "division-formal-microeconomia-macroeconomia",
-      "economia-positiva-y-normativa",
-      "ecuacion-contable-fundamental"
-    ],
-    "nombre": "Domina le Fondamenti Economici",
-    "descripcion": "Hai completato l'esame su svalutazione, conti nazionali e la divisione tra micro e macroeconomia, capo.",
-    "icono": "📊"
-  },
-  {
-    "id": 193,
-    "materia": "Economía",
-    "cluster": 7,
-    "temas": [
-      "elasticidad",
-      "elementos-de-las-organizaciones",
-      "estado-de-resultados",
-      "estados-contables",
-      "estructura-del-patrimonio"
-    ],
-    "nombre": "Padrone dell'Elasticità e degli Stati",
-    "descripcion": "Hai smontato la struttura del patrimonio e dominato gli stati contabili per chiudere il parziale con tutto.",
-    "icono": "📊"
-  },
-  {
-    "id": 194,
-    "materia": "Economía",
-    "cluster": 8,
-    "temas": [
-      "estructura-organizacional",
-      "estructura-productiva-dependencia",
-      "estudio-de-contexto-para-un-proyecto",
-      "fondo-emergencia-diversificacion",
-      "indices-financieros"
-    ],
-    "nombre": "Maestro della Struttura Economica",
-    "descripcion": "Hai completato l'esame analizzando la struttura organizzativa, la dipendenza produttiva e gli indici finanziari con totale maestria.",
-    "icono": "📊"
-  },
-  {
-    "id": 195,
-    "materia": "Economía",
-    "cluster": 9,
-    "temas": [
-      "interes-compuesto",
-      "interes-compuesto-funcion",
-      "interes-simple",
-      "iva",
-      "jubilacion-sistema-previsional"
-    ],
-    "nombre": "Maestro degli Interessi e della Previdenza",
-    "descripcion": "Hai calcolato interessi, IVA e pensioni come un crack.",
-    "icono": "🧮"
-  },
-  {
-    "id": 196,
-    "materia": "Economía",
-    "cluster": 10,
-    "temas": [
-      "libro-diario-mayor",
-      "margenes-bruto-y-neto",
-      "mejora-continua",
-      "monotributo",
-      "mvp-producto-minimo-viable"
-    ],
-    "nombre": "Dominio dei Conti e del Monotributo",
-    "descripcion": "Hai completato il parziale integrando libro giornale, margini, miglioramento continuo e il regime del monotributo.",
-    "icono": "📊"
-  },
-  {
-    "id": 197,
-    "materia": "Economía",
-    "cluster": 11,
-    "temas": [
-      "objetivos-y-metas",
-      "oferta-y-demanda",
-      "origen-excedente-moneda-mercado",
-      "partida-doble",
-      "pbi-e-inflacion"
-    ],
-    "nombre": "Maestro della Partita Doppia",
-    "descripcion": "Hai completato l'esame capo dominando offerta, domanda e l'origine della moneta.",
-    "icono": "📊"
-  },
-  {
-    "id": 198,
-    "materia": "Economía",
-    "cluster": 12,
-    "temas": [
-      "pitch-a-inversores",
-      "planificacion-administrativa",
-      "plazo-fijo-vs-inflacion",
-      "pools-liquidez-amm",
-      "precio-final"
-    ],
-    "nombre": "Maestro del Pitch Finanziario",
-    "descripcion": "Hai completato l'esame capo dominando investimenti e pianificazione.",
-    "icono": "📈"
-  },
-  {
-    "id": 199,
-    "materia": "Economía",
-    "cluster": 13,
-    "temas": [
-      "presupuesto-administrativo",
-      "productividad-produccion-insumos",
-      "punto-de-equilibrio",
-      "recibo-de-sueldo/argentina",
-      "recibo-de-sueldo/general"
-    ],
-    "nombre": "Domina il Budget e gli Stipendi",
-    "descripcion": "Hai completato il parziale su budget, produttività e liquidazione degli stipendi argentini.",
-    "icono": "🧾"
-  },
-  {
-    "id": 200,
-    "materia": "Economía",
-    "cluster": 14,
-    "temas": [
-      "reservas-banco-central",
-      "sectores-economicos",
-      "seguros",
-      "sueldo-promedio-pais",
-      "tipo-cambio-fijo"
-    ],
-    "nombre": "Dominio del Sistema Monetario",
-    "descripcion": "Hai completato il parziale su riserve, tassi di cambio e settori economici, capo.",
-    "icono": "💰"
-  },
-  {
-    "id": 201,
-    "materia": "Economía",
-    "cluster": 15,
-    "temas": [
-      "tipo-cambio-flotante",
-      "tipos-de-organizaciones",
-      "tipos-de-proyecto",
-      "tipos-de-sociedades",
-      "validar-con-clientes-construir-medir-aprender",
-      "valor-esperado-riesgo",
-      "vision-y-mision-organizacional"
-    ],
-    "nombre": "Maestro dell'Ambiente Economico",
-    "descripcion": "Hai validato la tua visione organizzativa misurando il valore atteso in un mercato a tasso di cambio flessibile.",
-    "icono": "📊"
-  },
-  {
-    "id": 202,
-    "materia": "Derecho",
-    "cluster": 1,
-    "temas": [
-      "apelacion-e-instancias",
-      "argumentacion-juridica",
-      "corrientes-interpretacion-juridica",
-      "denuncia-y-etapa-de-instruccion",
-      "derecho-administrativo"
-    ],
-    "nombre": "Maestro dell'Appello e dell'Argomentazione",
-    "descripcion": "Hai superato il parziale dominando le istanze processuali, l'interpretazione giuridica e il diritto amministrativo.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 203,
-    "materia": "Derecho",
-    "cluster": 2,
-    "temas": [
-      "derecho-civil",
-      "derecho-comercial",
-      "derecho-constitucional",
-      "derecho-internacional",
-      "derecho-laboral"
-    ],
-    "nombre": "Giurista Multidisciplinare",
-    "descripcion": "Hai completato l'esame integratore delle principali branche del diritto.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 204,
-    "materia": "Derecho",
-    "cluster": 3,
-    "temas": [
-      "derecho-penal",
-      "ejecucion-de-la-sentencia",
-      "fuentes-del-derecho",
-      "hecho-juridicamente-relevante",
-      "interpretacion-normativa"
-    ],
-    "nombre": "Maestro del Diritto Penale",
-    "descripcion": "Hai completato l'esame su fonti, fatti ed esecuzione della sentenza, capo.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 205,
-    "materia": "Derecho",
-    "cluster": 4,
-    "temas": [
-      "investigacion-prueba-y-fiscalia",
-      "juicio-oral",
-      "norma-jerarquia-y-vigencia",
-      "politica-criminal-garantismo-mano-dura",
-      "ramas-del-derecho",
-      "resolucion-de-conflictos-y-sentencia"
-    ],
-    "nombre": "Dominio del Sistema Penale",
-    "descripcion": "Hai completato l'esame capo sulla struttura, norme e processi del diritto penale argentino.",
-    "icono": "⚖️"
   },
   {
     "id": 206,
@@ -2441,7 +152,2262 @@
     "icono": "👁️"
   },
   {
-    "id": 214,
+    "id": 601,
+    "materia": "Matemática",
+    "cluster": 1,
+    "temas": [
+      "asintotas",
+      "concavidad-y-puntos-de-inflexion",
+      "conjuntos-pertenencia-e-inclusion",
+      "conteo",
+      "divisibilidad/regla-del-7-opcional"
+    ],
+    "nombre": "Domina Asintoti e Insiemi",
+    "descripcion": "Hai analizzato asintoti e concavità delle funzioni, lavorato con l'appartenenza agli insiemi, il conteggio e la regola del 7 in un solo parziale.",
+    "icono": "📈"
+  },
+  {
+    "id": 602,
+    "materia": "Matemática",
+    "cluster": 2,
+    "temas": [
+      "grafos-vertices-y-aristas",
+      "integral-definida-y-area-bajo-la-curva",
+      "arboles-grafo-sin-ciclos",
+      "grafos-dirigidos-no-dirigidos-y-ponderados",
+      "leer-una-tabla"
+    ],
+    "nombre": "Maestro di Grafi e Alberi",
+    "descripcion": "Hai dominato vertici, archi, alberi e grafi pesati, oltre agli integrali definiti e alla lettura di tabelle.",
+    "icono": "🌳"
+  },
+  {
+    "id": 603,
+    "materia": "Matemática",
+    "cluster": 3,
+    "temas": [
+      "caminos-y-ciclos",
+      "leer-grafico/barras",
+      "algoritmos-de-recorrido-bfs-dfs",
+      "leer-grafico/lineas",
+      "leer-grafico/torta"
+    ],
+    "nombre": "Domina Cammini, BFS e DFS",
+    "descripcion": "Hai percorso cammini e cicli con BFS e DFS, e letto grafici a barre, a linee e a torta senza sbagliare.",
+    "icono": "🔍"
+  },
+  {
+    "id": 604,
+    "materia": "Matemática",
+    "cluster": 4,
+    "temas": [
+      "magnitud-unidad-instrumento",
+      "construir-un-grafico",
+      "grafico-eje-truncado",
+      "media-mediana-y-moda",
+      "razones-trigonometricas"
+    ],
+    "nombre": "Maestro di Grafici e Misure",
+    "descripcion": "Hai costruito grafici, individuato assi troncati, calcolato media, mediana e moda, e applicato i rapporti trigonometrici.",
+    "icono": "📊"
+  },
+  {
+    "id": 605,
+    "materia": "Matemática",
+    "cluster": 5,
+    "temas": [
+      "cual-miente-y-cuando",
+      "funciones-trigonometricas-seno-coseno",
+      "regla-de-lhopital",
+      "identidades-y-ecuaciones-trigonometricas",
+      "regresion-lineal"
+    ],
+    "nombre": "Domina Trigonometria e Regressione",
+    "descripcion": "Hai lavorato con funzioni trigonometriche, identità, la regola di L'Hôpital e la regressione lineare, imparando a capire chi mente e quando.",
+    "icono": "📐"
+  },
+  {
+    "id": 606,
+    "materia": "Matemática",
+    "cluster": 6,
+    "temas": [
+      "sistema-metrico-y-conversiones",
+      "correlacion-no-es-causalidad",
+      "analisis-dimensional",
+      "angulos",
+      "cifras-significativas-y-error"
+    ],
+    "nombre": "Maestro delle Unità e dell'Analisi",
+    "descripcion": "Hai convertito unità, analizzato dimensioni e cifre significative, misurato angoli e distinto la correlazione dalla causalità, capo.",
+    "icono": "📏"
+  },
+  {
+    "id": 607,
+    "materia": "Matemática",
+    "cluster": 7,
+    "temas": [
+      "circunferencia-y-circulo",
+      "error-sistematico-vs-aleatorio",
+      "perimetro-y-area",
+      "poligonos",
+      "tablas-de-frecuencia-cuartiles-percentiles-y-varianza"
+    ],
+    "nombre": "Domina Perimetro, Area e Statistica",
+    "descripcion": "Hai calcolato perimetro e area di poligoni e circonferenze, e lavorato con quartili, percentili e varianza nelle tabelle di frequenza.",
+    "icono": "⭕"
+  },
+  {
+    "id": 608,
+    "materia": "Matemática",
+    "cluster": 8,
+    "temas": [
+      "area-poligonos-regulares-y-compuestas",
+      "dispersion-rango-y-desvio",
+      "teorema-de-bolzano",
+      "distribucion-normal",
+      "teorema-del-seno-y-del-coseno"
+    ],
+    "nombre": "Maestro delle Aree e della Distribuzione Normale",
+    "descripcion": "Hai calcolato aree di poligoni composti, applicato il teorema del seno e del coseno, e dominato la distribuzione normale e la dispersione.",
+    "icono": "📐"
+  },
+  {
+    "id": 609,
+    "materia": "Matemática",
+    "cluster": 9,
+    "temas": [
+      "muestreo-y-sesgo",
+      "triangulos",
+      "teorema-central-del-limite",
+      "congruencia-de-triangulos",
+      "intervalo-de-confianza"
+    ],
+    "nombre": "Esperto di Campionamento e Triangoli",
+    "descripcion": "Hai dominato il campionamento, il bias, il teorema del limite centrale, gli intervalli di confidenza e la congruenza dei triangoli.",
+    "icono": "🎯"
+  },
+  {
+    "id": 610,
+    "materia": "Matemática",
+    "cluster": 10,
+    "temas": [
+      "semejanza-y-teorema-de-thales",
+      "teorema-de-pitagoras",
+      "test-de-hipotesis",
+      "transformaciones-geometricas/homotecia",
+      "transformaciones-geometricas/reflexion"
+    ],
+    "nombre": "Maestro della Similitudine e di Pitagora",
+    "descripcion": "Hai applicato il teorema di Talete e Pitagora, omotetie e riflessioni, e completato un test di ipotesi, capo.",
+    "icono": "📐"
+  },
+  {
+    "id": 611,
+    "materia": "Matemática",
+    "cluster": 11,
+    "temas": [
+      "transformaciones-geometricas/rotacion",
+      "transformaciones-geometricas/traslacion",
+      "union-interseccion-y-diferencia",
+      "valor-posicional",
+      "diagramas-de-venn"
+    ],
+    "nombre": "Domina Trasformazioni e Insiemi",
+    "descripcion": "Hai ruotato e traslato figure, calcolato unioni e intersezioni, e lavorato con diagrammi di Venn e valore posizionale.",
+    "icono": "🔄"
+  },
+  {
+    "id": 612,
+    "materia": "Matemática",
+    "cluster": 12,
+    "temas": [
+      "suma",
+      "principio-multiplicativo-de-conteo",
+      "multiplicacion",
+      "combinaciones",
+      "permutaciones"
+    ],
+    "nombre": "Maestro del Conteggio e delle Operazioni",
+    "descripcion": "Hai dominato l'addizione e la moltiplicazione di base insieme al principio di conteggio, le combinazioni e le permutazioni.",
+    "icono": "🔢"
+  },
+  {
+    "id": 613,
+    "materia": "Matemática",
+    "cluster": 13,
+    "temas": [
+      "independencia-de-eventos-y-diagrama-de-arbol",
+      "potencias",
+      "probabilidad-simple",
+      "logaritmos",
+      "probabilidad-compuesta"
+    ],
+    "nombre": "Domina Probabilità e Potenze",
+    "descripcion": "Hai calcolato probabilità semplice e composta con i diagrammi ad albero, e lavorato con potenze e logaritmi, capo.",
+    "icono": "🎲"
+  },
+  {
+    "id": 614,
+    "materia": "Matemática",
+    "cluster": 14,
+    "temas": [
+      "raices",
+      "distribucion-binomial",
+      "esperanza-matematica-valor-esperado",
+      "irracionales-y-reales",
+      "probabilidad-condicional"
+    ],
+    "nombre": "Esperto di Probabilità e Radici",
+    "descripcion": "Hai calcolato radici di numeri irrazionali e reali, e dominato la distribuzione binomiale, il valore atteso e la probabilità condizionata.",
+    "icono": "🎲"
+  },
+  {
+    "id": 615,
+    "materia": "Matemática",
+    "cluster": 15,
+    "temas": [
+      "resta",
+      "sucesiones-aritmeticas",
+      "dinero",
+      "division",
+      "hora-y-reloj"
+    ],
+    "nombre": "Maestro delle Operazioni di Base",
+    "descripcion": "Hai dominato la sottrazione, la divisione, la gestione del denaro, l'ora e l'orologio, e le successioni aritmetiche.",
+    "icono": "🕐"
+  },
+  {
+    "id": 616,
+    "materia": "Matemática",
+    "cluster": 16,
+    "temas": [
+      "jerarquia-operaciones",
+      "numeros-enteros",
+      "divisibilidad/multiplos",
+      "lenguaje-algebraico",
+      "divisibilidad/divisores"
+    ],
+    "nombre": "Domina Gerarchia e Divisibilità",
+    "descripcion": "Hai applicato la gerarchia delle operazioni con i numeri interi, calcolato multipli e divisori, e tradotto il linguaggio algebrico.",
+    "icono": "➗"
+  },
+  {
+    "id": 617,
+    "materia": "Matemática",
+    "cluster": 17,
+    "temas": [
+      "expresiones-equivalentes",
+      "divisibilidad/regla-del-2",
+      "divisibilidad/regla-del-3",
+      "divisibilidad/regla-del-4",
+      "divisibilidad/regla-del-5"
+    ],
+    "nombre": "Maestro delle Regole di Divisibilità",
+    "descripcion": "Hai dominato le regole di divisibilità dal 2 al 5 e costruito espressioni equivalenti, capo.",
+    "icono": "➗"
+  },
+  {
+    "id": 618,
+    "materia": "Matemática",
+    "cluster": 18,
+    "temas": [
+      "divisibilidad/regla-del-6",
+      "divisibilidad/regla-del-10",
+      "divisibilidad/regla-del-8",
+      "divisibilidad/regla-del-9",
+      "ecuacion-primer-grado"
+    ],
+    "nombre": "Domina Divisibilità ed Equazioni",
+    "descripcion": "Hai completato le regole di divisibilità del 6, 8, 9 e 10, e risolto equazioni di primo grado.",
+    "icono": "✖️"
+  },
+  {
+    "id": 619,
+    "materia": "Matemática",
+    "cluster": 19,
+    "temas": [
+      "numeros-primos",
+      "demostracion-contraejemplo",
+      "demostracion-deduccion",
+      "demostracion-induccion",
+      "demostracion-reduccion-al-absurdo"
+    ],
+    "nombre": "Maestro delle Dimostrazioni",
+    "descripcion": "Hai dominato i numeri primi e le tecniche di dimostrazione: controesempio, deduzione, induzione e dimostrazione per assurdo.",
+    "icono": "🧠"
+  },
+  {
+    "id": 620,
+    "materia": "Matemática",
+    "cluster": 20,
+    "temas": [
+      "despejar-formula",
+      "funcion-dominio",
+      "funcion-imagen",
+      "inecuaciones",
+      "funcion-inversa-composicion"
+    ],
+    "nombre": "Domina Funzioni e Disequazioni",
+    "descripcion": "Hai isolato formule, risolto disequazioni, e lavorato con dominio, immagine, composizione e inversa delle funzioni.",
+    "icono": "📉"
+  },
+  {
+    "id": 621,
+    "materia": "Matemática",
+    "cluster": 21,
+    "temas": [
+      "funcion-lineal-pendiente",
+      "mcd",
+      "operaciones-enteros",
+      "fracciones",
+      "mcm"
+    ],
+    "nombre": "Maestro di Frazioni e Funzione Lineare",
+    "descripcion": "Hai calcolato MCD e mcm, operato con frazioni e numeri interi, e analizzato la pendenza della funzione lineare.",
+    "icono": "📈"
+  },
+  {
+    "id": 622,
+    "materia": "Matemática",
+    "cluster": 22,
+    "temas": [
+      "plano-cartesiano",
+      "operaciones-fracciones",
+      "coordenadas-de-un-punto",
+      "decimales",
+      "distancia-entre-dos-puntos"
+    ],
+    "nombre": "Domina il Piano Cartesiano",
+    "descripcion": "Hai posizionato coordinate e calcolato la distanza tra punti nel piano cartesiano, e operato con frazioni e decimali.",
+    "icono": "🧭"
+  },
+  {
+    "id": 623,
+    "materia": "Matemática",
+    "cluster": 23,
+    "temas": [
+      "notacion-cientifica",
+      "ecuacion-de-la-recta",
+      "polinomios-factoreo",
+      "proporcionalidad-funcion",
+      "division-polinomios-ruffini"
+    ],
+    "nombre": "Maestro dei Polinomi e della Retta",
+    "descripcion": "Hai fattorizzato polinomi, diviso con Ruffini, trovato l'equazione della retta e usato la notazione scientifica, capo.",
+    "icono": "📐"
+  },
+  {
+    "id": 624,
+    "materia": "Matemática",
+    "cluster": 24,
+    "temas": [
+      "ecuacion-cuadratica",
+      "punto-medio-de-un-segmento",
+      "funcion-cuadratica-parabola",
+      "numeros-complejos",
+      "familias-exponencial-logaritmica"
+    ],
+    "nombre": "Domina la Funzione Quadratica",
+    "descripcion": "Hai risolto equazioni quadratiche, tracciato parabole, calcolato il punto medio di un segmento e lavorato con i numeri complessi.",
+    "icono": "🔵"
+  },
+  {
+    "id": 625,
+    "materia": "Matemática",
+    "cluster": 25,
+    "temas": [
+      "forma-polar-complejos",
+      "ecuaciones-exponenciales-logaritmicas",
+      "limite",
+      "razon",
+      "continuidad"
+    ],
+    "nombre": "Maestro di Limiti e Numeri Complessi",
+    "descripcion": "Hai calcolato limiti e continuità delle funzioni, risolto equazioni esponenziali e logaritmiche, ed espresso i numeri complessi in forma polare.",
+    "icono": "∞"
+  },
+  {
+    "id": 626,
+    "materia": "Matemática",
+    "cluster": 26,
+    "temas": [
+      "proporcion",
+      "derivada",
+      "rectas-paralelas-y-perpendiculares",
+      "integral",
+      "optimizacion"
+    ],
+    "nombre": "Domina Derivate e Integrali",
+    "descripcion": "Hai calcolato derivate e integrali, risolto problemi di ottimizzazione e lavorato con rette parallele e perpendicolari.",
+    "icono": "∫"
+  },
+  {
+    "id": 627,
+    "materia": "Matemática",
+    "cluster": 27,
+    "temas": [
+      "ecuaciones-diferenciales",
+      "redondeo",
+      "regla-de-tres-directa",
+      "secciones-conicas-circunferencia",
+      "porcentaje"
+    ],
+    "nombre": "Maestro delle Equazioni Differenziali",
+    "descripcion": "Hai risolto equazioni differenziali e sezioni coniche, e applicato la regola del tre, la percentuale e l'arrotondamento, capo.",
+    "icono": "🌀"
+  },
+  {
+    "id": 628,
+    "materia": "Matemática",
+    "cluster": 28,
+    "temas": [
+      "regla-de-tres-inversa",
+      "sistemas-dos-ecuaciones",
+      "sucesiones-y-series",
+      "matrices/operaciones",
+      "series-geometricas"
+    ],
+    "nombre": "Domina Sistemi e Serie",
+    "descripcion": "Hai risolto sistemi di due equazioni, operato con matrici, e lavorato con successioni, serie geometriche e regola del tre inversa.",
+    "icono": "🔢"
+  },
+  {
+    "id": 629,
+    "materia": "Matemática",
+    "cluster": 29,
+    "temas": [
+      "matrices/sistemas-nxn",
+      "tecnicas-de-integracion",
+      "determinante",
+      "teorema-de-bayes",
+      "matriz-inversa"
+    ],
+    "nombre": "Maestro delle Matrici e di Bayes",
+    "descripcion": "Hai calcolato determinanti e matrici inverse, risolto sistemi nxn, applicato tecniche di integrazione e il teorema di Bayes.",
+    "icono": "🧮"
+  },
+  {
+    "id": 630,
+    "materia": "Matemática",
+    "cluster": 30,
+    "temas": [
+      "riesgo-relativo-vs-absoluto",
+      "teorema-del-binomio",
+      "variable-aleatoria-discreta-continua",
+      "variaciones",
+      "distribucion-de-poisson"
+    ],
+    "nombre": "Domina Distribuzioni e il Binomio",
+    "descripcion": "Hai applicato il teorema del binomio e la distribuzione di Poisson, lavorato con variabili aleatorie e rischio relativo, capo.",
+    "icono": "🎲"
+  },
+  {
+    "id": 631,
+    "materia": "Matemática",
+    "cluster": 31,
+    "temas": [
+      "distribucion-exponencial",
+      "vectores-modulo-y-direccion",
+      "volumen-y-capacidad",
+      "suma-de-vectores-y-descomposicion",
+      "cuerpos-redondos-y-poliedros/cilindros"
+    ],
+    "nombre": "Maestro di Vettori e Volume",
+    "descripcion": "Hai sommato e scomposto vettori, calcolato il volume di cilindri e la capacità, e lavorato con la distribuzione esponenziale.",
+    "icono": "➡️"
+  },
+  {
+    "id": 632,
+    "materia": "Matemática",
+    "cluster": 32,
+    "temas": [
+      "cuerpos-redondos-y-poliedros/conos",
+      "cuerpos-redondos-y-poliedros/esferas",
+      "cuerpos-redondos-y-poliedros/piramides",
+      "cuerpos-redondos-y-poliedros/prismas",
+      "producto-escalar",
+      "cuerpos-redondos-y-poliedros/desarrollo-plano"
+    ],
+    "nombre": "Domina i Solidi Geometrici",
+    "descripcion": "Hai calcolato coni, sfere, piramidi e prismi, sviluppato i loro piani, e applicato il prodotto scalare tra vettori.",
+    "icono": "🔺"
+  },
+  {
+    "id": 651,
+    "materia": "Lengua",
+    "cluster": 1,
+    "temas": [
+      "conciencia-fonologica",
+      "escritura-como-tecnologia",
+      "decodificacion-y-fluidez",
+      "ortografia-y-tildacion",
+      "circuito-de-la-comunicacion"
+    ],
+    "nombre": "Maestro dei Fondamenti della Letto-scrittura",
+    "descripcion": "Hai dominato la consapevolezza fonologica, la decodifica e la fluenza di lettura, l'ortografia e l'accentazione, e il circuito della comunicazione.",
+    "icono": "🔤📖"
+  },
+  {
+    "id": 652,
+    "materia": "Lengua",
+    "cluster": 2,
+    "temas": [
+      "comprension-idea-principal",
+      "signos-de-puntuacion",
+      "tecnicas-de-estudio-resumen-y-organizadores-graficos",
+      "tipos-textuales",
+      "variedades-de-la-lengua"
+    ],
+    "nombre": "Domina la Comprensione Testuale",
+    "descripcion": "Hai completato il parziale dominando l'idea principale, i segni di punteggiatura, le tipologie testuali e le varietà della lingua, capo.",
+    "icono": "🧩📚"
+  },
+  {
+    "id": 653,
+    "materia": "Lengua",
+    "cluster": 3,
+    "temas": [
+      "genero-dramatico",
+      "genero-lirico",
+      "genero-narrativo",
+      "generos-discursivos",
+      "narrador"
+    ],
+    "nombre": "Maestro dei Generi Letterari",
+    "descripcion": "Hai dominato il genere drammatico, quello lirico, quello narrativo e i generi discorsivi, senza sbagliare una domanda sul narratore.",
+    "icono": "🎭📖"
+  },
+  {
+    "id": 654,
+    "materia": "Lengua",
+    "cluster": 4,
+    "temas": [
+      "generos-periodisticos",
+      "paratextos",
+      "punto-de-vista",
+      "recursos-literarios",
+      "estructura-narrativa"
+    ],
+    "nombre": "Domina le Risorse Narrative e Giornalistiche",
+    "descripcion": "Hai completato l'esame dominando i generi giornalistici, i paratesti, il punto di vista e le risorse letterarie, capo.",
+    "icono": "📰🖋️"
+  },
+  {
+    "id": 655,
+    "materia": "Lengua",
+    "cluster": 5,
+    "temas": [
+      "romanticismo",
+      "tesis",
+      "realismo",
+      "argumentos",
+      "modernismo"
+    ],
+    "nombre": "Maestro dei Movimenti Letterari e della Tesi",
+    "descripcion": "Hai dominato il romanticismo, il realismo e il modernismo, e imparato a costruire una tesi con argomentazioni solide.",
+    "icono": "🖋️📜"
+  },
+  {
+    "id": 656,
+    "materia": "Lengua",
+    "cluster": 6,
+    "temas": [
+      "contraargumentos",
+      "generacion-del-98",
+      "detectar-falacias",
+      "boom-latinoamericano",
+      "debate-refutar-en-vivo"
+    ],
+    "nombre": "Maestro della Confutazione e del Boom Latinoamericano",
+    "descripcion": "Hai completato il parziale dominando le controargomentazioni, il rilevamento di fallacie, il dibattito dal vivo e la Generazione del '98, capo.",
+    "icono": "🗣️⚖️"
+  },
+  {
+    "id": 657,
+    "materia": "Lengua",
+    "cluster": 7,
+    "temas": [
+      "exposicion-oral",
+      "negociacion",
+      "persuasion-etica-vs-manipulacion",
+      "presentacion-con-apoyo-visual",
+      "subjetivemas-y-modalizadores"
+    ],
+    "nombre": "Domina la Persuasione e l'Esposizione Orale",
+    "descripcion": "Hai dominato l'esposizione orale, la negoziazione e la presentazione con supporto visivo, distinguendo la persuasione etica dalla manipolazione.",
+    "icono": "🎤🤝"
+  },
+  {
+    "id": 658,
+    "materia": "Lengua",
+    "cluster": 8,
+    "temas": [
+      "texto-teatral",
+      "vocabulario-y-familia-de-palabras",
+      "clases-de-palabras",
+      "concordancia-nominal-y-verbal",
+      "conjugacion-verbal-indicativo"
+    ],
+    "nombre": "Maestro del Testo Teatrale e della Grammatica",
+    "descripcion": "Hai completato l'esame dominando il testo teatrale, le classi di parole, la concordanza nominale e verbale, e la coniugazione all'indicativo, capo.",
+    "icono": "🎭📝"
+  },
+  {
+    "id": 659,
+    "materia": "Lengua",
+    "cluster": 9,
+    "temas": [
+      "sujeto-y-predicado",
+      "conjugacion-verbal-subjuntivo",
+      "nucleos-y-modificadores",
+      "tipos-de-sujeto",
+      "objetos-y-circunstanciales"
+    ],
+    "nombre": "Dominio del Soggetto e del Predicato",
+    "descripcion": "Hai dominato i tipi di soggetto, i nuclei e i modificatori, i complementi oggetto e circostanziali, e la coniugazione al congiuntivo.",
+    "icono": "🔍📐"
+  },
+  {
+    "id": 660,
+    "materia": "Lengua",
+    "cluster": 10,
+    "temas": [
+      "sintagmas-nominal-adjetivo-preposicional-adverbial-verbal",
+      "oracion-compuesta-coordinacion-y-subordinacion",
+      "oraciones-negativas-e-interrogativas",
+      "coordinadas-adversativas",
+      "coordinadas-copulativas"
+    ],
+    "nombre": "Maestro dei Sintagmi e delle Frasi Composte",
+    "descripcion": "Hai completato il parziale dominando i sintagmi nominale, aggettivale, preposizionale e verbale, la coordinazione e subordinazione, e le frasi interrogative, capo.",
+    "icono": "🧩📝"
+  },
+  {
+    "id": 661,
+    "materia": "Lengua",
+    "cluster": 11,
+    "temas": [
+      "coordinadas-distributivas",
+      "coordinadas-disyuntivas",
+      "discurso-referido",
+      "produccion-escrita-compleja",
+      "subordinada-adjetiva-o-de-relativo"
+    ],
+    "nombre": "Domina le Coordinate e il Discorso Riferito",
+    "descripcion": "Hai dominato le coordinate distributive e disgiuntive, il discorso riferito, la produzione scritta complessa e la subordinata aggettivale.",
+    "icono": "🔗🗨️"
+  },
+  {
+    "id": 662,
+    "materia": "Lengua",
+    "cluster": 12,
+    "temas": [
+      "conectores-textuales",
+      "correo-formal",
+      "cv",
+      "informe-tecnico",
+      "progresion-tematica"
+    ],
+    "nombre": "Esperto di Scrittura Professionale",
+    "descripcion": "Hai completato l'esame dominando l'email formale, il CV, la relazione tecnica, i connettivi testuali e la progressione tematica, capo.",
+    "icono": "💼📧"
+  },
+  {
+    "id": 663,
+    "materia": "Lengua",
+    "cluster": 13,
+    "temas": [
+      "referencia-anafora-y-catafora",
+      "subordinada-adverbial-de-lugar",
+      "subordinada-adverbial-de-modo",
+      "subordinada-adverbial-de-tiempo",
+      "subordinada-causal"
+    ],
+    "nombre": "Maestro delle Subordinate Avverbiali",
+    "descripcion": "Hai dominato il riferimento per anafora e catafora, e le subordinate avverbiali di luogo, modo, tempo e causa.",
+    "icono": "🔗🕰️"
+  },
+  {
+    "id": 664,
+    "materia": "Lengua",
+    "cluster": 14,
+    "temas": [
+      "subordinada-concesiva-y-final",
+      "subordinada-condicional",
+      "subordinada-consecutiva",
+      "subordinada-sustantiva-de-complemento-circunstancial",
+      "subordinada-sustantiva-de-complemento-de-regimen"
+    ],
+    "nombre": "Dominio delle Subordinate Condizionali e Consecutive",
+    "descripcion": "Hai completato il parziale dominando la subordinata concessiva, finale, condizionale e consecutiva, insieme alle sostantive di complemento circostanziale e di regime, capo.",
+    "icono": "🔀📋"
+  },
+  {
+    "id": 665,
+    "materia": "Lengua",
+    "cluster": 15,
+    "temas": [
+      "subordinada-sustantiva-de-complemento-de-un-adjetivo",
+      "subordinada-sustantiva-de-complemento-del-nombre",
+      "subordinada-sustantiva-de-complemento-directo",
+      "subordinada-sustantiva-de-sujeto",
+      "voz-activa-y-pasiva"
+    ],
+    "nombre": "Maestro delle Subordinate Sostantive e della Voce",
+    "descripcion": "Hai dominato le subordinate sostantive di soggetto, di complemento oggetto e di complemento di nome, e chiuso distinguendo la voce attiva da quella passiva.",
+    "icono": "🔄🗣️"
+  },
+  {
+    "id": 681,
+    "materia": "Historia profunda",
+    "cluster": 1,
+    "temas": [
+      "absolutismo-europeo",
+      "agujeros-negros",
+      "ampliacion-democratica-ley-saenz-pena",
+      "antigua-grecia",
+      "antigua-roma"
+    ],
+    "nombre": "Dalla Grecia e Roma all'Assolutismo",
+    "descripcion": "Hai completato il parziale dominando l'Antica Grecia, l'Antica Roma e l'assolutismo europeo, con una tappa sui buchi neri.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 682,
+    "materia": "Historia profunda",
+    "cluster": 2,
+    "temas": [
+      "antiguo-egipto",
+      "atmosfera-primitiva",
+      "baja-edad-media-y-crisis",
+      "caida-de-roma-y-alta-edad-media",
+      "cambio-climatico-linea-base-historica"
+    ],
+    "nombre": "Egitto e la Crisi Medievale",
+    "descripcion": "Hai completato l'esame sull'Antico Egitto, la caduta di Roma, l'Alto Medioevo e la crisi tardomedievale, capo.",
+    "icono": "🏺"
+  },
+  {
+    "id": 683,
+    "materia": "Historia profunda",
+    "cluster": 3,
+    "temas": [
+      "china-antigua",
+      "ciclo-de-las-rocas",
+      "ciencia-revolucion-cientifica",
+      "cinco-extinciones-masivas",
+      "civilizaciones-antiguas"
+    ],
+    "nombre": "Scienza e Civiltà Antiche",
+    "descripcion": "Hai dominato la Cina antica, le civiltà antiche, le cinque estinzioni di massa e la rivoluzione scientifica in un solo parziale.",
+    "icono": "🔬🏺"
+  },
+  {
+    "id": 684,
+    "materia": "Historia profunda",
+    "cluster": 4,
+    "temas": [
+      "civilizaciones-de-america-precolombinas",
+      "conquista-colonizacion-america",
+      "conquista-tierra-firme",
+      "conquista-y-colonia-argentina",
+      "corrimiento-al-rojo-expansion-universo"
+    ],
+    "nombre": "Dall'America Precolombiana al Cosmo",
+    "descripcion": "Hai completato l'esame che spazia dalle civiltà precolombiane e la conquista dell'America fino al redshift e all'espansione dell'universo.",
+    "icono": "🌎"
+  },
+  {
+    "id": 685,
+    "materia": "Historia profunda",
+    "cluster": 5,
+    "temas": [
+      "datacion-radiometrica",
+      "descolonizacion-de-africa-y-asia",
+      "distribucion-biomas",
+      "division-del-trabajo",
+      "eclipses-sol-luna"
+    ],
+    "nombre": "Datazione, Biomi e Decolonizzazione",
+    "descripcion": "Hai superato il parziale integrando la datazione radiometrica, la decolonizzazione dell'Africa e dell'Asia, la distribuzione dei biomi e le eclissi di sole e di luna.",
+    "icono": "⏳🌍"
+  },
+  {
+    "id": 686,
+    "materia": "Historia profunda",
+    "cluster": 6,
+    "temas": [
+      "edad-media-feudalismo",
+      "edad-media-plena",
+      "electrificacion-fabrica-hogar",
+      "entreguerras-y-crisis-de-1929",
+      "escalas-de-tiempo-profundo"
+    ],
+    "nombre": "Dal Feudalesimo alla Crisi del '29",
+    "descripcion": "Hai attraversato il feudalesimo medievale, l'elettrificazione di fabbriche e case e la crisi del 1929, dominando le grandi trasformazioni, capo.",
+    "icono": "🏰"
+  },
+  {
+    "id": 687,
+    "materia": "Historia profunda",
+    "cluster": 7,
+    "temas": [
+      "escritura-primeras-ciudades",
+      "estaciones-del-ano",
+      "estados-nacionales",
+      "eucariotas",
+      "expansion-del-imperio-romano"
+    ],
+    "nombre": "Dalla Scrittura all'Impero Romano",
+    "descripcion": "Hai completato l'esame capo sulla scrittura e le prime città, gli stati nazionali e l'espansione dell'Impero Romano.",
+    "icono": "📜🏛️"
+  },
+  {
+    "id": 688,
+    "materia": "Historia profunda",
+    "cluster": 8,
+    "temas": [
+      "explosion-cambrica",
+      "fases-lunares",
+      "formacion-de-estrellas",
+      "formacion-del-sistema-solar",
+      "fotosintesis-cambio-atmosfera-nivel2"
+    ],
+    "nombre": "Stelle, Fotosintesi e Cambriano",
+    "descripcion": "Hai dominato la formazione delle stelle e del sistema solare, le fasi lunari, la fotosintesi e l'esplosione cambriana.",
+    "icono": "⭐🧬"
+  },
+  {
+    "id": 689,
+    "materia": "Historia profunda",
+    "cluster": 9,
+    "temas": [
+      "galaxias-tipos-escala",
+      "globalizacion-era-digital",
+      "golpes-de-estado-interrupciones",
+      "gran-oxidacion",
+      "guerra-de-malvinas"
+    ],
+    "nombre": "Galassie, Colpi di Stato e Malvine",
+    "descripcion": "Hai completato il parziale sulle galassie, la Grande Ossidazione, i colpi di stato e la Guerra delle Malvine, capo.",
+    "icono": "🌌🎖️"
+  },
+  {
+    "id": 690,
+    "materia": "Historia profunda",
+    "cluster": 10,
+    "temas": [
+      "guerra-fria-descolonizacion",
+      "guerras-civiles-unitarios-federales",
+      "guerras-de-independencia-argentina",
+      "guerras-mundiales",
+      "herramientas-arte-rupestre"
+    ],
+    "nombre": "Dall'Indipendenza alla Guerra Fredda",
+    "descripcion": "Hai completato l'esame sulle guerre d'indipendenza argentina, le guerre civili tra unitari e federali, le guerre mondiali e la Guerra Fredda.",
+    "icono": "⚔️"
+  },
+  {
+    "id": 691,
+    "materia": "Historia profunda",
+    "cluster": 11,
+    "temas": [
+      "historia-contemporanea-de-africa",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "historia-reciente-argentina",
+      "hominizacion"
+    ],
+    "nombre": "Storia Contemporanea del Mondo",
+    "descripcion": "Hai superato il parziale integrando la storia contemporanea di Africa, Asia e Pacifico, Medio Oriente e l'Argentina recente.",
+    "icono": "🌍"
+  },
+  {
+    "id": 692,
+    "materia": "Historia profunda",
+    "cluster": 12,
+    "temas": [
+      "huella-humana-en-el-clima-inicio",
+      "ilustracion",
+      "imperialismo",
+      "imperio-bizantino",
+      "imperio-de-alejandro-magno-helenistico"
+    ],
+    "nombre": "Dall'Ellenismo all'Imperialismo",
+    "descripcion": "Hai completato l'esame sull'impero ellenistico di Alessandro Magno, l'Impero Bizantino, l'Illuminismo e l'imperialismo.",
+    "icono": "🏺🌐"
+  },
+  {
+    "id": 693,
+    "materia": "Historia profunda",
+    "cluster": 13,
+    "temas": [
+      "imperio-han-china",
+      "imperio-persa",
+      "imperios-expansion",
+      "imprenta",
+      "india-antigua"
+    ],
+    "nombre": "Imperi Antichi e la Stampa",
+    "descripcion": "Hai dominato l'Impero Persiano, l'Impero Han della Cina, l'India antica e l'arrivo della stampa, capo.",
+    "icono": "👑📖"
+  },
+  {
+    "id": 694,
+    "materia": "Historia profunda",
+    "cluster": 14,
+    "temas": [
+      "internet-redes-globalizacion-digital",
+      "islam-y-expansion-arabe",
+      "ley-de-hubble",
+      "materia-energia-oscura",
+      "mesopotamia"
+    ],
+    "nombre": "Dalla Mesopotamia a Internet",
+    "descripcion": "Hai completato il ripasso che spazia dalla Mesopotamia e l'Islam fino a internet e alla globalizzazione digitale, con una tappa sulla Legge di Hubble.",
+    "icono": "🕌💻"
+  },
+  {
+    "id": 695,
+    "materia": "Historia profunda",
+    "cluster": 15,
+    "temas": [
+      "metalurgia-cobre-hierro",
+      "minerales-estructura-cristalina",
+      "modelo-agroexportador-inmigracion",
+      "modernidad-imprenta-navegacion-ciencia",
+      "movimiento-aparente-constelaciones"
+    ],
+    "nombre": "Metallurgia, Minerali e Modernità",
+    "descripcion": "Hai completato l'esame capo sulla metallurgia del rame e del ferro, i minerali, il modello agroesportatore e la modernità della stampa e della navigazione.",
+    "icono": "⚒️🔭"
+  },
+  {
+    "id": 696,
+    "materia": "Historia profunda",
+    "cluster": 16,
+    "temas": [
+      "movimiento-rotacion-traslacion",
+      "multicelularidad",
+      "navegacion",
+      "nucleosintesis",
+      "organizacion-nacional-constitucion-1853"
+    ],
+    "nombre": "Cosmo e la Costituzione del 1853",
+    "descripcion": "Hai dimostrato padronanza dalla rotazione e rivoluzione terrestri e la nucleosintesi fino all'organizzazione nazionale del 1853, capo.",
+    "icono": "🌐📜"
+  },
+  {
+    "id": 697,
+    "materia": "Historia profunda",
+    "cluster": 17,
+    "temas": [
+      "origen-de-la-vida",
+      "origen-del-universo",
+      "paleoclima-glaciaciones",
+      "paleolitico",
+      "peronismo-derechos-sociales"
+    ],
+    "nombre": "Dal Big Bang al Peronismo",
+    "descripcion": "Hai completato questo esame capo spaziando dall'origine dell'universo e della vita fino al paleolitico e al peronismo.",
+    "icono": "💥🗳️"
+  },
+  {
+    "id": 698,
+    "materia": "Historia profunda",
+    "cluster": 18,
+    "temas": [
+      "poblamiento-planeta-america",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "procariotas",
+      "propiedad-jerarquia-estado",
+      "pueblos-originarios-territorio-argentino"
+    ],
+    "nombre": "Dai Procarioti alla Rivoluzione Russa",
+    "descripcion": "Hai completato l'esame sui procarioti, il popolamento americano, i popoli originari e la Prima Guerra Mondiale e la Rivoluzione Russa.",
+    "icono": "🧫🚩"
+  },
+  {
+    "id": 699,
+    "materia": "Historia profunda",
+    "cluster": 19,
+    "temas": [
+      "radiacion-mamiferos",
+      "recuperacion-democratica-memoria",
+      "relieve-sismos-volcanes",
+      "renacimiento-y-reforma",
+      "revolucion-de-mayo"
+    ],
+    "nombre": "Dal Rinascimento alla Democrazia Ritrovata",
+    "descripcion": "Hai completato il parziale dominando il Rinascimento e la Riforma, la Rivoluzione di Maggio e il ritorno alla democrazia e alla memoria, capo.",
+    "icono": "🎨🕊️"
+  },
+  {
+    "id": 700,
+    "materia": "Historia profunda",
+    "cluster": 20,
+    "temas": [
+      "revolucion-industrial",
+      "revolucion-neolitica",
+      "revoluciones-burguesas-liberalismo",
+      "rocas-igneas-sedimentarias-metamorficas",
+      "sedentarizacion-excedente"
+    ],
+    "nombre": "Dalla Rivoluzione Neolitica all'Industriale",
+    "descripcion": "Hai attraversato la Rivoluzione Neolitica, la sedentarizzazione e l'eccedenza fino alla Rivoluzione Industriale e alle rivoluzioni borghesi.",
+    "icono": "🌾🏭"
+  },
+  {
+    "id": 701,
+    "materia": "Historia profunda",
+    "cluster": 21,
+    "temas": [
+      "segunda-guerra-mundial",
+      "seleccion-natural-evidencias-nivel2",
+      "sociedad-de-masas-y-democracia-liberal",
+      "tabla-periodica-nivel2-cosmologico",
+      "tectonica-placas-deriva-continental",
+      "terrorismo-de-estado-argentina",
+      "tiempo-geologico-eones-eras-periodos",
+      "tierra-primitiva-diferenciacion",
+      "virreinato-y-comercio"
+    ],
+    "nombre": "Maestro della Storia Profonda",
+    "descripcion": "Hai superato il parziale dominando dalla Terra primitiva e la tettonica delle placche fino alla Seconda Guerra Mondiale, il terrorismo di Stato e il vicereame, capo.",
+    "icono": "🌋🎖️"
+  },
+  {
+    "id": 721,
+    "materia": "Historia",
+    "cluster": 1,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "crisis-de-2001",
+      "guerra-civil-espanola-1936-1939",
+      "guerra-del-paraguay-y-triple-alianza",
+      "interpretar-una-fuente-historica"
+    ],
+    "nombre": "Maestro delle Guerre e delle Crisi",
+    "descripcion": "Hai superato il parziale sulla Conquista del Deserto, la Guerra del Paraguay, la Guerra Civile Spagnola e la crisi del 2001, interpretando fonti storiche.",
+    "icono": "⚔️"
+  },
+  {
+    "id": 722,
+    "materia": "Historia",
+    "cluster": 2,
+    "temas": [
+      "linea-de-tiempo-y-antes-despues",
+      "reforma-universitaria-1918",
+      "decada-siglo-milenio",
+      "revolucion-mexicana-1910-1920",
+      "antes-y-despues-de-cristo"
+    ],
+    "nombre": "Maestro del Tempo e delle Rivoluzioni",
+    "descripcion": "Hai completato l'esame capo sulle linee del tempo, la Riforma Universitaria del 1918 e la Rivoluzione Messicana.",
+    "icono": "⏳"
+  },
+  {
+    "id": 723,
+    "materia": "Historia",
+    "cluster": 3,
+    "temas": [
+      "rosas-y-la-confederacion",
+      "periodizacion-historica",
+      "economias-regionales-tempranas",
+      "causa-y-consecuencia",
+      "semana-tragica-1919"
+    ],
+    "nombre": "Maestro di Rosas e della Settimana Tragica",
+    "descripcion": "Hai superato il parziale su Rosas e la Confederazione, le economie regionali precoci e la Settimana Tragica del 1919, capo.",
+    "icono": "📜"
+  },
+  {
+    "id": 724,
+    "materia": "Historia",
+    "cluster": 4,
+    "temas": [
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "multicausalidad"
+    ],
+    "nombre": "Maestro del Pensiero Storico e dell'ISI",
+    "descripcion": "Hai completato l'esame capo dominando il cambiamento e la continuità, la multicausalità, l'evidenza storica e l'industrializzazione per sostituzione delle importazioni.",
+    "icono": "🏭"
+  },
+  {
+    "id": 725,
+    "materia": "Historia",
+    "cluster": 5,
+    "temas": [
+      "significancia-historica",
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones",
+      "independencias",
+      "guerras"
+    ],
+    "nombre": "Maestro delle Scuole Storiografiche",
+    "descripcion": "Hai superato il parziale integrando la Scuola delle Annales, il materialismo storico e il positivismo con le grandi rivoluzioni, indipendenze e guerre.",
+    "icono": "📚"
+  },
+  {
+    "id": 736,
+    "materia": "Física",
+    "cluster": 1,
+    "temas": [
+      "calor-q-m-c-deltat",
+      "cambios-de-estado-calor-latente",
+      "campo-electrico",
+      "campo-magnetico-imanes-corrientes",
+      "cargas-electricas"
+    ],
+    "nombre": "Maestro del Calore e delle Cariche Elettriche",
+    "descripcion": "Hai completato il parziale dominando il calore specifico, i cambiamenti di stato e i campi elettrico e magnetico, capo.",
+    "icono": "🔥⚡"
+  },
+  {
+    "id": 737,
+    "materia": "Física",
+    "cluster": 2,
+    "temas": [
+      "caudal-q-a-v",
+      "choques-elasticos-inelasticos",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "circuitos-mixtos"
+    ],
+    "nombre": "Esperto di Circuiti e Urti",
+    "descripcion": "Hai dominato i circuiti in serie, in parallelo e misti, oltre alla portata e agli urti elastici e anelastici.",
+    "icono": "🔌💥"
+  },
+  {
+    "id": 738,
+    "materia": "Física",
+    "cluster": 3,
+    "temas": [
+      "conservacion-energia-mecanica",
+      "corriente-electrica",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "decibeles-richter",
+      "dilatacion-termica-lineal"
+    ],
+    "nombre": "Domina l'Energia e la Radioattività",
+    "descripcion": "Hai completato l'esame dominando la conservazione dell'energia meccanica, la corrente elettrica, il decadimento radioattivo e la dilatazione termica, capo.",
+    "icono": "☢️⚡"
+  },
+  {
+    "id": 739,
+    "materia": "Física",
+    "cluster": 4,
+    "temas": [
+      "dinamica-fuerzas-concurrentes",
+      "dualidad-onda-particula",
+      "energia-cinetica",
+      "energia-potencial-gravitatoria",
+      "entropia-segunda-ley-termodinamica"
+    ],
+    "nombre": "Maestro della Dinamica e dell'Entropia",
+    "descripcion": "Hai dominato le forze concorrenti, l'energia cinetica e potenziale, e chiuso con l'entropia e la dualità onda-particella.",
+    "icono": "⚛️⚖️"
+  },
+  {
+    "id": 740,
+    "materia": "Física",
+    "cluster": 5,
+    "temas": [
+      "escalas-de-temperatura-c-f-k",
+      "estatica/centro-de-gravedad",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "estatica/momento-de-una-fuerza",
+      "estructura-del-nucleo-atomico"
+    ],
+    "nombre": "Dominio dell'Equilibrio e delle Scale Termiche",
+    "descripcion": "Hai completato il parziale dominando il centro di gravità, l'equilibrio del corpo rigido, le scale di temperatura e la struttura del nucleo atomico, capo.",
+    "icono": "⚖️🌡️"
+  },
+  {
+    "id": 741,
+    "materia": "Física",
+    "cluster": 6,
+    "temas": [
+      "fisica-medica",
+      "fision-y-fusion-nuclear",
+      "formacion-de-imagenes-optica",
+      "formulas-con-literales",
+      "frecuencia"
+    ],
+    "nombre": "Esperto di Fisica Medica e Nucleare",
+    "descripcion": "Hai dominato la fissione e fusione nucleare, la formazione di immagini ottiche e la fisica medica, senza sbagliare una formula letterale.",
+    "icono": "🏥☢️"
+  },
+  {
+    "id": 742,
+    "materia": "Física",
+    "cluster": 7,
+    "temas": [
+      "generador-motor-transformador",
+      "gravitacion-universal",
+      "iman-polos-atraccion-repulsion",
+      "impulso-cambio-momento",
+      "induccion-electromagnetica-faraday-lenz"
+    ],
+    "nombre": "Maestro dell'Elettromagnetismo e della Gravitazione",
+    "descripcion": "Hai completato l'esame dominando generatori, motori e trasformatori, l'induzione elettromagnetica di Faraday e Lenz, e la gravitazione universale, capo.",
+    "icono": "🧲🌍"
+  },
+  {
+    "id": 743,
+    "materia": "Física",
+    "cluster": 8,
+    "temas": [
+      "lentes-convergentes-divergentes",
+      "ley-de-coulomb",
+      "ley-de-ohm",
+      "leyes-de-newton/primera-inercia",
+      "leyes-de-newton/segunda-fma"
+    ],
+    "nombre": "Dominio delle Leggi Fondamentali",
+    "descripcion": "Hai dominato la legge di Coulomb, la legge di Ohm e le prime due leggi di Newton, oltre alle lenti convergenti e divergenti.",
+    "icono": "🔍⚡"
+  },
+  {
+    "id": 744,
+    "materia": "Física",
+    "cluster": 9,
+    "temas": [
+      "leyes-de-newton/tercera-accion-reaccion",
+      "longitud-onda-velocidad-propagacion",
+      "luz-onda-espectro-electromagnetico",
+      "maquina-termica-termodinamica-nivel2",
+      "maquinas-simples"
+    ],
+    "nombre": "Maestro delle Onde e delle Macchine",
+    "descripcion": "Hai completato il parziale dominando la terza legge di Newton, la propagazione delle onde, lo spettro elettromagnetico e le macchine semplici, capo.",
+    "icono": "🌊⚙️"
+  },
+  {
+    "id": 745,
+    "materia": "Física",
+    "cluster": 10,
+    "temas": [
+      "momento-lineal",
+      "movimiento-circular-y-fuerza-centripeta",
+      "mru",
+      "ojo-humano-instrumento-optico",
+      "mruv"
+    ],
+    "nombre": "Domina il Moto e la Visione",
+    "descripcion": "Hai dominato il moto rettilineo uniforme, quello uniformemente accelerato, la quantità di moto e il moto circolare, e compreso l'occhio umano come strumento ottico.",
+    "icono": "🏃‍♂️👁️"
+  },
+  {
+    "id": 746,
+    "materia": "Física",
+    "cluster": 11,
+    "temas": [
+      "oscilacion-periodo",
+      "plano-inclinado-y-rozamiento",
+      "potencia-electrica",
+      "potencia-mecanica",
+      "presion-atmosferica"
+    ],
+    "nombre": "Maestro della Potenza e delle Oscillazioni",
+    "descripcion": "Hai completato l'esame dominando la potenza elettrica e meccanica, il piano inclinato con attrito, l'oscillazione e la pressione atmosferica, capo.",
+    "icono": "🔄⚡"
+  },
+  {
+    "id": 747,
+    "materia": "Física",
+    "cluster": 12,
+    "temas": [
+      "presion-f-sobre-a",
+      "masas-de-aire-y-frentes",
+      "presion-hidrostatica",
+      "formacion-de-nubes",
+      "principio-de-arquimedes-empuje-flotacion"
+    ],
+    "nombre": "Domina la Pressione e il Clima",
+    "descripcion": "Hai dominato la pressione idrostatica, il principio di Archimede, le masse d'aria e i fronti, e la formazione delle nuvole.",
+    "icono": "🌬️☁️"
+  },
+  {
+    "id": 748,
+    "materia": "Física",
+    "cluster": 13,
+    "temas": [
+      "precipitacion",
+      "principio-de-pascal-prensa-hidraulica",
+      "reflexion-espejos-planos-curvos",
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual"
+    ],
+    "nombre": "Maestro dell'Ottica e della Relatività",
+    "descripcion": "Hai completato il parziale dominando la riflessione, la rifrazione con la legge di Snell, il principio di Pascal e la relatività speciale, capo.",
+    "icono": "🔭🌀"
+  },
+  {
+    "id": 749,
+    "materia": "Física",
+    "cluster": 14,
+    "temas": [
+      "resistencia-electrica",
+      "resonancia-frecuencia-natural",
+      "semivida-desintegracion-exponencial",
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico"
+    ],
+    "nombre": "Domina il Suono e la Resistenza",
+    "descripcion": "Hai dominato la resistenza elettrica, la risonanza, il timbro e l'intensità del suono, e il decadimento esponenziale dell'emivita.",
+    "icono": "🔊🔋"
+  },
+  {
+    "id": 750,
+    "materia": "Física",
+    "cluster": 15,
+    "temas": [
+      "tension-diferencia-potencial",
+      "tiro-oblicuo",
+      "tiro-vertical",
+      "tormentas-y-fenomenos-severos",
+      "trabajo-de-una-fuerza",
+      "transmision-calor-conduccion-conveccion-radiacion",
+      "velocidad-aceleracion-instantaneas"
+    ],
+    "nombre": "Maestro del Tiro e delle Tempeste",
+    "descripcion": "Hai completato l'esame dominando il tiro obliquo e verticale, il lavoro di una forza, la trasmissione del calore e le tempeste violente, capo.",
+    "icono": "🎯🌪️"
+  },
+  {
+    "id": 766,
+    "materia": "Economía",
+    "cluster": 1,
+    "temas": [
+      "balanza-comercial",
+      "blockchain-claves-wallet",
+      "business-model-canvas",
+      "capitalismo-industrial-trabajo-asalariado",
+      "comercio-internacional-ventaja-comparativa"
+    ],
+    "nombre": "Maestro del Commercio Globale e della Blockchain",
+    "descripcion": "Hai compreso la bilancia commerciale, il vantaggio comparato e mosso i primi passi nella blockchain e nei modelli di business.",
+    "icono": "🌐"
+  },
+  {
+    "id": 767,
+    "materia": "Economía",
+    "cluster": 2,
+    "temas": [
+      "contratos-inteligentes",
+      "control-de-gestion-e-indicadores",
+      "cooperativismo-y-mutualismo",
+      "coordinar-personas-y-recursos",
+      "costo-de-oportunidad"
+    ],
+    "nombre": "Maestro della Gestione e del Costo Opportunità",
+    "descripcion": "Hai dominato il controllo di gestione, coordinato persone e risorse, e compreso il costo opportunità e il cooperativismo.",
+    "icono": "🤝"
+  },
+  {
+    "id": 768,
+    "materia": "Economía",
+    "cluster": 3,
+    "temas": [
+      "costo-marginal",
+      "debe-haber-balance",
+      "detectar-una-oportunidad-de-negocio",
+      "dex-swap",
+      "division-formal-microeconomia-macroeconomia"
+    ],
+    "nombre": "Domina il Costo Marginale e le Basi Contabili",
+    "descripcion": "Hai imparato il dare e l'avere, calcolato il costo marginale e distinto la microeconomia dalla macroeconomia, capo.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 769,
+    "materia": "Economía",
+    "cluster": 4,
+    "temas": [
+      "elasticidad",
+      "economia-positiva-y-normativa",
+      "estado-de-resultados",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia"
+    ],
+    "nombre": "Maestro dell'Elasticità e dei Bilanci",
+    "descripcion": "Hai completato il parziale analizzando l'elasticità, il conto economico e la struttura produttiva del paese.",
+    "icono": "📉"
+  },
+  {
+    "id": 770,
+    "materia": "Economía",
+    "cluster": 5,
+    "temas": [
+      "ecuacion-contable-fundamental",
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "margenes-bruto-y-neto"
+    ],
+    "nombre": "Maestro dell'Equazione Contabile e degli Interessi",
+    "descripcion": "Hai calcolato interesse semplice e composto, applicato l'IVA e dominato il margine lordo e netto.",
+    "icono": "🧮"
+  },
+  {
+    "id": 771,
+    "materia": "Economía",
+    "cluster": 6,
+    "temas": [
+      "cft-vs-tasa-nominal",
+      "cuota-credito-frances",
+      "interes-compuesto-funcion",
+      "mejora-continua",
+      "mvp-producto-minimo-viable"
+    ],
+    "nombre": "Domina il Credito e il Miglioramento Continuo",
+    "descripcion": "Hai distinto il costo finanziario totale dal tasso nominale, calcolato le rate del sistema francese e applicato il miglioramento continuo a un MVP.",
+    "icono": "💳"
+  },
+  {
+    "id": 772,
+    "materia": "Economía",
+    "cluster": 7,
+    "temas": [
+      "objetivos-y-metas",
+      "origen-excedente-moneda-mercado",
+      "partida-doble",
+      "pitch-a-inversores",
+      "libro-diario-mayor"
+    ],
+    "nombre": "Maestro della Partita Doppia e del Pitch",
+    "descripcion": "Hai registrato la partita doppia nel libro giornale, compreso l'origine dell'eccedenza monetaria e preparato il tuo pitch agli investitori.",
+    "icono": "📒"
+  },
+  {
+    "id": 773,
+    "materia": "Economía",
+    "cluster": 8,
+    "temas": [
+      "planificacion-administrativa",
+      "estados-contables",
+      "plazo-fijo-vs-inflacion",
+      "contabilidad-ambiental",
+      "contabilidad-como-sistema-de-informacion"
+    ],
+    "nombre": "Dominio della Pianificazione e dei Bilanci",
+    "descripcion": "Hai pianificato come un amministratore, letto bilanci e confrontato il deposito vincolato con l'inflazione, capo.",
+    "icono": "📑"
+  },
+  {
+    "id": 774,
+    "materia": "Economía",
+    "cluster": 9,
+    "temas": [
+      "indices-financieros",
+      "pools-liquidez-amm",
+      "precio-final",
+      "presupuesto-administrativo",
+      "oferta-y-demanda"
+    ],
+    "nombre": "Maestro degli Indici Finanziari e della Liquidità",
+    "descripcion": "Hai analizzato indici finanziari, pool di liquidità, prezzo finale e la legge della domanda e dell'offerta.",
+    "icono": "💧"
+  },
+  {
+    "id": 775,
+    "materia": "Economía",
+    "cluster": 10,
+    "temas": [
+      "productividad-produccion-insumos",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca"
+    ],
+    "nombre": "Maestro delle Correnti Economiche Classiche",
+    "descripcion": "Hai ripercorso il mercantilismo, la fisiocrazia e il liberalismo classico, e compreso il PIL e l'inflazione.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 776,
+    "materia": "Economía",
+    "cluster": 11,
+    "temas": [
+      "punto-de-equilibrio",
+      "recibo-de-sueldo/general",
+      "sectores-economicos",
+      "recibo-de-sueldo/argentina",
+      "socialismo-utopico"
+    ],
+    "nombre": "Domina il Punto di Pareggio e la Busta Paga",
+    "descripcion": "Hai calcolato il punto di pareggio, letto la tua busta paga argentina e conosciuto il socialismo utopico.",
+    "icono": "💵"
+  },
+  {
+    "id": 777,
+    "materia": "Economía",
+    "cluster": 12,
+    "temas": [
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "marxismo",
+      "monotributo"
+    ],
+    "nombre": "Maestro della Pensione e delle Trattenute Obbligatorie",
+    "descripcion": "Hai compreso le trattenute per pensione e assistenza sanitaria, il sistema previdenziale, il regime forfettario e le idee di Marx.",
+    "icono": "🏦"
+  },
+  {
+    "id": 778,
+    "materia": "Economía",
+    "cluster": 13,
+    "temas": [
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo",
+      "sueldo-promedio-pais",
+      "neoliberalismo",
+      "ordoliberalismo"
+    ],
+    "nombre": "Maestro delle Correnti Economiche Moderne",
+    "descripcion": "Hai confrontato keynesismo, neoliberalismo e ordoliberalismo, e scoperto l'economia femminista e della cura.",
+    "icono": "📚"
+  },
+  {
+    "id": 779,
+    "materia": "Economía",
+    "cluster": 14,
+    "temas": [
+      "tipo-cambio-fijo",
+      "tipo-cambio-flotante",
+      "tipos-de-organizaciones",
+      "devaluacion",
+      "elementos-de-las-organizaciones"
+    ],
+    "nombre": "Domina il Tasso di Cambio e le Organizzazioni",
+    "descripcion": "Hai distinto il tasso di cambio fisso da quello flottante, compreso la svalutazione e gli elementi di un'organizzazione.",
+    "icono": "💱"
+  },
+  {
+    "id": 780,
+    "materia": "Economía",
+    "cluster": 15,
+    "temas": [
+      "reservas-banco-central",
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "deuda-publica-externa",
+      "deuda-publica-interna"
+    ],
+    "nombre": "Maestro delle Riserve e del Debito Pubblico",
+    "descripcion": "Hai analizzato le riserve della banca centrale, il debito pubblico interno ed estero, e la cultura organizzativa, capo.",
+    "icono": "🏦"
+  },
+  {
+    "id": 781,
+    "materia": "Economía",
+    "cluster": 16,
+    "temas": [
+      "estructura-organizacional",
+      "default-deuda",
+      "tipos-de-proyecto",
+      "tipos-de-sociedades",
+      "validar-con-clientes-construir-medir-aprender"
+    ],
+    "nombre": "Domina la Struttura Organizzativa e il Default",
+    "descripcion": "Hai compreso la struttura organizzativa, i tipi di società e di progetto, e cosa succede in un default del debito.",
+    "icono": "🏢"
+  },
+  {
+    "id": 782,
+    "materia": "Economía",
+    "cluster": 17,
+    "temas": [
+      "valor-esperado-riesgo",
+      "vision-y-mision-organizacional",
+      "fondo-emergencia-diversificacion",
+      "estudio-de-contexto-para-un-proyecto",
+      "seguros"
+    ],
+    "nombre": "Maestro del Rischio e della Pianificazione Finanziaria",
+    "descripcion": "Hai calcolato il valore atteso e il rischio, costruito un fondo di emergenza diversificato e valutato assicurazioni e missione organizzativa.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 796,
+    "materia": "Geografía",
+    "cluster": 1,
+    "temas": [
+      "america-anglosajona",
+      "coordenadas-y-husos-horarios",
+      "densidad-poblacion",
+      "escala-de-mapa",
+      "huella-de-carbono-agua-virtual"
+    ],
+    "nombre": "Maestro di Coordinate e Impronta Ecologica",
+    "descripcion": "Hai completato il parziale dominando fusi orari, scala della mappa, densità di popolazione e impronta di carbonio.",
+    "icono": "🌍"
+  },
+  {
+    "id": 797,
+    "materia": "Geografía",
+    "cluster": 2,
+    "temas": [
+      "orientacion-puntos-cardinales",
+      "urbanizacion-migracion-ciudad",
+      "mapa-plano-escala",
+      "coordenadas-geograficas",
+      "division-politica"
+    ],
+    "nombre": "Maestro dell'Orientamento e dell'Urbanizzazione",
+    "descripcion": "Hai dominato i punti cardinali, le coordinate geografiche, l'urbanizzazione e la divisione politica, capo.",
+    "icono": "🧭"
+  },
+  {
+    "id": 798,
+    "materia": "Geografía",
+    "cluster": 3,
+    "temas": [
+      "sig-mapas-digitales",
+      "estados-y-globalizacion",
+      "region",
+      "sig-gps",
+      "relieve-clima-biomas"
+    ],
+    "nombre": "Maestro dei GIS e del Rilievo",
+    "descripcion": "Hai completato l'esame integrando mappe digitali, GPS, rilievo, clima e biomi, oltre a stati e globalizzazione.",
+    "icono": "🛰️"
+  },
+  {
+    "id": 799,
+    "materia": "Geografía",
+    "cluster": 4,
+    "temas": [
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas",
+      "regiones-naturales-de-argentina",
+      "geografia-economica-agricola-argentina",
+      "geografia-industrial-mundial"
+    ],
+    "nombre": "Maestro della Geografia Economica Argentina",
+    "descripcion": "Hai dominato le immagini satellitari, le regioni naturali e la geografia agricola e industriale dell'Argentina.",
+    "icono": "🌾"
+  },
+  {
+    "id": 800,
+    "materia": "Geografía",
+    "cluster": 5,
+    "temas": [
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia",
+      "poblacion-piramides-migraciones",
+      "produccion-agraria-mundial-y-biotecnologia",
+      "ambiente-y-recursos"
+    ],
+    "nombre": "Maestro dell'Energia e della Popolazione",
+    "descripcion": "Hai completato il parziale sull'estrazione mineraria e gli idrocarburi, l'industria e l'energia latinoamericana, e le piramidi della popolazione.",
+    "icono": "⛏️"
+  },
+  {
+    "id": 801,
+    "materia": "Geografía",
+    "cluster": 6,
+    "temas": [
+      "america-latina-formacion-poblacion",
+      "ambientalismo-liberal",
+      "conservacionismo",
+      "decrecimiento",
+      "ecologismo-politico"
+    ],
+    "nombre": "Maestro dell'Ambientalismo Latinoamericano",
+    "descripcion": "Hai integrato la formazione della popolazione dell'America Latina con il conservazionismo, la decrescita e l'ecologismo politico.",
+    "icono": "🌱"
+  },
+  {
+    "id": 802,
+    "materia": "Geografía",
+    "cluster": 7,
+    "temas": [
+      "indicadores-sociales-de-argentina",
+      "migraciones-internacionales",
+      "indice-de-desarrollo-humano",
+      "migraciones-internas-en-argentina",
+      "paises-de-america-latina"
+    ],
+    "nombre": "Maestro degli Indicatori Sociali e delle Migrazioni",
+    "descripcion": "Hai completato l'esame capo sull'ISU, le migrazioni interne e internazionali e i paesi dell'America Latina.",
+    "icono": "📊"
+  },
+  {
+    "id": 803,
+    "materia": "Geografía",
+    "cluster": 8,
+    "temas": [
+      "recursos-hidricos-y-gestion",
+      "riesgos-naturales-argentinos",
+      "trabajo-y-desempleo-mundial",
+      "riesgos-ambientales-mundiales",
+      "turismo-mundial"
+    ],
+    "nombre": "Maestro dei Rischi e delle Risorse Globali",
+    "descripcion": "Hai dominato la gestione delle risorse idriche, i rischi naturali e ambientali, la disoccupazione mondiale e il turismo, capo.",
+    "icono": "🌊"
+  },
+  {
+    "id": 816,
+    "materia": "Informática",
+    "cluster": 1,
+    "temas": [
+      "algebra-booleana",
+      "algoritmo-secuencia-de-pasos",
+      "algoritmos-busqueda-ordenamiento",
+      "almacenamiento-volatil-vs-no-volatil",
+      "archivos-y-persistencia"
+    ],
+    "nombre": "Maestro di Algoritmi e Persistenza",
+    "descripcion": "Hai completato il parziale dominando l'algebra booleana, gli algoritmi di ricerca e ordinamento, e la persistenza dei file.",
+    "icono": "🧠"
+  },
+  {
+    "id": 817,
+    "materia": "Informática",
+    "cluster": 2,
+    "temas": [
+      "buses-y-entrada-salida",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "complejidad-asintotica",
+      "control-de-versiones",
+      "cpu-unidad-de-control-y-alu"
+    ],
+    "nombre": "Maestro del Ciclo di Istruzione",
+    "descripcion": "Hai ripercorso i bus, il ciclo fetch-decode-execute, la complessità asintotica e il controllo di versione senza sbagliare.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 818,
+    "materia": "Informática",
+    "cluster": 3,
+    "temas": [
+      "criptografia-clave-simetrica-asimetrica-hash",
+      "direccionamiento-ip-dns",
+      "diseno-y-arquitectura-de-software",
+      "estructuras-de-control-bucles",
+      "estructuras-de-control-condicionales"
+    ],
+    "nombre": "Maestro delle Reti e del Controllo di Flusso",
+    "descripcion": "Hai completato il parziale integrando crittografia, indirizzamento IP/DNS, progettazione del software e strutture di controllo.",
+    "icono": "🔐"
+  },
+  {
+    "id": 819,
+    "materia": "Informática",
+    "cluster": 4,
+    "temas": [
+      "estructuras-de-datos-listas-pilas-colas",
+      "etica-de-la-ia-sesgo-privacidad",
+      "funciones-y-modularidad",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "inteligencia-artificial-reglas-a-aprendizaje"
+    ],
+    "nombre": "Maestro delle Strutture Dati e dell'IA",
+    "descripcion": "Hai dominato liste, pile e code, la modularità delle funzioni, la storia dei sistemi operativi e l'etica dell'IA, capo.",
+    "icono": "🤖"
+  },
+  {
+    "id": 820,
+    "materia": "Informática",
+    "cluster": 5,
+    "temas": [
+      "arranque-de-la-computadora-boot",
+      "mantenimiento-y-deuda-tecnica",
+      "memoria-asignacion-memoria-virtual",
+      "memoria-ram-cache-jerarquia",
+      "modelo-relacional-tabla-registro-clave-primaria"
+    ],
+    "nombre": "Maestro dell'Avvio e della Memoria",
+    "descripcion": "Hai completato il parziale dominando il boot del sistema, la gerarchia di memoria RAM/cache, la memoria virtuale e il modello relazionale.",
+    "icono": "💾"
+  },
+  {
+    "id": 821,
+    "materia": "Informática",
+    "cluster": 6,
+    "temas": [
+      "normalizacion-bases-datos",
+      "ofimatica-planilla-de-calculo",
+      "paginacion",
+      "patrones-y-buenas-practicas",
+      "permisos-y-usuarios"
+    ],
+    "nombre": "Maestro dei Database e dei Permessi",
+    "descripcion": "Hai superato l'esame integrando normalizzazione, paginazione, permessi utente e buone pratiche di progettazione.",
+    "icono": "🗄️"
+  },
+  {
+    "id": 822,
+    "materia": "Informática",
+    "cluster": 7,
+    "temas": [
+      "planificacion-de-procesos",
+      "poo-clases-y-objetos",
+      "interrupciones",
+      "proceso-programa-en-ejecucion",
+      "protocolo-http-peticion-respuesta"
+    ],
+    "nombre": "Maestro dei Processi e degli Oggetti",
+    "descripcion": "Hai completato il parziale dominando lo scheduling dei processi, la OOP, le interruzioni e il protocollo HTTP.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 823,
+    "materia": "Informática",
+    "cluster": 8,
+    "temas": [
+      "comunicacion-entre-procesos",
+      "pruebas-unitarias-integracion",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "recursividad",
+      "medios-tecnicos-extension-capacidades-humanas"
+    ],
+    "nombre": "Maestro della Tecnica e della Ricorsione",
+    "descripcion": "Hai integrato la comunicazione tra processi, i test unitari, la ricorsione e il concetto di tecnica e tecnologia, capo.",
+    "icono": "🔁"
+  },
+  {
+    "id": 824,
+    "materia": "Informática",
+    "cluster": 9,
+    "temas": [
+      "relaciones-y-claves-foraneas",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "requisitos-funcionales-no-funcionales",
+      "revolucion-informatica",
+      "segmentacion"
+    ],
+    "nombre": "Maestro delle Relazioni e dei Requisiti",
+    "descripcion": "Hai completato l'esame sulle chiavi esterne, i processi tecnici, i requisiti funzionali e la rivoluzione informatica.",
+    "icono": "🔗"
+  },
+  {
+    "id": 825,
+    "materia": "Informática",
+    "cluster": 10,
+    "temas": [
+      "seguridad-de-red-firewall-vpn-cifrado",
+      "seguridad-informatica",
+      "sistema-de-archivos",
+      "sistemas-numeracion",
+      "sistema-de-archivos-por-bitacora"
+    ],
+    "nombre": "Guardiano della Sicurezza e dei File",
+    "descripcion": "Hai protetto sistemi con firewall, VPN e cifratura, e dominato i sistemi di numerazione e i file system journaling.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 826,
+    "materia": "Informática",
+    "cluster": 11,
+    "temas": [
+      "sql-consultas-joins-agregaciones",
+      "subsistema-de-entrada-y-salida",
+      "tcp-ip-capas-enrutamiento",
+      "tipos-de-licencias-de-software",
+      "tipos-de-so-por-dispositivo",
+      "transacciones-acid",
+      "unidades-almacenamiento",
+      "variables-y-tipos-de-dato",
+      "virtualizacion-maquina-virtual-contenedor"
+    ],
+    "nombre": "Maestro di SQL, Reti e Virtualizzazione",
+    "descripcion": "Hai completato l'esame capo dominando i join SQL, i livelli TCP/IP, le transazioni ACID e la virtualizzazione.",
+    "icono": "☁️"
+  },
+  {
+    "id": 841,
+    "materia": "Química",
+    "cluster": 1,
+    "temas": [
+      "atomo-particulas-subatomicas",
+      "balanceo-ecuaciones",
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "carbono-tetravalencia-cadenas",
+      "cinetica-reaccion"
+    ],
+    "nombre": "Maestro dell'Atomo e delle Biomolecole",
+    "descripcion": "Hai dominato le particelle subatomiche, il bilanciamento delle equazioni, le biomolecole e la cinetica di reazione.",
+    "icono": "⚛️"
+  },
+  {
+    "id": 842,
+    "materia": "Química",
+    "cluster": 2,
+    "temas": [
+      "concentracion-de-una-solucion",
+      "configuracion-electronica",
+      "densidad",
+      "dilucion-soluciones",
+      "electrolisis"
+    ],
+    "nombre": "Maestro delle Soluzioni e dell'Elettrolisi",
+    "descripcion": "Hai completato il parziale dominando la concentrazione e la diluizione delle soluzioni, la configurazione elettronica e l'elettrolisi.",
+    "icono": "🧪"
+  },
+  {
+    "id": 843,
+    "materia": "Química",
+    "cluster": 3,
+    "temas": [
+      "energia-libre-gibbs",
+      "enlace-quimico-polaridad",
+      "equilibrio-quimico-kc",
+      "equilibrio-solubilidad-ksp",
+      "estados-y-cambios"
+    ],
+    "nombre": "Maestro dell'Equilibrio e dell'Energia Libera",
+    "descripcion": "Hai integrato l'energia libera di Gibbs, la polarità dei legami e gli equilibri Kc e Ksp, capo.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 844,
+    "materia": "Química",
+    "cluster": 4,
+    "temas": [
+      "estequiometria",
+      "gases-ideales",
+      "geometria-molecular-vsepr",
+      "grupos-funcionales",
+      "hidrocarburos-alcanos-alquenos-alquinos"
+    ],
+    "nombre": "Maestro della Stechiometria e degli Idrocarburi",
+    "descripcion": "Hai completato l'esame sulla stechiometria, i gas ideali, la geometria molecolare VSEPR e gli idrocarburi.",
+    "icono": "⛽"
+  },
+  {
+    "id": 845,
+    "materia": "Química",
+    "cluster": 5,
+    "temas": [
+      "medicion-de-laboratorio",
+      "mezclas-metodos-separacion",
+      "modelos-atomicos",
+      "mol-masa-molar",
+      "nanotecnologia"
+    ],
+    "nombre": "Maestro della Misurazione e dei Modelli Atomici",
+    "descripcion": "Hai dominato la misurazione di laboratorio, i metodi di separazione delle miscele, i modelli atomici e la mole.",
+    "icono": "🔬"
+  },
+  {
+    "id": 846,
+    "materia": "Química",
+    "cluster": 6,
+    "temas": [
+      "nomenclatura-compuestos",
+      "numero-atomico-masico",
+      "oxidacion-reduccion",
+      "petroleo-como-recurso-energetico",
+      "ph-poh"
+    ],
+    "nombre": "Maestro della Nomenclatura e del Redox",
+    "descripcion": "Hai completato il parziale integrando la nomenclatura chimica, il numero atomico e di massa, l'ossidoriduzione e il pH/pOH.",
+    "icono": "🧫"
+  },
+  {
+    "id": 847,
+    "materia": "Química",
+    "cluster": 7,
+    "temas": [
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
+      "propiedades-coligativas",
+      "quimica-analitica"
+    ],
+    "nombre": "Maestro delle Celle Galvaniche e dei Polimeri",
+    "descripcion": "Hai dominato le pile galvaniche, i polimeri naturali e sintetici, le pressioni parziali e le proprietà colligative, capo.",
+    "icono": "🔋"
+  },
+  {
+    "id": 848,
+    "materia": "Química",
+    "cluster": 8,
+    "temas": [
+      "quimica-de-la-atmosfera",
+      "reactivo-limitante-rendimiento",
+      "seguridad-laboratorio",
+      "superconductividad",
+      "tabla-periodica-tendencias",
+      "termoquimica",
+      "tipos-reacciones-quimicas"
+    ],
+    "nombre": "Maestro della Tavola Periodica e della Termochimica",
+    "descripcion": "Hai completato l'esame capo sulle tendenze periodiche, la termochimica, i tipi di reazioni e il reagente limitante.",
+    "icono": "🧯"
+  },
+  {
+    "id": 861,
+    "materia": "Biología",
+    "cluster": 1,
+    "temas": [
+      "adn-gen-proteina",
+      "biodiversidad-indices",
+      "biotecnologia-pcr-crispr",
+      "cadenas-redes-troficas",
+      "celula-organelas"
+    ],
+    "nombre": "Maestro del DNA e della Cellula",
+    "descripcion": "Hai dominato il dogma centrale del DNA, l'editing genico con CRISPR, le reti trofiche e l'organizzazione interna della cellula.",
+    "icono": "🧬"
+  },
+  {
+    "id": 862,
+    "materia": "Biología",
+    "cluster": 2,
+    "temas": [
+      "ciclos-biogeoquimicos",
+      "ciclos-vida-metamorfosis",
+      "clasificacion-evolucion",
+      "conservacion-areas-protegidas",
+      "crecimiento-poblacional"
+    ],
+    "nombre": "Maestro dei Cicli e della Conservazione",
+    "descripcion": "Hai superato il parziale sui cicli biogeochimici, la metamorfosi, la classificazione evolutiva e la conservazione delle aree protette, capo.",
+    "icono": "🌎"
+  },
+  {
+    "id": 863,
+    "materia": "Biología",
+    "cluster": 3,
+    "temas": [
+      "cruce-dihibrido",
+      "deriva-genetica-flujo-genico",
+      "dinamica-poblacional-capacidad-carga",
+      "enzimas-proteina-sustrato-ph",
+      "especiacion"
+    ],
+    "nombre": "Maestro della Genetica delle Popolazioni",
+    "descripcion": "Hai completato l'esame capo sugli incroci diibridi, la deriva genetica, la capacità portante della popolazione e la speciazione.",
+    "icono": "🧬"
+  },
+  {
+    "id": 864,
+    "materia": "Biología",
+    "cluster": 4,
+    "temas": [
+      "filogenia-arboles-evolutivos",
+      "flujo-materia-energia",
+      "fotosintesis-respiracion-celular",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos"
+    ],
+    "nombre": "Esperto di Filogenesi ed Eredità Mendeliana",
+    "descripcion": "Hai completato il parziale integrando alberi filogenetici, fotosintesi, respirazione cellulare e i quadrati di Punnett.",
+    "icono": "🧬"
+  },
+  {
+    "id": 865,
+    "materia": "Biología",
+    "cluster": 5,
+    "temas": [
+      "habitats-adaptacion",
+      "herencia-ligada-al-sexo",
+      "mal-de-chagas",
+      "microbiologia-virus-inmunitario",
+      "mitosis-meiosis"
+    ],
+    "nombre": "Maestro dell'Eredità e delle Difese del Corpo",
+    "descripcion": "Hai superato l'esame sull'adattamento agli habitat, l'eredità legata al sesso, il morbo di Chagas e la risposta immunitaria contro i virus.",
+    "icono": "🦠"
+  },
+  {
+    "id": 866,
+    "materia": "Biología",
+    "cluster": 6,
+    "temas": [
+      "necesidades-basicas-seres-vivos",
+      "nicho-ecologico",
+      "partes-planta-germinacion",
+      "piramide-biomasas",
+      "presion-arterial"
+    ],
+    "nombre": "Maestro degli Esseri Viventi e dei loro Bisogni",
+    "descripcion": "Hai completato il parziale sui bisogni fondamentali degli esseri viventi, la nicchia ecologica, la germinazione delle piante e la piramide delle biomasse.",
+    "icono": "🌱"
+  },
+  {
+    "id": 867,
+    "materia": "Biología",
+    "cluster": 7,
+    "temas": [
+      "quimiosintesis",
+      "seleccion-natural",
+      "ser-vivo-caracteristicas",
+      "sistema-endocrino-hormonas-glandulas",
+      "sistema-nervioso-neurona-sinapsis",
+      "sistemas-cuerpo-humano",
+      "transgenicos-bioetica"
+    ],
+    "nombre": "Maestro dei Sistemi del Corpo e della Bioetica",
+    "descripcion": "Hai completato l'esame capo dominando il sistema nervoso, il sistema endocrino, la selezione naturale e il dibattito bioetico sugli organismi transgenici.",
+    "icono": "🧠"
+  },
+  {
+    "id": 879,
+    "materia": "Cívica",
+    "cluster": 1,
+    "temas": [
+      "constitucion-nacional-jerarquia-normativa",
+      "derechos-nino",
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-indigenas",
+      "encuesta-electoral"
+    ],
+    "nombre": "Difensore dei Diritti e della Costituzione",
+    "descripcion": "Hai superato il parziale sulla gerarchia costituzionale, i diritti del bambino, i popoli indigeni e gli organismi contro la discriminazione.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 880,
+    "materia": "Cívica",
+    "cluster": 2,
+    "temas": [
+      "derechos-genero",
+      "estado-de-derecho-por-que-importa",
+      "marchas-patrioticas",
+      "organizacion-del-estado",
+      "origen-estado-derecho"
+    ],
+    "nombre": "Maestro dello Stato di Diritto",
+    "descripcion": "Hai completato l'esame capo sull'origine e l'importanza dello Stato di Diritto, l'organizzazione statale e i diritti di genere.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 881,
+    "materia": "Cívica",
+    "cluster": 3,
+    "temas": [
+      "constitucion-preambulo",
+      "division-de-poderes",
+      "derechos-y-garantias",
+      "como-se-hace-una-ley",
+      "documentos-y-tramites"
+    ],
+    "nombre": "Maestro della Costituzione e delle Leggi",
+    "descripcion": "Hai superato il parziale sul preambolo costituzionale, la divisione dei poteri, le garanzie e come si approva una legge.",
+    "icono": "📜"
+  },
+  {
+    "id": 882,
+    "materia": "Cívica",
+    "cluster": 4,
+    "temas": [
+      "impuestos",
+      "alcoholemia-y-conduccion",
+      "prioridades-de-paso",
+      "proyecto-ciudadano-participativo",
+      "senalizacion-vial"
+    ],
+    "nombre": "Cittadino Responsabile sulla Strada",
+    "descripcion": "Hai completato l'esame capo su tasse, tasso alcolemico alla guida, segnaletica stradale e partecipazione cittadina.",
+    "icono": "🚦"
+  },
+  {
+    "id": 883,
+    "materia": "Cívica",
+    "cluster": 5,
+    "temas": [
+      "simbolos-patrios",
+      "sistema-de-salud",
+      "sistema-electoral-dhondt",
+      "sistemas-politicos-comparados",
+      "sueldo-promedio-pais"
+    ],
+    "nombre": "Maestro dei Sistemi del Paese",
+    "descripcion": "Hai superato il parziale sui simboli patri, il sistema sanitario, il metodo D'Hondt e i sistemi politici comparati, capo.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 884,
+    "materia": "Cívica",
+    "cluster": 6,
+    "temas": [
+      "partidos-politicos",
+      "sufragio-restringido-universal",
+      "organismos-internacionales",
+      "teoria-del-poder",
+      "tratados-internacionales",
+      "tipos-de-estado"
+    ],
+    "nombre": "Maestro del Potere e della Politica Internazionale",
+    "descripcion": "Hai completato l'esame capo sui partiti politici, l'evoluzione del suffragio, i trattati internazionali e i tipi di Stato.",
+    "icono": "🌐"
+  },
+  {
+    "id": 894,
+    "materia": "Derecho",
+    "cluster": 1,
+    "temas": [
+      "apelacion-e-instancias",
+      "argumentacion-juridica",
+      "corrientes-interpretacion-juridica",
+      "denuncia-y-etapa-de-instruccion",
+      "derecho-administrativo"
+    ],
+    "nombre": "Maestro dell'Appello e dell'Argomentazione",
+    "descripcion": "Hai completato l'esame capo sulle istanze di appello, l'argomentazione giuridica e la fase istruttoria.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 895,
+    "materia": "Derecho",
+    "cluster": 2,
+    "temas": [
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional",
+      "derecho-internacional",
+      "derecho-laboral"
+    ],
+    "nombre": "Giurista Multidisciplinare",
+    "descripcion": "Hai superato il parziale integrando il diritto civile, commerciale, costituzionale, internazionale e del lavoro, capo.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 896,
+    "materia": "Derecho",
+    "cluster": 3,
+    "temas": [
+      "derecho-penal",
+      "ejecucion-de-la-sentencia",
+      "fuentes-del-derecho",
+      "hecho-juridicamente-relevante",
+      "interpretacion-normativa"
+    ],
+    "nombre": "Maestro del Diritto Penale e delle sue Fonti",
+    "descripcion": "Hai completato l'esame capo sul diritto penale, le fonti del diritto e l'esecuzione della sentenza.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 897,
+    "materia": "Derecho",
+    "cluster": 4,
+    "temas": [
+      "investigacion-prueba-y-fiscalia",
+      "juicio-oral",
+      "norma-jerarquia-y-vigencia",
+      "politica-criminal-garantismo-mano-dura",
+      "ramas-del-derecho",
+      "resolucion-de-conflictos-y-sentencia"
+    ],
+    "nombre": "Maestro del Processo Penale e della Sentenza",
+    "descripcion": "Hai superato il parziale sull'indagine del pubblico ministero, il dibattimento, la politica criminale e la risoluzione dei conflitti fino alla sentenza.",
+    "icono": "👨‍⚖️"
+  },
+  {
+    "id": 904,
     "materia": "Arte",
     "cluster": 1,
     "temas": [
@@ -2451,38 +2417,70 @@
       "danza-ritmo-tiempo-expresion-corporal",
       "elementos-del-arte"
     ],
-    "nombre": "Maestro degli Elementi Artistici",
-    "descripcion": "Hai completato l'esame che integra acustica, armonia, composizione, danza e gli elementi fondamentali dell'arte.",
+    "nombre": "Maestro degli Elementi dell'Arte",
+    "descripcion": "Hai completato l'esame capo integrando l'acustica, l'armonia musicale, la composizione e l'espressione corporea nella danza.",
     "icono": "🎨"
   },
   {
-    "id": 215,
+    "id": 905,
     "materia": "Arte",
     "cluster": 2,
     "temas": [
       "lenguaje-musical-pentagrama-escalas-intervalos",
-      "narrativa-audiovisual/encuadre",
-      "narrativa-audiovisual/montaje",
-      "narrativa-audiovisual/plano",
-      "origen-del-arte"
+      "origen-del-arte",
+      "principios-de-diseno",
+      "ritmo-compas-pulso-figuras-musicales",
+      "narrativa-audiovisual/plano"
     ],
-    "nombre": "Maestro del Linguaggio Artistico",
-    "descripcion": "Hai completato l'esame principale padroneggiando tutto, dallo spartito al montaggio audiovisivo.",
-    "icono": "🎨"
+    "nombre": "Maestro del Linguaggio Musicale e del Design",
+    "descripcion": "Hai superato il parziale sul pentagramma, le scale, i principi di design e le inquadrature nella narrazione audiovisiva, capo.",
+    "icono": "🎼"
   },
   {
-    "id": 216,
+    "id": 906,
     "materia": "Arte",
     "cluster": 3,
     "temas": [
-      "principios-de-diseno",
-      "produccion-multimedial",
-      "ritmo-compas-pulso-figuras-musicales",
       "rosetones-y-simetria",
-      "teatro-dramaturgia-y-actuacion"
+      "narrativa-audiovisual/encuadre",
+      "teatro-dramaturgia-y-actuacion",
+      "narrativa-audiovisual/montaje",
+      "produccion-multimedial"
     ],
-    "nombre": "Maestro delle Arti e delle Scene",
-    "descripcion": "Hai completato l'esame principale coprendo design, musica, architettura e teatro.",
-    "icono": "🎭"
+    "nombre": "Maestro della Scena e dell'Audiovisivo",
+    "descripcion": "Hai completato l'esame capo su teatro e recitazione, l'inquadratura e il montaggio audiovisivo, la produzione multimediale e la simmetria dei rosoni.",
+    "icono": "🎬"
+  },
+  {
+    "id": 912,
+    "materia": "Investigación",
+    "cluster": 1,
+    "temas": [
+      "analisis-estadistico-de-resultados",
+      "argumentar-desde-evidencia",
+      "conclusion-y-comunicacion-de-resultados",
+      "construir-y-usar-un-modelo-cientifico",
+      "corrientes-filosofia-de-la-ciencia"
+    ],
+    "nombre": "Dominio del Metodo Scientifico",
+    "descripcion": "Hai completato l'esame capo integrando l'analisi statistica, l'argomentazione basata sull'evidenza e le correnti della filosofia della scienza.",
+    "icono": "🔬"
+  },
+  {
+    "id": 913,
+    "materia": "Investigación",
+    "cluster": 2,
+    "temas": [
+      "diseno-experimental-variables-y-control",
+      "hipotesis-buena-o-mala",
+      "observacion-y-pregunta-investigable",
+      "recoleccion-de-datos",
+      "metodologia-cualitativa-vs-cuantitativa",
+      "trabajo-de-campo-enfoque-socioantropologico",
+      "tecnicas-de-investigacion-social"
+    ],
+    "nombre": "Maestro del Disegno Sperimentale e sul Campo",
+    "descripcion": "Hai superato il parziale sul disegno sperimentale, la formulazione di ipotesi, la metodologia qualitativa e quantitativa, e il lavoro sul campo socio-antropologico.",
+    "icono": "🧪"
   }
 ]
