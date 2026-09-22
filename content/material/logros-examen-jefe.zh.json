@@ -1,1974 +1,5 @@
 [
   {
-    "id": 52,
-    "materia": "Matemática",
-    "cluster": 1,
-    "temas": [
-      "algoritmos-de-recorrido-bfs-dfs",
-      "analisis-dimensional",
-      "angulos",
-      "arboles-grafo-sin-ciclos",
-      "area-poligonos-regulares-y-compuestas"
-    ],
-    "nombre": "Maestro del Grafismo y Geometría",
-    "descripcion": "Exploraste grafos con BFS y DFS, analizaste dimensiones y calculaste áreas de polígonos sin fallar.",
-    "icono": "🌳"
-  },
-  {
-    "id": 53,
-    "materia": "Matemática",
-    "cluster": 2,
-    "temas": [
-      "asintotas",
-      "caminos-y-ciclos",
-      "cifras-significativas-y-error",
-      "circunferencia-y-circulo",
-      "combinaciones"
-    ],
-    "nombre": "Domina asintotas y combinaciones",
-    "descripcion": "Examen parcial completado con éxito, integrando análisis de funciones geométricas y conteo combinatorio.",
-    "icono": "📐"
-  },
-  {
-    "id": 54,
-    "materia": "Matemática",
-    "cluster": 3,
-    "temas": [
-      "concavidad-y-puntos-de-inflexion",
-      "congruencia-de-triangulos",
-      "conjuntos-pertenencia-e-inclusion",
-      "construir-un-grafico",
-      "conteo"
-    ],
-    "nombre": "Maestro de Conjuntos y Gráficos",
-    "descripcion": "Analizaste la concavidad, congruencia y conteo con precisión.",
-    "icono": "📐"
-  },
-  {
-    "id": 55,
-    "materia": "Matemática",
-    "cluster": 4,
-    "temas": [
-      "continuidad",
-      "coordenadas-de-un-punto",
-      "correlacion-no-es-causalidad",
-      "cual-miente-y-cuando",
-      "cuerpos-redondos-y-poliedros/cilindros"
-    ],
-    "nombre": "Maestro de la Continuidad",
-    "descripcion": "Has dominado la continuidad, las coordenadas y los cuerpos redondos para resolver con precisión.",
-    "icono": "📐"
-  },
-  {
-    "id": 56,
-    "materia": "Matemática",
-    "cluster": 5,
-    "temas": [
-      "cuerpos-redondos-y-poliedros/conos",
-      "cuerpos-redondos-y-poliedros/desarrollo-plano",
-      "cuerpos-redondos-y-poliedros/esferas",
-      "cuerpos-redondos-y-poliedros/piramides",
-      "cuerpos-redondos-y-poliedros/prismas"
-    ],
-    "nombre": "Maestro de Poliedros y Cuerpos",
-    "descripcion": "Completaste el parcial dominando conos, esferas, pirámides, prismas y sus desarrollos planos.",
-    "icono": "📐"
-  },
-  {
-    "id": 57,
-    "materia": "Matemática",
-    "cluster": 6,
-    "temas": [
-      "decimales",
-      "demostracion-contraejemplo",
-      "demostracion-deduccion",
-      "demostracion-induccion",
-      "demostracion-reduccion-al-absurdo"
-    ],
-    "nombre": "Maestro de Demostraciones",
-    "descripcion": "Demostraste tu dominio sobre decimales y los distintos tipos de pruebas lógicas jefe.",
-    "icono": "🧠"
-  },
-  {
-    "id": 58,
-    "materia": "Matemática",
-    "cluster": 7,
-    "temas": [
-      "derivada",
-      "despejar-formula",
-      "determinante",
-      "diagramas-de-venn",
-      "dinero"
-    ],
-    "nombre": "Maestro del Despeje y Derivadas",
-    "descripcion": "Resolviste el parcial dominando derivadas, determinantes, diagramas de Venn y despeje de fórmulas con dinero.",
-    "icono": "🧮"
-  },
-  {
-    "id": 59,
-    "materia": "Matemática",
-    "cluster": 8,
-    "temas": [
-      "dispersion-rango-y-desvio",
-      "distancia-entre-dos-puntos",
-      "distribucion-binomial",
-      "distribucion-de-poisson",
-      "distribucion-exponencial"
-    ],
-    "nombre": "Domino las distribuciones y distancias",
-    "descripcion": "Completaste el examen jefe sobre dispersión, rangos, desvíos, distancias y distribuciones binomial, Poisson y exponencial.",
-    "icono": "📊"
-  },
-  {
-    "id": 60,
-    "materia": "Matemática",
-    "cluster": 9,
-    "temas": [
-      "distribucion-normal",
-      "divisibilidad/divisores",
-      "divisibilidad/multiplos",
-      "divisibilidad/regla-del-10",
-      "divisibilidad/regla-del-2"
-    ],
-    "nombre": "Maestro de la Divisibilidad",
-    "descripcion": "Completaste el parcial dominando reglas de divisibilidad y la distribución normal.",
-    "icono": "🔢"
-  },
-  {
-    "id": 61,
-    "materia": "Matemática",
-    "cluster": 10,
-    "temas": [
-      "divisibilidad/regla-del-3",
-      "divisibilidad/regla-del-4",
-      "divisibilidad/regla-del-5",
-      "divisibilidad/regla-del-6",
-      "divisibilidad/regla-del-7-opcional"
-    ],
-    "nombre": "Maestro de las Reglas de Divisibilidad",
-    "descripcion": "Dominaste las reglas del 3, 4, 5 y 6 para descomponer números como un pro.",
-    "icono": "🔢"
-  },
-  {
-    "id": 62,
-    "materia": "Matemática",
-    "cluster": 11,
-    "temas": [
-      "divisibilidad/regla-del-8",
-      "divisibilidad/regla-del-9",
-      "division",
-      "division-polinomios-ruffini",
-      "ecuacion-cuadratica"
-    ],
-    "nombre": "Dominio de la Regla del 8",
-    "descripcion": "Completaste el parcial dominando divisibilidad, Ruffini y ecuaciones cuadráticas jefe.",
-    "icono": "🧮"
-  },
-  {
-    "id": 63,
-    "materia": "Matemática",
-    "cluster": 12,
-    "temas": [
-      "ecuacion-de-la-recta",
-      "ecuacion-primer-grado",
-      "ecuaciones-diferenciales",
-      "ecuaciones-exponenciales-logaritmicas",
-      "error-sistematico-vs-aleatorio"
-    ],
-    "nombre": "Domina la recta y errores",
-    "descripcion": "Completaste el parcial resolviendo ecuaciones de primer grado, diferenciales, exponenciales y logarítmicas, distinguiendo bien el error sistemático del aleatorio.",
-    "icono": "📐"
-  },
-  {
-    "id": 64,
-    "materia": "Matemática",
-    "cluster": 13,
-    "temas": [
-      "esperanza-matematica-valor-esperado",
-      "expresiones-equivalentes",
-      "familias-exponencial-logaritmica",
-      "forma-polar-complejos",
-      "fracciones"
-    ],
-    "nombre": "Maestro de los Complejos y Logaritmos",
-    "descripcion": "Dominaste las fracciones, los números complejos en forma polar y las funciones exponenciales y logarítmicas para resolver el parcial.",
-    "icono": "📐"
-  },
-  {
-    "id": 65,
-    "materia": "Matemática",
-    "cluster": 14,
-    "temas": [
-      "funcion-cuadratica-parabola",
-      "funcion-dominio",
-      "funcion-imagen",
-      "funcion-inversa-composicion",
-      "funcion-lineal-pendiente"
-    ],
-    "nombre": "Maestro de Funciones",
-    "descripcion": "Dominaste las funciones lineales, cuadráticas y sus propiedades clave.",
-    "icono": "📐"
-  },
-  {
-    "id": 66,
-    "materia": "Matemática",
-    "cluster": 15,
-    "temas": [
-      "funciones-trigonometricas-seno-coseno",
-      "grafico-eje-truncado",
-      "grafos-dirigidos-no-dirigidos-y-ponderados",
-      "grafos-vertices-y-aristas",
-      "hora-y-reloj"
-    ],
-    "nombre": "Domino trigonometría y grafos",
-    "descripcion": "Completaste el parcial dominando funciones trigonométricas, grafos y problemas de hora.",
-    "icono": "📐"
-  },
-  {
-    "id": 67,
-    "materia": "Matemática",
-    "cluster": 16,
-    "temas": [
-      "identidades-y-ecuaciones-trigonometricas",
-      "independencia-de-eventos-y-diagrama-de-arbol",
-      "inecuaciones",
-      "integral",
-      "integral-definida-y-area-bajo-la-curva"
-    ],
-    "nombre": "Maestro del Cálculo y Probabilidad",
-    "descripcion": "Resolviste con éxito el parcial integrando trigonometría, probabilidades y el área bajo la curva.",
-    "icono": "📐"
-  },
-  {
-    "id": 68,
-    "materia": "Matemática",
-    "cluster": 17,
-    "temas": [
-      "intervalo-de-confianza",
-      "irracionales-y-reales",
-      "jerarquia-operaciones",
-      "leer-grafico/barras",
-      "leer-grafico/lineas"
-    ],
-    "nombre": "Maestro de Intervalos y Gráficos",
-    "descripcion": "Completaste el parcial dominando intervalos de confianza, números irracionales, jerarquía de operaciones y lectura de gráficos.",
-    "icono": "📊"
-  },
-  {
-    "id": 69,
-    "materia": "Matemática",
-    "cluster": 18,
-    "temas": [
-      "leer-grafico/torta",
-      "leer-una-tabla",
-      "lenguaje-algebraico",
-      "limite",
-      "logaritmos"
-    ],
-    "nombre": "Maestro del Análisis de Datos",
-    "descripcion": "Leí gráficos, tablas y expresiones algebraicas hasta dominar límites y logaritmos.",
-    "icono": "📊"
-  },
-  {
-    "id": 70,
-    "materia": "Matemática",
-    "cluster": 19,
-    "temas": [
-      "magnitud-unidad-instrumento",
-      "matrices/operaciones",
-      "matrices/sistemas-nxn",
-      "matriz-inversa",
-      "mcd"
-    ],
-    "nombre": "Maestro de Matrices y MCD",
-    "descripcion": "Dominaste las operaciones con matrices, sistemas nxn, inversas y el cálculo del MCD.",
-    "icono": "📐"
-  },
-  {
-    "id": 71,
-    "materia": "Matemática",
-    "cluster": 20,
-    "temas": [
-      "mcm",
-      "media-mediana-y-moda",
-      "muestreo-y-sesgo",
-      "multiplicacion",
-      "notacion-cientifica"
-    ],
-    "nombre": "Maestro del mcm y estadística",
-    "descripcion": "¡Calculaste el mcm, analizaste datos con media, mediana y moda, y dominaste el muestreo sin sesgo!",
-    "icono": "📊"
-  },
-  {
-    "id": 72,
-    "materia": "Matemática",
-    "cluster": 21,
-    "temas": [
-      "numeros-complejos",
-      "numeros-enteros",
-      "numeros-primos",
-      "operaciones-enteros",
-      "operaciones-fracciones"
-    ],
-    "nombre": "Maestro de Enteros y Fracciones",
-    "descripcion": "¡Aprobaste el parcial dominando números enteros, primos, fracciones y complejos!",
-    "icono": "🧮"
-  },
-  {
-    "id": 73,
-    "materia": "Matemática",
-    "cluster": 22,
-    "temas": [
-      "optimizacion",
-      "perimetro-y-area",
-      "permutaciones",
-      "plano-cartesiano",
-      "poligonos"
-    ],
-    "nombre": "Dominio de Formas y Espacios",
-    "descripcion": "Completaste el examen de geometría y combinatoria con excelencia.",
-    "icono": "📐"
-  },
-  {
-    "id": 74,
-    "materia": "Matemática",
-    "cluster": 23,
-    "temas": [
-      "polinomios-factoreo",
-      "porcentaje",
-      "potencias",
-      "principio-multiplicativo-de-conteo",
-      "probabilidad-compuesta"
-    ],
-    "nombre": "Experto en Polinomios y Probabilidad",
-    "descripcion": "Completaste el parcial dominando factorización, potencias, conteo y probabilidad compuesta.",
-    "icono": "🧮"
-  },
-  {
-    "id": 75,
-    "materia": "Matemática",
-    "cluster": 24,
-    "temas": [
-      "probabilidad-condicional",
-      "probabilidad-simple",
-      "producto-escalar",
-      "proporcion",
-      "proporcionalidad-funcion"
-    ],
-    "nombre": "Maestro de Probabilidades y Proporciones",
-    "descripcion": "Completaste el examen dominando probabilidad condicional y simple, producto escalar y funciones de proporcionalidad.",
-    "icono": "📐"
-  },
-  {
-    "id": 76,
-    "materia": "Matemática",
-    "cluster": 25,
-    "temas": [
-      "punto-medio-de-un-segmento",
-      "raices",
-      "razon",
-      "razones-trigonometricas",
-      "rectas-paralelas-y-perpendiculares"
-    ],
-    "nombre": "Dominio de Geometría Analítica",
-    "descripcion": "Completaste el parcial integrando punto medio, rectas y razones trigonométricas.",
-    "icono": "📐"
-  },
-  {
-    "id": 77,
-    "materia": "Matemática",
-    "cluster": 26,
-    "temas": [
-      "redondeo",
-      "regla-de-lhopital",
-      "regla-de-tres-directa",
-      "regla-de-tres-inversa",
-      "regresion-lineal"
-    ],
-    "nombre": "Maestro de Reglas y Regresión",
-    "descripcion": "Aprobaste el parcial dominando redondeo, L'Hôpital, regla de tres y regresión lineal.",
-    "icono": "📐"
-  },
-  {
-    "id": 78,
-    "materia": "Matemática",
-    "cluster": 27,
-    "temas": [
-      "resta",
-      "riesgo-relativo-vs-absoluto",
-      "secciones-conicas-circunferencia",
-      "semejanza-y-teorema-de-thales",
-      "series-geometricas"
-    ],
-    "nombre": "Maestro de Series y Cónicas",
-    "descripcion": "Resolviste el parcial dominando resta, riesgos, circunferencias, Teorema de Tales y series geométricas.",
-    "icono": "📐"
-  },
-  {
-    "id": 79,
-    "materia": "Matemática",
-    "cluster": 28,
-    "temas": [
-      "sistema-metrico-y-conversiones",
-      "sistemas-dos-ecuaciones",
-      "sucesiones-aritmeticas",
-      "sucesiones-y-series",
-      "suma"
-    ],
-    "nombre": "Maestro de Conversiones y Series",
-    "descripcion": "Resolviste el parcial integrando sistemas de ecuaciones, sucesiones y conversiones métricas.",
-    "icono": "📐"
-  },
-  {
-    "id": 80,
-    "materia": "Matemática",
-    "cluster": 29,
-    "temas": [
-      "suma-de-vectores-y-descomposicion",
-      "tablas-de-frecuencia-cuartiles-percentiles-y-varianza",
-      "tecnicas-de-integracion",
-      "teorema-central-del-limite",
-      "teorema-de-bayes"
-    ],
-    "nombre": "Dominio de Vectores y Estadística",
-    "descripcion": "Resolviste el parcial integrando vectores, distribuciones y teoremas probabilísticos.",
-    "icono": "📊"
-  },
-  {
-    "id": 81,
-    "materia": "Matemática",
-    "cluster": 30,
-    "temas": [
-      "teorema-de-bolzano",
-      "teorema-de-pitagoras",
-      "teorema-del-binomio",
-      "teorema-del-seno-y-del-coseno",
-      "test-de-hipotesis"
-    ],
-    "nombre": "Maestro de Teoremas",
-    "descripcion": "Completaste el examen jefe dominando Bolzano, Pitágoras, el binomio, trigonometría y estadística.",
-    "icono": "📐"
-  },
-  {
-    "id": 82,
-    "materia": "Matemática",
-    "cluster": 31,
-    "temas": [
-      "transformaciones-geometricas/homotecia",
-      "transformaciones-geometricas/reflexion",
-      "transformaciones-geometricas/rotacion",
-      "transformaciones-geometricas/traslacion",
-      "triangulos"
-    ],
-    "nombre": "Maestro de las Transformaciones",
-    "descripcion": "Completaste el parcial de transformaciones geométricas y triángulos, jefe.",
-    "icono": "🔺"
-  },
-  {
-    "id": 83,
-    "materia": "Matemática",
-    "cluster": 32,
-    "temas": [
-      "union-interseccion-y-diferencia",
-      "valor-posicional",
-      "variable-aleatoria-discreta-continua",
-      "variaciones",
-      "vectores-modulo-y-direccion",
-      "volumen-y-capacidad"
-    ],
-    "nombre": "Maestro de Conjuntos y Vectores",
-    "descripcion": "Completaste el examen dominando uniones, intersecciones, vectores y variables aleatorias.",
-    "icono": "📐"
-  },
-  {
-    "id": 84,
-    "materia": "Lengua",
-    "cluster": 1,
-    "temas": [
-      "argumentos",
-      "boom-latinoamericano",
-      "circuito-de-la-comunicacion",
-      "clases-de-palabras",
-      "comprension-idea-principal"
-    ],
-    "nombre": "Maestro del Boom y la Gramática",
-    "descripcion": "Completaste el parcial dominando el circuito de la comunicación, las clases de palabras y la esencia del Boom latinoamericano.",
-    "icono": "📚"
-  },
-  {
-    "id": 85,
-    "materia": "Lengua",
-    "cluster": 2,
-    "temas": [
-      "conciencia-fonologica",
-      "concordancia-nominal-y-verbal",
-      "conectores-textuales",
-      "conjugacion-verbal-indicativo",
-      "conjugacion-verbal-subjuntivo"
-    ],
-    "nombre": "Maestro de la Sintaxis",
-    "descripcion": "Completaste el parcial demostrando dominio total de la fonología, la concordancia y todos los modos verbales.",
-    "icono": "📝"
-  },
-  {
-    "id": 86,
-    "materia": "Lengua",
-    "cluster": 3,
-    "temas": [
-      "contraargumentos",
-      "coordinadas-adversativas",
-      "coordinadas-copulativas",
-      "coordinadas-distributivas",
-      "coordinadas-disyuntivas"
-    ],
-    "nombre": "Maestro de las Coordenadas",
-    "descripcion": "Dominaste los contraargumentos y los distintos tipos de oraciones coordinadas para argumentar con precisión.",
-    "icono": "🧠"
-  },
-  {
-    "id": 87,
-    "materia": "Lengua",
-    "cluster": 4,
-    "temas": [
-      "correo-formal",
-      "cv",
-      "debate-refutar-en-vivo",
-      "decodificacion-y-fluidez",
-      "detectar-falacias"
-    ],
-    "nombre": "Maestro del Debate y la Escritura",
-    "descripcion": "Completaste el examen jefe de correos formales, CVs, debate y detección de falacias.",
-    "icono": "🎤"
-  },
-  {
-    "id": 88,
-    "materia": "Lengua",
-    "cluster": 5,
-    "temas": [
-      "discurso-referido",
-      "escritura-como-tecnologia",
-      "estructura-narrativa",
-      "exposicion-oral",
-      "generacion-del-98"
-    ],
-    "nombre": "Maestro del Discurso y la Narrativa",
-    "descripcion": "Completaste el examen sobre la estructura narrativa, el discurso referido y la escritura como tecnología, dominando los temas de la Generación del '98.",
-    "icono": "📜"
-  },
-  {
-    "id": 89,
-    "materia": "Lengua",
-    "cluster": 6,
-    "temas": [
-      "genero-dramatico",
-      "genero-lirico",
-      "genero-narrativo",
-      "generos-discursivos",
-      "generos-periodisticos"
-    ],
-    "nombre": "Dominio de los Géneros Discursivos",
-    "descripcion": "Completaste el parcial identificando y diferenciando los géneros dramático, lírico, narrativo y periodísticos.",
-    "icono": "📚"
-  },
-  {
-    "id": 90,
-    "materia": "Lengua",
-    "cluster": 7,
-    "temas": [
-      "informe-tecnico",
-      "modernismo",
-      "narrador",
-      "negociacion",
-      "nucleos-y-modificadores"
-    ],
-    "nombre": "Maestro del Informe y Modernismo",
-    "descripcion": "Completaste el examen con dominio del informe técnico, el modernismo y la estructura del texto.",
-    "icono": "📚"
-  },
-  {
-    "id": 91,
-    "materia": "Lengua",
-    "cluster": 8,
-    "temas": [
-      "objetos-y-circunstanciales",
-      "oracion-compuesta-coordinacion-y-subordinacion",
-      "oraciones-negativas-e-interrogativas",
-      "ortografia-y-tildacion",
-      "paratextos"
-    ],
-    "nombre": "Maestro de la Gramática",
-    "descripcion": "Aprobaste el parcial dominando sintaxis, ortografía y paratextos.",
-    "icono": "📚"
-  },
-  {
-    "id": 92,
-    "materia": "Lengua",
-    "cluster": 9,
-    "temas": [
-      "persuasion-etica-vs-manipulacion",
-      "presentacion-con-apoyo-visual",
-      "produccion-escrita-compleja",
-      "progresion-tematica",
-      "punto-de-vista"
-    ],
-    "nombre": "Dominio Persuasivo Ético",
-    "descripcion": "Aprobaste el parcial demostrando capacidad para distinguir entre persuasión ética y manipulación en producciones escritas complejas con progresión temática clara.",
-    "icono": "🎓"
-  },
-  {
-    "id": 93,
-    "materia": "Lengua",
-    "cluster": 10,
-    "temas": [
-      "realismo",
-      "recursos-literarios",
-      "referencia-anafora-y-catafora",
-      "romanticismo",
-      "signos-de-puntuacion"
-    ],
-    "nombre": "Domina el Realismo y Romantismo",
-    "descripcion": "Completaste el parcial analizando recursos literarios, anáfora, catafora y signos de puntuación con maestría.",
-    "icono": "🖋️"
-  },
-  {
-    "id": 94,
-    "materia": "Lengua",
-    "cluster": 11,
-    "temas": [
-      "sintagmas-nominal-adjetivo-preposicional-adverbial-verbal",
-      "subjetivemas-y-modalizadores",
-      "subordinada-adjetiva-o-de-relativo",
-      "subordinada-adverbial-de-lugar",
-      "subordinada-adverbial-de-modo"
-    ],
-    "nombre": "Maestro de Sintaxis y Subordinadas",
-    "descripcion": "Dominaste los sintagmas, la subjetivación y las oraciones subordinadas adjetivas y adverbiales.",
-    "icono": "🏆"
-  },
-  {
-    "id": 95,
-    "materia": "Lengua",
-    "cluster": 12,
-    "temas": [
-      "subordinada-adverbial-de-tiempo",
-      "subordinada-causal",
-      "subordinada-concesiva-y-final",
-      "subordinada-condicional",
-      "subordinada-consecutiva"
-    ],
-    "nombre": "Maestro de Oraciones Subordinadas",
-    "descripcion": "Completaste el parcial dominando las subordinadas adverbiales de tiempo, causal, concesiva, final, condicional y consecutiva.",
-    "icono": "📝"
-  },
-  {
-    "id": 96,
-    "materia": "Lengua",
-    "cluster": 13,
-    "temas": [
-      "subordinada-sustantiva-de-complemento-circunstancial",
-      "subordinada-sustantiva-de-complemento-de-regimen",
-      "subordinada-sustantiva-de-complemento-de-un-adjetivo",
-      "subordinada-sustantiva-de-complemento-del-nombre",
-      "subordinada-sustantiva-de-complemento-directo"
-    ],
-    "nombre": "Dominio de Subordinadas Sustantivas",
-    "descripcion": "Completaste el parcial de subordinadas sustantivas y demostraste dominio total de sus complementos.",
-    "icono": "📚"
-  },
-  {
-    "id": 97,
-    "materia": "Lengua",
-    "cluster": 14,
-    "temas": [
-      "subordinada-sustantiva-de-sujeto",
-      "sujeto-y-predicado",
-      "tecnicas-de-estudio-resumen-y-organizadores-graficos",
-      "tesis",
-      "texto-teatral"
-    ],
-    "nombre": "Maestro de Sintaxis y Dramaturgia",
-    "descripcion": "Dominaste las subordinadas sustantivas de sujeto, la estructura del sujeto y predicado, técnicas de estudio y el texto teatral.",
-    "icono": "🎭"
-  },
-  {
-    "id": 98,
-    "materia": "Lengua",
-    "cluster": 15,
-    "temas": [
-      "tipos-de-sujeto",
-      "tipos-textuales",
-      "variedades-de-la-lengua",
-      "vocabulario-y-familia-de-palabras",
-      "voz-activa-y-pasiva"
-    ],
-    "nombre": "Dominio de la Gramática",
-    "descripcion": "Completaste el parcial integrando sujeto, voz y tipología textual con estilo.",
-    "icono": "📚"
-  },
-  {
-    "id": 99,
-    "materia": "Historia profunda",
-    "cluster": 1,
-    "temas": [
-      "absolutismo-europeo",
-      "agujeros-negros",
-      "ampliacion-democratica-ley-saenz-pena",
-      "antigua-grecia",
-      "antigua-roma"
-    ],
-    "nombre": "De Grecia al Absolutismo",
-    "descripcion": "Completaste el parcial de Historia profunda con nota de 10.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 100,
-    "materia": "Historia profunda",
-    "cluster": 2,
-    "temas": [
-      "antiguo-egipto",
-      "atmosfera-primitiva",
-      "baja-edad-media-y-crisis",
-      "caida-de-roma-y-alta-edad-media",
-      "cambio-climatico-linea-base-historica"
-    ],
-    "nombre": "Viaje temporal histórico",
-    "descripcion": "Completaste el examen jefe sobre la historia profunda.",
-    "icono": "🏺"
-  },
-  {
-    "id": 101,
-    "materia": "Historia profunda",
-    "cluster": 3,
-    "temas": [
-      "china-antigua",
-      "ciclo-de-las-rocas",
-      "ciencia-revolucion-cientifica",
-      "cinco-extinciones-masivas",
-      "civilizaciones-antiguas"
-    ],
-    "nombre": "Viaje por la historia profunda",
-    "descripcion": "Completaste el examen sobre la evolución de la Tierra, las extinciones masivas y las civilizaciones antiguas.",
-    "icono": "🌍"
-  },
-  {
-    "id": 102,
-    "materia": "Historia profunda",
-    "cluster": 4,
-    "temas": [
-      "civilizaciones-de-america-precolombinas",
-      "conquista-colonizacion-america",
-      "conquista-tierra-firme",
-      "conquista-y-colonia-argentina",
-      "corrimiento-al-rojo-expansion-universo"
-    ],
-    "nombre": "De Mesoamérica al Cosmos",
-    "descripcion": "Completaste el examen que abarca desde las civilizaciones precolombinas hasta la expansión del universo.",
-    "icono": "🌎"
-  },
-  {
-    "id": 103,
-    "materia": "Historia profunda",
-    "cluster": 5,
-    "temas": [
-      "datacion-radiometrica",
-      "descolonizacion-de-africa-y-asia",
-      "distribucion-biomas",
-      "division-del-trabajo",
-      "eclipses-sol-luna"
-    ],
-    "nombre": "Maestro de la Cronología Terrestre",
-    "descripcion": "Desbloqueaste el conocimiento sobre datación radiométrica, descolonización, biomas, división del trabajo y eclipses.",
-    "icono": "🌍"
-  },
-  {
-    "id": 104,
-    "materia": "Historia profunda",
-    "cluster": 6,
-    "temas": [
-      "edad-media-feudalismo",
-      "edad-media-plena",
-      "electrificacion-fabrica-hogar",
-      "entreguerras-y-crisis-de-1929",
-      "escalas-de-tiempo-profundo"
-    ],
-    "nombre": "Maestro de escalas temporales",
-    "descripcion": "Atravesaste desde el feudalismo hasta la crisis del '29 dominando las grandes transformaciones.",
-    "icono": "🌍"
-  },
-  {
-    "id": 105,
-    "materia": "Historia profunda",
-    "cluster": 7,
-    "temas": [
-      "escritura-primeras-ciudades",
-      "estaciones-del-ano",
-      "estados-nacionales",
-      "eucariotas",
-      "expansion-del-imperio-romano"
-    ],
-    "nombre": "De Eucariotas a Roma",
-    "descripcion": "Completaste el examen jefe sobre la evolución desde los primeros organismos hasta la expansión del imperio.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 106,
-    "materia": "Historia profunda",
-    "cluster": 8,
-    "temas": [
-      "explosion-cambrica",
-      "fases-lunares",
-      "formacion-de-estrellas",
-      "formacion-del-sistema-solar",
-      "fotosintesis-cambio-atmosfera-nivel2"
-    ],
-    "nombre": "Crónica del Cosmos y la Vida",
-    "descripcion": "Dominaste los eventos que forjaron el universo y el origen de la atmósfera.",
-    "icono": "🌌"
-  },
-  {
-    "id": 107,
-    "materia": "Historia profunda",
-    "cluster": 9,
-    "temas": [
-      "galaxias-tipos-escala",
-      "globalizacion-era-digital",
-      "golpes-de-estado-interrupciones",
-      "gran-oxidacion",
-      "guerra-de-malvinas"
-    ],
-    "nombre": "Cosmos, Crisis y Memorias",
-    "descripcion": "Dominaste la escala del universo, las rupturas políticas y la era digital.",
-    "icono": "🌌"
-  },
-  {
-    "id": 108,
-    "materia": "Historia profunda",
-    "cluster": 10,
-    "temas": [
-      "guerra-fria-descolonizacion",
-      "guerras-civiles-unitarios-federales",
-      "guerras-de-independencia-argentina",
-      "guerras-mundiales",
-      "herramientas-arte-rupestre"
-    ],
-    "nombre": "Maestro de Conflictos Históricos",
-    "descripcion": "Completaste el examen sobre guerras, descolonización y arte rupestre con éxito jefe.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 109,
-    "materia": "Historia profunda",
-    "cluster": 11,
-    "temas": [
-      "historia-contemporanea-de-africa",
-      "historia-contemporanea-de-asia-y-pacifico",
-      "historia-contemporanea-de-medio-oriente",
-      "historia-reciente-argentina",
-      "hominizacion"
-    ],
-    "nombre": "Dominio Global y Humano",
-    "descripcion": "Aprobaste el parcial integrando la hominización, la historia contemporánea de África, Asia, Medio Oriente y la Argentina reciente.",
-    "icono": "🌍"
-  },
-  {
-    "id": 110,
-    "materia": "Historia profunda",
-    "cluster": 12,
-    "temas": [
-      "huella-humana-en-el-clima-inicio",
-      "ilustracion",
-      "imperialismo",
-      "imperio-bizantino",
-      "imperio-de-alejandro-magno-helenistico"
-    ],
-    "nombre": "Huella Imperial y Helenística",
-    "descripcion": "Completaste el examen sobre las huellas del imperio bizantino, alejandro magno e ilustración en el clima.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 111,
-    "materia": "Historia profunda",
-    "cluster": 13,
-    "temas": [
-      "imperio-han-china",
-      "imperio-persa",
-      "imperios-expansion",
-      "imprenta",
-      "india-antigua"
-    ],
-    "nombre": "Dominio de Imperios Antiguos",
-    "descripcion": "Completaste el examen sobre los grandes imperios y la revolución de la imprenta.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 112,
-    "materia": "Historia profunda",
-    "cluster": 14,
-    "temas": [
-      "internet-redes-globalizacion-digital",
-      "islam-y-expansion-arabe",
-      "ley-de-hubble",
-      "materia-energia-oscura",
-      "mesopotamia"
-    ],
-    "nombre": "De Mesopotamia al Cosmos",
-    "descripcion": "Completaste el repaso que abarca desde las primeras civilizaciones hasta la expansión del universo y la era digital.",
-    "icono": "🌌"
-  },
-  {
-    "id": 113,
-    "materia": "Historia profunda",
-    "cluster": 15,
-    "temas": [
-      "metalurgia-cobre-hierro",
-      "minerales-estructura-cristalina",
-      "modelo-agroexportador-inmigracion",
-      "modernidad-imprenta-navegacion-ciencia",
-      "movimiento-aparente-constelaciones"
-    ],
-    "nombre": "Maestro de Metales y Constelaciones",
-    "descripcion": "Completaste el examen jefe sobre la metalurgia, la estructura mineral, el modelo agroexportador, la modernidad y el movimiento aparente de las estrellas.",
-    "icono": "🌌"
-  },
-  {
-    "id": 114,
-    "materia": "Historia profunda",
-    "cluster": 16,
-    "temas": [
-      "movimiento-rotacion-traslacion",
-      "multicelularidad",
-      "navegacion",
-      "nucleosintesis",
-      "organizacion-nacional-constitucion-1853"
-    ],
-    "nombre": "Cosmos, Células y Constitución",
-    "descripcion": "Demostraste dominio desde la nucleosíntesis hasta la organización nacional de 1853.",
-    "icono": "🌌🧬📜"
-  },
-  {
-    "id": 115,
-    "materia": "Historia profunda",
-    "cluster": 17,
-    "temas": [
-      "origen-de-la-vida",
-      "origen-del-universo",
-      "paleoclima-glaciaciones",
-      "paleolitico",
-      "peronismo-derechos-sociales"
-    ],
-    "nombre": "De Big Bang a Perón",
-    "descripcion": "Completaste este examen jefe abarcando desde el origen del universo hasta la historia social argentina.",
-    "icono": "🌌"
-  },
-  {
-    "id": 116,
-    "materia": "Historia profunda",
-    "cluster": 18,
-    "temas": [
-      "poblamiento-planeta-america",
-      "primera-guerra-mundial-y-revolucion-rusa",
-      "procariotas",
-      "propiedad-jerarquia-estado",
-      "pueblos-originarios-territorio-argentino"
-    ],
-    "nombre": "De procariotas a guerras mundiales",
-    "descripcion": "Completaste el examen sobre la evolución biológica, el poblamiento americano y los conflictos globales que marcaron la historia.",
-    "icono": "🌍"
-  },
-  {
-    "id": 117,
-    "materia": "Historia profunda",
-    "cluster": 19,
-    "temas": [
-      "radiacion-mamiferos",
-      "recuperacion-democratica-memoria",
-      "relieve-sismos-volcanes",
-      "renacimiento-y-reforma",
-      "revolucion-de-mayo"
-    ],
-    "nombre": "Explorador de la Historia Profunda",
-    "descripcion": "Dominaste los temas clave del examen jefe con maestría.",
-    "icono": "🌍"
-  },
-  {
-    "id": 118,
-    "materia": "Historia profunda",
-    "cluster": 20,
-    "temas": [
-      "revolucion-industrial",
-      "revolucion-neolitica",
-      "revoluciones-burguesas-liberalismo",
-      "rocas-igneas-sedimentarias-metamorficas",
-      "sedentarizacion-excedente"
-    ],
-    "nombre": "Evolución de la Humanidad y la Tierra",
-    "descripcion": "Completaste el parcial dominando las grandes revoluciones y la geología del planeta, jefe.",
-    "icono": "🌍"
-  },
-  {
-    "id": 119,
-    "materia": "Historia profunda",
-    "cluster": 21,
-    "temas": [
-      "segunda-guerra-mundial",
-      "seleccion-natural-evidencias-nivel2",
-      "sociedad-de-masas-y-democracia-liberal",
-      "tabla-periodica-nivel2-cosmologico",
-      "tectonica-placas-deriva-continental"
-    ],
-    "nombre": "Maestro de la Historia Profunda",
-    "descripcion": "Completaste el examen integrador sobre los grandes procesos históricos y científicos.",
-    "icono": "🌍"
-  },
-  {
-    "id": 120,
-    "materia": "Historia profunda",
-    "cluster": 22,
-    "temas": [
-      "terrorismo-de-estado-argentina",
-      "tiempo-geologico-eones-eras-periodos",
-      "tierra-primitiva-diferenciacion",
-      "virreinato-y-comercio"
-    ],
-    "nombre": "Maestro de la Historia Profunda",
-    "descripcion": "Te pasaste el parcial dominando desde el terrorismo de estado hasta la formación de la Tierra.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 121,
-    "materia": "Historia",
-    "cluster": 1,
-    "temas": [
-      "antes-y-despues-de-cristo",
-      "cambio-y-continuidad",
-      "causa-y-consecuencia",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "crisis-de-2001"
-    ],
-    "nombre": "Crisis 2001 y Conquista del Desierto",
-    "descripcion": "Completaste el parcial analizando la Conquista del Desierto, la crisis de 2001 y los cambios históricos.",
-    "icono": "📜"
-  },
-  {
-    "id": 122,
-    "materia": "Historia",
-    "cluster": 2,
-    "temas": [
-      "decada-siglo-milenio",
-      "dimension-etica",
-      "economias-regionales-tempranas",
-      "escuela-de-los-annales",
-      "evidencia"
-    ],
-    "nombre": "Maestro del Tiempo y la Ética",
-    "descripcion": "Completaste el parcial dominando las escalas temporales, las economías tempranas y la metodología de los Annales.",
-    "icono": "⏳"
-  },
-  {
-    "id": 123,
-    "materia": "Historia",
-    "cluster": 3,
-    "temas": [
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "guerras",
-      "historia-cultural",
-      "independencias"
-    ],
-    "nombre": "Maestro de Guerras e Independencias",
-    "descripcion": "Completaste el examen sobre las guerras, independencias y la historia cultural de Argentina y el mundo.",
-    "icono": "📜"
-  },
-  {
-    "id": 124,
-    "materia": "Historia",
-    "cluster": 4,
-    "temas": [
-      "industrializacion-por-sustitucion-de-importaciones-isi",
-      "interpretar-una-fuente-historica",
-      "linea-de-tiempo-y-antes-despues",
-      "materialismo-historico",
-      "multicausalidad"
-    ],
-    "nombre": "Experto en ISI y Análisis Histórico",
-    "descripcion": "Completaste el examen dominando la industrialización por sustitución de importaciones, el materialismo histórico y la interpretación de fuentes con multicausalidad.",
-    "icono": "🏭"
-  },
-  {
-    "id": 125,
-    "materia": "Historia",
-    "cluster": 5,
-    "temas": [
-      "periodizacion-historica",
-      "positivismo",
-      "reforma-universitaria-1918",
-      "revolucion-mexicana-1910-1920",
-      "revoluciones"
-    ],
-    "nombre": "Revoluciones y Positivismo",
-    "descripcion": "Completaste el parcial sobre las revoluciones y el positivismo, jefe.",
-    "icono": "📜"
-  },
-  {
-    "id": 126,
-    "materia": "Historia",
-    "cluster": 6,
-    "temas": [
-      "rosas-y-la-confederacion",
-      "semana-tragica-1919",
-      "significancia-historica"
-    ],
-    "nombre": "Rosas, Semana Trágica y Legado",
-    "descripcion": "Completaste el parcial analizando la Confederación Argentina, la Semana Trágica de 1919 y su significancia histórica.",
-    "icono": "📜"
-  },
-  {
-    "id": 127,
-    "materia": "Geografía",
-    "cluster": 1,
-    "temas": [
-      "ambientalismo-liberal",
-      "ambiente-y-recursos",
-      "america-anglosajona",
-      "america-latina-formacion-poblacion",
-      "america-latina-industria-y-energia"
-    ],
-    "nombre": "Maestro del Ambiente y Recursos",
-    "descripcion": "Completaste el examen sobre ambientalismo, recursos y la dinámica de América Latina y Anglosajona.",
-    "icono": "🌍"
-  },
-  {
-    "id": 128,
-    "materia": "Geografía",
-    "cluster": 2,
-    "temas": [
-      "conservacionismo",
-      "coordenadas-geograficas",
-      "coordenadas-y-husos-horarios",
-      "decrecimiento",
-      "densidad-poblacion"
-    ],
-    "nombre": "Maestro de Coordenadas y Densidad",
-    "descripcion": "Completaste el parcial integrando conservacionismo, coordenadas geográficas, husos horarios, decrecimiento y densidad poblacional.",
-    "icono": "🌍"
-  },
-  {
-    "id": 129,
-    "materia": "Geografía",
-    "cluster": 3,
-    "temas": [
-      "division-politica",
-      "ecologismo-politico",
-      "escala-de-mapa",
-      "estados-y-globalizacion",
-      "geografia-economica-agricola-argentina"
-    ],
-    "nombre": "Mapa Político y Económico Argentino",
-    "descripcion": "Completaste el parcial integrando la división política, la escala cartográfica y la geografía económica agrícola de Argentina.",
-    "icono": "🗺️"
-  },
-  {
-    "id": 130,
-    "materia": "Geografía",
-    "cluster": 4,
-    "temas": [
-      "geografia-industrial-mundial",
-      "huella-de-carbono-agua-virtual",
-      "indicadores-sociales-de-argentina",
-      "indice-de-desarrollo-humano",
-      "mapa-plano-escala"
-    ],
-    "nombre": "Maestro de la Huella Global",
-    "descripcion": "Completaste el parcial dominando la geografía industrial, los indicadores sociales y la huella ecológica.",
-    "icono": "🌍"
-  },
-  {
-    "id": 131,
-    "materia": "Geografía",
-    "cluster": 5,
-    "temas": [
-      "migraciones-internacionales",
-      "migraciones-internas-en-argentina",
-      "mineria-e-hidrocarburos-en-argentina",
-      "orientacion-puntos-cardinales",
-      "paises-de-america-latina"
-    ],
-    "nombre": "Explorador de Flujos y Recursos",
-    "descripcion": "Completaste el examen sobre migraciones, mineria y paises de america latina, jefa.",
-    "icono": "🌎"
-  },
-  {
-    "id": 132,
-    "materia": "Geografía",
-    "cluster": 6,
-    "temas": [
-      "poblacion-piramides-migraciones",
-      "produccion-agraria-mundial-y-biotecnologia",
-      "recursos-actividades-economicas",
-      "recursos-hidricos-y-gestion",
-      "region"
-    ],
-    "nombre": "Analista de Dinámicas Territoriales",
-    "descripcion": "Dominaste la interacción entre población, economía y gestión de recursos en la región.",
-    "icono": "🌍"
-  },
-  {
-    "id": 133,
-    "materia": "Geografía",
-    "cluster": 7,
-    "temas": [
-      "regiones-naturales-de-argentina",
-      "relieve-clima-biomas",
-      "riesgos-ambientales-mundiales",
-      "riesgos-naturales-argentinos",
-      "sig-gps"
-    ],
-    "nombre": "Domina el Territorio Argentino",
-    "descripcion": "Completaste el examen jefe sobre las regiones naturales, riesgos y herramientas geográficas.",
-    "icono": "🌎"
-  },
-  {
-    "id": 134,
-    "materia": "Geografía",
-    "cluster": 8,
-    "temas": [
-      "sig-imagenes-satelitales",
-      "sig-mapas-digitales",
-      "trabajo-y-desempleo-mundial",
-      "turismo-mundial",
-      "urbanizacion-migracion-ciudad"
-    ],
-    "nombre": "Maestro de SIG y Dinámicas Globales",
-    "descripcion": "Completaste el examen integrando SIG, urbanización y turismo mundial.",
-    "icono": "🌍"
-  },
-  {
-    "id": 135,
-    "materia": "Cívica",
-    "cluster": 1,
-    "temas": [
-      "alcoholemia-y-conduccion",
-      "como-se-hace-una-ley",
-      "constitucion-nacional-jerarquia-normativa",
-      "constitucion-preambulo",
-      "derechos-genero"
-    ],
-    "nombre": "Maestro de la Normativa y la Ley",
-    "descripcion": "Completaste el parcial dominando la jerarquía constitucional, el proceso legislativo, la alcoholemia y los derechos de género.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 136,
-    "materia": "Cívica",
-    "cluster": 2,
-    "temas": [
-      "derechos-indigenas",
-      "derechos-nino",
-      "derechos-y-garantias",
-      "discriminacion-y-organismos-de-proteccion",
-      "division-de-poderes"
-    ],
-    "nombre": "Defensor de Derechos y Garantías",
-    "descripcion": "Aprobaste el parcial sobre derechos indígenas, de la niñez, discriminación y la división de poderes.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 137,
-    "materia": "Cívica",
-    "cluster": 3,
-    "temas": [
-      "documentos-y-tramites",
-      "encuesta-electoral",
-      "estado-de-derecho-por-que-importa",
-      "impuestos",
-      "marchas-patrioticas"
-    ],
-    "nombre": "Maestro del Estado de Derecho",
-    "descripcion": "Completaste el examen sobre documentos, impuestos y la importancia del Estado de Derecho.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 138,
-    "materia": "Cívica",
-    "cluster": 4,
-    "temas": [
-      "organismos-internacionales",
-      "organizacion-del-estado",
-      "origen-estado-derecho",
-      "partidos-politicos",
-      "prioridades-de-paso"
-    ],
-    "nombre": "Arquitecto del Estado y la Ley",
-    "descripcion": "Completaste el parcial sobre la organización del Estado, los derechos y los organismos internacionales, jefa.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 139,
-    "materia": "Cívica",
-    "cluster": 5,
-    "temas": [
-      "proyecto-ciudadano-participativo",
-      "senalizacion-vial",
-      "simbolos-patrios",
-      "sistema-de-salud",
-      "sistema-electoral-dhondt"
-    ],
-    "nombre": "Experto en Ciudadanía y Normas",
-    "descripcion": "Diste el parcial de Cívica y te salió re bien, jefe.",
-    "icono": "🇦🇷"
-  },
-  {
-    "id": 140,
-    "materia": "Cívica",
-    "cluster": 6,
-    "temas": [
-      "sistemas-politicos-comparados",
-      "sueldo-promedio-pais",
-      "sufragio-restringido-universal",
-      "teoria-del-poder",
-      "tipos-de-estado",
-      "tratados-internacionales"
-    ],
-    "nombre": "Experto en Sistemas Políticos",
-    "descripcion": "Completaste el parcial de Cívica dominando los sistemas políticos y el poder estatal, jefe.",
-    "icono": "🏛️"
-  },
-  {
-    "id": 141,
-    "materia": "Química",
-    "cluster": 1,
-    "temas": [
-      "atomo-particulas-subatomicas",
-      "balanceo-ecuaciones",
-      "biomoleculas-glucidos-lipidos-proteinas",
-      "carbono-tetravalencia-cadenas",
-      "cinetica-reaccion"
-    ],
-    "nombre": "Maestro del Átomo y Biomoléculas",
-    "descripcion": "Demuestra dominio de partículas subatómicas, balanceo de ecuaciones, biomoléculas, tetravalencia del carbono y cinética de reacciones.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 142,
-    "materia": "Química",
-    "cluster": 2,
-    "temas": [
-      "concentracion-de-una-solucion",
-      "configuracion-electronica",
-      "densidad",
-      "dilucion-soluciones",
-      "electrolisis"
-    ],
-    "nombre": "Dominio de Soluciones y Electrones",
-    "descripcion": "Resolviste el parcial integrando concentraciones, configuraciones y electrolisis.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 143,
-    "materia": "Química",
-    "cluster": 3,
-    "temas": [
-      "energia-libre-gibbs",
-      "enlace-quimico-polaridad",
-      "equilibrio-quimico-kc",
-      "equilibrio-solubilidad-ksp",
-      "estados-y-cambios"
-    ],
-    "nombre": "Maestro del Equilibrio y Gibbs",
-    "descripcion": "Demuestra dominio total sobre la energía libre, polaridad de enlaces y los distintos tipos de equilibrio químico.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 144,
-    "materia": "Química",
-    "cluster": 4,
-    "temas": [
-      "estequiometria",
-      "gases-ideales",
-      "geometria-molecular-vsepr",
-      "grupos-funcionales",
-      "hidrocarburos-alcanos-alquenos-alquinos"
-    ],
-    "nombre": "Maestro de la Estequiometria y Gases",
-    "descripcion": "Completaste el parcial dominando cálculos estequiométricos, gases ideales y la geometría molecular.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 145,
-    "materia": "Química",
-    "cluster": 5,
-    "temas": [
-      "medicion-de-laboratorio",
-      "mezclas-metodos-separacion",
-      "modelos-atomicos",
-      "mol-masa-molar",
-      "nanotecnologia"
-    ],
-    "nombre": "Maestro de la Medición y la Materia",
-    "descripcion": "Completaste el examen jefe dominando mediciones, mezclas, modelos atómicos y nanotecnología.",
-    "icono": "🧪"
-  },
-  {
-    "id": 146,
-    "materia": "Química",
-    "cluster": 6,
-    "temas": [
-      "nomenclatura-compuestos",
-      "numero-atomico-masico",
-      "oxidacion-reduccion",
-      "petroleo-como-recurso-energetico",
-      "ph-poh"
-    ],
-    "nombre": "Domina la nomenclatura y el pH",
-    "descripcion": "Completaste el parcial integrando conceptos de nomenclatura, redox, petróleo y equilibrio ácido-base.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 147,
-    "materia": "Química",
-    "cluster": 7,
-    "temas": [
-      "pilas-celdas-galvanicas",
-      "polimeros-naturales-sinteticos",
-      "presiones-parciales",
-      "propiedades-coligativas",
-      "quimica-analitica"
-    ],
-    "nombre": "Maestro de Celdas y Polímeros",
-    "descripcion": "Completaste el examen integrando pilas galvánicas, polímeros y propiedades coligativas.",
-    "icono": "⚗️"
-  },
-  {
-    "id": 148,
-    "materia": "Química",
-    "cluster": 8,
-    "temas": [
-      "quimica-de-la-atmosfera",
-      "reactivo-limitante-rendimiento",
-      "seguridad-laboratorio",
-      "superconductividad",
-      "tabla-periodica-tendencias",
-      "termoquimica",
-      "tipos-reacciones-quimicas"
-    ],
-    "nombre": "Maestro de la Química",
-    "descripcion": "Completaste el examen integrando conceptos atmosféricos, termodinámicos y de laboratorio.",
-    "icono": "🧪"
-  },
-  {
-    "id": 149,
-    "materia": "Biología",
-    "cluster": 1,
-    "temas": [
-      "adn-gen-proteina",
-      "biodiversidad-indices",
-      "biotecnologia-pcr-crispr",
-      "cadenas-redes-troficas",
-      "celula-organelas"
-    ],
-    "nombre": "Maestro del ADN y la Vida",
-    "descripcion": "Completaste el examen jefe sobre ADN, biodiversidad, biotecnología y cadena trófica.",
-    "icono": "🧬"
-  },
-  {
-    "id": 150,
-    "materia": "Biología",
-    "cluster": 2,
-    "temas": [
-      "ciclos-biogeoquimicos",
-      "ciclos-vida-metamorfosis",
-      "clasificacion-evolucion",
-      "conservacion-areas-protegidas",
-      "crecimiento-poblacional"
-    ],
-    "nombre": "Maestro de los Ciclos de Vida",
-    "descripcion": "Completaste este examen jefe dominando los ciclos biogeoquímicos, la metamorfosis, la evolución y la conservación poblacional.",
-    "icono": "🌿"
-  },
-  {
-    "id": 151,
-    "materia": "Biología",
-    "cluster": 3,
-    "temas": [
-      "cruce-dihibrido",
-      "deriva-genetica-flujo-genico",
-      "dinamica-poblacional-capacidad-carga",
-      "enzimas-proteina-sustrato-ph",
-      "especiacion"
-    ],
-    "nombre": "Maestro de la Dinámica Evolutiva",
-    "descripcion": "Completaste el examen jefe dominando los mecanismos de cambio poblacional y molecular.",
-    "icono": "🧬"
-  },
-  {
-    "id": 152,
-    "materia": "Biología",
-    "cluster": 4,
-    "temas": [
-      "filogenia-arboles-evolutivos",
-      "flujo-materia-energia",
-      "fotosintesis-respiracion-celular",
-      "genetica-mendeliana-punnett",
-      "grupos-sanguineos"
-    ],
-    "nombre": "Experto en Dinámica Evolutiva y Genética",
-    "descripcion": "Aprobaste el parcial dominando filogenia, metabolismo y herencia mendeliana.",
-    "icono": "🧬"
-  },
-  {
-    "id": 153,
-    "materia": "Biología",
-    "cluster": 5,
-    "temas": [
-      "habitats-adaptacion",
-      "herencia-ligada-al-sexo",
-      "mal-de-chagas",
-      "microbiologia-virus-inmunitario",
-      "mitosis-meiosis"
-    ],
-    "nombre": "Maestro de la Biología",
-    "descripcion": "Aprobaste el examen abarcando desde las adaptaciones en los hábitats hasta los procesos celulares y enfermedades como el mal de Chagas.",
-    "icono": "🧬"
-  },
-  {
-    "id": 154,
-    "materia": "Biología",
-    "cluster": 6,
-    "temas": [
-      "necesidades-basicas-seres-vivos",
-      "nicho-ecologico",
-      "partes-planta-germinacion",
-      "piramide-biomasas",
-      "presion-arterial"
-    ],
-    "nombre": "Dominio de la Vida y el Cuerpo",
-    "descripcion": "Aprobaste el examen integrando ecología y fisiología.",
-    "icono": "🌿❤️"
-  },
-  {
-    "id": 155,
-    "materia": "Biología",
-    "cluster": 7,
-    "temas": [
-      "quimiosintesis",
-      "seleccion-natural",
-      "ser-vivo-caracteristicas",
-      "sistema-endocrino-hormonas-glandulas",
-      "sistema-nervioso-neurona-sinapsis",
-      "sistemas-cuerpo-humano",
-      "transgenicos-bioetica"
-    ],
-    "nombre": "Maestro de la Vida Humana",
-    "descripcion": "Aprobaste el examen integrador sobre los sistemas del cuerpo, la evolución y la bioética.",
-    "icono": "🧬"
-  },
-  {
-    "id": 156,
-    "materia": "Física",
-    "cluster": 1,
-    "temas": [
-      "calor-q-m-c-deltat",
-      "cambios-de-estado-calor-latente",
-      "campo-electrico",
-      "campo-magnetico-imanes-corrientes",
-      "cargas-electricas"
-    ],
-    "nombre": "Domina el calor y la electricidad",
-    "descripcion": "Aprobaste el parcial de termodinámica y electromagnetismo.",
-    "icono": "⚡🔥"
-  },
-  {
-    "id": 157,
-    "materia": "Física",
-    "cluster": 2,
-    "temas": [
-      "caudal-q-a-v",
-      "choques-elasticos-inelasticos",
-      "circuitos-en-paralelo",
-      "circuitos-en-serie",
-      "circuitos-mixtos"
-    ],
-    "nombre": "Maestro de Circuitos y Choques",
-    "descripcion": "Dominaste los circuitos mixtos, choques y caudal, aprobando este examen.",
-    "icono": "⚡"
-  },
-  {
-    "id": 158,
-    "materia": "Física",
-    "cluster": 3,
-    "temas": [
-      "conservacion-energia-mecanica",
-      "corriente-electrica",
-      "decaimiento-radiactivo-alfa-beta-gamma",
-      "decibeles-richter",
-      "dilatacion-termica-lineal"
-    ],
-    "nombre": "Maestro de las Conservaciones",
-    "descripcion": "Dominaste la energía, la corriente y las radiaciones para cerrar este parcial con éxito.",
-    "icono": "⚡"
-  },
-  {
-    "id": 159,
-    "materia": "Física",
-    "cluster": 4,
-    "temas": [
-      "dinamica-fuerzas-concurrentes",
-      "dualidad-onda-particula",
-      "energia-cinetica",
-      "energia-potencial-gravitatoria",
-      "entropia-segunda-ley-termodinamica"
-    ],
-    "nombre": "Maestro de Dinámica y Termodinámica",
-    "descripcion": "Aprobaste el examen dominando fuerzas, energías y la entropía.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 160,
-    "materia": "Física",
-    "cluster": 5,
-    "temas": [
-      "escalas-de-temperatura-c-f-k",
-      "estatica/centro-de-gravedad",
-      "estatica/equilibrio-de-cuerpo-rigido",
-      "estatica/momento-de-una-fuerza",
-      "estructura-del-nucleo-atomico"
-    ],
-    "nombre": "Maestro de Equilibrio y Temperatura",
-    "descripcion": "Aprobaste el parcial dominando escalas térmicas, momentos de fuerza y estructura nuclear.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 161,
-    "materia": "Física",
-    "cluster": 6,
-    "temas": [
-      "fisica-medica",
-      "fision-y-fusion-nuclear",
-      "formacion-de-imagenes-optica",
-      "formacion-de-nubes",
-      "formulas-con-literales"
-    ],
-    "nombre": "Experto en Física Médica y Nuclear",
-    "descripcion": "Aprobaste el parcial dominando la intersección entre la física nuclear, la imagen médica y las fórmulas literales.",
-    "icono": "☢️"
-  },
-  {
-    "id": 162,
-    "materia": "Física",
-    "cluster": 7,
-    "temas": [
-      "frecuencia",
-      "generador-motor-transformador",
-      "gravitacion-universal",
-      "iman-polos-atraccion-repulsion",
-      "impulso-cambio-momento"
-    ],
-    "nombre": "Maestro de los Campos y Movimientos",
-    "descripcion": "Dominaste los conceptos de frecuencias, máquinas eléctricas, gravitación, magnetismo e impulso en el examen.",
-    "icono": "🧲"
-  },
-  {
-    "id": 163,
-    "materia": "Física",
-    "cluster": 8,
-    "temas": [
-      "induccion-electromagnetica-faraday-lenz",
-      "lentes-convergentes-divergentes",
-      "ley-de-coulomb",
-      "ley-de-ohm",
-      "leyes-de-newton/primera-inercia"
-    ],
-    "nombre": "Domina las leyes de la física",
-    "descripcion": "Aprobaste el parcial de inducción, óptica y electrostática.",
-    "icono": "⚛️"
-  },
-  {
-    "id": 164,
-    "materia": "Física",
-    "cluster": 9,
-    "temas": [
-      "leyes-de-newton/segunda-fma",
-      "leyes-de-newton/tercera-accion-reaccion",
-      "longitud-onda-velocidad-propagacion",
-      "luz-onda-espectro-electromagnetico",
-      "maquina-termica-termodinamica-nivel2"
-    ],
-    "nombre": "Maestro de las Leyes y Ondas",
-    "descripcion": "Aprobaste el examen dominando Newton, la luz y la termodinámica.",
-    "icono": "🌌"
-  },
-  {
-    "id": 165,
-    "materia": "Física",
-    "cluster": 10,
-    "temas": [
-      "maquinas-simples",
-      "masas-de-aire-y-frentes",
-      "momento-lineal",
-      "movimiento-circular-y-fuerza-centripeta",
-      "mru"
-    ],
-    "nombre": "Máquinas y Movimientos",
-    "descripcion": "Aprobaste el parcial de máquinas simples, movimiento circular y momento lineal.",
-    "icono": "⚙️"
-  },
-  {
-    "id": 166,
-    "materia": "Física",
-    "cluster": 11,
-    "temas": [
-      "mruv",
-      "ojo-humano-instrumento-optico",
-      "oscilacion-periodo",
-      "plano-inclinado-y-rozamiento",
-      "potencia-electrica"
-    ],
-    "nombre": "Maestro de Movimientos y Óptica",
-    "descripcion": "Aprobaste el examen integrando MRUV, óptica, oscilaciones y potencia.",
-    "icono": "🔭"
-  },
-  {
-    "id": 167,
-    "materia": "Física",
-    "cluster": 12,
-    "temas": [
-      "potencia-mecanica",
-      "precipitacion",
-      "presion-atmosferica",
-      "presion-f-sobre-a",
-      "presion-hidrostatica"
-    ],
-    "nombre": "Maestro de la Presión y Potencia",
-    "descripcion": "Aprobaste el parcial dominando la mecánica, la presión hidrostática y atmosférica, y la potencia.",
-    "icono": "⚙️"
-  },
-  {
-    "id": 168,
-    "materia": "Física",
-    "cluster": 13,
-    "temas": [
-      "principio-de-arquimedes-empuje-flotacion",
-      "principio-de-pascal-prensa-hidraulica",
-      "reflexion-espejos-planos-curvos",
-      "refraccion-indice-ley-snell",
-      "relatividad-especial-conceptual"
-    ],
-    "nombre": "Maestro de Fluidos y Luz",
-    "descripcion": "Aprobaste el parcial dominando empuje, presión, óptica y relatividad.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 169,
-    "materia": "Física",
-    "cluster": 14,
-    "temas": [
-      "resistencia-electrica",
-      "resonancia-frecuencia-natural",
-      "semivida-desintegracion-exponencial",
-      "sonido-timbre-altura-intensidad",
-      "temperatura-equilibrio-termico"
-    ],
-    "nombre": "Maestro de Fenómenos Físicos",
-    "descripcion": "Aprobaste el examen integrando conceptos de electricidad, ondas y termodinámica.",
-    "icono": "⚛️"
-  },
-  {
-    "id": 170,
-    "materia": "Física",
-    "cluster": 15,
-    "temas": [
-      "tension-diferencia-potencial",
-      "tiro-oblicuo",
-      "tiro-vertical",
-      "tormentas-y-fenomenos-severos",
-      "trabajo-de-una-fuerza",
-      "transmision-calor-conduccion-conveccion-radiacion",
-      "velocidad-aceleracion-instantaneas"
-    ],
-    "nombre": "Maestro del movimiento y calor",
-    "descripcion": "Analizaste con precisión el tiro oblicuo, la transferencia térmica y los fenómenos severos para aprobar este parcial.",
-    "icono": "🌩️"
-  },
-  {
-    "id": 171,
-    "materia": "Informática",
-    "cluster": 1,
-    "temas": [
-      "algebra-booleana",
-      "algoritmo-secuencia-de-pasos",
-      "algoritmos-busqueda-ordenamiento",
-      "almacenamiento-volatil-vs-no-volatil",
-      "archivos-y-persistencia"
-    ],
-    "nombre": "Maestro del Algoritmo",
-    "descripcion": "Aprobaste el parcial dominando lógica booleana, estructuras de datos y persistencia de información.",
-    "icono": "🧠"
-  },
-  {
-    "id": 172,
-    "materia": "Informática",
-    "cluster": 2,
-    "temas": [
-      "arranque-de-la-computadora-boot",
-      "buses-y-entrada-salida",
-      "ciclo-de-instruccion-fetch-decode-execute",
-      "complejidad-asintotica",
-      "comunicacion-entre-procesos"
-    ],
-    "nombre": "大师级启动与进程",
-    "descripcion": "你已掌握启动、总线、指令周期及复杂度的核心知识，顺利完成阶段考核。",
-    "icono": "🖥️"
-  },
-  {
-    "id": 173,
-    "materia": "Informática",
-    "cluster": 3,
-    "temas": [
-      "control-de-versiones",
-      "cpu-unidad-de-control-y-alu",
-      "criptografia-clave-simetrica-asimetrica-hash",
-      "direccionamiento-ip-dns",
-      "diseno-y-arquitectura-de-software"
-    ],
-    "nombre": "系统与网络精通者",
-    "descripcion": "你已全面掌握从CPU架构到加密技术及IP寻址的知识，通过综合考核。",
-    "icono": "🖥️"
-  },
-  {
-    "id": 174,
-    "materia": "Informática",
-    "cluster": 4,
-    "temas": [
-      "estructuras-de-control-bucles",
-      "estructuras-de-control-condicionales",
-      "estructuras-de-datos-listas-pilas-colas",
-      "etica-de-la-ia-sesgo-privacidad",
-      "funciones-y-modularidad"
-    ],
-    "nombre": "循环与逻辑大师",
-    "descripcion": "你已精通控制结构、数据结构及人工智能伦理，顺利完成阶段考核。",
-    "icono": "🧠"
-  },
-  {
-    "id": 175,
-    "materia": "Informática",
-    "cluster": 5,
-    "temas": [
-      "historia-y-evolucion-de-los-sistemas-operativos",
-      "inteligencia-artificial-reglas-a-aprendizaje",
-      "interrupciones",
-      "mantenimiento-y-deuda-tecnica",
-      "medios-tecnicos-extension-capacidades-humanas"
-    ],
-    "nombre": "操作系统与AI大师",
-    "descripcion": "你已掌握系统演进、人工智能及技术管理，顺利完成阶段考核。",
-    "icono": "🤖"
-  },
-  {
-    "id": 176,
-    "materia": "Informática",
-    "cluster": 6,
-    "temas": [
-      "memoria-asignacion-memoria-virtual",
-      "memoria-ram-cache-jerarquia",
-      "modelo-relacional-tabla-registro-clave-primaria",
-      "normalizacion-bases-datos",
-      "ofimatica-planilla-de-calculo"
-    ],
-    "nombre": "存储与数据库大师",
-    "descripcion": "你已掌握存储层次结构、关系型数据库及电子表格技术，通过阶段考核。",
-    "icono": "💾"
-  },
-  {
-    "id": 177,
-    "materia": "Informática",
-    "cluster": 7,
-    "temas": [
-      "paginacion",
-      "patrones-y-buenas-practicas",
-      "permisos-y-usuarios",
-      "planificacion-de-procesos",
-      "poo-clases-y-objetos"
-    ],
-    "nombre": "面向对象与模式大师",
-    "descripcion": "你已掌握面向对象编程、设计模式、分页、权限及进程调度，通过综合考核。",
-    "icono": "💻"
-  },
-  {
-    "id": 178,
-    "materia": "Informática",
-    "cluster": 8,
-    "temas": [
-      "proceso-programa-en-ejecucion",
-      "procesos-tecnicos-artesanales-e-industriales",
-      "protocolo-http-peticion-respuesta",
-      "pruebas-unitarias-integracion",
-      "que-es-la-tecnica-y-la-tecnologia"
-    ],
-    "nombre": "进程与协议精通者",
-    "descripcion": "你已整合执行技术、实现技巧及HTTP协议等概念，通过阶段考核。",
-    "icono": "🔧"
-  },
-  {
-    "id": 179,
-    "materia": "Informática",
-    "cluster": 9,
-    "temas": [
-      "recursividad",
-      "relaciones-y-claves-foraneas",
-      "requisitos-funcionales-no-funcionales",
-      "revolucion-informatica",
-      "segmentacion"
-    ],
-    "nombre": "递归与SQL精通者",
-    "descripcion": "你已整合递归逻辑、关系型数据库及系统需求，通过阶段考核。",
-    "icono": "🧠"
-  },
-  {
-    "id": 180,
-    "materia": "Informática",
-    "cluster": 10,
-    "temas": [
-      "seguridad-de-red-firewall-vpn-cifrado",
-      "seguridad-informatica",
-      "sistema-de-archivos",
-      "sistema-de-archivos-por-bitacora",
-      "sistemas-numeracion"
-    ],
-    "nombre": "数据守护者",
-    "descripcion": "你通过防火墙、加密及安全文件系统成功保护了信息安全。",
-    "icono": "🛡️"
-  },
-  {
-    "id": 181,
-    "materia": "Informática",
-    "cluster": 11,
-    "temas": [
-      "sql-consultas-joins-agregaciones",
-      "subsistema-de-entrada-y-salida",
-      "tcp-ip-capas-enrutamiento",
-      "tipos-de-licencias-de-software",
-      "tipos-de-so-por-dispositivo"
-    ],
-    "nombre": "SQL与网络大师",
-    "descripcion": "你展现了处理复杂查询、网络协议及软件许可的卓越能力。",
-    "icono": "🛠️"
-  },
-  {
-    "id": 182,
-    "materia": "Informática",
-    "cluster": 12,
-    "temas": [
-      "transacciones-acid",
-      "unidades-almacenamiento",
-      "variables-y-tipos-de-dato",
-      "virtualizacion-maquina-virtual-contenedor"
-    ],
-    "nombre": "数据与虚拟化大师",
-    "descripcion": "你已掌握ACID特性、存储、数据类型及虚拟化技术，通过综合考核。",
-    "icono": "💾"
-  },
-  {
     "id": 183,
     "materia": "Ingeniería",
     "cluster": 1,
@@ -1998,326 +29,6 @@
     "nombre": "建模与优化",
     "descripcion": "你以工程思维整合了数学建模、优化及材料力学，解决阶段考核问题。",
     "icono": "📐"
-  },
-  {
-    "id": 185,
-    "materia": "Investigación",
-    "cluster": 1,
-    "temas": [
-      "analisis-estadistico-de-resultados",
-      "argumentar-desde-evidencia",
-      "conclusion-y-comunicacion-de-resultados",
-      "construir-y-usar-un-modelo-cientifico",
-      "corrientes-filosofia-de-la-ciencia"
-    ],
-    "nombre": "科学方法精通者",
-    "descripcion": "你以批判性思维整合了哲学、建模及统计分析，通过综合考核。",
-    "icono": "🔬"
-  },
-  {
-    "id": 186,
-    "materia": "Investigación",
-    "cluster": 2,
-    "temas": [
-      "diseno-experimental-variables-y-control",
-      "hipotesis-buena-o-mala",
-      "metodologia-cualitativa-vs-cuantitativa",
-      "observacion-y-pregunta-investigable",
-      "recoleccion-de-datos",
-      "tecnicas-de-investigacion-social",
-      "trabajo-de-campo-enfoque-socioantropologico"
-    ],
-    "nombre": "设计与方法大师",
-    "descripcion": "你以科学严谨性整合了实验设计、方法论及现场技术，顺利完成阶段考核。",
-    "icono": "🔬"
-  },
-  {
-    "id": 187,
-    "materia": "Economía",
-    "cluster": 1,
-    "temas": [
-      "ambiente-interno-y-externo-organizacion",
-      "balanza-comercial",
-      "blockchain-claves-wallet",
-      "business-model-canvas",
-      "capitalismo-industrial-trabajo-asalariado"
-    ],
-    "nombre": "环境与区块链精通者",
-    "descripcion": "你已整合经济学、商业模式及加密货币知识，通过阶段考核。",
-    "icono": "📊"
-  },
-  {
-    "id": 188,
-    "materia": "Economía",
-    "cluster": 2,
-    "temas": [
-      "cft-vs-tasa-nominal",
-      "comercio-internacional-ventaja-comparativa",
-      "contabilidad-ambiental",
-      "contabilidad-como-sistema-de-informacion",
-      "contratos-inteligentes"
-    ],
-    "nombre": "合同与商务大师",
-    "descripcion": "你已整合会计、智能合约及比较优势理论，通过综合考核。",
-    "icono": "🌍"
-  },
-  {
-    "id": 189,
-    "materia": "Economía",
-    "cluster": 3,
-    "temas": [
-      "control-de-gestion-e-indicadores",
-      "cooperativismo-y-mutualismo",
-      "coordinar-personas-y-recursos",
-      "corrientes-pensamiento-economico",
-      "costo-de-oportunidad"
-    ],
-    "nombre": "成本与报表精通者",
-    "descripcion": "你已整合边际成本、组织文化及债务分析等概念，通过阶段考核。",
-    "icono": "🏛️"
-  },
-  {
-    "id": 190,
-    "materia": "Economía",
-    "cluster": 4,
-    "temas": [
-      "costo-marginal",
-      "cultura-organizacional",
-      "cuota-credito-frances",
-      "debe-haber-balance",
-      "default-deuda"
-    ],
-    "nombre": "成本与报表精通者",
-    "descripcion": "你已整合边际成本、组织文化及债务分析等概念，通过阶段考核。",
-    "icono": "📊"
-  },
-  {
-    "id": 191,
-    "materia": "Economía",
-    "cluster": 5,
-    "temas": [
-      "descuentos-obligatorios/jubilacion",
-      "descuentos-obligatorios/obra-social",
-      "detectar-una-oportunidad-de-negocio",
-      "deuda-publica-externa",
-      "deuda-publica-interna"
-    ],
-    "nombre": "税务义务与机遇掌控者",
-    "descripcion": "你已掌握强制扣除、公共债务及商业机会识别，顺利完成阶段考核。",
-    "icono": "📊"
-  },
-  {
-    "id": 192,
-    "materia": "Economía",
-    "cluster": 6,
-    "temas": [
-      "devaluacion",
-      "dex-swap",
-      "division-formal-microeconomia-macroeconomia",
-      "economia-positiva-y-normativa",
-      "ecuacion-contable-fundamental"
-    ],
-    "nombre": "Domina los Cimientos Económicos",
-    "descripcion": "Completaste el examen sobre devaluación, cuentas nacionales y la división entre micro y macroeconomía, jefe.",
-    "icono": "📊"
-  },
-  {
-    "id": 193,
-    "materia": "Economía",
-    "cluster": 7,
-    "temas": [
-      "elasticidad",
-      "elementos-de-las-organizaciones",
-      "estado-de-resultados",
-      "estados-contables",
-      "estructura-del-patrimonio"
-    ],
-    "nombre": "Dueño de la Elasticidad y Estados",
-    "descripcion": "Desarmaste la estructura del patrimonio y dominaste los estados contables para cerrar el parcial con todo.",
-    "icono": "📊"
-  },
-  {
-    "id": 194,
-    "materia": "Economía",
-    "cluster": 8,
-    "temas": [
-      "estructura-organizacional",
-      "estructura-productiva-dependencia",
-      "estudio-de-contexto-para-un-proyecto",
-      "fondo-emergencia-diversificacion",
-      "indices-financieros"
-    ],
-    "nombre": "Maestro de la Estructura Económica",
-    "descripcion": "Completaste el examen analizando la estructura organizacional, la dependencia productiva y los índices financieros con total maestría.",
-    "icono": "📊"
-  },
-  {
-    "id": 195,
-    "materia": "Economía",
-    "cluster": 9,
-    "temas": [
-      "interes-compuesto",
-      "interes-compuesto-funcion",
-      "interes-simple",
-      "iva",
-      "jubilacion-sistema-previsional"
-    ],
-    "nombre": "Maestro de Intereses y Previsión",
-    "descripcion": "Calculaste intereses, IVA y jubilaciones como un crack.",
-    "icono": "🧮"
-  },
-  {
-    "id": 196,
-    "materia": "Economía",
-    "cluster": 10,
-    "temas": [
-      "libro-diario-mayor",
-      "margenes-bruto-y-neto",
-      "mejora-continua",
-      "monotributo",
-      "mvp-producto-minimo-viable"
-    ],
-    "nombre": "Dominio de Cuentas y Monotributo",
-    "descripcion": "Completaste el parcial integrando libro diario, márgenes, mejora continua y el régimen del monotributo.",
-    "icono": "📊"
-  },
-  {
-    "id": 197,
-    "materia": "Economía",
-    "cluster": 11,
-    "temas": [
-      "objetivos-y-metas",
-      "oferta-y-demanda",
-      "origen-excedente-moneda-mercado",
-      "partida-doble",
-      "pbi-e-inflacion"
-    ],
-    "nombre": "Maestro de la Partida Doble",
-    "descripcion": "Completaste el examen jefe dominando oferta, demanda y el origen de la moneda.",
-    "icono": "📊"
-  },
-  {
-    "id": 198,
-    "materia": "Economía",
-    "cluster": 12,
-    "temas": [
-      "pitch-a-inversores",
-      "planificacion-administrativa",
-      "plazo-fijo-vs-inflacion",
-      "pools-liquidez-amm",
-      "precio-final"
-    ],
-    "nombre": "Maestro del Pitch Financiero",
-    "descripcion": "Completaste el examen jefe dominando inversiones y planificación.",
-    "icono": "📈"
-  },
-  {
-    "id": 199,
-    "materia": "Economía",
-    "cluster": 13,
-    "temas": [
-      "presupuesto-administrativo",
-      "productividad-produccion-insumos",
-      "punto-de-equilibrio",
-      "recibo-de-sueldo/argentina",
-      "recibo-de-sueldo/general"
-    ],
-    "nombre": "Domina el Presupuesto y Sueldos",
-    "descripcion": "Has completado el parcial sobre presupuestos, productividad y liquidación de sueldos argentino.",
-    "icono": "🧾"
-  },
-  {
-    "id": 200,
-    "materia": "Economía",
-    "cluster": 14,
-    "temas": [
-      "reservas-banco-central",
-      "sectores-economicos",
-      "seguros",
-      "sueldo-promedio-pais",
-      "tipo-cambio-fijo"
-    ],
-    "nombre": "Dominio del Sistema Monetario",
-    "descripcion": "Completaste el parcial sobre reservas, tipos de cambio y sectores económicos, jefe.",
-    "icono": "💰"
-  },
-  {
-    "id": 201,
-    "materia": "Economía",
-    "cluster": 15,
-    "temas": [
-      "tipo-cambio-flotante",
-      "tipos-de-organizaciones",
-      "tipos-de-proyecto",
-      "tipos-de-sociedades",
-      "validar-con-clientes-construir-medir-aprender",
-      "valor-esperado-riesgo",
-      "vision-y-mision-organizacional"
-    ],
-    "nombre": "Maestro del Entorno Económico",
-    "descripcion": "Validaste tu visión organizacional midiendo el valor esperado en un mercado de tipo de cambio flotante.",
-    "icono": "📊"
-  },
-  {
-    "id": 202,
-    "materia": "Derecho",
-    "cluster": 1,
-    "temas": [
-      "apelacion-e-instancias",
-      "argumentacion-juridica",
-      "corrientes-interpretacion-juridica",
-      "denuncia-y-etapa-de-instruccion",
-      "derecho-administrativo"
-    ],
-    "nombre": "Maestro de la Apelación y Argumentación",
-    "descripcion": "Aprobaste el parcial dominando las instancias procesales, la interpretación jurídica y el derecho administrativo.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 203,
-    "materia": "Derecho",
-    "cluster": 2,
-    "temas": [
-      "derecho-civil",
-      "derecho-comercial",
-      "derecho-constitucional",
-      "derecho-internacional",
-      "derecho-laboral"
-    ],
-    "nombre": "Jurista Multidisciplinario",
-    "descripcion": "Completaste el examen integrador de las principales ramas del derecho.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 204,
-    "materia": "Derecho",
-    "cluster": 3,
-    "temas": [
-      "derecho-penal",
-      "ejecucion-de-la-sentencia",
-      "fuentes-del-derecho",
-      "hecho-juridicamente-relevante",
-      "interpretacion-normativa"
-    ],
-    "nombre": "Maestro del Derecho Penal",
-    "descripcion": "Completaste el examen sobre fuentes, hechos y ejecución de la sentencia jefe.",
-    "icono": "⚖️"
-  },
-  {
-    "id": 205,
-    "materia": "Derecho",
-    "cluster": 4,
-    "temas": [
-      "investigacion-prueba-y-fiscalia",
-      "juicio-oral",
-      "norma-jerarquia-y-vigencia",
-      "politica-criminal-garantismo-mano-dura",
-      "ramas-del-derecho",
-      "resolucion-de-conflictos-y-sentencia"
-    ],
-    "nombre": "Dominio del Sistema Penal",
-    "descripcion": "Completaste el examen jefe sobre la estructura, normas y procesos del derecho penal argentino.",
-    "icono": "⚖️"
   },
   {
     "id": 206,
@@ -2441,7 +152,2262 @@
     "icono": "👁️"
   },
   {
-    "id": 214,
+    "id": 601,
+    "materia": "Matemática",
+    "cluster": 1,
+    "temas": [
+      "asintotas",
+      "concavidad-y-puntos-de-inflexion",
+      "conjuntos-pertenencia-e-inclusion",
+      "conteo",
+      "divisibilidad/regla-del-7-opcional"
+    ],
+    "nombre": "渐近线与集合掌握者",
+    "descripcion": "你在同一场阶段考核中分析了函数的渐近线和凹凸性，练习了集合归属、计数原理和7的整除规则。",
+    "icono": "📈"
+  },
+  {
+    "id": 602,
+    "materia": "Matemática",
+    "cluster": 2,
+    "temas": [
+      "grafos-vertices-y-aristas",
+      "integral-definida-y-area-bajo-la-curva",
+      "arboles-grafo-sin-ciclos",
+      "grafos-dirigidos-no-dirigidos-y-ponderados",
+      "leer-una-tabla"
+    ],
+    "nombre": "图与树大师",
+    "descripcion": "你掌握了顶点、边、树和加权图，还有定积分和表格解读。",
+    "icono": "🌳"
+  },
+  {
+    "id": 603,
+    "materia": "Matemática",
+    "cluster": 3,
+    "temas": [
+      "caminos-y-ciclos",
+      "leer-grafico/barras",
+      "algoritmos-de-recorrido-bfs-dfs",
+      "leer-grafico/lineas",
+      "leer-grafico/torta"
+    ],
+    "nombre": "路径、BFS与DFS掌握者",
+    "descripcion": "你用BFS和DFS遍历了路径和环，还准确解读了条形图、折线图和饼图。",
+    "icono": "🔍"
+  },
+  {
+    "id": 604,
+    "materia": "Matemática",
+    "cluster": 4,
+    "temas": [
+      "magnitud-unidad-instrumento",
+      "construir-un-grafico",
+      "grafico-eje-truncado",
+      "media-mediana-y-moda",
+      "razones-trigonometricas"
+    ],
+    "nombre": "图表与度量大师",
+    "descripcion": "你绘制了图表，识别出被截断的坐标轴，计算了平均数、中位数和众数，还应用了三角比。",
+    "icono": "📊"
+  },
+  {
+    "id": 605,
+    "materia": "Matemática",
+    "cluster": 5,
+    "temas": [
+      "cual-miente-y-cuando",
+      "funciones-trigonometricas-seno-coseno",
+      "regla-de-lhopital",
+      "identidades-y-ecuaciones-trigonometricas",
+      "regresion-lineal"
+    ],
+    "nombre": "三角函数与回归掌握者",
+    "descripcion": "你学习了三角函数、恒等式、洛必达法则和线性回归，还学会了识破谁在说谎、何时说谎。",
+    "icono": "📐"
+  },
+  {
+    "id": 606,
+    "materia": "Matemática",
+    "cluster": 6,
+    "temas": [
+      "sistema-metrico-y-conversiones",
+      "correlacion-no-es-causalidad",
+      "analisis-dimensional",
+      "angulos",
+      "cifras-significativas-y-error"
+    ],
+    "nombre": "单位与分析大师",
+    "descripcion": "你完成了单位换算，分析了量纲和有效数字，测量了角度，还能区分相关性与因果关系。",
+    "icono": "📏"
+  },
+  {
+    "id": 607,
+    "materia": "Matemática",
+    "cluster": 7,
+    "temas": [
+      "circunferencia-y-circulo",
+      "error-sistematico-vs-aleatorio",
+      "perimetro-y-area",
+      "poligonos",
+      "tablas-de-frecuencia-cuartiles-percentiles-y-varianza"
+    ],
+    "nombre": "周长、面积与统计掌握者",
+    "descripcion": "你计算了多边形和圆的周长与面积，还在频数表中处理了四分位数、百分位数和方差。",
+    "icono": "⭕"
+  },
+  {
+    "id": 608,
+    "materia": "Matemática",
+    "cluster": 8,
+    "temas": [
+      "area-poligonos-regulares-y-compuestas",
+      "dispersion-rango-y-desvio",
+      "teorema-de-bolzano",
+      "distribucion-normal",
+      "teorema-del-seno-y-del-coseno"
+    ],
+    "nombre": "面积与正态分布大师",
+    "descripcion": "你计算了复合多边形的面积，应用了正弦定理和余弦定理，还掌握了正态分布和离散程度。",
+    "icono": "📐"
+  },
+  {
+    "id": 609,
+    "materia": "Matemática",
+    "cluster": 9,
+    "temas": [
+      "muestreo-y-sesgo",
+      "triangulos",
+      "teorema-central-del-limite",
+      "congruencia-de-triangulos",
+      "intervalo-de-confianza"
+    ],
+    "nombre": "抽样与三角形精通者",
+    "descripcion": "你掌握了抽样、偏差、中心极限定理、置信区间和三角形全等。",
+    "icono": "🎯"
+  },
+  {
+    "id": 610,
+    "materia": "Matemática",
+    "cluster": 10,
+    "temas": [
+      "semejanza-y-teorema-de-thales",
+      "teorema-de-pitagoras",
+      "test-de-hipotesis",
+      "transformaciones-geometricas/homotecia",
+      "transformaciones-geometricas/reflexion"
+    ],
+    "nombre": "相似与勾股定理大师",
+    "descripcion": "你应用了泰勒斯定理和勾股定理、位似变换和反射，还完成了一次假设检验。",
+    "icono": "📐"
+  },
+  {
+    "id": 611,
+    "materia": "Matemática",
+    "cluster": 11,
+    "temas": [
+      "transformaciones-geometricas/rotacion",
+      "transformaciones-geometricas/traslacion",
+      "union-interseccion-y-diferencia",
+      "valor-posicional",
+      "diagramas-de-venn"
+    ],
+    "nombre": "变换与集合掌握者",
+    "descripcion": "你完成了图形的旋转和平移，计算了并集和交集，还练习了韦恩图和位值。",
+    "icono": "🔄"
+  },
+  {
+    "id": 612,
+    "materia": "Matemática",
+    "cluster": 12,
+    "temas": [
+      "suma",
+      "principio-multiplicativo-de-conteo",
+      "multiplicacion",
+      "combinaciones",
+      "permutaciones"
+    ],
+    "nombre": "计数与运算大师",
+    "descripcion": "你掌握了加法和基础乘法，还有计数原理、组合和排列。",
+    "icono": "🔢"
+  },
+  {
+    "id": 613,
+    "materia": "Matemática",
+    "cluster": 13,
+    "temas": [
+      "independencia-de-eventos-y-diagrama-de-arbol",
+      "potencias",
+      "probabilidad-simple",
+      "logaritmos",
+      "probabilidad-compuesta"
+    ],
+    "nombre": "概率与幂运算掌握者",
+    "descripcion": "你用树状图计算了简单概率和复合概率，还练习了幂和对数。",
+    "icono": "🎲"
+  },
+  {
+    "id": 614,
+    "materia": "Matemática",
+    "cluster": 14,
+    "temas": [
+      "raices",
+      "distribucion-binomial",
+      "esperanza-matematica-valor-esperado",
+      "irracionales-y-reales",
+      "probabilidad-condicional"
+    ],
+    "nombre": "概率与根式精通者",
+    "descripcion": "你计算了无理数和实数的根，还掌握了二项分布、期望值和条件概率。",
+    "icono": "🎲"
+  },
+  {
+    "id": 615,
+    "materia": "Matemática",
+    "cluster": 15,
+    "temas": [
+      "resta",
+      "sucesiones-aritmeticas",
+      "dinero",
+      "division",
+      "hora-y-reloj"
+    ],
+    "nombre": "基础运算大师",
+    "descripcion": "你掌握了减法、除法、金钱管理、时间和时钟的使用，还有等差数列。",
+    "icono": "🕐"
+  },
+  {
+    "id": 616,
+    "materia": "Matemática",
+    "cluster": 16,
+    "temas": [
+      "jerarquia-operaciones",
+      "numeros-enteros",
+      "divisibilidad/multiplos",
+      "lenguaje-algebraico",
+      "divisibilidad/divisores"
+    ],
+    "nombre": "运算顺序与整除掌握者",
+    "descripcion": "你运用了整数的运算顺序，计算了倍数和因数，还完成了代数语言的转换。",
+    "icono": "➗"
+  },
+  {
+    "id": 617,
+    "materia": "Matemática",
+    "cluster": 17,
+    "temas": [
+      "expresiones-equivalentes",
+      "divisibilidad/regla-del-2",
+      "divisibilidad/regla-del-3",
+      "divisibilidad/regla-del-4",
+      "divisibilidad/regla-del-5"
+    ],
+    "nombre": "整除规则大师",
+    "descripcion": "你掌握了2到5的整除规则，还构建出了等价表达式。",
+    "icono": "➗"
+  },
+  {
+    "id": 618,
+    "materia": "Matemática",
+    "cluster": 18,
+    "temas": [
+      "divisibilidad/regla-del-6",
+      "divisibilidad/regla-del-10",
+      "divisibilidad/regla-del-8",
+      "divisibilidad/regla-del-9",
+      "ecuacion-primer-grado"
+    ],
+    "nombre": "整除与方程掌握者",
+    "descripcion": "你补全了6、8、9和10的整除规则，还解出了一元一次方程。",
+    "icono": "✖️"
+  },
+  {
+    "id": 619,
+    "materia": "Matemática",
+    "cluster": 19,
+    "temas": [
+      "numeros-primos",
+      "demostracion-contraejemplo",
+      "demostracion-deduccion",
+      "demostracion-induccion",
+      "demostracion-reduccion-al-absurdo"
+    ],
+    "nombre": "证明方法大师",
+    "descripcion": "你掌握了质数，还有反例、演绎、归纳和归谬法这些证明技巧。",
+    "icono": "🧠"
+  },
+  {
+    "id": 620,
+    "materia": "Matemática",
+    "cluster": 20,
+    "temas": [
+      "despejar-formula",
+      "funcion-dominio",
+      "funcion-imagen",
+      "inecuaciones",
+      "funcion-inversa-composicion"
+    ],
+    "nombre": "函数与不等式掌握者",
+    "descripcion": "你完成了公式变形，解出了不等式，还处理了函数的定义域、值域、复合与反函数。",
+    "icono": "📉"
+  },
+  {
+    "id": 621,
+    "materia": "Matemática",
+    "cluster": 21,
+    "temas": [
+      "funcion-lineal-pendiente",
+      "mcd",
+      "operaciones-enteros",
+      "fracciones",
+      "mcm"
+    ],
+    "nombre": "分数与一次函数大师",
+    "descripcion": "你计算了最大公约数和最小公倍数，运算了分数和整数，还分析了一次函数的斜率。",
+    "icono": "📈"
+  },
+  {
+    "id": 622,
+    "materia": "Matemática",
+    "cluster": 22,
+    "temas": [
+      "plano-cartesiano",
+      "operaciones-fracciones",
+      "coordenadas-de-un-punto",
+      "decimales",
+      "distancia-entre-dos-puntos"
+    ],
+    "nombre": "笛卡尔坐标系掌握者",
+    "descripcion": "你在笛卡尔坐标系中标出坐标、计算了两点间的距离，还运算了分数和小数。",
+    "icono": "🧭"
+  },
+  {
+    "id": 623,
+    "materia": "Matemática",
+    "cluster": 23,
+    "temas": [
+      "notacion-cientifica",
+      "ecuacion-de-la-recta",
+      "polinomios-factoreo",
+      "proporcionalidad-funcion",
+      "division-polinomios-ruffini"
+    ],
+    "nombre": "多项式与直线方程大师",
+    "descripcion": "你完成了多项式因式分解，用鲁菲尼法则做了除法，求出了直线方程，还用上了科学记数法。",
+    "icono": "📐"
+  },
+  {
+    "id": 624,
+    "materia": "Matemática",
+    "cluster": 24,
+    "temas": [
+      "ecuacion-cuadratica",
+      "punto-medio-de-un-segmento",
+      "funcion-cuadratica-parabola",
+      "numeros-complejos",
+      "familias-exponencial-logaritmica"
+    ],
+    "nombre": "二次函数掌握者",
+    "descripcion": "你解出了二次方程，画出了抛物线，计算了线段中点，还处理了复数。",
+    "icono": "🔵"
+  },
+  {
+    "id": 625,
+    "materia": "Matemática",
+    "cluster": 25,
+    "temas": [
+      "forma-polar-complejos",
+      "ecuaciones-exponenciales-logaritmicas",
+      "limite",
+      "razon",
+      "continuidad"
+    ],
+    "nombre": "极限与复数大师",
+    "descripcion": "你计算了函数的极限和连续性，解出了指数方程和对数方程，还把复数表示成了极坐标形式。",
+    "icono": "∞"
+  },
+  {
+    "id": 626,
+    "materia": "Matemática",
+    "cluster": 26,
+    "temas": [
+      "proporcion",
+      "derivada",
+      "rectas-paralelas-y-perpendiculares",
+      "integral",
+      "optimizacion"
+    ],
+    "nombre": "导数与积分掌握者",
+    "descripcion": "你计算了导数和积分，解决了最优化问题，还处理了平行线和垂直线。",
+    "icono": "∫"
+  },
+  {
+    "id": 627,
+    "materia": "Matemática",
+    "cluster": 27,
+    "temas": [
+      "ecuaciones-diferenciales",
+      "redondeo",
+      "regla-de-tres-directa",
+      "secciones-conicas-circunferencia",
+      "porcentaje"
+    ],
+    "nombre": "微分方程大师",
+    "descripcion": "你解出了微分方程和圆锥曲线，还运用了三率法、百分比和四舍五入。",
+    "icono": "🌀"
+  },
+  {
+    "id": 628,
+    "materia": "Matemática",
+    "cluster": 28,
+    "temas": [
+      "regla-de-tres-inversa",
+      "sistemas-dos-ecuaciones",
+      "sucesiones-y-series",
+      "matrices/operaciones",
+      "series-geometricas"
+    ],
+    "nombre": "方程组与数列掌握者",
+    "descripcion": "你解出了二元方程组，运算了矩阵，还处理了数列、几何级数和反比例三率法。",
+    "icono": "🔢"
+  },
+  {
+    "id": 629,
+    "materia": "Matemática",
+    "cluster": 29,
+    "temas": [
+      "matrices/sistemas-nxn",
+      "tecnicas-de-integracion",
+      "determinante",
+      "teorema-de-bayes",
+      "matriz-inversa"
+    ],
+    "nombre": "矩阵与贝叶斯大师",
+    "descripcion": "你计算了行列式和逆矩阵，解出了n×n方程组，还应用了积分技巧和贝叶斯定理。",
+    "icono": "🧮"
+  },
+  {
+    "id": 630,
+    "materia": "Matemática",
+    "cluster": 30,
+    "temas": [
+      "riesgo-relativo-vs-absoluto",
+      "teorema-del-binomio",
+      "variable-aleatoria-discreta-continua",
+      "variaciones",
+      "distribucion-de-poisson"
+    ],
+    "nombre": "分布与二项式定理掌握者",
+    "descripcion": "你应用了二项式定理和泊松分布，处理了随机变量和相对风险。",
+    "icono": "🎲"
+  },
+  {
+    "id": 631,
+    "materia": "Matemática",
+    "cluster": 31,
+    "temas": [
+      "distribucion-exponencial",
+      "vectores-modulo-y-direccion",
+      "volumen-y-capacidad",
+      "suma-de-vectores-y-descomposicion",
+      "cuerpos-redondos-y-poliedros/cilindros"
+    ],
+    "nombre": "向量与体积大师",
+    "descripcion": "你完成了向量的合成与分解，计算了圆柱体积和容积，还处理了指数分布。",
+    "icono": "➡️"
+  },
+  {
+    "id": 632,
+    "materia": "Matemática",
+    "cluster": 32,
+    "temas": [
+      "cuerpos-redondos-y-poliedros/conos",
+      "cuerpos-redondos-y-poliedros/esferas",
+      "cuerpos-redondos-y-poliedros/piramides",
+      "cuerpos-redondos-y-poliedros/prismas",
+      "producto-escalar",
+      "cuerpos-redondos-y-poliedros/desarrollo-plano"
+    ],
+    "nombre": "立体几何掌握者",
+    "descripcion": "你计算了圆锥、球体、棱锥和棱柱，画出了它们的展开图，还应用了向量的点积。",
+    "icono": "🔺"
+  },
+  {
+    "id": 651,
+    "materia": "Lengua",
+    "cluster": 1,
+    "temas": [
+      "conciencia-fonologica",
+      "escritura-como-tecnologia",
+      "decodificacion-y-fluidez",
+      "ortografia-y-tildacion",
+      "circuito-de-la-comunicacion"
+    ],
+    "nombre": "读写基础大师",
+    "descripcion": "你掌握了语音意识、解码与流畅阅读、拼写与重音规则，还有沟通的基本环节。",
+    "icono": "🔤📖"
+  },
+  {
+    "id": 652,
+    "materia": "Lengua",
+    "cluster": 2,
+    "temas": [
+      "comprension-idea-principal",
+      "signos-de-puntuacion",
+      "tecnicas-de-estudio-resumen-y-organizadores-graficos",
+      "tipos-textuales",
+      "variedades-de-la-lengua"
+    ],
+    "nombre": "文本理解掌握者",
+    "descripcion": "你在这场阶段考核中掌握了中心思想、标点符号、文本类型和语言的变体。",
+    "icono": "🧩📚"
+  },
+  {
+    "id": 653,
+    "materia": "Lengua",
+    "cluster": 3,
+    "temas": [
+      "genero-dramatico",
+      "genero-lirico",
+      "genero-narrativo",
+      "generos-discursivos",
+      "narrador"
+    ],
+    "nombre": "文学体裁大师",
+    "descripcion": "你掌握了戏剧、抒情、叙事和话语体裁，关于叙述者的问题一道也没错。",
+    "icono": "🎭📖"
+  },
+  {
+    "id": 654,
+    "materia": "Lengua",
+    "cluster": 4,
+    "temas": [
+      "generos-periodisticos",
+      "paratextos",
+      "punto-de-vista",
+      "recursos-literarios",
+      "estructura-narrativa"
+    ],
+    "nombre": "叙事与新闻技巧掌握者",
+    "descripcion": "你在这场考核中掌握了新闻体裁、副文本、叙述视角和文学修辞手法。",
+    "icono": "📰🖋️"
+  },
+  {
+    "id": 655,
+    "materia": "Lengua",
+    "cluster": 5,
+    "temas": [
+      "romanticismo",
+      "tesis",
+      "realismo",
+      "argumentos",
+      "modernismo"
+    ],
+    "nombre": "文学思潮与论文写作大师",
+    "descripcion": "你掌握了浪漫主义、现实主义和现代主义，还学会了用扎实的论据构建论文。",
+    "icono": "🖋️📜"
+  },
+  {
+    "id": 656,
+    "materia": "Lengua",
+    "cluster": 6,
+    "temas": [
+      "contraargumentos",
+      "generacion-del-98",
+      "detectar-falacias",
+      "boom-latinoamericano",
+      "debate-refutar-en-vivo"
+    ],
+    "nombre": "反驳论证与拉美文学爆炸大师",
+    "descripcion": "你在这场阶段考核中掌握了反驳论证、谬误识别、现场辩论和98一代文学。",
+    "icono": "🗣️⚖️"
+  },
+  {
+    "id": 657,
+    "materia": "Lengua",
+    "cluster": 7,
+    "temas": [
+      "exposicion-oral",
+      "negociacion",
+      "persuasion-etica-vs-manipulacion",
+      "presentacion-con-apoyo-visual",
+      "subjetivemas-y-modalizadores"
+    ],
+    "nombre": "说服与口语表达掌握者",
+    "descripcion": "你掌握了口头报告、谈判技巧和配合视觉材料的演讲，还能区分道德说服和操纵。",
+    "icono": "🎤🤝"
+  },
+  {
+    "id": 658,
+    "materia": "Lengua",
+    "cluster": 8,
+    "temas": [
+      "texto-teatral",
+      "vocabulario-y-familia-de-palabras",
+      "clases-de-palabras",
+      "concordancia-nominal-y-verbal",
+      "conjugacion-verbal-indicativo"
+    ],
+    "nombre": "戏剧文本与语法大师",
+    "descripcion": "你在这场考核中掌握了戏剧文本、词类、名词和动词的一致性，还有陈述式动词变位。",
+    "icono": "🎭📝"
+  },
+  {
+    "id": 659,
+    "materia": "Lengua",
+    "cluster": 9,
+    "temas": [
+      "sujeto-y-predicado",
+      "conjugacion-verbal-subjuntivo",
+      "nucleos-y-modificadores",
+      "tipos-de-sujeto",
+      "objetos-y-circunstanciales"
+    ],
+    "nombre": "主语与谓语掌握者",
+    "descripcion": "你掌握了主语类型、中心词和修饰语、宾语和状语，还有虚拟式动词变位。",
+    "icono": "🔍📐"
+  },
+  {
+    "id": 660,
+    "materia": "Lengua",
+    "cluster": 10,
+    "temas": [
+      "sintagmas-nominal-adjetivo-preposicional-adverbial-verbal",
+      "oracion-compuesta-coordinacion-y-subordinacion",
+      "oraciones-negativas-e-interrogativas",
+      "coordinadas-adversativas",
+      "coordinadas-copulativas"
+    ],
+    "nombre": "短语与复合句大师",
+    "descripcion": "你在这场阶段考核中掌握了名词、形容词、介词和动词短语，并列句和从属句，还有疑问句。",
+    "icono": "🧩📝"
+  },
+  {
+    "id": 661,
+    "materia": "Lengua",
+    "cluster": 11,
+    "temas": [
+      "coordinadas-distributivas",
+      "coordinadas-disyuntivas",
+      "discurso-referido",
+      "produccion-escrita-compleja",
+      "subordinada-adjetiva-o-de-relativo"
+    ],
+    "nombre": "并列句与转述句掌握者",
+    "descripcion": "你掌握了分配和选择并列句、转述引语、复杂写作和形容词性从句。",
+    "icono": "🔗🗨️"
+  },
+  {
+    "id": 662,
+    "materia": "Lengua",
+    "cluster": 12,
+    "temas": [
+      "conectores-textuales",
+      "correo-formal",
+      "cv",
+      "informe-tecnico",
+      "progresion-tematica"
+    ],
+    "nombre": "专业写作精通者",
+    "descripcion": "你在这场考核中掌握了正式邮件、简历、技术报告、语篇衔接词和主位推进。",
+    "icono": "💼📧"
+  },
+  {
+    "id": 663,
+    "materia": "Lengua",
+    "cluster": 13,
+    "temas": [
+      "referencia-anafora-y-catafora",
+      "subordinada-adverbial-de-lugar",
+      "subordinada-adverbial-de-modo",
+      "subordinada-adverbial-de-tiempo",
+      "subordinada-causal"
+    ],
+    "nombre": "状语从句大师",
+    "descripcion": "你掌握了回指和预指，还有地点、方式、时间和原因状语从句。",
+    "icono": "🔗🕰️"
+  },
+  {
+    "id": 664,
+    "materia": "Lengua",
+    "cluster": 14,
+    "temas": [
+      "subordinada-concesiva-y-final",
+      "subordinada-condicional",
+      "subordinada-consecutiva",
+      "subordinada-sustantiva-de-complemento-circunstancial",
+      "subordinada-sustantiva-de-complemento-de-regimen"
+    ],
+    "nombre": "条件句与结果从句掌握者",
+    "descripcion": "你在这场阶段考核中掌握了让步、目的、条件和结果从句，还有状语补语和支配关系的名词性从句。",
+    "icono": "🔀📋"
+  },
+  {
+    "id": 665,
+    "materia": "Lengua",
+    "cluster": 15,
+    "temas": [
+      "subordinada-sustantiva-de-complemento-de-un-adjetivo",
+      "subordinada-sustantiva-de-complemento-del-nombre",
+      "subordinada-sustantiva-de-complemento-directo",
+      "subordinada-sustantiva-de-sujeto",
+      "voz-activa-y-pasiva"
+    ],
+    "nombre": "名词性从句与语态大师",
+    "descripcion": "你掌握了主语、直接宾语和名词补语的名词性从句，最后还能区分主动语态和被动语态。",
+    "icono": "🔄🗣️"
+  },
+  {
+    "id": 681,
+    "materia": "Historia profunda",
+    "cluster": 1,
+    "temas": [
+      "absolutismo-europeo",
+      "agujeros-negros",
+      "ampliacion-democratica-ley-saenz-pena",
+      "antigua-grecia",
+      "antigua-roma"
+    ],
+    "nombre": "从希腊罗马到专制王权",
+    "descripcion": "你在这场阶段考核中掌握了古希腊、古罗马和欧洲专制主义，中途还顺带了解了黑洞。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 682,
+    "materia": "Historia profunda",
+    "cluster": 2,
+    "temas": [
+      "antiguo-egipto",
+      "atmosfera-primitiva",
+      "baja-edad-media-y-crisis",
+      "caida-de-roma-y-alta-edad-media",
+      "cambio-climatico-linea-base-historica"
+    ],
+    "nombre": "埃及与中世纪危机",
+    "descripcion": "你完成了关于古埃及、罗马衰亡、中世纪早期和中世纪晚期危机的考核。",
+    "icono": "🏺"
+  },
+  {
+    "id": 683,
+    "materia": "Historia profunda",
+    "cluster": 3,
+    "temas": [
+      "china-antigua",
+      "ciclo-de-las-rocas",
+      "ciencia-revolucion-cientifica",
+      "cinco-extinciones-masivas",
+      "civilizaciones-antiguas"
+    ],
+    "nombre": "科学与古代文明",
+    "descripcion": "你在同一场阶段考核中掌握了古代中国、古代文明、五次生物大灭绝和科学革命。",
+    "icono": "🔬🏺"
+  },
+  {
+    "id": 684,
+    "materia": "Historia profunda",
+    "cluster": 4,
+    "temas": [
+      "civilizaciones-de-america-precolombinas",
+      "conquista-colonizacion-america",
+      "conquista-tierra-firme",
+      "conquista-y-colonia-argentina",
+      "corrimiento-al-rojo-expansion-universo"
+    ],
+    "nombre": "从前哥伦布时期到宇宙",
+    "descripcion": "你完成的考核涵盖了从前哥伦布文明、美洲征服，一直到红移现象和宇宙膨胀。",
+    "icono": "🌎"
+  },
+  {
+    "id": 685,
+    "materia": "Historia profunda",
+    "cluster": 5,
+    "temas": [
+      "datacion-radiometrica",
+      "descolonizacion-de-africa-y-asia",
+      "distribucion-biomas",
+      "division-del-trabajo",
+      "eclipses-sol-luna"
+    ],
+    "nombre": "测年法、生物群系与非殖民化",
+    "descripcion": "你在这场阶段考核中综合运用了放射性测年法、非洲和亚洲的非殖民化、生物群系分布，还有日食和月食。",
+    "icono": "⏳🌍"
+  },
+  {
+    "id": 686,
+    "materia": "Historia profunda",
+    "cluster": 6,
+    "temas": [
+      "edad-media-feudalismo",
+      "edad-media-plena",
+      "electrificacion-fabrica-hogar",
+      "entreguerras-y-crisis-de-1929",
+      "escalas-de-tiempo-profundo"
+    ],
+    "nombre": "从封建制度到1929年大危机",
+    "descripcion": "你贯通了中世纪封建制度、工厂和家庭电气化以及1929年大危机，掌握了这些重大变革。",
+    "icono": "🏰"
+  },
+  {
+    "id": 687,
+    "materia": "Historia profunda",
+    "cluster": 7,
+    "temas": [
+      "escritura-primeras-ciudades",
+      "estaciones-del-ano",
+      "estados-nacionales",
+      "eucariotas",
+      "expansion-del-imperio-romano"
+    ],
+    "nombre": "从文字到罗马帝国",
+    "descripcion": "你完成了关于文字与最早城市、民族国家和罗马帝国扩张的主考试。",
+    "icono": "📜🏛️"
+  },
+  {
+    "id": 688,
+    "materia": "Historia profunda",
+    "cluster": 8,
+    "temas": [
+      "explosion-cambrica",
+      "fases-lunares",
+      "formacion-de-estrellas",
+      "formacion-del-sistema-solar",
+      "fotosintesis-cambio-atmosfera-nivel2"
+    ],
+    "nombre": "恒星、光合作用与寒武纪",
+    "descripcion": "你掌握了恒星和太阳系的形成、月相、光合作用和寒武纪大爆发。",
+    "icono": "⭐🧬"
+  },
+  {
+    "id": 689,
+    "materia": "Historia profunda",
+    "cluster": 9,
+    "temas": [
+      "galaxias-tipos-escala",
+      "globalizacion-era-digital",
+      "golpes-de-estado-interrupciones",
+      "gran-oxidacion",
+      "guerra-de-malvinas"
+    ],
+    "nombre": "星系、政变与马岛战争",
+    "descripcion": "你在这场阶段考核中掌握了星系、大氧化事件、政变和马岛战争。",
+    "icono": "🌌🎖️"
+  },
+  {
+    "id": 690,
+    "materia": "Historia profunda",
+    "cluster": 10,
+    "temas": [
+      "guerra-fria-descolonizacion",
+      "guerras-civiles-unitarios-federales",
+      "guerras-de-independencia-argentina",
+      "guerras-mundiales",
+      "herramientas-arte-rupestre"
+    ],
+    "nombre": "从独立到冷战",
+    "descripcion": "你完成了关于阿根廷独立战争、统一派与联邦派内战、两次世界大战和冷战的考核。",
+    "icono": "⚔️"
+  },
+  {
+    "id": 691,
+    "materia": "Historia profunda",
+    "cluster": 11,
+    "temas": [
+      "historia-contemporanea-de-africa",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "historia-reciente-argentina",
+      "hominizacion"
+    ],
+    "nombre": "世界当代史",
+    "descripcion": "你在这场阶段考核中综合了非洲、亚洲与太平洋、中东和近代阿根廷的当代史。",
+    "icono": "🌍"
+  },
+  {
+    "id": 692,
+    "materia": "Historia profunda",
+    "cluster": 12,
+    "temas": [
+      "huella-humana-en-el-clima-inicio",
+      "ilustracion",
+      "imperialismo",
+      "imperio-bizantino",
+      "imperio-de-alejandro-magno-helenistico"
+    ],
+    "nombre": "从希腊化时代到帝国主义",
+    "descripcion": "你完成了关于亚历山大大帝的希腊化帝国、拜占庭帝国、启蒙运动和帝国主义的考核。",
+    "icono": "🏺🌐"
+  },
+  {
+    "id": 693,
+    "materia": "Historia profunda",
+    "cluster": 13,
+    "temas": [
+      "imperio-han-china",
+      "imperio-persa",
+      "imperios-expansion",
+      "imprenta",
+      "india-antigua"
+    ],
+    "nombre": "古代帝国与印刷术",
+    "descripcion": "你掌握了波斯帝国、中国汉朝、古印度和印刷术的诞生。",
+    "icono": "👑📖"
+  },
+  {
+    "id": 694,
+    "materia": "Historia profunda",
+    "cluster": 14,
+    "temas": [
+      "internet-redes-globalizacion-digital",
+      "islam-y-expansion-arabe",
+      "ley-de-hubble",
+      "materia-energia-oscura",
+      "mesopotamia"
+    ],
+    "nombre": "从美索不达米亚到互联网",
+    "descripcion": "你完成的复习涵盖了从美索不达米亚和伊斯兰教，一直到互联网和数字全球化，中途还了解了哈勃定律。",
+    "icono": "🕌💻"
+  },
+  {
+    "id": 695,
+    "materia": "Historia profunda",
+    "cluster": 15,
+    "temas": [
+      "metalurgia-cobre-hierro",
+      "minerales-estructura-cristalina",
+      "modelo-agroexportador-inmigracion",
+      "modernidad-imprenta-navegacion-ciencia",
+      "movimiento-aparente-constelaciones"
+    ],
+    "nombre": "冶金、矿物与现代化",
+    "descripcion": "你完成了关于铜铁冶金、矿物、农产品出口模式，以及印刷术和航海带来的现代化的主考试。",
+    "icono": "⚒️🔭"
+  },
+  {
+    "id": 696,
+    "materia": "Historia profunda",
+    "cluster": 16,
+    "temas": [
+      "movimiento-rotacion-traslacion",
+      "multicelularidad",
+      "navegacion",
+      "nucleosintesis",
+      "organizacion-nacional-constitucion-1853"
+    ],
+    "nombre": "宇宙与1853年宪法",
+    "descripcion": "你展现出的掌握程度，从地球自转公转和核合成，一直延伸到1853年的国家组织进程。",
+    "icono": "🌐📜"
+  },
+  {
+    "id": 697,
+    "materia": "Historia profunda",
+    "cluster": 17,
+    "temas": [
+      "origen-de-la-vida",
+      "origen-del-universo",
+      "paleoclima-glaciaciones",
+      "paleolitico",
+      "peronismo-derechos-sociales"
+    ],
+    "nombre": "从大爆炸到庇隆主义",
+    "descripcion": "你完成的这场主考试，涵盖了从宇宙和生命的起源，一直到旧石器时代和庇隆主义。",
+    "icono": "💥🗳️"
+  },
+  {
+    "id": 698,
+    "materia": "Historia profunda",
+    "cluster": 18,
+    "temas": [
+      "poblamiento-planeta-america",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "procariotas",
+      "propiedad-jerarquia-estado",
+      "pueblos-originarios-territorio-argentino"
+    ],
+    "nombre": "从原核生物到俄国革命",
+    "descripcion": "你完成了关于原核生物、美洲人类迁徙、原住民族群，以及第一次世界大战和俄国革命的考核。",
+    "icono": "🧫🚩"
+  },
+  {
+    "id": 699,
+    "materia": "Historia profunda",
+    "cluster": 19,
+    "temas": [
+      "radiacion-mamiferos",
+      "recuperacion-democratica-memoria",
+      "relieve-sismos-volcanes",
+      "renacimiento-y-reforma",
+      "revolucion-de-mayo"
+    ],
+    "nombre": "从文艺复兴到民主重建",
+    "descripcion": "你在这场阶段考核中掌握了文艺复兴和宗教改革、五月革命，以及民主重建和历史记忆。",
+    "icono": "🎨🕊️"
+  },
+  {
+    "id": 700,
+    "materia": "Historia profunda",
+    "cluster": 20,
+    "temas": [
+      "revolucion-industrial",
+      "revolucion-neolitica",
+      "revoluciones-burguesas-liberalismo",
+      "rocas-igneas-sedimentarias-metamorficas",
+      "sedentarizacion-excedente"
+    ],
+    "nombre": "从新石器革命到工业革命",
+    "descripcion": "你贯通了新石器革命、定居生活和剩余产品，一直到工业革命和资产阶级革命。",
+    "icono": "🌾🏭"
+  },
+  {
+    "id": 701,
+    "materia": "Historia profunda",
+    "cluster": 21,
+    "temas": [
+      "segunda-guerra-mundial",
+      "seleccion-natural-evidencias-nivel2",
+      "sociedad-de-masas-y-democracia-liberal",
+      "tabla-periodica-nivel2-cosmologico",
+      "tectonica-placas-deriva-continental",
+      "terrorismo-de-estado-argentina",
+      "tiempo-geologico-eones-eras-periodos",
+      "tierra-primitiva-diferenciacion",
+      "virreinato-y-comercio"
+    ],
+    "nombre": "深度历史大师",
+    "descripcion": "你在这场阶段考核中大获全胜，掌握了从原始地球和板块构造，一直到第二次世界大战、国家恐怖主义和总督辖区的内容。",
+    "icono": "🌋🎖️"
+  },
+  {
+    "id": 721,
+    "materia": "Historia",
+    "cluster": 1,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "crisis-de-2001",
+      "guerra-civil-espanola-1936-1939",
+      "guerra-del-paraguay-y-triple-alianza",
+      "interpretar-una-fuente-historica"
+    ],
+    "nombre": "战争与危机大师",
+    "descripcion": "你在这场阶段考核中通过解读史料，掌握了荒漠征服、巴拉圭战争、西班牙内战和2001年危机。",
+    "icono": "⚔️"
+  },
+  {
+    "id": 722,
+    "materia": "Historia",
+    "cluster": 2,
+    "temas": [
+      "linea-de-tiempo-y-antes-despues",
+      "reforma-universitaria-1918",
+      "decada-siglo-milenio",
+      "revolucion-mexicana-1910-1920",
+      "antes-y-despues-de-cristo"
+    ],
+    "nombre": "时间线与革命大师",
+    "descripcion": "你完成了关于时间线、1918年大学改革运动和墨西哥革命的主考试。",
+    "icono": "⏳"
+  },
+  {
+    "id": 723,
+    "materia": "Historia",
+    "cluster": 3,
+    "temas": [
+      "rosas-y-la-confederacion",
+      "periodizacion-historica",
+      "economias-regionales-tempranas",
+      "causa-y-consecuencia",
+      "semana-tragica-1919"
+    ],
+    "nombre": "罗萨斯与悲惨一周大师",
+    "descripcion": "你在这场阶段考核中掌握了罗萨斯和邦联时期、早期地区经济，还有1919年的悲惨一周。",
+    "icono": "📜"
+  },
+  {
+    "id": 724,
+    "materia": "Historia",
+    "cluster": 4,
+    "temas": [
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "multicausalidad"
+    ],
+    "nombre": "历史思维与进口替代工业化大师",
+    "descripcion": "你完成了这场主考试，掌握了变迁与延续、多重因果关系、历史证据和进口替代工业化。",
+    "icono": "🏭"
+  },
+  {
+    "id": 725,
+    "materia": "Historia",
+    "cluster": 5,
+    "temas": [
+      "significancia-historica",
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones",
+      "independencias",
+      "guerras"
+    ],
+    "nombre": "史学流派大师",
+    "descripcion": "你在这场阶段考核中把年鉴学派、历史唯物主义和实证主义，与各大革命、独立运动和战争结合了起来。",
+    "icono": "📚"
+  },
+  {
+    "id": 736,
+    "materia": "Física",
+    "cluster": 1,
+    "temas": [
+      "calor-q-m-c-deltat",
+      "cambios-de-estado-calor-latente",
+      "campo-electrico",
+      "campo-magnetico-imanes-corrientes",
+      "cargas-electricas"
+    ],
+    "nombre": "热学与电荷大师",
+    "descripcion": "你在这场阶段考核中掌握了比热容、物态变化以及电场和磁场。",
+    "icono": "🔥⚡"
+  },
+  {
+    "id": 737,
+    "materia": "Física",
+    "cluster": 2,
+    "temas": [
+      "caudal-q-a-v",
+      "choques-elasticos-inelasticos",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "circuitos-mixtos"
+    ],
+    "nombre": "电路与碰撞精通者",
+    "descripcion": "你掌握了串联、并联和混联电路，还有流量以及弹性碰撞和非弹性碰撞。",
+    "icono": "🔌💥"
+  },
+  {
+    "id": 738,
+    "materia": "Física",
+    "cluster": 3,
+    "temas": [
+      "conservacion-energia-mecanica",
+      "corriente-electrica",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "decibeles-richter",
+      "dilatacion-termica-lineal"
+    ],
+    "nombre": "能量与放射性掌握者",
+    "descripcion": "你在这场考核中掌握了机械能守恒、电流、放射性衰变和热胀冷缩。",
+    "icono": "☢️⚡"
+  },
+  {
+    "id": 739,
+    "materia": "Física",
+    "cluster": 4,
+    "temas": [
+      "dinamica-fuerzas-concurrentes",
+      "dualidad-onda-particula",
+      "energia-cinetica",
+      "energia-potencial-gravitatoria",
+      "entropia-segunda-ley-termodinamica"
+    ],
+    "nombre": "动力学与熵大师",
+    "descripcion": "你掌握了共点力、动能和势能，最后还学习了熵和波粒二象性。",
+    "icono": "⚛️⚖️"
+  },
+  {
+    "id": 740,
+    "materia": "Física",
+    "cluster": 5,
+    "temas": [
+      "escalas-de-temperatura-c-f-k",
+      "estatica/centro-de-gravedad",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "estatica/momento-de-una-fuerza",
+      "estructura-del-nucleo-atomico"
+    ],
+    "nombre": "平衡与温标掌握者",
+    "descripcion": "你在这场阶段考核中掌握了重心、刚体平衡、温标和原子核结构。",
+    "icono": "⚖️🌡️"
+  },
+  {
+    "id": 741,
+    "materia": "Física",
+    "cluster": 6,
+    "temas": [
+      "fisica-medica",
+      "fision-y-fusion-nuclear",
+      "formacion-de-imagenes-optica",
+      "formulas-con-literales",
+      "frecuencia"
+    ],
+    "nombre": "医学物理与核物理精通者",
+    "descripcion": "你掌握了核裂变和核聚变、光学成像和医学物理，没有一道公式题出错。",
+    "icono": "🏥☢️"
+  },
+  {
+    "id": 742,
+    "materia": "Física",
+    "cluster": 7,
+    "temas": [
+      "generador-motor-transformador",
+      "gravitacion-universal",
+      "iman-polos-atraccion-repulsion",
+      "impulso-cambio-momento",
+      "induccion-electromagnetica-faraday-lenz"
+    ],
+    "nombre": "电磁学与万有引力大师",
+    "descripcion": "你在这场考核中掌握了发电机、电动机和变压器，法拉第与楞次的电磁感应定律，还有万有引力。",
+    "icono": "🧲🌍"
+  },
+  {
+    "id": 743,
+    "materia": "Física",
+    "cluster": 8,
+    "temas": [
+      "lentes-convergentes-divergentes",
+      "ley-de-coulomb",
+      "ley-de-ohm",
+      "leyes-de-newton/primera-inercia",
+      "leyes-de-newton/segunda-fma"
+    ],
+    "nombre": "基本定律掌握者",
+    "descripcion": "你掌握了库仑定律、欧姆定律和牛顿前两大定律，还有凸透镜和凹透镜。",
+    "icono": "🔍⚡"
+  },
+  {
+    "id": 744,
+    "materia": "Física",
+    "cluster": 9,
+    "temas": [
+      "leyes-de-newton/tercera-accion-reaccion",
+      "longitud-onda-velocidad-propagacion",
+      "luz-onda-espectro-electromagnetico",
+      "maquina-termica-termodinamica-nivel2",
+      "maquinas-simples"
+    ],
+    "nombre": "波动与简单机械大师",
+    "descripcion": "你在这场阶段考核中掌握了牛顿第三定律、波的传播、电磁波谱和简单机械。",
+    "icono": "🌊⚙️"
+  },
+  {
+    "id": 745,
+    "materia": "Física",
+    "cluster": 10,
+    "temas": [
+      "momento-lineal",
+      "movimiento-circular-y-fuerza-centripeta",
+      "mru",
+      "ojo-humano-instrumento-optico",
+      "mruv"
+    ],
+    "nombre": "运动与视觉掌握者",
+    "descripcion": "你掌握了匀速直线运动、匀加速直线运动、动量和圆周运动，还理解了人眼作为光学仪器的原理。",
+    "icono": "🏃‍♂️👁️"
+  },
+  {
+    "id": 746,
+    "materia": "Física",
+    "cluster": 11,
+    "temas": [
+      "oscilacion-periodo",
+      "plano-inclinado-y-rozamiento",
+      "potencia-electrica",
+      "potencia-mecanica",
+      "presion-atmosferica"
+    ],
+    "nombre": "功率与振动大师",
+    "descripcion": "你在这场考核中掌握了电功率和机械功率、带摩擦力的斜面、振动和大气压。",
+    "icono": "🔄⚡"
+  },
+  {
+    "id": 747,
+    "materia": "Física",
+    "cluster": 12,
+    "temas": [
+      "presion-f-sobre-a",
+      "masas-de-aire-y-frentes",
+      "presion-hidrostatica",
+      "formacion-de-nubes",
+      "principio-de-arquimedes-empuje-flotacion"
+    ],
+    "nombre": "压强与气候掌握者",
+    "descripcion": "你掌握了流体静压强、阿基米德原理、气团和锋面，还有云的形成。",
+    "icono": "🌬️☁️"
+  },
+  {
+    "id": 748,
+    "materia": "Física",
+    "cluster": 13,
+    "temas": [
+      "precipitacion",
+      "principio-de-pascal-prensa-hidraulica",
+      "reflexion-espejos-planos-curvos",
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual"
+    ],
+    "nombre": "光学与相对论大师",
+    "descripcion": "你在这场阶段考核中掌握了反射、结合斯涅尔定律的折射、帕斯卡原理和狭义相对论。",
+    "icono": "🔭🌀"
+  },
+  {
+    "id": 749,
+    "materia": "Física",
+    "cluster": 14,
+    "temas": [
+      "resistencia-electrica",
+      "resonancia-frecuencia-natural",
+      "semivida-desintegracion-exponencial",
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico"
+    ],
+    "nombre": "声音与电阻掌握者",
+    "descripcion": "你掌握了电阻、共振、音色和声音强度，还有半衰期的指数衰变。",
+    "icono": "🔊🔋"
+  },
+  {
+    "id": 750,
+    "materia": "Física",
+    "cluster": 15,
+    "temas": [
+      "tension-diferencia-potencial",
+      "tiro-oblicuo",
+      "tiro-vertical",
+      "tormentas-y-fenomenos-severos",
+      "trabajo-de-una-fuerza",
+      "transmision-calor-conduccion-conveccion-radiacion",
+      "velocidad-aceleracion-instantaneas"
+    ],
+    "nombre": "抛体运动与风暴大师",
+    "descripcion": "你在这场考核中掌握了斜抛和竖直抛体运动、力的做功、热传递和强烈风暴。",
+    "icono": "🎯🌪️"
+  },
+  {
+    "id": 766,
+    "materia": "Economía",
+    "cluster": 1,
+    "temas": [
+      "balanza-comercial",
+      "blockchain-claves-wallet",
+      "business-model-canvas",
+      "capitalismo-industrial-trabajo-asalariado",
+      "comercio-internacional-ventaja-comparativa"
+    ],
+    "nombre": "全球贸易与区块链大师",
+    "descripcion": "你理解了贸易差额和比较优势，还迈出了了解区块链和商业模式的第一步。",
+    "icono": "🌐"
+  },
+  {
+    "id": 767,
+    "materia": "Economía",
+    "cluster": 2,
+    "temas": [
+      "contratos-inteligentes",
+      "control-de-gestion-e-indicadores",
+      "cooperativismo-y-mutualismo",
+      "coordinar-personas-y-recursos",
+      "costo-de-oportunidad"
+    ],
+    "nombre": "管理与机会成本大师",
+    "descripcion": "你掌握了管理控制，学会了协调人员和资源，还理解了机会成本和合作社制度。",
+    "icono": "🤝"
+  },
+  {
+    "id": 768,
+    "materia": "Economía",
+    "cluster": 3,
+    "temas": [
+      "costo-marginal",
+      "debe-haber-balance",
+      "detectar-una-oportunidad-de-negocio",
+      "dex-swap",
+      "division-formal-microeconomia-macroeconomia"
+    ],
+    "nombre": "边际成本与会计基础掌握者",
+    "descripcion": "你学会了借方和贷方，计算了边际成本，还能区分微观经济学和宏观经济学。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 769,
+    "materia": "Economía",
+    "cluster": 4,
+    "temas": [
+      "elasticidad",
+      "economia-positiva-y-normativa",
+      "estado-de-resultados",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia"
+    ],
+    "nombre": "弹性与财务报表大师",
+    "descripcion": "你在这场阶段考核中分析了弹性、损益表和国家的生产结构。",
+    "icono": "📉"
+  },
+  {
+    "id": 770,
+    "materia": "Economía",
+    "cluster": 5,
+    "temas": [
+      "ecuacion-contable-fundamental",
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "margenes-bruto-y-neto"
+    ],
+    "nombre": "会计恒等式与利息大师",
+    "descripcion": "你计算了单利和复利，运用了增值税，还掌握了毛利率和净利率。",
+    "icono": "🧮"
+  },
+  {
+    "id": 771,
+    "materia": "Economía",
+    "cluster": 6,
+    "temas": [
+      "cft-vs-tasa-nominal",
+      "cuota-credito-frances",
+      "interes-compuesto-funcion",
+      "mejora-continua",
+      "mvp-producto-minimo-viable"
+    ],
+    "nombre": "信贷与持续改进掌握者",
+    "descripcion": "你区分了综合融资成本和名义利率，计算了法式分期还款额，还把持续改进应用到了一个最小可行产品上。",
+    "icono": "💳"
+  },
+  {
+    "id": 772,
+    "materia": "Economía",
+    "cluster": 7,
+    "temas": [
+      "objetivos-y-metas",
+      "origen-excedente-moneda-mercado",
+      "partida-doble",
+      "pitch-a-inversores",
+      "libro-diario-mayor"
+    ],
+    "nombre": "复式记账与路演大师",
+    "descripcion": "你在日记账中完成了复式记账，理解了货币盈余的来源，还准备好了给投资人的路演陈述。",
+    "icono": "📒"
+  },
+  {
+    "id": 773,
+    "materia": "Economía",
+    "cluster": 8,
+    "temas": [
+      "planificacion-administrativa",
+      "estados-contables",
+      "plazo-fijo-vs-inflacion",
+      "contabilidad-ambiental",
+      "contabilidad-como-sistema-de-informacion"
+    ],
+    "nombre": "规划与财务报表掌握者",
+    "descripcion": "你以管理者的身份做了规划，读懂了财务报表，还比较了定期存款和通货膨胀。",
+    "icono": "📑"
+  },
+  {
+    "id": 774,
+    "materia": "Economía",
+    "cluster": 9,
+    "temas": [
+      "indices-financieros",
+      "pools-liquidez-amm",
+      "precio-final",
+      "presupuesto-administrativo",
+      "oferta-y-demanda"
+    ],
+    "nombre": "金融指标与流动性大师",
+    "descripcion": "你分析了财务指标、流动性池、最终价格，还有供求规律。",
+    "icono": "💧"
+  },
+  {
+    "id": 775,
+    "materia": "Economía",
+    "cluster": 10,
+    "temas": [
+      "productividad-produccion-insumos",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca"
+    ],
+    "nombre": "古典经济学流派大师",
+    "descripcion": "你梳理了重商主义、重农主义和古典自由主义，还理解了GDP和通货膨胀。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 776,
+    "materia": "Economía",
+    "cluster": 11,
+    "temas": [
+      "punto-de-equilibrio",
+      "recibo-de-sueldo/general",
+      "sectores-economicos",
+      "recibo-de-sueldo/argentina",
+      "socialismo-utopico"
+    ],
+    "nombre": "盈亏平衡点与工资单掌握者",
+    "descripcion": "你计算了盈亏平衡点，读懂了阿根廷的工资单，还了解了空想社会主义。",
+    "icono": "💵"
+  },
+  {
+    "id": 777,
+    "materia": "Economía",
+    "cluster": 12,
+    "temas": [
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "marxismo",
+      "monotributo"
+    ],
+    "nombre": "养老金与强制扣款大师",
+    "descripcion": "你理解了养老金和社会医疗保险的扣款、社会保障体系、单一税制，还有马克思的思想。",
+    "icono": "🏦"
+  },
+  {
+    "id": 778,
+    "materia": "Economía",
+    "cluster": 13,
+    "temas": [
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo",
+      "sueldo-promedio-pais",
+      "neoliberalismo",
+      "ordoliberalismo"
+    ],
+    "nombre": "现代经济学流派大师",
+    "descripcion": "你比较了凯恩斯主义、新自由主义和秩序自由主义，还了解了女性主义经济学和照护经济学。",
+    "icono": "📚"
+  },
+  {
+    "id": 779,
+    "materia": "Economía",
+    "cluster": 14,
+    "temas": [
+      "tipo-cambio-fijo",
+      "tipo-cambio-flotante",
+      "tipos-de-organizaciones",
+      "devaluacion",
+      "elementos-de-las-organizaciones"
+    ],
+    "nombre": "汇率与组织架构掌握者",
+    "descripcion": "你区分了固定汇率和浮动汇率，理解了货币贬值和组织的构成要素。",
+    "icono": "💱"
+  },
+  {
+    "id": 780,
+    "materia": "Economía",
+    "cluster": 15,
+    "temas": [
+      "reservas-banco-central",
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "deuda-publica-externa",
+      "deuda-publica-interna"
+    ],
+    "nombre": "储备与公共债务大师",
+    "descripcion": "你分析了中央银行储备、国内外公共债务，还有组织文化。",
+    "icono": "🏦"
+  },
+  {
+    "id": 781,
+    "materia": "Economía",
+    "cluster": 16,
+    "temas": [
+      "estructura-organizacional",
+      "default-deuda",
+      "tipos-de-proyecto",
+      "tipos-de-sociedades",
+      "validar-con-clientes-construir-medir-aprender"
+    ],
+    "nombre": "组织架构与债务违约掌握者",
+    "descripcion": "你理解了组织架构、公司和项目的类型，还有债务违约会发生什么。",
+    "icono": "🏢"
+  },
+  {
+    "id": 782,
+    "materia": "Economía",
+    "cluster": 17,
+    "temas": [
+      "valor-esperado-riesgo",
+      "vision-y-mision-organizacional",
+      "fondo-emergencia-diversificacion",
+      "estudio-de-contexto-para-un-proyecto",
+      "seguros"
+    ],
+    "nombre": "风险与财务规划大师",
+    "descripcion": "你计算了期望值和风险，建立了一个多元化的应急基金，还评估了保险和组织使命。",
+    "icono": "🛡️"
+  },
+  {
+    "id": 796,
+    "materia": "Geografía",
+    "cluster": 1,
+    "temas": [
+      "america-anglosajona",
+      "coordenadas-y-husos-horarios",
+      "densidad-poblacion",
+      "escala-de-mapa",
+      "huella-de-carbono-agua-virtual"
+    ],
+    "nombre": "坐标与生态足迹大师",
+    "descripcion": "你在这场阶段考核中掌握了时区、地图比例尺、人口密度和碳足迹。",
+    "icono": "🌍"
+  },
+  {
+    "id": 797,
+    "materia": "Geografía",
+    "cluster": 2,
+    "temas": [
+      "orientacion-puntos-cardinales",
+      "urbanizacion-migracion-ciudad",
+      "mapa-plano-escala",
+      "coordenadas-geograficas",
+      "division-politica"
+    ],
+    "nombre": "方向与城市化大师",
+    "descripcion": "你掌握了方位基点、地理坐标、城市化和政治区划。",
+    "icono": "🧭"
+  },
+  {
+    "id": 798,
+    "materia": "Geografía",
+    "cluster": 3,
+    "temas": [
+      "sig-mapas-digitales",
+      "estados-y-globalizacion",
+      "region",
+      "sig-gps",
+      "relieve-clima-biomas"
+    ],
+    "nombre": "地理信息系统与地形大师",
+    "descripcion": "你在这场考核中综合了数字地图、GPS、地形、气候和生物群系，还有国家和全球化。",
+    "icono": "🛰️"
+  },
+  {
+    "id": 799,
+    "materia": "Geografía",
+    "cluster": 4,
+    "temas": [
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas",
+      "regiones-naturales-de-argentina",
+      "geografia-economica-agricola-argentina",
+      "geografia-industrial-mundial"
+    ],
+    "nombre": "阿根廷经济地理大师",
+    "descripcion": "你掌握了卫星图像、自然地区，还有阿根廷的农业和工业地理。",
+    "icono": "🌾"
+  },
+  {
+    "id": 800,
+    "materia": "Geografía",
+    "cluster": 5,
+    "temas": [
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia",
+      "poblacion-piramides-migraciones",
+      "produccion-agraria-mundial-y-biotecnologia",
+      "ambiente-y-recursos"
+    ],
+    "nombre": "能源与人口大师",
+    "descripcion": "你在这场阶段考核中掌握了采矿业和碳氢化合物、拉丁美洲的工业与能源，还有人口金字塔。",
+    "icono": "⛏️"
+  },
+  {
+    "id": 801,
+    "materia": "Geografía",
+    "cluster": 6,
+    "temas": [
+      "america-latina-formacion-poblacion",
+      "ambientalismo-liberal",
+      "conservacionismo",
+      "decrecimiento",
+      "ecologismo-politico"
+    ],
+    "nombre": "拉丁美洲环保主义大师",
+    "descripcion": "你把拉丁美洲人口形成与自然保护主义、去增长理论和政治生态主义结合了起来。",
+    "icono": "🌱"
+  },
+  {
+    "id": 802,
+    "materia": "Geografía",
+    "cluster": 7,
+    "temas": [
+      "indicadores-sociales-de-argentina",
+      "migraciones-internacionales",
+      "indice-de-desarrollo-humano",
+      "migraciones-internas-en-argentina",
+      "paises-de-america-latina"
+    ],
+    "nombre": "社会指标与移民大师",
+    "descripcion": "你完成了关于人类发展指数、国内外移民，以及拉丁美洲国家的主考试。",
+    "icono": "📊"
+  },
+  {
+    "id": 803,
+    "materia": "Geografía",
+    "cluster": 8,
+    "temas": [
+      "recursos-hidricos-y-gestion",
+      "riesgos-naturales-argentinos",
+      "trabajo-y-desempleo-mundial",
+      "riesgos-ambientales-mundiales",
+      "turismo-mundial"
+    ],
+    "nombre": "风险与全球资源大师",
+    "descripcion": "你掌握了水资源管理、自然与环境风险、全球失业问题和旅游业。",
+    "icono": "🌊"
+  },
+  {
+    "id": 816,
+    "materia": "Informática",
+    "cluster": 1,
+    "temas": [
+      "algebra-booleana",
+      "algoritmo-secuencia-de-pasos",
+      "algoritmos-busqueda-ordenamiento",
+      "almacenamiento-volatil-vs-no-volatil",
+      "archivos-y-persistencia"
+    ],
+    "nombre": "算法与持久化大师",
+    "descripcion": "你在这场阶段考核中掌握了布尔代数、查找和排序算法，还有文件持久化。",
+    "icono": "🧠"
+  },
+  {
+    "id": 817,
+    "materia": "Informática",
+    "cluster": 2,
+    "temas": [
+      "buses-y-entrada-salida",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "complejidad-asintotica",
+      "control-de-versiones",
+      "cpu-unidad-de-control-y-alu"
+    ],
+    "nombre": "指令周期大师",
+    "descripcion": "你梳理了总线、取指-译码-执行周期、渐近复杂度和版本控制，一题都没错。",
+    "icono": "🖥️"
+  },
+  {
+    "id": 818,
+    "materia": "Informática",
+    "cluster": 3,
+    "temas": [
+      "criptografia-clave-simetrica-asimetrica-hash",
+      "direccionamiento-ip-dns",
+      "diseno-y-arquitectura-de-software",
+      "estructuras-de-control-bucles",
+      "estructuras-de-control-condicionales"
+    ],
+    "nombre": "网络与流程控制大师",
+    "descripcion": "你在这场阶段考核中综合了密码学、IP/DNS寻址、软件设计和控制结构。",
+    "icono": "🔐"
+  },
+  {
+    "id": 819,
+    "materia": "Informática",
+    "cluster": 4,
+    "temas": [
+      "estructuras-de-datos-listas-pilas-colas",
+      "etica-de-la-ia-sesgo-privacidad",
+      "funciones-y-modularidad",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "inteligencia-artificial-reglas-a-aprendizaje"
+    ],
+    "nombre": "数据结构与人工智能大师",
+    "descripcion": "你掌握了列表、栈和队列、函数的模块化、操作系统的历史，还有人工智能伦理。",
+    "icono": "🤖"
+  },
+  {
+    "id": 820,
+    "materia": "Informática",
+    "cluster": 5,
+    "temas": [
+      "arranque-de-la-computadora-boot",
+      "mantenimiento-y-deuda-tecnica",
+      "memoria-asignacion-memoria-virtual",
+      "memoria-ram-cache-jerarquia",
+      "modelo-relacional-tabla-registro-clave-primaria"
+    ],
+    "nombre": "启动与内存大师",
+    "descripcion": "你在这场阶段考核中掌握了系统启动、RAM/缓存内存层次结构、虚拟内存和关系模型。",
+    "icono": "💾"
+  },
+  {
+    "id": 821,
+    "materia": "Informática",
+    "cluster": 6,
+    "temas": [
+      "normalizacion-bases-datos",
+      "ofimatica-planilla-de-calculo",
+      "paginacion",
+      "patrones-y-buenas-practicas",
+      "permisos-y-usuarios"
+    ],
+    "nombre": "数据库与权限大师",
+    "descripcion": "你在这场考核中综合了范式化、分页、用户权限和良好的设计实践。",
+    "icono": "🗄️"
+  },
+  {
+    "id": 822,
+    "materia": "Informática",
+    "cluster": 7,
+    "temas": [
+      "planificacion-de-procesos",
+      "poo-clases-y-objetos",
+      "interrupciones",
+      "proceso-programa-en-ejecucion",
+      "protocolo-http-peticion-respuesta"
+    ],
+    "nombre": "进程与对象大师",
+    "descripcion": "你在这场阶段考核中掌握了进程调度、面向对象编程、中断和HTTP协议。",
+    "icono": "⚙️"
+  },
+  {
+    "id": 823,
+    "materia": "Informática",
+    "cluster": 8,
+    "temas": [
+      "comunicacion-entre-procesos",
+      "pruebas-unitarias-integracion",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "recursividad",
+      "medios-tecnicos-extension-capacidades-humanas"
+    ],
+    "nombre": "技术与递归大师",
+    "descripcion": "你综合了进程间通信、单元测试、递归，以及技术和科技的概念。",
+    "icono": "🔁"
+  },
+  {
+    "id": 824,
+    "materia": "Informática",
+    "cluster": 9,
+    "temas": [
+      "relaciones-y-claves-foraneas",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "requisitos-funcionales-no-funcionales",
+      "revolucion-informatica",
+      "segmentacion"
+    ],
+    "nombre": "关系与需求大师",
+    "descripcion": "你完成了关于外键、技术流程、功能需求和信息技术革命的考核。",
+    "icono": "🔗"
+  },
+  {
+    "id": 825,
+    "materia": "Informática",
+    "cluster": 10,
+    "temas": [
+      "seguridad-de-red-firewall-vpn-cifrado",
+      "seguridad-informatica",
+      "sistema-de-archivos",
+      "sistemas-numeracion",
+      "sistema-de-archivos-por-bitacora"
+    ],
+    "nombre": "安全与文件守护者",
+    "descripcion": "你用防火墙、VPN和加密保护了系统，还掌握了进位制和日志式文件系统。",
+    "icono": "🛡️"
+  },
+  {
+    "id": 826,
+    "materia": "Informática",
+    "cluster": 11,
+    "temas": [
+      "sql-consultas-joins-agregaciones",
+      "subsistema-de-entrada-y-salida",
+      "tcp-ip-capas-enrutamiento",
+      "tipos-de-licencias-de-software",
+      "tipos-de-so-por-dispositivo",
+      "transacciones-acid",
+      "unidades-almacenamiento",
+      "variables-y-tipos-de-dato",
+      "virtualizacion-maquina-virtual-contenedor"
+    ],
+    "nombre": "SQL、网络与虚拟化大师",
+    "descripcion": "你完成了这场主考试，掌握了SQL连接查询、TCP/IP分层、ACID事务和虚拟化技术。",
+    "icono": "☁️"
+  },
+  {
+    "id": 841,
+    "materia": "Química",
+    "cluster": 1,
+    "temas": [
+      "atomo-particulas-subatomicas",
+      "balanceo-ecuaciones",
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "carbono-tetravalencia-cadenas",
+      "cinetica-reaccion"
+    ],
+    "nombre": "原子与生物分子大师",
+    "descripcion": "你掌握了亚原子粒子、方程式配平、生物分子和反应动力学。",
+    "icono": "⚛️"
+  },
+  {
+    "id": 842,
+    "materia": "Química",
+    "cluster": 2,
+    "temas": [
+      "concentracion-de-una-solucion",
+      "configuracion-electronica",
+      "densidad",
+      "dilucion-soluciones",
+      "electrolisis"
+    ],
+    "nombre": "溶液与电解大师",
+    "descripcion": "你在这场阶段考核中掌握了溶液的浓度与稀释、电子排布和电解。",
+    "icono": "🧪"
+  },
+  {
+    "id": 843,
+    "materia": "Química",
+    "cluster": 3,
+    "temas": [
+      "energia-libre-gibbs",
+      "enlace-quimico-polaridad",
+      "equilibrio-quimico-kc",
+      "equilibrio-solubilidad-ksp",
+      "estados-y-cambios"
+    ],
+    "nombre": "平衡与自由能大师",
+    "descripcion": "你综合了吉布斯自由能、键的极性，还有Kc和Ksp平衡常数。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 844,
+    "materia": "Química",
+    "cluster": 4,
+    "temas": [
+      "estequiometria",
+      "gases-ideales",
+      "geometria-molecular-vsepr",
+      "grupos-funcionales",
+      "hidrocarburos-alcanos-alquenos-alquinos"
+    ],
+    "nombre": "化学计量与碳氢化合物大师",
+    "descripcion": "你完成了关于化学计量、理想气体、VSEPR分子几何和碳氢化合物的考核。",
+    "icono": "⛽"
+  },
+  {
+    "id": 845,
+    "materia": "Química",
+    "cluster": 5,
+    "temas": [
+      "medicion-de-laboratorio",
+      "mezclas-metodos-separacion",
+      "modelos-atomicos",
+      "mol-masa-molar",
+      "nanotecnologia"
+    ],
+    "nombre": "测量与原子模型大师",
+    "descripcion": "你掌握了实验室测量、混合物分离方法、原子模型和摩尔概念。",
+    "icono": "🔬"
+  },
+  {
+    "id": 846,
+    "materia": "Química",
+    "cluster": 6,
+    "temas": [
+      "nomenclatura-compuestos",
+      "numero-atomico-masico",
+      "oxidacion-reduccion",
+      "petroleo-como-recurso-energetico",
+      "ph-poh"
+    ],
+    "nombre": "命名法与氧化还原大师",
+    "descripcion": "你在这场阶段考核中综合了化学命名法、原子序数与质量数、氧化还原反应和pH/pOH。",
+    "icono": "🧫"
+  },
+  {
+    "id": 847,
+    "materia": "Química",
+    "cluster": 7,
+    "temas": [
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
+      "propiedades-coligativas",
+      "quimica-analitica"
+    ],
+    "nombre": "原电池与聚合物大师",
+    "descripcion": "你掌握了原电池、天然和合成聚合物、分压，还有依数性。",
+    "icono": "🔋"
+  },
+  {
+    "id": 848,
+    "materia": "Química",
+    "cluster": 8,
+    "temas": [
+      "quimica-de-la-atmosfera",
+      "reactivo-limitante-rendimiento",
+      "seguridad-laboratorio",
+      "superconductividad",
+      "tabla-periodica-tendencias",
+      "termoquimica",
+      "tipos-reacciones-quimicas"
+    ],
+    "nombre": "元素周期表与热化学大师",
+    "descripcion": "你完成了关于周期性趋势、热化学、反应类型和限制反应物的主考试。",
+    "icono": "🧯"
+  },
+  {
+    "id": 861,
+    "materia": "Biología",
+    "cluster": 1,
+    "temas": [
+      "adn-gen-proteina",
+      "biodiversidad-indices",
+      "biotecnologia-pcr-crispr",
+      "cadenas-redes-troficas",
+      "celula-organelas"
+    ],
+    "nombre": "DNA与细胞大师",
+    "descripcion": "你掌握了DNA中心法则、CRISPR基因编辑、食物网，还有细胞的内部结构。",
+    "icono": "🧬"
+  },
+  {
+    "id": 862,
+    "materia": "Biología",
+    "cluster": 2,
+    "temas": [
+      "ciclos-biogeoquimicos",
+      "ciclos-vida-metamorfosis",
+      "clasificacion-evolucion",
+      "conservacion-areas-protegidas",
+      "crecimiento-poblacional"
+    ],
+    "nombre": "循环与保护大师",
+    "descripcion": "你在这场阶段考核中掌握了生物地球化学循环、变态发育、演化分类，还有保护区的保育工作。",
+    "icono": "🌎"
+  },
+  {
+    "id": 863,
+    "materia": "Biología",
+    "cluster": 3,
+    "temas": [
+      "cruce-dihibrido",
+      "deriva-genetica-flujo-genico",
+      "dinamica-poblacional-capacidad-carga",
+      "enzimas-proteina-sustrato-ph",
+      "especiacion"
+    ],
+    "nombre": "种群遗传学大师",
+    "descripcion": "你完成了关于双杂交、基因漂变、种群承载力和物种形成的主考试。",
+    "icono": "🧬"
+  },
+  {
+    "id": 864,
+    "materia": "Biología",
+    "cluster": 4,
+    "temas": [
+      "filogenia-arboles-evolutivos",
+      "flujo-materia-energia",
+      "fotosintesis-respiracion-celular",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos"
+    ],
+    "nombre": "系统发生与孟德尔遗传精通者",
+    "descripcion": "你在这场阶段考核中综合了系统发生树、光合作用、细胞呼吸，还有庞氏表。",
+    "icono": "🧬"
+  },
+  {
+    "id": 865,
+    "materia": "Biología",
+    "cluster": 5,
+    "temas": [
+      "habitats-adaptacion",
+      "herencia-ligada-al-sexo",
+      "mal-de-chagas",
+      "microbiologia-virus-inmunitario",
+      "mitosis-meiosis"
+    ],
+    "nombre": "遗传与人体防御大师",
+    "descripcion": "你通过了关于栖息地适应、性连锁遗传、恰加斯病和抗病毒免疫反应的考核。",
+    "icono": "🦠"
+  },
+  {
+    "id": 866,
+    "materia": "Biología",
+    "cluster": 6,
+    "temas": [
+      "necesidades-basicas-seres-vivos",
+      "nicho-ecologico",
+      "partes-planta-germinacion",
+      "piramide-biomasas",
+      "presion-arterial"
+    ],
+    "nombre": "生物及其需求大师",
+    "descripcion": "你在这场阶段考核中掌握了生物的基本需求、生态位、植物萌发，还有生物量金字塔。",
+    "icono": "🌱"
+  },
+  {
+    "id": 867,
+    "materia": "Biología",
+    "cluster": 7,
+    "temas": [
+      "quimiosintesis",
+      "seleccion-natural",
+      "ser-vivo-caracteristicas",
+      "sistema-endocrino-hormonas-glandulas",
+      "sistema-nervioso-neurona-sinapsis",
+      "sistemas-cuerpo-humano",
+      "transgenicos-bioetica"
+    ],
+    "nombre": "人体系统与生命伦理大师",
+    "descripcion": "你完成了这场主考试，掌握了神经系统、内分泌系统、自然选择，还有转基因生物的伦理争议。",
+    "icono": "🧠"
+  },
+  {
+    "id": 879,
+    "materia": "Cívica",
+    "cluster": 1,
+    "temas": [
+      "constitucion-nacional-jerarquia-normativa",
+      "derechos-nino",
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-indigenas",
+      "encuesta-electoral"
+    ],
+    "nombre": "权利与宪法捍卫者",
+    "descripcion": "你在这场阶段考核中掌握了宪法位阶、儿童权利、原住民族群，还有反歧视机构。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 880,
+    "materia": "Cívica",
+    "cluster": 2,
+    "temas": [
+      "derechos-genero",
+      "estado-de-derecho-por-que-importa",
+      "marchas-patrioticas",
+      "organizacion-del-estado",
+      "origen-estado-derecho"
+    ],
+    "nombre": "法治大师",
+    "descripcion": "你完成了关于法治国家的起源与重要性、国家组织和性别权利的主考试。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 881,
+    "materia": "Cívica",
+    "cluster": 3,
+    "temas": [
+      "constitucion-preambulo",
+      "division-de-poderes",
+      "derechos-y-garantias",
+      "como-se-hace-una-ley",
+      "documentos-y-tramites"
+    ],
+    "nombre": "宪法与法律大师",
+    "descripcion": "你在这场阶段考核中掌握了宪法序言、三权分立、权利保障，还有法律的制定程序。",
+    "icono": "📜"
+  },
+  {
+    "id": 882,
+    "materia": "Cívica",
+    "cluster": 4,
+    "temas": [
+      "impuestos",
+      "alcoholemia-y-conduccion",
+      "prioridades-de-paso",
+      "proyecto-ciudadano-participativo",
+      "senalizacion-vial"
+    ],
+    "nombre": "道路上的负责任公民",
+    "descripcion": "你完成了关于税收、酒后驾驶、道路标志和公民参与的主考试。",
+    "icono": "🚦"
+  },
+  {
+    "id": 883,
+    "materia": "Cívica",
+    "cluster": 5,
+    "temas": [
+      "simbolos-patrios",
+      "sistema-de-salud",
+      "sistema-electoral-dhondt",
+      "sistemas-politicos-comparados",
+      "sueldo-promedio-pais"
+    ],
+    "nombre": "国家体系大师",
+    "descripcion": "你在这场阶段考核中掌握了国家象征、医疗体系、Hondt计票法，还有各国政治体系的比较。",
+    "icono": "🗳️"
+  },
+  {
+    "id": 884,
+    "materia": "Cívica",
+    "cluster": 6,
+    "temas": [
+      "partidos-politicos",
+      "sufragio-restringido-universal",
+      "organismos-internacionales",
+      "teoria-del-poder",
+      "tratados-internacionales",
+      "tipos-de-estado"
+    ],
+    "nombre": "权力与国际政治大师",
+    "descripcion": "你完成了关于政党、选举权的演变、国际条约和国家类型的主考试。",
+    "icono": "🌐"
+  },
+  {
+    "id": 894,
+    "materia": "Derecho",
+    "cluster": 1,
+    "temas": [
+      "apelacion-e-instancias",
+      "argumentacion-juridica",
+      "corrientes-interpretacion-juridica",
+      "denuncia-y-etapa-de-instruccion",
+      "derecho-administrativo"
+    ],
+    "nombre": "上诉与论证大师",
+    "descripcion": "你完成了关于上诉程序、法律论证和侦查阶段的主考试。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 895,
+    "materia": "Derecho",
+    "cluster": 2,
+    "temas": [
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional",
+      "derecho-internacional",
+      "derecho-laboral"
+    ],
+    "nombre": "多学科法学专家",
+    "descripcion": "你在这场阶段考核中综合了民法、商法、宪法、国际法和劳动法。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 896,
+    "materia": "Derecho",
+    "cluster": 3,
+    "temas": [
+      "derecho-penal",
+      "ejecucion-de-la-sentencia",
+      "fuentes-del-derecho",
+      "hecho-juridicamente-relevante",
+      "interpretacion-normativa"
+    ],
+    "nombre": "刑法及其渊源大师",
+    "descripcion": "你完成了关于刑法、法律渊源和判决执行的主考试。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 897,
+    "materia": "Derecho",
+    "cluster": 4,
+    "temas": [
+      "investigacion-prueba-y-fiscalia",
+      "juicio-oral",
+      "norma-jerarquia-y-vigencia",
+      "politica-criminal-garantismo-mano-dura",
+      "ramas-del-derecho",
+      "resolucion-de-conflictos-y-sentencia"
+    ],
+    "nombre": "刑事诉讼与判决大师",
+    "descripcion": "你在这场阶段考核中掌握了检察侦查、言词审判、刑事政策，以及直到判决的冲突解决过程。",
+    "icono": "👨‍⚖️"
+  },
+  {
+    "id": 904,
     "materia": "Arte",
     "cluster": 1,
     "temas": [
@@ -2452,37 +2418,69 @@
       "elementos-del-arte"
     ],
     "nombre": "艺术元素大师",
-    "descripcion": "你已完成综合考试，涵盖声学、和声、构图、舞蹈及艺术基础要素。",
+    "descripcion": "你完成了这场主考试，综合了声学、音乐和声、构图，还有舞蹈中的身体表达。",
     "icono": "🎨"
   },
   {
-    "id": 215,
+    "id": 905,
     "materia": "Arte",
     "cluster": 2,
     "temas": [
       "lenguaje-musical-pentagrama-escalas-intervalos",
-      "narrativa-audiovisual/encuadre",
-      "narrativa-audiovisual/montaje",
-      "narrativa-audiovisual/plano",
-      "origen-del-arte"
+      "origen-del-arte",
+      "principios-de-diseno",
+      "ritmo-compas-pulso-figuras-musicales",
+      "narrativa-audiovisual/plano"
     ],
-    "nombre": "艺术语言大师",
-    "descripcion": "你已通过主考试，精通从五线谱到视听制作的全方位艺术表达。",
-    "icono": "🎨"
+    "nombre": "音乐语言与设计大师",
+    "descripcion": "你在这场阶段考核中掌握了五线谱、音阶、设计原则，还有视听叙事中的镜头运用。",
+    "icono": "🎼"
   },
   {
-    "id": 216,
+    "id": 906,
     "materia": "Arte",
     "cluster": 3,
     "temas": [
-      "principios-de-diseno",
-      "produccion-multimedial",
-      "ritmo-compas-pulso-figuras-musicales",
       "rosetones-y-simetria",
-      "teatro-dramaturgia-y-actuacion"
+      "narrativa-audiovisual/encuadre",
+      "teatro-dramaturgia-y-actuacion",
+      "narrativa-audiovisual/montaje",
+      "produccion-multimedial"
     ],
-    "nombre": "艺术与舞台大师",
-    "descripcion": "你已通过主考试，涵盖设计、音乐、建筑与戏剧领域。",
-    "icono": "🎭"
+    "nombre": "舞台与视听艺术大师",
+    "descripcion": "你完成了关于戏剧表演、视听取景与剪辑、多媒体制作，还有花窗玫瑰的对称性的主考试。",
+    "icono": "🎬"
+  },
+  {
+    "id": 912,
+    "materia": "Investigación",
+    "cluster": 1,
+    "temas": [
+      "analisis-estadistico-de-resultados",
+      "argumentar-desde-evidencia",
+      "conclusion-y-comunicacion-de-resultados",
+      "construir-y-usar-un-modelo-cientifico",
+      "corrientes-filosofia-de-la-ciencia"
+    ],
+    "nombre": "科学方法掌握者",
+    "descripcion": "你完成了这场主考试，综合了统计分析、基于证据的论证，还有科学哲学的各个流派。",
+    "icono": "🔬"
+  },
+  {
+    "id": 913,
+    "materia": "Investigación",
+    "cluster": 2,
+    "temas": [
+      "diseno-experimental-variables-y-control",
+      "hipotesis-buena-o-mala",
+      "observacion-y-pregunta-investigable",
+      "recoleccion-de-datos",
+      "metodologia-cualitativa-vs-cuantitativa",
+      "trabajo-de-campo-enfoque-socioantropologico",
+      "tecnicas-de-investigacion-social"
+    ],
+    "nombre": "实验与田野设计大师",
+    "descripcion": "你在这场阶段考核中掌握了实验设计、假设的提出、定性与定量方法，还有社会人类学田野调查。",
+    "icono": "🧪"
   }
 ]
