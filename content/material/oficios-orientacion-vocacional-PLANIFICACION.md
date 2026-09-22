@@ -1079,6 +1079,20 @@ Preparación:
 7. Hornear a 180°C durante 15 a 18 minutos.
 8. Retirar del horno y dejar enfriar.
 
+**Ruta B generada (2026-09-22)**: `content/material/oficios/cocina-
+gastronomia/recetas/` — cadena completa de prerrequisitos
+`01-harina/` → `02-panificacion-basica/` → `03-tipos-de-pan/` →
+`04-pan-brioche/` → `05-receta-final/` (las dos recetas de arriba,
+copiadas tal cual, sin cuestionario, entrega por evidencia + tutor),
+más `catalogo-recetas/README.md` (tabla de 12 categorías/150 recetas
+como estructura/roadmap, con el mojito de cereza y la nota de
+fermentación/maceración ya escritos) y `recetas-del-equipo/README.md`
+(placeholder explícito, sin recetas inventadas). **Pendiente**: las
+~148 recetas individuales del catálogo (quedan sólo las 2 recetas
+finales + el mocktail como contenido real generado), revisión de la
+Ruta A por el agente en paralelo en `cocina-gastronomia/fundamentos-
+cocina/` y afines.
+
 ---
 
 ## Guía Turístico (oficio #18, agregado por Javier — NO está en troncos.md)
