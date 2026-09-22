@@ -1,3 +1,443 @@
 [
-  { "id": 17, "oficio": "Cocina / Gastronomía", "nombre": "Berufskoch", "descripcion": "Du hast den technischen und theoretischen Ausbildungsweg für Kochkunst/Gastronomie abgeschlossen und die abschließende Falldiagnose bestanden.", "icono": "👨‍🍳" }
+ {
+  "id": 1,
+  "oficio": "Electricista",
+  "slug": "electricista",
+  "nombre": "Geprüfter Elektriker",
+  "descripcion": "Du hast den Ausbildungsweg für Elektriker abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "⚡",
+  "temas": [
+   "fundamentos-electricidad",
+   "seguridad-electricista",
+   "herramientas-electricista",
+   "materiales-electricista",
+   "calculo-electrico",
+   "lectura-de-planos-electricos",
+   "tecnicas-electricista",
+   "diagnostico-electricidad-por-casos"
+  ],
+  "desbloqueo": "Schließe die 8 Abschnitte des Ausbildungsberufs ab (7 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 2,
+  "oficio": "Plomero",
+  "slug": "plomero",
+  "nombre": "Geprüfter Klempner",
+  "descripcion": "Du hast den Ausbildungsweg für Klempner abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🚿",
+  "temas": [
+   "fundamentos-plomeria",
+   "seguridad-plomeria",
+   "herramientas-plomeria",
+   "materiales-plomeria",
+   "instalaciones-plomeria",
+   "calculo-plomeria",
+   "diagnostico-plomeria-por-casos"
+  ],
+  "desbloqueo": "Schließe die 7 Abschnitte des Ausbildungsberufs ab (6 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 3,
+  "oficio": "Gasista",
+  "slug": "gasista",
+  "nombre": "Geprüfter Gasinstallateur (Befähigungskategorie)",
+  "descripcion": "Du hast den Ausbildungsweg für Gasinstallateur abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🔥",
+  "temas": [
+   "fundamentos-gasista",
+   "seguridad-gasista",
+   "herramientas-gasista",
+   "materiales-gasista",
+   "instalaciones-gasista",
+   "calculo-gasista",
+   "diagnostico-gasista-por-casos"
+  ],
+  "desbloqueo": "Schließe die 7 Abschnitte des Ausbildungsberufs ab (6 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 4,
+  "oficio": "Técnico en Refrigeración y Climatización",
+  "slug": "tecnico-en-refrigeracion",
+  "nombre": "Kälte- und Klimatechniker",
+  "descripcion": "Du hast den Ausbildungsweg für Kälte- und Klimatechnik abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "❄️",
+  "temas": [
+   "fundamentos-termodinamicos-refrigeracion",
+   "fundamentos-electricos-refrigeracion",
+   "seguridad-refrigeracion",
+   "herramientas-refrigeracion",
+   "instalaciones-refrigeracion",
+   "diagnostico-refrigeracion-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 5,
+  "oficio": "Albañil / Constructor",
+  "slug": "albanil-constructor",
+  "nombre": "Baumeister",
+  "descripcion": "Du hast den Ausbildungsweg für Maurer/Bauarbeiter abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🧱",
+  "temas": [
+   "fundamentos-albanileria",
+   "seguridad-albanileria",
+   "herramientas-albanileria",
+   "materiales-albanileria",
+   "tecnicas-albanileria",
+   "calculo-albanileria",
+   "lectura-de-planos-albanileria",
+   "diagnostico-albanileria-por-casos"
+  ],
+  "desbloqueo": "Schließe die 8 Abschnitte des Ausbildungsberufs ab (7 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 6,
+  "oficio": "Montador de Estructuras",
+  "slug": "montador-de-estructuras",
+  "nombre": "Stahlbaumonteur",
+  "descripcion": "Du hast den Ausbildungsweg für Stahlbaumonteur abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🏗️",
+  "temas": [
+   "fundamentos-montaje-estructuras",
+   "seguridad-montaje-estructuras",
+   "herramientas-montaje-estructuras",
+   "materiales-montaje-estructuras",
+   "tecnicas-montaje-estructuras",
+   "diagnostico-montaje-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 7,
+  "oficio": "Carpintero",
+  "slug": "carpintero",
+  "nombre": "Geprüfter Tischler",
+  "descripcion": "Du hast den Ausbildungsweg für Tischler abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🪚",
+  "temas": [
+   "fundamentos-carpinteria",
+   "seguridad-carpinteria",
+   "herramientas-carpinteria",
+   "materiales-carpinteria",
+   "tecnicas-carpinteria",
+   "lectura-de-planos-carpinteria",
+   "diagnostico-carpinteria-por-casos"
+  ],
+  "desbloqueo": "Schließe die 7 Abschnitte des Ausbildungsberufs ab (6 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 8,
+  "oficio": "Soldador",
+  "slug": "soldador",
+  "nombre": "Zertifizierter Schweißer (IRAM/IAS)",
+  "descripcion": "Du hast den Ausbildungsweg für Schweißer abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🔩",
+  "temas": [
+   "fundamentos-soldadura",
+   "seguridad-soldadura",
+   "procesos-soldadura",
+   "materiales-soldadura",
+   "defectos-y-normativa-soldadura",
+   "diagnostico-soldadura-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 9,
+  "oficio": "Metalúrgico",
+  "slug": "metalurgico",
+  "nombre": "Qualifizierter Metallarbeiter",
+  "descripcion": "Du hast den Ausbildungsweg für Metallarbeiter abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "⚙️",
+  "temas": [
+   "fundamentos-metalurgia",
+   "seguridad-metalurgia",
+   "procesos-metalurgicos",
+   "materiales-metalurgicos",
+   "control-de-calidad-metalurgico",
+   "diagnostico-metalurgico-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 10,
+  "oficio": "Mecánico",
+  "slug": "mecanico",
+  "nombre": "Kfz-Mechaniker",
+  "descripcion": "Du hast den Ausbildungsweg für Mechaniker abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🔧",
+  "temas": [
+   "fundamentos-mecanicos-automotor",
+   "seguridad-mecanica-automotor",
+   "motor",
+   "transmision",
+   "sistemas-electricos-vehiculo",
+   "frenos-y-suspension",
+   "mantenimiento-mecanico",
+   "diagnostico-automotor-por-casos"
+  ],
+  "desbloqueo": "Schließe die 8 Abschnitte des Ausbildungsberufs ab (7 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 11,
+  "oficio": "Técnico Electromecánico",
+  "slug": "tecnico-electromecanico",
+  "nombre": "Elektromechanik-Techniker",
+  "descripcion": "Du hast den Ausbildungsweg für Elektromechanik abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🔌",
+  "temas": [
+   "fundamentos-electromecanica",
+   "seguridad-electromecanica",
+   "materiales-y-mecanizado-electromecanica",
+   "elementos-de-maquinas-y-fluidos",
+   "maquinas-electricas-y-electronica",
+   "control-y-automatizacion",
+   "mantenimiento-e-instrumentacion",
+   "diagnostico-electromecanico-por-casos"
+  ],
+  "desbloqueo": "Schließe die 8 Abschnitte des Ausbildungsberufs ab (7 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 12,
+  "oficio": "Técnico en Automatización y Robótica",
+  "slug": "tecnico-en-automatizacion-y-robotica",
+  "nombre": "Techniker für Automatisierung, Steuerung und Robotik (INET)",
+  "descripcion": "Du hast den Ausbildungsweg für Automatisierung und Robotik abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🤖",
+  "temas": [
+   "fundamentos-robotica",
+   "microcontroladores-y-programacion-embebida",
+   "actuadores-y-sensores-robotica",
+   "cinematica-y-dinamica-robotica",
+   "robotica-industrial-y-vision",
+   "ia-y-software-robotico",
+   "seguridad-y-comunicaciones-robotica",
+   "diagnostico-robotica-por-casos"
+  ],
+  "desbloqueo": "Schließe die 8 Abschnitte des Ausbildungsberufs ab (7 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 13,
+  "oficio": "Agricultor",
+  "slug": "agricultor",
+  "nombre": "Landwirtschaftlicher Produzent",
+  "descripcion": "Du hast den Ausbildungsweg für Landwirt abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🌾",
+  "temas": [
+   "fundamentos-agricultura",
+   "seguridad-agricultura",
+   "suelo-y-cultivo",
+   "calculo-agricola",
+   "modelos-de-produccion-agricola",
+   "diagnostico-agricola-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 14,
+  "oficio": "Operario Agrícola",
+  "slug": "operario-agricola",
+  "nombre": "Qualifizierter Landarbeiter",
+  "descripcion": "Du hast den Ausbildungsweg für Landwirtschaftlicher Arbeiter abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🚜",
+  "temas": [
+   "fundamentos-operario-agricola",
+   "seguridad-operario-agricola",
+   "maquinaria-agricola",
+   "dosificacion-agricola",
+   "diagnostico-maquinaria-agricola-por-casos"
+  ],
+  "desbloqueo": "Schließe die 5 Abschnitte des Ausbildungsberufs ab (4 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 15,
+  "oficio": "Panadero",
+  "slug": "panadero",
+  "nombre": "Bäckermeister",
+  "descripcion": "Du hast den Ausbildungsweg für Bäcker abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🍞",
+  "temas": [
+   "fundamentos-panaderia",
+   "seguridad-e-higiene-panaderia",
+   "materia-prima-panaderia",
+   "procesos-panaderia",
+   "calculo-panaderia",
+   "diagnostico-panaderia-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 16,
+  "oficio": "Procesador de Alimentos",
+  "slug": "procesador-de-alimentos",
+  "nombre": "Lebensmitteltechniker",
+  "descripcion": "Du hast den Ausbildungsweg für Lebensmittelverarbeitung abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🏭",
+  "temas": [
+   "fundamentos-procesamiento-alimentos",
+   "seguridad-e-higiene-procesamiento-alimentos",
+   "procesos-procesamiento-alimentos",
+   "calculo-procesamiento-alimentos",
+   "diagnostico-procesamiento-alimentos-por-casos"
+  ],
+  "desbloqueo": "Schließe die 5 Abschnitte des Ausbildungsberufs ab (4 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 17,
+  "oficio": "Cocina / Gastronomía",
+  "slug": "cocina-gastronomia",
+  "nombre": "Berufskoch",
+  "descripcion": "Du hast den technischen und theoretischen Ausbildungsweg für Kochkunst/Gastronomie abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "👨‍🍳",
+  "temas": [
+   "fundamentos-cocina",
+   "seguridad-e-higiene-cocina",
+   "tecnicas-de-coccion",
+   "materia-prima-cocina",
+   "calculo-cocina",
+   "diagnostico-cocina-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 18,
+  "oficio": "Jardinero / Paisajista",
+  "slug": "jardinero-paisajista",
+  "nombre": "Gärtner / Landschaftstechniker",
+  "descripcion": "Du hast den Ausbildungsweg für Gärtner/Landschaftsgestalter abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🌳",
+  "temas": [
+   "fundamentos-botanicos",
+   "seguridad-jardineria",
+   "materiales-jardineria",
+   "herramientas-y-maquinaria-jardineria",
+   "tecnicas-jardineria",
+   "diagnostico-jardineria-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 19,
+  "oficio": "Tapicero",
+  "slug": "tapicero",
+  "nombre": "Geprüfter Polsterer",
+  "descripcion": "Du hast den Ausbildungsweg für Polsterer abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🛋️",
+  "temas": [
+   "fundamentos-tapiceria",
+   "seguridad-tapiceria",
+   "materiales-tapiceria",
+   "herramientas-tapiceria",
+   "tecnicas-tapiceria",
+   "diagnostico-tapiceria-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 20,
+  "oficio": "Modista / Corte y Confección",
+  "slug": "modista-corte-y-confeccion",
+  "nombre": "Schneiderin / Bekleidungstechnikerin",
+  "descripcion": "Du hast den Ausbildungsweg für Schneiderei (Zuschnitt und Nähen) abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🧵",
+  "temas": [
+   "fundamentos-confeccion",
+   "seguridad-confeccion",
+   "materiales-confeccion",
+   "herramientas-confeccion",
+   "tecnicas-confeccion",
+   "diagnostico-confeccion-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 21,
+  "oficio": "Carpintero de Aluminio",
+  "slug": "carpintero-de-aluminio",
+  "nombre": "Aluminiumbauer (Alu-Fensterbauer)",
+  "descripcion": "Du hast den Ausbildungsweg für Aluminiumbau abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🪟",
+  "temas": [
+   "fundamentos-carpinteria-aluminio",
+   "seguridad-carpinteria-aluminio",
+   "materiales-carpinteria-aluminio",
+   "herramientas-carpinteria-aluminio",
+   "tecnicas-carpinteria-aluminio",
+   "calculo-carpinteria-aluminio",
+   "lectura-de-planos-carpinteria-aluminio",
+   "diagnostico-aberturas-por-casos"
+  ],
+  "desbloqueo": "Schließe die 8 Abschnitte des Ausbildungsberufs ab (7 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 22,
+  "oficio": "Tornero",
+  "slug": "tornero",
+  "nombre": "Dreher / Drehmaschinenbediener",
+  "descripcion": "Du hast den Ausbildungsweg für Dreher abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🔘",
+  "temas": [
+   "fundamentos-torneria",
+   "seguridad-torneria",
+   "materiales-torneria",
+   "herramientas-torneria",
+   "tecnicas-torneria",
+   "calculo-torneria",
+   "lectura-de-planos-torneria",
+   "diagnostico-mecanizado-por-casos"
+  ],
+  "desbloqueo": "Schließe die 8 Abschnitte des Ausbildungsberufs ab (7 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 23,
+  "oficio": "Cerrajero",
+  "slug": "cerrajero",
+  "nombre": "Geprüfter Schlosser",
+  "descripcion": "Du hast den Ausbildungsweg für Schlosser abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🔑",
+  "temas": [
+   "fundamentos-cerrajeria",
+   "seguridad-cerrajeria",
+   "materiales-cerrajeria",
+   "herramientas-cerrajeria",
+   "tecnicas-cerrajeria",
+   "diagnostico-cerrajeria-por-casos",
+   "apertura-de-emergencia-sin-destruccion"
+  ],
+  "desbloqueo": "Schließe die 7 Abschnitte des Ausbildungsberufs ab (6 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 24,
+  "oficio": "Herrero / Forjador",
+  "slug": "herrero-forjador",
+  "nombre": "Schmied / Kunstschmied",
+  "descripcion": "Du hast den Ausbildungsweg für Schmied/Kunstschmied abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "🔨",
+  "temas": [
+   "fundamentos-herreria",
+   "seguridad-herreria",
+   "materiales-herreria",
+   "herramientas-herreria",
+   "tecnicas-herreria",
+   "diagnostico-forja-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ },
+ {
+  "id": 25,
+  "oficio": "Relojero",
+  "slug": "relojero",
+  "nombre": "Uhrmacher",
+  "descripcion": "Du hast den Ausbildungsweg für Uhrmacher abgeschlossen und die abschließende Falldiagnose bestanden.",
+  "icono": "⏱️",
+  "temas": [
+   "fundamentos-relojeria",
+   "seguridad-relojeria",
+   "materiales-relojeria",
+   "herramientas-relojeria",
+   "tecnicas-relojeria",
+   "diagnostico-relojeria-por-casos"
+  ],
+  "desbloqueo": "Schließe die 6 Abschnitte des Ausbildungsberufs ab (5 Informationsthemen + das Quiz der abschließenden Falldiagnose bestehen)."
+ }
 ]

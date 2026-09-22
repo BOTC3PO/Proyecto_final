@@ -1,3 +1,443 @@
 [
-  { "id": 17, "oficio": "Cocina / Gastronomía", "nombre": "전문 요리사", "descripcion": "요리/미식학 기술 및 이론 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.", "icono": "👨‍🍳" }
+ {
+  "id": 1,
+  "oficio": "Electricista",
+  "slug": "electricista",
+  "nombre": "공인 전기공",
+  "descripcion": "전기 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "⚡",
+  "temas": [
+   "fundamentos-electricidad",
+   "seguridad-electricista",
+   "herramientas-electricista",
+   "materiales-electricista",
+   "calculo-electrico",
+   "lectura-de-planos-electricos",
+   "tecnicas-electricista",
+   "diagnostico-electricidad-por-casos"
+  ],
+  "desbloqueo": "직업의 8개 섹션을 완료하세요 (7개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 2,
+  "oficio": "Plomero",
+  "slug": "plomero",
+  "nombre": "공인 배관공",
+  "descripcion": "배관 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🚿",
+  "temas": [
+   "fundamentos-plomeria",
+   "seguridad-plomeria",
+   "herramientas-plomeria",
+   "materiales-plomeria",
+   "instalaciones-plomeria",
+   "calculo-plomeria",
+   "diagnostico-plomeria-por-casos"
+  ],
+  "desbloqueo": "직업의 7개 섹션을 완료하세요 (6개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 3,
+  "oficio": "Gasista",
+  "slug": "gasista",
+  "nombre": "공인 가스 기술자 (자격 등급)",
+  "descripcion": "가스 설비 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🔥",
+  "temas": [
+   "fundamentos-gasista",
+   "seguridad-gasista",
+   "herramientas-gasista",
+   "materiales-gasista",
+   "instalaciones-gasista",
+   "calculo-gasista",
+   "diagnostico-gasista-por-casos"
+  ],
+  "desbloqueo": "직업의 7개 섹션을 완료하세요 (6개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 4,
+  "oficio": "Técnico en Refrigeración y Climatización",
+  "slug": "tecnico-en-refrigeracion",
+  "nombre": "냉동공조 기술자",
+  "descripcion": "냉동공조 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "❄️",
+  "temas": [
+   "fundamentos-termodinamicos-refrigeracion",
+   "fundamentos-electricos-refrigeracion",
+   "seguridad-refrigeracion",
+   "herramientas-refrigeracion",
+   "instalaciones-refrigeracion",
+   "diagnostico-refrigeracion-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 5,
+  "oficio": "Albañil / Constructor",
+  "slug": "albanil-constructor",
+  "nombre": "건축 마이스터",
+  "descripcion": "건축 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🧱",
+  "temas": [
+   "fundamentos-albanileria",
+   "seguridad-albanileria",
+   "herramientas-albanileria",
+   "materiales-albanileria",
+   "tecnicas-albanileria",
+   "calculo-albanileria",
+   "lectura-de-planos-albanileria",
+   "diagnostico-albanileria-por-casos"
+  ],
+  "desbloqueo": "직업의 8개 섹션을 완료하세요 (7개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 6,
+  "oficio": "Montador de Estructuras",
+  "slug": "montador-de-estructuras",
+  "nombre": "철골 구조물 조립공",
+  "descripcion": "철골 구조물 조립 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🏗️",
+  "temas": [
+   "fundamentos-montaje-estructuras",
+   "seguridad-montaje-estructuras",
+   "herramientas-montaje-estructuras",
+   "materiales-montaje-estructuras",
+   "tecnicas-montaje-estructuras",
+   "diagnostico-montaje-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 7,
+  "oficio": "Carpintero",
+  "slug": "carpintero",
+  "nombre": "정식 목수",
+  "descripcion": "목공 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🪚",
+  "temas": [
+   "fundamentos-carpinteria",
+   "seguridad-carpinteria",
+   "herramientas-carpinteria",
+   "materiales-carpinteria",
+   "tecnicas-carpinteria",
+   "lectura-de-planos-carpinteria",
+   "diagnostico-carpinteria-por-casos"
+  ],
+  "desbloqueo": "직업의 7개 섹션을 완료하세요 (6개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 8,
+  "oficio": "Soldador",
+  "slug": "soldador",
+  "nombre": "공인 용접사 (IRAM/IAS)",
+  "descripcion": "용접 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🔩",
+  "temas": [
+   "fundamentos-soldadura",
+   "seguridad-soldadura",
+   "procesos-soldadura",
+   "materiales-soldadura",
+   "defectos-y-normativa-soldadura",
+   "diagnostico-soldadura-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 9,
+  "oficio": "Metalúrgico",
+  "slug": "metalurgico",
+  "nombre": "숙련 금속 기술자",
+  "descripcion": "금속 가공 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "⚙️",
+  "temas": [
+   "fundamentos-metalurgia",
+   "seguridad-metalurgia",
+   "procesos-metalurgicos",
+   "materiales-metalurgicos",
+   "control-de-calidad-metalurgico",
+   "diagnostico-metalurgico-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 10,
+  "oficio": "Mecánico",
+  "slug": "mecanico",
+  "nombre": "자동차 정비사",
+  "descripcion": "자동차 정비 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🔧",
+  "temas": [
+   "fundamentos-mecanicos-automotor",
+   "seguridad-mecanica-automotor",
+   "motor",
+   "transmision",
+   "sistemas-electricos-vehiculo",
+   "frenos-y-suspension",
+   "mantenimiento-mecanico",
+   "diagnostico-automotor-por-casos"
+  ],
+  "desbloqueo": "직업의 8개 섹션을 완료하세요 (7개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 11,
+  "oficio": "Técnico Electromecánico",
+  "slug": "tecnico-electromecanico",
+  "nombre": "전기기계 기술자",
+  "descripcion": "전기기계 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🔌",
+  "temas": [
+   "fundamentos-electromecanica",
+   "seguridad-electromecanica",
+   "materiales-y-mecanizado-electromecanica",
+   "elementos-de-maquinas-y-fluidos",
+   "maquinas-electricas-y-electronica",
+   "control-y-automatizacion",
+   "mantenimiento-e-instrumentacion",
+   "diagnostico-electromecanico-por-casos"
+  ],
+  "desbloqueo": "직업의 8개 섹션을 완료하세요 (7개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 12,
+  "oficio": "Técnico en Automatización y Robótica",
+  "slug": "tecnico-en-automatizacion-y-robotica",
+  "nombre": "자동화·제어·로봇공학 기술자 (INET)",
+  "descripcion": "자동화 및 로봇공학 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🤖",
+  "temas": [
+   "fundamentos-robotica",
+   "microcontroladores-y-programacion-embebida",
+   "actuadores-y-sensores-robotica",
+   "cinematica-y-dinamica-robotica",
+   "robotica-industrial-y-vision",
+   "ia-y-software-robotico",
+   "seguridad-y-comunicaciones-robotica",
+   "diagnostico-robotica-por-casos"
+  ],
+  "desbloqueo": "직업의 8개 섹션을 완료하세요 (7개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 13,
+  "oficio": "Agricultor",
+  "slug": "agricultor",
+  "nombre": "농업 생산자",
+  "descripcion": "농업 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🌾",
+  "temas": [
+   "fundamentos-agricultura",
+   "seguridad-agricultura",
+   "suelo-y-cultivo",
+   "calculo-agricola",
+   "modelos-de-produccion-agricola",
+   "diagnostico-agricola-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 14,
+  "oficio": "Operario Agrícola",
+  "slug": "operario-agricola",
+  "nombre": "숙련 농업 노동자",
+  "descripcion": "농업 작업 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🚜",
+  "temas": [
+   "fundamentos-operario-agricola",
+   "seguridad-operario-agricola",
+   "maquinaria-agricola",
+   "dosificacion-agricola",
+   "diagnostico-maquinaria-agricola-por-casos"
+  ],
+  "desbloqueo": "직업의 5개 섹션을 완료하세요 (4개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 15,
+  "oficio": "Panadero",
+  "slug": "panadero",
+  "nombre": "제빵 마이스터",
+  "descripcion": "제빵 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🍞",
+  "temas": [
+   "fundamentos-panaderia",
+   "seguridad-e-higiene-panaderia",
+   "materia-prima-panaderia",
+   "procesos-panaderia",
+   "calculo-panaderia",
+   "diagnostico-panaderia-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 16,
+  "oficio": "Procesador de Alimentos",
+  "slug": "procesador-de-alimentos",
+  "nombre": "식품 가공 기술자",
+  "descripcion": "식품 가공 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🏭",
+  "temas": [
+   "fundamentos-procesamiento-alimentos",
+   "seguridad-e-higiene-procesamiento-alimentos",
+   "procesos-procesamiento-alimentos",
+   "calculo-procesamiento-alimentos",
+   "diagnostico-procesamiento-alimentos-por-casos"
+  ],
+  "desbloqueo": "직업의 5개 섹션을 완료하세요 (4개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 17,
+  "oficio": "Cocina / Gastronomía",
+  "slug": "cocina-gastronomia",
+  "nombre": "전문 요리사",
+  "descripcion": "요리/미식학 기술 및 이론 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "👨‍🍳",
+  "temas": [
+   "fundamentos-cocina",
+   "seguridad-e-higiene-cocina",
+   "tecnicas-de-coccion",
+   "materia-prima-cocina",
+   "calculo-cocina",
+   "diagnostico-cocina-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 18,
+  "oficio": "Jardinero / Paisajista",
+  "slug": "jardinero-paisajista",
+  "nombre": "정원사/조경 기술자",
+  "descripcion": "조경/원예 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🌳",
+  "temas": [
+   "fundamentos-botanicos",
+   "seguridad-jardineria",
+   "materiales-jardineria",
+   "herramientas-y-maquinaria-jardineria",
+   "tecnicas-jardineria",
+   "diagnostico-jardineria-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 19,
+  "oficio": "Tapicero",
+  "slug": "tapicero",
+  "nombre": "정식 실내 장식공",
+  "descripcion": "실내 장식 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🛋️",
+  "temas": [
+   "fundamentos-tapiceria",
+   "seguridad-tapiceria",
+   "materiales-tapiceria",
+   "herramientas-tapiceria",
+   "tecnicas-tapiceria",
+   "diagnostico-tapiceria-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 20,
+  "oficio": "Modista / Corte y Confección",
+  "slug": "modista-corte-y-confeccion",
+  "nombre": "재봉사/의류 기술자",
+  "descripcion": "재봉(재단과 봉제) 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🧵",
+  "temas": [
+   "fundamentos-confeccion",
+   "seguridad-confeccion",
+   "materiales-confeccion",
+   "herramientas-confeccion",
+   "tecnicas-confeccion",
+   "diagnostico-confeccion-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 21,
+  "oficio": "Carpintero de Aluminio",
+  "slug": "carpintero-de-aluminio",
+  "nombre": "알루미늄 창호공",
+  "descripcion": "알루미늄 창호 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🪟",
+  "temas": [
+   "fundamentos-carpinteria-aluminio",
+   "seguridad-carpinteria-aluminio",
+   "materiales-carpinteria-aluminio",
+   "herramientas-carpinteria-aluminio",
+   "tecnicas-carpinteria-aluminio",
+   "calculo-carpinteria-aluminio",
+   "lectura-de-planos-carpinteria-aluminio",
+   "diagnostico-aberturas-por-casos"
+  ],
+  "desbloqueo": "직업의 8개 섹션을 완료하세요 (7개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 22,
+  "oficio": "Tornero",
+  "slug": "tornero",
+  "nombre": "선반공/선반 조작원",
+  "descripcion": "선반 가공 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🔘",
+  "temas": [
+   "fundamentos-torneria",
+   "seguridad-torneria",
+   "materiales-torneria",
+   "herramientas-torneria",
+   "tecnicas-torneria",
+   "calculo-torneria",
+   "lectura-de-planos-torneria",
+   "diagnostico-mecanizado-por-casos"
+  ],
+  "desbloqueo": "직업의 8개 섹션을 완료하세요 (7개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 23,
+  "oficio": "Cerrajero",
+  "slug": "cerrajero",
+  "nombre": "정식 열쇠공",
+  "descripcion": "열쇠 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🔑",
+  "temas": [
+   "fundamentos-cerrajeria",
+   "seguridad-cerrajeria",
+   "materiales-cerrajeria",
+   "herramientas-cerrajeria",
+   "tecnicas-cerrajeria",
+   "diagnostico-cerrajeria-por-casos",
+   "apertura-de-emergencia-sin-destruccion"
+  ],
+  "desbloqueo": "직업의 7개 섹션을 완료하세요 (6개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 24,
+  "oficio": "Herrero / Forjador",
+  "slug": "herrero-forjador",
+  "nombre": "대장장이/예술 단조공",
+  "descripcion": "대장간 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "🔨",
+  "temas": [
+   "fundamentos-herreria",
+   "seguridad-herreria",
+   "materiales-herreria",
+   "herramientas-herreria",
+   "tecnicas-herreria",
+   "diagnostico-forja-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ },
+ {
+  "id": 25,
+  "oficio": "Relojero",
+  "slug": "relojero",
+  "nombre": "시계공",
+  "descripcion": "시계 제작 과정을 완료하고 최종 사례 진단 시험에 합격했습니다.",
+  "icono": "⏱️",
+  "temas": [
+   "fundamentos-relojeria",
+   "seguridad-relojeria",
+   "materiales-relojeria",
+   "herramientas-relojeria",
+   "tecnicas-relojeria",
+   "diagnostico-relojeria-por-casos"
+  ],
+  "desbloqueo": "직업의 6개 섹션을 완료하세요 (5개 정보 주제 + 최종 사례 진단 퀴즈 합격)."
+ }
 ]

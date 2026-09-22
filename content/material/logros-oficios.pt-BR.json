@@ -1,3 +1,443 @@
 [
-  { "id": 17, "oficio": "Cocina / Gastronomía", "nombre": "Cozinheiro Profissional", "descripcion": "Você completou a trilha técnica e teórica de Culinária/Gastronomia e passou no diagnóstico final por casos.", "icono": "👨‍🍳" }
+ {
+  "id": 1,
+  "oficio": "Electricista",
+  "slug": "electricista",
+  "nombre": "Eletricista Licenciado",
+  "descripcion": "Você completou a trilha de Eletricista e passou no diagnóstico final por casos.",
+  "icono": "⚡",
+  "temas": [
+   "fundamentos-electricidad",
+   "seguridad-electricista",
+   "herramientas-electricista",
+   "materiales-electricista",
+   "calculo-electrico",
+   "lectura-de-planos-electricos",
+   "tecnicas-electricista",
+   "diagnostico-electricidad-por-casos"
+  ],
+  "desbloqueo": "Complete as 8 seções do ofício (7 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 2,
+  "oficio": "Plomero",
+  "slug": "plomero",
+  "nombre": "Encanador Licenciado",
+  "descripcion": "Você completou a trilha de Encanador e passou no diagnóstico final por casos.",
+  "icono": "🚿",
+  "temas": [
+   "fundamentos-plomeria",
+   "seguridad-plomeria",
+   "herramientas-plomeria",
+   "materiales-plomeria",
+   "instalaciones-plomeria",
+   "calculo-plomeria",
+   "diagnostico-plomeria-por-casos"
+  ],
+  "desbloqueo": "Complete as 7 seções do ofício (6 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 3,
+  "oficio": "Gasista",
+  "slug": "gasista",
+  "nombre": "Gasista Licenciado (categoria habilitante)",
+  "descripcion": "Você completou a trilha de Gasista e passou no diagnóstico final por casos.",
+  "icono": "🔥",
+  "temas": [
+   "fundamentos-gasista",
+   "seguridad-gasista",
+   "herramientas-gasista",
+   "materiales-gasista",
+   "instalaciones-gasista",
+   "calculo-gasista",
+   "diagnostico-gasista-por-casos"
+  ],
+  "desbloqueo": "Complete as 7 seções do ofício (6 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 4,
+  "oficio": "Técnico en Refrigeración y Climatización",
+  "slug": "tecnico-en-refrigeracion",
+  "nombre": "Técnico em Refrigeração e Climatização",
+  "descripcion": "Você completou a trilha de Refrigeração e Climatização e passou no diagnóstico final por casos.",
+  "icono": "❄️",
+  "temas": [
+   "fundamentos-termodinamicos-refrigeracion",
+   "fundamentos-electricos-refrigeracion",
+   "seguridad-refrigeracion",
+   "herramientas-refrigeracion",
+   "instalaciones-refrigeracion",
+   "diagnostico-refrigeracion-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 5,
+  "oficio": "Albañil / Constructor",
+  "slug": "albanil-constructor",
+  "nombre": "Mestre de Obras",
+  "descripcion": "Você completou a trilha de Pedreiro/Construtor e passou no diagnóstico final por casos.",
+  "icono": "🧱",
+  "temas": [
+   "fundamentos-albanileria",
+   "seguridad-albanileria",
+   "herramientas-albanileria",
+   "materiales-albanileria",
+   "tecnicas-albanileria",
+   "calculo-albanileria",
+   "lectura-de-planos-albanileria",
+   "diagnostico-albanileria-por-casos"
+  ],
+  "desbloqueo": "Complete as 8 seções do ofício (7 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 6,
+  "oficio": "Montador de Estructuras",
+  "slug": "montador-de-estructuras",
+  "nombre": "Montador de Estruturas Metálicas",
+  "descripcion": "Você completou a trilha de Montagem de Estruturas Metálicas e passou no diagnóstico final por casos.",
+  "icono": "🏗️",
+  "temas": [
+   "fundamentos-montaje-estructuras",
+   "seguridad-montaje-estructuras",
+   "herramientas-montaje-estructuras",
+   "materiales-montaje-estructuras",
+   "tecnicas-montaje-estructuras",
+   "diagnostico-montaje-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 7,
+  "oficio": "Carpintero",
+  "slug": "carpintero",
+  "nombre": "Carpinteiro Oficial",
+  "descripcion": "Você completou a trilha de Carpinteiro e passou no diagnóstico final por casos.",
+  "icono": "🪚",
+  "temas": [
+   "fundamentos-carpinteria",
+   "seguridad-carpinteria",
+   "herramientas-carpinteria",
+   "materiales-carpinteria",
+   "tecnicas-carpinteria",
+   "lectura-de-planos-carpinteria",
+   "diagnostico-carpinteria-por-casos"
+  ],
+  "desbloqueo": "Complete as 7 seções do ofício (6 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 8,
+  "oficio": "Soldador",
+  "slug": "soldador",
+  "nombre": "Soldador Certificado (IRAM/IAS)",
+  "descripcion": "Você completou a trilha de Soldador e passou no diagnóstico final por casos.",
+  "icono": "🔩",
+  "temas": [
+   "fundamentos-soldadura",
+   "seguridad-soldadura",
+   "procesos-soldadura",
+   "materiales-soldadura",
+   "defectos-y-normativa-soldadura",
+   "diagnostico-soldadura-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 9,
+  "oficio": "Metalúrgico",
+  "slug": "metalurgico",
+  "nombre": "Operário Metalúrgico Qualificado",
+  "descripcion": "Você completou a trilha de Metalúrgico e passou no diagnóstico final por casos.",
+  "icono": "⚙️",
+  "temas": [
+   "fundamentos-metalurgia",
+   "seguridad-metalurgia",
+   "procesos-metalurgicos",
+   "materiales-metalurgicos",
+   "control-de-calidad-metalurgico",
+   "diagnostico-metalurgico-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 10,
+  "oficio": "Mecánico",
+  "slug": "mecanico",
+  "nombre": "Mecânico Automotivo",
+  "descripcion": "Você completou a trilha de Mecânico e passou no diagnóstico final por casos.",
+  "icono": "🔧",
+  "temas": [
+   "fundamentos-mecanicos-automotor",
+   "seguridad-mecanica-automotor",
+   "motor",
+   "transmision",
+   "sistemas-electricos-vehiculo",
+   "frenos-y-suspension",
+   "mantenimiento-mecanico",
+   "diagnostico-automotor-por-casos"
+  ],
+  "desbloqueo": "Complete as 8 seções do ofício (7 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 11,
+  "oficio": "Técnico Electromecánico",
+  "slug": "tecnico-electromecanico",
+  "nombre": "Técnico Eletromecânico",
+  "descripcion": "Você completou a trilha de Eletromecânico e passou no diagnóstico final por casos.",
+  "icono": "🔌",
+  "temas": [
+   "fundamentos-electromecanica",
+   "seguridad-electromecanica",
+   "materiales-y-mecanizado-electromecanica",
+   "elementos-de-maquinas-y-fluidos",
+   "maquinas-electricas-y-electronica",
+   "control-y-automatizacion",
+   "mantenimiento-e-instrumentacion",
+   "diagnostico-electromecanico-por-casos"
+  ],
+  "desbloqueo": "Complete as 8 seções do ofício (7 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 12,
+  "oficio": "Técnico en Automatización y Robótica",
+  "slug": "tecnico-en-automatizacion-y-robotica",
+  "nombre": "Técnico em Automação, Controle e Robótica (INET)",
+  "descripcion": "Você completou a trilha de Automação e Robótica e passou no diagnóstico final por casos.",
+  "icono": "🤖",
+  "temas": [
+   "fundamentos-robotica",
+   "microcontroladores-y-programacion-embebida",
+   "actuadores-y-sensores-robotica",
+   "cinematica-y-dinamica-robotica",
+   "robotica-industrial-y-vision",
+   "ia-y-software-robotico",
+   "seguridad-y-comunicaciones-robotica",
+   "diagnostico-robotica-por-casos"
+  ],
+  "desbloqueo": "Complete as 8 seções do ofício (7 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 13,
+  "oficio": "Agricultor",
+  "slug": "agricultor",
+  "nombre": "Produtor Agropecuário",
+  "descripcion": "Você completou a trilha de Agricultor e passou no diagnóstico final por casos.",
+  "icono": "🌾",
+  "temas": [
+   "fundamentos-agricultura",
+   "seguridad-agricultura",
+   "suelo-y-cultivo",
+   "calculo-agricola",
+   "modelos-de-produccion-agricola",
+   "diagnostico-agricola-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 14,
+  "oficio": "Operario Agrícola",
+  "slug": "operario-agricola",
+  "nombre": "Operário Agrícola Qualificado",
+  "descripcion": "Você completou a trilha de Operário Agrícola e passou no diagnóstico final por casos.",
+  "icono": "🚜",
+  "temas": [
+   "fundamentos-operario-agricola",
+   "seguridad-operario-agricola",
+   "maquinaria-agricola",
+   "dosificacion-agricola",
+   "diagnostico-maquinaria-agricola-por-casos"
+  ],
+  "desbloqueo": "Complete as 5 seções do ofício (4 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 15,
+  "oficio": "Panadero",
+  "slug": "panadero",
+  "nombre": "Mestre Padeiro",
+  "descripcion": "Você completou a trilha de Padeiro e passou no diagnóstico final por casos.",
+  "icono": "🍞",
+  "temas": [
+   "fundamentos-panaderia",
+   "seguridad-e-higiene-panaderia",
+   "materia-prima-panaderia",
+   "procesos-panaderia",
+   "calculo-panaderia",
+   "diagnostico-panaderia-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 16,
+  "oficio": "Procesador de Alimentos",
+  "slug": "procesador-de-alimentos",
+  "nombre": "Técnico em Processamento de Alimentos",
+  "descripcion": "Você completou a trilha de Processamento de Alimentos e passou no diagnóstico final por casos.",
+  "icono": "🏭",
+  "temas": [
+   "fundamentos-procesamiento-alimentos",
+   "seguridad-e-higiene-procesamiento-alimentos",
+   "procesos-procesamiento-alimentos",
+   "calculo-procesamiento-alimentos",
+   "diagnostico-procesamiento-alimentos-por-casos"
+  ],
+  "desbloqueo": "Complete as 5 seções do ofício (4 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 17,
+  "oficio": "Cocina / Gastronomía",
+  "slug": "cocina-gastronomia",
+  "nombre": "Cozinheiro Profissional",
+  "descripcion": "Você completou a trilha técnica e teórica de Culinária/Gastronomia e passou no diagnóstico final por casos.",
+  "icono": "👨‍🍳",
+  "temas": [
+   "fundamentos-cocina",
+   "seguridad-e-higiene-cocina",
+   "tecnicas-de-coccion",
+   "materia-prima-cocina",
+   "calculo-cocina",
+   "diagnostico-cocina-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 18,
+  "oficio": "Jardinero / Paisajista",
+  "slug": "jardinero-paisajista",
+  "nombre": "Jardineiro / Técnico em Paisagismo",
+  "descripcion": "Você completou a trilha de Jardinagem/Paisagismo e passou no diagnóstico final por casos.",
+  "icono": "🌳",
+  "temas": [
+   "fundamentos-botanicos",
+   "seguridad-jardineria",
+   "materiales-jardineria",
+   "herramientas-y-maquinaria-jardineria",
+   "tecnicas-jardineria",
+   "diagnostico-jardineria-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 19,
+  "oficio": "Tapicero",
+  "slug": "tapicero",
+  "nombre": "Estofador Oficial",
+  "descripcion": "Você completou a trilha de Estofador e passou no diagnóstico final por casos.",
+  "icono": "🛋️",
+  "temas": [
+   "fundamentos-tapiceria",
+   "seguridad-tapiceria",
+   "materiales-tapiceria",
+   "herramientas-tapiceria",
+   "tecnicas-tapiceria",
+   "diagnostico-tapiceria-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 20,
+  "oficio": "Modista / Corte y Confección",
+  "slug": "modista-corte-y-confeccion",
+  "nombre": "Costureira / Técnica em Vestuário",
+  "descripcion": "Você completou a trilha de Costura (corte e confecção) e passou no diagnóstico final por casos.",
+  "icono": "🧵",
+  "temas": [
+   "fundamentos-confeccion",
+   "seguridad-confeccion",
+   "materiales-confeccion",
+   "herramientas-confeccion",
+   "tecnicas-confeccion",
+   "diagnostico-confeccion-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 21,
+  "oficio": "Carpintero de Aluminio",
+  "slug": "carpintero-de-aluminio",
+  "nombre": "Serralheiro de Alumínio",
+  "descripcion": "Você completou a trilha de Serralheria de Alumínio e passou no diagnóstico final por casos.",
+  "icono": "🪟",
+  "temas": [
+   "fundamentos-carpinteria-aluminio",
+   "seguridad-carpinteria-aluminio",
+   "materiales-carpinteria-aluminio",
+   "herramientas-carpinteria-aluminio",
+   "tecnicas-carpinteria-aluminio",
+   "calculo-carpinteria-aluminio",
+   "lectura-de-planos-carpinteria-aluminio",
+   "diagnostico-aberturas-por-casos"
+  ],
+  "desbloqueo": "Complete as 8 seções do ofício (7 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 22,
+  "oficio": "Tornero",
+  "slug": "tornero",
+  "nombre": "Torneiro / Operador de Torno",
+  "descripcion": "Você completou a trilha de Torneiro e passou no diagnóstico final por casos.",
+  "icono": "🔘",
+  "temas": [
+   "fundamentos-torneria",
+   "seguridad-torneria",
+   "materiales-torneria",
+   "herramientas-torneria",
+   "tecnicas-torneria",
+   "calculo-torneria",
+   "lectura-de-planos-torneria",
+   "diagnostico-mecanizado-por-casos"
+  ],
+  "desbloqueo": "Complete as 8 seções do ofício (7 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 23,
+  "oficio": "Cerrajero",
+  "slug": "cerrajero",
+  "nombre": "Chaveiro Oficial",
+  "descripcion": "Você completou a trilha de Chaveiro e passou no diagnóstico final por casos.",
+  "icono": "🔑",
+  "temas": [
+   "fundamentos-cerrajeria",
+   "seguridad-cerrajeria",
+   "materiales-cerrajeria",
+   "herramientas-cerrajeria",
+   "tecnicas-cerrajeria",
+   "diagnostico-cerrajeria-por-casos",
+   "apertura-de-emergencia-sin-destruccion"
+  ],
+  "desbloqueo": "Complete as 7 seções do ofício (6 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 24,
+  "oficio": "Herrero / Forjador",
+  "slug": "herrero-forjador",
+  "nombre": "Ferreiro / Forjador Artístico",
+  "descripcion": "Você completou a trilha de Ferreiro/Forjador e passou no diagnóstico final por casos.",
+  "icono": "🔨",
+  "temas": [
+   "fundamentos-herreria",
+   "seguridad-herreria",
+   "materiales-herreria",
+   "herramientas-herreria",
+   "tecnicas-herreria",
+   "diagnostico-forja-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ },
+ {
+  "id": 25,
+  "oficio": "Relojero",
+  "slug": "relojero",
+  "nombre": "Relojoeiro",
+  "descripcion": "Você completou a trilha de Relojoeiro e passou no diagnóstico final por casos.",
+  "icono": "⏱️",
+  "temas": [
+   "fundamentos-relojeria",
+   "seguridad-relojeria",
+   "materiales-relojeria",
+   "herramientas-relojeria",
+   "tecnicas-relojeria",
+   "diagnostico-relojeria-por-casos"
+  ],
+  "desbloqueo": "Complete as 6 seções do ofício (5 temas informativos + passar no questionário do diagnóstico final por casos)."
+ }
 ]

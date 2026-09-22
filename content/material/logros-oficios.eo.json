@@ -1,3 +1,443 @@
 [
-  { "id": 17, "oficio": "Cocina / Gastronomía", "nombre": "Profesia Kuiristo", "descripcion": "Vi kompletigis la teknikan kaj teorian trakon de Kuirarto/Gastronomio kaj sukcesis en la fina kaza diagnozo.", "icono": "👨‍🍳" }
+ {
+  "id": 1,
+  "oficio": "Electricista",
+  "slug": "electricista",
+  "nombre": "Diplomita Elektristo",
+  "descripcion": "Vi kompletigis la trakon de Elektristo kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "⚡",
+  "temas": [
+   "fundamentos-electricidad",
+   "seguridad-electricista",
+   "herramientas-electricista",
+   "materiales-electricista",
+   "calculo-electrico",
+   "lectura-de-planos-electricos",
+   "tecnicas-electricista",
+   "diagnostico-electricidad-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 8 sekciojn de la metio (7 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 2,
+  "oficio": "Plomero",
+  "slug": "plomero",
+  "nombre": "Diplomita Tubisto",
+  "descripcion": "Vi kompletigis la trakon de Tubisto kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🚿",
+  "temas": [
+   "fundamentos-plomeria",
+   "seguridad-plomeria",
+   "herramientas-plomeria",
+   "materiales-plomeria",
+   "instalaciones-plomeria",
+   "calculo-plomeria",
+   "diagnostico-plomeria-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 7 sekciojn de la metio (6 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 3,
+  "oficio": "Gasista",
+  "slug": "gasista",
+  "nombre": "Diplomita Gasisto (rajtiga kategorio)",
+  "descripcion": "Vi kompletigis la trakon de Gasisto kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🔥",
+  "temas": [
+   "fundamentos-gasista",
+   "seguridad-gasista",
+   "herramientas-gasista",
+   "materiales-gasista",
+   "instalaciones-gasista",
+   "calculo-gasista",
+   "diagnostico-gasista-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 7 sekciojn de la metio (6 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 4,
+  "oficio": "Técnico en Refrigeración y Climatización",
+  "slug": "tecnico-en-refrigeracion",
+  "nombre": "Teknikisto pri Malvarmigado kaj Klimatizado",
+  "descripcion": "Vi kompletigis la trakon de Malvarmigado kaj Klimatizado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "❄️",
+  "temas": [
+   "fundamentos-termodinamicos-refrigeracion",
+   "fundamentos-electricos-refrigeracion",
+   "seguridad-refrigeracion",
+   "herramientas-refrigeracion",
+   "instalaciones-refrigeracion",
+   "diagnostico-refrigeracion-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 5,
+  "oficio": "Albañil / Constructor",
+  "slug": "albanil-constructor",
+  "nombre": "Ĉefa Konstru-Majstro",
+  "descripcion": "Vi kompletigis la trakon de Masonado/Konstruado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🧱",
+  "temas": [
+   "fundamentos-albanileria",
+   "seguridad-albanileria",
+   "herramientas-albanileria",
+   "materiales-albanileria",
+   "tecnicas-albanileria",
+   "calculo-albanileria",
+   "lectura-de-planos-albanileria",
+   "diagnostico-albanileria-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 8 sekciojn de la metio (7 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 6,
+  "oficio": "Montador de Estructuras",
+  "slug": "montador-de-estructuras",
+  "nombre": "Muntisto de Ŝtalaj Strukturoj",
+  "descripcion": "Vi kompletigis la trakon de Muntado de Ŝtalaj Strukturoj kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🏗️",
+  "temas": [
+   "fundamentos-montaje-estructuras",
+   "seguridad-montaje-estructuras",
+   "herramientas-montaje-estructuras",
+   "materiales-montaje-estructuras",
+   "tecnicas-montaje-estructuras",
+   "diagnostico-montaje-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 7,
+  "oficio": "Carpintero",
+  "slug": "carpintero",
+  "nombre": "Oficiala Ĉarpentisto",
+  "descripcion": "Vi kompletigis la trakon de Ĉarpentado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🪚",
+  "temas": [
+   "fundamentos-carpinteria",
+   "seguridad-carpinteria",
+   "herramientas-carpinteria",
+   "materiales-carpinteria",
+   "tecnicas-carpinteria",
+   "lectura-de-planos-carpinteria",
+   "diagnostico-carpinteria-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 7 sekciojn de la metio (6 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 8,
+  "oficio": "Soldador",
+  "slug": "soldador",
+  "nombre": "Atestita Veldisto (IRAM/IAS)",
+  "descripcion": "Vi kompletigis la trakon de Veldado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🔩",
+  "temas": [
+   "fundamentos-soldadura",
+   "seguridad-soldadura",
+   "procesos-soldadura",
+   "materiales-soldadura",
+   "defectos-y-normativa-soldadura",
+   "diagnostico-soldadura-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 9,
+  "oficio": "Metalúrgico",
+  "slug": "metalurgico",
+  "nombre": "Kvalifikita Metallaboristo",
+  "descripcion": "Vi kompletigis la trakon de Metallaboro kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "⚙️",
+  "temas": [
+   "fundamentos-metalurgia",
+   "seguridad-metalurgia",
+   "procesos-metalurgicos",
+   "materiales-metalurgicos",
+   "control-de-calidad-metalurgico",
+   "diagnostico-metalurgico-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 10,
+  "oficio": "Mecánico",
+  "slug": "mecanico",
+  "nombre": "Aŭtomekanikisto",
+  "descripcion": "Vi kompletigis la trakon de Mekaniko kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🔧",
+  "temas": [
+   "fundamentos-mecanicos-automotor",
+   "seguridad-mecanica-automotor",
+   "motor",
+   "transmision",
+   "sistemas-electricos-vehiculo",
+   "frenos-y-suspension",
+   "mantenimiento-mecanico",
+   "diagnostico-automotor-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 8 sekciojn de la metio (7 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 11,
+  "oficio": "Técnico Electromecánico",
+  "slug": "tecnico-electromecanico",
+  "nombre": "Elektromekanika Teknikisto",
+  "descripcion": "Vi kompletigis la trakon de Elektromekaniko kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🔌",
+  "temas": [
+   "fundamentos-electromecanica",
+   "seguridad-electromecanica",
+   "materiales-y-mecanizado-electromecanica",
+   "elementos-de-maquinas-y-fluidos",
+   "maquinas-electricas-y-electronica",
+   "control-y-automatizacion",
+   "mantenimiento-e-instrumentacion",
+   "diagnostico-electromecanico-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 8 sekciojn de la metio (7 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 12,
+  "oficio": "Técnico en Automatización y Robótica",
+  "slug": "tecnico-en-automatizacion-y-robotica",
+  "nombre": "Teknikisto pri Aŭtomatigo, Kontrolo kaj Robotiko (INET)",
+  "descripcion": "Vi kompletigis la trakon de Aŭtomatigo kaj Robotiko kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🤖",
+  "temas": [
+   "fundamentos-robotica",
+   "microcontroladores-y-programacion-embebida",
+   "actuadores-y-sensores-robotica",
+   "cinematica-y-dinamica-robotica",
+   "robotica-industrial-y-vision",
+   "ia-y-software-robotico",
+   "seguridad-y-comunicaciones-robotica",
+   "diagnostico-robotica-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 8 sekciojn de la metio (7 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 13,
+  "oficio": "Agricultor",
+  "slug": "agricultor",
+  "nombre": "Agrikultura Produktisto",
+  "descripcion": "Vi kompletigis la trakon de Agrikulturo kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🌾",
+  "temas": [
+   "fundamentos-agricultura",
+   "seguridad-agricultura",
+   "suelo-y-cultivo",
+   "calculo-agricola",
+   "modelos-de-produccion-agricola",
+   "diagnostico-agricola-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 14,
+  "oficio": "Operario Agrícola",
+  "slug": "operario-agricola",
+  "nombre": "Kvalifikita Agrikultura Laboristo",
+  "descripcion": "Vi kompletigis la trakon de Agrikultura Laboro kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🚜",
+  "temas": [
+   "fundamentos-operario-agricola",
+   "seguridad-operario-agricola",
+   "maquinaria-agricola",
+   "dosificacion-agricola",
+   "diagnostico-maquinaria-agricola-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 5 sekciojn de la metio (4 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 15,
+  "oficio": "Panadero",
+  "slug": "panadero",
+  "nombre": "Ĉefa Bakisto",
+  "descripcion": "Vi kompletigis la trakon de Bakado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🍞",
+  "temas": [
+   "fundamentos-panaderia",
+   "seguridad-e-higiene-panaderia",
+   "materia-prima-panaderia",
+   "procesos-panaderia",
+   "calculo-panaderia",
+   "diagnostico-panaderia-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 16,
+  "oficio": "Procesador de Alimentos",
+  "slug": "procesador-de-alimentos",
+  "nombre": "Nutraĵ-Procesa Teknikisto",
+  "descripcion": "Vi kompletigis la trakon de Nutraĵ-Procesado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🏭",
+  "temas": [
+   "fundamentos-procesamiento-alimentos",
+   "seguridad-e-higiene-procesamiento-alimentos",
+   "procesos-procesamiento-alimentos",
+   "calculo-procesamiento-alimentos",
+   "diagnostico-procesamiento-alimentos-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 5 sekciojn de la metio (4 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 17,
+  "oficio": "Cocina / Gastronomía",
+  "slug": "cocina-gastronomia",
+  "nombre": "Profesia Kuiristo",
+  "descripcion": "Vi kompletigis la teknikan kaj teorian trakon de Kuirarto/Gastronomio kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "👨‍🍳",
+  "temas": [
+   "fundamentos-cocina",
+   "seguridad-e-higiene-cocina",
+   "tecnicas-de-coccion",
+   "materia-prima-cocina",
+   "calculo-cocina",
+   "diagnostico-cocina-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 18,
+  "oficio": "Jardinero / Paisajista",
+  "slug": "jardinero-paisajista",
+  "nombre": "Ĝardenisto / Pejzaĝa Teknikisto",
+  "descripcion": "Vi kompletigis la trakon de Ĝardenado/Pejzaĝarto kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🌳",
+  "temas": [
+   "fundamentos-botanicos",
+   "seguridad-jardineria",
+   "materiales-jardineria",
+   "herramientas-y-maquinaria-jardineria",
+   "tecnicas-jardineria",
+   "diagnostico-jardineria-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 19,
+  "oficio": "Tapicero",
+  "slug": "tapicero",
+  "nombre": "Oficiala Tapetisto",
+  "descripcion": "Vi kompletigis la trakon de Tapetado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🛋️",
+  "temas": [
+   "fundamentos-tapiceria",
+   "seguridad-tapiceria",
+   "materiales-tapiceria",
+   "herramientas-tapiceria",
+   "tecnicas-tapiceria",
+   "diagnostico-tapiceria-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 20,
+  "oficio": "Modista / Corte y Confección",
+  "slug": "modista-corte-y-confeccion",
+  "nombre": "Tajloro / Teknikisto pri Vestaĵoj",
+  "descripcion": "Vi kompletigis la trakon de Tajlorado (tranĉo kaj kudrado) kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🧵",
+  "temas": [
+   "fundamentos-confeccion",
+   "seguridad-confeccion",
+   "materiales-confeccion",
+   "herramientas-confeccion",
+   "tecnicas-confeccion",
+   "diagnostico-confeccion-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 21,
+  "oficio": "Carpintero de Aluminio",
+  "slug": "carpintero-de-aluminio",
+  "nombre": "Aluminia Ĉarpentisto",
+  "descripcion": "Vi kompletigis la trakon de Aluminia Ĉarpentado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🪟",
+  "temas": [
+   "fundamentos-carpinteria-aluminio",
+   "seguridad-carpinteria-aluminio",
+   "materiales-carpinteria-aluminio",
+   "herramientas-carpinteria-aluminio",
+   "tecnicas-carpinteria-aluminio",
+   "calculo-carpinteria-aluminio",
+   "lectura-de-planos-carpinteria-aluminio",
+   "diagnostico-aberturas-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 8 sekciojn de la metio (7 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 22,
+  "oficio": "Tornero",
+  "slug": "tornero",
+  "nombre": "Turnbenkisto / Turnbenka Operacianto",
+  "descripcion": "Vi kompletigis la trakon de Turnbenkado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🔘",
+  "temas": [
+   "fundamentos-torneria",
+   "seguridad-torneria",
+   "materiales-torneria",
+   "herramientas-torneria",
+   "tecnicas-torneria",
+   "calculo-torneria",
+   "lectura-de-planos-torneria",
+   "diagnostico-mecanizado-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 8 sekciojn de la metio (7 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 23,
+  "oficio": "Cerrajero",
+  "slug": "cerrajero",
+  "nombre": "Oficiala Seruristo",
+  "descripcion": "Vi kompletigis la trakon de Serurado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🔑",
+  "temas": [
+   "fundamentos-cerrajeria",
+   "seguridad-cerrajeria",
+   "materiales-cerrajeria",
+   "herramientas-cerrajeria",
+   "tecnicas-cerrajeria",
+   "diagnostico-cerrajeria-por-casos",
+   "apertura-de-emergencia-sin-destruccion"
+  ],
+  "desbloqueo": "Kompletigu la 7 sekciojn de la metio (6 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 24,
+  "oficio": "Herrero / Forjador",
+  "slug": "herrero-forjador",
+  "nombre": "Forĝisto / Arta Forĝisto",
+  "descripcion": "Vi kompletigis la trakon de Forĝado kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "🔨",
+  "temas": [
+   "fundamentos-herreria",
+   "seguridad-herreria",
+   "materiales-herreria",
+   "herramientas-herreria",
+   "tecnicas-herreria",
+   "diagnostico-forja-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ },
+ {
+  "id": 25,
+  "oficio": "Relojero",
+  "slug": "relojero",
+  "nombre": "Horloĝisto",
+  "descripcion": "Vi kompletigis la trakon de Horloĝarto kaj sukcesis en la fina kaza diagnozo.",
+  "icono": "⏱️",
+  "temas": [
+   "fundamentos-relojeria",
+   "seguridad-relojeria",
+   "materiales-relojeria",
+   "herramientas-relojeria",
+   "tecnicas-relojeria",
+   "diagnostico-relojeria-por-casos"
+  ],
+  "desbloqueo": "Kompletigu la 6 sekciojn de la metio (5 informaj temoj + sukcesi en la kvizo de la fina kaza diagnozo)."
+ }
 ]

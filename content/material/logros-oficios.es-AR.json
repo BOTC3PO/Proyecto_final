@@ -1,3 +1,443 @@
 [
-  { "id": 17, "oficio": "Cocina / Gastronomía", "nombre": "Cocinero Profesional", "descripcion": "Completaste la ruta técnica y teórica de Cocina/Gastronomía y aprobaste el diagnóstico final por casos.", "icono": "👨‍🍳" }
+ {
+  "id": 1,
+  "oficio": "Electricista",
+  "slug": "electricista",
+  "nombre": "Electricista Matriculado",
+  "descripcion": "Completaste la ruta de Electricista y aprobaste el diagnóstico final por casos.",
+  "icono": "⚡",
+  "temas": [
+   "fundamentos-electricidad",
+   "seguridad-electricista",
+   "herramientas-electricista",
+   "materiales-electricista",
+   "calculo-electrico",
+   "lectura-de-planos-electricos",
+   "tecnicas-electricista",
+   "diagnostico-electricidad-por-casos"
+  ],
+  "desbloqueo": "Completar las 8 secciones del oficio (7 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 2,
+  "oficio": "Plomero",
+  "slug": "plomero",
+  "nombre": "Plomero Matriculado",
+  "descripcion": "Completaste la ruta de Plomero y aprobaste el diagnóstico final por casos.",
+  "icono": "🚿",
+  "temas": [
+   "fundamentos-plomeria",
+   "seguridad-plomeria",
+   "herramientas-plomeria",
+   "materiales-plomeria",
+   "instalaciones-plomeria",
+   "calculo-plomeria",
+   "diagnostico-plomeria-por-casos"
+  ],
+  "desbloqueo": "Completar las 7 secciones del oficio (6 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 3,
+  "oficio": "Gasista",
+  "slug": "gasista",
+  "nombre": "Gasista Matriculado (categoría habilitante)",
+  "descripcion": "Completaste la ruta de Gasista y aprobaste el diagnóstico final por casos.",
+  "icono": "🔥",
+  "temas": [
+   "fundamentos-gasista",
+   "seguridad-gasista",
+   "herramientas-gasista",
+   "materiales-gasista",
+   "instalaciones-gasista",
+   "calculo-gasista",
+   "diagnostico-gasista-por-casos"
+  ],
+  "desbloqueo": "Completar las 7 secciones del oficio (6 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 4,
+  "oficio": "Técnico en Refrigeración y Climatización",
+  "slug": "tecnico-en-refrigeracion",
+  "nombre": "Técnico en Refrigeración y Climatización",
+  "descripcion": "Completaste la ruta de Técnico en Refrigeración y Climatización y aprobaste el diagnóstico final por casos.",
+  "icono": "❄️",
+  "temas": [
+   "fundamentos-termodinamicos-refrigeracion",
+   "fundamentos-electricos-refrigeracion",
+   "seguridad-refrigeracion",
+   "herramientas-refrigeracion",
+   "instalaciones-refrigeracion",
+   "diagnostico-refrigeracion-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 5,
+  "oficio": "Albañil / Constructor",
+  "slug": "albanil-constructor",
+  "nombre": "Maestro Mayor de Obra",
+  "descripcion": "Completaste la ruta de Albañil / Constructor y aprobaste el diagnóstico final por casos.",
+  "icono": "🧱",
+  "temas": [
+   "fundamentos-albanileria",
+   "seguridad-albanileria",
+   "herramientas-albanileria",
+   "materiales-albanileria",
+   "tecnicas-albanileria",
+   "calculo-albanileria",
+   "lectura-de-planos-albanileria",
+   "diagnostico-albanileria-por-casos"
+  ],
+  "desbloqueo": "Completar las 8 secciones del oficio (7 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 6,
+  "oficio": "Montador de Estructuras",
+  "slug": "montador-de-estructuras",
+  "nombre": "Montador de Estructuras Metálicas",
+  "descripcion": "Completaste la ruta de Montador de Estructuras y aprobaste el diagnóstico final por casos.",
+  "icono": "🏗️",
+  "temas": [
+   "fundamentos-montaje-estructuras",
+   "seguridad-montaje-estructuras",
+   "herramientas-montaje-estructuras",
+   "materiales-montaje-estructuras",
+   "tecnicas-montaje-estructuras",
+   "diagnostico-montaje-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 7,
+  "oficio": "Carpintero",
+  "slug": "carpintero",
+  "nombre": "Carpintero Oficial",
+  "descripcion": "Completaste la ruta de Carpintero y aprobaste el diagnóstico final por casos.",
+  "icono": "🪚",
+  "temas": [
+   "fundamentos-carpinteria",
+   "seguridad-carpinteria",
+   "herramientas-carpinteria",
+   "materiales-carpinteria",
+   "tecnicas-carpinteria",
+   "lectura-de-planos-carpinteria",
+   "diagnostico-carpinteria-por-casos"
+  ],
+  "desbloqueo": "Completar las 7 secciones del oficio (6 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 8,
+  "oficio": "Soldador",
+  "slug": "soldador",
+  "nombre": "Soldador Certificado (IRAM/IAS)",
+  "descripcion": "Completaste la ruta de Soldador y aprobaste el diagnóstico final por casos.",
+  "icono": "🔩",
+  "temas": [
+   "fundamentos-soldadura",
+   "seguridad-soldadura",
+   "procesos-soldadura",
+   "materiales-soldadura",
+   "defectos-y-normativa-soldadura",
+   "diagnostico-soldadura-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 9,
+  "oficio": "Metalúrgico",
+  "slug": "metalurgico",
+  "nombre": "Operario Metalúrgico Calificado",
+  "descripcion": "Completaste la ruta de Metalúrgico y aprobaste el diagnóstico final por casos.",
+  "icono": "⚙️",
+  "temas": [
+   "fundamentos-metalurgia",
+   "seguridad-metalurgia",
+   "procesos-metalurgicos",
+   "materiales-metalurgicos",
+   "control-de-calidad-metalurgico",
+   "diagnostico-metalurgico-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 10,
+  "oficio": "Mecánico",
+  "slug": "mecanico",
+  "nombre": "Mecánico Automotor",
+  "descripcion": "Completaste la ruta de Mecánico y aprobaste el diagnóstico final por casos.",
+  "icono": "🔧",
+  "temas": [
+   "fundamentos-mecanicos-automotor",
+   "seguridad-mecanica-automotor",
+   "motor",
+   "transmision",
+   "sistemas-electricos-vehiculo",
+   "frenos-y-suspension",
+   "mantenimiento-mecanico",
+   "diagnostico-automotor-por-casos"
+  ],
+  "desbloqueo": "Completar las 8 secciones del oficio (7 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 11,
+  "oficio": "Técnico Electromecánico",
+  "slug": "tecnico-electromecanico",
+  "nombre": "Técnico Electromecánico",
+  "descripcion": "Completaste la ruta de Técnico Electromecánico y aprobaste el diagnóstico final por casos.",
+  "icono": "🔌",
+  "temas": [
+   "fundamentos-electromecanica",
+   "seguridad-electromecanica",
+   "materiales-y-mecanizado-electromecanica",
+   "elementos-de-maquinas-y-fluidos",
+   "maquinas-electricas-y-electronica",
+   "control-y-automatizacion",
+   "mantenimiento-e-instrumentacion",
+   "diagnostico-electromecanico-por-casos"
+  ],
+  "desbloqueo": "Completar las 8 secciones del oficio (7 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 12,
+  "oficio": "Técnico en Automatización y Robótica",
+  "slug": "tecnico-en-automatizacion-y-robotica",
+  "nombre": "Técnico en Automatización, Control y Robótica (INET)",
+  "descripcion": "Completaste la ruta de Técnico en Automatización y Robótica y aprobaste el diagnóstico final por casos.",
+  "icono": "🤖",
+  "temas": [
+   "fundamentos-robotica",
+   "microcontroladores-y-programacion-embebida",
+   "actuadores-y-sensores-robotica",
+   "cinematica-y-dinamica-robotica",
+   "robotica-industrial-y-vision",
+   "ia-y-software-robotico",
+   "seguridad-y-comunicaciones-robotica",
+   "diagnostico-robotica-por-casos"
+  ],
+  "desbloqueo": "Completar las 8 secciones del oficio (7 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 13,
+  "oficio": "Agricultor",
+  "slug": "agricultor",
+  "nombre": "Productor Agropecuario",
+  "descripcion": "Completaste la ruta de Agricultor y aprobaste el diagnóstico final por casos.",
+  "icono": "🌾",
+  "temas": [
+   "fundamentos-agricultura",
+   "seguridad-agricultura",
+   "suelo-y-cultivo",
+   "calculo-agricola",
+   "modelos-de-produccion-agricola",
+   "diagnostico-agricola-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 14,
+  "oficio": "Operario Agrícola",
+  "slug": "operario-agricola",
+  "nombre": "Operario Agrícola Calificado",
+  "descripcion": "Completaste la ruta de Operario Agrícola y aprobaste el diagnóstico final por casos.",
+  "icono": "🚜",
+  "temas": [
+   "fundamentos-operario-agricola",
+   "seguridad-operario-agricola",
+   "maquinaria-agricola",
+   "dosificacion-agricola",
+   "diagnostico-maquinaria-agricola-por-casos"
+  ],
+  "desbloqueo": "Completar las 5 secciones del oficio (4 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 15,
+  "oficio": "Panadero",
+  "slug": "panadero",
+  "nombre": "Maestro Panadero",
+  "descripcion": "Completaste la ruta de Panadero y aprobaste el diagnóstico final por casos.",
+  "icono": "🍞",
+  "temas": [
+   "fundamentos-panaderia",
+   "seguridad-e-higiene-panaderia",
+   "materia-prima-panaderia",
+   "procesos-panaderia",
+   "calculo-panaderia",
+   "diagnostico-panaderia-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 16,
+  "oficio": "Procesador de Alimentos",
+  "slug": "procesador-de-alimentos",
+  "nombre": "Técnico en Procesamiento de Alimentos",
+  "descripcion": "Completaste la ruta de Procesador de Alimentos y aprobaste el diagnóstico final por casos.",
+  "icono": "🏭",
+  "temas": [
+   "fundamentos-procesamiento-alimentos",
+   "seguridad-e-higiene-procesamiento-alimentos",
+   "procesos-procesamiento-alimentos",
+   "calculo-procesamiento-alimentos",
+   "diagnostico-procesamiento-alimentos-por-casos"
+  ],
+  "desbloqueo": "Completar las 5 secciones del oficio (4 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 17,
+  "oficio": "Cocina / Gastronomía",
+  "slug": "cocina-gastronomia",
+  "nombre": "Cocinero Profesional",
+  "descripcion": "Completaste la ruta técnica y teórica de Cocina/Gastronomía y aprobaste el diagnóstico final por casos.",
+  "icono": "👨‍🍳",
+  "temas": [
+   "fundamentos-cocina",
+   "seguridad-e-higiene-cocina",
+   "tecnicas-de-coccion",
+   "materia-prima-cocina",
+   "calculo-cocina",
+   "diagnostico-cocina-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 18,
+  "oficio": "Jardinero / Paisajista",
+  "slug": "jardinero-paisajista",
+  "nombre": "Jardinero / Técnico en Paisajismo",
+  "descripcion": "Completaste la ruta de Jardinero / Paisajista y aprobaste el diagnóstico final por casos.",
+  "icono": "🌳",
+  "temas": [
+   "fundamentos-botanicos",
+   "seguridad-jardineria",
+   "materiales-jardineria",
+   "herramientas-y-maquinaria-jardineria",
+   "tecnicas-jardineria",
+   "diagnostico-jardineria-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 19,
+  "oficio": "Tapicero",
+  "slug": "tapicero",
+  "nombre": "Tapicero Oficial",
+  "descripcion": "Completaste la ruta de Tapicero y aprobaste el diagnóstico final por casos.",
+  "icono": "🛋️",
+  "temas": [
+   "fundamentos-tapiceria",
+   "seguridad-tapiceria",
+   "materiales-tapiceria",
+   "herramientas-tapiceria",
+   "tecnicas-tapiceria",
+   "diagnostico-tapiceria-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 20,
+  "oficio": "Modista / Corte y Confección",
+  "slug": "modista-corte-y-confeccion",
+  "nombre": "Modista / Técnico en Indumentaria",
+  "descripcion": "Completaste la ruta de Modista / Corte y Confección y aprobaste el diagnóstico final por casos.",
+  "icono": "🧵",
+  "temas": [
+   "fundamentos-confeccion",
+   "seguridad-confeccion",
+   "materiales-confeccion",
+   "herramientas-confeccion",
+   "tecnicas-confeccion",
+   "diagnostico-confeccion-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 21,
+  "oficio": "Carpintero de Aluminio",
+  "slug": "carpintero-de-aluminio",
+  "nombre": "Carpintero de Aluminio (Aluminero)",
+  "descripcion": "Completaste la ruta de Carpintero de Aluminio y aprobaste el diagnóstico final por casos.",
+  "icono": "🪟",
+  "temas": [
+   "fundamentos-carpinteria-aluminio",
+   "seguridad-carpinteria-aluminio",
+   "materiales-carpinteria-aluminio",
+   "herramientas-carpinteria-aluminio",
+   "tecnicas-carpinteria-aluminio",
+   "calculo-carpinteria-aluminio",
+   "lectura-de-planos-carpinteria-aluminio",
+   "diagnostico-aberturas-por-casos"
+  ],
+  "desbloqueo": "Completar las 8 secciones del oficio (7 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 22,
+  "oficio": "Tornero",
+  "slug": "tornero",
+  "nombre": "Tornero / Operador de Torno",
+  "descripcion": "Completaste la ruta de Tornero y aprobaste el diagnóstico final por casos.",
+  "icono": "🔘",
+  "temas": [
+   "fundamentos-torneria",
+   "seguridad-torneria",
+   "materiales-torneria",
+   "herramientas-torneria",
+   "tecnicas-torneria",
+   "calculo-torneria",
+   "lectura-de-planos-torneria",
+   "diagnostico-mecanizado-por-casos"
+  ],
+  "desbloqueo": "Completar las 8 secciones del oficio (7 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 23,
+  "oficio": "Cerrajero",
+  "slug": "cerrajero",
+  "nombre": "Cerrajero Oficial",
+  "descripcion": "Completaste la ruta de Cerrajero, incluida la apertura de emergencia sin destrucción, y aprobaste el diagnóstico final por casos.",
+  "icono": "🔑",
+  "temas": [
+   "fundamentos-cerrajeria",
+   "seguridad-cerrajeria",
+   "materiales-cerrajeria",
+   "herramientas-cerrajeria",
+   "tecnicas-cerrajeria",
+   "diagnostico-cerrajeria-por-casos",
+   "apertura-de-emergencia-sin-destruccion"
+  ],
+  "desbloqueo": "Completar las 7 secciones del oficio (6 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 24,
+  "oficio": "Herrero / Forjador",
+  "slug": "herrero-forjador",
+  "nombre": "Herrero / Forjador Artístico",
+  "descripcion": "Completaste la ruta de Herrero / Forjador y aprobaste el diagnóstico final por casos.",
+  "icono": "🔨",
+  "temas": [
+   "fundamentos-herreria",
+   "seguridad-herreria",
+   "materiales-herreria",
+   "herramientas-herreria",
+   "tecnicas-herreria",
+   "diagnostico-forja-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ },
+ {
+  "id": 25,
+  "oficio": "Relojero",
+  "slug": "relojero",
+  "nombre": "Relojero",
+  "descripcion": "Completaste la ruta de Relojero y aprobaste el diagnóstico final por casos.",
+  "icono": "⏱️",
+  "temas": [
+   "fundamentos-relojeria",
+   "seguridad-relojeria",
+   "materiales-relojeria",
+   "herramientas-relojeria",
+   "tecnicas-relojeria",
+   "diagnostico-relojeria-por-casos"
+  ],
+  "desbloqueo": "Completar las 6 secciones del oficio (5 temas informativos + aprobar el cuestionario del diagnóstico final por casos)."
+ }
 ]
