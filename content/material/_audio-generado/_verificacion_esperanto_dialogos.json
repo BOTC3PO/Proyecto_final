@@ -1,0 +1,35 @@
+{
+ "_nota": "ASR con faster-whisper small, autojunk=False (bug conocido corregido, sin impacto aqui: textos <200 chars). faster-whisper/Whisper no tiene modelo de esperanto (codigo eo no soportado); se uso language=es (el mas cercano fonicamente disponible) como en gen_audio_alfabetos.py ASR_LANG. Los scores moderados (0.45-0.85) reflejan esa limitacion del ASR (transcribe como si fuera casi-espanol), no audio roto: los textos oidos son coherentes y seguidos del audio, nombres/fechas se reconocen, duracion y energia de los clips son normales.",
+ "dialogos": {
+  "esperanto/listening-a2": {
+   "similitud": 0.539,
+   "esperado": "Bonan tagon! Mia nomo estas Anna. Ĉu vi parolas Esperanton?Jes, iom. Kie vi loĝas?Mi loĝas en Madrido, sed mi laboras en Barcelono.Ĉu vi iras per buso?Ne, per trajno je la oka horo.",
+   "oido": "Buonantagón, mi nombre es Anna. ¿Estás hablando de Esperanto? Sí, ¿por qué estás lleno? Esté lleno en Madrid, pero estoy trabajando en Barcelona. ¿Estás viajando por el bus? No, por el tren de la Ocajorra."
+  },
+  "esperanto/listening-b1": {
+   "similitud": 0.521,
+   "esperado": "Kion vi faros sabate?Se ne pluvos, mi iros al la marbordo. Se mi havus pli da tempo, mi restus tie la tutan semajnfinon.Kial vi ne restas?Ĉar mi devas labori dimanĉe.",
+   "oido": "¿Quién va a hacer sabate? Si no llueva, voy a ir a la marborda. Si tengo más tiempo, voy a rester ahí la toda semana fina. ¿Quién va a rester? Porque tengo que elaborar la mancha."
+  },
+  "esperanto/listening-c1": {
+   "similitud": 0.852,
+   "esperado": "Kvankam la projekto malsukcesis, ni lernis multe.Laŭ mia scio, la buĝeto ne estis sufiĉa. Se oni estus aŭskultinta la ekspertojn, ĝi estus alia.Eble, sed ne tute konsentas mi kun vi.",
+   "oido": "Cuán cam la proyecto mal sucesis, ni leernis multe. La humiastcio, la budjeto n estis suficia. Si on estus auscultinta la expertoin, gi estus alia. Eble, sed netute consentas, micunvi."
+  },
+  "esperanto/speaking-a2": {
+   "similitud": 0.502,
+   "esperado": "Bonan matenon! Kiel vi nomiĝas?Mia nomo estas Ana. Kaj vi?Mi nomiĝas Petro. Ĉu vi parolas Esperanton?Jes, iom. Kie estas la stacidomo?Rekte kaj dekstren. Ĝis revido!",
+   "oido": "¡Bonan matenon, que el vi nomijas! Mi nombre es Ana, y tú. Mi nombre es Pedro, ¿te paro de Esperanto? Es lo que es la estación de la casa. Practica y de extrema, hasta la próxima."
+  },
+  "esperanto/speaking-b1": {
+   "similitud": 0.449,
+   "esperado": "Kion vi pensas pri la nova filmo?Laŭ mi, ĝi estas tre interesa, sed ankaŭ iom longa.Mi konsentas. Se mi havus pli da tempo, mi vidus ĝin denove.Mi konsilas al vi iri sabate, ĉar tiam estas malpli da homoj.",
+   "oido": "¿Qué piensas sobre el nuevo film? La humilliza es muy interesante, pero también algo más largo. Me concentro si tengo más tiempo, me veré de nuevo. Me concilo si irme a sabato, porque siempre hay más gente."
+  },
+  "esperanto/speaking-c1": {
+   "similitud": 0.726,
+   "esperado": "Mia starpunkto estas, ke la reformo estas necesa, sed ne sufiĉa.Mi konsentas, ke ĝi estas necesa; tamen oni povus objekti, ke ĝi ne funkcius en la praktiko.Alivorte, vi dubas pri la efiko?Jes. Ĝis nun tio ne estis pruvita.",
+   "oido": "Mi estar punto es que la reforma está necesaria sin su ficha. Mi consentas que ya está necesaria, tan menos ni pobus obiecti que ya no funciona en la práctica. Alivorte, vi dubas para el Efico. Y es que nunca estés provita."
+  }
+ }
+}
