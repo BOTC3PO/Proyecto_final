@@ -155,6 +155,56 @@ escribir una sola traducción nueva.
   PLANIFICACION.md`) no cambia — este documento sólo toca el criterio
   de agrupamiento y la numeración, no la economía ni el sorteo.
 
+## Prueba del algoritmo contra datos reales (2026-09-22)
+
+Antes de confirmar el diseño de arriba, se corrió el algoritmo completo
+(parsear `dependencias.md` → grafo → orden topológico de Kahn →
+partición en tramos de 5) contra 3 materias reales de tamaño y forma
+distinta, sin tocar ningún archivo de `examen-jefe/` — script en
+[`_qa_tools/test_examen_jefe_topo_clusters.py`](_qa_tools/test_examen_jefe_topo_clusters.py),
+se corre con `python3 content/material/_qa_tools/test_examen_jefe_topo_clusters.py`:
+
+- **Matemática** (154 temas parseados de 161 — ver nota de parseo
+  abajo, 32 clusters): la más grande y la más enredada, mejor caso de
+  estrés para el algoritmo.
+- **Economía** (66 de 77, 13 clusters): la materia con más drift/
+  atomización reciente (memoria `[[proyecto-final-restauracion-2026-
+  09-07]]`), buen caso para ver si el parser aguanta datos "sucios".
+- **Cívica** (27 de 31, 5 clusters): chica, para confirmar que también
+  da resultados razonables con pocos temas (no sólo con las grandes).
+
+**Resultado**: **0 violaciones de prerrequisito en las 3 materias**
+(ningún tema cae en un cluster antes que su prerrequisito) — la
+partición topológica cumple la propiedad que el corte alfabético actual
+promete y no cumple. Caso puntual verificado: la cadena de Análisis
+citada arriba (`familias-exponencial-logaritmica → límite → continuidad
+→ derivada`) pasa de estar reventada en 4 clusters a **11 de distancia**
+(hoy) a los **clusters 23-24-25, consecutivos** con el algoritmo nuevo.
+
+**Diferencia real de tamaño de cluster** (efecto secundario esperado y
+correcto, no un bug): el corte alfabético de hoy fuerza casi siempre
+grupos de exactamente 5 porque no le importa el contenido; la partición
+topológica también agrupa de a 5 salvo el último tramo de cada materia,
+que absorbe el resto en vez de dejar un cluster chico (Matemática cierra
+con 1 cluster de 9, Economía con uno de 6, Cívica con uno de 7) — esto
+ya está contemplado por la regla existente de "5-15 por cluster" y no
+hace falta ajuste especial, aunque al ejecutar en serio conviene revisar
+esos cierres a mano por si conviene partirlos distinto.
+
+**Nota de parseo, no de contenido**: de los 161/77/31 temas nominales
+de cada materia, se resolvieron 154/66/27 — la diferencia son filas de
+`dependencias.md` que el parser (deliberadamente simple, ver el script)
+no llega a matchear 1 a 1 con `examen-jefe-clusters.md` (formato de fila
+levemente distinto entre materias, o temas agregados a `dependencias.md`
+después de la última regeneración de `examen-jefe-clusters.md`) — un
+parser de producción para ejecutar esto en serio necesita reconciliar
+ambas fuentes tema por tema antes de generar nada, no sólo correr el
+script como está. También aparecen avisos de tokens entre backticks en
+la columna "Depende de" que son prosa (`` `matematica/` ``, `` `troncos.md`
+``) y no dependencias reales — el script los ignora automáticamente, no
+son hallazgos de drift, es ruido esperable del formato libre de esa
+columna.
+
 ## Pasos para ejecutar esto (cuando se confirme, no ahora)
 
 1. Escribir el parser de `dependencias.md` → grafo → orden topológico
